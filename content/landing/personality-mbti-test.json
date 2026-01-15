@@ -1,4 +1,5 @@
 {
+  "__template_note": "TEMPLATE: 复制本文件为 <slug>.json，按需替换 h1_title/summary/faq/table/cta，即可新增一个 /test/{slug} 落地页。",
   "slug": "personality-mbti-test",
   "locale": "zh-CN",
   "region": "CN_MAINLAND",
