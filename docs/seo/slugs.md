@@ -1,5 +1,6 @@
-# docs/seo/slugs.md
-
+cd ~/Desktop/GitHub/fap-web
+mkdir -p docs/seo
+cat > docs/seo/slugs.md <<'EOF'
 # Slug 清单与命名规范（V2.0 · 权重增强版）
 目标：Slug 是 SEO 权重的“资产编号”。一旦上线会被外链、收藏、AI 引用与站内索引使用，必须长期稳定；同时要具备“长尾词覆盖能力”，对标 123test 的专业度并提升 GEO（AI 搜索）可提取性。
 
@@ -107,14 +108,17 @@
 
 | Slug | Focus Keyword（核心关键词） | Category | Entity Name（GEO 实体） | 上线日期 | 状态 | 备注 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| personality-mbti-test | MBTI测试, 16型人格 | personality | MBTI / Myers-Briggs Type Indicator | 2026-01-15 | active | 核心 SEO 入口。若历史存在 `/test/mbti`，需 301 → 本 slug |
+| personality-mbti-test | MBTI测试, 16型人格 | personality | MBTI / Myers-Briggs Type Indicator | 2026-01-15 | active | 现行主 slug（canonical 指向此 URL） |
 
 ---
 
-## 6. 兼容别名（可选策略）
+## 6. 兼容别名（alias）台账（可选策略）
 如果你早期已经上线过“短 slug”（如 `mbti`）并积累了外链/收藏：
 - 允许将其作为 **alias** 保留，但必须：
   - `301 /test/mbti -> /test/personality-mbti-test`
-  - 并在本表中记录该 alias（建议另开一张 alias 表）
+  - 并在本表中记录该 alias
 
-（alias 表可在 Stage 2.1 再补充）
+| Alias Slug | Alias URL | Target Slug | Target URL | HTTP | 状态 | 备注 |
+| :--- | :--- | :--- | :--- | :---: | :--- | :--- |
+| mbti | /test/mbti | personality-mbti-test | /test/personality-mbti-test | 301 | planning | 若历史存在 /test/mbti 或未来要做短入口，必须 301 单跳到主 slug |
+EOF
