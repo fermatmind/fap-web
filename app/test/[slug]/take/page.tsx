@@ -39,7 +39,13 @@ export default async function TakePage({
   return (
     <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
       <h1>开始测试：{doc.h1_title}</h1>
+
       <p>这里是占位答题页（Stage 2）。后续会接入真实答题体验。</p>
+
+      {/* ✅ 可选微调：三档版本提示（与 landing meta 同步） */}
+      <p style={{ marginTop: 8 }}>
+        <strong>三档版本：</strong>24/93/144 题（2–3 / 8–12 / 15–20 分钟）
+      </p>
 
       <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
         {/* 先不断链：后续你可以改成跳转到小程序/H5/真实答题页 */}

@@ -1,0 +1,25 @@
+== Evidence check for: /test/personality-mbti-test
+== Generated at: 2026-01-16 07:06:40 UTC
+
+[CHECK] ld+json scripts count:
+3
+
+[CHECK] Must contain:
+  OK  "@type":"Quiz"
+  OK  "@type":"BreadcrumbList"
+  OK  "@type":"Dataset"
+  OK  timeRequired
+  OK  hasPart
+  OK  PT2M
+  OK  PT10M
+  OK  PT20M
+
+[SNIPPET] timeRequired/hasPart/PT*nM lines (first 200 matches):
+timeRequired
+PT2M
+PT10M
+PT20M
+timeRequired
+PT2M
+timeRequired
+timeRequired
