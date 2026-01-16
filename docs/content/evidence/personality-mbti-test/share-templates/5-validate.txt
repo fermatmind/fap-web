@@ -1,0 +1,14 @@
+[CHECK] share page head evidence
+html_file=docs/content/evidence/personality-mbti-test/share-templates/4-share-head.html
+
+OK  <title>
+OK  meta name="description"
+OK  property="og:title"
+OK  property="og:description"
+OK  property="og:image"
+OK  type="application/ld+json"
+OK  "@type":"InteractionCounter"
+OK  userInteractionCount":100000
+
+[SNIPPET] first ld+json:
+{"@context":"https://schema.org","@type":"InteractionCounter","interactionType":"https://schema.org/ShareAction","userInteractionCount":100000,"name":"分享次数","description":"已有 100000 位用户获取了专业报告"} ...
