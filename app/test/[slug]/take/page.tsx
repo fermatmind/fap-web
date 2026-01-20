@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { loadLandingBySlug } from "@/lib/landing";
+import { getTestBySlug } from "@/lib/content";
 
 // ✅ Step 6: noindex for take page
 export async function generateMetadata({
@@ -11,9 +11,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const test = getTestBySlug(slug);
 
   return {
-    title: `开始测试 - ${slug}`,
+    title: test ? `开始测试 - ${test.title}` : `开始测试 - ${slug}`,
     robots: {
       index: false,
       follow: false,
@@ -33,18 +34,19 @@ export default async function TakePage({
 }) {
   const { slug } = await params;
 
-  const doc = loadLandingBySlug(slug);
-  if (!doc) return notFound();
+  const test = getTestBySlug(slug);
+  if (!test) return notFound();
 
   return (
     <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
-      <h1>开始测试：{doc.h1_title}</h1>
+      <h1>开始测试：{test.title}</h1>
 
       <p>这里是占位答题页（Stage 2）。后续会接入真实答题体验。</p>
 
-      {/* ✅ 可选微调：三档版本提示（与 landing meta 同步） */}
       <p style={{ marginTop: 8 }}>
-        <strong>三档版本：</strong>24/93/144 题（2–3 / 8–12 / 15–20 分钟）
+        <strong>题量：</strong>
+        {test.questionCount} 题 · <strong>用时：</strong>
+        {test.estTime}
       </p>
 
       <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
