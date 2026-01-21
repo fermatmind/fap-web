@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTestBySlug } from "@/lib/content";
+import { getQuestionsForSlug } from "@/lib/quiz/mock";
+import QuizTakeClient from "./QuizTakeClient";
 
 // ✅ Step 6: noindex for take page
 export async function generateMetadata({
@@ -37,36 +39,32 @@ export default async function TakePage({
   const test = getTestBySlug(slug);
   if (!test) return notFound();
 
+  const questions = getQuestionsForSlug(slug);
+
   return (
     <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
-      <h1>开始测试：{test.title}</h1>
-
-      <p>这里是占位答题页（Stage 2）。后续会接入真实答题体验。</p>
-
-      <p style={{ marginTop: 8 }}>
-        <strong>题量：</strong>
-        {test.questionCount} 题 · <strong>用时：</strong>
-        {test.estTime}
-      </p>
-
-      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-        {/* 先不断链：后续你可以改成跳转到小程序/H5/真实答题页 */}
-        <a
-          href="/"
-          style={{
-            padding: "10px 14px",
-            border: "1px solid #111",
-            borderRadius: 10,
-            textDecoration: "none",
-          }}
-        >
-          进入答题入口（占位）
-        </a>
-
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: 16,
+          gap: 16,
+          flexWrap: "wrap",
+        }}
+      >
+        <div>
+          <p style={{ margin: 0, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+            {test.category}
+          </p>
+          <h1 style={{ margin: "6px 0 0" }}>开始测试：{test.title}</h1>
+        </div>
         <Link href={`/test/${slug}`} style={{ textDecoration: "none" }}>
           返回落地页
         </Link>
       </div>
+
+      <QuizTakeClient slug={slug} questions={questions} />
     </main>
   );
 }
