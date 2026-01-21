@@ -128,6 +128,7 @@ export default async function TestLandingPage({
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
           <Link
             href={`/test/${test.slug}/take`}
+            prefetch
             style={{
               padding: "10px 14px",
               border: "1px solid #111",
