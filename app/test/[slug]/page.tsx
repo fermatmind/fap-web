@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTestBySlug, listTests } from "@/lib/content";
+import {
+  buildBreadcrumbJsonLd,
+  buildFAQPageJsonLd,
+} from "@/lib/seo/generateSchema";
 
 export function generateStaticParams() {
   return listTests().map((test) => ({ slug: test.slug }));
@@ -22,10 +26,24 @@ export async function generateMetadata({
     };
   }
 
+  const title = `${test.title} | FermatMind`;
+  const description = test.description;
+  const url = `https://www.fermatmind.com/test/${test.slug}`;
+
   return {
-    title: test.title,
-    description: test.description,
-    alternates: { canonical: `/test/${test.slug}` },
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
   };
 }
 
@@ -38,8 +56,28 @@ export default async function TestLandingPage({
   const test = getTestBySlug(slug);
   if (!test) return notFound();
 
+  const faqJsonLd = test.faq?.length ? buildFAQPageJsonLd(test) : null;
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd({
+    slug: test.slug,
+    title: test.title,
+  });
+
   return (
     <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd),
+        }}
+      />
+      {faqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd),
+          }}
+        />
+      ) : null}
       {test.hero?.title ? (
         <p style={{ letterSpacing: "0.08em", textTransform: "uppercase" }}>
           {test.hero.title}
