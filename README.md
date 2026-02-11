@@ -20,30 +20,41 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## 本地运行/生产部署(示例)
+## 生产部署（PR0）
 
-本节为示例配置，不会直接改动生产环境。生产部署前请根据环境调整路径与域名。
+本项目生产部署以 `/Users/rainie/Desktop/GitHub/fap-web/deploy/*` 为准。
+`/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/*` 保留为历史示例参考。
 
-本地运行：
+构建与启动（standalone）：
 
 ```bash
-pnpm install
-pnpm dev
+npm run build
+node .next/standalone/server.js
 ```
 
-生产部署(示例)：
-
-1) 反向代理：参考 `docs/deploy/nginx-www-api-proxy.conf`，将 `server_name`、证书与 listen 端口按实际情况配置。
-2) 守护进程：参考 `docs/deploy/systemd-fap-web.service`，修改 `WorkingDirectory` 与 pnpm 路径后放到 `/etc/systemd/system/fap-web.service`。
-3) 构建与启动：先执行 `pnpm install` 和 `pnpm build`，再由 systemd 启动 `pnpm start -- -p 3000`。
-
-最小验收命令：
+如需守护进程，使用 systemd：
 
 ```bash
-pnpm install
-pnpm build
-pnpm start
-curl -i https://www.example.com/api/v0.2/your-endpoint  # 占位示例，请替换为实际可用接口
+sudo cp /Users/rainie/Desktop/GitHub/fap-web/deploy/systemd/fap-web.service /etc/systemd/system/fap-web.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now fap-web
+```
+
+Nginx 反代配置与重载：
+
+```bash
+sudo cp /Users/rainie/Desktop/GitHub/fap-web/deploy/nginx/fap-web.conf /etc/nginx/conf.d/fap-web.conf
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+本机验收：
+
+```bash
+npm run build
+node .next/standalone/server.js & sleep 2
+curl -I http://127.0.0.1:3000/ | head -n 1
+curl -H "Accept: application/json" http://127.0.0.1:3000/api/v0.3/scales | head -c 200; echo
+pkill -f ".next/standalone/server.js" || true
 ```
 
 ## Learn More
