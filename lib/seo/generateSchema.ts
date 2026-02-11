@@ -1,12 +1,15 @@
-import type { Test } from "@/lib/content";
+type FAQItem = {
+  question: string;
+  answer: string;
+};
 
 const SITE_URL = "https://www.fermatmind.com";
 
-export function buildFAQPageJsonLd(test: Test) {
+export function buildFAQPageJsonLd(faq: FAQItem[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: test.faq.map((item) => ({
+    mainEntity: faq.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -37,14 +40,14 @@ export function buildBreadcrumbJsonLd({
       {
         "@type": "ListItem",
         position: 2,
-        name: "Test",
-        item: `${SITE_URL}/test`,
+        name: "Tests",
+        item: `${SITE_URL}/tests`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: title,
-        item: `${SITE_URL}/test/${slug}`,
+        item: `${SITE_URL}/tests/${slug}`,
       },
     ],
   };

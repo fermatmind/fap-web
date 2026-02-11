@@ -1,16 +1,16 @@
 import type { MetadataRoute } from "next";
-import { listTests } from "@/lib/content";
+import { getAllTests } from "@/lib/content";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = "https://www.fermatmind.com";
 
-  const tests = await listTests();
+  const tests = await getAllTests();
 
   return [
     { url: `${siteUrl}/` },
-    { url: `${siteUrl}/test` },
-    ...tests.map((t) => ({
-      url: `${siteUrl}/test/${t.slug}`,
+    { url: `${siteUrl}/tests` },
+    ...tests.map((test) => ({
+      url: `${siteUrl}/tests/${test.slug}`,
     })),
   ];
 }
