@@ -1,40 +1,22 @@
 import { defineCollection, defineConfig, s } from "velite";
 
 const tests = defineCollection({
-  name: "tests",
-  pattern: "tests/*.mdx",
+  name: "Test",
+  pattern: "tests/**/*.mdx",
   schema: s.object({
-    slug: s.string(),
     title: s.string(),
+    slug: s.string(),
     description: s.string(),
-    category: s.string(),
-    estTime: s.string(),
-    questionCount: s.number(),
-    updatedAt: s.string(),
-    faq: s.array(
-      s.object({
-        question: s.string(),
-        answer: s.string(),
-      })
-    ),
-    tags: s.array(s.string()).optional(),
-    reviewedBy: s.string().optional(),
-    relatedTests: s.array(s.string()).optional(),
-    relatedTypes: s.array(s.string()).optional(),
-    hero: s
-      .object({
-        title: s.string().optional(),
-        subtitle: s.string().optional(),
-        image: s.string().optional(),
-      })
-      .optional(),
+    cover_image: s.string(),
+    questions_count: s.number(),
+    time_minutes: s.number(),
     body: s.mdx(),
   }),
 });
 
 const types = defineCollection({
-  name: "types",
-  pattern: "types/*.mdx",
+  name: "Type",
+  pattern: "types/**/*.mdx",
   schema: s.object({
     code: s.string(),
     name: s.string(),
@@ -45,9 +27,9 @@ const types = defineCollection({
   }),
 });
 
-const blogPosts = defineCollection({
-  name: "blogPosts",
-  pattern: "blog/*.mdx",
+const blog = defineCollection({
+  name: "BlogPost",
+  pattern: "blog/**/*.mdx",
   schema: s.object({
     slug: s.string(),
     title: s.string(),
@@ -60,5 +42,9 @@ const blogPosts = defineCollection({
 
 export default defineConfig({
   root: "content",
-  collections: { tests, types, blogPosts },
+  output: {
+    data: ".velite",
+    assets: "public/static",
+  },
+  collections: { tests, types, blog },
 });
