@@ -28,9 +28,9 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${test.title} | FermatMind`;
+  const title = test.title;
   const description = test.description;
-  const url = `https://www.fermatmind.com/tests/${test.slug}`;
+  const url = `/tests/${test.slug}`;
 
   return {
     title,
