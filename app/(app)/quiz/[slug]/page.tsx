@@ -6,6 +6,8 @@ import {
   QuestionRenderer,
   type QuizQuestion,
 } from "@/components/business/QuestionRenderer";
+import { useAnalyticsPageView } from "@/hooks/useAnalytics";
+import { trackEvent } from "@/lib/analytics";
 import { getTestBySlug } from "@/lib/content";
 import { useQuizStore } from "@/store/quiz";
 
@@ -65,6 +67,8 @@ const DEMO_QUESTIONS: QuizQuestion[] = [
 export default function QuizPage() {
   const params = useParams<{ slug: string }>();
   const slug = typeof params.slug === "string" ? params.slug : "";
+  useAnalyticsPageView("start_test", { slug }, Boolean(slug));
+
   const test = useMemo(() => (slug ? getTestBySlug(slug) : null), [slug]);
 
   const answers = useQuizStore((state) => state.answers);
@@ -174,6 +178,13 @@ export default function QuizPage() {
 
   const handleSelect = (qId: string, oId: string) => {
     setAnswer(qId, oId);
+    trackEvent("complete_question", {
+      slug,
+      questionId: qId,
+      optionId: oId,
+      step: safeStep + 1,
+      total,
+    });
 
     if (autoNextTimerRef.current !== null) {
       window.clearTimeout(autoNextTimerRef.current);
@@ -270,4 +281,3 @@ export default function QuizPage() {
     </>
   );
 }
-

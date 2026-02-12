@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import * as runtime from "react/jsx-runtime";
 import { getAllTests, getTestBySlug } from "@/lib/content";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 
 function getMDXComponent(code: string) {
   const fn = new Function(code);
@@ -64,6 +65,10 @@ export default async function TestLandingPage({
 
   return (
     <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
+      <AnalyticsPageViewTracker
+        eventName="view_test_landing"
+        properties={{ slug: test.slug }}
+      />
       <h1>{test.title}</h1>
       <p>{test.description}</p>
 
