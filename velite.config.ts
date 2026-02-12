@@ -10,6 +10,8 @@ const tests = defineCollection({
     cover_image: s.string(),
     questions_count: s.number(),
     time_minutes: s.number(),
+    last_updated: s.string().optional(),
+    updated_at: s.string().optional(),
     body: s.mdx(),
   }),
 });
