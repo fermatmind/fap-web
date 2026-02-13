@@ -11,7 +11,7 @@
     "build": "velite build && next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "velite build && tsc --noEmit",
     "release:gate": "bash scripts/release_gate.sh"
   },
   "dependencies": {
