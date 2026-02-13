@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import * as runtime from "react/jsx-runtime";
-import { getAllTests, getTestBySlug } from "@/lib/content";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-
-function getMDXComponent(code: string) {
-  const fn = new Function(code);
-  return fn(runtime).default;
-}
+import { getAllTests, getTestBySlug } from "@/lib/content";
 
 export function generateStaticParams() {
   return getAllTests().map((test) => ({ slug: test.slug }));
@@ -61,59 +55,54 @@ export default async function TestLandingPage({
   const test = getTestBySlug(slug);
   if (!test) return notFound();
 
-  const MDXContent = getMDXComponent(test.body);
-
   return (
-    <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
+    <main className="mx-auto w-full max-w-3xl px-4 py-8">
       <AnalyticsPageViewTracker
         eventName="view_test_landing"
         properties={{ slug: test.slug }}
       />
-      <h1>{test.title}</h1>
-      <p>{test.description}</p>
 
-      <section style={{ marginTop: 16, marginBottom: 24 }}>
-        <h2>Test Info</h2>
-        <dl style={{ display: "grid", gap: 8 }}>
+      <h1 className="text-3xl font-bold tracking-tight text-slate-900">{test.title}</h1>
+      <p className="mt-3 text-slate-600">{test.description}</p>
+
+      <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+        <h2 className="text-lg font-semibold text-slate-900">Test Info</h2>
+        <dl className="mt-3 grid gap-2 text-sm text-slate-700">
           <div>
-            <dt style={{ fontWeight: 600 }}>Questions</dt>
+            <dt className="font-semibold">Questions</dt>
             <dd>{test.questions_count}</dd>
           </div>
           <div>
-            <dt style={{ fontWeight: 600 }}>Time</dt>
+            <dt className="font-semibold">Time</dt>
             <dd>{test.time_minutes} minutes</dd>
           </div>
+          {test.scale_code ? (
+            <div>
+              <dt className="font-semibold">Scale</dt>
+              <dd>{test.scale_code}</dd>
+            </div>
+          ) : null}
         </dl>
       </section>
 
-      <section style={{ marginBottom: 24 }}>
-        <h2>Start</h2>
-        <p>When you're ready, open the take page and complete the assessment.</p>
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+      <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+        <h2 className="text-lg font-semibold text-slate-900">Start</h2>
+        <p className="mt-2 text-slate-600">
+          Open the take page when you are ready and complete the full questionnaire.
+        </p>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
           <Link
             href={`/tests/${test.slug}/take`}
             prefetch
-            style={{
-              padding: "10px 14px",
-              border: "1px solid #111",
-              borderRadius: 10,
-              textDecoration: "none",
-            }}
+            className="rounded-full border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
           >
             Start test
           </Link>
-          <Link href="/tests" style={{ textDecoration: "none" }}>
+          <Link href="/tests" className="text-sm font-semibold text-sky-700 hover:text-sky-800">
             Back to tests
           </Link>
         </div>
       </section>
-
-      <article
-        style={{ display: "grid", gap: 12, lineHeight: 1.7 }}
-        className="test-mdx-content"
-      >
-        <MDXContent />
-      </article>
     </main>
   );
 }

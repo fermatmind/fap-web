@@ -8,9 +8,10 @@ export type TestListItem = {
   title: string;
   slug: string;
   description: string;
-  cover: string;
+  cover_image: string;
   questions_count: number;
   time_minutes: number;
+  scale_code?: string;
 };
 
 export function getAllTests(): TestListItem[] {
@@ -20,9 +21,10 @@ export function getAllTests(): TestListItem[] {
       title: test.title,
       slug: test.slug,
       description: test.description,
-      cover: test.cover_image,
+      cover_image: test.cover_image,
       questions_count: test.questions_count,
       time_minutes: test.time_minutes,
+      scale_code: test.scale_code,
     }));
 }
 

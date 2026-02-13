@@ -1,4 +1,5 @@
 import { EmailCaptureForm } from "@/components/business/email-capture-form";
+import ResultClient from "./ResultClient";
 
 export default async function ResultPage({
   params,
@@ -8,20 +9,10 @@ export default async function ResultPage({
   const { id } = await params;
 
   return (
-    <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
-      <h1 style={{ marginTop: 0 }}>Result</h1>
-      <section
-        style={{
-          border: "1px solid #e2e8f0",
-          borderRadius: 16,
-          padding: 20,
-          background: "#ffffff",
-        }}
-      >
-        <p style={{ margin: 0, color: "#475569" }}>
-          Mock summary for attempt id: <code>{id}</code>
-        </p>
-      </section>
+    <main className="mx-auto w-full max-w-3xl px-4 py-8">
+      <h1 className="mb-4 mt-0 text-3xl font-bold text-slate-900">Result</h1>
+
+      <ResultClient attemptId={id} />
 
       <EmailCaptureForm attemptId={id} />
     </main>

@@ -1,16 +1,18 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { createStore } from "zustand/vanilla";
+import { createContext, useContext, useEffect, useMemo, type ReactNode } from "react";
 import { useStore } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { createStore } from "zustand/vanilla";
 
 export type QuizState = {
   slug: string;
   currentIndex: number;
   answers: Record<string, string>;
-  drafts: Record<string, string>;
   startedAt: number;
+  attemptId: string | null;
+  scaleCode: string | null;
+  submittedAt: number | null;
   lastSavedAt: number;
 };
 
@@ -19,10 +21,12 @@ export type QuizStore = {
   state: QuizState;
   init: (slug: string, initialQuestionIds: string[]) => void;
   setAnswer: (questionId: string, optionId: string) => void;
-  setDraft: (questionId: string, text: string) => void;
   next: (total: number) => void;
   prev: () => void;
   jump: (index: number, total: number) => void;
+  setAttemptMeta: (attemptId: string, scaleCode: string) => void;
+  markSubmitted: () => void;
+  resetAttempt: () => void;
   reset: (slug: string) => void;
 };
 
@@ -34,9 +38,11 @@ const createEmptyState = (slug: string): QuizState => {
     slug,
     currentIndex: 0,
     answers: {},
-    drafts: {},
     startedAt: now,
-    lastSavedAt: now
+    attemptId: null,
+    scaleCode: null,
+    submittedAt: null,
+    lastSavedAt: now,
   };
 };
 
@@ -47,7 +53,7 @@ const clampIndex = (index: number, total: number) => {
 
 const touch = (state: QuizState): QuizState => ({
   ...state,
-  lastSavedAt: Date.now()
+  lastSavedAt: Date.now(),
 });
 
 export const createQuizStore = (slug: string) =>
@@ -58,20 +64,30 @@ export const createQuizStore = (slug: string) =>
         state: createEmptyState(slug),
         init: (nextSlug, initialQuestionIds) => {
           const { state } = get();
+
           if (state.slug !== nextSlug) {
             set({ state: touch(createEmptyState(nextSlug)) });
             return;
           }
 
+          const allowedIds = new Set(initialQuestionIds);
+          const filteredAnswers = Object.fromEntries(
+            Object.entries(state.answers).filter(([questionId]) => allowedIds.has(questionId))
+          ) as Record<string, string>;
+
           const total = initialQuestionIds.length;
           const nextIndex = clampIndex(state.currentIndex, total);
-          if (nextIndex !== state.currentIndex || state.startedAt === 0) {
+          const answersChanged =
+            Object.keys(filteredAnswers).length !== Object.keys(state.answers).length;
+
+          if (answersChanged || nextIndex !== state.currentIndex || state.startedAt === 0) {
             set({
               state: touch({
                 ...state,
+                answers: filteredAnswers,
                 currentIndex: nextIndex,
-                startedAt: state.startedAt || Date.now()
-              })
+                startedAt: state.startedAt || Date.now(),
+              }),
             });
           }
         },
@@ -79,45 +95,75 @@ export const createQuizStore = (slug: string) =>
           set((store) => ({
             state: touch({
               ...store.state,
-              answers: { ...store.state.answers, [questionId]: optionId }
-            })
-          })),
-        setDraft: (questionId, text) =>
-          set((store) => ({
-            state: touch({
-              ...store.state,
-              drafts: { ...store.state.drafts, [questionId]: text }
-            })
+              answers: { ...store.state.answers, [questionId]: optionId },
+              submittedAt: null,
+            }),
           })),
         next: (total) =>
           set((store) => ({
             state: touch({
               ...store.state,
-              currentIndex: clampIndex(store.state.currentIndex + 1, total)
-            })
+              currentIndex: clampIndex(store.state.currentIndex + 1, total),
+            }),
           })),
         prev: () =>
           set((store) => ({
             state: touch({
               ...store.state,
-              currentIndex: Math.max(0, store.state.currentIndex - 1)
-            })
+              currentIndex: Math.max(0, store.state.currentIndex - 1),
+            }),
           })),
         jump: (index, total) =>
           set((store) => ({
             state: touch({
               ...store.state,
-              currentIndex: clampIndex(index, total)
-            })
+              currentIndex: clampIndex(index, total),
+            }),
           })),
-        reset: (nextSlug) => set({ state: touch(createEmptyState(nextSlug)) })
+        setAttemptMeta: (attemptId, scaleCode) =>
+          set((store) => ({
+            state: touch({
+              ...store.state,
+              attemptId,
+              scaleCode,
+              submittedAt: null,
+            }),
+          })),
+        markSubmitted: () =>
+          set((store) => ({
+            state: touch({
+              ...store.state,
+              submittedAt: Date.now(),
+            }),
+          })),
+        resetAttempt: () =>
+          set((store) => ({
+            state: touch({
+              ...store.state,
+              currentIndex: 0,
+              answers: {},
+              startedAt: Date.now(),
+              attemptId: null,
+              submittedAt: null,
+            }),
+          })),
+        reset: (nextSlug) => set({ state: touch(createEmptyState(nextSlug)) }),
       }),
       {
         name: `fm_quiz_v1_${slug}`,
         version: QUIZ_VERSION,
         storage: createJSONStorage(() => localStorage),
-        partialize: (store) => ({ version: store.version, state: store.state }),
-        skipHydration: true
+        partialize: (store) => ({
+          version: store.version,
+          state: {
+            ...store.state,
+            currentIndex: store.state.currentIndex,
+            answers: store.state.answers,
+            startedAt: store.state.startedAt,
+            attemptId: store.state.attemptId,
+            scaleCode: store.state.scaleCode,
+          },
+        }),
       }
     )
   );
@@ -129,61 +175,19 @@ const QuizStoreContext = createContext<QuizStoreApi | null>(null);
 export function QuizStoreProvider({
   slug,
   initialQuestionIds,
-  children
+  children,
 }: {
   slug: string;
   initialQuestionIds: string[];
   children: ReactNode;
 }) {
   const store = useMemo(() => createQuizStore(slug), [slug]);
-  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    let active = true;
-
-    const finish = () => {
-      store.getState().init(slug, initialQuestionIds);
-      if (active) setReady(true);
-    };
-
-    setReady(false);
-
-    if (store.persist.hasHydrated()) {
-      finish();
-      return;
-    }
-
-    const unsubscribe = store.persist.onFinishHydration(() => {
-      finish();
-    });
-
-    store.persist.rehydrate();
-
-    return () => {
-      active = false;
-      unsubscribe();
-    };
+    store.getState().init(slug, initialQuestionIds);
   }, [store, slug, initialQuestionIds]);
 
-  return (
-    <QuizStoreContext.Provider value={store}>
-      {ready ? (
-        children
-      ) : (
-        <div
-          style={{
-            minHeight: 520,
-            padding: 24,
-            border: "1px solid #e2e2e2",
-            borderRadius: 16,
-            background: "#fff"
-          }}
-        >
-          Loading saved progress...
-        </div>
-      )}
-    </QuizStoreContext.Provider>
-  );
+  return <QuizStoreContext.Provider value={store}>{children}</QuizStoreContext.Provider>;
 }
 
 export function useQuizStore<T>(selector: (store: QuizStore) => T) {

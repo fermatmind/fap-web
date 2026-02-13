@@ -1,24 +1,16 @@
-import type { QuizQuestion } from "@/lib/quiz/mock";
+import type { QuizQuestion } from "@/lib/quiz/types";
 
 export type QuestionRendererProps = {
   question: QuizQuestion;
   selectedOptionId?: string;
   onSelect: (questionId: string, optionId: string) => void;
-  type?: "single";
 };
 
 export function QuestionRenderer({
   question,
   selectedOptionId,
   onSelect,
-  type = "single"
 }: QuestionRendererProps) {
-  const resolvedType = question.type ?? type;
-
-  if (resolvedType !== "single") {
-    return null;
-  }
-
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
       <h2 style={{ margin: 0 }}>{question.title}</h2>
@@ -40,7 +32,7 @@ export function QuestionRenderer({
                 cursor: "pointer",
                 display: "flex",
                 gap: 10,
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
               <span
@@ -52,7 +44,7 @@ export function QuestionRenderer({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: 12
+                  fontSize: 12,
                 }}
               >
                 {String.fromCharCode(65 + index)}
