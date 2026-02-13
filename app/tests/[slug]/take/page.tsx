@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTestBySlug } from "@/lib/content";
+import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import QuizTakeClient from "./QuizTakeClient";
 
 export async function generateMetadata({
@@ -14,11 +15,7 @@ export async function generateMetadata({
 
   return {
     title: test ? `Start test - ${test.title}` : `Start test - ${slug}`,
-    robots: {
-      index: false,
-      follow: false,
-      nocache: true,
-    },
+    robots: NOINDEX_ROBOTS,
     alternates: {
       canonical: `/tests/${slug}`,
     },

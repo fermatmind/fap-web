@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { TestCard } from "@/components/business/TestCard";
+import { Container } from "@/components/layout/Container";
 import { getAllTests } from "@/lib/content";
 
 export const metadata = {
@@ -10,25 +11,28 @@ export default function TestsPage() {
   const tests = getAllTests();
 
   return (
-    <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
-      <h1>Tests</h1>
-      <p>Pick a test to view details and start assessment.</p>
+    <Container as="main" className="py-10">
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Tests</h1>
+        <p className="text-slate-600">
+          Pick a test to view details and start assessment.
+        </p>
+      </div>
 
-      <ul style={{ marginTop: 16, display: "grid", gap: 16 }}>
+      <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {tests.map((test) => (
-          <li key={test.slug} style={{ border: "1px solid #e5e5e5", padding: 16 }}>
-            <h2 style={{ marginBottom: 8 }}>{test.title}</h2>
-            <p style={{ marginBottom: 8 }}>{test.description}</p>
-            <p style={{ marginBottom: 8 }}>
-              <strong>Questions:</strong> {test.questions_count} · <strong>Time:</strong>{" "}
-              {test.time_minutes} min
-            </p>
-            <Link href={`/tests/${test.slug}`} style={{ textDecoration: "none" }}>
-              View details
-            </Link>
-          </li>
+          <TestCard
+            key={test.slug}
+            slug={test.slug}
+            title={test.title}
+            description={test.description}
+            coverImage={test.cover_image}
+            questions={test.questions_count}
+            timeMinutes={test.time_minutes}
+            scaleCode={test.scale_code}
+          />
         ))}
-      </ul>
-    </main>
+      </div>
+    </Container>
   );
 }

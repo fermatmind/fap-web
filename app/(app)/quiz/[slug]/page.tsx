@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { permanentRedirect } from "next/navigation";
+import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
+
+export const metadata: Metadata = {
+  robots: NOINDEX_ROBOTS,
+};
 
 export default async function DeprecatedQuizPage({
   params,
