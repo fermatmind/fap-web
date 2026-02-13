@@ -1,44 +1,99 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { usePathname, useRouter } from "next/navigation";
+import { UnlockCTA } from "@/components/commerce/UnlockCTA";
+import { DimensionBars } from "@/components/result/DimensionBars";
+import { ResultSummary } from "@/components/result/ResultSummary";
+import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
-  fetchAttemptReport,
-  fetchAttemptResult,
+  createCheckoutOrOrder,
+  getAttemptReport,
+  type OfferPayload,
   type ReportResponse,
-  type ResultResponse,
 } from "@/lib/api/v0_3";
-import { getAnonymousId } from "@/lib/analytics";
+import { getAnonymousId, trackEvent } from "@/lib/analytics";
+import { captureError } from "@/lib/observability/sentry";
+import { getDictionarySync } from "@/lib/i18n/getDictionary";
+import { getLocaleFromPathname } from "@/lib/i18n/locales";
+
+function firstOffer(report: ReportResponse): OfferPayload | undefined {
+  if (report.offer && typeof report.offer === "object") return report.offer;
+
+  if (Array.isArray(report.offers) && report.offers.length > 0) {
+    const candidate = report.offers[0];
+    if (candidate && typeof candidate === "object") return candidate;
+  }
+
+  if (report.offers && typeof report.offers === "object") {
+    const values = Object.values(report.offers);
+    const candidate = values[0];
+    if (candidate && typeof candidate === "object") {
+      return candidate as OfferPayload;
+    }
+  }
+
+  return undefined;
+}
 
 export default function ResultClient({ attemptId }: { attemptId: string }) {
-  const [resultData, setResultData] = useState<ResultResponse | null>(null);
-  const [resultLoading, setResultLoading] = useState(true);
-  const [resultError, setResultError] = useState<string | null>(null);
-
+  const router = useRouter();
+  const pathname = usePathname() ?? "/";
+  const dict = getDictionarySync(getLocaleFromPathname(pathname));
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
-  const [reportLoading, setReportLoading] = useState(false);
-  const [reportError, setReportError] = useState<string | null>(null);
-  const [copyStatus, setCopyStatus] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [paying, setPaying] = useState(false);
+  const [payError, setPayError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
 
     const run = async () => {
-      setResultLoading(true);
-      setResultError(null);
+      setLoading(true);
+      setError(null);
 
       try {
         const anonId = getAnonymousId();
-        const response = await fetchAttemptResult({ attemptId, anonId });
+        const response = await getAttemptReport({ attemptId, anonId });
         if (!active) return;
-        setResultData(response);
-      } catch (error) {
+        setReportData(response);
+
+        const masked = `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`;
+        trackEvent("view_result", {
+          attemptIdMasked: masked,
+          locked: Boolean(response.locked),
+          typeCode:
+            response.type_code ??
+            (response.report &&
+            typeof response.report === "object" &&
+            "type_code" in response.report
+              ? String((response.report as { type_code?: unknown }).type_code ?? "")
+              : ""),
+        });
+
+        if (response.locked) {
+          trackEvent("view_paywall", {
+            attemptIdMasked: masked,
+            locked: true,
+            sku: firstOffer(response)?.sku ?? "",
+            priceShown: firstOffer(response)?.formatted_price ?? "",
+          });
+        }
+      } catch (cause) {
         if (!active) return;
-        const message = error instanceof Error ? error.message : "Failed to load result.";
-        setResultError(message);
+        const message = cause instanceof Error ? cause.message : "Failed to load report.";
+        setError(message);
+        captureError(cause, {
+          route: "/result/[id]",
+          attemptId,
+          stage: "load_report",
+        });
       } finally {
-        if (active) setResultLoading(false);
+        if (active) setLoading(false);
       }
     };
 
@@ -49,116 +104,155 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     };
   }, [attemptId]);
 
-  const summaryPayload = useMemo(
-    () => ({
-      attemptId,
-      generatedAt: new Date().toISOString(),
-      meta: resultData?.meta ?? null,
-      result: resultData?.result ?? null,
-    }),
-    [attemptId, resultData]
-  );
+  const offer = useMemo(() => (reportData ? firstOffer(reportData) : undefined), [reportData]);
+  const locked = Boolean(reportData?.locked);
 
-  const handleCopyLink = async () => {
+  const summary = reportData?.summary ??
+    (reportData?.report && typeof reportData.report === "object" && "summary" in reportData.report
+      ? String((reportData.report as { summary?: unknown }).summary ?? "")
+      : undefined);
+
+  const typeCode = reportData?.type_code ??
+    (reportData?.report && typeof reportData.report === "object" && "type_code" in reportData.report
+      ? String((reportData.report as { type_code?: unknown }).type_code ?? "")
+      : undefined);
+
+  const dimensions = Array.isArray(reportData?.dimensions)
+    ? reportData?.dimensions
+    : reportData?.report &&
+          typeof reportData.report === "object" &&
+          Array.isArray((reportData.report as { dimensions?: unknown }).dimensions)
+      ? ((reportData.report as { dimensions?: Array<Record<string, unknown>> }).dimensions ?? [])
+      : [];
+
+  const price = offer?.amount_cents ?? reportData?.price;
+  const currency = offer?.currency ?? reportData?.currency;
+  const formattedPrice = offer?.formatted_price;
+
+  useEffect(() => {
+    if (!locked) return;
+
+    const timer = window.setTimeout(() => {
+      trackEvent("abandoned_paywall", {
+        attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
+        locked: true,
+        stayMs: 15000,
+      });
+    }, 15000);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [attemptId, locked]);
+
+  const handlePay = async () => {
+    setPaying(true);
+    setPayError(null);
+
     try {
-      await navigator.clipboard.writeText(window.location.href);
-      setCopyStatus("Link copied.");
-    } catch {
-      setCopyStatus("Failed to copy link.");
-    }
-  };
+      trackEvent("click_unlock", {
+        attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
+        sku: offer?.sku ?? "",
+        priceShown: formattedPrice ?? "",
+      });
 
-  const handleDownloadJson = () => {
-    const blob = new Blob([JSON.stringify(summaryPayload, null, 2)], {
-      type: "application/json",
-    });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `result-${attemptId}.json`;
-    anchor.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const handleLoadReport = async () => {
-    setReportLoading(true);
-    setReportError(null);
-
-    try {
       const anonId = getAnonymousId();
-      const response = await fetchAttemptReport({ attemptId, anonId });
-      setReportData(response);
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "Failed to load report.";
-      setReportError(message);
+      const checkout = await createCheckoutOrOrder({
+        attemptId,
+        anonId,
+        sku: offer?.sku,
+        orderNo: offer?.order_no,
+      });
+
+      if (typeof checkout.checkout_url === "string" && checkout.checkout_url.length > 0) {
+        window.location.href = checkout.checkout_url;
+        return;
+      }
+
+      if (typeof checkout.order_no === "string" && checkout.order_no.length > 0) {
+        trackEvent("create_order", {
+          attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
+          orderNoMasked: `${checkout.order_no.slice(0, 6)}...${checkout.order_no.slice(-4)}`,
+          sku: offer?.sku ?? "",
+        });
+        router.push(`/orders/${checkout.order_no}`);
+        return;
+      }
+
+      throw new Error("Payment session unavailable.");
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : "Unable to start payment.";
+      setPayError(message);
+      captureError(cause, {
+        route: "/result/[id]",
+        attemptId,
+        stage: "create_checkout",
+      });
     } finally {
-      setReportLoading(false);
+      setPaying(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="space-y-4">
+        <Skeleton className="h-44 w-full" />
+        <Skeleton className="h-56 w-full" />
+      </div>
+    );
+  }
+
+  if (error || !reportData) {
+    return (
+      <Alert>
+        {error ?? "Report temporarily unavailable. Please try again in a moment."}
+      </Alert>
+    );
+  }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Assessment Result</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        {resultLoading ? <p className="m-0 text-slate-600">Loading result...</p> : null}
-        {resultError ? <p className="m-0 text-red-700">{resultError}</p> : null}
+    <div className="space-y-6">
+      <ResultSummary typeCode={typeCode} summary={summary} />
 
-        {!resultLoading && !resultError && resultData ? (
-          <>
-            <div className="space-y-1 text-sm text-slate-700">
-              <p className="m-0">
-                <strong>meta.scale_code:</strong> {resultData.meta?.scale_code ?? "N/A"}
-              </p>
-              <p className="m-0">
-                <strong>result.type_code:</strong> {resultData.result?.type_code ?? "N/A"}
-              </p>
-            </div>
+      <div className="relative rounded-2xl">
+        <div className={locked ? "pointer-events-none select-none opacity-45" : ""}>
+          <div className="space-y-4">
+            <DimensionBars dimensions={dimensions} />
 
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-              <p className="mb-2 mt-0 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Result JSON
-              </p>
-              <pre className="m-0 max-h-80 overflow-auto text-xs text-slate-700">
-                {JSON.stringify(resultData.result ?? null, null, 2)}
-              </pre>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <Button type="button" onClick={handleCopyLink}>
-                Copy Link
-              </Button>
-              <Button type="button" variant="outline" onClick={handleDownloadJson}>
-                Download JSON
-              </Button>
-              <Button type="button" variant="secondary" onClick={handleLoadReport} disabled={reportLoading}>
-                {reportLoading ? "Loading..." : "Load full report"}
-              </Button>
-            </div>
-
-            {copyStatus ? <p className="m-0 text-sm text-slate-600">{copyStatus}</p> : null}
-            {reportError ? <p className="m-0 text-red-700">{reportError}</p> : null}
-
-            {reportData ? (
-              <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                <p className="m-0 text-sm text-slate-700">
-                  <strong>locked:</strong> {String(reportData.locked ?? null)}
+            <Card>
+              <CardHeader>
+                <CardTitle>{dict.result.interpretation}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-slate-700">
+                <p className="m-0">
+                  {summary ?? "Your detailed report will appear here once it is unlocked."}
                 </p>
-                <p className="m-0 text-sm text-slate-700">
-                  <strong>access_level:</strong> {reportData.access_level ?? "N/A"}
-                </p>
-                <p className="m-0 text-sm text-slate-700">
-                  <strong>offers:</strong> {JSON.stringify(reportData.offers ?? null)}
-                </p>
-                <pre className="mt-3 max-h-80 overflow-auto text-xs text-slate-700">
-                  {JSON.stringify(reportData.report ?? null, null, 2)}
+                <Separator />
+                <pre className="max-h-80 overflow-auto rounded-xl bg-slate-50 p-3 text-xs text-slate-700">
+                  {JSON.stringify(reportData.report ?? {}, null, 2)}
                 </pre>
-              </div>
-            ) : null}
-          </>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {locked ? (
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-2xl bg-slate-50/60 p-4 backdrop-blur-md">
+            <UnlockCTA
+              className="pointer-events-auto"
+              attemptId={attemptId}
+              sku={offer?.sku}
+              orderNo={offer?.order_no}
+              amount={price}
+              currency={currency}
+              formattedPrice={formattedPrice}
+              loading={paying}
+              error={payError}
+              onPay={handlePay}
+            />
+          </div>
         ) : null}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

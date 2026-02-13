@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { QuestionRenderer } from "@/components/quiz/QuestionRenderer";
 import { QuizShell } from "@/components/quiz/QuizShell";
@@ -12,7 +12,8 @@ import {
   submitAttempt,
   type ScaleQuestionItem,
 } from "@/lib/api/v0_3";
-import { getAnonymousId } from "@/lib/analytics";
+import { getAnonymousId, trackEvent } from "@/lib/analytics";
+import { captureError } from "@/lib/observability/sentry";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
 
@@ -76,7 +77,7 @@ function QuizTakeInner({
   const next = useQuizStore((store) => store.next);
   const prev = useQuizStore((store) => store.prev);
   const setAttemptMeta = useQuizStore((store) => store.setAttemptMeta);
-  const markSubmitted = useQuizStore((store) => store.markSubmitted);
+  const resetAttempt = useQuizStore((store) => store.resetAttempt);
 
   const [questionsLoading, setQuestionsLoading] = useState(true);
   const [attemptLoading, setAttemptLoading] = useState(true);
@@ -84,6 +85,7 @@ function QuizTakeInner({
   const [attemptError, setAttemptError] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const trackedStartRef = useRef(false);
 
   useEffect(() => {
     let active = true;
@@ -107,6 +109,11 @@ function QuizTakeInner({
         if (!active) return;
         const message = error instanceof Error ? error.message : "Failed to load questions.";
         setQuestionsError(message);
+        captureError(error, {
+          route: "/tests/[slug]/take",
+          slug,
+          stage: "load_questions",
+        });
         setQuestions([]);
       } finally {
         if (active) setQuestionsLoading(false);
@@ -118,7 +125,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [scaleCode, setQuestions]);
+  }, [scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     let active = true;
@@ -142,6 +149,11 @@ function QuizTakeInner({
         if (!active) return;
         const message = error instanceof Error ? error.message : "Failed to start attempt.";
         setAttemptError(message);
+        captureError(error, {
+          route: "/tests/[slug]/take",
+          slug,
+          stage: "start_attempt",
+        });
       } finally {
         if (active) setAttemptLoading(false);
       }
@@ -152,7 +164,18 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [attemptId, savedScaleCode, scaleCode, setAttemptMeta]);
+  }, [attemptId, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+
+  useEffect(() => {
+    if (!attemptId || trackedStartRef.current) return;
+    trackedStartRef.current = true;
+
+    trackEvent("start_attempt", {
+      slug,
+      scaleCode,
+      attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
+    });
+  }, [attemptId, scaleCode, slug]);
 
   const total = questions.length;
   const question = questions[currentIndex];
@@ -187,18 +210,33 @@ function QuizTakeInner({
       const anonId = getAnonymousId();
       const durationMs = Math.max(1000, Date.now() - startedAt);
 
-      await submitAttempt({
+      const response = await submitAttempt({
         attemptId,
         anonId,
         answers: payloadAnswers,
         durationMs,
       });
 
-      markSubmitted();
-      router.push(`/result/${attemptId}`);
+      if (!response.ok) {
+        throw new Error("Submit failed. Please try again.");
+      }
+
+      const resultAttemptId = response.attempt_id ?? attemptId;
+      trackEvent("submit_attempt", {
+        slug,
+        attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
+        durationMs,
+      });
+      resetAttempt();
+      router.push(`/result/${resultAttemptId}`);
     } catch (error) {
       const message = error instanceof Error ? error.message : "Submit failed.";
       setSubmitError(message);
+      captureError(error, {
+        route: "/tests/[slug]/take",
+        slug,
+        stage: "submit_attempt",
+      });
     } finally {
       setSubmitting(false);
     }
@@ -257,11 +295,7 @@ function QuizTakeInner({
         </Button>
 
         {isLastQuestion ? (
-          <Button
-            type="button"
-            onClick={handleSubmit}
-            disabled={!canSubmit}
-          >
+          <Button type="button" onClick={handleSubmit} disabled={!canSubmit}>
             {submitting ? "Submitting..." : "Submit"}
           </Button>
         ) : (

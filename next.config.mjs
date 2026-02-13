@@ -1,13 +1,17 @@
 /** @type {import('next').NextConfig} */
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://api.fermatmind.com';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.example.com";
 
 const nextConfig = {
-  output: 'standalone',
+  output: "standalone",
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: `${API_URL}/api/:path*`,
+        source: "/api/v0.3/:path*",
+        destination: `${API_URL}/api/v0.3/:path*`,
+      },
+      {
+        source: "/api/v0.2/:path*",
+        destination: `${API_URL}/api/v0.2/:path*`,
       },
     ];
   },

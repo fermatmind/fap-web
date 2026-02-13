@@ -1,9 +1,9 @@
+import { canonicalUrl } from "@/lib/site";
+
 type FAQItem = {
   question: string;
   answer: string;
 };
-
-const SITE_URL = "https://www.fermatmind.com";
 
 export function buildFAQPageJsonLd(faq: FAQItem[]) {
   return {
@@ -35,19 +35,19 @@ export function buildBreadcrumbJsonLd({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: `${SITE_URL}/`,
+        item: canonicalUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Tests",
-        item: `${SITE_URL}/tests`,
+        item: canonicalUrl("/tests"),
       },
       {
         "@type": "ListItem",
         position: 3,
         name: title,
-        item: `${SITE_URL}/tests/${slug}`,
+        item: canonicalUrl(`/tests/${slug}`),
       },
     ],
   };

@@ -1,10 +1,12 @@
 import { ImageResponse } from "next/og";
 import { getTestBySlug } from "@/lib/content";
+import { getSiteHost } from "@/lib/site";
 
 export const runtime = "edge";
 
 const CANVAS_WIDTH = 1200;
 const CANVAS_HEIGHT = 630;
+const SITE_HOST = getSiteHost();
 
 function parseScore(raw: string | null): number | null {
   if (!raw) return null;
@@ -77,7 +79,7 @@ export async function GET(
             opacity: 0.95,
           }}
         >
-          <div>fermatmind.com</div>
+          <div>{SITE_HOST}</div>
           {score !== null ? <div>Score {score}/100</div> : <div>Take the test</div>}
         </div>
       </div>

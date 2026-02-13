@@ -12,20 +12,41 @@ export class ApiError extends Error {
 }
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || '/api';
+const DEFAULT_TIMEOUT_MS = 15000;
 
 type Json = Record<string, unknown>;
+type RequestOptions = RequestInit & { timeoutMs?: number };
 
-async function request<T>(method: string, path: string, body?: Json, init: RequestInit = {}): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, {
-    ...init,
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      ...(init.headers || {}),
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  });
+async function request<T>(method: string, path: string, body?: Json, init: RequestOptions = {}): Promise<T> {
+  const { timeoutMs = DEFAULT_TIMEOUT_MS, ...fetchInit } = init;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  if (fetchInit.signal) {
+    fetchInit.signal.addEventListener("abort", () => controller.abort(), { once: true });
+  }
+
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}${path}`, {
+      ...fetchInit,
+      method,
+      signal: controller.signal,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        ...(fetchInit.headers || {}),
+      },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  } catch (error) {
+    if (controller.signal.aborted) {
+      throw new ApiError({ status: 408, message: "REQUEST_TIMEOUT" });
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
 
   if (res.status === 401) {
     throw new ApiError({ status: 401, message: 'UNAUTHORIZED' });
@@ -37,8 +58,12 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
   }
 
   if (!res.ok) {
-    const text = await res.text().catch(() => '');
-    throw new ApiError({ status: res.status, message: text || `API_ERROR_${res.status}` });
+    const details = await res.json().catch(() => null);
+    const text =
+      typeof details === "object" && details && "message" in details
+        ? String((details as { message: unknown }).message ?? "")
+        : await res.text().catch(() => "");
+    throw new ApiError({ status: res.status, message: text || `API_ERROR_${res.status}`, details });
   }
 
   const data = (await res.json().catch(() => null)) as T;
@@ -46,8 +71,8 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
 }
 
 export const apiClient = {
-  get: <T>(path: string, init?: RequestInit) => request<T>('GET', path, undefined, init),
-  post: <T>(path: string, body?: Json, init?: RequestInit) => request<T>('POST', path, body, init),
-  put: <T>(path: string, body?: Json, init?: RequestInit) => request<T>('PUT', path, body, init),
-  del: <T>(path: string, init?: RequestInit) => request<T>('DELETE', path, undefined, init),
+  get: <T>(path: string, init?: RequestOptions) => request<T>('GET', path, undefined, init),
+  post: <T>(path: string, body?: Json, init?: RequestOptions) => request<T>('POST', path, body, init),
+  put: <T>(path: string, body?: Json, init?: RequestOptions) => request<T>('PUT', path, body, init),
+  del: <T>(path: string, init?: RequestOptions) => request<T>('DELETE', path, undefined, init),
 };
