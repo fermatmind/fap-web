@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { tests } from "../.velite";
-
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+import { canonicalUrl } from "@/lib/site";
 
 function toLastModified(value?: string): Date | undefined {
   if (!value) return undefined;
@@ -11,12 +10,12 @@ function toLastModified(value?: string): Date | undefined {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: `${siteUrl}/` },
-    { url: `${siteUrl}/tests` },
+    { url: canonicalUrl("/") },
+    { url: canonicalUrl("/tests") },
     ...tests.map((test) => {
       const lastModified = toLastModified(test.last_updated ?? test.updated_at);
       return {
-        url: `${siteUrl}/tests/${test.slug}`,
+        url: canonicalUrl(`/tests/${test.slug}`),
         ...(lastModified ? { lastModified } : {}),
       };
     }),

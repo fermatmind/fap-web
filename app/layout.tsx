@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { Providers } from "@/app/providers";
+import { canonicalUrl, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,15 +15,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "FermatMind",
     template: "%s | FermatMind",
   },
   description: "FermatMind assessments and personality tests.",
+  alternates: {
+    canonical: "/",
+    languages: {
+      en: canonicalUrl("/en"),
+      zh: canonicalUrl("/zh"),
+      "x-default": canonicalUrl("/"),
+    },
+  },
   openGraph: {
     siteName: "FermatMind",
     type: "website",
@@ -40,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
           <SiteChrome>{children}</SiteChrome>

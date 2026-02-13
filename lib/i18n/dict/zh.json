@@ -1,0 +1,33 @@
+{
+  "footer": {
+    "privacy": "隐私",
+    "terms": "条款",
+    "refund": "退款",
+    "support": "支持"
+  },
+  "commerce": {
+    "unlock_title": "解锁完整报告",
+    "unlock_subtitle": "一次性解锁更深入的解读与行动建议。",
+    "unlock_button": "立即解锁",
+    "price": "价格",
+    "processing": "处理中...",
+    "secure_payment": "安全支付",
+    "guarantee": "100% 满意保障",
+    "privacy_first": "隐私优先"
+  },
+  "result": {
+    "title": "你的测评结果",
+    "breakdown": "维度拆解",
+    "interpretation": "解读"
+  },
+  "legal": {
+    "privacy_title": "隐私政策",
+    "terms_title": "服务条款",
+    "refund_title": "退款政策",
+    "medical_disclaimer": "FermatMind 报告不是医疗诊断，也不构成医疗建议。"
+  },
+  "support": {
+    "title": "帮助中心",
+    "lookup": "订单查询"
+  }
+}

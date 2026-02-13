@@ -85,7 +85,7 @@ export default async function TestLandingPage({
 
   return (
     <Container as="main" className="pb-28 pt-10 lg:pb-10">
-      <AnalyticsPageViewTracker eventName="view_test_landing" properties={{ slug: test.slug }} />
+      <AnalyticsPageViewTracker eventName="view_test" properties={{ slug: test.slug }} />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">

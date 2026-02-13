@@ -1,0 +1,75 @@
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import { DEFAULT_LOCALE, isSupportedLocale, stripLocalePrefix } from "@/lib/i18n/locales";
+
+const NOINDEX_VALUE = "noindex, nofollow, noarchive";
+
+function isSensitivePath(pathname: string): boolean {
+  if (pathname.startsWith("/result/")) return true;
+  if (pathname.startsWith("/share/")) return true;
+  if (pathname.startsWith("/orders/")) return true;
+  if (pathname.startsWith("/api/")) return true;
+  if (pathname.startsWith("/og/")) return true;
+
+  const isTestsTake = pathname.startsWith("/tests/") && pathname.includes("/take");
+  const isLegacyTestTake = pathname.startsWith("/test/") && pathname.includes("/take");
+
+  return isTestsTake || isLegacyTestTake;
+}
+
+function hasLocalePrefix(pathname: string): boolean {
+  const segment = pathname.split("/").filter(Boolean)[0];
+  return isSupportedLocale(segment);
+}
+
+function resolveLocale(pathname: string): string {
+  const segment = pathname.split("/").filter(Boolean)[0];
+  return isSupportedLocale(segment) ? segment : DEFAULT_LOCALE;
+}
+
+function isStaticAsset(pathname: string): boolean {
+  if (pathname.startsWith("/_next/")) return true;
+  if (pathname === "/favicon.ico") return true;
+  return /\/[^/]+\.[a-zA-Z0-9]+$/.test(pathname);
+}
+
+export function middleware(request: NextRequest) {
+  const originalPath = request.nextUrl.pathname;
+  const locale = resolveLocale(originalPath);
+  const strippedPath = stripLocalePrefix(originalPath);
+  const shouldRewrite = hasLocalePrefix(originalPath);
+
+  if (isStaticAsset(strippedPath)) {
+    if (!shouldRewrite) {
+      return NextResponse.next();
+    }
+
+    const staticUrl = new URL(`${strippedPath}${request.nextUrl.search}`, request.url);
+    return NextResponse.rewrite(staticUrl);
+  }
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-locale", locale);
+
+  const response = shouldRewrite
+    ? NextResponse.rewrite(new URL(`${strippedPath}${request.nextUrl.search}`, request.url), {
+        request: {
+          headers: requestHeaders,
+        },
+      })
+    : NextResponse.next({
+        request: {
+          headers: requestHeaders,
+        },
+      });
+
+  if (isSensitivePath(strippedPath)) {
+    response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
+  }
+
+  return response;
+}
+
+export const config = {
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)"],
+};

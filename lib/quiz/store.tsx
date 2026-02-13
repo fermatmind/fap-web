@@ -144,6 +144,7 @@ export const createQuizStore = (slug: string) =>
               answers: {},
               startedAt: Date.now(),
               attemptId: null,
+              scaleCode: null,
               submittedAt: null,
             }),
           })),

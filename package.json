@@ -2,11 +2,17 @@
   "name": "fap-web",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.28.1",
+  "engines": {
+    "node": ">=20 <21"
+  },
   "scripts": {
     "dev": "concurrently \"velite dev\" \"next dev\"",
     "build": "velite build && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "release:gate": "bash scripts/release_gate.sh"
   },
   "dependencies": {
     "clsx": "^2.1.1",

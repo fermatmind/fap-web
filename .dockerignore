@@ -1,0 +1,25 @@
+# dependencies and local caches
+node_modules/
+.pnpm-store/
+
+# next build outputs
+.next/
+out/
+
+# source control
+.git/
+.gitignore
+
+# env and secrets
+.env*
+
+# test and build artifacts
+coverage/
+dist/
+build/
+
+# logs
+*.log
+
+# docs and local files
+.DS_Store

@@ -1,23 +1,22 @@
 import type { MetadataRoute } from "next";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.fermatmind.com";
+import { canonicalUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/tests", "/tests/*", "/blog/*"],
         disallow: [
           "/api/",
           "/tests/*/take",
           "/result/",
           "/share/",
+          "/orders/",
           "/og/",
-          "/quiz/",
         ],
       },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: canonicalUrl("/sitemap.xml"),
   };
 }

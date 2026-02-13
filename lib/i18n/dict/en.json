@@ -1,0 +1,33 @@
+{
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "refund": "Refund",
+    "support": "Support"
+  },
+  "commerce": {
+    "unlock_title": "Unlock full report",
+    "unlock_subtitle": "One-time access for deeper interpretation and actionable insights.",
+    "unlock_button": "Unlock now",
+    "price": "Price",
+    "processing": "Processing...",
+    "secure_payment": "Secure payment",
+    "guarantee": "100% Satisfaction Guarantee",
+    "privacy_first": "Privacy-first"
+  },
+  "result": {
+    "title": "Your assessment result",
+    "breakdown": "Dimension breakdown",
+    "interpretation": "Interpretation"
+  },
+  "legal": {
+    "privacy_title": "Privacy Policy",
+    "terms_title": "Terms of Service",
+    "refund_title": "Refund Policy",
+    "medical_disclaimer": "FermatMind reports are not a medical diagnosis and not medical advice."
+  },
+  "support": {
+    "title": "Support Center",
+    "lookup": "Order lookup"
+  }
+}
