@@ -1,155 +1,286 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { QuestionRenderer } from "@/components/quiz/QuestionRenderer";
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { Stepper } from "@/components/quiz/Stepper";
-import { QuestionRenderer } from "@/components/quiz/QuestionRenderer";
-import type { QuizQuestion } from "@/lib/quiz/mock";
+import {
+  fetchScaleQuestions,
+  startAttempt,
+  submitAttempt,
+  type ScaleQuestionItem,
+} from "@/lib/api/v0_3";
+import { getAnonymousId } from "@/lib/analytics";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
+import type { QuizQuestion } from "@/lib/quiz/types";
+
+function toQuizQuestion(question: ScaleQuestionItem): QuizQuestion {
+  return {
+    id: question.question_id,
+    title: question.text,
+    options: Array.isArray(question.options)
+      ? question.options.map((option) => ({ id: option.code, text: option.text }))
+      : [],
+  };
+}
 
 export default function QuizTakeClient({
   slug,
-  questions
+  testTitle,
+  scaleCode,
 }: {
   slug: string;
-  questions: QuizQuestion[];
+  testTitle: string;
+  scaleCode: string;
 }) {
+  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const questionIds = useMemo(() => questions.map((question) => question.id), [questions]);
 
   return (
     <QuizStoreProvider slug={slug} initialQuestionIds={questionIds}>
-      <QuizTakeInner slug={slug} questions={questions} />
+      <QuizTakeInner
+        slug={slug}
+        testTitle={testTitle}
+        scaleCode={scaleCode}
+        questions={questions}
+        setQuestions={setQuestions}
+      />
     </QuizStoreProvider>
   );
 }
 
 function QuizTakeInner({
   slug,
-  questions
+  testTitle,
+  scaleCode,
+  questions,
+  setQuestions,
 }: {
   slug: string;
+  testTitle: string;
+  scaleCode: string;
   questions: QuizQuestion[];
+  setQuestions: (nextQuestions: QuizQuestion[]) => void;
 }) {
-  const total = questions.length;
+  const router = useRouter();
+
   const currentIndex = useQuizStore((store) => store.state.currentIndex);
   const answers = useQuizStore((store) => store.state.answers);
-  const drafts = useQuizStore((store) => store.state.drafts);
   const startedAt = useQuizStore((store) => store.state.startedAt);
+  const attemptId = useQuizStore((store) => store.state.attemptId);
+  const savedScaleCode = useQuizStore((store) => store.state.scaleCode);
+
   const setAnswer = useQuizStore((store) => store.setAnswer);
-  const setDraft = useQuizStore((store) => store.setDraft);
   const next = useQuizStore((store) => store.next);
   const prev = useQuizStore((store) => store.prev);
+  const setAttemptMeta = useQuizStore((store) => store.setAttemptMeta);
+  const markSubmitted = useQuizStore((store) => store.markSubmitted);
 
-  const question = questions[currentIndex];
-  const selectedOptionId = question ? answers[question.id] : undefined;
-  const draft = question ? drafts[question.id] ?? "" : "";
-
-  const latestRef = useRef({ slug, currentIndex, startedAt });
+  const [questionsLoading, setQuestionsLoading] = useState(true);
+  const [attemptLoading, setAttemptLoading] = useState(true);
+  const [questionsError, setQuestionsError] = useState<string | null>(null);
+  const [attemptError, setAttemptError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    latestRef.current = { slug, currentIndex, startedAt };
-  }, [slug, currentIndex, startedAt]);
+    let active = true;
 
-  useEffect(() => {
-    const logDropoff = (source: string) => {
-      const latest = latestRef.current;
-      const spentMs = Math.max(0, Date.now() - latest.startedAt);
-      // eslint-disable-next-line no-console
-      console.log("[quiz dropoff]", {
-        source,
-        slug: latest.slug,
-        currentIndex: latest.currentIndex,
-        spent_ms: spentMs
-      });
-    };
+    const run = async () => {
+      setQuestionsLoading(true);
+      setQuestionsError(null);
 
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "hidden") {
-        logDropoff("visibilitychange");
+      try {
+        const anonId = getAnonymousId();
+        const response = await fetchScaleQuestions({ scaleCode, anonId });
+
+        if (!active) return;
+
+        const orderedQuestions = [...response.questions.items].sort(
+          (a, b) => (a.order ?? 0) - (b.order ?? 0)
+        );
+
+        setQuestions(orderedQuestions.map(toQuizQuestion));
+      } catch (error) {
+        if (!active) return;
+        const message = error instanceof Error ? error.message : "Failed to load questions.";
+        setQuestionsError(message);
+        setQuestions([]);
+      } finally {
+        if (active) setQuestionsLoading(false);
       }
     };
 
-    const handleBeforeUnload = () => {
-      logDropoff("beforeunload");
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    window.addEventListener("beforeunload", handleBeforeUnload);
+    void run();
 
     return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-      window.removeEventListener("beforeunload", handleBeforeUnload);
+      active = false;
     };
-  }, []);
+  }, [scaleCode, setQuestions]);
+
+  useEffect(() => {
+    let active = true;
+
+    const run = async () => {
+      if (attemptId && savedScaleCode === scaleCode) {
+        setAttemptLoading(false);
+        return;
+      }
+
+      setAttemptLoading(true);
+      setAttemptError(null);
+
+      try {
+        const anonId = getAnonymousId();
+        const response = await startAttempt({ scaleCode, anonId });
+        if (!active) return;
+
+        setAttemptMeta(response.attempt_id, scaleCode);
+      } catch (error) {
+        if (!active) return;
+        const message = error instanceof Error ? error.message : "Failed to start attempt.";
+        setAttemptError(message);
+      } finally {
+        if (active) setAttemptLoading(false);
+      }
+    };
+
+    void run();
+
+    return () => {
+      active = false;
+    };
+  }, [attemptId, savedScaleCode, scaleCode, setAttemptMeta]);
+
+  const total = questions.length;
+  const question = questions[currentIndex];
+  const selectedOptionId = question ? answers[question.id] : undefined;
+  const loadError = questionsError ?? attemptError;
+
+  const answeredCount = useMemo(
+    () => questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
+    [answers, questions]
+  );
+
+  const isLastQuestion = total > 0 && currentIndex === total - 1;
+  const canSubmit = isLastQuestion && answeredCount === total && !submitting;
+
+  const handleSubmit = async () => {
+    if (!attemptId || !canSubmit) return;
+
+    const payloadAnswers = questions.map((item) => ({
+      question_id: item.id,
+      option_code: answers[item.id] ?? "",
+    }));
+
+    if (payloadAnswers.some((item) => !item.option_code)) {
+      setSubmitError("Please answer every question before submitting.");
+      return;
+    }
+
+    setSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const anonId = getAnonymousId();
+      const durationMs = Math.max(1000, Date.now() - startedAt);
+
+      await submitAttempt({
+        attemptId,
+        anonId,
+        answers: payloadAnswers,
+        durationMs,
+      });
+
+      markSubmitted();
+      router.push(`/result/${attemptId}`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Submit failed.";
+      setSubmitError(message);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  if (questionsLoading || attemptLoading) {
+    return (
+      <QuizShell>
+        <p className="m-0 text-slate-600">Loading quiz data...</p>
+      </QuizShell>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <QuizShell>
+        <p className="m-0 text-red-700">{loadError}</p>
+        <button
+          type="button"
+          onClick={() => window.location.reload()}
+          className="w-fit rounded-lg border border-slate-900 px-3 py-2 text-sm font-semibold text-slate-900"
+        >
+          Retry
+        </button>
+      </QuizShell>
+    );
+  }
 
   if (!question) {
     return (
       <QuizShell>
-        <p>No questions found for this test.</p>
+        <p className="m-0 text-slate-600">No questions found for this test.</p>
       </QuizShell>
     );
   }
 
   return (
     <QuizShell>
+      <div className="flex items-center justify-between gap-4">
+        <p className="m-0 text-sm font-semibold text-slate-700">{testTitle}</p>
+        <p className="m-0 text-xs font-medium uppercase tracking-wide text-slate-500">
+          {answeredCount}/{total} answered
+        </p>
+      </div>
+
       <Stepper currentIndex={currentIndex} total={total} />
 
-      <QuestionRenderer
-        question={question}
-        selectedOptionId={selectedOptionId}
-        onSelect={setAnswer}
-      />
+      <QuestionRenderer question={question} selectedOptionId={selectedOptionId} onSelect={setAnswer} />
 
-      <section style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <label htmlFor="quiz-draft" style={{ fontWeight: 600 }}>
-          Notes (draft)
-        </label>
-        <textarea
-          id="quiz-draft"
-          value={draft}
-          onChange={(event) => setDraft(question.id, event.target.value)}
-          placeholder="Optional notes for this question"
-          rows={3}
-          style={{
-            resize: "vertical",
-            padding: "10px 12px",
-            borderRadius: 10,
-            border: "1px solid #d0d0d0"
-          }}
-        />
-      </section>
+      {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
 
-      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+      <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={() => prev()}
-          disabled={currentIndex === 0}
-          style={{
-            padding: "10px 14px",
-            borderRadius: 10,
-            border: "1px solid #111",
-            background: currentIndex === 0 ? "#f2f2f2" : "#fff",
-            cursor: currentIndex === 0 ? "not-allowed" : "pointer"
-          }}
+          disabled={currentIndex === 0 || submitting}
+          className="rounded-lg border border-slate-400 px-4 py-2 text-sm font-semibold text-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Previous
         </button>
-        <button
-          type="button"
-          onClick={() => next(total)}
-          disabled={currentIndex >= total - 1}
-          style={{
-            padding: "10px 14px",
-            borderRadius: 10,
-            border: "1px solid #111",
-            background: currentIndex >= total - 1 ? "#f2f2f2" : "#111",
-            color: currentIndex >= total - 1 ? "#666" : "#fff",
-            cursor: currentIndex >= total - 1 ? "not-allowed" : "pointer"
-          }}
-        >
-          Next
-        </button>
+
+        {isLastQuestion ? (
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!canSubmit}
+            className="rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:border-slate-300 disabled:bg-slate-200 disabled:text-slate-500"
+          >
+            {submitting ? "Submitting..." : "Submit"}
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => next(total)}
+            disabled={currentIndex >= total - 1 || submitting}
+            className="rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:border-slate-300 disabled:bg-slate-200 disabled:text-slate-500"
+          >
+            Next
+          </button>
+        )}
       </div>
+
+      <p className="m-0 text-xs text-slate-500">Slug: {slug}</p>
     </QuizShell>
   );
 }

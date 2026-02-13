@@ -2,10 +2,14 @@
 
 export type Dict = Record<string, string | number>;
 
+function isObjectRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
 export function renderPlaceholders(input: string, data: Dict): string {
   return String(input || "").replace(/\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g, (_, key: string) => {
-    const v = (data as any)[key];
-    return v === undefined || v === null ? "" : String(v);
+    const value = data[key];
+    return value === undefined || value === null ? "" : String(value);
   });
 }
 
@@ -30,27 +34,31 @@ export function toSafeCount(v: unknown, fallback = 0): number {
  * - template 可包含 "{{count}}" 等占位符
  * - 返回 object（可直接 JSON.stringify 注入）
  */
-export function buildSocialProofSchema(template: any, data: Dict): any | null {
-  if (!template || typeof template !== "object") return null;
+export function buildSocialProofSchema(
+  template: unknown,
+  data: Dict
+): Record<string, unknown> | null {
+  if (!isObjectRecord(template)) return null;
 
   // 先做“字符串层面”占位符渲染（覆盖深层字段）
   const renderedJson = renderPlaceholders(JSON.stringify(template), data);
 
-  let obj: any;
+  let parsed: unknown;
   try {
-    obj = JSON.parse(renderedJson);
+    parsed = JSON.parse(renderedJson);
   } catch {
     return null;
   }
 
-  // InteractionCounter 正确字段：userInteractionCount（数字）
-  if (obj && typeof obj === "object") {
-    // 兼容两种写法：userInteractionCount / userInteractionCount（你如果写错了也能救回来）
-    const key1 = "userInteractionCount";
-    if (obj[key1] !== undefined) {
-      obj[key1] = toSafeCount(obj[key1], 0);
-    }
+  if (!isObjectRecord(parsed)) {
+    return null;
   }
 
-  return obj;
+  // InteractionCounter 正确字段：userInteractionCount（数字）
+  const key = "userInteractionCount";
+  if (parsed[key] !== undefined) {
+    parsed[key] = toSafeCount(parsed[key], 0);
+  }
+
+  return parsed;
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTestBySlug } from "@/lib/content";
-import { getQuestionsForSlug } from "@/lib/quiz/mock";
 import QuizTakeClient from "./QuizTakeClient";
 
 export async function generateMetadata({
@@ -32,36 +31,38 @@ export default async function TakePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-
   const test = getTestBySlug(slug);
+
   if (!test) return notFound();
 
-  const questions = getQuestionsForSlug(slug);
+  if (!test.scale_code) {
+    return (
+      <main className="mx-auto w-full max-w-3xl px-4 py-8">
+        <h1 className="text-2xl font-bold text-slate-900">{test.title}</h1>
+        <p className="mt-3 text-slate-600">此测试暂未接入题库，请先选择其它已接入测试。</p>
+        <Link
+          href="/tests"
+          className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-500"
+        >
+          返回 Tests
+        </Link>
+      </main>
+    );
+  }
 
   return (
-    <main style={{ maxWidth: 860, margin: "0 auto", padding: "24px 16px" }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginBottom: 16,
-          gap: 16,
-          flexWrap: "wrap",
-        }}
-      >
+    <main className="mx-auto w-full max-w-3xl px-4 py-8">
+      <div className="mb-5 flex items-start justify-between gap-4">
         <div>
-          <p style={{ margin: 0, letterSpacing: "0.08em", textTransform: "uppercase" }}>
-            Personality Test
-          </p>
-          <h1 style={{ margin: "6px 0 0" }}>Start: {test.title}</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Personality Test</p>
+          <h1 className="mt-1 text-2xl font-bold text-slate-900">Start: {test.title}</h1>
         </div>
-        <Link href={`/tests/${slug}`} style={{ textDecoration: "none" }}>
+        <Link href={`/tests/${slug}`} className="text-sm font-medium text-sky-700 hover:text-sky-800">
           Back to landing
         </Link>
       </div>
 
-      <QuizTakeClient slug={slug} questions={questions} />
+      <QuizTakeClient slug={slug} testTitle={test.title} scaleCode={test.scale_code} />
     </main>
   );
 }
