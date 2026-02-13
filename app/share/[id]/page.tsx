@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getTestBySlug } from "@/lib/content";
+import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 
 type ShareParams = {
   id: string;
@@ -72,11 +73,7 @@ export async function generateMetadata(props: {
   return {
     title,
     description,
-    robots: {
-      index: false,
-      follow: false,
-      nocache: true,
-    },
+    robots: NOINDEX_ROBOTS,
     openGraph: {
       title,
       description,

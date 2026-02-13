@@ -12,9 +12,9 @@ export function QuestionRenderer({
   onSelect,
 }: QuestionRendererProps) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      <h2 style={{ margin: 0 }}>{question.title}</h2>
-      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+    <div className="flex flex-col gap-3">
+      <h2 className="m-0 text-xl font-semibold text-slate-900">{question.title}</h2>
+      <div className="flex flex-col gap-2.5">
         {question.options.map((option, index) => {
           const selected = option.id === selectedOptionId;
           return (
@@ -23,33 +23,22 @@ export function QuestionRenderer({
               type="button"
               onClick={() => onSelect(question.id, option.id)}
               aria-pressed={selected}
-              style={{
-                textAlign: "left",
-                padding: "12px 14px",
-                borderRadius: 12,
-                border: selected ? "2px solid #111" : "1px solid #d0d0d0",
-                background: selected ? "#f6f6f6" : "#fff",
-                cursor: "pointer",
-                display: "flex",
-                gap: 10,
-                alignItems: "center",
-              }}
+              className={[
+                "flex cursor-pointer items-center gap-3 rounded-xl border px-3.5 py-3 text-left transition",
+                selected
+                  ? "border-2 border-slate-900 bg-slate-50"
+                  : "border-slate-300 bg-white hover:border-slate-400",
+              ].join(" ")}
             >
               <span
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: 999,
-                  border: selected ? "2px solid #111" : "1px solid #c0c0c0",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 12,
-                }}
+                className={[
+                  "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold",
+                  selected ? "border-2 border-slate-900" : "border-slate-300",
+                ].join(" ")}
               >
                 {String.fromCharCode(65 + index)}
               </span>
-              <span>{option.text}</span>
+              <span className="text-sm text-slate-800">{option.text}</span>
             </button>
           );
         })}

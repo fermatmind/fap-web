@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { QuestionRenderer } from "@/components/quiz/QuestionRenderer";
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { Stepper } from "@/components/quiz/Stepper";
+import { Button } from "@/components/ui/button";
 import {
   fetchScaleQuestions,
   startAttempt,
@@ -215,13 +216,9 @@ function QuizTakeInner({
     return (
       <QuizShell>
         <p className="m-0 text-red-700">{loadError}</p>
-        <button
-          type="button"
-          onClick={() => window.location.reload()}
-          className="w-fit rounded-lg border border-slate-900 px-3 py-2 text-sm font-semibold text-slate-900"
-        >
+        <Button type="button" variant="outline" onClick={() => window.location.reload()}>
           Retry
-        </button>
+        </Button>
       </QuizShell>
     );
   }
@@ -250,33 +247,31 @@ function QuizTakeInner({
       {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
 
       <div className="flex items-center gap-3">
-        <button
+        <Button
           type="button"
           onClick={() => prev()}
           disabled={currentIndex === 0 || submitting}
-          className="rounded-lg border border-slate-400 px-4 py-2 text-sm font-semibold text-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+          variant="outline"
         >
           Previous
-        </button>
+        </Button>
 
         {isLastQuestion ? (
-          <button
+          <Button
             type="button"
             onClick={handleSubmit}
             disabled={!canSubmit}
-            className="rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:border-slate-300 disabled:bg-slate-200 disabled:text-slate-500"
           >
             {submitting ? "Submitting..." : "Submit"}
-          </button>
+          </Button>
         ) : (
-          <button
+          <Button
             type="button"
             onClick={() => next(total)}
             disabled={currentIndex >= total - 1 || submitting}
-            className="rounded-lg border border-slate-900 bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:border-slate-300 disabled:bg-slate-200 disabled:text-slate-500"
           >
             Next
-          </button>
+          </Button>
         )}
       </div>
 

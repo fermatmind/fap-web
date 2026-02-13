@@ -1,4 +1,5 @@
 export const ANALYTICS_ENDPOINT = "/api/v0.2/events";
+const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
 
 export type AnalyticsProperties = Record<string, unknown>;
 
@@ -12,6 +13,7 @@ type AnalyticsEvent = {
 
 const QUEUE_KEY = "fap_event_queue_v1";
 const ANON_ID_KEY = "fap_anonymous_id_v1";
+const LAST_FLUSH_KEY = "fap_analytics_last_flush";
 const MAX_FLUSH_BATCH = 20;
 const RETRY_MS = 15_000;
 
@@ -20,6 +22,16 @@ let flushTimer: number | null = null;
 let scheduledFlushAt: number | null = null;
 
 const isBrowser = () => typeof window !== "undefined";
+
+const setLastFlush = () => {
+  if (!isBrowser()) return;
+
+  try {
+    window.localStorage.setItem(LAST_FLUSH_KEY, new Date().toISOString());
+  } catch {
+    // Ignore write errors to avoid breaking user flow.
+  }
+};
 
 const buildFallbackId = () =>
   `anon_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
@@ -96,11 +108,33 @@ export function getAnonymousId(): string {
   }
 }
 
+export function clearAnalyticsQueue(): void {
+  if (!isBrowser()) return;
+
+  try {
+    window.localStorage.removeItem(QUEUE_KEY);
+    window.localStorage.removeItem(LAST_FLUSH_KEY);
+  } catch {
+    // Ignore storage cleanup errors.
+  }
+}
+
+export function initAnalytics(): void {
+  if (!isBrowser()) return;
+
+  if (!ANALYTICS_ENABLED) {
+    clearAnalyticsQueue();
+    return;
+  }
+
+  scheduleFlush(0);
+}
+
 export function trackEvent(
   eventName: string,
   properties: AnalyticsProperties = {}
 ): void {
-  if (!isBrowser() || !eventName) return;
+  if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
 
   const payload: AnalyticsEvent = {
     eventName,
@@ -117,7 +151,7 @@ export function trackEvent(
 }
 
 export async function flushEvents(): Promise<void> {
-  if (!isBrowser() || isFlushing) return;
+  if (!ANALYTICS_ENABLED || !isBrowser() || isFlushing) return;
 
   if (flushTimer !== null) {
     window.clearTimeout(flushTimer);
@@ -158,6 +192,7 @@ export async function flushEvents(): Promise<void> {
       const latestQueue = readQueue();
       const remaining = latestQueue.slice(batch.length);
       writeQueue(remaining);
+      setLastFlush();
 
       if (remaining.length === 0) {
         return;

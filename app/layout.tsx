@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SiteChrome } from "@/components/layout/SiteChrome";
+import { Providers } from "@/app/providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,10 +41,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Providers>
+          <SiteChrome>{children}</SiteChrome>
+        </Providers>
       </body>
     </html>
   );
