@@ -1,4 +1,5 @@
 import { trackClientEvent } from "@/lib/tracking/client";
+import { getLocaleFromPathname } from "@/lib/i18n/locales";
 
 const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
 const ANON_ID_KEY = "fap_anonymous_id_v1";
@@ -51,9 +52,15 @@ export function initAnalytics(): void {
 export function trackEvent(eventName: string, properties: AnalyticsProperties = {}): void {
   if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
 
+  const locale = getLocaleFromPathname(window.location.pathname);
+  const payload = {
+    ...properties,
+    locale: properties.locale ?? locale,
+  };
+
   void trackClientEvent({
     eventName,
-    payload: properties,
+    payload,
     anonymousId: getAnonymousId(),
     path: `${window.location.pathname}${window.location.search}`,
   });

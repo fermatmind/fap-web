@@ -6,11 +6,20 @@ import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { lookupOrder } from "@/lib/api/v0_3";
+import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath } from "@/lib/i18n/locales";
 import { captureError } from "@/lib/observability/sentry";
+import type { SiteDictionary } from "@/lib/i18n/types";
 
 const COOLDOWN_MS = 4000;
 
-export function OrderLookupForm() {
+export function OrderLookupForm({
+  locale,
+  dict,
+}: {
+  locale: Locale;
+  dict: SiteDictionary;
+}) {
   const router = useRouter();
   const [orderNo, setOrderNo] = useState("");
   const [email, setEmail] = useState("");
@@ -23,7 +32,7 @@ export function OrderLookupForm() {
 
     const now = Date.now();
     if (now - lastSubmitAt < COOLDOWN_MS) {
-      setError("Please wait a moment before trying again.");
+      setError(locale === "zh" ? "请稍后再试。" : "Please wait a moment before trying again.");
       return;
     }
 
@@ -36,12 +45,16 @@ export function OrderLookupForm() {
       const resolvedOrderNo = response.order_no || orderNo.trim();
 
       if (!resolvedOrderNo) {
-        throw new Error("Order lookup failed.");
+        throw new Error(locale === "zh" ? "订单查询失败。" : "Order lookup failed.");
       }
 
-      router.push(`/orders/${resolvedOrderNo}`);
+      router.push(localizedPath(`/orders/${resolvedOrderNo}`, locale));
     } catch (cause) {
-      setError("We could not verify that request. Please check details or contact support.");
+      setError(
+        locale === "zh"
+          ? "无法完成订单校验，请检查信息或联系客服。"
+          : "We could not verify that request. Please check details or contact support."
+      );
       captureError(cause, {
         route: "/orders/lookup",
         orderNo,
@@ -55,12 +68,12 @@ export function OrderLookupForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Order lookup</CardTitle>
+        <CardTitle>{dict.support.lookup}</CardTitle>
       </CardHeader>
       <CardContent>
         <form className="space-y-3" onSubmit={onSubmit}>
           <label className="block space-y-1 text-sm text-slate-700">
-            <span>Order number</span>
+            <span>{locale === "zh" ? "订单号" : "Order number"}</span>
             <input
               className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
               value={orderNo}
@@ -70,7 +83,7 @@ export function OrderLookupForm() {
           </label>
 
           <label className="block space-y-1 text-sm text-slate-700">
-            <span>Purchase email</span>
+            <span>{locale === "zh" ? "购买邮箱" : "Purchase email"}</span>
             <input
               className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
               value={email}
@@ -83,7 +96,7 @@ export function OrderLookupForm() {
           {error ? <Alert>{error}</Alert> : null}
 
           <Button type="submit" disabled={submitting}>
-            {submitting ? "Checking..." : "Find order"}
+            {submitting ? (locale === "zh" ? "查询中..." : "Checking...") : locale === "zh" ? "查询订单" : "Find order"}
           </Button>
         </form>
       </CardContent>

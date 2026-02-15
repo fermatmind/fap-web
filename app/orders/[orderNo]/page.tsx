@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
+import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
+import { localizedPath } from "@/lib/i18n/locales";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import OrdersClient from "./OrdersClient";
 
-export const metadata: Metadata = {
-  title: "Order status",
-  robots: NOINDEX_ROBOTS,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ orderNo: string }>;
+}): Promise<Metadata> {
+  const { orderNo } = await params;
+  const requestHeaders = await headers();
+  const locale = resolveLocale(requestHeaders.get("x-locale"));
+  const dict = getDictSync(locale);
+
+  return {
+    title: dict.orders.title,
+    robots: NOINDEX_ROBOTS,
+    alternates: {
+      canonical: localizedPath(`/orders/${orderNo}`, locale),
+    },
+  };
+}
 
 export default async function OrderPage({
   params,

@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getDictionarySync, resolveLocale } from "@/lib/i18n/getDictionary";
+import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 
 export const metadata: Metadata = {
@@ -18,7 +18,9 @@ export const metadata: Metadata = {
 export default async function SupportPage() {
   const localeHeaders = await headers();
   const locale = resolveLocale(localeHeaders.get("x-locale"));
-  const dict = getDictionarySync(locale);
+  const dict = getDictSync(locale);
+  const isZh = locale === "zh";
+  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
@@ -26,13 +28,13 @@ export default async function SupportPage() {
       <section className="space-y-2">
         <h1 className="m-0 text-3xl font-bold text-slate-900">{dict.support.title}</h1>
         <p className="m-0 text-slate-600">
-          Need help with your order or report delivery? Start with self-service options below.
+          {dict.support.emailHint}
         </p>
       </section>
 
       <Card>
         <CardHeader>
-          <CardTitle>Quick actions</CardTitle>
+          <CardTitle>{dict.support.quickActions}</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
           <Link href={withLocale("/orders/lookup")}>
@@ -40,12 +42,12 @@ export default async function SupportPage() {
           </Link>
           <Link href={withLocale("/refund")}>
             <Button type="button" variant="outline">
-              Refund policy
+              {isZh ? "退款政策" : "Refund policy"}
             </Button>
           </Link>
           <Link href={withLocale("/privacy")}>
             <Button type="button" variant="secondary">
-              Privacy policy
+              {isZh ? "隐私政策" : "Privacy policy"}
             </Button>
           </Link>
         </CardContent>
@@ -53,11 +55,12 @@ export default async function SupportPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Contact</CardTitle>
+          <CardTitle>{dict.support.contact}</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="m-0 text-sm text-slate-700">
-            Email us at <a href="mailto:support@example.com">support@example.com</a> with your order number.
+            {isZh ? "请附上订单号发送邮件至 " : "Email us with your order number at "}
+            <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
           </p>
         </CardContent>
       </Card>

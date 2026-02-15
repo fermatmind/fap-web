@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/layout/Container";
-import { getDictionarySync } from "@/lib/i18n/getDictionary";
+import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 
 export function SiteFooter() {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
-  const dict = getDictionarySync(locale);
+  const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
@@ -35,7 +35,7 @@ export function SiteFooter() {
         </div>
 
         <p className="text-xs text-slate-500">
-          © {new Date().getFullYear()} FermatMind. All rights reserved.
+          © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
         </p>
       </Container>
     </footer>

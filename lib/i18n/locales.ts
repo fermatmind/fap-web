@@ -12,6 +12,13 @@ export function getLocaleFromPathname(pathname: string): Locale {
   return isSupportedLocale(segment) ? segment : DEFAULT_LOCALE;
 }
 
+export function normalizeLocale(value: string | null | undefined): Locale {
+  if (!value) return DEFAULT_LOCALE;
+  const normalized = value.trim().toLowerCase();
+  if (normalized.startsWith("zh")) return "zh";
+  return "en";
+}
+
 export function stripLocalePrefix(pathname: string): string {
   const segment = pathname.split("/").filter(Boolean)[0];
   if (!isSupportedLocale(segment)) return pathname;
@@ -24,4 +31,12 @@ export function localizedPath(path: string, locale: Locale): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   if (locale === DEFAULT_LOCALE) return normalized;
   return `/${locale}${normalized === "/" ? "" : normalized}`;
+}
+
+export function toggleLocalePath(pathname: string, targetLocale: Locale): string {
+  return localizedPath(stripLocalePrefix(pathname), targetLocale);
+}
+
+export function toApiLocale(value: string | null | undefined): "en" | "zh-CN" {
+  return normalizeLocale(value) === "zh" ? "zh-CN" : "en";
 }

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert } from "@/components/ui/alert";
-import { getDictionarySync } from "@/lib/i18n/getDictionary";
+import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 
@@ -48,7 +48,7 @@ export function UnlockCTA({
 }: UnlockCTAProps) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
-  const dict = getDictionarySync(locale);
+  const dict = getDictSync(locale);
 
   return (
     <Card className={cn("w-full max-w-md border-slate-300 shadow-lg", className)}>

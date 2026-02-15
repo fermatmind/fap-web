@@ -12,6 +12,10 @@ function safeText(input: unknown, fallback = ""): string {
   return input.slice(0, 256);
 }
 
+function localeFromPath(path: string): "en" | "zh" {
+  return path.startsWith("/zh") ? "zh" : "en";
+}
+
 export async function POST(request: NextRequest) {
   const contentLength = Number(request.headers.get("content-length") ?? "0");
   if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {
@@ -38,6 +42,11 @@ export async function POST(request: NextRequest) {
   const anonymousId = safeText((body as { anonymousId?: unknown }).anonymousId);
   const path = safeText((body as { path?: unknown }).path);
   const timestamp = safeText((body as { timestamp?: unknown }).timestamp, new Date().toISOString());
+  const locale = localeFromPath(path);
+  const payloadWithLocale = {
+    ...payload,
+    locale: payload.locale ?? locale,
+  };
 
   const event = {
     requestId,
@@ -45,7 +54,7 @@ export async function POST(request: NextRequest) {
     anonymousId,
     path,
     timestamp,
-    payload,
+    payload: payloadWithLocale,
   };
 
   const token = process.env.TRACK_INGEST_TOKEN;

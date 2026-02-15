@@ -18,18 +18,18 @@ export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_E
 
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   view_landing: ["locale"],
-  view_test: ["slug"],
-  view_test_landing: ["slug"],
-  start_attempt: ["slug", "scaleCode", "attemptIdMasked"],
-  submit_attempt: ["slug", "attemptIdMasked", "durationMs"],
-  view_result: ["attemptIdMasked", "locked", "typeCode"],
-  view_paywall: ["attemptIdMasked", "sku", "priceShown"],
-  click_unlock: ["attemptIdMasked", "sku", "priceShown"],
-  create_order: ["attemptIdMasked", "orderNoMasked", "sku"],
-  payment_confirmed: ["orderNoMasked", "attemptIdMasked"],
-  payment_failed: ["orderNoMasked", "attemptIdMasked", "reason"],
-  abandoned_paywall: ["attemptIdMasked", "locked", "stayMs"],
-  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku"],
+  view_test: ["slug", "locale"],
+  view_test_landing: ["slug", "locale"],
+  start_attempt: ["slug", "scaleCode", "attemptIdMasked", "locale"],
+  submit_attempt: ["slug", "attemptIdMasked", "durationMs", "locale"],
+  view_result: ["attemptIdMasked", "locked", "typeCode", "locale"],
+  view_paywall: ["attemptIdMasked", "sku", "priceShown", "locale"],
+  click_unlock: ["attemptIdMasked", "sku", "priceShown", "locale"],
+  create_order: ["attemptIdMasked", "orderNoMasked", "sku", "locale"],
+  payment_confirmed: ["orderNoMasked", "attemptIdMasked", "locale"],
+  payment_failed: ["orderNoMasked", "attemptIdMasked", "reason", "locale"],
+  abandoned_paywall: ["attemptIdMasked", "locked", "stayMs", "locale"],
+  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "currency", "locale"],
 };
 
 const FORBIDDEN_FIELD_FRAGMENTS = ["answer", "report", "email", "token", "authorization"];

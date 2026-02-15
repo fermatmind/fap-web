@@ -109,8 +109,11 @@ export type OrderStatusResponse = {
   ok?: boolean;
   order_no?: string;
   attempt_id?: string;
-  status?: "pending" | "paid" | "failed" | string;
+  status?: "pending" | "paid" | "failed" | "canceled" | "refunded" | string;
   message?: string;
+  amount?: number | string;
+  amount_cents?: number;
+  currency?: string;
   [key: string]: unknown;
 };
 
@@ -136,6 +139,31 @@ export type OrderResendResponse = {
   [key: string]: unknown;
 };
 
+export type ScaleLookupResponse = {
+  ok?: boolean;
+  slug?: string;
+  seo_title?: string | null;
+  seo_description?: string | null;
+  og_image_url?: string | null;
+  is_indexable?: boolean;
+  content_i18n_json?: Record<string, unknown> | null;
+  report_summary_i18n_json?: Record<string, unknown> | null;
+  [key: string]: unknown;
+};
+
+export type ScaleSitemapItem = {
+  slug: string;
+  lastmod?: string;
+  is_indexable?: boolean;
+};
+
+export type ScaleSitemapSourceResponse = {
+  ok?: boolean;
+  locale?: string;
+  items?: ScaleSitemapItem[];
+  [key: string]: unknown;
+};
+
 function anonHeader(anonId?: string) {
   if (!anonId) return {};
   return {
@@ -152,15 +180,17 @@ function assertApiOk<T extends { ok?: boolean }>(response: T, fallbackMessage: s
   return response;
 }
 
-function normalizeOrderStatus(status: string | undefined): "pending" | "paid" | "failed" {
+function normalizeOrderStatus(status: string | undefined): "pending" | "paid" | "failed" | "canceled" | "refunded" {
   if (!status) return "pending";
   const lower = status.toLowerCase();
   if (lower === "paid" || lower === "success" || lower === "completed") {
     return "paid";
   }
-  if (lower === "failed" || lower === "error" || lower === "canceled" || lower === "cancelled") {
+  if (lower === "failed" || lower === "error") {
     return "failed";
   }
+  if (lower === "canceled" || lower === "cancelled") return "canceled";
+  if (lower === "refunded") return "refunded";
   return "pending";
 }
 
@@ -270,6 +300,34 @@ export async function fetchAttemptReport({
   anonId: string;
 }): Promise<ReportResponse> {
   return getAttemptReport({ attemptId, anonId });
+}
+
+export async function getScaleLookup({
+  slug,
+  locale,
+}: {
+  slug: string;
+  locale?: string;
+}): Promise<ScaleLookupResponse> {
+  const response = await apiClient.get<ScaleLookupResponse>(
+    `/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}${locale ? `&locale=${encodeURIComponent(locale)}` : ""}`,
+    locale ? { locale } : undefined
+  );
+
+  return assertApiOk(response, "Failed to load scale lookup.");
+}
+
+export async function getScaleSitemapSource({
+  locale,
+}: {
+  locale: "en" | "zh";
+}): Promise<ScaleSitemapSourceResponse> {
+  const response = await apiClient.get<ScaleSitemapSourceResponse>(
+    `/v0.3/scales/sitemap-source?locale=${locale}`,
+    { locale }
+  );
+
+  return assertApiOk(response, "Failed to load sitemap source.");
 }
 
 export async function createCheckoutOrOrder({

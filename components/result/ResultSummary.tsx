@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getDictionarySync } from "@/lib/i18n/getDictionary";
+import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 
 type ResultSummaryProps = {
@@ -13,7 +13,8 @@ type ResultSummaryProps = {
 
 export function ResultSummary({ title, typeCode, summary }: ResultSummaryProps) {
   const pathname = usePathname() ?? "/";
-  const dict = getDictionarySync(getLocaleFromPathname(pathname));
+  const locale = getLocaleFromPathname(pathname);
+  const dict = getDictSync(locale);
 
   return (
     <Card>
@@ -23,10 +24,10 @@ export function ResultSummary({ title, typeCode, summary }: ResultSummaryProps) 
       <CardContent className="space-y-2 text-slate-700">
         {typeCode ? (
           <p className="m-0 text-sm">
-            <span className="font-semibold">Type:</span> {typeCode}
+            <span className="font-semibold">{locale === "zh" ? "类型：" : "Type:"}</span> {typeCode}
           </p>
         ) : null}
-        <p className="m-0 text-sm">{summary ?? "Report summary is being prepared."}</p>
+        <p className="m-0 text-sm">{summary ?? dict.result.summaryPending}</p>
       </CardContent>
     </Card>
   );
