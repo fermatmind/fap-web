@@ -1,0 +1,71 @@
+import type { SiteDictionary } from "@/lib/i18n/types";
+
+const zh: SiteDictionary = {
+  header: {
+    brand: "FermatMind",
+    tests: "测试",
+    types: "类型",
+    blog: "博客",
+    start: "开始",
+    switchToEnglish: "EN",
+    switchToChinese: "中文",
+  },
+  footer: {
+    privacy: "隐私",
+    terms: "条款",
+    refund: "退款",
+    support: "支持",
+    copyright: "保留所有权利。",
+  },
+  commerce: {
+    unlock_title: "解锁完整报告",
+    unlock_subtitle: "一次性解锁更深入的解读与行动建议。",
+    unlock_button: "立即解锁",
+    price: "价格",
+    processing: "处理中...",
+    secure_payment: "安全支付",
+    guarantee: "100% 满意保障",
+    privacy_first: "隐私优先",
+  },
+  result: {
+    title: "你的测评结果",
+    breakdown: "维度拆解",
+    interpretation: "解读",
+    noDimensions: "当前暂无可展示的维度明细。",
+    summaryPending: "报告摘要正在生成中。",
+    reportUnavailable: "报告暂时不可用，请稍后再试。",
+    paymentUnavailable: "暂时无法发起支付。",
+  },
+  orders: {
+    title: "订单状态",
+    pending: "正在确认支付...",
+    paid: "支付成功。",
+    failed: "支付失败。",
+    canceled: "订单已取消。",
+    refunded: "订单已退款。",
+    reportReady: "你的完整报告已可查看。",
+    reportGenerating: "报告仍在生成，请稍后刷新。",
+    reportFailed: "报告交付延迟，请联系客服。",
+    retryPayment: "重试支付",
+    contactSupport: "联系客服",
+    refresh: "刷新",
+    viewReport: "查看完整报告",
+  },
+  support: {
+    title: "帮助中心",
+    lookup: "订单查询",
+    quickActions: "快速操作",
+    contact: "联系渠道",
+    emailHint: "需要订单或报告交付帮助？",
+  },
+  legal: {
+    privacy_title: "隐私政策",
+    terms_title: "服务条款",
+    refund_title: "退款政策",
+    medical_disclaimer: "FermatMind 报告不是医疗诊断，也不构成医疗建议。",
+    effectiveDateLabel: "生效日期",
+    deletionChannel: "如需数据导出/删除，请联系 support@fermatmind.com。",
+  },
+};
+
+export default zh;

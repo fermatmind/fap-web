@@ -1,3 +1,5 @@
+import { getLocaleFromPathname, toApiLocale } from "@/lib/i18n/locales";
+
 export type ApiErrorShape = { status: number; message: string; details?: unknown };
 
 export class ApiError extends Error {
@@ -15,10 +17,27 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE || '/api';
 const DEFAULT_TIMEOUT_MS = 15000;
 
 type Json = Record<string, unknown>;
-type RequestOptions = RequestInit & { timeoutMs?: number };
+type RequestOptions = RequestInit & { timeoutMs?: number; locale?: string };
+
+function resolveRequestLocale(headers: Headers, localeHint?: string): "en" | "zh-CN" {
+  if (localeHint) {
+    return toApiLocale(localeHint);
+  }
+
+  const headerLocale = headers.get("X-FAP-Locale") ?? headers.get("x-locale") ?? headers.get("X-Locale");
+  if (headerLocale) {
+    return toApiLocale(headerLocale);
+  }
+
+  if (typeof window !== "undefined") {
+    return toApiLocale(getLocaleFromPathname(window.location.pathname));
+  }
+
+  return "en";
+}
 
 async function request<T>(method: string, path: string, body?: Json, init: RequestOptions = {}): Promise<T> {
-  const { timeoutMs = DEFAULT_TIMEOUT_MS, ...fetchInit } = init;
+  const { timeoutMs = DEFAULT_TIMEOUT_MS, locale, ...fetchInit } = init;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -28,15 +47,18 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
 
   let res: Response;
   try {
+    const mergedHeaders = new Headers(fetchInit.headers ?? {});
+    mergedHeaders.set("Content-Type", "application/json");
+    mergedHeaders.set("Accept", "application/json");
+    if (!mergedHeaders.has("X-FAP-Locale")) {
+      mergedHeaders.set("X-FAP-Locale", resolveRequestLocale(mergedHeaders, locale));
+    }
+
     res = await fetch(`${API_BASE}${path}`, {
       ...fetchInit,
       method,
       signal: controller.signal,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        ...(fetchInit.headers || {}),
-      },
+      headers: mergedHeaders,
       body: body ? JSON.stringify(body) : undefined,
     });
   } catch (error) {

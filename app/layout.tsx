@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
     languages: {
-      en: canonicalUrl("/en"),
+      en: canonicalUrl("/"),
       zh: canonicalUrl("/zh"),
       "x-default": canonicalUrl("/"),
     },

@@ -1,12 +1,18 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 import { TestCard } from "@/components/business/TestCard";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getAllTests } from "@/lib/content";
+import { resolveLocale } from "@/lib/i18n/getDict";
+import { localizedPath } from "@/lib/i18n/locales";
 
-export default function Home() {
+export default async function Home() {
+  const requestHeaders = await headers();
+  const locale = resolveLocale(requestHeaders.get("x-locale"));
+  const withLocale = (path: string) => localizedPath(path, locale);
   const featuredTests = getAllTests().slice(0, 6);
 
   return (
@@ -27,16 +33,16 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/tests/personality-mbti-test/take"
+                href={withLocale("/tests/personality-mbti-test/take")}
                 className={buttonVariants({ size: "lg" })}
               >
-                Start free test
+                {locale === "zh" ? "开始免费测试" : "Start free test"}
               </Link>
               <Link
-                href="/tests"
+                href={withLocale("/tests")}
                 className={buttonVariants({ variant: "outline", size: "lg" })}
               >
-                Browse tests
+                {locale === "zh" ? "浏览测试" : "Browse tests"}
               </Link>
             </div>
           </div>
@@ -61,8 +67,8 @@ export default function Home() {
               <h2 className="text-2xl font-bold tracking-tight text-slate-900">Featured Tests</h2>
               <p className="mt-1 text-sm text-slate-600">Choose a test and start immediately.</p>
             </div>
-            <Link href="/tests" className="text-sm font-semibold text-sky-700 hover:text-sky-800">
-              View all
+            <Link href={withLocale("/tests")} className="text-sm font-semibold text-sky-700 hover:text-sky-800">
+              {locale === "zh" ? "查看全部" : "View all"}
             </Link>
           </div>
 
@@ -77,6 +83,7 @@ export default function Home() {
                 questions={test.questions_count}
                 timeMinutes={test.time_minutes}
                 scaleCode={test.scale_code}
+                locale={locale}
               />
             ))}
           </div>

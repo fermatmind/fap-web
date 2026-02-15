@@ -17,8 +17,8 @@ import {
 } from "@/lib/api/v0_3";
 import { getAnonymousId, trackEvent } from "@/lib/analytics";
 import { captureError } from "@/lib/observability/sentry";
-import { getDictionarySync } from "@/lib/i18n/getDictionary";
-import { getLocaleFromPathname } from "@/lib/i18n/locales";
+import { getDictSync } from "@/lib/i18n/getDict";
+import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 
 function firstOffer(report: ReportResponse): OfferPayload | undefined {
   if (report.offer && typeof report.offer === "object") return report.offer;
@@ -42,7 +42,9 @@ function firstOffer(report: ReportResponse): OfferPayload | undefined {
 export default function ResultClient({ attemptId }: { attemptId: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
-  const dict = getDictionarySync(getLocaleFromPathname(pathname));
+  const locale = getLocaleFromPathname(pathname);
+  const dict = getDictSync(locale);
+  const withLocale = (path: string) => localizedPath(path, locale);
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -85,7 +87,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         }
       } catch (cause) {
         if (!active) return;
-        const message = cause instanceof Error ? cause.message : "Failed to load report.";
+        const message = cause instanceof Error ? cause.message : dict.result.reportUnavailable;
         setError(message);
         captureError(cause, {
           route: "/result/[id]",
@@ -102,7 +104,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     return () => {
       active = false;
     };
-  }, [attemptId]);
+  }, [attemptId, dict]);
 
   const offer = useMemo(() => (reportData ? firstOffer(reportData) : undefined), [reportData]);
   const locked = Boolean(reportData?.locked);
@@ -175,13 +177,13 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
           orderNoMasked: `${checkout.order_no.slice(0, 6)}...${checkout.order_no.slice(-4)}`,
           sku: offer?.sku ?? "",
         });
-        router.push(`/orders/${checkout.order_no}`);
+        router.push(withLocale(`/orders/${checkout.order_no}`));
         return;
       }
 
-      throw new Error("Payment session unavailable.");
+      throw new Error(dict.result.paymentUnavailable);
     } catch (cause) {
-      const message = cause instanceof Error ? cause.message : "Unable to start payment.";
+      const message = cause instanceof Error ? cause.message : dict.result.paymentUnavailable;
       setPayError(message);
       captureError(cause, {
         route: "/result/[id]",
@@ -205,7 +207,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   if (error || !reportData) {
     return (
       <Alert>
-        {error ?? "Report temporarily unavailable. Please try again in a moment."}
+        {error ?? dict.result.reportUnavailable}
       </Alert>
     );
   }
@@ -225,7 +227,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-slate-700">
                 <p className="m-0">
-                  {summary ?? "Your detailed report will appear here once it is unlocked."}
+                  {summary ?? dict.result.summaryPending}
                 </p>
                 <Separator />
                 <pre className="max-h-80 overflow-auto rounded-xl bg-slate-50 p-3 text-xs text-slate-700">

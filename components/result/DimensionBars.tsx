@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getDictionarySync } from "@/lib/i18n/getDictionary";
+import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { Progress } from "@/components/ui/progress";
 
@@ -31,7 +31,7 @@ function normalizePercent(value: Dimension): number {
 
 export function DimensionBars({ dimensions }: { dimensions: Dimension[] }) {
   const pathname = usePathname() ?? "/";
-  const dict = getDictionarySync(getLocaleFromPathname(pathname));
+  const dict = getDictSync(getLocaleFromPathname(pathname));
 
   if (!dimensions.length) {
     return (
@@ -40,7 +40,7 @@ export function DimensionBars({ dimensions }: { dimensions: Dimension[] }) {
           <CardTitle>{dict.result.breakdown}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="m-0 text-sm text-slate-600">No detailed dimensions are available yet.</p>
+          <p className="m-0 text-sm text-slate-600">{dict.result.noDimensions}</p>
         </CardContent>
       </Card>
     );

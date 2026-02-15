@@ -1,0 +1,71 @@
+import type { SiteDictionary } from "@/lib/i18n/types";
+
+const en: SiteDictionary = {
+  header: {
+    brand: "FermatMind",
+    tests: "Tests",
+    types: "Types",
+    blog: "Blog",
+    start: "Start",
+    switchToEnglish: "EN",
+    switchToChinese: "中文",
+  },
+  footer: {
+    privacy: "Privacy",
+    terms: "Terms",
+    refund: "Refund",
+    support: "Support",
+    copyright: "All rights reserved.",
+  },
+  commerce: {
+    unlock_title: "Unlock full report",
+    unlock_subtitle: "One-time access for deeper interpretation and actionable insights.",
+    unlock_button: "Unlock now",
+    price: "Price",
+    processing: "Processing...",
+    secure_payment: "Secure payment",
+    guarantee: "100% Satisfaction Guarantee",
+    privacy_first: "Privacy-first",
+  },
+  result: {
+    title: "Your assessment result",
+    breakdown: "Dimension breakdown",
+    interpretation: "Interpretation",
+    noDimensions: "No detailed dimensions are available yet.",
+    summaryPending: "Report summary is being prepared.",
+    reportUnavailable: "Report temporarily unavailable. Please try again in a moment.",
+    paymentUnavailable: "Unable to start payment.",
+  },
+  orders: {
+    title: "Order status",
+    pending: "Confirming your payment...",
+    paid: "Payment confirmed.",
+    failed: "Payment failed.",
+    canceled: "Order canceled.",
+    refunded: "Order refunded.",
+    reportReady: "Your full report is ready.",
+    reportGenerating: "Report is still generating. Refresh in a few seconds.",
+    reportFailed: "Report delivery is delayed. Please contact support.",
+    retryPayment: "Retry payment",
+    contactSupport: "Contact support",
+    refresh: "Refresh",
+    viewReport: "View full report",
+  },
+  support: {
+    title: "Support Center",
+    lookup: "Order lookup",
+    quickActions: "Quick actions",
+    contact: "Contact",
+    emailHint: "Need help with your order or report delivery?",
+  },
+  legal: {
+    privacy_title: "Privacy Policy",
+    terms_title: "Terms of Service",
+    refund_title: "Refund Policy",
+    medical_disclaimer: "FermatMind reports are not a medical diagnosis and not medical advice.",
+    effectiveDateLabel: "Effective date",
+    deletionChannel: "For data export/deletion requests, contact support@fermatmind.com.",
+  },
+};
+
+export default en;
