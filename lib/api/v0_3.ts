@@ -1,4 +1,5 @@
 import { apiClient } from "@/lib/api-client";
+import { getOrCreateAnonId } from "@/lib/anon";
 
 export type ScaleQuestionOption = {
   code: string;
@@ -79,6 +80,8 @@ export type OfferPayload = {
 export type ReportResponse = {
   ok?: boolean;
   locked?: boolean;
+  generating?: boolean;
+  retry_after?: number;
   access_level?: string;
   summary?: string;
   type_code?: string;
@@ -109,6 +112,7 @@ export type OrderStatusResponse = {
   ok?: boolean;
   order_no?: string;
   attempt_id?: string;
+  ownership_verified?: boolean;
   status?: "pending" | "paid" | "failed" | "canceled" | "refunded" | string;
   message?: string;
   amount?: number | string;
@@ -165,12 +169,26 @@ export type ScaleSitemapSourceResponse = {
 };
 
 function anonHeader(anonId?: string) {
-  if (!anonId) return {};
+  const resolvedAnonId = resolveAnonId(anonId);
+  if (!resolvedAnonId) return {};
   return {
     headers: {
-      "X-Anon-Id": anonId,
+      "X-Anon-Id": resolvedAnonId,
     },
   };
+}
+
+function resolveAnonId(anonId?: string): string | undefined {
+  if (anonId && anonId.trim().length > 0) {
+    return anonId.trim();
+  }
+
+  if (typeof window === "undefined") {
+    return undefined;
+  }
+
+  const resolved = getOrCreateAnonId();
+  return resolved.trim().length > 0 ? resolved : undefined;
 }
 
 function assertApiOk<T extends { ok?: boolean }>(response: T, fallbackMessage: string): T {
@@ -183,7 +201,7 @@ function assertApiOk<T extends { ok?: boolean }>(response: T, fallbackMessage: s
 function normalizeOrderStatus(status: string | undefined): "pending" | "paid" | "failed" | "canceled" | "refunded" {
   if (!status) return "pending";
   const lower = status.toLowerCase();
-  if (lower === "paid" || lower === "success" || lower === "completed") {
+  if (lower === "paid" || lower === "success" || lower === "completed" || lower === "fulfilled") {
     return "paid";
   }
   if (lower === "failed" || lower === "error") {
@@ -199,15 +217,16 @@ export async function startAttempt({
   anonId,
 }: {
   scaleCode: string;
-  anonId: string;
+  anonId?: string;
 }): Promise<StartAttemptResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.post<StartAttemptResponse>(
     "/v0.3/attempts/start",
     {
       scale_code: scaleCode,
-      anon_id: anonId,
+      anon_id: resolvedAnonId,
     },
-    anonHeader(anonId)
+    anonHeader(resolvedAnonId)
   );
 
   return assertApiOk(response, "Failed to start attempt.");
@@ -218,11 +237,12 @@ export async function fetchScaleQuestions({
   anonId,
 }: {
   scaleCode: string;
-  anonId: string;
+  anonId?: string;
 }): Promise<QuestionsResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.get<QuestionsResponse>(
     `/v0.3/scales/${scaleCode}/questions`,
-    anonHeader(anonId)
+    anonHeader(resolvedAnonId)
   );
 
   assertApiOk(response, "Failed to load questions.");
@@ -245,10 +265,11 @@ export async function submitAttempt({
   durationMs,
 }: {
   attemptId: string;
-  anonId: string;
+  anonId?: string;
   answers: SubmitAnswer[];
   durationMs: number;
 }): Promise<SubmitResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.post<SubmitResponse>(
     "/v0.3/attempts/submit",
     {
@@ -256,7 +277,7 @@ export async function submitAttempt({
       answers,
       duration_ms: durationMs,
     },
-    anonHeader(anonId)
+    anonHeader(resolvedAnonId)
   );
 
   return assertApiOk(response, "Submit failed.");
@@ -284,9 +305,10 @@ export async function getAttemptReport({
   attemptId: string;
   anonId?: string;
 }): Promise<ReportResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.get<ReportResponse>(
     `/v0.3/attempts/${attemptId}/report`,
-    anonHeader(anonId)
+    anonHeader(resolvedAnonId)
   );
 
   return assertApiOk(response, "Failed to load report.");
@@ -297,7 +319,7 @@ export async function fetchAttemptReport({
   anonId,
 }: {
   attemptId: string;
-  anonId: string;
+  anonId?: string;
 }): Promise<ReportResponse> {
   return getAttemptReport({ attemptId, anonId });
 }
@@ -341,6 +363,7 @@ export async function createCheckoutOrOrder({
   sku?: string;
   orderNo?: string;
 }): Promise<CheckoutResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.post<CheckoutResponse>(
     "/v0.3/orders/checkout",
     {
@@ -348,7 +371,7 @@ export async function createCheckoutOrOrder({
       sku,
       order_no: orderNo,
     },
-    anonHeader(anonId)
+    anonHeader(resolvedAnonId)
   );
 
   return assertApiOk(response, "Failed to create checkout.");
@@ -361,9 +384,10 @@ export async function getOrderStatus({
   orderNo: string;
   anonId?: string;
 }): Promise<OrderStatusResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.get<OrderStatusResponse>(
     `/v0.3/orders/${orderNo}`,
-    anonHeader(anonId)
+    anonHeader(resolvedAnonId)
   );
 
   const normalized = assertApiOk(response, "Failed to load order status.");
