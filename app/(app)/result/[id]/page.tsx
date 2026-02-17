@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   robots: NOINDEX_ROBOTS,
 };
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function ResultPage({
   params,
 }: {
