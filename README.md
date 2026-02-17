@@ -32,6 +32,29 @@ pnpm release:gate
 RELEASE_GATE_ALLOW_LOCAL_ENV=1 pnpm release:gate
 ```
 
+## Manual verification for anonId and order flow
+
+1. New visitor bootstrap:
+   - Clear browser `localStorage` and cookies for the site.
+   - Open a `/tests/[slug]/take` page.
+   - Confirm `fap_anonymous_id_v1` exists in both cookie and `localStorage`, and outbound API requests include `X-Anon-Id`.
+2. Legacy identity migration:
+   - Set `localStorage.fap_anonymous_id_v1` to an existing value.
+   - Set cookie `fap_anonymous_id_v1` to a different value.
+   - Reload and confirm cookie is overwritten by the `localStorage` value.
+3. Order polling backoff:
+   - Open `/orders/{orderNo}` while backend status remains `pending`.
+   - Confirm polling interval follows `2s -> 3s -> 5s -> 8s -> 10s` and manual refresh triggers immediate poll.
+4. Paid auto redirect:
+   - Return `paid` plus `attempt_id` from order status.
+   - Confirm page auto navigates to `/result/{attemptId}`.
+5. Paid but report not ready:
+   - Return `paid` without `attempt_id` on order status, or `generating=true` on report API.
+   - Confirm UI shows generating state and retries using `retry_after` (fallback 3s, capped at 10s).
+6. Sensitive route caching:
+   - Visit `/orders/{orderNo}` and `/result/{attemptId}` with different values.
+   - Confirm responses are dynamic and do not leak stale/cross-user content.
+
 ## Build and run
 
 ```bash
