@@ -12,11 +12,14 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "velite build && tsc --noEmit",
-    "release:gate": "bash scripts/release_gate.sh"
+    "release:gate": "bash scripts/release_gate.sh",
+    "postbuild": "next-sitemap && node scripts/upload-next-static-to-cos.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "cos-nodejs-sdk-v5": "^2.15.4",
     "lucide-react": "^0.563.0",
+    "mime-types": "^3.0.2",
     "next": "16.1.2",
     "next-sitemap": "^4.2.3",
     "react": "19.2.3",
