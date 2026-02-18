@@ -5,6 +5,9 @@ import { localizedPath } from "@/lib/i18n/locales";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import OrdersClient from "./OrdersClient";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function generateMetadata({
   params,
 }: {

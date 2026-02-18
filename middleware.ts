@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { DEFAULT_LOCALE, isSupportedLocale, stripLocalePrefix } from "@/lib/i18n/locales";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
+const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
+const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
 
 function isSensitivePath(pathname: string): boolean {
   if (pathname.startsWith("/result/")) return true;
@@ -33,6 +35,17 @@ function isStaticAsset(pathname: string): boolean {
   return /\/[^/]+\.[a-zA-Z0-9]+$/.test(pathname);
 }
 
+function buildFallbackAnonId(): string {
+  return `anon_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+}
+
+function generateAnonId(): string {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return crypto.randomUUID();
+  }
+  return buildFallbackAnonId();
+}
+
 export function middleware(request: NextRequest) {
   const originalPath = request.nextUrl.pathname;
   const locale = resolveLocale(originalPath);
@@ -51,6 +64,14 @@ export function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-locale", locale);
 
+  const requestAnonHeader = requestHeaders.get("x-anon-id")?.trim() ?? "";
+  const cookieAnonId = request.cookies.get(ANON_COOKIE_NAME)?.value?.trim() ?? "";
+  const resolvedAnonId = cookieAnonId || requestAnonHeader || generateAnonId();
+
+  if (!requestAnonHeader && resolvedAnonId) {
+    requestHeaders.set("x-anon-id", resolvedAnonId);
+  }
+
   const response = shouldRewrite
     ? NextResponse.rewrite(new URL(`${strippedPath}${request.nextUrl.search}`, request.url), {
         request: {
@@ -62,6 +83,17 @@ export function middleware(request: NextRequest) {
           headers: requestHeaders,
         },
       });
+
+  if (!cookieAnonId || cookieAnonId !== resolvedAnonId) {
+    response.cookies.set({
+      name: ANON_COOKIE_NAME,
+      value: resolvedAnonId,
+      path: "/",
+      maxAge: ANON_COOKIE_MAX_AGE_SECONDS,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production" || request.nextUrl.protocol === "https:",
+    });
+  }
 
   if (isSensitivePath(strippedPath)) {
     response.headers.set("X-Robots-Tag", NOINDEX_VALUE);

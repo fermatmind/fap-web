@@ -15,7 +15,7 @@ import {
   type OfferPayload,
   type ReportResponse,
 } from "@/lib/api/v0_3";
-import { getAnonymousId, trackEvent } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 import { captureError } from "@/lib/observability/sentry";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
@@ -39,6 +39,16 @@ function firstOffer(report: ReportResponse): OfferPayload | undefined {
   return undefined;
 }
 
+function resolveRetryMs(retryAfterSeconds: number | undefined): number {
+  const fallbackMs = 3000;
+  const retryAfterValue = typeof retryAfterSeconds === "number" ? retryAfterSeconds : Number.NaN;
+  if (!Number.isFinite(retryAfterValue)) return fallbackMs;
+
+  const retryMs = Math.floor(retryAfterValue * 1000);
+  if (retryMs <= 0) return fallbackMs;
+  return Math.min(10000, Math.max(1000, retryMs));
+}
+
 export default function ResultClient({ attemptId }: { attemptId: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
@@ -47,23 +57,36 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   const withLocale = (path: string) => localizedPath(path, locale);
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
   const [loading, setLoading] = useState(true);
+  const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [paying, setPaying] = useState(false);
   const [payError, setPayError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
+    let retryTimer: number | null = null;
 
-    const run = async () => {
-      setLoading(true);
+    const run = async (isRetry = false) => {
+      if (!isRetry) {
+        setLoading(true);
+      }
       setError(null);
 
       try {
-        const anonId = getAnonymousId();
-        const response = await getAttemptReport({ attemptId, anonId });
+        const response = await getAttemptReport({ attemptId });
         if (!active) return;
         setReportData(response);
 
+        if (response.generating) {
+          setGenerating(true);
+          const retryMs = resolveRetryMs(response.retry_after);
+          retryTimer = window.setTimeout(() => {
+            void run(true);
+          }, retryMs);
+          return;
+        }
+
+        setGenerating(false);
         const masked = `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`;
         trackEvent("view_result", {
           attemptIdMasked: masked,
@@ -87,6 +110,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         }
       } catch (cause) {
         if (!active) return;
+        setGenerating(false);
         const message = cause instanceof Error ? cause.message : dict.result.reportUnavailable;
         setError(message);
         captureError(cause, {
@@ -103,6 +127,9 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
 
     return () => {
       active = false;
+      if (retryTimer) {
+        window.clearTimeout(retryTimer);
+      }
     };
   }, [attemptId, dict]);
 
@@ -132,7 +159,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   const formattedPrice = offer?.formatted_price;
 
   useEffect(() => {
-    if (!locked) return;
+    if (!locked || generating) return;
 
     const timer = window.setTimeout(() => {
       trackEvent("abandoned_paywall", {
@@ -145,7 +172,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     return () => {
       window.clearTimeout(timer);
     };
-  }, [attemptId, locked]);
+  }, [attemptId, generating, locked]);
 
   const handlePay = async () => {
     setPaying(true);
@@ -158,10 +185,8 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         priceShown: formattedPrice ?? "",
       });
 
-      const anonId = getAnonymousId();
       const checkout = await createCheckoutOrOrder({
         attemptId,
-        anonId,
         sku: offer?.sku,
         orderNo: offer?.order_no,
       });
@@ -209,6 +234,15 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
       <Alert>
         {error ?? dict.result.reportUnavailable}
       </Alert>
+    );
+  }
+
+  if (generating) {
+    return (
+      <div className="space-y-4">
+        <Alert>{dict.orders.reportGenerating}</Alert>
+        <Skeleton className="h-44 w-full" />
+      </div>
     );
   }
 

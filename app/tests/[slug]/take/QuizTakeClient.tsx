@@ -12,7 +12,7 @@ import {
   submitAttempt,
   type ScaleQuestionItem,
 } from "@/lib/api/v0_3";
-import { getAnonymousId, trackEvent } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 import { captureError } from "@/lib/observability/sentry";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
@@ -95,8 +95,7 @@ function QuizTakeInner({
       setQuestionsError(null);
 
       try {
-        const anonId = getAnonymousId();
-        const response = await fetchScaleQuestions({ scaleCode, anonId });
+        const response = await fetchScaleQuestions({ scaleCode });
 
         if (!active) return;
 
@@ -140,8 +139,7 @@ function QuizTakeInner({
       setAttemptError(null);
 
       try {
-        const anonId = getAnonymousId();
-        const response = await startAttempt({ scaleCode, anonId });
+        const response = await startAttempt({ scaleCode });
         if (!active) return;
 
         setAttemptMeta(response.attempt_id, scaleCode);
@@ -207,12 +205,10 @@ function QuizTakeInner({
     setSubmitError(null);
 
     try {
-      const anonId = getAnonymousId();
       const durationMs = Math.max(1000, Date.now() - startedAt);
 
       const response = await submitAttempt({
         attemptId,
-        anonId,
         answers: payloadAnswers,
         durationMs,
       });
