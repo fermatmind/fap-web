@@ -1,8 +1,28 @@
 /** @type {import('next').NextConfig} */
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.example.com";
+const isProd = process.env.NODE_ENV === "production";
+const cdnUrl = (process.env.NEXT_PUBLIC_CDN_URL || "").replace(/\/$/, "");
+
+function parseHostname(value) {
+  try {
+    return new URL(value).hostname;
+  } catch {
+    return "";
+  }
+}
+
+const cdnHostname = parseHostname(cdnUrl);
+const remotePatternHostnames = [...new Set(["**.fermatmind.com", "**.myqcloud.com", cdnHostname].filter(Boolean))];
 
 const nextConfig = {
   output: "standalone",
+  assetPrefix: isProd && cdnUrl ? cdnUrl : undefined,
+  images: {
+    remotePatterns: remotePatternHostnames.map((hostname) => ({
+      protocol: "https",
+      hostname,
+    })),
+  },
   async headers() {
     const value = "noindex, nofollow, noarchive";
     return [
@@ -29,6 +49,20 @@ const nextConfig = {
       {
         source: "/zh/share/:path*",
         headers: [{ key: "X-Robots-Tag", value }],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: "/sitemap-en.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/sitemap-zh.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
       },
     ];
   },
