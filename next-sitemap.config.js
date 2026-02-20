@@ -22,7 +22,7 @@ function buildTestPaths() {
 
   const paths = [];
   for (const slug of uniqueSlugs) {
-    paths.push(`/tests/${slug}`);
+    paths.push(`/en/tests/${slug}`);
     paths.push(`/zh/tests/${slug}`);
   }
   return paths;
@@ -36,31 +36,33 @@ module.exports = {
   sitemapSize: 5000,
   exclude: [
     "/api/*",
-    "/result/*",
-    "/share/*",
-    "/orders/*",
+    "/en/result/*",
+    "/zh/result/*",
+    "/en/share/*",
+    "/zh/share/*",
+    "/en/orders/*",
+    "/zh/orders/*",
     "/og/*",
-    "/tests/*/take",
-    "/test/*/take",
+    "/en/tests/*/take",
+    "/zh/tests/*/take",
     "/server-sitemap.xml",
   ],
   robotsTxtOptions: {
     policies: [
       {
         userAgent: "*",
-        allow: ["/", "/tests", "/tests/*", "/blog/*"],
+        allow: ["/", "/en", "/zh", "/en/tests", "/zh/tests", "/en/tests/*", "/zh/tests/*", "/en/blog/*", "/zh/blog/*"],
         disallow: [
           "/api/",
-          "/tests/*/take",
-          "/result/",
-          "/share/",
-          "/orders/",
-          "/og/",
+          "/en/tests/*/take",
           "/zh/tests/*/take",
+          "/en/result/",
           "/zh/result/",
+          "/en/share/",
           "/zh/share/",
+          "/en/orders/",
           "/zh/orders/",
-          "/zh/og/",
+          "/og/",
         ],
       },
     ],

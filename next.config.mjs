@@ -55,6 +55,26 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/tests",
+        destination: "/en/tests",
+        permanent: true,
+      },
+      {
+        source: "/tests/:path*",
+        destination: "/en/tests/:path*",
+        permanent: true,
+      },
+      {
+        source: "/test",
+        destination: "/en/tests",
+        permanent: true,
+      },
+      {
+        source: "/test/:path*",
+        destination: "/en/tests/:path*",
+        permanent: true,
+      },
+      {
         source: "/sitemap-en.xml",
         destination: "/sitemap.xml",
         permanent: true,

@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { DEFAULT_LOCALE, isSupportedLocale, stripLocalePrefix } from "@/lib/i18n/locales";
+import { stripLocalePrefix } from "@/lib/i18n/locales";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
@@ -19,39 +19,10 @@ function isSensitivePath(pathname: string): boolean {
   return isTestsTake || isLegacyTestTake;
 }
 
-function hasLocalePrefix(pathname: string): boolean {
-  const segment = pathname.split("/").filter(Boolean)[0];
-  return isSupportedLocale(segment);
-}
-
-function resolveLocale(pathname: string): string {
-  const segment = pathname.split("/").filter(Boolean)[0];
-  return isSupportedLocale(segment) ? segment : DEFAULT_LOCALE;
-}
-
 function isStaticAsset(pathname: string): boolean {
   if (pathname.startsWith("/_next/")) return true;
   if (pathname === "/favicon.ico") return true;
   return /\/[^/]+\.[a-zA-Z0-9]+$/.test(pathname);
-}
-
-function pickForwarded(value: string | null): string | null {
-  if (!value) return null;
-  const first = value.split(",")[0]?.trim();
-  return first || null;
-}
-
-function getRewriteOrigin(request: NextRequest): string {
-  const forwardedProto = pickForwarded(request.headers.get("x-forwarded-proto"));
-  const forwardedHost = pickForwarded(request.headers.get("x-forwarded-host"));
-  const host = pickForwarded(request.headers.get("host"));
-  const protocol = forwardedProto ?? request.nextUrl.protocol.replace(":", "");
-  const resolvedHost = forwardedHost ?? host ?? request.nextUrl.host;
-  return `${protocol}://${resolvedHost}`;
-}
-
-function buildRewriteUrl(request: NextRequest, pathname: string): URL {
-  return new URL(`${pathname}${request.nextUrl.search}`, getRewriteOrigin(request));
 }
 
 function buildFallbackAnonId(): string {
@@ -66,24 +37,14 @@ function generateAnonId(): string {
 }
 
 export function middleware(request: NextRequest) {
-  const originalPath = request.nextUrl.pathname;
-  const headerLocale = request.headers.get("x-locale");
-  const locale = isSupportedLocale(headerLocale) ? headerLocale : resolveLocale(originalPath);
-  const strippedPath = stripLocalePrefix(originalPath);
-  const shouldRewrite = hasLocalePrefix(originalPath);
+  const pathname = request.nextUrl.pathname;
+  const strippedPath = stripLocalePrefix(pathname);
 
-  if (isStaticAsset(strippedPath)) {
-    if (!shouldRewrite) {
-      return NextResponse.next();
-    }
-
-    const staticUrl = buildRewriteUrl(request, strippedPath);
-    return NextResponse.rewrite(staticUrl);
+  if (isStaticAsset(pathname)) {
+    return NextResponse.next();
   }
 
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-locale", locale);
-
   const requestAnonHeader = requestHeaders.get("x-anon-id")?.trim() ?? "";
   const cookieAnonId = request.cookies.get(ANON_COOKIE_NAME)?.value?.trim() ?? "";
   const resolvedAnonId = cookieAnonId || requestAnonHeader || generateAnonId();
@@ -92,17 +53,11 @@ export function middleware(request: NextRequest) {
     requestHeaders.set("x-anon-id", resolvedAnonId);
   }
 
-  const response = shouldRewrite
-    ? NextResponse.rewrite(buildRewriteUrl(request, strippedPath), {
-        request: {
-          headers: requestHeaders,
-        },
-      })
-    : NextResponse.next({
-        request: {
-          headers: requestHeaders,
-        },
-      });
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 
   if (!cookieAnonId || cookieAnonId !== resolvedAnonId) {
     response.cookies.set({
