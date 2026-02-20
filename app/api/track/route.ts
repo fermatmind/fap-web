@@ -7,6 +7,14 @@ import {
 
 const MAX_BODY_BYTES = 8 * 1024;
 
+export function HEAD() {
+  return new NextResponse(null, { status: 200 });
+}
+
+export function GET() {
+  return NextResponse.json({ ok: true });
+}
+
 function safeText(input: unknown, fallback = ""): string {
   if (typeof input !== "string") return fallback;
   return input.slice(0, 256);

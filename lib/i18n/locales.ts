@@ -29,8 +29,7 @@ export function stripLocalePrefix(pathname: string): string {
 
 export function localizedPath(path: string, locale: Locale): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (locale === DEFAULT_LOCALE) return normalized;
-  return `/${locale}${normalized === "/" ? "" : normalized}`;
+  return normalized === "/" ? `/${locale}` : `/${locale}${normalized}`;
 }
 
 export function toggleLocalePath(pathname: string, targetLocale: Locale): string {
