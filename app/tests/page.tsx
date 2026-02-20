@@ -2,24 +2,25 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { TestCard } from "@/components/business/TestCard";
 import { Container } from "@/components/layout/Container";
-import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
 import { getAllTests } from "@/lib/content";
+import { getDictSync } from "@/lib/i18n/getDict";
+import { resolveRequestLocale } from "@/lib/i18n/resolveRequestLocale";
+import { canonicalUrl } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
-  const locale = resolveLocale(requestHeaders.get("x-locale"));
-  const canonical = localizedPath("/tests", locale);
+  const locale = resolveRequestLocale(requestHeaders);
+  const isZh = locale === "zh";
 
   return {
-    title: locale === "zh" ? "测试" : "Tests",
-    description: locale === "zh" ? "浏览所有可用测试。" : "Browse all available tests.",
+    title: isZh ? "测评列表" : "Tests",
+    description: isZh ? "浏览所有可用测评。" : "Browse all available tests.",
     alternates: {
-      canonical,
+      canonical: canonicalUrl(isZh ? "/zh/tests" : "/tests"),
       languages: {
-        en: "/tests",
-        zh: "/zh/tests",
-        "x-default": "/tests",
+        en: canonicalUrl("/tests"),
+        zh: canonicalUrl("/zh/tests"),
+        "x-default": canonicalUrl("/tests"),
       },
     },
   };
@@ -27,18 +28,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function TestsPage() {
   const requestHeaders = await headers();
-  const locale = resolveLocale(requestHeaders.get("x-locale"));
+  const locale = resolveRequestLocale(requestHeaders);
+  const dict = getDictSync(locale);
   const tests = getAllTests();
 
   return (
     <Container as="main" className="py-10">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">{locale === "zh" ? "测试" : "Tests"}</h1>
-        <p className="text-slate-600">
-          {locale === "zh"
-            ? "选择一个测试查看详情并开始测评。"
-            : "Pick a test to view details and start assessment."}
-        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900">{dict.tests.title}</h1>
+        <p className="text-slate-600">{dict.tests.subtitle}</p>
       </div>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

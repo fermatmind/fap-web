@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteChrome } from "@/components/layout/SiteChrome";
+import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
+import { resolveRequestLocale } from "@/lib/i18n/resolveRequestLocale";
 import { canonicalUrl, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -41,16 +44,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = await headers();
+  const locale = resolveRequestLocale(requestHeaders);
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
-          <SiteChrome>{children}</SiteChrome>
+          <LocaleProvider locale={locale}>
+            <SiteChrome>{children}</SiteChrome>
+          </LocaleProvider>
         </Providers>
       </body>
     </html>

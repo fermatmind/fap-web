@@ -1,16 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocale } from "@/components/i18n/LocaleContext";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { localizedPath } from "@/lib/i18n/locales";
 
 export function SiteHeader() {
-  const pathname = usePathname() ?? "/";
-  const locale = getLocaleFromPathname(pathname);
+  const locale = useLocale();
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
   const navItems = [

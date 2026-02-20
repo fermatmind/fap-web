@@ -10,6 +10,25 @@ export type SiteDictionary = {
     switchToEnglish: string;
     switchToChinese: string;
   };
+  tests: {
+    title: string;
+    subtitle: string;
+  };
+  common: {
+    start: string;
+    details: string;
+    questions_unit: string;
+    minutes_unit: string;
+  };
+  lang: {
+    zh_label: string;
+    en_label: string;
+  };
+  cookie: {
+    message: string;
+    accept: string;
+    decline: string;
+  };
   footer: {
     privacy: string;
     terms: string;

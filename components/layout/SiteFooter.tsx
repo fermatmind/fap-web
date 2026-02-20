@@ -1,14 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocale } from "@/components/i18n/LocaleContext";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { localizedPath } from "@/lib/i18n/locales";
 
 export function SiteFooter() {
-  const pathname = usePathname() ?? "/";
-  const locale = getLocaleFromPathname(pathname);
+  const locale = useLocale();
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
 
