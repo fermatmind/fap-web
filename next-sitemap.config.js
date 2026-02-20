@@ -35,6 +35,7 @@ module.exports = {
   generateRobotsTxt: true,
   sitemapSize: 5000,
   exclude: [
+    "/",
     "/api/*",
     "/en/result/*",
     "/zh/result/*",
