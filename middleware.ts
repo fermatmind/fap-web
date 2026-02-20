@@ -35,6 +35,25 @@ function isStaticAsset(pathname: string): boolean {
   return /\/[^/]+\.[a-zA-Z0-9]+$/.test(pathname);
 }
 
+function pickForwarded(value: string | null): string | null {
+  if (!value) return null;
+  const first = value.split(",")[0]?.trim();
+  return first || null;
+}
+
+function getRewriteOrigin(request: NextRequest): string {
+  const forwardedProto = pickForwarded(request.headers.get("x-forwarded-proto"));
+  const forwardedHost = pickForwarded(request.headers.get("x-forwarded-host"));
+  const host = pickForwarded(request.headers.get("host"));
+  const protocol = forwardedProto ?? request.nextUrl.protocol.replace(":", "");
+  const resolvedHost = forwardedHost ?? host ?? request.nextUrl.host;
+  return `${protocol}://${resolvedHost}`;
+}
+
+function buildRewriteUrl(request: NextRequest, pathname: string): URL {
+  return new URL(`${pathname}${request.nextUrl.search}`, getRewriteOrigin(request));
+}
+
 function buildFallbackAnonId(): string {
   return `anon_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
 }
@@ -48,7 +67,8 @@ function generateAnonId(): string {
 
 export function middleware(request: NextRequest) {
   const originalPath = request.nextUrl.pathname;
-  const locale = resolveLocale(originalPath);
+  const headerLocale = request.headers.get("x-locale");
+  const locale = isSupportedLocale(headerLocale) ? headerLocale : resolveLocale(originalPath);
   const strippedPath = stripLocalePrefix(originalPath);
   const shouldRewrite = hasLocalePrefix(originalPath);
 
@@ -57,7 +77,7 @@ export function middleware(request: NextRequest) {
       return NextResponse.next();
     }
 
-    const staticUrl = new URL(`${strippedPath}${request.nextUrl.search}`, request.url);
+    const staticUrl = buildRewriteUrl(request, strippedPath);
     return NextResponse.rewrite(staticUrl);
   }
 
@@ -73,7 +93,7 @@ export function middleware(request: NextRequest) {
   }
 
   const response = shouldRewrite
-    ? NextResponse.rewrite(new URL(`${strippedPath}${request.nextUrl.search}`, request.url), {
+    ? NextResponse.rewrite(buildRewriteUrl(request, strippedPath), {
         request: {
           headers: requestHeaders,
         },

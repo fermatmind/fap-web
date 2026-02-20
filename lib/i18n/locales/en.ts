@@ -10,6 +10,25 @@ const en: SiteDictionary = {
     switchToEnglish: "EN",
     switchToChinese: "中文",
   },
+  tests: {
+    title: "Tests",
+    subtitle: "Pick a test to view details and start assessment.",
+  },
+  common: {
+    start: "Start",
+    details: "Details",
+    questions_unit: "questions",
+    minutes_unit: "min",
+  },
+  lang: {
+    zh_label: "中文",
+    en_label: "EN",
+  },
+  cookie: {
+    message: "We use cookies and analytics to improve service quality. You can accept or decline analytics tracking.",
+    accept: "Accept",
+    decline: "Decline",
+  },
   footer: {
     privacy: "Privacy",
     terms: "Terms",

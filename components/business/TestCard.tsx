@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { getDictSync } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 
@@ -27,6 +28,8 @@ export function TestCard({
   scaleCode,
   locale = "en",
 }: TestCardProps) {
+  const dict = getDictSync(locale);
+
   return (
     <Card className="flex h-full flex-col overflow-hidden">
       <div className="overflow-hidden border-b border-slate-200">
@@ -41,8 +44,8 @@ export function TestCard({
 
       <CardHeader className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge>{questions} questions</Badge>
-          <Badge>{timeMinutes} min</Badge>
+          <Badge>{questions} {dict.common.questions_unit}</Badge>
+          <Badge>{timeMinutes} {dict.common.minutes_unit}</Badge>
           {scaleCode ? <Badge>{scaleCode}</Badge> : null}
         </div>
         <CardTitle>{title}</CardTitle>
@@ -53,13 +56,13 @@ export function TestCard({
 
       <CardFooter className="gap-2">
         <Link href={localizedPath(`/tests/${slug}/take`, locale)} className={buttonVariants({ size: "sm" })}>
-          {locale === "zh" ? "开始" : "Start"}
+          {dict.common.start}
         </Link>
         <Link
           href={localizedPath(`/tests/${slug}`, locale)}
           className={buttonVariants({ size: "sm", variant: "outline" })}
         >
-          {locale === "zh" ? "详情" : "Details"}
+          {dict.common.details}
         </Link>
       </CardFooter>
     </Card>

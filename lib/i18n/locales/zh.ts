@@ -10,6 +10,25 @@ const zh: SiteDictionary = {
     switchToEnglish: "EN",
     switchToChinese: "中文",
   },
+  tests: {
+    title: "测评列表",
+    subtitle: "选择一个测评查看详情并开始测评。",
+  },
+  common: {
+    start: "开始",
+    details: "详情",
+    questions_unit: "题",
+    minutes_unit: "分钟",
+  },
+  lang: {
+    zh_label: "中文",
+    en_label: "EN",
+  },
+  cookie: {
+    message: "我们使用 Cookie 和分析工具来提升服务质量。你可以接受或拒绝分析追踪。",
+    accept: "接受",
+    decline: "拒绝",
+  },
   footer: {
     privacy: "隐私",
     terms: "条款",
