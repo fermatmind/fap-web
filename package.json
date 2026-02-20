@@ -13,7 +13,7 @@
     "lint": "eslint",
     "typecheck": "velite build && tsc --noEmit",
     "release:gate": "bash scripts/release_gate.sh",
-    "postbuild": "next-sitemap && node scripts/upload-next-static-to-cos.mjs"
+    "postbuild": "next-sitemap && dotenv -e .env.production.local -- node scripts/upload-next-static-to-cos.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -34,6 +34,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "concurrently": "^9.2.1",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.2",
     "tailwindcss": "^4",
