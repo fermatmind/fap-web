@@ -45,12 +45,20 @@ export default async function BlogDetailPage({
   if (!post) return notFound();
 
   return (
-    <Container as="main" className="py-10">
-      <Card>
+    <Container as="main" className="space-y-6 py-10">
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          Article
+        </p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{post.title}</h1>
+        <p className="m-0 text-[var(--fm-text-muted)]">{post.summary}</p>
+      </section>
+
+      <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
         <CardHeader className="space-y-3">
-          <CardTitle>{post.title}</CardTitle>
-          <p className="text-sm text-slate-600">{post.summary}</p>
-          <p className="text-xs text-slate-500">Updated: {post.updatedAt}</p>
+          <CardTitle className="font-serif text-[var(--fm-text)]">{post.title}</CardTitle>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{post.summary}</p>
+          <p className="m-0 text-xs text-[var(--fm-text-muted)]">Updated: {post.updatedAt}</p>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-wrap gap-2">
@@ -58,10 +66,13 @@ export default async function BlogDetailPage({
               <Badge key={tag}>{tag}</Badge>
             ))}
           </div>
-          <p className="text-sm text-slate-600">
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">
             Full markdown rendering is intentionally out of scope for this iteration.
           </p>
-          <Link href={localizedPath("/blog", locale)} className="text-sm font-semibold text-sky-700 hover:text-sky-800">
+          <Link
+            href={localizedPath("/blog", locale)}
+            className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+          >
             Back to blog
           </Link>
         </CardContent>

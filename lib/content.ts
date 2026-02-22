@@ -12,6 +12,11 @@ export type TestListItem = {
   questions_count: number;
   time_minutes: number;
   scale_code?: string;
+  card_visual?: string;
+  card_tone?: string;
+  card_seed?: string;
+  card_density?: string;
+  card_tagline_i18n?: Record<string, string>;
 };
 
 export function getAllTests(): TestListItem[] {
@@ -25,6 +30,11 @@ export function getAllTests(): TestListItem[] {
       questions_count: test.questions_count,
       time_minutes: test.time_minutes,
       scale_code: test.scale_code,
+      card_visual: test.card_visual,
+      card_tone: test.card_tone,
+      card_seed: test.card_seed,
+      card_density: test.card_density,
+      card_tagline_i18n: test.card_tagline_i18n,
     }));
 }
 

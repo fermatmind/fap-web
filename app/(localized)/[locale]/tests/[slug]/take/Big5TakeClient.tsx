@@ -7,6 +7,7 @@ import { QuestionCard } from "@/components/big5/quiz/QuestionCard";
 import { QuestionNavigator } from "@/components/big5/quiz/QuestionNavigator";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 import { setFmToken } from "@/lib/auth/fmToken";
 import { ApiError } from "@/lib/api-client";
 import { getOrCreateAnonId } from "@/lib/anon";
@@ -24,6 +25,7 @@ import {
 } from "@/lib/big5/api";
 import { mapBig5Error, type Big5UiError } from "@/lib/big5/errors";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
+import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 
 function wait(ms: number): Promise<void> {
@@ -42,6 +44,7 @@ function retryCountdownText(locale: "en" | "zh", seconds: number): string {
 export default function Big5TakeClient({ slug }: { slug: string }) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
+  const dict = getDictSync(locale);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -87,6 +90,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const [cooldownSeconds, setCooldownSeconds] = useState(0);
   const [trackingBase, setTrackingBase] = useState<Big5TrackingContext | null>(null);
   const [packVersion, setPackVersion] = useState<string>("BIG5_OCEAN");
+  const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
+  const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
 
   const total = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -105,6 +110,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
   const inCooldown = cooldownSeconds > 0;
+  const previousQuestion = currentIndex > 0 ? questions[currentIndex - 1] : null;
+  const nextQuestion = currentIndex < total - 1 ? questions[currentIndex + 1] : null;
 
   const trackingFallback = useMemo<Big5TrackingContext>(
     () => ({
@@ -182,6 +189,43 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       window.clearInterval(timer);
     };
   }, [cooldownSeconds]);
+
+  useEffect(() => {
+    if (answeredCount === 0) {
+      setSeenMilestones([]);
+      setMilestoneHint(null);
+    }
+  }, [answeredCount, total]);
+
+  useEffect(() => {
+    if (total <= 0) return;
+
+    const progressPercent = Math.floor((answeredCount / total) * 100);
+    const milestones = [20, 40, 60, 80, 100];
+    const nextMilestone = milestones.find((milestone) => progressPercent >= milestone && !seenMilestones.includes(milestone));
+    if (!nextMilestone) return;
+
+    const nextSeen = [...seenMilestones, nextMilestone];
+    setSeenMilestones(nextSeen);
+
+    const hintIndex = milestones.indexOf(nextMilestone);
+    const hint = dict.quiz.milestoneHints[hintIndex] ?? dict.quiz.milestoneHints[dict.quiz.milestoneHints.length - 1] ?? "";
+    if (hint) {
+      setMilestoneHint(hint);
+      window.setTimeout(() => {
+        setMilestoneHint((prev) => (prev === hint ? null : prev));
+      }, 1500);
+    }
+
+    const elapsedMs = Math.max(0, Date.now() - startedAt);
+    const durationBucket = elapsedMs < 60000 ? "lt_1m" : elapsedMs < 180000 ? "1_3m" : "gte_3m";
+    trackEvent("ui_quiz_milestone", {
+      scale_code: "BIG5_OCEAN",
+      milestone: nextMilestone,
+      duration_bucket: durationBucket,
+      locale,
+    });
+  }, [answeredCount, dict.quiz.milestoneHints, locale, seenMilestones, startedAt, total]);
 
   useEffect(() => {
     let active = true;
@@ -585,15 +629,36 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
   return (
     <div className="space-y-4">
-      <ProgressHeader current={currentIndex + 1} total={total} answered={answeredCount} />
+      <div className="opacity-80">
+        <ProgressHeader current={currentIndex + 1} total={total} answered={answeredCount} />
+      </div>
+
+      {milestoneHint ? (
+        <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+          {milestoneHint}
+        </div>
+      ) : null}
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_360px]">
         <div className="space-y-4">
+          <div className="grid grid-cols-3 gap-2">
+            <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
+              {previousQuestion ? `${locale === "zh" ? "上一题" : "Previous"}: ${currentIndex}` : (locale === "zh" ? "上一题" : "Previous")}
+            </div>
+            <div className="min-h-[48px] rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] px-3 py-2 text-xs font-semibold text-[var(--fm-text)] shadow-[var(--fm-shadow-md)] opacity-100">
+              {locale === "zh" ? "当前题目" : "Current focus"}
+            </div>
+            <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
+              {nextQuestion ? `${locale === "zh" ? "下一题" : "Next"}: ${currentIndex + 2}` : (locale === "zh" ? "下一题" : "Next")}
+            </div>
+          </div>
+
           <QuestionCard
             question={currentQuestion}
             index={currentIndex}
             total={total}
             selectedCode={answers[currentQuestion.question_id]}
+            emphasized
             onSelect={handleSelectAnswer}
           />
 
@@ -642,13 +707,15 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           </div>
         </div>
 
-        <QuestionNavigator
-          total={total}
-          currentIndex={currentIndex}
-          questionIds={questionIds}
-          answeredMap={answers}
-          onJump={(index) => setCurrentIndex(index)}
-        />
+        <div className="opacity-70">
+          <QuestionNavigator
+            total={total}
+            currentIndex={currentIndex}
+            questionIds={questionIds}
+            answeredMap={answers}
+            onJump={(index) => setCurrentIndex(index)}
+          />
+        </div>
       </div>
     </div>
   );

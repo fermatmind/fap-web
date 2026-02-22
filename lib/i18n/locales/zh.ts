@@ -14,6 +14,32 @@ const zh: SiteDictionary = {
     title: "测评列表",
     subtitle: "选择一个测评查看详情并开始测评。",
   },
+  card: {
+    compactLabel: "精简视觉",
+    a11yVisualDescriptions: {
+      bars_ocean: "代表 OCEAN 五维高低起伏的柱状图。",
+      wave_clinical: "表达多维临床趋势变化的波形图。",
+      grid_nine: "代表九型结构关系的九宫格矩阵。",
+      ring_four: "代表 DISC 四象限行为模式的环形图。",
+      spark_minimal: "代表结构化测评分析的极简数据火花图。",
+    },
+    a11yVisualFallback: "结构化测评视觉图形。",
+  },
+  quiz: {
+    milestoneHints: [
+      "进展不错，继续保持。",
+      "节奏很好，继续前进。",
+      "已完成一半，专注就好。",
+      "接近完成，再坚持一下。",
+      "完成得很棒。",
+    ],
+  },
+  loading: {
+    phases: [
+      "正在匹配证据模型...",
+      "正在生成你的结构化洞察图谱...",
+    ],
+  },
   common: {
     start: "开始",
     details: "详情",
@@ -45,6 +71,11 @@ const zh: SiteDictionary = {
     secure_payment: "安全支付",
     guarantee: "100% 满意保障",
     privacy_first: "隐私优先",
+    trust_badges: [
+      "SSL 安全支付",
+      "数据哈希脱敏",
+      "科学算法引擎",
+    ],
   },
   result: {
     title: "你的测评结果",

@@ -22,18 +22,26 @@ export default async function BlogPage({
   const posts = listBlogPosts();
 
   return (
-    <Container as="main" className="py-10">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Blog</h1>
-        <p className="text-slate-600">Read short explainers and practical guides.</p>
-      </div>
+    <Container as="main" className="space-y-6 py-10">
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          Insights
+        </p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">Blog</h1>
+        <p className="m-0 text-[var(--fm-text-muted)]">
+          Read short explainers and practical guides.
+        </p>
+      </section>
 
-      <div className="mt-8 grid gap-4">
+      <div className="grid gap-4">
         {posts.map((post) => (
-          <Card key={post.slug}>
+          <Card
+            key={post.slug}
+            className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)] transition hover:shadow-[var(--fm-shadow-md)]"
+          >
             <CardHeader className="space-y-3">
-              <CardTitle>{post.title}</CardTitle>
-              <p className="text-sm text-slate-600">{post.summary}</p>
+              <CardTitle className="font-serif text-[var(--fm-text)]">{post.title}</CardTitle>
+              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{post.summary}</p>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex flex-wrap gap-2">
@@ -41,10 +49,10 @@ export default async function BlogPage({
                   <Badge key={tag}>{tag}</Badge>
                 ))}
               </div>
-              <p className="text-xs text-slate-500">Updated: {post.updatedAt}</p>
+              <p className="m-0 text-xs text-[var(--fm-text-muted)]">Updated: {post.updatedAt}</p>
               <Link
                 href={withLocale(`/blog/${post.slug}`)}
-                className="text-sm font-semibold text-sky-700 hover:text-sky-800"
+                className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
               >
                 Read article
               </Link>

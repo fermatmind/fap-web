@@ -18,6 +18,7 @@ import {
 } from "@/lib/clinical/api";
 import { useClinicalAttemptStore } from "@/lib/clinical/attemptStore";
 import { mapClinicalError } from "@/lib/clinical/errors";
+import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import { captureError } from "@/lib/observability/sentry";
 import type { QuestionsMeta, ScaleQuestionItem, ScaleQuestionOption } from "@/lib/api/v0_3";
@@ -102,6 +103,7 @@ export default function ClinicalTakeClient({
 }) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
+  const dict = getDictSync(locale);
   const isZh = locale === "zh";
   const router = useRouter();
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
@@ -136,6 +138,8 @@ export default function ClinicalTakeClient({
 
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
+  const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
 
   const consentText = useMemo(() => resolveConsentText(questionsMeta, isZh), [isZh, questionsMeta]);
   const serverConsentVersion =
@@ -143,6 +147,8 @@ export default function ClinicalTakeClient({
 
   const totalQuestions = questions.length;
   const currentQuestion = questions[currentIndex];
+  const previousQuestion = currentIndex > 0 ? questions[currentIndex - 1] : null;
+  const nextQuestion = currentIndex < totalQuestions - 1 ? questions[currentIndex + 1] : null;
   const answeredCount = useMemo(
     () => questions.reduce((count, item) => count + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
@@ -239,6 +245,41 @@ export default function ClinicalTakeClient({
     setConsentChecked(false);
     setAttemptId(null);
   }, [needsConsent, setAttemptId]);
+
+  useEffect(() => {
+    if (answeredCount === 0) {
+      setSeenMilestones([]);
+      setMilestoneHint(null);
+    }
+  }, [answeredCount, totalQuestions]);
+
+  useEffect(() => {
+    if (totalQuestions <= 0) return;
+
+    const progressPercent = Math.floor((answeredCount / totalQuestions) * 100);
+    const milestones = [20, 40, 60, 80, 100];
+    const nextMilestone = milestones.find((milestone) => progressPercent >= milestone && !seenMilestones.includes(milestone));
+    if (!nextMilestone) return;
+
+    setSeenMilestones((prev) => [...prev, nextMilestone]);
+    const hintIndex = milestones.indexOf(nextMilestone);
+    const hint = dict.quiz.milestoneHints[hintIndex] ?? dict.quiz.milestoneHints[dict.quiz.milestoneHints.length - 1] ?? "";
+    if (hint) {
+      setMilestoneHint(hint);
+      window.setTimeout(() => {
+        setMilestoneHint((prev) => (prev === hint ? null : prev));
+      }, 1500);
+    }
+
+    const elapsedMs = Math.max(0, Date.now() - startedAt);
+    const durationBucket = elapsedMs < 60000 ? "lt_1m" : elapsedMs < 180000 ? "1_3m" : "gte_3m";
+    trackEvent("ui_quiz_milestone", {
+      scale_code: scaleCode,
+      milestone: nextMilestone,
+      duration_bucket: durationBucket,
+      locale,
+    });
+  }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, totalQuestions]);
 
   const ensureAttempt = useCallback(async () => {
     if (attemptId) {
@@ -429,6 +470,24 @@ export default function ClinicalTakeClient({
         </div>
       </QuizShell>
 
+      {milestoneHint ? (
+        <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+          {milestoneHint}
+        </div>
+      ) : null}
+
+      <div className="grid grid-cols-3 gap-2">
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
+          {previousQuestion ? `${isZh ? "上一题" : "Previous"}: ${currentIndex}` : (isZh ? "上一题" : "Previous")}
+        </div>
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] px-3 py-2 text-xs font-semibold text-[var(--fm-text)] shadow-[var(--fm-shadow-md)] opacity-100">
+          {isZh ? "当前题目" : "Current focus"}
+        </div>
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
+          {nextQuestion ? `${isZh ? "下一题" : "Next"}: ${currentIndex + 2}` : (isZh ? "下一题" : "Next")}
+        </div>
+      </div>
+
       {pendingModuleTransition ? (
         <ModuleTransitionCard
           locale={locale}
@@ -444,6 +503,7 @@ export default function ClinicalTakeClient({
           total={totalQuestions}
           options={options}
           selectedCode={answers[currentQuestion.question_id]}
+          emphasized
           onSelect={handleSelect}
         />
       )}

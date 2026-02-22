@@ -19,9 +19,9 @@ export function SiteHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[var(--fm-border)] bg-white/90 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link href={withLocale("/")} className="text-lg font-semibold tracking-tight text-slate-900">
+        <Link href={withLocale("/")} className="font-serif text-lg font-semibold tracking-tight text-[var(--fm-text)]">
           {dict.header.brand}
         </Link>
 
@@ -30,7 +30,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={withLocale(item.href)}
-              className="rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+              className="rounded-full px-3 py-2 text-sm font-medium text-[var(--fm-text-muted)] transition hover:bg-[var(--fm-surface-muted)] hover:text-[var(--fm-text)]"
             >
               {item.label}
             </Link>

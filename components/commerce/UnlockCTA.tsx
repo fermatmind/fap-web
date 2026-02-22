@@ -80,10 +80,18 @@ export function UnlockCTA({
 
         {error ? <Alert>{error}</Alert> : null}
 
-        <div className="space-y-1 text-xs text-slate-600">
-          <p className="m-0">{dict.commerce.secure_payment}</p>
-          <p className="m-0">{dict.commerce.guarantee}</p>
-          <p className="m-0">{dict.commerce.privacy_first}</p>
+        <div className="flex flex-wrap items-center gap-2 text-[10px] text-slate-600">
+          {dict.commerce.trust_badges.map((badge) => (
+            <span
+              key={badge}
+              className="inline-flex items-center gap-1 rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-2 py-1"
+            >
+              <svg aria-hidden viewBox="0 0 20 20" className="h-3.5 w-3.5 text-[var(--fm-accent)]" fill="currentColor">
+                <path d="M10 2 4 4.5V9c0 4.1 2.6 7.7 6 9 3.4-1.3 6-4.9 6-9V4.5L10 2Zm2.7 6.2-3.1 3.1a1 1 0 0 1-1.4 0L7 10.1a1 1 0 1 1 1.4-1.4l.5.5 2.4-2.4a1 1 0 0 1 1.4 1.4Z" />
+              </svg>
+              {badge}
+            </span>
+          ))}
         </div>
 
         {sku || orderNo || attemptId ? (

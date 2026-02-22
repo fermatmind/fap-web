@@ -41,8 +41,8 @@ export default async function TestsPage({
   return (
     <Container as="main" className="py-10">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">{dict.tests.title}</h1>
-        <p className="text-slate-600">{dict.tests.subtitle}</p>
+        <h1 className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)]">{dict.tests.title}</h1>
+        <p className="text-[var(--fm-text-muted)]">{dict.tests.subtitle}</p>
       </div>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -57,6 +57,11 @@ export default async function TestsPage({
             timeMinutes={test.time_minutes}
             scaleCode={test.scale_code}
             locale={locale}
+            cardVisual={test.card_visual}
+            cardTone={test.card_tone}
+            cardSeed={test.card_seed}
+            cardDensity={test.card_density}
+            cardTaglineI18n={test.card_tagline_i18n}
           />
         ))}
       </div>

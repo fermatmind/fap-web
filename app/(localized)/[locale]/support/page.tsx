@@ -37,17 +37,23 @@ export default async function SupportPage({
   const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
-    <Container as="main" className="max-w-3xl space-y-6 py-10">
-      <section className="space-y-2">
-        <h1 className="m-0 text-3xl font-bold text-slate-900">{dict.support.title}</h1>
-        <p className="m-0 text-slate-600">
+    <Container as="main" className="max-w-4xl space-y-6 py-10">
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          {isZh ? "支持中心" : "Support Center"}
+        </p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{dict.support.title}</h1>
+        <p className="m-0 text-[var(--fm-text-muted)]">
           {dict.support.emailHint}
         </p>
       </section>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{dict.support.quickActions}</CardTitle>
+      <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)]">
+        <CardHeader className="space-y-2">
+          <CardTitle className="font-serif text-[var(--fm-text)]">{dict.support.quickActions}</CardTitle>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+            {isZh ? "优先使用以下入口自助处理常见问题。" : "Use these shortcuts first for common support tasks."}
+          </p>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
           <Link href={withLocale("/orders/lookup")}>
@@ -66,14 +72,19 @@ export default async function SupportPage({
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{dict.support.contact}</CardTitle>
+      <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)]">
+        <CardHeader className="space-y-2">
+          <CardTitle className="font-serif text-[var(--fm-text)]">{dict.support.contact}</CardTitle>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+            {isZh ? "如需人工处理，请发送邮件并附上订单号。" : "If you need manual support, include your order number in email."}
+          </p>
         </CardHeader>
         <CardContent>
-          <p className="m-0 text-sm text-slate-700">
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">
             {isZh ? "请附上订单号发送邮件至 " : "Email us with your order number at "}
-            <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
+            <a className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]" href={`mailto:${supportEmail}`}>
+              {supportEmail}
+            </a>.
           </p>
         </CardContent>
       </Card>

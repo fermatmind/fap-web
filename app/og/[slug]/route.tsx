@@ -15,18 +15,30 @@ function parseScore(raw: string | null): number | null {
   return Math.max(0, Math.min(100, parsed));
 }
 
+function resolveScore(request: Request): number | null {
+  try {
+    return parseScore(new URL(request.url).searchParams.get("score"));
+  } catch {
+    return null;
+  }
+}
+
 export async function GET(
   request: Request,
   context: { params: Promise<{ slug: string }> }
 ) {
-  const { slug } = await context.params;
-  const test = getTestBySlug(slug);
+  const params = await context.params;
+  const slug = typeof params.slug === "string" ? params.slug.trim() : "";
+  if (!slug) {
+    return new Response("Test not found", { status: 404 });
+  }
 
+  const test = getTestBySlug(slug);
   if (!test) {
     return new Response("Test not found", { status: 404 });
   }
 
-  const score = parseScore(new URL(request.url).searchParams.get("score"));
+  const score = resolveScore(request);
 
   return new ImageResponse(
     (
@@ -80,7 +92,7 @@ export async function GET(
           }}
         >
           <div>{SITE_HOST}</div>
-          {score !== null ? <div>Score {score}/100</div> : <div>Take the test</div>}
+          <div>{score !== null ? `Score ${score}/100` : "Take the test"}</div>
         </div>
       </div>
     ),

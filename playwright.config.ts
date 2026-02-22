@@ -5,8 +5,18 @@ export default defineConfig({
   timeout: 120000,
   fullyParallel: false,
   retries: process.env.CI ? 1 : 0,
+  expect: {
+    toHaveScreenshot: {
+      animations: "disabled",
+      caret: "hide",
+      maxDiffPixelRatio: 0.03,
+    },
+  },
   use: {
     baseURL: "http://127.0.0.1:3000",
+    colorScheme: "light",
+    locale: "en-US",
+    timezoneId: "UTC",
     trace: "retain-on-failure",
   },
   webServer: {

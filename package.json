@@ -14,7 +14,8 @@
     "typecheck": "velite build && tsc --noEmit",
     "test:contract": "vitest run tests/contracts",
     "test:a11y": "vitest run tests/a11y",
-    "test:e2e": "playwright test tests/e2e",
+    "test:e2e": "playwright test",
+    "test:e2e:visual": "playwright test tests/e2e/visual --workers=1",
     "release:gate": "bash scripts/release_gate.sh",
     "postbuild": "next-sitemap && dotenv -e .env.production.local -- node scripts/upload-next-static-to-cos.mjs"
   },

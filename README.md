@@ -27,10 +27,20 @@ pnpm dev
 ```bash
 pnpm lint
 pnpm typecheck
+pnpm test:contract
+pnpm test:a11y
+pnpm test:e2e tests/e2e/home-visual.spec.ts tests/e2e/tests-list.spec.ts tests/e2e/test-detail.spec.ts
+pnpm test:e2e tests/e2e/sds-flow.spec.ts tests/e2e/clinical-combo-flow.spec.ts tests/e2e/big5-flow.spec.ts tests/e2e/big5-negative.spec.ts
+# Visual snapshots run serially to avoid Next.js first-compile flakiness in parallel workers.
+pnpm test:e2e:visual
 pnpm release:gate
 # Optional for local machines that keep .env.local:
 RELEASE_GATE_ALLOW_LOCAL_ENV=1 pnpm release:gate
 ```
+
+Release operation details and rollback thresholds are documented in:
+
+- `/Users/rainie/Desktop/GitHub/fap-web/docs/ui-unification-release-runbook.md`
 
 ## Manual verification for anonId and order flow
 
