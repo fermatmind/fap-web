@@ -1,24 +1,29 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { OfferCard } from "@/components/big5/paywall/OfferCard";
+import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
+import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { UnlockCTA } from "@/components/commerce/UnlockCTA";
-import { DimensionBars } from "@/components/result/DimensionBars";
-import { ResultSummary } from "@/components/result/ResultSummary";
 import { Alert } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   createCheckoutOrOrder,
+  getScaleLookup,
   getAttemptReport,
+  resendOrderDelivery,
   type OfferPayload,
   type ReportResponse,
 } from "@/lib/api/v0_3";
-import { trackEvent } from "@/lib/analytics";
-import { captureError } from "@/lib/observability/sentry";
+import { buildBig5TrackingContext, trackBig5Event } from "@/lib/big5/analytics";
+import { clearBig5ClientCaches, computeManifestHash } from "@/lib/big5/manifest";
+import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { captureError } from "@/lib/observability/sentry";
 
 function firstOffer(report: ReportResponse): OfferPayload | undefined {
   if (report.offer && typeof report.offer === "object") return report.offer;
@@ -39,6 +44,18 @@ function firstOffer(report: ReportResponse): OfferPayload | undefined {
   return undefined;
 }
 
+function normalizeOffers(report: ReportResponse): OfferPayload[] {
+  if (Array.isArray(report.offers)) {
+    return report.offers.filter((item): item is OfferPayload => Boolean(item && typeof item === "object"));
+  }
+
+  if (report.offer && typeof report.offer === "object") {
+    return [report.offer as OfferPayload];
+  }
+
+  return [];
+}
+
 function resolveRetryMs(retryAfterSeconds: number | undefined): number {
   const fallbackMs = 3000;
   const retryAfterValue = typeof retryAfterSeconds === "number" ? retryAfterSeconds : Number.NaN;
@@ -49,18 +66,103 @@ function resolveRetryMs(retryAfterSeconds: number | undefined): number {
   return Math.min(10000, Math.max(1000, retryMs));
 }
 
+function normalizeNormsStatus(status: unknown): "CALIBRATED" | "PROVISIONAL" | "MISSING" {
+  const normalized = String(status ?? "").trim().toUpperCase();
+  if (normalized === "CALIBRATED" || normalized === "PROVISIONAL" || normalized === "MISSING") {
+    return normalized;
+  }
+  return "MISSING";
+}
+
+function normsLabel(locale: "en" | "zh", status: "CALIBRATED" | "PROVISIONAL" | "MISSING") {
+  if (status === "CALIBRATED") {
+    return locale === "zh" ? "基于当前人群常模" : "Calibrated to current population norms";
+  }
+  if (status === "PROVISIONAL") {
+    return locale === "zh" ? "使用基准/临时常模" : "Using baseline/provisional norms";
+  }
+  return locale === "zh" ? "无法计算百分位（常模缺失）" : "Percentile unavailable (norms missing)";
+}
+
 export default function ResultClient({ attemptId }: { attemptId: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [paying, setPaying] = useState(false);
   const [payError, setPayError] = useState<string | null>(null);
+  const [emailNotice, setEmailNotice] = useState<string | null>(null);
+  const [freeOnlyMode, setFreeOnlyMode] = useState(false);
+
+  const lastLockedRef = useRef<boolean | null>(null);
+  const manifestFingerprint = useBig5AttemptStore((store) => store.manifestFingerprint);
+  const setManifestFingerprint = useBig5AttemptStore((store) => store.setManifestFingerprint);
+
+  const offer = useMemo(() => (reportData ? firstOffer(reportData) : undefined), [reportData]);
+  const offers = useMemo(() => (reportData ? normalizeOffers(reportData) : []), [reportData]);
+  const locked = Boolean(reportData?.locked);
+  const variant = (reportData?.variant as string | undefined) ?? (locked ? "free" : "full");
+  const sections = Array.isArray(reportData?.report?.sections) ? reportData?.report?.sections : [];
+  const normsStatus = normalizeNormsStatus(reportData?.norms?.status);
+  const qualityLevel = String(reportData?.quality?.level ?? "unknown");
+  const ctaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
+
+  const summary =
+    reportData?.summary ??
+    (reportData?.report && typeof reportData.report === "object" && "summary" in reportData.report
+      ? String((reportData.report as { summary?: unknown }).summary ?? "")
+      : "");
+
+  const paywallDisabled = locked && (offers.length === 0 || freeOnlyMode);
+
+  const trackWithContext = useCallback(
+    async (
+      eventName:
+        | "report_view_free"
+        | "paywall_view"
+        | "checkout_start"
+        | "unlock_success"
+        | "pay_success"
+        | "pdf_download",
+      payload: Record<string, unknown> = {}
+    ) => {
+      const context = await buildBig5TrackingContext({
+        scaleCode: "BIG5_OCEAN",
+        packVersion:
+          String((reportData?.meta as { content_package_version?: unknown } | undefined)?.content_package_version ?? "") ||
+          String((reportData?.meta as { dir_version?: unknown } | undefined)?.dir_version ?? "") ||
+          "unknown",
+        manifestHash: String((reportData?.meta as { manifest_hash?: unknown } | undefined)?.manifest_hash ?? "") || null,
+        normsVersion:
+          String(reportData?.norms?.norms_version ?? "") ||
+          String((reportData?.meta as { scoring_spec_version?: unknown } | undefined)?.scoring_spec_version ?? "") ||
+          "unknown",
+        qualityLevel,
+        locked,
+        variant,
+        skuId: offer?.sku ?? null,
+        packId: String((reportData?.meta as { pack_id?: unknown } | undefined)?.pack_id ?? "") || null,
+        dirVersion: String((reportData?.meta as { dir_version?: unknown } | undefined)?.dir_version ?? "") || null,
+        contentPackageVersion:
+          String((reportData?.meta as { content_package_version?: unknown } | undefined)?.content_package_version ?? "") ||
+          null,
+        locale,
+      });
+
+      trackBig5Event(eventName, {
+        attempt_id: attemptId,
+        ...context,
+        ...payload,
+      });
+    },
+    [attemptId, locale, locked, offer?.sku, qualityLevel, reportData, variant]
+  );
 
   useEffect(() => {
     let active = true;
@@ -75,6 +177,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
       try {
         const response = await getAttemptReport({ attemptId });
         if (!active) return;
+
         setReportData(response);
 
         if (response.generating) {
@@ -87,27 +190,6 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         }
 
         setGenerating(false);
-        const masked = `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`;
-        trackEvent("view_result", {
-          attemptIdMasked: masked,
-          locked: Boolean(response.locked),
-          typeCode:
-            response.type_code ??
-            (response.report &&
-            typeof response.report === "object" &&
-            "type_code" in response.report
-              ? String((response.report as { type_code?: unknown }).type_code ?? "")
-              : ""),
-        });
-
-        if (response.locked) {
-          trackEvent("view_paywall", {
-            attemptIdMasked: masked,
-            locked: true,
-            sku: firstOffer(response)?.sku ?? "",
-            priceShown: firstOffer(response)?.formatted_price ?? "",
-          });
-        }
       } catch (cause) {
         if (!active) return;
         setGenerating(false);
@@ -131,64 +213,117 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         window.clearTimeout(retryTimer);
       }
     };
-  }, [attemptId, dict]);
-
-  const offer = useMemo(() => (reportData ? firstOffer(reportData) : undefined), [reportData]);
-  const locked = Boolean(reportData?.locked);
-
-  const summary = reportData?.summary ??
-    (reportData?.report && typeof reportData.report === "object" && "summary" in reportData.report
-      ? String((reportData.report as { summary?: unknown }).summary ?? "")
-      : undefined);
-
-  const typeCode = reportData?.type_code ??
-    (reportData?.report && typeof reportData.report === "object" && "type_code" in reportData.report
-      ? String((reportData.report as { type_code?: unknown }).type_code ?? "")
-      : undefined);
-
-  const dimensions = Array.isArray(reportData?.dimensions)
-    ? reportData?.dimensions
-    : reportData?.report &&
-          typeof reportData.report === "object" &&
-          Array.isArray((reportData.report as { dimensions?: unknown }).dimensions)
-      ? ((reportData.report as { dimensions?: Array<Record<string, unknown>> }).dimensions ?? [])
-      : [];
-
-  const price = offer?.amount_cents ?? reportData?.price;
-  const currency = offer?.currency ?? reportData?.currency;
-  const formattedPrice = offer?.formatted_price;
+  }, [attemptId, dict.result.reportUnavailable]);
 
   useEffect(() => {
-    if (!locked || generating) return;
+    let active = true;
 
-    const timer = window.setTimeout(() => {
-      trackEvent("abandoned_paywall", {
-        attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
-        locked: true,
-        stayMs: 15000,
-      });
-    }, 15000);
+    const run = async () => {
+      try {
+        const lookup = await getScaleLookup({
+          slug: "big-five-personality-test",
+          locale,
+        });
+        if (!active) return;
+
+        const capabilities =
+          lookup.capabilities && typeof lookup.capabilities === "object"
+            ? lookup.capabilities
+            : {};
+        const rollout =
+          capabilities && typeof capabilities === "object" && "rollout" in capabilities
+            ? ((capabilities as { rollout?: unknown }).rollout as Record<string, unknown> | undefined)
+            : undefined;
+        const paywallMode = String(
+          (capabilities as { paywall_mode?: unknown }).paywall_mode ??
+            (rollout as { paywall_mode?: unknown } | undefined)?.paywall_mode ??
+            "full"
+        )
+          .trim()
+          .toLowerCase();
+        setFreeOnlyMode(paywallMode === "free_only");
+      } catch {
+        // ignore lookup failure
+      }
+    };
+
+    void run();
 
     return () => {
-      window.clearTimeout(timer);
+      active = false;
     };
-  }, [attemptId, generating, locked]);
+  }, [locale]);
+
+  useEffect(() => {
+    if (!reportData) return;
+
+    let active = true;
+    const meta = (reportData.meta ?? {}) as Record<string, unknown>;
+
+    void computeManifestHash({
+      manifestHash: typeof meta.manifest_hash === "string" ? meta.manifest_hash : null,
+      packId: typeof meta.pack_id === "string" ? meta.pack_id : null,
+      dirVersion: typeof meta.dir_version === "string" ? meta.dir_version : null,
+      contentPackageVersion:
+        typeof meta.content_package_version === "string" ? meta.content_package_version : null,
+    }).then((nextFingerprint) => {
+      if (!active) return;
+      if (manifestFingerprint && manifestFingerprint !== nextFingerprint) {
+        clearBig5ClientCaches();
+      }
+      setManifestFingerprint(nextFingerprint);
+    });
+
+    return () => {
+      active = false;
+    };
+  }, [manifestFingerprint, reportData, setManifestFingerprint]);
+
+  useEffect(() => {
+    if (!reportData || reportData.generating) return;
+
+    if (locked) {
+      void trackWithContext("paywall_view", {
+        offers_count: offers.length,
+      });
+    } else {
+      void trackWithContext("report_view_free", {});
+    }
+
+    if (lastLockedRef.current === true && locked === false) {
+      void trackWithContext("unlock_success", {
+        order_no: offer?.order_no ?? "",
+      });
+      void trackWithContext("pay_success", {
+        order_no: offer?.order_no ?? "",
+      });
+    }
+
+    lastLockedRef.current = locked;
+  }, [locked, offer?.order_no, offers.length, reportData, trackWithContext]);
 
   const handlePay = async () => {
+    if (paywallDisabled) {
+      setPayError(locale === "zh" ? "当前仅开放免费报告。" : "Only free report is currently available.");
+      return;
+    }
+
     setPaying(true);
     setPayError(null);
 
     try {
-      trackEvent("click_unlock", {
-        attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
-        sku: offer?.sku ?? "",
-        priceShown: formattedPrice ?? "",
+      const idempotencyKey = `big5_checkout_${attemptId}_${offer?.sku ?? "default"}`;
+      await trackWithContext("checkout_start", {
+        sku_id: offer?.sku ?? "",
+        price: offer?.formatted_price ?? "",
+        currency: offer?.currency ?? "",
       });
 
       const checkout = await createCheckoutOrOrder({
         attemptId,
         sku: offer?.sku,
         orderNo: offer?.order_no,
+        idempotencyKey,
       });
 
       if (typeof checkout.checkout_url === "string" && checkout.checkout_url.length > 0) {
@@ -197,11 +332,11 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
       }
 
       if (typeof checkout.order_no === "string" && checkout.order_no.length > 0) {
-        trackEvent("create_order", {
-          attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
-          orderNoMasked: `${checkout.order_no.slice(0, 6)}...${checkout.order_no.slice(-4)}`,
-          sku: offer?.sku ?? "",
-        });
+        try {
+          window.localStorage.setItem("fm_big5_last_order_v1", checkout.order_no);
+        } catch {
+          // Ignore local cache write errors.
+        }
         router.push(withLocale(`/orders/${checkout.order_no}`));
         return;
       }
@@ -220,6 +355,24 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     }
   };
 
+  const handleResendEmail = async () => {
+    const orderNo =
+      offer?.order_no ??
+      (typeof window !== "undefined" ? window.localStorage.getItem("fm_big5_last_order_v1") ?? "" : "");
+
+    if (!orderNo) {
+      setEmailNotice(locale === "zh" ? "暂无可用订单号。" : "No order number available for resend.");
+      return;
+    }
+
+    try {
+      const response = await resendOrderDelivery({ orderNo });
+      setEmailNotice(response.message ?? (locale === "zh" ? "已发送邮件通知。" : "Delivery email has been queued."));
+    } catch {
+      setEmailNotice(locale === "zh" ? "发送失败，请稍后重试。" : "Failed to send email notification. Please retry.");
+    }
+  };
+
   if (loading) {
     return (
       <div className="space-y-4">
@@ -230,11 +383,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   }
 
   if (error || !reportData) {
-    return (
-      <Alert>
-        {error ?? dict.result.reportUnavailable}
-      </Alert>
-    );
+    return <Alert>{error ?? dict.result.reportUnavailable}</Alert>;
   }
 
   if (generating) {
@@ -248,47 +397,74 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
 
   return (
     <div className="space-y-6">
-      <ResultSummary typeCode={typeCode} summary={summary} />
+      <Card>
+        <CardHeader>
+          <CardTitle>{dict.result.title}</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2 text-sm text-slate-700">
+          {summary ? <p className="m-0">{summary}</p> : null}
+          <p className="m-0 text-xs text-slate-600">{normsLabel(locale, normsStatus)}</p>
+          <p className="m-0 text-xs text-slate-600">Quality: {qualityLevel}</p>
+          <p className="m-0 text-xs text-slate-500">
+            {locale === "zh"
+              ? "本报告仅用于自我认知，不构成医疗或心理诊断。"
+              : "This report is for self-discovery and not a medical or psychological diagnosis."}
+          </p>
+        </CardContent>
+      </Card>
 
-      <div className="relative rounded-2xl">
-        <div className={locked ? "pointer-events-none select-none opacity-45" : ""}>
-          <div className="space-y-4">
-            <DimensionBars dimensions={dimensions} />
-
-            <Card>
-              <CardHeader>
-                <CardTitle>{dict.result.interpretation}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3 text-sm text-slate-700">
-                <p className="m-0">
-                  {summary ?? dict.result.summaryPending}
-                </p>
-                <Separator />
-                <pre className="max-h-80 overflow-auto rounded-xl bg-slate-50 p-3 text-xs text-slate-700">
-                  {JSON.stringify(reportData.report ?? {}, null, 2)}
-                </pre>
-              </CardContent>
-            </Card>
-          </div>
+      {offers.length > 0 ? (
+        <div className="grid gap-3 md:grid-cols-2">
+          {offers.map((item, idx) => (
+            <OfferCard key={`${item.sku ?? "offer"}-${idx}`} offer={item} />
+          ))}
         </div>
+      ) : null}
 
-        {locked ? (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-2xl bg-slate-50/60 p-4 backdrop-blur-md">
-            <UnlockCTA
-              className="pointer-events-auto"
-              attemptId={attemptId}
-              sku={offer?.sku}
-              orderNo={offer?.order_no}
-              amount={price}
-              currency={currency}
-              formattedPrice={formattedPrice}
-              loading={paying}
-              error={payError}
-              onPay={handlePay}
-            />
-          </div>
-        ) : null}
+      <div className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+        {sections.map((section, idx) => (
+          <SectionRenderer key={`${section.key ?? "section"}-${idx}`} section={section} locked={locked} normsStatus={normsStatus} ctaLabel={ctaLabel} />
+        ))}
       </div>
+
+      <div className="flex flex-wrap items-center gap-3">
+        <PdfDownloadButton
+          attemptId={attemptId}
+          locked={locked}
+          onDownloaded={() => {
+            void trackWithContext("pdf_download", {
+              pdf_variant: variant,
+            });
+          }}
+        />
+        <Button type="button" variant="outline" onClick={handleResendEmail}>
+          {locale === "zh" ? "邮件发送报告" : "Send report email"}
+        </Button>
+      </div>
+
+      {emailNotice ? <Alert>{emailNotice}</Alert> : null}
+
+      {locked ? (
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <UnlockCTA
+            attemptId={attemptId}
+            sku={offer?.sku}
+            orderNo={offer?.order_no}
+            amount={offer?.amount_cents ?? reportData?.price}
+            currency={offer?.currency ?? reportData?.currency}
+            formattedPrice={offer?.formatted_price}
+            loading={paying}
+            error={payError}
+            onPay={handlePay}
+          />
+
+          {paywallDisabled ? (
+            <p className="mt-3 text-sm text-slate-600">
+              {locale === "zh" ? "当前仅开放免费报告，暂不支持付费解锁。" : "Only free report is available right now."}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }
