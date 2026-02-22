@@ -1,4 +1,5 @@
 export const TRACKING_EVENTS = {
+  // Legacy events (keep for backward compatibility)
   VIEW_LANDING: "view_landing",
   VIEW_TEST: "view_test",
   VIEW_TEST_LANDING: "view_test_landing",
@@ -12,9 +13,33 @@ export const TRACKING_EVENTS = {
   PAYMENT_FAILED: "payment_failed",
   ABANDONED_PAYWALL: "abandoned_paywall",
   PURCHASE_SUCCESS: "purchase_success",
+
+  // BIG5 funnel events
+  LANDING_VIEW: "landing_view",
+  START_CLICK: "start_click",
+  QUESTION_ANSWER: "question_answer",
+  SUBMIT_CLICK: "submit_click",
+  REPORT_VIEW_FREE: "report_view_free",
+  PAYWALL_VIEW: "paywall_view",
+  CHECKOUT_START: "checkout_start",
+  PAY_SUCCESS: "pay_success",
+  UNLOCK_SUCCESS: "unlock_success",
+  PDF_DOWNLOAD: "pdf_download",
+  RETAKE_BLOCKED: "retake_blocked",
 } as const;
 
 export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
+
+const COMMON_BIG5_FIELDS = [
+  "scale_code",
+  "pack_version",
+  "manifest_hash",
+  "norms_version",
+  "quality_level",
+  "locked",
+  "variant",
+  "sku_id",
+] as const;
 
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   view_landing: ["locale"],
@@ -30,6 +55,18 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   payment_failed: ["orderNoMasked", "attemptIdMasked", "reason", "locale"],
   abandoned_paywall: ["attemptIdMasked", "locked", "stayMs", "locale"],
   purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "currency", "locale"],
+
+  landing_view: ["slug", "locale", ...COMMON_BIG5_FIELDS],
+  start_click: ["slug", "locale", "disclaimer_version", "disclaimer_hash", ...COMMON_BIG5_FIELDS],
+  question_answer: ["attempt_id", "question_id", "question_no", "answered_count", "locale", ...COMMON_BIG5_FIELDS],
+  submit_click: ["attempt_id", "answered_count", "duration_ms", "locale", ...COMMON_BIG5_FIELDS],
+  report_view_free: ["attempt_id", "locale", ...COMMON_BIG5_FIELDS],
+  paywall_view: ["attempt_id", "offers_count", "locale", ...COMMON_BIG5_FIELDS],
+  checkout_start: ["attempt_id", "order_no", "price", "currency", "locale", ...COMMON_BIG5_FIELDS],
+  pay_success: ["attempt_id", "order_no", "locale", ...COMMON_BIG5_FIELDS],
+  unlock_success: ["attempt_id", "order_no", "locale", ...COMMON_BIG5_FIELDS],
+  pdf_download: ["attempt_id", "pdf_variant", "locale", ...COMMON_BIG5_FIELDS],
+  retake_blocked: ["reason", "retry_after_seconds", "locale", ...COMMON_BIG5_FIELDS],
 };
 
 const FORBIDDEN_FIELD_FRAGMENTS = ["answer", "report", "email", "token", "authorization"];
