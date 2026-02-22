@@ -12,8 +12,12 @@ export type ScaleQuestionItem = {
   question_id: string;
   text: string;
   order?: number;
+  direction?: number;
   dimension?: string;
   facet_code?: string;
+  module_code?: string;
+  options_set_code?: string;
+  is_reverse?: boolean | number;
   options: ScaleQuestionOption[];
 };
 
@@ -28,6 +32,25 @@ export type QuestionsMeta = {
   disclaimer_version?: string;
   disclaimer_hash?: string;
   disclaimer_text?: string;
+  consent?: {
+    required?: boolean;
+    version?: string;
+    text?: string;
+    [key: string]: unknown;
+  };
+  disclaimer?: {
+    version?: string;
+    hash?: string;
+    text?: string;
+    [key: string]: unknown;
+  };
+  source?: {
+    items?: Array<Record<string, unknown>>;
+    [key: string]: unknown;
+  };
+  modules?: Record<string, { title?: string; guidance?: string }>;
+  privacy_addendum?: Record<string, unknown>;
+  crisis_resources?: Record<string, unknown>;
   manifest_hash?: string;
   norms_version?: string;
   quality_level?: string;
@@ -46,6 +69,10 @@ export type QuestionsResponse = {
   questions: {
     schema?: string;
     items: ScaleQuestionItem[];
+  };
+  options?: {
+    format?: string[];
+    [key: string]: unknown;
   };
   meta?: QuestionsMeta;
 };
@@ -77,9 +104,7 @@ export type SubmitResponse = {
   ok: boolean;
   attempt_id?: string;
   result?: Record<string, unknown>;
-  report?: {
-    locked?: boolean;
-  };
+  report?: ReportResponse;
   meta?: {
     scale_code?: string;
     [key: string]: unknown;
@@ -105,8 +130,10 @@ export type ResultResponse = {
 export type OfferPayload = {
   sku?: string;
   label?: string;
+  title?: string;
   currency?: string;
   amount_cents?: number;
+  price_cents?: number;
   formatted_price?: string;
   checkout_url?: string;
   order_no?: string;
@@ -118,8 +145,10 @@ export type OfferPayload = {
 export type Big5ReportBlock = {
   id?: string;
   kind?: string;
+  type?: string;
   title?: string;
   body?: string;
+  content?: string;
   metric_level?: string;
   metric_code?: string;
   bucket?: string;
@@ -133,6 +162,8 @@ export type Big5ReportSection = {
   access_level?: string;
   module_code?: string;
   blocks?: Big5ReportBlock[];
+  resources?: Array<Record<string, unknown>>;
+  reasons?: string[];
   [key: string]: unknown;
 };
 
@@ -147,6 +178,7 @@ export type Big5NormsPayload = {
 export type Big5QualityPayload = {
   level?: string;
   tone?: "confident" | "cautious" | string;
+  crisis_alert?: boolean;
   [key: string]: unknown;
 };
 
@@ -155,6 +187,7 @@ export type ReportResponse = {
   locked?: boolean;
   generating?: boolean;
   retry_after?: number;
+  retry_after_seconds?: number;
   access_level?: string;
   variant?: "free" | "full" | string;
   summary?: string;
@@ -171,11 +204,20 @@ export type ReportResponse = {
   norms?: Big5NormsPayload;
   quality?: Big5QualityPayload;
   report?: {
+    scale_code?: string;
+    locale?: string;
     sections?: Big5ReportSection[];
+    quality?: Record<string, unknown>;
+    scores?: Record<string, unknown>;
+    report_tags?: string[];
     [key: string]: unknown;
   };
   view_policy?: Record<string, unknown>;
-  meta?: Record<string, unknown>;
+  meta?: Record<string, unknown> & {
+    generating?: boolean;
+    snapshot_error?: boolean;
+    retry_after_seconds?: number;
+  };
   [key: string]: unknown;
 };
 
@@ -381,6 +423,7 @@ export async function startAttempt({
   anonId,
   region,
   locale,
+  consent,
   meta,
   clientPlatform,
   clientVersion,
@@ -391,6 +434,11 @@ export async function startAttempt({
   anonId?: string;
   region?: string;
   locale?: string;
+  consent?: {
+    accepted: boolean;
+    version: string;
+    locale?: string;
+  };
   meta?: Record<string, unknown>;
   clientPlatform?: string;
   clientVersion?: string;
@@ -405,6 +453,15 @@ export async function startAttempt({
       anon_id: resolvedAnonId,
       ...(region ? { region } : {}),
       ...(locale ? { locale } : {}),
+      ...(consent
+        ? {
+            consent: {
+              accepted: Boolean(consent.accepted),
+              version: consent.version,
+              ...(consent.locale ? { locale: consent.locale } : {}),
+            },
+          }
+        : {}),
       ...(clientPlatform ? { client_platform: clientPlatform } : {}),
       ...(clientVersion ? { client_version: clientVersion } : {}),
       ...(channel ? { channel } : {}),
@@ -442,6 +499,13 @@ export async function fetchScaleQuestions({
   assertApiOk(response, "Failed to load questions.");
 
   const items = Array.isArray(response.questions?.items) ? response.questions.items : [];
+  const options =
+    response.options && typeof response.options === "object"
+      ? {
+          ...response.options,
+          format: Array.isArray(response.options.format) ? response.options.format : undefined,
+        }
+      : undefined;
 
   return {
     ...response,
@@ -449,6 +513,7 @@ export async function fetchScaleQuestions({
       schema: response.questions?.schema,
       items,
     },
+    options,
     meta: response.meta && typeof response.meta === "object" ? response.meta : undefined,
   };
 }

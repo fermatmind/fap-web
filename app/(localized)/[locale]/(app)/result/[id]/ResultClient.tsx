@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { OfferCard } from "@/components/big5/paywall/OfferCard";
 import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
+import ClinicalReportClient from "@/components/clinical/report/ClinicalReportClient";
 import { UnlockCTA } from "@/components/commerce/UnlockCTA";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -119,6 +120,13 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
 
   const offer = useMemo(() => (reportData ? firstOffer(reportData) : undefined), [reportData]);
   const offers = useMemo(() => (reportData ? normalizeOffers(reportData) : []), [reportData]);
+  const reportScaleCode = String(
+    reportData?.report?.scale_code ??
+      ((reportData?.meta as { scale_code?: unknown } | undefined)?.scale_code ?? "")
+  )
+    .trim()
+    .toUpperCase();
+  const isClinicalScale = reportScaleCode === "SDS_20" || reportScaleCode === "CLINICAL_COMBO_68";
   const locked = Boolean(reportData?.locked);
   const variant = (reportData?.variant as string | undefined) ?? (locked ? "free" : "full");
   const sections = Array.isArray(reportData?.report?.sections) ? reportData?.report?.sections : [];
@@ -193,6 +201,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   );
 
   useEffect(() => {
+    if (isClinicalScale) return;
     let active = true;
     let retryTimer: number | null = null;
 
@@ -241,7 +250,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         window.clearTimeout(retryTimer);
       }
     };
-  }, [attemptId, dict.result.reportUnavailable]);
+  }, [attemptId, dict.result.reportUnavailable, isClinicalScale]);
 
   useEffect(() => {
     let active = true;
@@ -280,9 +289,10 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     return () => {
       active = false;
     };
-  }, [locale]);
+  }, [isClinicalScale, locale]);
 
   useEffect(() => {
+    if (isClinicalScale) return;
     if (!reportData) return;
 
     let active = true;
@@ -305,9 +315,10 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     return () => {
       active = false;
     };
-  }, [manifestFingerprint, reportData, setManifestFingerprint]);
+  }, [isClinicalScale, manifestFingerprint, reportData, setManifestFingerprint]);
 
   useEffect(() => {
+    if (isClinicalScale) return;
     if (!reportData || reportData.generating) return;
 
     let pendingUnlockOrderNo = "";
@@ -352,7 +363,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     }
 
     lastLockedRef.current = locked;
-  }, [isFreeVariant, locked, offer?.order_no, offers.length, pendingUnlockStorageKey, reportData, trackWithContext]);
+  }, [isClinicalScale, isFreeVariant, locked, offer?.order_no, offers.length, pendingUnlockStorageKey, reportData, trackWithContext]);
 
   const handlePay = async () => {
     if (paywallDisabled) {
@@ -448,6 +459,10 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
 
   if (error || !reportData) {
     return <Alert>{error ?? dict.result.reportUnavailable}</Alert>;
+  }
+
+  if (isClinicalScale) {
+    return <ClinicalReportClient attemptId={attemptId} initialReport={reportData} />;
   }
 
   if (generating) {
