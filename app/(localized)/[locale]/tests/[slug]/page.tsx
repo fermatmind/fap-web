@@ -7,6 +7,7 @@ import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import { computeManifestHash } from "@/lib/big5/manifest";
 import { getAllTests, getTestBySlug } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -17,6 +18,12 @@ type LookupResponse = {
   seo_description?: string | null;
   og_image_url?: string | null;
   is_indexable?: boolean;
+  pack_id?: string | null;
+  dir_version?: string | null;
+  content_package_version?: string | null;
+  manifest_hash?: string | null;
+  norms_version?: string | null;
+  quality_level?: string | null;
   capabilities?: Record<string, unknown> | null;
   content_i18n_json?: Record<string, unknown> | null;
   report_summary_i18n_json?: Record<string, unknown> | null;
@@ -31,6 +38,13 @@ function toRecord(value: unknown): Record<string, unknown> {
 
 function toStringValue(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
+}
+
+function firstQueryValue(value: string | string[] | undefined): string {
+  if (Array.isArray(value)) {
+    return value[0] ?? "";
+  }
+  return value ?? "";
 }
 
 function parseFaq(value: unknown): FAQItem[] {
@@ -103,6 +117,12 @@ async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupRes
       seo_description: payload.seo_description as string | null | undefined,
       og_image_url: payload.og_image_url as string | null | undefined,
       is_indexable: typeof payload.is_indexable === "boolean" ? payload.is_indexable : undefined,
+      pack_id: (payload.pack_id as string | null | undefined) ?? null,
+      dir_version: (payload.dir_version as string | null | undefined) ?? null,
+      content_package_version: (payload.content_package_version as string | null | undefined) ?? null,
+      manifest_hash: (payload.manifest_hash as string | null | undefined) ?? null,
+      norms_version: (payload.norms_version as string | null | undefined) ?? null,
+      quality_level: (payload.quality_level as string | null | undefined) ?? null,
       capabilities: (payload.capabilities as Record<string, unknown> | null | undefined) ?? null,
       content_i18n_json: (payload.content_i18n_json as Record<string, unknown> | null | undefined) ?? null,
       report_summary_i18n_json:
@@ -194,10 +214,13 @@ export async function generateMetadata({
 
 export default async function TestLandingPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<{ maintenance?: string | string[] }>;
 }) {
   const { locale: localeParam, slug } = await params;
+  const query = await searchParams;
   const test = getTestBySlug(slug);
   if (!test) return notFound();
 
@@ -215,10 +238,34 @@ export default async function TestLandingPage({
   const mergedFaq = faqItems.length > 0 ? faqItems : buildFallbackFaq(test.title, test.time_minutes, test.questions_count, locale);
   const rollout = resolveRolloutState(lookup?.capabilities);
   const testDisabled = !rollout.enabledInProd || rollout.paywallMode === "off";
+  const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
+
+  const packId = toStringValue(lookup?.pack_id) || test.scale_code || "BIG5_OCEAN";
+  const dirVersion = toStringValue(lookup?.dir_version);
+  const contentPackageVersion = toStringValue(lookup?.content_package_version);
+  const manifestHash = await computeManifestHash({
+    manifestHash: toStringValue(lookup?.manifest_hash) || null,
+    packId,
+    dirVersion: dirVersion || null,
+    contentPackageVersion: contentPackageVersion || null,
+  });
+
+  const landingTrackingProps = {
+    slug: test.slug,
+    locale,
+    scale_code: test.scale_code || "BIG5_OCEAN",
+    pack_version: contentPackageVersion || dirVersion || packId,
+    manifest_hash: manifestHash,
+    norms_version: toStringValue(lookup?.norms_version) || "unavailable",
+    quality_level: toStringValue(lookup?.quality_level) || "unrated",
+    locked: true,
+    variant: "free",
+    sku_id: "",
+  };
 
   return (
     <Container as="main" className="pb-28 pt-10 lg:pb-10">
-      <AnalyticsPageViewTracker eventName="landing_view" properties={{ slug: test.slug, locale }} />
+      <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
@@ -264,6 +311,19 @@ export default async function TestLandingPage({
                 {locale === "zh"
                   ? "当前仅开放免费报告预览，付费解锁暂未开放。"
                   : "Only the free report preview is available right now. Paid unlock is temporarily disabled."}
+              </CardContent>
+            </Card>
+          ) : null}
+
+          {maintenanceRequested ? (
+            <Card>
+              <CardHeader>
+                <CardTitle>{locale === "zh" ? "当前维护中" : "Maintenance mode"}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-slate-700">
+                {locale === "zh"
+                  ? "该测评当前暂停开放，请稍后再试。"
+                  : "This assessment is temporarily unavailable. Please try again later."}
               </CardContent>
             </Card>
           ) : null}

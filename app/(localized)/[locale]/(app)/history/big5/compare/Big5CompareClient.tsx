@@ -13,6 +13,14 @@ type ReportPayload = {
   facetPercentiles: Record<string, number>;
 };
 
+type CompareRow = {
+  key: string;
+  current: number | null;
+  previous: number | null;
+  delta: number | null;
+  comparable: boolean;
+};
+
 function parsePercentile(text: string): number | null {
   const matched = text.match(/(?:percentile|百分位)\s*([0-9]{1,3})/i);
   if (!matched) return null;
@@ -148,39 +156,69 @@ export default function Big5CompareClient() {
     if (!current || !previous) return [];
 
     return ["O", "C", "E", "A", "N"].map((domain) => {
-      const curr = Math.max(0, Math.min(100, Number(current.domainPercentiles[domain] ?? 0)));
-      const prev = Math.max(0, Math.min(100, Number(previous.domainPercentiles[domain] ?? 0)));
-      const delta = Number((curr - prev).toFixed(2));
+      const currRaw = current.domainPercentiles[domain];
+      const prevRaw = previous.domainPercentiles[domain];
+      const curr = typeof currRaw === "number" ? Math.max(0, Math.min(100, Number(currRaw))) : null;
+      const prev = typeof prevRaw === "number" ? Math.max(0, Math.min(100, Number(prevRaw))) : null;
+      const comparable = curr !== null && prev !== null;
+      const delta = comparable ? Number((curr - prev).toFixed(2)) : null;
       return {
         domain,
         current: curr,
         previous: prev,
         delta,
+        comparable,
       };
     });
   }, [current, previous]);
 
-  const topChangedFacets = useMemo(() => {
-    if (!current || !previous) return [];
+  const { topChangedFacets: comparableFacets, missingFacetRows: unavailableFacets } = useMemo(() => {
+    if (!current || !previous) {
+      return {
+        topChangedFacets: [] as CompareRow[],
+        missingFacetRows: [] as CompareRow[],
+      };
+    }
 
     const keys = new Set([...Object.keys(current.facetPercentiles), ...Object.keys(previous.facetPercentiles)]);
+    const rows: CompareRow[] = [...keys].map((key) => {
+      const currRaw = current.facetPercentiles[key];
+      const prevRaw = previous.facetPercentiles[key];
+      const curr = typeof currRaw === "number" ? Math.max(0, Math.min(100, Number(currRaw))) : null;
+      const prev = typeof prevRaw === "number" ? Math.max(0, Math.min(100, Number(prevRaw))) : null;
+      const comparable = curr !== null && prev !== null;
+      const delta = comparable ? Number((curr - prev).toFixed(2)) : null;
 
-    return [...keys]
-      .map((key) => {
-        const curr = Math.max(0, Math.min(100, Number(current.facetPercentiles[key] ?? 0)));
-        const prev = Math.max(0, Math.min(100, Number(previous.facetPercentiles[key] ?? 0)));
-        const delta = Number((curr - prev).toFixed(2));
-        return {
-          key,
-          current: curr,
-          previous: prev,
-          delta,
-          absDelta: Math.abs(delta),
-        };
-      })
-      .sort((a, b) => b.absDelta - a.absDelta)
+      return {
+        key,
+        current: curr,
+        previous: prev,
+        delta,
+        comparable,
+      };
+    });
+
+    const comparableRows = rows
+      .filter((row) => row.comparable && row.delta !== null)
+      .sort((a, b) => Math.abs((b.delta as number)) - Math.abs((a.delta as number)))
       .slice(0, 8);
+
+    const missingRows = rows
+      .filter((row) => !row.comparable)
+      .sort((a, b) => a.key.localeCompare(b.key))
+      .slice(0, 8);
+
+    return {
+      topChangedFacets: comparableRows,
+      missingFacetRows: missingRows,
+    };
   }, [current, previous]);
+
+  const formatValue = (value: number | null) => (value === null ? "N/A" : String(value));
+  const formatDelta = (row: { delta: number | null; comparable: boolean }) => {
+    if (!row.comparable || row.delta === null) return "--";
+    return `${row.delta > 0 ? "+" : ""}${row.delta}`;
+  };
 
   return (
     <div className="space-y-4">
@@ -203,12 +241,12 @@ export default function Big5CompareClient() {
                 {domainDeltaRows.map((row) => (
                   <div key={row.domain} className="grid grid-cols-[60px_1fr_1fr_1fr] gap-2 rounded-lg border border-slate-200 px-3 py-2">
                     <span className="font-semibold">{row.domain}</span>
-                    <span>Now {row.current}</span>
-                    <span>Prev {row.previous}</span>
-                    <span className={row.delta > 0 ? "text-emerald-700" : row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
-                      {row.delta > 0 ? "+" : ""}
-                      {row.delta}
+                    <span>Now {formatValue(row.current)}</span>
+                    <span>Prev {formatValue(row.previous)}</span>
+                    <span className={!row.comparable ? "text-amber-700" : row.delta && row.delta > 0 ? "text-emerald-700" : row.delta && row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
+                      {formatDelta(row)}
                     </span>
+                    {!row.comparable ? <span className="col-span-4 text-xs text-amber-700">Not comparable</span> : null}
                   </div>
                 ))}
               </div>
@@ -220,21 +258,34 @@ export default function Big5CompareClient() {
               <CardTitle>Top changed facets</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-slate-700">
-              {topChangedFacets.length === 0 ? (
+              {comparableFacets.length === 0 ? (
                 <p className="m-0 text-slate-600">No comparable facet percentile data.</p>
               ) : (
-                topChangedFacets.map((row) => (
+                comparableFacets.map((row) => (
                   <div key={row.key} className="grid grid-cols-[1fr_90px_90px_90px] gap-2 rounded-lg border border-slate-200 px-3 py-2">
                     <span>{row.key}</span>
-                    <span>Now {row.current}</span>
-                    <span>Prev {row.previous}</span>
-                    <span className={row.delta > 0 ? "text-emerald-700" : row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
-                      {row.delta > 0 ? "+" : ""}
-                      {row.delta}
+                    <span>Now {formatValue(row.current)}</span>
+                    <span>Prev {formatValue(row.previous)}</span>
+                    <span className={!row.comparable ? "text-amber-700" : row.delta && row.delta > 0 ? "text-emerald-700" : row.delta && row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
+                      {formatDelta(row)}
                     </span>
                   </div>
                 ))
               )}
+
+              {unavailableFacets.length > 0 ? (
+                <div className="space-y-2 pt-2">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-wide text-amber-700">Unavailable facets (N/A)</p>
+                  {unavailableFacets.map((row) => (
+                    <div key={`na-${row.key}`} className="grid grid-cols-[1fr_90px_90px_90px] gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2">
+                      <span>{row.key}</span>
+                      <span>Now {formatValue(row.current)}</span>
+                      <span>Prev {formatValue(row.previous)}</span>
+                      <span className="text-amber-700">--</span>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
             </CardContent>
           </Card>
         </>

@@ -14,6 +14,7 @@ describe("BIG5 contract schemas", () => {
       pack_id: "BIG5_OCEAN",
       dir_version: "v1",
       content_package_version: "v1",
+      manifest_hash: "manifest_v1",
       questions: {
         schema: "fap.questions.v1",
         items: Array.from({ length: 120 }, (_, idx) => ({
@@ -33,6 +34,9 @@ describe("BIG5 contract schemas", () => {
         disclaimer_version: "BIG5_OCEAN_v1",
         disclaimer_hash: "abc123",
         disclaimer_text: "Not a medical diagnosis",
+        manifest_hash: "manifest_v1",
+        norms_version: "2026Q1",
+        quality_level: "A",
       },
     };
 
@@ -84,6 +88,44 @@ describe("BIG5 contract schemas", () => {
                 kind: "paragraph",
                 title: "Summary",
                 body: "Your profile summary.",
+              },
+            ],
+          },
+        ],
+      },
+    };
+
+    expect(() => big5ReportResponseSchema.parse(payload)).not.toThrow();
+  });
+
+  it("validates report payload with MISSING norms and unknown block kind", () => {
+    const payload = {
+      ok: true,
+      locked: false,
+      variant: "full",
+      norms: {
+        status: "MISSING",
+        norms_version: "2026Q1",
+      },
+      quality: {
+        level: "C",
+      },
+      meta: {
+        accepted_version: "BIG5_OCEAN_v1",
+        accepted_hash: "hash_v1",
+      },
+      report: {
+        sections: [
+          {
+            key: "future_section",
+            title: "Future",
+            access_level: "free",
+            blocks: [
+              {
+                id: "future_1",
+                kind: "future_widget",
+                title: "Future Widget",
+                body: "new payload",
               },
             ],
           },

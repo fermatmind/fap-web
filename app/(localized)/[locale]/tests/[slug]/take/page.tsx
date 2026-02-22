@@ -1,12 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { resolveBig5RolloutState } from "@/lib/big5/api";
 import { getTestBySlug } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import Big5TakeClient from "./Big5TakeClient";
 import QuizTakeClient from "./QuizTakeClient";
+
+async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promise<Record<string, unknown> | null> {
+  const apiBase = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
+  if (!apiBase) return null;
+
+  try {
+    const response = await fetch(
+      `${apiBase}/api/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${locale}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "X-FAP-Locale": locale === "zh" ? "zh-CN" : "en",
+        },
+        cache: "no-store",
+      }
+    );
+    if (!response.ok) return null;
+
+    const payload = (await response.json()) as Record<string, unknown>;
+    if (payload.ok === false) return null;
+    return (payload.capabilities as Record<string, unknown> | null | undefined) ?? null;
+  } catch {
+    return null;
+  }
+}
 
 export async function generateMetadata({
   params,
@@ -54,6 +80,14 @@ export default async function TakePage({
         </Link>
       </main>
     );
+  }
+
+  if (test.scale_code === "BIG5_OCEAN") {
+    const capabilities = await fetchLookupCapabilities(slug, locale);
+    const rollout = resolveBig5RolloutState(capabilities);
+    if (!rollout.enabledInProd || rollout.paywallMode === "off") {
+      redirect(withLocale(`/tests/${slug}?maintenance=1`));
+    }
   }
 
   return (

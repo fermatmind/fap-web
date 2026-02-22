@@ -21,6 +21,7 @@ export const big5QuestionsResponseSchema = z.object({
   pack_id: z.string().optional(),
   dir_version: z.string().optional(),
   content_package_version: z.string().optional(),
+  manifest_hash: z.string().optional(),
   locale: z.string().optional(),
   region: z.string().optional(),
   questions: z.object({
@@ -32,6 +33,9 @@ export const big5QuestionsResponseSchema = z.object({
       disclaimer_version: z.string().optional(),
       disclaimer_hash: z.string().optional(),
       disclaimer_text: z.string().optional(),
+      manifest_hash: z.string().optional(),
+      norms_version: z.string().optional(),
+      quality_level: z.string().optional(),
       validity_items: z
         .array(
           z.object({

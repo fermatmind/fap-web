@@ -4,6 +4,7 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
   const attemptId = "11111111-1111-1111-1111-111111111111";
   const orderNo = "ord_mock_big5_1";
   let unlocked = false;
+  const trackedEvents: Array<{ eventName: string; payload: Record<string, unknown> }> = [];
 
   const questions = Array.from({ length: 120 }, (_, idx) => ({
     question_id: String(idx + 1),
@@ -19,6 +20,19 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
   }));
 
   await page.route("**/api/track", async (route) => {
+    const body = route.request().postDataJSON() as {
+      eventName?: unknown;
+      payload?: unknown;
+    };
+    const payload =
+      body.payload && typeof body.payload === "object" && !Array.isArray(body.payload)
+        ? (body.payload as Record<string, unknown>)
+        : {};
+    trackedEvents.push({
+      eventName: typeof body.eventName === "string" ? body.eventName : "",
+      payload,
+    });
+
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -275,4 +289,19 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
   const downloadButton = page.getByRole("button", { name: "Download PDF" });
   await expect(downloadButton).toBeEnabled();
   await downloadButton.click();
+  await page.waitForTimeout(500);
+
+  const startEvent = trackedEvents.find((event) => event.eventName === "start_click");
+  if (startEvent) {
+    expect(startEvent.payload.manifest_hash).toBeTruthy();
+    expect(startEvent.payload.manifest_hash).not.toBe("unknown");
+    expect(startEvent.payload.manifest_hash).not.toBe("pending");
+    expect(startEvent.payload.pack_version).toBeTruthy();
+    expect(startEvent.payload.norms_version).toBeTruthy();
+    expect(startEvent.payload.quality_level).toBeTruthy();
+    expect(startEvent.payload.variant).toBeTruthy();
+  }
+
+  const reportFreeEvents = trackedEvents.filter((event) => event.eventName === "report_view_free");
+  expect(reportFreeEvents.length).toBe(0);
 });

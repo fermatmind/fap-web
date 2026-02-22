@@ -28,6 +28,9 @@ export type QuestionsMeta = {
   disclaimer_version?: string;
   disclaimer_hash?: string;
   disclaimer_text?: string;
+  manifest_hash?: string;
+  norms_version?: string;
+  quality_level?: string;
   [key: string]: unknown;
 };
 
@@ -37,6 +40,7 @@ export type QuestionsResponse = {
   pack_id?: string;
   dir_version?: string;
   content_package_version?: string;
+  manifest_hash?: string;
   locale?: string;
   region?: string;
   questions: {
@@ -227,6 +231,12 @@ export type ScaleLookupResponse = {
   ok?: boolean;
   slug?: string;
   scale_code?: string;
+  pack_id?: string | null;
+  dir_version?: string | null;
+  content_package_version?: string | null;
+  manifest_hash?: string | null;
+  norms_version?: string | null;
+  quality_level?: string | null;
   seo_title?: string | null;
   seo_description?: string | null;
   og_image_url?: string | null;
