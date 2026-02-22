@@ -5,6 +5,7 @@ import { getTestBySlug } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
+import Big5TakeClient from "./Big5TakeClient";
 import QuizTakeClient from "./QuizTakeClient";
 
 export async function generateMetadata({
@@ -71,7 +72,11 @@ export default async function TakePage({
         </Link>
       </div>
 
-      <QuizTakeClient slug={slug} testTitle={test.title} scaleCode={test.scale_code} />
+      {test.scale_code === "BIG5_OCEAN" ? (
+        <Big5TakeClient slug={slug} />
+      ) : (
+        <QuizTakeClient slug={slug} testTitle={test.title} scaleCode={test.scale_code} />
+      )}
     </main>
   );
 }
