@@ -193,10 +193,10 @@ function QuizTakeInner({
 
     const payloadAnswers = questions.map((item) => ({
       question_id: item.id,
-      option_code: answers[item.id] ?? "",
+      code: answers[item.id] ?? "",
     }));
 
-    if (payloadAnswers.some((item) => !item.option_code)) {
+    if (payloadAnswers.some((item) => !item.code)) {
       setSubmitError("Please answer every question before submitting.");
       return;
     }
