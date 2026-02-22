@@ -1,7 +1,7 @@
 import { trackEvent } from "@/lib/analytics";
 import { computeManifestHash } from "@/lib/big5/manifest";
 
-type Big5TrackingContext = {
+export type Big5TrackingContext = {
   scale_code?: string;
   pack_version?: string;
   manifest_hash?: string;
@@ -36,12 +36,12 @@ export async function buildBig5TrackingContext(payload: {
 
   return {
     scale_code: payload.scaleCode ?? "BIG5_OCEAN",
-    pack_version: payload.packVersion ?? payload.contentPackageVersion ?? payload.dirVersion ?? "unknown",
+    pack_version: payload.packVersion ?? payload.contentPackageVersion ?? payload.dirVersion ?? "unavailable",
     manifest_hash: manifestHash,
-    norms_version: payload.normsVersion ?? "unknown",
-    quality_level: payload.qualityLevel ?? "unknown",
+    norms_version: payload.normsVersion ?? "unavailable",
+    quality_level: payload.qualityLevel ?? "unrated",
     ...(typeof payload.locked === "boolean" ? { locked: payload.locked } : {}),
-    variant: payload.variant ?? "unknown",
+    variant: payload.variant ?? (payload.locked ? "free" : "full"),
     sku_id: payload.skuId ?? "",
     locale: payload.locale,
   };

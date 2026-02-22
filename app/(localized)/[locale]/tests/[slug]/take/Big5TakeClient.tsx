@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ProgressHeader } from "@/components/big5/quiz/ProgressHeader";
 import { QuestionCard } from "@/components/big5/quiz/QuestionCard";
@@ -10,9 +10,19 @@ import { Button } from "@/components/ui/button";
 import { setFmToken } from "@/lib/auth/fmToken";
 import { ApiError } from "@/lib/api-client";
 import { getOrCreateAnonId } from "@/lib/anon";
-import { trackBig5Event } from "@/lib/big5/analytics";
-import { fetchBig5Questions, startBig5Attempt, submitBig5Attempt } from "@/lib/big5/api";
-import { mapBig5Error } from "@/lib/big5/errors";
+import {
+  buildBig5TrackingContext,
+  trackBig5Event,
+  type Big5TrackingContext,
+} from "@/lib/big5/analytics";
+import {
+  fetchBig5Lookup,
+  fetchBig5Questions,
+  resolveBig5RolloutState,
+  startBig5Attempt,
+  submitBig5Attempt,
+} from "@/lib/big5/api";
+import { mapBig5Error, type Big5UiError } from "@/lib/big5/errors";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 
@@ -20,6 +30,13 @@ function wait(ms: number): Promise<void> {
   return new Promise((resolve) => {
     window.setTimeout(resolve, ms);
   });
+}
+
+function retryCountdownText(locale: "en" | "zh", seconds: number): string {
+  if (locale === "zh") {
+    return `请等待 ${seconds} 秒后重试。`;
+  }
+  return `Please wait ${seconds} seconds before retrying.`;
 }
 
 export default function Big5TakeClient({ slug }: { slug: string }) {
@@ -44,10 +61,14 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const setAuthToken = useBig5AttemptStore((store) => store.setAuthToken);
   const markSubmitted = useBig5AttemptStore((store) => store.markSubmitted);
   const resetAfterSubmit = useBig5AttemptStore((store) => store.resetAfterSubmit);
+  const resetAll = useBig5AttemptStore((store) => store.resetAll);
 
   const [questions, setQuestions] = useState<Array<{ question_id: string; text: string; options: Array<{ code: string; text: string }> }>>([]);
   const [loadingQuestions, setLoadingQuestions] = useState(true);
   const [questionError, setQuestionError] = useState<string | null>(null);
+
+  const [rolloutChecking, setRolloutChecking] = useState(true);
+  const [rolloutBlocked, setRolloutBlocked] = useState(false);
 
   const [disclaimerText, setDisclaimerText] = useState("");
   const [serverDisclaimerVersion, setServerDisclaimerVersion] = useState<string | null>(null);
@@ -56,12 +77,16 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
+  const [startErrorAction, setStartErrorAction] = useState<Big5UiError["action"] | null>(null);
 
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitErrorAction, setSubmitErrorAction] = useState<Big5UiError["action"] | null>(null);
   const [submitCanRetry, setSubmitCanRetry] = useState(false);
 
-  const [packVersion, setPackVersion] = useState<string>("unknown");
+  const [cooldownSeconds, setCooldownSeconds] = useState(0);
+  const [trackingBase, setTrackingBase] = useState<Big5TrackingContext | null>(null);
+  const [packVersion, setPackVersion] = useState<string>("BIG5_OCEAN");
 
   const total = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -78,7 +103,57 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     disclaimerVersion !== serverDisclaimerVersion ||
     disclaimerHash !== serverDisclaimerHash;
 
-  const withLocale = (path: string) => localizedPath(path, locale);
+  const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
+  const inCooldown = cooldownSeconds > 0;
+
+  const trackingFallback = useMemo<Big5TrackingContext>(
+    () => ({
+      scale_code: "BIG5_OCEAN",
+      pack_version: packVersion,
+      manifest_hash: "pending",
+      norms_version: "unavailable",
+      quality_level: "unrated",
+      locked: true,
+      variant: "free",
+      sku_id: "",
+      locale,
+    }),
+    [locale, packVersion]
+  );
+
+  const buildEventPayload = useCallback(
+    (payload: Record<string, unknown>) => ({
+      ...(trackingBase ?? trackingFallback),
+      ...payload,
+    }),
+    [trackingBase, trackingFallback]
+  );
+
+  const handleRestartTest = useCallback(() => {
+    resetAll();
+    setCooldownSeconds(0);
+    router.replace(withLocale(`/tests/${slug}`));
+  }, [resetAll, router, slug, withLocale]);
+
+  const applyUiError = useCallback((scope: "start" | "submit" | "question", mapped: Big5UiError) => {
+    if (mapped.retryAfterSeconds && mapped.retryAfterSeconds > 0) {
+      setCooldownSeconds(Math.ceil(mapped.retryAfterSeconds));
+    }
+
+    if (scope === "start") {
+      setStartError(mapped.message);
+      setStartErrorAction(mapped.action ?? null);
+      return;
+    }
+
+    if (scope === "submit") {
+      setSubmitError(mapped.message);
+      setSubmitErrorAction(mapped.action ?? null);
+      return;
+    }
+
+    setQuestionError(mapped.message);
+  }, []);
 
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
@@ -94,6 +169,66 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   }, [hydrateAnonId]);
 
   useEffect(() => {
+    if (cooldownSeconds <= 0) return;
+
+    const timer = window.setInterval(() => {
+      setCooldownSeconds((prev) => {
+        if (prev <= 1) return 0;
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [cooldownSeconds]);
+
+  useEffect(() => {
+    let active = true;
+
+    const run = async () => {
+      try {
+        const lookup = await fetchBig5Lookup({
+          slug,
+          locale,
+        });
+
+        if (!active) return;
+
+        const rollout = resolveBig5RolloutState(lookup.capabilities);
+        if (!rollout.enabledInProd || rollout.paywallMode === "off") {
+          setRolloutBlocked(true);
+          setQuestionError(
+            locale === "zh"
+              ? "该测评当前维护中，请稍后再试。"
+              : "This assessment is temporarily unavailable right now."
+          );
+          router.replace(withLocale(`/tests/${slug}?maintenance=1`));
+          return;
+        }
+      } catch {
+        // Keep current page behavior on lookup failures.
+      } finally {
+        if (active) {
+          setRolloutChecking(false);
+        }
+      }
+    };
+
+    void run();
+
+    return () => {
+      active = false;
+    };
+  }, [locale, router, slug, withLocale]);
+
+  useEffect(() => {
+    if (rolloutChecking) return;
+    if (rolloutBlocked) {
+      setLoadingQuestions(false);
+      return;
+    }
+
     let active = true;
 
     const run = async () => {
@@ -105,33 +240,61 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           locale: toApiLocale(locale),
         });
 
-        if (!active) return;
-
         const ordered = [...response.questions.items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-        setQuestions(
-          ordered.map((item) => ({
-            question_id: item.question_id,
-            text: item.text,
-            options: item.options.map((option) => ({ code: option.code, text: option.text })),
-          }))
-        );
+        const options = ordered.map((item) => ({
+          question_id: item.question_id,
+          text: item.text,
+          options: item.options.map((option) => ({ code: option.code, text: option.text })),
+        }));
 
-        const version = typeof response.meta?.disclaimer_version === "string" ? response.meta.disclaimer_version : null;
+        const version =
+          typeof response.meta?.disclaimer_version === "string" ? response.meta.disclaimer_version : null;
         const hash = typeof response.meta?.disclaimer_hash === "string" ? response.meta.disclaimer_hash : null;
         const text = typeof response.meta?.disclaimer_text === "string" ? response.meta.disclaimer_text : "";
-        setServerDisclaimerVersion(version);
-        setServerDisclaimerHash(hash);
-        setDisclaimerText(text);
 
         const contentVersion =
           (typeof response.content_package_version === "string" && response.content_package_version) ||
           (typeof response.dir_version === "string" && response.dir_version) ||
-          "unknown";
+          response.scale_code ||
+          "BIG5_OCEAN";
+
+        const manifestHashFromResponse =
+          (typeof response.manifest_hash === "string" && response.manifest_hash) ||
+          (typeof response.meta?.manifest_hash === "string" ? response.meta.manifest_hash : "");
+
+        const context = await buildBig5TrackingContext({
+          scaleCode: response.scale_code ?? "BIG5_OCEAN",
+          packVersion: contentVersion,
+          manifestHash: manifestHashFromResponse || null,
+          normsVersion:
+            typeof response.meta?.norms_version === "string" && response.meta.norms_version.trim().length > 0
+              ? response.meta.norms_version
+              : "unavailable",
+          qualityLevel:
+            typeof response.meta?.quality_level === "string" && response.meta.quality_level.trim().length > 0
+              ? response.meta.quality_level
+              : "unrated",
+          locked: true,
+          variant: "free",
+          skuId: null,
+          packId: response.pack_id ?? null,
+          dirVersion: response.dir_version ?? null,
+          contentPackageVersion: response.content_package_version ?? null,
+          locale,
+        });
+
+        if (!active) return;
+
+        setQuestions(options);
+        setServerDisclaimerVersion(version);
+        setServerDisclaimerHash(hash);
+        setDisclaimerText(text);
         setPackVersion(contentVersion);
+        setTrackingBase(context);
       } catch (error) {
         if (!active) return;
         const mapped = mapBig5Error(error);
-        setQuestionError(mapped.message);
+        applyUiError("question", mapped);
       } finally {
         if (active) {
           setLoadingQuestions(false);
@@ -144,21 +307,31 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     return () => {
       active = false;
     };
-  }, [locale]);
+  }, [applyUiError, locale, rolloutBlocked, rolloutChecking]);
 
   const ensureAttempt = async (): Promise<string | null> => {
     if (attemptId) {
       return attemptId;
     }
 
+    if (inCooldown) {
+      setStartError(retryCountdownText(locale, cooldownSeconds));
+      return null;
+    }
+
     setStarting(true);
     setStartError(null);
+    setStartErrorAction(null);
 
+    const acceptedAt = new Date().toISOString();
     const requestMeta: Record<string, unknown> = {
+      accepted_version: serverDisclaimerVersion,
+      accepted_hash: serverDisclaimerHash,
+      accepted_at: acceptedAt,
+      // Temporary compatibility for backend rollouts still reading the old key.
       disclaimer_version_accepted: serverDisclaimerVersion,
       disclaimer_hash: serverDisclaimerHash,
       disclaimer_locale: toApiLocale(locale),
-      accepted_at: new Date().toISOString(),
       slug,
     };
 
@@ -168,7 +341,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           locale: toApiLocale(locale),
           region: "GLOBAL",
           meta: requestMeta,
-          clientVersion: "fe-big5-1",
+          clientVersion: "fe-big5-2",
         });
 
         setAttemptMeta({
@@ -178,19 +351,15 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           disclaimerHash: serverDisclaimerHash,
         });
 
-        trackBig5Event("start_click", {
-          slug,
-          disclaimer_version: serverDisclaimerVersion ?? "",
-          disclaimer_hash: serverDisclaimerHash ?? "",
-          scale_code: "BIG5_OCEAN",
-          pack_version: packVersion,
-          manifest_hash: "unknown",
-          norms_version: "unknown",
-          quality_level: "unknown",
-          locked: true,
-          variant: "free",
-          sku_id: "",
-        });
+        setCooldownSeconds(0);
+        trackBig5Event(
+          "start_click",
+          buildEventPayload({
+            slug,
+            disclaimer_version: serverDisclaimerVersion ?? "",
+            disclaimer_hash: serverDisclaimerHash ?? "",
+          })
+        );
 
         setStarting(false);
         return response.attempt_id;
@@ -201,23 +370,18 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         }
 
         const mapped = mapBig5Error(error);
-        setStartError(mapped.message);
+        applyUiError("start", mapped);
 
         if (error instanceof ApiError && error.status === 429) {
-          trackBig5Event("retake_blocked", {
-            reason: error.errorCode,
-            retry_after_seconds: Number(
-              (error.details as { retry_after_seconds?: unknown } | undefined)?.retry_after_seconds ?? 0
-            ),
-            scale_code: "BIG5_OCEAN",
-            pack_version: packVersion,
-            manifest_hash: "unknown",
-            norms_version: "unknown",
-            quality_level: "unknown",
-            locked: true,
-            variant: "free",
-            sku_id: "",
-          });
+          trackBig5Event(
+            "retake_blocked",
+            buildEventPayload({
+              reason: error.errorCode,
+              retry_after_seconds: Number(
+                (error.details as { retry_after_seconds?: unknown } | undefined)?.retry_after_seconds ?? 0
+              ),
+            })
+          );
         }
       }
     }
@@ -242,53 +406,50 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setAnswer(questionId, code);
 
     const questionNo = questions.findIndex((item) => item.question_id === questionId) + 1;
-    trackBig5Event("question_answer", {
-      attempt_id: attemptId ?? "",
-      question_id: questionId,
-      question_no: questionNo,
-      answered_count: answeredCount + 1,
-      scale_code: "BIG5_OCEAN",
-      pack_version: packVersion,
-      manifest_hash: "unknown",
-      norms_version: "unknown",
-      quality_level: "unknown",
-      locked: true,
-      variant: "free",
-      sku_id: "",
-    });
+    trackBig5Event(
+      "question_answer",
+      buildEventPayload({
+        attempt_id: attemptId ?? "",
+        question_id: questionId,
+        question_no: questionNo,
+        answered_count: answeredCount + 1,
+      })
+    );
   };
 
   const handleSubmit = async () => {
     const activeAttemptId = await ensureAttempt();
     if (!activeAttemptId) return;
 
+    if (inCooldown) {
+      setSubmitError(retryCountdownText(locale, cooldownSeconds));
+      return;
+    }
+
     const firstMissingIndex = questions.findIndex((item) => !answers[item.question_id]);
     if (firstMissingIndex >= 0) {
       setCurrentIndex(firstMissingIndex);
       setSubmitError(`Please answer question ${firstMissingIndex + 1} before submitting.`);
+      setSubmitErrorAction("fill_missing");
       return;
     }
 
     setSubmitting(true);
     setSubmitError(null);
+    setSubmitErrorAction(null);
     setSubmitCanRetry(false);
 
     const durationMs = Math.max(1000, Date.now() - startedAt);
 
     try {
-      trackBig5Event("submit_click", {
-        attempt_id: activeAttemptId,
-        answered_count: answeredCount,
-        duration_ms: durationMs,
-        scale_code: "BIG5_OCEAN",
-        pack_version: packVersion,
-        manifest_hash: "unknown",
-        norms_version: "unknown",
-        quality_level: "unknown",
-        locked: true,
-        variant: "free",
-        sku_id: "",
-      });
+      trackBig5Event(
+        "submit_click",
+        buildEventPayload({
+          attempt_id: activeAttemptId,
+          answered_count: answeredCount,
+          duration_ms: durationMs,
+        })
+      );
 
       const response = await submitBig5Attempt({
         attemptId: activeAttemptId,
@@ -310,30 +471,53 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       router.push(withLocale(`/result/${resultAttemptId}`));
     } catch (error) {
       const mapped = mapBig5Error(error);
-      setSubmitError(mapped.message);
+      applyUiError("submit", mapped);
+
       if (error instanceof ApiError && error.status === 408) {
         setSubmitCanRetry(true);
+      }
+
+      if (error instanceof ApiError && error.status === 429) {
+        trackBig5Event(
+          "retake_blocked",
+          buildEventPayload({
+            attempt_id: activeAttemptId,
+            reason: error.errorCode,
+            retry_after_seconds: Number(
+              (error.details as { retry_after_seconds?: unknown } | undefined)?.retry_after_seconds ?? 0
+            ),
+          })
+        );
       }
     } finally {
       setSubmitting(false);
     }
   };
 
-  if (loadingQuestions) {
+  if (rolloutChecking || loadingQuestions) {
     return (
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="m-0 text-sm text-slate-700">Loading BIG5 questions...</p>
+        <p className="m-0 text-sm text-slate-700">
+          {rolloutChecking
+            ? locale === "zh"
+              ? "正在检查可用性..."
+              : "Checking assessment availability..."
+            : "Loading BIG5 questions..."}
+        </p>
       </div>
     );
   }
 
-  if (questionError) {
+  if (questionError && questions.length === 0) {
     return (
       <div className="space-y-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <Alert>{questionError}</Alert>
-        <Button type="button" variant="outline" onClick={() => window.location.reload()}>
-          Retry
-        </Button>
+        {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
+        {rolloutBlocked ? null : (
+          <Button type="button" variant="outline" onClick={() => window.location.reload()} disabled={inCooldown}>
+            Retry
+          </Button>
+        )}
       </div>
     );
   }
@@ -347,12 +531,14 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         </p>
 
         <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700">
-          <p className="m-0 whitespace-pre-wrap">{disclaimerText || "This assessment is for self-discovery and not a medical diagnosis."}</p>
+          <p className="m-0 whitespace-pre-wrap">
+            {disclaimerText || "This assessment is for self-discovery and not a medical diagnosis."}
+          </p>
         </div>
 
         <div className="text-xs text-slate-600">
-          <p className="m-0">Version: {serverDisclaimerVersion ?? "unknown"}</p>
-          <p className="m-0">Hash: {serverDisclaimerHash ?? "unknown"}</p>
+          <p className="m-0">Version: {serverDisclaimerVersion ?? "-"}</p>
+          <p className="m-0">Hash: {serverDisclaimerHash ?? "-"}</p>
         </div>
 
         <label className="flex items-center gap-2 text-sm text-slate-700">
@@ -365,10 +551,23 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         </label>
 
         {startError ? <Alert>{startError}</Alert> : null}
+        {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
 
-        <Button type="button" disabled={!consentChecked || starting} onClick={handleAgreeAndStart}>
-          {starting ? "Starting..." : "Agree and start"}
-        </Button>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button
+            type="button"
+            disabled={!consentChecked || starting || inCooldown}
+            onClick={handleAgreeAndStart}
+          >
+            {starting ? "Starting..." : "Agree and start"}
+          </Button>
+
+          {startErrorAction === "restart" ? (
+            <Button type="button" variant="outline" onClick={handleRestartTest}>
+              Restart test
+            </Button>
+          ) : null}
+        </div>
       </div>
     );
   }
@@ -377,8 +576,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     return (
       <div className="space-y-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <Alert>No active question found. Please restart the assessment.</Alert>
-        <Button type="button" variant="outline" onClick={() => window.location.reload()}>
-          Reload
+        <Button type="button" variant="outline" onClick={handleRestartTest}>
+          Restart test
         </Button>
       </div>
     );
@@ -399,12 +598,13 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           />
 
           {submitError ? <Alert>{submitError}</Alert> : null}
+          {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
 
           <div className="flex flex-wrap items-center gap-2">
             <Button
               type="button"
               variant="outline"
-              disabled={currentIndex <= 0 || submitting}
+              disabled={currentIndex <= 0 || submitting || inCooldown}
               onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
             >
               Previous
@@ -413,19 +613,30 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
             <Button
               type="button"
               variant="outline"
-              disabled={currentIndex >= total - 1 || submitting}
+              disabled={currentIndex >= total - 1 || submitting || inCooldown}
               onClick={() => setCurrentIndex(Math.min(total - 1, currentIndex + 1))}
             >
               Next
             </Button>
 
-            <Button type="button" disabled={submitting} onClick={handleSubmit}>
+            <Button type="button" disabled={submitting || inCooldown} onClick={handleSubmit}>
               {submitting ? "Submitting..." : "Submit"}
             </Button>
 
             {submitCanRetry ? (
-              <Button type="button" variant="outline" disabled={submitting} onClick={handleSubmit}>
+              <Button
+                type="button"
+                variant="outline"
+                disabled={submitting || inCooldown}
+                onClick={handleSubmit}
+              >
                 Retry submit
+              </Button>
+            ) : null}
+
+            {submitErrorAction === "restart" ? (
+              <Button type="button" variant="outline" onClick={handleRestartTest}>
+                Restart test
               </Button>
             ) : null}
           </div>

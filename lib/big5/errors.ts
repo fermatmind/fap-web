@@ -27,7 +27,7 @@ export function mapBig5Error(error: unknown): Big5UiError {
   if (error.status === 401 || error.status === 403) {
     return {
       title: "Session expired",
-      message: "Please restart the test or log in again before submitting.",
+      message: "Please restart the test before submitting again.",
       action: "restart",
     };
   }

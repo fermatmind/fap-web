@@ -28,10 +28,17 @@ export async function computeManifestHash(payload: {
     normalize(payload.contentPackageVersion) || "unknown_content",
   ].join("|");
 
-  if (typeof window !== "undefined" && window.crypto?.subtle && typeof TextEncoder !== "undefined") {
+  const subtleCrypto =
+    typeof globalThis !== "undefined" &&
+    "crypto" in globalThis &&
+    (globalThis.crypto as Crypto | undefined)?.subtle
+      ? (globalThis.crypto as Crypto)
+      : null;
+
+  if (subtleCrypto?.subtle && typeof TextEncoder !== "undefined") {
     try {
       const encoded = new TextEncoder().encode(source);
-      const digest = await window.crypto.subtle.digest("SHA-256", encoded);
+      const digest = await subtleCrypto.subtle.digest("SHA-256", encoded);
       const bytes = Array.from(new Uint8Array(digest));
       return bytes.map((item) => item.toString(16).padStart(2, "0")).join("");
     } catch {

@@ -84,6 +84,15 @@ function normsLabel(locale: "en" | "zh", status: "CALIBRATED" | "PROVISIONAL" | 
   return locale === "zh" ? "无法计算百分位（常模缺失）" : "Percentile unavailable (norms missing)";
 }
 
+function pickString(...values: unknown[]): string {
+  for (const value of values) {
+    if (typeof value === "string" && value.trim().length > 0) {
+      return value.trim();
+    }
+  }
+  return "";
+}
+
 export default function ResultClient({ attemptId }: { attemptId: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
@@ -101,8 +110,12 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   const [freeOnlyMode, setFreeOnlyMode] = useState(false);
 
   const lastLockedRef = useRef<boolean | null>(null);
+  const unlockTrackedRef = useRef(false);
+  const pendingUnlockStorageKey = `fm_big5_pending_unlock_v1_${attemptId}`;
   const manifestFingerprint = useBig5AttemptStore((store) => store.manifestFingerprint);
   const setManifestFingerprint = useBig5AttemptStore((store) => store.setManifestFingerprint);
+  const acceptedDisclaimerVersion = useBig5AttemptStore((store) => store.disclaimerVersion);
+  const acceptedDisclaimerHash = useBig5AttemptStore((store) => store.disclaimerHash);
 
   const offer = useMemo(() => (reportData ? firstOffer(reportData) : undefined), [reportData]);
   const offers = useMemo(() => (reportData ? normalizeOffers(reportData) : []), [reportData]);
@@ -110,8 +123,22 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   const variant = (reportData?.variant as string | undefined) ?? (locked ? "free" : "full");
   const sections = Array.isArray(reportData?.report?.sections) ? reportData?.report?.sections : [];
   const normsStatus = normalizeNormsStatus(reportData?.norms?.status);
-  const qualityLevel = String(reportData?.quality?.level ?? "unknown");
+  const qualityLevel = String(reportData?.quality?.level ?? "unrated");
   const ctaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
+  const reportMeta = (reportData?.meta ?? {}) as Record<string, unknown>;
+  const reportDisclaimerVersion = pickString(
+    reportMeta.disclaimer_version,
+    reportMeta.accepted_version,
+    reportMeta.disclaimer_version_accepted,
+    acceptedDisclaimerVersion
+  );
+  const reportDisclaimerHash = pickString(
+    reportMeta.disclaimer_hash,
+    reportMeta.accepted_hash,
+    acceptedDisclaimerHash
+  );
+  const variantNormalized = String(variant).trim().toLowerCase();
+  const isFreeVariant = variantNormalized === "free";
 
   const summary =
     reportData?.summary ??
@@ -137,12 +164,13 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         packVersion:
           String((reportData?.meta as { content_package_version?: unknown } | undefined)?.content_package_version ?? "") ||
           String((reportData?.meta as { dir_version?: unknown } | undefined)?.dir_version ?? "") ||
-          "unknown",
-        manifestHash: String((reportData?.meta as { manifest_hash?: unknown } | undefined)?.manifest_hash ?? "") || null,
+          String((reportData?.meta as { pack_id?: unknown } | undefined)?.pack_id ?? "") ||
+          "BIG5_OCEAN",
+        manifestHash: pickString((reportData?.meta as { manifest_hash?: unknown } | undefined)?.manifest_hash) || null,
         normsVersion:
-          String(reportData?.norms?.norms_version ?? "") ||
-          String((reportData?.meta as { scoring_spec_version?: unknown } | undefined)?.scoring_spec_version ?? "") ||
-          "unknown",
+          pickString(reportData?.norms?.norms_version) ||
+          pickString((reportData?.meta as { scoring_spec_version?: unknown } | undefined)?.scoring_spec_version) ||
+          "unavailable",
         qualityLevel,
         locked,
         variant,
@@ -282,25 +310,49 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   useEffect(() => {
     if (!reportData || reportData.generating) return;
 
+    let pendingUnlockOrderNo = "";
+    if (typeof window !== "undefined") {
+      try {
+        pendingUnlockOrderNo = window.localStorage.getItem(pendingUnlockStorageKey) ?? "";
+      } catch {
+        pendingUnlockOrderNo = "";
+      }
+    }
+
     if (locked) {
       void trackWithContext("paywall_view", {
         offers_count: offers.length,
       });
-    } else {
+    } else if (isFreeVariant) {
       void trackWithContext("report_view_free", {});
     }
 
-    if (lastLockedRef.current === true && locked === false) {
+    const shouldTrackUnlock =
+      locked === false &&
+      !unlockTrackedRef.current &&
+      (lastLockedRef.current === true || pendingUnlockOrderNo.length > 0);
+
+    if (shouldTrackUnlock) {
+      const resolvedOrderNo = offer?.order_no ?? pendingUnlockOrderNo;
       void trackWithContext("unlock_success", {
-        order_no: offer?.order_no ?? "",
+        order_no: resolvedOrderNo,
       });
       void trackWithContext("pay_success", {
-        order_no: offer?.order_no ?? "",
+        order_no: resolvedOrderNo,
       });
+      unlockTrackedRef.current = true;
+
+      if (typeof window !== "undefined") {
+        try {
+          window.localStorage.removeItem(pendingUnlockStorageKey);
+        } catch {
+          // ignore storage cleanup failures
+        }
+      }
     }
 
     lastLockedRef.current = locked;
-  }, [locked, offer?.order_no, offers.length, reportData, trackWithContext]);
+  }, [isFreeVariant, locked, offer?.order_no, offers.length, pendingUnlockStorageKey, reportData, trackWithContext]);
 
   const handlePay = async () => {
     if (paywallDisabled) {
@@ -325,6 +377,18 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         orderNo: offer?.order_no,
         idempotencyKey,
       });
+
+      if (typeof window !== "undefined") {
+        try {
+          const pendingOrderNo =
+            (typeof checkout.order_no === "string" && checkout.order_no.length > 0 ? checkout.order_no : null) ??
+            offer?.order_no ??
+            "";
+          window.localStorage.setItem(pendingUnlockStorageKey, pendingOrderNo);
+        } catch {
+          // Ignore local cache write errors.
+        }
+      }
 
       if (typeof checkout.checkout_url === "string" && checkout.checkout_url.length > 0) {
         window.location.href = checkout.checkout_url;
@@ -410,6 +474,12 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
               ? "本报告仅用于自我认知，不构成医疗或心理诊断。"
               : "This report is for self-discovery and not a medical or psychological diagnosis."}
           </p>
+          {reportDisclaimerVersion || reportDisclaimerHash ? (
+            <p className="m-0 text-xs text-slate-500">
+              {locale === "zh" ? "免责声明版本" : "Disclaimer version"}: {reportDisclaimerVersion || "-"} ·
+              {locale === "zh" ? " 哈希" : " hash"}: {reportDisclaimerHash || "-"}
+            </p>
+          ) : null}
         </CardContent>
       </Card>
 
@@ -446,23 +516,25 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
 
       {locked ? (
         <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-          <UnlockCTA
-            attemptId={attemptId}
-            sku={offer?.sku}
-            orderNo={offer?.order_no}
-            amount={offer?.amount_cents ?? reportData?.price}
-            currency={offer?.currency ?? reportData?.currency}
-            formattedPrice={offer?.formatted_price}
-            loading={paying}
-            error={payError}
-            onPay={handlePay}
-          />
-
-          {paywallDisabled ? (
+          {!paywallDisabled ? (
+            <UnlockCTA
+              attemptId={attemptId}
+              sku={offer?.sku}
+              orderNo={offer?.order_no}
+              amount={offer?.amount_cents ?? reportData?.price}
+              currency={offer?.currency ?? reportData?.currency}
+              formattedPrice={offer?.formatted_price}
+              loading={paying}
+              error={payError}
+              onPay={handlePay}
+            />
+          ) : (
             <p className="mt-3 text-sm text-slate-600">
-              {locale === "zh" ? "当前仅开放免费报告，暂不支持付费解锁。" : "Only free report is available right now."}
+              {locale === "zh"
+                ? "当前仅开放免费报告，暂不支持付费解锁。"
+                : "Only free report is available right now."}
             </p>
-          ) : null}
+          )}
         </div>
       ) : null}
     </div>
