@@ -26,6 +26,14 @@ export const TRACKING_EVENTS = {
   UNLOCK_SUCCESS: "unlock_success",
   PDF_DOWNLOAD: "pdf_download",
   RETAKE_BLOCKED: "retake_blocked",
+
+  // Clinical funnel events
+  CLINICAL_START: "clinical_start",
+  CLINICAL_SUBMIT: "clinical_submit",
+  CLINICAL_REPORT_VIEW: "clinical_report_view",
+  CLINICAL_PAYWALL_VIEW: "clinical_paywall_view",
+  CLINICAL_CHECKOUT_START: "clinical_checkout_start",
+  CLINICAL_UNLOCK_SUCCESS: "clinical_unlock_success",
 } as const;
 
 export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
@@ -39,6 +47,15 @@ const COMMON_BIG5_FIELDS = [
   "locked",
   "variant",
   "sku_id",
+] as const;
+
+const COMMON_CLINICAL_REPORT_FIELDS = [
+  "scale_code",
+  "locked",
+  "variant",
+  "quality_level",
+  "crisis_alert",
+  "locale",
 ] as const;
 
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
@@ -67,6 +84,12 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   unlock_success: ["attempt_id", "order_no", "locale", ...COMMON_BIG5_FIELDS],
   pdf_download: ["attempt_id", "pdf_variant", "locale", ...COMMON_BIG5_FIELDS],
   retake_blocked: ["reason", "retry_after_seconds", "locale", ...COMMON_BIG5_FIELDS],
+  clinical_start: ["scale_code", "locale"],
+  clinical_submit: ["scale_code", "duration_bucket", "locale"],
+  clinical_report_view: [...COMMON_CLINICAL_REPORT_FIELDS],
+  clinical_paywall_view: [...COMMON_CLINICAL_REPORT_FIELDS],
+  clinical_checkout_start: [...COMMON_CLINICAL_REPORT_FIELDS],
+  clinical_unlock_success: [...COMMON_CLINICAL_REPORT_FIELDS],
 };
 
 const FORBIDDEN_FIELD_FRAGMENTS = ["answer", "report", "email", "token", "authorization"];

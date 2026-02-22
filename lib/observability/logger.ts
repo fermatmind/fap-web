@@ -5,6 +5,8 @@ const SENSITIVE_KEYS = new Set([
   "answers",
   "answer",
   "report",
+  "report_tags",
+  "question_text",
   "password",
   "secret",
 ]);

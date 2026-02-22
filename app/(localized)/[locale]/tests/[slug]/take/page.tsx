@@ -7,6 +7,7 @@ import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import Big5TakeClient from "./Big5TakeClient";
+import ClinicalTakeClient from "./ClinicalTakeClient";
 import QuizTakeClient from "./QuizTakeClient";
 
 async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promise<Record<string, unknown> | null> {
@@ -108,6 +109,8 @@ export default async function TakePage({
 
       {test.scale_code === "BIG5_OCEAN" ? (
         <Big5TakeClient slug={slug} />
+      ) : test.scale_code === "SDS_20" || test.scale_code === "CLINICAL_COMBO_68" ? (
+        <ClinicalTakeClient slug={slug} scaleCode={test.scale_code} />
       ) : (
         <QuizTakeClient slug={slug} testTitle={test.title} scaleCode={test.scale_code} />
       )}
