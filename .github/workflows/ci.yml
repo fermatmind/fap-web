@@ -34,8 +34,20 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+      - name: Contract tests
+        run: pnpm test:contract
+
       - name: Build
         run: pnpm build
+
+      - name: Install Playwright browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: E2E
+        run: pnpm test:e2e
+
+      - name: A11y tests
+        run: pnpm test:a11y
 
       - name: Release gate
         run: pnpm release:gate

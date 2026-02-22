@@ -12,6 +12,9 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "velite build && tsc --noEmit",
+    "test:contract": "vitest run tests/contracts",
+    "test:a11y": "vitest run tests/a11y",
+    "test:e2e": "playwright test tests/e2e",
     "release:gate": "bash scripts/release_gate.sh",
     "postbuild": "next-sitemap && dotenv -e .env.production.local -- node scripts/upload-next-static-to-cos.mjs"
   },
@@ -29,7 +32,11 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest-axe": "^3.5.9",
     "@types/node": "^20.19.33",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -37,8 +44,11 @@
     "dotenv-cli": "^11.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.2",
+    "jest-axe": "^10.0.0",
+    "jsdom": "^26.1.0",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "vitest": "^3.2.4",
     "zod": "^4.3.6"
   }
 }
