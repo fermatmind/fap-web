@@ -34,6 +34,12 @@ export const TRACKING_EVENTS = {
   CLINICAL_PAYWALL_VIEW: "clinical_paywall_view",
   CLINICAL_CHECKOUT_START: "clinical_checkout_start",
   CLINICAL_UNLOCK_SUCCESS: "clinical_unlock_success",
+
+  // UI unification events
+  UI_CARD_IMPRESSION: "ui_card_impression",
+  UI_CARD_INTERACTION: "ui_card_interaction",
+  UI_QUIZ_MILESTONE: "ui_quiz_milestone",
+  UI_REPORT_LOADING_PHASE: "ui_report_loading_phase",
 } as const;
 
 export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
@@ -90,6 +96,10 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   clinical_paywall_view: [...COMMON_CLINICAL_REPORT_FIELDS],
   clinical_checkout_start: [...COMMON_CLINICAL_REPORT_FIELDS],
   clinical_unlock_success: [...COMMON_CLINICAL_REPORT_FIELDS],
+  ui_card_impression: ["slug", "scale_code", "visual_kind", "locale"],
+  ui_card_interaction: ["slug", "scale_code", "visual_kind", "interaction", "locale"],
+  ui_quiz_milestone: ["scale_code", "milestone", "duration_bucket", "locale"],
+  ui_report_loading_phase: ["scale_code", "phase", "locked", "variant", "locale"],
 };
 
 const FORBIDDEN_FIELD_FRAGMENTS = ["answer", "report", "email", "token", "authorization"];

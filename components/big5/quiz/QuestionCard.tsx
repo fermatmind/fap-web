@@ -16,20 +16,29 @@ export function QuestionCard({
   index,
   total,
   selectedCode,
+  emphasized = false,
   onSelect,
 }: {
   question: Question;
   index: number;
   total: number;
   selectedCode?: string;
+  emphasized?: boolean;
   onSelect: (questionId: string, code: string) => void;
 }) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+    <article
+      className={[
+        "rounded-2xl border bg-[var(--fm-surface)] p-5 transition duration-200",
+        emphasized
+          ? "border-[var(--fm-border-strong)] opacity-100 shadow-[var(--fm-shadow-lg)]"
+          : "border-[var(--fm-border)] opacity-30 shadow-[var(--fm-shadow-sm)]",
+      ].join(" ")}
+    >
+      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
         Question {index + 1} / {total}
       </p>
-      <h2 className="mb-4 text-lg font-semibold text-slate-900">{question.text}</h2>
+      <h2 className="mb-4 text-lg font-semibold text-[var(--fm-text)]">{question.text}</h2>
 
       <LikertScale
         questionId={question.question_id}

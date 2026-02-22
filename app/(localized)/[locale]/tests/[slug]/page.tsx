@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
 import { CTASticky } from "@/components/business/CTASticky";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
 import { Container } from "@/components/layout/Container";
@@ -9,7 +10,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { computeManifestHash } from "@/lib/big5/manifest";
 import { getAllTests, getTestBySlug } from "@/lib/content";
-import { resolveLocale } from "@/lib/i18n/getDict";
+import { resolveCardSpec } from "@/lib/design/card-resolver";
+import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 
@@ -225,6 +227,7 @@ export default async function TestLandingPage({
   if (!test) return notFound();
 
   const locale = resolveLocale(localeParam);
+  const dict = getDictSync(locale);
   const lookup = await fetchLookup(slug, locale);
 
   const withLocale = (path: string) => localizedPath(path, locale);
@@ -263,28 +266,59 @@ export default async function TestLandingPage({
     sku_id: "",
   };
 
+  const cardSpec = resolveCardSpec({
+    slug: test.slug,
+    scale_code: test.scale_code,
+    card_visual: test.card_visual,
+    card_tone: test.card_tone,
+    card_seed: test.card_seed,
+    card_density: test.card_density,
+  });
+  const cardTagline = (() => {
+    const source = test.card_tagline_i18n;
+    if (!source || typeof source !== "object") return test.scale_code || cardSpec.visual;
+    const localized = locale === "zh" ? source.zh ?? source["zh-CN"] : source.en;
+    if (typeof localized === "string" && localized.trim().length > 0) return localized.trim();
+    return test.scale_code || cardSpec.visual;
+  })();
+
   return (
     <Container as="main" className="pb-28 pt-10 lg:pb-10">
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
-          <section className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-700">
+          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
               {locale === "zh" ? "人格测评" : "Personality Assessment"}
             </p>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{test.title}</h1>
-            <p className="max-w-3xl text-slate-600">{landingCopy || test.description}</p>
-            <div className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
-              <span>{test.questions_count} {locale === "zh" ? "题" : "questions"}</span>
-              <span>•</span>
-              <span>{test.time_minutes} {locale === "zh" ? "分钟" : "minutes"}</span>
-              {test.scale_code ? (
-                <>
+            <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
+              <div className="space-y-3">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
+                  {cardTagline}
+                </p>
+                <h1 className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:text-4xl">{test.title}</h1>
+                <p className="max-w-3xl text-[var(--fm-text-muted)]">{landingCopy || test.description}</p>
+                <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--fm-text-muted)]">
+                  <span>{test.questions_count} {locale === "zh" ? "题" : "questions"}</span>
                   <span>•</span>
-                  <span>{test.scale_code}</span>
-                </>
-              ) : null}
+                  <span>{test.time_minutes} {locale === "zh" ? "分钟" : "minutes"}</span>
+                  {test.scale_code ? (
+                    <>
+                      <span>•</span>
+                      <span>{test.scale_code}</span>
+                    </>
+                  ) : null}
+                </div>
+              </div>
+              <DataGlyph
+                kind={cardSpec.visual}
+                tone={cardSpec.tone}
+                compact={cardSpec.density === "compact"}
+                ariaLabel={dict.card.a11yVisualDescriptions[cardSpec.visual]}
+                fallbackAriaLabel={dict.card.a11yVisualFallback}
+                className="h-24 md:h-28"
+              />
             </div>
             <div className="flex flex-wrap items-center gap-3 pt-1">
               {testDisabled ? (

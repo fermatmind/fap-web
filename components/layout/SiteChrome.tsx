@@ -26,7 +26,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen text-[var(--fm-text)]">
       <SiteHeader />
       {children}
       <SiteFooter />

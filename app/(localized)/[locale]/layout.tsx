@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, JetBrains_Mono, Manrope } from "next/font/google";
 import { notFound } from "next/navigation";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
@@ -8,14 +8,25 @@ import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
 import { canonicalUrl, SITE_URL } from "@/lib/site";
 import "../../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fmSans = Manrope({
+  variable: "--font-fm-sans",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fmSerif = Fraunces({
+  variable: "--font-fm-serif",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["Georgia", "Times New Roman", "serif"],
+});
+
+const fmMono = JetBrains_Mono({
+  variable: "--font-fm-mono",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
 
 export const metadata: Metadata = {
@@ -63,7 +74,7 @@ export default async function LocalizedRootLayout({
 
   return (
     <html lang={resolvedLocale}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
         <Providers>
           <LocaleProvider locale={resolvedLocale}>
             <SiteChrome>{children}</SiteChrome>

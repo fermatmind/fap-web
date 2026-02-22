@@ -7,10 +7,11 @@ import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import ClinicalReportClient from "@/components/clinical/report/ClinicalReportClient";
 import { UnlockCTA } from "@/components/commerce/UnlockCTA";
+import { AnimatedCounter } from "@/components/design/AnimatedCounter";
+import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
 import {
   createCheckoutOrOrder,
   getScaleLookup,
@@ -25,6 +26,7 @@ import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { captureError } from "@/lib/observability/sentry";
+import { trackEvent } from "@/lib/analytics";
 
 function firstOffer(report: ReportResponse): OfferPayload | undefined {
   if (report.offer && typeof report.offer === "object") return report.offer;
@@ -94,6 +96,26 @@ function pickString(...values: unknown[]): string {
   return "";
 }
 
+function extractPrimaryNumericScore(report: ReportResponse | null): number | null {
+  if (!report || !report.report || typeof report.report !== "object") return null;
+  const scores = (report.report as { scores?: unknown }).scores;
+  if (!scores || typeof scores !== "object" || Array.isArray(scores)) return null;
+
+  for (const value of Object.values(scores as Record<string, unknown>)) {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return Math.max(0, Math.min(100, value));
+    }
+    if (value && typeof value === "object") {
+      const inner = value as Record<string, unknown>;
+      const candidate = inner.score ?? inner.value ?? inner.percentile;
+      if (typeof candidate === "number" && Number.isFinite(candidate)) {
+        return Math.max(0, Math.min(100, candidate));
+      }
+    }
+  }
+  return null;
+}
+
 export default function ResultClient({ attemptId }: { attemptId: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
@@ -153,8 +175,32 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     (reportData?.report && typeof reportData.report === "object" && "summary" in reportData.report
       ? String((reportData.report as { summary?: unknown }).summary ?? "")
       : "");
+  const primaryNumericScore = useMemo(() => extractPrimaryNumericScore(reportData), [reportData]);
 
   const paywallDisabled = locked && (offers.length === 0 || freeOnlyMode);
+
+  useEffect(() => {
+    if (loading) {
+      trackEvent("ui_report_loading_phase", {
+        scale_code: "BIG5_OCEAN",
+        phase: "initial_loading",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+      return;
+    }
+
+    if (generating) {
+      trackEvent("ui_report_loading_phase", {
+        scale_code: "BIG5_OCEAN",
+        phase: "generating",
+        locked,
+        variant,
+        locale,
+      });
+    }
+  }, [generating, loading, locale, locked, variant]);
 
   const trackWithContext = useCallback(
     async (
@@ -450,10 +496,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
 
   if (loading) {
     return (
-      <div className="space-y-4">
-        <Skeleton className="h-44 w-full" />
-        <Skeleton className="h-56 w-full" />
-      </div>
+      <AnticipationSkeleton phases={dict.loading.phases} />
     );
   }
 
@@ -469,7 +512,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     return (
       <div className="space-y-4">
         <Alert>{dict.orders.reportGenerating}</Alert>
-        <Skeleton className="h-44 w-full" />
+        <AnticipationSkeleton phases={dict.loading.phases} />
       </div>
     );
   }
@@ -484,6 +527,12 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
           {summary ? <p className="m-0">{summary}</p> : null}
           <p className="m-0 text-xs text-slate-600">{normsLabel(locale, normsStatus)}</p>
           <p className="m-0 text-xs text-slate-600">Quality: {qualityLevel}</p>
+          {primaryNumericScore !== null ? (
+            <p className="m-0 text-xs text-slate-600">
+              {locale === "zh" ? "核心分值" : "Primary score"}:{" "}
+              <AnimatedCounter value={primaryNumericScore} className="font-semibold text-[var(--fm-accent)]" />
+            </p>
+          ) : null}
           <p className="m-0 text-xs text-slate-500">
             {locale === "zh"
               ? "本报告仅用于自我认知，不构成医疗或心理诊断。"

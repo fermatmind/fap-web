@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { QuestionRenderer } from "@/components/quiz/QuestionRenderer";
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { Stepper } from "@/components/quiz/Stepper";
@@ -13,6 +13,8 @@ import {
   type ScaleQuestionItem,
 } from "@/lib/api/v0_3";
 import { trackEvent } from "@/lib/analytics";
+import { getDictSync } from "@/lib/i18n/getDict";
+import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { captureError } from "@/lib/observability/sentry";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
@@ -66,6 +68,9 @@ function QuizTakeInner({
   setQuestions: (nextQuestions: QuizQuestion[]) => void;
 }) {
   const router = useRouter();
+  const pathname = usePathname() ?? "/";
+  const locale = getLocaleFromPathname(pathname);
+  const dict = getDictSync(locale);
 
   const currentIndex = useQuizStore((store) => store.state.currentIndex);
   const answers = useQuizStore((store) => store.state.answers);
@@ -85,6 +90,8 @@ function QuizTakeInner({
   const [attemptError, setAttemptError] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
+  const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
   const trackedStartRef = useRef(false);
 
   useEffect(() => {
@@ -184,9 +191,45 @@ function QuizTakeInner({
     () => questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
     [answers, questions]
   );
+  const previousQuestion = currentIndex > 0 ? questions[currentIndex - 1] : null;
+  const nextQuestion = currentIndex < total - 1 ? questions[currentIndex + 1] : null;
 
   const isLastQuestion = total > 0 && currentIndex === total - 1;
   const canSubmit = isLastQuestion && answeredCount === total && !submitting;
+
+  useEffect(() => {
+    if (answeredCount === 0) {
+      setSeenMilestones([]);
+      setMilestoneHint(null);
+    }
+  }, [answeredCount, total]);
+
+  useEffect(() => {
+    if (total <= 0) return;
+    const milestones = [20, 40, 60, 80, 100];
+    const progressPercent = Math.floor((answeredCount / total) * 100);
+    const nextMilestone = milestones.find((milestone) => progressPercent >= milestone && !seenMilestones.includes(milestone));
+    if (!nextMilestone) return;
+
+    setSeenMilestones((prev) => [...prev, nextMilestone]);
+    const hintIndex = milestones.indexOf(nextMilestone);
+    const hint = dict.quiz.milestoneHints[hintIndex] ?? dict.quiz.milestoneHints[dict.quiz.milestoneHints.length - 1] ?? "";
+    if (hint) {
+      setMilestoneHint(hint);
+      window.setTimeout(() => {
+        setMilestoneHint((prev) => (prev === hint ? null : prev));
+      }, 1500);
+    }
+
+    const elapsedMs = Math.max(0, Date.now() - startedAt);
+    const durationBucket = elapsedMs < 60000 ? "lt_1m" : elapsedMs < 180000 ? "1_3m" : "gte_3m";
+    trackEvent("ui_quiz_milestone", {
+      scale_code: scaleCode,
+      milestone: nextMilestone,
+      duration_bucket: durationBucket,
+      locale,
+    });
+  }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, total]);
 
   const handleSubmit = async () => {
     if (!attemptId || !canSubmit) return;
@@ -276,7 +319,27 @@ function QuizTakeInner({
 
       <Stepper currentIndex={currentIndex} total={total} />
 
-      <QuestionRenderer question={question} selectedOptionId={selectedOptionId} onSelect={setAnswer} />
+      {milestoneHint ? (
+        <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+          {milestoneHint}
+        </div>
+      ) : null}
+
+      <div className="grid grid-cols-3 gap-2">
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
+          {previousQuestion ? `${locale === "zh" ? "上一题" : "Previous"}: ${currentIndex}` : (locale === "zh" ? "上一题" : "Previous")}
+        </div>
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] px-3 py-2 text-xs font-semibold text-[var(--fm-text)] shadow-[var(--fm-shadow-md)] opacity-100">
+          {locale === "zh" ? "当前题目" : "Current focus"}
+        </div>
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
+          {nextQuestion ? `${locale === "zh" ? "下一题" : "Next"}: ${currentIndex + 2}` : (locale === "zh" ? "下一题" : "Next")}
+        </div>
+      </div>
+
+      <div className="rounded-2xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] p-3 shadow-[var(--fm-shadow-md)]">
+        <QuestionRenderer question={question} selectedOptionId={selectedOptionId} onSelect={setAnswer} />
+      </div>
 
       {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
 

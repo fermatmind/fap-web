@@ -22,28 +22,34 @@ export default async function TypesPage({
   const types = listTypes();
 
   return (
-    <Container as="main" className="py-10">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Types</h1>
-        <p className="text-slate-600">
+    <Container as="main" className="space-y-6 py-10">
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          Library
+        </p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">Types</h1>
+        <p className="m-0 text-[var(--fm-text-muted)]">
           Explore personality type profiles and practical interpretation notes.
         </p>
-      </div>
+      </section>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         {types.map((type) => (
-          <Card key={type.code}>
+          <Card
+            key={type.code}
+            className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)] transition hover:shadow-[var(--fm-shadow-md)]"
+          >
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Badge>{type.code}</Badge>
-                <CardTitle>{type.name}</CardTitle>
+                <CardTitle className="font-serif text-[var(--fm-text)]">{type.name}</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-sm text-slate-600">{type.description}</p>
+              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{type.description}</p>
               <Link
                 href={withLocale(`/types/${type.code}`)}
-                className="text-sm font-semibold text-sky-700 hover:text-sky-800"
+                className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
               >
                 View details
               </Link>

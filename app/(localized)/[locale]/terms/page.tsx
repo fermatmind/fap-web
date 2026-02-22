@@ -37,13 +37,20 @@ export default async function TermsPage({
   const isZh = locale === "zh";
 
   return (
-    <Container as="main" className="max-w-3xl py-10">
-      <article className="prose prose-neutral max-w-none">
-        <h1>{dict.legal.terms_title}</h1>
-        <p>
+    <Container as="main" className="max-w-4xl space-y-6 py-10">
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          Legal
+        </p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
+          {dict.legal.terms_title}
+        </h1>
+        <p className="m-0 text-sm text-[var(--fm-text-muted)]">
           {dict.legal.effectiveDateLabel}: {isZh ? EFFECTIVE_DATE_ZH : EFFECTIVE_DATE}
         </p>
+      </section>
 
+      <article className="prose max-w-none rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)] prose-headings:font-serif prose-headings:text-[var(--fm-text)] prose-p:text-[var(--fm-text-muted)] prose-li:text-[var(--fm-text-muted)] prose-strong:text-[var(--fm-text)] prose-a:text-[var(--fm-accent)]">
         <h2 id="service">{isZh ? "1. 服务说明" : "1. Service Scope"}</h2>
         <p>
           {isZh

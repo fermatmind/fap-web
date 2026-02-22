@@ -14,6 +14,32 @@ const en: SiteDictionary = {
     title: "Tests",
     subtitle: "Pick a test to view details and start assessment.",
   },
+  card: {
+    compactLabel: "Compact visual",
+    a11yVisualDescriptions: {
+      bars_ocean: "Five rising bars representing OCEAN personality traits.",
+      wave_clinical: "Clinical trend wave lines expressing multidomain variation.",
+      grid_nine: "Nine-node matrix representing Enneagram structure.",
+      ring_four: "Four-segment ring representing DISC behavior quadrants.",
+      spark_minimal: "Minimal data spark visual expressing structured assessment analytics.",
+    },
+    a11yVisualFallback: "Structured assessment visual chart.",
+  },
+  quiz: {
+    milestoneHints: [
+      "Great start. You are in flow.",
+      "Nice pace. Keep steady.",
+      "Halfway done. Stay focused.",
+      "Strong progress. Almost there.",
+      "Excellent. You are done.",
+    ],
+  },
+  loading: {
+    phases: [
+      "Matching evidence profile models...",
+      "Generating your structured insight map...",
+    ],
+  },
   common: {
     start: "Start",
     details: "Details",
@@ -45,6 +71,11 @@ const en: SiteDictionary = {
     secure_payment: "Secure payment",
     guarantee: "100% Satisfaction Guarantee",
     privacy_first: "Privacy-first",
+    trust_badges: [
+      "SSL secure checkout",
+      "Hashed data protection",
+      "Scientific scoring engine",
+    ],
   },
   result: {
     title: "Your assessment result",

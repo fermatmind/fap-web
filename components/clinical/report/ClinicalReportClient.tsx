@@ -7,9 +7,10 @@ import { OfferCard } from "@/components/big5/paywall/OfferCard";
 import { CrisisOverlay } from "@/components/clinical/report/CrisisOverlay";
 import { ReportSectionRenderer } from "@/components/clinical/report/ReportSectionRenderer";
 import { UnlockCTA } from "@/components/commerce/UnlockCTA";
+import { AnimatedCounter } from "@/components/design/AnimatedCounter";
+import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
 import {
   createCheckoutOrOrder,
   type Big5ReportSection,
@@ -19,6 +20,7 @@ import {
 import { trackEvent } from "@/lib/analytics";
 import { fetchClinicalReport } from "@/lib/clinical/api";
 import { mapClinicalError } from "@/lib/clinical/errors";
+import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { captureError } from "@/lib/observability/sentry";
 
@@ -303,6 +305,28 @@ function resolveCrisisReasons(sections: Big5ReportSection[]): string[] {
   return crisisSection.reasons.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
 }
 
+function extractPrimaryNumericScore(report: ReportResponse | null): number | null {
+  if (!report || !report.report || typeof report.report !== "object") return null;
+  const reportNode = report.report as Record<string, unknown>;
+  const scoresNode = reportNode.scores;
+  if (!scoresNode || typeof scoresNode !== "object" || Array.isArray(scoresNode)) return null;
+
+  for (const value of Object.values(scoresNode as Record<string, unknown>)) {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return Math.max(0, Math.min(100, value));
+    }
+    if (value && typeof value === "object") {
+      const candidateNode = value as Record<string, unknown>;
+      const candidate = candidateNode.score ?? candidateNode.value ?? candidateNode.percentile;
+      if (typeof candidate === "number" && Number.isFinite(candidate)) {
+        return Math.max(0, Math.min(100, candidate));
+      }
+    }
+  }
+
+  return null;
+}
+
 export default function ClinicalReportClient({
   attemptId,
   initialReport,
@@ -312,6 +336,7 @@ export default function ClinicalReportClient({
 }) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
+  const dict = getDictSync(locale);
   const router = useRouter();
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
   const isZh = locale === "zh";
@@ -332,6 +357,7 @@ export default function ClinicalReportClient({
   const variant = String(reportData?.variant ?? (locked ? "free" : "full"));
   const qualityLevel = String(reportData?.quality?.level ?? "unrated");
   const crisisAlert = reportData?.quality?.crisis_alert === true;
+  const primaryNumericScore = useMemo(() => extractPrimaryNumericScore(reportData), [reportData]);
   const generating = resolveGenerating(reportData);
   const snapshotError = resolveSnapshotError(reportData);
   const retryAfterSeconds = resolveRetryAfterSeconds(reportData);
@@ -479,6 +505,30 @@ export default function ClinicalReportClient({
   }, [crisisAlert, locale, locked, pendingUnlockStorageKey, qualityLevel, reportData, scaleCode, variant]);
 
   useEffect(() => {
+    const resolvedScale = scaleCode ?? "CLINICAL_COMBO_68";
+    if (loading) {
+      trackEvent("ui_report_loading_phase", {
+        scale_code: resolvedScale,
+        phase: "initial_loading",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+      return;
+    }
+
+    if (generating) {
+      trackEvent("ui_report_loading_phase", {
+        scale_code: resolvedScale,
+        phase: "generating",
+        locked,
+        variant,
+        locale,
+      });
+    }
+  }, [generating, loading, locale, locked, scaleCode, variant]);
+
+  useEffect(() => {
     if (!reportData || !scaleCode || !locked) return;
     if (typeof window === "undefined") return;
 
@@ -613,13 +663,7 @@ export default function ClinicalReportClient({
   };
 
   if (loading && !reportData) {
-    return (
-      <div className="space-y-4">
-        <Alert>{isZh ? "报告加载中..." : "Loading report..."}</Alert>
-        <Skeleton className="h-32 w-full" />
-        <Skeleton className="h-44 w-full" />
-      </div>
-    );
+    return <AnticipationSkeleton phases={dict.loading.phases} />;
   }
 
   if (error && !reportData) {
@@ -662,6 +706,12 @@ export default function ClinicalReportClient({
           {isZh ? "访问等级" : "Access"}: {String(reportData.access_level ?? variant)}
         </p>
         <p className="m-0 text-sm text-slate-700">{qualityText}</p>
+        {primaryNumericScore !== null ? (
+          <p className="m-0 text-sm text-slate-700">
+            {isZh ? "核心分值" : "Primary score"}:{" "}
+            <AnimatedCounter value={primaryNumericScore} className="font-semibold text-[var(--fm-accent)]" />
+          </p>
+        ) : null}
         {unlockPolling ? (
           <p className="m-0 text-xs text-slate-500">
             {isZh ? "正在确认解锁状态..." : "Verifying unlock state..."}
@@ -679,7 +729,7 @@ export default function ClinicalReportClient({
       {generating ? (
         <div className="space-y-3">
           <Alert>{isZh ? "报告生成中，请稍候..." : "Report is generating. Please wait..."}</Alert>
-          <Skeleton className="h-40 w-full" />
+          <AnticipationSkeleton phases={dict.loading.phases} />
         </div>
       ) : null}
 

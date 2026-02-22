@@ -45,14 +45,24 @@ export default async function TypeDetailPage({
   if (!type) return notFound();
 
   return (
-    <Container as="main" className="py-10">
-      <Card>
+    <Container as="main" className="space-y-6 py-10">
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          Type Profile
+        </p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
+          {type.code} · {type.name}
+        </h1>
+        <p className="m-0 text-[var(--fm-text-muted)]">{type.description}</p>
+      </section>
+
+      <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
         <CardHeader className="space-y-3">
           <div className="flex flex-wrap items-center gap-2">
             <Badge>{type.code}</Badge>
-            <CardTitle>{type.name}</CardTitle>
+            <CardTitle className="font-serif text-[var(--fm-text)]">{type.name}</CardTitle>
           </div>
-          <p className="text-sm text-slate-600">{type.description}</p>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{type.description}</p>
         </CardHeader>
         <CardContent className="space-y-4">
           {type.traits?.length ? (
@@ -63,9 +73,12 @@ export default async function TypeDetailPage({
             </div>
           ) : null}
           {type.updatedAt ? (
-            <p className="text-sm text-slate-500">Updated: {type.updatedAt}</p>
+            <p className="m-0 text-sm text-[var(--fm-text-muted)]">Updated: {type.updatedAt}</p>
           ) : null}
-          <Link href={localizedPath("/types", locale)} className="text-sm font-semibold text-sky-700 hover:text-sky-800">
+          <Link
+            href={localizedPath("/types", locale)}
+            className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+          >
             Back to types
           </Link>
         </CardContent>

@@ -14,6 +14,17 @@ export type SiteDictionary = {
     title: string;
     subtitle: string;
   };
+  card: {
+    compactLabel: string;
+    a11yVisualDescriptions: Record<string, string>;
+    a11yVisualFallback: string;
+  };
+  quiz: {
+    milestoneHints: string[];
+  };
+  loading: {
+    phases: string[];
+  };
   common: {
     start: string;
     details: string;
@@ -45,6 +56,7 @@ export type SiteDictionary = {
     secure_payment: string;
     guarantee: string;
     privacy_first: string;
+    trust_badges: string[];
   };
   result: {
     title: string;
