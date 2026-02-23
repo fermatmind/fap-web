@@ -10,30 +10,94 @@ export function SiteFooter() {
   const locale = useLocale();
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
+  const socialItems = ["FB", "X", "YT", "IG", "IN"];
+
+  const testLinks = [
+    { href: "/tests/personality-mbti-test", label: "MBTI" },
+    { href: "/tests/big-five-personality-test", label: "Big Five" },
+    { href: "/tests/disc-personality-test", label: "DISC" },
+    { href: "/tests/sds-20", label: "SDS-20" },
+  ];
+
+  const articleLinks = [
+    { href: "/articles", label: locale === "zh" ? "全部文章" : "All articles" },
+    { href: "/articles/mbti-basics", label: "MBTI Basics" },
+  ];
 
   return (
-    <footer className="border-t border-[var(--fm-border)] bg-white/80 backdrop-blur-sm">
-      <Container className="space-y-4 py-8">
-        <p className="text-sm text-[var(--fm-text-muted)]">
+    <footer className="fm-section-dark border-t border-white/10 text-white">
+      <Container className="space-y-8 py-12">
+        <p className="m-0 text-sm text-slate-300">
           {dict.legal.medical_disclaimer}
         </p>
 
-        <div className="flex flex-wrap items-center gap-4 text-sm">
-          <Link href={withLocale("/privacy")} className="text-[var(--fm-text-muted)] hover:text-[var(--fm-text)]">
-            {dict.footer.privacy}
-          </Link>
-          <Link href={withLocale("/terms")} className="text-[var(--fm-text-muted)] hover:text-[var(--fm-text)]">
-            {dict.footer.terms}
-          </Link>
-          <Link href={withLocale("/refund")} className="text-[var(--fm-text-muted)] hover:text-[var(--fm-text)]">
-            {dict.footer.refund}
-          </Link>
-          <Link href={withLocale("/support")} className="text-[var(--fm-text-muted)] hover:text-[var(--fm-text)]">
-            {dict.footer.support}
-          </Link>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-3">
+            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.allTestsTitle}</p>
+            <div className="space-y-2 text-sm">
+              {testLinks.map((item) => (
+                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.articlesTitle}</p>
+            <div className="space-y-2 text-sm">
+              {articleLinks.map((item) => (
+                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.localesTitle}</p>
+            <div className="space-y-2 text-sm">
+              <Link href="/en" className="block text-slate-300 hover:text-white">EN</Link>
+              <Link href="/zh" className="block text-slate-300 hover:text-white">中文</Link>
+              <Link href={withLocale("/business")} className="block text-slate-300 hover:text-white">{dict.header.business}</Link>
+              <Link href={withLocale("/help")} className="block text-slate-300 hover:text-white">{dict.footer.support}</Link>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.reviewsTitle}</p>
+            <p className="m-0 text-sm text-slate-300">{dict.footer.ratingLabel}</p>
+            <p className="m-0 text-sm text-slate-300">
+              {dict.footer.contactLabel}:{" "}
+              <a href={`mailto:${supportEmail}`} className="font-semibold text-white hover:text-[var(--fm-gold)]">
+                {supportEmail}
+              </a>
+            </p>
+          </div>
         </div>
 
-        <p className="text-xs text-[var(--fm-text-muted)]">
+        <div className="space-y-4 border-t border-white/15 pt-6">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {socialItems.map((item) => (
+              <span
+                key={item}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-white transition hover:bg-[var(--fm-gold)] hover:text-amber-900"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+            <Link href={withLocale("/privacy")} className="text-slate-300 hover:text-white">{dict.footer.privacy}</Link>
+            <Link href={withLocale("/terms")} className="text-slate-300 hover:text-white">{dict.footer.terms}</Link>
+            <Link href={withLocale("/refund")} className="text-slate-300 hover:text-white">{dict.footer.refund}</Link>
+            <Link href={withLocale("/help")} className="text-slate-300 hover:text-white">{dict.footer.support}</Link>
+          </div>
+        </div>
+
+        <p className="m-0 text-center text-xs text-slate-400">
           © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
         </p>
       </Container>
