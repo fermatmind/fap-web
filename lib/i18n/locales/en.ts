@@ -21,6 +21,44 @@ const en: SiteDictionary = {
     title: "Tests",
     subtitle: "Pick a test to view details and start assessment.",
   },
+  home: {
+    hero: {
+      kicker: "Evidence Informed Assessments",
+      title: "Free tests that take you further",
+      subtitle:
+        "Psychological assessments for career direction, personality growth, and structured self-discovery.",
+      ctaPrimary: "Find your test",
+      ctaSecondary: "Browse all tests",
+      chips: ["Competencies", "Personality tests", "Career choice"],
+    },
+    valueProps: {
+      title: "Why people trust FermatMind",
+      items: [
+        {
+          title: "Free and reliable",
+          description: "Validated test structures with clear scoring logic and consistent reporting output.",
+        },
+        {
+          title: "Privacy by default",
+          description: "Minimal data flow, hashed identifiers, and consent-aware tracking boundaries.",
+        },
+        {
+          title: "Used at scale",
+          description: "High-completion flows designed for individuals, coaches, and organizational teams.",
+        },
+      ],
+    },
+    socialProof: {
+      title: "Users and referrers",
+      subtitle: "Trusted by learners, teams, and content communities looking for practical assessment tools.",
+      testimonialsTitle: "What users say",
+    },
+    highlighted: {
+      title: "Highlighted tests",
+      subtitle: "Pick a focus area and start with a structured, high-confidence assessment flow.",
+      cta: "Start this test",
+    },
+  },
   card: {
     compactLabel: "Compact visual",
     a11yVisualDescriptions: {

@@ -21,6 +21,43 @@ const zh: SiteDictionary = {
     title: "测评列表",
     subtitle: "选择一个测评查看详情并开始测评。",
   },
+  home: {
+    hero: {
+      kicker: "循证测评体系",
+      title: "免费测试，让你走得更远",
+      subtitle: "覆盖职业选择、人格洞察与成长规划的心理测评工具，帮助你更快做出高质量决策。",
+      ctaPrimary: "寻找你的测试",
+      ctaSecondary: "浏览全部测试",
+      chips: ["能力画像", "人格测评", "职业选择"],
+    },
+    valueProps: {
+      title: "为什么大家信任 FermatMind",
+      items: [
+        {
+          title: "免费且可靠",
+          description: "基于稳定测评结构与透明评分逻辑，结果可解释、可复核。",
+        },
+        {
+          title: "隐私默认保护",
+          description: "最小化数据采集，匿名标识与同意机制优先，降低信息暴露风险。",
+        },
+        {
+          title: "高完成率验证",
+          description: "流程设计面向高密度答题场景，服务个人与团队双场景。",
+        },
+      ],
+    },
+    socialProof: {
+      title: "用户与推荐方",
+      subtitle: "被学习者、团队管理者与内容社群持续使用与推荐。",
+      testimonialsTitle: "真实用户评价",
+    },
+    highlighted: {
+      title: "重点测评",
+      subtitle: "选择一个核心方向，立即进入结构化测评流程。",
+      cta: "开始此测试",
+    },
+  },
   card: {
     compactLabel: "精简视觉",
     a11yVisualDescriptions: {
