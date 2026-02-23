@@ -1,19 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --fm-bg: #f4f6fb;
+  --fm-bg: #f5f8fc;
   --fm-surface: #ffffff;
-  --fm-surface-muted: #eef3ff;
-  --fm-border: #d6deef;
-  --fm-border-strong: #b9c7e8;
-  --fm-text: #10213e;
-  --fm-text-muted: #475a7f;
-  --fm-accent: #0e5cd3;
-  --fm-accent-strong: #0947a5;
-  --fm-focus: #1f7bf3;
-  --fm-shadow-sm: 0 6px 18px rgba(16, 33, 62, 0.06);
-  --fm-shadow-md: 0 10px 28px rgba(16, 33, 62, 0.08);
-  --fm-shadow-lg: 0 18px 44px rgba(16, 33, 62, 0.12);
+  --fm-surface-muted: #ebf2fb;
+  --fm-border: #cddbee;
+  --fm-border-strong: #aac0df;
+  --fm-text: #132947;
+  --fm-text-muted: #4f6285;
+
+  --fm-trust-blue: #153f83;
+  --fm-trust-blue-strong: #0f2f61;
+  --fm-teal: #0d9488;
+  --fm-teal-light: #15b8ab;
+  --fm-teal-soft: #d8f3ef;
+  --fm-cta-orange: #ea580c;
+  --fm-cta-orange-strong: #c2410c;
+  --fm-gold: #eab308;
+
+  --fm-accent: var(--fm-trust-blue);
+  --fm-accent-strong: var(--fm-trust-blue-strong);
+  --fm-focus: #2378ff;
+  --fm-shadow-sm: 0 6px 18px rgba(19, 41, 71, 0.08);
+  --fm-shadow-md: 0 14px 34px rgba(19, 41, 71, 0.12);
+  --fm-shadow-lg: 0 24px 56px rgba(19, 41, 71, 0.18);
+  --fm-radius-lg: 1rem;
+  --fm-radius-xl: 1.25rem;
 }
 
 @theme inline {
@@ -38,11 +50,11 @@ body {
   background-color: var(--fm-bg);
   color: var(--fm-text);
   font-family: var(--font-fm-sans), "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  line-height: 1.45;
+  line-height: 1.5;
   background-image:
-    radial-gradient(circle at 20% -10%, rgba(14, 92, 211, 0.12), transparent 40%),
-    radial-gradient(circle at 80% 0%, rgba(125, 165, 238, 0.18), transparent 42%),
-    linear-gradient(180deg, #f8fbff 0%, #f2f6ff 100%);
+    radial-gradient(circle at 18% -8%, rgba(21, 63, 131, 0.2), transparent 42%),
+    radial-gradient(circle at 82% 4%, rgba(13, 148, 136, 0.18), transparent 44%),
+    linear-gradient(180deg, #f7fbff 0%, #eef4fd 100%);
 }
 
 a {
@@ -78,6 +90,38 @@ a {
 
 .fm-animate-soft-fade {
   animation: fm-soft-fade 360ms ease both;
+}
+
+.fm-section-white {
+  background: #ffffff;
+}
+
+.fm-section-muted {
+  background: #f4f7fc;
+}
+
+.fm-section-teal {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(21, 184, 171, 0.15), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(21, 63, 131, 0.16), transparent 42%),
+    var(--fm-teal);
+}
+
+.fm-section-dark {
+  background:
+    radial-gradient(circle at 12% -10%, rgba(13, 148, 136, 0.24), transparent 36%),
+    linear-gradient(180deg, #1b2432 0%, #111a27 100%);
+}
+
+.fm-tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.fm-wave-cut {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  line-height: 0;
 }
 
 .fm-data-stripe {

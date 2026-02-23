@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 
 type AnimatedCounterProps = {
   value: number;
@@ -25,8 +25,19 @@ export function AnimatedCounter({
   const safeDuration = Math.max(100, durationMs);
   const [displayValue, setDisplayValue] = useState(0);
   const integerTarget = useMemo(() => Math.round(target), [target]);
-  const prefersReducedMotion =
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const prefersReducedMotion = useSyncExternalStore(
+    (callback) => {
+      const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+      query.addEventListener("change", callback);
+      return () => {
+        query.removeEventListener("change", callback);
+      };
+    },
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false
+  );
+  const formattedDisplay = useMemo(() => new Intl.NumberFormat("en-US").format(displayValue), [displayValue]);
+  const formattedTarget = useMemo(() => new Intl.NumberFormat("en-US").format(integerTarget), [integerTarget]);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -55,7 +66,7 @@ export function AnimatedCounter({
   return (
     <span className={className} aria-live="polite">
       {prefix}
-      {prefersReducedMotion ? integerTarget : displayValue}
+      {prefersReducedMotion ? formattedTarget : formattedDisplay}
       {suffix}
     </span>
   );
