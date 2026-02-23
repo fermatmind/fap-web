@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cookies, headers } from "next/headers";
 import { notFound, redirect } from "next/navigation";
-import { resolveBig5RolloutState } from "@/lib/big5/api";
 import { getTestBySlug } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import {
+  createScaleRolloutEnvSnapshot,
+  resolveScaleRollout,
+  type SupportedScaleCode,
+} from "@/lib/rollout/scaleRollout";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
@@ -33,6 +38,15 @@ async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promi
   } catch {
     return null;
   }
+}
+
+async function resolveRequestAnonId(): Promise<string | undefined> {
+  const [cookieStore, headerStore] = await Promise.all([cookies(), headers()]);
+  const fromCookie = cookieStore.get("fap_anonymous_id_v1")?.value?.trim();
+  if (fromCookie) return fromCookie;
+
+  const fromHeader = headerStore.get("x-anon-id")?.trim() ?? "";
+  return fromHeader || undefined;
 }
 
 export async function generateMetadata({
@@ -83,12 +97,15 @@ export default async function TakePage({
     );
   }
 
-  if (test.scale_code === "BIG5_OCEAN") {
-    const capabilities = await fetchLookupCapabilities(slug, locale);
-    const rollout = resolveBig5RolloutState(capabilities);
-    if (!rollout.enabledInProd || rollout.paywallMode === "off") {
-      redirect(withLocale(`/tests/${slug}?maintenance=1`));
-    }
+  const capabilities = await fetchLookupCapabilities(slug, locale);
+  const rollout = resolveScaleRollout({
+    scaleCode: test.scale_code as SupportedScaleCode,
+    capabilities,
+    anonId: await resolveRequestAnonId(),
+    envSnapshot: createScaleRolloutEnvSnapshot(),
+  });
+  if (!rollout.assessmentEnabled) {
+    redirect(withLocale(`/tests/${slug}?maintenance=1`));
   }
 
   return (

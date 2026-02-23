@@ -69,12 +69,17 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
     const body = route.request().postDataJSON() as {
       answers?: Array<{ question_id?: string; code?: string }>;
       duration_ms?: number;
+      consent?: { accepted?: boolean; version?: string; locale?: string };
     };
 
     expect(Array.isArray(body.answers)).toBeTruthy();
     expect(body.answers?.length).toBe(20);
     expect(body.answers?.every((item) => typeof item.code === "string" && item.code.length > 0)).toBeTruthy();
     expect(typeof body.duration_ms).toBe("number");
+    expect(body.consent).toMatchObject({
+      accepted: true,
+      version: "SDS20_CONSENT_v1",
+    });
 
     await route.fulfill({
       status: 200,
@@ -101,6 +106,14 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
           ],
           report: {
             scale_code: "SDS_20",
+            scores: {
+              factors: {
+                psycho_affective: { value: 14, max: 20 },
+                somatic: { value: 12, max: 20 },
+                psychomotor: { value: 9, max: 20 },
+                cognitive: { value: 11, max: 20 },
+              },
+            },
             sections: [
               {
                 key: "disclaimer_top",
@@ -185,6 +198,14 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
         report: {
           scale_code: "SDS_20",
           locale: "en",
+          scores: {
+            factors: {
+              psycho_affective: { value: 14, max: 20 },
+              somatic: { value: 12, max: 20 },
+              psychomotor: { value: 9, max: 20 },
+              cognitive: { value: 11, max: 20 },
+            },
+          },
           sections: [
             {
               key: "disclaimer_top",
@@ -235,11 +256,15 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
 
   await page.getByRole("button", { name: "Submit" }).click();
 
-  await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`));
+  await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`), { timeout: 15000 });
   await expect(page.getByRole("heading", { name: "Important Disclaimer" })).toBeVisible();
   await expect(page.getByText("Important: prioritize immediate safety and support")).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "Paid Deep Dive" })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "SDS factor breakdown" })).toBeVisible();
+  await expect(page.getByText("Psycho-affective")).toBeVisible();
+  await expect(page.getByText("Somatic")).toBeVisible();
+  await expect(page.locator("text=NaN")).toHaveCount(0);
 
   expect(startPayload).not.toBeNull();
   const payload = (startPayload ?? {}) as Record<string, unknown>;

@@ -37,6 +37,18 @@ export function captureError(error: unknown, context: Record<string, unknown> = 
     if (window.Sentry.setTag && typeof safeContext.route === "string") {
       window.Sentry.setTag("route", safeContext.route);
     }
+    const scaleTag =
+      typeof safeContext.scale_code === "string"
+        ? safeContext.scale_code
+        : typeof safeContext.scaleCode === "string"
+          ? safeContext.scaleCode
+          : "";
+    if (window.Sentry.setTag && scaleTag) {
+      window.Sentry.setTag("scale", scaleTag);
+    }
+    if (window.Sentry.setTag && typeof safeContext.stage === "string") {
+      window.Sentry.setTag("stage", safeContext.stage);
+    }
     if (window.Sentry.setTag && typeof process.env.NEXT_PUBLIC_RELEASE === "string") {
       window.Sentry.setTag("release", process.env.NEXT_PUBLIC_RELEASE);
     }

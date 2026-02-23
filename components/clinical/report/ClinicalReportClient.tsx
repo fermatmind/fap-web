@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { OfferCard } from "@/components/big5/paywall/OfferCard";
 import { CrisisOverlay } from "@/components/clinical/report/CrisisOverlay";
 import { ReportSectionRenderer } from "@/components/clinical/report/ReportSectionRenderer";
+import { SdsFactorPanel } from "@/components/clinical/report/SdsFactorPanel";
 import { UnlockCTA } from "@/components/commerce/UnlockCTA";
 import { AnimatedCounter } from "@/components/design/AnimatedCounter";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
@@ -17,12 +18,15 @@ import {
   type OfferPayload,
   type ReportResponse,
 } from "@/lib/api/v0_3";
+import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
 import { fetchClinicalReport } from "@/lib/clinical/api";
 import { mapClinicalError } from "@/lib/clinical/errors";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
+import { resolveScaleRollout, type ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 
 const SDS_SECTION_KEYS = [
   "disclaimer_top",
@@ -327,12 +331,81 @@ function extractPrimaryNumericScore(report: ReportResponse | null): number | nul
   return null;
 }
 
+function pickString(...values: unknown[]): string {
+  for (const value of values) {
+    if (typeof value === "string" && value.trim().length > 0) {
+      return value.trim();
+    }
+  }
+  return "";
+}
+
+function resolveConsentTrace(report: ReportResponse | null): { version: string; hash: string } {
+  if (!report) return { version: "", hash: "" };
+  const qualityNode =
+    report.quality && typeof report.quality === "object" && !Array.isArray(report.quality)
+      ? (report.quality as Record<string, unknown>)
+      : {};
+  const metaNode =
+    report.meta && typeof report.meta === "object" && !Array.isArray(report.meta)
+      ? (report.meta as Record<string, unknown>)
+      : {};
+
+  return {
+    version: pickString(
+      qualityNode.consent_version,
+      qualityNode.consentVersion,
+      metaNode.consent_version,
+      metaNode.accepted_version,
+      metaNode.disclaimer_version_accepted
+    ),
+    hash: pickString(
+      qualityNode.consent_hash,
+      qualityNode.consentHash,
+      metaNode.consent_hash,
+      metaNode.accepted_hash,
+      metaNode.disclaimer_hash
+    ),
+  };
+}
+
+function resolveSdsFactors(report: ReportResponse | null): unknown {
+  if (!report || !report.report || typeof report.report !== "object") return null;
+  const reportNode = report.report as Record<string, unknown>;
+  const scoresNode =
+    reportNode.scores && typeof reportNode.scores === "object" && !Array.isArray(reportNode.scores)
+      ? (reportNode.scores as Record<string, unknown>)
+      : null;
+  if (!scoresNode) return null;
+
+  const factors = scoresNode.factors;
+  if (factors && typeof factors === "object" && !Array.isArray(factors)) {
+    return factors;
+  }
+
+  return null;
+}
+
+function resolveReportCapabilities(report: ReportResponse | null): Record<string, unknown> | null {
+  if (!report || !report.meta || typeof report.meta !== "object" || Array.isArray(report.meta)) {
+    return null;
+  }
+  const metaNode = report.meta as Record<string, unknown>;
+  const capabilities = metaNode.capabilities;
+  if (capabilities && typeof capabilities === "object" && !Array.isArray(capabilities)) {
+    return capabilities as Record<string, unknown>;
+  }
+  return null;
+}
+
 export default function ClinicalReportClient({
   attemptId,
   initialReport,
+  rolloutEnv,
 }: {
   attemptId: string;
   initialReport?: ReportResponse | null;
+  rolloutEnv: ScaleRolloutEnvSnapshot;
 }) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
@@ -350,6 +423,7 @@ export default function ClinicalReportClient({
 
   const reportViewSignatureRef = useRef("");
   const previousLockedRef = useRef<boolean | null>(null);
+  const crisisViewSignatureRef = useRef("");
 
   const pendingUnlockStorageKey = `${PENDING_UNLOCK_CACHE_PREFIX}${attemptId}`;
   const scaleCode = useMemo(() => resolveClinicalScaleCode(reportData), [reportData]);
@@ -361,10 +435,24 @@ export default function ClinicalReportClient({
   const generating = resolveGenerating(reportData);
   const snapshotError = resolveSnapshotError(reportData);
   const retryAfterSeconds = resolveRetryAfterSeconds(reportData);
+  const consentTrace = useMemo(() => resolveConsentTrace(reportData), [reportData]);
+  const sdsFactors = useMemo(() => resolveSdsFactors(reportData), [reportData]);
+  const anonId = useMemo(() => getOrCreateAnonId(), []);
+  const reportCapabilities = useMemo(() => resolveReportCapabilities(reportData), [reportData]);
 
   const offers = useMemo(() => normalizeOffers(reportData), [reportData]);
   const firstOffer = offers[0];
   const rawSections = useMemo(() => normalizeSections(reportData), [reportData]);
+  const rolloutDecision = useMemo(
+    () =>
+      resolveScaleRollout({
+        scaleCode,
+        capabilities: reportCapabilities,
+        anonId,
+        envSnapshot: rolloutEnv,
+      }),
+    [anonId, reportCapabilities, rolloutEnv, scaleCode]
+  );
 
   const sections = useMemo(() => {
     if (!scaleCode) return [];
@@ -392,8 +480,8 @@ export default function ClinicalReportClient({
   const crisisResources = useMemo(() => resolveCrisisResources(reportData, sections), [reportData, sections]);
   const crisisReasons = useMemo(() => resolveCrisisReasons(sections), [sections]);
 
-  const showPaywall = locked && offers.length > 0 && !crisisAlert;
-  const showOffers = offers.length > 0 && !crisisAlert;
+  const showPaywall = locked && offers.length > 0 && !crisisAlert && rolloutDecision.commerceEnabled;
+  const showOffers = offers.length > 0 && !crisisAlert && rolloutDecision.commerceEnabled;
 
   const loadReport = useCallback(
     async ({ refresh = false }: { refresh?: boolean } = {}) => {
@@ -438,9 +526,20 @@ export default function ClinicalReportClient({
         if (!active) return;
         const mapped = mapClinicalError(cause);
         setError(mapped.message);
+        const classified = classifyApiError(cause);
+        trackEvent("report_load_failure", {
+          scale_code: scaleCode ?? "UNKNOWN",
+          stage: "load_report",
+          status_group: classified.statusGroup,
+          status_code: classified.statusCode,
+          error_code: classified.errorCode,
+          route: "/attempts/[attemptId]/report",
+          locale,
+        });
         captureError(cause, {
           route: "/attempts/[attemptId]/report",
           attemptId,
+          scaleCode: scaleCode ?? "UNKNOWN",
           stage: "load_report",
         });
       } finally {
@@ -455,7 +554,7 @@ export default function ClinicalReportClient({
     return () => {
       active = false;
     };
-  }, [attemptId, initialReport, loadReport]);
+  }, [attemptId, initialReport, loadReport, locale, scaleCode]);
 
   useEffect(() => {
     if (!reportData || !scaleCode) return;
@@ -477,6 +576,21 @@ export default function ClinicalReportClient({
     reportViewSignatureRef.current = signature;
     trackEvent(eventName, payload);
   }, [crisisAlert, locale, locked, qualityLevel, reportData, scaleCode, showPaywall, variant]);
+
+  useEffect(() => {
+    if (!scaleCode || !crisisAlert) return;
+
+    const signature = `crisis:${scaleCode}:${qualityLevel}:${locale}`;
+    if (crisisViewSignatureRef.current === signature) return;
+    crisisViewSignatureRef.current = signature;
+
+    trackEvent("clinical_crisis_view", {
+      scale_code: scaleCode,
+      crisis_alert: true,
+      quality_level: qualityLevel,
+      locale,
+    });
+  }, [crisisAlert, locale, qualityLevel, scaleCode]);
 
   useEffect(() => {
     if (!reportData || !scaleCode) return;
@@ -562,9 +676,20 @@ export default function ClinicalReportClient({
         }
       } catch (cause) {
         if (!active) return;
+        const classified = classifyApiError(cause);
+        trackEvent("report_load_failure", {
+          scale_code: scaleCode ?? "UNKNOWN",
+          stage: "unlock_poll",
+          status_group: classified.statusGroup,
+          status_code: classified.statusCode,
+          error_code: classified.errorCode,
+          route: "/attempts/[attemptId]/report",
+          locale,
+        });
         captureError(cause, {
           route: "/attempts/[attemptId]/report",
           attemptId,
+          scaleCode: scaleCode ?? "UNKNOWN",
           stage: "unlock_poll",
         });
       } finally {
@@ -579,7 +704,7 @@ export default function ClinicalReportClient({
     return () => {
       active = false;
     };
-  }, [attemptId, locked, pendingUnlockStorageKey, reportData, scaleCode]);
+  }, [attemptId, locale, locked, pendingUnlockStorageKey, reportData, scaleCode]);
 
   const handlePay = async () => {
     if (!scaleCode || !firstOffer) {
@@ -652,9 +777,20 @@ export default function ClinicalReportClient({
     } catch (cause) {
       const mapped = mapClinicalError(cause);
       setError(mapped.message);
+      const classified = classifyApiError(cause);
+      trackEvent("report_load_failure", {
+        scale_code: scaleCode ?? "UNKNOWN",
+        stage: "reload_report",
+        status_group: classified.statusGroup,
+        status_code: classified.statusCode,
+        error_code: classified.errorCode,
+        route: "/attempts/[attemptId]/report",
+        locale,
+      });
       captureError(cause, {
         route: "/attempts/[attemptId]/report",
         attemptId,
+        scaleCode: scaleCode ?? "UNKNOWN",
         stage: "reload_report",
       });
     } finally {
@@ -724,6 +860,12 @@ export default function ClinicalReportClient({
               : `Auto retry in ${retryAfterSeconds} seconds`}
           </p>
         ) : null}
+        {consentTrace.version || consentTrace.hash ? (
+          <p className="m-0 text-xs text-slate-500">
+            {isZh ? "同意书版本" : "Consent"}: {consentTrace.version || "-"} ·
+            {isZh ? " 哈希" : " hash"}: {consentTrace.hash || "-"}
+          </p>
+        ) : null}
       </div>
 
       {generating ? (
@@ -745,7 +887,11 @@ export default function ClinicalReportClient({
       {error ? <Alert>{error}</Alert> : null}
 
       {crisisAlert && !hasCrisisSection ? (
-        <CrisisOverlay locale={locale} resources={crisisResources} reasons={crisisReasons} />
+        <CrisisOverlay locale={locale} resources={crisisResources} reasons={crisisReasons} scaleCode={scaleCode} />
+      ) : null}
+
+      {scaleCode === "SDS_20" && sdsFactors ? (
+        <SdsFactorPanel locale={locale} factors={sdsFactors} />
       ) : null}
 
       <div className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
@@ -755,6 +901,7 @@ export default function ClinicalReportClient({
             locale={locale}
             section={section}
             locked={locked}
+            scaleCode={scaleCode}
           />
         ))}
       </div>
@@ -790,7 +937,11 @@ export default function ClinicalReportClient({
       ) : null}
 
       {!showPaywall && locked && !crisisAlert ? (
-        <Alert>{isZh ? "当前暂无可用购买方案。" : "No purchase offer is currently available."}</Alert>
+        <Alert>
+          {rolloutDecision.commerceEnabled
+            ? (isZh ? "当前暂无可用购买方案。" : "No purchase offer is currently available.")
+            : (isZh ? "当前仅开放免费报告，付费入口已关闭。" : "Only free report is available right now. Paid unlock is disabled.")}
+        </Alert>
       ) : null}
 
       <div className="flex items-center gap-2">

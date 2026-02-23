@@ -1,0 +1,37 @@
+# Rollback Drill Runbook
+
+## Goal
+Validate that frontend rollback can recover core path (`questions -> submit -> report`) within 10 minutes.
+
+## Prerequisites
+1. Previous stable web tag available.
+2. Staging or production-like API endpoint available.
+3. Operator has deploy access and monitoring dashboard access.
+
+## Drill Steps
+1. Record current release:
+   - `git rev-parse --short HEAD`
+   - deployed tag
+2. Trigger rollback deploy to previous stable tag.
+3. Run smoke checks:
+   - `bash scripts/rollback_smoke.sh`
+4. Validate:
+   - questions endpoint returns 200
+   - submit endpoint accepts valid payload
+   - report endpoint returns renderable payload
+5. Restore latest release (optional post-drill).
+
+## Success Criteria
+1. End-to-end smoke succeeds within 10 minutes.
+2. No sustained increase in `report_load_failure` or `submit_failure`.
+3. Crisis report pages still hide upsell.
+
+## Execution Log
+- Date:
+- Operator:
+- From tag:
+- To tag:
+- Smoke result:
+- Total elapsed:
+- Follow-up actions:
+

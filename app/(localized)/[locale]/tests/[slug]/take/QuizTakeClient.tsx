@@ -14,7 +14,8 @@ import {
 } from "@/lib/api/v0_3";
 import { trackEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname } from "@/lib/i18n/locales";
+import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
@@ -70,6 +71,7 @@ function QuizTakeInner({
   const router = useRouter();
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
+  const withLocale = (path: string) => localizedPath(path, locale);
   const dict = getDictSync(locale);
 
   const currentIndex = useQuizStore((store) => store.state.currentIndex);
@@ -115,9 +117,20 @@ function QuizTakeInner({
         if (!active) return;
         const message = error instanceof Error ? error.message : "Failed to load questions.";
         setQuestionsError(message);
+        const classified = classifyApiError(error);
+        trackEvent("questions_load_failure", {
+          scale_code: scaleCode,
+          stage: "questions",
+          status_group: classified.statusGroup,
+          status_code: classified.statusCode,
+          error_code: classified.errorCode,
+          route: "/tests/[slug]/take",
+          locale,
+        });
         captureError(error, {
           route: "/tests/[slug]/take",
           slug,
+          scaleCode,
           stage: "load_questions",
         });
         setQuestions([]);
@@ -131,7 +144,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [scaleCode, setQuestions, slug]);
+  }, [locale, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     let active = true;
@@ -154,9 +167,20 @@ function QuizTakeInner({
         if (!active) return;
         const message = error instanceof Error ? error.message : "Failed to start attempt.";
         setAttemptError(message);
+        const classified = classifyApiError(error);
+        trackEvent("submit_failure", {
+          scale_code: scaleCode,
+          stage: "start_attempt",
+          status_group: classified.statusGroup,
+          status_code: classified.statusCode,
+          error_code: classified.errorCode,
+          route: "/tests/[slug]/take",
+          locale,
+        });
         captureError(error, {
           route: "/tests/[slug]/take",
           slug,
+          scaleCode,
           stage: "start_attempt",
         });
       } finally {
@@ -169,7 +193,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [attemptId, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+  }, [attemptId, locale, savedScaleCode, scaleCode, setAttemptMeta, slug]);
 
   useEffect(() => {
     if (!attemptId || trackedStartRef.current) return;
@@ -267,13 +291,24 @@ function QuizTakeInner({
         durationMs,
       });
       resetAttempt();
-      router.push(`/result/${resultAttemptId}`);
+      router.push(withLocale(`/result/${resultAttemptId}`));
     } catch (error) {
       const message = error instanceof Error ? error.message : "Submit failed.";
       setSubmitError(message);
+      const classified = classifyApiError(error);
+      trackEvent("submit_failure", {
+        scale_code: scaleCode,
+        stage: "submit_attempt",
+        status_group: classified.statusGroup,
+        status_code: classified.statusCode,
+        error_code: classified.errorCode,
+        route: "/tests/[slug]/take",
+        locale,
+      });
       captureError(error, {
         route: "/tests/[slug]/take",
         slug,
+        scaleCode,
         stage: "submit_attempt",
       });
     } finally {

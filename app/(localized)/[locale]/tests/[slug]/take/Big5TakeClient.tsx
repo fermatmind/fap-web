@@ -27,6 +27,7 @@ import { mapBig5Error, type Big5UiError } from "@/lib/big5/errors";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
+import { classifyApiError } from "@/lib/observability/httpError";
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => {
@@ -338,6 +339,16 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       } catch (error) {
         if (!active) return;
         const mapped = mapBig5Error(error);
+        const classified = classifyApiError(error);
+        trackEvent("questions_load_failure", {
+          scale_code: "BIG5_OCEAN",
+          stage: "questions",
+          status_group: classified.statusGroup,
+          status_code: classified.statusCode,
+          error_code: classified.errorCode,
+          route: "/tests/[slug]/take",
+          locale,
+        });
         applyUiError("question", mapped);
       } finally {
         if (active) {
@@ -414,6 +425,16 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         }
 
         const mapped = mapBig5Error(error);
+        const classified = classifyApiError(error);
+        trackEvent("submit_failure", {
+          scale_code: "BIG5_OCEAN",
+          stage: "start_attempt",
+          status_group: classified.statusGroup,
+          status_code: classified.statusCode,
+          error_code: classified.errorCode,
+          route: "/tests/[slug]/take",
+          locale,
+        });
         applyUiError("start", mapped);
 
         if (error instanceof ApiError && error.status === 429) {
@@ -515,6 +536,16 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       router.push(withLocale(`/result/${resultAttemptId}`));
     } catch (error) {
       const mapped = mapBig5Error(error);
+      const classified = classifyApiError(error);
+      trackEvent("submit_failure", {
+        scale_code: "BIG5_OCEAN",
+        stage: "submit_attempt",
+        status_group: classified.statusGroup,
+        status_code: classified.statusCode,
+        error_code: classified.errorCode,
+        route: "/tests/[slug]/take",
+        locale,
+      });
       applyUiError("submit", mapped);
 
       if (error instanceof ApiError && error.status === 408) {

@@ -11,10 +11,12 @@ export function ReportSectionRenderer({
   locale,
   section,
   locked,
+  scaleCode,
 }: {
   locale: "en" | "zh";
   section: Big5ReportSection;
   locked: boolean;
+  scaleCode?: string;
 }) {
   const key = typeof section.key === "string" ? section.key.trim() : "";
   const title = typeof section.title === "string" && section.title.trim().length > 0
@@ -57,7 +59,7 @@ export function ReportSectionRenderer({
     return (
       <section data-section-key={key || "unknown"} className="space-y-3">
         <h3 className="m-0 text-lg font-semibold text-slate-900">{title}</h3>
-        <CrisisOverlay locale={locale} resources={resources} reasons={reasons} />
+        <CrisisOverlay locale={locale} resources={resources} reasons={reasons} scaleCode={scaleCode} />
         {blocks.length > 0 ? (
           <div className="space-y-2">
             {blocks.map((block, index) => (
