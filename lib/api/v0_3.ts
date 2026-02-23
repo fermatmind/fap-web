@@ -523,11 +523,17 @@ export async function submitAttempt({
   anonId,
   answers,
   durationMs,
+  consent,
 }: {
   attemptId: string;
   anonId?: string;
   answers: SubmitAnswer[];
   durationMs: number;
+  consent?: {
+    accepted: boolean;
+    version: string;
+    locale?: string;
+  };
 }): Promise<SubmitResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.post<SubmitResponse>(
@@ -536,6 +542,15 @@ export async function submitAttempt({
       attempt_id: attemptId,
       answers: normalizeSubmitAnswers(answers),
       duration_ms: durationMs,
+      ...(consent
+        ? {
+            consent: {
+              accepted: Boolean(consent.accepted),
+              version: consent.version,
+              ...(consent.locale ? { locale: consent.locale } : {}),
+            },
+          }
+        : {}),
     },
     anonHeader(resolvedAnonId)
   );

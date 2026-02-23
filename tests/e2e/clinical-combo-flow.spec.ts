@@ -78,9 +78,14 @@ test("CC68 flow: module transition, crisis ordering, paid sections hidden", asyn
   await page.route("**/api/v0.3/attempts/submit", async (route) => {
     const body = route.request().postDataJSON() as {
       answers?: Array<{ question_id?: string; code?: string }>;
+      consent?: { accepted?: boolean; version?: string; locale?: string };
     };
     expect(Array.isArray(body.answers)).toBeTruthy();
     expect(body.answers?.length).toBe(68);
+    expect(body.consent).toMatchObject({
+      accepted: true,
+      version: "CC68_CONSENT_v1",
+    });
 
     await route.fulfill({
       status: 200,
@@ -181,7 +186,7 @@ test("CC68 flow: module transition, crisis ordering, paid sections hidden", asyn
   await page.getByRole("button", { name: "Submit" }).click();
 
   await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`));
-  await expect(page.getByText("988 Hotline: 988")).toBeVisible();
+  await expect(page.getByText("988 Hotline: 988").first()).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
 
   const sectionKeys = await page

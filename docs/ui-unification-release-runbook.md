@@ -1,5 +1,10 @@
 # UI Unification Release Runbook
 
+## Related Ops Docs
+- `docs/release/production-launch-checklist.md`
+- `docs/release/release-note-template.md`
+- `docs/release/rollback-drill.md`
+
 ## Scope
 - Frontend-only rollout for code-driven UI unification.
 - No backend API contract changes.
@@ -72,3 +77,4 @@ Notes:
    - `pnpm install --frozen-lockfile && pnpm build`
 3. Redeploy and run smoke checks:
    - `pnpm test:e2e tests/e2e/big5-flow.spec.ts tests/e2e/clinical-combo-flow.spec.ts`
+   - `bash scripts/rollback_smoke.sh`

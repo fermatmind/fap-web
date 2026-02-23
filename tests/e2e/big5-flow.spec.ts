@@ -18,6 +18,19 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
       { code: "5", text: "Strongly agree" },
     ],
   }));
+  const domainBlocks = [
+    { kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" },
+    { kind: "chart", metric_code: "C", title: "Conscientiousness", body: "Conscientiousness percentile 58" },
+    { kind: "chart", metric_code: "E", title: "Extraversion", body: "Extraversion percentile 44" },
+    { kind: "chart", metric_code: "A", title: "Agreeableness", body: "Agreeableness percentile 71" },
+    { kind: "chart", metric_code: "N", title: "Neuroticism", body: "Neuroticism percentile 33" },
+  ];
+  const facetBlocks = Array.from({ length: 30 }, (_, idx) => ({
+    kind: "table_row",
+    metric_code: `F${idx + 1}`,
+    title: `Facet ${idx + 1}`,
+    body: `Facet ${idx + 1} percentile ${40 + (idx % 50)}`,
+  }));
 
   await page.route("**/api/track", async (route) => {
     const body = route.request().postDataJSON() as {
@@ -133,22 +146,13 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
                 key: "domains_overview",
                 title: "Domains",
                 access_level: "free",
-                blocks: [
-                  { kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" },
-                  { kind: "chart", metric_code: "C", title: "Conscientiousness", body: "Conscientiousness percentile 58" },
-                  { kind: "chart", metric_code: "E", title: "Extraversion", body: "Extraversion percentile 44" },
-                  { kind: "chart", metric_code: "A", title: "Agreeableness", body: "Agreeableness percentile 71" },
-                  { kind: "chart", metric_code: "N", title: "Neuroticism", body: "Neuroticism percentile 33" },
-                ],
+                blocks: domainBlocks,
               },
               {
                 key: "facet_table",
                 title: "Facet Table",
                 access_level: "paid",
-                blocks: [
-                  { kind: "table_row", metric_code: "O1", title: "O1", body: "O1 percentile 60" },
-                  { kind: "table_row", metric_code: "C1", title: "C1", body: "C1 percentile 55" },
-                ],
+                blocks: facetBlocks,
               },
               {
                 key: "top_facets",
@@ -285,6 +289,13 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
   if (page.url().includes(`/en/orders/${orderNo}`)) {
     await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
   }
+
+  await expect(page.getByText("Openness", { exact: true })).toBeVisible();
+  await expect(page.getByText("Conscientiousness", { exact: true })).toBeVisible();
+  await expect(page.getByText("Extraversion", { exact: true })).toBeVisible();
+  await expect(page.getByText("Agreeableness", { exact: true })).toBeVisible();
+  await expect(page.getByText("Neuroticism", { exact: true })).toBeVisible();
+  await expect(page.getByText("Facet 30", { exact: true })).toBeVisible();
 
   const downloadButton = page.getByRole("button", { name: "Download PDF" });
   await expect(downloadButton).toBeEnabled();

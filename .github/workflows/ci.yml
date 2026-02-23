@@ -40,11 +40,24 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Build hash evidence
+        run: bash scripts/release_evidence.sh
+
+      - name: Upload release evidence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-evidence
+          path: artifacts/release-evidence
+          if-no-files-found: error
+
       - name: Install Playwright browser
         run: pnpm exec playwright install --with-deps chromium
 
       - name: E2E
         run: pnpm test:e2e tests/e2e/*.spec.ts
+
+      - name: UAT matrix (mock)
+        run: bash scripts/run_uat_matrix.sh mock
 
       - name: Visual snapshots
         run: pnpm test:e2e:visual

@@ -111,17 +111,24 @@ export async function submitClinicalAttempt({
   answers,
   durationMs,
   anonId,
+  consent,
 }: {
   attemptId: string;
   answers: SubmitAnswer[];
   durationMs: number;
   anonId?: string;
+  consent?: {
+    accepted: boolean;
+    version: string;
+    locale?: string;
+  };
 }): Promise<SubmitResponse> {
   const response = await submitAttempt({
     attemptId,
     answers,
     durationMs,
     anonId,
+    consent,
   });
 
   return assertClinicalContract<SubmitResponse>(

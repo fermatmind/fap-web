@@ -12,6 +12,7 @@ import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getOrCreateAnonId } from "@/lib/anon";
 import {
   createCheckoutOrOrder,
   getScaleLookup,
@@ -25,7 +26,9 @@ import { clearBig5ClientCaches, computeManifestHash } from "@/lib/big5/manifest"
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
+import { resolveScaleRollout, type ScaleRolloutEnvSnapshot, type SupportedScaleCode } from "@/lib/rollout/scaleRollout";
 import { trackEvent } from "@/lib/analytics";
 
 function firstOffer(report: ReportResponse): OfferPayload | undefined {
@@ -116,7 +119,33 @@ function extractPrimaryNumericScore(report: ReportResponse | null): number | nul
   return null;
 }
 
-export default function ResultClient({ attemptId }: { attemptId: string }) {
+const SCALE_SLUG_MAP: Record<SupportedScaleCode, string> = {
+  MBTI: "personality-mbti-test",
+  BIG5_OCEAN: "big-five-personality-test",
+  SDS_20: "sds-20",
+  CLINICAL_COMBO_68: "clinical-combo-68",
+};
+
+function normalizeSupportedScaleCode(scaleCode: string): SupportedScaleCode | null {
+  const normalized = scaleCode.trim().toUpperCase();
+  if (
+    normalized === "MBTI"
+    || normalized === "BIG5_OCEAN"
+    || normalized === "SDS_20"
+    || normalized === "CLINICAL_COMBO_68"
+  ) {
+    return normalized;
+  }
+  return null;
+}
+
+export default function ResultClient({
+  attemptId,
+  rolloutEnv,
+}: {
+  attemptId: string;
+  rolloutEnv: ScaleRolloutEnvSnapshot;
+}) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
@@ -131,6 +160,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   const [payError, setPayError] = useState<string | null>(null);
   const [emailNotice, setEmailNotice] = useState<string | null>(null);
   const [freeOnlyMode, setFreeOnlyMode] = useState(false);
+  const [commerceEnabled, setCommerceEnabled] = useState(true);
 
   const lastLockedRef = useRef<boolean | null>(null);
   const unlockTrackedRef = useRef(false);
@@ -176,8 +206,9 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
       ? String((reportData.report as { summary?: unknown }).summary ?? "")
       : "");
   const primaryNumericScore = useMemo(() => extractPrimaryNumericScore(reportData), [reportData]);
+  const anonId = useMemo(() => getOrCreateAnonId(), []);
 
-  const paywallDisabled = locked && (offers.length === 0 || freeOnlyMode);
+  const paywallDisabled = locked && (offers.length === 0 || freeOnlyMode || !commerceEnabled);
 
   useEffect(() => {
     if (loading) {
@@ -278,9 +309,20 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         setGenerating(false);
         const message = cause instanceof Error ? cause.message : dict.result.reportUnavailable;
         setError(message);
+        const classified = classifyApiError(cause);
+        trackEvent("report_load_failure", {
+          scale_code: reportScaleCode || "UNKNOWN",
+          stage: "load_report",
+          status_group: classified.statusGroup,
+          status_code: classified.statusCode,
+          error_code: classified.errorCode,
+          route: "/result/[id]",
+          locale,
+        });
         captureError(cause, {
           route: "/result/[id]",
           attemptId,
+          scaleCode: reportScaleCode || "UNKNOWN",
           stage: "load_report",
         });
       } finally {
@@ -296,35 +338,35 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
         window.clearTimeout(retryTimer);
       }
     };
-  }, [attemptId, dict.result.reportUnavailable, isClinicalScale]);
+  }, [attemptId, dict.result.reportUnavailable, isClinicalScale, locale, reportScaleCode]);
 
   useEffect(() => {
+    if (!reportData) return;
     let active = true;
 
     const run = async () => {
+      const scaleCode = normalizeSupportedScaleCode(reportScaleCode || "BIG5_OCEAN");
+      if (!scaleCode) return;
+
+      const lookupSlug = SCALE_SLUG_MAP[scaleCode];
+      if (!lookupSlug) return;
+
       try {
         const lookup = await getScaleLookup({
-          slug: "big-five-personality-test",
+          slug: lookupSlug,
           locale,
         });
         if (!active) return;
 
-        const capabilities =
-          lookup.capabilities && typeof lookup.capabilities === "object"
-            ? lookup.capabilities
-            : {};
-        const rollout =
-          capabilities && typeof capabilities === "object" && "rollout" in capabilities
-            ? ((capabilities as { rollout?: unknown }).rollout as Record<string, unknown> | undefined)
-            : undefined;
-        const paywallMode = String(
-          (capabilities as { paywall_mode?: unknown }).paywall_mode ??
-            (rollout as { paywall_mode?: unknown } | undefined)?.paywall_mode ??
-            "full"
-        )
-          .trim()
-          .toLowerCase();
-        setFreeOnlyMode(paywallMode === "free_only");
+        const rollout = resolveScaleRollout({
+          scaleCode,
+          capabilities: lookup.capabilities,
+          anonId,
+          envSnapshot: rolloutEnv,
+        });
+
+        setFreeOnlyMode(rollout.paywallMode === "free_only" || !rollout.commerceEnabled);
+        setCommerceEnabled(rollout.commerceEnabled);
       } catch {
         // ignore lookup failure
       }
@@ -335,7 +377,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
     return () => {
       active = false;
     };
-  }, [isClinicalScale, locale]);
+  }, [anonId, locale, reportData, reportScaleCode, rolloutEnv]);
 
   useEffect(() => {
     if (isClinicalScale) return;
@@ -505,7 +547,7 @@ export default function ResultClient({ attemptId }: { attemptId: string }) {
   }
 
   if (isClinicalScale) {
-    return <ClinicalReportClient attemptId={attemptId} initialReport={reportData} />;
+    return <ClinicalReportClient attemptId={attemptId} initialReport={reportData} rolloutEnv={rolloutEnv} />;
   }
 
   if (generating) {

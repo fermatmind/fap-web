@@ -20,6 +20,7 @@ import { useClinicalAttemptStore } from "@/lib/clinical/attemptStore";
 import { mapClinicalError } from "@/lib/clinical/errors";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
+import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import type { QuestionsMeta, ScaleQuestionItem, ScaleQuestionOption } from "@/lib/api/v0_3";
 
@@ -114,6 +115,7 @@ export default function ClinicalTakeClient({
   const startedAt = useClinicalAttemptStore((state) => state.startedAt);
   const consentAcceptedAt = useClinicalAttemptStore((state) => state.consentAcceptedAt);
   const consentVersion = useClinicalAttemptStore((state) => state.consentVersion);
+  const consentLocale = useClinicalAttemptStore((state) => state.consentLocale);
   const seenModuleTransitions = useClinicalAttemptStore((state) => state.seenModuleTransitions);
 
   const initSession = useClinicalAttemptStore((state) => state.initSession);
@@ -217,6 +219,16 @@ export default function ClinicalTakeClient({
         if (!active) return;
         const mapped = mapClinicalError(error);
         setQuestionError(mapped.message);
+        const classified = classifyApiError(error);
+        trackEvent("questions_load_failure", {
+          scale_code: scaleCode,
+          stage: "questions",
+          status_group: classified.statusGroup,
+          status_code: classified.statusCode,
+          error_code: classified.errorCode,
+          route: "/tests/[slug]/take",
+          locale,
+        });
         captureError(error, {
           route: "/tests/[slug]/take",
           slug,
@@ -311,6 +323,16 @@ export default function ClinicalTakeClient({
     } catch (error) {
       const mapped = mapClinicalError(error);
       setStartError(mapped.message);
+      const classified = classifyApiError(error);
+      trackEvent("submit_failure", {
+        scale_code: scaleCode,
+        stage: "start_attempt",
+        status_group: classified.statusGroup,
+        status_code: classified.statusCode,
+        error_code: classified.errorCode,
+        route: "/tests/[slug]/take",
+        locale,
+      });
       captureError(error, {
         route: "/tests/[slug]/take",
         slug,
@@ -344,6 +366,17 @@ export default function ClinicalTakeClient({
     const activeAttemptId = await ensureAttempt();
     if (!activeAttemptId) return;
 
+    const submitConsentVersion = String(consentVersion ?? serverConsentVersion ?? "").trim();
+    const submitConsentLocale = String(consentLocale ?? toApiLocale(locale)).trim();
+    if (!consentAcceptedAt || !submitConsentVersion || !submitConsentLocale) {
+      setSubmitError(
+        isZh
+          ? "当前会话缺少同意书快照，请返回详情页重新开始测评。"
+          : "Consent snapshot is missing for this session. Please restart the assessment from test details."
+      );
+      return;
+    }
+
     const firstMissing = questions.findIndex((item) => !answers[item.question_id]);
     if (firstMissing >= 0) {
       setCurrentIndex(firstMissing);
@@ -367,6 +400,11 @@ export default function ClinicalTakeClient({
           question_id: item.question_id,
           code: answers[item.question_id] ?? "",
         })),
+        consent: {
+          accepted: true,
+          version: submitConsentVersion,
+          locale: submitConsentLocale,
+        },
       });
 
       if (!response.ok) {
@@ -390,6 +428,16 @@ export default function ClinicalTakeClient({
     } catch (error) {
       const mapped = mapClinicalError(error);
       setSubmitError(mapped.message);
+      const classified = classifyApiError(error);
+      trackEvent("submit_failure", {
+        scale_code: scaleCode,
+        stage: "submit_attempt",
+        status_group: classified.statusGroup,
+        status_code: classified.statusCode,
+        error_code: classified.errorCode,
+        route: "/tests/[slug]/take",
+        locale,
+      });
       captureError(error, {
         route: "/tests/[slug]/take",
         slug,

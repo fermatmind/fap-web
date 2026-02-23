@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cookies, headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
 import { CTASticky } from "@/components/business/CTASticky";
@@ -13,6 +14,11 @@ import { getAllTests, getTestBySlug } from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import {
+  createScaleRolloutEnvSnapshot,
+  resolveScaleRollout,
+  type SupportedScaleCode,
+} from "@/lib/rollout/scaleRollout";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 
 type LookupResponse = {
@@ -64,34 +70,13 @@ function parseFaq(value: unknown): FAQItem[] {
   return out;
 }
 
-function resolveRolloutState(capabilities: Record<string, unknown> | null | undefined): {
-  enabledInProd: boolean;
-  paywallMode: "off" | "free_only" | "full";
-} {
-  const node = toRecord(capabilities);
-  const rollout = toRecord(node.rollout);
+async function resolveRequestAnonId(): Promise<string | undefined> {
+  const [cookieStore, headerStore] = await Promise.all([cookies(), headers()]);
+  const fromCookie = cookieStore.get("fap_anonymous_id_v1")?.value?.trim();
+  if (fromCookie) return fromCookie;
 
-  const enabledRaw = node.enabled_in_prod ?? rollout.enabled_in_prod ?? true;
-  const paywallRaw = String(node.paywall_mode ?? rollout.paywall_mode ?? "full")
-    .trim()
-    .toLowerCase();
-
-  const enabledInProd =
-    enabledRaw === false || String(enabledRaw).toLowerCase() === "false" || String(enabledRaw) === "0"
-      ? false
-      : true;
-
-  if (paywallRaw === "off" || paywallRaw === "free_only" || paywallRaw === "full") {
-    return {
-      enabledInProd,
-      paywallMode: paywallRaw,
-    };
-  }
-
-  return {
-    enabledInProd,
-    paywallMode: "full",
-  };
+  const fromHeader = headerStore.get("x-anon-id")?.trim() ?? "";
+  return fromHeader || undefined;
 }
 
 async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupResponse | null> {
@@ -233,14 +218,20 @@ export default async function TestLandingPage({
   const withLocale = (path: string) => localizedPath(path, locale);
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
   const reportNode = toRecord(toRecord(lookup?.report_summary_i18n_json)[locale]);
+  const anonId = await resolveRequestAnonId();
 
   const landingCopy = toStringValue(langNode.landing_copy);
   const disclaimer = toStringValue(langNode.disclaimer);
   const reportSummary = toStringValue(reportNode.summary);
   const faqItems = parseFaq(langNode.faq);
   const mergedFaq = faqItems.length > 0 ? faqItems : buildFallbackFaq(test.title, test.time_minutes, test.questions_count, locale);
-  const rollout = resolveRolloutState(lookup?.capabilities);
-  const testDisabled = !rollout.enabledInProd || rollout.paywallMode === "off";
+  const rollout = resolveScaleRollout({
+    scaleCode: test.scale_code as SupportedScaleCode | undefined,
+    capabilities: lookup?.capabilities,
+    anonId,
+    envSnapshot: createScaleRolloutEnvSnapshot(),
+  });
+  const testDisabled = !rollout.assessmentEnabled;
   const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
 
   const packId = toStringValue(lookup?.pack_id) || test.scale_code || "BIG5_OCEAN";
@@ -336,7 +327,7 @@ export default async function TestLandingPage({
             </div>
           </section>
 
-          {rollout.paywallMode === "free_only" ? (
+          {rollout.paywallMode === "free_only" || !rollout.commerceEnabled ? (
             <Card>
               <CardHeader>
                 <CardTitle>{locale === "zh" ? "当前开放模式" : "Current availability"}</CardTitle>
