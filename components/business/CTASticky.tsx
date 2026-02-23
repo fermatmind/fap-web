@@ -16,12 +16,12 @@ export function CTASticky({ slug, title, questions, minutes, locale = "en" }: CT
   return (
     <>
       <div className="hidden lg:block lg:sticky lg:top-24">
-        <Card>
-          <CardHeader>
+        <Card className="overflow-hidden border-[var(--fm-border-strong)] shadow-[var(--fm-shadow-md)]">
+          <CardHeader className="bg-[var(--fm-surface-muted)]">
             <CardTitle className="text-base">{locale === "zh" ? "准备开始？" : "Ready to start?"}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            <p className="text-sm text-slate-600">
+            <p className="text-sm leading-6 text-slate-600">
               {title}
               <br />
               {questions} {locale === "zh" ? "题" : "questions"} · {locale === "zh" ? `约 ${minutes} 分钟` : `about ${minutes} minutes`}.
@@ -33,7 +33,7 @@ export function CTASticky({ slug, title, questions, minutes, locale = "en" }: CT
         </Card>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 backdrop-blur lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/97 p-3 shadow-[0_-10px_24px_rgba(15,23,42,0.1)] backdrop-blur lg:hidden">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-3">
           <p className="line-clamp-2 text-xs font-medium text-slate-700">
             {title} · {questions}Q · {minutes}m

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { TestCard } from "@/components/business/TestCard";
 import { Container } from "@/components/layout/Container";
+import { buttonVariants } from "@/components/ui/button";
 import { getAllTests } from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
+import { localizedPath } from "@/lib/i18n/locales";
 import { canonicalUrl } from "@/lib/site";
 
 export async function generateMetadata({
@@ -36,35 +39,58 @@ export default async function TestsPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
-  const tests = getAllTests();
+  const withLocale = (path: string) => localizedPath(path, locale);
+  const tests = getAllTests().sort((a, b) => (b.highlight_priority ?? 0) - (a.highlight_priority ?? 0));
+  const topTests = tests.slice(0, 3);
 
   return (
-    <Container as="main" className="py-10">
-      <div className="space-y-2">
-        <h1 className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)]">{dict.tests.title}</h1>
-        <p className="text-[var(--fm-text-muted)]">{dict.tests.subtitle}</p>
-      </div>
+    <main>
+      <section className="fm-section-white border-b border-[var(--fm-border)] py-12">
+        <Container className="space-y-5">
+          <div className="space-y-3">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-trust-blue)]">
+              {locale === "zh" ? "测试库" : "Assessment Library"}
+            </p>
+            <h1 className="m-0 font-serif text-4xl font-semibold tracking-tight text-[var(--fm-text)]">{dict.tests.title}</h1>
+            <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">{dict.tests.subtitle}</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {topTests.map((item) => (
+              <Link
+                key={item.slug}
+                href={withLocale(`/tests/${item.slug}/take`)}
+                className={buttonVariants({ variant: "outline", size: "sm" })}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
 
-      <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {tests.map((test) => (
-          <TestCard
-            key={test.slug}
-            slug={test.slug}
-            title={test.title}
-            description={test.description}
-            coverImage={test.cover_image}
-            questions={test.questions_count}
-            timeMinutes={test.time_minutes}
-            scaleCode={test.scale_code}
-            locale={locale}
-            cardVisual={test.card_visual}
-            cardTone={test.card_tone}
-            cardSeed={test.card_seed}
-            cardDensity={test.card_density}
-            cardTaglineI18n={test.card_tagline_i18n}
-          />
-        ))}
-      </div>
-    </Container>
+      <Container className="py-10">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {tests.map((test) => (
+            <TestCard
+              key={test.slug}
+              slug={test.slug}
+              title={test.title}
+              description={test.description}
+              coverImage={test.cover_image}
+              questions={test.questions_count}
+              timeMinutes={test.time_minutes}
+              scaleCode={test.scale_code}
+              locale={locale}
+              cardVisual={test.card_visual}
+              cardTone={test.card_tone}
+              cardSeed={test.card_seed}
+              cardDensity={test.card_density}
+              cardTaglineI18n={test.card_tagline_i18n}
+              highlightRating={test.highlight_rating}
+            />
+          ))}
+        </div>
+      </Container>
+    </main>
   );
 }

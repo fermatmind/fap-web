@@ -22,6 +22,7 @@ type TestCardProps = {
   cardSeed?: string;
   cardDensity?: string;
   cardTaglineI18n?: Record<string, string>;
+  highlightRating?: number;
 };
 
 function resolveTagline(
@@ -54,6 +55,7 @@ export function TestCard({
   cardSeed,
   cardDensity,
   cardTaglineI18n,
+  highlightRating = 5,
 }: TestCardProps) {
   const dict = getDictSync(locale);
   const hasCoverImage = Boolean(coverImage);
@@ -68,13 +70,14 @@ export function TestCard({
 
   const isCompact = cardSpec.density === "compact";
   const tagline = resolveTagline(locale, cardTaglineI18n, scaleCode ?? cardSpec.visual);
+  const stars = Math.max(0, Math.min(5, Math.round(highlightRating)));
 
   return (
     <Card
       data-cover-available={hasCoverImage ? "1" : "0"}
       className="group/card relative flex h-full flex-col overflow-hidden border-[var(--fm-border)] bg-[var(--fm-surface)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--fm-shadow-lg)]"
     >
-      <div className="p-4 pb-0">
+      <div className="p-5 pb-0">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
           <Badge>{questions} {dict.common.questions_unit}</Badge>
           <Badge>{timeMinutes} {dict.common.minutes_unit}</Badge>
@@ -87,15 +90,20 @@ export function TestCard({
           compact={isCompact}
           ariaLabel={dict.card.a11yVisualDescriptions[cardSpec.visual]}
           fallbackAriaLabel={dict.card.a11yVisualFallback}
-          className="md:h-28 md:max-h-28 max-md:max-h-16"
+          className="md:h-[7.5rem] md:max-h-[7.5rem] max-md:max-h-20"
         />
       </div>
 
-      <CardHeader className="space-y-2">
+      <CardHeader className="space-y-3">
         <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
           {tagline}
         </p>
         <CardTitle className="font-serif text-xl leading-tight group-hover/card:text-[var(--fm-accent)]">{title}</CardTitle>
+        <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
+          {Array.from({ length: 5 }, (_, idx) => (
+            <span key={`star-${idx}`} className={idx < stars ? "opacity-100" : "opacity-35"}>★</span>
+          ))}
+        </div>
         <p className="text-sm text-[var(--fm-text-muted)]">{description}</p>
       </CardHeader>
 

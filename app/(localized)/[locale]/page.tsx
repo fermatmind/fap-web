@@ -14,7 +14,9 @@ export default async function Home({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const dict = getDictSync(locale);
-  const highlightedTests = getAllTests().slice(0, 6);
+  const highlightedTests = getAllTests()
+    .sort((a, b) => (b.highlight_priority ?? 0) - (a.highlight_priority ?? 0))
+    .slice(0, 6);
 
   return (
     <main>
