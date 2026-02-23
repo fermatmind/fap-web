@@ -105,10 +105,10 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   });
 
   await page.goto("/en/tests/personality-mbti-test/take");
-  await expect(page.getByText("Step 1 / 8")).toBeVisible();
+  await expect(page.getByText("Current focus")).toBeVisible();
 
   for (let i = 0; i < 8; i += 1) {
-    await page.getByRole("button", { name: "Strongly prefer A" }).first().click();
+    await page.getByRole("radio").first().click();
     if (i < 7) {
       await page.getByRole("button", { name: "Next", exact: true }).click();
     }
