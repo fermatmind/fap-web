@@ -30,7 +30,7 @@ Notes:
 - Mobile touch targets for answer and CTA controls: `>= 48px`.
 - No sensitive payload leakage in logs and tracking (`answers`, `question_text`, `report_tags`).
 - Crisis reports continue to hide paywall when `quality.crisis_alert === true`.
-- Visual snapshot gate must pass on CI for `/en`, `/en/tests`, `/en/tests/big-five-personality-test`, `/en/support`.
+- Visual snapshot gate must pass on CI for `/en`, `/en/tests`, `/en/tests/big-five-personality-test`, `/en/help`.
 
 ## Post-Deploy 24h Checks
 1. Core funnel:

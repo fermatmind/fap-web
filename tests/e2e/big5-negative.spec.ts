@@ -260,7 +260,7 @@ test("BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
   await page.reload();
 
   await expect(page.getByText("Question 3 / 3")).toBeVisible();
-  await expect(page.locator('[role="radio"][aria-checked="true"]')).toHaveCount(1);
+  await expect(page.locator('[role="radio"][aria-checked="true"]:visible')).toHaveCount(1);
 });
 
 test("BIG5 report handles norms missing and unknown block safely", async ({ page }) => {
