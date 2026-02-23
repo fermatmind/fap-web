@@ -4,9 +4,16 @@ export type SiteDictionary = {
   header: {
     brand: string;
     tests: string;
-    types: string;
-    blog: string;
+    articles: string;
+    professions: string;
+    help: string;
+    business: string;
     start: string;
+    search: string;
+    profile: string;
+    menu: string;
+    completedPrefix: string;
+    completedSuffix: string;
     switchToEnglish: string;
     switchToChinese: string;
   };
