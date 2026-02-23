@@ -272,14 +272,15 @@ export default async function TestLandingPage({
     if (typeof localized === "string" && localized.trim().length > 0) return localized.trim();
     return test.scale_code || cardSpec.visual;
   })();
+  const landingRating = typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : 5;
 
   return (
-    <Container as="main" className="pb-28 pt-10 lg:pb-10">
+    <Container as="main" className="pb-28 pt-12 lg:pb-12">
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
-          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
               {locale === "zh" ? "人格测评" : "Personality Assessment"}
             </p>
@@ -289,6 +290,13 @@ export default async function TestLandingPage({
                   {cardTagline}
                 </p>
                 <h1 className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:text-4xl">{test.title}</h1>
+                <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
+                  {Array.from({ length: 5 }, (_, idx) => (
+                    <span key={`landing-star-${idx}`} className={idx < landingRating ? "opacity-100" : "opacity-35"}>
+                      ★
+                    </span>
+                  ))}
+                </div>
                 <p className="max-w-3xl text-[var(--fm-text-muted)]">{landingCopy || test.description}</p>
                 <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--fm-text-muted)]">
                   <span>{test.questions_count} {locale === "zh" ? "题" : "questions"}</span>
