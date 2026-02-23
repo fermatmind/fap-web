@@ -1,16 +1,17 @@
 import { expect, test } from "@playwright/test";
 
-test("home page renders code-driven cards without hero image dependency", async ({ page }) => {
+test("home page renders hero, value props, and highlighted tests", async ({ page }) => {
   await page.goto("/en");
 
-  await expect(page.getByRole("heading", { name: "Featured Tests" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Start free test" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Highlighted tests" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Find your test" })).toBeVisible();
+  await expect(page.getByText("Why people trust FermatMind")).toBeVisible();
 
-  const glyphs = page.locator('[role="img"][aria-label]');
-  await expect(glyphs.first()).toBeVisible();
+  const highlightCards = page.locator("section").filter({ hasText: "Highlighted tests" }).locator("article");
+  await expect(highlightCards.first()).toBeVisible();
 
-  const firstStartButton = page.locator('a:has-text("Start")').first();
+  const firstStartButton = page.getByRole("link", { name: "Find your test" });
   const box = await firstStartButton.boundingBox();
   expect(box).not.toBeNull();
-  expect((box?.height ?? 0) >= 40).toBeTruthy();
+  expect((box?.height ?? 0) >= 44).toBeTruthy();
 });

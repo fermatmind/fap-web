@@ -2,6 +2,18 @@
 
 Next.js frontend for FermatMind assessments.
 
+## Route map (UI redesign)
+
+- Primary content routes:
+  - `/[locale]/articles`
+  - `/[locale]/professions`
+  - `/[locale]/help`
+  - `/[locale]/business`
+- Legacy routes are preserved with permanent redirects:
+  - `/[locale]/blog*` -> `/[locale]/articles*`
+  - `/[locale]/types*` -> `/[locale]/professions*`
+  - `/[locale]/support` -> `/[locale]/help`
+
 ## Prerequisites
 
 - Node.js 20.x (see `.nvmrc`)
