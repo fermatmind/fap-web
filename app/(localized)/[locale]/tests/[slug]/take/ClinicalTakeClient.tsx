@@ -504,15 +504,15 @@ export default function ClinicalTakeClient({
   return (
     <div className="space-y-4">
       <QuizShell>
-        <div className="flex items-center justify-between gap-3 text-sm text-slate-700">
+        <div className="flex items-center justify-between gap-3 text-sm text-[var(--fm-text)]">
           <p className="m-0 font-semibold">{scaleCode}</p>
           <p className="m-0">
             {answeredCount}/{totalQuestions}
           </p>
         </div>
-        <div className="h-2 overflow-hidden rounded-full bg-slate-200" aria-hidden>
+        <div className="h-2 overflow-hidden rounded-full bg-[var(--fm-surface-muted)]" aria-hidden>
           <div
-            className="h-full bg-slate-900 transition-all"
+            className="h-full bg-gradient-to-r from-[var(--fm-trust-blue)] to-[var(--fm-teal)] transition-all"
             style={{ width: `${Math.max(0, Math.min(100, Math.round((answeredCount / Math.max(totalQuestions, 1)) * 100)))}%` }}
           />
         </div>

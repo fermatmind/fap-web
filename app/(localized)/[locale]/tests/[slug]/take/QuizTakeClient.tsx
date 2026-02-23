@@ -2,9 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { QuestionRenderer } from "@/components/quiz/QuestionRenderer";
+import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
+import { MatrixQuestionTable } from "@/components/quiz/matrix/MatrixQuestionTable";
 import { QuizShell } from "@/components/quiz/QuizShell";
-import { Stepper } from "@/components/quiz/Stepper";
 import { Button } from "@/components/ui/button";
 import {
   fetchScaleQuestions,
@@ -215,8 +215,6 @@ function QuizTakeInner({
     () => questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
     [answers, questions]
   );
-  const previousQuestion = currentIndex > 0 ? questions[currentIndex - 1] : null;
-  const nextQuestion = currentIndex < total - 1 ? questions[currentIndex + 1] : null;
 
   const isLastQuestion = total > 0 && currentIndex === total - 1;
   const canSubmit = isLastQuestion && answeredCount === total && !submitting;
@@ -345,14 +343,13 @@ function QuizTakeInner({
 
   return (
     <QuizShell>
-      <div className="flex items-center justify-between gap-4">
-        <p className="m-0 text-sm font-semibold text-slate-700">{testTitle}</p>
-        <p className="m-0 text-xs font-medium uppercase tracking-wide text-slate-500">
-          {answeredCount}/{total} answered
-        </p>
-      </div>
-
-      <Stepper currentIndex={currentIndex} total={total} />
+      <MatrixProgressHeader
+        title={testTitle}
+        current={currentIndex + 1}
+        total={total}
+        answered={answeredCount}
+        status={`${answeredCount}/${total} ${locale === "zh" ? "已作答" : "answered"}`}
+      />
 
       {milestoneHint ? (
         <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
@@ -360,21 +357,14 @@ function QuizTakeInner({
         </div>
       ) : null}
 
-      <div className="grid grid-cols-3 gap-2">
-        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
-          {previousQuestion ? `${locale === "zh" ? "上一题" : "Previous"}: ${currentIndex}` : (locale === "zh" ? "上一题" : "Previous")}
-        </div>
-        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] px-3 py-2 text-xs font-semibold text-[var(--fm-text)] shadow-[var(--fm-shadow-md)] opacity-100">
-          {locale === "zh" ? "当前题目" : "Current focus"}
-        </div>
-        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
-          {nextQuestion ? `${locale === "zh" ? "下一题" : "Next"}: ${currentIndex + 2}` : (locale === "zh" ? "下一题" : "Next")}
-        </div>
-      </div>
-
-      <div className="rounded-2xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] p-3 shadow-[var(--fm-shadow-md)]">
-        <QuestionRenderer question={question} selectedOptionId={selectedOptionId} onSelect={setAnswer} />
-      </div>
+      <MatrixQuestionTable
+        questionId={question.id}
+        questionText={question.title}
+        options={question.options.map((option) => ({ code: option.id, text: option.text }))}
+        value={selectedOptionId}
+        locale={locale}
+        onChange={(code) => setAnswer(question.id, code)}
+      />
 
       {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
 
