@@ -26,6 +26,22 @@ function localizedTagline(test: TestListItem, locale: Locale): string {
   return test.scale_code ?? "Assessment";
 }
 
+function localizedHighlightExcerpt(test: TestListItem, locale: Locale): string {
+  const source = test.highlight_excerpt_i18n;
+  if (!source) return test.description;
+  const direct = locale === "zh" ? source.zh ?? source["zh-CN"] : source.en;
+  if (typeof direct === "string" && direct.trim().length > 0) return direct.trim();
+  return test.description;
+}
+
+function localizedSeoCopy(test: TestListItem, locale: Locale): string {
+  const source = test.highlight_seo_copy_i18n;
+  if (!source) return fallbackSeoCopy(test, locale);
+  const direct = locale === "zh" ? source.zh ?? source["zh-CN"] : source.en;
+  if (typeof direct === "string" && direct.trim().length > 0) return direct.trim();
+  return fallbackSeoCopy(test, locale);
+}
+
 function fallbackSeoCopy(test: TestListItem, locale: Locale): string {
   if (locale === "zh") {
     return `${test.title} 基于结构化心理测评框架，覆盖题项反应、维度评分和可解释报告输出。通过统一量表与标准化流程，帮助你在职业选择、协作沟通与自我成长上获得可行动的结论。`;
@@ -63,12 +79,12 @@ export function HighlightedTestsSection({
                   >
                     {test.title}
                   </Link>
-                  {renderStars(5)}
+                  {renderStars(test.highlight_rating ?? 5)}
                 </div>
                 <p className="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
                   {localizedTagline(test, locale)}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{test.description}</p>
+                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{localizedHighlightExcerpt(test, locale)}</p>
                 <div className="mt-auto pt-5">
                   <Link
                     href={withLocale(`/tests/${test.slug}/take`)}
@@ -79,7 +95,7 @@ export function HighlightedTestsSection({
                 </div>
               </article>
 
-              <p className="m-0 px-1 text-sm leading-7 text-teal-50/85">{fallbackSeoCopy(test, locale)}</p>
+              <p className="m-0 px-1 text-sm leading-7 text-teal-50/85">{localizedSeoCopy(test, locale)}</p>
             </div>
           ))}
         </div>

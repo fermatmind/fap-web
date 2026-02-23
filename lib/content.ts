@@ -17,6 +17,10 @@ export type TestListItem = {
   card_seed?: string;
   card_density?: string;
   card_tagline_i18n?: Record<string, string>;
+  highlight_priority?: number;
+  highlight_rating?: number;
+  highlight_excerpt_i18n?: Record<string, string>;
+  highlight_seo_copy_i18n?: Record<string, string>;
 };
 
 export function getAllTests(): TestListItem[] {
@@ -35,6 +39,10 @@ export function getAllTests(): TestListItem[] {
       card_seed: test.card_seed,
       card_density: test.card_density,
       card_tagline_i18n: test.card_tagline_i18n,
+      highlight_priority: test.highlight_priority,
+      highlight_rating: test.highlight_rating,
+      highlight_excerpt_i18n: test.highlight_excerpt_i18n,
+      highlight_seo_copy_i18n: test.highlight_seo_copy_i18n,
     }));
 }
 
