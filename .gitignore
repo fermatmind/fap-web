@@ -33,3 +33,7 @@ pnpm-debug.log*
 # misc
 *.pem
 next-env.d.ts
+
+# local deploy artifacts
+fap-web-latest.tar.gz
+test-results/
