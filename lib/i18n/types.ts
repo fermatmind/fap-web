@@ -80,6 +80,13 @@ export type SiteDictionary = {
     refund: string;
     support: string;
     copyright: string;
+    allTestsTitle: string;
+    articlesTitle: string;
+    localesTitle: string;
+    reviewsTitle: string;
+    socialTitle: string;
+    ratingLabel: string;
+    contactLabel: string;
   };
   commerce: {
     unlock_title: string;
