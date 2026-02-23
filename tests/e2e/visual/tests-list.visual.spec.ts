@@ -9,5 +9,7 @@ test("tests list visual baseline", async ({ page }) => {
   await expect(page).toHaveScreenshot("tests-list-en.png", {
     fullPage: true,
     mask: getStableMasks(page),
+    // Tests list repeats many gradient/vector cards; allow small cross-OS rasterization drift.
+    maxDiffPixelRatio: 0.05,
   });
 });

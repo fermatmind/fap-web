@@ -9,5 +9,7 @@ test("home visual baseline", async ({ page }) => {
   await expect(page).toHaveScreenshot("home-en.png", {
     fullPage: true,
     mask: getStableMasks(page),
+    // Home includes dense gradient/vector cards; allow small cross-OS rasterization drift.
+    maxDiffPixelRatio: 0.05,
   });
 });
