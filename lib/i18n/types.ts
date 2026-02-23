@@ -21,6 +21,33 @@ export type SiteDictionary = {
     title: string;
     subtitle: string;
   };
+  home: {
+    hero: {
+      kicker: string;
+      title: string;
+      subtitle: string;
+      ctaPrimary: string;
+      ctaSecondary: string;
+      chips: string[];
+    };
+    valueProps: {
+      title: string;
+      items: Array<{
+        title: string;
+        description: string;
+      }>;
+    };
+    socialProof: {
+      title: string;
+      subtitle: string;
+      testimonialsTitle: string;
+    };
+    highlighted: {
+      title: string;
+      subtitle: string;
+      cta: string;
+    };
+  };
   card: {
     compactLabel: string;
     a11yVisualDescriptions: Record<string, string>;
