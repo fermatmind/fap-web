@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ProgressHeader } from "@/components/big5/quiz/ProgressHeader";
 import { QuestionCard } from "@/components/big5/quiz/QuestionCard";
 import { QuestionNavigator } from "@/components/big5/quiz/QuestionNavigator";
+import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
@@ -660,9 +660,13 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
   return (
     <div className="space-y-4">
-      <div className="opacity-80">
-        <ProgressHeader current={currentIndex + 1} total={total} answered={answeredCount} />
-      </div>
+      <MatrixProgressHeader
+        title={slug === "big-five-personality-test" ? "BIG5 Matrix Assessment" : "Assessment"}
+        current={currentIndex + 1}
+        total={total}
+        answered={answeredCount}
+        status={`${answeredCount}/${total} answered`}
+      />
 
       {milestoneHint ? (
         <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">

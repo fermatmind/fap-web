@@ -31,14 +31,14 @@ export function QuestionCard({
       className={[
         "rounded-2xl border bg-[var(--fm-surface)] p-5 transition duration-200",
         emphasized
-          ? "border-[var(--fm-border-strong)] opacity-100 shadow-[var(--fm-shadow-lg)]"
-          : "border-[var(--fm-border)] opacity-30 shadow-[var(--fm-shadow-sm)]",
+          ? "border-[var(--fm-border-strong)] opacity-100 shadow-[var(--fm-shadow-md)]"
+          : "border-[var(--fm-border)] opacity-45 shadow-[var(--fm-shadow-sm)]",
       ].join(" ")}
     >
       <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
         Question {index + 1} / {total}
       </p>
-      <h2 className="mb-4 text-lg font-semibold text-[var(--fm-text)]">{question.text}</h2>
+      <h2 className="mb-4 text-lg font-semibold leading-7 text-[var(--fm-text)]">{question.text}</h2>
 
       <LikertScale
         questionId={question.question_id}
