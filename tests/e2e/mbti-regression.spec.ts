@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }) => {
   const attemptId = "mbti-attempt-0001";
@@ -107,14 +108,18 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await page.goto("/en/tests/personality-mbti-test/take");
   await expect(page.getByRole("heading", { name: "MBTI question 1" })).toBeVisible();
 
-  for (let i = 0; i < 8; i += 1) {
+  for (let i = 0; i < 7; i += 1) {
     await page.getByRole("radio").first().click();
-    if (i < 7) {
-      await expect(page.getByText(`Question ${i + 2} / 8`)).toBeVisible();
-    }
+    await expect(page.getByText(`Question ${i + 2} / 8`)).toBeVisible();
   }
 
-  await expect(page).toHaveURL(new RegExp(`/result/${attemptId}(\\?.*)?$`), { timeout: 15000 });
+  const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+    page,
+    option: page.getByRole("radio").first(),
+    targetUrl: new RegExp(`/result/${attemptId}(\\?.*)?$`),
+    timeoutMs: 30000,
+  });
+  expect(submitResponse.status()).toBe(200);
   await expect(page.getByRole("heading", { name: "Your assessment result", level: 1 })).toBeVisible();
   await expect(page.getByText("MBTI baseline summary.")).toBeVisible();
 });
@@ -215,7 +220,12 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
     const bounds = await firstOption.boundingBox();
     expect(bounds?.height ?? 0).toBeGreaterThanOrEqual(44);
 
-    await firstOption.click();
-    await expect(page).toHaveURL(new RegExp(`/result/${attemptId}(\\?.*)?$`), { timeout: 15000 });
+    const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+      page,
+      option: firstOption,
+      targetUrl: new RegExp(`/result/${attemptId}(\\?.*)?$`),
+      timeoutMs: 30000,
+    });
+    expect(submitResponse.status()).toBe(200);
   }
 });

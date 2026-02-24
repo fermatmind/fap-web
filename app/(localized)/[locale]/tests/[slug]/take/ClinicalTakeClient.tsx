@@ -9,7 +9,10 @@ import { QuizShell } from "@/components/clinical/quiz/QuizShell";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
-import { useAutoAdvanceFlow } from "@/components/quiz/immersive/useAutoAdvanceFlow";
+import {
+  useAutoAdvanceFlow,
+  type LastSelectionContext,
+} from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
@@ -150,6 +153,7 @@ export default function ClinicalTakeClient({
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const submitPhaseTimersRef = useRef<number[]>([]);
+  const latestAnswersRef = useRef<Record<string, string>>(answers);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   const consentText = useMemo(() => resolveConsentText(questionsMeta, isZh), [isZh, questionsMeta]);
@@ -195,6 +199,10 @@ export default function ClinicalTakeClient({
     const anonId = getOrCreateAnonId();
     hydrateAnonId(anonId || null);
   }, [hydrateAnonId]);
+
+  useEffect(() => {
+    latestAnswersRef.current = answers;
+  }, [answers]);
 
   useEffect(() => {
     return () => {
@@ -313,6 +321,18 @@ export default function ClinicalTakeClient({
     });
   }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, totalQuestions]);
 
+  const buildAnswersSnapshot = useCallback((pendingSelection?: LastSelectionContext) => {
+    const snapshot = {
+      ...latestAnswersRef.current,
+    };
+
+    if (pendingSelection?.questionId && pendingSelection.code) {
+      snapshot[pendingSelection.questionId] = pendingSelection.code;
+    }
+
+    return snapshot;
+  }, []);
+
   const ensureAttempt = useCallback(async () => {
     if (attemptId) {
       return attemptId;
@@ -382,7 +402,7 @@ export default function ClinicalTakeClient({
     setAnswer(questionId, code);
   };
 
-  const handleSubmit = useCallback(async (): Promise<string | null> => {
+  const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
     const activeAttemptId = await ensureAttempt();
     if (!activeAttemptId) return null;
 
@@ -397,7 +417,8 @@ export default function ClinicalTakeClient({
       return null;
     }
 
-    const firstMissing = questions.findIndex((item) => !answers[item.question_id]);
+    const answersSnapshot = buildAnswersSnapshot(pendingSelection);
+    const firstMissing = questions.findIndex((item) => !answersSnapshot[item.question_id]);
     if (firstMissing >= 0) {
       setCurrentIndex(firstMissing);
       setSubmitError(
@@ -418,7 +439,7 @@ export default function ClinicalTakeClient({
         durationMs,
         answers: questions.map((item) => ({
           question_id: item.question_id,
-          code: answers[item.question_id] ?? "",
+          code: answersSnapshot[item.question_id] ?? "",
         })),
         consent: {
           accepted: true,
@@ -468,7 +489,7 @@ export default function ClinicalTakeClient({
       setSubmitting(false);
     }
   }, [
-    answers,
+    buildAnswersSnapshot,
     consentAcceptedAt,
     consentLocale,
     consentVersion,
@@ -529,13 +550,13 @@ export default function ClinicalTakeClient({
     submitPhaseTimersRef.current = [phase1, phase2];
   }, [clearSubmitPhaseTimers, locale, scaleCode]);
 
-  const handleSubmitWithOverlay = useCallback(async () => {
+  const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext) => {
     if (submitOverlayVisible || submitting) return;
     setSubmitOverlayVisible(true);
     startSubmitOverlayPhases();
 
     const [resultAttemptId] = await Promise.all([
-      handleSubmit(),
+      handleSubmit(pendingSelection),
       new Promise<void>((resolve) => {
         window.setTimeout(resolve, 2200);
       }),
@@ -680,6 +701,9 @@ export default function ClinicalTakeClient({
               onChange={(code) =>
                 selectAndAdvance(() => {
                   handleSelect(currentQuestion.question_id, code);
+                }, {
+                  questionId: currentQuestion.question_id,
+                  code,
                 })
               }
             />

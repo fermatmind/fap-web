@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 const isLiveMode = process.env.UAT_MODE === "live";
 
@@ -104,18 +105,34 @@ async function mockBig5BaseFlow({
   });
 }
 
-async function completeBig5Take(page: Page, questionCount: number, optionIndex: number) {
+async function completeBig5Take({
+  page,
+  questionCount,
+  optionIndex,
+  targetUrl,
+}: {
+  page: Page;
+  questionCount: number;
+  optionIndex: number;
+  targetUrl: RegExp;
+}) {
   await page.goto("/en/tests/big-five-personality-test/take");
   await page.getByLabel("I have read and agree to the disclaimer.").check();
   await page.getByRole("button", { name: "Agree and start" }).click();
 
-  for (let i = 0; i < questionCount; i += 1) {
+  for (let i = 0; i < questionCount - 1; i += 1) {
     await expect(page.getByText(`Question ${i + 1} / ${questionCount}`)).toBeVisible();
     await page.getByRole("radio").nth(optionIndex).click();
-    if (i < questionCount - 1) {
-      await expect(page.getByText(`Question ${i + 2} / ${questionCount}`)).toBeVisible();
-    }
+    await expect(page.getByText(`Question ${i + 2} / ${questionCount}`)).toBeVisible();
   }
+
+  const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+    page,
+    option: page.getByRole("radio").nth(optionIndex),
+    targetUrl,
+    timeoutMs: 30000,
+  });
+  expect(submitResponse.status()).toBe(200);
 }
 
 test.describe("UAT matrix (mock)", () => {
@@ -153,9 +170,12 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await completeBig5Take(page, 5, 2);
-
-    await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`));
+    await completeBig5Take({
+      page,
+      questionCount: 5,
+      optionIndex: 2,
+      targetUrl: new RegExp(`/en/result/${attemptId}`),
+    });
     await expect(page.getByText("UAT C-option summary.")).toBeVisible();
   });
 
@@ -188,9 +208,12 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await completeBig5Take(page, 5, 1);
-
-    await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`));
+    await completeBig5Take({
+      page,
+      questionCount: 5,
+      optionIndex: 1,
+      targetUrl: new RegExp(`/en/result/${attemptId}`),
+    });
     expect(submitDuration).toBeGreaterThan(0);
     expect(submitDuration).toBeLessThan(30000);
   });
@@ -294,14 +317,18 @@ test.describe("UAT matrix (mock)", () => {
     await page.goto("/en/tests/sds-20/take");
     await page.getByLabel("I have read and agree to the statement above").check();
     await page.getByRole("button", { name: "Agree and start" }).click();
-    for (let i = 0; i < 20; i += 1) {
+    for (let i = 0; i < 19; i += 1) {
       await page.getByRole("radio").first().click();
-      if (i < 19) {
-        await expect(page.getByText(`Question ${i + 2} / 20`)).toBeVisible();
-      }
+      await expect(page.getByText(`Question ${i + 2} / 20`)).toBeVisible();
     }
 
-    await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`));
+    const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+      page,
+      option: page.getByRole("radio").first(),
+      targetUrl: new RegExp(`/en/attempts/${attemptId}/report`),
+      timeoutMs: 30000,
+    });
+    expect(submitResponse.status()).toBe(200);
     await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
     await expect(page.getByTestId("crisis-care-inline")).toBeVisible();
     await expect(page.getByTestId("crisis-care-notice")).toBeVisible();
@@ -398,7 +425,12 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await completeBig5Take(page, 5, 2);
+    await completeBig5Take({
+      page,
+      questionCount: 5,
+      optionIndex: 2,
+      targetUrl: new RegExp(`/en/result/${attemptId}`),
+    });
     await page.getByRole("button", { name: "Unlock now" }).click();
     await page.waitForURL(new RegExp(`/en/(orders/${orderNo}|result/${attemptId})`));
     if (page.url().includes(`/en/orders/${orderNo}`)) {

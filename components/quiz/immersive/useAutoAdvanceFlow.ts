@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type TransitionDirection = "forward" | "backward" | "none";
+export type LastSelectionContext = {
+  questionId: string;
+  code: string;
+};
 
 export function useAutoAdvanceFlow({
   currentIndex,
@@ -13,7 +17,7 @@ export function useAutoAdvanceFlow({
   currentIndex: number;
   total: number;
   onMove: (index: number) => void;
-  onLast: () => Promise<void> | void;
+  onLast: (selection?: LastSelectionContext) => Promise<void> | void;
   confirmDelayMs?: number;
   enterDurationMs?: number;
 }) {
@@ -60,7 +64,7 @@ export function useAutoAdvanceFlow({
   }, []);
 
   const selectAndAdvance = useCallback(
-    (onSelect: () => void) => {
+    (onSelect: () => void, selection?: LastSelectionContext) => {
       onSelect();
       cancelPending();
       clearSettleTimer();
@@ -78,7 +82,7 @@ export function useAutoAdvanceFlow({
         }
 
         if (idx >= safeTotal - 1) {
-          void onLast();
+          void onLast(selection);
           setTransitionDirection("none");
           return;
         }

@@ -7,7 +7,10 @@ import { QuestionNavigator } from "@/components/big5/quiz/QuestionNavigator";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
-import { useAutoAdvanceFlow } from "@/components/quiz/immersive/useAutoAdvanceFlow";
+import {
+  useAutoAdvanceFlow,
+  type LastSelectionContext,
+} from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -101,6 +104,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const submitPhaseTimersRef = useRef<number[]>([]);
+  const latestAnswersRef = useRef<Record<string, string>>(answers);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   const total = questions.length;
@@ -212,11 +216,27 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   }, [clearSubmitPhaseTimers]);
 
   useEffect(() => {
+    latestAnswersRef.current = answers;
+  }, [answers]);
+
+  useEffect(() => {
     if (answeredCount === 0) {
       setSeenMilestones([]);
       setMilestoneHint(null);
     }
   }, [answeredCount, total]);
+
+  const buildAnswersSnapshot = useCallback((pendingSelection?: LastSelectionContext) => {
+    const snapshot = {
+      ...latestAnswersRef.current,
+    };
+
+    if (pendingSelection?.questionId && pendingSelection.code) {
+      snapshot[pendingSelection.questionId] = pendingSelection.code;
+    }
+
+    return snapshot;
+  }, []);
 
   useEffect(() => {
     if (total <= 0) return;
@@ -513,7 +533,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     );
   };
 
-  const handleSubmit = useCallback(async (): Promise<string | null> => {
+  const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
     const activeAttemptId = await ensureAttempt();
     if (!activeAttemptId) return null;
 
@@ -522,7 +542,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       return null;
     }
 
-    const firstMissingIndex = questions.findIndex((item) => !answers[item.question_id]);
+    const answersSnapshot = buildAnswersSnapshot(pendingSelection);
+    const firstMissingIndex = questions.findIndex((item) => !answersSnapshot[item.question_id]);
     if (firstMissingIndex >= 0) {
       setCurrentIndex(firstMissingIndex);
       setSubmitError(`Please answer question ${firstMissingIndex + 1} before submitting.`);
@@ -537,12 +558,17 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
     const durationMs = Math.max(1000, Date.now() - startedAt);
 
+    const answeredCountSnapshot = questions.reduce(
+      (count, question) => count + (answersSnapshot[question.question_id] ? 1 : 0),
+      0
+    );
+
     try {
       trackBig5Event(
         "submit_click",
         buildEventPayload({
           attempt_id: activeAttemptId,
-          answered_count: answeredCount,
+          answered_count: answeredCountSnapshot,
           duration_ms: durationMs,
         })
       );
@@ -551,7 +577,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         attemptId: activeAttemptId,
         answers: questions.map((question, idx) => ({
           question_id: question.question_id,
-          code: answers[question.question_id] ?? "",
+          code: answersSnapshot[question.question_id] ?? "",
           question_index: idx,
         })),
         durationMs,
@@ -599,9 +625,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       setSubmitting(false);
     }
   }, [
-    answers,
-    answeredCount,
     applyUiError,
+    buildAnswersSnapshot,
     buildEventPayload,
     cooldownSeconds,
     ensureAttempt,
@@ -658,12 +683,12 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     submitPhaseTimersRef.current = [phase1, phase2];
   }, [clearSubmitPhaseTimers, locale]);
 
-  const handleSubmitWithOverlay = useCallback(async (): Promise<void> => {
+  const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext): Promise<void> => {
     if (submitOverlayVisible || submitting) return;
     setSubmitOverlayVisible(true);
     startSubmitOverlayPhases();
 
-    const [resultAttemptId] = await Promise.all([handleSubmit(), wait(2200)]);
+    const [resultAttemptId] = await Promise.all([handleSubmit(pendingSelection), wait(2200)]);
     clearSubmitPhaseTimers();
 
     if (!resultAttemptId) {
@@ -843,6 +868,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
               onChange={(code) =>
                 selectAndAdvance(() => {
                   handleSelectAnswer(currentQuestion.question_id, code);
+                }, {
+                  questionId: currentQuestion.question_id,
+                  code,
                 })
               }
             />

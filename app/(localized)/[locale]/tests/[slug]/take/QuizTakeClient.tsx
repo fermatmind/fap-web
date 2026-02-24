@@ -5,7 +5,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
-import { useAutoAdvanceFlow } from "@/components/quiz/immersive/useAutoAdvanceFlow";
+import {
+  useAutoAdvanceFlow,
+  type LastSelectionContext,
+} from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
 import { MatrixQuestionTable } from "@/components/quiz/matrix/MatrixQuestionTable";
 import { QuizShell } from "@/components/quiz/QuizShell";
@@ -108,6 +111,8 @@ function QuizTakeInner({
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const submitPhaseTimersRef = useRef<number[]>([]);
+  const latestAnswersRef = useRef<Record<string, string>>(answers);
+  const ensureAttemptPromiseRef = useRef<Promise<string | null> | null>(null);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
 
@@ -167,24 +172,27 @@ function QuizTakeInner({
   }, [anonId, locale, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
-    let active = true;
+    latestAnswersRef.current = answers;
+  }, [answers]);
 
-    const run = async () => {
-      if (attemptId && savedScaleCode === scaleCode) {
-        setAttemptLoading(false);
-        return;
-      }
+  const ensureAttempt = useCallback(async (): Promise<string | null> => {
+    if (attemptId && savedScaleCode === scaleCode) {
+      return attemptId;
+    }
 
-      setAttemptLoading(true);
-      setAttemptError(null);
+    if (ensureAttemptPromiseRef.current) {
+      return ensureAttemptPromiseRef.current;
+    }
 
+    setAttemptLoading(true);
+    setAttemptError(null);
+
+    const pending = (async () => {
       try {
         const response = await startAttempt({ scaleCode, anonId });
-        if (!active) return;
-
         setAttemptMeta(response.attempt_id, scaleCode);
+        return response.attempt_id;
       } catch (error) {
-        if (!active) return;
         const message = error instanceof Error ? error.message : "Failed to start attempt.";
         setAttemptError(message);
         const classified = classifyApiError(error);
@@ -203,9 +211,28 @@ function QuizTakeInner({
           scaleCode,
           stage: "start_attempt",
         });
+        return null;
       } finally {
-        if (active) setAttemptLoading(false);
+        setAttemptLoading(false);
+        ensureAttemptPromiseRef.current = null;
       }
+    })();
+
+    ensureAttemptPromiseRef.current = pending;
+    return pending;
+  }, [anonId, attemptId, locale, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+
+  useEffect(() => {
+    let active = true;
+
+    const run = async () => {
+      if (attemptId && savedScaleCode === scaleCode) {
+        setAttemptLoading(false);
+        return;
+      }
+
+      await ensureAttempt();
+      if (!active) return;
     };
 
     void run();
@@ -213,7 +240,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, attemptId, locale, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+  }, [attemptId, ensureAttempt, savedScaleCode, scaleCode]);
 
   useEffect(() => {
     if (!attemptId || trackedStartRef.current) return;
@@ -279,12 +306,26 @@ function QuizTakeInner({
     });
   }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, total]);
 
-  const handleSubmit = async (): Promise<string | null> => {
-    if (!attemptId) return null;
+  const buildAnswersSnapshot = useCallback((pendingSelection?: LastSelectionContext) => {
+    const snapshot = {
+      ...latestAnswersRef.current,
+    };
 
+    if (pendingSelection?.questionId && pendingSelection.code) {
+      snapshot[pendingSelection.questionId] = pendingSelection.code;
+    }
+
+    return snapshot;
+  }, []);
+
+  const handleSubmit = async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
+    const activeAttemptId = await ensureAttempt();
+    if (!activeAttemptId) return null;
+
+    const answersSnapshot = buildAnswersSnapshot(pendingSelection);
     const payloadAnswers = questions.map((item) => ({
       question_id: item.id,
-      code: answers[item.id] ?? "",
+      code: answersSnapshot[item.id] ?? "",
     }));
 
     const firstMissingIndex = payloadAnswers.findIndex((item) => !item.code);
@@ -301,7 +342,7 @@ function QuizTakeInner({
       const durationMs = Math.max(1000, Date.now() - startedAt);
 
       const response = await submitAttempt({
-        attemptId,
+        attemptId: activeAttemptId,
         answers: payloadAnswers,
         durationMs,
         anonId,
@@ -311,7 +352,7 @@ function QuizTakeInner({
         throw new Error("Submit failed. Please try again.");
       }
 
-      const resultAttemptId = response.attempt_id ?? attemptId;
+      const resultAttemptId = response.attempt_id ?? activeAttemptId;
       trackEvent("submit_attempt", {
         slug,
         attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
@@ -385,13 +426,13 @@ function QuizTakeInner({
     submitPhaseTimersRef.current = [phase1, phase2];
   };
 
-  const handleSubmitWithOverlay = async () => {
+  const handleSubmitWithOverlay = async (pendingSelection?: LastSelectionContext) => {
     if (submitOverlayVisible || submitting) return;
     setSubmitOverlayVisible(true);
     startSubmitOverlayPhases();
 
     const [resultAttemptId] = await Promise.all([
-      handleSubmit(),
+      handleSubmit(pendingSelection),
       new Promise<void>((resolve) => {
         window.setTimeout(resolve, 2200);
       }),
@@ -499,6 +540,9 @@ function QuizTakeInner({
               onChange={(code) =>
                 selectAndAdvance(() => {
                   setAnswer(question.id, code);
+                }, {
+                  questionId: question.id,
+                  code,
                 })
               }
             />
