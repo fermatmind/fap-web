@@ -51,12 +51,27 @@ const en: SiteDictionary = {
     socialProof: {
       title: "Users and referrers",
       subtitle: "Trusted by learners, teams, and content communities looking for practical assessment tools.",
+      trustPillarsTitle: "Trust signals",
+      trustPillarsSubtitle: "Evidence-informed language, consistent scoring logic, and support-first safety framing.",
       testimonialsTitle: "What users say",
     },
     highlighted: {
       title: "Highlighted tests",
       subtitle: "Pick a focus area and start with a structured, high-confidence assessment flow.",
       cta: "Start this test",
+      clinicalBadge: "Clinical Grade",
+      comingSoonBadge: "Coming Soon",
+      comingSoonCta: "Launching soon",
+      comingSoonCards: [
+        {
+          title: "Cognitive Matrix (IQ)",
+          description: "Visual pattern and matrix reasoning assessment optimized for adaptive delivery.",
+        },
+        {
+          title: "Social Adaptation Index",
+          description: "Behavioral flexibility and interpersonal adaptation profile for school/work contexts.",
+        },
+      ],
     },
   },
   card: {

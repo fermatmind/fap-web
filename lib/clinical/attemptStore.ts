@@ -3,6 +3,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import type { ClinicalScaleCode } from "@/lib/clinical/api";
+import { queuePendingAnonLinkAttempt } from "@/lib/anon";
 
 export type ClinicalAttemptState = {
   slug: string;
@@ -93,10 +94,15 @@ export const useClinicalAttemptStore = create<ClinicalAttemptStore>()(
         }),
       hydrateAnonId: (anonId) => set((state) => ({ ...state, anonId: anonId ?? state.anonId })),
       setAttemptId: (attemptId) =>
-        set((state) => ({
-          ...state,
-          attemptId,
-        })),
+        set((state) => {
+          if (attemptId) {
+            queuePendingAnonLinkAttempt(attemptId);
+          }
+          return {
+            ...state,
+            attemptId,
+          };
+        }),
       acceptConsent: ({ version, locale }) =>
         set((state) => ({
           ...state,

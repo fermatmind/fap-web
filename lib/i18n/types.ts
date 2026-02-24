@@ -40,12 +40,21 @@ export type SiteDictionary = {
     socialProof: {
       title: string;
       subtitle: string;
+      trustPillarsTitle: string;
+      trustPillarsSubtitle: string;
       testimonialsTitle: string;
     };
     highlighted: {
       title: string;
       subtitle: string;
       cta: string;
+      clinicalBadge: string;
+      comingSoonBadge: string;
+      comingSoonCta: string;
+      comingSoonCards: Array<{
+        title: string;
+        description: string;
+      }>;
     };
   };
   card: {

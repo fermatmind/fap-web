@@ -14,6 +14,7 @@
 负责所有“测评业务能力”与数据服务：
 - 题目与作答：题目下发、提交、attempt/result 生成
 - 评分与报告：评分幂等、报告 JSON、内容包解析、版本控制
+- 账户衔接：匿名 attempt 与登录账号绑定（`POST /api/v0.3/me/attempts/link-anon`）
 - 事件：曝光/点击/查看等事件写入、分享链路归因
 - 对外提供稳定 API（Web/MiniApp/APP 都是调用方）
 

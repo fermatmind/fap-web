@@ -1,8 +1,11 @@
 const ANON_ID_KEY = "fap_anonymous_id_v1";
+const ANON_ATTEMPT_LINK_QUEUE_KEY = "fap_anon_link_attempt_queue_v1";
 const COOKIE_MAX_AGE_SECONDS = 31536000;
+const MAX_LINK_QUEUE_SIZE = 80;
 
 export const ANON_ID_STORAGE_KEY = ANON_ID_KEY;
 export const ANON_ID_COOKIE_NAME = ANON_ID_KEY;
+export const ANON_ATTEMPT_LINK_QUEUE_STORAGE_KEY = ANON_ATTEMPT_LINK_QUEUE_KEY;
 
 const isBrowser = () => typeof window !== "undefined" && typeof document !== "undefined";
 
@@ -101,4 +104,55 @@ export function getOrCreateAnonId(): string {
   writeLocalStorage(generatedAnonId);
   writeCookie(generatedAnonId);
   return generatedAnonId;
+}
+
+export function readPendingAnonLinkAttempts(): string[] {
+  if (!isBrowser()) return [];
+
+  try {
+    const raw = window.localStorage.getItem(ANON_ATTEMPT_LINK_QUEUE_STORAGE_KEY);
+    if (!raw) return [];
+
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed
+      .map((item) => String(item ?? "").trim())
+      .filter((item) => item.length > 0);
+  } catch {
+    return [];
+  }
+}
+
+export function queuePendingAnonLinkAttempt(attemptId: string): void {
+  if (!isBrowser()) return;
+  const normalized = attemptId.trim();
+  if (!normalized) return;
+
+  try {
+    const current = readPendingAnonLinkAttempts();
+    if (current.includes(normalized)) return;
+
+    const next = [...current, normalized].slice(-MAX_LINK_QUEUE_SIZE);
+    window.localStorage.setItem(ANON_ATTEMPT_LINK_QUEUE_STORAGE_KEY, JSON.stringify(next));
+  } catch {
+    // Ignore storage failures.
+  }
+}
+
+export function removePendingAnonLinkAttempts(attemptIds: string[]): void {
+  if (!isBrowser()) return;
+  if (attemptIds.length === 0) return;
+
+  try {
+    const normalizedRemove = new Set(
+      attemptIds.map((item) => item.trim()).filter((item) => item.length > 0)
+    );
+    if (normalizedRemove.size === 0) return;
+
+    const next = readPendingAnonLinkAttempts().filter((item) => !normalizedRemove.has(item));
+    window.localStorage.setItem(ANON_ATTEMPT_LINK_QUEUE_STORAGE_KEY, JSON.stringify(next));
+  } catch {
+    // Ignore storage failures.
+  }
 }

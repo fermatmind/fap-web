@@ -105,7 +105,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   });
 
   await page.goto("/en/tests/personality-mbti-test/take");
-  await expect(page.getByText("Current focus")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "MBTI question 1" })).toBeVisible();
 
   for (let i = 0; i < 8; i += 1) {
     await page.getByRole("radio").first().click();
@@ -119,4 +119,68 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page).toHaveURL(new RegExp(`/result/${attemptId}(\\?.*)?$`), { timeout: 15000 });
   await expect(page.getByRole("heading", { name: "Your assessment result", level: 1 })).toBeVisible();
   await expect(page.getByText("MBTI baseline summary.")).toBeVisible();
+});
+
+test("MBTI mobile matrix keeps prompt sticky while options scroll", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+
+  const attemptId = "mbti-mobile-sticky-0001";
+  const options = Array.from({ length: 12 }, (_, idx) => ({
+    code: `O${idx + 1}`,
+    text: `Option ${idx + 1}`,
+  }));
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/scales/MBTI/questions*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        scale_code: "MBTI",
+        questions: {
+          items: [
+            {
+              question_id: "1",
+              order: 1,
+              text: "MBTI sticky question",
+              options,
+            },
+          ],
+        },
+      }),
+    });
+  });
+
+  await page.route("**/api/v0.3/attempts/start", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        scale_code: "MBTI",
+      }),
+    });
+  });
+
+  await page.goto("/en/tests/personality-mbti-test/take");
+  await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
+
+  const mobileOptions = page.locator('[role="radiogroup"][aria-label="matrix-1"]');
+  await expect(mobileOptions).toBeVisible();
+
+  await mobileOptions.evaluate((node) => {
+    node.scrollTop = node.scrollHeight;
+  });
+
+  await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
 });

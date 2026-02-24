@@ -1,4 +1,5 @@
-import type { KeyboardEvent } from "react";
+import type { KeyboardEvent, ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 type MatrixOption = {
   code: string;
@@ -17,6 +18,8 @@ export function MatrixQuestionTable({
   options,
   value,
   locale,
+  mobilePromptSlot,
+  mobilePromptStickyTopClassName = "top-[4.75rem]",
   onChange,
 }: {
   questionId: string;
@@ -24,6 +27,8 @@ export function MatrixQuestionTable({
   options: MatrixOption[];
   value?: string;
   locale: "en" | "zh";
+  mobilePromptSlot?: ReactNode;
+  mobilePromptStickyTopClassName?: string;
   onChange: (code: string) => void;
 }) {
   const normalized = normalizeOptions(options);
@@ -51,7 +56,7 @@ export function MatrixQuestionTable({
 
   return (
     <div className="space-y-4 rounded-2xl border border-[var(--fm-border-strong)] bg-white p-4 shadow-[var(--fm-shadow-sm)]">
-      <div className="space-y-1">
+      <div className="hidden space-y-1 md:block">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
           {locale === "zh" ? "当前题目" : "Current focus"}
         </p>
@@ -107,37 +112,53 @@ export function MatrixQuestionTable({
         </div>
       </div>
 
-      <div className="space-y-2 md:hidden" role="radiogroup" aria-label={`matrix-${questionId}`}>
-        <div className="flex justify-between text-[11px] text-[var(--fm-text-muted)]">
-          <span>{normalized[0]?.text}</span>
-          <span>{normalized[optionCount - 1]?.text}</span>
+      <div className="space-y-3 md:hidden">
+        <div
+          className={cn(
+            "sticky z-20 space-y-2 rounded-xl border border-[var(--fm-border)] bg-white/95 p-3 shadow-[var(--fm-shadow-sm)] backdrop-blur",
+            mobilePromptStickyTopClassName
+          )}
+        >
+          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+            {locale === "zh" ? "当前题目" : "Current focus"}
+          </p>
+          <h2 className="m-0 text-lg font-semibold leading-7 text-[var(--fm-text)]">{questionText}</h2>
+          {mobilePromptSlot}
+          <div className="flex justify-between text-[11px] text-[var(--fm-text-muted)]">
+            <span>{normalized[0]?.text}</span>
+            <span>{normalized[optionCount - 1]?.text}</span>
+          </div>
         </div>
-        <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${optionCount}, minmax(0,1fr))` }}>
-          {normalized.map((option, idx) => {
-            const selected = value === option.code;
-            return (
-              <label
-                key={`mobile-option-${option.code}`}
-                className={`flex min-h-[52px] cursor-pointer items-center justify-center rounded-lg border transition ${
-                  selected
-                    ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)]"
-                    : "border-[var(--fm-border)] bg-white"
-                }`}
-              >
-                <input
-                  type="radio"
-                  role="radio"
-                  aria-checked={selected}
-                  name={`matrix-mobile-${questionId}`}
-                  value={option.code}
-                  checked={selected}
-                  onChange={() => onChange(option.code)}
-                  onKeyDown={(event) => handleKeyDown(event, idx)}
-                  className="h-5 w-5 cursor-pointer accent-[var(--fm-trust-blue)]"
-                />
-              </label>
-            );
-          })}
+
+        <div className="max-h-[52vh] overflow-y-auto pr-1" role="radiogroup" aria-label={`matrix-${questionId}`}>
+          <div className="grid grid-cols-2 gap-2">
+            {normalized.map((option, idx) => {
+              const selected = value === option.code;
+              return (
+                <label
+                  key={`mobile-option-${option.code}`}
+                  className={`flex min-h-[72px] cursor-pointer items-center justify-between gap-3 rounded-lg border px-3 py-2 transition ${
+                    selected
+                      ? "border-[var(--fm-trust-blue)] bg-[var(--fm-surface-muted)]"
+                      : "border-[var(--fm-border)] bg-white"
+                  }`}
+                >
+                  <span className="text-xs font-medium text-[var(--fm-text)]">{option.text}</span>
+                  <input
+                    type="radio"
+                    role="radio"
+                    aria-checked={selected}
+                    name={`matrix-mobile-${questionId}`}
+                    value={option.code}
+                    checked={selected}
+                    onChange={() => onChange(option.code)}
+                    onKeyDown={(event) => handleKeyDown(event, idx)}
+                    className="h-5 w-5 cursor-pointer accent-[var(--fm-trust-blue)]"
+                  />
+                </label>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

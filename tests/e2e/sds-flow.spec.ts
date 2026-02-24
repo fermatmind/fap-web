@@ -258,7 +258,7 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
 
   await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`), { timeout: 15000 });
   await expect(page.getByRole("heading", { name: "Important Disclaimer" })).toBeVisible();
-  await expect(page.getByText("Important: prioritize immediate safety and support")).toBeVisible();
+  await expect(page.getByText("Important: please prioritize support resources")).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "Paid Deep Dive" })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "SDS factor breakdown" })).toBeVisible();

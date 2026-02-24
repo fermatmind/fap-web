@@ -1,22 +1,31 @@
+import { cn } from "@/lib/utils";
+
 export function MatrixProgressHeader({
   title,
   current,
   total,
   answered,
   status,
+  stickyTopClassName = "top-0",
 }: {
   title: string;
   current: number;
   total: number;
   answered: number;
   status?: string;
+  stickyTopClassName?: string;
 }) {
   const safeTotal = Math.max(1, total);
   const safeCurrent = Math.min(Math.max(1, current), safeTotal);
   const percent = Math.round((answered / safeTotal) * 100);
 
   return (
-    <header className="sticky top-0 z-10 rounded-2xl border border-[var(--fm-border)] bg-white/95 p-4 shadow-[var(--fm-shadow-sm)] backdrop-blur">
+    <header
+      className={cn(
+        "sticky z-10 rounded-2xl border border-[var(--fm-border)] bg-white/95 p-4 shadow-[var(--fm-shadow-sm)] backdrop-blur",
+        stickyTopClassName
+      )}
+    >
       <div className="mb-2 flex flex-wrap items-end justify-between gap-2">
         <div>
           <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">{title}</p>

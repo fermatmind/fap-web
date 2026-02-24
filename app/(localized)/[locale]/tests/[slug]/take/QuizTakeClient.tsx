@@ -6,6 +6,7 @@ import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHea
 import { MatrixQuestionTable } from "@/components/quiz/matrix/MatrixQuestionTable";
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { Button } from "@/components/ui/button";
+import { getOrCreateAnonId } from "@/lib/anon";
 import {
   fetchScaleQuestions,
   startAttempt,
@@ -41,13 +42,15 @@ export default function QuizTakeClient({
 }) {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const questionIds = useMemo(() => questions.map((question) => question.id), [questions]);
+  const anonId = useMemo(() => getOrCreateAnonId(), []);
 
   return (
-    <QuizStoreProvider slug={slug} initialQuestionIds={questionIds}>
+    <QuizStoreProvider slug={slug} anonId={anonId || null} initialQuestionIds={questionIds}>
       <QuizTakeInner
         slug={slug}
         testTitle={testTitle}
         scaleCode={scaleCode}
+        anonId={anonId}
         questions={questions}
         setQuestions={setQuestions}
       />
@@ -59,12 +62,14 @@ function QuizTakeInner({
   slug,
   testTitle,
   scaleCode,
+  anonId,
   questions,
   setQuestions,
 }: {
   slug: string;
   testTitle: string;
   scaleCode: string;
+  anonId: string;
   questions: QuizQuestion[];
   setQuestions: (nextQuestions: QuizQuestion[]) => void;
 }) {
@@ -104,7 +109,7 @@ function QuizTakeInner({
       setQuestionsError(null);
 
       try {
-        const response = await fetchScaleQuestions({ scaleCode });
+        const response = await fetchScaleQuestions({ scaleCode, anonId });
 
         if (!active) return;
 
@@ -144,7 +149,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [locale, scaleCode, setQuestions, slug]);
+  }, [anonId, locale, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     let active = true;
@@ -159,7 +164,7 @@ function QuizTakeInner({
       setAttemptError(null);
 
       try {
-        const response = await startAttempt({ scaleCode });
+        const response = await startAttempt({ scaleCode, anonId });
         if (!active) return;
 
         setAttemptMeta(response.attempt_id, scaleCode);
@@ -193,7 +198,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [attemptId, locale, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+  }, [anonId, attemptId, locale, savedScaleCode, scaleCode, setAttemptMeta, slug]);
 
   useEffect(() => {
     if (!attemptId || trackedStartRef.current) return;
@@ -276,6 +281,7 @@ function QuizTakeInner({
         attemptId,
         answers: payloadAnswers,
         durationMs,
+        anonId,
       });
 
       if (!response.ok) {
@@ -349,6 +355,7 @@ function QuizTakeInner({
         total={total}
         answered={answeredCount}
         status={`${answeredCount}/${total} ${locale === "zh" ? "已作答" : "answered"}`}
+        stickyTopClassName="top-2"
       />
 
       {milestoneHint ? (
@@ -363,6 +370,7 @@ function QuizTakeInner({
         options={question.options.map((option) => ({ code: option.id, text: option.text }))}
         value={selectedOptionId}
         locale={locale}
+        mobilePromptStickyTopClassName="top-[4.75rem]"
         onChange={(code) => setAnswer(question.id, code)}
       />
 
