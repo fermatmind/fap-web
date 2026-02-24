@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent } from "@/components/ui/card";
-import { SOCIAL_LOGOS, TESTIMONIALS } from "@/lib/marketing/socialProof";
+import { SOCIAL_TRUST_SIGNALS, TESTIMONIALS } from "@/lib/marketing/socialProof";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import type { SiteDictionary } from "@/lib/i18n/types";
@@ -17,13 +17,23 @@ export function SocialProofSection({ dict, locale }: { dict: SiteDictionary; loc
           <p className="m-0 text-[var(--fm-text-muted)]">{dict.home.socialProof.subtitle}</p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          {SOCIAL_LOGOS.map((logo) => (
+        <div className="space-y-3">
+          <h3 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{dict.home.socialProof.trustPillarsTitle}</h3>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.home.socialProof.trustPillarsSubtitle}</p>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {SOCIAL_TRUST_SIGNALS.map((item) => (
             <div
-              key={logo.id}
-              className="flex h-14 items-center justify-center rounded-xl border border-[var(--fm-border)] bg-white text-sm font-semibold text-slate-500 grayscale transition hover:grayscale-0"
+              key={item.id}
+              className="rounded-xl border border-[var(--fm-border)] bg-white p-3 text-left shadow-[var(--fm-shadow-sm)] transition hover:-translate-y-0.5 hover:shadow-[var(--fm-shadow-md)]"
             >
-              {logo.label}
+              <p className="m-0 text-sm font-semibold text-[var(--fm-trust-blue-strong)]">
+                {locale === "zh" ? item.label.zh : item.label.en}
+              </p>
+              <p className="m-0 mt-1 text-xs text-[var(--fm-text-muted)]">
+                {locale === "zh" ? item.detail.zh : item.detail.en}
+              </p>
             </div>
           ))}
         </div>

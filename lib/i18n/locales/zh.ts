@@ -50,12 +50,27 @@ const zh: SiteDictionary = {
     socialProof: {
       title: "用户与推荐方",
       subtitle: "被学习者、团队管理者与内容社群持续使用与推荐。",
+      trustPillarsTitle: "信任依据",
+      trustPillarsSubtitle: "强调循证表达、稳定评分逻辑与以关怀为先的安全机制。",
       testimonialsTitle: "真实用户评价",
     },
     highlighted: {
       title: "重点测评",
       subtitle: "选择一个核心方向，立即进入结构化测评流程。",
       cta: "开始此测试",
+      clinicalBadge: "临床级",
+      comingSoonBadge: "即将上线",
+      comingSoonCta: "即将发布",
+      comingSoonCards: [
+        {
+          title: "认知矩阵（IQ）",
+          description: "面向图形推理与模式识别的矩阵测评，支持移动端自适应呈现。",
+        },
+        {
+          title: "社会适应指数",
+          description: "用于评估人际互动与场景适应能力，适配学习与职场场景。",
+        },
+      ],
     },
   },
   card: {

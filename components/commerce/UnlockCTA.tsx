@@ -16,6 +16,7 @@ type UnlockCTAProps = {
   currency?: string;
   formattedPrice?: string;
   buttonLabel?: string;
+  insightHook?: string;
   loading?: boolean;
   error?: string | null;
   onPay: () => void | Promise<void>;
@@ -41,6 +42,7 @@ export function UnlockCTA({
   currency,
   formattedPrice,
   buttonLabel,
+  insightHook,
   loading = false,
   error,
   onPay,
@@ -57,6 +59,7 @@ export function UnlockCTA({
         <p className="m-0 text-sm text-slate-600">
           {dict.commerce.unlock_subtitle}
         </p>
+        {insightHook ? <p className="m-0 text-sm font-medium text-slate-800">{insightHook}</p> : null}
       </CardHeader>
 
       <CardContent className="space-y-4">

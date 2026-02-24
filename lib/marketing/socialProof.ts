@@ -1,6 +1,13 @@
-export type SocialLogo = {
+export type SocialTrustSignal = {
   id: string;
-  label: string;
+  label: {
+    en: string;
+    zh: string;
+  };
+  detail: {
+    en: string;
+    zh: string;
+  };
 };
 
 export type Testimonial = {
@@ -12,13 +19,37 @@ export type Testimonial = {
   testLabel: string;
 };
 
-export const SOCIAL_LOGOS: SocialLogo[] = [
-  { id: "learning_lab", label: "Learning Lab" },
-  { id: "growth_review", label: "Growth Review" },
-  { id: "people_ops_daily", label: "People Ops Daily" },
-  { id: "career_studio", label: "Career Studio" },
-  { id: "mindset_forum", label: "Mindset Forum" },
-  { id: "team_design_hub", label: "Team Design Hub" },
+export const SOCIAL_TRUST_SIGNALS: SocialTrustSignal[] = [
+  {
+    id: "learning_labs",
+    label: { en: "Learning Labs", zh: "学习实验室" },
+    detail: { en: "Educational cohorts", zh: "教育项目与学习社群" },
+  },
+  {
+    id: "career_coaching",
+    label: { en: "Career Coaching", zh: "职业教练团队" },
+    detail: { en: "Career transition support", zh: "职业转型与辅导场景" },
+  },
+  {
+    id: "people_ops",
+    label: { en: "People Ops Teams", zh: "组织与人效团队" },
+    detail: { en: "Team communication reviews", zh: "团队协作与沟通复盘" },
+  },
+  {
+    id: "content_communities",
+    label: { en: "Growth Communities", zh: "成长内容社群" },
+    detail: { en: "Evidence-informed content", zh: "循证导向内容实践" },
+  },
+  {
+    id: "mentorship_groups",
+    label: { en: "Mentorship Programs", zh: "导师计划" },
+    detail: { en: "1:1 reflection workflows", zh: "一对一成长反馈流程" },
+  },
+  {
+    id: "research_review",
+    label: { en: "Review Panels", zh: "评审小组" },
+    detail: { en: "Structured interpretation feedback", zh: "结构化解读反馈机制" },
+  },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

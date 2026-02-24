@@ -194,7 +194,7 @@ function filterSdsSections({
   if (crisisAlert && !filtered.some((section) => normalizeSectionKey(section) === "crisis_banner")) {
     const syntheticBanner: Big5ReportSection = {
       key: "crisis_banner",
-      title: locale === "zh" ? "危机提示" : "Crisis Alert",
+      title: locale === "zh" ? "关怀提示" : "Care Notice",
       access_level: "free",
       blocks: [],
     };
@@ -246,7 +246,7 @@ function filterCc68Sections({
         ...filtered,
         {
           key: "crisis_banner",
-          title: locale === "zh" ? "危机提示" : "Crisis Alert",
+          title: locale === "zh" ? "关怀提示" : "Care Notice",
           access_level: "free",
           blocks: [],
         },
@@ -479,6 +479,17 @@ export default function ClinicalReportClient({
 
   const crisisResources = useMemo(() => resolveCrisisResources(reportData, sections), [reportData, sections]);
   const crisisReasons = useMemo(() => resolveCrisisReasons(sections), [sections]);
+  const unlockInsightHook = useMemo(() => {
+    if (scaleCode === "SDS_20" || scaleCode === "CLINICAL_COMBO_68") {
+      return locale === "zh"
+        ? "查看造成你近期压力的关键隐性因素与优先行动建议。"
+        : "Reveal the hidden drivers behind your current pressure and your top priority actions.";
+    }
+
+    return locale === "zh"
+      ? "解锁你的核心潜在天赋与行动建议。"
+      : "Unlock your core strengths and practical next actions.";
+  }, [locale, scaleCode]);
 
   const showPaywall = locked && offers.length > 0 && !crisisAlert && rolloutDecision.commerceEnabled;
   const showOffers = offers.length > 0 && !crisisAlert && rolloutDecision.commerceEnabled;
@@ -921,6 +932,7 @@ export default function ClinicalReportClient({
             sku={firstOffer?.sku}
             orderNo={firstOffer?.order_no}
             formattedPrice={formatOfferPrice(firstOffer)}
+            insightHook={unlockInsightHook}
             amount={
               typeof firstOffer?.amount_cents === "number"
                 ? firstOffer.amount_cents / 100

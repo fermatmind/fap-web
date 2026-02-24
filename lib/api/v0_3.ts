@@ -350,6 +350,13 @@ export type MeAttemptsResponse = {
   [key: string]: unknown;
 };
 
+export type LinkAnonAttemptsResponse = {
+  ok?: boolean;
+  linked_attempt_ids?: string[];
+  skipped_attempt_ids?: string[];
+  [key: string]: unknown;
+};
+
 function anonHeader(anonId?: string, extraHeaders?: Record<string, string>) {
   const resolvedAnonId = resolveAnonId(anonId);
   const headers: Record<string, string> = {
@@ -763,6 +770,38 @@ export async function getMyAttempts({
   );
 
   return assertApiOk(response, "Failed to load history attempts.");
+}
+
+export async function linkAnonAttempts({
+  anonId,
+  attemptIds,
+}: {
+  anonId: string;
+  attemptIds: string[];
+}): Promise<LinkAnonAttemptsResponse> {
+  const normalizedAnonId = anonId.trim();
+  const normalizedAttemptIds = attemptIds
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+
+  if (!normalizedAnonId || normalizedAttemptIds.length === 0) {
+    return {
+      ok: true,
+      linked_attempt_ids: [],
+      skipped_attempt_ids: [],
+    };
+  }
+
+  const response = await apiClient.post<LinkAnonAttemptsResponse>(
+    "/v0.3/me/attempts/link-anon",
+    {
+      anon_id: normalizedAnonId,
+      attempt_ids: normalizedAttemptIds,
+    },
+    anonHeader(normalizedAnonId)
+  );
+
+  return assertApiOk(response, "Failed to link anonymous attempts.");
 }
 
 export async function getShareSummary({

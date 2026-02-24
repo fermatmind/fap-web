@@ -2,11 +2,13 @@
 
 import { createContext, useContext, useEffect, useMemo, type ReactNode } from "react";
 import { useStore } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { createJSONStorage, persist, type StateStorage } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
+import { queuePendingAnonLinkAttempt } from "@/lib/anon";
 
 export type QuizState = {
   slug: string;
+  anonId: string | null;
   currentIndex: number;
   answers: Record<string, string>;
   startedAt: number;
@@ -19,7 +21,7 @@ export type QuizState = {
 export type QuizStore = {
   version: number;
   state: QuizState;
-  init: (slug: string, initialQuestionIds: string[]) => void;
+  init: (slug: string, initialQuestionIds: string[], anonId: string | null) => void;
   setAnswer: (questionId: string, optionId: string) => void;
   next: (total: number) => void;
   prev: () => void;
@@ -27,15 +29,68 @@ export type QuizStore = {
   setAttemptMeta: (attemptId: string, scaleCode: string) => void;
   markSubmitted: () => void;
   resetAttempt: () => void;
-  reset: (slug: string) => void;
+  reset: (slug: string, anonId: string | null) => void;
 };
 
-const QUIZ_VERSION = 1;
+const QUIZ_VERSION = 3;
 
-const createEmptyState = (slug: string): QuizState => {
+function buildQuizPersistKey(slug: string, anonId: string | null): string {
+  const normalizedAnonId = (anonId ?? "").trim() || "anon";
+  return `fm_quiz_v3_${slug}_${normalizedAnonId}`;
+}
+
+function buildLegacyQuizKeys(slug: string): string[] {
+  return [
+    `fm_quiz_v2_${slug}`,
+    `fm_quiz_v1_${slug}`,
+  ];
+}
+
+function createQuizStorage(slug: string): StateStorage {
+  return {
+    getItem: (name) => {
+      if (typeof window === "undefined") return null;
+
+      try {
+        const direct = window.localStorage.getItem(name);
+        if (direct) return direct;
+
+        for (const legacyKey of buildLegacyQuizKeys(slug)) {
+          const legacyValue = window.localStorage.getItem(legacyKey);
+          if (!legacyValue) continue;
+          window.localStorage.setItem(name, legacyValue);
+          return legacyValue;
+        }
+      } catch {
+        return null;
+      }
+
+      return null;
+    },
+    setItem: (name, value) => {
+      if (typeof window === "undefined") return;
+      try {
+        window.localStorage.setItem(name, value);
+      } catch {
+        // Ignore storage failures.
+      }
+    },
+    removeItem: (name) => {
+      if (typeof window === "undefined") return;
+      try {
+        window.localStorage.removeItem(name);
+      } catch {
+        // Ignore storage failures.
+      }
+    },
+  };
+}
+
+const createEmptyState = (slug: string, anonId: string | null): QuizState => {
   const now = Date.now();
   return {
     slug,
+    anonId,
     currentIndex: 0,
     answers: {},
     startedAt: now,
@@ -56,17 +111,23 @@ const touch = (state: QuizState): QuizState => ({
   lastSavedAt: Date.now(),
 });
 
-export const createQuizStore = (slug: string) =>
+export const createQuizStore = ({
+  slug,
+  anonId,
+}: {
+  slug: string;
+  anonId: string | null;
+}) =>
   createStore<QuizStore>()(
     persist(
       (set, get) => ({
         version: QUIZ_VERSION,
-        state: createEmptyState(slug),
-        init: (nextSlug, initialQuestionIds) => {
+        state: createEmptyState(slug, anonId),
+        init: (nextSlug, initialQuestionIds, nextAnonId) => {
           const { state } = get();
 
-          if (state.slug !== nextSlug) {
-            set({ state: touch(createEmptyState(nextSlug)) });
+          if (state.slug !== nextSlug || state.anonId !== nextAnonId) {
+            set({ state: touch(createEmptyState(nextSlug, nextAnonId)) });
             return;
           }
 
@@ -121,14 +182,17 @@ export const createQuizStore = (slug: string) =>
             }),
           })),
         setAttemptMeta: (attemptId, scaleCode) =>
-          set((store) => ({
-            state: touch({
-              ...store.state,
-              attemptId,
-              scaleCode,
-              submittedAt: null,
-            }),
-          })),
+          set((store) => {
+            queuePendingAnonLinkAttempt(attemptId);
+            return {
+              state: touch({
+                ...store.state,
+                attemptId,
+                scaleCode,
+                submittedAt: null,
+              }),
+            };
+          }),
         markSubmitted: () =>
           set((store) => ({
             state: touch({
@@ -148,12 +212,12 @@ export const createQuizStore = (slug: string) =>
               submittedAt: null,
             }),
           })),
-        reset: (nextSlug) => set({ state: touch(createEmptyState(nextSlug)) }),
+        reset: (nextSlug, nextAnonId) => set({ state: touch(createEmptyState(nextSlug, nextAnonId)) }),
       }),
       {
-        name: `fm_quiz_v1_${slug}`,
+        name: buildQuizPersistKey(slug, anonId),
         version: QUIZ_VERSION,
-        storage: createJSONStorage(() => localStorage),
+        storage: createJSONStorage(() => createQuizStorage(slug)),
         partialize: (store) => ({
           version: store.version,
           state: {
@@ -163,6 +227,7 @@ export const createQuizStore = (slug: string) =>
             startedAt: store.state.startedAt,
             attemptId: store.state.attemptId,
             scaleCode: store.state.scaleCode,
+            anonId: store.state.anonId,
           },
         }),
       }
@@ -175,18 +240,20 @@ const QuizStoreContext = createContext<QuizStoreApi | null>(null);
 
 export function QuizStoreProvider({
   slug,
+  anonId,
   initialQuestionIds,
   children,
 }: {
   slug: string;
+  anonId: string | null;
   initialQuestionIds: string[];
   children: ReactNode;
 }) {
-  const store = useMemo(() => createQuizStore(slug), [slug]);
+  const store = useMemo(() => createQuizStore({ slug, anonId }), [slug, anonId]);
 
   useEffect(() => {
-    store.getState().init(slug, initialQuestionIds);
-  }, [store, slug, initialQuestionIds]);
+    store.getState().init(slug, initialQuestionIds, anonId);
+  }, [store, slug, initialQuestionIds, anonId]);
 
   return <QuizStoreContext.Provider value={store}>{children}</QuizStoreContext.Provider>;
 }

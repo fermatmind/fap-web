@@ -1,9 +1,27 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import type { TestListItem } from "@/lib/content";
+import { Badge } from "@/components/ui/badge";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import type { SiteDictionary } from "@/lib/i18n/types";
+
+export type HomeHighlightedCard =
+  | {
+      kind: "live";
+      slug: string;
+      title: string;
+      scaleCode?: string;
+      tagline: string;
+      excerpt: string;
+      rating: number;
+      isClinical: boolean;
+    }
+  | {
+      kind: "coming_soon";
+      id: string;
+      title: string;
+      description: string;
+    };
 
 function renderStars(rating: number) {
   const rounded = Math.max(0, Math.min(5, Math.round(rating)));
@@ -18,45 +36,14 @@ function renderStars(rating: number) {
   );
 }
 
-function localizedTagline(test: TestListItem, locale: Locale): string {
-  const source = test.card_tagline_i18n;
-  if (!source) return test.scale_code ?? "Assessment";
-  const direct = locale === "zh" ? source.zh ?? source["zh-CN"] : source.en;
-  if (typeof direct === "string" && direct.trim().length > 0) return direct.trim();
-  return test.scale_code ?? "Assessment";
-}
-
-function localizedHighlightExcerpt(test: TestListItem, locale: Locale): string {
-  const source = test.highlight_excerpt_i18n;
-  if (!source) return test.description;
-  const direct = locale === "zh" ? source.zh ?? source["zh-CN"] : source.en;
-  if (typeof direct === "string" && direct.trim().length > 0) return direct.trim();
-  return test.description;
-}
-
-function localizedSeoCopy(test: TestListItem, locale: Locale): string {
-  const source = test.highlight_seo_copy_i18n;
-  if (!source) return fallbackSeoCopy(test, locale);
-  const direct = locale === "zh" ? source.zh ?? source["zh-CN"] : source.en;
-  if (typeof direct === "string" && direct.trim().length > 0) return direct.trim();
-  return fallbackSeoCopy(test, locale);
-}
-
-function fallbackSeoCopy(test: TestListItem, locale: Locale): string {
-  if (locale === "zh") {
-    return `${test.title} 基于结构化心理测评框架，覆盖题项反应、维度评分和可解释报告输出。通过统一量表与标准化流程，帮助你在职业选择、协作沟通与自我成长上获得可行动的结论。`;
-  }
-  return `${test.title} follows a structured assessment framework with standardized scoring and interpretable reporting. It supports practical decisions across career choice, collaboration patterns, and personal growth planning.`;
-}
-
 export function HighlightedTestsSection({
   dict,
   locale,
-  tests,
+  cards,
 }: {
   dict: SiteDictionary;
   locale: Locale;
-  tests: TestListItem[];
+  cards: HomeHighlightedCard[];
 }) {
   const withLocale = (path: string) => localizedPath(path, locale);
 
@@ -69,35 +56,62 @@ export function HighlightedTestsSection({
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {tests.map((test) => (
-            <div key={test.slug} className="flex h-full flex-col gap-4">
-              <article className="flex h-full flex-col rounded-2xl bg-white p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-lg)]">
+          {cards.map((card) =>
+            card.kind === "live" ? (
+              <article
+                key={`live-${card.slug}`}
+                className="flex h-full flex-col rounded-2xl border border-white/20 bg-white p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-lg)]"
+              >
                 <div className="flex items-start justify-between gap-3">
                   <Link
-                    href={withLocale(`/tests/${test.slug}`)}
+                    href={withLocale(`/tests/${card.slug}`)}
                     className="font-serif text-xl font-semibold leading-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
                   >
-                    {test.title}
+                    {card.title}
                   </Link>
-                  {renderStars(test.highlight_rating ?? 5)}
+                  {renderStars(card.rating)}
                 </div>
-                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                  {localizedTagline(test, locale)}
+
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  {card.scaleCode ? <Badge>{card.scaleCode}</Badge> : null}
+                  {card.isClinical ? (
+                    <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.clinicalBadge}</Badge>
+                  ) : null}
+                </div>
+
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
+                  {card.tagline}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{localizedHighlightExcerpt(test, locale)}</p>
+                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{card.excerpt}</p>
+
                 <div className="mt-auto pt-5">
                   <Link
-                    href={withLocale(`/tests/${test.slug}/take`)}
+                    href={withLocale(`/tests/${card.slug}/take`)}
                     className="text-sm font-semibold text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
                   >
                     {dict.home.highlighted.cta} →
                   </Link>
                 </div>
               </article>
+            ) : (
+              <article
+                key={`coming-${card.id}`}
+                className="relative flex h-full flex-col rounded-2xl border border-white/30 bg-white/90 p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-md)]"
+                data-disabled="1"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="m-0 font-serif text-xl font-semibold leading-tight text-[var(--fm-trust-blue-strong)]">
+                    {card.title}
+                  </h3>
+                  <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.comingSoonBadge}</Badge>
+                </div>
 
-              <p className="m-0 px-1 text-sm leading-7 text-teal-50/85">{localizedSeoCopy(test, locale)}</p>
-            </div>
-          ))}
+                <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{card.description}</p>
+
+                <p className="mt-auto pt-5 text-sm font-semibold text-[var(--fm-text-muted)]">{dict.home.highlighted.comingSoonCta}</p>
+              </article>
+            )
+          )}
         </div>
       </Container>
     </section>

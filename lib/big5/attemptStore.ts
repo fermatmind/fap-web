@@ -2,6 +2,7 @@
 
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { queuePendingAnonLinkAttempt } from "@/lib/anon";
 
 export type Big5AttemptState = {
   attemptId: string | null;
@@ -66,13 +67,16 @@ export const useBig5AttemptStore = create<Big5AttemptStore>()(
       hydrateAnonId: (anonId) => set((state) => ({ ...state, anonId: anonId ?? state.anonId })),
       setAuthToken: (token) => set({ authToken: token }),
       setAttemptMeta: ({ attemptId, resumeToken, disclaimerVersion, disclaimerHash }) =>
-        set((state) => ({
-          ...state,
-          attemptId,
-          resumeToken: resumeToken ?? state.resumeToken,
-          disclaimerVersion: disclaimerVersion ?? state.disclaimerVersion,
-          disclaimerHash: disclaimerHash ?? state.disclaimerHash,
-        })),
+        set((state) => {
+          queuePendingAnonLinkAttempt(attemptId);
+          return {
+            ...state,
+            attemptId,
+            resumeToken: resumeToken ?? state.resumeToken,
+            disclaimerVersion: disclaimerVersion ?? state.disclaimerVersion,
+            disclaimerHash: disclaimerHash ?? state.disclaimerHash,
+          };
+        }),
       acceptDisclaimer: ({ version, hash }) =>
         set((state) => ({
           ...state,

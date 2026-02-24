@@ -185,6 +185,10 @@ export default function ResultClient({
   const normsStatus = normalizeNormsStatus(reportData?.norms?.status);
   const qualityLevel = String(reportData?.quality?.level ?? "unrated");
   const ctaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
+  const unlockInsightHook =
+    locale === "zh"
+      ? "解锁你的 3 个核心潜在天赋与可执行成长路径。"
+      : "Unlock your 3 core strengths and a practical growth plan.";
   const reportMeta = (reportData?.meta ?? {}) as Record<string, unknown>;
   const reportDisclaimerVersion = pickString(
     reportMeta.disclaimer_version,
@@ -599,7 +603,15 @@ export default function ResultClient({
 
       <div className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
         {sections.map((section, idx) => (
-          <SectionRenderer key={`${section.key ?? "section"}-${idx}`} section={section} locked={locked} normsStatus={normsStatus} ctaLabel={ctaLabel} />
+          <SectionRenderer
+            key={`${section.key ?? "section"}-${idx}`}
+            section={section}
+            locked={locked}
+            normsStatus={normsStatus}
+            ctaLabel={ctaLabel}
+            locale={locale}
+            scaleCode={reportScaleCode}
+          />
         ))}
       </div>
 
@@ -630,6 +642,7 @@ export default function ResultClient({
               amount={offer?.amount_cents ?? reportData?.price}
               currency={offer?.currency ?? reportData?.currency}
               formattedPrice={offer?.formatted_price}
+              insightHook={unlockInsightHook}
               loading={paying}
               error={payError}
               onPay={handlePay}

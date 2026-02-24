@@ -14,11 +14,15 @@ export function SectionRenderer({
   locked,
   normsStatus,
   ctaLabel,
+  locale = "en",
+  scaleCode,
 }: {
   section: Section;
   locked: boolean;
   normsStatus?: string;
   ctaLabel?: string;
+  locale?: "en" | "zh";
+  scaleCode?: string;
 }) {
   const key = section.key ?? "unknown";
   const title = section.title ?? key;
@@ -26,11 +30,13 @@ export function SectionRenderer({
   const isPaidSection = accessLevel === "paid";
   const blocks = Array.isArray(section.blocks) ? section.blocks : [];
 
+  const intent = scaleCode === "SDS_20" || scaleCode === "CLINICAL_COMBO_68" ? "clinical" : "personality";
+
   if (locked && isPaidSection) {
     return (
       <section className="space-y-2">
         <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-        <LockedBlock title={title} ctaLabel={ctaLabel} />
+        <LockedBlock title={title} ctaLabel={ctaLabel} locale={locale} intent={intent} />
       </section>
     );
   }
