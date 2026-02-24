@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, JetBrains_Mono, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
@@ -8,23 +8,29 @@ import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
 import { canonicalUrl, SITE_URL } from "@/lib/site";
 import "../../globals.css";
 
-const fmSans = Manrope({
+const fmSans = localFont({
+  src: [{ path: "../../../public/fonts/manrope/Manrope-Variable.woff2", weight: "200 800", style: "normal" }],
   variable: "--font-fm-sans",
-  subsets: ["latin"],
   display: "swap",
   fallback: ["Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
 });
 
-const fmSerif = Fraunces({
+const fmSerif = localFont({
+  src: [{ path: "../../../public/fonts/fraunces/Fraunces-Variable.woff2", weight: "100 900", style: "normal" }],
   variable: "--font-fm-serif",
-  subsets: ["latin"],
   display: "swap",
   fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
-const fmMono = JetBrains_Mono({
+const fmMono = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/jetbrains-mono/JetBrainsMono-Variable.woff2",
+      weight: "100 800",
+      style: "normal",
+    },
+  ],
   variable: "--font-fm-mono",
-  subsets: ["latin"],
   display: "swap",
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
