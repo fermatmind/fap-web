@@ -120,10 +120,10 @@ function extractPrimaryNumericScore(report: ReportResponse | null): number | nul
 }
 
 const SCALE_SLUG_MAP: Record<SupportedScaleCode, string> = {
-  MBTI: "personality-mbti-test",
-  BIG5_OCEAN: "big-five-personality-test",
-  SDS_20: "sds-20",
-  CLINICAL_COMBO_68: "clinical-combo-68",
+  MBTI: "mbti-personality-test-16-personality-types",
+  BIG5_OCEAN: "big-five-personality-test-ocean-model",
+  SDS_20: "depression-screening-test-standard-edition",
+  CLINICAL_COMBO_68: "clinical-depression-anxiety-assessment-professional-edition",
 };
 
 function normalizeSupportedScaleCode(scaleCode: string): SupportedScaleCode | null {

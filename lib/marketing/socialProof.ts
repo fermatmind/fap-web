@@ -58,7 +58,7 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "A. Chen",
     role: "Product Manager",
     quote: "The structure is clear and the final explanation is practical enough to discuss with my team immediately.",
-    testSlug: "big-five-personality-test",
+    testSlug: "big-five-personality-test-ocean-model",
     testLabel: "Big Five test",
   },
   {
@@ -66,7 +66,7 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "M. Carter",
     role: "Career Coach",
     quote: "Clients finish it quickly and we can directly use the trait breakdown to plan next actions.",
-    testSlug: "personality-mbti-test",
+    testSlug: "mbti-personality-test-16-personality-types",
     testLabel: "MBTI test",
   },
   {
@@ -74,15 +74,15 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "S. Li",
     role: "Team Lead",
     quote: "The report language is easy to align around, especially for communication and role-fit discussions.",
-    testSlug: "disc-personality-test",
-    testLabel: "DISC test",
+    testSlug: "clinical-depression-anxiety-assessment-professional-edition",
+    testLabel: "Clinical assessment",
   },
   {
     id: "review_4",
     author: "R. Gomez",
     role: "Operations Analyst",
     quote: "I like the no-friction flow and the way it keeps the focus on useful decisions rather than labels.",
-    testSlug: "stress-level-check",
-    testLabel: "Stress level check",
+    testSlug: "depression-screening-test-standard-edition",
+    testLabel: "Depression screening",
   },
 ];

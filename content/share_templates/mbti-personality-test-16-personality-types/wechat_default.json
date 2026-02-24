@@ -1,7 +1,7 @@
 {
   "schema_version": "share-template/v1",
   "template_id": "mbti.wechat_default.v1",
-  "scale_slug": "personality-mbti-test",
+  "scale_slug": "mbti-personality-test-16-personality-types",
   "distribution_channel": "wechat",
   "sync_to_meta": true,
 

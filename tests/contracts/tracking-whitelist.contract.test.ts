@@ -3,7 +3,7 @@ import { TRACKING_EVENTS, filterTrackingPayload } from "@/lib/tracking/events";
 describe("tracking whitelist contract", () => {
   it("enforces strict whitelist for card/report UI events", () => {
     const basePayload = {
-      slug: "big-five-personality-test",
+      slug: "big-five-personality-test-ocean-model",
       scale_code: "BIG5_OCEAN",
       visual_kind: "bars_ocean",
       interaction: "click",
@@ -24,7 +24,7 @@ describe("tracking whitelist contract", () => {
 
     const impression = filterTrackingPayload(TRACKING_EVENTS.UI_CARD_IMPRESSION, basePayload);
     expect(impression).toEqual({
-      slug: "big-five-personality-test",
+      slug: "big-five-personality-test-ocean-model",
       scale_code: "BIG5_OCEAN",
       visual_kind: "bars_ocean",
       locale: "en",
@@ -32,7 +32,7 @@ describe("tracking whitelist contract", () => {
 
     const interaction = filterTrackingPayload(TRACKING_EVENTS.UI_CARD_INTERACTION, basePayload);
     expect(interaction).toEqual({
-      slug: "big-five-personality-test",
+      slug: "big-five-personality-test-ocean-model",
       scale_code: "BIG5_OCEAN",
       visual_kind: "bars_ocean",
       interaction: "click",

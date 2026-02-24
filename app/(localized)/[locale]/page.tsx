@@ -6,7 +6,7 @@ import {
 import { SocialProofSection } from "@/components/marketing/SocialProofSection";
 import { ValuePropsSection } from "@/components/marketing/ValuePropsSection";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { getAllTests } from "@/lib/content";
+import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 
 export default async function Home({
@@ -18,16 +18,22 @@ export default async function Home({
   const locale = resolveLocale(localeParam);
   const dict = getDictSync(locale);
   const allTests = getAllTests();
-  const byScaleCode = new Map<string, (typeof allTests)[number]>();
+  const bySlug = new Map<string, (typeof allTests)[number]>();
   for (const item of allTests) {
-    if (typeof item.scale_code === "string" && item.scale_code.trim().length > 0) {
-      byScaleCode.set(item.scale_code, item);
-    }
+    bySlug.set(item.slug, item);
   }
 
-  const preferredLiveScaleCodes = ["MBTI", "BIG5_OCEAN", "SDS_20", "CLINICAL_COMBO_68"] as const;
-  const liveCards: HomeHighlightedCard[] = preferredLiveScaleCodes
-    .map((scaleCode) => byScaleCode.get(scaleCode))
+  const preferredLiveSlugs = [
+    "mbti-personality-test-16-personality-types",
+    "big-five-personality-test-ocean-model",
+    "clinical-depression-anxiety-assessment-professional-edition",
+    "depression-screening-test-standard-edition",
+    "iq-test-intelligence-quotient-assessment",
+    "eq-test-emotional-intelligence-assessment",
+  ] as const;
+
+  const highlightedCards: HomeHighlightedCard[] = preferredLiveSlugs
+    .map((slug) => bySlug.get(slug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item))
     .map((item) => {
       const source = item.card_tagline_i18n;
@@ -48,7 +54,7 @@ export default async function Home({
       return {
         kind: "live",
         slug: item.slug,
-        title: item.title,
+        title: resolveTestTitleByLocale(item, locale),
         scaleCode: item.scale_code,
         tagline: localizedTagline,
         excerpt: localizedExcerpt,
@@ -56,14 +62,6 @@ export default async function Home({
         isClinical: item.scale_code === "SDS_20" || item.scale_code === "CLINICAL_COMBO_68",
       };
     });
-
-  const comingSoonCards: HomeHighlightedCard[] = dict.home.highlighted.comingSoonCards.slice(0, 2).map((item, index) => ({
-    kind: "coming_soon",
-    id: `coming-${index + 1}`,
-    title: item.title,
-    description: item.description,
-  }));
-  const highlightedCards = [...liveCards, ...comingSoonCards];
 
   return (
     <main>

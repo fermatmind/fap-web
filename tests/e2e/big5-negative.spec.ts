@@ -42,7 +42,7 @@ async function mockLookup(
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
-        slug: "big-five-personality-test",
+        slug: "big-five-personality-test-ocean-model",
         scale_code: "BIG5_OCEAN",
         capabilities: {
           enabled_in_prod: enabledInProd,
@@ -86,9 +86,9 @@ test("BIG5 /take redirects to landing maintenance when rollout is off", async ({
   await mockLookup(page, { enabledInProd: false, paywallMode: "off" });
   await mockQuestions(page, 5);
 
-  await page.goto("/en/tests/big-five-personality-test/take");
+  await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
 
-  await page.waitForURL(/\/en\/tests\/big-five-personality-test\?maintenance=1/);
+  await page.waitForURL(/\/en\/tests\/big-five-personality-test-ocean-model\?maintenance=1/);
   await expect(page.getByText("Maintenance mode")).toBeVisible();
 });
 
@@ -169,7 +169,7 @@ test("BIG5 auto-advance does not submit before last question", async ({ page }) 
     });
   });
 
-  await page.goto("/en/tests/big-five-personality-test/take");
+  await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
   await page.getByLabel("I have read and agree to the disclaimer.").check();
   await page.getByRole("button", { name: "Agree and start" }).click();
 
@@ -198,7 +198,7 @@ test("BIG5 429 start error shows countdown and disables actions", async ({ page 
     });
   });
 
-  await page.goto("/en/tests/big-five-personality-test/take");
+  await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
   await page.getByLabel("I have read and agree to the disclaimer.").check();
   await page.getByRole("button", { name: "Agree and start" }).click();
 
@@ -239,7 +239,7 @@ test("BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
     });
   });
 
-  await page.goto("/en/tests/big-five-personality-test/take");
+  await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
   await page.getByLabel("I have read and agree to the disclaimer.").check();
   await page.getByRole("button", { name: "Agree and start" }).click();
 

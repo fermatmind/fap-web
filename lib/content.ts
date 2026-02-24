@@ -1,4 +1,5 @@
 import { blog, tests, types } from "../.velite";
+import type { Locale } from "@/lib/i18n/locales";
 
 export type Test = (typeof tests)[number];
 export type TestType = (typeof types)[number];
@@ -6,6 +7,7 @@ export type BlogPost = (typeof blog)[number];
 
 export type TestListItem = {
   title: string;
+  title_i18n?: Record<string, string>;
   slug: string;
   description: string;
   cover_image: string;
@@ -28,6 +30,7 @@ export function getAllTests(): TestListItem[] {
     .sort((a, b) => a.title.localeCompare(b.title))
     .map((test) => ({
       title: test.title,
+      title_i18n: test.title_i18n,
       slug: test.slug,
       description: test.description,
       cover_image: test.cover_image,
@@ -44,6 +47,24 @@ export function getAllTests(): TestListItem[] {
       highlight_excerpt_i18n: test.highlight_excerpt_i18n,
       highlight_seo_copy_i18n: test.highlight_seo_copy_i18n,
     }));
+}
+
+export function resolveTestTitleByLocale(
+  test: Pick<TestListItem, "title" | "title_i18n">,
+  locale: Locale
+): string {
+  const source = test.title_i18n;
+  if (!source || typeof source !== "object") return test.title;
+
+  const localized =
+    locale === "zh"
+      ? source.zh ?? source["zh-CN"] ?? source.en
+      : source.en ?? source.zh ?? source["zh-CN"];
+
+  if (typeof localized === "string" && localized.trim().length > 0) {
+    return localized.trim();
+  }
+  return test.title;
 }
 
 export function getTestBySlug(slug: string): Test | null {

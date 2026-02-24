@@ -10,7 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { computeManifestHash } from "@/lib/big5/manifest";
-import { getAllTests, getTestBySlug } from "@/lib/content";
+import { getAllTests, getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -171,8 +171,9 @@ export async function generateMetadata({
   const lookup = await fetchLookup(slug, locale);
   const alternates = alternatesForSlug(test.slug);
   const canonical = localizedPath(`/tests/${test.slug}`, locale);
+  const localizedTestTitle = resolveTestTitleByLocale(test, locale);
 
-  const title = toStringValue(lookup?.seo_title) || test.title;
+  const title = toStringValue(lookup?.seo_title) || localizedTestTitle;
   const description = toStringValue(lookup?.seo_description) || test.description;
   const ogImage = toStringValue(lookup?.og_image_url) || test.cover_image;
 
@@ -214,6 +215,7 @@ export default async function TestLandingPage({
   const locale = resolveLocale(localeParam);
   const dict = getDictSync(locale);
   const lookup = await fetchLookup(slug, locale);
+  const localizedTestTitle = resolveTestTitleByLocale(test, locale);
 
   const withLocale = (path: string) => localizedPath(path, locale);
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
@@ -224,7 +226,9 @@ export default async function TestLandingPage({
   const disclaimer = toStringValue(langNode.disclaimer);
   const reportSummary = toStringValue(reportNode.summary);
   const faqItems = parseFaq(langNode.faq);
-  const mergedFaq = faqItems.length > 0 ? faqItems : buildFallbackFaq(test.title, test.time_minutes, test.questions_count, locale);
+  const mergedFaq = faqItems.length > 0
+    ? faqItems
+    : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale);
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode | undefined,
     capabilities: lookup?.capabilities,
@@ -289,7 +293,7 @@ export default async function TestLandingPage({
                 <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
                   {cardTagline}
                 </p>
-                <h1 className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:text-4xl">{test.title}</h1>
+                <h1 className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:text-4xl">{localizedTestTitle}</h1>
                 <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
                   {Array.from({ length: 5 }, (_, idx) => (
                     <span key={`landing-star-${idx}`} className={idx < landingRating ? "opacity-100" : "opacity-35"}>
@@ -404,7 +408,7 @@ export default async function TestLandingPage({
         <aside>
           <CTASticky
             slug={test.slug}
-            title={test.title}
+            title={localizedTestTitle}
             questions={test.questions_count}
             minutes={test.time_minutes}
             locale={locale}

@@ -239,7 +239,7 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
     });
   });
 
-  await page.goto("/en/tests/sds-20/take");
+  await page.goto("/en/tests/depression-screening-test-standard-edition/take");
 
   const startButton = page.getByRole("button", { name: "Agree and start" });
   await expect(startButton).toBeDisabled();

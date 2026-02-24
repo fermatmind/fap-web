@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { cookies, headers } from "next/headers";
 import { notFound, redirect } from "next/navigation";
-import { getTestBySlug } from "@/lib/content";
+import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import {
@@ -58,9 +58,10 @@ export async function generateMetadata({
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
   const test = getTestBySlug(slug);
+  const localizedTestTitle = test ? resolveTestTitleByLocale(test, locale) : slug;
 
   return {
-    title: test ? (locale === "zh" ? `开始测试 - ${test.title}` : `Start test - ${test.title}`) : `Start test - ${slug}`,
+    title: test ? (locale === "zh" ? `开始测试 - ${localizedTestTitle}` : `Start test - ${localizedTestTitle}`) : `Start test - ${slug}`,
     robots: NOINDEX_ROBOTS,
     alternates: {
       canonical: localizedPath(`/tests/${slug}`, locale),
@@ -80,11 +81,12 @@ export default async function TakePage({
   const test = getTestBySlug(slug);
 
   if (!test) return notFound();
+  const localizedTestTitle = resolveTestTitleByLocale(test, locale);
 
   if (!test.scale_code) {
     return (
       <main className="mx-auto w-full max-w-3xl px-4 py-8">
-        <h1 className="text-2xl font-bold text-slate-900">{test.title}</h1>
+        <h1 className="text-2xl font-bold text-slate-900">{localizedTestTitle}</h1>
         <p className="mt-3 text-slate-600">
           {locale === "zh" ? "此测试暂未接入题库，请先选择其它已接入测试。" : "This test is not connected yet. Please choose another available test."}
         </p>
@@ -126,7 +128,7 @@ export default async function TakePage({
       ) : test.scale_code === "SDS_20" || test.scale_code === "CLINICAL_COMBO_68" ? (
         <ClinicalTakeClient slug={slug} scaleCode={test.scale_code} />
       ) : (
-        <QuizTakeClient slug={slug} testTitle={test.title} scaleCode={test.scale_code} />
+        <QuizTakeClient slug={slug} testTitle={localizedTestTitle} scaleCode={test.scale_code} />
       )}
     </main>
   );

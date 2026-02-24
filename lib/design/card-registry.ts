@@ -14,12 +14,7 @@ const SCALE_SPEC_REGISTRY: Record<string, Partial<AssessmentCardSpec>> = {
   MBTI: { visual: "spark_minimal", tone: "editorial", density: "regular" },
 };
 
-const SLUG_SPEC_REGISTRY: Record<string, Partial<AssessmentCardSpec>> = {
-  "enneagram-test": { visual: "grid_nine", tone: "editorial", density: "dense" },
-  "disc-personality-test": { visual: "ring_four", tone: "practical", density: "regular" },
-  "love-language-test": { visual: "spark_minimal", tone: "warm", density: "regular" },
-  "stress-level-check": { visual: "spark_minimal", tone: "practical", density: "compact" },
-};
+const SLUG_SPEC_REGISTRY: Record<string, Partial<AssessmentCardSpec>> = {};
 
 function sanitizeSeed(seed: unknown, fallback: string): string {
   const value = String(seed ?? "").trim();

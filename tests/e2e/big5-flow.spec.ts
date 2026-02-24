@@ -83,7 +83,7 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
-        slug: "big-five-personality-test",
+        slug: "big-five-personality-test-ocean-model",
         scale_code: "BIG5_OCEAN",
         capabilities: {
           enabled_in_prod: true,
@@ -265,7 +265,7 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
     });
   });
 
-  await page.goto("/en/tests/big-five-personality-test/take");
+  await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
 
   await expect(page.getByText("Before you start")).toBeVisible();
   await page.getByLabel("I have read and agree to the disclaimer.").check();

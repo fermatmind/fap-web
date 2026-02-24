@@ -96,7 +96,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
-        slug: "big-five-personality-test",
+        slug: "big-five-personality-test-ocean-model",
         capabilities: {
           enabled_in_prod: true,
           paywall_mode: "full",
@@ -105,7 +105,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     });
   });
 
-  await page.goto("/en/tests/personality-mbti-test/take");
+  await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
   await expect(page.getByRole("heading", { name: "MBTI question 1" })).toBeVisible();
 
   for (let i = 0; i < 7; i += 1) {
@@ -213,7 +213,7 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
 
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);
-    await page.goto("/en/tests/personality-mbti-test/take");
+    await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
 
     await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
     const firstOption = page.getByRole("radio").first();
