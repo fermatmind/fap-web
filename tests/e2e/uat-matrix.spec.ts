@@ -35,7 +35,7 @@ async function mockBig5Lookup(page: Page, paywallMode: "off" | "free_only" | "fu
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
-        slug: "big-five-personality-test",
+        slug: "big-five-personality-test-ocean-model",
         scale_code: "BIG5_OCEAN",
         capabilities: {
           enabled_in_prod: true,
@@ -116,7 +116,7 @@ async function completeBig5Take({
   optionIndex: number;
   targetUrl: RegExp;
 }) {
-  await page.goto("/en/tests/big-five-personality-test/take");
+  await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
   await page.getByLabel("I have read and agree to the disclaimer.").check();
   await page.getByRole("button", { name: "Agree and start" }).click();
 
@@ -314,7 +314,7 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await page.goto("/en/tests/sds-20/take");
+    await page.goto("/en/tests/depression-screening-test-standard-edition/take");
     await page.getByLabel("I have read and agree to the statement above").check();
     await page.getByRole("button", { name: "Agree and start" }).click();
     for (let i = 0; i < 19; i += 1) {

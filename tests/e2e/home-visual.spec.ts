@@ -12,8 +12,8 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
   const highlightCards = highlightedSection.locator("article");
   await expect(highlightCards.first()).toBeVisible();
   await expect(highlightCards).toHaveCount(6);
-  await expect(highlightedSection.locator('article[data-disabled="1"]')).toHaveCount(2);
-  await expect(highlightedSection.locator('a[href*="/take"]')).toHaveCount(4);
+  await expect(highlightedSection.locator('article[data-disabled="1"]')).toHaveCount(0);
+  await expect(highlightedSection.locator('a[href*="/take"]')).toHaveCount(6);
   await expect(page.getByText("Clinical Grade")).toHaveCount(2);
 
   const firstStartButton = page.getByRole("link", { name: "Find your test" });

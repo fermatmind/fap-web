@@ -5,6 +5,7 @@ const tests = defineCollection({
   pattern: "tests/**/*.mdx",
   schema: s.object({
     title: s.string(),
+    title_i18n: s.record(s.string(), s.string()).optional(),
     slug: s.string(),
     description: s.string(),
     cover_image: s.string(),

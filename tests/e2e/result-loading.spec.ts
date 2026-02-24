@@ -35,7 +35,7 @@ test("result page shows anticipation skeleton while loading", async ({ page }) =
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
-        slug: "big-five-personality-test",
+        slug: "big-five-personality-test-ocean-model",
         capabilities: {
           enabled_in_prod: true,
           paywall_mode: "full",

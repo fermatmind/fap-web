@@ -3,7 +3,7 @@ import Link from "next/link";
 import { TestCard } from "@/components/business/TestCard";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
-import { getAllTests } from "@/lib/content";
+import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { canonicalUrl } from "@/lib/site";
@@ -61,7 +61,7 @@ export default async function TestsPage({
                 href={withLocale(`/tests/${item.slug}/take`)}
                 className={buttonVariants({ variant: "outline", size: "sm" })}
               >
-                {item.title}
+                {resolveTestTitleByLocale(item, locale)}
               </Link>
             ))}
           </div>
@@ -74,7 +74,7 @@ export default async function TestsPage({
             <TestCard
               key={test.slug}
               slug={test.slug}
-              title={test.title}
+              title={resolveTestTitleByLocale(test, locale)}
               description={test.description}
               coverImage={test.cover_image}
               questions={test.questions_count}

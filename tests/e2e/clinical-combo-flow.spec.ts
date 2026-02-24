@@ -160,7 +160,7 @@ test("CC68 flow: module transition, crisis ordering, paid sections hidden", asyn
     });
   });
 
-  await page.goto("/en/tests/clinical-combo-68/take");
+  await page.goto("/en/tests/clinical-depression-anxiety-assessment-professional-edition/take");
 
   await page.getByLabel("I have read and agree to the statement above").check();
   await page.getByRole("button", { name: "Agree and start" }).click();

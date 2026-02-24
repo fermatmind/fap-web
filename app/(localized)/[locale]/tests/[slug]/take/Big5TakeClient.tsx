@@ -892,7 +892,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   return (
     <div className="space-y-4">
       <MatrixProgressHeader
-        title={slug === "big-five-personality-test" ? "BIG5 Matrix Assessment" : "Assessment"}
+        title={slug === "big-five-personality-test-ocean-model" ? "BIG5 Matrix Assessment" : "Assessment"}
         current={currentIndex + 1}
         total={total}
         answered={answeredCount}
