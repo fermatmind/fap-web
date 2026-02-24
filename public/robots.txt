@@ -1,0 +1,37 @@
+# *
+User-agent: *
+Allow: /
+Allow: /en
+Allow: /zh
+Allow: /en/tests
+Allow: /zh/tests
+Allow: /en/tests/*
+Allow: /zh/tests/*
+Allow: /en/articles
+Allow: /zh/articles
+Allow: /en/articles/*
+Allow: /zh/articles/*
+Allow: /en/professions
+Allow: /zh/professions
+Allow: /en/professions/*
+Allow: /zh/professions/*
+Allow: /en/help
+Allow: /zh/help
+Allow: /en/business
+Allow: /zh/business
+Disallow: /api/
+Disallow: /en/tests/*/take
+Disallow: /zh/tests/*/take
+Disallow: /en/result/
+Disallow: /zh/result/
+Disallow: /en/share/
+Disallow: /zh/share/
+Disallow: /en/orders/
+Disallow: /zh/orders/
+Disallow: /og/
+
+# Host
+Host: https://fermatmind.com
+
+# Sitemaps
+Sitemap: https://fermatmind.com/sitemap.xml
