@@ -371,6 +371,8 @@ function QuizTakeInner({
         value={selectedOptionId}
         locale={locale}
         mobilePromptStickyTopClassName="top-[4.75rem]"
+        mobilePromptMaxHeightVh={45}
+        mobileOptionsSafeArea
         onChange={(code) => setAnswer(question.id, code)}
       />
 

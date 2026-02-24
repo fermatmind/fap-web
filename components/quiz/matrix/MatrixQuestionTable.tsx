@@ -1,4 +1,4 @@
-import type { KeyboardEvent, ReactNode } from "react";
+import { useEffect, useRef, type KeyboardEvent, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 type MatrixOption = {
@@ -20,6 +20,9 @@ export function MatrixQuestionTable({
   locale,
   mobilePromptSlot,
   mobilePromptStickyTopClassName = "top-[4.75rem]",
+  mobilePromptMaxHeightVh = 45,
+  mobileOptionsMaxHeightVh = 52,
+  mobileOptionsSafeArea = true,
   onChange,
 }: {
   questionId: string;
@@ -29,10 +32,44 @@ export function MatrixQuestionTable({
   locale: "en" | "zh";
   mobilePromptSlot?: ReactNode;
   mobilePromptStickyTopClassName?: string;
+  mobilePromptMaxHeightVh?: number;
+  mobileOptionsMaxHeightVh?: number;
+  mobileOptionsSafeArea?: boolean;
   onChange: (code: string) => void;
 }) {
+  const mobilePromptMediaRef = useRef<HTMLDivElement | null>(null);
   const normalized = normalizeOptions(options);
   const optionCount = normalized.length;
+  const safePromptMaxHeightVh = Number.isFinite(mobilePromptMaxHeightVh)
+    ? Math.min(Math.max(mobilePromptMaxHeightVh, 35), 55)
+    : 45;
+  const safeOptionsMaxHeightVh = Number.isFinite(mobileOptionsMaxHeightVh)
+    ? Math.min(Math.max(mobileOptionsMaxHeightVh, 35), 65)
+    : 52;
+
+  useEffect(() => {
+    const host = mobilePromptMediaRef.current;
+    if (!host) return;
+
+    const svg = host.querySelector("svg");
+    if (!svg) return;
+
+    if (!svg.getAttribute("preserveAspectRatio")) {
+      svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+    }
+
+    if (!svg.getAttribute("viewBox")) {
+      const width = Number(svg.getAttribute("width"));
+      const height = Number(svg.getAttribute("height"));
+      if (Number.isFinite(width) && Number.isFinite(height) && width > 0 && height > 0) {
+        svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      }
+    }
+
+    svg.style.width = "100%";
+    svg.style.height = "100%";
+    svg.style.maxHeight = "100%";
+  }, [mobilePromptSlot, questionId]);
 
   if (optionCount === 0) {
     return <p className="m-0 text-sm text-rose-700">No options available.</p>;
@@ -114,23 +151,42 @@ export function MatrixQuestionTable({
 
       <div className="space-y-3 md:hidden">
         <div
+          data-testid="matrix-mobile-prompt"
           className={cn(
-            "sticky z-20 space-y-2 rounded-xl border border-[var(--fm-border)] bg-white/95 p-3 shadow-[var(--fm-shadow-sm)] backdrop-blur",
+            "sticky z-20 space-y-2 overflow-hidden rounded-xl border border-[var(--fm-border)] bg-white/95 p-3 shadow-[var(--fm-shadow-sm)] backdrop-blur",
             mobilePromptStickyTopClassName
           )}
+          style={{ maxHeight: `${safePromptMaxHeightVh}vh` }}
         >
           <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
             {locale === "zh" ? "当前题目" : "Current focus"}
           </p>
           <h2 className="m-0 text-lg font-semibold leading-7 text-[var(--fm-text)]">{questionText}</h2>
-          {mobilePromptSlot}
+          {mobilePromptSlot ? (
+            <div
+              ref={mobilePromptMediaRef}
+              className="w-full overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] [&_img]:h-full [&_img]:max-h-full [&_img]:w-full [&_img]:object-contain [&_svg]:h-full [&_svg]:max-h-full [&_svg]:w-full"
+              style={{ maxHeight: `calc(${safePromptMaxHeightVh}vh - 8.5rem)` }}
+            >
+              {mobilePromptSlot}
+            </div>
+          ) : null}
           <div className="flex justify-between text-[11px] text-[var(--fm-text-muted)]">
             <span>{normalized[0]?.text}</span>
             <span>{normalized[optionCount - 1]?.text}</span>
           </div>
         </div>
 
-        <div className="max-h-[52vh] overflow-y-auto pr-1" role="radiogroup" aria-label={`matrix-${questionId}`}>
+        <div
+          data-testid="matrix-mobile-options"
+          className="overflow-y-auto pr-1"
+          role="radiogroup"
+          aria-label={`matrix-${questionId}`}
+          style={{
+            maxHeight: `${safeOptionsMaxHeightVh}vh`,
+            paddingBottom: mobileOptionsSafeArea ? "calc(env(safe-area-inset-bottom) + 12px)" : undefined,
+          }}
+        >
           <div className="grid grid-cols-2 gap-2">
             {normalized.map((option, idx) => {
               const selected = value === option.code;
