@@ -92,6 +92,19 @@ const zh: SiteDictionary = {
       "接近完成，再坚持一下。",
       "完成得很棒。",
     ],
+    immersive: {
+      backToLanding: "返回测评介绍",
+      backToDetails: "返回详情",
+      previous: "上一题",
+      currentFocus: "当前题目",
+      submitRetry: "重新提交",
+      noOptions: "当前题目暂无可用选项。",
+      submitPhases: [
+        "正在保存你的作答...",
+        "正在分析维度分布...",
+        "正在生成你的画像...",
+      ],
+    },
   },
   loading: {
     phases: [

@@ -275,11 +275,10 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
   for (let i = 0; i < 120; i += 1) {
     await page.getByRole("radio").first().click();
     if (i < 119) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
+      await expect(page.getByText(`Question ${i + 2} / 120`)).toBeVisible();
     }
   }
 
-  await page.getByRole("button", { name: "Submit" }).click();
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`));
 
   await expect(page.getByRole("heading", { name: "Unlock full report" })).toBeVisible();

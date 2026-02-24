@@ -1,7 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
+import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
+import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
+import { useAutoAdvanceFlow } from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
 import { MatrixQuestionTable } from "@/components/quiz/matrix/MatrixQuestionTable";
 import { QuizShell } from "@/components/quiz/QuizShell";
@@ -20,6 +24,7 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
+import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 
 function toQuizQuestion(question: ScaleQuestionItem): QuizQuestion {
   return {
@@ -88,6 +93,7 @@ function QuizTakeInner({
   const setAnswer = useQuizStore((store) => store.setAnswer);
   const next = useQuizStore((store) => store.next);
   const prev = useQuizStore((store) => store.prev);
+  const jump = useQuizStore((store) => store.jump);
   const setAttemptMeta = useQuizStore((store) => store.setAttemptMeta);
   const resetAttempt = useQuizStore((store) => store.resetAttempt);
 
@@ -99,7 +105,16 @@ function QuizTakeInner({
   const [submitting, setSubmitting] = useState(false);
   const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
+  const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
+  const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
+  const submitPhaseTimersRef = useRef<number[]>([]);
+  const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
+
+  const clearSubmitPhaseTimers = useCallback(() => {
+    submitPhaseTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+    submitPhaseTimersRef.current = [];
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -211,6 +226,12 @@ function QuizTakeInner({
     });
   }, [attemptId, scaleCode, slug]);
 
+  useEffect(() => {
+    return () => {
+      clearSubmitPhaseTimers();
+    };
+  }, [clearSubmitPhaseTimers]);
+
   const total = questions.length;
   const question = questions[currentIndex];
   const selectedOptionId = question ? answers[question.id] : undefined;
@@ -258,17 +279,19 @@ function QuizTakeInner({
     });
   }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, total]);
 
-  const handleSubmit = async () => {
-    if (!attemptId || !canSubmit) return;
+  const handleSubmit = async (): Promise<string | null> => {
+    if (!attemptId) return null;
 
     const payloadAnswers = questions.map((item) => ({
       question_id: item.id,
       code: answers[item.id] ?? "",
     }));
 
-    if (payloadAnswers.some((item) => !item.code)) {
+    const firstMissingIndex = payloadAnswers.findIndex((item) => !item.code);
+    if (firstMissingIndex >= 0) {
       setSubmitError("Please answer every question before submitting.");
-      return;
+      jump(firstMissingIndex, total);
+      return null;
     }
 
     setSubmitting(true);
@@ -294,8 +317,7 @@ function QuizTakeInner({
         attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
         durationMs,
       });
-      resetAttempt();
-      router.push(withLocale(`/result/${resultAttemptId}`));
+      return resultAttemptId;
     } catch (error) {
       const message = error instanceof Error ? error.message : "Submit failed.";
       setSubmitError(message);
@@ -315,10 +337,90 @@ function QuizTakeInner({
         scaleCode,
         stage: "submit_attempt",
       });
+      return null;
     } finally {
       setSubmitting(false);
     }
   };
+
+  const finalizeSuccessfulSubmit = (resultAttemptId: string) => {
+    resetAttempt();
+    router.push(withLocale(`/result/${resultAttemptId}`));
+  };
+
+  const startSubmitOverlayPhases = () => {
+    clearSubmitPhaseTimers();
+    setSubmitOverlayPhase(0);
+
+    trackEvent("ui_report_loading_phase", {
+      scale_code: scaleCode,
+      phase: "saving",
+      locked: true,
+      variant: "free",
+      locale,
+    });
+
+    const phase1 = window.setTimeout(() => {
+      setSubmitOverlayPhase(1);
+      trackEvent("ui_report_loading_phase", {
+        scale_code: scaleCode,
+        phase: "analyzing",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+    }, 800);
+
+    const phase2 = window.setTimeout(() => {
+      setSubmitOverlayPhase(2);
+      trackEvent("ui_report_loading_phase", {
+        scale_code: scaleCode,
+        phase: "generating",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+    }, 1500);
+
+    submitPhaseTimersRef.current = [phase1, phase2];
+  };
+
+  const handleSubmitWithOverlay = async () => {
+    if (submitOverlayVisible || submitting) return;
+    setSubmitOverlayVisible(true);
+    startSubmitOverlayPhases();
+
+    const [resultAttemptId] = await Promise.all([
+      handleSubmit(),
+      new Promise<void>((resolve) => {
+        window.setTimeout(resolve, 2200);
+      }),
+    ]);
+
+    clearSubmitPhaseTimers();
+
+    if (!resultAttemptId) {
+      setSubmitOverlayVisible(false);
+      setSubmitOverlayPhase(0);
+      return;
+    }
+
+    finalizeSuccessfulSubmit(resultAttemptId);
+  };
+
+  const {
+    transitionDirection,
+    isTransitioning,
+    selectAndAdvance,
+    goPrevious,
+  } = useAutoAdvanceFlow({
+    currentIndex,
+    total,
+    onMove: (index) => jump(index, total),
+    onLast: handleSubmitWithOverlay,
+    confirmDelayMs: 200,
+    enterDurationMs: 280,
+  });
 
   if (questionsLoading || attemptLoading) {
     return (
@@ -344,6 +446,73 @@ function QuizTakeInner({
       <QuizShell>
         <p className="m-0 text-slate-600">No questions found for this test.</p>
       </QuizShell>
+    );
+  }
+
+  if (immersiveEnabled) {
+    return (
+      <>
+        <ImmersiveTakeLayout
+          backHref={withLocale(`/tests/${slug}`)}
+          backLabel={dict.quiz.immersive.backToDetails}
+          current={currentIndex + 1}
+          total={total}
+          answered={answeredCount}
+          previousLabel={dict.quiz.immersive.previous}
+          previousDisabled={currentIndex === 0 || submitting || submitOverlayVisible}
+          onPrevious={goPrevious}
+          transitionKey={question.id}
+          transitionDirection={transitionDirection}
+          isTransitioning={isTransitioning}
+          footerSlot={
+            submitError ? (
+              <Button
+                type="button"
+                variant="outline"
+                disabled={submitting || submitOverlayVisible}
+                onClick={() => {
+                  void handleSubmitWithOverlay();
+                }}
+              >
+                {dict.quiz.immersive.submitRetry}
+              </Button>
+            ) : null
+          }
+        >
+          <article className="space-y-5 rounded-2xl border border-[var(--fm-border-strong)] bg-white p-6 shadow-[var(--fm-shadow-md)]">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+              Question {currentIndex + 1} / {total}
+            </p>
+            <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
+
+            {milestoneHint ? (
+              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+                {milestoneHint}
+              </div>
+            ) : null}
+
+            <AdaptiveOptionGroup
+              questionId={question.id}
+              options={question.options.map((option) => ({ code: option.id, text: option.text }))}
+              value={selectedOptionId}
+              noOptionsLabel={dict.quiz.immersive.noOptions}
+              onChange={(code) =>
+                selectAndAdvance(() => {
+                  setAnswer(question.id, code);
+                })
+              }
+            />
+
+            {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
+          </article>
+        </ImmersiveTakeLayout>
+
+        <SubmitPhaseOverlay
+          visible={submitOverlayVisible}
+          phases={dict.quiz.immersive.submitPhases}
+          phaseIndex={submitOverlayPhase}
+        />
+      </>
     );
   }
 
@@ -389,7 +558,17 @@ function QuizTakeInner({
         </Button>
 
         {isLastQuestion ? (
-          <Button type="button" onClick={handleSubmit} disabled={!canSubmit}>
+          <Button
+            type="button"
+            onClick={() => {
+              void handleSubmit().then((resultAttemptId) => {
+                if (resultAttemptId) {
+                  finalizeSuccessfulSubmit(resultAttemptId);
+                }
+              });
+            }}
+            disabled={!canSubmit}
+          >
             {submitting ? "Submitting..." : "Submit"}
           </Button>
         ) : (

@@ -11,6 +11,7 @@ import {
   type SupportedScaleCode,
 } from "@/lib/rollout/scaleRollout";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
+import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
 import QuizTakeClient from "./QuizTakeClient";
@@ -108,21 +109,17 @@ export default async function TakePage({
     redirect(withLocale(`/tests/${slug}?maintenance=1`));
   }
 
+  const immersiveEnabled = isImmersiveSingleFlowEnabled();
+
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-8">
-      <div className="mb-5 flex items-start justify-between gap-4">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-            {locale === "zh" ? "人格测试" : "Personality Test"}
-          </p>
-          <h1 className="mt-1 text-2xl font-bold text-slate-900">
-            {locale === "zh" ? "开始测试：" : "Start:"} {test.title}
-          </h1>
+    <main className="mx-auto w-full max-w-5xl px-4 py-4">
+      {!immersiveEnabled ? (
+        <div className="mb-4">
+          <Link href={withLocale(`/tests/${slug}`)} className="text-sm font-medium text-sky-700 hover:text-sky-800">
+            {locale === "zh" ? "返回详情" : "Back to landing"}
+          </Link>
         </div>
-        <Link href={withLocale(`/tests/${slug}`)} className="text-sm font-medium text-sky-700 hover:text-sky-800">
-          {locale === "zh" ? "返回详情" : "Back to landing"}
-        </Link>
-      </div>
+      ) : null}
 
       {test.scale_code === "BIG5_OCEAN" ? (
         <Big5TakeClient slug={slug} />

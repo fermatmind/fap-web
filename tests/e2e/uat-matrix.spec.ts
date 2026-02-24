@@ -113,7 +113,7 @@ async function completeBig5Take(page: Page, questionCount: number, optionIndex: 
     await expect(page.getByText(`Question ${i + 1} / ${questionCount}`)).toBeVisible();
     await page.getByRole("radio").nth(optionIndex).click();
     if (i < questionCount - 1) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
+      await expect(page.getByText(`Question ${i + 2} / ${questionCount}`)).toBeVisible();
     }
   }
 }
@@ -154,7 +154,6 @@ test.describe("UAT matrix (mock)", () => {
     });
 
     await completeBig5Take(page, 5, 2);
-    await page.getByRole("button", { name: "Submit" }).click();
 
     await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`));
     await expect(page.getByText("UAT C-option summary.")).toBeVisible();
@@ -190,7 +189,6 @@ test.describe("UAT matrix (mock)", () => {
     });
 
     await completeBig5Take(page, 5, 1);
-    await page.getByRole("button", { name: "Submit" }).click();
 
     await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`));
     expect(submitDuration).toBeGreaterThan(0);
@@ -299,10 +297,9 @@ test.describe("UAT matrix (mock)", () => {
     for (let i = 0; i < 20; i += 1) {
       await page.getByRole("radio").first().click();
       if (i < 19) {
-        await page.getByRole("button", { name: "Next", exact: true }).click();
+        await expect(page.getByText(`Question ${i + 2} / 20`)).toBeVisible();
       }
     }
-    await page.getByRole("button", { name: "Submit" }).click();
 
     await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`));
     await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
@@ -402,7 +399,6 @@ test.describe("UAT matrix (mock)", () => {
     });
 
     await completeBig5Take(page, 5, 2);
-    await page.getByRole("button", { name: "Submit" }).click();
     await page.getByRole("button", { name: "Unlock now" }).click();
     await page.waitForURL(new RegExp(`/en/(orders/${orderNo}|result/${attemptId})`));
     if (page.url().includes(`/en/orders/${orderNo}`)) {

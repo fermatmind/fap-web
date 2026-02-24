@@ -1,9 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { QuestionCard } from "@/components/big5/quiz/QuestionCard";
 import { QuestionNavigator } from "@/components/big5/quiz/QuestionNavigator";
+import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
+import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
+import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
+import { useAutoAdvanceFlow } from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -28,6 +32,7 @@ import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
+import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => {
@@ -93,6 +98,10 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const [packVersion, setPackVersion] = useState<string>("BIG5_OCEAN");
   const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
+  const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
+  const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
+  const submitPhaseTimersRef = useRef<number[]>([]);
+  const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   const total = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -163,6 +172,11 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setQuestionError(mapped.message);
   }, []);
 
+  const clearSubmitPhaseTimers = useCallback(() => {
+    submitPhaseTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+    submitPhaseTimersRef.current = [];
+  }, []);
+
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
     if (tokenFromUrl.startsWith("fm_")) {
@@ -190,6 +204,12 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       window.clearInterval(timer);
     };
   }, [cooldownSeconds]);
+
+  useEffect(() => {
+    return () => {
+      clearSubmitPhaseTimers();
+    };
+  }, [clearSubmitPhaseTimers]);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -364,7 +384,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     };
   }, [applyUiError, locale, rolloutBlocked, rolloutChecking]);
 
-  const ensureAttempt = async (): Promise<string | null> => {
+  const ensureAttempt = useCallback(async (): Promise<string | null> => {
     if (attemptId) {
       return attemptId;
     }
@@ -453,7 +473,18 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
     setStarting(false);
     return null;
-  };
+  }, [
+    attemptId,
+    inCooldown,
+    locale,
+    cooldownSeconds,
+    serverDisclaimerVersion,
+    serverDisclaimerHash,
+    slug,
+    setAttemptMeta,
+    buildEventPayload,
+    applyUiError,
+  ]);
 
   const handleAgreeAndStart = async () => {
     if (!consentChecked) return;
@@ -482,13 +513,13 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     );
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = useCallback(async (): Promise<string | null> => {
     const activeAttemptId = await ensureAttempt();
-    if (!activeAttemptId) return;
+    if (!activeAttemptId) return null;
 
     if (inCooldown) {
       setSubmitError(retryCountdownText(locale, cooldownSeconds));
-      return;
+      return null;
     }
 
     const firstMissingIndex = questions.findIndex((item) => !answers[item.question_id]);
@@ -496,7 +527,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       setCurrentIndex(firstMissingIndex);
       setSubmitError(`Please answer question ${firstMissingIndex + 1} before submitting.`);
       setSubmitErrorAction("fill_missing");
-      return;
+      return null;
     }
 
     setSubmitting(true);
@@ -532,8 +563,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
       markSubmitted();
       const resultAttemptId = response.attempt_id ?? activeAttemptId;
-      resetAfterSubmit();
-      router.push(withLocale(`/result/${resultAttemptId}`));
+      return resultAttemptId;
     } catch (error) {
       const mapped = mapBig5Error(error);
       const classified = classifyApiError(error);
@@ -564,10 +594,108 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           })
         );
       }
+      return null;
     } finally {
       setSubmitting(false);
     }
-  };
+  }, [
+    answers,
+    answeredCount,
+    applyUiError,
+    buildEventPayload,
+    cooldownSeconds,
+    ensureAttempt,
+    inCooldown,
+    locale,
+    markSubmitted,
+    questions,
+    setCurrentIndex,
+    startedAt,
+  ]);
+
+  const finalizeSuccessfulSubmit = useCallback(
+    (resultAttemptId: string) => {
+      resetAfterSubmit();
+      router.push(withLocale(`/result/${resultAttemptId}`));
+    },
+    [resetAfterSubmit, router, withLocale]
+  );
+
+  const startSubmitOverlayPhases = useCallback(() => {
+    clearSubmitPhaseTimers();
+    setSubmitOverlayPhase(0);
+
+    trackEvent("ui_report_loading_phase", {
+      scale_code: "BIG5_OCEAN",
+      phase: "saving",
+      locked: true,
+      variant: "free",
+      locale,
+    });
+
+    const phase1 = window.setTimeout(() => {
+      setSubmitOverlayPhase(1);
+      trackEvent("ui_report_loading_phase", {
+        scale_code: "BIG5_OCEAN",
+        phase: "analyzing",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+    }, 800);
+
+    const phase2 = window.setTimeout(() => {
+      setSubmitOverlayPhase(2);
+      trackEvent("ui_report_loading_phase", {
+        scale_code: "BIG5_OCEAN",
+        phase: "generating",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+    }, 1500);
+
+    submitPhaseTimersRef.current = [phase1, phase2];
+  }, [clearSubmitPhaseTimers, locale]);
+
+  const handleSubmitWithOverlay = useCallback(async (): Promise<void> => {
+    if (submitOverlayVisible || submitting) return;
+    setSubmitOverlayVisible(true);
+    startSubmitOverlayPhases();
+
+    const [resultAttemptId] = await Promise.all([handleSubmit(), wait(2200)]);
+    clearSubmitPhaseTimers();
+
+    if (!resultAttemptId) {
+      setSubmitOverlayVisible(false);
+      setSubmitOverlayPhase(0);
+      return;
+    }
+
+    finalizeSuccessfulSubmit(resultAttemptId);
+  }, [
+    clearSubmitPhaseTimers,
+    finalizeSuccessfulSubmit,
+    handleSubmit,
+    startSubmitOverlayPhases,
+    submitOverlayVisible,
+    submitting,
+  ]);
+
+  const {
+    transitionDirection,
+    isTransitioning,
+    selectAndAdvance,
+    goPrevious,
+    cancelPending,
+  } = useAutoAdvanceFlow({
+    currentIndex,
+    total,
+    onMove: (index) => setCurrentIndex(index),
+    onLast: handleSubmitWithOverlay,
+    confirmDelayMs: 200,
+    enterDurationMs: 280,
+  });
 
   if (rolloutChecking || loadingQuestions) {
     return (
@@ -658,6 +786,81 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     );
   }
 
+  if (immersiveEnabled) {
+    return (
+      <>
+        <ImmersiveTakeLayout
+          backHref={withLocale(`/tests/${slug}`)}
+          backLabel={dict.quiz.immersive.backToLanding}
+          current={currentIndex + 1}
+          total={total}
+          answered={answeredCount}
+          previousLabel={dict.quiz.immersive.previous}
+          previousDisabled={currentIndex <= 0 || submitting || inCooldown || submitOverlayVisible}
+          onPrevious={goPrevious}
+          transitionKey={currentQuestion.question_id}
+          transitionDirection={transitionDirection}
+          isTransitioning={isTransitioning}
+          footerSlot={
+            <div className="flex flex-wrap items-center justify-end gap-2">
+              {submitCanRetry ? (
+                <Button
+                  type="button"
+                  variant="outline"
+                  disabled={submitting || inCooldown || submitOverlayVisible}
+                  onClick={() => {
+                    void handleSubmitWithOverlay();
+                  }}
+                >
+                  {dict.quiz.immersive.submitRetry}
+                </Button>
+              ) : null}
+              {submitErrorAction === "restart" ? (
+                <Button type="button" variant="outline" onClick={handleRestartTest}>
+                  Restart test
+                </Button>
+              ) : null}
+            </div>
+          }
+        >
+          <article className="space-y-5 rounded-2xl border border-[var(--fm-border-strong)] bg-white p-6 shadow-[var(--fm-shadow-md)]">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+              Question {currentIndex + 1} / {total}
+            </p>
+            <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{currentQuestion.text}</h2>
+
+            {milestoneHint ? (
+              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+                {milestoneHint}
+              </div>
+            ) : null}
+
+            <AdaptiveOptionGroup
+              questionId={currentQuestion.question_id}
+              options={currentQuestion.options}
+              value={answers[currentQuestion.question_id]}
+              noOptionsLabel={dict.quiz.immersive.noOptions}
+              onChange={(code) =>
+                selectAndAdvance(() => {
+                  handleSelectAnswer(currentQuestion.question_id, code);
+                })
+              }
+            />
+
+            {submitError ? <Alert>{submitError}</Alert> : null}
+            {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
+          </article>
+        </ImmersiveTakeLayout>
+
+        <SubmitPhaseOverlay
+          visible={submitOverlayVisible}
+          phases={dict.quiz.immersive.submitPhases}
+          phaseIndex={submitOverlayPhase}
+        />
+      </>
+    );
+  }
+
   return (
     <div className="space-y-4">
       <MatrixProgressHeader
@@ -719,7 +922,17 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
               Next
             </Button>
 
-            <Button type="button" disabled={submitting || inCooldown} onClick={handleSubmit}>
+            <Button
+              type="button"
+              disabled={submitting || inCooldown}
+              onClick={() => {
+                void handleSubmit().then((resultAttemptId) => {
+                  if (resultAttemptId) {
+                    finalizeSuccessfulSubmit(resultAttemptId);
+                  }
+                });
+              }}
+            >
               {submitting ? "Submitting..." : "Submit"}
             </Button>
 
@@ -728,7 +941,13 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
                 type="button"
                 variant="outline"
                 disabled={submitting || inCooldown}
-                onClick={handleSubmit}
+                onClick={() => {
+                  void handleSubmit().then((resultAttemptId) => {
+                    if (resultAttemptId) {
+                      finalizeSuccessfulSubmit(resultAttemptId);
+                    }
+                  });
+                }}
               >
                 Retry submit
               </Button>
@@ -748,7 +967,10 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
             currentIndex={currentIndex}
             questionIds={questionIds}
             answeredMap={answers}
-            onJump={(index) => setCurrentIndex(index)}
+            onJump={(index) => {
+              cancelPending();
+              setCurrentIndex(index);
+            }}
           />
         </div>
       </div>

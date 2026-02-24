@@ -169,21 +169,9 @@ test("CC68 flow: module transition, crisis ordering, paid sections hidden", asyn
     await page.getByRole("radio").first().click();
 
     if (index < 67) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
-
-      const continueButton = page.getByRole("button", { name: "Continue" });
-      const hasContinue = await continueButton.isVisible().catch(() => false);
-      if (hasContinue) {
-        if (index === 16) {
-          await expect(page.getByText("M2", { exact: true })).toBeVisible();
-          await expect(page.getByText("Guidance M2")).toBeVisible();
-        }
-        await continueButton.click();
-      }
+      await expect(page.getByText(`Question ${index + 2} / 68`)).toBeVisible();
     }
   }
-
-  await page.getByRole("button", { name: "Submit" }).click();
 
   await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`));
   await expect(page.getByText("988 Hotline: 988").first()).toBeVisible();

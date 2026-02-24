@@ -64,6 +64,15 @@ export type SiteDictionary = {
   };
   quiz: {
     milestoneHints: string[];
+    immersive: {
+      backToLanding: string;
+      backToDetails: string;
+      previous: string;
+      currentFocus: string;
+      submitRetry: string;
+      noOptions: string;
+      submitPhases: [string, string, string];
+    };
   };
   loading: {
     phases: string[];

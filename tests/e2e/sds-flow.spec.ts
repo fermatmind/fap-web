@@ -250,11 +250,9 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
     await expect(page.getByText(`Question ${index + 1} / 20`)).toBeVisible();
     await page.getByRole("radio").first().click();
     if (index < 19) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
+      await expect(page.getByText(`Question ${index + 2} / 20`)).toBeVisible();
     }
   }
-
-  await page.getByRole("button", { name: "Submit" }).click();
 
   await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`), { timeout: 15000 });
   await expect(page.getByRole("heading", { name: "Important Disclaimer" })).toBeVisible();

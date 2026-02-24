@@ -93,6 +93,19 @@ const en: SiteDictionary = {
       "Strong progress. Almost there.",
       "Excellent. You are done.",
     ],
+    immersive: {
+      backToLanding: "Back to landing",
+      backToDetails: "Back to details",
+      previous: "Previous",
+      currentFocus: "Current focus",
+      submitRetry: "Retry submit",
+      noOptions: "No options available.",
+      submitPhases: [
+        "Saving your responses...",
+        "Analyzing trait distribution...",
+        "Generating your profile...",
+      ],
+    },
   },
   loading: {
     phases: [
