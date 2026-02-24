@@ -47,12 +47,8 @@ export default async function TestsPage({
     <main>
       <section className="fm-section-white border-b border-[var(--fm-border)] py-12">
         <Container className="space-y-5">
-          <div className="space-y-3">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-trust-blue)]">
-              {locale === "zh" ? "测试库" : "Assessment Library"}
-            </p>
+          <div className="space-y-2">
             <h1 className="m-0 font-serif text-4xl font-semibold tracking-tight text-[var(--fm-text)]">{dict.tests.title}</h1>
-            <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">{dict.tests.subtitle}</p>
           </div>
           <div className="flex flex-wrap gap-3">
             {topTests.map((item) => (
