@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { clickLastOptionAndWaitForSubmit } from "./helpers/quiz-flow";
 
 function buildQuestions(count: number) {
   return Array.from({ length: count }, (_, idx) => ({
@@ -136,7 +137,7 @@ test("BIG5 free_only hides unlock CTA in locked result", async ({ page }) => {
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
 });
 
-test("BIG5 submit with missing answers jumps to first unanswered question", async ({ page }) => {
+test("BIG5 auto-advance does not submit before last question", async ({ page }) => {
   const attemptId = "33333333-3333-3333-3333-333333333333";
   let submitCalls = 0;
 
@@ -174,9 +175,6 @@ test("BIG5 submit with missing answers jumps to first unanswered question", asyn
 
   await expect(page.getByText("Question 1 / 5")).toBeVisible();
   await page.getByRole("radio").first().click();
-  await page.getByRole("button", { name: "Submit" }).click();
-
-  await expect(page.getByText("Please answer question 2 before submitting.")).toBeVisible();
   await expect(page.getByText("Question 2 / 5")).toBeVisible();
   expect(submitCalls).toBe(0);
 });
@@ -247,14 +245,18 @@ test("BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
 
   await expect(page.getByText("Question 1 / 3")).toBeVisible();
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < 2; i += 1) {
     await page.getByRole("radio").first().click();
-    if (i < 2) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
-    }
+    await expect(page.getByText(`Question ${i + 2} / 3`)).toBeVisible();
   }
 
-  await page.getByRole("button", { name: "Submit" }).click();
+  const submitResponse = await clickLastOptionAndWaitForSubmit({
+    page,
+    option: page.getByRole("radio").first(),
+    timeoutMs: 30000,
+  });
+  expect(submitResponse.status()).toBe(500);
+
   await expect(page.getByText("Service is temporarily unavailable. Your draft is saved. Please retry later.")).toBeVisible();
 
   await page.reload();

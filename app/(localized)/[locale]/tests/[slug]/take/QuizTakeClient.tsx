@@ -1,7 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
+import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
+import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
+import {
+  useAutoAdvanceFlow,
+  type LastSelectionContext,
+} from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
 import { MatrixQuestionTable } from "@/components/quiz/matrix/MatrixQuestionTable";
 import { QuizShell } from "@/components/quiz/QuizShell";
@@ -20,6 +27,7 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
+import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 
 function toQuizQuestion(question: ScaleQuestionItem): QuizQuestion {
   return {
@@ -88,6 +96,7 @@ function QuizTakeInner({
   const setAnswer = useQuizStore((store) => store.setAnswer);
   const next = useQuizStore((store) => store.next);
   const prev = useQuizStore((store) => store.prev);
+  const jump = useQuizStore((store) => store.jump);
   const setAttemptMeta = useQuizStore((store) => store.setAttemptMeta);
   const resetAttempt = useQuizStore((store) => store.resetAttempt);
 
@@ -99,7 +108,18 @@ function QuizTakeInner({
   const [submitting, setSubmitting] = useState(false);
   const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
+  const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
+  const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
+  const submitPhaseTimersRef = useRef<number[]>([]);
+  const latestAnswersRef = useRef<Record<string, string>>(answers);
+  const ensureAttemptPromiseRef = useRef<Promise<string | null> | null>(null);
+  const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
+
+  const clearSubmitPhaseTimers = useCallback(() => {
+    submitPhaseTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+    submitPhaseTimersRef.current = [];
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -152,24 +172,27 @@ function QuizTakeInner({
   }, [anonId, locale, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
-    let active = true;
+    latestAnswersRef.current = answers;
+  }, [answers]);
 
-    const run = async () => {
-      if (attemptId && savedScaleCode === scaleCode) {
-        setAttemptLoading(false);
-        return;
-      }
+  const ensureAttempt = useCallback(async (): Promise<string | null> => {
+    if (attemptId && savedScaleCode === scaleCode) {
+      return attemptId;
+    }
 
-      setAttemptLoading(true);
-      setAttemptError(null);
+    if (ensureAttemptPromiseRef.current) {
+      return ensureAttemptPromiseRef.current;
+    }
 
+    setAttemptLoading(true);
+    setAttemptError(null);
+
+    const pending = (async () => {
       try {
         const response = await startAttempt({ scaleCode, anonId });
-        if (!active) return;
-
         setAttemptMeta(response.attempt_id, scaleCode);
+        return response.attempt_id;
       } catch (error) {
-        if (!active) return;
         const message = error instanceof Error ? error.message : "Failed to start attempt.";
         setAttemptError(message);
         const classified = classifyApiError(error);
@@ -188,9 +211,28 @@ function QuizTakeInner({
           scaleCode,
           stage: "start_attempt",
         });
+        return null;
       } finally {
-        if (active) setAttemptLoading(false);
+        setAttemptLoading(false);
+        ensureAttemptPromiseRef.current = null;
       }
+    })();
+
+    ensureAttemptPromiseRef.current = pending;
+    return pending;
+  }, [anonId, attemptId, locale, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+
+  useEffect(() => {
+    let active = true;
+
+    const run = async () => {
+      if (attemptId && savedScaleCode === scaleCode) {
+        setAttemptLoading(false);
+        return;
+      }
+
+      await ensureAttempt();
+      if (!active) return;
     };
 
     void run();
@@ -198,7 +240,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, attemptId, locale, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+  }, [attemptId, ensureAttempt, savedScaleCode, scaleCode]);
 
   useEffect(() => {
     if (!attemptId || trackedStartRef.current) return;
@@ -210,6 +252,12 @@ function QuizTakeInner({
       attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
     });
   }, [attemptId, scaleCode, slug]);
+
+  useEffect(() => {
+    return () => {
+      clearSubmitPhaseTimers();
+    };
+  }, [clearSubmitPhaseTimers]);
 
   const total = questions.length;
   const question = questions[currentIndex];
@@ -258,17 +306,33 @@ function QuizTakeInner({
     });
   }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, total]);
 
-  const handleSubmit = async () => {
-    if (!attemptId || !canSubmit) return;
+  const buildAnswersSnapshot = useCallback((pendingSelection?: LastSelectionContext) => {
+    const snapshot = {
+      ...latestAnswersRef.current,
+    };
 
+    if (pendingSelection?.questionId && pendingSelection.code) {
+      snapshot[pendingSelection.questionId] = pendingSelection.code;
+    }
+
+    return snapshot;
+  }, []);
+
+  const handleSubmit = async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
+    const activeAttemptId = await ensureAttempt();
+    if (!activeAttemptId) return null;
+
+    const answersSnapshot = buildAnswersSnapshot(pendingSelection);
     const payloadAnswers = questions.map((item) => ({
       question_id: item.id,
-      code: answers[item.id] ?? "",
+      code: answersSnapshot[item.id] ?? "",
     }));
 
-    if (payloadAnswers.some((item) => !item.code)) {
+    const firstMissingIndex = payloadAnswers.findIndex((item) => !item.code);
+    if (firstMissingIndex >= 0) {
       setSubmitError("Please answer every question before submitting.");
-      return;
+      jump(firstMissingIndex, total);
+      return null;
     }
 
     setSubmitting(true);
@@ -278,7 +342,7 @@ function QuizTakeInner({
       const durationMs = Math.max(1000, Date.now() - startedAt);
 
       const response = await submitAttempt({
-        attemptId,
+        attemptId: activeAttemptId,
         answers: payloadAnswers,
         durationMs,
         anonId,
@@ -288,14 +352,13 @@ function QuizTakeInner({
         throw new Error("Submit failed. Please try again.");
       }
 
-      const resultAttemptId = response.attempt_id ?? attemptId;
+      const resultAttemptId = response.attempt_id ?? activeAttemptId;
       trackEvent("submit_attempt", {
         slug,
         attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
         durationMs,
       });
-      resetAttempt();
-      router.push(withLocale(`/result/${resultAttemptId}`));
+      return resultAttemptId;
     } catch (error) {
       const message = error instanceof Error ? error.message : "Submit failed.";
       setSubmitError(message);
@@ -315,10 +378,90 @@ function QuizTakeInner({
         scaleCode,
         stage: "submit_attempt",
       });
+      return null;
     } finally {
       setSubmitting(false);
     }
   };
+
+  const finalizeSuccessfulSubmit = (resultAttemptId: string) => {
+    resetAttempt();
+    router.push(withLocale(`/result/${resultAttemptId}`));
+  };
+
+  const startSubmitOverlayPhases = () => {
+    clearSubmitPhaseTimers();
+    setSubmitOverlayPhase(0);
+
+    trackEvent("ui_report_loading_phase", {
+      scale_code: scaleCode,
+      phase: "saving",
+      locked: true,
+      variant: "free",
+      locale,
+    });
+
+    const phase1 = window.setTimeout(() => {
+      setSubmitOverlayPhase(1);
+      trackEvent("ui_report_loading_phase", {
+        scale_code: scaleCode,
+        phase: "analyzing",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+    }, 800);
+
+    const phase2 = window.setTimeout(() => {
+      setSubmitOverlayPhase(2);
+      trackEvent("ui_report_loading_phase", {
+        scale_code: scaleCode,
+        phase: "generating",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+    }, 1500);
+
+    submitPhaseTimersRef.current = [phase1, phase2];
+  };
+
+  const handleSubmitWithOverlay = async (pendingSelection?: LastSelectionContext) => {
+    if (submitOverlayVisible || submitting) return;
+    setSubmitOverlayVisible(true);
+    startSubmitOverlayPhases();
+
+    const [resultAttemptId] = await Promise.all([
+      handleSubmit(pendingSelection),
+      new Promise<void>((resolve) => {
+        window.setTimeout(resolve, 2200);
+      }),
+    ]);
+
+    clearSubmitPhaseTimers();
+
+    if (!resultAttemptId) {
+      setSubmitOverlayVisible(false);
+      setSubmitOverlayPhase(0);
+      return;
+    }
+
+    finalizeSuccessfulSubmit(resultAttemptId);
+  };
+
+  const {
+    transitionDirection,
+    isTransitioning,
+    selectAndAdvance,
+    goPrevious,
+  } = useAutoAdvanceFlow({
+    currentIndex,
+    total,
+    onMove: (index) => jump(index, total),
+    onLast: handleSubmitWithOverlay,
+    confirmDelayMs: 200,
+    enterDurationMs: 280,
+  });
 
   if (questionsLoading || attemptLoading) {
     return (
@@ -344,6 +487,76 @@ function QuizTakeInner({
       <QuizShell>
         <p className="m-0 text-slate-600">No questions found for this test.</p>
       </QuizShell>
+    );
+  }
+
+  if (immersiveEnabled) {
+    return (
+      <>
+        <ImmersiveTakeLayout
+          backHref={withLocale(`/tests/${slug}`)}
+          backLabel={dict.quiz.immersive.backToDetails}
+          current={currentIndex + 1}
+          total={total}
+          answered={answeredCount}
+          previousLabel={dict.quiz.immersive.previous}
+          previousDisabled={currentIndex === 0 || submitting || submitOverlayVisible}
+          onPrevious={goPrevious}
+          transitionKey={question.id}
+          transitionDirection={transitionDirection}
+          isTransitioning={isTransitioning}
+          footerSlot={
+            submitError ? (
+              <Button
+                type="button"
+                variant="outline"
+                disabled={submitting || submitOverlayVisible}
+                onClick={() => {
+                  void handleSubmitWithOverlay();
+                }}
+              >
+                {dict.quiz.immersive.submitRetry}
+              </Button>
+            ) : null
+          }
+        >
+          <article className="space-y-5 rounded-2xl border border-[var(--fm-border-strong)] bg-white p-6 shadow-[var(--fm-shadow-md)]">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+              Question {currentIndex + 1} / {total}
+            </p>
+            <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
+
+            {milestoneHint ? (
+              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+                {milestoneHint}
+              </div>
+            ) : null}
+
+            <AdaptiveOptionGroup
+              questionId={question.id}
+              options={question.options.map((option) => ({ code: option.id, text: option.text }))}
+              value={selectedOptionId}
+              noOptionsLabel={dict.quiz.immersive.noOptions}
+              onChange={(code) =>
+                selectAndAdvance(() => {
+                  setAnswer(question.id, code);
+                }, {
+                  questionId: question.id,
+                  code,
+                })
+              }
+            />
+
+            {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
+          </article>
+        </ImmersiveTakeLayout>
+
+        <SubmitPhaseOverlay
+          visible={submitOverlayVisible}
+          phases={dict.quiz.immersive.submitPhases}
+          phaseIndex={submitOverlayPhase}
+        />
+      </>
     );
   }
 
@@ -389,7 +602,17 @@ function QuizTakeInner({
         </Button>
 
         {isLastQuestion ? (
-          <Button type="button" onClick={handleSubmit} disabled={!canSubmit}>
+          <Button
+            type="button"
+            onClick={() => {
+              void handleSubmit().then((resultAttemptId) => {
+                if (resultAttemptId) {
+                  finalizeSuccessfulSubmit(resultAttemptId);
+                }
+              });
+            }}
+            disabled={!canSubmit}
+          >
             {submitting ? "Submitting..." : "Submit"}
           </Button>
         ) : (

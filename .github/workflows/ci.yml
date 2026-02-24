@@ -54,7 +54,33 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
 
       - name: E2E
+        env:
+          NEXT_PUBLIC_IMMERSIVE_SINGLE_FLOW_ENABLED: "true"
         run: pnpm test:e2e tests/e2e/*.spec.ts
+
+      - name: E2E stability sentinel (immersive auto-submit)
+        env:
+          NEXT_PUBLIC_IMMERSIVE_SINGLE_FLOW_ENABLED: "true"
+        run: |
+          pnpm test:e2e \
+            tests/e2e/big5-flow.spec.ts \
+            tests/e2e/big5-negative.spec.ts \
+            tests/e2e/clinical-combo-flow.spec.ts \
+            tests/e2e/mbti-regression.spec.ts \
+            tests/e2e/sds-flow.spec.ts \
+            tests/e2e/uat-matrix.spec.ts \
+            --repeat-each=3 \
+            --retries=0
+
+      - name: Upload E2E artifacts (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-artifacts
+          path: |
+            test-results
+            playwright-report
+          if-no-files-found: ignore
 
       - name: UAT matrix (mock)
         run: bash scripts/run_uat_matrix.sh mock

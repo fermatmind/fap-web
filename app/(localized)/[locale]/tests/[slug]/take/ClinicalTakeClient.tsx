@@ -1,11 +1,18 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { ConsentGate } from "@/components/clinical/quiz/ConsentGate";
 import { ModuleTransitionCard } from "@/components/clinical/quiz/ModuleTransitionCard";
 import { QuestionCard } from "@/components/clinical/quiz/QuestionCard";
 import { QuizShell } from "@/components/clinical/quiz/QuizShell";
+import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
+import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
+import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
+import {
+  useAutoAdvanceFlow,
+  type LastSelectionContext,
+} from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
@@ -22,6 +29,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
+import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import type { QuestionsMeta, ScaleQuestionItem, ScaleQuestionOption } from "@/lib/api/v0_3";
 
 const SDS_OPTION_CODES = ["A", "B", "C", "D"];
@@ -142,6 +150,11 @@ export default function ClinicalTakeClient({
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
+  const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
+  const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
+  const submitPhaseTimersRef = useRef<number[]>([]);
+  const latestAnswersRef = useRef<Record<string, string>>(answers);
+  const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   const consentText = useMemo(() => resolveConsentText(questionsMeta, isZh), [isZh, questionsMeta]);
   const serverConsentVersion =
@@ -177,10 +190,25 @@ export default function ClinicalTakeClient({
     return currentModule;
   }, [currentIndex, currentQuestion, questions, scaleCode, seenModuleTransitions]);
 
+  const clearSubmitPhaseTimers = useCallback(() => {
+    submitPhaseTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+    submitPhaseTimersRef.current = [];
+  }, []);
+
   useEffect(() => {
     const anonId = getOrCreateAnonId();
     hydrateAnonId(anonId || null);
   }, [hydrateAnonId]);
+
+  useEffect(() => {
+    latestAnswersRef.current = answers;
+  }, [answers]);
+
+  useEffect(() => {
+    return () => {
+      clearSubmitPhaseTimers();
+    };
+  }, [clearSubmitPhaseTimers]);
 
   useEffect(() => {
     let active = true;
@@ -293,6 +321,18 @@ export default function ClinicalTakeClient({
     });
   }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, totalQuestions]);
 
+  const buildAnswersSnapshot = useCallback((pendingSelection?: LastSelectionContext) => {
+    const snapshot = {
+      ...latestAnswersRef.current,
+    };
+
+    if (pendingSelection?.questionId && pendingSelection.code) {
+      snapshot[pendingSelection.questionId] = pendingSelection.code;
+    }
+
+    return snapshot;
+  }, []);
+
   const ensureAttempt = useCallback(async () => {
     if (attemptId) {
       return attemptId;
@@ -362,9 +402,9 @@ export default function ClinicalTakeClient({
     setAnswer(questionId, code);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
     const activeAttemptId = await ensureAttempt();
-    if (!activeAttemptId) return;
+    if (!activeAttemptId) return null;
 
     const submitConsentVersion = String(consentVersion ?? serverConsentVersion ?? "").trim();
     const submitConsentLocale = String(consentLocale ?? toApiLocale(locale)).trim();
@@ -374,10 +414,11 @@ export default function ClinicalTakeClient({
           ? "当前会话缺少同意书快照，请返回详情页重新开始测评。"
           : "Consent snapshot is missing for this session. Please restart the assessment from test details."
       );
-      return;
+      return null;
     }
 
-    const firstMissing = questions.findIndex((item) => !answers[item.question_id]);
+    const answersSnapshot = buildAnswersSnapshot(pendingSelection);
+    const firstMissing = questions.findIndex((item) => !answersSnapshot[item.question_id]);
     if (firstMissing >= 0) {
       setCurrentIndex(firstMissing);
       setSubmitError(
@@ -385,7 +426,7 @@ export default function ClinicalTakeClient({
           ? `请先完成第 ${firstMissing + 1} 题再提交。`
           : `Please answer question ${firstMissing + 1} before submitting.`
       );
-      return;
+      return null;
     }
 
     setSubmitting(true);
@@ -398,7 +439,7 @@ export default function ClinicalTakeClient({
         durationMs,
         answers: questions.map((item) => ({
           question_id: item.question_id,
-          code: answers[item.question_id] ?? "",
+          code: answersSnapshot[item.question_id] ?? "",
         })),
         consent: {
           accepted: true,
@@ -423,8 +464,7 @@ export default function ClinicalTakeClient({
         locale,
         duration_bucket: durationMs < 60000 ? "lt_1m" : durationMs < 180000 ? "1_3m" : "gte_3m",
       });
-      resetAfterSubmit();
-      router.push(withLocale(`/attempts/${resultAttemptId}/report`));
+      return resultAttemptId;
     } catch (error) {
       const mapped = mapClinicalError(error);
       setSubmitError(mapped.message);
@@ -444,10 +484,115 @@ export default function ClinicalTakeClient({
         scaleCode,
         stage: "submit_attempt",
       });
+      return null;
     } finally {
       setSubmitting(false);
     }
-  };
+  }, [
+    buildAnswersSnapshot,
+    consentAcceptedAt,
+    consentLocale,
+    consentVersion,
+    ensureAttempt,
+    isZh,
+    locale,
+    markSubmitted,
+    questions,
+    scaleCode,
+    serverConsentVersion,
+    setCurrentIndex,
+    slug,
+    startedAt,
+  ]);
+
+  const finalizeSuccessfulSubmit = useCallback(
+    (resultAttemptId: string) => {
+      resetAfterSubmit();
+      router.push(withLocale(`/attempts/${resultAttemptId}/report`));
+    },
+    [resetAfterSubmit, router, withLocale]
+  );
+
+  const startSubmitOverlayPhases = useCallback(() => {
+    clearSubmitPhaseTimers();
+    setSubmitOverlayPhase(0);
+
+    trackEvent("ui_report_loading_phase", {
+      scale_code: scaleCode,
+      phase: "saving",
+      locked: true,
+      variant: "free",
+      locale,
+    });
+
+    const phase1 = window.setTimeout(() => {
+      setSubmitOverlayPhase(1);
+      trackEvent("ui_report_loading_phase", {
+        scale_code: scaleCode,
+        phase: "analyzing",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+    }, 800);
+
+    const phase2 = window.setTimeout(() => {
+      setSubmitOverlayPhase(2);
+      trackEvent("ui_report_loading_phase", {
+        scale_code: scaleCode,
+        phase: "generating",
+        locked: true,
+        variant: "free",
+        locale,
+      });
+    }, 1500);
+
+    submitPhaseTimersRef.current = [phase1, phase2];
+  }, [clearSubmitPhaseTimers, locale, scaleCode]);
+
+  const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext) => {
+    if (submitOverlayVisible || submitting) return;
+    setSubmitOverlayVisible(true);
+    startSubmitOverlayPhases();
+
+    const [resultAttemptId] = await Promise.all([
+      handleSubmit(pendingSelection),
+      new Promise<void>((resolve) => {
+        window.setTimeout(resolve, 2200);
+      }),
+    ]);
+
+    clearSubmitPhaseTimers();
+
+    if (!resultAttemptId) {
+      setSubmitOverlayVisible(false);
+      setSubmitOverlayPhase(0);
+      return;
+    }
+
+    finalizeSuccessfulSubmit(resultAttemptId);
+  }, [
+    clearSubmitPhaseTimers,
+    finalizeSuccessfulSubmit,
+    handleSubmit,
+    startSubmitOverlayPhases,
+    submitOverlayVisible,
+    submitting,
+  ]);
+
+  const {
+    transitionDirection,
+    isTransitioning,
+    selectAndAdvance,
+    goPrevious,
+  } = useAutoAdvanceFlow({
+    currentIndex,
+    total: totalQuestions,
+    onMove: (index) => setCurrentIndex(index),
+    onLast: handleSubmitWithOverlay,
+    confirmDelayMs: 200,
+    enterDurationMs: 280,
+  });
 
   if (loadingQuestions) {
     return (
@@ -500,6 +645,81 @@ export default function ClinicalTakeClient({
   });
 
   const moduleNode = pendingModuleTransition ? moduleMeta[pendingModuleTransition] : undefined;
+
+  if (immersiveEnabled) {
+    return (
+      <>
+        <ImmersiveTakeLayout
+          backHref={withLocale(`/tests/${slug}`)}
+          backLabel={dict.quiz.immersive.backToDetails}
+          current={currentIndex + 1}
+          total={totalQuestions}
+          answered={answeredCount}
+          previousLabel={dict.quiz.immersive.previous}
+          previousDisabled={currentIndex <= 0 || submitting || submitOverlayVisible}
+          onPrevious={goPrevious}
+          transitionKey={currentQuestion.question_id}
+          transitionDirection={transitionDirection}
+          isTransitioning={isTransitioning}
+          footerSlot={
+            <div className="flex flex-wrap items-center justify-end gap-2">
+              {submitError ? (
+                <Button
+                  type="button"
+                  variant="outline"
+                  disabled={submitting || submitOverlayVisible}
+                  onClick={() => {
+                    void handleSubmitWithOverlay();
+                  }}
+                >
+                  {dict.quiz.immersive.submitRetry}
+                </Button>
+              ) : null}
+              <Button type="button" variant="ghost" onClick={() => router.push(withLocale(`/tests/${slug}`))}>
+                {dict.quiz.immersive.backToDetails}
+              </Button>
+            </div>
+          }
+        >
+          <article className="space-y-5 rounded-2xl border border-[var(--fm-border-strong)] bg-white p-6 shadow-[var(--fm-shadow-md)]">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+              Question {currentIndex + 1} / {totalQuestions}
+            </p>
+            <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{currentQuestion.text}</h2>
+
+            {milestoneHint ? (
+              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+                {milestoneHint}
+              </div>
+            ) : null}
+
+            <AdaptiveOptionGroup
+              questionId={currentQuestion.question_id}
+              options={options.map((option) => ({ code: option.code, text: option.text }))}
+              value={answers[currentQuestion.question_id]}
+              noOptionsLabel={dict.quiz.immersive.noOptions}
+              onChange={(code) =>
+                selectAndAdvance(() => {
+                  handleSelect(currentQuestion.question_id, code);
+                }, {
+                  questionId: currentQuestion.question_id,
+                  code,
+                })
+              }
+            />
+
+            {submitError ? <Alert>{submitError}</Alert> : null}
+          </article>
+        </ImmersiveTakeLayout>
+
+        <SubmitPhaseOverlay
+          visible={submitOverlayVisible}
+          phases={dict.quiz.immersive.submitPhases}
+          phaseIndex={submitOverlayPhase}
+        />
+      </>
+    );
+  }
 
   return (
     <div className="space-y-4">
@@ -582,7 +802,11 @@ export default function ClinicalTakeClient({
             type="button"
             disabled={submitting || Boolean(pendingModuleTransition)}
             onClick={() => {
-              void handleSubmit();
+              void handleSubmit().then((resultAttemptId) => {
+                if (resultAttemptId) {
+                  finalizeSuccessfulSubmit(resultAttemptId);
+                }
+              });
             }}
           >
             {submitting ? (isZh ? "提交中..." : "Submitting...") : isZh ? "提交" : "Submit"}

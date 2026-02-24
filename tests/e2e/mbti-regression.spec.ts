@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }) => {
   const attemptId = "mbti-attempt-0001";
@@ -107,21 +108,23 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await page.goto("/en/tests/personality-mbti-test/take");
   await expect(page.getByRole("heading", { name: "MBTI question 1" })).toBeVisible();
 
-  for (let i = 0; i < 8; i += 1) {
+  for (let i = 0; i < 7; i += 1) {
     await page.getByRole("radio").first().click();
-    if (i < 7) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
-    }
+    await expect(page.getByText(`Question ${i + 2} / 8`)).toBeVisible();
   }
 
-  await page.getByRole("button", { name: "Submit" }).click();
-
-  await expect(page).toHaveURL(new RegExp(`/result/${attemptId}(\\?.*)?$`), { timeout: 15000 });
+  const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+    page,
+    option: page.getByRole("radio").first(),
+    targetUrl: new RegExp(`/result/${attemptId}(\\?.*)?$`),
+    timeoutMs: 30000,
+  });
+  expect(submitResponse.status()).toBe(200);
   await expect(page.getByRole("heading", { name: "Your assessment result", level: 1 })).toBeVisible();
   await expect(page.getByText("MBTI baseline summary.")).toBeVisible();
 });
 
-test("MBTI mobile matrix keeps prompt sticky while options scroll", async ({ page }) => {
+test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({ page }) => {
   const attemptId = "mbti-mobile-sticky-0001";
   const options = Array.from({ length: 12 }, (_, idx) => ({
     code: `O${idx + 1}`,
@@ -169,6 +172,40 @@ test("MBTI mobile matrix keeps prompt sticky while options scroll", async ({ pag
     });
   });
 
+  await page.route("**/api/v0.3/attempts/submit", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        locked: false,
+        variant: "full",
+        report: {
+          scale_code: "MBTI",
+          sections: [
+            {
+              key: "summary",
+              title: "Summary",
+              access_level: "free",
+              blocks: [{ kind: "paragraph", title: "Summary", body: "mobile summary" }],
+            },
+          ],
+        },
+      }),
+    });
+  });
+
   const viewports = [
     { width: 375, height: 812 },
     { width: 320, height: 568 },
@@ -179,21 +216,16 @@ test("MBTI mobile matrix keeps prompt sticky while options scroll", async ({ pag
     await page.goto("/en/tests/personality-mbti-test/take");
 
     await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
-    const mobilePrompt = page.getByTestId("matrix-mobile-prompt");
-    const mobileOptions = page.getByTestId("matrix-mobile-options");
-    await expect(mobilePrompt).toBeVisible();
-    await expect(mobileOptions).toBeVisible();
+    const firstOption = page.getByRole("radio").first();
+    const bounds = await firstOption.boundingBox();
+    expect(bounds?.height ?? 0).toBeGreaterThanOrEqual(44);
 
-    const viewportHeight = await page.evaluate(() => window.innerHeight);
-    const promptHeight = await mobilePrompt.evaluate((node) => node.getBoundingClientRect().height);
-    expect(promptHeight).toBeLessThanOrEqual(viewportHeight * 0.45 + 2);
-    const optionsStyle = await mobileOptions.getAttribute("style");
-    expect(optionsStyle ?? "").toContain("safe-area-inset-bottom");
-
-    await mobileOptions.evaluate((node) => {
-      node.scrollTop = node.scrollHeight;
+    const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+      page,
+      option: firstOption,
+      targetUrl: new RegExp(`/result/${attemptId}(\\?.*)?$`),
+      timeoutMs: 30000,
     });
-
-    await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
+    expect(submitResponse.status()).toBe(200);
   }
 });

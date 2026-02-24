@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 function buildCc68Questions() {
   return Array.from({ length: 68 }, (_, idx) => {
@@ -164,28 +165,19 @@ test("CC68 flow: module transition, crisis ordering, paid sections hidden", asyn
   await page.getByLabel("I have read and agree to the statement above").check();
   await page.getByRole("button", { name: "Agree and start" }).click();
 
-  for (let index = 0; index < 68; index += 1) {
+  for (let index = 0; index < 67; index += 1) {
     await expect(page.getByText(`Question ${index + 1} / 68`)).toBeVisible();
     await page.getByRole("radio").first().click();
-
-    if (index < 67) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
-
-      const continueButton = page.getByRole("button", { name: "Continue" });
-      const hasContinue = await continueButton.isVisible().catch(() => false);
-      if (hasContinue) {
-        if (index === 16) {
-          await expect(page.getByText("M2", { exact: true })).toBeVisible();
-          await expect(page.getByText("Guidance M2")).toBeVisible();
-        }
-        await continueButton.click();
-      }
-    }
+    await expect(page.getByText(`Question ${index + 2} / 68`)).toBeVisible();
   }
 
-  await page.getByRole("button", { name: "Submit" }).click();
-
-  await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`));
+  const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+    page,
+    option: page.getByRole("radio").first(),
+    targetUrl: new RegExp(`/en/attempts/${attemptId}/report`),
+    timeoutMs: 30000,
+  });
+  expect(submitResponse.status()).toBe(200);
   await expect(page.getByText("988 Hotline: 988").first()).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
 

@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) => {
   const attemptId = "11111111-1111-1111-1111-111111111111";
@@ -272,15 +273,18 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
 
   await expect(page.getByText("Question 1 / 120")).toBeVisible();
 
-  for (let i = 0; i < 120; i += 1) {
+  for (let i = 0; i < 119; i += 1) {
     await page.getByRole("radio").first().click();
-    if (i < 119) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
-    }
+    await expect(page.getByText(`Question ${i + 2} / 120`)).toBeVisible();
   }
 
-  await page.getByRole("button", { name: "Submit" }).click();
-  await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`));
+  const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+    page,
+    option: page.getByRole("radio").first(),
+    targetUrl: new RegExp(`/en/result/${attemptId}`),
+    timeoutMs: 30000,
+  });
+  expect(submitResponse.status()).toBe(200);
 
   await expect(page.getByRole("heading", { name: "Unlock full report" })).toBeVisible();
   await page.getByRole("button", { name: "Unlock now" }).click();

@@ -92,6 +92,66 @@ a {
   animation: fm-soft-fade 360ms ease both;
 }
 
+@keyframes fm-immersive-enter-forward {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fm-immersive-enter-backward {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fm-immersive-exit-forward {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+}
+
+@keyframes fm-immersive-exit-backward {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+}
+
+.fm-immersive-enter-forward {
+  animation: fm-immersive-enter-forward 280ms ease both;
+}
+
+.fm-immersive-enter-backward {
+  animation: fm-immersive-enter-backward 280ms ease both;
+}
+
+.fm-immersive-exit-forward {
+  animation: fm-immersive-exit-forward 180ms ease both;
+}
+
+.fm-immersive-exit-backward {
+  animation: fm-immersive-exit-backward 180ms ease both;
+}
+
 .fm-section-white {
   background: #ffffff;
 }

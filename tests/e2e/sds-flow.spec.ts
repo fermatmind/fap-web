@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale content", async ({ page }) => {
   const attemptId = "sds-attempt-0001";
@@ -246,17 +247,19 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
   await page.getByLabel("I have read and agree to the statement above").check();
   await startButton.click();
 
-  for (let index = 0; index < 20; index += 1) {
+  for (let index = 0; index < 19; index += 1) {
     await expect(page.getByText(`Question ${index + 1} / 20`)).toBeVisible();
     await page.getByRole("radio").first().click();
-    if (index < 19) {
-      await page.getByRole("button", { name: "Next", exact: true }).click();
-    }
+    await expect(page.getByText(`Question ${index + 2} / 20`)).toBeVisible();
   }
 
-  await page.getByRole("button", { name: "Submit" }).click();
-
-  await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`), { timeout: 15000 });
+  const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+    page,
+    option: page.getByRole("radio").first(),
+    targetUrl: new RegExp(`/en/attempts/${attemptId}/report`),
+    timeoutMs: 30000,
+  });
+  expect(submitResponse.status()).toBe(200);
   await expect(page.getByRole("heading", { name: "Important Disclaimer" })).toBeVisible();
   await expect(page.getByText("Important: please prioritize support resources")).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
