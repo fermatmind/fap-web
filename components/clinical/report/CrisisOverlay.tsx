@@ -195,7 +195,10 @@ export function CrisisOverlay({
 
   return (
     <>
-      <div className="fixed inset-x-0 top-0 z-40 border-b border-amber-200 bg-amber-100/95 px-4 py-2 text-center text-sm font-semibold text-amber-950 backdrop-blur">
+      <div
+        data-testid="crisis-care-notice"
+        className="fixed inset-x-0 top-0 z-40 border-b border-amber-200 bg-amber-100/95 px-4 py-2 text-center text-sm font-semibold text-amber-950 backdrop-blur"
+      >
         {isZh
           ? "关怀提示：请优先联系支持资源，我们已为你切换到安全模式。"
           : "Care notice: please prioritize support resources. Safety mode is now active."}
@@ -246,8 +249,11 @@ export function CrisisOverlay({
         </div>
       ) : null}
 
-      <div className="space-y-3 rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50/90 via-white to-sky-50 p-4 pt-12 text-sm text-slate-900">
-        <h3 className="m-0 text-base font-semibold text-[var(--fm-trust-blue-strong)]">
+      <div
+        data-testid="crisis-care-inline"
+        className="space-y-3 rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50/90 via-white to-sky-50 p-4 pt-12 text-sm text-slate-900"
+      >
+        <h3 data-testid="crisis-care-heading" className="m-0 text-base font-semibold text-[var(--fm-trust-blue-strong)]">
           {isZh ? "重要：请优先连接支持资源" : "Important: please prioritize support resources"}
         </h3>
         <p className="m-0">

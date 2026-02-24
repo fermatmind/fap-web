@@ -306,7 +306,8 @@ test.describe("UAT matrix (mock)", () => {
 
     await expect(page).toHaveURL(new RegExp(`/en/attempts/${attemptId}/report`));
     await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
-    await expect(page.getByText("Important: prioritize immediate safety and support")).toBeVisible();
+    await expect(page.getByTestId("crisis-care-inline")).toBeVisible();
+    await expect(page.getByTestId("crisis-care-notice")).toBeVisible();
   });
 
   test("role-4 paid unlock normal user", async ({ page }) => {
