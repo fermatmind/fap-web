@@ -122,8 +122,6 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
 });
 
 test("MBTI mobile matrix keeps prompt sticky while options scroll", async ({ page }) => {
-  await page.setViewportSize({ width: 375, height: 812 });
-
   const attemptId = "mbti-mobile-sticky-0001";
   const options = Array.from({ length: 12 }, (_, idx) => ({
     code: `O${idx + 1}`,
@@ -171,16 +169,31 @@ test("MBTI mobile matrix keeps prompt sticky while options scroll", async ({ pag
     });
   });
 
-  await page.goto("/en/tests/personality-mbti-test/take");
-  await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
+  const viewports = [
+    { width: 375, height: 812 },
+    { width: 320, height: 568 },
+  ];
 
-  const mobileOptions = page.locator('[role="radiogroup"][aria-label="matrix-1"]');
-  await expect(mobileOptions).toBeVisible();
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await page.goto("/en/tests/personality-mbti-test/take");
 
-  await mobileOptions.evaluate((node) => {
-    node.scrollTop = node.scrollHeight;
-  });
+    await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
+    const mobilePrompt = page.getByTestId("matrix-mobile-prompt");
+    const mobileOptions = page.getByTestId("matrix-mobile-options");
+    await expect(mobilePrompt).toBeVisible();
+    await expect(mobileOptions).toBeVisible();
 
-  await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
+    const viewportHeight = await page.evaluate(() => window.innerHeight);
+    const promptHeight = await mobilePrompt.evaluate((node) => node.getBoundingClientRect().height);
+    expect(promptHeight).toBeLessThanOrEqual(viewportHeight * 0.45 + 2);
+    const optionsStyle = await mobileOptions.getAttribute("style");
+    expect(optionsStyle ?? "").toContain("safe-area-inset-bottom");
+
+    await mobileOptions.evaluate((node) => {
+      node.scrollTop = node.scrollHeight;
+    });
+
+    await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
+  }
 });

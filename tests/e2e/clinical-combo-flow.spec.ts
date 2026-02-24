@@ -264,6 +264,13 @@ test("CC68 report unlock is only reflected after locked=false", async ({ page })
 
   await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible();
   await expect(page.getByText("Unlock to view this section.")).toBeVisible();
+  await expect(page.getByTestId("locked-insight-preview")).toBeVisible();
+  await expect(page.getByTestId("locked-insight-chart")).toHaveAttribute(
+    "data-preview-filter",
+    "grayscale(80%) blur(3px) opacity(0.7)"
+  );
+  await expect(page.getByTestId("locked-insight-mask")).toBeVisible();
+  await expect(page.getByTestId("locked-insight-lock")).toBeVisible();
 
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0, {
     timeout: 20000,
