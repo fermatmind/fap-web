@@ -7,7 +7,7 @@ import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { canonicalUrl } from "@/lib/site";
-import { formatTestTitleForUi } from "@/lib/ui/testTitleDisplay";
+import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 export async function generateMetadata({
   params,
@@ -54,7 +54,12 @@ export default async function TestsPage({
           <div className="flex flex-wrap gap-3">
             {topTests.map((item) => {
               const localizedTitle = resolveTestTitleByLocale(item, locale);
-              const titleDisplay = formatTestTitleForUi(localizedTitle);
+              const titleDisplay = formatCardTitleForUi({
+                title: localizedTitle,
+                slug: item.slug,
+                locale,
+                surface: "tests_top_chip",
+              });
 
               return (
                 <Link
@@ -64,13 +69,19 @@ export default async function TestsPage({
                   className={buttonVariants({
                     variant: "outline",
                     size: "sm",
-                    className: "h-auto min-h-[44px] px-4 py-2 text-center whitespace-normal leading-tight",
+                    className: "h-auto min-h-[44px] px-4 py-2 text-center leading-tight",
                   })}
                 >
-                  <span className="inline-flex flex-col items-center">
-                    <span>{titleDisplay.line1}</span>
-                    <span className="mt-0.5">{titleDisplay.line2}</span>
-                  </span>
+                  {titleDisplay.multilineFallback ? (
+                    <span className="inline-flex flex-col items-center text-[0.82rem] md:text-[0.86rem]">
+                      <span>{titleDisplay.line1}</span>
+                      <span className="mt-0.5">{titleDisplay.line2}</span>
+                    </span>
+                  ) : (
+                    <span className="block max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-[0.82rem] md:text-[0.86rem]">
+                      {titleDisplay.line1}
+                    </span>
+                  )}
                 </Link>
               );
             })}

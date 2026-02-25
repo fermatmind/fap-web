@@ -7,7 +7,7 @@ import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
-import { formatTestTitleForUi } from "@/lib/ui/testTitleDisplay";
+import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 type TestCardProps = {
   slug: string;
@@ -72,7 +72,12 @@ export function TestCard({
   const isCompact = cardSpec.density === "compact";
   const tagline = resolveTagline(locale, cardTaglineI18n, scaleCode ?? cardSpec.visual);
   const stars = Math.max(0, Math.min(5, Math.round(highlightRating)));
-  const titleDisplay = formatTestTitleForUi(title);
+  const titleDisplay = formatCardTitleForUi({
+    title,
+    slug,
+    locale,
+    surface: "tests_grid_card",
+  });
 
   return (
     <Card
@@ -101,12 +106,16 @@ export function TestCard({
         </p>
         <CardTitle
           title={titleDisplay.plain}
-          className="font-sans text-[1.12rem] font-semibold leading-[1.2] tracking-tight group-hover/card:text-[var(--fm-accent)] md:text-[1.2rem]"
+          className="font-sans text-[1.08rem] font-semibold leading-[1.2] tracking-tight group-hover/card:text-[var(--fm-accent)] md:text-[1.14rem]"
         >
-          <span className="inline-flex flex-col break-words">
-            <span>{titleDisplay.line1}</span>
-            <span className="mt-1">{titleDisplay.line2}</span>
-          </span>
+          {titleDisplay.multilineFallback ? (
+            <span className="inline-flex flex-col break-words">
+              <span>{titleDisplay.line1}</span>
+              <span className="mt-1">{titleDisplay.line2}</span>
+            </span>
+          ) : (
+            <span className="block overflow-hidden text-ellipsis whitespace-nowrap">{titleDisplay.line1}</span>
+          )}
         </CardTitle>
         <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
           {Array.from({ length: 5 }, (_, idx) => (

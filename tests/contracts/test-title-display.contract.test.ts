@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatTestTitleForUi } from "@/lib/ui/testTitleDisplay";
+import { formatCardTitleForUi, formatTestTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 describe("test title display contract", () => {
   it("splits EN bracket titles into two lines and normalizes to 【】", () => {
@@ -44,6 +44,56 @@ describe("test title display contract", () => {
       line1: "Social Adaptation",
       line2: "Index",
       plain: "Social Adaptation Index",
+    });
+  });
+});
+
+describe("card title display helper contract", () => {
+  it("applies zh MBTI card-only replacement from 16型人格测试 to 16型人格", () => {
+    const out = formatCardTitleForUi({
+      title: "MBTI 性格测试（16型人格测试）",
+      slug: "mbti-personality-test-16-personality-types",
+      locale: "zh",
+      surface: "home_highlighted",
+    });
+
+    expect(out).toEqual({
+      plain: "MBTI 性格测试【16型人格】",
+      line1: "MBTI 性格测试【16型人格】",
+      line2: "",
+      multilineFallback: false,
+    });
+  });
+
+  it("uses EN multiline fallback when title exceeds surface threshold", () => {
+    const out = formatCardTitleForUi({
+      title: "Clinical Depression & Anxiety Assessment (Professional Edition)",
+      slug: "clinical-depression-anxiety-assessment-professional-edition",
+      locale: "en",
+      surface: "tests_top_chip",
+    });
+
+    expect(out).toEqual({
+      plain: "Clinical Depression & Anxiety Assessment 【Professional Edition】",
+      line1: "Clinical Depression & Anxiety Assessment",
+      line2: "【Professional Edition】",
+      multilineFallback: true,
+    });
+  });
+
+  it("does not replace 16型人格测试 for non-MBTI slugs", () => {
+    const out = formatCardTitleForUi({
+      title: "MBTI 性格测试（16型人格测试）",
+      slug: "big-five-personality-test-ocean-model",
+      locale: "zh",
+      surface: "tests_grid_card",
+    });
+
+    expect(out).toEqual({
+      plain: "MBTI 性格测试【16型人格测试】",
+      line1: "MBTI 性格测试【16型人格测试】",
+      line2: "",
+      multilineFallback: false,
     });
   });
 });
