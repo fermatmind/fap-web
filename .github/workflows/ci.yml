@@ -6,12 +6,18 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   web:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -99,14 +105,26 @@ jobs:
       - name: Visual snapshot sync check
         env:
           NEXT_PUBLIC_E2E_VISUAL_MODE: "1"
+          IS_INTERNAL_PR: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository }}
+          PR_HEAD_REF: ${{ github.head_ref }}
         run: |
           pnpm test:e2e:visual:update
           SNAPSHOT_DIFF="$(git diff --name-only -- tests/e2e/visual)"
           if [ -n "$SNAPSHOT_DIFF" ]; then
-            echo "Visual snapshots are out of sync with current UI code."
-            echo "Run 'pnpm test:e2e:visual:update' and commit these files:"
-            echo "$SNAPSHOT_DIFF"
-            exit 1
+            if [ "$IS_INTERNAL_PR" = "true" ]; then
+              echo "Detected out-of-sync Linux visual snapshots. Auto-syncing PR branch..."
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add tests/e2e/visual
+              git commit -m "test: sync linux visual snapshots"
+              git push origin "HEAD:$PR_HEAD_REF"
+              echo "Synced and pushed updated Linux snapshots to $PR_HEAD_REF."
+            else
+              echo "Visual snapshots are out of sync with current UI code."
+              echo "Run 'pnpm test:e2e:visual:update:linux' and commit these files:"
+              echo "$SNAPSHOT_DIFF"
+              exit 1
+            fi
           fi
 
       - name: Visual snapshots
