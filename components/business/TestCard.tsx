@@ -78,10 +78,9 @@ export function TestCard({
       className="group/card relative flex h-full flex-col overflow-hidden border-[var(--fm-border)] bg-[var(--fm-surface)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--fm-shadow-lg)]"
     >
       <div className="p-5 pb-0">
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <div className="mb-4 flex items-center justify-between gap-2">
           <Badge>{questions} {dict.common.questions_unit}</Badge>
           <Badge>{timeMinutes} {dict.common.minutes_unit}</Badge>
-          {scaleCode ? <Badge>{scaleCode}</Badge> : null}
         </div>
 
         <DataGlyph

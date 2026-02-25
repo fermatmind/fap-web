@@ -60,8 +60,6 @@ export function SiteFooter() {
             <div className="space-y-2 text-sm">
               <Link href="/en" className="block text-slate-300 hover:text-white">EN</Link>
               <Link href="/zh" className="block text-slate-300 hover:text-white">中文</Link>
-              <Link href={withLocale("/business")} className="block text-slate-300 hover:text-white">{dict.header.business}</Link>
-              <Link href={withLocale("/help")} className="block text-slate-300 hover:text-white">{dict.footer.support}</Link>
             </div>
           </div>
 

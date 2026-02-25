@@ -11,7 +11,6 @@ export type HomeHighlightedCard =
       slug: string;
       title: string;
       scaleCode?: string;
-      tagline: string;
       excerpt: string;
       rating: number;
       isClinical: boolean;
@@ -36,6 +35,30 @@ function renderStars(rating: number) {
   );
 }
 
+function splitMbtiTitle(slug: string, title: string) {
+  if (slug !== "mbti-personality-test-16-personality-types") {
+    return { main: title, sub: null };
+  }
+
+  const fullWidthBracketIndex = title.indexOf("（");
+  if (fullWidthBracketIndex > 0) {
+    return {
+      main: title.slice(0, fullWidthBracketIndex).trim(),
+      sub: title.slice(fullWidthBracketIndex).trim(),
+    };
+  }
+
+  const halfWidthBracketIndex = title.indexOf("(");
+  if (halfWidthBracketIndex > 0) {
+    return {
+      main: title.slice(0, halfWidthBracketIndex).trim(),
+      sub: title.slice(halfWidthBracketIndex).trim(),
+    };
+  }
+
+  return { main: title, sub: null };
+}
+
 export function HighlightedTestsSection({
   dict,
   locale,
@@ -56,44 +79,50 @@ export function HighlightedTestsSection({
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card) =>
-            card.kind === "live" ? (
-              <article
-                key={`live-${card.slug}`}
-                className="flex h-full flex-col rounded-2xl border border-white/20 bg-white p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-lg)]"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <Link
-                    href={withLocale(`/tests/${card.slug}`)}
-                    className="font-serif text-xl font-semibold leading-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
-                  >
-                    {card.title}
-                  </Link>
-                  {renderStars(card.rating)}
-                </div>
+          {cards.map((card) => {
+            if (card.kind === "live") {
+              const titleParts = splitMbtiTitle(card.slug, card.title);
+              return (
+                <article key={`live-${card.slug}`} className="flex h-full flex-col rounded-2xl border border-white/20 bg-white p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-lg)]">
+                  <div className="flex min-h-[4.9rem] items-start justify-between gap-3">
+                    <Link
+                      href={withLocale(`/tests/${card.slug}`)}
+                      className="font-serif text-xl font-semibold leading-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
+                    >
+                      {titleParts.sub ? (
+                        <span className="inline-flex flex-col">
+                          <span>{titleParts.main}</span>
+                          <span className="mt-1">{titleParts.sub}</span>
+                        </span>
+                      ) : (
+                        titleParts.main
+                      )}
+                    </Link>
+                    {renderStars(card.rating)}
+                  </div>
 
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  {card.scaleCode ? <Badge>{card.scaleCode}</Badge> : null}
-                  {card.isClinical ? (
-                    <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.clinicalBadge}</Badge>
-                  ) : null}
-                </div>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    {card.scaleCode ? <Badge>{card.scaleCode}</Badge> : null}
+                    {card.isClinical ? (
+                      <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.clinicalBadge}</Badge>
+                    ) : null}
+                  </div>
 
-                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                  {card.tagline}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{card.excerpt}</p>
+                  <p className="mt-4 text-sm leading-6 text-[var(--fm-text-muted)]">{card.excerpt}</p>
 
-                <div className="mt-auto pt-5">
-                  <Link
-                    href={withLocale(`/tests/${card.slug}/take`)}
-                    className="text-sm font-semibold text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
-                  >
-                    {dict.home.highlighted.cta} →
-                  </Link>
-                </div>
-              </article>
-            ) : (
+                  <div className="mt-auto pt-5">
+                    <Link
+                      href={withLocale(`/tests/${card.slug}/take`)}
+                      className="text-sm font-semibold text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
+                    >
+                      {dict.home.highlighted.cta} →
+                    </Link>
+                  </div>
+                </article>
+              );
+            }
+
+            return (
               <article
                 key={`coming-${card.id}`}
                 className="relative flex h-full flex-col rounded-2xl border border-white/30 bg-white/90 p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-md)]"
@@ -110,8 +139,8 @@ export function HighlightedTestsSection({
 
                 <p className="mt-auto pt-5 text-sm font-semibold text-[var(--fm-text-muted)]">{dict.home.highlighted.comingSoonCta}</p>
               </article>
-            )
-          )}
+            );
+          })}
         </div>
       </Container>
     </section>

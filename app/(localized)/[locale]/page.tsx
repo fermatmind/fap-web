@@ -36,13 +36,6 @@ export default async function Home({
     .map((slug) => bySlug.get(slug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item))
     .map((item) => {
-      const source = item.card_tagline_i18n;
-      const localizedTagline =
-        source
-          ? locale === "zh"
-            ? source.zh ?? source["zh-CN"] ?? item.scale_code ?? "Assessment"
-            : source.en ?? item.scale_code ?? "Assessment"
-          : item.scale_code ?? "Assessment";
       const excerptSource = item.highlight_excerpt_i18n;
       const localizedExcerpt =
         excerptSource
@@ -56,7 +49,6 @@ export default async function Home({
         slug: item.slug,
         title: resolveTestTitleByLocale(item, locale),
         scaleCode: item.scale_code,
-        tagline: localizedTagline,
         excerpt: localizedExcerpt,
         rating: item.highlight_rating ?? 5,
         isClinical: item.scale_code === "SDS_20" || item.scale_code === "CLINICAL_COMBO_68",
@@ -69,8 +61,8 @@ export default async function Home({
 
       <HeroSection dict={dict} locale={locale} />
       <ValuePropsSection dict={dict} />
-      <SocialProofSection dict={dict} locale={locale} />
       <HighlightedTestsSection dict={dict} locale={locale} cards={highlightedCards} />
+      <SocialProofSection dict={dict} locale={locale} />
     </main>
   );
 }
