@@ -1,7 +1,23 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
+
+async function expectHeroAndValuePropsSeparated(page: Page) {
+  const hero = page.getByTestId("home-hero-section");
+  const valueProps = page.getByTestId("home-value-props-section");
+  await expect(hero).toBeVisible();
+  await expect(valueProps).toBeVisible();
+
+  const [heroBox, valuePropsBox] = await Promise.all([hero.boundingBox(), valueProps.boundingBox()]);
+  expect(heroBox).not.toBeNull();
+  expect(valuePropsBox).not.toBeNull();
+
+  const heroBottom = (heroBox?.y ?? 0) + (heroBox?.height ?? 0);
+  const valueTop = valuePropsBox?.y ?? 0;
+  expect(valueTop).toBeGreaterThanOrEqual(heroBottom - 1);
+}
 
 test("home page renders hero, value props, and highlighted tests", async ({ page }) => {
   await page.goto("/en");
+  await expectHeroAndValuePropsSeparated(page);
 
   await expect(page.getByRole("heading", { name: "Highlighted tests" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Find your test" })).toBeVisible();
@@ -42,6 +58,7 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
 
 test("zh home MBTI highlighted card title shows 16型人格", async ({ page }) => {
   await page.goto("/zh");
+  await expectHeroAndValuePropsSeparated(page);
 
   const highlightedSection = page.getByTestId("home-highlighted-tests-section");
   await expect(highlightedSection).toBeVisible();
@@ -52,4 +69,13 @@ test("zh home MBTI highlighted card title shows 16型人格", async ({ page }) =
   await expect(page.getByText("类型轴线综合")).toHaveCount(0);
   await expect(page.getByText("特质分布画像")).toHaveCount(0);
   await expect(page.getByText("多维筛查")).toHaveCount(0);
+});
+
+test("home hero and value props stay separated on mobile for en and zh", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+
+  for (const localePath of ["/en", "/zh"] as const) {
+    await page.goto(localePath);
+    await expectHeroAndValuePropsSeparated(page);
+  }
 });

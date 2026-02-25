@@ -13,7 +13,7 @@ export function HeroSection({ dict, locale }: { dict: SiteDictionary; locale: Lo
   return (
     <section
       data-testid="home-hero-section"
-      className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-cyan-50 to-sky-100 pb-[var(--fm-space-14)] pt-[var(--fm-space-16)] md:pb-[var(--fm-space-10)] md:pt-[var(--fm-space-20)]"
+      className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-cyan-50 to-sky-100 pb-[var(--fm-space-16)] pt-[var(--fm-space-16)] md:pb-[var(--fm-space-14)] md:pt-[var(--fm-space-20)]"
     >
       <Container className="relative z-10 grid gap-[var(--fm-space-12)] md:grid-cols-[1.05fr_0.95fr] md:items-center">
         <div className="space-y-[var(--fm-gap-lg)]">

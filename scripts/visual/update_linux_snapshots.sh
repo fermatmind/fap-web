@@ -7,12 +7,15 @@ if ! command -v docker >/dev/null 2>&1; then
 fi
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PLAYWRIGHT_IMAGE="${PLAYWRIGHT_DOCKER_IMAGE:-mcr.microsoft.com/playwright:v1.58.2-jammy}"
+PLAYWRIGHT_VERSION="$(
+  node -p "require('${ROOT_DIR}/package.json').devDependencies['@playwright/test'].replace(/^[^0-9]*/, '')"
+)"
+PLAYWRIGHT_IMAGE="${PLAYWRIGHT_DOCKER_IMAGE:-mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-jammy}"
 
 docker run --rm --ipc=host \
   --user "$(id -u):$(id -g)" \
   -e CI=1 \
-  -e NEXT_PUBLIC_E2E_VISUAL_MODE=1 \
+  -e VISUAL_FORCE_CLEAN=1 \
   -e HOME=/tmp \
   -v "${ROOT_DIR}:/work" \
   -w /work \
@@ -24,6 +27,5 @@ docker run --rm --ipc=host \
 
     npm install -g pnpm@10.28.1
     pnpm install --frozen-lockfile
-    pnpm build
-    pnpm exec playwright test tests/e2e/visual --config=playwright.visual.config.ts --workers=1 --update-snapshots
+    bash scripts/visual/run_visual_suite.sh update
   '
