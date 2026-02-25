@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cookies, headers } from "next/headers";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect, redirect } from "next/navigation";
+import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -15,6 +16,25 @@ import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
 import QuizTakeClient from "./QuizTakeClient";
+
+function appendQuery(path: string, query: Record<string, string | string[] | undefined>): string {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(query)) {
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        if (item !== undefined) {
+          params.append(key, String(item));
+        }
+      }
+      continue;
+    }
+    if (value !== undefined) {
+      params.append(key, String(value));
+    }
+  }
+  const queryString = params.toString();
+  return queryString ? `${path}?${queryString}` : path;
+}
 
 async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promise<Record<string, unknown> | null> {
   const apiBase = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
@@ -55,8 +75,9 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { locale: localeParam, slug } = await params;
+  const { locale: localeParam, slug: requestedSlug } = await params;
   const locale = resolveLocale(localeParam);
+  const slug = resolveCanonicalSlug(requestedSlug);
   const test = getTestBySlug(slug);
   const localizedTestTitle = test ? resolveTestTitleByLocale(test, locale) : slug;
 
@@ -71,13 +92,20 @@ export async function generateMetadata({
 
 export default async function TakePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const { locale: localeParam, slug } = await params;
+  const { locale: localeParam, slug: requestedSlug } = await params;
+  const query = await searchParams;
   const locale = resolveLocale(localeParam);
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const slug = resolveCanonicalSlug(requestedSlug);
+  if (slug !== requestedSlug) {
+    permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
+  }
   const test = getTestBySlug(slug);
 
   if (!test) return notFound();
@@ -88,7 +116,7 @@ export default async function TakePage({
       <main className="mx-auto w-full max-w-3xl px-4 py-8">
         <h1 className="text-2xl font-bold text-slate-900">{localizedTestTitle}</h1>
         <p className="mt-3 text-slate-600">
-          {locale === "zh" ? "此测试暂未接入题库，请先选择其它已接入测试。" : "This test is not connected yet. Please choose another available test."}
+          {locale === "zh" ? "此测试当前暂不可用，请稍后再试或选择其他测评。" : "This assessment is temporarily unavailable. Please try again later or choose another test."}
         </p>
         <Link
           href={withLocale("/tests")}

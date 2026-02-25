@@ -13,6 +13,7 @@ import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getOrCreateAnonId } from "@/lib/anon";
+import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/assessmentSlugMap";
 import {
   createCheckoutOrOrder,
   getScaleLookup,
@@ -28,7 +29,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
-import { resolveScaleRollout, type ScaleRolloutEnvSnapshot, type SupportedScaleCode } from "@/lib/rollout/scaleRollout";
+import { resolveScaleRollout, type ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { trackEvent } from "@/lib/analytics";
 
 function firstOffer(report: ReportResponse): OfferPayload | undefined {
@@ -119,25 +120,7 @@ function extractPrimaryNumericScore(report: ReportResponse | null): number | nul
   return null;
 }
 
-const SCALE_SLUG_MAP: Record<SupportedScaleCode, string> = {
-  MBTI: "mbti-personality-test-16-personality-types",
-  BIG5_OCEAN: "big-five-personality-test-ocean-model",
-  SDS_20: "depression-screening-test-standard-edition",
-  CLINICAL_COMBO_68: "clinical-depression-anxiety-assessment-professional-edition",
-};
-
-function normalizeSupportedScaleCode(scaleCode: string): SupportedScaleCode | null {
-  const normalized = scaleCode.trim().toUpperCase();
-  if (
-    normalized === "MBTI"
-    || normalized === "BIG5_OCEAN"
-    || normalized === "SDS_20"
-    || normalized === "CLINICAL_COMBO_68"
-  ) {
-    return normalized;
-  }
-  return null;
-}
+const SCALE_SLUG_MAP = SCALE_CANONICAL_SLUG_MAP;
 
 export default function ResultClient({
   attemptId,
@@ -164,7 +147,7 @@ export default function ResultClient({
 
   const lastLockedRef = useRef<boolean | null>(null);
   const unlockTrackedRef = useRef(false);
-  const pendingUnlockStorageKey = `fm_big5_pending_unlock_v1_${attemptId}`;
+  const pendingUnlockStorageKey = `fm_scale_pending_unlock_v1_${attemptId}`;
   const manifestFingerprint = useBig5AttemptStore((store) => store.manifestFingerprint);
   const setManifestFingerprint = useBig5AttemptStore((store) => store.setManifestFingerprint);
   const acceptedDisclaimerVersion = useBig5AttemptStore((store) => store.disclaimerVersion);
@@ -179,6 +162,7 @@ export default function ResultClient({
     .trim()
     .toUpperCase();
   const isClinicalScale = reportScaleCode === "SDS_20" || reportScaleCode === "CLINICAL_COMBO_68";
+  const trackingScaleCode = normalizeSupportedScaleCode(reportScaleCode) ?? "MBTI";
   const locked = Boolean(reportData?.locked);
   const variant = (reportData?.variant as string | undefined) ?? (locked ? "free" : "full");
   const sections = Array.isArray(reportData?.report?.sections) ? reportData?.report?.sections : [];
@@ -217,7 +201,7 @@ export default function ResultClient({
   useEffect(() => {
     if (loading) {
       trackEvent("ui_report_loading_phase", {
-        scale_code: "BIG5_OCEAN",
+        scale_code: trackingScaleCode,
         phase: "initial_loading",
         locked: true,
         variant: "free",
@@ -228,14 +212,14 @@ export default function ResultClient({
 
     if (generating) {
       trackEvent("ui_report_loading_phase", {
-        scale_code: "BIG5_OCEAN",
+        scale_code: trackingScaleCode,
         phase: "generating",
         locked,
         variant,
         locale,
       });
     }
-  }, [generating, loading, locale, locked, variant]);
+  }, [generating, loading, locale, locked, trackingScaleCode, variant]);
 
   const trackWithContext = useCallback(
     async (
@@ -249,12 +233,12 @@ export default function ResultClient({
       payload: Record<string, unknown> = {}
     ) => {
       const context = await buildBig5TrackingContext({
-        scaleCode: "BIG5_OCEAN",
+        scaleCode: trackingScaleCode,
         packVersion:
           String((reportData?.meta as { content_package_version?: unknown } | undefined)?.content_package_version ?? "") ||
           String((reportData?.meta as { dir_version?: unknown } | undefined)?.dir_version ?? "") ||
           String((reportData?.meta as { pack_id?: unknown } | undefined)?.pack_id ?? "") ||
-          "BIG5_OCEAN",
+          trackingScaleCode,
         manifestHash: pickString((reportData?.meta as { manifest_hash?: unknown } | undefined)?.manifest_hash) || null,
         normsVersion:
           pickString(reportData?.norms?.norms_version) ||
@@ -278,7 +262,7 @@ export default function ResultClient({
         ...payload,
       });
     },
-    [attemptId, locale, locked, offer?.sku, qualityLevel, reportData, variant]
+    [attemptId, locale, locked, offer?.sku, qualityLevel, reportData, trackingScaleCode, variant]
   );
 
   useEffect(() => {
@@ -349,7 +333,7 @@ export default function ResultClient({
     let active = true;
 
     const run = async () => {
-      const scaleCode = normalizeSupportedScaleCode(reportScaleCode || "BIG5_OCEAN");
+      const scaleCode = normalizeSupportedScaleCode(reportScaleCode || "MBTI");
       if (!scaleCode) return;
 
       const lookupSlug = SCALE_SLUG_MAP[scaleCode];
@@ -467,7 +451,7 @@ export default function ResultClient({
     setPayError(null);
 
     try {
-      const idempotencyKey = `big5_checkout_${attemptId}_${offer?.sku ?? "default"}`;
+      const idempotencyKey = `scale_checkout_${attemptId}_${offer?.sku ?? "default"}`;
       await trackWithContext("checkout_start", {
         sku_id: offer?.sku ?? "",
         price: offer?.formatted_price ?? "",
@@ -500,7 +484,7 @@ export default function ResultClient({
 
       if (typeof checkout.order_no === "string" && checkout.order_no.length > 0) {
         try {
-          window.localStorage.setItem("fm_big5_last_order_v1", checkout.order_no);
+          window.localStorage.setItem("fm_scale_last_order_v1", checkout.order_no);
         } catch {
           // Ignore local cache write errors.
         }
@@ -525,7 +509,7 @@ export default function ResultClient({
   const handleResendEmail = async () => {
     const orderNo =
       offer?.order_no ??
-      (typeof window !== "undefined" ? window.localStorage.getItem("fm_big5_last_order_v1") ?? "" : "");
+      (typeof window !== "undefined" ? window.localStorage.getItem("fm_scale_last_order_v1") ?? "" : "");
 
     if (!orderNo) {
       setEmailNotice(locale === "zh" ? "暂无可用订单号。" : "No order number available for resend.");

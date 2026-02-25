@@ -41,7 +41,7 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
             text: "Read and accept this consent before starting.",
           },
           disclaimer: {
-            version: "SDS20_DISC_v1",
+            version: "SDS20_DISCLAIMER_v1",
             text: "Not a diagnosis",
           },
           source: {

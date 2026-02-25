@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cookies, headers } from "next/headers";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
 import { CTASticky } from "@/components/business/CTASticky";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
@@ -9,6 +9,7 @@ import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { computeManifestHash } from "@/lib/big5/manifest";
 import { getAllTests, getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
@@ -53,6 +54,25 @@ function firstQueryValue(value: string | string[] | undefined): string {
     return value[0] ?? "";
   }
   return value ?? "";
+}
+
+function appendQuery(path: string, query: Record<string, string | string[] | undefined>): string {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(query)) {
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        if (item !== undefined) {
+          params.append(key, String(item));
+        }
+      }
+      continue;
+    }
+    if (value !== undefined) {
+      params.append(key, String(value));
+    }
+  }
+  const queryString = params.toString();
+  return queryString ? `${path}?${queryString}` : path;
 }
 
 function parseFaq(value: unknown): FAQItem[] {
@@ -157,7 +177,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { locale: localeParam, slug } = await params;
+  const { locale: localeParam, slug: requestedSlug } = await params;
+  const slug = resolveCanonicalSlug(requestedSlug);
   const test = getTestBySlug(slug);
 
   if (!test) {
@@ -207,17 +228,22 @@ export default async function TestLandingPage({
   params: Promise<{ locale: string; slug: string }>;
   searchParams: Promise<{ maintenance?: string | string[] }>;
 }) {
-  const { locale: localeParam, slug } = await params;
+  const { locale: localeParam, slug: requestedSlug } = await params;
   const query = await searchParams;
+
+  const locale = resolveLocale(localeParam);
+  const slug = resolveCanonicalSlug(requestedSlug);
+  const withLocale = (path: string) => localizedPath(path, locale);
+  if (slug !== requestedSlug) {
+    permanentRedirect(appendQuery(withLocale(`/tests/${slug}`), query));
+  }
+
   const test = getTestBySlug(slug);
   if (!test) return notFound();
 
-  const locale = resolveLocale(localeParam);
   const dict = getDictSync(locale);
   const lookup = await fetchLookup(slug, locale);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
-
-  const withLocale = (path: string) => localizedPath(path, locale);
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
   const reportNode = toRecord(toRecord(lookup?.report_summary_i18n_json)[locale]);
   const anonId = await resolveRequestAnonId();

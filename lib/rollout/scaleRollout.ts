@@ -1,3 +1,5 @@
+import { normalizeSupportedScaleCode, type SupportedScaleCode } from "@/lib/assessmentSlugMap";
+
 type RolloutPaywallMode = "off" | "free_only" | "full";
 
 type ScaleRolloutEnvConfig = {
@@ -25,9 +27,18 @@ const SCALE_ROLLOUT_ENV: Record<SupportedScaleCode, ScaleRolloutEnvConfig> = {
     percentEnv: "ROLLOUT_PERCENT_CLINICAL_COMBO_68",
     commerceEnv: "ENABLE_CLINICAL_COMBO_68_COMMERCE",
   },
+  IQ_RAVEN: {
+    enabledEnv: "ENABLE_IQ_RAVEN",
+    percentEnv: "ROLLOUT_PERCENT_IQ_RAVEN",
+    commerceEnv: "ENABLE_IQ_RAVEN_COMMERCE",
+  },
+  EQ_60: {
+    enabledEnv: "ENABLE_EQ_60",
+    percentEnv: "ROLLOUT_PERCENT_EQ_60",
+    commerceEnv: "ENABLE_EQ_60_COMMERCE",
+  },
 };
-
-export type SupportedScaleCode = "MBTI" | "BIG5_OCEAN" | "SDS_20" | "CLINICAL_COMBO_68";
+export type { SupportedScaleCode } from "@/lib/assessmentSlugMap";
 
 export type ScaleRolloutEnvSnapshot = Record<
   SupportedScaleCode,
@@ -76,16 +87,7 @@ function parsePercent(value: unknown, fallback = 100): number {
 }
 
 function normalizeScaleCode(scaleCode: string | null | undefined): SupportedScaleCode | null {
-  const normalized = String(scaleCode ?? "").trim().toUpperCase();
-  if (
-    normalized === "MBTI"
-    || normalized === "BIG5_OCEAN"
-    || normalized === "SDS_20"
-    || normalized === "CLINICAL_COMBO_68"
-  ) {
-    return normalized;
-  }
-  return null;
+  return normalizeSupportedScaleCode(scaleCode);
 }
 
 function resolveBackendEnabled(capabilities: Record<string, unknown> | null | undefined): boolean {
@@ -200,4 +202,3 @@ export function resolveScaleRollout({
     reasons,
   };
 }
-

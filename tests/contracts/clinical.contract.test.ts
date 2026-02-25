@@ -29,7 +29,7 @@ describe("Clinical contract schemas", () => {
           text: "Consent text",
         },
         disclaimer: {
-          version: "SDS20_DISC_v1",
+          version: "SDS20_DISCLAIMER_v1",
           hash: "hash_sds20",
           text: "Disclaimer text",
         },

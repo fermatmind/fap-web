@@ -960,7 +960,14 @@ export default function ClinicalReportClient({
         <Button type="button" variant="outline" onClick={handleReload}>
           {isZh ? "刷新报告" : "Refresh report"}
         </Button>
-        <Link href={withLocale(`/tests/${scaleCode === "SDS_20" ? "sds-20" : "clinical-combo-68"}`)} className="text-sm font-medium text-slate-600 underline">
+        <Link
+          href={withLocale(
+            `/tests/${scaleCode === "SDS_20"
+              ? "depression-screening-test-standard-edition"
+              : "clinical-depression-anxiety-assessment-professional-edition"}`
+          )}
+          className="text-sm font-medium text-slate-600 underline"
+        >
           {isZh ? "返回测评详情" : "Back to test details"}
         </Link>
       </div>

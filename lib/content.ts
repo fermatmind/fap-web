@@ -1,4 +1,5 @@
 import { blog, tests, types } from "../.velite";
+import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type Test = (typeof tests)[number];
@@ -68,7 +69,8 @@ export function resolveTestTitleByLocale(
 }
 
 export function getTestBySlug(slug: string): Test | null {
-  return tests.find((test) => test.slug === slug) ?? null;
+  const normalizedSlug = resolveCanonicalSlug(slug);
+  return tests.find((test) => test.slug === normalizedSlug) ?? null;
 }
 
 export function listTypes(): TestType[] {

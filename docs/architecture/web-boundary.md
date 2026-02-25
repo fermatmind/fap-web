@@ -2,7 +2,7 @@
 
 ## fap-web（Web）
 负责所有“可收录/可展示”的页面与 SEO 基建：
-- 路由与页面：/test/*、白皮书、帮助中心、隐私页等
+- 路由与页面：/tests/*（canonical）、legacy /test/* 与 /quiz/* 兼容入口、白皮书、帮助中心、隐私页等
 - SSR/SSG：输出可抓取的 HTML（View Source 可见）
 - SEO：meta、canonical、robots、OG/Twitter、结构化数据、sitemap、A/B
 - 内容展示：把内容渲染成页面（可从本地文件、CMS、或后端读取，但渲染在 Web）
