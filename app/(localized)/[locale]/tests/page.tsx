@@ -94,7 +94,7 @@ export default async function TestsPage({
       </section>
 
       <section data-testid="tests-list-grid-section">
-        <Container className="py-[var(--fm-space-10)]">
+        <Container className="max-w-[76rem] py-[var(--fm-space-10)]">
           <div className="grid gap-[var(--fm-space-5)] md:grid-cols-2 xl:grid-cols-3">
             {tests.map((test) => (
               <TestCard
@@ -111,7 +111,6 @@ export default async function TestsPage({
                 cardTone={test.card_tone}
                 cardSeed={test.card_seed}
                 cardDensity={test.card_density}
-                cardTaglineI18n={test.card_tagline_i18n}
                 highlightRating={test.highlight_rating}
               />
             ))}

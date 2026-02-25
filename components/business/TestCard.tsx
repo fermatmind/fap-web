@@ -22,25 +22,8 @@ type TestCardProps = {
   cardTone?: string;
   cardSeed?: string;
   cardDensity?: string;
-  cardTaglineI18n?: Record<string, string>;
   highlightRating?: number;
 };
-
-function resolveTagline(
-  locale: Locale,
-  source: Record<string, string> | undefined,
-  fallback: string
-): string {
-  if (!source) return fallback;
-
-  const direct = source[locale];
-  if (typeof direct === "string" && direct.trim().length > 0) return direct.trim();
-
-  const normalized = locale === "zh" ? source["zh-CN"] : source.en;
-  if (typeof normalized === "string" && normalized.trim().length > 0) return normalized.trim();
-
-  return fallback;
-}
 
 export function TestCard({
   slug,
@@ -55,7 +38,6 @@ export function TestCard({
   cardTone,
   cardSeed,
   cardDensity,
-  cardTaglineI18n,
   highlightRating = 5,
 }: TestCardProps) {
   const dict = getDictSync(locale);
@@ -70,7 +52,6 @@ export function TestCard({
   });
 
   const isCompact = cardSpec.density === "compact";
-  const tagline = resolveTagline(locale, cardTaglineI18n, scaleCode ?? cardSpec.visual);
   const stars = Math.max(0, Math.min(5, Math.round(highlightRating)));
   const titleDisplay = formatCardTitleForUi({
     title,
@@ -101,23 +82,23 @@ export function TestCard({
       </div>
 
       <CardHeader className="space-y-[var(--fm-gap-sm)]">
-        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-          {tagline}
-        </p>
         <CardTitle
           title={titleDisplay.plain}
-          className="font-sans text-[1.08rem] font-semibold leading-[1.2] tracking-tight group-hover/card:text-[var(--fm-accent)] md:text-[1.14rem]"
+          className="min-h-[2.9rem] w-full font-sans text-[0.98rem] font-semibold leading-[1.2] tracking-tight group-hover/card:text-[var(--fm-accent)] md:text-[1.05rem] lg:text-[1.1rem]"
         >
           {titleDisplay.multilineFallback ? (
-            <span className="inline-flex flex-col break-words">
-              <span>{titleDisplay.line1}</span>
-              <span className="mt-1">{titleDisplay.line2}</span>
+            <span className="inline-flex w-full flex-col">
+              <span className="whitespace-nowrap">{titleDisplay.line1}</span>
+              <span className="mt-1 whitespace-nowrap">{titleDisplay.line2}</span>
             </span>
           ) : (
-            <span className="block overflow-hidden text-ellipsis whitespace-nowrap">{titleDisplay.line1}</span>
+            <span className="inline-flex w-full flex-col">
+              <span className="whitespace-nowrap">{titleDisplay.line1}</span>
+              <span aria-hidden className="mt-1 select-none text-transparent">&nbsp;</span>
+            </span>
           )}
         </CardTitle>
-        <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
+        <div data-testid="tests-grid-card-rating" className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
           {Array.from({ length: 5 }, (_, idx) => (
             <span key={`star-${idx}`} className={idx < stars ? "opacity-100" : "opacity-35"}>★</span>
           ))}

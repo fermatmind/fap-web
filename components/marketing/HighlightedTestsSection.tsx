@@ -26,7 +26,11 @@ export type HomeHighlightedCard =
 function renderStars(rating: number) {
   const rounded = Math.max(0, Math.min(5, Math.round(rating)));
   return (
-    <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-label={`rating-${rounded}`}>
+    <div
+      data-testid="highlighted-card-rating"
+      className="flex items-center gap-1 text-[var(--fm-gold)]"
+      aria-label={`rating-${rounded}`}
+    >
       {Array.from({ length: 5 }, (_, idx) => (
         <span key={idx} aria-hidden className={idx < rounded ? "opacity-100" : "opacity-35"}>
           ★
@@ -53,7 +57,7 @@ export function HighlightedTestsSection({
       className="fm-section-highlighted relative py-[var(--fm-section-y-lg)] text-[var(--fm-text)]"
     >
       <Container className="relative z-10">
-        <div className="fm-highlighted-panel mx-auto max-w-5xl px-[var(--fm-space-4)] pb-[var(--fm-space-8)] pt-[var(--fm-space-10)] md:px-[var(--fm-space-7)] md:pb-[var(--fm-space-10)] md:pt-[var(--fm-space-12)]">
+        <div className="fm-highlighted-panel mx-auto max-w-[76rem] px-[var(--fm-space-4)] pb-[var(--fm-space-8)] pt-[var(--fm-space-10)] md:px-[var(--fm-space-7)] md:pb-[var(--fm-space-10)] md:pt-[var(--fm-space-12)]">
           <div className="relative z-10 mx-auto max-w-3xl space-y-[var(--fm-gap-sm)] text-center">
             <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-trust-blue-strong)]">
               {dict.home.highlighted.title}
@@ -61,7 +65,7 @@ export function HighlightedTestsSection({
             <p className="m-0 text-[var(--fm-text-muted)]">{dict.home.highlighted.subtitle}</p>
           </div>
 
-          <div className="relative z-10 mt-[var(--fm-space-8)] grid gap-[var(--fm-space-6)] md:grid-cols-2 lg:grid-cols-3">
+          <div className="relative z-10 mt-[var(--fm-space-8)] grid gap-[var(--fm-space-5)] md:grid-cols-2 lg:grid-cols-3">
             {cards.map((card) => {
               if (card.kind === "live") {
                 const titleDisplay = formatCardTitleForUi({
@@ -79,15 +83,18 @@ export function HighlightedTestsSection({
                       <Link
                         href={withLocale(`/tests/${card.slug}`)}
                         title={titleDisplay.plain}
-                        className="w-full font-sans text-[1.22rem] font-semibold leading-[1.2] tracking-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)] md:text-[1.27rem]"
+                        className="w-full min-h-[3rem] font-sans text-[1.02rem] font-semibold leading-[1.2] tracking-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)] md:text-[1.08rem] lg:text-[1.12rem]"
                       >
                         {titleDisplay.multilineFallback ? (
-                          <span className="inline-flex flex-col break-words">
-                            <span>{titleDisplay.line1}</span>
-                            <span className="mt-1">{titleDisplay.line2}</span>
+                          <span className="inline-flex w-full flex-col">
+                            <span className="whitespace-nowrap">{titleDisplay.line1}</span>
+                            <span className="mt-1 whitespace-nowrap">{titleDisplay.line2}</span>
                           </span>
                         ) : (
-                          <span className="block overflow-hidden text-ellipsis whitespace-nowrap">{titleDisplay.line1}</span>
+                          <span className="inline-flex w-full flex-col">
+                            <span className="whitespace-nowrap">{titleDisplay.line1}</span>
+                            <span aria-hidden className="mt-1 select-none text-transparent">&nbsp;</span>
+                          </span>
                         )}
                       </Link>
                       {renderStars(card.rating)}

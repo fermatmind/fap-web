@@ -81,6 +81,55 @@ describe("card title display helper contract", () => {
     });
   });
 
+  it("uses EN multiline fallback for home and tests grid cards when title exceeds 36 chars", () => {
+    const home = formatCardTitleForUi({
+      title: "Clinical Depression & Anxiety Assessment (Professional Edition)",
+      slug: "clinical-depression-anxiety-assessment-professional-edition",
+      locale: "en",
+      surface: "home_highlighted",
+    });
+    const grid = formatCardTitleForUi({
+      title: "Clinical Depression & Anxiety Assessment (Professional Edition)",
+      slug: "clinical-depression-anxiety-assessment-professional-edition",
+      locale: "en",
+      surface: "tests_grid_card",
+    });
+
+    expect(home.multilineFallback).toBe(true);
+    expect(home.line2).toBe("【Professional Edition】");
+    expect(grid.multilineFallback).toBe(true);
+    expect(grid.line2).toBe("【Professional Edition】");
+  });
+
+  it("keeps detail hero single-line when EN title does not exceed 68 chars", () => {
+    const out = formatCardTitleForUi({
+      title: "Clinical Depression & Anxiety Assessment (Professional Edition)",
+      slug: "clinical-depression-anxiety-assessment-professional-edition",
+      locale: "en",
+      surface: "tests_detail_hero",
+    });
+
+    expect(out).toEqual({
+      plain: "Clinical Depression & Anxiety Assessment 【Professional Edition】",
+      line1: "Clinical Depression & Anxiety Assessment 【Professional Edition】",
+      line2: "",
+      multilineFallback: false,
+    });
+  });
+
+  it("uses EN multiline fallback for detail hero when title exceeds 68 chars", () => {
+    const out = formatCardTitleForUi({
+      title: "Clinical Depression & Anxiety Assessment and Recovery Guidance Overview (Professional Edition)",
+      slug: "clinical-depression-anxiety-assessment-professional-edition",
+      locale: "en",
+      surface: "tests_detail_hero",
+    });
+
+    expect(out.multilineFallback).toBe(true);
+    expect(out.line1).toBe("Clinical Depression & Anxiety Assessment and Recovery Guidance Overview");
+    expect(out.line2).toBe("【Professional Edition】");
+  });
+
   it("does not replace 16型人格测试 for non-MBTI slugs", () => {
     const out = formatCardTitleForUi({
       title: "MBTI 性格测试（16型人格测试）",
