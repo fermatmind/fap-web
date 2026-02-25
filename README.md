@@ -69,6 +69,7 @@ Visual snapshot policy:
 - Do not commit `*-darwin.png` files.
 - Any intentional UI change must include updated Linux visual snapshots in the same PR.
 - Do not update a single visual spec in isolation; always run full `tests/e2e/visual`.
+- Visual runner ignores local `.env.local` / `.env.production.local` by default to match CI. Use `VISUAL_USE_LOCAL_ENV=1` only when explicitly needed.
 
 Release operation details and rollback thresholds are documented in:
 
