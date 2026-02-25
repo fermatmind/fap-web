@@ -7,6 +7,7 @@ import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { canonicalUrl } from "@/lib/site";
+import { formatTestTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 export async function generateMetadata({
   params,
@@ -51,15 +52,28 @@ export default async function TestsPage({
             <h1 className="m-0 font-serif text-4xl font-semibold tracking-tight text-[var(--fm-text)]">{dict.tests.title}</h1>
           </div>
           <div className="flex flex-wrap gap-3">
-            {topTests.map((item) => (
-              <Link
-                key={item.slug}
-                href={withLocale(`/tests/${item.slug}/take`)}
-                className={buttonVariants({ variant: "outline", size: "sm" })}
-              >
-                {resolveTestTitleByLocale(item, locale)}
-              </Link>
-            ))}
+            {topTests.map((item) => {
+              const localizedTitle = resolveTestTitleByLocale(item, locale);
+              const titleDisplay = formatTestTitleForUi(localizedTitle);
+
+              return (
+                <Link
+                  key={item.slug}
+                  href={withLocale(`/tests/${item.slug}/take`)}
+                  title={titleDisplay.plain}
+                  className={buttonVariants({
+                    variant: "outline",
+                    size: "sm",
+                    className: "h-auto min-h-[44px] px-4 py-2 text-center whitespace-normal leading-tight",
+                  })}
+                >
+                  <span className="inline-flex flex-col items-center">
+                    <span>{titleDisplay.line1}</span>
+                    <span className="mt-0.5">{titleDisplay.line2}</span>
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </Container>
       </section>
