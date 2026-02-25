@@ -14,10 +14,12 @@ export function SiteFooter() {
   const socialItems = ["FB", "X", "YT", "IG", "IN"];
 
   const testLinks = [
-    { href: "/tests/personality-mbti-test", label: "MBTI" },
-    { href: "/tests/big-five-personality-test", label: "Big Five" },
-    { href: "/tests/disc-personality-test", label: "DISC" },
-    { href: "/tests/sds-20", label: "SDS-20" },
+    { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
+    { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five" },
+    { href: "/tests/clinical-depression-anxiety-assessment-professional-edition", label: "Clinical Combo" },
+    { href: "/tests/depression-screening-test-standard-edition", label: "SDS-20" },
+    { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ" },
+    { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ" },
   ];
 
   const articleLinks = [
@@ -95,7 +97,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="m-0 text-center text-xs text-slate-400">
+        <p data-visual-volatile="true" className="m-0 text-center text-xs text-slate-400">
           © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
         </p>
       </Container>

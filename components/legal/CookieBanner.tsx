@@ -21,7 +21,10 @@ export function CookieBanner() {
   if (consent !== "unknown") return null;
 
   return (
-    <div className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(920px,calc(100%-2rem))] rounded-2xl border border-slate-300 bg-white p-4 shadow-lg">
+    <div
+      data-visual-volatile="true"
+      className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(920px,calc(100%-2rem))] rounded-2xl border border-slate-300 bg-white p-4 shadow-lg"
+    >
       <p className="m-0 text-sm text-slate-700">{dict.cookie.message}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         <Button type="button" size="sm" onClick={() => updateConsent("granted")}>

@@ -15,7 +15,10 @@
     "test:contract": "vitest run tests/contracts",
     "test:a11y": "vitest run tests/a11y",
     "test:e2e": "playwright test",
-    "test:e2e:visual": "playwright test tests/e2e/visual --workers=1",
+    "test:e2e:visual": "NEXT_PUBLIC_E2E_VISUAL_MODE=1 playwright test tests/e2e/visual --config=playwright.visual.config.ts --workers=1",
+    "test:e2e:visual:ci": "NEXT_PUBLIC_E2E_VISUAL_MODE=1 playwright test tests/e2e/visual --config=playwright.visual.config.ts --workers=1",
+    "test:e2e:visual:update": "NEXT_PUBLIC_E2E_VISUAL_MODE=1 playwright test tests/e2e/visual --config=playwright.visual.config.ts --workers=1 --update-snapshots",
+    "test:e2e:visual:update:linux": "bash scripts/visual/update_linux_snapshots.sh",
     "release:gate": "bash scripts/release_gate.sh",
     "postbuild": "next-sitemap && dotenv -e .env.production.local -- node scripts/upload-next-static-to-cos.mjs"
   },

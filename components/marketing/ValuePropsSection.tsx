@@ -44,7 +44,7 @@ const ICONS = [ReliableIcon, PrivacyIcon, CommunityIcon] as const;
 
 export function ValuePropsSection({ dict }: { dict: SiteDictionary }) {
   return (
-    <section className="relative z-20 -mt-12 md:-mt-16">
+    <section data-testid="home-value-props-section" className="relative z-20 -mt-12 md:-mt-16">
       <Container>
         <h2 className="sr-only">{dict.home.valueProps.title}</h2>
         <div className="grid gap-4 md:grid-cols-3 md:gap-5">

@@ -17,11 +17,13 @@
 4. `pnpm test:a11y`
 5. `pnpm test:e2e tests/e2e/home-visual.spec.ts tests/e2e/tests-list.spec.ts tests/e2e/test-detail.spec.ts tests/e2e/result-loading.spec.ts`
 6. `pnpm test:e2e tests/e2e/sds-flow.spec.ts tests/e2e/clinical-combo-flow.spec.ts tests/e2e/big5-flow.spec.ts tests/e2e/big5-negative.spec.ts`
-7. `pnpm test:e2e:visual`
-8. `pnpm build`
+7. `pnpm build`
+8. `pnpm test:e2e:visual:ci`
 
 Notes:
-- `test:e2e:visual` is intentionally serialized (`--workers=1`) to avoid Next.js dev first-compile jitter under parallel visual workers.
+- Visual E2E runs against production runtime (`next start`) using `playwright.visual.config.ts`.
+- Linux visual baselines are the single source of truth. Do not commit `*-darwin.png` snapshots.
+- Use `pnpm test:e2e:visual:update:linux` before opening PRs that intentionally change visuals.
 
 ## Release Gates
 - CLS target: `<= 0.05` for home/tests/detail/take/result.
@@ -33,6 +35,7 @@ Notes:
 - Crisis overlay uses care-first palette/copy (no panic-red dominant surface).
 - Visual snapshot gate must pass on CI for `/en`, `/en/tests`, `/en/tests/big-five-personality-test`, `/en/help`.
 - Home highlighted section keeps `4 live + 2 coming soon` card ratio.
+- PRs with intentional UI changes must include updated Linux visual snapshots.
 
 ## Post-Deploy 24h Checks
 1. Core funnel:

@@ -71,7 +71,7 @@ export function HighlightedTestsSection({
   const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
-    <section className="fm-section-highlighted relative py-20 text-[var(--fm-text)]">
+    <section data-testid="home-highlighted-tests-section" className="fm-section-highlighted relative py-20 text-[var(--fm-text)]">
       <Container className="relative z-10 space-y-10">
         <div className="mx-auto max-w-3xl space-y-3 text-center">
           <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-trust-blue-strong)]">

@@ -10,7 +10,7 @@ export function SocialProofSection({ dict, locale }: { dict: SiteDictionary; loc
   const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
-    <section className="fm-section-muted py-20">
+    <section data-testid="home-social-proof-section" className="fm-section-muted py-20">
       <Container className="space-y-8">
         <div className="space-y-2 text-center">
           <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{dict.home.socialProof.title}</h2>
