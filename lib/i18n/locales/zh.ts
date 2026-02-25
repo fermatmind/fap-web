@@ -79,7 +79,7 @@ const zh: SiteDictionary = {
       bars_ocean: "代表 OCEAN 五维高低起伏的柱状图。",
       wave_clinical: "表达多维临床趋势变化的波形图。",
       grid_nine: "代表九型结构关系的九宫格矩阵。",
-      ring_four: "代表 DISC 四象限行为模式的环形图。",
+      ring_four: "代表四象限行为维度模式的环形图。",
       spark_minimal: "代表结构化测评分析的极简数据火花图。",
     },
     a11yVisualFallback: "结构化测评视觉图形。",

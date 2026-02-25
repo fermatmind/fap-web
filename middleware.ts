@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { stripLocalePrefix } from "@/lib/i18n/locales";
+import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
@@ -42,6 +43,17 @@ export function middleware(request: NextRequest) {
 
   if (isStaticAsset(pathname)) {
     return NextResponse.next();
+  }
+
+  if (resolveLegacyPathMode() === "gone" && isLegacyPath(strippedPath)) {
+    const response = new NextResponse("Gone", {
+      status: 410,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+      },
+    });
+    response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
+    return response;
   }
 
   const requestHeaders = new Headers(request.headers);

@@ -48,7 +48,7 @@
 |---|---|---:|---|
 | `schema_version` | string | ✅ | 固定：`share-template/v1` |
 | `template_id` | string | ✅ | 全局唯一（建议：`mbti.wechat_default.v1`） |
-| `scale_slug` | string | ✅ | 对应落地页 slug（如：`personality-mbti-test`） |
+| `scale_slug` | string | ✅ | 对应 canonical 落地页 slug（如：`mbti-personality-test-16-personality-types`） |
 | `distribution_channel` | string | ✅ | `wechat` / `baidu` / `google` / `generic` |
 | `sync_to_meta` | boolean | ✅ | 语义对齐开关（见 3.1） |
 | `title` | string | ✅ | 分享标题（给人看） |

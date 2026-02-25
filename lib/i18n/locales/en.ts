@@ -80,7 +80,7 @@ const en: SiteDictionary = {
       bars_ocean: "Five rising bars representing OCEAN personality traits.",
       wave_clinical: "Clinical trend wave lines expressing multidomain variation.",
       grid_nine: "Nine-node matrix representing Enneagram structure.",
-      ring_four: "Four-segment ring representing DISC behavior quadrants.",
+      ring_four: "Four-segment ring representing a four-domain behavior pattern.",
       spark_minimal: "Minimal data spark visual expressing structured assessment analytics.",
     },
     a11yVisualFallback: "Structured assessment visual chart.",
