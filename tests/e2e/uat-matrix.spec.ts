@@ -60,24 +60,27 @@ async function mockBig5BaseFlow({
   await mockTrack(page);
   await mockBig5Lookup(page, "full");
 
-  await page.route("**/api/v0.3/scales/BIG5_OCEAN/questions*", async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        scale_code: "BIG5_OCEAN",
-        questions: {
-          items: buildBig5Questions(questionCount),
-        },
-        meta: {
-          disclaimer_version: "BIG5_OCEAN_v1",
-          disclaimer_hash: "hash_v1",
-          disclaimer_text: "This test is for self-discovery only.",
-        },
-      }),
+  const payload = {
+    ok: true,
+    scale_code: "BIG5_OCEAN",
+    questions: {
+      items: buildBig5Questions(questionCount),
+    },
+    meta: {
+      disclaimer_version: "BIG5_OCEAN_v1",
+      disclaimer_hash: "hash_v1",
+      disclaimer_text: "This test is for self-discovery only.",
+    },
+  };
+  for (const scaleCode of ["BIG5_OCEAN", "BIG_FIVE_OCEAN_MODEL"]) {
+    await page.route(`**/api/v0.3/scales/${scaleCode}/questions*`, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(payload),
+      });
     });
-  });
+  }
 
   await page.route("**/api/v0.3/attempts/start", async (route) => {
     await route.fulfill({

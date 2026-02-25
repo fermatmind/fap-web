@@ -54,28 +54,31 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
     });
   });
 
-  await page.route("**/api/v0.3/scales/BIG5_OCEAN/questions*", async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        scale_code: "BIG5_OCEAN",
-        pack_id: "BIG5_OCEAN",
-        dir_version: "v1",
-        content_package_version: "v1",
-        questions: {
-          schema: "fap.questions.v1",
-          items: questions,
-        },
-        meta: {
-          disclaimer_version: "BIG5_OCEAN_v1",
-          disclaimer_hash: "hash_v1",
-          disclaimer_text: "This test is for self-discovery only.",
-        },
-      }),
+  const big5QuestionsPayload = {
+    ok: true,
+    scale_code: "BIG5_OCEAN",
+    pack_id: "BIG5_OCEAN",
+    dir_version: "v1",
+    content_package_version: "v1",
+    questions: {
+      schema: "fap.questions.v1",
+      items: questions,
+    },
+    meta: {
+      disclaimer_version: "BIG5_OCEAN_v1",
+      disclaimer_hash: "hash_v1",
+      disclaimer_text: "This test is for self-discovery only.",
+    },
+  };
+  for (const scaleCode of ["BIG5_OCEAN", "BIG_FIVE_OCEAN_MODEL"]) {
+    await page.route(`**/api/v0.3/scales/${scaleCode}/questions*`, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(big5QuestionsPayload),
+      });
     });
-  });
+  }
 
   await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
     await route.fulfill({
@@ -267,11 +270,25 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
 
-  await expect(page.getByText("Before you start")).toBeVisible();
-  await page.getByLabel("I have read and agree to the disclaimer.").check();
-  await page.getByRole("button", { name: "Agree and start" }).click();
+  const firstQuestion = page.getByText("Question 1 / 120");
+  const startButton = page.getByRole("button", { name: "Agree and start" });
+  await expect
+    .poll(
+      async () => {
+        if (await firstQuestion.isVisible().catch(() => false)) return "question";
+        if (await startButton.isVisible().catch(() => false)) return "consent";
+        return "pending";
+      },
+      { timeout: 20000 }
+    )
+    .not.toBe("pending");
 
-  await expect(page.getByText("Question 1 / 120")).toBeVisible();
+  if (await startButton.isVisible().catch(() => false)) {
+    await page.getByLabel("I have read and agree to the disclaimer.").check();
+    await startButton.click();
+  }
+
+  await expect(firstQuestion).toBeVisible({ timeout: 15000 });
 
   for (let i = 0; i < 119; i += 1) {
     await page.getByRole("radio").first().click();

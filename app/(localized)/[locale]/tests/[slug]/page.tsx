@@ -11,7 +11,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { computeManifestHash } from "@/lib/big5/manifest";
-import { getAllTests, getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
+import {
+  getAllTests,
+  getTestBySlug,
+  listRelatedBlogPosts,
+  resolveTestTitleByLocale,
+} from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -303,6 +308,7 @@ export default async function TestLandingPage({
     locale,
     surface: "tests_detail_hero",
   });
+  const relatedPosts = listRelatedBlogPosts(test.slug);
 
   return (
     <Container as="main" className="pb-[var(--fm-space-30)] pt-12 lg:pb-12">
@@ -410,6 +416,38 @@ export default async function TestLandingPage({
                   ? "4. 免费版包含摘要与核心维度；完整版解锁刻面表、深度解读与行动建议。"
                   : "4. Free includes summary + core domains; full unlocks facet table, deep dive, and action plan."}
               </p>
+            </CardContent>
+          </Card>
+
+          <Card data-testid="tests-related-articles-section">
+            <CardHeader>
+              <CardTitle>{dict.tests.relatedArticles.title}</CardTitle>
+              <p className="m-0 text-sm text-slate-600">{dict.tests.relatedArticles.subtitle}</p>
+            </CardHeader>
+            <CardContent>
+              {relatedPosts.length === 0 ? (
+                <p className="m-0 text-sm text-slate-600">{dict.tests.relatedArticles.empty}</p>
+              ) : (
+                <ul className="space-y-3">
+                  {relatedPosts.map((post) => (
+                    <li key={post.slug} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4">
+                      <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                        {dict.articles.voiceLabels[post.voice]}
+                      </p>
+                      <h3 className="mt-2 text-lg font-semibold text-slate-900">
+                        <Link
+                          href={withLocale(`/articles/${post.slug}`)}
+                          data-testid={`tests-related-article-${post.slug}`}
+                          className="hover:text-[var(--fm-accent)]"
+                        >
+                          {post.title}
+                        </Link>
+                      </h3>
+                      <p className="mt-1 text-sm text-slate-600">{post.summary}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </CardContent>
           </Card>
 

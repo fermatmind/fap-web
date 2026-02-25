@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 const visualSnapshotTemplate =
   "{testDir}/{testFilePath}-snapshots/{arg}-{projectName}-linux{ext}";
+const reuseExistingServer = process.env.PLAYWRIGHT_REUSE_SERVER === "1";
 
 export default defineConfig({
   testDir: "./tests/e2e/visual",
@@ -27,7 +28,7 @@ export default defineConfig({
   webServer: {
     command: "HOST=127.0.0.1 PORT=3000 node .next/standalone/server.js",
     url: "http://127.0.0.1:3000",
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer,
     timeout: 180000,
   },
   projects: [

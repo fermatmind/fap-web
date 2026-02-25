@@ -20,6 +20,25 @@ const en: SiteDictionary = {
   tests: {
     title: "Tests",
     subtitle: "Pick a test to view details and start assessment.",
+    relatedArticles: {
+      title: "Related articles",
+      subtitle: "Tool explainers, growth guidance, and narrative portraits for this assessment.",
+      empty: "No related articles are configured for this test yet.",
+    },
+  },
+  articles: {
+    kicker: "Insights",
+    title: "Articles",
+    subtitle: "Tool explainers, growth guidance, and narrative portraits grouped by assessment.",
+    readArticle: "Read article",
+    backToArticles: "Back to articles",
+    updatedLabel: "Updated",
+    groupedByTestTitle: "Grouped by test",
+    voiceLabels: {
+      tool: "Tool guide",
+      growth: "Growth guide",
+      narrative: "Narrative portrait",
+    },
   },
   home: {
     hero: {
