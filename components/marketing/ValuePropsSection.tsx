@@ -61,8 +61,8 @@ export function ValuePropsSection({ dict }: { dict: SiteDictionary }) {
                 key={item.title}
                 className="h-full border-[var(--fm-border)] bg-white/95 shadow-[var(--fm-shadow-md)] transition hover:-translate-y-0.5 hover:shadow-[var(--fm-shadow-lg)]"
               >
-                <CardContent className="flex h-full flex-col items-center gap-4 pt-8 text-center md:pt-9">
-                  <span className="relative mx-auto mt-[6px] grid h-[4.6rem] w-[4.6rem] place-items-center rounded-full md:mt-[8px]">
+                <CardContent className="flex h-full flex-col items-center gap-4 pt-8 text-center md:pt-[var(--fm-space-10)]">
+                  <span className="relative mx-auto mt-[var(--fm-space-2)] grid h-[4.6rem] w-[4.6rem] place-items-center rounded-full">
                     <span
                       aria-hidden
                       className="absolute inset-0 rounded-full border-2 border-[#2aa3d9]/35 bg-white/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)]"

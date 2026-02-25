@@ -38,6 +38,7 @@ pnpm dev
 
 ```bash
 pnpm lint
+pnpm lint:spacing
 pnpm typecheck
 pnpm test:contract
 pnpm test:a11y
@@ -54,6 +55,12 @@ pnpm release:gate
 # Optional for local machines that keep .env.local:
 RELEASE_GATE_ALLOW_LOCAL_ENV=1 pnpm release:gate
 ```
+
+Recommended CI order for UI changes:
+
+1. `pnpm lint`
+2. `pnpm lint:spacing`
+3. `pnpm test:e2e:visual:ci`
 
 Visual snapshot policy:
 

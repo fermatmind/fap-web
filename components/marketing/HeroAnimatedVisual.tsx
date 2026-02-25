@@ -87,7 +87,10 @@ export function HeroAnimatedVisual({ chips, localeLabel, className }: HeroAnimat
 
       <div className="fm-hero-chip-stack absolute -bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col gap-2">
         {chips.slice(0, 3).map((chip, index) => (
-          <span key={`${chip}-${index}`} className="rounded-md bg-[#0f97bf] px-4 py-1.5 text-sm font-semibold text-white shadow-[var(--fm-shadow-sm)]">
+          <span
+            key={`${chip}-${index}`}
+            className="rounded-md bg-[#0f97bf] px-4 py-[var(--fm-space-2)] text-sm font-semibold text-white shadow-[var(--fm-shadow-sm)]"
+          >
             {chip}
           </span>
         ))}

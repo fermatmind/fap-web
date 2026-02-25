@@ -49,7 +49,7 @@ export async function GET(
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "56px",
+          padding: 56,
           color: "#f8fafc",
           background:
             "linear-gradient(135deg, #0f172a 0%, #1d4ed8 45%, #0ea5e9 100%)",

@@ -16,9 +16,12 @@ const variantClasses: Record<ButtonVariant, string> = {
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  default: "h-12 min-h-[48px] px-5 py-2.5 text-sm",
-  sm: "h-11 min-h-[44px] px-3.5 text-xs",
-  lg: "h-[52px] min-h-[52px] px-7 text-base",
+  default:
+    "h-12 min-h-[48px] px-[var(--fm-pad-btn-md-x)] py-[var(--fm-pad-btn-md-y)] text-sm",
+  sm:
+    "h-11 min-h-[var(--fm-touch-target-min)] px-[var(--fm-pad-btn-sm-x)] py-[var(--fm-pad-btn-sm-y)] text-xs",
+  lg:
+    "h-[52px] min-h-[52px] px-[var(--fm-pad-btn-lg-x)] py-[var(--fm-pad-btn-lg-y)] text-base",
   icon: "h-12 w-12 min-h-[48px] min-w-[48px]",
 };
 

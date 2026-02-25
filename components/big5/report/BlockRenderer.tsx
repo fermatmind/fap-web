@@ -41,7 +41,7 @@ function inferKind(block: Block, sectionKey: string): string {
 function BucketBadge({ bucket }: { bucket?: string }) {
   if (!bucket) return null;
   return (
-    <span className="inline-flex rounded-full border border-slate-300 px-2 py-0.5 text-xs uppercase tracking-wide text-slate-600">
+    <span className="inline-flex rounded-full border border-slate-300 px-[var(--fm-pad-badge-x)] py-[var(--fm-pad-badge-y)] text-xs uppercase tracking-wide text-slate-600">
       {bucket}
     </span>
   );

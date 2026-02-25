@@ -99,7 +99,7 @@ export function AdaptiveOptionGroup({
   }
 
   return (
-    <div className="space-y-2.5" role="radiogroup" aria-label={`options-${questionId}`}>
+    <div className="space-y-[var(--fm-gap-sm)]" role="radiogroup" aria-label={`options-${questionId}`}>
       {normalized.map((option, idx) => {
         const selected = value === option.code;
         return (

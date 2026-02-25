@@ -14,7 +14,7 @@ export function QuestionRenderer({
   return (
     <div className="flex flex-col gap-3">
       <h2 className="m-0 text-xl font-semibold text-slate-900">{question.title}</h2>
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-[var(--fm-gap-sm)]">
         {question.options.map((option, index) => {
           const selected = option.id === selectedOptionId;
           return (
@@ -24,7 +24,7 @@ export function QuestionRenderer({
               onClick={() => onSelect(question.id, option.id)}
               aria-pressed={selected}
               className={[
-                "flex min-h-[48px] cursor-pointer items-center gap-3 rounded-xl border px-3.5 py-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]",
+                "flex min-h-[48px] cursor-pointer items-center gap-3 rounded-xl border px-[var(--fm-pad-input-x)] py-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]",
                 selected
                   ? "border-2 border-[var(--fm-accent)] bg-[var(--fm-surface-muted)]"
                   : "border-[var(--fm-border)] bg-[var(--fm-surface)] hover:border-[var(--fm-border-strong)]",

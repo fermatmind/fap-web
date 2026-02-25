@@ -46,12 +46,15 @@ export default async function TestsPage({
 
   return (
     <main>
-      <section data-testid="tests-list-hero-section" className="fm-section-white border-b border-[var(--fm-border)] py-12">
-        <Container className="space-y-5">
-          <div className="space-y-2">
+      <section
+        data-testid="tests-list-hero-section"
+        className="fm-section-white border-b border-[var(--fm-border)] py-[var(--fm-section-y-sm)]"
+      >
+        <Container className="space-y-[var(--fm-space-5)]">
+          <div className="space-y-[var(--fm-gap-xs)]">
             <h1 className="m-0 font-serif text-4xl font-semibold tracking-tight text-[var(--fm-text)]">{dict.tests.title}</h1>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-[var(--fm-gap-sm)]">
             {topTests.map((item) => {
               const localizedTitle = resolveTestTitleByLocale(item, locale);
               const titleDisplay = formatCardTitleForUi({
@@ -69,13 +72,14 @@ export default async function TestsPage({
                   className={buttonVariants({
                     variant: "outline",
                     size: "sm",
-                    className: "h-auto min-h-[44px] px-4 py-2 text-center leading-tight",
+                    className:
+                      "h-auto min-h-[var(--fm-touch-target-min)] px-[var(--fm-pad-btn-sm-x)] py-[var(--fm-pad-btn-sm-y)] text-center leading-tight",
                   })}
                 >
                   {titleDisplay.multilineFallback ? (
                     <span className="inline-flex flex-col items-center text-[0.82rem] md:text-[0.86rem]">
                       <span>{titleDisplay.line1}</span>
-                      <span className="mt-0.5">{titleDisplay.line2}</span>
+                      <span className="mt-[var(--fm-space-1)]">{titleDisplay.line2}</span>
                     </span>
                   ) : (
                     <span className="block max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-[0.82rem] md:text-[0.86rem]">
@@ -90,8 +94,8 @@ export default async function TestsPage({
       </section>
 
       <section data-testid="tests-list-grid-section">
-        <Container className="py-10">
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <Container className="py-[var(--fm-space-10)]">
+          <div className="grid gap-[var(--fm-space-5)] md:grid-cols-2 xl:grid-cols-3">
             {tests.map((test) => (
               <TestCard
                 key={test.slug}

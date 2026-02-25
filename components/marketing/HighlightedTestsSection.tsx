@@ -48,17 +48,20 @@ export function HighlightedTestsSection({
   const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
-    <section data-testid="home-highlighted-tests-section" className="fm-section-highlighted relative py-20 text-[var(--fm-text)]">
+    <section
+      data-testid="home-highlighted-tests-section"
+      className="fm-section-highlighted relative py-[var(--fm-section-y-lg)] text-[var(--fm-text)]"
+    >
       <Container className="relative z-10">
-        <div className="fm-highlighted-panel mx-auto max-w-5xl px-4 pb-8 pt-10 md:px-7 md:pb-10 md:pt-12">
-          <div className="relative z-10 mx-auto max-w-3xl space-y-3 text-center">
+        <div className="fm-highlighted-panel mx-auto max-w-5xl px-[var(--fm-space-4)] pb-[var(--fm-space-8)] pt-[var(--fm-space-10)] md:px-[var(--fm-space-7)] md:pb-[var(--fm-space-10)] md:pt-[var(--fm-space-12)]">
+          <div className="relative z-10 mx-auto max-w-3xl space-y-[var(--fm-gap-sm)] text-center">
             <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-trust-blue-strong)]">
               {dict.home.highlighted.title}
             </h2>
             <p className="m-0 text-[var(--fm-text-muted)]">{dict.home.highlighted.subtitle}</p>
           </div>
 
-          <div className="relative z-10 mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="relative z-10 mt-[var(--fm-space-8)] grid gap-[var(--fm-space-6)] md:grid-cols-2 lg:grid-cols-3">
             {cards.map((card) => {
               if (card.kind === "live") {
                 const titleDisplay = formatCardTitleForUi({
@@ -70,7 +73,7 @@ export function HighlightedTestsSection({
                 return (
                   <article
                     key={`live-${card.slug}`}
-                    className="group flex h-full flex-col rounded-2xl border border-[#d4deec] bg-white p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[#bacce5] hover:shadow-[var(--fm-shadow-md)]"
+                    className="group flex h-full flex-col rounded-2xl border border-[#d4deec] bg-white p-[var(--fm-space-6)] text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[#bacce5] hover:shadow-[var(--fm-shadow-md)]"
                   >
                     <div className="flex min-h-[4.9rem] flex-col items-start gap-2">
                       <Link
@@ -90,16 +93,16 @@ export function HighlightedTestsSection({
                       {renderStars(card.rating)}
                     </div>
 
-                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <div className="mt-[var(--fm-space-3)] flex flex-wrap items-center gap-[var(--fm-gap-xs)]">
                       {card.scaleCode ? <Badge>{card.scaleCode}</Badge> : null}
                       {card.isClinical ? (
                         <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.clinicalBadge}</Badge>
                       ) : null}
                     </div>
 
-                    <p className="mt-4 text-sm leading-6 text-[var(--fm-text-muted)]">{card.excerpt}</p>
+                    <p className="mt-[var(--fm-space-4)] text-sm leading-6 text-[var(--fm-text-muted)]">{card.excerpt}</p>
 
-                    <div className="mt-auto pt-5">
+                    <div className="mt-auto pt-[var(--fm-space-5)]">
                       <Link
                         href={withLocale(`/tests/${card.slug}/take`)}
                         className="text-sm font-semibold text-[var(--fm-trust-blue)] transition group-hover:text-[var(--fm-trust-blue-strong)]"
@@ -114,19 +117,19 @@ export function HighlightedTestsSection({
               return (
                 <article
                   key={`coming-${card.id}`}
-                  className="relative flex h-full flex-col rounded-2xl border border-[#d8dfdc] bg-[#f8faf8] p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)]"
+                  className="relative flex h-full flex-col rounded-2xl border border-[#d8dfdc] bg-[#f8faf8] p-[var(--fm-space-6)] text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)]"
                   data-disabled="1"
                 >
-                  <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start justify-between gap-[var(--fm-gap-sm)]">
                     <h3 className="m-0 font-sans text-[1.2rem] font-semibold leading-[1.2] tracking-tight text-[var(--fm-trust-blue-strong)]">
                       {formatTestTitleForUi(card.title).plain}
                     </h3>
                     <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.comingSoonBadge}</Badge>
                   </div>
 
-                  <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{card.description}</p>
+                  <p className="mt-[var(--fm-space-3)] text-sm leading-6 text-[var(--fm-text-muted)]">{card.description}</p>
 
-                  <p className="mt-auto pt-5 text-sm font-semibold text-[var(--fm-text-muted)]">{dict.home.highlighted.comingSoonCta}</p>
+                  <p className="mt-auto pt-[var(--fm-space-5)] text-sm font-semibold text-[var(--fm-text-muted)]">{dict.home.highlighted.comingSoonCta}</p>
                 </article>
               );
             })}

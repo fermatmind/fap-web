@@ -51,7 +51,7 @@ export function SiteHeader() {
           </button>
 
           <div className="hidden min-w-0 flex-1 items-center justify-end gap-2 lg:flex">
-            <nav className="flex flex-wrap items-center justify-end gap-1.5">
+            <nav className="flex flex-wrap items-center justify-end gap-[var(--fm-gap-xs)]">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -73,7 +73,7 @@ export function SiteHeader() {
             </Link>
             <Link
               href={withLocale("/orders/lookup")}
-              className="inline-flex h-11 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-xs font-semibold text-white transition hover:bg-white/20"
+              className="inline-flex h-11 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-[var(--fm-pad-btn-sm-x)] text-xs font-semibold text-white transition hover:bg-white/20"
             >
               <UserRound className="h-4 w-4" />
               <span>{dict.header.profile}</span>
@@ -114,7 +114,7 @@ export function SiteHeader() {
               <Link
                 href={withLocale("/orders/lookup")}
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex h-11 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-xs font-semibold text-white"
+                className="inline-flex h-11 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-[var(--fm-pad-btn-sm-x)] text-xs font-semibold text-white"
               >
                 <UserRound className="h-4 w-4" />
                 {dict.header.profile}

@@ -11,6 +11,7 @@
     "build": "velite build && next build",
     "start": "next start",
     "lint": "eslint",
+    "lint:spacing": "node scripts/check-spacing-tokens.mjs",
     "typecheck": "velite build && tsc --noEmit",
     "test:contract": "vitest run tests/contracts",
     "test:a11y": "vitest run tests/a11y",

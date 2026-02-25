@@ -24,7 +24,7 @@ export function LocaleSwitcher() {
   return (
     <Link
       href={href}
-      className="inline-flex h-11 min-h-[44px] items-center justify-center rounded-full border border-white/25 bg-white/10 px-3.5 text-xs font-semibold text-white transition hover:bg-white/20"
+      className="inline-flex h-11 min-h-[44px] items-center justify-center rounded-full border border-white/25 bg-white/10 px-[var(--fm-pad-btn-sm-x)] text-xs font-semibold text-white transition hover:bg-white/20"
       aria-label={targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label}
     >
       {targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label}

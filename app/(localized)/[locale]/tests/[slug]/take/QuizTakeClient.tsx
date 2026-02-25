@@ -520,14 +520,14 @@ function QuizTakeInner({
             ) : null
           }
         >
-          <article className="space-y-5 rounded-2xl border border-[var(--fm-border-strong)] bg-white p-6 shadow-[var(--fm-shadow-md)]">
+          <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
               Question {currentIndex + 1} / {total}
             </p>
             <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
 
             {milestoneHint ? (
-              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
                 {milestoneHint}
               </div>
             ) : null}
@@ -572,7 +572,7 @@ function QuizTakeInner({
       />
 
       {milestoneHint ? (
-        <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+        <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
           {milestoneHint}
         </div>
       ) : null}
@@ -591,7 +591,7 @@ function QuizTakeInner({
 
       {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-[var(--fm-gap-sm)]">
         <Button
           type="button"
           onClick={() => prev()}

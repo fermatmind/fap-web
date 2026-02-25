@@ -13,10 +13,10 @@ export function HeroSection({ dict, locale }: { dict: SiteDictionary; locale: Lo
   return (
     <section
       data-testid="home-hero-section"
-      className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-cyan-50 to-sky-100 pb-28 pt-16 md:pb-40 md:pt-20"
+      className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-cyan-50 to-sky-100 pb-[var(--fm-space-14)] pt-[var(--fm-space-16)] md:pb-[var(--fm-space-10)] md:pt-[var(--fm-space-20)]"
     >
-      <Container className="relative z-10 grid gap-12 md:grid-cols-[1.05fr_0.95fr] md:items-center">
-        <div className="space-y-6">
+      <Container className="relative z-10 grid gap-[var(--fm-space-12)] md:grid-cols-[1.05fr_0.95fr] md:items-center">
+        <div className="space-y-[var(--fm-gap-lg)]">
           <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--fm-trust-blue)]">
             {dict.home.hero.kicker}
           </p>
@@ -24,7 +24,7 @@ export function HeroSection({ dict, locale }: { dict: SiteDictionary; locale: Lo
             {dict.home.hero.title}
           </h1>
           <p className="m-0 max-w-2xl text-lg leading-8 text-[var(--fm-text-muted)]">{dict.home.hero.subtitle}</p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-[var(--fm-gap-sm)]">
             <Link href={withLocale("/tests")} className={buttonVariants({ size: "lg" })}>
               {dict.home.hero.ctaPrimary}
             </Link>

@@ -29,7 +29,7 @@ export function QuestionCard({
   return (
     <article
       className={[
-        "rounded-2xl border bg-[var(--fm-surface)] p-5 transition duration-200",
+        "rounded-2xl border bg-[var(--fm-surface)] p-[var(--fm-space-5)] transition duration-200",
         emphasized
           ? "border-[var(--fm-border-strong)] opacity-100 shadow-[var(--fm-shadow-md)]"
           : "border-[var(--fm-border)] opacity-45 shadow-[var(--fm-shadow-sm)]",

@@ -122,7 +122,7 @@ function RingFour({ compact }: { compact: boolean }) {
     <div className="absolute inset-0 grid place-items-center">
       <div
         className={cn(
-          "rounded-full border border-[var(--fm-border-strong)] bg-white/80 p-1.5 transition-transform duration-500 motion-safe:group-hover/card:rotate-12",
+          "rounded-full border border-[var(--fm-border-strong)] bg-white/80 p-[var(--fm-space-2)] transition-transform duration-500 motion-safe:group-hover/card:rotate-12",
           sizeClass
         )}
       >
@@ -141,7 +141,7 @@ function SparkMinimal({ compact }: { compact: boolean }) {
   const bars = compact ? [24, 40, 30, 48, 34, 52, 38] : [22, 36, 28, 46, 30, 54, 34];
 
   return (
-    <div className="absolute inset-0 flex items-end gap-1.5 px-4 pb-3 pt-6">
+    <div className="absolute inset-0 flex items-end gap-[var(--fm-gap-xs)] px-4 pb-3 pt-6">
       {bars.map((height, idx) => (
         <span
           key={`spark-${idx}`}
