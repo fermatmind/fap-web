@@ -17,7 +17,12 @@ export function CardHeader({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("space-y-1.5 p-6 md:p-7", className)} {...props} />;
+  return (
+    <div
+      className={cn("space-y-[var(--fm-gap-xs)] px-[var(--fm-pad-card-x)] py-[var(--fm-pad-card-y)]", className)}
+      {...props}
+    />
+  );
 }
 
 export function CardTitle({
@@ -43,12 +48,22 @@ export function CardContent({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("p-6 pt-0 md:p-7 md:pt-0", className)} {...props} />;
+  return (
+    <div
+      className={cn("px-[var(--fm-pad-card-x)] pb-[var(--fm-pad-card-y)] pt-0", className)}
+      {...props}
+    />
+  );
 }
 
 export function CardFooter({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("flex items-center p-6 pt-0 md:p-7 md:pt-0", className)} {...props} />;
+  return (
+    <div
+      className={cn("flex items-center px-[var(--fm-pad-card-x)] pb-[var(--fm-pad-card-y)] pt-0", className)}
+      {...props}
+    />
+  );
 }

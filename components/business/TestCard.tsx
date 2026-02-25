@@ -84,8 +84,8 @@ export function TestCard({
       data-cover-available={hasCoverImage ? "1" : "0"}
       className="group/card relative flex h-full flex-col overflow-hidden border-[var(--fm-border)] bg-[var(--fm-surface)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--fm-shadow-lg)]"
     >
-      <div className="p-5 pb-0">
-        <div className="mb-4 flex items-center justify-between gap-2">
+      <div className="p-[var(--fm-space-5)] pb-0">
+        <div className="mb-[var(--fm-space-4)] flex items-center justify-between gap-[var(--fm-gap-xs)]">
           <Badge>{questions} {dict.common.questions_unit}</Badge>
           <Badge>{timeMinutes} {dict.common.minutes_unit}</Badge>
         </div>
@@ -100,7 +100,7 @@ export function TestCard({
         />
       </div>
 
-      <CardHeader className="space-y-3">
+      <CardHeader className="space-y-[var(--fm-gap-sm)]">
         <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
           {tagline}
         </p>
@@ -129,7 +129,7 @@ export function TestCard({
         {isCompact ? <p className="m-0 text-xs text-[var(--fm-text-muted)]">{dict.card.compactLabel}</p> : null}
       </CardContent>
 
-      <CardFooter className="gap-2">
+      <CardFooter className="gap-[var(--fm-gap-xs)]">
         <Link href={localizedPath(`/tests/${slug}/take`, locale)} className={buttonVariants({ size: "sm" })}>
           {dict.common.start}
         </Link>

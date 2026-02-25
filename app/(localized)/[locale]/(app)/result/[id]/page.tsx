@@ -23,8 +23,8 @@ export default async function ResultPage({
   const rolloutEnv = createScaleRolloutEnvSnapshot();
 
   return (
-    <Container as="main" className="w-full max-w-4xl py-10">
-      <h1 className="mb-4 mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
+    <Container as="main" className="w-full max-w-4xl py-[var(--fm-space-10)]">
+      <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
       <ResultClient attemptId={id} rolloutEnv={rolloutEnv} />
     </Container>
   );

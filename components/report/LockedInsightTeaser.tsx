@@ -54,13 +54,13 @@ function PersonalityChartPreview() {
       </div>
 
       <div className="grid grid-cols-3 gap-2">
-        <div className="rounded-md border border-slate-200 bg-white px-2 py-1.5">
+        <div className="rounded-md border border-slate-200 bg-white px-2 py-[var(--fm-space-2)]">
           <div className="h-1.5 rounded-full bg-slate-300" />
         </div>
-        <div className="rounded-md border border-slate-200 bg-white px-2 py-1.5">
+        <div className="rounded-md border border-slate-200 bg-white px-2 py-[var(--fm-space-2)]">
           <div className="h-1.5 w-3/4 rounded-full bg-slate-300" />
         </div>
-        <div className="rounded-md border border-slate-200 bg-white px-2 py-1.5">
+        <div className="rounded-md border border-slate-200 bg-white px-2 py-[var(--fm-space-2)]">
           <div className="h-1.5 w-2/3 rounded-full bg-slate-300" />
         </div>
       </div>
@@ -70,7 +70,7 @@ function PersonalityChartPreview() {
 
 function ClinicalChartPreview() {
   return (
-    <div className="space-y-2.5" aria-hidden>
+    <div className="space-y-[var(--fm-gap-sm)]" aria-hidden>
       <div className="rounded-lg border border-slate-200 bg-white p-3">
         <div className="space-y-2">
           <div className="space-y-1">

@@ -305,7 +305,7 @@ export default async function TestLandingPage({
   const landingRating = typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : 5;
 
   return (
-    <Container as="main" className="pb-28 pt-12 lg:pb-12">
+    <Container as="main" className="pb-[var(--fm-space-30)] pt-12 lg:pb-12">
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">

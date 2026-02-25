@@ -1,6 +1,59 @@
 @import "tailwindcss";
 
 :root {
+  /* Base spacing scale (8pt-led with 4pt exceptions) */
+  --fm-space-0: 0px;
+  --fm-space-1: 4px;
+  --fm-space-2: 8px;
+  --fm-space-3: 12px;
+  --fm-space-4: 16px;
+  --fm-space-5: 20px;
+  --fm-space-6: 24px;
+  --fm-space-7: 28px;
+  --fm-space-8: 32px;
+  --fm-space-10: 40px;
+  --fm-space-12: 48px;
+  --fm-space-14: 56px;
+  --fm-space-16: 64px;
+  --fm-space-20: 80px;
+  --fm-space-24: 96px;
+  --fm-space-30: 120px;
+
+  /* Semantic spacing aliases */
+  --fm-container-gutter: var(--fm-space-4);
+  --fm-container-gutter-md: var(--fm-space-6);
+  --fm-container-gutter-lg: var(--fm-space-8);
+  --fm-container-gutter-xl: var(--fm-space-12);
+
+  --fm-section-y-sm: var(--fm-space-12);
+  --fm-section-y-md: var(--fm-space-16);
+  --fm-section-y-lg: var(--fm-space-20);
+
+  --fm-pad-card-x: var(--fm-space-4);
+  --fm-pad-card-y: var(--fm-space-4);
+  --fm-pad-card-compact-x: var(--fm-space-3);
+  --fm-pad-card-compact-y: var(--fm-space-3);
+
+  --fm-pad-btn-sm-x: var(--fm-space-4);
+  --fm-pad-btn-sm-y: var(--fm-space-2);
+  --fm-pad-btn-md-x: var(--fm-space-6);
+  --fm-pad-btn-md-y: var(--fm-space-3);
+  --fm-pad-btn-lg-x: var(--fm-space-8);
+  --fm-pad-btn-lg-y: var(--fm-space-3);
+
+  --fm-pad-input-x: var(--fm-space-4);
+  --fm-pad-input-y: var(--fm-space-3);
+  --fm-pad-badge-x: var(--fm-space-2);
+  --fm-pad-badge-y: var(--fm-space-1);
+
+  --fm-gap-xs: var(--fm-space-2);
+  --fm-gap-sm: var(--fm-space-3);
+  --fm-gap-md: var(--fm-space-4);
+  --fm-gap-lg: var(--fm-space-6);
+  --fm-gap-xl: var(--fm-space-8);
+
+  --fm-touch-target-min: 44px;
+
   --fm-bg: #f5f8fc;
   --fm-surface: #ffffff;
   --fm-surface-muted: #ebf2fb;
@@ -26,6 +79,26 @@
   --fm-shadow-lg: 0 24px 56px rgba(19, 41, 71, 0.18);
   --fm-radius-lg: 1rem;
   --fm-radius-xl: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fm-container-gutter: var(--fm-container-gutter-md);
+    --fm-pad-card-x: var(--fm-space-6);
+    --fm-pad-card-y: var(--fm-space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --fm-container-gutter: var(--fm-container-gutter-lg);
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --fm-container-gutter: var(--fm-container-gutter-xl);
+  }
 }
 
 @theme inline {

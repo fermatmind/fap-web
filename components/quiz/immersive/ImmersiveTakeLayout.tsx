@@ -51,9 +51,9 @@ export function ImmersiveTakeLayout({
         : "";
 
   return (
-    <div className="space-y-5">
-      <header className="space-y-2">
-        <div className="flex items-center justify-between gap-3">
+    <div className="space-y-[var(--fm-space-5)]">
+      <header className="space-y-[var(--fm-gap-xs)]">
+        <div className="flex items-center justify-between gap-[var(--fm-gap-sm)]">
           <Link href={backHref} className="text-sm font-medium text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]">
             {backLabel}
           </Link>
@@ -72,7 +72,7 @@ export function ImmersiveTakeLayout({
         </div>
       </section>
 
-      <footer className="flex min-h-[48px] items-center justify-between gap-3">
+      <footer className="flex min-h-[48px] items-center justify-between gap-[var(--fm-gap-sm)]">
         <Button type="button" variant="ghost" disabled={previousDisabled} onClick={onPrevious}>
           {previousLabel}
         </Button>

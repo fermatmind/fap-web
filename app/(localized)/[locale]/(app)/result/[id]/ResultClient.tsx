@@ -540,7 +540,7 @@ export default function ResultClient({
 
   if (generating) {
     return (
-      <div className="space-y-4">
+      <div className="space-y-[var(--fm-gap-md)]">
         <Alert>{dict.orders.reportGenerating}</Alert>
         <AnticipationSkeleton phases={dict.loading.phases} />
       </div>
@@ -548,12 +548,12 @@ export default function ResultClient({
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-[var(--fm-gap-lg)]">
       <Card>
         <CardHeader>
           <CardTitle>{dict.result.title}</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-2 text-sm text-slate-700">
+        <CardContent className="space-y-[var(--fm-gap-xs)] text-sm text-slate-700">
           {summary ? <p className="m-0">{summary}</p> : null}
           <p className="m-0 text-xs text-slate-600">{normsLabel(locale, normsStatus)}</p>
           <p className="m-0 text-xs text-slate-600">Quality: {qualityLevel}</p>
@@ -578,14 +578,14 @@ export default function ResultClient({
       </Card>
 
       {offers.length > 0 ? (
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="grid gap-[var(--fm-gap-sm)] md:grid-cols-2">
           {offers.map((item, idx) => (
             <OfferCard key={`${item.sku ?? "offer"}-${idx}`} offer={item} />
           ))}
         </div>
       ) : null}
 
-      <div className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+      <div className="space-y-[var(--fm-gap-md)] rounded-2xl border border-slate-200 bg-slate-50 p-[var(--fm-space-4)]">
         {sections.map((section, idx) => (
           <SectionRenderer
             key={`${section.key ?? "section"}-${idx}`}
@@ -599,7 +599,7 @@ export default function ResultClient({
         ))}
       </div>
 
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-[var(--fm-gap-sm)]">
         <PdfDownloadButton
           attemptId={attemptId}
           locked={locked}
@@ -617,7 +617,7 @@ export default function ResultClient({
       {emailNotice ? <Alert>{emailNotice}</Alert> : null}
 
       {locked ? (
-        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white p-[var(--fm-space-4)] shadow-sm">
           {!paywallDisabled ? (
             <UnlockCTA
               attemptId={attemptId}

@@ -31,6 +31,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Lint spacing tokens
+        run: pnpm lint:spacing
+
       - name: Typecheck
         run: pnpm typecheck
 

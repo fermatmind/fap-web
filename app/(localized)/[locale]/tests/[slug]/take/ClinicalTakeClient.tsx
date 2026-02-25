@@ -662,7 +662,7 @@ export default function ClinicalTakeClient({
           transitionDirection={transitionDirection}
           isTransitioning={isTransitioning}
           footerSlot={
-            <div className="flex flex-wrap items-center justify-end gap-2">
+            <div className="flex flex-wrap items-center justify-end gap-[var(--fm-gap-xs)]">
               {submitError ? (
                 <Button
                   type="button"
@@ -681,14 +681,14 @@ export default function ClinicalTakeClient({
             </div>
           }
         >
-          <article className="space-y-5 rounded-2xl border border-[var(--fm-border-strong)] bg-white p-6 shadow-[var(--fm-shadow-md)]">
+          <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
               Question {currentIndex + 1} / {totalQuestions}
             </p>
             <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{currentQuestion.text}</h2>
 
             {milestoneHint ? (
-              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
                 {milestoneHint}
               </div>
             ) : null}
@@ -722,9 +722,9 @@ export default function ClinicalTakeClient({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-[var(--fm-gap-md)]">
       <QuizShell>
-        <div className="flex items-center justify-between gap-3 text-sm text-[var(--fm-text)]">
+        <div className="flex items-center justify-between gap-[var(--fm-gap-sm)] text-sm text-[var(--fm-text)]">
           <p className="m-0 font-semibold">{scaleCode}</p>
           <p className="m-0">
             {answeredCount}/{totalQuestions}
@@ -739,19 +739,19 @@ export default function ClinicalTakeClient({
       </QuizShell>
 
       {milestoneHint ? (
-        <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-3 py-2 text-sm font-medium text-[var(--fm-text)]">
+        <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
           {milestoneHint}
         </div>
       ) : null}
 
-      <div className="grid grid-cols-3 gap-2">
-        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
+      <div className="grid grid-cols-3 gap-[var(--fm-gap-xs)]">
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-xs text-[var(--fm-text-muted)] opacity-30">
           {previousQuestion ? `${isZh ? "上一题" : "Previous"}: ${currentIndex}` : (isZh ? "上一题" : "Previous")}
         </div>
-        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] px-3 py-2 text-xs font-semibold text-[var(--fm-text)] shadow-[var(--fm-shadow-md)] opacity-100">
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-xs font-semibold text-[var(--fm-text)] shadow-[var(--fm-shadow-md)] opacity-100">
           {isZh ? "当前题目" : "Current focus"}
         </div>
-        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-xs text-[var(--fm-text-muted)] opacity-30">
+        <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-xs text-[var(--fm-text-muted)] opacity-30">
           {nextQuestion ? `${isZh ? "下一题" : "Next"}: ${currentIndex + 2}` : (isZh ? "下一题" : "Next")}
         </div>
       </div>
@@ -779,7 +779,7 @@ export default function ClinicalTakeClient({
       {submitError ? <Alert>{submitError}</Alert> : null}
 
       <QuizShell>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-[var(--fm-gap-xs)]">
           <Button
             type="button"
             variant="outline"

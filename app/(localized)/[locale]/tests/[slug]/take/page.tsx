@@ -113,14 +113,14 @@ export default async function TakePage({
 
   if (!test.scale_code) {
     return (
-      <main className="mx-auto w-full max-w-3xl px-4 py-8">
+      <main className="mx-auto w-full max-w-3xl px-[var(--fm-container-gutter)] py-[var(--fm-space-8)]">
         <h1 className="text-2xl font-bold text-slate-900">{localizedTestTitle}</h1>
-        <p className="mt-3 text-slate-600">
+        <p className="mt-[var(--fm-space-3)] text-slate-600">
           {locale === "zh" ? "此测试当前暂不可用，请稍后再试或选择其他测评。" : "This assessment is temporarily unavailable. Please try again later or choose another test."}
         </p>
         <Link
           href={withLocale("/tests")}
-          className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-500"
+          className="mt-[var(--fm-space-5)] inline-flex rounded-full border border-slate-300 px-[var(--fm-pad-btn-sm-x)] py-[var(--fm-pad-btn-sm-y)] text-sm font-semibold text-slate-700 transition hover:border-slate-500"
         >
           {locale === "zh" ? "返回测试列表" : dict.header.tests}
         </Link>
@@ -142,9 +142,9 @@ export default async function TakePage({
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-4 py-4">
+    <main className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] py-[var(--fm-space-4)]">
       {!immersiveEnabled ? (
-        <div className="mb-4">
+        <div className="mb-[var(--fm-space-4)]">
           <Link href={withLocale(`/tests/${slug}`)} className="text-sm font-medium text-sky-700 hover:text-sky-800">
             {locale === "zh" ? "返回详情" : "Back to landing"}
           </Link>
