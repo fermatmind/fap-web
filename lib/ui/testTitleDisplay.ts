@@ -4,7 +4,7 @@ export type UiTestTitleDisplay = {
   plain: string;
 };
 
-export type CardTitleSurface = "home_highlighted" | "tests_grid_card" | "tests_top_chip";
+export type CardTitleSurface = "home_highlighted" | "tests_grid_card" | "tests_top_chip" | "tests_detail_hero";
 
 export type UiCardTitleDisplay = {
   plain: string;
@@ -18,9 +18,10 @@ const ASCII_ALNUM_RE = /[A-Za-z0-9]/;
 const BRACKET_SPLIT_RE = /^(.*?)[\(\[（［【]\s*([^()\[\]（）［］【】]+?)\s*[\)\]）］】](.*)$/;
 const MBTI_CANONICAL_SLUG = "mbti-personality-test-16-personality-types";
 const EN_MULTILINE_THRESHOLD_BY_SURFACE: Record<CardTitleSurface, number> = {
-  home_highlighted: 48,
-  tests_grid_card: 48,
+  home_highlighted: 36,
+  tests_grid_card: 36,
   tests_top_chip: 34,
+  tests_detail_hero: 68,
 };
 
 function normalizeWhitespace(value: string): string {

@@ -21,6 +21,7 @@ import {
   type SupportedScaleCode,
 } from "@/lib/rollout/scaleRollout";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
+import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 type LookupResponse = {
   seo_title?: string | null;
@@ -295,14 +296,13 @@ export default async function TestLandingPage({
     card_seed: test.card_seed,
     card_density: test.card_density,
   });
-  const cardTagline = (() => {
-    const source = test.card_tagline_i18n;
-    if (!source || typeof source !== "object") return test.scale_code || cardSpec.visual;
-    const localized = locale === "zh" ? source.zh ?? source["zh-CN"] : source.en;
-    if (typeof localized === "string" && localized.trim().length > 0) return localized.trim();
-    return test.scale_code || cardSpec.visual;
-  })();
   const landingRating = typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : 5;
+  const heroTitleDisplay = formatCardTitleForUi({
+    title: localizedTestTitle,
+    slug: test.slug,
+    locale,
+    surface: "tests_detail_hero",
+  });
 
   return (
     <Container as="main" className="pb-[var(--fm-space-30)] pt-12 lg:pb-12">
@@ -316,10 +316,16 @@ export default async function TestLandingPage({
             </p>
             <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
               <div className="space-y-3">
-                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                  {cardTagline}
-                </p>
-                <h1 className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:text-4xl">{localizedTestTitle}</h1>
+                <h1 title={heroTitleDisplay.plain} className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:text-4xl">
+                  {heroTitleDisplay.multilineFallback ? (
+                    <span className="inline-flex flex-col break-words">
+                      <span>{heroTitleDisplay.line1}</span>
+                      <span className="mt-1">{heroTitleDisplay.line2}</span>
+                    </span>
+                  ) : (
+                    heroTitleDisplay.line1
+                  )}
+                </h1>
                 <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
                   {Array.from({ length: 5 }, (_, idx) => (
                     <span key={`landing-star-${idx}`} className={idx < landingRating ? "opacity-100" : "opacity-35"}>
