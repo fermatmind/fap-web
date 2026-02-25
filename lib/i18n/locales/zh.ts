@@ -20,6 +20,25 @@ const zh: SiteDictionary = {
   tests: {
     title: "测评列表",
     subtitle: "选择一个测评查看详情并开始测评。",
+    relatedArticles: {
+      title: "相关文章",
+      subtitle: "围绕该测评的工具说明、成长引导与叙事画像。",
+      empty: "该测评暂未配置相关文章。",
+    },
+  },
+  articles: {
+    kicker: "洞察文章",
+    title: "文章",
+    subtitle: "按测评主题整理的工具说明、成长引导与叙事画像。",
+    readArticle: "阅读全文",
+    backToArticles: "返回文章列表",
+    updatedLabel: "更新于",
+    groupedByTestTitle: "按测评分组",
+    voiceLabels: {
+      tool: "工具说明版",
+      growth: "成长引导版",
+      narrative: "叙事画像版",
+    },
   },
   home: {
     hero: {

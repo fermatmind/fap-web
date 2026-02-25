@@ -20,6 +20,25 @@ export type SiteDictionary = {
   tests: {
     title: string;
     subtitle: string;
+    relatedArticles: {
+      title: string;
+      subtitle: string;
+      empty: string;
+    };
+  };
+  articles: {
+    kicker: string;
+    title: string;
+    subtitle: string;
+    readArticle: string;
+    backToArticles: string;
+    updatedLabel: string;
+    groupedByTestTitle: string;
+    voiceLabels: {
+      tool: string;
+      growth: string;
+      narrative: string;
+    };
   };
   home: {
     hero: {

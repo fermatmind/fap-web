@@ -5,6 +5,11 @@ import type { Locale } from "@/lib/i18n/locales";
 export type Test = (typeof tests)[number];
 export type TestType = (typeof types)[number];
 export type BlogPost = (typeof blog)[number];
+export type BlogVoice = "tool" | "growth" | "narrative";
+export type BlogPostsGroup = {
+  relatedTestSlug: string;
+  posts: BlogPost[];
+};
 
 export type TestListItem = {
   title: string;
@@ -87,4 +92,74 @@ export function listBlogPosts(): BlogPost[] {
 
 export function getBlogPostBySlug(slug: string): BlogPost | null {
   return blog.find((post) => post.slug === slug) ?? null;
+}
+
+const BLOG_RELATED_TEST_ORDER = [
+  "mbti-personality-test-16-personality-types",
+  "big-five-personality-test-ocean-model",
+  "clinical-depression-anxiety-assessment-professional-edition",
+  "depression-screening-test-standard-edition",
+  "iq-test-intelligence-quotient-assessment",
+  "eq-test-emotional-intelligence-assessment",
+] as const;
+
+const BLOG_VOICE_ORDER: Record<BlogVoice, number> = {
+  tool: 1,
+  growth: 2,
+  narrative: 3,
+};
+
+function resolveRelatedTestRank(slug: string): number {
+  const index = BLOG_RELATED_TEST_ORDER.indexOf(slug as (typeof BLOG_RELATED_TEST_ORDER)[number]);
+  return index >= 0 ? index : Number.MAX_SAFE_INTEGER;
+}
+
+function resolveVoiceOrder(post: BlogPost): number {
+  if (typeof post.voice_order === "number" && Number.isFinite(post.voice_order)) {
+    return post.voice_order;
+  }
+  const fallback = BLOG_VOICE_ORDER[post.voice as BlogVoice];
+  return typeof fallback === "number" ? fallback : Number.MAX_SAFE_INTEGER;
+}
+
+function sortBlogPostsForPlacement(posts: BlogPost[]): BlogPost[] {
+  return [...posts].sort((a, b) => {
+    const testRankDiff = resolveRelatedTestRank(a.related_test_slug) - resolveRelatedTestRank(b.related_test_slug);
+    if (testRankDiff !== 0) return testRankDiff;
+
+    const voiceOrderDiff = resolveVoiceOrder(a) - resolveVoiceOrder(b);
+    if (voiceOrderDiff !== 0) return voiceOrderDiff;
+
+    const updateDiff = b.updatedAt.localeCompare(a.updatedAt);
+    if (updateDiff !== 0) return updateDiff;
+
+    return a.title.localeCompare(b.title);
+  });
+}
+
+export function listBlogPostsGroupedByTest(): BlogPostsGroup[] {
+  const grouped = new Map<string, BlogPost[]>();
+  for (const post of sortBlogPostsForPlacement(blog)) {
+    const key = String(post.related_test_slug ?? "").trim();
+    if (!key) continue;
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key)?.push(post);
+  }
+
+  return [...grouped.entries()]
+    .sort(([slugA], [slugB]) => {
+      const rankDiff = resolveRelatedTestRank(slugA) - resolveRelatedTestRank(slugB);
+      if (rankDiff !== 0) return rankDiff;
+      return slugA.localeCompare(slugB);
+    })
+    .map(([relatedTestSlug, posts]) => ({
+      relatedTestSlug,
+      posts: sortBlogPostsForPlacement(posts),
+    }));
+}
+
+export function listRelatedBlogPosts(testSlug: string): BlogPost[] {
+  return sortBlogPostsForPlacement(
+    blog.filter((post) => post.related_test_slug === testSlug)
+  ).slice(0, 3);
 }

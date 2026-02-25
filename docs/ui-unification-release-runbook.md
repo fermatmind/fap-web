@@ -26,6 +26,7 @@ Notes:
 - Use `pnpm test:e2e:visual:update` (or `pnpm test:e2e:visual:update:linux`) before opening PRs that intentionally change visuals.
 - Snapshot updates must run against the full `tests/e2e/visual` suite; do not update one spec only.
 - Visual runner hides local `.env.local` / `.env.production.local` by default to align local output with CI.
+- Playwright does not reuse existing `:3000` servers by default. To intentionally reuse a running local server, set `PLAYWRIGHT_REUSE_SERVER=1`.
 
 ## Release Gates
 - CLS target: `<= 0.05` for home/tests/detail/take/result.

@@ -54,31 +54,34 @@ async function mockLookup(
 }
 
 async function mockQuestions(page: Page, count: number) {
-  await page.route("**/api/v0.3/scales/BIG5_OCEAN/questions*", async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        scale_code: "BIG5_OCEAN",
-        pack_id: "BIG5_OCEAN",
-        dir_version: "v1",
-        content_package_version: "v1",
-        questions: {
-          schema: "fap.questions.v1",
-          items: buildQuestions(count),
-        },
-        meta: {
-          disclaimer_version: "BIG5_OCEAN_v1",
-          disclaimer_hash: "hash_v1",
-          disclaimer_text: "This test is for self-discovery only.",
-          manifest_hash: "manifest_v1",
-          norms_version: "2026Q1",
-          quality_level: "A",
-        },
-      }),
+  const payload = {
+    ok: true,
+    scale_code: "BIG5_OCEAN",
+    pack_id: "BIG5_OCEAN",
+    dir_version: "v1",
+    content_package_version: "v1",
+    questions: {
+      schema: "fap.questions.v1",
+      items: buildQuestions(count),
+    },
+    meta: {
+      disclaimer_version: "BIG5_OCEAN_v1",
+      disclaimer_hash: "hash_v1",
+      disclaimer_text: "This test is for self-discovery only.",
+      manifest_hash: "manifest_v1",
+      norms_version: "2026Q1",
+      quality_level: "A",
+    },
+  };
+  for (const scaleCode of ["BIG5_OCEAN", "BIG_FIVE_OCEAN_MODEL"]) {
+    await page.route(`**/api/v0.3/scales/${scaleCode}/questions*`, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(payload),
+      });
     });
-  });
+  }
 }
 
 test("BIG5 /take redirects to landing maintenance when rollout is off", async ({ page }) => {
