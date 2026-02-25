@@ -4,9 +4,24 @@ export type UiTestTitleDisplay = {
   plain: string;
 };
 
+export type CardTitleSurface = "home_highlighted" | "tests_grid_card" | "tests_top_chip";
+
+export type UiCardTitleDisplay = {
+  plain: string;
+  line1: string;
+  line2: string;
+  multilineFallback: boolean;
+};
+
 const CJK_CHAR_RE = /[\u3400-\u9fff]/;
 const ASCII_ALNUM_RE = /[A-Za-z0-9]/;
 const BRACKET_SPLIT_RE = /^(.*?)[\(\[（［【]\s*([^()\[\]（）［］【】]+?)\s*[\)\]）］】](.*)$/;
+const MBTI_CANONICAL_SLUG = "mbti-personality-test-16-personality-types";
+const EN_MULTILINE_THRESHOLD_BY_SURFACE: Record<CardTitleSurface, number> = {
+  home_highlighted: 48,
+  tests_grid_card: 48,
+  tests_top_chip: 34,
+};
 
 function normalizeWhitespace(value: string): string {
   return value.replace(/\s+/g, " ").trim();
@@ -110,4 +125,47 @@ export function formatTestTitleForUi(title: string): UiTestTitleDisplay {
   }
 
   return { line1: plain, line2: plain, plain };
+}
+
+function applyCardTitleDisplayOverrides(title: string, slug: string, locale: "zh" | "en"): string {
+  if (locale !== "zh" || slug !== MBTI_CANONICAL_SLUG) return title;
+
+  return title.replace(/[\(\[（［【]\s*16型人格测试\s*[\)\]）］】]/g, "【16型人格】");
+}
+
+function shouldUseEnMultilineFallback(plainTitle: string, surface: CardTitleSurface, locale: "zh" | "en"): boolean {
+  if (locale !== "en") return false;
+  return plainTitle.length > EN_MULTILINE_THRESHOLD_BY_SURFACE[surface];
+}
+
+export function formatCardTitleForUi({
+  title,
+  slug,
+  locale,
+  surface,
+}: {
+  title: string;
+  slug: string;
+  locale: "zh" | "en";
+  surface: CardTitleSurface;
+}): UiCardTitleDisplay {
+  const withDisplayOverrides = applyCardTitleDisplayOverrides(String(title ?? ""), String(slug ?? ""), locale);
+  const base = formatTestTitleForUi(withDisplayOverrides);
+  const multilineFallback = shouldUseEnMultilineFallback(base.plain, surface, locale);
+
+  if (!multilineFallback) {
+    return {
+      plain: base.plain,
+      line1: base.plain,
+      line2: "",
+      multilineFallback: false,
+    };
+  }
+
+  return {
+    plain: base.plain,
+    line1: base.line1,
+    line2: base.line2,
+    multilineFallback: true,
+  };
 }

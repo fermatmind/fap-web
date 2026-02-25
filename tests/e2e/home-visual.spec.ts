@@ -21,3 +21,12 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
   expect(box).not.toBeNull();
   expect((box?.height ?? 0) >= 44).toBeTruthy();
 });
+
+test("zh home MBTI highlighted card title shows 16型人格", async ({ page }) => {
+  await page.goto("/zh");
+
+  const highlightedSection = page.getByTestId("home-highlighted-tests-section");
+  await expect(highlightedSection).toBeVisible();
+  await expect(highlightedSection.getByRole("link", { name: "MBTI 性格测试【16型人格】", exact: true })).toBeVisible();
+  await expect(highlightedSection.getByText("MBTI 性格测试【16型人格测试】")).toHaveCount(0);
+});

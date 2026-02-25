@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import type { SiteDictionary } from "@/lib/i18n/types";
-import { formatTestTitleForUi } from "@/lib/ui/testTitleDisplay";
+import { formatCardTitleForUi, formatTestTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 export type HomeHighlightedCard =
   | {
@@ -61,22 +61,31 @@ export function HighlightedTestsSection({
           <div className="relative z-10 mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {cards.map((card) => {
               if (card.kind === "live") {
-                const titleDisplay = formatTestTitleForUi(card.title);
+                const titleDisplay = formatCardTitleForUi({
+                  title: card.title,
+                  slug: card.slug,
+                  locale,
+                  surface: "home_highlighted",
+                });
                 return (
                   <article
                     key={`live-${card.slug}`}
                     className="group flex h-full flex-col rounded-2xl border border-[#d4deec] bg-white p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[#bacce5] hover:shadow-[var(--fm-shadow-md)]"
                   >
-                    <div className="flex min-h-[4.9rem] items-start justify-between gap-3">
+                    <div className="flex min-h-[4.9rem] flex-col items-start gap-2">
                       <Link
                         href={withLocale(`/tests/${card.slug}`)}
                         title={titleDisplay.plain}
-                        className="font-sans text-[1.27rem] font-semibold leading-[1.2] tracking-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
+                        className="w-full font-sans text-[1.22rem] font-semibold leading-[1.2] tracking-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)] md:text-[1.27rem]"
                       >
-                        <span className="inline-flex flex-col break-words">
-                          <span>{titleDisplay.line1}</span>
-                          <span className="mt-1">{titleDisplay.line2}</span>
-                        </span>
+                        {titleDisplay.multilineFallback ? (
+                          <span className="inline-flex flex-col break-words">
+                            <span>{titleDisplay.line1}</span>
+                            <span className="mt-1">{titleDisplay.line2}</span>
+                          </span>
+                        ) : (
+                          <span className="block overflow-hidden text-ellipsis whitespace-nowrap">{titleDisplay.line1}</span>
+                        )}
                       </Link>
                       {renderStars(card.rating)}
                     </div>
