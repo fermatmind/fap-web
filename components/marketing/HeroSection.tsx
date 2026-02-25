@@ -11,7 +11,10 @@ export function HeroSection({ dict, locale }: { dict: SiteDictionary; locale: Lo
   const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-cyan-50 to-sky-100 pb-28 pt-16 md:pb-40 md:pt-20">
+    <section
+      data-testid="home-hero-section"
+      className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-cyan-50 to-sky-100 pb-28 pt-16 md:pb-40 md:pt-20"
+    >
       <Container className="relative z-10 grid gap-12 md:grid-cols-[1.05fr_0.95fr] md:items-center">
         <div className="space-y-6">
           <p className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--fm-trust-blue)]">

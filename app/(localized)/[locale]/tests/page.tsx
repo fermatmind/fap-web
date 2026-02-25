@@ -45,7 +45,7 @@ export default async function TestsPage({
 
   return (
     <main>
-      <section className="fm-section-white border-b border-[var(--fm-border)] py-12">
+      <section data-testid="tests-list-hero-section" className="fm-section-white border-b border-[var(--fm-border)] py-12">
         <Container className="space-y-5">
           <div className="space-y-2">
             <h1 className="m-0 font-serif text-4xl font-semibold tracking-tight text-[var(--fm-text)]">{dict.tests.title}</h1>
@@ -64,29 +64,31 @@ export default async function TestsPage({
         </Container>
       </section>
 
-      <Container className="py-10">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {tests.map((test) => (
-            <TestCard
-              key={test.slug}
-              slug={test.slug}
-              title={resolveTestTitleByLocale(test, locale)}
-              description={test.description}
-              coverImage={test.cover_image}
-              questions={test.questions_count}
-              timeMinutes={test.time_minutes}
-              scaleCode={test.scale_code}
-              locale={locale}
-              cardVisual={test.card_visual}
-              cardTone={test.card_tone}
-              cardSeed={test.card_seed}
-              cardDensity={test.card_density}
-              cardTaglineI18n={test.card_tagline_i18n}
-              highlightRating={test.highlight_rating}
-            />
-          ))}
-        </div>
-      </Container>
+      <section data-testid="tests-list-grid-section">
+        <Container className="py-10">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {tests.map((test) => (
+              <TestCard
+                key={test.slug}
+                slug={test.slug}
+                title={resolveTestTitleByLocale(test, locale)}
+                description={test.description}
+                coverImage={test.cover_image}
+                questions={test.questions_count}
+                timeMinutes={test.time_minutes}
+                scaleCode={test.scale_code}
+                locale={locale}
+                cardVisual={test.card_visual}
+                cardTone={test.card_tone}
+                cardSeed={test.card_seed}
+                cardDensity={test.card_density}
+                cardTaglineI18n={test.card_tagline_i18n}
+                highlightRating={test.highlight_rating}
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
     </main>
   );
 }

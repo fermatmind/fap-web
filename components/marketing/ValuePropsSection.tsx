@@ -44,20 +44,34 @@ const ICONS = [ReliableIcon, PrivacyIcon, CommunityIcon] as const;
 
 export function ValuePropsSection({ dict }: { dict: SiteDictionary }) {
   return (
-    <section className="relative z-20 -mt-12 md:-mt-16">
+    <section data-testid="home-value-props-section" className="relative z-20 -mt-12 md:-mt-16">
       <Container>
         <h2 className="sr-only">{dict.home.valueProps.title}</h2>
         <div className="grid gap-4 md:grid-cols-3 md:gap-5">
           {dict.home.valueProps.items.map((item, index) => {
             const Icon = ICONS[index] ?? ReliableIcon;
+            const iconOpticalShiftClass =
+              index === 1
+                ? "translate-y-px"
+                : index === 2
+                  ? "translate-x-px translate-y-px"
+                  : "";
             return (
               <Card
                 key={item.title}
                 className="h-full border-[var(--fm-border)] bg-white/95 shadow-[var(--fm-shadow-md)] transition hover:-translate-y-0.5 hover:shadow-[var(--fm-shadow-lg)]"
               >
                 <CardContent className="flex h-full flex-col items-center gap-4 pt-6 text-center">
-                  <span className="inline-flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-gradient-to-b from-[#e7f6ff] to-[var(--fm-surface-muted)] text-[#0989bf]">
-                    <Icon className="h-11 w-11" />
+                  <span className="relative mx-auto grid h-[4.6rem] w-[4.6rem] place-items-center rounded-full">
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 rounded-full border-2 border-[#2aa3d9]/35 bg-white/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)]"
+                    />
+                    <span
+                      aria-hidden
+                      className="absolute inset-[0.34rem] rounded-full bg-gradient-to-b from-[#edf8ff] to-[#dceefd]"
+                    />
+                    <Icon className={`relative block h-9 w-9 text-[#0f8fc8] ${iconOpticalShiftClass}`} />
                   </span>
                   <CardTitle className="text-[1.55rem] leading-tight">{item.title}</CardTitle>
                   <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{item.description}</p>

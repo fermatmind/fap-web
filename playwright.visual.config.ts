@@ -1,11 +1,22 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const visualSnapshotTemplate =
+  "{testDir}/{testFilePath}-snapshots/{arg}-{projectName}-linux{ext}";
+
 export default defineConfig({
-  testDir: "./tests/e2e",
-  testIgnore: ["**/visual/**"],
+  testDir: "./tests/e2e/visual",
   timeout: 120000,
   fullyParallel: false,
-  retries: process.env.CI ? 1 : 0,
+  retries: 0,
+  workers: 1,
+  snapshotPathTemplate: visualSnapshotTemplate,
+  expect: {
+    toHaveScreenshot: {
+      animations: "disabled",
+      caret: "hide",
+      maxDiffPixelRatio: 0.02,
+    },
+  },
   use: {
     baseURL: "http://127.0.0.1:3000",
     colorScheme: "light",
@@ -14,7 +25,7 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   webServer: {
-    command: "pnpm exec next dev -p 3000 -H 127.0.0.1",
+    command: "pnpm exec next start -p 3000 -H 127.0.0.1",
     url: "http://127.0.0.1:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 180000,

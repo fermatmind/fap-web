@@ -85,8 +85,28 @@ jobs:
       - name: UAT matrix (mock)
         run: bash scripts/run_uat_matrix.sh mock
 
+      - name: Guard visual snapshots (linux-only)
+        run: |
+          if find tests/e2e/visual -type f -name '*-darwin.png' | grep -q .; then
+            echo "Detected unsupported darwin visual snapshots:"
+            find tests/e2e/visual -type f -name '*-darwin.png'
+            exit 1
+          fi
+
       - name: Visual snapshots
-        run: pnpm test:e2e:visual
+        env:
+          NEXT_PUBLIC_E2E_VISUAL_MODE: "1"
+        run: pnpm test:e2e:visual:ci
+
+      - name: Upload visual artifacts (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-artifacts
+          path: |
+            test-results
+            playwright-report
+          if-no-files-found: ignore
 
       - name: A11y tests
         run: pnpm test:a11y

@@ -43,12 +43,23 @@ pnpm test:contract
 pnpm test:a11y
 pnpm test:e2e tests/e2e/home-visual.spec.ts tests/e2e/tests-list.spec.ts tests/e2e/test-detail.spec.ts
 pnpm test:e2e tests/e2e/sds-flow.spec.ts tests/e2e/clinical-combo-flow.spec.ts tests/e2e/big5-flow.spec.ts tests/e2e/big5-negative.spec.ts
-# Visual snapshots run serially to avoid Next.js first-compile flakiness in parallel workers.
-pnpm test:e2e:visual
+pnpm build
+# Visual snapshots are Linux-baseline only.
+pnpm test:e2e:visual:ci
+# Update snapshots in local runtime (quick iteration).
+pnpm test:e2e:visual:update
+# Update snapshots in Linux container (authoritative for PRs).
+pnpm test:e2e:visual:update:linux
 pnpm release:gate
 # Optional for local machines that keep .env.local:
 RELEASE_GATE_ALLOW_LOCAL_ENV=1 pnpm release:gate
 ```
+
+Visual snapshot policy:
+
+- Only `*-linux.png` baselines are supported under `tests/e2e/visual/*-snapshots/`.
+- Do not commit `*-darwin.png` files.
+- Any intentional UI change must include updated Linux visual snapshots in the same PR.
 
 Release operation details and rollback thresholds are documented in:
 

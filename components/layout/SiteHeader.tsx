@@ -33,7 +33,7 @@ export function SiteHeader() {
             <Link href={withLocale("/")} className="font-serif text-xl font-semibold tracking-tight text-white">
               {dict.header.brand}
             </Link>
-            <p className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-blue-100">
+            <p data-visual-volatile="true" className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-blue-100">
               <span>{dict.header.completedPrefix}</span>
               <AnimatedCounter value={liveCompletedCount} className="font-semibold tracking-wide text-white" />
               <span>{dict.header.completedSuffix}</span>
@@ -81,7 +81,7 @@ export function SiteHeader() {
 
             <LocaleSwitcher />
 
-            <Link href={withLocale("/tests/personality-mbti-test/take")} className={buttonVariants({ size: "sm" })}>
+            <Link href={withLocale("/tests/mbti-personality-test-16-personality-types/take")} className={buttonVariants({ size: "sm" })}>
               {dict.header.start}
             </Link>
           </div>
@@ -121,7 +121,7 @@ export function SiteHeader() {
               </Link>
               <LocaleSwitcher />
               <Link
-                href={withLocale("/tests/personality-mbti-test/take")}
+                href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
                 className={buttonVariants({ size: "sm" })}
                 onClick={() => setMenuOpen(false)}
               >
