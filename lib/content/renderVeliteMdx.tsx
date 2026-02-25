@@ -12,13 +12,13 @@ export function renderVeliteMdx(body: string, components?: Record<string, unknow
 
   try {
     const run = new Function(body) as (runtime: typeof jsxRuntime) => VeliteMdxModule;
-    const module = run(jsxRuntime);
+    const compiledMdxModule = run(jsxRuntime);
 
-    if (!module || typeof module.default !== "function") {
+    if (!compiledMdxModule || typeof compiledMdxModule.default !== "function") {
       return null;
     }
 
-    return module.default({ components });
+    return compiledMdxModule.default({ components });
   } catch {
     return null;
   }
