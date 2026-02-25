@@ -71,76 +71,83 @@ export function HighlightedTestsSection({
   const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
-    <section className="fm-section-teal py-20 text-white">
-      <Container className="space-y-10">
-        <div className="space-y-2 text-center">
-          <h2 className="m-0 font-serif text-3xl font-semibold">{dict.home.highlighted.title}</h2>
-          <p className="m-0 text-teal-50/85">{dict.home.highlighted.subtitle}</p>
+    <section className="fm-section-highlighted relative py-20 text-[var(--fm-text)]">
+      <Container className="relative z-10 space-y-10">
+        <div className="mx-auto max-w-3xl space-y-3 text-center">
+          <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-trust-blue-strong)]">
+            {dict.home.highlighted.title}
+          </h2>
+          <p className="m-0 text-[var(--fm-text-muted)]">{dict.home.highlighted.subtitle}</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card) => {
-            if (card.kind === "live") {
-              const titleParts = splitMbtiTitle(card.slug, card.title);
+        <div className="mx-auto max-w-5xl rounded-[1.75rem] border border-white/80 bg-white/68 p-4 shadow-[0_22px_52px_rgba(15,47,97,0.13)] backdrop-blur-sm md:p-6">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {cards.map((card) => {
+              if (card.kind === "live") {
+                const titleParts = splitMbtiTitle(card.slug, card.title);
+                return (
+                  <article
+                    key={`live-${card.slug}`}
+                    className="group flex h-full flex-col rounded-2xl border border-[#d4deec] bg-white p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[#bacce5] hover:shadow-[var(--fm-shadow-md)]"
+                  >
+                    <div className="flex min-h-[4.9rem] items-start justify-between gap-3">
+                      <Link
+                        href={withLocale(`/tests/${card.slug}`)}
+                        className="font-serif text-xl font-semibold leading-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
+                      >
+                        {titleParts.sub ? (
+                          <span className="inline-flex flex-col">
+                            <span>{titleParts.main}</span>
+                            <span className="mt-1">{titleParts.sub}</span>
+                          </span>
+                        ) : (
+                          titleParts.main
+                        )}
+                      </Link>
+                      {renderStars(card.rating)}
+                    </div>
+
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      {card.scaleCode ? <Badge>{card.scaleCode}</Badge> : null}
+                      {card.isClinical ? (
+                        <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.clinicalBadge}</Badge>
+                      ) : null}
+                    </div>
+
+                    <p className="mt-4 text-sm leading-6 text-[var(--fm-text-muted)]">{card.excerpt}</p>
+
+                    <div className="mt-auto pt-5">
+                      <Link
+                        href={withLocale(`/tests/${card.slug}/take`)}
+                        className="text-sm font-semibold text-[var(--fm-trust-blue)] transition group-hover:text-[var(--fm-trust-blue-strong)]"
+                      >
+                        {dict.home.highlighted.cta} →
+                      </Link>
+                    </div>
+                  </article>
+                );
+              }
+
               return (
-                <article key={`live-${card.slug}`} className="flex h-full flex-col rounded-2xl border border-white/20 bg-white p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-lg)]">
-                  <div className="flex min-h-[4.9rem] items-start justify-between gap-3">
-                    <Link
-                      href={withLocale(`/tests/${card.slug}`)}
-                      className="font-serif text-xl font-semibold leading-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
-                    >
-                      {titleParts.sub ? (
-                        <span className="inline-flex flex-col">
-                          <span>{titleParts.main}</span>
-                          <span className="mt-1">{titleParts.sub}</span>
-                        </span>
-                      ) : (
-                        titleParts.main
-                      )}
-                    </Link>
-                    {renderStars(card.rating)}
+                <article
+                  key={`coming-${card.id}`}
+                  className="relative flex h-full flex-col rounded-2xl border border-[#d8dfdc] bg-[#f8faf8] p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)]"
+                  data-disabled="1"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="m-0 font-serif text-xl font-semibold leading-tight text-[var(--fm-trust-blue-strong)]">
+                      {card.title}
+                    </h3>
+                    <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.comingSoonBadge}</Badge>
                   </div>
 
-                  <div className="mt-3 flex flex-wrap items-center gap-2">
-                    {card.scaleCode ? <Badge>{card.scaleCode}</Badge> : null}
-                    {card.isClinical ? (
-                      <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.clinicalBadge}</Badge>
-                    ) : null}
-                  </div>
+                  <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{card.description}</p>
 
-                  <p className="mt-4 text-sm leading-6 text-[var(--fm-text-muted)]">{card.excerpt}</p>
-
-                  <div className="mt-auto pt-5">
-                    <Link
-                      href={withLocale(`/tests/${card.slug}/take`)}
-                      className="text-sm font-semibold text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
-                    >
-                      {dict.home.highlighted.cta} →
-                    </Link>
-                  </div>
+                  <p className="mt-auto pt-5 text-sm font-semibold text-[var(--fm-text-muted)]">{dict.home.highlighted.comingSoonCta}</p>
                 </article>
               );
-            }
-
-            return (
-              <article
-                key={`coming-${card.id}`}
-                className="relative flex h-full flex-col rounded-2xl border border-white/30 bg-white/90 p-6 text-[var(--fm-text)] shadow-[var(--fm-shadow-md)]"
-                data-disabled="1"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="m-0 font-serif text-xl font-semibold leading-tight text-[var(--fm-trust-blue-strong)]">
-                    {card.title}
-                  </h3>
-                  <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.comingSoonBadge}</Badge>
-                </div>
-
-                <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{card.description}</p>
-
-                <p className="mt-auto pt-5 text-sm font-semibold text-[var(--fm-text-muted)]">{dict.home.highlighted.comingSoonCta}</p>
-              </article>
-            );
-          })}
+            })}
+          </div>
         </div>
       </Container>
     </section>
