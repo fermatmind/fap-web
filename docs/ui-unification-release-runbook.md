@@ -21,9 +21,10 @@
 8. `pnpm test:e2e:visual:ci`
 
 Notes:
-- Visual E2E runs against production runtime (`next start`) using `playwright.visual.config.ts`.
+- Visual E2E commands (`pnpm test:e2e:visual:*`) run through `scripts/visual/run_visual_suite.sh`, always build first, then boot `node .next/standalone/server.js`.
 - Linux visual baselines are the single source of truth. Do not commit `*-darwin.png` snapshots.
-- Use `pnpm test:e2e:visual:update:linux` before opening PRs that intentionally change visuals.
+- Use `pnpm test:e2e:visual:update` (or `pnpm test:e2e:visual:update:linux`) before opening PRs that intentionally change visuals.
+- Snapshot updates must run against the full `tests/e2e/visual` suite; do not update one spec only.
 
 ## Release Gates
 - CLS target: `<= 0.05` for home/tests/detail/take/result.

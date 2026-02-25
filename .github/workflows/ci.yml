@@ -96,6 +96,19 @@ jobs:
             exit 1
           fi
 
+      - name: Visual snapshot sync check
+        env:
+          NEXT_PUBLIC_E2E_VISUAL_MODE: "1"
+        run: |
+          pnpm test:e2e:visual:update
+          SNAPSHOT_DIFF="$(git diff --name-only -- tests/e2e/visual)"
+          if [ -n "$SNAPSHOT_DIFF" ]; then
+            echo "Visual snapshots are out of sync with current UI code."
+            echo "Run 'pnpm test:e2e:visual:update' and commit these files:"
+            echo "$SNAPSHOT_DIFF"
+            exit 1
+          fi
+
       - name: Visual snapshots
         env:
           NEXT_PUBLIC_E2E_VISUAL_MODE: "1"

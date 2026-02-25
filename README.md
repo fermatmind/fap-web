@@ -45,11 +45,11 @@ pnpm test:a11y
 pnpm test:e2e tests/e2e/home-visual.spec.ts tests/e2e/tests-list.spec.ts tests/e2e/test-detail.spec.ts
 pnpm test:e2e tests/e2e/sds-flow.spec.ts tests/e2e/clinical-combo-flow.spec.ts tests/e2e/big5-flow.spec.ts tests/e2e/big5-negative.spec.ts
 pnpm build
-# Visual snapshots are Linux-baseline only.
+# Visual snapshots are Linux-baseline only and always run full visual suite.
 pnpm test:e2e:visual:ci
-# Update snapshots in local runtime (quick iteration).
+# Update snapshots after intentional UI changes (full suite only).
 pnpm test:e2e:visual:update
-# Update snapshots in Linux container (authoritative for PRs).
+# Update snapshots in Linux container (authoritative for PRs, full suite only).
 pnpm test:e2e:visual:update:linux
 pnpm release:gate
 # Optional for local machines that keep .env.local:
@@ -60,13 +60,15 @@ Recommended CI order for UI changes:
 
 1. `pnpm lint`
 2. `pnpm lint:spacing`
-3. `pnpm test:e2e:visual:ci`
+3. `pnpm test:e2e:visual:update` (or `pnpm test:e2e:visual:update:linux`)
+4. `pnpm test:e2e:visual:ci`
 
 Visual snapshot policy:
 
 - Only `*-linux.png` baselines are supported under `tests/e2e/visual/*-snapshots/`.
 - Do not commit `*-darwin.png` files.
 - Any intentional UI change must include updated Linux visual snapshots in the same PR.
+- Do not update a single visual spec in isolation; always run full `tests/e2e/visual`.
 
 Release operation details and rollback thresholds are documented in:
 

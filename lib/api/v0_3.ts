@@ -1,6 +1,7 @@
 import { getFmToken } from "@/lib/auth/fmToken";
 import { getOrCreateAnonId } from "@/lib/anon";
-import { apiClient } from "@/lib/api-client";
+import { ApiError, apiClient } from "@/lib/api-client";
+import { buildRequestScaleCodeCandidates } from "@/lib/scaleCodeMode";
 
 export type ScaleQuestionOption = {
   code: string;
@@ -394,6 +395,52 @@ function assertApiOk<T extends { ok?: boolean }>(response: T, fallbackMessage: s
   return response;
 }
 
+function isScaleCodeFallbackError(error: unknown): boolean {
+  if (!(error instanceof ApiError)) {
+    return false;
+  }
+
+  if (error.status !== 404 && error.status !== 422) {
+    return false;
+  }
+
+  const normalizedCode = String(error.errorCode ?? "")
+    .trim()
+    .toUpperCase();
+
+  if (["NOT_FOUND", "SCALE_NOT_FOUND", "VALIDATION_ERROR", "HTTP_404", "HTTP_422"].includes(normalizedCode)) {
+    return true;
+  }
+
+  return /scale/i.test(error.message);
+}
+
+async function runWithScaleCodeCandidates<T>(
+  scaleCode: string,
+  runner: (resolvedScaleCode: string) => Promise<T>
+): Promise<T> {
+  const candidates = buildRequestScaleCodeCandidates(scaleCode);
+  if (candidates.length === 0) {
+    throw new Error("Scale code is required.");
+  }
+
+  let lastError: unknown = null;
+  for (let index = 0; index < candidates.length; index += 1) {
+    const candidate = candidates[index];
+    try {
+      return await runner(candidate);
+    } catch (error) {
+      lastError = error;
+      const hasNextCandidate = index < candidates.length - 1;
+      if (!hasNextCandidate || !isScaleCodeFallbackError(error)) {
+        throw error;
+      }
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error("Scale code resolution failed.");
+}
+
 function normalizeOrderStatus(
   status: string | undefined
 ): "pending" | "paid" | "failed" | "canceled" | "refunded" {
@@ -453,29 +500,31 @@ export async function startAttempt({
   referrer?: string;
 }): Promise<StartAttemptResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
-  const response = await apiClient.post<StartAttemptResponse>(
-    "/v0.3/attempts/start",
-    {
-      scale_code: scaleCode,
-      anon_id: resolvedAnonId,
-      ...(region ? { region } : {}),
-      ...(locale ? { locale } : {}),
-      ...(consent
-        ? {
-            consent: {
-              accepted: Boolean(consent.accepted),
-              version: consent.version,
-              ...(consent.locale ? { locale: consent.locale } : {}),
-            },
-          }
-        : {}),
-      ...(clientPlatform ? { client_platform: clientPlatform } : {}),
-      ...(clientVersion ? { client_version: clientVersion } : {}),
-      ...(channel ? { channel } : {}),
-      ...(referrer ? { referrer } : {}),
-      ...(meta ? { meta } : {}),
-    },
-    anonHeader(resolvedAnonId)
+  const response = await runWithScaleCodeCandidates(scaleCode, (resolvedScaleCode) =>
+    apiClient.post<StartAttemptResponse>(
+      "/v0.3/attempts/start",
+      {
+        scale_code: resolvedScaleCode,
+        anon_id: resolvedAnonId,
+        ...(region ? { region } : {}),
+        ...(locale ? { locale } : {}),
+        ...(consent
+          ? {
+              consent: {
+                accepted: Boolean(consent.accepted),
+                version: consent.version,
+                ...(consent.locale ? { locale: consent.locale } : {}),
+              },
+            }
+          : {}),
+        ...(clientPlatform ? { client_platform: clientPlatform } : {}),
+        ...(clientVersion ? { client_version: clientVersion } : {}),
+        ...(channel ? { channel } : {}),
+        ...(referrer ? { referrer } : {}),
+        ...(meta ? { meta } : {}),
+      },
+      anonHeader(resolvedAnonId)
+    )
   );
 
   return assertApiOk(response, "Failed to start attempt.");
@@ -498,9 +547,11 @@ export async function fetchScaleQuestions({
   if (region) query.set("region", region);
 
   const suffix = query.toString();
-  const response = await apiClient.get<QuestionsResponse>(
-    `/v0.3/scales/${scaleCode}/questions${suffix ? `?${suffix}` : ""}`,
-    anonHeader(resolvedAnonId)
+  const response = await runWithScaleCodeCandidates(scaleCode, (resolvedScaleCode) =>
+    apiClient.get<QuestionsResponse>(
+      `/v0.3/scales/${resolvedScaleCode}/questions${suffix ? `?${suffix}` : ""}`,
+      anonHeader(resolvedAnonId)
+    )
   );
 
   assertApiOk(response, "Failed to load questions.");
@@ -757,7 +808,8 @@ export async function getMyAttempts({
   anonId?: string;
 } = {}): Promise<MeAttemptsResponse> {
   const query = new URLSearchParams();
-  if (scaleCode) query.set("scale", scaleCode);
+  const resolvedScaleCode = scaleCode ? (buildRequestScaleCodeCandidates(scaleCode)[0] ?? scaleCode) : undefined;
+  if (resolvedScaleCode) query.set("scale", resolvedScaleCode);
   if (typeof page === "number" && Number.isFinite(page) && page > 0) query.set("page", String(page));
   if (typeof pageSize === "number" && Number.isFinite(pageSize) && pageSize > 0) {
     query.set("page_size", String(pageSize));
