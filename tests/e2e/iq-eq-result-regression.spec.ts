@@ -243,7 +243,7 @@ test("result page falls back to attempts/{id}/result when report is unavailable"
   await expect(page.getByText("self_awareness")).toBeVisible();
 });
 
-test("quiz submit retries once after 401 by requesting guest token", async ({ page }) => {
+test("quiz submit retries once after 401 with bootstrap token precheck", async ({ page }) => {
   const attemptId = "quiz-auth-retry-001";
   await mockTrack(page);
 
@@ -347,10 +347,10 @@ test("quiz submit retries once after 401 by requesting guest token", async ({ pa
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`), { timeout: 30000 });
   await expect(page.getByText("Retry submit report ready.")).toBeVisible();
   expect(submitCalls).toBe(2);
-  expect(guestTokenCalls).toBe(1);
+  expect(guestTokenCalls).toBe(2);
 });
 
-test("clinical questions request retries once after 401 by requesting guest token", async ({ page }) => {
+test("clinical questions request retries once after 401 with bootstrap token precheck", async ({ page }) => {
   await mockTrack(page);
 
   let questionCalls = 0;
@@ -415,5 +415,5 @@ test("clinical questions request retries once after 401 by requesting guest toke
   await page.goto("/en/tests/depression-screening-test-standard-edition/take");
   await expect(page.getByText("Please review and accept informed consent.")).toBeVisible();
   expect(questionCalls).toBe(2);
-  expect(guestTokenCalls).toBe(1);
+  expect(guestTokenCalls).toBe(2);
 });

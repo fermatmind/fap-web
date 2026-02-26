@@ -9,9 +9,8 @@ import {
   type SubmitAnswer,
   type SubmitResponse,
 } from "@/lib/api/v0_3";
-import { ApiError } from "@/lib/api-client";
 import { getOrCreateAnonId } from "@/lib/anon";
-import { requestGuestToken } from "@/lib/auth/fmToken";
+import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   clinicalQuestionsResponseSchema,
   clinicalReportResponseSchema,
@@ -31,10 +30,6 @@ function resolveAnonId(anonId?: string): string | undefined {
   return browserAnonId || undefined;
 }
 
-function isAuthError(error: unknown): error is ApiError {
-  return error instanceof ApiError && error.status === 401;
-}
-
 async function withClinicalAuthRetry<T>({
   anonId,
   locale,
@@ -44,20 +39,11 @@ async function withClinicalAuthRetry<T>({
   locale?: string;
   run: () => Promise<T>;
 }): Promise<T> {
-  try {
-    return await run();
-  } catch (error) {
-    if (!isAuthError(error)) {
-      throw error;
-    }
-
-    await requestGuestToken({
-      anonId: resolveAnonId(anonId),
-      locale,
-    });
-
-    return run();
-  }
+  return runWithGuestTokenRetry({
+    runner: run,
+    anonId: resolveAnonId(anonId),
+    locale,
+  });
 }
 
 function assertClinicalContract<T>(
