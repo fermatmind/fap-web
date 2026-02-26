@@ -9,19 +9,25 @@ import ClinicalReportClient from "@/components/clinical/report/ClinicalReportCli
 import { UnlockCTA } from "@/components/commerce/UnlockCTA";
 import { AnimatedCounter } from "@/components/design/AnimatedCounter";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
+import { DimensionBars } from "@/components/result/DimensionBars";
+import { ResultSummary } from "@/components/result/ResultSummary";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/assessmentSlugMap";
+import { requestGuestToken } from "@/lib/auth/fmToken";
 import {
   createCheckoutOrOrder,
+  fetchAttemptResult,
   getScaleLookup,
   getAttemptReport,
   resendOrderDelivery,
   type OfferPayload,
   type ReportResponse,
+  type ResultResponse,
 } from "@/lib/api/v0_3";
+import { ApiError } from "@/lib/api-client";
 import { buildBig5TrackingContext, trackBig5Event } from "@/lib/big5/analytics";
 import { clearBig5ClientCaches, computeManifestHash } from "@/lib/big5/manifest";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
@@ -120,6 +126,21 @@ function extractPrimaryNumericScore(report: ReportResponse | null): number | nul
   return null;
 }
 
+function isUnauthorizedError(error: unknown): error is ApiError {
+  return error instanceof ApiError && error.status === 401;
+}
+
+function isFallbackEligibleReportError(error: unknown): boolean {
+  if (!(error instanceof ApiError)) return false;
+  return error.status === 404 || error.status === 422 || error.status === 501;
+}
+
+function shouldFallbackToResultPayload(report: ReportResponse): boolean {
+  const hasReportNode = report.report && typeof report.report === "object";
+  const hasSummary = typeof report.summary === "string" && report.summary.trim().length > 0;
+  return !hasReportNode && !hasSummary;
+}
+
 const SCALE_SLUG_MAP = SCALE_CANONICAL_SLUG_MAP;
 
 export default function ResultClient({
@@ -136,6 +157,7 @@ export default function ResultClient({
   const withLocale = (path: string) => localizedPath(path, locale);
 
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
+  const [fallbackResultData, setFallbackResultData] = useState<ResultResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -155,9 +177,12 @@ export default function ResultClient({
 
   const offer = useMemo(() => (reportData ? firstOffer(reportData) : undefined), [reportData]);
   const offers = useMemo(() => (reportData ? normalizeOffers(reportData) : []), [reportData]);
+  const fallbackScaleCode = String((fallbackResultData?.meta as { scale_code?: unknown } | undefined)?.scale_code ?? "")
+    .trim()
+    .toUpperCase();
   const reportScaleCode = String(
     reportData?.report?.scale_code ??
-      ((reportData?.meta as { scale_code?: unknown } | undefined)?.scale_code ?? "")
+      ((reportData?.meta as { scale_code?: unknown } | undefined)?.scale_code ?? fallbackScaleCode)
   )
     .trim()
     .toUpperCase();
@@ -197,6 +222,25 @@ export default function ResultClient({
   const anonId = useMemo(() => getOrCreateAnonId(), []);
 
   const paywallDisabled = locked && (offers.length === 0 || freeOnlyMode || !commerceEnabled);
+
+  const runWithAuthRetry = useCallback(
+    async <T,>(runner: () => Promise<T>): Promise<T> => {
+      try {
+        return await runner();
+      } catch (error) {
+        if (!isUnauthorizedError(error)) {
+          throw error;
+        }
+
+        await requestGuestToken({
+          anonId,
+          locale,
+        });
+        return runner();
+      }
+    },
+    [anonId, locale]
+  );
 
   useEffect(() => {
     if (loading) {
@@ -273,14 +317,29 @@ export default function ResultClient({
     const run = async (isRetry = false) => {
       if (!isRetry) {
         setLoading(true);
+        setFallbackResultData(null);
       }
       setError(null);
 
       try {
-        const response = await getAttemptReport({ attemptId });
+        const response = await runWithAuthRetry(() =>
+          getAttemptReport({ attemptId, anonId })
+        );
         if (!active) return;
 
+        if (shouldFallbackToResultPayload(response)) {
+          const fallbackResult = await runWithAuthRetry(() =>
+            fetchAttemptResult({ attemptId, anonId })
+          );
+          if (!active) return;
+          setReportData(null);
+          setFallbackResultData(fallbackResult);
+          setGenerating(false);
+          return;
+        }
+
         setReportData(response);
+        setFallbackResultData(null);
 
         if (response.generating) {
           setGenerating(true);
@@ -294,10 +353,28 @@ export default function ResultClient({
         setGenerating(false);
       } catch (cause) {
         if (!active) return;
+        let terminalError: unknown = cause;
+
+        if (isFallbackEligibleReportError(cause)) {
+          try {
+            const fallbackResult = await runWithAuthRetry(() =>
+              fetchAttemptResult({ attemptId, anonId })
+            );
+            if (!active) return;
+            setReportData(null);
+            setFallbackResultData(fallbackResult);
+            setGenerating(false);
+            setError(null);
+            return;
+          } catch (fallbackError) {
+            terminalError = fallbackError;
+          }
+        }
+
         setGenerating(false);
-        const message = cause instanceof Error ? cause.message : dict.result.reportUnavailable;
+        const message = terminalError instanceof Error ? terminalError.message : dict.result.reportUnavailable;
         setError(message);
-        const classified = classifyApiError(cause);
+        const classified = classifyApiError(terminalError);
         trackEvent("report_load_failure", {
           scale_code: reportScaleCode || "UNKNOWN",
           stage: "load_report",
@@ -307,7 +384,7 @@ export default function ResultClient({
           route: "/result/[id]",
           locale,
         });
-        captureError(cause, {
+        captureError(terminalError, {
           route: "/result/[id]",
           attemptId,
           scaleCode: reportScaleCode || "UNKNOWN",
@@ -326,7 +403,7 @@ export default function ResultClient({
         window.clearTimeout(retryTimer);
       }
     };
-  }, [attemptId, dict.result.reportUnavailable, isClinicalScale, locale, reportScaleCode]);
+  }, [anonId, attemptId, dict.result.reportUnavailable, isClinicalScale, locale, runWithAuthRetry]);
 
   useEffect(() => {
     if (!reportData) return;
@@ -527,6 +604,24 @@ export default function ResultClient({
   if (loading) {
     return (
       <AnticipationSkeleton phases={dict.loading.phases} />
+    );
+  }
+
+  if (!reportData && fallbackResultData?.result) {
+    const fallbackResult = fallbackResultData.result;
+    const fallbackDimensions = Array.isArray(fallbackResult.dimensions)
+      ? fallbackResult.dimensions.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object"))
+        .map((item) => item as { code?: string; key?: string; label?: string; score?: number; percent?: number; value?: number })
+      : [];
+
+    return (
+      <div className="space-y-[var(--fm-gap-md)]">
+        <ResultSummary
+          typeCode={typeof fallbackResult.type_code === "string" ? fallbackResult.type_code : undefined}
+          summary={typeof fallbackResult.summary === "string" ? fallbackResult.summary : undefined}
+        />
+        <DimensionBars dimensions={fallbackDimensions} />
+      </div>
     );
   }
 

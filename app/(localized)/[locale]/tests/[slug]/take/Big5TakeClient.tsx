@@ -326,11 +326,33 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         });
 
         const ordered = [...response.questions.items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-        const options = ordered.map((item) => ({
-          question_id: item.question_id,
-          text: item.text,
-          options: item.options.map((option) => ({ code: option.code, text: option.text })),
-        }));
+        const options = ordered.map((item, index) => {
+          const questionText =
+            typeof item.text === "string" && item.text.trim().length > 0
+              ? item.text
+              : locale === "zh"
+                ? `第 ${index + 1} 题`
+                : `Question ${index + 1}`;
+          const normalizedOptions = (Array.isArray(item.options) ? item.options : [])
+            .map((option) => {
+              const code = typeof option.code === "string" ? option.code.trim() : "";
+              if (!code) return null;
+              return {
+                code,
+                text:
+                  typeof option.text === "string" && option.text.trim().length > 0
+                    ? option.text
+                    : code,
+              };
+            })
+            .filter((option): option is { code: string; text: string } => option !== null);
+
+          return {
+            question_id: item.question_id,
+            text: questionText,
+            options: normalizedOptions,
+          };
+        });
 
         const version =
           typeof response.meta?.disclaimer_version === "string" ? response.meta.disclaimer_version : null;

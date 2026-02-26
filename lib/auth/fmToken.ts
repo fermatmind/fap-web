@@ -1,5 +1,6 @@
 const FM_TOKEN_KEY = "fm_auth_token";
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "/api";
+const GUEST_TOKEN_TIMEOUT_MS = 10000;
 
 function canUseStorage(): boolean {
   return typeof window !== "undefined" && typeof window.localStorage !== "undefined";
@@ -10,7 +11,7 @@ export function getFmToken(): string | null {
 
   try {
     const token = window.localStorage.getItem(FM_TOKEN_KEY)?.trim() ?? "";
-    if (token.startsWith("fm_") && token.length > 10) {
+    if (isValidFmToken(token)) {
       return token;
     }
   } catch {
@@ -25,7 +26,7 @@ export function setFmToken(token: string | null | undefined): void {
 
   try {
     const normalized = (token ?? "").trim();
-    if (!normalized) {
+    if (!normalized || !isValidFmToken(normalized)) {
       window.localStorage.removeItem(FM_TOKEN_KEY);
       return;
     }
@@ -49,6 +50,10 @@ function resolveApiLocale(locale?: string): "en" | "zh-CN" {
   const normalized = String(locale ?? "").trim().toLowerCase();
   if (normalized.startsWith("zh")) return "zh-CN";
   return "en";
+}
+
+function isValidFmToken(token: string): boolean {
+  return token.startsWith("fm_") && token.length > 10;
 }
 
 function resolveGuestToken(payload: unknown): string {
@@ -80,6 +85,27 @@ function resolveGuestToken(payload: unknown): string {
   return "";
 }
 
+function extractErrorDetails(payload: unknown): {
+  code: string;
+  message: string;
+} {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return {
+      code: "UNKNOWN",
+      message: "Unknown error payload.",
+    };
+  }
+
+  const node = payload as Record<string, unknown>;
+  const code = typeof node.error_code === "string" && node.error_code.trim()
+    ? node.error_code.trim()
+    : "UNKNOWN";
+  const message = typeof node.message === "string" && node.message.trim()
+    ? node.message.trim()
+    : "Unknown error.";
+  return { code, message };
+}
+
 export async function requestGuestToken({
   anonId,
   locale,
@@ -87,6 +113,10 @@ export async function requestGuestToken({
   anonId?: string;
   locale?: string;
 } = {}): Promise<string> {
+  if (!API_BASE.trim()) {
+    throw new Error("NEXT_PUBLIC_API_BASE is empty. Unable to request guest token.");
+  }
+
   const headers = new Headers({
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -97,20 +127,36 @@ export async function requestGuestToken({
     headers.set("X-Anon-Id", normalizedAnonId);
   }
 
-  const response = await fetch(`${API_BASE}/v0.3/auth/guest`, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(normalizedAnonId ? { anon_id: normalizedAnonId } : {}),
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), GUEST_TOKEN_TIMEOUT_MS);
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE}/v0.3/auth/guest`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(normalizedAnonId ? { anon_id: normalizedAnonId } : {}),
+      signal: controller.signal,
+    });
+  } catch (error) {
+    if (controller.signal.aborted) {
+      throw new Error("Guest token request timed out.");
+    }
+    throw new Error(
+      `Guest token request failed: ${error instanceof Error ? error.message : "unknown error"}`
+    );
+  } finally {
+    clearTimeout(timeout);
+  }
 
   const payload = await response.json().catch(() => null);
   if (!response.ok) {
-    throw new Error(`Failed to request guest token (${response.status}).`);
+    const { code, message } = extractErrorDetails(payload);
+    throw new Error(`Failed to request guest token (${response.status}, ${code}): ${message}`);
   }
 
   const token = resolveGuestToken(payload);
   if (!token) {
-    throw new Error("Guest token missing in /auth/guest response.");
+    throw new Error("Guest token missing in /auth/guest response payload.");
   }
 
   setFmToken(token);
