@@ -271,3 +271,101 @@ test("CC68 report unlock is only reflected after locked=false", async ({ page })
   await expect(page.getByText("Deep paid content")).toBeVisible();
   expect(reportCalls).toBeGreaterThanOrEqual(3);
 });
+
+test("CC68 checkout pay.qr enters order wait and carries region header", async ({ page }) => {
+  const attemptId = "cc68-attempt-pay-qr";
+  const orderNo = "ord_cc68_qr_1";
+  let checkoutRegionHeader = "";
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        locked: true,
+        variant: "free",
+        quality: {
+          level: "B",
+          crisis_alert: false,
+        },
+        offers: [
+          {
+            sku: "CC68_FULL",
+            title: "CC68 Full",
+            price_cents: 1299,
+            currency: "USD",
+            order_no: orderNo,
+          },
+        ],
+        report: {
+          scale_code: "CLINICAL_COMBO_68",
+          sections: [
+            {
+              key: "disclaimer_top",
+              title: "Important Disclaimer",
+              access_level: "free",
+              blocks: [{ id: "d1", type: "markdown", content: "Disclaimer" }],
+            },
+            {
+              key: "paid_deep_dive",
+              title: "Paid Deep Dive",
+              access_level: "paid",
+              blocks: [{ id: "p1", type: "markdown", content: "Deep paid content" }],
+            },
+          ],
+        },
+      }),
+    });
+  });
+
+  await page.route("**/api/v0.3/orders/checkout", async (route) => {
+    const headers = route.request().headers();
+    checkoutRegionHeader = headers["x-region"] ?? headers["X-Region"] ?? "";
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        attempt_id: attemptId,
+        provider: "wechatpay",
+        pay: {
+          type: "qr",
+          value: "weixin://wxpay/clinical_mock_qr",
+          provider: "wechatpay",
+        },
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        attempt_id: attemptId,
+        status: "pending",
+        ownership_verified: true,
+      }),
+    });
+  });
+
+  await page.goto(`/en/attempts/${attemptId}/report`);
+  await page.getByRole("button", { name: "Unlock now" }).click();
+
+  expect(checkoutRegionHeader).toBe("US");
+  await page.waitForURL(new RegExp(`/en/orders/${orderNo}\\?`));
+  await expect(page).toHaveURL(new RegExp("pay_type=qr"));
+  await expect(page.getByText("Scan this QR code in your payment app to complete checkout.")).toBeVisible();
+});

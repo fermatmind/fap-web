@@ -81,10 +81,10 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   view_paywall: ["attemptIdMasked", "sku", "priceShown", "locale"],
   click_unlock: ["attemptIdMasked", "sku", "priceShown", "locale"],
   create_order: ["attemptIdMasked", "orderNoMasked", "sku", "locale"],
-  payment_confirmed: ["orderNoMasked", "attemptIdMasked", "locale"],
-  payment_failed: ["orderNoMasked", "attemptIdMasked", "reason", "locale"],
+  payment_confirmed: ["orderNoMasked", "attemptIdMasked", "provider", "locale"],
+  payment_failed: ["orderNoMasked", "attemptIdMasked", "reason", "provider", "locale"],
   abandoned_paywall: ["attemptIdMasked", "locked", "stayMs", "locale"],
-  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "currency", "locale"],
+  purchase_success: ["orderNoMasked", "attemptIdMasked", "sku", "amount", "currency", "provider", "locale"],
 
   landing_view: ["slug", "locale", ...COMMON_BIG5_FIELDS],
   start_click: ["slug", "locale", "disclaimer_version", "disclaimer_hash", ...COMMON_BIG5_FIELDS],

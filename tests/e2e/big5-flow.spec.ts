@@ -4,6 +4,7 @@ import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) => {
   const attemptId = "11111111-1111-1111-1111-111111111111";
   const orderNo = "ord_mock_big5_1";
+  let checkoutRegionHeader = "";
   let unlocked = false;
   const trackedEvents: Array<{ eventName: string; payload: Record<string, unknown> }> = [];
 
@@ -231,6 +232,9 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
   });
 
   await page.route("**/api/v0.3/orders/checkout", async (route) => {
+    const headers = route.request().headers();
+    checkoutRegionHeader = headers["x-region"] ?? headers["X-Region"] ?? "";
+
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -305,6 +309,7 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
 
   await expect(page.getByRole("heading", { name: "Unlock full report" })).toBeVisible();
   await page.getByRole("button", { name: "Unlock now" }).click();
+  expect(checkoutRegionHeader).toBe("US");
 
   await page.waitForURL(new RegExp(`/en/(orders/${orderNo}|result/${attemptId})`));
   if (page.url().includes(`/en/orders/${orderNo}`)) {

@@ -269,6 +269,13 @@ export type CheckoutResponse = {
   order_no?: string;
   attempt_id?: string;
   checkout_url?: string;
+  provider?: string;
+  pay?: {
+    type?: "qr" | "redirect" | "html" | string;
+    value?: string;
+    provider?: string;
+    [key: string]: unknown;
+  };
   status?: string;
   message?: string;
   offer?: OfferPayload;
@@ -276,6 +283,8 @@ export type CheckoutResponse = {
   currency?: string;
   [key: string]: unknown;
 };
+
+export type CheckoutRegion = "CN_MAINLAND" | "US" | "EU";
 
 export type OrderStatusResponse = {
   ok?: boolean;
@@ -792,6 +801,7 @@ export async function createCheckoutOrOrder({
   orderNo,
   idempotencyKey,
   provider,
+  region,
 }: {
   attemptId: string;
   anonId?: string;
@@ -799,11 +809,15 @@ export async function createCheckoutOrOrder({
   orderNo?: string;
   idempotencyKey?: string;
   provider?: string;
+  region?: CheckoutRegion;
 }): Promise<CheckoutResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const headers: Record<string, string> = {};
   if (idempotencyKey) {
     headers["Idempotency-Key"] = idempotencyKey;
+  }
+  if (region) {
+    headers["X-Region"] = region;
   }
 
   const response = await apiClient.post<CheckoutResponse>(

@@ -22,6 +22,7 @@ import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
 import { fetchClinicalReport } from "@/lib/clinical/api";
 import { mapClinicalError } from "@/lib/clinical/errors";
+import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
@@ -741,31 +742,35 @@ export default function ClinicalReportClient({
         sku: firstOffer.sku,
         orderNo: firstOffer.order_no,
         idempotencyKey: `clinical_checkout_${attemptId}_${firstOffer.sku ?? "default"}`,
+        region: regionFromLocale(locale),
       });
+      const action = resolveCheckoutAction(checkout, isZh ? "暂时无法发起支付。" : "Unable to start checkout.");
 
       if (typeof window !== "undefined") {
         try {
           const pendingOrderNo =
-            (typeof checkout.order_no === "string" && checkout.order_no.length > 0
-              ? checkout.order_no
-              : firstOffer.order_no) ?? "";
+            action.kind === "order_wait"
+              ? action.orderNo
+              : action.kind === "redirect"
+                ? (action.orderNo ?? firstOffer.order_no ?? "")
+                : (firstOffer.order_no ?? "");
           window.localStorage.setItem(pendingUnlockStorageKey, pendingOrderNo);
         } catch {
           // ignore storage failures
         }
       }
 
-      if (typeof checkout.checkout_url === "string" && checkout.checkout_url.length > 0) {
-        window.location.href = checkout.checkout_url;
+      if (action.kind === "redirect") {
+        window.location.href = action.url;
         return;
       }
 
-      if (typeof checkout.order_no === "string" && checkout.order_no.length > 0) {
-        router.push(withLocale(`/orders/${checkout.order_no}`));
+      if (action.kind === "order_wait") {
+        router.push(withLocale(buildOrderWaitPath(action)));
         return;
       }
 
-      throw new Error(isZh ? "暂时无法发起支付。" : "Unable to start checkout.");
+      throw new Error(action.message);
     } catch (cause) {
       const mapped = mapClinicalError(cause);
       setPayError(mapped.message);

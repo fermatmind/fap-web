@@ -31,6 +31,7 @@ import {
 import { ApiError } from "@/lib/api-client";
 import { buildBig5TrackingContext, trackBig5Event } from "@/lib/big5/analytics";
 import { clearBig5ClientCaches, computeManifestHash } from "@/lib/big5/manifest";
+import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
@@ -563,36 +564,40 @@ export default function ResultClient({
         sku: offer?.sku,
         orderNo: offer?.order_no,
         idempotencyKey,
+        region: regionFromLocale(locale),
       });
+      const action = resolveCheckoutAction(checkout, dict.result.paymentUnavailable);
 
       if (typeof window !== "undefined") {
         try {
           const pendingOrderNo =
-            (typeof checkout.order_no === "string" && checkout.order_no.length > 0 ? checkout.order_no : null) ??
-            offer?.order_no ??
-            "";
+            action.kind === "order_wait"
+              ? action.orderNo
+              : action.kind === "redirect"
+                ? (action.orderNo ?? offer?.order_no ?? "")
+                : (offer?.order_no ?? "");
           window.localStorage.setItem(pendingUnlockStorageKey, pendingOrderNo);
         } catch {
           // Ignore local cache write errors.
         }
       }
 
-      if (typeof checkout.checkout_url === "string" && checkout.checkout_url.length > 0) {
-        window.location.href = checkout.checkout_url;
+      if (action.kind === "redirect") {
+        window.location.href = action.url;
         return;
       }
 
-      if (typeof checkout.order_no === "string" && checkout.order_no.length > 0) {
+      if (action.kind === "order_wait") {
         try {
-          window.localStorage.setItem("fm_scale_last_order_v1", checkout.order_no);
+          window.localStorage.setItem("fm_scale_last_order_v1", action.orderNo);
         } catch {
           // Ignore local cache write errors.
         }
-        router.push(withLocale(`/orders/${checkout.order_no}`));
+        router.push(withLocale(buildOrderWaitPath(action)));
         return;
       }
 
-      throw new Error(dict.result.paymentUnavailable);
+      throw new Error(action.message);
     } catch (cause) {
       const message = cause instanceof Error ? cause.message : dict.result.paymentUnavailable;
       setPayError(message);

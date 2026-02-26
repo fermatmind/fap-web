@@ -198,6 +198,13 @@ const zh: SiteDictionary = {
     contactSupport: "联系客服",
     refresh: "刷新",
     viewReport: "查看完整报告",
+    paymentActionTitle: "完成支付",
+    paymentProviderLabel: "支付渠道",
+    qrCodeHint: "请使用支付 App 扫描二维码完成支付。",
+    qrCodeGenerating: "正在生成安全二维码...",
+    qrCodeUnavailable: "二维码生成失败，请刷新后重试。",
+    openPaymentHint: "请在支付页面完成支付，完成后返回此页面等待状态更新。",
+    openPaymentPage: "打开支付页面",
   },
   support: {
     title: "帮助中心",
