@@ -5,13 +5,27 @@ import { buildRequestScaleCodeCandidates } from "@/lib/scaleCodeMode";
 
 export type ScaleQuestionOption = {
   code: string;
-  text: string;
+  text?: string;
+  label?: string;
   score?: number;
+  svg?: {
+    view_box?: string;
+    paths?: Array<{
+      d?: string;
+      fill?: string;
+      fill_rule?: string;
+      stroke?: string;
+      stroke_width?: number | string;
+      [key: string]: unknown;
+    }>;
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
 };
 
 export type ScaleQuestionItem = {
   question_id: string;
-  text: string;
+  text?: string | null;
   order?: number;
   direction?: number;
   dimension?: string;
@@ -19,7 +33,29 @@ export type ScaleQuestionItem = {
   module_code?: string;
   options_set_code?: string;
   is_reverse?: boolean | number;
-  options: ScaleQuestionOption[];
+  options?: ScaleQuestionOption[] | null;
+  stem?: {
+    prompt_zh?: string;
+    prompt_en?: string;
+    svg?: {
+      view_box?: string;
+      paths?: Array<{
+        d?: string;
+        fill?: string;
+        fill_rule?: string;
+        stroke?: string;
+        stroke_width?: number | string;
+        [key: string]: unknown;
+      }>;
+      [key: string]: unknown;
+    };
+    [key: string]: unknown;
+  } | null;
+  section_code?: string;
+  section_order?: number;
+  type?: string;
+  meta?: Record<string, unknown>;
+  [key: string]: unknown;
 };
 
 export type QuestionValidityItem = {
@@ -30,6 +66,12 @@ export type QuestionValidityItem = {
 
 export type QuestionsMeta = {
   validity_items?: QuestionValidityItem[];
+  option_anchors?: Array<{
+    code?: string;
+    label?: string;
+    text?: string;
+    [key: string]: unknown;
+  }>;
   disclaimer_version?: string;
   disclaimer_hash?: string;
   disclaimer_text?: string;

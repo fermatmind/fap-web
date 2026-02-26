@@ -1,9 +1,12 @@
 import { useMemo, type KeyboardEvent } from "react";
+import { IqVectorSvg } from "@/components/quiz/iq/IqStemSvg";
 import { cn } from "@/lib/utils";
+import type { QuizVectorGraphic } from "@/lib/quiz/types";
 
 type OptionItem = {
   code: string;
   text: string;
+  svg?: QuizVectorGraphic | null;
 };
 
 const BUBBLE_SIZE_CLASSES = ["h-16 w-16", "h-14 w-14", "h-12 w-12", "h-14 w-14", "h-16 w-16"] as const;
@@ -21,11 +24,13 @@ function normalizeOptions(options: OptionItem[]): OptionItem[] {
     .map((option) => ({
       code: option.code.trim(),
       text: option.text.trim() || option.code.trim(),
+      svg: option.svg ?? null,
     }));
 }
 
 function isBubbleMode(options: OptionItem[]): boolean {
   if (options.length !== 5) return false;
+  if (options.some((option) => option.svg)) return false;
   return options.every((option) => option.text.length <= 20);
 }
 
@@ -118,7 +123,19 @@ export function AdaptiveOptionGroup({
                 : "border-[var(--fm-border)] bg-white text-[var(--fm-text)] hover:border-[var(--fm-border-strong)]"
             )}
           >
-            <span className="text-sm font-medium">{option.text}</span>
+            <span className="flex items-center gap-3 text-sm font-medium">
+              {option.svg ? (
+                <span
+                  className={cn(
+                    "inline-flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-md border bg-white p-1",
+                    selected ? "border-white/80" : "border-[var(--fm-border)]"
+                  )}
+                >
+                  <IqVectorSvg svg={option.svg} className="h-full w-full" />
+                </span>
+              ) : null}
+              <span>{option.text}</span>
+            </span>
             <span
               className={cn(
                 "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold",

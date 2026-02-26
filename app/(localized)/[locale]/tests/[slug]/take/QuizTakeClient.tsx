@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { IqStemSvg } from "@/components/quiz/iq/IqStemSvg";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
@@ -14,29 +15,39 @@ import { MatrixQuestionTable } from "@/components/quiz/matrix/MatrixQuestionTabl
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
+import { requestGuestToken, setFmToken } from "@/lib/auth/fmToken";
 import {
   fetchScaleQuestions,
   startAttempt,
   submitAttempt,
-  type ScaleQuestionItem,
 } from "@/lib/api/v0_3";
+import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
+import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 
-function toQuizQuestion(question: ScaleQuestionItem): QuizQuestion {
-  return {
-    id: question.question_id,
-    title: question.text,
-    options: Array.isArray(question.options)
-      ? question.options.map((option) => ({ id: option.code, text: option.text }))
-      : [],
-  };
+function isUnauthorizedError(error: unknown): error is ApiError {
+  return error instanceof ApiError && error.status === 401;
+}
+
+function resolveAuthErrorMessage(locale: "en" | "zh"): string {
+  if (locale === "zh") {
+    return "登录状态已失效，请刷新页面后重试。";
+  }
+  return "Authentication expired. Please refresh and try again.";
+}
+
+function toUiMessage(error: unknown, fallback: string, locale: "en" | "zh"): string {
+  if (isUnauthorizedError(error)) {
+    return resolveAuthErrorMessage(locale);
+  }
+  return error instanceof Error && error.message ? error.message : fallback;
 }
 
 export default function QuizTakeClient({
@@ -82,6 +93,7 @@ function QuizTakeInner({
   setQuestions: (nextQuestions: QuizQuestion[]) => void;
 }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
   const withLocale = (path: string) => localizedPath(path, locale);
@@ -116,6 +128,32 @@ function QuizTakeInner({
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
 
+  useEffect(() => {
+    const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
+    if (tokenFromUrl.startsWith("fm_")) {
+      setFmToken(tokenFromUrl);
+    }
+  }, [searchParams]);
+
+  const runWithAuthRetry = useCallback(
+    async <T,>(runner: () => Promise<T>): Promise<T> => {
+      try {
+        return await runner();
+      } catch (error) {
+        if (!isUnauthorizedError(error)) {
+          throw error;
+        }
+
+        await requestGuestToken({
+          anonId,
+          locale,
+        });
+        return runner();
+      }
+    },
+    [anonId, locale]
+  );
+
   const clearSubmitPhaseTimers = useCallback(() => {
     submitPhaseTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
     submitPhaseTimersRef.current = [];
@@ -129,7 +167,9 @@ function QuizTakeInner({
       setQuestionsError(null);
 
       try {
-        const response = await fetchScaleQuestions({ scaleCode, anonId });
+        const response = await runWithAuthRetry(() =>
+          fetchScaleQuestions({ scaleCode, anonId })
+        );
 
         if (!active) return;
 
@@ -137,10 +177,17 @@ function QuizTakeInner({
           (a, b) => (a.order ?? 0) - (b.order ?? 0)
         );
 
-        setQuestions(orderedQuestions.map(toQuizQuestion));
+        setQuestions(
+          normalizeQuizQuestions({
+            items: orderedQuestions,
+            locale,
+            meta: response.meta,
+            optionsFormat: response.options?.format,
+          })
+        );
       } catch (error) {
         if (!active) return;
-        const message = error instanceof Error ? error.message : "Failed to load questions.";
+        const message = toUiMessage(error, "Failed to load questions.", locale);
         setQuestionsError(message);
         const classified = classifyApiError(error);
         trackEvent("questions_load_failure", {
@@ -169,7 +216,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, locale, scaleCode, setQuestions, slug]);
+  }, [anonId, locale, runWithAuthRetry, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -189,11 +236,13 @@ function QuizTakeInner({
 
     const pending = (async () => {
       try {
-        const response = await startAttempt({ scaleCode, anonId });
+        const response = await runWithAuthRetry(() =>
+          startAttempt({ scaleCode, anonId })
+        );
         setAttemptMeta(response.attempt_id, scaleCode);
         return response.attempt_id;
       } catch (error) {
-        const message = error instanceof Error ? error.message : "Failed to start attempt.";
+        const message = toUiMessage(error, "Failed to start attempt.", locale);
         setAttemptError(message);
         const classified = classifyApiError(error);
         trackEvent("submit_failure", {
@@ -220,7 +269,7 @@ function QuizTakeInner({
 
     ensureAttemptPromiseRef.current = pending;
     return pending;
-  }, [anonId, attemptId, locale, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+  }, [anonId, attemptId, locale, runWithAuthRetry, savedScaleCode, scaleCode, setAttemptMeta, slug]);
 
   useEffect(() => {
     let active = true;
@@ -341,12 +390,14 @@ function QuizTakeInner({
     try {
       const durationMs = Math.max(1000, Date.now() - startedAt);
 
-      const response = await submitAttempt({
-        attemptId: activeAttemptId,
-        answers: payloadAnswers,
-        durationMs,
-        anonId,
-      });
+      const response = await runWithAuthRetry(() =>
+        submitAttempt({
+          attemptId: activeAttemptId,
+          answers: payloadAnswers,
+          durationMs,
+          anonId,
+        })
+      );
 
       if (!response.ok) {
         throw new Error("Submit failed. Please try again.");
@@ -360,7 +411,7 @@ function QuizTakeInner({
       });
       return resultAttemptId;
     } catch (error) {
-      const message = error instanceof Error ? error.message : "Submit failed.";
+      const message = toUiMessage(error, "Submit failed.", locale);
       setSubmitError(message);
       const classified = classifyApiError(error);
       trackEvent("submit_failure", {
@@ -526,6 +577,8 @@ function QuizTakeInner({
             </p>
             <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
 
+            {question.stem?.svg ? <IqStemSvg stem={question.stem} className="max-h-[320px]" /> : null}
+
             {milestoneHint ? (
               <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
                 {milestoneHint}
@@ -534,7 +587,11 @@ function QuizTakeInner({
 
             <AdaptiveOptionGroup
               questionId={question.id}
-              options={question.options.map((option) => ({ code: option.id, text: option.text }))}
+              options={question.options.map((option) => ({
+                code: option.id,
+                text: option.text,
+                svg: option.svg,
+              }))}
               value={selectedOptionId}
               noOptionsLabel={dict.quiz.immersive.noOptions}
               onChange={(code) =>
@@ -577,12 +634,19 @@ function QuizTakeInner({
         </div>
       ) : null}
 
+      {question.stem?.svg ? <IqStemSvg stem={question.stem} className="max-h-[360px]" /> : null}
+
       <MatrixQuestionTable
         questionId={question.id}
         questionText={question.title}
-        options={question.options.map((option) => ({ code: option.id, text: option.text }))}
+        options={question.options.map((option) => ({
+          code: option.id,
+          text: option.text,
+          svg: option.svg,
+        }))}
         value={selectedOptionId}
         locale={locale}
+        mobilePromptSlot={question.stem?.svg ? <IqStemSvg stem={question.stem} className="h-full p-0 border-0 bg-transparent" /> : undefined}
         mobilePromptStickyTopClassName="top-[4.75rem]"
         mobilePromptMaxHeightVh={45}
         mobileOptionsSafeArea

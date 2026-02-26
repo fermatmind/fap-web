@@ -1,15 +1,22 @@
 import { useEffect, useRef, type KeyboardEvent, type ReactNode } from "react";
+import { IqVectorSvg } from "@/components/quiz/iq/IqStemSvg";
 import { cn } from "@/lib/utils";
+import type { QuizVectorGraphic } from "@/lib/quiz/types";
 
 type MatrixOption = {
   code: string;
   text: string;
+  svg?: QuizVectorGraphic | null;
 };
 
 function normalizeOptions(options: MatrixOption[]): MatrixOption[] {
   return options
     .filter((option) => option.code.trim().length > 0)
-    .map((option) => ({ code: option.code.trim(), text: option.text.trim() || option.code.trim() }));
+    .map((option) => ({
+      code: option.code.trim(),
+      text: option.text.trim() || option.code.trim(),
+      svg: option.svg ?? null,
+    }));
 }
 
 export function MatrixQuestionTable({
@@ -111,7 +118,13 @@ export function MatrixQuestionTable({
             </div>
             {normalized.map((option) => (
               <div key={`desktop-label-${option.code}`} className="text-[11px] font-medium text-[var(--fm-text-muted)]">
-                {option.text}
+                {option.svg ? (
+                  <span className="mx-auto inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-md border border-[var(--fm-border)] bg-white p-1">
+                    <IqVectorSvg svg={option.svg} className="h-full w-full" />
+                  </span>
+                ) : (
+                  option.text
+                )}
               </div>
             ))}
           </div>
@@ -199,7 +212,14 @@ export function MatrixQuestionTable({
                       : "border-[var(--fm-border)] bg-white"
                   }`}
                 >
-                  <span className="text-xs font-medium text-[var(--fm-text)]">{option.text}</span>
+                  <span className="flex items-center gap-2 text-xs font-medium text-[var(--fm-text)]">
+                    {option.svg ? (
+                      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md border border-[var(--fm-border)] bg-white p-1">
+                        <IqVectorSvg svg={option.svg} className="h-full w-full" />
+                      </span>
+                    ) : null}
+                    <span>{option.text}</span>
+                  </span>
                   <input
                     type="radio"
                     role="radio"

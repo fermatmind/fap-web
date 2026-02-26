@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ConsentGate } from "@/components/clinical/quiz/ConsentGate";
 import { ModuleTransitionCard } from "@/components/clinical/quiz/ModuleTransitionCard";
 import { QuestionCard } from "@/components/clinical/quiz/QuestionCard";
@@ -17,6 +17,8 @@ import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
+import { requestGuestToken, setFmToken } from "@/lib/auth/fmToken";
+import { ApiError } from "@/lib/api-client";
 import {
   fetchClinicalQuestions,
   startClinicalAttempt,
@@ -30,7 +32,7 @@ import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/lo
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
-import type { QuestionsMeta, ScaleQuestionItem, ScaleQuestionOption } from "@/lib/api/v0_3";
+import type { QuestionsMeta, ScaleQuestionItem } from "@/lib/api/v0_3";
 
 const SDS_OPTION_CODES = ["A", "B", "C", "D"];
 const SUBMIT_REPORT_CACHE_PREFIX = "fm_attempt_submit_report_v1_";
@@ -38,6 +40,11 @@ const SUBMIT_REPORT_CACHE_PREFIX = "fm_attempt_submit_report_v1_";
 type ModuleMetaNode = {
   title?: string;
   guidance?: string;
+};
+
+type NormalizedScaleOption = {
+  code: string;
+  text: string;
 };
 
 function normalizeModuleMeta(raw: unknown): Record<string, ModuleMetaNode> {
@@ -71,18 +78,16 @@ function resolveConsentText(meta: QuestionsMeta | undefined, isZh: boolean): str
     : "Please review and accept informed consent before starting the assessment.";
 }
 
-function normalizeSdsOptions(format: string[]): ScaleQuestionOption[] {
-  return format
-    .map((text, idx) => {
-      const label = String(text ?? "").trim();
-      if (!label) return null;
-
-      return {
-        code: SDS_OPTION_CODES[idx] ?? String.fromCharCode(65 + idx),
-        text: label,
-      } satisfies ScaleQuestionOption;
-    })
-    .filter((item): item is ScaleQuestionOption => item !== null);
+function normalizeSdsOptions(format: string[]): NormalizedScaleOption[] {
+  return format.reduce<NormalizedScaleOption[]>((acc, text, idx) => {
+    const label = String(text ?? "").trim();
+    if (!label) return acc;
+    acc.push({
+      code: SDS_OPTION_CODES[idx] ?? String.fromCharCode(65 + idx),
+      text: label,
+    });
+    return acc;
+  }, []);
 }
 
 function questionOptionsForScale({
@@ -92,15 +97,43 @@ function questionOptionsForScale({
 }: {
   scaleCode: ClinicalScaleCode;
   question: ScaleQuestionItem;
-  sdsOptions: ScaleQuestionOption[];
-}): ScaleQuestionOption[] {
+  sdsOptions: NormalizedScaleOption[];
+}): NormalizedScaleOption[] {
   if (scaleCode === "SDS_20") {
     return sdsOptions;
   }
 
   return Array.isArray(question.options)
-    ? question.options.filter((item) => typeof item.code === "string" && typeof item.text === "string")
+    ? question.options.reduce<NormalizedScaleOption[]>((acc, item) => {
+        if (!item || typeof item !== "object") {
+          return acc;
+        }
+
+        const code = typeof item.code === "string" ? item.code.trim() : "";
+        if (!code) {
+          return acc;
+        }
+
+        const textCandidates = [item.text, item.label, code];
+        const text =
+          textCandidates.find((candidate) => typeof candidate === "string" && candidate.trim().length > 0) ?? code;
+
+        acc.push({ code, text });
+        return acc;
+      }, [])
     : [];
+}
+
+function isUnauthorizedError(error: unknown): error is ApiError {
+  return error instanceof ApiError && error.status === 401;
+}
+
+function toUiMessage(error: unknown, fallback: string, locale: "en" | "zh"): string {
+  if (isUnauthorizedError(error)) {
+    return locale === "zh" ? "登录状态已失效，请刷新页面后重试。" : "Authentication expired. Please refresh and try again.";
+  }
+
+  return error instanceof Error && error.message ? error.message : fallback;
 }
 
 export default function ClinicalTakeClient({
@@ -110,12 +143,14 @@ export default function ClinicalTakeClient({
   slug: string;
   scaleCode: ClinicalScaleCode;
 }) {
+  const searchParams = useSearchParams();
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const isZh = locale === "zh";
   const router = useRouter();
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
+  const anonId = useMemo(() => getOrCreateAnonId(), []);
 
   const attemptId = useClinicalAttemptStore((state) => state.attemptId);
   const answers = useClinicalAttemptStore((state) => state.answers);
@@ -138,7 +173,7 @@ export default function ClinicalTakeClient({
 
   const [questions, setQuestions] = useState<ScaleQuestionItem[]>([]);
   const [questionsMeta, setQuestionsMeta] = useState<QuestionsMeta | undefined>();
-  const [sdsOptions, setSdsOptions] = useState<ScaleQuestionOption[]>([]);
+  const [sdsOptions, setSdsOptions] = useState<NormalizedScaleOption[]>([]);
   const [loadingQuestions, setLoadingQuestions] = useState(true);
   const [questionError, setQuestionError] = useState<string | null>(null);
 
@@ -155,6 +190,32 @@ export default function ClinicalTakeClient({
   const submitPhaseTimersRef = useRef<number[]>([]);
   const latestAnswersRef = useRef<Record<string, string>>(answers);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
+
+  useEffect(() => {
+    const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
+    if (tokenFromUrl.startsWith("fm_")) {
+      setFmToken(tokenFromUrl);
+    }
+  }, [searchParams]);
+
+  const runWithAuthRetry = useCallback(
+    async <T,>(runner: () => Promise<T>): Promise<T> => {
+      try {
+        return await runner();
+      } catch (error) {
+        if (!isUnauthorizedError(error)) {
+          throw error;
+        }
+
+        await requestGuestToken({
+          anonId: anonId || undefined,
+          locale,
+        });
+        return runner();
+      }
+    },
+    [anonId, locale]
+  );
 
   const consentText = useMemo(() => resolveConsentText(questionsMeta, isZh), [isZh, questionsMeta]);
   const serverConsentVersion =
@@ -196,9 +257,8 @@ export default function ClinicalTakeClient({
   }, []);
 
   useEffect(() => {
-    const anonId = getOrCreateAnonId();
     hydrateAnonId(anonId || null);
-  }, [hydrateAnonId]);
+  }, [anonId, hydrateAnonId]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -218,11 +278,13 @@ export default function ClinicalTakeClient({
       setQuestionError(null);
 
       try {
-        const response = await fetchClinicalQuestions({
-          scaleCode,
-          locale: toApiLocale(locale),
-          region: "GLOBAL",
-        });
+        const response = await runWithAuthRetry(() =>
+          fetchClinicalQuestions({
+            scaleCode,
+            locale: toApiLocale(locale),
+            region: "GLOBAL",
+          })
+        );
 
         if (!active) return;
 
@@ -246,7 +308,7 @@ export default function ClinicalTakeClient({
       } catch (error) {
         if (!active) return;
         const mapped = mapClinicalError(error);
-        setQuestionError(mapped.message);
+        setQuestionError(toUiMessage(error, mapped.message, locale));
         const classified = classifyApiError(error);
         trackEvent("questions_load_failure", {
           scale_code: scaleCode,
@@ -275,7 +337,7 @@ export default function ClinicalTakeClient({
     return () => {
       active = false;
     };
-  }, [initSession, locale, scaleCode, slug]);
+  }, [initSession, locale, runWithAuthRetry, scaleCode, slug]);
 
   useEffect(() => {
     if (!needsConsent) {
@@ -342,17 +404,19 @@ export default function ClinicalTakeClient({
     setStartError(null);
 
     try {
-      const response = await startClinicalAttempt({
-        scaleCode,
-        locale: toApiLocale(locale),
-        region: "GLOBAL",
-        consent: {
-          accepted: true,
-          version: serverConsentVersion,
+      const response = await runWithAuthRetry(() =>
+        startClinicalAttempt({
+          scaleCode,
           locale: toApiLocale(locale),
-        },
-        clientVersion: `fe-${scaleCode.toLowerCase()}-1`,
-      });
+          region: "GLOBAL",
+          consent: {
+            accepted: true,
+            version: serverConsentVersion,
+            locale: toApiLocale(locale),
+          },
+          clientVersion: `fe-${scaleCode.toLowerCase()}-1`,
+        })
+      );
 
       setAttemptId(response.attempt_id);
       trackEvent("clinical_start", {
@@ -362,7 +426,7 @@ export default function ClinicalTakeClient({
       return response.attempt_id;
     } catch (error) {
       const mapped = mapClinicalError(error);
-      setStartError(mapped.message);
+      setStartError(toUiMessage(error, mapped.message, locale));
       const classified = classifyApiError(error);
       trackEvent("submit_failure", {
         scale_code: scaleCode,
@@ -383,7 +447,7 @@ export default function ClinicalTakeClient({
     } finally {
       setStarting(false);
     }
-  }, [attemptId, locale, scaleCode, serverConsentVersion, setAttemptId, slug]);
+  }, [attemptId, locale, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug]);
 
   const handleStart = async () => {
     if (!consentChecked) {
@@ -434,19 +498,21 @@ export default function ClinicalTakeClient({
 
     try {
       const durationMs = Math.max(1000, Date.now() - startedAt);
-      const response = await submitClinicalAttempt({
-        attemptId: activeAttemptId,
-        durationMs,
-        answers: questions.map((item) => ({
-          question_id: item.question_id,
-          code: answersSnapshot[item.question_id] ?? "",
-        })),
-        consent: {
-          accepted: true,
-          version: submitConsentVersion,
-          locale: submitConsentLocale,
-        },
-      });
+      const response = await runWithAuthRetry(() =>
+        submitClinicalAttempt({
+          attemptId: activeAttemptId,
+          durationMs,
+          answers: questions.map((item) => ({
+            question_id: item.question_id,
+            code: answersSnapshot[item.question_id] ?? "",
+          })),
+          consent: {
+            accepted: true,
+            version: submitConsentVersion,
+            locale: submitConsentLocale,
+          },
+        })
+      );
 
       if (!response.ok) {
         throw new Error("Submit failed.");
@@ -467,7 +533,7 @@ export default function ClinicalTakeClient({
       return resultAttemptId;
     } catch (error) {
       const mapped = mapClinicalError(error);
-      setSubmitError(mapped.message);
+      setSubmitError(toUiMessage(error, mapped.message, locale));
       const classified = classifyApiError(error);
       trackEvent("submit_failure", {
         scale_code: scaleCode,
@@ -498,6 +564,7 @@ export default function ClinicalTakeClient({
     locale,
     markSubmitted,
     questions,
+    runWithAuthRetry,
     scaleCode,
     serverConsentVersion,
     setCurrentIndex,
@@ -695,7 +762,7 @@ export default function ClinicalTakeClient({
 
             <AdaptiveOptionGroup
               questionId={currentQuestion.question_id}
-              options={options.map((option) => ({ code: option.code, text: option.text }))}
+              options={options}
               value={answers[currentQuestion.question_id]}
               noOptionsLabel={dict.quiz.immersive.noOptions}
               onChange={(code) =>
