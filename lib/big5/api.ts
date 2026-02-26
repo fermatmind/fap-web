@@ -14,6 +14,8 @@ import {
   type SubmitAnswer,
   type SubmitResponse,
 } from "@/lib/api/v0_3";
+import { getOrCreateAnonId } from "@/lib/anon";
+import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   big5MeAttemptsResponseSchema,
   big5QuestionsResponseSchema,
@@ -23,6 +25,31 @@ import {
 } from "@/lib/big5/contracts/schemas";
 
 const BIG5_SCALE_CODE = "BIG5_OCEAN";
+
+function resolveAnonId(anonId?: string): string | undefined {
+  const normalized = String(anonId ?? "").trim();
+  if (normalized) return normalized;
+  if (typeof window === "undefined") return undefined;
+
+  const browserAnonId = getOrCreateAnonId().trim();
+  return browserAnonId || undefined;
+}
+
+async function withBig5AuthRetry<T>({
+  anonId,
+  locale,
+  run,
+}: {
+  anonId?: string;
+  locale?: string;
+  run: () => Promise<T>;
+}): Promise<T> {
+  return runWithGuestTokenRetry({
+    runner: run,
+    anonId: resolveAnonId(anonId),
+    locale,
+  });
+}
 
 function assertContract<T>(
   schemaName: string,
@@ -45,11 +72,17 @@ export async function fetchBig5Questions({
   region?: string;
   anonId?: string;
 }): Promise<QuestionsResponse> {
-  const response = await fetchScaleQuestions({
-    scaleCode: BIG5_SCALE_CODE,
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withBig5AuthRetry({
+    anonId: resolvedAnonId,
     locale,
-    region,
-    anonId,
+    run: () =>
+      fetchScaleQuestions({
+        scaleCode: BIG5_SCALE_CODE,
+        locale,
+        region,
+        anonId: resolvedAnonId,
+      }),
   });
 
   return assertContract<QuestionsResponse>("big5QuestionsResponse", big5QuestionsResponseSchema, response);
@@ -68,15 +101,21 @@ export async function startBig5Attempt({
   meta?: Record<string, unknown>;
   clientVersion?: string;
 }): Promise<StartAttemptResponse> {
-  const response = await startAttempt({
-    scaleCode: BIG5_SCALE_CODE,
-    anonId,
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withBig5AuthRetry({
+    anonId: resolvedAnonId,
     locale,
-    region,
-    meta,
-    clientPlatform: "web",
-    clientVersion,
-    channel: "web",
+    run: () =>
+      startAttempt({
+        scaleCode: BIG5_SCALE_CODE,
+        anonId: resolvedAnonId,
+        locale,
+        region,
+        meta,
+        clientPlatform: "web",
+        clientVersion,
+        channel: "web",
+      }),
   });
 
   return assertContract<StartAttemptResponse>("big5StartAttemptResponse", big5StartAttemptResponseSchema, response);
@@ -93,11 +132,16 @@ export async function submitBig5Attempt({
   durationMs: number;
   anonId?: string;
 }): Promise<SubmitResponse> {
-  const response = await submitAttempt({
-    attemptId,
-    answers,
-    durationMs,
-    anonId,
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withBig5AuthRetry({
+    anonId: resolvedAnonId,
+    run: () =>
+      submitAttempt({
+        attemptId,
+        answers,
+        durationMs,
+        anonId: resolvedAnonId,
+      }),
   });
 
   return assertContract<SubmitResponse>("big5SubmitResponse", big5SubmitResponseSchema, response);
@@ -112,10 +156,15 @@ export async function fetchBig5Report({
   refresh?: boolean;
   anonId?: string;
 }): Promise<ReportResponse> {
-  const response = await getAttemptReport({
-    attemptId,
-    refresh,
-    anonId,
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withBig5AuthRetry({
+    anonId: resolvedAnonId,
+    run: () =>
+      getAttemptReport({
+        attemptId,
+        refresh,
+        anonId: resolvedAnonId,
+      }),
   });
 
   return assertContract<ReportResponse>("big5ReportResponse", big5ReportResponseSchema, response);
@@ -130,11 +179,16 @@ export async function fetchBig5History({
   pageSize?: number;
   anonId?: string;
 } = {}): Promise<MeAttemptsResponse> {
-  const response = await getMyAttempts({
-    scaleCode: BIG5_SCALE_CODE,
-    page,
-    pageSize,
-    anonId,
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withBig5AuthRetry({
+    anonId: resolvedAnonId,
+    run: () =>
+      getMyAttempts({
+        scaleCode: BIG5_SCALE_CODE,
+        page,
+        pageSize,
+        anonId: resolvedAnonId,
+      }),
   });
 
   return assertContract<MeAttemptsResponse>("big5MeAttemptsResponse", big5MeAttemptsResponseSchema, response);

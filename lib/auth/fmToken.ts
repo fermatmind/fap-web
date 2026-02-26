@@ -2,6 +2,40 @@ const FM_TOKEN_KEY = "fm_auth_token";
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "/api";
 const GUEST_TOKEN_TIMEOUT_MS = 10000;
 
+export type GuestTokenErrorReason =
+  | "config"
+  | "timeout"
+  | "network"
+  | "http_error"
+  | "missing_token";
+
+export class GuestTokenRequestError extends Error {
+  reason: GuestTokenErrorReason;
+  status?: number;
+  errorCode?: string;
+  requestId?: string;
+
+  constructor({
+    reason,
+    message,
+    status,
+    errorCode,
+    requestId,
+  }: {
+    reason: GuestTokenErrorReason;
+    message: string;
+    status?: number;
+    errorCode?: string;
+    requestId?: string;
+  }) {
+    super(message);
+    this.reason = reason;
+    this.status = status;
+    this.errorCode = errorCode;
+    this.requestId = requestId;
+  }
+}
+
 function canUseStorage(): boolean {
   return typeof window !== "undefined" && typeof window.localStorage !== "undefined";
 }
@@ -88,6 +122,7 @@ function resolveGuestToken(payload: unknown): string {
 function extractErrorDetails(payload: unknown): {
   code: string;
   message: string;
+  requestId?: string;
 } {
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
     return {
@@ -103,7 +138,19 @@ function extractErrorDetails(payload: unknown): {
   const message = typeof node.message === "string" && node.message.trim()
     ? node.message.trim()
     : "Unknown error.";
-  return { code, message };
+  const requestId =
+    typeof node.request_id === "string" && node.request_id.trim()
+      ? node.request_id.trim()
+      : undefined;
+  return { code, message, requestId };
+}
+
+export function isGuestTokenRequestError(error: unknown): error is GuestTokenRequestError {
+  return error instanceof GuestTokenRequestError;
+}
+
+export function isGuestTokenEndpointMissingError(error: unknown): boolean {
+  return isGuestTokenRequestError(error) && error.status === 404;
 }
 
 export async function requestGuestToken({
@@ -114,7 +161,10 @@ export async function requestGuestToken({
   locale?: string;
 } = {}): Promise<string> {
   if (!API_BASE.trim()) {
-    throw new Error("NEXT_PUBLIC_API_BASE is empty. Unable to request guest token.");
+    throw new GuestTokenRequestError({
+      reason: "config",
+      message: "NEXT_PUBLIC_API_BASE is empty. Unable to request guest token.",
+    });
   }
 
   const headers = new Headers({
@@ -139,24 +189,37 @@ export async function requestGuestToken({
     });
   } catch (error) {
     if (controller.signal.aborted) {
-      throw new Error("Guest token request timed out.");
+      throw new GuestTokenRequestError({
+        reason: "timeout",
+        message: "Guest token request timed out.",
+      });
     }
-    throw new Error(
-      `Guest token request failed: ${error instanceof Error ? error.message : "unknown error"}`
-    );
+    throw new GuestTokenRequestError({
+      reason: "network",
+      message: `Guest token request failed: ${error instanceof Error ? error.message : "unknown error"}`,
+    });
   } finally {
     clearTimeout(timeout);
   }
 
   const payload = await response.json().catch(() => null);
   if (!response.ok) {
-    const { code, message } = extractErrorDetails(payload);
-    throw new Error(`Failed to request guest token (${response.status}, ${code}): ${message}`);
+    const { code, message, requestId } = extractErrorDetails(payload);
+    throw new GuestTokenRequestError({
+      reason: "http_error",
+      status: response.status,
+      errorCode: code,
+      requestId,
+      message: `Failed to request guest token (${response.status}, ${code}): ${message}`,
+    });
   }
 
   const token = resolveGuestToken(payload);
   if (!token) {
-    throw new Error("Guest token missing in /auth/guest response payload.");
+    throw new GuestTokenRequestError({
+      reason: "missing_token",
+      message: "Guest token missing in /auth/guest response payload.",
+    });
   }
 
   setFmToken(token);

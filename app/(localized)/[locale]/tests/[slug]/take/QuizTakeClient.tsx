@@ -15,7 +15,12 @@ import { MatrixQuestionTable } from "@/components/quiz/matrix/MatrixQuestionTabl
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
-import { requestGuestToken, setFmToken } from "@/lib/auth/fmToken";
+import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
+import {
+  isGuestTokenEndpointMissingError,
+  isGuestTokenRequestError,
+  setFmToken,
+} from "@/lib/auth/fmToken";
 import {
   fetchScaleQuestions,
   startAttempt,
@@ -43,7 +48,45 @@ function resolveAuthErrorMessage(locale: "en" | "zh"): string {
   return "Authentication expired. Please refresh and try again.";
 }
 
+function resolveGuestTokenFailureMessage(locale: "en" | "zh"): string {
+  if (locale === "zh") {
+    return "认证服务暂时不可用，请稍后重试。";
+  }
+  return "Authentication service is temporarily unavailable. Please retry later.";
+}
+
+function resolveNoTokenServiceMessage(locale: "en" | "zh"): string {
+  if (locale === "zh") {
+    return "提交通道暂时不可用（认证服务未配置），请稍后再试。";
+  }
+  return "Submission is temporarily unavailable because authentication service is not configured.";
+}
+
+function resolveGuestTokenTelemetry(error: unknown): {
+  statusCode?: number;
+  errorCode: string;
+  requestId?: string;
+} {
+  if (isGuestTokenRequestError(error)) {
+    return {
+      statusCode: error.status,
+      errorCode: error.errorCode ?? error.reason.toUpperCase(),
+      requestId: error.requestId,
+    };
+  }
+
+  return {
+    errorCode: "UNKNOWN",
+  };
+}
+
 function toUiMessage(error: unknown, fallback: string, locale: "en" | "zh"): string {
+  if (isGuestTokenEndpointMissingError(error)) {
+    return resolveNoTokenServiceMessage(locale);
+  }
+  if (isGuestTokenRequestError(error)) {
+    return resolveGuestTokenFailureMessage(locale);
+  }
   if (isUnauthorizedError(error)) {
     return resolveAuthErrorMessage(locale);
   }
@@ -114,6 +157,8 @@ function QuizTakeInner({
 
   const [questionsLoading, setQuestionsLoading] = useState(true);
   const [attemptLoading, setAttemptLoading] = useState(true);
+  const [authBootstrapping, setAuthBootstrapping] = useState(true);
+  const [authBlockError, setAuthBlockError] = useState<string | null>(null);
   const [questionsError, setQuestionsError] = useState<string | null>(null);
   const [attemptError, setAttemptError] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -135,23 +180,92 @@ function QuizTakeInner({
     }
   }, [searchParams]);
 
-  const runWithAuthRetry = useCallback(
-    async <T,>(runner: () => Promise<T>): Promise<T> => {
-      try {
-        return await runner();
-      } catch (error) {
-        if (!isUnauthorizedError(error)) {
-          throw error;
-        }
+  const trackGuestTokenFailure = useCallback(
+    (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {
+      const telemetry = resolveGuestTokenTelemetry(error);
+      trackEvent("auth_guest_token_failure", {
+        scale_code: scaleCode,
+        stage,
+        status_code: telemetry.statusCode,
+        error_code: telemetry.errorCode,
+        request_id: telemetry.requestId,
+        route: "/tests/[slug]/take",
+        locale,
+      });
+    },
+    [locale, scaleCode]
+  );
 
-        await requestGuestToken({
+  useEffect(() => {
+    let active = true;
+
+    const run = async () => {
+      setAuthBootstrapping(true);
+      setAuthBlockError(null);
+
+      try {
+        await ensureFmTokenReady({
           anonId,
           locale,
+          forceRefresh: true,
         });
-        return runner();
+      } catch (error) {
+        if (!active) return;
+        trackGuestTokenFailure("bootstrap", error);
+
+        if (isGuestTokenEndpointMissingError(error)) {
+          setAuthBlockError(resolveNoTokenServiceMessage(locale));
+          const telemetry = resolveGuestTokenTelemetry(error);
+          trackEvent("submit_blocked_no_token_service", {
+            scale_code: scaleCode,
+            status_code: telemetry.statusCode,
+            error_code: telemetry.errorCode,
+            request_id: telemetry.requestId,
+            route: "/tests/[slug]/take",
+            locale,
+          });
+        }
+      } finally {
+        if (active) {
+          setAuthBootstrapping(false);
+        }
       }
-    },
-    [anonId, locale]
+    };
+
+    void run();
+
+    return () => {
+      active = false;
+    };
+  }, [anonId, locale, scaleCode, trackGuestTokenFailure]);
+
+  const runWithAuthRetry = useCallback(
+    async <T,>(
+      stage: "questions" | "start_attempt" | "submit_attempt",
+      runner: () => Promise<T>
+    ): Promise<T> =>
+      runWithGuestTokenRetry({
+        runner,
+        anonId,
+        locale,
+        onGuestTokenFailure: (guestTokenError) => {
+          trackGuestTokenFailure(stage, guestTokenError);
+
+          if (isGuestTokenEndpointMissingError(guestTokenError)) {
+            setAuthBlockError(resolveNoTokenServiceMessage(locale));
+            const telemetry = resolveGuestTokenTelemetry(guestTokenError);
+            trackEvent("submit_blocked_no_token_service", {
+              scale_code: scaleCode,
+              status_code: telemetry.statusCode,
+              error_code: telemetry.errorCode,
+              request_id: telemetry.requestId,
+              route: "/tests/[slug]/take",
+              locale,
+            });
+          }
+        },
+      }),
+    [anonId, locale, scaleCode, trackGuestTokenFailure]
   );
 
   const clearSubmitPhaseTimers = useCallback(() => {
@@ -163,11 +277,16 @@ function QuizTakeInner({
     let active = true;
 
     const run = async () => {
+      if (authBlockError) {
+        setQuestionsLoading(false);
+        return;
+      }
+
       setQuestionsLoading(true);
       setQuestionsError(null);
 
       try {
-        const response = await runWithAuthRetry(() =>
+        const response = await runWithAuthRetry("questions", () =>
           fetchScaleQuestions({ scaleCode, anonId })
         );
 
@@ -216,13 +335,17 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, locale, runWithAuthRetry, scaleCode, setQuestions, slug]);
+  }, [anonId, authBlockError, locale, runWithAuthRetry, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
   }, [answers]);
 
   const ensureAttempt = useCallback(async (): Promise<string | null> => {
+    if (authBlockError) {
+      return null;
+    }
+
     if (attemptId && savedScaleCode === scaleCode) {
       return attemptId;
     }
@@ -236,7 +359,7 @@ function QuizTakeInner({
 
     const pending = (async () => {
       try {
-        const response = await runWithAuthRetry(() =>
+        const response = await runWithAuthRetry("start_attempt", () =>
           startAttempt({ scaleCode, anonId })
         );
         setAttemptMeta(response.attempt_id, scaleCode);
@@ -269,7 +392,7 @@ function QuizTakeInner({
 
     ensureAttemptPromiseRef.current = pending;
     return pending;
-  }, [anonId, attemptId, locale, runWithAuthRetry, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+  }, [anonId, attemptId, authBlockError, locale, runWithAuthRetry, savedScaleCode, scaleCode, setAttemptMeta, slug]);
 
   useEffect(() => {
     let active = true;
@@ -311,7 +434,7 @@ function QuizTakeInner({
   const total = questions.length;
   const question = questions[currentIndex];
   const selectedOptionId = question ? answers[question.id] : undefined;
-  const loadError = questionsError ?? attemptError;
+  const loadError = authBlockError ?? questionsError ?? attemptError;
 
   const answeredCount = useMemo(
     () => questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
@@ -390,7 +513,7 @@ function QuizTakeInner({
     try {
       const durationMs = Math.max(1000, Date.now() - startedAt);
 
-      const response = await runWithAuthRetry(() =>
+      const response = await runWithAuthRetry("submit_attempt", () =>
         submitAttempt({
           attemptId: activeAttemptId,
           answers: payloadAnswers,
@@ -514,10 +637,12 @@ function QuizTakeInner({
     enterDurationMs: 280,
   });
 
-  if (questionsLoading || attemptLoading) {
+  if (authBootstrapping || questionsLoading || attemptLoading) {
     return (
       <QuizShell>
-        <p className="m-0 text-slate-600">Loading quiz data...</p>
+        <p className="m-0 text-slate-600">
+          {authBootstrapping ? "Preparing secure session..." : "Loading quiz data..."}
+        </p>
       </QuizShell>
     );
   }

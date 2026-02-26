@@ -16,7 +16,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/assessmentSlugMap";
-import { requestGuestToken } from "@/lib/auth/fmToken";
+import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
+import { isGuestTokenRequestError } from "@/lib/auth/fmToken";
 import {
   createCheckoutOrOrder,
   fetchAttemptResult,
@@ -126,10 +127,6 @@ function extractPrimaryNumericScore(report: ReportResponse | null): number | nul
   return null;
 }
 
-function isUnauthorizedError(error: unknown): error is ApiError {
-  return error instanceof ApiError && error.status === 401;
-}
-
 function isFallbackEligibleReportError(error: unknown): boolean {
   if (!(error instanceof ApiError)) return false;
   return error.status === 404 || error.status === 422 || error.status === 501;
@@ -139,6 +136,24 @@ function shouldFallbackToResultPayload(report: ReportResponse): boolean {
   const hasReportNode = report.report && typeof report.report === "object";
   const hasSummary = typeof report.summary === "string" && report.summary.trim().length > 0;
   return !hasReportNode && !hasSummary;
+}
+
+function resolveGuestTokenTelemetry(error: unknown): {
+  statusCode?: number;
+  errorCode: string;
+  requestId?: string;
+} {
+  if (isGuestTokenRequestError(error)) {
+    return {
+      statusCode: error.status,
+      errorCode: error.errorCode ?? error.reason.toUpperCase(),
+      requestId: error.requestId,
+    };
+  }
+
+  return {
+    errorCode: "UNKNOWN",
+  };
 }
 
 const SCALE_SLUG_MAP = SCALE_CANONICAL_SLUG_MAP;
@@ -220,25 +235,33 @@ export default function ResultClient({
       : "");
   const primaryNumericScore = useMemo(() => extractPrimaryNumericScore(reportData), [reportData]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
+  const trackingScaleCodeRef = useRef(trackingScaleCode);
+
+  useEffect(() => {
+    trackingScaleCodeRef.current = trackingScaleCode;
+  }, [trackingScaleCode]);
 
   const paywallDisabled = locked && (offers.length === 0 || freeOnlyMode || !commerceEnabled);
 
   const runWithAuthRetry = useCallback(
-    async <T,>(runner: () => Promise<T>): Promise<T> => {
-      try {
-        return await runner();
-      } catch (error) {
-        if (!isUnauthorizedError(error)) {
-          throw error;
-        }
-
-        await requestGuestToken({
-          anonId,
-          locale,
-        });
-        return runner();
-      }
-    },
+    async <T,>(runner: () => Promise<T>): Promise<T> =>
+      runWithGuestTokenRetry({
+        runner,
+        anonId,
+        locale,
+        onGuestTokenFailure: (guestTokenError) => {
+          const telemetry = resolveGuestTokenTelemetry(guestTokenError);
+          trackEvent("auth_guest_token_failure", {
+            scale_code: trackingScaleCodeRef.current,
+            stage: "result_load",
+            status_code: telemetry.statusCode,
+            error_code: telemetry.errorCode,
+            request_id: telemetry.requestId,
+            route: "/result/[id]",
+            locale,
+          });
+        },
+      }),
     [anonId, locale]
   );
 

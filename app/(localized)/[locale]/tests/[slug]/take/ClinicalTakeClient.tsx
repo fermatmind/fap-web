@@ -17,7 +17,12 @@ import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
-import { requestGuestToken, setFmToken } from "@/lib/auth/fmToken";
+import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
+import {
+  isGuestTokenEndpointMissingError,
+  isGuestTokenRequestError,
+  setFmToken,
+} from "@/lib/auth/fmToken";
 import { ApiError } from "@/lib/api-client";
 import {
   fetchClinicalQuestions,
@@ -129,11 +134,39 @@ function isUnauthorizedError(error: unknown): error is ApiError {
 }
 
 function toUiMessage(error: unknown, fallback: string, locale: "en" | "zh"): string {
+  if (isGuestTokenEndpointMissingError(error)) {
+    return locale === "zh"
+      ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+      : "Submission is temporarily unavailable because authentication service is not configured.";
+  }
+  if (isGuestTokenRequestError(error)) {
+    return locale === "zh"
+      ? "认证服务暂时不可用，请稍后重试。"
+      : "Authentication service is temporarily unavailable. Please retry later.";
+  }
   if (isUnauthorizedError(error)) {
     return locale === "zh" ? "登录状态已失效，请刷新页面后重试。" : "Authentication expired. Please refresh and try again.";
   }
 
   return error instanceof Error && error.message ? error.message : fallback;
+}
+
+function resolveGuestTokenTelemetry(error: unknown): {
+  statusCode?: number;
+  errorCode: string;
+  requestId?: string;
+} {
+  if (isGuestTokenRequestError(error)) {
+    return {
+      statusCode: error.status,
+      errorCode: error.errorCode ?? error.reason.toUpperCase(),
+      requestId: error.requestId,
+    };
+  }
+
+  return {
+    errorCode: "UNKNOWN",
+  };
 }
 
 export default function ClinicalTakeClient({
@@ -174,6 +207,8 @@ export default function ClinicalTakeClient({
   const [questions, setQuestions] = useState<ScaleQuestionItem[]>([]);
   const [questionsMeta, setQuestionsMeta] = useState<QuestionsMeta | undefined>();
   const [sdsOptions, setSdsOptions] = useState<NormalizedScaleOption[]>([]);
+  const [authBootstrapping, setAuthBootstrapping] = useState(true);
+  const [authBlockError, setAuthBlockError] = useState<string | null>(null);
   const [loadingQuestions, setLoadingQuestions] = useState(true);
   const [questionError, setQuestionError] = useState<string | null>(null);
 
@@ -198,23 +233,100 @@ export default function ClinicalTakeClient({
     }
   }, [searchParams]);
 
-  const runWithAuthRetry = useCallback(
-    async <T,>(runner: () => Promise<T>): Promise<T> => {
-      try {
-        return await runner();
-      } catch (error) {
-        if (!isUnauthorizedError(error)) {
-          throw error;
-        }
+  const trackGuestTokenFailure = useCallback(
+    (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {
+      const telemetry = resolveGuestTokenTelemetry(error);
+      trackEvent("auth_guest_token_failure", {
+        scale_code: scaleCode,
+        stage,
+        status_code: telemetry.statusCode,
+        error_code: telemetry.errorCode,
+        request_id: telemetry.requestId,
+        route: "/tests/[slug]/take",
+        locale,
+      });
+    },
+    [locale, scaleCode]
+  );
 
-        await requestGuestToken({
+  useEffect(() => {
+    let active = true;
+
+    const run = async () => {
+      setAuthBootstrapping(true);
+      setAuthBlockError(null);
+
+      try {
+        await ensureFmTokenReady({
           anonId: anonId || undefined,
           locale,
+          forceRefresh: true,
         });
-        return runner();
+      } catch (error) {
+        if (!active) return;
+        trackGuestTokenFailure("bootstrap", error);
+
+        if (isGuestTokenEndpointMissingError(error)) {
+          setAuthBlockError(
+            locale === "zh"
+              ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+              : "Submission is temporarily unavailable because authentication service is not configured."
+          );
+          const telemetry = resolveGuestTokenTelemetry(error);
+          trackEvent("submit_blocked_no_token_service", {
+            scale_code: scaleCode,
+            status_code: telemetry.statusCode,
+            error_code: telemetry.errorCode,
+            request_id: telemetry.requestId,
+            route: "/tests/[slug]/take",
+            locale,
+          });
+        }
+      } finally {
+        if (active) {
+          setAuthBootstrapping(false);
+        }
       }
-    },
-    [anonId, locale]
+    };
+
+    void run();
+
+    return () => {
+      active = false;
+    };
+  }, [anonId, locale, scaleCode, trackGuestTokenFailure]);
+
+  const runWithAuthRetry = useCallback(
+    async <T,>(
+      stage: "questions" | "start_attempt" | "submit_attempt",
+      runner: () => Promise<T>
+    ): Promise<T> =>
+      runWithGuestTokenRetry({
+        runner,
+        anonId: anonId || undefined,
+        locale,
+        onGuestTokenFailure: (guestTokenError) => {
+          trackGuestTokenFailure(stage, guestTokenError);
+
+          if (isGuestTokenEndpointMissingError(guestTokenError)) {
+            setAuthBlockError(
+              locale === "zh"
+                ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+                : "Submission is temporarily unavailable because authentication service is not configured."
+            );
+            const telemetry = resolveGuestTokenTelemetry(guestTokenError);
+            trackEvent("submit_blocked_no_token_service", {
+              scale_code: scaleCode,
+              status_code: telemetry.statusCode,
+              error_code: telemetry.errorCode,
+              request_id: telemetry.requestId,
+              route: "/tests/[slug]/take",
+              locale,
+            });
+          }
+        },
+      }),
+    [anonId, locale, scaleCode, trackGuestTokenFailure]
   );
 
   const consentText = useMemo(() => resolveConsentText(questionsMeta, isZh), [isZh, questionsMeta]);
@@ -274,11 +386,16 @@ export default function ClinicalTakeClient({
     let active = true;
 
     const run = async () => {
+      if (authBlockError) {
+        setLoadingQuestions(false);
+        return;
+      }
+
       setLoadingQuestions(true);
       setQuestionError(null);
 
       try {
-        const response = await runWithAuthRetry(() =>
+        const response = await runWithAuthRetry("questions", () =>
           fetchClinicalQuestions({
             scaleCode,
             locale: toApiLocale(locale),
@@ -337,7 +454,7 @@ export default function ClinicalTakeClient({
     return () => {
       active = false;
     };
-  }, [initSession, locale, runWithAuthRetry, scaleCode, slug]);
+  }, [authBlockError, initSession, locale, runWithAuthRetry, scaleCode, slug]);
 
   useEffect(() => {
     if (!needsConsent) {
@@ -396,6 +513,10 @@ export default function ClinicalTakeClient({
   }, []);
 
   const ensureAttempt = useCallback(async () => {
+    if (authBlockError) {
+      return null;
+    }
+
     if (attemptId) {
       return attemptId;
     }
@@ -404,7 +525,7 @@ export default function ClinicalTakeClient({
     setStartError(null);
 
     try {
-      const response = await runWithAuthRetry(() =>
+      const response = await runWithAuthRetry("start_attempt", () =>
         startClinicalAttempt({
           scaleCode,
           locale: toApiLocale(locale),
@@ -447,7 +568,7 @@ export default function ClinicalTakeClient({
     } finally {
       setStarting(false);
     }
-  }, [attemptId, locale, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug]);
+  }, [attemptId, authBlockError, locale, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug]);
 
   const handleStart = async () => {
     if (!consentChecked) {
@@ -498,7 +619,7 @@ export default function ClinicalTakeClient({
 
     try {
       const durationMs = Math.max(1000, Date.now() - startedAt);
-      const response = await runWithAuthRetry(() =>
+      const response = await runWithAuthRetry("submit_attempt", () =>
         submitClinicalAttempt({
           attemptId: activeAttemptId,
           durationMs,
@@ -661,18 +782,26 @@ export default function ClinicalTakeClient({
     enterDurationMs: 280,
   });
 
-  if (loadingQuestions) {
+  if (authBootstrapping || loadingQuestions) {
     return (
       <QuizShell>
-        <p className="m-0 text-sm text-slate-700">{isZh ? "正在加载题目..." : "Loading questions..."}</p>
+        <p className="m-0 text-sm text-slate-700">
+          {authBootstrapping
+            ? isZh
+              ? "正在初始化安全会话..."
+              : "Preparing secure session..."
+            : isZh
+              ? "正在加载题目..."
+              : "Loading questions..."}
+        </p>
       </QuizShell>
     );
   }
 
-  if (questionError) {
+  if (authBlockError || questionError) {
     return (
       <QuizShell>
-        <Alert>{questionError}</Alert>
+        <Alert>{authBlockError ?? questionError}</Alert>
         <Button type="button" variant="outline" onClick={() => window.location.reload()}>
           {isZh ? "重试" : "Retry"}
         </Button>

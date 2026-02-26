@@ -15,7 +15,12 @@ import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHea
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
-import { setFmToken } from "@/lib/auth/fmToken";
+import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
+import {
+  isGuestTokenEndpointMissingError,
+  isGuestTokenRequestError,
+  setFmToken,
+} from "@/lib/auth/fmToken";
 import { ApiError } from "@/lib/api-client";
 import { getOrCreateAnonId } from "@/lib/anon";
 import {
@@ -50,12 +55,31 @@ function retryCountdownText(locale: "en" | "zh", seconds: number): string {
   return `Please wait ${seconds} seconds before retrying.`;
 }
 
+function resolveGuestTokenTelemetry(error: unknown): {
+  statusCode?: number;
+  errorCode: string;
+  requestId?: string;
+} {
+  if (isGuestTokenRequestError(error)) {
+    return {
+      statusCode: error.status,
+      errorCode: error.errorCode ?? error.reason.toUpperCase(),
+      requestId: error.requestId,
+    };
+  }
+
+  return {
+    errorCode: "UNKNOWN",
+  };
+}
+
 export default function Big5TakeClient({ slug }: { slug: string }) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const anonId = useMemo(() => getOrCreateAnonId(), []);
 
   const attemptId = useBig5AttemptStore((store) => store.attemptId);
   const answers = useBig5AttemptStore((store) => store.answers);
@@ -76,6 +100,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const resetAll = useBig5AttemptStore((store) => store.resetAll);
 
   const [questions, setQuestions] = useState<Array<{ question_id: string; text: string; options: Array<{ code: string; text: string }> }>>([]);
+  const [authBootstrapping, setAuthBootstrapping] = useState(true);
+  const [authBlockError, setAuthBlockError] = useState<string | null>(null);
   const [loadingQuestions, setLoadingQuestions] = useState(true);
   const [questionError, setQuestionError] = useState<string | null>(null);
 
@@ -190,9 +216,107 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   }, [searchParams, setAuthToken]);
 
   useEffect(() => {
-    const anonId = getOrCreateAnonId();
     hydrateAnonId(anonId || null);
-  }, [hydrateAnonId]);
+  }, [anonId, hydrateAnonId]);
+
+  const trackGuestTokenFailure = useCallback(
+    (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {
+      const telemetry = resolveGuestTokenTelemetry(error);
+      trackEvent("auth_guest_token_failure", {
+        scale_code: "BIG5_OCEAN",
+        stage,
+        status_code: telemetry.statusCode,
+        error_code: telemetry.errorCode,
+        request_id: telemetry.requestId,
+        route: "/tests/[slug]/take",
+        locale,
+      });
+    },
+    [locale]
+  );
+
+  useEffect(() => {
+    let active = true;
+
+    const run = async () => {
+      setAuthBootstrapping(true);
+      setAuthBlockError(null);
+
+      try {
+        await ensureFmTokenReady({
+          anonId: anonId || undefined,
+          locale,
+          forceRefresh: true,
+        });
+      } catch (error) {
+        if (!active) return;
+        trackGuestTokenFailure("bootstrap", error);
+
+        if (isGuestTokenEndpointMissingError(error)) {
+          const message =
+            locale === "zh"
+              ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+              : "Submission is temporarily unavailable because authentication service is not configured.";
+          setAuthBlockError(message);
+          setQuestionError(message);
+
+          const telemetry = resolveGuestTokenTelemetry(error);
+          trackEvent("submit_blocked_no_token_service", {
+            scale_code: "BIG5_OCEAN",
+            status_code: telemetry.statusCode,
+            error_code: telemetry.errorCode,
+            request_id: telemetry.requestId,
+            route: "/tests/[slug]/take",
+            locale,
+          });
+        }
+      } finally {
+        if (active) {
+          setAuthBootstrapping(false);
+        }
+      }
+    };
+
+    void run();
+
+    return () => {
+      active = false;
+    };
+  }, [anonId, locale, trackGuestTokenFailure]);
+
+  const runWithAuthRetry = useCallback(
+    async <T,>(
+      stage: "questions" | "start_attempt" | "submit_attempt",
+      runner: () => Promise<T>
+    ): Promise<T> =>
+      runWithGuestTokenRetry({
+        runner,
+        anonId: anonId || undefined,
+        locale,
+        onGuestTokenFailure: (guestTokenError) => {
+          trackGuestTokenFailure(stage, guestTokenError);
+          if (isGuestTokenEndpointMissingError(guestTokenError)) {
+            const message =
+              locale === "zh"
+                ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+                : "Submission is temporarily unavailable because authentication service is not configured.";
+            setAuthBlockError(message);
+            setQuestionError(message);
+
+            const telemetry = resolveGuestTokenTelemetry(guestTokenError);
+            trackEvent("submit_blocked_no_token_service", {
+              scale_code: "BIG5_OCEAN",
+              status_code: telemetry.statusCode,
+              error_code: telemetry.errorCode,
+              request_id: telemetry.requestId,
+              route: "/tests/[slug]/take",
+              locale,
+            });
+          }
+        },
+      }),
+    [anonId, locale, trackGuestTokenFailure]
+  );
 
   useEffect(() => {
     if (cooldownSeconds <= 0) return;
@@ -272,6 +396,11 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     let active = true;
 
     const run = async () => {
+      if (authBlockError) {
+        setRolloutChecking(false);
+        return;
+      }
+
       try {
         const lookup = await fetchBig5Lookup({
           slug,
@@ -305,11 +434,11 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     return () => {
       active = false;
     };
-  }, [locale, router, slug, withLocale]);
+  }, [authBlockError, locale, router, slug, withLocale]);
 
   useEffect(() => {
-    if (rolloutChecking) return;
-    if (rolloutBlocked) {
+    if (authBootstrapping || rolloutChecking) return;
+    if (rolloutBlocked || authBlockError) {
       setLoadingQuestions(false);
       return;
     }
@@ -321,9 +450,12 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       setQuestionError(null);
 
       try {
-        const response = await fetchBig5Questions({
-          locale: toApiLocale(locale),
-        });
+        const response = await runWithAuthRetry("questions", () =>
+          fetchBig5Questions({
+            locale: toApiLocale(locale),
+            anonId: anonId || undefined,
+          })
+        );
 
         const ordered = [...response.questions.items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
         const options = ordered.map((item, index) => {
@@ -400,6 +532,27 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         setTrackingBase(context);
       } catch (error) {
         if (!active) return;
+        if (isGuestTokenRequestError(error)) {
+          trackGuestTokenFailure("questions", error);
+          if (isGuestTokenEndpointMissingError(error)) {
+            const message =
+              locale === "zh"
+                ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+                : "Submission is temporarily unavailable because authentication service is not configured.";
+            setAuthBlockError(message);
+            setQuestionError(message);
+            const telemetry = resolveGuestTokenTelemetry(error);
+            trackEvent("submit_blocked_no_token_service", {
+              scale_code: "BIG5_OCEAN",
+              status_code: telemetry.statusCode,
+              error_code: telemetry.errorCode,
+              request_id: telemetry.requestId,
+              route: "/tests/[slug]/take",
+              locale,
+            });
+          }
+        }
+
         const mapped = mapBig5Error(error);
         const classified = classifyApiError(error);
         trackEvent("questions_load_failure", {
@@ -424,9 +577,13 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     return () => {
       active = false;
     };
-  }, [applyUiError, locale, rolloutBlocked, rolloutChecking]);
+  }, [anonId, applyUiError, authBlockError, authBootstrapping, locale, rolloutBlocked, rolloutChecking, runWithAuthRetry]);
 
   const ensureAttempt = useCallback(async (): Promise<string | null> => {
+    if (authBlockError) {
+      return null;
+    }
+
     if (attemptId) {
       return attemptId;
     }
@@ -454,12 +611,15 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
     for (let retry = 0; retry < 2; retry += 1) {
       try {
-        const response = await startBig5Attempt({
-          locale: toApiLocale(locale),
-          region: "GLOBAL",
-          meta: requestMeta,
-          clientVersion: "fe-big5-2",
-        });
+        const response = await runWithAuthRetry("start_attempt", () =>
+          startBig5Attempt({
+            anonId: anonId || undefined,
+            locale: toApiLocale(locale),
+            region: "GLOBAL",
+            meta: requestMeta,
+            clientVersion: "fe-big5-2",
+          })
+        );
 
         setAttemptMeta({
           attemptId: response.attempt_id,
@@ -484,6 +644,26 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         if (retry === 0) {
           await wait(600);
           continue;
+        }
+
+        if (isGuestTokenRequestError(error)) {
+          trackGuestTokenFailure("start_attempt", error);
+          if (isGuestTokenEndpointMissingError(error)) {
+            const message =
+              locale === "zh"
+                ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+                : "Submission is temporarily unavailable because authentication service is not configured.";
+            setAuthBlockError(message);
+            const telemetry = resolveGuestTokenTelemetry(error);
+            trackEvent("submit_blocked_no_token_service", {
+              scale_code: "BIG5_OCEAN",
+              status_code: telemetry.statusCode,
+              error_code: telemetry.errorCode,
+              request_id: telemetry.requestId,
+              route: "/tests/[slug]/take",
+              locale,
+            });
+          }
         }
 
         const mapped = mapBig5Error(error);
@@ -516,6 +696,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setStarting(false);
     return null;
   }, [
+    anonId,
+    authBlockError,
     attemptId,
     inCooldown,
     locale,
@@ -526,6 +708,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setAttemptMeta,
     buildEventPayload,
     applyUiError,
+    runWithAuthRetry,
   ]);
 
   const handleAgreeAndStart = async () => {
@@ -595,15 +778,18 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         })
       );
 
-      const response = await submitBig5Attempt({
-        attemptId: activeAttemptId,
-        answers: questions.map((question, idx) => ({
-          question_id: question.question_id,
-          code: answersSnapshot[question.question_id] ?? "",
-          question_index: idx,
-        })),
-        durationMs,
-      });
+      const response = await runWithAuthRetry("submit_attempt", () =>
+        submitBig5Attempt({
+          attemptId: activeAttemptId,
+          anonId: anonId || undefined,
+          answers: questions.map((question, idx) => ({
+            question_id: question.question_id,
+            code: answersSnapshot[question.question_id] ?? "",
+            question_index: idx,
+          })),
+          durationMs,
+        })
+      );
 
       if (!response.ok) {
         throw new Error("Submit failed.");
@@ -613,6 +799,26 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       const resultAttemptId = response.attempt_id ?? activeAttemptId;
       return resultAttemptId;
     } catch (error) {
+      if (isGuestTokenRequestError(error)) {
+        trackGuestTokenFailure("submit_attempt", error);
+        if (isGuestTokenEndpointMissingError(error)) {
+          const message =
+            locale === "zh"
+              ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+              : "Submission is temporarily unavailable because authentication service is not configured.";
+          setAuthBlockError(message);
+          const telemetry = resolveGuestTokenTelemetry(error);
+          trackEvent("submit_blocked_no_token_service", {
+            scale_code: "BIG5_OCEAN",
+            status_code: telemetry.statusCode,
+            error_code: telemetry.errorCode,
+            request_id: telemetry.requestId,
+            route: "/tests/[slug]/take",
+            locale,
+          });
+        }
+      }
+
       const mapped = mapBig5Error(error);
       const classified = classifyApiError(error);
       trackEvent("submit_failure", {
@@ -655,9 +861,11 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     inCooldown,
     locale,
     markSubmitted,
+    anonId,
     questions,
     setCurrentIndex,
     startedAt,
+    runWithAuthRetry,
   ]);
 
   const finalizeSuccessfulSubmit = useCallback(
@@ -744,11 +952,15 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     enterDurationMs: 280,
   });
 
-  if (rolloutChecking || loadingQuestions) {
+  if (authBootstrapping || rolloutChecking || loadingQuestions) {
     return (
       <div className="rounded-2xl border border-slate-200 bg-white p-[var(--fm-space-5)] shadow-sm">
         <p className="m-0 text-sm text-slate-700">
-          {rolloutChecking
+          {authBootstrapping
+            ? locale === "zh"
+              ? "正在初始化安全会话..."
+              : "Preparing secure session..."
+            : rolloutChecking
             ? locale === "zh"
               ? "正在检查可用性..."
               : "Checking assessment availability..."
@@ -758,10 +970,10 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     );
   }
 
-  if (questionError && questions.length === 0) {
+  if ((authBlockError || questionError) && questions.length === 0) {
     return (
       <div className="space-y-[var(--fm-gap-sm)] rounded-2xl border border-slate-200 bg-white p-[var(--fm-space-5)] shadow-sm">
-        <Alert>{questionError}</Alert>
+        <Alert>{authBlockError ?? questionError}</Alert>
         {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
         {rolloutBlocked ? null : (
           <Button type="button" variant="outline" onClick={() => window.location.reload()} disabled={inCooldown}>
