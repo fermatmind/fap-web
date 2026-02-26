@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
+import QRCode from "qrcode";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CheckCircle2, Loader2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
@@ -14,21 +16,41 @@ import { captureError } from "@/lib/observability/sentry";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 
 type ViewStatus = "pending" | "paid" | "failed" | "canceled" | "refunded";
+type PayType = "qr" | "html" | null;
 
 const POLL_BACKOFF_MS = [2000, 3000, 5000, 8000, 10000];
 const POLL_TIMEOUT_MS = 120000;
 
+function normalizePayType(value: string | null): PayType {
+  if (value === "qr" || value === "html") {
+    return value;
+  }
+  return null;
+}
+
+function normalizeQueryValue(value: string | null): string | null {
+  if (!value) return null;
+  const normalized = value.trim();
+  return normalized.length > 0 ? normalized : null;
+}
+
 export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
+  const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
+  const payType = useMemo(() => normalizePayType(searchParams.get("pay_type")), [searchParams]);
+  const payValue = useMemo(() => normalizeQueryValue(searchParams.get("pay_value")), [searchParams]);
+  const payProvider = useMemo(() => normalizeQueryValue(searchParams.get("provider")), [searchParams]);
 
   const [status, setStatus] = useState<ViewStatus>("pending");
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [message, setMessage] = useState<string>(dict.orders.pending);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string | null>(null);
+  const [qrCodeError, setQrCodeError] = useState(false);
 
   const pollTimerRef = useRef<number | null>(null);
   const pollStepRef = useRef(0);
@@ -37,6 +59,37 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const reportedStatusRef = useRef<ViewStatus | null>(null);
   const didAutoRedirectRef = useRef(false);
   const triggerPollRef = useRef<((options?: { manual?: boolean }) => void) | null>(null);
+
+  useEffect(() => {
+    let active = true;
+
+    if (payType !== "qr" || !payValue) {
+      setQrCodeDataUrl(null);
+      setQrCodeError(false);
+      return () => {
+        active = false;
+      };
+    }
+
+    setQrCodeDataUrl(null);
+    setQrCodeError(false);
+    void QRCode.toDataURL(payValue, {
+      width: 280,
+      margin: 2,
+    })
+      .then((dataUrl: string) => {
+        if (!active) return;
+        setQrCodeDataUrl(dataUrl);
+      })
+      .catch(() => {
+        if (!active) return;
+        setQrCodeError(true);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [payType, payValue]);
 
   useEffect(() => {
     let active = true;
@@ -108,6 +161,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
               orderNoMasked: maskedOrder,
               attemptIdMasked: maskedAttempt,
               locale,
+              ...(payProvider ? { provider: payProvider } : {}),
             });
             trackEvent("purchase_success", {
               orderNoMasked: maskedOrder,
@@ -115,6 +169,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
               ...(Number.isFinite(amount) ? { amount } : {}),
               ...(currency ? { currency } : {}),
               locale,
+              ...(payProvider ? { provider: payProvider } : {}),
             });
             reportedStatusRef.current = "paid";
           }
@@ -156,6 +211,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
               orderNoMasked: `${orderNo.slice(0, 6)}...${orderNo.slice(-4)}`,
               reason: response.message ?? fallbackMessage,
               locale,
+              ...(payProvider ? { provider: payProvider } : {}),
             });
             reportedStatusRef.current = nextStatus;
           }
@@ -205,12 +261,17 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
       triggerPollRef.current = null;
       clearPollTimer();
     };
-  }, [dict, locale, orderNo, router, withLocale]);
+  }, [dict, locale, orderNo, payProvider, router, withLocale]);
 
   const handleManualRefresh = () => {
     if (isRefreshing) return;
     triggerPollRef.current?.({ manual: true });
   };
+
+  const handleOpenPaymentPage = useCallback(() => {
+    if (payType !== "html" || !payValue) return;
+    window.open(payValue, "_blank", "noopener,noreferrer");
+  }, [payType, payValue]);
 
   const icon = useMemo(() => {
     if (status === "paid") return <CheckCircle2 className="h-6 w-6 text-emerald-600" />;
@@ -233,6 +294,51 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
           {status === "pending" ? (
             <div className="space-y-3">
               <Alert className="border-slate-200 bg-slate-50 text-slate-700">{dict.orders.pending}</Alert>
+
+              {payType === "qr" || payType === "html" ? (
+                <div className="space-y-3 rounded-lg border border-slate-200 bg-slate-50 p-4">
+                  <p className="m-0 text-sm font-semibold text-slate-900">{dict.orders.paymentActionTitle}</p>
+                  {payProvider ? (
+                    <p className="m-0 text-xs text-slate-600">
+                      {dict.orders.paymentProviderLabel}: {payProvider}
+                    </p>
+                  ) : null}
+
+                  {payType === "qr" ? (
+                    <div className="space-y-3">
+                      <p className="m-0 text-sm text-slate-600">{dict.orders.qrCodeHint}</p>
+                      {qrCodeDataUrl ? (
+                        <div className="inline-flex rounded-xl border border-slate-200 bg-white p-3">
+                          <Image
+                            src={qrCodeDataUrl}
+                            alt={dict.orders.qrCodeHint}
+                            className="h-64 w-64"
+                            width={256}
+                            height={256}
+                            unoptimized
+                          />
+                        </div>
+                      ) : null}
+                      {!qrCodeDataUrl && !qrCodeError ? (
+                        <Alert className="border-slate-200 bg-white text-slate-700">{dict.orders.qrCodeGenerating}</Alert>
+                      ) : null}
+                      {qrCodeError ? (
+                        <Alert>{dict.orders.qrCodeUnavailable}</Alert>
+                      ) : null}
+                    </div>
+                  ) : null}
+
+                  {payType === "html" ? (
+                    <div className="space-y-3">
+                      <p className="m-0 text-sm text-slate-600">{dict.orders.openPaymentHint}</p>
+                      <Button type="button" onClick={handleOpenPaymentPage}>
+                        {dict.orders.openPaymentPage}
+                      </Button>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+
               <div className="flex flex-wrap gap-2">
                 <Button type="button" onClick={handleManualRefresh} variant="outline" disabled={isRefreshing}>
                   {isRefreshing ? `${dict.orders.refresh}...` : dict.orders.refresh}

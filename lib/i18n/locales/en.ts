@@ -199,6 +199,13 @@ const en: SiteDictionary = {
     contactSupport: "Contact support",
     refresh: "Refresh",
     viewReport: "View full report",
+    paymentActionTitle: "Complete your payment",
+    paymentProviderLabel: "Provider",
+    qrCodeHint: "Scan this QR code in your payment app to complete checkout.",
+    qrCodeGenerating: "Generating secure QR code...",
+    qrCodeUnavailable: "Unable to render QR code. Please refresh and try again.",
+    openPaymentHint: "Continue payment in the provider page, then return to this tab.",
+    openPaymentPage: "Open payment page",
   },
   support: {
     title: "Support Center",

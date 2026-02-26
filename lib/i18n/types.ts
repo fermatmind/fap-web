@@ -159,6 +159,13 @@ export type SiteDictionary = {
     contactSupport: string;
     refresh: string;
     viewReport: string;
+    paymentActionTitle: string;
+    paymentProviderLabel: string;
+    qrCodeHint: string;
+    qrCodeGenerating: string;
+    qrCodeUnavailable: string;
+    openPaymentHint: string;
+    openPaymentPage: string;
   };
   support: {
     title: string;

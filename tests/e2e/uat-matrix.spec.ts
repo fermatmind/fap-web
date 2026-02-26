@@ -340,6 +340,7 @@ test.describe("UAT matrix (mock)", () => {
   test("role-4 paid unlock normal user", async ({ page }) => {
     const attemptId = "uat-role-paid";
     const orderNo = "ord_uat_paid_1";
+    let checkoutRegionHeader = "";
     let unlocked = false;
 
     await mockBig5BaseFlow({
@@ -401,6 +402,8 @@ test.describe("UAT matrix (mock)", () => {
     });
 
     await page.route("**/api/v0.3/orders/checkout", async (route) => {
+      const headers = route.request().headers();
+      checkoutRegionHeader = headers["x-region"] ?? headers["X-Region"] ?? "";
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -435,11 +438,353 @@ test.describe("UAT matrix (mock)", () => {
       targetUrl: new RegExp(`/en/result/${attemptId}`),
     });
     await page.getByRole("button", { name: "Unlock now" }).click();
+    expect(checkoutRegionHeader).toBe("US");
     await page.waitForURL(new RegExp(`/en/(orders/${orderNo}|result/${attemptId})`));
     if (page.url().includes(`/en/orders/${orderNo}`)) {
       await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
     }
     await expect(page.getByText("Unlocked summary.")).toBeVisible();
+  });
+
+  test("role-4a checkout pay.redirect jumps to provider page", async ({ page }) => {
+    const attemptId = "uat-role-pay-redirect";
+    const orderNo = "ord_uat_redirect_1";
+    let checkoutRegionHeader = "";
+
+    await mockBig5BaseFlow({
+      page,
+      attemptId,
+      questionCount: 5,
+    });
+
+    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          locked: true,
+          variant: "free",
+          offers: [
+            {
+              sku: "BIG5_FULL",
+              formatted_price: "$9.99",
+              amount_cents: 999,
+              currency: "USD",
+              order_no: orderNo,
+            },
+          ],
+          report: {
+            scale_code: "BIG5_OCEAN",
+            sections: [
+              {
+                key: "summary",
+                title: "Summary",
+                access_level: "free",
+                blocks: [{ kind: "paragraph", body: "Locked summary." }],
+              },
+            ],
+          },
+        }),
+      });
+    });
+
+    await page.route("**/api/v0.3/orders/checkout", async (route) => {
+      const headers = route.request().headers();
+      checkoutRegionHeader = headers["x-region"] ?? headers["X-Region"] ?? "";
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          order_no: orderNo,
+          attempt_id: attemptId,
+          provider: "lemonsqueezy",
+          pay: {
+            type: "redirect",
+            value: `https://checkout.example.com/pay?order_no=${orderNo}`,
+            provider: "lemonsqueezy",
+          },
+        }),
+      });
+    });
+
+    await page.route("https://checkout.example.com/**", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "text/html",
+        body: "<html><body><h1>Mock Checkout</h1></body></html>",
+      });
+    });
+
+    await completeBig5Take({
+      page,
+      questionCount: 5,
+      optionIndex: 2,
+      targetUrl: new RegExp(`/en/result/${attemptId}`),
+    });
+    await page.getByRole("button", { name: "Unlock now" }).click();
+    expect(checkoutRegionHeader).toBe("US");
+    await page.waitForURL(new RegExp(`^https://checkout\\.example\\.com/pay\\?order_no=${orderNo}$`));
+    expect(page.url()).not.toContain(`/en/orders/${orderNo}`);
+  });
+
+  test("role-4b checkout pay.qr enters order wait and completes", async ({ page }) => {
+    const attemptId = "uat-role-pay-qr";
+    const orderNo = "ord_uat_qr_1";
+    let checkoutRegionHeader = "";
+    let unlocked = false;
+    let orderStatusCalls = 0;
+    let allowPaid = false;
+
+    await mockBig5BaseFlow({
+      page,
+      attemptId,
+      questionCount: 5,
+    });
+
+    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(
+          unlocked
+            ? {
+                ok: true,
+                locked: false,
+                variant: "full",
+                offers: [],
+                report: {
+                  scale_code: "BIG5_OCEAN",
+                  sections: [
+                    {
+                      key: "summary",
+                      title: "Summary",
+                      access_level: "free",
+                      blocks: [{ kind: "paragraph", body: "Unlocked summary." }],
+                    },
+                  ],
+                },
+              }
+            : {
+                ok: true,
+                locked: true,
+                variant: "free",
+                offers: [
+                  {
+                    sku: "BIG5_FULL",
+                    formatted_price: "$9.99",
+                    amount_cents: 999,
+                    currency: "USD",
+                    order_no: orderNo,
+                  },
+                ],
+                report: {
+                  scale_code: "BIG5_OCEAN",
+                  sections: [
+                    {
+                      key: "summary",
+                      title: "Summary",
+                      access_level: "free",
+                      blocks: [{ kind: "paragraph", body: "Locked summary." }],
+                    },
+                  ],
+                },
+              }
+        ),
+      });
+    });
+
+    await page.route("**/api/v0.3/orders/checkout", async (route) => {
+      const headers = route.request().headers();
+      checkoutRegionHeader = headers["x-region"] ?? headers["X-Region"] ?? "";
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          order_no: orderNo,
+          attempt_id: attemptId,
+          provider: "wechatpay",
+          pay: {
+            type: "qr",
+            value: "weixin://wxpay/mock_qr",
+            provider: "wechatpay",
+          },
+        }),
+      });
+    });
+
+    await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+      orderStatusCalls += 1;
+      const paid = allowPaid;
+      if (paid) {
+        unlocked = true;
+      }
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          order_no: orderNo,
+          attempt_id: attemptId,
+          status: paid ? "paid" : "pending",
+          ownership_verified: true,
+        }),
+      });
+    });
+
+    await completeBig5Take({
+      page,
+      questionCount: 5,
+      optionIndex: 2,
+      targetUrl: new RegExp(`/en/result/${attemptId}`),
+    });
+    await page.getByRole("button", { name: "Unlock now" }).click();
+    expect(checkoutRegionHeader).toBe("US");
+    await page.waitForURL(new RegExp(`/en/orders/${orderNo}\\?`));
+    await expect(page).toHaveURL(new RegExp(`pay_type=qr`));
+    await expect(page.getByText("Scan this QR code in your payment app to complete checkout.")).toBeVisible();
+    allowPaid = true;
+    await page.getByRole("button", { name: "Refresh" }).click();
+    await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
+    await expect(page.getByText("Unlocked summary.")).toBeVisible();
+    expect(orderStatusCalls).toBeGreaterThanOrEqual(2);
+  });
+
+  test("role-4c checkout pay.html enters order wait and opens payment page", async ({ page }) => {
+    const attemptId = "uat-role-pay-html";
+    const orderNo = "ord_uat_html_1";
+    const payUrl = `/mock-pay/session/${orderNo}`;
+    let checkoutRegionHeader = "";
+    let unlocked = false;
+    let orderStatusCalls = 0;
+    let allowPaid = false;
+
+    await mockBig5BaseFlow({
+      page,
+      attemptId,
+      questionCount: 5,
+    });
+
+    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(
+          unlocked
+            ? {
+                ok: true,
+                locked: false,
+                variant: "full",
+                offers: [],
+                report: {
+                  scale_code: "BIG5_OCEAN",
+                  sections: [
+                    {
+                      key: "summary",
+                      title: "Summary",
+                      access_level: "free",
+                      blocks: [{ kind: "paragraph", body: "Unlocked summary." }],
+                    },
+                  ],
+                },
+              }
+            : {
+                ok: true,
+                locked: true,
+                variant: "free",
+                offers: [
+                  {
+                    sku: "BIG5_FULL",
+                    formatted_price: "$9.99",
+                    amount_cents: 999,
+                    currency: "USD",
+                    order_no: orderNo,
+                  },
+                ],
+                report: {
+                  scale_code: "BIG5_OCEAN",
+                  sections: [
+                    {
+                      key: "summary",
+                      title: "Summary",
+                      access_level: "free",
+                      blocks: [{ kind: "paragraph", body: "Locked summary." }],
+                    },
+                  ],
+                },
+              }
+        ),
+      });
+    });
+
+    await page.route("**/api/v0.3/orders/checkout", async (route) => {
+      const headers = route.request().headers();
+      checkoutRegionHeader = headers["x-region"] ?? headers["X-Region"] ?? "";
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          order_no: orderNo,
+          attempt_id: attemptId,
+          provider: "alipay",
+          pay: {
+            type: "html",
+            value: payUrl,
+            provider: "alipay",
+          },
+        }),
+      });
+    });
+
+    await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+      orderStatusCalls += 1;
+      const paid = allowPaid;
+      if (paid) {
+        unlocked = true;
+      }
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          order_no: orderNo,
+          attempt_id: attemptId,
+          status: paid ? "paid" : "pending",
+          ownership_verified: true,
+        }),
+      });
+    });
+
+    await completeBig5Take({
+      page,
+      questionCount: 5,
+      optionIndex: 2,
+      targetUrl: new RegExp(`/en/result/${attemptId}`),
+    });
+    await page.getByRole("button", { name: "Unlock now" }).click();
+    expect(checkoutRegionHeader).toBe("US");
+    await page.waitForURL(new RegExp(`/en/orders/${orderNo}\\?`));
+    await expect(page).toHaveURL(new RegExp(`pay_type=html`));
+    await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
+
+    const popupPromise = page.waitForEvent("popup");
+    await page.getByRole("button", { name: "Open payment page" }).click();
+    const popup = await popupPromise;
+    await expect
+      .poll(async () => popup.url(), {
+        timeout: 10000,
+      })
+      .toContain(payUrl);
+    await popup.close();
+
+    allowPaid = true;
+    await page.getByRole("button", { name: "Refresh" }).click();
+    await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
+    await expect(page.getByText("Unlocked summary.")).toBeVisible();
+    expect(orderStatusCalls).toBeGreaterThanOrEqual(2);
   });
 
   test("role-5 webhook replay observation follows locked=false only", async ({ page }) => {
