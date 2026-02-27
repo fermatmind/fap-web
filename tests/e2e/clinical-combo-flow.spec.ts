@@ -365,7 +365,8 @@ test("CC68 checkout pay.qr enters order wait and carries region header", async (
   await page.getByRole("button", { name: "Unlock now" }).click();
 
   expect(checkoutRegionHeader).toBe("US");
-  await page.waitForURL(new RegExp(`/en/orders/${orderNo}\\?`));
+  await page.waitForURL(new RegExp(`/en/pay/wait\\?`));
+  await expect(page).toHaveURL(new RegExp(`order_no=${orderNo}`));
   await expect(page).toHaveURL(new RegExp("pay_type=qr"));
   await expect(page.getByText("Scan this QR code in your payment app to complete checkout.")).toBeVisible();
 });

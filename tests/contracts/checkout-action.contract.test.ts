@@ -1,0 +1,96 @@
+import { buildOrderWaitPath, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
+
+describe("checkout action contract", () => {
+  const paymentUnavailable = "payment unavailable";
+
+  it("resolves pay.redirect to external redirect action", () => {
+    const action = resolveCheckoutAction(
+      {
+        order_no: "ord_redirect_1",
+        provider: "lemonsqueezy",
+        pay: {
+          type: "redirect",
+          value: "https://checkout.example.com/pay?order_no=ord_redirect_1",
+          provider: "lemonsqueezy",
+        },
+      },
+      paymentUnavailable
+    );
+
+    expect(action).toEqual({
+      kind: "redirect",
+      url: "https://checkout.example.com/pay?order_no=ord_redirect_1",
+      orderNo: "ord_redirect_1",
+      provider: "lemonsqueezy",
+    });
+  });
+
+  it("routes pay.qr to /pay/wait with query payload", () => {
+    const action = resolveCheckoutAction(
+      {
+        order_no: "ord_qr_1",
+        provider: "wechatpay",
+        pay: {
+          type: "qr",
+          value: "weixin://wxpay/mock_qr",
+          provider: "wechatpay",
+        },
+      },
+      paymentUnavailable
+    );
+
+    expect(action.kind).toBe("order_wait");
+    if (action.kind !== "order_wait") return;
+
+    const path = buildOrderWaitPath(action);
+    const url = new URL(path, "https://example.test");
+    expect(url.pathname).toBe("/pay/wait");
+    expect(url.searchParams.get("order_no")).toBe("ord_qr_1");
+    expect(url.searchParams.get("pay_type")).toBe("qr");
+    expect(url.searchParams.get("pay_value")).toBe("weixin://wxpay/mock_qr");
+    expect(url.searchParams.get("provider")).toBe("wechatpay");
+  });
+
+  it("routes pay.html to /pay/wait with query payload", () => {
+    const action = resolveCheckoutAction(
+      {
+        order_no: "ord_html_1",
+        provider: "alipay",
+        pay: {
+          type: "html",
+          value: "/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop",
+          provider: "alipay",
+        },
+      },
+      paymentUnavailable
+    );
+
+    expect(action.kind).toBe("order_wait");
+    if (action.kind !== "order_wait") return;
+
+    const path = buildOrderWaitPath(action);
+    const url = new URL(path, "https://example.test");
+    expect(url.pathname).toBe("/pay/wait");
+    expect(url.searchParams.get("order_no")).toBe("ord_html_1");
+    expect(url.searchParams.get("pay_type")).toBe("html");
+    expect(url.searchParams.get("pay_value")).toBe("/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop");
+    expect(url.searchParams.get("provider")).toBe("alipay");
+  });
+
+  it("keeps legacy order_no fallback on /orders/{orderNo}", () => {
+    const action = resolveCheckoutAction(
+      {
+        order_no: "ord_legacy_1",
+        status: "pending",
+      },
+      paymentUnavailable
+    );
+
+    expect(action.kind).toBe("order_wait");
+    if (action.kind !== "order_wait") return;
+
+    expect(action.payType).toBeNull();
+    expect(action.payValue).toBeNull();
+    expect(buildOrderWaitPath(action)).toBe("/orders/ord_legacy_1");
+  });
+});
