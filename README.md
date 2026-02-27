@@ -112,8 +112,19 @@ Production deployment assets are in:
 
 - `/Users/rainie/Desktop/GitHub/fap-web/deploy/systemd/fap-web.service`
 - `/Users/rainie/Desktop/GitHub/fap-web/deploy/nginx/fap-web.conf`
+- `/Users/rainie/Desktop/GitHub/fap-web/ecosystem.config.cjs`
 
 `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/*` are reference docs.
+
+### PM2 deploy entrypoint
+
+Use a single deploy entrypoint to avoid malformed multi-line PM2 commands:
+
+```bash
+bash scripts/deploy_web_pm2.sh
+```
+
+Environment overrides (optional): `APP_DIR`, `APP_NAME`, `APP_USER`, `APP_HOST`, `APP_PORT`, `PUBLIC_BASE_URL`, `GIT_BRANCH`.
 
 ### Standalone run
 
