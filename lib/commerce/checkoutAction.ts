@@ -103,26 +103,23 @@ export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavail
 }
 
 export function buildOrderWaitPath(action: Extract<CheckoutAction, { kind: "order_wait" }>): string {
-  const params = new URLSearchParams();
-  if (action.payType) {
+  if (action.payType === "qr" || action.payType === "html") {
+    const params = new URLSearchParams();
+    params.set("order_no", action.orderNo);
     params.set("pay_type", action.payType);
-  }
-  if (action.payValue) {
-    params.set("pay_value", action.payValue);
-  }
-  if (action.provider) {
-    params.set("provider", action.provider);
+    if (action.payValue) {
+      params.set("pay_value", action.payValue);
+    }
+    if (action.provider) {
+      params.set("provider", action.provider);
+    }
+
+    return `/pay/wait?${params.toString()}`;
   }
 
-  const query = params.toString();
-  if (!query) {
-    return `/orders/${action.orderNo}`;
-  }
-
-  return `/orders/${action.orderNo}?${query}`;
+  return `/orders/${action.orderNo}`;
 }
 
 export function regionFromLocale(locale: Locale): CheckoutRegion {
   return locale === "zh" ? "CN_MAINLAND" : "US";
 }
-

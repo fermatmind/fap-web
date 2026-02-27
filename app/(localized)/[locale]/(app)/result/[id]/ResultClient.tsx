@@ -427,7 +427,7 @@ export default function ResultClient({
         window.clearTimeout(retryTimer);
       }
     };
-  }, [anonId, attemptId, dict.result.reportUnavailable, isClinicalScale, locale, runWithAuthRetry]);
+  }, [anonId, attemptId, dict.result.reportUnavailable, isClinicalScale, locale, reportScaleCode, runWithAuthRetry]);
 
   useEffect(() => {
     if (!reportData) return;
