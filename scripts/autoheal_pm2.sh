@@ -10,6 +10,8 @@ WECOM_BOT_WEBHOOK="${WECOM_BOT_WEBHOOK:-}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HEALTHCHECK_SCRIPT="${HEALTHCHECK_SCRIPT:-${SCRIPT_DIR}/healthcheck_web.sh}"
+ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
+PM2_CONFIG="${PM2_CONFIG:-${APP_DIR}/ecosystem.config.cjs}"
 
 timestamp() {
   date -u +"%Y-%m-%dT%H:%M:%SZ"
@@ -99,13 +101,19 @@ mark_restart_attempt() {
 }
 
 attempt_recover() {
+  if [[ -x "$ROLLING_RELOAD_SCRIPT" ]]; then
+    if APP_DIR="$APP_DIR" PM2_BIN="$PM2_BIN" PM2_CONFIG="$PM2_CONFIG" "$ROLLING_RELOAD_SCRIPT" "$APP_NAME" >/dev/null 2>&1; then
+      return 0
+    fi
+  fi
+
   if "$PM2_BIN" restart "$APP_NAME" >/dev/null 2>&1; then
     return 0
   fi
 
   # Fallback for cases where the app disappeared from pm2 list.
-  if [[ -f "${APP_DIR}/ecosystem.config.cjs" ]]; then
-    "$PM2_BIN" start "${APP_DIR}/ecosystem.config.cjs" --only "$APP_NAME" >/dev/null 2>&1 || return 1
+  if [[ -f "$PM2_CONFIG" ]]; then
+    "$PM2_BIN" start "$PM2_CONFIG" --only "$APP_NAME" >/dev/null 2>&1 || return 1
     return 0
   fi
   return 1
@@ -148,7 +156,7 @@ send_wecom_alert "fap-web healthcheck failed" \
 check_output=${healthcheck_output}
 pm2_recent=${pm2_summary}
 auto_recovered=pending
-action=restart_pm2"
+action=rolling_reload_pm2"
 
 mark_restart_attempt
 if ! attempt_recover; then
@@ -158,7 +166,7 @@ if ! attempt_recover; then
 check_output=${healthcheck_output}
 pm2_recent=${pm2_summary_after}
 auto_recovered=no
-action=restart_failed"
+action=rolling_reload_failed"
   exit "$healthcheck_exit_code"
 fi
 
@@ -169,7 +177,7 @@ if post_health_output="$("$HEALTHCHECK_SCRIPT" 2>&1)"; then
 check_output_after=${post_health_output}
 pm2_recent=$(recent_pm2_summary)
 auto_recovered=yes
-action=restart_succeeded"
+action=rolling_reload_succeeded"
   exit 0
 fi
 
@@ -178,5 +186,5 @@ send_wecom_alert "fap-web autoheal unstable" \
 check_output_after=${post_health_output}
 pm2_recent=$(recent_pm2_summary)
 auto_recovered=no
-action=restart_succeeded_but_healthcheck_failed"
+action=rolling_reload_succeeded_but_healthcheck_failed"
 exit "$healthcheck_exit_code"

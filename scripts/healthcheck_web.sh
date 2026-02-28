@@ -6,6 +6,7 @@ PM2_BIN="${PM2_BIN:-pm2}"
 LOCAL_URLS_CSV="${HEALTHCHECK_LOCAL_URLS:-http://127.0.0.1:3000/en,http://127.0.0.1:3000/zh}"
 PUBLIC_URLS_CSV="${HEALTHCHECK_PUBLIC_URLS:-https://fermatmind.com/en,https://fermatmind.com/zh}"
 CURL_TIMEOUT_SEC="${HEALTHCHECK_CURL_TIMEOUT_SEC:-8}"
+HEALTHCHECK_MIN_INSTANCES="${HEALTHCHECK_MIN_INSTANCES:-2}"
 
 # Exit code contract:
 # 0 = healthy
@@ -32,6 +33,19 @@ require_bin() {
   fi
 }
 
+resolve_min_instances() {
+  local raw="$1"
+  if [[ ! "$raw" =~ ^[0-9]+$ ]]; then
+    printf '2'
+    return
+  fi
+  if (( raw < 1 )); then
+    printf '1'
+    return
+  fi
+  printf '%s' "$raw"
+}
+
 split_csv_lines() {
   local csv="$1"
   printf '%s\n' "$csv" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | sed '/^$/d'
@@ -51,6 +65,7 @@ require_bin "$PM2_BIN"
 require_bin curl
 require_bin node
 
+MIN_INSTANCES="$(resolve_min_instances "$HEALTHCHECK_MIN_INSTANCES")"
 pm2_status_line=""
 pm2_parse_code=0
 if ! pm2_status_line="$(
@@ -64,12 +79,13 @@ try {
 } catch {
   process.exit(2);
 }
-const hit = parsed.find((item) => item && item.name === app);
-if (!hit) {
+const appRows = parsed.filter((item) => item && item.name === app);
+if (appRows.length === 0) {
   process.exit(3);
 }
-const status = hit.pm2_env && hit.pm2_env.status ? String(hit.pm2_env.status) : "";
-process.stdout.write(status);
+const instanceCount = appRows.length;
+const onlineCount = appRows.filter((item) => item && item.pm2_env && item.pm2_env.status === "online").length;
+process.stdout.write(`${onlineCount} ${instanceCount}`);
 ' "$APP_NAME"
 )"; then
   pm2_parse_code="$?"
@@ -85,12 +101,21 @@ if [[ "$pm2_parse_code" != "0" ]]; then
   exit "$EXIT_PROCESS_FAIL"
 fi
 
-if [[ "$pm2_status_line" != "online" ]]; then
-  log "fail pm2 app status app=${APP_NAME} status=${pm2_status_line}"
+online_count=0
+instance_count=0
+read -r online_count instance_count <<< "$pm2_status_line"
+
+if (( instance_count < MIN_INSTANCES )); then
+  log "fail pm2 app instance floor app=${APP_NAME} online=${online_count}/${instance_count} min=${MIN_INSTANCES}"
   exit "$EXIT_PROCESS_FAIL"
 fi
 
-log "ok pm2 app status app=${APP_NAME} status=online"
+if (( online_count != instance_count )); then
+  log "fail pm2 app status app=${APP_NAME} online=${online_count}/${instance_count}"
+  exit "$EXIT_PROCESS_FAIL"
+fi
+
+log "ok pm2 app status app=${APP_NAME} status=online online=${online_count}/${instance_count} min=${MIN_INSTANCES}"
 
 while IFS= read -r local_url; do
   if ! probe_url "$local_url"; then

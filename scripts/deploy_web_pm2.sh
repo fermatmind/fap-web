@@ -9,6 +9,8 @@ APP_PORT="${APP_PORT:-3000}"
 PUBLIC_BASE_URL="${PUBLIC_BASE_URL:-https://fermatmind.com}"
 CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-assessment-professional-edition/take}"
 GIT_BRANCH="${GIT_BRANCH:-main}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
 
 log() {
   printf '[deploy_web_pm2] %s\n' "$*"
@@ -82,9 +84,13 @@ if [[ ! -f ecosystem.config.cjs ]]; then
   exit 1
 fi
 
-log "restart pm2 app ${APP_NAME}"
-pm2 delete "$APP_NAME" 2>/dev/null || true
-pm2 start ecosystem.config.cjs --only "$APP_NAME"
+if [[ ! -x "$ROLLING_RELOAD_SCRIPT" ]]; then
+  log "missing rolling reload script: ${ROLLING_RELOAD_SCRIPT}"
+  exit 1
+fi
+
+log "rolling reload pm2 app ${APP_NAME}"
+APP_DIR="$APP_DIR" PM2_BIN="pm2" PM2_CONFIG="${APP_DIR}/ecosystem.config.cjs" "$ROLLING_RELOAD_SCRIPT" "$APP_NAME"
 pm2 save
 
 log "runtime checks"
