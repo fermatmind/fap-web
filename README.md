@@ -115,18 +115,64 @@ Production deployment assets are in:
 - `/Users/rainie/Desktop/GitHub/fap-web/ecosystem.config.cjs`
 
 `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/*` are reference docs.
+For cron autoheal setup, see:
 
-### PM2 deploy entrypoint
+- `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/502-recovery-runbook.md`
+- `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/pm2-autoheal-cron.md`
 
-Use a single deploy entrypoint to avoid malformed multi-line PM2 commands:
+### PM2 deploy entrypoint (single allowed command)
+
+Use a single deploy entrypoint to avoid malformed multi-line PM2 commands.
+Do not run hand-typed PM2 start commands such as `pm2 start ... -- \\ -lc ...`.
 
 ```bash
+pnpm run deploy:pm2
+# or:
 bash scripts/deploy_web_pm2.sh
 ```
 
-Environment overrides (optional): `APP_DIR`, `APP_NAME`, `APP_USER`, `APP_HOST`, `APP_PORT`, `PUBLIC_BASE_URL`, `GIT_BRANCH`.
+Environment overrides (optional): `APP_DIR`, `APP_NAME`, `APP_USER`, `APP_HOST`, `APP_PORT`, `PUBLIC_BASE_URL`, `CORE_PUBLIC_PATH`, `GIT_BRANCH`.
 
-### Standalone run
+### PM2 bootstrap on reboot (one-time server setup)
+
+Run once on the server to enable PM2 resurrection after reboot:
+
+```bash
+pm2 startup systemd -u ubuntu --hp /home/ubuntu
+pm2 save
+```
+
+### Runtime guardrails (healthcheck + autoheal + WeCom)
+
+Healthcheck script:
+
+```bash
+bash scripts/healthcheck_web.sh
+```
+
+Exit codes: `0=healthy`, `1=local endpoint failure`, `2=public endpoint failure`, `3=pm2 process failure`.
+
+Autoheal script:
+
+```bash
+WECOM_BOT_WEBHOOK="https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=<your-key>" \
+bash scripts/autoheal_pm2.sh
+```
+
+Supported env vars:
+
+- `WECOM_BOT_WEBHOOK`
+- `HEALTHCHECK_LOCAL_URLS` (default: `http://127.0.0.1:3000/en,http://127.0.0.1:3000/zh`)
+- `HEALTHCHECK_PUBLIC_URLS` (default: `https://fermatmind.com/en,https://fermatmind.com/zh`)
+- `AUTOHEAL_COOLDOWN_SEC` (default: `600`)
+
+Cron example (every minute):
+
+```bash
+* * * * * cd /opt/apps/fap-web && WECOM_BOT_WEBHOOK="https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=<your-key>" bash scripts/autoheal_pm2.sh >> /var/log/fap-web-autoheal.log 2>&1
+```
+
+### Standalone run (non-PM2 fallback)
 
 ```bash
 pnpm build

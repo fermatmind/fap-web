@@ -7,6 +7,7 @@ APP_USER="${APP_USER:-ubuntu}"
 APP_HOST="${APP_HOST:-127.0.0.1}"
 APP_PORT="${APP_PORT:-3000}"
 PUBLIC_BASE_URL="${PUBLIC_BASE_URL:-https://fermatmind.com}"
+CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-assessment-professional-edition/take}"
 GIT_BRANCH="${GIT_BRANCH:-main}"
 
 log() {
@@ -100,5 +101,6 @@ log "probe public endpoints"
 probe_headers "${PUBLIC_BASE_URL}/en" 1
 probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
+probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
 
 log "deploy completed"

@@ -58,3 +58,13 @@
 3. Save drill record:
    - `docs/release/rollback-drill.md` execution log section
 
+## 6) Deployment Command Audit (Mandatory)
+1. Only deploy through:
+   - `pnpm run deploy:pm2`
+   - or `bash scripts/deploy_web_pm2.sh`
+2. Explicitly forbidden:
+   - hand-typed multi-line PM2 commands (for example `pm2 start ... -- \ -lc ...`)
+3. Post-deploy verification must include:
+   - `pm2 status` shows `fap-web` in `online`
+   - `ss -ltnp | grep ':3000'` confirms local listener
+   - no `502` from `/en`, `/zh`, and one core `/tests/.../take` route
