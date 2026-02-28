@@ -35,15 +35,34 @@ const EXPECTED_PLACEMENT: Record<string, [string, string, string]> = {
 };
 
 describe("articles placement contract", () => {
-  it("contains exactly 18 unique posts", () => {
+  it("contains expected zh and en article sets", () => {
+    const zhPosts = listBlogPosts("zh");
+    const enPosts = listBlogPosts("en");
+    const allPosts = listBlogPosts();
+
+    expect(zhPosts).toHaveLength(18);
+    expect(enPosts).toHaveLength(18);
+    expect(allPosts).toHaveLength(36);
+
+    const zhSlugs = zhPosts.map((post) => post.slug);
+    expect(new Set(zhSlugs).size).toBe(18);
+
+    const enSlugs = enPosts.map((post) => post.slug).sort();
+    const expectedSlugs = Object.values(EXPECTED_PLACEMENT).flat().sort();
+    expect(enSlugs).toEqual(expectedSlugs);
+
+    expect([...zhSlugs].sort()).toEqual(expectedSlugs);
+  });
+
+  it("contains exactly 18 unique groups by slug across all locales", () => {
     const posts = listBlogPosts();
-    expect(posts).toHaveLength(18);
+    expect(posts).toHaveLength(36);
 
     const slugs = posts.map((post) => post.slug);
     expect(new Set(slugs).size).toBe(18);
 
     const expectedSlugs = Object.values(EXPECTED_PLACEMENT).flat().sort();
-    expect([...slugs].sort()).toEqual(expectedSlugs);
+    expect([...new Set(slugs)].sort()).toEqual(expectedSlugs);
   });
 
   it("groups posts into six tests with fixed 1-2-3 slot order", () => {
@@ -68,6 +87,15 @@ describe("articles placement contract", () => {
       expect(related).toHaveLength(3);
       expect(related.map((post) => post.slug)).toEqual(expectedSlugs);
       expect(related.map((post) => post.voice_order)).toEqual([1, 2, 3]);
+    }
+  });
+
+  it("returns same ordered three related posts for en locale", () => {
+    for (const [testSlug, expectedSlugs] of Object.entries(EXPECTED_PLACEMENT)) {
+      const related = listRelatedBlogPosts(testSlug, "en");
+      expect(related).toHaveLength(3);
+      expect(related.map((post) => post.slug)).toEqual(expectedSlugs);
+      expect(related.map((post) => post.locale)).toEqual(["en", "en", "en"]);
     }
   });
 });

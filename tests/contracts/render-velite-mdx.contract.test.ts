@@ -14,7 +14,7 @@ describe("renderVeliteMdx contract", () => {
   });
 
   it("renders compiled velite body from real content", () => {
-    const post = getBlogPostBySlug("mbti-basics");
+    const post = getBlogPostBySlug("mbti-basics", "zh");
     expect(post).not.toBeNull();
 
     const node = renderVeliteMdx(post!.body);
