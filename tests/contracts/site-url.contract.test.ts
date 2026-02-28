@@ -1,0 +1,26 @@
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { getSiteUrlOrThrow } from "@/lib/site";
+
+afterEach(() => {
+  vi.unstubAllEnvs();
+});
+
+describe("site url hard gate contract", () => {
+  it("throws in production when site url is missing", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    delete process.env.NEXT_PUBLIC_SITE_URL;
+    expect(() => getSiteUrlOrThrow()).toThrow();
+  });
+
+  it("throws in production when site url points to localhost", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "http://localhost:3000");
+    expect(() => getSiteUrlOrThrow()).toThrow();
+  });
+
+  it("accepts a production absolute domain url", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
+    expect(getSiteUrlOrThrow()).toBe("https://fermatmind.com");
+  });
+});
