@@ -2,23 +2,11 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { stripLocalePrefix } from "@/lib/i18n/locales";
 import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
+import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
-
-function isSensitivePath(pathname: string): boolean {
-  if (pathname.startsWith("/result/")) return true;
-  if (pathname.startsWith("/share/")) return true;
-  if (pathname.startsWith("/orders/")) return true;
-  if (pathname.startsWith("/api/")) return true;
-  if (pathname.startsWith("/og/")) return true;
-
-  const isTestsTake = pathname.startsWith("/tests/") && pathname.includes("/take");
-  const isLegacyTestTake = pathname.startsWith("/test/") && pathname.includes("/take");
-
-  return isTestsTake || isLegacyTestTake;
-}
 
 function isStaticAsset(pathname: string): boolean {
   if (pathname.startsWith("/_next/")) return true;
@@ -82,7 +70,7 @@ export function middleware(request: NextRequest) {
     });
   }
 
-  if (isSensitivePath(strippedPath)) {
+  if (shouldNoindex(strippedPath, null)) {
     response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
   }
 
@@ -90,5 +78,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|sitemap-en.xml|sitemap-zh.xml).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|sitemap-en.xml|sitemap-zh.xml|llms.txt|llms-full.txt).*)",
+  ],
 };

@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
-import { canonicalUrl } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 export async function generateMetadata({
@@ -17,19 +17,19 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
+  const pathname = isZh ? "/zh/tests" : "/en/tests";
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname,
     title: isZh ? "测评列表" : "Tests",
     description: isZh ? "浏览所有可用测评。" : "Browse all available tests.",
-    alternates: {
-      canonical: canonicalUrl(isZh ? "/zh/tests" : "/en/tests"),
-      languages: {
-        en: canonicalUrl("/en/tests"),
-        zh: canonicalUrl("/zh/tests"),
-        "x-default": canonicalUrl("/en/tests"),
-      },
+    alternatesByLocale: {
+      en: "/en/tests",
+      zh: "/zh/tests",
+      xDefault: "/",
     },
-  };
+  });
 }
 
 export default async function TestsPage({

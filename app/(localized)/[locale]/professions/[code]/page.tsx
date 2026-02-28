@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTypeByCode, listTypes } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export function generateStaticParams() {
   return listTypes().flatMap((type) => [{ locale: "en", code: type.code }, { locale: "zh", code: type.code }]);
@@ -20,6 +21,7 @@ export async function generateMetadata({
   const { locale: localeParam, code } = await params;
   const locale = resolveLocale(localeParam);
   const type = getTypeByCode(code.toUpperCase());
+  const normalizedCode = code.toUpperCase();
 
   if (!type) {
     return {
@@ -28,13 +30,17 @@ export async function generateMetadata({
     };
   }
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname: locale === "zh" ? `/zh/professions/${normalizedCode}` : `/en/professions/${normalizedCode}`,
     title: `${type.code} - ${type.name}`,
     description: type.description,
-    alternates: {
-      canonical: localizedPath(`/professions/${code.toUpperCase()}`, locale),
+    alternatesByLocale: {
+      en: `/en/professions/${normalizedCode}`,
+      zh: `/zh/professions/${normalizedCode}`,
+      xDefault: "/",
     },
-  };
+  });
 }
 
 export default async function ProfessionDetailPage({

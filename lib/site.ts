@@ -1,6 +1,27 @@
 const DEFAULT_SITE_URL = "http://localhost:3000";
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_URL).replace(/\/$/, "");
+function normalizeSiteUrl(value: string | null | undefined): string {
+  return String(value ?? "").trim().replace(/\/$/, "");
+}
+
+function isLocalhostUrl(value: string): boolean {
+  return /localhost|127\.0\.0\.1/i.test(value);
+}
+
+export function getSiteUrlOrThrow(): string {
+  const candidate = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
+  const fallback = DEFAULT_SITE_URL;
+  const isProductionBuild = process.env.NODE_ENV === "production";
+  const resolved = candidate || fallback;
+
+  if (isProductionBuild && (!candidate || isLocalhostUrl(candidate))) {
+    throw new Error("NEXT_PUBLIC_SITE_URL must be set to a production absolute URL (non-localhost).");
+  }
+
+  return resolved;
+}
+
+export const SITE_URL = getSiteUrlOrThrow();
 
 export function canonicalUrl(path: string): string {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;

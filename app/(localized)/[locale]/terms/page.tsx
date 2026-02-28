@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 const EFFECTIVE_DATE = "February 15, 2026";
 const EFFECTIVE_DATE_ZH = "2026年2月15日";
@@ -14,16 +14,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const canonical = localizedPath("/terms", locale);
+  const isZh = locale === "zh";
 
-  return {
-    title: locale === "zh" ? "服务条款" : "Terms of Service",
-    description:
-      locale === "zh"
-        ? "使用 FermatMind 服务前请阅读本条款。"
-        : "Terms governing your use of FermatMind services.",
-    alternates: { canonical },
-  };
+  return buildPageMetadata({
+    locale,
+    pathname: isZh ? "/zh/terms" : "/en/terms",
+    title: isZh ? "服务条款" : "Terms of Service",
+    description: isZh
+      ? "使用 FermatMind 服务前请阅读本条款。"
+      : "Terms governing your use of FermatMind services.",
+    alternatesByLocale: {
+      en: "/en/terms",
+      zh: "/zh/terms",
+      xDefault: "/",
+    },
+  });
 }
 
 export default async function TermsPage({

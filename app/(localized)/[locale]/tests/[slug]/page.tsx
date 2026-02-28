@@ -6,6 +6,8 @@ import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
 import { CTASticky } from "@/components/business/CTASticky";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
 import { Container } from "@/components/layout/Container";
+import { CiteableSection } from "@/components/seo/CiteableSection";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
@@ -25,7 +27,12 @@ import {
   resolveScaleRollout,
   type SupportedScaleCode,
 } from "@/lib/rollout/scaleRollout";
-import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
+import {
+  buildBreadcrumbJsonLd,
+  buildFAQPageJsonLd,
+  buildWebPageJsonLd,
+} from "@/lib/seo/generateSchema";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 type LookupResponse = {
@@ -203,28 +210,21 @@ export async function generateMetadata({
   const title = toStringValue(lookup?.seo_title) || localizedTestTitle;
   const description = toStringValue(lookup?.seo_description) || test.description;
   const ogImage = toStringValue(lookup?.og_image_url) || test.cover_image;
+  const forcedNoindex = lookup?.is_indexable === false;
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname: canonical,
     title,
     description,
-    alternates: {
-      canonical,
-      languages: alternates,
+    imagePath: ogImage,
+    noindex: forcedNoindex,
+    alternatesByLocale: {
+      en: alternates.en,
+      zh: alternates.zh,
+      xDefault: "/",
     },
-    robots: lookup?.is_indexable === false ? NOINDEX_ROBOTS : undefined,
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      images: [ogImage],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
+  });
 }
 
 export default async function TestLandingPage({
@@ -308,15 +308,36 @@ export default async function TestLandingPage({
     locale,
     surface: "tests_detail_hero",
   });
-  const relatedPosts = listRelatedBlogPosts(test.slug);
+  const relatedPosts = listRelatedBlogPosts(test.slug, locale);
+  const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
+  const webPageJsonLd = buildWebPageJsonLd({
+    path: canonicalPath,
+    title: toStringValue(lookup?.seo_title) || localizedTestTitle,
+    description: toStringValue(lookup?.seo_description) || test.description,
+    locale,
+  });
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
+    { name: locale === "zh" ? "测评" : "Tests", path: locale === "zh" ? "/zh/tests" : "/en/tests" },
+    { name: localizedTestTitle, path: canonicalPath },
+  ]);
+  const faqJsonLd = buildFAQPageJsonLd(
+    mergedFaq.map((item) => ({
+      question: item.q,
+      answer: item.a,
+    }))
+  );
 
   return (
     <Container as="main" className="pb-[var(--fm-space-30)] pt-12 lg:pb-12">
+      <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} />
+      <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} />
+      <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} />
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
-          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
+          <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
               {locale === "zh" ? "人格测评" : "Personality Assessment"}
             </p>
@@ -403,7 +424,19 @@ export default async function TestLandingPage({
             </Card>
           ) : null}
 
-          <Card>
+          <CiteableSection
+            id="when-to-use"
+            title={locale === "zh" ? "何时使用这份测评" : "When to use this assessment"}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          >
+            <p className="m-0 text-sm text-slate-600">
+              {locale === "zh"
+                ? "适用于希望了解人格倾向、沟通偏好和自我成长路径的场景。若你处于急性危机状态，请优先联系专业帮助。"
+                : "Use this when you want clarity on your personality tendencies, communication patterns, and growth direction. For acute crisis situations, seek professional help first."}
+            </p>
+          </CiteableSection>
+
+          <Card id="how-it-works">
             <CardHeader>
               <CardTitle>{locale === "zh" ? "你将获得什么" : "What to expect"}</CardTitle>
             </CardHeader>
@@ -460,19 +493,30 @@ export default async function TestLandingPage({
             </Card>
           ) : null}
 
-          <section className="space-y-4">
+          <section id="faq" className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">FAQ</h2>
             <FAQAccordion items={mergedFaq} />
           </section>
 
           {disclaimer ? (
-            <Card>
+            <Card id="limitations">
               <CardHeader>
                 <CardTitle>{locale === "zh" ? "免责声明" : "Disclaimer"}</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-slate-700">{disclaimer}</CardContent>
             </Card>
           ) : null}
+
+          <Card id="references">
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "参考与说明" : "References and Notes"}</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-slate-700">
+              {locale === "zh"
+                ? "请结合测评正文、FAQ 与专业建议综合解读结果。若你正在接受治疗或咨询，请以专业意见为准。"
+                : "Interpret the result with the page content, FAQ, and qualified professional guidance. If you are already in treatment, follow your clinician’s advice."}
+            </CardContent>
+          </Card>
         </div>
 
         <aside>
