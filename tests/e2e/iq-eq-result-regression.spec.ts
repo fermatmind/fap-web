@@ -11,9 +11,32 @@ async function mockTrack(page: Page) {
   });
 }
 
+async function mockScaleLookup(page: Page) {
+  await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
+    const url = new URL(route.request().url());
+    const slug = url.searchParams.get("slug") ?? "unknown-scale";
+
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        slug,
+        is_indexable: true,
+        capabilities: {
+          enabled_in_prod: true,
+          commerce_enabled: true,
+          paywall_mode: "full",
+        },
+      }),
+    });
+  });
+}
+
 test("EQ uses option anchors when question options are empty", async ({ page }) => {
   const attemptId = "eq-anchor-flow-001";
   await mockTrack(page);
+  await mockScaleLookup(page);
 
   for (const scaleCode of ["EQ_60", "EQ_EMOTIONAL_INTELLIGENCE"]) {
     await page.route(`**/api/v0.3/scales/${scaleCode}/questions*`, async (route) => {
@@ -103,6 +126,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
 test("IQ renders stem prompt/svg and submits with visual options", async ({ page }) => {
   const attemptId = "iq-stem-flow-001";
   await mockTrack(page);
+  await mockScaleLookup(page);
 
   for (const scaleCode of ["IQ_RAVEN", "IQ_INTELLIGENCE_QUOTIENT"]) {
     await page.route(`**/api/v0.3/scales/${scaleCode}/questions*`, async (route) => {
@@ -207,8 +231,21 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
 test("result page falls back to attempts/{id}/result when report is unavailable", async ({ page }) => {
   const attemptId = "result-fallback-001";
   await mockTrack(page);
+  await mockScaleLookup(page);
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_result_fallback_token_123456",
+      }),
+    });
+  });
 
+  let reportCalls = 0;
   await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    reportCalls += 1;
     await route.fulfill({
       status: 404,
       contentType: "application/json",
@@ -220,7 +257,9 @@ test("result page falls back to attempts/{id}/result when report is unavailable"
     });
   });
 
+  let resultCalls = 0;
   await page.route(`**/api/v0.3/attempts/${attemptId}/result*`, async (route) => {
+    resultCalls += 1;
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -239,13 +278,16 @@ test("result page falls back to attempts/{id}/result when report is unavailable"
   });
 
   await page.goto(`/en/result/${attemptId}`);
+  await expect.poll(() => reportCalls).toBeGreaterThan(0);
+  await expect.poll(() => resultCalls).toBeGreaterThan(0);
   await expect(page.getByText("Fallback summary available.")).toBeVisible();
-  await expect(page.getByText("self_awareness")).toBeVisible();
+  await expect(page.getByText(/self[_ ]awareness/i)).toBeVisible();
 });
 
 test("quiz submit retries once after 401 with bootstrap token precheck", async ({ page }) => {
   const attemptId = "quiz-auth-retry-001";
   await mockTrack(page);
+  await mockScaleLookup(page);
 
   await page.route("**/api/v0.3/scales/MBTI/questions*", async (route) => {
     await route.fulfill({
@@ -352,6 +394,7 @@ test("quiz submit retries once after 401 with bootstrap token precheck", async (
 
 test("clinical questions request retries once after 401 with bootstrap token precheck", async ({ page }) => {
   await mockTrack(page);
+  await mockScaleLookup(page);
 
   let questionCalls = 0;
   await page.route("**/api/v0.3/scales/SDS_20/questions*", async (route) => {

@@ -3,7 +3,12 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getTestBySlug, listBlogPostsGroupedByTest, resolveTestTitleByLocale } from "@/lib/content";
+import {
+  getTestBySlug,
+  listBlogPosts,
+  listBlogPostsGroupedByTest,
+  resolveTestTitleByLocale,
+} from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -18,8 +23,7 @@ export async function generateMetadata({
   const dict = await getDict(locale);
   const isZh = locale === "zh";
   const pathname = isZh ? "/zh/articles" : "/en/articles";
-  const groups = listBlogPostsGroupedByTest(locale);
-  const hasLocalizedContent = groups.some((group) => group.posts.length > 0);
+  const hasLocalizedContent = listBlogPosts(locale).length > 0;
 
   return buildPageMetadata({
     locale,

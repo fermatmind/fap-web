@@ -214,7 +214,10 @@ function sortBlogPostsForPlacement(posts: LocalizedBlogPost[]): LocalizedBlogPos
 export function listBlogPostsGroupedByTest(locale: Locale = "zh"): BlogPostsGroup[] {
   const grouped = new Map<string, LocalizedBlogPost[]>();
   const localizedPosts = listBlogPosts(locale);
-  for (const post of sortBlogPostsForPlacement(localizedPosts)) {
+  const sourcePosts =
+    locale === "en" && localizedPosts.length === 0 ? listBlogPosts("zh") : localizedPosts;
+
+  for (const post of sortBlogPostsForPlacement(sourcePosts)) {
     const key = String(post.related_test_slug ?? "").trim();
     if (!key) continue;
     if (!grouped.has(key)) grouped.set(key, []);
