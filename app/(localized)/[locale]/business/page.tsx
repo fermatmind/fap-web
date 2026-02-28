@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
   params,
@@ -14,16 +15,21 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
+  const pathname = isZh ? "/zh/business" : "/en/business";
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname,
     title: isZh ? "企业服务" : "Business",
     description: isZh
       ? "面向组织的人才测评与团队画像解决方案。"
       : "Assessment and team profile solutions for organizations.",
-    alternates: {
-      canonical: localizedPath("/business", locale),
+    alternatesByLocale: {
+      en: "/en/business",
+      zh: "/zh/business",
+      xDefault: "/",
     },
-  };
+  });
 }
 
 export default async function BusinessPage({

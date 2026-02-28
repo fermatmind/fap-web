@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 const EFFECTIVE_DATE = "February 15, 2026";
 const EFFECTIVE_DATE_ZH = "2026年2月15日";
@@ -14,16 +14,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const canonical = localizedPath("/privacy", locale);
+  const isZh = locale === "zh";
 
-  return {
-    title: locale === "zh" ? "隐私政策" : "Privacy Policy",
-    description:
-      locale === "zh"
-        ? "了解 FermatMind 如何收集、使用、共享与删除数据。"
-        : "How FermatMind collects, uses, shares, and deletes data.",
-    alternates: { canonical },
-  };
+  return buildPageMetadata({
+    locale,
+    pathname: isZh ? "/zh/privacy" : "/en/privacy",
+    title: isZh ? "隐私政策" : "Privacy Policy",
+    description: isZh
+      ? "了解 FermatMind 如何收集、使用、共享与删除数据。"
+      : "How FermatMind collects, uses, shares, and deletes data.",
+    alternatesByLocale: {
+      en: "/en/privacy",
+      zh: "/zh/privacy",
+      xDefault: "/",
+    },
+  });
 }
 
 export default async function PrivacyPage({

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 const EFFECTIVE_DATE = "February 15, 2026";
 const EFFECTIVE_DATE_ZH = "2026年2月15日";
@@ -14,16 +14,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const canonical = localizedPath("/refund", locale);
+  const isZh = locale === "zh";
 
-  return {
-    title: locale === "zh" ? "退款政策" : "Refund Policy",
-    description:
-      locale === "zh"
-        ? "查看退款窗口、例外条款与处理流程。"
-        : "Refund eligibility, exceptions, and processing flow.",
-    alternates: { canonical },
-  };
+  return buildPageMetadata({
+    locale,
+    pathname: isZh ? "/zh/refund" : "/en/refund",
+    title: isZh ? "退款政策" : "Refund Policy",
+    description: isZh
+      ? "查看退款窗口、例外条款与处理流程。"
+      : "Refund eligibility, exceptions, and processing flow.",
+    alternatesByLocale: {
+      en: "/en/refund",
+      zh: "/zh/refund",
+      xDefault: "/",
+    },
+  });
 }
 
 export default async function RefundPage({

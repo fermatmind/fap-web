@@ -5,10 +5,15 @@ import type { Locale } from "@/lib/i18n/locales";
 export type Test = (typeof tests)[number];
 export type TestType = (typeof types)[number];
 export type BlogPost = (typeof blog)[number];
+export type LocalizedBlogPost = BlogPost & {
+  locale: Locale;
+  translation_group: string;
+  translation_ready: boolean;
+};
 export type BlogVoice = "tool" | "growth" | "narrative";
 export type BlogPostsGroup = {
   relatedTestSlug: string;
-  posts: BlogPost[];
+  posts: LocalizedBlogPost[];
 };
 
 export type TestListItem = {
@@ -86,12 +91,81 @@ export function getTypeByCode(code: string): TestType | null {
   return types.find((type) => type.code === code) ?? null;
 }
 
-export function listBlogPosts(): BlogPost[] {
-  return [...blog].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+function normalizeBlogPost(post: BlogPost): LocalizedBlogPost {
+  const locale = post.locale === "en" ? "en" : "zh";
+  const translationGroup = String(post.translation_group ?? post.slug).trim() || String(post.slug).trim();
+  const translationReady =
+    locale === "zh" ? true : typeof post.translation_ready === "boolean" ? post.translation_ready : false;
+  const publishedAt = String(post.publishedAt ?? post.updatedAt ?? "").trim() || post.updatedAt;
+  const author = String(post.author ?? "").trim() || "FermatMind Editorial";
+  const citations = Array.isArray(post.citations)
+    ? post.citations.filter((item): item is string => typeof item === "string" && item.trim().length > 0)
+    : [];
+
+  return {
+    ...post,
+    locale,
+    translation_group: translationGroup,
+    translation_ready: translationReady,
+    publishedAt,
+    author,
+    citations,
+  };
 }
 
-export function getBlogPostBySlug(slug: string): BlogPost | null {
-  return blog.find((post) => post.slug === slug) ?? null;
+function listAllNormalizedBlogPosts(): LocalizedBlogPost[] {
+  return blog.map((post) => normalizeBlogPost(post));
+}
+
+function sortBlogPostsByUpdatedAt(posts: LocalizedBlogPost[]): LocalizedBlogPost[] {
+  return [...posts].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+}
+
+export function listBlogPosts(locale?: Locale): LocalizedBlogPost[] {
+  const all = listAllNormalizedBlogPosts();
+  if (!locale) return sortBlogPostsByUpdatedAt(all);
+  return sortBlogPostsByUpdatedAt(all.filter((post) => post.locale === locale));
+}
+
+export function isBlogSlugIndexableInLocale(slug: string, locale: Locale): boolean {
+  const all = listAllNormalizedBlogPosts();
+  const localized = all.find((post) => post.slug === slug && post.locale === locale);
+  if (!localized) return false;
+  return locale === "zh" ? true : localized.translation_ready;
+}
+
+export function resolveBlogPostBySlug(slug: string, locale: Locale): {
+  post: LocalizedBlogPost | null;
+  hasLocalizedContent: boolean;
+  hasFallbackContent: boolean;
+  usedFallback: boolean;
+} {
+  const all = listAllNormalizedBlogPosts();
+  const localized = all.find((post) => post.slug === slug && post.locale === locale) ?? null;
+  const fallback = all.find((post) => post.slug === slug && post.locale === "zh") ?? null;
+
+  if (localized) {
+    return {
+      post: localized,
+      hasLocalizedContent: true,
+      hasFallbackContent: Boolean(fallback),
+      usedFallback: false,
+    };
+  }
+
+  return {
+    post: fallback,
+    hasLocalizedContent: false,
+    hasFallbackContent: Boolean(fallback),
+    usedFallback: Boolean(fallback),
+  };
+}
+
+export function getBlogPostBySlug(slug: string, locale?: Locale): LocalizedBlogPost | null {
+  if (locale) {
+    return resolveBlogPostBySlug(slug, locale).post;
+  }
+  return listAllNormalizedBlogPosts().find((post) => post.slug === slug) ?? null;
 }
 
 const BLOG_RELATED_TEST_ORDER = [
@@ -114,7 +188,7 @@ function resolveRelatedTestRank(slug: string): number {
   return index >= 0 ? index : Number.MAX_SAFE_INTEGER;
 }
 
-function resolveVoiceOrder(post: BlogPost): number {
+function resolveVoiceOrder(post: LocalizedBlogPost): number {
   if (typeof post.voice_order === "number" && Number.isFinite(post.voice_order)) {
     return post.voice_order;
   }
@@ -122,7 +196,7 @@ function resolveVoiceOrder(post: BlogPost): number {
   return typeof fallback === "number" ? fallback : Number.MAX_SAFE_INTEGER;
 }
 
-function sortBlogPostsForPlacement(posts: BlogPost[]): BlogPost[] {
+function sortBlogPostsForPlacement(posts: LocalizedBlogPost[]): LocalizedBlogPost[] {
   return [...posts].sort((a, b) => {
     const testRankDiff = resolveRelatedTestRank(a.related_test_slug) - resolveRelatedTestRank(b.related_test_slug);
     if (testRankDiff !== 0) return testRankDiff;
@@ -137,9 +211,13 @@ function sortBlogPostsForPlacement(posts: BlogPost[]): BlogPost[] {
   });
 }
 
-export function listBlogPostsGroupedByTest(): BlogPostsGroup[] {
-  const grouped = new Map<string, BlogPost[]>();
-  for (const post of sortBlogPostsForPlacement(blog)) {
+export function listBlogPostsGroupedByTest(locale: Locale = "zh"): BlogPostsGroup[] {
+  const grouped = new Map<string, LocalizedBlogPost[]>();
+  const localizedPosts = listBlogPosts(locale);
+  const sourcePosts =
+    locale === "en" && localizedPosts.length === 0 ? listBlogPosts("zh") : localizedPosts;
+
+  for (const post of sortBlogPostsForPlacement(sourcePosts)) {
     const key = String(post.related_test_slug ?? "").trim();
     if (!key) continue;
     if (!grouped.has(key)) grouped.set(key, []);
@@ -158,8 +236,21 @@ export function listBlogPostsGroupedByTest(): BlogPostsGroup[] {
     }));
 }
 
-export function listRelatedBlogPosts(testSlug: string): BlogPost[] {
-  return sortBlogPostsForPlacement(
-    blog.filter((post) => post.related_test_slug === testSlug)
-  ).slice(0, 3);
+export function listRelatedBlogPosts(testSlug: string, locale: Locale = "zh"): LocalizedBlogPost[] {
+  const localizedPosts = listBlogPosts(locale).filter((post) => post.related_test_slug === testSlug);
+  if (localizedPosts.length > 0) {
+    return sortBlogPostsForPlacement(localizedPosts).slice(0, 3);
+  }
+
+  if (locale === "en") {
+    const zhFallback = listBlogPosts("zh").filter((post) => post.related_test_slug === testSlug);
+    return sortBlogPostsForPlacement(zhFallback).slice(0, 3);
+  }
+
+  return [];
+}
+
+export function listBlogSlugs(): string[] {
+  const slugs = new Set(listAllNormalizedBlogPosts().map((post) => post.slug));
+  return [...slugs].sort((a, b) => a.localeCompare(b));
 }

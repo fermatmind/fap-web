@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { listTypes } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
   params,
@@ -14,14 +15,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
+  const isZh = locale === "zh";
 
-  return {
-    title: "Professions",
-    description: "Browse personality profiles and profession-oriented interpretation notes.",
-    alternates: {
-      canonical: localizedPath("/professions", locale),
+  return buildPageMetadata({
+    locale,
+    pathname: isZh ? "/zh/professions" : "/en/professions",
+    title: isZh ? "职业画像" : "Professions",
+    description: isZh
+      ? "浏览人格画像与职业导向解读。"
+      : "Browse personality profiles and profession-oriented interpretation notes.",
+    alternatesByLocale: {
+      en: "/en/professions",
+      zh: "/zh/professions",
+      xDefault: "/",
     },
-  };
+  });
 }
 
 export default async function ProfessionsPage({

@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
+
+export const metadata: Metadata = {
+  robots: NOINDEX_ROBOTS,
+};
 
 function firstValue(value: string | string[] | undefined): string {
   if (!value) return "";

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { HeroSection } from "@/components/marketing/HeroSection";
 import {
   HighlightedTestsSection,
@@ -8,6 +9,33 @@ import { ValuePropsSection } from "@/components/marketing/ValuePropsSection";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = resolveLocale(localeParam);
+  const isZh = locale === "zh";
+  const pathname = isZh ? "/zh" : "/en";
+
+  return buildPageMetadata({
+    locale,
+    pathname,
+    title: "FermatMind",
+    description: isZh
+      ? "费马测试：科学自我测评与人格洞察。"
+      : "FermatMind assessments and personality insights.",
+    imagePath: "/share/mbti_wide_1200x630.png",
+    alternatesByLocale: {
+      en: "/en",
+      zh: "/zh",
+      xDefault: "/",
+    },
+  });
+}
 
 export default async function Home({
   params,

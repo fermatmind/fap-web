@@ -5,7 +5,7 @@ import { SiteChrome } from "@/components/layout/SiteChrome";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
 import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
-import { canonicalUrl, SITE_URL } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 import "../../globals.css";
 
 const fmSans = localFont({
@@ -42,14 +42,6 @@ export const metadata: Metadata = {
     template: "%s | FermatMind",
   },
   description: "FermatMind assessments and personality tests.",
-  alternates: {
-    canonical: "/en",
-    languages: {
-      en: canonicalUrl("/en"),
-      zh: canonicalUrl("/zh"),
-      "x-default": canonicalUrl("/en"),
-    },
-  },
   openGraph: {
     siteName: "FermatMind",
     type: "website",
@@ -58,6 +50,14 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     images: ["/share/mbti_wide_1200x630.png"],
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BAIDU_SITE_VERIFICATION
+      ? {
+          "baidu-site-verification": process.env.NEXT_PUBLIC_BAIDU_SITE_VERIFICATION,
+        }
+      : undefined,
   },
 };
 

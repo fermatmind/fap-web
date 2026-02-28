@@ -36,7 +36,6 @@ const EXPECTED_PLACEMENT: Record<string, [string, string, string]> = {
 test("articles page is grouped by test and each group exposes three ordered cards", async ({ page }) => {
   for (const locale of ["en", "zh"] as const) {
     await page.goto(`/${locale}/articles`);
-
     for (const [testSlug, articleSlugs] of Object.entries(EXPECTED_PLACEMENT)) {
       const group = page.getByTestId(`articles-group-${testSlug}`);
       await expect(group).toBeVisible();

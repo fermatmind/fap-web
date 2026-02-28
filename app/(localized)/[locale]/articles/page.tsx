@@ -3,9 +3,15 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getTestBySlug, listBlogPostsGroupedByTest, resolveTestTitleByLocale } from "@/lib/content";
+import {
+  getTestBySlug,
+  listBlogPosts,
+  listBlogPostsGroupedByTest,
+  resolveTestTitleByLocale,
+} from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
   params,
@@ -15,14 +21,22 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
+  const isZh = locale === "zh";
+  const pathname = isZh ? "/zh/articles" : "/en/articles";
+  const hasLocalizedContent = listBlogPosts(locale).length > 0;
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname,
     title: dict.articles.title,
     description: dict.articles.subtitle,
-    alternates: {
-      canonical: localizedPath("/articles", locale),
+    noindex: !isZh && !hasLocalizedContent,
+    alternatesByLocale: {
+      en: "/en/articles",
+      zh: "/zh/articles",
+      xDefault: "/",
     },
-  };
+  });
 }
 
 export default async function ArticlesPage({
@@ -34,7 +48,7 @@ export default async function ArticlesPage({
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const groups = listBlogPostsGroupedByTest();
+  const groups = listBlogPostsGroupedByTest(locale);
 
   return (
     <Container as="main" className="space-y-6 py-10">

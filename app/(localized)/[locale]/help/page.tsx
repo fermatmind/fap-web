@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
   params,
@@ -14,14 +15,19 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
+  const pathname = isZh ? "/zh/help" : "/en/help";
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname,
     title: isZh ? "帮助" : "Help",
     description: isZh ? "订单、交付和政策相关帮助。" : "Get help for orders, delivery, and policy questions.",
-    alternates: {
-      canonical: localizedPath("/help", locale),
+    alternatesByLocale: {
+      en: "/en/help",
+      zh: "/zh/help",
+      xDefault: "/",
     },
-  };
+  });
 }
 
 export default async function HelpPage({
