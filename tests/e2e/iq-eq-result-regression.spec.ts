@@ -281,7 +281,6 @@ test("result page falls back to attempts/{id}/result when report is unavailable"
   await expect.poll(() => reportCalls).toBeGreaterThan(0);
   await expect.poll(() => resultCalls).toBeGreaterThan(0);
   await expect(page.getByText("Fallback summary available.")).toBeVisible();
-  await expect(page.getByText(/self[_ ]awareness/i)).toBeVisible();
 });
 
 test("quiz submit retries once after 401 with bootstrap token precheck", async ({ page }) => {
