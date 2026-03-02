@@ -1,5 +1,5 @@
 const FM_TOKEN_KEY = "fm_auth_token";
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "/api";
+const API_BASE = "/api";
 const GUEST_TOKEN_TIMEOUT_MS = 10000;
 
 export type GuestTokenErrorReason =

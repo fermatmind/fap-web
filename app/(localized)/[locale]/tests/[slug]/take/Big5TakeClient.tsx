@@ -561,6 +561,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           status_group: classified.statusGroup,
           status_code: classified.statusCode,
           error_code: classified.errorCode,
+          request_id: classified.requestId,
           route: "/tests/[slug]/take",
           locale,
         });
