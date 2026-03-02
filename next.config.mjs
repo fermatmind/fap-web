@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.example.com";
 const isProd = process.env.NODE_ENV === "production";
 const cdnUrl = (process.env.NEXT_PUBLIC_CDN_URL || "").replace(/\/$/, "");
 
@@ -115,12 +114,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/v0.3/:path*",
-        destination: `${API_URL}/api/v0.3/:path*`,
-      },
-      {
-        source: "/api/v0.2/:path*",
-        destination: `${API_URL}/api/v0.2/:path*`,
+        source: "/api/:path*",
+        destination: "https://api.fermatmind.com/api/:path*",
       },
     ];
   },

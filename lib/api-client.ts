@@ -24,7 +24,7 @@ export class ApiError extends Error {
   }
 }
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "/api";
+const API_BASE = "/api";
 const DEFAULT_TIMEOUT_MS = 15000;
 
 type Json = Record<string, unknown>;

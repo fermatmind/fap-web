@@ -109,9 +109,9 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   ui_card_interaction: ["slug", "scale_code", "visual_kind", "interaction", "locale"],
   ui_quiz_milestone: ["scale_code", "milestone", "duration_bucket", "locale"],
   ui_report_loading_phase: ["scale_code", "phase", "locked", "variant", "locale"],
-  questions_load_failure: ["scale_code", "stage", "status_group", "status_code", "error_code", "route", "locale"],
-  submit_failure: ["scale_code", "stage", "status_group", "status_code", "error_code", "route", "locale"],
-  report_load_failure: ["scale_code", "stage", "status_group", "status_code", "error_code", "route", "locale"],
+  questions_load_failure: ["scale_code", "stage", "status_group", "status_code", "error_code", "request_id", "route", "locale"],
+  submit_failure: ["scale_code", "stage", "status_group", "status_code", "error_code", "request_id", "route", "locale"],
+  report_load_failure: ["scale_code", "stage", "status_group", "status_code", "error_code", "request_id", "route", "locale"],
 };
 
 const FORBIDDEN_FIELD_FRAGMENTS = ["answer", "report", "email", "token", "authorization"];
