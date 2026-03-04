@@ -29,6 +29,15 @@ if [[ "${VISUAL_USE_LOCAL_ENV:-0}" != "1" ]]; then
 fi
 
 restore_hidden_env_files() {
+  # Bash 3 with `set -u` can treat empty arrays as unbound during trap execution.
+  set +u
+  local entry_count="${#HIDDEN_ENV_FILES[@]}"
+  set -u
+
+  if [[ "$entry_count" -eq 0 ]]; then
+    return
+  fi
+
   for ENTRY in "${HIDDEN_ENV_FILES[@]}"; do
     ORIGINAL_FILE="${ENTRY%%:*}"
     BACKUP_FILE="${ENTRY#*:}"
@@ -42,6 +51,30 @@ trap restore_hidden_env_files EXIT
 # Do not run package-level postbuild here (it rewrites sitemap/robots and creates noisy diffs).
 pnpm exec velite build
 pnpm exec next build
+
+if [[ ! -f .next/standalone/server.js ]]; then
+  echo "missing build artifact: .next/standalone/server.js"
+  exit 1
+fi
+
+sync_dir() {
+  local source_dir="$1"
+  local target_dir="$2"
+
+  mkdir -p "$target_dir"
+  if command -v rsync >/dev/null 2>&1; then
+    rsync -a --delete "${source_dir}/" "${target_dir}/"
+    return
+  fi
+
+  # Fallback for minimal environments where rsync is unavailable.
+  rm -rf "${target_dir:?}/"*
+  cp -a "${source_dir}/." "$target_dir/"
+}
+
+echo "sync standalone static assets for visual server"
+sync_dir "public" ".next/standalone/public"
+sync_dir ".next/static" ".next/standalone/.next/static"
 
 ARGS=(
   test

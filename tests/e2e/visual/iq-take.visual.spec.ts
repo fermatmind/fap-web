@@ -137,6 +137,7 @@ test("IQ take desktop visual baseline", async ({ page }) => {
   await waitForVisualStability(page);
 
   const card = page.getByTestId("iq-option-board-desktop").first();
+  await expect(card).toBeVisible({ timeout: 30000 });
   await card.scrollIntoViewIfNeeded();
   await waitForVisualStability(page);
 
@@ -155,6 +156,7 @@ test("IQ take mobile visual baseline", async ({ page }) => {
   await waitForVisualStability(page);
 
   const card = page.getByTestId("iq-option-board-mobile").first();
+  await expect(card).toBeVisible({ timeout: 30000 });
   await card.scrollIntoViewIfNeeded();
   await waitForVisualStability(page);
 
