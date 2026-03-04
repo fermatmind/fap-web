@@ -92,6 +92,12 @@ export type SiteDictionary = {
       noOptions: string;
       submitPhases: [string, string, string];
     };
+    iq: {
+      pickPrompt: string;
+      selectHint: string;
+      next: string;
+      submit: string;
+    };
   };
   loading: {
     phases: string[];

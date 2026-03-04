@@ -125,6 +125,12 @@ const en: SiteDictionary = {
         "Generating your profile...",
       ],
     },
+    iq: {
+      pickPrompt: "Choose the option that best completes the matrix.",
+      selectHint: "Select one option to continue.",
+      next: "Next question",
+      submit: "Submit answers",
+    },
   },
   loading: {
     phases: [

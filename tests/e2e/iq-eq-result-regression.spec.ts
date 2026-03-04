@@ -125,6 +125,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
 
 test("IQ renders stem prompt/svg and submits with visual options", async ({ page }) => {
   const attemptId = "iq-stem-flow-001";
+  let submitCalls = 0;
   await mockTrack(page);
   await mockScaleLookup(page);
 
@@ -187,6 +188,7 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
   });
 
   await page.route("**/api/v0.3/attempts/submit", async (route) => {
+    submitCalls += 1;
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -217,13 +219,25 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
   await page.goto("/en/tests/iq-test-intelligence-quotient-assessment/take");
   await expect(page.getByRole("heading", { name: "Which option fits?" })).toBeVisible();
   await expect(page.getByTestId("iq-stem-svg").first()).toBeVisible();
+  await expect(page.getByRole("button", { name: "Submit answers" })).toBeDisabled();
 
-  const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
-    page,
-    option: page.getByRole("radio", { name: "A" }).first(),
-    targetUrl: new RegExp(`/en/result/${attemptId}`),
-    timeoutMs: 30000,
-  });
+  await page.getByRole("radio", { name: "Option A" }).first().click();
+  await expect(page.getByRole("button", { name: "Submit answers" })).toBeEnabled();
+  await page.waitForTimeout(400);
+  expect(submitCalls).toBe(0);
+  await expect(page).toHaveURL(/\/en\/tests\/iq-test-intelligence-quotient-assessment\/take/);
+
+  const submitResponsePromise = page.waitForResponse(
+    (response) =>
+      response.request().method() === "POST" &&
+      response.url().includes("/api/v0.3/attempts/submit"),
+    { timeout: 30000 }
+  );
+
+  await page.getByRole("button", { name: "Submit answers" }).click();
+  const submitResponse = await submitResponsePromise;
+  await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`), { timeout: 30000 });
+  expect(submitCalls).toBe(1);
   expect(submitResponse.status()).toBe(200);
   await expect(page.getByText("IQ report summary")).toBeVisible();
 });
