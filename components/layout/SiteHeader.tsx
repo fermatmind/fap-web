@@ -1,8 +1,8 @@
 "use client";
 
-import { Menu, Search, UserRound, X } from "lucide-react";
+import { ChevronDown, Menu, Search, UserRound, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { AnimatedCounter } from "@/components/design/AnimatedCounter";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
@@ -10,20 +10,57 @@ import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import {
+  getHeaderDropdownMenus,
+  type HeaderNavKey,
+} from "@/lib/navigation/headerDropdownMenus";
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<HeaderNavKey | null>(null);
+  const desktopNavRef = useRef<HTMLDivElement | null>(null);
   const locale = useLocale();
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
   const liveCompletedCount = 1_049_165;
-  const navItems = [
-    { href: "/tests", label: dict.header.tests },
-    { href: "/articles", label: dict.header.articles },
-    { href: "/professions", label: dict.header.professions },
-    { href: "/help", label: dict.header.help },
-    { href: "/business", label: dict.header.business },
+
+  const navItems: Array<{ key: HeaderNavKey; href: string; label: string }> = [
+    { key: "tests", href: "/tests", label: dict.header.tests },
+    { key: "articles", href: "/articles", label: dict.header.articles },
+    { key: "professions", href: "/professions", label: dict.header.professions },
+    { key: "help", href: "/help", label: dict.header.help },
+    { key: "business", href: "/business", label: dict.header.business },
   ];
+
+  const dropdownMenuMap = useMemo(() => {
+    return Object.fromEntries(
+      getHeaderDropdownMenus(locale).map((menu) => [menu.key, menu.items])
+    ) as Record<HeaderNavKey, Array<{ href: string; label: string }>>;
+  }, [locale]);
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!desktopNavRef.current) return;
+      const target = event.target;
+      if (target instanceof Node && !desktopNavRef.current.contains(target)) {
+        setActiveDropdown(null);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md">
@@ -50,17 +87,45 @@ export function SiteHeader() {
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
-          <div className="hidden min-w-0 flex-1 items-center justify-end gap-2 lg:flex">
+          <div ref={desktopNavRef} className="hidden min-w-0 flex-1 items-center justify-end gap-2 lg:flex">
             <nav className="flex flex-wrap items-center justify-end gap-[var(--fm-gap-xs)]">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={withLocale(item.href)}
-                  className="rounded-full px-3 py-2 text-sm font-medium text-blue-100 transition hover:bg-white/10 hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const menuId = `header-dropdown-${item.key}`;
+                const isOpen = activeDropdown === item.key;
+                const items = dropdownMenuMap[item.key] ?? [];
+
+                return (
+                  <div key={item.key} className="relative">
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-controls={menuId}
+                      aria-haspopup="menu"
+                      onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
+                      className="inline-flex min-h-[44px] items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-blue-100 transition hover:bg-white/10 hover:text-white"
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown className={isOpen ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
+                    </button>
+
+                    {isOpen && items.length > 0 ? (
+                      <div id={menuId} role="menu" aria-label={item.label} className="fm-header-dropdown-panel">
+                        {items.map((menuItem) => (
+                          <Link
+                            key={`${item.key}-${menuItem.href}`}
+                            href={withLocale(menuItem.href)}
+                            role="menuitem"
+                            className="fm-header-dropdown-link"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {menuItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
             </nav>
 
             <Link

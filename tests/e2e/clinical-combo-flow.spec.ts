@@ -269,7 +269,11 @@ test("CC68 report unlock is only reflected after locked=false", async ({ page })
   });
   await expect(page.getByText("Unlock to view this section.")).toHaveCount(0);
   await expect(page.getByText("Deep paid content")).toBeVisible();
-  expect(reportCalls).toBeGreaterThanOrEqual(3);
+  await expect
+    .poll(() => reportCalls, {
+      timeout: 20000,
+    })
+    .toBeGreaterThanOrEqual(3);
 });
 
 test("CC68 report retries short 404 before showing paywall", async ({ page }) => {

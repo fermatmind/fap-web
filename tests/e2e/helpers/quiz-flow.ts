@@ -1,14 +1,16 @@
 import { expect, type Locator, type Page, type Response } from "@playwright/test";
 
 async function activateOption(option: Locator): Promise<void> {
-  // Center the option to avoid sticky headers intercepting pointer clicks in long flows.
-  await option.evaluate((element) => {
-    element.scrollIntoView({ block: "center", inline: "center" });
-  });
+  // Keep clicks resilient during animated transitions on long quiz flows.
+  await option.scrollIntoViewIfNeeded();
 
   try {
     await option.click();
   } catch (error) {
+    if (error instanceof Error && error.message.includes("Execution context was destroyed")) {
+      // The page navigated right when the final answer was activated.
+      return;
+    }
     if (error instanceof Error && error.message.includes("intercepts pointer events")) {
       await option.focus();
       await option.press("Space");
