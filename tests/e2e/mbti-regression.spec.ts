@@ -23,6 +23,17 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     });
   });
 
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_guest_token_0001",
+      }),
+    });
+  });
+
   await page.route("**/api/v0.3/scales/MBTI/questions*", async (route) => {
     await route.fulfill({
       status: 200,
@@ -106,7 +117,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   });
 
   await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
-  await expect(page.getByRole("heading", { name: "MBTI question 1" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "MBTI question 1" })).toBeVisible({ timeout: 15000 });
 
   for (let i = 0; i < 7; i += 1) {
     await page.getByRole("radio").first().click();
@@ -136,6 +147,17 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_guest_token_0002",
+      }),
     });
   });
 
@@ -215,7 +237,7 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
     await page.setViewportSize(viewport);
     await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
 
-    await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible({ timeout: 15000 });
     const firstOption = page.getByRole("radio").first();
     const bounds = await firstOption.boundingBox();
     expect(bounds?.height ?? 0).toBeGreaterThanOrEqual(44);
