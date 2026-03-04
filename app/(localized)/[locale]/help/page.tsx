@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
+import {
+  getHelpCenterContent,
+  listHelpCenterPages,
+} from "@/lib/help/helpCenterContent";
+import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -14,14 +17,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const isZh = locale === "zh";
-  const pathname = isZh ? "/zh/help" : "/en/help";
+  const pathname = locale === "zh" ? "/zh/help" : "/en/help";
+  const content = getHelpCenterContent(locale);
 
   return buildPageMetadata({
     locale,
     pathname,
-    title: isZh ? "帮助" : "Help",
-    description: isZh ? "订单、交付和政策相关帮助。" : "Get help for orders, delivery, and policy questions.",
+    title: content.home.title,
+    description: content.home.subtitle,
     alternatesByLocale: {
       en: "/en/help",
       zh: "/zh/help",
@@ -37,62 +40,67 @@ export default async function HelpPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const dict = getDictSync(locale);
-  const isZh = locale === "zh";
-  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const withLocale = (path: string) => localizedPath(path, locale);
+  const content = getHelpCenterContent(locale);
+  const pages = listHelpCenterPages(locale);
+  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
 
   return (
-    <Container as="main" className="max-w-4xl space-y-6 py-10">
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+    <Container as="main" className="max-w-5xl space-y-6 py-10" data-testid="help-home-main">
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]" data-testid="help-home-hero">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {isZh ? "支持中心" : "Support Center"}
+          {content.home.kicker}
         </p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{dict.support.title}</h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">{dict.support.emailHint}</p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-4xl">
+          {content.home.title}
+        </h1>
+        <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">{content.home.subtitle}</p>
       </section>
 
-      <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)]">
-        <CardHeader className="space-y-2">
-          <CardTitle className="font-serif text-[var(--fm-text)]">{dict.support.quickActions}</CardTitle>
-          <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-            {isZh ? "优先使用以下入口自助处理常见问题。" : "Use these shortcuts first for common support tasks."}
-          </p>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          <Link href={withLocale("/orders/lookup")}>
-            <Button type="button">{dict.support.lookup}</Button>
-          </Link>
-          <Link href={withLocale("/refund")}>
-            <Button type="button" variant="outline">
-              {isZh ? "退款政策" : "Refund policy"}
-            </Button>
-          </Link>
-          <Link href={withLocale("/privacy")}>
-            <Button type="button" variant="secondary">
-              {isZh ? "隐私政策" : "Privacy policy"}
-            </Button>
-          </Link>
-        </CardContent>
-      </Card>
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="help-home-topics">
+        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{content.home.topicsTitle}</h2>
+        <div className="grid gap-3 md:grid-cols-2">
+          {pages.map((page) => (
+            <Link
+              key={page.slug}
+              href={withLocale(`/help/${page.slug}`)}
+              className="fm-help-topic-card"
+            >
+              <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{page.title}</h3>
+              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{page.cardSummary}</p>
+              <span className="fm-help-topic-action">{content.home.browseButton}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-      <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)]">
-        <CardHeader className="space-y-2">
-          <CardTitle className="font-serif text-[var(--fm-text)]">{dict.support.contact}</CardTitle>
+      <section className="grid gap-4 md:grid-cols-2" data-testid="help-home-actions">
+        <article className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">{content.home.quickActionsTitle}</h2>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{content.home.quickActionsSubtitle}</p>
+          <div className="flex flex-wrap gap-2">
+            {content.quickActions.map((action) => (
+              <Link key={action.href} href={withLocale(action.href)}>
+                <Button type="button" variant="outline">{action.label}</Button>
+              </Link>
+            ))}
+          </div>
+        </article>
+
+        <article className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">{content.home.contactTitle}</h2>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{content.home.contactSubtitle}</p>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-            {isZh ? "如需人工处理，请发送邮件并附上订单号。" : "If you need manual support, include your order number in email."}
-          </p>
-        </CardHeader>
-        <CardContent>
-          <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-            {isZh ? "请附上订单号发送邮件至 " : "Email us with your order number at "}
+            {locale === "zh" ? "支持邮箱：" : "Support email: "}
             <a className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]" href={`mailto:${supportEmail}`}>
               {supportEmail}
             </a>
-            .
           </p>
-        </CardContent>
-      </Card>
+          <Link href={withLocale("/help/contact")} className="inline-flex">
+            <Button type="button">{locale === "zh" ? "查看联系说明" : "Contact instructions"}</Button>
+          </Link>
+        </article>
+      </section>
     </Container>
   );
 }

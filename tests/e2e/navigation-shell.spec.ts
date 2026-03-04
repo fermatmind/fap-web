@@ -11,7 +11,10 @@ test("site chrome is consistent across help and articles pages", async ({ page }
 
   await page.goto("/en/articles");
   await expect(page.getByRole("link", { name: "FermatMind", exact: true })).toBeVisible();
-  await expect(page.getByRole("navigation").getByRole("link", { name: "Help", exact: true })).toBeVisible();
+  const helpMenuTrigger = page.getByRole("navigation").getByRole("button", { name: "Help", exact: true });
+  await expect(helpMenuTrigger).toBeVisible();
+  await helpMenuTrigger.click();
+  await expect(page.getByRole("menuitem", { name: "Help Center", exact: true })).toBeVisible();
 });
 
 test("site chrome is visible on immersive take page", async ({ page }) => {
