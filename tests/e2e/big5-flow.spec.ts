@@ -294,8 +294,10 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
 
   await expect(firstQuestion).toBeVisible({ timeout: 15000 });
 
+  const firstRadio = page.getByRole("radio").first();
   for (let i = 0; i < 119; i += 1) {
-    await page.getByRole("radio").first().click();
+    await firstRadio.focus();
+    await firstRadio.press("Space");
     await expect(page.getByText(`Question ${i + 2} / 120`)).toBeVisible();
   }
 

@@ -1,5 +1,23 @@
 import { expect, type Locator, type Page, type Response } from "@playwright/test";
 
+async function activateOption(option: Locator): Promise<void> {
+  // Center the option to avoid sticky headers intercepting pointer clicks in long flows.
+  await option.evaluate((element) => {
+    element.scrollIntoView({ block: "center", inline: "center" });
+  });
+
+  try {
+    await option.click();
+  } catch (error) {
+    if (error instanceof Error && error.message.includes("intercepts pointer events")) {
+      await option.focus();
+      await option.press("Space");
+      return;
+    }
+    throw error;
+  }
+}
+
 export async function clickLastOptionAndWaitForSubmit({
   page,
   option,
@@ -16,7 +34,7 @@ export async function clickLastOptionAndWaitForSubmit({
     { timeout: timeoutMs }
   );
 
-  await option.click();
+  await activateOption(option);
   return submitResponsePromise;
 }
 
