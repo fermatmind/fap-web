@@ -37,6 +37,7 @@ import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/lo
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
+import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import type { QuestionsMeta, ScaleQuestionItem } from "@/lib/api/v0_3";
 
 const SDS_OPTION_CODES = ["A", "B", "C", "D"];
@@ -640,7 +641,7 @@ export default function ClinicalTakeClient({
         throw new Error("Submit failed.");
       }
 
-      const resultAttemptId = response.attempt_id ?? activeAttemptId;
+      const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
       if (typeof window !== "undefined" && response.report) {
         const key = `${SUBMIT_REPORT_CACHE_PREFIX}${resultAttemptId}`;
         window.sessionStorage.setItem(key, JSON.stringify(response.report));

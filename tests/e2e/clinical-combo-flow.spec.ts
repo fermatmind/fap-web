@@ -272,6 +272,81 @@ test("CC68 report unlock is only reflected after locked=false", async ({ page })
   expect(reportCalls).toBeGreaterThanOrEqual(3);
 });
 
+test("CC68 report retries short 404 before showing paywall", async ({ page }) => {
+  const attemptId = "cc68-attempt-404-retry";
+  let reportCalls = 0;
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    reportCalls += 1;
+
+    if (reportCalls < 3) {
+      await route.fulfill({
+        status: 404,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: false,
+          error_code: "RESOURCE_NOT_FOUND",
+          message: "No query results for model [App\\Models\\Attempt].",
+        }),
+      });
+      return;
+    }
+
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        locked: true,
+        variant: "free",
+        quality: {
+          level: "B",
+          crisis_alert: false,
+        },
+        offers: [
+          {
+            sku: "CC68_FULL",
+            title: "CC68 Full",
+            price_cents: 1299,
+            currency: "USD",
+          },
+        ],
+        report: {
+          scale_code: "CLINICAL_COMBO_68",
+          sections: [
+            {
+              key: "disclaimer_top",
+              title: "Important Disclaimer",
+              access_level: "free",
+              blocks: [{ id: "d1", type: "markdown", content: "Disclaimer" }],
+            },
+            {
+              key: "paid_deep_dive",
+              title: "Paid Deep Dive",
+              access_level: "paid",
+              blocks: [{ id: "p1", type: "markdown", content: "Deep paid content" }],
+            },
+          ],
+        },
+      }),
+    });
+  });
+
+  await page.goto(`/en/attempts/${attemptId}/report`);
+
+  await expect.poll(() => reportCalls).toBeGreaterThanOrEqual(3);
+  await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible();
+  await expect(page.getByText("No query results for model [App\\Models\\Attempt].")).toHaveCount(0);
+});
+
 test("CC68 checkout pay.qr enters order wait and carries region header", async ({ page }) => {
   const attemptId = "cc68-attempt-pay-qr";
   const orderNo = "ord_cc68_qr_1";

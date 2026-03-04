@@ -188,6 +188,11 @@ const zh: SiteDictionary = {
     noDimensions: "当前暂无可展示的维度明细。",
     summaryPending: "报告摘要正在生成中。",
     reportUnavailable: "报告暂时不可用，请稍后再试。",
+    reportNotFoundRetrying: "结果正在同步，系统将自动重试...",
+    reportNotFoundFallback: "结果同步耗时较长，请重试或先查看订单状态。",
+    generatingPaymentHint: "支付信息将在报告与报价准备完成后显示。",
+    viewOrderStatus: "查看订单状态",
+    openOrderLookup: "前往订单查询",
     paymentUnavailable: "暂时无法发起支付。",
   },
   orders: {

@@ -189,6 +189,11 @@ const en: SiteDictionary = {
     noDimensions: "No detailed dimensions are available yet.",
     summaryPending: "Report summary is being prepared.",
     reportUnavailable: "Report temporarily unavailable. Please try again in a moment.",
+    reportNotFoundRetrying: "Result is syncing. Retrying shortly...",
+    reportNotFoundFallback: "Result sync is taking longer than expected. Please retry or check your order status.",
+    generatingPaymentHint: "Payment options will appear when the report and offer details are ready.",
+    viewOrderStatus: "View order status",
+    openOrderLookup: "Open order lookup",
     paymentUnavailable: "Unable to start payment.",
   },
   orders: {

@@ -41,6 +41,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
+import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => {
@@ -797,7 +798,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       }
 
       markSubmitted();
-      const resultAttemptId = response.attempt_id ?? activeAttemptId;
+      const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
       return resultAttemptId;
     } catch (error) {
       if (isGuestTokenRequestError(error)) {
