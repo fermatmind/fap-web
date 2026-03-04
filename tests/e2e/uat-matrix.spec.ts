@@ -438,7 +438,11 @@ test.describe("UAT matrix (mock)", () => {
       targetUrl: new RegExp(`/en/result/${attemptId}`),
     });
     await page.getByRole("button", { name: "Unlock now" }).click();
-    expect(checkoutRegionHeader).toBe("US");
+    await expect
+      .poll(() => checkoutRegionHeader, {
+        timeout: 10000,
+      })
+      .toBe("US");
     await page.waitForURL(new RegExp(`/en/(orders/${orderNo}|result/${attemptId})`));
     if (page.url().includes(`/en/orders/${orderNo}`)) {
       await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
@@ -524,7 +528,11 @@ test.describe("UAT matrix (mock)", () => {
       targetUrl: new RegExp(`/en/result/${attemptId}`),
     });
     await page.getByRole("button", { name: "Unlock now" }).click();
-    expect(checkoutRegionHeader).toBe("US");
+    await expect
+      .poll(() => checkoutRegionHeader, {
+        timeout: 10000,
+      })
+      .toBe("US");
     await page.waitForURL(new RegExp(`^https://checkout\\.example\\.com/pay\\?order_no=${orderNo}$`));
     expect(page.url()).not.toContain(`/en/orders/${orderNo}`);
   });
@@ -641,7 +649,11 @@ test.describe("UAT matrix (mock)", () => {
       targetUrl: new RegExp(`/en/result/${attemptId}`),
     });
     await page.getByRole("button", { name: "Unlock now" }).click();
-    expect(checkoutRegionHeader).toBe("US");
+    await expect
+      .poll(() => checkoutRegionHeader, {
+        timeout: 10000,
+      })
+      .toBe("US");
     await page.waitForURL(new RegExp(`/en/pay/wait\\?`));
     await expect(page).toHaveURL(new RegExp(`order_no=${orderNo}`));
     await expect(page).toHaveURL(new RegExp(`pay_type=qr`));
@@ -766,7 +778,11 @@ test.describe("UAT matrix (mock)", () => {
       targetUrl: new RegExp(`/en/result/${attemptId}`),
     });
     await page.getByRole("button", { name: "Unlock now" }).click();
-    expect(checkoutRegionHeader).toBe("US");
+    await expect
+      .poll(() => checkoutRegionHeader, {
+        timeout: 10000,
+      })
+      .toBe("US");
     await page.waitForURL(new RegExp(`/en/pay/wait\\?`));
     await expect(page).toHaveURL(new RegExp(`order_no=${orderNo}`));
     await expect(page).toHaveURL(new RegExp(`pay_type=html`));
