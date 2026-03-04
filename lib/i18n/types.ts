@@ -149,6 +149,11 @@ export type SiteDictionary = {
     noDimensions: string;
     summaryPending: string;
     reportUnavailable: string;
+    reportNotFoundRetrying: string;
+    reportNotFoundFallback: string;
+    generatingPaymentHint: string;
+    viewOrderStatus: string;
+    openOrderLookup: string;
     paymentUnavailable: string;
   };
   orders: {

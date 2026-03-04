@@ -50,6 +50,14 @@ export function mapClinicalError(error: unknown): ClinicalUiError {
     };
   }
 
+  if (error.status === 404) {
+    return {
+      title: "Result syncing",
+      message: "Your report is syncing. Please retry shortly.",
+      action: "retry",
+    };
+  }
+
   if (error.status === 429) {
     const details = error.details as { retry_after_seconds?: unknown } | undefined;
     const retryAfter = Number(details?.retry_after_seconds ?? 0);

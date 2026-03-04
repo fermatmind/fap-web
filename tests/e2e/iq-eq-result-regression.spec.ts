@@ -297,6 +297,62 @@ test("result page falls back to attempts/{id}/result when report is unavailable"
   await expect(page.getByText("Fallback summary available.")).toBeVisible();
 });
 
+test("result page shows generating state and unlock CTA together when offers are already available", async ({ page }) => {
+  const attemptId = "result-generating-offer-001";
+  await mockTrack(page);
+  await mockScaleLookup(page);
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_generating_offer_token_123456",
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        locked: true,
+        generating: true,
+        retry_after: 30,
+        variant: "free",
+        quality: { level: "B" },
+        offers: [
+          {
+            sku: "IQ_FULL",
+            title: "IQ Full",
+            amount_cents: 1299,
+            currency: "USD",
+            formatted_price: "$12.99",
+            order_no: "ord_iq_001",
+          },
+        ],
+        report: {
+          scale_code: "IQ_RAVEN",
+          sections: [
+            {
+              key: "summary",
+              title: "Summary",
+              access_level: "free",
+              blocks: [{ kind: "paragraph", body: "Generating..." }],
+            },
+          ],
+        },
+      }),
+    });
+  });
+
+  await page.goto(`/en/result/${attemptId}`);
+  await expect(page.getByText("Report is still generating. Refresh in a few seconds.")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible();
+});
+
 test("quiz submit retries once after 401 with bootstrap token precheck", async ({ page }) => {
   const attemptId = "quiz-auth-retry-001";
   await mockTrack(page);

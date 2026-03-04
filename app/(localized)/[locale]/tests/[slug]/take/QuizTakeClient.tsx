@@ -37,6 +37,7 @@ import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
+import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 
 function isUnauthorizedError(error: unknown): error is ApiError {
   return error instanceof ApiError && error.status === 401;
@@ -533,7 +534,7 @@ function QuizTakeInner({
         throw new Error("Submit failed. Please try again.");
       }
 
-      const resultAttemptId = response.attempt_id ?? activeAttemptId;
+      const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
       trackEvent("submit_attempt", {
         slug,
         attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,

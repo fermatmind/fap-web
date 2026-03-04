@@ -18,6 +18,7 @@ import {
   type OfferPayload,
   type ReportResponse,
 } from "@/lib/api/v0_3";
+import { ApiError } from "@/lib/api-client";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
 import { fetchClinicalReport } from "@/lib/clinical/api";
@@ -57,14 +58,75 @@ const UNLOCK_POLL_INTERVAL_MS = 3000;
 const UNLOCK_POLL_MAX = 10;
 const SUBMIT_REPORT_CACHE_PREFIX = "fm_attempt_submit_report_v1_";
 const PENDING_UNLOCK_CACHE_PREFIX = "fm_clinical_pending_unlock_v1_";
+const DEFAULT_REPORT_404_RETRY_MAX = 5;
+const DEFAULT_REPORT_404_RETRY_SCHEDULE_MS = [1000, 2000, 4000, 6000, 8000] as const;
+const REPORT_404_RETRY_JITTER_MAX_MS = 300;
 
 type ClinicalScaleCode = "SDS_20" | "CLINICAL_COMBO_68";
+type StageDetailedError = {
+  stageDetail?: string;
+};
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => {
     window.setTimeout(resolve, ms);
   });
 }
+
+function parseBooleanEnv(value: string | undefined, fallback: boolean): boolean {
+  const normalized = String(value ?? "")
+    .trim()
+    .toLowerCase();
+  if (!normalized) return fallback;
+  if (["1", "true", "yes", "on"].includes(normalized)) return true;
+  if (["0", "false", "no", "off"].includes(normalized)) return false;
+  return fallback;
+}
+
+function parsePositiveInteger(value: string | undefined, fallback: number): number {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) return fallback;
+  return Math.max(0, Math.floor(parsed));
+}
+
+function parseRetrySchedule(value: string | undefined): number[] {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) return [...DEFAULT_REPORT_404_RETRY_SCHEDULE_MS];
+
+  const values = normalized
+    .split(",")
+    .map((item) => Number(item.trim()))
+    .filter((item) => Number.isFinite(item) && item > 0)
+    .map((item) => Math.floor(item));
+
+  return values.length > 0 ? values : [...DEFAULT_REPORT_404_RETRY_SCHEDULE_MS];
+}
+
+function isRetryableNotFoundError(error: unknown): boolean {
+  if (!(error instanceof ApiError) || error.status !== 404) return false;
+  const normalizedCode = String(error.errorCode ?? "")
+    .trim()
+    .toUpperCase();
+  return normalizedCode === "RESOURCE_NOT_FOUND" || normalizedCode === "NOT_FOUND" || normalizedCode === "HTTP_404";
+}
+
+function attachStageDetail(error: unknown, stageDetail: string): unknown {
+  if (error && typeof error === "object") {
+    try {
+      (error as StageDetailedError).stageDetail = stageDetail;
+    } catch {
+      // Ignore stage detail assignment failures.
+    }
+  }
+  return error;
+}
+
+const REPORT_404_RETRY_ENABLED = parseBooleanEnv(process.env.NEXT_PUBLIC_REPORT_404_RETRY_ENABLED, true);
+const REPORT_404_RETRY_MAX = parsePositiveInteger(
+  process.env.NEXT_PUBLIC_REPORT_404_RETRY_MAX,
+  DEFAULT_REPORT_404_RETRY_MAX
+);
+const REPORT_404_RETRY_SCHEDULE_MS = parseRetrySchedule(process.env.NEXT_PUBLIC_REPORT_404_RETRY_SCHEDULE_MS);
 
 function normalizeSectionKey(section: Big5ReportSection): string {
   return typeof section.key === "string" ? section.key.trim() : "";
@@ -418,13 +480,17 @@ export default function ClinicalReportClient({
   const [reportData, setReportData] = useState<ReportResponse | null>(initialReport ?? null);
   const [loading, setLoading] = useState(!initialReport);
   const [error, setError] = useState<string | null>(null);
+  const [notFoundRetrying, setNotFoundRetrying] = useState(false);
+  const [showNotFoundFallback, setShowNotFoundFallback] = useState(false);
   const [paying, setPaying] = useState(false);
   const [payError, setPayError] = useState<string | null>(null);
   const [unlockPolling, setUnlockPolling] = useState(false);
+  const [pendingOrderNo, setPendingOrderNo] = useState("");
 
   const reportViewSignatureRef = useRef("");
   const previousLockedRef = useRef<boolean | null>(null);
   const crisisViewSignatureRef = useRef("");
+  const loadReportInFlightRef = useRef<Promise<ReportResponse> | null>(null);
 
   const pendingUnlockStorageKey = `${PENDING_UNLOCK_CACHE_PREFIX}${attemptId}`;
   const scaleCode = useMemo(() => resolveClinicalScaleCode(reportData), [reportData]);
@@ -495,28 +561,88 @@ export default function ClinicalReportClient({
   const showPaywall = locked && offers.length > 0 && !crisisAlert && rolloutDecision.commerceEnabled;
   const showOffers = offers.length > 0 && !crisisAlert && rolloutDecision.commerceEnabled;
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      setPendingOrderNo(window.localStorage.getItem(pendingUnlockStorageKey) ?? "");
+    } catch {
+      setPendingOrderNo("");
+    }
+  }, [pendingUnlockStorageKey, reportData, showNotFoundFallback]);
+
   const loadReport = useCallback(
     async ({ refresh = false }: { refresh?: boolean } = {}) => {
-      let latest = await fetchClinicalReport({
-        attemptId,
-        refresh,
-      });
-      setReportData(latest);
-
-      let polls = 0;
-      while (resolveGenerating(latest) && polls < GENERATING_POLL_MAX) {
-        polls += 1;
-        await sleep(GENERATING_POLL_INTERVAL_MS);
-        latest = await fetchClinicalReport({
-          attemptId,
-          refresh: true,
-        });
-        setReportData(latest);
+      if (loadReportInFlightRef.current) {
+        return loadReportInFlightRef.current;
       }
 
-      return latest;
+      const runner = (async () => {
+        setNotFoundRetrying(false);
+        let latest: ReportResponse | null = null;
+        const maxRetries = REPORT_404_RETRY_ENABLED ? REPORT_404_RETRY_MAX : 0;
+
+        for (let retryAttempt = 0; retryAttempt <= maxRetries; retryAttempt += 1) {
+          try {
+            latest = await fetchClinicalReport({
+              attemptId,
+              refresh: retryAttempt > 0 ? true : refresh,
+            });
+            setReportData(latest);
+            break;
+          } catch (cause) {
+            if (!isRetryableNotFoundError(cause) || retryAttempt >= maxRetries) {
+              const stageDetail = isRetryableNotFoundError(cause)
+                ? "load_report_not_found_retry_exhausted"
+                : undefined;
+              throw stageDetail ? attachStageDetail(cause, stageDetail) : cause;
+            }
+
+            const classified = classifyApiError(cause);
+            trackEvent("report_load_failure", {
+              scale_code: scaleCode ?? "UNKNOWN",
+              stage: "load_report",
+              stage_detail: "load_report_not_found_retrying",
+              status_group: classified.statusGroup,
+              status_code: classified.statusCode,
+              error_code: classified.errorCode,
+              route: "/attempts/[attemptId]/report",
+              locale,
+            });
+            setNotFoundRetrying(true);
+
+            const baseDelay =
+              REPORT_404_RETRY_SCHEDULE_MS[Math.min(retryAttempt, REPORT_404_RETRY_SCHEDULE_MS.length - 1)] ??
+              GENERATING_POLL_INTERVAL_MS;
+            const jitter = Math.floor(Math.random() * (REPORT_404_RETRY_JITTER_MAX_MS + 1));
+            await sleep(baseDelay + jitter);
+          }
+        }
+
+        if (!latest) {
+          throw attachStageDetail(new Error("Report unavailable."), "load_report_not_found_retry_exhausted");
+        }
+        setNotFoundRetrying(false);
+
+        let polls = 0;
+        while (resolveGenerating(latest) && polls < GENERATING_POLL_MAX) {
+          polls += 1;
+          await sleep(GENERATING_POLL_INTERVAL_MS);
+          latest = await fetchClinicalReport({
+            attemptId,
+            refresh: true,
+          });
+          setReportData(latest);
+        }
+
+        return latest;
+      })().finally(() => {
+        loadReportInFlightRef.current = null;
+      });
+
+      loadReportInFlightRef.current = runner;
+      return runner;
     },
-    [attemptId]
+    [attemptId, locale, scaleCode]
   );
 
   useEffect(() => {
@@ -532,14 +658,26 @@ export default function ClinicalReportClient({
       }
 
       setError(null);
+      setShowNotFoundFallback(false);
+      setNotFoundRetrying(false);
       try {
         await loadReport();
       } catch (cause) {
         if (!active) return;
+        const stageDetail =
+          typeof (cause as StageDetailedError | null | undefined)?.stageDetail === "string"
+            ? (cause as StageDetailedError).stageDetail
+            : undefined;
         const mapped = mapClinicalError(cause);
-        setError(mapped.message);
+        const message =
+          stageDetail === "load_report_not_found_retry_exhausted"
+            ? dict.result.reportNotFoundFallback
+            : mapped.message;
+        setError(message);
+        setNotFoundRetrying(false);
+        setShowNotFoundFallback(stageDetail === "load_report_not_found_retry_exhausted");
         const classified = classifyApiError(cause);
-        trackEvent("report_load_failure", {
+        const payload: Record<string, unknown> = {
           scale_code: scaleCode ?? "UNKNOWN",
           stage: "load_report",
           status_group: classified.statusGroup,
@@ -547,6 +685,12 @@ export default function ClinicalReportClient({
           error_code: classified.errorCode,
           route: "/attempts/[attemptId]/report",
           locale,
+        };
+        if (stageDetail) {
+          payload.stage_detail = stageDetail;
+        }
+        trackEvent("report_load_failure", {
+          ...payload,
         });
         captureError(cause, {
           route: "/attempts/[attemptId]/report",
@@ -566,7 +710,7 @@ export default function ClinicalReportClient({
     return () => {
       active = false;
     };
-  }, [attemptId, initialReport, loadReport, locale, scaleCode]);
+  }, [attemptId, dict.result.reportNotFoundFallback, initialReport, loadReport, locale, scaleCode]);
 
   useEffect(() => {
     if (!reportData || !scaleCode) return;
@@ -625,6 +769,7 @@ export default function ClinicalReportClient({
           // ignore storage failures
         }
       }
+      setPendingOrderNo("");
     }
 
     previousLockedRef.current = locked;
@@ -683,6 +828,7 @@ export default function ClinicalReportClient({
             } catch {
               // ignore storage failures
             }
+            setPendingOrderNo("");
             break;
           }
         }
@@ -755,6 +901,7 @@ export default function ClinicalReportClient({
                 ? (action.orderNo ?? firstOffer.order_no ?? "")
                 : (firstOffer.order_no ?? "");
           window.localStorage.setItem(pendingUnlockStorageKey, pendingOrderNo);
+          setPendingOrderNo(pendingOrderNo);
         } catch {
           // ignore storage failures
         }
@@ -787,14 +934,26 @@ export default function ClinicalReportClient({
   const handleReload = async () => {
     setLoading(true);
     setError(null);
+    setNotFoundRetrying(false);
+    setShowNotFoundFallback(false);
 
     try {
       await loadReport({ refresh: true });
     } catch (cause) {
+      const stageDetail =
+        typeof (cause as StageDetailedError | null | undefined)?.stageDetail === "string"
+          ? (cause as StageDetailedError).stageDetail
+          : undefined;
       const mapped = mapClinicalError(cause);
-      setError(mapped.message);
+      const message =
+        stageDetail === "load_report_not_found_retry_exhausted"
+          ? dict.result.reportNotFoundFallback
+          : mapped.message;
+      setError(message);
+      setNotFoundRetrying(false);
+      setShowNotFoundFallback(stageDetail === "load_report_not_found_retry_exhausted");
       const classified = classifyApiError(cause);
-      trackEvent("report_load_failure", {
+      const payload: Record<string, unknown> = {
         scale_code: scaleCode ?? "UNKNOWN",
         stage: "reload_report",
         status_group: classified.statusGroup,
@@ -802,6 +961,12 @@ export default function ClinicalReportClient({
         error_code: classified.errorCode,
         route: "/attempts/[attemptId]/report",
         locale,
+      };
+      if (stageDetail) {
+        payload.stage_detail = stageDetail;
+      }
+      trackEvent("report_load_failure", {
+        ...payload,
       });
       captureError(cause, {
         route: "/attempts/[attemptId]/report",
@@ -815,7 +980,12 @@ export default function ClinicalReportClient({
   };
 
   if (loading && !reportData) {
-    return <AnticipationSkeleton phases={dict.loading.phases} />;
+    return (
+      <div className="space-y-3">
+        {notFoundRetrying ? <Alert>{dict.result.reportNotFoundRetrying}</Alert> : null}
+        <AnticipationSkeleton phases={dict.loading.phases} />
+      </div>
+    );
   }
 
   if (error && !reportData) {
@@ -825,6 +995,19 @@ export default function ClinicalReportClient({
         <Button type="button" variant="outline" onClick={handleReload}>
           {isZh ? "重试加载" : "Retry"}
         </Button>
+        {showNotFoundFallback ? (
+          <div className="space-y-2">
+            <Link href={withLocale(`/result/${attemptId}`)} className="block text-sm font-medium text-sky-700 underline">
+              {isZh ? "打开结果页" : "Open result page"}
+            </Link>
+            <Link
+              href={withLocale(pendingOrderNo ? `/orders/${pendingOrderNo}` : "/orders/lookup")}
+              className="block text-sm font-medium text-sky-700 underline"
+            >
+              {pendingOrderNo ? dict.result.viewOrderStatus : dict.result.openOrderLookup}
+            </Link>
+          </div>
+        ) : null}
       </div>
     );
   }
