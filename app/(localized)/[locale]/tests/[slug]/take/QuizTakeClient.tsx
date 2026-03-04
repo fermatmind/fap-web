@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { IqOptionBoard } from "@/components/quiz/iq/IqOptionBoard";
 import { IqStemSvg } from "@/components/quiz/iq/IqStemSvg";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
@@ -442,8 +443,13 @@ function QuizTakeInner({
     [answers, questions]
   );
 
+  const normalizedScaleCode = scaleCode.trim().toUpperCase();
+  const isIqScale = normalizedScaleCode === "IQ_RAVEN" || normalizedScaleCode === "IQ_INTELLIGENCE_QUOTIENT";
   const isLastQuestion = total > 0 && currentIndex === total - 1;
   const canSubmit = isLastQuestion && answeredCount === total && !submitting;
+  const iqNeedsSelection = isIqScale && !selectedOptionId;
+  const iqCanContinue = isIqScale && Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
+  const iqCanSubmit = isIqScale && isLastQuestion && answeredCount === total && Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -629,6 +635,7 @@ function QuizTakeInner({
     isTransitioning,
     selectAndAdvance,
     goPrevious,
+    goNext,
   } = useAutoAdvanceFlow({
     currentIndex,
     total,
@@ -683,7 +690,38 @@ function QuizTakeInner({
           transitionDirection={transitionDirection}
           isTransitioning={isTransitioning}
           footerSlot={
-            submitError ? (
+            isIqScale ? (
+              <div className="flex items-center gap-[var(--fm-gap-sm)]">
+                {submitError ? (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    disabled={submitting || submitOverlayVisible}
+                    onClick={() => {
+                      void handleSubmitWithOverlay();
+                    }}
+                  >
+                    {dict.quiz.immersive.submitRetry}
+                  </Button>
+                ) : null}
+
+                {isLastQuestion ? (
+                  <Button
+                    type="button"
+                    onClick={() => {
+                      void handleSubmitWithOverlay();
+                    }}
+                    disabled={!iqCanSubmit}
+                  >
+                    {submitting ? "Submitting..." : dict.quiz.iq.submit}
+                  </Button>
+                ) : (
+                  <Button type="button" onClick={goNext} disabled={!iqCanContinue}>
+                    {dict.quiz.iq.next}
+                  </Button>
+                )}
+              </div>
+            ) : submitError ? (
               <Button
                 type="button"
                 variant="outline"
@@ -703,7 +741,13 @@ function QuizTakeInner({
             </p>
             <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
 
-            {question.stem?.svg ? <IqStemSvg stem={question.stem} className="max-h-[320px]" /> : null}
+            {question.stem?.svg ? (
+              <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[420px]" : "max-h-[320px]"} />
+            ) : null}
+
+            {isIqScale ? (
+              <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{dict.quiz.iq.pickPrompt}</p>
+            ) : null}
 
             {milestoneHint ? (
               <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
@@ -711,24 +755,43 @@ function QuizTakeInner({
               </div>
             ) : null}
 
-            <AdaptiveOptionGroup
-              questionId={question.id}
-              options={question.options.map((option) => ({
-                code: option.id,
-                text: option.text,
-                svg: option.svg,
-              }))}
-              value={selectedOptionId}
-              noOptionsLabel={dict.quiz.immersive.noOptions}
-              onChange={(code) =>
-                selectAndAdvance(() => {
-                  setAnswer(question.id, code);
-                }, {
-                  questionId: question.id,
-                  code,
-                })
-              }
-            />
+            {isIqScale ? (
+              <IqOptionBoard
+                questionId={question.id}
+                options={question.options.map((option) => ({
+                  code: option.id,
+                  text: option.text,
+                  svg: option.svg,
+                }))}
+                value={selectedOptionId}
+                locale={locale}
+                noOptionsLabel={dict.quiz.immersive.noOptions}
+                onChange={(code) => setAnswer(question.id, code)}
+              />
+            ) : (
+              <AdaptiveOptionGroup
+                questionId={question.id}
+                options={question.options.map((option) => ({
+                  code: option.id,
+                  text: option.text,
+                  svg: option.svg,
+                }))}
+                value={selectedOptionId}
+                noOptionsLabel={dict.quiz.immersive.noOptions}
+                onChange={(code) =>
+                  selectAndAdvance(() => {
+                    setAnswer(question.id, code);
+                  }, {
+                    questionId: question.id,
+                    code,
+                  })
+                }
+              />
+            )}
+
+            {iqNeedsSelection ? (
+              <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
+            ) : null}
 
             {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
           </article>
@@ -760,24 +823,49 @@ function QuizTakeInner({
         </div>
       ) : null}
 
-      {question.stem?.svg ? <IqStemSvg stem={question.stem} className="max-h-[360px]" /> : null}
+      {question.stem?.svg ? (
+        <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[420px]" : "max-h-[360px]"} />
+      ) : null}
 
-      <MatrixQuestionTable
-        questionId={question.id}
-        questionText={question.title}
-        options={question.options.map((option) => ({
-          code: option.id,
-          text: option.text,
-          svg: option.svg,
-        }))}
-        value={selectedOptionId}
-        locale={locale}
-        mobilePromptSlot={question.stem?.svg ? <IqStemSvg stem={question.stem} className="h-full p-0 border-0 bg-transparent" /> : undefined}
-        mobilePromptStickyTopClassName="top-[4.75rem]"
-        mobilePromptMaxHeightVh={45}
-        mobileOptionsSafeArea
-        onChange={(code) => setAnswer(question.id, code)}
-      />
+      {isIqScale ? (
+        <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{dict.quiz.iq.pickPrompt}</p>
+      ) : null}
+
+      {isIqScale ? (
+        <IqOptionBoard
+          questionId={question.id}
+          options={question.options.map((option) => ({
+            code: option.id,
+            text: option.text,
+            svg: option.svg,
+          }))}
+          value={selectedOptionId}
+          locale={locale}
+          noOptionsLabel={dict.quiz.immersive.noOptions}
+          onChange={(code) => setAnswer(question.id, code)}
+        />
+      ) : (
+        <MatrixQuestionTable
+          questionId={question.id}
+          questionText={question.title}
+          options={question.options.map((option) => ({
+            code: option.id,
+            text: option.text,
+            svg: option.svg,
+          }))}
+          value={selectedOptionId}
+          locale={locale}
+          mobilePromptSlot={question.stem?.svg ? <IqStemSvg stem={question.stem} className="h-full p-0 border-0 bg-transparent" /> : undefined}
+          mobilePromptStickyTopClassName="top-[4.75rem]"
+          mobilePromptMaxHeightVh={45}
+          mobileOptionsSafeArea
+          onChange={(code) => setAnswer(question.id, code)}
+        />
+      )}
+
+      {iqNeedsSelection ? (
+        <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
+      ) : null}
 
       {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
 
@@ -801,17 +889,17 @@ function QuizTakeInner({
                 }
               });
             }}
-            disabled={!canSubmit}
+            disabled={isIqScale ? !iqCanSubmit : !canSubmit}
           >
-            {submitting ? "Submitting..." : "Submit"}
+            {submitting ? "Submitting..." : isIqScale ? dict.quiz.iq.submit : "Submit"}
           </Button>
         ) : (
           <Button
             type="button"
             onClick={() => next(total)}
-            disabled={currentIndex >= total - 1 || submitting}
+            disabled={currentIndex >= total - 1 || submitting || (isIqScale && !selectedOptionId)}
           >
-            Next
+            {isIqScale ? dict.quiz.iq.next : "Next"}
           </Button>
         )}
       </div>

@@ -124,6 +124,12 @@ const zh: SiteDictionary = {
         "正在生成你的画像...",
       ],
     },
+    iq: {
+      pickPrompt: "请选择最能补全矩阵的选项。",
+      selectHint: "请先选择一个选项再继续。",
+      next: "下一题",
+      submit: "提交答案",
+    },
   },
   loading: {
     phases: [

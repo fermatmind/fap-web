@@ -108,6 +108,22 @@ export function useAutoAdvanceFlow({
     settleToIdle();
   }, [cancelPending, onMove, settleToIdle]);
 
+  const goNext = useCallback(() => {
+    cancelPending();
+    clearSettleTimer();
+    const idx = indexRef.current;
+    const safeTotal = totalRef.current;
+
+    if (safeTotal <= 0 || idx >= safeTotal - 1) {
+      setTransitionDirection("none");
+      return;
+    }
+
+    setTransitionDirection("forward");
+    onMove(Math.min(safeTotal - 1, idx + 1));
+    settleToIdle();
+  }, [cancelPending, onMove, settleToIdle]);
+
   useEffect(() => {
     return () => {
       clearConfirmTimer();
@@ -120,6 +136,7 @@ export function useAutoAdvanceFlow({
     isTransitioning,
     selectAndAdvance,
     goPrevious,
+    goNext,
     cancelPending,
   };
 }
