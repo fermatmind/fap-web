@@ -1,18 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 
-type SocialTone = "blue" | "ink" | "teal" | "cyan" | "orange" | "gold" | "fusion";
-
 type FooterSocialItem = {
   key: string;
-  shortLabel: string;
   href: string;
-  tone: SocialTone;
+  iconSrc: string;
+  brandBg: string;
   labels: {
     zh: string;
     en: string;
@@ -25,16 +24,76 @@ export function SiteFooter() {
   const withLocale = (path: string) => localizedPath(path, locale);
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const socialItems: FooterSocialItem[] = [
-    { key: "fb", shortLabel: "FB", href: "#", tone: "blue", labels: { zh: "Facebook", en: "Facebook" } },
-    { key: "x", shortLabel: "X", href: "#", tone: "ink", labels: { zh: "X", en: "X" } },
-    { key: "yt", shortLabel: "YT", href: "#", tone: "gold", labels: { zh: "YouTube", en: "YouTube" } },
-    { key: "ig", shortLabel: "IG", href: "#", tone: "fusion", labels: { zh: "Instagram", en: "Instagram" } },
-    { key: "in", shortLabel: "IN", href: "#", tone: "cyan", labels: { zh: "LinkedIn", en: "LinkedIn" } },
-    { key: "wx", shortLabel: "WX", href: "#", tone: "teal", labels: { zh: "微信公众号", en: "WeChat Official Account" } },
-    { key: "xhs", shortLabel: "XHS", href: "#", tone: "orange", labels: { zh: "小红书", en: "Xiaohongshu" } },
-    { key: "b", shortLabel: "B", href: "#", tone: "blue", labels: { zh: "B站", en: "Bilibili" } },
-    { key: "dy", shortLabel: "DY", href: "#", tone: "orange", labels: { zh: "抖音", en: "Douyin" } },
-    { key: "tt", shortLabel: "TT", href: "#", tone: "fusion", labels: { zh: "TikTok", en: "TikTok" } },
+    {
+      key: "fb",
+      href: "#",
+      iconSrc: "/icons/social/facebook.svg",
+      brandBg: "#1877F2",
+      labels: { zh: "Facebook", en: "Facebook" },
+    },
+    {
+      key: "x",
+      href: "#",
+      iconSrc: "/icons/social/x.svg",
+      brandBg: "#000000",
+      labels: { zh: "X", en: "X" },
+    },
+    {
+      key: "yt",
+      href: "#",
+      iconSrc: "/icons/social/youtube.svg",
+      brandBg: "#FF0000",
+      labels: { zh: "YouTube", en: "YouTube" },
+    },
+    {
+      key: "ig",
+      href: "#",
+      iconSrc: "/icons/social/instagram.svg",
+      brandBg: "linear-gradient(135deg, #f9ce34 0%, #ee2a7b 45%, #6228d7 100%)",
+      labels: { zh: "Instagram", en: "Instagram" },
+    },
+    {
+      key: "in",
+      href: "#",
+      iconSrc: "/icons/social/linkedin.svg",
+      brandBg: "#0A66C2",
+      labels: { zh: "LinkedIn", en: "LinkedIn" },
+    },
+    {
+      key: "wx",
+      href: "#",
+      iconSrc: "/icons/social/wechat.svg",
+      brandBg: "#07C160",
+      labels: { zh: "微信公众号", en: "WeChat Official Account" },
+    },
+    {
+      key: "xhs",
+      href: "#",
+      iconSrc: "/icons/social/xiaohongshu.svg",
+      brandBg: "#FF2442",
+      labels: { zh: "小红书", en: "Xiaohongshu" },
+    },
+    {
+      key: "b",
+      href: "#",
+      iconSrc: "/icons/social/bilibili.svg",
+      brandBg: "#00A1D6",
+      labels: { zh: "B站", en: "Bilibili" },
+    },
+    {
+      key: "dy",
+      href: "#",
+      iconSrc: "/icons/social/douyin.svg",
+      brandBg: "linear-gradient(135deg, #22d3ee 0%, #161823 42%, #fe2c55 100%)",
+      labels: { zh: "抖音", en: "Douyin" },
+    },
+    {
+      key: "tt",
+      href: "#",
+      iconSrc: "/icons/social/tiktok.svg",
+      brandBg: "#111111",
+      labels: { zh: "TikTok", en: "TikTok" },
+    },
   ];
 
   const testLinks = [
@@ -61,11 +120,7 @@ export function SiteFooter() {
   return (
     <footer className="fm-section-dark border-t border-white/10 text-white">
       <Container className="space-y-8 py-12">
-        <p className="m-0 text-sm text-slate-300">
-          {dict.legal.medical_disclaimer}
-        </p>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3">
             <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.allTestsTitle}</p>
             <div className="space-y-2 text-sm">
@@ -100,14 +155,6 @@ export function SiteFooter() {
           </div>
 
           <div className="space-y-3">
-            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.localesTitle}</p>
-            <div className="space-y-2 text-sm">
-              <Link href="/en" className="block text-slate-300 hover:text-white">EN</Link>
-              <Link href="/zh" className="block text-slate-300 hover:text-white">中文</Link>
-            </div>
-          </div>
-
-          <div className="space-y-3">
             <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.reviewsTitle}</p>
             <p className="m-0 text-sm text-slate-300">{dict.footer.ratingLabel}</p>
             <p className="m-0 text-sm text-slate-300">
@@ -119,10 +166,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="space-y-4 border-t border-white/15 pt-6">
-          <p className="m-0 text-center text-xs font-semibold uppercase tracking-[0.12em] text-slate-200">
-            {dict.footer.socialTitle}
-          </p>
+        <div className="border-t border-white/15 pt-6">
           <div className="flex flex-wrap items-center justify-center gap-3">
             {socialItems.map((item) => (
               <a
@@ -132,9 +176,18 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 title={locale === "zh" ? item.labels.zh : item.labels.en}
                 aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
-                className={`fm-social-badge fm-social-badge--${item.tone}`}
+                className="fm-social-badge"
+                style={{ background: item.brandBg }}
               >
-                {item.shortLabel}
+                <Image
+                  src={item.iconSrc}
+                  alt=""
+                  width={16}
+                  height={16}
+                  aria-hidden="true"
+                  className="fm-social-logo"
+                />
+                <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
               </a>
             ))}
           </div>
