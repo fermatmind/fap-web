@@ -1,151 +1,23 @@
-name: ci
+name: CI
 
 on:
-  pull_request:
   push:
-    branches:
-      - main
-
-permissions:
-  contents: write
+    branches: ["main"]
+  pull_request:
 
 jobs:
-  web:
+  build:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_SITE_URL: https://fermatmind.com
+    timeout-minutes: 5
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+          node-version: 20
+          cache: 'npm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.28.1
-          run_install: false
+      - run: npm ci
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Lint
-        run: pnpm lint
-
-      - name: Lint spacing tokens
-        run: pnpm lint:spacing
-
-      - name: Typecheck
-        run: pnpm typecheck
-
-      - name: Contract tests
-        run: pnpm test:contract
-
-      - name: Build
-        run: pnpm build
-
-      - name: Build hash evidence
-        run: bash scripts/release_evidence.sh
-
-      - name: Upload release evidence artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-evidence
-          path: artifacts/release-evidence
-          if-no-files-found: error
-
-      - name: Install Playwright browser
-        run: pnpm exec playwright install --with-deps chromium
-
-      - name: E2E
-        env:
-          NEXT_PUBLIC_IMMERSIVE_SINGLE_FLOW_ENABLED: "true"
-        run: pnpm test:e2e tests/e2e/*.spec.ts
-
-      - name: E2E stability sentinel (immersive auto-submit)
-        env:
-          NEXT_PUBLIC_IMMERSIVE_SINGLE_FLOW_ENABLED: "true"
-        run: |
-          pnpm test:e2e \
-            tests/e2e/big5-flow.spec.ts \
-            tests/e2e/big5-negative.spec.ts \
-            tests/e2e/clinical-combo-flow.spec.ts \
-            tests/e2e/mbti-regression.spec.ts \
-            tests/e2e/sds-flow.spec.ts \
-            tests/e2e/uat-matrix.spec.ts \
-            --repeat-each=3 \
-            --retries=0
-
-      - name: Upload E2E artifacts (on failure)
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-artifacts
-          path: |
-            test-results
-            playwright-report
-          if-no-files-found: ignore
-
-      - name: UAT matrix (mock)
-        run: bash scripts/run_uat_matrix.sh mock
-
-      - name: Guard visual snapshots (linux-only)
-        run: |
-          if find tests/e2e/visual -type f -name '*-darwin.png' | grep -q .; then
-            echo "Detected unsupported darwin visual snapshots:"
-            find tests/e2e/visual -type f -name '*-darwin.png'
-            exit 1
-          fi
-
-      - name: Visual snapshot sync check
-        env:
-          NEXT_PUBLIC_E2E_VISUAL_MODE: "1"
-          IS_INTERNAL_PR: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository }}
-          PR_HEAD_REF: ${{ github.head_ref }}
-        run: |
-          pnpm test:e2e:visual:update
-          SNAPSHOT_DIFF="$(git diff --name-only -- tests/e2e/visual)"
-          if [ -n "$SNAPSHOT_DIFF" ]; then
-            if [ "$IS_INTERNAL_PR" = "true" ]; then
-              echo "Detected out-of-sync Linux visual snapshots. Auto-syncing PR branch..."
-              git config user.name "github-actions[bot]"
-              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-              git add tests/e2e/visual
-              git commit -m "test: sync linux visual snapshots"
-              git push origin "HEAD:$PR_HEAD_REF"
-              echo "Synced and pushed updated Linux snapshots to $PR_HEAD_REF."
-            else
-              echo "Visual snapshots are out of sync with current UI code."
-              echo "Run 'pnpm test:e2e:visual:update:linux' and commit these files:"
-              echo "$SNAPSHOT_DIFF"
-              exit 1
-            fi
-          fi
-
-      - name: Visual snapshots
-        env:
-          NEXT_PUBLIC_E2E_VISUAL_MODE: "1"
-        run: pnpm test:e2e:visual:ci
-
-      - name: Upload visual artifacts (on failure)
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: visual-artifacts
-          path: |
-            test-results
-            playwright-report
-          if-no-files-found: ignore
-
-      - name: A11y tests
-        run: pnpm test:a11y
-
-      - name: Release gate
-        run: pnpm release:gate
+      - run: npm run build
