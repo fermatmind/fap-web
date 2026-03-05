@@ -37,6 +37,7 @@
     "qrcode": "^1.5.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "simple-icons": "^16.10.0",
     "tailwind-merge": "^3.4.0",
     "velite": "^0.3.1",
     "zustand": "^5.0.11"
