@@ -156,7 +156,13 @@ export default async function TakePage({
       ) : test.scale_code === "SDS_20" || test.scale_code === "CLINICAL_COMBO_68" ? (
         <ClinicalTakeClient slug={slug} scaleCode={test.scale_code} />
       ) : (
-        <QuizTakeClient slug={slug} testTitle={localizedTestTitle} scaleCode={test.scale_code} />
+        <QuizTakeClient
+          slug={slug}
+          testTitle={localizedTestTitle}
+          scaleCode={test.scale_code}
+          estimatedMinutes={test.time_minutes}
+          questionCount={test.questions_count}
+        />
       )}
     </main>
   );

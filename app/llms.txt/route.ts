@@ -1,5 +1,13 @@
 import { NextResponse } from "next/server";
-import { getAllTests, listBlogPosts } from "@/lib/content";
+import {
+  getAllTests,
+  listBlogPosts,
+  listBig5RecommendationTraits,
+  listCareerGuideSlugs,
+  listCareerIndustrySlugs,
+  listCareerJobSlugs,
+  listMbtiRecommendationTypes,
+} from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
 
@@ -24,6 +32,36 @@ export function GET() {
     .filter((path): path is string => Boolean(path))
     .filter((path) => shouldIncludeInSitemap(path));
 
+  const careerEntries = [
+    "/en/career",
+    "/zh/career",
+    "/en/career/jobs",
+    "/zh/career/jobs",
+    "/en/career/industries",
+    "/zh/career/industries",
+    "/en/career/guides",
+    "/zh/career/guides",
+    "/en/career/recommendations",
+    "/zh/career/recommendations",
+    "/en/career/tests",
+    "/zh/career/tests",
+    "/en/career/tests/riasec",
+    "/zh/career/tests/riasec",
+    "/en/career/tests/riasec/result",
+    "/zh/career/tests/riasec/result",
+    ...listCareerJobSlugs().flatMap((slug) => [`/en/career/jobs/${slug}`, `/zh/career/jobs/${slug}`]),
+    ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
+    ...listCareerGuideSlugs().flatMap((slug) => [`/en/career/guides/${slug}`, `/zh/career/guides/${slug}`]),
+    ...listMbtiRecommendationTypes().flatMap((type) => [
+      `/en/career/recommendations/mbti/${type}`,
+      `/zh/career/recommendations/mbti/${type}`,
+    ]),
+    ...listBig5RecommendationTraits().flatMap((trait) => [
+      `/en/career/recommendations/big5/${trait}`,
+      `/zh/career/recommendations/big5/${trait}`,
+    ]),
+  ].filter((path) => shouldIncludeInSitemap(path));
+
   const lines = [
     "# FermatMind llms.txt",
     `Site: ${siteUrl}`,
@@ -35,6 +73,8 @@ export function GET() {
     `- ${toCanonical(siteUrl, "/zh")}`,
     `- ${toCanonical(siteUrl, "/en/tests")}`,
     `- ${toCanonical(siteUrl, "/zh/tests")}`,
+    `- ${toCanonical(siteUrl, "/en/career")}`,
+    `- ${toCanonical(siteUrl, "/zh/career")}`,
     `- ${toCanonical(siteUrl, "/zh/articles")}`,
     "",
     "Indexable Tests:",
@@ -42,6 +82,9 @@ export function GET() {
     "",
     "Indexable Articles:",
     ...articleEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    "",
+    "Career Entries:",
+    ...careerEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     `Sitemap: ${toCanonical(siteUrl, "/sitemap.xml")}`,
   ];

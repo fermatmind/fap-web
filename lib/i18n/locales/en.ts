@@ -5,7 +5,7 @@ const en: SiteDictionary = {
     brand: "FermatMind",
     tests: "Tests",
     articles: "Articles",
-    professions: "Professions",
+    career: "Career",
     help: "Help",
     business: "Business",
     start: "Start",
@@ -112,6 +112,8 @@ const en: SiteDictionary = {
       "Strong progress. Almost there.",
       "Excellent. You are done.",
     ],
+    answerTip: "No right or wrong answers. Choose the option that fits you best.",
+    estimatedTimeLabel: "Estimated time",
     immersive: {
       backToLanding: "Back to landing",
       backToDetails: "Back to details",

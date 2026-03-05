@@ -5,7 +5,7 @@ const zh: SiteDictionary = {
     brand: "FermatMind",
     tests: "测试",
     articles: "文章",
-    professions: "职业",
+    career: "职业",
     help: "帮助",
     business: "企业版",
     start: "开始",
@@ -111,6 +111,8 @@ const zh: SiteDictionary = {
       "接近完成，再坚持一下。",
       "完成得很棒。",
     ],
+    answerTip: "没有对错答案，请选择最符合你的选项。",
+    estimatedTimeLabel: "预计用时",
     immersive: {
       backToLanding: "返回测评介绍",
       backToDetails: "返回详情",

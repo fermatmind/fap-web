@@ -1,12 +1,30 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { stripLocalePrefix } from "@/lib/i18n/locales";
+import { LOCALE_COOKIE_NAME, resolvePreferredLocale } from "@/lib/i18n/localeNegotiation";
+import { localizedPath, stripLocalePrefix } from "@/lib/i18n/locales";
 import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
+const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i, /^\/types(\/|$)/i];
+
+function hasLocalePrefix(pathname: string): boolean {
+  const segment = pathname.split("/").filter(Boolean)[0];
+  return segment === "en" || segment === "zh";
+}
+
+function createGoneResponse() {
+  const response = new NextResponse("Gone", {
+    status: 410,
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+    },
+  });
+  response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
+  return response;
+}
 
 function isStaticAsset(pathname: string): boolean {
   if (pathname.startsWith("/_next/")) return true;
@@ -33,15 +51,22 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (resolveLegacyPathMode() === "gone" && isLegacyPath(strippedPath)) {
-    const response = new NextResponse("Gone", {
-      status: 410,
-      headers: {
-        "Content-Type": "text/plain; charset=utf-8",
-      },
+  if (FORCE_GONE_PATTERNS.some((pattern) => pattern.test(strippedPath))) {
+    return createGoneResponse();
+  }
+
+  if (!hasLocalePrefix(pathname) && /^\/career(\/|$)/i.test(strippedPath)) {
+    const preferredLocale = resolvePreferredLocale({
+      cookieLocale: request.cookies.get(LOCALE_COOKIE_NAME)?.value ?? null,
+      acceptLanguage: request.headers.get("accept-language"),
     });
-    response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
-    return response;
+    const target = request.nextUrl.clone();
+    target.pathname = localizedPath(strippedPath, preferredLocale);
+    return NextResponse.redirect(target, 308);
+  }
+
+  if (resolveLegacyPathMode() === "gone" && isLegacyPath(strippedPath)) {
+    return createGoneResponse();
   }
 
   const requestHeaders = new Headers(request.headers);

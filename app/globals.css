@@ -396,11 +396,21 @@ a {
     linear-gradient(180deg, #1b2432 0%, #111a27 100%);
 }
 
+.fm-social-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto;
+  max-width: min(100%, 560px);
+}
+
 .fm-social-badge {
   position: relative;
   display: inline-flex;
-  height: 34px;
-  width: 34px;
+  height: 36px;
+  width: 36px;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
@@ -428,8 +438,8 @@ a {
 
 .fm-social-logo {
   display: block;
-  height: 16px;
-  width: 16px;
+  height: 17px;
+  width: 17px;
   fill: currentColor;
 }
 
@@ -457,6 +467,33 @@ a {
 .fm-social-badge:focus-visible .fm-social-tooltip {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+
+@media (max-width: 767px) {
+  .fm-social-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    justify-items: center;
+    row-gap: 10px;
+    column-gap: 8px;
+    width: min(100%, 320px);
+  }
+}
+
+@media (min-width: 768px) {
+  .fm-social-list {
+    gap: 16px;
+  }
+
+  .fm-social-badge {
+    height: 40px;
+    width: 40px;
+  }
+
+  .fm-social-logo {
+    height: 19px;
+    width: 19px;
+  }
 }
 
 .fm-header-dropdown-panel {
@@ -569,6 +606,20 @@ a {
 
 .fm-tabular-nums {
   font-variant-numeric: tabular-nums;
+}
+
+.fm-v2-likert-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(44px, 1fr));
+  align-items: end;
+  justify-items: center;
+  gap: var(--fm-gap-xs);
+}
+
+@media (max-width: 360px) {
+  .fm-v2-likert-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .fm-wave-cut {

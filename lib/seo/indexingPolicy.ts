@@ -18,6 +18,8 @@ const DENY_PATH_PATTERNS: RegExp[] = [
   /^\/payment(\/|$)/i,
   /^\/pay(\/|$)/i,
   /^\/quiz(\/|$)/i,
+  /^\/professions(\/|$)/i,
+  /^\/types(\/|$)/i,
   /^\/tests\/[^/]+\/take(\/|$)/i,
   /^\/test\/[^/]+\/take(\/|$)/i,
 ];

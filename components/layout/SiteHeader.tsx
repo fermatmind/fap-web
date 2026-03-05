@@ -10,6 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { LIVE_COMPLETED_COUNT } from "@/lib/marketing/completionStats";
 import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
@@ -22,12 +23,11 @@ export function SiteHeader() {
   const locale = useLocale();
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const liveCompletedCount = 1_049_165;
 
   const navItems: Array<{ key: HeaderNavKey; href: string; label: string }> = [
     { key: "tests", href: "/tests", label: dict.header.tests },
     { key: "articles", href: "/articles", label: dict.header.articles },
-    { key: "professions", href: "/professions", label: dict.header.professions },
+    { key: "career", href: "/career", label: dict.header.career },
     { key: "help", href: "/help", label: dict.header.help },
     { key: "business", href: "/business", label: dict.header.business },
   ];
@@ -72,7 +72,7 @@ export function SiteHeader() {
             </Link>
             <p data-visual-volatile="true" className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-blue-100">
               <span>{dict.header.completedPrefix}</span>
-              <AnimatedCounter value={liveCompletedCount} className="font-semibold tracking-wide text-white" />
+              <AnimatedCounter value={LIVE_COMPLETED_COUNT} className="font-semibold tracking-wide text-white" />
               <span>{dict.header.completedSuffix}</span>
             </p>
           </div>
