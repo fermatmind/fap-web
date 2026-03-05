@@ -1,0 +1,1 @@
+export const LIVE_COMPLETED_COUNT = 1_049_165;

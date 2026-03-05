@@ -5,7 +5,7 @@ export type SiteDictionary = {
     brand: string;
     tests: string;
     articles: string;
-    professions: string;
+    career: string;
     help: string;
     business: string;
     start: string;
@@ -83,6 +83,8 @@ export type SiteDictionary = {
   };
   quiz: {
     milestoneHints: string[];
+    answerTip: string;
+    estimatedTimeLabel: string;
     immersive: {
       backToLanding: string;
       backToDetails: string;

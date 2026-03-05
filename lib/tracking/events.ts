@@ -43,6 +43,14 @@ export const TRACKING_EVENTS = {
   UI_QUIZ_MILESTONE: "ui_quiz_milestone",
   UI_REPORT_LOADING_PHASE: "ui_report_loading_phase",
 
+  // Career center events
+  CAREER_CENTER_VIEW: "career_center_view",
+  CAREER_RECOMMENDATION_VIEW: "career_recommendation_view",
+  CAREER_RECOMMENDATION_CLICK: "career_recommendation_click",
+  CAREER_RIASEC_START: "career_riasec_start",
+  CAREER_RIASEC_SUBMIT: "career_riasec_submit",
+  CAREER_RIASEC_RESULT_VIEW: "career_riasec_result_view",
+
   // Reliability and launch-day SLO events
   QUESTIONS_LOAD_FAILURE: "questions_load_failure",
   SUBMIT_FAILURE: "submit_failure",
@@ -109,12 +117,18 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   ui_card_interaction: ["slug", "scale_code", "visual_kind", "interaction", "locale"],
   ui_quiz_milestone: ["scale_code", "milestone", "duration_bucket", "locale"],
   ui_report_loading_phase: ["scale_code", "phase", "stage_detail", "locked", "variant", "locale"],
+  career_center_view: ["locale"],
+  career_recommendation_view: ["locale"],
+  career_recommendation_click: ["locale", "job_slug", "rank", "score"],
+  career_riasec_start: ["locale"],
+  career_riasec_submit: ["locale", "answered_count", "primary_code", "secondary_code"],
+  career_riasec_result_view: ["locale", "primary_code", "secondary_code"],
   questions_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "locale"],
   submit_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "locale"],
   report_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "locale"],
 };
 
-const FORBIDDEN_FIELD_FRAGMENTS = ["answer", "report", "email", "token", "authorization"];
+const FORBIDDEN_FIELD_PATTERNS = [/^answers?($|_)/, /^reports?($|_)/, /email/, /token/, /authorization/];
 
 function sanitizeString(value: string): string {
   return value.slice(0, 256);
@@ -139,7 +153,8 @@ export function filterTrackingPayload(
   const allowed = EVENT_FIELD_WHITELIST[eventName];
 
   return allowed.reduce<Record<string, string | number | boolean | null>>((acc, key) => {
-    const forbidden = FORBIDDEN_FIELD_FRAGMENTS.some((fragment) => key.toLowerCase().includes(fragment));
+    const normalizedKey = key.toLowerCase();
+    const forbidden = FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey));
     if (forbidden) return acc;
 
     if (Object.prototype.hasOwnProperty.call(payload, key)) {

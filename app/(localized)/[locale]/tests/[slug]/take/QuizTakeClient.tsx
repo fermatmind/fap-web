@@ -2,17 +2,17 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
 import { IqOptionBoard } from "@/components/quiz/iq/IqOptionBoard";
 import { IqStemSvg } from "@/components/quiz/iq/IqStemSvg";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
+import { V2LikertScale } from "@/components/quiz/immersive/V2LikertScale";
 import {
   useAutoAdvanceFlow,
   type LastSelectionContext,
 } from "@/components/quiz/immersive/useAutoAdvanceFlow";
-import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
-import { MatrixQuestionTable } from "@/components/quiz/matrix/MatrixQuestionTable";
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId } from "@/lib/anon";
@@ -99,10 +99,14 @@ export default function QuizTakeClient({
   slug,
   testTitle,
   scaleCode,
+  estimatedMinutes,
+  questionCount,
 }: {
   slug: string;
   testTitle: string;
   scaleCode: string;
+  estimatedMinutes?: number;
+  questionCount?: number;
 }) {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const questionIds = useMemo(() => questions.map((question) => question.id), [questions]);
@@ -114,6 +118,8 @@ export default function QuizTakeClient({
         slug={slug}
         testTitle={testTitle}
         scaleCode={scaleCode}
+        estimatedMinutes={estimatedMinutes}
+        questionCount={questionCount}
         anonId={anonId}
         questions={questions}
         setQuestions={setQuestions}
@@ -126,6 +132,8 @@ function QuizTakeInner({
   slug,
   testTitle,
   scaleCode,
+  estimatedMinutes,
+  questionCount,
   anonId,
   questions,
   setQuestions,
@@ -133,6 +141,8 @@ function QuizTakeInner({
   slug: string;
   testTitle: string;
   scaleCode: string;
+  estimatedMinutes?: number;
+  questionCount?: number;
   anonId: string;
   questions: QuizQuestion[];
   setQuestions: (nextQuestions: QuizQuestion[]) => void;
@@ -151,8 +161,6 @@ function QuizTakeInner({
   const savedScaleCode = useQuizStore((store) => store.state.scaleCode);
 
   const setAnswer = useQuizStore((store) => store.setAnswer);
-  const next = useQuizStore((store) => store.next);
-  const prev = useQuizStore((store) => store.prev);
   const jump = useQuizStore((store) => store.jump);
   const setAttemptMeta = useQuizStore((store) => store.setAttemptMeta);
   const resetAttempt = useQuizStore((store) => store.resetAttempt);
@@ -447,10 +455,38 @@ function QuizTakeInner({
   const normalizedScaleCode = scaleCode.trim().toUpperCase();
   const isIqScale = normalizedScaleCode === "IQ_RAVEN" || normalizedScaleCode === "IQ_INTELLIGENCE_QUOTIENT";
   const isLastQuestion = total > 0 && currentIndex === total - 1;
-  const canSubmit = isLastQuestion && answeredCount === total && !submitting;
   const iqNeedsSelection = isIqScale && !selectedOptionId;
   const iqCanContinue = isIqScale && Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
   const iqCanSubmit = isIqScale && isLastQuestion && answeredCount === total && Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
+  const fallbackQuestionCount = typeof questionCount === "number" && questionCount > 0 ? questionCount : total;
+  const resolvedEstimatedMinutes = useMemo(() => {
+    if (typeof estimatedMinutes === "number" && estimatedMinutes > 0) {
+      return Math.round(estimatedMinutes);
+    }
+    if (fallbackQuestionCount > 0) {
+      return Math.max(1, Math.ceil(fallbackQuestionCount / 10));
+    }
+    return null;
+  }, [estimatedMinutes, fallbackQuestionCount]);
+  const progressText =
+    locale === "zh"
+      ? `第 ${currentIndex + 1} 题 / 共 ${Math.max(total, 1)} 题`
+      : `Question ${currentIndex + 1} / ${Math.max(total, 1)}`;
+  const questionOptions = useMemo(
+    () =>
+      question
+        ? question.options.map((option) => ({
+            code: option.id,
+            text: option.text,
+            svg: option.svg,
+          }))
+        : [],
+    [question]
+  );
+  const useV2LikertScale =
+    !isIqScale &&
+    questionOptions.length === 5 &&
+    questionOptions.every((option) => option.svg == null);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -690,6 +726,22 @@ function QuizTakeInner({
           transitionKey={question.id}
           transitionDirection={transitionDirection}
           isTransitioning={isTransitioning}
+          headerSlot={
+            <QuizTakeHeaderV2
+              brand={dict.header.brand}
+              completedPrefix={dict.header.completedPrefix}
+              completedSuffix={dict.header.completedSuffix}
+              estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
+              minutesUnit={dict.common.minutes_unit}
+              estimatedMinutes={resolvedEstimatedMinutes}
+              progressText={progressText}
+              current={currentIndex + 1}
+              total={total}
+              answered={answeredCount}
+              backHref={withLocale(`/tests/${slug}`)}
+              backLabel={dict.quiz.immersive.backToDetails}
+            />
+          }
           footerSlot={
             isIqScale ? (
               <div className="flex items-center gap-[var(--fm-gap-sm)]">
@@ -733,13 +785,13 @@ function QuizTakeInner({
               >
                 {dict.quiz.immersive.submitRetry}
               </Button>
-            ) : null
+            ) : (
+              <div className="min-h-[44px]" aria-hidden />
+            )
           }
         >
           <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-              Question {currentIndex + 1} / {total}
-            </p>
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
             <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
 
             {question.stem?.svg ? (
@@ -759,24 +811,33 @@ function QuizTakeInner({
             {isIqScale ? (
               <IqOptionBoard
                 questionId={question.id}
-                options={question.options.map((option) => ({
-                  code: option.id,
-                  text: option.text,
-                  svg: option.svg,
-                }))}
+                options={questionOptions}
                 value={selectedOptionId}
                 locale={locale}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
                 onChange={(code) => setAnswer(question.id, code)}
               />
+            ) : useV2LikertScale ? (
+              <V2LikertScale
+                questionId={question.id}
+                options={questionOptions.map((option) => ({
+                  code: option.code,
+                  text: option.text,
+                }))}
+                value={selectedOptionId}
+                onChange={(code) =>
+                  selectAndAdvance(() => {
+                    setAnswer(question.id, code);
+                  }, {
+                    questionId: question.id,
+                    code,
+                  })
+                }
+              />
             ) : (
               <AdaptiveOptionGroup
                 questionId={question.id}
-                options={question.options.map((option) => ({
-                  code: option.id,
-                  text: option.text,
-                  svg: option.svg,
-                }))}
+                options={questionOptions}
                 value={selectedOptionId}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
                 onChange={(code) =>
@@ -789,6 +850,10 @@ function QuizTakeInner({
                 }
               />
             )}
+
+            {!isIqScale ? (
+              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
+            ) : null}
 
             {iqNeedsSelection ? (
               <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
@@ -809,103 +874,154 @@ function QuizTakeInner({
 
   return (
     <QuizShell>
-      <MatrixProgressHeader
-        title={testTitle}
+      <QuizTakeHeaderV2
+        brand={dict.header.brand}
+        completedPrefix={dict.header.completedPrefix}
+        completedSuffix={dict.header.completedSuffix}
+        estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
+        minutesUnit={dict.common.minutes_unit}
+        estimatedMinutes={resolvedEstimatedMinutes}
+        progressText={progressText}
         current={currentIndex + 1}
         total={total}
         answered={answeredCount}
-        status={`${answeredCount}/${total} ${locale === "zh" ? "已作答" : "answered"}`}
-        stickyTopClassName="top-2"
+        backHref={withLocale(`/tests/${slug}`)}
+        backLabel={dict.quiz.immersive.backToDetails}
       />
 
-      {milestoneHint ? (
-        <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
-          {milestoneHint}
-        </div>
-      ) : null}
+      <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
+        <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
 
-      {question.stem?.svg ? (
-        <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[420px]" : "max-h-[360px]"} />
-      ) : null}
+        {question.stem?.svg ? (
+          <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[420px]" : "max-h-[360px]"} />
+        ) : null}
 
-      {isIqScale ? (
-        <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{dict.quiz.iq.pickPrompt}</p>
-      ) : null}
+        {isIqScale ? (
+          <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{dict.quiz.iq.pickPrompt}</p>
+        ) : null}
 
-      {isIqScale ? (
-        <IqOptionBoard
-          questionId={question.id}
-          options={question.options.map((option) => ({
-            code: option.id,
-            text: option.text,
-            svg: option.svg,
-          }))}
-          value={selectedOptionId}
-          locale={locale}
-          noOptionsLabel={dict.quiz.immersive.noOptions}
-          onChange={(code) => setAnswer(question.id, code)}
-        />
-      ) : (
-        <MatrixQuestionTable
-          questionId={question.id}
-          questionText={question.title}
-          options={question.options.map((option) => ({
-            code: option.id,
-            text: option.text,
-            svg: option.svg,
-          }))}
-          value={selectedOptionId}
-          locale={locale}
-          mobilePromptSlot={question.stem?.svg ? <IqStemSvg stem={question.stem} className="h-full p-0 border-0 bg-transparent" /> : undefined}
-          mobilePromptStickyTopClassName="top-[4.75rem]"
-          mobilePromptMaxHeightVh={45}
-          mobileOptionsSafeArea
-          onChange={(code) => setAnswer(question.id, code)}
-        />
-      )}
+        {milestoneHint ? (
+          <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
+            {milestoneHint}
+          </div>
+        ) : null}
 
-      {iqNeedsSelection ? (
-        <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
-      ) : null}
+        {isIqScale ? (
+          <IqOptionBoard
+            questionId={question.id}
+            options={questionOptions}
+            value={selectedOptionId}
+            locale={locale}
+            noOptionsLabel={dict.quiz.immersive.noOptions}
+            onChange={(code) => setAnswer(question.id, code)}
+          />
+        ) : useV2LikertScale ? (
+          <V2LikertScale
+            questionId={question.id}
+            options={questionOptions.map((option) => ({
+              code: option.code,
+              text: option.text,
+            }))}
+            value={selectedOptionId}
+            onChange={(code) =>
+              selectAndAdvance(() => {
+                setAnswer(question.id, code);
+              }, {
+                questionId: question.id,
+                code,
+              })
+            }
+          />
+        ) : (
+          <AdaptiveOptionGroup
+            questionId={question.id}
+            options={questionOptions}
+            value={selectedOptionId}
+            noOptionsLabel={dict.quiz.immersive.noOptions}
+            onChange={(code) =>
+              selectAndAdvance(() => {
+                setAnswer(question.id, code);
+              }, {
+                questionId: question.id,
+                code,
+              })
+            }
+          />
+        )}
 
-      {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
+        {!isIqScale ? (
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
+        ) : null}
+
+        {iqNeedsSelection ? (
+          <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
+        ) : null}
+
+        {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
+      </article>
 
       <div className="flex items-center gap-[var(--fm-gap-sm)]">
         <Button
           type="button"
-          onClick={() => prev()}
+          onClick={goPrevious}
           disabled={currentIndex === 0 || submitting}
           variant="outline"
         >
-          Previous
+          {dict.quiz.immersive.previous}
         </Button>
 
-        {isLastQuestion ? (
+        {isIqScale ? (
+          <>
+            {submitError ? (
+              <Button
+                type="button"
+                variant="outline"
+                disabled={submitting || submitOverlayVisible}
+                onClick={() => {
+                  void handleSubmitWithOverlay();
+                }}
+              >
+                {dict.quiz.immersive.submitRetry}
+              </Button>
+            ) : null}
+            {isLastQuestion ? (
+              <Button
+                type="button"
+                onClick={() => {
+                  void handleSubmitWithOverlay();
+                }}
+                disabled={!iqCanSubmit}
+              >
+                {submitting ? "Submitting..." : dict.quiz.iq.submit}
+              </Button>
+            ) : (
+              <Button type="button" onClick={goNext} disabled={!iqCanContinue}>
+                {dict.quiz.iq.next}
+              </Button>
+            )}
+          </>
+        ) : submitError ? (
           <Button
             type="button"
+            variant="outline"
+            disabled={submitting || submitOverlayVisible}
             onClick={() => {
-              void handleSubmit().then((resultAttemptId) => {
-                if (resultAttemptId) {
-                  finalizeSuccessfulSubmit(resultAttemptId);
-                }
-              });
+              void handleSubmitWithOverlay();
             }}
-            disabled={isIqScale ? !iqCanSubmit : !canSubmit}
           >
-            {submitting ? "Submitting..." : isIqScale ? dict.quiz.iq.submit : "Submit"}
+            {dict.quiz.immersive.submitRetry}
           </Button>
         ) : (
-          <Button
-            type="button"
-            onClick={() => next(total)}
-            disabled={currentIndex >= total - 1 || submitting || (isIqScale && !selectedOptionId)}
-          >
-            {isIqScale ? dict.quiz.iq.next : "Next"}
-          </Button>
+          <div className="min-h-[44px]" aria-hidden />
         )}
       </div>
 
-      <p className="m-0 text-xs text-slate-500">Slug: {slug}</p>
+      <SubmitPhaseOverlay
+        visible={submitOverlayVisible}
+        phases={dict.quiz.immersive.submitPhases}
+        phaseIndex={submitOverlayPhase}
+      />
     </QuizShell>
   );
 }

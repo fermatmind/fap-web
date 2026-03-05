@@ -11,9 +11,9 @@ export function resolvePreferredLocale({
   acceptLanguage: string | null | undefined;
   defaultLocale?: Locale;
 }): Locale {
-  const cookieResolved = normalizeLocale(cookieLocale);
-  if (cookieResolved) {
-    return cookieResolved;
+  const cookieRaw = String(cookieLocale ?? "").trim();
+  if (cookieRaw.length > 0) {
+    return normalizeLocale(cookieRaw);
   }
 
   const accepted = String(acceptLanguage ?? "").trim().toLowerCase();
@@ -22,4 +22,3 @@ export function resolvePreferredLocale({
 
   return defaultLocale;
 }
-

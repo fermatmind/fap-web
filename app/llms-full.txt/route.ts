@@ -1,5 +1,13 @@
 import { NextResponse } from "next/server";
-import { getAllTests, listBlogPosts } from "@/lib/content";
+import {
+  getAllTests,
+  listBlogPosts,
+  listBig5RecommendationTraits,
+  listCareerGuideSlugs,
+  listCareerIndustrySlugs,
+  listCareerJobSlugs,
+  listMbtiRecommendationTypes,
+} from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
 
@@ -33,6 +41,29 @@ export function GET() {
     })
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
+  const careers = [
+    ...listCareerJobSlugs().flatMap((slug) => [
+      { locale: "en", path: `/en/career/jobs/${slug}`, title: slug, updatedAt: "" },
+      { locale: "zh", path: `/zh/career/jobs/${slug}`, title: slug, updatedAt: "" },
+    ]),
+    ...listCareerIndustrySlugs().flatMap((slug) => [
+      { locale: "en", path: `/en/career/industries/${slug}`, title: slug, updatedAt: "" },
+      { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },
+    ]),
+    ...listCareerGuideSlugs().flatMap((slug) => [
+      { locale: "en", path: `/en/career/guides/${slug}`, title: slug, updatedAt: "" },
+      { locale: "zh", path: `/zh/career/guides/${slug}`, title: slug, updatedAt: "" },
+    ]),
+    ...listMbtiRecommendationTypes().flatMap((type) => [
+      { locale: "en", path: `/en/career/recommendations/mbti/${type}`, title: `MBTI ${type}`, updatedAt: "" },
+      { locale: "zh", path: `/zh/career/recommendations/mbti/${type}`, title: `MBTI ${type}`, updatedAt: "" },
+    ]),
+    ...listBig5RecommendationTraits().flatMap((trait) => [
+      { locale: "en", path: `/en/career/recommendations/big5/${trait}`, title: `Big5 ${trait}`, updatedAt: "" },
+      { locale: "zh", path: `/zh/career/recommendations/big5/${trait}`, title: `Big5 ${trait}`, updatedAt: "" },
+    ]),
+  ].filter((entry) => shouldIncludeInSitemap(entry.path));
+
   const lines = [
     "# FermatMind llms-full.txt",
     `Generated-At: ${new Date().toISOString()}`,
@@ -49,6 +80,8 @@ export function GET() {
     `- ${toCanonical(siteUrl, "/zh")}`,
     `- ${toCanonical(siteUrl, "/en/tests")}`,
     `- ${toCanonical(siteUrl, "/zh/tests")}`,
+    `- ${toCanonical(siteUrl, "/en/career")}`,
+    `- ${toCanonical(siteUrl, "/zh/career")}`,
     `- ${toCanonical(siteUrl, "/zh/articles")}`,
     "",
     "## Tests",
@@ -58,6 +91,12 @@ export function GET() {
     ...articles.map(
       (entry) =>
         `- [${entry.locale}] ${entry.title} | ${toCanonical(siteUrl, entry.path)} | updated=${entry.updatedAt}`
+    ),
+    "",
+    "## Career",
+    ...careers.map(
+      (entry) =>
+        `- [${entry.locale}] ${entry.title} | ${toCanonical(siteUrl, entry.path)}${entry.updatedAt ? ` | updated=${entry.updatedAt}` : ""}`
     ),
     "",
     "## Sitemap",

@@ -2,6 +2,10 @@
 /** @type {import('next-sitemap').IConfig} */
 const tests = require("./.velite/tests.json");
 const blog = require("./.velite/blog.json");
+const careerJobs = require("./.velite/careerJobs.json");
+const careerIndustries = require("./.velite/careerIndustries.json");
+const careerGuides = require("./.velite/careerGuides.json");
+const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
@@ -88,14 +92,85 @@ function buildArticlePaths() {
 }
 
 function buildLandingPaths() {
-  const base = ["/", "/en", "/zh", "/en/tests", "/zh/tests", "/zh/articles"];
+  const base = [
+    "/",
+    "/en",
+    "/zh",
+    "/en/tests",
+    "/zh/tests",
+    "/zh/articles",
+    "/en/career",
+    "/zh/career",
+    "/en/career/jobs",
+    "/zh/career/jobs",
+    "/en/career/industries",
+    "/zh/career/industries",
+    "/en/career/guides",
+    "/zh/career/guides",
+    "/en/career/recommendations",
+    "/zh/career/recommendations",
+    "/en/career/tests",
+    "/zh/career/tests",
+    "/en/career/tests/riasec",
+    "/zh/career/tests/riasec",
+    "/en/career/tests/riasec/result",
+    "/zh/career/tests/riasec/result",
+  ];
   if (hasIndexableEnglishArticles) {
     base.push("/en/articles");
   }
   return base;
 }
 
-const generatedPaths = [...new Set([...buildLandingPaths(), ...buildTestPaths(), ...buildArticlePaths()])];
+function buildCareerPaths() {
+  const paths = new Set();
+
+  for (const item of careerJobs) {
+    const slug = normalizeSlug(item?.slug);
+    if (!slug) continue;
+    paths.add(`/en/career/jobs/${slug}`);
+    paths.add(`/zh/career/jobs/${slug}`);
+  }
+
+  for (const item of careerIndustries) {
+    const slug = normalizeSlug(item?.slug);
+    if (!slug) continue;
+    paths.add(`/en/career/industries/${slug}`);
+    paths.add(`/zh/career/industries/${slug}`);
+  }
+
+  for (const item of careerGuides) {
+    const slug = normalizeSlug(item?.slug);
+    if (!slug) continue;
+    paths.add(`/en/career/guides/${slug}`);
+    paths.add(`/zh/career/guides/${slug}`);
+  }
+
+  for (const item of careerRecommendationProfiles) {
+    const profileType = normalizeSlug(item?.profile_type).toLowerCase();
+    const key = normalizeSlug(item?.key);
+    if (!profileType || !key) continue;
+
+    if (profileType === "mbti") {
+      const normalizedType = key.toUpperCase();
+      paths.add(`/en/career/recommendations/mbti/${normalizedType}`);
+      paths.add(`/zh/career/recommendations/mbti/${normalizedType}`);
+      continue;
+    }
+
+    if (profileType === "big5") {
+      const trait = key.toLowerCase();
+      paths.add(`/en/career/recommendations/big5/${trait}`);
+      paths.add(`/zh/career/recommendations/big5/${trait}`);
+    }
+  }
+
+  return [...paths];
+}
+
+const generatedPaths = [
+  ...new Set([...buildLandingPaths(), ...buildTestPaths(), ...buildArticlePaths(), ...buildCareerPaths()]),
+];
 
 module.exports = {
   siteUrl,

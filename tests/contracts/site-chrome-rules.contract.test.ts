@@ -14,6 +14,6 @@ describe("site chrome rules contract", () => {
     expect(isCookieSuppressedPath("/help")).toBe(false);
     expect(isCookieSuppressedPath("/articles")).toBe(false);
     expect(isCookieSuppressedPath("/tests")).toBe(false);
-    expect(isCookieSuppressedPath("/professions")).toBe(false);
+    expect(isCookieSuppressedPath("/career")).toBe(false);
   });
 });

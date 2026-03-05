@@ -1,10 +1,22 @@
-import { blog, tests, types } from "../.velite";
+import {
+  blog,
+  careerGuides,
+  careerIndustries,
+  careerJobs,
+  careerRecommendationProfiles,
+  tests,
+  types,
+} from "../.velite";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type Test = (typeof tests)[number];
 export type TestType = (typeof types)[number];
 export type BlogPost = (typeof blog)[number];
+export type CareerJob = (typeof careerJobs)[number];
+export type CareerIndustry = (typeof careerIndustries)[number];
+export type CareerGuide = (typeof careerGuides)[number];
+export type CareerRecommendationProfile = (typeof careerRecommendationProfiles)[number];
 export type LocalizedBlogPost = BlogPost & {
   locale: Locale;
   translation_group: string;
@@ -253,4 +265,182 @@ export function listRelatedBlogPosts(testSlug: string, locale: Locale = "zh"): L
 export function listBlogSlugs(): string[] {
   const slugs = new Set(listAllNormalizedBlogPosts().map((post) => post.slug));
   return [...slugs].sort((a, b) => a.localeCompare(b));
+}
+
+function resolveContentLocale(value: unknown): Locale {
+  return String(value ?? "").toLowerCase() === "en" ? "en" : "zh";
+}
+
+export type LocalizedCareerJob = CareerJob & { locale: Locale };
+export type LocalizedCareerIndustry = CareerIndustry & { locale: Locale };
+export type LocalizedCareerGuide = CareerGuide & { locale: Locale };
+export type LocalizedCareerRecommendationProfile = CareerRecommendationProfile & { locale: Locale };
+
+function normalizeCareerJob(item: CareerJob): LocalizedCareerJob {
+  return {
+    ...item,
+    locale: resolveContentLocale(item.locale),
+  };
+}
+
+function normalizeCareerIndustry(item: CareerIndustry): LocalizedCareerIndustry {
+  return {
+    ...item,
+    locale: resolveContentLocale(item.locale),
+  };
+}
+
+function normalizeCareerGuide(item: CareerGuide): LocalizedCareerGuide {
+  return {
+    ...item,
+    locale: resolveContentLocale(item.locale),
+  };
+}
+
+function normalizeCareerRecommendationProfile(
+  item: CareerRecommendationProfile
+): LocalizedCareerRecommendationProfile {
+  return {
+    ...item,
+    locale: resolveContentLocale(item.locale),
+  };
+}
+
+function sortByTitle<T extends { title: string }>(items: T[]): T[] {
+  return [...items].sort((a, b) => a.title.localeCompare(b.title));
+}
+
+export function listCareerJobs(locale?: Locale): LocalizedCareerJob[] {
+  const all = careerJobs.map((item) => normalizeCareerJob(item));
+  if (!locale) return sortByTitle(all);
+  return sortByTitle(all.filter((item) => item.locale === locale));
+}
+
+export function listCareerJobSlugs(): string[] {
+  return [...new Set(careerJobs.map((item) => String(item.slug).trim()).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b)
+  );
+}
+
+export function getCareerJobBySlug(slug: string, locale: Locale): LocalizedCareerJob | null {
+  const key = String(slug ?? "").trim();
+  if (!key) return null;
+  const all = listCareerJobs();
+  return all.find((item) => item.slug === key && item.locale === locale) ?? all.find((item) => item.slug === key && item.locale === "zh") ?? null;
+}
+
+export function listCareerIndustries(locale?: Locale): LocalizedCareerIndustry[] {
+  const all = careerIndustries.map((item) => normalizeCareerIndustry(item));
+  if (!locale) return sortByTitle(all);
+  return sortByTitle(all.filter((item) => item.locale === locale));
+}
+
+export function listCareerIndustrySlugs(): string[] {
+  return [...new Set(careerIndustries.map((item) => String(item.slug).trim()).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b)
+  );
+}
+
+export function getCareerIndustryBySlug(slug: string, locale: Locale): LocalizedCareerIndustry | null {
+  const key = String(slug ?? "").trim();
+  if (!key) return null;
+  const all = listCareerIndustries();
+  return (
+    all.find((item) => item.slug === key && item.locale === locale) ??
+    all.find((item) => item.slug === key && item.locale === "zh") ??
+    null
+  );
+}
+
+export function listCareerGuides(locale?: Locale): LocalizedCareerGuide[] {
+  const all = careerGuides.map((item) => normalizeCareerGuide(item));
+  if (!locale) return [...all].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  return [...all].filter((item) => item.locale === locale).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+}
+
+export function listCareerGuideSlugs(): string[] {
+  return [...new Set(careerGuides.map((item) => String(item.slug).trim()).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b)
+  );
+}
+
+export function getCareerGuideBySlug(slug: string, locale: Locale): LocalizedCareerGuide | null {
+  const key = String(slug ?? "").trim();
+  if (!key) return null;
+  const all = listCareerGuides();
+  return (
+    all.find((item) => item.slug === key && item.locale === locale) ??
+    all.find((item) => item.slug === key && item.locale === "zh") ??
+    null
+  );
+}
+
+export function listCareerRecommendationProfiles(
+  locale?: Locale
+): LocalizedCareerRecommendationProfile[] {
+  const all = careerRecommendationProfiles.map((item) => normalizeCareerRecommendationProfile(item));
+  if (!locale) return sortByTitle(all);
+  return sortByTitle(all.filter((item) => item.locale === locale));
+}
+
+export function getMbtiRecommendation(type: string, locale: Locale): LocalizedCareerRecommendationProfile | null {
+  const key = String(type ?? "").trim().toUpperCase();
+  if (!key) return null;
+  const all = listCareerRecommendationProfiles();
+  return (
+    all.find(
+      (item) => item.profile_type === "mbti" && item.key.toUpperCase() === key && item.locale === locale
+    ) ??
+    all.find((item) => item.profile_type === "mbti" && item.key.toUpperCase() === key && item.locale === "zh") ??
+    null
+  );
+}
+
+export function listMbtiRecommendationTypes(): string[] {
+  return [
+    ...new Set(
+      careerRecommendationProfiles
+        .filter((item) => item.profile_type === "mbti")
+        .map((item) => String(item.key).trim().toUpperCase())
+        .filter(Boolean)
+    ),
+  ].sort((a, b) => a.localeCompare(b));
+}
+
+export function getBig5Recommendation(
+  trait: string,
+  band: "high" | "balanced" | "low" = "balanced",
+  locale: Locale
+): LocalizedCareerRecommendationProfile | null {
+  const key = String(trait ?? "").trim().toLowerCase();
+  if (!key) return null;
+  const all = listCareerRecommendationProfiles();
+  return (
+    all.find(
+      (item) =>
+        item.profile_type === "big5" &&
+        item.key.toLowerCase() === key &&
+        item.band === band &&
+        item.locale === locale
+    ) ??
+    all.find(
+      (item) =>
+        item.profile_type === "big5" &&
+        item.key.toLowerCase() === key &&
+        item.band === band &&
+        item.locale === "zh"
+    ) ??
+    null
+  );
+}
+
+export function listBig5RecommendationTraits(): string[] {
+  return [
+    ...new Set(
+      careerRecommendationProfiles
+        .filter((item) => item.profile_type === "big5")
+        .map((item) => String(item.key).trim().toLowerCase())
+        .filter(Boolean)
+    ),
+  ].sort((a, b) => a.localeCompare(b));
 }

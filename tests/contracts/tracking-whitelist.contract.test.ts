@@ -56,4 +56,43 @@ describe("tracking whitelist contract", () => {
       locale: "en",
     });
   });
+
+  it("enforces strict whitelist for career events", () => {
+    const payload = {
+      locale: "en",
+      job_slug: "software-engineer",
+      rank: 1,
+      score: 88.2,
+      answered_count: 36,
+      primary_code: "I",
+      secondary_code: "R",
+      answers: "forbidden",
+      report: "forbidden",
+      email: "forbidden@example.com",
+      token: "forbidden",
+      unexpected: "drop-me",
+    };
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_CENTER_VIEW, payload)).toEqual({
+      locale: "en",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_RECOMMENDATION_VIEW, payload)).toEqual({
+      locale: "en",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_RECOMMENDATION_CLICK, payload)).toEqual({
+      locale: "en",
+      job_slug: "software-engineer",
+      rank: 1,
+      score: 88.2,
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_RIASEC_SUBMIT, payload)).toEqual({
+      locale: "en",
+      answered_count: 36,
+      primary_code: "I",
+      secondary_code: "R",
+    });
+  });
 });

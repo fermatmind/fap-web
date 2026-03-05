@@ -118,6 +118,9 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
 
   await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
   await expect(page.getByRole("heading", { name: "MBTI question 1" })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByText(/Estimated time:\s*15 min/)).toBeVisible();
+  await expect(page.getByText("No right or wrong answers. Choose the option that fits you best.")).toBeVisible();
+  await expect(page.getByRole("radio")).toHaveCount(4);
 
   for (let i = 0; i < 7; i += 1) {
     await page.getByRole("radio").first().click();
@@ -238,6 +241,8 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
     await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
 
     await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible({ timeout: 15000 });
+    await expect(page.getByText(/Estimated time:\s*15 min/)).toBeVisible();
+    await expect(page.getByText("No right or wrong answers. Choose the option that fits you best.")).toBeVisible();
     const firstOption = page.getByRole("radio").first();
     const bounds = await firstOption.boundingBox();
     expect(bounds?.height ?? 0).toBeGreaterThanOrEqual(44);

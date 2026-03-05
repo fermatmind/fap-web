@@ -6,13 +6,14 @@ Next.js frontend for FermatMind assessments.
 
 - Primary content routes:
   - `/[locale]/articles`
-  - `/[locale]/professions`
+  - `/[locale]/career`
   - `/[locale]/help`
   - `/[locale]/business`
 - Legacy routes are preserved with permanent redirects:
   - `/[locale]/blog*` -> `/[locale]/articles*`
-  - `/[locale]/types*` -> `/[locale]/professions*`
   - `/[locale]/support` -> `/[locale]/help`
+  - `/[locale]/professions*` -> `410 Gone`
+  - `/[locale]/types*` -> `410 Gone`
 
 ## Prerequisites
 

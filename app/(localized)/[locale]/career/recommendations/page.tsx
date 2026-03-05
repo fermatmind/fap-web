@@ -1,0 +1,112 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { CareerRecommendationPanel } from "@/components/career/CareerRecommendationPanel";
+import { Container } from "@/components/layout/Container";
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  listBig5RecommendationTraits,
+  listCareerJobs,
+  listMbtiRecommendationTypes,
+} from "@/lib/content";
+import { resolveLocale } from "@/lib/i18n/getDict";
+import { localizedPath } from "@/lib/i18n/locales";
+import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = resolveLocale(localeParam);
+
+  return buildPageMetadata({
+    locale,
+    pathname: locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations",
+    title: locale === "zh" ? "职业推荐" : "Career Recommendations",
+    description:
+      locale === "zh"
+        ? "基于 MBTI、Big5、IQ/EQ 和 RIASEC 的职业个性化推荐。"
+        : "Personalized recommendations powered by MBTI, Big5, IQ/EQ, and RIASEC.",
+    alternatesByLocale: {
+      en: "/en/career/recommendations",
+      zh: "/zh/career/recommendations",
+      xDefault: "/",
+    },
+  });
+}
+
+export default async function CareerRecommendationsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: localeParam } = await params;
+  const locale = resolveLocale(localeParam);
+  const withLocale = (pathname: string) => localizedPath(pathname, locale);
+
+  const jobs = listCareerJobs(locale);
+  const mbtiTypes = listMbtiRecommendationTypes();
+  const big5Traits = listBig5RecommendationTraits();
+  const canonicalPath =
+    locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations";
+  const webPageJsonLd = buildWebPageJsonLd({
+    path: canonicalPath,
+    title: locale === "zh" ? "职业推荐" : "Career Recommendations",
+    description:
+      locale === "zh"
+        ? "基于 MBTI、Big5、IQ/EQ 和 RIASEC 的职业个性化推荐。"
+        : "Personalized recommendations powered by MBTI, Big5, IQ/EQ, and RIASEC.",
+    locale,
+  });
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
+    { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
+    { name: locale === "zh" ? "职业推荐" : "Recommendations", path: canonicalPath },
+  ]);
+
+  return (
+    <Container as="main" className="space-y-6 py-10">
+      <JsonLd id="career-recommendation-webpage" data={webPageJsonLd} />
+      <JsonLd id="career-recommendation-breadcrumb" data={breadcrumbJsonLd} />
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          {locale === "zh" ? "个性化推荐引擎" : "Recommendation Engine"}
+        </p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
+          {locale === "zh" ? "适合你的职业" : "Careers that fit you"}
+        </h1>
+        <p className="m-0 text-[var(--fm-text-muted)]">
+          {locale === "zh"
+            ? "融合历史测评结果与职业兴趣小测，输出可解释职业推荐。"
+            : "Combines historical assessments with RIASEC to generate explainable recommendations."}
+        </p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">MBTI</h2>
+        <div className="flex flex-wrap gap-2">
+          {mbtiTypes.map((type) => (
+            <Link key={type} href={withLocale(`/career/recommendations/mbti/${type}`)} className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]">
+              {type}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">Big5</h2>
+        <div className="flex flex-wrap gap-2">
+          {big5Traits.map((trait) => (
+            <Link key={trait} href={withLocale(`/career/recommendations/big5/${trait}`)} className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]">
+              {trait}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <CareerRecommendationPanel locale={locale} jobs={jobs} />
+    </Container>
+  );
+}

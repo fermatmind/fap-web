@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n/locales";
 
-export type HeaderNavKey = "tests" | "articles" | "professions" | "help" | "business";
+export type HeaderNavKey = "tests" | "articles" | "career" | "help" | "business";
 
 export type HeaderDropdownMenuItem = {
   href: string;
@@ -35,10 +35,13 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/articles/big-five-tool-guide", label: "Big Five tool guide" },
       { href: "/articles/eq-test-tool-guide", label: "EQ tool guide" },
     ],
-    professions: [
-      { href: "/professions", label: "All professions" },
-      { href: "/professions/ENFJ", label: "ENFJ profile" },
-      { href: "/professions/INFP", label: "INFP profile" },
+    career: [
+      { href: "/career", label: "Career center" },
+      { href: "/career/recommendations", label: "Career recommendations" },
+      { href: "/career/jobs", label: "Job library" },
+      { href: "/career/industries", label: "Industry guide" },
+      { href: "/career/guides", label: "Career guides" },
+      { href: "/career/tests", label: "Career tests" },
     ],
     help: [
       { href: "/help", label: "Help Center" },
@@ -75,10 +78,13 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/articles/big-five-tool-guide", label: "大五工具说明" },
       { href: "/articles/eq-test-tool-guide", label: "EQ 工具说明" },
     ],
-    professions: [
-      { href: "/professions", label: "全部职业画像" },
-      { href: "/professions/ENFJ", label: "ENFJ 画像" },
-      { href: "/professions/INFP", label: "INFP 画像" },
+    career: [
+      { href: "/career", label: "职业发展中心" },
+      { href: "/career/recommendations", label: "职业推荐" },
+      { href: "/career/jobs", label: "职业库" },
+      { href: "/career/industries", label: "行业指南" },
+      { href: "/career/guides", label: "职业发展" },
+      { href: "/career/tests", label: "职业测试" },
     ],
     help: [
       { href: "/help", label: "帮助中心" },
@@ -99,7 +105,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
 
 export function getHeaderDropdownMenus(locale: Locale): HeaderDropdownMenu[] {
   const source = HEADER_DROPDOWN_MENUS[locale];
-  const order: HeaderNavKey[] = ["tests", "articles", "professions", "help", "business"];
+  const order: HeaderNavKey[] = ["tests", "articles", "career", "help", "business"];
 
   return order.map((key) => ({ key, items: source[key] }));
 }

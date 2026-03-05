@@ -18,6 +18,8 @@ export function ImmersiveTakeLayout({
   transitionDirection,
   isTransitioning,
   children,
+  headerSlot,
+  hideHeader,
   footerSlot,
 }: {
   backHref: string;
@@ -32,6 +34,8 @@ export function ImmersiveTakeLayout({
   transitionDirection: TransitionDirection;
   isTransitioning?: boolean;
   children: ReactNode;
+  headerSlot?: ReactNode;
+  hideHeader?: boolean;
   footerSlot?: ReactNode;
 }) {
   const safeTotal = Math.max(1, total);
@@ -52,19 +56,23 @@ export function ImmersiveTakeLayout({
 
   return (
     <div className="space-y-[var(--fm-space-5)]">
-      <header className="space-y-[var(--fm-gap-xs)]">
-        <div className="flex items-center justify-between gap-[var(--fm-gap-sm)]">
-          <Link href={backHref} className="text-sm font-medium text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]">
-            {backLabel}
-          </Link>
-          <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">
-            {safeCurrent}/{safeTotal}
-          </p>
-        </div>
-        <div className="h-1 overflow-hidden rounded-full bg-[var(--fm-surface-muted)]" aria-hidden>
-          <div className="h-full bg-gradient-to-r from-[var(--fm-trust-blue)] to-[var(--fm-teal)] transition-all duration-300" style={{ width: `${Math.max(0, Math.min(100, percent))}%` }} />
-        </div>
-      </header>
+      {headerSlot ? (
+        headerSlot
+      ) : !hideHeader ? (
+        <header className="space-y-[var(--fm-gap-xs)]">
+          <div className="flex items-center justify-between gap-[var(--fm-gap-sm)]">
+            <Link href={backHref} className="text-sm font-medium text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]">
+              {backLabel}
+            </Link>
+            <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">
+              {safeCurrent}/{safeTotal}
+            </p>
+          </div>
+          <div className="h-1 overflow-hidden rounded-full bg-[var(--fm-surface-muted)]" aria-hidden>
+            <div className="h-full bg-gradient-to-r from-[var(--fm-trust-blue)] to-[var(--fm-teal)] transition-all duration-300" style={{ width: `${Math.max(0, Math.min(100, percent))}%` }} />
+          </div>
+        </header>
+      ) : null}
 
       <section className="flex min-h-[62vh] items-center justify-center">
         <div key={transitionKey} className={cn("w-full max-w-3xl", cardTransitionClass)}>

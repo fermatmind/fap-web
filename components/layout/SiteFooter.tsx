@@ -85,7 +85,7 @@ export function SiteFooter() {
         </div>
 
         <div className="border-t border-white/15 pt-6">
-          <div className="flex flex-wrap items-center justify-center gap-[10px]">
+          <div className="fm-social-list">
             {socialItems.map((item) => (
               <a
                 key={item.key}
