@@ -3,6 +3,7 @@ import type { SiteDictionary } from "@/lib/i18n/types";
 const zh: SiteDictionary = {
   header: {
     brand: "FermatMind",
+    home: "首页",
     tests: "测试",
     articles: "文章",
     career: "职业",
@@ -12,6 +13,7 @@ const zh: SiteDictionary = {
     search: "搜索",
     profile: "个人中心",
     menu: "菜单",
+    closeMenu: "关闭菜单",
     completedPrefix: "过去30天已完成",
     completedSuffix: "次测评",
     switchToEnglish: "EN",
