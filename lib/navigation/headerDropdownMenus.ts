@@ -30,6 +30,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     articles: [
       { href: "/articles", label: "All articles" },
+      { href: "/topics", label: "Topic clusters" },
       { href: "/articles/mbti-basics", label: "MBTI basics" },
       { href: "/articles/mbti-growth-guide", label: "MBTI growth guide" },
       { href: "/articles/big-five-tool-guide", label: "Big Five tool guide" },
@@ -73,6 +74,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     articles: [
       { href: "/articles", label: "全部文章" },
+      { href: "/topics", label: "主题聚合" },
       { href: "/articles/mbti-basics", label: "MBTI 入门" },
       { href: "/articles/mbti-growth-guide", label: "MBTI 成长指南" },
       { href: "/articles/big-five-tool-guide", label: "大五工具说明" },
