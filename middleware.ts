@@ -9,6 +9,7 @@ const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
 const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i, /^\/types(\/|$)/i];
+const LOCALE_REDIRECT_PREFIXES = ["articles", "career", "topics", "personality"] as const;
 
 function hasLocalePrefix(pathname: string): boolean {
   const segment = pathname.split("/").filter(Boolean)[0];
@@ -55,7 +56,10 @@ export function middleware(request: NextRequest) {
     return createGoneResponse();
   }
 
-  if (!hasLocalePrefix(pathname) && /^\/career(\/|$)/i.test(strippedPath)) {
+  if (
+    !hasLocalePrefix(pathname) &&
+    LOCALE_REDIRECT_PREFIXES.some((prefix) => new RegExp(`^/${prefix}(/|$)`, "i").test(strippedPath))
+  ) {
     const preferredLocale = resolvePreferredLocale({
       cookieLocale: request.cookies.get(LOCALE_COOKIE_NAME)?.value ?? null,
       acceptLanguage: request.headers.get("accept-language"),

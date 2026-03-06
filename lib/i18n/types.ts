@@ -6,6 +6,7 @@ export type SiteDictionary = {
     home: string;
     tests: string;
     articles: string;
+    personality: string;
     career: string;
     help: string;
     business: string;

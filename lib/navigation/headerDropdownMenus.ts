@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n/locales";
 
-export type HeaderNavKey = "tests" | "articles" | "career" | "help" | "business";
+export type HeaderNavKey = "tests" | "articles" | "personality" | "career" | "help" | "business";
 
 export type HeaderDropdownMenuItem = {
   href: string;
@@ -30,10 +30,18 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     articles: [
       { href: "/articles", label: "All articles" },
+      { href: "/topics", label: "Topic clusters" },
       { href: "/articles/mbti-basics", label: "MBTI basics" },
       { href: "/articles/mbti-growth-guide", label: "MBTI growth guide" },
       { href: "/articles/big-five-tool-guide", label: "Big Five tool guide" },
       { href: "/articles/eq-test-tool-guide", label: "EQ tool guide" },
+    ],
+    personality: [
+      { href: "/personality", label: "All personality profiles" },
+      { href: "/personality/intp", label: "INTP personality" },
+      { href: "/personality/entj", label: "ENTJ personality" },
+      { href: "/personality/infp", label: "INFP personality" },
+      { href: "/personality/enfj", label: "ENFJ personality" },
     ],
     career: [
       { href: "/career", label: "Career center" },
@@ -73,10 +81,18 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     articles: [
       { href: "/articles", label: "全部文章" },
+      { href: "/topics", label: "主题聚合" },
       { href: "/articles/mbti-basics", label: "MBTI 入门" },
       { href: "/articles/mbti-growth-guide", label: "MBTI 成长指南" },
       { href: "/articles/big-five-tool-guide", label: "大五工具说明" },
       { href: "/articles/eq-test-tool-guide", label: "EQ 工具说明" },
+    ],
+    personality: [
+      { href: "/personality", label: "全部人格画像" },
+      { href: "/personality/intp", label: "INTP 人格" },
+      { href: "/personality/entj", label: "ENTJ 人格" },
+      { href: "/personality/infp", label: "INFP 人格" },
+      { href: "/personality/enfj", label: "ENFJ 人格" },
     ],
     career: [
       { href: "/career", label: "职业发展中心" },
@@ -105,7 +121,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
 
 export function getHeaderDropdownMenus(locale: Locale): HeaderDropdownMenu[] {
   const source = HEADER_DROPDOWN_MENUS[locale];
-  const order: HeaderNavKey[] = ["tests", "articles", "career", "help", "business"];
+  const order: HeaderNavKey[] = ["tests", "articles", "personality", "career", "help", "business"];
 
   return order.map((key) => ({ key, items: source[key] }));
 }

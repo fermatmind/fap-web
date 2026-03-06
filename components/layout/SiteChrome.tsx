@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { CookieBanner } from "@/components/legal/CookieBanner";
 import { stripLocalePrefix } from "@/lib/i18n/locales";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -14,7 +14,9 @@ export function SiteChrome({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[var(--fm-bg)] text-[var(--fm-text)]">
-      <SiteHeader />
+      <Suspense fallback={null}>
+        <SiteHeader />
+      </Suspense>
       {children}
       <SiteFooter />
       {shouldShowCookie ? <CookieBanner /> : null}
