@@ -28,6 +28,14 @@ describe("schema injection contract", () => {
     expect(source).toContain('id="references"');
   });
 
+  it("topic detail page injects webpage and breadcrumb JSON-LD", () => {
+    const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
+    expect(source).toContain("JsonLd");
+    expect(source).toContain("buildWebPageJsonLd");
+    expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).toContain("RelatedContent");
+  });
+
   it("schema builder exposes required types", () => {
     const source = read("lib/seo/generateSchema.ts");
     expect(source).toContain('"@type": "WebPage"');

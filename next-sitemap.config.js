@@ -7,6 +7,7 @@ const careerIndustries = require("./.velite/careerIndustries.json");
 const careerGuides = require("./.velite/careerGuides.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
+const TOPIC_SLUGS = ["mbti", "big-five", "iq-eq"];
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
 
@@ -96,6 +97,8 @@ function buildLandingPaths() {
     "/",
     "/en",
     "/zh",
+    "/en/topics",
+    "/zh/topics",
     "/en/tests",
     "/zh/tests",
     "/zh/articles",
@@ -168,8 +171,25 @@ function buildCareerPaths() {
   return [...paths];
 }
 
+function buildTopicPaths() {
+  const paths = new Set();
+
+  for (const slug of TOPIC_SLUGS) {
+    paths.add(`/en/topics/${slug}`);
+    paths.add(`/zh/topics/${slug}`);
+  }
+
+  return [...paths];
+}
+
 const generatedPaths = [
-  ...new Set([...buildLandingPaths(), ...buildTestPaths(), ...buildArticlePaths(), ...buildCareerPaths()]),
+  ...new Set([
+    ...buildLandingPaths(),
+    ...buildTestPaths(),
+    ...buildArticlePaths(),
+    ...buildCareerPaths(),
+    ...buildTopicPaths(),
+  ]),
 ];
 
 module.exports = {
