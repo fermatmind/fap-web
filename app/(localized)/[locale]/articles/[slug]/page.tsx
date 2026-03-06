@@ -7,25 +7,127 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  isBlogSlugIndexableInLocale,
-  listBlogSlugs,
-  listRelatedArticlesForPost,
-  listRelatedCareerGuidesForPost,
-  listRelatedTypesForPost,
-  resolveBlogPostBySlug,
-} from "@/lib/content";
+import { getCmsArticle, getCmsArticleSeo, type CmsArticle } from "@/lib/cms/articles";
+import type { RelatedContentItem } from "@/lib/content";
 import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
+import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
   buildArticleJsonLd,
   buildBreadcrumbJsonLd,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { canonicalUrl } from "@/lib/site";
 
-export function generateStaticParams() {
-  return listBlogSlugs().flatMap((slug) => [{ locale: "en", slug }, { locale: "zh", slug }]);
+export const dynamic = "force-dynamic";
+
+function formatArticleDate(value: string | null, locale: Locale): string | null {
+  if (!value) {
+    return null;
+  }
+
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }).format(date);
+}
+
+function buildCanonicalPath(slug: string, locale: Locale): string {
+  return localizedPath(`/articles/${slug}`, locale);
+}
+
+function shouldNoindex(robotsValue: string | null | undefined): boolean {
+  return String(robotsValue ?? "")
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .includes("noindex");
+}
+
+function resolveTwitterCard(value: string | null | undefined): "summary" | "summary_large_image" | "player" | "app" {
+  if (value === "summary" || value === "player" || value === "app") {
+    return value;
+  }
+
+  return "summary_large_image";
+}
+
+function normalizeStructuredDataUrls(
+  data: unknown,
+  sourceCanonical: string | null | undefined,
+  localizedCanonicalPath: string,
+  slug: string
+): unknown {
+  const localizedCanonical = canonicalUrl(localizedCanonicalPath);
+  const fallbackSourceCanonical = canonicalUrl(`/articles/${slug}`);
+  const relativeCanonical = `/articles/${slug}`;
+
+  const replaceValue = (value: string): string => {
+    const candidates: Array<[string, string]> = [
+      [String(sourceCanonical ?? "").trim(), localizedCanonical],
+      [fallbackSourceCanonical, localizedCanonical],
+      [relativeCanonical, localizedCanonicalPath],
+    ];
+
+    for (const [from, to] of candidates) {
+      if (!from) {
+        continue;
+      }
+
+      if (value === from) {
+        return to;
+      }
+
+      if (value.startsWith(`${from}#`)) {
+        return `${to}${value.slice(from.length)}`;
+      }
+    }
+
+    return value;
+  };
+
+  const walk = (value: unknown): unknown => {
+    if (Array.isArray(value)) {
+      return value.map(walk);
+    }
+
+    if (value && typeof value === "object") {
+      return Object.fromEntries(
+        Object.entries(value).map(([key, nested]) => [key, walk(nested)])
+      );
+    }
+
+    if (typeof value === "string") {
+      return replaceValue(value);
+    }
+
+    return value;
+  };
+
+  return walk(data);
+}
+
+function renderArticleBody(article: CmsArticle) {
+  if (article.contentHtml.trim()) {
+    return <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />;
+  }
+
+  const renderedMarkdown = renderVeliteMdx(article.contentMd);
+  if (renderedMarkdown) {
+    return renderedMarkdown;
+  }
+
+  if (article.contentMd.trim()) {
+    return <div className="whitespace-pre-wrap">{article.contentMd}</div>;
+  }
+
+  return null;
 }
 
 export async function generateMetadata({
@@ -35,32 +137,68 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const resolved = resolveBlogPostBySlug(slug, locale);
-  const post = resolved.post;
+  const canonicalPath = buildCanonicalPath(slug, locale);
+  const alternatesByLocale = {
+    en: `/en/articles/${slug}`,
+    zh: `/zh/articles/${slug}`,
+    xDefault: "/",
+  };
 
-  if (!post) {
+  const [article, seo] = await Promise.all([
+    getCmsArticle(slug, locale),
+    getCmsArticleSeo(slug, locale),
+  ]);
+
+  if (!article) {
     return {
       title: "Post Not Found",
       robots: { index: false, follow: false },
     };
   }
 
-  const hasIndexableEnglish = isBlogSlugIndexableInLocale(slug, "en");
-  const enforceEnglishNoindex = locale === "en" && (!resolved.hasLocalizedContent || !hasIndexableEnglish);
-  const canonicalPath = enforceEnglishNoindex ? `/zh/articles/${slug}` : localizedPath(`/articles/${slug}`, locale);
-
-  return buildPageMetadata({
+  const title = seo?.meta.title || article.title;
+  const description = seo?.meta.description || article.excerpt;
+  const normalizedCanonical = canonicalUrl(canonicalPath);
+  const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
+  const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
-    title: post.title,
-    description: post.summary,
-    noindex: enforceEnglishNoindex,
-    alternatesByLocale: {
-      en: `/en/articles/${slug}`,
-      zh: `/zh/articles/${slug}`,
-      xDefault: "/",
-    },
+    title,
+    description,
+    imagePath: seo?.meta.og.image ?? article.coverImageUrl ?? undefined,
+    noindex,
+    alternatesByLocale,
   });
+
+  return {
+    ...metadata,
+    alternates: {
+      ...metadata.alternates,
+      canonical: normalizedCanonical,
+    },
+    openGraph: {
+      type: "article",
+      url: normalizedCanonical,
+      title: seo?.meta.og.title || title,
+      description: seo?.meta.og.description || description,
+      images: seo?.meta.og.image
+        ? [seo.meta.og.image]
+        : article.coverImageUrl
+          ? [article.coverImageUrl]
+          : metadata.openGraph?.images,
+      locale: locale === "zh" ? "zh_CN" : "en_US",
+    },
+    twitter: {
+      card: resolveTwitterCard(seo?.meta.twitter.card),
+      title: seo?.meta.twitter.title || title,
+      description: seo?.meta.twitter.description || description,
+      images: seo?.meta.twitter.image
+        ? [seo.meta.twitter.image]
+        : article.coverImageUrl
+          ? [article.coverImageUrl]
+          : metadata.twitter?.images,
+    },
+  };
 }
 
 export default async function ArticleDetailPage({
@@ -71,31 +209,41 @@ export default async function ArticleDetailPage({
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
-  const resolved = resolveBlogPostBySlug(slug, locale);
-  const post = resolved.post;
-  const usedFallback = resolved.usedFallback && locale === "en";
-
-  if (!post) return notFound();
-
-  const relatedArticles = listRelatedArticlesForPost(post, locale);
-  const relatedCareerGuides = listRelatedCareerGuidesForPost(post, locale);
-  const relatedTypes = listRelatedTypesForPost(post, locale);
-
-  const canonicalPath = usedFallback ? `/zh/articles/${slug}` : localizedPath(`/articles/${slug}`, locale);
-  const articleJsonLd = buildArticleJsonLd({
-    path: canonicalPath,
-    title: post.title,
-    description: post.summary,
-    locale: usedFallback ? "zh" : locale,
-    datePublished: post.publishedAt ?? post.updatedAt,
-    dateModified: post.updatedAt,
-    authorName: post.author || "FermatMind Editorial",
-  });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "文章" : "Articles", path: locale === "zh" ? "/zh/articles" : "/en/articles" },
-    { name: post.title, path: canonicalPath },
+  const [article, seo] = await Promise.all([
+    getCmsArticle(slug, locale),
+    getCmsArticleSeo(slug, locale),
   ]);
+
+  if (!article) {
+    return notFound();
+  }
+
+  const canonicalPath = buildCanonicalPath(slug, locale);
+  const articleJsonLd =
+    normalizeStructuredDataUrls(seo?.jsonld, seo?.meta.canonical, canonicalPath, slug) ||
+    buildArticleJsonLd({
+      path: canonicalPath,
+      title: article.title,
+      description: article.excerpt,
+      locale,
+      datePublished: article.publishedAt ?? article.updatedAt ?? article.createdAt ?? new Date().toISOString(),
+      dateModified: article.updatedAt ?? article.publishedAt ?? article.createdAt ?? new Date().toISOString(),
+      authorName: "FermatMind Editorial",
+    });
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+    { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
+    { name: article.title, path: canonicalPath },
+  ]);
+  const publishedAt = formatArticleDate(article.publishedAt, locale);
+  const updatedAt = formatArticleDate(article.updatedAt, locale);
+  const badgeLabels = [
+    article.category?.name ?? null,
+    ...article.tags.map((tag) => tag.name).filter(Boolean),
+  ].slice(0, 5);
+  const relatedArticles: RelatedContentItem[] = [];
+  const relatedCareerGuides: RelatedContentItem[] = [];
+  const relatedTypes: RelatedContentItem[] = [];
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -105,20 +253,15 @@ export default async function ArticleDetailPage({
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
           { label: locale === "zh" ? "文章" : "Articles", href: localizedPath("/articles", locale) },
-          { label: post.title },
+          { label: article.title },
         ]}
       />
       <section id="what-it-is" className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {dict.articles.kicker}
         </p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{post.title}</h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">{post.summary}</p>
-        {usedFallback ? (
-          <p className="m-0 text-xs text-[var(--fm-text-muted)]">
-            English translation is in progress. This localized fallback is not indexed.
-          </p>
-        ) : null}
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{article.title}</h1>
+        {article.excerpt ? <p className="m-0 text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
       </section>
 
       <section id="when-to-use" className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
@@ -134,25 +277,35 @@ export default async function ArticleDetailPage({
 
       <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
         <CardHeader className="space-y-3">
-          <CardTitle className="font-serif text-[var(--fm-text)]">{post.title}</CardTitle>
-          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{post.summary}</p>
-          <p className="m-0 text-xs text-[var(--fm-text-muted)]">
-            {dict.articles.updatedLabel}: {post.updatedAt}
-          </p>
+          <CardTitle className="font-serif text-[var(--fm-text)]">{article.title}</CardTitle>
+          {article.excerpt ? <p className="m-0 text-sm text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
+          <div className="space-y-1 text-xs text-[var(--fm-text-muted)]">
+            {publishedAt ? (
+              <p className="m-0">
+                {locale === "zh" ? "发布于" : "Published"}: {publishedAt}
+              </p>
+            ) : null}
+            {updatedAt ? (
+              <p className="m-0">
+                {dict.articles.updatedLabel}: {updatedAt}
+              </p>
+            ) : null}
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex flex-wrap gap-2">
-            <Badge>{dict.articles.voiceLabels[post.voice]}</Badge>
-            {(post.tags ?? []).map((tag) => (
-              <Badge key={tag}>{tag}</Badge>
-            ))}
-          </div>
+          {badgeLabels.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {badgeLabels.map((label) => (
+                <Badge key={`${slug}-${label}`}>{label}</Badge>
+              ))}
+            </div>
+          ) : null}
           <article
             id="how-it-works"
             data-testid="article-detail-content"
-            className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_h2]:mt-7 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_p]:leading-7 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
+            className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_h2]:mt-7 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mt-5 [&_h3]:font-semibold [&_img]:rounded-xl [&_img]:border [&_img]:border-[var(--fm-border)] [&_p]:leading-7 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5"
           >
-            {renderVeliteMdx(post.body)}
+            {renderArticleBody(article)}
           </article>
           <section id="limitations" className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]">
             {locale === "zh"
@@ -178,19 +331,11 @@ export default async function ArticleDetailPage({
             <h2 className="m-0 text-base font-semibold text-[var(--fm-text)]">
               {locale === "zh" ? "参考资料" : "References"}
             </h2>
-            {(post.citations ?? []).length > 0 ? (
-              <ul className="mb-0 mt-3 list-disc space-y-2 pl-5">
-                {(post.citations ?? []).map((citation) => (
-                  <li key={citation}>{citation}</li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mb-0 mt-3">
-                {locale === "zh"
-                  ? "参考来源请见正文中的文献与公开资料。"
-                  : "Please refer to citations and public references listed in the article."}
-              </p>
-            )}
+            <p className="mb-0 mt-3">
+              {locale === "zh"
+                ? "参考来源请见正文中的文献与公开资料。"
+                : "Please refer to citations and public references listed in the article."}
+            </p>
           </section>
           <Link
             href={localizedPath("/articles", locale)}

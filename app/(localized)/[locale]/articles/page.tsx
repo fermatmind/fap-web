@@ -4,23 +4,35 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  getTestBySlug,
-  listBlogPosts,
-  listBlogPostsGroupedByTest,
-  resolveTestTitleByLocale,
-} from "@/lib/content";
+import { getCmsArticles } from "@/lib/cms/articles";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-const GROUPS_PER_PAGE = 2;
+export const dynamic = "force-dynamic";
 
 function parsePage(value: string | string[] | undefined): number {
   const raw = Array.isArray(value) ? value[0] : value;
   const parsed = Number.parseInt(String(raw ?? "1"), 10);
 
   return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+}
+
+function formatArticleDate(value: string | null, locale: "en" | "zh"): string | null {
+  if (!value) {
+    return null;
+  }
+
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }).format(date);
 }
 
 export async function generateMetadata({
@@ -34,15 +46,11 @@ export async function generateMetadata({
   const query = await searchParams;
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
-  const isZh = locale === "zh";
-  const lastPage = Math.max(1, Math.ceil(listBlogPostsGroupedByTest(locale).length / GROUPS_PER_PAGE));
-  const currentPage = Math.min(parsePage(query.page), lastPage);
-  const pathnameBase = isZh ? "/zh/articles" : "/en/articles";
-  const pathname = currentPage > 1 ? `${pathnameBase}?page=${currentPage}` : pathnameBase;
-  const hasLocalizedContent = listBlogPosts(locale).length > 0;
+  const currentPage = parsePage(query.page);
+  const pathname = currentPage > 1 ? `${localizedPath("/articles", locale)}?page=${currentPage}` : localizedPath("/articles", locale);
   const title =
     currentPage > 1
-      ? `${dict.articles.title} · ${isZh ? `第 ${currentPage} 页` : `Page ${currentPage}`}`
+      ? `${dict.articles.title} · ${locale === "zh" ? `第 ${currentPage} 页` : `Page ${currentPage}`}`
       : dict.articles.title;
 
   return buildPageMetadata({
@@ -50,10 +58,9 @@ export async function generateMetadata({
     pathname,
     title,
     description: dict.articles.subtitle,
-    noindex: !isZh && !hasLocalizedContent,
     alternatesByLocale: {
-      en: currentPage > 1 ? `/en/articles?page=${currentPage}` : "/en/articles",
-      zh: currentPage > 1 ? `/zh/articles?page=${currentPage}` : "/zh/articles",
+      en: currentPage > 1 ? "/en/articles?page=".concat(String(currentPage)) : "/en/articles",
+      zh: currentPage > 1 ? "/zh/articles?page=".concat(String(currentPage)) : "/zh/articles",
       xDefault: "/",
     },
   });
@@ -70,15 +77,21 @@ export default async function ArticlesPage({
   const query = await searchParams;
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
+  const requestedPage = parsePage(query.page);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const groups = listBlogPostsGroupedByTest(locale);
-  const lastPage = Math.max(1, Math.ceil(groups.length / GROUPS_PER_PAGE));
-  const currentPage = Math.min(parsePage(query.page), lastPage);
-  const pagedGroups = groups.slice(
-    (currentPage - 1) * GROUPS_PER_PAGE,
-    currentPage * GROUPS_PER_PAGE
-  );
+  const { items, pagination } = await getCmsArticles({
+    locale,
+    page: requestedPage,
+  });
+  const currentPage = pagination.currentPage > 0 ? pagination.currentPage : requestedPage;
+  const lastPage = Math.max(1, pagination.lastPage);
   const pageLink = (page: number) => (page <= 1 ? withLocale("/articles") : `${withLocale("/articles")}?page=${page}`);
+  const publishedLabel = locale === "zh" ? "发布于" : "Published";
+  const emptyTitle = locale === "zh" ? "暂无已发布文章" : "No published articles yet";
+  const emptyDescription =
+    locale === "zh"
+      ? "CMS 当前没有返回可展示的文章内容，或当前环境尚未提供文章接口数据。"
+      : "The CMS did not return any article content for this locale, or this environment does not expose article data yet.";
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -93,50 +106,68 @@ export default async function ArticlesPage({
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{dict.articles.kicker}</p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{dict.articles.title}</h1>
         <p className="m-0 text-[var(--fm-text-muted)]">{dict.articles.subtitle}</p>
-        <p className="m-0 text-xs text-[var(--fm-text-muted)]">{dict.articles.groupedByTestTitle}</p>
+        <p className="m-0 text-xs text-[var(--fm-text-muted)]">
+          {locale === "zh"
+            ? `第 ${currentPage} / ${lastPage} 页，共 ${pagination.total} 篇`
+            : `Page ${currentPage} of ${lastPage}, ${pagination.total} total`}
+        </p>
       </section>
 
-      {pagedGroups.map((group) => {
-        const test = getTestBySlug(group.relatedTestSlug);
-        const groupTitle = test ? resolveTestTitleByLocale(test, locale) : group.relatedTestSlug;
+      {items.length > 0 ? (
+        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {items.map((article) => {
+            const publishedAt = formatArticleDate(article.publishedAt ?? article.updatedAt, locale);
+            const badgeLabels = [
+              article.category?.name ?? null,
+              ...article.tags.map((tag) => tag.name).filter(Boolean),
+            ].slice(0, 4);
 
-        return (
-          <section key={group.relatedTestSlug} data-testid={`articles-group-${group.relatedTestSlug}`} className="space-y-3">
-            <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{groupTitle}</h2>
-            <div className="grid gap-4 md:grid-cols-3">
-              {group.posts.map((post) => (
-                <Card
-                  key={post.slug}
-                  data-testid={`articles-card-${post.slug}`}
-                  className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)] transition hover:shadow-[var(--fm-shadow-md)]"
-                >
-                  <CardHeader className="space-y-3">
-                    <CardTitle className="font-serif text-[var(--fm-text)]">{post.title}</CardTitle>
-                    <p className="m-0 text-sm text-[var(--fm-text-muted)]">{post.summary}</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
+            return (
+              <Card
+                key={`${article.locale}:${article.slug}`}
+                data-testid={`articles-card-${article.slug}`}
+                className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)] transition hover:shadow-[var(--fm-shadow-md)]"
+              >
+                <CardHeader className="space-y-3">
+                  <CardTitle className="font-serif text-[var(--fm-text)]">
+                    <Link href={withLocale(`/articles/${article.slug}`)} className="hover:text-[var(--fm-accent)]">
+                      {article.title}
+                    </Link>
+                  </CardTitle>
+                  <p className="m-0 text-sm text-[var(--fm-text-muted)]">{article.excerpt || "-"}</p>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {badgeLabels.length > 0 ? (
                     <div className="flex flex-wrap gap-2">
-                      <Badge>{dict.articles.voiceLabels[post.voice]}</Badge>
-                      {(post.tags ?? []).map((tag) => (
-                        <Badge key={tag}>{tag}</Badge>
+                      {badgeLabels.map((label) => (
+                        <Badge key={`${article.slug}-${label}`}>{label}</Badge>
                       ))}
                     </div>
+                  ) : null}
+                  {publishedAt ? (
                     <p className="m-0 text-xs text-[var(--fm-text-muted)]">
-                      {dict.articles.updatedLabel}: {post.updatedAt}
+                      {publishedLabel}: {publishedAt}
                     </p>
-                    <Link
-                      href={withLocale(`/articles/${post.slug}`)}
-                      className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-                    >
-                      {dict.articles.readArticle}
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-        );
-      })}
+                  ) : null}
+                  <Link
+                    href={withLocale(`/articles/${article.slug}`)}
+                    className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                  >
+                    {dict.articles.readArticle}
+                  </Link>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </section>
+      ) : (
+        <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
+          <CardHeader className="space-y-2">
+            <CardTitle className="font-serif text-[var(--fm-text)]">{emptyTitle}</CardTitle>
+            <p className="m-0 text-sm text-[var(--fm-text-muted)]">{emptyDescription}</p>
+          </CardHeader>
+        </Card>
+      )}
 
       <section className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm text-[var(--fm-text-muted)] shadow-[var(--fm-shadow-sm)]">
         <p className="m-0">
