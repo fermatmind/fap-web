@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import {
   listCareerGuides,
   listCareerIndustries,
@@ -74,6 +75,15 @@ export default async function CareerCenterPage({
       <AnalyticsPageViewTracker eventName="career_center_view" properties={{ locale }} />
       <JsonLd id="career-center-webpage" data={webPageJsonLd} />
       <JsonLd id="career-center-breadcrumb" data={breadcrumbJsonLd} />
+      <Breadcrumb
+        items={[
+          { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
+          { name: locale === "zh" ? "职业" : "Career", path: canonicalPath },
+        ].map((item, index) => ({
+          label: item.name,
+          href: index === 0 ? item.path : undefined,
+        }))}
+      />
 
       <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -72,6 +73,13 @@ export default async function TopicDetailPage({
     <Container as="main" className="space-y-6 py-10">
       <JsonLd id={`topic-webpage-${topic.slug}`} data={webPageJsonLd} />
       <JsonLd id={`topic-breadcrumb-${topic.slug}`} data={breadcrumbJsonLd} />
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+          { label: locale === "zh" ? "主题" : "Topics", href: localizedPath("/topics", locale) },
+          { label: topic.title },
+        ]}
+      />
 
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">

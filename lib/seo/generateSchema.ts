@@ -29,6 +29,22 @@ type ArticleSchemaInput = {
   authorName: string;
 };
 
+type PersonSchemaInput = {
+  path: string;
+  name: string;
+  description: string;
+  locale: LocaleCode;
+};
+
+type OccupationSchemaInput = {
+  path: string;
+  title: string;
+  description: string;
+  locale: LocaleCode;
+  skills?: string[];
+  salaryRange?: string;
+};
+
 export function buildFAQPageJsonLd(faq: FAQItem[]) {
   return {
     "@context": "https://schema.org",
@@ -90,6 +106,36 @@ export function buildArticleJsonLd(input: ArticleSchemaInput) {
     },
     datePublished: input.datePublished,
     dateModified: input.dateModified,
+    mainEntityOfPage: url,
+  };
+}
+
+export function buildPersonJsonLd(input: PersonSchemaInput) {
+  const url = canonicalUrl(input.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${url}#person`,
+    url,
+    name: input.name,
+    description: input.description,
+    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+    mainEntityOfPage: url,
+  };
+}
+
+export function buildOccupationJsonLd(input: OccupationSchemaInput) {
+  const url = canonicalUrl(input.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Occupation",
+    "@id": `${url}#occupation`,
+    url,
+    name: input.title,
+    description: input.description,
+    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+    skills: input.skills,
+    estimatedSalary: input.salaryRange,
     mainEntityOfPage: url,
   };
 }

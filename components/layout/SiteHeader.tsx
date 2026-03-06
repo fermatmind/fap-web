@@ -27,6 +27,7 @@ export function SiteHeader() {
   const navItems: Array<{ key: HeaderNavKey; href: string; label: string }> = [
     { key: "tests", href: "/tests", label: dict.header.tests },
     { key: "articles", href: "/articles", label: dict.header.articles },
+    { key: "personality", href: "/personality", label: dict.header.personality },
     { key: "career", href: "/career", label: dict.header.career },
     { key: "help", href: "/help", label: dict.header.help },
     { key: "business", href: "/business", label: dict.header.business },
