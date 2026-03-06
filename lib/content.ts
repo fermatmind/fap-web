@@ -8,7 +8,7 @@ import {
   types,
 } from "../.velite";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
-import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 export type Test = (typeof tests)[number];
 export type TestType = (typeof types)[number];
@@ -26,6 +26,13 @@ export type BlogVoice = "tool" | "growth" | "narrative";
 export type BlogPostsGroup = {
   relatedTestSlug: string;
   posts: LocalizedBlogPost[];
+};
+
+export type RelatedContentItem = {
+  slug: string;
+  title: string;
+  href: string;
+  summary?: string;
 };
 
 export type TestListItem = {
@@ -443,4 +450,176 @@ export function listBig5RecommendationTraits(): string[] {
         .filter(Boolean)
     ),
   ].sort((a, b) => a.localeCompare(b));
+}
+
+const TEST_TO_CAREER_GUIDE_SLUGS: Record<string, string[]> = {
+  "mbti-personality-test-16-personality-types": [
+    "from-mbti-to-job-fit",
+    "how-to-find-right-career-direction",
+  ],
+  "big-five-personality-test-ocean-model": [
+    "big5-for-career-decisions",
+    "how-to-find-right-career-direction",
+  ],
+  "eq-test-emotional-intelligence-assessment": ["iq-eq-balance-at-work"],
+  "iq-test-intelligence-quotient-assessment": ["iq-eq-balance-at-work"],
+};
+
+const TEST_TO_TYPE_CODES: Record<string, string[]> = {
+  "mbti-personality-test-16-personality-types": ["INTJ", "ENFP", "ISTJ", "ENTP"],
+};
+
+const GUIDE_TO_TEST_SLUGS: Record<string, string[]> = {
+  "from-mbti-to-job-fit": ["mbti-personality-test-16-personality-types"],
+  "big5-for-career-decisions": ["big-five-personality-test-ocean-model"],
+  "iq-eq-balance-at-work": [
+    "iq-test-intelligence-quotient-assessment",
+    "eq-test-emotional-intelligence-assessment",
+  ],
+};
+
+function dedupeRelatedItems(items: RelatedContentItem[]): RelatedContentItem[] {
+  const seen = new Set<string>();
+
+  return items.filter((item) => {
+    const key = item.href;
+    if (seen.has(key)) {
+      return false;
+    }
+
+    seen.add(key);
+    return true;
+  });
+}
+
+function toRelatedItem(
+  slug: string,
+  title: string,
+  href: string,
+  summary?: string
+): RelatedContentItem {
+  return {
+    slug,
+    title,
+    href,
+    summary,
+  };
+}
+
+function relatedArticlesForTestSlugs(testSlugs: string[], locale: Locale, excludeSlug?: string): RelatedContentItem[] {
+  const items = testSlugs.flatMap((testSlug) =>
+    listRelatedBlogPosts(testSlug, locale)
+      .filter((post) => post.slug !== excludeSlug)
+      .map((post) =>
+        toRelatedItem(
+          post.slug,
+          post.title,
+          localizedPath(`/articles/${post.slug}`, locale),
+          post.summary
+        )
+      )
+  );
+
+  return dedupeRelatedItems(items).slice(0, 4);
+}
+
+function relatedGuidesBySlugs(guideSlugs: string[], locale: Locale, excludeSlug?: string): RelatedContentItem[] {
+  const items = guideSlugs
+    .filter((slug) => slug !== excludeSlug)
+    .map((slug) => getCareerGuideBySlug(slug, locale))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item))
+    .map((guide) =>
+      toRelatedItem(
+        guide.slug,
+        guide.title,
+        localizedPath(`/career/guides/${guide.slug}`, locale),
+        guide.summary
+      )
+    );
+
+  return dedupeRelatedItems(items).slice(0, 4);
+}
+
+function relatedTypesByCodes(typeCodes: string[], locale: Locale, excludeCode?: string): RelatedContentItem[] {
+  const items = typeCodes
+    .filter((code) => code !== excludeCode)
+    .map((code) => getTypeByCode(code))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item))
+    .map((type) =>
+      toRelatedItem(
+        type.code,
+        `${type.code} · ${type.name}`,
+        localizedPath(`/professions/${type.code}`, locale),
+        type.description
+      )
+    );
+
+  return dedupeRelatedItems(items).slice(0, 4);
+}
+
+export function listRelatedArticlesForPost(post: LocalizedBlogPost, locale: Locale): RelatedContentItem[] {
+  return relatedArticlesForTestSlugs([post.related_test_slug], locale, post.slug);
+}
+
+export function listRelatedCareerGuidesForPost(post: LocalizedBlogPost, locale: Locale): RelatedContentItem[] {
+  const guideSlugs = TEST_TO_CAREER_GUIDE_SLUGS[post.related_test_slug] ?? [];
+  return relatedGuidesBySlugs(guideSlugs, locale);
+}
+
+export function listRelatedTypesForPost(post: LocalizedBlogPost, locale: Locale): RelatedContentItem[] {
+  const typeCodes = TEST_TO_TYPE_CODES[post.related_test_slug] ?? [];
+  return relatedTypesByCodes(typeCodes, locale);
+}
+
+export function listRelatedArticlesForGuide(guide: LocalizedCareerGuide, locale: Locale): RelatedContentItem[] {
+  const testSlugs = GUIDE_TO_TEST_SLUGS[guide.slug] ?? [];
+  return relatedArticlesForTestSlugs(testSlugs, locale);
+}
+
+export function listRelatedTypesForGuide(guide: LocalizedCareerGuide, locale: Locale): RelatedContentItem[] {
+  const testSlugs = GUIDE_TO_TEST_SLUGS[guide.slug] ?? [];
+  const typeCodes = testSlugs.flatMap((slug) => TEST_TO_TYPE_CODES[slug] ?? []);
+  return relatedTypesByCodes(typeCodes, locale);
+}
+
+export function listRelatedArticlesForType(code: string, locale: Locale): RelatedContentItem[] {
+  return relatedArticlesForTestSlugs(
+    ["mbti-personality-test-16-personality-types"],
+    locale
+  );
+}
+
+export function listRelatedCareerItemsForType(code: string, locale: Locale): RelatedContentItem[] {
+  const normalizedCode = String(code ?? "").trim().toUpperCase();
+  const recommendation = getMbtiRecommendation(normalizedCode, locale);
+  const items: RelatedContentItem[] = [];
+
+  if (recommendation) {
+    items.push(
+      toRelatedItem(
+        normalizedCode.toLowerCase(),
+        recommendation.title,
+        localizedPath(`/career/recommendations/mbti/${normalizedCode}`, locale),
+        recommendation.summary
+      )
+    );
+
+    for (const jobSlug of recommendation.recommended_jobs.slice(0, 3)) {
+      const job = getCareerJobBySlug(jobSlug, locale);
+      if (!job) continue;
+
+      items.push(
+        toRelatedItem(
+          job.slug,
+          job.title,
+          localizedPath(`/career/jobs/${job.slug}`, locale),
+          job.summary
+        )
+      );
+    }
+  }
+
+  const guideItems = relatedGuidesBySlugs(["from-mbti-to-job-fit"], locale);
+
+  return dedupeRelatedItems([...items, ...guideItems]).slice(0, 4);
 }
