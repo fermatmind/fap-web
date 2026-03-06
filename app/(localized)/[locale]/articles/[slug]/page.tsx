@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   isBlogSlugIndexableInLocale,
   listBlogSlugs,
+  listRelatedArticlesForPost,
+  listRelatedCareerGuidesForPost,
+  listRelatedTypesForPost,
   resolveBlogPostBySlug,
 } from "@/lib/content";
 import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
@@ -71,6 +75,10 @@ export default async function ArticleDetailPage({
   const usedFallback = resolved.usedFallback && locale === "en";
 
   if (!post) return notFound();
+
+  const relatedArticles = listRelatedArticlesForPost(post, locale);
+  const relatedCareerGuides = listRelatedCareerGuidesForPost(post, locale);
+  const relatedTypes = listRelatedTypesForPost(post, locale);
 
   const canonicalPath = usedFallback ? `/zh/articles/${slug}` : localizedPath(`/articles/${slug}`, locale);
   const articleJsonLd = buildArticleJsonLd({
@@ -184,6 +192,21 @@ export default async function ArticleDetailPage({
           </Link>
         </CardContent>
       </Card>
+
+      <div className="space-y-6">
+        <RelatedContent
+          title={locale === "zh" ? "相关文章" : "Related articles"}
+          items={relatedArticles}
+        />
+        <RelatedContent
+          title={locale === "zh" ? "相关职业发展内容" : "Related career guides"}
+          items={relatedCareerGuides}
+        />
+        <RelatedContent
+          title={locale === "zh" ? "相关人格画像" : "Related personality profiles"}
+          items={relatedTypes}
+        />
+      </div>
     </Container>
   );
 }

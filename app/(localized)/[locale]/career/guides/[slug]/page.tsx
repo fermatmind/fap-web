@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,6 +9,8 @@ import {
   getCareerGuideBySlug,
   getCareerIndustryBySlug,
   getCareerJobBySlug,
+  listRelatedArticlesForGuide,
+  listRelatedTypesForGuide,
   listCareerGuideSlugs,
 } from "@/lib/content";
 import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
@@ -71,6 +74,8 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
   const relatedIndustries = (guide.related_industry_slugs ?? [])
     .map((industrySlug) => getCareerIndustryBySlug(industrySlug, locale))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const relatedArticles = listRelatedArticlesForGuide(guide, locale);
+  const relatedTypes = listRelatedTypesForGuide(guide, locale);
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -116,6 +121,17 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
             ))}
           </CardContent>
         </Card>
+      </div>
+
+      <div className="space-y-6">
+        <RelatedContent
+          title={locale === "zh" ? "相关文章" : "Related articles"}
+          items={relatedArticles}
+        />
+        <RelatedContent
+          title={locale === "zh" ? "相关人格画像" : "Related personality profiles"}
+          items={relatedTypes}
+        />
       </div>
 
       <Link href={withLocale("/career/guides")} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
