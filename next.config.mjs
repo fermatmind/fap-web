@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === "production";
 const cdnUrl = (process.env.NEXT_PUBLIC_CDN_URL || "").replace(/\/$/, "");
+const apiOrigin = String(process.env.NEXT_PUBLIC_API_URL ?? "").trim().replace(/\/$/, "") || "https://api.fermatmind.com";
 
 function parseHostname(value) {
   try {
@@ -115,7 +116,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://api.fermatmind.com/api/:path*",
+        destination: `${apiOrigin}/api/:path*`,
       },
     ];
   },
