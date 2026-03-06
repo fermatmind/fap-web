@@ -52,6 +52,29 @@ function resolveRequestLocale(headers: Headers, localeHint?: string): "en" | "zh
   return "en";
 }
 
+function resolveApiBase(): string {
+  if (typeof window !== "undefined") {
+    return API_BASE;
+  }
+
+  const origin = String(process.env.NEXT_PUBLIC_SITE_URL ?? "").trim().replace(/\/$/, "") || "http://localhost:3000";
+  const configuredApiBase = String(process.env.NEXT_PUBLIC_API_BASE ?? "").trim().replace(/\/$/, "");
+
+  if (!configuredApiBase) {
+    return `${origin}${API_BASE}`;
+  }
+
+  if (/^https?:\/\//i.test(configuredApiBase)) {
+    return configuredApiBase;
+  }
+
+  if (configuredApiBase.startsWith("/")) {
+    return `${origin}${configuredApiBase}`;
+  }
+
+  return `${origin}${API_BASE}`;
+}
+
 async function request<T>(method: string, path: string, body?: Json, init: RequestOptions = {}): Promise<T> {
   const {
     timeoutMs = DEFAULT_TIMEOUT_MS,
@@ -82,7 +105,7 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
       }
     }
 
-    res = await fetch(`${API_BASE}${path}`, {
+    res = await fetch(`${resolveApiBase()}${path}`, {
       ...fetchInit,
       method,
       signal: controller.signal,
