@@ -496,6 +496,27 @@ a {
   }
 }
 
+@media (min-width: 1024px) {
+  .fm-social-list {
+    width: 100%;
+    max-width: none;
+    justify-content: space-between;
+    gap: 0;
+    flex-wrap: nowrap;
+    margin: 0;
+  }
+
+  .fm-social-badge {
+    height: 48px;
+    width: 48px;
+  }
+
+  .fm-social-logo {
+    height: 22px;
+    width: 22px;
+  }
+}
+
 .fm-header-dropdown-panel {
   position: absolute;
   right: 0;

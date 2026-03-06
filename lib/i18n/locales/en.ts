@@ -3,6 +3,7 @@ import type { SiteDictionary } from "@/lib/i18n/types";
 const en: SiteDictionary = {
   header: {
     brand: "FermatMind",
+    home: "Home",
     tests: "Tests",
     articles: "Articles",
     personality: "Personality",
@@ -13,6 +14,7 @@ const en: SiteDictionary = {
     search: "Search",
     profile: "Profile",
     menu: "Menu",
+    closeMenu: "Close menu",
     completedPrefix: "Completed in last 30 days:",
     completedSuffix: "assessments",
     switchToEnglish: "EN",

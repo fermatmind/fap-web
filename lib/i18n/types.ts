@@ -3,6 +3,7 @@ import type { Locale } from "@/lib/i18n/locales";
 export type SiteDictionary = {
   header: {
     brand: string;
+    home: string;
     tests: string;
     articles: string;
     personality: string;
@@ -13,6 +14,7 @@ export type SiteDictionary = {
     search: string;
     profile: string;
     menu: string;
+    closeMenu: string;
     completedPrefix: string;
     completedSuffix: string;
     switchToEnglish: string;
