@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,7 +9,7 @@ import { getCareerJobBySlug, listCareerJobSlugs } from "@/lib/content";
 import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+import { buildBreadcrumbJsonLd, buildOccupationJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export function generateStaticParams() {
@@ -52,6 +53,14 @@ export default async function CareerJobDetailPage({ params }: { params: Promise<
     description: job.summary,
     locale,
   });
+  const occupationJsonLd = buildOccupationJsonLd({
+    path: canonicalPath,
+    title: job.title,
+    description: job.summary,
+    locale,
+    skills: job.skills,
+    salaryRange: job.salary_range,
+  });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
@@ -62,7 +71,16 @@ export default async function CareerJobDetailPage({ params }: { params: Promise<
   return (
     <Container as="main" className="space-y-6 py-10">
       <JsonLd id={`career-job-webpage-${slug}`} data={webPageJsonLd} />
+      <JsonLd id={`career-job-occupation-${slug}`} data={occupationJsonLd} />
       <JsonLd id={`career-job-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+          { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+          { label: locale === "zh" ? "职业库" : "Jobs", href: localizedPath("/career/jobs", locale) },
+          { label: job.title },
+        ]}
+      />
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{job.title}</h1>
         <p className="m-0 text-[var(--fm-text-muted)]">{job.summary}</p>
@@ -123,7 +141,7 @@ export default async function CareerJobDetailPage({ params }: { params: Promise<
 
       <Card>
         <CardHeader>
-          <CardTitle>{locale === "zh" ? "适配性格" : "Fit personality"}</CardTitle>
+          <CardTitle>{locale === "zh" ? "适配性格与发展前景" : "Fit personality and outlook"}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
           <ul className="space-y-1 pl-5">
@@ -133,6 +151,7 @@ export default async function CareerJobDetailPage({ params }: { params: Promise<
           </ul>
           <p className="m-0">MBTI: {job.mbti_primary.join(", ")} / {job.mbti_secondary.join(", ")}</p>
           <p className="m-0">RIASEC: R {job.riasec_vector.R} · I {job.riasec_vector.I} · A {job.riasec_vector.A} · S {job.riasec_vector.S} · E {job.riasec_vector.E} · C {job.riasec_vector.C}</p>
+          <p className="m-0">{locale === "zh" ? "未来展望" : "Future outlook"}: {job.job_outlook}</p>
         </CardContent>
       </Card>
 

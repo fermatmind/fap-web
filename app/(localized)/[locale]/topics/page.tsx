@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -61,6 +62,12 @@ export default async function TopicsPage({
     <Container as="main" className="space-y-6 py-10">
       <JsonLd id="topics-webpage" data={webPageJsonLd} />
       <JsonLd id="topics-breadcrumb" data={breadcrumbJsonLd} />
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: withLocale("/") },
+          { label: locale === "zh" ? "主题" : "Topics" },
+        ]}
+      />
 
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">

@@ -171,6 +171,26 @@ function buildCareerPaths() {
   return [...paths];
 }
 
+function buildPersonalityPaths() {
+  const mbtiTypes = new Set();
+
+  for (const item of careerRecommendationProfiles) {
+    if (String(item?.profile_type) !== "mbti") continue;
+    const key = normalizeSlug(item?.key).toLowerCase();
+    if (!key) continue;
+    mbtiTypes.add(key);
+  }
+
+  const paths = ["/en/personality", "/zh/personality"];
+
+  for (const type of mbtiTypes) {
+    paths.push(`/en/personality/${type}`);
+    paths.push(`/zh/personality/${type}`);
+  }
+
+  return paths;
+}
+
 function buildTopicPaths() {
   const paths = new Set();
 
@@ -188,6 +208,7 @@ const generatedPaths = [
     ...buildTestPaths(),
     ...buildArticlePaths(),
     ...buildCareerPaths(),
+    ...buildPersonalityPaths(),
     ...buildTopicPaths(),
   ]),
 ];

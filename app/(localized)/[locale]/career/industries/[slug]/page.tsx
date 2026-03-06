@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -74,6 +75,14 @@ export default async function CareerIndustryDetailPage({ params }: { params: Pro
     <Container as="main" className="space-y-6 py-10">
       <JsonLd id={`career-industry-webpage-${slug}`} data={webPageJsonLd} />
       <JsonLd id={`career-industry-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+          { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+          { label: locale === "zh" ? "行业指南" : "Industries", href: localizedPath("/career/industries", locale) },
+          { label: industry.title },
+        ]}
+      />
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{industry.title}</h1>
         <p className="m-0 text-[var(--fm-text-muted)]">{industry.summary}</p>

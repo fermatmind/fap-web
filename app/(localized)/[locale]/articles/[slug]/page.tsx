@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -100,6 +101,13 @@ export default async function ArticleDetailPage({
     <Container as="main" className="space-y-6 py-10">
       <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} />
       <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+          { label: locale === "zh" ? "文章" : "Articles", href: localizedPath("/articles", locale) },
+          { label: post.title },
+        ]}
+      />
       <section id="what-it-is" className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {dict.articles.kicker}
