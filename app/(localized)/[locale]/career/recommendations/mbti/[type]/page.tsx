@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getCareerJobBySlug, getMbtiRecommendation, listMbtiRecommendationTypes } from "@/lib/content";
+import {
+  getCareerJobBySlug,
+  getMbtiRecommendation,
+  listMbtiRecommendationTypes,
+  listRelatedArticlesForType,
+  listRelatedCareerItemsForType,
+} from "@/lib/content";
 import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -59,6 +66,8 @@ export default async function CareerMbtiRecommendationPage({
   const recommendedJobs = profile.recommended_jobs
     .map((slug) => getCareerJobBySlug(slug, locale))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const relatedArticles = listRelatedArticlesForType(type, locale);
+  const relatedCareerPaths = listRelatedCareerItemsForType(type, locale);
 
   const avoidJobs = (profile.avoid_jobs ?? [])
     .map((slug) => getCareerJobBySlug(slug, locale))
@@ -128,6 +137,17 @@ export default async function CareerMbtiRecommendationPage({
       </Card>
 
       <article className="prose max-w-none prose-slate">{renderVeliteMdx(profile.body)}</article>
+
+      <div className="space-y-6">
+        <RelatedContent
+          title={locale === "zh" ? "相关文章" : "Related articles"}
+          items={relatedArticles}
+        />
+        <RelatedContent
+          title={locale === "zh" ? "相关职业路径" : "Related career paths"}
+          items={relatedCareerPaths}
+        />
+      </div>
     </Container>
   );
 }

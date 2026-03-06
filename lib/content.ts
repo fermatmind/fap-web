@@ -543,14 +543,18 @@ function relatedGuidesBySlugs(guideSlugs: string[], locale: Locale, excludeSlug?
 function relatedTypesByCodes(typeCodes: string[], locale: Locale, excludeCode?: string): RelatedContentItem[] {
   const items = typeCodes
     .filter((code) => code !== excludeCode)
-    .map((code) => getTypeByCode(code))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item))
-    .map((type) =>
+    .map((code) => ({
+      code,
+      recommendation: getMbtiRecommendation(code, locale),
+      type: getTypeByCode(code),
+    }))
+    .filter((item) => Boolean(item.recommendation))
+    .map((item) =>
       toRelatedItem(
-        type.code,
-        `${type.code} · ${type.name}`,
-        localizedPath(`/professions/${type.code}`, locale),
-        type.description
+        item.code,
+        item.recommendation?.title ?? item.code,
+        localizedPath(`/career/recommendations/mbti/${item.code}`, locale),
+        item.recommendation?.summary ?? item.type?.description
       )
     );
 
@@ -593,17 +597,7 @@ export function listRelatedCareerItemsForType(code: string, locale: Locale): Rel
   const normalizedCode = String(code ?? "").trim().toUpperCase();
   const recommendation = getMbtiRecommendation(normalizedCode, locale);
   const items: RelatedContentItem[] = [];
-
   if (recommendation) {
-    items.push(
-      toRelatedItem(
-        normalizedCode.toLowerCase(),
-        recommendation.title,
-        localizedPath(`/career/recommendations/mbti/${normalizedCode}`, locale),
-        recommendation.summary
-      )
-    );
-
     for (const jobSlug of recommendation.recommended_jobs.slice(0, 3)) {
       const job = getCareerJobBySlug(jobSlug, locale);
       if (!job) continue;

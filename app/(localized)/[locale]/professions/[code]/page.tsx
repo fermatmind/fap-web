@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  getTypeByCode,
-  listRelatedArticlesForType,
-  listRelatedCareerItemsForType,
-  listTypes,
-} from "@/lib/content";
+import { getTypeByCode, listTypes } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -60,9 +54,6 @@ export default async function ProfessionDetailPage({
 
   if (!type) return notFound();
 
-  const relatedArticles = listRelatedArticlesForType(type.code, locale);
-  const relatedCareers = listRelatedCareerItemsForType(type.code, locale);
-
   return (
     <Container as="main" className="space-y-6 py-10">
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
@@ -102,17 +93,6 @@ export default async function ProfessionDetailPage({
           </Link>
         </CardContent>
       </Card>
-
-      <div className="space-y-6">
-        <RelatedContent
-          title={locale === "zh" ? "相关文章" : "Related articles"}
-          items={relatedArticles}
-        />
-        <RelatedContent
-          title={locale === "zh" ? "相关职业路径" : "Related career paths"}
-          items={relatedCareers}
-        />
-      </div>
     </Container>
   );
 }
