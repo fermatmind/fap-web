@@ -1,5 +1,6 @@
 import { getLocaleFromPathname, toApiLocale } from "@/lib/i18n/locales";
 import { getFmToken } from "@/lib/auth/fmToken";
+import { buildApiUrl } from "@/lib/api-base";
 
 export type ApiErrorShape = {
   status: number;
@@ -24,7 +25,6 @@ export class ApiError extends Error {
   }
 }
 
-const API_BASE = "/api";
 const DEFAULT_TIMEOUT_MS = 15000;
 
 type Json = Record<string, unknown>;
@@ -50,29 +50,6 @@ function resolveRequestLocale(headers: Headers, localeHint?: string): "en" | "zh
   }
 
   return "en";
-}
-
-function resolveApiBase(): string {
-  if (typeof window !== "undefined") {
-    return API_BASE;
-  }
-
-  const origin = String(process.env.NEXT_PUBLIC_SITE_URL ?? "").trim().replace(/\/$/, "") || "http://localhost:3000";
-  const configuredApiBase = String(process.env.NEXT_PUBLIC_API_BASE ?? "").trim().replace(/\/$/, "");
-
-  if (!configuredApiBase) {
-    return `${origin}${API_BASE}`;
-  }
-
-  if (/^https?:\/\//i.test(configuredApiBase)) {
-    return configuredApiBase;
-  }
-
-  if (configuredApiBase.startsWith("/")) {
-    return `${origin}${configuredApiBase}`;
-  }
-
-  return `${origin}${API_BASE}`;
 }
 
 async function request<T>(method: string, path: string, body?: Json, init: RequestOptions = {}): Promise<T> {
@@ -105,7 +82,7 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
       }
     }
 
-    res = await fetch(`${resolveApiBase()}${path}`, {
+    res = await fetch(buildApiUrl(path), {
       ...fetchInit,
       method,
       signal: controller.signal,

@@ -22,6 +22,7 @@ import {
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { buildApiUrl } from "@/lib/api-base";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
@@ -113,12 +114,9 @@ async function resolveRequestAnonId(): Promise<string | undefined> {
 }
 
 async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupResponse | null> {
-  const apiBase = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
-  if (!apiBase) return null;
-
   try {
     const response = await fetch(
-      `${apiBase}/api/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${locale}`,
+      buildApiUrl(`/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${locale}`),
       {
         headers: {
           Accept: "application/json",

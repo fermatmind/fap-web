@@ -3,6 +3,7 @@ import Link from "next/link";
 import { cookies, headers } from "next/headers";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
+import { buildApiUrl } from "@/lib/api-base";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -37,12 +38,9 @@ function appendQuery(path: string, query: Record<string, string | string[] | und
 }
 
 async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promise<Record<string, unknown> | null> {
-  const apiBase = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
-  if (!apiBase) return null;
-
   try {
     const response = await fetch(
-      `${apiBase}/api/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${locale}`,
+      buildApiUrl(`/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${locale}`),
       {
         headers: {
           Accept: "application/json",

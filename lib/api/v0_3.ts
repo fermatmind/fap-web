@@ -1,5 +1,6 @@
 import { getFmToken } from "@/lib/auth/fmToken";
 import { getOrCreateAnonId } from "@/lib/anon";
+import { buildApiUrl } from "@/lib/api-base";
 import { ApiError, apiClient } from "@/lib/api-client";
 import { buildRequestScaleCodeCandidates } from "@/lib/scaleCodeMode";
 
@@ -717,7 +718,7 @@ export function getAttemptReportPdfUrl({
   attemptId: string;
   inline?: boolean;
 }): string {
-  return `/api/v0.3/attempts/${attemptId}/report.pdf${inline ? "?inline=1" : ""}`;
+  return buildApiUrl(`/v0.3/attempts/${attemptId}/report.pdf${inline ? "?inline=1" : ""}`);
 }
 
 export async function fetchAttemptReportPdf({

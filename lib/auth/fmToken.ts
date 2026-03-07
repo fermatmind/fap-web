@@ -1,5 +1,6 @@
+import { buildApiUrl } from "@/lib/api-base";
+
 const FM_TOKEN_KEY = "fm_auth_token";
-const API_BASE = "/api";
 const GUEST_TOKEN_TIMEOUT_MS = 10000;
 
 export type GuestTokenErrorReason =
@@ -160,13 +161,6 @@ export async function requestGuestToken({
   anonId?: string;
   locale?: string;
 } = {}): Promise<string> {
-  if (!API_BASE.trim()) {
-    throw new GuestTokenRequestError({
-      reason: "config",
-      message: "NEXT_PUBLIC_API_BASE is empty. Unable to request guest token.",
-    });
-  }
-
   const headers = new Headers({
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -179,9 +173,10 @@ export async function requestGuestToken({
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), GUEST_TOKEN_TIMEOUT_MS);
+  const endpoint = buildApiUrl("/v0.3/auth/guest");
   let response: Response;
   try {
-    response = await fetch(`${API_BASE}/v0.3/auth/guest`, {
+    response = await fetch(endpoint, {
       method: "POST",
       headers,
       body: JSON.stringify(normalizedAnonId ? { anon_id: normalizedAnonId } : {}),
