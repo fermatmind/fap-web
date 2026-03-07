@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === "production";
 const cdnUrl = (process.env.NEXT_PUBLIC_CDN_URL || "").replace(/\/$/, "");
-const apiOrigin = String(process.env.NEXT_PUBLIC_API_URL ?? "").trim().replace(/\/$/, "") || "https://api.fermatmind.com";
 
 function parseHostname(value) {
   try {
@@ -109,14 +108,6 @@ const nextConfig = {
         source: "/sitemap-zh.xml",
         destination: "/sitemap.xml",
         permanent: true,
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: `${apiOrigin}/api/:path*`,
       },
     ];
   },

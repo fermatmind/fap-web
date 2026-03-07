@@ -8,8 +8,7 @@ WorkingDirectory=/opt/fap-web
 Environment=NODE_ENV=production
 Environment=PORT=3000
 Environment=HOSTNAME=127.0.0.1
-Environment=NEXT_PUBLIC_API_URL=https://api.example.com
-Environment=NEXT_PUBLIC_API_BASE=/api
+Environment=NEXT_PUBLIC_API_URL=https://api.fermatmind.com
 Environment=NEXT_PUBLIC_RELEASE=web@2026-02-23+launch_gate
 Environment=ENABLE_MBTI=true
 Environment=ENABLE_BIG5_OCEAN=true
