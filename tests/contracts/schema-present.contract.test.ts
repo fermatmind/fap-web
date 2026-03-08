@@ -28,12 +28,13 @@ describe("schema injection contract", () => {
     expect(source).toContain('id="references"');
   });
 
-  it("topic detail page injects webpage and breadcrumb JSON-LD", () => {
+  it("topic detail page injects cms seo jsonld and breadcrumb jsonld", () => {
     const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
     expect(source).toContain("JsonLd");
-    expect(source).toContain("buildWebPageJsonLd");
+    expect(source).toContain("normalizeTopicSeoPayload");
     expect(source).toContain("buildBreadcrumbJsonLd");
-    expect(source).toContain("RelatedContent");
+    expect(source).toContain("renderTopicSections");
+    expect(source).toContain("renderTopicEntryGroups");
   });
 
   it("career job detail page injects occupation JSON-LD", () => {

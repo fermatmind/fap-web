@@ -1,0 +1,245 @@
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
+import {
+  buildTopicFrontendUrl,
+  mapFrontendLocaleToTopicsApiLocale,
+  normalizeTopicProfileDetail,
+  normalizeTopicSeoPayload,
+  normalizeTopicSlug,
+} from "@/lib/cms/topics";
+import type { CmsTopicEntryGroups } from "@/lib/cms/topics";
+import {
+  getRenderableTopicEntryGroups,
+  getRenderableTopicSections,
+  renderTopicEntryGroups,
+  renderTopicSections,
+} from "@/lib/cms/topic-sections";
+
+describe("topics cms helpers", () => {
+  it("maps frontend locale and topic links correctly", () => {
+    expect(mapFrontendLocaleToTopicsApiLocale("en")).toBe("en");
+    expect(mapFrontendLocaleToTopicsApiLocale("zh")).toBe("zh-CN");
+    expect(normalizeTopicSlug(" MBTI ")).toBe("mbti");
+    expect(buildTopicFrontendUrl("en", " MBTI ")).toBe("/en/topics/mbti");
+    expect(buildTopicFrontendUrl("zh", "MBTI")).toBe("/zh/topics/mbti");
+  });
+
+  it("normalizes detail payloads from the backend contract", () => {
+    const topic = normalizeTopicProfileDetail(
+      {
+        id: 1,
+        org_id: 0,
+        topic_code: "MBTI",
+        slug: "mbti",
+        locale: "en",
+        title: "MBTI Guide and Type Hub",
+        subtitle: "A structured intro",
+        excerpt: "Explore MBTI concepts, type profiles, guides, and tests.",
+        hero_kicker: "Topic hub",
+        hero_quote: "Start from the core ideas, then go deeper.",
+        status: "published",
+        is_public: true,
+        is_indexable: true,
+      },
+      [
+        {
+          section_key: "overview",
+          title: "Overview",
+          render_variant: "rich_text",
+          body_md: "Overview body",
+          is_enabled: true,
+        },
+      ],
+      {
+        articles: [
+          {
+            entry_type: "article",
+            group_key: "articles",
+            target_key: "how-to-read-mbti-results",
+            title: "How to read MBTI results",
+            excerpt: "A practical guide.",
+            url: "/en/articles/how-to-read-mbti-results",
+            badge_label: "Article",
+            cta_label: "Read",
+          },
+        ],
+      },
+      null
+    );
+
+    expect(topic.topicCode).toBe("mbti");
+    expect(topic.slug).toBe("mbti");
+    expect(topic.sections).toHaveLength(1);
+    expect(topic.sections[0]?.sectionKey).toBe("overview");
+    expect(topic.entryGroups.articles?.[0]?.url).toBe("/en/articles/how-to-read-mbti-results");
+  });
+
+  it("ignores unknown sections and entry groups safely", () => {
+    const sections = getRenderableTopicSections([
+      {
+        sectionKey: "overview",
+        title: "Overview",
+        renderVariant: "rich_text",
+        bodyMd: "Overview body",
+        bodyHtml: "",
+        payloadJson: null,
+        sortOrder: 10,
+        isEnabled: true,
+      },
+      {
+        sectionKey: "mystery_section",
+        title: "Mystery",
+        renderVariant: "rich_text",
+        bodyMd: "Ignored",
+        bodyHtml: "",
+        payloadJson: null,
+        sortOrder: 20,
+        isEnabled: true,
+      },
+    ]);
+
+    const groups = getRenderableTopicEntryGroups({
+      articles: [
+        {
+          entryType: "article",
+          groupKey: "articles",
+          targetKey: "article-a",
+          title: "Article A",
+          excerpt: "Summary",
+          url: "/en/articles/article-a",
+          badgeLabel: "Article",
+          ctaLabel: "Read",
+          imageUrl: null,
+          isFeatured: false,
+        },
+      ],
+      mystery: [
+        {
+          entryType: "custom_link",
+          groupKey: "mystery",
+          targetKey: "mystery",
+          title: "Mystery",
+          excerpt: "Ignored",
+          url: "/en/mystery",
+          badgeLabel: "Link",
+          ctaLabel: "Open",
+          imageUrl: null,
+          isFeatured: false,
+        },
+      ],
+    } as unknown as CmsTopicEntryGroups);
+
+    expect(sections).toHaveLength(1);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.groupKey).toBe("articles");
+  });
+
+  it("normalizes canonical and keeps CollectionPage jsonld intact", () => {
+    const topic = normalizeTopicProfileDetail(
+      {
+        id: 1,
+        org_id: 0,
+        topic_code: "MBTI",
+        slug: "mbti",
+        locale: "en",
+        title: "MBTI Guide and Type Hub",
+        excerpt: "Explore MBTI concepts, type profiles, guides, and tests.",
+        status: "published",
+        is_public: true,
+        is_indexable: true,
+      },
+      [],
+      {},
+      null
+    );
+
+    const seo = normalizeTopicSeoPayload(
+      {
+        meta: {
+          title: "MBTI Guide and Type Hub | FermatMind",
+          description: "Explore MBTI concepts, type profiles, guides, and tests.",
+          canonical: "https://localhost:3000/en/topics/mbti",
+          alternates: {
+            en: "https://localhost:3000/en/topics/mbti",
+            "zh-CN": "https://localhost:3000/zh/topics/mbti",
+          },
+          og: {
+            title: "MBTI Guide and Type Hub | FermatMind",
+            description: "Explore MBTI concepts, type profiles, guides, and tests.",
+            image: null,
+            type: "article",
+          },
+          twitter: {
+            card: "summary_large_image",
+            title: "MBTI Guide and Type Hub | FermatMind",
+            description: "Explore MBTI concepts, type profiles, guides, and tests.",
+            image: null,
+          },
+          robots: "index,follow",
+        },
+        jsonld: {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          mainEntityOfPage: "https://localhost:3000/en/topics/mbti",
+        },
+      },
+      topic,
+      "zh"
+    );
+
+    expect(seo.meta.canonical).toBe("http://localhost:3000/zh/topics/mbti");
+    expect(seo.meta.alternates.en).toBe("http://localhost:3000/en/topics/mbti");
+    expect(seo.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/topics/mbti");
+    const jsonld = seo.jsonld as { "@type"?: string; mainEntityOfPage?: string };
+
+    expect(jsonld["@type"]).toBe("CollectionPage");
+    expect(jsonld.mainEntityOfPage).toBe(
+      "http://localhost:3000/zh/topics/mbti"
+    );
+  });
+
+  it("renders known sections and known entry groups", () => {
+    render(
+      <>
+        {renderTopicSections(
+          [
+            {
+              sectionKey: "overview",
+              title: "Overview",
+              renderVariant: "rich_text",
+              bodyMd: "Overview body",
+              bodyHtml: "",
+              payloadJson: null,
+              sortOrder: 10,
+              isEnabled: true,
+            },
+          ],
+          "en"
+        )}
+        {renderTopicEntryGroups(
+          {
+            related: [
+              {
+                entryType: "custom_link",
+                groupKey: "related",
+                targetKey: "docs",
+                title: "MBTI methodology",
+                excerpt: "Read the methodology behind the MBTI topic hub.",
+                url: "/en/about/methodology",
+                badgeLabel: "Link",
+                ctaLabel: "Open",
+                imageUrl: null,
+                isFeatured: false,
+              },
+            ],
+          },
+          "en"
+        )}
+      </>
+    );
+
+    expect(screen.getByText("Overview")).toBeInTheDocument();
+    expect(screen.getByText("Related links")).toBeInTheDocument();
+    expect(screen.getByText("MBTI methodology")).toBeInTheDocument();
+  });
+});
