@@ -35,6 +35,8 @@ describe("sitemap indexability contract", () => {
     const disallowedPrefixes = [
       "/en/history",
       "/zh/history",
+      "/en/topics",
+      "/zh/topics",
       "/en/result",
       "/zh/result",
       "/en/orders",
