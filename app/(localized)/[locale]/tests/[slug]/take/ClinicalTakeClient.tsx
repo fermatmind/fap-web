@@ -15,7 +15,7 @@ import {
 } from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { getOrCreateAnonId } from "@/lib/anon";
+import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
@@ -30,6 +30,12 @@ import {
   submitClinicalAttempt,
   type ClinicalScaleCode,
 } from "@/lib/clinical/api";
+import {
+  linkAnonAttemptsOnceOnLoginSuccess,
+  shouldLinkAnonAttemptsOnLoginSuccess,
+  type QuestionsMeta,
+  type ScaleQuestionItem,
+} from "@/lib/api/v0_3";
 import { useClinicalAttemptStore } from "@/lib/clinical/attemptStore";
 import { mapClinicalError } from "@/lib/clinical/errors";
 import { getDictSync } from "@/lib/i18n/getDict";
@@ -38,7 +44,6 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
-import type { QuestionsMeta, ScaleQuestionItem } from "@/lib/api/v0_3";
 
 const SDS_OPTION_CODES = ["A", "B", "C", "D"];
 const SUBMIT_REPORT_CACHE_PREFIX = "fm_attempt_submit_report_v1_";
@@ -229,10 +234,30 @@ export default function ClinicalTakeClient({
 
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
-    if (tokenFromUrl.startsWith("fm_")) {
-      setFmToken(tokenFromUrl);
+    if (!tokenFromUrl.startsWith("fm_")) return;
+
+    setFmToken(tokenFromUrl);
+
+    const pendingAttemptIds = readPendingAnonLinkAttempts();
+    if (
+      pendingAttemptIds.length === 0
+      || !shouldLinkAnonAttemptsOnLoginSuccess({
+        tokenFromUrl,
+        anonId,
+        attemptIds: pendingAttemptIds,
+      })
+    ) {
+      return;
     }
-  }, [searchParams]);
+
+    void linkAnonAttemptsOnceOnLoginSuccess({
+      tokenFromUrl,
+      anonId,
+      attemptIds: pendingAttemptIds,
+    }).catch(() => {
+      // Keep login flow non-blocking.
+    });
+  }, [anonId, searchParams]);
 
   const trackGuestTokenFailure = useCallback(
     (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {

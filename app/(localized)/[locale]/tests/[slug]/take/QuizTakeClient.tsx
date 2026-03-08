@@ -15,7 +15,7 @@ import {
 } from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { Button } from "@/components/ui/button";
-import { getOrCreateAnonId } from "@/lib/anon";
+import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   isGuestTokenEndpointMissingError,
@@ -24,7 +24,9 @@ import {
 } from "@/lib/auth/fmToken";
 import {
   fetchScaleQuestions,
+  linkAnonAttemptsOnceOnLoginSuccess,
   startAttempt,
+  shouldLinkAnonAttemptsOnLoginSuccess,
   submitAttempt,
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
@@ -185,10 +187,30 @@ function QuizTakeInner({
 
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
-    if (tokenFromUrl.startsWith("fm_")) {
-      setFmToken(tokenFromUrl);
+    if (!tokenFromUrl.startsWith("fm_")) return;
+
+    setFmToken(tokenFromUrl);
+
+    const pendingAttemptIds = readPendingAnonLinkAttempts();
+    if (
+      pendingAttemptIds.length === 0
+      || !shouldLinkAnonAttemptsOnLoginSuccess({
+        tokenFromUrl,
+        anonId,
+        attemptIds: pendingAttemptIds,
+      })
+    ) {
+      return;
     }
-  }, [searchParams]);
+
+    void linkAnonAttemptsOnceOnLoginSuccess({
+      tokenFromUrl,
+      anonId,
+      attemptIds: pendingAttemptIds,
+    }).catch(() => {
+      // Keep login flow non-blocking.
+    });
+  }, [anonId, searchParams]);
 
   const trackGuestTokenFailure = useCallback(
     (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {

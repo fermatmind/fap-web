@@ -1,5 +1,5 @@
 import { getFmToken } from "@/lib/auth/fmToken";
-import { getOrCreateAnonId } from "@/lib/anon";
+import { getOrCreateAnonId, removePendingAnonLinkAttempts } from "@/lib/anon";
 import { buildApiUrl } from "@/lib/api-base";
 import { ApiError, apiClient } from "@/lib/api-client";
 import { buildRequestScaleCodeCandidates } from "@/lib/scaleCodeMode";
@@ -409,6 +409,253 @@ export type LinkAnonAttemptsResponse = {
   skipped_attempt_ids?: string[];
   [key: string]: unknown;
 };
+
+const LINK_ANON_SESSION_DEDUP_KEY = "fm_link_anon_dedup_v1";
+const LINK_ANON_UNSUPPORTED_KEY = "fm_link_anon_unsupported_v1";
+const LINK_ANON_UNSUPPORTED_TTL_MS = 24 * 60 * 60 * 1000;
+
+type LinkAnonDedupEntry = {
+  status: "inflight" | "done";
+  updatedAt: number;
+};
+
+function canUseWebStorage(): boolean {
+  return typeof window !== "undefined";
+}
+
+function normalizeLinkAnonAttemptIds(attemptIds: string[]): string[] {
+  return Array.from(
+    new Set(
+      attemptIds
+        .map((item) => item.trim())
+        .filter((item) => item.length > 0)
+    )
+  ).sort((left, right) => left.localeCompare(right));
+}
+
+function readSessionLinkAnonDedupMap(): Record<string, LinkAnonDedupEntry> {
+  if (!canUseWebStorage()) return {};
+
+  try {
+    const raw = window.sessionStorage.getItem(LINK_ANON_SESSION_DEDUP_KEY);
+    if (!raw) return {};
+
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return {};
+    }
+
+    return Object.entries(parsed as Record<string, unknown>).reduce<Record<string, LinkAnonDedupEntry>>(
+      (acc, [key, value]) => {
+        if (!value || typeof value !== "object" || Array.isArray(value)) {
+          return acc;
+        }
+
+        const entry = value as Record<string, unknown>;
+        const status = entry.status === "inflight" || entry.status === "done" ? entry.status : null;
+        const updatedAt = typeof entry.updatedAt === "number" && Number.isFinite(entry.updatedAt)
+          ? entry.updatedAt
+          : null;
+
+        if (!status || updatedAt === null) {
+          return acc;
+        }
+
+        acc[key] = {
+          status,
+          updatedAt,
+        };
+        return acc;
+      },
+      {}
+    );
+  } catch {
+    return {};
+  }
+}
+
+function writeSessionLinkAnonDedupMap(entries: Record<string, LinkAnonDedupEntry>): void {
+  if (!canUseWebStorage()) return;
+
+  try {
+    window.sessionStorage.setItem(LINK_ANON_SESSION_DEDUP_KEY, JSON.stringify(entries));
+  } catch {
+    // Ignore storage failures.
+  }
+}
+
+function setSessionLinkAnonDedupEntry(key: string, entry: LinkAnonDedupEntry): void {
+  if (!canUseWebStorage()) return;
+  const current = readSessionLinkAnonDedupMap();
+  current[key] = entry;
+  writeSessionLinkAnonDedupMap(current);
+}
+
+function removeSessionLinkAnonDedupEntry(key: string): void {
+  if (!canUseWebStorage()) return;
+  const current = readSessionLinkAnonDedupMap();
+  if (!(key in current)) return;
+  delete current[key];
+  writeSessionLinkAnonDedupMap(current);
+}
+
+function readLinkAnonUnsupportedUntil(): number | null {
+  if (!canUseWebStorage()) return null;
+
+  try {
+    const raw = window.localStorage.getItem(LINK_ANON_UNSUPPORTED_KEY);
+    if (!raw) return null;
+
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return null;
+    }
+
+    const until = (parsed as Record<string, unknown>).until;
+    if (typeof until !== "number" || !Number.isFinite(until) || until <= 0) {
+      return null;
+    }
+
+    return until;
+  } catch {
+    return null;
+  }
+}
+
+function isLinkAnonUnsupportedActive(now: number = Date.now()): boolean {
+  const until = readLinkAnonUnsupportedUntil();
+  if (!until) return false;
+
+  if (until <= now) {
+    if (canUseWebStorage()) {
+      try {
+        window.localStorage.removeItem(LINK_ANON_UNSUPPORTED_KEY);
+      } catch {
+        // Ignore storage failures.
+      }
+    }
+    return false;
+  }
+
+  return true;
+}
+
+function markLinkAnonUnsupported(now: number = Date.now()): void {
+  if (!canUseWebStorage()) return;
+
+  try {
+    window.localStorage.setItem(
+      LINK_ANON_UNSUPPORTED_KEY,
+      JSON.stringify({
+        until: now + LINK_ANON_UNSUPPORTED_TTL_MS,
+      })
+    );
+  } catch {
+    // Ignore storage failures.
+  }
+}
+
+function buildLinkAnonDedupKey({
+  tokenFromUrl,
+  anonId,
+  attemptIds,
+}: {
+  tokenFromUrl: string;
+  anonId: string;
+  attemptIds: string[];
+}): string {
+  return JSON.stringify([
+    tokenFromUrl.trim(),
+    anonId.trim(),
+    normalizeLinkAnonAttemptIds(attemptIds),
+  ]);
+}
+
+export function shouldLinkAnonAttemptsOnLoginSuccess({
+  tokenFromUrl,
+  anonId,
+  attemptIds,
+}: {
+  tokenFromUrl: string;
+  anonId: string;
+  attemptIds: string[];
+}): boolean {
+  const normalizedToken = tokenFromUrl.trim();
+  const normalizedAnonId = anonId.trim();
+  const normalizedAttemptIds = normalizeLinkAnonAttemptIds(attemptIds);
+
+  if (!normalizedToken.startsWith("fm_")) return false;
+  if (!normalizedAnonId || normalizedAttemptIds.length === 0) return false;
+  if (isLinkAnonUnsupportedActive()) return false;
+  if (!canUseWebStorage()) return true;
+
+  const key = buildLinkAnonDedupKey({
+    tokenFromUrl: normalizedToken,
+    anonId: normalizedAnonId,
+    attemptIds: normalizedAttemptIds,
+  });
+
+  return !(key in readSessionLinkAnonDedupMap());
+}
+
+export async function linkAnonAttemptsOnceOnLoginSuccess({
+  tokenFromUrl,
+  anonId,
+  attemptIds,
+}: {
+  tokenFromUrl: string;
+  anonId: string;
+  attemptIds: string[];
+}): Promise<void> {
+  const normalizedToken = tokenFromUrl.trim();
+  const normalizedAnonId = anonId.trim();
+  const normalizedAttemptIds = normalizeLinkAnonAttemptIds(attemptIds);
+
+  if (!normalizedToken.startsWith("fm_")) return;
+  if (!normalizedAnonId || normalizedAttemptIds.length === 0) return;
+  if (isLinkAnonUnsupportedActive()) return;
+
+  const dedupKey = buildLinkAnonDedupKey({
+    tokenFromUrl: normalizedToken,
+    anonId: normalizedAnonId,
+    attemptIds: normalizedAttemptIds,
+  });
+
+  if (canUseWebStorage()) {
+    const dedupEntries = readSessionLinkAnonDedupMap();
+    if (dedupKey in dedupEntries) return;
+    setSessionLinkAnonDedupEntry(dedupKey, {
+      status: "inflight",
+      updatedAt: Date.now(),
+    });
+  }
+
+  try {
+    await linkAnonAttempts({
+      anonId: normalizedAnonId,
+      attemptIds: normalizedAttemptIds,
+      authToken: normalizedToken,
+    });
+
+    removePendingAnonLinkAttempts(normalizedAttemptIds);
+    setSessionLinkAnonDedupEntry(dedupKey, {
+      status: "done",
+      updatedAt: Date.now(),
+    });
+  } catch (error) {
+    if (error instanceof ApiError && (error.status === 404 || error.status === 501)) {
+      markLinkAnonUnsupported();
+      setSessionLinkAnonDedupEntry(dedupKey, {
+        status: "done",
+        updatedAt: Date.now(),
+      });
+      return;
+    }
+
+    removeSessionLinkAnonDedupEntry(dedupKey);
+    throw error;
+  }
+}
 
 function anonHeader(anonId?: string, extraHeaders?: Record<string, string>) {
   const resolvedAnonId = resolveAnonId(anonId);
@@ -884,14 +1131,14 @@ export async function getMyAttempts({
 export async function linkAnonAttempts({
   anonId,
   attemptIds,
+  authToken,
 }: {
   anonId: string;
   attemptIds: string[];
+  authToken?: string;
 }): Promise<LinkAnonAttemptsResponse> {
   const normalizedAnonId = anonId.trim();
-  const normalizedAttemptIds = attemptIds
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0);
+  const normalizedAttemptIds = normalizeLinkAnonAttemptIds(attemptIds);
 
   if (!normalizedAnonId || normalizedAttemptIds.length === 0) {
     return {
@@ -907,7 +1154,10 @@ export async function linkAnonAttempts({
       anon_id: normalizedAnonId,
       attempt_ids: normalizedAttemptIds,
     },
-    anonHeader(normalizedAnonId)
+    {
+      ...anonHeader(normalizedAnonId),
+      authToken,
+    }
   );
 
   return assertApiOk(response, "Failed to link anonymous attempts.");

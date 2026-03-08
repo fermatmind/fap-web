@@ -197,29 +197,6 @@ function resolveSnapshotError(report: ReportResponse | null): boolean {
   return Boolean((report as Record<string, unknown>).snapshot_error);
 }
 
-function resolveRetryAfterSeconds(report: ReportResponse | null): number | null {
-  if (!report) return null;
-
-  if (
-    report.meta
-    && typeof report.meta === "object"
-    && typeof report.meta.retry_after_seconds === "number"
-    && Number.isFinite(report.meta.retry_after_seconds)
-  ) {
-    return report.meta.retry_after_seconds;
-  }
-
-  if (typeof report.retry_after_seconds === "number" && Number.isFinite(report.retry_after_seconds)) {
-    return report.retry_after_seconds;
-  }
-
-  if (typeof report.retry_after === "number" && Number.isFinite(report.retry_after)) {
-    return report.retry_after;
-  }
-
-  return null;
-}
-
 function readCachedSubmitReport(attemptId: string): ReportResponse | null {
   if (typeof window === "undefined") return null;
 
@@ -481,11 +458,9 @@ export default function ClinicalReportClient({
   const [loading, setLoading] = useState(!initialReport);
   const [error, setError] = useState<string | null>(null);
   const [notFoundRetrying, setNotFoundRetrying] = useState(false);
-  const [showNotFoundFallback, setShowNotFoundFallback] = useState(false);
   const [paying, setPaying] = useState(false);
   const [payError, setPayError] = useState<string | null>(null);
   const [unlockPolling, setUnlockPolling] = useState(false);
-  const [pendingOrderNo, setPendingOrderNo] = useState("");
 
   const reportViewSignatureRef = useRef("");
   const previousLockedRef = useRef<boolean | null>(null);
@@ -501,7 +476,6 @@ export default function ClinicalReportClient({
   const primaryNumericScore = useMemo(() => extractPrimaryNumericScore(reportData), [reportData]);
   const generating = resolveGenerating(reportData);
   const snapshotError = resolveSnapshotError(reportData);
-  const retryAfterSeconds = resolveRetryAfterSeconds(reportData);
   const consentTrace = useMemo(() => resolveConsentTrace(reportData), [reportData]);
   const sdsFactors = useMemo(() => resolveSdsFactors(reportData), [reportData]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
@@ -560,15 +534,6 @@ export default function ClinicalReportClient({
 
   const showPaywall = locked && offers.length > 0 && !crisisAlert && rolloutDecision.commerceEnabled;
   const showOffers = offers.length > 0 && !crisisAlert && rolloutDecision.commerceEnabled;
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      setPendingOrderNo(window.localStorage.getItem(pendingUnlockStorageKey) ?? "");
-    } catch {
-      setPendingOrderNo("");
-    }
-  }, [pendingUnlockStorageKey, reportData, showNotFoundFallback]);
 
   const loadReport = useCallback(
     async ({ refresh = false }: { refresh?: boolean } = {}) => {
@@ -658,7 +623,6 @@ export default function ClinicalReportClient({
       }
 
       setError(null);
-      setShowNotFoundFallback(false);
       setNotFoundRetrying(false);
       try {
         await loadReport();
@@ -675,7 +639,6 @@ export default function ClinicalReportClient({
             : mapped.message;
         setError(message);
         setNotFoundRetrying(false);
-        setShowNotFoundFallback(stageDetail === "load_report_not_found_retry_exhausted");
         const classified = classifyApiError(cause);
         const payload: Record<string, unknown> = {
           scale_code: scaleCode ?? "UNKNOWN",
@@ -769,7 +732,6 @@ export default function ClinicalReportClient({
           // ignore storage failures
         }
       }
-      setPendingOrderNo("");
     }
 
     previousLockedRef.current = locked;
@@ -828,7 +790,6 @@ export default function ClinicalReportClient({
             } catch {
               // ignore storage failures
             }
-            setPendingOrderNo("");
             break;
           }
         }
@@ -901,7 +862,6 @@ export default function ClinicalReportClient({
                 ? (action.orderNo ?? firstOffer.order_no ?? "")
                 : (firstOffer.order_no ?? "");
           window.localStorage.setItem(pendingUnlockStorageKey, pendingOrderNo);
-          setPendingOrderNo(pendingOrderNo);
         } catch {
           // ignore storage failures
         }
@@ -935,7 +895,6 @@ export default function ClinicalReportClient({
     setLoading(true);
     setError(null);
     setNotFoundRetrying(false);
-    setShowNotFoundFallback(false);
 
     try {
       await loadReport({ refresh: true });
@@ -951,7 +910,6 @@ export default function ClinicalReportClient({
           : mapped.message;
       setError(message);
       setNotFoundRetrying(false);
-      setShowNotFoundFallback(stageDetail === "load_report_not_found_retry_exhausted");
       const classified = classifyApiError(cause);
       const payload: Record<string, unknown> = {
         scale_code: scaleCode ?? "UNKNOWN",
@@ -979,66 +937,44 @@ export default function ClinicalReportClient({
     }
   };
 
-  if (loading && !reportData) {
+  const viewState: "processing" | "ready" | "failed" =
+    loading || notFoundRetrying || generating
+      ? "processing"
+      : snapshotError || error || !reportData || !scaleCode
+        ? "failed"
+        : "ready";
+
+  if (viewState === "processing") {
     return (
       <div className="space-y-3">
-        {notFoundRetrying ? <Alert>{dict.result.reportNotFoundRetrying}</Alert> : null}
+        <Alert>{isZh ? "报告生成中，请稍候..." : "Report is generating. Please wait..."}</Alert>
         <AnticipationSkeleton phases={dict.loading.phases} />
       </div>
     );
   }
 
-  if (error && !reportData) {
-    return (
-      <div className="space-y-3">
-        <Alert>{error}</Alert>
-        <Button type="button" variant="outline" onClick={handleReload}>
-          {isZh ? "重试加载" : "Retry"}
-        </Button>
-        {showNotFoundFallback ? (
-          <div className="space-y-2">
-            <Link href={withLocale(`/result/${attemptId}`)} className="block text-sm font-medium text-sky-700 underline">
-              {isZh ? "打开结果页" : "Open result page"}
-            </Link>
-            <Link
-              href={withLocale(pendingOrderNo ? `/orders/${pendingOrderNo}` : "/orders/lookup")}
-              className="block text-sm font-medium text-sky-700 underline"
-            >
-              {pendingOrderNo ? dict.result.viewOrderStatus : dict.result.openOrderLookup}
-            </Link>
-          </div>
-        ) : null}
-      </div>
-    );
+  if (viewState === "failed") {
+    const failedMessage =
+      error
+      ?? (snapshotError
+        ? (isZh ? "报告快照加载失败，请重试。" : "Report snapshot failed. Please retry.")
+        : reportData && !scaleCode
+          ? (isZh ? "当前尝试不是临床量表报告。" : "This attempt does not belong to a clinical report flow.")
+          : (isZh ? "报告暂不可用。" : "Report is unavailable."));
+
+    return <Alert>{failedMessage}</Alert>;
   }
 
-  if (!reportData) {
-    return <Alert>{isZh ? "报告暂不可用。" : "Report is unavailable."}</Alert>;
-  }
-
-  if (!scaleCode) {
-    return (
-      <div className="space-y-3">
-        <Alert>
-          {isZh
-            ? "当前尝试不是临床量表报告。"
-            : "This attempt does not belong to a clinical report flow."}
-        </Alert>
-        <Link href={withLocale(`/result/${attemptId}`)} className="text-sm font-medium text-sky-700 underline">
-          {isZh ? "打开结果页" : "Open result page"}
-        </Link>
-      </div>
-    );
-  }
-
+  const readyReportData = reportData as ReportResponse;
+  const readyScaleCode = scaleCode as ClinicalScaleCode;
   const qualityText = `${isZh ? "质量等级" : "Quality"}: ${qualityLevel}`;
 
   return (
     <div className="space-y-6">
       <div className="space-y-2 rounded-2xl border border-slate-200 bg-white p-4">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{scaleCode}</p>
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{readyScaleCode}</p>
         <p className="m-0 text-sm text-slate-700">
-          {isZh ? "访问等级" : "Access"}: {String(reportData.access_level ?? variant)}
+          {isZh ? "访问等级" : "Access"}: {String(readyReportData.access_level ?? variant)}
         </p>
         <p className="m-0 text-sm text-slate-700">{qualityText}</p>
         {primaryNumericScore !== null ? (
@@ -1052,13 +988,6 @@ export default function ClinicalReportClient({
             {isZh ? "正在确认解锁状态..." : "Verifying unlock state..."}
           </p>
         ) : null}
-        {retryAfterSeconds && generating ? (
-          <p className="m-0 text-xs text-slate-500">
-            {isZh
-              ? `${retryAfterSeconds} 秒后自动重试`
-              : `Auto retry in ${retryAfterSeconds} seconds`}
-          </p>
-        ) : null}
         {consentTrace.version || consentTrace.hash ? (
           <p className="m-0 text-xs text-slate-500">
             {isZh ? "同意书版本" : "Consent"}: {consentTrace.version || "-"} ·
@@ -1067,29 +996,11 @@ export default function ClinicalReportClient({
         ) : null}
       </div>
 
-      {generating ? (
-        <div className="space-y-3">
-          <Alert>{isZh ? "报告生成中，请稍候..." : "Report is generating. Please wait..."}</Alert>
-          <AnticipationSkeleton phases={dict.loading.phases} />
-        </div>
-      ) : null}
-
-      {snapshotError ? (
-        <div className="space-y-3">
-          <Alert>{isZh ? "报告快照加载失败，请重试。" : "Report snapshot failed. Please retry."}</Alert>
-          <Button type="button" variant="outline" onClick={handleReload}>
-            {isZh ? "重试加载报告" : "Retry loading report"}
-          </Button>
-        </div>
-      ) : null}
-
-      {error ? <Alert>{error}</Alert> : null}
-
       {crisisAlert && !hasCrisisSection ? (
-        <CrisisOverlay locale={locale} resources={crisisResources} reasons={crisisReasons} scaleCode={scaleCode} />
+        <CrisisOverlay locale={locale} resources={crisisResources} reasons={crisisReasons} scaleCode={readyScaleCode} />
       ) : null}
 
-      {scaleCode === "SDS_20" && sdsFactors ? (
+      {readyScaleCode === "SDS_20" && sdsFactors ? (
         <SdsFactorPanel locale={locale} factors={sdsFactors} />
       ) : null}
 
@@ -1100,7 +1011,7 @@ export default function ClinicalReportClient({
             locale={locale}
             section={section}
             locked={locked}
-            scaleCode={scaleCode}
+            scaleCode={readyScaleCode}
           />
         ))}
       </div>
@@ -1150,7 +1061,7 @@ export default function ClinicalReportClient({
         </Button>
         <Link
           href={withLocale(
-            `/tests/${scaleCode === "SDS_20"
+            `/tests/${readyScaleCode === "SDS_20"
               ? "depression-screening-test-standard-edition"
               : "clinical-depression-anxiety-assessment-professional-edition"}`
           )}
