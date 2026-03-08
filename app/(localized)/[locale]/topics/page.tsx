@@ -4,11 +4,13 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { listTopics } from "@/lib/cms/topics";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { listTopicClusters } from "@/lib/topics";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -25,7 +27,7 @@ export async function generateMetadata({
     title: isZh ? "主题内容聚合" : "Topic Clusters",
     description: isZh
       ? "把文章、职业发展和人格相关内容串成结构化主题簇。"
-      : "Structured SEO clusters that connect articles, career content, and personality-led recommendations.",
+      : "Structured topic hubs that connect articles, tests, and personality-led guidance.",
     alternatesByLocale: {
       en: "/en/topics",
       zh: "/zh/topics",
@@ -42,21 +44,26 @@ export default async function TopicsPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const topics = listTopicClusters(locale);
+  const { items: topics } = await listTopics({ locale });
   const canonicalPath = locale === "zh" ? "/zh/topics" : "/en/topics";
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? "主题内容聚合" : "Topic Clusters",
     description:
       locale === "zh"
-        ? "把文章、职业发展和人格相关内容串成结构化主题簇。"
-        : "Structured SEO clusters that connect articles, career content, and personality-led recommendations.",
+        ? "把文章、测试与人格相关内容串成结构化主题簇。"
+        : "Structured topic hubs that connect articles, tests, and personality-led guidance.",
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "主题" : "Topics", path: canonicalPath },
   ]);
+  const emptyTitle = locale === "zh" ? "暂无已发布主题" : "No published topics yet";
+  const emptyDescription =
+    locale === "zh"
+      ? "CMS 当前没有返回可展示的 topic profile，或当前环境尚未提供 topics 数据。"
+      : "The CMS did not return any published topic profiles for this locale, or this environment does not expose topics yet.";
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -71,42 +78,48 @@ export default async function TopicsPage({
 
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "SEO Topic Engine" : "SEO Topic Engine"}
+          {locale === "zh" ? "Topics CMS" : "Topics CMS"}
         </p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
           {locale === "zh" ? "主题内容聚合" : "Topic clusters"}
         </h1>
         <p className="m-0 text-[var(--fm-text-muted)]">
           {locale === "zh"
-            ? "围绕核心测评主题组织文章、职业发展与推荐内容，减少孤立页面。"
-            : "Organize articles, career content, and recommendation pages around core assessment themes."}
+            ? "围绕核心测评主题组织文章、测试与人格相关内容，减少孤立页面。"
+            : "Organize articles, tests, and personality-led content around core assessment topics."}
         </p>
       </section>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {topics.map((topic) => (
-          <Card key={topic.slug} className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
-            <CardHeader className="space-y-3">
-              <CardTitle className="font-serif text-[var(--fm-text)]">{topic.title}</CardTitle>
-              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{topic.summary}</p>
-            </CardHeader>
-            <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">
-                {locale === "zh" ? "内容覆盖" : "Coverage"}: {topic.articles.length}{" "}
-                {locale === "zh" ? "篇文章" : "articles"} · {topic.careers.length}{" "}
-                {locale === "zh" ? "个职业内容" : "career items"} · {topic.personalities.length}{" "}
-                {locale === "zh" ? "个人格画像" : "profiles"}
-              </p>
-              <Link
-                href={withLocale(`/topics/${topic.slug}`)}
-                className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-              >
-                {locale === "zh" ? "查看主题页" : "View topic page"}
-              </Link>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      {topics.length > 0 ? (
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {topics.map((topic) => (
+            <Card key={`${topic.locale}:${topic.slug}`} className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
+              <CardHeader className="space-y-3">
+                <CardTitle className="font-serif text-[var(--fm-text)]">{topic.title}</CardTitle>
+                <p className="m-0 text-sm text-[var(--fm-text-muted)]">{topic.excerpt || topic.subtitle || "-"}</p>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">
+                  {locale === "zh" ? "主题代码" : "Topic code"}: {topic.topicCode || topic.slug}
+                </p>
+                <Link
+                  href={withLocale(`/topics/${topic.slug}`)}
+                  className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                >
+                  {locale === "zh" ? "查看主题页" : "View topic page"}
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
+          <CardHeader className="space-y-2">
+            <CardTitle className="font-serif text-[var(--fm-text)]">{emptyTitle}</CardTitle>
+            <p className="m-0 text-sm text-[var(--fm-text-muted)]">{emptyDescription}</p>
+          </CardHeader>
+        </Card>
+      )}
     </Container>
   );
 }

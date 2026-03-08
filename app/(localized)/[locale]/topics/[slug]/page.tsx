@@ -1,19 +1,42 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  buildTopicFrontendUrl,
+  getTopicBySlug,
+  getTopicSeoBySlug,
+  normalizeTopicSeoPayload,
+} from "@/lib/cms/topics";
+import { renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { getTopicCluster, listTopicSlugs } from "@/lib/topics";
+import { canonicalUrl } from "@/lib/site";
 
-export function generateStaticParams() {
-  return listTopicSlugs().flatMap((slug) => [{ locale: "en", slug }, { locale: "zh", slug }]);
+export const dynamic = "force-dynamic";
+
+function shouldNoindex(robotsValue: string | null | undefined): boolean {
+  return String(robotsValue ?? "")
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .includes("noindex");
+}
+
+function resolveTwitterCard(value: string | null | undefined): "summary" | "summary_large_image" | "player" | "app" {
+  if (value === "summary" || value === "player" || value === "app") {
+    return value;
+  }
+
+  return "summary_large_image";
+}
+
+function buildCanonicalPath(slug: string, locale: Locale): string {
+  return buildTopicFrontendUrl(locale, slug);
 }
 
 export async function generateMetadata({
@@ -23,7 +46,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const topic = getTopicCluster(slug, locale);
+  const [topic, seo] = await Promise.all([
+    getTopicBySlug(slug, locale),
+    getTopicSeoBySlug(slug, locale),
+  ]);
 
   if (!topic) {
     return {
@@ -32,17 +58,44 @@ export async function generateMetadata({
     };
   }
 
-  return buildPageMetadata({
+  const canonicalPath = buildCanonicalPath(topic.slug, locale);
+  const normalizedSeo = normalizeTopicSeoPayload(seo, topic, locale);
+  const noindex = !topic.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
+  const metadata = buildPageMetadata({
     locale,
-    pathname: locale === "zh" ? `/zh/topics/${topic.slug}` : `/en/topics/${topic.slug}`,
-    title: topic.title,
-    description: topic.summary,
+    pathname: canonicalPath,
+    title: normalizedSeo.meta.title,
+    description: normalizedSeo.meta.description,
+    imagePath: normalizedSeo.meta.og.image ?? undefined,
+    noindex,
     alternatesByLocale: {
-      en: `/en/topics/${topic.slug}`,
-      zh: `/zh/topics/${topic.slug}`,
+      en: buildTopicFrontendUrl("en", topic.slug),
+      zh: buildTopicFrontendUrl("zh", topic.slug),
       xDefault: "/",
     },
   });
+
+  return {
+    ...metadata,
+    alternates: {
+      ...metadata.alternates,
+      canonical: canonicalUrl(canonicalPath),
+    },
+    openGraph: {
+      type: "article",
+      url: canonicalUrl(canonicalPath),
+      title: normalizedSeo.meta.og.title,
+      description: normalizedSeo.meta.og.description,
+      images: normalizedSeo.meta.og.image ? [normalizedSeo.meta.og.image] : undefined,
+      locale: locale === "zh" ? "zh_CN" : "en_US",
+    },
+    twitter: {
+      card: resolveTwitterCard(normalizedSeo.meta.twitter.card),
+      title: normalizedSeo.meta.twitter.title,
+      description: normalizedSeo.meta.twitter.description,
+      images: normalizedSeo.meta.twitter.image ? [normalizedSeo.meta.twitter.image] : undefined,
+    },
+  };
 }
 
 export default async function TopicDetailPage({
@@ -52,26 +105,28 @@ export default async function TopicDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const topic = getTopicCluster(slug, locale);
+  const [topic, seo] = await Promise.all([
+    getTopicBySlug(slug, locale),
+    getTopicSeoBySlug(slug, locale),
+  ]);
 
-  if (!topic) return notFound();
+  if (!topic) {
+    return notFound();
+  }
 
-  const canonicalPath = locale === "zh" ? `/zh/topics/${topic.slug}` : `/en/topics/${topic.slug}`;
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
-    title: topic.title,
-    description: topic.summary,
-    locale,
-  });
+  const normalizedSeo = normalizeTopicSeoPayload(seo, topic, locale);
+  const canonicalPath = buildCanonicalPath(topic.slug, locale);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "主题" : "Topics", path: locale === "zh" ? "/zh/topics" : "/en/topics" },
+    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+    { name: locale === "zh" ? "主题" : "Topics", path: localizedPath("/topics", locale) },
     { name: topic.title, path: canonicalPath },
   ]);
+  const renderedSections = renderTopicSections(topic.sections, locale);
+  const renderedEntryGroups = renderTopicEntryGroups(topic.entryGroups, locale);
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`topic-webpage-${topic.slug}`} data={webPageJsonLd} />
+      <JsonLd id={`topic-jsonld-${topic.slug}`} data={normalizedSeo.jsonld} />
       <JsonLd id={`topic-breadcrumb-${topic.slug}`} data={breadcrumbJsonLd} />
       <Breadcrumb
         items={[
@@ -81,45 +136,88 @@ export default async function TopicDetailPage({
         ]}
       />
 
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "SEO Topic Cluster" : "SEO Topic Cluster"}
-        </p>
+      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        {topic.heroKicker ? (
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+            {topic.heroKicker}
+          </p>
+        ) : null}
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{topic.title}</h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">{topic.summary}</p>
+        {topic.subtitle ? <p className="m-0 text-lg text-[var(--fm-text)]">{topic.subtitle}</p> : null}
+        {topic.excerpt ? <p className="m-0 text-[var(--fm-text-muted)]">{topic.excerpt}</p> : null}
+        {topic.heroQuote ? (
+          <blockquote className="m-0 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
+            {topic.heroQuote}
+          </blockquote>
+        ) : null}
       </section>
 
-      <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
-        <CardHeader className="space-y-2">
-          <CardTitle className="font-serif text-[var(--fm-text)]">
-            {locale === "zh" ? "主题说明" : "Cluster overview"}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4 text-sm text-[var(--fm-text-muted)]">
-          <p className="m-0">{topic.description}</p>
-          <div className="flex flex-wrap gap-2">
-            {topic.featuredTests.map((test) => (
-              <Link
-                key={test.href}
-                href={test.href}
-                className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
-              >
-                {test.title}
-              </Link>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        <div className="space-y-4">
+          {renderedSections}
+          {renderedEntryGroups}
+          {renderedSections.length === 0 && renderedEntryGroups.length === 0 ? (
+            <Card>
+              <CardHeader>
+                <CardTitle>{locale === "zh" ? "内容暂未同步" : "Content not yet available"}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">
+                  {locale === "zh"
+                    ? "该 topic 已接入 CMS，但当前语言下尚未同步可渲染的 sections 或 entry groups。"
+                    : "This topic is connected to the CMS, but no renderable sections or entry groups are available for this locale yet."}
+                </p>
+              </CardContent>
+            </Card>
+          ) : null}
+        </div>
 
-      <RelatedContent
-        title={locale === "zh" ? "相关文章" : "Related articles"}
-        items={topic.articles}
-      />
-      <RelatedContent
-        title={locale === "zh" ? "相关职业内容" : "Related career content"}
-        items={topic.careers}
-      />
-      <RelatedContent title={topic.personalitySectionTitle} items={topic.personalities} />
+        <div className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "Topic summary" : "Topic summary"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Topic code" : "Topic code"}:</span>{" "}
+                {topic.topicCode || topic.slug}
+              </p>
+              <p className="m-0">
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Locale" : "Locale"}:</span>{" "}
+                {topic.locale}
+              </p>
+              <p className="m-0">
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Canonical" : "Canonical"}:</span>{" "}
+                {canonicalUrl(canonicalPath)}
+              </p>
+              <p className="m-0">
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Indexing" : "Indexing"}:</span>{" "}
+                {normalizedSeo.meta.robots}
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "SEO snapshot" : "SEO snapshot"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+              <div>
+                <p className="m-0 font-medium text-[var(--fm-text)]">Title</p>
+                <p className="mb-0 mt-1">{normalizedSeo.meta.title || "-"}</p>
+              </div>
+              <div>
+                <p className="m-0 font-medium text-[var(--fm-text)]">Description</p>
+                <p className="mb-0 mt-1">{normalizedSeo.meta.description || "-"}</p>
+              </div>
+              <div>
+                <p className="m-0 font-medium text-[var(--fm-text)]">Canonical</p>
+                <p className="mb-0 mt-1 break-all">{normalizedSeo.meta.canonical || "-"}</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </Container>
   );
 }
