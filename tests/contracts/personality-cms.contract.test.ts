@@ -1,0 +1,226 @@
+import { afterEach, describe, expect, it, vi } from "vitest";
+import {
+  buildPersonalityFrontendUrl,
+  getPersonalityProfileBySlugOrType,
+  listPersonalityProfiles,
+  mapFrontendLocaleToPersonalityApiLocale,
+  normalizePersonalitySeoPayload,
+  normalizePersonalitySlug,
+  type CmsPersonalityProfile,
+} from "@/lib/cms/personality";
+import { getRenderablePersonalitySections } from "@/lib/cms/personality-sections";
+
+function jsonResponse(payload: unknown, status = 200): Response {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+const BASE_PROFILE: CmsPersonalityProfile = {
+  id: 1,
+  orgId: 0,
+  scaleCode: "MBTI",
+  typeCode: "INTJ",
+  slug: "intj",
+  locale: "en",
+  title: "INTJ - Architect",
+  subtitle: "Independent, strategic, and future-oriented.",
+  excerpt: "INTJs tend to value competence, systems, and long-range thinking.",
+  status: "published",
+  isPublic: true,
+  isIndexable: true,
+  publishedAt: "2026-03-08T10:00:00Z",
+  updatedAt: "2026-03-08T10:30:00Z",
+  heroKicker: "The Strategist",
+  heroQuote: "",
+  heroImageUrl: null,
+  seoMeta: {
+    seoTitle: null,
+    seoDescription: null,
+    canonicalUrl: null,
+    ogTitle: null,
+    ogDescription: null,
+    ogImageUrl: null,
+    twitterTitle: null,
+    twitterDescription: null,
+    twitterImageUrl: null,
+    robots: null,
+    jsonldOverrides: null,
+  },
+  sections: [],
+};
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+});
+
+describe("personality cms adapter contract", () => {
+  it("maps frontend locale and slug to the expected api and frontend conventions", () => {
+    expect(mapFrontendLocaleToPersonalityApiLocale("en")).toBe("en");
+    expect(mapFrontendLocaleToPersonalityApiLocale("zh")).toBe("zh-CN");
+    expect(normalizePersonalitySlug(" INTJ ")).toBe("intj");
+    expect(buildPersonalityFrontendUrl("en", "INTJ")).toBe("/en/personality/intj");
+    expect(buildPersonalityFrontendUrl("zh", "INTJ")).toBe("/zh/personality/intj");
+  });
+
+  it("requests the list endpoint with the backend locale mapping", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+
+      expect(url).toContain("/api/v0.5/personality?");
+      expect(url).toContain("locale=zh-CN");
+      expect(url).toContain("org_id=0");
+      expect(url).toContain("scale_code=MBTI");
+
+      return jsonResponse({
+        ok: true,
+        items: [
+          {
+            id: 1,
+            org_id: 0,
+            scale_code: "MBTI",
+            type_code: "INTJ",
+            slug: "intj",
+            locale: "zh-CN",
+            title: "INTJ 人格画像",
+            subtitle: "独立、战略、面向未来。",
+            excerpt: "示例摘要",
+            status: "published",
+            is_public: true,
+            is_indexable: true,
+            published_at: "2026-03-08T10:00:00Z",
+            updated_at: "2026-03-08T10:30:00Z",
+            seo_meta: {
+              seo_title: "INTJ 人格画像",
+              seo_description: "示例 SEO 描述",
+            },
+          },
+        ],
+        pagination: {
+          current_page: 1,
+          per_page: 20,
+          total: 1,
+          last_page: 1,
+        },
+      });
+    });
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await listPersonalityProfiles({ locale: "zh" });
+
+    expect(result.items).toHaveLength(1);
+    expect(result.items[0]?.locale).toBe("zh-CN");
+    expect(result.items[0]?.slug).toBe("intj");
+    expect(result.pagination.total).toBe(1);
+  });
+
+  it("normalizes detail payload and keeps only known sections", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          profile: {
+            id: 1,
+            org_id: 0,
+            scale_code: "MBTI",
+            type_code: "INTJ",
+            slug: "intj",
+            locale: "en",
+            title: "INTJ - Architect",
+            subtitle: "Independent, strategic, and future-oriented.",
+            excerpt: "INTJs tend to value competence, systems, and long-range thinking.",
+            hero_kicker: "The Strategist",
+            hero_quote: "See the pattern. Build the system.",
+            hero_image_url: null,
+            status: "published",
+            is_public: true,
+            is_indexable: true,
+            published_at: "2026-03-08T10:00:00Z",
+            updated_at: "2026-03-08T10:30:00Z",
+          },
+          sections: [
+            {
+              section_key: "core_snapshot",
+              title: "Core snapshot",
+              render_variant: "rich_text",
+              body_md: "Overview body",
+              body_html: null,
+              payload_json: null,
+              sort_order: 10,
+              is_enabled: true,
+            },
+            {
+              section_key: "unknown_future_section",
+              title: "Unknown",
+              render_variant: "rich_text",
+              body_md: "Should be ignored by the renderer layer",
+              body_html: null,
+              payload_json: null,
+              sort_order: 20,
+              is_enabled: true,
+            },
+          ],
+          seo_meta: null,
+        })
+      )
+    );
+
+    const profile = await getPersonalityProfileBySlugOrType("INTJ", "en");
+
+    expect(profile).not.toBeNull();
+    expect(profile?.slug).toBe("intj");
+    expect(profile?.typeCode).toBe("INTJ");
+    expect(profile?.sections).toHaveLength(2);
+    expect(getRenderablePersonalitySections(profile?.sections ?? [])).toHaveLength(1);
+  });
+
+  it("normalizes canonical and jsonld urls to locale-aware frontend personality urls", () => {
+    const normalized = normalizePersonalitySeoPayload(
+      {
+        meta: {
+          title: "INTJ Personality Type",
+          description: "Explore INTJ traits.",
+          canonical: "https://staging.fermatmind.com/en/personality/intj",
+          alternates: {
+            en: "https://staging.fermatmind.com/en/personality/intj",
+            "zh-CN": "https://staging.fermatmind.com/zh/personality/intj",
+          },
+          og: {
+            title: "INTJ Personality Type",
+            description: "Explore INTJ traits.",
+            image: null,
+            type: "article",
+          },
+          twitter: {
+            card: "summary_large_image",
+            title: "INTJ Personality Type",
+            description: "Explore INTJ traits.",
+            image: null,
+          },
+          robots: "index,follow",
+        },
+        jsonld: {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          mainEntityOfPage: "https://staging.fermatmind.com/en/personality/intj",
+        },
+      },
+      BASE_PROFILE,
+      "en"
+    );
+
+    expect(normalized.meta.canonical).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalized.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalized.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(
+      (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/en/personality/intj");
+    expect((normalized.jsonld as Record<string, unknown>)["@type"]).toBe("AboutPage");
+  });
+});

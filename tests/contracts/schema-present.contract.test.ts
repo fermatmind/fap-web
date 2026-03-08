@@ -43,11 +43,12 @@ describe("schema injection contract", () => {
     expect(source).toContain("Future outlook");
   });
 
-  it("personality detail page injects person and breadcrumb JSON-LD", () => {
+  it("personality detail page injects cms seo jsonld and breadcrumb jsonld", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
-    expect(source).toContain("buildPersonJsonLd");
+    expect(source).toContain("normalizePersonalitySeoPayload");
     expect(source).toContain("buildBreadcrumbJsonLd");
-    expect(source).toContain("RelatedContent");
+    expect(source).toContain("renderPersonalitySections");
+    expect(source).toContain("JsonLd");
   });
 
   it("schema builder exposes required types", () => {

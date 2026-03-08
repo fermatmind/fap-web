@@ -4,11 +4,13 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { listPersonalityProfiles } from "@/lib/personality";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -42,7 +44,7 @@ export default async function PersonalityPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const personalities = listPersonalityProfiles(locale);
+  const { items: personalities } = await listPersonalityProfiles({ locale });
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -81,28 +83,51 @@ export default async function PersonalityPage({
             ? "16 型人格的优势、风险、关系模式与职业方向。"
             : "Strengths, risks, relationship patterns, and career direction across all 16 types."}
         </p>
+        <p className="m-0 text-xs text-[var(--fm-text-muted)]">
+          {locale === "zh"
+            ? "内容来自 Personality CMS，仅展示已发布且公开的 profile。"
+            : "Powered by Personality CMS and showing published public profiles only."}
+        </p>
       </section>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {personalities.map((personality) => (
-          <Card key={personality.type} className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
-            <CardHeader className="space-y-2">
-              <CardTitle className="font-serif text-[var(--fm-text)]">
-                {personality.type} · {personality.name}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">{personality.summary}</p>
-              <Link
-                href={withLocale(`/personality/${personality.slug}`)}
-                className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-              >
-                {locale === "zh" ? "查看人格页" : "View profile"}
-              </Link>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      {personalities.length > 0 ? (
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {personalities.map((personality) => (
+            <Card
+              key={`${personality.locale}:${personality.slug}`}
+              className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]"
+            >
+              <CardHeader className="space-y-2">
+                <CardTitle className="font-serif text-[var(--fm-text)]">
+                  {personality.typeCode} · {personality.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">{personality.excerpt || personality.subtitle || "-"}</p>
+                <Link
+                  href={withLocale(`/personality/${personality.slug}`)}
+                  className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                >
+                  {locale === "zh" ? "查看人格页" : "View profile"}
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
+          <CardHeader className="space-y-2">
+            <CardTitle className="font-serif text-[var(--fm-text)]">
+              {locale === "zh" ? "暂无已发布人格内容" : "No published personality profiles yet"}
+            </CardTitle>
+            <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+              {locale === "zh"
+                ? "CMS 当前没有返回该语言的人格内容。"
+                : "The CMS did not return any personality profiles for this locale."}
+            </p>
+          </CardHeader>
+        </Card>
+      )}
     </Container>
   );
 }
