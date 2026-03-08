@@ -25,7 +25,7 @@ export default async function AttemptReportPage({
   return (
     <Container as="main" className="w-full max-w-4xl py-10">
       <h1 className="mb-4 mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
-      <ClinicalReportClient attemptId={attemptId} rolloutEnv={rolloutEnv} />
+      <ClinicalReportClient key={attemptId} attemptId={attemptId} rolloutEnv={rolloutEnv} />
     </Container>
   );
 }

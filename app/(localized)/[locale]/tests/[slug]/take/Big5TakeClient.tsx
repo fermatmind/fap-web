@@ -22,7 +22,7 @@ import {
   setFmToken,
 } from "@/lib/auth/fmToken";
 import { ApiError } from "@/lib/api-client";
-import { getOrCreateAnonId } from "@/lib/anon";
+import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
 import {
   buildBig5TrackingContext,
   trackBig5Event,
@@ -42,6 +42,10 @@ import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/lo
 import { classifyApiError } from "@/lib/observability/httpError";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import {
+  linkAnonAttemptsOnceOnLoginSuccess,
+  shouldLinkAnonAttemptsOnLoginSuccess,
+} from "@/lib/api/v0_3";
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => {
@@ -210,11 +214,31 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
-    if (tokenFromUrl.startsWith("fm_")) {
-      setFmToken(tokenFromUrl);
-      setAuthToken(tokenFromUrl);
+    if (!tokenFromUrl.startsWith("fm_")) return;
+
+    setFmToken(tokenFromUrl);
+    setAuthToken(tokenFromUrl);
+
+    const pendingAttemptIds = readPendingAnonLinkAttempts();
+    if (
+      pendingAttemptIds.length === 0
+      || !shouldLinkAnonAttemptsOnLoginSuccess({
+        tokenFromUrl,
+        anonId,
+        attemptIds: pendingAttemptIds,
+      })
+    ) {
+      return;
     }
-  }, [searchParams, setAuthToken]);
+
+    void linkAnonAttemptsOnceOnLoginSuccess({
+      tokenFromUrl,
+      anonId,
+      attemptIds: pendingAttemptIds,
+    }).catch(() => {
+      // Keep login flow non-blocking.
+    });
+  }, [anonId, searchParams, setAuthToken]);
 
   useEffect(() => {
     hydrateAnonId(anonId || null);
@@ -579,7 +603,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     return () => {
       active = false;
     };
-  }, [anonId, applyUiError, authBlockError, authBootstrapping, locale, rolloutBlocked, rolloutChecking, runWithAuthRetry]);
+  }, [anonId, applyUiError, authBlockError, authBootstrapping, locale, rolloutBlocked, rolloutChecking, runWithAuthRetry, trackGuestTokenFailure]);
 
   const ensureAttempt = useCallback(async (): Promise<string | null> => {
     if (authBlockError) {
@@ -711,6 +735,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     buildEventPayload,
     applyUiError,
     runWithAuthRetry,
+    trackGuestTokenFailure,
   ]);
 
   const handleAgreeAndStart = async () => {
@@ -868,6 +893,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setCurrentIndex,
     startedAt,
     runWithAuthRetry,
+    trackGuestTokenFailure,
   ]);
 
   const finalizeSuccessfulSubmit = useCallback(

@@ -81,6 +81,27 @@ function resolveRetryMs(retryAfterSeconds: number | undefined): number {
   return Math.min(10000, Math.max(1000, retryMs));
 }
 
+function resolveReportGenerating(report: ReportResponse | null): boolean {
+  if (!report) return false;
+
+  if (report.meta && typeof report.meta === "object" && typeof report.meta.generating === "boolean") {
+    return report.meta.generating;
+  }
+
+  return Boolean(report.generating);
+}
+
+function resolveReportRetryMs(report: ReportResponse): number {
+  const retryAfterSeconds =
+    report.meta && typeof report.meta === "object" && typeof report.meta.retry_after_seconds === "number"
+      ? report.meta.retry_after_seconds
+      : typeof report.retry_after_seconds === "number"
+        ? report.retry_after_seconds
+        : report.retry_after;
+
+  return resolveRetryMs(retryAfterSeconds);
+}
+
 function normalizeNormsStatus(status: unknown): "CALIBRATED" | "PROVISIONAL" | "MISSING" {
   const normalized = String(status ?? "").trim().toUpperCase();
   if (normalized === "CALIBRATED" || normalized === "PROVISIONAL" || normalized === "MISSING") {
@@ -157,18 +178,7 @@ function resolveGuestTokenTelemetry(error: unknown): {
   };
 }
 
-function parseBooleanEnv(value: string | undefined, fallback: boolean): boolean {
-  const normalized = String(value ?? "")
-    .trim()
-    .toLowerCase();
-  if (!normalized) return fallback;
-  if (["1", "true", "yes", "on"].includes(normalized)) return true;
-  if (["0", "false", "no", "off"].includes(normalized)) return false;
-  return fallback;
-}
-
 const SCALE_SLUG_MAP = SCALE_CANONICAL_SLUG_MAP;
-const GENERATING_SHOW_PAYWALL_ENABLED = parseBooleanEnv(process.env.NEXT_PUBLIC_GENERATING_SHOW_PAYWALL, true);
 
 export default function ResultClient({
   attemptId,
@@ -196,7 +206,6 @@ export default function ResultClient({
 
   const lastLockedRef = useRef<boolean | null>(null);
   const unlockTrackedRef = useRef(false);
-  const generatingOffersTrackedRef = useRef("");
   const pendingUnlockStorageKey = `fm_scale_pending_unlock_v1_${attemptId}`;
   const manifestFingerprint = useBig5AttemptStore((store) => store.manifestFingerprint);
   const setManifestFingerprint = useBig5AttemptStore((store) => store.setManifestFingerprint);
@@ -249,13 +258,11 @@ export default function ResultClient({
   const primaryNumericScore = useMemo(() => extractPrimaryNumericScore(reportData), [reportData]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const trackingScaleCodeRef = useRef(trackingScaleCode);
+  const hasVisibleOffers = offers.length > 0;
 
   useEffect(() => {
     trackingScaleCodeRef.current = trackingScaleCode;
   }, [trackingScaleCode]);
-
-  const canRenderCommerce = !generating || GENERATING_SHOW_PAYWALL_ENABLED;
-  const hasVisibleOffers = canRenderCommerce && offers.length > 0;
   const paywallDisabled = locked && (!hasVisibleOffers || freeOnlyMode || !commerceEnabled);
 
   const runWithAuthRetry = useCallback(
@@ -293,36 +300,15 @@ export default function ResultClient({
     }
 
     if (generating) {
-      const payload: Record<string, unknown> = {
+      trackEvent("ui_report_loading_phase", {
         scale_code: trackingScaleCode,
         phase: "generating",
         locked,
         variant,
         locale,
-      };
-      if (GENERATING_SHOW_PAYWALL_ENABLED && offers.length > 0) {
-        payload.stage_detail = "generating_with_offers_visible";
-      }
-      trackEvent("ui_report_loading_phase", {
-        ...payload,
       });
     }
-  }, [generating, loading, locale, locked, offers.length, trackingScaleCode, variant]);
-
-  useEffect(() => {
-    if (!generating || !GENERATING_SHOW_PAYWALL_ENABLED || offers.length === 0) return;
-    const signature = `${attemptId}:${offers.length}:${locked ? "1" : "0"}:${variant}`;
-    if (generatingOffersTrackedRef.current === signature) return;
-    generatingOffersTrackedRef.current = signature;
-
-    trackEvent("report_load_failure", {
-      scale_code: trackingScaleCode,
-      stage: "load_report",
-      stage_detail: "generating_with_offers_visible",
-      route: "/result/[id]",
-      locale,
-    });
-  }, [attemptId, generating, locale, locked, offers.length, trackingScaleCode, variant]);
+  }, [generating, loading, locale, locked, trackingScaleCode, variant]);
 
   const trackWithContext = useCallback(
     async (
@@ -400,9 +386,9 @@ export default function ResultClient({
         setReportData(response);
         setFallbackResultData(null);
 
-        if (response.generating) {
+        if (resolveReportGenerating(response)) {
           setGenerating(true);
-          const retryMs = resolveRetryMs(response.retry_after);
+          const retryMs = resolveReportRetryMs(response);
           retryTimer = window.setTimeout(() => {
             void run(true);
           }, retryMs);
@@ -537,7 +523,7 @@ export default function ResultClient({
 
   useEffect(() => {
     if (isClinicalScale) return;
-    if (!reportData || reportData.generating) return;
+    if (!reportData || resolveReportGenerating(reportData)) return;
 
     let pendingUnlockOrderNo = "";
     if (typeof window !== "undefined") {
@@ -670,10 +656,25 @@ export default function ResultClient({
     }
   };
 
-  if (loading) {
+  const hasFallbackReady = Boolean(fallbackResultData?.result);
+  const viewState: "processing" | "ready" | "failed" =
+    loading || generating
+      ? "processing"
+      : error || (!reportData && !hasFallbackReady)
+        ? "failed"
+        : "ready";
+
+  if (viewState === "processing") {
     return (
-      <AnticipationSkeleton phases={dict.loading.phases} />
+      <div className="space-y-[var(--fm-gap-md)]">
+        <Alert>{dict.orders.reportGenerating}</Alert>
+        <AnticipationSkeleton phases={dict.loading.phases} />
+      </div>
     );
+  }
+
+  if (viewState === "failed") {
+    return <Alert>{error ?? dict.result.reportUnavailable}</Alert>;
   }
 
   if (!reportData && fallbackResultData?.result) {
@@ -694,23 +695,12 @@ export default function ResultClient({
     );
   }
 
-  if (error || !reportData) {
-    return <Alert>{error ?? dict.result.reportUnavailable}</Alert>;
-  }
-
   if (isClinicalScale) {
     return <ClinicalReportClient attemptId={attemptId} initialReport={reportData} rolloutEnv={rolloutEnv} />;
   }
 
   return (
     <div className="space-y-[var(--fm-gap-lg)]">
-      {generating ? (
-        <div className="space-y-[var(--fm-gap-md)]">
-          <Alert>{dict.orders.reportGenerating}</Alert>
-          <AnticipationSkeleton phases={dict.loading.phases} />
-        </div>
-      ) : null}
-
       <Card>
         <CardHeader>
           <CardTitle>{dict.result.title}</CardTitle>
@@ -747,10 +737,6 @@ export default function ResultClient({
         </div>
       ) : null}
 
-      {generating && !hasVisibleOffers ? (
-        <Alert>{dict.result.generatingPaymentHint}</Alert>
-      ) : null}
-
       <div className="space-y-[var(--fm-gap-md)] rounded-2xl border border-slate-200 bg-slate-50 p-[var(--fm-space-4)]">
         {sections.map((section, idx) => (
           <SectionRenderer
@@ -782,7 +768,7 @@ export default function ResultClient({
 
       {emailNotice ? <Alert>{emailNotice}</Alert> : null}
 
-      {locked && canRenderCommerce ? (
+      {locked ? (
         <div className="rounded-2xl border border-slate-200 bg-white p-[var(--fm-space-4)] shadow-sm">
           {!paywallDisabled ? (
             <UnlockCTA
@@ -797,13 +783,13 @@ export default function ResultClient({
               error={payError}
               onPay={handlePay}
             />
-          ) : !(generating && !hasVisibleOffers) ? (
+          ) : (
             <p className="mt-3 text-sm text-slate-600">
               {locale === "zh"
                 ? "当前仅开放免费报告，暂不支持付费解锁。"
                 : "Only free report is available right now."}
             </p>
-          ) : null}
+          )}
         </div>
       ) : null}
     </div>
