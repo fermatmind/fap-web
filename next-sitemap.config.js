@@ -8,6 +8,13 @@ const careerGuides = require("./.velite/careerGuides.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
 const TOPIC_SLUGS = ["mbti", "big-five", "iq-eq"];
+const FRONTEND_PERSONALITY_EXCLUDES = [
+  "/en/personality",
+  "/zh/personality",
+  "/en/personality/*",
+  "/zh/personality/*",
+];
+const NON_PAGE_ROUTE_EXCLUDES = ["/robots.txt"];
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
 
@@ -171,26 +178,6 @@ function buildCareerPaths() {
   return [...paths];
 }
 
-function buildPersonalityPaths() {
-  const mbtiTypes = new Set();
-
-  for (const item of careerRecommendationProfiles) {
-    if (String(item?.profile_type) !== "mbti") continue;
-    const key = normalizeSlug(item?.key).toLowerCase();
-    if (!key) continue;
-    mbtiTypes.add(key);
-  }
-
-  const paths = ["/en/personality", "/zh/personality"];
-
-  for (const type of mbtiTypes) {
-    paths.push(`/en/personality/${type}`);
-    paths.push(`/zh/personality/${type}`);
-  }
-
-  return paths;
-}
-
 function buildTopicPaths() {
   const paths = new Set();
 
@@ -208,7 +195,6 @@ const generatedPaths = [
     ...buildTestPaths(),
     ...buildArticlePaths(),
     ...buildCareerPaths(),
-    ...buildPersonalityPaths(),
     ...buildTopicPaths(),
   ]),
 ];
@@ -217,7 +203,7 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: false,
   sitemapSize: 5000,
-  exclude: ["/server-sitemap.xml"],
+  exclude: ["/server-sitemap.xml", ...FRONTEND_PERSONALITY_EXCLUDES, ...NON_PAGE_ROUTE_EXCLUDES],
   transform: async (_config, path) => {
     const normalized = normalizePath(path);
     if (!shouldIncludeInSitemap(normalized)) return null;

@@ -47,10 +47,13 @@ describe("sitemap indexability contract", () => {
       "/zh/payment",
       "/en/pay",
       "/zh/pay",
+      "/en/personality",
+      "/zh/personality",
       "/en/professions",
       "/zh/professions",
       "/en/types",
       "/zh/types",
+      "/robots.txt",
     ];
 
     expect(urls.length).toBeGreaterThan(0);
