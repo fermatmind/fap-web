@@ -7,7 +7,6 @@ const careerIndustries = require("./.velite/careerIndustries.json");
 const careerGuides = require("./.velite/careerGuides.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
-const TOPIC_SLUGS = ["mbti", "big-five", "iq-eq"];
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
 
@@ -97,8 +96,6 @@ function buildLandingPaths() {
     "/",
     "/en",
     "/zh",
-    "/en/topics",
-    "/zh/topics",
     "/en/tests",
     "/zh/tests",
     "/zh/articles",
@@ -191,17 +188,6 @@ function buildPersonalityPaths() {
   return paths;
 }
 
-function buildTopicPaths() {
-  const paths = new Set();
-
-  for (const slug of TOPIC_SLUGS) {
-    paths.add(`/en/topics/${slug}`);
-    paths.add(`/zh/topics/${slug}`);
-  }
-
-  return [...paths];
-}
-
 const generatedPaths = [
   ...new Set([
     ...buildLandingPaths(),
@@ -209,7 +195,6 @@ const generatedPaths = [
     ...buildArticlePaths(),
     ...buildCareerPaths(),
     ...buildPersonalityPaths(),
-    ...buildTopicPaths(),
   ]),
 ];
 
@@ -217,7 +202,13 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: false,
   sitemapSize: 5000,
-  exclude: ["/server-sitemap.xml"],
+  exclude: [
+    "/server-sitemap.xml",
+    "/en/topics",
+    "/zh/topics",
+    "/en/topics/*",
+    "/zh/topics/*",
+  ],
   transform: async (_config, path) => {
     const normalized = normalizePath(path);
     if (!shouldIncludeInSitemap(normalized)) return null;
