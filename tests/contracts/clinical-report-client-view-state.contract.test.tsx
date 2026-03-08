@@ -36,6 +36,7 @@ type LinkProps = {
 const hoisted = vi.hoisted(() => ({
   fetchClinicalReport: vi.fn(),
   createCheckoutOrOrder: vi.fn(),
+  fetchAttemptResult: vi.fn(),
   trackEvent: vi.fn(),
   captureError: vi.fn(),
   classifyApiError: vi.fn(() => ({
@@ -107,6 +108,7 @@ vi.mock("@/lib/anon", () => ({
 
 vi.mock("@/lib/api/v0_3", () => ({
   createCheckoutOrOrder: hoisted.createCheckoutOrOrder,
+  fetchAttemptResult: hoisted.fetchAttemptResult,
 }));
 
 vi.mock("@/lib/clinical/api", () => ({
@@ -208,6 +210,29 @@ describe("ClinicalReportClient view-state contract", () => {
 
     expect(screen.queryByText("Report is generating. Please wait...")).not.toBeInTheDocument();
     expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+  });
+
+  it("keeps the report page report-only and never calls the result endpoint", async () => {
+    hoisted.fetchClinicalReport.mockResolvedValue({
+      ok: true,
+      locked: false,
+      report: {
+        scale_code: "CLINICAL_COMBO_68",
+        sections: [{ key: "quick_overview" }],
+      },
+      meta: {
+        scale_code: "CLINICAL_COMBO_68",
+      },
+    });
+
+    render(<ClinicalReportClient attemptId="attempt-456" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("report-section")).toHaveTextContent("quick_overview");
+    });
+
+    expect(hoisted.fetchClinicalReport).toHaveBeenCalled();
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
   });
 
   it("renders failed as failed-only ui when snapshot loading fails", async () => {
