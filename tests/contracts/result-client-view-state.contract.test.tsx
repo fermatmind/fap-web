@@ -2,6 +2,9 @@ import type { ReactNode } from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ResultClient from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
+import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
+import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
+import resultReadyMbtiFreeFixture from "@/tests/fixtures/result_ready.mbti.free.json";
 
 type ChildrenProps = {
   children?: ReactNode;
@@ -18,6 +21,10 @@ type RichResultReportProps = {
     };
   };
 };
+
+function cloneFixture<T>(fixture: T): T {
+  return structuredClone(fixture);
+}
 
 const hoisted = vi.hoisted(() => ({
   fetchAttemptReport: vi.fn(),
@@ -59,7 +66,12 @@ vi.mock("@/components/result/DimensionBars", () => ({
 }));
 
 vi.mock("@/components/result/ResultSummary", () => ({
-  ResultSummary: ({ summary }: { summary?: string }) => <div data-testid="result-summary">{summary}</div>,
+  ResultSummary: ({ typeCode, summary }: { typeCode?: string; summary?: string }) => (
+    <div data-testid="result-summary">
+      <span>{typeCode ?? ""}</span>
+      <span>{summary ?? ""}</span>
+    </div>
+  ),
 }));
 
 vi.mock("@/components/ui/alert", () => ({
@@ -120,27 +132,13 @@ describe("ResultClient view-state contract", () => {
   });
 
   it("renders the rich report view when the report endpoint is ready", async () => {
-    hoisted.fetchAttemptReport.mockResolvedValue({
-      ok: true,
-      summary: "Rich report ready",
-      report: {
-        scale_code: "MBTI",
-        profile: {
-          type_code: "ISTJ-A",
-          short_summary: "Rich report ready",
-        },
-        sections: {
-          career: {
-            cards: [{ title: "Career section", desc: "Career card" }],
-          },
-        },
-      },
-    });
+    const reportFixture = cloneFixture(reportReadyMbtiFreeFixture) as ReportResponse;
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toHaveTextContent("Rich report ready");
+      expect(screen.getByTestId("rich-result-report")).toHaveTextContent("你像一团既明亮又敏感的火焰");
     });
 
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
@@ -153,13 +151,9 @@ describe("ResultClient view-state contract", () => {
   });
 
   it("keeps the page in processing state when the report endpoint is still generating", async () => {
-    hoisted.fetchAttemptReport.mockResolvedValue({
-      ok: true,
-      generating: true,
-      report: {
-        scale_code: "MBTI",
-      },
-    });
+    const reportFixture = cloneFixture(reportReadyMbtiFreeFixture) as ReportResponse;
+    reportFixture.generating = true;
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
@@ -174,22 +168,12 @@ describe("ResultClient view-state contract", () => {
 
   it("falls back to the legacy result view when the report endpoint is unavailable", async () => {
     hoisted.fetchAttemptReport.mockRejectedValue(new Error("Report missing."));
-    hoisted.fetchAttemptResult.mockResolvedValue({
-      ok: true,
-      result: {
-        type_code: "EQ_HIGH",
-        summary: "Fallback summary available.",
-        dimensions: [{ code: "self_awareness", score: 0.82 }],
-      },
-      meta: {
-        scale_code: "EQ_60",
-      },
-    });
+    hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("result-summary")).toHaveTextContent("Fallback summary available.");
+      expect(screen.getByTestId("result-summary")).toHaveTextContent("ENFP-T");
     });
 
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledTimes(1);
@@ -197,7 +181,7 @@ describe("ResultClient view-state contract", () => {
       attemptId: "attempt-123",
       anonId: "anon_result_test",
     });
-    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:1");
+    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:0");
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
 });

@@ -1,0 +1,179 @@
+{
+  "ok": true,
+  "type_code": "ENFP-T",
+  "scores": {
+    "AT": {
+      "a": 6,
+      "b": 25,
+      "sum": -38,
+      "count": 31,
+      "total": 31,
+      "neutral": 0
+    },
+    "EI": {
+      "a": 21,
+      "b": 8,
+      "sum": 28,
+      "count": 29,
+      "total": 29,
+      "neutral": 0
+    },
+    "JP": {
+      "a": 4,
+      "b": 25,
+      "sum": -41,
+      "count": 29,
+      "total": 29,
+      "neutral": 0
+    },
+    "SN": {
+      "a": 10,
+      "b": 16,
+      "sum": -14,
+      "count": 26,
+      "total": 26,
+      "neutral": 0
+    },
+    "TF": {
+      "a": 2,
+      "b": 27,
+      "sum": -48,
+      "count": 29,
+      "total": 29,
+      "neutral": 0
+    }
+  },
+  "scores_pct": {
+    "AT": 19,
+    "EI": 74,
+    "JP": 15,
+    "SN": 37,
+    "TF": 9
+  },
+  "result": {
+    "type_code": "ENFP-T",
+    "scale_code": "MBTI",
+    "scale_code_legacy": "MBTI",
+    "scale_code_v2": "MBTI_PERSONALITY_TEST_16_TYPES",
+    "breakdown_json": {
+      "skipped": [],
+      "dimensions": {
+        "AT": 19,
+        "EI": 74,
+        "JP": 15,
+        "SN": 37,
+        "TF": 9
+      },
+      "time_bonus": 0,
+      "answer_count": 144,
+      "score_method": "generic_scoring"
+    },
+    "axis_scores_json": {
+      "pci": {
+        "axes": {
+          "AT": {
+            "level": "very_clear",
+            "clarity": 62,
+            "winning_pole": "T",
+            "percent_first_pole": 19
+          },
+          "EI": {
+            "level": "clear",
+            "clarity": 48,
+            "winning_pole": "E",
+            "percent_first_pole": 74
+          },
+          "JP": {
+            "level": "very_clear",
+            "clarity": 70,
+            "winning_pole": "P",
+            "percent_first_pole": 15
+          },
+          "SN": {
+            "level": "moderate",
+            "clarity": 26,
+            "winning_pole": "N",
+            "percent_first_pole": 37
+          },
+          "TF": {
+            "level": "very_clear",
+            "clarity": 82,
+            "winning_pole": "F",
+            "percent_first_pole": 9
+          }
+        },
+        "overall": {
+          "level": "very_clear",
+          "clarity": 58
+        }
+      },
+      "scores_pct": {
+        "AT": 19,
+        "EI": 74,
+        "JP": 15,
+        "SN": 37,
+        "TF": 9
+      },
+      "axis_states": {
+        "AT": "very_strong",
+        "EI": "strong",
+        "JP": "very_strong",
+        "SN": "clear",
+        "TF": "very_strong"
+      },
+      "scores_json": {
+        "AT": {
+          "a": 6,
+          "b": 25,
+          "sum": -38,
+          "count": 31,
+          "total": 31,
+          "neutral": 0
+        },
+        "EI": {
+          "a": 21,
+          "b": 8,
+          "sum": 28,
+          "count": 29,
+          "total": 29,
+          "neutral": 0
+        },
+        "JP": {
+          "a": 4,
+          "b": 25,
+          "sum": -41,
+          "count": 29,
+          "total": 29,
+          "neutral": 0
+        },
+        "SN": {
+          "a": 10,
+          "b": 16,
+          "sum": -14,
+          "count": 26,
+          "total": 26,
+          "neutral": 0
+        },
+        "TF": {
+          "a": 2,
+          "b": 27,
+          "sum": -48,
+          "count": 29,
+          "total": 29,
+          "neutral": 0
+        }
+      },
+      "trait_scores": [],
+      "winning_poles": {
+        "AT": "T",
+        "EI": "E",
+        "JP": "P",
+        "SN": "N",
+        "TF": "F"
+      }
+    }
+  },
+  "meta": {
+    "scale_code": "MBTI"
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "ok": true,
+  "generating": false,
+  "snapshot_error": false,
+  "locked": true,
+  "access_level": "free",
+  "variant": "free",
+  "offers": [
+    {
+      "sku": "MBTI_CAREER_99",
+      "sku_code": "MBTI_CAREER_99",
+      "price_cents": 99,
+      "currency": "CNY",
+      "title": "MBTI Career Module",
+      "entitlement_id": "report_career",
+      "benefit_code": "MBTI_CAREER",
+      "offer_code": null,
+      "modules_included": ["career"],
+      "grant": {
+        "type": "report_unlock",
+        "qty": 1,
+        "period_days": null
+      }
+    },
+    {
+      "sku": "MBTI_GIFT_PACK_2990",
+      "sku_code": "MBTI_GIFT_PACK_2990",
+      "price_cents": 2990,
+      "currency": "CNY",
+      "title": "MBTI Gift Pack",
+      "entitlement_id": "mbti_gift_credits",
+      "benefit_code": "MBTI_GIFT_CREDITS",
+      "offer_code": null,
+      "modules_included": [],
+      "grant": {
+        "type": "gift_credits",
+        "qty": 1,
+        "period_days": null
+      }
+    },
+    {
+      "sku": "MBTI_PRO_MONTH_599",
+      "sku_code": "MBTI_PRO_MONTH_599",
+      "price_cents": 599,
+      "currency": "CNY",
+      "title": "MBTI Pro Month",
+      "entitlement_id": "mbti_pro",
+      "benefit_code": "MBTI_PRO",
+      "offer_code": null,
+      "modules_included": [],
+      "grant": {
+        "type": "pro_access",
+        "qty": 1,
+        "period_days": 30
+      }
+    },
+    {
+      "sku": "MBTI_PRO_YEAR_1999",
+      "sku_code": "MBTI_PRO_YEAR_1999",
+      "price_cents": 1999,
+      "currency": "CNY",
+      "title": "MBTI Pro Year",
+      "entitlement_id": "mbti_pro",
+      "benefit_code": "MBTI_PRO",
+      "offer_code": null,
+      "modules_included": [],
+      "grant": {
+        "type": "pro_access",
+        "qty": 1,
+        "period_days": 365
+      }
+    },
+    {
+      "sku": "MBTI_RELATIONSHIP_99",
+      "sku_code": "MBTI_RELATIONSHIP_99",
+      "price_cents": 99,
+      "currency": "CNY",
+      "title": "MBTI Relationship Module",
+      "entitlement_id": "report_relationships",
+      "benefit_code": "MBTI_RELATIONSHIP",
+      "offer_code": null,
+      "modules_included": ["relationships"],
+      "grant": {
+        "type": "report_unlock",
+        "qty": 1,
+        "period_days": null
+      }
+    },
+    {
+      "sku": "MBTI_REPORT_FULL_199",
+      "sku_code": "MBTI_REPORT_FULL_199",
+      "price_cents": 199,
+      "currency": "CNY",
+      "title": "MBTI Full Report",
+      "entitlement_id": "report_full",
+      "benefit_code": "MBTI_REPORT_FULL",
+      "offer_code": null,
+      "modules_included": ["core_full", "career", "relationships"],
+      "grant": {
+        "type": "report_unlock",
+        "qty": 1,
+        "period_days": null
+      }
+    }
+  ],
+  "modules_allowed": ["core_free"],
+  "modules_offered": ["career", "relationships", "core_full"],
+  "modules_preview": ["career", "relationships", "core_full"],
+  "view_policy": {
+    "free_sections": ["intro", "score"],
+    "blur_others": true,
+    "teaser_percent": 0.3,
+    "upgrade_sku": "MBTI_REPORT_FULL_199"
+  },
+  "meta": {
+    "scale_code": "MBTI"
+  },
+  "report": {
+    "profile": {
+      "rarity": "约 6–8%",
+      "tagline": "敏感火花",
+      "keywords": ["热情", "情绪波动", "在意关系", "反复纠结", "灵感驱动", "容易内耗"],
+      "type_code": "ENFP-T",
+      "type_name": "竞选者型",
+      "short_summary": "你像一团既明亮又敏感的火焰：灵感来得快、情绪也来得快。你很在意别人怎么想，压力大时会反复回看细节、担心自己是不是让人失望。"
+    },
+    "tags": [
+      "axis:AT:T",
+      "axis:EI:E",
+      "axis:JP:P",
+      "axis:SN:N",
+      "axis:TF:F",
+      "role:NF",
+      "state:AT:clear",
+      "state:EI:clear",
+      "state:JP:clear",
+      "state:SN:clear",
+      "state:TF:clear",
+      "strategy:ET",
+      "type:ENFP-T"
+    ],
+    "highlights": [
+      {
+        "id": "hl.strength.generated_fallback_01",
+        "kind": "strength",
+        "pool": "strength",
+        "tags": ["generated", "strength", "ENFP-T"],
+        "text": "优势补齐：你更容易把复杂任务拆解成可执行步骤。（ENFP-T）",
+        "tips": ["先做一小步，再迭代优化"],
+        "title": "优势亮点",
+        "explain": "generated:strength"
+      },
+      {
+        "id": "hl.blindspot.SN_N_clear",
+        "kind": "blindspot",
+        "pool": "blindspot",
+        "tags": ["youth", "16p-like", "SN", "N"],
+        "text": "盲点提醒：更擅长看模式与意义。你倾向从整体出发：更关注趋势、关联与潜台词，容易把零散信息拼成一张“更大的图”。",
+        "tips": ["先做一小步，再迭代优化"],
+        "title": "盲点提醒",
+        "explain": "selected:blindspot"
+      },
+      {
+        "id": "hl.action.generated_01",
+        "kind": "action",
+        "pool": "action",
+        "tags": ["generated", "action"],
+        "text": "行动建议：把当下最重要的目标写成 1 句话，并拆成 3 个可交付节点（本周就能看到进展）。（ENFP-T）",
+        "tips": ["先做一小步，再迭代优化"],
+        "title": "行动建议",
+        "explain": "generated:action"
+      }
+    ],
+    "scores_pct": {
+      "AT": 19,
+      "EI": 74,
+      "JP": 15,
+      "SN": 37,
+      "TF": 9
+    },
+    "sections": {
+      "career": {
+        "cards": [
+          {
+            "id": "career_fallback_1",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "career",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          },
+          {
+            "id": "career_fallback_2",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "career",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          },
+          {
+            "id": "career_fallback_3",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "career",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          }
+        ],
+        "locked": true,
+        "module_code": "career"
+      },
+      "growth": {
+        "cards": [
+          {
+            "id": "growth_core_01",
+            "desc": "成长最快的方法不是到处补短板，而是把强项沉淀成方法论与作品。",
+            "tags": ["kind:core", "tone:neutral", "topic:assets"],
+            "tips": ["每完成一个项目补一页复盘卡：做了什么/学到什么/下次怎么更好", "让输出可被复用，你会越做越轻松"],
+            "match": null,
+            "title": "你的成长主线：把强项做成可复用资产",
+            "bullets": ["把经验写成 SOP/清单", "把成果写成案例/作品集", "把思考写成框架/工具"],
+            "section": "growth",
+            "priority": 100,
+            "module_code": "core_full",
+            "access_level": "preview"
+          },
+          {
+            "id": "growth_fallback_1",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "growth",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          },
+          {
+            "id": "growth_fallback_2",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "growth",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          }
+        ],
+        "locked": true,
+        "module_code": "core_full"
+      },
+      "traits": {
+        "cards": [
+          {
+            "id": "traits_fallback_2",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "traits",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          },
+          {
+            "id": "traits_fallback_3",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "traits",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          },
+          {
+            "id": "fb_traits_01",
+            "desc": "Content fallback guidance.",
+            "tags": ["fallback", "traits"],
+            "text": "你擅长把“想法”变成“进度”。遇到目标明确的任务时，你会自然地拆解步骤、推动落地，让团队更快看到结果。",
+            "tips": ["先做一小步，再迭代优化"],
+            "match": null,
+            "rules": [],
+            "title": "你的优势：执行推进力",
+            "bullets": [],
+            "section": "traits",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          }
+        ],
+        "locked": true,
+        "module_code": "core_full"
+      },
+      "relationships": {
+        "cards": [
+          {
+            "id": "relationships_fallback_1",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "relationships",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          },
+          {
+            "id": "relationships_fallback_2",
+            "desc": "Content pack did not provide enough matched cards. Showing a safe fallback tip.",
+            "tags": ["fallback"],
+            "tips": ["Write your first instinct, then add one alternative", "Use checklists to reduce cognitive load"],
+            "match": null,
+            "title": "General Tip",
+            "bullets": [
+              "Turn strengths into a repeatable template",
+              "Add one counter-check in key moments",
+              "Weekly review: keep what works, remove what doesn’t"
+            ],
+            "section": "relationships",
+            "priority": 0,
+            "module_code": "core_free",
+            "access_level": "free"
+          }
+        ],
+        "locked": true,
+        "module_code": "relationships"
+      }
+    }
+  }
+}
