@@ -37,11 +37,25 @@ describe("schema injection contract", () => {
     expect(source).toContain("renderTopicEntryGroups");
   });
 
-  it("career job detail page injects occupation JSON-LD", () => {
+  it("career job detail page injects cms occupation jsonld and breadcrumb jsonld", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
-    expect(source).toContain("buildOccupationJsonLd");
+    expect(source).toContain("getCareerJobSeoFromCmsBySlug");
     expect(source).toContain("JsonLd");
+    expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).not.toContain("buildOccupationJsonLd");
+    expect(source).not.toContain("getCareerJobBySlug");
+    expect(source).not.toContain("renderVeliteMdx");
     expect(source).toContain("Future outlook");
+  });
+
+  it("career jobs list and alias pages no longer resolve jobs from local content", () => {
+    const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
+    const aliasSource = read("app/(localized)/[locale]/career/[slug]/page.tsx");
+
+    expect(listSource).toContain("listCareerJobsFromCms");
+    expect(listSource).not.toContain("listCareerJobs(");
+    expect(aliasSource).toContain("getCareerJobFromCmsBySlug");
+    expect(aliasSource).not.toContain("getCareerJobBySlug");
   });
 
   it("personality detail page injects cms seo jsonld and breadcrumb jsonld", () => {

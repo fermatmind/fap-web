@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { listCareerJobs } from "@/lib/content";
+import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: localeParam } = await params;
@@ -28,9 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function CareerJobsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const withLocale = (pathname: string) => localizedPath(pathname, locale);
-
-  const jobs = listCareerJobs(locale);
+  const jobs = await listCareerJobsFromCms({ locale });
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -43,20 +42,37 @@ export default async function CareerJobsPage({ params }: { params: Promise<{ loc
       </section>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {jobs.map((job) => (
-          <Card key={job.slug}>
+        {jobs.length > 0 ? (
+          jobs.map((job) => (
+            <Card key={job.slug}>
+              <CardHeader>
+                <CardTitle className="text-lg">{job.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">{job.summary || (locale === "zh" ? "暂无摘要。" : "Summary not available yet.")}</p>
+                <p className="m-0">
+                  {locale === "zh" ? "薪资" : "Salary"}: {job.salaryText || (locale === "zh" ? "暂未提供" : "Not available yet")}
+                </p>
+                <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                  {locale === "zh" ? "查看详情" : "View details"}
+                </Link>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          <Card className="md:col-span-2 xl:col-span-3">
             <CardHeader>
-              <CardTitle className="text-lg">{job.title}</CardTitle>
+              <CardTitle>{locale === "zh" ? "暂无已发布职业内容" : "No published career jobs yet"}</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">{job.summary}</p>
-              <p className="m-0">{locale === "zh" ? "薪资" : "Salary"}: {job.salary_range}</p>
-              <Link href={withLocale(`/career/jobs/${job.slug}`)} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                {locale === "zh" ? "查看详情" : "View details"}
-              </Link>
+            <CardContent className="text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">
+                {locale === "zh"
+                  ? "CMS 当前语言下还没有返回可公开显示的职业条目。"
+                  : "The CMS did not return any public career jobs for this locale."}
+              </p>
             </CardContent>
           </Card>
-        ))}
+        )}
       </div>
     </Container>
   );
