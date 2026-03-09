@@ -5,14 +5,12 @@ import {
   getCareerIndustryBySlug,
   listCareerGuideSlugs,
   listCareerIndustrySlugs,
-  listCareerJobSlugs,
 } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 
 export function generateStaticParams() {
   const slugs = new Set([
-    ...listCareerJobSlugs(),
     ...listCareerGuideSlugs(),
     ...listCareerIndustrySlugs(),
   ]);
