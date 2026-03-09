@@ -5,6 +5,10 @@ type Block = {
   kind?: string;
   title?: string;
   body?: string;
+  desc?: string;
+  bullets?: string[];
+  tips?: string[];
+  tags?: string[];
   metric_level?: string;
   metric_code?: string;
   bucket?: string;
@@ -47,6 +51,23 @@ function BucketBadge({ bucket }: { bucket?: string }) {
   );
 }
 
+function TagBadges({ tags }: { tags: string[] }) {
+  if (tags.length === 0) return null;
+
+  return (
+    <div className="mt-3 flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span
+          key={tag}
+          className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] text-slate-600"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function BlockRenderer({
   block,
   sectionKey,
@@ -57,7 +78,10 @@ export function BlockRenderer({
   normsStatus?: string;
 }) {
   const title = block.title ?? "";
-  const body = block.body ?? "";
+  const body = block.body ?? block.desc ?? "";
+  const bullets = Array.isArray(block.bullets) ? block.bullets.filter((item): item is string => Boolean(item)) : [];
+  const tips = Array.isArray(block.tips) ? block.tips.filter((item): item is string => Boolean(item)) : [];
+  const tags = Array.isArray(block.tags) ? block.tags.filter((item): item is string => Boolean(item)) : [];
   const kind = inferKind(block, sectionKey);
 
   if (kind === "callout") {
@@ -108,6 +132,24 @@ export function BlockRenderer({
           </div>
         ) : null}
         <p className="mt-2 text-sm text-slate-700">{body}</p>
+        {bullets.length > 0 ? (
+          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
+            {bullets.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
+        {tips.length > 0 ? (
+          <div className="mt-3 rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <p className="m-0 font-semibold text-slate-700">Tips</p>
+            <ul className="mb-0 mt-2 list-disc space-y-1 pl-4">
+              {tips.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+        <TagBadges tags={tags} />
       </div>
     );
   }

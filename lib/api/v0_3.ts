@@ -211,6 +211,28 @@ export type Big5ReportSection = {
   [key: string]: unknown;
 };
 
+export type RichResultProfile = {
+  type_code?: string;
+  type_name?: string;
+  tagline?: string;
+  rarity?: string | number | Record<string, unknown> | null;
+  keywords?: string[];
+  short_summary?: string;
+  [key: string]: unknown;
+};
+
+export type RichResultHighlight = {
+  id?: string;
+  title?: string;
+  label?: string;
+  text?: string;
+  body?: string;
+  desc?: string;
+  tips?: string[];
+  tags?: string[];
+  [key: string]: unknown;
+};
+
 export type Big5NormsPayload = {
   status?: "CALIBRATED" | "PROVISIONAL" | "MISSING" | string;
   group_id?: string;
@@ -250,9 +272,15 @@ export type ReportResponse = {
   report?: {
     scale_code?: string;
     locale?: string;
-    sections?: Big5ReportSection[];
+    summary?: string;
+    profile?: RichResultProfile;
+    highlights?: RichResultHighlight[];
+    sections?: Big5ReportSection[] | Record<string, unknown>;
     quality?: Record<string, unknown>;
     scores?: Record<string, unknown>;
+    scores_pct?: Record<string, unknown>;
+    axis_states?: Record<string, unknown>;
+    dimensions?: Array<Record<string, unknown>>;
     report_tags?: string[];
     [key: string]: unknown;
   };

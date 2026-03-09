@@ -297,7 +297,7 @@ test("result page falls back to attempts/{id}/result when report is unavailable"
   await expect(page.getByText("Fallback summary available.")).toBeVisible();
 });
 
-test("result page shows generating state and unlock CTA together when offers are already available", async ({ page }) => {
+test("result page keeps generating state isolated even when offers are already available", async ({ page }) => {
   const attemptId = "result-generating-offer-001";
   await mockTrack(page);
   await mockScaleLookup(page);
@@ -350,7 +350,7 @@ test("result page shows generating state and unlock CTA together when offers are
 
   await page.goto(`/en/result/${attemptId}`);
   await expect(page.getByText("Report is still generating. Refresh in a few seconds.")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
 });
 
 test("quiz submit retries once after 401 with bootstrap token precheck", async ({ page }) => {

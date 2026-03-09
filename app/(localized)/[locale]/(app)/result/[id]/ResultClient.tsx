@@ -3,14 +3,21 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
+import {
+  canRenderRichResultReport,
+  isGeneratingReportResponse,
+  resolveReportScaleCode,
+  RichResultReport,
+} from "@/components/result/RichResultReport";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { ResultSummary } from "@/components/result/ResultSummary";
 import { Alert } from "@/components/ui/alert";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
+import { fetchAttemptReport, fetchAttemptResult, type ReportResponse, type ResultResponse } from "@/lib/api/v0_3";
 import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import { isGuestTokenRequestError } from "@/lib/auth/fmToken";
-import { fetchAttemptResult, type ResultResponse } from "@/lib/api/v0_3";
+import { getPersonalityProfileBySlugOrType, type CmsPersonalityProfile } from "@/lib/cms/personality";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
@@ -29,6 +36,25 @@ type ResultDimension = {
   value?: number;
 };
 
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  return value as Record<string, unknown>;
+}
+
+function normalizeText(...values: unknown[]): string {
+  for (const value of values) {
+    const normalized = String(value ?? "").trim();
+    if (normalized) {
+      return normalized;
+    }
+  }
+
+  return "";
+}
+
 function resolveRetryMs(retryAfterSeconds: number | undefined): number {
   const retryAfterValue = typeof retryAfterSeconds === "number" ? retryAfterSeconds : Number.NaN;
   if (!Number.isFinite(retryAfterValue)) return RESULT_POLL_FALLBACK_MS;
@@ -38,17 +64,29 @@ function resolveRetryMs(retryAfterSeconds: number | undefined): number {
   return Math.min(10000, Math.max(1000, retryMs));
 }
 
-function resolveResultRetryMs(result: ResultResponse | null): number {
-  if (!result?.meta || typeof result.meta !== "object" || Array.isArray(result.meta)) {
-    return RESULT_POLL_FALLBACK_MS;
-  }
-
+function resolveResponseRetryMs(
+  response:
+    | ResultResponse
+    | ReportResponse
+    | {
+        retry_after_seconds?: number;
+        retry_after?: number;
+        meta?: Record<string, unknown>;
+      }
+    | null
+): number {
+  const responseRecord = asRecord(response);
+  const meta = asRecord(responseRecord?.meta);
   const retryAfterSeconds =
-    typeof result.meta.retry_after_seconds === "number"
-      ? result.meta.retry_after_seconds
-      : typeof result.meta.retry_after === "number"
-        ? result.meta.retry_after
-        : undefined;
+    typeof responseRecord?.retry_after_seconds === "number"
+      ? responseRecord.retry_after_seconds
+      : typeof responseRecord?.retry_after === "number"
+        ? responseRecord.retry_after
+        : typeof meta?.retry_after_seconds === "number"
+          ? meta.retry_after_seconds
+          : typeof meta?.retry_after === "number"
+            ? meta.retry_after
+            : undefined;
 
   return resolveRetryMs(retryAfterSeconds);
 }
@@ -85,17 +123,44 @@ function resolveGuestTokenTelemetry(error: unknown): {
   };
 }
 
+function resolveScaleCodeForTelemetry(reportData: ReportResponse | null, resultData: ResultResponse | null): string {
+  const reportScaleCode = resolveReportScaleCode(reportData);
+  if (reportScaleCode) {
+    return reportScaleCode;
+  }
+
+  const resultScaleCode = normalizeText(resultData?.meta?.scale_code).toUpperCase();
+  if (resultScaleCode) {
+    return resultScaleCode;
+  }
+
+  const metaScaleCode = normalizeText(reportData?.meta?.scale_code).toUpperCase();
+  return metaScaleCode || "UNKNOWN";
+}
+
+function resolveMbtiCmsType(reportData: ReportResponse | null): string {
+  const payload = asRecord(reportData?.report);
+  const profile = asRecord(payload?.profile);
+  const rawTypeCode = normalizeText(profile?.type_code, reportData?.type_code).toUpperCase();
+  const matched = rawTypeCode.match(/^[A-Z]{4}/);
+  return matched?.[0] ?? "";
+}
+
 export default function ResultClient({
   attemptId,
-  rolloutEnv: _rolloutEnv,
+  rolloutEnv,
 }: {
   attemptId: string;
   rolloutEnv: ScaleRolloutEnvSnapshot;
 }) {
+  void rolloutEnv;
+
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
+  const [reportData, setReportData] = useState<ReportResponse | null>(null);
   const [resultData, setResultData] = useState<ResultResponse | null>(null);
+  const [personalityProfile, setPersonalityProfile] = useState<CmsPersonalityProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -129,6 +194,38 @@ export default function ResultClient({
     let active = true;
     let retryTimer: number | null = null;
 
+    const scheduleRetry = (attempt: number, delayMs: number) => {
+      if (attempt >= RESULT_POLL_MAX - 1) {
+        return;
+      }
+
+      retryTimer = window.setTimeout(() => {
+        void load(attempt + 1);
+      }, delayMs);
+    };
+
+    const loadFallbackResult = async (attempt: number) => {
+      const response = await runWithAuthRetry(() => fetchAttemptResult({ attemptId, anonId }));
+      if (!active) {
+        return { ready: false };
+      }
+
+      setResultData(response);
+      const nextScaleCode = normalizeText(response.meta?.scale_code).toUpperCase();
+      if (nextScaleCode) {
+        routeScaleCodeRef.current = nextScaleCode;
+      }
+
+      if (!hasReadyResultPayload(response)) {
+        setProcessing(true);
+        scheduleRetry(attempt, resolveResponseRetryMs(response));
+        return { ready: false };
+      }
+
+      setProcessing(false);
+      return { ready: true, response };
+    };
+
     const load = async (attempt = 0) => {
       if (attempt === 0) {
         setLoading(true);
@@ -136,51 +233,58 @@ export default function ResultClient({
       setError(null);
 
       try {
-        const response = await runWithAuthRetry(() => fetchAttemptResult({ attemptId, anonId }));
+        const reportResponse = await runWithAuthRetry(() => fetchAttemptReport({ attemptId, anonId }));
         if (!active) return;
 
-        setResultData(response);
-        const nextScaleCode =
-          typeof response.meta?.scale_code === "string" && response.meta.scale_code.trim().length > 0
-            ? response.meta.scale_code.trim().toUpperCase()
-            : "UNKNOWN";
-        routeScaleCodeRef.current = nextScaleCode;
+        setReportData(reportResponse);
+        setResultData(null);
+        routeScaleCodeRef.current = resolveScaleCodeForTelemetry(reportResponse, null);
 
-        if (!hasReadyResultPayload(response)) {
+        if (isGeneratingReportResponse(reportResponse)) {
           setProcessing(true);
-          if (attempt < RESULT_POLL_MAX - 1) {
-            retryTimer = window.setTimeout(() => {
-              void load(attempt + 1);
-            }, resolveResultRetryMs(response));
-          }
+          scheduleRetry(attempt, resolveResponseRetryMs(reportResponse));
           return;
         }
 
-        setProcessing(false);
-      } catch (cause) {
+        if (canRenderRichResultReport(reportResponse)) {
+          setProcessing(false);
+          return;
+        }
+
+        await loadFallbackResult(attempt);
+      } catch (reportCause) {
         if (!active) return;
 
-        setResultData(null);
-        setProcessing(false);
-        const message = cause instanceof Error ? cause.message : dict.result.reportUnavailable;
-        setError(message);
+        setReportData(null);
 
-        const classified = classifyApiError(cause);
-        trackEvent("result_load_failure", {
-          scale_code: routeScaleCodeRef.current,
-          stage: "load_result",
-          status_group: classified.statusGroup,
-          status_code: classified.statusCode,
-          error_code: classified.errorCode,
-          route: "/result/[id]",
-          locale,
-        });
-        captureError(cause, {
-          route: "/result/[id]",
-          attemptId,
-          scaleCode: routeScaleCodeRef.current,
-          stage: "load_result",
-        });
+        try {
+          await loadFallbackResult(attempt);
+        } catch (resultCause) {
+          if (!active) return;
+
+          setResultData(null);
+          setProcessing(false);
+          const message = resultCause instanceof Error ? resultCause.message : dict.result.reportUnavailable;
+          setError(message);
+
+          const classified = classifyApiError(resultCause);
+          trackEvent("result_load_failure", {
+            scale_code: routeScaleCodeRef.current,
+            stage: "load_result",
+            status_group: classified.statusGroup,
+            status_code: classified.statusCode,
+            error_code: classified.errorCode,
+            route: "/result/[id]",
+            locale,
+          });
+          captureError(resultCause, {
+            route: "/result/[id]",
+            attemptId,
+            scaleCode: routeScaleCodeRef.current,
+            stage: "load_result",
+            reportCause: reportCause instanceof Error ? reportCause.message : String(reportCause),
+          });
+        }
       } finally {
         if (active) {
           setLoading(false);
@@ -198,12 +302,48 @@ export default function ResultClient({
     };
   }, [anonId, attemptId, dict.result.reportUnavailable, locale, runWithAuthRetry]);
 
+  const hasRichReport = canRenderRichResultReport(reportData);
+  const richReportScaleCode = resolveReportScaleCode(reportData);
+
+  useEffect(() => {
+    let active = true;
+
+    if (!hasRichReport || richReportScaleCode !== "MBTI") {
+      setPersonalityProfile(null);
+      return () => {
+        active = false;
+      };
+    }
+
+    const type = resolveMbtiCmsType(reportData);
+    if (!type) {
+      setPersonalityProfile(null);
+      return () => {
+        active = false;
+      };
+    }
+
+    void getPersonalityProfileBySlugOrType(type, locale)
+      .then((profile) => {
+        if (!active) return;
+        setPersonalityProfile(profile);
+      })
+      .catch(() => {
+        if (!active) return;
+        setPersonalityProfile(null);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [hasRichReport, locale, reportData, richReportScaleCode]);
+
   const viewState: "processing" | "ready" | "failed" =
     loading || processing
       ? "processing"
-      : error || !hasReadyResultPayload(resultData)
-        ? "failed"
-        : "ready";
+      : hasRichReport || hasReadyResultPayload(resultData)
+        ? "ready"
+        : "failed";
 
   if (viewState === "processing") {
     return (
@@ -216,6 +356,17 @@ export default function ResultClient({
 
   if (viewState === "failed") {
     return <Alert>{error ?? dict.result.reportUnavailable}</Alert>;
+  }
+
+  if (hasRichReport && reportData) {
+    return (
+      <RichResultReport
+        locale={locale}
+        reportData={reportData}
+        fallbackResult={hasReadyResultPayload(resultData) ? resultData.result : null}
+        personalityProfile={personalityProfile}
+      />
+    );
   }
 
   if (!hasReadyResultPayload(resultData)) {
