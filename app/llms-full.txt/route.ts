@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
+import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import {
   getAllTests,
   listBlogPosts,
   listBig5RecommendationTraits,
   listCareerGuideSlugs,
   listCareerIndustrySlugs,
-  listCareerJobSlugs,
   listMbtiRecommendationTypes,
 } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -16,8 +16,12 @@ function toCanonical(siteUrl: string, path: string): string {
   return `${siteUrl}${normalized}`;
 }
 
-export function GET() {
+export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
+  const [enCareerJobs, zhCareerJobs] = await Promise.all([
+    listCareerJobsFromCms({ locale: "en" }),
+    listCareerJobsFromCms({ locale: "zh" }),
+  ]);
 
   const tests = getAllTests()
     .flatMap((test) => [
@@ -42,10 +46,8 @@ export function GET() {
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
   const careers = [
-    ...listCareerJobSlugs().flatMap((slug) => [
-      { locale: "en", path: `/en/career/jobs/${slug}`, title: slug, updatedAt: "" },
-      { locale: "zh", path: `/zh/career/jobs/${slug}`, title: slug, updatedAt: "" },
-    ]),
+    ...enCareerJobs.map((job) => ({ locale: "en", path: job.href, title: job.title, updatedAt: "" })),
+    ...zhCareerJobs.map((job) => ({ locale: "zh", path: job.href, title: job.title, updatedAt: "" })),
     ...listCareerIndustrySlugs().flatMap((slug) => [
       { locale: "en", path: `/en/career/industries/${slug}`, title: slug, updatedAt: "" },
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },

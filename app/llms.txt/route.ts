@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
+import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import {
   getAllTests,
   listBlogPosts,
   listBig5RecommendationTraits,
   listCareerGuideSlugs,
   listCareerIndustrySlugs,
-  listCareerJobSlugs,
   listMbtiRecommendationTypes,
 } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -16,8 +16,12 @@ function toCanonical(siteUrl: string, path: string): string {
   return `${siteUrl}${normalized}`;
 }
 
-export function GET() {
+export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
+  const [enCareerJobs, zhCareerJobs] = await Promise.all([
+    listCareerJobsFromCms({ locale: "en" }),
+    listCareerJobsFromCms({ locale: "zh" }),
+  ]);
 
   const testEntries = getAllTests()
     .flatMap((test) => [`/en/tests/${test.slug}`, `/zh/tests/${test.slug}`])
@@ -49,7 +53,8 @@ export function GET() {
     "/zh/career/tests/riasec",
     "/en/career/tests/riasec/result",
     "/zh/career/tests/riasec/result",
-    ...listCareerJobSlugs().flatMap((slug) => [`/en/career/jobs/${slug}`, `/zh/career/jobs/${slug}`]),
+    ...enCareerJobs.map((job) => job.href),
+    ...zhCareerJobs.map((job) => job.href),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...listCareerGuideSlugs().flatMap((slug) => [`/en/career/guides/${slug}`, `/zh/career/guides/${slug}`]),
     ...listMbtiRecommendationTypes().flatMap((type) => [
