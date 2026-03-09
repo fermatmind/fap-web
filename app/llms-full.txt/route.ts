@@ -5,7 +5,6 @@ import {
   listBig5RecommendationTraits,
   listCareerGuideSlugs,
   listCareerIndustrySlugs,
-  listCareerJobSlugs,
   listMbtiRecommendationTypes,
 } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -42,10 +41,8 @@ export function GET() {
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
   const careers = [
-    ...listCareerJobSlugs().flatMap((slug) => [
-      { locale: "en", path: `/en/career/jobs/${slug}`, title: slug, updatedAt: "" },
-      { locale: "zh", path: `/zh/career/jobs/${slug}`, title: slug, updatedAt: "" },
-    ]),
+    { locale: "en", path: "/en/career/jobs", title: "Career Jobs", updatedAt: "" },
+    { locale: "zh", path: "/zh/career/jobs", title: "职业库", updatedAt: "" },
     ...listCareerIndustrySlugs().flatMap((slug) => [
       { locale: "en", path: `/en/career/industries/${slug}`, title: slug, updatedAt: "" },
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },

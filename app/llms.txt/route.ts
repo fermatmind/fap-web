@@ -5,7 +5,6 @@ import {
   listBig5RecommendationTraits,
   listCareerGuideSlugs,
   listCareerIndustrySlugs,
-  listCareerJobSlugs,
   listMbtiRecommendationTypes,
 } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -49,7 +48,6 @@ export function GET() {
     "/zh/career/tests/riasec",
     "/en/career/tests/riasec/result",
     "/zh/career/tests/riasec/result",
-    ...listCareerJobSlugs().flatMap((slug) => [`/en/career/jobs/${slug}`, `/zh/career/jobs/${slug}`]),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...listCareerGuideSlugs().flatMap((slug) => [`/en/career/guides/${slug}`, `/zh/career/guides/${slug}`]),
     ...listMbtiRecommendationTypes().flatMap((type) => [

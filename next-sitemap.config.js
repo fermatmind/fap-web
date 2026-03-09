@@ -2,7 +2,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const tests = require("./.velite/tests.json");
 const blog = require("./.velite/blog.json");
-const careerJobs = require("./.velite/careerJobs.json");
 const careerIndustries = require("./.velite/careerIndustries.json");
 const careerGuides = require("./.velite/careerGuides.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
@@ -101,8 +100,6 @@ function buildLandingPaths() {
     "/zh/articles",
     "/en/career",
     "/zh/career",
-    "/en/career/jobs",
-    "/zh/career/jobs",
     "/en/career/industries",
     "/zh/career/industries",
     "/en/career/guides",
@@ -124,13 +121,6 @@ function buildLandingPaths() {
 
 function buildCareerPaths() {
   const paths = new Set();
-
-  for (const item of careerJobs) {
-    const slug = normalizeSlug(item?.slug);
-    if (!slug) continue;
-    paths.add(`/en/career/jobs/${slug}`);
-    paths.add(`/zh/career/jobs/${slug}`);
-  }
 
   for (const item of careerIndustries) {
     const slug = normalizeSlug(item?.slug);
