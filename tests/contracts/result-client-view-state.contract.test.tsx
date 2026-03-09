@@ -7,8 +7,21 @@ type ChildrenProps = {
   children?: ReactNode;
 };
 
+type RichResultReportProps = {
+  reportData?: {
+    summary?: string;
+    report?: {
+      profile?: {
+        type_code?: string;
+      };
+    };
+  };
+};
+
 const hoisted = vi.hoisted(() => ({
+  fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
+  getPersonalityProfileBySlugOrType: vi.fn(),
   trackEvent: vi.fn(),
   captureError: vi.fn(),
   classifyApiError: vi.fn(() => ({
@@ -24,6 +37,19 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/components/design/AnticipationSkeleton", () => ({
   AnticipationSkeleton: () => <div data-testid="skeleton">processing-skeleton</div>,
+}));
+
+vi.mock("@/components/result/RichResultReport", () => ({
+  canRenderRichResultReport: (report: { summary?: string; report?: { sections?: unknown; profile?: unknown } } | null) =>
+    Boolean(report?.summary || report?.report?.sections || report?.report?.profile),
+  isGeneratingReportResponse: (report: { generating?: boolean } | null) => report?.generating === true,
+  resolveReportScaleCode: (report: { report?: { scale_code?: string } } | null) =>
+    report?.report?.scale_code === "MBTI" ? "MBTI" : null,
+  RichResultReport: ({ reportData }: RichResultReportProps) => (
+    <div data-testid="rich-result-report">
+      {reportData?.summary ?? reportData?.report?.profile?.type_code ?? "rich-report"}
+    </div>
+  ),
 }));
 
 vi.mock("@/components/result/DimensionBars", () => ({
@@ -57,7 +83,12 @@ vi.mock("@/lib/auth/fmToken", () => ({
 }));
 
 vi.mock("@/lib/api/v0_3", () => ({
+  fetchAttemptReport: hoisted.fetchAttemptReport,
   fetchAttemptResult: hoisted.fetchAttemptResult,
+}));
+
+vi.mock("@/lib/cms/personality", () => ({
+  getPersonalityProfileBySlugOrType: hoisted.getPersonalityProfileBySlugOrType,
 }));
 
 vi.mock("@/lib/i18n/getDict", () => ({
@@ -90,41 +121,48 @@ vi.mock("@/lib/observability/sentry", () => ({
 describe("ResultClient view-state contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.getPersonalityProfileBySlugOrType.mockResolvedValue(null);
   });
 
-  it("enters ready when the result endpoint returns a result payload", async () => {
-    hoisted.fetchAttemptResult.mockResolvedValue({
+  it("renders the rich report view when the report endpoint is ready", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue({
       ok: true,
-      result: {
-        type_code: "EQ_HIGH",
-        summary: "Ready summary",
-        dimensions: [{ code: "self_awareness", score: 0.82 }],
-      },
-      meta: {
-        scale_code: "EQ_60",
+      summary: "Rich report ready",
+      report: {
+        scale_code: "MBTI",
+        profile: {
+          type_code: "ISTJ-A",
+        },
+        sections: {
+          career: {
+            cards: [{ title: "Career section", desc: "Career card" }],
+          },
+        },
       },
     });
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("result-summary")).toHaveTextContent("Ready summary");
+      expect(screen.getByTestId("rich-result-report")).toHaveTextContent("Rich report ready");
     });
 
-    expect(hoisted.fetchAttemptResult).toHaveBeenCalledWith({
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
     });
-    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:1");
-    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    expect(hoisted.getPersonalityProfileBySlugOrType).toHaveBeenCalledWith("ISTJ", "en");
+    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
   });
 
-  it("enters processing when the result endpoint returns no result payload", async () => {
-    hoisted.fetchAttemptResult.mockResolvedValue({
+  it("keeps the page in processing state when the report endpoint is still generating", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue({
       ok: true,
-      meta: {
-        scale_code: "EQ_60",
+      generating: true,
+      report: {
+        scale_code: "MBTI",
       },
     });
 
@@ -135,21 +173,36 @@ describe("ResultClient view-state contract", () => {
     });
 
     expect(screen.getByTestId("skeleton")).toBeInTheDocument();
-    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
 
-  it("enters failed on terminal result endpoint errors", async () => {
-    hoisted.fetchAttemptResult.mockRejectedValue(new Error("Result load failed."));
+  it("falls back to the legacy result view when the report endpoint is unavailable", async () => {
+    hoisted.fetchAttemptReport.mockRejectedValue(new Error("Report missing."));
+    hoisted.fetchAttemptResult.mockResolvedValue({
+      ok: true,
+      result: {
+        type_code: "EQ_HIGH",
+        summary: "Fallback summary available.",
+        dimensions: [{ code: "self_awareness", score: 0.82 }],
+      },
+      meta: {
+        scale_code: "EQ_60",
+      },
+    });
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByRole("alert")).toHaveTextContent("Result load failed.");
+      expect(screen.getByTestId("result-summary")).toHaveTextContent("Fallback summary available.");
     });
 
-    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledTimes(1);
+    expect(hoisted.fetchAttemptResult).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+    });
+    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:1");
+    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
 });
