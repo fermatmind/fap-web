@@ -230,6 +230,8 @@ export type RichResultHighlight = {
   desc?: string;
   tips?: string[];
   tags?: string[];
+  access_level?: string;
+  module_code?: string;
   [key: string]: unknown;
 };
 
@@ -274,6 +276,7 @@ export type ReportResponse = {
     locale?: string;
     summary?: string;
     profile?: RichResultProfile;
+    tags?: string[];
     highlights?: RichResultHighlight[];
     sections?: Big5ReportSection[] | Record<string, unknown>;
     quality?: Record<string, unknown>;

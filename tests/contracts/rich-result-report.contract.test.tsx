@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
-import type { CmsPersonalityProfile } from "@/lib/cms/personality";
 import type { ReportResponse } from "@/lib/api/v0_3";
 
 vi.mock("next/navigation", () => ({
@@ -9,11 +8,13 @@ vi.mock("next/navigation", () => ({
 }));
 
 describe("RichResultReport", () => {
-  it("renders report-first MBTI content, adapts section cards, and merges non-duplicated CMS sections", () => {
+  it("renders only report-source free content for MBTI and does not leak gated sections", () => {
     const reportData: ReportResponse = {
       ok: true,
       locked: true,
-      summary: "A steady, systems-first profile.",
+      variant: "free",
+      access_level: "free",
+      modules_allowed: ["core_free"],
       offers: [
         {
           title: "MBTI Career Unlock",
@@ -21,6 +22,9 @@ describe("RichResultReport", () => {
           modules_included: ["career", "relationships"],
         },
       ],
+      view_policy: {
+        free_sections: ["traits"],
+      },
       report: {
         scale_code: "MBTI",
         profile: {
@@ -28,9 +32,10 @@ describe("RichResultReport", () => {
           type_name: "Logistician",
           tagline: "Steady systems builder",
           rarity: "About 11%",
-          keywords: ["Reliable", "Structured"],
+          keywords: ["keyword-from-profile"],
           short_summary: "You prefer clear standards, stable progress, and dependable execution.",
         },
+        tags: ["tag-from-report", "trustworthy"],
         scores_pct: {
           EI: 40,
           SN: 67,
@@ -42,27 +47,53 @@ describe("RichResultReport", () => {
           {
             title: "Execution strength",
             text: "You keep plans moving with consistency.",
+            access_level: "free",
+            module_code: "core_free",
+          },
+          {
+            title: "Paid growth highlight",
+            text: "This should not render.",
+            access_level: "paid",
+            module_code: "growth",
           },
         ],
         sections: {
+          traits: {
+            locked: false,
+            module_code: "core_free",
+            cards: [
+              {
+                title: "Core trait read",
+                desc: "You prefer stable systems and verified execution.",
+                bullets: ["Stable delivery", "Clear standards"],
+                tips: ["Document your playbooks."],
+                tags: ["trait:core"],
+                access_level: "free",
+                module_code: "core_free",
+              },
+            ],
+          },
           career: {
             locked: false,
+            module_code: "career",
             cards: [
               {
                 title: "Career operating mode",
-                desc: "You perform best where process and ownership are explicit.",
-                bullets: ["Stable delivery", "Process thinking"],
-                tips: ["Document your playbooks."],
-                tags: ["career:operations"],
+                desc: "This paid career body must stay hidden.",
+                access_level: "free",
+                module_code: "career",
               },
             ],
           },
           relationships: {
-            locked: true,
+            locked: false,
+            module_code: "relationships",
             cards: [
               {
-                title: "Relationships",
-                desc: "This module is locked.",
+                title: "Relationship deep dive",
+                desc: "This paid relationship body must stay hidden.",
+                access_level: "free",
+                module_code: "relationships",
               },
             ],
           },
@@ -70,86 +101,31 @@ describe("RichResultReport", () => {
       },
     };
 
-    const personalityProfile: CmsPersonalityProfile = {
-      id: 1,
-      orgId: 0,
-      scaleCode: "MBTI",
-      typeCode: "ISTJ",
-      slug: "istj",
-      locale: "en",
-      title: "ISTJ",
-      subtitle: "",
-      excerpt: "",
-      status: "published",
-      isPublic: true,
-      isIndexable: true,
-      publishedAt: null,
-      updatedAt: null,
-      seoMeta: null,
-      heroKicker: "",
-      heroQuote: "",
-      heroImageUrl: null,
-      sections: [
-        {
-          sectionKey: "work_style",
-          title: "Work style",
-          renderVariant: "rich_text",
-          bodyMd: "Prefers explicit roles and reviewable workflows.",
-          bodyHtml: "",
-          payloadJson: null,
-          sortOrder: 1,
-          isEnabled: true,
-        },
-        {
-          sectionKey: "strengths",
-          title: "Strengths",
-          renderVariant: "bullets",
-          bodyMd: "",
-          bodyHtml: "",
-          payloadJson: {
-            items: [{ title: "Reliable operator" }],
-          },
-          sortOrder: 2,
-          isEnabled: true,
-        },
-        {
-          sectionKey: "relationships",
-          title: "Supplementary relationships",
-          renderVariant: "rich_text",
-          bodyMd: "This should stay hidden because report relationships already exists.",
-          bodyHtml: "",
-          payloadJson: null,
-          sortOrder: 3,
-          isEnabled: true,
-        },
-      ],
-    };
-
-    render(
-      <RichResultReport
-        locale="en"
-        reportData={reportData}
-        personalityProfile={personalityProfile}
-      />
-    );
+    render(<RichResultReport locale="en" reportData={reportData} />);
 
     expect(screen.getByText("ISTJ-A")).toBeInTheDocument();
     expect(screen.getByText("Steady systems builder")).toBeInTheDocument();
     expect(screen.getByText(/About 11%/)).toBeInTheDocument();
-    expect(screen.getByText("Reliable")).toBeInTheDocument();
-    expect(screen.getByText("Structured")).toBeInTheDocument();
+    expect(screen.getByText("tag-from-report")).toBeInTheDocument();
+    expect(screen.getByText("trustworthy")).toBeInTheDocument();
+    expect(screen.queryByText("keyword-from-profile")).not.toBeInTheDocument();
+
     expect(screen.getByText("Execution strength")).toBeInTheDocument();
-    expect(screen.getByText("Career path")).toBeInTheDocument();
-    expect(screen.getByText("Career operating mode")).toBeInTheDocument();
-    expect(screen.getByText("Work style")).toBeInTheDocument();
-    expect(screen.getByText("Strengths")).toBeInTheDocument();
-    expect(screen.queryByText("Supplementary relationships")).not.toBeInTheDocument();
+    expect(screen.queryByText("Paid growth highlight")).not.toBeInTheDocument();
+    expect(screen.getByText("Core trait read")).toBeInTheDocument();
+    expect(screen.queryByText("Career operating mode")).not.toBeInTheDocument();
+    expect(screen.queryByText("Relationship deep dive")).not.toBeInTheDocument();
+    expect(screen.queryByText("This paid career body must stay hidden.")).not.toBeInTheDocument();
+    expect(screen.queryByText("This paid relationship body must stay hidden.")).not.toBeInTheDocument();
+
     expect(screen.getByText("MBTI Career Unlock")).toBeInTheDocument();
     expect(screen.getByText("E / I")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "View personality profile" })).toHaveAttribute("href", "/en/personality/istj");
+    expect(screen.queryByRole("link", { name: "View personality profile" })).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Retake test" })).toHaveAttribute(
       "href",
       "/en/tests/mbti-personality-test-16-personality-types/take"
     );
+    expect(screen.queryByText("Prefers explicit roles and reviewable workflows.")).not.toBeInTheDocument();
+    expect(screen.queryByText("Reliable operator")).not.toBeInTheDocument();
   });
 });

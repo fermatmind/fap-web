@@ -17,7 +17,6 @@ import { trackEvent } from "@/lib/analytics";
 import { fetchAttemptReport, fetchAttemptResult, type ReportResponse, type ResultResponse } from "@/lib/api/v0_3";
 import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import { isGuestTokenRequestError } from "@/lib/auth/fmToken";
-import { getPersonalityProfileBySlugOrType, type CmsPersonalityProfile } from "@/lib/cms/personality";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
@@ -138,14 +137,6 @@ function resolveScaleCodeForTelemetry(reportData: ReportResponse | null, resultD
   return metaScaleCode || "UNKNOWN";
 }
 
-function resolveMbtiCmsType(reportData: ReportResponse | null): string {
-  const payload = asRecord(reportData?.report);
-  const profile = asRecord(payload?.profile);
-  const rawTypeCode = normalizeText(profile?.type_code, reportData?.type_code).toUpperCase();
-  const matched = rawTypeCode.match(/^[A-Z]{4}/);
-  return matched?.[0] ?? "";
-}
-
 export default function ResultClient({
   attemptId,
   rolloutEnv,
@@ -160,7 +151,6 @@ export default function ResultClient({
   const dict = getDictSync(locale);
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
   const [resultData, setResultData] = useState<ResultResponse | null>(null);
-  const [personalityProfile, setPersonalityProfile] = useState<CmsPersonalityProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -303,40 +293,6 @@ export default function ResultClient({
   }, [anonId, attemptId, dict.result.reportUnavailable, locale, runWithAuthRetry]);
 
   const hasRichReport = canRenderRichResultReport(reportData);
-  const richReportScaleCode = resolveReportScaleCode(reportData);
-
-  useEffect(() => {
-    let active = true;
-
-    if (!hasRichReport || richReportScaleCode !== "MBTI") {
-      setPersonalityProfile(null);
-      return () => {
-        active = false;
-      };
-    }
-
-    const type = resolveMbtiCmsType(reportData);
-    if (!type) {
-      setPersonalityProfile(null);
-      return () => {
-        active = false;
-      };
-    }
-
-    void getPersonalityProfileBySlugOrType(type, locale)
-      .then((profile) => {
-        if (!active) return;
-        setPersonalityProfile(profile);
-      })
-      .catch(() => {
-        if (!active) return;
-        setPersonalityProfile(null);
-      });
-
-    return () => {
-      active = false;
-    };
-  }, [hasRichReport, locale, reportData, richReportScaleCode]);
 
   const viewState: "processing" | "ready" | "failed" =
     loading || processing
@@ -359,14 +315,7 @@ export default function ResultClient({
   }
 
   if (hasRichReport && reportData) {
-    return (
-      <RichResultReport
-        locale={locale}
-        reportData={reportData}
-        fallbackResult={hasReadyResultPayload(resultData) ? resultData.result : null}
-        personalityProfile={personalityProfile}
-      />
-    );
+    return <RichResultReport locale={locale} reportData={reportData} />;
   }
 
   if (!hasReadyResultPayload(resultData)) {

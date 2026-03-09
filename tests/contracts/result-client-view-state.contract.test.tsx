@@ -13,6 +13,7 @@ type RichResultReportProps = {
     report?: {
       profile?: {
         type_code?: string;
+        short_summary?: string;
       };
     };
   };
@@ -21,7 +22,6 @@ type RichResultReportProps = {
 const hoisted = vi.hoisted(() => ({
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
-  getPersonalityProfileBySlugOrType: vi.fn(),
   trackEvent: vi.fn(),
   captureError: vi.fn(),
   classifyApiError: vi.fn(() => ({
@@ -47,7 +47,7 @@ vi.mock("@/components/result/RichResultReport", () => ({
     report?.report?.scale_code === "MBTI" ? "MBTI" : null,
   RichResultReport: ({ reportData }: RichResultReportProps) => (
     <div data-testid="rich-result-report">
-      {reportData?.summary ?? reportData?.report?.profile?.type_code ?? "rich-report"}
+      {reportData?.report?.profile?.short_summary ?? reportData?.summary ?? reportData?.report?.profile?.type_code ?? "rich-report"}
     </div>
   ),
 }));
@@ -87,10 +87,6 @@ vi.mock("@/lib/api/v0_3", () => ({
   fetchAttemptResult: hoisted.fetchAttemptResult,
 }));
 
-vi.mock("@/lib/cms/personality", () => ({
-  getPersonalityProfileBySlugOrType: hoisted.getPersonalityProfileBySlugOrType,
-}));
-
 vi.mock("@/lib/i18n/getDict", () => ({
   getDictSync: () => ({
     loading: {
@@ -121,7 +117,6 @@ vi.mock("@/lib/observability/sentry", () => ({
 describe("ResultClient view-state contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    hoisted.getPersonalityProfileBySlugOrType.mockResolvedValue(null);
   });
 
   it("renders the rich report view when the report endpoint is ready", async () => {
@@ -132,6 +127,7 @@ describe("ResultClient view-state contract", () => {
         scale_code: "MBTI",
         profile: {
           type_code: "ISTJ-A",
+          short_summary: "Rich report ready",
         },
         sections: {
           career: {
@@ -152,7 +148,6 @@ describe("ResultClient view-state contract", () => {
       anonId: "anon_result_test",
     });
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
-    expect(hoisted.getPersonalityProfileBySlugOrType).toHaveBeenCalledWith("ISTJ", "en");
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
     expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
   });

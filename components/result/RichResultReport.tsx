@@ -7,13 +7,7 @@ import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { OfferPayload, ReportResponse, ResultResponse } from "@/lib/api/v0_3";
-import {
-  buildPersonalityFrontendUrl,
-  type CmsPersonalityProfile,
-  type CmsPersonalitySection,
-} from "@/lib/cms/personality";
-import { renderPersonalitySections } from "@/lib/cms/personality-sections";
+import type { OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
   normalizeSupportedScaleCode,
@@ -22,8 +16,6 @@ import {
 } from "@/lib/assessmentSlugMap";
 
 type RichResultScaleCode = Extract<SupportedScaleCode, "MBTI" | "BIG5_OCEAN" | "IQ_RAVEN" | "EQ_60">;
-
-type ResultPayload = NonNullable<ResultResponse["result"]>;
 
 type ReportBlock = {
   id?: string;
@@ -47,13 +39,11 @@ type ReportSection = {
   [key: string]: unknown;
 };
 
-type PersonalitySupplementKey =
-  | "core_snapshot"
-  | "work_style"
-  | "strengths"
-  | "growth_edges"
-  | "career_fit"
-  | "relationships";
+type RichResultGate = {
+  isFreeVariant: boolean;
+  modulesAllowed: Set<string>;
+  freeSections: Set<string> | null;
+};
 
 const MBTI_DIMENSION_LABELS: Record<string, string> = {
   EI: "E / I",
@@ -70,13 +60,6 @@ const BIG5_DIMENSION_LABELS: Record<string, string> = {
   A: "Agreeableness",
   N: "Neuroticism",
 };
-
-const DEFAULT_PERSONALITY_SUPPLEMENT_KEYS: PersonalitySupplementKey[] = [
-  "core_snapshot",
-  "work_style",
-  "strengths",
-  "growth_edges",
-];
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -126,16 +109,11 @@ function resolveReportPayload(reportData: ReportResponse | null | undefined): Re
   return asRecord(reportData?.report);
 }
 
-function resolveMetaScaleCode(reportData: ReportResponse | null | undefined): string {
-  return normalizeText(reportData?.meta?.scale_code);
-}
-
 export function resolveReportScaleCode(reportData: ReportResponse | null | undefined): RichResultScaleCode | null {
   const payload = resolveReportPayload(reportData);
   const candidates = [
     normalizeText(payload?.scale_code),
-    normalizeText(reportData?.type_code),
-    resolveMetaScaleCode(reportData),
+    normalizeText(reportData?.meta?.scale_code),
   ];
 
   for (const candidate of candidates) {
@@ -170,17 +148,40 @@ export function isGeneratingReportResponse(reportData: ReportResponse | null | u
   return meta?.generating === true;
 }
 
-function resolveTypeCode(reportData: ReportResponse, fallbackResult?: ResultPayload | null): string {
+function resolveModulesAllowed(reportData: ReportResponse): Set<string> {
+  return new Set(
+    normalizeStringArray(reportData.modules_allowed).map((item) => item.trim().toLowerCase())
+  );
+}
+
+function resolveFreeSections(reportData: ReportResponse): Set<string> | null {
+  const policy = asRecord(reportData.view_policy);
+  const items = normalizeStringArray(policy?.free_sections).map((item) => item.trim().toLowerCase());
+  return items.length > 0 ? new Set(items) : null;
+}
+
+function resolveRichResultGate(reportData: ReportResponse): RichResultGate {
+  const variant = normalizeText(reportData.variant).toLowerCase();
+  const accessLevel = normalizeText(reportData.access_level).toLowerCase();
+  const modulesAllowed = resolveModulesAllowed(reportData);
+  const isFreeVariant =
+    reportData.locked === true ||
+    variant === "free" ||
+    accessLevel === "free" ||
+    (modulesAllowed.size > 0 && !modulesAllowed.has("full"));
+
+  return {
+    isFreeVariant,
+    modulesAllowed,
+    freeSections: resolveFreeSections(reportData),
+  };
+}
+
+function resolveTypeCode(reportData: ReportResponse): string {
   const payload = resolveReportPayload(reportData);
   const profile = asRecord(payload?.profile);
 
-  return normalizeText(profile?.type_code, reportData.type_code, fallbackResult?.type_code);
-}
-
-function resolveBaseMbtiType(typeCode: string): string {
-  const normalized = normalizeText(typeCode).toUpperCase();
-  const matched = normalized.match(/^[A-Z]{4}/);
-  return matched?.[0] ?? "";
+  return normalizeText(profile?.type_code);
 }
 
 function resolveSectionTitle(key: string, section: Record<string, unknown>, locale: Locale): string {
@@ -214,12 +215,61 @@ function normalizeReportSectionCard(card: Record<string, unknown>): ReportBlock 
     bullets: normalizeStringArray(card.bullets),
     tips: normalizeStringArray(card.tips),
     tags: normalizeStringArray(card.tags),
-    access_level: normalizeText(card.access_level),
-    module_code: normalizeText(card.module_code),
+    access_level: normalizeText(card.access_level).toLowerCase(),
+    module_code: normalizeText(card.module_code).toLowerCase(),
   };
 }
 
-function normalizeRichSections(reportData: ReportResponse, locale: Locale): ReportSection[] {
+function isBlockVisibleInGate(block: ReportBlock, gate: RichResultGate): boolean {
+  if (!gate.isFreeVariant) {
+    return true;
+  }
+
+  const accessLevel = normalizeText(block.access_level).toLowerCase();
+  if (accessLevel === "paid") {
+    return false;
+  }
+
+  const moduleCode = normalizeText(block.module_code).toLowerCase();
+  if (!moduleCode || moduleCode === "core_free") {
+    return true;
+  }
+
+  if (gate.modulesAllowed.size === 0) {
+    return false;
+  }
+
+  return gate.modulesAllowed.has(moduleCode);
+}
+
+function shouldForceSectionLocked(section: ReportSection, gate: RichResultGate): boolean {
+  if (!gate.isFreeVariant) {
+    return false;
+  }
+
+  const key = normalizeText(section.key).toLowerCase();
+  if (gate.freeSections && key && !gate.freeSections.has(key)) {
+    return true;
+  }
+
+  const accessLevel = normalizeText(section.access_level).toLowerCase();
+  if (accessLevel === "paid") {
+    return true;
+  }
+
+  const moduleCode = normalizeText(section.module_code).toLowerCase();
+  if (!moduleCode || moduleCode === "core_free") {
+    return false;
+  }
+
+  if (gate.modulesAllowed.size === 0) {
+    return true;
+  }
+
+  return !gate.modulesAllowed.has(moduleCode);
+}
+
+function normalizeRichSections(reportData: ReportResponse, locale: Locale, gate: RichResultGate): ReportSection[] {
   const payload = resolveReportPayload(reportData);
   const sectionsNode = payload?.sections;
 
@@ -232,7 +282,27 @@ function normalizeRichSections(reportData: ReportResponse, locale: Locale): Repo
           (block): block is ReportBlock => Boolean(block && typeof block === "object")
         ),
       }))
-      .filter((section) => asArray(section.blocks).length > 0);
+      .map((section) => {
+        const normalized: ReportSection = {
+          ...section,
+          key: normalizeText(section.key),
+          title: normalizeText(section.title),
+          access_level: normalizeText(section.access_level).toLowerCase(),
+          module_code: normalizeText(section.module_code).toLowerCase(),
+          blocks: asArray<ReportBlock>(section.blocks).filter((block) => isBlockVisibleInGate(block, gate)),
+        };
+
+        if (shouldForceSectionLocked(normalized, gate)) {
+          return {
+            ...normalized,
+            access_level: "paid",
+            blocks: [],
+          };
+        }
+
+        return normalized;
+      })
+      .filter((section) => asArray(section.blocks).length > 0 || normalizeText(section.access_level) === "paid");
   }
 
   const sections = asRecord(sectionsNode);
@@ -247,17 +317,27 @@ function normalizeRichSections(reportData: ReportResponse, locale: Locale): Repo
 
       const cards = asArray<Record<string, unknown>>(section.cards)
         .map((card) => normalizeReportSectionCard(card))
-        .filter((card) => card.title || card.body || asArray(card.bullets).length > 0);
+        .filter((card) => card.title || card.body || asArray(card.bullets).length > 0)
+        .filter((card) => isBlockVisibleInGate(card, gate));
 
       const locked = section.locked === true;
-
-      return {
+      const normalizedSection: ReportSection = {
         key,
         title: resolveSectionTitle(key, section, locale),
-        access_level: normalizeText(section.access_level) || (locked ? "paid" : "free"),
-        module_code: normalizeText(section.module_code) || key,
+        access_level: normalizeText(section.access_level).toLowerCase() || (locked ? "paid" : "free"),
+        module_code: normalizeText(section.module_code).toLowerCase() || key,
         blocks: cards,
-      } satisfies ReportSection;
+      };
+
+      if (locked || shouldForceSectionLocked(normalizedSection, gate)) {
+        return {
+          ...normalizedSection,
+          access_level: "paid",
+          blocks: [],
+        } satisfies ReportSection;
+      }
+
+      return normalizedSection;
     });
 
   return normalizedSections
@@ -265,7 +345,7 @@ function normalizeRichSections(reportData: ReportResponse, locale: Locale): Repo
     .filter((section) => asArray(section.blocks).length > 0 || section.access_level === "paid");
 }
 
-function normalizeHighlightSection(reportData: ReportResponse, locale: Locale): ReportSection | null {
+function normalizeHighlightSection(reportData: ReportResponse, locale: Locale, gate: RichResultGate): ReportSection | null {
   const payload = resolveReportPayload(reportData);
   const items = asArray<Record<string, unknown>>(payload?.highlights)
     .map((item) => ({
@@ -275,8 +355,11 @@ function normalizeHighlightSection(reportData: ReportResponse, locale: Locale): 
       body: normalizeText(item.text, item.body, item.desc),
       tips: normalizeStringArray(item.tips),
       tags: normalizeStringArray(item.tags),
+      access_level: normalizeText(item.access_level).toLowerCase(),
+      module_code: normalizeText(item.module_code).toLowerCase(),
     }))
-    .filter((item) => item.title || item.body);
+    .filter((item) => item.title || item.body)
+    .filter((item) => isBlockVisibleInGate(item, gate));
 
   if (items.length === 0) {
     return null;
@@ -325,24 +408,9 @@ function normalizeDimensionsFromScores(
 
 function normalizeDimensions(
   scaleCode: RichResultScaleCode,
-  reportData: ReportResponse,
-  fallbackResult?: ResultPayload | null
+  reportData: ReportResponse
 ): Array<Record<string, unknown>> {
-  if (Array.isArray(reportData.dimensions) && reportData.dimensions.length > 0) {
-    return reportData.dimensions;
-  }
-
-  const payload = resolveReportPayload(reportData);
-  if (Array.isArray(payload?.dimensions) && payload.dimensions.length > 0) {
-    return payload.dimensions as Array<Record<string, unknown>>;
-  }
-
-  const fromScores = normalizeDimensionsFromScores(scaleCode, reportData);
-  if (fromScores.length > 0) {
-    return fromScores;
-  }
-
-  return Array.isArray(fallbackResult?.dimensions) ? fallbackResult.dimensions : [];
+  return normalizeDimensionsFromScores(scaleCode, reportData);
 }
 
 function normalizeOffers(reportData: ReportResponse): OfferPayload[] {
@@ -361,15 +429,11 @@ function normalizeOffers(reportData: ReportResponse): OfferPayload[] {
   return offer ? [offer] : [];
 }
 
-function resolveProfileSummary(
-  reportData: ReportResponse,
-  fallbackResult?: ResultPayload | null,
-  personalityProfile?: CmsPersonalityProfile | null
-): string {
+function resolveProfileSummary(reportData: ReportResponse): string {
   const payload = resolveReportPayload(reportData);
   const profile = asRecord(payload?.profile);
 
-  return normalizeText(profile?.short_summary, reportData.summary, fallbackResult?.summary, personalityProfile?.excerpt);
+  return normalizeText(profile?.short_summary);
 }
 
 function resolveProfileRarity(reportData: ReportResponse): string {
@@ -396,6 +460,12 @@ function resolveProfileKeywords(reportData: ReportResponse): string[] {
   return normalizeStringArray(profile?.keywords);
 }
 
+function resolveDisplayTags(reportData: ReportResponse): string[] {
+  const payload = resolveReportPayload(reportData);
+  const reportTags = normalizeStringArray(payload?.tags ?? payload?.report_tags);
+  return reportTags.length > 0 ? reportTags : resolveProfileKeywords(reportData);
+}
+
 function resolveProfileTypeName(reportData: ReportResponse): string {
   const payload = resolveReportPayload(reportData);
   const profile = asRecord(payload?.profile);
@@ -410,50 +480,21 @@ function resolveProfileTagline(reportData: ReportResponse): string {
   return normalizeText(profile?.tagline);
 }
 
-function normalizeSupplementSections(
-  personalityProfile: CmsPersonalityProfile | null | undefined,
-  reportSections: ReportSection[]
-): CmsPersonalitySection[] {
-  if (!personalityProfile) {
-    return [];
-  }
-
-  const reportSectionKeys = new Set(reportSections.map((section) => normalizeText(section.key)));
-  const desiredKeys = new Set<PersonalitySupplementKey>(DEFAULT_PERSONALITY_SUPPLEMENT_KEYS);
-
-  if (!reportSectionKeys.has("career")) {
-    desiredKeys.add("career_fit");
-  }
-  if (!reportSectionKeys.has("relationships")) {
-    desiredKeys.add("relationships");
-  }
-
-  return personalityProfile.sections.filter((section) =>
-    desiredKeys.has(section.sectionKey as PersonalitySupplementKey)
-  );
-}
-
 function RichResultCta({
   locale,
   scaleCode,
-  typeCode,
 }: {
   locale: Locale;
   scaleCode: RichResultScaleCode;
-  typeCode: string;
 }) {
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
-  const baseMbtiType = resolveBaseMbtiType(typeCode);
   const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP[scaleCode]}/take`, locale);
-  const personalityHref = scaleCode === "MBTI" && baseMbtiType
-    ? buildPersonalityFrontendUrl(locale, baseMbtiType)
-    : null;
 
   async function handleShare() {
     if (typeof window === "undefined") return;
 
     const shareUrl = window.location.href;
-    const shareTitle = typeCode || (locale === "zh" ? "测试结果" : "Assessment result");
+    const shareTitle = locale === "zh" ? "测试结果" : "Assessment result";
 
     try {
       if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
@@ -485,11 +526,6 @@ function RichResultCta({
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex flex-wrap gap-3">
-          {personalityHref ? (
-            <Link href={personalityHref} className={buttonVariants({ variant: "default" })}>
-              {locale === "zh" ? "查看人格详情" : "View personality profile"}
-            </Link>
-          ) : null}
           <Button type="button" variant="outline" onClick={() => void handleShare()}>
             {locale === "zh" ? "分享结果" : "Share result"}
           </Button>
@@ -522,45 +558,41 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
   }
 
   return Boolean(
-    normalizeText(payload.summary, reportData?.summary, reportData?.type_code) ||
-      asRecord(payload.profile) ||
+    asRecord(payload.profile) ||
+      normalizeStringArray(payload.tags ?? payload.report_tags).length > 0 ||
+      Array.isArray(payload.highlights) ||
       Array.isArray(payload.sections) ||
       asRecord(payload.sections) ||
-      Array.isArray(payload.highlights) ||
-      Array.isArray(reportData?.dimensions)
+      asRecord(payload.scores_pct) ||
+      asRecord(payload.scores)
   );
 }
 
 export function RichResultReport({
   locale,
   reportData,
-  fallbackResult,
-  personalityProfile,
 }: {
   locale: Locale;
   reportData: ReportResponse;
-  fallbackResult?: ResultPayload | null;
-  personalityProfile?: CmsPersonalityProfile | null;
 }) {
   const scaleCode = resolveReportScaleCode(reportData);
   if (!scaleCode) {
     return null;
   }
 
-  const typeCode = resolveTypeCode(reportData, fallbackResult);
+  const gate = resolveRichResultGate(reportData);
+  const typeCode = resolveTypeCode(reportData);
   const typeName = resolveProfileTypeName(reportData);
   const tagline = resolveProfileTagline(reportData);
   const rarity = resolveProfileRarity(reportData);
-  const keywords = resolveProfileKeywords(reportData);
-  const summary = resolveProfileSummary(reportData, fallbackResult, personalityProfile);
-  const dimensions = normalizeDimensions(scaleCode, reportData, fallbackResult);
-  const highlightSection = normalizeHighlightSection(reportData, locale);
-  const richSections = normalizeRichSections(reportData, locale);
-  const supplementarySections = normalizeSupplementSections(personalityProfile, richSections);
-  const renderedSupplementarySections = renderPersonalitySections(supplementarySections, locale);
+  const tags = resolveDisplayTags(reportData);
+  const summary = resolveProfileSummary(reportData);
+  const dimensions = normalizeDimensions(scaleCode, reportData);
+  const highlightSection = normalizeHighlightSection(reportData, locale, gate);
+  const richSections = normalizeRichSections(reportData, locale, gate);
   const offers = normalizeOffers(reportData);
-  const headline = normalizeText(typeCode, typeName, scaleCode);
-  const reportLocked = reportData.locked === true;
+  const headline = normalizeText(typeCode, typeName, scaleCode) || scaleCode;
+  const reportLocked = gate.isFreeVariant;
 
   return (
     <div className="space-y-[var(--fm-gap-md)]">
@@ -581,14 +613,14 @@ export function RichResultReport({
             ) : null}
           </div>
 
-          {keywords.length > 0 ? (
+          {tags.length > 0 ? (
             <div className="flex flex-wrap gap-2">
-              {keywords.map((keyword) => (
+              {tags.map((tag) => (
                 <span
-                  key={keyword}
+                  key={tag}
                   className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm text-slate-700"
                 >
-                  {keyword}
+                  {tag}
                 </span>
               ))}
             </div>
@@ -614,8 +646,6 @@ export function RichResultReport({
         />
       ))}
 
-      {renderedSupplementarySections}
-
       {reportLocked && offers.length > 0 ? (
         <Card>
           <CardHeader>
@@ -629,7 +659,7 @@ export function RichResultReport({
         </Card>
       ) : null}
 
-      <RichResultCta locale={locale} scaleCode={scaleCode} typeCode={typeCode} />
+      <RichResultCta locale={locale} scaleCode={scaleCode} />
     </div>
   );
 }
