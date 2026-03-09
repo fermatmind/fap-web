@@ -221,6 +221,26 @@ export type RichResultProfile = {
   [key: string]: unknown;
 };
 
+export type RichResultIdentityCard = {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  summary?: string;
+  type_code?: string;
+  tags?: string[];
+  badge?: {
+    text?: string;
+    version?: string;
+    [key: string]: unknown;
+  };
+  visual?: {
+    theme_color?: string;
+    accent_color?: string;
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
+};
+
 export type RichResultHighlight = {
   id?: string;
   title?: string;
@@ -276,6 +296,7 @@ export type ReportResponse = {
     locale?: string;
     summary?: string;
     profile?: RichResultProfile;
+    identity_card?: RichResultIdentityCard;
     tags?: string[];
     highlights?: RichResultHighlight[];
     sections?: Big5ReportSection[] | Record<string, unknown>;
