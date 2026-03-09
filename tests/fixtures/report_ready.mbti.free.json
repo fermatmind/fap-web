@@ -116,6 +116,22 @@
     "scale_code": "MBTI"
   },
   "report": {
+    "identity_card": {
+      "badge": {
+        "text": "费马人格档案",
+        "version": "MBTI v2.5"
+      },
+      "title": "竞选者",
+      "subtitle": "浪漫热情但易纠结的灵感派",
+      "tagline": "想很多，也认真在乎每一步",
+      "summary": "你同样热情、创意很多，但你更容易被选择与不确定困住：这条路是不是最适合我？我会不会让人失望？你会反复确认自己的感受与价值感。压力大时可能更焦虑、更分散，但当你获得支持与边界，你会把温暖与灵感稳定地输出给身边的人。",
+      "tags": ["热情", "高敏感", "理想主义", "容易分心", "需要确定感"],
+      "type_code": "ENFP-T",
+      "visual": {
+        "theme_color": "#16A34A",
+        "accent_color": "#86EFAC"
+      }
+    },
     "profile": {
       "rarity": "约 6–8%",
       "tagline": "敏感火花",
