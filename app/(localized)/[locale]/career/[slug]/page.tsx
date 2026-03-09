@@ -1,8 +1,8 @@
 import { notFound, permanentRedirect } from "next/navigation";
+import { getCareerJobFromCmsBySlug } from "@/lib/cms/career-jobs";
 import {
   getCareerGuideBySlug,
   getCareerIndustryBySlug,
-  getCareerJobBySlug,
   listCareerGuideSlugs,
   listCareerIndustrySlugs,
   listCareerJobSlugs,
@@ -28,8 +28,9 @@ export default async function CareerAliasPage({
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
 
-  if (getCareerJobBySlug(slug, locale)) {
-    permanentRedirect(localizedPath(`/career/jobs/${slug}`, locale));
+  const job = await getCareerJobFromCmsBySlug({ slug, locale });
+  if (job) {
+    permanentRedirect(localizedPath(`/career/jobs/${job.slug}`, locale));
   }
 
   if (getCareerGuideBySlug(slug, locale)) {
