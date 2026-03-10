@@ -24,6 +24,7 @@ describe("take attempt stores", () => {
     expect(state.currentIndex).toBe(1);
     expect(state.attemptId).toBeNull();
     expect(state.scaleCode).toBeNull();
+    expect(state.submittedAt).toBeNull();
   });
 
   it("big5 clearAttemptMeta preserves answers while dropping stale attempt metadata", () => {
@@ -45,6 +46,8 @@ describe("take attempt stores", () => {
     expect(next.currentIndex).toBe(8);
     expect(next.attemptId).toBeNull();
     expect(next.resumeToken).toBeNull();
+    expect(next.disclaimerVersion).toBe("v1");
+    expect(next.disclaimerHash).toBe("hash-v1");
   });
 
   it("clinical clearAttemptMeta preserves answers while dropping stale attempt metadata", () => {
@@ -65,5 +68,7 @@ describe("take attempt stores", () => {
     expect(next.answers).toEqual({ cq1: "A", cq2: "B" });
     expect(next.currentIndex).toBe(2);
     expect(next.attemptId).toBeNull();
+    expect(next.scaleCode).toBe("SDS_20");
+    expect(next.slug).toBe("sds-self-rating-depression-scale");
   });
 });
