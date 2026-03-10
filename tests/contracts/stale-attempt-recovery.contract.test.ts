@@ -1,6 +1,10 @@
-import { describe, expect, it, vi } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { createElement } from "react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { ApiError } from "@/lib/api-client";
 import {
+  createTakeFlowController,
   isStaleAttemptSubmitError,
   recoverStaleAttemptSubmit,
   resolveStaleDraftResetMessage,
@@ -14,6 +18,10 @@ function buildNotFoundError(message = "attempt not found."): ApiError {
     message,
   });
 }
+
+afterEach(() => {
+  vi.useRealTimers();
+});
 
 describe("stale attempt recovery", () => {
   it("retries once by starting a fresh attempt and resubmitting on stale submit 404", async () => {
@@ -58,7 +66,7 @@ describe("stale attempt recovery", () => {
     expect(submitFreshAttempt).not.toHaveBeenCalled();
   });
 
-  it("does not attempt a second auto-recovery after the first stale recovery pass", async () => {
+  it("stops after the first stale auto-recovery pass and falls back to reset state", async () => {
     const clearAttemptState = vi.fn();
     const startFreshAttempt = vi.fn();
     const submitFreshAttempt = vi.fn();
@@ -71,7 +79,7 @@ describe("stale attempt recovery", () => {
       submitFreshAttempt,
     });
 
-    expect(result).toEqual({ kind: "ignored" });
+    expect(result).toEqual({ kind: "failed" });
     expect(clearAttemptState).not.toHaveBeenCalled();
     expect(startFreshAttempt).not.toHaveBeenCalled();
     expect(submitFreshAttempt).not.toHaveBeenCalled();
@@ -94,5 +102,39 @@ describe("stale attempt recovery", () => {
     ).toBe(false);
     expect(resolveStaleDraftResetMessage("zh")).toBe("当前草稿已失效，请重新开始。");
     expect(isStaleAttemptSubmitError(buildNotFoundError())).toBe(true);
+  });
+
+  it("cancels pending delayed submit work after route change or unmount", async () => {
+    vi.useFakeTimers();
+
+    const controller = createTakeFlowController();
+    const runId = controller.beginRun();
+    const delayedSubmit = vi.fn();
+
+    controller.schedule(delayedSubmit, 400, runId);
+    const waitPromise = controller.wait(2200, runId);
+
+    controller.cancelCurrentRun();
+    await vi.runAllTimersAsync();
+
+    await expect(waitPromise).resolves.toBe(false);
+    expect(delayedSubmit).not.toHaveBeenCalled();
+  });
+
+  it("renders a structured stale reset prompt with an explicit restart action", () => {
+    const onReset = vi.fn();
+
+    render(
+      createElement(StaleDraftResetPrompt, {
+        locale: "zh",
+        message: "当前草稿已失效，请重新开始。",
+        onReset,
+      })
+    );
+
+    expect(screen.getByTestId("stale-draft-reset-prompt")).toBeTruthy();
+    expect(screen.getByText("草稿已失效")).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: "清空草稿并重新开始" }));
+    expect(onReset).toHaveBeenCalledTimes(1);
   });
 });

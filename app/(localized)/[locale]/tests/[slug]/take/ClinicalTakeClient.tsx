@@ -46,6 +46,7 @@ import { captureError } from "@/lib/observability/sentry";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import {
+  createTakeFlowController,
   recoverStaleAttemptSubmit,
   resolveStaleDraftResetMessage,
   shouldBlockInvalidDraftOnTakePage,
@@ -236,11 +237,13 @@ export default function ClinicalTakeClient({
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
-  const submitPhaseTimersRef = useRef<number[]>([]);
+  const mountedRef = useRef(true);
+  const takeFlowRef = useRef(createTakeFlowController());
   const latestAnswersRef = useRef<Record<string, string>>(answers);
   const submitInFlightRef = useRef(false);
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
+  const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   useEffect(() => {
@@ -405,9 +408,15 @@ export default function ClinicalTakeClient({
     return currentModule;
   }, [currentIndex, currentQuestion, questions, scaleCode, seenModuleTransitions]);
 
-  const clearSubmitPhaseTimers = useCallback(() => {
-    submitPhaseTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
-    submitPhaseTimersRef.current = [];
+  const isFlowActive = useCallback((runId?: number) => (
+    mountedRef.current && takeFlowRef.current.isActive(runId)
+  ), []);
+
+  const cancelPendingSubmitSideEffects = useCallback(() => {
+    takeFlowRef.current.cancelCurrentRun();
+    cancelAutoAdvanceRef.current();
+    submitInFlightRef.current = false;
+    recoveringAttemptRef.current = false;
   }, []);
 
   useEffect(() => {
@@ -424,18 +433,29 @@ export default function ClinicalTakeClient({
     }
 
     if (shouldBlockStaleDraft) {
+      clearAttemptMeta();
+      cancelPendingSubmitSideEffects();
+      setSubmitOverlayVisible(false);
+      setSubmitOverlayPhase(0);
+      setSubmitting(false);
+      setSubmitError(null);
+      setStartError(null);
       setStaleDraftError(resolveStaleDraftResetMessage(locale));
       return;
     }
 
     setStaleDraftError(null);
-  }, [loadingQuestions, locale, shouldBlockStaleDraft]);
+  }, [cancelPendingSubmitSideEffects, clearAttemptMeta, loadingQuestions, locale, shouldBlockStaleDraft]);
 
   useEffect(() => {
+    const takeFlow = takeFlowRef.current;
     return () => {
-      clearSubmitPhaseTimers();
+      mountedRef.current = false;
+      takeFlow.dispose();
+      submitInFlightRef.current = false;
+      recoveringAttemptRef.current = false;
     };
-  }, [clearSubmitPhaseTimers]);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -541,7 +561,7 @@ export default function ClinicalTakeClient({
     const hint = dict.quiz.milestoneHints[hintIndex] ?? dict.quiz.milestoneHints[dict.quiz.milestoneHints.length - 1] ?? "";
     if (hint) {
       setMilestoneHint(hint);
-      window.setTimeout(() => {
+      takeFlowRef.current.schedule(() => {
         setMilestoneHint((prev) => (prev === hint ? null : prev));
       }, 1500);
     }
@@ -568,7 +588,7 @@ export default function ClinicalTakeClient({
     return snapshot;
   }, []);
 
-  const startFreshAttempt = useCallback(async () => {
+  const startFreshAttempt = useCallback(async (runId?: number) => {
     if (authBlockError || staleDraftError) {
       return null;
     }
@@ -590,6 +610,9 @@ export default function ClinicalTakeClient({
           clientVersion: `fe-${scaleCode.toLowerCase()}-1`,
         })
       );
+      if (!isFlowActive(runId)) {
+        return null;
+      }
 
       setAttemptId(response.attempt_id);
       trackEvent("clinical_start", {
@@ -598,6 +621,9 @@ export default function ClinicalTakeClient({
       });
       return response.attempt_id;
     } catch (error) {
+      if (!isFlowActive(runId)) {
+        return null;
+      }
       const mapped = mapClinicalError(error);
       setStartError(toUiMessage(error, mapped.message, locale));
       const classified = classifyApiError(error);
@@ -618,11 +644,13 @@ export default function ClinicalTakeClient({
       });
       return null;
     } finally {
-      setStarting(false);
+      if (isFlowActive(runId)) {
+        setStarting(false);
+      }
     }
-  }, [authBlockError, locale, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError]);
+  }, [authBlockError, isFlowActive, locale, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError]);
 
-  const ensureAttempt = useCallback(async () => {
+  const ensureAttempt = useCallback(async (runId?: number) => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
       return null;
     }
@@ -631,7 +659,7 @@ export default function ClinicalTakeClient({
       return attemptId;
     }
 
-    return startFreshAttempt();
+    return startFreshAttempt(runId);
   }, [attemptId, authBlockError, staleDraftError, startFreshAttempt]);
 
   const handleStart = async () => {
@@ -655,7 +683,8 @@ export default function ClinicalTakeClient({
     activeAttemptId: string,
     answersSnapshot: Record<string, string>,
     submitConsentVersion: string,
-    submitConsentLocale: string
+    submitConsentLocale: string,
+    runId?: number,
   ): Promise<string> => {
     const durationMs = Math.max(1000, Date.now() - startedAt);
     const response = await runWithAuthRetry("submit_attempt", () =>
@@ -673,6 +702,9 @@ export default function ClinicalTakeClient({
         },
       })
     );
+    if (!isFlowActive(runId)) {
+      return "";
+    }
 
     if (!response.ok) {
       throw new Error("Submit failed.");
@@ -691,15 +723,20 @@ export default function ClinicalTakeClient({
       duration_bucket: durationMs < 60000 ? "lt_1m" : durationMs < 180000 ? "1_3m" : "gte_3m",
     });
     return resultAttemptId;
-  }, [locale, markSubmitted, questions, runWithAuthRetry, scaleCode, startedAt]);
+  }, [isFlowActive, locale, markSubmitted, questions, runWithAuthRetry, scaleCode, startedAt]);
 
-  const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
+  const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
       return null;
     }
 
     submitInFlightRef.current = true;
-    const activeAttemptId = await ensureAttempt();
+    const activeRunId = typeof runId === "number" ? runId : takeFlowRef.current.beginRun();
+    const activeAttemptId = await ensureAttempt(activeRunId);
+    if (!isFlowActive(activeRunId)) {
+      submitInFlightRef.current = false;
+      return null;
+    }
     if (!activeAttemptId) {
       submitInFlightRef.current = false;
       return null;
@@ -708,36 +745,51 @@ export default function ClinicalTakeClient({
     const submitConsentVersion = String(consentVersion ?? serverConsentVersion ?? "").trim();
     const submitConsentLocale = String(consentLocale ?? toApiLocale(locale)).trim();
     if (!consentAcceptedAt || !submitConsentVersion || !submitConsentLocale) {
-      setSubmitError(
-        isZh
-          ? "当前会话缺少同意书快照，请返回详情页重新开始测评。"
-          : "Consent snapshot is missing for this session. Please restart the assessment from test details."
-      );
+      if (isFlowActive(activeRunId)) {
+        setSubmitError(
+          isZh
+            ? "当前会话缺少同意书快照，请返回详情页重新开始测评。"
+            : "Consent snapshot is missing for this session. Please restart the assessment from test details."
+        );
+      }
       return null;
     }
 
     const answersSnapshot = buildAnswersSnapshot(pendingSelection);
     const firstMissing = questions.findIndex((item) => !answersSnapshot[item.question_id]);
     if (firstMissing >= 0) {
-      setCurrentIndex(firstMissing);
-      setSubmitError(
-        isZh
-          ? `请先完成第 ${firstMissing + 1} 题再提交。`
-          : `Please answer question ${firstMissing + 1} before submitting.`
-      );
+      if (isFlowActive(activeRunId)) {
+        setCurrentIndex(firstMissing);
+        setSubmitError(
+          isZh
+            ? `请先完成第 ${firstMissing + 1} 题再提交。`
+            : `Please answer question ${firstMissing + 1} before submitting.`
+        );
+      }
+      return null;
+    }
+
+    if (!isFlowActive(activeRunId)) {
+      submitInFlightRef.current = false;
       return null;
     }
 
     setSubmitting(true);
     setSubmitError(null);
+    setStaleDraftError(null);
 
     try {
-      return await submitAttemptWithId(
+      const resultAttemptId = await submitAttemptWithId(
         activeAttemptId,
         answersSnapshot,
         submitConsentVersion,
-        submitConsentLocale
+        submitConsentLocale,
+        activeRunId
       );
+      if (!isFlowActive(activeRunId) || !resultAttemptId) {
+        return null;
+      }
+      return resultAttemptId;
     } catch (error) {
       recoveringAttemptRef.current = true;
       const recovery = await recoverStaleAttemptSubmit({
@@ -747,14 +799,19 @@ export default function ClinicalTakeClient({
           clearAttemptMeta();
           setStartError(null);
         },
-        startFreshAttempt,
+        startFreshAttempt: () => startFreshAttempt(activeRunId),
         submitFreshAttempt: (nextAttemptId) =>
-          submitAttemptWithId(nextAttemptId, answersSnapshot, submitConsentVersion, submitConsentLocale),
+          submitAttemptWithId(nextAttemptId, answersSnapshot, submitConsentVersion, submitConsentLocale, activeRunId),
       });
+      if (!isFlowActive(activeRunId)) {
+        return null;
+      }
       recoveringAttemptRef.current = false;
 
       if (recovery.kind === "recovered") {
         autoRecoveryAttemptedRef.current = true;
+        setSubmitError(null);
+        setStaleDraftError(null);
         return recovery.value;
       }
 
@@ -762,7 +819,7 @@ export default function ClinicalTakeClient({
         autoRecoveryAttemptedRef.current = true;
         const message = resolveStaleDraftResetMessage(locale);
         setStaleDraftError(message);
-        setSubmitError(message);
+        setSubmitError(null);
         return null;
       }
 
@@ -787,7 +844,9 @@ export default function ClinicalTakeClient({
       return null;
     } finally {
       recoveringAttemptRef.current = false;
-      setSubmitting(false);
+      if (isFlowActive(activeRunId)) {
+        setSubmitting(false);
+      }
       submitInFlightRef.current = false;
     }
   }, [
@@ -797,6 +856,7 @@ export default function ClinicalTakeClient({
     consentLocale,
     consentVersion,
     ensureAttempt,
+    isFlowActive,
     isZh,
     locale,
     questions,
@@ -811,14 +871,14 @@ export default function ClinicalTakeClient({
 
   const finalizeSuccessfulSubmit = useCallback(
     (resultAttemptId: string) => {
+      cancelPendingSubmitSideEffects();
       resetAfterSubmit();
       router.push(withLocale(`/attempts/${resultAttemptId}/report`));
     },
-    [resetAfterSubmit, router, withLocale]
+    [cancelPendingSubmitSideEffects, resetAfterSubmit, router, withLocale]
   );
 
-  const startSubmitOverlayPhases = useCallback(() => {
-    clearSubmitPhaseTimers();
+  const startSubmitOverlayPhases = useCallback((runId: number) => {
     setSubmitOverlayPhase(0);
 
     trackEvent("ui_report_loading_phase", {
@@ -829,7 +889,7 @@ export default function ClinicalTakeClient({
       locale,
     });
 
-    const phase1 = window.setTimeout(() => {
+    takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(1);
       trackEvent("ui_report_loading_phase", {
         scale_code: scaleCode,
@@ -838,9 +898,9 @@ export default function ClinicalTakeClient({
         variant: "free",
         locale,
       });
-    }, 800);
+    }, 800, runId);
 
-    const phase2 = window.setTimeout(() => {
+    takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(2);
       trackEvent("ui_report_loading_phase", {
         scale_code: scaleCode,
@@ -849,24 +909,24 @@ export default function ClinicalTakeClient({
         variant: "free",
         locale,
       });
-    }, 1500);
-
-    submitPhaseTimersRef.current = [phase1, phase2];
-  }, [clearSubmitPhaseTimers, locale, scaleCode]);
+    }, 1500, runId);
+  }, [locale, scaleCode]);
 
   const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext) => {
     if (submitOverlayVisible || submitting) return;
+    const runId = takeFlowRef.current.beginRun();
     setSubmitOverlayVisible(true);
-    startSubmitOverlayPhases();
+    startSubmitOverlayPhases(runId);
 
-    const [resultAttemptId] = await Promise.all([
-      handleSubmit(pendingSelection),
-      new Promise<void>((resolve) => {
-        window.setTimeout(resolve, 2200);
-      }),
-    ]);
+    const resultAttemptId = await handleSubmit(pendingSelection, runId);
+    if (!isFlowActive(runId)) {
+      return;
+    }
 
-    clearSubmitPhaseTimers();
+    const delayFinished = await takeFlowRef.current.wait(2200, runId);
+    if (!delayFinished || !isFlowActive(runId)) {
+      return;
+    }
 
     if (!resultAttemptId) {
       setSubmitOverlayVisible(false);
@@ -876,9 +936,9 @@ export default function ClinicalTakeClient({
 
     finalizeSuccessfulSubmit(resultAttemptId);
   }, [
-    clearSubmitPhaseTimers,
     finalizeSuccessfulSubmit,
     handleSubmit,
+    isFlowActive,
     startSubmitOverlayPhases,
     submitOverlayVisible,
     submitting,
@@ -889,6 +949,7 @@ export default function ClinicalTakeClient({
     isTransitioning,
     selectAndAdvance,
     goPrevious,
+    cancelPending,
   } = useAutoAdvanceFlow({
     currentIndex,
     total: totalQuestions,
@@ -897,6 +958,10 @@ export default function ClinicalTakeClient({
     confirmDelayMs: 200,
     enterDurationMs: 280,
   });
+
+  useEffect(() => {
+    cancelAutoAdvanceRef.current = cancelPending;
+  }, [cancelPending]);
 
   if (authBootstrapping || loadingQuestions) {
     return (
@@ -928,14 +993,15 @@ export default function ClinicalTakeClient({
   if (staleDraftError) {
     return (
       <QuizShell>
-        <StaleDraftResetPrompt
-          locale={locale}
-          message={staleDraftError}
-          onReset={() => {
-            autoRecoveryAttemptedRef.current = false;
-            resetAfterSubmit();
-            setStaleDraftError(null);
-            setSubmitError(null);
+      <StaleDraftResetPrompt
+        locale={locale}
+        message={staleDraftError}
+        onReset={() => {
+          cancelPendingSubmitSideEffects();
+          autoRecoveryAttemptedRef.current = false;
+          resetAfterSubmit();
+          setStaleDraftError(null);
+          setSubmitError(null);
             setStartError(null);
             router.replace(withLocale(`/tests/${slug}`));
           }}
