@@ -28,6 +28,7 @@ export type QuizStore = {
   jump: (index: number, total: number) => void;
   setAttemptMeta: (attemptId: string, scaleCode: string) => void;
   markSubmitted: () => void;
+  clearAttemptMeta: () => void;
   resetAttempt: () => void;
   reset: (slug: string, anonId: string | null) => void;
 };
@@ -198,6 +199,15 @@ export const createQuizStore = ({
             state: touch({
               ...store.state,
               submittedAt: Date.now(),
+            }),
+          })),
+        clearAttemptMeta: () =>
+          set((store) => ({
+            state: touch({
+              ...store.state,
+              attemptId: null,
+              scaleCode: null,
+              submittedAt: null,
             }),
           })),
         resetAttempt: () =>

@@ -30,6 +30,7 @@ type ClinicalAttemptActions = {
   setCurrentIndex: (next: number) => void;
   markModuleSeen: (moduleCode: string) => void;
   markSubmitted: () => void;
+  clearAttemptMeta: () => void;
   resetAfterSubmit: () => void;
   resetAll: () => void;
 };
@@ -134,6 +135,12 @@ export const useClinicalAttemptStore = create<ClinicalAttemptStore>()(
           };
         }),
       markSubmitted: () => set((state) => ({ ...state, lastSubmittedAt: nowIso() })),
+      clearAttemptMeta: () =>
+        set((state) => ({
+          ...state,
+          attemptId: null,
+          lastSubmittedAt: null,
+        })),
       resetAfterSubmit: () =>
         set((state) => ({
           ...initialState(),
