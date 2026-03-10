@@ -14,6 +14,7 @@ import {
   type LastSelectionContext,
 } from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { QuizShell } from "@/components/quiz/QuizShell";
+import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
@@ -40,6 +41,11 @@ import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
 import type { QuizQuestion } from "@/lib/quiz/types";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import {
+  recoverStaleAttemptSubmit,
+  resolveStaleDraftResetMessage,
+  shouldBlockInvalidDraftOnTakePage,
+} from "@/lib/attempt/staleAttempt";
 
 function isUnauthorizedError(error: unknown): error is ApiError {
   return error instanceof ApiError && error.status === 401;
@@ -165,6 +171,7 @@ function QuizTakeInner({
   const setAnswer = useQuizStore((store) => store.setAnswer);
   const jump = useQuizStore((store) => store.jump);
   const setAttemptMeta = useQuizStore((store) => store.setAttemptMeta);
+  const clearAttemptMeta = useQuizStore((store) => store.clearAttemptMeta);
   const resetAttempt = useQuizStore((store) => store.resetAttempt);
 
   const [questionsLoading, setQuestionsLoading] = useState(true);
@@ -174,6 +181,7 @@ function QuizTakeInner({
   const [questionsError, setQuestionsError] = useState<string | null>(null);
   const [attemptError, setAttemptError] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [staleDraftError, setStaleDraftError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
@@ -182,6 +190,9 @@ function QuizTakeInner({
   const submitPhaseTimersRef = useRef<number[]>([]);
   const latestAnswersRef = useRef<Record<string, string>>(answers);
   const ensureAttemptPromiseRef = useRef<Promise<string | null> | null>(null);
+  const submitInFlightRef = useRef(false);
+  const autoRecoveryAttemptedRef = useRef(false);
+  const recoveringAttemptRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
 
@@ -374,13 +385,9 @@ function QuizTakeInner({
     latestAnswersRef.current = answers;
   }, [answers]);
 
-  const ensureAttempt = useCallback(async (): Promise<string | null> => {
-    if (authBlockError) {
+  const startFreshAttempt = useCallback(async (): Promise<string | null> => {
+    if (authBlockError || staleDraftError) {
       return null;
-    }
-
-    if (attemptId && savedScaleCode === scaleCode) {
-      return attemptId;
     }
 
     if (ensureAttemptPromiseRef.current) {
@@ -425,12 +432,47 @@ function QuizTakeInner({
 
     ensureAttemptPromiseRef.current = pending;
     return pending;
-  }, [anonId, attemptId, authBlockError, locale, runWithAuthRetry, savedScaleCode, scaleCode, setAttemptMeta, slug]);
+  }, [anonId, authBlockError, locale, runWithAuthRetry, scaleCode, setAttemptMeta, slug, staleDraftError]);
+
+  const ensureAttempt = useCallback(async (): Promise<string | null> => {
+    if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
+      return null;
+    }
+
+    if (attemptId && savedScaleCode === scaleCode) {
+      return attemptId;
+    }
+
+    return startFreshAttempt();
+  }, [attemptId, authBlockError, savedScaleCode, scaleCode, staleDraftError, startFreshAttempt]);
+
+  const total = questions.length;
+  const question = questions[currentIndex];
+  const selectedOptionId = question ? answers[question.id] : undefined;
+  const loadError = authBlockError ?? questionsError ?? attemptError;
+  const answeredCount = useMemo(
+    () => questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
+    [answers, questions]
+  );
 
   useEffect(() => {
     let active = true;
 
     const run = async () => {
+      if (
+        questionsLoading ||
+        staleDraftError ||
+        recoveringAttemptRef.current ||
+        shouldBlockInvalidDraftOnTakePage({
+          answeredCount,
+          totalQuestions: questions.length,
+          attemptId,
+        })
+      ) {
+        setAttemptLoading(false);
+        return;
+      }
+
       if (attemptId && savedScaleCode === scaleCode) {
         setAttemptLoading(false);
         return;
@@ -445,7 +487,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [attemptId, ensureAttempt, savedScaleCode, scaleCode]);
+  }, [answeredCount, attemptId, ensureAttempt, questions.length, questionsLoading, savedScaleCode, scaleCode, staleDraftError]);
 
   useEffect(() => {
     if (!attemptId || trackedStartRef.current) return;
@@ -463,16 +505,11 @@ function QuizTakeInner({
       clearSubmitPhaseTimers();
     };
   }, [clearSubmitPhaseTimers]);
-
-  const total = questions.length;
-  const question = questions[currentIndex];
-  const selectedOptionId = question ? answers[question.id] : undefined;
-  const loadError = authBlockError ?? questionsError ?? attemptError;
-
-  const answeredCount = useMemo(
-    () => questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
-    [answers, questions]
-  );
+  const shouldBlockStaleDraft = shouldBlockInvalidDraftOnTakePage({
+    answeredCount,
+    totalQuestions: total,
+    attemptId,
+  });
 
   const normalizedScaleCode = scaleCode.trim().toUpperCase();
   const isIqScale = normalizedScaleCode === "IQ_RAVEN" || normalizedScaleCode === "IQ_INTELLIGENCE_QUOTIENT";
@@ -509,6 +546,20 @@ function QuizTakeInner({
     !isIqScale &&
     questionOptions.length === 5 &&
     questionOptions.every((option) => option.svg == null);
+
+  useEffect(() => {
+    if (questionsLoading) {
+      return;
+    }
+
+    if (shouldBlockStaleDraft) {
+      setStaleDraftError(resolveStaleDraftResetMessage(locale));
+      setAttemptLoading(false);
+      return;
+    }
+
+    setStaleDraftError(null);
+  }, [locale, questionsLoading, shouldBlockStaleDraft]);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -556,9 +607,48 @@ function QuizTakeInner({
     return snapshot;
   }, []);
 
+  const submitAttemptWithId = useCallback(async (
+    activeAttemptId: string,
+    answersSnapshot: Record<string, string>
+  ): Promise<string> => {
+    const durationMs = Math.max(1000, Date.now() - startedAt);
+
+    const response = await runWithAuthRetry("submit_attempt", () =>
+      submitAttempt({
+        attemptId: activeAttemptId,
+        answers: questions.map((item) => ({
+          question_id: item.id,
+          code: answersSnapshot[item.id] ?? "",
+        })),
+        durationMs,
+        anonId,
+      })
+    );
+
+    if (!response.ok) {
+      throw new Error("Submit failed. Please try again.");
+    }
+
+    const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
+    trackEvent("submit_attempt", {
+      slug,
+      attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
+      durationMs,
+    });
+    return resultAttemptId;
+  }, [anonId, questions, runWithAuthRetry, slug, startedAt]);
+
   const handleSubmit = async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
+    if (submitInFlightRef.current || staleDraftError) {
+      return null;
+    }
+
+    submitInFlightRef.current = true;
     const activeAttemptId = await ensureAttempt();
-    if (!activeAttemptId) return null;
+    if (!activeAttemptId) {
+      submitInFlightRef.current = false;
+      return null;
+    }
 
     const answersSnapshot = buildAnswersSnapshot(pendingSelection);
     const payloadAnswers = questions.map((item) => ({
@@ -577,29 +667,34 @@ function QuizTakeInner({
     setSubmitError(null);
 
     try {
-      const durationMs = Math.max(1000, Date.now() - startedAt);
+      return await submitAttemptWithId(activeAttemptId, answersSnapshot);
+    } catch (error) {
+      recoveringAttemptRef.current = true;
+      const recovery = await recoverStaleAttemptSubmit({
+        error,
+        alreadyRecovered: autoRecoveryAttemptedRef.current,
+        clearAttemptState: () => {
+          clearAttemptMeta();
+          setAttemptError(null);
+        },
+        startFreshAttempt,
+        submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot),
+      });
+      recoveringAttemptRef.current = false;
 
-      const response = await runWithAuthRetry("submit_attempt", () =>
-        submitAttempt({
-          attemptId: activeAttemptId,
-          answers: payloadAnswers,
-          durationMs,
-          anonId,
-        })
-      );
-
-      if (!response.ok) {
-        throw new Error("Submit failed. Please try again.");
+      if (recovery.kind === "recovered") {
+        autoRecoveryAttemptedRef.current = true;
+        return recovery.value;
       }
 
-      const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
-      trackEvent("submit_attempt", {
-        slug,
-        attemptIdMasked: `${resultAttemptId.slice(0, 6)}...${resultAttemptId.slice(-4)}`,
-        durationMs,
-      });
-      return resultAttemptId;
-    } catch (error) {
+      if (recovery.kind === "failed") {
+        autoRecoveryAttemptedRef.current = true;
+        const message = resolveStaleDraftResetMessage(locale);
+        setStaleDraftError(message);
+        setSubmitError(message);
+        return null;
+      }
+
       const message = toUiMessage(error, "Submit failed.", locale);
       setSubmitError(message);
       const classified = classifyApiError(error);
@@ -620,7 +715,9 @@ function QuizTakeInner({
       });
       return null;
     } finally {
+      recoveringAttemptRef.current = false;
       setSubmitting(false);
+      submitInFlightRef.current = false;
     }
   };
 
@@ -721,6 +818,24 @@ function QuizTakeInner({
         <Button type="button" variant="outline" onClick={() => window.location.reload()}>
           Retry
         </Button>
+      </QuizShell>
+    );
+  }
+
+  if (staleDraftError) {
+    return (
+      <QuizShell>
+        <StaleDraftResetPrompt
+          locale={locale}
+          message={staleDraftError}
+          onReset={() => {
+            autoRecoveryAttemptedRef.current = false;
+            resetAttempt();
+            setStaleDraftError(null);
+            setSubmitError(null);
+            setAttemptError(null);
+          }}
+        />
       </QuizShell>
     );
   }

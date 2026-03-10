@@ -33,6 +33,7 @@ type Big5AttemptActions = {
   setCurrentIndex: (next: number) => void;
   setManifestFingerprint: (fingerprint: string | null) => void;
   markSubmitted: () => void;
+  clearAttemptMeta: () => void;
   resetAfterSubmit: () => void;
   resetAll: () => void;
 };
@@ -99,6 +100,13 @@ export const useBig5AttemptStore = create<Big5AttemptStore>()(
         })),
       setManifestFingerprint: (fingerprint) => set({ manifestFingerprint: fingerprint }),
       markSubmitted: () => set({ lastSubmittedAt: nowIso() }),
+      clearAttemptMeta: () =>
+        set((state) => ({
+          ...state,
+          attemptId: null,
+          resumeToken: null,
+          lastSubmittedAt: null,
+        })),
       resetAfterSubmit: () =>
         set((state) => ({
           ...initialState(),

@@ -13,6 +13,7 @@ import {
   useAutoAdvanceFlow,
   type LastSelectionContext,
 } from "@/components/quiz/immersive/useAutoAdvanceFlow";
+import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
@@ -44,6 +45,11 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import {
+  recoverStaleAttemptSubmit,
+  resolveStaleDraftResetMessage,
+  shouldBlockInvalidDraftOnTakePage,
+} from "@/lib/attempt/staleAttempt";
 
 const SDS_OPTION_CODES = ["A", "B", "C", "D"];
 const SUBMIT_REPORT_CACHE_PREFIX = "fm_attempt_submit_report_v1_";
@@ -208,6 +214,7 @@ export default function ClinicalTakeClient({
   const setCurrentIndex = useClinicalAttemptStore((state) => state.setCurrentIndex);
   const markModuleSeen = useClinicalAttemptStore((state) => state.markModuleSeen);
   const markSubmitted = useClinicalAttemptStore((state) => state.markSubmitted);
+  const clearAttemptMeta = useClinicalAttemptStore((state) => state.clearAttemptMeta);
   const resetAfterSubmit = useClinicalAttemptStore((state) => state.resetAfterSubmit);
 
   const [questions, setQuestions] = useState<ScaleQuestionItem[]>([]);
@@ -224,12 +231,16 @@ export default function ClinicalTakeClient({
 
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [staleDraftError, setStaleDraftError] = useState<string | null>(null);
   const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const submitPhaseTimersRef = useRef<number[]>([]);
   const latestAnswersRef = useRef<Record<string, string>>(answers);
+  const submitInFlightRef = useRef(false);
+  const autoRecoveryAttemptedRef = useRef(false);
+  const recoveringAttemptRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   useEffect(() => {
@@ -367,6 +378,11 @@ export default function ClinicalTakeClient({
     () => questions.reduce((count, item) => count + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
   );
+  const shouldBlockStaleDraft = shouldBlockInvalidDraftOnTakePage({
+    answeredCount,
+    totalQuestions: totalQuestions,
+    attemptId,
+  });
 
   const moduleMeta = useMemo(() => normalizeModuleMeta(questionsMeta?.modules), [questionsMeta?.modules]);
 
@@ -401,6 +417,19 @@ export default function ClinicalTakeClient({
   useEffect(() => {
     latestAnswersRef.current = answers;
   }, [answers]);
+
+  useEffect(() => {
+    if (loadingQuestions) {
+      return;
+    }
+
+    if (shouldBlockStaleDraft) {
+      setStaleDraftError(resolveStaleDraftResetMessage(locale));
+      return;
+    }
+
+    setStaleDraftError(null);
+  }, [loadingQuestions, locale, shouldBlockStaleDraft]);
 
   useEffect(() => {
     return () => {
@@ -539,13 +568,9 @@ export default function ClinicalTakeClient({
     return snapshot;
   }, []);
 
-  const ensureAttempt = useCallback(async () => {
-    if (authBlockError) {
+  const startFreshAttempt = useCallback(async () => {
+    if (authBlockError || staleDraftError) {
       return null;
-    }
-
-    if (attemptId) {
-      return attemptId;
     }
 
     setStarting(true);
@@ -595,7 +620,19 @@ export default function ClinicalTakeClient({
     } finally {
       setStarting(false);
     }
-  }, [attemptId, authBlockError, locale, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug]);
+  }, [authBlockError, locale, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError]);
+
+  const ensureAttempt = useCallback(async () => {
+    if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
+      return null;
+    }
+
+    if (attemptId) {
+      return attemptId;
+    }
+
+    return startFreshAttempt();
+  }, [attemptId, authBlockError, staleDraftError, startFreshAttempt]);
 
   const handleStart = async () => {
     if (!consentChecked) {
@@ -614,9 +651,59 @@ export default function ClinicalTakeClient({
     setAnswer(questionId, code);
   };
 
+  const submitAttemptWithId = useCallback(async (
+    activeAttemptId: string,
+    answersSnapshot: Record<string, string>,
+    submitConsentVersion: string,
+    submitConsentLocale: string
+  ): Promise<string> => {
+    const durationMs = Math.max(1000, Date.now() - startedAt);
+    const response = await runWithAuthRetry("submit_attempt", () =>
+      submitClinicalAttempt({
+        attemptId: activeAttemptId,
+        durationMs,
+        answers: questions.map((item) => ({
+          question_id: item.question_id,
+          code: answersSnapshot[item.question_id] ?? "",
+        })),
+        consent: {
+          accepted: true,
+          version: submitConsentVersion,
+          locale: submitConsentLocale,
+        },
+      })
+    );
+
+    if (!response.ok) {
+      throw new Error("Submit failed.");
+    }
+
+    const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
+    if (typeof window !== "undefined" && response.report) {
+      const key = `${SUBMIT_REPORT_CACHE_PREFIX}${resultAttemptId}`;
+      window.sessionStorage.setItem(key, JSON.stringify(response.report));
+    }
+
+    markSubmitted();
+    trackEvent("clinical_submit", {
+      scale_code: scaleCode,
+      locale,
+      duration_bucket: durationMs < 60000 ? "lt_1m" : durationMs < 180000 ? "1_3m" : "gte_3m",
+    });
+    return resultAttemptId;
+  }, [locale, markSubmitted, questions, runWithAuthRetry, scaleCode, startedAt]);
+
   const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
+    if (submitInFlightRef.current || staleDraftError) {
+      return null;
+    }
+
+    submitInFlightRef.current = true;
     const activeAttemptId = await ensureAttempt();
-    if (!activeAttemptId) return null;
+    if (!activeAttemptId) {
+      submitInFlightRef.current = false;
+      return null;
+    }
 
     const submitConsentVersion = String(consentVersion ?? serverConsentVersion ?? "").trim();
     const submitConsentLocale = String(consentLocale ?? toApiLocale(locale)).trim();
@@ -645,41 +732,40 @@ export default function ClinicalTakeClient({
     setSubmitError(null);
 
     try {
-      const durationMs = Math.max(1000, Date.now() - startedAt);
-      const response = await runWithAuthRetry("submit_attempt", () =>
-        submitClinicalAttempt({
-          attemptId: activeAttemptId,
-          durationMs,
-          answers: questions.map((item) => ({
-            question_id: item.question_id,
-            code: answersSnapshot[item.question_id] ?? "",
-          })),
-          consent: {
-            accepted: true,
-            version: submitConsentVersion,
-            locale: submitConsentLocale,
-          },
-        })
+      return await submitAttemptWithId(
+        activeAttemptId,
+        answersSnapshot,
+        submitConsentVersion,
+        submitConsentLocale
       );
-
-      if (!response.ok) {
-        throw new Error("Submit failed.");
-      }
-
-      const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
-      if (typeof window !== "undefined" && response.report) {
-        const key = `${SUBMIT_REPORT_CACHE_PREFIX}${resultAttemptId}`;
-        window.sessionStorage.setItem(key, JSON.stringify(response.report));
-      }
-
-      markSubmitted();
-      trackEvent("clinical_submit", {
-        scale_code: scaleCode,
-        locale,
-        duration_bucket: durationMs < 60000 ? "lt_1m" : durationMs < 180000 ? "1_3m" : "gte_3m",
-      });
-      return resultAttemptId;
     } catch (error) {
+      recoveringAttemptRef.current = true;
+      const recovery = await recoverStaleAttemptSubmit({
+        error,
+        alreadyRecovered: autoRecoveryAttemptedRef.current,
+        clearAttemptState: () => {
+          clearAttemptMeta();
+          setStartError(null);
+        },
+        startFreshAttempt,
+        submitFreshAttempt: (nextAttemptId) =>
+          submitAttemptWithId(nextAttemptId, answersSnapshot, submitConsentVersion, submitConsentLocale),
+      });
+      recoveringAttemptRef.current = false;
+
+      if (recovery.kind === "recovered") {
+        autoRecoveryAttemptedRef.current = true;
+        return recovery.value;
+      }
+
+      if (recovery.kind === "failed") {
+        autoRecoveryAttemptedRef.current = true;
+        const message = resolveStaleDraftResetMessage(locale);
+        setStaleDraftError(message);
+        setSubmitError(message);
+        return null;
+      }
+
       const mapped = mapClinicalError(error);
       setSubmitError(toUiMessage(error, mapped.message, locale));
       const classified = classifyApiError(error);
@@ -700,24 +786,27 @@ export default function ClinicalTakeClient({
       });
       return null;
     } finally {
+      recoveringAttemptRef.current = false;
       setSubmitting(false);
+      submitInFlightRef.current = false;
     }
   }, [
     buildAnswersSnapshot,
+    clearAttemptMeta,
     consentAcceptedAt,
     consentLocale,
     consentVersion,
     ensureAttempt,
     isZh,
     locale,
-    markSubmitted,
     questions,
-    runWithAuthRetry,
     scaleCode,
     serverConsentVersion,
     setCurrentIndex,
     slug,
-    startedAt,
+    staleDraftError,
+    startFreshAttempt,
+    submitAttemptWithId,
   ]);
 
   const finalizeSuccessfulSubmit = useCallback(
@@ -832,6 +921,25 @@ export default function ClinicalTakeClient({
         <Button type="button" variant="outline" onClick={() => window.location.reload()}>
           {isZh ? "重试" : "Retry"}
         </Button>
+      </QuizShell>
+    );
+  }
+
+  if (staleDraftError) {
+    return (
+      <QuizShell>
+        <StaleDraftResetPrompt
+          locale={locale}
+          message={staleDraftError}
+          onReset={() => {
+            autoRecoveryAttemptedRef.current = false;
+            resetAfterSubmit();
+            setStaleDraftError(null);
+            setSubmitError(null);
+            setStartError(null);
+            router.replace(withLocale(`/tests/${slug}`));
+          }}
+        />
       </QuizShell>
     );
   }

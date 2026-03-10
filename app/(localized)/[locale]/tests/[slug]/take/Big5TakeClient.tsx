@@ -12,6 +12,7 @@ import {
   type LastSelectionContext,
 } from "@/components/quiz/immersive/useAutoAdvanceFlow";
 import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
+import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
@@ -42,6 +43,11 @@ import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/lo
 import { classifyApiError } from "@/lib/observability/httpError";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import {
+  recoverStaleAttemptSubmit,
+  resolveStaleDraftResetMessage,
+  shouldBlockInvalidDraftOnTakePage,
+} from "@/lib/attempt/staleAttempt";
 import {
   linkAnonAttemptsOnceOnLoginSuccess,
   shouldLinkAnonAttemptsOnLoginSuccess,
@@ -101,6 +107,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const hydrateAnonId = useBig5AttemptStore((store) => store.hydrateAnonId);
   const setAuthToken = useBig5AttemptStore((store) => store.setAuthToken);
   const markSubmitted = useBig5AttemptStore((store) => store.markSubmitted);
+  const clearAttemptMeta = useBig5AttemptStore((store) => store.clearAttemptMeta);
   const resetAfterSubmit = useBig5AttemptStore((store) => store.resetAfterSubmit);
   const resetAll = useBig5AttemptStore((store) => store.resetAll);
 
@@ -126,6 +133,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitErrorAction, setSubmitErrorAction] = useState<Big5UiError["action"] | null>(null);
   const [submitCanRetry, setSubmitCanRetry] = useState(false);
+  const [staleDraftError, setStaleDraftError] = useState<string | null>(null);
 
   const [cooldownSeconds, setCooldownSeconds] = useState(0);
   const [trackingBase, setTrackingBase] = useState<Big5TrackingContext | null>(null);
@@ -136,6 +144,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const submitPhaseTimersRef = useRef<number[]>([]);
   const latestAnswersRef = useRef<Record<string, string>>(answers);
+  const submitInFlightRef = useRef(false);
+  const autoRecoveryAttemptedRef = useRef(false);
+  const recoveringAttemptRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   const total = questions.length;
@@ -145,6 +156,11 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     () => questions.reduce((sum, item) => sum + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
   );
+  const shouldBlockStaleDraft = shouldBlockInvalidDraftOnTakePage({
+    answeredCount,
+    totalQuestions: total,
+    attemptId,
+  });
 
   const needsConsent =
     !disclaimerAcceptedAt ||
@@ -367,6 +383,19 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   useEffect(() => {
     latestAnswersRef.current = answers;
   }, [answers]);
+
+  useEffect(() => {
+    if (loadingQuestions) {
+      return;
+    }
+
+    if (shouldBlockStaleDraft) {
+      setStaleDraftError(resolveStaleDraftResetMessage(locale));
+      return;
+    }
+
+    setStaleDraftError(null);
+  }, [loadingQuestions, locale, shouldBlockStaleDraft]);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -605,13 +634,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     };
   }, [anonId, applyUiError, authBlockError, authBootstrapping, locale, rolloutBlocked, rolloutChecking, runWithAuthRetry, trackGuestTokenFailure]);
 
-  const ensureAttempt = useCallback(async (): Promise<string | null> => {
-    if (authBlockError) {
+  const startFreshAttempt = useCallback(async (): Promise<string | null> => {
+    if (authBlockError || staleDraftError) {
       return null;
-    }
-
-    if (attemptId) {
-      return attemptId;
     }
 
     if (inCooldown) {
@@ -724,7 +749,6 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   }, [
     anonId,
     authBlockError,
-    attemptId,
     inCooldown,
     locale,
     cooldownSeconds,
@@ -736,7 +760,20 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     applyUiError,
     runWithAuthRetry,
     trackGuestTokenFailure,
+    staleDraftError,
   ]);
+
+  const ensureAttempt = useCallback(async (): Promise<string | null> => {
+    if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
+      return null;
+    }
+
+    if (attemptId) {
+      return attemptId;
+    }
+
+    return startFreshAttempt();
+  }, [attemptId, authBlockError, staleDraftError, startFreshAttempt]);
 
   const handleAgreeAndStart = async () => {
     if (!consentChecked) return;
@@ -765,9 +802,57 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     );
   };
 
+  const submitAttemptWithId = useCallback(async (
+    activeAttemptId: string,
+    answersSnapshot: Record<string, string>
+  ): Promise<string> => {
+    const durationMs = Math.max(1000, Date.now() - startedAt);
+    const answeredCountSnapshot = questions.reduce(
+      (count, question) => count + (answersSnapshot[question.question_id] ? 1 : 0),
+      0
+    );
+
+    trackBig5Event(
+      "submit_click",
+      buildEventPayload({
+        attempt_id: activeAttemptId,
+        answered_count: answeredCountSnapshot,
+        duration_ms: durationMs,
+      })
+    );
+
+    const response = await runWithAuthRetry("submit_attempt", () =>
+      submitBig5Attempt({
+        attemptId: activeAttemptId,
+        anonId: anonId || undefined,
+        answers: questions.map((question, idx) => ({
+          question_id: question.question_id,
+          code: answersSnapshot[question.question_id] ?? "",
+          question_index: idx,
+        })),
+        durationMs,
+      })
+    );
+
+    if (!response.ok) {
+      throw new Error("Submit failed.");
+    }
+
+    markSubmitted();
+    return resolveResultAttemptId(response, activeAttemptId);
+  }, [anonId, buildEventPayload, markSubmitted, questions, runWithAuthRetry, startedAt]);
+
   const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
+    if (submitInFlightRef.current || staleDraftError) {
+      return null;
+    }
+
+    submitInFlightRef.current = true;
     const activeAttemptId = await ensureAttempt();
-    if (!activeAttemptId) return null;
+    if (!activeAttemptId) {
+      submitInFlightRef.current = false;
+      return null;
+    }
 
     if (inCooldown) {
       setSubmitError(retryCountdownText(locale, cooldownSeconds));
@@ -788,44 +873,37 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setSubmitErrorAction(null);
     setSubmitCanRetry(false);
 
-    const durationMs = Math.max(1000, Date.now() - startedAt);
-
-    const answeredCountSnapshot = questions.reduce(
-      (count, question) => count + (answersSnapshot[question.question_id] ? 1 : 0),
-      0
-    );
-
     try {
-      trackBig5Event(
-        "submit_click",
-        buildEventPayload({
-          attempt_id: activeAttemptId,
-          answered_count: answeredCountSnapshot,
-          duration_ms: durationMs,
-        })
-      );
+      return await submitAttemptWithId(activeAttemptId, answersSnapshot);
+    } catch (error) {
+      recoveringAttemptRef.current = true;
+      const recovery = await recoverStaleAttemptSubmit({
+        error,
+        alreadyRecovered: autoRecoveryAttemptedRef.current,
+        clearAttemptState: () => {
+          clearAttemptMeta();
+          setStartError(null);
+          setStartErrorAction(null);
+        },
+        startFreshAttempt,
+        submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot),
+      });
+      recoveringAttemptRef.current = false;
 
-      const response = await runWithAuthRetry("submit_attempt", () =>
-        submitBig5Attempt({
-          attemptId: activeAttemptId,
-          anonId: anonId || undefined,
-          answers: questions.map((question, idx) => ({
-            question_id: question.question_id,
-            code: answersSnapshot[question.question_id] ?? "",
-            question_index: idx,
-          })),
-          durationMs,
-        })
-      );
-
-      if (!response.ok) {
-        throw new Error("Submit failed.");
+      if (recovery.kind === "recovered") {
+        autoRecoveryAttemptedRef.current = true;
+        return recovery.value;
       }
 
-      markSubmitted();
-      const resultAttemptId = resolveResultAttemptId(response, activeAttemptId);
-      return resultAttemptId;
-    } catch (error) {
+      if (recovery.kind === "failed") {
+        autoRecoveryAttemptedRef.current = true;
+        const message = resolveStaleDraftResetMessage(locale);
+        setStaleDraftError(message);
+        setSubmitError(message);
+        setSubmitErrorAction("restart");
+        return null;
+      }
+
       if (isGuestTokenRequestError(error)) {
         trackGuestTokenFailure("submit_attempt", error);
         if (isGuestTokenEndpointMissingError(error)) {
@@ -877,22 +955,24 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       }
       return null;
     } finally {
+      recoveringAttemptRef.current = false;
       setSubmitting(false);
+      submitInFlightRef.current = false;
     }
   }, [
     applyUiError,
     buildAnswersSnapshot,
     buildEventPayload,
     cooldownSeconds,
+    clearAttemptMeta,
     ensureAttempt,
     inCooldown,
     locale,
-    markSubmitted,
-    anonId,
     questions,
     setCurrentIndex,
-    startedAt,
-    runWithAuthRetry,
+    staleDraftError,
+    startFreshAttempt,
+    submitAttemptWithId,
     trackGuestTokenFailure,
   ]);
 
@@ -1009,6 +1089,24 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           </Button>
         )}
       </div>
+    );
+  }
+
+  if (staleDraftError) {
+    return (
+      <StaleDraftResetPrompt
+        locale={locale}
+        message={staleDraftError}
+        onReset={() => {
+          autoRecoveryAttemptedRef.current = false;
+          resetAll();
+          setCooldownSeconds(0);
+          setStaleDraftError(null);
+          setSubmitError(null);
+          setStartError(null);
+          router.replace(withLocale(`/tests/${slug}`));
+        }}
+      />
     );
   }
 
