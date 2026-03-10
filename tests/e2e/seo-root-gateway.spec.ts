@@ -29,3 +29,20 @@ test("llms endpoints are reachable", async ({ request }) => {
   expect(fullBody).toContain("Citation Policy");
   expect(fullBody).toContain("## Tests");
 });
+
+test("matcher exclusions bypass proxy side effects for static seo endpoints", async ({ request }) => {
+  for (const pathname of ["/robots.txt", "/sitemap.xml", "/llms.txt", "/llms-full.txt"]) {
+    const response = await request.get(pathname, { maxRedirects: 0 });
+    expect(response.status(), pathname).toBe(200);
+    expect(response.headers()["set-cookie"], pathname).toBeFalsy();
+  }
+});
+
+test("sitemap locale aliases still redirect without proxy cookie side effects", async ({ request }) => {
+  for (const pathname of ["/sitemap-en.xml", "/sitemap-zh.xml"]) {
+    const response = await request.get(pathname, { maxRedirects: 0 });
+    expect(response.status(), pathname).toBe(308);
+    expect(response.headers().location, pathname).toContain("/sitemap.xml");
+    expect(response.headers()["set-cookie"], pathname).toBeFalsy();
+  }
+});
