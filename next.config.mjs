@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === "production";
 const cdnUrl = (process.env.NEXT_PUBLIC_CDN_URL || "").replace(/\/$/, "");
+const legacyPathMode = String(process.env.FAP_LEGACY_PATH_MODE || "redirect").trim().toLowerCase();
+const enableRootQuizRedirects = legacyPathMode !== "gone";
 
 function parseHostname(value) {
   try {
@@ -99,6 +101,20 @@ const nextConfig = {
         destination: "/en/tests/:path*",
         permanent: true,
       },
+      ...(enableRootQuizRedirects
+        ? [
+            {
+              source: "/quiz",
+              destination: "/en/tests",
+              permanent: true,
+            },
+            {
+              source: "/quiz/:slug",
+              destination: "/en/quiz/:slug",
+              permanent: true,
+            },
+          ]
+        : []),
       {
         source: "/sitemap-en.xml",
         destination: "/sitemap.xml",

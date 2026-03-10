@@ -99,6 +99,44 @@ test("legacy slug redirect: /test index query params are preserved", async ({ pa
   await expect(page).toHaveURL(/\/en\/tests\?utm=a$/);
 });
 
+test("legacy slug redirect: root /quiz index is explicit by mode", async ({ page, request }) => {
+  const path = "/quiz?utm=a";
+
+  if (LEGACY_MODE === "gone") {
+    const response = await request.get(path, { maxRedirects: 0 });
+    expect(response.status()).toBe(404);
+    const pageResponse = await page.goto(path);
+    expect(pageResponse?.status()).toBe(404);
+    return;
+  }
+
+  const response = await request.get(path, { maxRedirects: 0 });
+  expect(response.status()).toBe(308);
+  expect(response.headers().location).toContain("/en/tests?utm=a");
+
+  await page.goto(path);
+  await expect(page).toHaveURL(/\/en\/tests\?utm=a$/);
+});
+
+test("legacy slug redirect: root /quiz slug preserves query before locale redirect", async ({ page, request }) => {
+  const path = "/quiz/mbti-test?utm=a";
+
+  if (LEGACY_MODE === "gone") {
+    const response = await request.get(path, { maxRedirects: 0 });
+    expect(response.status()).toBe(410);
+    const pageResponse = await page.goto(path);
+    expect(pageResponse?.status()).toBe(410);
+    return;
+  }
+
+  const response = await request.get(path, { maxRedirects: 0 });
+  expect(response.status()).toBe(308);
+  expect(response.headers().location).toContain("/en/quiz/mbti-test?utm=a");
+
+  await page.goto(path);
+  await expect(page).toHaveURL(/\/en\/tests\/mbti-personality-test-16-personality-types\/take\?utm=a$/);
+});
+
 test("legacy slug redirect: /quiz alias take respects mode and preserves query", async ({ page, request }) => {
   const path = "/en/quiz/mbti-test?utm=a";
 
