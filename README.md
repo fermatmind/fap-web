@@ -27,10 +27,17 @@ This repository is **pnpm-only**.
 - Use: `pnpm install --frozen-lockfile`
 - Do not use: `npm install` / `yarn install`
 
+## Runtime policy
+
+- This repository only supports Node.js 20.x and pnpm.
+- `pnpm install` runs a runtime check and fails fast on the wrong Node major version or a non-pnpm installer.
+- Run `nvm use` before installing dependencies if your shell is not already on Node 20.x.
+
 ## Local development
 
 ```bash
 corepack enable
+pnpm run check:runtime
 pnpm install --frozen-lockfile
 pnpm dev
 ```
