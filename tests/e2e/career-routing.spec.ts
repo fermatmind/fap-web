@@ -1,16 +1,18 @@
 import { expect, test } from "@playwright/test";
 
-test("career root redirects by accept-language and preserves query", async ({ request }) => {
-  const response = await request.get("/career?utm=a", {
-    maxRedirects: 0,
-    headers: {
-      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8",
-    },
-  });
+for (const prefix of ["articles", "career", "topics", "personality"] as const) {
+  test(`${prefix} root redirects by accept-language and preserves query`, async ({ request }) => {
+    const response = await request.get(`/${prefix}?utm=a`, {
+      maxRedirects: 0,
+      headers: {
+        "accept-language": "zh-CN,zh;q=0.9,en;q=0.8",
+      },
+    });
 
-  expect(response.status()).toBe(308);
-  expect(response.headers().location).toContain("/zh/career?utm=a");
-});
+    expect(response.status()).toBe(308);
+    expect(response.headers().location).toContain(`/zh/${prefix}?utm=a`);
+  });
+}
 
 test("legacy professions/types routes return 410", async ({ request }) => {
   const paths = ["/en/professions", "/zh/professions", "/en/types", "/zh/types", "/professions", "/types"];

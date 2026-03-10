@@ -44,7 +44,7 @@ function generateAnonId(): string {
   return buildFallbackAnonId();
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const strippedPath = stripLocalePrefix(pathname);
 
