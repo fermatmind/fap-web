@@ -2,6 +2,15 @@ import { ApiError } from "@/lib/api-client";
 
 export type SupportedTakeLocale = "en" | "zh";
 
+export type TakeFlowController = {
+  beginRun: () => number;
+  isActive: (runId?: number) => boolean;
+  wait: (ms: number, runId?: number) => Promise<boolean>;
+  schedule: (callback: () => void, ms: number, runId?: number) => number | null;
+  cancelCurrentRun: () => void;
+  dispose: () => void;
+};
+
 export function isStaleAttemptSubmitError(error: unknown): boolean {
   if (!(error instanceof ApiError) || error.status !== 404) {
     return false;
@@ -48,6 +57,86 @@ export function resolveStaleDraftResetMessage(locale: SupportedTakeLocale): stri
   return "This draft is no longer valid. Please start again.";
 }
 
+export function createTakeFlowController(): TakeFlowController {
+  let activeRunId = 0;
+  let disposed = false;
+  const timers = new Set<number>();
+  const pendingWaitResolvers = new Map<number, (value: boolean) => void>();
+
+  const clearTimers = () => {
+    timers.forEach((timerId) => {
+      window.clearTimeout(timerId);
+      const pendingResolver = pendingWaitResolvers.get(timerId);
+      if (pendingResolver) {
+        pendingWaitResolvers.delete(timerId);
+        pendingResolver(false);
+      }
+    });
+    timers.clear();
+  };
+
+  const isActive = (runId?: number) => !disposed && (typeof runId !== "number" || runId === activeRunId);
+
+  const beginRun = () => {
+    activeRunId += 1;
+    clearTimers();
+    return activeRunId;
+  };
+
+  const schedule = (callback: () => void, ms: number, runId?: number) => {
+    if (!isActive(runId)) {
+      return null;
+    }
+
+    const timerId = window.setTimeout(() => {
+      timers.delete(timerId);
+      if (!isActive(runId)) {
+        return;
+      }
+      callback();
+    }, ms);
+
+    timers.add(timerId);
+    return timerId;
+  };
+
+  const wait = (ms: number, runId?: number) => {
+    if (!isActive(runId)) {
+      return Promise.resolve(false);
+    }
+
+    return new Promise<boolean>((resolve) => {
+      const timerId = window.setTimeout(() => {
+        timers.delete(timerId);
+        pendingWaitResolvers.delete(timerId);
+        resolve(isActive(runId));
+      }, ms);
+
+      pendingWaitResolvers.set(timerId, resolve);
+      timers.add(timerId);
+    });
+  };
+
+  const cancelCurrentRun = () => {
+    activeRunId += 1;
+    clearTimers();
+  };
+
+  const dispose = () => {
+    disposed = true;
+    cancelCurrentRun();
+  };
+
+  return {
+    beginRun,
+    isActive,
+    wait,
+    schedule,
+    cancelCurrentRun,
+    dispose,
+  };
+}
+
 export async function recoverStaleAttemptSubmit<T>({
   error,
   alreadyRecovered,
@@ -72,8 +161,12 @@ export async function recoverStaleAttemptSubmit<T>({
       kind: "ignored";
     }
 > {
-  if (!isStaleAttemptSubmitError(error) || alreadyRecovered) {
+  if (!isStaleAttemptSubmitError(error)) {
     return { kind: "ignored" };
+  }
+
+  if (alreadyRecovered) {
+    return { kind: "failed" };
   }
 
   clearAttemptState();

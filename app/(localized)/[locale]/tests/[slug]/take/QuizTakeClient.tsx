@@ -42,6 +42,7 @@ import type { QuizQuestion } from "@/lib/quiz/types";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import {
+  createTakeFlowController,
   recoverStaleAttemptSubmit,
   resolveStaleDraftResetMessage,
   shouldBlockInvalidDraftOnTakePage,
@@ -187,12 +188,14 @@ function QuizTakeInner({
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
-  const submitPhaseTimersRef = useRef<number[]>([]);
+  const mountedRef = useRef(true);
+  const takeFlowRef = useRef(createTakeFlowController());
   const latestAnswersRef = useRef<Record<string, string>>(answers);
   const ensureAttemptPromiseRef = useRef<Promise<string | null> | null>(null);
   const submitInFlightRef = useRef(false);
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
+  const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
 
@@ -311,9 +314,15 @@ function QuizTakeInner({
     [anonId, locale, scaleCode, trackGuestTokenFailure]
   );
 
-  const clearSubmitPhaseTimers = useCallback(() => {
-    submitPhaseTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
-    submitPhaseTimersRef.current = [];
+  const isFlowActive = useCallback((runId?: number) => (
+    mountedRef.current && takeFlowRef.current.isActive(runId)
+  ), []);
+
+  const cancelPendingSubmitSideEffects = useCallback(() => {
+    takeFlowRef.current.cancelCurrentRun();
+    cancelAutoAdvanceRef.current();
+    submitInFlightRef.current = false;
+    recoveringAttemptRef.current = false;
   }, []);
 
   useEffect(() => {
@@ -385,7 +394,7 @@ function QuizTakeInner({
     latestAnswersRef.current = answers;
   }, [answers]);
 
-  const startFreshAttempt = useCallback(async (): Promise<string | null> => {
+  const startFreshAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError) {
       return null;
     }
@@ -402,9 +411,15 @@ function QuizTakeInner({
         const response = await runWithAuthRetry("start_attempt", () =>
           startAttempt({ scaleCode, anonId })
         );
+        if (!isFlowActive(runId)) {
+          return null;
+        }
         setAttemptMeta(response.attempt_id, scaleCode);
         return response.attempt_id;
       } catch (error) {
+        if (!isFlowActive(runId)) {
+          return null;
+        }
         const message = toUiMessage(error, "Failed to start attempt.", locale);
         setAttemptError(message);
         const classified = classifyApiError(error);
@@ -425,16 +440,18 @@ function QuizTakeInner({
         });
         return null;
       } finally {
-        setAttemptLoading(false);
+        if (isFlowActive(runId)) {
+          setAttemptLoading(false);
+        }
         ensureAttemptPromiseRef.current = null;
       }
     })();
 
     ensureAttemptPromiseRef.current = pending;
     return pending;
-  }, [anonId, authBlockError, locale, runWithAuthRetry, scaleCode, setAttemptMeta, slug, staleDraftError]);
+  }, [anonId, authBlockError, isFlowActive, locale, runWithAuthRetry, scaleCode, setAttemptMeta, slug, staleDraftError]);
 
-  const ensureAttempt = useCallback(async (): Promise<string | null> => {
+  const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
       return null;
     }
@@ -443,7 +460,7 @@ function QuizTakeInner({
       return attemptId;
     }
 
-    return startFreshAttempt();
+    return startFreshAttempt(runId);
   }, [attemptId, authBlockError, savedScaleCode, scaleCode, staleDraftError, startFreshAttempt]);
 
   const total = questions.length;
@@ -501,10 +518,14 @@ function QuizTakeInner({
   }, [attemptId, scaleCode, slug]);
 
   useEffect(() => {
+    const takeFlow = takeFlowRef.current;
     return () => {
-      clearSubmitPhaseTimers();
+      mountedRef.current = false;
+      takeFlow.dispose();
+      submitInFlightRef.current = false;
+      recoveringAttemptRef.current = false;
     };
-  }, [clearSubmitPhaseTimers]);
+  }, []);
   const shouldBlockStaleDraft = shouldBlockInvalidDraftOnTakePage({
     answeredCount,
     totalQuestions: total,
@@ -553,13 +574,20 @@ function QuizTakeInner({
     }
 
     if (shouldBlockStaleDraft) {
+      clearAttemptMeta();
+      cancelPendingSubmitSideEffects();
+      setSubmitOverlayVisible(false);
+      setSubmitOverlayPhase(0);
+      setSubmitting(false);
+      setSubmitError(null);
+      setAttemptError(null);
       setStaleDraftError(resolveStaleDraftResetMessage(locale));
       setAttemptLoading(false);
       return;
     }
 
     setStaleDraftError(null);
-  }, [locale, questionsLoading, shouldBlockStaleDraft]);
+  }, [cancelPendingSubmitSideEffects, clearAttemptMeta, locale, questionsLoading, shouldBlockStaleDraft]);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -580,7 +608,7 @@ function QuizTakeInner({
     const hint = dict.quiz.milestoneHints[hintIndex] ?? dict.quiz.milestoneHints[dict.quiz.milestoneHints.length - 1] ?? "";
     if (hint) {
       setMilestoneHint(hint);
-      window.setTimeout(() => {
+      takeFlowRef.current.schedule(() => {
         setMilestoneHint((prev) => (prev === hint ? null : prev));
       }, 1500);
     }
@@ -609,7 +637,8 @@ function QuizTakeInner({
 
   const submitAttemptWithId = useCallback(async (
     activeAttemptId: string,
-    answersSnapshot: Record<string, string>
+    answersSnapshot: Record<string, string>,
+    runId?: number,
   ): Promise<string> => {
     const durationMs = Math.max(1000, Date.now() - startedAt);
 
@@ -624,6 +653,9 @@ function QuizTakeInner({
         anonId,
       })
     );
+    if (!isFlowActive(runId)) {
+      return "";
+    }
 
     if (!response.ok) {
       throw new Error("Submit failed. Please try again.");
@@ -636,15 +668,20 @@ function QuizTakeInner({
       durationMs,
     });
     return resultAttemptId;
-  }, [anonId, questions, runWithAuthRetry, slug, startedAt]);
+  }, [anonId, isFlowActive, questions, runWithAuthRetry, slug, startedAt]);
 
-  const handleSubmit = async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
+  const handleSubmit = async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
       return null;
     }
 
     submitInFlightRef.current = true;
-    const activeAttemptId = await ensureAttempt();
+    const activeRunId = typeof runId === "number" ? runId : takeFlowRef.current.beginRun();
+    const activeAttemptId = await ensureAttempt(activeRunId);
+    if (!isFlowActive(activeRunId)) {
+      submitInFlightRef.current = false;
+      return null;
+    }
     if (!activeAttemptId) {
       submitInFlightRef.current = false;
       return null;
@@ -658,16 +695,28 @@ function QuizTakeInner({
 
     const firstMissingIndex = payloadAnswers.findIndex((item) => !item.code);
     if (firstMissingIndex >= 0) {
-      setSubmitError("Please answer every question before submitting.");
-      jump(firstMissingIndex, total);
+      if (isFlowActive(activeRunId)) {
+        setSubmitError("Please answer every question before submitting.");
+        jump(firstMissingIndex, total);
+      }
+      return null;
+    }
+
+    if (!isFlowActive(activeRunId)) {
+      submitInFlightRef.current = false;
       return null;
     }
 
     setSubmitting(true);
     setSubmitError(null);
+    setStaleDraftError(null);
 
     try {
-      return await submitAttemptWithId(activeAttemptId, answersSnapshot);
+      const resultAttemptId = await submitAttemptWithId(activeAttemptId, answersSnapshot, activeRunId);
+      if (!isFlowActive(activeRunId) || !resultAttemptId) {
+        return null;
+      }
+      return resultAttemptId;
     } catch (error) {
       recoveringAttemptRef.current = true;
       const recovery = await recoverStaleAttemptSubmit({
@@ -677,13 +726,18 @@ function QuizTakeInner({
           clearAttemptMeta();
           setAttemptError(null);
         },
-        startFreshAttempt,
-        submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot),
+        startFreshAttempt: () => startFreshAttempt(activeRunId),
+        submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot, activeRunId),
       });
+      if (!isFlowActive(activeRunId)) {
+        return null;
+      }
       recoveringAttemptRef.current = false;
 
       if (recovery.kind === "recovered") {
         autoRecoveryAttemptedRef.current = true;
+        setSubmitError(null);
+        setStaleDraftError(null);
         return recovery.value;
       }
 
@@ -691,7 +745,7 @@ function QuizTakeInner({
         autoRecoveryAttemptedRef.current = true;
         const message = resolveStaleDraftResetMessage(locale);
         setStaleDraftError(message);
-        setSubmitError(message);
+        setSubmitError(null);
         return null;
       }
 
@@ -716,18 +770,20 @@ function QuizTakeInner({
       return null;
     } finally {
       recoveringAttemptRef.current = false;
-      setSubmitting(false);
+      if (isFlowActive(activeRunId)) {
+        setSubmitting(false);
+      }
       submitInFlightRef.current = false;
     }
   };
 
   const finalizeSuccessfulSubmit = (resultAttemptId: string) => {
+    cancelPendingSubmitSideEffects();
     resetAttempt();
     router.push(withLocale(`/result/${resultAttemptId}`));
   };
 
-  const startSubmitOverlayPhases = () => {
-    clearSubmitPhaseTimers();
+  const startSubmitOverlayPhases = (runId: number) => {
     setSubmitOverlayPhase(0);
 
     trackEvent("ui_report_loading_phase", {
@@ -738,7 +794,7 @@ function QuizTakeInner({
       locale,
     });
 
-    const phase1 = window.setTimeout(() => {
+    takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(1);
       trackEvent("ui_report_loading_phase", {
         scale_code: scaleCode,
@@ -747,9 +803,9 @@ function QuizTakeInner({
         variant: "free",
         locale,
       });
-    }, 800);
+    }, 800, runId);
 
-    const phase2 = window.setTimeout(() => {
+    takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(2);
       trackEvent("ui_report_loading_phase", {
         scale_code: scaleCode,
@@ -758,24 +814,24 @@ function QuizTakeInner({
         variant: "free",
         locale,
       });
-    }, 1500);
-
-    submitPhaseTimersRef.current = [phase1, phase2];
+    }, 1500, runId);
   };
 
   const handleSubmitWithOverlay = async (pendingSelection?: LastSelectionContext) => {
     if (submitOverlayVisible || submitting) return;
+    const runId = takeFlowRef.current.beginRun();
     setSubmitOverlayVisible(true);
-    startSubmitOverlayPhases();
+    startSubmitOverlayPhases(runId);
 
-    const [resultAttemptId] = await Promise.all([
-      handleSubmit(pendingSelection),
-      new Promise<void>((resolve) => {
-        window.setTimeout(resolve, 2200);
-      }),
-    ]);
+    const resultAttemptId = await handleSubmit(pendingSelection, runId);
+    if (!isFlowActive(runId)) {
+      return;
+    }
 
-    clearSubmitPhaseTimers();
+    const delayFinished = await takeFlowRef.current.wait(2200, runId);
+    if (!delayFinished || !isFlowActive(runId)) {
+      return;
+    }
 
     if (!resultAttemptId) {
       setSubmitOverlayVisible(false);
@@ -792,6 +848,7 @@ function QuizTakeInner({
     selectAndAdvance,
     goPrevious,
     goNext,
+    cancelPending,
   } = useAutoAdvanceFlow({
     currentIndex,
     total,
@@ -800,6 +857,10 @@ function QuizTakeInner({
     confirmDelayMs: 200,
     enterDurationMs: 280,
   });
+
+  useEffect(() => {
+    cancelAutoAdvanceRef.current = cancelPending;
+  }, [cancelPending]);
 
   if (authBootstrapping || questionsLoading || attemptLoading) {
     return (
@@ -829,6 +890,7 @@ function QuizTakeInner({
           locale={locale}
           message={staleDraftError}
           onReset={() => {
+            cancelPendingSubmitSideEffects();
             autoRecoveryAttemptedRef.current = false;
             resetAttempt();
             setStaleDraftError(null);

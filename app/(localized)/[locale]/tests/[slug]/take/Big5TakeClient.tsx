@@ -44,6 +44,7 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import {
+  createTakeFlowController,
   recoverStaleAttemptSubmit,
   resolveStaleDraftResetMessage,
   shouldBlockInvalidDraftOnTakePage,
@@ -52,12 +53,6 @@ import {
   linkAnonAttemptsOnceOnLoginSuccess,
   shouldLinkAnonAttemptsOnLoginSuccess,
 } from "@/lib/api/v0_3";
-
-function wait(ms: number): Promise<void> {
-  return new Promise((resolve) => {
-    window.setTimeout(resolve, ms);
-  });
-}
 
 function retryCountdownText(locale: "en" | "zh", seconds: number): string {
   if (locale === "zh") {
@@ -142,11 +137,13 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
-  const submitPhaseTimersRef = useRef<number[]>([]);
+  const mountedRef = useRef(true);
+  const takeFlowRef = useRef(createTakeFlowController());
   const latestAnswersRef = useRef<Record<string, string>>(answers);
   const submitInFlightRef = useRef(false);
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
+  const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
   const total = questions.length;
@@ -223,9 +220,15 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setQuestionError(mapped.message);
   }, []);
 
-  const clearSubmitPhaseTimers = useCallback(() => {
-    submitPhaseTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
-    submitPhaseTimersRef.current = [];
+  const isFlowActive = useCallback((runId?: number) => (
+    mountedRef.current && takeFlowRef.current.isActive(runId)
+  ), []);
+
+  const cancelPendingSubmitSideEffects = useCallback(() => {
+    takeFlowRef.current.cancelCurrentRun();
+    cancelAutoAdvanceRef.current();
+    submitInFlightRef.current = false;
+    recoveringAttemptRef.current = false;
   }, []);
 
   useEffect(() => {
@@ -375,10 +378,14 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   }, [cooldownSeconds]);
 
   useEffect(() => {
+    const takeFlow = takeFlowRef.current;
     return () => {
-      clearSubmitPhaseTimers();
+      mountedRef.current = false;
+      takeFlow.dispose();
+      submitInFlightRef.current = false;
+      recoveringAttemptRef.current = false;
     };
-  }, [clearSubmitPhaseTimers]);
+  }, []);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -390,12 +397,20 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     }
 
     if (shouldBlockStaleDraft) {
+      clearAttemptMeta();
+      cancelPendingSubmitSideEffects();
+      setSubmitOverlayVisible(false);
+      setSubmitOverlayPhase(0);
+      setSubmitting(false);
+      setSubmitError(null);
+      setSubmitErrorAction(null);
+      setSubmitCanRetry(false);
       setStaleDraftError(resolveStaleDraftResetMessage(locale));
       return;
     }
 
     setStaleDraftError(null);
-  }, [loadingQuestions, locale, shouldBlockStaleDraft]);
+  }, [cancelPendingSubmitSideEffects, clearAttemptMeta, loadingQuestions, locale, shouldBlockStaleDraft]);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -431,7 +446,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     const hint = dict.quiz.milestoneHints[hintIndex] ?? dict.quiz.milestoneHints[dict.quiz.milestoneHints.length - 1] ?? "";
     if (hint) {
       setMilestoneHint(hint);
-      window.setTimeout(() => {
+      takeFlowRef.current.schedule(() => {
         setMilestoneHint((prev) => (prev === hint ? null : prev));
       }, 1500);
     }
@@ -634,7 +649,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     };
   }, [anonId, applyUiError, authBlockError, authBootstrapping, locale, rolloutBlocked, rolloutChecking, runWithAuthRetry, trackGuestTokenFailure]);
 
-  const startFreshAttempt = useCallback(async (): Promise<string | null> => {
+  const startFreshAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError) {
       return null;
     }
@@ -671,6 +686,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
             clientVersion: "fe-big5-2",
           })
         );
+        if (!isFlowActive(runId)) {
+          return null;
+        }
 
         setAttemptMeta({
           attemptId: response.attempt_id,
@@ -689,12 +707,24 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           })
         );
 
-        setStarting(false);
+        if (isFlowActive(runId)) {
+          setStarting(false);
+        }
         return response.attempt_id;
       } catch (error) {
         if (retry === 0) {
-          await wait(600);
+          const retryWaitCompleted = await takeFlowRef.current.wait(600, runId);
+          if (!retryWaitCompleted) {
+            if (isFlowActive(runId)) {
+              setStarting(false);
+            }
+            return null;
+          }
           continue;
+        }
+
+        if (!isFlowActive(runId)) {
+          return null;
         }
 
         if (isGuestTokenRequestError(error)) {
@@ -744,7 +774,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       }
     }
 
-    setStarting(false);
+    if (isFlowActive(runId)) {
+      setStarting(false);
+    }
     return null;
   }, [
     anonId,
@@ -758,12 +790,13 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setAttemptMeta,
     buildEventPayload,
     applyUiError,
+    isFlowActive,
     runWithAuthRetry,
     trackGuestTokenFailure,
     staleDraftError,
   ]);
 
-  const ensureAttempt = useCallback(async (): Promise<string | null> => {
+  const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
       return null;
     }
@@ -772,7 +805,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       return attemptId;
     }
 
-    return startFreshAttempt();
+    return startFreshAttempt(runId);
   }, [attemptId, authBlockError, staleDraftError, startFreshAttempt]);
 
   const handleAgreeAndStart = async () => {
@@ -804,7 +837,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
   const submitAttemptWithId = useCallback(async (
     activeAttemptId: string,
-    answersSnapshot: Record<string, string>
+    answersSnapshot: Record<string, string>,
+    runId?: number,
   ): Promise<string> => {
     const durationMs = Math.max(1000, Date.now() - startedAt);
     const answeredCountSnapshot = questions.reduce(
@@ -833,6 +867,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         durationMs,
       })
     );
+    if (!isFlowActive(runId)) {
+      return "";
+    }
 
     if (!response.ok) {
       throw new Error("Submit failed.");
@@ -840,31 +877,45 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
     markSubmitted();
     return resolveResultAttemptId(response, activeAttemptId);
-  }, [anonId, buildEventPayload, markSubmitted, questions, runWithAuthRetry, startedAt]);
+  }, [anonId, buildEventPayload, isFlowActive, markSubmitted, questions, runWithAuthRetry, startedAt]);
 
-  const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext): Promise<string | null> => {
+  const handleSubmit = useCallback(async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
       return null;
     }
 
     submitInFlightRef.current = true;
-    const activeAttemptId = await ensureAttempt();
+    const activeRunId = typeof runId === "number" ? runId : takeFlowRef.current.beginRun();
+    const activeAttemptId = await ensureAttempt(activeRunId);
+    if (!isFlowActive(activeRunId)) {
+      submitInFlightRef.current = false;
+      return null;
+    }
     if (!activeAttemptId) {
       submitInFlightRef.current = false;
       return null;
     }
 
     if (inCooldown) {
-      setSubmitError(retryCountdownText(locale, cooldownSeconds));
+      if (isFlowActive(activeRunId)) {
+        setSubmitError(retryCountdownText(locale, cooldownSeconds));
+      }
       return null;
     }
 
     const answersSnapshot = buildAnswersSnapshot(pendingSelection);
     const firstMissingIndex = questions.findIndex((item) => !answersSnapshot[item.question_id]);
     if (firstMissingIndex >= 0) {
-      setCurrentIndex(firstMissingIndex);
-      setSubmitError(`Please answer question ${firstMissingIndex + 1} before submitting.`);
-      setSubmitErrorAction("fill_missing");
+      if (isFlowActive(activeRunId)) {
+        setCurrentIndex(firstMissingIndex);
+        setSubmitError(`Please answer question ${firstMissingIndex + 1} before submitting.`);
+        setSubmitErrorAction("fill_missing");
+      }
+      return null;
+    }
+
+    if (!isFlowActive(activeRunId)) {
+      submitInFlightRef.current = false;
       return null;
     }
 
@@ -872,9 +923,14 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     setSubmitError(null);
     setSubmitErrorAction(null);
     setSubmitCanRetry(false);
+    setStaleDraftError(null);
 
     try {
-      return await submitAttemptWithId(activeAttemptId, answersSnapshot);
+      const resultAttemptId = await submitAttemptWithId(activeAttemptId, answersSnapshot, activeRunId);
+      if (!isFlowActive(activeRunId) || !resultAttemptId) {
+        return null;
+      }
+      return resultAttemptId;
     } catch (error) {
       recoveringAttemptRef.current = true;
       const recovery = await recoverStaleAttemptSubmit({
@@ -885,13 +941,19 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           setStartError(null);
           setStartErrorAction(null);
         },
-        startFreshAttempt,
-        submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot),
+        startFreshAttempt: () => startFreshAttempt(activeRunId),
+        submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot, activeRunId),
       });
+      if (!isFlowActive(activeRunId)) {
+        return null;
+      }
       recoveringAttemptRef.current = false;
 
       if (recovery.kind === "recovered") {
         autoRecoveryAttemptedRef.current = true;
+        setSubmitError(null);
+        setSubmitErrorAction(null);
+        setStaleDraftError(null);
         return recovery.value;
       }
 
@@ -899,8 +961,8 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         autoRecoveryAttemptedRef.current = true;
         const message = resolveStaleDraftResetMessage(locale);
         setStaleDraftError(message);
-        setSubmitError(message);
-        setSubmitErrorAction("restart");
+        setSubmitError(null);
+        setSubmitErrorAction(null);
         return null;
       }
 
@@ -956,7 +1018,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       return null;
     } finally {
       recoveringAttemptRef.current = false;
-      setSubmitting(false);
+      if (isFlowActive(activeRunId)) {
+        setSubmitting(false);
+      }
       submitInFlightRef.current = false;
     }
   }, [
@@ -967,6 +1031,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     clearAttemptMeta,
     ensureAttempt,
     inCooldown,
+    isFlowActive,
     locale,
     questions,
     setCurrentIndex,
@@ -978,14 +1043,14 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
   const finalizeSuccessfulSubmit = useCallback(
     (resultAttemptId: string) => {
+      cancelPendingSubmitSideEffects();
       resetAfterSubmit();
       router.push(withLocale(`/result/${resultAttemptId}`));
     },
-    [resetAfterSubmit, router, withLocale]
+    [cancelPendingSubmitSideEffects, resetAfterSubmit, router, withLocale]
   );
 
-  const startSubmitOverlayPhases = useCallback(() => {
-    clearSubmitPhaseTimers();
+  const startSubmitOverlayPhases = useCallback((runId: number) => {
     setSubmitOverlayPhase(0);
 
     trackEvent("ui_report_loading_phase", {
@@ -996,7 +1061,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
       locale,
     });
 
-    const phase1 = window.setTimeout(() => {
+    takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(1);
       trackEvent("ui_report_loading_phase", {
         scale_code: "BIG5_OCEAN",
@@ -1005,9 +1070,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         variant: "free",
         locale,
       });
-    }, 800);
+    }, 800, runId);
 
-    const phase2 = window.setTimeout(() => {
+    takeFlowRef.current.schedule(() => {
       setSubmitOverlayPhase(2);
       trackEvent("ui_report_loading_phase", {
         scale_code: "BIG5_OCEAN",
@@ -1016,18 +1081,24 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         variant: "free",
         locale,
       });
-    }, 1500);
-
-    submitPhaseTimersRef.current = [phase1, phase2];
-  }, [clearSubmitPhaseTimers, locale]);
+    }, 1500, runId);
+  }, [locale]);
 
   const handleSubmitWithOverlay = useCallback(async (pendingSelection?: LastSelectionContext): Promise<void> => {
     if (submitOverlayVisible || submitting) return;
+    const runId = takeFlowRef.current.beginRun();
     setSubmitOverlayVisible(true);
-    startSubmitOverlayPhases();
+    startSubmitOverlayPhases(runId);
 
-    const [resultAttemptId] = await Promise.all([handleSubmit(pendingSelection), wait(2200)]);
-    clearSubmitPhaseTimers();
+    const resultAttemptId = await handleSubmit(pendingSelection, runId);
+    if (!isFlowActive(runId)) {
+      return;
+    }
+
+    const delayFinished = await takeFlowRef.current.wait(2200, runId);
+    if (!delayFinished || !isFlowActive(runId)) {
+      return;
+    }
 
     if (!resultAttemptId) {
       setSubmitOverlayVisible(false);
@@ -1037,9 +1108,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
 
     finalizeSuccessfulSubmit(resultAttemptId);
   }, [
-    clearSubmitPhaseTimers,
     finalizeSuccessfulSubmit,
     handleSubmit,
+    isFlowActive,
     startSubmitOverlayPhases,
     submitOverlayVisible,
     submitting,
@@ -1059,6 +1130,10 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     confirmDelayMs: 200,
     enterDurationMs: 280,
   });
+
+  useEffect(() => {
+    cancelAutoAdvanceRef.current = cancelPending;
+  }, [cancelPending]);
 
   if (authBootstrapping || rolloutChecking || loadingQuestions) {
     return (
@@ -1098,12 +1173,16 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         locale={locale}
         message={staleDraftError}
         onReset={() => {
+          cancelPendingSubmitSideEffects();
           autoRecoveryAttemptedRef.current = false;
           resetAll();
           setCooldownSeconds(0);
           setStaleDraftError(null);
           setSubmitError(null);
+          setSubmitErrorAction(null);
+          setSubmitCanRetry(false);
           setStartError(null);
+          setStartErrorAction(null);
           router.replace(withLocale(`/tests/${slug}`));
         }}
       />
