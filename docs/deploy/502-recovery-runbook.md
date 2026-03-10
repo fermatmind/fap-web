@@ -19,6 +19,22 @@ bash scripts/deploy_web_pm2.sh
 
 Do not use hand-typed multi-line PM2 commands.
 
+Current runtime standard is Node 20.x.
+If either the shell `node` or `/usr/bin/node` is not Node 20.x, fix the runtime first and only then retry deploy.
+
+## 2.5) Runtime preflight
+```bash
+node -v
+which node
+readlink -f "$(which node)"
+
+/usr/bin/node -v
+readlink -f /usr/bin/node
+
+pnpm -v
+which pnpm
+```
+
 ## 3) Process and port verification
 ```bash
 pm2 status
