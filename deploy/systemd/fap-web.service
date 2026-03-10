@@ -20,6 +20,7 @@ Environment=ROLLOUT_PERCENT_SDS_20=100
 Environment=ROLLOUT_PERCENT_CLINICAL_COMBO_68=100
 Environment=ENABLE_SDS_20_COMMERCE=true
 Environment=ENABLE_CLINICAL_COMBO_68_COMMERCE=true
+# Expected to resolve to Node 20.x; deployment/ops should verify this runtime precondition.
 ExecStart=/usr/bin/node .next/standalone/server.js
 Restart=on-failure
 RestartSec=3

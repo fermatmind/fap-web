@@ -7,6 +7,7 @@ module.exports = {
       name: "fap-web",
       script: ".next/standalone/server.js",
       cwd: "/opt/apps/fap-web",
+      // Expected to resolve to Node 20.x; deploy_web_pm2.sh enforces this preflight.
       interpreter: "/usr/bin/node",
       exec_mode: "cluster",
       instances: APP_INSTANCES,

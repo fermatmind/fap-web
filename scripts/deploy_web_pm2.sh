@@ -9,6 +9,8 @@ APP_PORT="${APP_PORT:-3000}"
 PUBLIC_BASE_URL="${PUBLIC_BASE_URL:-https://fermatmind.com}"
 CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-assessment-professional-edition/take}"
 GIT_BRANCH="${GIT_BRANCH:-main}"
+EXPECTED_NODE_MAJOR="${EXPECTED_NODE_MAJOR:-20}"
+EXPECTED_NODE_BIN="${EXPECTED_NODE_BIN:-/usr/bin/node}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
 
@@ -21,6 +23,54 @@ require_bin() {
     log "missing dependency: $1"
     exit 1
   fi
+}
+
+node_major_from_version() {
+  local version="$1"
+  version="${version#v}"
+  printf '%s\n' "${version%%.*}"
+}
+
+require_node_major() {
+  local label="$1"
+  local node_bin="$2"
+  local version
+  local major
+
+  if [[ ! -x "$node_bin" ]]; then
+    log "${label} is not executable: ${node_bin}"
+    exit 1
+  fi
+
+  version="$("$node_bin" -v 2>/dev/null || true)"
+  if [[ -z "$version" ]]; then
+    log "failed to read ${label} version from ${node_bin}"
+    exit 1
+  fi
+
+  major="$(node_major_from_version "$version")"
+  if [[ "$major" != "$EXPECTED_NODE_MAJOR" ]]; then
+    log "${label} version mismatch: ${node_bin} -> ${version}"
+    log "expected Node ${EXPECTED_NODE_MAJOR}.x to match the current repository runtime standard"
+    if [[ "$node_bin" == "$EXPECTED_NODE_BIN" ]]; then
+      log "${EXPECTED_NODE_BIN} is referenced by PM2/systemd assets and must satisfy the same Node ${EXPECTED_NODE_MAJOR}.x contract"
+    else
+      log "the deploy shell runtime must also satisfy the same Node ${EXPECTED_NODE_MAJOR}.x contract"
+    fi
+    log "fix the runtime and rerun deploy"
+    exit 1
+  fi
+
+  printf '%s\n' "$version"
+}
+
+print_runtime_summary() {
+  local pnpm_bin
+  local pnpm_version
+
+  pnpm_bin="$(command -v pnpm)"
+  pnpm_version="$(pnpm -v)"
+  log "runtime summary: node=${PATH_NODE_BIN} (${PATH_NODE_VERSION}), ${EXPECTED_NODE_BIN} (${EXPECTED_NODE_VERSION}), pnpm=${pnpm_bin} (${pnpm_version})"
 }
 
 probe_headers() {
@@ -37,12 +87,18 @@ probe_headers() {
   printf '%s\n' "$headers" | head -n 20
 }
 
+require_bin node
 require_bin git
 require_bin pnpm
 require_bin rsync
 require_bin pm2
 require_bin curl
 require_bin ss
+
+PATH_NODE_BIN="$(command -v node)"
+PATH_NODE_VERSION="$(require_node_major "shell node" "$PATH_NODE_BIN")"
+EXPECTED_NODE_VERSION="$(require_node_major "runtime node" "$EXPECTED_NODE_BIN")"
+print_runtime_summary
 
 CURRENT_USER="$(id -un)"
 if [[ "$CURRENT_USER" != "$APP_USER" ]]; then

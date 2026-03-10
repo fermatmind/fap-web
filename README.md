@@ -121,6 +121,10 @@ For cron autoheal setup, see:
 - `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/502-recovery-runbook.md`
 - `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/pm2-autoheal-cron.md`
 
+Current runtime standard remains Node 20.x.
+The deploy entrypoint now fails fast unless both the shell `node` and `/usr/bin/node` resolve to Node 20.x.
+PM2 and the tracked systemd unit both assume `/usr/bin/node` satisfies that same runtime contract.
+
 ### PM2 deploy entrypoint (single allowed command)
 
 Use a single deploy entrypoint to avoid malformed multi-line PM2 commands.
