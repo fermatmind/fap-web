@@ -15,6 +15,7 @@ type MbtiStickyRailProps = {
   variant?: string;
   modulesAllowed?: string[];
   retakeHref: string;
+  primaryCtaLabel?: string;
   onShare: () => void | Promise<void>;
 };
 
@@ -61,6 +62,10 @@ function resolveUnlockSummary(locale: Locale, locked?: boolean, accessLevel?: st
   return { title, description };
 }
 
+function resolvePrimaryCtaLabel(locale: Locale, primaryCtaLabel?: string) {
+  return normalizeText(primaryCtaLabel) || (locale === "zh" ? "查看解锁方案" : "View unlock options");
+}
+
 export function MbtiStickyRail({
   locale,
   headline,
@@ -70,9 +75,11 @@ export function MbtiStickyRail({
   variant,
   modulesAllowed,
   retakeHref,
+  primaryCtaLabel,
   onShare,
 }: MbtiStickyRailProps) {
   const unlockSummary = resolveUnlockSummary(locale, locked, accessLevel, variant, modulesAllowed);
+  const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
 
   return (
     <aside data-testid="mbti-sticky-rail" className="hidden xl:block xl:sticky xl:top-24">
@@ -126,7 +133,7 @@ export function MbtiStickyRail({
             <p className="m-0 text-sm font-semibold text-slate-900">{unlockSummary.title}</p>
             <p className="m-0 text-sm leading-7 text-slate-600">{unlockSummary.description}</p>
             <a href="#offers" className={buttonVariants({ className: "w-full" })}>
-              {locale === "zh" ? "查看解锁方案" : "View unlock options"}
+              {ctaLabel}
             </a>
             <div className="flex gap-2">
               <Button type="button" variant="outline" className="flex-1" onClick={() => void onShare()}>

@@ -7,6 +7,7 @@ import type { Locale } from "@/lib/i18n/locales";
 type MbtiMobileChromeProps = {
   locale: Locale;
   retakeHref: string;
+  primaryCtaLabel?: string;
   onShare: () => void | Promise<void>;
 };
 
@@ -22,7 +23,13 @@ const NAV_ITEMS: Array<{ anchor: string; en: string; zh: string }> = [
   { anchor: "offers", en: "Offers", zh: "方案" },
 ];
 
-export function MbtiMobileChrome({ locale, retakeHref, onShare }: MbtiMobileChromeProps) {
+function resolvePrimaryCtaLabel(locale: Locale, primaryCtaLabel?: string) {
+  return (primaryCtaLabel ?? "").trim() || (locale === "zh" ? "解锁方案" : "Unlock options");
+}
+
+export function MbtiMobileChrome({ locale, retakeHref, primaryCtaLabel, onShare }: MbtiMobileChromeProps) {
+  const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
+
   return (
     <div data-testid="mbti-mobile-chrome" className="xl:hidden">
       <div className="sticky top-16 z-30 -mx-4 overflow-x-auto border-y border-slate-200 bg-white/92 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.08)] backdrop-blur md:-mx-6 md:px-6">
@@ -48,7 +55,7 @@ export function MbtiMobileChrome({ locale, retakeHref, onShare }: MbtiMobileChro
             {locale === "zh" ? "重测" : "Retake"}
           </Link>
           <a href="#offers" className={buttonVariants({ className: "flex-1" })}>
-            {locale === "zh" ? "解锁方案" : "Unlock options"}
+            {ctaLabel}
           </a>
         </div>
       </div>
