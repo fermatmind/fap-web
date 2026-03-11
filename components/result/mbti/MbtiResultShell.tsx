@@ -18,6 +18,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { trackEvent } from "@/lib/analytics";
 import {
+  createAttemptShare,
   createCheckoutOrOrder,
   type OfferPayload,
   type ReportCta,
@@ -111,6 +112,18 @@ function resolveAttemptIdFromPathname(pathname: string): string {
   return normalizeText(segments[segments.length - 1]);
 }
 
+function resolveAbsoluteShareUrl(url: string): string {
+  if (typeof window === "undefined") {
+    return url;
+  }
+
+  try {
+    return new URL(url, window.location.origin).toString();
+  } catch {
+    return url;
+  }
+}
+
 function resolveOfferPayloads(reportData: ReportResponse): OfferPayload[] {
   const values: OfferPayload[] = [];
 
@@ -199,6 +212,7 @@ export function MbtiResultShell({
 }: MbtiResultShellProps) {
   const pathname = usePathname();
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const [isSharing, setIsSharing] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP[scaleCode]}/take`, locale);
@@ -251,12 +265,27 @@ export function MbtiResultShell({
   }, [attemptId, reportData.locked]);
 
   async function handleShare() {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || isSharing) return;
+    if (!attemptId) {
+      setShareStatus("failed");
+      return;
+    }
 
-    const shareUrl = window.location.href;
     const shareTitle = locale === "zh" ? "分享我的测试结果" : "Share my result";
+    setIsSharing(true);
 
     try {
+      const shareResponse = await createAttemptShare({
+        attemptId,
+        locale,
+      });
+      const shareUrl = resolveAbsoluteShareUrl(
+        normalizeText(shareResponse.share_url, shareResponse.shareUrl, shareResponse.url)
+      );
+      if (!shareUrl) {
+        throw new Error(locale === "zh" ? "分享链接生成失败。" : "Share link unavailable.");
+      }
+
       if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
         await navigator.share({
           title: shareTitle,
@@ -274,6 +303,8 @@ export function MbtiResultShell({
       }
     } catch {
       // Fall through to failed state.
+    } finally {
+      setIsSharing(false);
     }
 
     setShareStatus("failed");

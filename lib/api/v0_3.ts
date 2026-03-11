@@ -455,11 +455,46 @@ export type OrderStatusResponse = {
 
 export type ShareSummaryResponse = {
   ok?: boolean;
+  share_id?: string;
+  share_url?: string;
   id?: string;
+  type_code?: string;
+  type_name?: string;
   title?: string;
+  subtitle?: string;
+  tagline?: string;
   summary?: string;
   typeCode?: string;
+  typeName?: string;
+  rarity?: string | number | Record<string, unknown> | null;
+  rarity_label?: string;
+  public_tags?: string[];
+  publicTags?: string[];
+  tags?: string[];
+  profile?: Record<string, unknown> | null;
+  identity_card?: Record<string, unknown> | null;
+  identityCard?: Record<string, unknown> | null;
+  result?: Record<string, unknown> | null;
+  summary_card?: Record<string, unknown> | null;
+  summaryCard?: Record<string, unknown> | null;
   dimensions?: Array<Record<string, unknown>>;
+  [key: string]: unknown;
+};
+
+export type AttemptShareResponse = {
+  ok?: boolean;
+  share_id?: string;
+  share_url?: string;
+  shareId?: string;
+  shareUrl?: string;
+  id?: string;
+  url?: string;
+  [key: string]: unknown;
+};
+
+export type ShareClickResponse = {
+  ok?: boolean;
+  message?: string;
   [key: string]: unknown;
 };
 
@@ -1319,13 +1354,89 @@ export async function linkAnonAttempts({
 export async function getShareSummary({
   shareId,
   anonId,
+  locale,
+  cache,
 }: {
   shareId: string;
   anonId?: string;
+  locale?: string;
+  cache?: RequestCache;
 }): Promise<ShareSummaryResponse> {
-  const response = await apiClient.get<ShareSummaryResponse>(`/v0.3/shares/${shareId}`, anonHeader(anonId));
+  const response = await apiClient.get<ShareSummaryResponse>(
+    `/v0.3/shares/${shareId}`,
+    {
+      ...anonHeader(anonId),
+      ...(locale ? { locale } : {}),
+      ...(cache ? { cache } : {}),
+    }
+  );
 
   return assertApiOk(response, "Share not available.");
+}
+
+export async function createAttemptShare({
+  attemptId,
+  anonId,
+  locale,
+}: {
+  attemptId: string;
+  anonId?: string;
+  locale?: string;
+}): Promise<AttemptShareResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const path = `/v0.3/attempts/${attemptId}/share`;
+
+  try {
+    const response = await apiClient.post<AttemptShareResponse>(
+      path,
+      resolvedAnonId ? { anon_id: resolvedAnonId } : undefined,
+      {
+        ...anonHeader(resolvedAnonId),
+        ...(locale ? { locale } : {}),
+      }
+    );
+    return assertApiOk(response, "Unable to create a share link.");
+  } catch (error) {
+    if (!(error instanceof ApiError) || (error.status !== 404 && error.status !== 405)) {
+      throw error;
+    }
+
+    const response = await apiClient.get<AttemptShareResponse>(
+      path,
+      {
+        ...anonHeader(resolvedAnonId),
+        ...(locale ? { locale } : {}),
+      }
+    );
+    return assertApiOk(response, "Unable to create a share link.");
+  }
+}
+
+export async function trackShareClick({
+  shareId,
+  anonId,
+  meta,
+  locale,
+}: {
+  shareId: string;
+  anonId?: string;
+  meta?: Record<string, unknown>;
+  locale?: string;
+}): Promise<ShareClickResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await apiClient.post<ShareClickResponse>(
+    `/v0.3/shares/${shareId}/click`,
+    {
+      ...(resolvedAnonId ? { anon_id: resolvedAnonId } : {}),
+      ...(meta ? { meta } : {}),
+    },
+    {
+      ...anonHeader(resolvedAnonId),
+      ...(locale ? { locale } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Unable to track share click.");
 }
 
 export async function lookupOrder({

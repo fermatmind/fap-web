@@ -1,18 +1,71 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Alert } from "@/components/ui/alert";
-import { Progress } from "@/components/ui/progress";
+import MbtiShareSummaryCard from "@/components/share/MbtiShareSummaryCard";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getShareSummary, type ShareSummaryResponse } from "@/lib/api/v0_3";
+import { getOrCreateAnonId } from "@/lib/anon";
+import {
+  getShareSummary,
+  trackShareClick,
+  type ShareSummaryResponse,
+} from "@/lib/api/v0_3";
 import { captureError } from "@/lib/observability/sentry";
+import type { Locale } from "@/lib/i18n/locales";
 
-function normalizeDimensions(data: ShareSummaryResponse) {
-  return Array.isArray(data.dimensions) ? data.dimensions : [];
+const SHARE_CLICK_SESSION_PREFIX = "fm_share_click_v1";
+
+function buildLandingPath(pathname: string | null, queryString: string): string {
+  const safePath = pathname || "/";
+  return queryString ? `${safePath}?${queryString}` : safePath;
 }
 
-export default function ShareClient({ shareId }: { shareId: string }) {
+function readUtmParams(searchParams: URLSearchParams): Record<string, string> | undefined {
+  const utmEntries = Array.from(searchParams.entries()).filter(([key, value]) => key.startsWith("utm_") && value.trim());
+  if (utmEntries.length === 0) {
+    return undefined;
+  }
+
+  return utmEntries.reduce<Record<string, string>>((acc, [key, value]) => {
+    acc[key] = value.trim();
+    return acc;
+  }, {});
+}
+
+function readShareClickDedupKey({ shareId, landingPath }: { shareId: string; landingPath: string }) {
+  return `${SHARE_CLICK_SESSION_PREFIX}:${shareId}:${landingPath}`;
+}
+
+function hasTrackedShareClick(key: string): boolean {
+  if (typeof window === "undefined") return false;
+
+  try {
+    return window.sessionStorage.getItem(key) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function markShareClickTracked(key: string): void {
+  if (typeof window === "undefined") return;
+
+  try {
+    window.sessionStorage.setItem(key, "1");
+  } catch {
+    // Ignore storage failures.
+  }
+}
+
+export default function ShareClient({
+  locale,
+  shareId,
+}: {
+  locale: Locale;
+  shareId: string;
+}) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [data, setData] = useState<ShareSummaryResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -25,7 +78,10 @@ export default function ShareClient({ shareId }: { shareId: string }) {
       setError(null);
 
       try {
-        const response = await getShareSummary({ shareId });
+        const response = await getShareSummary({
+          shareId,
+          locale,
+        });
         if (!active) return;
         setData(response);
       } catch (cause) {
@@ -47,14 +103,52 @@ export default function ShareClient({ shareId }: { shareId: string }) {
     return () => {
       active = false;
     };
-  }, [shareId]);
+  }, [locale, shareId]);
 
-  const dimensions = useMemo(() => (data ? normalizeDimensions(data) : []), [data]);
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const queryString = searchParams.toString();
+    const landingPath = buildLandingPath(pathname, queryString);
+    const dedupKey = readShareClickDedupKey({
+      shareId,
+      landingPath,
+    });
+    if (hasTrackedShareClick(dedupKey)) {
+      return;
+    }
+
+    const anonId = getOrCreateAnonId().trim();
+    const utm = readUtmParams(new URLSearchParams(queryString));
+
+    markShareClickTracked(dedupKey);
+
+    void trackShareClick({
+      shareId,
+      anonId,
+      locale,
+      meta: {
+        entrypoint: "share_page",
+        landing_path: landingPath,
+        referrer: document.referrer || undefined,
+        ...(utm ? { utm } : {}),
+        compare_intent: false,
+      },
+    }).catch((cause) => {
+      captureError(cause, {
+        route: "/share/[id]",
+        shareId,
+        stage: "track_share_click",
+      });
+    });
+  }, [locale, pathname, searchParams, shareId]);
 
   if (loading) {
     return (
-      <main className="mx-auto w-full max-w-3xl px-4 py-10">
-        <Skeleton className="h-40 w-full" />
+      <main className="mx-auto w-full max-w-5xl px-4 py-10">
+        <Skeleton className="h-72 w-full rounded-[32px]" />
       </main>
     );
   }
@@ -67,51 +161,5 @@ export default function ShareClient({ shareId }: { shareId: string }) {
     );
   }
 
-  const title = data.title ?? "Shared summary";
-  const summary = data.summary ?? "No summary available.";
-  const typeCode = data.typeCode;
-
-  return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-10">
-      <Card>
-        <CardHeader>
-          <CardTitle>{title}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {typeCode ? <p className="m-0 text-sm text-slate-700">Type: {typeCode}</p> : null}
-          <p className="m-0 text-sm text-slate-700">{summary}</p>
-
-          {dimensions.length ? (
-            <div className="space-y-3">
-              {dimensions.map((item, index) => {
-                const label =
-                  typeof item.label === "string"
-                    ? item.label
-                    : typeof item.code === "string"
-                    ? item.code
-                    : `Dimension ${index + 1}`;
-                const raw =
-                  typeof item.percent === "number"
-                    ? item.percent
-                    : typeof item.score === "number"
-                    ? item.score
-                    : 0;
-                const percent = raw > 1 ? raw : raw * 100;
-
-                return (
-                  <div key={`${label}-${index}`} className="space-y-1">
-                    <div className="flex items-center justify-between text-sm text-slate-700">
-                      <span>{label}</span>
-                      <span>{Math.max(0, Math.min(100, Math.round(percent)))}%</span>
-                    </div>
-                    <Progress value={percent} />
-                  </div>
-                );
-              })}
-            </div>
-          ) : null}
-        </CardContent>
-      </Card>
-    </main>
-  );
+  return <MbtiShareSummaryCard locale={locale} data={data} />;
 }
