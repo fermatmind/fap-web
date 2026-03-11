@@ -11,6 +11,17 @@ vi.mock("next/navigation", () => ({
 describe("RichResultReport", () => {
   it("renders only report-source free content for MBTI and does not leak gated sections", () => {
     const reportData = structuredClone(reportReadyMbtiFreeFixture) as ReportResponse;
+    expect(reportData.cta).toMatchObject({
+      visible: true,
+      kind: "upsell",
+      target_sku: "MBTI_REPORT_FULL",
+      target_sku_effective: "MBTI_REPORT_FULL_199",
+    });
+    expect(Array.isArray(reportData.report?.recommended_reads)).toBe(true);
+    expect(reportData.report?.layers?.identity).toMatchObject({
+      title: "竞选者型 · 敏锐版",
+      one_liner: "你的人格主轴是先看到人与机会之间尚未被点亮的连接。",
+    });
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
@@ -52,6 +63,9 @@ describe("RichResultReport", () => {
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types/take"
     );
+    expect(screen.queryByText("解锁完整 MBTI 报告")).not.toBeInTheDocument();
+    expect(screen.queryByText("查看更完整的人格层、成长路线、关系洞察与推荐阅读。")).not.toBeInTheDocument();
+    expect(screen.queryByText("你的人格主轴是先看到人与机会之间尚未被点亮的连接。")).not.toBeInTheDocument();
     expect(screen.queryByText("Prefers explicit roles and reviewable workflows.")).not.toBeInTheDocument();
     expect(screen.queryByText("Reliable operator")).not.toBeInTheDocument();
   });

@@ -133,6 +133,19 @@ describe("ResultClient view-state contract", () => {
 
   it("renders the rich report view when the report endpoint is ready", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiFreeFixture) as ReportResponse;
+    expect(reportFixture.cta).toMatchObject({
+      visible: true,
+      kind: "upsell",
+      target_sku: "MBTI_REPORT_FULL",
+      target_sku_effective: "MBTI_REPORT_FULL_199",
+    });
+    expect(reportFixture.modules_offered).toEqual(["career", "relationships", "core_full"]);
+    expect(reportFixture.modules_preview).toEqual(["career", "relationships", "core_full"]);
+    expect(Array.isArray(reportFixture.report?.recommended_reads)).toBe(true);
+    expect(reportFixture.report?.layers?.identity).toMatchObject({
+      title: "竞选者型 · 敏锐版",
+      subtitle: "理想者取向 · 社交更活跃 · 评估更细致",
+    });
     hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
@@ -163,6 +176,44 @@ describe("ResultClient view-state contract", () => {
 
     expect(screen.getByTestId("skeleton")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+  });
+
+  it("falls back to the legacy result view only when the report payload is not renderable", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiFreeFixture) as ReportResponse;
+    expect(reportFixture.cta?.kind).toBe("upsell");
+    expect(Array.isArray(reportFixture.report?.recommended_reads)).toBe(true);
+    expect(reportFixture.report?.layers?.identity).toBeTruthy();
+    expect(reportFixture.modules_offered).toEqual(["career", "relationships", "core_full"]);
+    expect(reportFixture.modules_preview).toEqual(["career", "relationships", "core_full"]);
+
+    reportFixture.summary = undefined;
+    reportFixture.report = {
+      recommended_reads: reportFixture.report?.recommended_reads ?? [],
+      layers: reportFixture.report?.layers,
+      axis_states: reportFixture.report?.axis_states,
+      tags: reportFixture.report?.tags,
+      highlights: reportFixture.report?.highlights,
+    };
+
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
+    hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("result-summary")).toHaveTextContent("ENFP-T");
+    });
+
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+    });
+    expect(hoisted.fetchAttemptResult).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+    });
+    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:0");
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
 
