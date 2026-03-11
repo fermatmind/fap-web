@@ -54,6 +54,7 @@ describe("test slug alias contracts", () => {
   it("detects legacy path and alias boundaries", () => {
     expect(isLegacyPath("/test")).toBe(true);
     expect(isLegacyPath("/test/mbti-test")).toBe(true);
+    expect(isLegacyPath("/quiz")).toBe(false);
     expect(isLegacyPath("/quiz/mbti-test")).toBe(true);
     expect(isLegacyPath("/tests/mbti-personality-test-16-personality-types")).toBe(false);
 
