@@ -200,6 +200,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
   await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock the authored MBTI report");
   await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock the authored MBTI report" })).toBeVisible();
+  await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
 
   const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
   expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
@@ -539,6 +540,7 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
   await expect(mobileChrome.getByRole("link", { name: "职业" })).toBeVisible();
   await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁作者化完整版");
   await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
+  await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "分享结果" })).toBeVisible();
   await expect(page.getByRole("link", { name: "重新测试" })).toBeVisible();
 

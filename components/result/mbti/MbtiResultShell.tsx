@@ -11,6 +11,7 @@ import {
 } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
+import { MbtiPostPurchaseSection } from "@/components/result/mbti/MbtiPostPurchaseSection";
 import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -150,6 +151,17 @@ function findFullOfferPayload(offers: OfferPayload[]): OfferPayload | null {
   return null;
 }
 
+function isUnlockedMbtiReport(reportData: ReportResponse): boolean {
+  if (reportData.locked === true) {
+    return false;
+  }
+
+  const variant = normalizeText(reportData.variant).toLowerCase();
+  const accessLevel = normalizeText(reportData.access_level).toLowerCase();
+
+  return variant === "full" || accessLevel === "paid" || accessLevel === "full";
+}
+
 export function resolveMbtiCheckoutSku(reportData: ReportResponse): string {
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const effectiveSku = normalizeText(cta?.target_sku_effective);
@@ -200,6 +212,15 @@ export function MbtiResultShell({
     : [];
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const primaryCtaLabel = resolvePrimaryCtaLabel(locale, cta);
+  const isUnlockedPostPurchase = isUnlockedMbtiReport(reportData);
+  const historyHref = localizedPath("/history/mbti", locale);
+  const orderLookupHref = localizedPath("/orders/lookup", locale);
+  const terminalPrimaryCtaLabel = isUnlockedPostPurchase
+    ? locale === "zh"
+      ? "我的 MBTI 报告"
+      : "My MBTI reports"
+    : primaryCtaLabel;
+  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? historyHref : "#offers";
   const globalTraits = buildDominantTraitItems({
     locale,
     roleCard: asRecord(layers?.role_card) ?? undefined,
@@ -355,7 +376,14 @@ export function MbtiResultShell({
 
   return (
     <div data-testid="mbti-result-shell" className="relative space-y-6 pb-28 md:space-y-8 xl:pb-0">
-      <MbtiMobileChrome locale={locale} retakeHref={retakeHref} primaryCtaLabel={primaryCtaLabel} onShare={handleShare} />
+      <MbtiMobileChrome
+        locale={locale}
+        retakeHref={retakeHref}
+        primaryCtaLabel={terminalPrimaryCtaLabel}
+        primaryCtaHref={terminalPrimaryCtaHref}
+        primaryCtaIsInternal={isUnlockedPostPurchase}
+        onShare={handleShare}
+      />
 
       <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_300px] xl:gap-10">
         <div className="space-y-6 md:space-y-8">
@@ -519,6 +547,15 @@ export function MbtiResultShell({
             checkoutError={checkoutError}
           />
 
+          {isUnlockedPostPurchase && attemptId ? (
+            <MbtiPostPurchaseSection
+              locale={locale}
+              attemptId={attemptId}
+              historyHref={historyHref}
+              orderLookupHref={orderLookupHref}
+            />
+          ) : null}
+
           <Card
             id="footer-cta"
             data-testid="mbti-footer-cta"
@@ -529,9 +566,13 @@ export function MbtiResultShell({
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="m-0 text-sm leading-7 text-slate-300">
-                {locale === "zh"
-                  ? "页尾只保留三件事：分享结果、重新测试、或者回看当前结果页对应的解锁方案。"
-                  : "The footer keeps only three actions: share, retake, or jump back to the unlock options tied to this result page."}
+                {isUnlockedPostPurchase
+                  ? locale === "zh"
+                    ? "页尾仍保留分享与重测，而正式再次进入入口会直接带你回到 MBTI 历史页。"
+                    : "The footer keeps share and retake, while the formal re-entry action now sends you to your MBTI history."
+                  : locale === "zh"
+                    ? "页尾只保留三件事：分享结果、重新测试、或者回看当前结果页对应的解锁方案。"
+                    : "The footer keeps only three actions: share, retake, or jump back to the unlock options tied to this result page."}
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button type="button" variant="secondary" onClick={() => void handleShare()}>
@@ -540,9 +581,18 @@ export function MbtiResultShell({
                 <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
                   {locale === "zh" ? "重新测试" : "Retake test"}
                 </Link>
-                <a href="#offers" className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}>
-                  {primaryCtaLabel}
-                </a>
+                {isUnlockedPostPurchase ? (
+                  <Link
+                    href={historyHref}
+                    className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}
+                  >
+                    {terminalPrimaryCtaLabel}
+                  </Link>
+                ) : (
+                  <a href="#offers" className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}>
+                    {terminalPrimaryCtaLabel}
+                  </a>
+                )}
               </div>
               {shareMessage ? <p className="m-0 text-sm text-emerald-200">{shareMessage}</p> : null}
             </CardContent>
@@ -558,7 +608,9 @@ export function MbtiResultShell({
           variant={reportData.variant}
           modulesAllowed={Array.isArray(reportData.modules_allowed) ? reportData.modules_allowed : []}
           retakeHref={retakeHref}
-          primaryCtaLabel={primaryCtaLabel}
+          primaryCtaLabel={terminalPrimaryCtaLabel}
+          primaryCtaHref={terminalPrimaryCtaHref}
+          primaryCtaIsInternal={isUnlockedPostPurchase}
           onShare={handleShare}
         />
       </div>

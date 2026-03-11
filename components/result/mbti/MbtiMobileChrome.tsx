@@ -8,6 +8,8 @@ type MbtiMobileChromeProps = {
   locale: Locale;
   retakeHref: string;
   primaryCtaLabel?: string;
+  primaryCtaHref: string;
+  primaryCtaIsInternal?: boolean;
   onShare: () => void | Promise<void>;
 };
 
@@ -27,7 +29,14 @@ function resolvePrimaryCtaLabel(locale: Locale, primaryCtaLabel?: string) {
   return (primaryCtaLabel ?? "").trim() || (locale === "zh" ? "解锁方案" : "Unlock options");
 }
 
-export function MbtiMobileChrome({ locale, retakeHref, primaryCtaLabel, onShare }: MbtiMobileChromeProps) {
+export function MbtiMobileChrome({
+  locale,
+  retakeHref,
+  primaryCtaLabel,
+  primaryCtaHref,
+  primaryCtaIsInternal = false,
+  onShare,
+}: MbtiMobileChromeProps) {
   const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
 
   return (
@@ -54,9 +63,15 @@ export function MbtiMobileChrome({ locale, retakeHref, primaryCtaLabel, onShare 
           <Link href={retakeHref} className={buttonVariants({ variant: "outline", className: "flex-1" })}>
             {locale === "zh" ? "重测" : "Retake"}
           </Link>
-          <a href="#offers" className={buttonVariants({ className: "flex-1" })}>
-            {ctaLabel}
-          </a>
+          {primaryCtaIsInternal ? (
+            <Link href={primaryCtaHref} className={buttonVariants({ className: "flex-1" })}>
+              {ctaLabel}
+            </Link>
+          ) : (
+            <a href={primaryCtaHref} className={buttonVariants({ className: "flex-1" })}>
+              {ctaLabel}
+            </a>
+          )}
         </div>
       </div>
     </div>
