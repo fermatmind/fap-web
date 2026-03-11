@@ -255,6 +255,81 @@ export type RichResultHighlight = {
   [key: string]: unknown;
 };
 
+export type ReportCta = {
+  visible: boolean;
+  kind: string;
+  title: string | null;
+  subtitle: string | null;
+  primary_label: string | null;
+  secondary_label: string | null;
+  benefit_bullets: string[];
+  badge: string | null;
+  target_sku: string | null;
+  target_sku_effective: string | null;
+  [key: string]: unknown;
+};
+
+export type ReportLayerCard = {
+  code?: string;
+  title?: string;
+  subtitle?: string;
+  desc?: string;
+  tags?: string[];
+  theme?: Record<string, unknown>;
+  [key: string]: unknown;
+};
+
+export type ReportIdentityLayer = {
+  title: string;
+  subtitle: string;
+  one_liner: string;
+  bullets: string[];
+  tags: string[];
+  [key: string]: unknown;
+};
+
+export type ReportRecommendedRead = {
+  id: string;
+  type: string;
+  title: string;
+  desc: string | null;
+  url: string | null;
+  cover: string | null;
+  cta: string | null;
+  priority: number;
+  tags: string[];
+  estimated_minutes: number | null;
+  status: string | null;
+  published_at: string | null;
+  updated_at: string | null;
+  canonical_id: string | null;
+  canonical_url: string | null;
+  [key: string]: unknown;
+};
+
+export type ReportVersions = {
+  engine?: string;
+  legacy_dir?: string;
+  dir_version?: string;
+  content_pack_id?: string;
+  profile_version?: string;
+  content_package_dir?: string;
+  content_package_version?: string;
+  [key: string]: unknown;
+};
+
+export type ReportBorderlineNote = {
+  items?: Array<Record<string, unknown>>;
+  [key: string]: unknown;
+};
+
+export type RichResultLayers = {
+  role_card?: ReportLayerCard;
+  strategy_card?: ReportLayerCard;
+  identity?: ReportIdentityLayer;
+  [key: string]: unknown;
+};
+
 export type Big5NormsPayload = {
   status?: "CALIBRATED" | "PROVISIONAL" | "MISSING" | string;
   group_id?: string;
@@ -274,10 +349,13 @@ export type ReportResponse = {
   ok?: boolean;
   locked?: boolean;
   generating?: boolean;
+  snapshot_error?: boolean;
   retry_after?: number;
-  retry_after_seconds?: number;
+  retry_after_seconds?: number | null;
   access_level?: string;
   variant?: "free" | "full" | string;
+  upgrade_sku?: string;
+  upgrade_sku_effective?: string;
   summary?: string;
   type_code?: string;
   dimensions?: Array<Record<string, unknown>>;
@@ -286,6 +364,11 @@ export type ReportResponse = {
   modules_allowed?: string[];
   modules_offered?: string[];
   modules_preview?: string[];
+  scale_code?: string;
+  scale_code_legacy?: string;
+  scale_code_v2?: string;
+  scale_uid?: string;
+  cta?: ReportCta;
   price?: number | string;
   currency?: string;
   checkout_url?: string;
@@ -297,13 +380,19 @@ export type ReportResponse = {
     summary?: string;
     profile?: RichResultProfile;
     identity_card?: RichResultIdentityCard;
+    versions?: ReportVersions;
+    borderline_note?: ReportBorderlineNote;
+    recommended_reads?: ReportRecommendedRead[];
+    layers?: RichResultLayers;
     tags?: string[];
     highlights?: RichResultHighlight[];
     sections?: Big5ReportSection[] | Record<string, unknown>;
     quality?: Record<string, unknown>;
     scores?: Record<string, unknown>;
     scores_pct?: Record<string, unknown>;
+    scoresPct?: Record<string, unknown>;
     axis_states?: Record<string, unknown>;
+    warnings?: Array<Record<string, unknown>>;
     dimensions?: Array<Record<string, unknown>>;
     report_tags?: string[];
     [key: string]: unknown;
@@ -312,7 +401,11 @@ export type ReportResponse = {
   meta?: Record<string, unknown> & {
     generating?: boolean;
     snapshot_error?: boolean;
-    retry_after_seconds?: number;
+    retry_after_seconds?: number | null;
+    scale_code?: string;
+    scale_code_legacy?: string;
+    scale_code_v2?: string;
+    scale_uid?: string;
   };
   [key: string]: unknown;
 };
