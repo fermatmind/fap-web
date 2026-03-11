@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { OrderReturnFallbackClient } from "@/components/commerce/OrderReturnFallbackClient";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
@@ -35,6 +36,7 @@ export default async function StripeCancelPage({
 
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-10">
+      <OrderReturnFallbackClient locale={locale} />
       <h1 className="m-0 text-2xl font-bold text-slate-900">{isZh ? "支付已取消" : "Payment Canceled"}</h1>
       <p className="mt-3 text-slate-600">
         {isZh

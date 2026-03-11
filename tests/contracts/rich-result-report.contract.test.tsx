@@ -198,10 +198,7 @@ describe("RichResultReport", () => {
     expect(within(offerComparison).getByText("统一主 CTA 副标题")).toBeInTheDocument();
     expect(within(offerComparison).getByText("正式权益 A")).toBeInTheDocument();
     expect(within(offerComparison).getByText("正式权益 B")).toBeInTheDocument();
-    expect(within(offerComparison).getByRole("link", { name: "立即查看正式方案" })).toHaveAttribute(
-      "href",
-      "#offer-full"
-    );
+    expect(within(offerComparison).getByRole("button", { name: "立即查看正式方案" })).toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "立即查看正式方案" })).toHaveAttribute(
       "href",
       "#offers"
@@ -226,7 +223,6 @@ describe("RichResultReport", () => {
     expect(screen.queryByText("Prefers explicit roles and reviewable workflows.")).not.toBeInTheDocument();
     expect(screen.queryByText("Reliable operator")).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByTestId("mbti-offers-primary-cta"));
     fireEvent.click(screen.getByRole("link", { name: "继续阅读职业篇" }));
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
@@ -238,13 +234,6 @@ describe("RichResultReport", () => {
       "ui_card_impression",
       expect.objectContaining({
         visual_kind: "recommended_reads",
-      })
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_interaction",
-      expect.objectContaining({
-        visual_kind: "offer_primary_cta",
-        interaction: "click",
       })
     );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(

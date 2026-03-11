@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
 import {
@@ -14,7 +15,17 @@ import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecomm
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { ReportCta, ReportIdentityLayer, ReportRecommendedRead, ReportResponse } from "@/lib/api/v0_3";
+import { trackEvent } from "@/lib/analytics";
+import {
+  createCheckoutOrOrder,
+  type OfferPayload,
+  type ReportCta,
+  type ReportIdentityLayer,
+  type ReportRecommendedRead,
+  type ReportResponse,
+} from "@/lib/api/v0_3";
+import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
+import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type {
@@ -36,6 +47,8 @@ type MbtiResultShellProps = {
   sections: ReportSection[];
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
+  onInternalNavigate?: (path: string) => void;
+  onExternalNavigate?: (url: string) => void;
 };
 
 const CHAPTER_ORDER = ["career", "growth", "traits", "relationships"] as const;
@@ -85,6 +98,79 @@ function resolvePrimaryCtaLabel(locale: Locale, cta?: ReportCta | null) {
   return normalizeText(cta?.primary_label) || (locale === "zh" ? "查看解锁方案" : "View unlock options");
 }
 
+function maskIdentifier(value: string): string {
+  const normalized = normalizeText(value);
+  if (!normalized) return "";
+  if (normalized.length <= 10) return normalized;
+  return `${normalized.slice(0, 6)}...${normalized.slice(-4)}`;
+}
+
+function resolveAttemptIdFromPathname(pathname: string): string {
+  const segments = pathname.split("/").filter(Boolean);
+  return normalizeText(segments[segments.length - 1]);
+}
+
+function resolveOfferPayloads(reportData: ReportResponse): OfferPayload[] {
+  const values: OfferPayload[] = [];
+
+  if (Array.isArray(reportData.offers)) {
+    values.push(...reportData.offers);
+  } else {
+    const singleOffer = asRecord(reportData.offers);
+    if (singleOffer) {
+      values.push(singleOffer as OfferPayload);
+    }
+  }
+
+  const legacyOffer = asRecord(reportData.offer);
+  if (legacyOffer) {
+    values.push(legacyOffer as OfferPayload);
+  }
+
+  const deduped = new Map<string, OfferPayload>();
+  for (const offer of values) {
+    const key = normalizeText(offer.sku, offer.sku_code, offer.benefit_code, offer.title);
+    if (!key || deduped.has(key)) continue;
+    deduped.set(key, offer);
+  }
+
+  return Array.from(deduped.values());
+}
+
+function findFullOfferPayload(offers: OfferPayload[]): OfferPayload | null {
+  for (const offer of offers) {
+    const modules = normalizeStringArray(offer.modules_included);
+    const sku = normalizeText(offer.sku, offer.sku_code, offer.benefit_code, offer.title).toUpperCase();
+
+    if (modules.includes("core_full") || sku.includes("REPORT_FULL")) {
+      return offer;
+    }
+  }
+
+  return null;
+}
+
+export function resolveMbtiCheckoutSku(reportData: ReportResponse): string {
+  const cta = (reportData.cta ?? null) as ReportCta | null;
+  const effectiveSku = normalizeText(cta?.target_sku_effective);
+  if (effectiveSku) {
+    return effectiveSku;
+  }
+
+  const targetSku = normalizeText(cta?.target_sku);
+  if (targetSku) {
+    return targetSku;
+  }
+
+  const fullOffer = findFullOfferPayload(resolveOfferPayloads(reportData));
+  const fullOfferSku = normalizeText(fullOffer?.sku, fullOffer?.sku_code);
+  if (fullOfferSku) {
+    return fullOfferSku;
+  }
+
+  throw new Error("MBTI checkout requires CTA target_sku_effective, target_sku, or a full-report offer sku.");
+}
+
 export function MbtiResultShell({
   locale,
   scaleCode,
@@ -96,8 +182,13 @@ export function MbtiResultShell({
   sections,
   sectionUnlocks,
   offers,
+  onInternalNavigate,
+  onExternalNavigate,
 }: MbtiResultShellProps) {
+  const pathname = usePathname();
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
   const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP[scaleCode]}/take`, locale);
   const payload = asRecord(reportData.report);
   const identityCard = asRecord(payload?.identity_card);
@@ -120,6 +211,23 @@ export function MbtiResultShell({
   });
   const sectionsByKey = new Map(sections.map((section) => [normalizeText(section.key).toLowerCase(), section]));
   const shareMessage = resolveShareMessages(locale, shareStatus);
+  const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
+  const rawOffers = resolveOfferPayloads(reportData);
+  const fullRawOffer = findFullOfferPayload(rawOffers);
+  const fullResolvedOffer =
+    offers.find((offer) => offer.moduleCodes.includes("core_full") || offer.key.toUpperCase().includes("REPORT_FULL"))
+    ?? null;
+
+  useEffect(() => {
+    if (reportData.locked === true || !attemptId) {
+      return;
+    }
+
+    const pendingOrder = readPendingOrder();
+    if (pendingOrder?.attemptId === attemptId) {
+      clearPendingOrder();
+    }
+  }, [attemptId, reportData.locked]);
 
   async function handleShare() {
     if (typeof window === "undefined") return;
@@ -148,6 +256,101 @@ export function MbtiResultShell({
     }
 
     setShareStatus("failed");
+  }
+
+  async function handleCheckout() {
+    if (typeof window === "undefined") return;
+
+    if (!attemptId) {
+      setCheckoutError(locale === "zh" ? "无法定位当前测评记录。" : "Unable to locate the current attempt.");
+      return;
+    }
+
+    let sku = "";
+
+    try {
+      sku = resolveMbtiCheckoutSku(reportData);
+    } catch (cause) {
+      setCheckoutError(cause instanceof Error ? cause.message : String(cause));
+      return;
+    }
+
+    setCheckoutError(null);
+    setIsCheckingOut(true);
+
+    try {
+      trackEvent("click_unlock", {
+        attemptIdMasked: maskIdentifier(attemptId),
+        sku,
+        priceShown:
+          fullResolvedOffer?.price
+          ?? (typeof fullRawOffer?.price_cents === "number"
+            ? `${fullRawOffer.currency ?? ""} ${fullRawOffer.price_cents}`
+            : ""),
+        locale,
+      });
+
+      const checkout = await createCheckoutOrOrder({
+        attemptId,
+        sku,
+        idempotencyKey: `mbti_result_checkout_${attemptId}_${sku}`,
+        region: regionFromLocale(locale),
+      });
+      const action = resolveCheckoutAction(
+        checkout,
+        locale === "zh" ? "暂时无法发起支付。" : "Unable to start checkout."
+      );
+      const pendingOrderNo =
+        normalizeText(checkout.order_no)
+        || (action.kind === "order_wait"
+          ? action.orderNo
+          : action.kind === "redirect"
+            ? normalizeText(action.orderNo)
+            : "");
+
+      if (!pendingOrderNo) {
+        throw new Error(locale === "zh" ? "支付响应缺少订单号。" : "Checkout response is missing order_no.");
+      }
+
+      writePendingOrder(pendingOrderNo, attemptId, sku);
+      trackEvent("create_order", {
+        attemptIdMasked: maskIdentifier(attemptId),
+        orderNoMasked: maskIdentifier(pendingOrderNo),
+        sku,
+        locale,
+      });
+
+      if (action.kind === "redirect") {
+        if (onExternalNavigate) {
+          onExternalNavigate(action.url);
+        } else {
+          window.location.href = action.url;
+        }
+        return;
+      }
+
+      if (action.kind === "order_wait") {
+        const path = localizedPath(buildOrderWaitPath(action), locale);
+        if (onInternalNavigate) {
+          onInternalNavigate(path);
+        } else {
+          window.location.assign(path);
+        }
+        return;
+      }
+
+      throw new Error(action.message);
+    } catch (cause) {
+      setCheckoutError(
+        cause instanceof Error && normalizeText(cause.message)
+          ? cause.message
+          : locale === "zh"
+            ? "暂时无法发起支付。"
+            : "Unable to start checkout."
+      );
+    } finally {
+      setIsCheckingOut(false);
+    }
   }
 
   return (
@@ -311,7 +514,9 @@ export function MbtiResultShell({
             locale={locale}
             offers={offers}
             cta={cta}
-            primaryCtaHref={offers.some((offer) => offer.moduleCodes.includes("core_full")) ? "#offer-full" : "#offers"}
+            onCheckout={handleCheckout}
+            isCheckingOut={isCheckingOut}
+            checkoutError={checkoutError}
           />
 
           <Card
