@@ -2,8 +2,12 @@ import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
 
-function createMbtiReportFixture() {
-  return structuredClone(reportReadyMbtiFreeFixture) as Record<string, unknown>;
+function createMbtiReportFixture(
+  mutate?: (fixture: Record<string, unknown>) => void
+) {
+  const fixture = structuredClone(reportReadyMbtiFreeFixture) as Record<string, unknown>;
+  mutate?.(fixture);
+  return fixture;
 }
 
 test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }) => {
@@ -19,6 +23,16 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
       { code: "D", text: "Strongly prefer B" },
     ],
   }));
+
+  await page.addInitScript(() => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({
+        analytics: "granted",
+        updatedAt: "2026-03-11T00:00:00.000Z",
+      })
+    );
+  });
 
   await page.route("**/api/track", async (route) => {
     await route.fulfill({
@@ -86,7 +100,60 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(createMbtiReportFixture()),
+      body: JSON.stringify(
+        createMbtiReportFixture((fixture) => {
+          const report = fixture.report as Record<string, unknown>;
+          const layers = report.layers as Record<string, unknown>;
+          const identity = layers.identity as Record<string, unknown>;
+          const cta = fixture.cta as Record<string, unknown>;
+          cta.title = "Unified MBTI unlock plan";
+          cta.subtitle = "Use one primary commerce surface and keep the rest as mirrors.";
+          cta.primary_label = "Unlock the authored MBTI report";
+          cta.benefit_bullets = ["Get the authored identity bridge", "Open the curated read list"];
+          cta.badge = "Primary";
+          identity.title = "Authored overview title";
+          identity.subtitle = "Authored overview subtitle";
+          identity.one_liner = "Authored overview one-liner";
+          identity.bullets = [
+            "Judgment cue: you quickly test whether a connection is worth continued effort.",
+            "Social style: you energize the room first, then review the emotional detail later.",
+          ];
+          report.recommended_reads = [
+            {
+              id: "read-1",
+              type: "article",
+              title: "Career environment alignment",
+              desc: "Read the work-environment cues that match this profile.",
+              url: "https://example.com/read-1",
+              cta: "Read the career note",
+              priority: 10,
+              tags: ["career"],
+              estimated_minutes: 7,
+              status: "published",
+              published_at: "2026-03-01T00:00:00Z",
+              updated_at: "2026-03-02T00:00:00Z",
+              canonical_id: "career-read-1",
+              canonical_url: "https://example.com/read-1",
+            },
+            {
+              id: "read-2",
+              type: "article",
+              title: "Relationship boundary reading",
+              desc: "Read the interaction patterns and boundaries next.",
+              url: "https://example.com/read-2",
+              cta: "Read the relationship note",
+              priority: 20,
+              tags: ["relationships"],
+              estimated_minutes: 5,
+              status: "published",
+              published_at: "2026-03-03T00:00:00Z",
+              updated_at: "2026-03-04T00:00:00Z",
+              canonical_id: "relationship-read-1",
+              canonical_url: "https://example.com/read-2",
+            },
+          ];
+        })
+      ),
     });
   });
 
@@ -128,9 +195,31 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-sticky-rail")).toBeVisible();
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
   await expect(page.getByTestId("mbti-hero").getByRole("heading", { name: /ENFP-T/ })).toBeVisible();
+  await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview title");
+  await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview one-liner");
+  await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
+  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock the authored MBTI report");
+  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock the authored MBTI report" })).toBeVisible();
 
   const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
   expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
+  const sectionsAreOrdered = await page.evaluate(() => {
+    const relationships = document.querySelector('[data-testid="mbti-chapter-relationships"]');
+    const reads = document.querySelector('[data-testid="mbti-recommended-reads"]');
+    const offers = document.querySelector('[data-testid="mbti-offer-comparison"]');
+
+    if (!relationships || !reads || !offers) {
+      return false;
+    }
+
+    return Boolean(
+      (relationships.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+        (reads.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING)
+    );
+  });
+  expect(sectionsAreOrdered).toBe(true);
+  await expect(page.getByRole("link", { name: "Read the career note" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Read the relationship note" })).toBeVisible();
 
   await page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Career" }).click();
   await expect(page).toHaveURL(new RegExp(`#career$`));
@@ -260,6 +349,15 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
   const attemptId = "mbti-result-shell-mobile-0001";
 
   await page.setViewportSize({ width: 375, height: 812 });
+  await page.addInitScript(() => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({
+        analytics: "granted",
+        updatedAt: "2026-03-11T00:00:00.000Z",
+      })
+    );
+  });
 
   await page.route("**/api/track", async (route) => {
     await route.fulfill({
@@ -284,7 +382,31 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(createMbtiReportFixture()),
+      body: JSON.stringify(
+        createMbtiReportFixture((fixture) => {
+          const cta = fixture.cta as Record<string, unknown>;
+          const report = fixture.report as Record<string, unknown>;
+          cta.primary_label = "解锁作者化完整版";
+          report.recommended_reads = [
+            {
+              id: "read-mobile",
+              type: "article",
+              title: "移动端推荐阅读",
+              desc: "用于验证推荐阅读 section 与底部 action bar 共存。",
+              url: "https://example.com/mobile-read",
+              cta: "继续阅读",
+              priority: 1,
+              tags: ["移动端"],
+              estimated_minutes: 4,
+              status: "published",
+              published_at: "2026-03-01T00:00:00Z",
+              updated_at: "2026-03-02T00:00:00Z",
+              canonical_id: "mobile-read",
+              canonical_url: "https://example.com/mobile-read",
+            },
+          ];
+        })
+      ),
     });
   });
 
@@ -311,10 +433,16 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
   await expect(mobileChrome).toBeVisible();
   await expect(mobileChrome.getByRole("button", { name: "分享" })).toBeVisible();
   await expect(mobileChrome.getByRole("link", { name: "重测" })).toBeVisible();
-  await expect(mobileChrome.getByRole("link", { name: "解锁方案" })).toBeVisible();
+  await expect(mobileChrome.getByRole("link", { name: "解锁作者化完整版" })).toBeVisible();
   await expect(mobileChrome.getByRole("link", { name: "职业" })).toBeVisible();
+  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁作者化完整版");
+  await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
+  await expect(page.getByRole("button", { name: "分享结果" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "重新测试" })).toBeVisible();
 
   await mobileChrome.getByRole("link", { name: "关系" }).click();
   await expect(page).toHaveURL(new RegExp(`#relationships$`));
   await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
+  await mobileChrome.getByRole("link", { name: "解锁作者化完整版" }).click();
+  await expect(page).toHaveURL(new RegExp(`#offers$`));
 });

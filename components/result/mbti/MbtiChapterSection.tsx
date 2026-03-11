@@ -3,6 +3,7 @@
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { ReportIdentityLayer } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiSectionUnlock, ReportBlock, ReportSection } from "@/components/result/RichResultReport";
 import type { TraitBridgeItem } from "@/components/result/mbti/MbtiDominantTraitsSection";
@@ -20,6 +21,7 @@ type MbtiChapterSectionProps = {
   section: ReportSection;
   globalTraits: TraitBridgeItem[];
   unlock: MbtiSectionUnlock | null;
+  identityLayer?: ReportIdentityLayer | null;
 };
 
 const CHAPTER_COPY: Record<
@@ -80,11 +82,45 @@ function resolveBody(block: ReportBlock): string {
   return normalizeText(block.body, bullets[0]);
 }
 
+function normalizeStringArray(values: unknown): string[] {
+  if (!Array.isArray(values)) {
+    return [];
+  }
+
+  return values.map((value) => normalizeText(value)).filter(Boolean);
+}
+
+function parseIdentityBullet(
+  bullet: string,
+  locale: Locale,
+  index: number
+): ChapterBridgeItem | null {
+  const normalized = normalizeText(bullet);
+  if (!normalized) {
+    return null;
+  }
+
+  const separatorIndex = normalized.search(/[:：]/);
+  const candidateTitle =
+    separatorIndex > 0 && separatorIndex < 12 ? normalizeText(normalized.slice(0, separatorIndex)) : "";
+  const candidateDescription =
+    separatorIndex > 0 && separatorIndex < normalized.length - 1
+      ? normalizeText(normalized.slice(separatorIndex + 1))
+      : "";
+
+  return {
+    title: candidateTitle || (locale === "zh" ? `人格线索 ${index + 1}` : `Identity cue ${index + 1}`),
+    description: candidateDescription || normalized,
+  };
+}
+
 function buildBridgeItems(
+  chapterKey: ChapterKey,
   section: ReportSection,
   unlock: MbtiSectionUnlock | null,
   globalTraits: TraitBridgeItem[],
-  locale: Locale
+  locale: Locale,
+  identityLayer?: ReportIdentityLayer | null
 ): ChapterBridgeItem[] {
   const items: ChapterBridgeItem[] = [];
   const seen = new Set<string>();
@@ -98,6 +134,15 @@ function buildBridgeItems(
     seen.add(key);
     items.push(item);
   };
+
+  if (chapterKey === "traits" && identityLayer) {
+    for (const [index, bullet] of normalizeStringArray(identityLayer.bullets).entries()) {
+      pushItem(parseIdentityBullet(bullet, locale, index));
+      if (items.length >= 4) {
+        return items.slice(0, 4);
+      }
+    }
+  }
 
   for (const block of blocks) {
     const accessLevel = normalizeText(block.access_level).toLowerCase();
@@ -146,12 +191,30 @@ export function MbtiChapterSection({
   section,
   globalTraits,
   unlock,
+  identityLayer,
 }: MbtiChapterSectionProps) {
   const copy = CHAPTER_COPY[chapterKey];
-  const bridgeItems = buildBridgeItems(section, unlock, globalTraits, locale);
+  const isOverviewChapter = chapterKey === "traits";
+  const authoredOverview = isOverviewChapter && identityLayer
+    ? {
+        title: normalizeText(identityLayer.title),
+        subtitle: normalizeText(identityLayer.subtitle),
+        oneLiner: normalizeText(identityLayer.one_liner),
+        bullets: normalizeStringArray(identityLayer.bullets),
+      }
+    : null;
+  const bridgeItems = buildBridgeItems(chapterKey, section, unlock, globalTraits, locale, identityLayer);
   const hasPublicContent = Array.isArray(section.blocks) && section.blocks.length > 0;
   const isLocked = normalizeText(section.access_level).toLowerCase() === "paid";
   const bridgeTitle = chapterKey === "traits" ? (locale === "zh" ? "主导特质" : "Dominant traits") : locale === "zh" ? "关键特质" : "Key traits";
+  const introCopy = isOverviewChapter
+    ? normalizeText(authoredOverview?.subtitle, authoredOverview?.oneLiner, copy.intro[locale])
+    : copy.intro[locale];
+  const teaserText = isOverviewChapter
+    ? normalizeText(authoredOverview?.oneLiner, authoredOverview?.subtitle, unlock?.teaser)
+    : normalizeText(unlock?.teaser);
+  const teaserBullets =
+    isOverviewChapter && (authoredOverview?.bullets.length ?? 0) > 0 ? authoredOverview?.bullets ?? [] : unlock?.benefits ?? [];
 
   return (
     <section
@@ -165,9 +228,30 @@ export function MbtiChapterSection({
         </p>
         <div className="space-y-2">
           <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">{copy.title[locale]}</h2>
-          <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{copy.intro[locale]}</p>
+          <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{introCopy}</p>
         </div>
       </header>
+
+      {isOverviewChapter && authoredOverview && (authoredOverview.title || authoredOverview.subtitle || authoredOverview.oneLiner) ? (
+        <Card
+          data-testid="mbti-overview-authored-intro"
+          className="border-slate-200 bg-[var(--fm-surface-muted)]/70 shadow-none"
+        >
+          <CardContent className="space-y-3 p-5">
+            {authoredOverview.title ? (
+              <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                {authoredOverview.title}
+              </p>
+            ) : null}
+            {authoredOverview.subtitle ? (
+              <p className="m-0 text-lg font-semibold text-slate-900">{authoredOverview.subtitle}</p>
+            ) : null}
+            {authoredOverview.oneLiner ? (
+              <p className="m-0 text-sm leading-7 text-slate-600">{authoredOverview.oneLiner}</p>
+            ) : null}
+          </CardContent>
+        </Card>
+      ) : null}
 
       <Card className="border-slate-200 bg-[var(--fm-surface-muted)]/70 shadow-none">
         <CardHeader className="pb-3">
@@ -197,10 +281,12 @@ export function MbtiChapterSection({
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
             {locale === "zh" ? "章节预告" : "Chapter teaser"}
           </p>
-          <p className="m-0 mt-3 text-base font-semibold text-slate-900">{unlock?.teaser ?? (locale === "zh" ? "解锁后可查看这一章的完整解读。" : "Unlock to view the full reading for this chapter.")}</p>
-          {(unlock?.benefits ?? []).length > 0 ? (
+          <p className="m-0 mt-3 text-base font-semibold text-slate-900">
+            {teaserText || (locale === "zh" ? "解锁后可查看这一章的完整解读。" : "Unlock to view the full reading for this chapter.")}
+          </p>
+          {teaserBullets.length > 0 ? (
             <ul className="mb-0 mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-600">
-              {unlock?.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
+              {teaserBullets.map((benefit) => <li key={benefit}>{benefit}</li>)}
             </ul>
           ) : null}
         </div>

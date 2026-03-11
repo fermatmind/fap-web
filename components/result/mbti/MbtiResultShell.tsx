@@ -10,10 +10,11 @@ import {
 } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
+import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { ReportResponse } from "@/lib/api/v0_3";
+import type { ReportCta, ReportIdentityLayer, ReportRecommendedRead, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type {
@@ -80,6 +81,10 @@ function resolveShareMessages(locale: Locale, shareStatus: "idle" | "copied" | "
   return "";
 }
 
+function resolvePrimaryCtaLabel(locale: Locale, cta?: ReportCta | null) {
+  return normalizeText(cta?.primary_label) || (locale === "zh" ? "查看解锁方案" : "View unlock options");
+}
+
 export function MbtiResultShell({
   locale,
   scaleCode,
@@ -98,10 +103,17 @@ export function MbtiResultShell({
   const identityCard = asRecord(payload?.identity_card);
   const profile = asRecord(payload?.profile);
   const layers = asRecord(payload?.layers);
+  const identityLayer = (asRecord(layers?.identity) ?? null) as ReportIdentityLayer | null;
+  const recommendedReads = Array.isArray(payload?.recommended_reads)
+    ? (payload?.recommended_reads as ReportRecommendedRead[])
+    : [];
+  const cta = (reportData.cta ?? null) as ReportCta | null;
+  const primaryCtaLabel = resolvePrimaryCtaLabel(locale, cta);
   const globalTraits = buildDominantTraitItems({
     locale,
     roleCard: asRecord(layers?.role_card) ?? undefined,
     strategyCard: asRecord(layers?.strategy_card) ?? undefined,
+    identityLayer,
     identityTags: normalizeStringArray(identityCard?.tags),
     profileKeywords: normalizeStringArray(profile?.keywords),
     fallbackTags: tags,
@@ -140,7 +152,7 @@ export function MbtiResultShell({
 
   return (
     <div data-testid="mbti-result-shell" className="relative space-y-6 pb-28 md:space-y-8 xl:pb-0">
-      <MbtiMobileChrome locale={locale} retakeHref={retakeHref} onShare={handleShare} />
+      <MbtiMobileChrome locale={locale} retakeHref={retakeHref} primaryCtaLabel={primaryCtaLabel} onShare={handleShare} />
 
       <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_300px] xl:gap-10">
         <div className="space-y-6 md:space-y-8">
@@ -225,6 +237,7 @@ export function MbtiResultShell({
             locale={locale}
             roleCard={asRecord(layers?.role_card) ?? undefined}
             strategyCard={asRecord(layers?.strategy_card) ?? undefined}
+            identityLayer={identityLayer}
             identityTags={normalizeStringArray(identityCard?.tags)}
             profileKeywords={normalizeStringArray(profile?.keywords)}
             fallbackTags={tags}
@@ -287,11 +300,19 @@ export function MbtiResultShell({
                 section={section}
                 globalTraits={globalTraits}
                 unlock={sectionUnlocks[chapterKey] ?? null}
+                identityLayer={identityLayer}
               />
             );
           })}
 
-          <MbtiOfferComparisonSection locale={locale} offers={offers} />
+          <MbtiRecommendedReadsSection locale={locale} reads={recommendedReads} />
+
+          <MbtiOfferComparisonSection
+            locale={locale}
+            offers={offers}
+            cta={cta}
+            primaryCtaHref={offers.some((offer) => offer.moduleCodes.includes("core_full")) ? "#offer-full" : "#offers"}
+          />
 
           <Card
             id="footer-cta"
@@ -315,7 +336,7 @@ export function MbtiResultShell({
                   {locale === "zh" ? "重新测试" : "Retake test"}
                 </Link>
                 <a href="#offers" className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}>
-                  {locale === "zh" ? "查看解锁方案" : "View unlock options"}
+                  {primaryCtaLabel}
                 </a>
               </div>
               {shareMessage ? <p className="m-0 text-sm text-emerald-200">{shareMessage}</p> : null}
@@ -332,6 +353,7 @@ export function MbtiResultShell({
           variant={reportData.variant}
           modulesAllowed={Array.isArray(reportData.modules_allowed) ? reportData.modules_allowed : []}
           retakeHref={retakeHref}
+          primaryCtaLabel={primaryCtaLabel}
           onShare={handleShare}
         />
       </div>

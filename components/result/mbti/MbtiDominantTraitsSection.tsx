@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { ReportLayerCard } from "@/lib/api/v0_3";
+import type { ReportIdentityLayer, ReportLayerCard } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 
 const TECHNICAL_TAG_PREFIXES = ["axis:", "state:", "type:", "role:", "strategy:", "borderline:"];
@@ -31,6 +31,7 @@ type DominantTraitSources = {
   locale: Locale;
   roleCard?: ReportLayerCard | null;
   strategyCard?: ReportLayerCard | null;
+  identityLayer?: ReportIdentityLayer | null;
   identityTags?: string[];
   profileKeywords?: string[];
   fallbackTags?: string[];
@@ -97,6 +98,39 @@ function createLayerItem(card: ReportLayerCard | null | undefined, fallback: str
   };
 }
 
+function parseBulletItem(
+  bullet: string,
+  locale: Locale,
+  index: number,
+  fallbackTitle?: string
+): TraitBridgeItem | null {
+  const normalized = normalizeText(bullet);
+  if (!normalized) {
+    return null;
+  }
+
+  const separatorIndex = normalized.search(/[:：]/);
+  const candidateTitle =
+    separatorIndex > 0 && separatorIndex < 12 ? normalizeText(normalized.slice(0, separatorIndex)) : "";
+  const candidateDescription =
+    separatorIndex > 0 && separatorIndex < normalized.length - 1
+      ? normalizeText(normalized.slice(separatorIndex + 1))
+      : "";
+
+  const title =
+    normalizeText(fallbackTitle, candidateTitle) ||
+    (locale === "zh" ? `人格线索 ${index + 1}` : `Identity cue ${index + 1}`);
+  const description =
+    normalizeText(candidateDescription, normalized) ||
+    (locale === "zh" ? "这是当前结果中的稳定人格线索。" : "This is a stable signal in the current result.");
+
+  return {
+    title,
+    description,
+    visualLabel: createVisualLabel(normalizeText(fallbackTitle, candidateTitle, title), String(index + 1).padStart(2, "0")),
+  };
+}
+
 function createTagItems(values: string[], locale: Locale): TraitBridgeItem[] {
   return values.map((value, index) => ({
     title: value,
@@ -108,10 +142,46 @@ function createTagItems(values: string[], locale: Locale): TraitBridgeItem[] {
   }));
 }
 
+function createIdentityItems(identityLayer: ReportIdentityLayer | null | undefined, locale: Locale): TraitBridgeItem[] {
+  if (!identityLayer) {
+    return [];
+  }
+
+  const tags = filterSafeTags(identityLayer.tags);
+  const bullets = normalizeStringArray(identityLayer.bullets);
+  const items: TraitBridgeItem[] = [];
+
+  for (let index = 0; index < Math.max(tags.length, bullets.length); index += 1) {
+    const tag = tags[index];
+    const bullet = bullets[index];
+
+    if (tag) {
+      items.push({
+        title: tag,
+        description:
+          normalizeText(parseBulletItem(bullet ?? "", locale, index)?.description) ||
+          (locale === "zh"
+            ? "这是 authored identity 层里最稳定的一条人格提示。"
+            : "This is one of the most stable authored identity cues in the current result."),
+        visualLabel: createVisualLabel(tag, String(index + 1).padStart(2, "0")),
+      });
+      continue;
+    }
+
+    const parsedBullet = parseBulletItem(bullet ?? "", locale, index);
+    if (parsedBullet) {
+      items.push(parsedBullet);
+    }
+  }
+
+  return items;
+}
+
 export function buildDominantTraitItems({
   locale,
   roleCard,
   strategyCard,
+  identityLayer,
   identityTags = [],
   profileKeywords = [],
   fallbackTags = [],
@@ -129,6 +199,13 @@ export function buildDominantTraitItems({
 
   pushItem(createLayerItem(roleCard, "RL"));
   pushItem(createLayerItem(strategyCard, "ST"));
+
+  for (const item of createIdentityItems(identityLayer, locale)) {
+    pushItem(item);
+    if (result.length >= 4) {
+      return result.slice(0, 4);
+    }
+  }
 
   for (const item of createTagItems(filterSafeTags(identityTags), locale)) {
     pushItem(item);
