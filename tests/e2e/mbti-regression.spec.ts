@@ -1,5 +1,10 @@
 import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
+import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
+
+function createMbtiReportFixture() {
+  return structuredClone(reportReadyMbtiFreeFixture) as Record<string, unknown>;
+}
 
 test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }) => {
   const attemptId = "mbti-attempt-0001";
@@ -81,23 +86,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        locked: false,
-        variant: "full",
-        quality: { level: "A" },
-        report: {
-          scale_code: "MBTI",
-          sections: [
-            {
-              key: "summary",
-              title: "Summary",
-              access_level: "free",
-              blocks: [{ kind: "paragraph", title: "Summary", body: "MBTI baseline summary." }],
-            },
-          ],
-        },
-      }),
+      body: JSON.stringify(createMbtiReportFixture()),
     });
   });
 
@@ -134,8 +123,18 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     timeoutMs: 30000,
   });
   expect(submitResponse.status()).toBe(200);
-  await expect(page.getByRole("heading", { name: "Your assessment result", level: 1 })).toBeVisible();
-  await expect(page.getByText("MBTI baseline summary.")).toBeVisible();
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+  await expect(page.getByTestId("mbti-hero")).toBeVisible();
+  await expect(page.getByTestId("mbti-sticky-rail")).toBeVisible();
+  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
+  await expect(page.getByTestId("mbti-hero").getByRole("heading", { name: /ENFP-T/ })).toBeVisible();
+
+  const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
+  expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
+
+  await page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Career" }).click();
+  await expect(page).toHaveURL(new RegExp(`#career$`));
+  await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
 });
 
 test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({ page }) => {
@@ -255,4 +254,67 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
     });
     expect(submitResponse.status()).toBe(200);
   }
+});
+
+test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", async ({ page }) => {
+  const attemptId = "mbti-result-shell-mobile-0001";
+
+  await page.setViewportSize({ width: 375, height: 812 });
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_guest_token_shell_mobile_0001",
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(createMbtiReportFixture()),
+    });
+  });
+
+  await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        slug: "mbti-personality-test-16-personality-types",
+        capabilities: {
+          enabled_in_prod: true,
+          paywall_mode: "full",
+        },
+      }),
+    });
+  });
+
+  await page.goto(`/zh/result/${attemptId}`);
+
+  const mobileChrome = page.getByTestId("mbti-mobile-chrome");
+
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+  await expect(mobileChrome).toBeVisible();
+  await expect(mobileChrome.getByRole("button", { name: "分享" })).toBeVisible();
+  await expect(mobileChrome.getByRole("link", { name: "重测" })).toBeVisible();
+  await expect(mobileChrome.getByRole("link", { name: "解锁方案" })).toBeVisible();
+  await expect(mobileChrome.getByRole("link", { name: "职业" })).toBeVisible();
+
+  await mobileChrome.getByRole("link", { name: "关系" }).click();
+  await expect(page).toHaveURL(new RegExp(`#relationships$`));
+  await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
 });

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
+import { MbtiResultShell } from "@/components/result/mbti/MbtiResultShell";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,7 +17,7 @@ import {
 
 type RichResultScaleCode = Extract<SupportedScaleCode, "MBTI" | "BIG5_OCEAN" | "IQ_RAVEN" | "EQ_60">;
 
-type ReportBlock = {
+export type ReportBlock = {
   id?: string;
   kind?: string;
   title?: string;
@@ -29,7 +30,7 @@ type ReportBlock = {
   [key: string]: unknown;
 };
 
-type ReportSection = {
+export type ReportSection = {
   key?: string;
   title?: string;
   access_level?: string;
@@ -38,7 +39,7 @@ type ReportSection = {
   [key: string]: unknown;
 };
 
-type HighlightCard = {
+export type HighlightCard = {
   title: string;
   body: string;
   tips: string[];
@@ -56,12 +57,28 @@ type LockedSectionContent = {
   offerModule: string;
 };
 
-type ResolvedOffer = {
+export type ResolvedOffer = {
   key: string;
   title: string;
   price: string;
   description: string;
   modules: string[];
+  moduleCodes: string[];
+};
+
+export type RichResultHeadline = {
+  badge: string;
+  typeCode: string;
+  displayName: string;
+  supportingLine: string;
+  summary: string;
+  rarity: string;
+};
+
+export type MbtiSectionUnlock = {
+  teaser: string;
+  benefits: string[];
+  offer: ResolvedOffer | null;
 };
 
 const TECHNICAL_TAG_PREFIXES = [
@@ -681,14 +698,7 @@ function resolveVisibleTags(reportData: ReportResponse): string[] {
   return filterVisibleTags(normalizeStringArray(payload?.tags ?? payload?.report_tags));
 }
 
-function resolveHeadline(reportData: ReportResponse): {
-  badge: string;
-  typeCode: string;
-  displayName: string;
-  supportingLine: string;
-  summary: string;
-  rarity: string;
-} {
+function resolveHeadline(reportData: ReportResponse): RichResultHeadline {
   const identityCard = resolveIdentityCard(reportData);
   const payload = resolveReportPayload(reportData);
   const profile = asRecord(payload?.profile);
@@ -752,6 +762,11 @@ function resolveOfferCopy(offer: OfferPayload, locale: Locale): ResolvedOffer {
   const key = resolveOfferKey(offer);
   const normalizedKey = key.toUpperCase();
   const mapped = OFFER_COPY[normalizedKey];
+  const moduleCodes = Array.isArray(offer.modules_included)
+    ? offer.modules_included.map((moduleCode) => normalizeText(moduleCode).toLowerCase()).filter(Boolean)
+    : Array.isArray(offer.modules_allowed)
+      ? offer.modules_allowed.map((moduleCode) => normalizeText(moduleCode).toLowerCase()).filter(Boolean)
+      : [];
   const modules = resolveOfferModules(offer, locale);
 
   return {
@@ -771,6 +786,7 @@ function resolveOfferCopy(offer: OfferPayload, locale: Locale): ResolvedOffer {
           ? "查看该档位包含的权益内容。"
           : "See what is included in this plan."),
     modules,
+    moduleCodes,
   };
 }
 
@@ -1141,6 +1157,42 @@ export function RichResultReport({
   const highlights = normalizeHighlights(reportData, gate, locale);
   const sections = normalizeRichSections(reportData, locale, gate);
   const offers = normalizeOffers(reportData);
+  const resolvedOffers = offers.map((offer) => resolveOfferCopy(offer, locale));
+
+  if (scaleCode === "MBTI") {
+    const sectionUnlocks = Object.fromEntries(
+      sections.map((section) => {
+        const sectionKey = normalizeText(section.key).toLowerCase();
+        const copy = resolveLockedSectionCopy(sectionKey, locale);
+        const offer = findOfferForSection(section, offers);
+
+        return [
+          sectionKey,
+          {
+            teaser: copy.teaser,
+            benefits: copy.benefits,
+            offer: offer ? resolveOfferCopy(offer, locale) : null,
+          } satisfies MbtiSectionUnlock,
+        ];
+      })
+    ) as Record<string, MbtiSectionUnlock>;
+
+    return (
+      <MbtiResultShell
+        locale={locale}
+        scaleCode={scaleCode}
+        reportData={reportData}
+        headline={headline}
+        tags={tags}
+        dimensions={dimensions}
+        highlights={highlights}
+        sections={sections}
+        sectionUnlocks={sectionUnlocks}
+        offers={resolvedOffers}
+      />
+    );
+  }
+
   const visibleSections = gate.isFreeVariant
     ? sections.filter((section) => normalizeText(section.access_level).toLowerCase() !== "paid")
     : sections;

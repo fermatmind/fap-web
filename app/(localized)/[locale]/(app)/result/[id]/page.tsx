@@ -23,7 +23,10 @@ export default async function ResultPage({
   const rolloutEnv = createScaleRolloutEnvSnapshot();
 
   return (
-    <Container as="main" className="w-full max-w-4xl py-[var(--fm-space-10)]">
+    <Container
+      as="main"
+      className="w-full py-[var(--fm-space-10)] [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
+    >
       <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
       <ResultClient key={id} attemptId={id} rolloutEnv={rolloutEnv} />
     </Container>
