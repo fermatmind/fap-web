@@ -16,6 +16,7 @@ import type {
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
 
 const hoisted = vi.hoisted(() => ({
+  createAttemptShare: vi.fn(),
   createCheckoutOrOrder: vi.fn(),
   trackEvent: vi.fn(),
   routerReplace: vi.fn(),
@@ -37,6 +38,7 @@ vi.mock("@/lib/api/v0_3", async () => {
 
   return {
     ...actual,
+    createAttemptShare: hoisted.createAttemptShare,
     createCheckoutOrOrder: hoisted.createCheckoutOrOrder,
   };
 });
@@ -152,6 +154,12 @@ describe("MBTI checkout wiring contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     window.localStorage.clear();
+    Object.defineProperty(window.navigator, "clipboard", {
+      configurable: true,
+      value: {
+        writeText: vi.fn().mockResolvedValue(undefined),
+      },
+    });
   });
 
   afterEach(() => {
@@ -243,6 +251,46 @@ describe("MBTI checkout wiring contract", () => {
     fireEvent.click(within(careerChapter).getByRole("link", { name: "查看解锁方案" }));
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
+  });
+
+  it("resolves a formal share link before sharing and never copies the raw result URL", async () => {
+    const reportData = createReportFixture();
+    const navigatorShare = vi.fn().mockResolvedValue(undefined);
+
+    hoisted.createAttemptShare.mockResolvedValue({
+      ok: true,
+      share_id: "share-mbti-001",
+      share_url: "https://example.com/zh/share/share-mbti-001",
+    });
+    Object.defineProperty(window.navigator, "share", {
+      configurable: true,
+      value: navigatorShare,
+    });
+
+    render(<MbtiResultShell {...createShellProps(reportData)} />);
+
+    fireEvent.click(within(screen.getByTestId("mbti-footer-cta")).getByRole("button", { name: "分享结果" }));
+
+    await waitFor(() => {
+      expect(hoisted.createAttemptShare).toHaveBeenCalledWith({
+        attemptId: "attempt-123",
+        locale: "zh",
+      });
+    });
+
+    expect(navigatorShare).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "分享我的测试结果",
+        text: "分享我的测试结果",
+        url: "https://example.com/zh/share/share-mbti-001",
+      })
+    );
+    expect(navigatorShare).not.toHaveBeenCalledWith(
+      expect.objectContaining({
+        url: expect.stringContaining("/result/attempt-123"),
+      })
+    );
+    expect(window.navigator.clipboard.writeText).not.toHaveBeenCalled();
   });
 
   it("writes pending order context and navigates to the localized wait page", async () => {
