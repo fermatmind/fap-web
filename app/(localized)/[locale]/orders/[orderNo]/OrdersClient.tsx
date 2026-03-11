@@ -6,10 +6,11 @@ import Image from "next/image";
 import QRCode from "qrcode";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CheckCircle2, Loader2, XCircle } from "lucide-react";
+import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownloadButton";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getOrderStatus } from "@/lib/api/v0_3";
+import { getOrderStatus, resendOrderDelivery, type OrderStatusResponse } from "@/lib/api/v0_3";
 import { trackEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { captureError } from "@/lib/observability/sentry";
@@ -17,6 +18,7 @@ import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 
 type ViewStatus = "pending" | "paid" | "failed" | "canceled" | "refunded";
 type PayType = "qr" | "html" | null;
+type DeliveryPayload = NonNullable<OrderStatusResponse["delivery"]>;
 
 const POLL_BACKOFF_MS = [2000, 3000, 5000, 8000, 10000];
 const POLL_TIMEOUT_MS = 120000;
@@ -34,6 +36,50 @@ function normalizeQueryValue(value: string | null): string | null {
   return normalized.length > 0 ? normalized : null;
 }
 
+function normalizeActionHref(
+  value: string | null | undefined,
+  withLocale: (path: string) => string
+): string | null {
+  const normalized = normalizeQueryValue(value ?? null);
+  if (!normalized) return null;
+  if (/^https?:\/\//i.test(normalized)) {
+    return normalized;
+  }
+
+  const candidate = normalized.startsWith("/") ? normalized : `/${normalized}`;
+  const firstSegment = candidate.split("/").filter(Boolean)[0];
+  if (firstSegment === "en" || firstSegment === "zh") {
+    return candidate;
+  }
+
+  return withLocale(candidate);
+}
+
+function resolveDeliveryReportHref({
+  delivery,
+  attemptId,
+  withLocale,
+}: {
+  delivery: DeliveryPayload | null;
+  attemptId: string | null;
+  withLocale: (path: string) => string;
+}): string | null {
+  const fromContract = normalizeActionHref(delivery?.report_url ?? null, withLocale);
+  if (fromContract) {
+    return fromContract;
+  }
+
+  if (!delivery && attemptId) {
+    return withLocale(`/result/${attemptId}`);
+  }
+
+  if (delivery?.can_view_report === true && attemptId) {
+    return withLocale(`/result/${attemptId}`);
+  }
+
+  return null;
+}
+
 export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
@@ -47,8 +93,14 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
 
   const [status, setStatus] = useState<ViewStatus>("pending");
   const [attemptId, setAttemptId] = useState<string | null>(null);
+  const [delivery, setDelivery] = useState<DeliveryPayload | null>(null);
   const [message, setMessage] = useState<string>(dict.orders.pending);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isResendingDelivery, setIsResendingDelivery] = useState(false);
+  const [deliveryFeedback, setDeliveryFeedback] = useState<{
+    tone: "success" | "error";
+    message: string;
+  } | null>(null);
   const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string | null>(null);
   const [qrCodeError, setQrCodeError] = useState(false);
 
@@ -145,6 +197,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
         const nextStatus = (response.status ?? "pending") as ViewStatus;
         setStatus(nextStatus);
         setAttemptId(response.attempt_id ?? null);
+        setDelivery((response.delivery ?? null) as DeliveryPayload | null);
 
         if (nextStatus === "paid") {
           if (reportedStatusRef.current !== "paid") {
@@ -265,6 +318,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
 
   const handleManualRefresh = () => {
     if (isRefreshing) return;
+    setDeliveryFeedback(null);
     triggerPollRef.current?.({ manual: true });
   };
 
@@ -273,11 +327,68 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
     window.open(payValue, "_blank", "noopener,noreferrer");
   }, [payType, payValue]);
 
+  const handleResendDelivery = useCallback(async () => {
+    if (isResendingDelivery) return;
+
+    setIsResendingDelivery(true);
+    setDeliveryFeedback(null);
+
+    trackEvent("ui_card_interaction", {
+      slug: "orders-client",
+      visual_kind: "order_resend_delivery",
+      interaction: "click",
+      locale,
+    });
+
+    try {
+      const response = await resendOrderDelivery({ orderNo });
+      setDeliveryFeedback({
+        tone: "success",
+        message: response.message ?? (locale === "zh" ? "交付邮件已重新发送。" : "Delivery email sent again."),
+      });
+    } catch (cause) {
+      setDeliveryFeedback({
+        tone: "error",
+        message:
+          cause instanceof Error && cause.message
+            ? cause.message
+            : locale === "zh"
+              ? "重发交付邮件失败，请稍后再试。"
+              : "Failed to resend the delivery email. Please try again.",
+      });
+      captureError(cause, {
+        route: "/orders/[orderNo]",
+        orderNo,
+        stage: "resend_delivery",
+      });
+    } finally {
+      setIsResendingDelivery(false);
+    }
+  }, [isResendingDelivery, locale, orderNo]);
+
   const icon = useMemo(() => {
     if (status === "paid") return <CheckCircle2 className="h-6 w-6 text-emerald-600" />;
     if (status === "pending") return <Loader2 className="h-6 w-6 animate-spin text-slate-600" />;
     return <XCircle className="h-6 w-6 text-rose-600" />;
   }, [status]);
+
+  const deliveryReportHref = useMemo(
+    () =>
+      resolveDeliveryReportHref({
+        delivery,
+        attemptId,
+        withLocale,
+      }),
+    [attemptId, delivery, withLocale]
+  );
+  const deliveryPdfHref = useMemo(
+    () => normalizeActionHref(delivery?.report_pdf_url ?? null, withLocale),
+    [delivery?.report_pdf_url, withLocale]
+  );
+  const canViewReport = delivery ? delivery.can_view_report === true && Boolean(deliveryReportHref) : Boolean(deliveryReportHref);
+  const canDownloadPdf = delivery?.can_download_pdf === true && Boolean(attemptId);
+  const canResendDelivery = delivery?.can_resend === true;
+  const hasDeliveryActions = canViewReport || canDownloadPdf || canResendDelivery;
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl items-center px-4 py-10">
@@ -355,12 +466,67 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
           {status === "paid" ? (
             <div className="space-y-3">
               <Alert className="border-emerald-200 bg-emerald-50 text-emerald-800">{dict.orders.reportReady}</Alert>
-              {attemptId ? (
-                <Link href={withLocale(`/result/${attemptId}`)} className="inline-flex w-full">
-                  <Button className="w-full" type="button">
-                    {dict.orders.viewReport}
-                  </Button>
-                </Link>
+              {hasDeliveryActions ? (
+                <>
+                  <div data-testid="order-delivery-actions" className="grid gap-2 sm:grid-cols-2">
+                    {canViewReport && deliveryReportHref ? (
+                      <a href={deliveryReportHref} className="inline-flex w-full">
+                        <Button className="w-full" type="button" data-testid="order-view-report">
+                          {dict.orders.viewReport}
+                        </Button>
+                      </a>
+                    ) : null}
+                    {canDownloadPdf && attemptId ? (
+                      <AttemptPdfDownloadButton
+                        attemptId={attemptId}
+                        locale={locale}
+                        label={locale === "zh" ? "下载 PDF" : "Download PDF"}
+                        loadingLabel={locale === "zh" ? "正在下载 PDF..." : "Downloading PDF..."}
+                        errorMessage={locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
+                        filenamePrefix="report"
+                        pdfVariant="order_delivery_hub"
+                        fallbackUrl={deliveryPdfHref}
+                        className="w-full"
+                        buttonClassName="w-full"
+                        testId="order-download-pdf"
+                      />
+                    ) : null}
+                    {canResendDelivery ? (
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="w-full"
+                        onClick={() => void handleResendDelivery()}
+                        disabled={isResendingDelivery}
+                        data-testid="order-resend-delivery"
+                      >
+                        {isResendingDelivery
+                          ? locale === "zh"
+                            ? "正在重发..."
+                            : "Resending..."
+                          : locale === "zh"
+                            ? "重发交付邮件"
+                            : "Resend delivery email"}
+                      </Button>
+                    ) : null}
+                    <Link href={withLocale("/support")} className="inline-flex w-full">
+                      <Button className="w-full" type="button" variant="secondary">
+                        {dict.orders.contactSupport}
+                      </Button>
+                    </Link>
+                  </div>
+                  {deliveryFeedback ? (
+                    <Alert
+                      className={
+                        deliveryFeedback.tone === "success"
+                          ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+                          : undefined
+                      }
+                    >
+                      {deliveryFeedback.message}
+                    </Alert>
+                  ) : null}
+                </>
               ) : (
                 <>
                   <Alert>{dict.orders.reportGenerating}</Alert>

@@ -16,6 +16,8 @@ type MbtiStickyRailProps = {
   modulesAllowed?: string[];
   retakeHref: string;
   primaryCtaLabel?: string;
+  primaryCtaHref: string;
+  primaryCtaIsInternal?: boolean;
   onShare: () => void | Promise<void>;
 };
 
@@ -76,6 +78,8 @@ export function MbtiStickyRail({
   modulesAllowed,
   retakeHref,
   primaryCtaLabel,
+  primaryCtaHref,
+  primaryCtaIsInternal = false,
   onShare,
 }: MbtiStickyRailProps) {
   const unlockSummary = resolveUnlockSummary(locale, locked, accessLevel, variant, modulesAllowed);
@@ -132,9 +136,15 @@ export function MbtiStickyRail({
           <CardContent className="space-y-3">
             <p className="m-0 text-sm font-semibold text-slate-900">{unlockSummary.title}</p>
             <p className="m-0 text-sm leading-7 text-slate-600">{unlockSummary.description}</p>
-            <a href="#offers" className={buttonVariants({ className: "w-full" })}>
-              {ctaLabel}
-            </a>
+            {primaryCtaIsInternal ? (
+              <Link href={primaryCtaHref} className={buttonVariants({ className: "w-full" })}>
+                {ctaLabel}
+              </Link>
+            ) : (
+              <a href={primaryCtaHref} className={buttonVariants({ className: "w-full" })}>
+                {ctaLabel}
+              </a>
+            )}
             <div className="flex gap-2">
               <Button type="button" variant="outline" className="flex-1" onClick={() => void onShare()}>
                 {locale === "zh" ? "分享" : "Share"}

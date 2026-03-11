@@ -442,6 +442,14 @@ export type OrderStatusResponse = {
   amount?: number | string;
   amount_cents?: number;
   currency?: string;
+  delivery?: {
+    can_view_report?: boolean;
+    report_url?: string | null;
+    can_download_pdf?: boolean;
+    report_pdf_url?: string | null;
+    can_resend?: boolean;
+    [key: string]: unknown;
+  } | null;
   [key: string]: unknown;
 };
 
