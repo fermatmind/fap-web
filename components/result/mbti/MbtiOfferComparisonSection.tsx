@@ -13,7 +13,9 @@ type MbtiOfferComparisonSectionProps = {
   locale: Locale;
   offers: ResolvedOffer[];
   cta?: ReportCta | null;
-  primaryCtaHref?: string;
+  onCheckout?: () => void | Promise<void>;
+  isCheckingOut?: boolean;
+  checkoutError?: string | null;
 };
 
 const OFFER_ORDER: OfferKind[] = ["career", "full", "relationships"];
@@ -47,7 +49,9 @@ export function MbtiOfferComparisonSection({
   locale,
   offers,
   cta,
-  primaryCtaHref = "#offers",
+  onCheckout,
+  isCheckingOut = false,
+  checkoutError = null,
 }: MbtiOfferComparisonSectionProps) {
   const selectedOffers = OFFER_ORDER.map((kind) =>
     offers.find((offer) => resolveOfferKind(offer) === kind)
@@ -67,6 +71,11 @@ export function MbtiOfferComparisonSection({
     : [];
   const primaryCtaLabel =
     normalizeText(cta?.primary_label) || (locale === "zh" ? "查看解锁方案" : "View unlock options");
+  const checkoutLabel = isCheckingOut
+    ? locale === "zh"
+      ? "正在跳转..."
+      : "Redirecting..."
+    : primaryCtaLabel;
 
   useEffect(() => {
     if (selectedOffers.length === 0 || impressionTrackedRef.current) return;
@@ -117,9 +126,10 @@ export function MbtiOfferComparisonSection({
             ) : null}
           </div>
 
-          <a
-            href={primaryCtaHref}
+          <button
+            type="button"
             data-testid="mbti-offers-primary-cta"
+            disabled={isCheckingOut}
             className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[var(--fm-accent)] px-5 py-3 text-sm font-semibold text-white shadow-[var(--fm-shadow-sm)] transition hover:opacity-95"
             onClick={() => {
               trackEvent("ui_card_interaction", {
@@ -129,11 +139,17 @@ export function MbtiOfferComparisonSection({
                 interaction: "click",
                 locale,
               });
+              void onCheckout?.();
             }}
           >
-            {primaryCtaLabel}
-          </a>
+            {checkoutLabel}
+          </button>
         </div>
+        {checkoutError ? (
+          <p className="mb-0 mt-3 text-sm text-rose-600" data-testid="mbti-offers-checkout-error">
+            {checkoutError}
+          </p>
+        ) : null}
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3">

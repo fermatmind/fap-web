@@ -226,6 +226,108 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
 });
 
+test("MBTI primary CTA reuses the existing checkout and order wait flow", async ({ page }) => {
+  const attemptId = "mbti-checkout-wiring-0001";
+  const orderNo = "ord_mbti_wait_0001";
+
+  await page.addInitScript(() => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({
+        analytics: "granted",
+        updatedAt: "2026-03-11T00:00:00.000Z",
+      })
+    );
+  });
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_guest_token_checkout_0001",
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(
+        createMbtiReportFixture((fixture) => {
+          const cta = fixture.cta as Record<string, unknown>;
+          cta.primary_label = "Unlock the authored MBTI report";
+        })
+      ),
+    });
+  });
+
+  await page.route("**/api/v0.3/orders/checkout", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        attempt_id: attemptId,
+        provider: "alipay",
+        pay: {
+          type: "html",
+          value: `/api/v0.3/orders/${orderNo}/pay/alipay?scene=desktop`,
+          provider: "alipay",
+        },
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        attempt_id: attemptId,
+        status: "pending",
+        message: "Waiting for payment confirmation.",
+      }),
+    });
+  });
+
+  await page.goto(`/en/result/${attemptId}`);
+
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Share result" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Retake test" })).toBeVisible();
+  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
+    "href",
+    "#offers"
+  );
+  await expect(page.getByTestId("mbti-footer-cta").getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
+    "href",
+    "#offers"
+  );
+
+  await page.getByTestId("mbti-offers-primary-cta").click();
+
+  await expect(page).toHaveURL(
+    new RegExp(`/en/pay/wait\\?order_no=${orderNo}&pay_type=html&pay_value=.*provider=alipay`)
+  );
+  await expect(page.getByText(orderNo)).toBeVisible();
+  await expect(page.getByText("Waiting for payment confirmation.")).toBeVisible();
+});
+
 test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({ page }) => {
   const attemptId = "mbti-mobile-sticky-0001";
   const options = Array.from({ length: 12 }, (_, idx) => ({
