@@ -446,6 +446,40 @@ export type OrderStatusResponse = {
   [key: string]: unknown;
 };
 
+export type EmailPreferences = {
+  marketing_updates: boolean;
+  report_recovery: boolean;
+  product_updates: boolean;
+};
+
+export type EmailPreferencesResponse = {
+  ok: boolean;
+  email_masked: string;
+  preferences: EmailPreferences;
+};
+
+export type EmailPreferencesUpdateRequest = {
+  token: string;
+  marketing_updates: boolean;
+  report_recovery: boolean;
+  product_updates: boolean;
+};
+
+export type EmailPreferencesUpdateResponse = {
+  ok: boolean;
+  preferences: EmailPreferences;
+};
+
+export type EmailUnsubscribeRequest = {
+  token: string;
+  reason?: string;
+};
+
+export type EmailUnsubscribeResponse = {
+  ok: boolean;
+  status: string;
+};
+
 export type ShareSummaryResponse = {
   ok?: boolean;
   share_id?: string;
@@ -1818,6 +1852,30 @@ export async function requestClaimReportEmail({
   );
 
   return assertApiOk(response, "Unable to request a report recovery email.");
+}
+
+export async function getEmailPreferences(token: string): Promise<EmailPreferencesResponse> {
+  const response = await apiClient.get<EmailPreferencesResponse>(
+    `/v0.3/email/preferences?token=${encodeURIComponent(token)}`
+  );
+
+  return assertApiOk(response, "Unable to load email preferences.");
+}
+
+export async function updateEmailPreferences(
+  input: EmailPreferencesUpdateRequest
+): Promise<EmailPreferencesUpdateResponse> {
+  const response = await apiClient.post<EmailPreferencesUpdateResponse>("/v0.3/email/preferences", input);
+
+  return assertApiOk(response, "Unable to update email preferences.");
+}
+
+export async function unsubscribeEmail(
+  input: EmailUnsubscribeRequest
+): Promise<EmailUnsubscribeResponse> {
+  const response = await apiClient.post<EmailUnsubscribeResponse>("/v0.3/email/unsubscribe", input);
+
+  return assertApiOk(response, "Unable to unsubscribe that email.");
 }
 
 export async function resendOrderDelivery({

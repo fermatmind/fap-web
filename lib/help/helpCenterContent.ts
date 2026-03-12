@@ -70,7 +70,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
       topicsTitle: "Browse help topics",
       quickActionsTitle: "Quick actions",
       quickActionsSubtitle:
-        "Start with Order lookup for report recovery. Use your order number and purchase email there first.",
+        "Start with Order lookup for report recovery. Use your order number and purchase email there first. Email preferences and unsubscribe should use the dedicated link in your email.",
       contactTitle: "Need personal support?",
       contactSubtitle:
         "If your issue includes an order, start with Order lookup, then include the order number and purchase email to speed up handling.",
@@ -83,6 +83,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
     },
     quickActions: [
       { href: "/orders/lookup", label: "Order lookup" },
+      { href: "/email/preferences", label: "Manage email preferences" },
       { href: "/refund", label: "Refund policy" },
       { href: "/privacy", label: "Privacy policy" },
     ],
@@ -109,6 +110,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
             ],
             bullets: [
               "Go to Order lookup with your order number and purchase email first.",
+              "Use the dedicated link in your email to manage preferences or unsubscribe.",
               "Check your purchase email inbox and spam folder for report links.",
               "From the order detail page, you can review delivery status, resend the delivery email, and return to Order lookup for purchase-email recovery.",
               "If payment failed, retry from the order page instead of creating duplicate orders.",
@@ -130,6 +132,11 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
             question: "How do I get my report after payment?",
             answer:
               "Open Order lookup with your order number and purchase email. If the report is ready, the order detail page will show delivery status, report access, PDF download, resend delivery email, and a path back to Order lookup for purchase-email recovery.",
+          },
+          {
+            question: "How do email preferences and unsubscribe links work?",
+            answer:
+              "Use the dedicated link inside your email to manage preferences or unsubscribe. If you need a new report email instead, go to Order lookup with your order number and purchase email.",
           },
           {
             question: "What should I do if payment fails?",
@@ -320,7 +327,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
       subtitle: "集中查看报告、支付、政策与企业使用相关问题的处理入口。",
       topicsTitle: "浏览帮助主题",
       quickActionsTitle: "快速操作",
-      quickActionsSubtitle: "报告找回请先走订单查询主入口，并准备订单号和购买邮箱。",
+      quickActionsSubtitle: "报告找回请先走订单查询主入口，并准备订单号和购买邮箱。邮件偏好与退订请使用邮件中的专属链接。",
       contactTitle: "需要人工支持？",
       contactSubtitle: "若涉及订单，请先使用订单查询，再附上订单号和购买邮箱，可显著缩短处理时间。",
       browseButton: "进入主题",
@@ -332,6 +339,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
     },
     quickActions: [
       { href: "/orders/lookup", label: "订单查询" },
+      { href: "/email/preferences", label: "管理邮件偏好" },
       { href: "/refund", label: "退款政策" },
       { href: "/privacy", label: "隐私政策" },
     ],
@@ -356,6 +364,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
             paragraphs: ["多数报告交付与支付问题应先从订单查询这个正式找回入口开始处理。"],
             bullets: [
               "先带着订单号和购买邮箱进入订单查询",
+              "邮件偏好管理和退订请使用邮件中的专属链接",
               "先检查购买邮箱收件箱和垃圾箱中的报告邮件",
               "进入订单详情页查看交付状态、最近发送情况，并按需重发交付邮件",
               "如需购买邮箱恢复，可从订单详情页返回订单查询继续操作",
@@ -378,6 +387,11 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
             question: "支付完成后如何获取报告？",
             answer:
               "请先用订单号和购买邮箱进入订单查询。若报告已生成，订单详情页会显示交付状态，并提供查看报告、下载 PDF、重发交付邮件，以及返回订单查询执行购买邮箱恢复的入口。",
+          },
+          {
+            question: "邮件偏好和退订链接如何使用？",
+            answer:
+              "请使用邮件中的专属链接管理偏好或退订。如果你需要新的报告邮件，请带着订单号和购买邮箱前往订单查询。",
           },
           {
             question: "支付失败怎么办？",

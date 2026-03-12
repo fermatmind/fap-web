@@ -30,6 +30,8 @@ export function SiteFooter() {
 
   const helpLinks = [
     { href: "/help", label: locale === "zh" ? "帮助中心" : "Help Center" },
+    { href: "/email/preferences", label: dict.footer.manageEmailPreferences, testId: "footer-email-preferences" },
+    { href: "/email/unsubscribe", label: dict.footer.unsubscribeFromEmails, testId: "footer-email-unsubscribe" },
     { href: "/privacy", label: dict.footer.privacy },
     { href: "/terms", label: dict.footer.terms },
     { href: "/refund", label: dict.footer.refund },
@@ -65,7 +67,12 @@ export function SiteFooter() {
             <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.support}</p>
             <div className="space-y-2 text-sm">
               {helpLinks.map((item) => (
-                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                <Link
+                  key={item.href}
+                  href={withLocale(item.href)}
+                  className="block text-slate-300 hover:text-white"
+                  data-testid={item.testId}
+                >
                   {item.label}
                 </Link>
               ))}
