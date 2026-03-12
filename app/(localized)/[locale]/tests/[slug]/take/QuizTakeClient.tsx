@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { ReadonlyURLSearchParams } from "next/navigation";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
 import { IqOptionBoard } from "@/components/quiz/iq/IqOptionBoard";
@@ -29,6 +30,7 @@ import {
   startAttempt,
   shouldLinkAnonAttemptsOnLoginSuccess,
   submitAttempt,
+  type AttemptAttributionPayload,
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
@@ -104,6 +106,51 @@ function toUiMessage(error: unknown, fallback: string, locale: "en" | "zh"): str
   return error instanceof Error && error.message ? error.message : fallback;
 }
 
+function normalizeQueryValue(value: string | null): string | undefined {
+  const normalized = value?.trim();
+  return normalized ? normalized : undefined;
+}
+
+function readTakeFlowAttribution(
+  searchParams: ReadonlyURLSearchParams
+): { attribution: AttemptAttributionPayload; compareIntent: boolean } {
+  const share_id = normalizeQueryValue(searchParams.get("share_id"));
+  const compare_invite_id = normalizeQueryValue(searchParams.get("compare_invite_id"));
+  const share_click_id = normalizeQueryValue(searchParams.get("share_click_id"));
+  const entrypoint = normalizeQueryValue(searchParams.get("entrypoint"));
+  const referrer = normalizeQueryValue(searchParams.get("referrer"));
+  const landing_path = normalizeQueryValue(searchParams.get("landing_path"));
+  const source = normalizeQueryValue(searchParams.get("utm_source"));
+  const medium = normalizeQueryValue(searchParams.get("utm_medium"));
+  const campaign = normalizeQueryValue(searchParams.get("utm_campaign"));
+  const term = normalizeQueryValue(searchParams.get("utm_term"));
+  const content = normalizeQueryValue(searchParams.get("utm_content"));
+  const compareIntent = searchParams.get("compare_intent") === "true";
+
+  return {
+    attribution: {
+      ...(share_id ? { share_id } : {}),
+      ...(compare_invite_id ? { compare_invite_id } : {}),
+      ...(share_click_id ? { share_click_id } : {}),
+      ...(entrypoint ? { entrypoint } : {}),
+      ...(referrer ? { referrer } : {}),
+      ...(landing_path ? { landing_path } : {}),
+      ...(source || medium || campaign || term || content
+        ? {
+            utm: {
+              source: source ?? null,
+              medium: medium ?? null,
+              campaign: campaign ?? null,
+              term: term ?? null,
+              content: content ?? null,
+            },
+          }
+        : {}),
+    },
+    compareIntent,
+  };
+}
+
 export default function QuizTakeClient({
   slug,
   testTitle,
@@ -162,6 +209,10 @@ function QuizTakeInner({
   const locale = getLocaleFromPathname(pathname);
   const withLocale = (path: string) => localizedPath(path, locale);
   const dict = getDictSync(locale);
+  const { attribution, compareIntent } = useMemo(
+    () => readTakeFlowAttribution(searchParams),
+    [searchParams]
+  );
 
   const currentIndex = useQuizStore((store) => store.state.currentIndex);
   const answers = useQuizStore((store) => store.state.answers);
@@ -409,7 +460,11 @@ function QuizTakeInner({
     const pending = (async () => {
       try {
         const response = await runWithAuthRetry("start_attempt", () =>
-          startAttempt({ scaleCode, anonId })
+          startAttempt({
+            scaleCode,
+            anonId,
+            ...attribution,
+          })
         );
         if (!isFlowActive(runId)) {
           return null;
@@ -449,7 +504,7 @@ function QuizTakeInner({
 
     ensureAttemptPromiseRef.current = pending;
     return pending;
-  }, [anonId, authBlockError, isFlowActive, locale, runWithAuthRetry, scaleCode, setAttemptMeta, slug, staleDraftError]);
+  }, [anonId, attribution, authBlockError, isFlowActive, locale, runWithAuthRetry, scaleCode, setAttemptMeta, slug, staleDraftError]);
 
   const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
@@ -533,6 +588,10 @@ function QuizTakeInner({
   });
 
   const normalizedScaleCode = scaleCode.trim().toUpperCase();
+  const compareRedirectInviteId =
+    normalizedScaleCode === "MBTI" && (compareIntent || Boolean(attribution.compare_invite_id))
+      ? attribution.compare_invite_id
+      : undefined;
   const isIqScale = normalizedScaleCode === "IQ_RAVEN" || normalizedScaleCode === "IQ_INTELLIGENCE_QUOTIENT";
   const isLastQuestion = total > 0 && currentIndex === total - 1;
   const iqNeedsSelection = isIqScale && !selectedOptionId;
@@ -651,6 +710,7 @@ function QuizTakeInner({
         })),
         durationMs,
         anonId,
+        ...attribution,
       })
     );
     if (!isFlowActive(runId)) {
@@ -668,7 +728,7 @@ function QuizTakeInner({
       durationMs,
     });
     return resultAttemptId;
-  }, [anonId, isFlowActive, questions, runWithAuthRetry, slug, startedAt]);
+  }, [anonId, attribution, isFlowActive, questions, runWithAuthRetry, slug, startedAt]);
 
   const handleSubmit = async (pendingSelection?: LastSelectionContext, runId?: number): Promise<string | null> => {
     if (submitInFlightRef.current || staleDraftError) {
@@ -780,7 +840,11 @@ function QuizTakeInner({
   const finalizeSuccessfulSubmit = (resultAttemptId: string) => {
     cancelPendingSubmitSideEffects();
     resetAttempt();
-    router.push(withLocale(`/result/${resultAttemptId}`));
+    router.push(
+      compareRedirectInviteId
+        ? withLocale(`/compare/mbti/${compareRedirectInviteId}`)
+        : withLocale(`/result/${resultAttemptId}`)
+    );
   };
 
   const startSubmitOverlayPhases = (runId: number) => {
