@@ -73,6 +73,18 @@ test("all help detail pages render Chinese content", async ({ page }) => {
   }
 });
 
+test("faq detail page exposes answer-first copy, crawlable faq html, and faq schema", async ({ request, page }) => {
+  await page.goto("/en/help/faq");
+  await expect(page.getByRole("heading", { level: 1, name: "Frequently Asked Questions" })).toBeVisible();
+  await expect(page.getByText("This page starts with the shortest practical answer", { exact: false })).toBeVisible();
+  await expect(page.locator("section#faq dl dt").first()).toBeVisible();
+
+  const response = await request.get("/en/help/faq");
+  const html = await response.text();
+  expect(html).toContain('"@type":"FAQPage"');
+  expect(html).toContain('id="answer-first"');
+});
+
 test("desktop header dropdown opens and closes by click and Escape", async ({ page }) => {
   await page.setViewportSize({ width: 1400, height: 900 });
   await page.goto("/en");

@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
+import { listPersonalityProfiles } from "@/lib/cms/personality";
+import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
   listBlogPosts,
@@ -8,34 +10,120 @@ import {
   listCareerIndustrySlugs,
   listMbtiRecommendationTypes,
 } from "@/lib/content";
+import { listHelpCenterPages } from "@/lib/help/helpCenterContent";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
+
+const TOPIC_FALLBACKS = [
+  { slug: "mbti", title: "MBTI" },
+  { slug: "big-five", title: "Big Five" },
+  { slug: "iq-eq", title: "IQ and EQ" },
+];
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return `${siteUrl}${normalized}`;
 }
 
+function shouldKeep(path: string): boolean {
+  return shouldIncludeInSitemap(path);
+}
+
+async function listPersonalityEntries() {
+  try {
+    const [enProfiles, zhProfiles] = await Promise.all([
+      listPersonalityProfiles({ locale: "en", perPage: 100 }),
+      listPersonalityProfiles({ locale: "zh", perPage: 100 }),
+    ]);
+
+    return [
+      ...enProfiles.items.map((item) => ({
+        locale: "en",
+        path: `/en/personality/${item.slug}`,
+        title: item.title || item.typeCode,
+      })),
+      ...zhProfiles.items.map((item) => ({
+        locale: "zh",
+        path: `/zh/personality/${item.slug}`,
+        title: item.title || item.typeCode,
+      })),
+    ].filter((entry) => shouldKeep(entry.path));
+  } catch {
+    // Fall back to local MBTI coverage when the personality CMS is unavailable.
+  }
+
+  return listMbtiRecommendationTypes()
+    .flatMap((type) => [
+      { locale: "en", path: `/en/personality/${type.toLowerCase()}`, title: `${type} personality` },
+      { locale: "zh", path: `/zh/personality/${type.toLowerCase()}`, title: `${type} 人格画像` },
+    ])
+    .filter((entry) => shouldKeep(entry.path));
+}
+
+async function listTopicEntries() {
+  try {
+    const [enTopics, zhTopics] = await Promise.all([
+      listTopics({ locale: "en", perPage: 100 }),
+      listTopics({ locale: "zh", perPage: 100 }),
+    ]);
+
+    return [
+      ...enTopics.items.map((item) => ({
+        locale: "en",
+        path: `/en/topics/${item.slug}`,
+        title: item.title,
+      })),
+      ...zhTopics.items.map((item) => ({
+        locale: "zh",
+        path: `/zh/topics/${item.slug}`,
+        title: item.title,
+      })),
+    ].filter((entry) => shouldKeep(entry.path));
+  } catch {
+    // Fall back to the stable public topic set when the topics CMS is unavailable.
+  }
+
+  return TOPIC_FALLBACKS.flatMap((topic) => [
+    { locale: "en", path: `/en/topics/${topic.slug}`, title: topic.title },
+    { locale: "zh", path: `/zh/topics/${topic.slug}`, title: topic.title },
+  ]).filter((entry) => shouldKeep(entry.path));
+}
+
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
-  const [enCareerJobs, zhCareerJobs] = await Promise.all([
-    listCareerJobsFromCms({ locale: "en" }),
-    listCareerJobsFromCms({ locale: "zh" }),
+  const [enCareerJobs, zhCareerJobs, personalityEntries, topicEntries] = await Promise.all([
+    listCareerJobsFromCms({ locale: "en" }).catch(() => []),
+    listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
+    listPersonalityEntries(),
+    listTopicEntries(),
   ]);
+
+  const helpEntries = [
+    ...listHelpCenterPages("en").map((page) => ({
+      locale: "en",
+      path: `/en/help/${page.slug}`,
+      title: page.title,
+    })),
+    ...listHelpCenterPages("zh").map((page) => ({
+      locale: "zh",
+      path: `/zh/help/${page.slug}`,
+      title: page.title,
+    })),
+  ].filter((entry) => shouldKeep(entry.path));
 
   const tests = getAllTests()
     .flatMap((test) => [
       { locale: "en", path: `/en/tests/${test.slug}`, title: test.title, updatedAt: "" },
       { locale: "zh", path: `/zh/tests/${test.slug}`, title: test.title, updatedAt: "" },
     ])
-    .filter((entry) => shouldIncludeInSitemap(entry.path));
+    .filter((entry) => shouldKeep(entry.path));
 
   const articles = listBlogPosts()
     .map((post) => {
       const locale = post.locale === "en" ? "en" : "zh";
       if (locale === "en" && !post.translation_ready) return null;
       const path = `/${locale}/articles/${post.slug}`;
-      if (!shouldIncludeInSitemap(path)) return null;
+      if (!shouldKeep(path)) return null;
       return {
         locale,
         path,
@@ -46,6 +134,8 @@ export async function GET() {
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
   const careers = [
+    { locale: "en", path: "/en/career/recommendations", title: "Career recommendations", updatedAt: "" },
+    { locale: "zh", path: "/zh/career/recommendations", title: "职业推荐", updatedAt: "" },
     ...enCareerJobs.map((job) => ({ locale: "en", path: job.href, title: job.title, updatedAt: "" })),
     ...zhCareerJobs.map((job) => ({ locale: "zh", path: job.href, title: job.title, updatedAt: "" })),
     ...listCareerIndustrySlugs().flatMap((slug) => [
@@ -64,7 +154,7 @@ export async function GET() {
       { locale: "en", path: `/en/career/recommendations/big5/${trait}`, title: `Big5 ${trait}`, updatedAt: "" },
       { locale: "zh", path: `/zh/career/recommendations/big5/${trait}`, title: `Big5 ${trait}`, updatedAt: "" },
     ]),
-  ].filter((entry) => shouldIncludeInSitemap(entry.path));
+  ].filter((entry) => shouldKeep(entry.path));
 
   const lines = [
     "# FermatMind llms-full.txt",
@@ -72,19 +162,31 @@ export async function GET() {
     `Site: ${siteUrl}`,
     "",
     "## Citation Policy",
-    "- Prefer canonical URLs only.",
-    "- Prefer sections with stable anchors: #what-it-is #when-to-use #how-it-works #limitations #faq #references.",
-    "- Exclude noindex and private checkout/result paths.",
+    "- Prefer canonical public URLs only.",
+    "- Prefer answer-first, breadcrumb, FAQ, and structured list sections when available.",
+    "- Exclude noindex and private share/result/compare/history/take paths.",
     "",
     "## Canonical Entrypoints",
     `- ${toCanonical(siteUrl, "/")}`,
     `- ${toCanonical(siteUrl, "/en")}`,
     `- ${toCanonical(siteUrl, "/zh")}`,
-    `- ${toCanonical(siteUrl, "/en/tests")}`,
-    `- ${toCanonical(siteUrl, "/zh/tests")}`,
-    `- ${toCanonical(siteUrl, "/en/career")}`,
-    `- ${toCanonical(siteUrl, "/zh/career")}`,
-    `- ${toCanonical(siteUrl, "/zh/articles")}`,
+    `- ${toCanonical(siteUrl, "/en/personality")}`,
+    `- ${toCanonical(siteUrl, "/zh/personality")}`,
+    `- ${toCanonical(siteUrl, "/en/topics")}`,
+    `- ${toCanonical(siteUrl, "/zh/topics")}`,
+    `- ${toCanonical(siteUrl, "/en/help")}`,
+    `- ${toCanonical(siteUrl, "/zh/help")}`,
+    `- ${toCanonical(siteUrl, "/en/career/recommendations")}`,
+    `- ${toCanonical(siteUrl, "/zh/career/recommendations")}`,
+    "",
+    "## Personality",
+    ...personalityEntries.map((entry) => `- [${entry.locale}] ${entry.title} | ${toCanonical(siteUrl, entry.path)}`),
+    "",
+    "## Topics",
+    ...topicEntries.map((entry) => `- [${entry.locale}] ${entry.title} | ${toCanonical(siteUrl, entry.path)}`),
+    "",
+    "## Help",
+    ...helpEntries.map((entry) => `- [${entry.locale}] ${entry.title} | ${toCanonical(siteUrl, entry.path)}`),
     "",
     "## Tests",
     ...tests.map((entry) => `- [${entry.locale}] ${entry.title} | ${toCanonical(siteUrl, entry.path)}`),

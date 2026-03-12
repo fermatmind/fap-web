@@ -20,6 +20,33 @@ describe("proxy boundary contract", () => {
     expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/llms.txt" })).toBe(false);
   });
 
+  it("redirects locale-less legacy types routes into the localized personality hub", () => {
+    const response = proxy(
+      new NextRequest("https://example.com/types/intj?utm=a", {
+        headers: {
+          "accept-language": "zh-CN,zh;q=0.9,en;q=0.8",
+        },
+      })
+    );
+
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe("https://example.com/zh/personality/intj?utm=a");
+  });
+
+  it("redirects localized types detail pages into localized personality detail pages", () => {
+    const response = proxy(new NextRequest("https://example.com/en/types/intj"));
+
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe("https://example.com/en/personality/intj");
+  });
+
+  it("keeps professions retired with 410 and noindex", () => {
+    const response = proxy(new NextRequest("https://example.com/en/professions"));
+
+    expect(response.status).toBe(410);
+    expect(response.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
+  });
+
   it("bypasses anon-id side effects for static asset paths", () => {
     const response = proxy(new NextRequest("https://example.com/site.webmanifest"));
 

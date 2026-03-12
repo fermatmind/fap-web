@@ -14,14 +14,36 @@ for (const prefix of ["articles", "career", "topics", "personality"] as const) {
   });
 }
 
-test("legacy professions/types routes return 410", async ({ request }) => {
-  const paths = ["/en/professions", "/zh/professions", "/en/types", "/zh/types", "/professions", "/types"];
+test("legacy professions stay gone while types routes funnel into personality", async ({ request }) => {
+  const gonePaths = ["/en/professions", "/zh/professions", "/professions"];
 
-  for (const pathname of paths) {
+  for (const pathname of gonePaths) {
     const response = await request.get(pathname, { maxRedirects: 0 });
     expect(response.status(), pathname).toBe(410);
     expect(response.headers()["x-robots-tag"], pathname).toContain("noindex");
   }
+
+  const typesIndex = await request.get("/en/types", { maxRedirects: 0 });
+  expect(typesIndex.status()).toBe(308);
+  expect(typesIndex.headers().location).toBe("http://localhost:3000/en/personality");
+
+  const typesDetail = await request.get("/en/types/intj", { maxRedirects: 0 });
+  expect(typesDetail.status()).toBe(308);
+  expect(typesDetail.headers().location).toBe("http://localhost:3000/en/personality/intj");
+});
+
+test("mbti career recommendation route exposes answer-first, table, faq, and public backlinks", async ({ request }) => {
+  const response = await request.get("/en/career/recommendations/mbti/INTJ");
+  expect(response.status()).toBe(200);
+  const html = await response.text();
+
+  expect(html).toContain('id="answer-first"');
+  expect(html).toContain('id="recommended-roles"');
+  expect(html).toContain('"@type":"ItemList"');
+  expect(html).toContain('"@type":"FAQPage"');
+  expect(html).toContain("/en/personality/intj");
+  expect(html).toContain("/en/topics/mbti");
+  expect(html).toContain("/en/help/faq");
 });
 
 test("riasec flow produces result and recommendation list", async ({ page }) => {

@@ -9,5 +9,5 @@ export default async function LegacyTypesPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  permanentRedirect(localizedPath("/professions", locale));
+  permanentRedirect(localizedPath("/personality", locale));
 }

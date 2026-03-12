@@ -1,11 +1,11 @@
 import { canonicalUrl } from "@/lib/site";
 
-type FAQItem = {
+export type FAQItem = {
   question: string;
   answer: string;
 };
 
-type BreadcrumbItem = {
+export type BreadcrumbItem = {
   name: string;
   path: string;
 };
@@ -43,6 +43,18 @@ type OccupationSchemaInput = {
   locale: LocaleCode;
   skills?: string[];
   salaryRange?: string;
+};
+
+type ItemListSchemaInput = {
+  path: string;
+  title: string;
+  description: string;
+  locale: LocaleCode;
+  items: Array<{
+    name: string;
+    path?: string;
+    description?: string;
+  }>;
 };
 
 export function buildFAQPageJsonLd(faq: FAQItem[]) {
@@ -136,6 +148,28 @@ export function buildOccupationJsonLd(input: OccupationSchemaInput) {
     inLanguage: input.locale === "zh" ? "zh-CN" : "en",
     skills: input.skills,
     estimatedSalary: input.salaryRange,
+    mainEntityOfPage: url,
+  };
+}
+
+export function buildItemListJsonLd(input: ItemListSchemaInput) {
+  const url = canonicalUrl(input.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${url}#itemlist`,
+    url,
+    name: input.title,
+    description: input.description,
+    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+    numberOfItems: input.items.length,
+    itemListElement: input.items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      description: item.description,
+      ...(item.path ? { url: canonicalUrl(item.path) } : {}),
+    })),
     mainEntityOfPage: url,
   };
 }

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { type CmsPersonalitySection, buildPersonalityFrontendUrl } from "@/lib/cms/personality";
 import { type Locale } from "@/lib/i18n/locales";
+import type { FAQItem } from "@/lib/seo/generateSchema";
 
 const KNOWN_SECTION_KEYS = [
   "hero",
@@ -310,7 +311,11 @@ export function renderPersonalitySections(
       }
 
       return (
-        <Card key={`${section.sectionKey}-${section.sortOrder}`}>
+        <Card
+          key={`${section.sectionKey}-${section.sortOrder}`}
+          id={section.sectionKey}
+          data-section-key={section.sectionKey}
+        >
           <CardHeader>
             <CardTitle>{section.title}</CardTitle>
           </CardHeader>
@@ -327,6 +332,22 @@ export function buildPersonalitySectionLinks(
 ): Array<{ title: string; href: string | null; summary: string }> {
   const payload = asRecord(section.payloadJson);
   return normalizeLinkItems(asArray<LinkItem>(payload?.items), locale);
+}
+
+export function extractPersonalityFaqItems(sections: CmsPersonalitySection[]): FAQItem[] {
+  return getRenderablePersonalitySections(sections)
+    .filter((section) => section.sectionKey === "faq")
+    .flatMap((section) => {
+      const payload = asRecord(section.payloadJson);
+      const items = asArray<FaqItem>(payload?.items);
+
+      return items
+        .map((item) => ({
+          question: normalizeText(item.question),
+          answer: normalizeText(item.answer),
+        }))
+        .filter((item) => item.question && item.answer);
+    });
 }
 
 export { KNOWN_SECTION_KEYS };
