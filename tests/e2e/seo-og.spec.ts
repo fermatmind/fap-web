@@ -22,3 +22,32 @@ test("OG route handles malformed score params without crashing", async ({ reques
   const contentType = overflow.headers()["content-type"] || "";
   expect(contentType.includes("image/")).toBeTruthy();
 });
+
+test("share and compare OG routes return images", async ({ request }) => {
+  const shareResponse = await request.get("/og/share/seo-share-001");
+  expect(shareResponse.ok()).toBeTruthy();
+  expect((shareResponse.headers()["content-type"] || "").includes("image/")).toBeTruthy();
+
+  const compareResponse = await request.get("/og/compare/mbti/seo-invite-001");
+  expect(compareResponse.ok()).toBeTruthy();
+  expect((compareResponse.headers()["content-type"] || "").includes("image/")).toBeTruthy();
+});
+
+test("share and compare pages expose route-specific og:image tags", async ({ request }) => {
+  const shareId = "seo-share-001";
+  const inviteId = "seo-invite-001";
+
+  const sharePage = await request.get(`/en/share/${shareId}`);
+  expect(sharePage.ok()).toBeTruthy();
+  const shareHtml = await sharePage.text();
+  expect(shareHtml).toContain('property="og:image"');
+  expect(shareHtml).toContain('name="twitter:image"');
+  expect(shareHtml).toContain(`/og/share/${shareId}`);
+
+  const comparePage = await request.get(`/en/compare/mbti/${inviteId}`);
+  expect(comparePage.ok()).toBeTruthy();
+  const compareHtml = await comparePage.text();
+  expect(compareHtml).toContain('property="og:image"');
+  expect(compareHtml).toContain('name="twitter:image"');
+  expect(compareHtml).toContain(`/og/compare/mbti/${inviteId}`);
+});

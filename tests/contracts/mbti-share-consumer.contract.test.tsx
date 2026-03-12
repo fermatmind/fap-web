@@ -60,6 +60,7 @@ function createShareFixture(): ShareSummaryResponse {
     title: "Campaigner",
     subtitle: "Warm, imaginative, and emotionally alert",
     summary: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
+    tagline: "A public-safe snapshot of this MBTI type.",
     rarity: {
       label: "Around 6-8%",
     },
@@ -260,8 +261,11 @@ describe("MBTI share consumer contract", () => {
       locale: "zh",
       cache: "no-store",
     });
-    expect(metadata.title).toBe("ENFP-T · Campaigner｜MBTI 分享摘要");
-    expect(metadata.description).toBe("Warm, imaginative, and emotionally alert");
+    expect(metadata.title).toBe("ENFP-T · Campaigner｜FermatMind");
+    expect(metadata.description).toBe(
+      "This public MBTI share page keeps only the lightweight result summary and never exposes paid content."
+    );
+    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/zh/share/share-123");
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: false,
@@ -269,13 +273,52 @@ describe("MBTI share consumer contract", () => {
       nocache: true,
     });
     expect(metadata.openGraph).toMatchObject({
-      title: "ENFP-T · Campaigner｜MBTI 分享摘要",
-      description: "Warm, imaginative, and emotionally alert",
+      title: "ENFP-T · Campaigner｜FermatMind",
+      description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
       url: "http://localhost:3000/zh/share/share-123",
+      images: ["http://localhost:3000/og/share/share-123"],
     });
     expect(metadata.twitter).toMatchObject({
-      title: "ENFP-T · Campaigner｜MBTI 分享摘要",
-      description: "Warm, imaginative, and emotionally alert",
+      title: "ENFP-T · Campaigner｜FermatMind",
+      description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
+      images: ["http://localhost:3000/og/share/share-123"],
     });
+  });
+
+  it("falls back from summary to subtitle to tagline and uses share title when type_name is missing", async () => {
+    hoisted.getShareSummary.mockResolvedValueOnce({
+      ...createShareFixture(),
+      type_name: "",
+      title: "Explorer Snapshot",
+      summary: "",
+      subtitle: "Subtitle fallback copy",
+      tagline: "Tagline fallback copy",
+    });
+
+    const subtitleMetadata = await generateMetadata({
+      params: Promise.resolve({
+        locale: "en",
+        id: "share-123",
+      }),
+    });
+
+    expect(subtitleMetadata.title).toBe("Explorer Snapshot｜FermatMind");
+    expect(subtitleMetadata.description).toBe("Subtitle fallback copy");
+
+    hoisted.getShareSummary.mockResolvedValueOnce({
+      ...createShareFixture(),
+      summary: "",
+      subtitle: "",
+      tagline: "Tagline fallback copy",
+    });
+
+    const taglineMetadata = await generateMetadata({
+      params: Promise.resolve({
+        locale: "en",
+        id: "share-123",
+      }),
+    });
+
+    expect(taglineMetadata.description).toBe("Tagline fallback copy");
   });
 });

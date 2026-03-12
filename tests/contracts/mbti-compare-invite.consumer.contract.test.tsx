@@ -1,6 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import CompareClient from "@/app/(localized)/[locale]/compare/mbti/[inviteId]/CompareClient";
+import { generateMetadata } from "@/app/(localized)/[locale]/compare/mbti/[inviteId]/page";
 import type { MbtiCompareInviteResponse, ShareSummaryResponse } from "@/lib/api/v0_3";
 
 const hoisted = vi.hoisted(() => ({
@@ -180,5 +181,85 @@ describe("MBTI compare invite consumer contract", () => {
     expect(screen.getByTestId("mbti-compare-status-badge")).toHaveTextContent("Purchased");
     expect(screen.getByTestId("mbti-compare-invitee-card")).toHaveTextContent("Advocate");
     expect(screen.getByTestId("mbti-compare-summary-card")).toHaveTextContent("Shared chemistry and friction points");
+  });
+
+  it("builds pending metadata from the inviter summary contract and keeps the page noindexed", async () => {
+    hoisted.getMbtiCompareInvite.mockResolvedValueOnce(createPendingFixture());
+
+    const metadata = await generateMetadata({
+      params: Promise.resolve({
+        locale: "zh",
+        inviteId: "invite-123",
+      }),
+    });
+
+    expect(hoisted.getMbtiCompareInvite).toHaveBeenCalledWith({
+      inviteId: "invite-123",
+      locale: "zh",
+      cache: "no-store",
+    });
+    expect(metadata.title).toBe("ENFP-T 邀请你来测 MBTI 并对比｜FermatMind");
+    expect(metadata.description).toBe("Campaigner public summary");
+    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/zh/compare/mbti/invite-123");
+    expect(metadata.robots).toMatchObject({
+      index: false,
+      follow: false,
+      noarchive: true,
+      nocache: true,
+    });
+    expect(metadata.openGraph).toMatchObject({
+      title: "ENFP-T 邀请你来测 MBTI 并对比｜FermatMind",
+      description: "Campaigner public summary",
+      url: "http://localhost:3000/zh/compare/mbti/invite-123",
+      images: ["http://localhost:3000/og/compare/mbti/invite-123"],
+    });
+    expect(metadata.twitter).toMatchObject({
+      title: "ENFP-T 邀请你来测 MBTI 并对比｜FermatMind",
+      description: "Campaigner public summary",
+      images: ["http://localhost:3000/og/compare/mbti/invite-123"],
+    });
+  });
+
+  it("builds ready metadata from the compare summary contract", async () => {
+    hoisted.getMbtiCompareInvite.mockResolvedValueOnce(createReadyFixture("ready"));
+
+    const metadata = await generateMetadata({
+      params: Promise.resolve({
+        locale: "en",
+        inviteId: "invite-123",
+      }),
+    });
+
+    expect(metadata.title).toBe("ENFP-T × INFJ-A MBTI 对比｜FermatMind");
+    expect(metadata.description).toBe(
+      "Both profiles align on idealism, but differ on how quickly they externalize judgment."
+    );
+    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/en/compare/mbti/invite-123");
+    expect(metadata.openGraph).toMatchObject({
+      images: ["http://localhost:3000/og/compare/mbti/invite-123"],
+    });
+    expect(metadata.twitter).toMatchObject({
+      images: ["http://localhost:3000/og/compare/mbti/invite-123"],
+    });
+  });
+
+  it("falls back to the generic invite metadata when the contract fetch fails", async () => {
+    hoisted.getMbtiCompareInvite.mockRejectedValueOnce(new Error("Compare invite not available."));
+
+    const metadata = await generateMetadata({
+      params: Promise.resolve({
+        locale: "en",
+        inviteId: "invite-404",
+      }),
+    });
+
+    expect(metadata.title).toBe("MBTI 对比邀请｜FermatMind");
+    expect(metadata.description).toBe("查看 MBTI 对比邀请");
+    expect(metadata.openGraph).toMatchObject({
+      images: ["http://localhost:3000/og/compare/mbti/invite-404"],
+    });
+    expect(metadata.twitter).toMatchObject({
+      images: ["http://localhost:3000/og/compare/mbti/invite-404"],
+    });
   });
 });
