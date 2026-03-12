@@ -442,14 +442,7 @@ export type OrderStatusResponse = {
   amount?: number | string;
   amount_cents?: number;
   currency?: string;
-  delivery?: {
-    can_view_report?: boolean;
-    report_url?: string | null;
-    can_download_pdf?: boolean;
-    report_pdf_url?: string | null;
-    can_resend?: boolean;
-    [key: string]: unknown;
-  } | null;
+  delivery?: OrderDeliveryState | null;
   [key: string]: unknown;
 };
 
@@ -565,13 +558,38 @@ export type MbtiCompareInviteResponse = {
   [key: string]: unknown;
 };
 
+export type OrderDeliveryState = {
+  contact_email_present?: boolean;
+  last_delivery_email_sent_at?: string | null;
+  can_request_claim_email?: boolean;
+  can_view_report?: boolean;
+  report_url?: string | null;
+  can_download_pdf?: boolean;
+  report_pdf_url?: string | null;
+  can_resend?: boolean;
+  [key: string]: unknown;
+};
+
 export type OrderLookupResponse = {
   ok?: boolean;
   order_no?: string;
+  delivery?: OrderDeliveryState | null;
   [key: string]: unknown;
 };
 
 export type OrderResendResponse = {
+  ok?: boolean;
+  message?: string;
+  [key: string]: unknown;
+};
+
+export type EmailCaptureResponse = {
+  ok?: boolean;
+  message?: string;
+  [key: string]: unknown;
+};
+
+export type ClaimReportEmailResponse = {
   ok?: boolean;
   message?: string;
   [key: string]: unknown;
@@ -1694,6 +1712,112 @@ export async function lookupOrder({
   });
 
   return assertApiOk(response, "Unable to find that order.");
+}
+
+export async function captureEmailContact({
+  email,
+  locale,
+  surface,
+  order_no,
+  attempt_id,
+  share_id,
+  compare_invite_id,
+  entrypoint,
+  referrer,
+  landing_path,
+  utm,
+  marketing_consent,
+}: {
+  email: string;
+  locale: string;
+  surface: string;
+  order_no?: string;
+  attempt_id?: string;
+  share_id?: string;
+  compare_invite_id?: string;
+  entrypoint?: string;
+  referrer?: string;
+  landing_path?: string;
+  utm?: AttributionUtm;
+  marketing_consent?: boolean;
+}): Promise<EmailCaptureResponse> {
+  const normalizedUtm = normalizeAttributionUtm(utm);
+  const normalizedOrderNo = normalizeOptionalString(order_no);
+  const normalizedAttemptId = normalizeOptionalString(attempt_id);
+  const normalizedShareId = normalizeOptionalString(share_id);
+  const normalizedCompareInviteId = normalizeOptionalString(compare_invite_id);
+  const normalizedEntrypoint = normalizeOptionalString(entrypoint);
+  const normalizedReferrer = normalizeOptionalString(referrer);
+  const normalizedLandingPath = normalizeOptionalString(landing_path);
+  const response = await apiClient.post<EmailCaptureResponse>(
+    "/v0.3/email/capture",
+    {
+      email,
+      locale,
+      surface,
+      ...(normalizedOrderNo ? { order_no: normalizedOrderNo } : {}),
+      ...(normalizedAttemptId ? { attempt_id: normalizedAttemptId } : {}),
+      ...(normalizedShareId ? { share_id: normalizedShareId } : {}),
+      ...(normalizedCompareInviteId ? { compare_invite_id: normalizedCompareInviteId } : {}),
+      ...(normalizedEntrypoint ? { entrypoint: normalizedEntrypoint } : {}),
+      ...(normalizedReferrer ? { referrer: normalizedReferrer } : {}),
+      ...(normalizedLandingPath ? { landing_path: normalizedLandingPath } : {}),
+      ...(normalizedUtm ? { utm: normalizedUtm } : {}),
+      ...(typeof marketing_consent === "boolean" ? { marketing_consent } : {}),
+    },
+    { locale }
+  );
+
+  return assertApiOk(response, "Unable to capture that email contact.");
+}
+
+export async function requestClaimReportEmail({
+  order_no,
+  email,
+  locale,
+  surface,
+  entrypoint,
+  referrer,
+  landing_path,
+  utm,
+  share_id,
+  compare_invite_id,
+}: {
+  order_no: string;
+  email: string;
+  locale: string;
+  surface: string;
+  entrypoint?: string;
+  referrer?: string;
+  landing_path?: string;
+  utm?: AttributionUtm;
+  share_id?: string;
+  compare_invite_id?: string;
+}): Promise<ClaimReportEmailResponse> {
+  const normalizedUtm = normalizeAttributionUtm(utm);
+  const normalizedEntrypoint = normalizeOptionalString(entrypoint);
+  const normalizedReferrer = normalizeOptionalString(referrer);
+  const normalizedLandingPath = normalizeOptionalString(landing_path);
+  const normalizedShareId = normalizeOptionalString(share_id);
+  const normalizedCompareInviteId = normalizeOptionalString(compare_invite_id);
+  const response = await apiClient.post<ClaimReportEmailResponse>(
+    "/v0.3/claim/report",
+    {
+      order_no,
+      email,
+      locale,
+      surface,
+      ...(normalizedEntrypoint ? { entrypoint: normalizedEntrypoint } : {}),
+      ...(normalizedReferrer ? { referrer: normalizedReferrer } : {}),
+      ...(normalizedLandingPath ? { landing_path: normalizedLandingPath } : {}),
+      ...(normalizedUtm ? { utm: normalizedUtm } : {}),
+      ...(normalizedShareId ? { share_id: normalizedShareId } : {}),
+      ...(normalizedCompareInviteId ? { compare_invite_id: normalizedCompareInviteId } : {}),
+    },
+    { locale }
+  );
+
+  return assertApiOk(response, "Unable to request a report recovery email.");
 }
 
 export async function resendOrderDelivery({
