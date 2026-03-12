@@ -35,8 +35,6 @@ describe("sitemap indexability contract", () => {
     const disallowedPrefixes = [
       "/en/history",
       "/zh/history",
-      "/en/topics",
-      "/zh/topics",
       "/en/result",
       "/zh/result",
       "/en/orders",
@@ -49,10 +47,13 @@ describe("sitemap indexability contract", () => {
       "/zh/payment",
       "/en/pay",
       "/zh/pay",
+      "/en/personality",
+      "/zh/personality",
       "/en/professions",
       "/zh/professions",
       "/en/types",
       "/zh/types",
+      "/robots.txt",
     ];
 
     expect(urls.length).toBeGreaterThan(0);

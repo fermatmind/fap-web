@@ -223,4 +223,71 @@ describe("personality cms adapter contract", () => {
     ).toBe("http://localhost:3000/en/personality/intj");
     expect((normalized.jsonld as Record<string, unknown>)["@type"]).toBe("AboutPage");
   });
+
+  it("falls back to cms profile fields without reviving local personality content", () => {
+    const normalized = normalizePersonalitySeoPayload(
+      null,
+      {
+        ...BASE_PROFILE,
+        locale: "zh-CN",
+        title: "INTJ 建筑师",
+        subtitle: "独立、战略、面向未来。",
+        excerpt: "INTJ 倾向于重视系统、能力和长期规划。",
+      },
+      "zh"
+    );
+
+    expect(normalized.meta.title).toBe("INTJ 建筑师");
+    expect(normalized.meta.description).toBe("INTJ 倾向于重视系统、能力和长期规划。");
+    expect(normalized.meta.canonical).toBe("http://localhost:3000/zh/personality/intj");
+    expect(normalized.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalized.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(
+      (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/zh/personality/intj");
+    expect((normalized.jsonld as Record<string, unknown>)["@type"]).toBe("AboutPage");
+  });
+
+  it("converts stale person-shaped jsonld into an about page with locale-aware mainEntityOfPage", () => {
+    const normalized = normalizePersonalitySeoPayload(
+      {
+        meta: {
+          title: "INTJ Personality Guide",
+          description: "Discover INTJ traits.",
+          canonical: "https://staging.fermatmind.com/en/personality/intj",
+          alternates: {
+            en: "https://staging.fermatmind.com/en/personality/intj",
+            "zh-CN": "https://staging.fermatmind.com/zh/personality/intj",
+          },
+          og: {
+            title: "INTJ Personality Guide",
+            description: "Discover INTJ traits.",
+            image: null,
+            type: "article",
+          },
+          twitter: {
+            card: "summary_large_image",
+            title: "INTJ Personality Guide",
+            description: "Discover INTJ traits.",
+            image: null,
+          },
+          robots: "index,follow",
+        },
+        jsonld: {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "@id": "https://staging.fermatmind.com/en/personality/intj#person",
+          url: "https://staging.fermatmind.com/en/personality/intj",
+          mainEntityOfPage: "https://staging.fermatmind.com/en/personality/intj",
+        },
+      },
+      BASE_PROFILE,
+      "en"
+    );
+
+    expect((normalized.jsonld as Record<string, unknown>)["@type"]).toBe("AboutPage");
+    expect(
+      (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/en/personality/intj");
+  });
 });
