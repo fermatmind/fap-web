@@ -1,17 +1,35 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ShareClient from "@/app/(localized)/[locale]/share/[id]/ShareClient";
 import { generateMetadata } from "@/app/(localized)/[locale]/share/[id]/page";
 import type { ShareSummaryResponse } from "@/lib/api/v0_3";
 
+function deferred<T>() {
+  let resolve!: (value: T) => void;
+  let reject!: (reason?: unknown) => void;
+  const promise = new Promise<T>((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });
+
+  return { promise, resolve, reject };
+}
+
 const hoisted = vi.hoisted(() => ({
+  pathname: "/en/share/share-123",
+  search: "utm_source=wechat&utm_medium=organic&utm_campaign=spring",
+  routerPush: vi.fn(),
   getShareSummary: vi.fn(),
   trackShareClick: vi.fn(),
+  createMbtiCompareInvite: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
-  usePathname: () => "/en/share/share-123",
-  useSearchParams: () => new URLSearchParams("utm_source=wechat&utm_campaign=spring"),
+  usePathname: () => hoisted.pathname,
+  useSearchParams: () => new URLSearchParams(hoisted.search),
+  useRouter: () => ({
+    push: hoisted.routerPush,
+  }),
 }));
 
 vi.mock("@/lib/anon", () => ({
@@ -25,47 +43,57 @@ vi.mock("@/lib/api/v0_3", async () => {
     ...actual,
     getShareSummary: hoisted.getShareSummary,
     trackShareClick: hoisted.trackShareClick,
+    createMbtiCompareInvite: hoisted.createMbtiCompareInvite,
   };
 });
 
 function createShareFixture(): ShareSummaryResponse {
   return {
     ok: true,
+    share_id: "share-123",
+    share_url: "https://example.com/en/share/share-123",
     id: "share-123",
+    scale_code: "MBTI",
+    locale: "en",
     type_code: "ENFP-T",
-    type_name: "竞选者型",
-    subtitle: "浪漫热情但易纠结的灵感派",
-    summary: "这是可公开展示的一段 MBTI 分享摘要，只保留轻量结论，不暴露付费章节。",
+    type_name: "Campaigner",
+    title: "Campaigner",
+    subtitle: "Warm, imaginative, and emotionally alert",
+    summary: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
     rarity: {
-      label: "约 6–8%",
+      label: "Around 6-8%",
     },
-    public_tags: ["热情", "高敏感", "理想主义"],
-    tags: ["type:ENFP-T", "热情"],
+    primary_cta_label: "Start MBTI test",
+    primary_cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
+    compare_enabled: true,
+    compare_cta_label: "Invite a friend to compare",
+    public_tags: ["Warm", "Idealistic", "Sensitive"],
+    tags: ["type:ENFP-T", "Warm", "axis:EI", "role:explorer"],
     dimensions: [
       {
         code: "EI",
         label: "E / I",
-        percent: 62,
+        pct: 62,
       },
       {
-        code: "TF",
-        label: "T / F",
-        score: 0.74,
+        code: "SN",
+        label: "S / N",
+        percent: 74,
       },
     ],
     offers: [
       {
-        title: "完整人格报告",
+        title: "Unlock full report",
       },
     ],
     recommended_reads: [
       {
-        title: "只对付费用户开放的阅读",
+        title: "Paid-only reading",
       },
     ],
     paid_sections: [
       {
-        title: "职业路径完整章节",
+        title: "Career chapter",
       },
     ],
   };
@@ -76,15 +104,33 @@ describe("MBTI share consumer contract", () => {
     vi.clearAllMocks();
     window.localStorage.clear();
     window.sessionStorage.clear();
+    hoisted.pathname = "/en/share/share-123";
+    hoisted.search = "utm_source=wechat&utm_medium=organic&utm_campaign=spring";
     Object.defineProperty(document, "referrer", {
       configurable: true,
       value: "https://example.com/en/result/attempt-123",
     });
+
     hoisted.getShareSummary.mockResolvedValue(createShareFixture());
-    hoisted.trackShareClick.mockResolvedValue({ ok: true });
+    hoisted.trackShareClick.mockResolvedValue({
+      ok: true,
+      id: "click-123",
+      share_id: "share-123",
+      recorded_at: "2026-03-12T00:00:00.000Z",
+    });
+    hoisted.createMbtiCompareInvite.mockResolvedValue({
+      ok: true,
+      invite_id: "invite-456",
+      share_id: "share-123",
+      scale_code: "MBTI",
+      locale: "en",
+      status: "pending",
+      take_path: "/en/tests/mbti-personality-test-16-personality-types/take",
+      compare_path: "/en/compare/mbti/invite-456",
+    });
   });
 
-  it("renders the lightweight public summary, tracks share click once, and does not leak paid content", async () => {
+  it("renders the lightweight public summary, consumes dimensions.pct, and keeps paid content hidden", async () => {
     render(<ShareClient locale="en" shareId="share-123" />);
 
     await waitFor(() => {
@@ -92,23 +138,33 @@ describe("MBTI share consumer contract", () => {
     });
 
     expect(screen.getByRole("heading", { name: "ENFP-T" })).toBeInTheDocument();
-    expect(screen.getByText("竞选者型")).toBeInTheDocument();
-    expect(screen.getByText("浪漫热情但易纠结的灵感派")).toBeInTheDocument();
-    expect(screen.getByText("这是可公开展示的一段 MBTI 分享摘要，只保留轻量结论，不暴露付费章节。")).toBeInTheDocument();
-    expect(screen.getByText("约 6–8%")).toBeInTheDocument();
-    expect(screen.getByText("热情")).toBeInTheDocument();
-    expect(screen.getByText("高敏感")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-share-dimension-bars")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Start MBTI test" })).toHaveAttribute(
-      "href",
-      "/en/tests/mbti-personality-test-16-personality-types/take"
-    );
-    expect(screen.getByRole("link", { name: "Browse all tests" })).toHaveAttribute("href", "/en/tests");
+    expect(screen.getByText("Campaigner")).toBeInTheDocument();
+    expect(screen.getByText("Warm, imaginative, and emotionally alert")).toBeInTheDocument();
+    expect(screen.getByText("This public MBTI share page keeps only the lightweight result summary and never exposes paid content.")).toBeInTheDocument();
+    expect(screen.getByText("Around 6-8%")).toBeInTheDocument();
+    expect(screen.getByText("Warm", { exact: true })).toBeInTheDocument();
+    expect(screen.getByText("62%")).toBeInTheDocument();
+    expect(screen.getByText("74%")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Invite a friend to compare" })).toBeInTheDocument();
 
-    expect(screen.queryByText("完整人格报告")).not.toBeInTheDocument();
-    expect(screen.queryByText("只对付费用户开放的阅读")).not.toBeInTheDocument();
-    expect(screen.queryByText("职业路径完整章节")).not.toBeInTheDocument();
+    expect(screen.queryByText("Unlock full report")).not.toBeInTheDocument();
+    expect(screen.queryByText("Paid-only reading")).not.toBeInTheDocument();
+    expect(screen.queryByText("Career chapter")).not.toBeInTheDocument();
     expect(screen.queryByText("type:ENFP-T")).not.toBeInTheDocument();
+    expect(screen.queryByText("axis:EI")).not.toBeInTheDocument();
+    expect(screen.queryByText("role:explorer")).not.toBeInTheDocument();
+  });
+
+  it("sends normalized share-click meta.utm and writes dedupe only after click success", async () => {
+    const pendingClick = deferred<{
+      ok: boolean;
+      id: string;
+      share_id: string;
+      recorded_at: string;
+    }>();
+    hoisted.trackShareClick.mockReturnValueOnce(pendingClick.promise);
+
+    render(<ShareClient locale="en" shareId="share-123" />);
 
     await waitFor(() => {
       expect(hoisted.trackShareClick).toHaveBeenCalledTimes(1);
@@ -120,14 +176,74 @@ describe("MBTI share consumer contract", () => {
       locale: "en",
       meta: {
         entrypoint: "share_page",
-        landing_path: "/en/share/share-123?utm_source=wechat&utm_campaign=spring",
+        landing_path: "/en/share/share-123?utm_source=wechat&utm_medium=organic&utm_campaign=spring",
         referrer: "https://example.com/en/result/attempt-123",
         utm: {
-          utm_source: "wechat",
-          utm_campaign: "spring",
+          source: "wechat",
+          medium: "organic",
+          campaign: "spring",
+          term: null,
+          content: null,
         },
         compare_intent: false,
       },
+    });
+
+    const dedupeKey = "fm_share_click_v1:share-123:/en/share/share-123?utm_source=wechat&utm_medium=organic&utm_campaign=spring";
+    expect(window.sessionStorage.getItem(dedupeKey)).toBeNull();
+
+    pendingClick.resolve({
+      ok: true,
+      id: "click-123",
+      share_id: "share-123",
+      recorded_at: "2026-03-12T00:00:00.000Z",
+    });
+
+    await waitFor(() => {
+      expect(window.sessionStorage.getItem(dedupeKey)).toBe("click-123");
+    });
+
+    await waitFor(() => {
+      expect(screen.getByRole("link", { name: "Start MBTI test" })).toHaveAttribute(
+        "href",
+        "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&share_click_id=click-123&entrypoint=share_page&landing_path=%2Fen%2Fshare%2Fshare-123%3Futm_source%3Dwechat%26utm_medium%3Dorganic%26utm_campaign%3Dspring&referrer=https%3A%2F%2Fexample.com%2Fen%2Fresult%2Fattempt-123&utm_source=wechat&utm_medium=organic&utm_campaign=spring"
+      );
+    });
+  });
+
+  it("creates compare invite from the share page and routes into the take flow with full attribution query", async () => {
+    render(<ShareClient locale="en" shareId="share-123" />);
+
+    await waitFor(() => {
+      expect(screen.getByRole("button", { name: "Invite a friend to compare" })).toBeEnabled();
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: "Invite a friend to compare" }));
+
+    await waitFor(() => {
+      expect(hoisted.createMbtiCompareInvite).toHaveBeenCalledWith({
+        shareId: "share-123",
+        anonId: "anon_share_test",
+        locale: "en",
+        entrypoint: "share_page",
+        referrer: "https://example.com/en/result/attempt-123",
+        landingPath: "/en/share/share-123?utm_source=wechat&utm_medium=organic&utm_campaign=spring",
+        compareIntent: true,
+        shareClickId: "click-123",
+        utm: {
+          source: "wechat",
+          medium: "organic",
+          campaign: "spring",
+          term: null,
+          content: null,
+        },
+      });
+    });
+
+    await waitFor(() => {
+      expect(hoisted.routerPush).toHaveBeenCalledWith(
+        "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&compare_invite_id=invite-456&share_click_id=click-123&entrypoint=share_compare_invite&landing_path=%2Fen%2Fshare%2Fshare-123%3Futm_source%3Dwechat%26utm_medium%3Dorganic%26utm_campaign%3Dspring&referrer=https%3A%2F%2Fexample.com%2Fen%2Fresult%2Fattempt-123&compare_intent=true&utm_source=wechat&utm_medium=organic&utm_campaign=spring"
+      );
     });
   });
 
@@ -144,8 +260,8 @@ describe("MBTI share consumer contract", () => {
       locale: "zh",
       cache: "no-store",
     });
-    expect(metadata.title).toBe("ENFP-T · 竞选者型｜MBTI 分享摘要");
-    expect(metadata.description).toBe("浪漫热情但易纠结的灵感派");
+    expect(metadata.title).toBe("ENFP-T · Campaigner｜MBTI 分享摘要");
+    expect(metadata.description).toBe("Warm, imaginative, and emotionally alert");
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: false,
@@ -153,13 +269,13 @@ describe("MBTI share consumer contract", () => {
       nocache: true,
     });
     expect(metadata.openGraph).toMatchObject({
-      title: "ENFP-T · 竞选者型｜MBTI 分享摘要",
-      description: "浪漫热情但易纠结的灵感派",
+      title: "ENFP-T · Campaigner｜MBTI 分享摘要",
+      description: "Warm, imaginative, and emotionally alert",
       url: "http://localhost:3000/zh/share/share-123",
     });
     expect(metadata.twitter).toMatchObject({
-      title: "ENFP-T · 竞选者型｜MBTI 分享摘要",
-      description: "浪漫热情但易纠结的灵感派",
+      title: "ENFP-T · Campaigner｜MBTI 分享摘要",
+      description: "Warm, imaginative, and emotionally alert",
     });
   });
 });

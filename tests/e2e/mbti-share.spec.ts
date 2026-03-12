@@ -5,13 +5,20 @@ function createMbtiReportFixture() {
   return structuredClone(reportReadyMbtiFreeFixture) as Record<string, unknown>;
 }
 
-test("MBTI result share flow uses /share/{id}, renders the lightweight public summary, and tracks share click", async ({ page }) => {
+test("MBTI result share flow uses /share/{id} and compare CTA routes into take flow with attribution query", async ({ page }) => {
   const attemptId = "mbti-share-attempt-001";
   const shareId = "share-mbti-001";
+  const shareClickId = "share-click-001";
+  const compareInviteId = "invite-mbti-001";
+  const takePath = "/en/tests/mbti-personality-test-16-personality-types/take";
   const shareUrl = `http://127.0.0.1:3000/en/share/${shareId}`;
   const shareSummary = {
     ok: true,
+    share_id: shareId,
+    share_url: shareUrl,
     id: shareId,
+    scale_code: "MBTI",
+    locale: "en",
     type_code: "ENFP-T",
     type_name: "Campaigner",
     subtitle: "Warm, imaginative, and emotionally alert",
@@ -19,10 +26,14 @@ test("MBTI result share flow uses /share/{id}, renders the lightweight public su
     rarity: {
       label: "Around 6-8%",
     },
+    primary_cta_label: "Start MBTI test",
+    primary_cta_path: takePath,
+    compare_enabled: true,
+    compare_cta_label: "Invite a friend to compare",
     public_tags: ["Warm", "Idealistic", "Sensitive"],
     tags: ["type:ENFP-T", "Warm"],
     dimensions: [
-      { code: "EI", label: "E / I", percent: 61 },
+      { code: "EI", label: "E / I", pct: 61 },
       { code: "SN", label: "S / N", percent: 74 },
     ],
     offers: [
@@ -37,9 +48,17 @@ test("MBTI result share flow uses /share/{id}, renders the lightweight public su
     ],
   };
   const shareClickBodies: Array<Record<string, unknown>> = [];
+  const compareInviteBodies: Array<Record<string, unknown>> = [];
 
   await page.addInitScript(() => {
     window.localStorage.setItem("fap_anonymous_id_v1", "anon_e2e_share_001");
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({
+        analytics: "granted",
+        updatedAt: "2026-03-11T00:00:00.000Z",
+      })
+    );
     Object.defineProperty(window.navigator, "share", {
       configurable: true,
       value: undefined,
@@ -51,6 +70,63 @@ test("MBTI result share flow uses /share/{id}, renders the lightweight public su
           (window as typeof window & { __copiedShareUrl?: string }).__copiedShareUrl = value;
         },
       },
+    });
+  });
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_share_guest_token_001",
+      }),
+    });
+  });
+
+  await page.route("**/api/v0.3/scales/MBTI/questions*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        scale_code: "MBTI",
+        questions: {
+          items: [
+            {
+              question_id: "q1",
+              order: 1,
+              text: "Question 1",
+              options: [
+                { code: "A", text: "Option A" },
+                { code: "B", text: "Option B" },
+                { code: "C", text: "Option C" },
+                { code: "D", text: "Option D" },
+              ],
+            },
+          ],
+        },
+      }),
+    });
+  });
+
+  await page.route("**/api/v0.3/attempts/start", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: "attempt-start-share-001",
+        scale_code: "MBTI",
+      }),
     });
   });
 
@@ -83,12 +159,34 @@ test("MBTI result share flow uses /share/{id}, renders the lightweight public su
   });
 
   await page.route(`**/api/v0.3/shares/${shareId}/click`, async (route) => {
-    const body = route.request().postDataJSON() as Record<string, unknown>;
-    shareClickBodies.push(body);
+    shareClickBodies.push(route.request().postDataJSON() as Record<string, unknown>);
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({ ok: true }),
+      body: JSON.stringify({
+        ok: true,
+        id: shareClickId,
+        share_id: shareId,
+        recorded_at: "2026-03-12T00:00:00.000Z",
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/shares/${shareId}/compare-invites`, async (route) => {
+    compareInviteBodies.push(route.request().postDataJSON() as Record<string, unknown>);
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        invite_id: compareInviteId,
+        share_id: shareId,
+        scale_code: "MBTI",
+        locale: "en",
+        status: "pending",
+        take_path: takePath,
+        compare_path: `/en/compare/mbti/${compareInviteId}`,
+      }),
     });
   });
 
@@ -102,16 +200,12 @@ test("MBTI result share flow uses /share/{id}, renders the lightweight public su
     .toBe(shareUrl);
   await expect(page.getByText("Result link copied.")).toBeVisible();
 
-  await page.goto(`${shareUrl}?utm_source=wechat&utm_campaign=mbti`, {
+  await page.goto(`${shareUrl}?utm_source=wechat&utm_medium=organic&utm_campaign=mbti`, {
     referer: `http://127.0.0.1:3000/en/result/${attemptId}`,
   });
   await expect(page.getByTestId("mbti-share-summary-card")).toBeVisible();
   await expect(page.getByRole("heading", { name: "ENFP-T" })).toBeVisible();
-  await expect(page.getByText("Campaigner")).toBeVisible();
-  await expect(page.getByText("Warm, imaginative, and emotionally alert")).toBeVisible();
-  await expect(page.getByText("Around 6-8%")).toBeVisible();
-  await expect(page.getByText("Warm", { exact: true })).toBeVisible();
-  await expect(page.getByTestId("mbti-share-dimension-bars")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Invite a friend to compare" })).toBeVisible();
   await expect(page.getByText("Unlock full report")).toHaveCount(0);
   await expect(page.getByText("Paid-only reading")).toHaveCount(0);
   await expect(page.getByText("type:ENFP-T")).toHaveCount(0);
@@ -121,13 +215,52 @@ test("MBTI result share flow uses /share/{id}, renders the lightweight public su
     anon_id: "anon_e2e_share_001",
     meta: {
       entrypoint: "share_page",
-      landing_path: `/en/share/${shareId}?utm_source=wechat&utm_campaign=mbti`,
+      landing_path: `/en/share/${shareId}?utm_source=wechat&utm_medium=organic&utm_campaign=mbti`,
       compare_intent: false,
       utm: {
-        utm_source: "wechat",
-        utm_campaign: "mbti",
+        source: "wechat",
+        medium: "organic",
+        campaign: "mbti",
+        term: null,
+        content: null,
       },
     },
   });
   expect(String((shareClickBodies[0].meta as Record<string, unknown>).referrer ?? "")).toContain(`/en/result/${attemptId}`);
+
+  await page.getByRole("button", { name: "Invite a friend to compare" }).click();
+
+  await expect.poll(() => compareInviteBodies.length).toBe(1);
+  expect(compareInviteBodies[0]).toMatchObject({
+    anon_id: "anon_e2e_share_001",
+    entrypoint: "share_page",
+    landing_path: `/en/share/${shareId}?utm_source=wechat&utm_medium=organic&utm_campaign=mbti`,
+    compare_intent: true,
+    utm: {
+      source: "wechat",
+      medium: "organic",
+      campaign: "mbti",
+      term: null,
+      content: null,
+    },
+    meta: {
+      share_click_id: shareClickId,
+    },
+  });
+  expect(String(compareInviteBodies[0].referrer ?? "")).toContain(`/en/result/${attemptId}`);
+
+  await expect(page).toHaveURL(
+    new RegExp(`/en/tests/mbti-personality-test-16-personality-types/take\\?(.+&)?share_id=${shareId}(&|$)`)
+  );
+
+  const targetUrl = new URL(page.url());
+  expect(targetUrl.pathname).toBe(takePath);
+  expect(targetUrl.searchParams.get("share_id")).toBe(shareId);
+  expect(targetUrl.searchParams.get("compare_invite_id")).toBe(compareInviteId);
+  expect(targetUrl.searchParams.get("share_click_id")).toBe(shareClickId);
+  expect(targetUrl.searchParams.get("entrypoint")).toBe("share_compare_invite");
+  expect(targetUrl.searchParams.get("compare_intent")).toBe("true");
+  expect(targetUrl.searchParams.get("utm_source")).toBe("wechat");
+  expect(targetUrl.searchParams.get("utm_medium")).toBe("organic");
+  expect(targetUrl.searchParams.get("utm_campaign")).toBe("mbti");
 });

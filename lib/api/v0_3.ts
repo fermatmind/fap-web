@@ -457,13 +457,23 @@ export type ShareSummaryResponse = {
   ok?: boolean;
   share_id?: string;
   share_url?: string;
+  attempt_id?: string;
+  created_at?: string;
+  org_id?: string;
+  content_package_version?: string;
   id?: string;
+  scale_code?: string;
+  locale?: string;
   type_code?: string;
   type_name?: string;
   title?: string;
   subtitle?: string;
   tagline?: string;
   summary?: string;
+  primary_cta_label?: string;
+  primary_cta_path?: string;
+  compare_enabled?: boolean;
+  compare_cta_label?: string;
   typeCode?: string;
   typeName?: string;
   rarity?: string | number | Record<string, unknown> | null;
@@ -492,9 +502,66 @@ export type AttemptShareResponse = {
   [key: string]: unknown;
 };
 
+export type AttributionUtm = {
+  source?: string | null;
+  medium?: string | null;
+  campaign?: string | null;
+  term?: string | null;
+  content?: string | null;
+};
+
+export type AttemptAttributionPayload = {
+  share_id?: string;
+  compare_invite_id?: string;
+  share_click_id?: string;
+  entrypoint?: string;
+  referrer?: string;
+  landing_path?: string;
+  utm?: AttributionUtm;
+};
+
+export type ShareClickMeta = {
+  entrypoint?: string;
+  landing_path?: string;
+  referrer?: string;
+  compare_intent?: boolean;
+  utm?: AttributionUtm;
+};
+
 export type ShareClickResponse = {
   ok?: boolean;
+  id?: string;
+  share_id?: string;
+  recorded_at?: string;
   message?: string;
+  [key: string]: unknown;
+};
+
+export type MbtiCompareInviteCreateResponse = {
+  ok?: boolean;
+  invite_id?: string;
+  share_id?: string;
+  scale_code?: string;
+  locale?: string;
+  status?: string;
+  take_path?: string;
+  compare_path?: string;
+  inviter?: Record<string, unknown> | null;
+  [key: string]: unknown;
+};
+
+export type MbtiCompareInviteResponse = {
+  ok?: boolean;
+  invite_id?: string;
+  share_id?: string;
+  scale_code?: string;
+  locale?: string;
+  status?: "pending" | "ready" | "purchased" | string;
+  inviter?: Record<string, unknown> | null;
+  invitee?: Record<string, unknown> | null;
+  compare?: Record<string, unknown> | null;
+  primary_cta_label?: string;
+  primary_cta_path?: string;
   [key: string]: unknown;
 };
 
@@ -959,6 +1026,63 @@ function normalizeSubmitAnswers(answers: SubmitAnswer[]): SubmitAnswer[] {
   });
 }
 
+function normalizeOptionalString(value: string | null | undefined): string | undefined {
+  const normalized = value?.trim();
+  return normalized ? normalized : undefined;
+}
+
+function normalizeAttributionUtm(utm?: AttributionUtm): AttributionUtm | undefined {
+  if (!utm) {
+    return undefined;
+  }
+
+  const normalized = {
+    source: normalizeOptionalString(utm.source ?? undefined) ?? null,
+    medium: normalizeOptionalString(utm.medium ?? undefined) ?? null,
+    campaign: normalizeOptionalString(utm.campaign ?? undefined) ?? null,
+    term: normalizeOptionalString(utm.term ?? undefined) ?? null,
+    content: normalizeOptionalString(utm.content ?? undefined) ?? null,
+  };
+
+  return Object.values(normalized).some((value) => value !== null) ? normalized : undefined;
+}
+
+function normalizeAttemptAttributionPayload(
+  attribution?: AttemptAttributionPayload
+): AttemptAttributionPayload | undefined {
+  if (!attribution) {
+    return undefined;
+  }
+
+  const normalized = {
+    share_id: normalizeOptionalString(attribution.share_id),
+    compare_invite_id: normalizeOptionalString(attribution.compare_invite_id),
+    share_click_id: normalizeOptionalString(attribution.share_click_id),
+    entrypoint: normalizeOptionalString(attribution.entrypoint),
+    referrer: normalizeOptionalString(attribution.referrer),
+    landing_path: normalizeOptionalString(attribution.landing_path),
+    utm: normalizeAttributionUtm(attribution.utm),
+  };
+
+  return Object.values(normalized).some((value) => value !== undefined) ? normalized : undefined;
+}
+
+function normalizeShareClickMeta(meta?: ShareClickMeta): ShareClickMeta | undefined {
+  if (!meta) {
+    return undefined;
+  }
+
+  const normalized = {
+    entrypoint: normalizeOptionalString(meta.entrypoint),
+    landing_path: normalizeOptionalString(meta.landing_path),
+    referrer: normalizeOptionalString(meta.referrer),
+    compare_intent: typeof meta.compare_intent === "boolean" ? meta.compare_intent : undefined,
+    utm: normalizeAttributionUtm(meta.utm),
+  };
+
+  return Object.values(normalized).some((value) => value !== undefined) ? normalized : undefined;
+}
+
 export async function startAttempt({
   scaleCode,
   anonId,
@@ -970,6 +1094,12 @@ export async function startAttempt({
   clientVersion,
   channel,
   referrer,
+  share_id,
+  compare_invite_id,
+  share_click_id,
+  entrypoint,
+  landing_path,
+  utm,
 }: {
   scaleCode: string;
   anonId?: string;
@@ -985,8 +1115,23 @@ export async function startAttempt({
   clientVersion?: string;
   channel?: string;
   referrer?: string;
+  share_id?: string;
+  compare_invite_id?: string;
+  share_click_id?: string;
+  entrypoint?: string;
+  landing_path?: string;
+  utm?: AttributionUtm;
 }): Promise<StartAttemptResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
+  const attribution = normalizeAttemptAttributionPayload({
+    share_id,
+    compare_invite_id,
+    share_click_id,
+    entrypoint,
+    referrer,
+    landing_path,
+    utm,
+  });
   const response = await runWithScaleCodeCandidates(scaleCode, (resolvedScaleCode) =>
     apiClient.post<StartAttemptResponse>(
       "/v0.3/attempts/start",
@@ -1007,8 +1152,8 @@ export async function startAttempt({
         ...(clientPlatform ? { client_platform: clientPlatform } : {}),
         ...(clientVersion ? { client_version: clientVersion } : {}),
         ...(channel ? { channel } : {}),
-        ...(referrer ? { referrer } : {}),
         ...(meta ? { meta } : {}),
+        ...(attribution ?? {}),
       },
       anonHeader(resolvedAnonId)
     )
@@ -1069,6 +1214,13 @@ export async function submitAttempt({
   answers,
   durationMs,
   consent,
+  share_id,
+  compare_invite_id,
+  share_click_id,
+  entrypoint,
+  referrer,
+  landing_path,
+  utm,
 }: {
   attemptId: string;
   anonId?: string;
@@ -1079,8 +1231,24 @@ export async function submitAttempt({
     version: string;
     locale?: string;
   };
+  share_id?: string;
+  compare_invite_id?: string;
+  share_click_id?: string;
+  entrypoint?: string;
+  referrer?: string;
+  landing_path?: string;
+  utm?: AttributionUtm;
 }): Promise<SubmitResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
+  const attribution = normalizeAttemptAttributionPayload({
+    share_id,
+    compare_invite_id,
+    share_click_id,
+    entrypoint,
+    referrer,
+    landing_path,
+    utm,
+  });
   const response = await apiClient.post<SubmitResponse>(
     "/v0.3/attempts/submit",
     {
@@ -1096,6 +1264,7 @@ export async function submitAttempt({
             },
           }
         : {}),
+      ...(attribution ?? {}),
     },
     anonHeader(resolvedAnonId)
   );
@@ -1420,15 +1589,16 @@ export async function trackShareClick({
 }: {
   shareId: string;
   anonId?: string;
-  meta?: Record<string, unknown>;
+  meta?: ShareClickMeta;
   locale?: string;
 }): Promise<ShareClickResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
+  const normalizedMeta = normalizeShareClickMeta(meta);
   const response = await apiClient.post<ShareClickResponse>(
     `/v0.3/shares/${shareId}/click`,
     {
       ...(resolvedAnonId ? { anon_id: resolvedAnonId } : {}),
-      ...(meta ? { meta } : {}),
+      ...(normalizedMeta ? { meta: normalizedMeta } : {}),
     },
     {
       ...anonHeader(resolvedAnonId),
@@ -1437,6 +1607,78 @@ export async function trackShareClick({
   );
 
   return assertApiOk(response, "Unable to track share click.");
+}
+
+export async function createMbtiCompareInvite({
+  shareId,
+  anonId,
+  entrypoint,
+  referrer,
+  landingPath,
+  compareIntent,
+  shareClickId,
+  utm,
+  locale,
+}: {
+  shareId: string;
+  anonId?: string;
+  entrypoint?: string;
+  referrer?: string;
+  landingPath?: string;
+  compareIntent?: boolean;
+  shareClickId?: string;
+  utm?: AttributionUtm;
+  locale?: string;
+}): Promise<MbtiCompareInviteCreateResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const normalizedUtm = normalizeAttributionUtm(utm);
+  const response = await apiClient.post<MbtiCompareInviteCreateResponse>(
+    `/v0.3/shares/${shareId}/compare-invites`,
+    {
+      ...(resolvedAnonId ? { anon_id: resolvedAnonId } : {}),
+      ...(normalizeOptionalString(entrypoint) ? { entrypoint: normalizeOptionalString(entrypoint) } : {}),
+      ...(normalizeOptionalString(referrer) ? { referrer: normalizeOptionalString(referrer) } : {}),
+      ...(normalizeOptionalString(landingPath) ? { landing_path: normalizeOptionalString(landingPath) } : {}),
+      ...(typeof compareIntent === "boolean" ? { compare_intent: compareIntent } : {}),
+      ...(normalizedUtm ? { utm: normalizedUtm } : {}),
+      ...(normalizeOptionalString(shareClickId)
+        ? {
+            meta: {
+              share_click_id: normalizeOptionalString(shareClickId),
+            },
+          }
+        : {}),
+    },
+    {
+      ...anonHeader(resolvedAnonId),
+      ...(locale ? { locale } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Unable to create compare invite.");
+}
+
+export async function getMbtiCompareInvite({
+  inviteId,
+  anonId,
+  locale,
+  cache,
+}: {
+  inviteId: string;
+  anonId?: string;
+  locale?: string;
+  cache?: RequestCache;
+}): Promise<MbtiCompareInviteResponse> {
+  const response = await apiClient.get<MbtiCompareInviteResponse>(
+    `/v0.3/compare/mbti/${inviteId}`,
+    {
+      ...anonHeader(anonId),
+      ...(locale ? { locale } : {}),
+      ...(cache ? { cache } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Compare invite not available.");
 }
 
 export async function lookupOrder({
