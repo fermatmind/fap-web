@@ -56,6 +56,9 @@ describe("OrdersClient delivery contract", () => {
       status: "paid",
       attempt_id: "attempt-paid-1",
       delivery: {
+        contact_email_present: true,
+        last_delivery_email_sent_at: "2026-03-11T10:30:00Z",
+        can_request_claim_email: true,
         can_view_report: true,
         report_url: "/result/attempt-paid-1",
         can_download_pdf: true,
@@ -71,6 +74,12 @@ describe("OrdersClient delivery contract", () => {
     });
 
     expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-1");
+    expect(screen.getByTestId("order-delivery-contact-email")).toHaveTextContent("Purchase email on file");
+    expect(screen.getByTestId("order-delivery-last-email-sent")).toHaveTextContent("2026");
+    expect(screen.getByTestId("order-recover-with-email-link")).toHaveAttribute(
+      "href",
+      "/en/orders/lookup?orderNo=ord_delivery_1&mode=claim"
+    );
     expect(screen.getByTestId("order-view-report").closest("a")).toHaveAttribute("href", "/en/result/attempt-paid-1");
     expect(screen.getByTestId("order-download-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
@@ -106,6 +115,40 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByText("Delivery email sent again.")).toBeInTheDocument();
   });
 
+  it("shows missing purchase email state and exposes recovery entry without breaking other actions", async () => {
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_delivery_3",
+      status: "paid",
+      delivery: {
+        contact_email_present: false,
+        last_delivery_email_sent_at: "2026-03-10T08:00:00Z",
+        can_request_claim_email: true,
+        can_view_report: true,
+        report_url: "/result/attempt-paid-3",
+        can_download_pdf: false,
+        can_resend: true,
+      },
+    });
+
+    render(<OrdersClient orderNo="ord_delivery_3" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-delivery-actions")).toBeInTheDocument();
+    });
+
+    expect(hoisted.routerReplace).not.toHaveBeenCalled();
+    expect(screen.getByTestId("order-delivery-contact-email")).toHaveTextContent("No purchase email on file");
+    expect(screen.getByTestId("order-delivery-last-email-sent")).toHaveTextContent("2026");
+    expect(screen.getByTestId("order-view-report").closest("a")).toHaveAttribute("href", "/en/result/attempt-paid-3");
+    expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
+    expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
+    expect(screen.getByTestId("order-recover-with-email-link")).toHaveAttribute(
+      "href",
+      "/en/orders/lookup?orderNo=ord_delivery_3&mode=claim"
+    );
+  });
+
   it("hides download and resend when the delivery contract does not allow them", async () => {
     hoisted.getOrderStatus.mockResolvedValue({
       ok: true,
@@ -113,6 +156,8 @@ describe("OrdersClient delivery contract", () => {
       status: "paid",
       attempt_id: "attempt-paid-2",
       delivery: {
+        contact_email_present: true,
+        can_request_claim_email: false,
         can_view_report: true,
         report_url: "/result/attempt-paid-2",
         can_download_pdf: false,

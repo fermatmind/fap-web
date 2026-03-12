@@ -80,6 +80,27 @@ function resolveDeliveryReportHref({
   return null;
 }
 
+function formatDeliveryEmailTimestamp(value: string | null | undefined, locale: "en" | "zh"): string | null {
+  const normalized = normalizeQueryValue(value ?? null);
+  if (!normalized) {
+    return null;
+  }
+
+  const parsed = new Date(normalized);
+  if (Number.isNaN(parsed.getTime())) {
+    return normalized;
+  }
+
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "UTC",
+  }).format(parsed);
+}
+
 export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
@@ -385,10 +406,28 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
     () => normalizeActionHref(delivery?.report_pdf_url ?? null, withLocale),
     [delivery?.report_pdf_url, withLocale]
   );
+  const deliveryLastSentAt = useMemo(
+    () => formatDeliveryEmailTimestamp(delivery?.last_delivery_email_sent_at ?? null, locale),
+    [delivery?.last_delivery_email_sent_at, locale]
+  );
+  const claimRecoveryHref = useMemo(() => {
+    if (delivery?.can_request_claim_email !== true) {
+      return null;
+    }
+
+    const query = new URLSearchParams({
+      orderNo,
+      mode: "claim",
+    });
+    return withLocale(`/orders/lookup?${query.toString()}`);
+  }, [delivery?.can_request_claim_email, orderNo, withLocale]);
   const canViewReport = delivery ? delivery.can_view_report === true && Boolean(deliveryReportHref) : Boolean(deliveryReportHref);
   const canDownloadPdf = delivery?.can_download_pdf === true && Boolean(attemptId);
   const canResendDelivery = delivery?.can_resend === true;
-  const hasDeliveryActions = canViewReport || canDownloadPdf || canResendDelivery;
+  const canRequestClaimEmail = delivery?.can_request_claim_email === true && Boolean(claimRecoveryHref);
+  const hasDeliveryInfo =
+    typeof delivery?.contact_email_present === "boolean" || Boolean(deliveryLastSentAt);
+  const hasDeliveryActions = canViewReport || canDownloadPdf || canResendDelivery || canRequestClaimEmail;
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl items-center px-4 py-10">
@@ -466,6 +505,29 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
           {status === "paid" ? (
             <div className="space-y-3">
               <Alert className="border-emerald-200 bg-emerald-50 text-emerald-800">{dict.orders.reportReady}</Alert>
+              {hasDeliveryInfo ? (
+                <div
+                  data-testid="order-delivery-meta"
+                  className="space-y-2 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700"
+                >
+                  {typeof delivery?.contact_email_present === "boolean" ? (
+                    <p className="m-0" data-testid="order-delivery-contact-email">
+                      {delivery.contact_email_present
+                        ? locale === "zh"
+                          ? "已记录购买邮箱"
+                          : "Purchase email on file"
+                        : locale === "zh"
+                          ? "尚未记录购买邮箱"
+                          : "No purchase email on file"}
+                    </p>
+                  ) : null}
+                  {deliveryLastSentAt ? (
+                    <p className="m-0" data-testid="order-delivery-last-email-sent">
+                      {locale === "zh" ? "最近发送时间" : "Last delivery email"}: {deliveryLastSentAt}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
               {hasDeliveryActions ? (
                 <>
                   <div data-testid="order-delivery-actions" className="grid gap-2 sm:grid-cols-2">
@@ -508,6 +570,13 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
                             ? "重发交付邮件"
                             : "Resend delivery email"}
                       </Button>
+                    ) : null}
+                    {canRequestClaimEmail && claimRecoveryHref ? (
+                      <Link href={claimRecoveryHref} className="inline-flex w-full" data-testid="order-recover-with-email-link">
+                        <Button className="w-full" type="button" variant="outline">
+                          {locale === "zh" ? "用购买邮箱恢复报告" : "Recover with purchase email"}
+                        </Button>
+                      </Link>
                     ) : null}
                     <Link href={withLocale("/support")} className="inline-flex w-full">
                       <Button className="w-full" type="button" variant="secondary">

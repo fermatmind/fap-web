@@ -48,6 +48,19 @@ test("help home exposes all topic links in English", async ({ page }) => {
   }
 });
 
+test("help home keeps order lookup as the recovery-first quick action", async ({ page }) => {
+  await page.goto("/en/help");
+
+  await expect(page.getByRole("button", { name: "Order lookup" })).toBeVisible();
+  await expect(
+    page.getByText("Start with Order lookup for report recovery. Use your order number and purchase email there first.")
+  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "Refund policy" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Privacy policy" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Email me the report link" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Recover with purchase email" })).toHaveCount(0);
+});
+
 test("help home exposes all topic links in Chinese", async ({ page }) => {
   await page.goto("/zh/help");
   await expect(page.getByRole("heading", { level: 1, name: "帮助中心" })).toBeVisible();
@@ -83,6 +96,22 @@ test("faq detail page exposes answer-first copy, crawlable faq html, and faq sch
   const html = await response.text();
   expect(html).toContain('"@type":"FAQPage"');
   expect(html).toContain('id="answer-first"');
+});
+
+test("faq recovery copy explains order lookup, purchase email, and order detail delivery status", async ({ page }) => {
+  await page.goto("/en/help/faq");
+
+  await expect(page.getByText("Go to Order lookup with your order number and purchase email first.")).toBeVisible();
+  await expect(
+    page.getByText(
+      "From the order detail page, you can review delivery status, resend the delivery email, and return to Order lookup for purchase-email recovery."
+    )
+  ).toBeVisible();
+  await expect(
+    page.getByText(
+      "Open Order lookup with your order number and purchase email. If the report is ready, the order detail page will show delivery status, report access, PDF download, resend delivery email, and a path back to Order lookup for purchase-email recovery."
+    )
+  ).toBeVisible();
 });
 
 test("desktop header dropdown opens and closes by click and Escape", async ({ page }) => {
