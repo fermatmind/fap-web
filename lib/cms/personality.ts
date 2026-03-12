@@ -378,7 +378,18 @@ export function normalizePersonalityJsonLd(
     return buildFallbackJsonLd(profile, profile.locale);
   }
 
-  return walk(jsonld);
+  const normalized = walk(jsonld);
+
+  if (!normalized || Array.isArray(normalized) || typeof normalized !== "object") {
+    return buildFallbackJsonLd(profile, profile.locale);
+  }
+
+  return {
+    "@context": "https://schema.org",
+    ...normalized,
+    "@type": "AboutPage",
+    mainEntityOfPage: canonicalUrl(localizedCanonicalPath),
+  };
 }
 
 export function mapFrontendLocaleToPersonalityApiLocale(locale: Locale | string): "en" | "zh-CN" {

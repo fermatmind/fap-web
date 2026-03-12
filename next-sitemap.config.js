@@ -2,10 +2,19 @@
 /** @type {import('next-sitemap').IConfig} */
 const tests = require("./.velite/tests.json");
 const blog = require("./.velite/blog.json");
+const careerJobs = require("./.velite/careerJobs.json");
 const careerIndustries = require("./.velite/careerIndustries.json");
 const careerGuides = require("./.velite/careerGuides.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
+const TOPIC_SLUGS = ["mbti", "big-five", "iq-eq"];
+const FRONTEND_PERSONALITY_EXCLUDES = [
+  "/en/personality",
+  "/zh/personality",
+  "/en/personality/*",
+  "/zh/personality/*",
+];
+const NON_PAGE_ROUTE_EXCLUDES = ["/robots.txt"];
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
 
@@ -95,11 +104,15 @@ function buildLandingPaths() {
     "/",
     "/en",
     "/zh",
+    "/en/topics",
+    "/zh/topics",
     "/en/tests",
     "/zh/tests",
     "/zh/articles",
     "/en/career",
     "/zh/career",
+    "/en/career/jobs",
+    "/zh/career/jobs",
     "/en/career/industries",
     "/zh/career/industries",
     "/en/career/guides",
@@ -121,6 +134,13 @@ function buildLandingPaths() {
 
 function buildCareerPaths() {
   const paths = new Set();
+
+  for (const item of careerJobs) {
+    const slug = normalizeSlug(item?.slug);
+    if (!slug) continue;
+    paths.add(`/en/career/jobs/${slug}`);
+    paths.add(`/zh/career/jobs/${slug}`);
+  }
 
   for (const item of careerIndustries) {
     const slug = normalizeSlug(item?.slug);
@@ -158,24 +178,15 @@ function buildCareerPaths() {
   return [...paths];
 }
 
-function buildPersonalityPaths() {
-  const mbtiTypes = new Set();
+function buildTopicPaths() {
+  const paths = new Set();
 
-  for (const item of careerRecommendationProfiles) {
-    if (String(item?.profile_type) !== "mbti") continue;
-    const key = normalizeSlug(item?.key).toLowerCase();
-    if (!key) continue;
-    mbtiTypes.add(key);
+  for (const slug of TOPIC_SLUGS) {
+    paths.add(`/en/topics/${slug}`);
+    paths.add(`/zh/topics/${slug}`);
   }
 
-  const paths = ["/en/personality", "/zh/personality"];
-
-  for (const type of mbtiTypes) {
-    paths.push(`/en/personality/${type}`);
-    paths.push(`/zh/personality/${type}`);
-  }
-
-  return paths;
+  return [...paths];
 }
 
 const generatedPaths = [
@@ -184,7 +195,7 @@ const generatedPaths = [
     ...buildTestPaths(),
     ...buildArticlePaths(),
     ...buildCareerPaths(),
-    ...buildPersonalityPaths(),
+    ...buildTopicPaths(),
   ]),
 ];
 
@@ -192,17 +203,7 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: false,
   sitemapSize: 5000,
-  exclude: [
-    "/server-sitemap.xml",
-    "/en/career/jobs",
-    "/zh/career/jobs",
-    "/en/career/jobs/*",
-    "/zh/career/jobs/*",
-    "/en/topics",
-    "/zh/topics",
-    "/en/topics/*",
-    "/zh/topics/*",
-  ],
+  exclude: ["/server-sitemap.xml", ...FRONTEND_PERSONALITY_EXCLUDES, ...NON_PAGE_ROUTE_EXCLUDES],
   transform: async (_config, path) => {
     const normalized = normalizePath(path);
     if (!shouldIncludeInSitemap(normalized)) return null;
