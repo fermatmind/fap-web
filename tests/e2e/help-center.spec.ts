@@ -48,13 +48,16 @@ test("help home exposes all topic links in English", async ({ page }) => {
   }
 });
 
-test("help home keeps order lookup as the recovery-first quick action", async ({ page }) => {
+test("help home keeps order lookup first and exposes email preference discoverability", async ({ page }) => {
   await page.goto("/en/help");
 
   await expect(page.getByRole("button", { name: "Order lookup" })).toBeVisible();
   await expect(
-    page.getByText("Start with Order lookup for report recovery. Use your order number and purchase email there first.")
+    page.getByText(
+      "Start with Order lookup for report recovery. Use your order number and purchase email there first. Email preferences and unsubscribe should use the dedicated link in your email."
+    )
   ).toBeVisible();
+  await expect(page.getByRole("button", { name: "Manage email preferences" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Refund policy" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Privacy policy" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Email me the report link" })).toHaveCount(0);
@@ -98,10 +101,11 @@ test("faq detail page exposes answer-first copy, crawlable faq html, and faq sch
   expect(html).toContain('id="answer-first"');
 });
 
-test("faq recovery copy explains order lookup, purchase email, and order detail delivery status", async ({ page }) => {
+test("faq recovery copy explains email links, order lookup, purchase email, and order detail delivery status", async ({ page }) => {
   await page.goto("/en/help/faq");
 
   await expect(page.getByText("Go to Order lookup with your order number and purchase email first.")).toBeVisible();
+  await expect(page.getByText("Use the dedicated link in your email to manage preferences or unsubscribe.")).toBeVisible();
   await expect(
     page.getByText(
       "From the order detail page, you can review delivery status, resend the delivery email, and return to Order lookup for purchase-email recovery."
@@ -110,6 +114,11 @@ test("faq recovery copy explains order lookup, purchase email, and order detail 
   await expect(
     page.getByText(
       "Open Order lookup with your order number and purchase email. If the report is ready, the order detail page will show delivery status, report access, PDF download, resend delivery email, and a path back to Order lookup for purchase-email recovery."
+    )
+  ).toBeVisible();
+  await expect(
+    page.getByText(
+      "Use the dedicated link inside your email to manage preferences or unsubscribe. If you need a new report email instead, go to Order lookup with your order number and purchase email."
     )
   ).toBeVisible();
 });

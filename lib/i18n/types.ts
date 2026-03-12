@@ -127,6 +127,8 @@ export type SiteDictionary = {
     terms: string;
     refund: string;
     support: string;
+    manageEmailPreferences: string;
+    unsubscribeFromEmails: string;
     copyright: string;
     allTestsTitle: string;
     articlesTitle: string;
@@ -189,6 +191,65 @@ export type SiteDictionary = {
     quickActions: string;
     contact: string;
     emailHint: string;
+  };
+  email: {
+    preferences: {
+      metadataTitle: string;
+      metadataDescription: string;
+      title: string;
+      description: string;
+      missingDescription: string;
+      missingRecoveryHint: string;
+      loading: string;
+      emailLabel: string;
+      save: string;
+      saving: string;
+      unsubscribeCta: string;
+      successMessage: string;
+      invalidTitle: string;
+      invalidDescription: string;
+      saveError: string;
+      fields: {
+        marketing_updates: {
+          title: string;
+          description: string;
+        };
+        report_recovery: {
+          title: string;
+          description: string;
+        };
+        product_updates: {
+          title: string;
+          description: string;
+        };
+      };
+      ctas: {
+        orderLookup: string;
+        help: string;
+      };
+    };
+    unsubscribe: {
+      metadataTitle: string;
+      metadataDescription: string;
+      title: string;
+      description: string;
+      missingDescription: string;
+      confirmTitle: string;
+      confirmDescription: string;
+      confirm: string;
+      confirming: string;
+      backToPreferences: string;
+      successTitle: string;
+      successDescription: string;
+      invalidTitle: string;
+      invalidDescription: string;
+      submitError: string;
+      ctas: {
+        preferences: string;
+        orderLookup: string;
+        help: string;
+      };
+    };
   };
   legal: {
     privacy_title: string;
