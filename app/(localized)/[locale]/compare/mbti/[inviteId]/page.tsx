@@ -1,10 +1,30 @@
 import type { Metadata } from "next";
+import { getMbtiCompareInvite } from "@/lib/api/v0_3";
 import { resolveLocale } from "@/lib/i18n/getDict";
+import { buildCompareMetadataCopy } from "@/lib/og/mbtiCompare";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import CompareClient from "./CompareClient";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
+
+async function loadCompareMetadata({
+  inviteId,
+  locale,
+}: {
+  inviteId: string;
+  locale: "en" | "zh";
+}) {
+  try {
+    return await getMbtiCompareInvite({
+      inviteId,
+      locale,
+      cache: "no-store",
+    });
+  } catch {
+    return null;
+  }
+}
 
 export async function generateMetadata({
   params,
@@ -13,15 +33,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, inviteId } = await params;
   const locale = resolveLocale(localeParam);
+  const data = await loadCompareMetadata({
+    inviteId,
+    locale,
+  });
+  const copy = buildCompareMetadataCopy(data);
   const pathname = `/${locale}/compare/mbti/${inviteId}`;
 
   return buildPageMetadata({
     locale,
     pathname,
-    title: locale === "zh" ? "MBTI 对比邀请" : "MBTI compare invite",
-    description: locale === "zh"
-      ? "公开 MBTI 对比邀请页，只展示安全可分享的摘要与对比信息。"
-      : "Public MBTI compare invite page with share-safe summary and compare data only.",
+    title: copy.title,
+    description: copy.description,
+    imagePath: `/og/compare/mbti/${inviteId}`,
     noindex: true,
     alternatesByLocale: {
       en: `/en/compare/mbti/${inviteId}`,

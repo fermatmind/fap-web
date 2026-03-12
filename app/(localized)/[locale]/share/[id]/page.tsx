@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { getShareSummary } from "@/lib/api/v0_3";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import {
-  buildMbtiShareMetadataCopy,
-} from "@/components/share/MbtiShareSummaryCard";
+import { buildShareMetadataCopy } from "@/lib/og/mbtiShare";
 import ShareClient from "./ShareClient";
 
 export const dynamic = "force-dynamic";
@@ -40,10 +37,7 @@ export async function generateMetadata({
     shareId: id,
     locale,
   });
-  const copy = buildMbtiShareMetadataCopy({
-    locale,
-    data: shareSummary,
-  });
+  const copy = buildShareMetadataCopy(shareSummary);
   const pathname = `/${locale}/share/${id}`;
 
   return buildPageMetadata({
@@ -51,7 +45,7 @@ export async function generateMetadata({
     pathname,
     title: copy.title,
     description: copy.description,
-    imagePath: `/og/${SCALE_CANONICAL_SLUG_MAP.MBTI}`,
+    imagePath: `/og/share/${id}`,
     noindex: true,
     alternatesByLocale: {
       en: `/en/share/${id}`,
