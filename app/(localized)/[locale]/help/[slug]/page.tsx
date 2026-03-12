@@ -1,22 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   HELP_CENTER_SLUGS,
   getHelpCenterContent,
   getHelpCenterPage,
   listHelpCenterPages,
+  type HelpCenterPageContent,
 } from "@/lib/help/helpCenterContent";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import {
+  buildBreadcrumbJsonLd,
+  buildFAQPageJsonLd,
+  buildWebPageJsonLd,
+} from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+
+function buildCanonicalPath(locale: "en" | "zh", slug: string): string {
+  return locale === "zh" ? `/zh/help/${slug}` : `/en/help/${slug}`;
+}
+
+function buildHelpAnswerFirst(page: HelpCenterPageContent, locale: "en" | "zh"): string {
+  if (locale === "zh") {
+    return `${page.cardSummary} 这页先告诉你应该从哪里开始处理，再补充需要准备的信息、边界和下一步入口，避免在订单、政策与支持流程之间来回切换。`;
+  }
+
+  return `${page.cardSummary} This page starts with the shortest practical answer, then shows the context, limits, and next public links so you can move without bouncing between support, policy, and product pages.`;
+}
 
 export function generateStaticParams() {
   return HELP_CENTER_SLUGS.flatMap((slug) => [
@@ -43,12 +57,12 @@ export async function generateMetadata({
 
   return buildPageMetadata({
     locale,
-    pathname: locale === "zh" ? `/zh/help/${page.slug}` : `/en/help/${page.slug}`,
+    pathname: buildCanonicalPath(locale, page.slug),
     title: page.title,
     description: page.subtitle,
     alternatesByLocale: {
-      en: `/en/help/${page.slug}`,
-      zh: `/zh/help/${page.slug}`,
+      en: buildCanonicalPath("en", page.slug),
+      zh: buildCanonicalPath("zh", page.slug),
       xDefault: "/",
     },
   });
@@ -71,12 +85,40 @@ export default async function HelpDetailPage({
   const pages = listHelpCenterPages(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
+  const canonicalPath = buildCanonicalPath(locale, page.slug);
+  const answerFirst = buildHelpAnswerFirst(page, locale);
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+    { name: locale === "zh" ? "帮助中心" : "Help Center", path: localizedPath("/help", locale) },
+    { name: page.title, path: canonicalPath },
+  ]);
+  const webPageJsonLd = buildWebPageJsonLd({
+    path: canonicalPath,
+    title: page.title,
+    description: page.subtitle,
+    locale,
+  });
+  const isFaqPage = page.slug === "faq" && (page.faqItems?.length ?? 0) > 0;
 
   return (
     <Container as="main" className="max-w-6xl py-10" data-testid={`help-detail-${page.slug}`}>
+      <JsonLd id={`help-webpage-${page.slug}`} data={webPageJsonLd} />
+      <JsonLd id={`help-breadcrumb-${page.slug}`} data={breadcrumbJsonLd} />
+      {isFaqPage ? <JsonLd id={`help-faq-${page.slug}`} data={buildFAQPageJsonLd(page.faqItems ?? [])} /> : null}
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+          { label: locale === "zh" ? "帮助中心" : "Help Center", href: withLocale("/help") },
+          { label: page.title },
+        ]}
+      />
+
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem]">
         <article className="space-y-5">
-          <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]">
+          <section
+            id="answer-first"
+            className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]"
+          >
             <Link
               href={withLocale("/help")}
               className="inline-flex text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
@@ -84,7 +126,8 @@ export default async function HelpDetailPage({
               {content.labels.backToHome}
             </Link>
             <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{page.title}</h1>
-            <p className="m-0 text-[var(--fm-text-muted)]">{page.subtitle}</p>
+            <p className="m-0 text-lg text-[var(--fm-text)]">{page.subtitle}</p>
+            <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{answerFirst}</p>
           </section>
 
           {page.sections.map((section) => (
@@ -109,16 +152,19 @@ export default async function HelpDetailPage({
           ))}
 
           {page.faqItems?.length ? (
-            <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+            <section
+              id="faq"
+              className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+            >
               <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">{content.labels.faqTitle}</h2>
-              <Accordion>
+              <dl className="m-0 space-y-4">
                 {page.faqItems.map((item) => (
-                  <AccordionItem key={item.question}>
-                    <AccordionTrigger>{item.question}</AccordionTrigger>
-                    <AccordionContent>{item.answer}</AccordionContent>
-                  </AccordionItem>
+                  <div key={item.question} className="space-y-1">
+                    <dt className="font-medium text-[var(--fm-text)]">{item.question}</dt>
+                    <dd className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{item.answer}</dd>
+                  </div>
                 ))}
-              </Accordion>
+              </dl>
             </section>
           ) : null}
 
@@ -130,6 +176,17 @@ export default async function HelpDetailPage({
                   {item.label}
                 </Link>
               ))}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Link href={withLocale("/personality")} className="fm-help-chip-link">
+                {locale === "zh" ? "人格画像" : "Personality hub"}
+              </Link>
+              <Link href={withLocale("/topics")} className="fm-help-chip-link">
+                {locale === "zh" ? "主题聚合" : "Topic hubs"}
+              </Link>
+              <Link href={withLocale("/career/recommendations")} className="fm-help-chip-link">
+                {locale === "zh" ? "职业推荐" : "Career recommendations"}
+              </Link>
             </div>
             {page.slug === "contact" ? (
               <p className="m-0 text-sm text-[var(--fm-text-muted)]">

@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildPersonalityFrontendUrl,
@@ -8,7 +10,7 @@ import {
   normalizePersonalitySlug,
   type CmsPersonalityProfile,
 } from "@/lib/cms/personality";
-import { getRenderablePersonalitySections } from "@/lib/cms/personality-sections";
+import { extractPersonalityFaqItems, getRenderablePersonalitySections } from "@/lib/cms/personality-sections";
 
 function jsonResponse(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
@@ -52,6 +54,11 @@ const BASE_PROFILE: CmsPersonalityProfile = {
   },
   sections: [],
 };
+const ROOT = process.cwd();
+
+function read(relPath: string): string {
+  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
+}
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -289,5 +296,45 @@ describe("personality cms adapter contract", () => {
     expect(
       (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
+  });
+
+  it("extracts FAQ items from cms faq sections for FAQ schema parity", () => {
+    const items = extractPersonalityFaqItems([
+      {
+        sectionKey: "faq",
+        title: "FAQ",
+        renderVariant: "faq",
+        bodyMd: "",
+        bodyHtml: "",
+        payloadJson: {
+          items: [
+            {
+              question: "What does INTJ optimize for?",
+              answer: "Long-range clarity, leverage, and structured execution.",
+            },
+          ],
+        },
+        sortOrder: 10,
+        isEnabled: true,
+      },
+    ]);
+
+    expect(items).toEqual([
+      {
+        question: "What does INTJ optimize for?",
+        answer: "Long-range clarity, leverage, and structured execution.",
+      },
+    ]);
+  });
+
+  it("personality detail page keeps locale-stable canonical/hreflang wiring and faq schema hooks", () => {
+    const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
+
+    expect(source).toContain("alternatesByLocale");
+    expect(source).toContain('en: buildPersonalityFrontendUrl("en", profile.slug)');
+    expect(source).toContain('zh: buildPersonalityFrontendUrl("zh", profile.slug)');
+    expect(source).toContain("extractPersonalityFaqItems");
+    expect(source).toContain("buildFAQPageJsonLd");
+    expect(source).toContain("buildWebPageJsonLd");
   });
 });

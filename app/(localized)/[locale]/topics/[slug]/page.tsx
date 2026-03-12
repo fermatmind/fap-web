@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
@@ -10,10 +11,10 @@ import {
   getTopicSeoBySlug,
   normalizeTopicSeoPayload,
 } from "@/lib/cms/topics";
-import { renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
+import { extractTopicFaqItems, renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
+import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
 
@@ -116,6 +117,13 @@ export default async function TopicDetailPage({
 
   const normalizedSeo = normalizeTopicSeoPayload(seo, topic, locale);
   const canonicalPath = buildCanonicalPath(topic.slug, locale);
+  const faqItems = extractTopicFaqItems(topic.sections);
+  const webPageJsonLd = buildWebPageJsonLd({
+    path: canonicalPath,
+    title: normalizedSeo.meta.title,
+    description: normalizedSeo.meta.description,
+    locale,
+  });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "主题" : "Topics", path: localizedPath("/topics", locale) },
@@ -127,7 +135,9 @@ export default async function TopicDetailPage({
   return (
     <Container as="main" className="space-y-6 py-10">
       <JsonLd id={`topic-jsonld-${topic.slug}`} data={normalizedSeo.jsonld} />
+      <JsonLd id={`topic-webpage-${topic.slug}`} data={webPageJsonLd} />
       <JsonLd id={`topic-breadcrumb-${topic.slug}`} data={breadcrumbJsonLd} />
+      {faqItems.length > 0 ? <JsonLd id={`topic-faq-${topic.slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -136,7 +146,10 @@ export default async function TopicDetailPage({
         ]}
       />
 
-      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+      <section
+        id="answer-first"
+        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      >
         {topic.heroKicker ? (
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
             {topic.heroKicker}
@@ -156,6 +169,22 @@ export default async function TopicDetailPage({
         <div className="space-y-4">
           {renderedSections}
           {renderedEntryGroups}
+          <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+            <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+              {locale === "zh" ? "继续延伸阅读" : "Continue with related public guides"}
+            </h2>
+            <div className="flex flex-wrap gap-2 text-sm">
+              <Link href={localizedPath("/personality", locale)} className="fm-help-chip-link">
+                {locale === "zh" ? "人格画像" : "Personality hub"}
+              </Link>
+              <Link href={localizedPath("/career/recommendations", locale)} className="fm-help-chip-link">
+                {locale === "zh" ? "职业推荐" : "Career recommendations"}
+              </Link>
+              <Link href={localizedPath("/help/faq", locale)} className="fm-help-chip-link">
+                {locale === "zh" ? "帮助与 FAQ" : "Help and FAQ"}
+              </Link>
+            </div>
+          </section>
           {renderedSections.length === 0 && renderedEntryGroups.length === 0 ? (
             <Card>
               <CardHeader>

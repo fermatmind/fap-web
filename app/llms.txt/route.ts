@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
+import { listPersonalityProfiles } from "@/lib/cms/personality";
+import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
   listBlogPosts,
@@ -8,35 +10,99 @@ import {
   listCareerIndustrySlugs,
   listMbtiRecommendationTypes,
 } from "@/lib/content";
+import { HELP_CENTER_SLUGS } from "@/lib/help/helpCenterContent";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
+
+const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return `${siteUrl}${normalized}`;
 }
 
+function dedupePaths(paths: string[]): string[] {
+  return [...new Set(paths)].filter((path) => shouldIncludeInSitemap(path));
+}
+
+async function listPersonalityPaths(): Promise<string[]> {
+  try {
+    const [enProfiles, zhProfiles] = await Promise.all([
+      listPersonalityProfiles({ locale: "en", perPage: 100 }),
+      listPersonalityProfiles({ locale: "zh", perPage: 100 }),
+    ]);
+    const slugs = new Set(
+      [...enProfiles.items, ...zhProfiles.items]
+        .map((item) => String(item.slug ?? "").trim().toLowerCase())
+        .filter(Boolean)
+    );
+
+    if (slugs.size > 0) {
+      return dedupePaths(
+        [...slugs].flatMap((slug) => [`/en/personality/${slug}`, `/zh/personality/${slug}`])
+      );
+    }
+  } catch {
+    // Fall back to local MBTI coverage when the personality CMS is unavailable.
+  }
+
+  return dedupePaths(
+    listMbtiRecommendationTypes().flatMap((type) => {
+      const slug = type.toLowerCase();
+      return [`/en/personality/${slug}`, `/zh/personality/${slug}`];
+    })
+  );
+}
+
+async function listTopicPaths(): Promise<string[]> {
+  try {
+    const [enTopics, zhTopics] = await Promise.all([
+      listTopics({ locale: "en", perPage: 100 }),
+      listTopics({ locale: "zh", perPage: 100 }),
+    ]);
+    const slugs = new Set(
+      [...enTopics.items, ...zhTopics.items]
+        .map((item) => String(item.slug ?? "").trim().toLowerCase())
+        .filter(Boolean)
+    );
+
+    if (slugs.size > 0) {
+      return dedupePaths(
+        [...slugs].flatMap((slug) => [`/en/topics/${slug}`, `/zh/topics/${slug}`])
+      );
+    }
+  } catch {
+    // Fall back to the stable public topic set when the topics CMS is unavailable.
+  }
+
+  return dedupePaths(TOPIC_FALLBACK_SLUGS.flatMap((slug) => [`/en/topics/${slug}`, `/zh/topics/${slug}`]));
+}
+
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
-  const [enCareerJobs, zhCareerJobs] = await Promise.all([
-    listCareerJobsFromCms({ locale: "en" }),
-    listCareerJobsFromCms({ locale: "zh" }),
+  const [enCareerJobs, zhCareerJobs, personalityEntries, topicEntries] = await Promise.all([
+    listCareerJobsFromCms({ locale: "en" }).catch(() => []),
+    listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
+    listPersonalityPaths(),
+    listTopicPaths(),
   ]);
 
-  const testEntries = getAllTests()
-    .flatMap((test) => [`/en/tests/${test.slug}`, `/zh/tests/${test.slug}`])
-    .filter((path) => shouldIncludeInSitemap(path));
+  const helpEntries = dedupePaths(HELP_CENTER_SLUGS.flatMap((slug) => [`/en/help/${slug}`, `/zh/help/${slug}`]));
+  const testEntries = dedupePaths(
+    getAllTests().flatMap((test) => [`/en/tests/${test.slug}`, `/zh/tests/${test.slug}`])
+  );
 
-  const articleEntries = listBlogPosts()
-    .map((post) => {
-      const locale = post.locale === "en" ? "en" : "zh";
-      if (locale === "en" && !post.translation_ready) return null;
-      return `/${locale}/articles/${post.slug}`;
-    })
-    .filter((path): path is string => Boolean(path))
-    .filter((path) => shouldIncludeInSitemap(path));
+  const articleEntries = dedupePaths(
+    listBlogPosts()
+      .map((post) => {
+        const locale = post.locale === "en" ? "en" : "zh";
+        if (locale === "en" && !post.translation_ready) return null;
+        return `/${locale}/articles/${post.slug}`;
+      })
+      .filter((path): path is string => Boolean(path))
+  );
 
-  const careerEntries = [
+  const careerEntries = dedupePaths([
     "/en/career",
     "/zh/career",
     "/en/career/jobs",
@@ -51,8 +117,6 @@ export async function GET() {
     "/zh/career/tests",
     "/en/career/tests/riasec",
     "/zh/career/tests/riasec",
-    "/en/career/tests/riasec/result",
-    "/zh/career/tests/riasec/result",
     ...enCareerJobs.map((job) => job.href),
     ...zhCareerJobs.map((job) => job.href),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
@@ -65,7 +129,7 @@ export async function GET() {
       `/en/career/recommendations/big5/${trait}`,
       `/zh/career/recommendations/big5/${trait}`,
     ]),
-  ].filter((path) => shouldIncludeInSitemap(path));
+  ]);
 
   const lines = [
     "# FermatMind llms.txt",
@@ -76,11 +140,23 @@ export async function GET() {
     `- ${toCanonical(siteUrl, "/")}`,
     `- ${toCanonical(siteUrl, "/en")}`,
     `- ${toCanonical(siteUrl, "/zh")}`,
-    `- ${toCanonical(siteUrl, "/en/tests")}`,
-    `- ${toCanonical(siteUrl, "/zh/tests")}`,
-    `- ${toCanonical(siteUrl, "/en/career")}`,
-    `- ${toCanonical(siteUrl, "/zh/career")}`,
-    `- ${toCanonical(siteUrl, "/zh/articles")}`,
+    `- ${toCanonical(siteUrl, "/en/personality")}`,
+    `- ${toCanonical(siteUrl, "/zh/personality")}`,
+    `- ${toCanonical(siteUrl, "/en/topics")}`,
+    `- ${toCanonical(siteUrl, "/zh/topics")}`,
+    `- ${toCanonical(siteUrl, "/en/help")}`,
+    `- ${toCanonical(siteUrl, "/zh/help")}`,
+    `- ${toCanonical(siteUrl, "/en/career/recommendations")}`,
+    `- ${toCanonical(siteUrl, "/zh/career/recommendations")}`,
+    "",
+    "Indexable Personality:",
+    ...personalityEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    "",
+    "Indexable Topics:",
+    ...topicEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    "",
+    "Indexable Help:",
+    ...helpEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Indexable Tests:",
     ...testEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),

@@ -1,5 +1,24 @@
 import { expect, test } from "@playwright/test";
 
+test("public seo pages keep canonical and og metadata without private noindex pollution", async ({ request }) => {
+  for (const pathname of [
+    "/en/personality/intj",
+    "/en/topics",
+    "/en/help/faq",
+    "/en/career/recommendations/mbti/INTJ",
+  ]) {
+    const response = await request.get(pathname);
+    expect(response.ok(), pathname).toBeTruthy();
+    const html = await response.text();
+    const robotsTag = (response.headers()["x-robots-tag"] || "").toLowerCase();
+
+    expect(html, pathname).toContain('rel="canonical"');
+    expect(html, pathname).toContain('property="og:title"');
+    expect(html, pathname).toContain('name="twitter:card"');
+    expect(robotsTag, pathname).not.toContain("noindex");
+  }
+});
+
 test("OG route returns an image response", async ({ request }) => {
   const response = await request.get("/og/big-five-personality-test-ocean-model");
   expect(response.ok()).toBeTruthy();

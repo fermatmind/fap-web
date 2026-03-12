@@ -7,9 +7,9 @@ import type {
   CmsTopicEntryGroupKey,
   CmsTopicEntryGroups,
   CmsTopicSection,
-  CmsTopicSectionKey,
 } from "@/lib/cms/topics";
 import type { Locale } from "@/lib/i18n/locales";
+import type { FAQItem } from "@/lib/seo/generateSchema";
 
 const KNOWN_SECTION_KEYS = [
   "overview",
@@ -229,8 +229,9 @@ export function getRenderableTopicSections(sections: CmsTopicSection[]): CmsTopi
 
 export function renderTopicSections(
   sections: CmsTopicSection[],
-  _locale: Locale
+  locale: Locale
 ): ReactNode[] {
+  void locale;
   return getRenderableTopicSections(sections)
     .flatMap((section) => {
       let content: ReactNode = null;
@@ -259,12 +260,16 @@ export function renderTopicSections(
 
       return [
         (
-        <Card key={`${section.sectionKey}-${section.sortOrder}`}>
-          <CardHeader>
-            <CardTitle>{section.title}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-sm">{content}</CardContent>
-        </Card>
+          <Card
+            key={`${section.sectionKey}-${section.sortOrder}`}
+            id={section.sectionKey}
+            data-section-key={section.sectionKey}
+          >
+            <CardHeader>
+              <CardTitle>{section.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm">{content}</CardContent>
+          </Card>
         ),
       ];
     });
@@ -364,4 +369,20 @@ export function renderTopicEntryGroups(
       </div>
     </section>
   ));
+}
+
+export function extractTopicFaqItems(sections: CmsTopicSection[]): FAQItem[] {
+  return getRenderableTopicSections(sections)
+    .filter((section) => section.sectionKey === "faq")
+    .flatMap((section) => {
+      const payload = asRecord(section.payloadJson);
+      const items = asArray<FaqItem>(payload?.items);
+
+      return items
+        .map((item) => ({
+          question: normalizeText(item.question ?? item.q),
+          answer: normalizeText(item.answer ?? item.a),
+        }))
+        .filter((item) => item.question && item.answer);
+    });
 }

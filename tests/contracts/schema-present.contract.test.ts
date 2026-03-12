@@ -28,11 +28,13 @@ describe("schema injection contract", () => {
     expect(source).toContain('id="references"');
   });
 
-  it("topic detail page injects cms seo jsonld and breadcrumb jsonld", () => {
+  it("topic detail page injects cms seo jsonld, webpage, breadcrumb, and faq jsonld", () => {
     const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
     expect(source).toContain("JsonLd");
     expect(source).toContain("normalizeTopicSeoPayload");
+    expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("renderTopicSections");
     expect(source).toContain("renderTopicEntryGroups");
   });
@@ -58,12 +60,34 @@ describe("schema injection contract", () => {
     expect(aliasSource).not.toContain("getCareerJobBySlug");
   });
 
-  it("personality detail page injects cms seo jsonld and breadcrumb jsonld", () => {
+  it("personality detail page injects cms seo jsonld, webpage, breadcrumb, and faq jsonld", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
     expect(source).toContain("normalizePersonalitySeoPayload");
+    expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("renderPersonalitySections");
     expect(source).toContain("JsonLd");
+  });
+
+  it("career mbti recommendation page injects webpage, breadcrumb, item list, and faq jsonld", () => {
+    const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
+    expect(source).toContain("JsonLd");
+    expect(source).toContain("buildWebPageJsonLd");
+    expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).toContain("buildItemListJsonLd");
+    expect(source).toContain("buildFAQPageJsonLd");
+    expect(source).toContain('id="faq"');
+  });
+
+  it("help detail page injects webpage, breadcrumb, and faq jsonld only when faq content exists", () => {
+    const source = read("app/(localized)/[locale]/help/[slug]/page.tsx");
+    expect(source).toContain("JsonLd");
+    expect(source).toContain("buildWebPageJsonLd");
+    expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).toContain("buildFAQPageJsonLd");
+    expect(source).toContain('id="faq"');
+    expect(source).toContain('page.slug === "faq"');
   });
 
   it("schema builder exposes required types", () => {
@@ -72,6 +96,7 @@ describe("schema injection contract", () => {
     expect(source).toContain('"@type": "Article"');
     expect(source).toContain('"@type": "FAQPage"');
     expect(source).toContain('"@type": "BreadcrumbList"');
+    expect(source).toContain('"@type": "ItemList"');
     expect(source).toContain('"@type": "Person"');
     expect(source).toContain('"@type": "Occupation"');
   });

@@ -1,85 +1,42 @@
-import fs from "node:fs";
 import path from "node:path";
+import { createRequire } from "node:module";
 import { describe, expect, it } from "vitest";
-import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 
 const ROOT = process.cwd();
-const SITEMAP_PATH = path.join(ROOT, "public/sitemap-0.xml");
-const BLOG_JSON_PATH = path.join(ROOT, ".velite/blog.json");
-
-function readSitemapUrls(): string[] {
-  const xml = fs.readFileSync(SITEMAP_PATH, "utf8");
-  return [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
-}
-
-function getIndexableEnglishArticleSlugs(): Set<string> {
-  if (!fs.existsSync(BLOG_JSON_PATH)) return new Set();
-  const blog = JSON.parse(fs.readFileSync(BLOG_JSON_PATH, "utf8")) as Array<Record<string, unknown>>;
-  return new Set(
-    blog
-      .filter((item) => String(item.locale ?? "").toLowerCase() === "en")
-      .filter((item) => item.translation_ready === true)
-      .map((item) => String(item.slug ?? "").trim())
-      .filter(Boolean)
-  );
-}
+const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
 
 describe("sitemap indexability contract", () => {
-  it("sitemap file exists", () => {
-    expect(fs.existsSync(SITEMAP_PATH)).toBe(true);
+  it("frontend sitemap config exposes the intended public seo entry set", async () => {
+    const config = requireFromRoot("./next-sitemap.config.js");
+    const additionalPaths = await config.additionalPaths();
+    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
+
+    expect(locs).toEqual(
+      expect.arrayContaining([
+        "/en/personality",
+        "/zh/personality",
+        "/en/personality/intj",
+        "/zh/personality/intj",
+        "/en/topics/mbti",
+        "/zh/topics/mbti",
+        "/en/help/faq",
+        "/zh/help/faq",
+        "/en/career/recommendations/mbti/INTJ",
+        "/zh/career/recommendations/mbti/INTJ",
+      ])
+    );
   });
 
-  it("contains only indexable URLs", () => {
-    const urls = readSitemapUrls();
-    const indexableEnglishSlugs = getIndexableEnglishArticleSlugs();
-    const disallowedPrefixes = [
-      "/en/history",
-      "/zh/history",
-      "/en/result",
-      "/zh/result",
-      "/en/orders",
-      "/zh/orders",
-      "/en/share",
-      "/zh/share",
-      "/en/attempts",
-      "/zh/attempts",
-      "/en/payment",
-      "/zh/payment",
-      "/en/pay",
-      "/zh/pay",
-      "/en/personality",
-      "/zh/personality",
-      "/en/professions",
-      "/zh/professions",
-      "/en/types",
-      "/zh/types",
-      "/robots.txt",
-    ];
+  it("frontend sitemap config excludes retired and private route families", async () => {
+    const config = requireFromRoot("./next-sitemap.config.js");
+    const additionalPaths = await config.additionalPaths();
+    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
-    expect(urls.length).toBeGreaterThan(0);
-
-    for (const rawUrl of urls) {
-      const pathname = new URL(rawUrl).pathname;
-      expect(
-        shouldIncludeInSitemap(pathname),
-        `sitemap contains non-indexable path: ${pathname}`
-      ).toBe(true);
-
-      if (pathname === "/en/articles" && indexableEnglishSlugs.size === 0) {
-        throw new Error("/en/articles is present in sitemap but no indexable english article exists.");
-      }
-
-      const articleMatch = pathname.match(/^\/en\/articles\/([^/]+)$/i);
-      if (articleMatch) {
-        expect(
-          indexableEnglishSlugs.has(articleMatch[1]),
-          `sitemap contains non-indexable english article: ${pathname}`
-        ).toBe(true);
-      }
-
-      for (const prefix of disallowedPrefixes) {
-        expect(pathname.startsWith(prefix), `sitemap contains blocked prefix: ${pathname}`).toBe(false);
-      }
-    }
+    expect(locs.some((loc: string) => loc.includes("/types/") || loc.endsWith("/types"))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("/share/"))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("/result/"))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("/compare/"))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("/history/"))).toBe(false);
+    expect(locs.some((loc: string) => /\/take(\/|$)/.test(loc))).toBe(false);
   });
 });

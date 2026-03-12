@@ -8,13 +8,31 @@ const careerGuides = require("./.velite/careerGuides.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
 const TOPIC_SLUGS = ["mbti", "big-five", "iq-eq"];
-const FRONTEND_PERSONALITY_EXCLUDES = [
-  "/en/personality",
-  "/zh/personality",
-  "/en/personality/*",
-  "/zh/personality/*",
+const HELP_PAGE_SLUGS = [
+  "faq",
+  "about",
+  "team",
+  "used-and-mentioned",
+  "for-business-and-research",
+  "contact",
 ];
-const NON_PAGE_ROUTE_EXCLUDES = ["/robots.txt"];
+const NON_PAGE_ROUTE_EXCLUDES = [
+  "/robots.txt",
+  "/en/types",
+  "/zh/types",
+  "/en/types/*",
+  "/zh/types/*",
+  "/en/share/*",
+  "/zh/share/*",
+  "/en/compare/*",
+  "/zh/compare/*",
+  "/en/result/*",
+  "/zh/result/*",
+  "/en/history/*",
+  "/zh/history/*",
+  "/en/take/*",
+  "/zh/take/*",
+];
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
 
@@ -104,8 +122,12 @@ function buildLandingPaths() {
     "/",
     "/en",
     "/zh",
+    "/en/personality",
+    "/zh/personality",
     "/en/topics",
     "/zh/topics",
+    "/en/help",
+    "/zh/help",
     "/en/tests",
     "/zh/tests",
     "/zh/articles",
@@ -123,8 +145,6 @@ function buildLandingPaths() {
     "/zh/career/tests",
     "/en/career/tests/riasec",
     "/zh/career/tests/riasec",
-    "/en/career/tests/riasec/result",
-    "/zh/career/tests/riasec/result",
   ];
   if (hasIndexableEnglishArticles) {
     base.push("/en/articles");
@@ -189,13 +209,34 @@ function buildTopicPaths() {
   return [...paths];
 }
 
+function buildPersonalityPaths() {
+  const paths = new Set();
+
+  for (const item of careerRecommendationProfiles) {
+    const profileType = normalizeSlug(item?.profile_type).toLowerCase();
+    const key = normalizeSlug(item?.key).toLowerCase();
+    if (profileType !== "mbti" || !key) continue;
+
+    paths.add(`/en/personality/${key}`);
+    paths.add(`/zh/personality/${key}`);
+  }
+
+  return [...paths];
+}
+
+function buildHelpPaths() {
+  return HELP_PAGE_SLUGS.flatMap((slug) => [`/en/help/${slug}`, `/zh/help/${slug}`]);
+}
+
 const generatedPaths = [
   ...new Set([
     ...buildLandingPaths(),
+    ...buildPersonalityPaths(),
     ...buildTestPaths(),
     ...buildArticlePaths(),
     ...buildCareerPaths(),
     ...buildTopicPaths(),
+    ...buildHelpPaths(),
   ]),
 ];
 
@@ -203,7 +244,7 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: false,
   sitemapSize: 5000,
-  exclude: ["/server-sitemap.xml", ...FRONTEND_PERSONALITY_EXCLUDES, ...NON_PAGE_ROUTE_EXCLUDES],
+  exclude: ["/server-sitemap.xml", ...NON_PAGE_ROUTE_EXCLUDES],
   transform: async (_config, path) => {
     const normalized = normalizePath(path);
     if (!shouldIncludeInSitemap(normalized)) return null;

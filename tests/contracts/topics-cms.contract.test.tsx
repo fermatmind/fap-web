@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import {
@@ -9,11 +11,19 @@ import {
 } from "@/lib/cms/topics";
 import type { CmsTopicEntryGroups } from "@/lib/cms/topics";
 import {
+  extractTopicFaqItems,
   getRenderableTopicEntryGroups,
   getRenderableTopicSections,
   renderTopicEntryGroups,
   renderTopicSections,
 } from "@/lib/cms/topic-sections";
+import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
+
+const ROOT = process.cwd();
+
+function read(relPath: string): string {
+  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
+}
 
 describe("topics cms helpers", () => {
   it("maps frontend locale and topic links correctly", () => {
@@ -241,5 +251,45 @@ describe("topics cms helpers", () => {
     expect(screen.getByText("Overview")).toBeInTheDocument();
     expect(screen.getByText("Related links")).toBeInTheDocument();
     expect(screen.getByText("MBTI methodology")).toBeInTheDocument();
+  });
+
+  it("extracts faq items from topic faq sections for FAQ schema parity", () => {
+    const items = extractTopicFaqItems([
+      {
+        sectionKey: "faq",
+        title: "FAQ",
+        renderVariant: "faq",
+        bodyMd: "",
+        bodyHtml: "",
+        payloadJson: {
+          items: [
+            {
+              q: "Is MBTI a diagnosis?",
+              a: "No. It is a preference model, not a clinical diagnosis.",
+            },
+          ],
+        },
+        sortOrder: 10,
+        isEnabled: true,
+      },
+    ]);
+
+    expect(items).toEqual([
+      {
+        question: "Is MBTI a diagnosis?",
+        answer: "No. It is a preference model, not a clinical diagnosis.",
+      },
+    ]);
+  });
+
+  it("topic detail page wires breadcrumb, canonical cluster, faq schema, and remains indexable", () => {
+    const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
+
+    expect(source).toContain("buildWebPageJsonLd");
+    expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).toContain("buildFAQPageJsonLd");
+    expect(source).toContain("alternatesByLocale");
+    expect(shouldIncludeInSitemap("/en/topics/mbti")).toBe(true);
+    expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);
   });
 });

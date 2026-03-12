@@ -8,12 +8,21 @@ import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
-const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i, /^\/types(\/|$)/i];
+const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i];
 const LOCALE_REDIRECT_PREFIXES = ["articles", "career", "topics", "personality"] as const;
+const MBTI_TYPE_RE = /^[ie][ns][ft][jp]$/i;
 
 function hasLocalePrefix(pathname: string): boolean {
   const segment = pathname.split("/").filter(Boolean)[0];
   return segment === "en" || segment === "zh";
+}
+
+function getLocaleFromPathname(pathname: string): "en" | "zh" | null {
+  const segment = pathname.split("/").filter(Boolean)[0];
+  if (segment === "en" || segment === "zh") {
+    return segment;
+  }
+  return null;
 }
 
 function createGoneResponse() {
@@ -25,6 +34,21 @@ function createGoneResponse() {
   });
   response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
   return response;
+}
+
+function resolveTypesRedirectPath(pathname: string, fallbackLocale: "en" | "zh"): string | null {
+  const strippedPath = stripLocalePrefix(pathname);
+  const match = strippedPath.match(/^\/types(?:\/([^/]+))?\/?$/i);
+
+  if (!match) {
+    return null;
+  }
+
+  const locale = getLocaleFromPathname(pathname) ?? fallbackLocale;
+  const rawCode = String(match[1] ?? "").trim();
+  const targetPath = MBTI_TYPE_RE.test(rawCode) ? `/personality/${rawCode.toLowerCase()}` : "/personality";
+
+  return localizedPath(targetPath, locale);
 }
 
 function isStaticAsset(pathname: string): boolean {
@@ -52,6 +76,18 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  const preferredLocale = resolvePreferredLocale({
+    cookieLocale: request.cookies.get(LOCALE_COOKIE_NAME)?.value ?? null,
+    acceptLanguage: request.headers.get("accept-language"),
+  });
+  const typesRedirectPath = resolveTypesRedirectPath(pathname, preferredLocale);
+
+  if (typesRedirectPath) {
+    const target = request.nextUrl.clone();
+    target.pathname = typesRedirectPath;
+    return NextResponse.redirect(target, 308);
+  }
+
   if (FORCE_GONE_PATTERNS.some((pattern) => pattern.test(strippedPath))) {
     return createGoneResponse();
   }
@@ -60,10 +96,6 @@ export function proxy(request: NextRequest) {
     !hasLocalePrefix(pathname) &&
     LOCALE_REDIRECT_PREFIXES.some((prefix) => new RegExp(`^/${prefix}(/|$)`, "i").test(strippedPath))
   ) {
-    const preferredLocale = resolvePreferredLocale({
-      cookieLocale: request.cookies.get(LOCALE_COOKIE_NAME)?.value ?? null,
-      acceptLanguage: request.headers.get("accept-language"),
-    });
     const target = request.nextUrl.clone();
     target.pathname = localizedPath(strippedPath, preferredLocale);
     return NextResponse.redirect(target, 308);

@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import robots from "@/app/robots";
 
 const ROOT = process.cwd();
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
@@ -11,6 +12,10 @@ function read(relPath: string): string {
 }
 
 describe("topics cleanup contract", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
   it("topics pages no longer import the legacy local topics source", () => {
     const listPage = read("app/(localized)/[locale]/topics/page.tsx");
     const detailPage = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
@@ -23,26 +28,32 @@ describe("topics cleanup contract", () => {
     expect(detailPage).not.toContain("getTopicCluster");
   });
 
-  it("robots points to the authoritative sitemap xml", () => {
-    const robots = read("public/robots.txt");
+  it("uses app/robots.ts as the authoritative robots definition", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
 
-    expect(robots).toContain("User-agent: *");
-    expect(robots).toContain("Allow: /");
-    expect(robots).toContain("Sitemap: https://fermatmind.com/sitemap.xml");
+    expect(robots()).toEqual({
+      rules: {
+        userAgent: "*",
+        allow: "/",
+      },
+      sitemap: "https://fermatmind.com/sitemap.xml",
+    });
   });
 
-  it("frontend sitemap config excludes topics routes from static sitemap generation", async () => {
+  it("frontend sitemap config includes public topic routes and does not exclude them", async () => {
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const excluded = Array.isArray(config.exclude) ? config.exclude : [];
     const generatedTopicLocs = additionalPaths
       .map((entry: { loc?: string }) => String(entry?.loc ?? ""))
-      .filter((loc: string) => loc.startsWith("/en/topics") || loc.startsWith("/zh/topics"));
+      .filter((loc: string) => loc.startsWith("/en/topics/") || loc.startsWith("/zh/topics/"));
 
-    expect(excluded).toEqual(
+    expect(excluded).not.toEqual(
       expect.arrayContaining(["/en/topics", "/zh/topics", "/en/topics/*", "/zh/topics/*"])
     );
-    expect(generatedTopicLocs).toEqual([]);
+    expect(generatedTopicLocs).toEqual(
+      expect.arrayContaining(["/en/topics/mbti", "/zh/topics/mbti"])
+    );
   });
 
   it("legacy local topics source file is removed", () => {
