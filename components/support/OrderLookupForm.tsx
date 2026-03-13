@@ -10,6 +10,7 @@ import {
   lookupOrder,
   requestClaimReportEmail,
   type AttributionUtm,
+  type EmailCaptureResponse,
 } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -48,6 +49,22 @@ function readNormalizedUtm(searchParams: URLSearchParams): AttributionUtm | unde
   };
 }
 
+function formatCapturedAt(locale: Locale, capturedAt: string | null, emptyLabel: string): string {
+  if (!capturedAt) {
+    return emptyLabel;
+  }
+
+  const date = new Date(capturedAt);
+  if (Number.isNaN(date.getTime())) {
+    return capturedAt;
+  }
+
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(date);
+}
+
 export function OrderLookupForm({
   locale,
   dict,
@@ -71,12 +88,14 @@ export function OrderLookupForm({
   const attemptId = query.get("attempt_id")?.trim() || undefined;
   const [orderNo, setOrderNo] = useState(queryOrderNo);
   const [email, setEmail] = useState("");
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [submittingAction, setSubmittingAction] = useState<LookupAction | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<{
     tone: "success" | "error";
     message: string;
   } | null>(null);
+  const [captureState, setCaptureState] = useState<EmailCaptureResponse | null>(null);
   const [lastSubmitAt, setLastSubmitAt] = useState(0);
 
   useEffect(() => {
@@ -103,18 +122,47 @@ export function OrderLookupForm({
     locale === "zh"
       ? "暂时无法处理找回请求，请稍后再试或联系客服。"
       : "We could not process that recovery request. Please try again later or contact support.";
+  const marketingConsentLabel =
+    locale === "zh" ? "接收产品与营销更新" : "Receive product and marketing updates";
+  const marketingConsentHint =
+    locale === "zh"
+      ? "勾选后可接收产品与营销更新，不影响报告恢复与交付邮件。"
+      : "Opt in to product and marketing updates. This does not affect report recovery or delivery emails.";
+  const captureFoundationTitle =
+    locale === "zh" ? "当前邮件订阅状态" : "Current email subscriber status";
+  const captureFoundationDescription =
+    locale === "zh"
+      ? "仅对当前操作可见，用于说明本次邮箱捕获后的订阅与恢复状态。"
+      : "Visible only for this request to explain the subscriber and recovery state returned after capture.";
+  const subscriberStatusLabel = locale === "zh" ? "订阅状态" : "Subscriber status";
+  const capturedAtLabel = locale === "zh" ? "捕获时间" : "Captured at";
+  const marketingConsentStatusLabel = locale === "zh" ? "营销同意" : "Marketing consent";
+  const reportRecoveryStatusLabel = locale === "zh" ? "报告恢复邮件" : "Report recovery emails";
+  const statusEnabledLabel = locale === "zh" ? "已开启" : "Enabled";
+  const statusDisabledLabel = locale === "zh" ? "未开启" : "Disabled";
+  const capturedAtFallback = locale === "zh" ? "暂未返回" : "Not returned yet";
+  const subscriberStatusLabels: Record<EmailCaptureResponse["subscriber_status"], string> = {
+    active: locale === "zh" ? "已订阅" : "Active",
+    unsubscribed: locale === "zh" ? "已退订" : "Unsubscribed",
+    suppressed: locale === "zh" ? "已暂停" : "Suppressed",
+  };
+  const formattedCapturedAt = captureState
+    ? formatCapturedAt(locale, captureState.captured_at, capturedAtFallback)
+    : null;
 
   async function captureLookupContact({
     trimmedEmail,
     trimmedOrderNo,
     stage,
+    marketingConsentValue,
   }: {
     trimmedEmail: string;
     trimmedOrderNo: string;
     stage: string;
-  }) {
+    marketingConsentValue: boolean;
+  }): Promise<EmailCaptureResponse | null> {
     try {
-      await captureEmailContact({
+      return await captureEmailContact({
         email: trimmedEmail,
         locale,
         surface: "lookup",
@@ -126,7 +174,7 @@ export function OrderLookupForm({
         referrer: pageReferrer,
         landing_path: landingPath,
         utm,
-        marketing_consent: false,
+        marketing_consent: marketingConsentValue,
       });
     } catch (cause) {
       captureError(cause, {
@@ -134,6 +182,7 @@ export function OrderLookupForm({
         orderNo: trimmedOrderNo,
         stage,
       });
+      return null;
     }
   }
 
@@ -151,14 +200,19 @@ export function OrderLookupForm({
     setSubmittingAction(action);
     setError(null);
     setFeedback(null);
+    setCaptureState(null);
     setLastSubmitAt(now);
 
     try {
-      await captureLookupContact({
+      const captureResponse = await captureLookupContact({
         trimmedEmail,
         trimmedOrderNo,
         stage: action === "lookup" ? "capture_email_before_lookup" : "capture_email_before_claim",
+        marketingConsentValue: marketingConsent,
       });
+      if (captureResponse) {
+        setCaptureState(captureResponse);
+      }
 
       if (action === "lookup") {
         const response = await lookupOrder({ orderNo: trimmedOrderNo, email: trimmedEmail });
@@ -225,6 +279,7 @@ export function OrderLookupForm({
                 setOrderNo(event.target.value);
                 setError(null);
                 setFeedback(null);
+                setCaptureState(null);
               }}
               required
             />
@@ -241,10 +296,76 @@ export function OrderLookupForm({
                 setEmail(event.target.value);
                 setError(null);
                 setFeedback(null);
+                setCaptureState(null);
               }}
               required
             />
           </label>
+
+          <label
+            className="flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-3 text-sm text-slate-700"
+            data-testid="order-lookup-marketing-consent-consumer"
+          >
+            <input
+              type="checkbox"
+              className="mt-1 h-4 w-4"
+              checked={marketingConsent}
+              data-testid="order-lookup-marketing-consent"
+              onChange={(event) => {
+                setMarketingConsent(event.target.checked);
+                setError(null);
+                setFeedback(null);
+                setCaptureState(null);
+              }}
+            />
+            <span className="space-y-1">
+              <span className="block font-medium text-slate-900">{marketingConsentLabel}</span>
+              <span className="block text-slate-600">{marketingConsentHint}</span>
+            </span>
+          </label>
+
+          {captureState ? (
+            <div
+              className="space-y-3 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3"
+              data-testid="order-lookup-capture-foundation"
+            >
+              <div className="space-y-1">
+                <p className="m-0 text-sm font-semibold text-slate-900">{captureFoundationTitle}</p>
+                <p className="m-0 text-xs text-slate-600">{captureFoundationDescription}</p>
+              </div>
+              <dl className="space-y-2 text-sm text-slate-700">
+                <div className="flex items-center justify-between gap-4">
+                  <dt>{subscriberStatusLabel}</dt>
+                  <dd className="font-medium text-slate-900" data-testid="order-lookup-capture-subscriber-status">
+                    {subscriberStatusLabels[captureState.subscriber_status]}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-4">
+                  <dt>{capturedAtLabel}</dt>
+                  <dd className="font-medium text-slate-900">
+                    <time
+                      data-testid="order-lookup-capture-captured-at"
+                      dateTime={captureState.captured_at ?? ""}
+                    >
+                      {formattedCapturedAt}
+                    </time>
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-4">
+                  <dt>{marketingConsentStatusLabel}</dt>
+                  <dd className="font-medium text-slate-900" data-testid="order-lookup-capture-marketing-consent">
+                    {captureState.marketing_consent ? statusEnabledLabel : statusDisabledLabel}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-4">
+                  <dt>{reportRecoveryStatusLabel}</dt>
+                  <dd className="font-medium text-slate-900" data-testid="order-lookup-capture-report-recovery">
+                    {captureState.transactional_recovery_enabled ? statusEnabledLabel : statusDisabledLabel}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          ) : null}
 
           {feedback ? (
             <Alert

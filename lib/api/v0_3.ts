@@ -617,10 +617,15 @@ export type OrderResendResponse = {
   [key: string]: unknown;
 };
 
+export type EmailSubscriberStatus = "active" | "unsubscribed" | "suppressed";
+
 export type EmailCaptureResponse = {
-  ok?: boolean;
+  ok: boolean;
+  subscriber_status: EmailSubscriberStatus;
+  captured_at: string | null;
+  marketing_consent: boolean;
+  transactional_recovery_enabled: boolean;
   message?: string;
-  [key: string]: unknown;
 };
 
 export type ClaimReportEmailResponse = {

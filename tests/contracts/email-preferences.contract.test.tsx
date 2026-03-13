@@ -112,9 +112,13 @@ describe("Email preferences and unsubscribe contract", () => {
     await waitFor(() => {
       expect(screen.getByTestId("email-preferences-email")).toHaveTextContent("b***@example.com");
     });
+
+    expect(screen.getByTestId("email-preferences-status-marketing-updates")).toHaveTextContent("Enabled");
+    expect(screen.getByTestId("email-preferences-status-report-recovery")).toHaveTextContent("Enabled");
+    expect(screen.getByTestId("email-preferences-status-product-updates")).toHaveTextContent("Disabled");
   });
 
-  it("shows the three email preference fields", async () => {
+  it("shows the three email preference fields with clearer subscriber foundation copy", async () => {
     render(<EmailPreferencesClient locale="en" token="pref_token_123" dict={dict} />);
 
     await waitFor(() => {
@@ -123,6 +127,9 @@ describe("Email preferences and unsubscribe contract", () => {
 
     expect(screen.getByLabelText(/Report recovery/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Product updates/i)).toBeInTheDocument();
+    expect(screen.getByText(/Product and marketing updates about FermatMind offers/i)).toBeInTheDocument();
+    expect(screen.getByText(/restore access to your report and order emails/i)).toBeInTheDocument();
+    expect(screen.getByText(/not the same as marketing campaigns/i)).toBeInTheDocument();
   });
 
   it("calls updateEmailPreferences when saving", async () => {
@@ -156,7 +163,7 @@ describe("Email preferences and unsubscribe contract", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("email-preferences-feedback")).toHaveTextContent(
-        "Your email preferences have been saved."
+        "Your subscriber preferences are saved. Marketing updates, report recovery emails, and product updates now use the states shown below."
       );
     });
   });
@@ -192,10 +199,17 @@ describe("Email preferences and unsubscribe contract", () => {
     expect(hoisted.unsubscribeEmail).not.toHaveBeenCalled();
   });
 
-  it("shows the unsubscribe confirmation state when a token is present", () => {
+  it("shows the unsubscribe confirmation state with global unsubscribe effects when a token is present", () => {
     render(<EmailUnsubscribeClient locale="en" token="unsub_token_123" dict={dict} />);
 
     expect(screen.getByTestId("email-unsubscribe-confirm")).toHaveTextContent("Confirm unsubscribe");
+    expect(screen.getByTestId("email-unsubscribe-confirm-effects")).toHaveTextContent("Marketing updates will stop.");
+    expect(screen.getByTestId("email-unsubscribe-confirm-effects")).toHaveTextContent(
+      "Report recovery and delivery emails will stop."
+    );
+    expect(screen.getByTestId("email-unsubscribe-confirm-effects")).toHaveTextContent(
+      "You can reopen preferences later to adjust these settings again."
+    );
   });
 
   it("calls unsubscribeEmail only after the confirm click", async () => {
@@ -221,5 +235,15 @@ describe("Email preferences and unsubscribe contract", () => {
     await waitFor(() => {
       expect(screen.getByTestId("email-unsubscribe-success")).toHaveTextContent("You’re unsubscribed");
     });
+    expect(screen.getByTestId("email-unsubscribe-status")).toHaveTextContent("Unsubscribed");
+    expect(screen.getByTestId("email-unsubscribe-success-next-steps")).toHaveTextContent("Marketing updates are off.");
+    expect(screen.getByTestId("email-unsubscribe-success-next-steps")).toHaveTextContent(
+      "Use preferences to change settings later, or go to Order lookup if you still need to recover a report."
+    );
+    expect(screen.getByRole("link", { name: "Back to preferences" })).toHaveAttribute(
+      "href",
+      "/en/email/preferences?token=unsub_token_123"
+    );
+    expect(screen.getByRole("link", { name: "Go to order lookup" })).toHaveAttribute("href", "/en/orders/lookup");
   });
 });

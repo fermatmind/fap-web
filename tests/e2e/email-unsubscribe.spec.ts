@@ -29,6 +29,13 @@ test("email unsubscribe with a token stays on the confirm state until clicked", 
 
   await expect(page.getByRole("heading", { level: 3, name: "Confirm unsubscribe" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Confirm unsubscribe" })).toBeVisible();
+  await expect(page.getByTestId("email-unsubscribe-confirm-effects")).toContainText("Marketing updates will stop.");
+  await expect(page.getByTestId("email-unsubscribe-confirm-effects")).toContainText(
+    "Report recovery and delivery emails will stop."
+  );
+  await expect(page.getByTestId("email-unsubscribe-confirm-effects")).toContainText(
+    "You can reopen preferences later to adjust these settings again."
+  );
 });
 
 test("email unsubscribe success state appears after confirmation", async ({ page }) => {
@@ -54,9 +61,44 @@ test("email unsubscribe success state appears after confirmation", async ({ page
   await page.getByTestId("email-unsubscribe-confirm-button").click();
 
   await expect(page.getByTestId("email-unsubscribe-success")).toContainText("You’re unsubscribed");
+  await expect(page.getByTestId("email-unsubscribe-status")).toHaveText("Unsubscribed");
+  await expect(page.getByTestId("email-unsubscribe-success-next-steps")).toContainText("Marketing updates are off.");
+  await expect(page.getByTestId("email-unsubscribe-success-next-steps")).toContainText(
+    "Use preferences to change settings later, or go to Order lookup if you still need to recover a report."
+  );
   await expect(page.getByRole("link", { name: "Back to preferences" })).toHaveAttribute(
     "href",
     "/en/email/preferences?token=unsub_token_123"
   );
   await expect(page.getByRole("link", { name: "Go to order lookup" })).toHaveAttribute("href", "/en/orders/lookup");
+});
+
+test("email unsubscribe invalid token state points to preferences, order lookup, and help", async ({ page }) => {
+  await mockCommonApis(page);
+  await page.route("**/api/v0.3/email/unsubscribe", async (route) => {
+    await route.fulfill({
+      status: 410,
+      contentType: "application/json",
+      body: JSON.stringify({
+        message: "Token expired.",
+        error_code: "TOKEN_EXPIRED",
+      }),
+    });
+  });
+
+  await page.goto("/en/email/unsubscribe?token=expired_token_123");
+  await page.getByTestId("email-unsubscribe-confirm-button").click();
+
+  const invalidState = page.getByTestId("email-unsubscribe-invalid");
+
+  await expect(invalidState).toContainText("This link is invalid or has expired.");
+  await expect(invalidState.getByRole("link", { name: "Manage email preferences" })).toHaveAttribute(
+    "href",
+    "/en/email/preferences?token=expired_token_123"
+  );
+  await expect(invalidState.getByRole("link", { name: "Go to order lookup" })).toHaveAttribute(
+    "href",
+    "/en/orders/lookup"
+  );
+  await expect(invalidState.getByRole("link", { name: "View help center" })).toHaveAttribute("href", "/en/help");
 });

@@ -202,6 +202,10 @@ export type SiteDictionary = {
       missingRecoveryHint: string;
       loading: string;
       emailLabel: string;
+      statusTitle: string;
+      statusDescription: string;
+      statusEnabled: string;
+      statusDisabled: string;
       save: string;
       saving: string;
       unsubscribeCta: string;
@@ -236,11 +240,17 @@ export type SiteDictionary = {
       missingDescription: string;
       confirmTitle: string;
       confirmDescription: string;
+      confirmEffects: string[];
       confirm: string;
       confirming: string;
       backToPreferences: string;
       successTitle: string;
       successDescription: string;
+      successNextSteps: string[];
+      statusLabel: string;
+      statusValues: {
+        unsubscribed: string;
+      };
       invalidTitle: string;
       invalidDescription: string;
       submitError: string;
