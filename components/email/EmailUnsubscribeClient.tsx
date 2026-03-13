@@ -42,6 +42,7 @@ export function EmailUnsubscribeClient({
   const copy = dict.email.unsubscribe;
   const normalizedToken = normalizeToken(token);
   const [viewState, setViewState] = useState<ViewState>(normalizedToken ? "confirm" : "missing");
+  const [unsubscribeStatus, setUnsubscribeStatus] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const orderLookupHref = localizedPath("/orders/lookup", locale);
@@ -53,6 +54,7 @@ export function EmailUnsubscribeClient({
 
   useEffect(() => {
     setViewState(normalizedToken ? "confirm" : "missing");
+    setUnsubscribeStatus(null);
     setError(null);
   }, [normalizedToken]);
 
@@ -65,10 +67,11 @@ export function EmailUnsubscribeClient({
     setError(null);
 
     try {
-      await unsubscribeEmail({
+      const response = await unsubscribeEmail({
         token: normalizedToken,
         reason: "user_request",
       });
+      setUnsubscribeStatus(response.status);
       setViewState("success");
     } catch (cause) {
       captureError(cause, {
@@ -116,6 +119,9 @@ export function EmailUnsubscribeClient({
           <CardDescription>{copy.invalidDescription}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+          <Link href={preferencesHref} className={buttonVariants({ variant: "default" })}>
+            {copy.ctas.preferences}
+          </Link>
           <Link href={orderLookupHref} className={buttonVariants({ variant: "default" })}>
             {copy.ctas.orderLookup}
           </Link>
@@ -134,13 +140,33 @@ export function EmailUnsubscribeClient({
           <CardTitle>{copy.successTitle}</CardTitle>
           <CardDescription>{copy.successDescription}</CardDescription>
         </CardHeader>
-        <CardContent className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-          <Link href={preferencesHref} className={buttonVariants({ variant: "outline" })}>
-            {copy.backToPreferences}
-          </Link>
-          <Link href={orderLookupHref} className={buttonVariants({ variant: "default" })}>
-            {copy.ctas.orderLookup}
-          </Link>
+        <CardContent className="space-y-4">
+          <div className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-4 py-3">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+              {copy.statusLabel}
+            </p>
+            <p className="m-0 mt-1 text-sm font-medium text-[var(--fm-text)]" data-testid="email-unsubscribe-status">
+              {unsubscribeStatus === "unsubscribed"
+                ? copy.statusValues.unsubscribed
+                : unsubscribeStatus ?? copy.statusValues.unsubscribed}
+            </p>
+          </div>
+          <ul
+            className="m-0 list-disc space-y-1 pl-5 text-sm text-[var(--fm-text-muted)]"
+            data-testid="email-unsubscribe-success-next-steps"
+          >
+            {copy.successNextSteps.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+            <Link href={preferencesHref} className={buttonVariants({ variant: "outline" })}>
+              {copy.backToPreferences}
+            </Link>
+            <Link href={orderLookupHref} className={buttonVariants({ variant: "default" })}>
+              {copy.ctas.orderLookup}
+            </Link>
+          </div>
         </CardContent>
       </Card>
     );
@@ -153,6 +179,14 @@ export function EmailUnsubscribeClient({
         <CardDescription>{copy.confirmDescription}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
+        <ul
+          className="m-0 list-disc space-y-1 pl-5 text-sm text-[var(--fm-text-muted)]"
+          data-testid="email-unsubscribe-confirm-effects"
+        >
+          {copy.confirmEffects.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
         {error ? <Alert data-testid="email-unsubscribe-error">{error}</Alert> : null}
         <div className="flex flex-col gap-2 sm:flex-row">
           <Button

@@ -242,25 +242,30 @@ const en: SiteDictionary = {
       missingRecoveryHint: "If you need a new report email instead, continue through Order lookup.",
       loading: "Loading your email preferences...",
       emailLabel: "Email on file",
+      statusTitle: "Current subscriber foundation",
+      statusDescription: "These switches control your current marketing, report recovery, and product update email states.",
+      statusEnabled: "Enabled",
+      statusDisabled: "Disabled",
       save: "Save preferences",
       saving: "Saving...",
       unsubscribeCta: "Unsubscribe from emails",
-      successMessage: "Your email preferences have been saved.",
+      successMessage:
+        "Your subscriber preferences are saved. Marketing updates, report recovery emails, and product updates now use the states shown below.",
       invalidTitle: "This link is invalid or has expired.",
       invalidDescription: "Request a new report email from Order lookup, or open Help Center for instructions.",
       saveError: "We could not save your preferences right now. Please try again.",
       fields: {
         marketing_updates: {
           title: "Marketing updates",
-          description: "Occasional FermatMind marketing emails and product announcements.",
+          description: "Product and marketing updates about FermatMind offers, launches, and announcements.",
         },
         report_recovery: {
           title: "Report recovery",
-          description: "Recovery and delivery emails that help you get back to your report.",
+          description: "Recovery and delivery emails that help you restore access to your report and order emails.",
         },
         product_updates: {
           title: "Product updates",
-          description: "Important FermatMind product and feature updates.",
+          description: "Feature and product improvement updates that are not the same as marketing campaigns.",
         },
       },
       ctas: {
@@ -275,14 +280,29 @@ const en: SiteDictionary = {
       description: "Use the unsubscribe link in your email to continue.",
       missingDescription: "Open this page from the unsubscribe link inside your email.",
       confirmTitle: "Confirm unsubscribe",
-      confirmDescription: "You will stop receiving the related emails covered by this link.",
+      confirmDescription: "This is a global unsubscribe for the subscriber foundation linked to this token.",
+      confirmEffects: [
+        "Marketing updates will stop.",
+        "Report recovery and delivery emails will stop.",
+        "You can reopen preferences later to adjust these settings again.",
+      ],
       confirm: "Confirm unsubscribe",
       confirming: "Unsubscribing...",
       backToPreferences: "Back to preferences",
       successTitle: "You’re unsubscribed",
-      successDescription: "This email link has been unsubscribed successfully.",
+      successDescription: "Your subscriber foundation is now unsubscribed.",
+      successNextSteps: [
+        "Marketing updates are off.",
+        "Report recovery emails are off until you adjust preferences again.",
+        "Use preferences to change settings later, or go to Order lookup if you still need to recover a report.",
+      ],
+      statusLabel: "Subscriber status",
+      statusValues: {
+        unsubscribed: "Unsubscribed",
+      },
       invalidTitle: "This link is invalid or has expired.",
-      invalidDescription: "Open Order lookup if you need a new report email, or visit Help Center for next steps.",
+      invalidDescription:
+        "This unsubscribe link is invalid or expired. Open preferences from a valid email link, use Order lookup for report recovery, or visit Help Center for next steps.",
       submitError: "We could not complete your unsubscribe request right now. Please try again.",
       ctas: {
         preferences: "Manage email preferences",

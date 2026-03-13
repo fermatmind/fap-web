@@ -44,6 +44,12 @@ test("email preferences with a token loads the saved preferences", async ({ page
   await expect(page.getByLabel("Marketing updates")).toBeChecked();
   await expect(page.getByLabel("Report recovery")).toBeChecked();
   await expect(page.getByLabel("Product updates")).not.toBeChecked();
+  await expect(page.getByTestId("email-preferences-status-marketing-updates")).toHaveText("Enabled");
+  await expect(page.getByTestId("email-preferences-status-report-recovery")).toHaveText("Enabled");
+  await expect(page.getByTestId("email-preferences-status-product-updates")).toHaveText("Disabled");
+  await expect(page.getByText(/Product and marketing updates about FermatMind offers/i)).toBeVisible();
+  await expect(page.getByText(/restore access to your report and order emails/i)).toBeVisible();
+  await expect(page.getByText(/not the same as marketing campaigns/i)).toBeVisible();
 });
 
 test("email preferences save succeeds without leaving the page", async ({ page }) => {
@@ -90,8 +96,11 @@ test("email preferences save succeeds without leaving the page", async ({ page }
   await page.getByLabel("Marketing updates").click();
   await page.getByTestId("email-preferences-save").click();
 
-  await expect(page.getByTestId("email-preferences-feedback")).toHaveText("Your email preferences have been saved.");
+  await expect(page.getByTestId("email-preferences-feedback")).toHaveText(
+    "Your subscriber preferences are saved. Marketing updates, report recovery emails, and product updates now use the states shown below."
+  );
   await expect(page).toHaveURL("/en/email/preferences?token=pref_token_123");
+  await expect(page.getByTestId("email-preferences-status-marketing-updates")).toHaveText("Disabled");
 });
 
 test("help and footer discoverability both reach the email preferences surfaces", async ({ page }) => {

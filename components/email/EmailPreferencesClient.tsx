@@ -204,6 +204,27 @@ export function EmailPreferencesClient({
     return null;
   }
 
+  const preferenceStatuses = [
+    {
+      key: "marketing_updates",
+      title: copy.fields.marketing_updates.title,
+      enabled: preferences.marketing_updates,
+      testId: "email-preferences-status-marketing-updates",
+    },
+    {
+      key: "report_recovery",
+      title: copy.fields.report_recovery.title,
+      enabled: preferences.report_recovery,
+      testId: "email-preferences-status-report-recovery",
+    },
+    {
+      key: "product_updates",
+      title: copy.fields.product_updates.title,
+      enabled: preferences.product_updates,
+      testId: "email-preferences-status-product-updates",
+    },
+  ] as const;
+
   return (
     <Card data-testid="email-preferences-form">
       <CardHeader>
@@ -218,6 +239,28 @@ export function EmailPreferencesClient({
           <p className="m-0 mt-1 text-sm font-medium text-[var(--fm-text)]" data-testid="email-preferences-email">
             {emailMasked}
           </p>
+        </div>
+
+        <div
+          className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-4 py-3"
+          data-testid="email-preferences-status-summary"
+        >
+          <div className="space-y-1">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+              {copy.statusTitle}
+            </p>
+            <p className="m-0 text-sm text-[var(--fm-text-muted)]">{copy.statusDescription}</p>
+          </div>
+          <dl className="space-y-2 text-sm">
+            {preferenceStatuses.map((item) => (
+              <div key={item.key} className="flex items-center justify-between gap-4">
+                <dt className="text-[var(--fm-text)]">{item.title}</dt>
+                <dd className="font-medium text-[var(--fm-text)]" data-testid={item.testId}>
+                  {item.enabled ? copy.statusEnabled : copy.statusDisabled}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
