@@ -20,6 +20,12 @@ import {
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
+const HELP_LIFECYCLE_PATHS = [
+  "/orders/lookup",
+  "/email/preferences",
+  "/email/unsubscribe",
+] as const;
+
 function buildCanonicalPath(locale: "en" | "zh", slug: string): string {
   return locale === "zh" ? `/zh/help/${slug}` : `/en/help/${slug}`;
 }
@@ -99,6 +105,12 @@ export default async function HelpDetailPage({
     locale,
   });
   const isFaqPage = page.slug === "faq" && (page.faqItems?.length ?? 0) > 0;
+  const hasLifecycleLinks = HELP_LIFECYCLE_PATHS.every((path) =>
+    page.relatedLinks.some((item) => item.href === path)
+  );
+  const lifecycleSupportCopy = locale === "zh"
+    ? "先用订单查询处理报告找回、订单查询、交付状态确认和重发交付邮件，再用管理邮件偏好处理邮件设置；如果你只是想停邮，请使用退订邮件或邮件中的专属退订链接，之后仍无法解决再联系支持。"
+    : "Start with Order lookup for report recovery, order lookup, delivery status, and resend delivery email. Then use Manage email preferences for email settings. If you only want to stop emails, use Unsubscribe from emails or the dedicated unsubscribe link in any email before contacting support.";
 
   return (
     <Container as="main" className="max-w-6xl py-10" data-testid={`help-detail-${page.slug}`}>
@@ -168,8 +180,14 @@ export default async function HelpDetailPage({
             </section>
           ) : null}
 
-          <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <section
+            className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+            data-testid={`help-detail-related-links-${page.slug}`}
+          >
             <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">{content.labels.relatedTitle}</h2>
+            {hasLifecycleLinks ? (
+              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{lifecycleSupportCopy}</p>
+            ) : null}
             <div className="flex flex-wrap gap-2">
               {page.relatedLinks.map((item) => (
                 <Link key={item.href} href={withLocale(item.href)} className="fm-help-chip-link">
