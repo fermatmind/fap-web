@@ -57,32 +57,24 @@ export default async function HelpPage({
         <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">{content.home.subtitle}</p>
       </section>
 
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="help-home-topics">
-        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{content.home.topicsTitle}</h2>
-        <div className="grid gap-3 md:grid-cols-2">
-          {pages.map((page) => (
-            <Link
-              key={page.slug}
-              href={withLocale(`/help/${page.slug}`)}
-              className="fm-help-topic-card"
-            >
-              <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{page.title}</h3>
-              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{page.cardSummary}</p>
-              <span className="fm-help-topic-action">{content.home.browseButton}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
       <section className="grid gap-4 md:grid-cols-2" data-testid="help-home-actions">
         <article className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
           <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">{content.home.quickActionsTitle}</h2>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{content.home.quickActionsSubtitle}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid gap-3" data-testid="help-home-quick-actions">
             {content.quickActions.map((action) => (
-              <Link key={action.href} href={withLocale(action.href)}>
-                <Button type="button" variant="outline">{action.label}</Button>
-              </Link>
+              <article key={action.href} className="fm-help-topic-card">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+                  {locale === "zh" ? "正式入口" : "Formal path"}
+                </p>
+                <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{action.label}</h3>
+                <p className="m-0 text-sm text-[var(--fm-text-muted)]">{action.description}</p>
+                <div>
+                  <Link href={withLocale(action.href)} className="inline-flex">
+                    <Button type="button" variant="outline">{action.label}</Button>
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
         </article>
@@ -100,6 +92,23 @@ export default async function HelpPage({
             <Button type="button">{locale === "zh" ? "查看联系说明" : "Contact instructions"}</Button>
           </Link>
         </article>
+      </section>
+
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="help-home-topics">
+        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{content.home.topicsTitle}</h2>
+        <div className="grid gap-3 md:grid-cols-2">
+          {pages.map((page) => (
+            <Link
+              key={page.slug}
+              href={withLocale(`/help/${page.slug}`)}
+              className="fm-help-topic-card"
+            >
+              <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{page.title}</h3>
+              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{page.cardSummary}</p>
+              <span className="fm-help-topic-action">{content.home.browseButton}</span>
+            </Link>
+          ))}
+        </div>
       </section>
     </Container>
   );

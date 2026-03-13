@@ -16,6 +16,11 @@ export type HelpCenterLinkItem = {
   label: string;
 };
 
+export type HelpCenterQuickActionItem = HelpCenterLinkItem & {
+  description: string;
+  actionLabel: string;
+};
+
 export type HelpCenterFaqItem = {
   question: string;
   answer: string;
@@ -55,7 +60,7 @@ type HelpCenterLocaleContent = {
     relatedTitle: string;
     faqTitle: string;
   };
-  quickActions: HelpCenterLinkItem[];
+  quickActions: HelpCenterQuickActionItem[];
   pageOrder: HelpCenterSlug[];
   pages: Record<HelpCenterSlug, HelpCenterPageContent>;
 };
@@ -66,14 +71,14 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
       kicker: "Support Center",
       title: "Help Center",
       subtitle:
-        "Find practical answers about reports, payment, policies, and enterprise usage.",
+        "Find the formal entry points for report recovery, email preferences, unsubscribe, and common support questions.",
       topicsTitle: "Browse help topics",
-      quickActionsTitle: "Quick actions",
+      quickActionsTitle: "Formal entry points",
       quickActionsSubtitle:
-        "Start with Order lookup for report recovery. Use your order number and purchase email there first. Email preferences and unsubscribe should use the dedicated link in your email.",
+        "Use Order lookup to recover a report with your order number and purchase email. Manage email preferences is separate from report recovery. Unsubscribe from emails stops messages here, and the dedicated unsubscribe link inside any email still works.",
       contactTitle: "Need personal support?",
       contactSubtitle:
-        "If your issue includes an order, start with Order lookup, then include the order number and purchase email to speed up handling.",
+        "Start with Order lookup first, then Manage email preferences if the issue is about email settings. Use Unsubscribe from emails when you only want to stop messages. Contact support after those formal paths if the issue is still unresolved.",
       browseButton: "Open topic",
     },
     labels: {
@@ -82,10 +87,24 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
       faqTitle: "Frequently asked questions",
     },
     quickActions: [
-      { href: "/orders/lookup", label: "Order lookup" },
-      { href: "/email/preferences", label: "Manage email preferences" },
-      { href: "/refund", label: "Refund policy" },
-      { href: "/privacy", label: "Privacy policy" },
+      {
+        href: "/orders/lookup",
+        label: "Order lookup",
+        description: "Recover my report with your order number and purchase email.",
+        actionLabel: "Recover my report",
+      },
+      {
+        href: "/email/preferences",
+        label: "Manage email preferences",
+        description: "Update email settings without changing report recovery or order lookup.",
+        actionLabel: "Manage preferences",
+      },
+      {
+        href: "/email/unsubscribe",
+        label: "Unsubscribe from emails",
+        description: "Stop emails here, or use the dedicated unsubscribe link inside any email you already received.",
+        actionLabel: "Unsubscribe",
+      },
     ],
     pageOrder: [
       "faq",
@@ -101,19 +120,22 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
         navLabel: "FAQ",
         title: "Frequently Asked Questions",
         subtitle: "Common answers for reports, payment, and account-related requests.",
-        cardSummary: "Report delivery, payment retry, refund scope, and policy entry points.",
+        cardSummary: "Report recovery, delivery email resend, email settings, unsubscribe, and payment support entry points.",
         sections: [
           {
             title: "Before you contact support",
             paragraphs: [
-              "Most delivery and payment issues should start from Order lookup as the formal recovery entry.",
+              "Use the formal recovery and email-control paths before you contact support.",
             ],
             bullets: [
               "Go to Order lookup with your order number and purchase email first.",
-              "Use the dedicated link in your email to manage preferences or unsubscribe.",
+              "Use Order lookup for report recovery, order lookup, delivery status, and resend delivery email.",
+              "Use Manage email preferences for email settings. This is separate from report recovery.",
+              "Use Unsubscribe from emails to stop messages, or use the dedicated unsubscribe link inside any email you already received.",
               "Check your purchase email inbox and spam folder for report links.",
               "From the order detail page, you can review delivery status, resend the delivery email, and return to Order lookup for purchase-email recovery.",
               "If payment failed, retry from the order page instead of creating duplicate orders.",
+              "Contact support after these formal paths if the issue is still unresolved.",
             ],
           },
           {
@@ -136,7 +158,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
           {
             question: "How do email preferences and unsubscribe links work?",
             answer:
-              "Use the dedicated link inside your email to manage preferences or unsubscribe. If you need a new report email instead, go to Order lookup with your order number and purchase email.",
+              "Report recovery and email settings are separate. Use Manage email preferences to update email settings. Use Unsubscribe from emails or the dedicated unsubscribe link inside any email to stop messages. If you need a new report email instead, go to Order lookup with your order number and purchase email.",
           },
           {
             question: "What should I do if payment fails?",
@@ -156,9 +178,10 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
         ],
         relatedLinks: [
           { href: "/orders/lookup", label: "Order lookup" },
+          { href: "/email/preferences", label: "Manage email preferences" },
+          { href: "/email/unsubscribe", label: "Unsubscribe from emails" },
+          { href: "/help/contact", label: "Contact support" },
           { href: "/refund", label: "Refund policy" },
-          { href: "/privacy", label: "Privacy policy" },
-          { href: "/terms", label: "Terms of Service" },
         ],
       },
       about: {
@@ -292,10 +315,18 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
         navLabel: "Contact",
         title: "Contact Support",
         subtitle: "Share complete context so we can resolve your issue faster.",
-        cardSummary: "Support email, preparation checklist, and expected response rhythm.",
+        cardSummary: "Formal recovery paths, support email, preparation checklist, and expected response rhythm.",
         sections: [
           {
-            title: "What to include",
+            title: "Use these formal paths before support",
+            paragraphs: [
+              "Start with Order lookup for report recovery, order lookup, delivery status, and resend delivery email.",
+              "Use Manage email preferences if the issue is about email settings. Use Unsubscribe from emails if you only want to stop messages.",
+              "The dedicated unsubscribe link inside any email still works. Contact support after those paths if the issue is still unresolved.",
+            ],
+          },
+          {
+            title: "What to include if you still need support",
             bullets: [
               "Order number (if applicable)",
               "Purchase email used at checkout",
@@ -314,8 +345,9 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
         ],
         relatedLinks: [
           { href: "/orders/lookup", label: "Order lookup" },
+          { href: "/email/preferences", label: "Manage email preferences" },
+          { href: "/email/unsubscribe", label: "Unsubscribe from emails" },
           { href: "/help/faq", label: "FAQ" },
-          { href: "/refund", label: "Refund policy" },
         ],
       },
     },
@@ -324,12 +356,14 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
     home: {
       kicker: "支持中心",
       title: "帮助中心",
-      subtitle: "集中查看报告、支付、政策与企业使用相关问题的处理入口。",
+      subtitle: "集中查看报告找回、邮件偏好、退订与常见支持问题的正式处理入口。",
       topicsTitle: "浏览帮助主题",
-      quickActionsTitle: "快速操作",
-      quickActionsSubtitle: "报告找回请先走订单查询主入口，并准备订单号和购买邮箱。邮件偏好与退订请使用邮件中的专属链接。",
+      quickActionsTitle: "正式入口",
+      quickActionsSubtitle:
+        "报告找回请使用订单查询，并准备订单号和购买邮箱。管理邮件偏好与报告找回是两条不同设置。退订邮件可走退订页面，邮件里的专属退订链接仍然有效。",
       contactTitle: "需要人工支持？",
-      contactSubtitle: "若涉及订单，请先使用订单查询，再附上订单号和购买邮箱，可显著缩短处理时间。",
+      contactSubtitle:
+        "请先走订单查询，再用管理邮件偏好处理邮件设置；如果你只是想停邮，请直接使用退订邮件。以上正式路径仍无法解决时，再联系人工支持。",
       browseButton: "进入主题",
     },
     labels: {
@@ -338,10 +372,24 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
       faqTitle: "常见问题",
     },
     quickActions: [
-      { href: "/orders/lookup", label: "订单查询" },
-      { href: "/email/preferences", label: "管理邮件偏好" },
-      { href: "/refund", label: "退款政策" },
-      { href: "/privacy", label: "隐私政策" },
+      {
+        href: "/orders/lookup",
+        label: "订单查询",
+        description: "使用订单号和购买邮箱找回报告。",
+        actionLabel: "找回报告",
+      },
+      {
+        href: "/email/preferences",
+        label: "管理邮件偏好",
+        description: "调整邮件设置，但不会替代报告找回或订单查询。",
+        actionLabel: "管理偏好",
+      },
+      {
+        href: "/email/unsubscribe",
+        label: "退订邮件",
+        description: "在这里停邮，或继续使用你已收到邮件中的专属退订链接。",
+        actionLabel: "立即退订",
+      },
     ],
     pageOrder: [
       "faq",
@@ -357,18 +405,21 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
         navLabel: "常见问题",
         title: "常见问题解答",
         subtitle: "覆盖报告获取、支付异常、退款与账户相关高频问题。",
-        cardSummary: "报告交付、支付重试、退款范围与政策入口。",
+        cardSummary: "报告找回、交付邮件重发、邮件设置、退订与支付支持入口。",
         sections: [
           {
             title: "联系客服前建议先做",
-            paragraphs: ["多数报告交付与支付问题应先从订单查询这个正式找回入口开始处理。"],
+            paragraphs: ["请先走正式的报告找回与邮件设置入口，再决定是否联系人工支持。"],
             bullets: [
               "先带着订单号和购买邮箱进入订单查询",
-              "邮件偏好管理和退订请使用邮件中的专属链接",
+              "报告找回、订单查询、交付状态确认与重发交付邮件，都先走订单查询",
+              "管理邮件偏好用于处理邮件设置，这和报告找回是两条不同入口",
+              "退订邮件可直接使用退订页面，也可以继续使用邮件中的专属退订链接",
               "先检查购买邮箱收件箱和垃圾箱中的报告邮件",
               "进入订单详情页查看交付状态、最近发送情况，并按需重发交付邮件",
               "如需购买邮箱恢复，可从订单详情页返回订单查询继续操作",
               "支付失败时优先在原订单页重试，不要重复创建订单",
+              "以上正式路径仍无法解决时，再联系支持",
             ],
           },
           {
@@ -391,7 +442,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
           {
             question: "邮件偏好和退订链接如何使用？",
             answer:
-              "请使用邮件中的专属链接管理偏好或退订。如果你需要新的报告邮件，请带着订单号和购买邮箱前往订单查询。",
+              "报告找回和邮件设置是两件事。请使用管理邮件偏好处理邮件设置；如需停邮，请使用退订邮件页面或邮件中的专属退订链接。如果你需要新的报告邮件，请带着订单号和购买邮箱前往订单查询。",
           },
           {
             question: "支付失败怎么办？",
@@ -411,9 +462,10 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
         ],
         relatedLinks: [
           { href: "/orders/lookup", label: "订单查询" },
+          { href: "/email/preferences", label: "管理邮件偏好" },
+          { href: "/email/unsubscribe", label: "退订邮件" },
+          { href: "/help/contact", label: "联系支持" },
           { href: "/refund", label: "退款政策" },
-          { href: "/privacy", label: "隐私政策" },
-          { href: "/terms", label: "服务条款" },
         ],
       },
       about: {
@@ -545,10 +597,18 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
         navLabel: "联系方式",
         title: "联系支持",
         subtitle: "提供完整上下文，有助于更快定位并解决问题。",
-        cardSummary: "支持邮箱、提交前清单与响应节奏说明。",
+        cardSummary: "正式找回入口、支持邮箱、提交前清单与响应节奏说明。",
         sections: [
           {
-            title: "建议提供的信息",
+            title: "联系支持前请先走这些正式入口",
+            paragraphs: [
+              "报告找回、订单查询、交付状态确认与重发交付邮件，请先使用订单查询。",
+              "邮件设置请使用管理邮件偏好；如果你只是想停邮，请直接使用退订邮件。",
+              "邮件中的专属退订链接仍然有效。以上路径仍无法解决时，再联系人工支持。",
+            ],
+          },
+          {
+            title: "仍需联系支持时建议提供的信息",
             bullets: [
               "订单号（如有）",
               "购买时使用的邮箱",
@@ -567,8 +627,9 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
         ],
         relatedLinks: [
           { href: "/orders/lookup", label: "订单查询" },
+          { href: "/email/preferences", label: "管理邮件偏好" },
+          { href: "/email/unsubscribe", label: "退订邮件" },
           { href: "/help/faq", label: "常见问题" },
-          { href: "/refund", label: "退款政策" },
         ],
       },
     },

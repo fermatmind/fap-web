@@ -33,6 +33,25 @@ const helpPages = [
   },
 ] as const;
 
+const lifecycleQuickActionsEn = [
+  { label: "Order lookup", href: "/en/orders/lookup" },
+  { label: "Manage email preferences", href: "/en/email/preferences" },
+  { label: "Unsubscribe from emails", href: "/en/email/unsubscribe" },
+] as const;
+
+const lifecycleRelatedLinks = {
+  en: [
+    "/en/orders/lookup",
+    "/en/email/preferences",
+    "/en/email/unsubscribe",
+  ],
+  zh: [
+    "/zh/orders/lookup",
+    "/zh/email/preferences",
+    "/zh/email/unsubscribe",
+  ],
+} as const;
+
 test("support route remains redirected to help", async ({ request }) => {
   const response = await request.get("/en/support", { maxRedirects: 0 });
   expect(response.status()).toBe(308);
@@ -48,20 +67,29 @@ test("help home exposes all topic links in English", async ({ page }) => {
   }
 });
 
-test("help home keeps order lookup first and exposes email preference discoverability", async ({ page }) => {
+test("help home surfaces the three lifecycle entry points and they navigate to the formal paths", async ({ page }) => {
   await page.goto("/en/help");
 
-  await expect(page.getByRole("button", { name: "Order lookup" })).toBeVisible();
+  const quickActions = page.getByTestId("help-home-quick-actions").locator("a");
+  await expect(quickActions).toHaveCount(3);
+  await expect(quickActions.nth(0)).toContainText("Order lookup");
+  await expect(quickActions.nth(1)).toContainText("Manage email preferences");
+  await expect(quickActions.nth(2)).toContainText("Unsubscribe from emails");
   await expect(
     page.getByText(
-      "Start with Order lookup for report recovery. Use your order number and purchase email there first. Email preferences and unsubscribe should use the dedicated link in your email."
+      "Use Order lookup to recover a report with your order number and purchase email. Manage email preferences is separate from report recovery. Unsubscribe from emails stops messages here, and the dedicated unsubscribe link inside any email still works."
     )
   ).toBeVisible();
-  await expect(page.getByRole("button", { name: "Manage email preferences" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Refund policy" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Privacy policy" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Email me the report link" })).toHaveCount(0);
-  await expect(page.getByRole("button", { name: "Recover with purchase email" })).toHaveCount(0);
+  await expect(page.getByTestId("help-home-quick-actions")).not.toContainText("Refund policy");
+  await expect(page.getByTestId("help-home-quick-actions")).not.toContainText("Privacy policy");
+
+  for (const action of lifecycleQuickActionsEn) {
+    await page.goto("/en/help");
+    const link = page.getByTestId("help-home-quick-actions").locator(`a[href="${action.href}"]`);
+    await expect(link).toBeVisible();
+    await link.click();
+    await expect(page).toHaveURL(action.href);
+  }
 });
 
 test("help home exposes all topic links in Chinese", async ({ page }) => {
@@ -101,11 +129,21 @@ test("faq detail page exposes answer-first copy, crawlable faq html, and faq sch
   expect(html).toContain('id="answer-first"');
 });
 
-test("faq recovery copy explains email links, order lookup, purchase email, and order detail delivery status", async ({ page }) => {
+test("faq recovery copy explains report recovery, delivery resend, email preferences, and unsubscribe separation", async ({ page }) => {
   await page.goto("/en/help/faq");
 
   await expect(page.getByText("Go to Order lookup with your order number and purchase email first.")).toBeVisible();
-  await expect(page.getByText("Use the dedicated link in your email to manage preferences or unsubscribe.")).toBeVisible();
+  await expect(
+    page.getByText("Use Order lookup for report recovery, order lookup, delivery status, and resend delivery email.")
+  ).toBeVisible();
+  await expect(
+    page.getByText("Use Manage email preferences for email settings. This is separate from report recovery.")
+  ).toBeVisible();
+  await expect(
+    page.getByText(
+      "Use Unsubscribe from emails to stop messages, or use the dedicated unsubscribe link inside any email you already received."
+    )
+  ).toBeVisible();
   await expect(
     page.getByText(
       "From the order detail page, you can review delivery status, resend the delivery email, and return to Order lookup for purchase-email recovery."
@@ -118,9 +156,33 @@ test("faq recovery copy explains email links, order lookup, purchase email, and 
   ).toBeVisible();
   await expect(
     page.getByText(
-      "Use the dedicated link inside your email to manage preferences or unsubscribe. If you need a new report email instead, go to Order lookup with your order number and purchase email."
+      "Report recovery and email settings are separate. Use Manage email preferences to update email settings. Use Unsubscribe from emails or the dedicated unsubscribe link inside any email to stop messages. If you need a new report email instead, go to Order lookup with your order number and purchase email."
     )
   ).toBeVisible();
+});
+
+test("faq and contact help detail pages surface the lifecycle related links in English", async ({ page }) => {
+  for (const slug of ["faq", "contact"] as const) {
+    await page.goto(`/en/help/${slug}`);
+    const relatedLinks = page.getByTestId(`help-detail-related-links-${slug}`);
+    await expect(relatedLinks).toContainText("Start with Order lookup for report recovery");
+
+    for (const href of lifecycleRelatedLinks.en) {
+      await expect(relatedLinks.locator(`a[href="${href}"]`)).toBeVisible();
+    }
+  }
+});
+
+test("faq and contact help detail pages surface the lifecycle related links in Chinese", async ({ page }) => {
+  for (const slug of ["faq", "contact"] as const) {
+    await page.goto(`/zh/help/${slug}`);
+    const relatedLinks = page.getByTestId(`help-detail-related-links-${slug}`);
+    await expect(relatedLinks).toContainText("先用订单查询处理报告找回");
+
+    for (const href of lifecycleRelatedLinks.zh) {
+      await expect(relatedLinks.locator(`a[href="${href}"]`)).toBeVisible();
+    }
+  }
 });
 
 test("desktop header dropdown opens and closes by click and Escape", async ({ page }) => {
