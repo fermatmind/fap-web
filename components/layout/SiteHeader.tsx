@@ -189,7 +189,7 @@ export function SiteHeader() {
               <Search className="h-4 w-4" />
             </Link>
             <Link
-              href={withLocale("/orders/lookup")}
+              href={withLocale("/history/mbti")}
               className="inline-flex h-11 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-[var(--fm-pad-btn-sm-x)] text-xs font-semibold text-white transition hover:bg-white/20"
             >
               <UserRound className="h-4 w-4" />
@@ -311,7 +311,7 @@ export function SiteHeader() {
                   {dict.header.start}
                 </Link>
                 <Link
-                  href={withLocale("/orders/lookup")}
+                  href={withLocale("/history/mbti")}
                   onClick={handleMobileLinkClick}
                   className="inline-flex h-11 min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 text-sm font-semibold text-white transition hover:bg-white/20"
                 >
