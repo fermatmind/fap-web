@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
 
 function createUnlockedMbtiReportFixture() {
@@ -10,11 +10,7 @@ function createUnlockedMbtiReportFixture() {
   return fixture;
 }
 
-test("MBTI post-purchase retention keeps a formal re-entry path after payment", async ({ page }) => {
-  const attemptId = "mbti-post-purchase-0001";
-  const orderNo = "ord_mbti_post_purchase_0001";
-  let reportRequestCount = 0;
-
+async function installCommonMocks(page: Page) {
   await page.addInitScript(() => {
     window.localStorage.setItem(
       "fm_consent_v1",
@@ -43,27 +39,13 @@ test("MBTI post-purchase retention keeps a formal re-entry path after payment", 
       }),
     });
   });
+}
 
-  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        status: "paid",
-        attempt_id: attemptId,
-        message: "Your full report is ready.",
-        delivery: {
-          can_view_report: true,
-          report_url: `/result/${attemptId}`,
-          can_download_pdf: true,
-          report_pdf_url: `/api/v0.3/attempts/${attemptId}/report.pdf`,
-          can_resend: true,
-        },
-      }),
-    });
-  });
+async function installUnlockedResultMocks(
+  page: Page,
+  attemptId: string
+) {
+  let reportRequestCount = 0;
 
   await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
     reportRequestCount += 1;
@@ -108,30 +90,60 @@ test("MBTI post-purchase retention keeps a formal re-entry path after payment", 
       body: "%PDF-1.4 MBTI report",
     });
   });
+}
 
-  await page.route(`**/api/v0.3/orders/${orderNo}/resend`, async (route) => {
+test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page }) => {
+  const attemptId = "mbti-post-purchase-0001";
+  const orderNo = "ord_mbti_post_purchase_0001";
+
+  await installCommonMocks(page);
+  await installUnlockedResultMocks(page, attemptId);
+
+  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
-        message: "Delivery email sent again.",
+        order_no: orderNo,
+        status: "paid",
+        attempt_id: attemptId,
+        message: "Your full report is ready.",
+        delivery: {
+          can_view_report: true,
+          report_url: `/result/${attemptId}`,
+          can_download_pdf: true,
+          report_pdf_url: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+          can_resend: true,
+        },
       }),
     });
   });
 
   await page.goto(`/en/orders/${orderNo}`);
 
-  await expect(page.getByTestId("order-delivery-actions")).toBeVisible();
-  await expect(page.getByTestId("order-view-report")).toBeVisible();
-  await expect(page.getByTestId("order-download-pdf")).toBeVisible();
-  await expect(page.getByTestId("order-resend-delivery")).toBeVisible();
-
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
-  await expect(page.getByTestId("mbti-post-purchase-section")).toBeVisible();
-  await expect(page.getByTestId("mbti-post-purchase-section").getByRole("button", { name: "Download PDF" })).toBeVisible();
-  await expect(page.getByTestId("mbti-post-purchase-section").getByRole("link", { name: "My MBTI reports" })).toBeVisible();
-  await expect(page.getByTestId("mbti-post-purchase-section").getByRole("link", { name: "Order lookup" })).toBeVisible();
+  const terminalSurface = page.getByTestId("mbti-post-purchase-section");
+  await expect(terminalSurface).toBeVisible();
+  await expect(terminalSurface.getByRole("button", { name: "Download PDF" })).toBeVisible();
+  await expect(terminalSurface.getByRole("link", { name: "My MBTI reports" })).toHaveAttribute("href", "/en/history/mbti");
+  await expect(terminalSurface.getByRole("link", { name: "Order lookup" })).toHaveAttribute("href", "/en/orders/lookup");
+});
+
+test("MBTI result pages keep post-purchase retention and history re-entry", async ({ page }) => {
+  const attemptId = "mbti-post-purchase-0001";
+
+  await installCommonMocks(page);
+  await installUnlockedResultMocks(page, attemptId);
+
+  await page.goto(`/en/result/${attemptId}`);
+
+  const terminalSurface = page.getByTestId("mbti-post-purchase-section");
+  await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
+  await expect(terminalSurface).toBeVisible();
+  await expect(terminalSurface.getByRole("button", { name: "Download PDF" })).toBeVisible();
+  await expect(terminalSurface.getByRole("link", { name: "My MBTI reports" })).toHaveAttribute("href", "/en/history/mbti");
+  await expect(terminalSurface.getByRole("link", { name: "Order lookup" })).toHaveAttribute("href", "/en/orders/lookup");
 
   await page.getByTestId("mbti-post-purchase-history").click();
 
