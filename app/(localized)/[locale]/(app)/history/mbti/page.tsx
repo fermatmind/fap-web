@@ -1,11 +1,23 @@
 import type { Metadata } from "next";
+import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import MbtiHistoryClient from "./MbtiHistoryClient";
 
-export const metadata: Metadata = {
-  title: "MBTI History",
-  robots: NOINDEX_ROBOTS,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = resolveLocale(localeParam);
+  const dict = await getDict(locale);
+
+  return {
+    title: dict.history.mbti.metadataTitle,
+    description: dict.history.mbti.descriptionPrimary,
+    robots: NOINDEX_ROBOTS,
+  };
+}
 
 export default function MbtiHistoryPage() {
   return (

@@ -185,6 +185,30 @@ export type SiteDictionary = {
     openPaymentHint: string;
     openPaymentPage: string;
   };
+  history: {
+    mbti: {
+      metadataTitle: string;
+      kicker: string;
+      title: string;
+      descriptionPrimary: string;
+      descriptionRecovery: string;
+      recoverCta: string;
+      listTitle: string;
+      listSubtitle: string;
+      loading: string;
+      emptyTitle: string;
+      emptyDescription: string;
+      emptyStartCta: string;
+      emptyRecoverCta: string;
+      completedLabel: string;
+      submittedAtLabel: string;
+      statusLabel: string;
+      statusValue: string;
+      viewReport: string;
+      previousPage: string;
+      nextPage: string;
+    };
+  };
   support: {
     title: string;
     lookup: string;
