@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Container } from "@/components/layout/Container";
 import { OrderLookupForm } from "@/components/support/OrderLookupForm";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
@@ -46,7 +47,9 @@ export default async function OrderLookupPage({
           {isZh ? "输入订单号和购买邮箱继续查询。" : "Enter your order number and purchase email to continue."}
         </p>
       </div>
-      <OrderLookupForm locale={locale} dict={dict} />
+      <Suspense fallback={<div aria-hidden="true" className="min-h-64" />}>
+        <OrderLookupForm locale={locale} dict={dict} />
+      </Suspense>
     </Container>
   );
 }
