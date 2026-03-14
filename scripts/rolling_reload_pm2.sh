@@ -48,7 +48,7 @@ let rows = [];
 try {
   rows = JSON.parse(raw);
 } catch {
-  process.stdout.write("0\t0\t0\t-\t-\tnot_found");
+  process.stdout.write("-\t0\t-\tnot_found\n");
   process.exit(0);
 }
 const appRows = rows.filter((item) => item && item.name === app);
@@ -56,7 +56,6 @@ const total = appRows.length;
 const online = appRows.filter(
   (item) => item && item.pm2_env && item.pm2_env.status === "online"
 ).length;
-const exists = total > 0 ? 1 : 0;
 const modes = [...new Set(
   appRows
     .map((item) => String(item && item.pm2_env && item.pm2_env.exec_mode ? item.pm2_env.exec_mode : ""))
@@ -70,18 +69,26 @@ const paths = [...new Set(
 )];
 const mode = modes.length === 1 ? modes[0] : (modes.length > 1 ? "mixed" : "-");
 const path = paths.length === 1 ? paths[0] : (paths.length > 1 ? "mixed" : "-");
-const status = exists === 0 ? "not_found" : (online === total ? "online" : "degraded");
-process.stdout.write([exists, total, online, mode, path, status].join("\t"));
+const status = total === 0 ? "not_found" : (online === total ? "online" : "degraded");
+process.stdout.write([mode, total, path, status].join("\t") + "\n");
 ' "$APP_NAME"
 }
 
 load_current_app_shape() {
-  IFS=$'\t' read -r CURRENT_EXISTS CURRENT_TOTAL CURRENT_ONLINE CURRENT_MODE CURRENT_PATH CURRENT_STATUS < <(current_app_shape)
+  local line
+
+  line="$(current_app_shape)"
+  [[ -n "$line" ]]
+  IFS=$'\t' read -r CURRENT_MODE CURRENT_INSTANCES CURRENT_PATH CURRENT_STATUS <<< "$line"
+  [[ -n "${CURRENT_MODE:-}" ]]
+  [[ -n "${CURRENT_INSTANCES:-}" ]]
+  [[ -n "${CURRENT_PATH:-}" ]]
+  [[ -n "${CURRENT_STATUS:-}" ]]
 }
 
 app_exists() {
   load_current_app_shape
-  [[ "$CURRENT_EXISTS" == "1" ]]
+  [[ "$CURRENT_STATUS" != "not_found" ]]
 }
 
 app_is_drifted() {
@@ -95,14 +102,14 @@ app_is_drifted() {
   if [[ "$CURRENT_PATH" != "$EXPECTED_EXEC_PATH" ]]; then
     return 0
   fi
-  if (( CURRENT_TOTAL < DESIRED_INSTANCES )); then
+  if (( CURRENT_INSTANCES < DESIRED_INSTANCES )); then
     return 0
   fi
   return 1
 }
 
 recreate_from_config() {
-  log "detected drift, recreating from ecosystem config mode=${CURRENT_MODE} instances=${CURRENT_TOTAL} path=${CURRENT_PATH} status=${CURRENT_STATUS}"
+  log "detected drift, recreating from ecosystem config mode=${CURRENT_MODE} instances=${CURRENT_INSTANCES} path=${CURRENT_PATH} status=${CURRENT_STATUS}"
   "$PM2_BIN" delete "$APP_NAME" >/dev/null 2>&1 || true
   "$PM2_BIN" start "$PM2_CONFIG" --only "$APP_NAME" --update-env >/dev/null
 }
@@ -121,12 +128,11 @@ assert_app_converged() {
 
   while (( $(date +%s) <= deadline )); do
     load_current_app_shape
-    if [[ "$CURRENT_EXISTS" == "1" ]] \
-      && [[ "$CURRENT_STATUS" == "online" ]] \
+    log "post-check: mode=${CURRENT_MODE}, instances=${CURRENT_INSTANCES}, path=${CURRENT_PATH}, status=${CURRENT_STATUS}"
+    if [[ "$CURRENT_STATUS" == "online" ]] \
       && [[ "$CURRENT_MODE" == "$EXPECTED_EXEC_MODE" ]] \
       && [[ "$CURRENT_PATH" == "$EXPECTED_EXEC_PATH" ]] \
-      && (( CURRENT_TOTAL >= DESIRED_INSTANCES )); then
-      log "post-check: mode=${CURRENT_MODE}, instances=${CURRENT_TOTAL}, path=${CURRENT_PATH}, status=${CURRENT_STATUS}"
+      && (( CURRENT_INSTANCES >= DESIRED_INSTANCES )); then
       log "convergence succeeded"
       return 0
     fi
@@ -134,7 +140,7 @@ assert_app_converged() {
   done
 
   load_current_app_shape
-  log "post-check: mode=${CURRENT_MODE}, instances=${CURRENT_TOTAL}, path=${CURRENT_PATH}, status=${CURRENT_STATUS}"
+  log "post-check: mode=${CURRENT_MODE}, instances=${CURRENT_INSTANCES}, path=${CURRENT_PATH}, status=${CURRENT_STATUS}"
   log "convergence failed expected_mode=${EXPECTED_EXEC_MODE} expected_min_instances=${DESIRED_INSTANCES} expected_path=${EXPECTED_EXEC_PATH}"
   return 1
 }
@@ -148,10 +154,8 @@ if [[ ! -f "$PM2_CONFIG" ]]; then
 fi
 
 DESIRED_INSTANCES="$(resolve_desired_instances)"
-CURRENT_EXISTS="0"
-CURRENT_TOTAL="0"
-CURRENT_ONLINE="0"
 CURRENT_MODE="-"
+CURRENT_INSTANCES="0"
 CURRENT_PATH="-"
 CURRENT_STATUS="not_found"
 
