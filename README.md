@@ -116,26 +116,36 @@ pnpm start
 
 ## Production deployment
 
-Production deployment assets are in:
+Current runtime standard remains Node 20.x.
+Node1 validation confirms the current frontend production authority is PM2, using `/usr/bin/node` on Node 20.x to run `/opt/apps/fap-web/.next/standalone/server.js`.
+The current production deploy entrypoint is `/Users/rainie/Desktop/GitHub/fap-web/scripts/deploy_web_pm2.sh`.
+On Node1, `fap-web.service` is currently absent; that is not an anomaly and does not block the PM2-backed production topology.
+
+Current production authority assets are:
+
+- `/Users/rainie/Desktop/GitHub/fap-web/scripts/deploy_web_pm2.sh`
+- `/Users/rainie/Desktop/GitHub/fap-web/ecosystem.config.cjs`
+- `/Users/rainie/Desktop/GitHub/fap-web/deploy/nginx/fap-web.conf`
+
+Fallback/reference assets are:
 
 - `/Users/rainie/Desktop/GitHub/fap-web/deploy/systemd/fap-web.service`
-- `/Users/rainie/Desktop/GitHub/fap-web/deploy/nginx/fap-web.conf`
-- `/Users/rainie/Desktop/GitHub/fap-web/ecosystem.config.cjs`
+- `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/systemd-fap-web.service`
 
-`/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/*` are reference docs.
-For cron autoheal setup, see:
+`/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/*` remain reference docs.
+For cron autoheal setup under the current PM2 authority, see:
 
 - `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/502-recovery-runbook.md`
 - `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/pm2-autoheal-cron.md`
 
-Current runtime standard remains Node 20.x.
-The deploy entrypoint now fails fast unless both the shell `node` and `/usr/bin/node` resolve to Node 20.x.
-PM2 and the tracked systemd unit both assume `/usr/bin/node` satisfies that same runtime contract.
+The deploy entrypoint fails fast unless both the shell `node` and `/usr/bin/node` resolve to Node 20.x.
+For the current Node1 production host, `which node` and `/usr/bin/node` both resolve to the same Node 20 runtime contract.
 
 ### PM2 deploy entrypoint (single allowed command)
 
 Use a single deploy entrypoint to avoid malformed multi-line PM2 commands.
 Do not run hand-typed PM2 start commands such as `pm2 start ... -- \\ -lc ...`.
+PM2 remains the only current production app process authority on Node1.
 
 ```bash
 pnpm run deploy:pm2
@@ -153,6 +163,8 @@ Run once on the server to enable PM2 resurrection after reboot:
 pm2 startup systemd -u ubuntu --hp /home/ubuntu
 pm2 save
 ```
+
+The `systemd` interaction above is for PM2 resurrection, not for a standalone `fap-web.service` authority on Node1.
 
 ### Runtime guardrails (healthcheck + autoheal + WeCom)
 
@@ -184,7 +196,10 @@ Cron example (every minute):
 * * * * * cd /opt/apps/fap-web && WECOM_BOT_WEBHOOK="https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=<your-key>" bash scripts/autoheal_pm2.sh >> /var/log/fap-web-autoheal.log 2>&1
 ```
 
-### Standalone run (non-PM2 fallback)
+### Standalone run (non-PM2 fallback/reference)
+
+If a host explicitly installs the tracked fallback unit, keep it aligned with `/usr/bin/node` on Node 20.x and `.next/standalone/server.js`.
+Do not treat that fallback/reference unit as the current Node1 production authority.
 
 ```bash
 pnpm build

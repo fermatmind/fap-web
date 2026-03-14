@@ -1,29 +1,18 @@
-# Example systemd unit for fap-web (Next.js)
+# Reference systemd unit for hosts that explicitly install fap-web.service.
+# Current Node1 production authority remains PM2, not this unit.
+# /usr/bin/node must resolve to Node 20.x before using this fallback/reference file.
 
 [Unit]
-Description=fap-web (Next.js)
+Description=fap-web (Next.js standalone reference unit)
 After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/opt/fap-web
+WorkingDirectory=/opt/apps/fap-web/.next/standalone
 Environment=NODE_ENV=production
-Environment=PORT=3000
 Environment=HOSTNAME=127.0.0.1
-Environment=NEXT_PUBLIC_API_URL=https://api.example.com
-Environment=NEXT_PUBLIC_API_BASE=/api
-Environment=NEXT_PUBLIC_RELEASE=web@2026-02-23+launch_gate
-Environment=ENABLE_MBTI=true
-Environment=ENABLE_BIG5_OCEAN=true
-Environment=ENABLE_SDS_20=true
-Environment=ENABLE_CLINICAL_COMBO_68=true
-Environment=ROLLOUT_PERCENT_MBTI=100
-Environment=ROLLOUT_PERCENT_BIG5_OCEAN=100
-Environment=ROLLOUT_PERCENT_SDS_20=100
-Environment=ROLLOUT_PERCENT_CLINICAL_COMBO_68=100
-Environment=ENABLE_SDS_20_COMMERCE=true
-Environment=ENABLE_CLINICAL_COMBO_68_COMMERCE=true
-ExecStart=/usr/bin/env pnpm start -- -p 3000
+Environment=PORT=3000
+ExecStart=/usr/bin/node /opt/apps/fap-web/.next/standalone/server.js --hostname 127.0.0.1 --port 3000
 Restart=on-failure
 RestartSec=3
 
