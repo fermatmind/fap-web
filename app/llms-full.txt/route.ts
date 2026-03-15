@@ -37,27 +37,26 @@ async function listPersonalityEntries() {
     ]);
 
     return [
-      ...enProfiles.items.map((item) => ({
-        locale: "en",
-        path: `/en/personality/${item.slug}`,
-        title: item.title || item.typeCode,
-      })),
-      ...zhProfiles.items.map((item) => ({
-        locale: "zh",
-        path: `/zh/personality/${item.slug}`,
-        title: item.title || item.typeCode,
-      })),
+      ...enProfiles.items
+        .filter((item) => item.isIndexable)
+        .map((item) => ({
+          locale: "en",
+          path: `/en/personality/${item.slug}`,
+          title: item.title || item.typeCode,
+        })),
+      ...zhProfiles.items
+        .filter((item) => item.isIndexable)
+        .map((item) => ({
+          locale: "zh",
+          path: `/zh/personality/${item.slug}`,
+          title: item.title || item.typeCode,
+        })),
     ].filter((entry) => shouldKeep(entry.path));
   } catch {
-    // Fall back to local MBTI coverage when the personality CMS is unavailable.
+    // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
   }
 
-  return listMbtiRecommendationTypes()
-    .flatMap((type) => [
-      { locale: "en", path: `/en/personality/${type.toLowerCase()}`, title: `${type} personality` },
-      { locale: "zh", path: `/zh/personality/${type.toLowerCase()}`, title: `${type} 人格画像` },
-    ])
-    .filter((entry) => shouldKeep(entry.path));
+  return [];
 }
 
 async function listTopicEntries() {

@@ -31,27 +31,20 @@ async function listPersonalityPaths(): Promise<string[]> {
       listPersonalityProfiles({ locale: "en", perPage: 100 }),
       listPersonalityProfiles({ locale: "zh", perPage: 100 }),
     ]);
-    const slugs = new Set(
-      [...enProfiles.items, ...zhProfiles.items]
-        .map((item) => String(item.slug ?? "").trim().toLowerCase())
-        .filter(Boolean)
-    );
 
-    if (slugs.size > 0) {
-      return dedupePaths(
-        [...slugs].flatMap((slug) => [`/en/personality/${slug}`, `/zh/personality/${slug}`])
-      );
-    }
+    return dedupePaths([
+      ...enProfiles.items
+        .filter((item) => item.isIndexable)
+        .map((item) => `/en/personality/${String(item.slug ?? "").trim().toLowerCase()}`),
+      ...zhProfiles.items
+        .filter((item) => item.isIndexable)
+        .map((item) => `/zh/personality/${String(item.slug ?? "").trim().toLowerCase()}`),
+    ]);
   } catch {
-    // Fall back to local MBTI coverage when the personality CMS is unavailable.
+    // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
   }
 
-  return dedupePaths(
-    listMbtiRecommendationTypes().flatMap((type) => {
-      const slug = type.toLowerCase();
-      return [`/en/personality/${slug}`, `/zh/personality/${slug}`];
-    })
-  );
+  return [];
 }
 
 async function listTopicPaths(): Promise<string[]> {
