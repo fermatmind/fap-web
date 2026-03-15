@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
+import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
-  listBlogPosts,
   listBig5RecommendationTraits,
   listCareerGuideSlugs,
   listCareerIndustrySlugs,
@@ -90,11 +90,13 @@ async function listTopicEntries() {
 
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
-  const [enCareerJobs, zhCareerJobs, personalityEntries, topicEntries] = await Promise.all([
+  const [enCareerJobs, zhCareerJobs, personalityEntries, topicEntries, enArticles, zhArticles] = await Promise.all([
     listCareerJobsFromCms({ locale: "en" }).catch(() => []),
     listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
     listPersonalityEntries(),
     listTopicEntries(),
+    listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
+    listCmsArticlesForLlms({ locale: "zh" }).catch(() => []),
   ]);
 
   const helpEntries = [
@@ -117,17 +119,15 @@ export async function GET() {
     ])
     .filter((entry) => shouldKeep(entry.path));
 
-  const articles = listBlogPosts()
-    .map((post) => {
-      const locale = post.locale === "en" ? "en" : "zh";
-      if (locale === "en" && !post.translation_ready) return null;
-      const path = `/${locale}/articles/${post.slug}`;
-      if (!shouldKeep(path)) return null;
+  const articles = [...enArticles, ...zhArticles]
+    .filter((article) => article.isIndexable)
+    .map((article) => {
+      if (!shouldKeep(article.href)) return null;
       return {
-        locale,
-        path,
-        title: post.title,
-        updatedAt: post.updatedAt,
+        locale: article.locale,
+        path: article.href,
+        title: article.title,
+        updatedAt: article.updatedAt,
       };
     })
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));

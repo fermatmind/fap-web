@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /** @type {import('next-sitemap').IConfig} */
 const tests = require("./.velite/tests.json");
-const blog = require("./.velite/blog.json");
 const careerJobs = require("./.velite/careerJobs.json");
 const careerIndustries = require("./.velite/careerIndustries.json");
 const careerGuides = require("./.velite/careerGuides.json");
@@ -47,39 +46,8 @@ function normalizePath(path) {
   return withLeadingSlash.replace(/\/+$/, "");
 }
 
-function normalizeBlogLocale(value) {
-  const raw = String(value || "").toLowerCase();
-  return raw === "en" ? "en" : "zh";
-}
-
 function hasIndexableFlagFalse(item) {
   return item && item.is_indexable === false;
-}
-
-function isEnglishArticleIndexable(item) {
-  return normalizeBlogLocale(item?.locale) === "en" && item?.translation_ready === true;
-}
-
-const indexableEnglishArticleSlugs = new Set(
-  blog
-    .filter((item) => isEnglishArticleIndexable(item))
-    .map((item) => normalizeSlug(item.slug))
-    .filter(Boolean)
-);
-
-const hasIndexableEnglishArticles = indexableEnglishArticleSlugs.size > 0;
-
-function shouldIncludeArticlePath(pathname) {
-  const normalized = normalizePath(pathname);
-  if (normalized === "/en/articles") {
-    return hasIndexableEnglishArticles;
-  }
-
-  const articleMatch = normalized.match(/^\/en\/articles\/([^/]+)$/i);
-  if (!articleMatch) return true;
-
-  const slug = normalizeSlug(articleMatch[1]);
-  return indexableEnglishArticleSlugs.has(slug);
 }
 
 function buildTestPaths() {
@@ -98,27 +66,8 @@ function buildTestPaths() {
   return paths;
 }
 
-function buildArticlePaths() {
-  const paths = new Set();
-  for (const item of blog) {
-    const slug = normalizeSlug(item?.slug);
-    if (!slug) continue;
-
-    const locale = normalizeBlogLocale(item?.locale);
-    if (locale === "en") {
-      if (item?.translation_ready === true) {
-        paths.add(`/en/articles/${slug}`);
-      }
-      continue;
-    }
-
-    paths.add(`/zh/articles/${slug}`);
-  }
-  return [...paths];
-}
-
 function buildLandingPaths() {
-  const base = [
+  return [
     "/",
     "/en",
     "/zh",
@@ -128,7 +77,6 @@ function buildLandingPaths() {
     "/zh/help",
     "/en/tests",
     "/zh/tests",
-    "/zh/articles",
     "/en/career",
     "/zh/career",
     "/en/career/jobs",
@@ -144,10 +92,6 @@ function buildLandingPaths() {
     "/en/career/tests/riasec",
     "/zh/career/tests/riasec",
   ];
-  if (hasIndexableEnglishArticles) {
-    base.push("/en/articles");
-  }
-  return base;
 }
 
 function buildCareerPaths() {
@@ -215,7 +159,6 @@ const generatedPaths = [
   ...new Set([
     ...buildLandingPaths(),
     ...buildTestPaths(),
-    ...buildArticlePaths(),
     ...buildCareerPaths(),
     ...buildTopicPaths(),
     ...buildHelpPaths(),
@@ -230,7 +173,6 @@ module.exports = {
   transform: async (_config, path) => {
     const normalized = normalizePath(path);
     if (!shouldIncludeInSitemap(normalized)) return null;
-    if (!shouldIncludeArticlePath(normalized)) return null;
 
     return {
       loc: normalized,
@@ -243,7 +185,6 @@ module.exports = {
     generatedPaths
       .map((path) => normalizePath(path))
       .filter((path) => shouldIncludeInSitemap(path))
-      .filter((path) => shouldIncludeArticlePath(path))
       .map((loc) => ({
         loc,
         changefreq: "weekly",

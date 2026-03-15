@@ -1,7 +1,10 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import { toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
+const DEFAULT_LIST_PER_PAGE = 20;
+const DEFAULT_ENUMERATION_PER_PAGE = 100;
 
 type CmsArticleApiTag = {
   id?: number;
@@ -57,6 +60,7 @@ type CmsArticleSeoApiResponse = {
     title?: string;
     description?: string;
     canonical?: string | null;
+    alternates?: Record<string, string | null | undefined>;
     og?: {
       title?: string;
       description?: string;
@@ -112,6 +116,10 @@ export type CmsArticleSeoPayload = {
     title: string;
     description: string;
     canonical: string | null;
+    alternates: {
+      en: string | null;
+      "zh-CN": string | null;
+    };
     og: {
       title: string;
       description: string;
@@ -129,6 +137,16 @@ export type CmsArticleSeoPayload = {
   jsonld: unknown;
 };
 
+export type CmsArticleLlmsEntry = {
+  slug: string;
+  locale: Locale;
+  title: string;
+  excerpt: string;
+  href: string;
+  isIndexable: boolean;
+  updatedAt: string | null;
+};
+
 export type CmsArticlesPagination = {
   currentPage: number;
   perPage: number;
@@ -139,11 +157,17 @@ export type CmsArticlesPagination = {
 export type GetCmsArticlesParams = {
   locale: Locale | string;
   page?: number;
+  perPage?: number;
 };
 
 export type GetCmsArticlesResult = {
   items: CmsArticle[];
   pagination: CmsArticlesPagination;
+};
+
+export type ListCmsArticlesForLlmsParams = {
+  locale: Locale | string;
+  perPage?: number;
 };
 
 function buildQuery(params: Record<string, string | number | undefined>): string {
@@ -159,6 +183,22 @@ function buildQuery(params: Record<string, string | number | undefined>): string
 
   const serialized = query.toString();
   return serialized ? `?${serialized}` : "";
+}
+
+function fallbackText(...candidates: Array<unknown>): string {
+  for (const candidate of candidates) {
+    const normalized = String(candidate ?? "").replace(/\s+/g, " ").trim();
+    if (normalized) {
+      return normalized;
+    }
+  }
+
+  return "";
+}
+
+function normalizeIsoValue(value: unknown): string | null {
+  const normalized = String(value ?? "").trim();
+  return normalized || null;
 }
 
 function stripHtml(value: string): string {
@@ -184,6 +224,111 @@ function buildFallbackExcerpt(article: CmsArticleApiRecord): string {
   }
 
   return "";
+}
+
+function replaceCanonicalValue(
+  value: string,
+  sourceCanonical: string | null | undefined,
+  localizedCanonicalPath: string,
+  slug: string
+): string {
+  const localizedCanonical = canonicalUrl(localizedCanonicalPath);
+  const normalizedSlug = normalizeArticleSlug(slug);
+  const fallbackSourceCanonical = canonicalUrl(`/articles/${normalizedSlug}`);
+  const relativeCanonical = `/articles/${normalizedSlug}`;
+  const candidates: Array<[string, string]> = [
+    [String(sourceCanonical ?? "").trim(), localizedCanonical],
+    [fallbackSourceCanonical, localizedCanonical],
+    [relativeCanonical, localizedCanonicalPath],
+  ];
+
+  for (const [from, to] of candidates) {
+    if (!from) {
+      continue;
+    }
+
+    if (value === from) {
+      return to;
+    }
+
+    if (value.startsWith(`${from}#`)) {
+      return `${to}${value.slice(from.length)}`;
+    }
+  }
+
+  return value;
+}
+
+function normalizeArticleJsonLd(
+  jsonld: unknown,
+  sourceCanonical: string | null | undefined,
+  localizedCanonicalPath: string,
+  slug: string
+): unknown {
+  const walk = (value: unknown): unknown => {
+    if (Array.isArray(value)) {
+      return value.map(walk);
+    }
+
+    if (value && typeof value === "object") {
+      return Object.fromEntries(Object.entries(value).map(([key, nested]) => [key, walk(nested)]));
+    }
+
+    if (typeof value === "string") {
+      return replaceCanonicalValue(value, sourceCanonical, localizedCanonicalPath, slug);
+    }
+
+    return value;
+  };
+
+  return jsonld ? walk(jsonld) : null;
+}
+
+export function normalizeArticleSlug(value: string): string {
+  return String(value ?? "").trim();
+}
+
+export function buildArticleFrontendUrl(locale: Locale | string, slug: string): string {
+  return localizedPath(`/articles/${normalizeArticleSlug(slug)}`, normalizeLocale(locale));
+}
+
+export function normalizeArticleSeoPayload(
+  seo: CmsArticleSeoApiResponse | null,
+  locale: Locale | string,
+  slug: string
+): CmsArticleSeoPayload | null {
+  if (!seo) {
+    return null;
+  }
+
+  const normalizedSlug = normalizeArticleSlug(slug);
+  const canonicalPath = buildArticleFrontendUrl(locale, normalizedSlug);
+
+  return {
+    meta: {
+      title: fallbackText(seo.meta?.title),
+      description: fallbackText(seo.meta?.description),
+      canonical: canonicalUrl(canonicalPath),
+      alternates: {
+        en: canonicalUrl(buildArticleFrontendUrl("en", normalizedSlug)),
+        "zh-CN": canonicalUrl(buildArticleFrontendUrl("zh", normalizedSlug)),
+      },
+      og: {
+        title: fallbackText(seo.meta?.og?.title, seo.meta?.title),
+        description: fallbackText(seo.meta?.og?.description, seo.meta?.description),
+        image: normalizeIsoValue(seo.meta?.og?.image),
+        type: fallbackText(seo.meta?.og?.type, "article"),
+      },
+      twitter: {
+        card: fallbackText(seo.meta?.twitter?.card, "summary_large_image"),
+        title: fallbackText(seo.meta?.twitter?.title, seo.meta?.title),
+        description: fallbackText(seo.meta?.twitter?.description, seo.meta?.description),
+        image: normalizeIsoValue(seo.meta?.twitter?.image ?? seo.meta?.og?.image),
+      },
+      robots: fallbackText(seo.meta?.robots, "index,follow"),
+    },
+    jsonld: normalizeArticleJsonLd(seo.jsonld ?? null, seo.meta?.canonical, canonicalPath, normalizedSlug),
+  };
 }
 
 function normalizeTag(tag: CmsArticleApiTag): CmsArticleTag | null {
@@ -223,7 +368,7 @@ function normalizeCategory(category: CmsArticleApiCategory): CmsArticleCategory 
 function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
   return {
     id: typeof article.id === "number" ? article.id : null,
-    slug: String(article.slug ?? "").trim(),
+    slug: normalizeArticleSlug(String(article.slug ?? "")),
     locale: String(article.locale ?? "").trim() || "en",
     title: String(article.title ?? "").trim(),
     excerpt: buildFallbackExcerpt(article),
@@ -249,10 +394,10 @@ function matchesRequestedLocale(articleLocale: string, locale: Locale | string):
   return toApiLocale(articleLocale) === toApiLocale(locale);
 }
 
-function emptyPagination(page = 1): CmsArticlesPagination {
+function emptyPagination(page = 1, perPage = DEFAULT_LIST_PER_PAGE): CmsArticlesPagination {
   return {
     currentPage: page,
-    perPage: 20,
+    perPage,
     total: 0,
     lastPage: 1,
   };
@@ -260,9 +405,14 @@ function emptyPagination(page = 1): CmsArticlesPagination {
 
 export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetCmsArticlesResult> {
   const requestedPage = typeof params.page === "number" && params.page > 0 ? params.page : 1;
+  const requestedPerPage =
+    typeof params.perPage === "number" && params.perPage > 0
+      ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
+      : DEFAULT_LIST_PER_PAGE;
   const query = buildQuery({
     locale: toApiLocale(params.locale),
     page: requestedPage,
+    per_page: requestedPerPage,
     org_id: DEFAULT_ORG_ID,
   });
 
@@ -284,7 +434,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
       items,
       pagination: {
         currentPage: typeof response.pagination?.current_page === "number" ? response.pagination.current_page : requestedPage,
-        perPage: typeof response.pagination?.per_page === "number" ? response.pagination.per_page : 20,
+        perPage: typeof response.pagination?.per_page === "number" ? response.pagination.per_page : requestedPerPage,
         total: typeof response.pagination?.total === "number" ? response.pagination.total : items.length,
         lastPage: typeof response.pagination?.last_page === "number" ? response.pagination.last_page : 1,
       },
@@ -293,12 +443,65 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
     if (error instanceof ApiError && error.status === 404) {
       return {
         items: [],
-        pagination: emptyPagination(requestedPage),
+        pagination: emptyPagination(requestedPage, requestedPerPage),
       };
     }
 
     throw error;
   }
+}
+
+export async function listCmsArticlesForLlms(
+  params: ListCmsArticlesForLlmsParams
+): Promise<CmsArticleLlmsEntry[]> {
+  const locale = normalizeLocale(params.locale);
+  const perPage =
+    typeof params.perPage === "number" && params.perPage > 0
+      ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
+      : DEFAULT_ENUMERATION_PER_PAGE;
+  const seen = new Set<string>();
+  const entries: CmsArticleLlmsEntry[] = [];
+
+  let currentPage = 1;
+  let lastPage = 1;
+
+  do {
+    const response = await getCmsArticles({
+      locale,
+      page: currentPage,
+      perPage,
+    });
+
+    lastPage = Math.max(1, response.pagination.lastPage);
+
+    for (const article of response.items) {
+      const slug = normalizeArticleSlug(article.slug);
+      const title = fallbackText(article.title);
+      if (!slug || !title) {
+        continue;
+      }
+
+      const key = `${locale}:${slug}`;
+      if (seen.has(key)) {
+        continue;
+      }
+
+      seen.add(key);
+      entries.push({
+        slug,
+        locale,
+        title,
+        excerpt: article.excerpt,
+        href: buildArticleFrontendUrl(locale, slug),
+        isIndexable: article.isIndexable,
+        updatedAt: article.updatedAt ?? article.publishedAt ?? article.createdAt,
+      });
+    }
+
+    currentPage += 1;
+  } while (currentPage <= lastPage);
+
+  return entries;
 }
 
 export async function getCmsArticle(slug: string, locale: Locale | string): Promise<CmsArticle | null> {
@@ -335,7 +538,7 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
 }
 
 export async function getCmsArticleSeo(slug: string, locale: Locale | string): Promise<CmsArticleSeoPayload | null> {
-  const normalizedSlug = slug.trim();
+  const normalizedSlug = normalizeArticleSlug(slug);
   if (!normalizedSlug) {
     return null;
   }
@@ -355,27 +558,7 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
       }
     );
 
-    return {
-      meta: {
-        title: String(response.meta?.title ?? "").trim(),
-        description: String(response.meta?.description ?? "").trim(),
-        canonical: response.meta?.canonical ?? null,
-        og: {
-          title: String(response.meta?.og?.title ?? response.meta?.title ?? "").trim(),
-          description: String(response.meta?.og?.description ?? response.meta?.description ?? "").trim(),
-          image: response.meta?.og?.image ?? null,
-          type: String(response.meta?.og?.type ?? "article").trim() || "article",
-        },
-        twitter: {
-          card: String(response.meta?.twitter?.card ?? "summary_large_image").trim() || "summary_large_image",
-          title: String(response.meta?.twitter?.title ?? response.meta?.title ?? "").trim(),
-          description: String(response.meta?.twitter?.description ?? response.meta?.description ?? "").trim(),
-          image: response.meta?.twitter?.image ?? response.meta?.og?.image ?? null,
-        },
-        robots: String(response.meta?.robots ?? "index,follow").trim() || "index,follow",
-      },
-      jsonld: response.jsonld ?? null,
-    };
+    return normalizeArticleSeoPayload(response, locale, normalizedSlug);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return null;
