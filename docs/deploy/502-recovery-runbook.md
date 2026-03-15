@@ -3,7 +3,7 @@
 ## Scope
 Use this runbook when `https://fermatmind.com` returns `502 Bad Gateway` and upstream `127.0.0.1:3000` is suspected down.
 
-Node1 has been verified to run the frontend under PM2 with `/usr/bin/node` on Node 20.x, serving `/opt/apps/fap-web/.next/standalone/server.js`.
+Node1 has been verified to run the frontend under PM2 with `/usr/bin/node` on Node 24.x, serving `/opt/apps/fap-web/.next/standalone/server.js`.
 On Node1, `fap-web.service` may be absent; `systemctl status fap-web` returning `not-found` is not itself an incident signal.
 Only use `systemd` checks on hosts that explicitly install the tracked fallback/reference unit.
 
@@ -23,8 +23,8 @@ bash scripts/deploy_web_pm2.sh
 
 Do not use hand-typed multi-line PM2 commands.
 
-Current runtime standard is Node 20.x.
-If either the shell `node` or `/usr/bin/node` is not Node 20.x, fix the runtime first and only then retry deploy.
+Current runtime standard is Node 24.x.
+If either the shell `node` or `/usr/bin/node` is not Node 24.x, fix the runtime first and only then retry deploy.
 
 ## 2.5) Authoritative runtime and PM2 checks on Node1
 ```bash

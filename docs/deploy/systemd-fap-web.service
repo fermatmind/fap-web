@@ -1,6 +1,6 @@
 # Reference systemd unit for hosts that explicitly install fap-web.service.
 # Current Node1 production authority remains PM2, not this unit.
-# /usr/bin/node must resolve to Node 20.x before using this fallback/reference file.
+# /usr/bin/node must resolve to Node 24.x before using this fallback/reference file.
 
 [Unit]
 Description=fap-web (Next.js standalone reference unit)

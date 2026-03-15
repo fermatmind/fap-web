@@ -17,7 +17,7 @@ Next.js frontend for FermatMind assessments.
 
 ## Prerequisites
 
-- Node.js 20.x (see `.nvmrc`)
+- Node.js 24.x (see `.nvmrc`)
 - pnpm 10.28.1 (via `corepack`)
 
 ## Package manager policy
@@ -29,9 +29,9 @@ This repository is **pnpm-only**.
 
 ## Runtime policy
 
-- This repository only supports Node.js 20.x and pnpm.
+- This repository only supports Node.js 24.x and pnpm.
 - `pnpm install` runs a runtime check and fails fast on the wrong Node major version or a non-pnpm installer.
-- Run `nvm use` before installing dependencies if your shell is not already on Node 20.x.
+- Run `nvm use` before installing dependencies if your shell is not already on Node 24.x.
 
 ## Local development
 
@@ -116,8 +116,8 @@ pnpm start
 
 ## Production deployment
 
-Current runtime standard remains Node 20.x.
-Node1 validation confirms the current frontend production authority is PM2, using `/usr/bin/node` on Node 20.x to run `/opt/apps/fap-web/.next/standalone/server.js`.
+Current runtime standard is Node 24.x.
+Node1 production authority remains PM2, using `/usr/bin/node` as the tracked runtime path for `/opt/apps/fap-web/.next/standalone/server.js` under the Node 24.x standard.
 The current production deploy entrypoint is `/Users/rainie/Desktop/GitHub/fap-web/scripts/deploy_web_pm2.sh`.
 On Node1, `fap-web.service` is currently absent; that is not an anomaly and does not block the PM2-backed production topology.
 
@@ -138,8 +138,8 @@ For cron autoheal setup under the current PM2 authority, see:
 - `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/502-recovery-runbook.md`
 - `/Users/rainie/Desktop/GitHub/fap-web/docs/deploy/pm2-autoheal-cron.md`
 
-The deploy entrypoint fails fast unless both the shell `node` and `/usr/bin/node` resolve to Node 20.x.
-For the current Node1 production host, `which node` and `/usr/bin/node` both resolve to the same Node 20 runtime contract.
+The deploy entrypoint fails fast unless both the shell `node` and `/usr/bin/node` resolve to Node 24.x.
+For the current Node1 production host, `which node` and `/usr/bin/node` must resolve to the same Node 24 runtime contract.
 
 ### PM2 deploy entrypoint (single allowed command)
 
@@ -198,7 +198,7 @@ Cron example (every minute):
 
 ### Standalone run (non-PM2 fallback/reference)
 
-If a host explicitly installs the tracked fallback unit, keep it aligned with `/usr/bin/node` on Node 20.x and `.next/standalone/server.js`.
+If a host explicitly installs the tracked fallback unit, keep it aligned with `/usr/bin/node` on Node 24.x and `.next/standalone/server.js`.
 Do not treat that fallback/reference unit as the current Node1 production authority.
 
 ```bash
