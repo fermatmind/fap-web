@@ -6,17 +6,13 @@ const ROOT = process.cwd();
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
 
 describe("sitemap indexability contract", () => {
-  it("frontend sitemap config exposes the intended public seo entry set", async () => {
+  it("frontend sitemap config keeps public topics, help, and career entries without claiming personality authority", async () => {
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
     expect(locs).toEqual(
       expect.arrayContaining([
-        "/en/personality",
-        "/zh/personality",
-        "/en/personality/intj",
-        "/zh/personality/intj",
         "/en/topics/mbti",
         "/zh/topics/mbti",
         "/en/help/faq",
@@ -25,6 +21,7 @@ describe("sitemap indexability contract", () => {
         "/zh/career/recommendations/mbti/INTJ",
       ])
     );
+    expect(locs.some((loc: string) => /^\/(en|zh)\/personality(?:\/|$)/.test(loc))).toBe(false);
   });
 
   it("frontend sitemap config excludes retired and private route families", async () => {

@@ -122,8 +122,6 @@ function buildLandingPaths() {
     "/",
     "/en",
     "/zh",
-    "/en/personality",
-    "/zh/personality",
     "/en/topics",
     "/zh/topics",
     "/en/help",
@@ -209,21 +207,6 @@ function buildTopicPaths() {
   return [...paths];
 }
 
-function buildPersonalityPaths() {
-  const paths = new Set();
-
-  for (const item of careerRecommendationProfiles) {
-    const profileType = normalizeSlug(item?.profile_type).toLowerCase();
-    const key = normalizeSlug(item?.key).toLowerCase();
-    if (profileType !== "mbti" || !key) continue;
-
-    paths.add(`/en/personality/${key}`);
-    paths.add(`/zh/personality/${key}`);
-  }
-
-  return [...paths];
-}
-
 function buildHelpPaths() {
   return HELP_PAGE_SLUGS.flatMap((slug) => [`/en/help/${slug}`, `/zh/help/${slug}`]);
 }
@@ -231,7 +214,6 @@ function buildHelpPaths() {
 const generatedPaths = [
   ...new Set([
     ...buildLandingPaths(),
-    ...buildPersonalityPaths(),
     ...buildTestPaths(),
     ...buildArticlePaths(),
     ...buildCareerPaths(),
