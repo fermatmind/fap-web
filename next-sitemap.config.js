@@ -3,7 +3,6 @@
 const tests = require("./.velite/tests.json");
 const careerJobs = require("./.velite/careerJobs.json");
 const careerIndustries = require("./.velite/careerIndustries.json");
-const careerGuides = require("./.velite/careerGuides.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
 const TOPIC_SLUGS = ["mbti", "big-five", "iq-eq"];
@@ -83,8 +82,6 @@ function buildLandingPaths() {
     "/zh/career/jobs",
     "/en/career/industries",
     "/zh/career/industries",
-    "/en/career/guides",
-    "/zh/career/guides",
     "/en/career/recommendations",
     "/zh/career/recommendations",
     "/en/career/tests",
@@ -109,13 +106,6 @@ function buildCareerPaths() {
     if (!slug) continue;
     paths.add(`/en/career/industries/${slug}`);
     paths.add(`/zh/career/industries/${slug}`);
-  }
-
-  for (const item of careerGuides) {
-    const slug = normalizeSlug(item?.slug);
-    if (!slug) continue;
-    paths.add(`/en/career/guides/${slug}`);
-    paths.add(`/zh/career/guides/${slug}`);
   }
 
   for (const item of careerRecommendationProfiles) {
