@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
+import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
-  listBlogPosts,
   listBig5RecommendationTraits,
   listCareerGuideSlugs,
   listCareerIndustrySlugs,
@@ -73,11 +73,13 @@ async function listTopicPaths(): Promise<string[]> {
 
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
-  const [enCareerJobs, zhCareerJobs, personalityEntries, topicEntries] = await Promise.all([
+  const [enCareerJobs, zhCareerJobs, personalityEntries, topicEntries, enArticles, zhArticles] = await Promise.all([
     listCareerJobsFromCms({ locale: "en" }).catch(() => []),
     listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
     listPersonalityPaths(),
     listTopicPaths(),
+    listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
+    listCmsArticlesForLlms({ locale: "zh" }).catch(() => []),
   ]);
 
   const helpEntries = dedupePaths(HELP_CENTER_SLUGS.flatMap((slug) => [`/en/help/${slug}`, `/zh/help/${slug}`]));
@@ -86,13 +88,9 @@ export async function GET() {
   );
 
   const articleEntries = dedupePaths(
-    listBlogPosts()
-      .map((post) => {
-        const locale = post.locale === "en" ? "en" : "zh";
-        if (locale === "en" && !post.translation_ready) return null;
-        return `/${locale}/articles/${post.slug}`;
-      })
-      .filter((path): path is string => Boolean(path))
+    [...enArticles, ...zhArticles]
+      .filter((article) => article.isIndexable)
+      .map((article) => article.href)
   );
 
   const careerEntries = dedupePaths([

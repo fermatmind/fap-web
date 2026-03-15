@@ -17,7 +17,6 @@ import {
   buildBreadcrumbJsonLd,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -58,61 +57,6 @@ function resolveTwitterCard(value: string | null | undefined): "summary" | "summ
   return "summary_large_image";
 }
 
-function normalizeStructuredDataUrls(
-  data: unknown,
-  sourceCanonical: string | null | undefined,
-  localizedCanonicalPath: string,
-  slug: string
-): unknown {
-  const localizedCanonical = canonicalUrl(localizedCanonicalPath);
-  const fallbackSourceCanonical = canonicalUrl(`/articles/${slug}`);
-  const relativeCanonical = `/articles/${slug}`;
-
-  const replaceValue = (value: string): string => {
-    const candidates: Array<[string, string]> = [
-      [String(sourceCanonical ?? "").trim(), localizedCanonical],
-      [fallbackSourceCanonical, localizedCanonical],
-      [relativeCanonical, localizedCanonicalPath],
-    ];
-
-    for (const [from, to] of candidates) {
-      if (!from) {
-        continue;
-      }
-
-      if (value === from) {
-        return to;
-      }
-
-      if (value.startsWith(`${from}#`)) {
-        return `${to}${value.slice(from.length)}`;
-      }
-    }
-
-    return value;
-  };
-
-  const walk = (value: unknown): unknown => {
-    if (Array.isArray(value)) {
-      return value.map(walk);
-    }
-
-    if (value && typeof value === "object") {
-      return Object.fromEntries(
-        Object.entries(value).map(([key, nested]) => [key, walk(nested)])
-      );
-    }
-
-    if (typeof value === "string") {
-      return replaceValue(value);
-    }
-
-    return value;
-  };
-
-  return walk(data);
-}
-
 function renderArticleBody(article: CmsArticle) {
   if (article.contentHtml.trim()) {
     return <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />;
@@ -137,13 +81,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const canonicalPath = buildCanonicalPath(slug, locale);
-  const alternatesByLocale = {
-    en: `/en/articles/${slug}`,
-    zh: `/zh/articles/${slug}`,
-    xDefault: "/",
-  };
-
   const [article, seo] = await Promise.all([
     getCmsArticle(slug, locale),
     getCmsArticleSeo(slug, locale),
@@ -156,9 +93,9 @@ export async function generateMetadata({
     };
   }
 
+  const canonicalPath = buildCanonicalPath(article.slug, locale);
   const title = seo?.meta.title || article.title;
   const description = seo?.meta.description || article.excerpt;
-  const normalizedCanonical = canonicalUrl(canonicalPath);
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
   const metadata = buildPageMetadata({
     locale,
@@ -167,18 +104,28 @@ export async function generateMetadata({
     description,
     imagePath: seo?.meta.og.image ?? article.coverImageUrl ?? undefined,
     noindex,
-    alternatesByLocale,
+    alternatesByLocale: {
+      en: buildCanonicalPath(article.slug, "en"),
+      zh: buildCanonicalPath(article.slug, "zh"),
+      xDefault: "/",
+    },
   });
+  const canonical = seo?.meta.canonical ?? String(metadata.alternates?.canonical ?? "");
 
   return {
     ...metadata,
     alternates: {
       ...metadata.alternates,
-      canonical: normalizedCanonical,
+      canonical,
+      languages: {
+        ...metadata.alternates?.languages,
+        en: seo?.meta.alternates.en ?? metadata.alternates?.languages?.en,
+        "zh-CN": seo?.meta.alternates["zh-CN"] ?? metadata.alternates?.languages?.["zh-CN"],
+      },
     },
     openGraph: {
       type: "article",
-      url: normalizedCanonical,
+      url: canonical,
       title: seo?.meta.og.title || title,
       description: seo?.meta.og.description || description,
       images: seo?.meta.og.image
@@ -218,9 +165,9 @@ export default async function ArticleDetailPage({
     return notFound();
   }
 
-  const canonicalPath = buildCanonicalPath(slug, locale);
+  const canonicalPath = buildCanonicalPath(article.slug, locale);
   const articleJsonLd =
-    normalizeStructuredDataUrls(seo?.jsonld, seo?.meta.canonical, canonicalPath, slug) ||
+    seo?.jsonld ||
     buildArticleJsonLd({
       path: canonicalPath,
       title: article.title,
