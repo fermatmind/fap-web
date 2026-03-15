@@ -50,6 +50,19 @@ describe("schema injection contract", () => {
     expect(source).toContain("Future outlook");
   });
 
+  it("career guide detail page injects cms seo jsonld and breadcrumb jsonld", () => {
+    const source = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
+    expect(source).toContain("getCareerGuideSeoFromCmsBySlug");
+    expect(source).toContain("normalizeCareerGuideSeoPayload");
+    expect(source).toContain("JsonLd");
+    expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).not.toContain("buildWebPageJsonLd");
+    expect(source).not.toContain("getCareerGuideBySlug");
+    expect(source).not.toContain("renderVeliteMdx");
+    expect(source).toContain("renderSimpleMarkdown");
+    expect(source).toContain("dangerouslySetInnerHTML");
+  });
+
   it("career jobs list and alias pages no longer resolve jobs from local content", () => {
     const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const aliasSource = read("app/(localized)/[locale]/career/[slug]/page.tsx");
@@ -58,6 +71,19 @@ describe("schema injection contract", () => {
     expect(listSource).not.toContain("listCareerJobs(");
     expect(aliasSource).toContain("getCareerJobFromCmsBySlug");
     expect(aliasSource).not.toContain("getCareerJobBySlug");
+  });
+
+  it("career guide list, alias, and landing pages resolve guides from cms helpers", () => {
+    const listSource = read("app/(localized)/[locale]/career/guides/page.tsx");
+    const aliasSource = read("app/(localized)/[locale]/career/[slug]/page.tsx");
+    const landingSource = read("app/(localized)/[locale]/career/page.tsx");
+
+    expect(listSource).toContain("listCareerGuidesFromCms");
+    expect(listSource).not.toContain("listCareerGuides(");
+    expect(aliasSource).toContain("getCareerGuideFromCmsBySlug");
+    expect(aliasSource).not.toContain("getCareerGuideBySlug");
+    expect(landingSource).toContain("listCareerGuidesFromCms");
+    expect(landingSource).not.toContain("listCareerGuides(");
   });
 
   it("personality detail page injects cms seo jsonld, webpage, breadcrumb, and faq jsonld", () => {

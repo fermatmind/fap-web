@@ -210,7 +210,7 @@ describe("career markdown renderer contract", () => {
 });
 
 describe("career alias route contract", () => {
-  it("uses CMS lookup for the job branch before local guide and industry checks", async () => {
+  it("uses CMS lookup for the job branch before guide and industry checks", async () => {
     const permanentRedirect = vi.fn(() => {
       throw new Error("redirected");
     });
@@ -220,7 +220,7 @@ describe("career alias route contract", () => {
     const cmsLookup = vi.fn(async () => ({
       slug: "product-manager",
     }));
-    const guideLookup = vi.fn(() => null);
+    const guideLookup = vi.fn(async () => null);
     const industryLookup = vi.fn(() => null);
 
     vi.doMock("next/navigation", () => ({
@@ -230,12 +230,11 @@ describe("career alias route contract", () => {
     vi.doMock("@/lib/cms/career-jobs", () => ({
       getCareerJobFromCmsBySlug: cmsLookup,
     }));
+    vi.doMock("@/lib/cms/career-guides", () => ({
+      getCareerGuideFromCmsBySlug: guideLookup,
+    }));
     vi.doMock("@/lib/content", () => ({
-      getCareerGuideBySlug: guideLookup,
       getCareerIndustryBySlug: industryLookup,
-      listCareerGuideSlugs: vi.fn(() => []),
-      listCareerIndustrySlugs: vi.fn(() => []),
-      listCareerJobSlugs: vi.fn(() => []),
     }));
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
@@ -258,7 +257,7 @@ describe("career alias route contract", () => {
     expect(permanentRedirect).toHaveBeenCalledWith("/en/career/jobs/product-manager");
   });
 
-  it("keeps the local guide and industry branches when CMS job lookup misses", async () => {
+  it("keeps the cms guide branch before the local industry branch when the job lookup misses", async () => {
     const permanentRedirect = vi.fn(() => {
       throw new Error("redirected");
     });
@@ -266,7 +265,7 @@ describe("career alias route contract", () => {
       throw new Error("not-found");
     });
     const cmsLookup = vi.fn(async () => null);
-    const guideLookup = vi.fn(() => ({ slug: "product-manager" }));
+    const guideLookup = vi.fn(async () => ({ slug: "product-manager" }));
     const industryLookup = vi.fn(() => null);
 
     vi.doMock("next/navigation", () => ({
@@ -276,12 +275,11 @@ describe("career alias route contract", () => {
     vi.doMock("@/lib/cms/career-jobs", () => ({
       getCareerJobFromCmsBySlug: cmsLookup,
     }));
+    vi.doMock("@/lib/cms/career-guides", () => ({
+      getCareerGuideFromCmsBySlug: guideLookup,
+    }));
     vi.doMock("@/lib/content", () => ({
-      getCareerGuideBySlug: guideLookup,
       getCareerIndustryBySlug: industryLookup,
-      listCareerGuideSlugs: vi.fn(() => []),
-      listCareerIndustrySlugs: vi.fn(() => []),
-      listCareerJobSlugs: vi.fn(() => []),
     }));
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),

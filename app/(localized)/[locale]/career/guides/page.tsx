@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { listCareerGuides } from "@/lib/content";
+import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: localeParam } = await params;
@@ -30,9 +31,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function CareerGuidesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const guides = listCareerGuides(locale);
+  const guides = await listCareerGuidesFromCms(locale);
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -53,7 +53,7 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
             <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">{guide.summary}</p>
               <p className="m-0 text-xs">{locale === "zh" ? "分类" : "Category"}: {guide.category}</p>
-              <Link href={withLocale(`/career/guides/${guide.slug}`)} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+              <Link href={guide.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
                 {locale === "zh" ? "阅读全文" : "Read guide"}
               </Link>
             </CardContent>

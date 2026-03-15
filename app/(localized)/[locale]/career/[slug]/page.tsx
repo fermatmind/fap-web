@@ -1,22 +1,11 @@
 import { notFound, permanentRedirect } from "next/navigation";
+import { getCareerGuideFromCmsBySlug } from "@/lib/cms/career-guides";
 import { getCareerJobFromCmsBySlug } from "@/lib/cms/career-jobs";
-import {
-  getCareerGuideBySlug,
-  getCareerIndustryBySlug,
-  listCareerGuideSlugs,
-  listCareerIndustrySlugs,
-} from "@/lib/content";
+import { getCareerIndustryBySlug } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 
-export function generateStaticParams() {
-  const slugs = new Set([
-    ...listCareerGuideSlugs(),
-    ...listCareerIndustrySlugs(),
-  ]);
-
-  return [...slugs].flatMap((slug) => [{ locale: "en", slug }, { locale: "zh", slug }]);
-}
+export const dynamic = "force-dynamic";
 
 export default async function CareerAliasPage({
   params,
@@ -31,8 +20,9 @@ export default async function CareerAliasPage({
     permanentRedirect(localizedPath(`/career/jobs/${job.slug}`, locale));
   }
 
-  if (getCareerGuideBySlug(slug, locale)) {
-    permanentRedirect(localizedPath(`/career/guides/${slug}`, locale));
+  const guide = await getCareerGuideFromCmsBySlug(slug, locale);
+  if (guide) {
+    permanentRedirect(localizedPath(`/career/guides/${guide.slug}`, locale));
   }
 
   if (getCareerIndustryBySlug(slug, locale)) {
