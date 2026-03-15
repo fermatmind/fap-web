@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
   listBig5RecommendationTraits,
-  listCareerGuides,
   listCareerIndustries,
   listCareerJobs,
   listMbtiRecommendationTypes,
@@ -13,8 +12,6 @@ describe("career content contract", () => {
     expect(listCareerJobs("zh").length).toBe(30);
     expect(listCareerIndustries("en").length).toBe(12);
     expect(listCareerIndustries("zh").length).toBe(12);
-    expect(listCareerGuides("en").length).toBe(20);
-    expect(listCareerGuides("zh").length).toBe(20);
     expect(listMbtiRecommendationTypes().length).toBe(16);
     expect(listBig5RecommendationTraits().length).toBe(5);
   });

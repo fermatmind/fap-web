@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import {
-  listCareerGuides,
   listCareerIndustries,
   listCareerJobs,
 } from "@/lib/content";
@@ -51,7 +51,7 @@ export default async function CareerCenterPage({
 
   const topJobs = listCareerJobs(locale).slice(0, 10);
   const industries = listCareerIndustries(locale).slice(0, 12);
-  const guides = listCareerGuides(locale).slice(0, 4);
+  const guides = (await listCareerGuidesFromCms(locale, { perPage: 4 })).slice(0, 4);
   const pathRecommendations = topJobs.slice(0, 3);
   const canonicalPath = locale === "zh" ? "/zh/career" : "/en/career";
   const pageTitle = locale === "zh" ? "职业发展中心" : "Career Intelligence Center";
@@ -152,7 +152,7 @@ export default async function CareerCenterPage({
               </CardHeader>
               <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
                 <p className="m-0">{guide.summary}</p>
-                <Link href={withLocale(`/career/guides/${guide.slug}`)} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                <Link href={guide.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
                   {locale === "zh" ? "阅读全文" : "Read guide"}
                 </Link>
               </CardContent>
