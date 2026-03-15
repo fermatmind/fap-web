@@ -200,12 +200,17 @@ for root_path in articles career topics personality; do
   assert_no_set_cookie "/${root_path}?utm=a"
 done
 
-for gone_path in /professions /types; do
+for gone_path in /professions; do
   run_request "${gone_path}"
   assert_status "410" "${gone_path}"
   assert_x_robots_contains "noindex" "${gone_path}"
   assert_no_set_cookie "${gone_path}"
 done
+
+run_request "/types"
+assert_status "308" "/types"
+assert_location_contains "/personality" "/types"
+assert_no_set_cookie "/types"
 
 run_request "/test?utm=a"
 assert_status "308" "/test?utm=a"
