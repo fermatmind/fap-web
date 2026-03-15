@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
+import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
   listBig5RecommendationTraits,
-  listCareerGuideSlugs,
   listCareerIndustrySlugs,
   listMbtiRecommendationTypes,
 } from "@/lib/content";
@@ -90,9 +90,11 @@ async function listTopicEntries() {
 
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
-  const [enCareerJobs, zhCareerJobs, personalityEntries, topicEntries, enArticles, zhArticles] = await Promise.all([
+  const [enCareerJobs, zhCareerJobs, enCareerGuides, zhCareerGuides, personalityEntries, topicEntries, enArticles, zhArticles] = await Promise.all([
     listCareerJobsFromCms({ locale: "en" }).catch(() => []),
     listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
+    listCareerGuidesFromCms("en").catch(() => []),
+    listCareerGuidesFromCms("zh").catch(() => []),
     listPersonalityEntries(),
     listTopicEntries(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
@@ -132,6 +134,21 @@ export async function GET() {
     })
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
+  const guideEntries = [
+    ...(enCareerGuides.filter((item) => item.isIndexable).length > 0
+      ? [{ locale: "en", path: "/en/career/guides", title: "Career guides", updatedAt: "" }]
+      : []),
+    ...(zhCareerGuides.filter((item) => item.isIndexable).length > 0
+      ? [{ locale: "zh", path: "/zh/career/guides", title: "职业指南", updatedAt: "" }]
+      : []),
+    ...enCareerGuides
+      .filter((item) => item.isIndexable)
+      .map((item) => ({ locale: "en", path: item.href, title: item.title, updatedAt: item.updatedAt ?? "" })),
+    ...zhCareerGuides
+      .filter((item) => item.isIndexable)
+      .map((item) => ({ locale: "zh", path: item.href, title: item.title, updatedAt: item.updatedAt ?? "" })),
+  ].filter((entry) => shouldKeep(entry.path));
+
   const careers = [
     { locale: "en", path: "/en/career/recommendations", title: "Career recommendations", updatedAt: "" },
     { locale: "zh", path: "/zh/career/recommendations", title: "职业推荐", updatedAt: "" },
@@ -141,10 +158,7 @@ export async function GET() {
       { locale: "en", path: `/en/career/industries/${slug}`, title: slug, updatedAt: "" },
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },
     ]),
-    ...listCareerGuideSlugs().flatMap((slug) => [
-      { locale: "en", path: `/en/career/guides/${slug}`, title: slug, updatedAt: "" },
-      { locale: "zh", path: `/zh/career/guides/${slug}`, title: slug, updatedAt: "" },
-    ]),
+    ...guideEntries,
     ...listMbtiRecommendationTypes().flatMap((type) => [
       { locale: "en", path: `/en/career/recommendations/mbti/${type}`, title: `MBTI ${type}`, updatedAt: "" },
       { locale: "zh", path: `/zh/career/recommendations/mbti/${type}`, title: `MBTI ${type}`, updatedAt: "" },

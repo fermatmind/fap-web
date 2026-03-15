@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
+import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
   listBig5RecommendationTraits,
-  listCareerGuideSlugs,
   listCareerIndustrySlugs,
   listMbtiRecommendationTypes,
 } from "@/lib/content";
@@ -73,9 +73,11 @@ async function listTopicPaths(): Promise<string[]> {
 
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
-  const [enCareerJobs, zhCareerJobs, personalityEntries, topicEntries, enArticles, zhArticles] = await Promise.all([
+  const [enCareerJobs, zhCareerJobs, enCareerGuides, zhCareerGuides, personalityEntries, topicEntries, enArticles, zhArticles] = await Promise.all([
     listCareerJobsFromCms({ locale: "en" }).catch(() => []),
     listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
+    listCareerGuidesFromCms("en").catch(() => []),
+    listCareerGuidesFromCms("zh").catch(() => []),
     listPersonalityPaths(),
     listTopicPaths(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
@@ -93,6 +95,13 @@ export async function GET() {
       .map((article) => article.href)
   );
 
+  const guideEntries = dedupePaths([
+    ...(enCareerGuides.filter((item) => item.isIndexable).length > 0 ? ["/en/career/guides"] : []),
+    ...(zhCareerGuides.filter((item) => item.isIndexable).length > 0 ? ["/zh/career/guides"] : []),
+    ...enCareerGuides.filter((item) => item.isIndexable).map((item) => item.href),
+    ...zhCareerGuides.filter((item) => item.isIndexable).map((item) => item.href),
+  ]);
+
   const careerEntries = dedupePaths([
     "/en/career",
     "/zh/career",
@@ -100,8 +109,6 @@ export async function GET() {
     "/zh/career/jobs",
     "/en/career/industries",
     "/zh/career/industries",
-    "/en/career/guides",
-    "/zh/career/guides",
     "/en/career/recommendations",
     "/zh/career/recommendations",
     "/en/career/tests",
@@ -111,7 +118,7 @@ export async function GET() {
     ...enCareerJobs.map((job) => job.href),
     ...zhCareerJobs.map((job) => job.href),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
-    ...listCareerGuideSlugs().flatMap((slug) => [`/en/career/guides/${slug}`, `/zh/career/guides/${slug}`]),
+    ...guideEntries,
     ...listMbtiRecommendationTypes().flatMap((type) => [
       `/en/career/recommendations/mbti/${type}`,
       `/zh/career/recommendations/mbti/${type}`,
