@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getMbtiCompareInvite } from "@/lib/api/v0_3";
 import { resolveLocale } from "@/lib/i18n/getDict";
+import { buildCompareInviteViewModel } from "@/lib/mbti/compareInvite";
 import { buildCompareMetadataCopy } from "@/lib/og/mbtiCompare";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import CompareClient from "./CompareClient";
@@ -37,7 +38,7 @@ export async function generateMetadata({
     inviteId,
     locale,
   });
-  const copy = buildCompareMetadataCopy(data);
+  const copy = buildCompareMetadataCopy(buildCompareInviteViewModel(data));
   const pathname = `/${locale}/compare/mbti/${inviteId}`;
 
   return buildPageMetadata({

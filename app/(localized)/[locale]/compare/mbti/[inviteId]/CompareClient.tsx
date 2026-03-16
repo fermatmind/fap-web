@@ -7,6 +7,7 @@ import { Alert } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getMbtiCompareInvite, type MbtiCompareInviteResponse } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
+import { buildCompareInviteViewModel } from "@/lib/mbti/compareInvite";
 import { captureError } from "@/lib/observability/sentry";
 
 function buildLandingPath(pathname: string | null, queryString: string): string {
@@ -48,6 +49,7 @@ export default function CompareClient({
   const queryString = searchParams.toString();
   const landingPath = useMemo(() => buildLandingPath(pathname, queryString), [pathname, queryString]);
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
+  const viewModel = useMemo(() => buildCompareInviteViewModel(data), [data]);
 
   useEffect(() => {
     let active = true;
@@ -87,19 +89,19 @@ export default function CompareClient({
   }, [inviteId, locale]);
 
   const primaryCtaHref = useMemo(() => {
-    if (!data?.primary_cta_path) {
+    if (!viewModel.primaryCtaPath) {
       return undefined;
     }
 
-    return buildAugmentedPath(data.primary_cta_path, {
-      share_id: data.share_id,
-      compare_invite_id: data.invite_id || inviteId,
+    return buildAugmentedPath(viewModel.primaryCtaPath, {
+      share_id: viewModel.shareId,
+      compare_invite_id: viewModel.inviteId || inviteId,
       entrypoint: "compare_invite_page",
       landing_path: landingPath,
       referrer: pageReferrer,
       compare_intent: true,
     });
-  }, [data?.invite_id, data?.primary_cta_path, data?.share_id, inviteId, landingPath, pageReferrer]);
+  }, [inviteId, landingPath, pageReferrer, viewModel.inviteId, viewModel.primaryCtaPath, viewModel.shareId]);
 
   if (loading) {
     return (
@@ -117,5 +119,5 @@ export default function CompareClient({
     );
   }
 
-  return <MbtiCompareInviteView locale={locale} data={data} primaryCtaHref={primaryCtaHref} />;
+  return <MbtiCompareInviteView locale={locale} viewModel={viewModel} primaryCtaHref={primaryCtaHref} />;
 }

@@ -1,250 +1,33 @@
 import Link from "next/link";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import type { ShareSummaryResponse } from "@/lib/api/v0_3";
+import { type MbtiPublicProjectionCardViewModel } from "@/lib/mbti/publicProjection";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 
-const TECHNICAL_TAG_PREFIXES = [
-  "axis:",
-  "state:",
-  "type:",
-  "role:",
-  "strategy:",
-  "borderline:",
-] as const;
-
-export type MbtiShareDimensionViewModel = {
-  code: string;
-  label: string;
-  percent: number;
-};
-
-export type MbtiShareSummaryViewModel = {
-  typeCode: string;
-  typeName: string;
-  subtitle: string;
-  summary: string;
-  rarity: string;
-  publicTags: string[];
-  dimensions: MbtiShareDimensionViewModel[];
-};
-
-function asRecord(value: unknown): Record<string, unknown> | null {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return null;
-  }
-
-  return value as Record<string, unknown>;
-}
-
-function normalizeText(...values: unknown[]): string {
-  for (const value of values) {
-    if (typeof value !== "string" && typeof value !== "number") {
-      continue;
-    }
-
-    const normalized = String(value).trim();
-    if (normalized) {
-      return normalized;
-    }
-  }
-
-  return "";
-}
-
-function normalizeStringArray(values: unknown): string[] {
-  if (!Array.isArray(values)) {
-    return [];
-  }
-
-  return values
-    .map((value) => normalizeText(value))
-    .filter(Boolean);
-}
-
-function resolveRarity(value: unknown): string {
-  if (typeof value === "string" || typeof value === "number") {
-    return normalizeText(value);
-  }
-
-  const record = asRecord(value);
-  if (!record) {
-    return "";
-  }
-
-  return normalizeText(record.label, record.text, record.value, record.title);
-}
-
-function toRoundedPercent(value: unknown): number {
-  if (typeof value !== "number" || Number.isNaN(value)) {
-    return 0;
-  }
-
-  const normalized = value > 1 ? value : value * 100;
-  return Math.max(0, Math.min(100, Math.round(normalized)));
-}
-
-function normalizeDimensions(values: unknown): MbtiShareDimensionViewModel[] {
-  if (!Array.isArray(values)) {
-    return [];
-  }
-
-  return values
-    .map((item, index) => {
-      const record = asRecord(item);
-      if (!record) {
-        return null;
-      }
-
-      const code = normalizeText(record.code);
-      const label =
-        normalizeText(record.label, record.axis_label, record.name, code)
-        || `Dimension ${index + 1}`;
-      const percent = toRoundedPercent(
-        typeof record.pct === "number"
-          ? record.pct
-          : typeof record.percent === "number"
-            ? record.percent
-            : 0
-      );
-
-      return {
-        code,
-        label,
-        percent,
-      };
-    })
-    .filter((item): item is MbtiShareDimensionViewModel => Boolean(item));
-}
-
-function isPublicTag(tag: string): boolean {
-  const normalized = tag.trim().toLowerCase();
-  if (!normalized) return false;
-  return !TECHNICAL_TAG_PREFIXES.some((prefix) => normalized.startsWith(prefix));
-}
-
-function unique(values: string[]): string[] {
-  return Array.from(new Set(values));
-}
-
-function truncateText(value: string, maxLength: number): string {
-  const normalized = value.trim();
-  if (!normalized || normalized.length <= maxLength) {
-    return normalized;
-  }
-
-  return `${normalized.slice(0, Math.max(0, maxLength - 1)).trimEnd()}…`;
-}
-
-export function normalizeMbtiShareSummary(data: ShareSummaryResponse): MbtiShareSummaryViewModel {
-  const root = asRecord(data) ?? {};
-  const result = asRecord(root.result);
-  const profile =
-    asRecord(root.profile)
-    ?? asRecord(asRecord(root.report)?.profile)
-    ?? asRecord(root.summary_card)
-    ?? asRecord(root.summaryCard);
-  const identityCard =
-    asRecord(root.identity_card)
-    ?? asRecord(root.identityCard)
-    ?? asRecord(asRecord(root.report)?.identity_card);
-
-  const typeCode = normalizeText(
-    root.type_code,
-    root.typeCode,
-    result?.type_code,
-    result?.typeCode,
-    identityCard?.type_code,
-    identityCard?.typeCode,
-    profile?.type_code,
-    profile?.typeCode
+function resolveHeading(card: MbtiPublicProjectionCardViewModel | null, locale: Locale): string {
+  return (
+    card?.canonicalTypeCode
+    || card?.displayType
+    || card?.title
+    || card?.typeName
+    || (locale === "zh" ? "MBTI 分享摘要" : "MBTI shared summary")
   );
-  const typeName = normalizeText(
-    root.type_name,
-    root.typeName,
-    root.title,
-    identityCard?.title,
-    profile?.type_name,
-    profile?.typeName
-  );
-  const subtitle = normalizeText(
-    root.subtitle,
-    root.tagline,
-    identityCard?.subtitle,
-    identityCard?.tagline,
-    profile?.tagline
-  );
-  const summary = normalizeText(
-    root.summary,
-    result?.summary,
-    identityCard?.summary,
-    profile?.short_summary,
-    root.description
-  );
-  const rarity = resolveRarity(root.rarity ?? root.rarity_label ?? profile?.rarity);
-  const publicTags = unique(
-    [
-      ...normalizeStringArray(root.public_tags),
-      ...normalizeStringArray(root.publicTags),
-      ...normalizeStringArray(root.tags),
-      ...normalizeStringArray(identityCard?.tags),
-      ...normalizeStringArray(profile?.keywords),
-    ].filter(isPublicTag)
-  );
-  const dimensions = normalizeDimensions(
-    root.dimensions
-    ?? result?.dimensions
-    ?? asRecord(root.summary_card)?.dimensions
-    ?? asRecord(root.summaryCard)?.dimensions
-    ?? asRecord(root.report)?.dimensions
-  );
-
-  return {
-    typeCode,
-    typeName,
-    subtitle,
-    summary,
-    rarity,
-    publicTags,
-    dimensions,
-  };
 }
 
-export function buildMbtiShareMetadataCopy({
-  locale,
-  data,
-}: {
-  locale: Locale;
-  data?: ShareSummaryResponse | null;
-}) {
-  const view = data ? normalizeMbtiShareSummary(data) : null;
-  const identityLabel = [view?.typeCode, view?.typeName].filter(Boolean).join(" · ");
-  const title = identityLabel
-    ? locale === "zh"
-      ? `${identityLabel}｜MBTI 分享摘要`
-      : `${identityLabel} | Shared MBTI summary`
-    : locale === "zh"
-      ? "MBTI 分享摘要"
-      : "Shared MBTI summary";
+function resolveSecondaryLabel(card: MbtiPublicProjectionCardViewModel | null, heading: string): string {
+  return [card?.title, card?.typeName].find((value) => Boolean(value) && value !== heading) ?? "";
+}
 
-  const descriptionSource = truncateText(
-    normalizeText(view?.subtitle, view?.summary),
-    160
-  );
-  const description = descriptionSource
-    || (locale === "zh"
-      ? "查看这份公开 MBTI 分享摘要：类型、副标题、稀有度、公开标签与维度概览。"
-      : "View the public MBTI share summary with type, subtitle, rarity, public tags, and dimension highlights.");
-
-  return { title, description };
+function resolveNarrative(card: MbtiPublicProjectionCardViewModel | null): string {
+  return card?.summary || card?.tagline || "";
 }
 
 export default function MbtiShareSummaryCard({
   locale,
-  data,
+  card,
   variant = "page",
   primaryActionHref,
   primaryActionLabel,
@@ -254,7 +37,7 @@ export default function MbtiShareSummaryCard({
   className,
 }: {
   locale: Locale;
-  data: ShareSummaryResponse;
+  card: MbtiPublicProjectionCardViewModel | null;
   variant?: "page" | "compact";
   primaryActionHref?: string;
   primaryActionLabel?: string;
@@ -263,17 +46,18 @@ export default function MbtiShareSummaryCard({
   testId?: string;
   className?: string;
 }) {
-  const view = normalizeMbtiShareSummary(data);
-  const startTestHref = primaryActionHref || data.primary_cta_path || localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`, locale);
-  const startTestLabel = primaryActionLabel || data.primary_cta_label || (locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test");
+  const startTestHref = primaryActionHref || localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`, locale);
+  const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test");
   const testsHref = localizedPath("/tests", locale);
-  const heading = view.typeCode || view.typeName || (locale === "zh" ? "MBTI 分享摘要" : "MBTI shared summary");
-  const dimensionBars = view.dimensions.length > 0 ? (
+  const heading = resolveHeading(card, locale);
+  const secondaryLabel = resolveSecondaryLabel(card, heading);
+  const narrative = resolveNarrative(card);
+  const dimensionBars = card && card.dimensions.length > 0 ? (
     <div data-testid="mbti-share-dimension-bars" className="space-y-3">
       <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
         {locale === "zh" ? "维度概览" : "Dimension overview"}
       </p>
-      {view.dimensions.map((dimension) => (
+      {card.dimensions.map((dimension) => (
         <div key={`${dimension.code}-${dimension.label}`} className="space-y-1.5">
           <div className="flex items-center justify-between gap-3 text-sm text-slate-700">
             <span>{dimension.label}</span>
@@ -293,21 +77,21 @@ export default function MbtiShareSummaryCard({
       >
         <CardHeader className="space-y-3 pb-4">
           <CardTitle className="text-2xl text-slate-950">{heading}</CardTitle>
-          {view.typeName && view.typeName !== heading ? (
-            <p className="m-0 text-base font-semibold text-slate-700">{view.typeName}</p>
+          {secondaryLabel ? (
+            <p className="m-0 text-base font-semibold text-slate-700">{secondaryLabel}</p>
           ) : null}
-          {view.subtitle ? (
-            <p className="m-0 text-sm leading-7 text-slate-700">{view.subtitle}</p>
+          {card?.subtitle ? (
+            <p className="m-0 text-sm leading-7 text-slate-700">{card.subtitle}</p>
           ) : null}
         </CardHeader>
         <CardContent className="space-y-4">
-          {view.summary ? (
-            <p className="m-0 text-sm leading-7 text-slate-700">{view.summary}</p>
+          {narrative ? (
+            <p className="m-0 text-sm leading-7 text-slate-700">{narrative}</p>
           ) : null}
 
-          {view.publicTags.length > 0 ? (
+          {card && card.publicTags.length > 0 ? (
             <div className="flex flex-wrap gap-2">
-              {view.publicTags.map((tag) => (
+              {card.publicTags.map((tag) => (
                 <span
                   key={tag}
                   className="inline-flex rounded-full border border-emerald-200 bg-emerald-50/60 px-3 py-1 text-xs font-medium text-slate-700"
@@ -318,12 +102,12 @@ export default function MbtiShareSummaryCard({
             </div>
           ) : null}
 
-          {view.rarity ? (
+          {card?.rarity ? (
             <div className="rounded-2xl border border-emerald-100 bg-emerald-50/80 p-4">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
                 {locale === "zh" ? "稀有度" : "Rarity"}
               </p>
-              <p className="m-0 mt-2 text-lg font-semibold text-slate-900">{view.rarity}</p>
+              <p className="m-0 mt-2 text-lg font-semibold text-slate-900">{card.rarity}</p>
             </div>
           ) : null}
 
@@ -349,24 +133,24 @@ export default function MbtiShareSummaryCard({
                 <h1 className="m-0 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
                   {heading}
                 </h1>
-                {view.typeName && view.typeName !== heading ? (
-                  <p className="m-0 text-lg font-semibold text-slate-700">{view.typeName}</p>
+                {secondaryLabel ? (
+                  <p className="m-0 text-lg font-semibold text-slate-700">{secondaryLabel}</p>
                 ) : null}
-                {view.subtitle ? (
-                  <p className="m-0 text-lg leading-8 text-slate-700">{view.subtitle}</p>
+                {card?.subtitle ? (
+                  <p className="m-0 text-lg leading-8 text-slate-700">{card.subtitle}</p>
                 ) : null}
               </div>
             </div>
 
-            {view.summary ? (
+            {narrative ? (
               <p className="m-0 max-w-3xl text-base leading-8 text-slate-700">
-                {view.summary}
+                {narrative}
               </p>
             ) : null}
 
-            {view.publicTags.length > 0 ? (
+            {card && card.publicTags.length > 0 ? (
               <div className="flex flex-wrap gap-2">
-                {view.publicTags.map((tag) => (
+                {card.publicTags.map((tag) => (
                   <span
                     key={tag}
                     className="inline-flex rounded-full border border-emerald-200 bg-white/90 px-3 py-1 text-sm text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
@@ -402,12 +186,12 @@ export default function MbtiShareSummaryCard({
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {view.rarity ? (
+                {card?.rarity ? (
                   <div className="rounded-2xl border border-emerald-100 bg-emerald-50/80 p-4">
                     <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
                       {locale === "zh" ? "稀有度" : "Rarity"}
                     </p>
-                    <p className="m-0 mt-2 text-lg font-semibold text-slate-900">{view.rarity}</p>
+                    <p className="m-0 mt-2 text-lg font-semibold text-slate-900">{card.rarity}</p>
                   </div>
                 ) : null}
 

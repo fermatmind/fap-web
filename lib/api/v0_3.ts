@@ -480,6 +480,97 @@ export type EmailUnsubscribeResponse = {
   status: string;
 };
 
+export type MbtiPublicProjectionProfileRaw = {
+  type_name?: string | null;
+  nickname?: string | null;
+  rarity?: string | number | Record<string, unknown> | null;
+  keywords?: unknown;
+  hero_summary?: string | null;
+  [key: string]: unknown;
+};
+
+export type MbtiPublicProjectionSummaryCardRaw = {
+  title?: string | null;
+  subtitle?: string | null;
+  summary?: string | null;
+  tagline?: string | null;
+  public_tags?: unknown;
+  [key: string]: unknown;
+};
+
+export type MbtiPublicProjectionDimensionRaw = {
+  id?: string | null;
+  code?: string | null;
+  name?: string | null;
+  label?: string | null;
+  axis_left?: string | null;
+  axis_right?: string | null;
+  summary?: string | null;
+  description?: string | null;
+  score_pct?: number | null;
+  source?: string | null;
+  side?: string | null;
+  side_label?: string | null;
+  pct?: number | null;
+  state?: string | null;
+  [key: string]: unknown;
+};
+
+export type MbtiPublicProjectionV1Raw = {
+  runtime_type_code?: string | null;
+  canonical_type_code?: string | null;
+  display_type?: string | null;
+  variant_code?: string | null;
+  profile?: MbtiPublicProjectionProfileRaw | null;
+  summary_card?: MbtiPublicProjectionSummaryCardRaw | null;
+  dimensions?: MbtiPublicProjectionDimensionRaw[] | null;
+  sections?: Array<Record<string, unknown>> | null;
+  seo?: Record<string, unknown> | null;
+  offer_set?: unknown;
+  _meta?: Record<string, unknown> | null;
+  [key: string]: unknown;
+};
+
+export type MbtiCompareParticipantRaw = {
+  share_id?: string;
+  share_url?: string;
+  attempt_id?: string;
+  scale_code?: string;
+  locale?: string;
+  type_code?: string;
+  type_name?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  summary?: string;
+  primary_cta_label?: string;
+  primary_cta_path?: string;
+  compare_enabled?: boolean;
+  compare_cta_label?: string;
+  mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
+  mbti_public_summary_v1?: Record<string, unknown> | null;
+  [key: string]: unknown;
+};
+
+export type MbtiCompareAxisRaw = {
+  code?: string;
+  label?: string;
+  summary?: string;
+  state?: string;
+  inviter_side?: string;
+  invitee_side?: string;
+  [key: string]: unknown;
+};
+
+export type MbtiCompareSummaryRaw = {
+  title?: string;
+  summary?: string;
+  shared_count?: number | null;
+  diverging_count?: number | null;
+  axes?: MbtiCompareAxisRaw[] | null;
+  [key: string]: unknown;
+};
+
 export type ShareSummaryResponse = {
   ok?: boolean;
   share_id?: string;
@@ -515,6 +606,8 @@ export type ShareSummaryResponse = {
   summary_card?: Record<string, unknown> | null;
   summaryCard?: Record<string, unknown> | null;
   dimensions?: Array<Record<string, unknown>>;
+  mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
+  mbti_public_summary_v1?: Record<string, unknown> | null;
   [key: string]: unknown;
 };
 
@@ -584,9 +677,9 @@ export type MbtiCompareInviteResponse = {
   scale_code?: string;
   locale?: string;
   status?: "pending" | "ready" | "purchased" | string;
-  inviter?: Record<string, unknown> | null;
-  invitee?: Record<string, unknown> | null;
-  compare?: Record<string, unknown> | null;
+  inviter?: MbtiCompareParticipantRaw | null;
+  invitee?: MbtiCompareParticipantRaw | null;
+  compare?: MbtiCompareSummaryRaw | null;
   primary_cta_label?: string;
   primary_cta_path?: string;
   [key: string]: unknown;
@@ -1720,11 +1813,13 @@ export async function getMbtiCompareInvite({
   anonId,
   locale,
   cache,
+  timeoutMs,
 }: {
   inviteId: string;
   anonId?: string;
   locale?: string;
   cache?: RequestCache;
+  timeoutMs?: number;
 }): Promise<MbtiCompareInviteResponse> {
   const response = await apiClient.get<MbtiCompareInviteResponse>(
     `/v0.3/compare/mbti/${inviteId}`,
@@ -1732,6 +1827,7 @@ export async function getMbtiCompareInvite({
       ...anonHeader(anonId),
       ...(locale ? { locale } : {}),
       ...(cache ? { cache } : {}),
+      ...(typeof timeoutMs === "number" ? { timeoutMs } : {}),
     }
   );
 

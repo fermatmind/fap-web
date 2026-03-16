@@ -1,8 +1,11 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ShareClient from "@/app/(localized)/[locale]/share/[id]/ShareClient";
 import { generateMetadata } from "@/app/(localized)/[locale]/share/[id]/page";
-import type { ShareSummaryResponse } from "@/lib/api/v0_3";
+import type { MbtiPublicProjectionV1Raw, ShareSummaryResponse } from "@/lib/api/v0_3";
+import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
+import { renderShareOgImage } from "@/lib/og/mbtiShare";
 
 function deferred<T>() {
   let resolve!: (value: T) => void;
@@ -48,6 +51,8 @@ vi.mock("@/lib/api/v0_3", async () => {
 });
 
 function createShareFixture(): ShareSummaryResponse {
+  const projection = createProjectionFixture();
+
   return {
     ok: true,
     share_id: "share-123",
@@ -55,33 +60,59 @@ function createShareFixture(): ShareSummaryResponse {
     id: "share-123",
     scale_code: "MBTI",
     locale: "en",
-    type_code: "ENFP-T",
-    type_name: "Campaigner",
-    title: "Campaigner",
-    subtitle: "Warm, imaginative, and emotionally alert",
-    summary: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
-    tagline: "A public-safe snapshot of this MBTI type.",
+    type_code: "LEGACY-TYPE",
+    type_name: "Legacy title should be ignored",
+    title: "Legacy title should be ignored",
+    subtitle: "Legacy subtitle should be ignored",
+    summary: "Legacy summary should be ignored",
+    tagline: "Legacy tagline should be ignored",
     rarity: {
-      label: "Around 6-8%",
+      label: "Legacy rarity should be ignored",
     },
     primary_cta_label: "Start MBTI test",
     primary_cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
     compare_enabled: true,
     compare_cta_label: "Invite a friend to compare",
-    public_tags: ["Warm", "Idealistic", "Sensitive"],
-    tags: ["type:ENFP-T", "Warm", "axis:EI", "role:explorer"],
-    dimensions: [
-      {
-        code: "EI",
-        label: "E / I",
-        pct: 62,
+    public_tags: ["Legacy tag should be ignored"],
+    tags: ["type:LEGACY", "Legacy tag should be ignored", "axis:EI"],
+    dimensions: [{ code: "EI", label: "Legacy dimension should be ignored", pct: 12 }],
+    profile: {
+      type_name: "Legacy profile should be ignored",
+      tagline: "Legacy profile tagline should be ignored",
+      short_summary: "Legacy profile summary should be ignored",
+      rarity: "Legacy profile rarity should be ignored",
+      keywords: ["Legacy keyword should be ignored"],
+    },
+    identity_card: {
+      title: "Legacy identity title should be ignored",
+      subtitle: "Legacy identity subtitle should be ignored",
+      summary: "Legacy identity summary should be ignored",
+      tags: ["Legacy identity tag should be ignored"],
+    },
+    result: {
+      type_code: "LEGACY-RESULT",
+      summary: "Legacy result summary should be ignored",
+      dimensions: [{ code: "SN", label: "Legacy result dimension", pct: 99 }],
+    },
+    summary_card: {
+      title: "Legacy summary card title should be ignored",
+      subtitle: "Legacy summary card subtitle should be ignored",
+      summary: "Legacy summary card summary should be ignored",
+      dimensions: [{ code: "TF", label: "Legacy summary card dimension", pct: 88 }],
+    },
+    report: {
+      profile: {
+        type_name: "Legacy report profile should be ignored",
       },
-      {
-        code: "SN",
-        label: "S / N",
-        percent: 74,
+      identity_card: {
+        title: "Legacy report identity should be ignored",
       },
-    ],
+      dimensions: [{ code: "JP", label: "Legacy report dimension", pct: 77 }],
+    },
+    mbti_public_summary_v1: {
+      title: "Legacy public summary should be ignored",
+    },
+    mbti_public_projection_v1: projection,
     offers: [
       {
         title: "Unlock full report",
@@ -95,6 +126,44 @@ function createShareFixture(): ShareSummaryResponse {
     paid_sections: [
       {
         title: "Career chapter",
+      },
+    ],
+  };
+}
+
+function createProjectionFixture(): MbtiPublicProjectionV1Raw {
+  return {
+    canonical_type_code: "ENFP-T",
+    display_type: "ENFP-T",
+    variant_code: "ENFP-T",
+    profile: {
+      type_name: "Campaigner",
+      rarity: {
+        label: "Around 6-8%",
+      },
+      keywords: ["Warm", "Idealistic", "type:TECHNICAL_ONLY"],
+    },
+    summary_card: {
+      title: "Campaigner",
+      subtitle: "Warm, imaginative, and emotionally alert",
+      summary: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
+      tagline: "A public-safe snapshot of this MBTI type.",
+      public_tags: ["Warm", "Idealistic", "Sensitive", "axis:EI"],
+    },
+    dimensions: [
+      {
+        code: "EI",
+        label: "E / I",
+        pct: 62,
+        side_label: "Extraversion",
+        state: "Expressive",
+      },
+      {
+        code: "SN",
+        label: "S / N",
+        score_pct: 74,
+        side_label: "Intuition",
+        state: "Pattern-led",
       },
     ],
   };
@@ -148,6 +217,12 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByText("74%")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Invite a friend to compare" })).toBeInTheDocument();
 
+    expect(screen.queryByText("Legacy title should be ignored")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy subtitle should be ignored")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy summary should be ignored")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy profile summary should be ignored")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy identity summary should be ignored")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy tag should be ignored")).not.toBeInTheDocument();
     expect(screen.queryByText("Unlock full report")).not.toBeInTheDocument();
     expect(screen.queryByText("Paid-only reading")).not.toBeInTheDocument();
     expect(screen.queryByText("Career chapter")).not.toBeInTheDocument();
@@ -285,14 +360,32 @@ describe("MBTI share consumer contract", () => {
     });
   });
 
-  it("falls back from summary to subtitle to tagline and uses share title when type_name is missing", async () => {
+  it("renders share OG from projection and never from legacy aliases", () => {
+    const html = renderToStaticMarkup(renderShareOgImage(buildSharePageViewModel(createShareFixture())));
+
+    expect(html).toContain("ENFP-T");
+    expect(html).toContain("Campaigner");
+    expect(html).toContain("This public MBTI share page keeps only the lightweight result summary and never exposes paid content.");
+    expect(html).not.toContain("Legacy title should be ignored");
+    expect(html).not.toContain("Legacy summary should be ignored");
+    expect(html).not.toContain("Legacy tag should be ignored");
+  });
+
+  it("falls back from summary to subtitle to tagline and uses projection title when type_name is missing", async () => {
     hoisted.getShareSummary.mockResolvedValueOnce({
       ...createShareFixture(),
-      type_name: "",
-      title: "Explorer Snapshot",
-      summary: "",
-      subtitle: "Subtitle fallback copy",
-      tagline: "Tagline fallback copy",
+      mbti_public_projection_v1: {
+        ...createProjectionFixture(),
+        profile: {
+          type_name: "",
+        },
+        summary_card: {
+          title: "Explorer Snapshot",
+          subtitle: "Subtitle fallback copy",
+          summary: "",
+          tagline: "Tagline fallback copy",
+        },
+      },
     });
 
     const subtitleMetadata = await generateMetadata({
@@ -307,9 +400,15 @@ describe("MBTI share consumer contract", () => {
 
     hoisted.getShareSummary.mockResolvedValueOnce({
       ...createShareFixture(),
-      summary: "",
-      subtitle: "",
-      tagline: "Tagline fallback copy",
+      mbti_public_projection_v1: {
+        ...createProjectionFixture(),
+        summary_card: {
+          title: "Campaigner",
+          subtitle: "",
+          summary: "",
+          tagline: "Tagline fallback copy",
+        },
+      },
     });
 
     const taglineMetadata = await generateMetadata({

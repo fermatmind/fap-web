@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getShareSummary } from "@/lib/api/v0_3";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { resolveLocale } from "@/lib/i18n/getDict";
+import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
 import { buildShareMetadataCopy } from "@/lib/og/mbtiShare";
 import ShareClient from "./ShareClient";
 
@@ -37,7 +38,7 @@ export async function generateMetadata({
     shareId: id,
     locale,
   });
-  const copy = buildShareMetadataCopy(shareSummary);
+  const copy = buildShareMetadataCopy(buildSharePageViewModel(shareSummary));
   const pathname = `/${locale}/share/${id}`;
 
   return buildPageMetadata({

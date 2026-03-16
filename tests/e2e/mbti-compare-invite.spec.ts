@@ -13,21 +13,51 @@ function createSummaryFixture({
   subtitle: string;
 }) {
   return {
-    ok: true,
     share_id: shareId,
-    type_code: typeCode,
-    type_name: typeName,
-    subtitle,
-    summary: `${typeName} public summary`,
-    rarity: {
-      label: "Around 6-8%",
-    },
+    type_code: "LEGACY-TYPE",
+    type_name: "Legacy type should be ignored",
+    subtitle: "Legacy subtitle should be ignored",
+    summary: "Legacy summary should be ignored",
     primary_cta_label: "Take the MBTI test",
     primary_cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
-    tags: ["Warm", "type:TECHNICAL_ONLY"],
-    dimensions: [
-      { code: "EI", label: "E / I", pct: 61 },
-    ],
+    tags: ["Legacy tag should be ignored", "type:TECHNICAL_ONLY"],
+    dimensions: [{ code: "EI", label: "Legacy dimension should be ignored", pct: 61 }],
+    profile: {
+      type_name: "Legacy profile should be ignored",
+      short_summary: "Legacy profile summary should be ignored",
+    },
+    identity_card: {
+      title: "Legacy identity title should be ignored",
+      summary: "Legacy identity summary should be ignored",
+    },
+    result: {
+      type_code: "LEGACY-RESULT",
+      summary: "Legacy result summary should be ignored",
+    },
+    mbti_public_summary_v1: {
+      title: "Legacy public summary should be ignored",
+    },
+    mbti_public_projection_v1: {
+      canonical_type_code: typeCode,
+      display_type: typeCode,
+      variant_code: typeCode,
+      profile: {
+        type_name: typeName,
+        rarity: {
+          label: "Around 6-8%",
+        },
+        keywords: ["Warm", "type:TECHNICAL_ONLY"],
+      },
+      summary_card: {
+        title: typeName,
+        subtitle,
+        summary: `${typeName} public summary`,
+        public_tags: ["Warm", "axis:EI"],
+      },
+      dimensions: [
+        { code: "EI", label: "E / I", pct: 61, side_label: "Extraversion", state: "Expressive" },
+      ],
+    },
     offers: [{ title: "Paid offer should stay hidden" }],
     recommended_reads: [{ title: "Paid read should stay hidden" }],
   };
@@ -105,6 +135,7 @@ test("pending compare page renders inviter summary and CTA only", async ({ page 
   await expect(page.getByTestId("mbti-compare-invite-view")).toBeVisible();
   await expect(page.getByTestId("mbti-compare-status-badge")).toHaveText("Waiting for invitee");
   await expect(page.getByTestId("mbti-compare-inviter-card")).toContainText("Campaigner");
+  await expect(page.getByText("Legacy type should be ignored")).toHaveCount(0);
   await expect(page.getByTestId("mbti-compare-invitee-card")).toHaveCount(0);
   await expect(page.getByTestId("mbti-compare-summary-card")).toHaveCount(0);
   await expect(page.getByRole("link", { name: "Take the MBTI test" })).toHaveAttribute(
@@ -133,6 +164,8 @@ test("ready and purchased compare pages render public-safe compare data without 
   await expect(page.getByTestId("mbti-compare-summary-card")).toContainText("Shared chemistry and friction points");
   await expect(page.getByText("Energy", { exact: true })).toBeVisible();
   await expect(page.getByText("Decision style", { exact: true })).toBeVisible();
+  await expect(page.getByText("Legacy summary should be ignored")).toHaveCount(0);
+  await expect(page.getByText("Legacy tag should be ignored")).toHaveCount(0);
   await expect(page.getByText("Paid offer should stay hidden")).toHaveCount(0);
   await expect(page.getByText("Paid read should stay hidden")).toHaveCount(0);
   await expect(page.getByText("Should never render")).toHaveCount(0);

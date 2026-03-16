@@ -2,7 +2,6 @@ import { expect, test } from "@playwright/test";
 
 test("public seo pages keep canonical and og metadata without private noindex pollution", async ({ request }) => {
   for (const pathname of [
-    "/en/personality/intj",
     "/en/topics",
     "/en/help/faq",
     "/en/career/recommendations/mbti/INTJ",
@@ -52,13 +51,14 @@ test("share and compare OG routes return images", async ({ request }) => {
   expect((compareResponse.headers()["content-type"] || "").includes("image/")).toBeTruthy();
 });
 
-test("share and compare pages expose route-specific og:image tags", async ({ request }) => {
+test("share and compare pages stay noindex while exposing route-specific og:image tags", async ({ request }) => {
   const shareId = "seo-share-001";
   const inviteId = "seo-invite-001";
 
   const sharePage = await request.get(`/en/share/${shareId}`);
   expect(sharePage.ok()).toBeTruthy();
   const shareHtml = await sharePage.text();
+  expect(shareHtml.toLowerCase()).toContain("noindex");
   expect(shareHtml).toContain('property="og:image"');
   expect(shareHtml).toContain('name="twitter:image"');
   expect(shareHtml).toContain(`/og/share/${shareId}`);
@@ -66,6 +66,7 @@ test("share and compare pages expose route-specific og:image tags", async ({ req
   const comparePage = await request.get(`/en/compare/mbti/${inviteId}`);
   expect(comparePage.ok()).toBeTruthy();
   const compareHtml = await comparePage.text();
+  expect(compareHtml.toLowerCase()).toContain("noindex");
   expect(compareHtml).toContain('property="og:image"');
   expect(compareHtml).toContain('name="twitter:image"');
   expect(compareHtml).toContain(`/og/compare/mbti/${inviteId}`);

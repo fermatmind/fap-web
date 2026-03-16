@@ -16,6 +16,7 @@ import {
 } from "@/lib/api/v0_3";
 import { captureError } from "@/lib/observability/sentry";
 import type { Locale } from "@/lib/i18n/locales";
+import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
 
 const SHARE_CLICK_SESSION_PREFIX = "fm_share_click_v1";
 const MBTI_TAKE_FALLBACK_PATH = "/tests/mbti-personality-test-16-personality-types/take";
@@ -121,6 +122,7 @@ export default function ShareClient({
   const utm = useMemo(() => readNormalizedUtm(new URLSearchParams(queryString)), [queryString]);
   const utmQuery = useMemo(() => buildUtmQuery(utm), [utm]);
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
+  const viewModel = useMemo(() => buildSharePageViewModel(data), [data]);
 
   useEffect(() => {
     let active = true;
@@ -214,9 +216,9 @@ export default function ShareClient({
     };
   }, [landingPath, locale, pageReferrer, shareId, utm]);
 
-  const resolvedShareId = data?.share_id || data?.id || shareId;
+  const resolvedShareId = viewModel.shareId || shareId;
   const primaryCtaHref = useMemo(() => {
-    const basePath = data?.primary_cta_path || `/${locale}${MBTI_TAKE_FALLBACK_PATH}`;
+    const basePath = viewModel.primaryCtaPath || `/${locale}${MBTI_TAKE_FALLBACK_PATH}`;
 
     return buildAugmentedPath(basePath, {
       share_id: resolvedShareId,
@@ -226,7 +228,7 @@ export default function ShareClient({
       referrer: pageReferrer,
       ...utmQuery,
     });
-  }, [data?.primary_cta_path, landingPath, locale, pageReferrer, resolvedShareId, shareClickId, utmQuery]);
+  }, [landingPath, locale, pageReferrer, resolvedShareId, shareClickId, utmQuery, viewModel.primaryCtaPath]);
 
   const handleCompareInvite = async () => {
     const anonId = getOrCreateAnonId().trim();
@@ -296,12 +298,12 @@ export default function ShareClient({
     <>
       <MbtiShareSummaryCard
         locale={locale}
-        data={data}
+        card={viewModel.card}
         primaryActionHref={primaryCtaHref}
-        primaryActionLabel={data.primary_cta_label}
+        primaryActionLabel={viewModel.primaryCtaLabel}
       />
 
-      {data.compare_enabled ? (
+      {viewModel.compareEnabled ? (
         <section className="mx-auto -mt-4 w-full max-w-5xl px-4 pb-12 md:px-6">
           <div className="rounded-[28px] border border-slate-200 bg-white px-6 py-5 shadow-[0_20px_48px_rgba(15,23,42,0.08)]">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -328,7 +330,7 @@ export default function ShareClient({
                   ? locale === "zh"
                     ? "正在创建邀请..."
                     : "Creating invite..."
-                  : data.compare_cta_label || (locale === "zh" ? "邀请朋友来测并对比" : "Invite a friend to compare")}
+                  : viewModel.compareCtaLabel || (locale === "zh" ? "邀请朋友来测并对比" : "Invite a friend to compare")}
               </Button>
             </div>
 
