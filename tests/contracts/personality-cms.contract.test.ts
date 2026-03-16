@@ -3,6 +3,7 @@ import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildPersonalityFrontendUrl,
+  getPersonalityProjectionDetailBySlugOrType,
   getPersonalityProfileBySlugOrType,
   listPersonalityProfiles,
   mapFrontendLocaleToPersonalityApiLocale,
@@ -187,6 +188,149 @@ describe("personality cms adapter contract", () => {
     expect(getRenderablePersonalitySections(profile?.sections ?? [])).toHaveLength(1);
   });
 
+  it("builds a projection-first detail view model while keeping wrapper compatibility fields", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          profile: {
+            id: 1,
+            org_id: 0,
+            scale_code: "MBTI",
+            type_code: "INTJ",
+            slug: "intj",
+            locale: "en",
+            title: "Wrapper title should not drive the page",
+            subtitle: "Wrapper subtitle",
+            excerpt: "Wrapper excerpt should not drive the page",
+            hero_kicker: "The strategist",
+            hero_quote: "See the pattern. Build the system.",
+            hero_image_url: "https://cdn.example.com/intj.jpg",
+            status: "published",
+            is_public: true,
+            is_indexable: true,
+            published_at: "2026-03-08T10:00:00Z",
+            updated_at: "2026-03-08T10:30:00Z",
+          },
+          sections: [
+            {
+              section_key: "faq",
+              title: "FAQ",
+              render_variant: "faq",
+              body_md: "",
+              body_html: null,
+              payload_json: {
+                items: [{ question: "What defines INTJ?", answer: "Pattern logic and long-range planning." }],
+              },
+              sort_order: 90,
+              is_enabled: true,
+            },
+            {
+              section_key: "related_content",
+              title: "Related content",
+              render_variant: "links",
+              body_md: "",
+              body_html: null,
+              payload_json: {
+                items: [{ title: "ENTJ", slug: "entj", summary: "Compare neighboring strategy styles." }],
+              },
+              sort_order: 100,
+              is_enabled: true,
+            },
+          ],
+          seo_meta: {
+            seo_title: "INTJ Personality Type",
+            seo_description: "Projection-backed seo description.",
+          },
+          mbti_public_projection_v1: {
+            runtime_type_code: null,
+            canonical_type_code: "INTJ",
+            display_type: "INTJ",
+            variant_code: null,
+            profile: {
+              type_name: "Architect",
+              nickname: "Systems builder",
+              rarity: "About 2%",
+              keywords: ["strategy", "independence"],
+              hero_summary: "Projection hero summary.",
+            },
+            summary_card: {
+              title: "INTJ - Architect",
+              subtitle: "Independent, strategic, and future-oriented.",
+              summary: "Projection summary card body.",
+            },
+            dimensions: [
+              {
+                id: "EI",
+                name: "Energy",
+                axis_left: "Extraversion",
+                axis_right: "Introversion",
+                summary: "Leans inward before acting.",
+                description: "Prefers solitary synthesis before social output.",
+              },
+            ],
+            sections: [
+              {
+                key: "overview",
+                title: "Overview",
+                render: "rich_text",
+                body_md: "Projection overview body",
+                payload: null,
+                is_enabled: true,
+                source: "base",
+              },
+              {
+                key: "career.summary",
+                title: "Career summary",
+                render: "rich_text",
+                body_md: "Projection career summary",
+                payload: null,
+                is_enabled: true,
+                source: "base",
+              },
+            ],
+            seo: {
+              title: "INTJ Personality Type",
+              description: "Projection-backed seo description.",
+            },
+            offer_set: [],
+            _meta: {
+              authority_source: "personality_cms_v2",
+              route_mode: "base",
+              public_route_type: "16-type",
+              schema_version: "v2",
+            },
+          },
+        })
+      )
+    );
+
+    const detail = await getPersonalityProjectionDetailBySlugOrType("INTJ", "en");
+
+    expect(detail).not.toBeNull();
+    expect(detail?.canonicalTypeCode).toBe("INTJ");
+    expect(detail?.displayType).toBe("INTJ");
+    expect(detail?.title).toBe("INTJ - Architect");
+    expect(detail?.subtitle).toBe("Independent, strategic, and future-oriented.");
+    expect(detail?.summary).toBe("Projection summary card body.");
+    expect(detail?.typeName).toBe("Architect");
+    expect(detail?.nickname).toBe("Systems builder");
+    expect(detail?.rarity).toBe("About 2%");
+    expect(detail?.keywords).toEqual(["strategy", "independence"]);
+    expect(detail?.heroSummary).toBe("Projection hero summary.");
+    expect(detail?.projection.sections).toHaveLength(2);
+    expect(detail?.projection.sections[0]?.key).toBe("overview");
+    expect(detail?.slug).toBe("intj");
+    expect(detail?.locale).toBe("en");
+    expect(detail?.heroKicker).toBe("The strategist");
+    expect(detail?.heroQuote).toBe("See the pattern. Build the system.");
+    expect(detail?.heroImageUrl).toBe("https://cdn.example.com/intj.jpg");
+    expect(detail?.faqSections).toHaveLength(1);
+    expect(detail?.supplementalSections).toHaveLength(1);
+    expect(detail?.seoMeta?.seoTitle).toBe("INTJ Personality Type");
+  });
+
   it("normalizes canonical and jsonld urls to locale-aware frontend personality urls", () => {
     const normalized = normalizePersonalitySeoPayload(
       {
@@ -331,10 +475,12 @@ describe("personality cms adapter contract", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
     expect(source).toContain("alternatesByLocale");
+    expect(source).toContain("getPersonalityProjectionDetailBySlugOrType");
     expect(source).toContain('en: buildPersonalityFrontendUrl("en", profile.slug)');
     expect(source).toContain('zh: buildPersonalityFrontendUrl("zh", profile.slug)');
     expect(source).toContain("extractPersonalityFaqItems");
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildWebPageJsonLd");
+    expect(source).toContain("renderProjectionSections");
   });
 });
