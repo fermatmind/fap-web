@@ -92,6 +92,8 @@ describe("schema injection contract", () => {
     expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("buildFAQPageJsonLd");
+    expect(source).toContain("getPersonalityProjectionDetailBySlugOrType");
+    expect(source).toContain("renderProjectionSections");
     expect(source).toContain("renderPersonalitySections");
     expect(source).toContain("JsonLd");
   });

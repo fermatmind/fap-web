@@ -67,6 +67,7 @@ type CmsPersonalityDetailApiResponse = {
   profile?: CmsPersonalityApiProfile | null;
   sections?: CmsPersonalityApiSection[];
   seo_meta?: CmsPersonalityApiSeoMeta;
+  mbti_public_projection_v1?: CmsPersonalityApiProjectionV1 | null;
 };
 
 type CmsPersonalitySeoApiResponse = {
@@ -90,6 +91,85 @@ type CmsPersonalitySeoApiResponse = {
     alternates?: Record<string, string>;
   };
   jsonld?: unknown;
+};
+
+export type CmsPersonalityApiProjectionProfile = {
+  type_name?: string | null;
+  nickname?: string | null;
+  rarity?: string | null;
+  keywords?: unknown;
+  hero_summary?: string | null;
+};
+
+export type CmsPersonalityApiProjectionSummaryCard = {
+  title?: string | null;
+  subtitle?: string | null;
+  summary?: string | null;
+  tagline?: string | null;
+  public_tags?: unknown;
+};
+
+export type CmsPersonalityApiProjectionDimension = {
+  id?: string | null;
+  code?: string | null;
+  name?: string | null;
+  label?: string | null;
+  axis_left?: string | null;
+  axis_right?: string | null;
+  summary?: string | null;
+  description?: string | null;
+  score_pct?: number | null;
+  source?: string | null;
+  side?: string | null;
+  side_label?: string | null;
+  pct?: number | null;
+  state?: string | null;
+};
+
+export type CmsPersonalityApiProjectionSection = {
+  key?: string | null;
+  title?: string | null;
+  render?: string | null;
+  body_md?: string | null;
+  payload?: unknown;
+  is_enabled?: boolean;
+  source?: string | null;
+};
+
+export type CmsPersonalityApiProjectionSeo = {
+  title?: string | null;
+  description?: string | null;
+  og_title?: string | null;
+  og_description?: string | null;
+  og_image_url?: string | null;
+  twitter_title?: string | null;
+  twitter_description?: string | null;
+  twitter_image_url?: string | null;
+  canonical_url?: string | null;
+  robots?: string | null;
+  jsonld?: unknown;
+};
+
+export type CmsPersonalityApiProjectionMeta = {
+  authority_source?: string | null;
+  route_mode?: string | null;
+  public_route_type?: string | null;
+  schema_version?: string | null;
+  authority_meta?: unknown;
+};
+
+export type CmsPersonalityApiProjectionV1 = {
+  runtime_type_code?: string | null;
+  canonical_type_code?: string | null;
+  display_type?: string | null;
+  variant_code?: string | null;
+  profile?: CmsPersonalityApiProjectionProfile | null;
+  summary_card?: CmsPersonalityApiProjectionSummaryCard | null;
+  dimensions?: CmsPersonalityApiProjectionDimension[];
+  sections?: CmsPersonalityApiProjectionSection[];
+  seo?: CmsPersonalityApiProjectionSeo | null;
+  offer_set?: unknown;
+  _meta?: CmsPersonalityApiProjectionMeta | null;
 };
 
 export type CmsPersonalitySeoMeta = {
@@ -166,6 +246,118 @@ export type CmsPersonalitySeoPayload = {
     robots: string;
   };
   jsonld: unknown;
+};
+
+export type PersonalityProjectionProfile = {
+  typeName: string | null;
+  nickname: string | null;
+  rarity: string | null;
+  keywords: string[];
+  heroSummary: string | null;
+};
+
+export type PersonalityProjectionSummaryCard = {
+  title: string | null;
+  subtitle: string | null;
+  summary: string | null;
+  tagline: string | null;
+  publicTags: string[];
+};
+
+export type PersonalityProjectionDimension = {
+  id: string;
+  code: string | null;
+  name: string | null;
+  label: string | null;
+  axisLeft: string | null;
+  axisRight: string | null;
+  summary: string | null;
+  description: string | null;
+  scorePct: number | null;
+  source: string | null;
+  side: string | null;
+  sideLabel: string | null;
+  pct: number | null;
+  state: string | null;
+};
+
+export type PersonalityProjectionSection = {
+  key: string;
+  title: string;
+  render: string;
+  bodyMd: string;
+  payload: Record<string, unknown> | null;
+  isEnabled: boolean;
+  source: string | null;
+};
+
+export type PersonalityProjectionSeo = {
+  title: string | null;
+  description: string | null;
+  ogTitle: string | null;
+  ogDescription: string | null;
+  ogImageUrl: string | null;
+  twitterTitle: string | null;
+  twitterDescription: string | null;
+  twitterImageUrl: string | null;
+  canonicalUrl: string | null;
+  robots: string | null;
+  jsonld: unknown;
+};
+
+export type PersonalityProjectionMeta = {
+  authoritySource: string | null;
+  routeMode: string | null;
+  publicRouteType: string | null;
+  schemaVersion: string | null;
+  authorityMeta: unknown;
+};
+
+export type PersonalityProjection = {
+  runtimeTypeCode: string | null;
+  canonicalTypeCode: string;
+  displayType: string;
+  variantCode: string | null;
+  profile: PersonalityProjectionProfile;
+  summaryCard: PersonalityProjectionSummaryCard;
+  dimensions: PersonalityProjectionDimension[];
+  sections: PersonalityProjectionSection[];
+  seo: PersonalityProjectionSeo;
+  offerSet: unknown;
+  meta: PersonalityProjectionMeta;
+};
+
+export type PersonalityProjectionViewModel = {
+  slug: string;
+  locale: string;
+  isIndexable: boolean;
+  heroKicker: string | null;
+  heroQuote: string | null;
+  heroImageUrl: string | null;
+  canonicalTypeCode: string;
+  displayType: string;
+  typeName: string | null;
+  nickname: string | null;
+  rarity: string | null;
+  keywords: string[];
+  heroSummary: string | null;
+  title: string;
+  subtitle: string | null;
+  summary: string | null;
+  projection: PersonalityProjection;
+  faqSections: CmsPersonalitySection[];
+  supplementalSections: CmsPersonalitySection[];
+  seoMeta: CmsPersonalitySeoMeta | null;
+};
+
+export type PersonalitySeoCompatibilityInput = {
+  slug: string;
+  locale: string;
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  isIndexable: boolean;
+  seoMeta: CmsPersonalitySeoMeta | null;
 };
 
 export type CmsPersonalityPagination = {
@@ -313,6 +505,220 @@ function normalizeProfileDetail(
   };
 }
 
+function normalizeStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  const items = value
+    .map((item) => fallbackText(typeof item === "string" ? item : String(item ?? "")))
+    .filter(Boolean);
+
+  return Array.from(new Set(items));
+}
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  return value as Record<string, unknown>;
+}
+
+function normalizeProjectionProfile(
+  profile: CmsPersonalityApiProjectionProfile | null | undefined
+): PersonalityProjectionProfile {
+  return {
+    typeName: fallbackText(profile?.type_name) || null,
+    nickname: fallbackText(profile?.nickname) || null,
+    rarity: fallbackText(profile?.rarity) || null,
+    keywords: normalizeStringArray(profile?.keywords),
+    heroSummary: fallbackText(profile?.hero_summary) || null,
+  };
+}
+
+function normalizeProjectionSummaryCard(
+  summaryCard: CmsPersonalityApiProjectionSummaryCard | null | undefined
+): PersonalityProjectionSummaryCard {
+  return {
+    title: fallbackText(summaryCard?.title) || null,
+    subtitle: fallbackText(summaryCard?.subtitle) || null,
+    summary: fallbackText(summaryCard?.summary) || null,
+    tagline: fallbackText(summaryCard?.tagline) || null,
+    publicTags: normalizeStringArray(summaryCard?.public_tags),
+  };
+}
+
+function normalizeProjectionDimension(
+  dimension: CmsPersonalityApiProjectionDimension
+): PersonalityProjectionDimension | null {
+  const id = fallbackText(dimension.id, dimension.code).toUpperCase();
+  if (!id) {
+    return null;
+  }
+
+  return {
+    id,
+    code: fallbackText(dimension.code) || null,
+    name: fallbackText(dimension.name) || null,
+    label: fallbackText(dimension.label) || null,
+    axisLeft: fallbackText(dimension.axis_left) || null,
+    axisRight: fallbackText(dimension.axis_right) || null,
+    summary: fallbackText(dimension.summary) || null,
+    description: fallbackText(dimension.description) || null,
+    scorePct: typeof dimension.score_pct === "number" ? dimension.score_pct : null,
+    source: fallbackText(dimension.source) || null,
+    side: fallbackText(dimension.side) || null,
+    sideLabel: fallbackText(dimension.side_label) || null,
+    pct: typeof dimension.pct === "number" ? dimension.pct : null,
+    state: fallbackText(dimension.state) || null,
+  };
+}
+
+function normalizeProjectionSection(
+  section: CmsPersonalityApiProjectionSection
+): PersonalityProjectionSection | null {
+  const key = fallbackText(section.key).toLowerCase();
+  if (!key) {
+    return null;
+  }
+
+  return {
+    key,
+    title: fallbackText(section.title, section.key),
+    render: fallbackText(section.render, "rich_text"),
+    bodyMd: String(section.body_md ?? ""),
+    payload: asRecord(section.payload),
+    isEnabled: section.is_enabled !== false,
+    source: fallbackText(section.source) || null,
+  };
+}
+
+function normalizeProjectionSeo(seo: CmsPersonalityApiProjectionSeo | null | undefined): PersonalityProjectionSeo {
+  return {
+    title: fallbackText(seo?.title) || null,
+    description: fallbackText(seo?.description) || null,
+    ogTitle: fallbackText(seo?.og_title) || null,
+    ogDescription: fallbackText(seo?.og_description) || null,
+    ogImageUrl: normalizeIsoValue(seo?.og_image_url),
+    twitterTitle: fallbackText(seo?.twitter_title) || null,
+    twitterDescription: fallbackText(seo?.twitter_description) || null,
+    twitterImageUrl: normalizeIsoValue(seo?.twitter_image_url),
+    canonicalUrl: normalizeIsoValue(seo?.canonical_url),
+    robots: fallbackText(seo?.robots) || null,
+    jsonld: seo?.jsonld ?? null,
+  };
+}
+
+function normalizeProjectionMeta(
+  meta: CmsPersonalityApiProjectionMeta | null | undefined
+): PersonalityProjectionMeta {
+  return {
+    authoritySource: fallbackText(meta?.authority_source) || null,
+    routeMode: fallbackText(meta?.route_mode) || null,
+    publicRouteType: fallbackText(meta?.public_route_type) || null,
+    schemaVersion: fallbackText(meta?.schema_version) || null,
+    authorityMeta: meta?.authority_meta ?? null,
+  };
+}
+
+function normalizeProjection(
+  projection: CmsPersonalityApiProjectionV1 | null | undefined
+): PersonalityProjection | null {
+  if (!projection || typeof projection !== "object") {
+    return null;
+  }
+
+  const canonicalTypeCode = fallbackText(projection.canonical_type_code).toUpperCase();
+  if (!canonicalTypeCode) {
+    return null;
+  }
+
+  const normalizedProfile = normalizeProjectionProfile(projection.profile);
+  const normalizedSummaryCard = normalizeProjectionSummaryCard(projection.summary_card);
+
+  return {
+    runtimeTypeCode: fallbackText(projection.runtime_type_code).toUpperCase() || null,
+    canonicalTypeCode,
+    displayType: fallbackText(projection.display_type, canonicalTypeCode),
+    variantCode: fallbackText(projection.variant_code).toUpperCase() || null,
+    profile: normalizedProfile,
+    summaryCard: normalizedSummaryCard,
+    dimensions: Array.isArray(projection.dimensions)
+      ? projection.dimensions
+          .map(normalizeProjectionDimension)
+          .filter((dimension): dimension is PersonalityProjectionDimension => dimension !== null)
+      : [],
+    sections: Array.isArray(projection.sections)
+      ? projection.sections
+          .map(normalizeProjectionSection)
+          .filter((section): section is PersonalityProjectionSection => section !== null)
+          .filter((section) => section.isEnabled)
+      : [],
+    seo: normalizeProjectionSeo(projection.seo),
+    offerSet: projection.offer_set ?? null,
+    meta: normalizeProjectionMeta(projection._meta),
+  };
+}
+
+function buildProjectionViewModel(
+  detailProfile: CmsPersonalityProfile,
+  projection: PersonalityProjection
+): PersonalityProjectionViewModel {
+  const faqSections = detailProfile.sections.filter((section) => section.sectionKey === "faq");
+  const supplementalSections = detailProfile.sections.filter((section) => section.sectionKey === "related_content");
+  const title = fallbackText(projection.summaryCard.title, projection.displayType, projection.canonicalTypeCode);
+
+  return {
+    slug: detailProfile.slug,
+    locale: detailProfile.locale,
+    isIndexable: detailProfile.isIndexable,
+    heroKicker: fallbackText(detailProfile.heroKicker) || null,
+    heroQuote: fallbackText(detailProfile.heroQuote) || null,
+    heroImageUrl: detailProfile.heroImageUrl,
+    canonicalTypeCode: projection.canonicalTypeCode,
+    displayType: projection.displayType,
+    typeName: projection.profile.typeName,
+    nickname: projection.profile.nickname,
+    rarity: projection.profile.rarity,
+    keywords: projection.profile.keywords,
+    heroSummary: projection.profile.heroSummary,
+    title,
+    subtitle: projection.summaryCard.subtitle,
+    summary: projection.summaryCard.summary,
+    projection,
+    faqSections,
+    supplementalSections,
+    seoMeta: detailProfile.seoMeta,
+  };
+}
+
+function toSeoCompatibilityInputFromDetail(
+  detail: PersonalityProjectionViewModel | CmsPersonalityProfile
+): PersonalitySeoCompatibilityInput {
+  if ("projection" in detail) {
+    return {
+      slug: detail.slug,
+      locale: detail.locale,
+      title: detail.title,
+      subtitle: detail.subtitle ?? "",
+      excerpt: detail.summary ?? "",
+      isIndexable: detail.isIndexable,
+      seoMeta: detail.seoMeta,
+    };
+  }
+
+  return {
+    slug: detail.slug,
+    locale: detail.locale,
+    title: detail.title,
+    subtitle: detail.subtitle,
+    excerpt: detail.excerpt,
+    isIndexable: detail.isIndexable,
+    seoMeta: detail.seoMeta,
+  };
+}
+
 function buildFallbackJsonLd(profile: CmsPersonalityProfile, locale: Locale | string): Record<string, unknown> {
   const canonicalPath = buildPersonalityFrontendUrl(locale, profile.slug);
   const description = fallbackText(profile.seoMeta?.seoDescription, profile.excerpt, profile.subtitle);
@@ -406,22 +812,23 @@ export function buildPersonalityFrontendUrl(locale: Locale | string, slug: strin
 
 export function normalizePersonalitySeoPayload(
   seo: CmsPersonalitySeoPayload | null,
-  profile: CmsPersonalityProfile,
+  profile: PersonalityProjectionViewModel | CmsPersonalityProfile,
   locale: Locale | string
 ): CmsPersonalitySeoPayload {
-  const canonicalPath = buildPersonalityFrontendUrl(locale, profile.slug);
+  const compatibility = toSeoCompatibilityInputFromDetail(profile);
+  const canonicalPath = buildPersonalityFrontendUrl(locale, compatibility.slug);
   const normalizedCanonical = canonicalUrl(canonicalPath);
-  const title = fallbackText(seo?.meta.title, profile.seoMeta?.seoTitle, profile.title);
+  const title = fallbackText(seo?.meta.title, compatibility.seoMeta?.seoTitle, compatibility.title);
   const description = fallbackText(
     seo?.meta.description,
-    profile.seoMeta?.seoDescription,
-    profile.excerpt,
-    profile.subtitle
+    compatibility.seoMeta?.seoDescription,
+    compatibility.excerpt,
+    compatibility.subtitle
   );
   const robots = fallbackText(
     seo?.meta.robots,
-    profile.seoMeta?.robots,
-    profile.isIndexable ? "index,follow" : "noindex,follow"
+    compatibility.seoMeta?.robots,
+    compatibility.isIndexable ? "index,follow" : "noindex,follow"
   );
 
   return {
@@ -430,28 +837,59 @@ export function normalizePersonalitySeoPayload(
       description,
       canonical: normalizedCanonical,
       alternates: {
-        en: canonicalUrl(buildPersonalityFrontendUrl("en", profile.slug)),
-        "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", profile.slug)),
+        en: canonicalUrl(buildPersonalityFrontendUrl("en", compatibility.slug)),
+        "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", compatibility.slug)),
       },
       og: {
-        title: fallbackText(seo?.meta.og.title, profile.seoMeta?.ogTitle, title),
-        description: fallbackText(seo?.meta.og.description, profile.seoMeta?.ogDescription, description),
-        image: normalizeIsoValue(seo?.meta.og.image ?? profile.seoMeta?.ogImageUrl),
+        title: fallbackText(seo?.meta.og.title, compatibility.seoMeta?.ogTitle, title),
+        description: fallbackText(seo?.meta.og.description, compatibility.seoMeta?.ogDescription, description),
+        image: normalizeIsoValue(seo?.meta.og.image ?? compatibility.seoMeta?.ogImageUrl),
         type: fallbackText(seo?.meta.og.type, "article"),
       },
       twitter: {
         card: fallbackText(seo?.meta.twitter.card, "summary_large_image"),
-        title: fallbackText(seo?.meta.twitter.title, profile.seoMeta?.twitterTitle, title),
+        title: fallbackText(seo?.meta.twitter.title, compatibility.seoMeta?.twitterTitle, title),
         description: fallbackText(
           seo?.meta.twitter.description,
-          profile.seoMeta?.twitterDescription,
+          compatibility.seoMeta?.twitterDescription,
           description
         ),
-        image: normalizeIsoValue(seo?.meta.twitter.image ?? profile.seoMeta?.twitterImageUrl ?? profile.seoMeta?.ogImageUrl),
+        image: normalizeIsoValue(
+          seo?.meta.twitter.image ??
+            compatibility.seoMeta?.twitterImageUrl ??
+            compatibility.seoMeta?.ogImageUrl
+        ),
       },
       robots,
     },
-    jsonld: normalizePersonalityJsonLd(seo?.jsonld ?? null, seo?.meta.canonical, canonicalPath, profile),
+    jsonld: normalizePersonalityJsonLd(
+      seo?.jsonld ?? null,
+      seo?.meta.canonical,
+      canonicalPath,
+      "projection" in profile
+        ? {
+            id: null,
+            orgId: 0,
+            scaleCode: DEFAULT_SCALE_CODE,
+            typeCode: profile.canonicalTypeCode,
+            slug: profile.slug,
+            locale: profile.locale,
+            title: compatibility.title,
+            subtitle: compatibility.subtitle,
+            excerpt: compatibility.excerpt,
+            status: "published",
+            isPublic: true,
+            isIndexable: compatibility.isIndexable,
+            publishedAt: null,
+            updatedAt: null,
+            seoMeta: compatibility.seoMeta,
+            heroKicker: profile.heroKicker ?? profile.canonicalTypeCode,
+            heroQuote: profile.heroQuote ?? "",
+            heroImageUrl: profile.heroImageUrl,
+            sections: [],
+          }
+        : profile
+    ),
   };
 }
 
@@ -510,10 +948,10 @@ export async function listPersonalityProfiles(
   }
 }
 
-export async function getPersonalityProfileBySlugOrType(
+async function getPersonalityDetailResponseBySlugOrType(
   slugOrType: string,
   locale: Locale | string
-): Promise<CmsPersonalityProfile | null> {
+): Promise<CmsPersonalityDetailApiResponse | null> {
   const normalizedSlug = normalizePersonalitySlug(slugOrType);
   if (!normalizedSlug) {
     return null;
@@ -526,7 +964,7 @@ export async function getPersonalityProfileBySlugOrType(
   });
 
   try {
-    const response = await apiClient.get<CmsPersonalityDetailApiResponse>(
+    return await apiClient.get<CmsPersonalityDetailApiResponse>(
       `/v0.5/personality/${encodeURIComponent(normalizedSlug)}${query}`,
       {
         locale,
@@ -534,13 +972,6 @@ export async function getPersonalityProfileBySlugOrType(
         cache: "no-store",
       }
     );
-
-    if (!response.profile) {
-      return null;
-    }
-
-    const profile = normalizeProfileDetail(response.profile, response.sections, response.seo_meta ?? null);
-    return profile.slug && profile.title ? profile : null;
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return null;
@@ -548,6 +979,41 @@ export async function getPersonalityProfileBySlugOrType(
 
     throw error;
   }
+}
+
+export async function getPersonalityProfileBySlugOrType(
+  slugOrType: string,
+  locale: Locale | string
+): Promise<CmsPersonalityProfile | null> {
+  const response = await getPersonalityDetailResponseBySlugOrType(slugOrType, locale);
+  if (!response?.profile) {
+    return null;
+  }
+
+  const profile = normalizeProfileDetail(response.profile, response.sections, response.seo_meta ?? null);
+  return profile.slug && profile.title ? profile : null;
+}
+
+export async function getPersonalityProjectionDetailBySlugOrType(
+  slugOrType: string,
+  locale: Locale | string
+): Promise<PersonalityProjectionViewModel | null> {
+  const response = await getPersonalityDetailResponseBySlugOrType(slugOrType, locale);
+  if (!response?.profile) {
+    return null;
+  }
+
+  const detailProfile = normalizeProfileDetail(response.profile, response.sections, response.seo_meta ?? null);
+  if (!detailProfile.slug || !detailProfile.title) {
+    return null;
+  }
+
+  const projection = normalizeProjection(response.mbti_public_projection_v1);
+  if (!projection) {
+    return null;
+  }
+
+  return buildProjectionViewModel(detailProfile, projection);
 }
 
 export async function getPersonalitySeoBySlugOrType(
