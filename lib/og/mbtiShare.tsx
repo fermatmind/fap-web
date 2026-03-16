@@ -1,13 +1,4 @@
-import type { ShareSummaryResponse } from "@/lib/api/v0_3";
-
-const TECHNICAL_TAG_PREFIXES = [
-  "axis:",
-  "state:",
-  "type:",
-  "role:",
-  "strategy:",
-  "borderline:",
-] as const;
+import type { MbtiSharePageViewModel } from "@/lib/mbti/publicProjection";
 
 type ShareDimensionView = {
   key: string;
@@ -26,29 +17,6 @@ type ShareOgView = {
   ctaLabel: string;
 };
 
-function asRecord(value: unknown): Record<string, unknown> | null {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return null;
-  }
-
-  return value as Record<string, unknown>;
-}
-
-function normalizeText(...values: unknown[]): string {
-  for (const value of values) {
-    if (typeof value !== "string" && typeof value !== "number") {
-      continue;
-    }
-
-    const normalized = String(value).trim();
-    if (normalized) {
-      return normalized;
-    }
-  }
-
-  return "";
-}
-
 function truncateText(value: string, maxLength: number): string {
   if (value.length <= maxLength) {
     return value;
@@ -57,123 +25,60 @@ function truncateText(value: string, maxLength: number): string {
   return `${value.slice(0, Math.max(0, maxLength - 1)).trimEnd()}…`;
 }
 
-function resolveRarity(value: unknown): string {
-  if (typeof value === "string" || typeof value === "number") {
-    return normalizeText(value);
-  }
-
-  const record = asRecord(value);
-  return normalizeText(record?.label, record?.text, record?.value, record?.title);
-}
-
-function isPublicTag(tag: string): boolean {
-  const normalized = tag.trim().toLowerCase();
-  if (!normalized) return false;
-  return !TECHNICAL_TAG_PREFIXES.some((prefix) => normalized.startsWith(prefix));
-}
-
-function normalizeTags(value: unknown): string[] {
-  if (!Array.isArray(value)) {
-    return [];
-  }
-
-  return Array.from(
-    new Set(
-      value
-        .map((item) => normalizeText(item))
-        .filter((tag) => tag.length > 0 && isPublicTag(tag))
-    )
-  ).slice(0, 3);
-}
-
-function normalizePercent(value: unknown): number | null {
-  if (typeof value !== "number" || Number.isNaN(value)) {
-    return null;
-  }
-
-  const normalized = value > 1 ? value : value * 100;
-  return Math.max(0, Math.min(100, Math.round(normalized)));
-}
-
-function normalizeDimensions(value: unknown): ShareDimensionView[] {
-  if (!Array.isArray(value)) {
-    return [];
-  }
-
-  return value
-    .map((item, index) => {
-      const record = asRecord(item);
-      if (!record) {
-        return null;
-      }
-
-      const label = normalizeText(record.label, record.code, `Dimension ${index + 1}`);
-      const pct = normalizePercent(record.pct);
-      const side = normalizeText(record.side_label, record.side);
-      const state = normalizeText(record.state);
-      const detailParts = [side, pct !== null ? `${pct}%` : "", state].filter(Boolean);
-
-      if (!label || detailParts.length === 0) {
-        return null;
-      }
-
-      return {
-        key: normalizeText(record.code, label, index + 1),
-        label,
-        detail: detailParts.join(" · "),
-      };
-    })
-    .filter((item): item is ShareDimensionView => Boolean(item))
-    .slice(0, 5);
-}
-
-function normalizeShareOgView(data?: ShareSummaryResponse | null): ShareOgView {
-  const typeCode = normalizeText(data?.type_code, "FermatMind MBTI");
-  const typeName = normalizeText(data?.type_name, data?.title, "人格类型分享");
-  const subtitle = normalizeText(data?.subtitle, "公开可分享的人格类型摘要");
-  const narrative = truncateText(
-    normalizeText(data?.summary, data?.tagline, "查看这份 MBTI 分享摘要。"),
-    180
-  );
-  const rarity = normalizeText(resolveRarity(data?.rarity));
-  const tags = normalizeTags(data?.tags);
-  const dimensions = normalizeDimensions(data?.dimensions);
-  const ctaLabel = normalizeText(data?.primary_cta_label, "开始测试");
+function buildShareOgView(viewModel?: MbtiSharePageViewModel | null): ShareOgView {
+  const card = viewModel?.card;
 
   return {
-    typeCode,
-    typeName,
-    subtitle,
-    narrative,
-    rarity,
-    tags,
-    dimensions,
-    ctaLabel,
+    typeCode: card?.canonicalTypeCode || card?.displayType || "FermatMind MBTI",
+    typeName: card?.typeName || card?.title || card?.displayType || "人格类型分享",
+    subtitle: card?.subtitle || card?.tagline || "公开可分享的人格类型摘要",
+    narrative: truncateText(
+      card?.summary || card?.subtitle || card?.tagline || "查看这份 MBTI 分享摘要。",
+      180
+    ),
+    rarity: card?.rarity || "",
+    tags: (card?.publicTags ?? []).slice(0, 3),
+    dimensions: (card?.dimensions ?? [])
+      .map((dimension) => {
+        const detail = [
+          dimension.sideLabel || dimension.side,
+          `${dimension.percent}%`,
+          dimension.state,
+        ].filter(Boolean).join(" · ");
+
+        if (!dimension.label || !detail) {
+          return null;
+        }
+
+        return {
+          key: dimension.code || dimension.label,
+          label: dimension.label,
+          detail,
+        };
+      })
+      .filter((dimension): dimension is ShareDimensionView => Boolean(dimension))
+      .slice(0, 5),
+    ctaLabel: viewModel?.primaryCtaLabel || "开始测试",
   };
 }
 
-export function buildShareMetadataCopy(data?: ShareSummaryResponse | null): {
+export function buildShareMetadataCopy(viewModel?: MbtiSharePageViewModel | null): {
   title: string;
   description: string;
 } {
-  const typeCode = normalizeText(data?.type_code);
-  const typeName = normalizeText(data?.type_name);
-  const fallbackTitle = normalizeText(data?.title, typeCode, "人格类型分享");
-  const title = typeCode && typeName
-    ? `${typeCode} · ${typeName}｜FermatMind`
-    : `${fallbackTitle}｜FermatMind`;
-  const description = normalizeText(
-    data?.summary,
-    data?.subtitle,
-    data?.tagline,
-    "查看人格类型分享"
-  );
+  const card = viewModel?.card;
+  const fallbackTitle = card?.title || card?.displayType || card?.canonicalTypeCode || card?.typeName || "MBTI 分享摘要";
 
-  return { title, description };
+  return {
+    title: card?.canonicalTypeCode && card.typeName
+      ? `${card.canonicalTypeCode} · ${card.typeName}｜FermatMind`
+      : `${fallbackTitle}｜FermatMind`,
+    description: card?.summary || card?.subtitle || card?.tagline || "查看人格类型分享",
+  };
 }
 
-export function renderShareOgImage(data?: ShareSummaryResponse | null) {
-  const view = normalizeShareOgView(data);
+export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null) {
+  const view = buildShareOgView(viewModel);
 
   return (
     <div

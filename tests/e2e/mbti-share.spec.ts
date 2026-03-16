@@ -19,23 +19,57 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
     id: shareId,
     scale_code: "MBTI",
     locale: "en",
-    type_code: "ENFP-T",
-    type_name: "Campaigner",
-    subtitle: "Warm, imaginative, and emotionally alert",
-    summary: "This public MBTI share page keeps only the lightweight result summary and the top-level dimension balance.",
+    type_code: "LEGACY-TYPE",
+    type_name: "Legacy name should be ignored",
+    subtitle: "Legacy subtitle should be ignored",
+    summary: "Legacy summary should be ignored",
     rarity: {
-      label: "Around 6-8%",
+      label: "Legacy rarity should be ignored",
     },
     primary_cta_label: "Start MBTI test",
     primary_cta_path: takePath,
     compare_enabled: true,
     compare_cta_label: "Invite a friend to compare",
-    public_tags: ["Warm", "Idealistic", "Sensitive"],
-    tags: ["type:ENFP-T", "Warm"],
-    dimensions: [
-      { code: "EI", label: "E / I", pct: 61 },
-      { code: "SN", label: "S / N", percent: 74 },
-    ],
+    public_tags: ["Legacy tag should be ignored"],
+    tags: ["type:ENFP-T", "Legacy tag should be ignored"],
+    dimensions: [{ code: "EI", label: "Legacy dimension should be ignored", pct: 61 }],
+    profile: {
+      type_name: "Legacy profile should be ignored",
+      short_summary: "Legacy profile summary should be ignored",
+    },
+    identity_card: {
+      title: "Legacy identity title should be ignored",
+      summary: "Legacy identity summary should be ignored",
+    },
+    result: {
+      type_code: "LEGACY-RESULT",
+      summary: "Legacy result summary should be ignored",
+    },
+    mbti_public_summary_v1: {
+      title: "Legacy public summary should be ignored",
+    },
+    mbti_public_projection_v1: {
+      canonical_type_code: "ENFP-T",
+      display_type: "ENFP-T",
+      variant_code: "ENFP-T",
+      profile: {
+        type_name: "Campaigner",
+        rarity: {
+          label: "Around 6-8%",
+        },
+        keywords: ["Warm", "Idealistic", "type:TECHNICAL_ONLY"],
+      },
+      summary_card: {
+        title: "Campaigner",
+        subtitle: "Warm, imaginative, and emotionally alert",
+        summary: "This public MBTI share page keeps only the lightweight result summary and the top-level dimension balance.",
+        public_tags: ["Warm", "Idealistic", "Sensitive", "axis:EI"],
+      },
+      dimensions: [
+        { code: "EI", label: "E / I", pct: 61, side_label: "Extraversion", state: "Expressive" },
+        { code: "SN", label: "S / N", score_pct: 74, side_label: "Intuition", state: "Pattern-led" },
+      ],
+    },
     offers: [
       {
         title: "Unlock full report",
@@ -205,7 +239,11 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   });
   await expect(page.getByTestId("mbti-share-summary-card")).toBeVisible();
   await expect(page.getByRole("heading", { name: "ENFP-T" })).toBeVisible();
+  await expect(page.getByText("Campaigner")).toBeVisible();
   await expect(page.getByRole("button", { name: "Invite a friend to compare" })).toBeVisible();
+  await expect(page.getByText("Legacy name should be ignored")).toHaveCount(0);
+  await expect(page.getByText("Legacy summary should be ignored")).toHaveCount(0);
+  await expect(page.getByText("Legacy tag should be ignored")).toHaveCount(0);
   await expect(page.getByText("Unlock full report")).toHaveCount(0);
   await expect(page.getByText("Paid-only reading")).toHaveCount(0);
   await expect(page.getByText("type:ENFP-T")).toHaveCount(0);

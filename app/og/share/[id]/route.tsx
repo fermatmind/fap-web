@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getShareSummary } from "@/lib/api/v0_3";
+import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
 import { renderShareOgImage } from "@/lib/og/mbtiShare";
 
 export const runtime = "edge";
@@ -26,7 +27,7 @@ export async function GET(
   const id = typeof params.id === "string" ? params.id.trim() : "";
   const data = id ? await loadShareSummary(id) : null;
 
-  return new ImageResponse(renderShareOgImage(data), {
+  return new ImageResponse(renderShareOgImage(buildSharePageViewModel(data)), {
     width: CANVAS_WIDTH,
     height: CANVAS_HEIGHT,
   });

@@ -1,8 +1,11 @@
 import { render, screen, waitFor } from "@testing-library/react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import CompareClient from "@/app/(localized)/[locale]/compare/mbti/[inviteId]/CompareClient";
 import { generateMetadata } from "@/app/(localized)/[locale]/compare/mbti/[inviteId]/page";
-import type { MbtiCompareInviteResponse, ShareSummaryResponse } from "@/lib/api/v0_3";
+import type { MbtiCompareInviteResponse, MbtiCompareParticipantRaw } from "@/lib/api/v0_3";
+import { buildCompareInviteViewModel } from "@/lib/mbti/compareInvite";
+import { renderCompareOgImage } from "@/lib/og/mbtiCompare";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/compare/mbti/invite-123",
@@ -34,21 +37,51 @@ function createSummaryFixture({
   typeCode: string;
   typeName: string;
   subtitle: string;
-}): ShareSummaryResponse {
+}): MbtiCompareParticipantRaw {
   return {
-    ok: true,
     share_id: shareId,
-    type_code: typeCode,
-    type_name: typeName,
-    subtitle,
-    summary: `${typeName} public summary`,
-    rarity: {
-      label: "Around 6-8%",
+    type_code: "LEGACY-TYPE",
+    type_name: "Legacy type should be ignored",
+    subtitle: "Legacy subtitle should be ignored",
+    summary: "Legacy summary should be ignored",
+    tags: ["Legacy tag should be ignored", "type:TECHNICAL_ONLY"],
+    dimensions: [{ code: "EI", label: "Legacy dimension should be ignored", pct: 11 }],
+    profile: {
+      type_name: "Legacy profile should be ignored",
+      short_summary: "Legacy profile summary should be ignored",
     },
-    tags: ["Warm", "type:TECHNICAL_ONLY", "axis:EI"],
-    dimensions: [
-      { code: "EI", label: "E / I", pct: 61 },
-    ],
+    identity_card: {
+      title: "Legacy identity title should be ignored",
+      summary: "Legacy identity summary should be ignored",
+    },
+    result: {
+      type_code: "LEGACY-RESULT",
+      summary: "Legacy result summary should be ignored",
+    },
+    mbti_public_summary_v1: {
+      title: "Legacy public summary should be ignored",
+    },
+    mbti_public_projection_v1: {
+      canonical_type_code: typeCode,
+      display_type: typeCode,
+      variant_code: typeCode,
+      profile: {
+        type_name: typeName,
+        rarity: {
+          label: "Around 6-8%",
+        },
+        keywords: ["Warm", "type:TECHNICAL_ONLY"],
+      },
+      summary_card: {
+        title: typeName,
+        subtitle,
+        summary: `${typeName} public summary`,
+        public_tags: ["Warm", "axis:EI"],
+      },
+      dimensions: [
+        { code: "EI", label: "E / I", pct: 61, side_label: "Extraversion", state: "Expressive" },
+      ],
+    },
     offers: [{ title: "Paid offer should stay hidden" }],
     recommended_reads: [{ title: "Paid reading should stay hidden" }],
     paid_sections: [{ title: "Paid section should stay hidden" }],
@@ -162,6 +195,9 @@ describe("MBTI compare invite consumer contract", () => {
     expect(screen.getByTestId("mbti-compare-summary-card")).toHaveTextContent("Diverging axes");
     expect(screen.getByText("Energy")).toBeInTheDocument();
     expect(screen.getByText("Decision style")).toBeInTheDocument();
+    expect(screen.queryByText("Legacy type should be ignored")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy summary should be ignored")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy tag should be ignored")).not.toBeInTheDocument();
     expect(screen.queryByText("Paid offer should stay hidden")).not.toBeInTheDocument();
     expect(screen.queryByText("Paid reading should stay hidden")).not.toBeInTheDocument();
     expect(screen.queryByText("Paid section should stay hidden")).not.toBeInTheDocument();
@@ -199,7 +235,7 @@ describe("MBTI compare invite consumer contract", () => {
       cache: "no-store",
     });
     expect(metadata.title).toBe("ENFP-T 邀请你来测 MBTI 并对比｜FermatMind");
-    expect(metadata.description).toBe("Campaigner public summary");
+    expect(metadata.description).toBe("查看 MBTI 对比邀请");
     expect(metadata.alternates?.canonical).toBe("http://localhost:3000/zh/compare/mbti/invite-123");
     expect(metadata.robots).toMatchObject({
       index: false,
@@ -209,13 +245,13 @@ describe("MBTI compare invite consumer contract", () => {
     });
     expect(metadata.openGraph).toMatchObject({
       title: "ENFP-T 邀请你来测 MBTI 并对比｜FermatMind",
-      description: "Campaigner public summary",
+      description: "查看 MBTI 对比邀请",
       url: "http://localhost:3000/zh/compare/mbti/invite-123",
       images: ["http://localhost:3000/og/compare/mbti/invite-123"],
     });
     expect(metadata.twitter).toMatchObject({
       title: "ENFP-T 邀请你来测 MBTI 并对比｜FermatMind",
-      description: "Campaigner public summary",
+      description: "查看 MBTI 对比邀请",
       images: ["http://localhost:3000/og/compare/mbti/invite-123"],
     });
   });
@@ -241,6 +277,16 @@ describe("MBTI compare invite consumer contract", () => {
     expect(metadata.twitter).toMatchObject({
       images: ["http://localhost:3000/og/compare/mbti/invite-123"],
     });
+  });
+
+  it("renders compare OG title from participant projection and summary from compare flat shell", () => {
+    const html = renderToStaticMarkup(renderCompareOgImage(buildCompareInviteViewModel(createReadyFixture("ready"))));
+
+    expect(html).toContain("ENFP-T × INFJ-A");
+    expect(html).toContain("Shared chemistry and friction points");
+    expect(html).toContain("Both profiles align on idealism, but differ on how quickly they externalize judgment.");
+    expect(html).not.toContain("Legacy summary should be ignored");
+    expect(html).not.toContain("Should never render");
   });
 
   it("falls back to the generic invite metadata when the contract fetch fails", async () => {
