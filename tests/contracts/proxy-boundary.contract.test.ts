@@ -30,14 +30,14 @@ describe("proxy boundary contract", () => {
     );
 
     expect(response.status).toBe(308);
-    expect(response.headers.get("location")).toBe("https://example.com/zh/personality/intj?utm=a");
+    expect(response.headers.get("location")).toBe("https://example.com/zh/personality/intj-a?utm=a");
   });
 
   it("redirects localized types detail pages into localized personality detail pages", () => {
     const response = proxy(new NextRequest("https://example.com/en/types/intj"));
 
     expect(response.status).toBe(308);
-    expect(response.headers.get("location")).toBe("https://example.com/en/personality/intj");
+    expect(response.headers.get("location")).toBe("https://example.com/en/personality/intj-a");
   });
 
   it("keeps professions retired with 410 and noindex", () => {

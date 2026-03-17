@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { listPersonalityProfiles } from "@/lib/cms/personality";
+import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
@@ -105,7 +105,7 @@ export default async function PersonalityPage({
               <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
                 <p className="m-0">{personality.excerpt || personality.subtitle || "-"}</p>
                 <Link
-                  href={withLocale(`/personality/${personality.slug}`)}
+                  href={withLocale(`/personality/${buildDefaultPublicPersonalitySlug(personality.typeCode || personality.slug)}`)}
                   className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {locale === "zh" ? "查看人格页" : "View profile"}

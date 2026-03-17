@@ -30,7 +30,7 @@ test("legacy professions stay gone while types routes funnel into personality", 
 
   const typesDetail = await request.get("/en/types/intj", { maxRedirects: 0 });
   expect(typesDetail.status()).toBe(308);
-  expect(typesDetail.headers().location).toBe("http://localhost:3000/en/personality/intj");
+  expect(typesDetail.headers().location).toBe("http://localhost:3000/en/personality/intj-a");
 });
 
 test("mbti career recommendation route exposes answer-first, table, faq, and public backlinks", async ({ request }) => {

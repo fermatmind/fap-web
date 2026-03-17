@@ -4,6 +4,8 @@ import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_SCALE_CODE = "MBTI";
+const MBTI_BASE_SLUG_RE = /^[ie][ns][ft][jp]$/i;
+const MBTI_RUNTIME_SLUG_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
 type CmsPersonalityApiSeoMeta = {
   seo_title?: string | null;
@@ -329,6 +331,7 @@ export type PersonalityProjection = {
 
 export type PersonalityProjectionViewModel = {
   slug: string;
+  routeSlug: string;
   locale: string;
   isIndexable: boolean;
   heroKicker: string | null;
@@ -671,6 +674,7 @@ function buildProjectionViewModel(
 
   return {
     slug: detailProfile.slug,
+    routeSlug: runtimeTypeCodeToSlug(projection.runtimeTypeCode) ?? detailProfile.slug,
     locale: detailProfile.locale,
     isIndexable: detailProfile.isIndexable,
     heroKicker: fallbackText(detailProfile.heroKicker) || null,
@@ -698,7 +702,7 @@ function toSeoCompatibilityInputFromDetail(
 ): PersonalitySeoCompatibilityInput {
   if ("projection" in detail) {
     return {
-      slug: detail.slug,
+      slug: detail.routeSlug,
       locale: detail.locale,
       title: detail.title,
       subtitle: detail.subtitle ?? "",
@@ -719,8 +723,7 @@ function toSeoCompatibilityInputFromDetail(
   };
 }
 
-function buildFallbackJsonLd(profile: CmsPersonalityProfile, locale: Locale | string): Record<string, unknown> {
-  const canonicalPath = buildPersonalityFrontendUrl(locale, profile.slug);
+function buildFallbackJsonLd(profile: CmsPersonalityProfile, canonicalPath: string): Record<string, unknown> {
   const description = fallbackText(profile.seoMeta?.seoDescription, profile.excerpt, profile.subtitle);
 
   return {
@@ -781,13 +784,13 @@ export function normalizePersonalityJsonLd(
   };
 
   if (!jsonld) {
-    return buildFallbackJsonLd(profile, profile.locale);
+    return buildFallbackJsonLd(profile, localizedCanonicalPath);
   }
 
   const normalized = walk(jsonld);
 
   if (!normalized || Array.isArray(normalized) || typeof normalized !== "object") {
-    return buildFallbackJsonLd(profile, profile.locale);
+    return buildFallbackJsonLd(profile, localizedCanonicalPath);
   }
 
   return {
@@ -806,6 +809,23 @@ export function normalizePersonalitySlug(value: string): string {
   return String(value ?? "").trim().toLowerCase();
 }
 
+export function isCanonicalPersonalityBaseSlug(value: string): boolean {
+  return MBTI_BASE_SLUG_RE.test(normalizePersonalitySlug(value));
+}
+
+export function buildDefaultPublicPersonalitySlug(value: string): string {
+  const normalized = normalizePersonalitySlug(value);
+  if (!normalized) {
+    return "";
+  }
+
+  if (MBTI_RUNTIME_SLUG_RE.test(normalized)) {
+    return normalized;
+  }
+
+  return MBTI_BASE_SLUG_RE.test(normalized) ? `${normalized}-a` : normalized;
+}
+
 export function buildPersonalityFrontendUrl(locale: Locale | string, slug: string): string {
   return localizedPath(`/personality/${normalizePersonalitySlug(slug)}`, normalizeLocale(locale));
 }
@@ -816,8 +836,14 @@ export function normalizePersonalitySeoPayload(
   locale: Locale | string
 ): CmsPersonalitySeoPayload {
   const compatibility = toSeoCompatibilityInputFromDetail(profile);
-  const canonicalPath = buildPersonalityFrontendUrl(locale, compatibility.slug);
+  const canonicalRouteSlug =
+    extractPersonalitySlugFromPublicUrl(seo?.meta.canonical) ??
+    ("projection" in profile ? runtimeTypeCodeToSlug(profile.projection.runtimeTypeCode) : null) ??
+    buildDefaultPublicPersonalitySlug(compatibility.slug);
+  const canonicalPath = buildPersonalityFrontendUrl(locale, canonicalRouteSlug);
   const normalizedCanonical = canonicalUrl(canonicalPath);
+  const alternateEnSlug = extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.en) ?? canonicalRouteSlug;
+  const alternateZhSlug = extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.["zh-CN"]) ?? canonicalRouteSlug;
   const title = fallbackText(seo?.meta.title, compatibility.seoMeta?.seoTitle, compatibility.title);
   const description = fallbackText(
     seo?.meta.description,
@@ -837,8 +863,8 @@ export function normalizePersonalitySeoPayload(
       description,
       canonical: normalizedCanonical,
       alternates: {
-        en: canonicalUrl(buildPersonalityFrontendUrl("en", compatibility.slug)),
-        "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", compatibility.slug)),
+        en: canonicalUrl(buildPersonalityFrontendUrl("en", alternateEnSlug)),
+        "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", alternateZhSlug)),
       },
       og: {
         title: fallbackText(seo?.meta.og.title, compatibility.seoMeta?.ogTitle, title),
@@ -891,6 +917,28 @@ export function normalizePersonalitySeoPayload(
         : profile
     ),
   };
+}
+
+function runtimeTypeCodeToSlug(value: string | null | undefined): string | null {
+  const normalized = normalizePersonalitySlug(String(value ?? ""));
+
+  return MBTI_RUNTIME_SLUG_RE.test(normalized) ? normalized : null;
+}
+
+function extractPersonalitySlugFromPublicUrl(value: string | null | undefined): string | null {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) {
+    return null;
+  }
+
+  try {
+    const url = /^https?:\/\//i.test(normalized) ? new URL(normalized) : new URL(normalized, "http://localhost");
+    const match = url.pathname.match(/^\/(?:en|zh)\/personality\/([a-z]{4}(?:-[at])?)\/?$/i);
+
+    return match?.[1] ? normalizePersonalitySlug(match[1]) : null;
+  } catch {
+    return null;
+  }
 }
 
 export async function listPersonalityProfiles(

@@ -1,6 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const reuseExistingServer = process.env.PLAYWRIGHT_REUSE_SERVER === "1";
+const localApiOrigin = process.env.NEXT_PUBLIC_API_URL?.trim() || "http://127.0.0.1:8000";
+
+process.env.NEXT_PUBLIC_API_URL = localApiOrigin;
 
 export default defineConfig({
   testDir: "./tests/e2e",
