@@ -258,6 +258,10 @@ describe("MBTI checkout wiring contract", () => {
     expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
     expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
     expect(within(careerChapter).getByRole("link", { name: "查看解锁方案" })).toHaveAttribute("href", "#offers");
+    expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
+      "href",
+      "/zh/career/recommendations/mbti/enfp"
+    );
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
     expect(screen.getByText("Projection-first summary that should replace the legacy hero copy on result pages.")).toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-offer-comparison")).getByText("Projection fixture commerce title")).toBeInTheDocument();

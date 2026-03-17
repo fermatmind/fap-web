@@ -24,6 +24,7 @@ import {
   type FAQItem,
 } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { isMbtiCanonicalTypeCode, normalizeMbtiCanonicalTypeCode } from "@/lib/mbti/publicProjection";
 
 export function generateStaticParams() {
   return listMbtiRecommendationTypes().flatMap((type) => [{ locale: "en", type }, { locale: "zh", type }]);
@@ -110,8 +111,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, type: rawType } = await params;
   const locale = resolveLocale(localeParam);
-  const type = rawType.toUpperCase();
-  const profile = getMbtiRecommendation(type, locale);
+  if (!isMbtiCanonicalTypeCode(rawType)) {
+    return { title: "Not Found", robots: { index: false, follow: false } };
+  }
+
+  const canonicalTypeCode = normalizeMbtiCanonicalTypeCode(rawType);
+  const profile = getMbtiRecommendation(canonicalTypeCode, locale);
 
   if (!profile) {
     return { title: "Not Found", robots: { index: false, follow: false } };
@@ -119,12 +124,12 @@ export async function generateMetadata({
 
   return buildPageMetadata({
     locale,
-    pathname: buildCanonicalPath(locale, type),
+    pathname: buildCanonicalPath(locale, canonicalTypeCode),
     title: profile.title,
     description: profile.summary,
     alternatesByLocale: {
-      en: buildCanonicalPath("en", type),
-      zh: buildCanonicalPath("zh", type),
+      en: buildCanonicalPath("en", canonicalTypeCode),
+      zh: buildCanonicalPath("zh", canonicalTypeCode),
       xDefault: "/",
     },
   });
@@ -138,9 +143,11 @@ export default async function CareerMbtiRecommendationPage({
   const { locale: localeParam, type: rawType } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const type = rawType.toUpperCase();
+  if (!isMbtiCanonicalTypeCode(rawType)) return notFound();
 
-  const profile = getMbtiRecommendation(type, locale);
+  const canonicalTypeCode = normalizeMbtiCanonicalTypeCode(rawType);
+
+  const profile = getMbtiRecommendation(canonicalTypeCode, locale);
   if (!profile) return notFound();
 
   const recommendedJobs = profile.recommended_jobs
@@ -149,26 +156,26 @@ export default async function CareerMbtiRecommendationPage({
   const avoidJobs = (profile.avoid_jobs ?? [])
     .map((slug) => getCareerJobBySlug(slug, locale))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
-  const relatedArticles = listRelatedArticlesForType(type, locale);
-  const relatedCareerPaths = listRelatedCareerItemsForType(type, locale);
+  const relatedArticles = listRelatedArticlesForType(canonicalTypeCode, locale);
+  const relatedCareerPaths = listRelatedCareerItemsForType(canonicalTypeCode, locale);
   const recommendedTitles = recommendedJobs.map((job) => job.title);
   const avoidTitles = avoidJobs.map((job) => job.title);
   const answerFirst = buildAnswerFirst({
     locale,
-    type,
+    type: canonicalTypeCode,
     workEnv: profile.work_env,
     recommendedTitles,
   });
   const faqItems = buildCareerFaqItems({
     locale,
-    type,
+    type: canonicalTypeCode,
     workEnv: profile.work_env,
     recommendedTitles,
     avoidTitles,
     strengths: profile.strengths,
     risks: profile.risks,
   });
-  const canonicalPath = buildCanonicalPath(locale, type);
+  const canonicalPath = buildCanonicalPath(locale, canonicalTypeCode);
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: profile.title,
@@ -182,11 +189,11 @@ export default async function CareerMbtiRecommendationPage({
       name: locale === "zh" ? "职业推荐" : "Career recommendations",
       path: localizedPath("/career/recommendations", locale),
     },
-    { name: type, path: canonicalPath },
+    { name: canonicalTypeCode, path: canonicalPath },
   ]);
   const itemListJsonLd = buildItemListJsonLd({
     path: canonicalPath,
-    title: locale === "zh" ? `${type} 推荐职业列表` : `${type} recommended roles`,
+    title: locale === "zh" ? `${canonicalTypeCode} 推荐职业列表` : `${canonicalTypeCode} recommended roles`,
     description: answerFirst,
     locale,
     items: recommendedJobs.map((job) => ({
@@ -214,10 +221,10 @@ export default async function CareerMbtiRecommendationPage({
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`career-mbti-webpage-${type}`} data={webPageJsonLd} />
-      <JsonLd id={`career-mbti-breadcrumb-${type}`} data={breadcrumbJsonLd} />
-      <JsonLd id={`career-mbti-itemlist-${type}`} data={itemListJsonLd} />
-      <JsonLd id={`career-mbti-faq-${type}`} data={buildFAQPageJsonLd(faqItems)} />
+      <JsonLd id={`career-mbti-webpage-${canonicalTypeCode}`} data={webPageJsonLd} />
+      <JsonLd id={`career-mbti-breadcrumb-${canonicalTypeCode}`} data={breadcrumbJsonLd} />
+      <JsonLd id={`career-mbti-itemlist-${canonicalTypeCode}`} data={itemListJsonLd} />
+      <JsonLd id={`career-mbti-faq-${canonicalTypeCode}`} data={buildFAQPageJsonLd(faqItems)} />
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -226,7 +233,7 @@ export default async function CareerMbtiRecommendationPage({
             label: locale === "zh" ? "职业推荐" : "Career recommendations",
             href: localizedPath("/career/recommendations", locale),
           },
-          { label: type },
+          { label: canonicalTypeCode },
         ]}
       />
 
@@ -354,8 +361,8 @@ export default async function CareerMbtiRecommendationPage({
           {locale === "zh" ? "继续查看相关公域页面" : "Continue with related public pages"}
         </h2>
         <div className="flex flex-wrap gap-2">
-          <Link href={withLocale(`/personality/${type.toLowerCase()}`)} className="fm-help-chip-link">
-            {locale === "zh" ? `${type} 人格主页` : `${type} personality page`}
+          <Link href={withLocale(`/personality/${canonicalTypeCode.toLowerCase()}`)} className="fm-help-chip-link">
+            {locale === "zh" ? `${canonicalTypeCode} 人格主页` : `${canonicalTypeCode} personality page`}
           </Link>
           <Link href={withLocale("/topics/mbti")} className="fm-help-chip-link">
             {locale === "zh" ? "MBTI 主题页" : "MBTI topic page"}

@@ -212,20 +212,27 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career advantage one");
   await expect(page.getByTestId("mbti-chapter-growth")).toContainText("Projection motivators teaser.");
   await expect(page.getByTestId("mbti-chapter-relationships")).toContainText("Projection relationship risks teaser.");
+  await expect(page.getByTestId("mbti-career-next-step")).toContainText("Projection career summary public copy.");
+  await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
+    "href",
+    "/en/career/recommendations/mbti/enfp"
+  );
 
   const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
   expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
   const sectionsAreOrdered = await page.evaluate(() => {
     const relationships = document.querySelector('[data-testid="mbti-chapter-relationships"]');
+    const careerNextStep = document.querySelector('[data-testid="mbti-career-next-step"]');
     const reads = document.querySelector('[data-testid="mbti-recommended-reads"]');
     const offers = document.querySelector('[data-testid="mbti-offer-comparison"]');
 
-    if (!relationships || !reads || !offers) {
+    if (!relationships || !careerNextStep || !reads || !offers) {
       return false;
     }
 
     return Boolean(
-      (relationships.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+      (relationships.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+        (careerNextStep.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING) &&
         (reads.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING)
     );
   });
