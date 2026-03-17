@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
-import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
+import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
@@ -17,7 +17,7 @@ vi.mock("@/lib/analytics", () => ({
 }));
 
 function createReportFixture(): ReportResponse {
-  return structuredClone(reportReadyMbtiFreeFixture) as ReportResponse;
+  return structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse;
 }
 
 function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> = {}) {
@@ -45,7 +45,7 @@ describe("MBTI shell authored fields contract", () => {
     vi.clearAllMocks();
   });
 
-  it("renders authored identity, top-level CTA, and non-empty recommended reads together", () => {
+  it("keeps hero, dimensions, and canonical sections on projection-first authority while legacy authored fields stay available", () => {
     const reportData = createReportFixture();
     if (!reportData.report || !reportData.report.layers?.identity) {
       throw new Error("Expected authored MBTI fixture");
@@ -58,46 +58,31 @@ describe("MBTI shell authored fields contract", () => {
       benefit_bullets: ["权益一", "权益二"],
       badge: "主推",
     });
-    reportData.report.layers.identity = {
-      ...reportData.report.layers.identity,
-      title: "作者化概览标题",
-      subtitle: "作者化概览副标题",
-      one_liner: "作者化概览一句话",
-      bullets: [
-        "优势线索：你很快就能发现人和机会之间的连接。",
-        "表达方式：你愿意先点亮现场，再回头慢慢校准。",
-      ],
-      tags: ["作者化桥接", "identity", "type:ENFP-T"],
-    };
-    reportData.report.recommended_reads = [
-      {
-        id: "reads-1",
-        type: "article",
-        title: "作者化推荐阅读",
-        desc: "这是第一篇推荐阅读。",
-        url: "https://example.com/recommended-read",
-        cover: null,
-        cta: "继续阅读",
-        priority: 1,
-        tags: ["作者化"],
-        estimated_minutes: 5,
-        status: "published",
-        published_at: "2026-03-01T00:00:00Z",
-        updated_at: "2026-03-02T00:00:00Z",
-        canonical_id: "reads-1",
-        canonical_url: "https://example.com/recommended-read",
-      },
-    ];
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("作者化概览标题");
-    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("作者化概览一句话");
+    const hero = screen.getByTestId("mbti-hero");
+    expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
+    expect(hero).toHaveTextContent("Projection-first subtitle");
+    expect(hero).toHaveTextContent("Projection-first summary that should replace the legacy hero copy on result pages.");
+    expect(hero).toHaveTextContent("Around 6-8%");
+    expect(hero).toHaveTextContent("Projection Tag Alpha");
+    expect(screen.getByText("Projection career summary public copy.")).toBeInTheDocument();
+    expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
+    expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
+    expect(screen.getByText("Projection trait grid summary.")).toBeInTheDocument();
+    expect(screen.getByText("Legacy authored overview title")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁作者化完整版");
     expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁作者化完整版" })).toBeInTheDocument();
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
+    expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy hero summary should lose to projection summary.")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy keyword should lose")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy rarity should lose")).not.toBeInTheDocument();
   });
 
   it("falls back safely when layers.identity is absent and recommended reads are empty", () => {
@@ -121,7 +106,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("查看正式方案");
-    expect(screen.getByTestId("mbti-chapter-overview")).toHaveTextContent("把这一章看作整份报告的总览层");
+    expect(screen.getByTestId("mbti-chapter-overview")).toHaveTextContent("Projection overview public copy.");
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
   });
 
@@ -135,15 +120,15 @@ describe("MBTI shell authored fields contract", () => {
     reportData.report.recommended_reads = [];
     reportData.report.layers.identity = {
       ...reportData.report.layers.identity,
-      title: "作者化标题仍然可见",
-      subtitle: "作者化副标题仍然可见",
-      one_liner: "作者化 bridge 仍然存在",
+      title: "Legacy authored title still visible",
+      subtitle: "Legacy authored subtitle still visible",
+      one_liner: "Legacy authored bridge still exists",
     };
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("作者化标题仍然可见");
+    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored title still visible");
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("查看解锁方案");
     expect(screen.getByTestId("mbti-offer-comparison")).toHaveTextContent("把零散 CTA 收口成一个正式比较区");

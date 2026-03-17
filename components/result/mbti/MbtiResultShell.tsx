@@ -29,6 +29,11 @@ import {
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type {
+  MbtiPublicProjectionDimensionViewModel,
+  MbtiResultProjectionSectionViewModel,
+  MbtiResultProjectionViewModel,
+} from "@/lib/mbti/publicProjection";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type {
   HighlightCard,
@@ -45,6 +50,7 @@ type MbtiResultShellProps = {
   headline: RichResultHeadline;
   tags: string[];
   dimensions: Array<Record<string, unknown>>;
+  projectionViewModel?: MbtiResultProjectionViewModel | null;
   highlights: HighlightCard[];
   sections: ReportSection[];
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
@@ -54,6 +60,31 @@ type MbtiResultShellProps = {
 };
 
 const CHAPTER_ORDER = ["career", "growth", "traits", "relationships"] as const;
+
+const CHAPTER_PROJECTION_KEYS = {
+  career: [
+    "career.summary",
+    "career.advantages",
+    "career.weaknesses",
+    "career.preferred_roles",
+    "career.upgrade_suggestions",
+  ],
+  growth: [
+    "growth.summary",
+    "growth.strengths",
+    "growth.weaknesses",
+    "growth.motivators",
+    "growth.drainers",
+  ],
+  traits: ["letters_intro", "overview", "trait_overview"],
+  relationships: [
+    "relationships.summary",
+    "relationships.strengths",
+    "relationships.weaknesses",
+    "relationships.rel_advantages",
+    "relationships.rel_risks",
+  ],
+} as const;
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -79,9 +110,18 @@ function normalizeStringArray(values: unknown): string[] {
     return [];
   }
 
-  return values
-    .map((value) => normalizeText(value))
-    .filter(Boolean);
+  return Array.from(new Set(values.map((value) => normalizeText(value)).filter(Boolean)));
+}
+
+function resolveProjectionDimensions(
+  dimensions: MbtiPublicProjectionDimensionViewModel[]
+): Array<Record<string, unknown>> {
+  return dimensions.map((dimension) => ({
+    code: dimension.code,
+    label: dimension.label || dimension.code,
+    percent: dimension.percent,
+    winnerLabel: normalizeText(dimension.sideLabel, dimension.summary, dimension.state),
+  }));
 }
 
 function resolveShareMessages(locale: Locale, shareStatus: "idle" | "copied" | "failed") {
@@ -203,6 +243,7 @@ export function MbtiResultShell({
   headline,
   tags,
   dimensions,
+  projectionViewModel,
   highlights,
   sections,
   sectionUnlocks,
@@ -229,6 +270,31 @@ export function MbtiResultShell({
   const isUnlockedPostPurchase = isUnlockedMbtiReport(reportData);
   const historyHref = localizedPath("/history/mbti", locale);
   const orderLookupHref = localizedPath("/orders/lookup", locale);
+  const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
+  const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
+  const publicSubtitle = normalizeText(projectionViewModel?.subtitle, projectionViewModel?.tagline, headline.supportingLine);
+  const publicSummary = normalizeText(projectionViewModel?.summary, projectionViewModel?.heroSummary, headline.summary);
+  const publicRarity = normalizeText(projectionViewModel?.rarity, headline.rarity);
+  const publicTypeName = normalizeText(projectionViewModel?.typeName, headline.displayName);
+  const publicNickname = normalizeText(projectionViewModel?.nickname, profile?.tagline);
+  const publicTags =
+    projectionViewModel?.publicTags && projectionViewModel.publicTags.length > 0
+      ? projectionViewModel.publicTags
+      : projectionViewModel?.keywords && projectionViewModel.keywords.length > 0
+        ? projectionViewModel.keywords
+        : tags;
+  const publicDimensions =
+    projectionViewModel?.dimensions && projectionViewModel.dimensions.length > 0
+      ? resolveProjectionDimensions(projectionViewModel.dimensions)
+      : dimensions;
+  const publicHeadline: RichResultHeadline = {
+    ...headline,
+    typeCode: publicTypeCode || headline.typeCode,
+    displayName: publicTitle || headline.displayName,
+    supportingLine: publicSubtitle || headline.supportingLine,
+    summary: publicSummary || headline.summary,
+    rarity: publicRarity || headline.rarity,
+  };
   const terminalPrimaryCtaLabel = isUnlockedPostPurchase
     ? locale === "zh"
       ? "我的 MBTI 报告"
@@ -242,9 +308,12 @@ export function MbtiResultShell({
     identityLayer,
     identityTags: normalizeStringArray(identityCard?.tags),
     profileKeywords: normalizeStringArray(profile?.keywords),
-    fallbackTags: tags,
+    fallbackTags: publicTags,
   });
-  const sectionsByKey = new Map(sections.map((section) => [normalizeText(section.key).toLowerCase(), section]));
+  const legacySectionsByKey = new Map(sections.map((section) => [normalizeText(section.key).toLowerCase(), section]));
+  const projectionSectionsByKey = new Map(
+    (projectionViewModel?.sections ?? []).map((section) => [section.key, section] as const)
+  );
   const shareMessage = resolveShareMessages(locale, shareStatus);
   const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
   const rawOffers = resolveOfferPayloads(reportData);
@@ -436,23 +505,28 @@ export function MbtiResultShell({
               </div>
 
               <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-end">
-                <div className="space-y-4">
-                  <div className="space-y-3">
-                    <h1 className="m-0 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                      {headline.typeCode}
-                      {headline.displayName ? <span className="text-slate-600"> · {headline.displayName}</span> : null}
-                    </h1>
-                    {headline.supportingLine ? <p className="m-0 text-lg font-medium text-slate-700">{headline.supportingLine}</p> : null}
-                    {headline.summary ? <p className="m-0 max-w-3xl whitespace-pre-wrap text-base leading-8 text-slate-700">{headline.summary}</p> : null}
-                  </div>
+                  <div className="space-y-4">
+                    <div className="space-y-3">
+                      <h1 className="m-0 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                        {publicHeadline.typeCode}
+                        {publicHeadline.displayName ? <span className="text-slate-600"> · {publicHeadline.displayName}</span> : null}
+                      </h1>
+                      {publicTypeName || publicNickname ? (
+                        <p data-testid="mbti-hero-identity-line" className="m-0 text-sm font-medium uppercase tracking-[0.12em] text-slate-500">
+                          {[publicTypeName, publicNickname].filter(Boolean).join(" · ")}
+                        </p>
+                      ) : null}
+                      {publicHeadline.supportingLine ? <p className="m-0 text-lg font-medium text-slate-700">{publicHeadline.supportingLine}</p> : null}
+                      {publicHeadline.summary ? <p className="m-0 max-w-3xl whitespace-pre-wrap text-base leading-8 text-slate-700">{publicHeadline.summary}</p> : null}
+                    </div>
 
-                  {tags.length > 0 ? (
-                    <div className="flex flex-wrap gap-2">
-                      {tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex rounded-full border border-white/80 bg-white/90 px-3 py-1 text-sm text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.05)]"
-                        >
+                    {publicTags.length > 0 ? (
+                      <div className="flex flex-wrap gap-2">
+                        {publicTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex rounded-full border border-white/80 bg-white/90 px-3 py-1 text-sm text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.05)]"
+                          >
                           {tag}
                         </span>
                       ))}
@@ -464,11 +538,11 @@ export function MbtiResultShell({
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
                     {locale === "zh" ? "阅读入口" : "Reading entry"}
                   </p>
-                  <p className="m-0 mt-3 text-3xl font-bold tracking-tight text-slate-950">{headline.typeCode}</p>
-                  {headline.rarity ? (
+                  <p className="m-0 mt-3 text-3xl font-bold tracking-tight text-slate-950">{publicHeadline.typeCode}</p>
+                  {publicHeadline.rarity ? (
                     <p className="m-0 mt-3 text-sm leading-7 text-slate-600">
                       {locale === "zh" ? "稀有度：" : "Rarity: "}
-                      {headline.rarity}
+                      {publicHeadline.rarity}
                     </p>
                   ) : null}
                   <a href="#offers" className={buttonVariants({ className: "mt-4 w-full" })}>
@@ -492,7 +566,7 @@ export function MbtiResultShell({
                 {locale === "zh" ? "先看结果的整体受力方向" : "Start with the overall directional balance"}
               </h2>
             </div>
-            <DimensionBars dimensions={dimensions} />
+            <DimensionBars dimensions={publicDimensions} />
           </section>
 
           <MbtiDominantTraitsSection
@@ -549,8 +623,12 @@ export function MbtiResultShell({
           </section>
 
           {CHAPTER_ORDER.map((chapterKey) => {
-            const section = sectionsByKey.get(chapterKey);
-            if (!section) {
+            const legacySection = legacySectionsByKey.get(chapterKey) ?? null;
+            const projectionSections = CHAPTER_PROJECTION_KEYS[chapterKey]
+              .map((sectionKey) => projectionSectionsByKey.get(sectionKey))
+              .filter((section): section is MbtiResultProjectionSectionViewModel => Boolean(section));
+
+            if (!legacySection && projectionSections.length === 0) {
               return null;
             }
 
@@ -559,7 +637,9 @@ export function MbtiResultShell({
                 key={chapterKey}
                 locale={locale}
                 chapterKey={chapterKey}
-                section={section}
+                legacySection={legacySection}
+                projectionSections={projectionSections}
+                projectionDimensions={projectionViewModel?.dimensions ?? []}
                 globalTraits={globalTraits}
                 unlock={sectionUnlocks[chapterKey] ?? null}
                 identityLayer={identityLayer}
@@ -632,8 +712,8 @@ export function MbtiResultShell({
 
         <MbtiStickyRail
           locale={locale}
-          headline={headline}
-          tags={tags}
+          headline={publicHeadline}
+          tags={publicTags}
           locked={reportData.locked}
           accessLevel={reportData.access_level}
           variant={reportData.variant}

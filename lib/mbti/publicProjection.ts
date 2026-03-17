@@ -1,6 +1,7 @@
 import type {
   MbtiPublicProjectionDimensionRaw,
   MbtiPublicProjectionV1Raw,
+  ReportResponse,
   ShareSummaryResponse,
 } from "@/lib/api/v0_3";
 
@@ -12,6 +13,38 @@ const TECHNICAL_TAG_PREFIXES = [
   "strategy:",
   "borderline:",
 ] as const;
+
+const RESULT_SECTION_ORDER = [
+  "letters_intro",
+  "overview",
+  "trait_overview",
+  "career.summary",
+  "career.advantages",
+  "career.weaknesses",
+  "career.preferred_roles",
+  "career.upgrade_suggestions",
+  "growth.summary",
+  "growth.strengths",
+  "growth.weaknesses",
+  "growth.motivators",
+  "growth.drainers",
+  "relationships.summary",
+  "relationships.strengths",
+  "relationships.weaknesses",
+  "relationships.rel_advantages",
+  "relationships.rel_risks",
+] as const;
+
+const SUPPORTED_RESULT_SECTION_RENDERS = [
+  "rich_text",
+  "bullets",
+  "letters_intro",
+  "trait_dimension_grid",
+  "preferred_role_list",
+  "premium_teaser",
+] as const;
+
+type SupportedResultSectionRender = (typeof SUPPORTED_RESULT_SECTION_RENDERS)[number];
 
 export type MbtiPublicProjectionDimensionViewModel = {
   code: string;
@@ -37,6 +70,37 @@ export type MbtiPublicProjectionCardViewModel = {
   dimensions: MbtiPublicProjectionDimensionViewModel[];
 };
 
+export type MbtiResultProjectionSectionViewModel = {
+  key: string;
+  render: SupportedResultSectionRender;
+  title: string;
+  bodyMd: string;
+  payload: Record<string, unknown> | null;
+  isPremiumTeaser: boolean;
+  source: string;
+};
+
+export type MbtiResultProjectionViewModel = {
+  canonicalTypeCode: string;
+  displayType: string;
+  variantCode: string;
+  typeName: string;
+  nickname: string;
+  rarity: string;
+  keywords: string[];
+  heroSummary: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  tagline: string;
+  publicTags: string[];
+  dimensions: MbtiPublicProjectionDimensionViewModel[];
+  sections: MbtiResultProjectionSectionViewModel[];
+  seo: Record<string, unknown> | null;
+  rawProjection: MbtiPublicProjectionV1Raw | null;
+  hasProjection: boolean;
+};
+
 export type MbtiSharePageViewModel = {
   card: MbtiPublicProjectionCardViewModel | null;
   shareId: string;
@@ -47,6 +111,8 @@ export type MbtiSharePageViewModel = {
   compareEnabled: boolean;
   compareCtaLabel: string;
 };
+
+type ProjectionCoreViewModel = Omit<MbtiResultProjectionViewModel, "sections" | "hasProjection">;
 
 function normalizeText(...values: unknown[]): string {
   for (const value of values) {
@@ -61,6 +127,14 @@ function normalizeText(...values: unknown[]): string {
   }
 
   return "";
+}
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  return value as Record<string, unknown>;
 }
 
 function normalizeStringArray(value: unknown): string[] {
@@ -82,11 +156,11 @@ function resolveRarity(value: unknown): string {
     return normalizeText(value);
   }
 
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
+  const record = asRecord(value);
+  if (!record) {
     return "";
   }
 
-  const record = value as Record<string, unknown>;
   return normalizeText(record.label, record.text, record.value, record.title);
 }
 
@@ -133,51 +207,159 @@ function normalizeDimension(
   };
 }
 
-export function normalizeMbtiPublicProjectionCard(
+function buildProjectionCore(
   rawProjection?: MbtiPublicProjectionV1Raw | null
-): MbtiPublicProjectionCardViewModel | null {
-  if (!rawProjection || typeof rawProjection !== "object") {
-    return null;
-  }
-
-  const canonicalTypeCode = normalizeText(rawProjection.canonical_type_code).toUpperCase();
-  const displayType = normalizeText(rawProjection.display_type, canonicalTypeCode);
-  const variantCode = normalizeText(rawProjection.variant_code).toUpperCase();
-  const profile = rawProjection.profile;
-  const summaryCard = rawProjection.summary_card;
-  const typeName = normalizeText(profile?.type_name);
-  const title = normalizeText(summaryCard?.title, displayType, typeName, canonicalTypeCode);
-  const subtitle = normalizeText(summaryCard?.subtitle);
-  const summary = normalizeText(summaryCard?.summary, profile?.hero_summary);
-  const tagline = normalizeText(summaryCard?.tagline);
-  const rarity = resolveRarity(profile?.rarity);
+): ProjectionCoreViewModel {
+  const projection = asRecord(rawProjection) as MbtiPublicProjectionV1Raw | null;
+  const profile = asRecord(projection?.profile);
+  const summaryCard = asRecord(projection?.summary_card);
+  const keywords = normalizeStringArray(profile?.keywords).filter(isPublicTag);
   const publicTags = [
-    ...normalizeStringArray(summaryCard?.public_tags),
-    ...normalizeStringArray(profile?.keywords),
-  ].filter(isPublicTag);
-  const dimensions = Array.isArray(rawProjection.dimensions)
-    ? rawProjection.dimensions
+    ...normalizeStringArray(summaryCard?.public_tags ?? summaryCard?.tags).filter(isPublicTag),
+    ...keywords,
+  ];
+  const dimensions = Array.isArray(projection?.dimensions)
+    ? projection.dimensions
         .map(normalizeDimension)
         .filter((dimension): dimension is MbtiPublicProjectionDimensionViewModel => Boolean(dimension))
     : [];
 
-  if (!canonicalTypeCode && !displayType && !title) {
+  return {
+    canonicalTypeCode: normalizeText(projection?.canonical_type_code).toUpperCase(),
+    displayType: normalizeText(projection?.display_type, projection?.runtime_type_code).toUpperCase(),
+    variantCode: normalizeText(projection?.variant_code).toUpperCase(),
+    typeName: normalizeText(profile?.type_name),
+    nickname: normalizeText(profile?.nickname),
+    rarity: resolveRarity(profile?.rarity),
+    keywords,
+    heroSummary: normalizeText(profile?.hero_summary, profile?.summary),
+    title: normalizeText(
+      summaryCard?.title,
+      projection?.display_type,
+      profile?.type_name,
+      projection?.canonical_type_code
+    ),
+    subtitle: normalizeText(summaryCard?.subtitle, summaryCard?.tagline),
+    summary: normalizeText(summaryCard?.summary, profile?.hero_summary, profile?.summary),
+    tagline: normalizeText(summaryCard?.tagline, summaryCard?.subtitle),
+    publicTags: Array.from(new Set(publicTags)),
+    dimensions,
+    seo: asRecord(projection?.seo),
+    rawProjection: projection,
+  };
+}
+
+function normalizeSectionRender(value: unknown): SupportedResultSectionRender | null {
+  const normalized = normalizeText(value).toLowerCase();
+  if (!normalized) {
+    return null;
+  }
+
+  if (normalized === "bullet_list") {
+    return "bullets";
+  }
+
+  return SUPPORTED_RESULT_SECTION_RENDERS.includes(normalized as SupportedResultSectionRender)
+    ? (normalized as SupportedResultSectionRender)
+    : null;
+}
+
+function normalizeResultProjectionSections(rawSections: unknown): MbtiResultProjectionSectionViewModel[] {
+  const sections = Array.isArray(rawSections)
+    ? rawSections
+    : Object.entries(asRecord(rawSections) ?? {}).map(([key, value]) => ({
+        ...(asRecord(value) ?? {}),
+        key: normalizeText(asRecord(value)?.key, key),
+      }));
+
+  const byKey = new Map<string, MbtiResultProjectionSectionViewModel>();
+
+  for (const entry of sections) {
+    const section = asRecord(entry);
+    if (!section) {
+      continue;
+    }
+
+    const key = normalizeText(section.key).toLowerCase();
+    const render = normalizeSectionRender(section.render ?? section.render_variant);
+
+    if (!key || !render || byKey.has(key) || !RESULT_SECTION_ORDER.includes(key as (typeof RESULT_SECTION_ORDER)[number])) {
+      continue;
+    }
+
+    byKey.set(key, {
+      key,
+      render,
+      title: normalizeText(section.title) || key,
+      bodyMd: normalizeText(section.body_md, section.bodyMd),
+      payload: asRecord(section.payload),
+      isPremiumTeaser: render === "premium_teaser",
+      source: normalizeText(section.source, "projection"),
+    });
+  }
+
+  return RESULT_SECTION_ORDER.map((key) => byKey.get(key)).filter(
+    (section): section is MbtiResultProjectionSectionViewModel => section !== undefined
+  );
+}
+
+function hasProjectionCoreContent(core: ProjectionCoreViewModel, sections: MbtiResultProjectionSectionViewModel[]): boolean {
+  return Boolean(
+    core.displayType ||
+      core.canonicalTypeCode ||
+      core.variantCode ||
+      core.typeName ||
+      core.nickname ||
+      core.title ||
+      core.subtitle ||
+      core.summary ||
+      core.heroSummary ||
+      core.publicTags.length > 0 ||
+      core.keywords.length > 0 ||
+      core.dimensions.length > 0 ||
+      sections.length > 0
+  );
+}
+
+export function normalizeMbtiPublicProjectionCard(
+  rawProjection?: MbtiPublicProjectionV1Raw | null
+): MbtiPublicProjectionCardViewModel | null {
+  const core = buildProjectionCore(rawProjection);
+
+  if (!hasProjectionCoreContent(core, [])) {
     return null;
   }
 
   return {
-    canonicalTypeCode,
-    displayType,
-    variantCode,
-    typeName,
-    title,
-    subtitle,
-    summary,
-    tagline,
-    rarity,
-    publicTags: Array.from(new Set(publicTags)),
-    dimensions,
+    canonicalTypeCode: core.canonicalTypeCode,
+    displayType: core.displayType,
+    variantCode: core.variantCode,
+    typeName: core.typeName,
+    title: core.title,
+    subtitle: core.subtitle,
+    summary: core.summary,
+    tagline: core.tagline,
+    rarity: core.rarity,
+    publicTags: core.publicTags,
+    dimensions: core.dimensions,
   };
+}
+
+export function buildMbtiResultProjectionViewModel(
+  report: ReportResponse
+): MbtiResultProjectionViewModel {
+  const core = buildProjectionCore(report.mbti_public_projection_v1);
+  const sections = normalizeResultProjectionSections(core.rawProjection?.sections);
+
+  return {
+    ...core,
+    sections,
+    hasProjection: hasProjectionCoreContent(core, sections),
+  };
+}
+
+export function hasMbtiResultProjection(report: ReportResponse): boolean {
+  return buildMbtiResultProjectionViewModel(report).hasProjection;
 }
 
 export function buildSharePageViewModel(

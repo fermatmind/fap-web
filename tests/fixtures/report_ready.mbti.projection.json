@@ -1,0 +1,523 @@
+{
+  "ok": true,
+  "generating": false,
+  "snapshot_error": false,
+  "retry_after_seconds": null,
+  "locked": true,
+  "access_level": "free",
+  "variant": "free",
+  "upgrade_sku": "MBTI_REPORT_FULL",
+  "upgrade_sku_effective": "MBTI_REPORT_FULL_199",
+  "offers": [
+    {
+      "sku": "MBTI_CAREER_99",
+      "sku_code": "MBTI_CAREER_99",
+      "price_cents": 99,
+      "currency": "CNY",
+      "title": "MBTI Career Module",
+      "entitlement_id": "report_career",
+      "benefit_code": "MBTI_CAREER",
+      "modules_included": ["career"]
+    },
+    {
+      "sku": "MBTI_RELATIONSHIP_99",
+      "sku_code": "MBTI_RELATIONSHIP_99",
+      "price_cents": 99,
+      "currency": "CNY",
+      "title": "MBTI Relationship Module",
+      "entitlement_id": "report_relationships",
+      "benefit_code": "MBTI_RELATIONSHIP",
+      "modules_included": ["relationships"]
+    },
+    {
+      "sku": "MBTI_REPORT_FULL_199",
+      "sku_code": "MBTI_REPORT_FULL_199",
+      "price_cents": 199,
+      "currency": "CNY",
+      "title": "MBTI Full Report",
+      "entitlement_id": "report_full",
+      "benefit_code": "MBTI_REPORT_FULL",
+      "modules_included": ["core_full", "career", "relationships"]
+    }
+  ],
+  "modules_allowed": ["core_free"],
+  "modules_offered": ["career", "relationships", "core_full"],
+  "modules_preview": ["career", "relationships", "core_full"],
+  "view_policy": {
+    "free_sections": ["intro", "score"],
+    "blur_others": true,
+    "teaser_percent": 0.3,
+    "upgrade_sku": "MBTI_REPORT_FULL_199"
+  },
+  "meta": {
+    "scale_code": "MBTI",
+    "scale_code_legacy": "MBTI",
+    "scale_code_v2": "MBTI_PERSONALITY_TEST_16_TYPES",
+    "scale_uid": "11111111-1111-4111-8111-111111111111"
+  },
+  "cta": {
+    "visible": true,
+    "kind": "upsell",
+    "title": "Projection fixture commerce title",
+    "subtitle": "Commerce stays on the legacy report envelope.",
+    "primary_label": "Unlock the authored MBTI report",
+    "secondary_label": "Keep the free preview",
+    "benefit_bullets": [
+      "Keep checkout on the existing runtime authority",
+      "Keep recommended reads and authored bridge on the existing report envelope"
+    ],
+    "badge": "Primary",
+    "target_sku": "MBTI_REPORT_FULL",
+    "target_sku_effective": "MBTI_REPORT_FULL_199"
+  },
+  "report": {
+    "scale_code": "MBTI",
+    "identity_card": {
+      "badge": {
+        "text": "Legacy MBTI badge"
+      },
+      "title": "Legacy Hero Title Should Lose",
+      "subtitle": "Legacy hero subtitle should lose",
+      "tagline": "Legacy hero tagline should lose",
+      "summary": "Legacy hero summary should lose to projection summary.",
+      "tags": ["Legacy Hero Tag Should Lose", "type:ENFP-T"],
+      "type_code": "ENFP-T"
+    },
+    "profile": {
+      "rarity": "Legacy rarity should lose",
+      "tagline": "Legacy nickname should lose",
+      "keywords": ["Legacy keyword should lose", "role:NF"],
+      "type_code": "ENFP-T",
+      "type_name": "Legacy profile type name should lose",
+      "short_summary": "Legacy profile short summary should lose."
+    },
+    "tags": [
+      "axis:AT:T",
+      "axis:EI:E",
+      "axis:JP:P",
+      "axis:SN:N",
+      "axis:TF:F",
+      "role:NF",
+      "strategy:ET",
+      "type:ENFP-T"
+    ],
+    "layers": {
+      "role_card": {
+        "code": "NF",
+        "desc": "Legacy authored role card remains available for dominant trait bridging.",
+        "tags": ["Empathy", "Meaning", "Momentum"],
+        "title": "Idealist",
+        "subtitle": "Value-led bridge"
+      },
+      "strategy_card": {
+        "code": "ET",
+        "desc": "Legacy authored strategy card remains available for the report bridge.",
+        "tags": ["Dialogue", "Review", "Adjustment"],
+        "title": "Socially active, carefully reflective",
+        "subtitle": "Bridge card"
+      },
+      "identity": {
+        "title": "Legacy authored overview title",
+        "subtitle": "Legacy authored overview subtitle",
+        "one_liner": "Legacy authored one-liner remains available for the authored intro card.",
+        "bullets": [
+          "Judgment cue: you test whether a connection deserves continued effort.",
+          "Social style: you light up the room first, then review the emotional detail later."
+        ],
+        "tags": ["identity", "type:ENFP-T", "role:NF", "strategy:ET"]
+      }
+    },
+    "highlights": [
+      {
+        "id": "hl.strength",
+        "kind": "strength",
+        "title": "Projection-ready highlight",
+        "text": "Highlights remain on the legacy report envelope in PR-6.",
+        "tips": ["Keep this surface unchanged."]
+      },
+      {
+        "id": "hl.blindspot",
+        "kind": "blindspot",
+        "title": "Legacy blindspot",
+        "text": "This still comes from the report envelope.",
+        "tips": ["No projection rewrite here."]
+      },
+      {
+        "id": "hl.action",
+        "kind": "action",
+        "title": "Legacy action",
+        "text": "This remains a legacy runtime/report surface.",
+        "tips": ["Do not move checkout or unlock logic into projection."]
+      }
+    ],
+    "scores_pct": {
+      "AT": 12,
+      "EI": 92,
+      "JP": 18,
+      "SN": 24,
+      "TF": 14
+    },
+    "sections": {
+      "career": {
+        "cards": [],
+        "locked": true,
+        "module_code": "career"
+      },
+      "growth": {
+        "cards": [],
+        "locked": true,
+        "module_code": "core_full"
+      },
+      "traits": {
+        "cards": [],
+        "locked": true,
+        "module_code": "core_full"
+      },
+      "relationships": {
+        "cards": [],
+        "locked": true,
+        "module_code": "relationships"
+      }
+    },
+    "recommended_reads": [
+      {
+        "id": "read-1",
+        "type": "article",
+        "title": "Legacy recommended read remains visible",
+        "desc": "Recommended reads stay on the legacy report envelope.",
+        "url": "https://example.com/read-1",
+        "cover": null,
+        "cta": "Read the authored note",
+        "priority": 10,
+        "tags": ["legacy"],
+        "estimated_minutes": 6,
+        "status": "published",
+        "published_at": "2026-03-01T00:00:00Z",
+        "updated_at": "2026-03-02T00:00:00Z",
+        "canonical_id": "legacy-read-1",
+        "canonical_url": "https://example.com/read-1"
+      }
+    ]
+  },
+  "mbti_public_projection_v1": {
+    "runtime_type_code": "ENFP-T",
+    "canonical_type_code": "ENFP",
+    "display_type": "ENFP-T",
+    "variant_code": "T",
+    "profile": {
+      "type_name": "Projection Campaigner",
+      "nickname": "Spark Navigator",
+      "rarity": "Around 6-8%",
+      "keywords": [
+        "Projection Warmth",
+        "Projection Pattern Lens",
+        "type:ENFP-T"
+      ],
+      "hero_summary": "Projection profile hero summary that should beat the legacy profile summary."
+    },
+    "summary_card": {
+      "title": "Projection Campaigner",
+      "subtitle": "Projection-first subtitle",
+      "summary": "Projection-first summary that should replace the legacy hero copy on result pages.",
+      "tagline": "Projection-first tagline",
+      "public_tags": [
+        "Projection Tag Alpha",
+        "Projection Tag Beta",
+        "axis:EI:E"
+      ]
+    },
+    "dimensions": [
+      {
+        "id": "EI",
+        "code": "EI",
+        "label": "E / I",
+        "pct": 62,
+        "side": "E",
+        "side_label": "Extraversion",
+        "state": "clear",
+        "summary": "Projection dimension summary EI."
+      },
+      {
+        "id": "SN",
+        "code": "SN",
+        "label": "S / N",
+        "pct": 74,
+        "side": "N",
+        "side_label": "Intuition",
+        "state": "clear",
+        "summary": "Projection dimension summary SN."
+      },
+      {
+        "id": "TF",
+        "code": "TF",
+        "label": "T / F",
+        "pct": 41,
+        "side": "F",
+        "side_label": "Feeling",
+        "state": "balanced",
+        "summary": "Projection dimension summary TF."
+      },
+      {
+        "id": "JP",
+        "code": "JP",
+        "label": "J / P",
+        "pct": 57,
+        "side": "P",
+        "side_label": "Perceiving",
+        "state": "moderate",
+        "summary": "Projection dimension summary JP."
+      },
+      {
+        "id": "AT",
+        "code": "AT",
+        "label": "A / T",
+        "pct": 68,
+        "side": "T",
+        "side_label": "Turbulent",
+        "state": "clear",
+        "summary": "Projection dimension summary AT."
+      }
+    ],
+    "sections": [
+      {
+        "key": "letters_intro",
+        "title": "Projection letter-by-letter",
+        "render": "letters_intro",
+        "body_md": "",
+        "payload": {
+          "headline": "Projection letters intro headline.",
+          "letters": [
+            {
+              "letter": "E",
+              "title": "Extraversion",
+              "description": "You process momentum by moving outward first."
+            },
+            {
+              "letter": "N",
+              "title": "Intuition",
+              "description": "You build meaning by spotting patterns and possibility."
+            },
+            {
+              "letter": "F",
+              "title": "Feeling",
+              "description": "You weigh people and values before calling something complete."
+            },
+            {
+              "letter": "P",
+              "title": "Perceiving",
+              "description": "You stay open while the situation is still evolving."
+            }
+          ]
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "overview",
+        "title": "Projection overview",
+        "render": "rich_text",
+        "body_md": "Projection overview public copy.",
+        "payload": null,
+        "source": "runtime+cms"
+      },
+      {
+        "key": "trait_overview",
+        "title": "Projection trait overview",
+        "render": "trait_dimension_grid",
+        "body_md": "",
+        "payload": {
+          "summary": "Projection trait grid summary."
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "career.summary",
+        "title": "Projection career summary",
+        "render": "rich_text",
+        "body_md": "Projection career summary public copy.",
+        "payload": null,
+        "source": "runtime+cms"
+      },
+      {
+        "key": "career.advantages",
+        "title": "Projection career advantages",
+        "render": "bullets",
+        "body_md": "",
+        "payload": {
+          "items": [
+            {
+              "title": "Projection career advantage one",
+              "description": "Can rally momentum when the brief still feels unfinished."
+            },
+            {
+              "title": "Projection career advantage two",
+              "description": "Keeps people energy in view while work is still moving."
+            }
+          ]
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "career.weaknesses",
+        "title": "Projection career weaknesses",
+        "render": "bullet_list",
+        "body_md": "- Projection career weakness one\n- Projection career weakness two",
+        "payload": null,
+        "source": "runtime+cms"
+      },
+      {
+        "key": "career.preferred_roles",
+        "title": "Projection preferred roles",
+        "render": "preferred_role_list",
+        "body_md": "",
+        "payload": {
+          "title": "Roles that reward exploratory leadership.",
+          "intro": "Projection preferred role list intro.",
+          "groups": [
+            {
+              "groupTitle": "Projection preferred role group",
+              "description": "Roles that reward framing, momentum, and narrative clarity.",
+              "examples": ["Community lead", "Creative strategist"]
+            }
+          ]
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "career.upgrade_suggestions",
+        "title": "Projection career upgrades",
+        "render": "bullets",
+        "body_md": "",
+        "payload": {
+          "items": [
+            {
+              "title": "Projection upgrade move",
+              "description": "Add one review checkpoint before committing the team to a direction."
+            }
+          ]
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "growth.summary",
+        "title": "Projection growth summary",
+        "render": "rich_text",
+        "body_md": "Projection growth summary public copy.",
+        "payload": null,
+        "source": "runtime+cms"
+      },
+      {
+        "key": "growth.strengths",
+        "title": "Projection growth strengths",
+        "render": "bullets",
+        "body_md": "",
+        "payload": {
+          "items": [
+            {
+              "title": "Projection strength one",
+              "description": "Can turn social energy into forward motion."
+            }
+          ]
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "growth.weaknesses",
+        "title": "Projection growth weaknesses",
+        "render": "bullets",
+        "body_md": "",
+        "payload": {
+          "items": [
+            {
+              "title": "Projection weakness one",
+              "description": "Can over-read short-term feedback under stress."
+            }
+          ]
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "growth.motivators",
+        "title": "Projection growth motivators",
+        "render": "premium_teaser",
+        "body_md": "Projection motivators teaser.",
+        "payload": null,
+        "source": "runtime+cms"
+      },
+      {
+        "key": "growth.drainers",
+        "title": "Projection growth drainers",
+        "render": "premium_teaser",
+        "body_md": "Projection drainers teaser.",
+        "payload": null,
+        "source": "runtime+cms"
+      },
+      {
+        "key": "relationships.summary",
+        "title": "Projection relationships summary",
+        "render": "rich_text",
+        "body_md": "Projection relationships summary public copy.",
+        "payload": null,
+        "source": "runtime+cms"
+      },
+      {
+        "key": "relationships.strengths",
+        "title": "Projection relationship strengths",
+        "render": "bullets",
+        "body_md": "",
+        "payload": {
+          "items": [
+            {
+              "title": "Projection relationship strength",
+              "description": "Creates warmth before asking for depth."
+            }
+          ]
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "relationships.weaknesses",
+        "title": "Projection relationship weaknesses",
+        "render": "bullets",
+        "body_md": "",
+        "payload": {
+          "items": [
+            {
+              "title": "Projection relationship weakness",
+              "description": "May keep circling uncertainty instead of naming it directly."
+            }
+          ]
+        },
+        "source": "runtime+cms"
+      },
+      {
+        "key": "relationships.rel_advantages",
+        "title": "Projection relationship advantages",
+        "render": "premium_teaser",
+        "body_md": "Projection relationship advantages teaser.",
+        "payload": null,
+        "source": "runtime+cms"
+      },
+      {
+        "key": "relationships.rel_risks",
+        "title": "Projection relationship risks",
+        "render": "premium_teaser",
+        "body_md": "Projection relationship risks teaser.",
+        "payload": null,
+        "source": "runtime+cms"
+      }
+    ],
+    "seo": {
+      "title": "Projection SEO title",
+      "description": "Projection SEO description for public-safe result copy."
+    },
+    "offer_set": {
+      "cta": {
+        "target_sku": "MBTI_REPORT_FULL"
+      }
+    },
+    "_meta": {
+      "authority_source": "runtime+report_fallback+personality_cms_v2",
+      "route_mode": "runtime_report"
+    }
+  }
+}

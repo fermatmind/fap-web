@@ -1,8 +1,8 @@
 import { expect, test, type Page } from "@playwright/test";
-import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
+import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 
 function createUnlockedMbtiReportFixture() {
-  const fixture = structuredClone(reportReadyMbtiFreeFixture) as Record<string, unknown>;
+  const fixture = structuredClone(reportReadyMbtiProjectionFixture) as Record<string, unknown>;
   fixture.locked = false;
   fixture.variant = "full";
   fixture.access_level = "paid";
@@ -125,6 +125,8 @@ test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
   const terminalSurface = page.getByTestId("mbti-post-purchase-section");
   await expect(terminalSurface).toBeVisible();
+  await expect(page.getByTestId("mbti-hero")).toContainText("Projection Campaigner");
+  await expect(page.getByTestId("mbti-hero")).toContainText("Projection-first summary that should replace the legacy hero copy on result pages.");
   await expect(terminalSurface.getByRole("button", { name: "Download PDF" })).toBeVisible();
   await expect(terminalSurface.getByRole("link", { name: "My MBTI reports" })).toHaveAttribute("href", "/en/history/mbti");
   await expect(terminalSurface.getByRole("link", { name: "Order lookup" })).toHaveAttribute("href", "/en/orders/lookup");

@@ -13,7 +13,7 @@ import type {
   ResolvedOffer,
   RichResultHeadline,
 } from "@/components/result/RichResultReport";
-import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
+import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 
 const hoisted = vi.hoisted(() => ({
   createAttemptShare: vi.fn(),
@@ -44,7 +44,7 @@ vi.mock("@/lib/api/v0_3", async () => {
 });
 
 function createReportFixture(): ReportResponse {
-  return structuredClone(reportReadyMbtiFreeFixture) as ReportResponse;
+  return structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse;
 }
 
 function createShellProps(reportData: ReportResponse) {
@@ -231,6 +231,21 @@ describe("MBTI checkout wiring contract", () => {
 
   it("keeps sticky, mobile, footer, and chapter unlock surfaces as anchors", () => {
     const reportData = createReportFixture();
+    reportData.cta = {
+      ...(reportData.cta ?? {
+        visible: true,
+        kind: "upsell",
+        title: "",
+        subtitle: "",
+        primary_label: "",
+        secondary_label: "",
+        benefit_bullets: [],
+        badge: "",
+        target_sku: "",
+        target_sku_effective: "",
+      }),
+      primary_label: "解锁完整报告",
+    };
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
@@ -243,6 +258,9 @@ describe("MBTI checkout wiring contract", () => {
     expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
     expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
     expect(within(careerChapter).getByRole("link", { name: "查看解锁方案" })).toHaveAttribute("href", "#offers");
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
+    expect(screen.getByText("Projection-first summary that should replace the legacy hero copy on result pages.")).toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-offer-comparison")).getByText("Projection fixture commerce title")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
 
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));

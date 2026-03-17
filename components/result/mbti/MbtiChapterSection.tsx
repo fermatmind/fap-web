@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +8,10 @@ import type { ReportIdentityLayer } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiSectionUnlock, ReportBlock, ReportSection } from "@/components/result/RichResultReport";
 import type { TraitBridgeItem } from "@/components/result/mbti/MbtiDominantTraitsSection";
+import type {
+  MbtiPublicProjectionDimensionViewModel,
+  MbtiResultProjectionSectionViewModel,
+} from "@/lib/mbti/publicProjection";
 
 type ChapterKey = "career" | "growth" | "traits" | "relationships";
 
@@ -15,10 +20,31 @@ type ChapterBridgeItem = {
   description: string;
 };
 
+type BulletItem = {
+  title?: string;
+  body?: string | null;
+  description?: string | null;
+  summary?: string | null;
+};
+
+type LettersIntroLetter = {
+  letter: string;
+  title: string;
+  description: string;
+};
+
+type PreferredRoleGroup = {
+  groupTitle: string;
+  description: string;
+  examples: string[];
+};
+
 type MbtiChapterSectionProps = {
   locale: Locale;
   chapterKey: ChapterKey;
-  section: ReportSection;
+  legacySection?: ReportSection | null;
+  projectionSections: MbtiResultProjectionSectionViewModel[];
+  projectionDimensions: MbtiPublicProjectionDimensionViewModel[];
   globalTraits: TraitBridgeItem[];
   unlock: MbtiSectionUnlock | null;
   identityLayer?: ReportIdentityLayer | null;
@@ -77,6 +103,18 @@ function normalizeText(...values: unknown[]): string {
   return "";
 }
 
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  return value as Record<string, unknown>;
+}
+
+function asArray<T = unknown>(value: unknown): T[] {
+  return Array.isArray(value) ? (value as T[]) : [];
+}
+
 function resolveBody(block: ReportBlock): string {
   const bullets = Array.isArray(block.bullets) ? block.bullets.filter((item): item is string => Boolean(item)) : [];
   return normalizeText(block.body, bullets[0]);
@@ -87,7 +125,11 @@ function normalizeStringArray(values: unknown): string[] {
     return [];
   }
 
-  return values.map((value) => normalizeText(value)).filter(Boolean);
+  return Array.from(new Set(values.map((value) => normalizeText(value)).filter(Boolean)));
+}
+
+function toProjectionSectionTestId(key: string): string {
+  return key.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase();
 }
 
 function parseIdentityBullet(
@@ -116,7 +158,7 @@ function parseIdentityBullet(
 
 function buildBridgeItems(
   chapterKey: ChapterKey,
-  section: ReportSection,
+  legacySection: ReportSection | null,
   unlock: MbtiSectionUnlock | null,
   globalTraits: TraitBridgeItem[],
   locale: Locale,
@@ -124,13 +166,18 @@ function buildBridgeItems(
 ): ChapterBridgeItem[] {
   const items: ChapterBridgeItem[] = [];
   const seen = new Set<string>();
-  const blocks = Array.isArray(section.blocks) ? section.blocks : [];
+  const blocks = Array.isArray(legacySection?.blocks) ? legacySection.blocks : [];
 
   const pushItem = (item: ChapterBridgeItem | null) => {
-    if (!item) return;
-    if (!item.title || !item.description) return;
+    if (!item?.title || !item.description) {
+      return;
+    }
+
     const key = `${item.title.toLowerCase()}::${item.description.toLowerCase()}`;
-    if (seen.has(key)) return;
+    if (seen.has(key)) {
+      return;
+    }
+
     seen.add(key);
     items.push(item);
   };
@@ -185,10 +232,300 @@ function buildBridgeItems(
   return items.slice(0, 4);
 }
 
+function renderPlainMarkdown(body: string) {
+  if (!body.trim()) {
+    return null;
+  }
+
+  return <p className="m-0 whitespace-pre-wrap leading-7 text-slate-700">{body}</p>;
+}
+
+function renderBulletItems(items: BulletItem[]) {
+  const visibleItems = items
+    .map((item) => ({
+      title: normalizeText(item.title),
+      body: normalizeText(item.body ?? item.description ?? item.summary),
+    }))
+    .filter((item) => item.title || item.body);
+
+  if (visibleItems.length === 0) {
+    return null;
+  }
+
+  return (
+    <ul className="m-0 space-y-2 pl-5 text-sm leading-7 text-slate-700">
+      {visibleItems.map((item, index) => {
+        const label = item.title || item.body;
+        if (!label) {
+          return null;
+        }
+
+        return (
+          <li key={`${label}-${index}`}>
+            <span className="font-semibold text-slate-900">{item.title || label}</span>
+            {item.body && item.body !== item.title ? <span className="text-slate-600"> - {item.body}</span> : null}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function renderProjectionBulletsSection(section: MbtiResultProjectionSectionViewModel) {
+  const payload = asRecord(section.payload);
+  const items = asArray<BulletItem>(payload?.items);
+  const bulletItems = renderBulletItems(items);
+  if (bulletItems) {
+    return bulletItems;
+  }
+
+  const fallbackItems = [
+    ...normalizeStringArray(payload?.bullets).map((item) => ({ title: item })),
+    ...section.bodyMd
+      .split("\n")
+      .map((item) => item.replace(/^[\-\*\d\.\s]+/, "").trim())
+      .filter(Boolean)
+      .map((item) => ({ title: item })),
+  ];
+
+  return renderBulletItems(fallbackItems);
+}
+
+function renderLettersIntroSection(section: MbtiResultProjectionSectionViewModel) {
+  const payload = asRecord(section.payload);
+  const headline = normalizeText(payload?.headline, section.bodyMd);
+  const letters = asArray<Record<string, unknown>>(payload?.letters)
+    .map((item) => ({
+      letter: normalizeText(item.letter) || "?",
+      title: normalizeText(item.title, item.letter),
+      description: normalizeText(item.description),
+    }))
+    .filter((item) => item.title || item.description) as LettersIntroLetter[];
+
+  if (letters.length === 0) {
+    return renderPlainMarkdown(section.bodyMd);
+  }
+
+  return (
+    <div className="space-y-4">
+      {headline ? <p className="m-0 leading-7 text-slate-700">{headline}</p> : null}
+      <div className="grid gap-3 md:grid-cols-2">
+        {letters.map((item, index) => (
+          <article
+            key={`${item.letter}-${index}`}
+            className="rounded-2xl border border-slate-200 bg-slate-50/90 p-4"
+          >
+            <div className="flex items-start gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-lg font-semibold text-emerald-700">
+                {item.letter}
+              </div>
+              <div className="space-y-1">
+                {item.title ? <p className="m-0 font-semibold text-slate-900">{item.title}</p> : null}
+                {item.description ? <p className="m-0 text-sm leading-7 text-slate-600">{item.description}</p> : null}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function normalizeFallbackTraitDimensions(
+  payload: Record<string, unknown> | null
+): MbtiPublicProjectionDimensionViewModel[] {
+  return asArray<Record<string, unknown>>(payload?.dimensions)
+    .map((item) => ({
+      code: normalizeText(item.code, item.id).toUpperCase(),
+      label: normalizeText(item.label, item.name, item.id, item.code),
+      percent:
+        typeof item.pct === "number"
+          ? item.pct
+          : typeof item.score_pct === "number"
+            ? item.score_pct
+            : typeof item.value_pct === "number"
+              ? item.value_pct
+              : 0,
+      side: normalizeText(item.side),
+      sideLabel: normalizeText(item.side_label, item.sideLabel),
+      state: normalizeText(item.state),
+      summary: normalizeText(item.summary, item.description),
+    }))
+    .filter((item) => item.code || item.label);
+}
+
+function renderTraitDimensionGridSection(
+  section: MbtiResultProjectionSectionViewModel,
+  projectionDimensions: MbtiPublicProjectionDimensionViewModel[]
+) {
+  const payload = asRecord(section.payload);
+  const summary = normalizeText(payload?.summary, section.bodyMd);
+  const dimensions = projectionDimensions.length > 0
+    ? projectionDimensions
+    : normalizeFallbackTraitDimensions(payload);
+
+  if (dimensions.length === 0) {
+    return renderPlainMarkdown(section.bodyMd);
+  }
+
+  return (
+    <div className="space-y-4">
+      {summary ? <p className="m-0 leading-7 text-slate-700">{summary}</p> : null}
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        {dimensions.map((dimension) => (
+          <article
+            key={dimension.code}
+            className="rounded-2xl border border-slate-200 bg-slate-50/90 p-4"
+          >
+            <div className="space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <p className="m-0 font-semibold text-slate-900">{dimension.label || dimension.code}</p>
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                  {dimension.code}
+                </span>
+              </div>
+              {dimension.sideLabel ? (
+                <p className="m-0 text-xs uppercase tracking-[0.12em] text-slate-500">{dimension.sideLabel}</p>
+              ) : null}
+              {dimension.summary ? <p className="m-0 text-sm leading-7 text-slate-700">{dimension.summary}</p> : null}
+              {typeof dimension.percent === "number" ? (
+                <p className="m-0 text-sm font-medium text-slate-900">{Math.round(dimension.percent)}%</p>
+              ) : null}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function renderPreferredRoleListSection(section: MbtiResultProjectionSectionViewModel) {
+  const payload = asRecord(section.payload);
+  const groups = asArray<Record<string, unknown>>(payload?.groups)
+    .map((group) => ({
+      groupTitle: normalizeText(group.groupTitle, group.group_title, group.title),
+      description: normalizeText(group.description),
+      examples: normalizeStringArray(group.examples),
+    }))
+    .filter((group) => group.groupTitle || group.description || group.examples.length > 0) as PreferredRoleGroup[];
+
+  const fallbackExamples = asArray<Record<string, unknown>>(payload?.items)
+    .map((item) => normalizeText(item.title, item.name))
+    .filter(Boolean);
+  const visibleGroups = groups.length > 0
+    ? groups
+    : fallbackExamples.length > 0
+      ? [{ groupTitle: "", description: "", examples: fallbackExamples }]
+      : [];
+
+  if (visibleGroups.length === 0) {
+    return renderPlainMarkdown(section.bodyMd);
+  }
+
+  return (
+    <div className="space-y-4">
+      {normalizeText(payload?.title) ? <p className="m-0 font-medium text-slate-900">{normalizeText(payload?.title)}</p> : null}
+      {normalizeText(payload?.intro) ? <p className="m-0 leading-7 text-slate-700">{normalizeText(payload?.intro)}</p> : null}
+      <div className="grid gap-3 lg:grid-cols-2">
+        {visibleGroups.map((group, index) => (
+          <article
+            key={`${group.groupTitle || "roles"}-${index}`}
+            className="rounded-2xl border border-slate-200 bg-slate-50/90 p-4"
+          >
+            <div className="space-y-3">
+              {group.groupTitle ? <p className="m-0 font-semibold text-slate-900">{group.groupTitle}</p> : null}
+              {group.description ? <p className="m-0 text-sm leading-7 text-slate-600">{group.description}</p> : null}
+              {group.examples.length > 0 ? (
+                <ul className="m-0 space-y-2 pl-5 text-sm leading-7 text-slate-700">
+                  {group.examples.map((example) => (
+                    <li key={example}>
+                      <span className="font-medium text-slate-900">{example}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function renderPremiumTeaserSection(
+  section: MbtiResultProjectionSectionViewModel,
+  locale: Locale
+) {
+  const payload = asRecord(section.payload);
+  const teaser = normalizeText(payload?.teaser, payload?.summary, section.bodyMd);
+  if (!teaser) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-3 rounded-2xl border border-dashed border-slate-300 bg-slate-50/90 p-4">
+      <p className="m-0 text-sm leading-7 text-slate-700">{teaser}</p>
+      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+        {locale === "zh" ? "正式版预告" : "Premium section preview"}
+      </p>
+      <p className="m-0 text-sm text-slate-600">
+        {locale === "zh" ? "完整章节会在正式解锁后开放。" : "Unlock the full section in the premium experience."}
+      </p>
+    </div>
+  );
+}
+
+function renderProjectionSection(
+  section: MbtiResultProjectionSectionViewModel,
+  locale: Locale,
+  projectionDimensions: MbtiPublicProjectionDimensionViewModel[]
+) {
+  let content: ReactNode = null;
+
+  switch (section.render) {
+    case "letters_intro":
+      content = renderLettersIntroSection(section);
+      break;
+    case "trait_dimension_grid":
+      content = renderTraitDimensionGridSection(section, projectionDimensions);
+      break;
+    case "preferred_role_list":
+      content = renderPreferredRoleListSection(section);
+      break;
+    case "premium_teaser":
+      content = renderPremiumTeaserSection(section, locale);
+      break;
+    case "bullets":
+      content = renderProjectionBulletsSection(section);
+      break;
+    case "rich_text":
+    default:
+      content = renderPlainMarkdown(section.bodyMd);
+      break;
+  }
+
+  if (!content) {
+    return null;
+  }
+
+  return (
+    <article
+      key={section.key}
+      data-testid={`mbti-projection-section-${toProjectionSectionTestId(section.key)}`}
+      className="space-y-3 rounded-[24px] border border-slate-200 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
+    >
+      <h3 className="m-0 text-lg font-semibold text-slate-900">{section.title}</h3>
+      {content}
+    </article>
+  );
+}
+
 export function MbtiChapterSection({
   locale,
   chapterKey,
-  section,
+  legacySection,
+  projectionSections,
+  projectionDimensions,
   globalTraits,
   unlock,
   identityLayer,
@@ -203,10 +540,17 @@ export function MbtiChapterSection({
         bullets: normalizeStringArray(identityLayer.bullets),
       }
     : null;
-  const bridgeItems = buildBridgeItems(chapterKey, section, unlock, globalTraits, locale, identityLayer);
-  const hasPublicContent = Array.isArray(section.blocks) && section.blocks.length > 0;
-  const isLocked = normalizeText(section.access_level).toLowerCase() === "paid";
-  const bridgeTitle = chapterKey === "traits" ? (locale === "zh" ? "主导特质" : "Dominant traits") : locale === "zh" ? "关键特质" : "Key traits";
+  const bridgeItems = buildBridgeItems(chapterKey, legacySection ?? null, unlock, globalTraits, locale, identityLayer);
+  const hasProjectionContent = projectionSections.length > 0;
+  const hasLegacyPublicContent = Array.isArray(legacySection?.blocks) && legacySection.blocks.length > 0;
+  const isLocked = normalizeText(legacySection?.access_level).toLowerCase() === "paid";
+  const bridgeTitle = chapterKey === "traits"
+    ? locale === "zh"
+      ? "主导特质"
+      : "Dominant traits"
+    : locale === "zh"
+      ? "关键特质"
+      : "Key traits";
   const introCopy = isOverviewChapter
     ? normalizeText(authoredOverview?.subtitle, authoredOverview?.oneLiner, copy.intro[locale])
     : copy.intro[locale];
@@ -214,7 +558,9 @@ export function MbtiChapterSection({
     ? normalizeText(authoredOverview?.oneLiner, authoredOverview?.subtitle, unlock?.teaser)
     : normalizeText(unlock?.teaser);
   const teaserBullets =
-    isOverviewChapter && (authoredOverview?.bullets.length ?? 0) > 0 ? authoredOverview?.bullets ?? [] : unlock?.benefits ?? [];
+    isOverviewChapter && (authoredOverview?.bullets.length ?? 0) > 0
+      ? authoredOverview?.bullets ?? []
+      : unlock?.benefits ?? [];
 
   return (
     <section
@@ -259,7 +605,10 @@ export function MbtiChapterSection({
         </CardHeader>
         <CardContent className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {bridgeItems.map((item) => (
-            <div key={`${item.title}-${item.description}`} className="rounded-2xl border border-white/90 bg-white/95 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
+            <div
+              key={`${item.title}-${item.description}`}
+              className="rounded-2xl border border-white/90 bg-white/95 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.04)]"
+            >
               <p className="m-0 text-sm font-semibold text-slate-900">{item.title}</p>
               <p className="m-0 mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
             </div>
@@ -267,12 +616,19 @@ export function MbtiChapterSection({
         </CardContent>
       </Card>
 
-      {hasPublicContent ? (
+      {hasProjectionContent ? (
+        <div
+          data-testid={`mbti-chapter-public-${copy.anchor}`}
+          className="space-y-4"
+        >
+          {projectionSections.map((section) => renderProjectionSection(section, locale, projectionDimensions))}
+        </div>
+      ) : hasLegacyPublicContent && legacySection ? (
         <div
           data-testid={`mbti-chapter-public-${copy.anchor}`}
           className="rounded-[24px] border border-slate-200 bg-white/85 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.04)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
         >
-          <SectionRenderer section={section} locked={false} locale={locale} scaleCode="MBTI" />
+          <SectionRenderer section={legacySection} locked={false} locale={locale} scaleCode="MBTI" />
         </div>
       ) : null}
 
@@ -303,7 +659,9 @@ export function MbtiChapterSection({
                 {unlock?.offer?.title ?? (locale === "zh" ? "查看完整报告解锁方案" : "View the matching unlock options")}
               </p>
               <p className="m-0 text-sm leading-7 text-slate-600">
-                {unlock?.offer?.description ?? (locale === "zh" ? "本章只保留公开部分；解锁方案会集中展示在页中方案区。" : "Only the public slice stays here; the matching unlock options are collected in the offers section below.")}
+                {unlock?.offer?.description ?? (locale === "zh"
+                  ? "本章只保留公开部分；解锁方案会集中展示在页中方案区。"
+                  : "Only the public slice stays here; the matching unlock options are collected in the offers section below.")}
               </p>
               {unlock?.offer?.modules.length ? (
                 <div className="flex flex-wrap gap-2">
