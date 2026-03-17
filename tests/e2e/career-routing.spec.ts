@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 
 for (const prefix of ["articles", "career", "topics", "personality"] as const) {
   test(`${prefix} root redirects by accept-language and preserves query`, async ({ request }) => {
@@ -44,6 +45,59 @@ test("mbti career recommendation route exposes answer-first, table, faq, and pub
   expect(html).toContain("/en/personality/intj");
   expect(html).toContain("/en/topics/mbti");
   expect(html).toContain("/en/help/faq");
+});
+
+test("mbti career recommendation route stays 16-type only", async ({ request }) => {
+  const canonicalResponse = await request.get("/en/career/recommendations/mbti/intj");
+  expect(canonicalResponse.status()).toBe(200);
+  const canonicalHtml = await canonicalResponse.text();
+  expect(canonicalHtml).toContain("/en/personality/intj");
+
+  const variantResponse = await request.get("/en/career/recommendations/mbti/enfj-t", { maxRedirects: 0 });
+  expect(variantResponse.status()).toBe(404);
+});
+
+test("mbti result career CTA lands on the canonical 16 recommendation route", async ({ page }) => {
+  const attemptId = "mbti-career-join-0001";
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_career_join_guest_token",
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(reportReadyMbtiProjectionFixture),
+    });
+  });
+
+  await page.goto(`/en/result/${attemptId}`);
+
+  const careerCta = page.getByTestId("mbti-career-next-step-cta");
+  await expect(careerCta).toHaveAttribute("href", "/en/career/recommendations/mbti/enfp");
+  await careerCta.click();
+  await expect(page).toHaveURL("/en/career/recommendations/mbti/enfp");
+  await expect(page.locator("#answer-first")).toBeVisible();
+  await expect(page.getByRole("link", { name: "ENFP personality page" })).toHaveAttribute(
+    "href",
+    "/en/personality/enfp"
+  );
 });
 
 test("riasec flow produces result and recommendation list", async ({ page }) => {

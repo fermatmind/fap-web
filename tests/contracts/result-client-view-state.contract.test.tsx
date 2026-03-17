@@ -148,6 +148,7 @@ describe("ResultClient view-state contract", () => {
 
   it("keeps the MBTI page on the rich report path when projection is ready even if legacy hero fields are thin", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    expect(reportFixture.mbti_public_projection_v1?.canonical_type_code).toBe("ENFP");
     expect(reportFixture.cta).toMatchObject({
       visible: true,
       kind: "upsell",
@@ -184,6 +185,7 @@ describe("ResultClient view-state contract", () => {
       attemptId: "attempt-123",
       anonId: "anon_result_test",
     });
+    expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
     expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();

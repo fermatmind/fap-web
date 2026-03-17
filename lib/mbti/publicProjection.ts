@@ -4,6 +4,7 @@ import type {
   ReportResponse,
   ShareSummaryResponse,
 } from "@/lib/api/v0_3";
+import type { Locale } from "@/lib/i18n/locales";
 
 const TECHNICAL_TAG_PREFIXES = [
   "axis:",
@@ -43,6 +44,8 @@ const SUPPORTED_RESULT_SECTION_RENDERS = [
   "preferred_role_list",
   "premium_teaser",
 ] as const;
+
+const MBTI_CANONICAL_TYPE_PATTERN = /^([EI][SN][TF][JP])(?:-([AT]))?$/i;
 
 type SupportedResultSectionRender = (typeof SUPPORTED_RESULT_SECTION_RENDERS)[number];
 
@@ -127,6 +130,23 @@ function normalizeText(...values: unknown[]): string {
   }
 
   return "";
+}
+
+function parseMbtiTypeCode(value: unknown): { canonicalTypeCode: string; variantCode: string } | null {
+  const normalized = normalizeText(value).toUpperCase();
+  if (!normalized) {
+    return null;
+  }
+
+  const match = MBTI_CANONICAL_TYPE_PATTERN.exec(normalized);
+  if (!match?.[1]) {
+    return null;
+  }
+
+  return {
+    canonicalTypeCode: match[1],
+    variantCode: normalizeText(match[2]).toUpperCase(),
+  };
 }
 
 function asRecord(value: unknown): Record<string, unknown> | null {
@@ -360,6 +380,27 @@ export function buildMbtiResultProjectionViewModel(
 
 export function hasMbtiResultProjection(report: ReportResponse): boolean {
   return buildMbtiResultProjectionViewModel(report).hasProjection;
+}
+
+export function normalizeMbtiCanonicalTypeCode(value: unknown): string {
+  return parseMbtiTypeCode(value)?.canonicalTypeCode ?? "";
+}
+
+export function isMbtiCanonicalTypeCode(value: unknown): boolean {
+  const parsed = parseMbtiTypeCode(value);
+  return Boolean(parsed && !parsed.variantCode);
+}
+
+export function buildMbtiCareerRecommendationHref(
+  locale: Locale,
+  canonicalTypeCode: unknown
+): string {
+  const canonicalType = normalizeMbtiCanonicalTypeCode(canonicalTypeCode);
+  if (!canonicalType) {
+    return "";
+  }
+
+  return `/${locale}/career/recommendations/mbti/${canonicalType.toLowerCase()}`;
 }
 
 export function buildSharePageViewModel(

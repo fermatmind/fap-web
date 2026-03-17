@@ -29,10 +29,11 @@ import {
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import type {
-  MbtiPublicProjectionDimensionViewModel,
-  MbtiResultProjectionSectionViewModel,
-  MbtiResultProjectionViewModel,
+import {
+  buildMbtiCareerRecommendationHref,
+  type MbtiPublicProjectionDimensionViewModel,
+  type MbtiResultProjectionSectionViewModel,
+  type MbtiResultProjectionViewModel,
 } from "@/lib/mbti/publicProjection";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type {
@@ -287,6 +288,20 @@ export function MbtiResultShell({
     projectionViewModel?.dimensions && projectionViewModel.dimensions.length > 0
       ? resolveProjectionDimensions(projectionViewModel.dimensions)
       : dimensions;
+  const careerSummarySection =
+    projectionViewModel?.sections.find((section) => section.key === "career.summary") ?? null;
+  const careerRecommendationHref = buildMbtiCareerRecommendationHref(
+    locale,
+    projectionViewModel?.canonicalTypeCode
+  );
+  const careerSummaryLead = normalizeText(careerSummarySection?.bodyMd);
+  const careerNextStepBody = careerSummaryLead
+    ? locale === "zh"
+      ? `先从公开职业页开始：${careerSummaryLead}`
+      : `Start with the public career page: ${careerSummaryLead}`
+    : locale === "zh"
+      ? "下一步可以直接进入现有职业推荐页，继续查看这个人格类型在公开职业路径里的高匹配方向。"
+      : "Continue into the public career recommendation page to see which directions this personality type tends to match best.";
   const publicHeadline: RichResultHeadline = {
     ...headline,
     typeCode: publicTypeCode || headline.typeCode,
@@ -646,6 +661,37 @@ export function MbtiResultShell({
               />
             );
           })}
+
+          {careerRecommendationHref ? (
+            <section
+              id="career-next-step"
+              data-testid="mbti-career-next-step"
+              className="scroll-mt-28 rounded-[28px] border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-emerald-50/60 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6"
+            >
+              <div className="space-y-3">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
+                  {locale === "zh" ? "职业下一步" : "Career next step"}
+                </p>
+                <div className="space-y-2">
+                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                    {locale === "zh"
+                      ? `继续查看 ${projectionViewModel?.canonicalTypeCode} 的职业推荐`
+                      : `Continue with ${projectionViewModel?.canonicalTypeCode} career recommendations`}
+                  </h2>
+                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                    {careerNextStepBody}
+                  </p>
+                </div>
+                <Link
+                  data-testid="mbti-career-next-step-cta"
+                  href={careerRecommendationHref}
+                  className={buttonVariants({ className: "bg-slate-950 text-white hover:bg-slate-800" })}
+                >
+                  {locale === "zh" ? "查看职业推荐" : "View career recommendations"}
+                </Link>
+              </div>
+            </section>
+          ) : null}
 
           <MbtiRecommendedReadsSection locale={locale} reads={recommendedReads} />
 

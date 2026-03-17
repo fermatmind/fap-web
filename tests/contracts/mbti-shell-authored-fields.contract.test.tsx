@@ -70,6 +70,11 @@ describe("MBTI shell authored fields contract", () => {
     expect(hero).toHaveTextContent("Around 6-8%");
     expect(hero).toHaveTextContent("Projection Tag Alpha");
     expect(screen.getByText("Projection career summary public copy.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("Projection career summary public copy.");
+    expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
+      "href",
+      "/zh/career/recommendations/mbti/enfp"
+    );
     expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
     expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
     expect(screen.getByText("Projection trait grid summary.")).toBeInTheDocument();

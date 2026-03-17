@@ -3,6 +3,7 @@
 import { getAttemptReport, getMyAttempts, type ReportResponse } from "@/lib/api/v0_3";
 import { readCareerRiasecResult } from "@/lib/career/storage";
 import type { Big5ScoreVector, CareerProfileSnapshot } from "@/lib/career/types";
+import { normalizeMbtiCanonicalTypeCode } from "@/lib/mbti/publicProjection";
 
 type AttemptSummary = {
   attemptId: string;
@@ -91,18 +92,20 @@ export async function resolveCareerProfileSnapshot(): Promise<CareerProfileSnaps
     fetchLatestAttempt("EQ_60"),
   ]);
 
-  let mbtiType = mbtiLatest?.typeCode?.trim().toUpperCase() || undefined;
+  let mbtiType = normalizeMbtiCanonicalTypeCode(mbtiLatest?.typeCode) || undefined;
   let big5 = normalizeBig5Domains(big5Latest?.domainsMean);
   let iqScore: number | undefined;
   let eqScore: number | undefined;
 
   const reportPromises: Array<Promise<void>> = [];
 
-  if (!mbtiType && mbtiLatest?.attemptId) {
+  if (mbtiLatest?.attemptId) {
     reportPromises.push(
       getAttemptReport({ attemptId: mbtiLatest.attemptId })
         .then((report) => {
-          const candidate = typeof report.type_code === "string" ? report.type_code.trim().toUpperCase() : "";
+          const candidate =
+            normalizeMbtiCanonicalTypeCode(report.mbti_public_projection_v1?.canonical_type_code) ||
+            normalizeMbtiCanonicalTypeCode(report.type_code);
           if (candidate) mbtiType = candidate;
         })
         .catch(() => undefined)
