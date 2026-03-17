@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownloadButton";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,9 +13,11 @@ import {
   requestClaimReportEmail,
   type AttributionUtm,
   type EmailCaptureResponse,
+  type OrderLookupResponse,
 } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
+import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import { captureError } from "@/lib/observability/sentry";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
@@ -96,6 +100,7 @@ export function OrderLookupForm({
     message: string;
   } | null>(null);
   const [captureState, setCaptureState] = useState<EmailCaptureResponse | null>(null);
+  const [lookupHit, setLookupHit] = useState<OrderLookupResponse | null>(null);
   const [lastSubmitAt, setLastSubmitAt] = useState(0);
 
   useEffect(() => {
@@ -149,6 +154,25 @@ export function OrderLookupForm({
   const formattedCapturedAt = captureState
     ? formatCapturedAt(locale, captureState.captured_at, capturedAtFallback)
     : null;
+  const lookupAccessHub = useMemo(
+    () => normalizeMbtiAccessHub(lookupHit?.mbti_access_hub_v1 ?? null, locale),
+    [lookupHit?.mbti_access_hub_v1, locale]
+  );
+  const lookupResolvedOrderNo = useMemo(() => {
+    const normalized = lookupHit?.order_no?.trim();
+    return normalized ? normalized : null;
+  }, [lookupHit?.order_no]);
+  const lookupOrderHref = lookupAccessHub?.links.orderHref
+    ?? (lookupResolvedOrderNo ? localizedPath(`/orders/${lookupResolvedOrderNo}`, locale) : null);
+  const lookupReportHref = lookupAccessHub?.links.reportHref ?? null;
+  const lookupHistoryHref = lookupAccessHub?.workspaceLite.href ?? null;
+  const lookupPdfHref = lookupAccessHub?.pdfAccess.href ?? null;
+  const lookupPdfAttemptId =
+    lookupAccessHub?.reportAccess.attemptId
+    ?? lookupAccessHub?.recovery.attemptId
+    ?? lookupAccessHub?.workspaceLite.attemptId
+    ?? null;
+  const showLookupHitActions = Boolean(lookupAccessHub);
 
   async function captureLookupContact({
     trimmedEmail,
@@ -201,6 +225,9 @@ export function OrderLookupForm({
     setError(null);
     setFeedback(null);
     setCaptureState(null);
+    if (action === "lookup") {
+      setLookupHit(null);
+    }
     setLastSubmitAt(now);
 
     try {
@@ -222,7 +249,10 @@ export function OrderLookupForm({
           throw new Error(locale === "zh" ? "订单查询失败。" : "Order lookup failed.");
         }
 
-        router.push(localizedPath(`/orders/${resolvedOrderNo}`, locale));
+        setLookupHit(response);
+        if (!response.mbti_access_hub_v1) {
+          router.push(localizedPath(`/orders/${resolvedOrderNo}`, locale));
+        }
         return;
       }
 
@@ -280,6 +310,7 @@ export function OrderLookupForm({
                 setError(null);
                 setFeedback(null);
                 setCaptureState(null);
+                setLookupHit(null);
               }}
               required
             />
@@ -297,6 +328,7 @@ export function OrderLookupForm({
                 setError(null);
                 setFeedback(null);
                 setCaptureState(null);
+                setLookupHit(null);
               }}
               required
             />
@@ -316,6 +348,7 @@ export function OrderLookupForm({
                 setError(null);
                 setFeedback(null);
                 setCaptureState(null);
+                setLookupHit(null);
               }}
             />
             <span className="space-y-1">
@@ -376,6 +409,82 @@ export function OrderLookupForm({
             </Alert>
           ) : null}
           {error ? <Alert data-testid="order-lookup-error">{error}</Alert> : null}
+          {showLookupHitActions ? (
+            <div
+              className="space-y-3 rounded-lg border border-emerald-200 bg-emerald-50/60 px-4 py-4"
+              data-testid="order-lookup-hit-actions"
+            >
+              <div className="space-y-1">
+                <p className="m-0 text-sm font-semibold text-slate-900">
+                  {locale === "zh" ? "已匹配到订单，可直接继续" : "Order matched. Continue from here."}
+                </p>
+                <p className="m-0 text-xs leading-6 text-slate-600">
+                  {locale === "zh"
+                    ? "后续入口统一以 access hub 为准：可查看订单、回到报告、下载 PDF、发送找回邮件，或进入我的 MBTI。"
+                    : "The next-step actions now follow the access hub: view the order, return to the report, download the PDF, request the recovery email, or enter My MBTI."}
+                </p>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {lookupOrderHref ? (
+                  <Link href={lookupOrderHref} className="inline-flex w-full" data-testid="order-lookup-hit-order">
+                    <Button className="w-full" type="button">
+                      {locale === "zh" ? "查看订单" : "View order"}
+                    </Button>
+                  </Link>
+                ) : null}
+                {lookupReportHref ? (
+                  <a href={lookupReportHref} className="inline-flex w-full" data-testid="order-lookup-hit-report">
+                    <Button className="w-full" type="button" variant="outline">
+                      {locale === "zh" ? "查看报告" : "View report"}
+                    </Button>
+                  </a>
+                ) : null}
+                {lookupAccessHub?.pdfAccess.canDownloadPdf ? (
+                  <AttemptPdfDownloadButton
+                    attemptId={lookupPdfAttemptId}
+                    locale={locale}
+                    label={locale === "zh" ? "下载 PDF" : "Download PDF"}
+                    loadingLabel={locale === "zh" ? "正在下载 PDF..." : "Downloading PDF..."}
+                    errorMessage={locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
+                    filenamePrefix="mbti-report"
+                    pdfVariant="order_lookup_recovery"
+                    pdfUrl={lookupPdfHref}
+                    fallbackUrl={lookupPdfHref}
+                    className="w-full"
+                    buttonClassName="w-full"
+                    testId="order-lookup-hit-pdf"
+                  />
+                ) : null}
+                {lookupAccessHub?.recovery.canRequestClaimEmail ? (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full"
+                    data-testid="order-lookup-hit-claim"
+                    onClick={() => {
+                      void runSubmit("claim");
+                    }}
+                    disabled={submittingAction !== null}
+                  >
+                    {submittingAction === "claim"
+                      ? locale === "zh"
+                        ? "发送中..."
+                        : "Sending..."
+                      : locale === "zh"
+                        ? "发送找回邮件"
+                        : "Email me the report link"}
+                  </Button>
+                ) : null}
+                {lookupHistoryHref ? (
+                  <Link href={lookupHistoryHref} className="inline-flex w-full" data-testid="order-lookup-hit-history">
+                    <Button className="w-full" type="button" variant="outline">
+                      {locale === "zh" ? "我的 MBTI 报告" : "My MBTI reports"}
+                    </Button>
+                  </Link>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
 
           <div className="flex flex-col gap-2 sm:flex-row">
             <Button

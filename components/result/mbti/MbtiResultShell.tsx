@@ -29,6 +29,7 @@ import {
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import {
   buildMbtiCareerRecommendationHref,
   type MbtiPublicProjectionDimensionViewModel,
@@ -269,8 +270,9 @@ export function MbtiResultShell({
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const primaryCtaLabel = resolvePrimaryCtaLabel(locale, cta);
   const isUnlockedPostPurchase = isUnlockedMbtiReport(reportData);
-  const historyHref = localizedPath("/history/mbti", locale);
-  const orderLookupHref = localizedPath("/orders/lookup", locale);
+  const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
+  const historyHref = accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale);
+  const orderLookupHref = accessHub?.links.lookupHref ?? localizedPath("/orders/lookup", locale);
   const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
   const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
   const publicSubtitle = normalizeText(projectionViewModel?.subtitle, projectionViewModel?.tagline, headline.supportingLine);
@@ -315,7 +317,7 @@ export function MbtiResultShell({
       ? "我的 MBTI 报告"
       : "My MBTI reports"
     : primaryCtaLabel;
-  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? historyHref : "#offers";
+  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? accessHub?.workspaceLite.href ?? historyHref : "#offers";
   const globalTraits = buildDominantTraitItems({
     locale,
     roleCard: asRecord(layers?.role_card) ?? undefined,
@@ -708,6 +710,7 @@ export function MbtiResultShell({
             <MbtiPostPurchaseSection
               locale={locale}
               attemptId={attemptId}
+              accessHub={accessHub}
               historyHref={historyHref}
               orderLookupHref={orderLookupHref}
             />

@@ -73,6 +73,7 @@ test.describe("MBTI history account-center entry", () => {
 
     await page.goto("/en/history/mbti");
     await expect(page.getByTestId("mbti-history-recovery-cta")).toBeVisible();
+    await expect(page.getByTestId("mbti-history-continue-cta")).toHaveAttribute("href", "/en/result/attempt-history-hero-1");
     await page.getByTestId("mbti-history-recovery-cta").click();
 
     await expect(page).toHaveURL("/en/orders/lookup");
@@ -116,6 +117,7 @@ test.describe("MBTI history account-center entry", () => {
 
     await page.goto("/en/history/mbti");
     await expect(page.getByTestId(`mbti-history-open-${attemptId}`)).toBeVisible();
+    await expect(page.getByText("This is now your MBTI Workspace Lite entry: continue from saved results here, or recover a purchased report through order lookup.")).toBeVisible();
 
     await page.getByTestId(`mbti-history-open-${attemptId}`).click();
 

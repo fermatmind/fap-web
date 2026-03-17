@@ -3,6 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ResultClient from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
+import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 import resultReadyMbtiFreeFixture from "@/tests/fixtures/result_ready.mbti.free.json";
@@ -148,7 +149,9 @@ describe("ResultClient view-state contract", () => {
 
   it("keeps the MBTI page on the rich report path when projection is ready even if legacy hero fields are thin", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
     expect(reportFixture.mbti_public_projection_v1?.canonical_type_code).toBe("ENFP");
+    expect(reportFixture.mbti_access_hub_v1?.report_access?.attempt_id).toBe("attempt-123");
     expect(reportFixture.cta).toMatchObject({
       visible: true,
       kind: "upsell",
@@ -264,3 +267,34 @@ describe("ResultClient view-state contract", () => {
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
 });
+
+function createMbtiAccessHubRaw(attemptId: string): MbtiAccessHubV1Raw {
+  return {
+    access_state: "locked",
+    report_access: {
+      can_view_report: true,
+      attempt_id: attemptId,
+      order_no: "ord_result_view_state_001",
+      report_url: `/api/v0.3/attempts/${attemptId}/report`,
+      source: "report_gate",
+    },
+    pdf_access: {
+      can_download_pdf: false,
+      report_pdf_url: null,
+      source: "none",
+    },
+    recovery: {
+      can_lookup_order: true,
+      can_request_claim_email: false,
+      can_resend: false,
+      attempt_id: attemptId,
+      share_id: null,
+      compare_invite_id: null,
+    },
+    workspace_lite: {
+      has_entry: true,
+      entry_kind: "mbti_history",
+      attempt_id: attemptId,
+    },
+  };
+}

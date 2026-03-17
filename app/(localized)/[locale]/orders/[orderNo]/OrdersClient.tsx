@@ -15,6 +15,7 @@ import { trackEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { captureError } from "@/lib/observability/sentry";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 
 type ViewStatus = "pending" | "paid" | "failed" | "canceled" | "refunded";
 type PayType = "qr" | "html" | null;
@@ -115,6 +116,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const [status, setStatus] = useState<ViewStatus>("pending");
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [delivery, setDelivery] = useState<DeliveryPayload | null>(null);
+  const [accessHubRaw, setAccessHubRaw] = useState<OrderStatusResponse["mbti_access_hub_v1"] | null>(null);
   const [message, setMessage] = useState<string>(dict.orders.pending);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isResendingDelivery, setIsResendingDelivery] = useState(false);
@@ -219,6 +221,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
         setStatus(nextStatus);
         setAttemptId(response.attempt_id ?? null);
         setDelivery((response.delivery ?? null) as DeliveryPayload | null);
+        setAccessHubRaw(response.mbti_access_hub_v1 ?? null);
 
         if (nextStatus === "paid") {
           if (reportedStatusRef.current !== "paid") {
@@ -406,11 +409,26 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
     () => normalizeActionHref(delivery?.report_pdf_url ?? null, withLocale),
     [delivery?.report_pdf_url, withLocale]
   );
+  const accessHub = useMemo(
+    () => normalizeMbtiAccessHub(accessHubRaw ?? null, locale),
+    [accessHubRaw, locale]
+  );
+  const hubReportHref = accessHub?.reportAccess.href ?? null;
+  const hubPdfHref = accessHub?.pdfAccess.href ?? null;
+  const hubAttemptId =
+    accessHub?.reportAccess.attemptId
+    ?? accessHub?.recovery.attemptId
+    ?? accessHub?.workspaceLite.attemptId
+    ?? attemptId;
   const deliveryLastSentAt = useMemo(
     () => formatDeliveryEmailTimestamp(delivery?.last_delivery_email_sent_at ?? null, locale),
     [delivery?.last_delivery_email_sent_at, locale]
   );
   const claimRecoveryHref = useMemo(() => {
+    if (accessHub?.recovery.claimHref) {
+      return accessHub.recovery.claimHref;
+    }
+
     if (delivery?.can_request_claim_email !== true) {
       return null;
     }
@@ -420,14 +438,23 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
       mode: "claim",
     });
     return withLocale(`/orders/lookup?${query.toString()}`);
-  }, [delivery?.can_request_claim_email, orderNo, withLocale]);
-  const canViewReport = delivery ? delivery.can_view_report === true && Boolean(deliveryReportHref) : Boolean(deliveryReportHref);
-  const canDownloadPdf = delivery?.can_download_pdf === true && Boolean(attemptId);
-  const canResendDelivery = delivery?.can_resend === true;
-  const canRequestClaimEmail = delivery?.can_request_claim_email === true && Boolean(claimRecoveryHref);
+  }, [accessHub?.recovery.claimHref, delivery?.can_request_claim_email, orderNo, withLocale]);
+  const workspaceLiteHref = accessHub?.workspaceLite.href ?? null;
+  const canViewReport = accessHub
+    ? accessHub.reportAccess.canViewReport && Boolean(hubReportHref)
+    : delivery ? delivery.can_view_report === true && Boolean(deliveryReportHref) : Boolean(deliveryReportHref);
+  const resolvedReportHref = hubReportHref ?? deliveryReportHref;
+  const canDownloadPdf = accessHub
+    ? accessHub.pdfAccess.canDownloadPdf && Boolean(hubPdfHref || hubAttemptId)
+    : delivery?.can_download_pdf === true && Boolean(attemptId || deliveryPdfHref);
+  const resolvedPdfHref = hubPdfHref ?? deliveryPdfHref;
+  const canResendDelivery = accessHub?.recovery.canResend ?? (delivery?.can_resend === true);
+  const canRequestClaimEmail = accessHub
+    ? accessHub.recovery.canRequestClaimEmail && Boolean(claimRecoveryHref)
+    : delivery?.can_request_claim_email === true && Boolean(claimRecoveryHref);
   const hasDeliveryInfo =
     typeof delivery?.contact_email_present === "boolean" || Boolean(deliveryLastSentAt);
-  const hasDeliveryActions = canViewReport || canDownloadPdf || canResendDelivery || canRequestClaimEmail;
+  const hasDeliveryActions = canViewReport || canDownloadPdf || canResendDelivery || canRequestClaimEmail || Boolean(workspaceLiteHref);
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl items-center px-4 py-10">
@@ -531,23 +558,24 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
               {hasDeliveryActions ? (
                 <>
                   <div data-testid="order-delivery-actions" className="grid gap-2 sm:grid-cols-2">
-                    {canViewReport && deliveryReportHref ? (
-                      <a href={deliveryReportHref} className="inline-flex w-full">
+                    {canViewReport && resolvedReportHref ? (
+                      <a href={resolvedReportHref} className="inline-flex w-full">
                         <Button className="w-full" type="button" data-testid="order-view-report">
                           {dict.orders.viewReport}
                         </Button>
                       </a>
                     ) : null}
-                    {canDownloadPdf && attemptId ? (
+                    {canDownloadPdf ? (
                       <AttemptPdfDownloadButton
-                        attemptId={attemptId}
+                        attemptId={hubAttemptId}
                         locale={locale}
                         label={locale === "zh" ? "下载 PDF" : "Download PDF"}
                         loadingLabel={locale === "zh" ? "正在下载 PDF..." : "Downloading PDF..."}
                         errorMessage={locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
                         filenamePrefix="report"
                         pdfVariant="order_delivery_hub"
-                        fallbackUrl={deliveryPdfHref}
+                        pdfUrl={resolvedPdfHref}
+                        fallbackUrl={resolvedPdfHref}
                         className="w-full"
                         buttonClassName="w-full"
                         testId="order-download-pdf"
@@ -575,6 +603,13 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
                       <Link href={claimRecoveryHref} className="inline-flex w-full" data-testid="order-recover-with-email-link">
                         <Button className="w-full" type="button" variant="outline">
                           {locale === "zh" ? "用购买邮箱恢复报告" : "Recover with purchase email"}
+                        </Button>
+                      </Link>
+                    ) : null}
+                    {workspaceLiteHref ? (
+                      <Link href={workspaceLiteHref} className="inline-flex w-full" data-testid="order-workspace-lite-entry">
+                        <Button className="w-full" type="button" variant="outline">
+                          {locale === "zh" ? "我的 MBTI 报告" : "My MBTI reports"}
                         </Button>
                       </Link>
                     ) : null}

@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import OrdersClient from "@/app/(localized)/[locale]/orders/[orderNo]/OrdersClient";
+import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 
 const hoisted = vi.hoisted(() => ({
   getOrderStatus: vi.fn(),
@@ -10,6 +11,7 @@ const hoisted = vi.hoisted(() => ({
   routerReplace: vi.fn(),
   createObjectURL: vi.fn(() => "blob:mbti-report"),
   revokeObjectURL: vi.fn(),
+  openWindow: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -43,6 +45,7 @@ describe("OrdersClient delivery contract", () => {
     globalThis.URL.createObjectURL = hoisted.createObjectURL;
     globalThis.URL.revokeObjectURL = hoisted.revokeObjectURL;
     vi.spyOn(window.HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
+    vi.spyOn(window, "open").mockImplementation(hoisted.openWindow);
   });
 
   afterEach(() => {
@@ -55,6 +58,7 @@ describe("OrdersClient delivery contract", () => {
       order_no: "ord_delivery_1",
       status: "paid",
       attempt_id: "attempt-paid-1",
+      mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-1", "ord_delivery_1"),
       delivery: {
         contact_email_present: true,
         last_delivery_email_sent_at: "2026-03-11T10:30:00Z",
@@ -80,6 +84,7 @@ describe("OrdersClient delivery contract", () => {
       "href",
       "/en/orders/lookup?orderNo=ord_delivery_1&mode=claim"
     );
+    expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/history/mbti");
     expect(screen.getByTestId("order-view-report").closest("a")).toHaveAttribute("href", "/en/result/attempt-paid-1");
     expect(screen.getByTestId("order-download-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
@@ -87,8 +92,13 @@ describe("OrdersClient delivery contract", () => {
     fireEvent.click(screen.getByTestId("order-download-pdf"));
 
     await waitFor(() => {
-      expect(hoisted.fetchAttemptReportPdf).toHaveBeenCalledWith({ attemptId: "attempt-paid-1" });
+      expect(hoisted.openWindow).toHaveBeenCalledWith(
+        "/api/v0.3/attempts/attempt-paid-1/report.pdf",
+        "_blank",
+        "noopener,noreferrer"
+      );
     });
+    expect(hoisted.fetchAttemptReportPdf).not.toHaveBeenCalled();
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "pdf_download",
       expect.objectContaining({
@@ -120,6 +130,9 @@ describe("OrdersClient delivery contract", () => {
       ok: true,
       order_no: "ord_delivery_3",
       status: "paid",
+      mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-3", "ord_delivery_3", {
+        canRequestClaimEmail: true,
+      }),
       delivery: {
         contact_email_present: false,
         last_delivery_email_sent_at: "2026-03-10T08:00:00Z",
@@ -141,12 +154,13 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByTestId("order-delivery-contact-email")).toHaveTextContent("No purchase email on file");
     expect(screen.getByTestId("order-delivery-last-email-sent")).toHaveTextContent("2026");
     expect(screen.getByTestId("order-view-report").closest("a")).toHaveAttribute("href", "/en/result/attempt-paid-3");
-    expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
+    expect(screen.getByTestId("order-download-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
     expect(screen.getByTestId("order-recover-with-email-link")).toHaveAttribute(
       "href",
       "/en/orders/lookup?orderNo=ord_delivery_3&mode=claim"
     );
+    expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/history/mbti");
   });
 
   it("hides download and resend when the delivery contract does not allow them", async () => {
@@ -176,3 +190,42 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.queryByTestId("order-resend-delivery")).not.toBeInTheDocument();
   });
 });
+
+function createMbtiAccessHubRaw(
+  attemptId: string,
+  orderNo: string,
+  overrides: {
+    canDownloadPdf?: boolean;
+    canRequestClaimEmail?: boolean;
+    canResend?: boolean;
+  } = {}
+): MbtiAccessHubV1Raw {
+  return {
+    access_state: "ready",
+    report_access: {
+      can_view_report: true,
+      attempt_id: attemptId,
+      order_no: orderNo,
+      report_url: `/result/${attemptId}`,
+      source: "order_delivery",
+    },
+    pdf_access: {
+      can_download_pdf: overrides.canDownloadPdf ?? true,
+      report_pdf_url: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+      source: "order_delivery",
+    },
+    recovery: {
+      can_lookup_order: true,
+      can_request_claim_email: overrides.canRequestClaimEmail ?? true,
+      can_resend: overrides.canResend ?? true,
+      attempt_id: attemptId,
+      share_id: null,
+      compare_invite_id: null,
+    },
+    workspace_lite: {
+      has_entry: true,
+      entry_kind: "mbti_history",
+      attempt_id: attemptId,
+    },
+  };
+}
