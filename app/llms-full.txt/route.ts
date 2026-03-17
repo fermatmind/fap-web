@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
+import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
@@ -8,7 +9,6 @@ import {
   getAllTests,
   listBig5RecommendationTraits,
   listCareerIndustrySlugs,
-  listMbtiRecommendationTypes,
 } from "@/lib/content";
 import { listHelpCenterPages } from "@/lib/help/helpCenterContent";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -111,11 +111,24 @@ async function listTopicEntries() {
 
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
-  const [enCareerJobs, zhCareerJobs, enCareerGuides, zhCareerGuides, personalityEntries, topicEntries, enArticles, zhArticles] = await Promise.all([
+  const [
+    enCareerJobs,
+    zhCareerJobs,
+    enCareerGuides,
+    zhCareerGuides,
+    enCareerRecommendations,
+    zhCareerRecommendations,
+    personalityEntries,
+    topicEntries,
+    enArticles,
+    zhArticles,
+  ] = await Promise.all([
     listCareerJobsFromCms({ locale: "en" }).catch(() => []),
     listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
     listCareerGuidesFromCms("en").catch(() => []),
     listCareerGuidesFromCms("zh").catch(() => []),
+    listMbtiCareerRecommendations("en").catch(() => []),
+    listMbtiCareerRecommendations("zh").catch(() => []),
     listPersonalityEntries(),
     listTopicEntries(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
@@ -180,10 +193,18 @@ export async function GET() {
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },
     ]),
     ...guideEntries,
-    ...listMbtiRecommendationTypes().flatMap((type) => [
-      { locale: "en", path: `/en/career/recommendations/mbti/${type}`, title: `MBTI ${type}`, updatedAt: "" },
-      { locale: "zh", path: `/zh/career/recommendations/mbti/${type}`, title: `MBTI ${type}`, updatedAt: "" },
-    ]),
+    ...enCareerRecommendations.map((item) => ({
+      locale: "en",
+      path: item.href,
+      title: `${item.displayType} | ${item.typeName}`,
+      updatedAt: "",
+    })),
+    ...zhCareerRecommendations.map((item) => ({
+      locale: "zh",
+      path: item.href,
+      title: `${item.displayType} | ${item.typeName}`,
+      updatedAt: "",
+    })),
     ...listBig5RecommendationTraits().flatMap((trait) => [
       { locale: "en", path: `/en/career/recommendations/big5/${trait}`, title: `Big5 ${trait}`, updatedAt: "" },
       { locale: "zh", path: `/zh/career/recommendations/big5/${trait}`, title: `Big5 ${trait}`, updatedAt: "" },

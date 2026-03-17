@@ -1,107 +1,116 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { RelatedContent } from "@/components/content/RelatedContent";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  getCareerJobBySlug,
-  getMbtiRecommendation,
-  listMbtiRecommendationTypes,
-  listRelatedArticlesForType,
-  listRelatedCareerItemsForType,
-} from "@/lib/content";
-import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
+  buildCareerRecommendationFrontendUrl,
+  getMbtiCareerRecommendationByType,
+  type CareerRecommendationDetail,
+} from "@/lib/cms/career-recommendations";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
-import {
-  buildBreadcrumbJsonLd,
-  buildFAQPageJsonLd,
-  buildItemListJsonLd,
-  buildWebPageJsonLd,
-  type FAQItem,
-} from "@/lib/seo/generateSchema";
+import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildItemListJsonLd, buildWebPageJsonLd, type FAQItem } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { isMbtiCanonicalTypeCode, normalizeMbtiCanonicalTypeCode } from "@/lib/mbti/publicProjection";
+import { canonicalUrl } from "@/lib/site";
 
-export function generateStaticParams() {
-  return listMbtiRecommendationTypes().flatMap((type) => [{ locale: "en", type }, { locale: "zh", type }]);
+export const dynamic = "force-dynamic";
+
+function shouldNoindex(robotsValue: string | null | undefined): boolean {
+  return String(robotsValue ?? "")
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .includes("noindex");
 }
 
-function buildCanonicalPath(locale: "en" | "zh", type: string): string {
-  return locale === "zh" ? `/zh/career/recommendations/mbti/${type}` : `/en/career/recommendations/mbti/${type}`;
-}
-
-function buildAnswerFirst({
-  locale,
-  type,
-  workEnv,
-  recommendedTitles,
-}: {
-  locale: "en" | "zh";
-  type: string;
-  workEnv: string;
-  recommendedTitles: string[];
-}): string {
-  const sampleRoles = recommendedTitles.slice(0, 3).join(locale === "zh" ? "、" : ", ");
-
-  if (locale === "zh") {
-    return `${type} 通常更适合${workEnv}，也更容易在${sampleRoles || "目标清晰、可独立推进的岗位"}里稳定发挥。这一页先回答“${type} 更适合哪些方向”，再提醒你用真实技能、兴趣和阶段去校验，不把人格结论当成唯一决策依据。`;
+function resolveTwitterCard(value: string | null | undefined): "summary" | "summary_large_image" | "player" | "app" {
+  if (value === "summary" || value === "player" || value === "app") {
+    return value;
   }
 
-  return `${type} profiles usually do best in ${workEnv.toLowerCase()} and in roles such as ${sampleRoles || "focused, high-autonomy jobs"}. This page gives a first-pass answer on where ${type} often fits, then asks you to validate that signal against your actual skills, interests, and career stage before choosing a path.`;
+  return "summary_large_image";
 }
 
-function buildCareerFaqItems({
-  locale,
-  type,
-  workEnv,
-  recommendedTitles,
-  avoidTitles,
-  strengths,
-  risks,
-}: {
-  locale: "en" | "zh";
-  type: string;
-  workEnv: string;
-  recommendedTitles: string[];
-  avoidTitles: string[];
-  strengths: string[];
-  risks: string[];
-}): FAQItem[] {
+function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) {
+    return fallbackPath;
+  }
+
+  try {
+    return new URL(normalized).pathname || fallbackPath;
+  } catch {
+    return normalized.startsWith("/") ? normalized : fallbackPath;
+  }
+}
+
+function normalizeRequestedSlug(value: string): string {
+  return String(value ?? "").trim().toLowerCase();
+}
+
+function buildAnswerFirst(detail: CareerRecommendationDetail, locale: Locale): string {
+  const firstParagraph = detail.career.summary.paragraphs[0];
+  const matchedJobTitles = detail.matchedJobs.slice(0, 3).map((job) => job.title).join(locale === "zh" ? "、" : ", ");
+
+  if (locale === "zh") {
+    return firstParagraph
+      ? `${detail.displayType} 的职业建议现在由后端 authority 直接提供。${firstParagraph}`
+      : `${detail.displayType} 的职业建议现在由后端 authority 直接提供，当前优先关注 ${matchedJobTitles || "高匹配的结构化岗位"}，但内部 graph match 仍固定回落到 ${detail.graphTypeCode}。`;
+  }
+
+  return firstParagraph
+    ? `Career guidance for ${detail.displayType} now comes directly from backend authority. ${firstParagraph}`
+    : `Career guidance for ${detail.displayType} now comes directly from backend authority. Start with ${matchedJobTitles || "the highest-fit structured roles"}, while the internal graph match still falls back to ${detail.graphTypeCode}.`;
+}
+
+function buildCareerFaqItems(detail: CareerRecommendationDetail, locale: Locale): FAQItem[] {
+  const primaryJobs = detail.matchedJobs.filter((job) => job.fitBucket === "primary").map((job) => job.title);
+  const guideTitles = detail.matchedGuides.map((guide) => guide.title);
+  const roleExamples = detail.career.preferredRoles.groups.flatMap((group) => group.examples).slice(0, 4);
+
   if (locale === "zh") {
     return [
       {
-        question: `${type} 更适合哪些职业方向？`,
-        answer: `${type} 往往更适合 ${recommendedTitles.slice(0, 5).join("、")} 这类需要自主推进、标准明确或长期优化的方向。`,
+        question: `${detail.displayType} 的职业匹配是按什么 key 算的？`,
+        answer: `公开路由使用 ${detail.publicRouteSlug}，但 graph match 固定回落到 ${detail.graphTypeCode}，因此岗位匹配仍以 4-letter canonical family 为准。`,
       },
       {
-        question: `${type} 需要怎样的工作环境？`,
-        answer: `${type} 更容易在 ${workEnv} 的环境里稳定发挥，同时把 ${strengths.slice(0, 2).join("、")} 这些优势转成可见结果。`,
+        question: `${detail.displayType} 现在优先看哪些方向？`,
+        answer: `${primaryJobs.slice(0, 4).join("、") || roleExamples.join("、") || "高自主、高结构化的角色"} 是当前优先方向。`,
       },
       {
-        question: `使用这份 ${type} 职业建议前要注意什么？`,
-        answer: `${type} 职业建议不能替代真实经历与能力评估。尤其要额外校验 ${risks.slice(0, 2).join("、")}，并对 ${avoidTitles.slice(0, 3).join("、") || "高冲突或高重复岗位"} 这类方向保持谨慎。`,
+        question: `除了岗位，还应该看什么？`,
+        answer: `${guideTitles.slice(0, 3).join("、") || "相关职业指南"} 可以继续补齐路径判断，不要只看单一人格标签。`,
       },
     ];
   }
 
   return [
     {
-      question: `Which roles tend to fit ${type} best?`,
-      answer: `${type} profiles often align with ${recommendedTitles.slice(0, 5).join(", ")} because those roles reward autonomy, structured judgment, or long-cycle improvement.`,
+      question: `Which key does ${detail.displayType} use for career graph matching?`,
+      answer: `The public route uses ${detail.publicRouteSlug}, but graph matching is fixed to ${detail.graphTypeCode}, so jobs still match through the canonical 4-letter family.`,
     },
     {
-      question: `What work environment helps ${type} perform well?`,
-      answer: `${type} usually performs better in ${workEnv.toLowerCase()} while converting strengths such as ${strengths.slice(0, 2).join(" and ")} into consistent output.`,
+      question: `Which roles should ${detail.displayType} review first?`,
+      answer: `${primaryJobs.slice(0, 4).join(", ") || roleExamples.join(", ") || "High-autonomy, high-structure roles"} are the current first-pass directions.`,
     },
     {
-      question: `What should you validate before acting on this ${type} recommendation?`,
-      answer: `Do not treat a personality profile as the only career filter. Validate your actual experience, current skill level, and risks like ${risks.slice(0, 2).join(" and ")}, and use extra caution around ${avoidTitles.slice(0, 3).join(", ") || "high-friction roles"}.`,
+      question: `What else should you validate besides the job list?`,
+      answer: `${guideTitles.slice(0, 3).join(", ") || "Related career guides"} should be part of the decision, so personality stays a routing signal rather than the only filter.`,
     },
   ];
+}
+
+async function getDetailOrNotFound(locale: Locale, type: string): Promise<CareerRecommendationDetail> {
+  const detail = await getMbtiCareerRecommendationByType(locale, type);
+  if (!detail) {
+    notFound();
+  }
+
+  return detail;
 }
 
 export async function generateMetadata({
@@ -109,30 +118,53 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; type: string }>;
 }): Promise<Metadata> {
-  const { locale: localeParam, type: rawType } = await params;
+  const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
-  if (!isMbtiCanonicalTypeCode(rawType)) {
+  const detail = await getMbtiCareerRecommendationByType(locale, type);
+
+  if (!detail) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  const canonicalTypeCode = normalizeMbtiCanonicalTypeCode(rawType);
-  const profile = getMbtiRecommendation(canonicalTypeCode, locale);
-
-  if (!profile) {
-    return { title: "Not Found", robots: { index: false, follow: false } };
-  }
-
-  return buildPageMetadata({
+  const canonicalPath = pathFromCanonicalUrl(
+    detail.seo.meta.canonical,
+    buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
+  );
+  const noindex = shouldNoindex(detail.seo.meta.robots);
+  const metadata = buildPageMetadata({
     locale,
-    pathname: buildCanonicalPath(locale, canonicalTypeCode),
-    title: profile.title,
-    description: profile.summary,
+    pathname: canonicalPath,
+    title: detail.seo.meta.title,
+    description: detail.seo.meta.description,
+    noindex,
     alternatesByLocale: {
-      en: buildCanonicalPath("en", canonicalTypeCode),
-      zh: buildCanonicalPath("zh", canonicalTypeCode),
+      en: detail.seo.meta.alternates.en ?? buildCareerRecommendationFrontendUrl("en", detail.publicRouteSlug),
+      zh: detail.seo.meta.alternates["zh-CN"] ?? buildCareerRecommendationFrontendUrl("zh", detail.publicRouteSlug),
       xDefault: "/",
     },
   });
+
+  return {
+    ...metadata,
+    alternates: {
+      ...metadata.alternates,
+      canonical: detail.seo.meta.canonical ?? canonicalUrl(canonicalPath),
+    },
+    openGraph: {
+      type: "article",
+      url: detail.seo.meta.canonical ?? canonicalUrl(canonicalPath),
+      title: detail.seo.meta.og.title,
+      description: detail.seo.meta.og.description,
+      images: detail.seo.meta.og.image ? [detail.seo.meta.og.image] : undefined,
+      locale: locale === "zh" ? "zh_CN" : "en_US",
+    },
+    twitter: {
+      card: resolveTwitterCard(detail.seo.meta.twitter.card),
+      title: detail.seo.meta.twitter.title,
+      description: detail.seo.meta.twitter.description,
+      images: detail.seo.meta.twitter.image ? [detail.seo.meta.twitter.image] : undefined,
+    },
+  };
 }
 
 export default async function CareerMbtiRecommendationPage({
@@ -140,46 +172,25 @@ export default async function CareerMbtiRecommendationPage({
 }: {
   params: Promise<{ locale: string; type: string }>;
 }) {
-  const { locale: localeParam, type: rawType } = await params;
+  const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  if (!isMbtiCanonicalTypeCode(rawType)) return notFound();
+  const detail = await getDetailOrNotFound(locale, type);
 
-  const canonicalTypeCode = normalizeMbtiCanonicalTypeCode(rawType);
+  if (normalizeRequestedSlug(type) !== detail.publicRouteSlug) {
+    permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
+  }
 
-  const profile = getMbtiRecommendation(canonicalTypeCode, locale);
-  if (!profile) return notFound();
-
-  const recommendedJobs = profile.recommended_jobs
-    .map((slug) => getCareerJobBySlug(slug, locale))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item));
-  const avoidJobs = (profile.avoid_jobs ?? [])
-    .map((slug) => getCareerJobBySlug(slug, locale))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item));
-  const relatedArticles = listRelatedArticlesForType(canonicalTypeCode, locale);
-  const relatedCareerPaths = listRelatedCareerItemsForType(canonicalTypeCode, locale);
-  const recommendedTitles = recommendedJobs.map((job) => job.title);
-  const avoidTitles = avoidJobs.map((job) => job.title);
-  const answerFirst = buildAnswerFirst({
-    locale,
-    type: canonicalTypeCode,
-    workEnv: profile.work_env,
-    recommendedTitles,
-  });
-  const faqItems = buildCareerFaqItems({
-    locale,
-    type: canonicalTypeCode,
-    workEnv: profile.work_env,
-    recommendedTitles,
-    avoidTitles,
-    strengths: profile.strengths,
-    risks: profile.risks,
-  });
-  const canonicalPath = buildCanonicalPath(locale, canonicalTypeCode);
+  const canonicalPath = pathFromCanonicalUrl(
+    detail.seo.meta.canonical,
+    buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
+  );
+  const answerFirst = buildAnswerFirst(detail, locale);
+  const faqItems = buildCareerFaqItems(detail, locale);
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
-    title: profile.title,
-    description: profile.summary,
+    title: detail.seo.meta.title,
+    description: detail.seo.meta.description,
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -189,42 +200,26 @@ export default async function CareerMbtiRecommendationPage({
       name: locale === "zh" ? "职业推荐" : "Career recommendations",
       path: localizedPath("/career/recommendations", locale),
     },
-    { name: canonicalTypeCode, path: canonicalPath },
+    { name: detail.displayType, path: canonicalPath },
   ]);
   const itemListJsonLd = buildItemListJsonLd({
     path: canonicalPath,
-    title: locale === "zh" ? `${canonicalTypeCode} 推荐职业列表` : `${canonicalTypeCode} recommended roles`,
+    title: locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`,
     description: answerFirst,
     locale,
-    items: recommendedJobs.map((job) => ({
+    items: detail.matchedJobs.map((job) => ({
       name: job.title,
       path: localizedPath(`/career/jobs/${job.slug}`, locale),
       description: job.summary,
     })),
   });
-  const recommendationRows = [
-    ...recommendedJobs.slice(0, 6).map((job, index) => ({
-      kind: locale === "zh" ? "推荐" : "Recommended",
-      title: job.title,
-      href: localizedPath(`/career/jobs/${job.slug}`, locale),
-      reason: job.summary || profile.strengths[index % Math.max(profile.strengths.length, 1)] || profile.summary,
-      validate: profile.work_env,
-    })),
-    ...avoidJobs.slice(0, 3).map((job, index) => ({
-      kind: locale === "zh" ? "谨慎" : "Use caution",
-      title: job.title,
-      href: localizedPath(`/career/jobs/${job.slug}`, locale),
-      reason: profile.risks[index % Math.max(profile.risks.length, 1)] || profile.summary,
-      validate: locale === "zh" ? "确认岗位节奏、反馈与协作压力是否可控。" : "Validate the pace, feedback loop, and collaboration load before committing.",
-    })),
-  ];
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`career-mbti-webpage-${canonicalTypeCode}`} data={webPageJsonLd} />
-      <JsonLd id={`career-mbti-breadcrumb-${canonicalTypeCode}`} data={breadcrumbJsonLd} />
-      <JsonLd id={`career-mbti-itemlist-${canonicalTypeCode}`} data={itemListJsonLd} />
-      <JsonLd id={`career-mbti-faq-${canonicalTypeCode}`} data={buildFAQPageJsonLd(faqItems)} />
+      <JsonLd id={`career-mbti-webpage-${detail.publicRouteSlug}`} data={webPageJsonLd} />
+      <JsonLd id={`career-mbti-breadcrumb-${detail.publicRouteSlug}`} data={breadcrumbJsonLd} />
+      <JsonLd id={`career-mbti-itemlist-${detail.publicRouteSlug}`} data={itemListJsonLd} />
+      <JsonLd id={`career-mbti-faq-${detail.publicRouteSlug}`} data={buildFAQPageJsonLd(faqItems)} />
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -233,7 +228,7 @@ export default async function CareerMbtiRecommendationPage({
             label: locale === "zh" ? "职业推荐" : "Career recommendations",
             href: localizedPath("/career/recommendations", locale),
           },
-          { label: canonicalTypeCode },
+          { label: detail.displayType },
         ]}
       />
 
@@ -241,70 +236,85 @@ export default async function CareerMbtiRecommendationPage({
         id="answer-first"
         className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       >
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">MBTI</p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{profile.title}</h1>
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          {detail.displayType}
+        </p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
+          {detail.typeName}
+          {detail.nickname ? <span className="text-[var(--fm-text-muted)]"> · {detail.nickname}</span> : null}
+        </h1>
         <p className="m-0 text-base leading-7 text-[var(--fm-text)]">{answerFirst}</p>
         <div className="grid gap-3 md:grid-cols-3">
           <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "工作环境" : "Best-fit environment"}
+              {locale === "zh" ? "Authority route" : "Authority route"}
             </p>
-            <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">{profile.work_env}</p>
+            <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">/{detail.publicRouteSlug}</p>
           </div>
           <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "优先方向" : "Priority roles"}
+              {locale === "zh" ? "Graph key" : "Graph key"}
             </p>
-            <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">
-              {recommendedTitles.slice(0, 3).join(locale === "zh" ? "、" : ", ") || profile.summary}
-            </p>
+            <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">{detail.graphTypeCode}</p>
           </div>
           <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "决策提醒" : "Decision check"}
+              {locale === "zh" ? "Keywords" : "Keywords"}
             </p>
             <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">
-              {profile.risks[0] ||
-                (locale === "zh"
-                  ? "先校验能力和兴趣，再用人格信号做优先级排序。"
-                  : "Validate skill and interest before treating personality as a priority signal.")}
+              {detail.keywords.join(locale === "zh" ? "、" : ", ") || detail.heroSummary}
             </p>
           </div>
         </div>
       </section>
 
-      <section id="recommended-roles" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+      <section
+        id="recommended-roles"
+        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      >
         <div className="space-y-1">
           <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "推荐方向矩阵" : "Recommended direction matrix"}
+            {locale === "zh" ? "匹配岗位矩阵" : "Matched role matrix"}
           </h2>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">
             {locale === "zh"
-              ? "用可抓取的表格表达推荐岗位、谨慎岗位、出现原因与校验点。"
-              : "A crawlable table that shows recommended roles, caution roles, why they appear, and what to validate."}
+              ? "岗位列表直接来自 backend authority，并显式区分 primary / secondary fit。"
+              : "The job list now comes directly from backend authority and explicitly separates primary and secondary fit."}
           </p>
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-[var(--fm-border)] text-[var(--fm-text)]">
-                <th className="px-3 py-2">{locale === "zh" ? "分类" : "Category"}</th>
+                <th className="px-3 py-2">{locale === "zh" ? "Fit" : "Fit"}</th>
                 <th className="px-3 py-2">{locale === "zh" ? "岗位" : "Role"}</th>
-                <th className="px-3 py-2">{locale === "zh" ? "为何出现" : "Why it appears"}</th>
-                <th className="px-3 py-2">{locale === "zh" ? "校验点" : "Validation check"}</th>
+                <th className="px-3 py-2">{locale === "zh" ? "摘要" : "Summary"}</th>
+                <th className="px-3 py-2">{locale === "zh" ? "匹配编码" : "Matching codes"}</th>
               </tr>
             </thead>
             <tbody>
-              {recommendationRows.map((row) => (
-                <tr key={`${row.kind}-${row.title}`} className="border-b border-[var(--fm-border)] align-top text-[var(--fm-text-muted)]">
-                  <td className="px-3 py-3 font-medium text-[var(--fm-text)]">{row.kind}</td>
+              {detail.matchedJobs.map((job) => (
+                <tr key={job.slug} className="border-b border-[var(--fm-border)] align-top text-[var(--fm-text-muted)]">
+                  <td className="px-3 py-3 font-medium text-[var(--fm-text)]">
+                    {job.fitBucket === "primary"
+                      ? locale === "zh"
+                        ? "Primary"
+                        : "Primary"
+                      : job.fitBucket === "secondary"
+                        ? locale === "zh"
+                          ? "Secondary"
+                          : "Secondary"
+                        : "-"}
+                  </td>
                   <td className="px-3 py-3">
-                    <Link href={row.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                      {row.title}
+                    <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                      {job.title}
                     </Link>
                   </td>
-                  <td className="px-3 py-3">{row.reason}</td>
-                  <td className="px-3 py-3">{row.validate}</td>
+                  <td className="px-3 py-3">{job.summary || "-"}</td>
+                  <td className="px-3 py-3">
+                    {[...job.fitPersonalityCodes, ...job.mbtiPrimaryCodes, ...job.mbtiSecondaryCodes].join(", ") || detail.graphTypeCode}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -315,30 +325,115 @@ export default async function CareerMbtiRecommendationPage({
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>{locale === "zh" ? "优势信号" : "Strength signals"}</CardTitle>
+            <CardTitle>{detail.career.advantages.title || (locale === "zh" ? "职业优势" : "Career advantages")}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-            <ul className="m-0 list-disc space-y-2 pl-5">
-              {profile.strengths.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+          <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+            {detail.career.advantages.items.map((item) => (
+              <div key={`${item.title}-${item.description}`}>
+                {item.title ? <p className="m-0 font-medium text-[var(--fm-text)]">{item.title}</p> : null}
+                {item.description ? <p className="m-0 mt-1">{item.description}</p> : null}
+              </div>
+            ))}
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>{locale === "zh" ? "风险提示" : "Risk signals"}</CardTitle>
+            <CardTitle>{detail.career.weaknesses.title || (locale === "zh" ? "职业短板" : "Career weaknesses")}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-            <ul className="m-0 list-disc space-y-2 pl-5">
-              {profile.risks.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+          <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+            {detail.career.weaknesses.items.map((item) => (
+              <div key={`${item.title}-${item.description}`}>
+                {item.title ? <p className="m-0 font-medium text-[var(--fm-text)]">{item.title}</p> : null}
+                {item.description ? <p className="m-0 mt-1">{item.description}</p> : null}
+              </div>
+            ))}
           </CardContent>
         </Card>
       </div>
+
+      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+          {detail.career.preferredRoles.title || (locale === "zh" ? "偏好角色" : "Preferred roles")}
+        </h2>
+        {detail.career.preferredRoles.intro ? (
+          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.career.preferredRoles.intro}</p>
+        ) : null}
+        <div className="grid gap-4 md:grid-cols-2">
+          {detail.career.preferredRoles.groups.map((group) => (
+            <Card key={`${group.groupTitle}-${group.description}`}>
+              <CardHeader>
+                <CardTitle>{group.groupTitle || (locale === "zh" ? "角色组" : "Role group")}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+                {group.description ? <p className="m-0">{group.description}</p> : null}
+                {group.examples.length > 0 ? (
+                  <ul className="m-0 list-disc space-y-1 pl-5">
+                    {group.examples.map((example) => (
+                      <li key={example}>{example}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        {detail.career.preferredRoles.outro ? (
+          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.career.preferredRoles.outro}</p>
+        ) : null}
+      </section>
+
+      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+          {detail.career.upgradeSuggestions.title || (locale === "zh" ? "升级建议" : "Upgrade suggestions")}
+        </h2>
+        <div className="space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
+          {detail.career.upgradeSuggestions.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="m-0">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        {detail.career.upgradeSuggestions.bullets.length > 0 ? (
+          <div className="grid gap-3 md:grid-cols-2">
+            {detail.career.upgradeSuggestions.bullets.map((bullet) => (
+              <div key={`${bullet.label}-${bullet.content}`} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+                {bullet.label ? <p className="m-0 font-medium text-[var(--fm-text)]">{bullet.label}</p> : null}
+                {bullet.content ? <p className="m-0 mt-1 text-sm text-[var(--fm-text-muted)]">{bullet.content}</p> : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
+      </section>
+
+      {detail.matchedGuides.length > 0 ? (
+        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "匹配指南" : "Matched guides"}
+          </h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {detail.matchedGuides.map((guide) => (
+              <Card key={guide.slug}>
+                <CardHeader>
+                  <CardTitle className="text-lg">
+                    <Link href={guide.href} className="text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                      {guide.title}
+                    </Link>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+                  {guide.summary ? <p className="m-0">{guide.summary}</p> : null}
+                  {guide.fitPersonalityCodes.length > 0 ? (
+                    <p className="m-0">
+                      {locale === "zh" ? "fit_personality_codes" : "fit_personality_codes"}: {guide.fitPersonalityCodes.join(", ")}
+                    </p>
+                  ) : null}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section id="faq" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
@@ -354,15 +449,13 @@ export default async function CareerMbtiRecommendationPage({
         </dl>
       </section>
 
-      <article className="prose max-w-none prose-slate">{renderVeliteMdx(profile.body)}</article>
-
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
           {locale === "zh" ? "继续查看相关公域页面" : "Continue with related public pages"}
         </h2>
         <div className="flex flex-wrap gap-2">
-          <Link href={withLocale(`/personality/${canonicalTypeCode.toLowerCase()}`)} className="fm-help-chip-link">
-            {locale === "zh" ? `${canonicalTypeCode} 人格主页` : `${canonicalTypeCode} personality page`}
+          <Link href={withLocale(`/personality/${detail.publicRouteSlug}`)} className="fm-help-chip-link">
+            {locale === "zh" ? `${detail.displayType} 人格主页` : `${detail.displayType} personality page`}
           </Link>
           <Link href={withLocale("/topics/mbti")} className="fm-help-chip-link">
             {locale === "zh" ? "MBTI 主题页" : "MBTI topic page"}
@@ -372,11 +465,6 @@ export default async function CareerMbtiRecommendationPage({
           </Link>
         </div>
       </section>
-
-      <div className="space-y-6">
-        <RelatedContent title={locale === "zh" ? "相关文章" : "Related articles"} items={relatedArticles} />
-        <RelatedContent title={locale === "zh" ? "相关职业路径" : "Related career paths"} items={relatedCareerPaths} />
-      </div>
     </Container>
   );
 }

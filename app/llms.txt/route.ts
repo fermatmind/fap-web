@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
+import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
@@ -8,7 +9,6 @@ import {
   getAllTests,
   listBig5RecommendationTraits,
   listCareerIndustrySlugs,
-  listMbtiRecommendationTypes,
 } from "@/lib/content";
 import { HELP_CENTER_SLUGS } from "@/lib/help/helpCenterContent";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -94,11 +94,24 @@ async function listTopicPaths(): Promise<string[]> {
 
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
-  const [enCareerJobs, zhCareerJobs, enCareerGuides, zhCareerGuides, personalityEntries, topicEntries, enArticles, zhArticles] = await Promise.all([
+  const [
+    enCareerJobs,
+    zhCareerJobs,
+    enCareerGuides,
+    zhCareerGuides,
+    enCareerRecommendations,
+    zhCareerRecommendations,
+    personalityEntries,
+    topicEntries,
+    enArticles,
+    zhArticles,
+  ] = await Promise.all([
     listCareerJobsFromCms({ locale: "en" }).catch(() => []),
     listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
     listCareerGuidesFromCms("en").catch(() => []),
     listCareerGuidesFromCms("zh").catch(() => []),
+    listMbtiCareerRecommendations("en").catch(() => []),
+    listMbtiCareerRecommendations("zh").catch(() => []),
     listPersonalityPaths(),
     listTopicPaths(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
@@ -140,10 +153,8 @@ export async function GET() {
     ...zhCareerJobs.map((job) => job.href),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...guideEntries,
-    ...listMbtiRecommendationTypes().flatMap((type) => [
-      `/en/career/recommendations/mbti/${type}`,
-      `/zh/career/recommendations/mbti/${type}`,
-    ]),
+    ...enCareerRecommendations.map((item) => item.href),
+    ...zhCareerRecommendations.map((item) => item.href),
     ...listBig5RecommendationTraits().flatMap((trait) => [
       `/en/career/recommendations/big5/${trait}`,
       `/zh/career/recommendations/big5/${trait}`,

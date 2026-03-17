@@ -393,14 +393,18 @@ export function isMbtiCanonicalTypeCode(value: unknown): boolean {
 
 export function buildMbtiCareerRecommendationHref(
   locale: Locale,
-  canonicalTypeCode: unknown
+  displayType: unknown
 ): string {
-  const canonicalType = normalizeMbtiCanonicalTypeCode(canonicalTypeCode);
-  if (!canonicalType) {
+  const parsed = parseMbtiTypeCode(displayType);
+  if (!parsed) {
     return "";
   }
 
-  return `/${locale}/career/recommendations/mbti/${canonicalType.toLowerCase()}`;
+  const slug = parsed.variantCode
+    ? `${parsed.canonicalTypeCode}-${parsed.variantCode}`
+    : parsed.canonicalTypeCode;
+
+  return `/${locale}/career/recommendations/mbti/${slug.toLowerCase()}`;
 }
 
 export function buildSharePageViewModel(

@@ -260,7 +260,7 @@ describe("MBTI checkout wiring contract", () => {
     expect(within(careerChapter).getByRole("link", { name: "查看解锁方案" })).toHaveAttribute("href", "#offers");
     expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
       "href",
-      "/zh/career/recommendations/mbti/enfp"
+      "/zh/career/recommendations/mbti/enfp-t"
     );
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
     expect(screen.getByText("Projection-first summary that should replace the legacy hero copy on result pages.")).toBeInTheDocument();

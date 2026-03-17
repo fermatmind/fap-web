@@ -3,15 +3,49 @@ import Link from "next/link";
 import { CareerRecommendationPanel } from "@/components/career/CareerRecommendationPanel";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import {
-  listBig5RecommendationTraits,
-  listCareerJobs,
-  listMbtiRecommendationTypes,
-} from "@/lib/content";
+import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations";
+import { listBig5RecommendationTraits, listCareerJobs } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+
+type MbtiRecommendationFamily = {
+  canonicalTypeCode: string;
+  typeName: string;
+  items: Awaited<ReturnType<typeof listMbtiCareerRecommendations>>;
+};
+
+function groupMbtiFamilies(
+  items: Awaited<ReturnType<typeof listMbtiCareerRecommendations>>
+): MbtiRecommendationFamily[] {
+  const byFamily = new Map<string, MbtiRecommendationFamily>();
+
+  for (const item of items) {
+    const existing = byFamily.get(item.canonicalTypeCode);
+    if (existing) {
+      existing.items.push(item);
+      continue;
+    }
+
+    byFamily.set(item.canonicalTypeCode, {
+      canonicalTypeCode: item.canonicalTypeCode,
+      typeName: item.typeName,
+      items: [item],
+    });
+  }
+
+  return [...byFamily.values()]
+    .map((family) => ({
+      ...family,
+      items: [...family.items].sort((left, right) => {
+        const leftRank = left.variantCode === "A" ? 0 : left.variantCode === "T" ? 1 : 9;
+        const rightRank = right.variantCode === "A" ? 0 : right.variantCode === "T" ? 1 : 9;
+        return leftRank - rightRank || left.displayType.localeCompare(right.displayType);
+      }),
+    }))
+    .sort((left, right) => left.canonicalTypeCode.localeCompare(right.canonicalTypeCode));
+}
 
 export async function generateMetadata({
   params,
@@ -46,8 +80,11 @@ export default async function CareerRecommendationsPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const jobs = listCareerJobs(locale);
-  const mbtiTypes = listMbtiRecommendationTypes();
+  const [jobs, mbtiRecommendationItems] = await Promise.all([
+    Promise.resolve(listCareerJobs(locale)),
+    listMbtiCareerRecommendations(locale).catch(() => []),
+  ]);
+  const mbtiFamilies = groupMbtiFamilies(mbtiRecommendationItems);
   const big5Traits = listBig5RecommendationTraits();
   const canonicalPath =
     locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations";
@@ -86,11 +123,30 @@ export default async function CareerRecommendationsPage({
 
       <section className="space-y-2">
         <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">MBTI</h2>
-        <div className="flex flex-wrap gap-2">
-          {mbtiTypes.map((type) => (
-            <Link key={type} href={withLocale(`/career/recommendations/mbti/${type}`)} className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]">
-              {type}
-            </Link>
+        <div className="grid gap-3 md:grid-cols-2">
+          {mbtiFamilies.map((family) => (
+            <div
+              key={family.canonicalTypeCode}
+              className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)]"
+            >
+              <div className="space-y-1">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                  {family.canonicalTypeCode}
+                </p>
+                <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{family.typeName}</h3>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {family.items.map((item) => (
+                  <Link
+                    key={item.publicRouteSlug}
+                    href={item.href}
+                    className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
+                  >
+                    {item.displayType}
+                  </Link>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>

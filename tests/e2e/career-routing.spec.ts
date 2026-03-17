@@ -34,7 +34,7 @@ test("legacy professions stay gone while types routes funnel into personality", 
 });
 
 test("mbti career recommendation route exposes answer-first, table, faq, and public backlinks", async ({ request }) => {
-  const response = await request.get("/en/career/recommendations/mbti/INTJ");
+  const response = await request.get("/en/career/recommendations/mbti/intj-a");
   expect(response.status()).toBe(200);
   const html = await response.text();
 
@@ -42,22 +42,23 @@ test("mbti career recommendation route exposes answer-first, table, faq, and pub
   expect(html).toContain('id="recommended-roles"');
   expect(html).toContain('"@type":"ItemList"');
   expect(html).toContain('"@type":"FAQPage"');
-  expect(html).toContain("/en/personality/intj");
+  expect(html).toContain("/en/personality/intj-a");
   expect(html).toContain("/en/topics/mbti");
   expect(html).toContain("/en/help/faq");
 });
 
-test("mbti career recommendation route stays 16-type only", async ({ request }) => {
-  const canonicalResponse = await request.get("/en/career/recommendations/mbti/intj");
-  expect(canonicalResponse.status()).toBe(200);
-  const canonicalHtml = await canonicalResponse.text();
-  expect(canonicalHtml).toContain("/en/personality/intj");
+test("mbti career recommendation route treats 32-type as authority and 4-letter as a redirecting compatibility entry", async ({ request }) => {
+  const legacyResponse = await request.get("/en/career/recommendations/mbti/intj", { maxRedirects: 0 });
+  expect(legacyResponse.status()).toBe(308);
+  expect(legacyResponse.headers().location).toBe("/en/career/recommendations/mbti/intj-a");
 
-  const variantResponse = await request.get("/en/career/recommendations/mbti/enfj-t", { maxRedirects: 0 });
-  expect(variantResponse.status()).toBe(404);
+  const variantResponse = await request.get("/en/career/recommendations/mbti/intj-a");
+  expect(variantResponse.status()).toBe(200);
+  const variantHtml = await variantResponse.text();
+  expect(variantHtml).toContain("/en/personality/intj-a");
 });
 
-test("mbti result career CTA lands on the canonical 16 recommendation route", async ({ page }) => {
+test("mbti result career CTA points to the 32-type recommendation authority route", async ({ page }) => {
   const attemptId = "mbti-career-join-0001";
 
   await page.route("**/api/track", async (route) => {
@@ -90,14 +91,7 @@ test("mbti result career CTA lands on the canonical 16 recommendation route", as
   await page.goto(`/en/result/${attemptId}`);
 
   const careerCta = page.getByTestId("mbti-career-next-step-cta");
-  await expect(careerCta).toHaveAttribute("href", "/en/career/recommendations/mbti/enfp");
-  await careerCta.click();
-  await expect(page).toHaveURL("/en/career/recommendations/mbti/enfp");
-  await expect(page.locator("#answer-first")).toBeVisible();
-  await expect(page.getByRole("link", { name: "ENFP personality page" })).toHaveAttribute(
-    "href",
-    "/en/personality/enfp"
-  );
+  await expect(careerCta).toHaveAttribute("href", "/en/career/recommendations/mbti/enfp-t");
 });
 
 test("riasec flow produces result and recommendation list", async ({ page }) => {

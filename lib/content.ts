@@ -390,6 +390,9 @@ export function listCareerRecommendationProfiles(
   return sortByTitle(all.filter((item) => item.locale === locale));
 }
 
+// Public MBTI career recommendation routes are CMS-authoritative via
+// lib/cms/career-recommendations.ts. These local helpers remain only for
+// editorial relationships and non-public fallback content paths.
 export function getMbtiRecommendation(type: string, locale: Locale): LocalizedCareerRecommendationProfile | null {
   const key = String(type ?? "").trim().toUpperCase();
   if (!key) return null;

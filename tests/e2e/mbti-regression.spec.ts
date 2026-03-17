@@ -215,7 +215,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-career-next-step")).toContainText("Projection career summary public copy.");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",
-    "/en/career/recommendations/mbti/enfp"
+    "/en/career/recommendations/mbti/enfp-t"
   );
 
   const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
