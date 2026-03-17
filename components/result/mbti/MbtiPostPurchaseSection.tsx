@@ -6,19 +6,34 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
+import type { MbtiAccessHubViewModel } from "@/lib/mbti/accessHub";
 
 export function MbtiPostPurchaseSection({
   locale,
   attemptId,
+  accessHub,
   historyHref,
   orderLookupHref,
 }: {
   locale: Locale;
-  attemptId: string;
+  attemptId?: string | null;
+  accessHub?: MbtiAccessHubViewModel | null;
   historyHref: string;
   orderLookupHref: string;
 }) {
   const isZh = locale === "zh";
+  const resolvedAttemptId =
+    accessHub?.reportAccess.attemptId
+    ?? accessHub?.recovery.attemptId
+    ?? accessHub?.workspaceLite.attemptId
+    ?? attemptId
+    ?? null;
+  const workspaceHref = accessHub?.workspaceLite.href ?? historyHref;
+  const orderDetailHref = accessHub?.links.orderHref ?? null;
+  const lookupHref = accessHub?.recovery.canLookupOrder === false ? null : accessHub?.links.lookupHref ?? orderLookupHref;
+  const pdfUrl = accessHub?.pdfAccess.href ?? null;
+  const canShowPdf = accessHub ? accessHub.pdfAccess.canDownloadPdf && Boolean(pdfUrl || resolvedAttemptId) : Boolean(resolvedAttemptId);
+  const canShowWorkspaceEntry = accessHub?.workspaceLite.hasEntry ?? true;
 
   return (
     <Card
@@ -34,44 +49,60 @@ export function MbtiPostPurchaseSection({
       <CardContent className="space-y-4">
         <p className="m-0 text-sm leading-7 text-slate-600">
           {isZh
-            ? "你的完整报告已可再次查看与下载。后续进入、PDF 交付与订单找回都从这里处理。"
-            : "Your full report is ready to revisit and download. Use this section for re-entry, PDF delivery, and order recovery."}
+            ? "你的完整报告已可再次查看与下载。这里统一收口 PDF、订单详情、找回入口，以及 Workspace Lite 回访入口。"
+            : "Your full report is ready to revisit and download. This section now unifies PDF delivery, order detail, recovery, and the Workspace Lite re-entry point."}
         </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <AttemptPdfDownloadButton
-            attemptId={attemptId}
-            locale={locale}
-            label={isZh ? "下载 PDF" : "Download PDF"}
-            loadingLabel={isZh ? "正在下载 PDF..." : "Downloading PDF..."}
-            errorMessage={isZh ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
-            filenamePrefix="mbti-report"
-            pdfVariant="mbti_result_post_purchase"
-            buttonClassName="w-full"
-            testId="mbti-post-purchase-download"
-          />
-          <Link
-            href={historyHref}
-            className={buttonVariants({ className: "w-full" })}
-            data-testid="mbti-post-purchase-history"
-            onClick={() => {
-              trackEvent("ui_card_interaction", {
-                slug: "mbti-result-shell",
-                scale_code: "MBTI",
-                visual_kind: "post_purchase_history_entry",
-                interaction: "click",
-                locale,
-              });
-            }}
-          >
-            {isZh ? "我的 MBTI 报告" : "My MBTI reports"}
-          </Link>
-          <Link
-            href={orderLookupHref}
-            className={buttonVariants({ variant: "outline", className: "w-full" })}
-            data-testid="mbti-post-purchase-order-lookup"
-          >
-            {isZh ? "订单找回" : "Order lookup"}
-          </Link>
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {canShowPdf ? (
+            <AttemptPdfDownloadButton
+              attemptId={resolvedAttemptId}
+              locale={locale}
+              label={isZh ? "下载 PDF" : "Download PDF"}
+              loadingLabel={isZh ? "正在下载 PDF..." : "Downloading PDF..."}
+              errorMessage={isZh ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
+              filenamePrefix="mbti-report"
+              pdfVariant="mbti_result_post_purchase"
+              pdfUrl={pdfUrl}
+              buttonClassName="w-full"
+              testId="mbti-post-purchase-download"
+            />
+          ) : null}
+          {canShowWorkspaceEntry ? (
+            <Link
+              href={workspaceHref}
+              className={buttonVariants({ className: "w-full" })}
+              data-testid="mbti-post-purchase-history"
+              onClick={() => {
+                trackEvent("ui_card_interaction", {
+                  slug: "mbti-result-shell",
+                  scale_code: "MBTI",
+                  visual_kind: "post_purchase_history_entry",
+                  interaction: "click",
+                  locale,
+                });
+              }}
+            >
+              {isZh ? "我的 MBTI 报告" : "My MBTI reports"}
+            </Link>
+          ) : null}
+          {orderDetailHref ? (
+            <Link
+              href={orderDetailHref}
+              className={buttonVariants({ variant: "outline", className: "w-full" })}
+              data-testid="mbti-post-purchase-order-detail"
+            >
+              {isZh ? "订单详情" : "Order details"}
+            </Link>
+          ) : null}
+          {lookupHref ? (
+            <Link
+              href={lookupHref}
+              className={buttonVariants({ variant: "outline", className: "w-full" })}
+              data-testid="mbti-post-purchase-order-lookup"
+            >
+              {isZh ? "订单找回" : "Order lookup"}
+            </Link>
+          ) : null}
         </div>
       </CardContent>
     </Card>

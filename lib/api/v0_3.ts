@@ -2,6 +2,7 @@ import { getFmToken } from "@/lib/auth/fmToken";
 import { getOrCreateAnonId, removePendingAnonLinkAttempts } from "@/lib/anon";
 import { buildApiUrl } from "@/lib/api-base";
 import { ApiError, apiClient } from "@/lib/api-client";
+import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import { buildRequestScaleCodeCandidates } from "@/lib/scaleCodeMode";
 
 export type ScaleQuestionOption = {
@@ -408,6 +409,7 @@ export type ReportResponse = {
     scale_uid?: string;
   };
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
+  mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
 
@@ -444,6 +446,7 @@ export type OrderStatusResponse = {
   amount_cents?: number;
   currency?: string;
   delivery?: OrderDeliveryState | null;
+  mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
 
@@ -702,6 +705,7 @@ export type OrderLookupResponse = {
   ok?: boolean;
   order_no?: string;
   delivery?: OrderDeliveryState | null;
+  mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
 

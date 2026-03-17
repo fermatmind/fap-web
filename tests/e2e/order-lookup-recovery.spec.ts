@@ -21,6 +21,37 @@ async function mockCommonApis(page: Page) {
   });
 }
 
+function createLookupHubRaw(attemptId: string, orderNo: string) {
+  return {
+    access_state: "recovery_available",
+    report_access: {
+      can_view_report: true,
+      attempt_id: attemptId,
+      order_no: orderNo,
+      report_url: `/result/${attemptId}`,
+      source: "order_delivery",
+    },
+    pdf_access: {
+      can_download_pdf: true,
+      report_pdf_url: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+      source: "order_delivery",
+    },
+    recovery: {
+      can_lookup_order: true,
+      can_request_claim_email: true,
+      can_resend: false,
+      attempt_id: attemptId,
+      share_id: null,
+      compare_invite_id: null,
+    },
+    workspace_lite: {
+      has_entry: true,
+      entry_kind: "mbti_history",
+      attempt_id: attemptId,
+    },
+  };
+}
+
 test("order lookup shows the marketing consent consumer", async ({ page }) => {
   await page.goto("/en/orders/lookup");
 
@@ -92,6 +123,49 @@ test("order lookup success routes into the order detail page", async ({ page }) 
   await expect(page.getByRole("heading", { level: 3, name: `Order status #${orderNo}` })).toBeVisible();
 });
 
+test("order lookup hit prefers mbti_access_hub_v1 and keeps recovery actions on the page", async ({ page }) => {
+  const orderNo = "ord_lookup_hub_001";
+
+  await mockCommonApis(page);
+  await page.route("**/api/v0.3/email/capture", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        subscriber_status: "active",
+        captured_at: "2026-03-12T09:30:00Z",
+        marketing_consent: false,
+        transactional_recovery_enabled: true,
+      }),
+    });
+  });
+  await page.route("**/api/v0.3/orders/lookup", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        mbti_access_hub_v1: createLookupHubRaw("attempt-lookup-hub-1", orderNo),
+      }),
+    });
+  });
+
+  await page.goto("/en/orders/lookup");
+  await page.getByTestId("order-lookup-order-no").fill(orderNo);
+  await page.getByTestId("order-lookup-email").fill("buyer@example.com");
+  await page.getByTestId("order-lookup-submit").click();
+
+  await expect(page.getByTestId("order-lookup-hit-actions")).toBeVisible();
+  await expect(page).toHaveURL("/en/orders/lookup");
+  await expect(page.getByTestId("order-lookup-hit-order")).toHaveAttribute("href", `/en/orders/${orderNo}`);
+  await expect(page.getByTestId("order-lookup-hit-report")).toHaveAttribute("href", "/en/result/attempt-lookup-hub-1");
+  await expect(page.getByTestId("order-lookup-hit-pdf")).toBeVisible();
+  await expect(page.getByTestId("order-lookup-hit-claim")).toBeVisible();
+  await expect(page.getByTestId("order-lookup-hit-history")).toHaveAttribute("href", "/en/history/mbti");
+});
+
 test("claim flow shows blind success copy", async ({ page }) => {
   const sequence: string[] = [];
   let captureBody: Record<string, unknown> | null = null;
@@ -132,7 +206,6 @@ test("claim flow shows blind success copy", async ({ page }) => {
 
   await expect.poll(() => captureBody).toMatchObject({
     email: "buyer@example.com",
-    order_no: "ord_claim_success_001",
     surface: "lookup",
     entrypoint: "order_lookup",
     marketing_consent: true,

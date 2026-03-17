@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { OrderLookupForm } from "@/components/support/OrderLookupForm";
+import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
 function deferred<T>() {
@@ -221,6 +222,33 @@ describe("OrderLookupForm recovery contract", () => {
     });
   });
 
+  it("prefers mbti_access_hub_v1 on lookup hits and keeps recovery actions on the lookup surface", async () => {
+    hoisted.lookupOrder.mockResolvedValueOnce({
+      ok: true,
+      order_no: "ord_lookup_hub_001",
+      mbti_access_hub_v1: createLookupHubRaw("attempt-lookup-hub-1", "ord_lookup_hub_001"),
+    });
+
+    renderForm();
+    await fillLookupForm({
+      orderNo: "ord_lookup_hub_001",
+      email: "hub@example.com",
+    });
+
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-lookup-hit-actions")).toBeInTheDocument();
+    });
+
+    expect(hoisted.routerPush).not.toHaveBeenCalled();
+    expect(screen.getByTestId("order-lookup-hit-order")).toHaveAttribute("href", "/en/orders/ord_lookup_hub_001");
+    expect(screen.getByTestId("order-lookup-hit-report")).toHaveAttribute("href", "/en/result/attempt-lookup-hub-1");
+    expect(screen.getByTestId("order-lookup-hit-pdf")).toBeInTheDocument();
+    expect(screen.getByTestId("order-lookup-hit-claim")).toBeInTheDocument();
+    expect(screen.getByTestId("order-lookup-hit-history")).toHaveAttribute("href", "/en/history/mbti");
+  });
+
   it("requests the claim report email after capture on claim submit", async () => {
     renderForm();
     await fillLookupForm({
@@ -304,3 +332,34 @@ describe("OrderLookupForm recovery contract", () => {
     expect(screen.queryByText(/mismatch/i)).not.toBeInTheDocument();
   });
 });
+
+function createLookupHubRaw(attemptId: string, orderNo: string): MbtiAccessHubV1Raw {
+  return {
+    access_state: "recovery_available",
+    report_access: {
+      can_view_report: true,
+      attempt_id: attemptId,
+      order_no: orderNo,
+      report_url: `/result/${attemptId}`,
+      source: "order_delivery",
+    },
+    pdf_access: {
+      can_download_pdf: true,
+      report_pdf_url: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+      source: "order_delivery",
+    },
+    recovery: {
+      can_lookup_order: true,
+      can_request_claim_email: true,
+      can_resend: false,
+      attempt_id: attemptId,
+      share_id: null,
+      compare_invite_id: null,
+    },
+    workspace_lite: {
+      has_entry: true,
+      entry_kind: "mbti_history",
+      attempt_id: attemptId,
+    },
+  };
+}

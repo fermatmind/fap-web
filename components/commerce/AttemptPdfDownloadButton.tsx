@@ -20,13 +20,14 @@ function triggerBrowserDownload(blob: Blob, filename: string) {
 }
 
 type AttemptPdfDownloadButtonProps = {
-  attemptId: string;
+  attemptId?: string | null;
   locale: Locale;
   label: string;
   loadingLabel: string;
   errorMessage: string;
   filenamePrefix?: string;
   pdfVariant: string;
+  pdfUrl?: string | null;
   fallbackUrl?: string | null;
   buttonVariant?: ButtonProps["variant"];
   buttonClassName?: string;
@@ -42,6 +43,7 @@ export function AttemptPdfDownloadButton({
   errorMessage,
   filenamePrefix = "report",
   pdfVariant,
+  pdfUrl,
   fallbackUrl,
   buttonVariant = "outline",
   buttonClassName,
@@ -52,18 +54,27 @@ export function AttemptPdfDownloadButton({
   const [error, setError] = useState<string | null>(null);
 
   const handleDownload = async () => {
-    if (!attemptId || isDownloading) return;
+    if ((!attemptId && !pdfUrl) || isDownloading) return;
 
     setIsDownloading(true);
     setError(null);
 
     trackEvent("pdf_download", {
-      attempt_id: attemptId,
       pdf_variant: pdfVariant,
       locale,
+      ...(attemptId ? { attempt_id: attemptId } : {}),
     });
 
     try {
+      if (pdfUrl) {
+        window.open(pdfUrl, "_blank", "noopener,noreferrer");
+        return;
+      }
+
+      if (!attemptId) {
+        throw new Error("Missing attempt id.");
+      }
+
       const blob = await fetchAttemptReportPdf({ attemptId });
       if (blob.size <= 0) {
         throw new Error("Empty pdf blob.");
@@ -87,7 +98,7 @@ export function AttemptPdfDownloadButton({
         type="button"
         variant={buttonVariant}
         className={buttonClassName}
-        disabled={isDownloading || !attemptId}
+        disabled={isDownloading || (!attemptId && !pdfUrl)}
         onClick={() => void handleDownload()}
         data-testid={testId}
       >

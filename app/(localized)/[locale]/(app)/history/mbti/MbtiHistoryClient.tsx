@@ -57,6 +57,8 @@ export default function MbtiHistoryClient() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const latestRow = rows[0] ?? null;
+  const latestResultHref = latestRow ? localizedPath(`/result/${latestRow.attemptId}`, locale) : null;
 
   useEffect(() => {
     let active = true;
@@ -112,8 +114,22 @@ export default function MbtiHistoryClient() {
           <h1 className="text-2xl font-bold text-slate-900">{copy.title}</h1>
           <p className="m-0 text-sm leading-7 text-slate-600">{copy.descriptionPrimary}</p>
           <p className="m-0 text-sm leading-7 text-slate-600">{copy.descriptionRecovery}</p>
+          <p className="m-0 text-sm leading-7 text-slate-600">
+            {isZh
+              ? "这里现在就是你的 MBTI Workspace Lite 入口：继续查看当前结果，或用订单找回恢复已购报告。"
+              : "This is now your MBTI Workspace Lite entry: continue from saved results here, or recover a purchased report through order lookup."}
+          </p>
         </div>
         <div className="flex flex-wrap gap-3">
+          {latestResultHref ? (
+            <Link
+              href={latestResultHref}
+              className={buttonVariants({ className: "w-full sm:w-auto" })}
+              data-testid="mbti-history-continue-cta"
+            >
+              {isZh ? "继续查看最新结果" : "Continue with latest result"}
+            </Link>
+          ) : null}
           <Link
             href={orderLookupHref}
             className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
