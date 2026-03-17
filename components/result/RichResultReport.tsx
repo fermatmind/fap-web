@@ -10,6 +10,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
+  buildMbtiResultProjectionViewModel,
+  hasMbtiResultProjection,
+} from "@/lib/mbti/publicProjection";
+import {
   normalizeSupportedScaleCode,
   SCALE_CANONICAL_SLUG_MAP,
   type SupportedScaleCode,
@@ -1126,6 +1130,10 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
     return false;
   }
 
+  if (scaleCode === "MBTI" && reportData && hasMbtiResultProjection(reportData)) {
+    return true;
+  }
+
   return Boolean(
     asRecord(payload.profile) ||
       asRecord(payload.identity_card) ||
@@ -1160,6 +1168,7 @@ export function RichResultReport({
   const resolvedOffers = offers.map((offer) => resolveOfferCopy(offer, locale));
 
   if (scaleCode === "MBTI") {
+    const projectionViewModel = buildMbtiResultProjectionViewModel(reportData);
     const sectionUnlocks = Object.fromEntries(
       sections.map((section) => {
         const sectionKey = normalizeText(section.key).toLowerCase();
@@ -1185,6 +1194,7 @@ export function RichResultReport({
         headline={headline}
         tags={tags}
         dimensions={dimensions}
+        projectionViewModel={projectionViewModel}
         highlights={highlights}
         sections={sections}
         sectionUnlocks={sectionUnlocks}

@@ -1,11 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
-import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
+import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 
 function createMbtiReportFixture(
   mutate?: (fixture: Record<string, unknown>) => void
 ) {
-  const fixture = structuredClone(reportReadyMbtiFreeFixture) as Record<string, unknown>;
+  const fixture = structuredClone(reportReadyMbtiProjectionFixture) as Record<string, unknown>;
   mutate?.(fixture);
   return fixture;
 }
@@ -195,12 +195,23 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-sticky-rail")).toBeVisible();
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
   await expect(page.getByTestId("mbti-hero").getByRole("heading", { name: /ENFP-T/ })).toBeVisible();
+  await expect(page.getByTestId("mbti-hero")).toContainText("Projection Campaigner");
+  await expect(page.getByTestId("mbti-hero")).toContainText("Projection-first subtitle");
+  await expect(page.getByTestId("mbti-hero")).toContainText(
+    "Projection-first summary that should replace the legacy hero copy on result pages."
+  );
+  await expect(page.getByTestId("mbti-hero-identity-line")).toContainText("Spark Navigator");
+  await expect(page.getByTestId("mbti-hero")).not.toContainText("Legacy Hero Title Should Lose");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview title");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview one-liner");
   await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
   await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock the authored MBTI report");
   await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock the authored MBTI report" })).toBeVisible();
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career summary public copy.");
+  await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career advantage one");
+  await expect(page.getByTestId("mbti-chapter-growth")).toContainText("Projection motivators teaser.");
+  await expect(page.getByTestId("mbti-chapter-relationships")).toContainText("Projection relationship risks teaser.");
 
   const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
   expect(heroBounds?.width ?? 0).toBeGreaterThan(700);

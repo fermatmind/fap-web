@@ -236,7 +236,8 @@ export default function ResultClient({
           return;
         }
 
-        if (canRenderRichResultReport(reportResponse)) {
+        const richReportReady = canRenderRichResultReport(reportResponse);
+        if (richReportReady) {
           setProcessing(false);
           return;
         }
@@ -292,7 +293,7 @@ export default function ResultClient({
     };
   }, [anonId, attemptId, dict.result.reportUnavailable, locale, runWithAuthRetry]);
 
-  const hasRichReport = canRenderRichResultReport(reportData);
+  const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
 
   const viewState: "processing" | "ready" | "failed" =
     loading || processing

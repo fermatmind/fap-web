@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
+import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
@@ -18,6 +19,10 @@ vi.mock("@/lib/analytics", () => ({
 
 function createReportFixture(): ReportResponse {
   return structuredClone(reportReadyMbtiFreeFixture) as ReportResponse;
+}
+
+function createProjectionReportFixture(): ReportResponse {
+  return structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse;
 }
 
 function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> = {}) {
@@ -45,8 +50,8 @@ describe("RichResultReport", () => {
     vi.clearAllMocks();
   });
 
-  it("renders authored overview, CTA mirrors, and recommended reads without leaking gated content", () => {
-    const reportData = createReportFixture();
+  it("routes MBTI public hero and canonical sections through projection while keeping commerce and authored layers on legacy", () => {
+    const reportData = createProjectionReportFixture();
     expect(reportData.cta).toMatchObject({
       visible: true,
       kind: "upsell",
@@ -60,60 +65,12 @@ describe("RichResultReport", () => {
       throw new Error("Expected identity layer");
     }
     reportData.cta = createCustomCta({
-      title: "统一主 CTA 标题",
-      subtitle: "统一主 CTA 副标题",
-      primary_label: "立即查看正式方案",
-      benefit_bullets: ["正式权益 A", "正式权益 B"],
-      badge: "首选方案",
+      title: "Unified MBTI unlock plan",
+      subtitle: "Use one primary commerce surface and keep the rest as mirrors.",
+      primary_label: "Unlock the authored MBTI report",
+      benefit_bullets: ["Formal entitlement A", "Formal entitlement B"],
+      badge: "Primary",
     });
-    reportData.report.layers.identity = {
-      ...reportData.report.layers.identity,
-      title: "作者化人格标题",
-      subtitle: "作者化人格副标题",
-      one_liner: "作者化人格一句话",
-      bullets: [
-        "判断线索：你会先判断这段连接是否值得继续投入。",
-        "社交方式：你会主动点亮气氛，但也需要保留回看空间。",
-        "边界提醒：别把短期波动当成长期结论。",
-      ],
-      tags: ["作者化线索", "identity", "type:ENFP-T"],
-    };
-    reportData.report.recommended_reads = [
-      {
-        id: "read-1",
-        type: "article",
-        title: "职业环境对齐",
-        desc: "继续阅读工作环境与节奏的匹配线索。",
-        url: "https://example.com/read-1",
-        cover: null,
-        cta: "继续阅读职业篇",
-        priority: 10,
-        tags: ["职业", "环境"],
-        estimated_minutes: 8,
-        status: "published",
-        published_at: "2026-03-01T00:00:00Z",
-        updated_at: "2026-03-02T00:00:00Z",
-        canonical_id: "career-read-1",
-        canonical_url: "https://example.com/read-1",
-      },
-      {
-        id: "read-2",
-        type: "article",
-        title: "关系里的边界感",
-        desc: "继续阅读关系互动中的边界与误读来源。",
-        url: "https://example.com/read-2",
-        cover: null,
-        cta: "继续阅读关系篇",
-        priority: 20,
-        tags: ["关系"],
-        estimated_minutes: 6,
-        status: "published",
-        published_at: "2026-03-03T00:00:00Z",
-        updated_at: "2026-03-04T00:00:00Z",
-        canonical_id: "relationship-read-1",
-        canonical_url: "https://example.com/read-2",
-      },
-    ];
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
@@ -131,9 +88,11 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-mobile-chrome")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("作者化人格标题");
-    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("作者化人格副标题");
-    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("作者化人格一句话");
+    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored overview title");
+    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored overview subtitle");
+    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent(
+      "Legacy authored one-liner remains available for the authored intro card."
+    );
 
     const orderedChapters = [
       screen.getByTestId("mbti-chapter-career"),
@@ -152,34 +111,41 @@ describe("RichResultReport", () => {
 
     const hero = screen.getByTestId("mbti-hero");
     expect(within(hero).getByRole("heading", { name: /ENFP-T/ })).toBeInTheDocument();
-    expect(within(hero).getByText("费马人格档案")).toBeInTheDocument();
-    expect(within(hero).getByText("浪漫热情但易纠结的灵感派")).toBeInTheDocument();
-    expect(within(hero).getByText(/约 6–8%/)).toBeInTheDocument();
-    expect(within(hero).getByText("热情")).toBeInTheDocument();
-    expect(within(hero).getByText("高敏感")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
+    expect(hero).toHaveTextContent("Projection-first subtitle");
+    expect(hero).toHaveTextContent("Projection-first summary that should replace the legacy hero copy on result pages.");
+    expect(hero).toHaveTextContent("Around 6-8%");
+    expect(within(hero).getByText("Projection Tag Alpha")).toBeInTheDocument();
+    expect(within(hero).getByText("Projection Tag Beta")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Spark Navigator");
     expect(screen.queryByText("type:ENFP-T")).not.toBeInTheDocument();
-    expect(screen.queryByText("role:NF")).not.toBeInTheDocument();
     expect(screen.queryByText("axis:EI:E")).not.toBeInTheDocument();
-    expect(screen.queryByText("state:AT:clear")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy hero summary should lose to projection summary.")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy keyword should lose")).not.toBeInTheDocument();
+    expect(screen.queryByText("Legacy rarity should lose")).not.toBeInTheDocument();
 
-    expect(screen.getByText("优势亮点")).toBeInTheDocument();
-    expect(screen.getByText("盲点提醒")).toBeInTheDocument();
-    expect(screen.getByText("行动建议")).toBeInTheDocument();
-    expect(screen.getByText("优势补齐：你更容易把复杂任务拆解成可执行步骤。（ENFP-T）")).toBeInTheDocument();
-    expect(screen.queryByText("generated")).not.toBeInTheDocument();
-    expect(screen.queryByText("selected:blindspot")).not.toBeInTheDocument();
-    expect(screen.queryByText("action")).not.toBeInTheDocument();
+    expect(screen.getByText("Projection-ready highlight")).toBeInTheDocument();
+    expect(screen.getByText("Legacy blindspot")).toBeInTheDocument();
+    expect(screen.getByText("Legacy action")).toBeInTheDocument();
 
     for (const chapter of orderedChapters) {
       expect(within(chapter).queryAllByTestId("mbti-chapter-unlock-card").length).toBeLessThanOrEqual(1);
     }
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
-    expect(screen.queryByText("你的优势：执行推进力")).not.toBeInTheDocument();
-    expect(screen.queryByText("你的成长主线：把强项做成可复用资产")).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("Content pack did not provide enough matched cards. Showing a safe fallback tip.")
-    ).not.toBeInTheDocument();
-    expect(screen.queryByText("Turn strengths into a repeatable template")).not.toBeInTheDocument();
+    expect(screen.getByText("Projection letters intro headline.")).toBeInTheDocument();
+    expect(screen.getByText("Projection overview public copy.")).toBeInTheDocument();
+    expect(screen.getByText("Projection career summary public copy.")).toBeInTheDocument();
+    expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
+    expect(screen.getByText("Projection career weakness one")).toBeInTheDocument();
+    expect(screen.getByText("Roles that reward exploratory leadership.")).toBeInTheDocument();
+    expect(screen.getByText("Projection growth summary public copy.")).toBeInTheDocument();
+    expect(screen.getByText("Projection motivators teaser.")).toBeInTheDocument();
+    expect(screen.getByText("Projection relationships summary public copy.")).toBeInTheDocument();
+    expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
+    expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
 
     expect(screen.getByTestId("mbti-offer-card-full")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offer-card-career")).toBeInTheDocument();
@@ -187,43 +153,37 @@ describe("RichResultReport", () => {
     expect(screen.getAllByText("完整人格报告").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("职业道路模块").length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("关系解读模块").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText("E / I")).toBeInTheDocument();
+    expect(screen.getAllByText("E / I").length).toBeGreaterThan(0);
     expect(screen.getByRole("button", { name: "分享结果" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "重新测试" })).toHaveAttribute(
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types/take"
     );
     const offerComparison = screen.getByTestId("mbti-offer-comparison");
-    expect(within(offerComparison).getByText("统一主 CTA 标题")).toBeInTheDocument();
-    expect(within(offerComparison).getByText("统一主 CTA 副标题")).toBeInTheDocument();
-    expect(within(offerComparison).getByText("正式权益 A")).toBeInTheDocument();
-    expect(within(offerComparison).getByText("正式权益 B")).toBeInTheDocument();
-    expect(within(offerComparison).getByRole("button", { name: "立即查看正式方案" })).toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "立即查看正式方案" })).toHaveAttribute(
+    expect(within(offerComparison).getByText("Unified MBTI unlock plan")).toBeInTheDocument();
+    expect(within(offerComparison).getByText("Use one primary commerce surface and keep the rest as mirrors.")).toBeInTheDocument();
+    expect(within(offerComparison).getByText("Formal entitlement A")).toBeInTheDocument();
+    expect(within(offerComparison).getByText("Formal entitlement B")).toBeInTheDocument();
+    expect(within(offerComparison).getByRole("button", { name: "Unlock the authored MBTI report" })).toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
       "href",
       "#offers"
     );
-    expect(within(screen.getByTestId("mbti-mobile-chrome")).getByRole("link", { name: "立即查看正式方案" })).toHaveAttribute(
+    expect(within(screen.getByTestId("mbti-mobile-chrome")).getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
       "href",
       "#offers"
     );
-    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "立即查看正式方案" })).toHaveAttribute(
+    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
       "href",
       "#offers"
     );
-    expect(within(screen.getByTestId("mbti-sticky-rail")).queryByText("统一主 CTA 副标题")).not.toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-mobile-chrome")).queryByText("统一主 CTA 副标题")).not.toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-footer-cta")).queryByText("统一主 CTA 副标题")).not.toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-sticky-rail")).queryByText("正式权益 A")).not.toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-mobile-chrome")).queryByText("正式权益 A")).not.toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-footer-cta")).queryByText("正式权益 A")).not.toBeInTheDocument();
-    expect(screen.getByText("职业环境对齐")).toBeInTheDocument();
-    expect(screen.getByText("关系里的边界感")).toBeInTheDocument();
-    expect(screen.queryByText("你的人格主轴是先看到人与机会之间尚未被点亮的连接。")).not.toBeInTheDocument();
-    expect(screen.queryByText("Prefers explicit roles and reviewable workflows.")).not.toBeInTheDocument();
-    expect(screen.queryByText("Reliable operator")).not.toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-sticky-rail")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-mobile-chrome")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-footer-cta")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
+    expect(screen.getByText("Legacy recommended read remains visible")).toBeInTheDocument();
+    expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("link", { name: "继续阅读职业篇" }));
+    fireEvent.click(screen.getByRole("link", { name: "Read the authored note" }));
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
       expect.objectContaining({
@@ -265,7 +225,7 @@ describe("RichResultReport", () => {
   });
 
   it("keeps rendering when authored layers are missing", () => {
-    const reportData = createReportFixture();
+    const reportData = createProjectionReportFixture();
     if (reportData.report) {
       reportData.report.layers = undefined;
     }
@@ -277,6 +237,37 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
-    expect(screen.queryByText("你的人格主轴是先看到人与机会之间尚未被点亮的连接。")).not.toBeInTheDocument();
+    expect(screen.getByText("Projection overview public copy.")).toBeInTheDocument();
+  });
+
+  it("leaves non-MBTI branches on the legacy report normalizer", () => {
+    const reportData = {
+      report: {
+        scale_code: "BIG5_OCEAN",
+        sections: [
+          {
+            key: "overview",
+            title: "Big Five overview",
+            access_level: "free",
+            blocks: [
+              {
+                kind: "paragraph",
+                title: "Big Five overview",
+                body: "Legacy Big Five copy remains unchanged.",
+              },
+            ],
+          },
+        ],
+      },
+      meta: {
+        scale_code: "BIG5_OCEAN",
+      },
+    } satisfies ReportResponse;
+
+    render(<RichResultReport locale="en" reportData={reportData} />);
+
+    expect(screen.queryByTestId("mbti-result-shell")).not.toBeInTheDocument();
+    expect(screen.getAllByText("Big Five overview").length).toBeGreaterThan(0);
+    expect(screen.getByText("Legacy Big Five copy remains unchanged.")).toBeInTheDocument();
   });
 });

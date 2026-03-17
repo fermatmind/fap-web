@@ -407,6 +407,7 @@ export type ReportResponse = {
     scale_code_v2?: string;
     scale_uid?: string;
   };
+  mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   [key: string]: unknown;
 };
 

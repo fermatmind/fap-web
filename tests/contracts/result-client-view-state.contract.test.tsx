@@ -4,6 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import ResultClient from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
+import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 import resultReadyMbtiFreeFixture from "@/tests/fixtures/result_ready.mbti.free.json";
 
 type ChildrenProps = {
@@ -13,6 +14,11 @@ type ChildrenProps = {
 type RichResultReportProps = {
   reportData?: {
     summary?: string;
+    mbti_public_projection_v1?: {
+      summary_card?: {
+        summary?: string;
+      };
+    };
     report?: {
       profile?: {
         type_code?: string;
@@ -47,14 +53,23 @@ vi.mock("@/components/design/AnticipationSkeleton", () => ({
 }));
 
 vi.mock("@/components/result/RichResultReport", () => ({
-  canRenderRichResultReport: (report: { summary?: string; report?: { sections?: unknown; profile?: unknown } } | null) =>
-    Boolean(report?.summary || report?.report?.sections || report?.report?.profile),
+  canRenderRichResultReport: (
+    report: {
+      summary?: string;
+      mbti_public_projection_v1?: unknown;
+      report?: { sections?: unknown; profile?: unknown };
+    } | null
+  ) => Boolean(report?.mbti_public_projection_v1 || report?.summary || report?.report?.sections || report?.report?.profile),
   isGeneratingReportResponse: (report: { generating?: boolean } | null) => report?.generating === true,
   resolveReportScaleCode: (report: { report?: { scale_code?: string } } | null) =>
     report?.report?.scale_code === "MBTI" ? "MBTI" : null,
   RichResultReport: ({ reportData }: RichResultReportProps) => (
     <div data-testid="rich-result-report">
-      {reportData?.report?.profile?.short_summary ?? reportData?.summary ?? reportData?.report?.profile?.type_code ?? "rich-report"}
+      {reportData?.mbti_public_projection_v1?.summary_card?.summary
+        ?? reportData?.report?.profile?.short_summary
+        ?? reportData?.summary
+        ?? reportData?.report?.profile?.type_code
+        ?? "rich-report"}
     </div>
   ),
 }));
@@ -131,8 +146,8 @@ describe("ResultClient view-state contract", () => {
     vi.clearAllMocks();
   });
 
-  it("renders the rich report view when the report endpoint is ready", async () => {
-    const reportFixture = cloneFixture(reportReadyMbtiFreeFixture) as ReportResponse;
+  it("keeps the MBTI page on the rich report path when projection is ready even if legacy hero fields are thin", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
     expect(reportFixture.cta).toMatchObject({
       visible: true,
       kind: "upsell",
@@ -143,15 +158,26 @@ describe("ResultClient view-state contract", () => {
     expect(reportFixture.modules_preview).toEqual(["career", "relationships", "core_full"]);
     expect(Array.isArray(reportFixture.report?.recommended_reads)).toBe(true);
     expect(reportFixture.report?.layers?.identity).toMatchObject({
-      title: "竞选者型 · 敏锐版",
-      subtitle: "理想者取向 · 社交更活跃 · 评估更细致",
+      title: "Legacy authored overview title",
+      subtitle: "Legacy authored overview subtitle",
     });
+    reportFixture.summary = undefined;
+    if (reportFixture.report) {
+      reportFixture.report.identity_card = {
+        type_code: "ENFP-T",
+      };
+      reportFixture.report.profile = {
+        type_code: "ENFP-T",
+      };
+    }
     hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toHaveTextContent("你像一团既明亮又敏感的火焰");
+      expect(screen.getByTestId("rich-result-report")).toHaveTextContent(
+        "Projection-first summary that should replace the legacy hero copy on result pages."
+      );
     });
 
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
