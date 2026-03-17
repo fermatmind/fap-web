@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
-import { listPersonalityProfiles } from "@/lib/cms/personality";
+import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
@@ -29,6 +29,21 @@ function shouldKeep(path: string): boolean {
   return shouldIncludeInSitemap(path);
 }
 
+function publishedPersonalityVariantSlugs(value: string): string[] {
+  const defaultSlug = buildDefaultPublicPersonalitySlug(value);
+  if (!defaultSlug) {
+    return [];
+  }
+
+  if (defaultSlug.endsWith("-a")) {
+    const baseSlug = defaultSlug.slice(0, -2);
+
+    return [defaultSlug, `${baseSlug}-t`];
+  }
+
+  return [defaultSlug];
+}
+
 async function listPersonalityEntries() {
   try {
     const [enProfiles, zhProfiles] = await Promise.all([
@@ -39,18 +54,24 @@ async function listPersonalityEntries() {
     return [
       ...enProfiles.items
         .filter((item) => item.isIndexable)
-        .map((item) => ({
-          locale: "en",
-          path: `/en/personality/${item.slug}`,
-          title: item.title || item.typeCode,
-        })),
+        .flatMap((item) =>
+          publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
+            .map((slug) => ({
+              locale: "en",
+              path: `/en/personality/${slug}`,
+              title: `${slug.toUpperCase()} | ${item.title || item.typeCode}`,
+            }))
+        ),
       ...zhProfiles.items
         .filter((item) => item.isIndexable)
-        .map((item) => ({
-          locale: "zh",
-          path: `/zh/personality/${item.slug}`,
-          title: item.title || item.typeCode,
-        })),
+        .flatMap((item) =>
+          publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
+            .map((slug) => ({
+              locale: "zh",
+              path: `/zh/personality/${slug}`,
+              title: `${slug.toUpperCase()} | ${item.title || item.typeCode}`,
+            }))
+        ),
     ].filter((entry) => shouldKeep(entry.path));
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.

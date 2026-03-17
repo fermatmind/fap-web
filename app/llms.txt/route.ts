@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
-import { listPersonalityProfiles } from "@/lib/cms/personality";
+import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
@@ -25,6 +25,21 @@ function dedupePaths(paths: string[]): string[] {
   return [...new Set(paths)].filter((path) => shouldIncludeInSitemap(path));
 }
 
+function publishedPersonalityVariantSlugs(value: string): string[] {
+  const defaultSlug = buildDefaultPublicPersonalitySlug(value);
+  if (!defaultSlug) {
+    return [];
+  }
+
+  if (defaultSlug.endsWith("-a")) {
+    const baseSlug = defaultSlug.slice(0, -2);
+
+    return [defaultSlug, `${baseSlug}-t`];
+  }
+
+  return [defaultSlug];
+}
+
 async function listPersonalityPaths(): Promise<string[]> {
   try {
     const [enProfiles, zhProfiles] = await Promise.all([
@@ -35,10 +50,16 @@ async function listPersonalityPaths(): Promise<string[]> {
     return dedupePaths([
       ...enProfiles.items
         .filter((item) => item.isIndexable)
-        .map((item) => `/en/personality/${String(item.slug ?? "").trim().toLowerCase()}`),
+        .flatMap((item) =>
+          publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
+            .map((slug) => `/en/personality/${slug}`)
+        ),
       ...zhProfiles.items
         .filter((item) => item.isIndexable)
-        .map((item) => `/zh/personality/${String(item.slug ?? "").trim().toLowerCase()}`),
+        .flatMap((item) =>
+          publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
+            .map((slug) => `/zh/personality/${slug}`)
+        ),
     ]);
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.

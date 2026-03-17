@@ -33,6 +33,24 @@ test("legacy slug redirect: /tests alias detail is single-hop 308", async ({ pag
   await expect(page).toHaveURL(/\/en\/tests\/mbti-personality-test-16-personality-types$/);
 });
 
+test("legacy slug redirect: 4-letter personality detail is a single-hop 308 to the default public variant", async ({ page, request }) => {
+  const response = await request.get("/en/personality/intj", { maxRedirects: 0 });
+  expect(response.status()).toBe(308);
+  expect(response.headers().location).toContain("/en/personality/intj-a");
+
+  await page.goto("/en/personality/intj");
+  await expect(page).toHaveURL(/\/en\/personality\/intj-a$/);
+});
+
+test("legacy slug redirect: /types/[code] points straight to the default public variant", async ({ page, request }) => {
+  const response = await request.get("/en/types/intj", { maxRedirects: 0 });
+  expect(response.status()).toBe(308);
+  expect(response.headers().location).toContain("/en/personality/intj-a");
+
+  await page.goto("/en/types/intj");
+  await expect(page).toHaveURL(/\/en\/personality\/intj-a$/);
+});
+
 test("legacy slug redirect: /tests alias take is single-hop 308", async ({ page, request }) => {
   const response = await request.get("/en/tests/sds-20/take", { maxRedirects: 0 });
   expect(response.status()).toBe(308);

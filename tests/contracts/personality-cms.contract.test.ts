@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  buildDefaultPublicPersonalitySlug,
   buildPersonalityFrontendUrl,
   getPersonalityProjectionDetailBySlugOrType,
   getPersonalityProfileBySlugOrType,
@@ -71,6 +72,7 @@ describe("personality cms adapter contract", () => {
     expect(mapFrontendLocaleToPersonalityApiLocale("en")).toBe("en");
     expect(mapFrontendLocaleToPersonalityApiLocale("zh")).toBe("zh-CN");
     expect(normalizePersonalitySlug(" INTJ ")).toBe("intj");
+    expect(buildDefaultPublicPersonalitySlug(" INTJ ")).toBe("intj-a");
     expect(buildPersonalityFrontendUrl("en", "INTJ")).toBe("/en/personality/intj");
     expect(buildPersonalityFrontendUrl("zh", "INTJ")).toBe("/zh/personality/intj");
   });
@@ -323,6 +325,7 @@ describe("personality cms adapter contract", () => {
     expect(detail?.projection.sections[0]?.key).toBe("overview");
     expect(detail?.projection.meta.publicRouteType).toBe("16-type");
     expect(detail?.slug).toBe("intj");
+    expect(detail?.routeSlug).toBe("intj");
     expect(detail?.locale).toBe("en");
     expect(detail?.heroKicker).toBe("The strategist");
     expect(detail?.heroQuote).toBe("See the pattern. Build the system.");
@@ -338,10 +341,10 @@ describe("personality cms adapter contract", () => {
         meta: {
           title: "INTJ Personality Type",
           description: "Explore INTJ traits.",
-          canonical: "https://staging.fermatmind.com/en/personality/intj",
+          canonical: "https://staging.fermatmind.com/en/personality/intj-a",
           alternates: {
-            en: "https://staging.fermatmind.com/en/personality/intj",
-            "zh-CN": "https://staging.fermatmind.com/zh/personality/intj",
+            en: "https://staging.fermatmind.com/en/personality/intj-a",
+            "zh-CN": "https://staging.fermatmind.com/zh/personality/intj-a",
           },
           og: {
             title: "INTJ Personality Type",
@@ -360,19 +363,19 @@ describe("personality cms adapter contract", () => {
         jsonld: {
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          mainEntityOfPage: "https://staging.fermatmind.com/en/personality/intj",
+          mainEntityOfPage: "https://staging.fermatmind.com/en/personality/intj-a",
         },
       },
       BASE_PROFILE,
       "en"
     );
 
-    expect(normalized.meta.canonical).toBe("http://localhost:3000/en/personality/intj");
-    expect(normalized.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
-    expect(normalized.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(normalized.meta.canonical).toBe("http://localhost:3000/en/personality/intj-a");
+    expect(normalized.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj-a");
+    expect(normalized.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj-a");
     expect(
       (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
-    ).toBe("http://localhost:3000/en/personality/intj");
+    ).toBe("http://localhost:3000/en/personality/intj-a");
     expect((normalized.jsonld as Record<string, unknown>)["@type"]).toBe("AboutPage");
   });
 
@@ -391,12 +394,12 @@ describe("personality cms adapter contract", () => {
 
     expect(normalized.meta.title).toBe("INTJ 建筑师");
     expect(normalized.meta.description).toBe("INTJ 倾向于重视系统、能力和长期规划。");
-    expect(normalized.meta.canonical).toBe("http://localhost:3000/zh/personality/intj");
-    expect(normalized.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
-    expect(normalized.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(normalized.meta.canonical).toBe("http://localhost:3000/zh/personality/intj-a");
+    expect(normalized.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj-a");
+    expect(normalized.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj-a");
     expect(
       (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
-    ).toBe("http://localhost:3000/zh/personality/intj");
+    ).toBe("http://localhost:3000/zh/personality/intj-a");
     expect((normalized.jsonld as Record<string, unknown>)["@type"]).toBe("AboutPage");
   });
 
@@ -406,10 +409,10 @@ describe("personality cms adapter contract", () => {
         meta: {
           title: "INTJ Personality Guide",
           description: "Discover INTJ traits.",
-          canonical: "https://staging.fermatmind.com/en/personality/intj",
+          canonical: "https://staging.fermatmind.com/en/personality/intj-a",
           alternates: {
-            en: "https://staging.fermatmind.com/en/personality/intj",
-            "zh-CN": "https://staging.fermatmind.com/zh/personality/intj",
+            en: "https://staging.fermatmind.com/en/personality/intj-a",
+            "zh-CN": "https://staging.fermatmind.com/zh/personality/intj-a",
           },
           og: {
             title: "INTJ Personality Guide",
@@ -428,9 +431,9 @@ describe("personality cms adapter contract", () => {
         jsonld: {
           "@context": "https://schema.org",
           "@type": "Person",
-          "@id": "https://staging.fermatmind.com/en/personality/intj#person",
-          url: "https://staging.fermatmind.com/en/personality/intj",
-          mainEntityOfPage: "https://staging.fermatmind.com/en/personality/intj",
+          "@id": "https://staging.fermatmind.com/en/personality/intj-a#person",
+          url: "https://staging.fermatmind.com/en/personality/intj-a",
+          mainEntityOfPage: "https://staging.fermatmind.com/en/personality/intj-a",
         },
       },
       BASE_PROFILE,
@@ -440,7 +443,7 @@ describe("personality cms adapter contract", () => {
     expect((normalized.jsonld as Record<string, unknown>)["@type"]).toBe("AboutPage");
     expect(
       (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
-    ).toBe("http://localhost:3000/en/personality/intj");
+    ).toBe("http://localhost:3000/en/personality/intj-a");
   });
 
   it("extracts FAQ items from cms faq sections for FAQ schema parity", () => {
@@ -472,14 +475,15 @@ describe("personality cms adapter contract", () => {
     ]);
   });
 
-  it("personality detail page keeps locale-stable canonical/hreflang wiring and faq schema hooks", () => {
+  it("personality detail page redirects legacy 4-letter routes while keeping cms seo wiring and faq schema hooks", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
     expect(source).toContain("alternatesByLocale");
+    expect(source).toContain("redirectLegacyBaseRouteIfNeeded");
     expect(source).toContain("getPersonalityProjectionDetailBySlugOrType");
-    expect(source).toContain('en: buildPersonalityFrontendUrl("en", profile.slug)');
-    expect(source).toContain('zh: buildPersonalityFrontendUrl("zh", profile.slug)');
-    expect(source).toContain("detail.canonicalTypeCode");
+    expect(source).toContain('en: normalizedSeo.meta.alternates.en ?? buildPersonalityFrontendUrl("en", detail.routeSlug)');
+    expect(source).toContain('zh: normalizedSeo.meta.alternates["zh-CN"] ?? buildPersonalityFrontendUrl("zh", detail.routeSlug)');
+    expect(source).toContain("detail.displayType");
     expect(source).toContain("extractPersonalityFaqItems");
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildWebPageJsonLd");

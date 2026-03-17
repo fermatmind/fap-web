@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   buildPersonalityFrontendUrl,
-  getPersonalityProfileBySlugOrType,
+  buildDefaultPublicPersonalitySlug,
   getPersonalityProjectionDetailBySlugOrType,
   getPersonalitySeoBySlugOrType,
+  isCanonicalPersonalityBaseSlug,
   normalizePersonalitySeoPayload,
 } from "@/lib/cms/personality";
 import { extractPersonalityFaqItems, renderPersonalitySections, renderProjectionSections } from "@/lib/cms/personality-sections";
@@ -40,6 +41,27 @@ function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildPersonalityFrontendUrl(locale, slug);
 }
 
+function redirectLegacyBaseRouteIfNeeded(type: string, locale: Locale): void {
+  if (!isCanonicalPersonalityBaseSlug(type)) {
+    return;
+  }
+
+  permanentRedirect(buildPersonalityFrontendUrl(locale, buildDefaultPublicPersonalitySlug(type)));
+}
+
+function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) {
+    return fallbackPath;
+  }
+
+  try {
+    return new URL(normalized).pathname || fallbackPath;
+  } catch {
+    return normalized.startsWith("/") ? normalized : fallbackPath;
+  }
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -47,18 +69,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
-  const [profile, seo] = await Promise.all([
-    getPersonalityProfileBySlugOrType(type, locale),
+  redirectLegacyBaseRouteIfNeeded(type, locale);
+
+  const [detail, seo] = await Promise.all([
+    getPersonalityProjectionDetailBySlugOrType(type, locale),
     getPersonalitySeoBySlugOrType(type, locale),
   ]);
 
-  if (!profile) {
+  if (!detail) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  const canonicalPath = buildCanonicalPath(profile.slug, locale);
-  const normalizedSeo = normalizePersonalitySeoPayload(seo, profile, locale);
-  const noindex = !profile.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
+  const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
+  const canonicalPath = pathFromCanonicalUrl(
+    normalizedSeo.meta.canonical,
+    buildCanonicalPath(detail.routeSlug, locale)
+  );
+  const noindex = !detail.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
   const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
@@ -67,8 +94,8 @@ export async function generateMetadata({
     imagePath: normalizedSeo.meta.og.image ?? undefined,
     noindex,
     alternatesByLocale: {
-      en: buildPersonalityFrontendUrl("en", profile.slug),
-      zh: buildPersonalityFrontendUrl("zh", profile.slug),
+      en: normalizedSeo.meta.alternates.en ?? buildPersonalityFrontendUrl("en", detail.routeSlug),
+      zh: normalizedSeo.meta.alternates["zh-CN"] ?? buildPersonalityFrontendUrl("zh", detail.routeSlug),
       xDefault: "/",
     },
   });
@@ -77,11 +104,11 @@ export async function generateMetadata({
     ...metadata,
     alternates: {
       ...metadata.alternates,
-      canonical: canonicalUrl(canonicalPath),
+      canonical: normalizedSeo.meta.canonical ?? canonicalUrl(canonicalPath),
     },
     openGraph: {
       type: "article",
-      url: canonicalUrl(canonicalPath),
+      url: normalizedSeo.meta.canonical ?? canonicalUrl(canonicalPath),
       title: normalizedSeo.meta.og.title,
       description: normalizedSeo.meta.og.description,
       images: normalizedSeo.meta.og.image ? [normalizedSeo.meta.og.image] : undefined,
@@ -103,6 +130,7 @@ export default async function PersonalityDetailPage({
 }) {
   const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
+  redirectLegacyBaseRouteIfNeeded(type, locale);
   const [detail, seo] = await Promise.all([
     getPersonalityProjectionDetailBySlugOrType(type, locale),
     getPersonalitySeoBySlugOrType(type, locale),
@@ -113,7 +141,10 @@ export default async function PersonalityDetailPage({
   }
 
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
-  const canonicalPath = buildCanonicalPath(detail.slug, locale);
+  const canonicalPath = pathFromCanonicalUrl(
+    normalizedSeo.meta.canonical,
+    buildCanonicalPath(detail.routeSlug, locale)
+  );
   const faqItems = extractPersonalityFaqItems(detail.faqSections);
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -124,7 +155,7 @@ export default async function PersonalityDetailPage({
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
-    { name: detail.canonicalTypeCode, path: canonicalPath },
+    { name: detail.displayType, path: canonicalPath },
   ]);
   const renderedProjectionSections = renderProjectionSections(detail.projection.sections, locale);
   const renderedSupplementalSections = renderPersonalitySections(
@@ -143,7 +174,7 @@ export default async function PersonalityDetailPage({
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
           { label: locale === "zh" ? "人格" : "Personality", href: localizedPath("/personality", locale) },
-          { label: detail.canonicalTypeCode },
+          { label: detail.displayType },
         ]}
       />
 
@@ -152,7 +183,7 @@ export default async function PersonalityDetailPage({
         className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       >
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {detail.canonicalTypeCode}
+          {detail.displayType}
         </p>
         {detail.heroKicker ? <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{detail.heroKicker}</p> : null}
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{detail.title}</h1>
@@ -235,12 +266,12 @@ export default async function PersonalityDetailPage({
               <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
                 <p className="m-0">
                   <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Type" : "Type"}:</span>{" "}
-                  {detail.canonicalTypeCode}
+                  {detail.displayType}
                 </p>
                 {detail.displayType !== detail.canonicalTypeCode ? (
                   <p className="m-0">
-                    <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Display" : "Display"}:</span>{" "}
-                    {detail.displayType}
+                    <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Base type" : "Base type"}:</span>{" "}
+                    {detail.canonicalTypeCode}
                   </p>
                 ) : null}
                 <p className="m-0">
@@ -249,7 +280,7 @@ export default async function PersonalityDetailPage({
                 </p>
                 <p className="m-0">
                   <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Planned URL" : "Planned URL"}:</span>{" "}
-                  {canonicalUrl(canonicalPath)}
+                  {normalizedSeo.meta.canonical ?? canonicalUrl(canonicalPath)}
                 </p>
               <p className="m-0">
                 <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Indexing" : "Indexing"}:</span>{" "}

@@ -34,6 +34,8 @@ test("llms endpoints are reachable", async ({ request }) => {
   expect(shortBody).toContain("FermatMind");
   expect(shortBody).toContain("Sitemap:");
   expect(shortBody).toContain("/en/personality");
+  expect(shortBody).toContain("/en/personality/intj-a");
+  expect(shortBody).toContain("/en/personality/intj-t");
   expect(shortBody).toContain("/en/help/faq");
   expect(shortBody).not.toContain("/compare/");
 
@@ -42,6 +44,8 @@ test("llms endpoints are reachable", async ({ request }) => {
   const fullBody = await fullRes.text();
   expect(fullBody).toContain("Citation Policy");
   expect(fullBody).toContain("## Personality");
+  expect(fullBody).toContain("/en/personality/intj-a");
+  expect(fullBody).toContain("/zh/personality/intj-t");
   expect(fullBody).toContain("## Help");
 });
 

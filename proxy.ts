@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { LOCALE_COOKIE_NAME, resolvePreferredLocale } from "@/lib/i18n/localeNegotiation";
 import { localizedPath, stripLocalePrefix } from "@/lib/i18n/locales";
 import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
@@ -46,7 +47,9 @@ function resolveTypesRedirectPath(pathname: string, fallbackLocale: "en" | "zh")
 
   const locale = getLocaleFromPathname(pathname) ?? fallbackLocale;
   const rawCode = String(match[1] ?? "").trim();
-  const targetPath = MBTI_TYPE_RE.test(rawCode) ? `/personality/${rawCode.toLowerCase()}` : "/personality";
+  const targetPath = MBTI_TYPE_RE.test(rawCode)
+    ? `/personality/${buildDefaultPublicPersonalitySlug(rawCode)}`
+    : "/personality";
 
   return localizedPath(targetPath, locale);
 }
