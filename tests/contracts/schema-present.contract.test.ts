@@ -105,6 +105,10 @@ describe("schema injection contract", () => {
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("buildItemListJsonLd");
     expect(source).toContain("buildFAQPageJsonLd");
+    expect(source).toContain("getMbtiCareerRecommendationByType");
+    expect(source).toContain("permanentRedirect");
+    expect(source).not.toContain("getMbtiRecommendation");
+    expect(source).not.toContain("getCareerJobBySlug");
     expect(source).toContain('id="faq"');
   });
 

@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import {
@@ -16,6 +18,12 @@ function jsonResponse(payload: unknown, status = 200): Response {
       "Content-Type": "application/json",
     },
   });
+}
+
+const ROOT = process.cwd();
+
+function read(relPath: string): string {
+  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
 }
 
 afterEach(() => {
@@ -300,5 +308,17 @@ describe("career alias route contract", () => {
     expect(guideLookup).toHaveBeenCalledWith("product-manager", "en");
     expect(industryLookup).not.toHaveBeenCalled();
     expect(permanentRedirect).toHaveBeenCalledWith("/en/career/guides/product-manager");
+  });
+});
+
+describe("career jobs page authority contract", () => {
+  it("keeps jobs list and detail pages on the career-jobs cms adapter instead of the recommendation authority adapter", () => {
+    const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
+    const detailSource = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
+
+    expect(listSource).toContain("listCareerJobsFromCms");
+    expect(detailSource).toContain("getCareerJobFromCmsBySlug");
+    expect(listSource).not.toContain("career-recommendations");
+    expect(detailSource).not.toContain("career-recommendations");
   });
 });

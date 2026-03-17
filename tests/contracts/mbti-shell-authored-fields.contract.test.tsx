@@ -73,7 +73,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("Projection career summary public copy.");
     expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
       "href",
-      "/zh/career/recommendations/mbti/enfp"
+      "/zh/career/recommendations/mbti/enfp-t"
     );
     expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
     expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();

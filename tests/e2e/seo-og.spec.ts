@@ -4,7 +4,7 @@ test("public seo pages keep canonical and og metadata without private noindex po
   for (const pathname of [
     "/en/topics",
     "/en/help/faq",
-    "/en/career/recommendations/mbti/INTJ",
+    "/en/career/recommendations/mbti/intj-a",
     "/en/personality/intj-a",
   ]) {
     const response = await request.get(pathname);

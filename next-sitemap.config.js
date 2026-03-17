@@ -33,6 +33,7 @@ const NON_PAGE_ROUTE_EXCLUDES = [
 ];
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
+const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
 
 function normalizeSlug(value) {
   return String(value || "").trim();
@@ -113,13 +114,6 @@ function buildCareerPaths() {
     const key = normalizeSlug(item?.key);
     if (!profileType || !key) continue;
 
-    if (profileType === "mbti") {
-      const normalizedType = key.toUpperCase();
-      paths.add(`/en/career/recommendations/mbti/${normalizedType}`);
-      paths.add(`/zh/career/recommendations/mbti/${normalizedType}`);
-      continue;
-    }
-
     if (profileType === "big5") {
       const trait = key.toLowerCase();
       paths.add(`/en/career/recommendations/big5/${trait}`);
@@ -155,6 +149,68 @@ const generatedPaths = [
   ]),
 ];
 
+function buildApiUrl(path) {
+  const normalized = String(path || "").startsWith("/") ? String(path) : `/${String(path || "")}`;
+  if (/^https?:\/\//i.test(normalized)) {
+    return normalized;
+  }
+
+  if (normalized.startsWith("/api/")) {
+    return `${apiOrigin}${normalized}`;
+  }
+
+  return `${apiOrigin}/api${normalized}`;
+}
+
+async function fetchJsonWithTimeout(url, timeoutMs = 1500) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Accept: "application/json",
+      },
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}: ${response.status}`);
+    }
+
+    return await response.json();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function buildCareerRecommendationPaths() {
+  try {
+    const [enPayload, zhPayload] = await Promise.all([
+      fetchJsonWithTimeout(buildApiUrl("/v0.5/career-recommendations/mbti?locale=en&org_id=0")),
+      fetchJsonWithTimeout(buildApiUrl("/v0.5/career-recommendations/mbti?locale=zh-CN&org_id=0")),
+    ]);
+    const paths = new Set();
+
+    for (const [localePrefix, payload] of [
+      ["en", enPayload],
+      ["zh", zhPayload],
+    ]) {
+      const items = Array.isArray(payload?.items) ? payload.items : [];
+
+      for (const item of items) {
+        const slug = normalizeSlug(item?.public_route_slug).toLowerCase();
+        if (!slug) continue;
+        paths.add(`/${localePrefix}/career/recommendations/mbti/${slug}`);
+      }
+    }
+
+    return [...paths];
+  } catch {
+    return [];
+  }
+}
+
 module.exports = {
   siteUrl,
   generateRobotsTxt: false,
@@ -171,13 +227,16 @@ module.exports = {
       lastmod: new Date().toISOString(),
     };
   },
-  additionalPaths: async () =>
-    generatedPaths
+  additionalPaths: async () => {
+    const careerRecommendationPaths = await buildCareerRecommendationPaths();
+
+    return [...new Set([...generatedPaths, ...careerRecommendationPaths])]
       .map((path) => normalizePath(path))
       .filter((path) => shouldIncludeInSitemap(path))
       .map((loc) => ({
         loc,
         changefreq: "weekly",
         priority: loc === "/" ? 1.0 : 0.7,
-      })),
+      }));
+  },
 };

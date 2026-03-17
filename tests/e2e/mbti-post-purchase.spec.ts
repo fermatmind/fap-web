@@ -161,7 +161,7 @@ test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page
   await expect(page.getByTestId("mbti-hero")).toContainText("Projection-first summary that should replace the legacy hero copy on result pages.");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",
-    "/en/career/recommendations/mbti/enfp"
+    "/en/career/recommendations/mbti/enfp-t"
   );
   await expect(terminalSurface.getByRole("button", { name: "Download PDF" })).toBeVisible();
   await expect(terminalSurface.getByRole("link", { name: "My MBTI reports" })).toHaveAttribute("href", "/en/history/mbti");
@@ -182,7 +182,7 @@ test("MBTI result pages keep post-purchase retention and history re-entry", asyn
   await expect(terminalSurface).toBeVisible();
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",
-    "/en/career/recommendations/mbti/enfp"
+    "/en/career/recommendations/mbti/enfp-t"
   );
   await expect(terminalSurface.getByRole("button", { name: "Download PDF" })).toBeVisible();
   await expect(terminalSurface.getByRole("link", { name: "My MBTI reports" })).toHaveAttribute("href", "/en/history/mbti");

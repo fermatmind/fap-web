@@ -294,7 +294,7 @@ export function MbtiResultShell({
     projectionViewModel?.sections.find((section) => section.key === "career.summary") ?? null;
   const careerRecommendationHref = buildMbtiCareerRecommendationHref(
     locale,
-    projectionViewModel?.canonicalTypeCode
+    projectionViewModel?.displayType
   );
   const careerSummaryLead = normalizeText(careerSummarySection?.bodyMd);
   const careerNextStepBody = careerSummaryLead
@@ -677,8 +677,8 @@ export function MbtiResultShell({
                 <div className="space-y-2">
                   <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
                     {locale === "zh"
-                      ? `继续查看 ${projectionViewModel?.canonicalTypeCode} 的职业推荐`
-                      : `Continue with ${projectionViewModel?.canonicalTypeCode} career recommendations`}
+                      ? `继续查看 ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} 的职业推荐`
+                      : `Continue with ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} career recommendations`}
                   </h2>
                   <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
                     {careerNextStepBody}
