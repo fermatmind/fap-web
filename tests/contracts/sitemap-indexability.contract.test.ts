@@ -22,6 +22,7 @@ describe("sitemap indexability contract", () => {
       ])
     );
     expect(locs.some((loc: string) => /^\/(en|zh)\/personality(?:\/|$)/.test(loc))).toBe(false);
+    expect(locs.some((loc: string) => /^\/(en|zh)\/personality\/[a-z]{4}-[at](?:\/|$)/.test(loc))).toBe(false);
     expect(locs.some((loc: string) => /^\/(en|zh)\/articles(?:\/|$)/.test(loc))).toBe(false);
     expect(locs.some((loc: string) => /^\/(en|zh)\/career\/guides(?:\/|$)/.test(loc))).toBe(false);
   });

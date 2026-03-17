@@ -321,6 +321,7 @@ describe("personality cms adapter contract", () => {
     expect(detail?.heroSummary).toBe("Projection hero summary.");
     expect(detail?.projection.sections).toHaveLength(2);
     expect(detail?.projection.sections[0]?.key).toBe("overview");
+    expect(detail?.projection.meta.publicRouteType).toBe("16-type");
     expect(detail?.slug).toBe("intj");
     expect(detail?.locale).toBe("en");
     expect(detail?.heroKicker).toBe("The strategist");
@@ -478,6 +479,7 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("getPersonalityProjectionDetailBySlugOrType");
     expect(source).toContain('en: buildPersonalityFrontendUrl("en", profile.slug)');
     expect(source).toContain('zh: buildPersonalityFrontendUrl("zh", profile.slug)');
+    expect(source).toContain("detail.canonicalTypeCode");
     expect(source).toContain("extractPersonalityFaqItems");
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildWebPageJsonLd");

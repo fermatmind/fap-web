@@ -5,6 +5,7 @@ test("public seo pages keep canonical and og metadata without private noindex po
     "/en/topics",
     "/en/help/faq",
     "/en/career/recommendations/mbti/INTJ",
+    "/en/personality/intj",
   ]) {
     const response = await request.get(pathname);
     expect(response.ok(), pathname).toBeTruthy();

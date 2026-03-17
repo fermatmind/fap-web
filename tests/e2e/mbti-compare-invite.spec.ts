@@ -3,12 +3,14 @@ import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 function createSummaryFixture({
   shareId,
-  typeCode,
+  canonicalTypeCode,
+  displayType,
   typeName,
   subtitle,
 }: {
   shareId: string;
-  typeCode: string;
+  canonicalTypeCode: string;
+  displayType: string;
   typeName: string;
   subtitle: string;
 }) {
@@ -38,9 +40,10 @@ function createSummaryFixture({
       title: "Legacy public summary should be ignored",
     },
     mbti_public_projection_v1: {
-      canonical_type_code: typeCode,
-      display_type: typeCode,
-      variant_code: typeCode,
+      canonical_type_code: canonicalTypeCode,
+      display_type: displayType,
+      runtime_type_code: displayType,
+      variant_code: displayType.split("-")[1] ?? null,
       profile: {
         type_name: typeName,
         rarity: {
@@ -73,7 +76,8 @@ function createCompareFixture(status: "pending" | "ready" | "purchased", inviteI
     status,
     inviter: createSummaryFixture({
       shareId: "share-123",
-      typeCode: "ENFP-T",
+      canonicalTypeCode: "ENFP",
+      displayType: "ENFP-T",
       typeName: "Campaigner",
       subtitle: "Warm and imaginative",
     }),
@@ -81,7 +85,8 @@ function createCompareFixture(status: "pending" | "ready" | "purchased", inviteI
       ? null
       : createSummaryFixture({
           shareId: "share-123",
-          typeCode: "INFJ-A",
+          canonicalTypeCode: "INFJ",
+          displayType: "INFJ-A",
           typeName: "Advocate",
           subtitle: "Quietly focused and structured",
         }),
@@ -135,6 +140,7 @@ test("pending compare page renders inviter summary and CTA only", async ({ page 
   await expect(page.getByTestId("mbti-compare-invite-view")).toBeVisible();
   await expect(page.getByTestId("mbti-compare-status-badge")).toHaveText("Waiting for invitee");
   await expect(page.getByTestId("mbti-compare-inviter-card")).toContainText("Campaigner");
+  await expect(page.getByTestId("mbti-compare-inviter-card")).toContainText("ENFP-T");
   await expect(page.getByText("Legacy type should be ignored")).toHaveCount(0);
   await expect(page.getByTestId("mbti-compare-invitee-card")).toHaveCount(0);
   await expect(page.getByTestId("mbti-compare-summary-card")).toHaveCount(0);
@@ -160,7 +166,9 @@ test("ready and purchased compare pages render public-safe compare data without 
 
   await expect(page.getByTestId("mbti-compare-status-badge")).toHaveText("Compare ready");
   await expect(page.getByTestId("mbti-compare-inviter-card")).toContainText("Campaigner");
+  await expect(page.getByTestId("mbti-compare-inviter-card")).toContainText("ENFP-T");
   await expect(page.getByTestId("mbti-compare-invitee-card")).toContainText("Advocate");
+  await expect(page.getByTestId("mbti-compare-invitee-card")).toContainText("INFJ-A");
   await expect(page.getByTestId("mbti-compare-summary-card")).toContainText("Shared chemistry and friction points");
   await expect(page.getByText("Energy", { exact: true })).toBeVisible();
   await expect(page.getByText("Decision style", { exact: true })).toBeVisible();

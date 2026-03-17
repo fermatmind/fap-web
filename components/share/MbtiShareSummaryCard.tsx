@@ -9,8 +9,8 @@ import { Progress } from "@/components/ui/progress";
 
 function resolveHeading(card: MbtiPublicProjectionCardViewModel | null, locale: Locale): string {
   return (
-    card?.canonicalTypeCode
-    || card?.displayType
+    card?.displayType
+    || card?.canonicalTypeCode
     || card?.title
     || card?.typeName
     || (locale === "zh" ? "MBTI 分享摘要" : "MBTI shared summary")
