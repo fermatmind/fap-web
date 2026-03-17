@@ -133,9 +133,10 @@ function createShareFixture(): ShareSummaryResponse {
 
 function createProjectionFixture(): MbtiPublicProjectionV1Raw {
   return {
-    canonical_type_code: "ENFP-T",
+    canonical_type_code: "ENFP",
     display_type: "ENFP-T",
-    variant_code: "ENFP-T",
+    runtime_type_code: "ENFP-T",
+    variant_code: "T",
     profile: {
       type_name: "Campaigner",
       rarity: {
@@ -208,6 +209,7 @@ describe("MBTI share consumer contract", () => {
     });
 
     expect(screen.getByRole("heading", { name: "ENFP-T" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "ENFP" })).not.toBeInTheDocument();
     expect(screen.getByText("Campaigner")).toBeInTheDocument();
     expect(screen.getByText("Warm, imaginative, and emotionally alert")).toBeInTheDocument();
     expect(screen.getByText("This public MBTI share page keeps only the lightweight result summary and never exposes paid content.")).toBeInTheDocument();
@@ -364,6 +366,7 @@ describe("MBTI share consumer contract", () => {
     const html = renderToStaticMarkup(renderShareOgImage(buildSharePageViewModel(createShareFixture())));
 
     expect(html).toContain("ENFP-T");
+    expect(html).not.toContain(">ENFP<");
     expect(html).toContain("Campaigner");
     expect(html).toContain("This public MBTI share page keeps only the lightweight result summary and never exposes paid content.");
     expect(html).not.toContain("Legacy title should be ignored");
@@ -371,7 +374,7 @@ describe("MBTI share consumer contract", () => {
     expect(html).not.toContain("Legacy tag should be ignored");
   });
 
-  it("falls back from summary to subtitle to tagline and uses projection title when type_name is missing", async () => {
+  it("falls back from summary to subtitle to tagline while keeping runtime display as the primary share identity", async () => {
     hoisted.getShareSummary.mockResolvedValueOnce({
       ...createShareFixture(),
       mbti_public_projection_v1: {
@@ -395,7 +398,7 @@ describe("MBTI share consumer contract", () => {
       }),
     });
 
-    expect(subtitleMetadata.title).toBe("Explorer Snapshot｜FermatMind");
+    expect(subtitleMetadata.title).toBe("ENFP-T｜FermatMind");
     expect(subtitleMetadata.description).toBe("Subtitle fallback copy");
 
     hoisted.getShareSummary.mockResolvedValueOnce({

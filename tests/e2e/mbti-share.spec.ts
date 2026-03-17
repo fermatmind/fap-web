@@ -49,9 +49,10 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
       title: "Legacy public summary should be ignored",
     },
     mbti_public_projection_v1: {
-      canonical_type_code: "ENFP-T",
+      canonical_type_code: "ENFP",
       display_type: "ENFP-T",
-      variant_code: "ENFP-T",
+      runtime_type_code: "ENFP-T",
+      variant_code: "T",
       profile: {
         type_name: "Campaigner",
         rarity: {
@@ -239,6 +240,7 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   });
   await expect(page.getByTestId("mbti-share-summary-card")).toBeVisible();
   await expect(page.getByRole("heading", { name: "ENFP-T" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /^ENFP$/ })).toHaveCount(0);
   await expect(page.getByText("Campaigner")).toBeVisible();
   await expect(page.getByRole("button", { name: "Invite a friend to compare" })).toBeVisible();
   await expect(page.getByText("Legacy name should be ignored")).toHaveCount(0);

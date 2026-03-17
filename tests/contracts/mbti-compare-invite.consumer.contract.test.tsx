@@ -29,12 +29,14 @@ vi.mock("@/lib/api/v0_3", async () => {
 
 function createSummaryFixture({
   shareId,
-  typeCode,
+  canonicalTypeCode,
+  displayType,
   typeName,
   subtitle,
 }: {
   shareId: string;
-  typeCode: string;
+  canonicalTypeCode: string;
+  displayType: string;
   typeName: string;
   subtitle: string;
 }): MbtiCompareParticipantRaw {
@@ -62,9 +64,10 @@ function createSummaryFixture({
       title: "Legacy public summary should be ignored",
     },
     mbti_public_projection_v1: {
-      canonical_type_code: typeCode,
-      display_type: typeCode,
-      variant_code: typeCode,
+      canonical_type_code: canonicalTypeCode,
+      display_type: displayType,
+      runtime_type_code: displayType,
+      variant_code: displayType.split("-")[1] ?? null,
       profile: {
         type_name: typeName,
         rarity: {
@@ -98,7 +101,8 @@ function createPendingFixture(): MbtiCompareInviteResponse {
     status: "pending",
     inviter: createSummaryFixture({
       shareId: "share-123",
-      typeCode: "ENFP-T",
+      canonicalTypeCode: "ENFP",
+      displayType: "ENFP-T",
       typeName: "Campaigner",
       subtitle: "Warm and imaginative",
     }),
@@ -113,7 +117,8 @@ function createReadyFixture(status: "ready" | "purchased"): MbtiCompareInviteRes
     status,
     invitee: createSummaryFixture({
       shareId: "share-123",
-      typeCode: "INFJ-A",
+      canonicalTypeCode: "INFJ",
+      displayType: "INFJ-A",
       typeName: "Advocate",
       subtitle: "Quietly focused and structured",
     }),
@@ -170,6 +175,7 @@ describe("MBTI compare invite consumer contract", () => {
 
     expect(screen.getByTestId("mbti-compare-status-badge")).toHaveTextContent("Waiting for invitee");
     expect(screen.getByTestId("mbti-compare-inviter-card")).toHaveTextContent("Campaigner");
+    expect(screen.getByTestId("mbti-compare-inviter-card")).toHaveTextContent("ENFP-T");
     expect(screen.queryByTestId("mbti-compare-invitee-card")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-compare-summary-card")).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Take the MBTI test" })).toHaveAttribute(
@@ -189,7 +195,9 @@ describe("MBTI compare invite consumer contract", () => {
 
     expect(screen.getByTestId("mbti-compare-status-badge")).toHaveTextContent("Compare ready");
     expect(screen.getByTestId("mbti-compare-inviter-card")).toHaveTextContent("Campaigner");
+    expect(screen.getByTestId("mbti-compare-inviter-card")).toHaveTextContent("ENFP-T");
     expect(screen.getByTestId("mbti-compare-invitee-card")).toHaveTextContent("Advocate");
+    expect(screen.getByTestId("mbti-compare-invitee-card")).toHaveTextContent("INFJ-A");
     expect(screen.getByTestId("mbti-compare-summary-card")).toHaveTextContent("Shared chemistry and friction points");
     expect(screen.getByTestId("mbti-compare-summary-card")).toHaveTextContent("Shared axes");
     expect(screen.getByTestId("mbti-compare-summary-card")).toHaveTextContent("Diverging axes");
@@ -283,6 +291,7 @@ describe("MBTI compare invite consumer contract", () => {
     const html = renderToStaticMarkup(renderCompareOgImage(buildCompareInviteViewModel(createReadyFixture("ready"))));
 
     expect(html).toContain("ENFP-T × INFJ-A");
+    expect(html).not.toContain("ENFP × INFJ");
     expect(html).toContain("Shared chemistry and friction points");
     expect(html).toContain("Both profiles align on idealism, but differ on how quickly they externalize judgment.");
     expect(html).not.toContain("Legacy summary should be ignored");

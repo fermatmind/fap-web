@@ -32,7 +32,7 @@ function resolveParticipantLabel(
   fallback: string
 ): CompareProfileView {
   return {
-    typeCode: card?.canonicalTypeCode || card?.displayType || fallback,
+    typeCode: card?.displayType || card?.canonicalTypeCode || fallback,
     typeName: card?.typeName || card?.title || card?.displayType || fallback,
   };
 }
@@ -70,8 +70,8 @@ export function buildCompareMetadataCopy(viewModel?: MbtiCompareInviteViewModel 
   }
 
   const isReady = viewModel.status === "ready" || viewModel.status === "purchased";
-  const inviterCode = viewModel.inviterCard?.canonicalTypeCode || viewModel.inviterCard?.displayType;
-  const inviteeCode = viewModel.inviteeCard?.canonicalTypeCode || viewModel.inviteeCard?.displayType;
+  const inviterCode = viewModel.inviterCard?.displayType || viewModel.inviterCard?.canonicalTypeCode;
+  const inviteeCode = viewModel.inviteeCard?.displayType || viewModel.inviteeCard?.canonicalTypeCode;
   const description = viewModel.compareSummary?.summary || "查看 MBTI 对比邀请";
 
   if (!isReady) {

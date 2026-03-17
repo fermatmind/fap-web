@@ -29,7 +29,7 @@ function buildShareOgView(viewModel?: MbtiSharePageViewModel | null): ShareOgVie
   const card = viewModel?.card;
 
   return {
-    typeCode: card?.canonicalTypeCode || card?.displayType || "FermatMind MBTI",
+    typeCode: card?.displayType || card?.canonicalTypeCode || "FermatMind MBTI",
     typeName: card?.typeName || card?.title || card?.displayType || "人格类型分享",
     subtitle: card?.subtitle || card?.tagline || "公开可分享的人格类型摘要",
     narrative: truncateText(
@@ -67,11 +67,11 @@ export function buildShareMetadataCopy(viewModel?: MbtiSharePageViewModel | null
   description: string;
 } {
   const card = viewModel?.card;
-  const fallbackTitle = card?.title || card?.displayType || card?.canonicalTypeCode || card?.typeName || "MBTI 分享摘要";
+  const fallbackTitle = card?.displayType || card?.title || card?.canonicalTypeCode || card?.typeName || "MBTI 分享摘要";
 
   return {
-    title: card?.canonicalTypeCode && card.typeName
-      ? `${card.canonicalTypeCode} · ${card.typeName}｜FermatMind`
+    title: card?.displayType && card.typeName
+      ? `${card.displayType} · ${card.typeName}｜FermatMind`
       : `${fallbackTitle}｜FermatMind`,
     description: card?.summary || card?.subtitle || card?.tagline || "查看人格类型分享",
   };
