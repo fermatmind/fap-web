@@ -133,8 +133,8 @@ describe("MBTI post-purchase retention contract", () => {
     const footer = screen.getByTestId("mbti-footer-cta");
 
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
-    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
-    expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
-    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
+    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
   });
 });

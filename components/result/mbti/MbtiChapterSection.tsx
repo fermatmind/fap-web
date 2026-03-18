@@ -653,7 +653,7 @@ export function MbtiChapterSection({
           <CardContent className="flex flex-col gap-4 p-5 md:flex-row md:items-end md:justify-between">
             <div className="space-y-2">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                {locale === "zh" ? "解锁本章" : "Unlock this chapter"}
+                {locale === "zh" ? "解锁完整报告" : "Unlock full report"}
               </p>
               <p className="m-0 text-lg font-semibold text-slate-900">
                 {unlock?.offer?.title ?? (locale === "zh" ? "查看完整报告解锁方案" : "View the matching unlock options")}
@@ -676,8 +676,8 @@ export function MbtiChapterSection({
 
             <div className="flex min-w-fit flex-col items-start gap-3 md:items-end">
               {unlock?.offer?.price ? <p className="m-0 text-2xl font-bold tracking-tight text-slate-950">{unlock.offer.price}</p> : null}
-              <a href="#offers" className={buttonVariants({ variant: "outline" })}>
-                {locale === "zh" ? "查看解锁方案" : "View unlock options"}
+              <a href="#offer-full" className={buttonVariants({ variant: "outline" })}>
+                {locale === "zh" ? "解锁完整报告" : "Unlock full report"}
               </a>
             </div>
           </CardContent>

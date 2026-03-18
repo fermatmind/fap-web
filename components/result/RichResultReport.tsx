@@ -185,6 +185,8 @@ const OFFER_COPY: Record<
   },
 };
 
+const MBTI_FULL_OFFER_KEYS = ["MBTI_REPORT_FULL", "MBTI_REPORT_FULL_199", "REPORT_FULL"] as const;
+
 const LOCKED_SECTION_COPY: Record<
   string,
   {
@@ -762,6 +764,26 @@ function resolveOfferKey(offer: OfferPayload): string {
   return normalizeText(offer.benefit_code, offer.entitlement_id, offer.sku, offer.title);
 }
 
+function isMbtiFullOffer(offer: OfferPayload): boolean {
+  const key = resolveOfferKey(offer).toUpperCase();
+  const sku = normalizeText(offer.sku, offer.sku_code).toUpperCase();
+  const modules = Array.isArray(offer.modules_included)
+    ? offer.modules_included.map((moduleCode) => normalizeText(moduleCode).toLowerCase()).filter(Boolean)
+    : Array.isArray(offer.modules_allowed)
+      ? offer.modules_allowed.map((moduleCode) => normalizeText(moduleCode).toLowerCase()).filter(Boolean)
+      : [];
+
+  return (
+    modules.includes("core_full")
+    || MBTI_FULL_OFFER_KEYS.some((candidate) => key.includes(candidate) || sku.includes(candidate))
+  );
+}
+
+function filterMbtiOffers(offers: OfferPayload[]): OfferPayload[] {
+  const filtered = offers.filter((offer) => isMbtiFullOffer(offer));
+  return filtered.length > 0 ? filtered : offers;
+}
+
 function resolveOfferCopy(offer: OfferPayload, locale: Locale): ResolvedOffer {
   const key = resolveOfferKey(offer);
   const normalizedKey = key.toUpperCase();
@@ -819,6 +841,11 @@ function resolveOfferTargetForSection(section: ReportSection): string {
 }
 
 function findOfferForSection(section: ReportSection, offers: OfferPayload[]): OfferPayload | null {
+  const mbtiFullOffer = offers.find((offer) => isMbtiFullOffer(offer)) ?? null;
+  if (mbtiFullOffer) {
+    return mbtiFullOffer;
+  }
+
   const target = resolveOfferTargetForSection(section);
   const matched = offers.find((offer) => {
     const modules = Array.isArray(offer.modules_included) ? offer.modules_included.map((item) => item.toLowerCase()) : [];
@@ -1164,7 +1191,8 @@ export function RichResultReport({
   const dimensions = normalizeDimensions(scaleCode, reportData, locale);
   const highlights = normalizeHighlights(reportData, gate, locale);
   const sections = normalizeRichSections(reportData, locale, gate);
-  const offers = normalizeOffers(reportData);
+  const rawOffers = normalizeOffers(reportData);
+  const offers = scaleCode === "MBTI" ? filterMbtiOffers(rawOffers) : rawOffers;
   const resolvedOffers = offers.map((offer) => resolveOfferCopy(offer, locale));
 
   if (scaleCode === "MBTI") {

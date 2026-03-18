@@ -80,8 +80,8 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByText("Projection trait grid summary.")).toBeInTheDocument();
     expect(screen.getByText("Legacy authored overview title")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁作者化完整版");
-    expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁作者化完整版" })).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
+    expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
     expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
@@ -110,7 +110,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("查看正式方案");
+    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
     expect(screen.getByTestId("mbti-chapter-overview")).toHaveTextContent("Projection overview public copy.");
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
   });
@@ -135,11 +135,11 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored title still visible");
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("查看解锁方案");
-    expect(screen.getByTestId("mbti-offer-comparison")).toHaveTextContent("把零散 CTA 收口成一个正式比较区");
-    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "查看解锁方案" })).toHaveAttribute(
+    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
+    expect(screen.getByTestId("mbti-offer-comparison")).toHaveTextContent("解锁完整 MBTI 报告");
+    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
-      "#offers"
+      "#offer-full"
     );
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
   });

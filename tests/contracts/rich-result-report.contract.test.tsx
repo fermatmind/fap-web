@@ -148,11 +148,10 @@ describe("RichResultReport", () => {
     expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
 
     expect(screen.getByTestId("mbti-offer-card-full")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offer-card-career")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offer-card-relationships")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-card-career")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-card-relationships")).not.toBeInTheDocument();
     expect(screen.getAllByText("完整人格报告").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText("职业道路模块").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText("关系解读模块").length).toBeGreaterThanOrEqual(1);
+    expect(within(screen.getByTestId("mbti-offer-comparison")).queryByText("¥0.99")).not.toBeInTheDocument();
     expect(screen.getAllByText("E / I").length).toBeGreaterThan(0);
     expect(screen.getByRole("button", { name: "分享结果" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "重新测试" })).toHaveAttribute(
@@ -164,18 +163,18 @@ describe("RichResultReport", () => {
     expect(within(offerComparison).getByText("Use one primary commerce surface and keep the rest as mirrors.")).toBeInTheDocument();
     expect(within(offerComparison).getByText("Formal entitlement A")).toBeInTheDocument();
     expect(within(offerComparison).getByText("Formal entitlement B")).toBeInTheDocument();
-    expect(within(offerComparison).getByRole("button", { name: "Unlock the authored MBTI report" })).toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
+    expect(within(offerComparison).getByRole("button", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
-      "#offers"
+      "#offer-full"
     );
-    expect(within(screen.getByTestId("mbti-mobile-chrome")).getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
+    expect(within(screen.getByTestId("mbti-mobile-chrome")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
-      "#offers"
+      "#offer-full"
     );
-    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
+    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
-      "#offers"
+      "#offer-full"
     );
     expect(within(screen.getByTestId("mbti-sticky-rail")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-mobile-chrome")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
