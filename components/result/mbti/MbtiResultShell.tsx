@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { type MouseEvent as ReactMouseEvent, useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
@@ -16,6 +16,7 @@ import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecomm
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
 import {
   createAttemptShare,
@@ -30,6 +31,7 @@ import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/l
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import { captureError } from "@/lib/observability/sentry";
 import {
   buildMbtiCareerRecommendationHref,
   type MbtiPublicProjectionDimensionViewModel,
@@ -62,6 +64,13 @@ type MbtiResultShellProps = {
 };
 
 const CHAPTER_ORDER = ["career", "growth", "traits", "relationships"] as const;
+const OFFER_FULL_HASH = "#offer-full";
+const OFFER_SECTION_ID = "offers";
+const OFFER_SCROLL_ALIGNMENT: ScrollIntoViewOptions = {
+  behavior: "smooth",
+  block: "center",
+  inline: "nearest",
+};
 
 const CHAPTER_PROJECTION_KEYS = {
   career: [
@@ -149,6 +158,23 @@ function maskIdentifier(value: string): string {
   if (!normalized) return "";
   if (normalized.length <= 10) return normalized;
   return `${normalized.slice(0, 6)}...${normalized.slice(-4)}`;
+}
+
+function resolveCheckoutServiceErrorMessage(locale: Locale): string {
+  return locale === "zh" ? "支付服务暂时不可用，请稍后重试。" : "Payment is temporarily unavailable. Please try again.";
+}
+
+function resolveCheckoutErrorMessage(locale: Locale, cause: unknown): string {
+  if (cause instanceof ApiError) {
+    const normalizedMessage = normalizeText(cause.message);
+    if (cause.status === 408 || cause.status >= 500) {
+      return resolveCheckoutServiceErrorMessage(locale);
+    }
+
+    return normalizedMessage || resolveCheckoutServiceErrorMessage(locale);
+  }
+
+  return resolveCheckoutServiceErrorMessage(locale);
 }
 
 function resolveAttemptIdFromPathname(pathname: string): string {
@@ -270,6 +296,7 @@ export function MbtiResultShell({
   onExternalNavigate,
 }: MbtiResultShellProps) {
   const pathname = usePathname();
+  const offerScrollFrameRef = useRef<number | null>(null);
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [isSharing, setIsSharing] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
@@ -355,6 +382,83 @@ export function MbtiResultShell({
     offers.find((offer) => offer.moduleCodes.includes("core_full") || offer.key.toUpperCase().includes("REPORT_FULL"))
     ?? null;
 
+  const cancelScheduledOfferScroll = useCallback(() => {
+    if (offerScrollFrameRef.current === null || typeof window === "undefined") {
+      return;
+    }
+
+    window.cancelAnimationFrame(offerScrollFrameRef.current);
+    offerScrollFrameRef.current = null;
+  }, []);
+
+  const scrollOfferIntoCenter = useCallback(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    cancelScheduledOfferScroll();
+
+    const scheduleSecondFrame = () => {
+      offerScrollFrameRef.current = window.requestAnimationFrame(() => {
+        offerScrollFrameRef.current = null;
+        const offerSection =
+          document.getElementById(OFFER_SECTION_ID)
+          ?? document.getElementById("offer-full")?.closest("section")
+          ?? document.getElementById("offer-full");
+
+        if (!(offerSection instanceof HTMLElement)) {
+          return;
+        }
+
+        offerSection.scrollIntoView(OFFER_SCROLL_ALIGNMENT);
+      });
+    };
+
+    offerScrollFrameRef.current = window.requestAnimationFrame(scheduleSecondFrame);
+  }, [cancelScheduledOfferScroll]);
+
+  const syncOfferHashScroll = useCallback(() => {
+    if (typeof window === "undefined" || window.location.hash !== OFFER_FULL_HASH) {
+      return;
+    }
+
+    scrollOfferIntoCenter();
+  }, [scrollOfferIntoCenter]);
+
+  const handleOfferAnchorClickCapture = useCallback(
+    (event: ReactMouseEvent<HTMLDivElement>) => {
+      if (typeof window === "undefined" || event.defaultPrevented) {
+        return;
+      }
+
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const anchor = target.closest('a[href="#offer-full"]');
+      if (!(anchor instanceof HTMLAnchorElement)) {
+        return;
+      }
+
+      if (anchor.target === "_blank" || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const nextUrl = `${window.location.pathname}${window.location.search}${OFFER_FULL_HASH}`;
+      if (window.location.hash === OFFER_FULL_HASH) {
+        window.history.replaceState(null, "", nextUrl);
+      } else {
+        window.history.pushState(null, "", nextUrl);
+      }
+
+      scrollOfferIntoCenter();
+    },
+    [scrollOfferIntoCenter]
+  );
+
   useEffect(() => {
     if (reportData.locked === true || !attemptId) {
       return;
@@ -365,6 +469,16 @@ export function MbtiResultShell({
       clearPendingOrder();
     }
   }, [attemptId, reportData.locked]);
+
+  useEffect(() => {
+    syncOfferHashScroll();
+    window.addEventListener("hashchange", syncOfferHashScroll);
+
+    return () => {
+      window.removeEventListener("hashchange", syncOfferHashScroll);
+      cancelScheduledOfferScroll();
+    };
+  }, [cancelScheduledOfferScroll, syncOfferHashScroll]);
 
   async function handleShare() {
     if (typeof window === "undefined" || isSharing) return;
@@ -495,20 +609,25 @@ export function MbtiResultShell({
 
       throw new Error(action.message);
     } catch (cause) {
-      setCheckoutError(
-        cause instanceof Error && normalizeText(cause.message)
-          ? cause.message
-          : locale === "zh"
-            ? "暂时无法发起支付。"
-            : "Unable to start checkout."
-      );
+      captureError(cause, {
+        route: "/result/[attemptId]",
+        scale_code: "MBTI",
+        stage: "create_checkout",
+        attempt_id: attemptId,
+        sku,
+      });
+      setCheckoutError(resolveCheckoutErrorMessage(locale, cause));
     } finally {
       setIsCheckingOut(false);
     }
   }
 
   return (
-    <div data-testid="mbti-result-shell" className="relative space-y-6 pb-28 md:space-y-8 xl:pb-0">
+    <div
+      data-testid="mbti-result-shell"
+      className="relative space-y-6 pb-28 md:space-y-8 xl:pb-0"
+      onClickCapture={handleOfferAnchorClickCapture}
+    >
       <MbtiMobileChrome
         locale={locale}
         retakeHref={retakeHref}
