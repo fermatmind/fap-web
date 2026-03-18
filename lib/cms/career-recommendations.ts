@@ -235,6 +235,18 @@ function asArray<T = unknown>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
 
+function isCareerRecommendationListItemApi(value: unknown): value is CmsCareerRecommendationListItemApi {
+  return asRecord(value) !== null;
+}
+
+function isCareerRecommendationMatchedJobApi(value: unknown): value is CmsCareerRecommendationMatchedJobApi {
+  return asRecord(value) !== null;
+}
+
+function isCareerRecommendationMatchedGuideApi(value: unknown): value is CmsCareerRecommendationMatchedGuideApi {
+  return asRecord(value) !== null;
+}
+
 function uniqueStrings(items: string[]): string[] {
   return [...new Set(items.filter(Boolean))];
 }
@@ -469,9 +481,11 @@ export function normalizeCareerRecommendationDetail(
       upgradeSuggestions: normalizeUpgradeSuggestions(raw.career?.upgrade_suggestions),
     },
     matchedJobs: asArray(raw.matched_jobs)
+      .filter(isCareerRecommendationMatchedJobApi)
       .map((item) => normalizeMatchedJob(item, locale))
       .filter((item): item is CareerRecommendationMatchedJob => item !== null),
     matchedGuides: asArray(raw.matched_guides)
+      .filter(isCareerRecommendationMatchedGuideApi)
       .map((item) => normalizeMatchedGuide(item, locale))
       .filter((item): item is CareerRecommendationMatchedGuide => item !== null),
     seo: normalizeCareerRecommendationSeo(raw.seo, locale, listItem.publicRouteSlug, listItem.typeName, heroSummary),
@@ -500,6 +514,7 @@ export async function listMbtiCareerRecommendations(locale: Locale | string): Pr
     );
 
     return asArray(response.items)
+      .filter(isCareerRecommendationListItemApi)
       .map((item) => normalizeCareerRecommendationListItem(item, locale))
       .filter((item): item is CareerRecommendationListItem => item !== null);
   } catch (error) {
