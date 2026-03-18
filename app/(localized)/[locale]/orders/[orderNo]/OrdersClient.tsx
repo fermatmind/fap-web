@@ -136,8 +136,9 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const pollStepRef = useRef(0);
   const pollStartedAtRef = useRef(Date.now());
   const isPollingRef = useRef(true);
-  const didRequestPaymentActionRef = useRef(false);
   const payProviderRef = useRef<string | null>(payProvider);
+  const payTypeRef = useRef<PayType>(queryPayType);
+  const payValueRef = useRef<string | null>(queryPayValue);
   const reportedStatusRef = useRef<ViewStatus | null>(null);
   const didAutoRedirectRef = useRef(false);
   const triggerPollRef = useRef<((options?: { manual?: boolean }) => void) | null>(null);
@@ -161,6 +162,14 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   useEffect(() => {
     payProviderRef.current = payProvider;
   }, [payProvider]);
+
+  useEffect(() => {
+    payTypeRef.current = payType;
+  }, [payType]);
+
+  useEffect(() => {
+    payValueRef.current = payValue;
+  }, [payValue]);
 
   useEffect(() => {
     let active = true;
@@ -238,15 +247,9 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
         isPollingRef.current = true;
         pollStartedAtRef.current = Date.now();
         pollStepRef.current = 0;
-        if (!queryPayType) {
-          didRequestPaymentActionRef.current = false;
-        }
       }
 
-      const includePaymentAction = !queryPayType && !didRequestPaymentActionRef.current;
-      if (includePaymentAction) {
-        didRequestPaymentActionRef.current = true;
-      }
+      const includePaymentAction = !queryPayType && (!payTypeRef.current || !payValueRef.current);
 
       try {
         const response = await getOrderStatus({ orderNo, includePaymentAction });
@@ -403,16 +406,25 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
     };
   }, [dict, locale, orderNo, queryPayProvider, queryPayType, router, withLocale]);
 
-  const handleManualRefresh = () => {
+  const handleManualRefresh = useCallback(() => {
     if (isRefreshing) return;
     setDeliveryFeedback(null);
     triggerPollRef.current?.({ manual: true });
-  };
+  }, [isRefreshing]);
 
   const handleOpenPaymentPage = useCallback(() => {
     if ((payType !== "html" && payType !== "redirect") || !payValue) return;
     window.open(payValue, "_blank", "noopener,noreferrer");
   }, [payType, payValue]);
+
+  const handleRetryPayment = useCallback(() => {
+    if ((payType === "html" || payType === "redirect") && payValue) {
+      handleOpenPaymentPage();
+      return;
+    }
+
+    handleManualRefresh();
+  }, [handleManualRefresh, handleOpenPaymentPage, payType, payValue]);
 
   const handleResendDelivery = useCallback(async () => {
     if (isResendingDelivery) return;
@@ -736,10 +748,10 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
                 <Button type="button" onClick={handleManualRefresh} variant="outline" disabled={isRefreshing}>
                   {isRefreshing ? `${dict.orders.refresh}...` : dict.orders.refresh}
                 </Button>
-                {attemptId ? (
-                  <Link href={withLocale(`/result/${attemptId}`)}>
-                    <Button type="button">{dict.orders.retryPayment}</Button>
-                  </Link>
+                {payType || attemptId ? (
+                  <Button type="button" onClick={handleRetryPayment}>
+                    {dict.orders.retryPayment}
+                  </Button>
                 ) : null}
                 <Link href={withLocale("/support")}>
                   <Button type="button" variant="secondary">
