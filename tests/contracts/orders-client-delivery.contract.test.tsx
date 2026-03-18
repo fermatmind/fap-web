@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import OrdersClient from "@/app/(localized)/[locale]/orders/[orderNo]/OrdersClient";
 import { ApiError } from "@/lib/api-client";
@@ -50,6 +50,7 @@ describe("OrdersClient delivery contract", () => {
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     vi.restoreAllMocks();
   });
 
@@ -223,6 +224,60 @@ describe("OrdersClient delivery contract", () => {
       "_blank",
       "noopener,noreferrer"
     );
+  });
+
+  it("keeps requesting payment actions while a pending order still has no pay payload", async () => {
+    vi.useFakeTimers();
+    const pendingWithoutPay = {
+      ok: true,
+      order_no: "ord_pending_pay_2",
+      status: "pending",
+    };
+    const pendingWithPay = {
+      ok: true,
+      order_no: "ord_pending_pay_2",
+      status: "pending",
+      provider: "alipay",
+      pay: {
+        type: "html",
+        value: "/api/v0.3/orders/ord_pending_pay_2/pay/alipay?scene=desktop",
+        provider: "alipay",
+      },
+    };
+    let invocation = 0;
+    hoisted.getOrderStatus.mockImplementation(async () => {
+      invocation += 1;
+      return invocation === 1 ? pendingWithoutPay : pendingWithPay;
+    });
+
+    render(<OrdersClient orderNo="ord_pending_pay_2" />);
+
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(hoisted.getOrderStatus).toHaveBeenCalledTimes(1);
+    expect(hoisted.getOrderStatus).toHaveBeenNthCalledWith(1, {
+      orderNo: "ord_pending_pay_2",
+      includePaymentAction: true,
+    });
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(2000);
+    });
+
+    expect(hoisted.getOrderStatus.mock.calls.length).toBeGreaterThanOrEqual(2);
+    expect(
+      hoisted.getOrderStatus.mock.calls.slice(0, 2).every(([payload]) => {
+        return payload?.orderNo === "ord_pending_pay_2" && payload?.includePaymentAction === true;
+      })
+    ).toBe(true);
+
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(screen.getByText("Complete your payment")).toBeInTheDocument();
   });
 
   it("routes ownership 404 into order lookup recovery instead of leaving the page pending", async () => {
