@@ -144,11 +144,9 @@ export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavail
 }
 
 export function buildOrderWaitPath(action: Extract<CheckoutAction, { kind: "order_wait" }>): string {
-  if (action.waitUrl) {
-    return action.waitUrl;
-  }
+  const parsed = new URL(action.waitUrl ?? "/pay/wait", "https://example.test");
+  const params = parsed.searchParams;
 
-  const params = new URLSearchParams();
   params.set("order_no", action.orderNo);
   if (action.payType === "qr" || action.payType === "html") {
     params.set("pay_type", action.payType);
@@ -163,7 +161,7 @@ export function buildOrderWaitPath(action: Extract<CheckoutAction, { kind: "orde
     params.set("payment_recovery_token", action.paymentRecoveryToken);
   }
 
-  return `/pay/wait?${params.toString()}`;
+  return `${parsed.pathname}${params.size > 0 ? `?${params.toString()}` : ""}${parsed.hash}`;
 }
 
 export function regionFromLocale(locale: Locale): CheckoutRegion {

@@ -383,7 +383,7 @@ describe("MBTI checkout wiring contract", () => {
     expect(window.navigator.clipboard.writeText).not.toHaveBeenCalled();
   });
 
-  it("writes pending order context and navigates to the localized wait page", async () => {
+  it("hydrates generic backend wait_url with checkout pay payload before navigating to the wait page", async () => {
     const reportData = createReportFixture();
     const onInternalNavigate = vi.fn();
 
@@ -393,8 +393,7 @@ describe("MBTI checkout wiring contract", () => {
       attempt_id: "attempt-123",
       provider: "alipay",
       payment_recovery_token: "recovery_html_1",
-      wait_url:
-        "/pay/wait?order_no=ord_html_1&pay_type=html&pay_value=%2Fapi%2Fv0.3%2Forders%2Ford_html_1%2Fpay%2Falipay%3Fscene%3Ddesktop&provider=alipay&payment_recovery_token=recovery_html_1",
+      wait_url: "/pay/wait?order_no=ord_html_1&payment_recovery_token=recovery_html_1",
       pay: {
         type: "html",
         value: "/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop",
@@ -416,18 +415,31 @@ describe("MBTI checkout wiring contract", () => {
       );
     });
 
-    expect(readPendingOrder()).toMatchObject({
+    const pendingOrder = readPendingOrder();
+    expect(pendingOrder).toMatchObject({
       orderNo: "ord_html_1",
       attemptId: "attempt-123",
       sku: "MBTI_REPORT_FULL_199",
       provider: "alipay",
-      waitUrl:
-        "/zh/pay/wait?order_no=ord_html_1&pay_type=html&pay_value=%2Fapi%2Fv0.3%2Forders%2Ford_html_1%2Fpay%2Falipay%3Fscene%3Ddesktop&provider=alipay&payment_recovery_token=recovery_html_1",
       paymentRecoveryToken: "recovery_html_1",
     });
-    expect(onInternalNavigate).toHaveBeenCalledWith(
-      "/zh/pay/wait?order_no=ord_html_1&pay_type=html&pay_value=%2Fapi%2Fv0.3%2Forders%2Ford_html_1%2Fpay%2Falipay%3Fscene%3Ddesktop&provider=alipay&payment_recovery_token=recovery_html_1"
-    );
+    const pendingWaitUrl = pendingOrder?.waitUrl ?? "";
+    const waitUrl = new URL(pendingWaitUrl, "https://example.test");
+    expect(waitUrl.pathname).toBe("/zh/pay/wait");
+    expect(waitUrl.searchParams.get("order_no")).toBe("ord_html_1");
+    expect(waitUrl.searchParams.get("pay_type")).toBe("html");
+    expect(waitUrl.searchParams.get("pay_value")).toBe("/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop");
+    expect(waitUrl.searchParams.get("provider")).toBe("alipay");
+    expect(waitUrl.searchParams.get("payment_recovery_token")).toBe("recovery_html_1");
+
+    const [navigatedWaitUrl] = onInternalNavigate.mock.calls.at(-1) ?? [];
+    const navigatedUrl = new URL(String(navigatedWaitUrl ?? ""), "https://example.test");
+    expect(navigatedUrl.pathname).toBe("/zh/pay/wait");
+    expect(navigatedUrl.searchParams.get("order_no")).toBe("ord_html_1");
+    expect(navigatedUrl.searchParams.get("pay_type")).toBe("html");
+    expect(navigatedUrl.searchParams.get("pay_value")).toBe("/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop");
+    expect(navigatedUrl.searchParams.get("provider")).toBe("alipay");
+    expect(navigatedUrl.searchParams.get("payment_recovery_token")).toBe("recovery_html_1");
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "click_unlock",
       expect.objectContaining({

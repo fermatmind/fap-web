@@ -86,7 +86,36 @@ describe("checkout action contract", () => {
     expect(url.searchParams.get("payment_recovery_token")).toBe("recovery_html_1");
   });
 
-  it("prefers backend wait_url over locally synthesized wait paths", () => {
+  it("merges checkout pay payload into backend wait_url when the backend wait flow is generic", () => {
+    const action = resolveCheckoutAction(
+      {
+        order_no: "ord_merge_wait_1",
+        provider: "alipay",
+        payment_recovery_token: "recovery_merge_wait_1",
+        wait_url: "https://fermatmind.com/en/pay/wait?order_no=ord_merge_wait_1&payment_recovery_token=recovery_merge_wait_1",
+        pay: {
+          type: "html",
+          value: "/api/v0.3/orders/ord_merge_wait_1/pay/alipay?scene=desktop",
+          provider: "alipay",
+        },
+      },
+      paymentUnavailable
+    );
+
+    expect(action.kind).toBe("order_wait");
+    if (action.kind !== "order_wait") return;
+
+    const path = buildOrderWaitPath(action);
+    const url = new URL(path, "https://example.test");
+    expect(url.pathname).toBe("/pay/wait");
+    expect(url.searchParams.get("order_no")).toBe("ord_merge_wait_1");
+    expect(url.searchParams.get("pay_type")).toBe("html");
+    expect(url.searchParams.get("pay_value")).toBe("/api/v0.3/orders/ord_merge_wait_1/pay/alipay?scene=desktop");
+    expect(url.searchParams.get("provider")).toBe("alipay");
+    expect(url.searchParams.get("payment_recovery_token")).toBe("recovery_merge_wait_1");
+  });
+
+  it("preserves backend wait_url over locally synthesized wait paths when no immediate pay action exists", () => {
     const action = resolveCheckoutAction(
       {
         order_no: "ord_legacy_1",

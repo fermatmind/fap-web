@@ -7,10 +7,11 @@ function createMbtiReportFixture(mutate?: (fixture: Record<string, unknown>) => 
   return fixture;
 }
 
-test("checkout prefers backend wait_url over a bare order page", async ({ page }) => {
+test("checkout hydrates a generic backend wait_url with the immediate payment action", async ({ page }) => {
   const attemptId = "checkout-wait-flow-0001";
   const orderNo = "ord_checkout_wait_0001";
   const paymentRecoveryToken = "recovery_checkout_wait_0001";
+  const payValue = `/api/v0.3/orders/${orderNo}/pay/alipay?scene=desktop`;
 
   await page.addInitScript(() => {
     window.localStorage.setItem(
@@ -62,9 +63,14 @@ test("checkout prefers backend wait_url over a bare order page", async ({ page }
         ok: true,
         order_no: orderNo,
         attempt_id: attemptId,
-        provider: "wechatpay",
+        provider: "alipay",
         payment_recovery_token: paymentRecoveryToken,
         wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
+        pay: {
+          type: "html",
+          value: payValue,
+          provider: "alipay",
+        },
       }),
     });
   });
@@ -78,6 +84,7 @@ test("checkout prefers backend wait_url over a bare order page", async ({ page }
         ok: true,
         order_no: orderNo,
         status: "pending",
+        provider: "alipay",
         message: "Waiting for payment confirmation.",
       }),
     });
@@ -86,6 +93,14 @@ test("checkout prefers backend wait_url over a bare order page", async ({ page }
   await page.goto(`/en/result/${attemptId}`);
   await page.getByTestId("mbti-offers-primary-cta").click();
 
-  await expect(page).toHaveURL(`/en/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`);
+  await expect(page).toHaveURL(new RegExp(`/en/pay/wait\\?`));
+  const waitUrl = new URL(page.url());
+  expect(waitUrl.pathname).toBe("/en/pay/wait");
+  expect(waitUrl.searchParams.get("order_no")).toBe(orderNo);
+  expect(waitUrl.searchParams.get("pay_type")).toBe("html");
+  expect(waitUrl.searchParams.get("pay_value")).toBe(payValue);
+  expect(waitUrl.searchParams.get("provider")).toBe("alipay");
+  expect(waitUrl.searchParams.get("payment_recovery_token")).toBe(paymentRecoveryToken);
   expect(page.url()).not.toContain(`/en/orders/${orderNo}`);
+  await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
