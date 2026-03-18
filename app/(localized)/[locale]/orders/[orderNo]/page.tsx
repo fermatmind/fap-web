@@ -27,9 +27,17 @@ export async function generateMetadata({
 
 export default async function OrderPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; orderNo: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  const query = await searchParams;
   const { orderNo } = await params;
-  return <OrdersClient orderNo={orderNo} />;
+  const firstValue = (value: string | string[] | undefined): string =>
+    Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
+  const paymentRecoveryToken =
+    firstValue(query.payment_recovery_token) || firstValue(query.paymentRecoveryToken) || null;
+
+  return <OrdersClient orderNo={orderNo} paymentRecoveryToken={paymentRecoveryToken} />;
 }

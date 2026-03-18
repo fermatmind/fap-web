@@ -12,6 +12,8 @@ type UnlockCTAProps = {
   attemptId?: string;
   sku?: string;
   orderNo?: string;
+  waitUrl?: string | null;
+  paymentRecoveryToken?: string | null;
   amount?: number | string;
   currency?: string;
   formattedPrice?: string;
@@ -38,6 +40,8 @@ export function UnlockCTA({
   attemptId,
   sku,
   orderNo,
+  waitUrl,
+  paymentRecoveryToken,
   amount,
   currency,
   formattedPrice,
@@ -53,7 +57,11 @@ export function UnlockCTA({
   const dict = getDictSync(locale);
 
   return (
-    <Card className={cn("w-full max-w-md border-slate-300 shadow-lg", className)}>
+    <Card
+      className={cn("w-full max-w-md border-slate-300 shadow-lg", className)}
+      data-payment-wait-ready={waitUrl ? "true" : "false"}
+      data-payment-recovery-token={paymentRecoveryToken ? "present" : "absent"}
+    >
       <CardHeader className="space-y-2 pb-4">
         <CardTitle className="text-xl text-slate-900">{dict.commerce.unlock_title}</CardTitle>
         <p className="m-0 text-sm text-slate-600">

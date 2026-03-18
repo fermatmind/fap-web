@@ -4,6 +4,17 @@ import OrdersClient from "@/app/(localized)/[locale]/orders/[orderNo]/OrdersClie
 import { ApiError } from "@/lib/api-client";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 
+function deferred<T>() {
+  let resolve!: (value: T) => void;
+  let reject!: (reason?: unknown) => void;
+  const promise = new Promise<T>((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });
+
+  return { promise, resolve, reject };
+}
+
 const hoisted = vi.hoisted(() => ({
   getOrderStatus: vi.fn(),
   resendOrderDelivery: vi.fn(),
@@ -54,12 +65,27 @@ describe("OrdersClient delivery contract", () => {
     vi.restoreAllMocks();
   });
 
+  it("renders a neutral loading state before the first order status response arrives", async () => {
+    const pendingResponse = deferred<{
+      ok: true;
+      order_no: string;
+      status: "pending";
+    }>();
+    hoisted.getOrderStatus.mockReturnValueOnce(pendingResponse.promise);
+
+    render(<OrdersClient orderNo="ord_loading_1" />);
+
+    expect(screen.getAllByText("Loading order status...")).toHaveLength(2);
+    expect(screen.queryByText("Confirming your payment...")).not.toBeInTheDocument();
+  });
+
   it("renders paid delivery actions from the contract and wires view report/download/resend", async () => {
     hoisted.getOrderStatus.mockResolvedValue({
       ok: true,
       order_no: "ord_delivery_1",
       status: "paid",
       attempt_id: "attempt-paid-1",
+      result_url: "/result/attempt-paid-1?from=payment",
       mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-1", "ord_delivery_1"),
       delivery: {
         contact_email_present: true,
@@ -79,7 +105,7 @@ describe("OrdersClient delivery contract", () => {
       expect(screen.getByTestId("order-delivery-actions")).toBeInTheDocument();
     });
 
-    expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-1");
+    expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-1?from=payment");
     expect(screen.getByTestId("order-delivery-contact-email")).toHaveTextContent("Purchase email on file");
     expect(screen.getByTestId("order-delivery-last-email-sent")).toHaveTextContent("2026");
     expect(screen.getByTestId("order-recover-with-email-link")).toHaveAttribute(
@@ -205,7 +231,7 @@ describe("OrdersClient delivery contract", () => {
       },
     });
 
-    render(<OrdersClient orderNo="ord_pending_pay_1" />);
+    render(<OrdersClient orderNo="ord_pending_pay_1" paymentRecoveryToken="recovery_pending_pay_1" />);
 
     await waitFor(() => {
       expect(screen.getByText("Complete your payment")).toBeInTheDocument();
@@ -214,6 +240,7 @@ describe("OrdersClient delivery contract", () => {
     expect(hoisted.getOrderStatus).toHaveBeenCalledWith({
       orderNo: "ord_pending_pay_1",
       includePaymentAction: true,
+      paymentRecoveryToken: "recovery_pending_pay_1",
     });
     expect(screen.getByText("Provider: alipay")).toBeInTheDocument();
 
@@ -250,16 +277,17 @@ describe("OrdersClient delivery contract", () => {
       return invocation === 1 ? pendingWithoutPay : pendingWithPay;
     });
 
-    render(<OrdersClient orderNo="ord_pending_pay_2" />);
+    render(<OrdersClient orderNo="ord_pending_pay_2" paymentRecoveryToken="recovery_pending_pay_2" />);
 
     await act(async () => {
       await Promise.resolve();
     });
 
-    expect(hoisted.getOrderStatus).toHaveBeenCalledTimes(1);
+    expect(hoisted.getOrderStatus.mock.calls.length).toBeGreaterThanOrEqual(1);
     expect(hoisted.getOrderStatus).toHaveBeenNthCalledWith(1, {
       orderNo: "ord_pending_pay_2",
       includePaymentAction: true,
+      paymentRecoveryToken: "recovery_pending_pay_2",
     });
 
     await act(async () => {
@@ -269,7 +297,11 @@ describe("OrdersClient delivery contract", () => {
     expect(hoisted.getOrderStatus.mock.calls.length).toBeGreaterThanOrEqual(2);
     expect(
       hoisted.getOrderStatus.mock.calls.slice(0, 2).every(([payload]) => {
-        return payload?.orderNo === "ord_pending_pay_2" && payload?.includePaymentAction === true;
+        return (
+          payload?.orderNo === "ord_pending_pay_2"
+          && payload?.includePaymentAction === true
+          && payload?.paymentRecoveryToken === "recovery_pending_pay_2"
+        );
       })
     ).toBe(true);
 
@@ -303,6 +335,30 @@ describe("OrdersClient delivery contract", () => {
       "href",
       "/en/orders/lookup?orderNo=ord_missing_owner_1"
     );
+    expect(screen.queryByText("Confirming your payment...")).not.toBeInTheDocument();
+  });
+
+  it("routes identity mismatch 403 into recovery guidance without showing the pending shell", async () => {
+    hoisted.getOrderStatus.mockRejectedValue(
+      new ApiError({
+        status: 403,
+        errorCode: "IDENTITY_MISMATCH",
+        message: "identity mismatch.",
+      })
+    );
+
+    render(<OrdersClient orderNo="ord_identity_mismatch_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-recovery-required")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("order-recovery-required")).toHaveTextContent(
+      "This order belongs to a different signed-in identity."
+    );
+    expect(
+      screen.getByText("Sign in with the account used for purchase, or use order lookup if you checked out as a guest.")
+    ).toBeInTheDocument();
     expect(screen.queryByText("Confirming your payment...")).not.toBeInTheDocument();
   });
 });

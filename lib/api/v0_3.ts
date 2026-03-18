@@ -417,6 +417,9 @@ export type CheckoutResponse = {
   ok?: boolean;
   order_no?: string;
   attempt_id?: string;
+  payment_recovery_token?: string | null;
+  wait_url?: string | null;
+  result_url?: string | null;
   checkout_url?: string;
   provider?: string;
   pay?: {
@@ -442,6 +445,9 @@ export type OrderStatusResponse = {
   ownership_verified?: boolean;
   status?: "pending" | "paid" | "failed" | "canceled" | "refunded" | string;
   message?: string;
+  payment_recovery_token?: string | null;
+  wait_url?: string | null;
+  result_url?: string | null;
   amount?: number | string;
   amount_cents?: number;
   currency?: string;
@@ -714,6 +720,9 @@ export type OrderLookupResponse = {
   order_no?: string;
   status?: "pending" | "paid" | "failed" | "canceled" | "refunded" | string;
   provider?: string;
+  payment_recovery_token?: string | null;
+  wait_url?: string | null;
+  result_url?: string | null;
   checkout_url?: string | null;
   pay?: {
     type?: "qr" | "redirect" | "html" | string;
@@ -1616,18 +1625,34 @@ export async function getOrderStatus({
   orderNo,
   anonId,
   includePaymentAction,
+  paymentRecoveryToken,
 }: {
   orderNo: string;
   anonId?: string;
   includePaymentAction?: boolean;
+  paymentRecoveryToken?: string;
 }): Promise<OrderStatusResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const params = new URLSearchParams();
   if (includePaymentAction) {
     params.set("include_payment_action", "1");
   }
+  const normalizedPaymentRecoveryToken = normalizeOptionalString(paymentRecoveryToken) ?? undefined;
+  if (normalizedPaymentRecoveryToken) {
+    params.set("payment_recovery_token", normalizedPaymentRecoveryToken);
+  }
   const path = `/v0.3/orders/${orderNo}${params.size > 0 ? `?${params.toString()}` : ""}`;
-  const response = await apiClient.get<OrderStatusResponse>(path, anonHeader(resolvedAnonId));
+  const response = await apiClient.get<OrderStatusResponse>(
+    path,
+    anonHeader(
+      resolvedAnonId,
+      normalizedPaymentRecoveryToken
+        ? {
+            "X-Payment-Recovery-Token": normalizedPaymentRecoveryToken,
+          }
+        : undefined
+    )
+  );
 
   const normalized = assertApiOk(response, "Failed to load order status.");
   return {

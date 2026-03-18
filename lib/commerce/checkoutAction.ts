@@ -7,6 +7,9 @@ export type CheckoutAction =
       url: string;
       orderNo: string | null;
       provider: string | null;
+      waitUrl: string | null;
+      paymentRecoveryToken: string | null;
+      resultUrl: string | null;
     }
   | {
       kind: "order_wait";
@@ -14,6 +17,9 @@ export type CheckoutAction =
       payType: "qr" | "html" | null;
       payValue: string | null;
       provider: string | null;
+      waitUrl: string | null;
+      paymentRecoveryToken: string | null;
+      resultUrl: string | null;
     }
   | {
       kind: "error";
@@ -42,9 +48,32 @@ function normalizePayType(value: unknown): "qr" | "redirect" | "html" | null {
   return null;
 }
 
+function normalizeWaitPath(value: unknown): string | null {
+  const normalized = nonEmptyString(value);
+  if (!normalized) {
+    return null;
+  }
+
+  try {
+    const parsed = new URL(normalized, "https://example.test");
+    const firstSegment = parsed.pathname.split("/").filter(Boolean)[0];
+    const pathname =
+      firstSegment === "en" || firstSegment === "zh"
+        ? parsed.pathname.replace(new RegExp(`^/${firstSegment}`), "") || "/"
+        : parsed.pathname;
+
+    return `${pathname.startsWith("/") ? pathname : `/${pathname}`}${parsed.search}${parsed.hash}`;
+  } catch {
+    return normalized.startsWith("/") ? normalized : `/${normalized}`;
+  }
+}
+
 export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavailableMessage: string): CheckoutAction {
   const orderNo = nonEmptyString(checkout.order_no);
   const provider = nonEmptyString(checkout.provider);
+  const waitUrl = normalizeWaitPath(checkout.wait_url);
+  const paymentRecoveryToken = nonEmptyString(checkout.payment_recovery_token);
+  const resultUrl = nonEmptyString(checkout.result_url);
   const checkoutUrl = nonEmptyString(checkout.checkout_url);
   const payNode = checkout.pay && typeof checkout.pay === "object" ? checkout.pay : null;
   const payType = normalizePayType(payNode?.type);
@@ -57,6 +86,9 @@ export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavail
       url: payValue,
       orderNo,
       provider: payProvider,
+      waitUrl,
+      paymentRecoveryToken,
+      resultUrl,
     };
   }
 
@@ -74,6 +106,9 @@ export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavail
       payType,
       payValue,
       provider: payProvider,
+      waitUrl,
+      paymentRecoveryToken,
+      resultUrl,
     };
   }
 
@@ -83,6 +118,9 @@ export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavail
       url: checkoutUrl,
       orderNo,
       provider: payProvider,
+      waitUrl,
+      paymentRecoveryToken,
+      resultUrl,
     };
   }
 
@@ -93,6 +131,9 @@ export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavail
       payType: null,
       payValue: null,
       provider: payProvider,
+      waitUrl,
+      paymentRecoveryToken,
+      resultUrl,
     };
   }
 
@@ -103,21 +144,26 @@ export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavail
 }
 
 export function buildOrderWaitPath(action: Extract<CheckoutAction, { kind: "order_wait" }>): string {
-  if (action.payType === "qr" || action.payType === "html") {
-    const params = new URLSearchParams();
-    params.set("order_no", action.orderNo);
-    params.set("pay_type", action.payType);
-    if (action.payValue) {
-      params.set("pay_value", action.payValue);
-    }
-    if (action.provider) {
-      params.set("provider", action.provider);
-    }
-
-    return `/pay/wait?${params.toString()}`;
+  if (action.waitUrl) {
+    return action.waitUrl;
   }
 
-  return `/orders/${action.orderNo}`;
+  const params = new URLSearchParams();
+  params.set("order_no", action.orderNo);
+  if (action.payType === "qr" || action.payType === "html") {
+    params.set("pay_type", action.payType);
+  }
+  if (action.payValue) {
+    params.set("pay_value", action.payValue);
+  }
+  if (action.provider) {
+    params.set("provider", action.provider);
+  }
+  if (action.paymentRecoveryToken) {
+    params.set("payment_recovery_token", action.paymentRecoveryToken);
+  }
+
+  return `/pay/wait?${params.toString()}`;
 }
 
 export function regionFromLocale(locale: Locale): CheckoutRegion {
