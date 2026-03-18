@@ -116,9 +116,9 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md">
-      <Container className="py-3">
+      <Container className="max-w-[1320px] py-3">
         <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0">
+          <div className="min-w-0 shrink-0">
             <Link href={withLocale("/")} className="font-serif text-xl font-semibold tracking-tight text-white">
               {dict.header.brand}
             </Link>
@@ -139,22 +139,22 @@ export function SiteHeader() {
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
-          <div ref={desktopNavRef} className="hidden min-w-0 flex-1 items-center justify-end gap-2 lg:flex">
-            <nav className="flex flex-wrap items-center justify-end gap-[var(--fm-gap-xs)]">
+          <div ref={desktopNavRef} className="hidden min-w-0 flex-1 items-center justify-end gap-2 lg:flex xl:gap-3">
+            <nav className="flex min-w-0 flex-nowrap items-center justify-end gap-0.5 xl:gap-1">
               {navItems.map((item) => {
                 const menuId = `header-dropdown-${item.key}`;
                 const isOpen = activeDropdown === item.key;
                 const items = dropdownMenuMap[item.key] ?? [];
 
                 return (
-                  <div key={item.key} className="relative">
+                  <div key={item.key} className="relative shrink-0">
                     <button
                       type="button"
                       aria-expanded={isOpen}
                       aria-controls={menuId}
                       aria-haspopup="menu"
                       onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
-                      className="inline-flex min-h-[44px] items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-blue-100 transition hover:bg-white/10 hover:text-white"
+                      className="inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium text-blue-100 transition hover:bg-white/10 hover:text-white xl:px-3 xl:text-sm"
                     >
                       <span>{item.label}</span>
                       <ChevronDown className={isOpen ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
@@ -180,27 +180,32 @@ export function SiteHeader() {
               })}
             </nav>
 
-            <Link
-              href={withLocale("/tests?q=")}
-              className="inline-flex h-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
-              aria-label={dict.header.search}
-              title={dict.header.search}
-            >
-              <Search className="h-4 w-4" />
-            </Link>
-            <Link
-              href={withLocale("/history/mbti")}
-              className="inline-flex h-11 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-[var(--fm-pad-btn-sm-x)] text-xs font-semibold text-white transition hover:bg-white/20"
-            >
-              <UserRound className="h-4 w-4" />
-              <span>{dict.header.profile}</span>
-            </Link>
+            <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
+              <Link
+                href={withLocale("/tests?q=")}
+                className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
+                aria-label={dict.header.search}
+                title={dict.header.search}
+              >
+                <Search className="h-4 w-4" />
+              </Link>
+              <Link
+                href={withLocale("/history/mbti")}
+                className="inline-flex h-11 min-h-[44px] min-w-[124px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-4 text-sm font-semibold text-white transition hover:bg-white/20 whitespace-nowrap"
+              >
+                <UserRound className="h-4 w-4" />
+                <span>{dict.header.profile}</span>
+              </Link>
 
-            <LocaleSwitcher />
+              <LocaleSwitcher />
 
-            <Link href={withLocale("/tests/mbti-personality-test-16-personality-types/take")} className={buttonVariants({ size: "sm" })}>
-              {dict.header.start}
-            </Link>
+              <Link
+                href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
+                className={buttonVariants({ size: "sm", className: "shrink-0 whitespace-nowrap px-4 text-sm" })}
+              >
+                {dict.header.start}
+              </Link>
+            </div>
           </div>
         </div>
       </Container>

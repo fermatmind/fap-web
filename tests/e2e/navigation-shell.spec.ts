@@ -37,9 +37,33 @@ test("site chrome is visible on share page", async ({ page }) => {
   await expectSiteChromeVisible(page);
 });
 
-test("root language gateway remains without localized site chrome", async ({ page }) => {
+test("root path lands on a localized home page with site chrome", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("link", { name: "FermatMind", exact: true })).toHaveCount(0);
-  await expect(page.getByRole("heading", { name: "FermatMind · 费马测试", exact: true })).toBeVisible();
+  await expect(page).toHaveURL(/\/(en|zh)$/);
+  await expectSiteChromeVisible(page);
+});
+
+test("english desktop header stays on a single row", async ({ page }) => {
+  await page.setViewportSize({ width: 1600, height: 1200 });
+  await page.goto("/en");
+
+  const controls = [
+    page.getByRole("button", { name: "Tests", exact: true }),
+    page.getByRole("button", { name: "Articles", exact: true }),
+    page.getByRole("button", { name: "Personality", exact: true }),
+    page.getByRole("button", { name: "Career", exact: true }),
+    page.getByRole("button", { name: "Help", exact: true }),
+    page.getByRole("button", { name: "Business", exact: true }),
+    page.getByRole("link", { name: "My Results", exact: true }),
+    page.getByRole("link", { name: "中文", exact: true }),
+    page.getByRole("link", { name: "Start", exact: true }),
+  ];
+
+  await Promise.all(controls.map((control) => expect(control).toBeVisible()));
+  const boxes = await Promise.all(controls.map((control) => control.boundingBox()));
+  expect(boxes.every((box) => box !== null)).toBeTruthy();
+
+  const yPositions = boxes.map((box) => box?.y ?? 0);
+  expect(Math.max(...yPositions) - Math.min(...yPositions)).toBeLessThanOrEqual(2);
 });
