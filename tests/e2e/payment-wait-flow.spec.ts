@@ -69,6 +69,41 @@ test("provider return fallback restores the tokenized wait flow", async ({ page 
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
 
+test("provider return query params restore the tokenized wait flow without local storage", async ({ page }) => {
+  const orderNo = "ord_return_wait_query_1";
+  const paymentRecoveryToken = "recovery_return_wait_query_1";
+
+  await mockCommonApis(page);
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
+    expect(route.request().url()).toContain(`payment_recovery_token=${paymentRecoveryToken}`);
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        status: "pending",
+        provider: "stripe",
+        pay: {
+          type: "html",
+          value: `/mock-pay/session/${orderNo}`,
+          provider: "stripe",
+        },
+      }),
+    });
+  });
+
+  await page.goto(
+    `/en/payment/stripe/success?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`
+  );
+
+  await expect(page).toHaveURL(
+    `/en/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`
+  );
+  await expect(page.getByText(orderNo)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
+});
+
 test("wait flow prefers result_url when payment becomes paid", async ({ page }) => {
   const orderNo = "ord_paid_wait_1";
   const paymentRecoveryToken = "recovery_paid_wait_1";

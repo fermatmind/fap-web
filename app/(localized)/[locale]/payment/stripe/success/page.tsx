@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { OrderReturnFallbackClient } from "@/components/commerce/OrderReturnFallbackClient";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -25,18 +24,16 @@ export default async function StripeSuccessPage({
   const { locale: localeParam } = await params;
   const query = await searchParams;
   const orderNo = firstValue(query.order_no) || firstValue(query.orderNo);
+  const paymentRecoveryToken =
+    firstValue(query.payment_recovery_token) || firstValue(query.paymentRecoveryToken) || null;
   const locale = resolveLocale(localeParam);
-
-  if (orderNo) {
-    redirect(localizedPath(`/orders/${orderNo}`, locale));
-  }
 
   const ordersLookupHref = localizedPath("/orders/lookup", locale);
   const isZh = locale === "zh";
 
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-10">
-      <OrderReturnFallbackClient locale={locale} />
+      <OrderReturnFallbackClient locale={locale} orderNo={orderNo || null} paymentRecoveryToken={paymentRecoveryToken} />
       <h1 className="m-0 text-2xl font-bold text-slate-900">{isZh ? "支付已完成" : "Payment Completed"}</h1>
       <p className="mt-3 text-slate-600">
         {isZh ? "我们正在同步订单状态。你可以前往订单查询页查看最新结果。" : "We're syncing your order status. You can check the latest status on the order lookup page."}

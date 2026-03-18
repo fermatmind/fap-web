@@ -517,4 +517,20 @@ describe("MBTI checkout wiring contract", () => {
     });
     expect(readPendingOrder()).toBeNull();
   });
+
+  it("routes provider return pages with order_no and payment token back into wait flow", async () => {
+    render(
+      <OrderReturnFallbackClient
+        locale="en"
+        orderNo="ord_return_query_1"
+        paymentRecoveryToken="recovery_return_query_1"
+      />
+    );
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_return_query_1&payment_recovery_token=recovery_return_query_1"
+      );
+    });
+  });
 });

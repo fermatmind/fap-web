@@ -145,6 +145,7 @@ export default function OrdersClient({
   const [payProvider, setPayProvider] = useState<string | null>(queryPayProvider);
   const [message, setMessage] = useState<string>(initializingMessage);
   const [recoveryMode, setRecoveryMode] = useState<RecoveryMode>(null);
+  const [timedOut, setTimedOut] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isResendingDelivery, setIsResendingDelivery] = useState(false);
   const [deliveryFeedback, setDeliveryFeedback] = useState<{
@@ -266,6 +267,7 @@ export default function OrdersClient({
         setStatus("initializing");
         setMessage(initializingMessage);
         setRecoveryMode(null);
+        setTimedOut(false);
         clearPollTimer();
         isPollingRef.current = true;
         pollStartedAtRef.current = Date.now();
@@ -283,6 +285,7 @@ export default function OrdersClient({
         if (!active) return;
 
         setRecoveryMode(null);
+        setTimedOut(false);
         const nextStatus = (response.status ?? "pending") as ViewStatus;
         const responsePayNode = response.pay && typeof response.pay === "object" ? response.pay : null;
         const responsePayType = normalizePayType(
@@ -353,19 +356,10 @@ export default function OrdersClient({
             return;
           }
 
-          if (response.attempt_id) {
-            setMessage(response.message ?? dict.orders.reportReady);
-            stopPolling();
-            if (!didAutoRedirectRef.current) {
-              didAutoRedirectRef.current = true;
-              router.replace(withLocale(`/result/${response.attempt_id}`));
-            }
-            return;
-          }
-
           setMessage(response.message ?? dict.orders.reportGenerating);
           if (hasTimedOut()) {
             stopPolling();
+            setTimedOut(true);
             setStatus("failed");
             setMessage(timeoutMessage);
             return;
@@ -383,6 +377,7 @@ export default function OrdersClient({
                 ? dict.orders.canceled
                 : dict.orders.refunded;
           setMessage(response.message ?? fallbackMessage);
+          setTimedOut(false);
           stopPolling();
 
           if (reportedStatusRef.current !== nextStatus) {
@@ -401,6 +396,7 @@ export default function OrdersClient({
 
         if (hasTimedOut()) {
           stopPolling();
+          setTimedOut(true);
           setStatus("failed");
           setMessage(timeoutMessage);
           return;
@@ -413,6 +409,7 @@ export default function OrdersClient({
 
         if (cause instanceof ApiError && cause.status === 404 && cause.errorCode === "NOT_FOUND") {
           setRecoveryMode("not_found");
+          setTimedOut(false);
           setStatus("failed");
           setMessage(dict.orders.recoveryRequired);
           setIsRefreshing(false);
@@ -421,6 +418,7 @@ export default function OrdersClient({
 
         if (cause instanceof ApiError && cause.status === 403 && cause.errorCode === "IDENTITY_MISMATCH") {
           setRecoveryMode("identity_mismatch");
+          setTimedOut(false);
           setStatus("failed");
           setMessage(identityMismatchTitle);
           setIsRefreshing(false);
@@ -428,6 +426,7 @@ export default function OrdersClient({
         }
 
         setStatus("failed");
+        setTimedOut(false);
         setMessage(requestFailedMessage);
         captureError(cause, {
           route: "/orders/[orderNo]",
@@ -815,7 +814,28 @@ export default function OrdersClient({
             </div>
           ) : null}
 
-          {!recoveryMode && (status === "failed" || status === "canceled" || status === "refunded") ? (
+          {!recoveryMode && timedOut ? (
+            <div className="space-y-3" data-testid="order-timeout-state">
+              <Alert>{message}</Alert>
+              <div className="flex flex-wrap gap-2">
+                <Button type="button" onClick={handleManualRefresh} variant="outline" disabled={isRefreshing}>
+                  {isRefreshing ? `${dict.orders.refresh}...` : dict.orders.refresh}
+                </Button>
+                {payType || attemptId ? (
+                  <Button type="button" onClick={handleRetryPayment}>
+                    {dict.orders.retryPayment}
+                  </Button>
+                ) : null}
+                <Link href={withLocale("/support")}>
+                  <Button type="button" variant="secondary">
+                    {dict.orders.contactSupport}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          ) : null}
+
+          {!recoveryMode && !timedOut && (status === "failed" || status === "canceled" || status === "refunded") ? (
             <div className="space-y-3">
               <Alert>{message}</Alert>
               <div className="flex flex-wrap gap-2">
