@@ -88,6 +88,8 @@ const CHAPTER_PROJECTION_KEYS = {
   ],
 } as const;
 
+const MBTI_FULL_EFFECTIVE_SKU = "MBTI_REPORT_FULL_199";
+
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return null;
@@ -138,8 +140,8 @@ function resolveShareMessages(locale: Locale, shareStatus: "idle" | "copied" | "
   return "";
 }
 
-function resolvePrimaryCtaLabel(locale: Locale, cta?: ReportCta | null) {
-  return normalizeText(cta?.primary_label) || (locale === "zh" ? "查看解锁方案" : "View unlock options");
+function resolvePrimaryCtaLabel(locale: Locale, _cta?: ReportCta | null) {
+  return locale === "zh" ? "解锁完整报告" : "Unlock full report";
 }
 
 function maskIdentifier(value: string): string {
@@ -206,6 +208,20 @@ function findFullOfferPayload(offers: OfferPayload[]): OfferPayload | null {
   return null;
 }
 
+function isMbtiPartialSku(sku: string): boolean {
+  const normalized = sku.toUpperCase();
+  return normalized.includes("MBTI_CAREER") || normalized.includes("MBTI_RELATIONSHIP");
+}
+
+function normalizeMbtiCheckoutSku(sku: string): string {
+  const normalized = normalizeText(sku).toUpperCase();
+  if (!normalized) {
+    return "";
+  }
+
+  return normalized === "MBTI_REPORT_FULL" ? MBTI_FULL_EFFECTIVE_SKU : normalized;
+}
+
 function isUnlockedMbtiReport(reportData: ReportResponse): boolean {
   if (reportData.locked === true) {
     return false;
@@ -220,19 +236,19 @@ function isUnlockedMbtiReport(reportData: ReportResponse): boolean {
 export function resolveMbtiCheckoutSku(reportData: ReportResponse): string {
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const effectiveSku = normalizeText(cta?.target_sku_effective);
-  if (effectiveSku) {
-    return effectiveSku;
-  }
-
-  const targetSku = normalizeText(cta?.target_sku);
-  if (targetSku) {
-    return targetSku;
+  if (effectiveSku && !isMbtiPartialSku(effectiveSku)) {
+    return normalizeMbtiCheckoutSku(effectiveSku);
   }
 
   const fullOffer = findFullOfferPayload(resolveOfferPayloads(reportData));
   const fullOfferSku = normalizeText(fullOffer?.sku, fullOffer?.sku_code);
   if (fullOfferSku) {
-    return fullOfferSku;
+    return normalizeMbtiCheckoutSku(fullOfferSku);
+  }
+
+  const targetSku = normalizeText(cta?.target_sku);
+  if (targetSku && !isMbtiPartialSku(targetSku)) {
+    return normalizeMbtiCheckoutSku(targetSku);
   }
 
   throw new Error("MBTI checkout requires CTA target_sku_effective, target_sku, or a full-report offer sku.");
@@ -317,7 +333,7 @@ export function MbtiResultShell({
       ? "我的 MBTI 报告"
       : "My MBTI reports"
     : primaryCtaLabel;
-  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? accessHub?.workspaceLite.href ?? historyHref : "#offers";
+  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? accessHub?.workspaceLite.href ?? historyHref : "#offer-full";
   const globalTraits = buildDominantTraitItems({
     locale,
     roleCard: asRecord(layers?.role_card) ?? undefined,
@@ -562,8 +578,8 @@ export function MbtiResultShell({
                       {publicHeadline.rarity}
                     </p>
                   ) : null}
-                  <a href="#offers" className={buttonVariants({ className: "mt-4 w-full" })}>
-                    {locale === "zh" ? "查看解锁方案" : "View unlock options"}
+                  <a href="#offer-full" className={buttonVariants({ className: "mt-4 w-full" })}>
+                    {locale === "zh" ? "解锁完整报告" : "Unlock full report"}
                   </a>
                 </div>
               </div>
@@ -749,7 +765,7 @@ export function MbtiResultShell({
                     {terminalPrimaryCtaLabel}
                   </Link>
                 ) : (
-                  <a href="#offers" className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}>
+                  <a href="#offer-full" className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}>
                     {terminalPrimaryCtaLabel}
                   </a>
                 )}

@@ -65,7 +65,7 @@ function resolveUnlockSummary(locale: Locale, locked?: boolean, accessLevel?: st
 }
 
 function resolvePrimaryCtaLabel(locale: Locale, primaryCtaLabel?: string) {
-  return normalizeText(primaryCtaLabel) || (locale === "zh" ? "查看解锁方案" : "View unlock options");
+  return normalizeText(primaryCtaLabel) || (locale === "zh" ? "解锁完整报告" : "Unlock full report");
 }
 
 export function MbtiStickyRail({

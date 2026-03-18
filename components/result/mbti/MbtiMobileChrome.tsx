@@ -26,7 +26,7 @@ const NAV_ITEMS: Array<{ anchor: string; en: string; zh: string }> = [
 ];
 
 function resolvePrimaryCtaLabel(locale: Locale, primaryCtaLabel?: string) {
-  return (primaryCtaLabel ?? "").trim() || (locale === "zh" ? "解锁方案" : "Unlock options");
+  return (primaryCtaLabel ?? "").trim() || (locale === "zh" ? "解锁完整报告" : "Unlock full report");
 }
 
 export function MbtiMobileChrome({

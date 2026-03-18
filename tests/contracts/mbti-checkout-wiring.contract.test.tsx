@@ -102,7 +102,7 @@ function createShellProps(reportData: ReportResponse) {
   const unlockOffer: ResolvedOffer = {
     key: "MBTI_REPORT_FULL",
     title: "完整人格报告",
-    price: "¥199",
+    price: "¥1.99",
     description: "完整报告",
     modules: ["人格概览", "职业路径", "关系解读"],
     moduleCodes: ["core_full", "career", "relationships"],
@@ -132,7 +132,7 @@ function createShellProps(reportData: ReportResponse) {
       {
         key: "MBTI_CAREER",
         title: "职业道路模块",
-        price: "¥99",
+        price: "¥0.99",
         description: "职业模块",
         modules: ["职业路径"],
         moduleCodes: ["career"],
@@ -141,7 +141,7 @@ function createShellProps(reportData: ReportResponse) {
       {
         key: "MBTI_RELATIONSHIPS",
         title: "关系解读模块",
-        price: "¥99",
+        price: "¥0.99",
         description: "关系模块",
         modules: ["关系解读"],
         moduleCodes: ["relationships"],
@@ -176,7 +176,7 @@ describe("MBTI checkout wiring contract", () => {
           {
             key: "MBTI_REPORT_FULL",
             title: "完整人格报告",
-            price: "¥199",
+            price: "¥1.99",
             description: "完整报告",
             modules: ["人格概览", "职业路径"],
             moduleCodes: ["core_full", "career", "relationships"],
@@ -205,6 +205,7 @@ describe("MBTI checkout wiring contract", () => {
 
   it("resolves checkout sku with the required priority", () => {
     const reportData = createReportFixture();
+    const originalOffers = structuredClone(reportData.offers ?? []);
 
     expect(resolveMbtiCheckoutSku(reportData)).toBe("MBTI_REPORT_FULL_199");
 
@@ -223,8 +224,24 @@ describe("MBTI checkout wiring contract", () => {
       }),
       target_sku_effective: "",
     };
-    expect(resolveMbtiCheckoutSku(reportData)).toBe("MBTI_REPORT_FULL");
+    expect(resolveMbtiCheckoutSku(reportData)).toBe("MBTI_REPORT_FULL_199");
 
+    reportData.cta = {
+      ...reportData.cta,
+      target_sku: "MBTI_CAREER_99",
+      target_sku_effective: "MBTI_CAREER_99",
+    };
+    expect(resolveMbtiCheckoutSku(reportData)).toBe("MBTI_REPORT_FULL_199");
+
+    reportData.offers = [];
+    reportData.cta = {
+      ...reportData.cta,
+      target_sku: "MBTI_REPORT_FULL",
+      target_sku_effective: "",
+    };
+    expect(resolveMbtiCheckoutSku(reportData)).toBe("MBTI_REPORT_FULL_199");
+
+    reportData.offers = originalOffers;
     reportData.cta = undefined;
     expect(resolveMbtiCheckoutSku(reportData)).toBe("MBTI_REPORT_FULL_199");
   });
@@ -254,10 +271,10 @@ describe("MBTI checkout wiring contract", () => {
     const footer = screen.getByTestId("mbti-footer-cta");
     const careerChapter = screen.getByTestId("mbti-chapter-career");
 
-    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
-    expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
-    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offers");
-    expect(within(careerChapter).getByRole("link", { name: "查看解锁方案" })).toHaveAttribute("href", "#offers");
+    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(within(careerChapter).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
     expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
       "href",
       "/zh/career/recommendations/mbti/enfp-t"
@@ -270,7 +287,7 @@ describe("MBTI checkout wiring contract", () => {
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(mobileChrome).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(footer).getByRole("link", { name: "解锁完整报告" }));
-    fireEvent.click(within(careerChapter).getByRole("link", { name: "查看解锁方案" }));
+    fireEvent.click(within(careerChapter).getByRole("link", { name: "解锁完整报告" }));
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
   });

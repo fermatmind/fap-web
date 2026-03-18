@@ -205,8 +205,8 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview title");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview one-liner");
   await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
-  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock the authored MBTI report");
-  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock the authored MBTI report" })).toBeVisible();
+  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock full report");
+  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toBeVisible();
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
   await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career summary public copy.");
   await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career advantage one");
@@ -329,13 +329,13 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
   await expect(page.getByRole("button", { name: "Share result" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Retake test" })).toBeVisible();
-  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
+  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toHaveAttribute(
     "href",
-    "#offers"
+    "#offer-full"
   );
-  await expect(page.getByTestId("mbti-footer-cta").getByRole("link", { name: "Unlock the authored MBTI report" })).toHaveAttribute(
+  await expect(page.getByTestId("mbti-footer-cta").getByRole("link", { name: "Unlock full report" })).toHaveAttribute(
     "href",
-    "#offers"
+    "#offer-full"
   );
 
   await page.getByTestId("mbti-offers-primary-cta").click();
@@ -554,9 +554,9 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
   await expect(mobileChrome).toBeVisible();
   await expect(mobileChrome.getByRole("button", { name: "分享" })).toBeVisible();
   await expect(mobileChrome.getByRole("link", { name: "重测" })).toBeVisible();
-  await expect(mobileChrome.getByRole("link", { name: "解锁作者化完整版" })).toBeVisible();
+  await expect(mobileChrome.getByRole("link", { name: "解锁完整报告" })).toBeVisible();
   await expect(mobileChrome.getByRole("link", { name: "职业" })).toBeVisible();
-  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁作者化完整版");
+  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁完整报告");
   await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "分享结果" })).toBeVisible();
@@ -565,6 +565,6 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
   await mobileChrome.getByRole("link", { name: "关系" }).click();
   await expect(page).toHaveURL(new RegExp(`#relationships$`));
   await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
-  await mobileChrome.getByRole("link", { name: "解锁作者化完整版" }).click();
-  await expect(page).toHaveURL(new RegExp(`#offers$`));
+  await mobileChrome.getByRole("link", { name: "解锁完整报告" }).click();
+  await expect(page).toHaveURL(new RegExp(`#offer-full$`));
 });
