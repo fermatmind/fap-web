@@ -131,7 +131,7 @@ test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page
   await installCommonMocks(page);
   await installUnlockedResultMocks(page, attemptId);
 
-  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -140,6 +140,7 @@ test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page
         order_no: orderNo,
         status: "paid",
         attempt_id: attemptId,
+        result_url: `/en/result/${attemptId}?from=payment`,
         message: "Your full report is ready.",
         delivery: {
           can_view_report: true,

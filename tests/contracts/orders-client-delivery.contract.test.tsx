@@ -153,6 +153,47 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByText("Delivery email sent again.")).toBeInTheDocument();
   });
 
+  it("waits for result_url before auto-entering a paid report", async () => {
+    const paidWithoutResultUrl = {
+      ok: true,
+      order_no: "ord_paid_result_url_1",
+      status: "paid",
+      attempt_id: "attempt-paid-result-url-1",
+      delivery: {
+        can_view_report: true,
+        report_url: "/result/attempt-paid-result-url-1",
+        can_download_pdf: false,
+        can_resend: false,
+        can_request_claim_email: false,
+        contact_email_present: true,
+      },
+    };
+    const paidWithResultUrl = {
+      ...paidWithoutResultUrl,
+      result_url: "/result/attempt-paid-result-url-1?from=payment",
+    };
+
+    hoisted.getOrderStatus.mockResolvedValue(paidWithoutResultUrl);
+
+    const firstRender = render(<OrdersClient orderNo="ord_paid_result_url_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-delivery-actions")).toBeInTheDocument();
+    });
+
+    expect(hoisted.routerReplace).not.toHaveBeenCalled();
+
+    firstRender.unmount();
+    hoisted.getOrderStatus.mockReset();
+    hoisted.getOrderStatus.mockResolvedValue(paidWithResultUrl);
+
+    render(<OrdersClient orderNo="ord_paid_result_url_1" />);
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-result-url-1?from=payment");
+    });
+  });
+
   it("shows missing purchase email state and exposes recovery entry without breaking other actions", async () => {
     hoisted.getOrderStatus.mockResolvedValue({
       ok: true,
@@ -331,6 +372,7 @@ describe("OrdersClient delivery contract", () => {
       "This order is not available under the current identity."
     );
     expect(screen.getByText("You may have switched browsers, devices, or anonymous identities. Use order lookup to recover this payment flow.")).toBeInTheDocument();
+    expect(screen.queryByText("Payment confirmation timed out. Please refresh or contact support.")).not.toBeInTheDocument();
     expect(screen.getByTestId("order-recovery-lookup-link")).toHaveAttribute(
       "href",
       "/en/orders/lookup?orderNo=ord_missing_owner_1"
@@ -359,6 +401,7 @@ describe("OrdersClient delivery contract", () => {
     expect(
       screen.getByText("Sign in with the account used for purchase, or use order lookup if you checked out as a guest.")
     ).toBeInTheDocument();
+    expect(screen.queryByText("Payment confirmation timed out. Please refresh or contact support.")).not.toBeInTheDocument();
     expect(screen.queryByText("Confirming your payment...")).not.toBeInTheDocument();
   });
 });
