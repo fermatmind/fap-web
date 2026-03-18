@@ -18,6 +18,7 @@ import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti
 const hoisted = vi.hoisted(() => ({
   createAttemptShare: vi.fn(),
   createCheckoutOrOrder: vi.fn(),
+  captureError: vi.fn(),
   trackEvent: vi.fn(),
   routerReplace: vi.fn(),
 }));
@@ -31,6 +32,10 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+}));
+
+vi.mock("@/lib/observability/sentry", () => ({
+  captureError: hoisted.captureError,
 }));
 
 vi.mock("@/lib/api/v0_3", async () => {
@@ -153,6 +158,16 @@ function createShellProps(reportData: ReportResponse) {
 describe("MBTI checkout wiring contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.stubGlobal("requestAnimationFrame", (callback: FrameRequestCallback) => {
+      callback(0);
+      return 1;
+    });
+    vi.stubGlobal("cancelAnimationFrame", vi.fn());
+    Object.defineProperty(Element.prototype, "scrollIntoView", {
+      configurable: true,
+      value: vi.fn(),
+    });
+    window.history.replaceState(null, "", "/zh/result/attempt-123");
     window.localStorage.clear();
     Object.defineProperty(window.navigator, "clipboard", {
       configurable: true,
@@ -163,6 +178,7 @@ describe("MBTI checkout wiring contract", () => {
   });
 
   afterEach(() => {
+    vi.unstubAllGlobals();
     vi.restoreAllMocks();
   });
 
@@ -292,6 +308,41 @@ describe("MBTI checkout wiring contract", () => {
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
   });
 
+  it("centers the offer section when unlock anchors are clicked or loaded from the hash", async () => {
+    const reportData = createReportFixture();
+    const firstRender = render(<MbtiResultShell {...createShellProps(reportData)} />);
+    const scrollIntoViewMock = vi.mocked(Element.prototype.scrollIntoView);
+
+    fireEvent.click(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" }));
+
+    await waitFor(() => {
+      expect(window.location.hash).toBe("#offer-full");
+      expect(scrollIntoViewMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          behavior: "smooth",
+          block: "center",
+          inline: "nearest",
+        })
+      );
+    });
+
+    firstRender.unmount();
+    scrollIntoViewMock.mockClear();
+    window.history.replaceState(null, "", "/zh/result/attempt-123#offer-full");
+
+    render(<MbtiResultShell {...createShellProps(reportData)} />);
+
+    await waitFor(() => {
+      expect(scrollIntoViewMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          behavior: "smooth",
+          block: "center",
+          inline: "nearest",
+        })
+      );
+    });
+  });
+
   it("resolves a formal share link before sharing and never copies the raw result URL", async () => {
     const reportData = createReportFixture();
     const navigatorShare = vi.fn().mockResolvedValue(undefined);
@@ -409,6 +460,30 @@ describe("MBTI checkout wiring contract", () => {
       attemptId: "attempt-123",
       sku: "MBTI_REPORT_FULL_199",
     });
+  });
+
+  it("maps fetch-layer checkout failures to a localized service error", async () => {
+    const reportData = createReportFixture();
+
+    hoisted.createCheckoutOrOrder.mockRejectedValue(new TypeError("Failed to fetch"));
+
+    render(<MbtiResultShell {...createShellProps(reportData)} />);
+
+    fireEvent.click(screen.getByTestId("mbti-offers-primary-cta"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-offers-checkout-error")).toHaveTextContent("支付服务暂时不可用，请稍后重试。");
+    });
+    expect(hoisted.captureError).toHaveBeenCalledWith(
+      expect.any(TypeError),
+      expect.objectContaining({
+        route: "/result/[attemptId]",
+        scale_code: "MBTI",
+        stage: "create_checkout",
+        attempt_id: "attempt-123",
+        sku: "MBTI_REPORT_FULL_199",
+      })
+    );
   });
 
   it("reuses pending order context on provider return pages when order_no is absent", async () => {
