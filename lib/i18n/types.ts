@@ -184,6 +184,9 @@ export type SiteDictionary = {
     qrCodeUnavailable: string;
     openPaymentHint: string;
     openPaymentPage: string;
+    recoveryRequired: string;
+    recoveryHint: string;
+    openOrderLookup: string;
   };
   history: {
     mbti: {

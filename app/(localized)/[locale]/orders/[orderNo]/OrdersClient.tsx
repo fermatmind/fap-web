@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getOrderStatus, resendOrderDelivery, type OrderStatusResponse } from "@/lib/api/v0_3";
+import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { captureError } from "@/lib/observability/sentry";
@@ -121,6 +122,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const [payValue, setPayValue] = useState<string | null>(queryPayValue);
   const [payProvider, setPayProvider] = useState<string | null>(queryPayProvider);
   const [message, setMessage] = useState<string>(dict.orders.pending);
+  const [recoveryRequired, setRecoveryRequired] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isResendingDelivery, setIsResendingDelivery] = useState(false);
   const [deliveryFeedback, setDeliveryFeedback] = useState<{
@@ -139,6 +141,10 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const reportedStatusRef = useRef<ViewStatus | null>(null);
   const didAutoRedirectRef = useRef(false);
   const triggerPollRef = useRef<((options?: { manual?: boolean }) => void) | null>(null);
+  const orderLookupHref = useMemo(() => {
+    const query = new URLSearchParams({ orderNo });
+    return withLocale(`/orders/lookup?${query.toString()}`);
+  }, [orderNo, withLocale]);
 
   useEffect(() => {
     if (queryPayType) {
@@ -246,6 +252,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
         const response = await getOrderStatus({ orderNo, includePaymentAction });
         if (!active) return;
 
+        setRecoveryRequired(false);
         const nextStatus = (response.status ?? "pending") as ViewStatus;
         const responsePayNode = response.pay && typeof response.pay === "object" ? response.pay : null;
         const responsePayType = normalizePayType(
@@ -355,6 +362,15 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
       } catch (cause) {
         if (!active) return;
         stopPolling();
+
+        if (cause instanceof ApiError && cause.status === 404 && cause.errorCode === "NOT_FOUND") {
+          setRecoveryRequired(true);
+          setStatus("failed");
+          setMessage(dict.orders.recoveryRequired);
+          setIsRefreshing(false);
+          return;
+        }
+
         setStatus("failed");
         setMessage(requestFailedMessage);
         captureError(cause, {
@@ -576,6 +592,23 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
             </div>
           ) : null}
 
+          {recoveryRequired ? (
+            <div className="space-y-3">
+              <Alert data-testid="order-recovery-required">{dict.orders.recoveryRequired}</Alert>
+              <p className="m-0 text-sm text-slate-600">{dict.orders.recoveryHint}</p>
+              <div className="flex flex-wrap gap-2">
+                <Link href={orderLookupHref} data-testid="order-recovery-lookup-link">
+                  <Button type="button">{dict.orders.openOrderLookup}</Button>
+                </Link>
+                <Link href={withLocale("/support")}>
+                  <Button type="button" variant="secondary">
+                    {dict.orders.contactSupport}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          ) : null}
+
           {status === "paid" ? (
             <div className="space-y-3">
               <Alert className="border-emerald-200 bg-emerald-50 text-emerald-800">{dict.orders.reportReady}</Alert>
@@ -696,7 +729,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
             </div>
           ) : null}
 
-          {status === "failed" || status === "canceled" || status === "refunded" ? (
+          {!recoveryRequired && (status === "failed" || status === "canceled" || status === "refunded") ? (
             <div className="space-y-3">
               <Alert>{message}</Alert>
               <div className="flex flex-wrap gap-2">

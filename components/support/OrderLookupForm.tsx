@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import QRCode from "qrcode";
+import { usePathname, useSearchParams } from "next/navigation";
 import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownloadButton";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
@@ -24,6 +26,8 @@ import type { SiteDictionary } from "@/lib/i18n/types";
 const COOLDOWN_MS = 4000;
 
 type LookupAction = "lookup" | "claim";
+type LookupViewStatus = "pending" | "paid" | "failed" | "canceled" | "refunded" | null;
+type LookupPayType = "qr" | "html" | "redirect" | null;
 
 function buildLandingPath(pathname: string | null, queryString: string): string | undefined {
   if (!pathname) {
@@ -69,6 +73,44 @@ function formatCapturedAt(locale: Locale, capturedAt: string | null, emptyLabel:
   }).format(date);
 }
 
+function normalizeLookupStatus(value: string | null | undefined): LookupViewStatus {
+  if (!value) return null;
+  const normalized = value.trim().toLowerCase();
+  if (normalized === "pending" || normalized === "paid" || normalized === "failed" || normalized === "canceled" || normalized === "refunded") {
+    return normalized;
+  }
+  return null;
+}
+
+function normalizePayType(value: string | null | undefined): LookupPayType {
+  if (value === "qr" || value === "html" || value === "redirect") {
+    return value;
+  }
+  return null;
+}
+
+function normalizeQueryValue(value: string | null | undefined): string | null {
+  if (!value) return null;
+  const normalized = value.trim();
+  return normalized.length > 0 ? normalized : null;
+}
+
+function normalizeActionHref(value: string | null | undefined, locale: Locale): string | null {
+  const normalized = normalizeQueryValue(value);
+  if (!normalized) return null;
+  if (/^https?:\/\//i.test(normalized)) {
+    return normalized;
+  }
+
+  const candidate = normalized.startsWith("/") ? normalized : `/${normalized}`;
+  const firstSegment = candidate.split("/").filter(Boolean)[0];
+  if (firstSegment === "en" || firstSegment === "zh") {
+    return candidate;
+  }
+
+  return localizedPath(candidate, locale);
+}
+
 export function OrderLookupForm({
   locale,
   dict,
@@ -76,7 +118,6 @@ export function OrderLookupForm({
   locale: Locale;
   dict: SiteDictionary;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const claimButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -101,6 +142,8 @@ export function OrderLookupForm({
   } | null>(null);
   const [captureState, setCaptureState] = useState<EmailCaptureResponse | null>(null);
   const [lookupHit, setLookupHit] = useState<OrderLookupResponse | null>(null);
+  const [lookupQrCodeDataUrl, setLookupQrCodeDataUrl] = useState<string | null>(null);
+  const [lookupQrCodeError, setLookupQrCodeError] = useState(false);
   const [lastSubmitAt, setLastSubmitAt] = useState(0);
 
   useEffect(() => {
@@ -158,21 +201,76 @@ export function OrderLookupForm({
     () => normalizeMbtiAccessHub(lookupHit?.mbti_access_hub_v1 ?? null, locale),
     [lookupHit?.mbti_access_hub_v1, locale]
   );
-  const lookupResolvedOrderNo = useMemo(() => {
-    const normalized = lookupHit?.order_no?.trim();
-    return normalized ? normalized : null;
-  }, [lookupHit?.order_no]);
-  const lookupOrderHref = lookupAccessHub?.links.orderHref
-    ?? (lookupResolvedOrderNo ? localizedPath(`/orders/${lookupResolvedOrderNo}`, locale) : null);
-  const lookupReportHref = lookupAccessHub?.links.reportHref ?? null;
+  const lookupStatus = useMemo(
+    () => normalizeLookupStatus(typeof lookupHit?.status === "string" ? lookupHit.status : null),
+    [lookupHit?.status]
+  );
+  const lookupPayType = useMemo(
+    () => normalizePayType(typeof lookupHit?.pay?.type === "string" ? lookupHit.pay.type : null),
+    [lookupHit?.pay?.type]
+  );
+  const lookupPayValue = useMemo(
+    () => normalizeQueryValue(typeof lookupHit?.pay?.value === "string" ? lookupHit.pay.value : null),
+    [lookupHit?.pay?.value]
+  );
+  const lookupPayProvider =
+    normalizeQueryValue(typeof lookupHit?.provider === "string" ? lookupHit.provider : null)
+    ?? normalizeQueryValue(typeof lookupHit?.pay?.provider === "string" ? lookupHit.pay?.provider : null);
+  const lookupOrderHref = lookupAccessHub?.links.orderHref ?? null;
+  const lookupDelivery = lookupHit?.delivery ?? null;
+  const lookupReportHref =
+    lookupAccessHub?.links.reportHref
+    ?? normalizeActionHref(lookupDelivery?.report_url ?? null, locale);
   const lookupHistoryHref = lookupAccessHub?.workspaceLite.href ?? null;
-  const lookupPdfHref = lookupAccessHub?.pdfAccess.href ?? null;
+  const lookupPdfHref =
+    lookupAccessHub?.pdfAccess.href
+    ?? normalizeActionHref(lookupDelivery?.report_pdf_url ?? null, locale);
   const lookupPdfAttemptId =
     lookupAccessHub?.reportAccess.attemptId
     ?? lookupAccessHub?.recovery.attemptId
     ?? lookupAccessHub?.workspaceLite.attemptId
     ?? null;
-  const showLookupHitActions = Boolean(lookupAccessHub);
+  const lookupCanViewReport =
+    lookupAccessHub?.reportAccess.canViewReport
+    ?? (lookupDelivery?.can_view_report === true && Boolean(lookupReportHref));
+  const lookupCanDownloadPdf =
+    lookupAccessHub?.pdfAccess.canDownloadPdf
+    ?? (lookupDelivery?.can_download_pdf === true && Boolean(lookupPdfHref || lookupPdfAttemptId));
+  const lookupCanRequestClaimEmail =
+    lookupAccessHub?.recovery.canRequestClaimEmail
+    ?? (lookupDelivery?.can_request_claim_email === true);
+  const showLookupHitActions = Boolean(lookupHit);
+
+  useEffect(() => {
+    let active = true;
+
+    if (lookupPayType !== "qr" || !lookupPayValue) {
+      setLookupQrCodeDataUrl(null);
+      setLookupQrCodeError(false);
+      return () => {
+        active = false;
+      };
+    }
+
+    setLookupQrCodeDataUrl(null);
+    setLookupQrCodeError(false);
+    void QRCode.toDataURL(lookupPayValue, {
+      width: 280,
+      margin: 2,
+    })
+      .then((dataUrl: string) => {
+        if (!active) return;
+        setLookupQrCodeDataUrl(dataUrl);
+      })
+      .catch(() => {
+        if (!active) return;
+        setLookupQrCodeError(true);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [lookupPayType, lookupPayValue]);
 
   async function captureLookupContact({
     trimmedEmail,
@@ -250,9 +348,6 @@ export function OrderLookupForm({
         }
 
         setLookupHit(response);
-        if (!response.mbti_access_hub_v1) {
-          router.push(localizedPath(`/orders/${resolvedOrderNo}`, locale));
-        }
         return;
       }
 
@@ -285,6 +380,11 @@ export function OrderLookupForm({
       setSubmittingAction(null);
     }
   }
+
+  const handleOpenLookupPaymentPage = () => {
+    if ((lookupPayType !== "html" && lookupPayType !== "redirect") || !lookupPayValue) return;
+    window.open(lookupPayValue, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <Card>
@@ -416,14 +516,75 @@ export function OrderLookupForm({
             >
               <div className="space-y-1">
                 <p className="m-0 text-sm font-semibold text-slate-900">
-                  {locale === "zh" ? "已匹配到订单，可直接继续" : "Order matched. Continue from here."}
+                  {lookupStatus === "pending"
+                    ? locale === "zh"
+                      ? "已匹配到订单，可继续完成支付"
+                      : "Order matched. Continue the payment here."
+                    : locale === "zh"
+                      ? "已匹配到订单，可直接继续"
+                      : "Order matched. Continue from here."}
                 </p>
                 <p className="m-0 text-xs leading-6 text-slate-600">
-                  {locale === "zh"
-                    ? "后续入口统一以 access hub 为准：可查看订单、回到报告、下载 PDF、发送找回邮件，或进入我的 MBTI。"
-                    : "The next-step actions now follow the access hub: view the order, return to the report, download the PDF, request the recovery email, or enter My MBTI."}
+                  {lookupStatus === "pending"
+                    ? locale === "zh"
+                      ? "订单号与购买邮箱已匹配。你可以在这里继续支付，无需再次跳回受保护的订单页。"
+                      : "The order number and purchase email matched. Continue the payment here without going back to the protected order page."
+                    : locale === "zh"
+                      ? "订单号与购买邮箱已匹配。你可以在这里继续恢复报告相关动作。"
+                      : "The order number and purchase email matched. Continue the recovery actions here."}
                 </p>
               </div>
+              {lookupStatus === "pending" && (lookupPayType === "qr" || lookupPayType === "html" || lookupPayType === "redirect") ? (
+                <div
+                  className="space-y-3 rounded-lg border border-slate-200 bg-white p-4"
+                  data-testid="order-lookup-hit-payment-action"
+                >
+                  <p className="m-0 text-sm font-semibold text-slate-900">{dict.orders.paymentActionTitle}</p>
+                  {lookupPayProvider ? (
+                    <p className="m-0 text-xs text-slate-600">
+                      {dict.orders.paymentProviderLabel}: {lookupPayProvider}
+                    </p>
+                  ) : null}
+
+                  {lookupPayType === "qr" ? (
+                    <div className="space-y-3">
+                      <p className="m-0 text-sm text-slate-600">{dict.orders.qrCodeHint}</p>
+                      {lookupQrCodeDataUrl ? (
+                        <div className="inline-flex rounded-xl border border-slate-200 bg-white p-3">
+                          <Image
+                            src={lookupQrCodeDataUrl}
+                            alt={dict.orders.qrCodeHint}
+                            className="h-64 w-64"
+                            width={256}
+                            height={256}
+                            unoptimized
+                            data-testid="order-lookup-hit-qr"
+                          />
+                        </div>
+                      ) : null}
+                      {!lookupQrCodeDataUrl && !lookupQrCodeError ? (
+                        <Alert className="border-slate-200 bg-white text-slate-700">
+                          {dict.orders.qrCodeGenerating}
+                        </Alert>
+                      ) : null}
+                      {lookupQrCodeError ? <Alert>{dict.orders.qrCodeUnavailable}</Alert> : null}
+                    </div>
+                  ) : null}
+
+                  {lookupPayType === "html" || lookupPayType === "redirect" ? (
+                    <div className="space-y-3">
+                      <p className="m-0 text-sm text-slate-600">{dict.orders.openPaymentHint}</p>
+                      <Button
+                        type="button"
+                        onClick={handleOpenLookupPaymentPage}
+                        data-testid="order-lookup-hit-open-payment"
+                      >
+                        {dict.orders.openPaymentPage}
+                      </Button>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
               <div className="grid gap-2 sm:grid-cols-2">
                 {lookupOrderHref ? (
                   <Link href={lookupOrderHref} className="inline-flex w-full" data-testid="order-lookup-hit-order">
@@ -432,14 +593,14 @@ export function OrderLookupForm({
                     </Button>
                   </Link>
                 ) : null}
-                {lookupReportHref ? (
+                {lookupCanViewReport && lookupReportHref ? (
                   <a href={lookupReportHref} className="inline-flex w-full" data-testid="order-lookup-hit-report">
                     <Button className="w-full" type="button" variant="outline">
                       {locale === "zh" ? "查看报告" : "View report"}
                     </Button>
                   </a>
                 ) : null}
-                {lookupAccessHub?.pdfAccess.canDownloadPdf ? (
+                {lookupCanDownloadPdf ? (
                   <AttemptPdfDownloadButton
                     attemptId={lookupPdfAttemptId}
                     locale={locale}
@@ -455,7 +616,7 @@ export function OrderLookupForm({
                     testId="order-lookup-hit-pdf"
                   />
                 ) : null}
-                {lookupAccessHub?.recovery.canRequestClaimEmail ? (
+                {lookupCanRequestClaimEmail ? (
                   <Button
                     type="button"
                     variant="outline"
@@ -482,6 +643,11 @@ export function OrderLookupForm({
                     </Button>
                   </Link>
                 ) : null}
+                <Link href={localizedPath("/support", locale)} className="inline-flex w-full" data-testid="order-lookup-hit-support">
+                  <Button className="w-full" type="button" variant="secondary">
+                    {dict.orders.contactSupport}
+                  </Button>
+                </Link>
               </div>
             </div>
           ) : null}

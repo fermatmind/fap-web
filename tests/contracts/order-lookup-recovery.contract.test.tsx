@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { OrderLookupForm } from "@/components/support/OrderLookupForm";
+import type { OrderLookupResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
@@ -50,6 +51,16 @@ vi.mock("@/lib/observability/sentry", () => ({
 
 function createDict(): SiteDictionary {
   return {
+    orders: {
+      contactSupport: "Contact support",
+      paymentActionTitle: "Complete your payment",
+      paymentProviderLabel: "Provider",
+      qrCodeHint: "Scan this QR code in your payment app to complete checkout.",
+      qrCodeGenerating: "Generating secure QR code...",
+      qrCodeUnavailable: "Unable to render QR code. Please refresh and try again.",
+      openPaymentHint: "Continue payment in the provider page, then return to this tab.",
+      openPaymentPage: "Open payment page",
+    },
     support: {
       lookup: "Order lookup",
     },
@@ -181,10 +192,7 @@ describe("OrderLookupForm recovery contract", () => {
   });
 
   it("consumes the capture foundation response before lookup completes", async () => {
-    const pendingLookup = deferred<{
-      ok: boolean;
-      order_no: string;
-    }>();
+    const pendingLookup = deferred<OrderLookupResponse>();
     hoisted.lookupOrder.mockReturnValueOnce(pendingLookup.promise);
     hoisted.captureEmailContact.mockResolvedValueOnce(
       createCaptureResponse({
@@ -215,11 +223,13 @@ describe("OrderLookupForm recovery contract", () => {
     pendingLookup.resolve({
       ok: true,
       order_no: "ord_lookup_001",
+      status: "pending",
     });
 
     await waitFor(() => {
-      expect(hoisted.routerPush).toHaveBeenCalledWith("/en/orders/ord_lookup_001");
+      expect(screen.getByTestId("order-lookup-hit-actions")).toBeInTheDocument();
     });
+    expect(hoisted.routerPush).not.toHaveBeenCalled();
   });
 
   it("prefers mbti_access_hub_v1 on lookup hits and keeps recovery actions on the lookup surface", async () => {
@@ -247,6 +257,42 @@ describe("OrderLookupForm recovery contract", () => {
     expect(screen.getByTestId("order-lookup-hit-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-lookup-hit-claim")).toBeInTheDocument();
     expect(screen.getByTestId("order-lookup-hit-history")).toHaveAttribute("href", "/en/history/mbti");
+  });
+
+  it("renders pending payment recovery inline on lookup hits instead of redirecting back to the order page", async () => {
+    hoisted.lookupOrder.mockResolvedValueOnce({
+      ok: true,
+      order_no: "ord_lookup_pending_001",
+      status: "pending",
+      provider: "wechatpay",
+      pay: {
+        type: "qr",
+        value: "weixin://wxpay/bizpayurl?pr=lookup_pending",
+        provider: "wechatpay",
+      },
+      delivery: {
+        can_request_claim_email: false,
+        can_view_report: false,
+        can_download_pdf: false,
+      },
+    });
+
+    renderForm();
+    await fillLookupForm({
+      orderNo: "ord_lookup_pending_001",
+      email: "buyer@example.com",
+    });
+
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-lookup-hit-payment-action")).toBeInTheDocument();
+    });
+
+    expect(hoisted.routerPush).not.toHaveBeenCalled();
+    expect(screen.getByText("Provider: wechatpay")).toBeInTheDocument();
+    expect(screen.getByText("Order matched. Continue the payment here.")).toBeInTheDocument();
+    expect(screen.getByText("Scan this QR code in your payment app to complete checkout.")).toBeInTheDocument();
   });
 
   it("requests the claim report email after capture on claim submit", async () => {
