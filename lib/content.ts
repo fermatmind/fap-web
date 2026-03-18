@@ -390,33 +390,6 @@ export function listCareerRecommendationProfiles(
   return sortByTitle(all.filter((item) => item.locale === locale));
 }
 
-// Public MBTI career recommendation routes are CMS-authoritative via
-// lib/cms/career-recommendations.ts. These local helpers remain only for
-// editorial relationships and non-public fallback content paths.
-export function getMbtiRecommendation(type: string, locale: Locale): LocalizedCareerRecommendationProfile | null {
-  const key = String(type ?? "").trim().toUpperCase();
-  if (!key) return null;
-  const all = listCareerRecommendationProfiles();
-  return (
-    all.find(
-      (item) => item.profile_type === "mbti" && item.key.toUpperCase() === key && item.locale === locale
-    ) ??
-    all.find((item) => item.profile_type === "mbti" && item.key.toUpperCase() === key && item.locale === "zh") ??
-    null
-  );
-}
-
-export function listMbtiRecommendationTypes(): string[] {
-  return [
-    ...new Set(
-      careerRecommendationProfiles
-        .filter((item) => item.profile_type === "mbti")
-        .map((item) => String(item.key).trim().toUpperCase())
-        .filter(Boolean)
-    ),
-  ].sort((a, b) => a.localeCompare(b));
-}
-
 export function getBig5Recommendation(
   trait: string,
   band: "high" | "balanced" | "low" = "balanced",
@@ -466,10 +439,6 @@ const TEST_TO_CAREER_GUIDE_SLUGS: Record<string, string[]> = {
   ],
   "eq-test-emotional-intelligence-assessment": ["iq-eq-balance-at-work"],
   "iq-test-intelligence-quotient-assessment": ["iq-eq-balance-at-work"],
-};
-
-const TEST_TO_TYPE_CODES: Record<string, string[]> = {
-  "mbti-personality-test-16-personality-types": ["INTJ", "ENFP", "ISTJ", "ENTP"],
 };
 
 const GUIDE_TO_TEST_SLUGS: Record<string, string[]> = {
@@ -543,27 +512,6 @@ function relatedGuidesBySlugs(guideSlugs: string[], locale: Locale, excludeSlug?
   return dedupeRelatedItems(items).slice(0, 4);
 }
 
-function relatedTypesByCodes(typeCodes: string[], locale: Locale, excludeCode?: string): RelatedContentItem[] {
-  const items = typeCodes
-    .filter((code) => code !== excludeCode)
-    .map((code) => ({
-      code,
-      recommendation: getMbtiRecommendation(code, locale),
-      type: getTypeByCode(code),
-    }))
-    .filter((item) => Boolean(item.recommendation))
-    .map((item) =>
-      toRelatedItem(
-        item.code,
-        item.recommendation?.title ?? item.code,
-        localizedPath(`/career/recommendations/mbti/${item.code}`, locale),
-        item.recommendation?.summary ?? item.type?.description
-      )
-    );
-
-  return dedupeRelatedItems(items).slice(0, 4);
-}
-
 export function listRelatedArticlesForPost(post: LocalizedBlogPost, locale: Locale): RelatedContentItem[] {
   return relatedArticlesForTestSlugs([post.related_test_slug], locale, post.slug);
 }
@@ -573,50 +521,7 @@ export function listRelatedCareerGuidesForPost(post: LocalizedBlogPost, locale: 
   return relatedGuidesBySlugs(guideSlugs, locale);
 }
 
-export function listRelatedTypesForPost(post: LocalizedBlogPost, locale: Locale): RelatedContentItem[] {
-  const typeCodes = TEST_TO_TYPE_CODES[post.related_test_slug] ?? [];
-  return relatedTypesByCodes(typeCodes, locale);
-}
-
 export function listRelatedArticlesForGuide(guide: LocalizedCareerGuide, locale: Locale): RelatedContentItem[] {
   const testSlugs = GUIDE_TO_TEST_SLUGS[guide.slug] ?? [];
   return relatedArticlesForTestSlugs(testSlugs, locale);
-}
-
-export function listRelatedTypesForGuide(guide: LocalizedCareerGuide, locale: Locale): RelatedContentItem[] {
-  const testSlugs = GUIDE_TO_TEST_SLUGS[guide.slug] ?? [];
-  const typeCodes = testSlugs.flatMap((slug) => TEST_TO_TYPE_CODES[slug] ?? []);
-  return relatedTypesByCodes(typeCodes, locale);
-}
-
-export function listRelatedArticlesForType(code: string, locale: Locale): RelatedContentItem[] {
-  return relatedArticlesForTestSlugs(
-    ["mbti-personality-test-16-personality-types"],
-    locale
-  );
-}
-
-export function listRelatedCareerItemsForType(code: string, locale: Locale): RelatedContentItem[] {
-  const normalizedCode = String(code ?? "").trim().toUpperCase();
-  const recommendation = getMbtiRecommendation(normalizedCode, locale);
-  const items: RelatedContentItem[] = [];
-  if (recommendation) {
-    for (const jobSlug of recommendation.recommended_jobs.slice(0, 3)) {
-      const job = getCareerJobBySlug(jobSlug, locale);
-      if (!job) continue;
-
-      items.push(
-        toRelatedItem(
-          job.slug,
-          job.title,
-          localizedPath(`/career/jobs/${job.slug}`, locale),
-          job.summary
-        )
-      );
-    }
-  }
-
-  const guideItems = relatedGuidesBySlugs(["from-mbti-to-job-fit"], locale);
-
-  return dedupeRelatedItems([...items, ...guideItems]).slice(0, 4);
 }
