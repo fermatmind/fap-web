@@ -18,14 +18,14 @@ import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 
 type ViewStatus = "pending" | "paid" | "failed" | "canceled" | "refunded";
-type PayType = "qr" | "html" | null;
+type PayType = "qr" | "html" | "redirect" | null;
 type DeliveryPayload = NonNullable<OrderStatusResponse["delivery"]>;
 
 const POLL_BACKOFF_MS = [2000, 3000, 5000, 8000, 10000];
 const POLL_TIMEOUT_MS = 120000;
 
 function normalizePayType(value: string | null): PayType {
-  if (value === "qr" || value === "html") {
+  if (value === "qr" || value === "html" || value === "redirect") {
     return value;
   }
   return null;
@@ -109,14 +109,17 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
-  const payType = useMemo(() => normalizePayType(searchParams.get("pay_type")), [searchParams]);
-  const payValue = useMemo(() => normalizeQueryValue(searchParams.get("pay_value")), [searchParams]);
-  const payProvider = useMemo(() => normalizeQueryValue(searchParams.get("provider")), [searchParams]);
+  const queryPayType = useMemo(() => normalizePayType(searchParams.get("pay_type")), [searchParams]);
+  const queryPayValue = useMemo(() => normalizeQueryValue(searchParams.get("pay_value")), [searchParams]);
+  const queryPayProvider = useMemo(() => normalizeQueryValue(searchParams.get("provider")), [searchParams]);
 
   const [status, setStatus] = useState<ViewStatus>("pending");
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [delivery, setDelivery] = useState<DeliveryPayload | null>(null);
   const [accessHubRaw, setAccessHubRaw] = useState<OrderStatusResponse["mbti_access_hub_v1"] | null>(null);
+  const [payType, setPayType] = useState<PayType>(queryPayType);
+  const [payValue, setPayValue] = useState<string | null>(queryPayValue);
+  const [payProvider, setPayProvider] = useState<string | null>(queryPayProvider);
   const [message, setMessage] = useState<string>(dict.orders.pending);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isResendingDelivery, setIsResendingDelivery] = useState(false);
@@ -131,9 +134,27 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   const pollStepRef = useRef(0);
   const pollStartedAtRef = useRef(Date.now());
   const isPollingRef = useRef(true);
+  const didRequestPaymentActionRef = useRef(false);
+  const payProviderRef = useRef<string | null>(payProvider);
   const reportedStatusRef = useRef<ViewStatus | null>(null);
   const didAutoRedirectRef = useRef(false);
   const triggerPollRef = useRef<((options?: { manual?: boolean }) => void) | null>(null);
+
+  useEffect(() => {
+    if (queryPayType) {
+      setPayType(queryPayType);
+    }
+    if (queryPayValue) {
+      setPayValue(queryPayValue);
+    }
+    if (queryPayProvider) {
+      setPayProvider(queryPayProvider);
+    }
+  }, [queryPayProvider, queryPayType, queryPayValue]);
+
+  useEffect(() => {
+    payProviderRef.current = payProvider;
+  }, [payProvider]);
 
   useEffect(() => {
     let active = true;
@@ -211,17 +232,43 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
         isPollingRef.current = true;
         pollStartedAtRef.current = Date.now();
         pollStepRef.current = 0;
+        if (!queryPayType) {
+          didRequestPaymentActionRef.current = false;
+        }
+      }
+
+      const includePaymentAction = !queryPayType && !didRequestPaymentActionRef.current;
+      if (includePaymentAction) {
+        didRequestPaymentActionRef.current = true;
       }
 
       try {
-        const response = await getOrderStatus({ orderNo });
+        const response = await getOrderStatus({ orderNo, includePaymentAction });
         if (!active) return;
 
         const nextStatus = (response.status ?? "pending") as ViewStatus;
+        const responsePayNode = response.pay && typeof response.pay === "object" ? response.pay : null;
+        const responsePayType = normalizePayType(
+          typeof responsePayNode?.type === "string" ? responsePayNode.type : null
+        );
+        const responsePayValue = normalizeQueryValue(
+          typeof responsePayNode?.value === "string" ? responsePayNode.value : null
+        );
+        const responsePayProvider =
+          normalizeQueryValue(typeof response.provider === "string" ? response.provider : null)
+          ?? normalizeQueryValue(typeof responsePayNode?.provider === "string" ? responsePayNode.provider : null);
+
         setStatus(nextStatus);
         setAttemptId(response.attempt_id ?? null);
         setDelivery((response.delivery ?? null) as DeliveryPayload | null);
         setAccessHubRaw(response.mbti_access_hub_v1 ?? null);
+        if (!queryPayType && responsePayType && responsePayValue) {
+          setPayType(responsePayType);
+          setPayValue(responsePayValue);
+        }
+        if (!queryPayProvider && responsePayProvider) {
+          setPayProvider(responsePayProvider);
+        }
 
         if (nextStatus === "paid") {
           if (reportedStatusRef.current !== "paid") {
@@ -238,7 +285,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
               orderNoMasked: maskedOrder,
               attemptIdMasked: maskedAttempt,
               locale,
-              ...(payProvider ? { provider: payProvider } : {}),
+              ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
             trackEvent("purchase_success", {
               orderNoMasked: maskedOrder,
@@ -246,7 +293,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
               ...(Number.isFinite(amount) ? { amount } : {}),
               ...(currency ? { currency } : {}),
               locale,
-              ...(payProvider ? { provider: payProvider } : {}),
+              ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
             reportedStatusRef.current = "paid";
           }
@@ -288,7 +335,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
               orderNoMasked: `${orderNo.slice(0, 6)}...${orderNo.slice(-4)}`,
               reason: response.message ?? fallbackMessage,
               locale,
-              ...(payProvider ? { provider: payProvider } : {}),
+              ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
             reportedStatusRef.current = nextStatus;
           }
@@ -338,7 +385,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
       triggerPollRef.current = null;
       clearPollTimer();
     };
-  }, [dict, locale, orderNo, payProvider, router, withLocale]);
+  }, [dict, locale, orderNo, queryPayProvider, queryPayType, router, withLocale]);
 
   const handleManualRefresh = () => {
     if (isRefreshing) return;
@@ -347,7 +394,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
   };
 
   const handleOpenPaymentPage = useCallback(() => {
-    if (payType !== "html" || !payValue) return;
+    if ((payType !== "html" && payType !== "redirect") || !payValue) return;
     window.open(payValue, "_blank", "noopener,noreferrer");
   }, [payType, payValue]);
 
@@ -472,7 +519,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
             <div className="space-y-3">
               <Alert className="border-slate-200 bg-slate-50 text-slate-700">{dict.orders.pending}</Alert>
 
-              {payType === "qr" || payType === "html" ? (
+              {payType === "qr" || payType === "html" || payType === "redirect" ? (
                 <div className="space-y-3 rounded-lg border border-slate-200 bg-slate-50 p-4">
                   <p className="m-0 text-sm font-semibold text-slate-900">{dict.orders.paymentActionTitle}</p>
                   {payProvider ? (
@@ -505,7 +552,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
                     </div>
                   ) : null}
 
-                  {payType === "html" ? (
+                  {payType === "html" || payType === "redirect" ? (
                     <div className="space-y-3">
                       <p className="m-0 text-sm text-slate-600">{dict.orders.openPaymentHint}</p>
                       <Button type="button" onClick={handleOpenPaymentPage}>

@@ -189,6 +189,40 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-resend-delivery")).not.toBeInTheDocument();
   });
+
+  it("recovers pending payment actions from order status when the URL has no pay params", async () => {
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_pending_pay_1",
+      status: "pending",
+      provider: "alipay",
+      pay: {
+        type: "html",
+        value: "/api/v0.3/orders/ord_pending_pay_1/pay/alipay?scene=desktop",
+        provider: "alipay",
+      },
+    });
+
+    render(<OrdersClient orderNo="ord_pending_pay_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByText("Complete your payment")).toBeInTheDocument();
+    });
+
+    expect(hoisted.getOrderStatus).toHaveBeenCalledWith({
+      orderNo: "ord_pending_pay_1",
+      includePaymentAction: true,
+    });
+    expect(screen.getByText("Provider: alipay")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Open payment page" }));
+
+    expect(hoisted.openWindow).toHaveBeenCalledWith(
+      "/api/v0.3/orders/ord_pending_pay_1/pay/alipay?scene=desktop",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  });
 });
 
 function createMbtiAccessHubRaw(
