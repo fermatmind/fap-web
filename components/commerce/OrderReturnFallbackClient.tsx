@@ -14,8 +14,15 @@ export function OrderReturnFallbackClient({ locale }: { locale: Locale }) {
       return;
     }
 
+    const waitHref = pendingOrder.waitUrl;
     clearPendingOrder();
-    router.replace(localizedPath(`/orders/${pendingOrder.orderNo}`, locale));
+    if (waitHref) {
+      router.replace(waitHref);
+      return;
+    }
+
+    const query = new URLSearchParams({ orderNo: pendingOrder.orderNo });
+    router.replace(localizedPath(`/orders/lookup?${query.toString()}`, locale));
   }, [locale, router]);
 
   return null;

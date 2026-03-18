@@ -262,6 +262,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
 test("MBTI primary CTA reuses the existing checkout and order wait flow", async ({ page }) => {
   const attemptId = "mbti-checkout-wiring-0001";
   const orderNo = "ord_mbti_wait_0001";
+  const paymentRecoveryToken = "recovery_mbti_wait_0001";
 
   await page.addInitScript(() => {
     window.localStorage.setItem(
@@ -314,6 +315,8 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
         order_no: orderNo,
         attempt_id: attemptId,
         provider: "wechatpay",
+        payment_recovery_token: paymentRecoveryToken,
+        wait_url: `/pay/wait?order_no=${orderNo}&pay_type=qr&pay_value=${encodeURIComponent("weixin://wxpay/bizpayurl?pr=e2e_mbti_qr")}&provider=wechatpay&payment_recovery_token=${paymentRecoveryToken}`,
         pay: {
           type: "qr",
           value: "weixin://wxpay/bizpayurl?pr=e2e_mbti_qr",
@@ -323,7 +326,8 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
     });
   });
 
-  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
+    expect(route.request().url()).toContain(`payment_recovery_token=${paymentRecoveryToken}`);
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -355,12 +359,20 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
   await page.getByTestId("mbti-offers-primary-cta").click();
 
   await expect(page).toHaveURL(
-    new RegExp(`/en/pay/wait\\?order_no=${orderNo}&pay_type=qr&pay_value=.*provider=wechatpay`)
+    new RegExp(`/en/pay/wait\\?order_no=${orderNo}&pay_type=qr&pay_value=.*provider=wechatpay&payment_recovery_token=${paymentRecoveryToken}`)
   );
+  expect(page.url()).not.toContain(`/en/orders/${orderNo}`);
   await expect(page.getByText(orderNo)).toBeVisible();
   await expect(page.getByText("Waiting for payment confirmation.")).toBeVisible();
   await expect(page.getByText("Provider: wechatpay")).toBeVisible();
   await expect(page.getByRole("img", { name: "Scan this QR code in your payment app to complete checkout." })).toBeVisible();
+
+  await page.reload();
+
+  await expect(page).toHaveURL(
+    new RegExp(`/en/pay/wait\\?order_no=${orderNo}&pay_type=qr&pay_value=.*provider=wechatpay&payment_recovery_token=${paymentRecoveryToken}`)
+  );
+  await expect(page.getByText(orderNo)).toBeVisible();
 });
 
 test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({ page }) => {

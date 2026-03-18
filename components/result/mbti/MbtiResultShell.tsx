@@ -194,6 +194,36 @@ function resolveAbsoluteShareUrl(url: string): string {
   }
 }
 
+function resolveLocalizedWaitFlowPath(
+  action:
+    | Extract<ReturnType<typeof resolveCheckoutAction>, { kind: "redirect" }>
+    | Extract<ReturnType<typeof resolveCheckoutAction>, { kind: "order_wait" }>,
+  locale: Locale
+): string | null {
+  if (action.kind === "order_wait") {
+    return localizedPath(buildOrderWaitPath(action), locale);
+  }
+
+  if (action.waitUrl) {
+    return localizedPath(action.waitUrl, locale);
+  }
+
+  const orderNo = normalizeText(action.orderNo);
+  if (!orderNo) {
+    return null;
+  }
+
+  const params = new URLSearchParams({ order_no: orderNo });
+  if (action.provider) {
+    params.set("provider", action.provider);
+  }
+  if (action.paymentRecoveryToken) {
+    params.set("payment_recovery_token", action.paymentRecoveryToken);
+  }
+
+  return localizedPath(`/pay/wait?${params.toString()}`, locale);
+}
+
 function resolveOfferPayloads(reportData: ReportResponse): OfferPayload[] {
   const values: OfferPayload[] = [];
 
@@ -575,12 +605,31 @@ export function MbtiResultShell({
           : action.kind === "redirect"
             ? normalizeText(action.orderNo)
             : "");
+      const waitUrl =
+        action.kind === "order_wait" || action.kind === "redirect"
+          ? resolveLocalizedWaitFlowPath(action, locale)
+          : null;
+      const paymentRecoveryToken = normalizeText(
+        checkout.payment_recovery_token,
+        action.kind === "order_wait" || action.kind === "redirect" ? action.paymentRecoveryToken : null
+      );
+      const resolvedProvider = normalizeText(
+        checkout.provider,
+        action.kind === "order_wait" || action.kind === "redirect" ? action.provider : null
+      );
 
       if (!pendingOrderNo) {
         throw new Error(locale === "zh" ? "支付响应缺少订单号。" : "Checkout response is missing order_no.");
       }
 
-      writePendingOrder(pendingOrderNo, attemptId, sku);
+      writePendingOrder({
+        orderNo: pendingOrderNo,
+        attemptId,
+        sku,
+        provider: resolvedProvider || null,
+        waitUrl,
+        paymentRecoveryToken: paymentRecoveryToken || null,
+      });
       trackEvent("create_order", {
         attemptIdMasked: maskIdentifier(attemptId),
         orderNoMasked: maskIdentifier(pendingOrderNo),
@@ -598,7 +647,7 @@ export function MbtiResultShell({
       }
 
       if (action.kind === "order_wait") {
-        const path = localizedPath(buildOrderWaitPath(action), locale);
+        const path = waitUrl ?? localizedPath(buildOrderWaitPath(action), locale);
         if (onInternalNavigate) {
           onInternalNavigate(path);
         } else {

@@ -18,9 +18,10 @@ import { captureError } from "@/lib/observability/sentry";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 
-type ViewStatus = "pending" | "paid" | "failed" | "canceled" | "refunded";
+type ViewStatus = "initializing" | "pending" | "paid" | "failed" | "canceled" | "refunded";
 type PayType = "qr" | "html" | "redirect" | null;
 type DeliveryPayload = NonNullable<OrderStatusResponse["delivery"]>;
+type RecoveryMode = "not_found" | "identity_mismatch" | null;
 
 const POLL_BACKOFF_MS = [2000, 3000, 5000, 8000, 10000];
 const POLL_TIMEOUT_MS = 120000;
@@ -103,26 +104,47 @@ function formatDeliveryEmailTimestamp(value: string | null | undefined, locale: 
   }).format(parsed);
 }
 
-export default function OrdersClient({ orderNo }: { orderNo: string }) {
+export default function OrdersClient({
+  orderNo,
+  paymentRecoveryToken,
+}: {
+  orderNo: string;
+  paymentRecoveryToken?: string | null;
+}) {
   const router = useRouter();
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
+  const initializingMessage = locale === "zh" ? "正在加载订单状态..." : "Loading order status...";
+  const identityMismatchTitle =
+    locale === "zh" ? "当前登录身份与订单所有者不匹配。" : "This order belongs to a different signed-in identity.";
+  const identityMismatchHint =
+    locale === "zh"
+      ? "请使用原购买账号登录，或在匿名购买场景下通过订单查询恢复支付流程。"
+      : "Sign in with the account used for purchase, or use order lookup if you checked out as a guest.";
   const queryPayType = useMemo(() => normalizePayType(searchParams.get("pay_type")), [searchParams]);
   const queryPayValue = useMemo(() => normalizeQueryValue(searchParams.get("pay_value")), [searchParams]);
   const queryPayProvider = useMemo(() => normalizeQueryValue(searchParams.get("provider")), [searchParams]);
+  const queryPaymentRecoveryToken = useMemo(
+    () => normalizeQueryValue(searchParams.get("payment_recovery_token") ?? searchParams.get("paymentRecoveryToken")),
+    [searchParams]
+  );
+  const effectivePaymentRecoveryToken = useMemo(
+    () => normalizeQueryValue(paymentRecoveryToken ?? queryPaymentRecoveryToken),
+    [paymentRecoveryToken, queryPaymentRecoveryToken]
+  );
 
-  const [status, setStatus] = useState<ViewStatus>("pending");
+  const [status, setStatus] = useState<ViewStatus>("initializing");
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [delivery, setDelivery] = useState<DeliveryPayload | null>(null);
   const [accessHubRaw, setAccessHubRaw] = useState<OrderStatusResponse["mbti_access_hub_v1"] | null>(null);
   const [payType, setPayType] = useState<PayType>(queryPayType);
   const [payValue, setPayValue] = useState<string | null>(queryPayValue);
   const [payProvider, setPayProvider] = useState<string | null>(queryPayProvider);
-  const [message, setMessage] = useState<string>(dict.orders.pending);
-  const [recoveryRequired, setRecoveryRequired] = useState(false);
+  const [message, setMessage] = useState<string>(initializingMessage);
+  const [recoveryMode, setRecoveryMode] = useState<RecoveryMode>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isResendingDelivery, setIsResendingDelivery] = useState(false);
   const [deliveryFeedback, setDeliveryFeedback] = useState<{
@@ -241,8 +263,9 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
       if (!active) return;
       if (manual) {
         setIsRefreshing(true);
-        setStatus("pending");
-        setMessage(dict.orders.pending);
+        setStatus("initializing");
+        setMessage(initializingMessage);
+        setRecoveryMode(null);
         clearPollTimer();
         isPollingRef.current = true;
         pollStartedAtRef.current = Date.now();
@@ -252,10 +275,14 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
       const includePaymentAction = !queryPayType && (!payTypeRef.current || !payValueRef.current);
 
       try {
-        const response = await getOrderStatus({ orderNo, includePaymentAction });
+        const response = await getOrderStatus({
+          orderNo,
+          includePaymentAction,
+          paymentRecoveryToken: effectivePaymentRecoveryToken ?? undefined,
+        });
         if (!active) return;
 
-        setRecoveryRequired(false);
+        setRecoveryMode(null);
         const nextStatus = (response.status ?? "pending") as ViewStatus;
         const responsePayNode = response.pay && typeof response.pay === "object" ? response.pay : null;
         const responsePayType = normalizePayType(
@@ -267,6 +294,10 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
         const responsePayProvider =
           normalizeQueryValue(typeof response.provider === "string" ? response.provider : null)
           ?? normalizeQueryValue(typeof responsePayNode?.provider === "string" ? responsePayNode.provider : null);
+        const responseResultUrl = normalizeActionHref(
+          typeof response.result_url === "string" ? response.result_url : null,
+          withLocale
+        );
 
         setStatus(nextStatus);
         setAttemptId(response.attempt_id ?? null);
@@ -306,6 +337,20 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
               ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
             reportedStatusRef.current = "paid";
+          }
+
+          if (responseResultUrl) {
+            setMessage(response.message ?? dict.orders.reportReady);
+            stopPolling();
+            if (!didAutoRedirectRef.current) {
+              didAutoRedirectRef.current = true;
+              if (/^https?:\/\//i.test(responseResultUrl)) {
+                window.location.assign(responseResultUrl);
+              } else {
+                router.replace(responseResultUrl);
+              }
+            }
+            return;
           }
 
           if (response.attempt_id) {
@@ -367,9 +412,17 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
         stopPolling();
 
         if (cause instanceof ApiError && cause.status === 404 && cause.errorCode === "NOT_FOUND") {
-          setRecoveryRequired(true);
+          setRecoveryMode("not_found");
           setStatus("failed");
           setMessage(dict.orders.recoveryRequired);
+          setIsRefreshing(false);
+          return;
+        }
+
+        if (cause instanceof ApiError && cause.status === 403 && cause.errorCode === "IDENTITY_MISMATCH") {
+          setRecoveryMode("identity_mismatch");
+          setStatus("failed");
+          setMessage(identityMismatchTitle);
           setIsRefreshing(false);
           return;
         }
@@ -404,7 +457,18 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
       triggerPollRef.current = null;
       clearPollTimer();
     };
-  }, [dict, locale, orderNo, queryPayProvider, queryPayType, router, withLocale]);
+  }, [
+    dict,
+    effectivePaymentRecoveryToken,
+    identityMismatchTitle,
+    initializingMessage,
+    locale,
+    orderNo,
+    queryPayProvider,
+    queryPayType,
+    router,
+    withLocale,
+  ]);
 
   const handleManualRefresh = useCallback(() => {
     if (isRefreshing) return;
@@ -467,7 +531,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
 
   const icon = useMemo(() => {
     if (status === "paid") return <CheckCircle2 className="h-6 w-6 text-emerald-600" />;
-    if (status === "pending") return <Loader2 className="h-6 w-6 animate-spin text-slate-600" />;
+    if (status === "pending" || status === "initializing") return <Loader2 className="h-6 w-6 animate-spin text-slate-600" />;
     return <XCircle className="h-6 w-6 text-rose-600" />;
   }, [status]);
 
@@ -543,6 +607,12 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
         </CardHeader>
 
         <CardContent className="space-y-3">
+          {status === "initializing" ? (
+            <div className="space-y-3">
+              <Alert className="border-slate-200 bg-slate-50 text-slate-700">{initializingMessage}</Alert>
+            </div>
+          ) : null}
+
           {status === "pending" ? (
             <div className="space-y-3">
               <Alert className="border-slate-200 bg-slate-50 text-slate-700">{dict.orders.pending}</Alert>
@@ -604,10 +674,14 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
             </div>
           ) : null}
 
-          {recoveryRequired ? (
+          {recoveryMode ? (
             <div className="space-y-3">
-              <Alert data-testid="order-recovery-required">{dict.orders.recoveryRequired}</Alert>
-              <p className="m-0 text-sm text-slate-600">{dict.orders.recoveryHint}</p>
+              <Alert data-testid="order-recovery-required">
+                {recoveryMode === "identity_mismatch" ? identityMismatchTitle : dict.orders.recoveryRequired}
+              </Alert>
+              <p className="m-0 text-sm text-slate-600">
+                {recoveryMode === "identity_mismatch" ? identityMismatchHint : dict.orders.recoveryHint}
+              </p>
               <div className="flex flex-wrap gap-2">
                 <Link href={orderLookupHref} data-testid="order-recovery-lookup-link">
                   <Button type="button">{dict.orders.openOrderLookup}</Button>
@@ -741,7 +815,7 @@ export default function OrdersClient({ orderNo }: { orderNo: string }) {
             </div>
           ) : null}
 
-          {!recoveryRequired && (status === "failed" || status === "canceled" || status === "refunded") ? (
+          {!recoveryMode && (status === "failed" || status === "canceled" || status === "refunded") ? (
             <div className="space-y-3">
               <Alert>{message}</Alert>
               <div className="flex flex-wrap gap-2">

@@ -392,6 +392,9 @@ describe("MBTI checkout wiring contract", () => {
       order_no: "ord_html_1",
       attempt_id: "attempt-123",
       provider: "alipay",
+      payment_recovery_token: "recovery_html_1",
+      wait_url:
+        "/pay/wait?order_no=ord_html_1&pay_type=html&pay_value=%2Fapi%2Fv0.3%2Forders%2Ford_html_1%2Fpay%2Falipay%3Fscene%3Ddesktop&provider=alipay&payment_recovery_token=recovery_html_1",
       pay: {
         type: "html",
         value: "/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop",
@@ -417,9 +420,13 @@ describe("MBTI checkout wiring contract", () => {
       orderNo: "ord_html_1",
       attemptId: "attempt-123",
       sku: "MBTI_REPORT_FULL_199",
+      provider: "alipay",
+      waitUrl:
+        "/zh/pay/wait?order_no=ord_html_1&pay_type=html&pay_value=%2Fapi%2Fv0.3%2Forders%2Ford_html_1%2Fpay%2Falipay%3Fscene%3Ddesktop&provider=alipay&payment_recovery_token=recovery_html_1",
+      paymentRecoveryToken: "recovery_html_1",
     });
     expect(onInternalNavigate).toHaveBeenCalledWith(
-      "/zh/pay/wait?order_no=ord_html_1&pay_type=html&pay_value=%2Fapi%2Fv0.3%2Forders%2Ford_html_1%2Fpay%2Falipay%3Fscene%3Ddesktop&provider=alipay"
+      "/zh/pay/wait?order_no=ord_html_1&pay_type=html&pay_value=%2Fapi%2Fv0.3%2Forders%2Ford_html_1%2Fpay%2Falipay%3Fscene%3Ddesktop&provider=alipay&payment_recovery_token=recovery_html_1"
     );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "click_unlock",
@@ -438,13 +445,14 @@ describe("MBTI checkout wiring contract", () => {
     );
   });
 
-  it("falls back to /orders/{orderNo} when checkout only returns a legacy order number", async () => {
+  it("keeps checkout on wait flow even when the response only contains a legacy order number", async () => {
     const reportData = createReportFixture();
     const onInternalNavigate = vi.fn();
 
     hoisted.createCheckoutOrOrder.mockResolvedValue({
       ok: true,
       order_no: "ord_legacy_1",
+      payment_recovery_token: "recovery_legacy_1",
       status: "pending",
     });
 
@@ -453,12 +461,16 @@ describe("MBTI checkout wiring contract", () => {
     fireEvent.click(screen.getByTestId("mbti-offers-primary-cta"));
 
     await waitFor(() => {
-      expect(onInternalNavigate).toHaveBeenCalledWith("/zh/orders/ord_legacy_1");
+      expect(onInternalNavigate).toHaveBeenCalledWith(
+        "/zh/pay/wait?order_no=ord_legacy_1&payment_recovery_token=recovery_legacy_1"
+      );
     });
     expect(readPendingOrder()).toMatchObject({
       orderNo: "ord_legacy_1",
       attemptId: "attempt-123",
       sku: "MBTI_REPORT_FULL_199",
+      waitUrl: "/zh/pay/wait?order_no=ord_legacy_1&payment_recovery_token=recovery_legacy_1",
+      paymentRecoveryToken: "recovery_legacy_1",
     });
   });
 
@@ -487,12 +499,21 @@ describe("MBTI checkout wiring contract", () => {
   });
 
   it("reuses pending order context on provider return pages when order_no is absent", async () => {
-    writePendingOrder("ord_return_1", "attempt-123", "MBTI_REPORT_FULL_199");
+    writePendingOrder({
+      orderNo: "ord_return_1",
+      attemptId: "attempt-123",
+      sku: "MBTI_REPORT_FULL_199",
+      provider: "lemonsqueezy",
+      waitUrl: "/zh/pay/wait?order_no=ord_return_1&payment_recovery_token=recovery_return_1",
+      paymentRecoveryToken: "recovery_return_1",
+    });
 
     render(<OrderReturnFallbackClient locale="zh" />);
 
     await waitFor(() => {
-      expect(hoisted.routerReplace).toHaveBeenCalledWith("/zh/orders/ord_return_1");
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/zh/pay/wait?order_no=ord_return_1&payment_recovery_token=recovery_return_1"
+      );
     });
     expect(readPendingOrder()).toBeNull();
   });

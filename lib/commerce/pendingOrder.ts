@@ -4,6 +4,9 @@ export type PendingOrderContext = {
   orderNo: string;
   attemptId: string;
   sku: string;
+  provider: string | null;
+  waitUrl: string | null;
+  paymentRecoveryToken: string | null;
   updatedAt: string;
 };
 
@@ -17,12 +20,39 @@ function normalizeText(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
-export function writePendingOrder(orderNo: string, attemptId: string, sku: string): void {
+function normalizeNullableText(value: unknown): string | null {
+  const normalized = normalizeText(value);
+  return normalized.length > 0 ? normalized : null;
+}
+
+type PendingOrderWriteInput = {
+  orderNo: string;
+  attemptId: string;
+  sku: string;
+  provider?: string | null;
+  waitUrl?: string | null;
+  paymentRecoveryToken?: string | null;
+};
+
+export function writePendingOrder(
+  orderNoOrInput: string | PendingOrderWriteInput,
+  attemptId?: string,
+  sku?: string
+): void {
   if (!isBrowser()) return;
 
-  const normalizedOrderNo = normalizeText(orderNo);
-  const normalizedAttemptId = normalizeText(attemptId);
-  const normalizedSku = normalizeText(sku);
+  const payloadInput: PendingOrderWriteInput =
+    typeof orderNoOrInput === "string"
+      ? {
+          orderNo: orderNoOrInput,
+          attemptId: attemptId ?? "",
+          sku: sku ?? "",
+        }
+      : orderNoOrInput;
+
+  const normalizedOrderNo = normalizeText(payloadInput.orderNo);
+  const normalizedAttemptId = normalizeText(payloadInput.attemptId);
+  const normalizedSku = normalizeText(payloadInput.sku);
 
   if (!normalizedOrderNo || !normalizedAttemptId || !normalizedSku) {
     throw new Error("Pending order context requires orderNo, attemptId, and sku.");
@@ -32,6 +62,9 @@ export function writePendingOrder(orderNo: string, attemptId: string, sku: strin
     orderNo: normalizedOrderNo,
     attemptId: normalizedAttemptId,
     sku: normalizedSku,
+    provider: normalizeNullableText(payloadInput.provider),
+    waitUrl: normalizeNullableText(payloadInput.waitUrl),
+    paymentRecoveryToken: normalizeNullableText(payloadInput.paymentRecoveryToken),
     updatedAt: new Date().toISOString(),
   };
 
@@ -49,6 +82,9 @@ export function readPendingOrder(): PendingOrderContext | null {
     const orderNo = normalizeText(parsed.orderNo);
     const attemptId = normalizeText(parsed.attemptId);
     const sku = normalizeText(parsed.sku);
+    const provider = normalizeNullableText(parsed.provider);
+    const waitUrl = normalizeNullableText(parsed.waitUrl);
+    const paymentRecoveryToken = normalizeNullableText(parsed.paymentRecoveryToken);
     const updatedAt = normalizeText(parsed.updatedAt);
 
     if (!orderNo || !attemptId || !sku) {
@@ -60,6 +96,9 @@ export function readPendingOrder(): PendingOrderContext | null {
       orderNo,
       attemptId,
       sku,
+      provider,
+      waitUrl,
+      paymentRecoveryToken,
       updatedAt,
     };
   } catch {

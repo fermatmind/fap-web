@@ -42,10 +42,12 @@ export default async function PayWaitPage({
   const locale = resolveLocale(localeParam);
   const query = await searchParams;
   const orderNo = firstValue(query.order_no) || firstValue(query.orderNo);
+  const paymentRecoveryToken =
+    firstValue(query.payment_recovery_token) || firstValue(query.paymentRecoveryToken) || null;
 
   if (!orderNo) {
     redirect(localizedPath("/orders/lookup", locale));
   }
 
-  return <OrdersClient orderNo={orderNo} />;
+  return <OrdersClient orderNo={orderNo} paymentRecoveryToken={paymentRecoveryToken} />;
 }
