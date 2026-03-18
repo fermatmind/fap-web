@@ -18,6 +18,7 @@ async function expectHeroAndValuePropsSeparated(page: Page) {
 test("home page renders hero, value props, and highlighted tests", async ({ page }) => {
   await page.goto("/en");
   await expectHeroAndValuePropsSeparated(page);
+  await expect(page.getByText("We use cookies and analytics to improve service quality.")).toHaveCount(0);
 
   await expect(page.getByRole("heading", { name: "Highlighted tests" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Find your test" })).toBeVisible();
@@ -59,6 +60,7 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
 test("zh home MBTI highlighted card title shows 16型人格", async ({ page }) => {
   await page.goto("/zh");
   await expectHeroAndValuePropsSeparated(page);
+  await expect(page.getByText("我们使用 Cookie 和分析工具来提升服务质量。")).toHaveCount(0);
 
   const highlightedSection = page.getByTestId("home-highlighted-tests-section");
   await expect(highlightedSection).toBeVisible();

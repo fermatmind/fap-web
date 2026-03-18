@@ -1,14 +1,23 @@
 import { expect, test } from "@playwright/test";
 
-test("root gateway responds 200 and exposes /en /zh entry links", async ({ request }) => {
-  const response = await request.get("/");
-  expect(response.status()).toBe(200);
-  expect(response.headers().location).toBeUndefined();
+test("root path redirects to the preferred localized home", async ({ request }) => {
+  const zhResponse = await request.get("/", {
+    headers: {
+      "accept-language": "zh-CN,zh;q=0.9,en;q=0.8",
+    },
+    maxRedirects: 0,
+  });
+  expect(zhResponse.status()).toBe(307);
+  expect(zhResponse.headers().location).toContain("/zh");
 
-  const html = await response.text();
-  expect(html).toContain('href="/en"');
-  expect(html).toContain('href="/zh"');
-  expect(html).toContain("x-default");
+  const enResponse = await request.get("/", {
+    headers: {
+      cookie: "fm_locale=en",
+    },
+    maxRedirects: 0,
+  });
+  expect(enResponse.status()).toBe(307);
+  expect(enResponse.headers().location).toContain("/en");
 });
 
 test("localized public gateway keeps personality/topics/help reachable and does not revive /types", async ({ request }) => {
