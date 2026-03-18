@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import OrdersClient from "@/app/(localized)/[locale]/orders/[orderNo]/OrdersClient";
+import { ApiError } from "@/lib/api-client";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 
 const hoisted = vi.hoisted(() => ({
@@ -222,6 +223,32 @@ describe("OrdersClient delivery contract", () => {
       "_blank",
       "noopener,noreferrer"
     );
+  });
+
+  it("routes ownership 404 into order lookup recovery instead of leaving the page pending", async () => {
+    hoisted.getOrderStatus.mockRejectedValue(
+      new ApiError({
+        status: 404,
+        errorCode: "NOT_FOUND",
+        message: "order not found.",
+      })
+    );
+
+    render(<OrdersClient orderNo="ord_missing_owner_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-recovery-required")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("order-recovery-required")).toHaveTextContent(
+      "This order is not available under the current identity."
+    );
+    expect(screen.getByText("You may have switched browsers, devices, or anonymous identities. Use order lookup to recover this payment flow.")).toBeInTheDocument();
+    expect(screen.getByTestId("order-recovery-lookup-link")).toHaveAttribute(
+      "href",
+      "/en/orders/lookup?orderNo=ord_missing_owner_1"
+    );
+    expect(screen.queryByText("Confirming your payment...")).not.toBeInTheDocument();
   });
 });
 

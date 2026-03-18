@@ -61,7 +61,7 @@ test("order lookup shows the marketing consent consumer", async ({ page }) => {
   await expect(page.getByTestId("order-lookup-marketing-consent")).not.toBeChecked();
 });
 
-test("order lookup success routes into the order detail page", async ({ page }) => {
+test("order lookup success renders pending payment recovery inline", async ({ page }) => {
   const orderNo = "ord_lookup_success_001";
   const sequence: string[] = [];
   let captureBody: Record<string, unknown> | null = null;
@@ -90,18 +90,13 @@ test("order lookup success routes into the order detail page", async ({ page }) 
       body: JSON.stringify({
         ok: true,
         order_no: orderNo,
-      }),
-    });
-  });
-  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
         status: "pending",
-        message: "Confirming your payment...",
+        provider: "alipay",
+        pay: {
+          type: "html",
+          value: "/api/v0.3/orders/ord_lookup_success_001/pay/alipay?scene=desktop",
+          provider: "alipay",
+        },
       }),
     });
   });
@@ -119,8 +114,10 @@ test("order lookup success routes into the order detail page", async ({ page }) 
     marketing_consent: false,
   });
   await expect.poll(() => sequence.join(",")).toBe("capture,lookup");
-  await expect(page).toHaveURL(`/en/orders/${orderNo}`);
-  await expect(page.getByRole("heading", { level: 3, name: `Order status #${orderNo}` })).toBeVisible();
+  await expect(page).toHaveURL("/en/orders/lookup");
+  await expect(page.getByTestId("order-lookup-hit-payment-action")).toBeVisible();
+  await expect(page.getByText("Provider: alipay")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
 
 test("order lookup hit prefers mbti_access_hub_v1 and keeps recovery actions on the page", async ({ page }) => {
@@ -164,6 +161,32 @@ test("order lookup hit prefers mbti_access_hub_v1 and keeps recovery actions on 
   await expect(page.getByTestId("order-lookup-hit-pdf")).toBeVisible();
   await expect(page.getByTestId("order-lookup-hit-claim")).toBeVisible();
   await expect(page.getByTestId("order-lookup-hit-history")).toHaveAttribute("href", "/en/history/mbti");
+});
+
+test("protected order page turns ownership 404 into an order lookup recovery CTA", async ({ page }) => {
+  const orderNo = "ord_lookup_recovery_404";
+
+  await mockCommonApis(page);
+  await page.route(`**/api/v0.3/orders/${orderNo}?include_payment_action=1`, async (route) => {
+    await route.fulfill({
+      status: 404,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: false,
+        error_code: "NOT_FOUND",
+        message: "order not found.",
+      }),
+    });
+  });
+
+  await page.goto(`/en/orders/${orderNo}`);
+
+  await expect(page.getByTestId("order-recovery-required")).toBeVisible();
+  await expect(page.getByTestId("order-recovery-lookup-link")).toHaveAttribute(
+    "href",
+    `/en/orders/lookup?orderNo=${orderNo}`
+  );
+  await expect(page.getByRole("link", { name: "Open order lookup" })).toBeVisible();
 });
 
 test("claim flow shows blind success copy", async ({ page }) => {
@@ -242,7 +265,7 @@ test("order detail recovery entry routes back to lookup claim mode", async ({ pa
   const orderNo = "ord_claim_back_001";
 
   await mockCommonApis(page);
-  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",

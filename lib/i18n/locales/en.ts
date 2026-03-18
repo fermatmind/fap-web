@@ -224,6 +224,9 @@ const en: SiteDictionary = {
     qrCodeUnavailable: "Unable to render QR code. Please refresh and try again.",
     openPaymentHint: "Continue payment in the provider page, then return to this tab.",
     openPaymentPage: "Open payment page",
+    recoveryRequired: "This order is not available under the current identity.",
+    recoveryHint: "You may have switched browsers, devices, or anonymous identities. Use order lookup to recover this payment flow.",
+    openOrderLookup: "Open order lookup",
   },
   history: {
     mbti: {

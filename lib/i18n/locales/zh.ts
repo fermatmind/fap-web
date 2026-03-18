@@ -223,6 +223,9 @@ const zh: SiteDictionary = {
     qrCodeUnavailable: "二维码生成失败，请刷新后重试。",
     openPaymentHint: "请在支付页面完成支付，完成后返回此页面等待状态更新。",
     openPaymentPage: "打开支付页面",
+    recoveryRequired: "当前身份无法直接访问该订单。",
+    recoveryHint: "这通常是因为你更换了浏览器、设备，或匿名身份已变化。请通过订单查询恢复支付流程。",
+    openOrderLookup: "前往订单查询",
   },
   history: {
     mbti: {

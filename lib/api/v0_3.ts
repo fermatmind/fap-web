@@ -712,6 +712,15 @@ export type OrderDeliveryState = {
 export type OrderLookupResponse = {
   ok?: boolean;
   order_no?: string;
+  status?: "pending" | "paid" | "failed" | "canceled" | "refunded" | string;
+  provider?: string;
+  checkout_url?: string | null;
+  pay?: {
+    type?: "qr" | "redirect" | "html" | string;
+    value?: string;
+    provider?: string;
+    [key: string]: unknown;
+  } | null;
   delivery?: OrderDeliveryState | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
