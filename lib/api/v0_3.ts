@@ -445,6 +445,14 @@ export type OrderStatusResponse = {
   amount?: number | string;
   amount_cents?: number;
   currency?: string;
+  provider?: string;
+  checkout_url?: string;
+  pay?: {
+    type?: "qr" | "redirect" | "html" | string;
+    value?: string;
+    provider?: string;
+    [key: string]: unknown;
+  } | null;
   delivery?: OrderDeliveryState | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
@@ -1598,12 +1606,19 @@ export async function createCheckoutOrOrder({
 export async function getOrderStatus({
   orderNo,
   anonId,
+  includePaymentAction,
 }: {
   orderNo: string;
   anonId?: string;
+  includePaymentAction?: boolean;
 }): Promise<OrderStatusResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
-  const response = await apiClient.get<OrderStatusResponse>(`/v0.3/orders/${orderNo}`, anonHeader(resolvedAnonId));
+  const params = new URLSearchParams();
+  if (includePaymentAction) {
+    params.set("include_payment_action", "1");
+  }
+  const path = `/v0.3/orders/${orderNo}${params.size > 0 ? `?${params.toString()}` : ""}`;
+  const response = await apiClient.get<OrderStatusResponse>(path, anonHeader(resolvedAnonId));
 
   const normalized = assertApiOk(response, "Failed to load order status.");
   return {
