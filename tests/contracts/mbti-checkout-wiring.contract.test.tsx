@@ -7,6 +7,7 @@ import { MbtiResultShell, resolveMbtiCheckoutSku } from "@/components/result/mbt
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
+import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import type {
   HighlightCard,
   MbtiSectionUnlock,
@@ -50,7 +51,7 @@ vi.mock("@/lib/api/v0_3", async () => {
 });
 
 function createReportFixture(): ReportResponse {
-  return structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse;
+  return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
 }
 
 function createShellProps(reportData: ReportResponse) {
@@ -389,7 +390,7 @@ describe("MBTI checkout wiring contract", () => {
         attemptIdMasked: "attemp...-123",
         typeCode: "ENFP-T",
         identity: "T",
-        variantKey: "overview:EI.E.clear:identity.T:boundary.TF",
+        variantKey: "overview:EI.E.clear:identity.T:boundary.none",
       })
     );
     expect(window.navigator.clipboard.writeText).not.toHaveBeenCalled();

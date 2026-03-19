@@ -1,11 +1,13 @@
 import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
+import type { ReportResponse } from "@/lib/api/v0_3";
+import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 
 function createMbtiReportFixture(
   mutate?: (fixture: Record<string, unknown>) => void
 ) {
-  const fixture = structuredClone(reportReadyMbtiProjectionFixture) as Record<string, unknown>;
+  const fixture = applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse) as unknown as Record<string, unknown>;
   mutate?.(fixture);
   return fixture;
 }
@@ -201,12 +203,17 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     "Projection-first summary that should replace the legacy hero copy on result pages."
   );
   await expect(page.getByTestId("mbti-hero-identity-line")).toContainText("Spark Navigator");
+  await expect(page.getByTestId("mbti-scene-fingerprint")).toBeVisible();
+  await expect(page.getByTestId("mbti-scene-card-work")).toHaveAttribute(
+    "data-style-key",
+    "work.primary.EI.E.clear"
+  );
   await expect(page.getByTestId("mbti-hero")).not.toContainText("Legacy Hero Title Should Lose");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview title");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview one-liner");
   await expect(page.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
     "data-variant-key",
-    "overview:EI.E.clear:identity.T:boundary.TF"
+    "overview:EI.E.clear:identity.T:boundary.none"
   );
   await expect(page.getByTestId("mbti-projection-section-overview")).toContainText(
     "你已经呈现出稳定的外倾倾向"
@@ -215,10 +222,18 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock full report");
   await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toBeVisible();
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career summary public copy.");
+  await expect(page.getByTestId("mbti-chapter-career")).toContainText(
+    "你更容易先把能量投向外部互动、讨论与现场反馈"
+  );
   await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career advantage one");
   await expect(page.getByTestId("mbti-chapter-growth")).toContainText("Projection motivators teaser.");
+  await expect(page.getByTestId("mbti-projection-section-growth-drainers")).toContainText(
+    "你在过载时和恢复时可能会切到不同挡位"
+  );
   await expect(page.getByTestId("mbti-chapter-relationships")).toContainText("Projection relationship risks teaser.");
+  await expect(page.getByTestId("mbti-projection-section-relationships-rel-risks")).toContainText(
+    "两套判断入口之间来回校准"
+  );
   await expect(page.getByTestId("mbti-career-next-step")).toContainText("Projection career summary public copy.");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",

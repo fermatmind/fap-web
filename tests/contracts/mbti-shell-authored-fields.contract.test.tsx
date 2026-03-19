@@ -1,7 +1,8 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
+import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 
 const hoisted = vi.hoisted(() => ({
@@ -17,7 +18,7 @@ vi.mock("@/lib/analytics", () => ({
 }));
 
 function createReportFixture(): ReportResponse {
-  return structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse;
+  return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
 }
 
 function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> = {}) {
@@ -70,7 +71,13 @@ describe("MBTI shell authored fields contract", () => {
     expect(hero).toHaveTextContent("Projection-first summary that should replace the legacy hero copy on result pages.");
     expect(hero).toHaveTextContent("Around 6-8%");
     expect(hero).toHaveTextContent("Projection Tag Alpha");
-    expect(screen.getByText("Projection career summary public copy.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveAttribute(
+      "data-variant-key",
+      "career.summary:EI.E.clear:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveTextContent(
+      "你更容易先把能量投向外部互动、讨论与现场反馈"
+    );
     expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("Projection career summary public copy.");
     expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
       "href",
@@ -95,7 +102,7 @@ describe("MBTI shell authored fields contract", () => {
         attemptIdMasked: "attemp...-123",
         typeCode: "ENFP-T",
         identity: "T",
-        variantKey: "overview:EI.E.clear:identity.T:boundary.TF",
+        variantKey: "overview:EI.E.clear:identity.T:boundary.none",
       })
     );
   });
@@ -121,7 +128,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
-    expect(screen.getByTestId("mbti-chapter-overview")).toHaveTextContent("Projection overview public copy.");
+    expect(screen.getByTestId("mbti-chapter-overview")).toHaveTextContent("你已经呈现出稳定的外倾倾向");
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
   });
 
@@ -156,7 +163,10 @@ describe("MBTI shell authored fields contract", () => {
 
   it("renders backend-supplied overview variants for the same type when EI strength changes", () => {
     const clearReportData = createReportFixture();
-    const strongReportData = createReportFixture();
+    const strongReportData = applyMbtiPhase2Fixture(
+      structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse,
+      { eiBand: "strong", eiPct: 77, eiDelta: 27 }
+    );
 
     const clearOverview = clearReportData.mbti_public_projection_v1?.sections?.find(
       (section) => section.key === "overview"
@@ -180,42 +190,13 @@ describe("MBTI shell authored fields contract", () => {
       }
 
       (personalization.axis_bands as Record<string, string>).EI = "strong";
-      (personalization.axis_vector as Record<string, Record<string, unknown>>).EI = {
-        ...((personalization.axis_vector as Record<string, Record<string, unknown>>).EI ?? {}),
-        pct: 77,
-        delta: 27,
-        state: "strong",
-        band: "strong",
-      };
-      (personalization.variant_keys as Record<string, string>).overview =
-        "overview:EI.E.strong:identity.T:boundary.TF";
     }
-
-    const strongOverviewPayload = strongOverview.payload as Record<string, unknown>;
-    const strongOverviewBlocks = strongOverviewPayload.blocks as Array<Record<string, unknown>>;
-    strongOverviewBlocks[1] = {
-      ...strongOverviewBlocks[1],
-      id: "overview.axis_strength.EI.E.strong",
-      text: "在能量方向上，你的外倾偏好已经很鲜明。你通常不会先停在中间，而会自然把注意力和行动拉向这一侧。",
-    };
-    (strongOverviewPayload.personalization as Record<string, unknown>).variant_key =
-      "overview:EI.E.strong:identity.T:boundary.TF";
-    (strongOverviewPayload.personalization as Record<string, unknown>).selected_blocks = [
-      "overview.axis_strength.EI.E.strong",
-      "overview.scene.EI.E",
-      "overview.identity.t",
-      "overview.boundary.TF",
-    ];
-    strongOverview._meta = {
-      ...((strongOverview._meta as Record<string, unknown> | undefined) ?? {}),
-      variant_key: "overview:EI.E.strong:identity.T:boundary.TF",
-    };
 
     const { unmount } = render(<RichResultReport locale="zh" reportData={clearReportData} />);
 
     expect(screen.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
       "data-variant-key",
-      "overview:EI.E.clear:identity.T:boundary.TF"
+      "overview:EI.E.clear:identity.T:boundary.none"
     );
     expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
       "你已经呈现出稳定的外倾倾向"
@@ -227,13 +208,46 @@ describe("MBTI shell authored fields contract", () => {
 
     expect(screen.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
       "data-variant-key",
-      "overview:EI.E.strong:identity.T:boundary.TF"
+      "overview:EI.E.strong:identity.T:boundary.none"
     );
     expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
       "你的外倾偏好已经很鲜明"
     );
     expect(screen.getByTestId("mbti-projection-section-overview")).not.toHaveTextContent(
       "你已经呈现出稳定的外倾倾向"
+    );
+  });
+
+  it("renders scene fingerprint summary and second-wave section variants from backend authority", () => {
+    const reportData = createReportFixture();
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    expect(screen.getByTestId("mbti-scene-fingerprint")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-scene-card-work")).toHaveAttribute(
+      "data-style-key",
+      "work.primary.EI.E.clear"
+    );
+    expect(screen.getByTestId("mbti-scene-card-decision")).toHaveTextContent("你的决策模式");
+    expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveAttribute(
+      "data-variant-key",
+      "growth.drainers:JP.P.boundary:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveTextContent(
+      "你在过载时和恢复时可能会切到不同挡位"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-rel-risks")).toHaveTextContent(
+      "两套判断入口之间来回校准"
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "很像我" }));
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "accuracy_feedback",
+      expect.objectContaining({
+        feedback: "accurate",
+        typeCode: "ENFP-T",
+        identity: "T",
+      })
     );
   });
 });
