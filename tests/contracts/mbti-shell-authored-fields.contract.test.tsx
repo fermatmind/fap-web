@@ -92,6 +92,17 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-projection-section-career-work-environment")).toHaveTextContent(
       "工作环境"
     );
+    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
+      "data-variant-key",
+      "career.work_experiments:EI.E.clear:identity.T:action.work_experiment_theme_name_decision_rule:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
+      "data-action-key",
+      "work_experiment.theme.name_decision_rule"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveTextContent(
+      "工作实验"
+    );
     expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveAttribute(
       "data-variant-key",
       "career.next_step:TF.T.boundary:identity.T:boundary.TF"
@@ -142,6 +153,38 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveTextContent(
       "情境敏感型稳定"
     );
+    expect(screen.getByTestId("mbti-action-plan-summary")).toHaveTextContent(
+      "把成长、关系和工作里的高匹配动作都缩成一周内能重复的小实验"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-variant-key",
+      "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-action-key",
+      "weekly_action.theme.name_decision_rule"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveTextContent(
+      "下一步动作"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-weekly-experiments")).toHaveAttribute(
+      "data-variant-key",
+      "growth.weekly_experiments:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-weekly-experiments")).toHaveTextContent(
+      "本周实验"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveAttribute(
+      "data-variant-key",
+      "growth.watchouts:JP.J.boundary:identity.T:action.watchout_stability_context_sensitive:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveAttribute(
+      "data-action-key",
+      "watchout.stability.context_sensitive"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveTextContent(
+      "风险提醒"
+    );
     expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
       "过载时和恢复时可能会切到不同挡位"
     );
@@ -151,6 +194,17 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveTextContent(
       "你的起手表达方式"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveAttribute(
+      "data-variant-key",
+      "relationships.try_this_week:EI.E.clear:identity.T:action.relationship_action_theme_name_decision_rule:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveAttribute(
+      "data-action-key",
+      "relationship_action.theme.name_decision_rule"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveTextContent(
+      "本周关系练习"
     );
     expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("先把你看重的判断标准写清楚");
     expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
@@ -315,6 +369,21 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
       "你最先启动的自救方式"
     );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveTextContent(
+      "下一步动作"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-weekly-experiments")).toHaveTextContent(
+      "本周实验"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveTextContent(
+      "风险提醒"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveTextContent(
+      "工作实验"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveTextContent(
+      "本周关系练习"
+    );
     expect(screen.getByTestId("mbti-projection-section-relationships-rel-risks")).toHaveTextContent(
       "两套判断入口之间来回校准"
     );
@@ -367,6 +436,23 @@ describe("MBTI shell authored fields contract", () => {
         identity: "T",
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
         sceneFingerprint: expect.stringContaining("work:work.primary.EI.E.clear"),
+      })
+    );
+
+    fireEvent.click(
+      within(screen.getByTestId("mbti-projection-section-growth-next-actions")).getByRole("button", {
+        name: "这条建议有帮助",
+      })
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "accuracy_feedback",
+      expect.objectContaining({
+        feedback: "helpful_action",
+        sectionKey: "growth.next_actions",
+        actionKey: "weekly_action.theme.name_decision_rule",
+        typeCode: "ENFP-T",
+        identity: "T",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
   });

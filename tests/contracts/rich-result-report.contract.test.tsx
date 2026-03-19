@@ -199,6 +199,17 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-projection-section-career-work-environment")).toHaveTextContent(
       "工作环境"
     );
+    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
+      "data-variant-key",
+      "career.work_experiments:EI.E.clear:identity.T:action.work_experiment_theme_name_decision_rule:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
+      "data-action-key",
+      "work_experiment.theme.name_decision_rule"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveTextContent(
+      "工作实验"
+    );
     expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
     expect(screen.getByText("Projection career weakness one")).toBeInTheDocument();
     expect(screen.getByText("Roles that reward exploratory leadership.")).toBeInTheDocument();
@@ -226,6 +237,23 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
       "过载时和恢复时可能会切到不同挡位"
     );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-variant-key",
+      "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-action-key",
+      "weekly_action.theme.name_decision_rule"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveTextContent(
+      "下一步动作"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-weekly-experiments")).toHaveTextContent(
+      "本周实验"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveTextContent(
+      "风险提醒"
+    );
     expect(screen.getByText("Projection motivators teaser.")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveTextContent(
       "你在过载时和恢复时可能会切到不同挡位"
@@ -239,6 +267,17 @@ describe("RichResultReport", () => {
     );
     expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveTextContent(
       "你的起手表达方式"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveAttribute(
+      "data-variant-key",
+      "relationships.try_this_week:EI.E.clear:identity.T:action.relationship_action_theme_name_decision_rule:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveAttribute(
+      "data-action-key",
+      "relationship_action.theme.name_decision_rule"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveTextContent(
+      "本周关系练习"
     );
     expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-projection-section-relationships-rel-risks")).toHaveTextContent(

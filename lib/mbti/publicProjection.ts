@@ -27,6 +27,7 @@ const RESULT_SECTION_ORDER = [
   "career.summary",
   "career.collaboration_fit",
   "career.work_environment",
+  "career.work_experiments",
   "career.advantages",
   "career.weaknesses",
   "career.preferred_roles",
@@ -34,15 +35,19 @@ const RESULT_SECTION_ORDER = [
   "career.upgrade_suggestions",
   "growth.summary",
   "growth.stability_confidence",
+  "growth.next_actions",
+  "growth.weekly_experiments",
   "growth.strengths",
   "growth.weaknesses",
   "growth.stress_recovery",
+  "growth.watchouts",
   "growth.motivators",
   "growth.drainers",
   "relationships.summary",
   "relationships.strengths",
   "relationships.weaknesses",
   "relationships.communication_style",
+  "relationships.try_this_week",
   "relationships.rel_advantages",
   "relationships.rel_risks",
 ] as const;
@@ -148,6 +153,11 @@ export type MbtiResultPersonalizationViewModel = {
   collaborationFitKeys: string[];
   workEnvPreferenceKeys: string[];
   careerNextStepKeys: string[];
+  actionPlanSummary: string;
+  weeklyActionKeys: string[];
+  relationshipActionKeys: string[];
+  workExperimentKeys: string[];
+  watchoutKeys: string[];
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -546,6 +556,11 @@ function normalizePersonalization(
     collaborationFitKeys: normalizeStringArray(personalization.collaboration_fit_keys),
     workEnvPreferenceKeys: normalizeStringArray(personalization.work_env_preference_keys),
     careerNextStepKeys: normalizeStringArray(personalization.career_next_step_keys),
+    actionPlanSummary: normalizeText(personalization.action_plan_summary),
+    weeklyActionKeys: normalizeStringArray(personalization.weekly_action_keys),
+    relationshipActionKeys: normalizeStringArray(personalization.relationship_action_keys),
+    workExperimentKeys: normalizeStringArray(personalization.work_experiment_keys),
+    watchoutKeys: normalizeStringArray(personalization.watchout_keys),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),

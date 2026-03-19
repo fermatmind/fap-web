@@ -64,6 +64,14 @@ const EXPLAINABILITY_SECTION_KEYS = new Set([
   "growth.stability_confidence",
 ]);
 
+const ACTION_SECTION_KEYS = new Set([
+  "growth.next_actions",
+  "growth.weekly_experiments",
+  "relationships.try_this_week",
+  "career.work_experiments",
+  "growth.watchouts",
+]);
+
 type MbtiChapterSectionProps = {
   locale: Locale;
   chapterKey: ChapterKey;
@@ -221,6 +229,7 @@ function buildSectionTelemetryPayload(
     sectionKey: section.key,
     sceneKey: normalizeText(personalizationPayload?.scene_key, section.key.split(".")[0]),
     styleKey: normalizeText(personalizationPayload?.style_key),
+    actionKey: normalizeText(personalizationPayload?.action_key),
     variantKey: normalizeText(section.variantKey),
     contrastKey: normalizeText(
       personalizationPayload?.contrast_key,
@@ -641,6 +650,7 @@ function renderProjectionSection(
   }
 
   const isExplainabilitySection = EXPLAINABILITY_SECTION_KEYS.has(section.key);
+  const isActionSection = ACTION_SECTION_KEYS.has(section.key);
 
   return (
     <article
@@ -648,6 +658,7 @@ function renderProjectionSection(
       data-testid={`mbti-projection-section-${toProjectionSectionTestId(section.key)}`}
       data-section-key={section.key}
       data-variant-key={section.variantKey || undefined}
+      data-action-key={normalizeText(telemetryPayload.actionKey) || undefined}
       data-contrast-key={normalizeText(telemetryPayload.contrastKey) || undefined}
       className="space-y-3 rounded-[24px] border border-slate-200 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
       onClickCapture={() => {
@@ -659,15 +670,16 @@ function renderProjectionSection(
     >
       <h3 className="m-0 text-lg font-semibold text-slate-900">{section.title}</h3>
       {content}
-      {isExplainabilitySection ? (
+      {isExplainabilitySection || isActionSection ? (
         <div className="flex flex-wrap gap-2 pt-1">
           <button
             type="button"
             className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
             onClick={() => {
               trackEvent("accuracy_feedback", {
-                feedback: "accurate",
+                feedback: isActionSection ? "helpful_action" : "accurate",
                 sectionKey: section.key,
+                actionKey: telemetryPayload.actionKey,
                 contrastKey: telemetryPayload.contrastKey,
                 neighborTypeKeys: telemetryPayload.neighborTypeKeys,
                 closeCallAxes: telemetryPayload.closeCallAxes,
@@ -683,15 +695,22 @@ function renderProjectionSection(
               });
             }}
           >
-            {locale === "zh" ? "解释很像我" : "This fits me"}
+            {isActionSection
+              ? locale === "zh"
+                ? "这条建议有帮助"
+                : "This helps"
+              : locale === "zh"
+                ? "解释很像我"
+                : "This fits me"}
           </button>
           <button
             type="button"
             className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
             onClick={() => {
               trackEvent("accuracy_feedback", {
-                feedback: "unclear",
+                feedback: isActionSection ? "not_now" : "unclear",
                 sectionKey: section.key,
+                actionKey: telemetryPayload.actionKey,
                 contrastKey: telemetryPayload.contrastKey,
                 neighborTypeKeys: telemetryPayload.neighborTypeKeys,
                 closeCallAxes: telemetryPayload.closeCallAxes,
@@ -707,7 +726,13 @@ function renderProjectionSection(
               });
             }}
           >
-            {locale === "zh" ? "这块还不够像" : "This misses me"}
+            {isActionSection
+              ? locale === "zh"
+                ? "这条暂时不适合"
+                : "Not for now"
+              : locale === "zh"
+                ? "这块还不够像"
+                : "This misses me"}
           </button>
         </div>
       ) : null}
