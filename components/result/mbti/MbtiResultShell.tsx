@@ -92,13 +92,22 @@ const CHAPTER_PROJECTION_KEYS = {
   ],
   growth: [
     "growth.summary",
+    "growth.stability_confidence",
     "growth.strengths",
     "growth.weaknesses",
     "growth.stress_recovery",
     "growth.motivators",
     "growth.drainers",
   ],
-  traits: ["letters_intro", "overview", "trait_overview", "traits.decision_style"],
+  traits: [
+    "letters_intro",
+    "overview",
+    "trait_overview",
+    "traits.why_this_type",
+    "traits.close_call_axes",
+    "traits.adjacent_type_contrast",
+    "traits.decision_style",
+  ],
   relationships: [
     "relationships.summary",
     "relationships.strengths",

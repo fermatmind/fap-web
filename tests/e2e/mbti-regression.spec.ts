@@ -218,6 +218,16 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-projection-section-overview")).toContainText(
     "你已经呈现出稳定的外倾倾向"
   );
+  await expect(page.getByTestId("mbti-projection-section-traits-why-this-type")).toBeVisible();
+  await expect(page.getByTestId("mbti-projection-section-traits-why-this-type")).toContainText(
+    "主类型之所以成立"
+  );
+  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toContainText(
+    "只拉开了7个点差"
+  );
+  await expect(page.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toContainText(
+    "最容易把你看成ENFJ"
+  );
   await expect(page.getByTestId("mbti-projection-section-traits-decision-style")).toBeVisible();
   await expect(page.getByTestId("mbti-projection-section-traits-decision-style")).toContainText(
     "两套判断入口之间来回校准"
@@ -240,6 +250,9 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     "先把你看重的判断标准写清楚"
   );
   await expect(page.getByTestId("mbti-chapter-growth")).toContainText("Projection motivators teaser.");
+  await expect(page.getByTestId("mbti-projection-section-growth-stability-confidence")).toContainText(
+    "情境敏感型稳定"
+  );
   await expect(page.getByTestId("mbti-projection-section-growth-stress-recovery")).toContainText(
     "过载时和恢复时可能会切到不同挡位"
   );

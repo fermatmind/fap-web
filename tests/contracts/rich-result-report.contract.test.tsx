@@ -146,6 +146,31 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
       "你已经呈现出稳定的外倾倾向"
     );
+    expect(screen.getByTestId("mbti-projection-section-traits-why-this-type")).toHaveAttribute(
+      "data-variant-key",
+      "traits.why_this_type:EI.E.clear:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-why-this-type")).toHaveTextContent(
+      "主类型之所以成立"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
+      "data-variant-key",
+      "traits.close_call_axes:JP.J.boundary:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveTextContent(
+      "只拉开了7个点差"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveAttribute(
+      "data-variant-key",
+      "traits.adjacent_type_contrast:JP.J.boundary:identity.T:neighbor.ENFJ"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveAttribute(
+      "data-contrast-key",
+      "traits.adjacent_type_contrast:neighbor.ENFJ-ENTP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveTextContent(
+      "最容易把你看成ENFJ"
+    );
     expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveAttribute(
       "data-variant-key",
       "traits.decision_style:TF.T.boundary:identity.T:boundary.TF"
@@ -186,6 +211,13 @@ describe("RichResultReport", () => {
     );
     expect(screen.getByTestId("mbti-projection-section-growth-summary")).toHaveTextContent(
       "成长上，你更适合先放大这条已经清晰的外倾优势"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
+      "data-variant-key",
+      "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveTextContent(
+      "情境敏感型稳定"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveAttribute(
       "data-variant-key",

@@ -20,6 +20,9 @@ const RESULT_SECTION_ORDER = [
   "letters_intro",
   "overview",
   "trait_overview",
+  "traits.why_this_type",
+  "traits.close_call_axes",
+  "traits.adjacent_type_contrast",
   "traits.decision_style",
   "career.summary",
   "career.collaboration_fit",
@@ -30,6 +33,7 @@ const RESULT_SECTION_ORDER = [
   "career.next_step",
   "career.upgrade_suggestions",
   "growth.summary",
+  "growth.stability_confidence",
   "growth.strengths",
   "growth.weaknesses",
   "growth.stress_recovery",
@@ -102,6 +106,12 @@ export type MbtiPersonalizationAxisViewModel = {
   band: string;
 };
 
+export type MbtiCloseCallAxisViewModel = MbtiPersonalizationAxisViewModel & {
+  oppositeSide: string;
+  oppositeSideLabel: string;
+  boundary: boolean;
+};
+
 export type MbtiSceneFingerprintEntryViewModel = {
   scene: string;
   title: string;
@@ -118,6 +128,11 @@ export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
   identity: string;
+  explainabilitySummary: string;
+  closeCallAxes: MbtiCloseCallAxisViewModel[];
+  neighborTypeKeys: string[];
+  contrastKeys: Record<string, string>;
+  confidenceOrStabilityKeys: string[];
   axisVector: Record<string, MbtiPersonalizationAxisViewModel>;
   axisBands: Record<string, string>;
   boundaryFlags: Record<string, boolean>;
@@ -382,6 +397,24 @@ function normalizePersonalizationAxis(
   };
 }
 
+function normalizeCloseCallAxis(
+  axisCode: string,
+  rawAxis: unknown
+): MbtiCloseCallAxisViewModel | null {
+  const base = normalizePersonalizationAxis(axisCode, rawAxis);
+  const axis = asRecord(rawAxis);
+  if (!base || !axis) {
+    return null;
+  }
+
+  return {
+    ...base,
+    oppositeSide: normalizeText(axis.opposite_side).toUpperCase(),
+    oppositeSideLabel: normalizeText(axis.opposite_side_label),
+    boundary: axis.boundary === true,
+  };
+}
+
 function normalizeSceneFingerprintEntry(
   sceneKey: string,
   rawEntry: unknown
@@ -455,6 +488,12 @@ function normalizePersonalization(
       normalizeText(value),
     ])
   );
+  const contrastKeys = Object.fromEntries(
+    Object.entries(asRecord(personalization.contrast_keys) ?? {}).map(([sectionKey, value]) => [
+      sectionKey,
+      normalizeText(value),
+    ])
+  );
   const axisBands = Object.fromEntries(
     Object.entries(asRecord(personalization.axis_bands) ?? {}).map(([axisCode, value]) => [
       axisCode.toUpperCase(),
@@ -467,6 +506,11 @@ function normalizePersonalization(
       value === true,
     ])
   );
+  const closeCallAxes = Array.isArray(personalization.close_call_axes)
+    ? personalization.close_call_axes
+        .map((axis, index) => normalizeCloseCallAxis(String(index), axis))
+        .filter((axis): axis is MbtiCloseCallAxisViewModel => Boolean(axis))
+    : [];
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -482,6 +526,11 @@ function normalizePersonalization(
     locale: normalizeText(personalization.locale),
     typeCode: normalizeText(personalization.type_code).toUpperCase(),
     identity: normalizeText(personalization.identity).toUpperCase(),
+    explainabilitySummary: normalizeText(personalization.explainability_summary),
+    closeCallAxes,
+    neighborTypeKeys: normalizeStringArray(personalization.neighbor_type_keys),
+    contrastKeys,
+    confidenceOrStabilityKeys: normalizeStringArray(personalization.confidence_or_stability_keys),
     axisVector,
     axisBands,
     boundaryFlags,
