@@ -48,6 +48,7 @@ function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> 
 describe("RichResultReport", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    window.sessionStorage.clear();
   });
 
   it("routes MBTI public hero and canonical sections through projection while keeping commerce and authored layers on legacy", () => {

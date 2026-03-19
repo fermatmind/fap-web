@@ -204,6 +204,13 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-hero")).not.toContainText("Legacy Hero Title Should Lose");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview title");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview one-liner");
+  await expect(page.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
+    "data-variant-key",
+    "overview:EI.E.clear:identity.T:boundary.TF"
+  );
+  await expect(page.getByTestId("mbti-projection-section-overview")).toContainText(
+    "你已经呈现出稳定的外倾倾向"
+  );
   await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
   await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock full report");
   await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toBeVisible();

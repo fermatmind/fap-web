@@ -327,16 +327,19 @@ export function MbtiResultShell({
 }: MbtiResultShellProps) {
   const pathname = usePathname();
   const offerScrollFrameRef = useRef<number | null>(null);
+  const resultViewTrackedRef = useRef(false);
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [isSharing, setIsSharing] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP[scaleCode]}/take`, locale);
   const payload = asRecord(reportData.report);
+  const reportMeta = asRecord(reportData.meta);
   const identityCard = asRecord(payload?.identity_card);
   const profile = asRecord(payload?.profile);
   const layers = asRecord(payload?.layers);
   const identityLayer = (asRecord(layers?.identity) ?? null) as ReportIdentityLayer | null;
+  const personalization = projectionViewModel?.personalization ?? null;
   const recommendedReads = Array.isArray(payload?.recommended_reads)
     ? (payload?.recommended_reads as ReportRecommendedRead[])
     : [];
@@ -406,6 +409,18 @@ export function MbtiResultShell({
   );
   const shareMessage = resolveShareMessages(locale, shareStatus);
   const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
+  const variantKeysSummary = Object.entries(personalization?.variantKeys ?? {})
+    .map(([sectionKey, variantKey]) => `${sectionKey}:${normalizeText(variantKey)}`)
+    .filter(Boolean)
+    .join("|");
+  const overviewVariantKey = normalizeText(personalization?.variantKeys.overview);
+  const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
+  const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
+  const personalizationPackId = normalizeText(personalization?.packId, reportMeta?.pack_id);
+  const personalizationEngineVersion = normalizeText(
+    personalization?.engineVersion,
+    reportMeta?.report_engine_version
+  );
   const rawOffers = resolveOfferPayloads(reportData);
   const fullRawOffer = findFullOfferPayload(rawOffers);
   const fullResolvedOffer =
@@ -510,6 +525,50 @@ export function MbtiResultShell({
     };
   }, [cancelScheduledOfferScroll, syncOfferHashScroll]);
 
+  useEffect(() => {
+    if (!attemptId || resultViewTrackedRef.current) {
+      return;
+    }
+
+    resultViewTrackedRef.current = true;
+    const basePayload = {
+      attemptIdMasked: maskIdentifier(attemptId),
+      locked: reportData.locked === true,
+      typeCode: personalizationTypeCode,
+      identity: personalizationIdentity,
+      variantKey: overviewVariantKey,
+      variantKeys: variantKeysSummary,
+      packId: personalizationPackId,
+      engineVersion: personalizationEngineVersion,
+      locale,
+    };
+
+    trackEvent("view_result", basePayload);
+
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const revisitStorageKey = `fm_mbti_result_revisit:${attemptId}`;
+    const seenBefore = window.sessionStorage.getItem(revisitStorageKey) === "1";
+    if (seenBefore) {
+      trackEvent("revisit_result", basePayload);
+      return;
+    }
+
+    window.sessionStorage.setItem(revisitStorageKey, "1");
+  }, [
+    attemptId,
+    locale,
+    overviewVariantKey,
+    personalizationEngineVersion,
+    personalizationIdentity,
+    personalizationPackId,
+    personalizationTypeCode,
+    reportData.locked,
+    variantKeysSummary,
+  ]);
+
   async function handleShare() {
     if (typeof window === "undefined" || isSharing) return;
     if (!attemptId) {
@@ -538,12 +597,34 @@ export function MbtiResultShell({
           text: shareTitle,
           url: shareUrl,
         });
+        trackEvent("share_result", {
+          attemptIdMasked: maskIdentifier(attemptId),
+          typeCode: personalizationTypeCode,
+          identity: personalizationIdentity,
+          variantKey: overviewVariantKey,
+          variantKeys: variantKeysSummary,
+          packId: personalizationPackId,
+          engineVersion: personalizationEngineVersion,
+          shareMethod: "native",
+          locale,
+        });
         setShareStatus("idle");
         return;
       }
 
       if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(shareUrl);
+        trackEvent("share_result", {
+          attemptIdMasked: maskIdentifier(attemptId),
+          typeCode: personalizationTypeCode,
+          identity: personalizationIdentity,
+          variantKey: overviewVariantKey,
+          variantKeys: variantKeysSummary,
+          packId: personalizationPackId,
+          engineVersion: personalizationEngineVersion,
+          shareMethod: "clipboard",
+          locale,
+        });
         setShareStatus("copied");
         return;
       }
@@ -585,6 +666,12 @@ export function MbtiResultShell({
           ?? (typeof fullRawOffer?.price_cents === "number"
             ? `${fullRawOffer.currency ?? ""} ${fullRawOffer.price_cents}`
             : ""),
+        typeCode: personalizationTypeCode,
+        identity: personalizationIdentity,
+        variantKey: overviewVariantKey,
+        variantKeys: variantKeysSummary,
+        packId: personalizationPackId,
+        engineVersion: personalizationEngineVersion,
         locale,
       });
 
@@ -639,6 +726,12 @@ export function MbtiResultShell({
         attemptIdMasked: maskIdentifier(attemptId),
         orderNoMasked: maskIdentifier(pendingOrderNo),
         sku,
+        typeCode: personalizationTypeCode,
+        identity: personalizationIdentity,
+        variantKey: overviewVariantKey,
+        variantKeys: variantKeysSummary,
+        packId: personalizationPackId,
+        engineVersion: personalizationEngineVersion,
         locale,
       });
 
@@ -849,6 +942,7 @@ export function MbtiResultShell({
                 globalTraits={globalTraits}
                 unlock={sectionUnlocks[chapterKey] ?? null}
                 identityLayer={identityLayer}
+                personalization={personalization}
               />
             );
           })}
