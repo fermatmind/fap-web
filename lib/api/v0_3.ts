@@ -587,6 +587,7 @@ export type MbtiPersonalizationRaw = {
   relationship_style_keys?: string[];
   decision_style_keys?: string[];
   stress_recovery_keys?: string[];
+  communication_style_keys?: string[];
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;

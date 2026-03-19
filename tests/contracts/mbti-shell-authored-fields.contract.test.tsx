@@ -78,6 +78,27 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveTextContent(
       "你更容易先把能量投向外部互动、讨论与现场反馈"
     );
+    expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveAttribute(
+      "data-variant-key",
+      "traits.decision_style:TF.T.boundary:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveTextContent(
+      "两套判断入口之间来回校准"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveAttribute(
+      "data-variant-key",
+      "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
+      "过载时和恢复时可能会切到不同挡位"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveAttribute(
+      "data-variant-key",
+      "relationships.communication_style:EI.E.clear:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveTextContent(
+      "你的起手表达方式"
+    );
     expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("Projection career summary public copy.");
     expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
       "href",
@@ -233,13 +254,38 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-scene-card-decision")).toHaveTextContent("你的决策模式");
     expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveAttribute(
       "data-variant-key",
-      "growth.drainers:JP.P.boundary:identity.T:boundary.JP"
+      "growth.drainers:JP.J.boundary:identity.T:boundary.JP"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveTextContent(
       "你在过载时和恢复时可能会切到不同挡位"
     );
+    expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
+      "你最先启动的自救方式"
+    );
     expect(screen.getByTestId("mbti-projection-section-relationships-rel-risks")).toHaveTextContent(
       "两套判断入口之间来回校准"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveTextContent(
+      "你的起手表达方式"
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
+        sectionKey: "traits.decision_style",
+        sceneKey: "decision",
+        variantKey: "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
+      })
+    );
+
+    fireEvent.click(screen.getByTestId("mbti-projection-section-traits-decision-style"));
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_interaction",
+      expect.objectContaining({
+        sectionKey: "traits.decision_style",
+        sceneKey: "decision",
+        variantKey: "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
+        interaction: "click",
+      })
     );
 
     fireEvent.click(screen.getByRole("button", { name: "很像我" }));
