@@ -103,6 +103,8 @@ describe("MBTI shell authored fields contract", () => {
         typeCode: "ENFP-T",
         identity: "T",
         variantKey: "overview:EI.E.clear:identity.T:boundary.none",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
+        sceneFingerprint: expect.stringContaining("work:work.primary.EI.E.clear"),
       })
     );
   });
@@ -245,8 +247,11 @@ describe("MBTI shell authored fields contract", () => {
       "accuracy_feedback",
       expect.objectContaining({
         feedback: "accurate",
+        sectionKey: "scene_fingerprint",
         typeCode: "ENFP-T",
         identity: "T",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
+        sceneFingerprint: expect.stringContaining("work:work.primary.EI.E.clear"),
       })
     );
   });

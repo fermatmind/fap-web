@@ -4,12 +4,20 @@ import { useEffect, useRef } from "react";
 import { trackEvent } from "@/lib/analytics";
 import type { ReportRecommendedRead } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
+import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
+import {
+  summarizeMbtiAxisBands,
+  summarizeMbtiBoundaryFlags,
+  summarizeMbtiSceneFingerprint,
+  summarizeMbtiVariantKeys,
+} from "@/lib/mbti/personalizationTelemetry";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type MbtiRecommendedReadsSectionProps = {
   locale: Locale;
   reads: ReportRecommendedRead[];
+  personalization?: MbtiResultPersonalizationViewModel | null;
 };
 
 function normalizeText(...values: unknown[]): string {
@@ -31,7 +39,11 @@ function normalizeStringArray(values: unknown): string[] {
   return values.map((value) => normalizeText(value)).filter(Boolean);
 }
 
-export function MbtiRecommendedReadsSection({ locale, reads }: MbtiRecommendedReadsSectionProps) {
+export function MbtiRecommendedReadsSection({
+  locale,
+  reads,
+  personalization = null,
+}: MbtiRecommendedReadsSectionProps) {
   const impressionTrackedRef = useRef(false);
 
   useEffect(() => {
@@ -42,9 +54,17 @@ export function MbtiRecommendedReadsSection({ locale, reads }: MbtiRecommendedRe
       slug: "mbti-result-shell",
       scale_code: "MBTI",
       visual_kind: "recommended_reads",
+      variantKeys: summarizeMbtiVariantKeys(personalization),
+      sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+      boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+      axisBands: summarizeMbtiAxisBands(personalization),
+      typeCode: normalizeText(personalization?.typeCode),
+      identity: normalizeText(personalization?.identity),
+      packId: normalizeText(personalization?.packId),
+      engineVersion: normalizeText(personalization?.engineVersion),
       locale,
     });
-  }, [locale, reads.length]);
+  }, [locale, personalization, reads.length]);
 
   if (reads.length === 0) {
     return null;
@@ -107,6 +127,14 @@ export function MbtiRecommendedReadsSection({ locale, reads }: MbtiRecommendedRe
                         scale_code: "MBTI",
                         visual_kind: "recommended_read_card",
                         interaction: "click",
+                        variantKeys: summarizeMbtiVariantKeys(personalization),
+                        sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+                        boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+                        axisBands: summarizeMbtiAxisBands(personalization),
+                        typeCode: normalizeText(personalization?.typeCode),
+                        identity: normalizeText(personalization?.identity),
+                        packId: normalizeText(personalization?.packId),
+                        engineVersion: normalizeText(personalization?.engineVersion),
                         locale,
                       });
                     }}

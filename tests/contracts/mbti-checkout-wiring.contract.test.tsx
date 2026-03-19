@@ -391,6 +391,7 @@ describe("MBTI checkout wiring contract", () => {
         typeCode: "ENFP-T",
         identity: "T",
         variantKey: "overview:EI.E.clear:identity.T:boundary.none",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
     expect(window.navigator.clipboard.writeText).not.toHaveBeenCalled();
@@ -460,6 +461,7 @@ describe("MBTI checkout wiring contract", () => {
       expect.objectContaining({
         attemptIdMasked: "attemp...-123",
         sku: "MBTI_REPORT_FULL_199",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -468,6 +470,7 @@ describe("MBTI checkout wiring contract", () => {
         attemptIdMasked: "attemp...-123",
         orderNoMasked: "ord_html_1",
         sku: "MBTI_REPORT_FULL_199",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
   });

@@ -14,6 +14,12 @@ import type {
   MbtiResultPersonalizationViewModel,
   MbtiResultProjectionSectionViewModel,
 } from "@/lib/mbti/publicProjection";
+import {
+  summarizeMbtiAxisBands,
+  summarizeMbtiBoundaryFlags,
+  summarizeMbtiSceneFingerprint,
+  summarizeMbtiVariantKeys,
+} from "@/lib/mbti/personalizationTelemetry";
 
 type ChapterKey = "career" | "growth" | "traits" | "relationships";
 
@@ -157,27 +163,6 @@ function normalizeProjectionContentBlocks(
     .filter((block) => block.id && block.text);
 }
 
-function summarizeVariantKeys(personalization?: MbtiResultPersonalizationViewModel | null): string {
-  return Object.entries(personalization?.variantKeys ?? {})
-    .map(([sectionKey, value]) => `${sectionKey}:${normalizeText(value)}`)
-    .filter(Boolean)
-    .join("|");
-}
-
-function summarizeSceneFingerprint(personalization?: MbtiResultPersonalizationViewModel | null): string {
-  return Object.entries(personalization?.sceneFingerprint ?? {})
-    .map(([sceneKey, entry]) => `${sceneKey}:${normalizeText(entry.styleKey)}`)
-    .filter(Boolean)
-    .join("|");
-}
-
-function summarizeBoundaryFlags(personalization?: MbtiResultPersonalizationViewModel | null): string {
-  return Object.entries(personalization?.boundaryFlags ?? {})
-    .filter(([, enabled]) => enabled === true)
-    .map(([axisCode]) => axisCode)
-    .join("|");
-}
-
 function renderProjectionDynamicBlocks(section: MbtiResultProjectionSectionViewModel) {
   const blocks = normalizeProjectionContentBlocks(section);
   if (blocks.length === 0) {
@@ -225,9 +210,10 @@ function buildSectionTelemetryPayload(
     sceneKey: normalizeText(personalizationPayload?.scene_key, section.key.split(".")[0]),
     styleKey: normalizeText(personalizationPayload?.style_key),
     variantKey: normalizeText(section.variantKey),
-    variantKeys: summarizeVariantKeys(personalization),
-    sceneFingerprint: summarizeSceneFingerprint(personalization),
-    boundaryFlags: summarizeBoundaryFlags(personalization),
+    variantKeys: summarizeMbtiVariantKeys(personalization),
+    sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+    boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+    axisBands: summarizeMbtiAxisBands(personalization),
     typeCode: normalizeText(personalization?.typeCode),
     identity: normalizeText(personalization?.identity),
     packId: normalizeText(personalization?.packId),

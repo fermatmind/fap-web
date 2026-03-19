@@ -261,6 +261,9 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   expect(sectionsAreOrdered).toBe(true);
   await expect(page.getByRole("link", { name: "Read the career note" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Read the relationship note" })).toBeVisible();
+  await expect(page.getByTestId("mbti-scene-feedback")).toHaveAttribute("data-feedback-state", "idle");
+  await page.getByRole("button", { name: "Feels accurate" }).click();
+  await expect(page.getByTestId("mbti-scene-feedback")).toHaveAttribute("data-feedback-state", "accurate");
 
   await page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Career" }).click();
   await expect(page).toHaveURL(new RegExp(`#career$`));

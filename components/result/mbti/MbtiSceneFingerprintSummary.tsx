@@ -6,6 +6,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultPersonalizationViewModel, MbtiSceneFingerprintEntryViewModel } from "@/lib/mbti/publicProjection";
+import {
+  summarizeMbtiAxisBands,
+  summarizeMbtiBoundaryFlags,
+  summarizeMbtiSceneFingerprint,
+  summarizeMbtiVariantKeys,
+} from "@/lib/mbti/personalizationTelemetry";
 
 type MbtiSceneFingerprintSummaryProps = {
   locale: Locale;
@@ -32,27 +38,6 @@ function normalizeText(...values: unknown[]): string {
   return "";
 }
 
-function summarizeVariantKeys(personalization: MbtiResultPersonalizationViewModel | null): string {
-  return Object.entries(personalization?.variantKeys ?? {})
-    .map(([sectionKey, variantKey]) => `${sectionKey}:${normalizeText(variantKey)}`)
-    .filter(Boolean)
-    .join("|");
-}
-
-function summarizeSceneFingerprint(personalization: MbtiResultPersonalizationViewModel | null): string {
-  return Object.entries(personalization?.sceneFingerprint ?? {})
-    .map(([sceneKey, entry]) => `${sceneKey}:${normalizeText(entry.styleKey)}`)
-    .filter(Boolean)
-    .join("|");
-}
-
-function summarizeBoundaryFlags(personalization: MbtiResultPersonalizationViewModel | null): string {
-  return Object.entries(personalization?.boundaryFlags ?? {})
-    .filter(([, enabled]) => enabled === true)
-    .map(([axisCode]) => axisCode)
-    .join("|");
-}
-
 function buildSceneTelemetryPayload(
   scene: MbtiSceneFingerprintEntryViewModel,
   locale: Locale,
@@ -64,11 +49,12 @@ function buildSceneTelemetryPayload(
     visual_kind: "mbti_scene_fingerprint",
     sceneKey: scene.scene,
     styleKey: normalizeText(scene.styleKey),
-    sceneFingerprint: summarizeSceneFingerprint(personalization),
-    boundaryFlags: summarizeBoundaryFlags(personalization),
+    sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+    boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+    axisBands: summarizeMbtiAxisBands(personalization),
     typeCode: normalizeText(personalization?.typeCode),
     identity: normalizeText(personalization?.identity),
-    variantKeys: summarizeVariantKeys(personalization),
+    variantKeys: summarizeMbtiVariantKeys(personalization),
     packId: normalizeText(personalization?.packId),
     engineVersion: normalizeText(personalization?.engineVersion),
     locale,
@@ -152,7 +138,11 @@ export function MbtiSceneFingerprintSummary({
         ))}
       </div>
 
-      <Card data-testid="mbti-scene-feedback" className="border-slate-200 bg-[var(--fm-surface-muted)]/70 shadow-none">
+      <Card
+        data-testid="mbti-scene-feedback"
+        data-feedback-state={feedback ?? "idle"}
+        className="border-slate-200 bg-[var(--fm-surface-muted)]/70 shadow-none"
+      >
         <CardContent className="flex flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between">
           <div className="space-y-1">
             <p className="m-0 text-sm font-semibold text-slate-900">
@@ -174,11 +164,13 @@ export function MbtiSceneFingerprintSummary({
                 setFeedback("accurate");
                 trackEvent("accuracy_feedback", {
                   feedback: "accurate",
-                  sceneFingerprint: summarizeSceneFingerprint(personalization),
-                  boundaryFlags: summarizeBoundaryFlags(personalization),
+                  sectionKey: "scene_fingerprint",
+                  sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+                  boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+                  axisBands: summarizeMbtiAxisBands(personalization),
                   typeCode: normalizeText(personalization?.typeCode),
                   identity: normalizeText(personalization?.identity),
-                  variantKeys: summarizeVariantKeys(personalization),
+                  variantKeys: summarizeMbtiVariantKeys(personalization),
                   packId: normalizeText(personalization?.packId),
                   engineVersion: normalizeText(personalization?.engineVersion),
                   locale,
@@ -196,11 +188,13 @@ export function MbtiSceneFingerprintSummary({
                 setFeedback("mixed");
                 trackEvent("accuracy_feedback", {
                   feedback: "mixed",
-                  sceneFingerprint: summarizeSceneFingerprint(personalization),
-                  boundaryFlags: summarizeBoundaryFlags(personalization),
+                  sectionKey: "scene_fingerprint",
+                  sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+                  boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+                  axisBands: summarizeMbtiAxisBands(personalization),
                   typeCode: normalizeText(personalization?.typeCode),
                   identity: normalizeText(personalization?.identity),
-                  variantKeys: summarizeVariantKeys(personalization),
+                  variantKeys: summarizeMbtiVariantKeys(personalization),
                   packId: normalizeText(personalization?.packId),
                   engineVersion: normalizeText(personalization?.engineVersion),
                   locale,

@@ -212,12 +212,14 @@ describe("RichResultReport", () => {
       "ui_card_impression",
       expect.objectContaining({
         visual_kind: "offer_primary_cta",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
       expect.objectContaining({
         visual_kind: "recommended_reads",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -225,6 +227,7 @@ describe("RichResultReport", () => {
       expect.objectContaining({
         visual_kind: "recommended_read_card",
         interaction: "click",
+        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
   });
