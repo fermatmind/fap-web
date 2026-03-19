@@ -5,12 +5,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { trackEvent } from "@/lib/analytics";
 import type { ReportCta } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
+import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
+import {
+  summarizeMbtiAxisBands,
+  summarizeMbtiBoundaryFlags,
+  summarizeMbtiSceneFingerprint,
+  summarizeMbtiVariantKeys,
+} from "@/lib/mbti/personalizationTelemetry";
 import type { ResolvedOffer } from "@/components/result/RichResultReport";
 
 type MbtiOfferComparisonSectionProps = {
   locale: Locale;
   offers: ResolvedOffer[];
   cta?: ReportCta | null;
+  personalization?: MbtiResultPersonalizationViewModel | null;
   onCheckout?: () => void | Promise<void>;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
@@ -36,6 +44,7 @@ export function MbtiOfferComparisonSection({
   locale,
   offers,
   cta,
+  personalization = null,
   onCheckout,
   isCheckingOut = false,
   checkoutError = null,
@@ -69,9 +78,17 @@ export function MbtiOfferComparisonSection({
       slug: "mbti-result-shell",
       scale_code: "MBTI",
       visual_kind: "offer_primary_cta",
+      variantKeys: summarizeMbtiVariantKeys(personalization),
+      sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+      boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+      axisBands: summarizeMbtiAxisBands(personalization),
+      typeCode: normalizeText(personalization?.typeCode),
+      identity: normalizeText(personalization?.identity),
+      packId: normalizeText(personalization?.packId),
+      engineVersion: normalizeText(personalization?.engineVersion),
       locale,
     });
-  }, [locale, primaryOffer]);
+  }, [locale, personalization, primaryOffer]);
 
   if (primaryOffer === null) {
     return null;
@@ -142,6 +159,14 @@ export function MbtiOfferComparisonSection({
                 scale_code: "MBTI",
                 visual_kind: "offer_primary_cta",
                 interaction: "click",
+                variantKeys: summarizeMbtiVariantKeys(personalization),
+                sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+                boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+                axisBands: summarizeMbtiAxisBands(personalization),
+                typeCode: normalizeText(personalization?.typeCode),
+                identity: normalizeText(personalization?.identity),
+                packId: normalizeText(personalization?.packId),
+                engineVersion: normalizeText(personalization?.engineVersion),
                 locale,
               });
               void onCheckout?.();

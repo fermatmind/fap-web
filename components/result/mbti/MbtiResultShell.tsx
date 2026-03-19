@@ -39,6 +39,12 @@ import {
   type MbtiResultProjectionSectionViewModel,
   type MbtiResultProjectionViewModel,
 } from "@/lib/mbti/publicProjection";
+import {
+  summarizeMbtiAxisBands,
+  summarizeMbtiBoundaryFlags,
+  summarizeMbtiSceneFingerprint,
+  summarizeMbtiVariantKeys,
+} from "@/lib/mbti/personalizationTelemetry";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type {
   HighlightCard,
@@ -125,24 +131,6 @@ function normalizeStringArray(values: unknown): string[] {
   }
 
   return Array.from(new Set(values.map((value) => normalizeText(value)).filter(Boolean)));
-}
-
-function summarizeSceneFingerprint(
-  personalization: MbtiResultProjectionViewModel["personalization"] | null | undefined
-): string {
-  return Object.entries(personalization?.sceneFingerprint ?? {})
-    .map(([sceneKey, entry]) => `${sceneKey}:${normalizeText(entry.styleKey)}`)
-    .filter(Boolean)
-    .join("|");
-}
-
-function summarizeBoundaryFlags(
-  personalization: MbtiResultProjectionViewModel["personalization"] | null | undefined
-): string {
-  return Object.entries(personalization?.boundaryFlags ?? {})
-    .filter(([, enabled]) => enabled === true)
-    .map(([axisCode]) => axisCode)
-    .join("|");
 }
 
 function resolveProjectionDimensions(
@@ -428,12 +416,10 @@ export function MbtiResultShell({
   );
   const shareMessage = resolveShareMessages(locale, shareStatus);
   const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
-  const variantKeysSummary = Object.entries(personalization?.variantKeys ?? {})
-    .map(([sectionKey, variantKey]) => `${sectionKey}:${normalizeText(variantKey)}`)
-    .filter(Boolean)
-    .join("|");
-  const sceneFingerprintSummary = summarizeSceneFingerprint(personalization);
-  const boundaryFlagsSummary = summarizeBoundaryFlags(personalization);
+  const variantKeysSummary = summarizeMbtiVariantKeys(personalization);
+  const sceneFingerprintSummary = summarizeMbtiSceneFingerprint(personalization);
+  const boundaryFlagsSummary = summarizeMbtiBoundaryFlags(personalization);
+  const axisBandsSummary = summarizeMbtiAxisBands(personalization);
   const overviewVariantKey = normalizeText(personalization?.variantKeys.overview);
   const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
   const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
@@ -561,6 +547,7 @@ export function MbtiResultShell({
       variantKeys: variantKeysSummary,
       sceneFingerprint: sceneFingerprintSummary,
       boundaryFlags: boundaryFlagsSummary,
+      axisBands: axisBandsSummary,
       packId: personalizationPackId,
       engineVersion: personalizationEngineVersion,
       locale,
@@ -582,6 +569,7 @@ export function MbtiResultShell({
     window.sessionStorage.setItem(revisitStorageKey, "1");
   }, [
     attemptId,
+    axisBandsSummary,
     boundaryFlagsSummary,
     locale,
     overviewVariantKey,
@@ -630,6 +618,7 @@ export function MbtiResultShell({
           variantKeys: variantKeysSummary,
           sceneFingerprint: sceneFingerprintSummary,
           boundaryFlags: boundaryFlagsSummary,
+          axisBands: axisBandsSummary,
           packId: personalizationPackId,
           engineVersion: personalizationEngineVersion,
           shareMethod: "native",
@@ -649,6 +638,7 @@ export function MbtiResultShell({
           variantKeys: variantKeysSummary,
           sceneFingerprint: sceneFingerprintSummary,
           boundaryFlags: boundaryFlagsSummary,
+          axisBands: axisBandsSummary,
           packId: personalizationPackId,
           engineVersion: personalizationEngineVersion,
           shareMethod: "clipboard",
@@ -701,6 +691,7 @@ export function MbtiResultShell({
         variantKeys: variantKeysSummary,
         sceneFingerprint: sceneFingerprintSummary,
         boundaryFlags: boundaryFlagsSummary,
+        axisBands: axisBandsSummary,
         packId: personalizationPackId,
         engineVersion: personalizationEngineVersion,
         locale,
@@ -763,6 +754,7 @@ export function MbtiResultShell({
         variantKeys: variantKeysSummary,
         sceneFingerprint: sceneFingerprintSummary,
         boundaryFlags: boundaryFlagsSummary,
+        axisBands: axisBandsSummary,
         packId: personalizationPackId,
         engineVersion: personalizationEngineVersion,
         locale,
@@ -1013,12 +1005,13 @@ export function MbtiResultShell({
             </section>
           ) : null}
 
-          <MbtiRecommendedReadsSection locale={locale} reads={recommendedReads} />
+          <MbtiRecommendedReadsSection locale={locale} reads={recommendedReads} personalization={personalization} />
 
           <MbtiOfferComparisonSection
             locale={locale}
             offers={offers}
             cta={cta}
+            personalization={personalization}
             onCheckout={handleCheckout}
             isCheckingOut={isCheckingOut}
             checkoutError={checkoutError}
@@ -1031,6 +1024,7 @@ export function MbtiResultShell({
               accessHub={accessHub}
               historyHref={historyHref}
               orderLookupHref={orderLookupHref}
+              personalization={personalization}
             />
           ) : null}
 

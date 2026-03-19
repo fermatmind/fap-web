@@ -7,6 +7,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiAccessHubViewModel } from "@/lib/mbti/accessHub";
+import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
+import {
+  summarizeMbtiAxisBands,
+  summarizeMbtiBoundaryFlags,
+  summarizeMbtiSceneFingerprint,
+  summarizeMbtiVariantKeys,
+} from "@/lib/mbti/personalizationTelemetry";
 
 export function MbtiPostPurchaseSection({
   locale,
@@ -14,12 +21,14 @@ export function MbtiPostPurchaseSection({
   accessHub,
   historyHref,
   orderLookupHref,
+  personalization,
 }: {
   locale: Locale;
   attemptId?: string | null;
   accessHub?: MbtiAccessHubViewModel | null;
   historyHref: string;
   orderLookupHref: string;
+  personalization?: MbtiResultPersonalizationViewModel | null;
 }) {
   const isZh = locale === "zh";
   const resolvedAttemptId =
@@ -78,6 +87,14 @@ export function MbtiPostPurchaseSection({
                   scale_code: "MBTI",
                   visual_kind: "post_purchase_history_entry",
                   interaction: "click",
+                  variantKeys: summarizeMbtiVariantKeys(personalization),
+                  sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+                  boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+                  axisBands: summarizeMbtiAxisBands(personalization),
+                  typeCode: String(personalization?.typeCode ?? ""),
+                  identity: String(personalization?.identity ?? ""),
+                  packId: String(personalization?.packId ?? ""),
+                  engineVersion: String(personalization?.engineVersion ?? ""),
                   locale,
                 });
               }}
