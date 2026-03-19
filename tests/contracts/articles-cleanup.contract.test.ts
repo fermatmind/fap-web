@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { listCmsArticlesForLlms, normalizeArticleSeoPayload } from "@/lib/cms/articles";
+import { getCmsArticle, getCmsArticles, listCmsArticlesForLlms, normalizeArticleSeoPayload } from "@/lib/cms/articles";
 
 const ROOT = process.cwd();
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
@@ -180,5 +180,54 @@ describe("articles cleanup contract", () => {
         updatedAt: "2026-03-11T00:00:00Z",
       },
     ]);
+  });
+
+  it("falls back to local blog article content when cms detail returns 404", async () => {
+    const fetchMock = vi.fn(async () =>
+      jsonResponse(
+        {
+          message: "Not found",
+        },
+        404
+      )
+    );
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const article = await getCmsArticle("mbti-growth-guide", "zh");
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(article).not.toBeNull();
+    expect(article?.slug).toBe("mbti-growth-guide");
+    expect(article?.title).toContain("MBTI");
+    expect(article?.contentMd).toContain("费马测试");
+    expect(article?.status).toBe("published");
+    expect(article?.isPublic).toBe(true);
+  });
+
+  it("falls back to local blog collection when cms list is empty", async () => {
+    const fetchMock = vi.fn(async () =>
+      jsonResponse({
+        ok: true,
+        items: [],
+        pagination: {
+          current_page: 1,
+          per_page: 20,
+          total: 0,
+          last_page: 1,
+        },
+      })
+    );
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await getCmsArticles({ locale: "zh" });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(result.items.length).toBeGreaterThan(0);
+    expect(result.items.map((item) => item.slug)).toContain("mbti-basics");
+    expect(result.items.map((item) => item.slug)).toContain("mbti-growth-guide");
+    expect(result.pagination.total).toBe(18);
+    expect(result.pagination.lastPage).toBe(1);
   });
 });

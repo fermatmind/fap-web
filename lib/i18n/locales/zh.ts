@@ -46,7 +46,7 @@ const zh: SiteDictionary = {
   home: {
     hero: {
       kicker: "循证测评体系",
-      title: "免费测试，让你走得更远",
+      title: "费马测试，让你走得更远",
       subtitle: "覆盖职业选择、人格洞察与成长规划的心理测评工具，帮助你更快做出高质量决策。",
       ctaPrimary: "寻找你的测试",
       ctaSecondary: "浏览全部测试",
