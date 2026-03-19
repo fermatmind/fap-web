@@ -265,6 +265,8 @@ describe("OrdersClient delivery contract", () => {
       order_no: "ord_pending_pay_1",
       status: "pending",
       provider: "alipay",
+      payment_recovery_token: "recovery_pending_pay_1",
+      wait_url: "/en/pay/wait?order_no=ord_pending_pay_1&payment_recovery_token=recovery_pending_pay_1",
       pay: {
         type: "html",
         value: "/api/v0.3/orders/ord_pending_pay_1/pay/alipay?scene=desktop",
@@ -284,6 +286,7 @@ describe("OrdersClient delivery contract", () => {
       paymentRecoveryToken: "recovery_pending_pay_1",
     });
     expect(screen.getByText("Provider: alipay")).toBeInTheDocument();
+    expect(screen.getByText("Continue payment in the provider page, then return to this tab.")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Open payment page" }));
 
@@ -300,6 +303,8 @@ describe("OrdersClient delivery contract", () => {
       ok: true,
       order_no: "ord_pending_pay_2",
       status: "pending",
+      payment_recovery_token: "recovery_pending_pay_2",
+      wait_url: "/en/pay/wait?order_no=ord_pending_pay_2&payment_recovery_token=recovery_pending_pay_2",
     };
     const pendingWithPay = {
       ok: true,

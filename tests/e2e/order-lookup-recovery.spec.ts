@@ -61,8 +61,9 @@ test("order lookup shows the marketing consent consumer", async ({ page }) => {
   await expect(page.getByTestId("order-lookup-marketing-consent")).not.toBeChecked();
 });
 
-test("order lookup success renders pending payment recovery inline", async ({ page }) => {
+test("order lookup success routes pending alipay recovery into the wait flow", async ({ page }) => {
   const orderNo = "ord_lookup_success_001";
+  const paymentRecoveryToken = "recovery_lookup_success_001";
   const sequence: string[] = [];
   let captureBody: Record<string, unknown> | null = null;
 
@@ -92,9 +93,32 @@ test("order lookup success renders pending payment recovery inline", async ({ pa
         order_no: orderNo,
         status: "pending",
         provider: "alipay",
+        payment_recovery_token: paymentRecoveryToken,
+        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
+        result_url: "/result/attempt-lookup-success-1?from=payment",
         pay: {
           type: "html",
           value: "/api/v0.3/orders/ord_lookup_success_001/pay/alipay?scene=desktop",
+          provider: "alipay",
+        },
+      }),
+    });
+  });
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
+    expect(route.request().url()).toContain(`payment_recovery_token=${paymentRecoveryToken}`);
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        status: "pending",
+        provider: "alipay",
+        payment_recovery_token: paymentRecoveryToken,
+        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
+        pay: {
+          type: "html",
+          value: `/api/v0.3/orders/${orderNo}/pay/alipay?scene=desktop`,
           provider: "alipay",
         },
       }),
@@ -118,6 +142,17 @@ test("order lookup success renders pending payment recovery inline", async ({ pa
   await expect(page.getByTestId("order-lookup-hit-payment-action")).toBeVisible();
   await expect(page.getByText("Provider: alipay")).toBeVisible();
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Open payment page" }).click();
+
+  await expect(page).toHaveURL(
+    `/en/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}&pay_type=html&pay_value=%2Fapi%2Fv0.3%2Forders%2F${orderNo}%2Fpay%2Falipay%3Fscene%3Ddesktop&provider=alipay`
+  );
+  await expect(page.getByText(orderNo)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
+  await expect
+    .poll(() => page.evaluate(() => window.localStorage.getItem("fm_pending_order_v1")))
+    .toContain(`"paymentRecoveryToken":"${paymentRecoveryToken}"`);
 });
 
 test("order lookup hit prefers mbti_access_hub_v1 and keeps recovery actions on the page", async ({ page }) => {

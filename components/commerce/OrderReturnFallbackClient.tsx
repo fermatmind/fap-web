@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { clearPendingOrder, readPendingOrder } from "@/lib/commerce/pendingOrder";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
 
 function normalizeText(value: string | null | undefined): string | null {
   if (typeof value !== "string") {
@@ -23,14 +23,32 @@ function buildWaitHref(locale: Locale, orderNo: string, paymentRecoveryToken: st
   return localizedPath(`/pay/wait?${query.toString()}`, locale);
 }
 
+function normalizeInternalHref(locale: Locale, value: string | null | undefined): string | null {
+  const normalized = normalizeText(value);
+  if (!normalized) {
+    return null;
+  }
+
+  try {
+    const parsed = new URL(normalized, "https://example.test");
+    return localizedPath(`${stripLocalePrefix(parsed.pathname)}${parsed.search}${parsed.hash}`, locale);
+  } catch {
+    return localizedPath(normalized.startsWith("/") ? normalized : `/${normalized}`, locale);
+  }
+}
+
 export function OrderReturnFallbackClient({
   locale,
   orderNo,
   paymentRecoveryToken,
+  waitUrl,
+  resultUrl,
 }: {
   locale: Locale;
   orderNo?: string | null;
   paymentRecoveryToken?: string | null;
+  waitUrl?: string | null;
+  resultUrl?: string | null;
 }) {
   const router = useRouter();
 
@@ -38,24 +56,43 @@ export function OrderReturnFallbackClient({
     const pendingOrder = readPendingOrder();
     const explicitOrderNo = normalizeText(orderNo);
     const explicitPaymentRecoveryToken = normalizeText(paymentRecoveryToken);
+    const explicitWaitHref = normalizeInternalHref(locale, waitUrl);
+    const explicitResultHref = normalizeInternalHref(locale, resultUrl);
+    const pendingWaitHref =
+      !explicitOrderNo || pendingOrder?.orderNo === explicitOrderNo
+        ? normalizeInternalHref(locale, pendingOrder?.waitUrl)
+        : null;
+    const pendingResultHref = normalizeInternalHref(locale, pendingOrder?.resultUrl);
+    const fallbackOrderNo = explicitOrderNo ?? pendingOrder?.orderNo ?? null;
+    const fallbackPaymentRecoveryToken =
+      explicitPaymentRecoveryToken ?? pendingOrder?.paymentRecoveryToken ?? null;
 
     if (pendingOrder) {
       clearPendingOrder();
     }
 
-    if (explicitOrderNo) {
-      if (pendingOrder?.orderNo === explicitOrderNo && pendingOrder.waitUrl) {
-        router.replace(pendingOrder.waitUrl);
-        return;
-      }
+    if (explicitWaitHref) {
+      router.replace(explicitWaitHref);
+      return;
+    }
 
-      router.replace(
-        buildWaitHref(
-          locale,
-          explicitOrderNo,
-          explicitPaymentRecoveryToken ?? pendingOrder?.paymentRecoveryToken ?? null
-        )
-      );
+    if (pendingWaitHref) {
+      router.replace(pendingWaitHref);
+      return;
+    }
+
+    if (fallbackOrderNo) {
+      router.replace(buildWaitHref(locale, fallbackOrderNo, fallbackPaymentRecoveryToken));
+      return;
+    }
+
+    if (explicitResultHref) {
+      router.replace(explicitResultHref);
+      return;
+    }
+
+    if (pendingResultHref) {
+      router.replace(pendingResultHref);
       return;
     }
 
@@ -63,15 +100,9 @@ export function OrderReturnFallbackClient({
       return;
     }
 
-    const waitHref = pendingOrder.waitUrl;
-    if (waitHref) {
-      router.replace(waitHref);
-      return;
-    }
-
     const query = new URLSearchParams({ orderNo: pendingOrder.orderNo });
     router.replace(localizedPath(`/orders/lookup?${query.toString()}`, locale));
-  }, [locale, router]);
+  }, [locale, orderNo, paymentRecoveryToken, resultUrl, router, waitUrl]);
 
   return null;
 }

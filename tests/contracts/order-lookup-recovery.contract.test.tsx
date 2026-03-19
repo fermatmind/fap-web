@@ -2,6 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { OrderLookupForm } from "@/components/support/OrderLookupForm";
 import type { OrderLookupResponse } from "@/lib/api/v0_3";
+import { readPendingOrder } from "@/lib/commerce/pendingOrder";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
@@ -115,6 +116,7 @@ describe("OrderLookupForm recovery contract", () => {
       configurable: true,
       value: "https://example.com/en/help/faq",
     });
+    window.localStorage.clear();
   });
 
   it("renders a marketing consent consumer with a default opt-in of false", () => {
@@ -293,6 +295,67 @@ describe("OrderLookupForm recovery contract", () => {
     expect(screen.getByText("Provider: wechatpay")).toBeInTheDocument();
     expect(screen.getByText("Order matched. Continue the payment here.")).toBeInTheDocument();
     expect(screen.getByText("Scan this QR code in your payment app to complete checkout.")).toBeInTheDocument();
+  });
+
+  it("routes pending alipay lookup recovery back into the generic wait flow", async () => {
+    hoisted.lookupOrder.mockResolvedValueOnce({
+      ok: true,
+      order_no: "ord_lookup_pending_alipay_001",
+      status: "pending",
+      provider: "alipay",
+      payment_recovery_token: "recovery_lookup_pending_alipay_001",
+      wait_url: "/pay/wait?order_no=ord_lookup_pending_alipay_001&payment_recovery_token=recovery_lookup_pending_alipay_001",
+      result_url: "/result/attempt-lookup-pending-alipay-1?from=payment",
+      pay: {
+        type: "html",
+        value: "/api/v0.3/orders/ord_lookup_pending_alipay_001/pay/alipay?scene=desktop",
+        provider: "alipay",
+      },
+      delivery: {
+        can_request_claim_email: false,
+        can_view_report: false,
+        can_download_pdf: false,
+      },
+    });
+
+    renderForm();
+    await fillLookupForm({
+      orderNo: "ord_lookup_pending_alipay_001",
+      email: "buyer@example.com",
+    });
+
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-lookup-hit-open-payment")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("order-lookup-hit-open-payment"));
+
+    await waitFor(() => {
+      expect(hoisted.routerPush).toHaveBeenCalledTimes(1);
+    });
+    const [waitHref] = hoisted.routerPush.mock.calls.at(-1) ?? [];
+    const waitUrl = new URL(String(waitHref ?? ""), "https://example.test");
+    expect(waitUrl.pathname).toBe("/en/pay/wait");
+    expect(waitUrl.searchParams.get("order_no")).toBe("ord_lookup_pending_alipay_001");
+    expect(waitUrl.searchParams.get("pay_type")).toBe("html");
+    expect(waitUrl.searchParams.get("pay_value")).toBe(
+      "/api/v0.3/orders/ord_lookup_pending_alipay_001/pay/alipay?scene=desktop"
+    );
+    expect(waitUrl.searchParams.get("provider")).toBe("alipay");
+    expect(waitUrl.searchParams.get("payment_recovery_token")).toBe("recovery_lookup_pending_alipay_001");
+    expect(readPendingOrder()).toEqual(
+      expect.objectContaining({
+        orderNo: "ord_lookup_pending_alipay_001",
+        attemptId: null,
+        sku: null,
+        provider: "alipay",
+        waitUrl: String(waitHref),
+        paymentRecoveryToken: "recovery_lookup_pending_alipay_001",
+        resultUrl: "/en/result/attempt-lookup-pending-alipay-1?from=payment",
+      })
+    );
   });
 
   it("requests the claim report email after capture on claim submit", async () => {

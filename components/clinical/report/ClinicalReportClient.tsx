@@ -24,6 +24,7 @@ import { trackEvent } from "@/lib/analytics";
 import { fetchClinicalReport } from "@/lib/clinical/api";
 import { mapClinicalError } from "@/lib/clinical/errors";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
+import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
@@ -66,6 +67,45 @@ type ClinicalScaleCode = "SDS_20" | "CLINICAL_COMBO_68";
 type StageDetailedError = {
   stageDetail?: string;
 };
+
+function normalizeNullableText(value: unknown): string | null {
+  if (typeof value !== "string") {
+    return null;
+  }
+
+  const normalized = value.trim();
+  return normalized.length > 0 ? normalized : null;
+}
+
+function resolveLocalizedWaitFlowPath(
+  action:
+    | Extract<ReturnType<typeof resolveCheckoutAction>, { kind: "redirect" }>
+    | Extract<ReturnType<typeof resolveCheckoutAction>, { kind: "order_wait" }>,
+  withLocale: (path: string) => string
+): string | null {
+  if (action.kind === "order_wait") {
+    return withLocale(buildOrderWaitPath(action));
+  }
+
+  if (action.waitUrl) {
+    return withLocale(action.waitUrl);
+  }
+
+  const orderNo = normalizeNullableText(action.orderNo);
+  if (!orderNo) {
+    return null;
+  }
+
+  const params = new URLSearchParams({ order_no: orderNo });
+  if (action.provider) {
+    params.set("provider", action.provider);
+  }
+  if (action.paymentRecoveryToken) {
+    params.set("payment_recovery_token", action.paymentRecoveryToken);
+  }
+
+  return withLocale(`/pay/wait?${params.toString()}`);
+}
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => {
@@ -852,19 +892,47 @@ export default function ClinicalReportClient({
         region: regionFromLocale(locale),
       });
       const action = resolveCheckoutAction(checkout, isZh ? "暂时无法发起支付。" : "Unable to start checkout.");
+      const pendingOrderNo =
+        action.kind === "order_wait"
+          ? action.orderNo
+          : action.kind === "redirect"
+            ? (action.orderNo ?? firstOffer.order_no ?? "")
+            : (firstOffer.order_no ?? "");
+      const waitUrl =
+        action.kind === "order_wait" || action.kind === "redirect"
+          ? resolveLocalizedWaitFlowPath(action, withLocale)
+          : null;
+      const paymentRecoveryToken = normalizeNullableText(
+        checkout.payment_recovery_token
+        ?? (action.kind === "order_wait" || action.kind === "redirect" ? action.paymentRecoveryToken : null)
+      );
+      const resultUrl = normalizeNullableText(
+        checkout.result_url
+        ?? (action.kind === "order_wait" || action.kind === "redirect" ? action.resultUrl : null)
+      );
+      const provider = normalizeNullableText(
+        checkout.provider
+        ?? (action.kind === "order_wait" || action.kind === "redirect" ? action.provider : null)
+      );
 
       if (typeof window !== "undefined") {
         try {
-          const pendingOrderNo =
-            action.kind === "order_wait"
-              ? action.orderNo
-              : action.kind === "redirect"
-                ? (action.orderNo ?? firstOffer.order_no ?? "")
-                : (firstOffer.order_no ?? "");
           window.localStorage.setItem(pendingUnlockStorageKey, pendingOrderNo);
         } catch {
           // ignore storage failures
         }
+      }
+
+      if (pendingOrderNo) {
+        writePendingOrder({
+          orderNo: pendingOrderNo,
+          attemptId,
+          sku: firstOffer.sku,
+          provider,
+          waitUrl,
+          paymentRecoveryToken,
+          resultUrl,
+        });
       }
 
       if (action.kind === "redirect") {

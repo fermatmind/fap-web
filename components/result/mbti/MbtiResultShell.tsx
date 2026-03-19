@@ -613,6 +613,10 @@ export function MbtiResultShell({
         checkout.payment_recovery_token,
         action.kind === "order_wait" || action.kind === "redirect" ? action.paymentRecoveryToken : null
       );
+      const resultUrl = normalizeText(
+        checkout.result_url,
+        action.kind === "order_wait" || action.kind === "redirect" ? action.resultUrl : null
+      );
       const resolvedProvider = normalizeText(
         checkout.provider,
         action.kind === "order_wait" || action.kind === "redirect" ? action.provider : null
@@ -629,6 +633,7 @@ export function MbtiResultShell({
         provider: resolvedProvider || null,
         waitUrl,
         paymentRecoveryToken: paymentRecoveryToken || null,
+        resultUrl: resultUrl || null,
       });
       trackEvent("create_order", {
         attemptIdMasked: maskIdentifier(attemptId),

@@ -2,11 +2,12 @@
 
 export type PendingOrderContext = {
   orderNo: string;
-  attemptId: string;
-  sku: string;
+  attemptId: string | null;
+  sku: string | null;
   provider: string | null;
   waitUrl: string | null;
   paymentRecoveryToken: string | null;
+  resultUrl: string | null;
   updatedAt: string;
 };
 
@@ -27,11 +28,12 @@ function normalizeNullableText(value: unknown): string | null {
 
 type PendingOrderWriteInput = {
   orderNo: string;
-  attemptId: string;
-  sku: string;
+  attemptId?: string | null;
+  sku?: string | null;
   provider?: string | null;
   waitUrl?: string | null;
   paymentRecoveryToken?: string | null;
+  resultUrl?: string | null;
 };
 
 export function writePendingOrder(
@@ -51,11 +53,11 @@ export function writePendingOrder(
       : orderNoOrInput;
 
   const normalizedOrderNo = normalizeText(payloadInput.orderNo);
-  const normalizedAttemptId = normalizeText(payloadInput.attemptId);
-  const normalizedSku = normalizeText(payloadInput.sku);
+  const normalizedAttemptId = normalizeNullableText(payloadInput.attemptId);
+  const normalizedSku = normalizeNullableText(payloadInput.sku);
 
-  if (!normalizedOrderNo || !normalizedAttemptId || !normalizedSku) {
-    throw new Error("Pending order context requires orderNo, attemptId, and sku.");
+  if (!normalizedOrderNo) {
+    throw new Error("Pending order context requires orderNo.");
   }
 
   const payload: PendingOrderContext = {
@@ -65,6 +67,7 @@ export function writePendingOrder(
     provider: normalizeNullableText(payloadInput.provider),
     waitUrl: normalizeNullableText(payloadInput.waitUrl),
     paymentRecoveryToken: normalizeNullableText(payloadInput.paymentRecoveryToken),
+    resultUrl: normalizeNullableText(payloadInput.resultUrl),
     updatedAt: new Date().toISOString(),
   };
 
@@ -80,14 +83,15 @@ export function readPendingOrder(): PendingOrderContext | null {
   try {
     const parsed = JSON.parse(raw) as Partial<PendingOrderContext>;
     const orderNo = normalizeText(parsed.orderNo);
-    const attemptId = normalizeText(parsed.attemptId);
-    const sku = normalizeText(parsed.sku);
+    const attemptId = normalizeNullableText(parsed.attemptId);
+    const sku = normalizeNullableText(parsed.sku);
     const provider = normalizeNullableText(parsed.provider);
     const waitUrl = normalizeNullableText(parsed.waitUrl);
     const paymentRecoveryToken = normalizeNullableText(parsed.paymentRecoveryToken);
+    const resultUrl = normalizeNullableText(parsed.resultUrl);
     const updatedAt = normalizeText(parsed.updatedAt);
 
-    if (!orderNo || !attemptId || !sku) {
+    if (!orderNo) {
       window.localStorage.removeItem(PENDING_ORDER_STORAGE_KEY);
       return null;
     }
@@ -99,6 +103,7 @@ export function readPendingOrder(): PendingOrderContext | null {
       provider,
       waitUrl,
       paymentRecoveryToken,
+      resultUrl,
       updatedAt,
     };
   } catch {

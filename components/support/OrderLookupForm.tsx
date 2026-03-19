@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import QRCode from "qrcode";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownloadButton";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
@@ -17,6 +17,8 @@ import {
   type EmailCaptureResponse,
   type OrderLookupResponse,
 } from "@/lib/api/v0_3";
+import { buildOrderWaitPath, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
+import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
@@ -111,6 +113,37 @@ function normalizeActionHref(value: string | null | undefined, locale: Locale): 
   return localizedPath(candidate, locale);
 }
 
+function resolveLookupWaitFlowHref(response: OrderLookupResponse, locale: Locale): string | null {
+  const action = resolveCheckoutAction(response, "payment unavailable");
+  if (action.kind === "error") {
+    return null;
+  }
+
+  if (action.kind === "order_wait") {
+    return localizedPath(buildOrderWaitPath(action), locale);
+  }
+
+  if (action.orderNo) {
+    const params = new URLSearchParams({ order_no: action.orderNo });
+    params.set("pay_type", "redirect");
+    params.set("pay_value", action.url);
+    if (action.provider) {
+      params.set("provider", action.provider);
+    }
+    if (action.paymentRecoveryToken) {
+      params.set("payment_recovery_token", action.paymentRecoveryToken);
+    }
+
+    return localizedPath(`/pay/wait?${params.toString()}`, locale);
+  }
+
+  if (action.waitUrl) {
+    return localizedPath(action.waitUrl, locale);
+  }
+
+  return null;
+}
+
 export function OrderLookupForm({
   locale,
   dict,
@@ -118,6 +151,7 @@ export function OrderLookupForm({
   locale: Locale;
   dict: SiteDictionary;
 }) {
+  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const claimButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -216,6 +250,18 @@ export function OrderLookupForm({
   const lookupPayProvider =
     normalizeQueryValue(typeof lookupHit?.provider === "string" ? lookupHit.provider : null)
     ?? normalizeQueryValue(typeof lookupHit?.pay?.provider === "string" ? lookupHit.pay?.provider : null);
+  const lookupPaymentRecoveryToken = useMemo(
+    () => normalizeQueryValue(typeof lookupHit?.payment_recovery_token === "string" ? lookupHit.payment_recovery_token : null),
+    [lookupHit?.payment_recovery_token]
+  );
+  const lookupResultUrl = useMemo(
+    () => normalizeActionHref(typeof lookupHit?.result_url === "string" ? lookupHit.result_url : null, locale),
+    [locale, lookupHit?.result_url]
+  );
+  const lookupWaitFlowHref = useMemo(
+    () => (lookupHit ? resolveLookupWaitFlowHref(lookupHit, locale) : null),
+    [locale, lookupHit]
+  );
   const lookupOrderHref = lookupAccessHub?.links.orderHref ?? null;
   const lookupDelivery = lookupHit?.delivery ?? null;
   const lookupReportHref =
@@ -383,6 +429,20 @@ export function OrderLookupForm({
 
   const handleOpenLookupPaymentPage = () => {
     if ((lookupPayType !== "html" && lookupPayType !== "redirect") || !lookupPayValue) return;
+    const lookupOrderNo = normalizeQueryValue(typeof lookupHit?.order_no === "string" ? lookupHit.order_no : null);
+
+    if (lookupWaitFlowHref && lookupOrderNo) {
+      writePendingOrder({
+        orderNo: lookupOrderNo,
+        provider: lookupPayProvider,
+        waitUrl: lookupWaitFlowHref,
+        paymentRecoveryToken: lookupPaymentRecoveryToken,
+        resultUrl: lookupResultUrl,
+      });
+      router.push(lookupWaitFlowHref);
+      return;
+    }
+
     window.open(lookupPayValue, "_blank", "noopener,noreferrer");
   };
 
