@@ -45,6 +45,12 @@ function getReportMeta(reportData: ReportResponse): Record<string, unknown> {
 
 function resolveProjectionSectionTitle(key: string): string {
   switch (key) {
+    case "traits.why_this_type":
+      return "为什么是这个类型";
+    case "traits.close_call_axes":
+      return "最接近边界的轴";
+    case "traits.adjacent_type_contrast":
+      return "为什么你像相邻类型";
     case "traits.decision_style":
       return "决策模式";
     case "career.collaboration_fit":
@@ -55,6 +61,8 @@ function resolveProjectionSectionTitle(key: string): string {
       return "职业下一步";
     case "growth.stress_recovery":
       return "压力与恢复";
+    case "growth.stability_confidence":
+      return "稳定性与情境敏感";
     case "relationships.communication_style":
       return "沟通与协作";
     default:
@@ -95,9 +103,12 @@ function updateSection(
     variantKey: string;
     sceneKey: string;
     styleKey: string;
+    contrastKey?: string;
     primaryAxis: Record<string, unknown>;
     supportAxis?: Record<string, unknown> | null;
     boundaryAxes: string[];
+    closeCallAxes?: Array<Record<string, unknown>>;
+    neighborTypeKeys?: string[];
     blocks: Array<Record<string, unknown>>;
   }
 ) {
@@ -107,9 +118,12 @@ function updateSection(
     variant_key: patch.variantKey,
     scene_key: patch.sceneKey,
     style_key: patch.styleKey,
+    contrast_key: patch.contrastKey ?? "",
     primary_axis: patch.primaryAxis,
     support_axis: patch.supportAxis ?? null,
     boundary_axes: patch.boundaryAxes,
+    close_call_axes: patch.closeCallAxes ?? [],
+    neighbor_type_keys: patch.neighborTypeKeys ?? [],
     selected_blocks: patch.blocks.map((block) => normalizeText(block.id)),
   };
   payload.blocks = patch.blocks;
@@ -217,12 +231,46 @@ export function applyMbtiPhase2Fixture(
     "career_next_step.boundary.JP",
     "career_next_step.theme.clarify_decision_criteria",
   ];
+  const explainabilitySummary =
+    "你的主类型不是靠单一标签撑起来的，而是由外倾这条主轴拉开基础差距，再由接近边界的生活方式与决策偏好决定你为什么不像刻板印象里那么单一。";
+  const closeCallAxes = [
+    {
+      ...jpAxis,
+      opposite_side: "P",
+      opposite_side_label: "感知",
+      boundary: true,
+    },
+    {
+      ...tfAxis,
+      opposite_side: "F",
+      opposite_side_label: "情感",
+      boundary: true,
+    },
+  ];
+  const neighborTypeKeys = ["ENFJ", "ENTP"];
+  const contrastKeys = {
+    "traits.why_this_type": `traits.why_this_type:dominant.EI.E.${eiBand}`,
+    "traits.close_call_axes": "traits.close_call_axes:close.JP-TF",
+    "traits.adjacent_type_contrast": "traits.adjacent_type_contrast:neighbor.ENFJ-ENTP",
+    "growth.stability_confidence": "growth.stability_confidence:stability.context_sensitive",
+  };
+  const confidenceOrStabilityKeys = [
+    "stability.bucket.context_sensitive",
+    "stability.close_call.JP",
+    "stability.close_call.TF",
+    "stability.identity.T",
+  ];
 
   const personalization = {
-    schema_version: "mbti.personalization.phase5a.v1",
+    schema_version: "mbti.personalization.phase6a.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
+    explainability_summary: explainabilitySummary,
+    close_call_axes: closeCallAxes,
+    neighbor_type_keys: neighborTypeKeys,
+    contrast_keys: contrastKeys,
+    confidence_or_stability_keys: confidenceOrStabilityKeys,
     axis_vector: {
       EI: eiAxis,
       SN: snAxis,
@@ -397,12 +445,16 @@ export function applyMbtiPhase2Fixture(
     variant_keys: {
       overview: overviewVariantKey,
       trait_overview: traitOverviewVariantKey,
+      "traits.why_this_type": `traits.why_this_type:EI.E.${eiBand}:identity.T:boundary.JP`,
+      "traits.close_call_axes": "traits.close_call_axes:JP.J.boundary:identity.T:boundary.JP",
+      "traits.adjacent_type_contrast": "traits.adjacent_type_contrast:JP.J.boundary:identity.T:neighbor.ENFJ",
       "traits.decision_style": "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
       "career.summary": `career.summary:EI.E.${eiBand}:identity.T:boundary.JP`,
       "career.collaboration_fit": `career.collaboration_fit:EI.E.${eiBand}:identity.T:boundary.TF`,
       "career.work_environment": `career.work_environment:EI.E.${eiBand}:identity.T:boundary.JP`,
       "career.advantages": `career.advantages:EI.E.${eiBand}:identity.T:boundary.JP`,
       "growth.summary": `growth.summary:EI.E.${eiBand}:identity.T:boundary.TF`,
+      "growth.stability_confidence": "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP",
       "growth.stress_recovery": "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP",
       "growth.drainers": "growth.drainers:JP.J.boundary:identity.T:boundary.JP",
       "relationships.summary": "relationships.summary:TF.T.boundary:identity.T:boundary.TF",
@@ -413,7 +465,7 @@ export function applyMbtiPhase2Fixture(
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase5a.v1",
+    dynamic_sections_version: "phase6a.v1",
   };
 
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
@@ -479,6 +531,103 @@ export function applyMbtiPhase2Fixture(
         kind: "identity",
         label: "身份层",
         text: "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "traits.why_this_type", {
+    variantKey: `traits.why_this_type:EI.E.${eiBand}:identity.T:boundary.JP`,
+    sceneKey: "explainability",
+    styleKey: "",
+    contrastKey: contrastKeys["traits.why_this_type"],
+    primaryAxis: eiAxis,
+    supportAxis: snAxis,
+    boundaryAxes: ["JP", "TF"],
+    closeCallAxes,
+    neighborTypeKeys,
+    blocks: [
+      {
+        id: `traits.why_this_type.axis_strength.EI.E.${eiBand}`,
+        kind: "axis_strength",
+        label: "强度层",
+        text:
+          eiBand === "strong"
+            ? "外倾这条主轴已经足够鲜明，所以它会先把你的主类型结构拉稳。"
+            : "外倾这条主轴已经拉开差距，所以它解释了为什么主类型最终落在这一边。",
+      },
+      {
+        id: "traits.why_this_type.why_this_type.EI.E",
+        kind: "why_this_type",
+        label: "为什么是这个类型",
+        text: "主类型之所以成立，是因为你在能量方向上仍会稳定回到外倾这一侧；接近边界的 JP 与 TF 只是在不同场景里改变你的表现方式，而不会改写主类型本身。",
+        contrast_key: contrastKeys["traits.why_this_type"],
+      },
+      {
+        id: "traits.why_this_type.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你更敏感于结果波动，所以你会比典型印象里的 ENFP 更容易显得克制、校准和在意误差。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "traits.close_call_axes", {
+    variantKey: "traits.close_call_axes:JP.J.boundary:identity.T:boundary.JP",
+    sceneKey: "explainability",
+    styleKey: "",
+    contrastKey: contrastKeys["traits.close_call_axes"],
+    primaryAxis: jpAxis,
+    supportAxis: tfAxis,
+    boundaryAxes: ["JP", "TF"],
+    closeCallAxes,
+    neighborTypeKeys,
+    blocks: [
+      {
+        id: "traits.close_call_axes.borderline_axis.JP",
+        kind: "borderline_axis",
+        label: "边界轴解释",
+        text: "在生活方式上，你最后仍偏向判断，但和另一侧只拉开了7个点差。熟悉情境下你会先收拢节奏、推进定版；压力、角色变化或信息负荷升高时，感知那一侧会很快进场补位。",
+        contrast_key: contrastKeys["traits.close_call_axes"],
+      },
+      {
+        id: "traits.close_call_axes.borderline_axis.TF",
+        kind: "borderline_axis",
+        label: "边界轴解释",
+        text: "在决策偏好上，你虽然仍偏向思考，但这条轴也接近中线，所以你会比外界以为的更容易把关系与氛围一起纳入判断。",
+        contrast_key: contrastKeys["traits.close_call_axes"],
+      },
+      {
+        id: "traits.close_call_axes.boundary.JP",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "这也是为什么你并不是“不稳定”，而是在不同情境下会显出不同齿轮：主类型没变，近边界轴在变。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "traits.adjacent_type_contrast", {
+    variantKey: "traits.adjacent_type_contrast:JP.J.boundary:identity.T:neighbor.ENFJ",
+    sceneKey: "explainability",
+    styleKey: "",
+    contrastKey: contrastKeys["traits.adjacent_type_contrast"],
+    primaryAxis: jpAxis,
+    supportAxis: tfAxis,
+    boundaryAxes: ["JP", "TF"],
+    closeCallAxes,
+    neighborTypeKeys,
+    blocks: [
+      {
+        id: "traits.adjacent_type_contrast.primary",
+        kind: "adjacent_type_contrast",
+        label: "相邻类型对照",
+        text: "如果别人只看到你最接近边界的部分，最容易把你看成ENFJ。原因不是测错了，而是 JP 与 TF 都太靠近中线，让你在外显风格上更容易借用相邻类型的节奏；真正区分你们的，是你最后仍会回到更外倾、更以结果校准的判断方式。",
+        contrast_key: contrastKeys["traits.adjacent_type_contrast"],
+      },
+      {
+        id: "traits.adjacent_type_contrast.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会进一步放大这种“像相邻类型”的体感，因为你会比典型 ENFP 更强调误差、标准和结果波动。",
       },
     ],
   });
@@ -704,6 +853,33 @@ export function applyMbtiPhase2Fixture(
         kind: "boundary",
         label: "边界深解释",
         text: "成长上，决策偏好靠近中线意味着你真正要学的不是选边站，而是识别什么时候该让情感先开路，什么时候该让思考接手收尾。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "growth.stability_confidence", {
+    variantKey: "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP",
+    sceneKey: "stability",
+    styleKey: "",
+    contrastKey: contrastKeys["growth.stability_confidence"],
+    primaryAxis: jpAxis,
+    supportAxis: tfAxis,
+    boundaryAxes: ["JP", "TF"],
+    closeCallAxes,
+    neighborTypeKeys,
+    blocks: [
+      {
+        id: "growth.stability_confidence.stability.context_sensitive",
+        kind: "stability_explanation",
+        label: "稳定性解释",
+        text: "这份结果最适合读成情境敏感型稳定。主类型仍然成立，但 JP 和 TF 都接近边界，所以你在不同任务、人际和压力场景里会显出不同切换方式。",
+        contrast_key: contrastKeys["growth.stability_confidence"],
+      },
+      {
+        id: "growth.stability_confidence.boundary.JP",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "真正需要关注的不是“我是不是测得不准”，而是你在哪些情境里会更快切到另一套节奏。",
       },
     ],
   });

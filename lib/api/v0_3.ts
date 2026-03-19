@@ -574,10 +574,21 @@ export type MbtiSceneFingerprintEntryRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiCloseCallAxisRaw = MbtiPersonalizationAxisRaw & {
+  opposite_side?: string;
+  opposite_side_label?: string;
+  boundary?: boolean;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
   identity?: string;
+  explainability_summary?: string;
+  close_call_axes?: MbtiCloseCallAxisRaw[];
+  neighbor_type_keys?: string[];
+  contrast_keys?: Record<string, string>;
+  confidence_or_stability_keys?: string[];
   axis_vector?: Record<string, MbtiPersonalizationAxisRaw>;
   axis_bands?: Record<string, string>;
   boundary_flags?: Record<string, boolean>;

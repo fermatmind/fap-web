@@ -103,12 +103,44 @@ describe("MBTI shell authored fields contract", () => {
       "data-variant-key",
       "traits.decision_style:TF.T.boundary:identity.T:boundary.TF"
     );
+    expect(screen.getByTestId("mbti-projection-section-traits-why-this-type")).toHaveAttribute(
+      "data-variant-key",
+      "traits.why_this_type:EI.E.clear:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-why-this-type")).toHaveTextContent(
+      "主类型之所以成立"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
+      "data-variant-key",
+      "traits.close_call_axes:JP.J.boundary:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveTextContent(
+      "只拉开了7个点差"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveAttribute(
+      "data-variant-key",
+      "traits.adjacent_type_contrast:JP.J.boundary:identity.T:neighbor.ENFJ"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveAttribute(
+      "data-contrast-key",
+      "traits.adjacent_type_contrast:neighbor.ENFJ-ENTP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveTextContent(
+      "最容易把你看成ENFJ"
+    );
     expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveTextContent(
       "两套判断入口之间来回校准"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveAttribute(
       "data-variant-key",
       "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
+      "data-variant-key",
+      "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveTextContent(
+      "情境敏感型稳定"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
       "过载时和恢复时可能会切到不同挡位"
@@ -292,6 +324,15 @@ describe("MBTI shell authored fields contract", () => {
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
       expect.objectContaining({
+        sectionKey: "traits.why_this_type",
+        contrastKey: "traits.why_this_type:dominant.EI.E.clear",
+        closeCallAxes: "JP:boundary:7|TF:boundary:9",
+        neighborTypeKeys: "ENFJ|ENTP",
+      })
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
         sectionKey: "traits.decision_style",
         sceneKey: "decision",
         variantKey: "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
@@ -309,12 +350,19 @@ describe("MBTI shell authored fields contract", () => {
       })
     );
 
-    fireEvent.click(screen.getByRole("button", { name: "很像我" }));
+    fireEvent.click(
+      within(screen.getByTestId("mbti-projection-section-traits-why-this-type")).getByRole("button", {
+        name: "解释很像我",
+      })
+    );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "accuracy_feedback",
       expect.objectContaining({
         feedback: "accurate",
-        sectionKey: "scene_fingerprint",
+        sectionKey: "traits.why_this_type",
+        contrastKey: "traits.why_this_type:dominant.EI.E.clear",
+        closeCallAxes: "JP:boundary:7|TF:boundary:9",
+        neighborTypeKeys: "ENFJ|ENTP",
         typeCode: "ENFP-T",
         identity: "T",
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",

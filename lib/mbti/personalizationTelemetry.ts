@@ -66,3 +66,18 @@ export function summarizeMbtiAxisBands(
     .filter(Boolean)
     .join("|");
 }
+
+export function summarizeMbtiCloseCallAxes(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.closeCallAxes ?? [])
+    .map((axis) => `${normalizeText(axis.axis)}:${normalizeText(axis.band)}:${axis.delta}`)
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiNeighborTypeKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.neighborTypeKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}

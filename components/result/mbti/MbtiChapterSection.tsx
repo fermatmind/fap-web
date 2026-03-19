@@ -17,6 +17,8 @@ import type {
 import {
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCloseCallAxes,
+  summarizeMbtiNeighborTypeKeys,
   summarizeMbtiSceneFingerprint,
   summarizeMbtiVariantKeys,
 } from "@/lib/mbti/personalizationTelemetry";
@@ -52,7 +54,15 @@ type ProjectionContentBlock = {
   kind: string;
   label: string;
   text: string;
+  contrastKey: string;
 };
+
+const EXPLAINABILITY_SECTION_KEYS = new Set([
+  "traits.why_this_type",
+  "traits.close_call_axes",
+  "traits.adjacent_type_contrast",
+  "growth.stability_confidence",
+]);
 
 type MbtiChapterSectionProps = {
   locale: Locale;
@@ -159,6 +169,7 @@ function normalizeProjectionContentBlocks(
       kind: normalizeText(block.kind, "rich_text"),
       label: normalizeText(block.label),
       text: normalizeText(block.text, block.body, block.description),
+      contrastKey: normalizeText(block.contrast_key),
     }))
     .filter((block) => block.id && block.text);
 }
@@ -176,6 +187,7 @@ function renderProjectionDynamicBlocks(section: MbtiResultProjectionSectionViewM
           key={block.id}
           data-testid={`mbti-projection-block-${toProjectionSectionTestId(block.id)}`}
           data-block-kind={block.kind}
+          data-contrast-key={block.contrastKey || undefined}
           className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
         >
           {block.label ? (
@@ -210,6 +222,12 @@ function buildSectionTelemetryPayload(
     sceneKey: normalizeText(personalizationPayload?.scene_key, section.key.split(".")[0]),
     styleKey: normalizeText(personalizationPayload?.style_key),
     variantKey: normalizeText(section.variantKey),
+    contrastKey: normalizeText(
+      personalizationPayload?.contrast_key,
+      personalization?.contrastKeys?.[section.key]
+    ),
+    neighborTypeKeys: summarizeMbtiNeighborTypeKeys(personalization),
+    closeCallAxes: summarizeMbtiCloseCallAxes(personalization),
     variantKeys: summarizeMbtiVariantKeys(personalization),
     sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
     boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
@@ -622,12 +640,15 @@ function renderProjectionSection(
     return null;
   }
 
+  const isExplainabilitySection = EXPLAINABILITY_SECTION_KEYS.has(section.key);
+
   return (
     <article
       key={section.key}
       data-testid={`mbti-projection-section-${toProjectionSectionTestId(section.key)}`}
       data-section-key={section.key}
       data-variant-key={section.variantKey || undefined}
+      data-contrast-key={normalizeText(telemetryPayload.contrastKey) || undefined}
       className="space-y-3 rounded-[24px] border border-slate-200 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
       onClickCapture={() => {
         trackEvent("ui_card_interaction", {
@@ -638,6 +659,58 @@ function renderProjectionSection(
     >
       <h3 className="m-0 text-lg font-semibold text-slate-900">{section.title}</h3>
       {content}
+      {isExplainabilitySection ? (
+        <div className="flex flex-wrap gap-2 pt-1">
+          <button
+            type="button"
+            className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
+            onClick={() => {
+              trackEvent("accuracy_feedback", {
+                feedback: "accurate",
+                sectionKey: section.key,
+                contrastKey: telemetryPayload.contrastKey,
+                neighborTypeKeys: telemetryPayload.neighborTypeKeys,
+                closeCallAxes: telemetryPayload.closeCallAxes,
+                typeCode: telemetryPayload.typeCode,
+                identity: telemetryPayload.identity,
+                variantKeys: telemetryPayload.variantKeys,
+                sceneFingerprint: telemetryPayload.sceneFingerprint,
+                boundaryFlags: telemetryPayload.boundaryFlags,
+                axisBands: telemetryPayload.axisBands,
+                packId: telemetryPayload.packId,
+                engineVersion: telemetryPayload.engineVersion,
+                locale,
+              });
+            }}
+          >
+            {locale === "zh" ? "解释很像我" : "This fits me"}
+          </button>
+          <button
+            type="button"
+            className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
+            onClick={() => {
+              trackEvent("accuracy_feedback", {
+                feedback: "unclear",
+                sectionKey: section.key,
+                contrastKey: telemetryPayload.contrastKey,
+                neighborTypeKeys: telemetryPayload.neighborTypeKeys,
+                closeCallAxes: telemetryPayload.closeCallAxes,
+                typeCode: telemetryPayload.typeCode,
+                identity: telemetryPayload.identity,
+                variantKeys: telemetryPayload.variantKeys,
+                sceneFingerprint: telemetryPayload.sceneFingerprint,
+                boundaryFlags: telemetryPayload.boundaryFlags,
+                axisBands: telemetryPayload.axisBands,
+                packId: telemetryPayload.packId,
+                engineVersion: telemetryPayload.engineVersion,
+                locale,
+              });
+            }}
+          >
+            {locale === "zh" ? "这块还不够像" : "This misses me"}
+          </button>
+        </div>
+      ) : null}
     </article>
   );
 }
