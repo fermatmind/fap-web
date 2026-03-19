@@ -20,6 +20,7 @@ const RESULT_SECTION_ORDER = [
   "letters_intro",
   "overview",
   "trait_overview",
+  "traits.decision_style",
   "career.summary",
   "career.advantages",
   "career.weaknesses",
@@ -28,11 +29,13 @@ const RESULT_SECTION_ORDER = [
   "growth.summary",
   "growth.strengths",
   "growth.weaknesses",
+  "growth.stress_recovery",
   "growth.motivators",
   "growth.drainers",
   "relationships.summary",
   "relationships.strengths",
   "relationships.weaknesses",
+  "relationships.communication_style",
   "relationships.rel_advantages",
   "relationships.rel_risks",
 ] as const;
@@ -121,6 +124,7 @@ export type MbtiResultPersonalizationViewModel = {
   relationshipStyleKeys: string[];
   decisionStyleKeys: string[];
   stressRecoveryKeys: string[];
+  communicationStyleKeys: string[];
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -479,6 +483,7 @@ function normalizePersonalization(
     relationshipStyleKeys: normalizeStringArray(personalization.relationship_style_keys),
     decisionStyleKeys: normalizeStringArray(personalization.decision_style_keys),
     stressRecoveryKeys: normalizeStringArray(personalization.stress_recovery_keys),
+    communicationStyleKeys: normalizeStringArray(personalization.communication_style_keys),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),

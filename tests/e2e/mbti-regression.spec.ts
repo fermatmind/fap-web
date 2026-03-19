@@ -218,6 +218,10 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-projection-section-overview")).toContainText(
     "你已经呈现出稳定的外倾倾向"
   );
+  await expect(page.getByTestId("mbti-projection-section-traits-decision-style")).toBeVisible();
+  await expect(page.getByTestId("mbti-projection-section-traits-decision-style")).toContainText(
+    "两套判断入口之间来回校准"
+  );
   await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
   await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock full report");
   await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toBeVisible();
@@ -227,10 +231,16 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   );
   await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career advantage one");
   await expect(page.getByTestId("mbti-chapter-growth")).toContainText("Projection motivators teaser.");
+  await expect(page.getByTestId("mbti-projection-section-growth-stress-recovery")).toContainText(
+    "过载时和恢复时可能会切到不同挡位"
+  );
   await expect(page.getByTestId("mbti-projection-section-growth-drainers")).toContainText(
     "你在过载时和恢复时可能会切到不同挡位"
   );
   await expect(page.getByTestId("mbti-chapter-relationships")).toContainText("Projection relationship risks teaser.");
+  await expect(page.getByTestId("mbti-projection-section-relationships-communication-style")).toContainText(
+    "你的起手表达方式"
+  );
   await expect(page.getByTestId("mbti-projection-section-relationships-rel-risks")).toContainText(
     "两套判断入口之间来回校准"
   );

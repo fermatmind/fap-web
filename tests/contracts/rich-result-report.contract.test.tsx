@@ -146,6 +146,13 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
       "你已经呈现出稳定的外倾倾向"
     );
+    expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveAttribute(
+      "data-variant-key",
+      "traits.decision_style:TF.T.boundary:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveTextContent(
+      "单一路径地下判断"
+    );
     expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveAttribute(
       "data-variant-key",
       "career.summary:EI.E.clear:identity.T:boundary.JP"
@@ -159,12 +166,26 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-projection-section-growth-summary")).toHaveTextContent(
       "成长上，你更适合先放大这条已经清晰的外倾优势"
     );
+    expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveAttribute(
+      "data-variant-key",
+      "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
+      "过载时和恢复时可能会切到不同挡位"
+    );
     expect(screen.getByText("Projection motivators teaser.")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveTextContent(
       "你在过载时和恢复时可能会切到不同挡位"
     );
     expect(screen.getByTestId("mbti-projection-section-relationships-summary")).toHaveTextContent(
-      "你更容易先按感受、关系和价值影响来判断"
+      "你更容易先按逻辑、结构和可验证性来判断"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveAttribute(
+      "data-variant-key",
+      "relationships.communication_style:EI.E.clear:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveTextContent(
+      "你的起手表达方式"
     );
     expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-projection-section-relationships-rel-risks")).toHaveTextContent(

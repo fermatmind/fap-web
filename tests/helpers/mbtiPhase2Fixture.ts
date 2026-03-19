@@ -43,12 +43,40 @@ function getReportMeta(reportData: ReportResponse): Record<string, unknown> {
   return meta;
 }
 
+function resolveProjectionSectionTitle(key: string): string {
+  switch (key) {
+    case "traits.decision_style":
+      return "决策模式";
+    case "growth.stress_recovery":
+      return "压力与恢复";
+    case "relationships.communication_style":
+      return "沟通与协作";
+    default:
+      return key;
+  }
+}
+
+function createProjectionSectionShell(key: string): Record<string, unknown> {
+  return {
+    key,
+    title: resolveProjectionSectionTitle(key),
+    render: "rich_text",
+    body_md: "",
+    payload: {},
+    source: "projection",
+  };
+}
+
 function getProjectionSection(reportData: ReportResponse, key: string): Record<string, unknown> {
   const projection = reportData.mbti_public_projection_v1 as Record<string, unknown> | null | undefined;
   const sections = Array.isArray(projection?.sections) ? projection.sections : [];
-  const section = sections.find((item) => asRecord(item)?.key === key);
+  let section = sections.find((item) => asRecord(item)?.key === key);
   if (!section || !asRecord(section)) {
-    throw new Error(`Expected projection section ${key}`);
+    section = createProjectionSectionShell(key);
+    sections.push(section);
+    if (projection) {
+      projection.sections = sections;
+    }
   }
 
   return section as Record<string, unknown>;
@@ -117,8 +145,8 @@ export function applyMbtiPhase2Fixture(
   const tfAxis = {
     axis: "TF",
     axis_label: "决策偏好",
-    side: "F",
-    side_label: "情感",
+    side: "T",
+    side_label: "思考",
     pct: 59,
     delta: 9,
     state: "balanced",
@@ -127,8 +155,8 @@ export function applyMbtiPhase2Fixture(
   const jpAxis = {
     axis: "JP",
     axis_label: "生活方式",
-    side: "P",
-    side_label: "感知",
+    side: "J",
+    side_label: "判断",
     pct: 57,
     delta: 7,
     state: "moderate",
@@ -152,7 +180,7 @@ export function applyMbtiPhase2Fixture(
   const communicationStyleKey = `communication.primary.EI.E.${eiBand}`;
 
   const personalization = {
-    schema_version: "mbti.personalization.phase2.v1",
+    schema_version: "mbti.personalization.phase4a.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
@@ -184,12 +212,12 @@ export function applyMbtiPhase2Fixture(
         title: "你的工作模式",
         summary:
           eiBand === "strong"
-            ? "在工作里，你通常先用把能量投向外部互动、讨论与现场反馈开局，再用保留弹性、边试边调把节奏拉回可执行。T 身份层会放大你对反馈和结果波动的感知。"
-            : "在工作里，你通常先用把能量投向外部互动、讨论与现场反馈开局，再用保留弹性、边试边调把节奏拉回可执行。T 身份层会放大你对反馈和结果波动的感知。",
+            ? "在工作里，你通常先用把能量投向外部互动、讨论与现场反馈开局，再用收拢重点、快速定版把节奏拉回可执行。T 身份层会放大你对反馈和结果波动的感知。"
+            : "在工作里，你通常先用把能量投向外部互动、讨论与现场反馈开局，再用收拢重点、快速定版把节奏拉回可执行。T 身份层会放大你对反馈和结果波动的感知。",
         style_key: workStyleKey,
         style_keys: [
           workStyleKey,
-          "work.support.JP.P.boundary",
+          "work.support.JP.J.boundary",
           "work.identity.T",
           "work.boundary.JP",
           "work.boundary.TF",
@@ -203,10 +231,10 @@ export function applyMbtiPhase2Fixture(
         scene: "relationships",
         title: "你的关系模式",
         summary:
-          "在关系里，你常先以按感受、关系和价值影响来判断让别人感受到你，再通过外部互动和反馈决定要靠近、回应还是设边界。",
-        style_key: "relationships.primary.TF.F.boundary",
+          "在关系里，你常先以按逻辑、结构和可验证性来判断稳定边界，再通过外部互动和反馈决定要靠近、回应还是设边界。",
+        style_key: "relationships.primary.TF.T.boundary",
         style_keys: [
-          "relationships.primary.TF.F.boundary",
+          "relationships.primary.TF.T.boundary",
           "relationships.support.EI.E.clear",
           "relationships.identity.T",
           "relationships.boundary.TF",
@@ -237,11 +265,11 @@ export function applyMbtiPhase2Fixture(
       decision: {
         scene: "decision",
         title: "你的决策模式",
-        summary: "做决定时，你通常先靠感受、关系和价值影响来判断缩小范围，再用弹性和边试边调确认是否值得推进。",
-        style_key: "decision.primary.TF.F.boundary",
+        summary: "做决定时，你通常先靠逻辑、结构和可验证性来判断缩小范围，再用收拢重点和明确优先级确认是否值得推进。",
+        style_key: "decision.primary.TF.T.boundary",
         style_keys: [
-          "decision.primary.TF.F.boundary",
-          "decision.support.JP.P.boundary",
+          "decision.primary.TF.T.boundary",
+          "decision.support.JP.J.boundary",
           "decision.identity.T",
           "decision.boundary.TF",
           "decision.boundary.JP",
@@ -254,10 +282,10 @@ export function applyMbtiPhase2Fixture(
       stress_recovery: {
         scene: "stress_recovery",
         title: "你的压力恢复模式",
-        summary: "压力升高时，你容易先滑向保留弹性、边试边调来求快或求稳；恢复阶段则更需要外部互动与反馈把你拉回可用区。",
-        style_key: "stress_recovery.primary.JP.P.boundary",
+        summary: "压力升高时，你容易先滑向收拢范围、快速定版来求稳；恢复阶段则更需要外部互动与反馈把你拉回可用区。",
+        style_key: "stress_recovery.primary.JP.J.boundary",
         style_keys: [
-          "stress_recovery.primary.JP.P.boundary",
+          "stress_recovery.primary.JP.J.boundary",
           "stress_recovery.support.EI.E.clear",
           "stress_recovery.identity.T",
           "stress_recovery.boundary.JP",
@@ -271,11 +299,11 @@ export function applyMbtiPhase2Fixture(
       communication: {
         scene: "communication",
         title: "你的沟通模式",
-        summary: "沟通里，你通常先以外部互动和反馈发起，再用感受、关系和价值影响修正对齐。",
+        summary: "沟通里，你通常先以外部互动和反馈发起，再用逻辑框架与协作边界修正对齐。",
         style_key: communicationStyleKey,
         style_keys: [
           communicationStyleKey,
-          "communication.support.TF.F.boundary",
+          "communication.support.TF.T.boundary",
           "communication.identity.T",
           "communication.boundary.TF",
           "communication.boundary.JP",
@@ -288,45 +316,56 @@ export function applyMbtiPhase2Fixture(
     },
     work_style_keys: [
       workStyleKey,
-      "work.support.JP.P.boundary",
+      "work.support.JP.J.boundary",
       "work.identity.T",
       "work.boundary.JP",
       "work.boundary.TF",
     ],
     relationship_style_keys: [
-      "relationships.primary.TF.F.boundary",
+      "relationships.primary.TF.T.boundary",
       "relationships.support.EI.E.clear",
       "relationships.identity.T",
       "relationships.boundary.TF",
       "relationships.boundary.JP",
     ],
     decision_style_keys: [
-      "decision.primary.TF.F.boundary",
-      "decision.support.JP.P.boundary",
+      "decision.primary.TF.T.boundary",
+      "decision.support.JP.J.boundary",
       "decision.identity.T",
       "decision.boundary.TF",
       "decision.boundary.JP",
     ],
     stress_recovery_keys: [
-      "stress_recovery.primary.JP.P.boundary",
+      "stress_recovery.primary.JP.J.boundary",
       "stress_recovery.support.EI.E.clear",
       "stress_recovery.identity.T",
       "stress_recovery.boundary.JP",
       "stress_recovery.boundary.TF",
     ],
+    communication_style_keys: [
+      communicationStyleKey,
+      "communication.support.TF.T.boundary",
+      "communication.identity.T",
+      "communication.boundary.TF",
+      "communication.boundary.JP",
+    ],
     variant_keys: {
       overview: overviewVariantKey,
       trait_overview: traitOverviewVariantKey,
+      "traits.decision_style": "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
       "career.summary": `career.summary:EI.E.${eiBand}:identity.T:boundary.JP`,
       "career.advantages": `career.advantages:EI.E.${eiBand}:identity.T:boundary.JP`,
       "growth.summary": `growth.summary:EI.E.${eiBand}:identity.T:boundary.TF`,
-      "growth.drainers": "growth.drainers:JP.P.boundary:identity.T:boundary.JP",
-      "relationships.summary": "relationships.summary:TF.F.boundary:identity.T:boundary.TF",
+      "growth.stress_recovery": "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP",
+      "growth.drainers": "growth.drainers:JP.J.boundary:identity.T:boundary.JP",
+      "relationships.summary": "relationships.summary:TF.T.boundary:identity.T:boundary.TF",
+      "relationships.communication_style": `relationships.communication_style:EI.E.${eiBand}:identity.T:boundary.TF`,
       "relationships.rel_advantages": `relationships.rel_advantages:EI.E.${eiBand}:identity.T:boundary.TF`,
-      "relationships.rel_risks": "relationships.rel_risks:TF.F.boundary:identity.T:boundary.TF",
+      "relationships.rel_risks": "relationships.rel_risks:TF.T.boundary:identity.T:boundary.TF",
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
+    dynamic_sections_version: "phase4a.v1",
   };
 
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
@@ -392,6 +431,41 @@ export function applyMbtiPhase2Fixture(
         kind: "identity",
         label: "身份层",
         text: "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "traits.decision_style", {
+    variantKey: "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
+    sceneKey: "decision",
+    styleKey: "decision.primary.TF.T.boundary",
+    primaryAxis: tfAxis,
+    supportAxis: jpAxis,
+    boundaryAxes: ["TF", "JP"],
+    blocks: [
+      {
+        id: "traits.decision_style.axis_strength.TF.T.boundary",
+        kind: "axis_strength",
+        label: "强度层",
+        text: "做决定时，这条轴靠近中线，所以你不是单一路径地下判断，而是会在两套入口之间切换。",
+      },
+      {
+        id: "traits.decision_style.decision.TF.T",
+        kind: "decision",
+        label: "决策场景",
+        text: "放到决策里，这条主轴会决定你先用哪一种入口缩小范围：你更容易先按逻辑、结构和可验证性来判断。",
+      },
+      {
+        id: "traits.decision_style.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。",
+      },
+      {
+        id: "traits.decision_style.boundary.TF",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "做决定时，决策偏好靠近中线意味着你并不是摇摆不定，而是在两套判断入口之间来回校准。",
       },
     ],
   });
@@ -511,24 +585,24 @@ export function applyMbtiPhase2Fixture(
   });
 
   updateSection(reportData, "growth.drainers", {
-    variantKey: "growth.drainers:JP.P.boundary:identity.T:boundary.JP",
+    variantKey: "growth.drainers:JP.J.boundary:identity.T:boundary.JP",
     sceneKey: "stress_recovery",
-    styleKey: "stress_recovery.primary.JP.P.boundary",
+    styleKey: "stress_recovery.primary.JP.J.boundary",
     primaryAxis: jpAxis,
     supportAxis: eiAxis,
     boundaryAxes: ["JP", "TF"],
     blocks: [
       {
-        id: "growth.drainers.axis_strength.JP.P.boundary",
+        id: "growth.drainers.axis_strength.JP.J.boundary",
         kind: "axis_strength",
         label: "强度层",
         text: "在压力与恢复上，这条轴靠近中线，意味着你在过载时和恢复时可能会切到不同挡位。",
       },
       {
-        id: "growth.drainers.scene.JP.P",
+        id: "growth.drainers.scene.JP.J",
         kind: "scene",
         label: "场景应用",
-        text: "放到压力与恢复里，这条主轴通常会变成你最先启动的自救方式：你更容易先保留弹性、边试边调，再决定最后定版。",
+        text: "放到压力与恢复里，这条主轴通常会变成你最先启动的自救方式：你更容易先收拢范围、快速定版，再用结构把局面稳住。",
       },
       {
         id: "growth.drainers.identity.t",
@@ -545,25 +619,60 @@ export function applyMbtiPhase2Fixture(
     ],
   });
 
+  updateSection(reportData, "growth.stress_recovery", {
+    variantKey: "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP",
+    sceneKey: "stress_recovery",
+    styleKey: "stress_recovery.primary.JP.J.boundary",
+    primaryAxis: jpAxis,
+    supportAxis: eiAxis,
+    boundaryAxes: ["JP", "TF"],
+    blocks: [
+      {
+        id: "growth.stress_recovery.axis_strength.JP.J.boundary",
+        kind: "axis_strength",
+        label: "强度层",
+        text: "在压力与恢复上，这条轴靠近中线，意味着你在过载时和恢复时可能会切到不同挡位。",
+      },
+      {
+        id: "growth.stress_recovery.stress_recovery.JP.J",
+        kind: "stress_recovery",
+        label: "压力恢复场景",
+        text: "放到压力与恢复里，这条主轴通常会变成你最先启动的自救方式：你更容易先收拢范围、快速定版，再用结构把局面稳住。",
+      },
+      {
+        id: "growth.stress_recovery.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。",
+      },
+      {
+        id: "growth.stress_recovery.boundary.JP",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "压力上来时，生活方式靠近中线意味着你可能先滑向判断来收拢局面，再在恢复阶段把弹性找回来。",
+      },
+    ],
+  });
+
   updateSection(reportData, "relationships.summary", {
-    variantKey: "relationships.summary:TF.F.boundary:identity.T:boundary.TF",
+    variantKey: "relationships.summary:TF.T.boundary:identity.T:boundary.TF",
     sceneKey: "relationships",
-    styleKey: "relationships.primary.TF.F.boundary",
+    styleKey: "relationships.primary.TF.T.boundary",
     primaryAxis: tfAxis,
     supportAxis: eiAxis,
     boundaryAxes: ["TF", "JP"],
     blocks: [
       {
-        id: "relationships.summary.axis_strength.TF.F.boundary",
+        id: "relationships.summary.axis_strength.TF.T.boundary",
         kind: "axis_strength",
         label: "强度层",
         text: "在人际里，这条轴接近边界，意味着你不会一直用同一种方式靠近别人；不同关系会唤起你不同侧的表达。",
       },
       {
-        id: "relationships.summary.scene.TF.F",
+        id: "relationships.summary.scene.TF.T",
         kind: "scene",
         label: "场景应用",
-        text: "放到关系里，这条主轴通常会变成一种相处节奏：你更容易先按感受、关系和价值影响来判断。如果对方没有读懂这一点，就容易把你的方式误解成距离感、迟疑或控制感。",
+        text: "放到关系里，这条主轴通常会变成一种相处节奏：你更容易先按逻辑、结构和可验证性来判断。如果对方没有读懂这一点，就容易把你的方式误解成距离感、迟疑或控制感。",
       },
       {
         id: "relationships.summary.identity.t",
@@ -575,7 +684,7 @@ export function applyMbtiPhase2Fixture(
         id: "relationships.summary.boundary.TF",
         kind: "boundary",
         label: "边界深解释",
-        text: "在人际里，决策偏好靠近中线意味着你不会永远只走情感这一条路。你可能先用情感靠近，遇到压力或误解时又改用思考保护自己。",
+        text: "在人际里，决策偏好靠近中线意味着你不会永远只走思考这一条路。你可能先用思考稳住边界，遇到压力或误解时又改用情感修复关系。",
       },
     ],
   });
@@ -618,25 +727,63 @@ export function applyMbtiPhase2Fixture(
     ],
   });
 
+  updateSection(reportData, "relationships.communication_style", {
+    variantKey: `relationships.communication_style:EI.E.${eiBand}:identity.T:boundary.TF`,
+    sceneKey: "communication",
+    styleKey: communicationStyleKey,
+    primaryAxis: eiAxis,
+    supportAxis: tfAxis,
+    boundaryAxes: ["TF", "JP"],
+    blocks: [
+      {
+        id: `relationships.communication_style.axis_strength.EI.E.${eiBand}`,
+        kind: "axis_strength",
+        label: "强度层",
+        text:
+          eiBand === "strong"
+            ? "在沟通里，外倾已经很鲜明。别人通常会先感受到这一侧，因此误读也往往从这里开始。"
+            : "在沟通里，外倾已经是你更常见的起手方式，但当场景变化时，另一侧仍会迅速进场补位。",
+      },
+      {
+        id: "relationships.communication_style.communication.EI.E",
+        kind: "communication",
+        label: "沟通协作场景",
+        text: "放到沟通里，这条主轴通常会变成你的起手表达方式：你更容易先把能量投向外部互动、讨论与现场反馈，再用逻辑框架把协作收束起来。",
+      },
+      {
+        id: "relationships.communication_style.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。",
+      },
+      {
+        id: "relationships.communication_style.boundary.TF",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "沟通里，决策偏好靠近中线意味着你不会永远只用一种表达方式；别人如果只看到前半段，常会误读你的真实意图。",
+      },
+    ],
+  });
+
   updateSection(reportData, "relationships.rel_risks", {
-    variantKey: "relationships.rel_risks:TF.F.boundary:identity.T:boundary.TF",
+    variantKey: "relationships.rel_risks:TF.T.boundary:identity.T:boundary.TF",
     sceneKey: "decision",
-    styleKey: "decision.primary.TF.F.boundary",
+    styleKey: "decision.primary.TF.T.boundary",
     primaryAxis: tfAxis,
     supportAxis: jpAxis,
     boundaryAxes: ["TF", "JP"],
     blocks: [
       {
-        id: "relationships.rel_risks.axis_strength.TF.F.boundary",
+        id: "relationships.rel_risks.axis_strength.TF.T.boundary",
         kind: "axis_strength",
         label: "强度层",
         text: "做决定时，这条轴靠近中线，所以你不是单一路径地下判断，而是会在两套入口之间切换。",
       },
       {
-        id: "relationships.rel_risks.scene.TF.F",
+        id: "relationships.rel_risks.scene.TF.T",
         kind: "scene",
         label: "场景应用",
-        text: "放到决策里，这条主轴会决定你先用哪一种入口缩小范围：你更容易先按感受、关系和价值影响来判断。",
+        text: "放到决策里，这条主轴会决定你先用哪一种入口缩小范围：你更容易先按逻辑、结构和可验证性来判断。",
       },
       {
         id: "relationships.rel_risks.identity.t",
@@ -648,7 +795,7 @@ export function applyMbtiPhase2Fixture(
         id: "relationships.rel_risks.boundary.TF",
         kind: "boundary",
         label: "边界深解释",
-        text: "做决定时，决策偏好靠近中线意味着你并不是摇摆不定，而是在两套判断入口之间来回校准。你可能先用情感开路，再用思考复核；场景一变，顺序也会反过来。",
+        text: "做决定时，决策偏好靠近中线意味着你并不是摇摆不定，而是在两套判断入口之间来回校准。你可能先用思考开路，再用情感复核；场景一变，顺序也会反过来。",
       },
     ],
   });
