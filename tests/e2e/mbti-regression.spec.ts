@@ -245,9 +245,24 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-projection-section-career-work-environment")).toContainText(
     "工作环境里"
   );
+  await expect(page.getByTestId("mbti-projection-section-career-work-experiments")).toContainText(
+    "工作实验"
+  );
   await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career advantage one");
   await expect(page.getByTestId("mbti-projection-section-career-next-step")).toContainText(
     "先把你看重的判断标准写清楚"
+  );
+  await expect(page.getByTestId("mbti-action-plan-summary")).toContainText(
+    "把成长、关系和工作里的高匹配动作都缩成一周内能重复的小实验"
+  );
+  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toContainText(
+    "下一步动作"
+  );
+  await expect(page.getByTestId("mbti-projection-section-growth-weekly-experiments")).toContainText(
+    "本周实验"
+  );
+  await expect(page.getByTestId("mbti-projection-section-growth-watchouts")).toContainText(
+    "风险提醒"
   );
   await expect(page.getByTestId("mbti-chapter-growth")).toContainText("Projection motivators teaser.");
   await expect(page.getByTestId("mbti-projection-section-growth-stability-confidence")).toContainText(
@@ -262,6 +277,9 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-chapter-relationships")).toContainText("Projection relationship risks teaser.");
   await expect(page.getByTestId("mbti-projection-section-relationships-communication-style")).toContainText(
     "你的起手表达方式"
+  );
+  await expect(page.getByTestId("mbti-projection-section-relationships-try-this-week")).toContainText(
+    "本周关系练习"
   );
   await expect(page.getByTestId("mbti-projection-section-relationships-rel-risks")).toContainText(
     "两套判断入口之间来回校准"
@@ -296,6 +314,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-scene-feedback")).toHaveAttribute("data-feedback-state", "idle");
   await page.getByRole("button", { name: "Feels accurate" }).click();
   await expect(page.getByTestId("mbti-scene-feedback")).toHaveAttribute("data-feedback-state", "accurate");
+  await page.getByTestId("mbti-projection-section-growth-next-actions").getByRole("button", { name: "This helps" }).click();
 
   await page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Career" }).click();
   await expect(page).toHaveURL(new RegExp(`#career$`));

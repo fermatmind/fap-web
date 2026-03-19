@@ -57,14 +57,24 @@ function resolveProjectionSectionTitle(key: string): string {
       return "团队协作匹配";
     case "career.work_environment":
       return "工作环境偏好";
+    case "career.work_experiments":
+      return "工作实验";
     case "career.next_step":
       return "职业下一步";
     case "growth.stress_recovery":
       return "压力与恢复";
     case "growth.stability_confidence":
       return "稳定性与情境敏感";
+    case "growth.next_actions":
+      return "下一步动作";
+    case "growth.weekly_experiments":
+      return "本周实验";
+    case "growth.watchouts":
+      return "风险提醒";
     case "relationships.communication_style":
       return "沟通与协作";
+    case "relationships.try_this_week":
+      return "本周关系练习";
     default:
       return key;
   }
@@ -103,6 +113,7 @@ function updateSection(
     variantKey: string;
     sceneKey: string;
     styleKey: string;
+    actionKey?: string;
     contrastKey?: string;
     primaryAxis: Record<string, unknown>;
     supportAxis?: Record<string, unknown> | null;
@@ -118,6 +129,7 @@ function updateSection(
     variant_key: patch.variantKey,
     scene_key: patch.sceneKey,
     style_key: patch.styleKey,
+    action_key: patch.actionKey ?? "",
     contrast_key: patch.contrastKey ?? "",
     primary_axis: patch.primaryAxis,
     support_axis: patch.supportAxis ?? null,
@@ -231,6 +243,40 @@ export function applyMbtiPhase2Fixture(
     "career_next_step.boundary.JP",
     "career_next_step.theme.clarify_decision_criteria",
   ];
+  const actionPlanSummary =
+    "接下来最值得做的，是把成长、关系和工作里的高匹配动作都缩成一周内能重复的小实验。你的主类型很清楚，但 TF 和 JP 靠近边界，所以动作越小，越能帮你看清什么真正适合你。";
+  const weeklyActionKeys = [
+    `weekly_action.primary.EI.E.${eiBand}`,
+    "weekly_action.support.SN.N.clear",
+    "weekly_action.identity.T",
+    "weekly_action.boundary.TF",
+    "weekly_action.boundary.JP",
+    "weekly_action.theme.name_decision_rule",
+  ];
+  const relationshipActionKeys = [
+    `relationship_action.primary.EI.E.${eiBand}`,
+    "relationship_action.support.TF.T.boundary",
+    "relationship_action.identity.T",
+    "relationship_action.boundary.TF",
+    "relationship_action.boundary.JP",
+    "relationship_action.theme.name_decision_rule",
+  ];
+  const workExperimentKeys = [
+    `work_experiment.primary.EI.E.${eiBand}`,
+    "work_experiment.support.JP.J.boundary",
+    "work_experiment.identity.T",
+    "work_experiment.boundary.JP",
+    "work_experiment.boundary.TF",
+    "work_experiment.theme.name_decision_rule",
+  ];
+  const watchoutKeys = [
+    "watchout.primary.JP.J.boundary",
+    "watchout.support.EI.E.clear",
+    "watchout.identity.T",
+    "watchout.close_call.JP",
+    "watchout.close_call.TF",
+    "watchout.stability.context_sensitive",
+  ];
   const explainabilitySummary =
     "你的主类型不是靠单一标签撑起来的，而是由外倾这条主轴拉开基础差距，再由接近边界的生活方式与决策偏好决定你为什么不像刻板印象里那么单一。";
   const closeCallAxes = [
@@ -262,7 +308,7 @@ export function applyMbtiPhase2Fixture(
   ];
 
   const personalization = {
-    schema_version: "mbti.personalization.phase6a.v1",
+    schema_version: "mbti.personalization.phase7a.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
@@ -442,6 +488,11 @@ export function applyMbtiPhase2Fixture(
     collaboration_fit_keys: collaborationFitKeys,
     work_env_preference_keys: workEnvPreferenceKeys,
     career_next_step_keys: careerNextStepKeys,
+    action_plan_summary: actionPlanSummary,
+    weekly_action_keys: weeklyActionKeys,
+    relationship_action_keys: relationshipActionKeys,
+    work_experiment_keys: workExperimentKeys,
+    watchout_keys: watchoutKeys,
     variant_keys: {
       overview: overviewVariantKey,
       trait_overview: traitOverviewVariantKey,
@@ -452,20 +503,25 @@ export function applyMbtiPhase2Fixture(
       "career.summary": `career.summary:EI.E.${eiBand}:identity.T:boundary.JP`,
       "career.collaboration_fit": `career.collaboration_fit:EI.E.${eiBand}:identity.T:boundary.TF`,
       "career.work_environment": `career.work_environment:EI.E.${eiBand}:identity.T:boundary.JP`,
+      "career.work_experiments": `career.work_experiments:EI.E.${eiBand}:identity.T:action.work_experiment_theme_name_decision_rule:boundary.JP`,
       "career.advantages": `career.advantages:EI.E.${eiBand}:identity.T:boundary.JP`,
       "growth.summary": `growth.summary:EI.E.${eiBand}:identity.T:boundary.TF`,
       "growth.stability_confidence": "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP",
+      "growth.next_actions": `growth.next_actions:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF`,
+      "growth.weekly_experiments": `growth.weekly_experiments:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF`,
       "growth.stress_recovery": "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP",
+      "growth.watchouts": "growth.watchouts:JP.J.boundary:identity.T:action.watchout_stability_context_sensitive:boundary.JP",
       "growth.drainers": "growth.drainers:JP.J.boundary:identity.T:boundary.JP",
       "relationships.summary": "relationships.summary:TF.T.boundary:identity.T:boundary.TF",
       "relationships.communication_style": `relationships.communication_style:EI.E.${eiBand}:identity.T:boundary.TF`,
+      "relationships.try_this_week": `relationships.try_this_week:EI.E.${eiBand}:identity.T:action.relationship_action_theme_name_decision_rule:boundary.TF`,
       "relationships.rel_advantages": `relationships.rel_advantages:EI.E.${eiBand}:identity.T:boundary.TF`,
       "relationships.rel_risks": "relationships.rel_risks:TF.T.boundary:identity.T:boundary.TF",
       "career.next_step": "career.next_step:TF.T.boundary:identity.T:boundary.TF",
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase6a.v1",
+    dynamic_sections_version: "phase7a.v1",
   };
 
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
@@ -781,6 +837,45 @@ export function applyMbtiPhase2Fixture(
     ],
   });
 
+  updateSection(reportData, "career.work_experiments", {
+    variantKey: `career.work_experiments:EI.E.${eiBand}:identity.T:action.work_experiment_theme_name_decision_rule:boundary.JP`,
+    sceneKey: "work",
+    styleKey: workStyleKey,
+    actionKey: "work_experiment.theme.name_decision_rule",
+    primaryAxis: eiAxis,
+    supportAxis: jpAxis,
+    boundaryAxes: ["JP", "TF"],
+    blocks: [
+      {
+        id: `career.work_experiments.axis_strength.EI.E.${eiBand}`,
+        kind: "axis_strength",
+        label: "强度层",
+        text:
+          eiBand === "strong"
+            ? "在工作实验上，外倾已经很鲜明。越小范围地把反馈、对齐和节奏拉到真实场景里，你越快知道什么环境真适合你。"
+            : "在工作实验上，外倾已经是你较稳定的入口。你最适合先做一个能看见互动、反馈和协作节奏的小范围试跑。",
+      },
+      {
+        id: "career.work_experiments.work_experiment.EI.E",
+        kind: "work_experiment",
+        label: "工作实验",
+        text: "放到工作实验，这条主轴最适合先试一个可逆动作：把一次真实协作、反馈或环境切换缩成一周内可完成的小试跑，再看你是否更容易进入高质量输出。",
+      },
+      {
+        id: "career.work_experiments.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你更在意这次试跑有没有真实信息量，所以与其一次做大，不如先做一个能复盘的小实验。",
+      },
+      {
+        id: "career.work_experiments.boundary.JP",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "在工作实验里，生活方式靠近中线意味着你不是只能在一种节奏里工作。真正要测的，不是你喜不喜欢这个岗位名，而是你在什么节奏里最稳定。",
+      },
+    ],
+  });
+
   updateSection(reportData, "career.advantages", {
     variantKey: `career.advantages:EI.E.${eiBand}:identity.T:boundary.JP`,
     sceneKey: "work",
@@ -857,6 +952,84 @@ export function applyMbtiPhase2Fixture(
     ],
   });
 
+  updateSection(reportData, "growth.next_actions", {
+    variantKey: `growth.next_actions:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF`,
+    sceneKey: "growth",
+    styleKey: growthStyleKey,
+    actionKey: "weekly_action.theme.name_decision_rule",
+    primaryAxis: eiAxis,
+    supportAxis: snAxis,
+    boundaryAxes: ["TF", "JP"],
+    blocks: [
+      {
+        id: `growth.next_actions.axis_strength.EI.E.${eiBand}`,
+        kind: "axis_strength",
+        label: "强度层",
+        text:
+          eiBand === "strong"
+            ? "成长动作上，你的外倾已经很鲜明。真正有用的不是继续理解自己，而是把高匹配动作直接放进真实互动里去试。"
+            : "成长动作上，你的外倾已经是清晰入口。你最值得先做的，是把成长动作缩成一个看得见反馈的小步骤。",
+      },
+      {
+        id: "growth.next_actions.next_action.EI.E",
+        kind: "next_action",
+        label: "下一步动作",
+        text: "把它翻译成下一步动作，最值得先做的是：先把你这周最重要的一次反馈、对话或复盘排进真实日程，而不是继续停在脑内准备。",
+      },
+      {
+        id: "growth.next_actions.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你更容易一边行动一边校正，所以动作越小、反馈越快，你越容易知道什么是真的有效。",
+      },
+      {
+        id: "growth.next_actions.boundary.TF",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "成长上，决策偏好靠近中线意味着你既需要标准，也需要体感确认。最好的下一步不是空想“对的答案”，而是先让两条线都进入一次真实验证。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "growth.weekly_experiments", {
+    variantKey: `growth.weekly_experiments:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF`,
+    sceneKey: "growth",
+    styleKey: growthStyleKey,
+    actionKey: "weekly_action.theme.name_decision_rule",
+    primaryAxis: eiAxis,
+    supportAxis: snAxis,
+    boundaryAxes: ["TF", "JP"],
+    blocks: [
+      {
+        id: `growth.weekly_experiments.axis_strength.EI.E.${eiBand}`,
+        kind: "axis_strength",
+        label: "强度层",
+        text:
+          eiBand === "strong"
+            ? "本周实验上，外倾已经很鲜明。你更适合先把实验放进真实互动和现场反馈里，而不是单独闭门打磨。"
+            : "本周实验上，外倾已经是清晰入口。你最适合先做一个能在一周内反复出现的小实验。",
+      },
+      {
+        id: "growth.weekly_experiments.weekly_experiment.EI.E",
+        kind: "weekly_experiment",
+        label: "本周实验",
+        text: "放到这周可执行实验，这条主轴最适合变成一个低成本重复动作：连续一周，在关键判断前先写出你的判断标准，再把它拿去做一次真实对话或小验证。",
+      },
+      {
+        id: "growth.weekly_experiments.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你特别在意实验是否真的有信息量，所以本周实验最好能留下可回看的标准和结果。",
+      },
+      {
+        id: "growth.weekly_experiments.boundary.TF",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "这一周最值得测的，不是“我到底更像哪边”，而是你什么时候更依赖标准、什么时候更需要关系反馈，顺序一旦看清，动作就会稳定很多。",
+      },
+    ],
+  });
+
   updateSection(reportData, "growth.stability_confidence", {
     variantKey: "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP",
     sceneKey: "stability",
@@ -880,6 +1053,42 @@ export function applyMbtiPhase2Fixture(
         kind: "boundary",
         label: "边界深解释",
         text: "真正需要关注的不是“我是不是测得不准”，而是你在哪些情境里会更快切到另一套节奏。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "growth.watchouts", {
+    variantKey: "growth.watchouts:JP.J.boundary:identity.T:action.watchout_stability_context_sensitive:boundary.JP",
+    sceneKey: "stress_recovery",
+    styleKey: "stress_recovery.primary.JP.J.boundary",
+    actionKey: "watchout.stability.context_sensitive",
+    primaryAxis: jpAxis,
+    supportAxis: eiAxis,
+    boundaryAxes: ["JP", "TF"],
+    blocks: [
+      {
+        id: "growth.watchouts.axis_strength.JP.J.boundary",
+        kind: "axis_strength",
+        label: "强度层",
+        text: "风险提醒上，这条轴靠近中线，意味着你在高压里很容易先切到“先收拢局面”的模式，之后才想起恢复和弹性。",
+      },
+      {
+        id: "growth.watchouts.watchout.JP.J",
+        kind: "watchout",
+        label: "风险提醒",
+        text: "放到风险提醒，这条主轴最容易在高压时把你推向一种默认反应：先把局面收紧、先把标准拉高、先把节奏压得更死。真正要防的不是一次用力过猛，而是不知不觉每次都复制同一种过载方式。",
+      },
+      {
+        id: "growth.watchouts.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会放大你对误差和结果波动的感知，所以一旦过载，你更容易把“再控制一点”误当成解决方案。",
+      },
+      {
+        id: "growth.watchouts.boundary.JP",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "生活方式靠近中线时，你的风险不是没有节奏，而是太晚发现自己已经把节奏收得过紧。越早看见切换，越能减少重复性消耗。",
       },
     ],
   });
@@ -1096,6 +1305,45 @@ export function applyMbtiPhase2Fixture(
         kind: "boundary",
         label: "边界深解释",
         text: "沟通里，决策偏好靠近中线意味着你不会永远只用一种表达方式；别人如果只看到前半段，常会误读你的真实意图。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "relationships.try_this_week", {
+    variantKey: `relationships.try_this_week:EI.E.${eiBand}:identity.T:action.relationship_action_theme_name_decision_rule:boundary.TF`,
+    sceneKey: "communication",
+    styleKey: communicationStyleKey,
+    actionKey: "relationship_action.theme.name_decision_rule",
+    primaryAxis: eiAxis,
+    supportAxis: tfAxis,
+    boundaryAxes: ["TF", "JP"],
+    blocks: [
+      {
+        id: `relationships.try_this_week.axis_strength.EI.E.${eiBand}`,
+        kind: "axis_strength",
+        label: "强度层",
+        text:
+          eiBand === "strong"
+            ? "本周关系练习上，外倾已经很鲜明。你最适合把练习放进真实互动里，而不是先在脑内打很多草稿。"
+            : "本周关系练习上，外倾已经是你较稳定的起手方式。最有效的动作，是让你的意图在互动里更早被看见。",
+      },
+      {
+        id: "relationships.try_this_week.relationship_practice.EI.E",
+        kind: "relationship_practice",
+        label: "本周关系练习",
+        text: "放到本周关系练习，这条主轴最适合变成一个可见的小动作：在一次重要沟通前，先把你真正想推进的标准和期待说出来，再邀请对方补充他的担心或需要。",
+      },
+      {
+        id: "relationships.try_this_week.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你更敏感于关系里的误差，所以这周最有价值的不是更克制，而是更早把判断标准说清楚。",
+      },
+      {
+        id: "relationships.try_this_week.boundary.TF",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "关系里的决策偏好靠近中线，说明你会在标准与关系之间来回校准。本周最值得练的，是把这两条线同时说出来，而不是只让对方看到其中一面。",
       },
     ],
   });

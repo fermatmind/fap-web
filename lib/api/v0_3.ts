@@ -604,6 +604,11 @@ export type MbtiPersonalizationRaw = {
   collaboration_fit_keys?: string[];
   work_env_preference_keys?: string[];
   career_next_step_keys?: string[];
+  action_plan_summary?: string;
+  weekly_action_keys?: string[];
+  relationship_action_keys?: string[];
+  work_experiment_keys?: string[];
+  watchout_keys?: string[];
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;

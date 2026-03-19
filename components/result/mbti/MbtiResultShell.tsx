@@ -84,6 +84,7 @@ const CHAPTER_PROJECTION_KEYS = {
     "career.summary",
     "career.collaboration_fit",
     "career.work_environment",
+    "career.work_experiments",
     "career.advantages",
     "career.weaknesses",
     "career.preferred_roles",
@@ -93,9 +94,12 @@ const CHAPTER_PROJECTION_KEYS = {
   growth: [
     "growth.summary",
     "growth.stability_confidence",
+    "growth.next_actions",
+    "growth.weekly_experiments",
     "growth.strengths",
     "growth.weaknesses",
     "growth.stress_recovery",
+    "growth.watchouts",
     "growth.motivators",
     "growth.drainers",
   ],
@@ -113,6 +117,7 @@ const CHAPTER_PROJECTION_KEYS = {
     "relationships.strengths",
     "relationships.weaknesses",
     "relationships.communication_style",
+    "relationships.try_this_week",
     "relationships.rel_advantages",
     "relationships.rel_risks",
   ],
@@ -511,6 +516,7 @@ export function MbtiResultShell({
   const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
   const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
   const personalizationPackId = normalizeText(personalization?.packId, reportMeta?.pack_id);
+  const actionPlanSummary = normalizeText(personalization?.actionPlanSummary);
   const personalizationEngineVersion = normalizeText(
     personalization?.engineVersion,
     reportMeta?.report_engine_version
@@ -1043,6 +1049,30 @@ export function MbtiResultShell({
               ))}
             </div>
           </section>
+
+          {actionPlanSummary ? (
+            <section
+              id="action-plan"
+              data-testid="mbti-action-plan-summary"
+              className="scroll-mt-28 rounded-[28px] border border-amber-200 bg-gradient-to-br from-amber-50 via-white to-emerald-50/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
+            >
+              <div className="space-y-3">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">
+                  {locale === "zh" ? "行动总览" : "Action plan"}
+                </p>
+                <div className="space-y-2">
+                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                    {locale === "zh"
+                      ? "把接下来最值得做的事缩成可重复的小动作"
+                      : "Turn the next useful move into repeatable small actions"}
+                  </h2>
+                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                    {actionPlanSummary}
+                  </p>
+                </div>
+              </div>
+            </section>
+          ) : null}
 
           {CHAPTER_ORDER.map((chapterKey) => {
             const legacySection = legacySectionsByKey.get(chapterKey) ?? null;
