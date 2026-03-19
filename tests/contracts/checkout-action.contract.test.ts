@@ -30,6 +30,34 @@ describe("checkout action contract", () => {
     });
   });
 
+  it("keeps alipay redirect recovery metadata available before leaving the site", () => {
+    const action = resolveCheckoutAction(
+      {
+        order_no: "ord_redirect_alipay_1",
+        provider: "alipay",
+        payment_recovery_token: "recovery_redirect_alipay_1",
+        wait_url: "/en/pay/wait?order_no=ord_redirect_alipay_1&payment_recovery_token=recovery_redirect_alipay_1",
+        result_url: "/en/result/attempt-redirect-alipay-1?from=payment",
+        pay: {
+          type: "redirect",
+          value: "https://openapi.alipay.com/gateway.do?trade_no=ord_redirect_alipay_1",
+          provider: "alipay",
+        },
+      },
+      paymentUnavailable
+    );
+
+    expect(action).toEqual({
+      kind: "redirect",
+      url: "https://openapi.alipay.com/gateway.do?trade_no=ord_redirect_alipay_1",
+      orderNo: "ord_redirect_alipay_1",
+      provider: "alipay",
+      waitUrl: "/pay/wait?order_no=ord_redirect_alipay_1&payment_recovery_token=recovery_redirect_alipay_1",
+      paymentRecoveryToken: "recovery_redirect_alipay_1",
+      resultUrl: "/en/result/attempt-redirect-alipay-1?from=payment",
+    });
+  });
+
   it("routes pay.qr to /pay/wait with query payload", () => {
     const action = resolveCheckoutAction(
       {
@@ -64,6 +92,7 @@ describe("checkout action contract", () => {
         order_no: "ord_html_1",
         provider: "alipay",
         payment_recovery_token: "recovery_html_1",
+        result_url: "/en/result/attempt-html-1?from=payment",
         pay: {
           type: "html",
           value: "/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop",
@@ -84,6 +113,7 @@ describe("checkout action contract", () => {
     expect(url.searchParams.get("pay_value")).toBe("/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop");
     expect(url.searchParams.get("provider")).toBe("alipay");
     expect(url.searchParams.get("payment_recovery_token")).toBe("recovery_html_1");
+    expect(action.resultUrl).toBe("/en/result/attempt-html-1?from=payment");
   });
 
   it("merges checkout pay payload into backend wait_url when the backend wait flow is generic", () => {

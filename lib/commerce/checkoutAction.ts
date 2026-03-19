@@ -1,4 +1,4 @@
-import type { CheckoutRegion, CheckoutResponse } from "@/lib/api/v0_3";
+import type { CheckoutRegion, CheckoutResponse, OrderLookupResponse, OrderStatusResponse } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type CheckoutAction =
@@ -68,7 +68,10 @@ function normalizeWaitPath(value: unknown): string | null {
   }
 }
 
-export function resolveCheckoutAction(checkout: CheckoutResponse, paymentUnavailableMessage: string): CheckoutAction {
+export function resolveCheckoutAction(
+  checkout: CheckoutResponse | OrderStatusResponse | OrderLookupResponse,
+  paymentUnavailableMessage: string
+): CheckoutAction {
   const orderNo = nonEmptyString(checkout.order_no);
   const provider = nonEmptyString(checkout.provider);
   const waitUrl = normalizeWaitPath(checkout.wait_url);

@@ -394,6 +394,7 @@ describe("MBTI checkout wiring contract", () => {
       provider: "alipay",
       payment_recovery_token: "recovery_html_1",
       wait_url: "/pay/wait?order_no=ord_html_1&payment_recovery_token=recovery_html_1",
+      result_url: "/result/attempt-123?from=payment",
       pay: {
         type: "html",
         value: "/api/v0.3/orders/ord_html_1/pay/alipay?scene=desktop",
@@ -422,6 +423,7 @@ describe("MBTI checkout wiring contract", () => {
       sku: "MBTI_REPORT_FULL_199",
       provider: "alipay",
       paymentRecoveryToken: "recovery_html_1",
+      resultUrl: "/result/attempt-123?from=payment",
     });
     const pendingWaitUrl = pendingOrder?.waitUrl ?? "";
     const waitUrl = new URL(pendingWaitUrl, "https://example.test");
@@ -518,6 +520,7 @@ describe("MBTI checkout wiring contract", () => {
       provider: "lemonsqueezy",
       waitUrl: "/zh/pay/wait?order_no=ord_return_1&payment_recovery_token=recovery_return_1",
       paymentRecoveryToken: "recovery_return_1",
+      resultUrl: "/zh/result/attempt-123?from=payment",
     });
 
     render(<OrderReturnFallbackClient locale="zh" />);
@@ -542,6 +545,23 @@ describe("MBTI checkout wiring contract", () => {
     await waitFor(() => {
       expect(hoisted.routerReplace).toHaveBeenCalledWith(
         "/en/pay/wait?order_no=ord_return_query_1&payment_recovery_token=recovery_return_query_1"
+      );
+    });
+  });
+
+  it("prefers explicit wait_url on provider return pages before falling back to lookup", async () => {
+    render(
+      <OrderReturnFallbackClient
+        locale="en"
+        orderNo="ord_return_wait_url_1"
+        paymentRecoveryToken="recovery_return_wait_url_1"
+        waitUrl="https://fermatmind.com/en/pay/wait?order_no=ord_return_wait_url_1&payment_recovery_token=recovery_return_wait_url_1"
+      />
+    );
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_return_wait_url_1&payment_recovery_token=recovery_return_wait_url_1"
       );
     });
   });
