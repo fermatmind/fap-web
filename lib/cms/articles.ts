@@ -1,4 +1,5 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import { getBlogPostBySlug, listBlogPosts, type LocalizedBlogPost } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { canonicalUrl } from "@/lib/site";
 
@@ -390,17 +391,84 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
   };
 }
 
-function matchesRequestedLocale(articleLocale: string, locale: Locale | string): boolean {
-  return toApiLocale(articleLocale) === toApiLocale(locale);
+function normalizeLocalTag(tag: unknown): CmsArticleTag | null {
+  const name = String(tag ?? "").trim();
+  if (!name) {
+    return null;
+  }
+
+  return {
+    id: null,
+    slug: name,
+    name,
+  };
 }
 
-function emptyPagination(page = 1, perPage = DEFAULT_LIST_PER_PAGE): CmsArticlesPagination {
+function normalizeLocalArticle(post: LocalizedBlogPost): CmsArticle {
   return {
-    currentPage: page,
-    perPage,
-    total: 0,
-    lastPage: 1,
+    id: null,
+    slug: normalizeArticleSlug(post.slug),
+    locale: toApiLocale(post.locale),
+    title: String(post.title ?? "").trim(),
+    excerpt: fallbackText(post.summary),
+    contentMd: String(post.body ?? ""),
+    contentHtml: "",
+    coverImageUrl: null,
+    status: "published",
+    isPublic: true,
+    isIndexable: post.locale === "zh" ? true : Boolean(post.translation_ready),
+    publishedAt: normalizeIsoValue(post.publishedAt ?? post.updatedAt),
+    scheduledAt: null,
+    createdAt: null,
+    updatedAt: normalizeIsoValue(post.updatedAt ?? post.publishedAt),
+    category: null,
+    tags: Array.isArray(post.tags)
+      ? post.tags.map(normalizeLocalTag).filter((tag): tag is CmsArticleTag => tag !== null)
+      : [],
+    seoMeta: null,
   };
+}
+
+function getLocalArticle(slug: string, locale: Locale | string): CmsArticle | null {
+  const post = getBlogPostBySlug(normalizeArticleSlug(slug), normalizeLocale(locale));
+  if (!post) {
+    return null;
+  }
+
+  const article = normalizeLocalArticle(post);
+  return article.slug && article.title ? article : null;
+}
+
+function getLocalArticles(locale: Locale | string): CmsArticle[] {
+  return listBlogPosts(normalizeLocale(locale))
+    .map(normalizeLocalArticle)
+    .filter((article) => article.slug && article.title);
+}
+
+function buildLocalArticlesResult(
+  locale: Locale | string,
+  requestedPage: number,
+  requestedPerPage: number
+): GetCmsArticlesResult {
+  const all = getLocalArticles(locale);
+  const total = all.length;
+  const lastPage = Math.max(1, Math.ceil(total / requestedPerPage));
+  const currentPage = Math.min(requestedPage, lastPage);
+  const start = Math.max(0, (currentPage - 1) * requestedPerPage);
+
+  return {
+    items: all.slice(start, start + requestedPerPage),
+    pagination: {
+      currentPage,
+      perPage: requestedPerPage,
+      total,
+      lastPage,
+    },
+  };
+}
+
+function matchesRequestedLocale(articleLocale: string, locale: Locale | string): boolean {
+  return toApiLocale(articleLocale) === toApiLocale(locale);
 }
 
 export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetCmsArticlesResult> {
@@ -430,6 +498,10 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
           .filter((article) => matchesRequestedLocale(article.locale, params.locale))
       : [];
 
+    if (items.length === 0) {
+      return buildLocalArticlesResult(params.locale, requestedPage, requestedPerPage);
+    }
+
     return {
       items,
       pagination: {
@@ -441,10 +513,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
     };
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return {
-        items: [],
-        pagination: emptyPagination(requestedPage, requestedPerPage),
-      };
+      return buildLocalArticlesResult(params.locale, requestedPage, requestedPerPage);
     }
 
     throw error;
@@ -523,14 +592,14 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
     });
 
     if (!response.article) {
-      return null;
+      return getLocalArticle(normalizedSlug, locale);
     }
 
     const article = normalizeArticle(response.article);
-    return article.slug && article.title ? article : null;
+    return article.slug && article.title ? article : getLocalArticle(normalizedSlug, locale);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return null;
+      return getLocalArticle(normalizedSlug, locale);
     }
 
     throw error;
