@@ -160,9 +160,30 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveTextContent(
       "你更容易先把能量投向外部互动、讨论与现场反馈"
     );
+    expect(screen.getByTestId("mbti-projection-section-career-collaboration-fit")).toHaveAttribute(
+      "data-variant-key",
+      "career.collaboration_fit:EI.E.clear:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-collaboration-fit")).toHaveTextContent(
+      "团队协作"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-environment")).toHaveAttribute(
+      "data-variant-key",
+      "career.work_environment:EI.E.clear:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-environment")).toHaveTextContent(
+      "工作环境"
+    );
     expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
     expect(screen.getByText("Projection career weakness one")).toBeInTheDocument();
     expect(screen.getByText("Roles that reward exploratory leadership.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveAttribute(
+      "data-variant-key",
+      "career.next_step:TF.T.boundary:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveTextContent(
+      "先把你看重的判断标准写清楚"
+    );
     expect(screen.getByTestId("mbti-projection-section-growth-summary")).toHaveTextContent(
       "成长上，你更适合先放大这条已经清晰的外倾优势"
     );

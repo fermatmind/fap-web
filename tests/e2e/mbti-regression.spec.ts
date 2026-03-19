@@ -229,7 +229,16 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-chapter-career")).toContainText(
     "你更容易先把能量投向外部互动、讨论与现场反馈"
   );
+  await expect(page.getByTestId("mbti-projection-section-career-collaboration-fit")).toContainText(
+    "团队协作里"
+  );
+  await expect(page.getByTestId("mbti-projection-section-career-work-environment")).toContainText(
+    "工作环境里"
+  );
   await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career advantage one");
+  await expect(page.getByTestId("mbti-projection-section-career-next-step")).toContainText(
+    "先把你看重的判断标准写清楚"
+  );
   await expect(page.getByTestId("mbti-chapter-growth")).toContainText("Projection motivators teaser.");
   await expect(page.getByTestId("mbti-projection-section-growth-stress-recovery")).toContainText(
     "过载时和恢复时可能会切到不同挡位"
@@ -244,7 +253,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-projection-section-relationships-rel-risks")).toContainText(
     "两套判断入口之间来回校准"
   );
-  await expect(page.getByTestId("mbti-career-next-step")).toContainText("Projection career summary public copy.");
+  await expect(page.getByTestId("mbti-career-next-step")).toContainText("先把你看重的判断标准写清楚");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",
     "/en/career/recommendations/mbti/enfp-t"
