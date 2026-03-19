@@ -2,6 +2,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
+import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 
@@ -22,7 +23,7 @@ function createReportFixture(): ReportResponse {
 }
 
 function createProjectionReportFixture(): ReportResponse {
-  return structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse;
+  return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
 }
 
 function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> = {}) {
@@ -78,6 +79,7 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-dimensions")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-scene-fingerprint")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-dominant-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-highlights")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
@@ -137,15 +139,37 @@ describe("RichResultReport", () => {
     }
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
     expect(screen.getByText("Projection letters intro headline.")).toBeInTheDocument();
-    expect(screen.getByText("Projection overview public copy.")).toBeInTheDocument();
-    expect(screen.getByText("Projection career summary public copy.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
+      "data-variant-key",
+      "overview:EI.E.clear:identity.T:boundary.none"
+    );
+    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
+      "你已经呈现出稳定的外倾倾向"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveAttribute(
+      "data-variant-key",
+      "career.summary:EI.E.clear:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveTextContent(
+      "你更容易先把能量投向外部互动、讨论与现场反馈"
+    );
     expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
     expect(screen.getByText("Projection career weakness one")).toBeInTheDocument();
     expect(screen.getByText("Roles that reward exploratory leadership.")).toBeInTheDocument();
-    expect(screen.getByText("Projection growth summary public copy.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-projection-section-growth-summary")).toHaveTextContent(
+      "成长上，你更适合先放大这条已经清晰的外倾优势"
+    );
     expect(screen.getByText("Projection motivators teaser.")).toBeInTheDocument();
-    expect(screen.getByText("Projection relationships summary public copy.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveTextContent(
+      "你在过载时和恢复时可能会切到不同挡位"
+    );
+    expect(screen.getByTestId("mbti-projection-section-relationships-summary")).toHaveTextContent(
+      "你更容易先按感受、关系和价值影响来判断"
+    );
     expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-projection-section-relationships-rel-risks")).toHaveTextContent(
+      "两套判断入口之间来回校准"
+    );
     expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
 
     expect(screen.getByTestId("mbti-offer-card-full")).toBeInTheDocument();
@@ -237,7 +261,9 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
-    expect(screen.getByText("Projection overview public copy.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
+      "你已经呈现出稳定的外倾倾向"
+    );
   });
 
   it("leaves non-MBTI branches on the legacy report normalizer", () => {

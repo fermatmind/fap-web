@@ -10,6 +10,7 @@ import {
   MbtiDominantTraitsSection,
 } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
+import { MbtiSceneFingerprintSummary } from "@/components/result/mbti/MbtiSceneFingerprintSummary";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
 import { MbtiPostPurchaseSection } from "@/components/result/mbti/MbtiPostPurchaseSection";
 import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
@@ -124,6 +125,24 @@ function normalizeStringArray(values: unknown): string[] {
   }
 
   return Array.from(new Set(values.map((value) => normalizeText(value)).filter(Boolean)));
+}
+
+function summarizeSceneFingerprint(
+  personalization: MbtiResultProjectionViewModel["personalization"] | null | undefined
+): string {
+  return Object.entries(personalization?.sceneFingerprint ?? {})
+    .map(([sceneKey, entry]) => `${sceneKey}:${normalizeText(entry.styleKey)}`)
+    .filter(Boolean)
+    .join("|");
+}
+
+function summarizeBoundaryFlags(
+  personalization: MbtiResultProjectionViewModel["personalization"] | null | undefined
+): string {
+  return Object.entries(personalization?.boundaryFlags ?? {})
+    .filter(([, enabled]) => enabled === true)
+    .map(([axisCode]) => axisCode)
+    .join("|");
 }
 
 function resolveProjectionDimensions(
@@ -413,6 +432,8 @@ export function MbtiResultShell({
     .map(([sectionKey, variantKey]) => `${sectionKey}:${normalizeText(variantKey)}`)
     .filter(Boolean)
     .join("|");
+  const sceneFingerprintSummary = summarizeSceneFingerprint(personalization);
+  const boundaryFlagsSummary = summarizeBoundaryFlags(personalization);
   const overviewVariantKey = normalizeText(personalization?.variantKeys.overview);
   const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
   const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
@@ -538,6 +559,8 @@ export function MbtiResultShell({
       identity: personalizationIdentity,
       variantKey: overviewVariantKey,
       variantKeys: variantKeysSummary,
+      sceneFingerprint: sceneFingerprintSummary,
+      boundaryFlags: boundaryFlagsSummary,
       packId: personalizationPackId,
       engineVersion: personalizationEngineVersion,
       locale,
@@ -559,6 +582,7 @@ export function MbtiResultShell({
     window.sessionStorage.setItem(revisitStorageKey, "1");
   }, [
     attemptId,
+    boundaryFlagsSummary,
     locale,
     overviewVariantKey,
     personalizationEngineVersion,
@@ -566,6 +590,7 @@ export function MbtiResultShell({
     personalizationPackId,
     personalizationTypeCode,
     reportData.locked,
+    sceneFingerprintSummary,
     variantKeysSummary,
   ]);
 
@@ -603,6 +628,8 @@ export function MbtiResultShell({
           identity: personalizationIdentity,
           variantKey: overviewVariantKey,
           variantKeys: variantKeysSummary,
+          sceneFingerprint: sceneFingerprintSummary,
+          boundaryFlags: boundaryFlagsSummary,
           packId: personalizationPackId,
           engineVersion: personalizationEngineVersion,
           shareMethod: "native",
@@ -620,6 +647,8 @@ export function MbtiResultShell({
           identity: personalizationIdentity,
           variantKey: overviewVariantKey,
           variantKeys: variantKeysSummary,
+          sceneFingerprint: sceneFingerprintSummary,
+          boundaryFlags: boundaryFlagsSummary,
           packId: personalizationPackId,
           engineVersion: personalizationEngineVersion,
           shareMethod: "clipboard",
@@ -670,6 +699,8 @@ export function MbtiResultShell({
         identity: personalizationIdentity,
         variantKey: overviewVariantKey,
         variantKeys: variantKeysSummary,
+        sceneFingerprint: sceneFingerprintSummary,
+        boundaryFlags: boundaryFlagsSummary,
         packId: personalizationPackId,
         engineVersion: personalizationEngineVersion,
         locale,
@@ -730,6 +761,8 @@ export function MbtiResultShell({
         identity: personalizationIdentity,
         variantKey: overviewVariantKey,
         variantKeys: variantKeysSummary,
+        sceneFingerprint: sceneFingerprintSummary,
+        boundaryFlags: boundaryFlagsSummary,
         packId: personalizationPackId,
         engineVersion: personalizationEngineVersion,
         locale,
@@ -867,6 +900,8 @@ export function MbtiResultShell({
             </div>
             <DimensionBars dimensions={publicDimensions} />
           </section>
+
+          <MbtiSceneFingerprintSummary locale={locale} personalization={personalization} />
 
           <MbtiDominantTraitsSection
             locale={locale}

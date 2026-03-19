@@ -96,6 +96,18 @@ export type MbtiPersonalizationAxisViewModel = {
   band: string;
 };
 
+export type MbtiSceneFingerprintEntryViewModel = {
+  scene: string;
+  title: string;
+  summary: string;
+  styleKey: string;
+  styleKeys: string[];
+  chapterAnchor: string;
+  primaryAxis: MbtiPersonalizationAxisViewModel | null;
+  supportAxis: MbtiPersonalizationAxisViewModel | null;
+  boundaryAxes: string[];
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -104,6 +116,11 @@ export type MbtiResultPersonalizationViewModel = {
   axisBands: Record<string, string>;
   boundaryFlags: Record<string, boolean>;
   dominantAxes: MbtiPersonalizationAxisViewModel[];
+  sceneFingerprint: Record<string, MbtiSceneFingerprintEntryViewModel>;
+  workStyleKeys: string[];
+  relationshipStyleKeys: string[];
+  decisionStyleKeys: string[];
+  stressRecoveryKeys: string[];
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -353,6 +370,42 @@ function normalizePersonalizationAxis(
   };
 }
 
+function normalizeSceneFingerprintEntry(
+  sceneKey: string,
+  rawEntry: unknown
+): MbtiSceneFingerprintEntryViewModel | null {
+  const entry = asRecord(rawEntry);
+  if (!entry) {
+    return null;
+  }
+
+  const scene = normalizeText(entry.scene, sceneKey).toLowerCase();
+  const title = normalizeText(entry.title);
+  const summary = normalizeText(entry.summary);
+  const styleKey = normalizeText(entry.style_key);
+  const styleKeys = normalizeStringArray(entry.style_keys);
+  const chapterAnchor = normalizeText(entry.chapter_anchor);
+  const primaryAxis = normalizePersonalizationAxis(`${scene}.primary`, entry.primary_axis);
+  const supportAxis = normalizePersonalizationAxis(`${scene}.support`, entry.support_axis);
+  const boundaryAxes = normalizeStringArray(entry.boundary_axes).map((axisCode) => axisCode.toUpperCase());
+
+  if (!scene || (!title && !summary && !styleKey)) {
+    return null;
+  }
+
+  return {
+    scene,
+    title,
+    summary,
+    styleKey,
+    styleKeys,
+    chapterAnchor,
+    primaryAxis,
+    supportAxis,
+    boundaryAxes,
+  };
+}
+
 function normalizePersonalization(
   rawPersonalization: unknown
 ): MbtiResultPersonalizationViewModel | null {
@@ -378,6 +431,11 @@ function normalizePersonalization(
         .map((axis, index) => normalizePersonalizationAxis(String(index), axis))
         .filter((axis): axis is MbtiPersonalizationAxisViewModel => Boolean(axis))
     : [];
+  const sceneFingerprint = Object.fromEntries(
+    Object.entries(asRecord(personalization.scene_fingerprint) ?? {})
+      .map(([sceneKey, rawEntry]) => [sceneKey, normalizeSceneFingerprintEntry(sceneKey, rawEntry)] as const)
+      .filter((entry): entry is [string, MbtiSceneFingerprintEntryViewModel] => Boolean(entry[1]))
+  );
 
   const variantKeys = Object.fromEntries(
     Object.entries(asRecord(personalization.variant_keys) ?? {}).map(([sectionKey, value]) => [
@@ -400,6 +458,7 @@ function normalizePersonalization(
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
+    Object.keys(sceneFingerprint).length > 0 ||
     Object.keys(variantKeys).length > 0 ||
     normalizeText(personalization.type_code) !== "";
 
@@ -415,6 +474,11 @@ function normalizePersonalization(
     axisBands,
     boundaryFlags,
     dominantAxes,
+    sceneFingerprint,
+    workStyleKeys: normalizeStringArray(personalization.work_style_keys),
+    relationshipStyleKeys: normalizeStringArray(personalization.relationship_style_keys),
+    decisionStyleKeys: normalizeStringArray(personalization.decision_style_keys),
+    stressRecoveryKeys: normalizeStringArray(personalization.stress_recovery_keys),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),

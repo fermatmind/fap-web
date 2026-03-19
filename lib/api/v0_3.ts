@@ -561,6 +561,19 @@ export type MbtiPersonalizationAxisRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiSceneFingerprintEntryRaw = {
+  scene?: string;
+  title?: string;
+  summary?: string;
+  style_key?: string;
+  style_keys?: string[];
+  chapter_anchor?: string;
+  primary_axis?: MbtiPersonalizationAxisRaw | null;
+  support_axis?: MbtiPersonalizationAxisRaw | null;
+  boundary_axes?: string[];
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -569,6 +582,11 @@ export type MbtiPersonalizationRaw = {
   axis_bands?: Record<string, string>;
   boundary_flags?: Record<string, boolean>;
   dominant_axes?: MbtiPersonalizationAxisRaw[];
+  scene_fingerprint?: Record<string, MbtiSceneFingerprintEntryRaw>;
+  work_style_keys?: string[];
+  relationship_style_keys?: string[];
+  decision_style_keys?: string[];
+  stress_recovery_keys?: string[];
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;

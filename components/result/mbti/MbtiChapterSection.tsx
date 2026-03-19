@@ -157,11 +157,63 @@ function normalizeProjectionContentBlocks(
     .filter((block) => block.id && block.text);
 }
 
+function summarizeVariantKeys(personalization?: MbtiResultPersonalizationViewModel | null): string {
+  return Object.entries(personalization?.variantKeys ?? {})
+    .map(([sectionKey, value]) => `${sectionKey}:${normalizeText(value)}`)
+    .filter(Boolean)
+    .join("|");
+}
+
+function summarizeSceneFingerprint(personalization?: MbtiResultPersonalizationViewModel | null): string {
+  return Object.entries(personalization?.sceneFingerprint ?? {})
+    .map(([sceneKey, entry]) => `${sceneKey}:${normalizeText(entry.styleKey)}`)
+    .filter(Boolean)
+    .join("|");
+}
+
+function summarizeBoundaryFlags(personalization?: MbtiResultPersonalizationViewModel | null): string {
+  return Object.entries(personalization?.boundaryFlags ?? {})
+    .filter(([, enabled]) => enabled === true)
+    .map(([axisCode]) => axisCode)
+    .join("|");
+}
+
+function renderProjectionDynamicBlocks(section: MbtiResultProjectionSectionViewModel) {
+  const blocks = normalizeProjectionContentBlocks(section);
+  if (blocks.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-3">
+      {blocks.map((block) => (
+        <div
+          key={block.id}
+          data-testid={`mbti-projection-block-${toProjectionSectionTestId(block.id)}`}
+          data-block-kind={block.kind}
+          className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
+        >
+          {block.label ? (
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {block.label}
+            </p>
+          ) : null}
+          <p className="m-0 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+            {block.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function buildSectionTelemetryPayload(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
   personalization?: MbtiResultPersonalizationViewModel | null
 ) {
+  const payload = asRecord(section.payload);
+  const personalizationPayload = asRecord(payload?.personalization);
   const overviewVariantKey =
     normalizeText(personalization?.variantKeys.overview, section.variantKey) || section.variantKey;
 
@@ -170,11 +222,12 @@ function buildSectionTelemetryPayload(
     scale_code: "MBTI",
     visual_kind: `mbti_section_${section.key}`,
     sectionKey: section.key,
+    sceneKey: normalizeText(personalizationPayload?.scene_key, section.key.split(".")[0]),
+    styleKey: normalizeText(personalizationPayload?.style_key),
     variantKey: normalizeText(section.variantKey),
-    variantKeys: Object.entries(personalization?.variantKeys ?? {})
-      .map(([sectionKey, value]) => `${sectionKey}:${normalizeText(value)}`)
-      .filter(Boolean)
-      .join("|"),
+    variantKeys: summarizeVariantKeys(personalization),
+    sceneFingerprint: summarizeSceneFingerprint(personalization),
+    boundaryFlags: summarizeBoundaryFlags(personalization),
     typeCode: normalizeText(personalization?.typeCode),
     identity: normalizeText(personalization?.identity),
     packId: normalizeText(personalization?.packId),
@@ -344,32 +397,12 @@ function renderProjectionBulletsSection(section: MbtiResultProjectionSectionView
 }
 
 function renderProjectionRichTextBlocks(section: MbtiResultProjectionSectionViewModel) {
-  const blocks = normalizeProjectionContentBlocks(section);
-  if (blocks.length === 0) {
+  const blocks = renderProjectionDynamicBlocks(section);
+  if (!blocks) {
     return renderPlainMarkdown(section.bodyMd);
   }
 
-  return (
-    <div className="space-y-3">
-      {blocks.map((block) => (
-        <div
-          key={block.id}
-          data-testid={`mbti-projection-block-${toProjectionSectionTestId(block.id)}`}
-          data-block-kind={block.kind}
-          className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
-        >
-          {block.label ? (
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {block.label}
-            </p>
-          ) : null}
-          <p className="m-0 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-            {block.text}
-          </p>
-        </div>
-      ))}
-    </div>
-  );
+  return blocks;
 }
 
 function renderLettersIntroSection(section: MbtiResultProjectionSectionViewModel) {
@@ -587,6 +620,18 @@ function renderProjectionSection(
       break;
   }
 
+  const dynamicBlocks =
+    section.render === "rich_text" ? null : renderProjectionDynamicBlocks(section);
+
+  if (content && dynamicBlocks) {
+    content = (
+      <div className="space-y-4">
+        {content}
+        {dynamicBlocks}
+      </div>
+    );
+  }
+
   if (!content) {
     return null;
   }
@@ -595,6 +640,7 @@ function renderProjectionSection(
     <article
       key={section.key}
       data-testid={`mbti-projection-section-${toProjectionSectionTestId(section.key)}`}
+      data-section-key={section.key}
       data-variant-key={section.variantKey || undefined}
       className="space-y-3 rounded-[24px] border border-slate-200 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
       onClickCapture={() => {
@@ -623,6 +669,7 @@ export function MbtiChapterSection({
 }: MbtiChapterSectionProps) {
   const copy = CHAPTER_COPY[chapterKey];
   const impressionKeysRef = useRef<Set<string>>(new Set());
+  const dwellKeysRef = useRef<Set<string>>(new Set());
   const isOverviewChapter = chapterKey === "traits";
   const authoredOverview = isOverviewChapter && identityLayer
     ? {
@@ -664,6 +711,75 @@ export function MbtiChapterSection({
       impressionKeysRef.current.add(impressionKey);
       trackEvent("ui_card_impression", buildSectionTelemetryPayload(section, locale, personalization));
     }
+  }, [locale, personalization, projectionSections]);
+
+  useEffect(() => {
+    if (
+      typeof window === "undefined" ||
+      typeof window.IntersectionObserver !== "function" ||
+      projectionSections.length === 0
+    ) {
+      return;
+    }
+
+    const timers = new Map<string, number>();
+    const observer = new window.IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        const element = entry.target as HTMLElement;
+        const sectionKey = normalizeText(element.dataset.sectionKey);
+        if (!sectionKey) {
+          continue;
+        }
+
+        const signature = `${sectionKey}::${normalizeText(element.dataset.variantKey)}`;
+        if (entry.isIntersecting) {
+          if (dwellKeysRef.current.has(signature) || timers.has(signature)) {
+            continue;
+          }
+
+          const timer = window.setTimeout(() => {
+            if (dwellKeysRef.current.has(signature)) {
+              return;
+            }
+
+            const section = projectionSections.find((candidate) => candidate.key === sectionKey);
+            if (!section) {
+              return;
+            }
+
+            dwellKeysRef.current.add(signature);
+            trackEvent("ui_card_interaction", {
+              ...buildSectionTelemetryPayload(section, locale, personalization),
+              interaction: "dwell_2500ms",
+            });
+          }, 2500);
+          timers.set(signature, timer);
+          continue;
+        }
+
+        const timer = timers.get(signature);
+        if (timer !== undefined) {
+          window.clearTimeout(timer);
+          timers.delete(signature);
+        }
+      }
+    }, { threshold: 0.7 });
+
+    for (const section of projectionSections) {
+      const selector = `[data-testid="mbti-projection-section-${toProjectionSectionTestId(section.key)}"]`;
+      const element = document.querySelector(selector);
+      if (element instanceof HTMLElement) {
+        observer.observe(element);
+      }
+    }
+
+    return () => {
+      observer.disconnect();
+      for (const timer of timers.values()) {
+        window.clearTimeout(timer);
+      }
+      timers.clear();
+    };
   }, [locale, personalization, projectionSections]);
 
   return (
