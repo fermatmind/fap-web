@@ -179,6 +179,130 @@
         "module_code": "relationships"
       }
     },
+    "_meta": {
+      "personalization": {
+        "schema_version": "mbti.personalization.phase1.v1",
+        "locale": "zh-CN",
+        "type_code": "ENFP-T",
+        "identity": "T",
+        "axis_vector": {
+          "EI": {
+            "axis": "EI",
+            "axis_label": "能量方向",
+            "side": "E",
+            "side_label": "外倾",
+            "pct": 67,
+            "delta": 17,
+            "state": "clear",
+            "band": "clear"
+          },
+          "SN": {
+            "axis": "SN",
+            "axis_label": "信息偏好",
+            "side": "N",
+            "side_label": "直觉",
+            "pct": 64,
+            "delta": 14,
+            "state": "clear",
+            "band": "clear"
+          },
+          "TF": {
+            "axis": "TF",
+            "axis_label": "决策偏好",
+            "side": "F",
+            "side_label": "情感",
+            "pct": 59,
+            "delta": 9,
+            "state": "balanced",
+            "band": "boundary"
+          },
+          "JP": {
+            "axis": "JP",
+            "axis_label": "生活方式",
+            "side": "P",
+            "side_label": "感知",
+            "pct": 57,
+            "delta": 7,
+            "state": "moderate",
+            "band": "boundary"
+          },
+          "AT": {
+            "axis": "AT",
+            "axis_label": "身份层",
+            "side": "T",
+            "side_label": "敏感",
+            "pct": 68,
+            "delta": 18,
+            "state": "clear",
+            "band": "clear"
+          }
+        },
+        "axis_bands": {
+          "EI": "clear",
+          "SN": "clear",
+          "TF": "boundary",
+          "JP": "boundary",
+          "AT": "clear"
+        },
+        "boundary_flags": {
+          "EI": false,
+          "SN": false,
+          "TF": true,
+          "JP": true,
+          "AT": false
+        },
+        "dominant_axes": [
+          {
+            "axis": "EI",
+            "axis_label": "能量方向",
+            "side": "E",
+            "side_label": "外倾",
+            "pct": 67,
+            "delta": 17,
+            "state": "clear",
+            "band": "clear"
+          },
+          {
+            "axis": "SN",
+            "axis_label": "信息偏好",
+            "side": "N",
+            "side_label": "直觉",
+            "pct": 64,
+            "delta": 14,
+            "state": "clear",
+            "band": "clear"
+          },
+          {
+            "axis": "TF",
+            "axis_label": "决策偏好",
+            "side": "F",
+            "side_label": "情感",
+            "pct": 59,
+            "delta": 9,
+            "state": "balanced",
+            "band": "boundary"
+          },
+          {
+            "axis": "JP",
+            "axis_label": "生活方式",
+            "side": "P",
+            "side_label": "感知",
+            "pct": 57,
+            "delta": 7,
+            "state": "moderate",
+            "band": "boundary"
+          }
+        ],
+        "variant_keys": {
+          "overview": "overview:EI.E.clear:identity.T:boundary.TF",
+          "growth": "growth:EI.E.clear:identity.T:boundary.TF",
+          "relationships": "relationships:EI.E.clear:identity.T:boundary.TF",
+          "career": "career:EI.E.clear:identity.T:boundary.TF"
+        },
+        "pack_id": "MBTI.cn-mainland.zh-CN.v0.3",
+        "engine_version": "v1.2"
+      }
+    },
     "recommended_reads": [
       {
         "id": "read-1",
@@ -231,7 +355,7 @@
         "id": "EI",
         "code": "EI",
         "label": "E / I",
-        "pct": 62,
+        "pct": 67,
         "side": "E",
         "side_label": "Extraversion",
         "state": "clear",
@@ -241,7 +365,7 @@
         "id": "SN",
         "code": "SN",
         "label": "S / N",
-        "pct": 74,
+        "pct": 64,
         "side": "N",
         "side_label": "Intuition",
         "state": "clear",
@@ -316,8 +440,64 @@
         "title": "Projection overview",
         "render": "rich_text",
         "body_md": "Projection overview public copy.",
-        "payload": null,
-        "source": "runtime+cms"
+        "payload": {
+          "blocks": [
+            {
+              "id": "overview.type_skeleton",
+              "kind": "type_skeleton",
+              "label": "类型骨架",
+              "text": "Projection overview public copy."
+            },
+            {
+              "id": "overview.axis_strength.EI.E.clear",
+              "kind": "axis_strength",
+              "label": "强度层",
+              "text": "在能量方向上，你已经呈现出稳定的外倾倾向；它会解释你多数第一反应，但不会压扁另一侧的可用性。"
+            },
+            {
+              "id": "overview.scene.EI.E",
+              "kind": "scene",
+              "label": "场景应用",
+              "text": "放到日常场景里，这条主轴通常会表现成：你更容易先把能量投向外部互动、讨论与现场反馈。这会决定别人首先从哪里理解你。"
+            },
+            {
+              "id": "overview.identity.t",
+              "kind": "identity",
+              "label": "身份层",
+              "text": "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。"
+            },
+            {
+              "id": "overview.boundary.TF",
+              "kind": "boundary",
+              "label": "边界提示",
+              "text": "T / F 这一轴离中线较近，所以你并不是单纯“理性”或“感性”，而是会在标准与关系之间反复校准。"
+            }
+          ],
+          "personalization": {
+            "variant_key": "overview:EI.E.clear:identity.T:boundary.TF",
+            "selected_blocks": [
+              "overview.axis_strength.EI.E.clear",
+              "overview.scene.EI.E",
+              "overview.identity.t",
+              "overview.boundary.TF"
+            ],
+            "primary_axis": {
+              "axis": "EI",
+              "axis_label": "能量方向",
+              "side": "E",
+              "side_label": "外倾",
+              "pct": 67,
+              "delta": 17,
+              "state": "clear",
+              "band": "clear"
+            },
+            "boundary_axes": ["TF", "JP"]
+          }
+        },
+        "source": "runtime+cms",
+        "_meta": {
+          "variant_key": "overview:EI.E.clear:identity.T:boundary.TF"
+        }
       },
       {
         "key": "trait_overview",
@@ -334,8 +514,64 @@
         "title": "Projection career summary",
         "render": "rich_text",
         "body_md": "Projection career summary public copy.",
-        "payload": null,
-        "source": "runtime+cms"
+        "payload": {
+          "blocks": [
+            {
+              "id": "career.summary.type_skeleton",
+              "kind": "type_skeleton",
+              "label": "类型骨架",
+              "text": "Projection career summary public copy."
+            },
+            {
+              "id": "career.summary.axis_strength.EI.E.clear",
+              "kind": "axis_strength",
+              "label": "强度层",
+              "text": "在工作里，外倾已经是你较稳定的默认操作方式。它会影响你更顺手的工作节奏、协作方式和反馈偏好。"
+            },
+            {
+              "id": "career.summary.scene.EI.E",
+              "kind": "scene",
+              "label": "场景应用",
+              "text": "放到工作里，这条主轴更像你的默认操作系统：你更容易先把能量投向外部互动、讨论与现场反馈。它会直接影响你更适配的岗位节奏与协作环境。"
+            },
+            {
+              "id": "career.summary.identity.t",
+              "kind": "identity",
+              "label": "身份层",
+              "text": "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。"
+            },
+            {
+              "id": "career.summary.boundary.TF",
+              "kind": "boundary",
+              "label": "边界提示",
+              "text": "T / F 这一轴离中线较近，所以你并不是单纯“理性”或“感性”，而是会在标准与关系之间反复校准。"
+            }
+          ],
+          "personalization": {
+            "variant_key": "career:EI.E.clear:identity.T:boundary.TF",
+            "selected_blocks": [
+              "career.summary.axis_strength.EI.E.clear",
+              "career.summary.scene.EI.E",
+              "career.summary.identity.t",
+              "career.summary.boundary.TF"
+            ],
+            "primary_axis": {
+              "axis": "EI",
+              "axis_label": "能量方向",
+              "side": "E",
+              "side_label": "外倾",
+              "pct": 67,
+              "delta": 17,
+              "state": "clear",
+              "band": "clear"
+            },
+            "boundary_axes": ["TF", "JP"]
+          }
+        },
+        "source": "runtime+cms",
+        "_meta": {
+          "variant_key": "career:EI.E.clear:identity.T:boundary.TF"
+        }
       },
       {
         "key": "career.advantages",
@@ -402,8 +638,64 @@
         "title": "Projection growth summary",
         "render": "rich_text",
         "body_md": "Projection growth summary public copy.",
-        "payload": null,
-        "source": "runtime+cms"
+        "payload": {
+          "blocks": [
+            {
+              "id": "growth.summary.type_skeleton",
+              "kind": "type_skeleton",
+              "label": "类型骨架",
+              "text": "Projection growth summary public copy."
+            },
+            {
+              "id": "growth.summary.axis_strength.EI.E.clear",
+              "kind": "axis_strength",
+              "label": "强度层",
+              "text": "成长上，你更适合先放大这条已经清晰的外倾优势，再为它补一条低成本的对侧校正动作。"
+            },
+            {
+              "id": "growth.summary.scene.EI.E",
+              "kind": "scene",
+              "label": "场景应用",
+              "text": "把它放进成长情境时，更有效的做法不是否定这条主轴，而是让它在能量方向上多带一个反向校正动作：你更容易先把能量投向外部互动、讨论与现场反馈。"
+            },
+            {
+              "id": "growth.summary.identity.t",
+              "kind": "identity",
+              "label": "身份层",
+              "text": "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。"
+            },
+            {
+              "id": "growth.summary.boundary.TF",
+              "kind": "boundary",
+              "label": "边界提示",
+              "text": "T / F 这一轴离中线较近，所以你并不是单纯“理性”或“感性”，而是会在标准与关系之间反复校准。"
+            }
+          ],
+          "personalization": {
+            "variant_key": "growth:EI.E.clear:identity.T:boundary.TF",
+            "selected_blocks": [
+              "growth.summary.axis_strength.EI.E.clear",
+              "growth.summary.scene.EI.E",
+              "growth.summary.identity.t",
+              "growth.summary.boundary.TF"
+            ],
+            "primary_axis": {
+              "axis": "EI",
+              "axis_label": "能量方向",
+              "side": "E",
+              "side_label": "外倾",
+              "pct": 67,
+              "delta": 17,
+              "state": "clear",
+              "band": "clear"
+            },
+            "boundary_axes": ["TF", "JP"]
+          }
+        },
+        "source": "runtime+cms",
+        "_meta": {
+          "variant_key": "growth:EI.E.clear:identity.T:boundary.TF"
+        }
       },
       {
         "key": "growth.strengths",
@@ -456,8 +748,64 @@
         "title": "Projection relationships summary",
         "render": "rich_text",
         "body_md": "Projection relationships summary public copy.",
-        "payload": null,
-        "source": "runtime+cms"
+        "payload": {
+          "blocks": [
+            {
+              "id": "relationships.summary.type_skeleton",
+              "kind": "type_skeleton",
+              "label": "类型骨架",
+              "text": "Projection relationships summary public copy."
+            },
+            {
+              "id": "relationships.summary.axis_strength.EI.E.clear",
+              "kind": "axis_strength",
+              "label": "强度层",
+              "text": "在人际里，外倾已经是你更常见的默认方式。别人感受到你的节奏时，通常会先接收到这一侧。"
+            },
+            {
+              "id": "relationships.summary.scene.EI.E",
+              "kind": "scene",
+              "label": "场景应用",
+              "text": "放到关系里，这条主轴通常会变成一种相处节奏：你更容易先把能量投向外部互动、讨论与现场反馈。如果对方没有读懂这一点，就容易把你的方式误解成距离感、迟疑或控制感。"
+            },
+            {
+              "id": "relationships.summary.identity.t",
+              "kind": "identity",
+              "label": "身份层",
+              "text": "T 身份层会让你在当前类型骨架上更容易放大细节波动与结果质量，因此同一类型也会表现出更高的自我校准和压力感知。"
+            },
+            {
+              "id": "relationships.summary.boundary.TF",
+              "kind": "boundary",
+              "label": "边界提示",
+              "text": "T / F 这一轴离中线较近，所以你并不是单纯“理性”或“感性”，而是会在标准与关系之间反复校准。"
+            }
+          ],
+          "personalization": {
+            "variant_key": "relationships:EI.E.clear:identity.T:boundary.TF",
+            "selected_blocks": [
+              "relationships.summary.axis_strength.EI.E.clear",
+              "relationships.summary.scene.EI.E",
+              "relationships.summary.identity.t",
+              "relationships.summary.boundary.TF"
+            ],
+            "primary_axis": {
+              "axis": "EI",
+              "axis_label": "能量方向",
+              "side": "E",
+              "side_label": "外倾",
+              "pct": 67,
+              "delta": 17,
+              "state": "clear",
+              "band": "clear"
+            },
+            "boundary_axes": ["TF", "JP"]
+          }
+        },
+        "source": "runtime+cms",
+        "_meta": {
+          "variant_key": "relationships:EI.E.clear:identity.T:boundary.TF"
+        }
       },
       {
         "key": "relationships.strengths",
@@ -517,7 +865,129 @@
     },
     "_meta": {
       "authority_source": "runtime+report_fallback+personality_cms_v2",
-      "route_mode": "runtime_report"
+      "route_mode": "runtime_report",
+      "personalization": {
+        "schema_version": "mbti.personalization.phase1.v1",
+        "locale": "zh-CN",
+        "type_code": "ENFP-T",
+        "identity": "T",
+        "axis_vector": {
+          "EI": {
+            "axis": "EI",
+            "axis_label": "能量方向",
+            "side": "E",
+            "side_label": "外倾",
+            "pct": 67,
+            "delta": 17,
+            "state": "clear",
+            "band": "clear"
+          },
+          "SN": {
+            "axis": "SN",
+            "axis_label": "信息偏好",
+            "side": "N",
+            "side_label": "直觉",
+            "pct": 64,
+            "delta": 14,
+            "state": "clear",
+            "band": "clear"
+          },
+          "TF": {
+            "axis": "TF",
+            "axis_label": "决策偏好",
+            "side": "F",
+            "side_label": "情感",
+            "pct": 59,
+            "delta": 9,
+            "state": "balanced",
+            "band": "boundary"
+          },
+          "JP": {
+            "axis": "JP",
+            "axis_label": "生活方式",
+            "side": "P",
+            "side_label": "感知",
+            "pct": 57,
+            "delta": 7,
+            "state": "moderate",
+            "band": "boundary"
+          },
+          "AT": {
+            "axis": "AT",
+            "axis_label": "身份层",
+            "side": "T",
+            "side_label": "敏感",
+            "pct": 68,
+            "delta": 18,
+            "state": "clear",
+            "band": "clear"
+          }
+        },
+        "axis_bands": {
+          "EI": "clear",
+          "SN": "clear",
+          "TF": "boundary",
+          "JP": "boundary",
+          "AT": "clear"
+        },
+        "boundary_flags": {
+          "EI": false,
+          "SN": false,
+          "TF": true,
+          "JP": true,
+          "AT": false
+        },
+        "dominant_axes": [
+          {
+            "axis": "EI",
+            "axis_label": "能量方向",
+            "side": "E",
+            "side_label": "外倾",
+            "pct": 67,
+            "delta": 17,
+            "state": "clear",
+            "band": "clear"
+          },
+          {
+            "axis": "SN",
+            "axis_label": "信息偏好",
+            "side": "N",
+            "side_label": "直觉",
+            "pct": 64,
+            "delta": 14,
+            "state": "clear",
+            "band": "clear"
+          },
+          {
+            "axis": "TF",
+            "axis_label": "决策偏好",
+            "side": "F",
+            "side_label": "情感",
+            "pct": 59,
+            "delta": 9,
+            "state": "balanced",
+            "band": "boundary"
+          },
+          {
+            "axis": "JP",
+            "axis_label": "生活方式",
+            "side": "P",
+            "side_label": "感知",
+            "pct": 57,
+            "delta": 7,
+            "state": "moderate",
+            "band": "boundary"
+          }
+        ],
+        "variant_keys": {
+          "overview": "overview:EI.E.clear:identity.T:boundary.TF",
+          "growth": "growth:EI.E.clear:identity.T:boundary.TF",
+          "relationships": "relationships:EI.E.clear:identity.T:boundary.TF",
+          "career": "career:EI.E.clear:identity.T:boundary.TF"
+        },
+        "pack_id": "MBTI.cn-mainland.zh-CN.v0.3",
+        "engine_version": "v1.2"
+      }
     }
   }
 }

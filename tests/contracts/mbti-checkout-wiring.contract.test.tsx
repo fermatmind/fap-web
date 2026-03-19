@@ -6,6 +6,7 @@ import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferCo
 import { MbtiResultShell, resolveMbtiCheckoutSku } from "@/components/result/mbti/MbtiResultShell";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
+import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import type {
   HighlightCard,
   MbtiSectionUnlock,
@@ -122,6 +123,7 @@ function createShellProps(reportData: ReportResponse) {
     locale: "zh" as const,
     scaleCode: "MBTI" as const,
     reportData,
+    projectionViewModel: buildMbtiResultProjectionViewModel(reportData),
     headline,
     tags: ["热情", "高敏感"],
     dimensions,
@@ -169,6 +171,7 @@ describe("MBTI checkout wiring contract", () => {
     });
     window.history.replaceState(null, "", "/zh/result/attempt-123");
     window.localStorage.clear();
+    window.sessionStorage.clear();
     Object.defineProperty(window.navigator, "clipboard", {
       configurable: true,
       value: {
@@ -378,6 +381,15 @@ describe("MBTI checkout wiring contract", () => {
     expect(navigatorShare).not.toHaveBeenCalledWith(
       expect.objectContaining({
         url: expect.stringContaining("/result/attempt-123"),
+      })
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "share_result",
+      expect.objectContaining({
+        attemptIdMasked: "attemp...-123",
+        typeCode: "ENFP-T",
+        identity: "T",
+        variantKey: "overview:EI.E.clear:identity.T:boundary.TF",
       })
     );
     expect(window.navigator.clipboard.writeText).not.toHaveBeenCalled();

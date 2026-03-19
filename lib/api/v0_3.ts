@@ -549,6 +549,33 @@ export type MbtiPublicProjectionV1Raw = {
   [key: string]: unknown;
 };
 
+export type MbtiPersonalizationAxisRaw = {
+  axis?: string;
+  axis_label?: string;
+  side?: string;
+  side_label?: string;
+  pct?: number;
+  delta?: number;
+  state?: string;
+  band?: string;
+  [key: string]: unknown;
+};
+
+export type MbtiPersonalizationRaw = {
+  locale?: string;
+  type_code?: string;
+  identity?: string;
+  axis_vector?: Record<string, MbtiPersonalizationAxisRaw>;
+  axis_bands?: Record<string, string>;
+  boundary_flags?: Record<string, boolean>;
+  dominant_axes?: MbtiPersonalizationAxisRaw[];
+  variant_keys?: Record<string, string>;
+  pack_id?: string;
+  engine_version?: string;
+  sections?: Record<string, Record<string, unknown>>;
+  [key: string]: unknown;
+};
+
 export type MbtiCompareParticipantRaw = {
   share_id?: string;
   share_url?: string;

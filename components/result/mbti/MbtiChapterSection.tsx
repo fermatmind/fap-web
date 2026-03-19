@@ -1,15 +1,17 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { trackEvent } from "@/lib/analytics";
 import type { ReportIdentityLayer } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiSectionUnlock, ReportBlock, ReportSection } from "@/components/result/RichResultReport";
 import type { TraitBridgeItem } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import type {
   MbtiPublicProjectionDimensionViewModel,
+  MbtiResultPersonalizationViewModel,
   MbtiResultProjectionSectionViewModel,
 } from "@/lib/mbti/publicProjection";
 
@@ -39,6 +41,13 @@ type PreferredRoleGroup = {
   examples: string[];
 };
 
+type ProjectionContentBlock = {
+  id: string;
+  kind: string;
+  label: string;
+  text: string;
+};
+
 type MbtiChapterSectionProps = {
   locale: Locale;
   chapterKey: ChapterKey;
@@ -48,6 +57,7 @@ type MbtiChapterSectionProps = {
   globalTraits: TraitBridgeItem[];
   unlock: MbtiSectionUnlock | null;
   identityLayer?: ReportIdentityLayer | null;
+  personalization?: MbtiResultPersonalizationViewModel | null;
 };
 
 const CHAPTER_COPY: Record<
@@ -130,6 +140,48 @@ function normalizeStringArray(values: unknown): string[] {
 
 function toProjectionSectionTestId(key: string): string {
   return key.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase();
+}
+
+function normalizeProjectionContentBlocks(
+  section: MbtiResultProjectionSectionViewModel
+): ProjectionContentBlock[] {
+  const payload = asRecord(section.payload);
+
+  return asArray<Record<string, unknown>>(payload?.blocks)
+    .map((block, index) => ({
+      id: normalizeText(block.id, `${section.key}-block-${index + 1}`),
+      kind: normalizeText(block.kind, "rich_text"),
+      label: normalizeText(block.label),
+      text: normalizeText(block.text, block.body, block.description),
+    }))
+    .filter((block) => block.id && block.text);
+}
+
+function buildSectionTelemetryPayload(
+  section: MbtiResultProjectionSectionViewModel,
+  locale: Locale,
+  personalization?: MbtiResultPersonalizationViewModel | null
+) {
+  const overviewVariantKey =
+    normalizeText(personalization?.variantKeys.overview, section.variantKey) || section.variantKey;
+
+  return {
+    slug: "mbti-result-shell",
+    scale_code: "MBTI",
+    visual_kind: `mbti_section_${section.key}`,
+    sectionKey: section.key,
+    variantKey: normalizeText(section.variantKey),
+    variantKeys: Object.entries(personalization?.variantKeys ?? {})
+      .map(([sectionKey, value]) => `${sectionKey}:${normalizeText(value)}`)
+      .filter(Boolean)
+      .join("|"),
+    typeCode: normalizeText(personalization?.typeCode),
+    identity: normalizeText(personalization?.identity),
+    packId: normalizeText(personalization?.packId),
+    engineVersion: normalizeText(personalization?.engineVersion),
+    overviewVariantKey,
+    locale,
+  };
 }
 
 function parseIdentityBullet(
@@ -289,6 +341,35 @@ function renderProjectionBulletsSection(section: MbtiResultProjectionSectionView
   ];
 
   return renderBulletItems(fallbackItems);
+}
+
+function renderProjectionRichTextBlocks(section: MbtiResultProjectionSectionViewModel) {
+  const blocks = normalizeProjectionContentBlocks(section);
+  if (blocks.length === 0) {
+    return renderPlainMarkdown(section.bodyMd);
+  }
+
+  return (
+    <div className="space-y-3">
+      {blocks.map((block) => (
+        <div
+          key={block.id}
+          data-testid={`mbti-projection-block-${toProjectionSectionTestId(block.id)}`}
+          data-block-kind={block.kind}
+          className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
+        >
+          {block.label ? (
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {block.label}
+            </p>
+          ) : null}
+          <p className="m-0 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+            {block.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function renderLettersIntroSection(section: MbtiResultProjectionSectionViewModel) {
@@ -478,9 +559,11 @@ function renderPremiumTeaserSection(
 function renderProjectionSection(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
-  projectionDimensions: MbtiPublicProjectionDimensionViewModel[]
+  projectionDimensions: MbtiPublicProjectionDimensionViewModel[],
+  personalization?: MbtiResultPersonalizationViewModel | null
 ) {
   let content: ReactNode = null;
+  const telemetryPayload = buildSectionTelemetryPayload(section, locale, personalization);
 
   switch (section.render) {
     case "letters_intro":
@@ -500,7 +583,7 @@ function renderProjectionSection(
       break;
     case "rich_text":
     default:
-      content = renderPlainMarkdown(section.bodyMd);
+      content = renderProjectionRichTextBlocks(section);
       break;
   }
 
@@ -512,7 +595,14 @@ function renderProjectionSection(
     <article
       key={section.key}
       data-testid={`mbti-projection-section-${toProjectionSectionTestId(section.key)}`}
+      data-variant-key={section.variantKey || undefined}
       className="space-y-3 rounded-[24px] border border-slate-200 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
+      onClickCapture={() => {
+        trackEvent("ui_card_interaction", {
+          ...telemetryPayload,
+          interaction: "click",
+        });
+      }}
     >
       <h3 className="m-0 text-lg font-semibold text-slate-900">{section.title}</h3>
       {content}
@@ -529,8 +619,10 @@ export function MbtiChapterSection({
   globalTraits,
   unlock,
   identityLayer,
+  personalization,
 }: MbtiChapterSectionProps) {
   const copy = CHAPTER_COPY[chapterKey];
+  const impressionKeysRef = useRef<Set<string>>(new Set());
   const isOverviewChapter = chapterKey === "traits";
   const authoredOverview = isOverviewChapter && identityLayer
     ? {
@@ -561,6 +653,18 @@ export function MbtiChapterSection({
     isOverviewChapter && (authoredOverview?.bullets.length ?? 0) > 0
       ? authoredOverview?.bullets ?? []
       : unlock?.benefits ?? [];
+
+  useEffect(() => {
+    for (const section of projectionSections) {
+      const impressionKey = `${section.key}::${normalizeText(section.variantKey)}`;
+      if (!section.key || impressionKeysRef.current.has(impressionKey)) {
+        continue;
+      }
+
+      impressionKeysRef.current.add(impressionKey);
+      trackEvent("ui_card_impression", buildSectionTelemetryPayload(section, locale, personalization));
+    }
+  }, [locale, personalization, projectionSections]);
 
   return (
     <section
@@ -621,7 +725,9 @@ export function MbtiChapterSection({
           data-testid={`mbti-chapter-public-${copy.anchor}`}
           className="space-y-4"
         >
-          {projectionSections.map((section) => renderProjectionSection(section, locale, projectionDimensions))}
+          {projectionSections.map((section) =>
+            renderProjectionSection(section, locale, projectionDimensions, personalization)
+          )}
         </div>
       ) : hasLegacyPublicContent && legacySection ? (
         <div

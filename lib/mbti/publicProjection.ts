@@ -1,4 +1,5 @@
 import type {
+  MbtiPersonalizationRaw,
   MbtiPublicProjectionDimensionRaw,
   MbtiPublicProjectionV1Raw,
   ReportResponse,
@@ -81,6 +82,31 @@ export type MbtiResultProjectionSectionViewModel = {
   payload: Record<string, unknown> | null;
   isPremiumTeaser: boolean;
   source: string;
+  variantKey: string;
+};
+
+export type MbtiPersonalizationAxisViewModel = {
+  axis: string;
+  axisLabel: string;
+  side: string;
+  sideLabel: string;
+  percent: number;
+  delta: number;
+  state: string;
+  band: string;
+};
+
+export type MbtiResultPersonalizationViewModel = {
+  locale: string;
+  typeCode: string;
+  identity: string;
+  axisVector: Record<string, MbtiPersonalizationAxisViewModel>;
+  axisBands: Record<string, string>;
+  boundaryFlags: Record<string, boolean>;
+  dominantAxes: MbtiPersonalizationAxisViewModel[];
+  variantKeys: Record<string, string>;
+  packId: string;
+  engineVersion: string;
 };
 
 export type MbtiResultProjectionViewModel = {
@@ -102,6 +128,7 @@ export type MbtiResultProjectionViewModel = {
   seo: Record<string, unknown> | null;
   rawProjection: MbtiPublicProjectionV1Raw | null;
   hasProjection: boolean;
+  personalization: MbtiResultPersonalizationViewModel | null;
 };
 
 export type MbtiSharePageViewModel = {
@@ -155,6 +182,24 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   }
 
   return value as Record<string, unknown>;
+}
+
+function getNestedValue(
+  value: Record<string, unknown> | null,
+  path: readonly string[]
+): unknown {
+  let current: unknown = value;
+
+  for (const segment of path) {
+    const record = asRecord(current);
+    if (!record || !Object.prototype.hasOwnProperty.call(record, segment)) {
+      return undefined;
+    }
+
+    current = record[segment];
+  }
+
+  return current;
 }
 
 function normalizeStringArray(value: unknown): string[] {
@@ -284,6 +329,98 @@ function normalizeSectionRender(value: unknown): SupportedResultSectionRender | 
     : null;
 }
 
+function normalizePersonalizationAxis(
+  axisCode: string,
+  rawAxis: unknown
+): MbtiPersonalizationAxisViewModel | null {
+  const axis = asRecord(rawAxis);
+  if (!axis) {
+    return null;
+  }
+
+  return {
+    axis: normalizeText(axis.axis, axisCode).toUpperCase(),
+    axisLabel: normalizeText(axis.axis_label, axis.axisLabel, axisCode),
+    side: normalizeText(axis.side).toUpperCase(),
+    sideLabel: normalizeText(axis.side_label, axis.sideLabel),
+    percent: toRoundedPercent(axis.pct),
+    delta:
+      typeof axis.delta === "number" && Number.isFinite(axis.delta)
+        ? Math.max(0, Math.round(axis.delta))
+        : 0,
+    state: normalizeText(axis.state),
+    band: normalizeText(axis.band),
+  };
+}
+
+function normalizePersonalization(
+  rawPersonalization: unknown
+): MbtiResultPersonalizationViewModel | null {
+  const personalization = asRecord(rawPersonalization) as MbtiPersonalizationRaw | null;
+  if (!personalization) {
+    return null;
+  }
+
+  const axisVectorRecord = asRecord(personalization.axis_vector);
+  const axisVector: Record<string, MbtiPersonalizationAxisViewModel> = {};
+
+  for (const [axisCode, rawAxis] of Object.entries(axisVectorRecord ?? {})) {
+    const normalized = normalizePersonalizationAxis(axisCode, rawAxis);
+    if (!normalized) {
+      continue;
+    }
+
+    axisVector[normalized.axis] = normalized;
+  }
+
+  const dominantAxes = Array.isArray(personalization.dominant_axes)
+    ? personalization.dominant_axes
+        .map((axis, index) => normalizePersonalizationAxis(String(index), axis))
+        .filter((axis): axis is MbtiPersonalizationAxisViewModel => Boolean(axis))
+    : [];
+
+  const variantKeys = Object.fromEntries(
+    Object.entries(asRecord(personalization.variant_keys) ?? {}).map(([sectionKey, value]) => [
+      sectionKey,
+      normalizeText(value),
+    ])
+  );
+  const axisBands = Object.fromEntries(
+    Object.entries(asRecord(personalization.axis_bands) ?? {}).map(([axisCode, value]) => [
+      axisCode.toUpperCase(),
+      normalizeText(value),
+    ])
+  );
+  const boundaryFlags = Object.fromEntries(
+    Object.entries(asRecord(personalization.boundary_flags) ?? {}).map(([axisCode, value]) => [
+      axisCode.toUpperCase(),
+      value === true,
+    ])
+  );
+
+  const hasContent =
+    Object.keys(axisVector).length > 0 ||
+    Object.keys(variantKeys).length > 0 ||
+    normalizeText(personalization.type_code) !== "";
+
+  if (!hasContent) {
+    return null;
+  }
+
+  return {
+    locale: normalizeText(personalization.locale),
+    typeCode: normalizeText(personalization.type_code).toUpperCase(),
+    identity: normalizeText(personalization.identity).toUpperCase(),
+    axisVector,
+    axisBands,
+    boundaryFlags,
+    dominantAxes,
+    variantKeys,
+    packId: normalizeText(personalization.pack_id),
+    engineVersion: normalizeText(personalization.engine_version),
+  };
+}
+
 function normalizeResultProjectionSections(rawSections: unknown): MbtiResultProjectionSectionViewModel[] {
   const sections = Array.isArray(rawSections)
     ? rawSections
@@ -315,6 +452,10 @@ function normalizeResultProjectionSections(rawSections: unknown): MbtiResultProj
       payload: asRecord(section.payload),
       isPremiumTeaser: render === "premium_teaser",
       source: normalizeText(section.source, "projection"),
+      variantKey: normalizeText(
+        getNestedValue(section, ["_meta", "variant_key"]),
+        getNestedValue(section, ["payload", "personalization", "variant_key"])
+      ),
     });
   }
 
@@ -370,11 +511,18 @@ export function buildMbtiResultProjectionViewModel(
 ): MbtiResultProjectionViewModel {
   const core = buildProjectionCore(report.mbti_public_projection_v1);
   const sections = normalizeResultProjectionSections(core.rawProjection?.sections);
+  const projectionMeta = asRecord(core.rawProjection?._meta);
+  const reportPayload = asRecord(report.report);
+  const reportMeta = asRecord(reportPayload?._meta);
+  const personalization = normalizePersonalization(
+    projectionMeta?.personalization ?? reportMeta?.personalization
+  );
 
   return {
     ...core,
     sections,
     hasProjection: hasProjectionCoreContent(core, sections),
+    personalization,
   };
 }
 

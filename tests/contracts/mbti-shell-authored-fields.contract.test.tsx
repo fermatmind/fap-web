@@ -43,6 +43,7 @@ function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> 
 describe("MBTI shell authored fields contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    window.sessionStorage.clear();
   });
 
   it("keeps hero, dimensions, and canonical sections on projection-first authority while legacy authored fields stay available", () => {
@@ -88,6 +89,15 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.queryByText("Legacy hero summary should lose to projection summary.")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy keyword should lose")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy rarity should lose")).not.toBeInTheDocument();
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "view_result",
+      expect.objectContaining({
+        attemptIdMasked: "attemp...-123",
+        typeCode: "ENFP-T",
+        identity: "T",
+        variantKey: "overview:EI.E.clear:identity.T:boundary.TF",
+      })
+    );
   });
 
   it("falls back safely when layers.identity is absent and recommended reads are empty", () => {
@@ -142,5 +152,88 @@ describe("MBTI shell authored fields contract", () => {
       "#offer-full"
     );
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
+  });
+
+  it("renders backend-supplied overview variants for the same type when EI strength changes", () => {
+    const clearReportData = createReportFixture();
+    const strongReportData = createReportFixture();
+
+    const clearOverview = clearReportData.mbti_public_projection_v1?.sections?.find(
+      (section) => section.key === "overview"
+    ) as Record<string, unknown> | undefined;
+    const strongOverview = strongReportData.mbti_public_projection_v1?.sections?.find(
+      (section) => section.key === "overview"
+    ) as Record<string, unknown> | undefined;
+
+    if (!clearOverview || !strongOverview) {
+      throw new Error("Expected overview sections in projection fixture");
+    }
+
+    const strongProjectionMeta = strongReportData.mbti_public_projection_v1?._meta as Record<string, unknown> | undefined;
+    const strongProjectionPersonalization = strongProjectionMeta?.personalization as Record<string, unknown> | undefined;
+    const strongReportMeta = strongReportData.report?._meta as Record<string, unknown> | undefined;
+    const strongReportPersonalization = strongReportMeta?.personalization as Record<string, unknown> | undefined;
+
+    for (const personalization of [strongProjectionPersonalization, strongReportPersonalization]) {
+      if (!personalization) {
+        continue;
+      }
+
+      (personalization.axis_bands as Record<string, string>).EI = "strong";
+      (personalization.axis_vector as Record<string, Record<string, unknown>>).EI = {
+        ...((personalization.axis_vector as Record<string, Record<string, unknown>>).EI ?? {}),
+        pct: 77,
+        delta: 27,
+        state: "strong",
+        band: "strong",
+      };
+      (personalization.variant_keys as Record<string, string>).overview =
+        "overview:EI.E.strong:identity.T:boundary.TF";
+    }
+
+    const strongOverviewPayload = strongOverview.payload as Record<string, unknown>;
+    const strongOverviewBlocks = strongOverviewPayload.blocks as Array<Record<string, unknown>>;
+    strongOverviewBlocks[1] = {
+      ...strongOverviewBlocks[1],
+      id: "overview.axis_strength.EI.E.strong",
+      text: "在能量方向上，你的外倾偏好已经很鲜明。你通常不会先停在中间，而会自然把注意力和行动拉向这一侧。",
+    };
+    (strongOverviewPayload.personalization as Record<string, unknown>).variant_key =
+      "overview:EI.E.strong:identity.T:boundary.TF";
+    (strongOverviewPayload.personalization as Record<string, unknown>).selected_blocks = [
+      "overview.axis_strength.EI.E.strong",
+      "overview.scene.EI.E",
+      "overview.identity.t",
+      "overview.boundary.TF",
+    ];
+    strongOverview._meta = {
+      ...((strongOverview._meta as Record<string, unknown> | undefined) ?? {}),
+      variant_key: "overview:EI.E.strong:identity.T:boundary.TF",
+    };
+
+    const { unmount } = render(<RichResultReport locale="zh" reportData={clearReportData} />);
+
+    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
+      "data-variant-key",
+      "overview:EI.E.clear:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
+      "你已经呈现出稳定的外倾倾向"
+    );
+
+    unmount();
+
+    render(<RichResultReport locale="zh" reportData={strongReportData} />);
+
+    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
+      "data-variant-key",
+      "overview:EI.E.strong:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
+      "你的外倾偏好已经很鲜明"
+    );
+    expect(screen.getByTestId("mbti-projection-section-overview")).not.toHaveTextContent(
+      "你已经呈现出稳定的外倾倾向"
+    );
   });
 });
