@@ -47,6 +47,12 @@ function resolveProjectionSectionTitle(key: string): string {
   switch (key) {
     case "traits.decision_style":
       return "决策模式";
+    case "career.collaboration_fit":
+      return "团队协作匹配";
+    case "career.work_environment":
+      return "工作环境偏好";
+    case "career.next_step":
+      return "职业下一步";
     case "growth.stress_recovery":
       return "压力与恢复";
     case "relationships.communication_style":
@@ -178,9 +184,42 @@ export function applyMbtiPhase2Fixture(
   const workStyleKey = `work.primary.EI.E.${eiBand}`;
   const growthStyleKey = `growth.primary.EI.E.${eiBand}`;
   const communicationStyleKey = `communication.primary.EI.E.${eiBand}`;
+  const roleFitKeys = [
+    "role_fit.role.NF",
+    `role_fit.primary.EI.E.${eiBand}`,
+    "role_fit.support.JP.J.boundary",
+    "role_fit.identity.T",
+    "role_fit.boundary.JP",
+    "role_fit.boundary.TF",
+  ];
+  const collaborationFitKeys = [
+    `collaboration_fit.primary.EI.E.${eiBand}`,
+    "collaboration_fit.support.TF.T.boundary",
+    "collaboration_fit.identity.T",
+    "collaboration_fit.boundary.TF",
+    "collaboration_fit.boundary.JP",
+    "collaboration_fit.decision_boundary.TF",
+    "collaboration_fit.decision_boundary.JP",
+  ];
+  const workEnvPreferenceKeys = [
+    `work_env.primary.EI.E.${eiBand}`,
+    "work_env.support.JP.J.boundary",
+    "work_env.identity.T",
+    "work_env.boundary.JP",
+    "work_env.boundary.TF",
+    "work_env.preference.high_collaboration",
+  ];
+  const careerNextStepKeys = [
+    "career_next_step.primary.TF.T.boundary",
+    "career_next_step.support.JP.J.boundary",
+    "career_next_step.identity.T",
+    "career_next_step.boundary.TF",
+    "career_next_step.boundary.JP",
+    "career_next_step.theme.clarify_decision_criteria",
+  ];
 
   const personalization = {
-    schema_version: "mbti.personalization.phase4a.v1",
+    schema_version: "mbti.personalization.phase5a.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
@@ -349,11 +388,19 @@ export function applyMbtiPhase2Fixture(
       "communication.boundary.TF",
       "communication.boundary.JP",
     ],
+    work_style_summary:
+      "在工作里，你通常先用把能量投向外部互动、讨论与现场反馈开局，再用收拢重点、快速定版把节奏拉回可执行。T 身份层会放大你对反馈和结果波动的感知。",
+    role_fit_keys: roleFitKeys,
+    collaboration_fit_keys: collaborationFitKeys,
+    work_env_preference_keys: workEnvPreferenceKeys,
+    career_next_step_keys: careerNextStepKeys,
     variant_keys: {
       overview: overviewVariantKey,
       trait_overview: traitOverviewVariantKey,
       "traits.decision_style": "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
       "career.summary": `career.summary:EI.E.${eiBand}:identity.T:boundary.JP`,
+      "career.collaboration_fit": `career.collaboration_fit:EI.E.${eiBand}:identity.T:boundary.TF`,
+      "career.work_environment": `career.work_environment:EI.E.${eiBand}:identity.T:boundary.JP`,
       "career.advantages": `career.advantages:EI.E.${eiBand}:identity.T:boundary.JP`,
       "growth.summary": `growth.summary:EI.E.${eiBand}:identity.T:boundary.TF`,
       "growth.stress_recovery": "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP",
@@ -362,10 +409,11 @@ export function applyMbtiPhase2Fixture(
       "relationships.communication_style": `relationships.communication_style:EI.E.${eiBand}:identity.T:boundary.TF`,
       "relationships.rel_advantages": `relationships.rel_advantages:EI.E.${eiBand}:identity.T:boundary.TF`,
       "relationships.rel_risks": "relationships.rel_risks:TF.T.boundary:identity.T:boundary.TF",
+      "career.next_step": "career.next_step:TF.T.boundary:identity.T:boundary.TF",
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase4a.v1",
+    dynamic_sections_version: "phase5a.v1",
   };
 
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
@@ -489,9 +537,9 @@ export function applyMbtiPhase2Fixture(
       },
       {
         id: "career.summary.scene.EI.E",
-        kind: "scene",
-        label: "场景应用",
-        text: "放到工作里，这条主轴更像你的默认操作系统：你更容易先把能量投向外部互动、讨论与现场反馈。它会直接影响你更适配的岗位节奏与协作环境。",
+        kind: "work_style",
+        label: "工作风格桥接",
+        text: "放到工作方式上，这条主轴会决定你默认怎么开工、怎么协作、怎么接收反馈：你更容易先把能量投向外部互动、讨论与现场反馈。",
       },
       {
         id: "career.summary.identity.t",
@@ -504,6 +552,82 @@ export function applyMbtiPhase2Fixture(
         kind: "boundary",
         label: "边界深解释",
         text: "在工作里，生活方式靠近中线会让你在任务、协作和压力场景下切换齿轮。团队若只看到其中一面，就会误判你的节奏和稳定性。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "career.collaboration_fit", {
+    variantKey: `career.collaboration_fit:EI.E.${eiBand}:identity.T:boundary.TF`,
+    sceneKey: "communication",
+    styleKey: communicationStyleKey,
+    primaryAxis: eiAxis,
+    supportAxis: tfAxis,
+    boundaryAxes: ["TF", "JP"],
+    blocks: [
+      {
+        id: `career.collaboration_fit.axis_strength.EI.E.${eiBand}`,
+        kind: "axis_strength",
+        label: "强度层",
+        text:
+          eiBand === "strong"
+            ? "在团队协作里，外倾已经很鲜明。你更容易把问题直接拉到桌面上，也更需要团队跟得上你的反馈速度。"
+            : "在团队协作里，外倾已经是你较稳定的默认对齐方式。你通常会先通过互动确认方向，再推进下一步。",
+      },
+      {
+        id: "career.collaboration_fit.collaboration_fit.EI.E",
+        kind: "collaboration_fit",
+        label: "协作匹配桥接",
+        text: "放到团队协作里，这条主轴会决定你更自然的对齐、配合与修正方式：你更容易先把能量投向外部互动、讨论与现场反馈。",
+      },
+      {
+        id: "career.collaboration_fit.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你在协作里更敏感于反馈质量、标准清晰度和协作中的微小失真。",
+      },
+      {
+        id: "career.collaboration_fit.boundary.TF",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "在团队里，决策偏好靠近中线意味着你会在标准与关系之间来回校准。别人如果只看到其中一面，就会误判你到底是在推进结果，还是在照顾人。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "career.work_environment", {
+    variantKey: `career.work_environment:EI.E.${eiBand}:identity.T:boundary.JP`,
+    sceneKey: "work",
+    styleKey: workStyleKey,
+    primaryAxis: eiAxis,
+    supportAxis: jpAxis,
+    boundaryAxes: ["JP", "TF"],
+    blocks: [
+      {
+        id: `career.work_environment.axis_strength.EI.E.${eiBand}`,
+        kind: "axis_strength",
+        label: "强度层",
+        text:
+          eiBand === "strong"
+            ? "在工作环境上，外倾已经很鲜明。高互动、高反馈、高节奏的环境更容易把你的效率拉满。"
+            : "在工作环境上，外倾已经是你较稳定的默认入口。环境越能提供互动和反馈，你越容易更快进入状态。",
+      },
+      {
+        id: "career.work_environment.work_env.EI.E",
+        kind: "work_env",
+        label: "工作环境桥接",
+        text: "放到工作环境里，这条主轴会决定你更需要哪类节奏、边界和反馈方式：你更容易先把能量投向外部互动、讨论与现场反馈。",
+      },
+      {
+        id: "career.work_environment.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会放大你对环境噪音、反馈质量和结果波动的感知，所以环境匹配会直接影响你是否稳定输出。",
+      },
+      {
+        id: "career.work_environment.boundary.JP",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "在工作环境上，生活方式靠近中线意味着你既需要一定结构，也需要一定弹性。真正适配你的不是绝对死板或绝对松散，而是节奏感可被商量的环境。",
       },
     ],
   });
@@ -580,6 +704,41 @@ export function applyMbtiPhase2Fixture(
         kind: "boundary",
         label: "边界深解释",
         text: "成长上，决策偏好靠近中线意味着你真正要学的不是选边站，而是识别什么时候该让情感先开路，什么时候该让思考接手收尾。",
+      },
+    ],
+  });
+
+  updateSection(reportData, "career.next_step", {
+    variantKey: "career.next_step:TF.T.boundary:identity.T:boundary.TF",
+    sceneKey: "decision",
+    styleKey: "decision.primary.TF.T.boundary",
+    primaryAxis: tfAxis,
+    supportAxis: jpAxis,
+    boundaryAxes: ["TF", "JP"],
+    blocks: [
+      {
+        id: "career.next_step.axis_strength.TF.T.boundary",
+        kind: "axis_strength",
+        label: "强度层",
+        text: "职业下一步上，这条轴靠近中线，说明你做选择时不是只看一个标准，而是会在两套入口之间反复校准。",
+      },
+      {
+        id: "career.next_step.career_next_step.TF.T",
+        kind: "career_next_step",
+        label: "职业下一步桥接",
+        text: "放到职业下一步，这条主轴提示你先去试一个更贴近自己的动作：先把你看重的判断标准写清楚，再用一次真实对话或岗位验证去校正，而不是只在脑内继续拉扯。",
+      },
+      {
+        id: "career.next_step.identity.t",
+        kind: "identity",
+        label: "身份层",
+        text: "T 身份层会让你更在意这一步是否真的靠谱，所以与其逼自己马上定案，不如先把标准说清楚、再去验证。",
+      },
+      {
+        id: "career.next_step.boundary.TF",
+        kind: "boundary",
+        label: "边界深解释",
+        text: "在职业选择上，决策偏好靠近中线并不代表你不稳定，而是你会同时守住标准与关系、速度与准确度。最有效的下一步，是让这两条线都能被看见。",
       },
     ],
   });

@@ -78,6 +78,27 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveTextContent(
       "你更容易先把能量投向外部互动、讨论与现场反馈"
     );
+    expect(screen.getByTestId("mbti-projection-section-career-collaboration-fit")).toHaveAttribute(
+      "data-variant-key",
+      "career.collaboration_fit:EI.E.clear:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-collaboration-fit")).toHaveTextContent(
+      "团队协作"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-environment")).toHaveAttribute(
+      "data-variant-key",
+      "career.work_environment:EI.E.clear:identity.T:boundary.JP"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-environment")).toHaveTextContent(
+      "工作环境"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveAttribute(
+      "data-variant-key",
+      "career.next_step:TF.T.boundary:identity.T:boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveTextContent(
+      "先把你看重的判断标准写清楚"
+    );
     expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveAttribute(
       "data-variant-key",
       "traits.decision_style:TF.T.boundary:identity.T:boundary.TF"
@@ -99,7 +120,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveTextContent(
       "你的起手表达方式"
     );
-    expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("Projection career summary public copy.");
+    expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("先把你看重的判断标准写清楚");
     expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
       "href",
       "/zh/career/recommendations/mbti/enfp-t"

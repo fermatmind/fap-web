@@ -22,9 +22,12 @@ const RESULT_SECTION_ORDER = [
   "trait_overview",
   "traits.decision_style",
   "career.summary",
+  "career.collaboration_fit",
+  "career.work_environment",
   "career.advantages",
   "career.weaknesses",
   "career.preferred_roles",
+  "career.next_step",
   "career.upgrade_suggestions",
   "growth.summary",
   "growth.strengths",
@@ -125,6 +128,11 @@ export type MbtiResultPersonalizationViewModel = {
   decisionStyleKeys: string[];
   stressRecoveryKeys: string[];
   communicationStyleKeys: string[];
+  workStyleSummary: string;
+  roleFitKeys: string[];
+  collaborationFitKeys: string[];
+  workEnvPreferenceKeys: string[];
+  careerNextStepKeys: string[];
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -484,6 +492,11 @@ function normalizePersonalization(
     decisionStyleKeys: normalizeStringArray(personalization.decision_style_keys),
     stressRecoveryKeys: normalizeStringArray(personalization.stress_recovery_keys),
     communicationStyleKeys: normalizeStringArray(personalization.communication_style_keys),
+    workStyleSummary: normalizeText(personalization.work_style_summary),
+    roleFitKeys: normalizeStringArray(personalization.role_fit_keys),
+    collaborationFitKeys: normalizeStringArray(personalization.collaboration_fit_keys),
+    workEnvPreferenceKeys: normalizeStringArray(personalization.work_env_preference_keys),
+    careerNextStepKeys: normalizeStringArray(personalization.career_next_step_keys),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),

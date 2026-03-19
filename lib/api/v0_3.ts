@@ -588,6 +588,11 @@ export type MbtiPersonalizationRaw = {
   decision_style_keys?: string[];
   stress_recovery_keys?: string[];
   communication_style_keys?: string[];
+  work_style_summary?: string;
+  role_fit_keys?: string[];
+  collaboration_fit_keys?: string[];
+  work_env_preference_keys?: string[];
+  career_next_step_keys?: string[];
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;

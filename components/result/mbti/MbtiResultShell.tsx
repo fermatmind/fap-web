@@ -82,9 +82,12 @@ const OFFER_SCROLL_ALIGNMENT: ScrollIntoViewOptions = {
 const CHAPTER_PROJECTION_KEYS = {
   career: [
     "career.summary",
+    "career.collaboration_fit",
+    "career.work_environment",
     "career.advantages",
     "career.weaknesses",
     "career.preferred_roles",
+    "career.next_step",
     "career.upgrade_suggestions",
   ],
   growth: [
@@ -144,6 +147,73 @@ function resolveProjectionDimensions(
     percent: dimension.percent,
     winnerLabel: normalizeText(dimension.sideLabel, dimension.summary, dimension.state),
   }));
+}
+
+function extractProjectionSectionLead(
+  section?: MbtiResultProjectionSectionViewModel | null,
+  preferredKinds: string[] = []
+): string {
+  if (!section) {
+    return "";
+  }
+
+  const payload = asRecord(section.payload);
+  const blocks = Array.isArray(payload?.blocks) ? payload.blocks : [];
+  for (const preferredKind of preferredKinds) {
+    for (const block of blocks) {
+      const record = asRecord(block);
+      const kind = normalizeText(record?.kind);
+      if (kind !== preferredKind) {
+        continue;
+      }
+
+      const text = normalizeText(record?.text, record?.body, record?.description);
+      if (text) {
+        return text;
+      }
+    }
+  }
+
+  for (const block of blocks) {
+    const record = asRecord(block);
+    const text = normalizeText(record?.text, record?.body, record?.description);
+    if (text) {
+      return text;
+    }
+  }
+
+  return normalizeText(section.bodyMd);
+}
+
+function buildCareerBridgeTelemetryPayload(
+  section: MbtiResultProjectionSectionViewModel,
+  locale: Locale,
+  personalization?: MbtiResultProjectionViewModel["personalization"] | null
+) {
+  const payload = asRecord(section.payload);
+  const personalizationPayload = asRecord(payload?.personalization);
+  const overviewVariantKey =
+    normalizeText(personalization?.variantKeys.overview, section.variantKey) || section.variantKey;
+
+  return {
+    slug: "mbti-result-shell",
+    scale_code: "MBTI",
+    visual_kind: "mbti_career_bridge",
+    sectionKey: section.key,
+    sceneKey: normalizeText(personalizationPayload?.scene_key, "career"),
+    styleKey: normalizeText(personalizationPayload?.style_key),
+    variantKey: normalizeText(section.variantKey),
+    variantKeys: summarizeMbtiVariantKeys(personalization),
+    sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+    boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+    axisBands: summarizeMbtiAxisBands(personalization),
+    overviewVariantKey,
+    typeCode: normalizeText(personalization?.typeCode),
+    identity: normalizeText(personalization?.identity),
+    packId: normalizeText(personalization?.packId),
+    engineVersion: normalizeText(personalization?.engineVersion),
+    locale,
+  };
 }
 
 function resolveShareMessages(locale: Locale, shareStatus: "idle" | "copied" | "failed") {
@@ -337,6 +407,7 @@ export function MbtiResultShell({
   const pathname = usePathname();
   const offerScrollFrameRef = useRef<number | null>(null);
   const resultViewTrackedRef = useRef(false);
+  const careerBridgeImpressionTrackedRef = useRef(false);
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [isSharing, setIsSharing] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
@@ -377,12 +448,17 @@ export function MbtiResultShell({
       : dimensions;
   const careerSummarySection =
     projectionViewModel?.sections.find((section) => section.key === "career.summary") ?? null;
+  const careerNextStepSection =
+    projectionViewModel?.sections.find((section) => section.key === "career.next_step") ?? null;
   const careerRecommendationHref = buildMbtiCareerRecommendationHref(
     locale,
     projectionViewModel?.displayType
   );
-  const careerSummaryLead = normalizeText(careerSummarySection?.bodyMd);
-  const careerNextStepBody = careerSummaryLead
+  const careerSummaryLead = extractProjectionSectionLead(careerSummarySection, ["work_style", "scene"]);
+  const careerNextStepLead = extractProjectionSectionLead(careerNextStepSection, ["career_next_step"]);
+  const careerNextStepBody = careerNextStepLead
+    ? careerNextStepLead
+    : careerSummaryLead
     ? locale === "zh"
       ? `先从公开职业页开始：${careerSummaryLead}`
       : `Start with the public career page: ${careerSummaryLead}`
@@ -583,6 +659,15 @@ export function MbtiResultShell({
     sceneFingerprintSummary,
     variantKeysSummary,
   ]);
+
+  useEffect(() => {
+    if (!careerRecommendationHref || !careerNextStepSection || careerBridgeImpressionTrackedRef.current) {
+      return;
+    }
+
+    careerBridgeImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", buildCareerBridgeTelemetryPayload(careerNextStepSection, locale, personalization));
+  }, [careerRecommendationHref, careerNextStepSection, locale, personalization]);
 
   async function handleShare() {
     if (typeof window === "undefined" || isSharing) return;
@@ -999,6 +1084,16 @@ export function MbtiResultShell({
                 <Link
                   data-testid="mbti-career-next-step-cta"
                   href={careerRecommendationHref}
+                  onClick={() => {
+                    if (!careerNextStepSection) {
+                      return;
+                    }
+
+                    trackEvent("ui_card_interaction", {
+                      ...buildCareerBridgeTelemetryPayload(careerNextStepSection, locale, personalization),
+                      interaction: "click_cta",
+                    });
+                  }}
                   className={buttonVariants({ className: "bg-slate-950 text-white hover:bg-slate-800" })}
                 >
                   {locale === "zh" ? "查看职业推荐" : "View career recommendations"}
