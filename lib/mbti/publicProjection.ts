@@ -1,4 +1,5 @@
 import type {
+  MbtiReadContractRaw,
   MbtiPersonalizationRaw,
   MbtiPublicProjectionDimensionRaw,
   MbtiPublicProjectionV1Raw,
@@ -163,6 +164,21 @@ export type MbtiContinuityViewModel = {
   currentIntentCluster: string;
 };
 
+export type MbtiReadContractFieldGroupViewModel = {
+  personalizationFields: string[];
+  surfaceFields: string[];
+  sources: string[];
+};
+
+export type MbtiReadContractViewModel = {
+  version: string;
+  canonicalReadModel: MbtiReadContractFieldGroupViewModel | null;
+  overlayPatch: MbtiReadContractFieldGroupViewModel | null;
+  cacheableFields: string[];
+  nonCacheableFields: string[];
+  telemetryParityFields: string[];
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -201,6 +217,7 @@ export type MbtiResultPersonalizationViewModel = {
   userState: MbtiUserStateViewModel | null;
   orchestration: MbtiOrchestrationViewModel | null;
   continuity: MbtiContinuityViewModel | null;
+  readContract: MbtiReadContractViewModel | null;
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -236,6 +253,7 @@ export type MbtiSharePageViewModel = {
   primaryCtaLabel: string;
   primaryCtaPath: string;
   continuity: MbtiContinuityViewModel | null;
+  readContract: MbtiReadContractViewModel | null;
   compareEnabled: boolean;
   compareCtaLabel: string;
 };
@@ -568,6 +586,7 @@ function normalizePersonalization(
   const userStateRecord = asRecord(personalization.user_state);
   const orchestrationRecord = asRecord(personalization.orchestration);
   const continuityRecord = asRecord(personalization.continuity);
+  const readContractRecord = asRecord(personalization.read_contract_v1) as MbtiReadContractRaw | null;
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -666,9 +685,65 @@ function normalizePersonalization(
           ),
         }
       : null,
+    readContract: normalizeReadContract(readContractRecord),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),
+  };
+}
+
+function normalizeReadContractGroup(
+  rawGroup: unknown
+): MbtiReadContractFieldGroupViewModel | null {
+  const group = asRecord(rawGroup);
+  if (!group) {
+    return null;
+  }
+
+  const personalizationFields = normalizeStringArray(group.personalization_fields);
+  const surfaceFields = normalizeStringArray(group.surface_fields);
+  const sources = normalizeStringArray(group.sources);
+  if (personalizationFields.length === 0 && surfaceFields.length === 0 && sources.length === 0) {
+    return null;
+  }
+
+  return {
+    personalizationFields,
+    surfaceFields,
+    sources,
+  };
+}
+
+function normalizeReadContract(rawContract: MbtiReadContractRaw | null): MbtiReadContractViewModel | null {
+  if (!rawContract) {
+    return null;
+  }
+
+  const version = normalizeText(rawContract.version);
+  const canonicalReadModel = normalizeReadContractGroup(rawContract.canonical_read_model);
+  const overlayPatch = normalizeReadContractGroup(rawContract.overlay_patch);
+  const cacheableFields = normalizeStringArray(rawContract.cacheable_fields);
+  const nonCacheableFields = normalizeStringArray(rawContract.non_cacheable_fields);
+  const telemetryParityFields = normalizeStringArray(rawContract.telemetry_parity_fields);
+
+  if (
+    !version &&
+    !canonicalReadModel &&
+    !overlayPatch &&
+    cacheableFields.length === 0 &&
+    nonCacheableFields.length === 0 &&
+    telemetryParityFields.length === 0
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    canonicalReadModel,
+    overlayPatch,
+    cacheableFields,
+    nonCacheableFields,
+    telemetryParityFields,
   };
 }
 
@@ -765,9 +840,18 @@ export function buildMbtiResultProjectionViewModel(
   const projectionMeta = asRecord(core.rawProjection?._meta);
   const reportPayload = asRecord(report.report);
   const reportMeta = asRecord(reportPayload?._meta);
-  const personalization = normalizePersonalization(
+  const normalizedPersonalization = normalizePersonalization(
     projectionMeta?.personalization ?? reportMeta?.personalization
   );
+  const topLevelReadContract = normalizeReadContract(
+    asRecord(report.mbti_read_contract_v1) as MbtiReadContractRaw | null
+  );
+  const personalization = normalizedPersonalization
+    ? {
+        ...normalizedPersonalization,
+        readContract: normalizedPersonalization.readContract ?? topLevelReadContract,
+      }
+    : null;
 
   return {
     ...core,
@@ -813,6 +897,9 @@ export function buildSharePageViewModel(
   const shareProjectionMeta = asRecord(asRecord(rawShare?.mbti_public_projection_v1)?._meta);
   const sharePersonalizationRecord = asRecord(shareProjectionMeta?.personalization);
   const shareUserStateRecord = asRecord(sharePersonalizationRecord?.user_state);
+  const shareReadContract =
+    normalizeReadContract(asRecord(rawShare?.mbti_read_contract_v1) as MbtiReadContractRaw | null) ??
+    normalizeReadContract(asRecord(sharePersonalizationRecord?.read_contract_v1) as MbtiReadContractRaw | null);
 
   return {
     card: normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1),
@@ -850,6 +937,7 @@ export function buildSharePageViewModel(
           ),
         }
       : null,
+    readContract: shareReadContract,
     compareEnabled: rawShare?.compare_enabled === true,
     compareCtaLabel: normalizeText(rawShare?.compare_cta_label),
   };

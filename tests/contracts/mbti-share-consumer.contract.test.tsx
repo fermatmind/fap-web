@@ -125,6 +125,7 @@ function createShareFixture(): ShareSummaryResponse {
       carryover_scene_keys: ["work", "growth"],
       carryover_action_keys: ["career_next_step.theme.clarify_decision_criteria"],
     },
+    mbti_read_contract_v1: createReadContractFixture(),
     offers: [
       {
         title: "Unlock full report",
@@ -188,8 +189,43 @@ function createProjectionFixture(): MbtiPublicProjectionV1Raw {
           last_deep_read_section: "traits.close_call_axes",
           current_intent_cluster: "clarify_type",
         },
+        read_contract_v1: createReadContractFixture(),
       },
     },
+  };
+}
+
+function createReadContractFixture() {
+  return {
+    version: "mbti.read_contract.v1",
+    canonical_read_model: {
+      personalization_fields: ["schema_version", "type_code", "identity", "scene_fingerprint", "action_plan_summary"],
+      surface_fields: ["report.summary", "report.sections", "mbti_public_summary_v1", "mbti_public_projection_v1.summary_card"],
+      sources: ["report_snapshot", "report_projection"],
+    },
+    overlay_patch: {
+      personalization_fields: ["user_state", "orchestration", "ordered_recommendation_keys", "continuity"],
+      surface_fields: [
+        "report._meta.personalization.user_state",
+        "report._meta.personalization.continuity",
+        "mbti_public_projection_v1._meta.personalization.user_state",
+        "mbti_public_projection_v1._meta.personalization.continuity",
+      ],
+      sources: ["attempt_access", "attempt_events", "share_rows"],
+    },
+    cacheable_fields: ["report", "mbti_public_projection_v1", "mbti_public_summary_v1", "mbti_read_contract_v1"],
+    non_cacheable_fields: [
+      "report._meta.personalization.user_state",
+      "report._meta.personalization.continuity",
+      "mbti_public_projection_v1._meta.personalization.user_state",
+      "mbti_public_projection_v1._meta.personalization.continuity",
+    ],
+    telemetry_parity_fields: [
+      "user_state",
+      "continuity.carryover_focus_key",
+      "continuity.carryover_reason",
+      "ordered_recommendation_keys",
+    ],
   };
 }
 
@@ -431,6 +467,15 @@ describe("MBTI share consumer contract", () => {
       description: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content.",
       images: ["http://localhost:3000/og/share/share-123"],
     });
+  });
+
+  it("normalizes the top-level read contract on the share view model", () => {
+    const viewModel = buildSharePageViewModel(createShareFixture());
+
+    expect(viewModel.readContract?.version).toBe("mbti.read_contract.v1");
+    expect(viewModel.readContract?.overlayPatch?.personalizationFields).toContain("user_state");
+    expect(viewModel.readContract?.nonCacheableFields).toContain("report._meta.personalization.user_state");
+    expect(viewModel.readContract?.telemetryParityFields).toContain("continuity.carryover_focus_key");
   });
 
   it("renders share OG from projection and never from legacy aliases", () => {

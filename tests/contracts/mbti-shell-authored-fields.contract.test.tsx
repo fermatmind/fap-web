@@ -2,6 +2,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
+import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 
@@ -67,6 +68,16 @@ describe("MBTI shell authored fields contract", () => {
     });
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    const viewModel = buildMbtiResultProjectionViewModel(reportData);
+    expect(viewModel.personalization?.readContract?.version).toBe("mbti.read_contract.v1");
+    expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain("user_state");
+    expect(viewModel.personalization?.readContract?.nonCacheableFields).toContain(
+      "report._meta.personalization.continuity"
+    );
+    expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
+      "orchestration.primary_focus_key"
+    );
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     const hero = screen.getByTestId("mbti-hero");

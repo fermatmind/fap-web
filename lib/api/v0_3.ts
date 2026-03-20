@@ -409,6 +409,7 @@ export type ReportResponse = {
     scale_uid?: string;
   };
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
+  mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
@@ -594,6 +595,23 @@ export type MbtiContinuityRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiReadContractFieldGroupRaw = {
+  personalization_fields?: string[];
+  surface_fields?: string[];
+  sources?: string[];
+  [key: string]: unknown;
+};
+
+export type MbtiReadContractRaw = {
+  version?: string;
+  canonical_read_model?: MbtiReadContractFieldGroupRaw | null;
+  overlay_patch?: MbtiReadContractFieldGroupRaw | null;
+  cacheable_fields?: string[];
+  non_cacheable_fields?: string[];
+  telemetry_parity_fields?: string[];
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -651,6 +669,7 @@ export type MbtiPersonalizationRaw = {
     [key: string]: unknown;
   };
   continuity?: MbtiContinuityRaw;
+  read_contract_v1?: MbtiReadContractRaw | null;
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;
@@ -734,6 +753,7 @@ export type ShareSummaryResponse = {
   summary_card?: Record<string, unknown> | null;
   summaryCard?: Record<string, unknown> | null;
   dimensions?: Array<Record<string, unknown>>;
+  mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_public_summary_v1?: Record<string, unknown> | null;
   [key: string]: unknown;
