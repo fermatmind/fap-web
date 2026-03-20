@@ -298,6 +298,11 @@ describe("MBTI shell authored fields contract", () => {
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
         sceneFingerprint: expect.stringContaining("work:work.primary.EI.E.clear"),
         userState: "first:1|revisit:0|unlock:0|feedback:0|share:0|action:0",
+        feedbackSentiment: "none",
+        feedbackCoverage: "none",
+        actionCompletionTendency: "idle",
+        lastDeepReadSection: "",
+        currentIntentCluster: "default",
         primaryFocusKey: "growth.next_actions",
         orderedSectionKeys: expect.stringContaining("growth.next_actions"),
         orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
@@ -378,6 +383,11 @@ describe("MBTI shell authored fields contract", () => {
       "view_result",
       expect.objectContaining({
         userState: "first:0|revisit:1|unlock:1|feedback:1|share:1|action:1",
+        feedbackSentiment: "none",
+        feedbackCoverage: "none",
+        actionCompletionTendency: "repeatable",
+        lastDeepReadSection: "",
+        currentIntentCluster: "default",
         primaryFocusKey: "growth.stability_confidence",
         orderedRecommendationKeys: "read-explain|read-action|read-career|read-relationship",
         orderedActionKeys:
@@ -390,6 +400,54 @@ describe("MBTI shell authored fields contract", () => {
         ctaPriorityKeys: "career_bridge|workspace_lite|share_result",
         carryoverFocusKey: "growth.stability_confidence",
         carryoverReason: "refine_after_feedback",
+      })
+    );
+  });
+
+  it("changes visible focus and CTA priority when deepened user state clarifies a revisit intent", () => {
+    const reportData = createReportFixture({
+      isRevisit: true,
+      hasUnlock: true,
+      hasFeedback: true,
+      hasShare: false,
+      hasActionEngagement: false,
+      feedbackSentiment: "negative",
+      feedbackCoverage: "explainability_only",
+      lastDeepReadSection: "traits.close_call_axes",
+      currentIntentCluster: "clarify_type",
+    });
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
+      "data-primary-focus",
+      "true"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
+      "data-display-order",
+      "1"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).not.toHaveAttribute(
+      "data-primary-focus"
+    );
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+      "data-recommendation-key",
+      "read-explain"
+    );
+    expect(screen.getByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
+    expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "view_result",
+      expect.objectContaining({
+        userState: "first:0|revisit:1|unlock:1|feedback:1|share:0|action:0",
+        feedbackSentiment: "negative",
+        feedbackCoverage: "explainability_only",
+        actionCompletionTendency: "available",
+        lastDeepReadSection: "traits.close_call_axes",
+        currentIntentCluster: "clarify_type",
+        primaryFocusKey: "traits.close_call_axes",
+        orderedRecommendationKeys: "read-explain|read-action|read-career|read-relationship",
+        ctaPriorityKeys: "workspace_lite|career_bridge|share_result",
       })
     );
   });

@@ -12,6 +12,18 @@ function createMbtiReportFixture(
   return fixture;
 }
 
+function createMbtiReportFixtureWithOptions(
+  options: Parameters<typeof applyMbtiPhase2Fixture>[1],
+  mutate?: (fixture: Record<string, unknown>) => void
+) {
+  const fixture = applyMbtiPhase2Fixture(
+    structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse,
+    options
+  ) as unknown as Record<string, unknown>;
+  mutate?.(fixture);
+  return fixture;
+}
+
 test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }) => {
   const attemptId = "mbti-attempt-0001";
   const questions = Array.from({ length: 8 }, (_, idx) => ({
@@ -715,4 +727,90 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
   await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
   await mobileChrome.getByRole("link", { name: "解锁完整报告" }).click();
   await expect(page).toHaveURL(new RegExp(`#offer-full$`));
+});
+
+test("MBTI deepened user state can shift revisit focus and recommendation priority", async ({ page }) => {
+  const attemptId = "mbti-attempt-8c-0001";
+
+  await page.addInitScript(() => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({
+        analytics: "granted",
+        updatedAt: "2026-03-11T00:00:00.000Z",
+      })
+    );
+  });
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_guest_token_8c_0001",
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(
+        createMbtiReportFixtureWithOptions({
+          isRevisit: true,
+          hasUnlock: true,
+          hasFeedback: true,
+          hasShare: false,
+          hasActionEngagement: false,
+          feedbackSentiment: "negative",
+          feedbackCoverage: "explainability_only",
+          lastDeepReadSection: "traits.close_call_axes",
+          currentIntentCluster: "clarify_type",
+        })
+      ),
+    });
+  });
+
+  await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        slug: "mbti-personality-test-16-personality-types",
+        capabilities: {
+          enabled_in_prod: true,
+          paywall_mode: "full",
+        },
+      }),
+    });
+  });
+
+  await page.goto(`/en/result/${attemptId}`);
+
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
+    "data-primary-focus",
+    "true"
+  );
+  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
+    "data-display-order",
+    "1"
+  );
+  await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+    "data-recommendation-key",
+    "read-explain"
+  );
+  await expect(page.getByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
+  await expect(page.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
 });

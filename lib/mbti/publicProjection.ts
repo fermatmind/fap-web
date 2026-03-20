@@ -136,6 +136,11 @@ export type MbtiUserStateViewModel = {
   hasFeedback: boolean;
   hasShare: boolean;
   hasActionEngagement: boolean;
+  feedbackSentiment: string;
+  feedbackCoverage: string;
+  actionCompletionTendency: string;
+  lastDeepReadSection: string;
+  currentIntentCluster: string;
 };
 
 export type MbtiOrchestrationViewModel = {
@@ -151,6 +156,11 @@ export type MbtiContinuityViewModel = {
   recommendedResumeKeys: string[];
   carryoverSceneKeys: string[];
   carryoverActionKeys: string[];
+  feedbackSentiment: string;
+  feedbackCoverage: string;
+  actionCompletionTendency: string;
+  lastDeepReadSection: string;
+  currentIntentCluster: string;
 };
 
 export type MbtiResultPersonalizationViewModel = {
@@ -612,6 +622,11 @@ function normalizePersonalization(
           hasFeedback: userStateRecord.has_feedback === true,
           hasShare: userStateRecord.has_share === true,
           hasActionEngagement: userStateRecord.has_action_engagement === true,
+          feedbackSentiment: normalizeText(userStateRecord.feedback_sentiment),
+          feedbackCoverage: normalizeText(userStateRecord.feedback_coverage),
+          actionCompletionTendency: normalizeText(userStateRecord.action_completion_tendency),
+          lastDeepReadSection: normalizeText(userStateRecord.last_deep_read_section),
+          currentIntentCluster: normalizeText(userStateRecord.current_intent_cluster),
         }
       : null,
     orchestration: orchestrationRecord
@@ -629,6 +644,26 @@ function normalizePersonalization(
           recommendedResumeKeys: normalizeStringArray(continuityRecord.recommended_resume_keys),
           carryoverSceneKeys: normalizeStringArray(continuityRecord.carryover_scene_keys),
           carryoverActionKeys: normalizeStringArray(continuityRecord.carryover_action_keys),
+          feedbackSentiment: normalizeText(
+            continuityRecord.feedback_sentiment,
+            userStateRecord?.feedback_sentiment
+          ),
+          feedbackCoverage: normalizeText(
+            continuityRecord.feedback_coverage,
+            userStateRecord?.feedback_coverage
+          ),
+          actionCompletionTendency: normalizeText(
+            continuityRecord.action_completion_tendency,
+            userStateRecord?.action_completion_tendency
+          ),
+          lastDeepReadSection: normalizeText(
+            continuityRecord.last_deep_read_section,
+            userStateRecord?.last_deep_read_section
+          ),
+          currentIntentCluster: normalizeText(
+            continuityRecord.current_intent_cluster,
+            userStateRecord?.current_intent_cluster
+          ),
         }
       : null,
     variantKeys,
@@ -775,6 +810,9 @@ export function buildSharePageViewModel(
   rawShare?: ShareSummaryResponse | null
 ): MbtiSharePageViewModel {
   const continuityRecord = asRecord(rawShare?.mbti_continuity_v1);
+  const shareProjectionMeta = asRecord(asRecord(rawShare?.mbti_public_projection_v1)?._meta);
+  const sharePersonalizationRecord = asRecord(shareProjectionMeta?.personalization);
+  const shareUserStateRecord = asRecord(sharePersonalizationRecord?.user_state);
 
   return {
     card: normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1),
@@ -790,6 +828,26 @@ export function buildSharePageViewModel(
           recommendedResumeKeys: normalizeStringArray(continuityRecord.recommended_resume_keys),
           carryoverSceneKeys: normalizeStringArray(continuityRecord.carryover_scene_keys),
           carryoverActionKeys: normalizeStringArray(continuityRecord.carryover_action_keys),
+          feedbackSentiment: normalizeText(
+            continuityRecord.feedback_sentiment,
+            shareUserStateRecord?.feedback_sentiment
+          ),
+          feedbackCoverage: normalizeText(
+            continuityRecord.feedback_coverage,
+            shareUserStateRecord?.feedback_coverage
+          ),
+          actionCompletionTendency: normalizeText(
+            continuityRecord.action_completion_tendency,
+            shareUserStateRecord?.action_completion_tendency
+          ),
+          lastDeepReadSection: normalizeText(
+            continuityRecord.last_deep_read_section,
+            shareUserStateRecord?.last_deep_read_section
+          ),
+          currentIntentCluster: normalizeText(
+            continuityRecord.current_intent_cluster,
+            shareUserStateRecord?.current_intent_cluster
+          ),
         }
       : null,
     compareEnabled: rawShare?.compare_enabled === true,

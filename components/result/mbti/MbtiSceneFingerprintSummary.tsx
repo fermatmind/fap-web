@@ -7,9 +7,16 @@ import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultPersonalizationViewModel, MbtiSceneFingerprintEntryViewModel } from "@/lib/mbti/publicProjection";
 import {
+  summarizeMbtiActionCompletionTendency,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCurrentIntentCluster,
+  summarizeMbtiFeedbackCoverage,
+  summarizeMbtiFeedbackSentiment,
+  summarizeMbtiLastDeepReadSection,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSecondaryFocusKeys,
+  summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
 } from "@/lib/mbti/personalizationTelemetry";
 
@@ -52,6 +59,14 @@ function buildSceneTelemetryPayload(
     sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
     boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
     axisBands: summarizeMbtiAxisBands(personalization),
+    userState: summarizeMbtiUserState(personalization),
+    feedbackSentiment: summarizeMbtiFeedbackSentiment(personalization),
+    feedbackCoverage: summarizeMbtiFeedbackCoverage(personalization),
+    actionCompletionTendency: summarizeMbtiActionCompletionTendency(personalization),
+    lastDeepReadSection: summarizeMbtiLastDeepReadSection(personalization),
+    currentIntentCluster: summarizeMbtiCurrentIntentCluster(personalization),
+    primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
+    secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
     typeCode: normalizeText(personalization?.typeCode),
     identity: normalizeText(personalization?.identity),
     variantKeys: summarizeMbtiVariantKeys(personalization),
