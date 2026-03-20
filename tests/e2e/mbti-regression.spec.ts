@@ -391,6 +391,120 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
 
 });
 
+test("MBTI cross assessment: Big Five supplement changes stability and next-actions sections", async ({ page }) => {
+  const attemptId = "mbti-cross-assessment-0001";
+
+  await page.addInitScript(() => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({
+        analytics: "granted",
+        updatedAt: "2026-03-20T00:00:00.000Z",
+      })
+    );
+  });
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_cross_assessment_guest",
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(
+        createMbtiReportFixture((fixture) => {
+          const report = fixture.report as Record<string, unknown>;
+          const reportMeta = (report._meta ?? {}) as Record<string, unknown>;
+          const reportPersonalization = (reportMeta.personalization ?? {}) as Record<string, unknown>;
+          const projection = fixture.mbti_public_projection_v1 as Record<string, unknown>;
+          const projectionMeta = (projection._meta ?? {}) as Record<string, unknown>;
+          const projectionPersonalization = (projectionMeta.personalization ?? {}) as Record<string, unknown>;
+          const crossAssessment = {
+            version: "mbti_big5.cross_assessment.v1",
+            supporting_scales: ["BIG5_OCEAN"],
+            synthesis_keys: [
+              "big5.neuroticism.high.buffer_reactivity",
+              "big5.conscientiousness.low.use_external_scaffolding",
+            ],
+            big5_influence_keys: ["big5.band.n.high", "big5.band.c.low"],
+            mbti_adjusted_focus_keys: ["growth.stability_confidence", "growth.next_actions"],
+            section_enhancements: {
+              "growth.stability_confidence": {
+                section_key: "growth.stability_confidence",
+                supporting_scale: "BIG5_OCEAN",
+                synthesis_key: "big5.neuroticism.high.buffer_reactivity",
+                title: "Big Five 补充：高情绪性会放大情境敏感",
+                body: "Big Five 显示你的情绪性更高，这会放大 MBTI 里情境敏感的体感强度。",
+                influence_keys: ["big5.band.n.high"],
+              },
+              "growth.next_actions": {
+                section_key: "growth.next_actions",
+                supporting_scale: "BIG5_OCEAN",
+                synthesis_key: "big5.conscientiousness.low.use_external_scaffolding",
+                title: "Big Five 补充：低尽责性更需要外部支架",
+                body: "把动作拆成更小的可逆步骤，再借助外部提醒和固定触发器。",
+                influence_keys: ["big5.band.c.low"],
+              },
+            },
+          };
+
+          reportPersonalization.cross_assessment_v1 = crossAssessment;
+          reportPersonalization.synthesis_keys = crossAssessment.synthesis_keys;
+          reportPersonalization.supporting_scales = crossAssessment.supporting_scales;
+          reportPersonalization.big5_influence_keys = crossAssessment.big5_influence_keys;
+          reportPersonalization.mbti_adjusted_focus_keys = crossAssessment.mbti_adjusted_focus_keys;
+          projectionPersonalization.cross_assessment_v1 = crossAssessment;
+          projectionPersonalization.synthesis_keys = crossAssessment.synthesis_keys;
+          projectionPersonalization.supporting_scales = crossAssessment.supporting_scales;
+          projectionPersonalization.big5_influence_keys = crossAssessment.big5_influence_keys;
+          projectionPersonalization.mbti_adjusted_focus_keys = crossAssessment.mbti_adjusted_focus_keys;
+        })
+      ),
+    });
+  });
+
+  await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        slug: "big-five-personality-test-ocean-model",
+        capabilities: {
+          enabled_in_prod: true,
+          paywall_mode: "full",
+        },
+      }),
+    });
+  });
+
+  await page.goto(`/en/result/${attemptId}`);
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+
+  const stability = page.getByTestId("mbti-projection-section-growth-stability-confidence");
+  const nextActions = page.getByTestId("mbti-projection-section-growth-next-actions");
+  await expect(stability).toHaveAttribute("data-synthesis-key", "big5.neuroticism.high.buffer_reactivity");
+  await expect(stability).toContainText("Big Five 显示你的情绪性更高");
+  await expect(nextActions).toHaveAttribute("data-synthesis-key", "big5.conscientiousness.low.use_external_scaffolding");
+  await expect(nextActions).toContainText("外部提醒");
+});
+
 test("MBTI primary CTA reuses the existing checkout and order wait flow", async ({ page }) => {
   const attemptId = "mbti-checkout-wiring-0001";
   const orderNo = "ord_mbti_wait_0001";

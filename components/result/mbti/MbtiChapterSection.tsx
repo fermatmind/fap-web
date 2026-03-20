@@ -10,6 +10,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiSectionUnlock, ReportBlock, ReportSection } from "@/components/result/RichResultReport";
 import type { TraitBridgeItem } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import type {
+  MbtiCrossAssessmentSectionEnhancementViewModel,
   MbtiPublicProjectionDimensionViewModel,
   MbtiResultPersonalizationViewModel,
   MbtiResultProjectionSectionViewModel,
@@ -72,6 +73,8 @@ type ProjectionContentBlock = {
   text: string;
   contrastKey: string;
 };
+
+type CrossAssessmentSectionEnhancement = MbtiCrossAssessmentSectionEnhancementViewModel;
 
 const EXPLAINABILITY_SECTION_KEYS = new Set([
   "traits.why_this_type",
@@ -230,6 +233,34 @@ function renderProjectionDynamicBlocks(section: MbtiResultProjectionSectionViewM
   );
 }
 
+function renderCrossAssessmentEnhancement(
+  enhancement: CrossAssessmentSectionEnhancement | null
+) {
+  if (!enhancement || (!enhancement.title && !enhancement.body)) {
+    return null;
+  }
+
+  return (
+    <div
+      data-testid={`mbti-cross-assessment-${toProjectionSectionTestId(enhancement.sectionKey)}`}
+      data-synthesis-key={enhancement.synthesisKey || undefined}
+      data-supporting-scale={enhancement.supportingScale || undefined}
+      className="rounded-2xl border border-indigo-200 bg-indigo-50/80 p-4"
+    >
+      {enhancement.title ? (
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-indigo-700">
+          {enhancement.title}
+        </p>
+      ) : null}
+      {enhancement.body ? (
+        <p className="m-0 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+          {enhancement.body}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 function buildSectionTelemetryPayload(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
@@ -247,6 +278,8 @@ function buildSectionTelemetryPayload(
   const actionKey = normalizeText(personalizationPayload?.action_key);
   const orderedActionKeys = personalization?.orderedActionKeys ?? [];
   const actionRank = actionKey ? orderedActionKeys.findIndex((key) => key === actionKey) + 1 : 0;
+  const crossAssessment = personalization?.crossAssessment ?? null;
+  const enhancement = crossAssessment?.sectionEnhancements?.[section.key] ?? null;
 
   return {
     slug: "mbti-result-shell",
@@ -258,6 +291,9 @@ function buildSectionTelemetryPayload(
     styleKey: normalizeText(personalizationPayload?.style_key),
     actionKey,
     actionRank,
+    synthesisKey: normalizeText(enhancement?.synthesisKey),
+    supportingScale: normalizeText(enhancement?.supportingScale),
+    crossAssessmentVersion: normalizeText(crossAssessment?.version),
     variantKey: normalizeText(section.variantKey),
     contrastKey: normalizeText(
       personalizationPayload?.contrast_key,
@@ -727,12 +763,23 @@ function renderProjectionSection(
 
   const dynamicBlocks =
     section.render === "rich_text" ? null : renderProjectionDynamicBlocks(section);
+  const crossAssessmentEnhancement = personalization?.crossAssessment?.sectionEnhancements?.[section.key] ?? null;
+  const crossAssessmentContent = renderCrossAssessmentEnhancement(crossAssessmentEnhancement);
 
   if (content && dynamicBlocks) {
     content = (
       <div className="space-y-4">
         {content}
         {dynamicBlocks}
+      </div>
+    );
+  }
+
+  if (content && crossAssessmentContent) {
+    content = (
+      <div className="space-y-4">
+        {content}
+        {crossAssessmentContent}
       </div>
     );
   }
@@ -753,6 +800,9 @@ function renderProjectionSection(
       data-action-key={normalizeText(telemetryPayload.actionKey) || undefined}
       data-action-rank={telemetryPayload.actionRank > 0 ? String(telemetryPayload.actionRank) : undefined}
       data-contrast-key={normalizeText(telemetryPayload.contrastKey) || undefined}
+      data-synthesis-key={normalizeText(telemetryPayload.synthesisKey) || undefined}
+      data-supporting-scale={normalizeText(telemetryPayload.supportingScale) || undefined}
+      data-cross-assessment-version={normalizeText(telemetryPayload.crossAssessmentVersion) || undefined}
       data-primary-focus={options?.isPrimaryFocus === true ? "true" : undefined}
       data-display-order={options?.displayOrder ?? undefined}
       className={`space-y-3 rounded-[24px] border bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)] ${

@@ -1,4 +1,5 @@
 import type {
+  MbtiCrossAssessmentRaw,
   MbtiReadContractRaw,
   MbtiPersonalizationRaw,
   MbtiPublicProjectionDimensionRaw,
@@ -179,6 +180,26 @@ export type MbtiReadContractViewModel = {
   telemetryParityFields: string[];
 };
 
+export type MbtiCrossAssessmentSectionEnhancementViewModel = {
+  sectionKey: string;
+  supportingScale: string;
+  synthesisKey: string;
+  title: string;
+  body: string;
+  influenceKeys: string[];
+};
+
+export type MbtiCrossAssessmentViewModel = {
+  version: string;
+  supportingScales: string[];
+  supportingAttemptId: string;
+  synthesisKeys: string[];
+  big5InfluenceKeys: string[];
+  mbtiAdjustedFocusKeys: string[];
+  supportingTraits: string[];
+  sectionEnhancements: Record<string, MbtiCrossAssessmentSectionEnhancementViewModel>;
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -218,6 +239,7 @@ export type MbtiResultPersonalizationViewModel = {
   orchestration: MbtiOrchestrationViewModel | null;
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
+  crossAssessment: MbtiCrossAssessmentViewModel | null;
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -587,6 +609,7 @@ function normalizePersonalization(
   const orchestrationRecord = asRecord(personalization.orchestration);
   const continuityRecord = asRecord(personalization.continuity);
   const readContractRecord = asRecord(personalization.read_contract_v1) as MbtiReadContractRaw | null;
+  const crossAssessmentRecord = asRecord(personalization.cross_assessment_v1) as MbtiCrossAssessmentRaw | null;
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -686,6 +709,7 @@ function normalizePersonalization(
         }
       : null,
     readContract: normalizeReadContract(readContractRecord),
+    crossAssessment: normalizeCrossAssessment(crossAssessmentRecord),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),
@@ -744,6 +768,71 @@ function normalizeReadContract(rawContract: MbtiReadContractRaw | null): MbtiRea
     cacheableFields,
     nonCacheableFields,
     telemetryParityFields,
+  };
+}
+
+function normalizeCrossAssessment(
+  rawCrossAssessment: MbtiCrossAssessmentRaw | null
+): MbtiCrossAssessmentViewModel | null {
+  if (!rawCrossAssessment) {
+    return null;
+  }
+
+  const sectionEnhancements = Object.fromEntries(
+    Object.entries(asRecord(rawCrossAssessment.section_enhancements) ?? {})
+      .map(([sectionKey, rawEnhancement]) => {
+        const enhancement = asRecord(rawEnhancement);
+        if (!enhancement) {
+          return null;
+        }
+
+        const normalized = {
+          sectionKey: normalizeText(enhancement.section_key, sectionKey),
+          supportingScale: normalizeText(enhancement.supporting_scale),
+          synthesisKey: normalizeText(enhancement.synthesis_key),
+          title: normalizeText(enhancement.title),
+          body: normalizeText(enhancement.body),
+          influenceKeys: normalizeStringArray(enhancement.influence_keys),
+        };
+
+        if (!normalized.sectionKey || !normalized.synthesisKey) {
+          return null;
+        }
+
+        return [normalized.sectionKey, normalized] as const;
+      })
+      .filter((entry): entry is [string, MbtiCrossAssessmentSectionEnhancementViewModel] => Boolean(entry))
+  );
+
+  const version = normalizeText(rawCrossAssessment.version);
+  const supportingScales = normalizeStringArray(rawCrossAssessment.supporting_scales);
+  const supportingAttemptId = normalizeText(rawCrossAssessment.supporting_attempt_id);
+  const synthesisKeys = normalizeStringArray(rawCrossAssessment.synthesis_keys);
+  const big5InfluenceKeys = normalizeStringArray(rawCrossAssessment.big5_influence_keys);
+  const mbtiAdjustedFocusKeys = normalizeStringArray(rawCrossAssessment.mbti_adjusted_focus_keys);
+  const supportingTraits = normalizeStringArray(rawCrossAssessment.supporting_traits);
+
+  if (
+    !version &&
+    supportingScales.length === 0 &&
+    synthesisKeys.length === 0 &&
+    big5InfluenceKeys.length === 0 &&
+    mbtiAdjustedFocusKeys.length === 0 &&
+    supportingTraits.length === 0 &&
+    Object.keys(sectionEnhancements).length === 0
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    supportingScales,
+    supportingAttemptId,
+    synthesisKeys,
+    big5InfluenceKeys,
+    mbtiAdjustedFocusKeys,
+    supportingTraits,
+    sectionEnhancements,
   };
 }
 
