@@ -117,3 +117,21 @@ export function summarizeMbtiCtaPriorityKeys(
 ): string {
   return (personalization?.orchestration?.ctaPriorityKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
 }
+
+export function summarizeMbtiCarryoverResumeKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.continuity?.recommendedResumeKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiCarryoverSceneKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.continuity?.carryoverSceneKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiCarryoverActionKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.continuity?.carryoverActionKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}

@@ -7,11 +7,19 @@ import { buttonVariants } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiAccessHubViewModel } from "@/lib/mbti/accessHub";
+import { resolveMbtiCarryoverFocusLabel, resolveMbtiCarryoverReasonLabel } from "@/lib/mbti/continuity";
 import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
 import {
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCarryoverActionKeys,
+  summarizeMbtiCarryoverResumeKeys,
+  summarizeMbtiCarryoverSceneKeys,
+  summarizeMbtiCtaPriorityKeys,
+  summarizeMbtiOrderedSectionKeys,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSecondaryFocusKeys,
+  summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
 } from "@/lib/mbti/personalizationTelemetry";
 
@@ -43,6 +51,10 @@ export function MbtiPostPurchaseSection({
   const pdfUrl = accessHub?.pdfAccess.href ?? null;
   const canShowPdf = accessHub ? accessHub.pdfAccess.canDownloadPdf && Boolean(pdfUrl || resolvedAttemptId) : Boolean(resolvedAttemptId);
   const canShowWorkspaceEntry = accessHub?.workspaceLite.hasEntry ?? true;
+  const carryoverFocusKey = String(personalization?.continuity?.carryoverFocusKey ?? "").trim();
+  const carryoverReason = String(personalization?.continuity?.carryoverReason ?? "").trim();
+  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(carryoverFocusKey, locale);
+  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(carryoverReason, locale);
 
   return (
     <Card
@@ -61,6 +73,18 @@ export function MbtiPostPurchaseSection({
             ? "你的完整报告已可再次查看与下载。这里统一收口 PDF、订单详情、找回入口，以及 Workspace Lite 回访入口。"
             : "Your full report is ready to revisit and download. This section now unifies PDF delivery, order detail, recovery, and the Workspace Lite re-entry point."}
         </p>
+        {carryoverFocusKey ? (
+          <div
+            data-testid="mbti-post-purchase-carryover"
+            className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4"
+          >
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+              {isZh ? "继续上次重点" : "Continue the current focus"}
+            </p>
+            <p className="m-0 mt-2 text-sm font-medium text-slate-900">{continuityFocusLabel}</p>
+            <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{continuityReasonLabel}</p>
+          </div>
+        ) : null}
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {canShowPdf ? (
             <AttemptPdfDownloadButton
@@ -87,10 +111,21 @@ export function MbtiPostPurchaseSection({
                   scale_code: "MBTI",
                   visual_kind: "post_purchase_history_entry",
                   interaction: "click",
+                  continueTarget: "workspace_lite",
                   variantKeys: summarizeMbtiVariantKeys(personalization),
                   sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
                   boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
                   axisBands: summarizeMbtiAxisBands(personalization),
+                  userState: summarizeMbtiUserState(personalization),
+                  primaryFocusKey: String(personalization?.orchestration?.primaryFocusKey ?? ""),
+                  secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+                  orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+                  ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
+                  carryoverFocusKey,
+                  carryoverReason,
+                  recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
+                  carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
+                  carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
                   typeCode: String(personalization?.typeCode ?? ""),
                   identity: String(personalization?.identity ?? ""),
                   packId: String(personalization?.packId ?? ""),

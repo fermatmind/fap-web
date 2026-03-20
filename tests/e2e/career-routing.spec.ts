@@ -1,6 +1,33 @@
 import { expect, test } from "@playwright/test";
 import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 
+function createCareerContinuityFixture() {
+  const fixture = structuredClone(reportReadyMbtiProjectionFixture) as Record<string, unknown>;
+  const projection = (fixture.mbti_public_projection_v1 ?? {}) as Record<string, unknown>;
+  const projectionMeta = ((projection._meta ?? {}) as Record<string, unknown>);
+  const projectionPersonalization = ((projectionMeta.personalization ?? {}) as Record<string, unknown>);
+  projectionPersonalization.continuity = {
+    carryover_focus_key: "growth.next_actions",
+    carryover_reason: "unlock_to_continue_focus",
+    recommended_resume_keys: ["growth.next_actions", "career.next_step"],
+    carryover_scene_keys: ["growth", "work"],
+    carryover_action_keys: ["weekly_action.theme.name_decision_rule"],
+  };
+  projectionPersonalization.schema_version = "mbti.personalization.phase8a.v1";
+  projectionPersonalization.dynamic_sections_version = "phase8a.v1";
+  projectionMeta.personalization = projectionPersonalization;
+  projection._meta = projectionMeta;
+  fixture.mbti_public_projection_v1 = projection;
+
+  const report = (fixture.report ?? {}) as Record<string, unknown>;
+  const reportMeta = ((report._meta ?? {}) as Record<string, unknown>);
+  reportMeta.personalization = structuredClone(projectionPersonalization);
+  report._meta = reportMeta;
+  fixture.report = report;
+
+  return fixture;
+}
+
 for (const prefix of ["articles", "career", "topics", "personality"] as const) {
   test(`${prefix} root redirects by accept-language and preserves query`, async ({ request }) => {
     const response = await request.get(`/${prefix}?utm=a`, {
@@ -84,14 +111,28 @@ test("mbti result career CTA points to the 32-type recommendation authority rout
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(reportReadyMbtiProjectionFixture),
+      body: JSON.stringify(createCareerContinuityFixture()),
     });
   });
 
   await page.goto(`/en/result/${attemptId}`);
 
   const careerCta = page.getByTestId("mbti-career-next-step-cta");
-  await expect(careerCta).toHaveAttribute("href", "/en/career/recommendations/mbti/enfp-t");
+  await expect(careerCta).toHaveAttribute(
+    "href",
+    /\/en\/career\/recommendations\/mbti\/enfp-t\?.*carryover_focus_key=growth.next_actions/
+  );
+});
+
+test("career recommendation route renders continuity carryover when query is present", async ({ request }) => {
+  const response = await request.get(
+    "/en/career/recommendations/mbti/intj-a?carryover_focus_key=career.next_step&carryover_reason=continue_career_bridge"
+  );
+  expect(response.status()).toBe(200);
+  const html = await response.text();
+
+  expect(html).toContain('data-testid="mbti-career-continuity-entry"');
+  expect(html).toContain("Career next step");
 });
 
 test("riasec flow produces result and recommendation list", async ({ page }) => {

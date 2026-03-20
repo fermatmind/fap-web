@@ -145,6 +145,14 @@ export type MbtiOrchestrationViewModel = {
   ctaPriorityKeys: string[];
 };
 
+export type MbtiContinuityViewModel = {
+  carryoverFocusKey: string;
+  carryoverReason: string;
+  recommendedResumeKeys: string[];
+  carryoverSceneKeys: string[];
+  carryoverActionKeys: string[];
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -176,6 +184,7 @@ export type MbtiResultPersonalizationViewModel = {
   watchoutKeys: string[];
   userState: MbtiUserStateViewModel | null;
   orchestration: MbtiOrchestrationViewModel | null;
+  continuity: MbtiContinuityViewModel | null;
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -210,6 +219,7 @@ export type MbtiSharePageViewModel = {
   attemptId: string;
   primaryCtaLabel: string;
   primaryCtaPath: string;
+  continuity: MbtiContinuityViewModel | null;
   compareEnabled: boolean;
   compareCtaLabel: string;
 };
@@ -541,6 +551,7 @@ function normalizePersonalization(
     : [];
   const userStateRecord = asRecord(personalization.user_state);
   const orchestrationRecord = asRecord(personalization.orchestration);
+  const continuityRecord = asRecord(personalization.continuity);
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -597,6 +608,15 @@ function normalizePersonalization(
           primaryFocusKey: normalizeText(orchestrationRecord.primary_focus_key),
           secondaryFocusKeys: normalizeStringArray(orchestrationRecord.secondary_focus_keys),
           ctaPriorityKeys: normalizeStringArray(orchestrationRecord.cta_priority_keys),
+        }
+      : null,
+    continuity: continuityRecord
+      ? {
+          carryoverFocusKey: normalizeText(continuityRecord.carryover_focus_key),
+          carryoverReason: normalizeText(continuityRecord.carryover_reason),
+          recommendedResumeKeys: normalizeStringArray(continuityRecord.recommended_resume_keys),
+          carryoverSceneKeys: normalizeStringArray(continuityRecord.carryover_scene_keys),
+          carryoverActionKeys: normalizeStringArray(continuityRecord.carryover_action_keys),
         }
       : null,
     variantKeys,
@@ -742,6 +762,8 @@ export function buildMbtiCareerRecommendationHref(
 export function buildSharePageViewModel(
   rawShare?: ShareSummaryResponse | null
 ): MbtiSharePageViewModel {
+  const continuityRecord = asRecord(rawShare?.mbti_continuity_v1);
+
   return {
     card: normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1),
     shareId: normalizeText(rawShare?.share_id, rawShare?.id),
@@ -749,6 +771,15 @@ export function buildSharePageViewModel(
     attemptId: normalizeText(rawShare?.attempt_id),
     primaryCtaLabel: normalizeText(rawShare?.primary_cta_label),
     primaryCtaPath: normalizeText(rawShare?.primary_cta_path),
+    continuity: continuityRecord
+      ? {
+          carryoverFocusKey: normalizeText(continuityRecord.carryover_focus_key),
+          carryoverReason: normalizeText(continuityRecord.carryover_reason),
+          recommendedResumeKeys: normalizeStringArray(continuityRecord.recommended_resume_keys),
+          carryoverSceneKeys: normalizeStringArray(continuityRecord.carryover_scene_keys),
+          carryoverActionKeys: normalizeStringArray(continuityRecord.carryover_action_keys),
+        }
+      : null,
     compareEnabled: rawShare?.compare_enabled === true,
     compareCtaLabel: normalizeText(rawShare?.compare_cta_label),
   };

@@ -160,6 +160,8 @@ describe("career recommendation public adapter contract", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
     expect(source).toContain("getMbtiCareerRecommendationByType");
+    expect(source).toContain("parseMbtiContinuityQuery");
+    expect(source).toContain("mbti-career-continuity-entry");
     expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
     expect(source).toContain("detail.seo.meta.canonical");
     expect(source).toContain("detail.seo.meta.og.title");
