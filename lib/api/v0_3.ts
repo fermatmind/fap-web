@@ -618,6 +618,12 @@ export type MbtiPersonalizationRaw = {
   relationship_action_keys?: string[];
   work_experiment_keys?: string[];
   watchout_keys?: string[];
+  ordered_recommendation_keys?: string[];
+  ordered_action_keys?: string[];
+  recommendation_priority_keys?: string[];
+  action_priority_keys?: string[];
+  reading_focus_key?: string;
+  action_focus_key?: string;
   user_state?: {
     is_first_view?: boolean;
     is_revisit?: boolean;

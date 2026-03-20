@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownloadButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
@@ -10,13 +11,17 @@ import type { MbtiAccessHubViewModel } from "@/lib/mbti/accessHub";
 import { resolveMbtiCarryoverFocusLabel, resolveMbtiCarryoverReasonLabel } from "@/lib/mbti/continuity";
 import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
 import {
+  summarizeMbtiActionPriorityKeys,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
   summarizeMbtiCarryoverActionKeys,
   summarizeMbtiCarryoverResumeKeys,
   summarizeMbtiCarryoverSceneKeys,
   summarizeMbtiCtaPriorityKeys,
+  summarizeMbtiOrderedActionKeys,
+  summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
+  summarizeMbtiRecommendationPriorityKeys,
   summarizeMbtiSceneFingerprint,
   summarizeMbtiSecondaryFocusKeys,
   summarizeMbtiUserState,
@@ -30,6 +35,7 @@ export function MbtiPostPurchaseSection({
   historyHref,
   orderLookupHref,
   personalization,
+  ctaRank = 0,
 }: {
   locale: Locale;
   attemptId?: string | null;
@@ -37,7 +43,9 @@ export function MbtiPostPurchaseSection({
   historyHref: string;
   orderLookupHref: string;
   personalization?: MbtiResultPersonalizationViewModel | null;
+  ctaRank?: number;
 }) {
+  const impressionTrackedRef = useRef(false);
   const isZh = locale === "zh";
   const resolvedAttemptId =
     accessHub?.reportAccess.attemptId
@@ -55,13 +63,65 @@ export function MbtiPostPurchaseSection({
   const carryoverReason = String(personalization?.continuity?.carryoverReason ?? "").trim();
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(carryoverFocusKey, locale);
   const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(carryoverReason, locale);
+  const telemetryPayload = {
+    slug: "mbti-result-shell",
+    scale_code: "MBTI",
+    visual_kind: "post_purchase_history_entry",
+    continueTarget: "workspace_lite",
+    variantKeys: summarizeMbtiVariantKeys(personalization),
+    sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+    boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+    axisBands: summarizeMbtiAxisBands(personalization),
+    userState: summarizeMbtiUserState(personalization),
+    primaryFocusKey: String(personalization?.orchestration?.primaryFocusKey ?? ""),
+    secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+    orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+    orderedRecommendationKeys: summarizeMbtiOrderedRecommendationKeys(personalization),
+    orderedActionKeys: summarizeMbtiOrderedActionKeys(personalization),
+    recommendationPriorityKeys: summarizeMbtiRecommendationPriorityKeys(personalization),
+    actionPriorityKeys: summarizeMbtiActionPriorityKeys(personalization),
+    readingFocusKey: String(personalization?.readingFocusKey ?? ""),
+    actionFocusKey: String(personalization?.actionFocusKey ?? ""),
+    ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
+    carryoverFocusKey,
+    carryoverReason,
+    recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
+    carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
+    carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
+    ctaKey: "workspace_lite",
+    ctaRank,
+    typeCode: String(personalization?.typeCode ?? ""),
+    identity: String(personalization?.identity ?? ""),
+    packId: String(personalization?.packId ?? ""),
+    engineVersion: String(personalization?.engineVersion ?? ""),
+    locale,
+  };
+
+  useEffect(() => {
+    if (!canShowWorkspaceEntry || impressionTrackedRef.current) {
+      return;
+    }
+
+    impressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      attempt_id: resolvedAttemptId ?? "",
+      ...telemetryPayload,
+    });
+  }, [canShowWorkspaceEntry, resolvedAttemptId, telemetryPayload]);
 
   return (
     <Card
       data-testid="mbti-post-purchase-section"
+      data-cta-key="workspace_lite"
+      data-cta-rank={ctaRank > 0 ? String(ctaRank) : undefined}
       className="border-emerald-200 bg-gradient-to-br from-white via-emerald-50/75 to-sky-50 shadow-[0_20px_48px_rgba(15,23,42,0.08)]"
     >
       <CardHeader className="space-y-2 pb-4">
+        {ctaRank > 0 ? (
+          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+            {isZh ? `优先入口 ${ctaRank}` : `Priority ${ctaRank}`}
+          </p>
+        ) : null}
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
           {isZh ? "正式留存入口" : "Post-purchase access"}
         </p>
@@ -107,30 +167,9 @@ export function MbtiPostPurchaseSection({
               data-testid="mbti-post-purchase-history"
               onClick={() => {
                 trackEvent("ui_card_interaction", {
-                  slug: "mbti-result-shell",
-                  scale_code: "MBTI",
-                  visual_kind: "post_purchase_history_entry",
+                  attempt_id: resolvedAttemptId ?? "",
                   interaction: "click",
-                  continueTarget: "workspace_lite",
-                  variantKeys: summarizeMbtiVariantKeys(personalization),
-                  sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
-                  boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
-                  axisBands: summarizeMbtiAxisBands(personalization),
-                  userState: summarizeMbtiUserState(personalization),
-                  primaryFocusKey: String(personalization?.orchestration?.primaryFocusKey ?? ""),
-                  secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
-                  orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
-                  ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
-                  carryoverFocusKey,
-                  carryoverReason,
-                  recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
-                  carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
-                  carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
-                  typeCode: String(personalization?.typeCode ?? ""),
-                  identity: String(personalization?.identity ?? ""),
-                  packId: String(personalization?.packId ?? ""),
-                  engineVersion: String(personalization?.engineVersion ?? ""),
-                  locale,
+                  ...telemetryPayload,
                 });
               }}
             >

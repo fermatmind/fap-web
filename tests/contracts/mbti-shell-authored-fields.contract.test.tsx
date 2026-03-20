@@ -243,6 +243,11 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("先把你看重的判断标准写清楚");
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
+    expect(
+      screen.getByTestId("mbti-offer-comparison").compareDocumentPosition(
+        screen.getByTestId("mbti-career-next-step")
+      ) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
       "/zh/career/recommendations/mbti/enfp-t?"
     );
@@ -250,6 +255,26 @@ describe("MBTI shell authored fields contract", () => {
       "carryover_focus_key=growth.next_actions"
     );
     expect(screen.getByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+      "data-recommendation-key",
+      "read-action"
+    );
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+      "data-reading-focus",
+      "true"
+    );
+    expect(screen.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute(
+      "data-recommendation-key",
+      "read-career"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-action-rank",
+      "1"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
+      "data-action-rank",
+      "2"
+    );
     expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
     expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
     expect(screen.getByText("Projection trait grid summary.")).toBeInTheDocument();
@@ -275,6 +300,14 @@ describe("MBTI shell authored fields contract", () => {
         userState: "first:1|revisit:0|unlock:0|feedback:0|share:0|action:0",
         primaryFocusKey: "growth.next_actions",
         orderedSectionKeys: expect.stringContaining("growth.next_actions"),
+        orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
+        orderedActionKeys:
+          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        recommendationPriorityKeys: "read-action|read-career|read-relationship",
+        actionPriorityKeys:
+          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        readingFocusKey: "read-action",
+        actionFocusKey: "weekly_action.theme.name_decision_rule",
         ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
         carryoverFocusKey: "growth.next_actions",
         carryoverReason: "unlock_to_continue_focus",
@@ -308,13 +341,52 @@ describe("MBTI shell authored fields contract", () => {
       ) & Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy();
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "1");
+    expect(screen.getByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "2");
+    expect(
+      screen.getByTestId("mbti-career-next-step").compareDocumentPosition(
+        screen.getByTestId("mbti-post-purchase-section")
+      ) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+      "data-recommendation-key",
+      "read-explain"
+    );
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+      "data-reading-focus",
+      "true"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveAttribute(
+      "data-action-rank",
+      "1"
+    );
     expect(screen.getByTestId("mbti-carryover-entry")).toHaveTextContent("继续看 稳定性解释");
-    expect(screen.queryByTestId("mbti-offer-comparison")).not.toHaveAttribute("data-cta-rank", "1");
+    expect(screen.queryByTestId("mbti-offer-comparison")).toBeNull();
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
+        visual_kind: "post_purchase_history_entry",
+        ctaKey: "workspace_lite",
+        ctaRank: 2,
+        orderedRecommendationKeys: "read-explain|read-action|read-career|read-relationship",
+        orderedActionKeys:
+          "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
+        readingFocusKey: "read-explain",
+        actionFocusKey: "watchout.stability.context_sensitive",
+      })
+    );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "view_result",
       expect.objectContaining({
         userState: "first:0|revisit:1|unlock:1|feedback:1|share:1|action:1",
         primaryFocusKey: "growth.stability_confidence",
+        orderedRecommendationKeys: "read-explain|read-action|read-career|read-relationship",
+        orderedActionKeys:
+          "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
+        recommendationPriorityKeys: "read-explain|read-action|read-career",
+        actionPriorityKeys:
+          "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
+        readingFocusKey: "read-explain",
+        actionFocusKey: "watchout.stability.context_sensitive",
         ctaPriorityKeys: "career_bridge|workspace_lite|share_result",
         carryoverFocusKey: "growth.stability_confidence",
         carryoverReason: "refine_after_feedback",
@@ -345,6 +417,73 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
     expect(screen.getByTestId("mbti-chapter-overview")).toHaveTextContent("你已经呈现出稳定的外倾倾向");
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
+  });
+
+  it("replays backend recommendation order when reads rely on synthesized fallback keys", () => {
+    const reportData = createReportFixture();
+    if (!reportData.report) {
+      throw new Error("Expected report payload");
+    }
+
+    reportData.report.recommended_reads = [
+      {
+        type: "article",
+        desc: "First fallback recommendation body",
+        priority: 20,
+        tags: ["growth"],
+      },
+      {
+        type: "article",
+        desc: "Second fallback recommendation body",
+        priority: 10,
+        tags: ["career"],
+      },
+    ];
+
+    const personalizationTargets = [
+      reportData.report?._meta,
+      reportData.mbti_public_projection_v1?._meta,
+    ].filter(Boolean) as Array<{ personalization?: Record<string, unknown> }>;
+
+    for (const target of personalizationTargets) {
+      if (!target.personalization) {
+        continue;
+      }
+
+      target.personalization.ordered_recommendation_keys = ["recommended-read-2", "recommended-read-1"];
+      target.personalization.recommendation_priority_keys = ["recommended-read-2", "recommended-read-1"];
+      target.personalization.reading_focus_key = "recommended-read-2";
+    }
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+      "data-recommendation-key",
+      "recommended-read-2"
+    );
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+      "data-reading-focus",
+      "true"
+    );
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveTextContent(
+      "Second fallback recommendation body"
+    );
+    expect(screen.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute(
+      "data-recommendation-key",
+      "recommended-read-1"
+    );
+    expect(screen.getByTestId("mbti-recommended-read-card-2")).toHaveTextContent(
+      "First fallback recommendation body"
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
+        visual_kind: "recommended_read_card",
+        recommendationKey: "recommended-read-2",
+        recommendationRank: 1,
+        readingFocusKey: "recommended-read-2",
+      })
+    );
   });
 
   it("falls back to default CTA copy when top-level cta is absent", () => {
@@ -525,6 +664,14 @@ describe("MBTI shell authored fields contract", () => {
         primaryFocusKey: "growth.next_actions",
         secondaryFocusKeys: "traits.close_call_axes|traits.adjacent_type_contrast",
         orderedSectionKeys: expect.stringContaining("growth.next_actions"),
+        orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
+        orderedActionKeys:
+          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        recommendationPriorityKeys: "read-action|read-career|read-relationship",
+        actionPriorityKeys:
+          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        readingFocusKey: "read-action",
+        actionFocusKey: "weekly_action.theme.name_decision_rule",
         ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
         carryoverFocusKey: "growth.next_actions",
         carryoverReason: "unlock_to_continue_focus",
@@ -552,12 +699,43 @@ describe("MBTI shell authored fields contract", () => {
         primaryFocusKey: "growth.next_actions",
         secondaryFocusKeys: "traits.close_call_axes|traits.adjacent_type_contrast",
         orderedSectionKeys: expect.stringContaining("growth.next_actions"),
+        orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
+        orderedActionKeys:
+          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        recommendationPriorityKeys: "read-action|read-career|read-relationship",
+        actionPriorityKeys:
+          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        readingFocusKey: "read-action",
+        actionFocusKey: "weekly_action.theme.name_decision_rule",
         ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
         carryoverFocusKey: "growth.next_actions",
         carryoverReason: "unlock_to_continue_focus",
         recommendedResumeKeys: "growth.next_actions|traits.close_call_axes|traits.adjacent_type_contrast|career.next_step",
         displayOrder: 1,
         isPrimaryFocus: true,
+      })
+    );
+
+    fireEvent.click(
+      within(screen.getByTestId("mbti-recommended-read-card-1")).getByRole("link", {
+        name: "Read the action note",
+      })
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_interaction",
+      expect.objectContaining({
+        visual_kind: "recommended_read_card",
+        interaction: "click",
+        recommendationKey: "read-action",
+        recommendationRank: 1,
+        orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
+        orderedActionKeys:
+          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        recommendationPriorityKeys: "read-action|read-career|read-relationship",
+        actionPriorityKeys:
+          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        readingFocusKey: "read-action",
+        actionFocusKey: "weekly_action.theme.name_decision_rule",
       })
     );
   });
