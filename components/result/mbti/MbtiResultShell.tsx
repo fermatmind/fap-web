@@ -619,6 +619,7 @@ export function MbtiResultShell({
   const layers = asRecord(payload?.layers);
   const identityLayer = (asRecord(layers?.identity) ?? null) as ReportIdentityLayer | null;
   const personalization = projectionViewModel?.personalization ?? null;
+  const controlledNarrative = personalization?.controlledNarrative ?? null;
   const recommendedReads = Array.isArray(payload?.recommended_reads)
     ? (payload?.recommended_reads as ReportRecommendedRead[])
     : [];
@@ -1396,6 +1397,25 @@ export function MbtiResultShell({
                       ) : null}
                       {publicHeadline.supportingLine ? <p className="m-0 text-lg font-medium text-slate-700">{publicHeadline.supportingLine}</p> : null}
                       {publicHeadline.summary ? <p className="m-0 max-w-3xl whitespace-pre-wrap text-base leading-8 text-slate-700">{publicHeadline.summary}</p> : null}
+                      {controlledNarrative?.enabled ? (
+                        <div
+                          data-testid="mbti-controlled-narrative"
+                          data-runtime-mode={controlledNarrative.runtimeMode}
+                          data-narrative-fingerprint={controlledNarrative.narrativeFingerprint}
+                          className="rounded-2xl border border-sky-100 bg-white/75 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+                        >
+                          {controlledNarrative.narrativeIntro ? (
+                            <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-sky-700">
+                              {controlledNarrative.narrativeIntro}
+                            </p>
+                          ) : null}
+                          {controlledNarrative.narrativeSummary ? (
+                            <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                              {controlledNarrative.narrativeSummary}
+                            </p>
+                          ) : null}
+                        </div>
+                      ) : null}
                     </div>
 
                     {publicTags.length > 0 ? (
