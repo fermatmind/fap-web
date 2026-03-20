@@ -101,6 +101,21 @@ describe("BIG5 contract schemas", () => {
           "career.work_style",
           "growth.next_actions",
         ],
+        cultural_calibration_v1: {
+          version: "cultural_calibration.v1",
+          calibration_contract_version: "cultural_calibration.v1",
+          locale_context: "en-US",
+          cultural_context: "US.en-US",
+          calibrated_section_keys: ["result.summary", "traits.overview"],
+          calibration_fingerprint: "big5-calibration-fixture",
+          calibration_policy_version: "runtime.locale_policy.v1",
+          calibration_source: "runtime_policy",
+          narrative_overrides: {
+            intro: "Locale calibration: use the profile as a planning aid, not an identity box.",
+            summary:
+              "In an English-speaking context, trait signals should be framed as planning inputs for work style and environment fit, not as identity labels.",
+          },
+        },
       },
       modules_allowed: ["big5_core"],
       modules_offered: ["big5_full", "big5_action_plan"],

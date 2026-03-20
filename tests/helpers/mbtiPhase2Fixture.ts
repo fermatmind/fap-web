@@ -6,6 +6,7 @@ type MbtiPhase2FixtureOptions = {
   eiBand?: EiBand;
   eiPct?: number;
   eiDelta?: number;
+  personalizationLocale?: "zh-CN" | "en-US";
   isRevisit?: boolean;
   hasUnlock?: boolean;
   hasFeedback?: boolean;
@@ -37,6 +38,7 @@ function buildReadContractFixture() {
         "dynamic_sections_version",
         "controlled_narrative_v1",
         "narrative_runtime_contract_v1",
+        "cultural_calibration_v1",
       ],
       surface_fields: [
         "report.summary",
@@ -49,6 +51,7 @@ function buildReadContractFixture() {
         "mbti_public_projection_v1.sections",
         "controlled_narrative_v1",
         "narrative_runtime_contract_v1",
+        "cultural_calibration_v1",
       ],
       sources: ["report_snapshot", "report_projection"],
     },
@@ -117,6 +120,7 @@ function buildReadContractFixture() {
       "mbti_read_contract_v1",
       "controlled_narrative_v1",
       "narrative_runtime_contract_v1",
+      "cultural_calibration_v1",
     ],
     non_cacheable_fields: [
       "report._meta.personalization.user_state",
@@ -163,6 +167,11 @@ function buildReadContractFixture() {
       "narrative_runtime_contract_v1.model_version",
       "narrative_runtime_contract_v1.prompt_version",
       "narrative_runtime_contract_v1.narrative_fingerprint",
+      "cultural_calibration_v1.locale_context",
+      "cultural_calibration_v1.cultural_context",
+      "cultural_calibration_v1.calibrated_section_keys",
+      "cultural_calibration_v1.calibration_fingerprint",
+      "cultural_calibration_v1.calibration_contract_version",
     ],
   };
 }
@@ -228,6 +237,73 @@ function buildControlledNarrativeFixture(mode: "off" | "mock" | "fallback") {
     section_narrative_keys: runtime.response.section_narrative_keys,
     enabled: mode !== "off",
     truth_guard_fields: runtime.truth_guard_fields,
+  };
+}
+
+function buildCulturalCalibrationFixture(locale: "zh-CN" | "en-US") {
+  const isZh = locale === "zh-CN";
+
+  return {
+    version: "cultural_calibration.v1",
+    calibration_contract_version: "cultural_calibration.v1",
+    locale_context: locale,
+    cultural_context: isZh ? "CN_MAINLAND.zh-CN" : "US.en-US",
+    calibrated_section_keys: [
+      "result.intro",
+      "result.summary",
+      "growth.next_actions",
+      "career.next_step",
+      "relationships.communication_style",
+    ],
+    calibration_fingerprint: `fixture-calibration-${isZh ? "zh-cn" : "en-us"}`,
+    calibration_policy_version: isZh ? "governance.v1" : "runtime.locale_policy.v1",
+    calibration_source: isZh ? "content_governance" : "runtime_policy",
+    enabled: true,
+    narrative_overrides: {
+      intro: isZh
+        ? "文化校准：在中文语境里，更适合先铺场景与关系，再给结论。"
+        : "Cultural calibration: lead with the point, then name the trade-off.",
+      summary: isZh
+        ? "这层校准不会改写你的类型与焦点，只会把建议表达得更贴近中文工作与关系语境。"
+        : "This layer keeps the canonical result intact while making advice more explicit, boundary-aware, and action-forward in an English-speaking context.",
+    },
+    working_life_summary: isZh
+      ? "在当前语境里，职业推进更适合先做低风险试探、保留协作余地，再逐步公开偏好、边界和下一步。"
+      : "In this locale, the working-life chain is framed around explicit priorities, visible trade-offs, and next steps that can be named early.",
+    section_overrides: {
+      "growth.next_actions": {
+        section_key: "growth.next_actions",
+        title: isZh ? "语境校准：先用低摩擦动作启动" : "Locale calibration: make the next step explicit",
+        body: isZh
+          ? "把下一步压缩成一个不伤关系、可低成本试跑的动作，再通过外部反馈决定是否继续放大。"
+          : "Name one concrete action, one owner, and one trigger. The goal is visible momentum with low ambiguity.",
+      },
+      "career.next_step": {
+        section_key: "career.next_step",
+        title: isZh ? "语境校准：先用试探性动作推进职业变化" : "Locale calibration: state the next career move clearly",
+        body: isZh
+          ? "把职业动作先缩成一次沟通、一次试探或一次环境观察，先验证空间，再决定是否公开升级意图。"
+          : "Frame the next move as a visible experiment with a clear ask, a time box, and a named trade-off.",
+      },
+      "relationships.communication_style": {
+        section_key: "relationships.communication_style",
+        title: isZh ? "语境校准：先铺语境，再给结论" : "Locale calibration: name the point and the boundary",
+        body: isZh
+          ? "沟通里先交代情境、感受和合作目标，再落到结论与边界，通常更容易让对方接住你的真实意图。"
+          : "In communication, say the main point earlier, then name the boundary or decision rule so others do not have to infer your actual position.",
+      },
+    },
+    truth_guard_fields: [
+      "type_code",
+      "identity",
+      "variant_keys",
+      "scene_fingerprint",
+      "working_life_v1",
+      "cross_assessment_v1",
+      "user_state",
+      "orchestration",
+      "continuity",
+    ],
   };
 }
 
@@ -817,6 +893,7 @@ export function applyMbtiPhase2Fixture(
   const lastDeepReadSection = options.lastDeepReadSection ?? "";
   const currentIntentCluster = options.currentIntentCluster ?? "default";
   const narrativeMode = options.narrativeMode ?? "off";
+  const personalizationLocale = options.personalizationLocale ?? "zh-CN";
 
   const eiAxis = {
     axis: "EI",
@@ -1093,14 +1170,15 @@ export function applyMbtiPhase2Fixture(
   };
   const narrativeRuntime = buildNarrativeRuntimeFixture(narrativeMode);
   const controlledNarrative = buildControlledNarrativeFixture(narrativeMode);
+  const culturalCalibration = buildCulturalCalibrationFixture(personalizationLocale);
 
   reportData.locked = hasUnlock ? false : true;
   reportData.variant = hasUnlock ? "full" : "free";
   reportData.access_level = hasUnlock ? "full" : "preview";
 
   const personalization = {
-    schema_version: "mbti.personalization.phase9c.v1",
-    locale: "zh-CN",
+    schema_version: "mbti.personalization.phase9e.v1",
+    locale: personalizationLocale,
     type_code: "ENFP-T",
     identity: "T",
     explainability_summary: explainabilitySummary,
@@ -1319,6 +1397,7 @@ export function applyMbtiPhase2Fixture(
     read_contract_v1: buildReadContractFixture(),
     narrative_runtime_contract_v1: narrativeRuntime,
     controlled_narrative_v1: controlledNarrative,
+    cultural_calibration_v1: culturalCalibration,
     cross_assessment_v1: crossAssessment,
     synthesis_keys: crossAssessment.synthesis_keys,
     supporting_scales: crossAssessment.supporting_scales,
@@ -1365,6 +1444,7 @@ export function applyMbtiPhase2Fixture(
   reportData.mbti_read_contract_v1 = structuredClone(buildReadContractFixture());
   reportData.mbti_cross_assessment_v1 = structuredClone(crossAssessment);
   reportData.controlled_narrative_v1 = structuredClone(controlledNarrative);
+  reportData.cultural_calibration_v1 = structuredClone(culturalCalibration);
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
   getReportMeta(reportData).personalization = structuredClone(personalization);
 

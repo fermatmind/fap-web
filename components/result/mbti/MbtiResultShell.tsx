@@ -620,6 +620,7 @@ export function MbtiResultShell({
   const identityLayer = (asRecord(layers?.identity) ?? null) as ReportIdentityLayer | null;
   const personalization = projectionViewModel?.personalization ?? null;
   const controlledNarrative = personalization?.controlledNarrative ?? null;
+  const culturalCalibration = personalization?.culturalCalibration ?? null;
   const recommendedReads = Array.isArray(payload?.recommended_reads)
     ? (payload?.recommended_reads as ReportRecommendedRead[])
     : [];
@@ -788,6 +789,11 @@ export function MbtiResultShell({
     ? careerActionPriorityKeys
     : ["career.next_step", "career.work_experiments", "career_bridge"];
   const workingLifeReadingFocus = normalizeText(careerReadingKeys[0], readingFocusKey);
+  const calibrationNarrativeIntro = normalizeText(culturalCalibration?.narrativeIntro);
+  const calibrationNarrativeSummary = normalizeText(culturalCalibration?.narrativeSummary);
+  const calibrationWorkingLifeSummary = normalizeText(culturalCalibration?.workingLifeSummary);
+  const calibrationSectionKeysSummary =
+    culturalCalibration?.calibratedSectionKeys.join("|") ?? "";
   const personalizationTelemetryContext = {
     typeCode: personalizationTypeCode,
     identity: personalizationIdentity,
@@ -818,6 +824,11 @@ export function MbtiResultShell({
     careerJourneyKeys: careerJourneyKeysSummary,
     careerActionPriorityKeys: careerActionPriorityKeysSummary,
     careerReadingKeys: careerReadingKeysSummary,
+    localeContext: normalizeText(culturalCalibration?.localeContext),
+    culturalContext: normalizeText(culturalCalibration?.culturalContext),
+    calibratedSectionKeys: calibrationSectionKeysSummary,
+    calibrationFingerprint: normalizeText(culturalCalibration?.calibrationFingerprint),
+    calibrationContractVersion: normalizeText(culturalCalibration?.calibrationContractVersion),
     carryoverFocusKey,
     carryoverReason,
     recommendedResumeKeys: recommendedResumeKeysSummary,
@@ -1416,6 +1427,26 @@ export function MbtiResultShell({
                           ) : null}
                         </div>
                       ) : null}
+                      {culturalCalibration?.enabled && (calibrationNarrativeIntro || calibrationNarrativeSummary) ? (
+                        <div
+                          data-testid="mbti-cultural-calibration"
+                          data-locale-context={culturalCalibration.localeContext || undefined}
+                          data-cultural-context={culturalCalibration.culturalContext || undefined}
+                          data-calibration-fingerprint={culturalCalibration.calibrationFingerprint || undefined}
+                          className="rounded-2xl border border-amber-100 bg-amber-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+                        >
+                          {calibrationNarrativeIntro ? (
+                            <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-amber-700">
+                              {calibrationNarrativeIntro}
+                            </p>
+                          ) : null}
+                          {calibrationNarrativeSummary ? (
+                            <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                              {calibrationNarrativeSummary}
+                            </p>
+                          ) : null}
+                        </div>
+                      ) : null}
                     </div>
 
                     {publicTags.length > 0 ? (
@@ -1575,7 +1606,9 @@ export function MbtiResultShell({
                       : `Current working-life focus: ${resolveCareerJourneyLabel(locale, careerFocusKey)}`}
                   </h2>
                   <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                    {careerNextStepLead
+                    {calibrationWorkingLifeSummary
+                      ? calibrationWorkingLifeSummary
+                      : careerNextStepLead
                       ? careerNextStepLead
                       : careerSummaryLead
                         ? careerSummaryLead
@@ -1586,9 +1619,9 @@ export function MbtiResultShell({
                 </div>
                 <div className="grid gap-3 md:grid-cols-2">
                   <div className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4">
-                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                      {locale === "zh" ? "主链顺序" : "Journey order"}
-                    </p>
+                      <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                        {locale === "zh" ? "主链顺序" : "Journey order"}
+                      </p>
                     <div className="flex flex-wrap gap-2">
                       {workingLifeJourney.map((journeyKey, index) => (
                         <span
@@ -1623,6 +1656,16 @@ export function MbtiResultShell({
                         {locale === "zh"
                           ? `当前优先阅读：${workingLifeReadingFocus}`
                           : `Current reading focus: ${workingLifeReadingFocus}`}
+                      </p>
+                    ) : null}
+                    {culturalCalibration?.enabled ? (
+                      <p
+                        className="m-0 text-xs leading-6 text-slate-500"
+                        data-calibration-fingerprint={culturalCalibration.calibrationFingerprint || undefined}
+                      >
+                        {locale === "zh"
+                          ? `当前语境校准：${culturalCalibration.culturalContext || culturalCalibration.localeContext}`
+                          : `Current calibration context: ${culturalCalibration.culturalContext || culturalCalibration.localeContext}`}
                       </p>
                     ) : null}
                   </div>
