@@ -36,6 +36,7 @@ function buildReadContractFixture() {
         "pack_id",
         "engine_version",
         "dynamic_sections_version",
+        "comparative_v1",
         "controlled_narrative_v1",
         "narrative_runtime_contract_v1",
         "cultural_calibration_v1",
@@ -49,6 +50,7 @@ function buildReadContractFixture() {
         "mbti_public_projection_v1.summary_card",
         "mbti_public_projection_v1.profile",
         "mbti_public_projection_v1.sections",
+        "comparative_v1",
         "controlled_narrative_v1",
         "narrative_runtime_contract_v1",
         "cultural_calibration_v1",
@@ -118,6 +120,7 @@ function buildReadContractFixture() {
       "mbti_public_projection_v1.dimensions",
       "mbti_public_projection_v1.sections",
       "mbti_read_contract_v1",
+      "comparative_v1",
       "controlled_narrative_v1",
       "narrative_runtime_contract_v1",
       "cultural_calibration_v1",
@@ -162,6 +165,13 @@ function buildReadContractFixture() {
       "working_life_v1.career_focus_key",
       "working_life_v1.career_journey_keys",
       "working_life_v1.career_action_priority_keys",
+      "comparative_v1.percentile.value",
+      "comparative_v1.cohort_relative_position.key",
+      "comparative_v1.same_type_contrast.key",
+      "comparative_v1.norming_version",
+      "comparative_v1.norming_scope",
+      "comparative_v1.norming_source",
+      "comparative_v1.comparative_fingerprint",
       "narrative_runtime_contract_v1.runtime_mode",
       "narrative_runtime_contract_v1.provider_name",
       "narrative_runtime_contract_v1.model_version",
@@ -237,6 +247,43 @@ function buildControlledNarrativeFixture(mode: "off" | "mock" | "fallback") {
     section_narrative_keys: runtime.response.section_narrative_keys,
     enabled: mode !== "off",
     truth_guard_fields: runtime.truth_guard_fields,
+  };
+}
+
+function buildComparativeFixture(locale: "zh-CN" | "en-US") {
+  const isZh = locale === "zh-CN";
+
+  return {
+    version: "comparative.norming.v1",
+    comparative_contract_version: "comparative.norming.v1",
+    enabled: true,
+    percentile: {
+      metric_key: "EI",
+      metric_label: isZh ? "外倾 / 内倾" : "Extraversion / Introversion",
+      value: 73,
+    },
+    cohort_relative_position: {
+      key: "cohort.upper_quartile",
+      label: isZh ? "高于同语境多数样本" : "Above most peers in this cohort",
+      summary: isZh ? "你的主轴强度落在当前常模的上四分位。" : "Your lead axis lands in the upper quartile of the current norming cohort.",
+    },
+    same_type_contrast: {
+      key: "same_type.boundary_axes",
+      label: isZh ? "同类里的边界型" : "Boundary profile within this type",
+      summary: isZh ? "和同类型相比，你在临界轴上的摇摆更明显。" : "Compared with the same type family, your boundary axes are more visible.",
+    },
+    norming_version: "norm_2026_02",
+    norming_scope: isZh ? "CN_MAINLAND.zh-CN.anonymized_population" : "US.en-US.anonymized_population",
+    norming_source: "anonymized_norms_table",
+    comparative_fingerprint: `fixture-comparative-${isZh ? "zh-cn" : "en-us"}`,
+    truth_guard_fields: [
+      "type_code",
+      "identity",
+      "variant_keys",
+      "scene_fingerprint",
+      "working_life_v1",
+      "cross_assessment_v1",
+    ],
   };
 }
 
@@ -1170,6 +1217,7 @@ export function applyMbtiPhase2Fixture(
   };
   const narrativeRuntime = buildNarrativeRuntimeFixture(narrativeMode);
   const controlledNarrative = buildControlledNarrativeFixture(narrativeMode);
+  const comparative = buildComparativeFixture(personalizationLocale);
   const culturalCalibration = buildCulturalCalibrationFixture(personalizationLocale);
 
   reportData.locked = hasUnlock ? false : true;
@@ -1395,6 +1443,7 @@ export function applyMbtiPhase2Fixture(
       carryover_action_keys: carryoverActionKeys,
     },
     read_contract_v1: buildReadContractFixture(),
+    comparative_v1: comparative,
     narrative_runtime_contract_v1: narrativeRuntime,
     controlled_narrative_v1: controlledNarrative,
     cultural_calibration_v1: culturalCalibration,
@@ -1443,6 +1492,7 @@ export function applyMbtiPhase2Fixture(
   }
   reportData.mbti_read_contract_v1 = structuredClone(buildReadContractFixture());
   reportData.mbti_cross_assessment_v1 = structuredClone(crossAssessment);
+  reportData.comparative_v1 = structuredClone(comparative);
   reportData.controlled_narrative_v1 = structuredClone(controlledNarrative);
   reportData.cultural_calibration_v1 = structuredClone(culturalCalibration);
   getProjectionMeta(reportData).personalization = structuredClone(personalization);

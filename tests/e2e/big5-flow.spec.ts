@@ -48,6 +48,30 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
     action_plan_summary: {
       headline: "The best near-term growth lever is Extraversion.",
     },
+    comparative_v1: {
+      version: "comparative.norming.v1",
+      comparative_contract_version: "comparative.norming.v1",
+      enabled: true,
+      percentile: {
+        metric_key: "O",
+        metric_label: "Openness",
+        value: 81,
+      },
+      cohort_relative_position: {
+        key: "cohort.upper_quartile",
+        label: "Above most peers in this cohort",
+        summary: "This trait cluster sits in the upper quartile of the current norming cohort.",
+      },
+      same_type_contrast: {
+        key: "same_type.lead_trait_high",
+        label: "Higher-openness version of this profile",
+        summary: "Compared with nearby profiles, Openness is the clearest separating signal.",
+      },
+      norming_version: "2026Q1",
+      norming_scope: "US.en-US.big5_population",
+      norming_source: "scale_norms",
+      comparative_fingerprint: "big5-comparative-fixture",
+    },
     trait_vector: [
       { key: "O", label: "Openness", percentile: 81, band_label: "exploratory" },
       { key: "C", label: "Conscientiousness", percentile: 58, band_label: "balanced" },
@@ -260,6 +284,8 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "BIG5 · Openness" })).toBeVisible();
   await expect(foundationSummary).toBeVisible();
   await expect(foundationSummary.getByText("This profile is primarily driven by Openness.")).toBeVisible();
+  await expect(page.getByTestId("big5-comparative")).toBeVisible();
+  await expect(page.getByTestId("big5-comparative")).toContainText("81th percentile");
   await expect(page.getByTestId("big5-scene-fingerprint")).toBeVisible();
   await expect(foundationSummary.getByText("Openness · 81")).toBeVisible();
   await expect(foundationSummary.getByText("Agreeableness · 76")).toBeVisible();

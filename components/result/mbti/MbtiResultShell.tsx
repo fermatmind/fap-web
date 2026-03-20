@@ -619,6 +619,7 @@ export function MbtiResultShell({
   const layers = asRecord(payload?.layers);
   const identityLayer = (asRecord(layers?.identity) ?? null) as ReportIdentityLayer | null;
   const personalization = projectionViewModel?.personalization ?? null;
+  const comparative = personalization?.comparative ?? null;
   const controlledNarrative = personalization?.controlledNarrative ?? null;
   const culturalCalibration = personalization?.culturalCalibration ?? null;
   const recommendedReads = Array.isArray(payload?.recommended_reads)
@@ -794,6 +795,13 @@ export function MbtiResultShell({
   const calibrationWorkingLifeSummary = normalizeText(culturalCalibration?.workingLifeSummary);
   const calibrationSectionKeysSummary =
     culturalCalibration?.calibratedSectionKeys.join("|") ?? "";
+  const comparativePercentileValue =
+    typeof comparative?.percentileValue === "number" ? comparative.percentileValue : null;
+  const comparativePercentileLabel = normalizeText(comparative?.percentileMetricLabel);
+  const comparativePositionLabel = normalizeText(comparative?.cohortRelativePosition?.label);
+  const comparativePositionSummary = normalizeText(comparative?.cohortRelativePosition?.summary);
+  const comparativeSameTypeLabel = normalizeText(comparative?.sameTypeContrast?.label);
+  const comparativeSameTypeSummary = normalizeText(comparative?.sameTypeContrast?.summary);
   const personalizationTelemetryContext = {
     typeCode: personalizationTypeCode,
     identity: personalizationIdentity,
@@ -829,6 +837,11 @@ export function MbtiResultShell({
     calibratedSectionKeys: calibrationSectionKeysSummary,
     calibrationFingerprint: normalizeText(culturalCalibration?.calibrationFingerprint),
     calibrationContractVersion: normalizeText(culturalCalibration?.calibrationContractVersion),
+    comparativeContractVersion: normalizeText(comparative?.comparativeContractVersion),
+    comparativeFingerprint: normalizeText(comparative?.comparativeFingerprint),
+    comparativeNormingVersion: normalizeText(comparative?.normingVersion),
+    comparativeNormingScope: normalizeText(comparative?.normingScope),
+    comparativeNormingSource: normalizeText(comparative?.normingSource),
     carryoverFocusKey,
     carryoverReason,
     recommendedResumeKeys: recommendedResumeKeysSummary,
@@ -1423,6 +1436,30 @@ export function MbtiResultShell({
                           {controlledNarrative.narrativeSummary ? (
                             <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
                               {controlledNarrative.narrativeSummary}
+                            </p>
+                          ) : null}
+                        </div>
+                      ) : null}
+                      {comparative?.enabled && comparativePercentileValue !== null ? (
+                        <div
+                          data-testid="mbti-comparative"
+                          data-comparative-fingerprint={comparative.comparativeFingerprint || undefined}
+                          data-norming-version={comparative.normingVersion || undefined}
+                          data-norming-scope={comparative.normingScope || undefined}
+                          data-norming-source={comparative.normingSource || undefined}
+                          className="rounded-2xl border border-violet-100 bg-violet-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+                        >
+                          <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-violet-700">
+                            {locale === "zh" ? "相对参照" : "Comparative reference"}
+                          </p>
+                          <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                            {locale === "zh"
+                              ? `${comparativePercentileLabel || "主轴"} 位于第 ${comparativePercentileValue} 百分位。${comparativePositionLabel || comparativePositionSummary}`
+                              : `${comparativePercentileLabel || "Lead signal"} lands at the ${comparativePercentileValue}th percentile. ${comparativePositionLabel || comparativePositionSummary}`}
+                          </p>
+                          {comparativeSameTypeLabel || comparativeSameTypeSummary ? (
+                            <p className="m-0 mt-2 whitespace-pre-wrap text-xs leading-6 text-slate-600">
+                              {[comparativeSameTypeLabel, comparativeSameTypeSummary].filter(Boolean).join(" · ")}
                             </p>
                           ) : null}
                         </div>

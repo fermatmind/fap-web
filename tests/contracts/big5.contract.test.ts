@@ -94,6 +94,30 @@ describe("BIG5 contract schemas", () => {
           focus_trait: "E",
           actions: ["Move feedback checkpoints earlier."],
         },
+        comparative_v1: {
+          version: "comparative.norming.v1",
+          comparative_contract_version: "comparative.norming.v1",
+          enabled: true,
+          percentile: {
+            metric_key: "O",
+            metric_label: "Openness",
+            value: 81,
+          },
+          cohort_relative_position: {
+            key: "cohort.upper_quartile",
+            label: "Above most peers in this cohort",
+            summary: "This trait cluster sits in the upper quartile of the current norming cohort.",
+          },
+          same_type_contrast: {
+            key: "same_type.lead_trait_high",
+            label: "Higher-openness version of this profile",
+            summary: "Compared with nearby profiles, Openness is the clearest separating signal.",
+          },
+          norming_version: "2026Q1",
+          norming_scope: "US.en-US.big5_population",
+          norming_source: "scale_norms",
+          comparative_fingerprint: "big5-comparative-fixture",
+        },
         ordered_section_keys: [
           "traits.overview",
           "traits.why_this_profile",
@@ -119,6 +143,30 @@ describe("BIG5 contract schemas", () => {
       },
       modules_allowed: ["big5_core"],
       modules_offered: ["big5_full", "big5_action_plan"],
+      comparative_v1: {
+        version: "comparative.norming.v1",
+        comparative_contract_version: "comparative.norming.v1",
+        enabled: true,
+        percentile: {
+          metric_key: "O",
+          metric_label: "Openness",
+          value: 81,
+        },
+        cohort_relative_position: {
+          key: "cohort.upper_quartile",
+          label: "Above most peers in this cohort",
+          summary: "This trait cluster sits in the upper quartile of the current norming cohort.",
+        },
+        same_type_contrast: {
+          key: "same_type.lead_trait_high",
+          label: "Higher-openness version of this profile",
+          summary: "Compared with nearby profiles, Openness is the clearest separating signal.",
+        },
+        norming_version: "2026Q1",
+        norming_scope: "US.en-US.big5_population",
+        norming_source: "scale_norms",
+        comparative_fingerprint: "big5-comparative-fixture",
+      },
       norms: {
         status: "CALIBRATED",
         norms_version: "2026Q1",

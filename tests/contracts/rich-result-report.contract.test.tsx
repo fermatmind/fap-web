@@ -232,6 +232,8 @@ describe("RichResultReport", () => {
       "data-career-focus-key",
       "career.next_step"
     );
+    expect(screen.getByTestId("mbti-comparative")).toHaveAttribute("data-norming-version", "norm_2026_02");
+    expect(screen.getByTestId("mbti-comparative")).toHaveTextContent("73");
     expect(screen.getByTestId("mbti-working-life-focus")).toHaveAttribute(
       "data-career-journey-keys",
       "career.next_step|career.work_experiments|career.work_environment|career.collaboration_fit"
@@ -628,5 +630,54 @@ describe("RichResultReport", () => {
     );
     expect(screen.getAllByText("Traits Overview").length).toBeGreaterThan(0);
     expect(screen.getByText("Legacy Big Five copy remains unchanged.")).toBeInTheDocument();
+  });
+
+  it("renders BIG5 comparative guidance without mutating the foundation summary", () => {
+    const reportData = {
+      ok: true,
+      locked: true,
+      variant: "free",
+      big5_public_projection_v1: {
+        schema_version: "big5.public_projection.v1",
+        dominant_traits: [{ key: "O", label: "Openness", percentile: 81, band: "high", rank: 1 }],
+        scene_fingerprint: { novelty: "exploratory" },
+        explainability_summary: {
+          headline: "This profile is primarily driven by Openness.",
+        },
+        action_plan_summary: {
+          headline: "The best near-term growth lever is Extraversion.",
+        },
+        comparative_v1: {
+          version: "comparative.norming.v1",
+          comparative_contract_version: "comparative.norming.v1",
+          enabled: true,
+          percentile: { metric_key: "O", metric_label: "Openness", value: 81 },
+          cohort_relative_position: {
+            key: "cohort.upper_quartile",
+            label: "Above most peers in this cohort",
+            summary: "This trait cluster sits in the upper quartile of the current norming cohort.",
+          },
+          same_type_contrast: {
+            key: "same_type.lead_trait_high",
+            label: "Higher-openness version of this profile",
+            summary: "Compared with nearby profiles, Openness is the clearest separating signal.",
+          },
+          norming_version: "2026Q1",
+          norming_scope: "US.en-US.big5_population",
+          norming_source: "scale_norms",
+          comparative_fingerprint: "big5-comparative-fixture",
+        },
+      },
+      report: {
+        scale_code: "BIG5_OCEAN",
+        profile: { type_name: "Openness-led profile" },
+      },
+    } as ReportResponse;
+
+    render(<RichResultReport locale="en" reportData={reportData} />);
+
+    expect(screen.getByTestId("big5-comparative")).toHaveAttribute("data-norming-version", "2026Q1");
+    expect(screen.getByTestId("big5-comparative")).toHaveTextContent("Openness lands at the 81th percentile");
+    expect(screen.getByTestId("big5-foundation-summary")).toHaveTextContent("This profile is primarily driven by Openness.");
   });
 });

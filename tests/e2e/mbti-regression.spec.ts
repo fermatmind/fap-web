@@ -214,6 +214,8 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-hero")).toContainText(
     "Projection-first summary that should replace the legacy hero copy on result pages."
   );
+  await expect(page.getByTestId("mbti-comparative")).toBeVisible();
+  await expect(page.getByTestId("mbti-comparative")).toContainText("73");
   await expect(page.getByTestId("mbti-hero-identity-line")).toContainText("Spark Navigator");
   await expect(page.getByTestId("mbti-scene-fingerprint")).toBeVisible();
   await expect(page.getByTestId("mbti-scene-card-work")).toHaveAttribute(
