@@ -765,8 +765,22 @@ function Big5ProjectionSummary({
   const variantKeys = Array.isArray(projection.variant_keys) ? projection.variant_keys : [];
   const explainability = asRecord(projection.explainability_summary);
   const actionPlan = asRecord(projection.action_plan_summary);
+  const comparative = asRecord(projection.comparative_v1);
   const controlledNarrative = asRecord(projection.controlled_narrative_v1);
   const culturalCalibration = asRecord(projection.cultural_calibration_v1);
+  const comparativePercentile = asRecord(comparative?.percentile);
+  const comparativePosition = asRecord(comparative?.cohort_relative_position);
+  const comparativeSameType = asRecord(comparative?.same_type_contrast);
+  const comparativePercentileLabel = normalizeText(comparativePercentile?.metric_label);
+  const comparativePercentileValue = normalizeNumber(comparativePercentile?.value);
+  const comparativePositionLabel = normalizeText(comparativePosition?.label);
+  const comparativePositionSummary = normalizeText(comparativePosition?.summary);
+  const comparativeSameTypeLabel = normalizeText(comparativeSameType?.label);
+  const comparativeSameTypeSummary = normalizeText(comparativeSameType?.summary);
+  const comparativeFingerprint = normalizeText(comparative?.comparative_fingerprint);
+  const normingVersion = normalizeText(comparative?.norming_version);
+  const normingScope = normalizeText(comparative?.norming_scope);
+  const normingSource = normalizeText(comparative?.norming_source);
   const narrativeIntro = normalizeText(controlledNarrative?.narrative_intro);
   const narrativeSummary = normalizeText(controlledNarrative?.narrative_summary);
   const narrativeRuntimeMode = normalizeText(controlledNarrative?.runtime_mode);
@@ -794,6 +808,30 @@ function Big5ProjectionSummary({
             >
               {narrativeIntro ? <p className="m-0 font-semibold uppercase tracking-[0.12em] text-sky-700">{narrativeIntro}</p> : null}
               {narrativeSummary ? <p className="m-0 mt-2 leading-7">{narrativeSummary}</p> : null}
+            </div>
+          ) : null}
+          {comparativePercentileValue !== null ? (
+            <div
+              data-testid="big5-comparative"
+              data-comparative-fingerprint={comparativeFingerprint || undefined}
+              data-norming-version={normingVersion || undefined}
+              data-norming-scope={normingScope || undefined}
+              data-norming-source={normingSource || undefined}
+              className="rounded-xl border border-violet-100 bg-violet-50 px-4 py-3 text-sm text-violet-900"
+            >
+              <p className="m-0 font-semibold uppercase tracking-[0.12em] text-violet-700">
+                {locale === "zh" ? "相对参照" : "Comparative reference"}
+              </p>
+              <p className="m-0 mt-2 leading-7">
+                {locale === "zh"
+                  ? `${comparativePercentileLabel || "主特质"} 位于第 ${comparativePercentileValue} 百分位。${comparativePositionLabel || comparativePositionSummary}`
+                  : `${comparativePercentileLabel || "Lead trait"} lands at the ${comparativePercentileValue}th percentile. ${comparativePositionLabel || comparativePositionSummary}`}
+              </p>
+              {comparativeSameTypeLabel || comparativeSameTypeSummary ? (
+                <p className="m-0 mt-2 text-xs leading-6 text-violet-800">
+                  {[comparativeSameTypeLabel, comparativeSameTypeSummary].filter(Boolean).join(" · ")}
+                </p>
+              ) : null}
             </div>
           ) : null}
           {calibrationIntro || calibrationSummary ? (

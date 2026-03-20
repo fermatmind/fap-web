@@ -1,4 +1,5 @@
 import type {
+  ComparativeRaw,
   ControlledNarrativeRaw,
   CulturalCalibrationRaw,
   MbtiCrossAssessmentRaw,
@@ -200,6 +201,28 @@ export type ControlledNarrativeViewModel = {
   truthGuardFields: string[];
 };
 
+export type ComparativeReferenceViewModel = {
+  key: string;
+  label: string;
+  summary: string;
+};
+
+export type ComparativeViewModel = {
+  version: string;
+  comparativeContractVersion: string;
+  enabled: boolean;
+  percentileMetricKey: string;
+  percentileMetricLabel: string;
+  percentileValue: number | null;
+  cohortRelativePosition: ComparativeReferenceViewModel | null;
+  sameTypeContrast: ComparativeReferenceViewModel | null;
+  normingVersion: string;
+  normingScope: string;
+  normingSource: string;
+  comparativeFingerprint: string;
+  truthGuardFields: string[];
+};
+
 export type CulturalCalibrationSectionViewModel = {
   sectionKey: string;
   title: string;
@@ -297,6 +320,7 @@ export type MbtiResultPersonalizationViewModel = {
   orchestration: MbtiOrchestrationViewModel | null;
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
+  comparative: ComparativeViewModel | null;
   controlledNarrative: ControlledNarrativeViewModel | null;
   culturalCalibration: CulturalCalibrationViewModel | null;
   crossAssessment: MbtiCrossAssessmentViewModel | null;
@@ -672,6 +696,7 @@ function normalizePersonalization(
   const orchestrationRecord = asRecord(personalization.orchestration);
   const continuityRecord = asRecord(personalization.continuity);
   const readContractRecord = asRecord(personalization.read_contract_v1) as MbtiReadContractRaw | null;
+  const comparativeRecord = asRecord(personalization.comparative_v1) as ComparativeRaw | null;
   const controlledNarrativeRecord = asRecord(personalization.controlled_narrative_v1) as ControlledNarrativeRaw | null;
   const culturalCalibrationRecord = asRecord(personalization.cultural_calibration_v1) as CulturalCalibrationRaw | null;
   const crossAssessmentRecord = asRecord(personalization.cross_assessment_v1) as MbtiCrossAssessmentRaw | null;
@@ -775,6 +800,7 @@ function normalizePersonalization(
         }
       : null,
     readContract: normalizeReadContract(readContractRecord),
+    comparative: normalizeComparative(comparativeRecord),
     controlledNarrative: normalizeControlledNarrative(controlledNarrativeRecord),
     culturalCalibration: normalizeCulturalCalibration(culturalCalibrationRecord),
     crossAssessment: normalizeCrossAssessment(crossAssessmentRecord),
@@ -877,6 +903,70 @@ function normalizeControlledNarrative(
     sectionNarrativeKeys,
     enabled,
     truthGuardFields: normalizeStringArray(rawNarrative.truth_guard_fields),
+  };
+}
+
+function normalizeComparative(rawComparative: ComparativeRaw | null): ComparativeViewModel | null {
+  if (!rawComparative) {
+    return null;
+  }
+
+  const percentile = asRecord(rawComparative.percentile);
+  const cohort = asRecord(rawComparative.cohort_relative_position);
+  const sameTypeContrast = asRecord(rawComparative.same_type_contrast);
+  const version = normalizeText(rawComparative.version);
+  const comparativeContractVersion = normalizeText(rawComparative.comparative_contract_version, version);
+  const percentileMetricKey = normalizeText(percentile?.metric_key);
+  const percentileMetricLabel = normalizeText(percentile?.metric_label, percentileMetricKey);
+  const percentileValue =
+    typeof percentile?.value === "number" && Number.isFinite(percentile.value)
+      ? percentile.value
+      : null;
+  const enabled =
+    rawComparative.enabled === true ||
+    percentileValue !== null ||
+    normalizeText(rawComparative.norming_version).length > 0 ||
+    normalizeText(rawComparative.comparative_fingerprint).length > 0;
+
+  if (
+    !enabled &&
+    !version &&
+    !comparativeContractVersion &&
+    !normalizeText(rawComparative.norming_scope) &&
+    !normalizeText(rawComparative.norming_source)
+  ) {
+    return null;
+  }
+
+  const normalizeReference = (value: Record<string, unknown> | null): ComparativeReferenceViewModel | null => {
+    if (!value) {
+      return null;
+    }
+
+    const key = normalizeText(value.key);
+    const label = normalizeText(value.label);
+    const summary = normalizeText(value.summary);
+    if (!key && !label && !summary) {
+      return null;
+    }
+
+    return { key, label, summary };
+  };
+
+  return {
+    version,
+    comparativeContractVersion,
+    enabled,
+    percentileMetricKey,
+    percentileMetricLabel,
+    percentileValue,
+    cohortRelativePosition: normalizeReference(cohort),
+    sameTypeContrast: normalizeReference(sameTypeContrast),
+    normingVersion: normalizeText(rawComparative.norming_version),
+    normingScope: normalizeText(rawComparative.norming_scope),
+    normingSource: normalizeText(rawComparative.norming_source),
+    comparativeFingerprint: normalizeText(rawComparative.comparative_fingerprint),
+    truthGuardFields: normalizeStringArray(rawComparative.truth_guard_fields),
   };
 }
 
@@ -1171,6 +1261,9 @@ export function buildMbtiResultProjectionViewModel(
   const topLevelReadContract = normalizeReadContract(
     asRecord(report.mbti_read_contract_v1) as MbtiReadContractRaw | null
   );
+  const topLevelComparative = normalizeComparative(
+    asRecord(report.comparative_v1) as ComparativeRaw | null
+  );
   const topLevelControlledNarrative = normalizeControlledNarrative(
     asRecord(report.controlled_narrative_v1) as ControlledNarrativeRaw | null
   );
@@ -1181,6 +1274,7 @@ export function buildMbtiResultProjectionViewModel(
     ? {
         ...normalizedPersonalization,
         readContract: normalizedPersonalization.readContract ?? topLevelReadContract,
+        comparative: normalizedPersonalization.comparative ?? topLevelComparative,
         controlledNarrative: normalizedPersonalization.controlledNarrative ?? topLevelControlledNarrative,
         culturalCalibration:
           normalizedPersonalization.culturalCalibration ?? topLevelCulturalCalibration,

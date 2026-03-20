@@ -171,6 +171,7 @@ export type ResultResponse = {
     [key: string]: unknown;
   };
   big5_public_projection_v1?: Big5PublicProjection | null;
+  comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
 };
@@ -360,6 +361,35 @@ export type Big5TraitProjection = {
   [key: string]: unknown;
 };
 
+export type ComparativeMetricRaw = {
+  metric_key?: string;
+  metric_label?: string;
+  value?: number;
+  [key: string]: unknown;
+};
+
+export type ComparativeReferenceRaw = {
+  key?: string;
+  label?: string;
+  summary?: string;
+  [key: string]: unknown;
+};
+
+export type ComparativeRaw = {
+  version?: string;
+  comparative_contract_version?: string;
+  enabled?: boolean;
+  percentile?: ComparativeMetricRaw | null;
+  cohort_relative_position?: ComparativeReferenceRaw | null;
+  same_type_contrast?: ComparativeReferenceRaw | null;
+  norming_version?: string;
+  norming_scope?: string;
+  norming_source?: string;
+  comparative_fingerprint?: string;
+  truth_guard_fields?: string[];
+  [key: string]: unknown;
+};
+
 export type Big5PublicProjection = {
   schema_version?: string;
   trait_vector?: Big5TraitProjection[];
@@ -380,6 +410,7 @@ export type Big5PublicProjection = {
   };
   ordered_section_keys?: string[];
   sections?: Big5ReportSection[];
+  comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
   _meta?: Record<string, unknown>;
@@ -452,6 +483,7 @@ export type ReportResponse = {
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
+  comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
@@ -798,6 +830,7 @@ export type MbtiPersonalizationRaw = {
   };
   continuity?: MbtiContinuityRaw;
   read_contract_v1?: MbtiReadContractRaw | null;
+  comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
   cross_assessment_v1?: MbtiCrossAssessmentRaw | null;

@@ -96,6 +96,37 @@ const big5TraitProjectionSchema = z
   })
   .passthrough();
 
+const comparativeReferenceSchema = z
+  .object({
+    key: z.string().optional(),
+    label: z.string().optional(),
+    summary: z.string().optional(),
+  })
+  .passthrough();
+
+const comparativeSchema = z
+  .object({
+    version: z.string().optional(),
+    comparative_contract_version: z.string().optional(),
+    enabled: z.boolean().optional(),
+    percentile: z
+      .object({
+        metric_key: z.string().optional(),
+        metric_label: z.string().optional(),
+        value: z.number().optional(),
+      })
+      .passthrough()
+      .optional(),
+    cohort_relative_position: comparativeReferenceSchema.optional(),
+    same_type_contrast: comparativeReferenceSchema.optional(),
+    norming_version: z.string().optional(),
+    norming_scope: z.string().optional(),
+    norming_source: z.string().optional(),
+    comparative_fingerprint: z.string().optional(),
+    truth_guard_fields: z.array(z.string()).optional(),
+  })
+  .passthrough();
+
 const big5PublicProjectionSchema = z
   .object({
     schema_version: z.string().optional(),
@@ -120,6 +151,7 @@ const big5PublicProjectionSchema = z
       .passthrough()
       .optional(),
     ordered_section_keys: z.array(z.string()).optional(),
+    comparative_v1: comparativeSchema.optional(),
     sections: z.array(big5ReportSectionSchema).optional(),
     _meta: z.record(z.string(), z.unknown()).optional(),
   })
@@ -151,6 +183,7 @@ export const big5ReportResponseSchema = z
       })
       .passthrough()
       .optional(),
+    comparative_v1: comparativeSchema.optional(),
     big5_public_projection_v1: big5PublicProjectionSchema.optional(),
     meta: z.record(z.string(), z.unknown()).optional(),
     report: z
