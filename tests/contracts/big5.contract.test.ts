@@ -67,6 +67,41 @@ describe("BIG5 contract schemas", () => {
       ok: true,
       locked: true,
       variant: "free",
+      big5_public_projection_v1: {
+        schema_version: "big5.public_projection.v1",
+        trait_bands: {
+          O: "high",
+          C: "mid",
+          E: "mid",
+          A: "high",
+          N: "low",
+        },
+        dominant_traits: [
+          { key: "O", label: "Openness", percentile: 81, band: "high", rank: 1 },
+          { key: "A", label: "Agreeableness", percentile: 76, band: "high", rank: 2 },
+        ],
+        variant_keys: ["profile:explorer", "band:o.high"],
+        scene_fingerprint: {
+          novelty: "exploratory",
+          structure: "balanced",
+        },
+        explainability_summary: {
+          headline: "This profile is primarily driven by Openness.",
+          reasons: ["Openness is the primary axis."],
+        },
+        action_plan_summary: {
+          headline: "The best near-term growth lever is Extraversion.",
+          focus_trait: "E",
+          actions: ["Move feedback checkpoints earlier."],
+        },
+        ordered_section_keys: [
+          "traits.overview",
+          "traits.why_this_profile",
+          "relationships.interpersonal_style",
+          "career.work_style",
+          "growth.next_actions",
+        ],
+      },
       modules_allowed: ["big5_core"],
       modules_offered: ["big5_full", "big5_action_plan"],
       norms: {
@@ -78,6 +113,18 @@ describe("BIG5 contract schemas", () => {
       },
       report: {
         sections: [
+          {
+            key: "traits.overview",
+            title: "Traits Overview",
+            access_level: "free",
+            blocks: [
+              {
+                kind: "paragraph",
+                title: "Traits Overview",
+                body: "This read is shaped by Openness and Agreeableness.",
+              },
+            ],
+          },
           {
             key: "summary",
             title: "Summary",

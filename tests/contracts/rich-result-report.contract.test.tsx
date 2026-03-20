@@ -386,17 +386,43 @@ describe("RichResultReport", () => {
 
   it("leaves non-MBTI branches on the legacy report normalizer", () => {
     const reportData = {
+      big5_public_projection_v1: {
+        schema_version: "big5.public_projection.v1",
+        dominant_traits: [
+          { key: "O", label: "Openness", percentile: 81, band: "high", rank: 1 },
+          { key: "A", label: "Agreeableness", percentile: 76, band: "high", rank: 2 },
+        ],
+        scene_fingerprint: {
+          novelty: "exploratory",
+          structure: "balanced",
+          social_energy: "reserved",
+        },
+        explainability_summary: {
+          headline: "This profile is primarily driven by Openness.",
+        },
+        action_plan_summary: {
+          headline: "The best near-term growth lever is Extraversion.",
+        },
+        trait_vector: [
+          { key: "O", label: "Openness", percentile: 81, band_label: "exploratory" },
+          { key: "C", label: "Conscientiousness", percentile: 61, band_label: "balanced" },
+          { key: "E", label: "Extraversion", percentile: 48, band_label: "balanced" },
+          { key: "A", label: "Agreeableness", percentile: 76, band_label: "harmonizing" },
+          { key: "N", label: "Neuroticism", percentile: 22, band_label: "steady" },
+        ],
+        variant_keys: ["profile:explorer", "band:o.high"],
+      },
       report: {
         scale_code: "BIG5_OCEAN",
         sections: [
           {
-            key: "overview",
-            title: "Big Five overview",
+            key: "traits.overview",
+            title: "Traits Overview",
             access_level: "free",
             blocks: [
               {
                 kind: "paragraph",
-                title: "Big Five overview",
+                title: "Traits Overview",
                 body: "Legacy Big Five copy remains unchanged.",
               },
             ],
@@ -411,7 +437,12 @@ describe("RichResultReport", () => {
     render(<RichResultReport locale="en" reportData={reportData} />);
 
     expect(screen.queryByTestId("mbti-result-shell")).not.toBeInTheDocument();
-    expect(screen.getAllByText("Big Five overview").length).toBeGreaterThan(0);
+    expect(screen.getByTestId("big5-foundation-summary")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-scene-fingerprint")).toHaveTextContent("novelty");
+    expect(screen.getByTestId("big5-action-plan-summary")).toHaveTextContent(
+      "The best near-term growth lever is Extraversion."
+    );
+    expect(screen.getAllByText("Traits Overview").length).toBeGreaterThan(0);
     expect(screen.getByText("Legacy Big Five copy remains unchanged.")).toBeInTheDocument();
   });
 });

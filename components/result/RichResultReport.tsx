@@ -7,7 +7,7 @@ import { MbtiResultShell } from "@/components/result/mbti/MbtiResultShell";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { OfferPayload, ReportResponse } from "@/lib/api/v0_3";
+import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
   buildMbtiResultProjectionViewModel,
@@ -650,6 +650,21 @@ function normalizeDimensions(
   reportData: ReportResponse,
   locale: Locale
 ): Array<Record<string, unknown>> {
+  if (scaleCode === "BIG5_OCEAN") {
+    const projection = resolveBig5Projection(reportData);
+    const traitVector = Array.isArray(projection?.trait_vector) ? projection.trait_vector : [];
+    if (traitVector.length > 0) {
+      return traitVector
+        .filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object"))
+        .map((item) => ({
+          code: normalizeText(item.key),
+          label: normalizeText(item.label),
+          percent: normalizeNumber(item.percentile) ?? 0,
+          winnerLabel: normalizeText(item.band_label),
+        }));
+    }
+  }
+
   return normalizeDimensionsFromScores(scaleCode, reportData, locale);
 }
 
@@ -704,19 +719,120 @@ function resolveVisibleTags(reportData: ReportResponse): string[] {
   return filterVisibleTags(normalizeStringArray(payload?.tags ?? payload?.report_tags));
 }
 
-function resolveHeadline(reportData: ReportResponse): RichResultHeadline {
+function resolveBig5Projection(reportData: ReportResponse): Big5PublicProjection | null {
+  if (reportData.big5_public_projection_v1 && typeof reportData.big5_public_projection_v1 === "object") {
+    return reportData.big5_public_projection_v1;
+  }
+
+  const reportMeta = asRecord(reportData.report?._meta);
+  const projection = asRecord(reportMeta?.big5_public_projection_v1);
+  return projection as Big5PublicProjection | null;
+}
+
+function resolveHeadline(scaleCode: RichResultScaleCode, reportData: ReportResponse): RichResultHeadline {
   const identityCard = resolveIdentityCard(reportData);
   const payload = resolveReportPayload(reportData);
   const profile = asRecord(payload?.profile);
+  const big5Projection = scaleCode === "BIG5_OCEAN" ? resolveBig5Projection(reportData) : null;
+  const primaryTrait = Array.isArray(big5Projection?.dominant_traits) ? big5Projection?.dominant_traits?.[0] : null;
+  const primaryTraitLabel = normalizeText(asRecord(primaryTrait)?.label);
 
   return {
-    badge: normalizeText(asRecord(identityCard?.badge)?.text, "MBTI"),
-    typeCode: resolveTypeCode(reportData),
-    displayName: normalizeText(identityCard?.title, profile?.type_name),
+    badge: normalizeText(
+      asRecord(identityCard?.badge)?.text,
+      scaleCode === "BIG5_OCEAN" ? "Big Five" : "MBTI"
+    ),
+    typeCode: resolveTypeCode(reportData) || (scaleCode === "BIG5_OCEAN" ? "BIG5" : ""),
+    displayName: normalizeText(identityCard?.title, profile?.type_name, primaryTraitLabel),
     supportingLine: normalizeText(identityCard?.subtitle, identityCard?.tagline, profile?.tagline),
-    summary: normalizeText(identityCard?.summary, profile?.short_summary),
+    summary: normalizeText(
+      identityCard?.summary,
+      profile?.short_summary,
+      asRecord(big5Projection?.explainability_summary)?.headline
+    ),
     rarity: resolveProfileRarity(reportData),
   };
+}
+
+function Big5ProjectionSummary({
+  locale,
+  projection,
+}: {
+  locale: Locale;
+  projection: Big5PublicProjection;
+}) {
+  const dominantTraits = Array.isArray(projection.dominant_traits) ? projection.dominant_traits : [];
+  const variantKeys = Array.isArray(projection.variant_keys) ? projection.variant_keys : [];
+  const explainability = asRecord(projection.explainability_summary);
+  const actionPlan = asRecord(projection.action_plan_summary);
+  const sceneFingerprint = projection.scene_fingerprint && typeof projection.scene_fingerprint === "object"
+    ? Object.entries(projection.scene_fingerprint)
+    : [];
+
+  return (
+    <Card data-testid="big5-foundation-summary" className="border-slate-200 bg-white shadow-sm">
+      <CardContent className="space-y-4 p-6">
+        <div className="space-y-2">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            {locale === "zh" ? "Big Five Foundation" : "Big Five Foundation"}
+          </p>
+          {typeof explainability?.headline === "string" && explainability.headline.trim().length > 0 ? (
+            <p className="m-0 text-base leading-7 text-slate-700">{explainability.headline}</p>
+          ) : null}
+        </div>
+
+        {dominantTraits.length > 0 ? (
+          <div className="flex flex-wrap gap-2">
+            {dominantTraits.map((trait, index) => {
+              const traitRecord = asRecord(trait);
+              const label = normalizeText(traitRecord?.label, traitRecord?.key, `Trait ${index + 1}`);
+              const percentile = normalizeNumber(traitRecord?.percentile);
+              return (
+                <span
+                  key={`${label}-${index}`}
+                  className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm text-slate-700"
+                >
+                  {label}
+                  {percentile !== null ? ` · ${percentile}` : ""}
+                </span>
+              );
+            })}
+          </div>
+        ) : null}
+
+        {sceneFingerprint.length > 0 ? (
+          <div className="grid gap-2 sm:grid-cols-2" data-testid="big5-scene-fingerprint">
+            {sceneFingerprint.map(([key, value]) => (
+              <div key={key} className="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2 text-sm text-slate-700">
+                <span className="font-semibold text-slate-900">{key}</span>
+                <span className="text-slate-500"> · </span>
+                <span>{value}</span>
+              </div>
+            ))}
+          </div>
+        ) : null}
+
+        {typeof actionPlan?.headline === "string" && actionPlan.headline.trim().length > 0 ? (
+          <div className="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm text-emerald-900" data-testid="big5-action-plan-summary">
+            {actionPlan.headline}
+          </div>
+        ) : null}
+
+        {variantKeys.length > 0 ? (
+          <div className="flex flex-wrap gap-2">
+            {variantKeys.slice(0, 6).map((key) => (
+              <span
+                key={key}
+                className="inline-flex rounded-full border border-white/80 bg-white px-2.5 py-1 text-xs text-slate-600 shadow-[0_6px_14px_rgba(15,23,42,0.05)]"
+              >
+                {key}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </CardContent>
+    </Card>
+  );
 }
 
 function humanizeModule(moduleCode: string, locale: Locale): string {
@@ -1186,7 +1302,8 @@ export function RichResultReport({
   }
 
   const gate = resolveRichResultGate(reportData);
-  const headline = resolveHeadline(reportData);
+  const headline = resolveHeadline(scaleCode, reportData);
+  const big5Projection = scaleCode === "BIG5_OCEAN" ? resolveBig5Projection(reportData) : null;
   const tags = resolveVisibleTags(reportData);
   const dimensions = normalizeDimensions(scaleCode, reportData, locale);
   const highlights = normalizeHighlights(reportData, gate, locale);
@@ -1285,6 +1402,10 @@ export function RichResultReport({
       </Card>
 
       <DimensionBars dimensions={dimensions} />
+
+      {scaleCode === "BIG5_OCEAN" && big5Projection ? (
+        <Big5ProjectionSummary locale={locale} projection={big5Projection} />
+      ) : null}
 
       <HighlightsSection locale={locale} cards={highlights} />
 
