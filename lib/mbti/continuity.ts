@@ -50,6 +50,11 @@ export function buildMbtiContinuityQuery(
   const recommendedResumeKeys = normalizeStringArray(continuity.recommendedResumeKeys);
   const carryoverSceneKeys = normalizeStringArray(continuity.carryoverSceneKeys);
   const carryoverActionKeys = normalizeStringArray(continuity.carryoverActionKeys);
+  const feedbackSentiment = normalizeText(continuity.feedbackSentiment);
+  const feedbackCoverage = normalizeText(continuity.feedbackCoverage);
+  const actionCompletionTendency = normalizeText(continuity.actionCompletionTendency);
+  const lastDeepReadSection = normalizeText(continuity.lastDeepReadSection);
+  const currentIntentCluster = normalizeText(continuity.currentIntentCluster);
 
   return {
     ...(carryoverFocusKey ? { carryover_focus_key: carryoverFocusKey } : {}),
@@ -57,6 +62,11 @@ export function buildMbtiContinuityQuery(
     ...(recommendedResumeKeys.length > 0 ? { recommended_resume_keys: recommendedResumeKeys.join("|") } : {}),
     ...(carryoverSceneKeys.length > 0 ? { carryover_scene_keys: carryoverSceneKeys.join("|") } : {}),
     ...(carryoverActionKeys.length > 0 ? { carryover_action_keys: carryoverActionKeys.join("|") } : {}),
+    ...(feedbackSentiment ? { feedback_sentiment: feedbackSentiment } : {}),
+    ...(feedbackCoverage ? { feedback_coverage: feedbackCoverage } : {}),
+    ...(actionCompletionTendency ? { action_completion_tendency: actionCompletionTendency } : {}),
+    ...(lastDeepReadSection ? { last_deep_read_section: lastDeepReadSection } : {}),
+    ...(currentIntentCluster ? { current_intent_cluster: currentIntentCluster } : {}),
   };
 }
 
@@ -97,6 +107,11 @@ export function buildMbtiContinuityTelemetryFields(
   recommendedResumeKeys: string;
   carryoverSceneKeys: string;
   carryoverActionKeys: string;
+  feedbackSentiment: string;
+  feedbackCoverage: string;
+  actionCompletionTendency: string;
+  lastDeepReadSection: string;
+  currentIntentCluster: string;
 } {
   const query = buildMbtiContinuityQuery(continuity);
 
@@ -106,6 +121,11 @@ export function buildMbtiContinuityTelemetryFields(
     recommendedResumeKeys: normalizeText(query.recommended_resume_keys),
     carryoverSceneKeys: normalizeText(query.carryover_scene_keys),
     carryoverActionKeys: normalizeText(query.carryover_action_keys),
+    feedbackSentiment: normalizeText(query.feedback_sentiment),
+    feedbackCoverage: normalizeText(query.feedback_coverage),
+    actionCompletionTendency: normalizeText(query.action_completion_tendency),
+    lastDeepReadSection: normalizeText(query.last_deep_read_section),
+    currentIntentCluster: normalizeText(query.current_intent_cluster),
   };
 }
 
@@ -139,13 +159,23 @@ export function parseMbtiContinuityQuery(
   const recommendedResumeKeys = splitParam(readParam(source, "recommended_resume_keys"));
   const carryoverSceneKeys = splitParam(readParam(source, "carryover_scene_keys"));
   const carryoverActionKeys = splitParam(readParam(source, "carryover_action_keys"));
+  const feedbackSentiment = readParam(source, "feedback_sentiment");
+  const feedbackCoverage = readParam(source, "feedback_coverage");
+  const actionCompletionTendency = readParam(source, "action_completion_tendency");
+  const lastDeepReadSection = readParam(source, "last_deep_read_section");
+  const currentIntentCluster = readParam(source, "current_intent_cluster");
 
   if (
     !carryoverFocusKey &&
     !carryoverReason &&
     recommendedResumeKeys.length === 0 &&
     carryoverSceneKeys.length === 0 &&
-    carryoverActionKeys.length === 0
+    carryoverActionKeys.length === 0 &&
+    !feedbackSentiment &&
+    !feedbackCoverage &&
+    !actionCompletionTendency &&
+    !lastDeepReadSection &&
+    !currentIntentCluster
   ) {
     return null;
   }
@@ -156,6 +186,11 @@ export function parseMbtiContinuityQuery(
     recommendedResumeKeys,
     carryoverSceneKeys,
     carryoverActionKeys,
+    feedbackSentiment,
+    feedbackCoverage,
+    actionCompletionTendency,
+    lastDeepReadSection,
+    currentIntentCluster,
   };
 }
 

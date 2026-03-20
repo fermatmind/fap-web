@@ -586,6 +586,11 @@ export type MbtiContinuityRaw = {
   recommended_resume_keys?: string[];
   carryover_scene_keys?: string[];
   carryover_action_keys?: string[];
+  feedback_sentiment?: string;
+  feedback_coverage?: string;
+  action_completion_tendency?: string;
+  last_deep_read_section?: string;
+  current_intent_cluster?: string;
   [key: string]: unknown;
 };
 
@@ -631,6 +636,11 @@ export type MbtiPersonalizationRaw = {
     has_feedback?: boolean;
     has_share?: boolean;
     has_action_engagement?: boolean;
+    feedback_sentiment?: string;
+    feedback_coverage?: string;
+    action_completion_tendency?: string;
+    last_deep_read_section?: string;
+    current_intent_cluster?: string;
     [key: string]: unknown;
   };
   orchestration?: {

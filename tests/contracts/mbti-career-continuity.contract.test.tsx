@@ -44,6 +44,11 @@ describe("MBTI career continuity telemetry contract", () => {
       recommendedResumeKeys: ["career.next_step", "career.work_experiments"],
       carryoverSceneKeys: ["work", "growth"],
       carryoverActionKeys: ["career_next_step.theme.clarify_decision_criteria"],
+      feedbackSentiment: "positive",
+      feedbackCoverage: "action_only",
+      actionCompletionTendency: "repeatable",
+      lastDeepReadSection: "career.work_experiments",
+      currentIntentCluster: "career_move",
     };
 
     render(
@@ -65,6 +70,11 @@ describe("MBTI career continuity telemetry contract", () => {
           recommendedResumeKeys: "career.next_step|career.work_experiments",
           carryoverSceneKeys: "work|growth",
           carryoverActionKeys: "career_next_step.theme.clarify_decision_criteria",
+          feedbackSentiment: "positive",
+          feedbackCoverage: "action_only",
+          actionCompletionTendency: "repeatable",
+          lastDeepReadSection: "career.work_experiments",
+          currentIntentCluster: "career_move",
         })
       );
     });
@@ -78,6 +88,11 @@ describe("MBTI career continuity telemetry contract", () => {
           sectionKey: "career.recommended_roles",
           continueTarget: "career_recommendation",
           carryoverFocusKey: "career.next_step",
+          feedbackSentiment: "positive",
+          feedbackCoverage: "action_only",
+          actionCompletionTendency: "repeatable",
+          lastDeepReadSection: "career.work_experiments",
+          currentIntentCluster: "career_move",
         })
       );
     });

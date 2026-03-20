@@ -46,12 +46,17 @@ import {
 } from "@/lib/mbti/publicProjection";
 import {
   summarizeMbtiActionPriorityKeys,
+  summarizeMbtiActionCompletionTendency,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
   summarizeMbtiCarryoverActionKeys,
   summarizeMbtiCarryoverResumeKeys,
   summarizeMbtiCarryoverSceneKeys,
   summarizeMbtiCtaPriorityKeys,
+  summarizeMbtiCurrentIntentCluster,
+  summarizeMbtiFeedbackCoverage,
+  summarizeMbtiFeedbackSentiment,
+  summarizeMbtiLastDeepReadSection,
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
@@ -267,6 +272,11 @@ function buildCareerBridgeTelemetryPayload(
     packId: normalizeText(personalization?.packId),
     engineVersion: normalizeText(personalization?.engineVersion),
     locale,
+    feedbackSentiment: summarizeMbtiFeedbackSentiment(personalization),
+    feedbackCoverage: summarizeMbtiFeedbackCoverage(personalization),
+    actionCompletionTendency: summarizeMbtiActionCompletionTendency(personalization),
+    lastDeepReadSection: summarizeMbtiLastDeepReadSection(personalization),
+    currentIntentCluster: summarizeMbtiCurrentIntentCluster(personalization),
   };
 }
 
@@ -662,6 +672,11 @@ export function MbtiResultShell({
   const boundaryFlagsSummary = summarizeMbtiBoundaryFlags(personalization);
   const axisBandsSummary = summarizeMbtiAxisBands(personalization);
   const userStateSummary = summarizeMbtiUserState(personalization);
+  const feedbackSentimentSummary = summarizeMbtiFeedbackSentiment(personalization);
+  const feedbackCoverageSummary = summarizeMbtiFeedbackCoverage(personalization);
+  const actionCompletionTendencySummary = summarizeMbtiActionCompletionTendency(personalization);
+  const lastDeepReadSectionSummary = summarizeMbtiLastDeepReadSection(personalization);
+  const currentIntentClusterSummary = summarizeMbtiCurrentIntentCluster(personalization);
   const secondaryFocusKeysSummary = summarizeMbtiSecondaryFocusKeys(personalization);
   const orderedSectionKeysSummary = summarizeMbtiOrderedSectionKeys(personalization);
   const orderedRecommendationKeysSummary = summarizeMbtiOrderedRecommendationKeys(personalization);
@@ -741,6 +756,11 @@ export function MbtiResultShell({
     packId: personalizationPackId,
     engineVersion: personalizationEngineVersion,
     userState: userStateSummary,
+    feedbackSentiment: feedbackSentimentSummary,
+    feedbackCoverage: feedbackCoverageSummary,
+    actionCompletionTendency: actionCompletionTendencySummary,
+    lastDeepReadSection: lastDeepReadSectionSummary,
+    currentIntentCluster: currentIntentClusterSummary,
     primaryFocusKey,
     secondaryFocusKeys: secondaryFocusKeysSummary,
     orderedSectionKeys: orderedSectionKeysSummary,
@@ -908,6 +928,11 @@ export function MbtiResultShell({
     secondaryFocusKeysSummary,
     userStateSummary,
     variantKeysSummary,
+    feedbackSentimentSummary,
+    feedbackCoverageSummary,
+    actionCompletionTendencySummary,
+    lastDeepReadSectionSummary,
+    currentIntentClusterSummary,
     carryoverActionKeysSummary,
     carryoverFocusKey,
     carryoverReason,
@@ -974,6 +999,11 @@ export function MbtiResultShell({
     secondaryFocusKeysSummary,
     userStateSummary,
     variantKeysSummary,
+    feedbackSentimentSummary,
+    feedbackCoverageSummary,
+    actionCompletionTendencySummary,
+    lastDeepReadSectionSummary,
+    currentIntentClusterSummary,
   ]);
 
   async function handleShare() {

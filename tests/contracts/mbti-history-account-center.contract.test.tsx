@@ -78,7 +78,7 @@ describe("MBTI history account-center contract", () => {
 
   it("renders carryover guidance and preserves continuity query on history re-entry links", async () => {
     hoisted.search =
-      "carryover_focus_key=growth.next_actions&carryover_reason=unlock_to_continue_focus&recommended_resume_keys=growth.next_actions%7Ccareer.next_step&carryover_scene_keys=growth%7Cwork&carryover_action_keys=weekly_action.theme.name_decision_rule";
+      "carryover_focus_key=growth.next_actions&carryover_reason=unlock_to_continue_focus&recommended_resume_keys=growth.next_actions%7Ccareer.next_step&carryover_scene_keys=growth%7Cwork&carryover_action_keys=weekly_action.theme.name_decision_rule&feedback_sentiment=negative&feedback_coverage=explainability_only&action_completion_tendency=repeatable&last_deep_read_section=traits.close_call_axes&current_intent_cluster=clarify_type";
     hoisted.getMyAttempts.mockResolvedValue({
       items: [
         {
@@ -108,6 +108,9 @@ describe("MBTI history account-center contract", () => {
     expect(screen.getByTestId("mbti-history-open-attempt-history-2").getAttribute("href")).toContain(
       "carryover_reason=unlock_to_continue_focus"
     );
+    expect(screen.getByTestId("mbti-history-open-attempt-history-2").getAttribute("href")).toContain(
+      "current_intent_cluster=clarify_type"
+    );
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
@@ -119,6 +122,11 @@ describe("MBTI history account-center contract", () => {
         recommendedResumeKeys: "growth.next_actions|career.next_step",
         carryoverSceneKeys: "growth|work",
         carryoverActionKeys: "weekly_action.theme.name_decision_rule",
+        feedbackSentiment: "negative",
+        feedbackCoverage: "explainability_only",
+        actionCompletionTendency: "repeatable",
+        lastDeepReadSection: "traits.close_call_axes",
+        currentIntentCluster: "clarify_type",
       })
     );
 
@@ -134,6 +142,11 @@ describe("MBTI history account-center contract", () => {
         ctaKey: "history_continue_latest",
         attempt_id: "attempt-history-2",
         carryoverFocusKey: "growth.next_actions",
+        feedbackSentiment: "negative",
+        feedbackCoverage: "explainability_only",
+        actionCompletionTendency: "repeatable",
+        lastDeepReadSection: "traits.close_call_axes",
+        currentIntentCluster: "clarify_type",
       })
     );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -145,6 +158,11 @@ describe("MBTI history account-center contract", () => {
         ctaKey: "history_saved_result",
         attempt_id: "attempt-history-2",
         carryoverReason: "unlock_to_continue_focus",
+        feedbackSentiment: "negative",
+        feedbackCoverage: "explainability_only",
+        actionCompletionTendency: "repeatable",
+        lastDeepReadSection: "traits.close_call_axes",
+        currentIntentCluster: "clarify_type",
       })
     );
   });

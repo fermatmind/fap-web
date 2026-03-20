@@ -100,6 +100,36 @@ export function summarizeMbtiUserState(
   ].join("|");
 }
 
+export function summarizeMbtiFeedbackSentiment(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.userState?.feedbackSentiment);
+}
+
+export function summarizeMbtiFeedbackCoverage(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.userState?.feedbackCoverage);
+}
+
+export function summarizeMbtiActionCompletionTendency(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.userState?.actionCompletionTendency);
+}
+
+export function summarizeMbtiLastDeepReadSection(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.userState?.lastDeepReadSection);
+}
+
+export function summarizeMbtiCurrentIntentCluster(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.userState?.currentIntentCluster);
+}
+
 export function summarizeMbtiOrderedSectionKeys(
   personalization?: MbtiResultPersonalizationViewModel | null
 ): string {

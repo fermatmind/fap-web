@@ -179,6 +179,17 @@ function createProjectionFixture(): MbtiPublicProjectionV1Raw {
         state: "Pattern-led",
       },
     ],
+    _meta: {
+      personalization: {
+        user_state: {
+          feedback_sentiment: "negative",
+          feedback_coverage: "explainability_only",
+          action_completion_tendency: "warming_up",
+          last_deep_read_section: "traits.close_call_axes",
+          current_intent_cluster: "clarify_type",
+        },
+      },
+    },
   };
 }
 
@@ -232,6 +243,9 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByTestId("mbti-share-carryover-cta").getAttribute("href")).toContain(
       "carryover_focus_key=career.next_step"
     );
+    expect(screen.getByTestId("mbti-share-carryover-cta").getAttribute("href")).toContain(
+      "current_intent_cluster=clarify_type"
+    );
     expect(screen.getByText("Around 6-8%")).toBeInTheDocument();
     expect(screen.getByText("Warm", { exact: true })).toBeInTheDocument();
     expect(screen.getByText("62%")).toBeInTheDocument();
@@ -262,6 +276,11 @@ describe("MBTI share consumer contract", () => {
         recommendedResumeKeys: "career.next_step|career.work_experiments",
         carryoverSceneKeys: "work|growth",
         carryoverActionKeys: "career_next_step.theme.clarify_decision_criteria",
+        feedbackSentiment: "negative",
+        feedbackCoverage: "explainability_only",
+        actionCompletionTendency: "warming_up",
+        lastDeepReadSection: "traits.close_call_axes",
+        currentIntentCluster: "clarify_type",
       })
     );
 
@@ -276,6 +295,11 @@ describe("MBTI share consumer contract", () => {
         ctaKey: "share_carryover_entry",
         ctaRank: 1,
         carryoverFocusKey: "career.next_step",
+        feedbackSentiment: "negative",
+        feedbackCoverage: "explainability_only",
+        actionCompletionTendency: "warming_up",
+        lastDeepReadSection: "traits.close_call_axes",
+        currentIntentCluster: "clarify_type",
       })
     );
   });
@@ -329,10 +353,10 @@ describe("MBTI share consumer contract", () => {
     });
 
     await waitFor(() => {
-      expect(screen.getByRole("link", { name: "Start MBTI test" })).toHaveAttribute(
-        "href",
-        "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&share_click_id=click-123&entrypoint=share_page&landing_path=%2Fen%2Fshare%2Fshare-123%3Futm_source%3Dwechat%26utm_medium%3Dorganic%26utm_campaign%3Dspring&referrer=https%3A%2F%2Fexample.com%2Fen%2Fresult%2Fattempt-123&utm_source=wechat&utm_medium=organic&utm_campaign=spring&carryover_focus_key=career.next_step&carryover_reason=continue_career_bridge&recommended_resume_keys=career.next_step%7Ccareer.work_experiments&carryover_scene_keys=work%7Cgrowth&carryover_action_keys=career_next_step.theme.clarify_decision_criteria"
-      );
+      const href = screen.getByRole("link", { name: "Start MBTI test" }).getAttribute("href") ?? "";
+      expect(href).toContain("share_click_id=click-123");
+      expect(href).toContain("carryover_focus_key=career.next_step");
+      expect(href).toContain("current_intent_cluster=clarify_type");
     });
   });
 

@@ -12,6 +12,11 @@ type MbtiPhase2FixtureOptions = {
   hasShare?: boolean;
   hasActionEngagement?: boolean;
   primaryFocusKey?: string;
+  feedbackSentiment?: string;
+  feedbackCoverage?: string;
+  actionCompletionTendency?: string;
+  lastDeepReadSection?: string;
+  currentIntentCluster?: string;
 };
 
 function normalizeText(...values: unknown[]): string {
@@ -130,6 +135,26 @@ const CHAPTER_SECTION_KEYS = {
   ],
 } as const;
 
+const ACTION_SECTION_KEYS = [
+  "growth.next_actions",
+  "growth.weekly_experiments",
+  "relationships.try_this_week",
+  "career.work_experiments",
+  "growth.watchouts",
+] as const;
+
+function isClarifySectionKey(sectionKey: string): boolean {
+  return sectionKey === "scene_fingerprint"
+    || sectionKey === "growth.stability_confidence"
+    || sectionKey.startsWith("traits.");
+}
+
+function isKnownSectionKey(sectionKey: string): boolean {
+  return Object.values(CHAPTER_SECTION_KEYS).some((chapterSections) =>
+    chapterSections.includes(sectionKey as never)
+  );
+}
+
 function buildOrderedSectionKeys(primaryFocusKey: string, secondaryFocusKeys: string[]): string[] {
   const ordered: string[] = [];
 
@@ -159,9 +184,48 @@ function resolvePrimaryFocusKey(input: {
   hasFeedback: boolean;
   hasActionEngagement: boolean;
   primaryFocusKey?: string;
+  feedbackSentiment: string;
+  feedbackCoverage: string;
+  actionCompletionTendency: string;
+  lastDeepReadSection: string;
+  currentIntentCluster: string;
 }): string {
   if (input.primaryFocusKey) {
     return input.primaryFocusKey;
+  }
+
+  if (
+    ["negative", "mixed"].includes(input.feedbackSentiment)
+    && ["scene_only", "explainability_only", "mixed"].includes(input.feedbackCoverage)
+  ) {
+    if (isKnownSectionKey(input.lastDeepReadSection) && isClarifySectionKey(input.lastDeepReadSection)) {
+      return input.lastDeepReadSection;
+    }
+
+    return "traits.close_call_axes";
+  }
+
+  if (input.currentIntentCluster === "career_move") {
+    return input.hasUnlock ? "career.work_experiments" : "career.next_step";
+  }
+
+  if (input.currentIntentCluster === "relationship_tuning") {
+    return "relationships.try_this_week";
+  }
+
+  if (
+    input.currentIntentCluster === "action_activation"
+    && ["repeatable", "committed"].includes(input.actionCompletionTendency)
+  ) {
+    if (ACTION_SECTION_KEYS.includes(input.lastDeepReadSection as (typeof ACTION_SECTION_KEYS)[number])) {
+      return input.lastDeepReadSection;
+    }
+
+    return input.hasUnlock ? "career.work_experiments" : "growth.weekly_experiments";
+  }
+
+  if (input.currentIntentCluster === "deep_reading" && isKnownSectionKey(input.lastDeepReadSection)) {
+    return input.lastDeepReadSection;
   }
 
   if (input.hasFeedback) {
@@ -179,10 +243,55 @@ function resolvePrimaryFocusKey(input: {
   return input.hasActionEngagement ? "growth.watchouts" : "growth.weekly_experiments";
 }
 
-function resolveSecondaryFocusKeys(isRevisit: boolean): string[] {
-  return isRevisit
-    ? ["career.work_experiments", "relationships.try_this_week"]
-    : ["traits.close_call_axes", "traits.adjacent_type_contrast"];
+function resolveSecondaryFocusKeys(input: {
+  isRevisit: boolean;
+  primaryFocusKey: string;
+  currentIntentCluster: string;
+  lastDeepReadSection: string;
+}): string[] {
+  const candidates: string[] = [];
+
+  if (isKnownSectionKey(input.lastDeepReadSection) && input.lastDeepReadSection !== input.primaryFocusKey) {
+    candidates.push(input.lastDeepReadSection);
+  }
+
+  const intentCandidates = (() => {
+    switch (input.currentIntentCluster) {
+      case "career_move":
+        return ["career.next_step", "growth.weekly_experiments", "relationships.try_this_week"];
+      case "relationship_tuning":
+        return ["relationships.communication_style", "growth.watchouts", "career.work_experiments"];
+      case "clarify_type":
+        return ["traits.adjacent_type_contrast", "growth.stability_confidence", "career.work_experiments"];
+      case "action_activation":
+        return ["growth.weekly_experiments", "career.work_experiments", "relationships.try_this_week"];
+      case "deep_reading":
+        return ["career.work_experiments", "traits.close_call_axes", "growth.watchouts"];
+      default:
+        return [];
+    }
+  })();
+
+  candidates.push(...intentCandidates);
+  candidates.push(
+    ...(input.isRevisit
+      ? ["career.work_experiments", "relationships.try_this_week", "growth.watchouts"]
+      : ["traits.close_call_axes", "traits.adjacent_type_contrast", "career.work_experiments"])
+  );
+
+  const selected: string[] = [];
+  for (const candidate of candidates) {
+    if (!isKnownSectionKey(candidate) || candidate === input.primaryFocusKey || selected.includes(candidate)) {
+      continue;
+    }
+
+    selected.push(candidate);
+    if (selected.length >= 2) {
+      break;
+    }
+  }
+
+  return selected;
 }
 
 function resolveCtaPriorityKeys(input: {
@@ -191,7 +300,35 @@ function resolveCtaPriorityKeys(input: {
   hasFeedback: boolean;
   hasShare: boolean;
   hasActionEngagement: boolean;
+  feedbackSentiment: string;
+  actionCompletionTendency: string;
+  currentIntentCluster: string;
+  primaryFocusKey: string;
 }): string[] {
+  if (input.currentIntentCluster === "career_move" || input.primaryFocusKey.startsWith("career.")) {
+    return input.hasUnlock
+      ? ["career_bridge", "workspace_lite", "share_result"]
+      : ["career_bridge", "unlock_full_report", "share_result"];
+  }
+
+  if (
+    input.currentIntentCluster === "clarify_type"
+    || ["negative", "mixed"].includes(input.feedbackSentiment)
+  ) {
+    return input.hasUnlock
+      ? ["workspace_lite", "career_bridge", "share_result"]
+      : ["unlock_full_report", "share_result", "career_bridge"];
+  }
+
+  if (
+    input.currentIntentCluster === "action_activation"
+    && ["repeatable", "committed"].includes(input.actionCompletionTendency)
+  ) {
+    return input.hasUnlock
+      ? ["workspace_lite", "career_bridge", "share_result"]
+      : ["career_bridge", "unlock_full_report", "share_result"];
+  }
+
   if (!input.hasUnlock) {
     if (input.isRevisit && (input.hasFeedback || input.hasShare)) {
       return ["career_bridge", "unlock_full_report", "share_result"];
@@ -460,6 +597,13 @@ export function applyMbtiPhase2Fixture(
   const hasFeedback = options.hasFeedback ?? false;
   const hasShare = options.hasShare ?? false;
   const hasActionEngagement = options.hasActionEngagement ?? false;
+  const feedbackSentiment = options.feedbackSentiment ?? "none";
+  const feedbackCoverage = options.feedbackCoverage ?? "none";
+  const actionCompletionTendency =
+    options.actionCompletionTendency
+    ?? (hasActionEngagement ? (isRevisit ? "repeatable" : "warming_up") : hasUnlock ? "available" : "idle");
+  const lastDeepReadSection = options.lastDeepReadSection ?? "";
+  const currentIntentCluster = options.currentIntentCluster ?? "default";
 
   const eiAxis = {
     axis: "EI",
@@ -619,14 +763,28 @@ export function applyMbtiPhase2Fixture(
     hasFeedback,
     hasActionEngagement,
     primaryFocusKey: options.primaryFocusKey,
+    feedbackSentiment,
+    feedbackCoverage,
+    actionCompletionTendency,
+    lastDeepReadSection,
+    currentIntentCluster,
   });
-  const secondaryFocusKeys = resolveSecondaryFocusKeys(isRevisit);
+  const secondaryFocusKeys = resolveSecondaryFocusKeys({
+    isRevisit,
+    primaryFocusKey,
+    currentIntentCluster,
+    lastDeepReadSection,
+  });
   const ctaPriorityKeys = resolveCtaPriorityKeys({
     hasUnlock,
     isRevisit,
     hasFeedback,
     hasShare,
     hasActionEngagement,
+    feedbackSentiment,
+    actionCompletionTendency,
+    currentIntentCluster,
+    primaryFocusKey,
   });
   const orderedSectionKeys = buildOrderedSectionKeys(primaryFocusKey, secondaryFocusKeys);
   const carryoverReason = resolveCarryoverReason({
@@ -653,7 +811,7 @@ export function applyMbtiPhase2Fixture(
   reportData.access_level = hasUnlock ? "full" : "preview";
 
   const personalization = {
-    schema_version: "mbti.personalization.phase8b.v1",
+    schema_version: "mbti.personalization.phase8c.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
@@ -851,6 +1009,11 @@ export function applyMbtiPhase2Fixture(
       has_feedback: hasFeedback,
       has_share: hasShare,
       has_action_engagement: hasActionEngagement,
+      feedback_sentiment: feedbackSentiment,
+      feedback_coverage: feedbackCoverage,
+      action_completion_tendency: actionCompletionTendency,
+      last_deep_read_section: lastDeepReadSection,
+      current_intent_cluster: currentIntentCluster,
     },
     orchestration: {
       ordered_section_keys: orderedSectionKeys,
@@ -893,7 +1056,7 @@ export function applyMbtiPhase2Fixture(
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase8b.v1",
+    dynamic_sections_version: "phase8c.v1",
   };
 
   if (reportData.report) {
