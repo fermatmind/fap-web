@@ -107,10 +107,12 @@ describe("RichResultReport", () => {
       expect(orderedChapters[index].compareDocumentPosition(orderedChapters[index + 1]) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     }
     const relationships = screen.getByTestId("mbti-chapter-relationships");
+    const careerNextStep = screen.getByTestId("mbti-career-next-step");
     const reads = screen.getByTestId("mbti-recommended-reads");
     const offers = screen.getByTestId("mbti-offer-comparison");
-    expect(relationships.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(reads.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(relationships.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(offers.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(careerNextStep.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 
     const hero = screen.getByTestId("mbti-hero");
     expect(within(hero).getByRole("heading", { name: /ENFP-T/ })).toBeInTheDocument();
@@ -317,10 +319,10 @@ describe("RichResultReport", () => {
     expect(within(screen.getByTestId("mbti-sticky-rail")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-mobile-chrome")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-footer-cta")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
-    expect(screen.getByText("Legacy recommended read remains visible")).toBeInTheDocument();
+    expect(screen.getByText("Action experiments that keep the result moving")).toBeInTheDocument();
     expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("link", { name: "Read the authored note" }));
+    fireEvent.click(screen.getByRole("link", { name: "Read the action note" }));
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
       expect.objectContaining({

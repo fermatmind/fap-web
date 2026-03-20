@@ -122,36 +122,36 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
           ];
           report.recommended_reads = [
             {
-              id: "read-1",
+              id: "read-action",
               type: "article",
-              title: "Career environment alignment",
-              desc: "Read the work-environment cues that match this profile.",
-              url: "https://example.com/read-1",
-              cta: "Read the career note",
+              title: "Action experiments that keep the result moving",
+              desc: "Start with a small weekly experiment that turns this profile into action.",
+              url: "https://example.com/read-action",
+              cta: "Read the action note",
               priority: 10,
-              tags: ["career"],
-              estimated_minutes: 7,
+              tags: ["action", "growth"],
+              estimated_minutes: 5,
               status: "published",
               published_at: "2026-03-01T00:00:00Z",
               updated_at: "2026-03-02T00:00:00Z",
-              canonical_id: "career-read-1",
-              canonical_url: "https://example.com/read-1",
+              canonical_id: "read-action",
+              canonical_url: "https://example.com/read-action",
             },
             {
-              id: "read-2",
+              id: "read-career",
               type: "article",
-              title: "Relationship boundary reading",
-              desc: "Read the interaction patterns and boundaries next.",
-              url: "https://example.com/read-2",
-              cta: "Read the relationship note",
+              title: "Career environment alignment",
+              desc: "Continue with the work and role-fit cues that match this profile.",
+              url: "https://example.com/read-career",
+              cta: "Read the career note",
               priority: 20,
-              tags: ["relationships"],
-              estimated_minutes: 5,
+              tags: ["career", "work"],
+              estimated_minutes: 7,
               status: "published",
               published_at: "2026-03-03T00:00:00Z",
               updated_at: "2026-03-04T00:00:00Z",
-              canonical_id: "relationship-read-1",
-              canonical_url: "https://example.com/read-2",
+              canonical_id: "read-career",
+              canonical_url: "https://example.com/read-career",
             },
           ];
         })
@@ -300,6 +300,26 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     /\/en\/career\/recommendations\/mbti\/enfp-t\?.*carryover_focus_key=growth.next_actions/
   );
   await expect(page.getByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
+  await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+    "data-recommendation-key",
+    "read-action"
+  );
+  await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+    "data-reading-focus",
+    "true"
+  );
+  await expect(page.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute(
+    "data-recommendation-key",
+    "read-career"
+  );
+  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+    "data-action-rank",
+    "1"
+  );
+  await expect(page.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
+    "data-action-rank",
+    "2"
+  );
 
   const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
   expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
@@ -326,14 +346,14 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     }
 
     return Boolean(
-      (relationships.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING) &&
-        (careerNextStep.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING) &&
-        (reads.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING)
+      (relationships.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+        (offers.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+        (careerNextStep.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING)
     );
   });
   expect(sectionsAreOrdered).toBe(true);
+  await expect(page.getByRole("link", { name: "Read the action note" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Read the career note" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Read the relationship note" })).toBeVisible();
   await expect(page.getByTestId("mbti-scene-feedback")).toHaveAttribute("data-feedback-state", "idle");
   await page.getByRole("button", { name: "Feels accurate" }).click();
   await expect(page.getByTestId("mbti-scene-feedback")).toHaveAttribute("data-feedback-state", "accurate");

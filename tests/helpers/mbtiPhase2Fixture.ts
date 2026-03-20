@@ -257,6 +257,131 @@ function resolveCarryoverSceneKeys(primaryFocusKey: string): string[] {
   return ["growth", "work"];
 }
 
+function resolveOrderedRecommendationKeys(primaryFocusKey: string): string[] {
+  if (primaryFocusKey.startsWith("career.")) {
+    return ["read-career", "read-action", "read-explain", "read-relationship"];
+  }
+
+  if (primaryFocusKey.startsWith("relationships.")) {
+    return ["read-relationship", "read-action", "read-career", "read-explain"];
+  }
+
+  if (
+    primaryFocusKey === "growth.stability_confidence"
+    || primaryFocusKey === "growth.watchouts"
+    || primaryFocusKey.startsWith("traits.")
+  ) {
+    return ["read-explain", "read-action", "read-career", "read-relationship"];
+  }
+
+  return ["read-action", "read-career", "read-relationship", "read-explain"];
+}
+
+function resolveOrderedActionKeys(primaryFocusKey: string): string[] {
+  if (primaryFocusKey.startsWith("career.")) {
+    return [
+      "work_experiment.theme.name_decision_rule",
+      "weekly_action.theme.name_decision_rule",
+      "relationship_action.theme.name_decision_rule",
+      "watchout.stability.context_sensitive",
+    ];
+  }
+
+  if (primaryFocusKey.startsWith("relationships.")) {
+    return [
+      "relationship_action.theme.name_decision_rule",
+      "weekly_action.theme.name_decision_rule",
+      "work_experiment.theme.name_decision_rule",
+      "watchout.stability.context_sensitive",
+    ];
+  }
+
+  if (primaryFocusKey === "growth.stability_confidence" || primaryFocusKey === "growth.watchouts") {
+    return [
+      "watchout.stability.context_sensitive",
+      "weekly_action.theme.name_decision_rule",
+      "work_experiment.theme.name_decision_rule",
+      "relationship_action.theme.name_decision_rule",
+    ];
+  }
+
+  return [
+    "weekly_action.theme.name_decision_rule",
+    "work_experiment.theme.name_decision_rule",
+    "relationship_action.theme.name_decision_rule",
+    "watchout.stability.context_sensitive",
+  ];
+}
+
+function buildRecommendedReads(): Array<Record<string, unknown>> {
+  return [
+    {
+      id: "read-action",
+      canonical_id: "read-action",
+      type: "article",
+      title: "Action experiments that keep the result moving",
+      desc: "Start with a small weekly experiment that turns this profile into action.",
+      url: "https://example.com/read-action",
+      canonical_url: "https://example.com/read-action",
+      cta: "Read the action note",
+      priority: 10,
+      tags: ["action", "growth"],
+      estimated_minutes: 5,
+      status: "published",
+      published_at: "2026-03-01T00:00:00Z",
+      updated_at: "2026-03-02T00:00:00Z",
+    },
+    {
+      id: "read-career",
+      canonical_id: "read-career",
+      type: "article",
+      title: "Career environment alignment",
+      desc: "Continue with the work and role-fit cues that match this profile.",
+      url: "https://example.com/read-career",
+      canonical_url: "https://example.com/read-career",
+      cta: "Read the career note",
+      priority: 20,
+      tags: ["career", "work"],
+      estimated_minutes: 7,
+      status: "published",
+      published_at: "2026-03-03T00:00:00Z",
+      updated_at: "2026-03-04T00:00:00Z",
+    },
+    {
+      id: "read-relationship",
+      canonical_id: "read-relationship",
+      type: "article",
+      title: "Relationship boundary reading",
+      desc: "Read the interaction patterns and boundary cues to use this week.",
+      url: "https://example.com/read-relationship",
+      canonical_url: "https://example.com/read-relationship",
+      cta: "Read the relationship note",
+      priority: 30,
+      tags: ["relationships", "communication"],
+      estimated_minutes: 6,
+      status: "published",
+      published_at: "2026-03-05T00:00:00Z",
+      updated_at: "2026-03-06T00:00:00Z",
+    },
+    {
+      id: "read-explain",
+      canonical_id: "read-explain",
+      type: "article",
+      title: "Why this type still fits",
+      desc: "Read the borderline and explainability layer before changing anything.",
+      url: "https://example.com/read-explain",
+      canonical_url: "https://example.com/read-explain",
+      cta: "Read the explainability note",
+      priority: 40,
+      tags: ["explainability", "stability", "mbti"],
+      estimated_minutes: 8,
+      status: "published",
+      published_at: "2026-03-07T00:00:00Z",
+      updated_at: "2026-03-08T00:00:00Z",
+    },
+  ];
+}
+
 function createProjectionSectionShell(key: string): Record<string, unknown> {
   return {
     key,
@@ -519,9 +644,16 @@ export function applyMbtiPhase2Fixture(
   const recommendedResumeKeys = Array.from(
     new Set([primaryFocusKey, ...secondaryFocusKeys, "career.next_step"].filter(Boolean))
   );
+  const orderedRecommendationKeys = resolveOrderedRecommendationKeys(primaryFocusKey);
+  const orderedActionKeys = resolveOrderedActionKeys(primaryFocusKey);
+  const recommendedReads = buildRecommendedReads();
+
+  reportData.locked = hasUnlock ? false : true;
+  reportData.variant = hasUnlock ? "full" : "free";
+  reportData.access_level = hasUnlock ? "full" : "preview";
 
   const personalization = {
-    schema_version: "mbti.personalization.phase8a.v1",
+    schema_version: "mbti.personalization.phase8b.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
@@ -706,6 +838,12 @@ export function applyMbtiPhase2Fixture(
     relationship_action_keys: relationshipActionKeys,
     work_experiment_keys: workExperimentKeys,
     watchout_keys: watchoutKeys,
+    ordered_recommendation_keys: orderedRecommendationKeys,
+    ordered_action_keys: orderedActionKeys,
+    recommendation_priority_keys: orderedRecommendationKeys.slice(0, 3),
+    action_priority_keys: orderedActionKeys.slice(0, 4),
+    reading_focus_key: orderedRecommendationKeys[0] ?? "",
+    action_focus_key: orderedActionKeys[0] ?? "",
     user_state: {
       is_first_view: !isRevisit,
       is_revisit: isRevisit,
@@ -755,9 +893,12 @@ export function applyMbtiPhase2Fixture(
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase8a.v1",
+    dynamic_sections_version: "phase8b.v1",
   };
 
+  if (reportData.report) {
+    reportData.report.recommended_reads = structuredClone(recommendedReads);
+  }
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
   getReportMeta(reportData).personalization = structuredClone(personalization);
 

@@ -182,6 +182,12 @@ export type MbtiResultPersonalizationViewModel = {
   relationshipActionKeys: string[];
   workExperimentKeys: string[];
   watchoutKeys: string[];
+  orderedRecommendationKeys: string[];
+  orderedActionKeys: string[];
+  recommendationPriorityKeys: string[];
+  actionPriorityKeys: string[];
+  readingFocusKey: string;
+  actionFocusKey: string;
   userState: MbtiUserStateViewModel | null;
   orchestration: MbtiOrchestrationViewModel | null;
   continuity: MbtiContinuityViewModel | null;
@@ -592,6 +598,12 @@ function normalizePersonalization(
     relationshipActionKeys: normalizeStringArray(personalization.relationship_action_keys),
     workExperimentKeys: normalizeStringArray(personalization.work_experiment_keys),
     watchoutKeys: normalizeStringArray(personalization.watchout_keys),
+    orderedRecommendationKeys: normalizeStringArray(personalization.ordered_recommendation_keys),
+    orderedActionKeys: normalizeStringArray(personalization.ordered_action_keys),
+    recommendationPriorityKeys: normalizeStringArray(personalization.recommendation_priority_keys),
+    actionPriorityKeys: normalizeStringArray(personalization.action_priority_keys),
+    readingFocusKey: normalizeText(personalization.reading_focus_key),
+    actionFocusKey: normalizeText(personalization.action_focus_key),
     userState: userStateRecord
       ? {
           isFirstView: userStateRecord.is_first_view === true,

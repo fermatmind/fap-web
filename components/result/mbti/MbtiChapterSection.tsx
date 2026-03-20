@@ -15,6 +15,7 @@ import type {
   MbtiResultProjectionSectionViewModel,
 } from "@/lib/mbti/publicProjection";
 import {
+  summarizeMbtiActionPriorityKeys,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
   summarizeMbtiCarryoverActionKeys,
@@ -23,7 +24,10 @@ import {
   summarizeMbtiCloseCallAxes,
   summarizeMbtiCtaPriorityKeys,
   summarizeMbtiNeighborTypeKeys,
+  summarizeMbtiOrderedActionKeys,
+  summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
+  summarizeMbtiRecommendationPriorityKeys,
   summarizeMbtiSceneFingerprint,
   summarizeMbtiSecondaryFocusKeys,
   summarizeMbtiUserState,
@@ -235,6 +239,9 @@ function buildSectionTelemetryPayload(
   const personalizationPayload = asRecord(payload?.personalization);
   const overviewVariantKey =
     normalizeText(personalization?.variantKeys.overview, section.variantKey) || section.variantKey;
+  const actionKey = normalizeText(personalizationPayload?.action_key);
+  const orderedActionKeys = personalization?.orderedActionKeys ?? [];
+  const actionRank = actionKey ? orderedActionKeys.findIndex((key) => key === actionKey) + 1 : 0;
 
   return {
     slug: "mbti-result-shell",
@@ -244,7 +251,8 @@ function buildSectionTelemetryPayload(
     sectionKey: section.key,
     sceneKey: normalizeText(personalizationPayload?.scene_key, section.key.split(".")[0]),
     styleKey: normalizeText(personalizationPayload?.style_key),
-    actionKey: normalizeText(personalizationPayload?.action_key),
+    actionKey,
+    actionRank,
     variantKey: normalizeText(section.variantKey),
     contrastKey: normalizeText(
       personalizationPayload?.contrast_key,
@@ -264,6 +272,12 @@ function buildSectionTelemetryPayload(
     primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
     secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
     orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+    orderedRecommendationKeys: summarizeMbtiOrderedRecommendationKeys(personalization),
+    orderedActionKeys: summarizeMbtiOrderedActionKeys(personalization),
+    recommendationPriorityKeys: summarizeMbtiRecommendationPriorityKeys(personalization),
+    actionPriorityKeys: summarizeMbtiActionPriorityKeys(personalization),
+    readingFocusKey: normalizeText(personalization?.readingFocusKey),
+    actionFocusKey: normalizeText(personalization?.actionFocusKey),
     ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
     carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
     carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
@@ -646,6 +660,7 @@ function renderProjectionSection(
     feedback,
     sectionKey: section.key,
     actionKey: telemetryPayload.actionKey,
+    actionRank: telemetryPayload.actionRank,
     contrastKey: telemetryPayload.contrastKey,
     neighborTypeKeys: telemetryPayload.neighborTypeKeys,
     closeCallAxes: telemetryPayload.closeCallAxes,
@@ -661,6 +676,12 @@ function renderProjectionSection(
     primaryFocusKey: telemetryPayload.primaryFocusKey,
     secondaryFocusKeys: telemetryPayload.secondaryFocusKeys,
     orderedSectionKeys: telemetryPayload.orderedSectionKeys,
+    orderedRecommendationKeys: telemetryPayload.orderedRecommendationKeys,
+    orderedActionKeys: telemetryPayload.orderedActionKeys,
+    recommendationPriorityKeys: telemetryPayload.recommendationPriorityKeys,
+    actionPriorityKeys: telemetryPayload.actionPriorityKeys,
+    readingFocusKey: telemetryPayload.readingFocusKey,
+    actionFocusKey: telemetryPayload.actionFocusKey,
     ctaPriorityKeys: telemetryPayload.ctaPriorityKeys,
     carryoverFocusKey: telemetryPayload.carryoverFocusKey,
     carryoverReason: telemetryPayload.carryoverReason,
@@ -720,6 +741,7 @@ function renderProjectionSection(
       data-section-key={section.key}
       data-variant-key={section.variantKey || undefined}
       data-action-key={normalizeText(telemetryPayload.actionKey) || undefined}
+      data-action-rank={telemetryPayload.actionRank > 0 ? String(telemetryPayload.actionRank) : undefined}
       data-contrast-key={normalizeText(telemetryPayload.contrastKey) || undefined}
       data-primary-focus={options?.isPrimaryFocus === true ? "true" : undefined}
       data-display-order={options?.displayOrder ?? undefined}

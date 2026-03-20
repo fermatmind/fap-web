@@ -118,6 +118,30 @@ export function summarizeMbtiCtaPriorityKeys(
   return (personalization?.orchestration?.ctaPriorityKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
 }
 
+export function summarizeMbtiOrderedRecommendationKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.orderedRecommendationKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiOrderedActionKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.orderedActionKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiRecommendationPriorityKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.recommendationPriorityKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiActionPriorityKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.actionPriorityKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
 export function summarizeMbtiCarryoverResumeKeys(
   personalization?: MbtiResultPersonalizationViewModel | null
 ): string {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { type MouseEvent as ReactMouseEvent, useCallback, useEffect, useRef, useState } from "react";
+import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
@@ -45,13 +45,17 @@ import {
   type MbtiResultProjectionViewModel,
 } from "@/lib/mbti/publicProjection";
 import {
+  summarizeMbtiActionPriorityKeys,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
   summarizeMbtiCarryoverActionKeys,
   summarizeMbtiCarryoverResumeKeys,
   summarizeMbtiCarryoverSceneKeys,
   summarizeMbtiCtaPriorityKeys,
+  summarizeMbtiOrderedActionKeys,
+  summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
+  summarizeMbtiRecommendationPriorityKeys,
   summarizeMbtiSceneFingerprint,
   summarizeMbtiSecondaryFocusKeys,
   summarizeMbtiUserState,
@@ -241,6 +245,12 @@ function buildCareerBridgeTelemetryPayload(
     primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
     secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
     orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+    orderedRecommendationKeys: summarizeMbtiOrderedRecommendationKeys(personalization),
+    orderedActionKeys: summarizeMbtiOrderedActionKeys(personalization),
+    recommendationPriorityKeys: summarizeMbtiRecommendationPriorityKeys(personalization),
+    actionPriorityKeys: summarizeMbtiActionPriorityKeys(personalization),
+    readingFocusKey: normalizeText(personalization?.readingFocusKey),
+    actionFocusKey: normalizeText(personalization?.actionFocusKey),
     ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
     carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
     carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
@@ -311,6 +321,76 @@ function sortProjectionSectionsByOrder(
     }
 
     return leftRank - rightRank;
+  });
+}
+
+function resolveProjectionSectionActionKey(section: MbtiResultProjectionSectionViewModel): string {
+  const payload = asRecord(section.payload);
+  const personalizationPayload = asRecord(payload?.personalization);
+
+  return normalizeText(personalizationPayload?.action_key);
+}
+
+function sortProjectionSectionsByActionOrder(
+  sections: MbtiResultProjectionSectionViewModel[],
+  orderedActionKeys: string[]
+): MbtiResultProjectionSectionViewModel[] {
+  if (orderedActionKeys.length === 0 || sections.length <= 1) {
+    return sections;
+  }
+
+  const orderMap = new Map(orderedActionKeys.map((key, index) => [key, index] as const));
+
+  return [...sections].sort((left, right) => {
+    const leftActionKey = resolveProjectionSectionActionKey(left);
+    const rightActionKey = resolveProjectionSectionActionKey(right);
+
+    if (!leftActionKey || !rightActionKey) {
+      return 0;
+    }
+
+    const leftRank = orderMap.get(leftActionKey);
+    const rightRank = orderMap.get(rightActionKey);
+
+    if (leftRank === undefined && rightRank === undefined) {
+      return 0;
+    }
+
+    if (leftRank === undefined) {
+      return 1;
+    }
+
+    if (rightRank === undefined) {
+      return -1;
+    }
+
+    return leftRank - rightRank;
+  });
+}
+
+function sortProjectionSectionsForChapter(
+  sections: MbtiResultProjectionSectionViewModel[],
+  orderedSectionKeys: string[],
+  orderedActionKeys: string[]
+): MbtiResultProjectionSectionViewModel[] {
+  const orderedSections = sortProjectionSectionsByOrder(sections, orderedSectionKeys);
+  const orderedActionSections = sortProjectionSectionsByActionOrder(
+    orderedSections.filter((section) => resolveProjectionSectionActionKey(section)),
+    orderedActionKeys
+  );
+
+  if (orderedActionSections.length <= 1) {
+    return orderedSections;
+  }
+
+  const queuedActionSections = [...orderedActionSections];
+
+  return orderedSections.map((section) => {
+    if (!resolveProjectionSectionActionKey(section)) {
+      return section;
+    }
+
+    return queuedActionSections.shift() ?? section;
   });
 }
 
@@ -584,6 +664,10 @@ export function MbtiResultShell({
   const userStateSummary = summarizeMbtiUserState(personalization);
   const secondaryFocusKeysSummary = summarizeMbtiSecondaryFocusKeys(personalization);
   const orderedSectionKeysSummary = summarizeMbtiOrderedSectionKeys(personalization);
+  const orderedRecommendationKeysSummary = summarizeMbtiOrderedRecommendationKeys(personalization);
+  const orderedActionKeysSummary = summarizeMbtiOrderedActionKeys(personalization);
+  const recommendationPriorityKeysSummary = summarizeMbtiRecommendationPriorityKeys(personalization);
+  const actionPriorityKeysSummary = summarizeMbtiActionPriorityKeys(personalization);
   const ctaPriorityKeysSummary = summarizeMbtiCtaPriorityKeys(personalization);
   const recommendedResumeKeysSummary = summarizeMbtiCarryoverResumeKeys(personalization);
   const carryoverSceneKeysSummary = summarizeMbtiCarryoverSceneKeys(personalization);
@@ -604,7 +688,10 @@ export function MbtiResultShell({
     ?? null;
   const primaryFocusKey = normalizeText(personalization?.orchestration?.primaryFocusKey);
   const orderedSectionKeys = personalization?.orchestration?.orderedSectionKeys ?? [];
+  const orderedActionKeys = personalization?.orderedActionKeys ?? [];
   const ctaPriorityKeys = personalization?.orchestration?.ctaPriorityKeys ?? [];
+  const readingFocusKey = normalizeText(personalization?.readingFocusKey);
+  const actionFocusKey = normalizeText(personalization?.actionFocusKey);
   const carryoverFocusKey = normalizeText(personalization?.continuity?.carryoverFocusKey);
   const carryoverReason = normalizeText(personalization?.continuity?.carryoverReason);
   const continuityCareerHref = careerRecommendationHref
@@ -641,7 +728,36 @@ export function MbtiResultShell({
   ].includes(primaryFocusKey);
   const unlockCtaRank = resolveCtaRank(ctaPriorityKeys, "unlock_full_report");
   const careerBridgeCtaRank = resolveCtaRank(ctaPriorityKeys, "career_bridge");
+  const workspaceLiteCtaRank = resolveCtaRank(ctaPriorityKeys, "workspace_lite");
   const shareCtaRank = resolveCtaRank(ctaPriorityKeys, "share_result");
+  const personalizationTelemetryContext = {
+    typeCode: personalizationTypeCode,
+    identity: personalizationIdentity,
+    variantKey: overviewVariantKey,
+    variantKeys: variantKeysSummary,
+    sceneFingerprint: sceneFingerprintSummary,
+    boundaryFlags: boundaryFlagsSummary,
+    axisBands: axisBandsSummary,
+    packId: personalizationPackId,
+    engineVersion: personalizationEngineVersion,
+    userState: userStateSummary,
+    primaryFocusKey,
+    secondaryFocusKeys: secondaryFocusKeysSummary,
+    orderedSectionKeys: orderedSectionKeysSummary,
+    orderedRecommendationKeys: orderedRecommendationKeysSummary,
+    orderedActionKeys: orderedActionKeysSummary,
+    recommendationPriorityKeys: recommendationPriorityKeysSummary,
+    actionPriorityKeys: actionPriorityKeysSummary,
+    readingFocusKey,
+    actionFocusKey,
+    ctaPriorityKeys: ctaPriorityKeysSummary,
+    carryoverFocusKey,
+    carryoverReason,
+    recommendedResumeKeys: recommendedResumeKeysSummary,
+    carryoverSceneKeys: carryoverSceneKeysSummary,
+    carryoverActionKeys: carryoverActionKeysSummary,
+    locale,
+  };
 
   const cancelScheduledOfferScroll = useCallback(() => {
     if (offerScrollFrameRef.current === null || typeof window === "undefined") {
@@ -751,26 +867,7 @@ export function MbtiResultShell({
       attempt_id: attemptId,
       attemptIdMasked: maskIdentifier(attemptId),
       locked: reportData.locked === true,
-      typeCode: personalizationTypeCode,
-      identity: personalizationIdentity,
-      variantKey: overviewVariantKey,
-      variantKeys: variantKeysSummary,
-      sceneFingerprint: sceneFingerprintSummary,
-      boundaryFlags: boundaryFlagsSummary,
-      axisBands: axisBandsSummary,
-      packId: personalizationPackId,
-      engineVersion: personalizationEngineVersion,
-      userState: userStateSummary,
-      primaryFocusKey,
-      secondaryFocusKeys: secondaryFocusKeysSummary,
-      orderedSectionKeys: orderedSectionKeysSummary,
-      ctaPriorityKeys: ctaPriorityKeysSummary,
-      carryoverFocusKey,
-      carryoverReason,
-      recommendedResumeKeys: recommendedResumeKeysSummary,
-      carryoverSceneKeys: carryoverSceneKeysSummary,
-      carryoverActionKeys: carryoverActionKeysSummary,
-      locale,
+      ...personalizationTelemetryContext,
     };
 
     trackEvent("view_result", basePayload);
@@ -788,6 +885,8 @@ export function MbtiResultShell({
     window.sessionStorage.setItem(revisitStorageKey, "1");
   }, [
     attemptId,
+    actionFocusKey,
+    actionPriorityKeysSummary,
     axisBandsSummary,
     boundaryFlagsSummary,
     ctaPriorityKeysSummary,
@@ -795,11 +894,15 @@ export function MbtiResultShell({
     locale,
     overviewVariantKey,
     orderedSectionKeysSummary,
+    orderedActionKeysSummary,
+    orderedRecommendationKeysSummary,
     personalizationEngineVersion,
     personalizationIdentity,
     personalizationPackId,
     personalizationTypeCode,
     primaryFocusKey,
+    readingFocusKey,
+    recommendationPriorityKeysSummary,
     reportData.locked,
     sceneFingerprintSummary,
     secondaryFocusKeysSummary,
@@ -840,25 +943,7 @@ export function MbtiResultShell({
       visual_kind: "mbti_carryover_entry",
       attempt_id: attemptId,
       continueTarget: carryoverTarget,
-      userState: userStateSummary,
-      primaryFocusKey,
-      secondaryFocusKeys: secondaryFocusKeysSummary,
-      orderedSectionKeys: orderedSectionKeysSummary,
-      ctaPriorityKeys: ctaPriorityKeysSummary,
-      carryoverFocusKey,
-      carryoverReason,
-      recommendedResumeKeys: recommendedResumeKeysSummary,
-      carryoverSceneKeys: carryoverSceneKeysSummary,
-      carryoverActionKeys: carryoverActionKeysSummary,
-      variantKeys: variantKeysSummary,
-      sceneFingerprint: sceneFingerprintSummary,
-      boundaryFlags: boundaryFlagsSummary,
-      axisBands: axisBandsSummary,
-      typeCode: personalizationTypeCode,
-      identity: personalizationIdentity,
-      packId: personalizationPackId,
-      engineVersion: personalizationEngineVersion,
-      locale,
+      ...personalizationTelemetryContext,
     });
   }, [
     attemptId,
@@ -872,13 +957,19 @@ export function MbtiResultShell({
     carryoverTarget,
     ctaPriorityKeysSummary,
     locale,
+    orderedActionKeysSummary,
+    orderedRecommendationKeysSummary,
     orderedSectionKeysSummary,
     personalizationEngineVersion,
     personalizationIdentity,
     personalizationPackId,
     personalizationTypeCode,
     primaryFocusKey,
+    readingFocusKey,
+    actionFocusKey,
+    actionPriorityKeysSummary,
     recommendedResumeKeysSummary,
+    recommendationPriorityKeysSummary,
     sceneFingerprintSummary,
     secondaryFocusKeysSummary,
     userStateSummary,
@@ -916,29 +1007,10 @@ export function MbtiResultShell({
         trackEvent("share_result", {
           attempt_id: attemptId,
           attemptIdMasked: maskIdentifier(attemptId),
-          typeCode: personalizationTypeCode,
-          identity: personalizationIdentity,
-          variantKey: overviewVariantKey,
-          variantKeys: variantKeysSummary,
-          sceneFingerprint: sceneFingerprintSummary,
-          boundaryFlags: boundaryFlagsSummary,
-          axisBands: axisBandsSummary,
-          packId: personalizationPackId,
-          engineVersion: personalizationEngineVersion,
-          userState: userStateSummary,
-          primaryFocusKey,
-          secondaryFocusKeys: secondaryFocusKeysSummary,
-          orderedSectionKeys: orderedSectionKeysSummary,
-          ctaPriorityKeys: ctaPriorityKeysSummary,
-          carryoverFocusKey,
-          carryoverReason,
-          recommendedResumeKeys: recommendedResumeKeysSummary,
-          carryoverSceneKeys: carryoverSceneKeysSummary,
-          carryoverActionKeys: carryoverActionKeysSummary,
+          ...personalizationTelemetryContext,
           ctaKey: "share_result",
           ctaRank: shareCtaRank,
           shareMethod: "native",
-          locale,
         });
         setShareStatus("idle");
         return;
@@ -949,29 +1021,10 @@ export function MbtiResultShell({
         trackEvent("share_result", {
           attempt_id: attemptId,
           attemptIdMasked: maskIdentifier(attemptId),
-          typeCode: personalizationTypeCode,
-          identity: personalizationIdentity,
-          variantKey: overviewVariantKey,
-          variantKeys: variantKeysSummary,
-          sceneFingerprint: sceneFingerprintSummary,
-          boundaryFlags: boundaryFlagsSummary,
-          axisBands: axisBandsSummary,
-          packId: personalizationPackId,
-          engineVersion: personalizationEngineVersion,
-          userState: userStateSummary,
-          primaryFocusKey,
-          secondaryFocusKeys: secondaryFocusKeysSummary,
-          orderedSectionKeys: orderedSectionKeysSummary,
-          ctaPriorityKeys: ctaPriorityKeysSummary,
-          carryoverFocusKey,
-          carryoverReason,
-          recommendedResumeKeys: recommendedResumeKeysSummary,
-          carryoverSceneKeys: carryoverSceneKeysSummary,
-          carryoverActionKeys: carryoverActionKeysSummary,
+          ...personalizationTelemetryContext,
           ctaKey: "share_result",
           ctaRank: shareCtaRank,
           shareMethod: "clipboard",
-          locale,
         });
         setShareStatus("copied");
         return;
@@ -1015,28 +1068,9 @@ export function MbtiResultShell({
           ?? (typeof fullRawOffer?.price_cents === "number"
             ? `${fullRawOffer.currency ?? ""} ${fullRawOffer.price_cents}`
             : ""),
-        typeCode: personalizationTypeCode,
-        identity: personalizationIdentity,
-        variantKey: overviewVariantKey,
-        variantKeys: variantKeysSummary,
-        sceneFingerprint: sceneFingerprintSummary,
-        boundaryFlags: boundaryFlagsSummary,
-        axisBands: axisBandsSummary,
-        packId: personalizationPackId,
-        engineVersion: personalizationEngineVersion,
-        userState: userStateSummary,
-        primaryFocusKey,
-        secondaryFocusKeys: secondaryFocusKeysSummary,
-        orderedSectionKeys: orderedSectionKeysSummary,
-        ctaPriorityKeys: ctaPriorityKeysSummary,
-        carryoverFocusKey,
-        carryoverReason,
-        recommendedResumeKeys: recommendedResumeKeysSummary,
-        carryoverSceneKeys: carryoverSceneKeysSummary,
-        carryoverActionKeys: carryoverActionKeysSummary,
+        ...personalizationTelemetryContext,
         ctaKey: "unlock_full_report",
         ctaRank: unlockCtaRank,
-        locale,
       });
 
       const checkout = await createCheckoutOrOrder({
@@ -1091,28 +1125,9 @@ export function MbtiResultShell({
         attemptIdMasked: maskIdentifier(attemptId),
         orderNoMasked: maskIdentifier(pendingOrderNo),
         sku,
-        typeCode: personalizationTypeCode,
-        identity: personalizationIdentity,
-        variantKey: overviewVariantKey,
-        variantKeys: variantKeysSummary,
-        sceneFingerprint: sceneFingerprintSummary,
-        boundaryFlags: boundaryFlagsSummary,
-        axisBands: axisBandsSummary,
-        packId: personalizationPackId,
-        engineVersion: personalizationEngineVersion,
-        userState: userStateSummary,
-        primaryFocusKey,
-        secondaryFocusKeys: secondaryFocusKeysSummary,
-        orderedSectionKeys: orderedSectionKeysSummary,
-        ctaPriorityKeys: ctaPriorityKeysSummary,
-        carryoverFocusKey,
-        carryoverReason,
-        recommendedResumeKeys: recommendedResumeKeysSummary,
-        carryoverSceneKeys: carryoverSceneKeysSummary,
-        carryoverActionKeys: carryoverActionKeysSummary,
+        ...personalizationTelemetryContext,
         ctaKey: "unlock_full_report",
         ctaRank: unlockCtaRank,
-        locale,
       });
 
       if (action.kind === "redirect") {
@@ -1148,6 +1163,114 @@ export function MbtiResultShell({
       setIsCheckingOut(false);
     }
   }
+
+  const ctaSurfaceEntries: Array<{ key: string; rank: number; node: ReactNode }> = [];
+
+  if (careerRecommendationHref) {
+    ctaSurfaceEntries.push({
+      key: "career_bridge",
+      rank: careerBridgeCtaRank > 0 ? careerBridgeCtaRank : 999,
+      node: (
+        <section
+          id="career-next-step"
+          data-testid="mbti-career-next-step"
+          data-cta-key="career_bridge"
+          data-cta-rank={careerBridgeCtaRank > 0 ? String(careerBridgeCtaRank) : undefined}
+          className={`scroll-mt-28 rounded-[28px] border bg-gradient-to-br from-sky-50 via-white to-emerald-50/60 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6 ${
+            careerBridgeCtaRank === 1 ? "border-emerald-300 ring-1 ring-emerald-100" : "border-sky-200"
+          }`}
+        >
+          <div className="space-y-3">
+            {careerBridgeCtaRank > 0 ? (
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                {resolveCtaRankLabel(locale, careerBridgeCtaRank)}
+              </p>
+            ) : null}
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
+              {locale === "zh" ? "职业下一步" : "Career next step"}
+            </p>
+            <div className="space-y-2">
+              <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                {locale === "zh"
+                  ? `继续查看 ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} 的职业推荐`
+                  : `Continue with ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} career recommendations`}
+              </h2>
+              <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                {careerNextStepBody}
+              </p>
+            </div>
+            <Link
+              data-testid="mbti-career-next-step-cta"
+              href={continuityCareerHref || careerRecommendationHref}
+              onClick={() => {
+                if (!careerNextStepSection) {
+                  return;
+                }
+
+                trackEvent("ui_card_interaction", {
+                  ...buildCareerBridgeTelemetryPayload(careerNextStepSection, locale, personalization, {
+                    attemptId,
+                    ctaKey: "career_bridge",
+                    ctaRank: careerBridgeCtaRank,
+                  }),
+                  interaction: "click_cta",
+                });
+              }}
+              className={buttonVariants({ className: "bg-slate-950 text-white hover:bg-slate-800" })}
+            >
+              {locale === "zh" ? "查看职业推荐" : "View career recommendations"}
+            </Link>
+          </div>
+        </section>
+      ),
+    });
+  }
+
+  if (isUnlockedPostPurchase && attemptId) {
+    ctaSurfaceEntries.push({
+      key: "workspace_lite",
+      rank: workspaceLiteCtaRank > 0 ? workspaceLiteCtaRank : 999,
+      node: (
+        <MbtiPostPurchaseSection
+          locale={locale}
+          attemptId={attemptId}
+          accessHub={accessHub}
+          historyHref={continuityWorkspaceHref || continuityHistoryHref || historyHref}
+          orderLookupHref={orderLookupHref}
+          personalization={personalization}
+          ctaRank={workspaceLiteCtaRank}
+        />
+      ),
+    });
+  } else {
+    ctaSurfaceEntries.push({
+      key: "unlock_full_report",
+      rank: unlockCtaRank > 0 ? unlockCtaRank : 999,
+      node: (
+        <MbtiOfferComparisonSection
+          locale={locale}
+          attemptId={attemptId}
+          offers={offers}
+          cta={cta}
+          personalization={personalization}
+          ctaRank={unlockCtaRank}
+          onCheckout={handleCheckout}
+          isCheckingOut={isCheckingOut}
+          checkoutError={checkoutError}
+        />
+      ),
+    });
+  }
+
+  const orderedCtaSurfaceNodes = [...ctaSurfaceEntries]
+    .sort((left, right) => {
+      if (left.rank === right.rank) {
+        return left.key.localeCompare(right.key);
+      }
+
+      return left.rank - right.rank;
+    })
+    .map((entry) => entry.node);
 
   return (
     <div
@@ -1369,25 +1492,7 @@ export function MbtiResultShell({
                       interaction: "click_cta",
                       attempt_id: attemptId,
                       continueTarget: carryoverTarget,
-                      userState: userStateSummary,
-                      primaryFocusKey,
-                      secondaryFocusKeys: secondaryFocusKeysSummary,
-                      orderedSectionKeys: orderedSectionKeysSummary,
-                      ctaPriorityKeys: ctaPriorityKeysSummary,
-                      carryoverFocusKey,
-                      carryoverReason,
-                      recommendedResumeKeys: recommendedResumeKeysSummary,
-                      carryoverSceneKeys: carryoverSceneKeysSummary,
-                      carryoverActionKeys: carryoverActionKeysSummary,
-                      variantKeys: variantKeysSummary,
-                      sceneFingerprint: sceneFingerprintSummary,
-                      boundaryFlags: boundaryFlagsSummary,
-                      axisBands: axisBandsSummary,
-                      typeCode: personalizationTypeCode,
-                      identity: personalizationIdentity,
-                      packId: personalizationPackId,
-                      engineVersion: personalizationEngineVersion,
-                      locale,
+                      ...personalizationTelemetryContext,
                     });
                   }}
                 >
@@ -1405,11 +1510,12 @@ export function MbtiResultShell({
 
           {CHAPTER_ORDER.map((chapterKey) => {
             const legacySection = legacySectionsByKey.get(chapterKey) ?? null;
-            const projectionSections = sortProjectionSectionsByOrder(
+            const projectionSections = sortProjectionSectionsForChapter(
               CHAPTER_PROJECTION_KEYS[chapterKey]
                 .map((sectionKey) => projectionSectionsByKey.get(sectionKey))
                 .filter((section): section is MbtiResultProjectionSectionViewModel => Boolean(section)),
-              orderedSectionKeys
+              orderedSectionKeys,
+              orderedActionKeys
             );
 
             if (!legacySection && projectionSections.length === 0) {
@@ -1434,84 +1540,11 @@ export function MbtiResultShell({
             );
           })}
 
-          {careerRecommendationHref ? (
-            <section
-              id="career-next-step"
-              data-testid="mbti-career-next-step"
-              data-cta-key="career_bridge"
-              data-cta-rank={careerBridgeCtaRank > 0 ? String(careerBridgeCtaRank) : undefined}
-              className={`scroll-mt-28 rounded-[28px] border bg-gradient-to-br from-sky-50 via-white to-emerald-50/60 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6 ${
-                careerBridgeCtaRank === 1 ? "border-emerald-300 ring-1 ring-emerald-100" : "border-sky-200"
-              }`}
-            >
-              <div className="space-y-3">
-                {careerBridgeCtaRank > 0 ? (
-                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                    {resolveCtaRankLabel(locale, careerBridgeCtaRank)}
-                  </p>
-                ) : null}
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
-                  {locale === "zh" ? "职业下一步" : "Career next step"}
-                </p>
-                <div className="space-y-2">
-                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                    {locale === "zh"
-                      ? `继续查看 ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} 的职业推荐`
-                      : `Continue with ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} career recommendations`}
-                  </h2>
-                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                    {careerNextStepBody}
-                  </p>
-                </div>
-                <Link
-                  data-testid="mbti-career-next-step-cta"
-                  href={continuityCareerHref || careerRecommendationHref}
-                  onClick={() => {
-                    if (!careerNextStepSection) {
-                      return;
-                    }
-
-                    trackEvent("ui_card_interaction", {
-                      ...buildCareerBridgeTelemetryPayload(careerNextStepSection, locale, personalization, {
-                        attemptId,
-                        ctaKey: "career_bridge",
-                        ctaRank: careerBridgeCtaRank,
-                      }),
-                      interaction: "click_cta",
-                    });
-                  }}
-                  className={buttonVariants({ className: "bg-slate-950 text-white hover:bg-slate-800" })}
-                >
-                  {locale === "zh" ? "查看职业推荐" : "View career recommendations"}
-                </Link>
-              </div>
-            </section>
-          ) : null}
+          {orderedCtaSurfaceNodes.map((node, index) => (
+            <div key={`mbti-cta-surface-${index}`}>{node}</div>
+          ))}
 
           <MbtiRecommendedReadsSection locale={locale} reads={recommendedReads} personalization={personalization} />
-
-          <MbtiOfferComparisonSection
-            locale={locale}
-            attemptId={attemptId}
-            offers={offers}
-            cta={cta}
-            personalization={personalization}
-            ctaRank={unlockCtaRank}
-            onCheckout={handleCheckout}
-            isCheckingOut={isCheckingOut}
-            checkoutError={checkoutError}
-          />
-
-          {isUnlockedPostPurchase && attemptId ? (
-            <MbtiPostPurchaseSection
-              locale={locale}
-              attemptId={attemptId}
-              accessHub={accessHub}
-              historyHref={continuityWorkspaceHref || continuityHistoryHref || historyHref}
-              orderLookupHref={orderLookupHref}
-              personalization={personalization}
-            />
-          ) : null}
 
           <Card
             id="footer-cta"
