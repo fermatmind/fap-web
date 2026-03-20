@@ -19,6 +19,95 @@ type MbtiPhase2FixtureOptions = {
   currentIntentCluster?: string;
 };
 
+function buildReadContractFixture() {
+  return {
+    version: "mbti.read_contract.v1",
+    canonical_read_model: {
+      personalization_fields: [
+        "schema_version",
+        "locale",
+        "type_code",
+        "identity",
+        "axis_vector",
+        "scene_fingerprint",
+        "action_plan_summary",
+        "variant_keys",
+        "pack_id",
+        "engine_version",
+        "dynamic_sections_version",
+      ],
+      surface_fields: [
+        "report.summary",
+        "report.profile",
+        "report.sections",
+        "report.recommended_reads",
+        "mbti_public_summary_v1",
+        "mbti_public_projection_v1.summary_card",
+        "mbti_public_projection_v1.profile",
+        "mbti_public_projection_v1.sections",
+      ],
+      sources: ["report_snapshot", "report_projection"],
+    },
+    overlay_patch: {
+      personalization_fields: [
+        "user_state",
+        "orchestration",
+        "ordered_recommendation_keys",
+        "ordered_action_keys",
+        "recommendation_priority_keys",
+        "action_priority_keys",
+        "reading_focus_key",
+        "action_focus_key",
+        "continuity",
+      ],
+      surface_fields: [
+        "report._meta.personalization.user_state",
+        "report._meta.personalization.orchestration",
+        "report._meta.personalization.ordered_recommendation_keys",
+        "report._meta.personalization.continuity",
+        "mbti_public_projection_v1._meta.personalization.user_state",
+        "mbti_public_projection_v1._meta.personalization.orchestration",
+        "mbti_public_projection_v1._meta.personalization.ordered_recommendation_keys",
+        "mbti_public_projection_v1._meta.personalization.continuity",
+      ],
+      sources: ["attempt_access", "attempt_events", "share_rows"],
+    },
+    cacheable_fields: [
+      "report",
+      "report.summary",
+      "report.profile",
+      "report.sections",
+      "report.recommended_reads",
+      "mbti_public_summary_v1",
+      "mbti_public_projection_v1",
+      "mbti_public_projection_v1.summary_card",
+      "mbti_public_projection_v1.profile",
+      "mbti_public_projection_v1.sections",
+      "mbti_read_contract_v1",
+    ],
+    non_cacheable_fields: [
+      "report._meta.personalization.user_state",
+      "report._meta.personalization.orchestration",
+      "report._meta.personalization.ordered_recommendation_keys",
+      "report._meta.personalization.continuity",
+      "mbti_public_projection_v1._meta.personalization.user_state",
+      "mbti_public_projection_v1._meta.personalization.orchestration",
+      "mbti_public_projection_v1._meta.personalization.ordered_recommendation_keys",
+      "mbti_public_projection_v1._meta.personalization.continuity",
+    ],
+    telemetry_parity_fields: [
+      "user_state",
+      "orchestration.primary_focus_key",
+      "orchestration.cta_priority_keys",
+      "continuity.carryover_focus_key",
+      "ordered_recommendation_keys",
+      "ordered_action_keys",
+      "reading_focus_key",
+      "action_focus_key",
+    ],
+  };
+}
+
 function normalizeText(...values: unknown[]): string {
   for (const value of values) {
     const normalized = String(value ?? "").trim();
@@ -1028,6 +1117,7 @@ export function applyMbtiPhase2Fixture(
       carryover_scene_keys: carryoverSceneKeys,
       carryover_action_keys: carryoverActionKeys,
     },
+    read_contract_v1: buildReadContractFixture(),
     variant_keys: {
       overview: overviewVariantKey,
       trait_overview: traitOverviewVariantKey,
@@ -1062,6 +1152,7 @@ export function applyMbtiPhase2Fixture(
   if (reportData.report) {
     reportData.report.recommended_reads = structuredClone(recommendedReads);
   }
+  reportData.mbti_read_contract_v1 = structuredClone(buildReadContractFixture());
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
   getReportMeta(reportData).personalization = structuredClone(personalization);
 

@@ -70,6 +70,39 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
         { code: "EI", label: "E / I", pct: 61, side_label: "Extraversion", state: "Expressive" },
         { code: "SN", label: "S / N", score_pct: 74, side_label: "Intuition", state: "Pattern-led" },
       ],
+      _meta: {
+        personalization: {
+          user_state: {
+            feedback_sentiment: "negative",
+            feedback_coverage: "explainability_only",
+            action_completion_tendency: "warming_up",
+            last_deep_read_section: "traits.close_call_axes",
+            current_intent_cluster: "clarify_type",
+          },
+          read_contract_v1: {
+            version: "mbti.read_contract.v1",
+            canonical_read_model: {
+              personalization_fields: ["schema_version", "type_code", "identity"],
+              surface_fields: ["report.summary", "mbti_public_projection_v1.summary_card"],
+              sources: ["report_snapshot", "report_projection"],
+            },
+            overlay_patch: {
+              personalization_fields: ["user_state", "continuity"],
+              surface_fields: [
+                "report._meta.personalization.user_state",
+                "mbti_public_projection_v1._meta.personalization.user_state",
+              ],
+              sources: ["attempt_access", "attempt_events", "share_rows"],
+            },
+            cacheable_fields: ["report", "mbti_public_projection_v1", "mbti_public_summary_v1", "mbti_read_contract_v1"],
+            non_cacheable_fields: [
+              "report._meta.personalization.user_state",
+              "mbti_public_projection_v1._meta.personalization.user_state",
+            ],
+            telemetry_parity_fields: ["user_state", "continuity.carryover_focus_key"],
+          },
+        },
+      },
     },
     mbti_continuity_v1: {
       carryover_focus_key: "career.next_step",
@@ -77,6 +110,33 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
       recommended_resume_keys: ["career.next_step", "career.work_experiments"],
       carryover_scene_keys: ["work", "growth"],
       carryover_action_keys: ["career_next_step.theme.clarify_decision_criteria"],
+      feedback_sentiment: "negative",
+      feedback_coverage: "explainability_only",
+      action_completion_tendency: "warming_up",
+      last_deep_read_section: "traits.close_call_axes",
+      current_intent_cluster: "clarify_type",
+    },
+    mbti_read_contract_v1: {
+      version: "mbti.read_contract.v1",
+      canonical_read_model: {
+        personalization_fields: ["schema_version", "type_code", "identity"],
+        surface_fields: ["report.summary", "mbti_public_projection_v1.summary_card"],
+        sources: ["report_snapshot", "report_projection"],
+      },
+      overlay_patch: {
+        personalization_fields: ["user_state", "continuity"],
+        surface_fields: [
+          "report._meta.personalization.user_state",
+          "mbti_public_projection_v1._meta.personalization.user_state",
+        ],
+        sources: ["attempt_access", "attempt_events", "share_rows"],
+      },
+      cacheable_fields: ["report", "mbti_public_projection_v1", "mbti_public_summary_v1", "mbti_read_contract_v1"],
+      non_cacheable_fields: [
+        "report._meta.personalization.user_state",
+        "mbti_public_projection_v1._meta.personalization.user_state",
+      ],
+      telemetry_parity_fields: ["user_state", "continuity.carryover_focus_key"],
     },
     offers: [
       {
@@ -250,6 +310,10 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   await expect(page.getByTestId("mbti-share-carryover-cta")).toHaveAttribute(
     "href",
     /carryover_focus_key=career.next_step/
+  );
+  await expect(page.getByTestId("mbti-share-carryover-cta")).toHaveAttribute(
+    "href",
+    /current_intent_cluster=clarify_type/
   );
   await expect(page.getByRole("heading", { name: "ENFP-T" })).toBeVisible();
   await expect(page.getByRole("heading", { name: /^ENFP$/ })).toHaveCount(0);
