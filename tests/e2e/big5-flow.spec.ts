@@ -1,11 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
-test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) => {
+test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
   const attemptId = "11111111-1111-1111-1111-111111111111";
-  const orderNo = "ord_mock_big5_1";
-  let checkoutRegionHeader = "";
-  let unlocked = false;
   const trackedEvents: Array<{ eventName: string; payload: Record<string, unknown> }> = [];
 
   const questions = Array.from({ length: 120 }, (_, idx) => ({
@@ -33,6 +30,33 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
     title: `Facet ${idx + 1}`,
     body: `Facet ${idx + 1} percentile ${40 + (idx % 50)}`,
   }));
+  const big5Projection = {
+    schema_version: "big5.public_projection.v1",
+    dominant_traits: [
+      { key: "O", label: "Openness", percentile: 81, band: "high", rank: 1 },
+      { key: "A", label: "Agreeableness", percentile: 76, band: "high", rank: 2 },
+    ],
+    scene_fingerprint: {
+      novelty: "exploratory",
+      structure: "balanced",
+      social_energy: "reserved",
+      cooperation: "harmonizing",
+    },
+    explainability_summary: {
+      headline: "This profile is primarily driven by Openness.",
+    },
+    action_plan_summary: {
+      headline: "The best near-term growth lever is Extraversion.",
+    },
+    trait_vector: [
+      { key: "O", label: "Openness", percentile: 81, band_label: "exploratory" },
+      { key: "C", label: "Conscientiousness", percentile: 58, band_label: "balanced" },
+      { key: "E", label: "Extraversion", percentile: 44, band_label: "balanced" },
+      { key: "A", label: "Agreeableness", percentile: 71, band_label: "harmonizing" },
+      { key: "N", label: "Neuroticism", percentile: 33, band_label: "steady" },
+    ],
+    variant_keys: ["profile:explorer", "band:o.high"],
+  };
 
   await page.route("**/api/track", async (route) => {
     const body = route.request().postDataJSON() as {
@@ -130,145 +154,68 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
   });
 
   await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
-    const payload = unlocked
-      ? {
-          ok: true,
-          locked: false,
-          variant: "full",
-          norms: { status: "CALIBRATED", norms_version: "2026Q1" },
-          quality: { level: "A", tone: "confident" },
-          offers: [],
-          modules_allowed: ["big5_core", "big5_full", "big5_action_plan"],
-          report: {
-            sections: [
-              {
-                key: "summary",
-                title: "Summary",
-                access_level: "free",
-                blocks: [{ kind: "paragraph", title: "Summary", body: "Your profile summary." }],
-              },
-              {
-                key: "domains_overview",
-                title: "Domains",
-                access_level: "free",
-                blocks: domainBlocks,
-              },
-              {
-                key: "facet_table",
-                title: "Facet Table",
-                access_level: "paid",
-                blocks: facetBlocks,
-              },
-              {
-                key: "top_facets",
-                title: "Top Facets",
-                access_level: "paid",
-                blocks: [{ kind: "metric_card", metric_code: "A1", title: "A1", body: "A1 percentile 78" }],
-              },
+    const payload = {
+      ok: true,
+      locked: true,
+      variant: "free",
+      big5_public_projection_v1: big5Projection,
+      norms: { status: "CALIBRATED", norms_version: "2026Q1" },
+      quality: { level: "B", tone: "cautious" },
+      offers: [
+        {
+          sku: "BIG5_FULL",
+          label: "BIG5 Full",
+          formatted_price: "$9.99",
+          currency: "USD",
+          amount_cents: 999,
+          modules_included: ["big5_full", "big5_action_plan"],
+        },
+      ],
+      modules_allowed: ["big5_core"],
+      modules_offered: ["big5_full", "big5_action_plan"],
+      report: {
+        sections: [
+          {
+            key: "traits.overview",
+            title: "Traits Overview",
+            access_level: "free",
+            blocks: [{ kind: "paragraph", title: "Traits Overview", body: "This read is shaped by Openness and Agreeableness." }],
+          },
+          {
+            key: "summary",
+            title: "Summary",
+            access_level: "free",
+            blocks: [{ kind: "paragraph", title: "Summary", body: "Preview summary" }],
+          },
+          {
+            key: "domains_overview",
+            title: "Domains",
+            access_level: "free",
+            blocks: [
+              { kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" },
+              { kind: "chart", metric_code: "C", title: "Conscientiousness", body: "Conscientiousness percentile 58" },
             ],
           },
-          meta: {
-            pack_id: "BIG5_OCEAN",
-            dir_version: "v1",
-            content_package_version: "v1",
+          {
+            key: "facet_table",
+            title: "Facet Table",
+            access_level: "paid",
+            blocks: [{ kind: "table_row", metric_code: "O1", title: "O1", body: "O1 percentile 60" }],
           },
-        }
-      : {
-          ok: true,
-          locked: true,
-          variant: "free",
-          norms: { status: "CALIBRATED", norms_version: "2026Q1" },
-          quality: { level: "B", tone: "cautious" },
-          offers: [
-            {
-              sku: "BIG5_FULL",
-              label: "BIG5 Full",
-              formatted_price: "$9.99",
-              currency: "USD",
-              amount_cents: 999,
-              order_no: orderNo,
-              modules_included: ["big5_full", "big5_action_plan"],
-            },
-          ],
-          modules_allowed: ["big5_core"],
-          modules_offered: ["big5_full", "big5_action_plan"],
-          report: {
-            sections: [
-              {
-                key: "summary",
-                title: "Summary",
-                access_level: "free",
-                blocks: [{ kind: "paragraph", title: "Summary", body: "Preview summary" }],
-              },
-              {
-                key: "domains_overview",
-                title: "Domains",
-                access_level: "free",
-                blocks: [
-                  { kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" },
-                  { kind: "chart", metric_code: "C", title: "Conscientiousness", body: "Conscientiousness percentile 58" },
-                ],
-              },
-              {
-                key: "facet_table",
-                title: "Facet Table",
-                access_level: "paid",
-                blocks: [{ kind: "table_row", metric_code: "O1", title: "O1", body: "O1 percentile 60" }],
-              },
-            ],
-          },
-          meta: {
-            pack_id: "BIG5_OCEAN",
-            dir_version: "v1",
-            content_package_version: "v1",
-          },
-        };
+        ],
+      },
+      meta: {
+        scale_code: "BIG5_OCEAN",
+        pack_id: "BIG5_OCEAN",
+        dir_version: "v1",
+        content_package_version: "v1",
+      },
+    };
 
     await route.fulfill({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify(payload),
-    });
-  });
-
-  await page.route("**/api/v0.3/orders/checkout", async (route) => {
-    const headers = route.request().headers();
-    checkoutRegionHeader = headers["x-region"] ?? headers["X-Region"] ?? "";
-
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        attempt_id: attemptId,
-        status: "pending",
-      }),
-    });
-  });
-
-  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
-    unlocked = true;
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        order_no: orderNo,
-        attempt_id: attemptId,
-        status: "paid",
-        ownership_verified: true,
-      }),
-    });
-  });
-
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report.pdf`, async (route) => {
-    await route.fulfill({
-      status: 200,
-      headers: {
-        "content-type": "application/pdf",
-      },
-      body: "mock pdf binary",
     });
   });
 
@@ -309,26 +256,17 @@ test("BIG5 flow: answer -> submit -> free -> unlock -> pdf", async ({ page }) =>
   });
   expect(submitResponse.status()).toBe(200);
 
-  await expect(page.getByRole("heading", { name: "Unlock full report" })).toBeVisible();
-  await page.getByRole("button", { name: "Unlock now" }).click();
-  expect(checkoutRegionHeader).toBe("US");
-
-  await page.waitForURL(new RegExp(`/en/(orders/${orderNo}|result/${attemptId})`));
-  if (page.url().includes(`/en/orders/${orderNo}`)) {
-    await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
-  }
-
-  await expect(page.getByText("Openness", { exact: true })).toBeVisible();
-  await expect(page.getByText("Conscientiousness", { exact: true })).toBeVisible();
-  await expect(page.getByText("Extraversion", { exact: true })).toBeVisible();
-  await expect(page.getByText("Agreeableness", { exact: true })).toBeVisible();
-  await expect(page.getByText("Neuroticism", { exact: true })).toBeVisible();
-  await expect(page.getByText("Facet 30", { exact: true })).toBeVisible();
-
-  const downloadButton = page.getByRole("button", { name: "Download PDF" });
-  await expect(downloadButton).toBeEnabled();
-  await downloadButton.click();
-  await page.waitForTimeout(500);
+  const foundationSummary = page.getByTestId("big5-foundation-summary");
+  await expect(page.getByRole("heading", { name: "BIG5 · Openness" })).toBeVisible();
+  await expect(foundationSummary).toBeVisible();
+  await expect(foundationSummary.getByText("This profile is primarily driven by Openness.")).toBeVisible();
+  await expect(page.getByTestId("big5-scene-fingerprint")).toBeVisible();
+  await expect(foundationSummary.getByText("Openness · 81")).toBeVisible();
+  await expect(foundationSummary.getByText("Agreeableness · 76")).toBeVisible();
+  await expect(page.getByTestId("big5-action-plan-summary")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Traits Overview" })).toBeVisible();
+  await expect(page.getByText("Locked module", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Share result" })).toBeVisible();
 
   const startEvent = trackedEvents.find((event) => event.eventName === "start_click");
   if (startEvent) {

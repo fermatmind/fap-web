@@ -170,6 +170,7 @@ export type ResultResponse = {
     scale_code?: string;
     [key: string]: unknown;
   };
+  big5_public_projection_v1?: Big5PublicProjection | null;
 };
 
 export type OfferPayload = {
@@ -346,6 +347,41 @@ export type Big5QualityPayload = {
   [key: string]: unknown;
 };
 
+export type Big5TraitProjection = {
+  key?: string;
+  label?: string;
+  mean?: number;
+  percentile?: number;
+  band?: string;
+  band_label?: string;
+  rank?: number;
+  [key: string]: unknown;
+};
+
+export type Big5PublicProjection = {
+  schema_version?: string;
+  trait_vector?: Big5TraitProjection[];
+  trait_bands?: Record<string, string>;
+  dominant_traits?: Big5TraitProjection[];
+  variant_keys?: string[];
+  scene_fingerprint?: Record<string, string>;
+  explainability_summary?: {
+    headline?: string;
+    reasons?: string[];
+    [key: string]: unknown;
+  };
+  action_plan_summary?: {
+    headline?: string;
+    focus_trait?: string;
+    actions?: string[];
+    [key: string]: unknown;
+  };
+  ordered_section_keys?: string[];
+  sections?: Big5ReportSection[];
+  _meta?: Record<string, unknown>;
+  [key: string]: unknown;
+};
+
 export type ReportResponse = {
   ok?: boolean;
   locked?: boolean;
@@ -408,6 +444,7 @@ export type ReportResponse = {
     scale_code_v2?: string;
     scale_uid?: string;
   };
+  big5_public_projection_v1?: Big5PublicProjection | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;

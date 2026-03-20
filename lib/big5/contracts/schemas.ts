@@ -84,6 +84,47 @@ const big5ReportSectionSchema = z
   })
   .passthrough();
 
+const big5TraitProjectionSchema = z
+  .object({
+    key: z.string().optional(),
+    label: z.string().optional(),
+    mean: z.number().optional(),
+    percentile: z.number().optional(),
+    band: z.string().optional(),
+    band_label: z.string().optional(),
+    rank: z.number().optional(),
+  })
+  .passthrough();
+
+const big5PublicProjectionSchema = z
+  .object({
+    schema_version: z.string().optional(),
+    trait_vector: z.array(big5TraitProjectionSchema).optional(),
+    trait_bands: z.record(z.string(), z.string()).optional(),
+    dominant_traits: z.array(big5TraitProjectionSchema).optional(),
+    variant_keys: z.array(z.string()).optional(),
+    scene_fingerprint: z.record(z.string(), z.string()).optional(),
+    explainability_summary: z
+      .object({
+        headline: z.string().optional(),
+        reasons: z.array(z.string()).optional(),
+      })
+      .passthrough()
+      .optional(),
+    action_plan_summary: z
+      .object({
+        headline: z.string().optional(),
+        focus_trait: z.string().optional(),
+        actions: z.array(z.string()).optional(),
+      })
+      .passthrough()
+      .optional(),
+    ordered_section_keys: z.array(z.string()).optional(),
+    sections: z.array(big5ReportSectionSchema).optional(),
+    _meta: z.record(z.string(), z.unknown()).optional(),
+  })
+  .passthrough();
+
 export const big5ReportResponseSchema = z
   .object({
     ok: z.boolean().optional(),
@@ -110,6 +151,7 @@ export const big5ReportResponseSchema = z
       })
       .passthrough()
       .optional(),
+    big5_public_projection_v1: big5PublicProjectionSchema.optional(),
     meta: z.record(z.string(), z.unknown()).optional(),
     report: z
       .object({
