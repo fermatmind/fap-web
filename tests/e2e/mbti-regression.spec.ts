@@ -297,7 +297,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",
-    "/en/career/recommendations/mbti/enfp-t"
+    /\/en\/career\/recommendations\/mbti\/enfp-t\?.*carryover_focus_key=growth.next_actions/
   );
   await expect(page.getByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
 

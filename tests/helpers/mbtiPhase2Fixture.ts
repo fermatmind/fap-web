@@ -207,6 +207,56 @@ function resolveCtaPriorityKeys(input: {
   return ["career_bridge", "share_result", "workspace_lite"];
 }
 
+function resolveCarryoverReason(input: {
+  isRevisit: boolean;
+  hasUnlock: boolean;
+  hasFeedback: boolean;
+  hasActionEngagement: boolean;
+  primaryFocusKey: string;
+}): string {
+  if (input.hasFeedback) {
+    return "refine_after_feedback";
+  }
+
+  if (input.isRevisit && input.hasActionEngagement) {
+    return "resume_action_loop";
+  }
+
+  if (input.primaryFocusKey.startsWith("career.")) {
+    return "continue_career_bridge";
+  }
+
+  if (input.primaryFocusKey.startsWith("relationships.")) {
+    return "continue_relationship_practice";
+  }
+
+  if (input.primaryFocusKey.startsWith("traits.")) {
+    return "continue_explainability_focus";
+  }
+
+  if (input.isRevisit) {
+    return "resume_previous_focus";
+  }
+
+  return input.hasUnlock ? "resume_previous_focus" : "unlock_to_continue_focus";
+}
+
+function resolveCarryoverSceneKeys(primaryFocusKey: string): string[] {
+  if (primaryFocusKey.startsWith("career.")) {
+    return ["work", "growth"];
+  }
+
+  if (primaryFocusKey.startsWith("relationships.")) {
+    return ["relationships", "communication"];
+  }
+
+  if (primaryFocusKey.startsWith("traits.")) {
+    return ["decision", "work"];
+  }
+
+  return ["growth", "work"];
+}
+
 function createProjectionSectionShell(key: string): Record<string, unknown> {
   return {
     key,
@@ -454,9 +504,24 @@ export function applyMbtiPhase2Fixture(
     hasActionEngagement,
   });
   const orderedSectionKeys = buildOrderedSectionKeys(primaryFocusKey, secondaryFocusKeys);
+  const carryoverReason = resolveCarryoverReason({
+    isRevisit,
+    hasUnlock,
+    hasFeedback,
+    hasActionEngagement,
+    primaryFocusKey,
+  });
+  const carryoverSceneKeys = resolveCarryoverSceneKeys(primaryFocusKey);
+  const carryoverActionKeys = [
+    normalizeText(weeklyActionKeys[5]),
+    normalizeText(workExperimentKeys[5], relationshipActionKeys[5]),
+  ].filter(Boolean);
+  const recommendedResumeKeys = Array.from(
+    new Set([primaryFocusKey, ...secondaryFocusKeys, "career.next_step"].filter(Boolean))
+  );
 
   const personalization = {
-    schema_version: "mbti.personalization.phase7b.v1",
+    schema_version: "mbti.personalization.phase8a.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
@@ -655,6 +720,13 @@ export function applyMbtiPhase2Fixture(
       secondary_focus_keys: secondaryFocusKeys,
       cta_priority_keys: ctaPriorityKeys,
     },
+    continuity: {
+      carryover_focus_key: primaryFocusKey,
+      carryover_reason: carryoverReason,
+      recommended_resume_keys: recommendedResumeKeys,
+      carryover_scene_keys: carryoverSceneKeys,
+      carryover_action_keys: carryoverActionKeys,
+    },
     variant_keys: {
       overview: overviewVariantKey,
       trait_overview: traitOverviewVariantKey,
@@ -683,7 +755,7 @@ export function applyMbtiPhase2Fixture(
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase7b.v1",
+    dynamic_sections_version: "phase8a.v1",
   };
 
   getProjectionMeta(reportData).personalization = structuredClone(personalization);

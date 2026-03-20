@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,6 +13,11 @@ import {
 } from "@/lib/cms/career-recommendations";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import {
+  parseMbtiContinuityQuery,
+  resolveMbtiCarryoverFocusLabel,
+  resolveMbtiCarryoverReasonLabel,
+} from "@/lib/mbti/continuity";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildItemListJsonLd, buildWebPageJsonLd, type FAQItem } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
@@ -169,13 +175,25 @@ export async function generateMetadata({
 
 export default async function CareerMbtiRecommendationPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; type: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { locale: localeParam, type } = await params;
+  const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
   const detail = await getDetailOrNotFound(locale, type);
+  const continuity = parseMbtiContinuityQuery(resolvedSearchParams);
+  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(
+    String(continuity?.carryoverFocusKey ?? ""),
+    locale
+  );
+  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(
+    String(continuity?.carryoverReason ?? ""),
+    locale
+  );
 
   if (normalizeRequestedSlug(type) !== detail.publicRouteSlug) {
     permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
@@ -236,6 +254,25 @@ export default async function CareerMbtiRecommendationPage({
         id="answer-first"
         className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       >
+        {continuity ? (
+          <>
+            <div
+              data-testid="mbti-career-continuity-entry"
+              className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4"
+            >
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                {locale === "zh" ? "继续上次重点" : "Continue the current focus"}
+              </p>
+              <p className="m-0 mt-2 text-sm font-medium text-[var(--fm-text)]">{continuityFocusLabel}</p>
+              <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{continuityReasonLabel}</p>
+            </div>
+            <MbtiCareerContinuityTelemetry
+              locale={locale}
+              continuity={continuity}
+              typeCode={detail.displayType}
+            />
+          </>
+        ) : null}
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {detail.displayType}
         </p>

@@ -162,6 +162,14 @@ describe("MBTI shell authored fields contract", () => {
       "把成长、关系和工作里的高匹配动作都缩成一周内能重复的小实验"
     );
     expect(screen.getByTestId("mbti-action-plan-summary")).toHaveAttribute("data-primary-focus", "true");
+    expect(screen.getByTestId("mbti-carryover-entry")).toHaveTextContent("继续看 下一步动作");
+    expect(screen.getByTestId("mbti-carryover-entry")).toHaveTextContent("当前最值得延续的重点");
+    expect(screen.getByTestId("mbti-carryover-entry-cta").getAttribute("href")).toContain(
+      "carryover_focus_key=growth.next_actions"
+    );
+    expect(screen.getByTestId("mbti-carryover-entry-cta").getAttribute("href")).toContain(
+      "carryover_reason=unlock_to_continue_focus"
+    );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-variant-key",
       "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
@@ -235,9 +243,11 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("先把你看重的判断标准写清楚");
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
-    expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
-      "href",
-      "/zh/career/recommendations/mbti/enfp-t"
+    expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
+      "/zh/career/recommendations/mbti/enfp-t?"
+    );
+    expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
+      "carryover_focus_key=growth.next_actions"
     );
     expect(screen.getByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
     expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
@@ -266,6 +276,9 @@ describe("MBTI shell authored fields contract", () => {
         primaryFocusKey: "growth.next_actions",
         orderedSectionKeys: expect.stringContaining("growth.next_actions"),
         ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
+        carryoverFocusKey: "growth.next_actions",
+        carryoverReason: "unlock_to_continue_focus",
+        recommendedResumeKeys: "growth.next_actions|traits.close_call_axes|traits.adjacent_type_contrast|career.next_step",
       })
     );
   });
@@ -295,6 +308,7 @@ describe("MBTI shell authored fields contract", () => {
       ) & Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy();
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "1");
+    expect(screen.getByTestId("mbti-carryover-entry")).toHaveTextContent("继续看 稳定性解释");
     expect(screen.queryByTestId("mbti-offer-comparison")).not.toHaveAttribute("data-cta-rank", "1");
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "view_result",
@@ -302,6 +316,8 @@ describe("MBTI shell authored fields contract", () => {
         userState: "first:0|revisit:1|unlock:1|feedback:1|share:1|action:1",
         primaryFocusKey: "growth.stability_confidence",
         ctaPriorityKeys: "career_bridge|workspace_lite|share_result",
+        carryoverFocusKey: "growth.stability_confidence",
+        carryoverReason: "refine_after_feedback",
       })
     );
   });
@@ -510,6 +526,9 @@ describe("MBTI shell authored fields contract", () => {
         secondaryFocusKeys: "traits.close_call_axes|traits.adjacent_type_contrast",
         orderedSectionKeys: expect.stringContaining("growth.next_actions"),
         ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
+        carryoverFocusKey: "growth.next_actions",
+        carryoverReason: "unlock_to_continue_focus",
+        recommendedResumeKeys: "growth.next_actions|traits.close_call_axes|traits.adjacent_type_contrast|career.next_step",
         displayOrder: 6,
         isPrimaryFocus: false,
       })
@@ -534,6 +553,9 @@ describe("MBTI shell authored fields contract", () => {
         secondaryFocusKeys: "traits.close_call_axes|traits.adjacent_type_contrast",
         orderedSectionKeys: expect.stringContaining("growth.next_actions"),
         ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
+        carryoverFocusKey: "growth.next_actions",
+        carryoverReason: "unlock_to_continue_focus",
+        recommendedResumeKeys: "growth.next_actions|traits.close_call_axes|traits.adjacent_type_contrast|career.next_step",
         displayOrder: 1,
         isPrimaryFocus: true,
       })

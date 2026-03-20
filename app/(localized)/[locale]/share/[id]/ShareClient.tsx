@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Alert } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import MbtiShareSummaryCard from "@/components/share/MbtiShareSummaryCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getOrCreateAnonId } from "@/lib/anon";
+import { trackEvent } from "@/lib/analytics";
 import {
   createMbtiCompareInvite,
   getShareSummary,
@@ -16,6 +18,12 @@ import {
 } from "@/lib/api/v0_3";
 import { captureError } from "@/lib/observability/sentry";
 import type { Locale } from "@/lib/i18n/locales";
+import {
+  appendMbtiContinuityQuery,
+  buildMbtiContinuityTelemetryFields,
+  resolveMbtiCarryoverFocusLabel,
+  resolveMbtiCarryoverReasonLabel,
+} from "@/lib/mbti/continuity";
 import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
 
 const SHARE_CLICK_SESSION_PREFIX = "fm_share_click_v1";
@@ -116,6 +124,7 @@ export default function ShareClient({
   const [shareClickStatus, setShareClickStatus] = useState<"idle" | "pending" | "ready" | "error">("idle");
   const [compareInvitePending, setCompareInvitePending] = useState(false);
   const [compareInviteError, setCompareInviteError] = useState<string | null>(null);
+  const carryoverImpressionTrackedRef = useRef(false);
 
   const queryString = searchParams.toString();
   const landingPath = useMemo(() => buildLandingPath(pathname, queryString), [pathname, queryString]);
@@ -123,6 +132,19 @@ export default function ShareClient({
   const utmQuery = useMemo(() => buildUtmQuery(utm), [utm]);
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
   const viewModel = useMemo(() => buildSharePageViewModel(data), [data]);
+  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(
+    String(viewModel.continuity?.carryoverFocusKey ?? ""),
+    locale
+  );
+  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(
+    String(viewModel.continuity?.carryoverReason ?? ""),
+    locale
+  );
+  const shareDisplayType = String(viewModel.card?.displayType ?? "").trim();
+  const continuityTelemetry = useMemo(
+    () => buildMbtiContinuityTelemetryFields(viewModel.continuity),
+    [viewModel.continuity]
+  );
 
   useEffect(() => {
     let active = true;
@@ -219,8 +241,7 @@ export default function ShareClient({
   const resolvedShareId = viewModel.shareId || shareId;
   const primaryCtaHref = useMemo(() => {
     const basePath = viewModel.primaryCtaPath || `/${locale}${MBTI_TAKE_FALLBACK_PATH}`;
-
-    return buildAugmentedPath(basePath, {
+    const attributedPath = buildAugmentedPath(basePath, {
       share_id: resolvedShareId,
       share_click_id: shareClickId ?? undefined,
       entrypoint: "share_page",
@@ -228,7 +249,29 @@ export default function ShareClient({
       referrer: pageReferrer,
       ...utmQuery,
     });
-  }, [landingPath, locale, pageReferrer, resolvedShareId, shareClickId, utmQuery, viewModel.primaryCtaPath]);
+
+    return appendMbtiContinuityQuery(attributedPath, viewModel.continuity);
+  }, [landingPath, locale, pageReferrer, resolvedShareId, shareClickId, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
+
+  useEffect(() => {
+    if (!viewModel.continuity || !primaryCtaHref || carryoverImpressionTrackedRef.current) {
+      return;
+    }
+
+    carryoverImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "mbti-share-page",
+      scale_code: "MBTI",
+      visual_kind: "share_carryover_entry",
+      continueTarget: "share_take_flow",
+      ctaKey: "share_carryover_entry",
+      ctaRank: 1,
+      attempt_id: viewModel.attemptId || undefined,
+      typeCode: shareDisplayType,
+      ...continuityTelemetry,
+      locale,
+    });
+  }, [continuityTelemetry, locale, primaryCtaHref, shareDisplayType, viewModel.attemptId, viewModel.continuity]);
 
   const handleCompareInvite = async () => {
     const anonId = getOrCreateAnonId().trim();
@@ -302,6 +345,51 @@ export default function ShareClient({
         primaryActionHref={primaryCtaHref}
         primaryActionLabel={viewModel.primaryCtaLabel}
       />
+
+      {viewModel.continuity ? (
+        <section className="mx-auto -mt-4 w-full max-w-5xl px-4 pb-6 md:px-6">
+          <div
+            data-testid="mbti-share-carryover-entry"
+            className="rounded-[28px] border border-emerald-200 bg-white px-6 py-5 shadow-[0_20px_48px_rgba(15,23,42,0.08)]"
+          >
+            <div className="space-y-2">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                {locale === "zh" ? "继续你当前最相关的主线" : "Continue your current focus"}
+              </p>
+              <h2 className="m-0 text-xl font-semibold text-slate-950">
+                {locale === "zh"
+                  ? `下一步先看 ${continuityFocusLabel || "当前重点"}`
+                  : `Start next with ${continuityFocusLabel || "the current focus"}`}
+              </h2>
+              <p className="m-0 text-sm leading-7 text-slate-600">{continuityReasonLabel}</p>
+            </div>
+            <div className="mt-4">
+              <Link
+                href={primaryCtaHref}
+                data-testid="mbti-share-carryover-cta"
+                className={buttonVariants({ className: "inline-flex" })}
+                onClick={() => {
+                  trackEvent("ui_card_interaction", {
+                    slug: "mbti-share-page",
+                    scale_code: "MBTI",
+                    visual_kind: "share_carryover_entry",
+                    interaction: "click",
+                    continueTarget: "share_take_flow",
+                    ctaKey: "share_carryover_entry",
+                    ctaRank: 1,
+                    attempt_id: viewModel.attemptId || undefined,
+                    typeCode: shareDisplayType,
+                    ...continuityTelemetry,
+                    locale,
+                  });
+                }}
+              >
+                {locale === "zh" ? "继续这里" : "Continue here"}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {viewModel.compareEnabled ? (
         <section className="mx-auto -mt-4 w-full max-w-5xl px-4 pb-12 md:px-6">

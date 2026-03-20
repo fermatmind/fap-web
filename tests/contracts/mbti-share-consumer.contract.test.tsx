@@ -25,6 +25,7 @@ const hoisted = vi.hoisted(() => ({
   getShareSummary: vi.fn(),
   trackShareClick: vi.fn(),
   createMbtiCompareInvite: vi.fn(),
+  trackEvent: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -49,6 +50,10 @@ vi.mock("@/lib/api/v0_3", async () => {
     createMbtiCompareInvite: hoisted.createMbtiCompareInvite,
   };
 });
+
+vi.mock("@/lib/analytics", () => ({
+  trackEvent: hoisted.trackEvent,
+}));
 
 function createShareFixture(): ShareSummaryResponse {
   const projection = createProjectionFixture();
@@ -113,6 +118,13 @@ function createShareFixture(): ShareSummaryResponse {
       title: "Legacy public summary should be ignored",
     },
     mbti_public_projection_v1: projection,
+    mbti_continuity_v1: {
+      carryover_focus_key: "career.next_step",
+      carryover_reason: "continue_career_bridge",
+      recommended_resume_keys: ["career.next_step", "career.work_experiments"],
+      carryover_scene_keys: ["work", "growth"],
+      carryover_action_keys: ["career_next_step.theme.clarify_decision_criteria"],
+    },
     offers: [
       {
         title: "Unlock full report",
@@ -213,6 +225,13 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByText("Campaigner")).toBeInTheDocument();
     expect(screen.getByText("Warm, imaginative, and emotionally alert")).toBeInTheDocument();
     expect(screen.getByText("This public MBTI share page keeps only the lightweight result summary and never exposes paid content.")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent("Start next with Career next step");
+    expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent(
+      "The current focus has already moved into the career bridge"
+    );
+    expect(screen.getByTestId("mbti-share-carryover-cta").getAttribute("href")).toContain(
+      "carryover_focus_key=career.next_step"
+    );
     expect(screen.getByText("Around 6-8%")).toBeInTheDocument();
     expect(screen.getByText("Warm", { exact: true })).toBeInTheDocument();
     expect(screen.getByText("62%")).toBeInTheDocument();
@@ -231,6 +250,34 @@ describe("MBTI share consumer contract", () => {
     expect(screen.queryByText("type:ENFP-T")).not.toBeInTheDocument();
     expect(screen.queryByText("axis:EI")).not.toBeInTheDocument();
     expect(screen.queryByText("role:explorer")).not.toBeInTheDocument();
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
+        visual_kind: "share_carryover_entry",
+        continueTarget: "share_take_flow",
+        ctaKey: "share_carryover_entry",
+        carryoverFocusKey: "career.next_step",
+        carryoverReason: "continue_career_bridge",
+        recommendedResumeKeys: "career.next_step|career.work_experiments",
+        carryoverSceneKeys: "work|growth",
+        carryoverActionKeys: "career_next_step.theme.clarify_decision_criteria",
+      })
+    );
+
+    fireEvent.click(screen.getByTestId("mbti-share-carryover-cta"));
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_interaction",
+      expect.objectContaining({
+        visual_kind: "share_carryover_entry",
+        interaction: "click",
+        continueTarget: "share_take_flow",
+        ctaKey: "share_carryover_entry",
+        ctaRank: 1,
+        carryoverFocusKey: "career.next_step",
+      })
+    );
   });
 
   it("sends normalized share-click meta.utm and writes dedupe only after click success", async () => {
@@ -284,7 +331,7 @@ describe("MBTI share consumer contract", () => {
     await waitFor(() => {
       expect(screen.getByRole("link", { name: "Start MBTI test" })).toHaveAttribute(
         "href",
-        "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&share_click_id=click-123&entrypoint=share_page&landing_path=%2Fen%2Fshare%2Fshare-123%3Futm_source%3Dwechat%26utm_medium%3Dorganic%26utm_campaign%3Dspring&referrer=https%3A%2F%2Fexample.com%2Fen%2Fresult%2Fattempt-123&utm_source=wechat&utm_medium=organic&utm_campaign=spring"
+        "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&share_click_id=click-123&entrypoint=share_page&landing_path=%2Fen%2Fshare%2Fshare-123%3Futm_source%3Dwechat%26utm_medium%3Dorganic%26utm_campaign%3Dspring&referrer=https%3A%2F%2Fexample.com%2Fen%2Fresult%2Fattempt-123&utm_source=wechat&utm_medium=organic&utm_campaign=spring&carryover_focus_key=career.next_step&carryover_reason=continue_career_bridge&recommended_resume_keys=career.next_step%7Ccareer.work_experiments&carryover_scene_keys=work%7Cgrowth&carryover_action_keys=career_next_step.theme.clarify_decision_criteria"
       );
     });
   });

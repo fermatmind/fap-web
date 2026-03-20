@@ -580,6 +580,15 @@ export type MbtiCloseCallAxisRaw = MbtiPersonalizationAxisRaw & {
   boundary?: boolean;
 };
 
+export type MbtiContinuityRaw = {
+  carryover_focus_key?: string;
+  carryover_reason?: string;
+  recommended_resume_keys?: string[];
+  carryover_scene_keys?: string[];
+  carryover_action_keys?: string[];
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -625,6 +634,7 @@ export type MbtiPersonalizationRaw = {
     cta_priority_keys?: string[];
     [key: string]: unknown;
   };
+  continuity?: MbtiContinuityRaw;
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;
@@ -646,6 +656,7 @@ export type MbtiCompareParticipantRaw = {
   summary?: string;
   primary_cta_label?: string;
   primary_cta_path?: string;
+  mbti_continuity_v1?: MbtiContinuityRaw | null;
   compare_enabled?: boolean;
   compare_cta_label?: string;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;

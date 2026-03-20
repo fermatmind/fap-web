@@ -71,6 +71,13 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
         { code: "SN", label: "S / N", score_pct: 74, side_label: "Intuition", state: "Pattern-led" },
       ],
     },
+    mbti_continuity_v1: {
+      carryover_focus_key: "career.next_step",
+      carryover_reason: "continue_career_bridge",
+      recommended_resume_keys: ["career.next_step", "career.work_experiments"],
+      carryover_scene_keys: ["work", "growth"],
+      carryover_action_keys: ["career_next_step.theme.clarify_decision_criteria"],
+    },
     offers: [
       {
         title: "Unlock full report",
@@ -239,6 +246,11 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
     referer: `http://127.0.0.1:3000/en/result/${attemptId}`,
   });
   await expect(page.getByTestId("mbti-share-summary-card")).toBeVisible();
+  await expect(page.getByTestId("mbti-share-carryover-entry")).toContainText("Start next with Career next step");
+  await expect(page.getByTestId("mbti-share-carryover-cta")).toHaveAttribute(
+    "href",
+    /carryover_focus_key=career.next_step/
+  );
   await expect(page.getByRole("heading", { name: "ENFP-T" })).toBeVisible();
   await expect(page.getByRole("heading", { name: /^ENFP$/ })).toHaveCount(0);
   await expect(page.getByText("Campaigner")).toBeVisible();

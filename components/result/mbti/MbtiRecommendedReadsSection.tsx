@@ -4,11 +4,19 @@ import { useEffect, useRef } from "react";
 import { trackEvent } from "@/lib/analytics";
 import type { ReportRecommendedRead } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
+import { appendMbtiContinuityQuery, isInternalMbtiCarryoverHref } from "@/lib/mbti/continuity";
 import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
 import {
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCarryoverActionKeys,
+  summarizeMbtiCarryoverResumeKeys,
+  summarizeMbtiCarryoverSceneKeys,
+  summarizeMbtiCtaPriorityKeys,
+  summarizeMbtiOrderedSectionKeys,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSecondaryFocusKeys,
+  summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
 } from "@/lib/mbti/personalizationTelemetry";
 import { buttonVariants } from "@/components/ui/button";
@@ -58,6 +66,16 @@ export function MbtiRecommendedReadsSection({
       sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
       boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
       axisBands: summarizeMbtiAxisBands(personalization),
+      userState: summarizeMbtiUserState(personalization),
+      primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
+      secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+      orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+      ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
+      carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
+      carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
+      recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
+      carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
+      carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
       typeCode: normalizeText(personalization?.typeCode),
       identity: normalizeText(personalization?.identity),
       packId: normalizeText(personalization?.packId),
@@ -89,6 +107,10 @@ export function MbtiRecommendedReadsSection({
           const tags = normalizeStringArray(read.tags);
           const linkLabel = normalizeText(read.cta, locale === "zh" ? "继续阅读" : "Continue reading");
           const minutes = typeof read.estimated_minutes === "number" ? read.estimated_minutes : null;
+          const resolvedHref = isInternalMbtiCarryoverHref(normalizeText(read.url))
+            ? appendMbtiContinuityQuery(normalizeText(read.url), personalization?.continuity)
+            : normalizeText(read.url);
+          const isInternal = isInternalMbtiCarryoverHref(resolvedHref);
 
           return (
             <Card
@@ -117,9 +139,9 @@ export function MbtiRecommendedReadsSection({
                 ) : null}
                 {read.url ? (
                   <a
-                    href={read.url}
-                    target="_blank"
-                    rel="noreferrer"
+                    href={resolvedHref}
+                    target={isInternal ? undefined : "_blank"}
+                    rel={isInternal ? undefined : "noreferrer"}
                     className={buttonVariants({ variant: "outline" })}
                     onClick={() => {
                       trackEvent("ui_card_interaction", {
@@ -127,10 +149,21 @@ export function MbtiRecommendedReadsSection({
                         scale_code: "MBTI",
                         visual_kind: "recommended_read_card",
                         interaction: "click",
+                        continueTarget: isInternal ? "recommended_read" : "",
                         variantKeys: summarizeMbtiVariantKeys(personalization),
                         sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
                         boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
                         axisBands: summarizeMbtiAxisBands(personalization),
+                        userState: summarizeMbtiUserState(personalization),
+                        primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
+                        secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+                        orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+                        ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
+                        carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
+                        carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
+                        recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
+                        carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
+                        carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
                         typeCode: normalizeText(personalization?.typeCode),
                         identity: normalizeText(personalization?.identity),
                         packId: normalizeText(personalization?.packId),

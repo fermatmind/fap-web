@@ -1,15 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Alert } from "@/components/ui/alert";
+import { trackEvent } from "@/lib/analytics";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getMyAttempts, type MeAttemptItem } from "@/lib/api/v0_3";
 import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/assessmentSlugMap";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import {
+  appendMbtiContinuityQuery,
+  buildMbtiContinuityTelemetryFields,
+  parseMbtiContinuityQuery,
+  resolveMbtiCarryoverFocusLabel,
+  resolveMbtiCarryoverReasonLabel,
+} from "@/lib/mbti/continuity";
 
 type Row = {
   attemptId: string;
@@ -46,6 +54,7 @@ function resolveMbtiRow(item: MeAttemptItem): Row | null {
 
 export default function MbtiHistoryClient() {
   const pathname = usePathname() ?? "/";
+  const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
   const isZh = locale === "zh";
   const copy = getDictSync(locale).history.mbti;
@@ -57,8 +66,15 @@ export default function MbtiHistoryClient() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const carryoverImpressionTrackedRef = useRef(false);
+  const continuity = parseMbtiContinuityQuery(searchParams);
+  const continuityTelemetry = useMemo(() => buildMbtiContinuityTelemetryFields(continuity), [continuity]);
+  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(String(continuity?.carryoverFocusKey ?? ""), locale);
+  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(String(continuity?.carryoverReason ?? ""), locale);
   const latestRow = rows[0] ?? null;
-  const latestResultHref = latestRow ? localizedPath(`/result/${latestRow.attemptId}`, locale) : null;
+  const latestResultHref = latestRow
+    ? appendMbtiContinuityQuery(localizedPath(`/result/${latestRow.attemptId}`, locale), continuity)
+    : null;
 
   useEffect(() => {
     let active = true;
@@ -103,6 +119,22 @@ export default function MbtiHistoryClient() {
     };
   }, [isZh, page]);
 
+  useEffect(() => {
+    if (!continuity || carryoverImpressionTrackedRef.current) {
+      return;
+    }
+
+    carryoverImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "mbti-history",
+      scale_code: "MBTI",
+      visual_kind: "history_carryover_entry",
+      continueTarget: "history_latest_result",
+      ...continuityTelemetry,
+      locale,
+    });
+  }, [continuity, continuityTelemetry, locale]);
+
   return (
     <div data-testid="mbti-history-client" className="space-y-4">
       <section
@@ -119,6 +151,18 @@ export default function MbtiHistoryClient() {
               ? "这里现在就是你的 MBTI Workspace Lite 入口：继续查看当前结果，或用订单找回恢复已购报告。"
               : "This is now your MBTI Workspace Lite entry: continue from saved results here, or recover a purchased report through order lookup."}
           </p>
+          {continuity ? (
+            <div
+              data-testid="mbti-history-carryover-entry"
+              className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4"
+            >
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                {isZh ? "继续上次重点" : "Continue the current focus"}
+              </p>
+              <p className="m-0 mt-2 text-sm font-medium text-slate-900">{continuityFocusLabel}</p>
+              <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{continuityReasonLabel}</p>
+            </div>
+          ) : null}
         </div>
         <div className="flex flex-wrap gap-3">
           {latestResultHref ? (
@@ -126,6 +170,20 @@ export default function MbtiHistoryClient() {
               href={latestResultHref}
               className={buttonVariants({ className: "w-full sm:w-auto" })}
               data-testid="mbti-history-continue-cta"
+              onClick={() => {
+                trackEvent("ui_card_interaction", {
+                  slug: "mbti-history",
+                  scale_code: "MBTI",
+                  visual_kind: "history_continue_latest",
+                  interaction: "click",
+                  continueTarget: "history_latest_result",
+                  ctaKey: "history_continue_latest",
+                  ctaRank: 1,
+                  attempt_id: latestRow?.attemptId,
+                  ...continuityTelemetry,
+                  locale,
+                });
+              }}
             >
               {isZh ? "继续查看最新结果" : "Continue with latest result"}
             </Link>
@@ -199,9 +257,22 @@ export default function MbtiHistoryClient() {
                 {copy.statusValue}
               </p>
               <Link
-                href={localizedPath(`/result/${row.attemptId}`, locale)}
+                href={appendMbtiContinuityQuery(localizedPath(`/result/${row.attemptId}`, locale), continuity)}
                 className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
                 data-testid={`mbti-history-open-${row.attemptId}`}
+                onClick={() => {
+                  trackEvent("ui_card_interaction", {
+                    slug: "mbti-history",
+                    scale_code: "MBTI",
+                    visual_kind: "history_saved_result_entry",
+                    interaction: "click",
+                    continueTarget: "history_saved_result",
+                    ctaKey: "history_saved_result",
+                    attempt_id: row.attemptId,
+                    ...continuityTelemetry,
+                    locale,
+                  });
+                }}
               >
                 {copy.viewReport}
               </Link>

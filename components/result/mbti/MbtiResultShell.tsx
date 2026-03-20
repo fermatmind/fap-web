@@ -32,6 +32,11 @@ import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/l
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import {
+  appendMbtiContinuityQuery,
+  resolveMbtiCarryoverFocusLabel,
+  resolveMbtiCarryoverReasonLabel,
+} from "@/lib/mbti/continuity";
 import { captureError } from "@/lib/observability/sentry";
 import {
   buildMbtiCareerRecommendationHref,
@@ -42,6 +47,9 @@ import {
 import {
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCarryoverActionKeys,
+  summarizeMbtiCarryoverResumeKeys,
+  summarizeMbtiCarryoverSceneKeys,
   summarizeMbtiCtaPriorityKeys,
   summarizeMbtiOrderedSectionKeys,
   summarizeMbtiSceneFingerprint,
@@ -234,6 +242,11 @@ function buildCareerBridgeTelemetryPayload(
     secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
     orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
     ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
+    carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
+    carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
+    recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
+    carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
+    carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
     variantKeys: summarizeMbtiVariantKeys(personalization),
     sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
     boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
@@ -477,6 +490,7 @@ export function MbtiResultShell({
   const offerScrollFrameRef = useRef<number | null>(null);
   const resultViewTrackedRef = useRef(false);
   const careerBridgeImpressionTrackedRef = useRef(false);
+  const carryoverImpressionTrackedRef = useRef(false);
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [isSharing, setIsSharing] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
@@ -571,6 +585,9 @@ export function MbtiResultShell({
   const secondaryFocusKeysSummary = summarizeMbtiSecondaryFocusKeys(personalization);
   const orderedSectionKeysSummary = summarizeMbtiOrderedSectionKeys(personalization);
   const ctaPriorityKeysSummary = summarizeMbtiCtaPriorityKeys(personalization);
+  const recommendedResumeKeysSummary = summarizeMbtiCarryoverResumeKeys(personalization);
+  const carryoverSceneKeysSummary = summarizeMbtiCarryoverSceneKeys(personalization);
+  const carryoverActionKeysSummary = summarizeMbtiCarryoverActionKeys(personalization);
   const overviewVariantKey = normalizeText(personalization?.variantKeys.overview);
   const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
   const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
@@ -588,6 +605,34 @@ export function MbtiResultShell({
   const primaryFocusKey = normalizeText(personalization?.orchestration?.primaryFocusKey);
   const orderedSectionKeys = personalization?.orchestration?.orderedSectionKeys ?? [];
   const ctaPriorityKeys = personalization?.orchestration?.ctaPriorityKeys ?? [];
+  const carryoverFocusKey = normalizeText(personalization?.continuity?.carryoverFocusKey);
+  const carryoverReason = normalizeText(personalization?.continuity?.carryoverReason);
+  const continuityCareerHref = careerRecommendationHref
+    ? appendMbtiContinuityQuery(careerRecommendationHref, personalization?.continuity)
+    : "";
+  const continuityWorkspaceHref = isUnlockedPostPurchase
+    ? appendMbtiContinuityQuery(accessHub?.workspaceLite.href ?? historyHref, personalization?.continuity)
+    : "";
+  const continuityHistoryHref = historyHref
+    ? appendMbtiContinuityQuery(historyHref, personalization?.continuity)
+    : "";
+  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(carryoverFocusKey, locale);
+  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(carryoverReason, locale);
+  const carryoverEntryHref = normalizeText(
+    carryoverFocusKey.startsWith("career.") ? continuityCareerHref : "",
+    isUnlockedPostPurchase ? continuityWorkspaceHref : "",
+    continuityCareerHref,
+    isUnlockedPostPurchase ? continuityHistoryHref : ""
+  );
+  const carryoverTarget =
+    carryoverEntryHref && carryoverEntryHref === continuityCareerHref
+      ? "career_bridge"
+      : carryoverEntryHref && (carryoverEntryHref === continuityWorkspaceHref || carryoverEntryHref === continuityHistoryHref)
+        ? "workspace_lite"
+        : "";
+  const resolvedTerminalPrimaryCtaHref = isUnlockedPostPurchase
+    ? normalizeText(continuityWorkspaceHref, continuityHistoryHref, terminalPrimaryCtaHref)
+    : terminalPrimaryCtaHref;
   const isRevisit = personalization?.userState?.isRevisit === true;
   const actionPlanFocused = [
     "growth.next_actions",
@@ -720,6 +765,11 @@ export function MbtiResultShell({
       secondaryFocusKeys: secondaryFocusKeysSummary,
       orderedSectionKeys: orderedSectionKeysSummary,
       ctaPriorityKeys: ctaPriorityKeysSummary,
+      carryoverFocusKey,
+      carryoverReason,
+      recommendedResumeKeys: recommendedResumeKeysSummary,
+      carryoverSceneKeys: carryoverSceneKeysSummary,
+      carryoverActionKeys: carryoverActionKeysSummary,
       locale,
     };
 
@@ -755,6 +805,11 @@ export function MbtiResultShell({
     secondaryFocusKeysSummary,
     userStateSummary,
     variantKeysSummary,
+    carryoverActionKeysSummary,
+    carryoverFocusKey,
+    carryoverReason,
+    carryoverSceneKeysSummary,
+    recommendedResumeKeysSummary,
   ]);
 
   useEffect(() => {
@@ -772,6 +827,63 @@ export function MbtiResultShell({
       })
     );
   }, [attemptId, careerBridgeCtaRank, careerRecommendationHref, careerNextStepSection, locale, personalization]);
+
+  useEffect(() => {
+    if (!carryoverEntryHref || carryoverImpressionTrackedRef.current) {
+      return;
+    }
+
+    carryoverImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "mbti-result-shell",
+      scale_code: "MBTI",
+      visual_kind: "mbti_carryover_entry",
+      attempt_id: attemptId,
+      continueTarget: carryoverTarget,
+      userState: userStateSummary,
+      primaryFocusKey,
+      secondaryFocusKeys: secondaryFocusKeysSummary,
+      orderedSectionKeys: orderedSectionKeysSummary,
+      ctaPriorityKeys: ctaPriorityKeysSummary,
+      carryoverFocusKey,
+      carryoverReason,
+      recommendedResumeKeys: recommendedResumeKeysSummary,
+      carryoverSceneKeys: carryoverSceneKeysSummary,
+      carryoverActionKeys: carryoverActionKeysSummary,
+      variantKeys: variantKeysSummary,
+      sceneFingerprint: sceneFingerprintSummary,
+      boundaryFlags: boundaryFlagsSummary,
+      axisBands: axisBandsSummary,
+      typeCode: personalizationTypeCode,
+      identity: personalizationIdentity,
+      packId: personalizationPackId,
+      engineVersion: personalizationEngineVersion,
+      locale,
+    });
+  }, [
+    attemptId,
+    axisBandsSummary,
+    boundaryFlagsSummary,
+    carryoverActionKeysSummary,
+    carryoverEntryHref,
+    carryoverFocusKey,
+    carryoverReason,
+    carryoverSceneKeysSummary,
+    carryoverTarget,
+    ctaPriorityKeysSummary,
+    locale,
+    orderedSectionKeysSummary,
+    personalizationEngineVersion,
+    personalizationIdentity,
+    personalizationPackId,
+    personalizationTypeCode,
+    primaryFocusKey,
+    recommendedResumeKeysSummary,
+    sceneFingerprintSummary,
+    secondaryFocusKeysSummary,
+    userStateSummary,
+    variantKeysSummary,
+  ]);
 
   async function handleShare() {
     if (typeof window === "undefined" || isSharing) return;
@@ -818,6 +930,11 @@ export function MbtiResultShell({
           secondaryFocusKeys: secondaryFocusKeysSummary,
           orderedSectionKeys: orderedSectionKeysSummary,
           ctaPriorityKeys: ctaPriorityKeysSummary,
+          carryoverFocusKey,
+          carryoverReason,
+          recommendedResumeKeys: recommendedResumeKeysSummary,
+          carryoverSceneKeys: carryoverSceneKeysSummary,
+          carryoverActionKeys: carryoverActionKeysSummary,
           ctaKey: "share_result",
           ctaRank: shareCtaRank,
           shareMethod: "native",
@@ -846,6 +963,11 @@ export function MbtiResultShell({
           secondaryFocusKeys: secondaryFocusKeysSummary,
           orderedSectionKeys: orderedSectionKeysSummary,
           ctaPriorityKeys: ctaPriorityKeysSummary,
+          carryoverFocusKey,
+          carryoverReason,
+          recommendedResumeKeys: recommendedResumeKeysSummary,
+          carryoverSceneKeys: carryoverSceneKeysSummary,
+          carryoverActionKeys: carryoverActionKeysSummary,
           ctaKey: "share_result",
           ctaRank: shareCtaRank,
           shareMethod: "clipboard",
@@ -907,6 +1029,11 @@ export function MbtiResultShell({
         secondaryFocusKeys: secondaryFocusKeysSummary,
         orderedSectionKeys: orderedSectionKeysSummary,
         ctaPriorityKeys: ctaPriorityKeysSummary,
+        carryoverFocusKey,
+        carryoverReason,
+        recommendedResumeKeys: recommendedResumeKeysSummary,
+        carryoverSceneKeys: carryoverSceneKeysSummary,
+        carryoverActionKeys: carryoverActionKeysSummary,
         ctaKey: "unlock_full_report",
         ctaRank: unlockCtaRank,
         locale,
@@ -978,6 +1105,11 @@ export function MbtiResultShell({
         secondaryFocusKeys: secondaryFocusKeysSummary,
         orderedSectionKeys: orderedSectionKeysSummary,
         ctaPriorityKeys: ctaPriorityKeysSummary,
+        carryoverFocusKey,
+        carryoverReason,
+        recommendedResumeKeys: recommendedResumeKeysSummary,
+        carryoverSceneKeys: carryoverSceneKeysSummary,
+        carryoverActionKeys: carryoverActionKeysSummary,
         ctaKey: "unlock_full_report",
         ctaRank: unlockCtaRank,
         locale,
@@ -1027,7 +1159,7 @@ export function MbtiResultShell({
         locale={locale}
         retakeHref={retakeHref}
         primaryCtaLabel={terminalPrimaryCtaLabel}
-        primaryCtaHref={terminalPrimaryCtaHref}
+        primaryCtaHref={resolvedTerminalPrimaryCtaHref}
         primaryCtaIsInternal={isUnlockedPostPurchase}
         onShare={handleShare}
       />
@@ -1203,6 +1335,74 @@ export function MbtiResultShell({
             </section>
           ) : null}
 
+          {carryoverEntryHref ? (
+            <section
+              id="carryover"
+              data-testid="mbti-carryover-entry"
+              data-carryover-focus-key={carryoverFocusKey || undefined}
+              data-carryover-reason={carryoverReason || undefined}
+              className="scroll-mt-28 rounded-[28px] border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-emerald-50/60 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
+            >
+              <div className="space-y-3">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
+                  {locale === "zh" ? "继续阅读" : "Continue reading"}
+                </p>
+                <div className="space-y-2">
+                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                    {locale === "zh"
+                      ? `继续看 ${continuityFocusLabel || (carryoverTarget === "career_bridge" ? "职业下一步" : "当前重点")}`
+                      : `Continue with ${continuityFocusLabel || (carryoverTarget === "career_bridge" ? "career next step" : "the current focus")}`}
+                  </h2>
+                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                    {continuityReasonLabel}
+                  </p>
+                </div>
+                <Link
+                  data-testid="mbti-carryover-entry-cta"
+                  href={carryoverEntryHref}
+                  className={buttonVariants({ className: "bg-slate-950 text-white hover:bg-slate-800" })}
+                  onClick={() => {
+                    trackEvent("ui_card_interaction", {
+                      slug: "mbti-result-shell",
+                      scale_code: "MBTI",
+                      visual_kind: "mbti_carryover_entry",
+                      interaction: "click_cta",
+                      attempt_id: attemptId,
+                      continueTarget: carryoverTarget,
+                      userState: userStateSummary,
+                      primaryFocusKey,
+                      secondaryFocusKeys: secondaryFocusKeysSummary,
+                      orderedSectionKeys: orderedSectionKeysSummary,
+                      ctaPriorityKeys: ctaPriorityKeysSummary,
+                      carryoverFocusKey,
+                      carryoverReason,
+                      recommendedResumeKeys: recommendedResumeKeysSummary,
+                      carryoverSceneKeys: carryoverSceneKeysSummary,
+                      carryoverActionKeys: carryoverActionKeysSummary,
+                      variantKeys: variantKeysSummary,
+                      sceneFingerprint: sceneFingerprintSummary,
+                      boundaryFlags: boundaryFlagsSummary,
+                      axisBands: axisBandsSummary,
+                      typeCode: personalizationTypeCode,
+                      identity: personalizationIdentity,
+                      packId: personalizationPackId,
+                      engineVersion: personalizationEngineVersion,
+                      locale,
+                    });
+                  }}
+                >
+                  {locale === "zh"
+                    ? carryoverTarget === "workspace_lite"
+                      ? "回到你当前最相关的入口"
+                      : "继续看这里"
+                    : carryoverTarget === "workspace_lite"
+                      ? "Return to your current entry"
+                      : "Continue here"}
+                </Link>
+              </div>
+            </section>
+          ) : null}
+
           {CHAPTER_ORDER.map((chapterKey) => {
             const legacySection = legacySectionsByKey.get(chapterKey) ?? null;
             const projectionSections = sortProjectionSectionsByOrder(
@@ -1265,7 +1465,7 @@ export function MbtiResultShell({
                 </div>
                 <Link
                   data-testid="mbti-career-next-step-cta"
-                  href={careerRecommendationHref}
+                  href={continuityCareerHref || careerRecommendationHref}
                   onClick={() => {
                     if (!careerNextStepSection) {
                       return;
@@ -1307,7 +1507,7 @@ export function MbtiResultShell({
               locale={locale}
               attemptId={attemptId}
               accessHub={accessHub}
-              historyHref={historyHref}
+              historyHref={continuityWorkspaceHref || continuityHistoryHref || historyHref}
               orderLookupHref={orderLookupHref}
               personalization={personalization}
             />
@@ -1340,7 +1540,7 @@ export function MbtiResultShell({
                 </Link>
                 {isUnlockedPostPurchase ? (
                   <Link
-                    href={historyHref}
+                    href={resolvedTerminalPrimaryCtaHref}
                     className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}
                   >
                     {terminalPrimaryCtaLabel}
@@ -1366,7 +1566,7 @@ export function MbtiResultShell({
           modulesAllowed={Array.isArray(reportData.modules_allowed) ? reportData.modules_allowed : []}
           retakeHref={retakeHref}
           primaryCtaLabel={terminalPrimaryCtaLabel}
-          primaryCtaHref={terminalPrimaryCtaHref}
+          primaryCtaHref={resolvedTerminalPrimaryCtaHref}
           primaryCtaIsInternal={isUnlockedPostPurchase}
           onShare={handleShare}
         />
