@@ -18,8 +18,12 @@ import {
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
   summarizeMbtiCloseCallAxes,
+  summarizeMbtiCtaPriorityKeys,
   summarizeMbtiNeighborTypeKeys,
+  summarizeMbtiOrderedSectionKeys,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSecondaryFocusKeys,
+  summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
 } from "@/lib/mbti/personalizationTelemetry";
 
@@ -74,6 +78,7 @@ const ACTION_SECTION_KEYS = new Set([
 
 type MbtiChapterSectionProps = {
   locale: Locale;
+  attemptId: string;
   chapterKey: ChapterKey;
   legacySection?: ReportSection | null;
   projectionSections: MbtiResultProjectionSectionViewModel[];
@@ -82,6 +87,7 @@ type MbtiChapterSectionProps = {
   unlock: MbtiSectionUnlock | null;
   identityLayer?: ReportIdentityLayer | null;
   personalization?: MbtiResultPersonalizationViewModel | null;
+  primaryFocusKey?: string;
 };
 
 const CHAPTER_COPY: Record<
@@ -215,7 +221,12 @@ function renderProjectionDynamicBlocks(section: MbtiResultProjectionSectionViewM
 function buildSectionTelemetryPayload(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
-  personalization?: MbtiResultPersonalizationViewModel | null
+  personalization?: MbtiResultPersonalizationViewModel | null,
+  options?: {
+    attemptId?: string;
+    displayOrder?: number;
+    isPrimaryFocus?: boolean;
+  }
 ) {
   const payload = asRecord(section.payload);
   const personalizationPayload = asRecord(payload?.personalization);
@@ -226,6 +237,7 @@ function buildSectionTelemetryPayload(
     slug: "mbti-result-shell",
     scale_code: "MBTI",
     visual_kind: `mbti_section_${section.key}`,
+    attempt_id: normalizeText(options?.attemptId),
     sectionKey: section.key,
     sceneKey: normalizeText(personalizationPayload?.scene_key, section.key.split(".")[0]),
     styleKey: normalizeText(personalizationPayload?.style_key),
@@ -245,6 +257,13 @@ function buildSectionTelemetryPayload(
     identity: normalizeText(personalization?.identity),
     packId: normalizeText(personalization?.packId),
     engineVersion: normalizeText(personalization?.engineVersion),
+    userState: summarizeMbtiUserState(personalization),
+    primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
+    secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+    orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+    ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
+    displayOrder: options?.displayOrder ?? 0,
+    isPrimaryFocus: options?.isPrimaryFocus === true,
     overviewVariantKey,
     locale,
   };
@@ -606,10 +625,39 @@ function renderProjectionSection(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
   projectionDimensions: MbtiPublicProjectionDimensionViewModel[],
-  personalization?: MbtiResultPersonalizationViewModel | null
+  personalization?: MbtiResultPersonalizationViewModel | null,
+  options?: {
+    attemptId?: string;
+    displayOrder?: number;
+    isPrimaryFocus?: boolean;
+  }
 ) {
   let content: ReactNode = null;
-  const telemetryPayload = buildSectionTelemetryPayload(section, locale, personalization);
+  const telemetryPayload = buildSectionTelemetryPayload(section, locale, personalization, options);
+  const buildAccuracyFeedbackPayload = (feedback: string) => ({
+    feedback,
+    sectionKey: section.key,
+    actionKey: telemetryPayload.actionKey,
+    contrastKey: telemetryPayload.contrastKey,
+    neighborTypeKeys: telemetryPayload.neighborTypeKeys,
+    closeCallAxes: telemetryPayload.closeCallAxes,
+    typeCode: telemetryPayload.typeCode,
+    identity: telemetryPayload.identity,
+    variantKeys: telemetryPayload.variantKeys,
+    sceneFingerprint: telemetryPayload.sceneFingerprint,
+    boundaryFlags: telemetryPayload.boundaryFlags,
+    axisBands: telemetryPayload.axisBands,
+    packId: telemetryPayload.packId,
+    engineVersion: telemetryPayload.engineVersion,
+    userState: telemetryPayload.userState,
+    primaryFocusKey: telemetryPayload.primaryFocusKey,
+    secondaryFocusKeys: telemetryPayload.secondaryFocusKeys,
+    orderedSectionKeys: telemetryPayload.orderedSectionKeys,
+    ctaPriorityKeys: telemetryPayload.ctaPriorityKeys,
+    displayOrder: telemetryPayload.displayOrder,
+    isPrimaryFocus: telemetryPayload.isPrimaryFocus,
+    locale,
+  });
 
   switch (section.render) {
     case "letters_intro":
@@ -660,7 +708,13 @@ function renderProjectionSection(
       data-variant-key={section.variantKey || undefined}
       data-action-key={normalizeText(telemetryPayload.actionKey) || undefined}
       data-contrast-key={normalizeText(telemetryPayload.contrastKey) || undefined}
-      className="space-y-3 rounded-[24px] border border-slate-200 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
+      data-primary-focus={options?.isPrimaryFocus === true ? "true" : undefined}
+      data-display-order={options?.displayOrder ?? undefined}
+      className={`space-y-3 rounded-[24px] border bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)] ${
+        options?.isPrimaryFocus === true
+          ? "border-emerald-300 ring-1 ring-emerald-100"
+          : "border-slate-200"
+      }`}
       onClickCapture={() => {
         trackEvent("ui_card_interaction", {
           ...telemetryPayload,
@@ -668,6 +722,11 @@ function renderProjectionSection(
         });
       }}
     >
+      {options?.isPrimaryFocus === true ? (
+        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+          {locale === "zh" ? "建议先看" : "Start here"}
+        </p>
+      ) : null}
       <h3 className="m-0 text-lg font-semibold text-slate-900">{section.title}</h3>
       {content}
       {isExplainabilitySection || isActionSection ? (
@@ -676,23 +735,10 @@ function renderProjectionSection(
             type="button"
             className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
             onClick={() => {
-              trackEvent("accuracy_feedback", {
-                feedback: isActionSection ? "helpful_action" : "accurate",
-                sectionKey: section.key,
-                actionKey: telemetryPayload.actionKey,
-                contrastKey: telemetryPayload.contrastKey,
-                neighborTypeKeys: telemetryPayload.neighborTypeKeys,
-                closeCallAxes: telemetryPayload.closeCallAxes,
-                typeCode: telemetryPayload.typeCode,
-                identity: telemetryPayload.identity,
-                variantKeys: telemetryPayload.variantKeys,
-                sceneFingerprint: telemetryPayload.sceneFingerprint,
-                boundaryFlags: telemetryPayload.boundaryFlags,
-                axisBands: telemetryPayload.axisBands,
-                packId: telemetryPayload.packId,
-                engineVersion: telemetryPayload.engineVersion,
-                locale,
-              });
+              trackEvent(
+                "accuracy_feedback",
+                buildAccuracyFeedbackPayload(isActionSection ? "helpful_action" : "accurate")
+              );
             }}
           >
             {isActionSection
@@ -707,23 +753,10 @@ function renderProjectionSection(
             type="button"
             className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
             onClick={() => {
-              trackEvent("accuracy_feedback", {
-                feedback: isActionSection ? "not_now" : "unclear",
-                sectionKey: section.key,
-                actionKey: telemetryPayload.actionKey,
-                contrastKey: telemetryPayload.contrastKey,
-                neighborTypeKeys: telemetryPayload.neighborTypeKeys,
-                closeCallAxes: telemetryPayload.closeCallAxes,
-                typeCode: telemetryPayload.typeCode,
-                identity: telemetryPayload.identity,
-                variantKeys: telemetryPayload.variantKeys,
-                sceneFingerprint: telemetryPayload.sceneFingerprint,
-                boundaryFlags: telemetryPayload.boundaryFlags,
-                axisBands: telemetryPayload.axisBands,
-                packId: telemetryPayload.packId,
-                engineVersion: telemetryPayload.engineVersion,
-                locale,
-              });
+              trackEvent(
+                "accuracy_feedback",
+                buildAccuracyFeedbackPayload(isActionSection ? "not_now" : "unclear")
+              );
             }}
           >
             {isActionSection
@@ -742,6 +775,7 @@ function renderProjectionSection(
 
 export function MbtiChapterSection({
   locale,
+  attemptId,
   chapterKey,
   legacySection,
   projectionSections,
@@ -750,6 +784,7 @@ export function MbtiChapterSection({
   unlock,
   identityLayer,
   personalization,
+  primaryFocusKey,
 }: MbtiChapterSectionProps) {
   const copy = CHAPTER_COPY[chapterKey];
   const impressionKeysRef = useRef<Set<string>>(new Set());
@@ -793,9 +828,13 @@ export function MbtiChapterSection({
       }
 
       impressionKeysRef.current.add(impressionKey);
-      trackEvent("ui_card_impression", buildSectionTelemetryPayload(section, locale, personalization));
+      trackEvent("ui_card_impression", buildSectionTelemetryPayload(section, locale, personalization, {
+        attemptId,
+        displayOrder: projectionSections.findIndex((candidate) => candidate.key === section.key) + 1,
+        isPrimaryFocus: section.key === primaryFocusKey,
+      }));
     }
-  }, [locale, personalization, projectionSections]);
+  }, [attemptId, locale, personalization, primaryFocusKey, projectionSections]);
 
   useEffect(() => {
     if (
@@ -833,7 +872,11 @@ export function MbtiChapterSection({
 
             dwellKeysRef.current.add(signature);
             trackEvent("ui_card_interaction", {
-              ...buildSectionTelemetryPayload(section, locale, personalization),
+              ...buildSectionTelemetryPayload(section, locale, personalization, {
+                attemptId,
+                displayOrder: projectionSections.findIndex((candidate) => candidate.key === section.key) + 1,
+                isPrimaryFocus: section.key === primaryFocusKey,
+              }),
               interaction: "dwell_2500ms",
             });
           }, 2500);
@@ -864,7 +907,7 @@ export function MbtiChapterSection({
       }
       timers.clear();
     };
-  }, [locale, personalization, projectionSections]);
+  }, [attemptId, locale, personalization, primaryFocusKey, projectionSections]);
 
   return (
     <section
@@ -925,8 +968,12 @@ export function MbtiChapterSection({
           data-testid={`mbti-chapter-public-${copy.anchor}`}
           className="space-y-4"
         >
-          {projectionSections.map((section) =>
-            renderProjectionSection(section, locale, projectionDimensions, personalization)
+          {projectionSections.map((section, index) =>
+            renderProjectionSection(section, locale, projectionDimensions, personalization, {
+              attemptId,
+              displayOrder: index + 1,
+              isPrimaryFocus: section.key === primaryFocusKey,
+            })
           )}
         </div>
       ) : hasLegacyPublicContent && legacySection ? (

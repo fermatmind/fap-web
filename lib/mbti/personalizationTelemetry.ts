@@ -81,3 +81,39 @@ export function summarizeMbtiNeighborTypeKeys(
 ): string {
   return (personalization?.neighborTypeKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
 }
+
+export function summarizeMbtiUserState(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  const userState = personalization?.userState;
+  if (!userState) {
+    return "";
+  }
+
+  return [
+    `first:${userState.isFirstView ? "1" : "0"}`,
+    `revisit:${userState.isRevisit ? "1" : "0"}`,
+    `unlock:${userState.hasUnlock ? "1" : "0"}`,
+    `feedback:${userState.hasFeedback ? "1" : "0"}`,
+    `share:${userState.hasShare ? "1" : "0"}`,
+    `action:${userState.hasActionEngagement ? "1" : "0"}`,
+  ].join("|");
+}
+
+export function summarizeMbtiOrderedSectionKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.orchestration?.orderedSectionKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiSecondaryFocusKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.orchestration?.secondaryFocusKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiCtaPriorityKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.orchestration?.ctaPriorityKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}

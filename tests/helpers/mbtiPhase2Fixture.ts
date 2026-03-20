@@ -6,6 +6,12 @@ type MbtiPhase2FixtureOptions = {
   eiBand?: EiBand;
   eiPct?: number;
   eiDelta?: number;
+  isRevisit?: boolean;
+  hasUnlock?: boolean;
+  hasFeedback?: boolean;
+  hasShare?: boolean;
+  hasActionEngagement?: boolean;
+  primaryFocusKey?: string;
 };
 
 function normalizeText(...values: unknown[]): string {
@@ -78,6 +84,127 @@ function resolveProjectionSectionTitle(key: string): string {
     default:
       return key;
   }
+}
+
+const CHAPTER_SECTION_KEYS = {
+  career: [
+    "career.summary",
+    "career.collaboration_fit",
+    "career.work_environment",
+    "career.work_experiments",
+    "career.advantages",
+    "career.weaknesses",
+    "career.preferred_roles",
+    "career.next_step",
+    "career.upgrade_suggestions",
+  ],
+  growth: [
+    "growth.summary",
+    "growth.stability_confidence",
+    "growth.next_actions",
+    "growth.weekly_experiments",
+    "growth.strengths",
+    "growth.weaknesses",
+    "growth.stress_recovery",
+    "growth.watchouts",
+    "growth.motivators",
+    "growth.drainers",
+  ],
+  traits: [
+    "letters_intro",
+    "overview",
+    "trait_overview",
+    "traits.why_this_type",
+    "traits.close_call_axes",
+    "traits.adjacent_type_contrast",
+    "traits.decision_style",
+  ],
+  relationships: [
+    "relationships.summary",
+    "relationships.strengths",
+    "relationships.weaknesses",
+    "relationships.communication_style",
+    "relationships.try_this_week",
+    "relationships.rel_advantages",
+    "relationships.rel_risks",
+  ],
+} as const;
+
+function buildOrderedSectionKeys(primaryFocusKey: string, secondaryFocusKeys: string[]): string[] {
+  const ordered: string[] = [];
+
+  for (const chapterSections of Object.values(CHAPTER_SECTION_KEYS)) {
+    const promoted = [
+      primaryFocusKey,
+      ...secondaryFocusKeys.filter((key) => key !== primaryFocusKey),
+    ].filter((key) => chapterSections.includes(key as never));
+
+    const seen = new Set<string>();
+    for (const key of [...promoted, ...chapterSections]) {
+      if (!key || seen.has(key) || !chapterSections.includes(key as never)) {
+        continue;
+      }
+
+      seen.add(key);
+      ordered.push(key);
+    }
+  }
+
+  return ordered;
+}
+
+function resolvePrimaryFocusKey(input: {
+  hasUnlock: boolean;
+  isRevisit: boolean;
+  hasFeedback: boolean;
+  hasActionEngagement: boolean;
+  primaryFocusKey?: string;
+}): string {
+  if (input.primaryFocusKey) {
+    return input.primaryFocusKey;
+  }
+
+  if (input.hasFeedback) {
+    return "growth.stability_confidence";
+  }
+
+  if (!input.hasUnlock) {
+    return input.isRevisit ? "growth.weekly_experiments" : "growth.next_actions";
+  }
+
+  if (!input.isRevisit) {
+    return "career.next_step";
+  }
+
+  return input.hasActionEngagement ? "growth.watchouts" : "growth.weekly_experiments";
+}
+
+function resolveSecondaryFocusKeys(isRevisit: boolean): string[] {
+  return isRevisit
+    ? ["career.work_experiments", "relationships.try_this_week"]
+    : ["traits.close_call_axes", "traits.adjacent_type_contrast"];
+}
+
+function resolveCtaPriorityKeys(input: {
+  hasUnlock: boolean;
+  isRevisit: boolean;
+  hasFeedback: boolean;
+  hasShare: boolean;
+  hasActionEngagement: boolean;
+}): string[] {
+  if (!input.hasUnlock) {
+    if (input.isRevisit && (input.hasFeedback || input.hasShare)) {
+      return ["career_bridge", "unlock_full_report", "share_result"];
+    }
+
+    return ["unlock_full_report", "career_bridge", "share_result"];
+  }
+
+  if (input.isRevisit && input.hasActionEngagement) {
+    return ["career_bridge", "workspace_lite", "share_result"];
+  }
+
+  return ["career_bridge", "share_result", "workspace_lite"];
 }
 
 function createProjectionSectionShell(key: string): Record<string, unknown> {
@@ -153,6 +280,11 @@ export function applyMbtiPhase2Fixture(
   const eiBand = options.eiBand ?? "clear";
   const eiPct = options.eiPct ?? (eiBand === "strong" ? 77 : 67);
   const eiDelta = options.eiDelta ?? (eiBand === "strong" ? 27 : 17);
+  const isRevisit = options.isRevisit ?? false;
+  const hasUnlock = options.hasUnlock ?? false;
+  const hasFeedback = options.hasFeedback ?? false;
+  const hasShare = options.hasShare ?? false;
+  const hasActionEngagement = options.hasActionEngagement ?? false;
 
   const eiAxis = {
     axis: "EI",
@@ -306,9 +438,25 @@ export function applyMbtiPhase2Fixture(
     "stability.close_call.TF",
     "stability.identity.T",
   ];
+  const primaryFocusKey = resolvePrimaryFocusKey({
+    hasUnlock,
+    isRevisit,
+    hasFeedback,
+    hasActionEngagement,
+    primaryFocusKey: options.primaryFocusKey,
+  });
+  const secondaryFocusKeys = resolveSecondaryFocusKeys(isRevisit);
+  const ctaPriorityKeys = resolveCtaPriorityKeys({
+    hasUnlock,
+    isRevisit,
+    hasFeedback,
+    hasShare,
+    hasActionEngagement,
+  });
+  const orderedSectionKeys = buildOrderedSectionKeys(primaryFocusKey, secondaryFocusKeys);
 
   const personalization = {
-    schema_version: "mbti.personalization.phase7a.v1",
+    schema_version: "mbti.personalization.phase7b.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
@@ -493,6 +641,20 @@ export function applyMbtiPhase2Fixture(
     relationship_action_keys: relationshipActionKeys,
     work_experiment_keys: workExperimentKeys,
     watchout_keys: watchoutKeys,
+    user_state: {
+      is_first_view: !isRevisit,
+      is_revisit: isRevisit,
+      has_unlock: hasUnlock,
+      has_feedback: hasFeedback,
+      has_share: hasShare,
+      has_action_engagement: hasActionEngagement,
+    },
+    orchestration: {
+      ordered_section_keys: orderedSectionKeys,
+      primary_focus_key: primaryFocusKey,
+      secondary_focus_keys: secondaryFocusKeys,
+      cta_priority_keys: ctaPriorityKeys,
+    },
     variant_keys: {
       overview: overviewVariantKey,
       trait_overview: traitOverviewVariantKey,
@@ -521,7 +683,7 @@ export function applyMbtiPhase2Fixture(
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase7a.v1",
+    dynamic_sections_version: "phase7b.v1",
   };
 
   getProjectionMeta(reportData).personalization = structuredClone(personalization);

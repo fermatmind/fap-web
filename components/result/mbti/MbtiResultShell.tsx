@@ -42,7 +42,11 @@ import {
 import {
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCtaPriorityKeys,
+  summarizeMbtiOrderedSectionKeys,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSecondaryFocusKeys,
+  summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
 } from "@/lib/mbti/personalizationTelemetry";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
@@ -202,7 +206,12 @@ function extractProjectionSectionLead(
 function buildCareerBridgeTelemetryPayload(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
-  personalization?: MbtiResultProjectionViewModel["personalization"] | null
+  personalization?: MbtiResultProjectionViewModel["personalization"] | null,
+  options?: {
+    attemptId?: string;
+    ctaKey?: string;
+    ctaRank?: number;
+  }
 ) {
   const payload = asRecord(section.payload);
   const personalizationPayload = asRecord(payload?.personalization);
@@ -213,10 +222,18 @@ function buildCareerBridgeTelemetryPayload(
     slug: "mbti-result-shell",
     scale_code: "MBTI",
     visual_kind: "mbti_career_bridge",
+    attempt_id: normalizeText(options?.attemptId),
     sectionKey: section.key,
     sceneKey: normalizeText(personalizationPayload?.scene_key, "career"),
     styleKey: normalizeText(personalizationPayload?.style_key),
     variantKey: normalizeText(section.variantKey),
+    ctaKey: normalizeText(options?.ctaKey),
+    ctaRank: options?.ctaRank ?? 0,
+    userState: summarizeMbtiUserState(personalization),
+    primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
+    secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+    orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+    ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
     variantKeys: summarizeMbtiVariantKeys(personalization),
     sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
     boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
@@ -244,6 +261,44 @@ function resolveShareMessages(locale: Locale, shareStatus: "idle" | "copied" | "
 
 function resolvePrimaryCtaLabel(locale: Locale, _cta?: ReportCta | null) {
   return locale === "zh" ? "解锁完整报告" : "Unlock full report";
+}
+
+function resolveCtaRank(ctaPriorityKeys: string[], ctaKey: string): number {
+  const index = ctaPriorityKeys.findIndex((value) => value === ctaKey);
+  return index >= 0 ? index + 1 : 0;
+}
+
+function resolveCtaRankLabel(locale: Locale, rank: number): string {
+  return locale === "zh" ? `优先入口 ${rank}` : `Priority ${rank}`;
+}
+
+function sortProjectionSectionsByOrder(
+  sections: MbtiResultProjectionSectionViewModel[],
+  orderedSectionKeys: string[]
+): MbtiResultProjectionSectionViewModel[] {
+  if (orderedSectionKeys.length === 0 || sections.length <= 1) {
+    return sections;
+  }
+
+  const orderMap = new Map(orderedSectionKeys.map((key, index) => [key, index] as const));
+  return [...sections].sort((left, right) => {
+    const leftRank = orderMap.get(left.key);
+    const rightRank = orderMap.get(right.key);
+
+    if (leftRank === undefined && rightRank === undefined) {
+      return 0;
+    }
+
+    if (leftRank === undefined) {
+      return 1;
+    }
+
+    if (rightRank === undefined) {
+      return -1;
+    }
+
+    return leftRank - rightRank;
+  });
 }
 
 function maskIdentifier(value: string): string {
@@ -512,6 +567,10 @@ export function MbtiResultShell({
   const sceneFingerprintSummary = summarizeMbtiSceneFingerprint(personalization);
   const boundaryFlagsSummary = summarizeMbtiBoundaryFlags(personalization);
   const axisBandsSummary = summarizeMbtiAxisBands(personalization);
+  const userStateSummary = summarizeMbtiUserState(personalization);
+  const secondaryFocusKeysSummary = summarizeMbtiSecondaryFocusKeys(personalization);
+  const orderedSectionKeysSummary = summarizeMbtiOrderedSectionKeys(personalization);
+  const ctaPriorityKeysSummary = summarizeMbtiCtaPriorityKeys(personalization);
   const overviewVariantKey = normalizeText(personalization?.variantKeys.overview);
   const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
   const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
@@ -526,6 +585,18 @@ export function MbtiResultShell({
   const fullResolvedOffer =
     offers.find((offer) => offer.moduleCodes.includes("core_full") || offer.key.toUpperCase().includes("REPORT_FULL"))
     ?? null;
+  const primaryFocusKey = normalizeText(personalization?.orchestration?.primaryFocusKey);
+  const orderedSectionKeys = personalization?.orchestration?.orderedSectionKeys ?? [];
+  const ctaPriorityKeys = personalization?.orchestration?.ctaPriorityKeys ?? [];
+  const isRevisit = personalization?.userState?.isRevisit === true;
+  const actionPlanFocused = [
+    "growth.next_actions",
+    "growth.weekly_experiments",
+    "growth.watchouts",
+  ].includes(primaryFocusKey);
+  const unlockCtaRank = resolveCtaRank(ctaPriorityKeys, "unlock_full_report");
+  const careerBridgeCtaRank = resolveCtaRank(ctaPriorityKeys, "career_bridge");
+  const shareCtaRank = resolveCtaRank(ctaPriorityKeys, "share_result");
 
   const cancelScheduledOfferScroll = useCallback(() => {
     if (offerScrollFrameRef.current === null || typeof window === "undefined") {
@@ -632,6 +703,7 @@ export function MbtiResultShell({
 
     resultViewTrackedRef.current = true;
     const basePayload = {
+      attempt_id: attemptId,
       attemptIdMasked: maskIdentifier(attemptId),
       locked: reportData.locked === true,
       typeCode: personalizationTypeCode,
@@ -643,35 +715,45 @@ export function MbtiResultShell({
       axisBands: axisBandsSummary,
       packId: personalizationPackId,
       engineVersion: personalizationEngineVersion,
+      userState: userStateSummary,
+      primaryFocusKey,
+      secondaryFocusKeys: secondaryFocusKeysSummary,
+      orderedSectionKeys: orderedSectionKeysSummary,
+      ctaPriorityKeys: ctaPriorityKeysSummary,
       locale,
     };
 
     trackEvent("view_result", basePayload);
 
-    if (typeof window === "undefined") {
+    if (typeof window === "undefined" || !isRevisit) {
       return;
     }
 
     const revisitStorageKey = `fm_mbti_result_revisit:${attemptId}`;
-    const seenBefore = window.sessionStorage.getItem(revisitStorageKey) === "1";
-    if (seenBefore) {
-      trackEvent("revisit_result", basePayload);
+    if (window.sessionStorage.getItem(revisitStorageKey) === "1") {
       return;
     }
 
+    trackEvent("revisit_result", basePayload);
     window.sessionStorage.setItem(revisitStorageKey, "1");
   }, [
     attemptId,
     axisBandsSummary,
     boundaryFlagsSummary,
+    ctaPriorityKeysSummary,
+    isRevisit,
     locale,
     overviewVariantKey,
+    orderedSectionKeysSummary,
     personalizationEngineVersion,
     personalizationIdentity,
     personalizationPackId,
     personalizationTypeCode,
+    primaryFocusKey,
     reportData.locked,
     sceneFingerprintSummary,
+    secondaryFocusKeysSummary,
+    userStateSummary,
     variantKeysSummary,
   ]);
 
@@ -681,8 +763,15 @@ export function MbtiResultShell({
     }
 
     careerBridgeImpressionTrackedRef.current = true;
-    trackEvent("ui_card_impression", buildCareerBridgeTelemetryPayload(careerNextStepSection, locale, personalization));
-  }, [careerRecommendationHref, careerNextStepSection, locale, personalization]);
+    trackEvent(
+      "ui_card_impression",
+      buildCareerBridgeTelemetryPayload(careerNextStepSection, locale, personalization, {
+        attemptId,
+        ctaKey: "career_bridge",
+        ctaRank: careerBridgeCtaRank,
+      })
+    );
+  }, [attemptId, careerBridgeCtaRank, careerRecommendationHref, careerNextStepSection, locale, personalization]);
 
   async function handleShare() {
     if (typeof window === "undefined" || isSharing) return;
@@ -713,6 +802,7 @@ export function MbtiResultShell({
           url: shareUrl,
         });
         trackEvent("share_result", {
+          attempt_id: attemptId,
           attemptIdMasked: maskIdentifier(attemptId),
           typeCode: personalizationTypeCode,
           identity: personalizationIdentity,
@@ -723,6 +813,13 @@ export function MbtiResultShell({
           axisBands: axisBandsSummary,
           packId: personalizationPackId,
           engineVersion: personalizationEngineVersion,
+          userState: userStateSummary,
+          primaryFocusKey,
+          secondaryFocusKeys: secondaryFocusKeysSummary,
+          orderedSectionKeys: orderedSectionKeysSummary,
+          ctaPriorityKeys: ctaPriorityKeysSummary,
+          ctaKey: "share_result",
+          ctaRank: shareCtaRank,
           shareMethod: "native",
           locale,
         });
@@ -733,6 +830,7 @@ export function MbtiResultShell({
       if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(shareUrl);
         trackEvent("share_result", {
+          attempt_id: attemptId,
           attemptIdMasked: maskIdentifier(attemptId),
           typeCode: personalizationTypeCode,
           identity: personalizationIdentity,
@@ -743,6 +841,13 @@ export function MbtiResultShell({
           axisBands: axisBandsSummary,
           packId: personalizationPackId,
           engineVersion: personalizationEngineVersion,
+          userState: userStateSummary,
+          primaryFocusKey,
+          secondaryFocusKeys: secondaryFocusKeysSummary,
+          orderedSectionKeys: orderedSectionKeysSummary,
+          ctaPriorityKeys: ctaPriorityKeysSummary,
+          ctaKey: "share_result",
+          ctaRank: shareCtaRank,
           shareMethod: "clipboard",
           locale,
         });
@@ -780,6 +885,7 @@ export function MbtiResultShell({
 
     try {
       trackEvent("click_unlock", {
+        attempt_id: attemptId,
         attemptIdMasked: maskIdentifier(attemptId),
         sku,
         priceShown:
@@ -796,6 +902,13 @@ export function MbtiResultShell({
         axisBands: axisBandsSummary,
         packId: personalizationPackId,
         engineVersion: personalizationEngineVersion,
+        userState: userStateSummary,
+        primaryFocusKey,
+        secondaryFocusKeys: secondaryFocusKeysSummary,
+        orderedSectionKeys: orderedSectionKeysSummary,
+        ctaPriorityKeys: ctaPriorityKeysSummary,
+        ctaKey: "unlock_full_report",
+        ctaRank: unlockCtaRank,
         locale,
       });
 
@@ -847,6 +960,7 @@ export function MbtiResultShell({
         resultUrl: resultUrl || null,
       });
       trackEvent("create_order", {
+        attempt_id: attemptId,
         attemptIdMasked: maskIdentifier(attemptId),
         orderNoMasked: maskIdentifier(pendingOrderNo),
         sku,
@@ -859,6 +973,13 @@ export function MbtiResultShell({
         axisBands: axisBandsSummary,
         packId: personalizationPackId,
         engineVersion: personalizationEngineVersion,
+        userState: userStateSummary,
+        primaryFocusKey,
+        secondaryFocusKeys: secondaryFocusKeysSummary,
+        orderedSectionKeys: orderedSectionKeysSummary,
+        ctaPriorityKeys: ctaPriorityKeysSummary,
+        ctaKey: "unlock_full_report",
+        ctaRank: unlockCtaRank,
         locale,
       });
 
@@ -1054,9 +1175,17 @@ export function MbtiResultShell({
             <section
               id="action-plan"
               data-testid="mbti-action-plan-summary"
-              className="scroll-mt-28 rounded-[28px] border border-amber-200 bg-gradient-to-br from-amber-50 via-white to-emerald-50/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
+              data-primary-focus={actionPlanFocused ? "true" : undefined}
+              className={`scroll-mt-28 rounded-[28px] border bg-gradient-to-br from-amber-50 via-white to-emerald-50/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6 ${
+                actionPlanFocused ? "border-emerald-300 ring-1 ring-emerald-100" : "border-amber-200"
+              }`}
             >
               <div className="space-y-3">
+                {actionPlanFocused ? (
+                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                    {locale === "zh" ? "当前重点" : "Current focus"}
+                  </p>
+                ) : null}
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">
                   {locale === "zh" ? "行动总览" : "Action plan"}
                 </p>
@@ -1076,9 +1205,12 @@ export function MbtiResultShell({
 
           {CHAPTER_ORDER.map((chapterKey) => {
             const legacySection = legacySectionsByKey.get(chapterKey) ?? null;
-            const projectionSections = CHAPTER_PROJECTION_KEYS[chapterKey]
-              .map((sectionKey) => projectionSectionsByKey.get(sectionKey))
-              .filter((section): section is MbtiResultProjectionSectionViewModel => Boolean(section));
+            const projectionSections = sortProjectionSectionsByOrder(
+              CHAPTER_PROJECTION_KEYS[chapterKey]
+                .map((sectionKey) => projectionSectionsByKey.get(sectionKey))
+                .filter((section): section is MbtiResultProjectionSectionViewModel => Boolean(section)),
+              orderedSectionKeys
+            );
 
             if (!legacySection && projectionSections.length === 0) {
               return null;
@@ -1088,6 +1220,7 @@ export function MbtiResultShell({
               <MbtiChapterSection
                 key={chapterKey}
                 locale={locale}
+                attemptId={attemptId}
                 chapterKey={chapterKey}
                 legacySection={legacySection}
                 projectionSections={projectionSections}
@@ -1096,6 +1229,7 @@ export function MbtiResultShell({
                 unlock={sectionUnlocks[chapterKey] ?? null}
                 identityLayer={identityLayer}
                 personalization={personalization}
+                primaryFocusKey={primaryFocusKey}
               />
             );
           })}
@@ -1104,9 +1238,18 @@ export function MbtiResultShell({
             <section
               id="career-next-step"
               data-testid="mbti-career-next-step"
-              className="scroll-mt-28 rounded-[28px] border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-emerald-50/60 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6"
+              data-cta-key="career_bridge"
+              data-cta-rank={careerBridgeCtaRank > 0 ? String(careerBridgeCtaRank) : undefined}
+              className={`scroll-mt-28 rounded-[28px] border bg-gradient-to-br from-sky-50 via-white to-emerald-50/60 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6 ${
+                careerBridgeCtaRank === 1 ? "border-emerald-300 ring-1 ring-emerald-100" : "border-sky-200"
+              }`}
             >
               <div className="space-y-3">
+                {careerBridgeCtaRank > 0 ? (
+                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                    {resolveCtaRankLabel(locale, careerBridgeCtaRank)}
+                  </p>
+                ) : null}
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
                   {locale === "zh" ? "职业下一步" : "Career next step"}
                 </p>
@@ -1129,7 +1272,11 @@ export function MbtiResultShell({
                     }
 
                     trackEvent("ui_card_interaction", {
-                      ...buildCareerBridgeTelemetryPayload(careerNextStepSection, locale, personalization),
+                      ...buildCareerBridgeTelemetryPayload(careerNextStepSection, locale, personalization, {
+                        attemptId,
+                        ctaKey: "career_bridge",
+                        ctaRank: careerBridgeCtaRank,
+                      }),
                       interaction: "click_cta",
                     });
                   }}
@@ -1145,9 +1292,11 @@ export function MbtiResultShell({
 
           <MbtiOfferComparisonSection
             locale={locale}
+            attemptId={attemptId}
             offers={offers}
             cta={cta}
             personalization={personalization}
+            ctaRank={unlockCtaRank}
             onCheckout={handleCheckout}
             isCheckingOut={isCheckingOut}
             checkoutError={checkoutError}

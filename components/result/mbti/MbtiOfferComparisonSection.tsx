@@ -9,16 +9,22 @@ import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjec
 import {
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCtaPriorityKeys,
+  summarizeMbtiOrderedSectionKeys,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSecondaryFocusKeys,
+  summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
 } from "@/lib/mbti/personalizationTelemetry";
 import type { ResolvedOffer } from "@/components/result/RichResultReport";
 
 type MbtiOfferComparisonSectionProps = {
   locale: Locale;
+  attemptId: string;
   offers: ResolvedOffer[];
   cta?: ReportCta | null;
   personalization?: MbtiResultPersonalizationViewModel | null;
+  ctaRank?: number;
   onCheckout?: () => void | Promise<void>;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
@@ -42,9 +48,11 @@ function isFullOffer(offer: ResolvedOffer): boolean {
 
 export function MbtiOfferComparisonSection({
   locale,
+  attemptId,
   offers,
   cta,
   personalization = null,
+  ctaRank = 0,
   onCheckout,
   isCheckingOut = false,
   checkoutError = null,
@@ -78,6 +86,14 @@ export function MbtiOfferComparisonSection({
       slug: "mbti-result-shell",
       scale_code: "MBTI",
       visual_kind: "offer_primary_cta",
+      attempt_id: normalizeText(attemptId),
+      ctaKey: "unlock_full_report",
+      ctaRank,
+      userState: summarizeMbtiUserState(personalization),
+      primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
+      secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+      orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+      ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
       variantKeys: summarizeMbtiVariantKeys(personalization),
       sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
       boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
@@ -88,7 +104,7 @@ export function MbtiOfferComparisonSection({
       engineVersion: normalizeText(personalization?.engineVersion),
       locale,
     });
-  }, [locale, personalization, primaryOffer]);
+  }, [attemptId, ctaRank, locale, personalization, primaryOffer]);
 
   if (primaryOffer === null) {
     return null;
@@ -98,9 +114,16 @@ export function MbtiOfferComparisonSection({
     <section
       id="offers"
       data-testid="mbti-offer-comparison"
+      data-cta-key="unlock_full_report"
+      data-cta-rank={ctaRank > 0 ? String(ctaRank) : undefined}
       className="scroll-mt-28 space-y-4 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
     >
       <div className="space-y-2">
+        {ctaRank > 0 ? (
+          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+            {locale === "zh" ? `优先入口 ${ctaRank}` : `Priority ${ctaRank}`}
+          </p>
+        ) : null}
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {locale === "zh" ? "解锁方案" : "Unlock options"}
         </p>
@@ -159,6 +182,14 @@ export function MbtiOfferComparisonSection({
                 scale_code: "MBTI",
                 visual_kind: "offer_primary_cta",
                 interaction: "click",
+                attempt_id: normalizeText(attemptId),
+                ctaKey: "unlock_full_report",
+                ctaRank,
+                userState: summarizeMbtiUserState(personalization),
+                primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
+                secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+                orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+                ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
                 variantKeys: summarizeMbtiVariantKeys(personalization),
                 sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
                 boundaryFlags: summarizeMbtiBoundaryFlags(personalization),

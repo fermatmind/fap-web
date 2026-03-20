@@ -609,6 +609,22 @@ export type MbtiPersonalizationRaw = {
   relationship_action_keys?: string[];
   work_experiment_keys?: string[];
   watchout_keys?: string[];
+  user_state?: {
+    is_first_view?: boolean;
+    is_revisit?: boolean;
+    has_unlock?: boolean;
+    has_feedback?: boolean;
+    has_share?: boolean;
+    has_action_engagement?: boolean;
+    [key: string]: unknown;
+  };
+  orchestration?: {
+    ordered_section_keys?: string[];
+    primary_focus_key?: string;
+    secondary_focus_keys?: string[];
+    cta_priority_keys?: string[];
+    [key: string]: unknown;
+  };
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;
