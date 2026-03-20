@@ -441,9 +441,10 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
             synthesis_keys: [
               "big5.neuroticism.high.buffer_reactivity",
               "big5.conscientiousness.low.use_external_scaffolding",
+              "big5.career_next_step.low.reduce_activation_friction",
             ],
             big5_influence_keys: ["big5.band.n.high", "big5.band.c.low"],
-            mbti_adjusted_focus_keys: ["growth.stability_confidence", "growth.next_actions"],
+            mbti_adjusted_focus_keys: ["growth.stability_confidence", "growth.next_actions", "career.next_step"],
             section_enhancements: {
               "growth.stability_confidence": {
                 section_key: "growth.stability_confidence",
@@ -461,7 +462,34 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
                 body: "把动作拆成更小的可逆步骤，再借助外部提醒和固定触发器。",
                 influence_keys: ["big5.band.c.low"],
               },
+              "career.next_step": {
+                section_key: "career.next_step",
+                supporting_scale: "BIG5_OCEAN",
+                synthesis_key: "big5.career_next_step.low.reduce_activation_friction",
+                title: "Big Five 补充：低尽责性更适合先降低职业动作摩擦",
+                body: "先把职业动作缩成一次对话、一次投递或一次环境试探。",
+                influence_keys: ["big5.band.c.low"],
+              },
             },
+          };
+          const workingLife = {
+            version: "mbti.working_life.v1",
+            career_focus_key: "career.next_step",
+            career_journey_keys: [
+              "career.next_step",
+              "career.work_experiments",
+              "career.work_environment",
+              "career.collaboration_fit",
+            ],
+            career_action_priority_keys: [
+              "career.next_step",
+              "career.work_experiments",
+              "career_bridge",
+            ],
+            career_reading_keys: ["read-career", "read-action"],
+            supporting_scales: ["BIG5_OCEAN"],
+            big5_influence_keys: ["big5.band.n.high", "big5.band.c.low"],
+            synthesis_keys: ["big5.career_next_step.low.reduce_activation_friction"],
           };
 
           reportPersonalization.cross_assessment_v1 = crossAssessment;
@@ -469,11 +497,19 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
           reportPersonalization.supporting_scales = crossAssessment.supporting_scales;
           reportPersonalization.big5_influence_keys = crossAssessment.big5_influence_keys;
           reportPersonalization.mbti_adjusted_focus_keys = crossAssessment.mbti_adjusted_focus_keys;
+          reportPersonalization.working_life_v1 = workingLife;
+          reportPersonalization.career_focus_key = "career.next_step";
+          reportPersonalization.career_journey_keys = workingLife.career_journey_keys;
+          reportPersonalization.career_action_priority_keys = workingLife.career_action_priority_keys;
           projectionPersonalization.cross_assessment_v1 = crossAssessment;
           projectionPersonalization.synthesis_keys = crossAssessment.synthesis_keys;
           projectionPersonalization.supporting_scales = crossAssessment.supporting_scales;
           projectionPersonalization.big5_influence_keys = crossAssessment.big5_influence_keys;
           projectionPersonalization.mbti_adjusted_focus_keys = crossAssessment.mbti_adjusted_focus_keys;
+          projectionPersonalization.working_life_v1 = workingLife;
+          projectionPersonalization.career_focus_key = "career.next_step";
+          projectionPersonalization.career_journey_keys = workingLife.career_journey_keys;
+          projectionPersonalization.career_action_priority_keys = workingLife.career_action_priority_keys;
         })
       ),
     });
@@ -499,10 +535,16 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
 
   const stability = page.getByTestId("mbti-projection-section-growth-stability-confidence");
   const nextActions = page.getByTestId("mbti-projection-section-growth-next-actions");
+  const careerNextStep = page.getByTestId("mbti-projection-section-career-next-step");
+  const workingLife = page.getByTestId("mbti-working-life-focus");
   await expect(stability).toHaveAttribute("data-synthesis-key", "big5.neuroticism.high.buffer_reactivity");
   await expect(stability).toContainText("Big Five 显示你的情绪性更高");
   await expect(nextActions).toHaveAttribute("data-synthesis-key", "big5.conscientiousness.low.use_external_scaffolding");
   await expect(nextActions).toContainText("外部提醒");
+  await expect(careerNextStep).toHaveAttribute("data-synthesis-key", "big5.career_next_step.low.reduce_activation_friction");
+  await expect(careerNextStep).toContainText("一次对话、一次投递或一次环境试探");
+  await expect(workingLife).toHaveAttribute("data-career-focus-key", "career.next_step");
+  await expect(workingLife).toContainText("Current working-life focus: Career next step");
 });
 
 test("MBTI primary CTA reuses the existing checkout and order wait flow", async ({ page }) => {
