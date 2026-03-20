@@ -172,6 +172,7 @@ export type ResultResponse = {
   };
   big5_public_projection_v1?: Big5PublicProjection | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
+  cultural_calibration_v1?: CulturalCalibrationRaw | null;
 };
 
 export type OfferPayload = {
@@ -380,6 +381,7 @@ export type Big5PublicProjection = {
   ordered_section_keys?: string[];
   sections?: Big5ReportSection[];
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
+  cultural_calibration_v1?: CulturalCalibrationRaw | null;
   _meta?: Record<string, unknown>;
   [key: string]: unknown;
 };
@@ -451,6 +453,7 @@ export type ReportResponse = {
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
+  cultural_calibration_v1?: CulturalCalibrationRaw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
@@ -671,6 +674,34 @@ export type ControlledNarrativeRaw = {
   [key: string]: unknown;
 };
 
+export type CulturalCalibrationSectionRaw = {
+  section_key?: string;
+  title?: string;
+  body?: string;
+  [key: string]: unknown;
+};
+
+export type CulturalCalibrationRaw = {
+  version?: string;
+  calibration_contract_version?: string;
+  locale_context?: string;
+  cultural_context?: string;
+  calibrated_section_keys?: string[];
+  calibration_fingerprint?: string;
+  calibration_policy_version?: string;
+  calibration_source?: string;
+  enabled?: boolean;
+  narrative_overrides?: {
+    intro?: string;
+    summary?: string;
+    [key: string]: unknown;
+  } | null;
+  working_life_summary?: string;
+  section_overrides?: Record<string, CulturalCalibrationSectionRaw>;
+  truth_guard_fields?: string[];
+  [key: string]: unknown;
+};
+
 export type MbtiCrossAssessmentSectionEnhancementRaw = {
   section_key?: string;
   supporting_scale?: string;
@@ -768,6 +799,7 @@ export type MbtiPersonalizationRaw = {
   continuity?: MbtiContinuityRaw;
   read_contract_v1?: MbtiReadContractRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
+  cultural_calibration_v1?: CulturalCalibrationRaw | null;
   cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   working_life_v1?: MbtiWorkingLifeRaw | null;
   synthesis_keys?: string[];
@@ -865,6 +897,7 @@ export type ShareSummaryResponse = {
   mbti_public_summary_v1?: Record<string, unknown> | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
+  cultural_calibration_v1?: CulturalCalibrationRaw | null;
   [key: string]: unknown;
 };
 

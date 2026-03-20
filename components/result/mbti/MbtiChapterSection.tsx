@@ -10,6 +10,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiSectionUnlock, ReportBlock, ReportSection } from "@/components/result/RichResultReport";
 import type { TraitBridgeItem } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import type {
+  CulturalCalibrationSectionViewModel,
   MbtiCrossAssessmentSectionEnhancementViewModel,
   MbtiPublicProjectionDimensionViewModel,
   MbtiResultPersonalizationViewModel,
@@ -264,6 +265,34 @@ function renderCrossAssessmentEnhancement(
   );
 }
 
+function renderCulturalCalibrationEnhancement(
+  enhancement: CulturalCalibrationSectionViewModel | null,
+  calibrationFingerprint: string
+) {
+  if (!enhancement || (!enhancement.title && !enhancement.body)) {
+    return null;
+  }
+
+  return (
+    <div
+      data-testid={`mbti-cultural-calibration-${toProjectionSectionTestId(enhancement.sectionKey)}`}
+      data-calibration-fingerprint={calibrationFingerprint || undefined}
+      className="rounded-2xl border border-amber-200 bg-amber-50/80 p-4"
+    >
+      {enhancement.title ? (
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-amber-700">
+          {enhancement.title}
+        </p>
+      ) : null}
+      {enhancement.body ? (
+        <p className="m-0 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+          {enhancement.body}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 function buildSectionTelemetryPayload(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
@@ -283,6 +312,7 @@ function buildSectionTelemetryPayload(
   const actionRank = actionKey ? orderedActionKeys.findIndex((key) => key === actionKey) + 1 : 0;
   const crossAssessment = personalization?.crossAssessment ?? null;
   const enhancement = crossAssessment?.sectionEnhancements?.[section.key] ?? null;
+  const culturalCalibration = personalization?.culturalCalibration ?? null;
 
   return {
     slug: "mbti-result-shell",
@@ -297,6 +327,11 @@ function buildSectionTelemetryPayload(
     synthesisKey: normalizeText(enhancement?.synthesisKey),
     supportingScale: normalizeText(enhancement?.supportingScale),
     crossAssessmentVersion: normalizeText(crossAssessment?.version),
+    localeContext: normalizeText(culturalCalibration?.localeContext),
+    culturalContext: normalizeText(culturalCalibration?.culturalContext),
+    calibratedSectionKeys: culturalCalibration?.calibratedSectionKeys.join("|") ?? "",
+    calibrationFingerprint: normalizeText(culturalCalibration?.calibrationFingerprint),
+    calibrationContractVersion: normalizeText(culturalCalibration?.calibrationContractVersion),
     variantKey: normalizeText(section.variantKey),
     contrastKey: normalizeText(
       personalizationPayload?.contrast_key,
@@ -772,6 +807,12 @@ function renderProjectionSection(
     section.render === "rich_text" ? null : renderProjectionDynamicBlocks(section);
   const crossAssessmentEnhancement = personalization?.crossAssessment?.sectionEnhancements?.[section.key] ?? null;
   const crossAssessmentContent = renderCrossAssessmentEnhancement(crossAssessmentEnhancement);
+  const culturalCalibrationEnhancement =
+    personalization?.culturalCalibration?.sectionOverrides?.[section.key] ?? null;
+  const culturalCalibrationContent = renderCulturalCalibrationEnhancement(
+    culturalCalibrationEnhancement,
+    normalizeText(personalization?.culturalCalibration?.calibrationFingerprint)
+  );
 
   if (content && dynamicBlocks) {
     content = (
@@ -787,6 +828,15 @@ function renderProjectionSection(
       <div className="space-y-4">
         {content}
         {crossAssessmentContent}
+      </div>
+    );
+  }
+
+  if (content && culturalCalibrationContent) {
+    content = (
+      <div className="space-y-4">
+        {content}
+        {culturalCalibrationContent}
       </div>
     );
   }
@@ -810,6 +860,10 @@ function renderProjectionSection(
       data-synthesis-key={normalizeText(telemetryPayload.synthesisKey) || undefined}
       data-supporting-scale={normalizeText(telemetryPayload.supportingScale) || undefined}
       data-cross-assessment-version={normalizeText(telemetryPayload.crossAssessmentVersion) || undefined}
+      data-locale-context={normalizeText(telemetryPayload.localeContext) || undefined}
+      data-cultural-context={normalizeText(telemetryPayload.culturalContext) || undefined}
+      data-calibration-fingerprint={normalizeText(telemetryPayload.calibrationFingerprint) || undefined}
+      data-calibration-contract-version={normalizeText(telemetryPayload.calibrationContractVersion) || undefined}
       data-career-focus-key={normalizeText(telemetryPayload.careerFocusKey) || undefined}
       data-career-journey-keys={normalizeText(telemetryPayload.careerJourneyKeys) || undefined}
       data-career-action-priority-keys={normalizeText(telemetryPayload.careerActionPriorityKeys) || undefined}

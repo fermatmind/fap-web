@@ -479,6 +479,42 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-controlled-narrative")).toHaveTextContent(
       "这段 narrative 只增强表达层，不改写原始人格、成长和职业 authority。"
     );
+    expect(screen.getByTestId("mbti-cultural-calibration")).toHaveAttribute(
+      "data-cultural-context",
+      "CN_MAINLAND.zh-CN"
+    );
+    expect(screen.getByTestId("mbti-cultural-calibration")).toHaveTextContent(
+      "文化校准：在中文语境里，更适合先铺场景与关系，再给结论。"
+    );
+    expect(screen.getByTestId("mbti-hero")).toHaveTextContent(
+      "Projection-first summary that should replace the legacy hero copy on result pages."
+    );
+    expect(
+      screen.getByTestId("mbti-cultural-calibration-growth-next-actions")
+    ).toHaveTextContent("先用低摩擦动作启动");
+    expect(screen.getByTestId("mbti-working-life-focus")).toHaveTextContent(
+      "先做低风险试探、保留协作余地"
+    );
+  });
+
+  it("renders locale calibration for english while preserving canonical MBTI truth", () => {
+    const reportData = applyMbtiPhase2Fixture(
+      structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse,
+      { narrativeMode: "mock", personalizationLocale: "en-US" }
+    );
+
+    render(<RichResultReport locale="en" reportData={reportData} />);
+
+    expect(screen.getByTestId("mbti-cultural-calibration")).toHaveAttribute(
+      "data-cultural-context",
+      "US.en-US"
+    );
+    expect(screen.getByTestId("mbti-cultural-calibration")).toHaveTextContent(
+      "Cultural calibration: lead with the point, then name the trade-off."
+    );
+    expect(
+      screen.getByTestId("mbti-cultural-calibration-growth-next-actions")
+    ).toHaveTextContent("make the next step explicit");
     expect(screen.getByTestId("mbti-hero")).toHaveTextContent(
       "Projection-first summary that should replace the legacy hero copy on result pages."
     );
@@ -514,6 +550,30 @@ describe("RichResultReport", () => {
           narrative_intro: "Controlled narrative runtime ready for traits Openness/Agreeableness.",
           narrative_summary: "This summary stays separate from the canonical Big Five explainability and action plan.",
           section_narrative_keys: ["traits.overview", "growth.next_actions"],
+          enabled: true,
+        },
+        cultural_calibration_v1: {
+          version: "cultural_calibration.v1",
+          calibration_contract_version: "cultural_calibration.v1",
+          locale_context: "en-US",
+          cultural_context: "US.en-US",
+          calibrated_section_keys: ["result.summary", "traits.overview"],
+          calibration_fingerprint: "big5-calibration-fixture",
+          calibration_policy_version: "runtime.locale_policy.v1",
+          calibration_source: "runtime_policy",
+          narrative_overrides: {
+            intro: "Locale calibration: use the profile as a planning aid, not an identity box.",
+            summary:
+              "In an English-speaking context, trait signals should be framed as planning inputs for work style and environment fit, not as identity labels.",
+          },
+          section_overrides: {
+            "traits.overview": {
+              section_key: "traits.overview",
+              title: "Locale calibration: turn traits into operating signals",
+              body:
+                "Frame the profile in terms of decision speed, collaboration style, and environment fit so the user can act on it immediately.",
+            },
+          },
           enabled: true,
         },
         trait_vector: [
@@ -552,6 +612,13 @@ describe("RichResultReport", () => {
     expect(screen.queryByTestId("mbti-result-shell")).not.toBeInTheDocument();
     expect(screen.getByTestId("big5-foundation-summary")).toBeInTheDocument();
     expect(screen.getByTestId("big5-controlled-narrative")).toHaveAttribute("data-runtime-mode", "mock");
+    expect(screen.getByTestId("big5-cultural-calibration")).toHaveAttribute(
+      "data-cultural-context",
+      "US.en-US"
+    );
+    expect(screen.getByTestId("big5-cultural-calibration")).toHaveTextContent(
+      "Locale calibration: use the profile as a planning aid, not an identity box."
+    );
     expect(screen.getByTestId("big5-controlled-narrative")).toHaveTextContent(
       "Controlled narrative runtime ready for traits Openness/Agreeableness."
     );

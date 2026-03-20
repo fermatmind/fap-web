@@ -1,5 +1,6 @@
 import type {
   ControlledNarrativeRaw,
+  CulturalCalibrationRaw,
   MbtiCrossAssessmentRaw,
   MbtiReadContractRaw,
   MbtiPersonalizationRaw,
@@ -199,6 +200,29 @@ export type ControlledNarrativeViewModel = {
   truthGuardFields: string[];
 };
 
+export type CulturalCalibrationSectionViewModel = {
+  sectionKey: string;
+  title: string;
+  body: string;
+};
+
+export type CulturalCalibrationViewModel = {
+  version: string;
+  calibrationContractVersion: string;
+  localeContext: string;
+  culturalContext: string;
+  calibratedSectionKeys: string[];
+  calibrationFingerprint: string;
+  calibrationPolicyVersion: string;
+  calibrationSource: string;
+  narrativeIntro: string;
+  narrativeSummary: string;
+  workingLifeSummary: string;
+  enabled: boolean;
+  sectionOverrides: Record<string, CulturalCalibrationSectionViewModel>;
+  truthGuardFields: string[];
+};
+
 export type MbtiCrossAssessmentSectionEnhancementViewModel = {
   sectionKey: string;
   supportingScale: string;
@@ -274,6 +298,7 @@ export type MbtiResultPersonalizationViewModel = {
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
   controlledNarrative: ControlledNarrativeViewModel | null;
+  culturalCalibration: CulturalCalibrationViewModel | null;
   crossAssessment: MbtiCrossAssessmentViewModel | null;
   workingLife: MbtiWorkingLifeViewModel | null;
   variantKeys: Record<string, string>;
@@ -313,6 +338,7 @@ export type MbtiSharePageViewModel = {
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
   controlledNarrative: ControlledNarrativeViewModel | null;
+  culturalCalibration: CulturalCalibrationViewModel | null;
   compareEnabled: boolean;
   compareCtaLabel: string;
 };
@@ -647,6 +673,7 @@ function normalizePersonalization(
   const continuityRecord = asRecord(personalization.continuity);
   const readContractRecord = asRecord(personalization.read_contract_v1) as MbtiReadContractRaw | null;
   const controlledNarrativeRecord = asRecord(personalization.controlled_narrative_v1) as ControlledNarrativeRaw | null;
+  const culturalCalibrationRecord = asRecord(personalization.cultural_calibration_v1) as CulturalCalibrationRaw | null;
   const crossAssessmentRecord = asRecord(personalization.cross_assessment_v1) as MbtiCrossAssessmentRaw | null;
   const workingLifeRecord = asRecord(personalization.working_life_v1) as MbtiWorkingLifeRaw | null;
 
@@ -749,6 +776,7 @@ function normalizePersonalization(
       : null,
     readContract: normalizeReadContract(readContractRecord),
     controlledNarrative: normalizeControlledNarrative(controlledNarrativeRecord),
+    culturalCalibration: normalizeCulturalCalibration(culturalCalibrationRecord),
     crossAssessment: normalizeCrossAssessment(crossAssessmentRecord),
     workingLife: normalizeWorkingLife(workingLifeRecord),
     variantKeys,
@@ -849,6 +877,86 @@ function normalizeControlledNarrative(
     sectionNarrativeKeys,
     enabled,
     truthGuardFields: normalizeStringArray(rawNarrative.truth_guard_fields),
+  };
+}
+
+function normalizeCulturalCalibration(
+  rawCalibration: CulturalCalibrationRaw | null
+): CulturalCalibrationViewModel | null {
+  if (!rawCalibration) {
+    return null;
+  }
+
+  const sectionOverrides = Object.fromEntries(
+    Object.entries(asRecord(rawCalibration.section_overrides) ?? {})
+      .map(([sectionKey, rawOverride]) => {
+        const override = asRecord(rawOverride);
+        if (!override) {
+          return null;
+        }
+
+        const normalized = {
+          sectionKey: normalizeText(override.section_key, sectionKey),
+          title: normalizeText(override.title),
+          body: normalizeText(override.body),
+        };
+
+        if (!normalized.sectionKey || (!normalized.title && !normalized.body)) {
+          return null;
+        }
+
+        return [normalized.sectionKey, normalized] as const;
+      })
+      .filter((entry): entry is [string, CulturalCalibrationSectionViewModel] => Boolean(entry))
+  );
+
+  const version = normalizeText(rawCalibration.version);
+  const calibrationContractVersion = normalizeText(
+    rawCalibration.calibration_contract_version,
+    version
+  );
+  const localeContext = normalizeText(rawCalibration.locale_context);
+  const culturalContext = normalizeText(rawCalibration.cultural_context);
+  const calibratedSectionKeys = normalizeStringArray(rawCalibration.calibrated_section_keys);
+  const calibrationFingerprint = normalizeText(rawCalibration.calibration_fingerprint);
+  const narrativeRecord = asRecord(rawCalibration.narrative_overrides);
+  const narrativeIntro = normalizeText(narrativeRecord?.intro);
+  const narrativeSummary = normalizeText(narrativeRecord?.summary);
+  const workingLifeSummary = normalizeText(rawCalibration.working_life_summary);
+  const enabled =
+    rawCalibration.enabled === true ||
+    calibratedSectionKeys.length > 0 ||
+    Object.keys(sectionOverrides).length > 0 ||
+    narrativeIntro.length > 0 ||
+    narrativeSummary.length > 0 ||
+    workingLifeSummary.length > 0;
+
+  if (
+    !enabled &&
+    !version &&
+    !calibrationContractVersion &&
+    !localeContext &&
+    !culturalContext &&
+    !calibrationFingerprint
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    calibrationContractVersion,
+    localeContext,
+    culturalContext,
+    calibratedSectionKeys,
+    calibrationFingerprint,
+    calibrationPolicyVersion: normalizeText(rawCalibration.calibration_policy_version),
+    calibrationSource: normalizeText(rawCalibration.calibration_source),
+    narrativeIntro,
+    narrativeSummary,
+    workingLifeSummary,
+    enabled,
+    sectionOverrides,
+    truthGuardFields: normalizeStringArray(rawCalibration.truth_guard_fields),
   };
 }
 
@@ -1066,11 +1174,16 @@ export function buildMbtiResultProjectionViewModel(
   const topLevelControlledNarrative = normalizeControlledNarrative(
     asRecord(report.controlled_narrative_v1) as ControlledNarrativeRaw | null
   );
+  const topLevelCulturalCalibration = normalizeCulturalCalibration(
+    asRecord(report.cultural_calibration_v1) as CulturalCalibrationRaw | null
+  );
   const personalization = normalizedPersonalization
     ? {
         ...normalizedPersonalization,
         readContract: normalizedPersonalization.readContract ?? topLevelReadContract,
         controlledNarrative: normalizedPersonalization.controlledNarrative ?? topLevelControlledNarrative,
+        culturalCalibration:
+          normalizedPersonalization.culturalCalibration ?? topLevelCulturalCalibration,
       }
     : null;
 
@@ -1124,6 +1237,9 @@ export function buildSharePageViewModel(
   const shareControlledNarrative =
     normalizeControlledNarrative(asRecord(rawShare?.controlled_narrative_v1) as ControlledNarrativeRaw | null) ??
     normalizeControlledNarrative(asRecord(sharePersonalizationRecord?.controlled_narrative_v1) as ControlledNarrativeRaw | null);
+  const shareCulturalCalibration =
+    normalizeCulturalCalibration(asRecord(rawShare?.cultural_calibration_v1) as CulturalCalibrationRaw | null) ??
+    normalizeCulturalCalibration(asRecord(sharePersonalizationRecord?.cultural_calibration_v1) as CulturalCalibrationRaw | null);
 
   return {
     card: normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1),
@@ -1163,6 +1279,7 @@ export function buildSharePageViewModel(
       : null,
     readContract: shareReadContract,
     controlledNarrative: shareControlledNarrative,
+    culturalCalibration: shareCulturalCalibration,
     compareEnabled: rawShare?.compare_enabled === true,
     compareCtaLabel: normalizeText(rawShare?.compare_cta_label),
   };

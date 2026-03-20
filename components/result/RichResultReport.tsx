@@ -766,9 +766,15 @@ function Big5ProjectionSummary({
   const explainability = asRecord(projection.explainability_summary);
   const actionPlan = asRecord(projection.action_plan_summary);
   const controlledNarrative = asRecord(projection.controlled_narrative_v1);
+  const culturalCalibration = asRecord(projection.cultural_calibration_v1);
   const narrativeIntro = normalizeText(controlledNarrative?.narrative_intro);
   const narrativeSummary = normalizeText(controlledNarrative?.narrative_summary);
   const narrativeRuntimeMode = normalizeText(controlledNarrative?.runtime_mode);
+  const calibrationIntro = normalizeText(asRecord(culturalCalibration?.narrative_overrides)?.intro);
+  const calibrationSummary = normalizeText(asRecord(culturalCalibration?.narrative_overrides)?.summary);
+  const calibrationFingerprint = normalizeText(culturalCalibration?.calibration_fingerprint);
+  const localeContext = normalizeText(culturalCalibration?.locale_context);
+  const culturalContext = normalizeText(culturalCalibration?.cultural_context);
   const sceneFingerprint = projection.scene_fingerprint && typeof projection.scene_fingerprint === "object"
     ? Object.entries(projection.scene_fingerprint)
     : [];
@@ -788,6 +794,20 @@ function Big5ProjectionSummary({
             >
               {narrativeIntro ? <p className="m-0 font-semibold uppercase tracking-[0.12em] text-sky-700">{narrativeIntro}</p> : null}
               {narrativeSummary ? <p className="m-0 mt-2 leading-7">{narrativeSummary}</p> : null}
+            </div>
+          ) : null}
+          {calibrationIntro || calibrationSummary ? (
+            <div
+              data-testid="big5-cultural-calibration"
+              data-locale-context={localeContext || undefined}
+              data-cultural-context={culturalContext || undefined}
+              data-calibration-fingerprint={calibrationFingerprint || undefined}
+              className="rounded-xl border border-amber-100 bg-amber-50 px-4 py-3 text-sm text-amber-900"
+            >
+              {calibrationIntro ? (
+                <p className="m-0 font-semibold uppercase tracking-[0.12em] text-amber-700">{calibrationIntro}</p>
+              ) : null}
+              {calibrationSummary ? <p className="m-0 mt-2 leading-7">{calibrationSummary}</p> : null}
             </div>
           ) : null}
           {typeof explainability?.headline === "string" && explainability.headline.trim().length > 0 ? (

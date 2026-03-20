@@ -583,7 +583,12 @@ test("MBTI controlled narrative: flag on shows narrative while canonical result 
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(createMbtiReportFixtureWithOptions({ narrativeMode: "mock" })),
+      body: JSON.stringify(
+        createMbtiReportFixtureWithOptions({
+          narrativeMode: "mock",
+          personalizationLocale: "en-US",
+        })
+      ),
     });
   });
 
@@ -607,6 +612,16 @@ test("MBTI controlled narrative: flag on shows narrative while canonical result 
   await expect(page.getByTestId("mbti-controlled-narrative")).toHaveAttribute("data-runtime-mode", "mock");
   await expect(page.getByTestId("mbti-controlled-narrative")).toContainText(
     "Controlled narrative runtime ready for ENFP-T / identity T / focus career.next_step."
+  );
+  await expect(page.getByTestId("mbti-cultural-calibration")).toHaveAttribute(
+    "data-cultural-context",
+    "US.en-US"
+  );
+  await expect(page.getByTestId("mbti-cultural-calibration")).toContainText(
+    "Cultural calibration: lead with the point, then name the trade-off."
+  );
+  await expect(page.getByTestId("mbti-cultural-calibration-growth-next-actions")).toContainText(
+    "make the next step explicit"
   );
   await expect(page.getByTestId("mbti-hero")).toContainText(
     "Projection-first summary that should replace the legacy hero copy on result pages."
