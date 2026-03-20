@@ -129,6 +129,22 @@ export type MbtiSceneFingerprintEntryViewModel = {
   boundaryAxes: string[];
 };
 
+export type MbtiUserStateViewModel = {
+  isFirstView: boolean;
+  isRevisit: boolean;
+  hasUnlock: boolean;
+  hasFeedback: boolean;
+  hasShare: boolean;
+  hasActionEngagement: boolean;
+};
+
+export type MbtiOrchestrationViewModel = {
+  orderedSectionKeys: string[];
+  primaryFocusKey: string;
+  secondaryFocusKeys: string[];
+  ctaPriorityKeys: string[];
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -158,6 +174,8 @@ export type MbtiResultPersonalizationViewModel = {
   relationshipActionKeys: string[];
   workExperimentKeys: string[];
   watchoutKeys: string[];
+  userState: MbtiUserStateViewModel | null;
+  orchestration: MbtiOrchestrationViewModel | null;
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -521,6 +539,8 @@ function normalizePersonalization(
         .map((axis, index) => normalizeCloseCallAxis(String(index), axis))
         .filter((axis): axis is MbtiCloseCallAxisViewModel => Boolean(axis))
     : [];
+  const userStateRecord = asRecord(personalization.user_state);
+  const orchestrationRecord = asRecord(personalization.orchestration);
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -561,6 +581,24 @@ function normalizePersonalization(
     relationshipActionKeys: normalizeStringArray(personalization.relationship_action_keys),
     workExperimentKeys: normalizeStringArray(personalization.work_experiment_keys),
     watchoutKeys: normalizeStringArray(personalization.watchout_keys),
+    userState: userStateRecord
+      ? {
+          isFirstView: userStateRecord.is_first_view === true,
+          isRevisit: userStateRecord.is_revisit === true,
+          hasUnlock: userStateRecord.has_unlock === true,
+          hasFeedback: userStateRecord.has_feedback === true,
+          hasShare: userStateRecord.has_share === true,
+          hasActionEngagement: userStateRecord.has_action_engagement === true,
+        }
+      : null,
+    orchestration: orchestrationRecord
+      ? {
+          orderedSectionKeys: normalizeStringArray(orchestrationRecord.ordered_section_keys),
+          primaryFocusKey: normalizeText(orchestrationRecord.primary_focus_key),
+          secondaryFocusKeys: normalizeStringArray(orchestrationRecord.secondary_focus_keys),
+          ctaPriorityKeys: normalizeStringArray(orchestrationRecord.cta_priority_keys),
+        }
+      : null,
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),

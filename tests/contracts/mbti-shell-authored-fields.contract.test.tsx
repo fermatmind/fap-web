@@ -17,8 +17,13 @@ vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
 }));
 
-function createReportFixture(): ReportResponse {
-  return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
+function createReportFixture(
+  options?: Parameters<typeof applyMbtiPhase2Fixture>[1]
+): ReportResponse {
+  return applyMbtiPhase2Fixture(
+    structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse,
+    options
+  );
 }
 
 function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> = {}) {
@@ -156,6 +161,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-action-plan-summary")).toHaveTextContent(
       "把成长、关系和工作里的高匹配动作都缩成一周内能重复的小实验"
     );
+    expect(screen.getByTestId("mbti-action-plan-summary")).toHaveAttribute("data-primary-focus", "true");
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-variant-key",
       "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
@@ -164,9 +170,22 @@ describe("MBTI shell authored fields contract", () => {
       "data-action-key",
       "weekly_action.theme.name_decision_rule"
     );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-primary-focus",
+      "true"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-display-order",
+      "1"
+    );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveTextContent(
       "下一步动作"
     );
+    expect(
+      screen.getByTestId("mbti-projection-section-growth-next-actions").compareDocumentPosition(
+        screen.getByTestId("mbti-projection-section-growth-summary")
+      ) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
     expect(screen.getByTestId("mbti-projection-section-growth-weekly-experiments")).toHaveAttribute(
       "data-variant-key",
       "growth.weekly_experiments:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
@@ -188,6 +207,14 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
       "过载时和恢复时可能会切到不同挡位"
     );
+    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
+      "data-display-order",
+      "1"
+    );
+    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveAttribute(
+      "data-display-order",
+      "2"
+    );
     expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveAttribute(
       "data-variant-key",
       "relationships.communication_style:EI.E.clear:identity.T:boundary.TF"
@@ -207,10 +234,12 @@ describe("MBTI shell authored fields contract", () => {
       "本周关系练习"
     );
     expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("先把你看重的判断标准写清楚");
+    expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
     expect(screen.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
       "href",
       "/zh/career/recommendations/mbti/enfp-t"
     );
+    expect(screen.getByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
     expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
     expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
     expect(screen.getByText("Projection trait grid summary.")).toBeInTheDocument();
@@ -233,6 +262,46 @@ describe("MBTI shell authored fields contract", () => {
         variantKey: "overview:EI.E.clear:identity.T:boundary.none",
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
         sceneFingerprint: expect.stringContaining("work:work.primary.EI.E.clear"),
+        userState: "first:1|revisit:0|unlock:0|feedback:0|share:0|action:0",
+        primaryFocusKey: "growth.next_actions",
+        orderedSectionKeys: expect.stringContaining("growth.next_actions"),
+        ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
+      })
+    );
+  });
+
+  it("reorders focus and CTA priority when backend user state shifts to revisit", () => {
+    const reportData = createReportFixture({
+      isRevisit: true,
+      hasUnlock: true,
+      hasFeedback: true,
+      hasShare: true,
+      hasActionEngagement: true,
+    });
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
+      "data-primary-focus",
+      "true"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
+      "data-display-order",
+      "1"
+    );
+    expect(
+      screen.getByTestId("mbti-projection-section-growth-stability-confidence").compareDocumentPosition(
+        screen.getByTestId("mbti-projection-section-growth-next-actions")
+      ) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+    expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "1");
+    expect(screen.queryByTestId("mbti-offer-comparison")).not.toHaveAttribute("data-cta-rank", "1");
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "view_result",
+      expect.objectContaining({
+        userState: "first:0|revisit:1|unlock:1|feedback:1|share:1|action:1",
+        primaryFocusKey: "growth.stability_confidence",
+        ctaPriorityKeys: "career_bridge|workspace_lite|share_result",
       })
     );
   });
@@ -436,6 +505,13 @@ describe("MBTI shell authored fields contract", () => {
         identity: "T",
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
         sceneFingerprint: expect.stringContaining("work:work.primary.EI.E.clear"),
+        userState: "first:1|revisit:0|unlock:0|feedback:0|share:0|action:0",
+        primaryFocusKey: "growth.next_actions",
+        secondaryFocusKeys: "traits.close_call_axes|traits.adjacent_type_contrast",
+        orderedSectionKeys: expect.stringContaining("growth.next_actions"),
+        ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
+        displayOrder: 6,
+        isPrimaryFocus: false,
       })
     );
 
@@ -453,6 +529,13 @@ describe("MBTI shell authored fields contract", () => {
         typeCode: "ENFP-T",
         identity: "T",
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
+        userState: "first:1|revisit:0|unlock:0|feedback:0|share:0|action:0",
+        primaryFocusKey: "growth.next_actions",
+        secondaryFocusKeys: "traits.close_call_axes|traits.adjacent_type_contrast",
+        orderedSectionKeys: expect.stringContaining("growth.next_actions"),
+        ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
+        displayOrder: 1,
+        isPrimaryFocus: true,
       })
     );
   });

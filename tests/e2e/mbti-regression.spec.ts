@@ -255,6 +255,15 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-action-plan-summary")).toContainText(
     "把成长、关系和工作里的高匹配动作都缩成一周内能重复的小实验"
   );
+  await expect(page.getByTestId("mbti-action-plan-summary")).toHaveAttribute("data-primary-focus", "true");
+  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+    "data-primary-focus",
+    "true"
+  );
+  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+    "data-display-order",
+    "1"
+  );
   await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toContainText(
     "下一步动作"
   );
@@ -285,13 +294,27 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     "两套判断入口之间来回校准"
   );
   await expect(page.getByTestId("mbti-career-next-step")).toContainText("先把你看重的判断标准写清楚");
+  await expect(page.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",
     "/en/career/recommendations/mbti/enfp-t"
   );
+  await expect(page.getByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
 
   const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
   expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
+  const growthOrderIsDynamic = await page.evaluate(() => {
+    const nextActions = document.querySelector('[data-testid="mbti-projection-section-growth-next-actions"]');
+    const summary = document.querySelector('[data-testid="mbti-projection-section-growth-summary"]');
+    if (!nextActions || !summary) {
+      return false;
+    }
+
+    return Boolean(
+      nextActions.compareDocumentPosition(summary) & Node.DOCUMENT_POSITION_FOLLOWING
+    );
+  });
+  expect(growthOrderIsDynamic).toBe(true);
   const sectionsAreOrdered = await page.evaluate(() => {
     const relationships = document.querySelector('[data-testid="mbti-chapter-relationships"]');
     const careerNextStep = document.querySelector('[data-testid="mbti-career-next-step"]');
@@ -333,6 +356,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     const sectionCenter = rect.top + rect.height / 2;
     return Math.abs(sectionCenter - viewportCenter) < 160;
   });
+
 });
 
 test("MBTI primary CTA reuses the existing checkout and order wait flow", async ({ page }) => {
