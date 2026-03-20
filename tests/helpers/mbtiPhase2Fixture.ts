@@ -31,7 +31,6 @@ function buildReadContractFixture() {
         "axis_vector",
         "scene_fingerprint",
         "action_plan_summary",
-        "variant_keys",
         "pack_id",
         "engine_version",
         "dynamic_sections_version",
@@ -52,6 +51,8 @@ function buildReadContractFixture() {
       personalization_fields: [
         "user_state",
         "orchestration",
+        "sections",
+        "variant_keys",
         "ordered_recommendation_keys",
         "ordered_action_keys",
         "recommendation_priority_keys",
@@ -64,18 +65,34 @@ function buildReadContractFixture() {
         "supporting_scales",
         "big5_influence_keys",
         "mbti_adjusted_focus_keys",
+        "working_life_v1",
+        "career_focus_key",
+        "career_journey_keys",
+        "career_action_priority_keys",
       ],
       surface_fields: [
         "report._meta.personalization.user_state",
         "report._meta.personalization.orchestration",
+        "report._meta.personalization.sections",
+        "report._meta.personalization.variant_keys",
         "report._meta.personalization.ordered_recommendation_keys",
         "report._meta.personalization.continuity",
         "report._meta.personalization.cross_assessment_v1",
+        "report._meta.personalization.working_life_v1",
+        "report._meta.personalization.career_focus_key",
+        "report._meta.personalization.career_journey_keys",
+        "report._meta.personalization.career_action_priority_keys",
         "mbti_public_projection_v1._meta.personalization.user_state",
         "mbti_public_projection_v1._meta.personalization.orchestration",
+        "mbti_public_projection_v1._meta.personalization.sections",
+        "mbti_public_projection_v1._meta.personalization.variant_keys",
         "mbti_public_projection_v1._meta.personalization.ordered_recommendation_keys",
         "mbti_public_projection_v1._meta.personalization.continuity",
         "mbti_public_projection_v1._meta.personalization.cross_assessment_v1",
+        "mbti_public_projection_v1._meta.personalization.working_life_v1",
+        "mbti_public_projection_v1._meta.personalization.career_focus_key",
+        "mbti_public_projection_v1._meta.personalization.career_journey_keys",
+        "mbti_public_projection_v1._meta.personalization.career_action_priority_keys",
       ],
       sources: ["attempt_access", "attempt_events", "share_rows"],
     },
@@ -86,23 +103,37 @@ function buildReadContractFixture() {
       "report.sections",
       "report.recommended_reads",
       "mbti_public_summary_v1",
+      "mbti_privacy_contract_v1",
       "mbti_public_projection_v1",
       "mbti_public_projection_v1.summary_card",
       "mbti_public_projection_v1.profile",
+      "mbti_public_projection_v1.dimensions",
       "mbti_public_projection_v1.sections",
       "mbti_read_contract_v1",
     ],
     non_cacheable_fields: [
       "report._meta.personalization.user_state",
       "report._meta.personalization.orchestration",
+      "report._meta.personalization.sections",
+      "report._meta.personalization.variant_keys",
       "report._meta.personalization.ordered_recommendation_keys",
       "report._meta.personalization.continuity",
       "report._meta.personalization.cross_assessment_v1",
+      "report._meta.personalization.working_life_v1",
+      "report._meta.personalization.career_focus_key",
+      "report._meta.personalization.career_journey_keys",
+      "report._meta.personalization.career_action_priority_keys",
       "mbti_public_projection_v1._meta.personalization.user_state",
       "mbti_public_projection_v1._meta.personalization.orchestration",
+      "mbti_public_projection_v1._meta.personalization.sections",
+      "mbti_public_projection_v1._meta.personalization.variant_keys",
       "mbti_public_projection_v1._meta.personalization.ordered_recommendation_keys",
       "mbti_public_projection_v1._meta.personalization.continuity",
       "mbti_public_projection_v1._meta.personalization.cross_assessment_v1",
+      "mbti_public_projection_v1._meta.personalization.working_life_v1",
+      "mbti_public_projection_v1._meta.personalization.career_focus_key",
+      "mbti_public_projection_v1._meta.personalization.career_journey_keys",
+      "mbti_public_projection_v1._meta.personalization.career_action_priority_keys",
     ],
     telemetry_parity_fields: [
       "user_state",
@@ -115,6 +146,11 @@ function buildReadContractFixture() {
       "action_focus_key",
       "cross_assessment_v1.synthesis_keys",
       "cross_assessment_v1.supporting_scales",
+      "cross_assessment_v1.big5_influence_keys",
+      "cross_assessment_v1.mbti_adjusted_focus_keys",
+      "working_life_v1.career_focus_key",
+      "working_life_v1.career_journey_keys",
+      "working_life_v1.career_action_priority_keys",
     ],
   };
 }
@@ -905,13 +941,86 @@ export function applyMbtiPhase2Fixture(
   const orderedRecommendationKeys = resolveOrderedRecommendationKeys(primaryFocusKey);
   const orderedActionKeys = resolveOrderedActionKeys(primaryFocusKey);
   const recommendedReads = buildRecommendedReads();
+  const crossAssessment = {
+    version: "mbti_big5.cross_assessment.v1",
+    supporting_scales: ["BIG5_OCEAN"],
+    supporting_attempt_id: "big5-attempt-1",
+    synthesis_keys: [
+      "big5.neuroticism.high.buffer_reactivity",
+      "big5.conscientiousness.low.use_external_scaffolding",
+      "big5.career_next_step.low.reduce_activation_friction",
+    ],
+    big5_influence_keys: ["big5.band.n.high", "big5.band.c.low"],
+    mbti_adjusted_focus_keys: [
+      "growth.stability_confidence",
+      "growth.next_actions",
+      "career.next_step",
+    ],
+    supporting_traits: ["N", "A", "O"],
+    section_enhancements: {
+      "growth.stability_confidence": {
+        section_key: "growth.stability_confidence",
+        supporting_scale: "BIG5_OCEAN",
+        synthesis_key: "big5.neuroticism.high.buffer_reactivity",
+        title: "Big Five 补充：高情绪性会放大情境敏感",
+        body: "Big Five 显示你的情绪性更高，这会放大 MBTI 里“情境敏感型稳定”的体感强度。",
+        influence_keys: ["big5.band.n.high"],
+      },
+      "growth.next_actions": {
+        section_key: "growth.next_actions",
+        supporting_scale: "BIG5_OCEAN",
+        synthesis_key: "big5.conscientiousness.low.use_external_scaffolding",
+        title: "Big Five 补充：低尽责性更需要外部支架",
+        body: "Big Five 显示你的尽责性更低，所以 MBTI 的下一步动作不要依赖纯意志力。",
+        influence_keys: ["big5.band.c.low"],
+      },
+      "career.next_step": {
+        section_key: "career.next_step",
+        supporting_scale: "BIG5_OCEAN",
+        synthesis_key: "big5.career_next_step.low.reduce_activation_friction",
+        title: "Big Five 补充：低尽责性更适合先降低职业动作摩擦",
+        body: "Big Five 显示你的尽责性更低，所以职业下一步更适合先收缩成一次对话、一次投递或一次环境试探。",
+        influence_keys: ["big5.band.c.low"],
+      },
+    },
+  };
+  const careerFocusKey = primaryFocusKey.startsWith("career.")
+    ? primaryFocusKey
+    : currentIntentCluster === "career_move"
+      ? hasUnlock
+        ? "career.work_experiments"
+        : "career.next_step"
+      : "career.next_step";
+  const careerJourneyKeys =
+    careerFocusKey === "career.work_experiments"
+      ? ["career.work_experiments", "career.next_step", "career.work_environment", "career.collaboration_fit"]
+      : ["career.next_step", "career.work_experiments", "career.work_environment", "career.collaboration_fit"];
+  const careerActionPriorityKeys = Array.from(
+    new Set([careerFocusKey, "career.next_step", "career.work_experiments", "career_bridge"])
+  );
+  const workingLife = {
+    version: "mbti.working_life.v1",
+    career_focus_key: careerFocusKey,
+    career_journey_keys: careerJourneyKeys,
+    role_fit_keys: roleFitKeys,
+    collaboration_fit_keys: collaborationFitKeys,
+    work_env_preference_keys: workEnvPreferenceKeys,
+    career_next_step_keys: careerNextStepKeys,
+    career_action_priority_keys: careerActionPriorityKeys,
+    career_reading_keys: orderedRecommendationKeys.filter(
+      (key) => key.includes("career") || key.includes("action")
+    ),
+    supporting_scales: ["BIG5_OCEAN"],
+    big5_influence_keys: ["big5.band.n.high", "big5.band.c.low"],
+    synthesis_keys: ["big5.career_next_step.low.reduce_activation_friction"],
+  };
 
   reportData.locked = hasUnlock ? false : true;
   reportData.variant = hasUnlock ? "full" : "free";
   reportData.access_level = hasUnlock ? "full" : "preview";
 
   const personalization = {
-    schema_version: "mbti.personalization.phase8c.v1",
+    schema_version: "mbti.personalization.phase9c.v1",
     locale: "zh-CN",
     type_code: "ENFP-T",
     identity: "T",
@@ -1129,6 +1238,15 @@ export function applyMbtiPhase2Fixture(
       carryover_action_keys: carryoverActionKeys,
     },
     read_contract_v1: buildReadContractFixture(),
+    cross_assessment_v1: crossAssessment,
+    synthesis_keys: crossAssessment.synthesis_keys,
+    supporting_scales: crossAssessment.supporting_scales,
+    big5_influence_keys: crossAssessment.big5_influence_keys,
+    mbti_adjusted_focus_keys: crossAssessment.mbti_adjusted_focus_keys,
+    working_life_v1: workingLife,
+    career_focus_key: careerFocusKey,
+    career_journey_keys: careerJourneyKeys,
+    career_action_priority_keys: careerActionPriorityKeys,
     variant_keys: {
       overview: overviewVariantKey,
       trait_overview: traitOverviewVariantKey,
@@ -1142,8 +1260,8 @@ export function applyMbtiPhase2Fixture(
       "career.work_experiments": `career.work_experiments:EI.E.${eiBand}:identity.T:action.work_experiment_theme_name_decision_rule:boundary.JP`,
       "career.advantages": `career.advantages:EI.E.${eiBand}:identity.T:boundary.JP`,
       "growth.summary": `growth.summary:EI.E.${eiBand}:identity.T:boundary.TF`,
-      "growth.stability_confidence": "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP",
-      "growth.next_actions": `growth.next_actions:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF`,
+      "growth.stability_confidence": "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP:synth.big5_neuroticism_high_buffer_reactivity",
+      "growth.next_actions": `growth.next_actions:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF:synth.big5_conscientiousness_low_use_external_scaffolding`,
       "growth.weekly_experiments": `growth.weekly_experiments:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF`,
       "growth.stress_recovery": "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP",
       "growth.watchouts": "growth.watchouts:JP.J.boundary:identity.T:action.watchout_stability_context_sensitive:boundary.JP",
@@ -1153,17 +1271,18 @@ export function applyMbtiPhase2Fixture(
       "relationships.try_this_week": `relationships.try_this_week:EI.E.${eiBand}:identity.T:action.relationship_action_theme_name_decision_rule:boundary.TF`,
       "relationships.rel_advantages": `relationships.rel_advantages:EI.E.${eiBand}:identity.T:boundary.TF`,
       "relationships.rel_risks": "relationships.rel_risks:TF.T.boundary:identity.T:boundary.TF",
-      "career.next_step": "career.next_step:TF.T.boundary:identity.T:boundary.TF",
+      "career.next_step": "career.next_step:TF.T.boundary:identity.T:boundary.TF:synth.big5_career_next_step_low_reduce_activation_friction",
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase8c.v1",
+    dynamic_sections_version: "phase9c.v1",
   };
 
   if (reportData.report) {
     reportData.report.recommended_reads = structuredClone(recommendedReads);
   }
   reportData.mbti_read_contract_v1 = structuredClone(buildReadContractFixture());
+  reportData.mbti_cross_assessment_v1 = structuredClone(crossAssessment);
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
   getReportMeta(reportData).personalization = structuredClone(personalization);
 
@@ -1593,7 +1712,7 @@ export function applyMbtiPhase2Fixture(
   });
 
   updateSection(reportData, "growth.next_actions", {
-    variantKey: `growth.next_actions:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF`,
+    variantKey: `growth.next_actions:EI.E.${eiBand}:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF:synth.big5_conscientiousness_low_use_external_scaffolding`,
     sceneKey: "growth",
     styleKey: growthStyleKey,
     actionKey: "weekly_action.theme.name_decision_rule",
@@ -1671,7 +1790,7 @@ export function applyMbtiPhase2Fixture(
   });
 
   updateSection(reportData, "growth.stability_confidence", {
-    variantKey: "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP",
+    variantKey: "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP:synth.big5_neuroticism_high_buffer_reactivity",
     sceneKey: "stability",
     styleKey: "",
     contrastKey: contrastKeys["growth.stability_confidence"],
@@ -1734,7 +1853,7 @@ export function applyMbtiPhase2Fixture(
   });
 
   updateSection(reportData, "career.next_step", {
-    variantKey: "career.next_step:TF.T.boundary:identity.T:boundary.TF",
+    variantKey: "career.next_step:TF.T.boundary:identity.T:boundary.TF:synth.big5_career_next_step_low_reduce_activation_friction",
     sceneKey: "decision",
     styleKey: "decision.primary.TF.T.boundary",
     primaryAxis: tfAxis,

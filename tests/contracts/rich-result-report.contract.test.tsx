@@ -91,6 +91,7 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-mobile-chrome")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-working-life-focus")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored overview title");
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored overview subtitle");
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent(
@@ -217,17 +218,30 @@ describe("RichResultReport", () => {
     expect(screen.getByText("Roles that reward exploratory leadership.")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveAttribute(
       "data-variant-key",
-      "career.next_step:TF.T.boundary:identity.T:boundary.TF"
+      "career.next_step:TF.T.boundary:identity.T:boundary.TF:synth.big5_career_next_step_low_reduce_activation_friction"
+    );
+    expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveAttribute(
+      "data-synthesis-key",
+      "big5.career_next_step.low.reduce_activation_friction"
     );
     expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveTextContent(
       "先把你看重的判断标准写清楚"
     );
+    expect(screen.getByTestId("mbti-working-life-focus")).toHaveAttribute(
+      "data-career-focus-key",
+      "career.next_step"
+    );
+    expect(screen.getByTestId("mbti-working-life-focus")).toHaveAttribute(
+      "data-career-journey-keys",
+      "career.next_step|career.work_experiments|career.work_environment|career.collaboration_fit"
+    );
+    expect(screen.getByTestId("mbti-working-life-focus")).toHaveTextContent("当前职业焦点：职业下一步");
     expect(screen.getByTestId("mbti-projection-section-growth-summary")).toHaveTextContent(
       "成长上，你更适合先放大这条已经清晰的外倾优势"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
       "data-variant-key",
-      "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP"
+      "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP:synth.big5_neuroticism_high_buffer_reactivity"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveTextContent(
       "情境敏感型稳定"
@@ -241,7 +255,7 @@ describe("RichResultReport", () => {
     );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-variant-key",
-      "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
+      "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF:synth.big5_conscientiousness_low_use_external_scaffolding"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-action-key",

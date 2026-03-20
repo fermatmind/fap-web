@@ -49,6 +49,9 @@ import {
   summarizeMbtiActionCompletionTendency,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCareerActionPriorityKeys,
+  summarizeMbtiCareerJourneyKeys,
+  summarizeMbtiCareerReadingKeys,
   summarizeMbtiCarryoverActionKeys,
   summarizeMbtiCarryoverResumeKeys,
   summarizeMbtiCarryoverSceneKeys,
@@ -256,6 +259,10 @@ function buildCareerBridgeTelemetryPayload(
     actionPriorityKeys: summarizeMbtiActionPriorityKeys(personalization),
     readingFocusKey: normalizeText(personalization?.readingFocusKey),
     actionFocusKey: normalizeText(personalization?.actionFocusKey),
+    careerFocusKey: normalizeText(personalization?.workingLife?.careerFocusKey),
+    careerJourneyKeys: summarizeMbtiCareerJourneyKeys(personalization),
+    careerActionPriorityKeys: summarizeMbtiCareerActionPriorityKeys(personalization),
+    careerReadingKeys: summarizeMbtiCareerReadingKeys(personalization),
     ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
     carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
     carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
@@ -303,6 +310,25 @@ function resolveCtaRank(ctaPriorityKeys: string[], ctaKey: string): number {
 
 function resolveCtaRankLabel(locale: Locale, rank: number): string {
   return locale === "zh" ? `优先入口 ${rank}` : `Priority ${rank}`;
+}
+
+function resolveCareerJourneyLabel(locale: Locale, key: string): string {
+  switch (key) {
+    case "career.next_step":
+      return locale === "zh" ? "职业下一步" : "Career next step";
+    case "career.work_experiments":
+      return locale === "zh" ? "工作实验" : "Work experiments";
+    case "career.work_environment":
+      return locale === "zh" ? "工作环境" : "Work environment";
+    case "career.collaboration_fit":
+      return locale === "zh" ? "协作匹配" : "Collaboration fit";
+    case "career_bridge":
+      return locale === "zh" ? "职业推荐入口" : "Career bridge";
+    case "workspace_lite":
+      return locale === "zh" ? "我的报告入口" : "Workspace entry";
+    default:
+      return key;
+  }
 }
 
 function sortProjectionSectionsByOrder(
@@ -684,6 +710,9 @@ export function MbtiResultShell({
   const recommendationPriorityKeysSummary = summarizeMbtiRecommendationPriorityKeys(personalization);
   const actionPriorityKeysSummary = summarizeMbtiActionPriorityKeys(personalization);
   const ctaPriorityKeysSummary = summarizeMbtiCtaPriorityKeys(personalization);
+  const careerJourneyKeysSummary = summarizeMbtiCareerJourneyKeys(personalization);
+  const careerActionPriorityKeysSummary = summarizeMbtiCareerActionPriorityKeys(personalization);
+  const careerReadingKeysSummary = summarizeMbtiCareerReadingKeys(personalization);
   const recommendedResumeKeysSummary = summarizeMbtiCarryoverResumeKeys(personalization);
   const carryoverSceneKeysSummary = summarizeMbtiCarryoverSceneKeys(personalization);
   const carryoverActionKeysSummary = summarizeMbtiCarryoverActionKeys(personalization);
@@ -705,6 +734,11 @@ export function MbtiResultShell({
   const orderedSectionKeys = personalization?.orchestration?.orderedSectionKeys ?? [];
   const orderedActionKeys = personalization?.orderedActionKeys ?? [];
   const ctaPriorityKeys = personalization?.orchestration?.ctaPriorityKeys ?? [];
+  const workingLife = personalization?.workingLife ?? null;
+  const careerFocusKey = normalizeText(workingLife?.careerFocusKey, primaryFocusKey.startsWith("career.") ? primaryFocusKey : "");
+  const careerJourneyKeys = workingLife?.careerJourneyKeys ?? [];
+  const careerActionPriorityKeys = workingLife?.careerActionPriorityKeys ?? [];
+  const careerReadingKeys = workingLife?.careerReadingKeys ?? [];
   const readingFocusKey = normalizeText(personalization?.readingFocusKey);
   const actionFocusKey = normalizeText(personalization?.actionFocusKey);
   const carryoverFocusKey = normalizeText(personalization?.continuity?.carryoverFocusKey);
@@ -745,6 +779,14 @@ export function MbtiResultShell({
   const careerBridgeCtaRank = resolveCtaRank(ctaPriorityKeys, "career_bridge");
   const workspaceLiteCtaRank = resolveCtaRank(ctaPriorityKeys, "workspace_lite");
   const shareCtaRank = resolveCtaRank(ctaPriorityKeys, "share_result");
+  const workingLifeFocused = careerFocusKey !== "";
+  const workingLifeJourney = careerJourneyKeys.length > 0
+    ? careerJourneyKeys
+    : ["career.next_step", "career.work_experiments", "career.work_environment", "career.collaboration_fit"];
+  const workingLifeActionPriority = careerActionPriorityKeys.length > 0
+    ? careerActionPriorityKeys
+    : ["career.next_step", "career.work_experiments", "career_bridge"];
+  const workingLifeReadingFocus = normalizeText(careerReadingKeys[0], readingFocusKey);
   const personalizationTelemetryContext = {
     typeCode: personalizationTypeCode,
     identity: personalizationIdentity,
@@ -771,6 +813,10 @@ export function MbtiResultShell({
     readingFocusKey,
     actionFocusKey,
     ctaPriorityKeys: ctaPriorityKeysSummary,
+    careerFocusKey,
+    careerJourneyKeys: careerJourneyKeysSummary,
+    careerActionPriorityKeys: careerActionPriorityKeysSummary,
+    careerReadingKeys: careerReadingKeysSummary,
     carryoverFocusKey,
     carryoverReason,
     recommendedResumeKeys: recommendedResumeKeysSummary,
@@ -1483,6 +1529,83 @@ export function MbtiResultShell({
                   <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
                     {actionPlanSummary}
                   </p>
+                </div>
+              </div>
+            </section>
+          ) : null}
+
+          {workingLifeFocused ? (
+            <section
+              id="working-life-focus"
+              data-testid="mbti-working-life-focus"
+              data-career-focus-key={careerFocusKey || undefined}
+              data-career-journey-keys={careerJourneyKeysSummary || undefined}
+              data-career-action-priority-keys={careerActionPriorityKeysSummary || undefined}
+              data-career-reading-keys={careerReadingKeysSummary || undefined}
+              className="scroll-mt-28 rounded-[28px] border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-emerald-50/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
+            >
+              <div className="space-y-3">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
+                  {locale === "zh" ? "Working-Life OS" : "Working-Life OS"}
+                </p>
+                <div className="space-y-2">
+                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                    {locale === "zh"
+                      ? `当前职业焦点：${resolveCareerJourneyLabel(locale, careerFocusKey)}`
+                      : `Current working-life focus: ${resolveCareerJourneyLabel(locale, careerFocusKey)}`}
+                  </h2>
+                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                    {careerNextStepLead
+                      ? careerNextStepLead
+                      : careerSummaryLead
+                        ? careerSummaryLead
+                        : locale === "zh"
+                          ? "把职业下一步、工作实验和环境匹配放在同一条连续主链里，会比分散阅读更容易形成真实推进。"
+                          : "Treating the next career step, work experiments, and environment fit as one continuous chain is more useful than reading them as isolated sections."}
+                  </p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4">
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {locale === "zh" ? "主链顺序" : "Journey order"}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {workingLifeJourney.map((journeyKey, index) => (
+                        <span
+                          key={journeyKey}
+                          data-career-journey-key={journeyKey}
+                          data-career-action-rank={String(index + 1)}
+                          className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700"
+                        >
+                          {index + 1}. {resolveCareerJourneyLabel(locale, journeyKey)}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4">
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {locale === "zh" ? "优先动作" : "Priority actions"}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {workingLifeActionPriority.map((actionKey, index) => (
+                        <span
+                          key={actionKey}
+                          data-career-journey-key={actionKey}
+                          data-career-action-rank={String(index + 1)}
+                          className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700"
+                        >
+                          {index + 1}. {resolveCareerJourneyLabel(locale, actionKey)}
+                        </span>
+                      ))}
+                    </div>
+                    {workingLifeReadingFocus ? (
+                      <p className="m-0 text-xs leading-6 text-slate-600">
+                        {locale === "zh"
+                          ? `当前优先阅读：${workingLifeReadingFocus}`
+                          : `Current reading focus: ${workingLifeReadingFocus}`}
+                      </p>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </section>

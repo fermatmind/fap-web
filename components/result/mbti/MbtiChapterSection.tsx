@@ -20,6 +20,9 @@ import {
   summarizeMbtiActionCompletionTendency,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCareerActionPriorityKeys,
+  summarizeMbtiCareerJourneyKeys,
+  summarizeMbtiCareerReadingKeys,
   summarizeMbtiCarryoverActionKeys,
   summarizeMbtiCarryoverResumeKeys,
   summarizeMbtiCarryoverSceneKeys,
@@ -324,6 +327,10 @@ function buildSectionTelemetryPayload(
     actionPriorityKeys: summarizeMbtiActionPriorityKeys(personalization),
     readingFocusKey: normalizeText(personalization?.readingFocusKey),
     actionFocusKey: normalizeText(personalization?.actionFocusKey),
+    careerFocusKey: normalizeText(personalization?.workingLife?.careerFocusKey),
+    careerJourneyKeys: summarizeMbtiCareerJourneyKeys(personalization),
+    careerActionPriorityKeys: summarizeMbtiCareerActionPriorityKeys(personalization),
+    careerReadingKeys: summarizeMbtiCareerReadingKeys(personalization),
     ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
     carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
     carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
@@ -803,6 +810,9 @@ function renderProjectionSection(
       data-synthesis-key={normalizeText(telemetryPayload.synthesisKey) || undefined}
       data-supporting-scale={normalizeText(telemetryPayload.supportingScale) || undefined}
       data-cross-assessment-version={normalizeText(telemetryPayload.crossAssessmentVersion) || undefined}
+      data-career-focus-key={normalizeText(telemetryPayload.careerFocusKey) || undefined}
+      data-career-journey-keys={normalizeText(telemetryPayload.careerJourneyKeys) || undefined}
+      data-career-action-priority-keys={normalizeText(telemetryPayload.careerActionPriorityKeys) || undefined}
       data-primary-focus={options?.isPrimaryFocus === true ? "true" : undefined}
       data-display-order={options?.displayOrder ?? undefined}
       className={`space-y-3 rounded-[24px] border bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)] ${

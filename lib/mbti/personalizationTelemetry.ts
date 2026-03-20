@@ -189,3 +189,21 @@ export function summarizeMbtiCarryoverActionKeys(
 ): string {
   return (personalization?.continuity?.carryoverActionKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
 }
+
+export function summarizeMbtiCareerJourneyKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.workingLife?.careerJourneyKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiCareerActionPriorityKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.workingLife?.careerActionPriorityKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}
+
+export function summarizeMbtiCareerReadingKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.workingLife?.careerReadingKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
+}

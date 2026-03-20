@@ -672,6 +672,22 @@ export type MbtiCrossAssessmentRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiWorkingLifeRaw = {
+  version?: string;
+  career_focus_key?: string;
+  career_journey_keys?: string[];
+  role_fit_keys?: string[];
+  collaboration_fit_keys?: string[];
+  work_env_preference_keys?: string[];
+  career_next_step_keys?: string[];
+  career_action_priority_keys?: string[];
+  career_reading_keys?: string[];
+  supporting_scales?: string[];
+  big5_influence_keys?: string[];
+  synthesis_keys?: string[];
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -731,10 +747,14 @@ export type MbtiPersonalizationRaw = {
   continuity?: MbtiContinuityRaw;
   read_contract_v1?: MbtiReadContractRaw | null;
   cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
+  working_life_v1?: MbtiWorkingLifeRaw | null;
   synthesis_keys?: string[];
   supporting_scales?: string[];
   big5_influence_keys?: string[];
   mbti_adjusted_focus_keys?: string[];
+  career_focus_key?: string;
+  career_journey_keys?: string[];
+  career_action_priority_keys?: string[];
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;

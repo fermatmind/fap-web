@@ -4,6 +4,7 @@ import type {
   MbtiPersonalizationRaw,
   MbtiPublicProjectionDimensionRaw,
   MbtiPublicProjectionV1Raw,
+  MbtiWorkingLifeRaw,
   ReportResponse,
   ShareSummaryResponse,
 } from "@/lib/api/v0_3";
@@ -200,6 +201,21 @@ export type MbtiCrossAssessmentViewModel = {
   sectionEnhancements: Record<string, MbtiCrossAssessmentSectionEnhancementViewModel>;
 };
 
+export type MbtiWorkingLifeViewModel = {
+  version: string;
+  careerFocusKey: string;
+  careerJourneyKeys: string[];
+  roleFitKeys: string[];
+  collaborationFitKeys: string[];
+  workEnvPreferenceKeys: string[];
+  careerNextStepKeys: string[];
+  careerActionPriorityKeys: string[];
+  careerReadingKeys: string[];
+  supportingScales: string[];
+  big5InfluenceKeys: string[];
+  synthesisKeys: string[];
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -240,6 +256,7 @@ export type MbtiResultPersonalizationViewModel = {
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
   crossAssessment: MbtiCrossAssessmentViewModel | null;
+  workingLife: MbtiWorkingLifeViewModel | null;
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -610,6 +627,7 @@ function normalizePersonalization(
   const continuityRecord = asRecord(personalization.continuity);
   const readContractRecord = asRecord(personalization.read_contract_v1) as MbtiReadContractRaw | null;
   const crossAssessmentRecord = asRecord(personalization.cross_assessment_v1) as MbtiCrossAssessmentRaw | null;
+  const workingLifeRecord = asRecord(personalization.working_life_v1) as MbtiWorkingLifeRaw | null;
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -710,6 +728,7 @@ function normalizePersonalization(
       : null,
     readContract: normalizeReadContract(readContractRecord),
     crossAssessment: normalizeCrossAssessment(crossAssessmentRecord),
+    workingLife: normalizeWorkingLife(workingLifeRecord),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),
@@ -833,6 +852,53 @@ function normalizeCrossAssessment(
     mbtiAdjustedFocusKeys,
     supportingTraits,
     sectionEnhancements,
+  };
+}
+
+function normalizeWorkingLife(
+  rawWorkingLife: MbtiWorkingLifeRaw | null
+): MbtiWorkingLifeViewModel | null {
+  if (!rawWorkingLife) {
+    return null;
+  }
+
+  const version = normalizeText(rawWorkingLife.version);
+  const careerFocusKey = normalizeText(rawWorkingLife.career_focus_key);
+  const careerJourneyKeys = normalizeStringArray(rawWorkingLife.career_journey_keys);
+  const roleFitKeys = normalizeStringArray(rawWorkingLife.role_fit_keys);
+  const collaborationFitKeys = normalizeStringArray(rawWorkingLife.collaboration_fit_keys);
+  const workEnvPreferenceKeys = normalizeStringArray(rawWorkingLife.work_env_preference_keys);
+  const careerNextStepKeys = normalizeStringArray(rawWorkingLife.career_next_step_keys);
+  const careerActionPriorityKeys = normalizeStringArray(rawWorkingLife.career_action_priority_keys);
+  const careerReadingKeys = normalizeStringArray(rawWorkingLife.career_reading_keys);
+  const supportingScales = normalizeStringArray(rawWorkingLife.supporting_scales);
+  const big5InfluenceKeys = normalizeStringArray(rawWorkingLife.big5_influence_keys);
+  const synthesisKeys = normalizeStringArray(rawWorkingLife.synthesis_keys);
+
+  if (
+    !version &&
+    !careerFocusKey &&
+    careerJourneyKeys.length === 0 &&
+    careerActionPriorityKeys.length === 0 &&
+    careerReadingKeys.length === 0 &&
+    synthesisKeys.length === 0
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    careerFocusKey,
+    careerJourneyKeys,
+    roleFitKeys,
+    collaborationFitKeys,
+    workEnvPreferenceKeys,
+    careerNextStepKeys,
+    careerActionPriorityKeys,
+    careerReadingKeys,
+    supportingScales,
+    big5InfluenceKeys,
+    synthesisKeys,
   };
 }
 
