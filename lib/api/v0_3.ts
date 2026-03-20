@@ -447,6 +447,7 @@ export type ReportResponse = {
   big5_public_projection_v1?: Big5PublicProjection | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
+  mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
@@ -649,6 +650,28 @@ export type MbtiReadContractRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiCrossAssessmentSectionEnhancementRaw = {
+  section_key?: string;
+  supporting_scale?: string;
+  synthesis_key?: string;
+  title?: string;
+  body?: string;
+  influence_keys?: string[];
+  [key: string]: unknown;
+};
+
+export type MbtiCrossAssessmentRaw = {
+  version?: string;
+  supporting_scales?: string[];
+  supporting_attempt_id?: string;
+  synthesis_keys?: string[];
+  big5_influence_keys?: string[];
+  mbti_adjusted_focus_keys?: string[];
+  supporting_traits?: string[];
+  section_enhancements?: Record<string, MbtiCrossAssessmentSectionEnhancementRaw>;
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -707,6 +730,11 @@ export type MbtiPersonalizationRaw = {
   };
   continuity?: MbtiContinuityRaw;
   read_contract_v1?: MbtiReadContractRaw | null;
+  cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
+  synthesis_keys?: string[];
+  supporting_scales?: string[];
+  big5_influence_keys?: string[];
+  mbti_adjusted_focus_keys?: string[];
   variant_keys?: Record<string, string>;
   pack_id?: string;
   engine_version?: string;
@@ -793,6 +821,7 @@ export type ShareSummaryResponse = {
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_public_summary_v1?: Record<string, unknown> | null;
+  mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   [key: string]: unknown;
 };
 

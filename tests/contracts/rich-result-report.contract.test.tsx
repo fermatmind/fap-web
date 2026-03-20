@@ -347,6 +347,70 @@ describe("RichResultReport", () => {
     );
   });
 
+  it("renders MBTI cross-assessment enhancements from backend authority without frontend inference", () => {
+    const reportData = createProjectionReportFixture();
+    const report = reportData.report as Record<string, unknown>;
+    const reportMeta = (report._meta ?? {}) as Record<string, unknown>;
+    const reportPersonalization = (reportMeta.personalization ?? {}) as Record<string, unknown>;
+    const projection = reportData.mbti_public_projection_v1 as Record<string, unknown>;
+    const projectionMeta = (projection._meta ?? {}) as Record<string, unknown>;
+    const projectionPersonalization = (projectionMeta.personalization ?? {}) as Record<string, unknown>;
+    const crossAssessment = {
+      version: "mbti_big5.cross_assessment.v1",
+      supporting_scales: ["BIG5_OCEAN"],
+      synthesis_keys: [
+        "big5.neuroticism.high.buffer_reactivity",
+        "big5.conscientiousness.low.use_external_scaffolding",
+      ],
+      big5_influence_keys: ["big5.band.n.high", "big5.band.c.low"],
+      mbti_adjusted_focus_keys: ["growth.stability_confidence", "growth.next_actions"],
+      section_enhancements: {
+        "growth.stability_confidence": {
+          section_key: "growth.stability_confidence",
+          supporting_scale: "BIG5_OCEAN",
+          synthesis_key: "big5.neuroticism.high.buffer_reactivity",
+          title: "Big Five 补充：高情绪性会放大情境敏感",
+          body: "Big Five 显示你的情绪性更高，这会放大 MBTI 里情境敏感的体感强度。",
+          influence_keys: ["big5.band.n.high"],
+        },
+        "growth.next_actions": {
+          section_key: "growth.next_actions",
+          supporting_scale: "BIG5_OCEAN",
+          synthesis_key: "big5.conscientiousness.low.use_external_scaffolding",
+          title: "Big Five 补充：低尽责性更需要外部支架",
+          body: "把动作拆成更小的可逆步骤，再借助外部提醒和固定触发器。",
+          influence_keys: ["big5.band.c.low"],
+        },
+      },
+    };
+
+    reportPersonalization.cross_assessment_v1 = crossAssessment;
+    reportPersonalization.synthesis_keys = crossAssessment.synthesis_keys;
+    reportPersonalization.supporting_scales = crossAssessment.supporting_scales;
+    reportPersonalization.big5_influence_keys = crossAssessment.big5_influence_keys;
+    reportPersonalization.mbti_adjusted_focus_keys = crossAssessment.mbti_adjusted_focus_keys;
+    projectionPersonalization.cross_assessment_v1 = crossAssessment;
+    projectionPersonalization.synthesis_keys = crossAssessment.synthesis_keys;
+    projectionPersonalization.supporting_scales = crossAssessment.supporting_scales;
+    projectionPersonalization.big5_influence_keys = crossAssessment.big5_influence_keys;
+    projectionPersonalization.mbti_adjusted_focus_keys = crossAssessment.mbti_adjusted_focus_keys;
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    const stability = screen.getByTestId("mbti-projection-section-growth-stability-confidence");
+    const nextActions = screen.getByTestId("mbti-projection-section-growth-next-actions");
+    expect(stability).toHaveAttribute("data-synthesis-key", "big5.neuroticism.high.buffer_reactivity");
+    expect(stability).toHaveAttribute("data-supporting-scale", "BIG5_OCEAN");
+    expect(stability).toHaveAttribute("data-cross-assessment-version", "mbti_big5.cross_assessment.v1");
+    expect(within(stability).getByTestId("mbti-cross-assessment-growth-stability-confidence")).toHaveTextContent(
+      "Big Five 显示你的情绪性更高"
+    );
+    expect(nextActions).toHaveAttribute("data-synthesis-key", "big5.conscientiousness.low.use_external_scaffolding");
+    expect(within(nextActions).getByTestId("mbti-cross-assessment-growth-next-actions")).toHaveTextContent(
+      "外部提醒"
+    );
+  });
+
   it("hides the recommended reads section when the array is empty", () => {
     const reportData = createReportFixture();
     if (!reportData.report) {
