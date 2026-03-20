@@ -547,6 +547,72 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
   await expect(workingLife).toContainText("Current working-life focus: Career next step");
 });
 
+test("MBTI controlled narrative: flag on shows narrative while canonical result stays unchanged", async ({ page }) => {
+  const attemptId = "mbti-controlled-narrative-0001";
+
+  await page.addInitScript(() => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({
+        analytics: "granted",
+        updatedAt: "2026-03-20T00:00:00.000Z",
+      })
+    );
+  });
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_narrative_guest",
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(createMbtiReportFixtureWithOptions({ narrativeMode: "mock" })),
+    });
+  });
+
+  await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        slug: "big-five-personality-test-ocean-model",
+        capabilities: {
+          enabled_in_prod: true,
+          paywall_mode: "full",
+        },
+      }),
+    });
+  });
+
+  await page.goto(`/en/result/${attemptId}`);
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+  await expect(page.getByTestId("mbti-controlled-narrative")).toHaveAttribute("data-runtime-mode", "mock");
+  await expect(page.getByTestId("mbti-controlled-narrative")).toContainText(
+    "Controlled narrative runtime ready for ENFP-T / identity T / focus career.next_step."
+  );
+  await expect(page.getByTestId("mbti-hero")).toContainText(
+    "Projection-first summary that should replace the legacy hero copy on result pages."
+  );
+});
+
 test("MBTI primary CTA reuses the existing checkout and order wait flow", async ({ page }) => {
   const attemptId = "mbti-checkout-wiring-0001";
   const orderNo = "ord_mbti_wait_0001";

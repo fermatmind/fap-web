@@ -765,6 +765,10 @@ function Big5ProjectionSummary({
   const variantKeys = Array.isArray(projection.variant_keys) ? projection.variant_keys : [];
   const explainability = asRecord(projection.explainability_summary);
   const actionPlan = asRecord(projection.action_plan_summary);
+  const controlledNarrative = asRecord(projection.controlled_narrative_v1);
+  const narrativeIntro = normalizeText(controlledNarrative?.narrative_intro);
+  const narrativeSummary = normalizeText(controlledNarrative?.narrative_summary);
+  const narrativeRuntimeMode = normalizeText(controlledNarrative?.runtime_mode);
   const sceneFingerprint = projection.scene_fingerprint && typeof projection.scene_fingerprint === "object"
     ? Object.entries(projection.scene_fingerprint)
     : [];
@@ -776,6 +780,16 @@ function Big5ProjectionSummary({
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
             {locale === "zh" ? "Big Five Foundation" : "Big Five Foundation"}
           </p>
+          {narrativeIntro || narrativeSummary ? (
+            <div
+              data-testid="big5-controlled-narrative"
+              data-runtime-mode={narrativeRuntimeMode}
+              className="rounded-xl border border-sky-100 bg-sky-50 px-4 py-3 text-sm text-sky-900"
+            >
+              {narrativeIntro ? <p className="m-0 font-semibold uppercase tracking-[0.12em] text-sky-700">{narrativeIntro}</p> : null}
+              {narrativeSummary ? <p className="m-0 mt-2 leading-7">{narrativeSummary}</p> : null}
+            </div>
+          ) : null}
           {typeof explainability?.headline === "string" && explainability.headline.trim().length > 0 ? (
             <p className="m-0 text-base leading-7 text-slate-700">{explainability.headline}</p>
           ) : null}

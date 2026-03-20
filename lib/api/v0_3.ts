@@ -171,6 +171,7 @@ export type ResultResponse = {
     [key: string]: unknown;
   };
   big5_public_projection_v1?: Big5PublicProjection | null;
+  controlled_narrative_v1?: ControlledNarrativeRaw | null;
 };
 
 export type OfferPayload = {
@@ -378,6 +379,7 @@ export type Big5PublicProjection = {
   };
   ordered_section_keys?: string[];
   sections?: Big5ReportSection[];
+  controlled_narrative_v1?: ControlledNarrativeRaw | null;
   _meta?: Record<string, unknown>;
   [key: string]: unknown;
 };
@@ -448,6 +450,7 @@ export type ReportResponse = {
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
+  controlled_narrative_v1?: ControlledNarrativeRaw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
@@ -650,6 +653,24 @@ export type MbtiReadContractRaw = {
   [key: string]: unknown;
 };
 
+export type ControlledNarrativeRaw = {
+  version?: string;
+  narrative_contract_version?: string;
+  runtime_contract_version?: string;
+  runtime_mode?: string;
+  provider_name?: string;
+  model_version?: string;
+  prompt_version?: string;
+  fail_open_mode?: string;
+  narrative_fingerprint?: string;
+  narrative_intro?: string;
+  narrative_summary?: string;
+  section_narrative_keys?: string[];
+  enabled?: boolean;
+  truth_guard_fields?: string[];
+  [key: string]: unknown;
+};
+
 export type MbtiCrossAssessmentSectionEnhancementRaw = {
   section_key?: string;
   supporting_scale?: string;
@@ -746,6 +767,7 @@ export type MbtiPersonalizationRaw = {
   };
   continuity?: MbtiContinuityRaw;
   read_contract_v1?: MbtiReadContractRaw | null;
+  controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   working_life_v1?: MbtiWorkingLifeRaw | null;
   synthesis_keys?: string[];
@@ -842,6 +864,7 @@ export type ShareSummaryResponse = {
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_public_summary_v1?: Record<string, unknown> | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
+  controlled_narrative_v1?: ControlledNarrativeRaw | null;
   [key: string]: unknown;
 };
 

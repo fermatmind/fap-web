@@ -17,6 +17,7 @@ type MbtiPhase2FixtureOptions = {
   actionCompletionTendency?: string;
   lastDeepReadSection?: string;
   currentIntentCluster?: string;
+  narrativeMode?: "off" | "mock" | "fallback";
 };
 
 function buildReadContractFixture() {
@@ -34,6 +35,8 @@ function buildReadContractFixture() {
         "pack_id",
         "engine_version",
         "dynamic_sections_version",
+        "controlled_narrative_v1",
+        "narrative_runtime_contract_v1",
       ],
       surface_fields: [
         "report.summary",
@@ -44,6 +47,8 @@ function buildReadContractFixture() {
         "mbti_public_projection_v1.summary_card",
         "mbti_public_projection_v1.profile",
         "mbti_public_projection_v1.sections",
+        "controlled_narrative_v1",
+        "narrative_runtime_contract_v1",
       ],
       sources: ["report_snapshot", "report_projection"],
     },
@@ -110,6 +115,8 @@ function buildReadContractFixture() {
       "mbti_public_projection_v1.dimensions",
       "mbti_public_projection_v1.sections",
       "mbti_read_contract_v1",
+      "controlled_narrative_v1",
+      "narrative_runtime_contract_v1",
     ],
     non_cacheable_fields: [
       "report._meta.personalization.user_state",
@@ -151,7 +158,76 @@ function buildReadContractFixture() {
       "working_life_v1.career_focus_key",
       "working_life_v1.career_journey_keys",
       "working_life_v1.career_action_priority_keys",
+      "narrative_runtime_contract_v1.runtime_mode",
+      "narrative_runtime_contract_v1.provider_name",
+      "narrative_runtime_contract_v1.model_version",
+      "narrative_runtime_contract_v1.prompt_version",
+      "narrative_runtime_contract_v1.narrative_fingerprint",
     ],
+  };
+}
+
+function buildNarrativeRuntimeFixture(mode: "off" | "mock" | "fallback") {
+  const response =
+    mode === "off"
+      ? {
+          narrative_intro: "",
+          narrative_summary: "",
+          section_narrative_keys: [],
+        }
+      : {
+          narrative_intro:
+            mode === "mock"
+              ? "Controlled narrative runtime ready for ENFP-T / identity T / focus career.next_step."
+              : "Deterministic narrative fallback is active.",
+          narrative_summary:
+            mode === "mock"
+              ? "这段 narrative 只增强表达层，不改写原始人格、成长和职业 authority。"
+              : "结构化 authority 仍然完整可用，当前 narrative 退回确定性表达层。",
+          section_narrative_keys: ["growth.next_actions", "career.next_step"],
+        };
+
+  return {
+    version: "narrative_runtime_contract.v1",
+    runtime_mode: mode,
+    provider_name: mode === "mock" ? "mock" : mode === "fallback" ? "openai" : "null",
+    model_version: mode === "off" ? "mock-model" : "mock-narrative-model",
+    prompt_version: "prompt.9d.v1",
+    fail_open_mode: mode === "fallback" ? "deterministic" : mode === "off" ? "off" : "deterministic",
+    narrative_fingerprint: `fixture-narrative-${mode}`,
+    response,
+    truth_guard_fields: [
+      "type_code",
+      "identity",
+      "variant_keys",
+      "scene_fingerprint",
+      "working_life_v1",
+      "cross_assessment_v1",
+      "user_state",
+      "orchestration",
+      "continuity",
+    ],
+  };
+}
+
+function buildControlledNarrativeFixture(mode: "off" | "mock" | "fallback") {
+  const runtime = buildNarrativeRuntimeFixture(mode);
+
+  return {
+    version: "controlled_narrative.v1",
+    narrative_contract_version: "controlled_narrative.v1",
+    runtime_contract_version: runtime.version,
+    runtime_mode: runtime.runtime_mode,
+    provider_name: runtime.provider_name,
+    model_version: runtime.model_version,
+    prompt_version: runtime.prompt_version,
+    fail_open_mode: runtime.fail_open_mode,
+    narrative_fingerprint: runtime.narrative_fingerprint,
+    narrative_intro: runtime.response.narrative_intro,
+    narrative_summary: runtime.response.narrative_summary,
+    section_narrative_keys: runtime.response.section_narrative_keys,
+    enabled: mode !== "off",
+    truth_guard_fields: runtime.truth_guard_fields,
   };
 }
 
@@ -740,6 +816,7 @@ export function applyMbtiPhase2Fixture(
     ?? (hasActionEngagement ? (isRevisit ? "repeatable" : "warming_up") : hasUnlock ? "available" : "idle");
   const lastDeepReadSection = options.lastDeepReadSection ?? "";
   const currentIntentCluster = options.currentIntentCluster ?? "default";
+  const narrativeMode = options.narrativeMode ?? "off";
 
   const eiAxis = {
     axis: "EI",
@@ -1014,6 +1091,8 @@ export function applyMbtiPhase2Fixture(
     big5_influence_keys: ["big5.band.n.high", "big5.band.c.low"],
     synthesis_keys: ["big5.career_next_step.low.reduce_activation_friction"],
   };
+  const narrativeRuntime = buildNarrativeRuntimeFixture(narrativeMode);
+  const controlledNarrative = buildControlledNarrativeFixture(narrativeMode);
 
   reportData.locked = hasUnlock ? false : true;
   reportData.variant = hasUnlock ? "full" : "free";
@@ -1238,6 +1317,8 @@ export function applyMbtiPhase2Fixture(
       carryover_action_keys: carryoverActionKeys,
     },
     read_contract_v1: buildReadContractFixture(),
+    narrative_runtime_contract_v1: narrativeRuntime,
+    controlled_narrative_v1: controlledNarrative,
     cross_assessment_v1: crossAssessment,
     synthesis_keys: crossAssessment.synthesis_keys,
     supporting_scales: crossAssessment.supporting_scales,
@@ -1283,6 +1364,7 @@ export function applyMbtiPhase2Fixture(
   }
   reportData.mbti_read_contract_v1 = structuredClone(buildReadContractFixture());
   reportData.mbti_cross_assessment_v1 = structuredClone(crossAssessment);
+  reportData.controlled_narrative_v1 = structuredClone(controlledNarrative);
   getProjectionMeta(reportData).personalization = structuredClone(personalization);
   getReportMeta(reportData).personalization = structuredClone(personalization);
 

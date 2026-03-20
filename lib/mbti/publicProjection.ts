@@ -1,4 +1,5 @@
 import type {
+  ControlledNarrativeRaw,
   MbtiCrossAssessmentRaw,
   MbtiReadContractRaw,
   MbtiPersonalizationRaw,
@@ -181,6 +182,23 @@ export type MbtiReadContractViewModel = {
   telemetryParityFields: string[];
 };
 
+export type ControlledNarrativeViewModel = {
+  version: string;
+  narrativeContractVersion: string;
+  runtimeContractVersion: string;
+  runtimeMode: string;
+  providerName: string;
+  modelVersion: string;
+  promptVersion: string;
+  failOpenMode: string;
+  narrativeFingerprint: string;
+  narrativeIntro: string;
+  narrativeSummary: string;
+  sectionNarrativeKeys: string[];
+  enabled: boolean;
+  truthGuardFields: string[];
+};
+
 export type MbtiCrossAssessmentSectionEnhancementViewModel = {
   sectionKey: string;
   supportingScale: string;
@@ -255,6 +273,7 @@ export type MbtiResultPersonalizationViewModel = {
   orchestration: MbtiOrchestrationViewModel | null;
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
+  controlledNarrative: ControlledNarrativeViewModel | null;
   crossAssessment: MbtiCrossAssessmentViewModel | null;
   workingLife: MbtiWorkingLifeViewModel | null;
   variantKeys: Record<string, string>;
@@ -293,6 +312,7 @@ export type MbtiSharePageViewModel = {
   primaryCtaPath: string;
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
+  controlledNarrative: ControlledNarrativeViewModel | null;
   compareEnabled: boolean;
   compareCtaLabel: string;
 };
@@ -626,6 +646,7 @@ function normalizePersonalization(
   const orchestrationRecord = asRecord(personalization.orchestration);
   const continuityRecord = asRecord(personalization.continuity);
   const readContractRecord = asRecord(personalization.read_contract_v1) as MbtiReadContractRaw | null;
+  const controlledNarrativeRecord = asRecord(personalization.controlled_narrative_v1) as ControlledNarrativeRaw | null;
   const crossAssessmentRecord = asRecord(personalization.cross_assessment_v1) as MbtiCrossAssessmentRaw | null;
   const workingLifeRecord = asRecord(personalization.working_life_v1) as MbtiWorkingLifeRaw | null;
 
@@ -727,6 +748,7 @@ function normalizePersonalization(
         }
       : null,
     readContract: normalizeReadContract(readContractRecord),
+    controlledNarrative: normalizeControlledNarrative(controlledNarrativeRecord),
     crossAssessment: normalizeCrossAssessment(crossAssessmentRecord),
     workingLife: normalizeWorkingLife(workingLifeRecord),
     variantKeys,
@@ -787,6 +809,46 @@ function normalizeReadContract(rawContract: MbtiReadContractRaw | null): MbtiRea
     cacheableFields,
     nonCacheableFields,
     telemetryParityFields,
+  };
+}
+
+function normalizeControlledNarrative(
+  rawNarrative: ControlledNarrativeRaw | null
+): ControlledNarrativeViewModel | null {
+  if (!rawNarrative) {
+    return null;
+  }
+
+  const version = normalizeText(rawNarrative.version);
+  const narrativeIntro = normalizeText(rawNarrative.narrative_intro);
+  const narrativeSummary = normalizeText(rawNarrative.narrative_summary);
+  const sectionNarrativeKeys = normalizeStringArray(rawNarrative.section_narrative_keys);
+  const runtimeMode = normalizeText(rawNarrative.runtime_mode);
+  const enabled =
+    rawNarrative.enabled === true ||
+    narrativeIntro.length > 0 ||
+    narrativeSummary.length > 0 ||
+    sectionNarrativeKeys.length > 0;
+
+  if (!enabled && !version && !runtimeMode) {
+    return null;
+  }
+
+  return {
+    version,
+    narrativeContractVersion: normalizeText(rawNarrative.narrative_contract_version, version),
+    runtimeContractVersion: normalizeText(rawNarrative.runtime_contract_version),
+    runtimeMode,
+    providerName: normalizeText(rawNarrative.provider_name),
+    modelVersion: normalizeText(rawNarrative.model_version),
+    promptVersion: normalizeText(rawNarrative.prompt_version),
+    failOpenMode: normalizeText(rawNarrative.fail_open_mode),
+    narrativeFingerprint: normalizeText(rawNarrative.narrative_fingerprint),
+    narrativeIntro,
+    narrativeSummary,
+    sectionNarrativeKeys,
+    enabled,
+    truthGuardFields: normalizeStringArray(rawNarrative.truth_guard_fields),
   };
 }
 
@@ -1001,10 +1063,14 @@ export function buildMbtiResultProjectionViewModel(
   const topLevelReadContract = normalizeReadContract(
     asRecord(report.mbti_read_contract_v1) as MbtiReadContractRaw | null
   );
+  const topLevelControlledNarrative = normalizeControlledNarrative(
+    asRecord(report.controlled_narrative_v1) as ControlledNarrativeRaw | null
+  );
   const personalization = normalizedPersonalization
     ? {
         ...normalizedPersonalization,
         readContract: normalizedPersonalization.readContract ?? topLevelReadContract,
+        controlledNarrative: normalizedPersonalization.controlledNarrative ?? topLevelControlledNarrative,
       }
     : null;
 
@@ -1055,6 +1121,9 @@ export function buildSharePageViewModel(
   const shareReadContract =
     normalizeReadContract(asRecord(rawShare?.mbti_read_contract_v1) as MbtiReadContractRaw | null) ??
     normalizeReadContract(asRecord(sharePersonalizationRecord?.read_contract_v1) as MbtiReadContractRaw | null);
+  const shareControlledNarrative =
+    normalizeControlledNarrative(asRecord(rawShare?.controlled_narrative_v1) as ControlledNarrativeRaw | null) ??
+    normalizeControlledNarrative(asRecord(sharePersonalizationRecord?.controlled_narrative_v1) as ControlledNarrativeRaw | null);
 
   return {
     card: normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1),
@@ -1093,6 +1162,7 @@ export function buildSharePageViewModel(
         }
       : null,
     readContract: shareReadContract,
+    controlledNarrative: shareControlledNarrative,
     compareEnabled: rawShare?.compare_enabled === true,
     compareCtaLabel: normalizeText(rawShare?.compare_cta_label),
   };

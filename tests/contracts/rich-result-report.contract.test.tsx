@@ -92,6 +92,7 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-mobile-chrome")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-working-life-focus")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-controlled-narrative")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored overview title");
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored overview subtitle");
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent(
@@ -462,6 +463,27 @@ describe("RichResultReport", () => {
     );
   });
 
+  it("renders controlled narrative when the backend enables it without replacing canonical MBTI truth", () => {
+    const reportData = applyMbtiPhase2Fixture(
+      structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse,
+      { narrativeMode: "mock" }
+    );
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    expect(screen.getByTestId("mbti-controlled-narrative")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-controlled-narrative")).toHaveAttribute("data-runtime-mode", "mock");
+    expect(screen.getByTestId("mbti-controlled-narrative")).toHaveTextContent(
+      "Controlled narrative runtime ready for ENFP-T / identity T / focus career.next_step."
+    );
+    expect(screen.getByTestId("mbti-controlled-narrative")).toHaveTextContent(
+      "这段 narrative 只增强表达层，不改写原始人格、成长和职业 authority。"
+    );
+    expect(screen.getByTestId("mbti-hero")).toHaveTextContent(
+      "Projection-first summary that should replace the legacy hero copy on result pages."
+    );
+  });
+
   it("leaves non-MBTI branches on the legacy report normalizer", () => {
     const reportData = {
       big5_public_projection_v1: {
@@ -480,6 +502,19 @@ describe("RichResultReport", () => {
         },
         action_plan_summary: {
           headline: "The best near-term growth lever is Extraversion.",
+        },
+        controlled_narrative_v1: {
+          version: "controlled_narrative.v1",
+          narrative_contract_version: "controlled_narrative.v1",
+          runtime_mode: "mock",
+          provider_name: "mock",
+          model_version: "mock-narrative-model",
+          prompt_version: "prompt.9d.v1",
+          narrative_fingerprint: "big5-narrative-fixture",
+          narrative_intro: "Controlled narrative runtime ready for traits Openness/Agreeableness.",
+          narrative_summary: "This summary stays separate from the canonical Big Five explainability and action plan.",
+          section_narrative_keys: ["traits.overview", "growth.next_actions"],
+          enabled: true,
         },
         trait_vector: [
           { key: "O", label: "Openness", percentile: 81, band_label: "exploratory" },
@@ -516,6 +551,10 @@ describe("RichResultReport", () => {
 
     expect(screen.queryByTestId("mbti-result-shell")).not.toBeInTheDocument();
     expect(screen.getByTestId("big5-foundation-summary")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-controlled-narrative")).toHaveAttribute("data-runtime-mode", "mock");
+    expect(screen.getByTestId("big5-controlled-narrative")).toHaveTextContent(
+      "Controlled narrative runtime ready for traits Openness/Agreeableness."
+    );
     expect(screen.getByTestId("big5-scene-fingerprint")).toHaveTextContent("novelty");
     expect(screen.getByTestId("big5-action-plan-summary")).toHaveTextContent(
       "The best near-term growth lever is Extraversion."
