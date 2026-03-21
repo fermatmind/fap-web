@@ -27,13 +27,14 @@ function truncateText(value: string, maxLength: number): string {
 
 function buildShareOgView(viewModel?: MbtiSharePageViewModel | null): ShareOgView {
   const card = viewModel?.card;
+  const scaleCode = viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five" : "MBTI";
 
   return {
-    typeCode: card?.displayType || card?.canonicalTypeCode || "FermatMind MBTI",
-    typeName: card?.typeName || card?.title || card?.displayType || "人格类型分享",
-    subtitle: card?.subtitle || card?.tagline || "公开可分享的人格类型摘要",
+    typeCode: card?.displayType || card?.canonicalTypeCode || `FermatMind ${scaleCode}`,
+    typeName: card?.typeName || card?.title || card?.displayType || `${scaleCode} 分享摘要`,
+    subtitle: card?.subtitle || card?.tagline || `${scaleCode} public-safe summary`,
     narrative: truncateText(
-      card?.summary || card?.subtitle || card?.tagline || "查看这份 MBTI 分享摘要。",
+      card?.summary || card?.subtitle || card?.tagline || `View this ${scaleCode} share summary.`,
       180
     ),
     rarity: card?.rarity || "",
@@ -67,7 +68,9 @@ export function buildShareMetadataCopy(viewModel?: MbtiSharePageViewModel | null
   description: string;
 } {
   const card = viewModel?.card;
-  const fallbackTitle = card?.displayType || card?.title || card?.canonicalTypeCode || card?.typeName || "MBTI 分享摘要";
+  const fallbackTitle = card?.displayType || card?.title || card?.canonicalTypeCode || card?.typeName || (
+    viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five 分享摘要" : "MBTI 分享摘要"
+  );
 
   return {
     title: card?.displayType && card.typeName
@@ -159,7 +162,7 @@ export function renderShareOgImage(viewModel?: MbtiSharePageViewModel | null) {
                   color: "#a7f3d0",
                 }}
               >
-                MBTI 分享
+                {viewModel?.scaleCode === "BIG5_OCEAN" ? "Big Five 分享" : "MBTI 分享"}
               </div>
 
               <div

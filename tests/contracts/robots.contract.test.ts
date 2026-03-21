@@ -43,7 +43,8 @@ describe("robots contract", () => {
     const shareSource = read("app/(localized)/[locale]/share/[id]/page.tsx");
     const compareSource = read("app/(localized)/[locale]/compare/mbti/[inviteId]/page.tsx");
 
-    expect(shareSource).toContain("noindex: true");
+    expect(shareSource).toContain('viewModel.publicSurface?.robotsPolicy || ""');
+    expect(shareSource).toContain('noindex: robotsPolicy.includes("noindex")');
     expect(compareSource).toContain("noindex: true");
     expect(shouldNoindex("/en/share/share-123", "en")).toBe(true);
     expect(shouldNoindex("/en/result/attempt-123", "en")).toBe(true);

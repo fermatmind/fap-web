@@ -38,8 +38,10 @@ export async function generateMetadata({
     shareId: id,
     locale,
   });
-  const copy = buildShareMetadataCopy(buildSharePageViewModel(shareSummary));
-  const pathname = `/${locale}/share/${id}`;
+  const viewModel = buildSharePageViewModel(shareSummary);
+  const copy = buildShareMetadataCopy(viewModel);
+  const pathname = viewModel.publicSurface?.canonicalUrl || `/${locale}/share/${id}`;
+  const robotsPolicy = viewModel.publicSurface?.robotsPolicy || "";
 
   return buildPageMetadata({
     locale,
@@ -47,7 +49,7 @@ export async function generateMetadata({
     title: copy.title,
     description: copy.description,
     imagePath: `/og/share/${id}`,
-    noindex: true,
+    noindex: robotsPolicy.includes("noindex"),
     alternatesByLocale: {
       en: `/en/share/${id}`,
       zh: `/zh/share/${id}`,

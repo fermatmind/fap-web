@@ -1,4 +1,5 @@
 import type {
+  Big5PublicProjection,
   ComparativeRaw,
   ControlledNarrativeRaw,
   CulturalCalibrationRaw,
@@ -8,6 +9,7 @@ import type {
   MbtiPublicProjectionDimensionRaw,
   MbtiPublicProjectionV1Raw,
   MbtiWorkingLifeRaw,
+  PublicSurfaceRaw,
   ReportResponse,
   ShareSummaryResponse,
 } from "@/lib/api/v0_3";
@@ -353,6 +355,7 @@ export type MbtiResultProjectionViewModel = {
 };
 
 export type MbtiSharePageViewModel = {
+  scaleCode: string;
   card: MbtiPublicProjectionCardViewModel | null;
   shareId: string;
   shareUrl: string;
@@ -361,10 +364,24 @@ export type MbtiSharePageViewModel = {
   primaryCtaPath: string;
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
+  publicSurface: PublicSurfaceViewModel | null;
+  comparative: ComparativeViewModel | null;
   controlledNarrative: ControlledNarrativeViewModel | null;
   culturalCalibration: CulturalCalibrationViewModel | null;
+  workingLife: MbtiWorkingLifeViewModel | null;
   compareEnabled: boolean;
   compareCtaLabel: string;
+};
+
+export type PublicSurfaceViewModel = {
+  version: string;
+  entrySurface: string;
+  publicSummaryFingerprint: string;
+  discoverabilityKeys: string[];
+  continueReadingKeys: string[];
+  canonicalUrl: string;
+  robotsPolicy: string;
+  attributionScope: string;
 };
 
 type ProjectionCoreViewModel = Omit<MbtiResultProjectionViewModel, "sections" | "hasProjection">;
@@ -970,6 +987,111 @@ function normalizeComparative(rawComparative: ComparativeRaw | null): Comparativ
   };
 }
 
+function normalizePublicSurface(rawPublicSurface: PublicSurfaceRaw | null): PublicSurfaceViewModel | null {
+  if (!rawPublicSurface) {
+    return null;
+  }
+
+  const version = normalizeText(rawPublicSurface.version);
+  const entrySurface = normalizeText(rawPublicSurface.entry_surface);
+  const publicSummaryFingerprint = normalizeText(rawPublicSurface.public_summary_fingerprint);
+  const discoverabilityKeys = normalizeStringArray(rawPublicSurface.discoverability_keys);
+  const continueReadingKeys = normalizeStringArray(rawPublicSurface.continue_reading_keys);
+  const canonicalUrl = normalizeText(rawPublicSurface.canonical_url);
+  const robotsPolicy = normalizeText(rawPublicSurface.robots_policy);
+  const attributionScope = normalizeText(rawPublicSurface.attribution_scope);
+
+  if (
+    !version &&
+    !entrySurface &&
+    !publicSummaryFingerprint &&
+    discoverabilityKeys.length === 0 &&
+    continueReadingKeys.length === 0 &&
+    !canonicalUrl &&
+    !robotsPolicy &&
+    !attributionScope
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    entrySurface,
+    publicSummaryFingerprint,
+    discoverabilityKeys,
+    continueReadingKeys,
+    canonicalUrl,
+    robotsPolicy,
+    attributionScope,
+  };
+}
+
+function normalizeShareCard(rawShare?: ShareSummaryResponse | null): MbtiPublicProjectionCardViewModel | null {
+  const mbtiCard = normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1);
+  if (mbtiCard) {
+    return mbtiCard;
+  }
+
+  const big5Projection = asRecord(rawShare?.big5_public_projection_v1) as Big5PublicProjection | null;
+  const big5TraitVector = Array.isArray(big5Projection?.trait_vector) ? big5Projection.trait_vector : [];
+  const dimensions = (
+    Array.isArray(rawShare?.dimensions) && rawShare?.dimensions.length > 0
+      ? rawShare?.dimensions
+      : big5TraitVector
+  )
+    .map((rawDimension) => {
+      const dimension = asRecord(rawDimension);
+      if (!dimension) {
+        return null;
+      }
+
+      return {
+        code: normalizeText(dimension.code, dimension.key),
+        label: normalizeText(dimension.label, dimension.key),
+        percent: toRoundedPercent(dimension.pct ?? dimension.percentile ?? dimension.percent),
+        side: normalizeText(dimension.side, dimension.key),
+        sideLabel: normalizeText(dimension.side_label, dimension.sideLabel, dimension.label),
+        state: normalizeText(dimension.state, dimension.band_label, dimension.winnerLabel),
+        summary: normalizeText(dimension.summary, dimension.band_label, dimension.winnerLabel),
+      };
+    })
+    .filter((dimension): dimension is MbtiPublicProjectionDimensionViewModel => Boolean(dimension));
+
+  const publicTags = Array.from(
+    new Set([
+      ...normalizeStringArray(rawShare?.public_tags),
+      ...normalizeStringArray(rawShare?.publicTags),
+      ...normalizeStringArray(rawShare?.tags).filter(
+        (tag) => !TECHNICAL_TAG_PREFIXES.some((prefix) => tag.toLowerCase().startsWith(prefix))
+      ),
+    ])
+  );
+
+  const title = normalizeText(rawShare?.title, rawShare?.type_name, rawShare?.type_code);
+  const subtitle = normalizeText(rawShare?.subtitle, rawShare?.tagline);
+  const summary = normalizeText(rawShare?.summary, rawShare?.tagline);
+  const typeName = normalizeText(rawShare?.type_name, rawShare?.title);
+  const displayType = normalizeText(rawShare?.type_code, rawShare?.scale_code);
+
+  if (!title && !summary && !typeName && dimensions.length === 0) {
+    return null;
+  }
+
+  return {
+    canonicalTypeCode: displayType,
+    displayType,
+    variantCode: "",
+    typeName,
+    title,
+    subtitle,
+    summary,
+    tagline: normalizeText(rawShare?.tagline, rawShare?.subtitle),
+    rarity: resolveRarity(rawShare?.rarity),
+    publicTags,
+    dimensions,
+  };
+}
+
 function normalizeCulturalCalibration(
   rawCalibration: CulturalCalibrationRaw | null
 ): CulturalCalibrationViewModel | null {
@@ -1321,22 +1443,35 @@ export function buildMbtiCareerRecommendationHref(
 export function buildSharePageViewModel(
   rawShare?: ShareSummaryResponse | null
 ): MbtiSharePageViewModel {
+  const shareScaleCode = normalizeText(rawShare?.scale_code).toUpperCase();
   const continuityRecord = asRecord(rawShare?.mbti_continuity_v1);
   const shareProjectionMeta = asRecord(asRecord(rawShare?.mbti_public_projection_v1)?._meta);
   const sharePersonalizationRecord = asRecord(shareProjectionMeta?.personalization);
   const shareUserStateRecord = asRecord(sharePersonalizationRecord?.user_state);
+  const shareBig5Projection = asRecord(rawShare?.big5_public_projection_v1) as Big5PublicProjection | null;
   const shareReadContract =
     normalizeReadContract(asRecord(rawShare?.mbti_read_contract_v1) as MbtiReadContractRaw | null) ??
     normalizeReadContract(asRecord(sharePersonalizationRecord?.read_contract_v1) as MbtiReadContractRaw | null);
+  const sharePublicSurface = normalizePublicSurface(asRecord(rawShare?.public_surface_v1) as PublicSurfaceRaw | null);
+  const shareComparative =
+    normalizeComparative(asRecord(rawShare?.comparative_v1) as ComparativeRaw | null) ??
+    normalizeComparative(asRecord(sharePersonalizationRecord?.comparative_v1) as ComparativeRaw | null) ??
+    normalizeComparative(asRecord(shareBig5Projection?.comparative_v1) as ComparativeRaw | null);
   const shareControlledNarrative =
     normalizeControlledNarrative(asRecord(rawShare?.controlled_narrative_v1) as ControlledNarrativeRaw | null) ??
-    normalizeControlledNarrative(asRecord(sharePersonalizationRecord?.controlled_narrative_v1) as ControlledNarrativeRaw | null);
+    normalizeControlledNarrative(asRecord(sharePersonalizationRecord?.controlled_narrative_v1) as ControlledNarrativeRaw | null) ??
+    normalizeControlledNarrative(asRecord(shareBig5Projection?.controlled_narrative_v1) as ControlledNarrativeRaw | null);
   const shareCulturalCalibration =
     normalizeCulturalCalibration(asRecord(rawShare?.cultural_calibration_v1) as CulturalCalibrationRaw | null) ??
-    normalizeCulturalCalibration(asRecord(sharePersonalizationRecord?.cultural_calibration_v1) as CulturalCalibrationRaw | null);
+    normalizeCulturalCalibration(asRecord(sharePersonalizationRecord?.cultural_calibration_v1) as CulturalCalibrationRaw | null) ??
+    normalizeCulturalCalibration(asRecord(shareBig5Projection?.cultural_calibration_v1) as CulturalCalibrationRaw | null);
+  const shareWorkingLife =
+    normalizeWorkingLife(asRecord(rawShare?.working_life_v1) as MbtiWorkingLifeRaw | null) ??
+    normalizeWorkingLife(asRecord(sharePersonalizationRecord?.working_life_v1) as MbtiWorkingLifeRaw | null);
 
   return {
-    card: normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1),
+    scaleCode: shareScaleCode,
+    card: normalizeShareCard(rawShare),
     shareId: normalizeText(rawShare?.share_id, rawShare?.id),
     shareUrl: normalizeText(rawShare?.share_url),
     attemptId: normalizeText(rawShare?.attempt_id),
@@ -1372,9 +1507,12 @@ export function buildSharePageViewModel(
         }
       : null,
     readContract: shareReadContract,
+    publicSurface: sharePublicSurface,
+    comparative: shareComparative,
     controlledNarrative: shareControlledNarrative,
     culturalCalibration: shareCulturalCalibration,
-    compareEnabled: rawShare?.compare_enabled === true,
+    workingLife: shareWorkingLife,
+    compareEnabled: shareScaleCode === "MBTI" && rawShare?.compare_enabled === true,
     compareCtaLabel: normalizeText(rawShare?.compare_cta_label),
   };
 }

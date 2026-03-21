@@ -390,6 +390,18 @@ export type ComparativeRaw = {
   [key: string]: unknown;
 };
 
+export type PublicSurfaceRaw = {
+  version?: string;
+  entry_surface?: string;
+  public_summary_fingerprint?: string;
+  discoverability_keys?: string[];
+  continue_reading_keys?: string[];
+  canonical_url?: string | null;
+  robots_policy?: string | null;
+  attribution_scope?: string | null;
+  [key: string]: unknown;
+};
+
 export type Big5PublicProjection = {
   schema_version?: string;
   trait_vector?: Big5TraitProjection[];
@@ -929,8 +941,12 @@ export type ShareSummaryResponse = {
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_public_summary_v1?: Record<string, unknown> | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
+  big5_public_projection_v1?: Big5PublicProjection | null;
+  comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
+  working_life_v1?: MbtiWorkingLifeRaw | null;
+  public_surface_v1?: PublicSurfaceRaw | null;
   [key: string]: unknown;
 };
 
