@@ -1141,6 +1141,49 @@ export type DyadicPulseCheckRaw = {
   [key: string]: unknown;
 };
 
+export type RelationshipIndexEntrySummaryRaw = {
+  title?: string;
+  summary?: string | null;
+  badge_label?: string | null;
+  badge_key?: string | null;
+  [key: string]: unknown;
+};
+
+export type RelationshipResumeRaw = {
+  resume_version?: string;
+  resume_target?: string;
+  continue_label?: string | null;
+  resume_reason?: string | null;
+  revisit_reorder_reason?: string | null;
+  relationship_entry_keys?: string[] | null;
+  [key: string]: unknown;
+};
+
+export type RelationshipIndexItemRaw = {
+  invite_id?: string;
+  relationship_scope?: string;
+  access_state?: string;
+  consent_state?: string;
+  journey_state?: string;
+  progress_state?: string;
+  participant_role?: string;
+  entry_summary?: RelationshipIndexEntrySummaryRaw | null;
+  resume_target?: string;
+  revisit_priority_keys?: string[] | null;
+  last_dyadic_pulse_signal?: string | null;
+  updated_at?: string | null;
+  relationship_resume_v1?: RelationshipResumeRaw | null;
+  [key: string]: unknown;
+};
+
+export type RelationshipIndexRaw = {
+  relationship_index_version?: string;
+  relationship_index_fingerprint?: string;
+  index_scope?: string;
+  items?: RelationshipIndexItemRaw[] | null;
+  [key: string]: unknown;
+};
+
 export type DyadicGraphNodeRaw = {
   id?: string;
   kind?: string;
@@ -1309,6 +1352,13 @@ export type PrivateMbtiRelationshipResponse = {
   private_relationship_journey_v1?: PrivateRelationshipJourneyRaw | null;
   dyadic_pulse_check_v1?: DyadicPulseCheckRaw | null;
   dyadic_graph_v1?: DyadicGraphRaw | null;
+  [key: string]: unknown;
+};
+
+export type MbtiRelationshipIndexResponse = {
+  ok?: boolean;
+  scale_code?: string;
+  relationship_index_v1?: RelationshipIndexRaw | null;
   [key: string]: unknown;
 };
 
@@ -2518,6 +2568,27 @@ export async function getPrivateMbtiRelationship({
   );
 
   return assertApiOk(response, "Private relationship not available.");
+}
+
+export async function getPrivateMbtiRelationshipIndex({
+  locale,
+  cache,
+  timeoutMs,
+}: {
+  locale?: string;
+  cache?: RequestCache;
+  timeoutMs?: number;
+} = {}): Promise<MbtiRelationshipIndexResponse> {
+  const response = await apiClient.get<MbtiRelationshipIndexResponse>(
+    "/v0.3/me/relationships/mbti",
+    {
+      ...(locale ? { locale } : {}),
+      ...(cache ? { cache } : {}),
+      ...(typeof timeoutMs === "number" ? { timeoutMs } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Relationship index not available.");
 }
 
 export async function mutatePrivateMbtiRelationshipConsent({
