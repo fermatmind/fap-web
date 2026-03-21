@@ -48,6 +48,18 @@ test("protected team workspace renders team dynamics and manager loop", async ({
             team_member_count: 3,
             analyzed_member_count: 2,
           },
+          partner_read_v1: {
+            version: "partner.read.v1",
+            graph_scope: "tenant_protected",
+            graph_contract_version: "insight.graph.v1",
+            graph_fingerprint: "workspace-graph-fingerprint-e2e",
+            supporting_scales: ["MBTI"],
+            allowed_node_ids: ["result_summary", "team_dynamics", "workspace_surface", "member_progress", "continue_reading"],
+            allowed_edge_types: ["enriches", "recommended_next", "continues_to"],
+            read_scope: "partner_tenant_read",
+            subject_scope: "tenant_aggregate_only",
+            attribution_scope: "workspace_partner_surface",
+          },
         },
       }),
     });
@@ -85,6 +97,7 @@ test("protected team workspace renders team dynamics and manager loop", async ({
   await page.goto("/en/workspace/team/41/assessments/7");
 
   await expect(page.getByTestId("team-workspace-hero")).toBeVisible();
+  await expect(page.getByTestId("team-workspace-partner-read")).toContainText("tenant_protected");
   await expect(page.getByTestId("team-workspace-manager-loop")).toContainText("Manager loop");
   await expect(page.getByTestId("team-workspace-progress")).toContainText("Completed members");
 

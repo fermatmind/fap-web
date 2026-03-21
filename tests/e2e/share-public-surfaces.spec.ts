@@ -113,6 +113,18 @@ test("Big Five share page exposes only the public-safe acquisition surface", asy
           embed_fingerprint: "share-big5-embed-fingerprint",
           render_mode: "card",
         },
+        partner_read_v1: {
+          version: "partner.read.v1",
+          graph_scope: "public_share_safe",
+          graph_contract_version: "insight.graph.v1",
+          graph_fingerprint: "share-big5-graph-fingerprint",
+          supporting_scales: ["BIG5_OCEAN"],
+          allowed_node_ids: ["result_summary", "narrative", "comparative", "continue_reading"],
+          allowed_edge_types: ["supports"],
+          read_scope: "partner_public_read",
+          subject_scope: "public_summary_only",
+          attribution_scope: "share_public_surface",
+        },
       }),
     });
   });
@@ -126,6 +138,7 @@ test("Big Five share page exposes only the public-safe acquisition surface", asy
     "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report."
   );
   await expect(page.getByTestId("share-embed-surface")).toContainText("Embeddable insight graph");
+  await expect(page.getByTestId("share-partner-read-scope")).toContainText("partner_public_read");
   await expect(page.getByTestId("share-embed-node-list")).toContainText("Big Five public summary");
   await expect(page.getByTestId("share-public-continue-entry")).toContainText("Continue into the full result path");
   await expect(page.getByTestId("share-public-continue-cta")).toHaveAttribute(

@@ -12,6 +12,7 @@ import {
   type AssessmentProgressListItem,
   type AssessmentProgressResponse,
   type AssessmentSummaryResponse,
+  type PartnerReadV1Raw,
   type TeamDynamicsV1Raw,
   type WorkspaceSurfaceV1Raw,
 } from "@/lib/api/v0_4";
@@ -45,6 +46,8 @@ type WorkspaceCopy = {
   memberCompletedAt: string;
   memberStartedAt: string;
   protectedHint: string;
+  partnerRead: string;
+  partnerScope: string;
 };
 
 const COPY: Record<"en" | "zh", WorkspaceCopy> = {
@@ -75,6 +78,8 @@ const COPY: Record<"en" | "zh", WorkspaceCopy> = {
     memberCompletedAt: "Completed at",
     memberStartedAt: "Started at",
     protectedHint: "Protected org/tenant boundary",
+    partnerRead: "Partner-safe read",
+    partnerScope: "Protected graph scope",
   },
   zh: {
     kicker: "受保护工作区",
@@ -103,6 +108,8 @@ const COPY: Record<"en" | "zh", WorkspaceCopy> = {
     memberCompletedAt: "完成时间",
     memberStartedAt: "开始时间",
     protectedHint: "受保护的 org/tenant 边界",
+    partnerRead: "Partner-safe read",
+    partnerScope: "受保护 graph scope",
   },
 };
 
@@ -226,11 +233,13 @@ function MemberRow({
   sectionKey,
   locale,
   copy,
+  partnerRead,
 }: {
   item: AssessmentProgressListItem;
   sectionKey: "completed_members" | "pending_members";
   locale: "en" | "zh";
   copy: WorkspaceCopy;
+  partnerRead: PartnerReadV1Raw | null;
 }) {
   const [expanded, setExpanded] = useState(false);
   const label = maskSubjectValue(item.subject_value, locale);
@@ -258,6 +267,12 @@ function MemberRow({
               sectionKey,
               ctaKey: nextExpanded ? "member_drill_in_open" : "member_drill_in_close",
               continueTarget: "member_progress_detail",
+              graphScope: partnerRead?.graph_scope,
+              graphFingerprint: partnerRead?.graph_fingerprint,
+              graphContractVersion: partnerRead?.graph_contract_version,
+              readScope: partnerRead?.read_scope,
+              subjectScope: partnerRead?.subject_scope,
+              attributionScope: partnerRead?.attribution_scope,
               locale,
             });
           }}
@@ -307,6 +322,7 @@ export default function TeamWorkspaceClient({
 
   const teamDynamics = (summary?.team_dynamics_v1 ?? null) as TeamDynamicsV1Raw | null;
   const workspaceSurface = (summary?.workspace_surface_v1 ?? null) as WorkspaceSurfaceV1Raw | null;
+  const partnerRead = (summary?.partner_read_v1 ?? null) as PartnerReadV1Raw | null;
   const managerActionKeys = normalizeStringList(workspaceSurface?.manager_action_keys);
   const communicationKeys = normalizeStringList(teamDynamics?.communication_fit_keys);
   const decisionKeys = normalizeStringList(teamDynamics?.decision_mix_keys);
@@ -377,9 +393,16 @@ export default function TeamWorkspaceClient({
       ctaKey: "workspace_surface_view",
       continueTarget: "team_workspace",
       entrySurface: "protected_team_workspace",
+      graphScope: partnerRead?.graph_scope,
+      graphFingerprint: partnerRead?.graph_fingerprint,
+      graphContractVersion: partnerRead?.graph_contract_version,
+      readScope: partnerRead?.read_scope,
+      subjectScope: partnerRead?.subject_scope,
+      attributionScope: partnerRead?.attribution_scope,
+      supportingScales: (partnerRead?.supporting_scales ?? []).join("|"),
       locale,
     });
-  }, [locale, workspaceSurface]);
+  }, [locale, partnerRead, workspaceSurface]);
 
   const handleManagerAction = (actionKey: string) => {
     trackEvent("ui_card_interaction", {
@@ -391,6 +414,13 @@ export default function TeamWorkspaceClient({
       ctaKey: actionKey,
       continueTarget: "team_member_progress",
       entrySurface: "protected_team_workspace",
+      graphScope: partnerRead?.graph_scope,
+      graphFingerprint: partnerRead?.graph_fingerprint,
+      graphContractVersion: partnerRead?.graph_contract_version,
+      readScope: partnerRead?.read_scope,
+      subjectScope: partnerRead?.subject_scope,
+      attributionScope: partnerRead?.attribution_scope,
+      supportingScales: (partnerRead?.supporting_scales ?? []).join("|"),
       locale,
     });
   };
@@ -423,6 +453,24 @@ export default function TeamWorkspaceClient({
             </p>
           </div>
         </div>
+        {partnerRead ? (
+          <div
+            data-testid="team-workspace-partner-read"
+            className="mt-4 rounded-xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-slate-700"
+          >
+            <p className="m-0 font-medium text-slate-900">{copy.partnerRead}</p>
+            <p className="m-0 mt-1">
+              {copy.partnerScope}
+              {locale === "zh" ? "：" : ": "}
+              {String(partnerRead.graph_scope ?? "")}
+            </p>
+            <p className="m-0 mt-1 text-xs text-slate-500">
+              {String(partnerRead.read_scope ?? "")}
+              {" · "}
+              {String(partnerRead.subject_scope ?? "")}
+            </p>
+          </div>
+        ) : null}
       </section>
 
       {loading ? (
@@ -517,7 +565,7 @@ export default function TeamWorkspaceClient({
               </CardHeader>
               <CardContent className="space-y-3">
                 {completedMembers.length > 0 ? completedMembers.map((item, index) => (
-                  <MemberRow key={`completed-${index}`} item={item} sectionKey="completed_members" locale={locale} copy={copy} />
+                  <MemberRow key={`completed-${index}`} item={item} sectionKey="completed_members" locale={locale} copy={copy} partnerRead={partnerRead} />
                 )) : <p className="m-0 text-sm text-slate-600">{copy.noMembers}</p>}
               </CardContent>
             </Card>
@@ -527,7 +575,7 @@ export default function TeamWorkspaceClient({
               </CardHeader>
               <CardContent className="space-y-3">
                 {pendingMembers.length > 0 ? pendingMembers.map((item, index) => (
-                  <MemberRow key={`pending-${index}`} item={item} sectionKey="pending_members" locale={locale} copy={copy} />
+                  <MemberRow key={`pending-${index}`} item={item} sectionKey="pending_members" locale={locale} copy={copy} partnerRead={partnerRead} />
                 )) : <p className="m-0 text-sm text-slate-600">{copy.noMembers}</p>}
               </CardContent>
             </Card>

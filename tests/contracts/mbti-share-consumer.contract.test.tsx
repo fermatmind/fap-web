@@ -186,6 +186,18 @@ function createShareFixture(): ShareSummaryResponse {
       embed_fingerprint: "embed-fingerprint-123",
       render_mode: "card",
     },
+    partner_read_v1: {
+      version: "partner.read.v1",
+      graph_scope: "public_share_safe",
+      graph_contract_version: "insight.graph.v1",
+      graph_fingerprint: "graph-fingerprint-123",
+      supporting_scales: ["MBTI", "BIG5_OCEAN"],
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "working_life", "continue_reading"],
+      allowed_edge_types: ["enriches", "supports"],
+      read_scope: "partner_public_read",
+      subject_scope: "public_summary_only",
+      attribution_scope: "share_public_surface",
+    },
     offers: [
       {
         title: "Unlock full report",
@@ -291,6 +303,18 @@ function createBig5ShareFixture(): ShareSummaryResponse {
       allowed_node_ids: ["result_summary", "narrative", "comparative", "continue_reading"],
       embed_fingerprint: "share-big5-embed-fingerprint",
       render_mode: "card",
+    },
+    partner_read_v1: {
+      version: "partner.read.v1",
+      graph_scope: "public_share_safe",
+      graph_contract_version: "insight.graph.v1",
+      graph_fingerprint: "share-big5-graph-fingerprint",
+      supporting_scales: ["BIG5_OCEAN"],
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "continue_reading"],
+      allowed_edge_types: ["supports"],
+      read_scope: "partner_public_read",
+      subject_scope: "public_summary_only",
+      attribution_scope: "share_public_surface",
     },
   };
 }
@@ -432,6 +456,8 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByTestId("share-embed-surface")).toHaveTextContent("Embeddable insight graph");
     expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Campaigner");
     expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Continue path");
+    expect(screen.getByTestId("share-partner-read-scope")).toHaveTextContent("public_share_safe");
+    expect(screen.getByTestId("share-partner-read-scope")).toHaveTextContent("partner_public_read");
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent("Start next with Career next step");
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent(
       "The current focus has already moved into the career bridge"
@@ -499,6 +525,8 @@ describe("MBTI share consumer contract", () => {
           embedSurfaceKey: "mbti_share_embed_card",
           graphScope: "public_share_safe",
           graphFingerprint: "graph-fingerprint-123",
+          readScope: "partner_public_read",
+          subjectScope: "public_summary_only",
           embedFingerprint: "embed-fingerprint-123",
           supportingScales: "MBTI|BIG5_OCEAN",
         })
@@ -547,6 +575,8 @@ describe("MBTI share consumer contract", () => {
         embedSurfaceKey: "mbti_share_embed_card",
         graphScope: "public_share_safe",
         graphFingerprint: "graph-fingerprint-123",
+        readScope: "partner_public_read",
+        subjectScope: "public_summary_only",
         embedFingerprint: "embed-fingerprint-123",
       })
     );
@@ -569,6 +599,7 @@ describe("MBTI share consumer contract", () => {
     );
     expect(screen.getByTestId("share-embed-surface")).toHaveTextContent("Embeddable insight graph");
     expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Big Five public summary");
+    expect(screen.getByTestId("share-partner-read-scope")).toHaveTextContent("public_share_safe");
     expect(screen.getByTestId("share-public-continue-entry")).toHaveTextContent("Continue into the full result path");
     expect(screen.getByTestId("share-public-continue-cta")).toHaveAttribute(
       "href",
@@ -589,6 +620,7 @@ describe("MBTI share consumer contract", () => {
         visual_kind: "share_embed_surface",
         embedSurfaceKey: "big5_share_embed_card",
         graphFingerprint: "share-big5-graph-fingerprint",
+        readScope: "partner_public_read",
       })
     );
   });
