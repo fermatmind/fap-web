@@ -22,9 +22,15 @@ import {
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiRecommendationPriorityKeys,
+  summarizeMbtiRecommendationSelectionKeys,
   summarizeMbtiOrderedSectionKeys,
+  summarizeMbtiProfileSeedKey,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSelectionFingerprint,
   summarizeMbtiSecondaryFocusKeys,
+  summarizeMbtiSectionSelectionKeys,
+  summarizeMbtiActionSelectionKeys,
+  summarizeMbtiSameTypeDivergenceKeys,
   summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
 } from "@/lib/mbti/personalizationTelemetry";
@@ -71,11 +77,18 @@ export function MbtiRecommendedReadsSection({
   const impressionTrackedRef = useRef(false);
   const readImpressionKeysRef = useRef<Set<string>>(new Set());
   const orderedRecommendationKeys = personalization?.orderedRecommendationKeys ?? [];
-  const sortedReadEntries = sortRecommendedReads(reads, orderedRecommendationKeys);
+  const recommendationSelectionKeys = personalization?.recommendationSelectionKeys ?? [];
+  const sortedReadEntries = sortRecommendedReads(reads, orderedRecommendationKeys, recommendationSelectionKeys);
   const orderedRecommendationKeysSummary = summarizeMbtiOrderedRecommendationKeys(personalization);
   const orderedActionKeysSummary = summarizeMbtiOrderedActionKeys(personalization);
   const recommendationPriorityKeysSummary = summarizeMbtiRecommendationPriorityKeys(personalization);
   const actionPriorityKeysSummary = summarizeMbtiActionPriorityKeys(personalization);
+  const recommendationSelectionKeysSummary = summarizeMbtiRecommendationSelectionKeys(personalization);
+  const sectionSelectionKeysSummary = summarizeMbtiSectionSelectionKeys(personalization);
+  const actionSelectionKeysSummary = summarizeMbtiActionSelectionKeys(personalization);
+  const sameTypeDivergenceKeysSummary = summarizeMbtiSameTypeDivergenceKeys(personalization);
+  const profileSeedKey = summarizeMbtiProfileSeedKey(personalization);
+  const selectionFingerprint = summarizeMbtiSelectionFingerprint(personalization);
   const readingFocusKey = normalizeText(personalization?.readingFocusKey);
   const actionFocusKey = normalizeText(personalization?.actionFocusKey);
 
@@ -103,6 +116,12 @@ export function MbtiRecommendedReadsSection({
       orderedRecommendationKeys: orderedRecommendationKeysSummary,
       orderedActionKeys: orderedActionKeysSummary,
       recommendationPriorityKeys: recommendationPriorityKeysSummary,
+      recommendationSelectionKeys: recommendationSelectionKeysSummary,
+      sectionSelectionKeys: sectionSelectionKeysSummary,
+      actionSelectionKeys: actionSelectionKeysSummary,
+      sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
+      profileSeedKey,
+      selectionFingerprint,
       actionPriorityKeys: actionPriorityKeysSummary,
       readingFocusKey,
       actionFocusKey,
@@ -125,8 +144,14 @@ export function MbtiRecommendedReadsSection({
     orderedActionKeysSummary,
     orderedRecommendationKeysSummary,
     personalization,
+    profileSeedKey,
     readingFocusKey,
+    recommendationSelectionKeysSummary,
     recommendationPriorityKeysSummary,
+    sameTypeDivergenceKeysSummary,
+    sectionSelectionKeysSummary,
+    actionSelectionKeysSummary,
+    selectionFingerprint,
     sortedReadEntries.length,
   ]);
 
@@ -156,6 +181,12 @@ export function MbtiRecommendedReadsSection({
         orderedRecommendationKeys: orderedRecommendationKeysSummary,
         orderedActionKeys: orderedActionKeysSummary,
         recommendationPriorityKeys: recommendationPriorityKeysSummary,
+        recommendationSelectionKeys: recommendationSelectionKeysSummary,
+        sectionSelectionKeys: sectionSelectionKeysSummary,
+        actionSelectionKeys: actionSelectionKeysSummary,
+        sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
+        profileSeedKey,
+        selectionFingerprint,
         actionPriorityKeys: actionPriorityKeysSummary,
         readingFocusKey,
         actionFocusKey,
@@ -183,8 +214,14 @@ export function MbtiRecommendedReadsSection({
     orderedActionKeysSummary,
     orderedRecommendationKeysSummary,
     personalization,
+    profileSeedKey,
     readingFocusKey,
+    recommendationSelectionKeysSummary,
     recommendationPriorityKeysSummary,
+    sameTypeDivergenceKeysSummary,
+    sectionSelectionKeysSummary,
+    actionSelectionKeysSummary,
+    selectionFingerprint,
     sortedReadEntries,
   ]);
 
@@ -195,6 +232,9 @@ export function MbtiRecommendedReadsSection({
   return (
     <section
       data-testid="mbti-recommended-reads"
+      data-profile-seed-key={profileSeedKey || undefined}
+      data-selection-fingerprint={selectionFingerprint || undefined}
+      data-recommendation-selection-keys={recommendationSelectionKeysSummary || undefined}
       className="space-y-4 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
     >
       <div className="space-y-2">
@@ -224,6 +264,11 @@ export function MbtiRecommendedReadsSection({
               data-recommendation-key={recommendationKey || undefined}
               data-recommendation-rank={String(index + 1)}
               data-reading-focus={isReadingFocus ? "true" : undefined}
+              data-selected-by-divergence={
+                recommendationSelectionKeys.length > 0 && recommendationSelectionKeys.includes(recommendationKey)
+                  ? "true"
+                  : undefined
+              }
               className={`border-slate-200 bg-white/95 shadow-[0_14px_34px_rgba(15,23,42,0.06)] ${
                 isReadingFocus ? "ring-1 ring-emerald-100 border-emerald-300" : ""
               }`}
@@ -283,6 +328,12 @@ export function MbtiRecommendedReadsSection({
                         orderedRecommendationKeys: orderedRecommendationKeysSummary,
                         orderedActionKeys: orderedActionKeysSummary,
                         recommendationPriorityKeys: recommendationPriorityKeysSummary,
+                        recommendationSelectionKeys: recommendationSelectionKeysSummary,
+                        sectionSelectionKeys: sectionSelectionKeysSummary,
+                        actionSelectionKeys: actionSelectionKeysSummary,
+                        sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
+                        profileSeedKey,
+                        selectionFingerprint,
                         actionPriorityKeys: actionPriorityKeysSummary,
                         readingFocusKey,
                         actionFocusKey,
@@ -325,16 +376,25 @@ function resolveRecommendationKey(read: ReportRecommendedRead, index: number): s
 
 function sortRecommendedReads(
   reads: ReportRecommendedRead[],
-  orderedRecommendationKeys: string[]
+  orderedRecommendationKeys: string[],
+  recommendationSelectionKeys: string[]
 ): RecommendedReadEntry[] {
-  const entries = reads.map((read, index) => ({
+  let entries = reads.map((read, index) => ({
     read,
     key: resolveRecommendationKey(read, index),
     originalIndex: index,
     priority: typeof read.priority === "number" ? read.priority : 0,
   }));
 
-  if (reads.length <= 1 || orderedRecommendationKeys.length === 0) {
+  if (recommendationSelectionKeys.length > 0) {
+    const selectionSet = new Set(recommendationSelectionKeys);
+    const selectedEntries = entries.filter((entry) => selectionSet.has(entry.key));
+    if (selectedEntries.length > 0) {
+      entries = selectedEntries;
+    }
+  }
+
+  if (entries.length <= 1 || orderedRecommendationKeys.length === 0) {
     return entries;
   }
 

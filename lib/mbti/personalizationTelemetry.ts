@@ -208,6 +208,78 @@ export function summarizeMbtiCareerReadingKeys(
   return (personalization?.workingLife?.careerReadingKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
 }
 
+export function summarizeMbtiProfileSeedKey(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(
+    personalization?.profileSeedKey,
+    personalization?.intraTypeProfile?.profileSeedKey
+  );
+}
+
+export function summarizeMbtiSameTypeDivergenceKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (
+    personalization?.sameTypeDivergenceKeys ??
+    personalization?.intraTypeProfile?.sameTypeDivergenceKeys ??
+    []
+  )
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiSectionSelectionKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  const sectionSelectionKeys =
+    personalization?.sectionSelectionKeys ??
+    personalization?.intraTypeProfile?.sectionSelectionKeys ??
+    {};
+
+  return Object.entries(sectionSelectionKeys)
+    .map(([sectionKey, value]) => `${sectionKey}:${normalizeText(value)}`)
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiActionSelectionKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  const actionSelectionKeys =
+    personalization?.actionSelectionKeys ??
+    personalization?.intraTypeProfile?.actionSelectionKeys ??
+    {};
+
+  return Object.entries(actionSelectionKeys)
+    .map(([sectionKey, value]) => `${sectionKey}:${normalizeText(value)}`)
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiRecommendationSelectionKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (
+    personalization?.recommendationSelectionKeys ??
+    personalization?.intraTypeProfile?.recommendationSelectionKeys ??
+    []
+  )
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiSelectionFingerprint(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(
+    personalization?.selectionFingerprint,
+    personalization?.intraTypeProfile?.selectionFingerprint
+  );
+}
+
 export function summarizeMbtiJourneyContractVersion(
   personalization?: MbtiResultPersonalizationViewModel | null
 ): string {

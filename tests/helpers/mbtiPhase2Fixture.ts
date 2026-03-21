@@ -81,6 +81,14 @@ function buildReadContractFixture() {
         "career_action_priority_keys",
         "action_journey_v1",
         "pulse_check_v1",
+        "intra_type_profile_v1",
+        "profile_seed_key",
+        "same_type_divergence_keys",
+        "section_selection_keys",
+        "action_selection_keys",
+        "recommendation_selection_keys",
+        "selection_fingerprint",
+        "selection_evidence",
       ],
       surface_fields: [
         "report._meta.personalization.user_state",
@@ -96,6 +104,12 @@ function buildReadContractFixture() {
         "report._meta.personalization.career_action_priority_keys",
         "report._meta.personalization.action_journey_v1",
         "report._meta.personalization.pulse_check_v1",
+        "report._meta.personalization.intra_type_profile_v1",
+        "report._meta.personalization.profile_seed_key",
+        "report._meta.personalization.section_selection_keys",
+        "report._meta.personalization.action_selection_keys",
+        "report._meta.personalization.recommendation_selection_keys",
+        "report._meta.personalization.selection_fingerprint",
         "mbti_public_projection_v1._meta.personalization.user_state",
         "mbti_public_projection_v1._meta.personalization.orchestration",
         "mbti_public_projection_v1._meta.personalization.sections",
@@ -109,6 +123,12 @@ function buildReadContractFixture() {
         "mbti_public_projection_v1._meta.personalization.career_action_priority_keys",
         "mbti_public_projection_v1._meta.personalization.action_journey_v1",
         "mbti_public_projection_v1._meta.personalization.pulse_check_v1",
+        "mbti_public_projection_v1._meta.personalization.intra_type_profile_v1",
+        "mbti_public_projection_v1._meta.personalization.profile_seed_key",
+        "mbti_public_projection_v1._meta.personalization.section_selection_keys",
+        "mbti_public_projection_v1._meta.personalization.action_selection_keys",
+        "mbti_public_projection_v1._meta.personalization.recommendation_selection_keys",
+        "mbti_public_projection_v1._meta.personalization.selection_fingerprint",
       ],
       sources: ["attempt_access", "attempt_events", "share_rows"],
     },
@@ -145,6 +165,12 @@ function buildReadContractFixture() {
       "report._meta.personalization.career_action_priority_keys",
       "report._meta.personalization.action_journey_v1",
       "report._meta.personalization.pulse_check_v1",
+      "report._meta.personalization.intra_type_profile_v1",
+      "report._meta.personalization.profile_seed_key",
+      "report._meta.personalization.section_selection_keys",
+      "report._meta.personalization.action_selection_keys",
+      "report._meta.personalization.recommendation_selection_keys",
+      "report._meta.personalization.selection_fingerprint",
       "mbti_public_projection_v1._meta.personalization.user_state",
       "mbti_public_projection_v1._meta.personalization.orchestration",
       "mbti_public_projection_v1._meta.personalization.sections",
@@ -158,6 +184,12 @@ function buildReadContractFixture() {
       "mbti_public_projection_v1._meta.personalization.career_action_priority_keys",
       "mbti_public_projection_v1._meta.personalization.action_journey_v1",
       "mbti_public_projection_v1._meta.personalization.pulse_check_v1",
+      "mbti_public_projection_v1._meta.personalization.intra_type_profile_v1",
+      "mbti_public_projection_v1._meta.personalization.profile_seed_key",
+      "mbti_public_projection_v1._meta.personalization.section_selection_keys",
+      "mbti_public_projection_v1._meta.personalization.action_selection_keys",
+      "mbti_public_projection_v1._meta.personalization.recommendation_selection_keys",
+      "mbti_public_projection_v1._meta.personalization.selection_fingerprint",
     ],
     telemetry_parity_fields: [
       "user_state",
@@ -175,6 +207,19 @@ function buildReadContractFixture() {
       "working_life_v1.career_focus_key",
       "working_life_v1.career_journey_keys",
       "working_life_v1.career_action_priority_keys",
+      "intra_type_profile_v1.version",
+      "intra_type_profile_v1.profile_seed_key",
+      "intra_type_profile_v1.same_type_divergence_keys",
+      "intra_type_profile_v1.section_selection_keys",
+      "intra_type_profile_v1.action_selection_keys",
+      "intra_type_profile_v1.recommendation_selection_keys",
+      "intra_type_profile_v1.selection_fingerprint",
+      "profile_seed_key",
+      "same_type_divergence_keys",
+      "section_selection_keys",
+      "action_selection_keys",
+      "recommendation_selection_keys",
+      "selection_fingerprint",
       "action_journey_v1.journey_state",
       "action_journey_v1.progress_state",
       "action_journey_v1.action_focus_key",
@@ -1120,6 +1165,7 @@ function updateSection(
   key: string,
   patch: {
     variantKey: string;
+    sectionSelectionKey?: string;
     sceneKey: string;
     styleKey: string;
     actionKey?: string;
@@ -1130,12 +1176,14 @@ function updateSection(
     closeCallAxes?: Array<Record<string, unknown>>;
     neighborTypeKeys?: string[];
     blocks: Array<Record<string, unknown>>;
+    selectedBlockIds?: string[];
   }
 ) {
   const section = getProjectionSection(reportData, key);
   const payload = asRecord(section.payload) ?? {};
   payload.personalization = {
     variant_key: patch.variantKey,
+    section_selection_key: patch.sectionSelectionKey ?? "",
     scene_key: patch.sceneKey,
     style_key: patch.styleKey,
     action_key: patch.actionKey ?? "",
@@ -1145,7 +1193,7 @@ function updateSection(
     boundary_axes: patch.boundaryAxes,
     close_call_axes: patch.closeCallAxes ?? [],
     neighbor_type_keys: patch.neighborTypeKeys ?? [],
-    selected_blocks: patch.blocks.map((block) => normalizeText(block.id)),
+    selected_blocks: patch.selectedBlockIds ?? patch.blocks.map((block) => normalizeText(block.id)),
   };
   payload.blocks = patch.blocks;
   section.payload = payload;
@@ -1468,6 +1516,79 @@ export function applyMbtiPhase2Fixture(
   const controlledNarrative = buildControlledNarrativeFixture(narrativeMode);
   const comparative = buildComparativeFixture(personalizationLocale);
   const culturalCalibration = buildCulturalCalibrationFixture(personalizationLocale);
+  const profileSeedKey = "same_type.seed.name_decision_rule.jp";
+  const sameTypeDivergenceKeys = [
+    profileSeedKey,
+    `same_type.dominant_axis.ei.e.${eiBand}`,
+    "same_type.boundary_axis.jp",
+    "same_type.boundary_axis.tf",
+    "same_type.scene.work.work_primary_ei_e_clear",
+    `same_type.intent.${currentIntentCluster}`,
+  ];
+  const sectionSelectionKeys = {
+    "traits.why_this_type":
+      `traits.why_this_type:seed.same_type_seed_name_decision_rule_jp:blocks.traits_why_this_type_axis_strength_ei_e_${eiBand}+traits_why_this_type_why_this_type_ei+traits_why_this_type_identity_t`,
+    "growth.stability_confidence":
+      "growth.stability_confidence:seed.same_type_seed_name_decision_rule_jp:blocks.growth_stability_confidence_stability_context_sensitive+growth_stability_confidence_boundary_jp:synth.big5_neuroticism_high_buffer_reactivity",
+    "growth.next_actions":
+      `growth.next_actions:seed.same_type_seed_name_decision_rule_jp:blocks.growth_next_actions_axis_strength_ei_e_${eiBand}+growth_next_actions_growth_scene_ei_e+growth_next_actions_identity_t+growth_next_actions_boundary_tf:action.weekly_action_theme_name_decision_rule`,
+    "career.next_step":
+      "career.next_step:seed.same_type_seed_name_decision_rule_jp:synth.big5_career_next_step_low_reduce_activation_friction",
+    "career.work_experiments":
+      `career.work_experiments:seed.same_type_seed_name_decision_rule_jp:blocks.career_work_experiments_axis_strength_ei_e_${eiBand}+career_work_experiments_work_scene_ei_e+career_work_experiments_identity_t+career_work_experiments_boundary_jp:action.work_experiment_theme_name_decision_rule`,
+    "growth.watchouts":
+      "growth.watchouts:seed.same_type_seed_name_decision_rule_jp:blocks.growth_watchouts_axis_strength_jp_j_boundary+growth_watchouts_stress_recovery_scene_jp_j+growth_watchouts_identity_t+growth_watchouts_boundary_jp:action.watchout_stability_context_sensitive",
+    "traits.adjacent_type_contrast":
+      "traits.adjacent_type_contrast:seed.same_type_seed_name_decision_rule_jp:blocks.traits_adjacent_type_contrast_adjacent_type_contrast_jp+traits_adjacent_type_contrast_identity_t",
+    "relationships.try_this_week":
+      `relationships.try_this_week:seed.same_type_seed_name_decision_rule_jp:blocks.relationships_try_this_week_axis_strength_ei_e_${eiBand}+relationships_try_this_week_communication_scene_ei_e+relationships_try_this_week_identity_t+relationships_try_this_week_boundary_tf:action.relationship_action_theme_name_decision_rule`,
+  };
+  const actionSelectionKeys = {
+    "growth.next_actions": "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:action.weekly_action_theme_name_decision_rule",
+    "career.work_experiments": "career.work_experiments:seed.same_type_seed_name_decision_rule_jp:action.work_experiment_theme_name_decision_rule",
+    "growth.watchouts": "growth.watchouts:seed.same_type_seed_name_decision_rule_jp:action.watchout_stability_context_sensitive",
+    "relationships.try_this_week":
+      "relationships.try_this_week:seed.same_type_seed_name_decision_rule_jp:action.relationship_action_theme_name_decision_rule",
+    "career.next_step": "career.next_step:seed.same_type_seed_name_decision_rule_jp:action.career_next_step_theme_clarify_decision_criteria",
+  };
+  const recommendationSelectionKeys = ["read-action", "read-explain", "read-career"];
+  const selectionFingerprint = "fixture-selection-fingerprint";
+  const selectionEvidence = {
+    profile_seed_key: profileSeedKey,
+    axis: {
+      dominant_axes: [{ axis: "EI", side: "E", band: eiBand }],
+      boundary_axes: ["JP", "TF"],
+      axis_bands: { EI: eiBand, TF: "boundary", JP: "boundary" },
+    },
+    scene: {
+      work_style_key: workStyleKey,
+      growth_style_key: "growth.primary.EI.E.clear",
+      decision_style_key: "decision.primary.TF.T.boundary",
+      stress_style_key: "stress_recovery.primary.JP.J.boundary",
+    },
+    user_state: {
+      current_intent_cluster: currentIntentCluster,
+      feedback_sentiment: feedbackSentiment,
+      feedback_coverage: feedbackCoverage,
+      action_completion_tendency: actionCompletionTendency,
+      last_deep_read_section: lastDeepReadSection,
+    },
+    cross_assessment: {
+      synthesis_keys: crossAssessment.synthesis_keys,
+      big5_influence_keys: crossAssessment.big5_influence_keys,
+    },
+  };
+  const intraTypeProfile = {
+    version: "mbti.intra_type_profile.v1",
+    profile_seed_key: profileSeedKey,
+    same_type_divergence_keys: sameTypeDivergenceKeys,
+    section_selection_keys: sectionSelectionKeys,
+    action_selection_keys: actionSelectionKeys,
+    recommendation_selection_keys: recommendationSelectionKeys,
+    selection_fingerprint: selectionFingerprint,
+    selection_evidence: selectionEvidence,
+    persona_cluster_key: profileSeedKey,
+  };
 
   reportData.locked = hasUnlock ? false : true;
   reportData.variant = hasUnlock ? "full" : "free";
@@ -1704,6 +1825,14 @@ export function applyMbtiPhase2Fixture(
     working_life_v1: workingLife,
     action_journey_v1: actionJourney,
     pulse_check_v1: pulseCheck,
+    intra_type_profile_v1: intraTypeProfile,
+    profile_seed_key: profileSeedKey,
+    same_type_divergence_keys: sameTypeDivergenceKeys,
+    section_selection_keys: sectionSelectionKeys,
+    action_selection_keys: actionSelectionKeys,
+    recommendation_selection_keys: recommendationSelectionKeys,
+    selection_fingerprint: selectionFingerprint,
+    selection_evidence: selectionEvidence,
     career_focus_key: careerFocusKey,
     career_journey_keys: careerJourneyKeys,
     career_action_priority_keys: careerActionPriorityKeys,

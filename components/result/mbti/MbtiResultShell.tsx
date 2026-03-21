@@ -76,13 +76,19 @@ import {
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
+  summarizeMbtiProfileSeedKey,
   summarizeMbtiProgressState,
   summarizeMbtiPulsePromptKeys,
   summarizeMbtiPulseState,
   summarizeMbtiRecommendationPriorityKeys,
+  summarizeMbtiRecommendationSelectionKeys,
   summarizeMbtiRecommendedNextPulseKeys,
   summarizeMbtiRevisitReorderReason,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSectionSelectionKeys,
+  summarizeMbtiSelectionFingerprint,
+  summarizeMbtiActionSelectionKeys,
+  summarizeMbtiSameTypeDivergenceKeys,
   summarizeMbtiSecondaryFocusKeys,
   summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
@@ -287,6 +293,12 @@ function buildCareerBridgeTelemetryPayload(
     recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
     carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
     carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
+    profileSeedKey: summarizeMbtiProfileSeedKey(personalization),
+    sameTypeDivergenceKeys: summarizeMbtiSameTypeDivergenceKeys(personalization),
+    sectionSelectionKeys: summarizeMbtiSectionSelectionKeys(personalization),
+    actionSelectionKeys: summarizeMbtiActionSelectionKeys(personalization),
+    recommendationSelectionKeys: summarizeMbtiRecommendationSelectionKeys(personalization),
+    selectionFingerprint: summarizeMbtiSelectionFingerprint(personalization),
     variantKeys: summarizeMbtiVariantKeys(personalization),
     sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
     boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
@@ -738,6 +750,12 @@ export function MbtiResultShell({
   const recommendedResumeKeysSummary = summarizeMbtiCarryoverResumeKeys(personalization);
   const carryoverSceneKeysSummary = summarizeMbtiCarryoverSceneKeys(personalization);
   const carryoverActionKeysSummary = summarizeMbtiCarryoverActionKeys(personalization);
+  const profileSeedKeySummary = summarizeMbtiProfileSeedKey(personalization);
+  const sameTypeDivergenceKeysSummary = summarizeMbtiSameTypeDivergenceKeys(personalization);
+  const sectionSelectionKeysSummary = summarizeMbtiSectionSelectionKeys(personalization);
+  const actionSelectionKeysSummary = summarizeMbtiActionSelectionKeys(personalization);
+  const recommendationSelectionKeysSummary = summarizeMbtiRecommendationSelectionKeys(personalization);
+  const selectionFingerprintSummary = summarizeMbtiSelectionFingerprint(personalization);
   const journeyContractVersionSummary = summarizeMbtiJourneyContractVersion(personalization);
   const journeyFingerprintSummary = summarizeMbtiJourneyFingerprint(personalization);
   const journeyScopeSummary = summarizeMbtiJourneyScope(personalization);
@@ -889,6 +907,12 @@ export function MbtiResultShell({
     recommendedResumeKeys: recommendedResumeKeysSummary,
     carryoverSceneKeys: carryoverSceneKeysSummary,
     carryoverActionKeys: carryoverActionKeysSummary,
+    profileSeedKey: profileSeedKeySummary,
+    sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
+    sectionSelectionKeys: sectionSelectionKeysSummary,
+    actionSelectionKeys: actionSelectionKeysSummary,
+    recommendationSelectionKeys: recommendationSelectionKeysSummary,
+    selectionFingerprint: selectionFingerprintSummary,
     journeyContractVersion: journeyContractVersionSummary,
     journeyFingerprint: journeyFingerprintSummary,
     journeyScope: journeyScopeSummary,
@@ -1444,6 +1468,9 @@ export function MbtiResultShell({
   return (
     <div
       data-testid="mbti-result-shell"
+      data-profile-seed-key={profileSeedKeySummary || undefined}
+      data-selection-fingerprint={selectionFingerprintSummary || undefined}
+      data-same-type-divergence-keys={sameTypeDivergenceKeysSummary || undefined}
       className="relative space-y-6 pb-28 md:space-y-8 xl:pb-0"
       onClickCapture={handleOfferAnchorClickCapture}
     >
