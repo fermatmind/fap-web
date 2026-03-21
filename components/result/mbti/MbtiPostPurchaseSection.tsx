@@ -71,7 +71,7 @@ export function MbtiPostPurchaseSection({
     ?? null;
   const workspaceHref = accessHub?.workspaceLite.href ?? historyHref;
   const privateRelationshipHref = accessHub?.recovery.compareInviteId
-    ? localizedPath(`/relationships/mbti/${accessHub.recovery.compareInviteId}`, locale)
+    ? localizedPath("/relationships/mbti", locale)
     : null;
   const orderDetailHref = accessHub?.links.orderHref ?? null;
   const lookupHref = accessHub?.recovery.canLookupOrder === false ? null : accessHub?.links.lookupHref ?? orderLookupHref;
@@ -216,7 +216,7 @@ export function MbtiPostPurchaseSection({
               className={buttonVariants({ variant: "outline", className: "w-full" })}
               data-testid="mbti-post-purchase-private-relationship"
             >
-              {isZh ? "私密关系洞察" : "Private relationship"}
+              {isZh ? "关系回访入口" : "Relationship hub"}
             </Link>
           ) : null}
           {orderDetailHref ? (
