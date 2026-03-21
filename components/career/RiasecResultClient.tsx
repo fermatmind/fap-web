@@ -42,20 +42,17 @@ function axisPoint(index: number, radius: number, center: number): { x: number; 
 }
 
 export function RiasecResultClient({ locale }: { locale: Locale }) {
-  const [result, setResult] = useState<CareerRiasecStoredResult | null>(null);
+  const [result] = useState<CareerRiasecStoredResult | null>(() => readCareerRiasecResult());
 
   useEffect(() => {
-    const loaded = readCareerRiasecResult();
-    setResult(loaded);
-
-    if (loaded) {
+    if (result) {
       trackEvent("career_riasec_result_view", {
         locale,
-        primary_code: loaded.primaryCode,
-        secondary_code: loaded.secondaryCode,
+        primary_code: result.primaryCode,
+        secondary_code: result.secondaryCode,
       });
     }
-  }, [locale]);
+  }, [locale, result]);
 
   const sortedScores = useMemo(() => {
     if (!result) return [];

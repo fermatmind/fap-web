@@ -652,16 +652,38 @@ describe("MBTI shell authored fields contract", () => {
 
     reportData.report.recommended_reads = [
       {
+        id: "recommended-read-1",
         type: "article",
+        title: "Fallback read 1",
         desc: "First fallback recommendation body",
+        url: null,
+        cover: null,
+        cta: null,
         priority: 20,
         tags: ["growth"],
+        estimated_minutes: null,
+        status: null,
+        published_at: null,
+        updated_at: null,
+        canonical_id: null,
+        canonical_url: null,
       },
       {
+        id: "recommended-read-2",
         type: "article",
+        title: "Fallback read 2",
         desc: "Second fallback recommendation body",
+        url: null,
+        cover: null,
+        cta: null,
         priority: 10,
         tags: ["career"],
+        estimated_minutes: null,
+        status: null,
+        published_at: null,
+        updated_at: null,
+        canonical_id: null,
+        canonical_url: null,
       },
     ];
 

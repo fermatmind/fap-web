@@ -517,7 +517,7 @@ export type PartnerReadViewModel = {
   attributionScope: string;
 };
 
-type ProjectionCoreViewModel = Omit<MbtiResultProjectionViewModel, "sections" | "hasProjection">;
+type ProjectionCoreViewModel = Omit<MbtiResultProjectionViewModel, "sections" | "hasProjection" | "personalization">;
 
 function normalizeText(...values: unknown[]): string {
   for (const value of values) {
