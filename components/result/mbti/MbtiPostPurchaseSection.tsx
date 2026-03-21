@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath } from "@/lib/i18n/locales";
 import type { MbtiAccessHubViewModel } from "@/lib/mbti/accessHub";
 import { resolveMbtiCarryoverFocusLabel, resolveMbtiCarryoverReasonLabel } from "@/lib/mbti/continuity";
 import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
@@ -69,6 +70,9 @@ export function MbtiPostPurchaseSection({
     ?? attemptId
     ?? null;
   const workspaceHref = accessHub?.workspaceLite.href ?? historyHref;
+  const privateRelationshipHref = accessHub?.recovery.compareInviteId
+    ? localizedPath(`/relationships/mbti/${accessHub.recovery.compareInviteId}`, locale)
+    : null;
   const orderDetailHref = accessHub?.links.orderHref ?? null;
   const lookupHref = accessHub?.recovery.canLookupOrder === false ? null : accessHub?.links.lookupHref ?? orderLookupHref;
   const pdfUrl = accessHub?.pdfAccess.href ?? null;
@@ -204,6 +208,15 @@ export function MbtiPostPurchaseSection({
               }}
             >
               {isZh ? "我的 MBTI 报告" : "My MBTI reports"}
+            </Link>
+          ) : null}
+          {privateRelationshipHref ? (
+            <Link
+              href={privateRelationshipHref}
+              className={buttonVariants({ variant: "outline", className: "w-full" })}
+              data-testid="mbti-post-purchase-private-relationship"
+            >
+              {isZh ? "私密关系洞察" : "Private relationship"}
             </Link>
           ) : null}
           {orderDetailHref ? (
