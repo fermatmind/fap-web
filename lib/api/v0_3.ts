@@ -1117,6 +1117,30 @@ export type DyadicConsentRaw = {
   [key: string]: unknown;
 };
 
+export type PrivateRelationshipJourneyRaw = {
+  journey_contract_version?: string;
+  journey_fingerprint_version?: string;
+  journey_fingerprint?: string;
+  journey_scope?: string;
+  journey_state?: string;
+  progress_state?: string;
+  dyadic_action_focus_key?: string;
+  completed_dyadic_action_keys?: string[] | null;
+  recommended_next_dyadic_pulse_keys?: string[] | null;
+  revisit_reorder_reason?: string;
+  last_dyadic_pulse_signal?: string;
+  [key: string]: unknown;
+};
+
+export type DyadicPulseCheckRaw = {
+  pulse_contract_version?: string;
+  pulse_state?: string;
+  pulse_prompt_keys?: string[] | null;
+  pulse_feedback_mode?: string;
+  next_pulse_target?: string;
+  [key: string]: unknown;
+};
+
 export type DyadicGraphNodeRaw = {
   id?: string;
   kind?: string;
@@ -1282,6 +1306,8 @@ export type PrivateMbtiRelationshipResponse = {
   status?: "pending" | "ready" | "purchased" | string;
   private_relationship_v1?: PrivateRelationshipRaw | null;
   dyadic_consent_v1?: DyadicConsentRaw | null;
+  private_relationship_journey_v1?: PrivateRelationshipJourneyRaw | null;
+  dyadic_pulse_check_v1?: DyadicPulseCheckRaw | null;
   dyadic_graph_v1?: DyadicGraphRaw | null;
   [key: string]: unknown;
 };
@@ -2514,6 +2540,28 @@ export async function mutatePrivateMbtiRelationshipConsent({
   );
 
   return assertApiOk(response, "Unable to update private relationship consent.");
+}
+
+export async function mutatePrivateMbtiRelationshipJourney({
+  inviteId,
+  action,
+  locale,
+}: {
+  inviteId: string;
+  action: "continue_dyadic_action" | "acknowledge_dyadic_pulse";
+  locale?: string;
+}): Promise<PrivateMbtiRelationshipResponse> {
+  const response = await apiClient.post<PrivateMbtiRelationshipResponse>(
+    `/v0.3/me/relationships/mbti/${inviteId}/journey`,
+    {
+      action,
+    },
+    {
+      ...(locale ? { locale } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Unable to update private relationship journey.");
 }
 
 export async function lookupOrder({

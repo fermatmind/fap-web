@@ -9,6 +9,7 @@ import { ApiError } from "@/lib/api-client";
 import {
   getPrivateMbtiRelationship,
   mutatePrivateMbtiRelationshipConsent,
+  mutatePrivateMbtiRelationshipJourney,
   type PrivateMbtiRelationshipResponse,
 } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
@@ -26,7 +27,9 @@ export default function PrivateRelationshipClient({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [mutationError, setMutationError] = useState<string | null>(null);
-  const [pendingAction, setPendingAction] = useState<"revoke_access" | "acknowledge_refresh" | null>(null);
+  const [pendingAction, setPendingAction] = useState<
+    "revoke_access" | "acknowledge_refresh" | "continue_dyadic_action" | "acknowledge_dyadic_pulse" | null
+  >(null);
   const impressionTrackedRef = useRef(false);
   const viewModel = useMemo(() => buildPrivateMbtiRelationshipViewModel(data), [data]);
 
@@ -113,9 +116,21 @@ export default function PrivateRelationshipClient({
       revocationState: viewModel.consent.revocationState,
       expiryState: viewModel.consent.expiryState,
       accessState: viewModel.relationship.accessState || viewModel.consent.accessState,
+      journeyContractVersion: viewModel.journey?.contractVersion || "",
+      journeyFingerprint: viewModel.journey?.fingerprint || "",
+      journeyScope: viewModel.journey?.scope || "",
+      journeyState: viewModel.journey?.journeyState || "",
+      progressState: viewModel.journey?.progressState || "",
+      dyadicActionFocusKey: viewModel.journey?.dyadicActionFocusKey || "",
+      completedDyadicActionKeys: viewModel.journey?.completedDyadicActionKeys.join("|") || "",
+      recommendedNextDyadicPulseKeys: viewModel.journey?.recommendedNextDyadicPulseKeys.join("|") || "",
+      revisitReorderReason: viewModel.journey?.revisitReorderReason || "",
+      pulseContractVersion: viewModel.pulseCheck?.contractVersion || "",
+      pulseState: viewModel.pulseCheck?.pulseState || "",
+      pulsePromptKeys: viewModel.pulseCheck?.pulsePromptKeys.join("|") || "",
       locale,
     });
-  }, [locale, viewModel.consent, viewModel.dyadicGraph, viewModel.relationship]);
+  }, [locale, viewModel.consent, viewModel.dyadicGraph, viewModel.journey, viewModel.pulseCheck, viewModel.relationship]);
 
   const handleSectionClick = (sectionKey: string) => {
     trackEvent("ui_card_interaction", {
@@ -141,6 +156,18 @@ export default function PrivateRelationshipClient({
       revocationState: viewModel.consent?.revocationState || "",
       expiryState: viewModel.consent?.expiryState || "",
       accessState: viewModel.relationship?.accessState || viewModel.consent?.accessState || "",
+      journeyContractVersion: viewModel.journey?.contractVersion || "",
+      journeyFingerprint: viewModel.journey?.fingerprint || "",
+      journeyScope: viewModel.journey?.scope || "",
+      journeyState: viewModel.journey?.journeyState || "",
+      progressState: viewModel.journey?.progressState || "",
+      dyadicActionFocusKey: viewModel.journey?.dyadicActionFocusKey || "",
+      completedDyadicActionKeys: viewModel.journey?.completedDyadicActionKeys.join("|") || "",
+      recommendedNextDyadicPulseKeys: viewModel.journey?.recommendedNextDyadicPulseKeys.join("|") || "",
+      revisitReorderReason: viewModel.journey?.revisitReorderReason || "",
+      pulseContractVersion: viewModel.pulseCheck?.contractVersion || "",
+      pulseState: viewModel.pulseCheck?.pulseState || "",
+      pulsePromptKeys: viewModel.pulseCheck?.pulsePromptKeys.join("|") || "",
       locale,
     });
   };
@@ -169,6 +196,18 @@ export default function PrivateRelationshipClient({
       revocationState: viewModel.consent?.revocationState || "",
       expiryState: viewModel.consent?.expiryState || "",
       accessState: viewModel.relationship?.accessState || viewModel.consent?.accessState || "",
+      journeyContractVersion: viewModel.journey?.contractVersion || "",
+      journeyFingerprint: viewModel.journey?.fingerprint || "",
+      journeyScope: viewModel.journey?.scope || "",
+      journeyState: viewModel.journey?.journeyState || "",
+      progressState: viewModel.journey?.progressState || "",
+      dyadicActionFocusKey: viewModel.journey?.dyadicActionFocusKey || "",
+      completedDyadicActionKeys: viewModel.journey?.completedDyadicActionKeys.join("|") || "",
+      recommendedNextDyadicPulseKeys: viewModel.journey?.recommendedNextDyadicPulseKeys.join("|") || "",
+      revisitReorderReason: viewModel.journey?.revisitReorderReason || "",
+      pulseContractVersion: viewModel.pulseCheck?.contractVersion || "",
+      pulseState: viewModel.pulseCheck?.pulseState || "",
+      pulsePromptKeys: viewModel.pulseCheck?.pulsePromptKeys.join("|") || "",
       locale,
     });
   };
@@ -200,6 +239,18 @@ export default function PrivateRelationshipClient({
       revocationState: viewModel.consent?.revocationState || "",
       expiryState: viewModel.consent?.expiryState || "",
       accessState: viewModel.relationship?.accessState || viewModel.consent?.accessState || "",
+      journeyContractVersion: viewModel.journey?.contractVersion || "",
+      journeyFingerprint: viewModel.journey?.fingerprint || "",
+      journeyScope: viewModel.journey?.scope || "",
+      journeyState: viewModel.journey?.journeyState || "",
+      progressState: viewModel.journey?.progressState || "",
+      dyadicActionFocusKey: viewModel.journey?.dyadicActionFocusKey || "",
+      completedDyadicActionKeys: viewModel.journey?.completedDyadicActionKeys.join("|") || "",
+      recommendedNextDyadicPulseKeys: viewModel.journey?.recommendedNextDyadicPulseKeys.join("|") || "",
+      revisitReorderReason: viewModel.journey?.revisitReorderReason || "",
+      pulseContractVersion: viewModel.pulseCheck?.contractVersion || "",
+      pulseState: viewModel.pulseCheck?.pulseState || "",
+      pulsePromptKeys: viewModel.pulseCheck?.pulsePromptKeys.join("|") || "",
       locale,
     });
 
@@ -222,6 +273,74 @@ export default function PrivateRelationshipClient({
         route: "/(app)/relationships/mbti/[inviteId]",
         inviteId,
         stage: "mutate_private_relationship_consent",
+        action,
+      });
+    } finally {
+      setPendingAction(null);
+    }
+  };
+
+  const handleJourneyAction = async (action: "continue_dyadic_action" | "acknowledge_dyadic_pulse") => {
+    setPendingAction(action);
+    setMutationError(null);
+
+    trackEvent("ui_card_interaction", {
+      slug: "mbti-private-relationship-page",
+      scale_code: "MBTI",
+      visual_kind: "private_relationship_journey_action",
+      interaction: "click",
+      actionKey: action,
+      ctaKey: action,
+      continueTarget: viewModel.pulseCheck?.nextPulseTarget || viewModel.journey?.dyadicActionFocusKey || action,
+      entrySurface: "private_relationship_page",
+      relationshipScope: viewModel.relationship?.scope || "",
+      relationshipFingerprint: viewModel.relationship?.fingerprint || "",
+      relationshipContractVersion: viewModel.relationship?.contractVersion || "",
+      subjectJoinMode: viewModel.relationship?.subjectJoinMode || "",
+      participantRole: viewModel.relationship?.participantRole || "",
+      consentScope: viewModel.consent?.scope || "",
+      consentState: viewModel.consent?.consentState || "",
+      consentFingerprint: viewModel.consent?.consentFingerprint || "",
+      consentArtifactVersion: viewModel.consent?.contractVersion || "",
+      consentRefreshRequired: viewModel.consent?.consentRefreshRequired || false,
+      privateRelationshipAccessVersion: viewModel.consent?.privateRelationshipAccessVersion || "",
+      revocationState: viewModel.consent?.revocationState || "",
+      expiryState: viewModel.consent?.expiryState || "",
+      accessState: viewModel.relationship?.accessState || viewModel.consent?.accessState || "",
+      journeyContractVersion: viewModel.journey?.contractVersion || "",
+      journeyFingerprint: viewModel.journey?.fingerprint || "",
+      journeyScope: viewModel.journey?.scope || "",
+      journeyState: viewModel.journey?.journeyState || "",
+      progressState: viewModel.journey?.progressState || "",
+      dyadicActionFocusKey: viewModel.journey?.dyadicActionFocusKey || "",
+      completedDyadicActionKeys: viewModel.journey?.completedDyadicActionKeys.join("|") || "",
+      recommendedNextDyadicPulseKeys: viewModel.journey?.recommendedNextDyadicPulseKeys.join("|") || "",
+      revisitReorderReason: viewModel.journey?.revisitReorderReason || "",
+      pulseContractVersion: viewModel.pulseCheck?.contractVersion || "",
+      pulseState: viewModel.pulseCheck?.pulseState || "",
+      pulsePromptKeys: viewModel.pulseCheck?.pulsePromptKeys.join("|") || "",
+      locale,
+    });
+
+    try {
+      const response = await mutatePrivateMbtiRelationshipJourney({
+        inviteId,
+        action,
+        locale,
+      });
+      setData(response);
+    } catch (cause) {
+      setMutationError(
+        cause instanceof Error
+          ? cause.message
+          : locale === "zh"
+            ? "私密关系行动状态暂时无法更新。"
+            : "Unable to update private relationship journey."
+      );
+      captureError(cause, {
+        route: "/(app)/relationships/mbti/[inviteId]",
+        inviteId,
+        stage: "mutate_private_relationship_journey",
         action,
       });
     } finally {
@@ -255,6 +374,8 @@ export default function PrivateRelationshipClient({
       onAcknowledgeRefresh={() => void handleConsentAction("acknowledge_refresh")}
       onSectionClick={handleSectionClick}
       onActionPromptClick={handleActionPromptClick}
+      onContinueJourney={() => void handleJourneyAction("continue_dyadic_action")}
+      onAcknowledgePulse={() => void handleJourneyAction("acknowledge_dyadic_pulse")}
     />
   );
 }

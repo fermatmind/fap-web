@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import type { PrivateMbtiRelationshipResponse } from "@/lib/api/v0_3";
 
 function createSummaryFixture({
   shareId,
@@ -40,7 +41,7 @@ function createSummaryFixture({
   };
 }
 
-function createPrivateFixture(inviteId: string) {
+function createPrivateFixture(inviteId: string): PrivateMbtiRelationshipResponse {
   return {
     ok: true,
     invite_id: inviteId,
@@ -107,6 +108,26 @@ function createPrivateFixture(inviteId: string) {
       purchased_at: "2026-03-21T00:10:00.000Z",
       consent_artifact_version: "dyadic.consent.v1",
     },
+    private_relationship_journey_v1: {
+      journey_contract_version: "private_relationship_journey.v1",
+      journey_fingerprint_version: "private_relationship_journey.fp.v1",
+      journey_fingerprint: "journey-fingerprint-001",
+      journey_scope: "private_relationship_revisit",
+      journey_state: "ready_for_first_step",
+      progress_state: "not_started",
+      dyadic_action_focus_key: "dyadic_action.name_decision_rule",
+      completed_dyadic_action_keys: [],
+      recommended_next_dyadic_pulse_keys: ["dyadic_pulse.start_private_practice"],
+      revisit_reorder_reason: "activate_first_dyadic_step",
+      last_dyadic_pulse_signal: "ready_for_first_step",
+    },
+    dyadic_pulse_check_v1: {
+      pulse_contract_version: "dyadic_pulse_check.v1",
+      pulse_state: "start_shared_practice",
+      pulse_prompt_keys: ["dyadic_pulse.start_private_practice"],
+      pulse_feedback_mode: "dyadic_event_feedback",
+      next_pulse_target: "dyadic_action.name_decision_rule",
+    },
     dyadic_graph_v1: {
       graph_contract_version: "dyadic.graph.v1",
       graph_scope: "private_relationship_protected",
@@ -154,6 +175,10 @@ test("private relationship page renders protected dyadic surface", async ({ page
   await expect(page.getByTestId("mbti-private-action-card")).toContainText("Name the decision rule first");
   await expect(page.getByTestId("mbti-private-consent-card")).toContainText("Consent version");
   await expect(page.getByTestId("mbti-private-consent-fingerprint")).toContainText("consent-fingerprint-001");
+  await expect(page.getByTestId("mbti-private-journey-card")).toContainText("Relationship journey");
+  await expect(page.getByTestId("mbti-private-pulse-card")).toContainText("Dyadic pulse check");
+  await expect(page.getByTestId("mbti-private-journey-state")).toHaveText("Ready for next step");
+  await expect(page.getByTestId("mbti-private-pulse-state")).toHaveText("Start shared practice");
 });
 
 test("private relationship page hides content from unauthorized users", async ({ page }) => {
@@ -199,6 +224,15 @@ test("private relationship page reflects revoke mutation and restricted access",
         access_state: "private_access_revoked",
         revocation_state: "revoked_by_subject",
       };
+      payload.private_relationship_journey_v1 = {
+        ...payload.private_relationship_journey_v1,
+        journey_state: "access_revoked",
+        progress_state: "restricted",
+        completed_dyadic_action_keys: [],
+        recommended_next_dyadic_pulse_keys: [],
+        last_dyadic_pulse_signal: "private_access_revoked",
+      };
+      payload.dyadic_pulse_check_v1 = null;
     }
 
     await route.fulfill({
@@ -226,6 +260,15 @@ test("private relationship page reflects revoke mutation and restricted access",
       access_state: "private_access_revoked",
       revocation_state: "revoked_by_subject",
     };
+    payload.private_relationship_journey_v1 = {
+      ...payload.private_relationship_journey_v1,
+      journey_state: "access_revoked",
+      progress_state: "restricted",
+      completed_dyadic_action_keys: [],
+      recommended_next_dyadic_pulse_keys: [],
+      last_dyadic_pulse_signal: "private_access_revoked",
+    };
+    payload.dyadic_pulse_check_v1 = null;
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -239,4 +282,66 @@ test("private relationship page reflects revoke mutation and restricted access",
   await expect(page.getByTestId("mbti-private-access-badge")).toHaveText("Private access revoked");
   await expect(page.getByTestId("mbti-private-revocation-badge")).toHaveText("revoked_by_subject");
   await expect(page.getByTestId("mbti-private-action-card")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-private-journey-state")).toHaveText("Private access revoked");
+  await expect(page.getByTestId("mbti-private-pulse-card")).toHaveCount(0);
+});
+
+test("private relationship page can continue the dyadic journey", async ({ page }) => {
+  const inviteId = "invite-private-journey";
+  let progressed = false;
+
+  await page.route(`**/api/v0.3/me/relationships/mbti/${inviteId}`, async (route) => {
+    const payload = createPrivateFixture(inviteId);
+    if (progressed) {
+      payload.private_relationship_journey_v1 = {
+        ...payload.private_relationship_journey_v1,
+        journey_state: "practice_started",
+        progress_state: "warming_up",
+        completed_dyadic_action_keys: ["dyadic_action.name_decision_rule"],
+        recommended_next_dyadic_pulse_keys: ["dyadic_pulse.repeat_shared_action"],
+        last_dyadic_pulse_signal: "continue_dyadic_action",
+      };
+      payload.dyadic_pulse_check_v1 = {
+        ...payload.dyadic_pulse_check_v1,
+        pulse_state: "repeat_shared_practice",
+        pulse_prompt_keys: ["dyadic_pulse.repeat_shared_action"],
+      };
+    }
+
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(payload),
+    });
+  });
+
+  await page.route(`**/api/v0.3/me/relationships/mbti/${inviteId}/journey`, async (route) => {
+    progressed = true;
+    const payload = createPrivateFixture(inviteId);
+    payload.private_relationship_journey_v1 = {
+      ...payload.private_relationship_journey_v1,
+      journey_state: "practice_started",
+      progress_state: "warming_up",
+      completed_dyadic_action_keys: ["dyadic_action.name_decision_rule"],
+      recommended_next_dyadic_pulse_keys: ["dyadic_pulse.repeat_shared_action"],
+      last_dyadic_pulse_signal: "continue_dyadic_action",
+    };
+    payload.dyadic_pulse_check_v1 = {
+      ...payload.dyadic_pulse_check_v1,
+      pulse_state: "repeat_shared_practice",
+      pulse_prompt_keys: ["dyadic_pulse.repeat_shared_action"],
+    };
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(payload),
+    });
+  });
+
+  await page.goto(`/en/relationships/mbti/${inviteId}`);
+  await page.getByTestId("mbti-private-journey-continue").click();
+
+  await expect(page.getByTestId("mbti-private-journey-state")).toHaveText("Practice started");
+  await expect(page.getByTestId("mbti-private-progress-state")).toHaveText("Warming up");
+  await expect(page.getByTestId("mbti-private-pulse-state")).toHaveText("Repeat shared practice");
 });

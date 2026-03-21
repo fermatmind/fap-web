@@ -6,6 +6,7 @@ import type { MbtiCompareParticipantRaw, PrivateMbtiRelationshipResponse } from 
 const hoisted = vi.hoisted(() => ({
   getPrivateMbtiRelationship: vi.fn(),
   mutatePrivateMbtiRelationshipConsent: vi.fn(),
+  mutatePrivateMbtiRelationshipJourney: vi.fn(),
   trackEvent: vi.fn(),
 }));
 
@@ -16,6 +17,7 @@ vi.mock("@/lib/api/v0_3", async () => {
     ...actual,
     getPrivateMbtiRelationship: hoisted.getPrivateMbtiRelationship,
     mutatePrivateMbtiRelationshipConsent: hoisted.mutatePrivateMbtiRelationshipConsent,
+    mutatePrivateMbtiRelationshipJourney: hoisted.mutatePrivateMbtiRelationshipJourney,
   };
 });
 
@@ -135,6 +137,26 @@ function createPrivateRelationshipFixture(): PrivateMbtiRelationshipResponse {
       purchased_at: "2026-03-21T00:10:00.000Z",
       consent_artifact_version: "dyadic.consent.v1",
     },
+    private_relationship_journey_v1: {
+      journey_contract_version: "private_relationship_journey.v1",
+      journey_fingerprint_version: "private_relationship_journey.fp.v1",
+      journey_fingerprint: "journey-fingerprint-001",
+      journey_scope: "private_relationship_revisit",
+      journey_state: "ready_for_first_step",
+      progress_state: "not_started",
+      dyadic_action_focus_key: "dyadic_action.name_decision_rule",
+      completed_dyadic_action_keys: [],
+      recommended_next_dyadic_pulse_keys: ["dyadic_pulse.start_private_practice"],
+      revisit_reorder_reason: "activate_first_dyadic_step",
+      last_dyadic_pulse_signal: "ready_for_first_step",
+    },
+    dyadic_pulse_check_v1: {
+      pulse_contract_version: "dyadic_pulse_check.v1",
+      pulse_state: "start_shared_practice",
+      pulse_prompt_keys: ["dyadic_pulse.start_private_practice"],
+      pulse_feedback_mode: "dyadic_event_feedback",
+      next_pulse_target: "dyadic_action.name_decision_rule",
+    },
     dyadic_graph_v1: {
       graph_contract_version: "dyadic.graph.v1",
       graph_scope: "private_relationship_protected",
@@ -158,6 +180,7 @@ describe("MBTI private relationship consumer contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     hoisted.mutatePrivateMbtiRelationshipConsent.mockResolvedValue(createPrivateRelationshipFixture());
+    hoisted.mutatePrivateMbtiRelationshipJourney.mockResolvedValue(createPrivateRelationshipFixture());
   });
 
   it("renders protected relationship summary and tracks impression and CTA click", async () => {
@@ -175,6 +198,10 @@ describe("MBTI private relationship consumer contract", () => {
     expect(screen.getByTestId("mbti-private-action-card")).toHaveTextContent("Name the decision rule first");
     expect(screen.getByTestId("mbti-private-consent-card")).toHaveTextContent("Consent version");
     expect(screen.getByTestId("mbti-private-consent-fingerprint")).toHaveTextContent("consent-fingerprint-001");
+    expect(screen.getByTestId("mbti-private-journey-card")).toHaveTextContent("Relationship journey");
+    expect(screen.getByTestId("mbti-private-journey-state")).toHaveTextContent("Ready for next step");
+    expect(screen.getByTestId("mbti-private-pulse-card")).toHaveTextContent("Dyadic pulse check");
+    expect(screen.getByTestId("mbti-private-pulse-state")).toHaveTextContent("Start shared practice");
 
     await waitFor(() => {
       expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -191,6 +218,14 @@ describe("MBTI private relationship consumer contract", () => {
           revocationState: "active",
           expiryState: "active",
           accessState: "private_access_ready",
+          journeyContractVersion: "private_relationship_journey.v1",
+          journeyFingerprint: "journey-fingerprint-001",
+          journeyScope: "private_relationship_revisit",
+          journeyState: "ready_for_first_step",
+          progressState: "not_started",
+          dyadicActionFocusKey: "dyadic_action.name_decision_rule",
+          pulseContractVersion: "dyadic_pulse_check.v1",
+          pulseState: "start_shared_practice",
         })
       );
     });
@@ -206,6 +241,45 @@ describe("MBTI private relationship consumer contract", () => {
         accessState: "private_access_ready",
       })
     );
+  });
+
+  it("supports dyadic journey mutation and re-renders pulse-aware progression", async () => {
+    const progressedFixture = createPrivateRelationshipFixture();
+    progressedFixture.private_relationship_journey_v1 = {
+      ...progressedFixture.private_relationship_journey_v1,
+      journey_state: "practice_started",
+      progress_state: "warming_up",
+      completed_dyadic_action_keys: ["dyadic_action.name_decision_rule"],
+      recommended_next_dyadic_pulse_keys: ["dyadic_pulse.repeat_shared_action"],
+      revisit_reorder_reason: "activate_first_dyadic_step",
+      last_dyadic_pulse_signal: "continue_dyadic_action",
+    };
+    progressedFixture.dyadic_pulse_check_v1 = {
+      ...progressedFixture.dyadic_pulse_check_v1,
+      pulse_state: "repeat_shared_practice",
+      pulse_prompt_keys: ["dyadic_pulse.repeat_shared_action"],
+    };
+
+    hoisted.getPrivateMbtiRelationship.mockResolvedValue(createPrivateRelationshipFixture());
+    hoisted.mutatePrivateMbtiRelationshipJourney.mockResolvedValue(progressedFixture);
+
+    render(<PrivateRelationshipClient locale="en" inviteId="invite-private-123" />);
+
+    await screen.findByTestId("mbti-private-journey-continue");
+    fireEvent.click(screen.getByTestId("mbti-private-journey-continue"));
+
+    await waitFor(() => {
+      expect(hoisted.mutatePrivateMbtiRelationshipJourney).toHaveBeenCalledWith({
+        inviteId: "invite-private-123",
+        action: "continue_dyadic_action",
+        locale: "en",
+      });
+    });
+
+    expect(screen.getByTestId("mbti-private-journey-state")).toHaveTextContent("Practice started");
+    expect(screen.getByTestId("mbti-private-progress-state")).toHaveTextContent("Warming up");
+    expect(screen.getByTestId("mbti-private-completed-action-dyadic_action.name_decision_rule")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-private-pulse-state")).toHaveTextContent("Repeat shared practice");
   });
 
   it("supports revoke mutation and re-renders a restricted lifecycle state", async () => {
@@ -225,6 +299,15 @@ describe("MBTI private relationship consumer contract", () => {
       access_state: "private_access_revoked",
       revocation_state: "revoked_by_subject",
     };
+    revokedFixture.private_relationship_journey_v1 = {
+      ...revokedFixture.private_relationship_journey_v1,
+      journey_state: "access_revoked",
+      progress_state: "restricted",
+      completed_dyadic_action_keys: [],
+      recommended_next_dyadic_pulse_keys: [],
+      last_dyadic_pulse_signal: "private_access_revoked",
+    };
+    revokedFixture.dyadic_pulse_check_v1 = null;
     hoisted.getPrivateMbtiRelationship.mockResolvedValue(createPrivateRelationshipFixture());
     hoisted.mutatePrivateMbtiRelationshipConsent.mockResolvedValue(revokedFixture);
 
@@ -245,6 +328,8 @@ describe("MBTI private relationship consumer contract", () => {
     expect(screen.getByTestId("mbti-private-access-badge")).toHaveTextContent("Private access revoked");
     expect(screen.getByTestId("mbti-private-revocation-badge")).toHaveTextContent("revoked_by_subject");
     expect(screen.queryByTestId("mbti-private-action-card")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-private-journey-state")).toHaveTextContent("Private access revoked");
+    expect(screen.queryByTestId("mbti-private-pulse-card")).not.toBeInTheDocument();
   });
 
   it("renders an access-safe error when the user is not a participant", async () => {

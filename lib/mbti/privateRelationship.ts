@@ -1,7 +1,9 @@
 import type {
   DyadicConsentRaw,
   DyadicGraphRaw,
+  DyadicPulseCheckRaw,
   PrivateMbtiRelationshipResponse,
+  PrivateRelationshipJourneyRaw,
   PrivateRelationshipActionPromptRaw,
   PrivateRelationshipRaw,
   PrivateRelationshipSectionRaw,
@@ -66,12 +68,36 @@ export type DyadicConsentViewModel = {
   purchasedAt: string;
 };
 
+export type PrivateRelationshipJourneyViewModel = {
+  contractVersion: string;
+  fingerprintVersion: string;
+  fingerprint: string;
+  scope: string;
+  journeyState: string;
+  progressState: string;
+  dyadicActionFocusKey: string;
+  completedDyadicActionKeys: string[];
+  recommendedNextDyadicPulseKeys: string[];
+  revisitReorderReason: string;
+  lastDyadicPulseSignal: string;
+};
+
+export type DyadicPulseCheckViewModel = {
+  contractVersion: string;
+  pulseState: string;
+  pulsePromptKeys: string[];
+  pulseFeedbackMode: string;
+  nextPulseTarget: string;
+};
+
 export type PrivateMbtiRelationshipViewModel = {
   inviteId: string;
   shareId: string;
   status: string;
   relationship: PrivateRelationshipViewModel | null;
   consent: DyadicConsentViewModel | null;
+  journey: PrivateRelationshipJourneyViewModel | null;
+  pulseCheck: DyadicPulseCheckViewModel | null;
   dyadicGraph: DyadicGraphViewModel | null;
 };
 
@@ -206,6 +232,44 @@ export function normalizeDyadicConsent(rawConsent?: DyadicConsentRaw | null): Dy
   };
 }
 
+export function normalizePrivateRelationshipJourney(
+  rawJourney?: PrivateRelationshipJourneyRaw | null
+): PrivateRelationshipJourneyViewModel | null {
+  if (!rawJourney || typeof rawJourney !== "object") {
+    return null;
+  }
+
+  return {
+    contractVersion: normalizeText(rawJourney.journey_contract_version),
+    fingerprintVersion: normalizeText(rawJourney.journey_fingerprint_version),
+    fingerprint: normalizeText(rawJourney.journey_fingerprint),
+    scope: normalizeText(rawJourney.journey_scope),
+    journeyState: normalizeText(rawJourney.journey_state),
+    progressState: normalizeText(rawJourney.progress_state),
+    dyadicActionFocusKey: normalizeText(rawJourney.dyadic_action_focus_key),
+    completedDyadicActionKeys: normalizeStringArray(rawJourney.completed_dyadic_action_keys),
+    recommendedNextDyadicPulseKeys: normalizeStringArray(rawJourney.recommended_next_dyadic_pulse_keys),
+    revisitReorderReason: normalizeText(rawJourney.revisit_reorder_reason),
+    lastDyadicPulseSignal: normalizeText(rawJourney.last_dyadic_pulse_signal),
+  };
+}
+
+export function normalizeDyadicPulseCheck(
+  rawPulseCheck?: DyadicPulseCheckRaw | null
+): DyadicPulseCheckViewModel | null {
+  if (!rawPulseCheck || typeof rawPulseCheck !== "object") {
+    return null;
+  }
+
+  return {
+    contractVersion: normalizeText(rawPulseCheck.pulse_contract_version),
+    pulseState: normalizeText(rawPulseCheck.pulse_state),
+    pulsePromptKeys: normalizeStringArray(rawPulseCheck.pulse_prompt_keys),
+    pulseFeedbackMode: normalizeText(rawPulseCheck.pulse_feedback_mode),
+    nextPulseTarget: normalizeText(rawPulseCheck.next_pulse_target),
+  };
+}
+
 export function buildPrivateMbtiRelationshipViewModel(
   rawRelationship?: PrivateMbtiRelationshipResponse | null
 ): PrivateMbtiRelationshipViewModel {
@@ -215,6 +279,8 @@ export function buildPrivateMbtiRelationshipViewModel(
     status: normalizeText(rawRelationship?.status).toLowerCase() || "pending",
     relationship: normalizePrivateRelationship(rawRelationship?.private_relationship_v1),
     consent: normalizeDyadicConsent(rawRelationship?.dyadic_consent_v1),
+    journey: normalizePrivateRelationshipJourney(rawRelationship?.private_relationship_journey_v1),
+    pulseCheck: normalizeDyadicPulseCheck(rawRelationship?.dyadic_pulse_check_v1),
     dyadicGraph: normalizeDyadicGraph(rawRelationship?.dyadic_graph_v1 as DyadicGraphRaw | null | undefined),
   };
 }
