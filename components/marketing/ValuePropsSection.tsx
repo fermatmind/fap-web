@@ -1,5 +1,4 @@
 import { Container } from "@/components/layout/Container";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
 type IconProps = {
@@ -46,40 +45,32 @@ export function ValuePropsSection({ dict }: { dict: SiteDictionary }) {
   return (
     <section
       data-testid="home-value-props-section"
-      className="relative z-10 bg-white pt-[var(--fm-space-8)] pb-[var(--fm-space-10)] md:pt-[var(--fm-space-12)] md:pb-[var(--fm-space-12)]"
+      className="fm-home-value-props relative z-10 py-[var(--fm-section-y-md)]"
     >
-      <Container>
-        <h2 className="sr-only">{dict.home.valueProps.title}</h2>
-        <div className="grid gap-4 md:grid-cols-3 md:gap-5">
+      <Container className="space-y-[var(--fm-space-8)]">
+        <div className="mx-auto max-w-3xl space-y-[var(--fm-gap-xs)] text-center">
+          <p className="fm-home-section-kicker">{dict.home.hero.kicker}</p>
+          <h2 className="m-0 font-serif text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
+            {dict.home.valueProps.title}
+          </h2>
+        </div>
+
+        <div className="fm-home-value-strip">
           {dict.home.valueProps.items.map((item, index) => {
             const Icon = ICONS[index] ?? ReliableIcon;
-            const iconOpticalShiftClass =
-              index === 1
-                ? "translate-y-px"
-                : index === 2
-                  ? "translate-x-px translate-y-px"
-                  : "";
             return (
-              <Card
-                key={item.title}
-                className="h-full border-[var(--fm-border)] bg-white/95 shadow-[var(--fm-shadow-md)] transition hover:-translate-y-0.5 hover:shadow-[var(--fm-shadow-lg)]"
-              >
-                <CardContent className="flex h-full flex-col items-center gap-4 pt-8 text-center md:pt-[var(--fm-space-10)]">
-                  <span className="relative mx-auto mt-[var(--fm-space-2)] grid h-[4.6rem] w-[4.6rem] place-items-center rounded-full">
-                    <span
-                      aria-hidden
-                      className="absolute inset-0 rounded-full border-2 border-[#2aa3d9]/35 bg-white/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)]"
-                    />
-                    <span
-                      aria-hidden
-                      className="absolute inset-[0.34rem] rounded-full bg-gradient-to-b from-[#edf8ff] to-[#dceefd]"
-                    />
-                    <Icon className={`relative block h-9 w-9 text-[#0f8fc8] ${iconOpticalShiftClass}`} />
+              <article key={item.title} className="fm-home-value-column">
+                <div className="fm-home-value-column-head">
+                  <span className="fm-home-value-index">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="fm-home-value-icon">
+                    <Icon className="h-8 w-8 text-[var(--fm-trust-blue)]" />
                   </span>
-                  <CardTitle className="text-[1.55rem] leading-tight">{item.title}</CardTitle>
-                  <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{item.description}</p>
-                </CardContent>
-              </Card>
+                </div>
+                <h3 className="m-0 font-serif text-[1.55rem] font-semibold leading-tight tracking-tight text-[var(--fm-trust-blue-strong)]">
+                  {item.title}
+                </h3>
+                <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{item.description}</p>
+              </article>
             );
           })}
         </div>

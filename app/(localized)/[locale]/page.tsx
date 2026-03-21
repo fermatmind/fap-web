@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { HeroSection } from "@/components/marketing/HeroSection";
 import {
   HighlightedTestsSection,
@@ -6,9 +7,12 @@ import {
 } from "@/components/marketing/HighlightedTestsSection";
 import { SocialProofSection } from "@/components/marketing/SocialProofSection";
 import { ValuePropsSection } from "@/components/marketing/ValuePropsSection";
+import { Container } from "@/components/layout/Container";
+import { buttonVariants } from "@/components/ui/button";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
+import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
@@ -45,6 +49,7 @@ export default async function Home({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const dict = getDictSync(locale);
+  const withLocale = (path: string) => localizedPath(path, locale);
   const allTests = getAllTests();
   const bySlug = new Map<string, (typeof allTests)[number]>();
   for (const item of allTests) {
@@ -84,13 +89,40 @@ export default async function Home({
     });
 
   return (
-    <main>
+    <main className="fm-home-page">
       <AnalyticsPageViewTracker eventName="view_landing" />
 
       <HeroSection dict={dict} locale={locale} />
       <ValuePropsSection dict={dict} />
       <HighlightedTestsSection dict={dict} locale={locale} cards={highlightedCards} />
       <SocialProofSection dict={dict} locale={locale} />
+
+      <section className="fm-home-closer" aria-labelledby="home-final-cta-title">
+        <Container className="relative">
+          <div className="fm-home-closer-panel">
+            <p className="fm-home-section-kicker">{dict.home.hero.kicker}</p>
+            <h2 id="home-final-cta-title" className="fm-home-closer-title">
+              {dict.home.hero.title}
+            </h2>
+            <p className="fm-home-closer-copy">{dict.home.hero.subtitle}</p>
+            <div className="fm-home-closer-actions">
+              <a href="#home-highlighted-tests-section" className={buttonVariants({ size: "lg" })}>
+                {dict.home.hero.ctaPrimary}
+              </a>
+              <Link
+                href={withLocale("/tests")}
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "lg",
+                  className: "bg-white/85 backdrop-blur",
+                })}
+              >
+                {dict.home.hero.ctaSecondary}
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
     </main>
   );
 }
