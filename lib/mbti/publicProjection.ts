@@ -7,6 +7,7 @@ import type {
   InsightGraphRaw,
   MbtiActionJourneyRaw,
   MbtiCrossAssessmentRaw,
+  MbtiIntraTypeProfileRaw,
   MbtiReadContractRaw,
   MbtiPersonalizationRaw,
   MbtiPulseCheckRaw,
@@ -112,6 +113,8 @@ export type MbtiResultProjectionSectionViewModel = {
   isPremiumTeaser: boolean;
   source: string;
   variantKey: string;
+  sectionSelectionKey: string;
+  selectedBlocks: string[];
 };
 
 export type MbtiPersonalizationAxisViewModel = {
@@ -313,6 +316,18 @@ export type MbtiPulseCheckViewModel = {
   nextPulseTarget: string;
 };
 
+export type MbtiIntraTypeProfileViewModel = {
+  version: string;
+  profileSeedKey: string;
+  sameTypeDivergenceKeys: string[];
+  sectionSelectionKeys: Record<string, string>;
+  actionSelectionKeys: Record<string, string>;
+  recommendationSelectionKeys: string[];
+  selectionFingerprint: string;
+  selectionEvidence: Record<string, unknown> | null;
+  personaClusterKey: string;
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -359,6 +374,14 @@ export type MbtiResultPersonalizationViewModel = {
   workingLife: MbtiWorkingLifeViewModel | null;
   actionJourney: MbtiActionJourneyViewModel | null;
   pulseCheck: MbtiPulseCheckViewModel | null;
+  intraTypeProfile: MbtiIntraTypeProfileViewModel | null;
+  profileSeedKey: string;
+  sameTypeDivergenceKeys: string[];
+  sectionSelectionKeys: Record<string, string>;
+  actionSelectionKeys: Record<string, string>;
+  recommendationSelectionKeys: string[];
+  selectionFingerprint: string;
+  selectionEvidence: Record<string, unknown> | null;
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -830,6 +853,7 @@ function normalizePersonalization(
   const workingLifeRecord = asRecord(personalization.working_life_v1) as MbtiWorkingLifeRaw | null;
   const actionJourneyRecord = asRecord(personalization.action_journey_v1) as MbtiActionJourneyRaw | null;
   const pulseCheckRecord = asRecord(personalization.pulse_check_v1) as MbtiPulseCheckRaw | null;
+  const intraTypeProfileRecord = asRecord(personalization.intra_type_profile_v1) as MbtiIntraTypeProfileRaw | null;
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -936,6 +960,24 @@ function normalizePersonalization(
     workingLife: normalizeWorkingLife(workingLifeRecord),
     actionJourney: normalizeActionJourney(actionJourneyRecord),
     pulseCheck: normalizePulseCheck(pulseCheckRecord),
+    intraTypeProfile: normalizeIntraTypeProfile(intraTypeProfileRecord),
+    profileSeedKey: normalizeText(personalization.profile_seed_key),
+    sameTypeDivergenceKeys: normalizeStringArray(personalization.same_type_divergence_keys),
+    sectionSelectionKeys: Object.fromEntries(
+      Object.entries(asRecord(personalization.section_selection_keys) ?? {}).map(([sectionKey, value]) => [
+        sectionKey,
+        normalizeText(value),
+      ])
+    ),
+    actionSelectionKeys: Object.fromEntries(
+      Object.entries(asRecord(personalization.action_selection_keys) ?? {}).map(([sectionKey, value]) => [
+        sectionKey,
+        normalizeText(value),
+      ])
+    ),
+    recommendationSelectionKeys: normalizeStringArray(personalization.recommendation_selection_keys),
+    selectionFingerprint: normalizeText(personalization.selection_fingerprint),
+    selectionEvidence: asRecord(personalization.selection_evidence),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),
@@ -994,6 +1036,57 @@ function normalizeReadContract(rawContract: MbtiReadContractRaw | null): MbtiRea
     cacheableFields,
     nonCacheableFields,
     telemetryParityFields,
+  };
+}
+
+function normalizeIntraTypeProfile(
+  rawProfile: MbtiIntraTypeProfileRaw | null
+): MbtiIntraTypeProfileViewModel | null {
+  if (!rawProfile) {
+    return null;
+  }
+
+  const version = normalizeText(rawProfile.version);
+  const profileSeedKey = normalizeText(rawProfile.profile_seed_key);
+  const sameTypeDivergenceKeys = normalizeStringArray(rawProfile.same_type_divergence_keys);
+  const sectionSelectionKeys = Object.fromEntries(
+    Object.entries(asRecord(rawProfile.section_selection_keys) ?? {}).map(([sectionKey, value]) => [
+      sectionKey,
+      normalizeText(value),
+    ])
+  );
+  const actionSelectionKeys = Object.fromEntries(
+    Object.entries(asRecord(rawProfile.action_selection_keys) ?? {}).map(([sectionKey, value]) => [
+      sectionKey,
+      normalizeText(value),
+    ])
+  );
+  const recommendationSelectionKeys = normalizeStringArray(rawProfile.recommendation_selection_keys);
+  const selectionFingerprint = normalizeText(rawProfile.selection_fingerprint);
+  const selectionEvidence = asRecord(rawProfile.selection_evidence);
+
+  if (
+    !version &&
+    !profileSeedKey &&
+    sameTypeDivergenceKeys.length === 0 &&
+    Object.keys(sectionSelectionKeys).length === 0 &&
+    Object.keys(actionSelectionKeys).length === 0 &&
+    recommendationSelectionKeys.length === 0 &&
+    !selectionFingerprint
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    profileSeedKey,
+    sameTypeDivergenceKeys,
+    sectionSelectionKeys,
+    actionSelectionKeys,
+    recommendationSelectionKeys,
+    selectionFingerprint,
+    selectionEvidence,
+    personaClusterKey: normalizeText(rawProfile.persona_cluster_key, profileSeedKey),
   };
 }
 
@@ -1723,6 +1816,12 @@ function normalizeResultProjectionSections(rawSections: unknown): MbtiResultProj
       variantKey: normalizeText(
         getNestedValue(section, ["_meta", "variant_key"]),
         getNestedValue(section, ["payload", "personalization", "variant_key"])
+      ),
+      sectionSelectionKey: normalizeText(
+        getNestedValue(section, ["payload", "personalization", "section_selection_key"])
+      ),
+      selectedBlocks: normalizeStringArray(
+        getNestedValue(section, ["payload", "personalization", "selected_blocks"])
       ),
     });
   }

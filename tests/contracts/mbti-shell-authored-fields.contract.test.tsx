@@ -47,6 +47,40 @@ function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> 
   };
 }
 
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  return value as Record<string, unknown>;
+}
+
+function overrideProjectionSectionSelection(
+  reportData: ReportResponse,
+  sectionKey: string,
+  selectedBlockIds: string[],
+  sectionSelectionKey: string
+) {
+  const projection = asRecord(reportData.mbti_public_projection_v1);
+  const sections = Array.isArray(projection?.sections) ? projection.sections : [];
+  const section = sections.find((item) => asRecord(item)?.key === sectionKey);
+  const sectionRecord = asRecord(section);
+  const payload = asRecord(sectionRecord?.payload);
+  const personalization = asRecord(payload?.personalization);
+  const metaPersonalization = asRecord(asRecord(projection?._meta)?.personalization);
+
+  if (!sectionRecord || !payload || !personalization || !metaPersonalization) {
+    throw new Error(`Expected projection section personalization for ${sectionKey}`);
+  }
+
+  personalization.selected_blocks = selectedBlockIds;
+  personalization.section_selection_key = sectionSelectionKey;
+
+  const sectionSelectionKeys = asRecord(metaPersonalization.section_selection_keys) ?? {};
+  sectionSelectionKeys[sectionKey] = sectionSelectionKey;
+  metaPersonalization.section_selection_keys = sectionSelectionKeys;
+}
+
 describe("MBTI shell authored fields contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -80,6 +114,14 @@ describe("MBTI shell authored fields contract", () => {
     );
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
+      "data-profile-seed-key",
+      "same_type.seed.name_decision_rule.jp"
+    );
+    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
+      "data-selection-fingerprint",
+      "fixture-selection-fingerprint"
+    );
     const hero = screen.getByTestId("mbti-hero");
     expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
@@ -190,6 +232,14 @@ describe("MBTI shell authored fields contract", () => {
       "weekly_action.theme.name_decision_rule"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-section-selection-key",
+      expect.stringContaining("growth.next_actions:seed.same_type_seed_name_decision_rule_jp")
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-profile-seed-key",
+      "same_type.seed.name_decision_rule.jp"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-primary-focus",
       "true"
     );
@@ -274,9 +324,17 @@ describe("MBTI shell authored fields contract", () => {
       "data-reading-focus",
       "true"
     );
+    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
+      "data-selected-by-divergence",
+      "true"
+    );
     expect(screen.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute(
       "data-recommendation-key",
       "read-career"
+    );
+    expect(screen.getByTestId("mbti-recommended-reads")).toHaveAttribute(
+      "data-recommendation-selection-keys",
+      "read-action|read-explain|read-career"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-action-rank",
@@ -337,6 +395,56 @@ describe("MBTI shell authored fields contract", () => {
         pulsePromptKeys: "",
       })
     );
+  });
+
+  it("shows real same-type content selection differences when the backend changes section selection truth", () => {
+    const clearReport = createReportFixture();
+    const strongReport = createReportFixture();
+
+    overrideProjectionSectionSelection(
+      clearReport,
+      "growth.next_actions",
+      [
+        "growth.next_actions.next_action.EI.E",
+        "growth.next_actions.identity.t",
+      ],
+      "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:mode.action_identity_anchor:blocks.growth_next_actions_next_action_ei_e+growth_next_actions_identity_t:action.weekly_action_theme_name_decision_rule"
+    );
+    overrideProjectionSectionSelection(
+      strongReport,
+      "growth.next_actions",
+      [
+        "growth.next_actions.next_action.EI.E",
+        "growth.next_actions.boundary.TF",
+      ],
+      "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:mode.action_boundary_buffered:blocks.growth_next_actions_next_action_ei_e+growth_next_actions_boundary_tf:action.weekly_action_theme_name_decision_rule"
+    );
+
+    const { rerender } = render(<RichResultReport locale="zh" reportData={clearReport} />);
+
+    const clearSection = screen.getByTestId("mbti-projection-section-growth-next-actions");
+    const clearSelectionKey = clearSection.getAttribute("data-section-selection-key");
+    expect(clearSection).toHaveAttribute(
+      "data-selected-blocks",
+      "growth.next_actions.next_action.EI.E|growth.next_actions.identity.t"
+    );
+    expect(screen.getByTestId("mbti-projection-block-growth-next-actions-identity-t")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-projection-block-growth-next-actions-boundary-tf")).not.toBeInTheDocument();
+
+    rerender(<RichResultReport locale="zh" reportData={strongReport} />);
+
+    const strongSection = screen.getByTestId("mbti-projection-section-growth-next-actions");
+    const strongSelectionKey = strongSection.getAttribute("data-section-selection-key");
+
+    expect(strongSection).toHaveAttribute(
+      "data-selected-blocks",
+      "growth.next_actions.next_action.EI.E|growth.next_actions.boundary.TF"
+    );
+    expect(screen.getByTestId("mbti-projection-block-growth-next-actions-boundary-tf")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-projection-block-growth-next-actions-identity-t")).not.toBeInTheDocument();
+    expect(clearSelectionKey).not.toEqual(strongSelectionKey);
+    expect(clearSelectionKey).toContain("mode.action_identity_anchor");
+    expect(strongSelectionKey).toContain("mode.action_boundary_buffered");
   });
 
   it("reorders focus and CTA priority when backend user state shifts to revisit", () => {

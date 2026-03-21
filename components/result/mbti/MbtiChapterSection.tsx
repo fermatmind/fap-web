@@ -37,8 +37,14 @@ import {
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
+  summarizeMbtiProfileSeedKey,
   summarizeMbtiRecommendationPriorityKeys,
+  summarizeMbtiRecommendationSelectionKeys,
+  summarizeMbtiActionSelectionKeys,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSectionSelectionKeys,
+  summarizeMbtiSelectionFingerprint,
+  summarizeMbtiSameTypeDivergenceKeys,
   summarizeMbtiSecondaryFocusKeys,
   summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
@@ -195,8 +201,7 @@ function normalizeProjectionContentBlocks(
   section: MbtiResultProjectionSectionViewModel
 ): ProjectionContentBlock[] {
   const payload = asRecord(section.payload);
-
-  return asArray<Record<string, unknown>>(payload?.blocks)
+  const blocks = asArray<Record<string, unknown>>(payload?.blocks)
     .map((block, index) => ({
       id: normalizeText(block.id, `${section.key}-block-${index + 1}`),
       kind: normalizeText(block.kind, "rich_text"),
@@ -205,6 +210,27 @@ function normalizeProjectionContentBlocks(
       contrastKey: normalizeText(block.contrast_key),
     }))
     .filter((block) => block.id && block.text);
+
+  if (blocks.length === 0) {
+    return [];
+  }
+
+  const selectedBlockIds = section.selectedBlocks.filter(Boolean);
+  if (selectedBlockIds.length === 0) {
+    return blocks;
+  }
+
+  const blockMap = new Map(blocks.map((block) => [block.id, block] as const));
+  const typeSkeletonBlocks = blocks.filter((block) => block.kind === "type_skeleton");
+  const selectedBlocks = selectedBlockIds
+    .map((blockId) => blockMap.get(blockId))
+    .filter((block): block is ProjectionContentBlock => Boolean(block));
+
+  if (selectedBlocks.length === 0) {
+    return blocks;
+  }
+
+  return [...typeSkeletonBlocks, ...selectedBlocks];
 }
 
 function renderProjectionDynamicBlocks(section: MbtiResultProjectionSectionViewModel) {
@@ -333,6 +359,17 @@ function buildSectionTelemetryPayload(
     calibrationFingerprint: normalizeText(culturalCalibration?.calibrationFingerprint),
     calibrationContractVersion: normalizeText(culturalCalibration?.calibrationContractVersion),
     variantKey: normalizeText(section.variantKey),
+    sectionSelectionKey: normalizeText(
+      section.sectionSelectionKey,
+      personalization?.sectionSelectionKeys?.[section.key]
+    ),
+    selectedBlocks: section.selectedBlocks.join("|"),
+    profileSeedKey: summarizeMbtiProfileSeedKey(personalization),
+    sameTypeDivergenceKeys: summarizeMbtiSameTypeDivergenceKeys(personalization),
+    sectionSelectionKeys: summarizeMbtiSectionSelectionKeys(personalization),
+    actionSelectionKeys: summarizeMbtiActionSelectionKeys(personalization),
+    recommendationSelectionKeys: summarizeMbtiRecommendationSelectionKeys(personalization),
+    selectionFingerprint: summarizeMbtiSelectionFingerprint(personalization),
     contrastKey: normalizeText(
       personalizationPayload?.contrast_key,
       personalization?.contrastKeys?.[section.key]
@@ -854,9 +891,13 @@ function renderProjectionSection(
       data-testid={`mbti-projection-section-${toProjectionSectionTestId(section.key)}`}
       data-section-key={section.key}
       data-variant-key={section.variantKey || undefined}
+      data-section-selection-key={normalizeText(telemetryPayload.sectionSelectionKey) || undefined}
+      data-selected-blocks={normalizeText(telemetryPayload.selectedBlocks) || undefined}
       data-action-key={normalizeText(telemetryPayload.actionKey) || undefined}
       data-action-rank={telemetryPayload.actionRank > 0 ? String(telemetryPayload.actionRank) : undefined}
       data-contrast-key={normalizeText(telemetryPayload.contrastKey) || undefined}
+      data-profile-seed-key={normalizeText(telemetryPayload.profileSeedKey) || undefined}
+      data-selection-fingerprint={normalizeText(telemetryPayload.selectionFingerprint) || undefined}
       data-synthesis-key={normalizeText(telemetryPayload.synthesisKey) || undefined}
       data-supporting-scale={normalizeText(telemetryPayload.supportingScale) || undefined}
       data-cross-assessment-version={normalizeText(telemetryPayload.crossAssessmentVersion) || undefined}

@@ -890,6 +890,19 @@ export type MbtiPulseCheckRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiIntraTypeProfileRaw = {
+  version?: string;
+  profile_seed_key?: string;
+  same_type_divergence_keys?: string[];
+  section_selection_keys?: Record<string, string>;
+  action_selection_keys?: Record<string, string>;
+  recommendation_selection_keys?: string[];
+  selection_fingerprint?: string;
+  selection_evidence?: Record<string, unknown>;
+  persona_cluster_key?: string;
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -955,6 +968,14 @@ export type MbtiPersonalizationRaw = {
   working_life_v1?: MbtiWorkingLifeRaw | null;
   action_journey_v1?: MbtiActionJourneyRaw | null;
   pulse_check_v1?: MbtiPulseCheckRaw | null;
+  intra_type_profile_v1?: MbtiIntraTypeProfileRaw | null;
+  profile_seed_key?: string;
+  same_type_divergence_keys?: string[];
+  section_selection_keys?: Record<string, string>;
+  action_selection_keys?: Record<string, string>;
+  recommendation_selection_keys?: string[];
+  selection_fingerprint?: string;
+  selection_evidence?: Record<string, unknown>;
   synthesis_keys?: string[];
   supporting_scales?: string[];
   big5_influence_keys?: string[];
