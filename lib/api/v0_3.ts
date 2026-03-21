@@ -1054,6 +1054,66 @@ export type RelationshipSyncRaw = {
   [key: string]: unknown;
 };
 
+export type PrivateRelationshipSectionRaw = {
+  key?: string;
+  title?: string;
+  summary?: string | null;
+  bullets?: string[] | null;
+  [key: string]: unknown;
+};
+
+export type PrivateRelationshipActionPromptRaw = {
+  key?: string;
+  title?: string;
+  summary?: string | null;
+  cta_label?: string | null;
+  cta_path?: string | null;
+  [key: string]: unknown;
+};
+
+export type PrivateRelationshipRaw = {
+  version?: string;
+  relationship_scope?: string;
+  relationship_contract_version?: string;
+  relationship_fingerprint_version?: string;
+  relationship_fingerprint?: string;
+  access_state?: string;
+  subject_join_mode?: string;
+  participant_role?: string;
+  inviter_summary?: MbtiCompareParticipantRaw | null;
+  invitee_summary?: MbtiCompareParticipantRaw | null;
+  shared_count?: number | null;
+  diverging_count?: number | null;
+  friction_keys?: string[] | null;
+  complement_keys?: string[] | null;
+  communication_bridge_keys?: string[] | null;
+  decision_tension_keys?: string[] | null;
+  stress_interplay_keys?: string[] | null;
+  overview?: {
+    title?: string;
+    summary?: string;
+    [key: string]: unknown;
+  } | null;
+  private_sync_sections?: PrivateRelationshipSectionRaw[] | null;
+  private_action_prompt?: PrivateRelationshipActionPromptRaw | null;
+  [key: string]: unknown;
+};
+
+export type DyadicConsentRaw = {
+  version?: string;
+  consent_scope?: string;
+  access_state?: string;
+  consent_state?: string;
+  revocation_state?: string;
+  expiry_state?: string;
+  subject_join_mode?: string;
+  accepted_at?: string | null;
+  completed_at?: string | null;
+  purchased_at?: string | null;
+  consent_artifact_version?: string;
+  [key: string]: unknown;
+};
+
 export type DyadicGraphNodeRaw = {
   id?: string;
   kind?: string;
@@ -1207,6 +1267,19 @@ export type MbtiCompareInviteResponse = {
   dyadic_graph_v1?: DyadicGraphRaw | null;
   primary_cta_label?: string;
   primary_cta_path?: string;
+  [key: string]: unknown;
+};
+
+export type PrivateMbtiRelationshipResponse = {
+  ok?: boolean;
+  invite_id?: string;
+  share_id?: string;
+  scale_code?: string;
+  locale?: string;
+  status?: "pending" | "ready" | "purchased" | string;
+  private_relationship_v1?: PrivateRelationshipRaw | null;
+  dyadic_consent_v1?: DyadicConsentRaw | null;
+  dyadic_graph_v1?: DyadicGraphRaw | null;
   [key: string]: unknown;
 };
 
@@ -2393,6 +2466,29 @@ export async function getMbtiCompareInvite({
   );
 
   return assertApiOk(response, "Compare invite not available.");
+}
+
+export async function getPrivateMbtiRelationship({
+  inviteId,
+  locale,
+  cache,
+  timeoutMs,
+}: {
+  inviteId: string;
+  locale?: string;
+  cache?: RequestCache;
+  timeoutMs?: number;
+}): Promise<PrivateMbtiRelationshipResponse> {
+  const response = await apiClient.get<PrivateMbtiRelationshipResponse>(
+    `/v0.3/me/relationships/mbti/${inviteId}`,
+    {
+      ...(locale ? { locale } : {}),
+      ...(cache ? { cache } : {}),
+      ...(typeof timeoutMs === "number" ? { timeoutMs } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Private relationship not available.");
 }
 
 export async function lookupOrder({
