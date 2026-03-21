@@ -125,6 +125,7 @@ export default function ShareClient({
   const [compareInvitePending, setCompareInvitePending] = useState(false);
   const [compareInviteError, setCompareInviteError] = useState<string | null>(null);
   const carryoverImpressionTrackedRef = useRef(false);
+  const embedImpressionTrackedRef = useRef(false);
 
   const queryString = searchParams.toString();
   const landingPath = useMemo(() => buildLandingPath(pathname, queryString), [pathname, queryString]);
@@ -133,6 +134,8 @@ export default function ShareClient({
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
   const viewModel = useMemo(() => buildSharePageViewModel(data), [data]);
   const publicSurface = viewModel.publicSurface;
+  const insightGraph = viewModel.insightGraph;
+  const embedSurface = viewModel.embedSurface;
   const comparative = viewModel.comparative;
   const workingLife = viewModel.workingLife;
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(
@@ -306,6 +309,41 @@ export default function ShareClient({
     });
   }, [locale, primaryContinueTarget, publicSurface, publicSurfaceTelemetry, shareDisplayType, shareScaleCode, viewModel.attemptId]);
 
+  useEffect(() => {
+    if (!embedSurface || !insightGraph || embedImpressionTrackedRef.current) {
+      return;
+    }
+
+    embedImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "share-page",
+      scale_code: shareScaleCode,
+      visual_kind: "share_embed_surface",
+      attempt_id: viewModel.attemptId || undefined,
+      ctaKey: "share_embed_surface",
+      ctaRank: 1,
+      continueTarget: embedSurface.continueTarget || primaryContinueTarget,
+      typeCode: shareDisplayType || undefined,
+      graphScope: insightGraph.graphScope,
+      graphFingerprint: insightGraph.graphFingerprint,
+      graphContractVersion: insightGraph.graphContractVersion,
+      embedSurfaceKey: embedSurface.surfaceKey,
+      embedFingerprint: embedSurface.embedFingerprint,
+      supportingScales: insightGraph.supportingScales.join("|"),
+      ...publicSurfaceTelemetry,
+      locale,
+    });
+  }, [
+    embedSurface,
+    insightGraph,
+    locale,
+    primaryContinueTarget,
+    publicSurfaceTelemetry,
+    shareDisplayType,
+    shareScaleCode,
+    viewModel.attemptId,
+  ]);
+
   const insightCards = [
     viewModel.controlledNarrative?.narrativeSummary
       ? {
@@ -333,6 +371,10 @@ export default function ShareClient({
         }
       : null,
   ].filter((item): item is { key: string; title: string; body: string } => Boolean(item && item.body));
+  const embedNodeTitles = insightGraph?.nodes
+    .filter((node) => embedSurface?.allowedNodeIds.includes(node.id))
+    .map((node) => node.title)
+    .filter(Boolean) ?? [];
 
   const handleCompareInvite = async () => {
     const anonId = getOrCreateAnonId().trim();
@@ -454,6 +496,74 @@ export default function ShareClient({
                 <p className="m-0 mt-2 text-sm leading-7 text-slate-700">{item.body}</p>
               </div>
             ))}
+          </div>
+        </section>
+      ) : null}
+
+      {embedSurface && insightGraph ? (
+        <section className="mx-auto -mt-2 w-full max-w-5xl px-4 pb-6 md:px-6">
+          <div
+            data-testid="share-embed-surface"
+            className="rounded-[28px] border border-sky-200 bg-[linear-gradient(135deg,_#ffffff_0%,_#eff6ff_45%,_#f8fafc_100%)] px-6 py-5 shadow-[0_20px_48px_rgba(15,23,42,0.08)]"
+          >
+            <div className="space-y-2">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
+                {locale === "zh" ? "可嵌入洞察图" : "Embeddable insight graph"}
+              </p>
+              <h2 className="m-0 text-xl font-semibold text-slate-950">
+                {embedSurface.title || (locale === "zh" ? "结果主链摘要" : "Result-path summary")}
+              </h2>
+              <p className="m-0 text-sm leading-7 text-slate-600">
+                {embedSurface.summary || (locale === "zh" ? "用同一条后端 authority 主链继续阅读与行动。" : "Continue reading and action from the same backend-owned authority chain.")}
+              </p>
+            </div>
+
+            {embedNodeTitles.length > 0 ? (
+              <div
+                data-testid="share-embed-node-list"
+                className="mt-4 flex flex-wrap gap-2"
+              >
+                {embedNodeTitles.map((title) => (
+                  <span
+                    key={title}
+                    className="inline-flex rounded-full border border-sky-200 bg-white/90 px-3 py-1 text-xs font-medium text-slate-700"
+                  >
+                    {title}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+
+            <div className="mt-4">
+              <Link
+                href={primaryCtaHref}
+                data-testid="share-embed-continue-cta"
+                className={buttonVariants({ variant: "outline", className: "inline-flex" })}
+                onClick={() => {
+                  trackEvent("ui_card_interaction", {
+                    slug: "share-page",
+                    scale_code: shareScaleCode,
+                    visual_kind: "share_embed_surface",
+                    interaction: "continue",
+                    attempt_id: viewModel.attemptId || undefined,
+                    ctaKey: "share_embed_surface",
+                    ctaRank: 1,
+                    continueTarget: embedSurface.continueTarget || primaryContinueTarget,
+                    typeCode: shareDisplayType || undefined,
+                    graphScope: insightGraph.graphScope,
+                    graphFingerprint: insightGraph.graphFingerprint,
+                    graphContractVersion: insightGraph.graphContractVersion,
+                    embedSurfaceKey: embedSurface.surfaceKey,
+                    embedFingerprint: embedSurface.embedFingerprint,
+                    supportingScales: insightGraph.supportingScales.join("|"),
+                    ...publicSurfaceTelemetry,
+                    locale,
+                  });
+                }}
+              >
+                {embedSurface.primaryCtaLabel || viewModel.primaryCtaLabel || (locale === "zh" ? "继续这里" : "Continue here")}
+              </Link>
+            </div>
           </div>
         </section>
       ) : null}

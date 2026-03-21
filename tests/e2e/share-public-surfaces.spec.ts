@@ -84,6 +84,35 @@ test("Big Five share page exposes only the public-safe acquisition surface", asy
           robots_policy: "noindex,follow",
           attribution_scope: "share_public_surface",
         },
+        insight_graph_v1: {
+          version: "insight.graph.v1",
+          graph_contract_version: "insight.graph.v1",
+          root_node: "result_summary",
+          graph_fingerprint: "share-big5-graph-fingerprint",
+          graph_scope: "public_share_safe",
+          supporting_scales: ["BIG5_OCEAN"],
+          nodes: [
+            { id: "result_summary", kind: "result_summary", title: "Big Five public summary", summary: "This public-safe Big Five summary keeps the dominant traits, relative position, and entry path visible." },
+            { id: "narrative", kind: "narrative", title: "Public summary", summary: "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report." },
+            { id: "comparative", kind: "comparative", title: "Above about 81% of the cohort", summary: "In the current norming set, your Openness sits above roughly 81% of the anonymized cohort." },
+            { id: "continue_reading", kind: "continue_reading", title: "Continue path", summary: "traits.overview -> growth.next_actions" },
+          ],
+          edges: [{ from: "comparative", to: "result_summary", relation: "supports" }],
+        },
+        embed_surface_v1: {
+          version: "embed.surface.v1",
+          surface_key: "big5_share_embed_card",
+          graph_scope: "public_share_safe",
+          entry_surface: "big5_share_landing",
+          title: "Big Five public summary",
+          summary: "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report.",
+          primary_cta_label: "Take the test",
+          primary_cta_path: "/en/tests/big-five-personality-test-ocean-model",
+          continue_target: "traits.overview",
+          allowed_node_ids: ["result_summary", "narrative", "comparative", "continue_reading"],
+          embed_fingerprint: "share-big5-embed-fingerprint",
+          render_mode: "card",
+        },
       }),
     });
   });
@@ -92,10 +121,12 @@ test("Big Five share page exposes only the public-safe acquisition surface", asy
 
   await expect(page.getByTestId("mbti-share-summary-card")).toBeVisible();
   await expect(page.getByRole("heading", { name: "BIG5" })).toBeVisible();
-  await expect(page.getByText("Big Five public summary")).toBeVisible();
+  await expect(page.getByTestId("mbti-share-summary-card").getByText("Big Five public summary")).toBeVisible();
   await expect(page.getByTestId("share-public-insight-grid")).toContainText(
     "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report."
   );
+  await expect(page.getByTestId("share-embed-surface")).toContainText("Embeddable insight graph");
+  await expect(page.getByTestId("share-embed-node-list")).toContainText("Big Five public summary");
   await expect(page.getByTestId("share-public-continue-entry")).toContainText("Continue into the full result path");
   await expect(page.getByTestId("share-public-continue-cta")).toHaveAttribute(
     "href",
