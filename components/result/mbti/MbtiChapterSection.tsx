@@ -33,6 +33,15 @@ import {
   summarizeMbtiFeedbackCoverage,
   summarizeMbtiFeedbackSentiment,
   summarizeMbtiLastDeepReadSection,
+  summarizeMbtiMemoryContractVersion,
+  summarizeMbtiMemoryFingerprint,
+  summarizeMbtiMemoryProgressionState,
+  summarizeMbtiMemoryRewriteKeys,
+  summarizeMbtiMemoryRewriteReason,
+  summarizeMbtiMemoryScope,
+  summarizeMbtiMemoryState,
+  summarizeMbtiBehaviorDeltaKeys,
+  summarizeMbtiDominantInterestKeys,
   summarizeMbtiNeighborTypeKeys,
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
@@ -46,8 +55,10 @@ import {
   summarizeMbtiSelectionFingerprint,
   summarizeMbtiSameTypeDivergenceKeys,
   summarizeMbtiSecondaryFocusKeys,
+  summarizeMbtiSectionHistoryKeys,
   summarizeMbtiUserState,
   summarizeMbtiVariantKeys,
+  summarizeMbtiResumeBiasKeys,
 } from "@/lib/mbti/personalizationTelemetry";
 
 type ChapterKey = "career" | "growth" | "traits" | "relationships";
@@ -370,6 +381,17 @@ function buildSectionTelemetryPayload(
     actionSelectionKeys: summarizeMbtiActionSelectionKeys(personalization),
     recommendationSelectionKeys: summarizeMbtiRecommendationSelectionKeys(personalization),
     selectionFingerprint: summarizeMbtiSelectionFingerprint(personalization),
+    memoryContractVersion: summarizeMbtiMemoryContractVersion(personalization),
+    memoryFingerprint: summarizeMbtiMemoryFingerprint(personalization),
+    memoryScope: summarizeMbtiMemoryScope(personalization),
+    memoryState: summarizeMbtiMemoryState(personalization),
+    memoryProgressionState: summarizeMbtiMemoryProgressionState(personalization),
+    sectionHistoryKeys: summarizeMbtiSectionHistoryKeys(personalization),
+    behaviorDeltaKeys: summarizeMbtiBehaviorDeltaKeys(personalization),
+    dominantInterestKeys: summarizeMbtiDominantInterestKeys(personalization),
+    resumeBiasKeys: summarizeMbtiResumeBiasKeys(personalization),
+    memoryRewriteKeys: summarizeMbtiMemoryRewriteKeys(personalization),
+    memoryRewriteReason: summarizeMbtiMemoryRewriteReason(personalization),
     contrastKey: normalizeText(
       personalizationPayload?.contrast_key,
       personalization?.contrastKeys?.[section.key]
@@ -898,6 +920,9 @@ function renderProjectionSection(
       data-contrast-key={normalizeText(telemetryPayload.contrastKey) || undefined}
       data-profile-seed-key={normalizeText(telemetryPayload.profileSeedKey) || undefined}
       data-selection-fingerprint={normalizeText(telemetryPayload.selectionFingerprint) || undefined}
+      data-memory-fingerprint={normalizeText(telemetryPayload.memoryFingerprint) || undefined}
+      data-memory-state={normalizeText(telemetryPayload.memoryState) || undefined}
+      data-memory-rewrite-reason={normalizeText(telemetryPayload.memoryRewriteReason) || undefined}
       data-synthesis-key={normalizeText(telemetryPayload.synthesisKey) || undefined}
       data-supporting-scale={normalizeText(telemetryPayload.supportingScale) || undefined}
       data-cross-assessment-version={normalizeText(telemetryPayload.crossAssessmentVersion) || undefined}

@@ -19,6 +19,8 @@ type MbtiPhase2FixtureOptions = {
   lastDeepReadSection?: string;
   currentIntentCluster?: string;
   narrativeMode?: "off" | "mock" | "fallback";
+  memoryState?: string;
+  memoryRewriteReason?: string;
 };
 
 function buildReadContractFixture() {
@@ -82,6 +84,7 @@ function buildReadContractFixture() {
         "action_journey_v1",
         "pulse_check_v1",
         "intra_type_profile_v1",
+        "longitudinal_memory_v1",
         "profile_seed_key",
         "same_type_divergence_keys",
         "section_selection_keys",
@@ -105,6 +108,7 @@ function buildReadContractFixture() {
         "report._meta.personalization.action_journey_v1",
         "report._meta.personalization.pulse_check_v1",
         "report._meta.personalization.intra_type_profile_v1",
+        "report._meta.personalization.longitudinal_memory_v1",
         "report._meta.personalization.profile_seed_key",
         "report._meta.personalization.section_selection_keys",
         "report._meta.personalization.action_selection_keys",
@@ -124,6 +128,7 @@ function buildReadContractFixture() {
         "mbti_public_projection_v1._meta.personalization.action_journey_v1",
         "mbti_public_projection_v1._meta.personalization.pulse_check_v1",
         "mbti_public_projection_v1._meta.personalization.intra_type_profile_v1",
+        "mbti_public_projection_v1._meta.personalization.longitudinal_memory_v1",
         "mbti_public_projection_v1._meta.personalization.profile_seed_key",
         "mbti_public_projection_v1._meta.personalization.section_selection_keys",
         "mbti_public_projection_v1._meta.personalization.action_selection_keys",
@@ -166,6 +171,7 @@ function buildReadContractFixture() {
       "report._meta.personalization.action_journey_v1",
       "report._meta.personalization.pulse_check_v1",
       "report._meta.personalization.intra_type_profile_v1",
+      "report._meta.personalization.longitudinal_memory_v1",
       "report._meta.personalization.profile_seed_key",
       "report._meta.personalization.section_selection_keys",
       "report._meta.personalization.action_selection_keys",
@@ -185,6 +191,7 @@ function buildReadContractFixture() {
       "mbti_public_projection_v1._meta.personalization.action_journey_v1",
       "mbti_public_projection_v1._meta.personalization.pulse_check_v1",
       "mbti_public_projection_v1._meta.personalization.intra_type_profile_v1",
+      "mbti_public_projection_v1._meta.personalization.longitudinal_memory_v1",
       "mbti_public_projection_v1._meta.personalization.profile_seed_key",
       "mbti_public_projection_v1._meta.personalization.section_selection_keys",
       "mbti_public_projection_v1._meta.personalization.action_selection_keys",
@@ -214,6 +221,17 @@ function buildReadContractFixture() {
       "intra_type_profile_v1.action_selection_keys",
       "intra_type_profile_v1.recommendation_selection_keys",
       "intra_type_profile_v1.selection_fingerprint",
+      "longitudinal_memory_v1.memory_contract_version",
+      "longitudinal_memory_v1.memory_fingerprint",
+      "longitudinal_memory_v1.memory_scope",
+      "longitudinal_memory_v1.memory_state",
+      "longitudinal_memory_v1.progression_state",
+      "longitudinal_memory_v1.section_history_keys",
+      "longitudinal_memory_v1.behavior_delta_keys",
+      "longitudinal_memory_v1.dominant_interest_keys",
+      "longitudinal_memory_v1.resume_bias_keys",
+      "longitudinal_memory_v1.memory_rewrite_keys",
+      "longitudinal_memory_v1.memory_rewrite_reason",
       "profile_seed_key",
       "same_type_divergence_keys",
       "section_selection_keys",
@@ -1228,6 +1246,8 @@ export function applyMbtiPhase2Fixture(
   const currentIntentCluster = options.currentIntentCluster ?? "default";
   const narrativeMode = options.narrativeMode ?? "off";
   const personalizationLocale = options.personalizationLocale ?? "zh-CN";
+  const memoryState = options.memoryState ?? (isRevisit ? "resume_ready" : "building");
+  const memoryRewriteReason = options.memoryRewriteReason ?? "resume_growth_actions";
 
   const eiAxis = {
     axis: "EI",
@@ -1593,6 +1613,31 @@ export function applyMbtiPhase2Fixture(
     selection_evidence: selectionEvidence,
     persona_cluster_key: profileSeedKey,
   };
+  const longitudinalMemory = {
+    version: "mbti.longitudinal_memory.v1",
+    memory_contract_version: "mbti.longitudinal_memory.v1",
+    memory_fingerprint: "fixture-memory-fingerprint",
+    memory_scope: "identity_recent_mbti_window",
+    memory_state: memoryState,
+    progression_state: hasActionEngagement ? "repeatable" : isRevisit ? "reading_loop" : "fresh",
+    section_history_keys: ["growth.next_actions", "traits.close_call_axes", "career.work_experiments"],
+    behavior_delta_keys: ["behavior.section.growth_next_actions.repeat", "behavior.revisit.repeat"],
+    dominant_interest_keys: ["growth", "explainability"],
+    resume_bias_keys: ["growth.next_actions", "traits.why_this_type", "career.work_experiments"],
+    memory_rewrite_keys: ["rewrite.reason.resume_growth_actions", "rewrite.resume.growth_next_actions"],
+    memory_rewrite_reason: memoryRewriteReason,
+    memory_confidence: 0.74,
+    memory_window: {
+      days: 120,
+      attempt_count: 3,
+      event_count: 18,
+    },
+    memory_evidence: {
+      event_count: 18,
+      revisit_view_count: 3,
+      dwell_count: 4,
+    },
+  };
 
   reportData.locked = hasUnlock ? false : true;
   reportData.variant = hasUnlock ? "full" : "free";
@@ -1830,6 +1875,7 @@ export function applyMbtiPhase2Fixture(
     action_journey_v1: actionJourney,
     pulse_check_v1: pulseCheck,
     intra_type_profile_v1: intraTypeProfile,
+    longitudinal_memory_v1: longitudinalMemory,
     profile_seed_key: profileSeedKey,
     same_type_divergence_keys: sameTypeDivergenceKeys,
     section_selection_keys: sectionSelectionKeys,

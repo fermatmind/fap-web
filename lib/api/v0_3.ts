@@ -903,6 +903,30 @@ export type MbtiIntraTypeProfileRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiLongitudinalMemoryRaw = {
+  version?: string;
+  memory_contract_version?: string;
+  memory_fingerprint?: string;
+  memory_scope?: string;
+  memory_state?: string;
+  progression_state?: string;
+  section_history_keys?: string[];
+  behavior_delta_keys?: string[];
+  dominant_interest_keys?: string[];
+  resume_bias_keys?: string[];
+  memory_rewrite_keys?: string[];
+  memory_rewrite_reason?: string;
+  memory_confidence?: number;
+  memory_window?: {
+    days?: number;
+    attempt_count?: number;
+    event_count?: number;
+    [key: string]: unknown;
+  } | null;
+  memory_evidence?: Record<string, unknown> | null;
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -969,6 +993,7 @@ export type MbtiPersonalizationRaw = {
   action_journey_v1?: MbtiActionJourneyRaw | null;
   pulse_check_v1?: MbtiPulseCheckRaw | null;
   intra_type_profile_v1?: MbtiIntraTypeProfileRaw | null;
+  longitudinal_memory_v1?: MbtiLongitudinalMemoryRaw | null;
   profile_seed_key?: string;
   same_type_divergence_keys?: string[];
   section_selection_keys?: Record<string, string>;
