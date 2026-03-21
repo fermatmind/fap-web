@@ -5,6 +5,7 @@ import type { MbtiCompareParticipantRaw, PrivateMbtiRelationshipResponse } from 
 
 const hoisted = vi.hoisted(() => ({
   getPrivateMbtiRelationship: vi.fn(),
+  mutatePrivateMbtiRelationshipConsent: vi.fn(),
   trackEvent: vi.fn(),
 }));
 
@@ -14,6 +15,7 @@ vi.mock("@/lib/api/v0_3", async () => {
   return {
     ...actual,
     getPrivateMbtiRelationship: hoisted.getPrivateMbtiRelationship,
+    mutatePrivateMbtiRelationshipConsent: hoisted.mutatePrivateMbtiRelationshipConsent,
   };
 });
 
@@ -122,8 +124,11 @@ function createPrivateRelationshipFixture(): PrivateMbtiRelationshipResponse {
       consent_scope: "private_relationship_protected",
       access_state: "private_access_ready",
       consent_state: "purchased",
-      revocation_state: "not_supported_yet",
-      expiry_state: "not_enforced_yet",
+      consent_fingerprint: "consent-fingerprint-001",
+      consent_refresh_required: false,
+      private_relationship_access_version: "private.relationship.access.v1",
+      revocation_state: "active",
+      expiry_state: "active",
       subject_join_mode: "share_compare_invite_purchased",
       accepted_at: "2026-03-21T00:00:00.000Z",
       completed_at: "2026-03-21T00:05:00.000Z",
@@ -152,6 +157,7 @@ function createPrivateRelationshipFixture(): PrivateMbtiRelationshipResponse {
 describe("MBTI private relationship consumer contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.mutatePrivateMbtiRelationshipConsent.mockResolvedValue(createPrivateRelationshipFixture());
   });
 
   it("renders protected relationship summary and tracks impression and CTA click", async () => {
@@ -167,6 +173,8 @@ describe("MBTI private relationship consumer contract", () => {
     expect(screen.getByTestId("mbti-private-invitee-card")).toHaveTextContent("Advocate");
     expect(screen.getByTestId("mbti-private-relationship-card")).toHaveTextContent("Private relationship sync");
     expect(screen.getByTestId("mbti-private-action-card")).toHaveTextContent("Name the decision rule first");
+    expect(screen.getByTestId("mbti-private-consent-card")).toHaveTextContent("Consent version");
+    expect(screen.getByTestId("mbti-private-consent-fingerprint")).toHaveTextContent("consent-fingerprint-001");
 
     await waitFor(() => {
       expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -177,6 +185,11 @@ describe("MBTI private relationship consumer contract", () => {
           relationshipContractVersion: "private.relationship.v1",
           consentScope: "private_relationship_protected",
           consentState: "purchased",
+          consentFingerprint: "consent-fingerprint-001",
+          consentArtifactVersion: "dyadic.consent.v1",
+          privateRelationshipAccessVersion: "private.relationship.access.v1",
+          revocationState: "active",
+          expiryState: "active",
           accessState: "private_access_ready",
         })
       );
@@ -193,6 +206,45 @@ describe("MBTI private relationship consumer contract", () => {
         accessState: "private_access_ready",
       })
     );
+  });
+
+  it("supports revoke mutation and re-renders a restricted lifecycle state", async () => {
+    const revokedFixture = createPrivateRelationshipFixture();
+    revokedFixture.private_relationship_v1 = {
+      ...revokedFixture.private_relationship_v1,
+      access_state: "private_access_revoked",
+      overview: {
+        title: "Private relationship access has tightened",
+        summary: "One participant revoked private relationship access.",
+      },
+      private_sync_sections: [],
+      private_action_prompt: null,
+    };
+    revokedFixture.dyadic_consent_v1 = {
+      ...revokedFixture.dyadic_consent_v1,
+      access_state: "private_access_revoked",
+      revocation_state: "revoked_by_subject",
+    };
+    hoisted.getPrivateMbtiRelationship.mockResolvedValue(createPrivateRelationshipFixture());
+    hoisted.mutatePrivateMbtiRelationshipConsent.mockResolvedValue(revokedFixture);
+
+    render(<PrivateRelationshipClient locale="en" inviteId="invite-private-123" />);
+
+    await screen.findByTestId("mbti-private-consent-revoke");
+    fireEvent.click(screen.getByTestId("mbti-private-consent-revoke"));
+
+    await waitFor(() => {
+      expect(hoisted.mutatePrivateMbtiRelationshipConsent).toHaveBeenCalledWith({
+        inviteId: "invite-private-123",
+        action: "revoke_access",
+        locale: "en",
+      });
+    });
+
+    await screen.findByTestId("mbti-private-revocation-badge");
+    expect(screen.getByTestId("mbti-private-access-badge")).toHaveTextContent("Private access revoked");
+    expect(screen.getByTestId("mbti-private-revocation-badge")).toHaveTextContent("revoked_by_subject");
+    expect(screen.queryByTestId("mbti-private-action-card")).not.toBeInTheDocument();
   });
 
   it("renders an access-safe error when the user is not a participant", async () => {
