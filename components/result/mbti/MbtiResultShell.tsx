@@ -45,6 +45,9 @@ import {
   resolveMbtiCarryoverFocusLabel,
   resolveMbtiCarryoverReasonLabel,
 } from "@/lib/mbti/continuity";
+import {
+  resolveMbtiMemoryRewriteReasonLabel,
+} from "@/lib/mbti/longitudinalMemory";
 import { captureError } from "@/lib/observability/sentry";
 import {
   buildMbtiCareerRecommendationHref,
@@ -73,6 +76,15 @@ import {
   summarizeMbtiJourneyScope,
   summarizeMbtiJourneyState,
   summarizeMbtiLastDeepReadSection,
+  summarizeMbtiMemoryContractVersion,
+  summarizeMbtiMemoryFingerprint,
+  summarizeMbtiMemoryProgressionState,
+  summarizeMbtiMemoryRewriteKeys,
+  summarizeMbtiMemoryRewriteReason,
+  summarizeMbtiMemoryScope,
+  summarizeMbtiMemoryState,
+  summarizeMbtiBehaviorDeltaKeys,
+  summarizeMbtiDominantInterestKeys,
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
@@ -83,8 +95,10 @@ import {
   summarizeMbtiRecommendationPriorityKeys,
   summarizeMbtiRecommendationSelectionKeys,
   summarizeMbtiRecommendedNextPulseKeys,
+  summarizeMbtiResumeBiasKeys,
   summarizeMbtiRevisitReorderReason,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSectionHistoryKeys,
   summarizeMbtiSectionSelectionKeys,
   summarizeMbtiSelectionFingerprint,
   summarizeMbtiActionSelectionKeys,
@@ -756,6 +770,17 @@ export function MbtiResultShell({
   const actionSelectionKeysSummary = summarizeMbtiActionSelectionKeys(personalization);
   const recommendationSelectionKeysSummary = summarizeMbtiRecommendationSelectionKeys(personalization);
   const selectionFingerprintSummary = summarizeMbtiSelectionFingerprint(personalization);
+  const memoryContractVersionSummary = summarizeMbtiMemoryContractVersion(personalization);
+  const memoryFingerprintSummary = summarizeMbtiMemoryFingerprint(personalization);
+  const memoryScopeSummary = summarizeMbtiMemoryScope(personalization);
+  const memoryStateSummary = summarizeMbtiMemoryState(personalization);
+  const memoryProgressionStateSummary = summarizeMbtiMemoryProgressionState(personalization);
+  const sectionHistoryKeysSummary = summarizeMbtiSectionHistoryKeys(personalization);
+  const behaviorDeltaKeysSummary = summarizeMbtiBehaviorDeltaKeys(personalization);
+  const dominantInterestKeysSummary = summarizeMbtiDominantInterestKeys(personalization);
+  const resumeBiasKeysSummary = summarizeMbtiResumeBiasKeys(personalization);
+  const memoryRewriteKeysSummary = summarizeMbtiMemoryRewriteKeys(personalization);
+  const memoryRewriteReasonSummary = summarizeMbtiMemoryRewriteReason(personalization);
   const journeyContractVersionSummary = summarizeMbtiJourneyContractVersion(personalization);
   const journeyFingerprintSummary = summarizeMbtiJourneyFingerprint(personalization);
   const journeyScopeSummary = summarizeMbtiJourneyScope(personalization);
@@ -773,6 +798,7 @@ export function MbtiResultShell({
   const actionPlanSummary = normalizeText(personalization?.actionPlanSummary);
   const actionJourney = personalization?.actionJourney ?? null;
   const pulseCheck = personalization?.pulseCheck ?? null;
+  const longitudinalMemory = personalization?.longitudinalMemory ?? null;
   const personalizationEngineVersion = normalizeText(
     personalization?.engineVersion,
     reportMeta?.report_engine_version
@@ -817,6 +843,7 @@ export function MbtiResultShell({
   const pulsePromptLabels = (pulseCheck?.pulsePromptKeys ?? []).map((key) =>
     resolveMbtiPulsePromptLabel(key, locale)
   );
+  const memoryRewriteLabel = resolveMbtiMemoryRewriteReasonLabel(memoryRewriteReasonSummary, locale);
   const carryoverEntryHref = normalizeText(
     carryoverFocusKey.startsWith("career.") ? continuityCareerHref : "",
     isUnlockedPostPurchase ? continuityWorkspaceHref : "",
@@ -913,6 +940,17 @@ export function MbtiResultShell({
     actionSelectionKeys: actionSelectionKeysSummary,
     recommendationSelectionKeys: recommendationSelectionKeysSummary,
     selectionFingerprint: selectionFingerprintSummary,
+    memoryContractVersion: memoryContractVersionSummary,
+    memoryFingerprint: memoryFingerprintSummary,
+    memoryScope: memoryScopeSummary,
+    memoryState: memoryStateSummary,
+    memoryProgressionState: memoryProgressionStateSummary,
+    sectionHistoryKeys: sectionHistoryKeysSummary,
+    behaviorDeltaKeys: behaviorDeltaKeysSummary,
+    dominantInterestKeys: dominantInterestKeysSummary,
+    resumeBiasKeys: resumeBiasKeysSummary,
+    memoryRewriteKeys: memoryRewriteKeysSummary,
+    memoryRewriteReason: memoryRewriteReasonSummary,
     journeyContractVersion: journeyContractVersionSummary,
     journeyFingerprint: journeyFingerprintSummary,
     journeyScope: journeyScopeSummary,
@@ -1471,6 +1509,9 @@ export function MbtiResultShell({
       data-profile-seed-key={profileSeedKeySummary || undefined}
       data-selection-fingerprint={selectionFingerprintSummary || undefined}
       data-same-type-divergence-keys={sameTypeDivergenceKeysSummary || undefined}
+      data-memory-fingerprint={memoryFingerprintSummary || undefined}
+      data-memory-state={memoryStateSummary || undefined}
+      data-memory-rewrite-reason={memoryRewriteReasonSummary || undefined}
       className="relative space-y-6 pb-28 md:space-y-8 xl:pb-0"
       onClickCapture={handleOfferAnchorClickCapture}
     >
@@ -1575,6 +1616,29 @@ export function MbtiResultShell({
                           {calibrationNarrativeSummary ? (
                             <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
                               {calibrationNarrativeSummary}
+                            </p>
+                          ) : null}
+                        </div>
+                      ) : null}
+                      {longitudinalMemory ? (
+                        <div
+                          data-testid="mbti-longitudinal-memory"
+                          data-memory-fingerprint={memoryFingerprintSummary || undefined}
+                          data-memory-state={memoryStateSummary || undefined}
+                          data-memory-rewrite-reason={memoryRewriteReasonSummary || undefined}
+                          className="rounded-2xl border border-emerald-100 bg-emerald-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+                        >
+                          <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                            {locale === "zh" ? "长期记忆已生效" : "Longitudinal memory active"}
+                          </p>
+                          <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                            {memoryRewriteLabel}
+                          </p>
+                          {(resumeBiasKeysSummary || dominantInterestKeysSummary) ? (
+                            <p className="m-0 mt-2 whitespace-pre-wrap text-xs leading-6 text-slate-600">
+                              {locale === "zh"
+                                ? `延续重点：${resumeBiasKeysSummary || "未显式给出"} · 持续关注：${dominantInterestKeysSummary || "未显式给出"}`
+                                : `Resume bias: ${resumeBiasKeysSummary || "not explicit"} · Dominant interests: ${dominantInterestKeysSummary || "not explicit"}`}
                             </p>
                           ) : null}
                         </div>

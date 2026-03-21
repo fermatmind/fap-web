@@ -8,6 +8,7 @@ import type {
   MbtiActionJourneyRaw,
   MbtiCrossAssessmentRaw,
   MbtiIntraTypeProfileRaw,
+  MbtiLongitudinalMemoryRaw,
   MbtiReadContractRaw,
   MbtiPersonalizationRaw,
   MbtiPulseCheckRaw,
@@ -328,6 +329,28 @@ export type MbtiIntraTypeProfileViewModel = {
   personaClusterKey: string;
 };
 
+export type MbtiLongitudinalMemoryViewModel = {
+  version: string;
+  memoryContractVersion: string;
+  memoryFingerprint: string;
+  memoryScope: string;
+  memoryState: string;
+  progressionState: string;
+  sectionHistoryKeys: string[];
+  behaviorDeltaKeys: string[];
+  dominantInterestKeys: string[];
+  resumeBiasKeys: string[];
+  memoryRewriteKeys: string[];
+  memoryRewriteReason: string;
+  memoryConfidence: number | null;
+  memoryWindow: {
+    days: number | null;
+    attemptCount: number | null;
+    eventCount: number | null;
+  } | null;
+  memoryEvidence: Record<string, unknown> | null;
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -375,6 +398,7 @@ export type MbtiResultPersonalizationViewModel = {
   actionJourney: MbtiActionJourneyViewModel | null;
   pulseCheck: MbtiPulseCheckViewModel | null;
   intraTypeProfile: MbtiIntraTypeProfileViewModel | null;
+  longitudinalMemory: MbtiLongitudinalMemoryViewModel | null;
   profileSeedKey: string;
   sameTypeDivergenceKeys: string[];
   sectionSelectionKeys: Record<string, string>;
@@ -854,6 +878,7 @@ function normalizePersonalization(
   const actionJourneyRecord = asRecord(personalization.action_journey_v1) as MbtiActionJourneyRaw | null;
   const pulseCheckRecord = asRecord(personalization.pulse_check_v1) as MbtiPulseCheckRaw | null;
   const intraTypeProfileRecord = asRecord(personalization.intra_type_profile_v1) as MbtiIntraTypeProfileRaw | null;
+  const longitudinalMemoryRecord = asRecord(personalization.longitudinal_memory_v1) as MbtiLongitudinalMemoryRaw | null;
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -961,6 +986,7 @@ function normalizePersonalization(
     actionJourney: normalizeActionJourney(actionJourneyRecord),
     pulseCheck: normalizePulseCheck(pulseCheckRecord),
     intraTypeProfile: normalizeIntraTypeProfile(intraTypeProfileRecord),
+    longitudinalMemory: normalizeLongitudinalMemory(longitudinalMemoryRecord),
     profileSeedKey: normalizeText(personalization.profile_seed_key),
     sameTypeDivergenceKeys: normalizeStringArray(personalization.same_type_divergence_keys),
     sectionSelectionKeys: Object.fromEntries(
@@ -1087,6 +1113,80 @@ function normalizeIntraTypeProfile(
     selectionFingerprint,
     selectionEvidence,
     personaClusterKey: normalizeText(rawProfile.persona_cluster_key, profileSeedKey),
+  };
+}
+
+function normalizeLongitudinalMemory(
+  rawMemory: MbtiLongitudinalMemoryRaw | null
+): MbtiLongitudinalMemoryViewModel | null {
+  if (!rawMemory) {
+    return null;
+  }
+
+  const version = normalizeText(rawMemory.version, rawMemory.memory_contract_version);
+  const memoryContractVersion = normalizeText(rawMemory.memory_contract_version, rawMemory.version);
+  const memoryFingerprint = normalizeText(rawMemory.memory_fingerprint);
+  const memoryScope = normalizeText(rawMemory.memory_scope);
+  const memoryState = normalizeText(rawMemory.memory_state);
+  const progressionState = normalizeText(rawMemory.progression_state);
+  const sectionHistoryKeys = normalizeStringArray(rawMemory.section_history_keys);
+  const behaviorDeltaKeys = normalizeStringArray(rawMemory.behavior_delta_keys);
+  const dominantInterestKeys = normalizeStringArray(rawMemory.dominant_interest_keys);
+  const resumeBiasKeys = normalizeStringArray(rawMemory.resume_bias_keys);
+  const memoryRewriteKeys = normalizeStringArray(rawMemory.memory_rewrite_keys);
+  const memoryRewriteReason = normalizeText(rawMemory.memory_rewrite_reason);
+  const memoryConfidence =
+    typeof rawMemory.memory_confidence === "number" ? rawMemory.memory_confidence : null;
+  const memoryWindowRecord = asRecord(rawMemory.memory_window);
+  const memoryWindow = memoryWindowRecord
+    ? {
+        days: typeof memoryWindowRecord.days === "number" ? memoryWindowRecord.days : null,
+        attemptCount:
+          typeof memoryWindowRecord.attempt_count === "number"
+            ? memoryWindowRecord.attempt_count
+            : null,
+        eventCount:
+          typeof memoryWindowRecord.event_count === "number" ? memoryWindowRecord.event_count : null,
+      }
+    : null;
+  const memoryEvidence = asRecord(rawMemory.memory_evidence);
+
+  if (
+    !version &&
+    !memoryContractVersion &&
+    !memoryFingerprint &&
+    !memoryScope &&
+    !memoryState &&
+    !progressionState &&
+    sectionHistoryKeys.length === 0 &&
+    behaviorDeltaKeys.length === 0 &&
+    dominantInterestKeys.length === 0 &&
+    resumeBiasKeys.length === 0 &&
+    memoryRewriteKeys.length === 0 &&
+    !memoryRewriteReason &&
+    memoryConfidence === null &&
+    !memoryWindow &&
+    !memoryEvidence
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    memoryContractVersion,
+    memoryFingerprint,
+    memoryScope,
+    memoryState,
+    progressionState,
+    sectionHistoryKeys,
+    behaviorDeltaKeys,
+    dominantInterestKeys,
+    resumeBiasKeys,
+    memoryRewriteKeys,
+    memoryRewriteReason,
+    memoryConfidence,
+    memoryWindow,
+    memoryEvidence,
   };
 }
 

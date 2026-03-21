@@ -112,6 +112,18 @@ describe("MBTI shell authored fields contract", () => {
     expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
       "orchestration.primary_focus_key"
     );
+    expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain(
+      "longitudinal_memory_v1"
+    );
+    expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
+      "longitudinal_memory_v1.memory_fingerprint"
+    );
+    expect(viewModel.personalization?.longitudinalMemory?.memoryContractVersion).toBe(
+      "mbti.longitudinal_memory.v1"
+    );
+    expect(viewModel.personalization?.longitudinalMemory?.memoryRewriteReason).toBe(
+      "resume_growth_actions"
+    );
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
@@ -122,6 +134,16 @@ describe("MBTI shell authored fields contract", () => {
       "data-selection-fingerprint",
       "fixture-selection-fingerprint"
     );
+    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
+      "data-memory-fingerprint",
+      "fixture-memory-fingerprint"
+    );
+    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
+      "data-memory-rewrite-reason",
+      "resume_growth_actions"
+    );
+    expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveTextContent("长期记忆已生效");
+    expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveTextContent("成长动作");
     const hero = screen.getByTestId("mbti-hero");
     expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
@@ -394,6 +416,69 @@ describe("MBTI shell authored fields contract", () => {
         pulseState: "not_due",
         pulsePromptKeys: "",
       })
+    );
+  });
+
+  it("renders different visible section content when longitudinal memory rewrites selected blocks", () => {
+    const actionFirst = createReportFixture({
+      isRevisit: true,
+      hasActionEngagement: true,
+      memoryRewriteReason: "resume_growth_actions",
+      memoryState: "active",
+    });
+    const clarityFirst = createReportFixture({
+      isRevisit: true,
+      hasFeedback: true,
+      memoryRewriteReason: "refine_type_clarity",
+      memoryState: "refining",
+    });
+
+    overrideProjectionSectionSelection(
+      actionFirst,
+      "growth.next_actions",
+      [
+        "growth.next_actions.next_action.EI.E",
+        "growth.next_actions.identity.t",
+        "growth.next_actions.boundary.TF",
+      ],
+      "growth.next_actions:memory.resume_growth_actions:mode.memory.action_resume"
+    );
+    overrideProjectionSectionSelection(
+      clarityFirst,
+      "growth.next_actions",
+      [
+        "growth.next_actions.axis_strength.EI.E.clear",
+        "growth.next_actions.boundary.TF",
+      ],
+      "growth.next_actions:memory.refine_type_clarity:mode.memory.action_refine"
+    );
+
+    const { unmount } = render(<RichResultReport locale="zh" reportData={actionFirst} />);
+    const actionSection = screen.getByTestId("mbti-projection-section-growth-next-actions");
+    expect(actionSection).toHaveAttribute(
+      "data-section-selection-key",
+      expect.stringContaining("memory.resume_growth_actions")
+    );
+    expect(actionSection).toHaveTextContent("先把你这周最重要的一次反馈、对话或复盘排进真实日程");
+    expect(actionSection).not.toHaveTextContent("成长动作上，你的外倾已经是清晰入口");
+    expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveAttribute(
+      "data-memory-rewrite-reason",
+      "resume_growth_actions"
+    );
+
+    unmount();
+
+    render(<RichResultReport locale="zh" reportData={clarityFirst} />);
+    const claritySection = screen.getByTestId("mbti-projection-section-growth-next-actions");
+    expect(claritySection).toHaveAttribute(
+      "data-section-selection-key",
+      expect.stringContaining("memory.refine_type_clarity")
+    );
+    expect(claritySection).toHaveTextContent("成长动作上，你的外倾已经是清晰入口");
+    expect(claritySection).not.toHaveTextContent("先把你这周最重要的一次反馈、对话或复盘排进真实日程");
+    expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveAttribute(
+      "data-memory-rewrite-reason",
+      "refine_type_clarity"
     );
   });
 

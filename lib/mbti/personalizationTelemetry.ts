@@ -280,6 +280,90 @@ export function summarizeMbtiSelectionFingerprint(
   );
 }
 
+export function summarizeMbtiMemoryContractVersion(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(
+    personalization?.longitudinalMemory?.memoryContractVersion,
+    personalization?.longitudinalMemory?.version
+  );
+}
+
+export function summarizeMbtiMemoryFingerprint(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.longitudinalMemory?.memoryFingerprint);
+}
+
+export function summarizeMbtiMemoryScope(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.longitudinalMemory?.memoryScope);
+}
+
+export function summarizeMbtiMemoryState(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.longitudinalMemory?.memoryState);
+}
+
+export function summarizeMbtiMemoryProgressionState(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.longitudinalMemory?.progressionState);
+}
+
+export function summarizeMbtiSectionHistoryKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.longitudinalMemory?.sectionHistoryKeys ?? [])
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiBehaviorDeltaKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.longitudinalMemory?.behaviorDeltaKeys ?? [])
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiDominantInterestKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.longitudinalMemory?.dominantInterestKeys ?? [])
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiResumeBiasKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.longitudinalMemory?.resumeBiasKeys ?? [])
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiMemoryRewriteKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.longitudinalMemory?.memoryRewriteKeys ?? [])
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiMemoryRewriteReason(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.longitudinalMemory?.memoryRewriteReason);
+}
+
 export function summarizeMbtiJourneyContractVersion(
   personalization?: MbtiResultPersonalizationViewModel | null
 ): string {

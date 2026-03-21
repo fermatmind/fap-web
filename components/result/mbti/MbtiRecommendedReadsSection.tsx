@@ -19,13 +19,24 @@ import {
   summarizeMbtiFeedbackCoverage,
   summarizeMbtiFeedbackSentiment,
   summarizeMbtiLastDeepReadSection,
+  summarizeMbtiMemoryContractVersion,
+  summarizeMbtiMemoryFingerprint,
+  summarizeMbtiMemoryProgressionState,
+  summarizeMbtiMemoryRewriteKeys,
+  summarizeMbtiMemoryRewriteReason,
+  summarizeMbtiMemoryScope,
+  summarizeMbtiMemoryState,
+  summarizeMbtiBehaviorDeltaKeys,
+  summarizeMbtiDominantInterestKeys,
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiRecommendationPriorityKeys,
   summarizeMbtiRecommendationSelectionKeys,
   summarizeMbtiOrderedSectionKeys,
   summarizeMbtiProfileSeedKey,
+  summarizeMbtiResumeBiasKeys,
   summarizeMbtiSceneFingerprint,
+  summarizeMbtiSectionHistoryKeys,
   summarizeMbtiSelectionFingerprint,
   summarizeMbtiSecondaryFocusKeys,
   summarizeMbtiSectionSelectionKeys,
@@ -89,6 +100,17 @@ export function MbtiRecommendedReadsSection({
   const sameTypeDivergenceKeysSummary = summarizeMbtiSameTypeDivergenceKeys(personalization);
   const profileSeedKey = summarizeMbtiProfileSeedKey(personalization);
   const selectionFingerprint = summarizeMbtiSelectionFingerprint(personalization);
+  const memoryContractVersion = summarizeMbtiMemoryContractVersion(personalization);
+  const memoryFingerprint = summarizeMbtiMemoryFingerprint(personalization);
+  const memoryScope = summarizeMbtiMemoryScope(personalization);
+  const memoryState = summarizeMbtiMemoryState(personalization);
+  const memoryProgressionState = summarizeMbtiMemoryProgressionState(personalization);
+  const sectionHistoryKeys = summarizeMbtiSectionHistoryKeys(personalization);
+  const behaviorDeltaKeys = summarizeMbtiBehaviorDeltaKeys(personalization);
+  const dominantInterestKeys = summarizeMbtiDominantInterestKeys(personalization);
+  const resumeBiasKeys = summarizeMbtiResumeBiasKeys(personalization);
+  const memoryRewriteKeys = summarizeMbtiMemoryRewriteKeys(personalization);
+  const memoryRewriteReason = summarizeMbtiMemoryRewriteReason(personalization);
   const readingFocusKey = normalizeText(personalization?.readingFocusKey);
   const actionFocusKey = normalizeText(personalization?.actionFocusKey);
 
@@ -122,6 +144,17 @@ export function MbtiRecommendedReadsSection({
       sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
       profileSeedKey,
       selectionFingerprint,
+      memoryContractVersion,
+      memoryFingerprint,
+      memoryScope,
+      memoryState,
+      memoryProgressionState,
+      sectionHistoryKeys,
+      behaviorDeltaKeys,
+      dominantInterestKeys,
+      resumeBiasKeys,
+      memoryRewriteKeys,
+      memoryRewriteReason,
       actionPriorityKeys: actionPriorityKeysSummary,
       readingFocusKey,
       actionFocusKey,
@@ -146,6 +179,7 @@ export function MbtiRecommendedReadsSection({
     personalization,
     profileSeedKey,
     readingFocusKey,
+    resumeBiasKeys,
     recommendationSelectionKeysSummary,
     recommendationPriorityKeysSummary,
     sameTypeDivergenceKeysSummary,
@@ -153,6 +187,16 @@ export function MbtiRecommendedReadsSection({
     actionSelectionKeysSummary,
     selectionFingerprint,
     sortedReadEntries.length,
+    memoryContractVersion,
+    memoryFingerprint,
+    memoryScope,
+    memoryState,
+    memoryProgressionState,
+    sectionHistoryKeys,
+    behaviorDeltaKeys,
+    dominantInterestKeys,
+    memoryRewriteKeys,
+    memoryRewriteReason,
   ]);
 
   useEffect(() => {
@@ -187,6 +231,17 @@ export function MbtiRecommendedReadsSection({
         sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
         profileSeedKey,
         selectionFingerprint,
+        memoryContractVersion,
+        memoryFingerprint,
+        memoryScope,
+        memoryState,
+        memoryProgressionState,
+        sectionHistoryKeys,
+        behaviorDeltaKeys,
+        dominantInterestKeys,
+        resumeBiasKeys,
+        memoryRewriteKeys,
+        memoryRewriteReason,
         actionPriorityKeys: actionPriorityKeysSummary,
         readingFocusKey,
         actionFocusKey,
@@ -216,6 +271,7 @@ export function MbtiRecommendedReadsSection({
     personalization,
     profileSeedKey,
     readingFocusKey,
+    resumeBiasKeys,
     recommendationSelectionKeysSummary,
     recommendationPriorityKeysSummary,
     sameTypeDivergenceKeysSummary,
@@ -223,6 +279,16 @@ export function MbtiRecommendedReadsSection({
     actionSelectionKeysSummary,
     selectionFingerprint,
     sortedReadEntries,
+    memoryContractVersion,
+    memoryFingerprint,
+    memoryScope,
+    memoryState,
+    memoryProgressionState,
+    sectionHistoryKeys,
+    behaviorDeltaKeys,
+    dominantInterestKeys,
+    memoryRewriteKeys,
+    memoryRewriteReason,
   ]);
 
   if (sortedReadEntries.length === 0) {
@@ -235,6 +301,9 @@ export function MbtiRecommendedReadsSection({
       data-profile-seed-key={profileSeedKey || undefined}
       data-selection-fingerprint={selectionFingerprint || undefined}
       data-recommendation-selection-keys={recommendationSelectionKeysSummary || undefined}
+      data-memory-fingerprint={memoryFingerprint || undefined}
+      data-memory-state={memoryState || undefined}
+      data-memory-rewrite-reason={memoryRewriteReason || undefined}
       className="space-y-4 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
     >
       <div className="space-y-2">
