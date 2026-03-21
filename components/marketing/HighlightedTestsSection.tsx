@@ -78,6 +78,16 @@ export function HighlightedTestsSection({
             {featuredCard ? (
               <article className="fm-home-featured-test">
                 <div className="space-y-[var(--fm-gap-sm)]">
+                  {(() => {
+                    const titleDisplay = formatCardTitleForUi({
+                      title: featuredCard.title,
+                      slug: featuredCard.slug,
+                      locale,
+                      surface: "home_highlighted",
+                    });
+
+                    return (
+                      <>
                   <div className="flex flex-wrap items-center gap-[var(--fm-gap-xs)]">
                     {featuredCard.scaleCode ? <Badge>{featuredCard.scaleCode}</Badge> : null}
                     {featuredCard.isClinical ? (
@@ -88,9 +98,25 @@ export function HighlightedTestsSection({
                   </div>
 
                   <h3 className="m-0 max-w-[16ch] font-serif text-4xl font-semibold leading-[1.02] tracking-tight text-white md:text-5xl">
-                    {formatTestTitleForUi(featuredCard.title).plain}
+                    <Link
+                      href={withLocale(`/tests/${featuredCard.slug}`)}
+                      title={titleDisplay.plain}
+                      className="block text-inherit no-underline"
+                    >
+                      {titleDisplay.multilineFallback ? (
+                        <span className="inline-flex flex-col">
+                          <span>{titleDisplay.line1}</span>
+                          <span>{titleDisplay.line2}</span>
+                        </span>
+                      ) : (
+                        titleDisplay.line1
+                      )}
+                    </Link>
                   </h3>
                   <p className="m-0 max-w-[42rem] text-base leading-8 text-blue-50/88">{featuredCard.excerpt}</p>
+                      </>
+                    );
+                  })()}
                 </div>
 
                 <div className="mt-[var(--fm-space-8)] flex flex-wrap items-center gap-[var(--fm-gap-sm)]">
