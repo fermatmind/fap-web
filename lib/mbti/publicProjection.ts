@@ -15,6 +15,7 @@ import type {
   PublicSurfaceRaw,
   ReportResponse,
   ShareSummaryResponse,
+  WidgetSurfaceRaw,
 } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 
@@ -370,6 +371,7 @@ export type MbtiSharePageViewModel = {
   publicSurface: PublicSurfaceViewModel | null;
   insightGraph: InsightGraphViewModel | null;
   embedSurface: EmbedSurfaceViewModel | null;
+  widgetSurface: WidgetSurfaceViewModel | null;
   partnerRead: PartnerReadViewModel | null;
   comparative: ComparativeViewModel | null;
   controlledNarrative: ControlledNarrativeViewModel | null;
@@ -428,6 +430,27 @@ export type EmbedSurfaceViewModel = {
   allowedNodeIds: string[];
   embedFingerprint: string;
   renderMode: string;
+};
+
+export type WidgetSurfaceViewModel = {
+  version: string;
+  widgetScope: string;
+  widgetContractVersion: string;
+  surfaceKey: string;
+  hostMode: string;
+  slotKey: string;
+  sizePreset: string;
+  entrySurface: string;
+  title: string;
+  summary: string;
+  primaryCtaLabel: string;
+  primaryCtaPath: string;
+  continueTarget: string;
+  allowedNodeIds: string[];
+  allowedEdgeTypes: string[];
+  graphFingerprint: string;
+  embedFingerprint: string;
+  attributionScope: string;
 };
 
 export type PartnerReadViewModel = {
@@ -1251,6 +1274,75 @@ function normalizePartnerRead(rawPartnerRead: PartnerReadRaw | null): PartnerRea
   };
 }
 
+function normalizeWidgetSurface(rawWidgetSurface: WidgetSurfaceRaw | null): WidgetSurfaceViewModel | null {
+  if (!rawWidgetSurface) {
+    return null;
+  }
+
+  const version = normalizeText(rawWidgetSurface.version);
+  const widgetScope = normalizeText(rawWidgetSurface.widget_scope);
+  const widgetContractVersion = normalizeText(rawWidgetSurface.widget_contract_version);
+  const surfaceKey = normalizeText(rawWidgetSurface.surface_key);
+  const hostMode = normalizeText(rawWidgetSurface.host_mode);
+  const slotKey = normalizeText(rawWidgetSurface.slot_key);
+  const sizePreset = normalizeText(rawWidgetSurface.size_preset);
+  const entrySurface = normalizeText(rawWidgetSurface.entry_surface);
+  const title = normalizeText(rawWidgetSurface.title);
+  const summary = normalizeText(rawWidgetSurface.summary);
+  const primaryCtaLabel = normalizeText(rawWidgetSurface.primary_cta_label);
+  const primaryCtaPath = normalizeText(rawWidgetSurface.primary_cta_path);
+  const continueTarget = normalizeText(rawWidgetSurface.continue_target);
+  const allowedNodeIds = normalizeStringArray(rawWidgetSurface.allowed_node_ids);
+  const allowedEdgeTypes = normalizeStringArray(rawWidgetSurface.allowed_edge_types);
+  const graphFingerprint = normalizeText(rawWidgetSurface.graph_fingerprint);
+  const embedFingerprint = normalizeText(rawWidgetSurface.embed_fingerprint);
+  const attributionScope = normalizeText(rawWidgetSurface.attribution_scope);
+
+  if (
+    !version &&
+    !widgetScope &&
+    !widgetContractVersion &&
+    !surfaceKey &&
+    !hostMode &&
+    !slotKey &&
+    !sizePreset &&
+    !entrySurface &&
+    !title &&
+    !summary &&
+    !primaryCtaLabel &&
+    !primaryCtaPath &&
+    !continueTarget &&
+    allowedNodeIds.length === 0 &&
+    allowedEdgeTypes.length === 0 &&
+    !graphFingerprint &&
+    !embedFingerprint &&
+    !attributionScope
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    widgetScope,
+    widgetContractVersion,
+    surfaceKey,
+    hostMode,
+    slotKey,
+    sizePreset,
+    entrySurface,
+    title,
+    summary,
+    primaryCtaLabel,
+    primaryCtaPath,
+    continueTarget,
+    allowedNodeIds,
+    allowedEdgeTypes,
+    graphFingerprint,
+    embedFingerprint,
+    attributionScope,
+  };
+}
+
 function normalizeShareCard(rawShare?: ShareSummaryResponse | null): MbtiPublicProjectionCardViewModel | null {
   const mbtiCard = normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1);
   if (mbtiCard) {
@@ -1680,6 +1772,7 @@ export function buildSharePageViewModel(
   const sharePublicSurface = normalizePublicSurface(asRecord(rawShare?.public_surface_v1) as PublicSurfaceRaw | null);
   const shareInsightGraph = normalizeInsightGraph(asRecord(rawShare?.insight_graph_v1) as InsightGraphRaw | null);
   const shareEmbedSurface = normalizeEmbedSurface(asRecord(rawShare?.embed_surface_v1) as EmbedSurfaceRaw | null);
+  const shareWidgetSurface = normalizeWidgetSurface(asRecord(rawShare?.widget_surface_v1) as WidgetSurfaceRaw | null);
   const sharePartnerRead = normalizePartnerRead(asRecord(rawShare?.partner_read_v1) as PartnerReadRaw | null);
   const shareComparative =
     normalizeComparative(asRecord(rawShare?.comparative_v1) as ComparativeRaw | null) ??
@@ -1738,6 +1831,7 @@ export function buildSharePageViewModel(
     publicSurface: sharePublicSurface,
     insightGraph: shareInsightGraph,
     embedSurface: shareEmbedSurface,
+    widgetSurface: shareWidgetSurface,
     partnerRead: sharePartnerRead,
     comparative: shareComparative,
     controlledNarrative: shareControlledNarrative,

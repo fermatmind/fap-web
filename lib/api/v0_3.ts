@@ -446,6 +446,28 @@ export type EmbedSurfaceRaw = {
   [key: string]: unknown;
 };
 
+export type WidgetSurfaceRaw = {
+  version?: string;
+  widget_scope?: string;
+  widget_contract_version?: string;
+  surface_key?: string;
+  host_mode?: string;
+  slot_key?: string;
+  size_preset?: string;
+  entry_surface?: string;
+  title?: string;
+  summary?: string;
+  primary_cta_label?: string;
+  primary_cta_path?: string;
+  continue_target?: string;
+  allowed_node_ids?: string[];
+  allowed_edge_types?: string[];
+  graph_fingerprint?: string;
+  embed_fingerprint?: string;
+  attribution_scope?: string;
+  [key: string]: unknown;
+};
+
 export type PartnerReadRaw = {
   version?: string;
   graph_scope?: string;
@@ -1007,6 +1029,7 @@ export type ShareSummaryResponse = {
   public_surface_v1?: PublicSurfaceRaw | null;
   insight_graph_v1?: InsightGraphRaw | null;
   embed_surface_v1?: EmbedSurfaceRaw | null;
+  widget_surface_v1?: WidgetSurfaceRaw | null;
   partner_read_v1?: PartnerReadRaw | null;
   [key: string]: unknown;
 };

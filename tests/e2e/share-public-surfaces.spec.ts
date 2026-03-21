@@ -113,6 +113,26 @@ test("Big Five share page exposes only the public-safe acquisition surface", asy
           embed_fingerprint: "share-big5-embed-fingerprint",
           render_mode: "card",
         },
+        widget_surface_v1: {
+          version: "widget.surface.v1",
+          widget_scope: "public_share_safe",
+          widget_contract_version: "widget.surface.v1",
+          surface_key: "big5_share_embed_card",
+          host_mode: "card",
+          slot_key: "public_share_primary",
+          size_preset: "summary_card",
+          entry_surface: "big5_share_landing",
+          title: "Big Five public summary",
+          summary: "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report.",
+          primary_cta_label: "Take the test",
+          primary_cta_path: "/en/tests/big-five-personality-test-ocean-model",
+          continue_target: "traits.overview",
+          allowed_node_ids: ["result_summary", "narrative", "comparative", "continue_reading"],
+          allowed_edge_types: ["supports"],
+          graph_fingerprint: "share-big5-graph-fingerprint",
+          embed_fingerprint: "share-big5-embed-fingerprint",
+          attribution_scope: "share_public_surface",
+        },
         partner_read_v1: {
           version: "partner.read.v1",
           graph_scope: "public_share_safe",
@@ -137,9 +157,10 @@ test("Big Five share page exposes only the public-safe acquisition surface", asy
   await expect(page.getByTestId("share-public-insight-grid")).toContainText(
     "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report."
   );
-  await expect(page.getByTestId("share-embed-surface")).toContainText("Embeddable insight graph");
+  await expect(page.getByTestId("share-widget-surface")).toContainText("Embeddable insight widget");
   await expect(page.getByTestId("share-partner-read-scope")).toContainText("partner_public_read");
-  await expect(page.getByTestId("share-embed-node-list")).toContainText("Big Five public summary");
+  await expect(page.getByTestId("share-widget-node-list")).toContainText("Big Five public summary");
+  await expect(page.getByTestId("share-widget-host-meta")).toContainText("public_share_primary");
   await expect(page.getByTestId("share-public-continue-entry")).toContainText("Continue into the full result path");
   await expect(page.getByTestId("share-public-continue-cta")).toHaveAttribute(
     "href",
