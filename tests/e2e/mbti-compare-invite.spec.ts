@@ -117,6 +117,76 @@ function createCompareFixture(status: "pending" | "ready" | "purchased", inviteI
           ],
           paid_sections: [{ title: "Should never render" }],
         },
+    relationship_sync_v1: status === "pending"
+      ? {
+          relationship_contract_version: "relationship.sync.v1",
+          relationship_fingerprint_version: "relationship.sync.fp.v1",
+          relationship_fingerprint: "relationship-fingerprint-pending",
+          dyadic_scope: "public_compare_invite_safe",
+          subject_join_mode: "share_compare_invite_pending",
+          dyadic_action_prompt_keys: ["dyadic_action.complete_compare_invite"],
+          overview: {
+            title: "Waiting for the second side",
+            summary: "The invite is active. A relationship sync summary appears only after the invitee finishes MBTI.",
+          },
+          sections: [],
+          action_prompt: {
+            key: "dyadic_action.complete_compare_invite",
+            title: "Complete the compare first",
+            summary: "The next meaningful step is for the invitee to finish MBTI so the sync layer can be generated.",
+            cta_label: "Continue the compare invite",
+            cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
+          },
+        }
+      : {
+          relationship_contract_version: "relationship.sync.v1",
+          relationship_fingerprint_version: "relationship.sync.fp.v1",
+          relationship_fingerprint: `relationship-fingerprint-${status}`,
+          dyadic_scope: "public_compare_invite_safe",
+          subject_join_mode: "share_compare_invite_joined",
+          shared_count: 2,
+          diverging_count: 2,
+          friction_keys: ["friction.energy_mismatch"],
+          complement_keys: ["complement.heart_head_balance"],
+          communication_bridge_keys: ["communication_bridge.energy_pacing"],
+          decision_tension_keys: ["decision_tension.logic_vs_empathy"],
+          stress_interplay_keys: ["stress_interplay.shared_recovery_rhythm"],
+          dyadic_action_prompt_keys: ["dyadic_action.name_decision_rule"],
+          overview: {
+            title: "Relationship sync summary",
+            summary: "A backend-owned dyadic summary.",
+          },
+          sections: [
+            {
+              key: "communication_bridge",
+              title: "Communication bridge",
+              summary: "Name the response pace.",
+              bullets: ["Say clearly whether you need to think first or speak first."],
+            },
+            {
+              key: "decision_tension",
+              title: "Decision tension",
+              summary: "Name the decision rule.",
+              bullets: ["Before debating conclusions, say what you are optimizing for."],
+            },
+          ],
+          action_prompt: {
+            key: "dyadic_action.name_decision_rule",
+            title: "Name the decision rule first",
+            summary: "Say what each person is optimizing for before debating the answer.",
+          },
+        },
+    dyadic_graph_v1: {
+      graph_contract_version: "dyadic.graph.v1",
+      graph_scope: "public_compare_invite_safe",
+      graph_fingerprint: `dyadic-graph-${status}`,
+      root_node: "relationship_sync",
+      supporting_scales: ["MBTI"],
+      nodes: [
+        { id: "relationship_sync", kind: "relationship_sync", title: "Relationship sync summary", summary: "A backend-owned dyadic summary." },
+      ],
+      edges: [],
+    },
     primary_cta_label: "Take the MBTI test",
     primary_cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
   };
@@ -144,6 +214,8 @@ test("pending compare page renders inviter summary and CTA only", async ({ page 
   await expect(page.getByText("Legacy type should be ignored")).toHaveCount(0);
   await expect(page.getByTestId("mbti-compare-invitee-card")).toHaveCount(0);
   await expect(page.getByTestId("mbti-compare-summary-card")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-dyadic-sync-card")).toContainText("Waiting for the second side");
+  await expect(page.getByTestId("mbti-dyadic-action-card")).toContainText("Complete the compare first");
   await expect(page.getByRole("link", { name: "Take the MBTI test" })).toHaveAttribute(
     "href",
     `/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&compare_invite_id=${inviteId}&entrypoint=compare_invite_page&landing_path=%2Fen%2Fcompare%2Fmbti%2F${inviteId}&referrer=http%3A%2F%2F127.0.0.1%3A3000%2Fen%2Fshare%2Fshare-123&compare_intent=true`
@@ -170,6 +242,9 @@ test("ready and purchased compare pages render public-safe compare data without 
   await expect(page.getByTestId("mbti-compare-invitee-card")).toContainText("Advocate");
   await expect(page.getByTestId("mbti-compare-invitee-card")).toContainText("INFJ-A");
   await expect(page.getByTestId("mbti-compare-summary-card")).toContainText("Shared chemistry and friction points");
+  await expect(page.getByTestId("mbti-dyadic-sync-card")).toContainText("Relationship sync summary");
+  await expect(page.getByTestId("mbti-dyadic-action-card")).toContainText("Name the decision rule first");
+  await expect(page.getByTestId("mbti-dyadic-section-communication_bridge")).toBeVisible();
   await expect(page.getByText("Energy", { exact: true })).toBeVisible();
   await expect(page.getByText("Decision style", { exact: true })).toBeVisible();
   await expect(page.getByText("Legacy summary should be ignored")).toHaveCount(0);

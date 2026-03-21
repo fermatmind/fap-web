@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import MbtiShareSummaryCard from "@/components/share/MbtiShareSummaryCard";
 import { Badge } from "@/components/ui/badge";
@@ -30,14 +32,20 @@ export default function MbtiCompareInviteView({
   locale,
   viewModel,
   primaryCtaHref,
+  onRelationshipSectionClick,
+  onActionPromptClick,
 }: {
   locale: Locale;
   viewModel: MbtiCompareInviteViewModel;
   primaryCtaHref?: string;
+  onRelationshipSectionClick?: (sectionKey: string) => void;
+  onActionPromptClick?: (actionKey: string) => void;
 }) {
   const statusBadge = resolveStatusBadge(viewModel.status, locale);
   const showReadyContent = viewModel.status === "ready" || viewModel.status === "purchased";
   const compareSummary = viewModel.compareSummary;
+  const relationshipSync = viewModel.relationshipSync;
+  const actionPromptHref = relationshipSync?.actionPrompt?.ctaPath || "#mbti-dyadic-sync-card";
 
   return (
     <main data-testid="mbti-compare-invite-view" className="mx-auto w-full max-w-6xl px-4 py-10 md:px-6 md:py-14">
@@ -154,6 +162,129 @@ export default function MbtiCompareInviteView({
                       ) : null}
                     </div>
                   ))}
+                </div>
+              ) : null}
+            </CardContent>
+          </Card>
+        ) : null}
+
+        {relationshipSync ? (
+          <Card
+            id="mbti-dyadic-sync-card"
+            data-testid="mbti-dyadic-sync-card"
+            className="border-white/80 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+          >
+            <CardHeader className="space-y-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge className="border-sky-200 bg-sky-50 text-sky-800">
+                  {locale === "zh" ? "关系同步" : "Relationship sync"}
+                </Badge>
+                {relationshipSync.scope ? (
+                  <Badge data-testid="mbti-dyadic-sync-scope" className="border-slate-200 bg-white text-slate-700">
+                    {relationshipSync.scope}
+                  </Badge>
+                ) : null}
+                {relationshipSync.subjectJoinMode ? (
+                  <Badge className="border-slate-200 bg-white text-slate-700">
+                    {relationshipSync.subjectJoinMode}
+                  </Badge>
+                ) : null}
+              </div>
+              <CardTitle className="text-xl text-slate-950">
+                {relationshipSync.overviewTitle || (locale === "zh" ? "双人关系同步" : "Relationship sync")}
+              </CardTitle>
+              {relationshipSync.overviewSummary ? (
+                <p className="m-0 text-sm leading-7 text-slate-600">{relationshipSync.overviewSummary}</p>
+              ) : null}
+            </CardHeader>
+            <CardContent className="space-y-5">
+              {(relationshipSync.sharedCount !== null || relationshipSync.divergingCount !== null) ? (
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-emerald-100 bg-emerald-50/70 p-4">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                      {locale === "zh" ? "共享模式" : "Shared patterns"}
+                    </p>
+                    <p className="m-0 mt-2 text-2xl font-semibold text-slate-950">{relationshipSync.sharedCount ?? "--"}</p>
+                  </div>
+                  <div className="rounded-2xl border border-amber-100 bg-amber-50/70 p-4">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">
+                      {locale === "zh" ? "张力线索" : "Tension signals"}
+                    </p>
+                    <p className="m-0 mt-2 text-2xl font-semibold text-slate-950">{relationshipSync.divergingCount ?? "--"}</p>
+                  </div>
+                </div>
+              ) : null}
+
+              {relationshipSync.sections.length > 0 ? (
+                <div className="grid gap-3 lg:grid-cols-2">
+                  {relationshipSync.sections.map((section, index) => (
+                    <button
+                      key={section.key}
+                      type="button"
+                      data-testid={`mbti-dyadic-section-${section.key}`}
+                      onClick={() => onRelationshipSectionClick?.(section.key)}
+                      className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-left transition hover:border-slate-300 hover:bg-slate-50"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="space-y-1">
+                          <p className="m-0 text-base font-semibold text-slate-900">{section.title}</p>
+                          {section.summary ? (
+                            <p className="m-0 text-sm leading-6 text-slate-600">{section.summary}</p>
+                          ) : null}
+                        </div>
+                        <Badge className="border-slate-200 bg-white text-slate-700">{index + 1}</Badge>
+                      </div>
+                      {section.bullets.length > 0 ? (
+                        <div className="mt-3 space-y-2">
+                          {section.bullets.slice(0, 2).map((bullet) => (
+                            <p key={bullet} className="m-0 text-sm leading-6 text-slate-700">
+                              {bullet}
+                            </p>
+                          ))}
+                        </div>
+                      ) : null}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+
+              {relationshipSync.actionPrompt ? (
+                <div
+                  data-testid="mbti-dyadic-action-card"
+                  className="rounded-2xl border border-indigo-200 bg-indigo-50/70 p-5"
+                >
+                  <div className="space-y-2">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-indigo-700">
+                      {locale === "zh" ? "下一步建议" : "Next step"}
+                    </p>
+                    <p className="m-0 text-lg font-semibold text-slate-950">{relationshipSync.actionPrompt.title}</p>
+                    {relationshipSync.actionPrompt.summary ? (
+                      <p className="m-0 text-sm leading-7 text-slate-700">{relationshipSync.actionPrompt.summary}</p>
+                    ) : null}
+                  </div>
+                  <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-600">
+                    {viewModel.dyadicGraph ? (
+                      <span data-testid="mbti-dyadic-graph-meta">
+                        {locale === "zh" ? "图节点" : "Graph nodes"}: {viewModel.dyadicGraph.nodes.length}
+                      </span>
+                    ) : null}
+                    {relationshipSync.fingerprint ? (
+                      <span className="font-mono text-xs text-slate-500">
+                        {relationshipSync.fingerprint.slice(0, 12)}
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="mt-4">
+                    <Link
+                      href={actionPromptHref}
+                      data-testid="mbti-dyadic-action-link"
+                      className={buttonVariants({ className: "min-w-[220px]" })}
+                      onClick={() => onActionPromptClick?.(relationshipSync.actionPrompt?.key || "")}
+                    >
+                      {relationshipSync.actionPrompt.ctaLabel ||
+                        (locale === "zh" ? "查看下一步" : "Use this next step")}
+                    </Link>
+                  </div>
                 </div>
               ) : null}
             </CardContent>

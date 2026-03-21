@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import CompareClient from "@/app/(localized)/[locale]/compare/mbti/[inviteId]/CompareClient";
@@ -11,6 +11,7 @@ const hoisted = vi.hoisted(() => ({
   pathname: "/en/compare/mbti/invite-123",
   search: "",
   getMbtiCompareInvite: vi.fn(),
+  trackEvent: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -26,6 +27,10 @@ vi.mock("@/lib/api/v0_3", async () => {
     getMbtiCompareInvite: hoisted.getMbtiCompareInvite,
   };
 });
+
+vi.mock("@/lib/analytics", () => ({
+  trackEvent: hoisted.trackEvent,
+}));
 
 function createSummaryFixture({
   shareId,
@@ -106,6 +111,42 @@ function createPendingFixture(): MbtiCompareInviteResponse {
       typeName: "Campaigner",
       subtitle: "Warm and imaginative",
     }),
+    relationship_sync_v1: {
+      relationship_contract_version: "relationship.sync.v1",
+      relationship_fingerprint_version: "relationship.sync.fp.v1",
+      relationship_fingerprint: "relationship-fingerprint-pending",
+      dyadic_scope: "public_compare_invite_safe",
+      subject_join_mode: "share_compare_invite_pending",
+      shared_count: null,
+      diverging_count: null,
+      friction_keys: [],
+      complement_keys: [],
+      communication_bridge_keys: [],
+      decision_tension_keys: [],
+      stress_interplay_keys: [],
+      dyadic_action_prompt_keys: ["dyadic_action.complete_compare_invite"],
+      overview: {
+        title: "Waiting for the second side",
+        summary: "The invite is active. A relationship sync summary appears only after the invitee finishes MBTI.",
+      },
+      sections: [],
+      action_prompt: {
+        key: "dyadic_action.complete_compare_invite",
+        title: "Complete the compare first",
+        summary: "The next meaningful step is for the invitee to finish MBTI so the sync layer can be generated.",
+        cta_label: "Continue the compare invite",
+        cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
+      },
+    },
+    dyadic_graph_v1: {
+      graph_contract_version: "dyadic.graph.v1",
+      graph_scope: "public_compare_invite_safe",
+      graph_fingerprint: "dyadic-graph-pending",
+      root_node: "relationship_sync",
+      supporting_scales: ["MBTI"],
+      nodes: [{ id: "relationship_sync", kind: "relationship_sync", title: "Waiting for the second side", summary: "Pending sync." }],
+      edges: [],
+    },
     primary_cta_label: "Take the MBTI test",
     primary_cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
   };
@@ -150,6 +191,56 @@ function createReadyFixture(status: "ready" | "purchased"): MbtiCompareInviteRes
         title: "Private report",
       },
     },
+    relationship_sync_v1: {
+      relationship_contract_version: "relationship.sync.v1",
+      relationship_fingerprint_version: "relationship.sync.fp.v1",
+      relationship_fingerprint: "relationship-fingerprint-ready",
+      dyadic_scope: "public_compare_invite_safe",
+      subject_join_mode: "share_compare_invite_joined",
+      shared_count: 2,
+      diverging_count: 2,
+      friction_keys: ["friction.energy_mismatch"],
+      complement_keys: ["complement.heart_head_balance"],
+      communication_bridge_keys: ["communication_bridge.energy_pacing"],
+      decision_tension_keys: ["decision_tension.logic_vs_empathy"],
+      stress_interplay_keys: ["stress_interplay.shared_recovery_rhythm"],
+      dyadic_action_prompt_keys: ["dyadic_action.name_decision_rule"],
+      overview: {
+        title: "Relationship sync summary",
+        summary: "A backend-owned dyadic summary.",
+      },
+      sections: [
+        {
+          key: "communication_bridge",
+          title: "Communication bridge",
+          summary: "Name the response pace.",
+          bullets: ["Say clearly whether you need to think first or speak first."],
+        },
+        {
+          key: "decision_tension",
+          title: "Decision tension",
+          summary: "Name the decision rule.",
+          bullets: ["Before debating conclusions, say what you are optimizing for."],
+        },
+      ],
+      action_prompt: {
+        key: "dyadic_action.name_decision_rule",
+        title: "Name the decision rule first",
+        summary: "Say what each person is optimizing for before debating the answer.",
+      },
+    },
+    dyadic_graph_v1: {
+      graph_contract_version: "dyadic.graph.v1",
+      graph_scope: "public_compare_invite_safe",
+      graph_fingerprint: "dyadic-graph-ready",
+      root_node: "relationship_sync",
+      supporting_scales: ["MBTI"],
+      nodes: [
+        { id: "relationship_sync", kind: "relationship_sync", title: "Relationship sync summary", summary: "A backend-owned dyadic summary." },
+        { id: "communication_bridge", kind: "communication_bridge", title: "Communication bridge", summary: "Name the response pace." },
+      ],
+      edges: [{ from: "communication_bridge", to: "relationship_sync", relation: "supports" }],
+    },
   };
 }
 
@@ -178,10 +269,23 @@ describe("MBTI compare invite consumer contract", () => {
     expect(screen.getByTestId("mbti-compare-inviter-card")).toHaveTextContent("ENFP-T");
     expect(screen.queryByTestId("mbti-compare-invitee-card")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-compare-summary-card")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-dyadic-sync-card")).toHaveTextContent("Waiting for the second side");
+    expect(screen.getByTestId("mbti-dyadic-action-card")).toHaveTextContent("Complete the compare first");
     expect(screen.getByRole("link", { name: "Take the MBTI test" })).toHaveAttribute(
       "href",
       "/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&compare_invite_id=invite-123&entrypoint=compare_invite_page&landing_path=%2Fen%2Fcompare%2Fmbti%2Finvite-123&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&compare_intent=true"
     );
+    await waitFor(() => {
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_card_impression",
+        expect.objectContaining({
+          visual_kind: "dyadic_relationship_sync",
+          relationshipScope: "public_compare_invite_safe",
+          relationshipContractVersion: "relationship.sync.v1",
+          subjectJoinMode: "share_compare_invite_pending",
+        })
+      );
+    });
   });
 
   it("renders ready state with inviter, invitee, and public compare summary only", async () => {
@@ -199,10 +303,15 @@ describe("MBTI compare invite consumer contract", () => {
     expect(screen.getByTestId("mbti-compare-invitee-card")).toHaveTextContent("Advocate");
     expect(screen.getByTestId("mbti-compare-invitee-card")).toHaveTextContent("INFJ-A");
     expect(screen.getByTestId("mbti-compare-summary-card")).toHaveTextContent("Shared chemistry and friction points");
+    expect(screen.getByTestId("mbti-dyadic-sync-card")).toHaveTextContent("Relationship sync summary");
+    expect(screen.getByTestId("mbti-dyadic-sync-scope")).toHaveTextContent("public_compare_invite_safe");
+    expect(screen.getByTestId("mbti-dyadic-action-card")).toHaveTextContent("Name the decision rule first");
     expect(screen.getByTestId("mbti-compare-summary-card")).toHaveTextContent("Shared axes");
     expect(screen.getByTestId("mbti-compare-summary-card")).toHaveTextContent("Diverging axes");
     expect(screen.getByText("Energy")).toBeInTheDocument();
     expect(screen.getByText("Decision style")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-dyadic-section-communication_bridge")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-dyadic-section-decision_tension")).toBeInTheDocument();
     expect(screen.queryByText("Legacy type should be ignored")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy summary should be ignored")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy tag should be ignored")).not.toBeInTheDocument();
@@ -211,6 +320,26 @@ describe("MBTI compare invite consumer contract", () => {
     expect(screen.queryByText("Paid section should stay hidden")).not.toBeInTheDocument();
     expect(screen.queryByText("Should never render")).not.toBeInTheDocument();
     expect(screen.queryByText("Private report")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByTestId("mbti-dyadic-section-communication_bridge"));
+    fireEvent.click(screen.getByTestId("mbti-dyadic-action-link"));
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_interaction",
+      expect.objectContaining({
+        visual_kind: "dyadic_relationship_section",
+        sectionKey: "communication_bridge",
+        relationshipScope: "public_compare_invite_safe",
+      })
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_interaction",
+      expect.objectContaining({
+        visual_kind: "dyadic_action_prompt",
+        actionKey: "dyadic_action.name_decision_rule",
+        relationshipContractVersion: "relationship.sync.v1",
+      })
+    );
   });
 
   it("renders purchased state with the purchased badge while keeping ready-state compare content", async () => {
