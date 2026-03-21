@@ -1,4 +1,4 @@
-import type { ReportResponse } from "@/lib/api/v0_3";
+import type { ReportRecommendedRead, ReportResponse } from "@/lib/api/v0_3";
 
 type EiBand = "clear" | "strong";
 
@@ -1065,7 +1065,7 @@ function resolveOrderedActionKeys(primaryFocusKey: string): string[] {
   ];
 }
 
-function buildRecommendedReads(): Array<Record<string, unknown>> {
+function buildRecommendedReads(): ReportRecommendedRead[] {
   return [
     {
       id: "read-action",
@@ -1074,6 +1074,7 @@ function buildRecommendedReads(): Array<Record<string, unknown>> {
       title: "Action experiments that keep the result moving",
       desc: "Start with a small weekly experiment that turns this profile into action.",
       url: "https://example.com/read-action",
+      cover: null,
       canonical_url: "https://example.com/read-action",
       cta: "Read the action note",
       priority: 10,
@@ -1090,6 +1091,7 @@ function buildRecommendedReads(): Array<Record<string, unknown>> {
       title: "Career environment alignment",
       desc: "Continue with the work and role-fit cues that match this profile.",
       url: "https://example.com/read-career",
+      cover: null,
       canonical_url: "https://example.com/read-career",
       cta: "Read the career note",
       priority: 20,
@@ -1106,6 +1108,7 @@ function buildRecommendedReads(): Array<Record<string, unknown>> {
       title: "Relationship boundary reading",
       desc: "Read the interaction patterns and boundary cues to use this week.",
       url: "https://example.com/read-relationship",
+      cover: null,
       canonical_url: "https://example.com/read-relationship",
       cta: "Read the relationship note",
       priority: 30,
@@ -1122,6 +1125,7 @@ function buildRecommendedReads(): Array<Record<string, unknown>> {
       title: "Why this type still fits",
       desc: "Read the borderline and explainability layer before changing anything.",
       url: "https://example.com/read-explain",
+      cover: null,
       canonical_url: "https://example.com/read-explain",
       cta: "Read the explainability note",
       priority: 40,

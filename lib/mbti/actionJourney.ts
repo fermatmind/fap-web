@@ -88,7 +88,7 @@ export function buildMbtiActionJourneyQuery(
 
 export function appendMbtiActionJourneyQuery(
   path: string,
-  journey?: MbtiActionJourneyViewModel | null,
+  journey?: MbtiActionJourneyViewModel | MbtiActionJourneyQueryViewModel | null,
   pulseCheck?: MbtiPulseCheckViewModel | null
 ): string {
   const base = normalizeText(path);

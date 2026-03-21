@@ -271,13 +271,8 @@ export default function ShareClient({
     discoverabilityKeys: publicSurface?.discoverabilityKeys ?? [],
   };
   const partnerReadTelemetry = {
-    graphScope: partnerRead?.graphScope || insightGraph?.graphScope || "",
-    graphFingerprint: partnerRead?.graphFingerprint || insightGraph?.graphFingerprint || "",
-    graphContractVersion:
-      partnerRead?.graphContractVersion || insightGraph?.graphContractVersion || "",
     readScope: partnerRead?.readScope || "",
     subjectScope: partnerRead?.subjectScope || "",
-    supportingScales: (partnerRead?.supportingScales ?? insightGraph?.supportingScales ?? []).join("|"),
     attributionScope:
       partnerRead?.attributionScope || publicSurface?.attributionScope || "",
   };

@@ -192,6 +192,7 @@ describe("MBTI checkout wiring contract", () => {
     render(
       <MbtiOfferComparisonSection
         locale="zh"
+        attemptId="attempt-123"
         offers={[
           {
             key: "MBTI_REPORT_FULL",

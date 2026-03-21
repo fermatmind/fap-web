@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
@@ -22,7 +23,9 @@ export async function generateMetadata({
 export default function MbtiHistoryPage() {
   return (
     <main className="mx-auto w-full max-w-5xl px-4 py-8">
-      <MbtiHistoryClient />
+      <Suspense fallback={null}>
+        <MbtiHistoryClient />
+      </Suspense>
     </main>
   );
 }
