@@ -132,6 +132,9 @@ export default function ShareClient({
   const utmQuery = useMemo(() => buildUtmQuery(utm), [utm]);
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
   const viewModel = useMemo(() => buildSharePageViewModel(data), [data]);
+  const publicSurface = viewModel.publicSurface;
+  const comparative = viewModel.comparative;
+  const workingLife = viewModel.workingLife;
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(
     String(viewModel.continuity?.carryoverFocusKey ?? ""),
     locale
@@ -141,10 +144,12 @@ export default function ShareClient({
     locale
   );
   const shareDisplayType = String(viewModel.card?.displayType ?? "").trim();
+  const shareScaleCode = viewModel.scaleCode || "MBTI";
   const continuityTelemetry = useMemo(
     () => buildMbtiContinuityTelemetryFields(viewModel.continuity),
     [viewModel.continuity]
   );
+  const publicSurfaceImpressionTrackedRef = useRef(false);
 
   useEffect(() => {
     let active = true;
@@ -253,6 +258,14 @@ export default function ShareClient({
     return appendMbtiContinuityQuery(attributedPath, viewModel.continuity);
   }, [landingPath, locale, pageReferrer, resolvedShareId, shareClickId, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
 
+  const primaryContinueTarget = publicSurface?.continueReadingKeys[0] || "share_take_flow";
+  const publicSurfaceTelemetry = {
+    entrySurface: publicSurface?.entrySurface || "",
+    attributionScope: publicSurface?.attributionScope || "",
+    publicSummaryFingerprint: publicSurface?.publicSummaryFingerprint || "",
+    discoverabilityKeys: publicSurface?.discoverabilityKeys ?? [],
+  };
+
   useEffect(() => {
     if (!viewModel.continuity || !primaryCtaHref || carryoverImpressionTrackedRef.current) {
       return;
@@ -272,6 +285,54 @@ export default function ShareClient({
       locale,
     });
   }, [continuityTelemetry, locale, primaryCtaHref, shareDisplayType, viewModel.attemptId, viewModel.continuity]);
+
+  useEffect(() => {
+    if (!publicSurface || publicSurfaceImpressionTrackedRef.current) {
+      return;
+    }
+
+    publicSurfaceImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "share-page",
+      scale_code: shareScaleCode,
+      visual_kind: shareScaleCode === "BIG5_OCEAN" ? "big5_share_public_surface" : "mbti_share_public_surface",
+      attempt_id: viewModel.attemptId || undefined,
+      ctaKey: "share_public_surface",
+      ctaRank: 1,
+      continueTarget: primaryContinueTarget,
+      typeCode: shareDisplayType || undefined,
+      ...publicSurfaceTelemetry,
+      locale,
+    });
+  }, [locale, primaryContinueTarget, publicSurface, publicSurfaceTelemetry, shareDisplayType, shareScaleCode, viewModel.attemptId]);
+
+  const insightCards = [
+    viewModel.controlledNarrative?.narrativeSummary
+      ? {
+          key: "narrative",
+          title: locale === "zh" ? "公开摘要" : "Public summary",
+          body: viewModel.controlledNarrative.narrativeSummary,
+        }
+      : null,
+    comparative?.cohortRelativePosition?.summary
+      ? {
+          key: "comparative",
+          title: comparative.cohortRelativePosition.label || (locale === "zh" ? "相对位置" : "Relative position"),
+          body: comparative.cohortRelativePosition.summary,
+        }
+      : null,
+    (workingLife?.careerFocusKey || viewModel.culturalCalibration?.workingLifeSummary)
+      ? {
+          key: "working-life",
+          title: locale === "zh" ? "工作生活线索" : "Working-life cue",
+          body:
+            viewModel.culturalCalibration?.workingLifeSummary
+            || (workingLife?.careerFocusKey
+              ? `${locale === "zh" ? "当前重点" : "Current focus"}: ${workingLife.careerFocusKey}`
+              : ""),
+        }
+      : null,
+  ].filter((item): item is { key: string; title: string; body: string } => Boolean(item && item.body));
 
   const handleCompareInvite = async () => {
     const anonId = getOrCreateAnonId().trim();
@@ -344,7 +405,58 @@ export default function ShareClient({
         card={viewModel.card}
         primaryActionHref={primaryCtaHref}
         primaryActionLabel={viewModel.primaryCtaLabel}
+        onPrimaryActionClick={() => {
+          trackEvent("ui_card_interaction", {
+            slug: "share-page",
+            scale_code: shareScaleCode,
+            visual_kind: shareScaleCode === "BIG5_OCEAN" ? "big5_share_public_surface" : "mbti_share_public_surface",
+            interaction: "return_to_test",
+            attempt_id: viewModel.attemptId || undefined,
+            ctaKey: "share_public_surface",
+            ctaRank: 1,
+            continueTarget: primaryContinueTarget,
+            typeCode: shareDisplayType || undefined,
+            ...publicSurfaceTelemetry,
+            locale,
+          });
+        }}
+        onLibraryActionClick={() => {
+          trackEvent("ui_card_interaction", {
+            slug: "share-page",
+            scale_code: shareScaleCode,
+            visual_kind: "share_browse_tests",
+            interaction: "continue_reading",
+            attempt_id: viewModel.attemptId || undefined,
+            ctaKey: "share_browse_tests",
+            ctaRank: 2,
+            continueTarget: "tests_library",
+            typeCode: shareDisplayType || undefined,
+            ...publicSurfaceTelemetry,
+            locale,
+          });
+        }}
       />
+
+      {insightCards.length > 0 ? (
+        <section className="mx-auto -mt-4 w-full max-w-5xl px-4 pb-6 md:px-6">
+          <div
+            data-testid="share-public-insight-grid"
+            className="grid gap-4 md:grid-cols-3"
+          >
+            {insightCards.map((item) => (
+              <div
+                key={item.key}
+                className="rounded-[24px] border border-slate-200 bg-white px-5 py-4 shadow-[0_16px_36px_rgba(15,23,42,0.06)]"
+              >
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  {item.title}
+                </p>
+                <p className="m-0 mt-2 text-sm leading-7 text-slate-700">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {viewModel.continuity ? (
         <section className="mx-auto -mt-4 w-full max-w-5xl px-4 pb-6 md:px-6">
@@ -380,6 +492,55 @@ export default function ShareClient({
                     attempt_id: viewModel.attemptId || undefined,
                     typeCode: shareDisplayType,
                     ...continuityTelemetry,
+                    locale,
+                  });
+                }}
+              >
+                {locale === "zh" ? "继续这里" : "Continue here"}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {!viewModel.continuity && publicSurface?.continueReadingKeys.length ? (
+        <section className="mx-auto -mt-4 w-full max-w-5xl px-4 pb-6 md:px-6">
+          <div
+            data-testid="share-public-continue-entry"
+            className="rounded-[28px] border border-emerald-200 bg-white px-6 py-5 shadow-[0_20px_48px_rgba(15,23,42,0.08)]"
+          >
+            <div className="space-y-2">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                {locale === "zh" ? "继续阅读" : "Continue from here"}
+              </p>
+              <h2 className="m-0 text-xl font-semibold text-slate-950">
+                {locale === "zh"
+                  ? "继续进入完整结果主链"
+                  : "Continue into the full result path"}
+              </h2>
+              <p className="m-0 text-sm leading-7 text-slate-600">
+                {locale === "zh"
+                  ? "这张公开卡片只保留安全摘要。继续测试后可以进入完整结果与后续阅读主线。"
+                  : "This public card keeps only the safe summary. Continue into the test flow to unlock the full result path and deeper reading."}
+              </p>
+            </div>
+            <div className="mt-4">
+              <Link
+                href={primaryCtaHref}
+                data-testid="share-public-continue-cta"
+                className={buttonVariants({ className: "inline-flex" })}
+                onClick={() => {
+                  trackEvent("ui_card_interaction", {
+                    slug: "share-page",
+                    scale_code: shareScaleCode,
+                    visual_kind: shareScaleCode === "BIG5_OCEAN" ? "big5_share_continue_entry" : "mbti_share_continue_entry",
+                    interaction: "continue_reading",
+                    attempt_id: viewModel.attemptId || undefined,
+                    ctaKey: "share_public_continue",
+                    ctaRank: 1,
+                    continueTarget: primaryContinueTarget,
+                    typeCode: shareDisplayType || undefined,
+                    ...publicSurfaceTelemetry,
                     locale,
                   });
                 }}

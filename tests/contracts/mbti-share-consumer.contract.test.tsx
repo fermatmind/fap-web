@@ -126,6 +126,33 @@ function createShareFixture(): ShareSummaryResponse {
       carryover_action_keys: ["career_next_step.theme.clarify_decision_criteria"],
     },
     mbti_read_contract_v1: createReadContractFixture(),
+    controlled_narrative_v1: {
+      narrative_summary: "This public-safe summary keeps the main signal readable without exposing the private report.",
+    },
+    comparative_v1: {
+      version: "comparative.norming.v1",
+      comparative_contract_version: "comparative.norming.v1",
+      cohort_relative_position: {
+        key: "upper_band",
+        label: "Above about 62% of the cohort",
+        summary: "In the current norming set, this profile signal sits above roughly 62% of the anonymized cohort.",
+      },
+    },
+    working_life_v1: {
+      career_focus_key: "career.next_step",
+      career_journey_keys: ["career.next_step", "career.work_experiments"],
+      career_action_priority_keys: ["career.next_step"],
+    },
+    public_surface_v1: {
+      version: "public.surface.v1",
+      entry_surface: "mbti_share_landing",
+      public_summary_fingerprint: "share-fingerprint-123",
+      discoverability_keys: ["public_safe_summary", "share_landing", "continue_here", "compare_invite"],
+      continue_reading_keys: ["career.next_step", "career.work_experiments"],
+      canonical_url: "http://localhost:3000/en/share/share-123",
+      robots_policy: "noindex,follow",
+      attribution_scope: "share_public_surface",
+    },
     offers: [
       {
         title: "Unlock full report",
@@ -141,6 +168,66 @@ function createShareFixture(): ShareSummaryResponse {
         title: "Career chapter",
       },
     ],
+  };
+}
+
+function createBig5ShareFixture(): ShareSummaryResponse {
+  return {
+    ok: true,
+    share_id: "share-big5-123",
+    share_url: "https://example.com/en/share/share-big5-123",
+    id: "share-big5-123",
+    scale_code: "BIG5_OCEAN",
+    locale: "en",
+    type_code: "BIG5",
+    type_name: "Big Five personality",
+    title: "Big Five public summary",
+    subtitle: "This profile is primarily driven by Openness.",
+    summary: "This public-safe Big Five summary keeps the dominant traits, relative position, and entry path visible.",
+    tagline: "Openness · Agreeableness · Conscientiousness",
+    primary_cta_label: "Take the test",
+    primary_cta_path: "/en/tests/big-five-personality-test-ocean-model",
+    big5_public_projection_v1: {
+      trait_vector: [
+        { key: "O", label: "Openness", percentile: 81, band_label: "exploratory" },
+        { key: "C", label: "Conscientiousness", percentile: 58, band_label: "balanced" },
+      ],
+      dominant_traits: [
+        { key: "O", label: "Openness", percentile: 81, rank: 1 },
+      ],
+      explainability_summary: {
+        headline: "This profile is primarily driven by Openness.",
+      },
+      comparative_v1: {
+        cohort_relative_position: {
+          key: "upper_band",
+          label: "Above about 81% of the cohort",
+          summary: "In the current norming set, your Openness sits above roughly 81% of the anonymized cohort.",
+        },
+      },
+    },
+    controlled_narrative_v1: {
+      narrative_summary: "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report.",
+    },
+    comparative_v1: {
+      version: "comparative.norming.v1",
+      comparative_contract_version: "comparative.norming.v1",
+      cohort_relative_position: {
+        key: "upper_band",
+        label: "Above about 81% of the cohort",
+        summary: "In the current norming set, your Openness sits above roughly 81% of the anonymized cohort.",
+      },
+    },
+    public_surface_v1: {
+      version: "public.surface.v1",
+      entry_surface: "big5_share_landing",
+      public_summary_fingerprint: "share-big5-fingerprint",
+      discoverability_keys: ["public_safe_summary", "share_landing", "big5_foundation_summary"],
+      continue_reading_keys: ["traits.overview", "growth.next_actions"],
+      canonical_url: "http://localhost:3000/en/share/share-big5-123",
+      robots_policy: "noindex,follow",
+      attribution_scope: "share_public_surface",
+    },
   };
 }
 
@@ -272,6 +359,12 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByText("Campaigner")).toBeInTheDocument();
     expect(screen.getByText("Warm, imaginative, and emotionally alert")).toBeInTheDocument();
     expect(screen.getByText("This public MBTI share page keeps only the lightweight result summary and never exposes paid content.")).toBeInTheDocument();
+    expect(screen.getByTestId("share-public-insight-grid")).toHaveTextContent(
+      "This public-safe summary keeps the main signal readable without exposing the private report."
+    );
+    expect(screen.getByTestId("share-public-insight-grid")).toHaveTextContent(
+      "In the current norming set, this profile signal sits above roughly 62% of the anonymized cohort."
+    );
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent("Start next with Career next step");
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent(
       "The current focus has already moved into the career bridge"
@@ -300,6 +393,17 @@ describe("MBTI share consumer contract", () => {
     expect(screen.queryByText("type:ENFP-T")).not.toBeInTheDocument();
     expect(screen.queryByText("axis:EI")).not.toBeInTheDocument();
     expect(screen.queryByText("role:explorer")).not.toBeInTheDocument();
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
+        visual_kind: "mbti_share_public_surface",
+        entrySurface: "mbti_share_landing",
+        attributionScope: "share_public_surface",
+        publicSummaryFingerprint: "share-fingerprint-123",
+        continueTarget: "career.next_step",
+      })
+    );
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
@@ -336,6 +440,50 @@ describe("MBTI share consumer contract", () => {
         actionCompletionTendency: "warming_up",
         lastDeepReadSection: "traits.close_call_axes",
         currentIntentCluster: "clarify_type",
+      })
+    );
+
+    fireEvent.click(screen.getByRole("link", { name: "Start MBTI test" }));
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_interaction",
+      expect.objectContaining({
+        visual_kind: "mbti_share_public_surface",
+        interaction: "return_to_test",
+        entrySurface: "mbti_share_landing",
+        attributionScope: "share_public_surface",
+        publicSummaryFingerprint: "share-fingerprint-123",
+      })
+    );
+  });
+
+  it("renders a Big Five public-safe share summary and continue entry from backend authority", async () => {
+    hoisted.getShareSummary.mockResolvedValueOnce(createBig5ShareFixture());
+
+    render(<ShareClient locale="en" shareId="share-big5-123" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-share-summary-card")).toBeInTheDocument();
+    });
+
+    expect(screen.getByRole("heading", { name: "BIG5" })).toBeInTheDocument();
+    expect(screen.getByText("Big Five public summary")).toBeInTheDocument();
+    expect(screen.getByText("This public-safe Big Five summary keeps the dominant traits, relative position, and entry path visible.")).toBeInTheDocument();
+    expect(screen.getByTestId("share-public-insight-grid")).toHaveTextContent(
+      "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report."
+    );
+    expect(screen.getByTestId("share-public-continue-entry")).toHaveTextContent("Continue into the full result path");
+    expect(screen.getByTestId("share-public-continue-cta")).toHaveAttribute(
+      "href",
+      expect.stringContaining("/en/tests/big-five-personality-test-ocean-model")
+    );
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
+        visual_kind: "big5_share_public_surface",
+        entrySurface: "big5_share_landing",
+        publicSummaryFingerprint: "share-big5-fingerprint",
       })
     );
   });
@@ -433,6 +581,15 @@ describe("MBTI share consumer contract", () => {
   });
 
   it("keeps the share page noindexed and derives metadata from the share summary contract", async () => {
+    hoisted.getShareSummary.mockResolvedValueOnce({
+      ...createShareFixture(),
+      locale: "zh",
+      public_surface_v1: {
+        ...createShareFixture().public_surface_v1,
+        canonical_url: "http://localhost:3000/zh/share/share-123",
+      },
+    });
+
     const metadata = await generateMetadata({
       params: Promise.resolve({
         locale: "zh",

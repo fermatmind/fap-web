@@ -35,6 +35,8 @@ export default function MbtiShareSummaryCard({
   showLibraryAction = true,
   testId = "mbti-share-summary-card",
   className,
+  onPrimaryActionClick,
+  onLibraryActionClick,
 }: {
   locale: Locale;
   card: MbtiPublicProjectionCardViewModel | null;
@@ -45,6 +47,8 @@ export default function MbtiShareSummaryCard({
   showLibraryAction?: boolean;
   testId?: string;
   className?: string;
+  onPrimaryActionClick?: () => void;
+  onLibraryActionClick?: () => void;
 }) {
   const startTestHref = primaryActionHref || localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`, locale);
   const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test");
@@ -163,13 +167,18 @@ export default function MbtiShareSummaryCard({
 
             {showActions ? (
               <div className="flex flex-wrap gap-3">
-                <Link href={startTestHref} className={buttonVariants({ className: "min-w-[180px]" })}>
+                <Link
+                  href={startTestHref}
+                  className={buttonVariants({ className: "min-w-[180px]" })}
+                  onClick={onPrimaryActionClick}
+                >
                   {startTestLabel}
                 </Link>
                 {showLibraryAction ? (
                   <Link
                     href={testsHref}
                     className={buttonVariants({ variant: "outline", className: "min-w-[160px]" })}
+                    onClick={onLibraryActionClick}
                   >
                     {locale === "zh" ? "查看全部测试" : "Browse all tests"}
                   </Link>
@@ -198,7 +207,11 @@ export default function MbtiShareSummaryCard({
                 {dimensionBars}
 
                 {showActions ? (
-                  <Link href={startTestHref} className={buttonVariants({ variant: "outline", className: "w-full" })}>
+                  <Link
+                    href={startTestHref}
+                    className={buttonVariants({ variant: "outline", className: "w-full" })}
+                    onClick={onPrimaryActionClick}
+                  >
                     {locale === "zh" ? "我也来测一下" : "Take the test myself"}
                   </Link>
                 ) : null}
