@@ -136,6 +136,7 @@ export default function ShareClient({
   const publicSurface = viewModel.publicSurface;
   const insightGraph = viewModel.insightGraph;
   const embedSurface = viewModel.embedSurface;
+  const partnerRead = viewModel.partnerRead;
   const comparative = viewModel.comparative;
   const workingLife = viewModel.workingLife;
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(
@@ -268,6 +269,17 @@ export default function ShareClient({
     publicSummaryFingerprint: publicSurface?.publicSummaryFingerprint || "",
     discoverabilityKeys: publicSurface?.discoverabilityKeys ?? [],
   };
+  const partnerReadTelemetry = {
+    graphScope: partnerRead?.graphScope || insightGraph?.graphScope || "",
+    graphFingerprint: partnerRead?.graphFingerprint || insightGraph?.graphFingerprint || "",
+    graphContractVersion:
+      partnerRead?.graphContractVersion || insightGraph?.graphContractVersion || "",
+    readScope: partnerRead?.readScope || "",
+    subjectScope: partnerRead?.subjectScope || "",
+    supportingScales: (partnerRead?.supportingScales ?? insightGraph?.supportingScales ?? []).join("|"),
+    attributionScope:
+      partnerRead?.attributionScope || publicSurface?.attributionScope || "",
+  };
 
   useEffect(() => {
     if (!viewModel.continuity || !primaryCtaHref || carryoverImpressionTrackedRef.current) {
@@ -331,12 +343,14 @@ export default function ShareClient({
       embedFingerprint: embedSurface.embedFingerprint,
       supportingScales: insightGraph.supportingScales.join("|"),
       ...publicSurfaceTelemetry,
+      ...partnerReadTelemetry,
       locale,
     });
   }, [
     embedSurface,
     insightGraph,
     locale,
+    partnerReadTelemetry,
     primaryContinueTarget,
     publicSurfaceTelemetry,
     shareDisplayType,
@@ -557,6 +571,7 @@ export default function ShareClient({
                     embedFingerprint: embedSurface.embedFingerprint,
                     supportingScales: insightGraph.supportingScales.join("|"),
                     ...publicSurfaceTelemetry,
+                    ...partnerReadTelemetry,
                     locale,
                   });
                 }}
@@ -564,6 +579,24 @@ export default function ShareClient({
                 {embedSurface.primaryCtaLabel || viewModel.primaryCtaLabel || (locale === "zh" ? "继续这里" : "Continue here")}
               </Link>
             </div>
+
+            {partnerRead ? (
+              <div
+                data-testid="share-partner-read-scope"
+                className="mt-4 rounded-2xl border border-sky-100 bg-white/80 px-4 py-3 text-xs text-slate-600"
+              >
+                <p className="m-0 font-semibold text-slate-900">
+                  {locale === "zh" ? "Partner-safe read" : "Partner-safe read"}
+                </p>
+                <p className="m-0 mt-1">
+                  {partnerRead.graphScope || insightGraph.graphScope}
+                  {" · "}
+                  {partnerRead.readScope || (locale === "zh" ? "只读" : "read only")}
+                  {" · "}
+                  {partnerRead.subjectScope || (locale === "zh" ? "降级摘要" : "downgraded summary")}
+                </p>
+              </div>
+            ) : null}
           </div>
         </section>
       ) : null}

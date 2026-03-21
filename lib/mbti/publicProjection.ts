@@ -11,6 +11,7 @@ import type {
   MbtiPublicProjectionDimensionRaw,
   MbtiPublicProjectionV1Raw,
   MbtiWorkingLifeRaw,
+  PartnerReadRaw,
   PublicSurfaceRaw,
   ReportResponse,
   ShareSummaryResponse,
@@ -369,6 +370,7 @@ export type MbtiSharePageViewModel = {
   publicSurface: PublicSurfaceViewModel | null;
   insightGraph: InsightGraphViewModel | null;
   embedSurface: EmbedSurfaceViewModel | null;
+  partnerRead: PartnerReadViewModel | null;
   comparative: ComparativeViewModel | null;
   controlledNarrative: ControlledNarrativeViewModel | null;
   culturalCalibration: CulturalCalibrationViewModel | null;
@@ -426,6 +428,19 @@ export type EmbedSurfaceViewModel = {
   allowedNodeIds: string[];
   embedFingerprint: string;
   renderMode: string;
+};
+
+export type PartnerReadViewModel = {
+  version: string;
+  graphScope: string;
+  graphContractVersion: string;
+  graphFingerprint: string;
+  supportingScales: string[];
+  allowedNodeIds: string[];
+  allowedEdgeTypes: string[];
+  readScope: string;
+  subjectScope: string;
+  attributionScope: string;
 };
 
 type ProjectionCoreViewModel = Omit<MbtiResultProjectionViewModel, "sections" | "hasProjection">;
@@ -1191,6 +1206,51 @@ function normalizeEmbedSurface(rawEmbedSurface: EmbedSurfaceRaw | null): EmbedSu
   };
 }
 
+function normalizePartnerRead(rawPartnerRead: PartnerReadRaw | null): PartnerReadViewModel | null {
+  if (!rawPartnerRead) {
+    return null;
+  }
+
+  const version = normalizeText(rawPartnerRead.version);
+  const graphScope = normalizeText(rawPartnerRead.graph_scope);
+  const graphContractVersion = normalizeText(rawPartnerRead.graph_contract_version);
+  const graphFingerprint = normalizeText(rawPartnerRead.graph_fingerprint);
+  const supportingScales = normalizeStringArray(rawPartnerRead.supporting_scales);
+  const allowedNodeIds = normalizeStringArray(rawPartnerRead.allowed_node_ids);
+  const allowedEdgeTypes = normalizeStringArray(rawPartnerRead.allowed_edge_types);
+  const readScope = normalizeText(rawPartnerRead.read_scope);
+  const subjectScope = normalizeText(rawPartnerRead.subject_scope);
+  const attributionScope = normalizeText(rawPartnerRead.attribution_scope);
+
+  if (
+    !version &&
+    !graphScope &&
+    !graphContractVersion &&
+    !graphFingerprint &&
+    supportingScales.length === 0 &&
+    allowedNodeIds.length === 0 &&
+    allowedEdgeTypes.length === 0 &&
+    !readScope &&
+    !subjectScope &&
+    !attributionScope
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    graphScope,
+    graphContractVersion,
+    graphFingerprint,
+    supportingScales,
+    allowedNodeIds,
+    allowedEdgeTypes,
+    readScope,
+    subjectScope,
+    attributionScope,
+  };
+}
+
 function normalizeShareCard(rawShare?: ShareSummaryResponse | null): MbtiPublicProjectionCardViewModel | null {
   const mbtiCard = normalizeMbtiPublicProjectionCard(rawShare?.mbti_public_projection_v1);
   if (mbtiCard) {
@@ -1620,6 +1680,7 @@ export function buildSharePageViewModel(
   const sharePublicSurface = normalizePublicSurface(asRecord(rawShare?.public_surface_v1) as PublicSurfaceRaw | null);
   const shareInsightGraph = normalizeInsightGraph(asRecord(rawShare?.insight_graph_v1) as InsightGraphRaw | null);
   const shareEmbedSurface = normalizeEmbedSurface(asRecord(rawShare?.embed_surface_v1) as EmbedSurfaceRaw | null);
+  const sharePartnerRead = normalizePartnerRead(asRecord(rawShare?.partner_read_v1) as PartnerReadRaw | null);
   const shareComparative =
     normalizeComparative(asRecord(rawShare?.comparative_v1) as ComparativeRaw | null) ??
     normalizeComparative(asRecord(sharePersonalizationRecord?.comparative_v1) as ComparativeRaw | null) ??
@@ -1677,6 +1738,7 @@ export function buildSharePageViewModel(
     publicSurface: sharePublicSurface,
     insightGraph: shareInsightGraph,
     embedSurface: shareEmbedSurface,
+    partnerRead: sharePartnerRead,
     comparative: shareComparative,
     controlledNarrative: shareControlledNarrative,
     culturalCalibration: shareCulturalCalibration,

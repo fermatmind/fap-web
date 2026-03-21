@@ -26,6 +26,40 @@ export type WorkspaceSurfaceV1Raw = {
   analyzed_member_count?: number;
 };
 
+export type InsightGraphV1Raw = {
+  version?: string;
+  graph_contract_version?: string;
+  root_node?: string;
+  nodes?: Array<{
+    id?: string;
+    kind?: string;
+    title?: string;
+    summary?: string;
+    source_contract?: string;
+  }>;
+  edges?: Array<{
+    from?: string;
+    to?: string;
+    relation?: string;
+  }>;
+  graph_fingerprint?: string;
+  graph_scope?: string;
+  supporting_scales?: string[];
+};
+
+export type PartnerReadV1Raw = {
+  version?: string;
+  graph_scope?: string;
+  graph_contract_version?: string;
+  graph_fingerprint?: string;
+  supporting_scales?: string[];
+  allowed_node_ids?: string[];
+  allowed_edge_types?: string[];
+  read_scope?: string;
+  subject_scope?: string;
+  attribution_scope?: string;
+};
+
 export type AssessmentSummaryResponse = {
   ok: boolean;
   assessment_id?: number;
@@ -43,6 +77,8 @@ export type AssessmentSummaryResponse = {
     dimension_means?: Record<string, number>;
     team_dynamics_v1?: TeamDynamicsV1Raw | null;
     workspace_surface_v1?: WorkspaceSurfaceV1Raw | null;
+    insight_graph_v1?: InsightGraphV1Raw | null;
+    partner_read_v1?: PartnerReadV1Raw | null;
   };
 };
 

@@ -65,6 +65,18 @@ describe("team workspace contract", () => {
           team_member_count: 3,
           analyzed_member_count: 2,
         },
+        partner_read_v1: {
+          version: "partner.read.v1",
+          graph_scope: "tenant_protected",
+          graph_contract_version: "insight.graph.v1",
+          graph_fingerprint: "workspace-graph-fingerprint-1",
+          supporting_scales: ["MBTI"],
+          allowed_node_ids: ["result_summary", "team_dynamics", "workspace_surface", "member_progress", "continue_reading"],
+          allowed_edge_types: ["enriches", "recommended_next", "continues_to"],
+          read_scope: "partner_tenant_read",
+          subject_scope: "tenant_aggregate_only",
+          attribution_scope: "workspace_partner_surface",
+        },
       },
     });
 
@@ -99,6 +111,8 @@ describe("team workspace contract", () => {
 
     expect(screen.getByText("Team dynamics workspace")).toBeInTheDocument();
     expect(screen.getByTestId("team-workspace-communication")).toHaveTextContent("Energy translation");
+    expect(screen.getByTestId("team-workspace-partner-read")).toHaveTextContent("tenant_protected");
+    expect(screen.getByTestId("team-workspace-partner-read")).toHaveTextContent("partner_tenant_read");
     expect(screen.getByTestId("team-workspace-manager-action-0")).toHaveAttribute(
       "href",
       "/en/workspace/team/41/assessments/7#team-member-progress"
@@ -113,11 +127,13 @@ describe("team workspace contract", () => {
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
-      expect.objectContaining({
-        visual_kind: "team_workspace_surface",
-        entrySurface: "protected_team_workspace",
-      })
-    );
+        expect.objectContaining({
+          visual_kind: "team_workspace_surface",
+          entrySurface: "protected_team_workspace",
+          graphScope: "tenant_protected",
+          readScope: "partner_tenant_read",
+        })
+      );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",
       expect.objectContaining({

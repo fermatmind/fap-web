@@ -446,6 +446,20 @@ export type EmbedSurfaceRaw = {
   [key: string]: unknown;
 };
 
+export type PartnerReadRaw = {
+  version?: string;
+  graph_scope?: string;
+  graph_contract_version?: string;
+  graph_fingerprint?: string;
+  supporting_scales?: string[];
+  allowed_node_ids?: string[];
+  allowed_edge_types?: string[];
+  read_scope?: string;
+  subject_scope?: string;
+  attribution_scope?: string;
+  [key: string]: unknown;
+};
+
 export type Big5PublicProjection = {
   schema_version?: string;
   trait_vector?: Big5TraitProjection[];
@@ -993,6 +1007,7 @@ export type ShareSummaryResponse = {
   public_surface_v1?: PublicSurfaceRaw | null;
   insight_graph_v1?: InsightGraphRaw | null;
   embed_surface_v1?: EmbedSurfaceRaw | null;
+  partner_read_v1?: PartnerReadRaw | null;
   [key: string]: unknown;
 };
 

@@ -178,6 +178,18 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
       embed_fingerprint: "embed-fingerprint-123",
       render_mode: "card",
     },
+    partner_read_v1: {
+      version: "partner.read.v1",
+      graph_scope: "public_share_safe",
+      graph_contract_version: "insight.graph.v1",
+      graph_fingerprint: "graph-fingerprint-123",
+      supporting_scales: ["MBTI", "BIG5_OCEAN"],
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "working_life", "continue_reading"],
+      allowed_edge_types: ["enriches", "supports"],
+      read_scope: "partner_public_read",
+      subject_scope: "public_summary_only",
+      attribution_scope: "share_public_surface",
+    },
     offers: [
       {
         title: "Unlock full report",
@@ -359,6 +371,7 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   await expect(page.getByRole("heading", { name: /^ENFP$/ })).toHaveCount(0);
   await expect(page.getByTestId("mbti-share-summary-card").getByText("Campaigner")).toBeVisible();
   await expect(page.getByTestId("share-embed-surface")).toContainText("Embeddable insight graph");
+  await expect(page.getByTestId("share-partner-read-scope")).toContainText("partner_public_read");
   await expect(page.getByTestId("share-embed-node-list")).toContainText("Continue path");
   await expect(page.getByRole("button", { name: "Invite a friend to compare" })).toBeVisible();
   await expect(page.getByText("Legacy name should be ignored")).toHaveCount(0);
