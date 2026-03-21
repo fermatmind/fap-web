@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
@@ -10,16 +10,44 @@ function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
 }
 
+function jsonResponse(payload: unknown): Response {
+  return new Response(JSON.stringify(payload), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+});
+
 describe("career routing cleanup contract", () => {
   it("frontend sitemap config includes mbti recommendation routes and excludes stale private result paths", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          items: [
+            { public_route_slug: "intj-a" },
+            { public_route_slug: "enfp-t" },
+          ],
+        })
+      )
+    );
+
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
     expect(locs).toEqual(
       expect.arrayContaining([
-        "/en/career/recommendations/mbti/INTJ",
-        "/zh/career/recommendations/mbti/INTJ",
+        "/en/career/recommendations/mbti/intj-a",
+        "/zh/career/recommendations/mbti/intj-a",
+        "/en/career/recommendations/mbti/enfp-t",
+        "/zh/career/recommendations/mbti/enfp-t",
       ])
     );
     expect(locs).not.toEqual(
@@ -46,8 +74,11 @@ describe("career routing cleanup contract", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
 
-    expect(llms).toContain("/career/recommendations/mbti/");
-    expect(llmsFull).toContain("/career/recommendations/mbti/");
+    expect(llms).toContain('import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations"');
+    expect(llmsFull).toContain('import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations"');
+    expect(llms).toContain("...enCareerRecommendations.map((item) => item.href)");
+    expect(llms).toContain("...zhCareerRecommendations.map((item) => item.href)");
+    expect(llmsFull).toContain("path: item.href");
     expect(llms).not.toContain("/career/tests/riasec/result");
     expect(llmsFull).not.toContain("/career/tests/riasec/result");
     expect(llms).not.toContain("/compare/");

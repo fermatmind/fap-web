@@ -85,12 +85,12 @@ describe("MBTI post-purchase retention contract", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     const terminalSurface = screen.getByTestId("mbti-post-purchase-section");
-    const offerComparison = screen.getByTestId("mbti-offer-comparison");
     const footer = screen.getByTestId("mbti-footer-cta");
     const stickyRail = screen.getByTestId("mbti-sticky-rail");
     const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
 
     expect(terminalSurface).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
     expect(within(terminalSurface).getByText("已解锁完整报告")).toBeInTheDocument();
     expect(within(terminalSurface).getByRole("button", { name: "下载 PDF" })).toBeInTheDocument();
     expect(within(terminalSurface).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
@@ -102,7 +102,6 @@ describe("MBTI post-purchase retention contract", () => {
     expect(within(mobileChrome).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
     expect(within(footer).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
 
-    expect(offerComparison.compareDocumentPosition(terminalSurface) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(terminalSurface.compareDocumentPosition(footer) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 

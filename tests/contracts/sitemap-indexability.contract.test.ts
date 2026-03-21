@@ -1,12 +1,35 @@
 import path from "node:path";
 import { createRequire } from "node:module";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
 
+function jsonResponse(payload: unknown): Response {
+  return new Response(JSON.stringify(payload), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+});
+
 describe("sitemap indexability contract", () => {
   it("frontend sitemap config keeps public topics, help, and career entries without claiming personality, article, or guide authority", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          items: [{ public_route_slug: "intj-a" }],
+        })
+      )
+    );
+
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
@@ -17,8 +40,8 @@ describe("sitemap indexability contract", () => {
         "/zh/topics/mbti",
         "/en/help/faq",
         "/zh/help/faq",
-        "/en/career/recommendations/mbti/INTJ",
-        "/zh/career/recommendations/mbti/INTJ",
+        "/en/career/recommendations/mbti/intj-a",
+        "/zh/career/recommendations/mbti/intj-a",
       ])
     );
     expect(locs.some((loc: string) => /^\/(en|zh)\/personality(?:\/|$)/.test(loc))).toBe(false);
