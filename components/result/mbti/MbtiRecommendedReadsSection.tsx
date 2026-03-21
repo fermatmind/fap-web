@@ -9,11 +9,17 @@ import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjec
 import {
   summarizeMbtiActionPriorityKeys,
   summarizeMbtiActionCompletionTendency,
+  summarizeMbtiActionEffectWeights,
+  summarizeMbtiAdaptiveContractVersion,
+  summarizeMbtiAdaptiveFingerprint,
+  summarizeMbtiAdaptiveRewriteReason,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
   summarizeMbtiCarryoverActionKeys,
   summarizeMbtiCarryoverResumeKeys,
   summarizeMbtiCarryoverSceneKeys,
+  summarizeMbtiContentFeedbackWeights,
+  summarizeMbtiCtaEffectWeights,
   summarizeMbtiCtaPriorityKeys,
   summarizeMbtiCurrentIntentCluster,
   summarizeMbtiFeedbackCoverage,
@@ -28,8 +34,12 @@ import {
   summarizeMbtiMemoryState,
   summarizeMbtiBehaviorDeltaKeys,
   summarizeMbtiDominantInterestKeys,
+  summarizeMbtiNextBestActionKey,
+  summarizeMbtiNextBestActionReason,
+  summarizeMbtiNextBestActionSection,
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
+  summarizeMbtiRecommendationEffectWeights,
   summarizeMbtiRecommendationPriorityKeys,
   summarizeMbtiRecommendationSelectionKeys,
   summarizeMbtiOrderedSectionKeys,
@@ -111,6 +121,16 @@ export function MbtiRecommendedReadsSection({
   const resumeBiasKeys = summarizeMbtiResumeBiasKeys(personalization);
   const memoryRewriteKeys = summarizeMbtiMemoryRewriteKeys(personalization);
   const memoryRewriteReason = summarizeMbtiMemoryRewriteReason(personalization);
+  const adaptiveContractVersion = summarizeMbtiAdaptiveContractVersion(personalization);
+  const adaptiveFingerprint = summarizeMbtiAdaptiveFingerprint(personalization);
+  const adaptiveRewriteReason = summarizeMbtiAdaptiveRewriteReason(personalization);
+  const contentFeedbackWeights = summarizeMbtiContentFeedbackWeights(personalization);
+  const actionEffectWeights = summarizeMbtiActionEffectWeights(personalization);
+  const recommendationEffectWeights = summarizeMbtiRecommendationEffectWeights(personalization);
+  const ctaEffectWeights = summarizeMbtiCtaEffectWeights(personalization);
+  const nextBestActionKey = summarizeMbtiNextBestActionKey(personalization);
+  const nextBestActionSection = summarizeMbtiNextBestActionSection(personalization);
+  const nextBestActionReason = summarizeMbtiNextBestActionReason(personalization);
   const readingFocusKey = normalizeText(personalization?.readingFocusKey);
   const actionFocusKey = normalizeText(personalization?.actionFocusKey);
 
@@ -155,6 +175,16 @@ export function MbtiRecommendedReadsSection({
       resumeBiasKeys,
       memoryRewriteKeys,
       memoryRewriteReason,
+      adaptiveContractVersion,
+      adaptiveFingerprint,
+      selectionRewriteReason: adaptiveRewriteReason,
+      contentFeedbackWeights,
+      actionEffectWeights,
+      recommendationEffectWeights,
+      ctaEffectWeights,
+      nextBestActionKey,
+      nextBestActionSection,
+      nextBestActionReason,
       actionPriorityKeys: actionPriorityKeysSummary,
       readingFocusKey,
       actionFocusKey,
@@ -197,6 +227,16 @@ export function MbtiRecommendedReadsSection({
     dominantInterestKeys,
     memoryRewriteKeys,
     memoryRewriteReason,
+    adaptiveContractVersion,
+    adaptiveFingerprint,
+    adaptiveRewriteReason,
+    contentFeedbackWeights,
+    actionEffectWeights,
+    recommendationEffectWeights,
+    ctaEffectWeights,
+    nextBestActionKey,
+    nextBestActionSection,
+    nextBestActionReason,
   ]);
 
   useEffect(() => {
@@ -242,6 +282,16 @@ export function MbtiRecommendedReadsSection({
         resumeBiasKeys,
         memoryRewriteKeys,
         memoryRewriteReason,
+        adaptiveContractVersion,
+        adaptiveFingerprint,
+        selectionRewriteReason: adaptiveRewriteReason,
+        contentFeedbackWeights,
+        actionEffectWeights,
+        recommendationEffectWeights,
+        ctaEffectWeights,
+        nextBestActionKey,
+        nextBestActionSection,
+        nextBestActionReason,
         actionPriorityKeys: actionPriorityKeysSummary,
         readingFocusKey,
         actionFocusKey,
@@ -304,6 +354,9 @@ export function MbtiRecommendedReadsSection({
       data-memory-fingerprint={memoryFingerprint || undefined}
       data-memory-state={memoryState || undefined}
       data-memory-rewrite-reason={memoryRewriteReason || undefined}
+      data-adaptive-fingerprint={adaptiveFingerprint || undefined}
+      data-selection-rewrite-reason={adaptiveRewriteReason || undefined}
+      data-next-best-action-key={nextBestActionKey || undefined}
       className="space-y-4 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
     >
       <div className="space-y-2">
@@ -403,6 +456,16 @@ export function MbtiRecommendedReadsSection({
                         sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
                         profileSeedKey,
                         selectionFingerprint,
+                        adaptiveContractVersion,
+                        adaptiveFingerprint,
+                        selectionRewriteReason: adaptiveRewriteReason,
+                        contentFeedbackWeights,
+                        actionEffectWeights,
+                        recommendationEffectWeights,
+                        ctaEffectWeights,
+                        nextBestActionKey,
+                        nextBestActionSection,
+                        nextBestActionReason,
                         actionPriorityKeys: actionPriorityKeysSummary,
                         readingFocusKey,
                         actionFocusKey,

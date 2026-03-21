@@ -48,6 +48,11 @@ import {
 import {
   resolveMbtiMemoryRewriteReasonLabel,
 } from "@/lib/mbti/longitudinalMemory";
+import {
+  appendMbtiAdaptiveSelectionQuery,
+  resolveMbtiAdaptiveNextBestActionLabel,
+  resolveMbtiAdaptiveRewriteReasonLabel,
+} from "@/lib/mbti/adaptiveSelection";
 import { captureError } from "@/lib/observability/sentry";
 import {
   buildMbtiCareerRecommendationHref,
@@ -58,6 +63,7 @@ import {
 import {
   summarizeMbtiActionPriorityKeys,
   summarizeMbtiActionCompletionTendency,
+  summarizeMbtiActionEffectWeights,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
   summarizeMbtiCompletedActionKeys,
@@ -67,10 +73,18 @@ import {
   summarizeMbtiCarryoverActionKeys,
   summarizeMbtiCarryoverResumeKeys,
   summarizeMbtiCarryoverSceneKeys,
+  summarizeMbtiContentFeedbackWeights,
+  summarizeMbtiCtaEffectWeights,
   summarizeMbtiCtaPriorityKeys,
   summarizeMbtiCurrentIntentCluster,
   summarizeMbtiFeedbackCoverage,
   summarizeMbtiFeedbackSentiment,
+  summarizeMbtiAdaptiveContractVersion,
+  summarizeMbtiAdaptiveFingerprint,
+  summarizeMbtiAdaptiveRewriteReason,
+  summarizeMbtiNextBestActionKey,
+  summarizeMbtiNextBestActionReason,
+  summarizeMbtiNextBestActionSection,
   summarizeMbtiJourneyContractVersion,
   summarizeMbtiJourneyFingerprint,
   summarizeMbtiJourneyScope,
@@ -93,6 +107,7 @@ import {
   summarizeMbtiPulsePromptKeys,
   summarizeMbtiPulseState,
   summarizeMbtiRecommendationPriorityKeys,
+  summarizeMbtiRecommendationEffectWeights,
   summarizeMbtiRecommendationSelectionKeys,
   summarizeMbtiRecommendedNextPulseKeys,
   summarizeMbtiResumeBiasKeys,
@@ -781,6 +796,16 @@ export function MbtiResultShell({
   const resumeBiasKeysSummary = summarizeMbtiResumeBiasKeys(personalization);
   const memoryRewriteKeysSummary = summarizeMbtiMemoryRewriteKeys(personalization);
   const memoryRewriteReasonSummary = summarizeMbtiMemoryRewriteReason(personalization);
+  const adaptiveContractVersionSummary = summarizeMbtiAdaptiveContractVersion(personalization);
+  const adaptiveFingerprintSummary = summarizeMbtiAdaptiveFingerprint(personalization);
+  const adaptiveRewriteReasonSummary = summarizeMbtiAdaptiveRewriteReason(personalization);
+  const contentFeedbackWeightsSummary = summarizeMbtiContentFeedbackWeights(personalization);
+  const actionEffectWeightsSummary = summarizeMbtiActionEffectWeights(personalization);
+  const recommendationEffectWeightsSummary = summarizeMbtiRecommendationEffectWeights(personalization);
+  const ctaEffectWeightsSummary = summarizeMbtiCtaEffectWeights(personalization);
+  const nextBestActionKeySummary = summarizeMbtiNextBestActionKey(personalization);
+  const nextBestActionSectionSummary = summarizeMbtiNextBestActionSection(personalization);
+  const nextBestActionReasonSummary = summarizeMbtiNextBestActionReason(personalization);
   const journeyContractVersionSummary = summarizeMbtiJourneyContractVersion(personalization);
   const journeyFingerprintSummary = summarizeMbtiJourneyFingerprint(personalization);
   const journeyScopeSummary = summarizeMbtiJourneyScope(personalization);
@@ -799,6 +824,7 @@ export function MbtiResultShell({
   const actionJourney = personalization?.actionJourney ?? null;
   const pulseCheck = personalization?.pulseCheck ?? null;
   const longitudinalMemory = personalization?.longitudinalMemory ?? null;
+  const adaptiveSelection = personalization?.adaptiveSelection ?? null;
   const personalizationEngineVersion = normalizeText(
     personalization?.engineVersion,
     reportMeta?.report_engine_version
@@ -828,7 +854,10 @@ export function MbtiResultShell({
     ? appendMbtiContinuityQuery(accessHub?.workspaceLite.href ?? historyHref, personalization?.continuity)
     : "";
   const continuityHistoryHref = historyHref
-    ? appendMbtiContinuityQuery(historyHref, personalization?.continuity)
+    ? appendMbtiAdaptiveSelectionQuery(
+        appendMbtiContinuityQuery(historyHref, personalization?.continuity),
+        adaptiveSelection
+      )
     : "";
   const journeyHistoryHref = continuityHistoryHref
     ? appendMbtiActionJourneyQuery(continuityHistoryHref, actionJourney, pulseCheck)
@@ -844,6 +873,8 @@ export function MbtiResultShell({
     resolveMbtiPulsePromptLabel(key, locale)
   );
   const memoryRewriteLabel = resolveMbtiMemoryRewriteReasonLabel(memoryRewriteReasonSummary, locale);
+  const adaptiveRewriteLabel = resolveMbtiAdaptiveRewriteReasonLabel(adaptiveRewriteReasonSummary, locale);
+  const nextBestActionLabel = resolveMbtiAdaptiveNextBestActionLabel(nextBestActionKeySummary, locale);
   const carryoverEntryHref = normalizeText(
     carryoverFocusKey.startsWith("career.") ? continuityCareerHref : "",
     isUnlockedPostPurchase ? continuityWorkspaceHref : "",
@@ -951,6 +982,16 @@ export function MbtiResultShell({
     resumeBiasKeys: resumeBiasKeysSummary,
     memoryRewriteKeys: memoryRewriteKeysSummary,
     memoryRewriteReason: memoryRewriteReasonSummary,
+    adaptiveContractVersion: adaptiveContractVersionSummary,
+    adaptiveFingerprint: adaptiveFingerprintSummary,
+    selectionRewriteReason: adaptiveRewriteReasonSummary,
+    contentFeedbackWeights: contentFeedbackWeightsSummary,
+    actionEffectWeights: actionEffectWeightsSummary,
+    recommendationEffectWeights: recommendationEffectWeightsSummary,
+    ctaEffectWeights: ctaEffectWeightsSummary,
+    nextBestActionKey: nextBestActionKeySummary,
+    nextBestActionSection: nextBestActionSectionSummary,
+    nextBestActionReason: nextBestActionReasonSummary,
     journeyContractVersion: journeyContractVersionSummary,
     journeyFingerprint: journeyFingerprintSummary,
     journeyScope: journeyScopeSummary,
@@ -1512,6 +1553,9 @@ export function MbtiResultShell({
       data-memory-fingerprint={memoryFingerprintSummary || undefined}
       data-memory-state={memoryStateSummary || undefined}
       data-memory-rewrite-reason={memoryRewriteReasonSummary || undefined}
+      data-adaptive-fingerprint={adaptiveFingerprintSummary || undefined}
+      data-selection-rewrite-reason={adaptiveRewriteReasonSummary || undefined}
+      data-next-best-action-key={nextBestActionKeySummary || undefined}
       className="relative space-y-6 pb-28 md:space-y-8 xl:pb-0"
       onClickCapture={handleOfferAnchorClickCapture}
     >
@@ -1639,6 +1683,29 @@ export function MbtiResultShell({
                               {locale === "zh"
                                 ? `延续重点：${resumeBiasKeysSummary || "未显式给出"} · 持续关注：${dominantInterestKeysSummary || "未显式给出"}`
                                 : `Resume bias: ${resumeBiasKeysSummary || "not explicit"} · Dominant interests: ${dominantInterestKeysSummary || "not explicit"}`}
+                            </p>
+                          ) : null}
+                        </div>
+                      ) : null}
+                      {adaptiveSelection ? (
+                        <div
+                          data-testid="mbti-adaptive-selection"
+                          data-adaptive-fingerprint={adaptiveFingerprintSummary || undefined}
+                          data-selection-rewrite-reason={adaptiveRewriteReasonSummary || undefined}
+                          data-next-best-action-key={nextBestActionKeySummary || undefined}
+                          className="rounded-2xl border border-sky-100 bg-sky-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+                        >
+                          <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-sky-700">
+                            {locale === "zh" ? "自适应修正已生效" : "Adaptive correction active"}
+                          </p>
+                          <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                            {adaptiveRewriteLabel}
+                          </p>
+                          {(nextBestActionLabel || nextBestActionSectionSummary) ? (
+                            <p className="m-0 mt-2 whitespace-pre-wrap text-xs leading-6 text-slate-600">
+                              {locale === "zh"
+                                ? `下一步动作：${nextBestActionLabel || "未显式给出"} · 目标章节：${nextBestActionSectionSummary || "未显式给出"}`
+                                : `Next best action: ${nextBestActionLabel || "not explicit"} · Target section: ${nextBestActionSectionSummary || "not explicit"}`}
                             </p>
                           ) : null}
                         </div>
