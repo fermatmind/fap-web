@@ -186,6 +186,26 @@ function createShareFixture(): ShareSummaryResponse {
       embed_fingerprint: "embed-fingerprint-123",
       render_mode: "card",
     },
+    widget_surface_v1: {
+      version: "widget.surface.v1",
+      widget_scope: "public_share_safe",
+      widget_contract_version: "widget.surface.v1",
+      surface_key: "mbti_share_embed_card",
+      host_mode: "card",
+      slot_key: "public_share_primary",
+      size_preset: "summary_card",
+      entry_surface: "mbti_share_landing",
+      title: "Campaigner",
+      summary: "This public-safe summary keeps the main signal readable without exposing the private report.",
+      primary_cta_label: "Start MBTI test",
+      primary_cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
+      continue_target: "career.next_step",
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "working_life", "continue_reading"],
+      allowed_edge_types: ["enriches", "supports"],
+      graph_fingerprint: "graph-fingerprint-123",
+      embed_fingerprint: "embed-fingerprint-123",
+      attribution_scope: "share_public_surface",
+    },
     partner_read_v1: {
       version: "partner.read.v1",
       graph_scope: "public_share_safe",
@@ -303,6 +323,26 @@ function createBig5ShareFixture(): ShareSummaryResponse {
       allowed_node_ids: ["result_summary", "narrative", "comparative", "continue_reading"],
       embed_fingerprint: "share-big5-embed-fingerprint",
       render_mode: "card",
+    },
+    widget_surface_v1: {
+      version: "widget.surface.v1",
+      widget_scope: "public_share_safe",
+      widget_contract_version: "widget.surface.v1",
+      surface_key: "big5_share_embed_card",
+      host_mode: "card",
+      slot_key: "public_share_primary",
+      size_preset: "summary_card",
+      entry_surface: "big5_share_landing",
+      title: "Big Five public summary",
+      summary: "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report.",
+      primary_cta_label: "Take the test",
+      primary_cta_path: "/en/tests/big-five-personality-test-ocean-model",
+      continue_target: "traits.overview",
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "continue_reading"],
+      allowed_edge_types: ["supports"],
+      graph_fingerprint: "share-big5-graph-fingerprint",
+      embed_fingerprint: "share-big5-embed-fingerprint",
+      attribution_scope: "share_public_surface",
     },
     partner_read_v1: {
       version: "partner.read.v1",
@@ -453,9 +493,12 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByTestId("share-public-insight-grid")).toHaveTextContent(
       "In the current norming set, this profile signal sits above roughly 62% of the anonymized cohort."
     );
-    expect(screen.getByTestId("share-embed-surface")).toHaveTextContent("Embeddable insight graph");
-    expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Campaigner");
-    expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Continue path");
+    expect(screen.getByTestId("share-widget-surface")).toHaveTextContent("Embeddable insight widget");
+    expect(screen.getByTestId("share-widget-node-list")).toHaveTextContent("Campaigner");
+    expect(screen.getByTestId("share-widget-node-list")).toHaveTextContent("Continue path");
+    expect(screen.getByTestId("share-widget-host-meta")).toHaveTextContent("card");
+    expect(screen.getByTestId("share-widget-host-meta")).toHaveTextContent("public_share_primary");
+    expect(screen.getByTestId("share-widget-host-meta")).toHaveTextContent("summary_card");
     expect(screen.getByTestId("share-partner-read-scope")).toHaveTextContent("public_share_safe");
     expect(screen.getByTestId("share-partner-read-scope")).toHaveTextContent("partner_public_read");
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent("Start next with Career next step");
@@ -521,13 +564,18 @@ describe("MBTI share consumer contract", () => {
       expect(hoisted.trackEvent).toHaveBeenCalledWith(
         "ui_card_impression",
         expect.objectContaining({
-          visual_kind: "share_embed_surface",
+          visual_kind: "share_widget_surface",
           embedSurfaceKey: "mbti_share_embed_card",
           graphScope: "public_share_safe",
           graphFingerprint: "graph-fingerprint-123",
           readScope: "partner_public_read",
           subjectScope: "public_summary_only",
           embedFingerprint: "embed-fingerprint-123",
+          widgetScope: "public_share_safe",
+          widgetContractVersion: "widget.surface.v1",
+          hostMode: "card",
+          slotKey: "public_share_primary",
+          sizePreset: "summary_card",
           supportingScales: "MBTI|BIG5_OCEAN",
         })
       );
@@ -565,12 +613,12 @@ describe("MBTI share consumer contract", () => {
       })
     );
 
-    fireEvent.click(screen.getByTestId("share-embed-continue-cta"));
+    fireEvent.click(screen.getByTestId("share-widget-continue-cta"));
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",
       expect.objectContaining({
-        visual_kind: "share_embed_surface",
+        visual_kind: "share_widget_surface",
         interaction: "continue",
         embedSurfaceKey: "mbti_share_embed_card",
         graphScope: "public_share_safe",
@@ -578,6 +626,11 @@ describe("MBTI share consumer contract", () => {
         readScope: "partner_public_read",
         subjectScope: "public_summary_only",
         embedFingerprint: "embed-fingerprint-123",
+        widgetScope: "public_share_safe",
+        widgetContractVersion: "widget.surface.v1",
+        hostMode: "card",
+        slotKey: "public_share_primary",
+        sizePreset: "summary_card",
       })
     );
   });
@@ -597,8 +650,8 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByTestId("share-public-insight-grid")).toHaveTextContent(
       "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report."
     );
-    expect(screen.getByTestId("share-embed-surface")).toHaveTextContent("Embeddable insight graph");
-    expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Big Five public summary");
+    expect(screen.getByTestId("share-widget-surface")).toHaveTextContent("Embeddable insight widget");
+    expect(screen.getByTestId("share-widget-node-list")).toHaveTextContent("Big Five public summary");
     expect(screen.getByTestId("share-partner-read-scope")).toHaveTextContent("public_share_safe");
     expect(screen.getByTestId("share-public-continue-entry")).toHaveTextContent("Continue into the full result path");
     expect(screen.getByTestId("share-public-continue-cta")).toHaveAttribute(
@@ -617,10 +670,12 @@ describe("MBTI share consumer contract", () => {
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
       expect.objectContaining({
-        visual_kind: "share_embed_surface",
+        visual_kind: "share_widget_surface",
         embedSurfaceKey: "big5_share_embed_card",
         graphFingerprint: "share-big5-graph-fingerprint",
         readScope: "partner_public_read",
+        widgetScope: "public_share_safe",
+        hostMode: "card",
       })
     );
   });

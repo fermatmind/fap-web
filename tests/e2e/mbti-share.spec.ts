@@ -178,6 +178,26 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
       embed_fingerprint: "embed-fingerprint-123",
       render_mode: "card",
     },
+    widget_surface_v1: {
+      version: "widget.surface.v1",
+      widget_scope: "public_share_safe",
+      widget_contract_version: "widget.surface.v1",
+      surface_key: "mbti_share_embed_card",
+      host_mode: "card",
+      slot_key: "public_share_primary",
+      size_preset: "summary_card",
+      entry_surface: "mbti_share_landing",
+      title: "Campaigner",
+      summary: "This public MBTI share page keeps only the lightweight result summary and the top-level dimension balance.",
+      primary_cta_label: "Start MBTI test",
+      primary_cta_path: takePath,
+      continue_target: "career.next_step",
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "working_life", "continue_reading"],
+      allowed_edge_types: ["enriches", "supports"],
+      graph_fingerprint: "graph-fingerprint-123",
+      embed_fingerprint: "embed-fingerprint-123",
+      attribution_scope: "share_public_surface",
+    },
     partner_read_v1: {
       version: "partner.read.v1",
       graph_scope: "public_share_safe",
@@ -370,9 +390,10 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   await expect(page.getByRole("heading", { name: "ENFP-T" })).toBeVisible();
   await expect(page.getByRole("heading", { name: /^ENFP$/ })).toHaveCount(0);
   await expect(page.getByTestId("mbti-share-summary-card").getByText("Campaigner")).toBeVisible();
-  await expect(page.getByTestId("share-embed-surface")).toContainText("Embeddable insight graph");
+  await expect(page.getByTestId("share-widget-surface")).toContainText("Embeddable insight widget");
   await expect(page.getByTestId("share-partner-read-scope")).toContainText("partner_public_read");
-  await expect(page.getByTestId("share-embed-node-list")).toContainText("Continue path");
+  await expect(page.getByTestId("share-widget-node-list")).toContainText("Continue path");
+  await expect(page.getByTestId("share-widget-host-meta")).toContainText("summary_card");
   await expect(page.getByRole("button", { name: "Invite a friend to compare" })).toBeVisible();
   await expect(page.getByText("Legacy name should be ignored")).toHaveCount(0);
   await expect(page.getByText("Legacy summary should be ignored")).toHaveCount(0);

@@ -125,7 +125,7 @@ export default function ShareClient({
   const [compareInvitePending, setCompareInvitePending] = useState(false);
   const [compareInviteError, setCompareInviteError] = useState<string | null>(null);
   const carryoverImpressionTrackedRef = useRef(false);
-  const embedImpressionTrackedRef = useRef(false);
+  const widgetImpressionTrackedRef = useRef(false);
 
   const queryString = searchParams.toString();
   const landingPath = useMemo(() => buildLandingPath(pathname, queryString), [pathname, queryString]);
@@ -136,6 +136,7 @@ export default function ShareClient({
   const publicSurface = viewModel.publicSurface;
   const insightGraph = viewModel.insightGraph;
   const embedSurface = viewModel.embedSurface;
+  const widgetSurface = viewModel.widgetSurface;
   const partnerRead = viewModel.partnerRead;
   const comparative = viewModel.comparative;
   const workingLife = viewModel.workingLife;
@@ -280,6 +281,13 @@ export default function ShareClient({
     attributionScope:
       partnerRead?.attributionScope || publicSurface?.attributionScope || "",
   };
+  const widgetTelemetry = {
+    widgetScope: widgetSurface?.widgetScope || "",
+    widgetContractVersion: widgetSurface?.widgetContractVersion || "",
+    hostMode: widgetSurface?.hostMode || "",
+    slotKey: widgetSurface?.slotKey || "",
+    sizePreset: widgetSurface?.sizePreset || "",
+  };
 
   useEffect(() => {
     if (!viewModel.continuity || !primaryCtaHref || carryoverImpressionTrackedRef.current) {
@@ -322,32 +330,32 @@ export default function ShareClient({
   }, [locale, primaryContinueTarget, publicSurface, publicSurfaceTelemetry, shareDisplayType, shareScaleCode, viewModel.attemptId]);
 
   useEffect(() => {
-    if (!embedSurface || !insightGraph || embedImpressionTrackedRef.current) {
+    if (!widgetSurface || !insightGraph || widgetImpressionTrackedRef.current) {
       return;
     }
 
-    embedImpressionTrackedRef.current = true;
+    widgetImpressionTrackedRef.current = true;
     trackEvent("ui_card_impression", {
       slug: "share-page",
       scale_code: shareScaleCode,
-      visual_kind: "share_embed_surface",
+      visual_kind: "share_widget_surface",
       attempt_id: viewModel.attemptId || undefined,
-      ctaKey: "share_embed_surface",
+      ctaKey: "share_widget_surface",
       ctaRank: 1,
-      continueTarget: embedSurface.continueTarget || primaryContinueTarget,
+      continueTarget: widgetSurface.continueTarget || primaryContinueTarget,
       typeCode: shareDisplayType || undefined,
       graphScope: insightGraph.graphScope,
       graphFingerprint: insightGraph.graphFingerprint,
       graphContractVersion: insightGraph.graphContractVersion,
-      embedSurfaceKey: embedSurface.surfaceKey,
-      embedFingerprint: embedSurface.embedFingerprint,
+      embedSurfaceKey: widgetSurface.surfaceKey || embedSurface?.surfaceKey || "",
+      embedFingerprint: widgetSurface.embedFingerprint || embedSurface?.embedFingerprint || "",
+      ...widgetTelemetry,
       supportingScales: insightGraph.supportingScales.join("|"),
       ...publicSurfaceTelemetry,
       ...partnerReadTelemetry,
       locale,
     });
   }, [
-    embedSurface,
     insightGraph,
     locale,
     partnerReadTelemetry,
@@ -356,6 +364,9 @@ export default function ShareClient({
     shareDisplayType,
     shareScaleCode,
     viewModel.attemptId,
+    widgetSurface,
+    widgetTelemetry,
+    embedSurface,
   ]);
 
   const insightCards = [
@@ -385,8 +396,8 @@ export default function ShareClient({
         }
       : null,
   ].filter((item): item is { key: string; title: string; body: string } => Boolean(item && item.body));
-  const embedNodeTitles = insightGraph?.nodes
-    .filter((node) => embedSurface?.allowedNodeIds.includes(node.id))
+  const widgetNodeTitles = insightGraph?.nodes
+    .filter((node) => widgetSurface?.allowedNodeIds.includes(node.id))
     .map((node) => node.title)
     .filter(Boolean) ?? [];
 
@@ -514,30 +525,46 @@ export default function ShareClient({
         </section>
       ) : null}
 
-      {embedSurface && insightGraph ? (
+      {widgetSurface && insightGraph ? (
         <section className="mx-auto -mt-2 w-full max-w-5xl px-4 pb-6 md:px-6">
           <div
-            data-testid="share-embed-surface"
+            data-testid="share-widget-surface"
             className="rounded-[28px] border border-sky-200 bg-[linear-gradient(135deg,_#ffffff_0%,_#eff6ff_45%,_#f8fafc_100%)] px-6 py-5 shadow-[0_20px_48px_rgba(15,23,42,0.08)]"
           >
             <div className="space-y-2">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
-                {locale === "zh" ? "可嵌入洞察图" : "Embeddable insight graph"}
+                {locale === "zh" ? "可嵌入洞察组件" : "Embeddable insight widget"}
               </p>
               <h2 className="m-0 text-xl font-semibold text-slate-950">
-                {embedSurface.title || (locale === "zh" ? "结果主链摘要" : "Result-path summary")}
+                {widgetSurface.title || (locale === "zh" ? "结果主链摘要" : "Result-path summary")}
               </h2>
               <p className="m-0 text-sm leading-7 text-slate-600">
-                {embedSurface.summary || (locale === "zh" ? "用同一条后端 authority 主链继续阅读与行动。" : "Continue reading and action from the same backend-owned authority chain.")}
+                {widgetSurface.summary || (locale === "zh" ? "用同一条后端 authority 主链继续阅读与行动。" : "Continue reading and action from the same backend-owned authority chain.")}
               </p>
             </div>
 
-            {embedNodeTitles.length > 0 ? (
+            <div
+              data-testid="share-widget-host-meta"
+              className="mt-4 rounded-2xl border border-sky-100 bg-white/80 px-4 py-3 text-xs text-slate-600"
+            >
+              <p className="m-0 font-semibold text-slate-900">
+                {locale === "zh" ? "Host-aware widget contract" : "Host-aware widget contract"}
+              </p>
+              <p className="m-0 mt-1">
+                {widgetSurface.hostMode || "card"}
+                {" · "}
+                {widgetSurface.slotKey || "public_share_primary"}
+                {" · "}
+                {widgetSurface.sizePreset || "summary_card"}
+              </p>
+            </div>
+
+            {widgetNodeTitles.length > 0 ? (
               <div
-                data-testid="share-embed-node-list"
+                data-testid="share-widget-node-list"
                 className="mt-4 flex flex-wrap gap-2"
               >
-                {embedNodeTitles.map((title) => (
+                {widgetNodeTitles.map((title) => (
                   <span
                     key={title}
                     className="inline-flex rounded-full border border-sky-200 bg-white/90 px-3 py-1 text-xs font-medium text-slate-700"
@@ -551,24 +578,25 @@ export default function ShareClient({
             <div className="mt-4">
               <Link
                 href={primaryCtaHref}
-                data-testid="share-embed-continue-cta"
+                data-testid="share-widget-continue-cta"
                 className={buttonVariants({ variant: "outline", className: "inline-flex" })}
                 onClick={() => {
                   trackEvent("ui_card_interaction", {
                     slug: "share-page",
                     scale_code: shareScaleCode,
-                    visual_kind: "share_embed_surface",
+                    visual_kind: "share_widget_surface",
                     interaction: "continue",
                     attempt_id: viewModel.attemptId || undefined,
-                    ctaKey: "share_embed_surface",
+                    ctaKey: "share_widget_surface",
                     ctaRank: 1,
-                    continueTarget: embedSurface.continueTarget || primaryContinueTarget,
+                    continueTarget: widgetSurface.continueTarget || primaryContinueTarget,
                     typeCode: shareDisplayType || undefined,
                     graphScope: insightGraph.graphScope,
                     graphFingerprint: insightGraph.graphFingerprint,
                     graphContractVersion: insightGraph.graphContractVersion,
-                    embedSurfaceKey: embedSurface.surfaceKey,
-                    embedFingerprint: embedSurface.embedFingerprint,
+                    embedSurfaceKey: widgetSurface.surfaceKey || embedSurface?.surfaceKey || "",
+                    embedFingerprint: widgetSurface.embedFingerprint || embedSurface?.embedFingerprint || "",
+                    ...widgetTelemetry,
                     supportingScales: insightGraph.supportingScales.join("|"),
                     ...publicSurfaceTelemetry,
                     ...partnerReadTelemetry,
@@ -576,7 +604,7 @@ export default function ShareClient({
                   });
                 }}
               >
-                {embedSurface.primaryCtaLabel || viewModel.primaryCtaLabel || (locale === "zh" ? "继续这里" : "Continue here")}
+                {widgetSurface.primaryCtaLabel || viewModel.primaryCtaLabel || (locale === "zh" ? "继续这里" : "Continue here")}
               </Link>
             </div>
 
