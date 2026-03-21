@@ -8,6 +8,7 @@ import { trackEvent } from "@/lib/analytics";
 import { ApiError } from "@/lib/api-client";
 import {
   getPrivateMbtiRelationship,
+  mutatePrivateMbtiRelationshipConsent,
   type PrivateMbtiRelationshipResponse,
 } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
@@ -24,6 +25,8 @@ export default function PrivateRelationshipClient({
   const [data, setData] = useState<PrivateMbtiRelationshipResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [mutationError, setMutationError] = useState<string | null>(null);
+  const [pendingAction, setPendingAction] = useState<"revoke_access" | "acknowledge_refresh" | null>(null);
   const impressionTrackedRef = useRef(false);
   const viewModel = useMemo(() => buildPrivateMbtiRelationshipViewModel(data), [data]);
 
@@ -33,6 +36,7 @@ export default function PrivateRelationshipClient({
     const run = async () => {
       setLoading(true);
       setError(null);
+      setMutationError(null);
 
       try {
         const response = await getPrivateMbtiRelationship({
@@ -102,6 +106,12 @@ export default function PrivateRelationshipClient({
       supportingScales: viewModel.dyadicGraph?.supportingScales.join("|") || "MBTI",
       consentScope: viewModel.consent.scope,
       consentState: viewModel.consent.consentState,
+      consentFingerprint: viewModel.consent.consentFingerprint,
+      consentArtifactVersion: viewModel.consent.contractVersion,
+      consentRefreshRequired: viewModel.consent.consentRefreshRequired,
+      privateRelationshipAccessVersion: viewModel.consent.privateRelationshipAccessVersion,
+      revocationState: viewModel.consent.revocationState,
+      expiryState: viewModel.consent.expiryState,
       accessState: viewModel.relationship.accessState || viewModel.consent.accessState,
       locale,
     });
@@ -124,6 +134,12 @@ export default function PrivateRelationshipClient({
       participantRole: viewModel.relationship?.participantRole || "",
       consentScope: viewModel.consent?.scope || "",
       consentState: viewModel.consent?.consentState || "",
+      consentFingerprint: viewModel.consent?.consentFingerprint || "",
+      consentArtifactVersion: viewModel.consent?.contractVersion || "",
+      consentRefreshRequired: viewModel.consent?.consentRefreshRequired || false,
+      privateRelationshipAccessVersion: viewModel.consent?.privateRelationshipAccessVersion || "",
+      revocationState: viewModel.consent?.revocationState || "",
+      expiryState: viewModel.consent?.expiryState || "",
       accessState: viewModel.relationship?.accessState || viewModel.consent?.accessState || "",
       locale,
     });
@@ -146,9 +162,71 @@ export default function PrivateRelationshipClient({
       participantRole: viewModel.relationship?.participantRole || "",
       consentScope: viewModel.consent?.scope || "",
       consentState: viewModel.consent?.consentState || "",
+      consentFingerprint: viewModel.consent?.consentFingerprint || "",
+      consentArtifactVersion: viewModel.consent?.contractVersion || "",
+      consentRefreshRequired: viewModel.consent?.consentRefreshRequired || false,
+      privateRelationshipAccessVersion: viewModel.consent?.privateRelationshipAccessVersion || "",
+      revocationState: viewModel.consent?.revocationState || "",
+      expiryState: viewModel.consent?.expiryState || "",
       accessState: viewModel.relationship?.accessState || viewModel.consent?.accessState || "",
       locale,
     });
+  };
+
+  const handleConsentAction = async (action: "revoke_access" | "acknowledge_refresh") => {
+    setPendingAction(action);
+    setMutationError(null);
+
+    trackEvent("ui_card_interaction", {
+      slug: "mbti-private-relationship-page",
+      scale_code: "MBTI",
+      visual_kind: "private_relationship_consent_action",
+      interaction: "click",
+      actionKey: action,
+      ctaKey: action,
+      continueTarget: action,
+      entrySurface: "private_relationship_page",
+      relationshipScope: viewModel.relationship?.scope || "",
+      relationshipFingerprint: viewModel.relationship?.fingerprint || "",
+      relationshipContractVersion: viewModel.relationship?.contractVersion || "",
+      subjectJoinMode: viewModel.relationship?.subjectJoinMode || "",
+      participantRole: viewModel.relationship?.participantRole || "",
+      consentScope: viewModel.consent?.scope || "",
+      consentState: viewModel.consent?.consentState || "",
+      consentFingerprint: viewModel.consent?.consentFingerprint || "",
+      consentArtifactVersion: viewModel.consent?.contractVersion || "",
+      consentRefreshRequired: viewModel.consent?.consentRefreshRequired || false,
+      privateRelationshipAccessVersion: viewModel.consent?.privateRelationshipAccessVersion || "",
+      revocationState: viewModel.consent?.revocationState || "",
+      expiryState: viewModel.consent?.expiryState || "",
+      accessState: viewModel.relationship?.accessState || viewModel.consent?.accessState || "",
+      locale,
+    });
+
+    try {
+      const response = await mutatePrivateMbtiRelationshipConsent({
+        inviteId,
+        action,
+        locale,
+      });
+      setData(response);
+    } catch (cause) {
+      setMutationError(
+        cause instanceof Error
+          ? cause.message
+          : locale === "zh"
+            ? "私密关系授权暂时无法更新。"
+            : "Unable to update private relationship consent."
+      );
+      captureError(cause, {
+        route: "/(app)/relationships/mbti/[inviteId]",
+        inviteId,
+        stage: "mutate_private_relationship_consent",
+        action,
+      });
+    } finally {
+      setPendingAction(null);
+    }
   };
 
   if (loading) {
@@ -171,6 +249,10 @@ export default function PrivateRelationshipClient({
     <MbtiPrivateRelationshipView
       locale={locale}
       viewModel={viewModel}
+      mutationError={mutationError}
+      pendingAction={pendingAction}
+      onRevokeConsent={() => void handleConsentAction("revoke_access")}
+      onAcknowledgeRefresh={() => void handleConsentAction("acknowledge_refresh")}
       onSectionClick={handleSectionClick}
       onActionPromptClick={handleActionPromptClick}
     />

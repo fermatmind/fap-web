@@ -55,6 +55,9 @@ export type DyadicConsentViewModel = {
   scope: string;
   accessState: string;
   consentState: string;
+  consentFingerprint: string;
+  consentRefreshRequired: boolean;
+  privateRelationshipAccessVersion: string;
   revocationState: string;
   expiryState: string;
   subjectJoinMode: string;
@@ -191,6 +194,9 @@ export function normalizeDyadicConsent(rawConsent?: DyadicConsentRaw | null): Dy
     scope: normalizeText(rawConsent.consent_scope),
     accessState: normalizeText(rawConsent.access_state),
     consentState: normalizeText(rawConsent.consent_state),
+    consentFingerprint: normalizeText(rawConsent.consent_fingerprint),
+    consentRefreshRequired: Boolean(rawConsent.consent_refresh_required),
+    privateRelationshipAccessVersion: normalizeText(rawConsent.private_relationship_access_version),
     revocationState: normalizeText(rawConsent.revocation_state),
     expiryState: normalizeText(rawConsent.expiry_state),
     subjectJoinMode: normalizeText(rawConsent.subject_join_mode),

@@ -96,8 +96,11 @@ function createPrivateFixture(inviteId: string) {
       consent_scope: "private_relationship_protected",
       access_state: "private_access_ready",
       consent_state: "purchased",
-      revocation_state: "not_supported_yet",
-      expiry_state: "not_enforced_yet",
+      consent_fingerprint: "consent-fingerprint-001",
+      consent_refresh_required: false,
+      private_relationship_access_version: "private.relationship.access.v1",
+      revocation_state: "active",
+      expiry_state: "active",
       subject_join_mode: "share_compare_invite_purchased",
       accepted_at: "2026-03-21T00:00:00.000Z",
       completed_at: "2026-03-21T00:05:00.000Z",
@@ -149,6 +152,8 @@ test("private relationship page renders protected dyadic surface", async ({ page
   await expect(page.getByTestId("mbti-private-invitee-card")).toContainText("Advocate");
   await expect(page.getByTestId("mbti-private-relationship-card")).toContainText("Private relationship sync");
   await expect(page.getByTestId("mbti-private-action-card")).toContainText("Name the decision rule first");
+  await expect(page.getByTestId("mbti-private-consent-card")).toContainText("Consent version");
+  await expect(page.getByTestId("mbti-private-consent-fingerprint")).toContainText("consent-fingerprint-001");
 });
 
 test("private relationship page hides content from unauthorized users", async ({ page }) => {
@@ -170,4 +175,68 @@ test("private relationship page hides content from unauthorized users", async ({
 
   await expect(page.getByText("This account cannot access that private relationship.")).toBeVisible();
   await expect(page.getByTestId("mbti-private-relationship-view")).toHaveCount(0);
+});
+
+test("private relationship page reflects revoke mutation and restricted access", async ({ page }) => {
+  const inviteId = "invite-private-revoke";
+  let revoked = false;
+
+  await page.route(`**/api/v0.3/me/relationships/mbti/${inviteId}`, async (route) => {
+    const payload = createPrivateFixture(inviteId);
+    if (revoked) {
+      payload.private_relationship_v1 = {
+        ...payload.private_relationship_v1,
+        access_state: "private_access_revoked",
+        overview: {
+          title: "Private relationship access has tightened",
+          summary: "One participant revoked private relationship access.",
+        },
+        private_sync_sections: [],
+        private_action_prompt: null,
+      };
+      payload.dyadic_consent_v1 = {
+        ...payload.dyadic_consent_v1,
+        access_state: "private_access_revoked",
+        revocation_state: "revoked_by_subject",
+      };
+    }
+
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(payload),
+    });
+  });
+
+  await page.route(`**/api/v0.3/me/relationships/mbti/${inviteId}/consent`, async (route) => {
+    revoked = true;
+    const payload = createPrivateFixture(inviteId);
+    payload.private_relationship_v1 = {
+      ...payload.private_relationship_v1,
+      access_state: "private_access_revoked",
+      overview: {
+        title: "Private relationship access has tightened",
+        summary: "One participant revoked private relationship access.",
+      },
+      private_sync_sections: [],
+      private_action_prompt: null,
+    };
+    payload.dyadic_consent_v1 = {
+      ...payload.dyadic_consent_v1,
+      access_state: "private_access_revoked",
+      revocation_state: "revoked_by_subject",
+    };
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(payload),
+    });
+  });
+
+  await page.goto(`/en/relationships/mbti/${inviteId}`);
+  await page.getByTestId("mbti-private-consent-revoke").click();
+
+  await expect(page.getByTestId("mbti-private-access-badge")).toHaveText("Private access revoked");
+  await expect(page.getByTestId("mbti-private-revocation-badge")).toHaveText("revoked_by_subject");
+  await expect(page.getByTestId("mbti-private-action-card")).toHaveCount(0);
 });

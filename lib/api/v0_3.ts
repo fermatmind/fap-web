@@ -1104,6 +1104,9 @@ export type DyadicConsentRaw = {
   consent_scope?: string;
   access_state?: string;
   consent_state?: string;
+  consent_fingerprint?: string;
+  consent_refresh_required?: boolean;
+  private_relationship_access_version?: string;
   revocation_state?: string;
   expiry_state?: string;
   subject_join_mode?: string;
@@ -2489,6 +2492,28 @@ export async function getPrivateMbtiRelationship({
   );
 
   return assertApiOk(response, "Private relationship not available.");
+}
+
+export async function mutatePrivateMbtiRelationshipConsent({
+  inviteId,
+  action,
+  locale,
+}: {
+  inviteId: string;
+  action: "revoke_access" | "acknowledge_refresh";
+  locale?: string;
+}): Promise<PrivateMbtiRelationshipResponse> {
+  const response = await apiClient.post<PrivateMbtiRelationshipResponse>(
+    `/v0.3/me/relationships/mbti/${inviteId}/consent`,
+    {
+      action,
+    },
+    {
+      ...(locale ? { locale } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Unable to update private relationship consent.");
 }
 
 export async function lookupOrder({
