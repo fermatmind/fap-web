@@ -982,6 +982,78 @@ export type MbtiCompareSummaryRaw = {
   [key: string]: unknown;
 };
 
+export type RelationshipSyncSectionRaw = {
+  key?: string;
+  title?: string;
+  summary?: string;
+  keys?: string[] | null;
+  bullets?: string[] | null;
+  [key: string]: unknown;
+};
+
+export type RelationshipSyncActionPromptRaw = {
+  key?: string;
+  title?: string;
+  summary?: string;
+  cta_label?: string | null;
+  cta_path?: string | null;
+  [key: string]: unknown;
+};
+
+export type RelationshipSyncRaw = {
+  version?: string;
+  relationship_contract_version?: string;
+  relationship_fingerprint_version?: string;
+  relationship_fingerprint?: string;
+  dyadic_scope?: string;
+  subject_join_mode?: string;
+  status?: string;
+  shared_count?: number | null;
+  diverging_count?: number | null;
+  friction_keys?: string[] | null;
+  complement_keys?: string[] | null;
+  communication_bridge_keys?: string[] | null;
+  decision_tension_keys?: string[] | null;
+  stress_interplay_keys?: string[] | null;
+  dyadic_action_prompt_keys?: string[] | null;
+  overview?: {
+    title?: string;
+    summary?: string;
+    [key: string]: unknown;
+  } | null;
+  sections?: RelationshipSyncSectionRaw[] | null;
+  action_prompt?: RelationshipSyncActionPromptRaw | null;
+  [key: string]: unknown;
+};
+
+export type DyadicGraphNodeRaw = {
+  id?: string;
+  kind?: string;
+  title?: string;
+  summary?: string;
+  source_contract?: string;
+  [key: string]: unknown;
+};
+
+export type DyadicGraphEdgeRaw = {
+  from?: string;
+  to?: string;
+  relation?: string;
+  [key: string]: unknown;
+};
+
+export type DyadicGraphRaw = {
+  version?: string;
+  graph_contract_version?: string;
+  root_node?: string;
+  nodes?: DyadicGraphNodeRaw[] | null;
+  edges?: DyadicGraphEdgeRaw[] | null;
+  graph_scope?: string;
+  graph_fingerprint?: string;
+  supporting_scales?: string[] | null;
+  [key: string]: unknown;
+};
+
 export type ShareSummaryResponse = {
   ok?: boolean;
   share_id?: string;
@@ -1103,6 +1175,8 @@ export type MbtiCompareInviteResponse = {
   inviter?: MbtiCompareParticipantRaw | null;
   invitee?: MbtiCompareParticipantRaw | null;
   compare?: MbtiCompareSummaryRaw | null;
+  relationship_sync_v1?: RelationshipSyncRaw | null;
+  dyadic_graph_v1?: DyadicGraphRaw | null;
   primary_cta_label?: string;
   primary_cta_path?: string;
   [key: string]: unknown;

@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import MbtiCompareInviteView from "@/components/compare/mbti/MbtiCompareInviteView";
 import { Alert } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getMbtiCompareInvite, type MbtiCompareInviteResponse } from "@/lib/api/v0_3";
+import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import { buildCompareInviteViewModel } from "@/lib/mbti/compareInvite";
 import { captureError } from "@/lib/observability/sentry";
@@ -45,11 +46,14 @@ export default function CompareClient({
   const [data, setData] = useState<MbtiCompareInviteResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const impressionTrackedRef = useRef(false);
 
   const queryString = searchParams.toString();
   const landingPath = useMemo(() => buildLandingPath(pathname, queryString), [pathname, queryString]);
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
   const viewModel = useMemo(() => buildCompareInviteViewModel(data), [data]);
+  const relationshipSync = viewModel.relationshipSync;
+  const dyadicGraph = viewModel.dyadicGraph;
 
   useEffect(() => {
     let active = true;
@@ -103,6 +107,75 @@ export default function CompareClient({
     });
   }, [inviteId, landingPath, pageReferrer, viewModel.inviteId, viewModel.primaryCtaPath, viewModel.shareId]);
 
+  useEffect(() => {
+    if (!relationshipSync || impressionTrackedRef.current) {
+      return;
+    }
+
+    impressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "mbti-compare-page",
+      scale_code: "MBTI",
+      visual_kind: "dyadic_relationship_sync",
+      ctaKey: "relationship_sync_view",
+      continueTarget: relationshipSync.actionPrompt?.key || "relationship_sync_review",
+      entrySurface: "compare_invite_page",
+      relationshipScope: relationshipSync.scope,
+      relationshipFingerprint: relationshipSync.fingerprint,
+      relationshipContractVersion: relationshipSync.contractVersion,
+      subjectJoinMode: relationshipSync.subjectJoinMode,
+      graphScope: dyadicGraph?.scope || "",
+      graphFingerprint: dyadicGraph?.fingerprint || relationshipSync.fingerprint,
+      graphContractVersion: dyadicGraph?.contractVersion || relationshipSync.contractVersion,
+      supportingScales: dyadicGraph?.supportingScales.join("|") || "MBTI",
+      locale,
+    });
+  }, [dyadicGraph, locale, relationshipSync]);
+
+  const handleRelationshipSectionClick = (sectionKey: string) => {
+    trackEvent("ui_card_interaction", {
+      slug: "mbti-compare-page",
+      scale_code: "MBTI",
+      visual_kind: "dyadic_relationship_section",
+      interaction: "click",
+      sectionKey,
+      ctaKey: sectionKey,
+      continueTarget: "relationship_sync_section",
+      entrySurface: "compare_invite_page",
+      relationshipScope: relationshipSync?.scope || "",
+      relationshipFingerprint: relationshipSync?.fingerprint || "",
+      relationshipContractVersion: relationshipSync?.contractVersion || "",
+      subjectJoinMode: relationshipSync?.subjectJoinMode || "",
+      graphScope: dyadicGraph?.scope || "",
+      graphFingerprint: dyadicGraph?.fingerprint || relationshipSync?.fingerprint || "",
+      graphContractVersion: dyadicGraph?.contractVersion || relationshipSync?.contractVersion || "",
+      supportingScales: dyadicGraph?.supportingScales.join("|") || "MBTI",
+      locale,
+    });
+  };
+
+  const handleActionPromptClick = (actionKey: string) => {
+    trackEvent("ui_card_interaction", {
+      slug: "mbti-compare-page",
+      scale_code: "MBTI",
+      visual_kind: "dyadic_action_prompt",
+      interaction: "click",
+      actionKey,
+      ctaKey: actionKey,
+      continueTarget: actionKey || "relationship_sync_next_step",
+      entrySurface: "compare_invite_page",
+      relationshipScope: relationshipSync?.scope || "",
+      relationshipFingerprint: relationshipSync?.fingerprint || "",
+      relationshipContractVersion: relationshipSync?.contractVersion || "",
+      subjectJoinMode: relationshipSync?.subjectJoinMode || "",
+      graphScope: dyadicGraph?.scope || "",
+      graphFingerprint: dyadicGraph?.fingerprint || relationshipSync?.fingerprint || "",
+      graphContractVersion: dyadicGraph?.contractVersion || relationshipSync?.contractVersion || "",
+      supportingScales: dyadicGraph?.supportingScales.join("|") || "MBTI",
+      locale,
+    });
+  };
+
   if (loading) {
     return (
       <main className="mx-auto w-full max-w-5xl px-4 py-10">
@@ -119,5 +192,13 @@ export default function CompareClient({
     );
   }
 
-  return <MbtiCompareInviteView locale={locale} viewModel={viewModel} primaryCtaHref={primaryCtaHref} />;
+  return (
+    <MbtiCompareInviteView
+      locale={locale}
+      viewModel={viewModel}
+      primaryCtaHref={primaryCtaHref}
+      onRelationshipSectionClick={handleRelationshipSectionClick}
+      onActionPromptClick={handleActionPromptClick}
+    />
+  );
 }
