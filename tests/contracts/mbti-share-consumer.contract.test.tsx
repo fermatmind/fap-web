@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ShareClient from "@/app/(localized)/[locale]/share/[id]/ShareClient";
@@ -153,6 +153,39 @@ function createShareFixture(): ShareSummaryResponse {
       robots_policy: "noindex,follow",
       attribution_scope: "share_public_surface",
     },
+    insight_graph_v1: {
+      version: "insight.graph.v1",
+      graph_contract_version: "insight.graph.v1",
+      root_node: "result_summary",
+      graph_fingerprint: "graph-fingerprint-123",
+      graph_scope: "public_share_safe",
+      supporting_scales: ["MBTI", "BIG5_OCEAN"],
+      nodes: [
+        { id: "result_summary", kind: "result_summary", title: "Campaigner", summary: "This public MBTI share page keeps only the lightweight result summary and never exposes paid content." },
+        { id: "narrative", kind: "narrative", title: "Public summary", summary: "This public-safe summary keeps the main signal readable without exposing the private report." },
+        { id: "comparative", kind: "comparative", title: "Above about 62% of the cohort", summary: "In the current norming set, this profile signal sits above roughly 62% of the anonymized cohort." },
+        { id: "working_life", kind: "working_life", title: "Working-life cue", summary: "Current focus: career.next_step" },
+        { id: "continue_reading", kind: "continue_reading", title: "Continue path", summary: "career.next_step -> career.work_experiments" },
+      ],
+      edges: [
+        { from: "narrative", to: "result_summary", relation: "enriches" },
+        { from: "comparative", to: "result_summary", relation: "supports" },
+      ],
+    },
+    embed_surface_v1: {
+      version: "embed.surface.v1",
+      surface_key: "mbti_share_embed_card",
+      graph_scope: "public_share_safe",
+      entry_surface: "mbti_share_landing",
+      title: "Campaigner",
+      summary: "This public-safe summary keeps the main signal readable without exposing the private report.",
+      primary_cta_label: "Start MBTI test",
+      primary_cta_path: "/en/tests/mbti-personality-test-16-personality-types/take",
+      continue_target: "career.next_step",
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "working_life", "continue_reading"],
+      embed_fingerprint: "embed-fingerprint-123",
+      render_mode: "card",
+    },
     offers: [
       {
         title: "Unlock full report",
@@ -227,6 +260,37 @@ function createBig5ShareFixture(): ShareSummaryResponse {
       canonical_url: "http://localhost:3000/en/share/share-big5-123",
       robots_policy: "noindex,follow",
       attribution_scope: "share_public_surface",
+    },
+    insight_graph_v1: {
+      version: "insight.graph.v1",
+      graph_contract_version: "insight.graph.v1",
+      root_node: "result_summary",
+      graph_fingerprint: "share-big5-graph-fingerprint",
+      graph_scope: "public_share_safe",
+      supporting_scales: ["BIG5_OCEAN"],
+      nodes: [
+        { id: "result_summary", kind: "result_summary", title: "Big Five public summary", summary: "This public-safe Big Five summary keeps the dominant traits, relative position, and entry path visible." },
+        { id: "narrative", kind: "narrative", title: "Public summary", summary: "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report." },
+        { id: "comparative", kind: "comparative", title: "Above about 81% of the cohort", summary: "In the current norming set, your Openness sits above roughly 81% of the anonymized cohort." },
+        { id: "continue_reading", kind: "continue_reading", title: "Continue path", summary: "traits.overview -> growth.next_actions" },
+      ],
+      edges: [
+        { from: "comparative", to: "result_summary", relation: "supports" },
+      ],
+    },
+    embed_surface_v1: {
+      version: "embed.surface.v1",
+      surface_key: "big5_share_embed_card",
+      graph_scope: "public_share_safe",
+      entry_surface: "big5_share_landing",
+      title: "Big Five public summary",
+      summary: "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report.",
+      primary_cta_label: "Take the test",
+      primary_cta_path: "/en/tests/big-five-personality-test-ocean-model",
+      continue_target: "traits.overview",
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "continue_reading"],
+      embed_fingerprint: "share-big5-embed-fingerprint",
+      render_mode: "card",
     },
   };
 }
@@ -356,7 +420,7 @@ describe("MBTI share consumer contract", () => {
 
     expect(screen.getByRole("heading", { name: "ENFP-T" })).toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "ENFP" })).not.toBeInTheDocument();
-    expect(screen.getByText("Campaigner")).toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-share-summary-card")).getByText("Campaigner")).toBeInTheDocument();
     expect(screen.getByText("Warm, imaginative, and emotionally alert")).toBeInTheDocument();
     expect(screen.getByText("This public MBTI share page keeps only the lightweight result summary and never exposes paid content.")).toBeInTheDocument();
     expect(screen.getByTestId("share-public-insight-grid")).toHaveTextContent(
@@ -365,6 +429,9 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByTestId("share-public-insight-grid")).toHaveTextContent(
       "In the current norming set, this profile signal sits above roughly 62% of the anonymized cohort."
     );
+    expect(screen.getByTestId("share-embed-surface")).toHaveTextContent("Embeddable insight graph");
+    expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Campaigner");
+    expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Continue path");
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent("Start next with Career next step");
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent(
       "The current focus has already moved into the career bridge"
@@ -424,6 +491,18 @@ describe("MBTI share consumer contract", () => {
           currentIntentCluster: "clarify_type",
         })
       );
+
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_card_impression",
+        expect.objectContaining({
+          visual_kind: "share_embed_surface",
+          embedSurfaceKey: "mbti_share_embed_card",
+          graphScope: "public_share_safe",
+          graphFingerprint: "graph-fingerprint-123",
+          embedFingerprint: "embed-fingerprint-123",
+          supportingScales: "MBTI|BIG5_OCEAN",
+        })
+      );
     });
 
     fireEvent.click(screen.getByTestId("mbti-share-carryover-cta"));
@@ -445,7 +524,7 @@ describe("MBTI share consumer contract", () => {
       })
     );
 
-    fireEvent.click(screen.getByRole("link", { name: "Start MBTI test" }));
+    fireEvent.click(screen.getAllByRole("link", { name: "Start MBTI test" })[0]!);
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",
@@ -455,6 +534,20 @@ describe("MBTI share consumer contract", () => {
         entrySurface: "mbti_share_landing",
         attributionScope: "share_public_surface",
         publicSummaryFingerprint: "share-fingerprint-123",
+      })
+    );
+
+    fireEvent.click(screen.getByTestId("share-embed-continue-cta"));
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_interaction",
+      expect.objectContaining({
+        visual_kind: "share_embed_surface",
+        interaction: "continue",
+        embedSurfaceKey: "mbti_share_embed_card",
+        graphScope: "public_share_safe",
+        graphFingerprint: "graph-fingerprint-123",
+        embedFingerprint: "embed-fingerprint-123",
       })
     );
   });
@@ -469,11 +562,13 @@ describe("MBTI share consumer contract", () => {
     });
 
     expect(screen.getByRole("heading", { name: "BIG5" })).toBeInTheDocument();
-    expect(screen.getByText("Big Five public summary")).toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-share-summary-card")).getByText("Big Five public summary")).toBeInTheDocument();
     expect(screen.getByText("This public-safe Big Five summary keeps the dominant traits, relative position, and entry path visible.")).toBeInTheDocument();
     expect(screen.getByTestId("share-public-insight-grid")).toHaveTextContent(
       "This public-safe Big Five read keeps the high-level trait story visible without exposing the deeper report."
     );
+    expect(screen.getByTestId("share-embed-surface")).toHaveTextContent("Embeddable insight graph");
+    expect(screen.getByTestId("share-embed-node-list")).toHaveTextContent("Big Five public summary");
     expect(screen.getByTestId("share-public-continue-entry")).toHaveTextContent("Continue into the full result path");
     expect(screen.getByTestId("share-public-continue-cta")).toHaveAttribute(
       "href",
@@ -486,6 +581,14 @@ describe("MBTI share consumer contract", () => {
         visual_kind: "big5_share_public_surface",
         entrySurface: "big5_share_landing",
         publicSummaryFingerprint: "share-big5-fingerprint",
+      })
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
+        visual_kind: "share_embed_surface",
+        embedSurfaceKey: "big5_share_embed_card",
+        graphFingerprint: "share-big5-graph-fingerprint",
       })
     );
   });
@@ -539,7 +642,7 @@ describe("MBTI share consumer contract", () => {
     });
 
     await waitFor(() => {
-      const href = screen.getByRole("link", { name: "Start MBTI test" }).getAttribute("href") ?? "";
+      const href = screen.getAllByRole("link", { name: "Start MBTI test" })[0]?.getAttribute("href") ?? "";
       expect(href).toContain("share_click_id=click-123");
       expect(href).toContain("carryover_focus_key=career.next_step");
       expect(href).toContain("current_intent_cluster=clarify_type");

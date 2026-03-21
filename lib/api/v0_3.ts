@@ -402,6 +402,50 @@ export type PublicSurfaceRaw = {
   [key: string]: unknown;
 };
 
+export type InsightGraphNodeRaw = {
+  id?: string;
+  kind?: string;
+  title?: string;
+  summary?: string;
+  source_contract?: string;
+  [key: string]: unknown;
+};
+
+export type InsightGraphEdgeRaw = {
+  from?: string;
+  to?: string;
+  relation?: string;
+  [key: string]: unknown;
+};
+
+export type InsightGraphRaw = {
+  version?: string;
+  graph_contract_version?: string;
+  root_node?: string;
+  nodes?: InsightGraphNodeRaw[];
+  edges?: InsightGraphEdgeRaw[];
+  graph_fingerprint?: string;
+  graph_scope?: string;
+  supporting_scales?: string[];
+  [key: string]: unknown;
+};
+
+export type EmbedSurfaceRaw = {
+  version?: string;
+  surface_key?: string;
+  graph_scope?: string;
+  entry_surface?: string;
+  title?: string;
+  summary?: string;
+  primary_cta_label?: string;
+  primary_cta_path?: string;
+  continue_target?: string;
+  allowed_node_ids?: string[];
+  embed_fingerprint?: string;
+  render_mode?: string;
+  [key: string]: unknown;
+};
+
 export type Big5PublicProjection = {
   schema_version?: string;
   trait_vector?: Big5TraitProjection[];
@@ -947,6 +991,8 @@ export type ShareSummaryResponse = {
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
   working_life_v1?: MbtiWorkingLifeRaw | null;
   public_surface_v1?: PublicSurfaceRaw | null;
+  insight_graph_v1?: InsightGraphRaw | null;
+  embed_surface_v1?: EmbedSurfaceRaw | null;
   [key: string]: unknown;
 };
 

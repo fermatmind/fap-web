@@ -138,6 +138,46 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
       ],
       telemetry_parity_fields: ["user_state", "continuity.carryover_focus_key"],
     },
+    public_surface_v1: {
+      version: "public.surface.v1",
+      entry_surface: "mbti_share_landing",
+      public_summary_fingerprint: "share-fingerprint-123",
+      discoverability_keys: ["public_safe_summary", "share_landing", "continue_here", "compare_invite"],
+      continue_reading_keys: ["career.next_step", "career.work_experiments"],
+      canonical_url: shareUrl,
+      robots_policy: "noindex,follow",
+      attribution_scope: "share_public_surface",
+    },
+    insight_graph_v1: {
+      version: "insight.graph.v1",
+      graph_contract_version: "insight.graph.v1",
+      root_node: "result_summary",
+      graph_fingerprint: "graph-fingerprint-123",
+      graph_scope: "public_share_safe",
+      supporting_scales: ["MBTI", "BIG5_OCEAN"],
+      nodes: [
+        { id: "result_summary", kind: "result_summary", title: "Campaigner", summary: "This public MBTI share page keeps only the lightweight result summary and the top-level dimension balance." },
+        { id: "narrative", kind: "narrative", title: "Public summary", summary: "This public MBTI share page keeps only the lightweight result summary and the top-level dimension balance." },
+        { id: "comparative", kind: "comparative", title: "Relative position", summary: "Above roughly 62% of the anonymized cohort." },
+        { id: "working_life", kind: "working_life", title: "Working-life cue", summary: "Current focus: career.next_step" },
+        { id: "continue_reading", kind: "continue_reading", title: "Continue path", summary: "career.next_step -> career.work_experiments" },
+      ],
+      edges: [{ from: "narrative", to: "result_summary", relation: "enriches" }],
+    },
+    embed_surface_v1: {
+      version: "embed.surface.v1",
+      surface_key: "mbti_share_embed_card",
+      graph_scope: "public_share_safe",
+      entry_surface: "mbti_share_landing",
+      title: "Campaigner",
+      summary: "This public MBTI share page keeps only the lightweight result summary and the top-level dimension balance.",
+      primary_cta_label: "Start MBTI test",
+      primary_cta_path: takePath,
+      continue_target: "career.next_step",
+      allowed_node_ids: ["result_summary", "narrative", "comparative", "working_life", "continue_reading"],
+      embed_fingerprint: "embed-fingerprint-123",
+      render_mode: "card",
+    },
     offers: [
       {
         title: "Unlock full report",
@@ -317,7 +357,9 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   );
   await expect(page.getByRole("heading", { name: "ENFP-T" })).toBeVisible();
   await expect(page.getByRole("heading", { name: /^ENFP$/ })).toHaveCount(0);
-  await expect(page.getByText("Campaigner")).toBeVisible();
+  await expect(page.getByTestId("mbti-share-summary-card").getByText("Campaigner")).toBeVisible();
+  await expect(page.getByTestId("share-embed-surface")).toContainText("Embeddable insight graph");
+  await expect(page.getByTestId("share-embed-node-list")).toContainText("Continue path");
   await expect(page.getByRole("button", { name: "Invite a friend to compare" })).toBeVisible();
   await expect(page.getByText("Legacy name should be ignored")).toHaveCount(0);
   await expect(page.getByText("Legacy summary should be ignored")).toHaveCount(0);
