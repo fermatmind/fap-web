@@ -78,7 +78,7 @@ describe("MBTI history account-center contract", () => {
 
   it("renders carryover guidance and preserves continuity query on history re-entry links", async () => {
     hoisted.search =
-      "carryover_focus_key=growth.next_actions&carryover_reason=unlock_to_continue_focus&recommended_resume_keys=growth.next_actions%7Ccareer.next_step&carryover_scene_keys=growth%7Cwork&carryover_action_keys=weekly_action.theme.name_decision_rule&feedback_sentiment=negative&feedback_coverage=explainability_only&action_completion_tendency=repeatable&last_deep_read_section=traits.close_call_axes&current_intent_cluster=clarify_type";
+      "carryover_focus_key=growth.next_actions&carryover_reason=unlock_to_continue_focus&recommended_resume_keys=growth.next_actions%7Ccareer.next_step&carryover_scene_keys=growth%7Cwork&carryover_action_keys=weekly_action.theme.name_decision_rule&feedback_sentiment=negative&feedback_coverage=explainability_only&action_completion_tendency=repeatable&last_deep_read_section=traits.close_call_axes&current_intent_cluster=clarify_type&journey_contract_version=action_journey.v1&journey_fingerprint=journey-fixture-1&journey_scope=result_revisit&journey_state=refine_after_feedback&progress_state=repeatable&journey_action_focus_key=weekly_action.theme.name_decision_rule&recommended_next_pulse_keys=growth.watchouts%7Cread-explain&revisit_reorder_reason=reorder_after_feedback&pulse_state=recalibrate&pulse_prompt_keys=pulse.review_feedback_signal%7Cpulse.refine_focus";
     hoisted.getMyAttempts.mockResolvedValue({
       items: [
         {
@@ -102,14 +102,38 @@ describe("MBTI history account-center contract", () => {
 
     expect(screen.getByTestId("mbti-history-carryover-entry")).toHaveTextContent("Continue the current focus");
     expect(screen.getByTestId("mbti-history-carryover-entry")).toHaveTextContent("Next actions");
+    expect(screen.getByTestId("mbti-history-journey-context")).toHaveTextContent("Refine the current focus after feedback");
+    expect(screen.getByTestId("mbti-history-journey-context")).toHaveTextContent("Repeatable now");
+    expect(screen.getByTestId("mbti-history-journey-context")).toHaveTextContent(
+      "This revisit reorders around your feedback"
+    );
     expect(screen.getByTestId("mbti-history-continue-cta").getAttribute("href")).toContain(
       "carryover_focus_key=growth.next_actions"
+    );
+    expect(screen.getByTestId("mbti-history-continue-cta").getAttribute("href")).toContain(
+      "journey_state=refine_after_feedback"
     );
     expect(screen.getByTestId("mbti-history-open-attempt-history-2").getAttribute("href")).toContain(
       "carryover_reason=unlock_to_continue_focus"
     );
     expect(screen.getByTestId("mbti-history-open-attempt-history-2").getAttribute("href")).toContain(
       "current_intent_cluster=clarify_type"
+    );
+    expect(screen.getByTestId("mbti-history-open-attempt-history-2").getAttribute("href")).toContain(
+      "pulse_state=recalibrate"
+    );
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_impression",
+      expect.objectContaining({
+        visual_kind: "history_action_journey_context",
+        journeyContractVersion: "action_journey.v1",
+        journeyFingerprint: "journey-fixture-1",
+        journeyScope: "result_revisit",
+        journeyState: "refine_after_feedback",
+        progressState: "repeatable",
+        pulseState: "recalibrate",
+      })
     );
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -147,6 +171,10 @@ describe("MBTI history account-center contract", () => {
         actionCompletionTendency: "repeatable",
         lastDeepReadSection: "traits.close_call_axes",
         currentIntentCluster: "clarify_type",
+        journeyContractVersion: "action_journey.v1",
+        journeyState: "refine_after_feedback",
+        progressState: "repeatable",
+        pulseState: "recalibrate",
       })
     );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -163,6 +191,10 @@ describe("MBTI history account-center contract", () => {
         actionCompletionTendency: "repeatable",
         lastDeepReadSection: "traits.close_call_axes",
         currentIntentCluster: "clarify_type",
+        journeyContractVersion: "action_journey.v1",
+        journeyState: "refine_after_feedback",
+        progressState: "repeatable",
+        pulseState: "recalibrate",
       })
     );
   });

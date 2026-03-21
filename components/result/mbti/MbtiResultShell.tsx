@@ -33,6 +33,14 @@ import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/co
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import {
+  appendMbtiActionJourneyQuery,
+  buildMbtiActionJourneyTelemetryFields,
+  resolveMbtiJourneyStateLabel,
+  resolveMbtiProgressStateLabel,
+  resolveMbtiPulsePromptLabel,
+  resolveMbtiRevisitReorderReasonLabel,
+} from "@/lib/mbti/actionJourney";
+import {
   appendMbtiContinuityQuery,
   resolveMbtiCarryoverFocusLabel,
   resolveMbtiCarryoverReasonLabel,
@@ -49,6 +57,7 @@ import {
   summarizeMbtiActionCompletionTendency,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
+  summarizeMbtiCompletedActionKeys,
   summarizeMbtiCareerActionPriorityKeys,
   summarizeMbtiCareerJourneyKeys,
   summarizeMbtiCareerReadingKeys,
@@ -59,11 +68,20 @@ import {
   summarizeMbtiCurrentIntentCluster,
   summarizeMbtiFeedbackCoverage,
   summarizeMbtiFeedbackSentiment,
+  summarizeMbtiJourneyContractVersion,
+  summarizeMbtiJourneyFingerprint,
+  summarizeMbtiJourneyScope,
+  summarizeMbtiJourneyState,
   summarizeMbtiLastDeepReadSection,
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
+  summarizeMbtiProgressState,
+  summarizeMbtiPulsePromptKeys,
+  summarizeMbtiPulseState,
   summarizeMbtiRecommendationPriorityKeys,
+  summarizeMbtiRecommendedNextPulseKeys,
+  summarizeMbtiRevisitReorderReason,
   summarizeMbtiSceneFingerprint,
   summarizeMbtiSecondaryFocusKeys,
   summarizeMbtiUserState,
@@ -606,6 +624,7 @@ export function MbtiResultShell({
   const offerScrollFrameRef = useRef<number | null>(null);
   const resultViewTrackedRef = useRef(false);
   const careerBridgeImpressionTrackedRef = useRef(false);
+  const actionJourneyImpressionTrackedRef = useRef(false);
   const carryoverImpressionTrackedRef = useRef(false);
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [isSharing, setIsSharing] = useState(false);
@@ -719,11 +738,23 @@ export function MbtiResultShell({
   const recommendedResumeKeysSummary = summarizeMbtiCarryoverResumeKeys(personalization);
   const carryoverSceneKeysSummary = summarizeMbtiCarryoverSceneKeys(personalization);
   const carryoverActionKeysSummary = summarizeMbtiCarryoverActionKeys(personalization);
+  const journeyContractVersionSummary = summarizeMbtiJourneyContractVersion(personalization);
+  const journeyFingerprintSummary = summarizeMbtiJourneyFingerprint(personalization);
+  const journeyScopeSummary = summarizeMbtiJourneyScope(personalization);
+  const journeyStateSummary = summarizeMbtiJourneyState(personalization);
+  const progressStateSummary = summarizeMbtiProgressState(personalization);
+  const completedActionKeysSummary = summarizeMbtiCompletedActionKeys(personalization);
+  const recommendedNextPulseKeysSummary = summarizeMbtiRecommendedNextPulseKeys(personalization);
+  const revisitReorderReasonSummary = summarizeMbtiRevisitReorderReason(personalization);
+  const pulseStateSummary = summarizeMbtiPulseState(personalization);
+  const pulsePromptKeysSummary = summarizeMbtiPulsePromptKeys(personalization);
   const overviewVariantKey = normalizeText(personalization?.variantKeys.overview);
   const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
   const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
   const personalizationPackId = normalizeText(personalization?.packId, reportMeta?.pack_id);
   const actionPlanSummary = normalizeText(personalization?.actionPlanSummary);
+  const actionJourney = personalization?.actionJourney ?? null;
+  const pulseCheck = personalization?.pulseCheck ?? null;
   const personalizationEngineVersion = normalizeText(
     personalization?.engineVersion,
     reportMeta?.report_engine_version
@@ -755,8 +786,19 @@ export function MbtiResultShell({
   const continuityHistoryHref = historyHref
     ? appendMbtiContinuityQuery(historyHref, personalization?.continuity)
     : "";
+  const journeyHistoryHref = continuityHistoryHref
+    ? appendMbtiActionJourneyQuery(continuityHistoryHref, actionJourney, pulseCheck)
+    : historyHref
+      ? appendMbtiActionJourneyQuery(historyHref, actionJourney, pulseCheck)
+      : "";
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(carryoverFocusKey, locale);
   const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(carryoverReason, locale);
+  const journeyStateLabel = resolveMbtiJourneyStateLabel(journeyStateSummary, locale);
+  const progressStateLabel = resolveMbtiProgressStateLabel(progressStateSummary, locale);
+  const revisitReorderLabel = resolveMbtiRevisitReorderReasonLabel(revisitReorderReasonSummary, locale);
+  const pulsePromptLabels = (pulseCheck?.pulsePromptKeys ?? []).map((key) =>
+    resolveMbtiPulsePromptLabel(key, locale)
+  );
   const carryoverEntryHref = normalizeText(
     carryoverFocusKey.startsWith("career.") ? continuityCareerHref : "",
     isUnlockedPostPurchase ? continuityWorkspaceHref : "",
@@ -847,6 +889,16 @@ export function MbtiResultShell({
     recommendedResumeKeys: recommendedResumeKeysSummary,
     carryoverSceneKeys: carryoverSceneKeysSummary,
     carryoverActionKeys: carryoverActionKeysSummary,
+    journeyContractVersion: journeyContractVersionSummary,
+    journeyFingerprint: journeyFingerprintSummary,
+    journeyScope: journeyScopeSummary,
+    journeyState: journeyStateSummary,
+    progressState: progressStateSummary,
+    completedActionKeys: completedActionKeysSummary,
+    recommendedNextPulseKeys: recommendedNextPulseKeysSummary,
+    revisitReorderReason: revisitReorderReasonSummary,
+    pulseState: pulseStateSummary,
+    pulsePromptKeys: pulsePromptKeysSummary,
     locale,
   };
 
@@ -1026,6 +1078,22 @@ export function MbtiResultShell({
       })
     );
   }, [attemptId, careerBridgeCtaRank, careerRecommendationHref, careerNextStepSection, locale, personalization]);
+
+  useEffect(() => {
+    if (!actionJourney || !isRevisit || actionJourneyImpressionTrackedRef.current) {
+      return;
+    }
+
+    actionJourneyImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "mbti-result-shell",
+      scale_code: "MBTI",
+      visual_kind: "mbti_action_journey",
+      attempt_id: attemptId,
+      continueTarget: "history_continue",
+      ...personalizationTelemetryContext,
+    });
+  }, [actionJourney, attemptId, isRevisit, personalizationTelemetryContext]);
 
   useEffect(() => {
     if (!carryoverEntryHref || carryoverImpressionTrackedRef.current) {
@@ -1336,7 +1404,7 @@ export function MbtiResultShell({
           locale={locale}
           attemptId={attemptId}
           accessHub={accessHub}
-          historyHref={continuityWorkspaceHref || continuityHistoryHref || historyHref}
+          historyHref={journeyHistoryHref || continuityWorkspaceHref || continuityHistoryHref || historyHref}
           orderLookupHref={orderLookupHref}
           personalization={personalization}
           ctaRank={workspaceLiteCtaRank}
@@ -1618,6 +1686,110 @@ export function MbtiResultShell({
                     {actionPlanSummary}
                   </p>
                 </div>
+              </div>
+            </section>
+          ) : null}
+
+          {actionJourney && isRevisit ? (
+            <section
+              id="action-journey"
+              data-testid="mbti-action-journey"
+              data-journey-scope={journeyScopeSummary || undefined}
+              data-journey-state={journeyStateSummary || undefined}
+              data-progress-state={progressStateSummary || undefined}
+              data-journey-fingerprint={journeyFingerprintSummary || undefined}
+              className="scroll-mt-28 rounded-[28px] border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-sky-50/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
+            >
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                    {locale === "zh" ? "行动旅程" : "Action journey"}
+                  </p>
+                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                    {journeyStateLabel}
+                  </h2>
+                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                    {revisitReorderLabel}
+                  </p>
+                </div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4">
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {locale === "zh" ? "当前进展" : "Progress band"}
+                    </p>
+                    <p className="m-0 text-sm font-medium text-slate-900">{progressStateLabel}</p>
+                    {actionFocusKey ? (
+                      <p className="m-0 text-xs leading-6 text-slate-600">
+                        {locale === "zh"
+                          ? `当前动作焦点：${actionFocusKey}`
+                          : `Current action focus: ${actionFocusKey}`}
+                      </p>
+                    ) : null}
+                    {completedActionKeysSummary ? (
+                      <p className="m-0 text-xs leading-6 text-slate-600">
+                        {locale === "zh"
+                          ? `已形成推进信号：${completedActionKeysSummary}`
+                          : `Completed action signals: ${completedActionKeysSummary}`}
+                      </p>
+                    ) : null}
+                  </div>
+                  <div
+                    data-testid="mbti-pulse-check"
+                    data-pulse-state={pulseStateSummary || undefined}
+                    className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4"
+                  >
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {locale === "zh" ? "本次 pulse" : "Current pulse"}
+                    </p>
+                    <p className="m-0 text-sm font-medium text-slate-900">
+                      {pulseCheck?.pulseState
+                        ? resolveMbtiPulsePromptLabel(
+                            pulseCheck.pulsePromptKeys[0] ?? pulseCheck.pulseState,
+                            locale
+                          )
+                        : locale === "zh"
+                          ? "继续当前最值得延续的动作"
+                          : "Continue the most useful next action"}
+                    </p>
+                    {pulsePromptLabels.length > 0 ? (
+                      <ul className="mb-0 list-disc space-y-1 pl-4 text-xs leading-6 text-slate-600">
+                        {pulsePromptLabels.map((label) => (
+                          <li key={label}>{label}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </div>
+                {journeyHistoryHref ? (
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      data-testid="mbti-action-journey-cta"
+                      href={journeyHistoryHref}
+                      className={buttonVariants({ className: "bg-slate-950 text-white hover:bg-slate-800" })}
+                      onClick={() => {
+                        trackEvent("ui_card_interaction", {
+                          slug: "mbti-result-shell",
+                          scale_code: "MBTI",
+                          visual_kind: "mbti_action_journey",
+                          interaction: "click_cta",
+                          attempt_id: attemptId,
+                          continueTarget: "history_continue",
+                          ...personalizationTelemetryContext,
+                          ...buildMbtiActionJourneyTelemetryFields(actionJourney, pulseCheck),
+                        });
+                      }}
+                    >
+                      {locale === "zh" ? "带着当前动作继续回访" : "Continue with the current action loop"}
+                    </Link>
+                    {recommendedNextPulseKeysSummary ? (
+                      <p className="m-0 self-center text-xs leading-6 text-slate-600">
+                        {locale === "zh"
+                          ? `下一步建议：${recommendedNextPulseKeysSummary}`
+                          : `Recommended next pulse: ${recommendedNextPulseKeysSummary}`}
+                      </p>
+                    ) : null}
+                  </div>
+                ) : null}
               </div>
             </section>
           ) : null}

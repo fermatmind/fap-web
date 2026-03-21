@@ -207,3 +207,72 @@ export function summarizeMbtiCareerReadingKeys(
 ): string {
   return (personalization?.workingLife?.careerReadingKeys ?? []).map((key) => normalizeText(key)).filter(Boolean).join("|");
 }
+
+export function summarizeMbtiJourneyContractVersion(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.actionJourney?.journeyContractVersion);
+}
+
+export function summarizeMbtiJourneyFingerprint(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.actionJourney?.journeyFingerprint);
+}
+
+export function summarizeMbtiJourneyScope(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.actionJourney?.journeyScope);
+}
+
+export function summarizeMbtiJourneyState(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.actionJourney?.journeyState);
+}
+
+export function summarizeMbtiProgressState(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.actionJourney?.progressState);
+}
+
+export function summarizeMbtiCompletedActionKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.actionJourney?.completedActionKeys ?? [])
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiRecommendedNextPulseKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.actionJourney?.recommendedNextPulseKeys ?? [])
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiRevisitReorderReason(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.actionJourney?.revisitReorderReason);
+}
+
+export function summarizeMbtiPulseState(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.pulseCheck?.pulseState);
+}
+
+export function summarizeMbtiPulsePromptKeys(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return (personalization?.pulseCheck?.pulsePromptKeys ?? [])
+    .map((key) => normalizeText(key))
+    .filter(Boolean)
+    .join("|");
+}

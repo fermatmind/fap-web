@@ -864,6 +864,32 @@ export type MbtiWorkingLifeRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiActionJourneyRaw = {
+  journey_contract_version?: string;
+  journey_fingerprint_version?: string;
+  journey_fingerprint?: string;
+  journey_scope?: string;
+  journey_state?: string;
+  progress_state?: string;
+  action_focus_key?: string;
+  completed_action_keys?: string[];
+  recommended_next_pulse_keys?: string[];
+  action_priority_keys?: string[];
+  carryover_action_keys?: string[];
+  last_pulse_signal?: string;
+  revisit_reorder_reason?: string;
+  [key: string]: unknown;
+};
+
+export type MbtiPulseCheckRaw = {
+  pulse_contract_version?: string;
+  pulse_state?: string;
+  pulse_prompt_keys?: string[];
+  pulse_feedback_mode?: string;
+  next_pulse_target?: string;
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -927,6 +953,8 @@ export type MbtiPersonalizationRaw = {
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
   cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   working_life_v1?: MbtiWorkingLifeRaw | null;
+  action_journey_v1?: MbtiActionJourneyRaw | null;
+  pulse_check_v1?: MbtiPulseCheckRaw | null;
   synthesis_keys?: string[];
   supporting_scales?: string[];
   big5_influence_keys?: string[];

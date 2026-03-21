@@ -5,9 +5,11 @@ import type {
   CulturalCalibrationRaw,
   EmbedSurfaceRaw,
   InsightGraphRaw,
+  MbtiActionJourneyRaw,
   MbtiCrossAssessmentRaw,
   MbtiReadContractRaw,
   MbtiPersonalizationRaw,
+  MbtiPulseCheckRaw,
   MbtiPublicProjectionDimensionRaw,
   MbtiPublicProjectionV1Raw,
   MbtiWorkingLifeRaw,
@@ -287,6 +289,30 @@ export type MbtiWorkingLifeViewModel = {
   synthesisKeys: string[];
 };
 
+export type MbtiActionJourneyViewModel = {
+  journeyContractVersion: string;
+  journeyFingerprintVersion: string;
+  journeyFingerprint: string;
+  journeyScope: string;
+  journeyState: string;
+  progressState: string;
+  actionFocusKey: string;
+  completedActionKeys: string[];
+  recommendedNextPulseKeys: string[];
+  actionPriorityKeys: string[];
+  carryoverActionKeys: string[];
+  lastPulseSignal: string;
+  revisitReorderReason: string;
+};
+
+export type MbtiPulseCheckViewModel = {
+  pulseContractVersion: string;
+  pulseState: string;
+  pulsePromptKeys: string[];
+  pulseFeedbackMode: string;
+  nextPulseTarget: string;
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -331,6 +357,8 @@ export type MbtiResultPersonalizationViewModel = {
   culturalCalibration: CulturalCalibrationViewModel | null;
   crossAssessment: MbtiCrossAssessmentViewModel | null;
   workingLife: MbtiWorkingLifeViewModel | null;
+  actionJourney: MbtiActionJourneyViewModel | null;
+  pulseCheck: MbtiPulseCheckViewModel | null;
   variantKeys: Record<string, string>;
   packId: string;
   engineVersion: string;
@@ -800,6 +828,8 @@ function normalizePersonalization(
   const culturalCalibrationRecord = asRecord(personalization.cultural_calibration_v1) as CulturalCalibrationRaw | null;
   const crossAssessmentRecord = asRecord(personalization.cross_assessment_v1) as MbtiCrossAssessmentRaw | null;
   const workingLifeRecord = asRecord(personalization.working_life_v1) as MbtiWorkingLifeRaw | null;
+  const actionJourneyRecord = asRecord(personalization.action_journey_v1) as MbtiActionJourneyRaw | null;
+  const pulseCheckRecord = asRecord(personalization.pulse_check_v1) as MbtiPulseCheckRaw | null;
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -904,6 +934,8 @@ function normalizePersonalization(
     culturalCalibration: normalizeCulturalCalibration(culturalCalibrationRecord),
     crossAssessment: normalizeCrossAssessment(crossAssessmentRecord),
     workingLife: normalizeWorkingLife(workingLifeRecord),
+    actionJourney: normalizeActionJourney(actionJourneyRecord),
+    pulseCheck: normalizePulseCheck(pulseCheckRecord),
     variantKeys,
     packId: normalizeText(personalization.pack_id),
     engineVersion: normalizeText(personalization.engine_version),
@@ -1598,6 +1630,62 @@ function normalizeWorkingLife(
     supportingScales,
     big5InfluenceKeys,
     synthesisKeys,
+  };
+}
+
+function normalizeActionJourney(
+  rawJourney: MbtiActionJourneyRaw | null
+): MbtiActionJourneyViewModel | null {
+  if (!rawJourney) {
+    return null;
+  }
+
+  const journeyContractVersion = normalizeText(rawJourney.journey_contract_version);
+  const journeyFingerprint = normalizeText(rawJourney.journey_fingerprint);
+  const journeyState = normalizeText(rawJourney.journey_state);
+  const progressState = normalizeText(rawJourney.progress_state);
+
+  if (!journeyContractVersion && !journeyFingerprint && !journeyState && !progressState) {
+    return null;
+  }
+
+  return {
+    journeyContractVersion,
+    journeyFingerprintVersion: normalizeText(rawJourney.journey_fingerprint_version),
+    journeyFingerprint,
+    journeyScope: normalizeText(rawJourney.journey_scope),
+    journeyState,
+    progressState,
+    actionFocusKey: normalizeText(rawJourney.action_focus_key),
+    completedActionKeys: normalizeStringArray(rawJourney.completed_action_keys),
+    recommendedNextPulseKeys: normalizeStringArray(rawJourney.recommended_next_pulse_keys),
+    actionPriorityKeys: normalizeStringArray(rawJourney.action_priority_keys),
+    carryoverActionKeys: normalizeStringArray(rawJourney.carryover_action_keys),
+    lastPulseSignal: normalizeText(rawJourney.last_pulse_signal),
+    revisitReorderReason: normalizeText(rawJourney.revisit_reorder_reason),
+  };
+}
+
+function normalizePulseCheck(
+  rawPulseCheck: MbtiPulseCheckRaw | null
+): MbtiPulseCheckViewModel | null {
+  if (!rawPulseCheck) {
+    return null;
+  }
+
+  const pulseContractVersion = normalizeText(rawPulseCheck.pulse_contract_version);
+  const pulseState = normalizeText(rawPulseCheck.pulse_state);
+
+  if (!pulseContractVersion && !pulseState) {
+    return null;
+  }
+
+  return {
+    pulseContractVersion,
+    pulseState,
+    pulsePromptKeys: normalizeStringArray(rawPulseCheck.pulse_prompt_keys),
+    pulseFeedbackMode: normalizeText(rawPulseCheck.pulse_feedback_mode),
+    nextPulseTarget: normalizeText(rawPulseCheck.next_pulse_target),
   };
 }
 

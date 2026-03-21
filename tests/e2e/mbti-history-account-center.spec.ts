@@ -97,6 +97,8 @@ test.describe("MBTI history account-center entry", () => {
 
   test("history list items still route into the existing result page", async ({ page }) => {
     const attemptId = "attempt-history-open-1";
+    const journeyQuery =
+      "journey_contract_version=action_journey.v1&journey_fingerprint=journey-fixture-1&journey_scope=result_revisit&journey_state=refine_after_feedback&progress_state=repeatable&journey_action_focus_key=weekly_action.theme.name_decision_rule&recommended_next_pulse_keys=growth.watchouts%7Cread-explain&revisit_reorder_reason=reorder_after_feedback&pulse_state=recalibrate&pulse_prompt_keys=pulse.review_feedback_signal%7Cpulse.refine_focus";
 
     await mockCommonApis(page);
     await mockHistory(page, [
@@ -115,13 +117,20 @@ test.describe("MBTI history account-center entry", () => {
       });
     });
 
-    await page.goto("/en/history/mbti");
+    await page.goto(`/en/history/mbti?${journeyQuery}`);
     await expect(page.getByTestId(`mbti-history-open-${attemptId}`)).toBeVisible();
     await expect(page.getByText("This is now your MBTI Workspace Lite entry: continue from saved results here, or recover a purchased report through order lookup.")).toBeVisible();
+    await expect(page.getByTestId("mbti-history-journey-context")).toContainText(
+      "Refine the current focus after feedback"
+    );
+    await expect(page.getByTestId("mbti-history-continue-cta")).toHaveAttribute(
+      "href",
+      /journey_state=refine_after_feedback/
+    );
 
     await page.getByTestId(`mbti-history-open-${attemptId}`).click();
 
-    await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
+    await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}\\?.*journey_state=refine_after_feedback.*pulse_state=recalibrate`));
     await expect(page.getByRole("heading", { level: 1, name: "Your assessment result" })).toBeVisible();
   });
 });
