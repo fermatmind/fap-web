@@ -44,6 +44,51 @@ function resolveAccessBadge(accessState: string, locale: Locale): { label: strin
   }
 }
 
+function resolveJourneyStateLabel(journeyState: string, locale: Locale): string {
+  switch (journeyState) {
+    case "awaiting_partner":
+      return locale === "zh" ? "等待双方就绪" : "Awaiting both sides";
+    case "access_revoked":
+      return locale === "zh" ? "私密访问已撤回" : "Private access revoked";
+    case "revisit_after_consent_refresh":
+      return locale === "zh" ? "等待刷新授权" : "Refresh consent";
+    case "practice_started":
+      return locale === "zh" ? "已开始配合练习" : "Practice started";
+    case "practice_revisit":
+      return locale === "zh" ? "回访双人练习" : "Revisit practice";
+    default:
+      return locale === "zh" ? "准备开启下一步" : "Ready for next step";
+  }
+}
+
+function resolveProgressStateLabel(progressState: string, locale: Locale): string {
+  switch (progressState) {
+    case "restricted":
+      return locale === "zh" ? "受限" : "Restricted";
+    case "repeatable":
+      return locale === "zh" ? "可复现" : "Repeatable";
+    case "warming_up":
+      return locale === "zh" ? "起步中" : "Warming up";
+    default:
+      return locale === "zh" ? "未开始" : "Not started";
+  }
+}
+
+function resolvePulseStateLabel(pulseState: string, locale: Locale): string {
+  switch (pulseState) {
+    case "wait_for_partner":
+      return locale === "zh" ? "等待对方加入" : "Wait for partner";
+    case "refresh_private_access":
+      return locale === "zh" ? "刷新私密访问" : "Refresh private access";
+    case "review_tension_signal":
+      return locale === "zh" ? "回看张力线索" : "Review tension signal";
+    case "repeat_shared_practice":
+      return locale === "zh" ? "重复共同练习" : "Repeat shared practice";
+    default:
+      return locale === "zh" ? "开启共同练习" : "Start shared practice";
+  }
+}
+
 export default function MbtiPrivateRelationshipView({
   locale,
   viewModel,
@@ -53,18 +98,24 @@ export default function MbtiPrivateRelationshipView({
   onAcknowledgeRefresh,
   onSectionClick,
   onActionPromptClick,
+  onContinueJourney,
+  onAcknowledgePulse,
 }: {
   locale: Locale;
   viewModel: PrivateMbtiRelationshipViewModel;
-  pendingAction?: "revoke_access" | "acknowledge_refresh" | null;
+  pendingAction?: "revoke_access" | "acknowledge_refresh" | "continue_dyadic_action" | "acknowledge_dyadic_pulse" | null;
   mutationError?: string | null;
   onRevokeConsent?: () => void;
   onAcknowledgeRefresh?: () => void;
   onSectionClick?: (sectionKey: string) => void;
   onActionPromptClick?: (actionKey: string) => void;
+  onContinueJourney?: () => void;
+  onAcknowledgePulse?: () => void;
 }) {
   const relationship = viewModel.relationship;
   const consent = viewModel.consent;
+  const journey = viewModel.journey;
+  const pulseCheck = viewModel.pulseCheck;
   const accessBadge = resolveAccessBadge(relationship?.accessState || consent?.accessState || "", locale);
   const actionPrompt = relationship?.actionPrompt;
   const canRevokeConsent = Boolean(
@@ -216,6 +267,154 @@ export default function MbtiPrivateRelationshipView({
                   </button>
                 ) : null}
               </div>
+            </CardContent>
+          </Card>
+        ) : null}
+
+        {journey ? (
+          <Card data-testid="mbti-private-journey-card" className="border-white/80 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+            <CardHeader className="space-y-2">
+              <CardTitle className="text-xl text-slate-950">
+                {locale === "zh" ? "关系行动旅程" : "Relationship journey"}
+              </CardTitle>
+              <p className="m-0 text-sm leading-7 text-slate-600">
+                {locale === "zh"
+                  ? "这里显示双方当前最适合继续的一步，以及为什么这次回访会优先看到它。"
+                  : "This shows the most relevant next shared step and why this revisit is reordered around it."}
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex flex-wrap gap-2">
+                <Badge data-testid="mbti-private-journey-state" className="border-slate-200 bg-white text-slate-700">
+                  {resolveJourneyStateLabel(journey.journeyState, locale)}
+                </Badge>
+                <Badge data-testid="mbti-private-progress-state" className="border-slate-200 bg-white text-slate-700">
+                  {resolveProgressStateLabel(journey.progressState, locale)}
+                </Badge>
+                {journey.dyadicActionFocusKey ? (
+                  <Badge data-testid="mbti-private-journey-focus" className="border-slate-200 bg-white text-slate-700">
+                    {journey.dyadicActionFocusKey}
+                  </Badge>
+                ) : null}
+              </div>
+
+              <div className="grid gap-3 lg:grid-cols-2">
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {locale === "zh" ? "回访重排原因" : "Revisit reorder reason"}
+                  </p>
+                  <p data-testid="mbti-private-journey-reorder" className="m-0 mt-2 text-sm font-semibold text-slate-900">
+                    {journey.revisitReorderReason || "--"}
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {locale === "zh" ? "上一次双人脉冲" : "Last dyadic pulse"}
+                  </p>
+                  <p data-testid="mbti-private-journey-last-pulse" className="m-0 mt-2 text-sm font-semibold text-slate-900">
+                    {journey.lastDyadicPulseSignal || "--"}
+                  </p>
+                </div>
+              </div>
+
+              {journey.recommendedNextDyadicPulseKeys.length > 0 ? (
+                <div className="space-y-2">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {locale === "zh" ? "建议下一步" : "Recommended next pulse"}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {journey.recommendedNextDyadicPulseKeys.map((key) => (
+                      <Badge key={key} data-testid={`mbti-private-next-pulse-${key}`} className="border-slate-200 bg-white text-slate-700">
+                        {key}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {journey.completedDyadicActionKeys.length > 0 ? (
+                <div className="space-y-2">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {locale === "zh" ? "已完成的共同动作" : "Completed shared actions"}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {journey.completedDyadicActionKeys.map((key) => (
+                      <Badge key={key} data-testid={`mbti-private-completed-action-${key}`} className="border-emerald-200 bg-emerald-50 text-emerald-800">
+                        {key}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {onContinueJourney && relationship?.accessState !== "private_access_revoked" && relationship?.accessState !== "private_access_expired" && relationship?.accessState !== "awaiting_second_subject" ? (
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    data-testid="mbti-private-journey-continue"
+                    disabled={pendingAction !== null}
+                    className={buttonVariants({ className: "disabled:pointer-events-none disabled:opacity-60" })}
+                    onClick={onContinueJourney}
+                  >
+                    {pendingAction === "continue_dyadic_action"
+                      ? (locale === "zh" ? "处理中…" : "Updating…")
+                      : (locale === "zh" ? "继续这一步" : "Continue this step")}
+                  </button>
+                </div>
+              ) : null}
+            </CardContent>
+          </Card>
+        ) : null}
+
+        {pulseCheck ? (
+          <Card data-testid="mbti-private-pulse-card" className="border-white/80 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+            <CardHeader className="space-y-2">
+              <CardTitle className="text-xl text-slate-950">
+                {locale === "zh" ? "双人脉冲检查" : "Dyadic pulse check"}
+              </CardTitle>
+              <p data-testid="mbti-private-pulse-state" className="m-0 text-sm leading-7 text-slate-600">
+                {resolvePulseStateLabel(pulseCheck.pulseState, locale)}
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {pulseCheck.pulsePromptKeys.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {pulseCheck.pulsePromptKeys.map((key) => (
+                    <Badge key={key} data-testid={`mbti-private-pulse-prompt-${key}`} className="border-slate-200 bg-white text-slate-700">
+                      {key}
+                    </Badge>
+                  ))}
+                </div>
+              ) : null}
+              <div className="grid gap-3 md:grid-cols-2">
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {locale === "zh" ? "反馈模式" : "Feedback mode"}
+                  </p>
+                  <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{pulseCheck.pulseFeedbackMode || "--"}</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {locale === "zh" ? "下一步目标" : "Next pulse target"}
+                  </p>
+                  <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{pulseCheck.nextPulseTarget || "--"}</p>
+                </div>
+              </div>
+              {onAcknowledgePulse && pulseCheck.pulseState !== "refresh_private_access" && pulseCheck.pulseState !== "wait_for_partner" ? (
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    data-testid="mbti-private-pulse-ack"
+                    disabled={pendingAction !== null}
+                    className={buttonVariants({ variant: "outline", className: "disabled:pointer-events-none disabled:opacity-60" })}
+                    onClick={onAcknowledgePulse}
+                  >
+                    {pendingAction === "acknowledge_dyadic_pulse"
+                      ? (locale === "zh" ? "处理中…" : "Updating…")
+                      : (locale === "zh" ? "记录这次脉冲" : "Acknowledge pulse")}
+                  </button>
+                </div>
+              ) : null}
             </CardContent>
           </Card>
         ) : null}
