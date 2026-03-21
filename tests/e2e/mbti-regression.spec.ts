@@ -1050,6 +1050,14 @@ test("MBTI deepened user state can shift revisit focus and recommendation priori
     "data-recommendation-key",
     "read-explain"
   );
+  await expect(page.getByTestId("mbti-action-journey")).toBeVisible();
+  await expect(page.getByTestId("mbti-action-journey")).toHaveAttribute("data-journey-state", "refine_after_feedback");
+  await expect(page.getByTestId("mbti-action-journey")).toContainText("Refine the current focus after feedback");
+  await expect(page.getByTestId("mbti-pulse-check")).toHaveAttribute("data-pulse-state", "recalibrate");
+  await expect(page.getByTestId("mbti-action-journey-cta")).toHaveAttribute(
+    "href",
+    /\/en\/history\/mbti\?.*journey_state=refine_after_feedback.*pulse_state=recalibrate/
+  );
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
   await expect(page.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
 });

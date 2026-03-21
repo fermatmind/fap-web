@@ -12,6 +12,15 @@ import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/ass
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import {
+  appendMbtiActionJourneyQuery,
+  buildMbtiActionJourneyTelemetryFields,
+  parseMbtiActionJourneyQuery,
+  resolveMbtiJourneyStateLabel,
+  resolveMbtiProgressStateLabel,
+  resolveMbtiPulsePromptLabel,
+  resolveMbtiRevisitReorderReasonLabel,
+} from "@/lib/mbti/actionJourney";
+import {
   appendMbtiContinuityQuery,
   buildMbtiContinuityTelemetryFields,
   parseMbtiContinuityQuery,
@@ -67,13 +76,23 @@ export default function MbtiHistoryClient() {
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
   const carryoverImpressionTrackedRef = useRef(false);
+  const journeyImpressionTrackedRef = useRef(false);
   const continuity = parseMbtiContinuityQuery(searchParams);
+  const journey = parseMbtiActionJourneyQuery(searchParams);
   const continuityTelemetry = useMemo(() => buildMbtiContinuityTelemetryFields(continuity), [continuity]);
+  const journeyTelemetry = useMemo(() => buildMbtiActionJourneyTelemetryFields(journey), [journey]);
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(String(continuity?.carryoverFocusKey ?? ""), locale);
   const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(String(continuity?.carryoverReason ?? ""), locale);
+  const journeyStateLabel = resolveMbtiJourneyStateLabel(String(journey?.journeyState ?? ""), locale);
+  const progressStateLabel = resolveMbtiProgressStateLabel(String(journey?.progressState ?? ""), locale);
+  const journeyReasonLabel = resolveMbtiRevisitReorderReasonLabel(String(journey?.revisitReorderReason ?? ""), locale);
+  const pulsePromptLabels = (journey?.pulsePromptKeys ?? []).map((key) => resolveMbtiPulsePromptLabel(key, locale));
   const latestRow = rows[0] ?? null;
   const latestResultHref = latestRow
-    ? appendMbtiContinuityQuery(localizedPath(`/result/${latestRow.attemptId}`, locale), continuity)
+    ? appendMbtiActionJourneyQuery(
+        appendMbtiContinuityQuery(localizedPath(`/result/${latestRow.attemptId}`, locale), continuity),
+        journey
+      )
     : null;
 
   useEffect(() => {
@@ -135,6 +154,22 @@ export default function MbtiHistoryClient() {
     });
   }, [continuity, continuityTelemetry, locale]);
 
+  useEffect(() => {
+    if (!journey || journeyImpressionTrackedRef.current) {
+      return;
+    }
+
+    journeyImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "mbti-history",
+      scale_code: "MBTI",
+      visual_kind: "history_action_journey_context",
+      continueTarget: "history_latest_result",
+      ...journeyTelemetry,
+      locale,
+    });
+  }, [journey, journeyTelemetry, locale]);
+
   return (
     <div data-testid="mbti-history-client" className="space-y-4">
       <section
@@ -163,6 +198,28 @@ export default function MbtiHistoryClient() {
               <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{continuityReasonLabel}</p>
             </div>
           ) : null}
+          {journey ? (
+            <div
+              data-testid="mbti-history-journey-context"
+              className="rounded-xl border border-sky-200 bg-sky-50/70 p-4"
+            >
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-sky-700">
+                {isZh ? "当前行动旅程" : "Current action journey"}
+              </p>
+              <p className="m-0 mt-2 text-sm font-medium text-slate-900">
+                {journeyStateLabel}
+                {progressStateLabel ? ` · ${progressStateLabel}` : ""}
+              </p>
+              <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{journeyReasonLabel}</p>
+              {pulsePromptLabels.length > 0 ? (
+                <ul className="mb-0 mt-2 list-disc space-y-1 pl-4 text-xs leading-6 text-slate-600">
+                  {pulsePromptLabels.map((label) => (
+                    <li key={label}>{label}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ) : null}
         </div>
         <div className="flex flex-wrap gap-3">
           {latestResultHref ? (
@@ -181,6 +238,7 @@ export default function MbtiHistoryClient() {
                   ctaRank: 1,
                   attempt_id: latestRow?.attemptId,
                   ...continuityTelemetry,
+                  ...journeyTelemetry,
                   locale,
                 });
               }}
@@ -257,7 +315,10 @@ export default function MbtiHistoryClient() {
                 {copy.statusValue}
               </p>
               <Link
-                href={appendMbtiContinuityQuery(localizedPath(`/result/${row.attemptId}`, locale), continuity)}
+                href={appendMbtiActionJourneyQuery(
+                  appendMbtiContinuityQuery(localizedPath(`/result/${row.attemptId}`, locale), continuity),
+                  journey
+                )}
                 className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
                 data-testid={`mbti-history-open-${row.attemptId}`}
                 onClick={() => {
@@ -270,6 +331,7 @@ export default function MbtiHistoryClient() {
                     ctaKey: "history_saved_result",
                     attempt_id: row.attemptId,
                     ...continuityTelemetry,
+                    ...journeyTelemetry,
                     locale,
                   });
                 }}

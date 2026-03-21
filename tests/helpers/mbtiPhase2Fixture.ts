@@ -79,6 +79,8 @@ function buildReadContractFixture() {
         "career_focus_key",
         "career_journey_keys",
         "career_action_priority_keys",
+        "action_journey_v1",
+        "pulse_check_v1",
       ],
       surface_fields: [
         "report._meta.personalization.user_state",
@@ -92,6 +94,8 @@ function buildReadContractFixture() {
         "report._meta.personalization.career_focus_key",
         "report._meta.personalization.career_journey_keys",
         "report._meta.personalization.career_action_priority_keys",
+        "report._meta.personalization.action_journey_v1",
+        "report._meta.personalization.pulse_check_v1",
         "mbti_public_projection_v1._meta.personalization.user_state",
         "mbti_public_projection_v1._meta.personalization.orchestration",
         "mbti_public_projection_v1._meta.personalization.sections",
@@ -103,6 +107,8 @@ function buildReadContractFixture() {
         "mbti_public_projection_v1._meta.personalization.career_focus_key",
         "mbti_public_projection_v1._meta.personalization.career_journey_keys",
         "mbti_public_projection_v1._meta.personalization.career_action_priority_keys",
+        "mbti_public_projection_v1._meta.personalization.action_journey_v1",
+        "mbti_public_projection_v1._meta.personalization.pulse_check_v1",
       ],
       sources: ["attempt_access", "attempt_events", "share_rows"],
     },
@@ -137,6 +143,8 @@ function buildReadContractFixture() {
       "report._meta.personalization.career_focus_key",
       "report._meta.personalization.career_journey_keys",
       "report._meta.personalization.career_action_priority_keys",
+      "report._meta.personalization.action_journey_v1",
+      "report._meta.personalization.pulse_check_v1",
       "mbti_public_projection_v1._meta.personalization.user_state",
       "mbti_public_projection_v1._meta.personalization.orchestration",
       "mbti_public_projection_v1._meta.personalization.sections",
@@ -148,6 +156,8 @@ function buildReadContractFixture() {
       "mbti_public_projection_v1._meta.personalization.career_focus_key",
       "mbti_public_projection_v1._meta.personalization.career_journey_keys",
       "mbti_public_projection_v1._meta.personalization.career_action_priority_keys",
+      "mbti_public_projection_v1._meta.personalization.action_journey_v1",
+      "mbti_public_projection_v1._meta.personalization.pulse_check_v1",
     ],
     telemetry_parity_fields: [
       "user_state",
@@ -165,6 +175,13 @@ function buildReadContractFixture() {
       "working_life_v1.career_focus_key",
       "working_life_v1.career_journey_keys",
       "working_life_v1.career_action_priority_keys",
+      "action_journey_v1.journey_state",
+      "action_journey_v1.progress_state",
+      "action_journey_v1.action_focus_key",
+      "action_journey_v1.recommended_next_pulse_keys",
+      "action_journey_v1.revisit_reorder_reason",
+      "pulse_check_v1.pulse_state",
+      "pulse_check_v1.pulse_prompt_keys",
       "comparative_v1.percentile.value",
       "comparative_v1.cohort_relative_position.key",
       "comparative_v1.same_type_contrast.key",
@@ -363,6 +380,224 @@ function normalizeText(...values: unknown[]): string {
   }
 
   return "";
+}
+
+function normalizeStringList(values: unknown[]): string[] {
+  return Array.from(
+    new Set(
+      values
+        .map((value) => normalizeText(value))
+        .filter(Boolean)
+    )
+  );
+}
+
+function resolveJourneyStateFixture(input: {
+  isRevisit: boolean;
+  hasActionEngagement: boolean;
+  feedbackSentiment: string;
+  currentIntentCluster: string;
+  carryoverReason: string;
+}): string {
+  if (!input.isRevisit) {
+    return "first_view_activation";
+  }
+
+  if (["negative", "mixed"].includes(input.feedbackSentiment)) {
+    return "refine_after_feedback";
+  }
+
+  if (input.currentIntentCluster === "career_move") {
+    return "career_move";
+  }
+
+  if (input.currentIntentCluster === "relationship_tuning") {
+    return "relationship_tuning";
+  }
+
+  if (input.hasActionEngagement) {
+    return "resume_action_loop";
+  }
+
+  switch (input.carryoverReason) {
+    case "continue_career_bridge":
+      return "career_bridge_resume";
+    case "continue_relationship_practice":
+      return "relationship_resume";
+    case "continue_explainability_focus":
+      return "clarify_resume";
+    default:
+      return "revisit_resume";
+  }
+}
+
+function resolveJourneyProgressStateFixture(actionCompletionTendency: string): string {
+  switch (actionCompletionTendency) {
+    case "warming_up":
+      return "warming_up";
+    case "repeatable":
+      return "repeatable";
+    case "committed":
+      return "committed";
+    default:
+      return "not_started";
+  }
+}
+
+function buildActionJourneyFixture(input: {
+  isRevisit: boolean;
+  hasActionEngagement: boolean;
+  feedbackSentiment: string;
+  currentIntentCluster: string;
+  carryoverReason: string;
+  actionCompletionTendency: string;
+  actionFocusKey: string;
+  actionPriorityKeys: string[];
+  carryoverActionKeys: string[];
+  lastDeepReadSection: string;
+  readingFocusKey: string;
+}): Record<string, unknown> {
+  const journeyState = resolveJourneyStateFixture(input);
+  const progressState = resolveJourneyProgressStateFixture(input.actionCompletionTendency);
+  const completedActionKeys =
+    input.hasActionEngagement && progressState === "repeatable"
+      ? normalizeStringList([input.carryoverActionKeys[0], input.actionPriorityKeys[0]])
+      : input.hasActionEngagement && progressState === "committed"
+        ? normalizeStringList([input.carryoverActionKeys[0], input.actionPriorityKeys[0], input.actionPriorityKeys[1]])
+        : [];
+
+  const recommendedNextPulseKeys = (() => {
+    if (["negative", "mixed"].includes(input.feedbackSentiment)) {
+      return normalizeStringList([input.lastDeepReadSection, "growth.watchouts", input.readingFocusKey]);
+    }
+
+    if (input.currentIntentCluster === "career_move") {
+      return normalizeStringList(["career.next_step", "career.work_experiments", input.readingFocusKey]);
+    }
+
+    if (input.currentIntentCluster === "relationship_tuning") {
+      return normalizeStringList(["relationships.try_this_week", input.actionFocusKey, "growth.weekly_experiments"]);
+    }
+
+    if (input.hasActionEngagement) {
+      return normalizeStringList([input.actionFocusKey, input.actionPriorityKeys[0], input.readingFocusKey]);
+    }
+
+    return normalizeStringList([input.actionFocusKey, input.readingFocusKey]);
+  })();
+
+  const revisitReorderReason = (() => {
+    if (!input.isRevisit) {
+      return "initial_action_activation";
+    }
+    if (["negative", "mixed"].includes(input.feedbackSentiment)) {
+      return "reorder_after_feedback";
+    }
+    if (input.currentIntentCluster === "career_move") {
+      return "reorder_for_career_move";
+    }
+    if (input.currentIntentCluster === "relationship_tuning") {
+      return "reorder_for_relationship_tuning";
+    }
+    if (input.hasActionEngagement) {
+      return "resume_action_loop";
+    }
+    switch (journeyState) {
+      case "clarify_resume":
+        return "resume_explainability_focus";
+      case "career_bridge_resume":
+        return "resume_career_bridge";
+      case "relationship_resume":
+        return "resume_relationship_practice";
+      default:
+        return "resume_previous_focus";
+    }
+  })();
+
+  const lastPulseSignal =
+    input.hasActionEngagement
+      ? progressState === "committed"
+        ? "consistent_action_signal"
+        : "repeatable_action_signal"
+      : ["negative", "mixed"].includes(input.feedbackSentiment)
+        ? "feedback_recalibration"
+        : "no_progress_signal_yet";
+
+  const fingerprintSeed = [
+    "result_revisit",
+    journeyState,
+    progressState,
+    input.actionFocusKey,
+    completedActionKeys.join("|"),
+    recommendedNextPulseKeys.join("|"),
+    revisitReorderReason,
+    lastPulseSignal,
+  ].join("::");
+
+  return {
+    journey_contract_version: "action_journey.v1",
+    journey_fingerprint_version: "action_journey.fingerprint.v1",
+    journey_fingerprint: `fixture-action-journey-${fingerprintSeed}`,
+    journey_scope: "result_revisit",
+    journey_state: journeyState,
+    progress_state: progressState,
+    action_focus_key: input.actionFocusKey,
+    completed_action_keys: completedActionKeys,
+    recommended_next_pulse_keys: recommendedNextPulseKeys,
+    action_priority_keys: input.actionPriorityKeys,
+    carryover_action_keys: input.carryoverActionKeys,
+    last_pulse_signal: lastPulseSignal,
+    revisit_reorder_reason: revisitReorderReason,
+  };
+}
+
+function buildPulseCheckFixture(journey: Record<string, unknown>): Record<string, unknown> {
+  const journeyState = normalizeText(journey.journey_state);
+  const progressState = normalizeText(journey.progress_state);
+
+  const pulseState =
+    journeyState === "first_view_activation"
+      ? "not_due"
+      : journeyState === "refine_after_feedback"
+        ? "recalibrate"
+        : progressState === "repeatable"
+          ? "reinforce"
+          : progressState === "committed"
+            ? "advance"
+            : progressState === "warming_up"
+              ? "check_in"
+              : "start";
+
+  const actionFocusKey = normalizeText(journey.action_focus_key);
+  const revisitReorderReason = normalizeText(journey.revisit_reorder_reason);
+
+  const pulsePromptKeys = (() => {
+    switch (pulseState) {
+      case "recalibrate":
+        return normalizeStringList(["pulse.review_feedback_signal", actionFocusKey, "pulse.refine_focus"]);
+      case "reinforce":
+        return normalizeStringList(["pulse.repeat_winning_action", actionFocusKey, "pulse.expand_scope"]);
+      case "advance":
+        return normalizeStringList(["pulse.raise_scope", actionFocusKey, "pulse.select_next_read"]);
+      case "check_in":
+        return normalizeStringList(["pulse.check_small_signal", actionFocusKey, revisitReorderReason]);
+      case "not_due":
+        return [];
+      default:
+        return normalizeStringList(["pulse.start_small", actionFocusKey, revisitReorderReason]);
+    }
+  })();
+
+  return {
+    pulse_contract_version: "pulse_check.v1",
+    pulse_state: pulseState,
+    pulse_prompt_keys: pulsePromptKeys,
+    pulse_feedback_mode: "event_feedback",
+    next_pulse_target: normalizeText(
+      Array.isArray(journey.recommended_next_pulse_keys) ? journey.recommended_next_pulse_keys[0] : "",
+      journey.action_focus_key
+    ),
+  };
 }
 
 function asRecord(value: unknown): Record<string, unknown> | null {
@@ -1215,6 +1450,20 @@ export function applyMbtiPhase2Fixture(
     big5_influence_keys: ["big5.band.n.high", "big5.band.c.low"],
     synthesis_keys: ["big5.career_next_step.low.reduce_activation_friction"],
   };
+  const actionJourney = buildActionJourneyFixture({
+    isRevisit,
+    hasActionEngagement,
+    feedbackSentiment,
+    currentIntentCluster,
+    carryoverReason,
+    actionCompletionTendency,
+    actionFocusKey: orderedActionKeys[0] ?? "",
+    actionPriorityKeys: orderedActionKeys.slice(0, 4),
+    carryoverActionKeys,
+    lastDeepReadSection,
+    readingFocusKey: orderedRecommendationKeys[0] ?? "",
+  });
+  const pulseCheck = buildPulseCheckFixture(actionJourney);
   const narrativeRuntime = buildNarrativeRuntimeFixture(narrativeMode);
   const controlledNarrative = buildControlledNarrativeFixture(narrativeMode);
   const comparative = buildComparativeFixture(personalizationLocale);
@@ -1453,6 +1702,8 @@ export function applyMbtiPhase2Fixture(
     big5_influence_keys: crossAssessment.big5_influence_keys,
     mbti_adjusted_focus_keys: crossAssessment.mbti_adjusted_focus_keys,
     working_life_v1: workingLife,
+    action_journey_v1: actionJourney,
+    pulse_check_v1: pulseCheck,
     career_focus_key: careerFocusKey,
     career_journey_keys: careerJourneyKeys,
     career_action_priority_keys: careerActionPriorityKeys,

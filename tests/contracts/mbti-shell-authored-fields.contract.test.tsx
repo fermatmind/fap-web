@@ -121,7 +121,7 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveAttribute(
       "data-variant-key",
-      "career.next_step:TF.T.boundary:identity.T:boundary.TF"
+      "career.next_step:TF.T.boundary:identity.T:boundary.TF:synth.big5_career_next_step_low_reduce_activation_friction"
     );
     expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveTextContent(
       "先把你看重的判断标准写清楚"
@@ -164,7 +164,7 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
       "data-variant-key",
-      "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP"
+      "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP:synth.big5_neuroticism_high_buffer_reactivity"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveTextContent(
       "情境敏感型稳定"
@@ -183,7 +183,7 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-variant-key",
-      "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
+      "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF:synth.big5_conscientiousness_low_use_external_scaffolding"
     );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-action-key",
@@ -328,6 +328,13 @@ describe("MBTI shell authored fields contract", () => {
         carryoverFocusKey: "growth.next_actions",
         carryoverReason: "unlock_to_continue_focus",
         recommendedResumeKeys: "growth.next_actions|traits.close_call_axes|traits.adjacent_type_contrast|career.next_step",
+        journeyContractVersion: "action_journey.v1",
+        journeyScope: "result_revisit",
+        journeyState: "first_view_activation",
+        progressState: "not_started",
+        recommendedNextPulseKeys: "weekly_action.theme.name_decision_rule|read-action",
+        pulseState: "not_due",
+        pulsePromptKeys: "",
       })
     );
   });
@@ -376,6 +383,18 @@ describe("MBTI shell authored fields contract", () => {
       "1"
     );
     expect(screen.getByTestId("mbti-carryover-entry")).toHaveTextContent("继续看 稳定性解释");
+    expect(screen.getByTestId("mbti-action-journey")).toHaveAttribute("data-journey-scope", "result_revisit");
+    expect(screen.getByTestId("mbti-action-journey")).toHaveAttribute("data-journey-state", "resume_action_loop");
+    expect(screen.getByTestId("mbti-pulse-check")).toHaveAttribute("data-pulse-state", "reinforce");
+    expect(screen.getByTestId("mbti-action-journey")).toHaveTextContent("继续上一次已经开始的动作回路");
+    expect(screen.getByTestId("mbti-action-journey")).toHaveTextContent("这次回访先延续你已经开始的动作");
+    expect(screen.getByTestId("mbti-action-journey-cta").getAttribute("href")).toContain("/zh/history/mbti?");
+    expect(screen.getByTestId("mbti-action-journey-cta").getAttribute("href")).toContain(
+      "journey_contract_version=action_journey.v1"
+    );
+    expect(screen.getByTestId("mbti-action-journey-cta").getAttribute("href")).toContain(
+      "pulse_state=reinforce"
+    );
     expect(screen.queryByTestId("mbti-offer-comparison")).toBeNull();
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
@@ -404,13 +423,42 @@ describe("MBTI shell authored fields contract", () => {
         orderedActionKeys:
           "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
         recommendationPriorityKeys: "read-explain|read-action|read-career",
-        actionPriorityKeys:
-          "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
         readingFocusKey: "read-explain",
         actionFocusKey: "watchout.stability.context_sensitive",
         ctaPriorityKeys: "career_bridge|workspace_lite|share_result",
         carryoverFocusKey: "growth.stability_confidence",
         carryoverReason: "refine_after_feedback",
+        journeyContractVersion: "action_journey.v1",
+        journeyScope: "result_revisit",
+        journeyState: "resume_action_loop",
+        progressState: "repeatable",
+        pulseState: "reinforce",
+      })
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "view_result",
+      expect.objectContaining({
+        actionPriorityKeys:
+          "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
+        completedActionKeys:
+          "weekly_action.theme.name_decision_rule|watchout.stability.context_sensitive",
+        recommendedNextPulseKeys: "watchout.stability.context_sensitive|read-explain",
+        revisitReorderReason: "resume_action_loop",
+        pulsePromptKeys:
+          "pulse.repeat_winning_action|watchout.stability.context_sensitive|pulse.expand_scope",
+      })
+    );
+
+    fireEvent.click(screen.getByTestId("mbti-action-journey-cta"));
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_card_interaction",
+      expect.objectContaining({
+        visual_kind: "mbti_action_journey",
+        interaction: "click_cta",
+        continueTarget: "history_continue",
+        journeyState: "resume_action_loop",
+        progressState: "repeatable",
+        pulseState: "reinforce",
       })
     );
   });
