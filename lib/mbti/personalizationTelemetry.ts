@@ -364,6 +364,79 @@ export function summarizeMbtiMemoryRewriteReason(
   return normalizeText(personalization?.longitudinalMemory?.memoryRewriteReason);
 }
 
+function summarizeNumericMap(values?: Record<string, number> | null): string {
+  return Object.entries(values ?? {})
+    .map(([key, value]) => `${normalizeText(key)}:${Number.isFinite(value) ? value : 0}`)
+    .filter(Boolean)
+    .join("|");
+}
+
+export function summarizeMbtiAdaptiveContractVersion(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(
+    personalization?.adaptiveSelection?.adaptiveContractVersion,
+    personalization?.adaptiveSelection?.version
+  );
+}
+
+export function summarizeMbtiAdaptiveFingerprint(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.adaptiveSelection?.adaptiveFingerprint);
+}
+
+export function summarizeMbtiAdaptiveRewriteReason(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.adaptiveSelection?.selectionRewriteReason);
+}
+
+export function summarizeMbtiContentFeedbackWeights(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return summarizeNumericMap(personalization?.adaptiveSelection?.contentFeedbackWeights);
+}
+
+export function summarizeMbtiActionEffectWeights(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return summarizeNumericMap(personalization?.adaptiveSelection?.actionEffectWeights);
+}
+
+export function summarizeMbtiRecommendationEffectWeights(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return summarizeNumericMap(personalization?.adaptiveSelection?.recommendationEffectWeights);
+}
+
+export function summarizeMbtiCtaEffectWeights(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return summarizeNumericMap(personalization?.adaptiveSelection?.ctaEffectWeights);
+}
+
+export function summarizeMbtiNextBestActionKey(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.adaptiveSelection?.nextBestAction?.key);
+}
+
+export function summarizeMbtiNextBestActionSection(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(personalization?.adaptiveSelection?.nextBestAction?.sectionKey);
+}
+
+export function summarizeMbtiNextBestActionReason(
+  personalization?: MbtiResultPersonalizationViewModel | null
+): string {
+  return normalizeText(
+    personalization?.adaptiveSelection?.nextBestAction?.reason,
+    personalization?.adaptiveSelection?.selectionRewriteReason
+  );
+}
+
 export function summarizeMbtiJourneyContractVersion(
   personalization?: MbtiResultPersonalizationViewModel | null
 ): string {

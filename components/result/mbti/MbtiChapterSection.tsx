@@ -19,6 +19,10 @@ import type {
 import {
   summarizeMbtiActionPriorityKeys,
   summarizeMbtiActionCompletionTendency,
+  summarizeMbtiActionEffectWeights,
+  summarizeMbtiAdaptiveContractVersion,
+  summarizeMbtiAdaptiveFingerprint,
+  summarizeMbtiAdaptiveRewriteReason,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,
   summarizeMbtiCareerActionPriorityKeys,
@@ -41,12 +45,18 @@ import {
   summarizeMbtiMemoryScope,
   summarizeMbtiMemoryState,
   summarizeMbtiBehaviorDeltaKeys,
+  summarizeMbtiContentFeedbackWeights,
+  summarizeMbtiCtaEffectWeights,
   summarizeMbtiDominantInterestKeys,
   summarizeMbtiNeighborTypeKeys,
+  summarizeMbtiNextBestActionKey,
+  summarizeMbtiNextBestActionReason,
+  summarizeMbtiNextBestActionSection,
   summarizeMbtiOrderedActionKeys,
   summarizeMbtiOrderedRecommendationKeys,
   summarizeMbtiOrderedSectionKeys,
   summarizeMbtiProfileSeedKey,
+  summarizeMbtiRecommendationEffectWeights,
   summarizeMbtiRecommendationPriorityKeys,
   summarizeMbtiRecommendationSelectionKeys,
   summarizeMbtiActionSelectionKeys,
@@ -392,6 +402,16 @@ function buildSectionTelemetryPayload(
     resumeBiasKeys: summarizeMbtiResumeBiasKeys(personalization),
     memoryRewriteKeys: summarizeMbtiMemoryRewriteKeys(personalization),
     memoryRewriteReason: summarizeMbtiMemoryRewriteReason(personalization),
+    adaptiveContractVersion: summarizeMbtiAdaptiveContractVersion(personalization),
+    adaptiveFingerprint: summarizeMbtiAdaptiveFingerprint(personalization),
+    selectionRewriteReason: summarizeMbtiAdaptiveRewriteReason(personalization),
+    contentFeedbackWeights: summarizeMbtiContentFeedbackWeights(personalization),
+    actionEffectWeights: summarizeMbtiActionEffectWeights(personalization),
+    recommendationEffectWeights: summarizeMbtiRecommendationEffectWeights(personalization),
+    ctaEffectWeights: summarizeMbtiCtaEffectWeights(personalization),
+    nextBestActionKey: summarizeMbtiNextBestActionKey(personalization),
+    nextBestActionSection: summarizeMbtiNextBestActionSection(personalization),
+    nextBestActionReason: summarizeMbtiNextBestActionReason(personalization),
     contrastKey: normalizeText(
       personalizationPayload?.contrast_key,
       personalization?.contrastKeys?.[section.key]
@@ -923,6 +943,9 @@ function renderProjectionSection(
       data-memory-fingerprint={normalizeText(telemetryPayload.memoryFingerprint) || undefined}
       data-memory-state={normalizeText(telemetryPayload.memoryState) || undefined}
       data-memory-rewrite-reason={normalizeText(telemetryPayload.memoryRewriteReason) || undefined}
+      data-adaptive-fingerprint={normalizeText(telemetryPayload.adaptiveFingerprint) || undefined}
+      data-selection-rewrite-reason={normalizeText(telemetryPayload.selectionRewriteReason) || undefined}
+      data-next-best-action-key={normalizeText(telemetryPayload.nextBestActionKey) || undefined}
       data-synthesis-key={normalizeText(telemetryPayload.synthesisKey) || undefined}
       data-supporting-scale={normalizeText(telemetryPayload.supportingScale) || undefined}
       data-cross-assessment-version={normalizeText(telemetryPayload.crossAssessmentVersion) || undefined}

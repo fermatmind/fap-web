@@ -27,6 +27,13 @@ import {
   resolveMbtiCarryoverFocusLabel,
   resolveMbtiCarryoverReasonLabel,
 } from "@/lib/mbti/continuity";
+import {
+  appendMbtiAdaptiveSelectionQuery,
+  buildMbtiAdaptiveTelemetryFields,
+  parseMbtiAdaptiveSelectionQuery,
+  resolveMbtiAdaptiveContinueReasonLabel,
+  resolveMbtiAdaptiveNextBestActionLabel,
+} from "@/lib/mbti/adaptiveSelection";
 
 type Row = {
   attemptId: string;
@@ -79,18 +86,31 @@ export default function MbtiHistoryClient() {
   const journeyImpressionTrackedRef = useRef(false);
   const continuity = parseMbtiContinuityQuery(searchParams);
   const journey = parseMbtiActionJourneyQuery(searchParams);
+  const adaptiveSelection = parseMbtiAdaptiveSelectionQuery(searchParams);
   const continuityTelemetry = useMemo(() => buildMbtiContinuityTelemetryFields(continuity), [continuity]);
   const journeyTelemetry = useMemo(() => buildMbtiActionJourneyTelemetryFields(journey), [journey]);
+  const adaptiveTelemetry = useMemo(() => buildMbtiAdaptiveTelemetryFields(adaptiveSelection), [adaptiveSelection]);
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(String(continuity?.carryoverFocusKey ?? ""), locale);
   const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(String(continuity?.carryoverReason ?? ""), locale);
   const journeyStateLabel = resolveMbtiJourneyStateLabel(String(journey?.journeyState ?? ""), locale);
   const progressStateLabel = resolveMbtiProgressStateLabel(String(journey?.progressState ?? ""), locale);
   const journeyReasonLabel = resolveMbtiRevisitReorderReasonLabel(String(journey?.revisitReorderReason ?? ""), locale);
+  const adaptiveNextBestActionLabel = resolveMbtiAdaptiveNextBestActionLabel(
+    String(adaptiveSelection?.nextBestActionKey ?? ""),
+    locale
+  );
+  const adaptiveReasonLabel = resolveMbtiAdaptiveContinueReasonLabel(
+    String(adaptiveSelection?.selectionRewriteReason ?? adaptiveSelection?.nextBestActionReason ?? ""),
+    locale
+  );
   const pulsePromptLabels = (journey?.pulsePromptKeys ?? []).map((key) => resolveMbtiPulsePromptLabel(key, locale));
   const latestRow = rows[0] ?? null;
   const latestResultHref = latestRow
     ? appendMbtiActionJourneyQuery(
-        appendMbtiContinuityQuery(localizedPath(`/result/${latestRow.attemptId}`, locale), continuity),
+        appendMbtiAdaptiveSelectionQuery(
+          appendMbtiContinuityQuery(localizedPath(`/result/${latestRow.attemptId}`, locale), continuity),
+          adaptiveSelection
+        ),
         journey
       )
     : null;
@@ -150,9 +170,10 @@ export default function MbtiHistoryClient() {
       visual_kind: "history_carryover_entry",
       continueTarget: "history_latest_result",
       ...continuityTelemetry,
+      ...adaptiveTelemetry,
       locale,
     });
-  }, [continuity, continuityTelemetry, locale]);
+  }, [adaptiveTelemetry, continuity, continuityTelemetry, locale]);
 
   useEffect(() => {
     if (!journey || journeyImpressionTrackedRef.current) {
@@ -166,9 +187,10 @@ export default function MbtiHistoryClient() {
       visual_kind: "history_action_journey_context",
       continueTarget: "history_latest_result",
       ...journeyTelemetry,
+      ...adaptiveTelemetry,
       locale,
     });
-  }, [journey, journeyTelemetry, locale]);
+  }, [adaptiveTelemetry, journey, journeyTelemetry, locale]);
 
   return (
     <div data-testid="mbti-history-client" className="space-y-4">
@@ -220,6 +242,24 @@ export default function MbtiHistoryClient() {
               ) : null}
             </div>
           ) : null}
+          {adaptiveSelection ? (
+            <div
+              data-testid="mbti-history-adaptive-context"
+              data-adaptive-fingerprint={adaptiveSelection.adaptiveFingerprint || undefined}
+              data-selection-rewrite-reason={adaptiveSelection.selectionRewriteReason || undefined}
+              data-next-best-action-key={adaptiveSelection.nextBestActionKey || undefined}
+              className="rounded-xl border border-violet-200 bg-violet-50/70 p-4"
+            >
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-violet-700">
+                {isZh ? "自适应继续建议" : "Adaptive continue guidance"}
+              </p>
+              <p className="m-0 mt-2 text-sm font-medium text-slate-900">
+                {adaptiveNextBestActionLabel}
+                {adaptiveSelection.nextBestActionSection ? ` · ${adaptiveSelection.nextBestActionSection}` : ""}
+              </p>
+              <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{adaptiveReasonLabel}</p>
+            </div>
+          ) : null}
         </div>
         <div className="flex flex-wrap gap-3">
           {latestResultHref ? (
@@ -239,6 +279,7 @@ export default function MbtiHistoryClient() {
                   attempt_id: latestRow?.attemptId,
                   ...continuityTelemetry,
                   ...journeyTelemetry,
+                  ...adaptiveTelemetry,
                   locale,
                 });
               }}
@@ -316,7 +357,10 @@ export default function MbtiHistoryClient() {
               </p>
               <Link
                 href={appendMbtiActionJourneyQuery(
-                  appendMbtiContinuityQuery(localizedPath(`/result/${row.attemptId}`, locale), continuity),
+                  appendMbtiAdaptiveSelectionQuery(
+                    appendMbtiContinuityQuery(localizedPath(`/result/${row.attemptId}`, locale), continuity),
+                    adaptiveSelection
+                  ),
                   journey
                 )}
                 className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
@@ -332,6 +376,7 @@ export default function MbtiHistoryClient() {
                     attempt_id: row.attemptId,
                     ...continuityTelemetry,
                     ...journeyTelemetry,
+                    ...adaptiveTelemetry,
                     locale,
                   });
                 }}

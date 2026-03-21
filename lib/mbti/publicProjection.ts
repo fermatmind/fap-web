@@ -5,6 +5,7 @@ import type {
   CulturalCalibrationRaw,
   EmbedSurfaceRaw,
   InsightGraphRaw,
+  MbtiAdaptiveSelectionRaw,
   MbtiActionJourneyRaw,
   MbtiCrossAssessmentRaw,
   MbtiIntraTypeProfileRaw,
@@ -351,6 +352,26 @@ export type MbtiLongitudinalMemoryViewModel = {
   memoryEvidence: Record<string, unknown> | null;
 };
 
+export type MbtiAdaptiveNextBestActionViewModel = {
+  key: string;
+  sectionKey: string;
+  family: string;
+  reason: string;
+};
+
+export type MbtiAdaptiveSelectionViewModel = {
+  version: string;
+  adaptiveContractVersion: string;
+  adaptiveFingerprint: string;
+  selectionRewriteReason: string;
+  contentFeedbackWeights: Record<string, number>;
+  actionEffectWeights: Record<string, number>;
+  recommendationEffectWeights: Record<string, number>;
+  ctaEffectWeights: Record<string, number>;
+  nextBestAction: MbtiAdaptiveNextBestActionViewModel | null;
+  adaptiveEvidence: Record<string, unknown> | null;
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -399,6 +420,7 @@ export type MbtiResultPersonalizationViewModel = {
   pulseCheck: MbtiPulseCheckViewModel | null;
   intraTypeProfile: MbtiIntraTypeProfileViewModel | null;
   longitudinalMemory: MbtiLongitudinalMemoryViewModel | null;
+  adaptiveSelection: MbtiAdaptiveSelectionViewModel | null;
   profileSeedKey: string;
   sameTypeDivergenceKeys: string[];
   sectionSelectionKeys: Record<string, string>;
@@ -879,6 +901,7 @@ function normalizePersonalization(
   const pulseCheckRecord = asRecord(personalization.pulse_check_v1) as MbtiPulseCheckRaw | null;
   const intraTypeProfileRecord = asRecord(personalization.intra_type_profile_v1) as MbtiIntraTypeProfileRaw | null;
   const longitudinalMemoryRecord = asRecord(personalization.longitudinal_memory_v1) as MbtiLongitudinalMemoryRaw | null;
+  const adaptiveSelectionRecord = asRecord(personalization.adaptive_selection_v1) as MbtiAdaptiveSelectionRaw | null;
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -987,6 +1010,7 @@ function normalizePersonalization(
     pulseCheck: normalizePulseCheck(pulseCheckRecord),
     intraTypeProfile: normalizeIntraTypeProfile(intraTypeProfileRecord),
     longitudinalMemory: normalizeLongitudinalMemory(longitudinalMemoryRecord),
+    adaptiveSelection: normalizeAdaptiveSelection(adaptiveSelectionRecord),
     profileSeedKey: normalizeText(personalization.profile_seed_key),
     sameTypeDivergenceKeys: normalizeStringArray(personalization.same_type_divergence_keys),
     sectionSelectionKeys: Object.fromEntries(
@@ -1187,6 +1211,86 @@ function normalizeLongitudinalMemory(
     memoryConfidence,
     memoryWindow,
     memoryEvidence,
+  };
+}
+
+function normalizeNumericMap(rawMap: unknown): Record<string, number> {
+  return Object.fromEntries(
+    Object.entries(asRecord(rawMap) ?? {})
+      .map(([key, value]) => {
+        const normalizedKey = normalizeText(key);
+        const normalizedValue =
+          typeof value === "number" && Number.isFinite(value) ? value : Number.NaN;
+
+        if (!normalizedKey || Number.isNaN(normalizedValue)) {
+          return null;
+        }
+
+        return [normalizedKey, normalizedValue] as const;
+      })
+      .filter((entry): entry is readonly [string, number] => Boolean(entry))
+  );
+}
+
+function normalizeAdaptiveSelection(
+  rawAdaptive: MbtiAdaptiveSelectionRaw | null
+): MbtiAdaptiveSelectionViewModel | null {
+  if (!rawAdaptive) {
+    return null;
+  }
+
+  const version = normalizeText(rawAdaptive.version);
+  const adaptiveContractVersion = normalizeText(rawAdaptive.adaptive_contract_version, version);
+  const adaptiveFingerprint = normalizeText(rawAdaptive.adaptive_fingerprint);
+  const selectionRewriteReason = normalizeText(rawAdaptive.selection_rewrite_reason);
+  const contentFeedbackWeights = normalizeNumericMap(rawAdaptive.content_feedback_weights);
+  const actionEffectWeights = normalizeNumericMap(rawAdaptive.action_effect_weights);
+  const recommendationEffectWeights = normalizeNumericMap(rawAdaptive.recommendation_effect_weights);
+  const ctaEffectWeights = normalizeNumericMap(rawAdaptive.cta_effect_weights);
+  const nextBestActionRecord = asRecord(rawAdaptive.next_best_action_v1);
+  const nextBestAction =
+    nextBestActionRecord &&
+    (
+      normalizeText(nextBestActionRecord.key) ||
+      normalizeText(nextBestActionRecord.section_key) ||
+      normalizeText(nextBestActionRecord.family) ||
+      normalizeText(nextBestActionRecord.reason)
+    )
+      ? {
+          key: normalizeText(nextBestActionRecord.key),
+          sectionKey: normalizeText(nextBestActionRecord.section_key),
+          family: normalizeText(nextBestActionRecord.family),
+          reason: normalizeText(nextBestActionRecord.reason),
+        }
+      : null;
+  const adaptiveEvidence = asRecord(rawAdaptive.adaptive_evidence);
+
+  if (
+    !version &&
+    !adaptiveContractVersion &&
+    !adaptiveFingerprint &&
+    !selectionRewriteReason &&
+    Object.keys(contentFeedbackWeights).length === 0 &&
+    Object.keys(actionEffectWeights).length === 0 &&
+    Object.keys(recommendationEffectWeights).length === 0 &&
+    Object.keys(ctaEffectWeights).length === 0 &&
+    !nextBestAction &&
+    !adaptiveEvidence
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    adaptiveContractVersion,
+    adaptiveFingerprint,
+    selectionRewriteReason,
+    contentFeedbackWeights,
+    actionEffectWeights,
+    recommendationEffectWeights,
+    ctaEffectWeights,
+    nextBestAction,
+    adaptiveEvidence,
   };
 }
 

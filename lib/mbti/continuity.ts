@@ -255,6 +255,10 @@ export function resolveMbtiCarryoverReasonLabel(reason: string, locale: Locale):
       return locale === "zh"
         ? "你这次是回访，适合直接接回上一次被强调的重点。"
         : "This is a revisit, so the best move is to pick back up from the last emphasized focus.";
+    case "adaptive_next_best_action":
+      return locale === "zh"
+        ? "这次继续入口已经根据你最近的真实反馈和动作效果，切到了当前最值得推进的下一步。"
+        : "This continue entry has been switched to the next step that looks most useful from your recent feedback and action results.";
     default:
       return locale === "zh"
         ? "把当前最重要的重点继续带到相关页面，不要每次都从头开始。"

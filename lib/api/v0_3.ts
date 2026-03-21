@@ -927,6 +927,26 @@ export type MbtiLongitudinalMemoryRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiAdaptiveSelectionRaw = {
+  version?: string;
+  adaptive_contract_version?: string;
+  adaptive_fingerprint?: string;
+  selection_rewrite_reason?: string;
+  content_feedback_weights?: Record<string, number>;
+  action_effect_weights?: Record<string, number>;
+  recommendation_effect_weights?: Record<string, number>;
+  cta_effect_weights?: Record<string, number>;
+  next_best_action_v1?: {
+    key?: string;
+    section_key?: string;
+    family?: string;
+    reason?: string;
+    [key: string]: unknown;
+  } | null;
+  adaptive_evidence?: Record<string, unknown> | null;
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -994,6 +1014,7 @@ export type MbtiPersonalizationRaw = {
   pulse_check_v1?: MbtiPulseCheckRaw | null;
   intra_type_profile_v1?: MbtiIntraTypeProfileRaw | null;
   longitudinal_memory_v1?: MbtiLongitudinalMemoryRaw | null;
+  adaptive_selection_v1?: MbtiAdaptiveSelectionRaw | null;
   profile_seed_key?: string;
   same_type_divergence_keys?: string[];
   section_selection_keys?: Record<string, string>;

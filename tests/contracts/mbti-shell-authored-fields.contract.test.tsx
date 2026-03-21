@@ -115,14 +115,26 @@ describe("MBTI shell authored fields contract", () => {
     expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain(
       "longitudinal_memory_v1"
     );
+    expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain(
+      "adaptive_selection_v1"
+    );
     expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
       "longitudinal_memory_v1.memory_fingerprint"
+    );
+    expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
+      "adaptive_selection_v1.adaptive_fingerprint"
     );
     expect(viewModel.personalization?.longitudinalMemory?.memoryContractVersion).toBe(
       "mbti.longitudinal_memory.v1"
     );
     expect(viewModel.personalization?.longitudinalMemory?.memoryRewriteReason).toBe(
       "resume_growth_actions"
+    );
+    expect(viewModel.personalization?.adaptiveSelection?.adaptiveContractVersion).toBe(
+      "mbti.adaptive_selection.v1"
+    );
+    expect(viewModel.personalization?.adaptiveSelection?.selectionRewriteReason).toBe(
+      "career_followthrough_loop"
     );
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
@@ -142,8 +154,18 @@ describe("MBTI shell authored fields contract", () => {
       "data-memory-rewrite-reason",
       "resume_growth_actions"
     );
+    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
+      "data-adaptive-fingerprint",
+      "fixture-adaptive-fingerprint"
+    );
+    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
+      "data-selection-rewrite-reason",
+      "career_followthrough_loop"
+    );
     expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveTextContent("长期记忆已生效");
     expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveTextContent("成长动作");
+    expect(screen.getByTestId("mbti-adaptive-selection")).toHaveTextContent("自适应修正已生效");
+    expect(screen.getByTestId("mbti-adaptive-selection")).toHaveTextContent("工作实验");
     const hero = screen.getByTestId("mbti-hero");
     expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
@@ -358,9 +380,17 @@ describe("MBTI shell authored fields contract", () => {
       "data-recommendation-selection-keys",
       "read-action|read-explain|read-career"
     );
+    expect(screen.getByTestId("mbti-recommended-reads")).toHaveAttribute(
+      "data-adaptive-fingerprint",
+      "fixture-adaptive-fingerprint"
+    );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-action-rank",
       "1"
+    );
+    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
+      "data-adaptive-fingerprint",
+      "fixture-adaptive-fingerprint"
     );
     expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
       "data-action-rank",
@@ -415,6 +445,12 @@ describe("MBTI shell authored fields contract", () => {
         recommendedNextPulseKeys: "weekly_action.theme.name_decision_rule|read-action",
         pulseState: "not_due",
         pulsePromptKeys: "",
+        adaptiveContractVersion: "mbti.adaptive_selection.v1",
+        adaptiveFingerprint: "fixture-adaptive-fingerprint",
+        selectionRewriteReason: "career_followthrough_loop",
+        nextBestActionKey: "work_experiment.theme.name_decision_rule",
+        nextBestActionSection: "career.work_experiments",
+        nextBestActionReason: "career_followthrough_loop",
       })
     );
   });
