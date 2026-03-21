@@ -394,35 +394,37 @@ describe("MBTI share consumer contract", () => {
     expect(screen.queryByText("axis:EI")).not.toBeInTheDocument();
     expect(screen.queryByText("role:explorer")).not.toBeInTheDocument();
 
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_impression",
-      expect.objectContaining({
-        visual_kind: "mbti_share_public_surface",
-        entrySurface: "mbti_share_landing",
-        attributionScope: "share_public_surface",
-        publicSummaryFingerprint: "share-fingerprint-123",
-        continueTarget: "career.next_step",
-      })
-    );
+    await waitFor(() => {
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_card_impression",
+        expect.objectContaining({
+          visual_kind: "mbti_share_public_surface",
+          entrySurface: "mbti_share_landing",
+          attributionScope: "share_public_surface",
+          publicSummaryFingerprint: "share-fingerprint-123",
+          continueTarget: "career.next_step",
+        })
+      );
 
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_impression",
-      expect.objectContaining({
-        visual_kind: "share_carryover_entry",
-        continueTarget: "share_take_flow",
-        ctaKey: "share_carryover_entry",
-        carryoverFocusKey: "career.next_step",
-        carryoverReason: "continue_career_bridge",
-        recommendedResumeKeys: "career.next_step|career.work_experiments",
-        carryoverSceneKeys: "work|growth",
-        carryoverActionKeys: "career_next_step.theme.clarify_decision_criteria",
-        feedbackSentiment: "negative",
-        feedbackCoverage: "explainability_only",
-        actionCompletionTendency: "warming_up",
-        lastDeepReadSection: "traits.close_call_axes",
-        currentIntentCluster: "clarify_type",
-      })
-    );
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_card_impression",
+        expect.objectContaining({
+          visual_kind: "share_carryover_entry",
+          continueTarget: "share_take_flow",
+          ctaKey: "share_carryover_entry",
+          carryoverFocusKey: "career.next_step",
+          carryoverReason: "continue_career_bridge",
+          recommendedResumeKeys: "career.next_step|career.work_experiments",
+          carryoverSceneKeys: "work|growth",
+          carryoverActionKeys: "career_next_step.theme.clarify_decision_criteria",
+          feedbackSentiment: "negative",
+          feedbackCoverage: "explainability_only",
+          actionCompletionTendency: "warming_up",
+          lastDeepReadSection: "traits.close_call_axes",
+          currentIntentCluster: "clarify_type",
+        })
+      );
+    });
 
     fireEvent.click(screen.getByTestId("mbti-share-carryover-cta"));
 
