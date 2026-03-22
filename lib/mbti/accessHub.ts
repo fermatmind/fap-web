@@ -162,6 +162,19 @@ export function buildMbtiAccessHubLinks(
   };
 }
 
+export function extractMbtiAccessHubAttemptId(raw: MbtiAccessHubV1Raw | null | undefined): string | null {
+  if (!raw || typeof raw !== "object") {
+    return null;
+  }
+
+  return (
+    normalizeId(raw.report_access?.attempt_id)
+    ?? normalizeId(raw.recovery?.attempt_id)
+    ?? normalizeId(raw.workspace_lite?.attempt_id)
+    ?? extractAttemptIdFromAttemptReportUrl(normalizeText(raw.report_access?.report_url))
+  );
+}
+
 export function normalizeMbtiAccessHub(
   raw: MbtiAccessHubV1Raw | null | undefined,
   locale: Locale

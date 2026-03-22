@@ -5,6 +5,7 @@ import MbtiHistoryClient from "@/app/(localized)/[locale]/(app)/history/mbti/Mbt
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/history/mbti",
   search: "",
+  fetchAttemptReportAccess: vi.fn(),
   getMyAttempts: vi.fn(),
   trackEvent: vi.fn(),
 }));
@@ -19,9 +20,33 @@ vi.mock("@/lib/api/v0_3", async () => {
 
   return {
     ...actual,
+    fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
     getMyAttempts: hoisted.getMyAttempts,
   };
 });
+
+function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}) {
+  return {
+    ok: true,
+    attempt_id: "attempt-history-1",
+    access_state: "ready",
+    report_state: "ready",
+    pdf_state: "ready",
+    reason_code: "report_ready",
+    projection_version: 1,
+    actions: {
+      page_href: "/result/attempt-history-1",
+      pdf_href: "/api/v0.3/attempts/attempt-history-1/report.pdf",
+      history_href: "/history/mbti",
+      lookup_href: "/orders/lookup",
+    },
+    meta: {
+      produced_at: "2026-03-22T10:00:00Z",
+      refreshed_at: "2026-03-22T10:00:00Z",
+    },
+    ...overrides,
+  };
+}
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
@@ -32,6 +57,7 @@ describe("MBTI history account-center contract", () => {
     vi.clearAllMocks();
     hoisted.pathname = "/en/history/mbti";
     hoisted.search = "";
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
   });
 
   it("renders history as the saved-results entry while preserving the report action", async () => {

@@ -34,6 +34,7 @@ type LinkProps = {
 };
 
 const hoisted = vi.hoisted(() => ({
+  fetchAttemptReportAccess: vi.fn(),
   fetchClinicalReport: vi.fn(),
   createCheckoutOrOrder: vi.fn(),
   fetchAttemptResult: vi.fn(),
@@ -108,8 +109,32 @@ vi.mock("@/lib/anon", () => ({
 
 vi.mock("@/lib/api/v0_3", () => ({
   createCheckoutOrOrder: hoisted.createCheckoutOrOrder,
+  fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
   fetchAttemptResult: hoisted.fetchAttemptResult,
 }));
+
+function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}) {
+  return {
+    ok: true,
+    attempt_id: "attempt-456",
+    access_state: "ready",
+    report_state: "ready",
+    pdf_state: "ready",
+    reason_code: "report_ready",
+    projection_version: 1,
+    actions: {
+      page_href: "/attempts/attempt-456/report",
+      pdf_href: "/api/v0.3/attempts/attempt-456/report.pdf",
+      wait_href: "/pay/wait?order_no=ord_clinical_1",
+      lookup_href: "/orders/lookup",
+    },
+    meta: {
+      produced_at: "2026-03-22T10:00:00Z",
+      refreshed_at: "2026-03-22T10:00:00Z",
+    },
+    ...overrides,
+  };
+}
 
 vi.mock("@/lib/clinical/api", () => ({
   fetchClinicalReport: hoisted.fetchClinicalReport,
@@ -159,6 +184,7 @@ describe("ClinicalReportClient view-state contract", () => {
     window.localStorage.clear();
     window.sessionStorage.clear();
     hoisted.createCheckoutOrOrder.mockResolvedValue({ kind: "redirect", url: "/checkout" });
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
   });
 
   it("renders processing as processing-only ui when the report is generating", async () => {
@@ -173,6 +199,13 @@ describe("ClinicalReportClient view-state contract", () => {
         scale_code: "SDS_20",
       },
     });
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({
+        access_state: "pending",
+        report_state: "pending",
+        pdf_state: "unavailable",
+      })
+    );
 
     render(<ClinicalReportClient attemptId="attempt-456" rolloutEnv={{} as never} />);
 

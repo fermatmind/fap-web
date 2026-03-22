@@ -10,13 +10,24 @@ import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownlo
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getOrderStatus, resendOrderDelivery, type OrderStatusResponse } from "@/lib/api/v0_3";
+import {
+  canDownloadReportPdf,
+  canEnterReportPage,
+  normalizeAttemptReportAccess,
+  type AttemptReportAccessView,
+} from "@/lib/access/unifiedAccess";
+import {
+  fetchAttemptReportAccess,
+  getOrderStatus,
+  resendOrderDelivery,
+  type OrderStatusResponse,
+} from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { captureError } from "@/lib/observability/sentry";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
-import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 
 type ViewStatus = "initializing" | "pending" | "paid" | "failed" | "canceled" | "refunded";
 type PayType = "qr" | "html" | "redirect" | null;
@@ -37,50 +48,6 @@ function normalizeQueryValue(value: string | null): string | null {
   if (!value) return null;
   const normalized = value.trim();
   return normalized.length > 0 ? normalized : null;
-}
-
-function normalizeActionHref(
-  value: string | null | undefined,
-  withLocale: (path: string) => string
-): string | null {
-  const normalized = normalizeQueryValue(value ?? null);
-  if (!normalized) return null;
-  if (/^https?:\/\//i.test(normalized)) {
-    return normalized;
-  }
-
-  const candidate = normalized.startsWith("/") ? normalized : `/${normalized}`;
-  const firstSegment = candidate.split("/").filter(Boolean)[0];
-  if (firstSegment === "en" || firstSegment === "zh") {
-    return candidate;
-  }
-
-  return withLocale(candidate);
-}
-
-function resolveDeliveryReportHref({
-  delivery,
-  attemptId,
-  withLocale,
-}: {
-  delivery: DeliveryPayload | null;
-  attemptId: string | null;
-  withLocale: (path: string) => string;
-}): string | null {
-  const fromContract = normalizeActionHref(delivery?.report_url ?? null, withLocale);
-  if (fromContract) {
-    return fromContract;
-  }
-
-  if (!delivery && attemptId) {
-    return withLocale(`/result/${attemptId}`);
-  }
-
-  if (delivery?.can_view_report === true && attemptId) {
-    return withLocale(`/result/${attemptId}`);
-  }
-
-  return null;
 }
 
 function formatDeliveryEmailTimestamp(value: string | null | undefined, locale: "en" | "zh"): string | null {
@@ -138,6 +105,7 @@ export default function OrdersClient({
 
   const [status, setStatus] = useState<ViewStatus>("initializing");
   const [attemptId, setAttemptId] = useState<string | null>(null);
+  const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
   const [delivery, setDelivery] = useState<DeliveryPayload | null>(null);
   const [accessHubRaw, setAccessHubRaw] = useState<OrderStatusResponse["mbti_access_hub_v1"] | null>(null);
   const [payType, setPayType] = useState<PayType>(queryPayType);
@@ -297,13 +265,30 @@ export default function OrdersClient({
         const responsePayProvider =
           normalizeQueryValue(typeof response.provider === "string" ? response.provider : null)
           ?? normalizeQueryValue(typeof responsePayNode?.provider === "string" ? responsePayNode.provider : null);
-        const responseResultUrl = normalizeActionHref(
-          typeof response.result_url === "string" ? response.result_url : null,
-          withLocale
-        );
+        const responseAttemptId =
+          normalizeQueryValue(response.attempt_id ?? null)
+          ?? extractMbtiAccessHubAttemptId(response.mbti_access_hub_v1 ?? null);
+        let nextAccessView: AttemptReportAccessView | null = null;
+        if (responseAttemptId) {
+          try {
+            nextAccessView = normalizeAttemptReportAccess(
+              await fetchAttemptReportAccess({ attemptId: responseAttemptId }),
+              locale
+            );
+          } catch (accessCause) {
+            setAccessView(null);
+            captureError(accessCause, {
+              route: "/orders/[orderNo]",
+              orderNo,
+              attemptId: responseAttemptId,
+              stage: "load_report_access",
+            });
+          }
+        }
 
         setStatus(nextStatus);
-        setAttemptId(response.attempt_id ?? null);
+        setAttemptId(responseAttemptId);
+        setAccessView(nextAccessView);
         setDelivery((response.delivery ?? null) as DeliveryPayload | null);
         setAccessHubRaw(response.mbti_access_hub_v1 ?? null);
         if (!queryPayType && responsePayType && responsePayValue) {
@@ -342,15 +327,15 @@ export default function OrdersClient({
             reportedStatusRef.current = "paid";
           }
 
-          if (responseResultUrl) {
+          if (canEnterReportPage(nextAccessView) && nextAccessView?.actions.pageHref) {
             setMessage(response.message ?? dict.orders.reportReady);
             stopPolling();
             if (!didAutoRedirectRef.current) {
               didAutoRedirectRef.current = true;
-              if (/^https?:\/\//i.test(responseResultUrl)) {
-                window.location.assign(responseResultUrl);
+              if (/^https?:\/\//i.test(nextAccessView.actions.pageHref)) {
+                window.location.assign(nextAccessView.actions.pageHref);
               } else {
-                router.replace(responseResultUrl);
+                router.replace(nextAccessView.actions.pageHref);
               }
             }
             return;
@@ -534,30 +519,10 @@ export default function OrdersClient({
     return <XCircle className="h-6 w-6 text-rose-600" />;
   }, [status]);
 
-  const deliveryReportHref = useMemo(
-    () =>
-      resolveDeliveryReportHref({
-        delivery,
-        attemptId,
-        withLocale,
-      }),
-    [attemptId, delivery, withLocale]
-  );
-  const deliveryPdfHref = useMemo(
-    () => normalizeActionHref(delivery?.report_pdf_url ?? null, withLocale),
-    [delivery?.report_pdf_url, withLocale]
-  );
   const accessHub = useMemo(
     () => normalizeMbtiAccessHub(accessHubRaw ?? null, locale),
     [accessHubRaw, locale]
   );
-  const hubReportHref = accessHub?.reportAccess.href ?? null;
-  const hubPdfHref = accessHub?.pdfAccess.href ?? null;
-  const hubAttemptId =
-    accessHub?.reportAccess.attemptId
-    ?? accessHub?.recovery.attemptId
-    ?? accessHub?.workspaceLite.attemptId
-    ?? attemptId;
   const deliveryLastSentAt = useMemo(
     () => formatDeliveryEmailTimestamp(delivery?.last_delivery_email_sent_at ?? null, locale),
     [delivery?.last_delivery_email_sent_at, locale]
@@ -577,15 +542,11 @@ export default function OrdersClient({
     });
     return withLocale(`/orders/lookup?${query.toString()}`);
   }, [accessHub?.recovery.claimHref, delivery?.can_request_claim_email, orderNo, withLocale]);
-  const workspaceLiteHref = accessHub?.workspaceLite.href ?? null;
-  const canViewReport = accessHub
-    ? accessHub.reportAccess.canViewReport && Boolean(hubReportHref)
-    : delivery ? delivery.can_view_report === true && Boolean(deliveryReportHref) : Boolean(deliveryReportHref);
-  const resolvedReportHref = hubReportHref ?? deliveryReportHref;
-  const canDownloadPdf = accessHub
-    ? accessHub.pdfAccess.canDownloadPdf && Boolean(hubPdfHref || hubAttemptId)
-    : delivery?.can_download_pdf === true && Boolean(attemptId || deliveryPdfHref);
-  const resolvedPdfHref = hubPdfHref ?? deliveryPdfHref;
+  const workspaceLiteHref = accessView?.actions.historyHref ?? accessHub?.workspaceLite.href ?? null;
+  const canViewReport = canEnterReportPage(accessView);
+  const resolvedReportHref = accessView?.actions.pageHref ?? null;
+  const canDownloadPdf = canDownloadReportPdf(accessView);
+  const resolvedPdfHref = accessView?.actions.pdfHref ?? null;
   const canResendDelivery = accessHub?.recovery.canResend ?? (delivery?.can_resend === true);
   const canRequestClaimEmail = accessHub
     ? accessHub.recovery.canRequestClaimEmail && Boolean(claimRecoveryHref)
@@ -732,13 +693,14 @@ export default function OrdersClient({
                     ) : null}
                     {canDownloadPdf ? (
                       <AttemptPdfDownloadButton
-                        attemptId={hubAttemptId}
+                        attemptId={accessView?.attemptId ?? attemptId}
                         locale={locale}
                         label={locale === "zh" ? "下载 PDF" : "Download PDF"}
                         loadingLabel={locale === "zh" ? "正在下载 PDF..." : "Downloading PDF..."}
                         errorMessage={locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
                         filenamePrefix="report"
                         pdfVariant="order_delivery_hub"
+                        accessProjection={accessView}
                         pdfUrl={resolvedPdfHref}
                         fallbackUrl={resolvedPdfHref}
                         className="w-full"

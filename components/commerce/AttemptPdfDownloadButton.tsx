@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Alert } from "@/components/ui/alert";
 import { Button, type ButtonProps } from "@/components/ui/button";
+import { canDownloadReportPdf, type AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { trackEvent } from "@/lib/analytics";
 import { fetchAttemptReportPdf } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
@@ -27,6 +28,7 @@ type AttemptPdfDownloadButtonProps = {
   errorMessage: string;
   filenamePrefix?: string;
   pdfVariant: string;
+  accessProjection?: AttemptReportAccessView | null;
   pdfUrl?: string | null;
   fallbackUrl?: string | null;
   buttonVariant?: ButtonProps["variant"];
@@ -43,6 +45,7 @@ export function AttemptPdfDownloadButton({
   errorMessage,
   filenamePrefix = "report",
   pdfVariant,
+  accessProjection,
   pdfUrl,
   fallbackUrl,
   buttonVariant = "outline",
@@ -52,9 +55,13 @@ export function AttemptPdfDownloadButton({
 }: AttemptPdfDownloadButtonProps) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const resolvedAttemptId = accessProjection?.attemptId ?? attemptId ?? null;
+  const resolvedPdfUrl = accessProjection?.actions.pdfHref ?? pdfUrl ?? null;
+  const resolvedFallbackUrl = accessProjection?.actions.pdfHref ?? fallbackUrl ?? null;
+  const downloadEnabled = accessProjection ? canDownloadReportPdf(accessProjection) : Boolean(resolvedAttemptId || resolvedPdfUrl);
 
   const handleDownload = async () => {
-    if ((!attemptId && !pdfUrl) || isDownloading) return;
+    if ((!resolvedAttemptId && !resolvedPdfUrl) || !downloadEnabled || isDownloading) return;
 
     setIsDownloading(true);
     setError(null);
@@ -62,28 +69,28 @@ export function AttemptPdfDownloadButton({
     trackEvent("pdf_download", {
       pdf_variant: pdfVariant,
       locale,
-      ...(attemptId ? { attempt_id: attemptId } : {}),
+      ...(resolvedAttemptId ? { attempt_id: resolvedAttemptId } : {}),
     });
 
     try {
-      if (pdfUrl) {
-        window.open(pdfUrl, "_blank", "noopener,noreferrer");
+      if (resolvedPdfUrl) {
+        window.open(resolvedPdfUrl, "_blank", "noopener,noreferrer");
         return;
       }
 
-      if (!attemptId) {
+      if (!resolvedAttemptId) {
         throw new Error("Missing attempt id.");
       }
 
-      const blob = await fetchAttemptReportPdf({ attemptId });
+      const blob = await fetchAttemptReportPdf({ attemptId: resolvedAttemptId });
       if (blob.size <= 0) {
         throw new Error("Empty pdf blob.");
       }
 
-      triggerBrowserDownload(blob, `${filenamePrefix}-${attemptId}.pdf`);
+      triggerBrowserDownload(blob, `${filenamePrefix}-${resolvedAttemptId}.pdf`);
     } catch {
-      if (fallbackUrl) {
-        window.open(fallbackUrl, "_blank", "noopener,noreferrer");
+      if (resolvedFallbackUrl) {
+        window.open(resolvedFallbackUrl, "_blank", "noopener,noreferrer");
       } else {
         setError(errorMessage);
       }
@@ -98,7 +105,7 @@ export function AttemptPdfDownloadButton({
         type="button"
         variant={buttonVariant}
         className={buttonClassName}
-        disabled={isDownloading || (!attemptId && !pdfUrl)}
+        disabled={isDownloading || !downloadEnabled || (!resolvedAttemptId && !resolvedPdfUrl)}
         onClick={() => void handleDownload()}
         data-testid={testId}
       >

@@ -17,6 +17,12 @@ import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecomm
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  canDownloadReportPdf,
+  canEnterReportPage,
+  isProjectionLocked,
+  type AttemptReportAccessView,
+} from "@/lib/access/unifiedAccess";
 import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
 import {
@@ -135,6 +141,7 @@ type MbtiResultShellProps = {
   locale: Locale;
   scaleCode: "MBTI";
   reportData: ReportResponse;
+  accessProjection?: AttemptReportAccessView | null;
   headline: RichResultHeadline;
   tags: string[];
   dimensions: Array<Record<string, unknown>>;
@@ -650,6 +657,7 @@ export function MbtiResultShell({
   locale,
   scaleCode,
   reportData,
+  accessProjection,
   headline,
   tags,
   dimensions,
@@ -687,10 +695,10 @@ export function MbtiResultShell({
     : [];
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const primaryCtaLabel = resolvePrimaryCtaLabel(locale, cta);
-  const isUnlockedPostPurchase = isUnlockedMbtiReport(reportData);
+  const isUnlockedPostPurchase = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
   const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
-  const historyHref = accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale);
-  const orderLookupHref = accessHub?.links.lookupHref ?? localizedPath("/orders/lookup", locale);
+  const historyHref = accessProjection?.actions.historyHref ?? accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale);
+  const orderLookupHref = accessProjection?.actions.lookupHref ?? accessHub?.links.lookupHref ?? localizedPath("/orders/lookup", locale);
   const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
   const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
   const publicSubtitle = normalizeText(projectionViewModel?.subtitle, projectionViewModel?.tagline, headline.supportingLine);
@@ -740,7 +748,7 @@ export function MbtiResultShell({
       ? "我的 MBTI 报告"
       : "My MBTI reports"
     : primaryCtaLabel;
-  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? accessHub?.workspaceLite.href ?? historyHref : "#offer-full";
+  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? historyHref : "#offer-full";
   const globalTraits = buildDominantTraitItems({
     locale,
     roleCard: asRecord(layers?.role_card) ?? undefined,
@@ -1083,7 +1091,8 @@ export function MbtiResultShell({
   );
 
   useEffect(() => {
-    if (reportData.locked === true || !attemptId) {
+    const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
+    if (projectionLocked || !attemptId) {
       return;
     }
 
@@ -1091,7 +1100,7 @@ export function MbtiResultShell({
     if (pendingOrder?.attemptId === attemptId) {
       clearPendingOrder();
     }
-  }, [attemptId, reportData.locked]);
+  }, [accessProjection, attemptId, reportData.locked]);
 
   useEffect(() => {
     syncOfferHashScroll();

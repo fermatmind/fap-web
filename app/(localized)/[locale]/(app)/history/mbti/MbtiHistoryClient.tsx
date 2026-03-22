@@ -7,7 +7,8 @@ import { Alert } from "@/components/ui/alert";
 import { trackEvent } from "@/lib/analytics";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getMyAttempts, type MeAttemptItem } from "@/lib/api/v0_3";
+import { canEnterReportPage, normalizeAttemptReportAccess } from "@/lib/access/unifiedAccess";
+import { fetchAttemptReportAccess, getMyAttempts, type MeAttemptItem } from "@/lib/api/v0_3";
 import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/assessmentSlugMap";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
@@ -82,6 +83,7 @@ export default function MbtiHistoryClient() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const [latestResultPath, setLatestResultPath] = useState<string | null>(null);
   const carryoverImpressionTrackedRef = useRef(false);
   const journeyImpressionTrackedRef = useRef(false);
   const continuity = parseMbtiContinuityQuery(searchParams);
@@ -108,12 +110,42 @@ export default function MbtiHistoryClient() {
   const latestResultHref = latestRow
     ? appendMbtiActionJourneyQuery(
         appendMbtiAdaptiveSelectionQuery(
-          appendMbtiContinuityQuery(localizedPath(`/result/${latestRow.attemptId}`, locale), continuity),
+          appendMbtiContinuityQuery(latestResultPath ?? localizedPath(`/result/${latestRow.attemptId}`, locale), continuity),
           adaptiveSelection
         ),
         journey
       )
     : null;
+
+  useEffect(() => {
+    let active = true;
+
+    if (!latestRow?.attemptId) {
+      setLatestResultPath(null);
+      return () => {
+        active = false;
+      };
+    }
+
+    void fetchAttemptReportAccess({ attemptId: latestRow.attemptId })
+      .then((response) => {
+        if (!active) return;
+        const accessView = normalizeAttemptReportAccess(response, locale);
+        setLatestResultPath(
+          canEnterReportPage(accessView) && accessView?.actions.pageHref
+            ? accessView.actions.pageHref
+            : localizedPath(`/result/${latestRow.attemptId}`, locale)
+        );
+      })
+      .catch(() => {
+        if (!active) return;
+        setLatestResultPath(localizedPath(`/result/${latestRow.attemptId}`, locale));
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [latestRow?.attemptId, locale]);
 
   useEffect(() => {
     let active = true;

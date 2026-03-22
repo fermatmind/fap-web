@@ -35,6 +35,7 @@ function cloneFixture<T>(fixture: T): T {
 }
 
 const hoisted = vi.hoisted(() => ({
+  fetchAttemptReportAccess: vi.fn(),
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
   trackEvent: vi.fn(),
@@ -112,9 +113,33 @@ vi.mock("@/lib/auth/fmToken", () => ({
 }));
 
 vi.mock("@/lib/api/v0_3", () => ({
+  fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
   fetchAttemptReport: hoisted.fetchAttemptReport,
   fetchAttemptResult: hoisted.fetchAttemptResult,
 }));
+
+function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}) {
+  return {
+    ok: true,
+    attempt_id: "attempt-123",
+    access_state: "ready",
+    report_state: "ready",
+    pdf_state: "ready",
+    reason_code: "report_ready",
+    projection_version: 1,
+    actions: {
+      page_href: "/result/attempt-123",
+      pdf_href: "/api/v0.3/attempts/attempt-123/report.pdf",
+      history_href: "/history/mbti",
+      lookup_href: "/orders/lookup",
+    },
+    meta: {
+      produced_at: "2026-03-22T10:00:00Z",
+      refreshed_at: "2026-03-22T10:00:00Z",
+    },
+    ...overrides,
+  };
+}
 
 vi.mock("@/lib/i18n/getDict", () => ({
   getDictSync: () => ({
@@ -133,6 +158,7 @@ vi.mock("@/lib/i18n/getDict", () => ({
 
 vi.mock("@/lib/i18n/locales", () => ({
   getLocaleFromPathname: () => "en",
+  localizedPath: (path: string) => `/en${path.startsWith("/") ? path : `/${path}`}`,
 }));
 
 vi.mock("@/lib/observability/httpError", () => ({
@@ -146,6 +172,8 @@ vi.mock("@/lib/observability/sentry", () => ({
 describe("ResultClient view-state contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
   });
 
   it("routes the public career next step through the runtime 32-type slug", () => {
@@ -194,6 +222,10 @@ describe("ResultClient view-state contract", () => {
       attemptId: "attempt-123",
       anonId: "anon_result_test",
     });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+    });
     expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
@@ -203,6 +235,13 @@ describe("ResultClient view-state contract", () => {
   it("keeps the page in processing state when the report endpoint is still generating", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiFreeFixture) as ReportResponse;
     reportFixture.generating = true;
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({
+        report_state: "pending",
+        pdf_state: "unavailable",
+        reason_code: "projection_pending",
+      })
+    );
     hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
 
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
@@ -233,6 +272,7 @@ describe("ResultClient view-state contract", () => {
       highlights: reportFixture.report?.highlights,
     };
 
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
     hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
 
@@ -255,6 +295,7 @@ describe("ResultClient view-state contract", () => {
   });
 
   it("falls back to the legacy result view when the report endpoint is unavailable", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.fetchAttemptReport.mockRejectedValue(new Error("Report missing."));
     hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
 

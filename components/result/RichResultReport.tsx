@@ -7,6 +7,7 @@ import { MbtiResultShell } from "@/components/result/mbti/MbtiResultShell";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
@@ -1364,9 +1365,11 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
 export function RichResultReport({
   locale,
   reportData,
+  accessProjection,
 }: {
   locale: Locale;
   reportData: ReportResponse;
+  accessProjection?: AttemptReportAccessView | null;
 }) {
   const scaleCode = resolveReportScaleCode(reportData);
   if (!scaleCode) {
@@ -1408,6 +1411,7 @@ export function RichResultReport({
         locale={locale}
         scaleCode={scaleCode}
         reportData={reportData}
+        accessProjection={accessProjection}
         headline={headline}
         tags={tags}
         dimensions={dimensions}
