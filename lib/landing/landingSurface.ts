@@ -14,6 +14,15 @@ export type LandingCtaViewModel = {
   kind: string | null;
 };
 
+export type LandingDiscoverabilityItemViewModel = {
+  key: string;
+  title: string;
+  summary: string;
+  href: string;
+  kind: string | null;
+  badgeLabel: string | null;
+};
+
 export type LandingSurfaceViewModel = {
   version: string;
   landingContractVersion: string;
@@ -22,6 +31,7 @@ export type LandingSurfaceViewModel = {
   entrySurface: string;
   entryType: string;
   summaryBlocks: LandingSummaryBlockViewModel[];
+  discoverabilityItems: LandingDiscoverabilityItemViewModel[];
   discoverabilityKeys: string[];
   continueReadingKeys: string[];
   startTestTarget: string | null;
@@ -108,8 +118,31 @@ export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefine
         .filter((item): item is LandingCtaViewModel => item !== null)
     : [];
 
+  const discoverabilityItems = Array.isArray(raw.discoverability_items)
+    ? raw.discoverability_items
+        .map((item) => {
+          const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
+          const title = normalizeText(record.title);
+          const href = normalizeText(record.href ?? record.url);
+          if (!title || !href) {
+            return null;
+          }
+
+          return {
+            key: normalizeText(record.key) || href,
+            title,
+            summary: normalizeText(record.summary ?? record.body),
+            href,
+            kind: normalizeNullableText(record.kind),
+            badgeLabel: normalizeNullableText(record.badge_label ?? record.badge),
+          };
+        })
+        .filter((item): item is LandingDiscoverabilityItemViewModel => item !== null)
+    : [];
+
   if (
     !summaryBlocks.length &&
+    !discoverabilityItems.length &&
     !ctaBundle.length &&
     !normalizeText(raw.entry_surface) &&
     !normalizeText(raw.entry_type)
@@ -125,6 +158,7 @@ export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefine
     entrySurface: normalizeText(raw.entry_surface),
     entryType: normalizeText(raw.entry_type),
     summaryBlocks,
+    discoverabilityItems,
     discoverabilityKeys: normalizeStringArray(raw.discoverability_keys),
     continueReadingKeys: normalizeStringArray(raw.continue_reading_keys),
     startTestTarget: normalizeNullableText(raw.start_test_target),

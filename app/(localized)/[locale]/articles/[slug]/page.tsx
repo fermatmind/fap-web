@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCmsArticle, getCmsArticleSeo, type CmsArticle } from "@/lib/cms/articles";
+import { findLandingCta } from "@/lib/landing/landingSurface";
 import type { RelatedContentItem } from "@/lib/content";
 import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
@@ -194,10 +196,14 @@ export default async function ArticleDetailPage({
   ]);
   const publishedAt = formatArticleDate(article.publishedAt, locale);
   const updatedAt = formatArticleDate(article.updatedAt, locale);
+  const heroSummary = article.landingSurface?.summaryBlocks[0]?.body || article.excerpt;
   const badgeLabels = [
     article.category?.name ?? null,
     ...article.tags.map((tag) => tag.name).filter(Boolean),
   ].slice(0, 5);
+  const backToArticlesCta = findLandingCta(article.landingSurface, "back_to_articles");
+  const topicHubCta = findLandingCta(article.landingSurface, "topic_hub");
+  const startTestCta = findLandingCta(article.landingSurface, "start_test");
   const relatedArticles: RelatedContentItem[] = [];
   const relatedCareerGuides: RelatedContentItem[] = [];
   const relatedTypes: RelatedContentItem[] = [];
@@ -218,19 +224,10 @@ export default async function ArticleDetailPage({
           {dict.articles.kicker}
         </p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{article.title}</h1>
-        {article.excerpt ? <p className="m-0 text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
+        {heroSummary ? <p className="m-0 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
       </section>
 
-      <section id="when-to-use" className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <h2 className="m-0 text-lg font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "何时阅读这篇文章" : "When to use this article"}
-        </h2>
-        <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">
-          {locale === "zh"
-            ? "当你希望把测评结果转为可执行行动时，先阅读方法与边界，再结合个人情境做小步验证。"
-            : "Read this when you want to convert test output into practical actions. Start with method and limits, then validate through small experiments."}
-        </p>
-      </section>
+      <AnswerSurfaceSection surface={article.answerSurface} locale={locale} testId="article-answer-surface" />
 
       <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
         <CardHeader className="space-y-3">
@@ -269,21 +266,6 @@ export default async function ArticleDetailPage({
               ? "本内容用于自我认知与教育参考，不构成医疗或法律建议。"
               : "This content is for self-discovery and educational use, not medical or legal advice."}
           </section>
-          <section id="faq" className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]">
-            <h2 className="m-0 text-base font-semibold text-[var(--fm-text)]">FAQ</h2>
-            <ul className="mb-0 mt-3 list-disc space-y-2 pl-5">
-              <li>
-                {locale === "zh"
-                  ? "问：这篇文章能代替专业诊断吗？答：不能，仅供教育与自助参考。"
-                  : "Q: Can this article replace professional diagnosis? A: No, it is educational guidance only."}
-              </li>
-              <li>
-                {locale === "zh"
-                  ? "问：如何用得更有效？答：结合你的真实场景做 2-4 周小实验并复盘。"
-                  : "Q: How should I apply it effectively? A: Run 2-4 week small experiments in real scenarios and review results."}
-              </li>
-            </ul>
-          </section>
           <section id="references" className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]">
             <h2 className="m-0 text-base font-semibold text-[var(--fm-text)]">
               {locale === "zh" ? "参考资料" : "References"}
@@ -294,12 +276,30 @@ export default async function ArticleDetailPage({
                 : "Please refer to citations and public references listed in the article."}
             </p>
           </section>
-          <Link
-            href={localizedPath("/articles", locale)}
-            className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-          >
-            {dict.articles.backToArticles}
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href={backToArticlesCta?.href ?? localizedPath("/articles", locale)}
+              className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+            >
+              {backToArticlesCta?.label || dict.articles.backToArticles}
+            </Link>
+            {topicHubCta ? (
+              <Link
+                href={topicHubCta.href}
+                className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+              >
+                {topicHubCta.label}
+              </Link>
+            ) : null}
+            {startTestCta ? (
+              <Link
+                href={startTestCta.href}
+                className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+              >
+                {startTestCta.label}
+              </Link>
+            ) : null}
+          </div>
         </CardContent>
       </Card>
 

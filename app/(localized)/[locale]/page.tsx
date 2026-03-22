@@ -13,6 +13,7 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { getHomeGatewaySurface } from "@/lib/publicGateway";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
@@ -50,6 +51,8 @@ export default async function Home({
   const locale = resolveLocale(localeParam);
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const gatewaySurface = await getHomeGatewaySurface(locale);
+  const landingSurface = gatewaySurface?.landingSurface ?? null;
   const allTests = getAllTests();
   const bySlug = new Map<string, (typeof allTests)[number]>();
   for (const item of allTests) {
@@ -65,22 +68,28 @@ export default async function Home({
     "eq-test-emotional-intelligence-assessment",
   ] as const;
 
-  const highlightedCards: HomeHighlightedCard[] = preferredLiveSlugs
+  const gatewayHighlights = landingSurface?.discoverabilityItems ?? [];
+  const highlightedSeedSlugs = gatewayHighlights.length > 0
+    ? gatewayHighlights.map((item) => item.key)
+    : [...preferredLiveSlugs];
+
+  const highlightedCards: HomeHighlightedCard[] = highlightedSeedSlugs
     .map((slug) => bySlug.get(slug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item))
     .map((item) => {
+      const gatewayItem = gatewayHighlights.find((candidate) => candidate.key === item.slug);
       const excerptSource = item.highlight_excerpt_i18n;
-      const localizedExcerpt =
-        excerptSource
+      const localizedExcerpt = gatewayItem?.summary
+        || (excerptSource
           ? locale === "zh"
             ? excerptSource.zh ?? excerptSource["zh-CN"] ?? item.description
             : excerptSource.en ?? item.description
-          : item.description;
+          : item.description);
 
       return {
         kind: "live",
         slug: item.slug,
-        title: resolveTestTitleByLocale(item, locale),
+        title: gatewayItem?.title ?? resolveTestTitleByLocale(item, locale),
         scaleCode: item.scale_code,
         excerpt: localizedExcerpt,
         rating: item.highlight_rating ?? 5,

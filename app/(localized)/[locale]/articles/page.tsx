@@ -8,6 +8,7 @@ import { getCmsArticles } from "@/lib/cms/articles";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import { findLandingCta } from "@/lib/landing/landingSurface";
 
 export const dynamic = "force-dynamic";
 
@@ -79,12 +80,17 @@ export default async function ArticlesPage({
   const dict = await getDict(locale);
   const requestedPage = parsePage(query.page);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const { items, pagination } = await getCmsArticles({
+  const { items, pagination, landingSurface } = await getCmsArticles({
     locale,
     page: requestedPage,
   });
   const currentPage = pagination.currentPage > 0 ? pagination.currentPage : requestedPage;
   const lastPage = Math.max(1, pagination.lastPage);
+  const heroTitle = landingSurface?.summaryBlocks[0]?.title || dict.articles.title;
+  const heroSummary = landingSurface?.summaryBlocks[0]?.body || dict.articles.subtitle;
+  const featuredArticleCta = findLandingCta(landingSurface, "featured_article");
+  const topicHubCta = findLandingCta(landingSurface, "topic_hub");
+  const startTestCta = findLandingCta(landingSurface, "start_test");
   const pageLink = (page: number) => (page <= 1 ? withLocale("/articles") : `${withLocale("/articles")}?page=${page}`);
   const publishedLabel = locale === "zh" ? "发布于" : "Published";
   const emptyTitle = locale === "zh" ? "暂无已发布文章" : "No published articles yet";
@@ -104,13 +110,28 @@ export default async function ArticlesPage({
 
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{dict.articles.kicker}</p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{dict.articles.title}</h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">{dict.articles.subtitle}</p>
+        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{heroTitle}</h1>
+        <p className="m-0 text-[var(--fm-text-muted)]">{heroSummary}</p>
         <p className="m-0 text-xs text-[var(--fm-text-muted)]">
           {locale === "zh"
             ? `第 ${currentPage} / ${lastPage} 页，共 ${pagination.total} 篇`
             : `Page ${currentPage} of ${lastPage}, ${pagination.total} total`}
         </p>
+        {featuredArticleCta || topicHubCta || startTestCta ? (
+          <div className="flex flex-wrap gap-3">
+            {[featuredArticleCta, topicHubCta, startTestCta]
+              .filter((item): item is NonNullable<typeof item> => Boolean(item))
+              .map((cta) => (
+                <Link
+                  key={cta.key}
+                  href={cta.href}
+                  className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                >
+                  {cta.label}
+                </Link>
+              ))}
+          </div>
+        ) : null}
       </section>
 
       {items.length > 0 ? (

@@ -8,6 +8,7 @@ import {
 } from "@/lib/help/helpCenterContent";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { getHelpGatewaySurface } from "@/lib/publicGateway";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
@@ -42,7 +43,25 @@ export default async function HelpPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (path: string) => localizedPath(path, locale);
   const content = getHelpCenterContent(locale);
+  const gatewaySurface = await getHelpGatewaySurface(locale);
+  const landingSurface = gatewaySurface?.landingSurface ?? null;
   const pages = listHelpCenterPages(locale);
+  const gatewayItems = landingSurface?.discoverabilityItems ?? [];
+  const pagesBySlug = new Map(pages.map((page) => [page.slug, page]));
+  const orderedPages = gatewayItems.length > 0
+    ? gatewayItems
+        .map((item) => pagesBySlug.get(item.key))
+        .filter((page): page is NonNullable<typeof page> => Boolean(page))
+    : pages;
+  const quickActions = landingSurface?.ctaBundle.length
+    ? landingSurface.ctaBundle.map((cta) => ({
+        href: cta.href.replace(/^\/(en|zh)/, ""),
+        label: cta.label,
+        description: "",
+      }))
+    : content.quickActions;
+  const heroTitle = landingSurface?.summaryBlocks[0]?.title || content.home.title;
+  const heroSummary = landingSurface?.summaryBlocks[0]?.body || content.home.subtitle;
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
 
   return (
@@ -52,9 +71,9 @@ export default async function HelpPage({
           {content.home.kicker}
         </p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-4xl">
-          {content.home.title}
+          {heroTitle}
         </h1>
-        <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">{content.home.subtitle}</p>
+        <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">{heroSummary}</p>
       </section>
 
       <section className="grid gap-4 md:grid-cols-2" data-testid="help-home-actions">
@@ -62,13 +81,13 @@ export default async function HelpPage({
           <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">{content.home.quickActionsTitle}</h2>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{content.home.quickActionsSubtitle}</p>
           <div className="grid gap-3" data-testid="help-home-quick-actions">
-            {content.quickActions.map((action) => (
+            {quickActions.map((action) => (
               <article key={action.href} className="fm-help-topic-card">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
                   {locale === "zh" ? "正式入口" : "Formal path"}
                 </p>
                 <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{action.label}</h3>
-                <p className="m-0 text-sm text-[var(--fm-text-muted)]">{action.description}</p>
+                {action.description ? <p className="m-0 text-sm text-[var(--fm-text-muted)]">{action.description}</p> : null}
                 <div>
                   <Link href={withLocale(action.href)} className="inline-flex">
                     <Button type="button" variant="outline">{action.label}</Button>
@@ -97,7 +116,7 @@ export default async function HelpPage({
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="help-home-topics">
         <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{content.home.topicsTitle}</h2>
         <div className="grid gap-3 md:grid-cols-2">
-          {pages.map((page) => (
+          {orderedPages.map((page) => (
             <Link
               key={page.slug}
               href={withLocale(`/help/${page.slug}`)}

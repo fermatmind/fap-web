@@ -1,7 +1,9 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { getBlogPostBySlug, listBlogPosts, type LocalizedBlogPost } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -45,6 +47,7 @@ type CmsArticleApiRecord = {
 type CmsArticlesApiResponse = {
   ok?: boolean;
   items?: CmsArticleApiRecord[];
+  landing_surface_v1?: LandingSurfaceRaw | null;
   pagination?: {
     current_page?: number;
     per_page?: number;
@@ -56,6 +59,8 @@ type CmsArticlesApiResponse = {
 type CmsArticleApiResponse = {
   ok?: boolean;
   article?: CmsArticleApiRecord | null;
+  landing_surface_v1?: LandingSurfaceRaw | null;
+  answer_surface_v1?: AnswerSurfaceRaw | null;
 };
 
 type CmsArticleSeoApiResponse = {
@@ -113,6 +118,8 @@ export type CmsArticle = {
   category: CmsArticleCategory;
   tags: CmsArticleTag[];
   seoMeta: unknown;
+  landingSurface: LandingSurfaceViewModel | null;
+  answerSurface: AnswerSurfaceViewModel | null;
 };
 
 export type CmsArticleSeoPayload = {
@@ -168,6 +175,7 @@ export type GetCmsArticlesParams = {
 export type GetCmsArticlesResult = {
   items: CmsArticle[];
   pagination: CmsArticlesPagination;
+  landingSurface: LandingSurfaceViewModel | null;
 };
 
 export type ListCmsArticlesForLlmsParams = {
@@ -393,6 +401,8 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
       ? article.tags.map(normalizeTag).filter((tag): tag is CmsArticleTag => tag !== null)
       : [],
     seoMeta: article.seo_meta ?? null,
+    landingSurface: null,
+    answerSurface: null,
   };
 }
 
@@ -431,6 +441,8 @@ function normalizeLocalArticle(post: LocalizedBlogPost): CmsArticle {
       ? post.tags.map(normalizeLocalTag).filter((tag): tag is CmsArticleTag => tag !== null)
       : [],
     seoMeta: null,
+    landingSurface: null,
+    answerSurface: null,
   };
 }
 
@@ -469,6 +481,7 @@ function buildLocalArticlesResult(
       total,
       lastPage,
     },
+    landingSurface: null,
   };
 }
 
@@ -515,6 +528,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
         total: typeof response.pagination?.total === "number" ? response.pagination.total : items.length,
         lastPage: typeof response.pagination?.last_page === "number" ? response.pagination.last_page : 1,
       },
+      landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
     };
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
@@ -601,6 +615,8 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
     }
 
     const article = normalizeArticle(response.article);
+    article.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
+    article.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
     return article.slug && article.title ? article : getLocalArticle(normalizedSlug, locale);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {

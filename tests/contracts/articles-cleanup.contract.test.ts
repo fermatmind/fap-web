@@ -39,6 +39,8 @@ describe("articles cleanup contract", () => {
     const source = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
 
     expect(source).toContain('from "@/lib/cms/articles"');
+    expect(source).toContain("article.answerSurface");
+    expect(source).toContain('findLandingCta(article.landingSurface, "back_to_articles")');
     expect(source).not.toContain("normalizeStructuredDataUrls");
     expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
     expect(source).toContain("seoSurface: seo?.surface");
