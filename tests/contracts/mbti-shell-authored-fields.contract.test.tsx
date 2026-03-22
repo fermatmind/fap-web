@@ -124,6 +124,12 @@ describe("MBTI shell authored fields contract", () => {
     expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
       "adaptive_selection_v1.adaptive_fingerprint"
     );
+    expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain(
+      "tone_profile_v1"
+    );
+    expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
+      "tone_profile_v1.tone_contract_version"
+    );
     expect(viewModel.personalization?.longitudinalMemory?.memoryContractVersion).toBe(
       "mbti.longitudinal_memory.v1"
     );
@@ -135,6 +141,19 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(viewModel.personalization?.adaptiveSelection?.selectionRewriteReason).toBe(
       "career_followthrough_loop"
+    );
+    expect(viewModel.personalization?.toneProfile?.toneContractVersion).toBe(
+      "mbti.tone_profile.v1"
+    );
+    expect(viewModel.personalization?.toneProfile?.toneFingerprint).toBe(
+      "fixture-tone-fingerprint"
+    );
+    expect(viewModel.personalization?.toneProfile?.defaultToneMode).toBe("supportive");
+    expect(viewModel.personalization?.toneProfile?.sectionToneModes["traits.why_this_type"]).toBe(
+      "supportive"
+    );
+    expect(viewModel.personalization?.toneProfile?.sectionToneModes["career.next_step"]).toBe(
+      "supportive"
     );
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
@@ -166,6 +185,17 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveTextContent("成长动作");
     expect(screen.getByTestId("mbti-adaptive-selection")).toHaveTextContent("自适应修正已生效");
     expect(screen.getByTestId("mbti-adaptive-selection")).toHaveTextContent("工作实验");
+    const whyThisTypePayload = asRecord(
+      asRecord(viewModel.sections.find((section) => section.key === "traits.why_this_type")?.payload)
+        ?.personalization
+    );
+    const stabilityPayload = asRecord(
+      asRecord(
+        viewModel.sections.find((section) => section.key === "growth.stability_confidence")?.payload
+      )?.personalization
+    );
+    expect(whyThisTypePayload?.tone_mode).toBe("supportive");
+    expect(stabilityPayload?.tone_mode).toBe("supportive");
     const hero = screen.getByTestId("mbti-hero");
     expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");

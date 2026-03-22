@@ -86,6 +86,7 @@ function buildReadContractFixture() {
         "intra_type_profile_v1",
         "longitudinal_memory_v1",
         "adaptive_selection_v1",
+        "tone_profile_v1",
         "profile_seed_key",
         "same_type_divergence_keys",
         "section_selection_keys",
@@ -107,11 +108,12 @@ function buildReadContractFixture() {
         "report._meta.personalization.career_journey_keys",
         "report._meta.personalization.career_action_priority_keys",
         "report._meta.personalization.action_journey_v1",
-        "report._meta.personalization.pulse_check_v1",
-        "report._meta.personalization.intra_type_profile_v1",
-        "report._meta.personalization.longitudinal_memory_v1",
-        "report._meta.personalization.adaptive_selection_v1",
-        "report._meta.personalization.profile_seed_key",
+      "report._meta.personalization.pulse_check_v1",
+      "report._meta.personalization.intra_type_profile_v1",
+      "report._meta.personalization.longitudinal_memory_v1",
+      "report._meta.personalization.adaptive_selection_v1",
+      "report._meta.personalization.tone_profile_v1",
+      "report._meta.personalization.profile_seed_key",
         "report._meta.personalization.section_selection_keys",
         "report._meta.personalization.action_selection_keys",
         "report._meta.personalization.recommendation_selection_keys",
@@ -128,11 +130,12 @@ function buildReadContractFixture() {
         "mbti_public_projection_v1._meta.personalization.career_journey_keys",
         "mbti_public_projection_v1._meta.personalization.career_action_priority_keys",
         "mbti_public_projection_v1._meta.personalization.action_journey_v1",
-        "mbti_public_projection_v1._meta.personalization.pulse_check_v1",
-        "mbti_public_projection_v1._meta.personalization.intra_type_profile_v1",
-        "mbti_public_projection_v1._meta.personalization.longitudinal_memory_v1",
-        "mbti_public_projection_v1._meta.personalization.adaptive_selection_v1",
-        "mbti_public_projection_v1._meta.personalization.profile_seed_key",
+      "mbti_public_projection_v1._meta.personalization.pulse_check_v1",
+      "mbti_public_projection_v1._meta.personalization.intra_type_profile_v1",
+      "mbti_public_projection_v1._meta.personalization.longitudinal_memory_v1",
+      "mbti_public_projection_v1._meta.personalization.adaptive_selection_v1",
+      "mbti_public_projection_v1._meta.personalization.tone_profile_v1",
+      "mbti_public_projection_v1._meta.personalization.profile_seed_key",
         "mbti_public_projection_v1._meta.personalization.section_selection_keys",
         "mbti_public_projection_v1._meta.personalization.action_selection_keys",
         "mbti_public_projection_v1._meta.personalization.recommendation_selection_keys",
@@ -176,6 +179,7 @@ function buildReadContractFixture() {
       "report._meta.personalization.intra_type_profile_v1",
       "report._meta.personalization.longitudinal_memory_v1",
       "report._meta.personalization.adaptive_selection_v1",
+      "report._meta.personalization.tone_profile_v1",
       "report._meta.personalization.profile_seed_key",
       "report._meta.personalization.section_selection_keys",
       "report._meta.personalization.action_selection_keys",
@@ -197,6 +201,7 @@ function buildReadContractFixture() {
       "mbti_public_projection_v1._meta.personalization.intra_type_profile_v1",
       "mbti_public_projection_v1._meta.personalization.longitudinal_memory_v1",
       "mbti_public_projection_v1._meta.personalization.adaptive_selection_v1",
+      "mbti_public_projection_v1._meta.personalization.tone_profile_v1",
       "mbti_public_projection_v1._meta.personalization.profile_seed_key",
       "mbti_public_projection_v1._meta.personalization.section_selection_keys",
       "mbti_public_projection_v1._meta.personalization.action_selection_keys",
@@ -248,6 +253,12 @@ function buildReadContractFixture() {
       "adaptive_selection_v1.next_best_action_v1.section_key",
       "adaptive_selection_v1.next_best_action_v1.family",
       "adaptive_selection_v1.next_best_action_v1.reason",
+      "tone_profile_v1.tone_contract_version",
+      "tone_profile_v1.tone_fingerprint",
+      "tone_profile_v1.default_tone_mode",
+      "tone_profile_v1.tone_reason",
+      "tone_profile_v1.phrasing_mode",
+      "tone_profile_v1.section_tone_modes",
       "profile_seed_key",
       "same_type_divergence_keys",
       "section_selection_keys",
@@ -1208,6 +1219,10 @@ function updateSection(
     styleKey: string;
     actionKey?: string;
     contrastKey?: string;
+    toneMode?: string;
+    toneReason?: string;
+    phrasingMode?: string;
+    toneAnchorKeys?: string[];
     primaryAxis: Record<string, unknown>;
     supportAxis?: Record<string, unknown> | null;
     boundaryAxes: string[];
@@ -1226,6 +1241,10 @@ function updateSection(
     style_key: patch.styleKey,
     action_key: patch.actionKey ?? "",
     contrast_key: patch.contrastKey ?? "",
+    tone_mode: patch.toneMode ?? "",
+    tone_reason: patch.toneReason ?? "",
+    phrasing_mode: patch.phrasingMode ?? patch.toneMode ?? "",
+    tone_anchor_keys: patch.toneAnchorKeys ?? [],
     primary_axis: patch.primaryAxis,
     support_axis: patch.supportAxis ?? null,
     boundary_axes: patch.boundaryAxes,
@@ -1694,6 +1713,47 @@ export function applyMbtiPhase2Fixture(
       },
     },
   };
+  const defaultToneMode = isRevisit
+    ? "reflective"
+    : actionCompletionTendency === "warming_up"
+      ? "low_pressure"
+      : hasFeedback
+        ? "stabilizing"
+        : currentIntentCluster === "career_move"
+          ? "direct"
+          : "supportive";
+  const toneProfile = {
+    version: "mbti.tone_profile.v1",
+    tone_contract_version: "mbti.tone_profile.v1",
+    tone_fingerprint: "fixture-tone-fingerprint",
+    tone_scope: "mbti.result_sections",
+    default_tone_mode: defaultToneMode,
+    section_tone_modes: {
+      "traits.why_this_type": isRevisit ? "reflective" : "supportive",
+      "growth.stability_confidence": hasFeedback ? "stabilizing" : "supportive",
+      "growth.next_actions": actionCompletionTendency === "warming_up" ? "low_pressure" : defaultToneMode,
+      "growth.watchouts": hasFeedback ? "stabilizing" : "supportive",
+      "career.next_step": currentIntentCluster === "career_move" ? "direct" : "supportive",
+      "relationships.try_this_week": isRevisit ? "reflective" : "supportive",
+    },
+    section_tone_reasons: {
+      "traits.why_this_type": isRevisit ? "resume_or_clarity" : "same_type_explainability",
+      "growth.stability_confidence": hasFeedback ? "stability_guardrail" : "baseline_stability",
+      "growth.next_actions": actionCompletionTendency === "warming_up" ? "action_pressure_buffer" : "default_action_mode",
+      "growth.watchouts": hasFeedback ? "watchout_stability_guardrail" : "watchout_baseline",
+      "career.next_step": currentIntentCluster === "career_move" ? "career_move" : "career_support",
+      "relationships.try_this_week": isRevisit ? "relationship_resume" : "relationship_bridge",
+    },
+    tone_reason: isRevisit ? "revisit_resume_context" : hasFeedback ? "adaptive_or_context_sensitive" : "supportive_default",
+    tone_evidence: {
+      intent_cluster: currentIntentCluster,
+      memory_state: memoryState,
+      adaptive_state: "career_followthrough_loop",
+    },
+    phrasing_mode: defaultToneMode,
+    tone_softness_mode: actionCompletionTendency === "warming_up" ? "low_pressure" : "guided",
+    tone_anchor_keys: [`tone.${defaultToneMode}`, `intent.${currentIntentCluster}`, `memory.${memoryState}`],
+  };
 
   reportData.locked = hasUnlock ? false : true;
   reportData.variant = hasUnlock ? "full" : "free";
@@ -1933,6 +1993,7 @@ export function applyMbtiPhase2Fixture(
     intra_type_profile_v1: intraTypeProfile,
     longitudinal_memory_v1: longitudinalMemory,
     adaptive_selection_v1: adaptiveSelection,
+    tone_profile_v1: toneProfile,
     profile_seed_key: profileSeedKey,
     same_type_divergence_keys: sameTypeDivergenceKeys,
     section_selection_keys: sectionSelectionKeys,
@@ -1971,7 +2032,7 @@ export function applyMbtiPhase2Fixture(
     },
     pack_id: "MBTI.cn-mainland.zh-CN.v0.3",
     engine_version: "v1.2",
-    dynamic_sections_version: "phase9c.v1",
+    dynamic_sections_version: "phase9d.v1",
   };
 
   if (reportData.report) {
@@ -2054,6 +2115,8 @@ export function applyMbtiPhase2Fixture(
     sceneKey: "explainability",
     styleKey: "",
     contrastKey: contrastKeys["traits.why_this_type"],
+    toneMode: isRevisit ? "reflective" : "supportive",
+    toneReason: isRevisit ? "resume_or_clarity" : "same_type_explainability",
     primaryAxis: eiAxis,
     supportAxis: snAxis,
     boundaryAxes: ["JP", "TF"],
@@ -2124,6 +2187,8 @@ export function applyMbtiPhase2Fixture(
     sceneKey: "explainability",
     styleKey: "",
     contrastKey: contrastKeys["traits.adjacent_type_contrast"],
+    toneMode: isRevisit ? "reflective" : "supportive",
+    toneReason: isRevisit ? "resume_or_clarity" : "same_type_explainability",
     primaryAxis: jpAxis,
     supportAxis: tfAxis,
     boundaryAxes: ["JP", "TF"],
@@ -2415,6 +2480,8 @@ export function applyMbtiPhase2Fixture(
     sceneKey: "growth",
     styleKey: growthStyleKey,
     actionKey: "weekly_action.theme.name_decision_rule",
+    toneMode: actionCompletionTendency === "warming_up" ? "low_pressure" : defaultToneMode,
+    toneReason: actionCompletionTendency === "warming_up" ? "action_pressure_buffer" : "default_action_mode",
     primaryAxis: eiAxis,
     supportAxis: snAxis,
     boundaryAxes: ["TF", "JP"],
@@ -2493,6 +2560,8 @@ export function applyMbtiPhase2Fixture(
     sceneKey: "stability",
     styleKey: "",
     contrastKey: contrastKeys["growth.stability_confidence"],
+    toneMode: hasFeedback ? "stabilizing" : "supportive",
+    toneReason: hasFeedback ? "stability_guardrail" : "baseline_stability",
     primaryAxis: jpAxis,
     supportAxis: tfAxis,
     boundaryAxes: ["JP", "TF"],
@@ -2520,6 +2589,8 @@ export function applyMbtiPhase2Fixture(
     sceneKey: "stress_recovery",
     styleKey: "stress_recovery.primary.JP.J.boundary",
     actionKey: "watchout.stability.context_sensitive",
+    toneMode: hasFeedback ? "stabilizing" : "supportive",
+    toneReason: hasFeedback ? "watchout_stability_guardrail" : "watchout_baseline",
     primaryAxis: jpAxis,
     supportAxis: eiAxis,
     boundaryAxes: ["JP", "TF"],
@@ -2555,6 +2626,8 @@ export function applyMbtiPhase2Fixture(
     variantKey: "career.next_step:TF.T.boundary:identity.T:boundary.TF:synth.big5_career_next_step_low_reduce_activation_friction",
     sceneKey: "decision",
     styleKey: "decision.primary.TF.T.boundary",
+    toneMode: currentIntentCluster === "career_move" ? "direct" : "supportive",
+    toneReason: currentIntentCluster === "career_move" ? "career_move" : "career_support",
     primaryAxis: tfAxis,
     supportAxis: jpAxis,
     boundaryAxes: ["TF", "JP"],
@@ -2772,6 +2845,8 @@ export function applyMbtiPhase2Fixture(
     sceneKey: "communication",
     styleKey: communicationStyleKey,
     actionKey: "relationship_action.theme.name_decision_rule",
+    toneMode: isRevisit ? "reflective" : "supportive",
+    toneReason: isRevisit ? "relationship_resume" : "relationship_bridge",
     primaryAxis: eiAxis,
     supportAxis: tfAxis,
     boundaryAxes: ["TF", "JP"],
