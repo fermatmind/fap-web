@@ -708,6 +708,31 @@ export type OrderStatusResponse = {
   [key: string]: unknown;
 };
 
+export type AttemptReportAccessResponse = {
+  ok: boolean;
+  attempt_id: string;
+  access_state: string;
+  report_state: string;
+  pdf_state: string;
+  reason_code?: string | null;
+  projection_version?: number;
+  actions?: {
+    page_href?: string | null;
+    pdf_href?: string | null;
+    wait_href?: string | null;
+    history_href?: string | null;
+    lookup_href?: string | null;
+    [key: string]: unknown;
+  } | null;
+  payload?: Record<string, unknown> | null;
+  meta?: {
+    produced_at?: string | null;
+    refreshed_at?: string | null;
+    [key: string]: unknown;
+  } | null;
+  [key: string]: unknown;
+};
+
 export type EmailPreferences = {
   marketing_updates: boolean;
   report_recovery: boolean;
@@ -2298,6 +2323,22 @@ export async function fetchAttemptReport({
   refresh?: boolean;
 }): Promise<ReportResponse> {
   return getAttemptReport({ attemptId, anonId, refresh });
+}
+
+export async function fetchAttemptReportAccess({
+  attemptId,
+  anonId,
+}: {
+  attemptId: string;
+  anonId?: string;
+}): Promise<AttemptReportAccessResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await apiClient.get<AttemptReportAccessResponse>(
+    `/v0.3/attempts/${attemptId}/report-access`,
+    anonHeader(resolvedAnonId)
+  );
+
+  return assertApiOk(response, "Failed to load report access.");
 }
 
 export function getAttemptReportPdfUrl({

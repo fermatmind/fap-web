@@ -22,6 +22,7 @@ const hoisted = vi.hoisted(() => ({
   search: "",
   routerPush: vi.fn(),
   captureEmailContact: vi.fn(),
+  fetchAttemptReportAccess: vi.fn(),
   lookupOrder: vi.fn(),
   requestClaimReportEmail: vi.fn(),
   captureError: vi.fn(),
@@ -41,10 +42,34 @@ vi.mock("@/lib/api/v0_3", async () => {
   return {
     ...actual,
     captureEmailContact: hoisted.captureEmailContact,
+    fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
     lookupOrder: hoisted.lookupOrder,
     requestClaimReportEmail: hoisted.requestClaimReportEmail,
   };
 });
+
+function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}) {
+  return {
+    ok: true,
+    attempt_id: "attempt-lookup-hub-1",
+    access_state: "ready",
+    report_state: "ready",
+    pdf_state: "ready",
+    reason_code: "report_ready",
+    projection_version: 1,
+    actions: {
+      page_href: "/result/attempt-lookup-hub-1",
+      pdf_href: "/api/v0.3/attempts/attempt-lookup-hub-1/report.pdf",
+      history_href: "/history/mbti",
+      lookup_href: "/orders/lookup",
+    },
+    meta: {
+      produced_at: "2026-03-22T10:00:00Z",
+      refreshed_at: "2026-03-22T10:00:00Z",
+    },
+    ...overrides,
+  };
+}
 
 vi.mock("@/lib/observability/sentry", () => ({
   captureError: hoisted.captureError,
@@ -104,6 +129,7 @@ describe("OrderLookupForm recovery contract", () => {
     hoisted.pathname = "/en/orders/lookup";
     hoisted.search = "";
     hoisted.captureEmailContact.mockResolvedValue(createCaptureResponse());
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.lookupOrder.mockResolvedValue({
       ok: true,
       order_no: "ord_lookup_001",
@@ -235,6 +261,17 @@ describe("OrderLookupForm recovery contract", () => {
   });
 
   it("prefers mbti_access_hub_v1 on lookup hits and keeps recovery actions on the lookup surface", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValueOnce(
+      createAccessProjection({
+        attempt_id: "attempt-lookup-hub-1",
+        actions: {
+          page_href: "/result/attempt-lookup-hub-1",
+          pdf_href: "/api/v0.3/attempts/attempt-lookup-hub-1/report.pdf",
+          history_href: "/history/mbti",
+          lookup_href: "/orders/lookup",
+        },
+      })
+    );
     hoisted.lookupOrder.mockResolvedValueOnce({
       ok: true,
       order_no: "ord_lookup_hub_001",
@@ -252,10 +289,12 @@ describe("OrderLookupForm recovery contract", () => {
     await waitFor(() => {
       expect(screen.getByTestId("order-lookup-hit-actions")).toBeInTheDocument();
     });
+    await waitFor(() => {
+      expect(screen.getByTestId("order-lookup-hit-report")).toHaveAttribute("href", "/en/result/attempt-lookup-hub-1");
+    });
 
     expect(hoisted.routerPush).not.toHaveBeenCalled();
     expect(screen.getByTestId("order-lookup-hit-order")).toHaveAttribute("href", "/en/orders/ord_lookup_hub_001");
-    expect(screen.getByTestId("order-lookup-hit-report")).toHaveAttribute("href", "/en/result/attempt-lookup-hub-1");
     expect(screen.getByTestId("order-lookup-hit-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-lookup-hit-claim")).toBeInTheDocument();
     expect(screen.getByTestId("order-lookup-hit-history")).toHaveAttribute("href", "/en/history/mbti");
@@ -353,7 +392,7 @@ describe("OrderLookupForm recovery contract", () => {
         provider: "alipay",
         waitUrl: String(waitHref),
         paymentRecoveryToken: "recovery_lookup_pending_alipay_001",
-        resultUrl: "/en/result/attempt-lookup-pending-alipay-1?from=payment",
+        resultUrl: null,
       })
     );
   });

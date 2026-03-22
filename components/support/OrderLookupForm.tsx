@@ -10,7 +10,14 @@ import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
+  canDownloadReportPdf,
+  canEnterReportPage,
+  normalizeAttemptReportAccess,
+  type AttemptReportAccessView,
+} from "@/lib/access/unifiedAccess";
+import {
   captureEmailContact,
+  fetchAttemptReportAccess,
   lookupOrder,
   requestClaimReportEmail,
   type AttributionUtm,
@@ -21,7 +28,7 @@ import { buildOrderWaitPath, resolveCheckoutAction } from "@/lib/commerce/checko
 import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
-import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import { captureError } from "@/lib/observability/sentry";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
@@ -97,22 +104,6 @@ function normalizeQueryValue(value: string | null | undefined): string | null {
   return normalized.length > 0 ? normalized : null;
 }
 
-function normalizeActionHref(value: string | null | undefined, locale: Locale): string | null {
-  const normalized = normalizeQueryValue(value);
-  if (!normalized) return null;
-  if (/^https?:\/\//i.test(normalized)) {
-    return normalized;
-  }
-
-  const candidate = normalized.startsWith("/") ? normalized : `/${normalized}`;
-  const firstSegment = candidate.split("/").filter(Boolean)[0];
-  if (firstSegment === "en" || firstSegment === "zh") {
-    return candidate;
-  }
-
-  return localizedPath(candidate, locale);
-}
-
 function resolveLookupWaitFlowHref(response: OrderLookupResponse, locale: Locale): string | null {
   const action = resolveCheckoutAction(response, "payment unavailable");
   if (action.kind === "error") {
@@ -176,6 +167,7 @@ export function OrderLookupForm({
   } | null>(null);
   const [captureState, setCaptureState] = useState<EmailCaptureResponse | null>(null);
   const [lookupHit, setLookupHit] = useState<OrderLookupResponse | null>(null);
+  const [lookupAccessView, setLookupAccessView] = useState<AttemptReportAccessView | null>(null);
   const [lookupQrCodeDataUrl, setLookupQrCodeDataUrl] = useState<string | null>(null);
   const [lookupQrCodeError, setLookupQrCodeError] = useState(false);
   const [lastSubmitAt, setLastSubmitAt] = useState(0);
@@ -235,6 +227,10 @@ export function OrderLookupForm({
     () => normalizeMbtiAccessHub(lookupHit?.mbti_access_hub_v1 ?? null, locale),
     [lookupHit?.mbti_access_hub_v1, locale]
   );
+  const lookupAttemptId = useMemo(
+    () => extractMbtiAccessHubAttemptId(lookupHit?.mbti_access_hub_v1 ?? null),
+    [lookupHit?.mbti_access_hub_v1]
+  );
   const lookupStatus = useMemo(
     () => normalizeLookupStatus(typeof lookupHit?.status === "string" ? lookupHit.status : null),
     [lookupHit?.status]
@@ -254,38 +250,55 @@ export function OrderLookupForm({
     () => normalizeQueryValue(typeof lookupHit?.payment_recovery_token === "string" ? lookupHit.payment_recovery_token : null),
     [lookupHit?.payment_recovery_token]
   );
-  const lookupResultUrl = useMemo(
-    () => normalizeActionHref(typeof lookupHit?.result_url === "string" ? lookupHit.result_url : null, locale),
-    [locale, lookupHit?.result_url]
-  );
   const lookupWaitFlowHref = useMemo(
     () => (lookupHit ? resolveLookupWaitFlowHref(lookupHit, locale) : null),
     [locale, lookupHit]
   );
-  const lookupOrderHref = lookupAccessHub?.links.orderHref ?? null;
+  const lookupOrderHref = useMemo(() => {
+    const resolvedOrderNo = normalizeQueryValue(typeof lookupHit?.order_no === "string" ? lookupHit.order_no : null);
+    return resolvedOrderNo ? localizedPath(`/orders/${resolvedOrderNo}`, locale) : null;
+  }, [locale, lookupHit?.order_no]);
   const lookupDelivery = lookupHit?.delivery ?? null;
-  const lookupReportHref =
-    lookupAccessHub?.links.reportHref
-    ?? normalizeActionHref(lookupDelivery?.report_url ?? null, locale);
-  const lookupHistoryHref = lookupAccessHub?.workspaceLite.href ?? null;
-  const lookupPdfHref =
-    lookupAccessHub?.pdfAccess.href
-    ?? normalizeActionHref(lookupDelivery?.report_pdf_url ?? null, locale);
-  const lookupPdfAttemptId =
-    lookupAccessHub?.reportAccess.attemptId
-    ?? lookupAccessHub?.recovery.attemptId
-    ?? lookupAccessHub?.workspaceLite.attemptId
-    ?? null;
-  const lookupCanViewReport =
-    lookupAccessHub?.reportAccess.canViewReport
-    ?? (lookupDelivery?.can_view_report === true && Boolean(lookupReportHref));
-  const lookupCanDownloadPdf =
-    lookupAccessHub?.pdfAccess.canDownloadPdf
-    ?? (lookupDelivery?.can_download_pdf === true && Boolean(lookupPdfHref || lookupPdfAttemptId));
+  const lookupReportHref = lookupAccessView?.actions.pageHref ?? null;
+  const lookupHistoryHref = lookupAccessView?.actions.historyHref ?? null;
+  const lookupPdfHref = lookupAccessView?.actions.pdfHref ?? null;
+  const lookupPdfAttemptId = lookupAccessView?.attemptId ?? lookupAttemptId;
+  const lookupCanViewReport = canEnterReportPage(lookupAccessView);
+  const lookupCanDownloadPdf = canDownloadReportPdf(lookupAccessView);
   const lookupCanRequestClaimEmail =
     lookupAccessHub?.recovery.canRequestClaimEmail
     ?? (lookupDelivery?.can_request_claim_email === true);
   const showLookupHitActions = Boolean(lookupHit);
+
+  useEffect(() => {
+    let active = true;
+
+    if (!lookupAttemptId) {
+      setLookupAccessView(null);
+      return () => {
+        active = false;
+      };
+    }
+
+    void fetchAttemptReportAccess({ attemptId: lookupAttemptId })
+      .then((response) => {
+        if (!active) return;
+        setLookupAccessView(normalizeAttemptReportAccess(response, locale));
+      })
+      .catch((cause) => {
+        if (!active) return;
+        setLookupAccessView(null);
+        captureError(cause, {
+          route: "/orders/lookup",
+          attemptId: lookupAttemptId,
+          stage: "load_report_access",
+        });
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [locale, lookupAttemptId]);
 
   useEffect(() => {
     let active = true;
@@ -371,6 +384,7 @@ export function OrderLookupForm({
     setCaptureState(null);
     if (action === "lookup") {
       setLookupHit(null);
+      setLookupAccessView(null);
     }
     setLastSubmitAt(now);
 
@@ -437,7 +451,7 @@ export function OrderLookupForm({
         provider: lookupPayProvider,
         waitUrl: lookupWaitFlowHref,
         paymentRecoveryToken: lookupPaymentRecoveryToken,
-        resultUrl: lookupResultUrl,
+        resultUrl: lookupAccessView?.actions.pageHref ?? null,
       });
       router.push(lookupWaitFlowHref);
       return;
@@ -669,6 +683,7 @@ export function OrderLookupForm({
                     errorMessage={locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}
                     filenamePrefix="mbti-report"
                     pdfVariant="order_lookup_recovery"
+                    accessProjection={lookupAccessView}
                     pdfUrl={lookupPdfHref}
                     fallbackUrl={lookupPdfHref}
                     className="w-full"

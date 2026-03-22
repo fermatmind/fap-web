@@ -13,7 +13,15 @@ import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
+  isProjectionLocked,
+  isProjectionProcessing,
+  isProjectionUnavailable,
+  normalizeAttemptReportAccess,
+  type AttemptReportAccessView,
+} from "@/lib/access/unifiedAccess";
+import {
   createCheckoutOrOrder,
+  fetchAttemptReportAccess,
   type Big5ReportSection,
   type OfferPayload,
   type ReportResponse,
@@ -495,6 +503,7 @@ export default function ClinicalReportClient({
   const isZh = locale === "zh";
 
   const [reportData, setReportData] = useState<ReportResponse | null>(initialReport ?? null);
+  const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
   const [loading, setLoading] = useState(!initialReport);
   const [error, setError] = useState<string | null>(null);
   const [notFoundRetrying, setNotFoundRetrying] = useState(false);
@@ -509,7 +518,7 @@ export default function ClinicalReportClient({
 
   const pendingUnlockStorageKey = `${PENDING_UNLOCK_CACHE_PREFIX}${attemptId}`;
   const scaleCode = useMemo(() => resolveClinicalScaleCode(reportData), [reportData]);
-  const locked = Boolean(reportData?.locked);
+  const locked = accessView ? isProjectionLocked(accessView) : Boolean(reportData?.locked);
   const variant = String(reportData?.variant ?? (locked ? "free" : "full"));
   const qualityLevel = String(reportData?.quality?.level ?? "unrated");
   const crisisAlert = reportData?.quality?.crisis_alert === true;
@@ -588,6 +597,8 @@ export default function ClinicalReportClient({
 
         for (let retryAttempt = 0; retryAttempt <= maxRetries; retryAttempt += 1) {
           try {
+            const accessResponse = await fetchAttemptReportAccess({ attemptId, anonId });
+            setAccessView(normalizeAttemptReportAccess(accessResponse, locale));
             latest = await fetchClinicalReport({
               attemptId,
               refresh: retryAttempt > 0 ? true : refresh,
@@ -632,6 +643,8 @@ export default function ClinicalReportClient({
         while (resolveGenerating(latest) && polls < GENERATING_POLL_MAX) {
           polls += 1;
           await sleep(GENERATING_POLL_INTERVAL_MS);
+          const accessResponse = await fetchAttemptReportAccess({ attemptId, anonId });
+          setAccessView(normalizeAttemptReportAccess(accessResponse, locale));
           latest = await fetchClinicalReport({
             attemptId,
             refresh: true,
@@ -647,7 +660,7 @@ export default function ClinicalReportClient({
       loadReportInFlightRef.current = runner;
       return runner;
     },
-    [attemptId, locale, scaleCode]
+    [anonId, attemptId, locale, scaleCode]
   );
 
   useEffect(() => {
@@ -1006,9 +1019,9 @@ export default function ClinicalReportClient({
   };
 
   const viewState: "processing" | "ready" | "failed" =
-    loading || notFoundRetrying || generating
+    loading || notFoundRetrying || generating || isProjectionProcessing(accessView)
       ? "processing"
-      : snapshotError || error || !reportData || !scaleCode
+      : isProjectionUnavailable(accessView) || snapshotError || error || !reportData || !scaleCode
         ? "failed"
         : "ready";
 

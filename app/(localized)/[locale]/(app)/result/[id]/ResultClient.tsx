@@ -12,9 +12,23 @@ import {
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { ResultSummary } from "@/components/result/ResultSummary";
 import { Alert } from "@/components/ui/alert";
+import {
+  canEnterReportPage,
+  isProjectionLocked,
+  isProjectionProcessing,
+  isProjectionUnavailable,
+  normalizeAttemptReportAccess,
+  type AttemptReportAccessView,
+} from "@/lib/access/unifiedAccess";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
-import { fetchAttemptReport, fetchAttemptResult, type ReportResponse, type ResultResponse } from "@/lib/api/v0_3";
+import {
+  fetchAttemptReport,
+  fetchAttemptReportAccess,
+  fetchAttemptResult,
+  type ReportResponse,
+  type ResultResponse,
+} from "@/lib/api/v0_3";
 import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import { isGuestTokenRequestError } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
@@ -151,6 +165,7 @@ export default function ResultClient({
   const dict = getDictSync(locale);
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
   const [resultData, setResultData] = useState<ResultResponse | null>(null);
+  const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -223,6 +238,40 @@ export default function ResultClient({
       setError(null);
 
       try {
+        const accessResponse = await runWithAuthRetry(() => fetchAttemptReportAccess({ attemptId, anonId }));
+        if (!active) return;
+
+        const nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
+        setAccessView(nextAccessView);
+
+        if (!nextAccessView) {
+          throw new Error(dict.result.reportUnavailable);
+        }
+
+        if (isProjectionProcessing(nextAccessView)) {
+          setReportData(null);
+          setResultData(null);
+          setProcessing(true);
+          scheduleRetry(attempt, RESULT_POLL_FALLBACK_MS);
+          return;
+        }
+
+        if (isProjectionLocked(nextAccessView)) {
+          setReportData(null);
+          setResultData(null);
+          setProcessing(false);
+          setError(dict.result.reportUnavailable);
+          return;
+        }
+
+        if (isProjectionUnavailable(nextAccessView) || !canEnterReportPage(nextAccessView)) {
+          setReportData(null);
+          setResultData(null);
+          setProcessing(false);
+          setError(dict.result.reportUnavailable);
+          return;
+        }
+
         const reportResponse = await runWithAuthRetry(() => fetchAttemptReport({ attemptId, anonId }));
         if (!active) return;
 
@@ -294,9 +343,12 @@ export default function ResultClient({
   }, [anonId, attemptId, dict.result.reportUnavailable, locale, runWithAuthRetry]);
 
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
+  const projectionUnavailable = isProjectionUnavailable(accessView);
+  const projectionLocked = isProjectionLocked(accessView);
+  const projectionProcessing = isProjectionProcessing(accessView);
 
   const viewState: "processing" | "ready" | "failed" =
-    loading || processing
+    loading || processing || projectionProcessing
       ? "processing"
       : hasRichReport || hasReadyResultPayload(resultData)
         ? "ready"
@@ -312,11 +364,19 @@ export default function ResultClient({
   }
 
   if (viewState === "failed") {
+    if (projectionLocked) {
+      return <Alert>{dict.result.reportUnavailable}</Alert>;
+    }
+
+    if (projectionUnavailable) {
+      return <Alert>{dict.result.reportUnavailable}</Alert>;
+    }
+
     return <Alert>{error ?? dict.result.reportUnavailable}</Alert>;
   }
 
   if (hasRichReport && reportData) {
-    return <RichResultReport locale={locale} reportData={reportData} />;
+    return <RichResultReport locale={locale} reportData={reportData} accessProjection={accessView} />;
   }
 
   if (!hasReadyResultPayload(resultData)) {
