@@ -162,6 +162,7 @@ export default async function CareerJobDetailPage({
   }
 
   const canonicalPath = buildCanonicalPath(job.slug, locale);
+  const landingSurface = job.landingSurface;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
@@ -196,6 +197,16 @@ export default async function CareerJobDetailPage({
         ) : null}
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{job.title}</h1>
         {job.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{job.summary}</p> : null}
+        {landingSurface?.summaryBlocks.length ? (
+          <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="career-job-landing-summary">
+            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
+              <div key={block.key}>
+                {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
+                {block.body ? <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
         {job.heroQuote ? (
           <blockquote className="m-0 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
             {job.heroQuote}
@@ -324,6 +335,21 @@ export default async function CareerJobDetailPage({
                 </CardContent>
               </Card>
             ))}
+        </section>
+      ) : null}
+
+      {landingSurface?.ctaBundle.length ? (
+        <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="career-job-landing-cta">
+          <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "继续探索" : "Continue exploring"}
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {landingSurface.ctaBundle.map((cta) => (
+              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                {cta.label}
+              </Link>
+            ))}
+          </div>
         </section>
       ) : null}
 

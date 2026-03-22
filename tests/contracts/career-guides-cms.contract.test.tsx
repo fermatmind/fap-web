@@ -123,6 +123,14 @@ describe("career guides cms adapter contract", () => {
             excerpt: "战略、长期、系统化。",
           },
         ],
+        landing_surface_v1: {
+          landing_contract_version: "landing.surface.v1",
+          entry_surface: "career_guide_detail",
+          entry_type: "career_guide",
+          cta_bundle: [
+            { key: "start_test", label: "开始测试", href: "/zh/tests/mbti-personality-test-16-personality-types" },
+          ],
+        },
       },
       "zh"
     );
@@ -168,6 +176,8 @@ describe("career guides cms adapter contract", () => {
         href: "/zh/personality/intj",
       },
     ]);
+    expect(detail?.landingSurface?.entrySurface).toBe("career_guide_detail");
+    expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/zh/tests/mbti-personality-test-16-personality-types");
   });
 
   it("returns null for 404 detail and seo lookups", async () => {
@@ -281,6 +291,8 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).toContain("getCareerGuideSeoFromCmsBySlug");
     expect(detailSource).toContain("normalizeCareerGuideSeoPayload");
     expect(detailSource).toContain("seoSurface: normalizedSeo.surface");
+    expect(detailSource).toContain("guide.landingSurface");
+    expect(detailSource).toContain("career-guide-landing-cta");
     expect(detailSource).toContain("renderSimpleMarkdown");
     expect(detailSource).toContain("dangerouslySetInnerHTML");
     expect(detailSource).not.toContain("getCareerGuideBySlug");

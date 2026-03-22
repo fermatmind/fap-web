@@ -1,8 +1,9 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { getCareerGuideBySlug, listCareerGuides, listCareerJobs } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -74,6 +75,7 @@ type CmsCareerRecommendationDetailApiResponse = CmsCareerRecommendationListItemA
     authority_source?: string | null;
   } | null;
   seo_surface_v1?: SeoSurfaceRaw | null;
+  landing_surface_v1?: LandingSurfaceRaw | null;
 };
 
 export type CareerRecommendationListItem = {
@@ -185,6 +187,7 @@ export type CareerRecommendationDetail = CareerRecommendationListItem & {
   matchedJobs: CareerRecommendationMatchedJob[];
   matchedGuides: CareerRecommendationMatchedGuide[];
   seo: CareerRecommendationSeoViewModel;
+  landingSurface: LandingSurfaceViewModel | null;
   meta: {
     publicRouteType: string | null;
     routeMode: string | null;
@@ -572,6 +575,7 @@ function buildFallbackCareerRecommendationDetail(
       locale === "zh" ? `${displayType} 职业推荐` : `${displayType} Career Recommendations`,
       description
     ),
+    landingSurface: null,
     meta: {
       publicRouteType: "32-type",
       routeMode: "local_fallback",
@@ -769,6 +773,7 @@ export function normalizeCareerRecommendationDetail(
       ...normalizeCareerRecommendationSeo(raw.seo, locale, listItem.publicRouteSlug, listItem.typeName, heroSummary),
       surface: normalizeSeoSurface(raw.seo_surface_v1 ?? null),
     },
+    landingSurface: normalizeLandingSurface(raw.landing_surface_v1 ?? null),
     meta: {
       publicRouteType: normalizeNullableText(raw._meta?.public_route_type),
       routeMode: normalizeNullableText(raw._meta?.route_mode),

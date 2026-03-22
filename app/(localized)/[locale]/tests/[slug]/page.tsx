@@ -23,11 +23,13 @@ import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildApiUrl } from "@/lib/api-base";
+import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
   type SupportedScaleCode,
 } from "@/lib/rollout/scaleRollout";
+import { findLandingCta, normalizeLandingSurface } from "@/lib/landing/landingSurface";
 import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
@@ -50,6 +52,7 @@ type LookupResponse = {
   capabilities?: Record<string, unknown> | null;
   content_i18n_json?: Record<string, unknown> | null;
   report_summary_i18n_json?: Record<string, unknown> | null;
+  landing_surface_v1?: LandingSurfaceRaw | null;
 };
 
 function toRecord(value: unknown): Record<string, unknown> {
@@ -145,6 +148,7 @@ async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupRes
       content_i18n_json: (payload.content_i18n_json as Record<string, unknown> | null | undefined) ?? null,
       report_summary_i18n_json:
         (payload.report_summary_i18n_json as Record<string, unknown> | null | undefined) ?? null,
+      landing_surface_v1: (payload.landing_surface_v1 as LandingSurfaceRaw | null | undefined) ?? null,
     };
   } catch {
     return null;
@@ -247,6 +251,7 @@ export default async function TestLandingPage({
 
   const dict = getDictSync(locale);
   const lookup = await fetchLookup(slug, locale);
+  const landingSurface = normalizeLandingSurface(lookup?.landing_surface_v1 ?? null);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
   const reportNode = toRecord(toRecord(lookup?.report_summary_i18n_json)[locale]);
@@ -267,6 +272,9 @@ export default async function TestLandingPage({
   });
   const testDisabled = !rollout.assessmentEnabled;
   const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
+  const startTestHref = landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`);
+  const backToTestsCta = findLandingCta(landingSurface, "back_to_tests");
+  const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
 
   const packId = toStringValue(lookup?.pack_id) || test.scale_code || "BIG5_OCEAN";
   const dirVersion = toStringValue(lookup?.dir_version);
@@ -386,12 +394,12 @@ export default async function TestLandingPage({
                   {locale === "zh" ? "维护中" : "Temporarily unavailable"}
                 </span>
               ) : (
-                <Link href={withLocale(`/tests/${test.slug}/take`)} prefetch className={buttonVariants({ size: "lg" })}>
+                <Link href={startTestHref} prefetch className={buttonVariants({ size: "lg" })}>
                   {locale === "zh" ? "开始测试" : "Start test"}
                 </Link>
               )}
-              <Link href={withLocale("/tests")} className={buttonVariants({ variant: "outline", size: "lg" })}>
-                {locale === "zh" ? "返回测试列表" : "Back to tests"}
+              <Link href={backToTestsCta?.href || withLocale("/tests")} className={buttonVariants({ variant: "outline", size: "lg" })}>
+                {backToTestsCta?.label || (locale === "zh" ? "返回测试列表" : "Back to tests")}
               </Link>
             </div>
           </section>
@@ -482,6 +490,21 @@ export default async function TestLandingPage({
             </CardContent>
           </Card>
 
+          {landingSurface?.ctaBundle.length ? (
+            <Card data-testid="test-detail-landing-cta">
+              <CardHeader>
+                <CardTitle>{locale === "zh" ? "继续探索" : "Continue exploring"}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap gap-2">
+                {landingSurface.ctaBundle.map((cta) => (
+                  <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                    {cta.label}
+                  </Link>
+                ))}
+              </CardContent>
+            </Card>
+          ) : null}
+
           {reportSummary ? (
             <Card>
               <CardHeader>
@@ -515,6 +538,11 @@ export default async function TestLandingPage({
                 : "Interpret the result with the page content, FAQ, and qualified professional guidance. If you are already in treatment, follow your clinician’s advice."}
             </CardContent>
           </Card>
+          {continuePublicContentCta ? (
+            <Link href={continuePublicContentCta.href} className="fm-help-chip-link">
+              {continuePublicContentCta.label}
+            </Link>
+          ) : null}
         </div>
 
         <aside>

@@ -1,6 +1,7 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -83,6 +84,7 @@ type CmsCareerJobDetailApiResponse = {
   job?: CmsCareerJobApiRecord | null;
   sections?: CmsCareerJobApiSection[];
   seo_meta?: CmsCareerJobApiSeoMeta;
+  landing_surface_v1?: LandingSurfaceRaw | null;
 };
 
 type CmsCareerJobSeoApiResponse = {
@@ -170,6 +172,7 @@ export type CareerJobViewModel = {
   bodyHtml: string;
   sections: CareerJobSectionViewModel[];
   seoMeta: CareerJobSeoMetaSummary | null;
+  landingSurface: LandingSurfaceViewModel | null;
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
@@ -649,6 +652,7 @@ export function adaptCareerJobDetail(
     bodyHtml: String(raw.body_html ?? ""),
     sections,
     seoMeta: normalizeCareerJobSeoMeta(options.seoMeta ?? raw.seo_meta ?? null),
+    landingSurface: null,
     status: fallbackText(raw.status),
     isPublic: Boolean(raw.is_public),
     isIndexable: Boolean(raw.is_indexable),
@@ -753,6 +757,10 @@ export async function getCareerJobFromCmsBySlug(options: {
       sections: response.sections,
       seoMeta: response.seo_meta ?? null,
     });
+
+    if (job) {
+      job.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
+    }
 
     return job && matchesRequestedLocale(job.locale, options.locale) ? job : null;
   } catch (error) {
