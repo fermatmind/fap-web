@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -122,7 +123,14 @@ export default async function TopicDetailPage({
 
   const normalizedSeo = normalizeTopicSeoPayload(seo, topic, locale);
   const canonicalPath = buildCanonicalPath(topic.slug, locale);
-  const faqItems = extractTopicFaqItems(topic.sections);
+  const faqItems = topic.answerSurface?.faqBlocks.length
+    ? topic.answerSurface.faqBlocks
+      .filter((item) => item.question && item.answer)
+      .map((item) => ({
+        question: item.question,
+        answer: item.answer,
+      }))
+    : extractTopicFaqItems(topic.sections);
   const landingSurface = topic.landingSurface;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -184,6 +192,11 @@ export default async function TopicDetailPage({
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">
           {renderedSections}
+          <AnswerSurfaceSection
+            surface={topic.answerSurface}
+            locale={locale}
+            testId="topic-detail-answer-surface"
+          />
           {renderedEntryGroups}
           <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
             <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">

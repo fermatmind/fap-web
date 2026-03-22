@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -110,6 +111,19 @@ function buildCareerFaqItems(detail: CareerRecommendationDetail, locale: Locale)
   ];
 }
 
+function buildAnswerSurfaceFaqItems(detail: CareerRecommendationDetail, locale: Locale): FAQItem[] {
+  if (detail.answerSurface?.faqBlocks.length) {
+    return detail.answerSurface.faqBlocks
+      .filter((item) => item.question && item.answer)
+      .map((item) => ({
+        question: item.question,
+        answer: item.answer,
+      }));
+  }
+
+  return buildCareerFaqItems(detail, locale);
+}
+
 async function getDetailOrNotFound(locale: Locale, type: string): Promise<CareerRecommendationDetail> {
   const detail = await getMbtiCareerRecommendationByType(locale, type);
   if (!detail) {
@@ -205,8 +219,8 @@ export default async function CareerMbtiRecommendationPage({
     detail.seo.meta.canonical,
     buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
   );
-  const answerFirst = buildAnswerFirst(detail, locale);
-  const faqItems = buildCareerFaqItems(detail, locale);
+  const answerFirst = detail.answerSurface?.summaryBlocks[0]?.body || buildAnswerFirst(detail, locale);
+  const faqItems = buildAnswerSurfaceFaqItems(detail, locale);
   const landingSurface = detail.landingSurface;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -317,6 +331,12 @@ export default async function CareerMbtiRecommendationPage({
           </div>
         </div>
       </section>
+
+      <AnswerSurfaceSection
+        surface={detail.answerSurface}
+        locale={locale}
+        testId="career-recommendation-answer-surface"
+      />
 
       <section
         id="recommended-roles"

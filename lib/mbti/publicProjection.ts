@@ -1,4 +1,5 @@
 import type {
+  AnswerSurfaceRaw,
   Big5PublicProjection,
   ComparativeRaw,
   ControlledNarrativeRaw,
@@ -24,6 +25,7 @@ import type {
   ShareSummaryResponse,
   WidgetSurfaceRaw,
 } from "@/lib/api/v0_3";
+import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
@@ -472,6 +474,7 @@ export type MbtiSharePageViewModel = {
   publicSurface: PublicSurfaceViewModel | null;
   seoSurface: SeoSurfaceViewModel | null;
   landingSurface: LandingSurfaceViewModel | null;
+  answerSurface: AnswerSurfaceViewModel | null;
   insightGraph: InsightGraphViewModel | null;
   embedSurface: EmbedSurfaceViewModel | null;
   widgetSurface: WidgetSurfaceViewModel | null;
@@ -2169,6 +2172,7 @@ export function buildSharePageViewModel(
   const sharePublicSurface = normalizePublicSurface(asRecord(rawShare?.public_surface_v1) as PublicSurfaceRaw | null);
   const shareSeoSurface = normalizeSeoSurface(asRecord(rawShare?.seo_surface_v1) as SeoSurfaceRaw | null);
   const shareLandingSurface = normalizeLandingSurface(asRecord(rawShare?.landing_surface_v1) as LandingSurfaceRaw | null);
+  const shareAnswerSurface = normalizeAnswerSurface(asRecord(rawShare?.answer_surface_v1) as AnswerSurfaceRaw | null);
   const shareInsightGraph = normalizeInsightGraph(asRecord(rawShare?.insight_graph_v1) as InsightGraphRaw | null);
   const shareEmbedSurface = normalizeEmbedSurface(asRecord(rawShare?.embed_surface_v1) as EmbedSurfaceRaw | null);
   const shareWidgetSurface = normalizeWidgetSurface(asRecord(rawShare?.widget_surface_v1) as WidgetSurfaceRaw | null);
@@ -2230,6 +2234,7 @@ export function buildSharePageViewModel(
     publicSurface: sharePublicSurface,
     seoSurface: shareSeoSurface,
     landingSurface: shareLandingSurface,
+    answerSurface: shareAnswerSurface,
     insightGraph: shareInsightGraph,
     embedSurface: shareEmbedSurface,
     widgetSurface: shareWidgetSurface,

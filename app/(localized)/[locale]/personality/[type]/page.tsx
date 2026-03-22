@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -151,7 +152,14 @@ export default async function PersonalityDetailPage({
     normalizedSeo.meta.canonical,
     buildCanonicalPath(detail.routeSlug, locale)
   );
-  const faqItems = extractPersonalityFaqItems(detail.faqSections);
+  const faqItems = detail.answerSurface?.faqBlocks.length
+    ? detail.answerSurface.faqBlocks
+      .filter((item) => item.question && item.answer)
+      .map((item) => ({
+        question: item.question,
+        answer: item.answer,
+      }))
+    : extractPersonalityFaqItems(detail.faqSections);
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: normalizedSeo.meta.title,
@@ -258,6 +266,11 @@ export default async function PersonalityDetailPage({
             <>
               {renderedProjectionSections}
               {renderedSupplementalSections}
+              <AnswerSurfaceSection
+                surface={detail.answerSurface}
+                locale={locale}
+                testId="personality-detail-answer-surface"
+              />
             </>
           ) : (
             <Card>
@@ -273,6 +286,13 @@ export default async function PersonalityDetailPage({
               </CardContent>
             </Card>
           )}
+          {!hasRenderableContent ? (
+            <AnswerSurfaceSection
+              surface={detail.answerSurface}
+              locale={locale}
+              testId="personality-detail-answer-surface"
+            />
+          ) : null}
         </div>
 
         <div className="space-y-4">

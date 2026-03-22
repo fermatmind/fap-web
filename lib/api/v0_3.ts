@@ -451,6 +451,31 @@ export type LandingSurfaceRaw = {
   [key: string]: unknown;
 };
 
+export type AnswerSurfaceRaw = {
+  version?: string;
+  answer_contract_version?: string;
+  answer_fingerprint?: string;
+  answer_scope?: string;
+  surface_type?: string;
+  summary_blocks?: Array<Record<string, unknown>> | null;
+  faq_blocks?: Array<Record<string, unknown>> | null;
+  compare_blocks?: Array<Record<string, unknown>> | null;
+  scene_summary_blocks?: Array<Record<string, unknown>> | null;
+  next_step_blocks?: Array<Record<string, unknown>> | null;
+  answer_bundle?: Array<Record<string, unknown>> | null;
+  evidence_refs?: string[] | null;
+  public_safety_state?: string | null;
+  indexability_state?: string | null;
+  attribution_scope?: string | null;
+  seo_surface_ref?: string | null;
+  landing_surface_ref?: string | null;
+  public_surface_ref?: string | null;
+  primary_content_ref?: string | null;
+  related_surface_keys?: string[] | null;
+  runtime_artifact_ref?: string | null;
+  [key: string]: unknown;
+};
+
 export type InsightGraphNodeRaw = {
   id?: string;
   kind?: string;
@@ -1375,6 +1400,7 @@ export type ShareSummaryResponse = {
   public_surface_v1?: PublicSurfaceRaw | null;
   seo_surface_v1?: SeoSurfaceRaw | null;
   landing_surface_v1?: LandingSurfaceRaw | null;
+  answer_surface_v1?: AnswerSurfaceRaw | null;
   insight_graph_v1?: InsightGraphRaw | null;
   embed_surface_v1?: EmbedSurfaceRaw | null;
   widget_surface_v1?: WidgetSurfaceRaw | null;

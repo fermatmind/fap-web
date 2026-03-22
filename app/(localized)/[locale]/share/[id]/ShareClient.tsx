@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Alert } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
 import MbtiShareSummaryCard from "@/components/share/MbtiShareSummaryCard";
@@ -134,6 +135,7 @@ export default function ShareClient({
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
   const viewModel = useMemo(() => buildSharePageViewModel(data), [data]);
   const landingSurface = viewModel.landingSurface;
+  const answerSurface = viewModel.answerSurface;
   const publicSurface = viewModel.publicSurface;
   const insightGraph = viewModel.insightGraph;
   const embedSurface = viewModel.embedSurface;
@@ -563,6 +565,12 @@ export default function ShareClient({
               </div>
             ) : null}
           </div>
+        </section>
+      ) : null}
+
+      {answerSurface ? (
+        <section className="mx-auto -mt-2 w-full max-w-5xl px-4 pb-4 md:px-6" data-testid="share-answer-surface">
+          <AnswerSurfaceSection surface={answerSurface} locale={locale} testId="share-answer-surface-section" />
         </section>
       ) : null}
 

@@ -1,5 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { buildPersonalityFrontendUrl } from "@/lib/cms/personality";
 import { getCareerIndustryBySlug, type RelatedContentItem } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
@@ -91,6 +92,7 @@ type CmsCareerGuideDetailApiResponse = {
   related_personality_profiles?: CmsCareerGuidePersonalityApiRecord[];
   seo_meta?: CmsCareerGuideSeoMetaApiRecord;
   landing_surface_v1?: LandingSurfaceRaw | null;
+  answer_surface_v1?: AnswerSurfaceRaw | null;
 };
 
 type CmsCareerGuideSeoApiResponse = {
@@ -163,6 +165,7 @@ export type CareerGuideDetailViewModel = CareerGuideListItem & {
   relatedPersonalityProfiles: RelatedContentItem[];
   seoMeta: CareerGuideSeoMetaSummary | null;
   landingSurface: LandingSurfaceViewModel | null;
+  answerSurface: AnswerSurfaceViewModel | null;
 };
 
 export type CareerGuideSeoViewModel = {
@@ -451,6 +454,7 @@ export function adaptCareerGuideDetail(
     ),
     seoMeta: normalizeCareerGuideSeoMeta(response.seo_meta ?? null),
     landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
+    answerSurface: normalizeAnswerSurface(response.answer_surface_v1 ?? null),
   };
 }
 

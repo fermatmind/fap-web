@@ -178,6 +178,38 @@ describe("career recommendation public adapter contract", () => {
             { key: "matched_job", label: "View matching job", href: "/zh/career/jobs/product-strategist" },
           ],
         },
+        answer_surface_v1: {
+          answer_contract_version: "answer.surface.v1",
+          answer_scope: "public_indexable_detail",
+          surface_type: "career_recommendation_public_detail",
+          summary_blocks: [
+            {
+              key: "career_summary",
+              body: "Architects thrive in systems work.",
+            },
+          ],
+          faq_blocks: [
+            {
+              key: "faq_0",
+              question: "Which roles fit first?",
+              answer: "Start with the highest-fit structured roles.",
+            },
+          ],
+          compare_blocks: [
+            {
+              key: "graph_route_alignment",
+              title: "Graph key",
+              body: "Graph matching still follows INTJ.",
+            },
+          ],
+          next_step_blocks: [
+            {
+              key: "matched_job",
+              title: "View matching job",
+              href: "/zh/career/jobs/product-strategist",
+            },
+          ],
+        },
       },
       "zh"
     );
@@ -195,6 +227,8 @@ describe("career recommendation public adapter contract", () => {
     expect(detail?.seo.surface?.surfaceType).toBe("career_recommendation_public_detail");
     expect(detail?.landingSurface?.entrySurface).toBe("career_recommendation_detail");
     expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/zh/career/jobs/product-strategist");
+    expect(detail?.answerSurface?.surfaceType).toBe("career_recommendation_public_detail");
+    expect(detail?.answerSurface?.faqBlocks[0]?.question).toBe("Which roles fit first?");
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
@@ -208,6 +242,8 @@ describe("career recommendation public adapter contract", () => {
     expect(source).toContain("detail.seo.surface?.canonicalUrl");
     expect(source).toContain("seoSurface: detail.seo.surface");
     expect(source).toContain("landingSurface?.ctaBundle");
+    expect(source).toContain("detail.answerSurface");
+    expect(source).toContain("career-recommendation-answer-surface");
     expect(source).not.toContain("getMbtiRecommendation");
     expect(source).not.toContain("getCareerJobBySlug");
     expect(source).not.toContain("listMbtiRecommendationTypes");
