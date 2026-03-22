@@ -207,6 +207,7 @@ export default async function CareerMbtiRecommendationPage({
   );
   const answerFirst = buildAnswerFirst(detail, locale);
   const faqItems = buildCareerFaqItems(detail, locale);
+  const landingSurface = detail.landingSurface;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: detail.seo.meta.title,
@@ -283,6 +284,16 @@ export default async function CareerMbtiRecommendationPage({
           {detail.nickname ? <span className="text-[var(--fm-text-muted)]"> · {detail.nickname}</span> : null}
         </h1>
         <p className="m-0 text-base leading-7 text-[var(--fm-text)]">{answerFirst}</p>
+        {landingSurface?.summaryBlocks.length ? (
+          <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="career-recommendation-landing-summary">
+            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
+              <div key={block.key}>
+                {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
+                {block.body ? <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
         <div className="grid gap-3 md:grid-cols-3">
           <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
@@ -493,15 +504,25 @@ export default async function CareerMbtiRecommendationPage({
           {locale === "zh" ? "继续查看相关公域页面" : "Continue with related public pages"}
         </h2>
         <div className="flex flex-wrap gap-2">
-          <Link href={withLocale(`/personality/${detail.publicRouteSlug}`)} className="fm-help-chip-link">
-            {locale === "zh" ? `${detail.displayType} 人格主页` : `${detail.displayType} personality page`}
-          </Link>
-          <Link href={withLocale("/topics/mbti")} className="fm-help-chip-link">
-            {locale === "zh" ? "MBTI 主题页" : "MBTI topic page"}
-          </Link>
-          <Link href={withLocale("/help/faq")} className="fm-help-chip-link">
-            {locale === "zh" ? "帮助与 FAQ" : "Help and FAQ"}
-          </Link>
+          {landingSurface?.ctaBundle.length
+            ? landingSurface.ctaBundle.map((cta) => (
+                <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                  {cta.label}
+                </Link>
+              ))
+            : (
+                <>
+                  <Link href={withLocale(`/personality/${detail.publicRouteSlug}`)} className="fm-help-chip-link">
+                    {locale === "zh" ? `${detail.displayType} 人格主页` : `${detail.displayType} personality page`}
+                  </Link>
+                  <Link href={withLocale("/topics/mbti")} className="fm-help-chip-link">
+                    {locale === "zh" ? "MBTI 主题页" : "MBTI topic page"}
+                  </Link>
+                  <Link href={withLocale("/help/faq")} className="fm-help-chip-link">
+                    {locale === "zh" ? "帮助与 FAQ" : "Help and FAQ"}
+                  </Link>
+                </>
+              )}
         </div>
       </section>
     </Container>

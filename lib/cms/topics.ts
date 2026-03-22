@@ -1,7 +1,8 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { canonicalUrl } from "@/lib/site";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
 const DEFAULT_ORG_ID = "0";
@@ -68,6 +69,7 @@ type CmsTopicApiEntry = {
 type CmsTopicListApiResponse = {
   ok?: boolean;
   items?: CmsTopicApiProfile[];
+  landing_surface_v1?: LandingSurfaceRaw | null;
   pagination?: {
     current_page?: number;
     per_page?: number;
@@ -82,6 +84,7 @@ type CmsTopicDetailApiResponse = {
   sections?: CmsTopicApiSection[];
   entry_groups?: Record<string, CmsTopicApiEntry[]>;
   seo_meta?: CmsTopicApiSeoMeta;
+  landing_surface_v1?: LandingSurfaceRaw | null;
 };
 
 type CmsTopicSeoApiResponse = {
@@ -186,6 +189,7 @@ export type CmsTopicProfile = CmsTopicProfileSummary & {
   coverImageUrl: string | null;
   sections: CmsTopicSection[];
   entryGroups: CmsTopicEntryGroups;
+  landingSurface: LandingSurfaceViewModel | null;
 };
 
 export type CmsTopicSeoPayload = {
@@ -231,6 +235,7 @@ export type ListTopicsParams = {
 export type ListTopicsResult = {
   items: CmsTopicProfileSummary[];
   pagination: CmsTopicPagination;
+  landingSurface: LandingSurfaceViewModel | null;
 };
 
 function buildQuery(params: Record<string, string | number | undefined>): string {
@@ -414,6 +419,7 @@ export function normalizeTopicProfileDetail(
           .sort((left, right) => left.sortOrder - right.sortOrder)
       : [],
     entryGroups: normalizeTopicEntryGroups(entryGroups),
+    landingSurface: null,
   };
 }
 
@@ -572,6 +578,7 @@ export async function listTopics(params: ListTopicsParams): Promise<ListTopicsRe
 
     return {
       items,
+      landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
       pagination: {
         currentPage:
           typeof response.pagination?.current_page === "number" ? response.pagination.current_page : requestedPage,
@@ -585,6 +592,7 @@ export async function listTopics(params: ListTopicsParams): Promise<ListTopicsRe
     if (error instanceof ApiError && error.status === 404) {
       return {
         items: [],
+        landingSurface: null,
         pagination: emptyPagination(requestedPage, requestedPerPage),
       };
     }
@@ -627,6 +635,8 @@ export async function getTopicBySlug(
       response.entry_groups,
       response.seo_meta ?? null
     );
+
+    topic.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
 
     return topic.slug && topic.title ? topic : null;
   } catch (error) {

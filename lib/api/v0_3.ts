@@ -425,6 +425,32 @@ export type SeoSurfaceRaw = {
   [key: string]: unknown;
 };
 
+export type LandingSurfaceRaw = {
+  version?: string;
+  landing_contract_version?: string;
+  landing_fingerprint?: string;
+  landing_scope?: string;
+  entry_surface?: string;
+  entry_type?: string;
+  summary_blocks?: Array<Record<string, unknown>> | null;
+  discoverability_keys?: string[] | null;
+  continue_reading_keys?: string[] | null;
+  start_test_target?: string | null;
+  result_resume_target?: string | null;
+  content_continue_target?: string | null;
+  cta_bundle?: Array<Record<string, unknown>> | null;
+  indexability_state?: string | null;
+  attribution_scope?: string | null;
+  seo_surface_ref?: string | null;
+  public_surface_ref?: string | null;
+  surface_family?: string | null;
+  primary_content_ref?: string | null;
+  related_surface_keys?: string[] | null;
+  share_safety_state?: string | null;
+  runtime_artifact_ref?: string | null;
+  [key: string]: unknown;
+};
+
 export type InsightGraphNodeRaw = {
   id?: string;
   kind?: string;
@@ -1348,6 +1374,7 @@ export type ShareSummaryResponse = {
   working_life_v1?: MbtiWorkingLifeRaw | null;
   public_surface_v1?: PublicSurfaceRaw | null;
   seo_surface_v1?: SeoSurfaceRaw | null;
+  landing_surface_v1?: LandingSurfaceRaw | null;
   insight_graph_v1?: InsightGraphRaw | null;
   embed_surface_v1?: EmbedSurfaceRaw | null;
   widget_surface_v1?: WidgetSurfaceRaw | null;

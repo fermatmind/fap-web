@@ -169,6 +169,15 @@ describe("career recommendation public adapter contract", () => {
           sitemap_state: "included",
           llms_exposure_state: "allow",
         },
+        landing_surface_v1: {
+          landing_contract_version: "landing.surface.v1",
+          landing_scope: "public_indexable_detail",
+          entry_surface: "career_recommendation_detail",
+          entry_type: "career_recommendation",
+          cta_bundle: [
+            { key: "matched_job", label: "View matching job", href: "/zh/career/jobs/product-strategist" },
+          ],
+        },
       },
       "zh"
     );
@@ -184,6 +193,8 @@ describe("career recommendation public adapter contract", () => {
     expect(detail?.seo.meta.og.title).toBe("INTJ-A Career Recommendations | FermatMind");
     expect(detail?.seo.surface?.metadataContractVersion).toBe("seo.surface.v1");
     expect(detail?.seo.surface?.surfaceType).toBe("career_recommendation_public_detail");
+    expect(detail?.landingSurface?.entrySurface).toBe("career_recommendation_detail");
+    expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/zh/career/jobs/product-strategist");
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
@@ -196,6 +207,7 @@ describe("career recommendation public adapter contract", () => {
     expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
     expect(source).toContain("detail.seo.surface?.canonicalUrl");
     expect(source).toContain("seoSurface: detail.seo.surface");
+    expect(source).toContain("landingSurface?.ctaBundle");
     expect(source).not.toContain("getMbtiRecommendation");
     expect(source).not.toContain("getCareerJobBySlug");
     expect(source).not.toContain("listMbtiRecommendationTypes");

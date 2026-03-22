@@ -123,6 +123,7 @@ export default async function TopicDetailPage({
   const normalizedSeo = normalizeTopicSeoPayload(seo, topic, locale);
   const canonicalPath = buildCanonicalPath(topic.slug, locale);
   const faqItems = extractTopicFaqItems(topic.sections);
+  const landingSurface = topic.landingSurface;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: normalizedSeo.meta.title,
@@ -163,6 +164,16 @@ export default async function TopicDetailPage({
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{topic.title}</h1>
         {topic.subtitle ? <p className="m-0 text-lg text-[var(--fm-text)]">{topic.subtitle}</p> : null}
         {topic.excerpt ? <p className="m-0 text-[var(--fm-text-muted)]">{topic.excerpt}</p> : null}
+        {landingSurface?.summaryBlocks.length ? (
+          <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="topic-detail-landing-summary">
+            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
+              <div key={block.key}>
+                {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
+                {block.body ? <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
         {topic.heroQuote ? (
           <blockquote className="m-0 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
             {topic.heroQuote}
@@ -179,15 +190,25 @@ export default async function TopicDetailPage({
               {locale === "zh" ? "继续延伸阅读" : "Continue with related public guides"}
             </h2>
             <div className="flex flex-wrap gap-2 text-sm">
-              <Link href={localizedPath("/personality", locale)} className="fm-help-chip-link">
-                {locale === "zh" ? "人格画像" : "Personality hub"}
-              </Link>
-              <Link href={localizedPath("/career/recommendations", locale)} className="fm-help-chip-link">
-                {locale === "zh" ? "职业推荐" : "Career recommendations"}
-              </Link>
-              <Link href={localizedPath("/help/faq", locale)} className="fm-help-chip-link">
-                {locale === "zh" ? "帮助与 FAQ" : "Help and FAQ"}
-              </Link>
+              {landingSurface?.ctaBundle.length
+                ? landingSurface.ctaBundle.map((cta) => (
+                    <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                      {cta.label}
+                    </Link>
+                  ))
+                : (
+                    <>
+                      <Link href={localizedPath("/personality", locale)} className="fm-help-chip-link">
+                        {locale === "zh" ? "人格画像" : "Personality hub"}
+                      </Link>
+                      <Link href={localizedPath("/career/recommendations", locale)} className="fm-help-chip-link">
+                        {locale === "zh" ? "职业推荐" : "Career recommendations"}
+                      </Link>
+                      <Link href={localizedPath("/help/faq", locale)} className="fm-help-chip-link">
+                        {locale === "zh" ? "帮助与 FAQ" : "Help and FAQ"}
+                      </Link>
+                    </>
+                  )}
             </div>
           </section>
           {renderedSections.length === 0 && renderedEntryGroups.length === 0 ? (

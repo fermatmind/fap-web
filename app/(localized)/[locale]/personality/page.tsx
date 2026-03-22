@@ -44,7 +44,7 @@ export default async function PersonalityPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const { items: personalities } = await listPersonalityProfiles({ locale });
+  const { items: personalities, landingSurface } = await listPersonalityProfiles({ locale });
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -79,15 +79,24 @@ export default async function PersonalityPage({
           {locale === "zh" ? "人格类型" : "Personality types"}
         </h1>
         <p className="m-0 text-[var(--fm-text-muted)]">
-          {locale === "zh"
+          {landingSurface?.summaryBlocks[0]?.body || (locale === "zh"
             ? "16 型人格的优势、风险、关系模式与职业方向。"
-            : "Strengths, risks, relationship patterns, and career direction across all 16 types."}
+            : "Strengths, risks, relationship patterns, and career direction across all 16 types.")}
         </p>
         <p className="m-0 text-xs text-[var(--fm-text-muted)]">
           {locale === "zh"
             ? "内容来自 Personality CMS，仅展示已发布且公开的 profile。"
             : "Powered by Personality CMS and showing published public profiles only."}
         </p>
+        {landingSurface?.ctaBundle.length ? (
+          <div className="flex flex-wrap gap-2 pt-1" data-testid="personality-index-landing-cta">
+            {landingSurface.ctaBundle.map((cta) => (
+              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                {cta.label}
+              </Link>
+            ))}
+          </div>
+        ) : null}
       </section>
 
       {personalities.length > 0 ? (

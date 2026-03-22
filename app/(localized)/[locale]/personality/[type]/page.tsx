@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
@@ -168,6 +169,7 @@ export default async function PersonalityDetailPage({
     locale
   );
   const hasRenderableContent = renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
+  const landingSurface = detail.landingSurface;
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -196,6 +198,16 @@ export default async function PersonalityDetailPage({
         {detail.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{detail.summary}</p> : null}
         {detail.heroSummary && detail.heroSummary !== detail.summary ? (
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
+        ) : null}
+        {landingSurface?.summaryBlocks.length ? (
+          <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="personality-detail-landing-summary">
+            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
+              <div key={block.key}>
+                {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
+                {block.body ? <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
+              </div>
+            ))}
+          </div>
         ) : null}
         {(detail.typeName || detail.nickname || detail.rarity || detail.keywords.length > 0) ? (
           <div className="space-y-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
@@ -293,6 +305,21 @@ export default async function PersonalityDetailPage({
               </p>
             </CardContent>
           </Card>
+
+          {landingSurface?.ctaBundle.length ? (
+            <Card>
+              <CardHeader>
+                <CardTitle>{locale === "zh" ? "继续探索" : "Continue exploring"}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-wrap gap-2" data-testid="personality-detail-landing-cta">
+                {landingSurface.ctaBundle.map((cta) => (
+                  <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                    {cta.label}
+                  </Link>
+                ))}
+              </CardContent>
+            </Card>
+          ) : null}
 
           <Card>
             <CardHeader>

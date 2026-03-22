@@ -133,6 +133,7 @@ export default function ShareClient({
   const utmQuery = useMemo(() => buildUtmQuery(utm), [utm]);
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
   const viewModel = useMemo(() => buildSharePageViewModel(data), [data]);
+  const landingSurface = viewModel.landingSurface;
   const publicSurface = viewModel.publicSurface;
   const insightGraph = viewModel.insightGraph;
   const embedSurface = viewModel.embedSurface;
@@ -155,6 +156,7 @@ export default function ShareClient({
     [viewModel.continuity]
   );
   const publicSurfaceImpressionTrackedRef = useRef(false);
+  const landingSurfaceImpressionTrackedRef = useRef(false);
 
   useEffect(() => {
     let active = true;
@@ -303,6 +305,27 @@ export default function ShareClient({
       locale,
     });
   }, [continuityTelemetry, locale, primaryCtaHref, shareDisplayType, viewModel.attemptId, viewModel.continuity]);
+
+  useEffect(() => {
+    if (!landingSurface || landingSurfaceImpressionTrackedRef.current) {
+      return;
+    }
+
+    landingSurfaceImpressionTrackedRef.current = true;
+    trackEvent("ui_card_impression", {
+      slug: "share-page",
+      scale_code: shareScaleCode,
+      visual_kind: "share_landing_surface",
+      attempt_id: viewModel.attemptId || undefined,
+      ctaKey: "share_landing_surface",
+      ctaRank: 1,
+      continueTarget: landingSurface.contentContinueTarget || landingSurface.startTestTarget || undefined,
+      typeCode: shareDisplayType || undefined,
+      landingScope: landingSurface.landingScope,
+      attributionScope: landingSurface.attributionScope,
+      locale,
+    });
+  }, [landingSurface, locale, shareDisplayType, shareScaleCode, viewModel.attemptId]);
 
   useEffect(() => {
     if (!publicSurface || publicSurfaceImpressionTrackedRef.current) {
@@ -498,6 +521,50 @@ export default function ShareClient({
           });
         }}
       />
+
+      {landingSurface?.ctaBundle.length || landingSurface?.summaryBlocks.length ? (
+        <section className="mx-auto -mt-2 w-full max-w-5xl px-4 pb-4 md:px-6" data-testid="share-landing-surface">
+          <div className="rounded-[24px] border border-slate-200 bg-white px-5 py-4 shadow-[0_16px_36px_rgba(15,23,42,0.06)]">
+            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
+              <div key={block.key} className="mb-3 last:mb-0">
+                {block.title ? (
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{block.title}</p>
+                ) : null}
+                {block.body ? <p className="m-0 mt-2 text-sm leading-7 text-slate-700">{block.body}</p> : null}
+              </div>
+            ))}
+            {landingSurface.ctaBundle.length ? (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {landingSurface.ctaBundle.map((cta, index) => (
+                  <Link
+                    key={cta.key}
+                    href={cta.href}
+                    className={buttonVariants({ variant: index === 0 ? "default" : "outline", size: "sm" })}
+                    onClick={() => {
+                      trackEvent("ui_card_interaction", {
+                        slug: "share-page",
+                        scale_code: shareScaleCode,
+                        visual_kind: "share_landing_surface",
+                        interaction: "continue_reading",
+                        attempt_id: viewModel.attemptId || undefined,
+                        ctaKey: cta.key,
+                        ctaRank: index + 1,
+                        continueTarget: cta.key,
+                        typeCode: shareDisplayType || undefined,
+                        landingScope: landingSurface.landingScope,
+                        attributionScope: landingSurface.attributionScope,
+                        locale,
+                      });
+                    }}
+                  >
+                    {cta.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
 
       {insightCards.length > 0 ? (
         <section className="mx-auto -mt-4 w-full max-w-5xl px-4 pb-6 md:px-6">

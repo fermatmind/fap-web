@@ -1,9 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   buildTopicFrontendUrl,
+  getTopicBySlug,
   mapFrontendLocaleToTopicsApiLocale,
   normalizeTopicProfileDetail,
   normalizeTopicSeoPayload,
@@ -82,6 +83,47 @@ describe("topics cms helpers", () => {
     expect(topic.sections).toHaveLength(1);
     expect(topic.sections[0]?.sectionKey).toBe("overview");
     expect(topic.entryGroups.articles?.[0]?.url).toBe("/en/articles/how-to-read-mbti-results");
+    expect(topic.landingSurface).toBeNull();
+  });
+
+  it("normalizes backend landing surface for topic detail", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(
+          JSON.stringify({
+            ok: true,
+            profile: {
+              topic_code: "MBTI",
+              slug: "mbti",
+              locale: "en",
+              title: "MBTI Guide and Type Hub",
+              status: "published",
+              is_public: true,
+              is_indexable: true,
+            },
+            sections: [],
+            entry_groups: {},
+            seo_meta: null,
+            landing_surface_v1: {
+              landing_contract_version: "landing.surface.v1",
+              landing_scope: "public_indexable_detail",
+              entry_surface: "topic_detail",
+              entry_type: "topic_profile",
+              cta_bundle: [
+                { key: "start_test", label: "Start test", href: "/en/tests/mbti-personality-test-16-personality-types" },
+              ],
+            },
+          }),
+          { status: 200, headers: { "Content-Type": "application/json" } }
+        )
+      )
+    );
+
+    const topic = await getTopicBySlug("mbti", "en");
+
+    expect(topic?.landingSurface?.entrySurface).toBe("topic_detail");
+    expect(topic?.landingSurface?.ctaBundle[0]?.label).toBe("Start test");
   });
 
   it("ignores unknown sections and entry groups safely", () => {
@@ -291,6 +333,9 @@ describe("topics cms helpers", () => {
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("alternatesByLocale");
     expect(source).toContain("seoSurface: normalizedSeo.surface");
+    expect(source).toContain("topic-detail-landing-summary");
+    expect(source).toContain("landingSurface?.ctaBundle");
+    expect(read("app/(localized)/[locale]/topics/page.tsx")).toContain("topics-index-landing-cta");
     expect(shouldIncludeInSitemap("/en/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);
   });

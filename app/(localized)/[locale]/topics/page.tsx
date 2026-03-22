@@ -44,7 +44,7 @@ export default async function TopicsPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const { items: topics } = await listTopics({ locale });
+  const { items: topics, landingSurface } = await listTopics({ locale });
   const canonicalPath = locale === "zh" ? "/zh/topics" : "/en/topics";
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -84,10 +84,19 @@ export default async function TopicsPage({
           {locale === "zh" ? "主题内容聚合" : "Topic clusters"}
         </h1>
         <p className="m-0 text-[var(--fm-text-muted)]">
-          {locale === "zh"
+          {landingSurface?.summaryBlocks[0]?.body || (locale === "zh"
             ? "围绕核心测评主题组织文章、测试与人格相关内容，减少孤立页面。"
-            : "Organize articles, tests, and personality-led content around core assessment topics."}
+            : "Organize articles, tests, and personality-led content around core assessment topics.")}
         </p>
+        {landingSurface?.ctaBundle.length ? (
+          <div className="flex flex-wrap gap-2 pt-1" data-testid="topics-index-landing-cta">
+            {landingSurface.ctaBundle.map((cta) => (
+              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                {cta.label}
+              </Link>
+            ))}
+          </div>
+        ) : null}
       </section>
 
       {topics.length > 0 ? (

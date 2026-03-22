@@ -1,6 +1,7 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -58,6 +59,7 @@ type CmsPersonalityApiSection = {
 type CmsPersonalityListApiResponse = {
   ok?: boolean;
   items?: CmsPersonalityApiProfile[];
+  landing_surface_v1?: LandingSurfaceRaw | null;
   pagination?: {
     current_page?: number;
     per_page?: number;
@@ -72,6 +74,7 @@ type CmsPersonalityDetailApiResponse = {
   sections?: CmsPersonalityApiSection[];
   seo_meta?: CmsPersonalityApiSeoMeta;
   mbti_public_projection_v1?: CmsPersonalityApiProjectionV1 | null;
+  landing_surface_v1?: LandingSurfaceRaw | null;
 };
 
 type CmsPersonalitySeoApiResponse = {
@@ -355,6 +358,7 @@ export type PersonalityProjectionViewModel = {
   faqSections: CmsPersonalitySection[];
   supplementalSections: CmsPersonalitySection[];
   seoMeta: CmsPersonalitySeoMeta | null;
+  landingSurface: LandingSurfaceViewModel | null;
 };
 
 export type PersonalitySeoCompatibilityInput = {
@@ -383,6 +387,7 @@ export type GetCmsPersonalityProfilesParams = {
 export type GetCmsPersonalityProfilesResult = {
   items: CmsPersonalityProfileSummary[];
   pagination: CmsPersonalityPagination;
+  landingSurface: LandingSurfaceViewModel | null;
 };
 
 function buildQuery(params: Record<string, string | number | undefined>): string {
@@ -698,6 +703,7 @@ function buildProjectionViewModel(
     faqSections,
     supplementalSections,
     seoMeta: detailProfile.seoMeta,
+    landingSurface: null,
   };
 }
 
@@ -976,6 +982,7 @@ export async function listPersonalityProfiles(
 
     return {
       items,
+      landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
       pagination: {
         currentPage:
           typeof response.pagination?.current_page === "number"
@@ -993,6 +1000,7 @@ export async function listPersonalityProfiles(
     if (error instanceof ApiError && error.status === 404) {
       return {
         items: [],
+        landingSurface: null,
         pagination: emptyPagination(requestedPage, requestedPerPage),
       };
     }
@@ -1066,7 +1074,10 @@ export async function getPersonalityProjectionDetailBySlugOrType(
     return null;
   }
 
-  return buildProjectionViewModel(detailProfile, projection);
+  return {
+    ...buildProjectionViewModel(detailProfile, projection),
+    landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
+  };
 }
 
 export async function getPersonalitySeoBySlugOrType(

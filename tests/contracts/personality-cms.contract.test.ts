@@ -245,6 +245,15 @@ describe("personality cms adapter contract", () => {
             seo_title: "INTJ Personality Type",
             seo_description: "Projection-backed seo description.",
           },
+          landing_surface_v1: {
+            landing_contract_version: "landing.surface.v1",
+            landing_scope: "public_indexable_detail",
+            entry_surface: "personality_detail",
+            entry_type: "personality_profile",
+            cta_bundle: [
+              { key: "start_test", label: "Start test", href: "/en/tests/mbti-personality-test-16-personality-types" },
+            ],
+          },
           mbti_public_projection_v1: {
             runtime_type_code: null,
             canonical_type_code: "INTJ",
@@ -333,6 +342,14 @@ describe("personality cms adapter contract", () => {
     expect(detail?.faqSections).toHaveLength(1);
     expect(detail?.supplementalSections).toHaveLength(1);
     expect(detail?.seoMeta?.seoTitle).toBe("INTJ Personality Type");
+    expect(detail?.landingSurface?.entrySurface).toBe("personality_detail");
+    expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/en/tests/mbti-personality-test-16-personality-types");
+  });
+
+  it("personality routes consume landing surface instead of inventing local CTA truth", () => {
+    expect(read("app/(localized)/[locale]/personality/page.tsx")).toContain("personality-index-landing-cta");
+    expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("personality-detail-landing-cta");
+    expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("detail.landingSurface");
   });
 
   it("normalizes canonical and jsonld urls to locale-aware frontend personality urls", () => {

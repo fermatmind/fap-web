@@ -127,6 +127,7 @@ describe("career jobs cms adapter contract", () => {
     expect(detail?.skills).toEqual(["roadmapping", "stakeholder management"]);
     expect(detail?.riasecVector.I).toBe(70);
     expect(detail?.riasecVector.R).toBeNull();
+    expect(detail?.landingSurface).toBeNull();
   });
 
   it("formats structured growth path when raw content is absent and tolerates missing fields", () => {
@@ -320,6 +321,8 @@ describe("career jobs page authority contract", () => {
     expect(listSource).toContain("listCareerJobsFromCms");
     expect(detailSource).toContain("getCareerJobFromCmsBySlug");
     expect(detailSource).toContain("seoSurface: seo?.surface");
+    expect(detailSource).toContain("job.landingSurface");
+    expect(detailSource).toContain("career-job-landing-cta");
     expect(listSource).not.toContain("career-recommendations");
     expect(detailSource).not.toContain("career-recommendations");
   });
