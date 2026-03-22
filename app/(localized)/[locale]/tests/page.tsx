@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { getTestsGatewaySurface } from "@/lib/publicGateway";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
@@ -41,8 +42,41 @@ export default async function TestsPage({
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const tests = getAllTests().sort((a, b) => (b.highlight_priority ?? 0) - (a.highlight_priority ?? 0));
-  const topTests = tests.slice(0, 3);
+  const gatewaySurface = await getTestsGatewaySurface(locale);
+  const landingSurface = gatewaySurface?.landingSurface ?? null;
+  const gatewayItems = landingSurface?.discoverabilityItems ?? [];
+  const gatewayOrder = new Map(gatewayItems.map((item, index) => [item.key, index]));
+  const gatewayItemsBySlug = new Map(gatewayItems.map((item) => [item.key, item]));
+  const tests = getAllTests()
+    .sort((a, b) => {
+      const aIndex = gatewayOrder.get(a.slug);
+      const bIndex = gatewayOrder.get(b.slug);
+
+      if (aIndex !== undefined && bIndex !== undefined) {
+        return aIndex - bIndex;
+      }
+      if (aIndex !== undefined) {
+        return -1;
+      }
+      if (bIndex !== undefined) {
+        return 1;
+      }
+
+      return (b.highlight_priority ?? 0) - (a.highlight_priority ?? 0);
+    });
+  const topGatewayItems = gatewayItems.slice(0, 3);
+  const topTests = topGatewayItems.length > 0
+    ? topGatewayItems
+    : tests.slice(0, 3).map((item) => ({
+        key: item.slug,
+        title: resolveTestTitleByLocale(item, locale),
+        summary: item.description,
+        href: withLocale(`/tests/${item.slug}/take`),
+        kind: "test_detail",
+        badgeLabel: item.scale_code ?? null,
+      }));
+  const heroTitle = landingSurface?.summaryBlocks[0]?.title || dict.tests.title;
+  const heroSummary = landingSurface?.summaryBlocks[0]?.body || "";
 
   return (
     <main>
@@ -52,22 +86,22 @@ export default async function TestsPage({
       >
         <Container className="space-y-[var(--fm-space-5)]">
           <div className="space-y-[var(--fm-gap-xs)]">
-            <h1 className="m-0 font-serif text-4xl font-semibold tracking-tight text-[var(--fm-text)]">{dict.tests.title}</h1>
+            <h1 className="m-0 font-serif text-4xl font-semibold tracking-tight text-[var(--fm-text)]">{heroTitle}</h1>
+            {heroSummary ? <p className="m-0 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
           </div>
           <div className="flex flex-wrap gap-[var(--fm-gap-sm)]">
             {topTests.map((item) => {
-              const localizedTitle = resolveTestTitleByLocale(item, locale);
               const titleDisplay = formatCardTitleForUi({
-                title: localizedTitle,
-                slug: item.slug,
+                title: item.title,
+                slug: item.key,
                 locale,
                 surface: "tests_top_chip",
               });
 
               return (
                 <Link
-                  key={item.slug}
-                  href={withLocale(`/tests/${item.slug}/take`)}
+                  key={item.key}
+                  href={item.href}
                   title={titleDisplay.plain}
                   className={buttonVariants({
                     variant: "outline",
@@ -100,8 +134,8 @@ export default async function TestsPage({
               <TestCard
                 key={test.slug}
                 slug={test.slug}
-                title={resolveTestTitleByLocale(test, locale)}
-                description={test.description}
+                title={gatewayItemsBySlug.get(test.slug)?.title ?? resolveTestTitleByLocale(test, locale)}
+                description={gatewayItemsBySlug.get(test.slug)?.summary ?? test.description}
                 coverImage={test.cover_image}
                 questions={test.questions_count}
                 timeMinutes={test.time_minutes}

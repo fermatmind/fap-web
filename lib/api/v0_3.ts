@@ -433,6 +433,7 @@ export type LandingSurfaceRaw = {
   entry_surface?: string;
   entry_type?: string;
   summary_blocks?: Array<Record<string, unknown>> | null;
+  discoverability_items?: Array<Record<string, unknown>> | null;
   discoverability_keys?: string[] | null;
   continue_reading_keys?: string[] | null;
   start_test_target?: string | null;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -13,6 +14,7 @@ import {
 } from "@/lib/help/helpCenterContent";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { getHelpDetailGatewaySurface } from "@/lib/publicGateway";
 import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
@@ -90,9 +92,12 @@ export default async function HelpDetailPage({
   const content = getHelpCenterContent(locale);
   const pages = listHelpCenterPages(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const gatewaySurface = await getHelpDetailGatewaySurface(page.slug, locale);
+  const landingSurface = gatewaySurface?.landingSurface ?? null;
+  const answerSurface = gatewaySurface?.answerSurface ?? null;
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const canonicalPath = buildCanonicalPath(locale, page.slug);
-  const answerFirst = buildHelpAnswerFirst(page, locale);
+  const answerFirst = landingSurface?.summaryBlocks[0]?.body || buildHelpAnswerFirst(page, locale);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "帮助中心" : "Help Center", path: localizedPath("/help", locale) },
@@ -137,10 +142,14 @@ export default async function HelpDetailPage({
             >
               {content.labels.backToHome}
             </Link>
-            <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{page.title}</h1>
+            <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
+              {landingSurface?.summaryBlocks[0]?.title || page.title}
+            </h1>
             <p className="m-0 text-lg text-[var(--fm-text)]">{page.subtitle}</p>
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{answerFirst}</p>
           </section>
+
+          <AnswerSurfaceSection surface={answerSurface} locale={locale} testId={`help-answer-surface-${page.slug}`} />
 
           {page.sections.map((section) => (
             <section
@@ -189,7 +198,13 @@ export default async function HelpDetailPage({
               <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{lifecycleSupportCopy}</p>
             ) : null}
             <div className="flex flex-wrap gap-2">
-              {page.relatedLinks.map((item) => (
+              {(landingSurface?.ctaBundle.length
+                ? landingSurface.ctaBundle.map((item) => ({
+                    href: item.href.replace(/^\/(en|zh)/, ""),
+                    label: item.label,
+                  }))
+                : page.relatedLinks
+              ).map((item) => (
                 <Link key={item.href} href={withLocale(item.href)} className="fm-help-chip-link">
                   {item.label}
                 </Link>
