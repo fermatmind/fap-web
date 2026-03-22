@@ -44,7 +44,16 @@ export default async function TopicsPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const { items: topics, landingSurface } = await listTopics({ locale });
+  const { items: topics, landingSurface } = await listTopics({ locale }).catch(() => ({
+    items: [],
+    landingSurface: null,
+    pagination: {
+      currentPage: 1,
+      perPage: 100,
+      total: 0,
+      lastPage: 1,
+    },
+  }));
   const canonicalPath = locale === "zh" ? "/zh/topics" : "/en/topics";
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,

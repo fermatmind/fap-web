@@ -45,7 +45,7 @@ describe("robots contract", () => {
 
     expect(shareSource).toContain('viewModel.publicSurface?.robotsPolicy || ""');
     expect(shareSource).toContain("seoSurface: viewModel.seoSurface");
-    expect(shareSource).toContain('noindex: !viewModel.seoSurface ? fallbackRobotsPolicy.includes("noindex") : undefined');
+    expect(shareSource).toContain('? (fallbackRobotsPolicy ? fallbackRobotsPolicy.includes("noindex") : true)');
     expect(compareSource).toContain("noindex: true");
     expect(shouldNoindex("/en/share/share-123", "en")).toBe(true);
     expect(shouldNoindex("/en/result/attempt-123", "en")).toBe(true);
