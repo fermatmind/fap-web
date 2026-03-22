@@ -44,7 +44,16 @@ export default async function PersonalityPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const { items: personalities, landingSurface } = await listPersonalityProfiles({ locale });
+  const { items: personalities, landingSurface } = await listPersonalityProfiles({ locale }).catch(() => ({
+    items: [],
+    landingSurface: null,
+    pagination: {
+      currentPage: 1,
+      perPage: 20,
+      total: 0,
+      lastPage: 1,
+    },
+  }));
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,

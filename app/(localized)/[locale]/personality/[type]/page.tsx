@@ -13,6 +13,8 @@ import {
   getPersonalitySeoBySlugOrType,
   isCanonicalPersonalityBaseSlug,
   normalizePersonalitySeoPayload,
+  type PersonalityProjection,
+  type PersonalityProjectionViewModel,
 } from "@/lib/cms/personality";
 import { extractPersonalityFaqItems, renderPersonalitySections, renderProjectionSections } from "@/lib/cms/personality-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -22,6 +24,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
+const PUBLIC_PERSONALITY_VARIANT_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
   return String(robotsValue ?? "")
@@ -64,6 +67,123 @@ function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: st
   }
 }
 
+function normalizePublicPersonalityVariantSlug(value: string): string | null {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  return PUBLIC_PERSONALITY_VARIANT_RE.test(normalized) ? normalized : null;
+}
+
+function buildFallbackProjection(type: string, locale: Locale): PersonalityProjection {
+  const displayType = type.toUpperCase();
+  const summary =
+    locale === "zh"
+      ? `${displayType} 人格画像正在连接权威内容源。当前先展示一个稳定的公开入口，避免 public gateway 在内容接口暂时不可用时直接失败。`
+      : `${displayType} personality content is reconnecting to the authoritative public source. This route stays available with a stable public fallback instead of failing when the content API is temporarily unavailable.`;
+
+  return {
+    runtimeTypeCode: displayType,
+    canonicalTypeCode: displayType.slice(0, 4),
+    displayType,
+    variantCode: displayType.endsWith("-T") ? "T" : "A",
+    profile: {
+      typeName: displayType,
+      nickname: null,
+      rarity: null,
+      keywords: [],
+      heroSummary: summary,
+    },
+    summaryCard: {
+      title: displayType,
+      subtitle: locale === "zh" ? "公开人格入口" : "Public personality entry",
+      summary,
+      tagline: locale === "zh" ? "稳定的公开路由兜底" : "Stable public route fallback",
+      publicTags: [],
+    },
+    dimensions: [],
+    sections: [],
+    seo: {
+      title: null,
+      description: summary,
+      ogTitle: null,
+      ogDescription: summary,
+      ogImageUrl: null,
+      twitterTitle: null,
+      twitterDescription: summary,
+      twitterImageUrl: null,
+      canonicalUrl: null,
+      robots: "index,follow",
+      jsonld: null,
+    },
+    offerSet: null,
+    meta: {
+      authoritySource: "frontend_gateway_fallback",
+      routeMode: "fallback",
+      publicRouteType: "personality_detail",
+      schemaVersion: "mbti.public_projection.v1",
+      authorityMeta: null,
+    },
+  };
+}
+
+function buildFallbackPersonalityDetail(type: string, locale: Locale): PersonalityProjectionViewModel | null {
+  const routeSlug = normalizePublicPersonalityVariantSlug(type);
+  if (!routeSlug) {
+    return null;
+  }
+
+  const displayType = routeSlug.toUpperCase();
+  const title = locale === "zh" ? `${displayType} 人格类型` : `${displayType} personality type`;
+  const subtitle = locale === "zh" ? "公开人格入口" : "Public personality entry";
+  const summary =
+    locale === "zh"
+      ? `${displayType} 的公开内容入口已保持可访问。当前显示的是 SEO-safe gateway fallback，不会替代权威的人格内容真相。`
+      : `The public entry for ${displayType} stays reachable with an SEO-safe gateway fallback. This does not replace the authoritative personality content truth.`;
+
+  return {
+    slug: routeSlug,
+    routeSlug,
+    locale,
+    isIndexable: true,
+    heroKicker: locale === "zh" ? "MBTI Public Gateway" : "MBTI Public Gateway",
+    heroQuote: null,
+    heroImageUrl: null,
+    canonicalTypeCode: displayType.slice(0, 4),
+    displayType,
+    typeName: displayType,
+    nickname: null,
+    rarity: null,
+    keywords: [],
+    heroSummary: summary,
+    title,
+    subtitle,
+    summary,
+    projection: buildFallbackProjection(routeSlug, locale),
+    faqSections: [],
+    supplementalSections: [],
+    seoMeta: null,
+    landingSurface: null,
+    answerSurface: null,
+  };
+}
+
+async function loadPersonalityPublicDetail(
+  type: string,
+  locale: Locale
+): Promise<{ detail: PersonalityProjectionViewModel | null; seo: Awaited<ReturnType<typeof getPersonalitySeoBySlugOrType>> | null }> {
+  try {
+    const [detail, seo] = await Promise.all([
+      getPersonalityProjectionDetailBySlugOrType(type, locale),
+      getPersonalitySeoBySlugOrType(type, locale),
+    ]);
+
+    return { detail, seo };
+  } catch {
+    return {
+      detail: buildFallbackPersonalityDetail(type, locale),
+      seo: null,
+    };
+  }
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -73,10 +193,7 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   redirectLegacyBaseRouteIfNeeded(type, locale);
 
-  const [detail, seo] = await Promise.all([
-    getPersonalityProjectionDetailBySlugOrType(type, locale),
-    getPersonalitySeoBySlugOrType(type, locale),
-  ]);
+  const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
 
   if (!detail) {
     return { title: "Not Found", robots: { index: false, follow: false } };
@@ -138,10 +255,7 @@ export default async function PersonalityDetailPage({
   const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
   redirectLegacyBaseRouteIfNeeded(type, locale);
-  const [detail, seo] = await Promise.all([
-    getPersonalityProjectionDetailBySlugOrType(type, locale),
-    getPersonalitySeoBySlugOrType(type, locale),
-  ]);
+  const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
 
   if (!detail) {
     return notFound();

@@ -50,7 +50,9 @@ export async function generateMetadata({
     description: viewModel.seoSurface?.description || copy.description,
     imagePath: `/og/share/${id}`,
     seoSurface: viewModel.seoSurface,
-    noindex: !viewModel.seoSurface ? fallbackRobotsPolicy.includes("noindex") : undefined,
+    noindex: !viewModel.seoSurface
+      ? (fallbackRobotsPolicy ? fallbackRobotsPolicy.includes("noindex") : true)
+      : undefined,
     alternatesByLocale: {
       en: `/en/share/${id}`,
       zh: `/zh/share/${id}`,
