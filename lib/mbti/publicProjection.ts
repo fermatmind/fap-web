@@ -17,6 +17,7 @@ import type {
   MbtiPulseCheckRaw,
   MbtiPublicProjectionDimensionRaw,
   MbtiPublicProjectionV1Raw,
+  MbtiToneProfileRaw,
   MbtiWorkingLifeRaw,
   PartnerReadRaw,
   PublicSurfaceRaw,
@@ -378,6 +379,21 @@ export type MbtiAdaptiveSelectionViewModel = {
   adaptiveEvidence: Record<string, unknown> | null;
 };
 
+export type MbtiToneProfileViewModel = {
+  version: string;
+  toneContractVersion: string;
+  toneFingerprint: string;
+  toneScope: string;
+  defaultToneMode: string;
+  sectionToneModes: Record<string, string>;
+  sectionToneReasons: Record<string, string>;
+  toneReason: string;
+  toneEvidence: Record<string, unknown> | null;
+  phrasingMode: string;
+  toneSoftnessMode: string;
+  toneAnchorKeys: string[];
+};
+
 export type MbtiResultPersonalizationViewModel = {
   locale: string;
   typeCode: string;
@@ -427,6 +443,7 @@ export type MbtiResultPersonalizationViewModel = {
   intraTypeProfile: MbtiIntraTypeProfileViewModel | null;
   longitudinalMemory: MbtiLongitudinalMemoryViewModel | null;
   adaptiveSelection: MbtiAdaptiveSelectionViewModel | null;
+  toneProfile: MbtiToneProfileViewModel | null;
   profileSeedKey: string;
   sameTypeDivergenceKeys: string[];
   sectionSelectionKeys: Record<string, string>;
@@ -911,6 +928,7 @@ function normalizePersonalization(
   const intraTypeProfileRecord = asRecord(personalization.intra_type_profile_v1) as MbtiIntraTypeProfileRaw | null;
   const longitudinalMemoryRecord = asRecord(personalization.longitudinal_memory_v1) as MbtiLongitudinalMemoryRaw | null;
   const adaptiveSelectionRecord = asRecord(personalization.adaptive_selection_v1) as MbtiAdaptiveSelectionRaw | null;
+  const toneProfileRecord = asRecord(personalization.tone_profile_v1) as MbtiToneProfileRaw | null;
 
   const hasContent =
     Object.keys(axisVector).length > 0 ||
@@ -1020,6 +1038,7 @@ function normalizePersonalization(
     intraTypeProfile: normalizeIntraTypeProfile(intraTypeProfileRecord),
     longitudinalMemory: normalizeLongitudinalMemory(longitudinalMemoryRecord),
     adaptiveSelection: normalizeAdaptiveSelection(adaptiveSelectionRecord),
+    toneProfile: normalizeToneProfile(toneProfileRecord),
     profileSeedKey: normalizeText(personalization.profile_seed_key),
     sameTypeDivergenceKeys: normalizeStringArray(personalization.same_type_divergence_keys),
     sectionSelectionKeys: Object.fromEntries(
@@ -1095,6 +1114,67 @@ function normalizeReadContract(rawContract: MbtiReadContractRaw | null): MbtiRea
     cacheableFields,
     nonCacheableFields,
     telemetryParityFields,
+  };
+}
+
+function normalizeToneProfile(rawToneProfile: MbtiToneProfileRaw | null): MbtiToneProfileViewModel | null {
+  if (!rawToneProfile) {
+    return null;
+  }
+
+  const version = normalizeText(rawToneProfile.version);
+  const toneContractVersion = normalizeText(rawToneProfile.tone_contract_version);
+  const toneFingerprint = normalizeText(rawToneProfile.tone_fingerprint);
+  const toneScope = normalizeText(rawToneProfile.tone_scope);
+  const defaultToneMode = normalizeText(rawToneProfile.default_tone_mode);
+  const sectionToneModes = Object.fromEntries(
+    Object.entries(asRecord(rawToneProfile.section_tone_modes) ?? {}).map(([sectionKey, value]) => [
+      sectionKey,
+      normalizeText(value),
+    ])
+  );
+  const sectionToneReasons = Object.fromEntries(
+    Object.entries(asRecord(rawToneProfile.section_tone_reasons) ?? {}).map(([sectionKey, value]) => [
+      sectionKey,
+      normalizeText(value),
+    ])
+  );
+  const toneReason = normalizeText(rawToneProfile.tone_reason);
+  const toneEvidence = asRecord(rawToneProfile.tone_evidence);
+  const phrasingMode = normalizeText(rawToneProfile.phrasing_mode);
+  const toneSoftnessMode = normalizeText(rawToneProfile.tone_softness_mode);
+  const toneAnchorKeys = normalizeStringArray(rawToneProfile.tone_anchor_keys);
+
+  if (
+    !version &&
+    !toneContractVersion &&
+    !toneFingerprint &&
+    !toneScope &&
+    !defaultToneMode &&
+    Object.keys(sectionToneModes).length === 0 &&
+    Object.keys(sectionToneReasons).length === 0 &&
+    !toneReason &&
+    !toneEvidence &&
+    !phrasingMode &&
+    !toneSoftnessMode &&
+    toneAnchorKeys.length === 0
+  ) {
+    return null;
+  }
+
+  return {
+    version,
+    toneContractVersion,
+    toneFingerprint,
+    toneScope,
+    defaultToneMode,
+    sectionToneModes,
+    sectionToneReasons,
+    toneReason,
+    toneEvidence,
+    phrasingMode,
+    toneSoftnessMode,
+    toneAnchorKeys,
   };
 }
 

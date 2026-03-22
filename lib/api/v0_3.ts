@@ -1047,6 +1047,22 @@ export type MbtiAdaptiveSelectionRaw = {
   [key: string]: unknown;
 };
 
+export type MbtiToneProfileRaw = {
+  version?: string;
+  tone_contract_version?: string;
+  tone_fingerprint?: string;
+  tone_scope?: string;
+  default_tone_mode?: string;
+  section_tone_modes?: Record<string, string>;
+  section_tone_reasons?: Record<string, string>;
+  tone_reason?: string;
+  tone_evidence?: Record<string, unknown> | null;
+  phrasing_mode?: string;
+  tone_softness_mode?: string;
+  tone_anchor_keys?: string[];
+  [key: string]: unknown;
+};
+
 export type MbtiPersonalizationRaw = {
   locale?: string;
   type_code?: string;
@@ -1115,6 +1131,7 @@ export type MbtiPersonalizationRaw = {
   intra_type_profile_v1?: MbtiIntraTypeProfileRaw | null;
   longitudinal_memory_v1?: MbtiLongitudinalMemoryRaw | null;
   adaptive_selection_v1?: MbtiAdaptiveSelectionRaw | null;
+  tone_profile_v1?: MbtiToneProfileRaw | null;
   profile_seed_key?: string;
   same_type_divergence_keys?: string[];
   section_selection_keys?: Record<string, string>;
