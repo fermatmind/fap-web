@@ -131,6 +131,24 @@ describe("career guides cms adapter contract", () => {
             { key: "start_test", label: "开始测试", href: "/zh/tests/mbti-personality-test-16-personality-types" },
           ],
         },
+        answer_surface_v1: {
+          answer_contract_version: "answer.surface.v1",
+          answer_scope: "public_indexable_detail",
+          surface_type: "career_guide_public_detail",
+          summary_blocks: [
+            {
+              key: "guide_summary",
+              body: "把人格线索转成职业判断。",
+            },
+          ],
+          next_step_blocks: [
+            {
+              key: "start_test",
+              title: "开始测试",
+              href: "/zh/tests/mbti-personality-test-16-personality-types",
+            },
+          ],
+        },
       },
       "zh"
     );
@@ -178,6 +196,8 @@ describe("career guides cms adapter contract", () => {
     ]);
     expect(detail?.landingSurface?.entrySurface).toBe("career_guide_detail");
     expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/zh/tests/mbti-personality-test-16-personality-types");
+    expect(detail?.answerSurface?.surfaceType).toBe("career_guide_public_detail");
+    expect(detail?.answerSurface?.summaryBlocks[0]?.body).toBe("把人格线索转成职业判断。");
   });
 
   it("returns null for 404 detail and seo lookups", async () => {
@@ -292,6 +312,8 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).toContain("normalizeCareerGuideSeoPayload");
     expect(detailSource).toContain("seoSurface: normalizedSeo.surface");
     expect(detailSource).toContain("guide.landingSurface");
+    expect(detailSource).toContain("guide.answerSurface");
+    expect(detailSource).toContain("career-guide-answer-surface");
     expect(detailSource).toContain("career-guide-landing-cta");
     expect(detailSource).toContain("renderSimpleMarkdown");
     expect(detailSource).toContain("dangerouslySetInnerHTML");

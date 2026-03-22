@@ -1,5 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { getCareerGuideBySlug, listCareerGuides, listCareerJobs } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
@@ -76,6 +77,7 @@ type CmsCareerRecommendationDetailApiResponse = CmsCareerRecommendationListItemA
   } | null;
   seo_surface_v1?: SeoSurfaceRaw | null;
   landing_surface_v1?: LandingSurfaceRaw | null;
+  answer_surface_v1?: AnswerSurfaceRaw | null;
 };
 
 export type CareerRecommendationListItem = {
@@ -188,6 +190,7 @@ export type CareerRecommendationDetail = CareerRecommendationListItem & {
   matchedGuides: CareerRecommendationMatchedGuide[];
   seo: CareerRecommendationSeoViewModel;
   landingSurface: LandingSurfaceViewModel | null;
+  answerSurface: AnswerSurfaceViewModel | null;
   meta: {
     publicRouteType: string | null;
     routeMode: string | null;
@@ -576,6 +579,7 @@ function buildFallbackCareerRecommendationDetail(
       description
     ),
     landingSurface: null,
+    answerSurface: null,
     meta: {
       publicRouteType: "32-type",
       routeMode: "local_fallback",
@@ -774,6 +778,7 @@ export function normalizeCareerRecommendationDetail(
       surface: normalizeSeoSurface(raw.seo_surface_v1 ?? null),
     },
     landingSurface: normalizeLandingSurface(raw.landing_surface_v1 ?? null),
+    answerSurface: normalizeAnswerSurface(raw.answer_surface_v1 ?? null),
     meta: {
       publicRouteType: normalizeNullableText(raw._meta?.public_route_type),
       routeMode: normalizeNullableText(raw._meta?.route_mode),

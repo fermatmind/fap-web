@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -337,6 +338,12 @@ export default async function CareerJobDetailPage({
             ))}
         </section>
       ) : null}
+
+      <AnswerSurfaceSection
+        surface={job.answerSurface}
+        locale={locale}
+        testId="career-job-answer-surface"
+      />
 
       {landingSurface?.ctaBundle.length ? (
         <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="career-job-landing-cta">

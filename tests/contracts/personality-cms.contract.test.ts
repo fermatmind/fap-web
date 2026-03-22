@@ -254,6 +254,39 @@ describe("personality cms adapter contract", () => {
               { key: "start_test", label: "Start test", href: "/en/tests/mbti-personality-test-16-personality-types" },
             ],
           },
+          answer_surface_v1: {
+            answer_contract_version: "answer.surface.v1",
+            answer_scope: "public_indexable_detail",
+            surface_type: "personality_public_detail",
+            summary_blocks: [
+              {
+                key: "hero_summary",
+                title: "Quick summary",
+                body: "Answer contract summary.",
+              },
+            ],
+            faq_blocks: [
+              {
+                key: "faq_0",
+                question: "What defines INTJ?",
+                answer: "Pattern logic and long-range planning.",
+              },
+            ],
+            compare_blocks: [
+              {
+                key: "EI",
+                title: "Energy",
+                body: "Leans inward before acting.",
+              },
+            ],
+            next_step_blocks: [
+              {
+                key: "start_test",
+                title: "Start test",
+                href: "/en/tests/mbti-personality-test-16-personality-types",
+              },
+            ],
+          },
           mbti_public_projection_v1: {
             runtime_type_code: null,
             canonical_type_code: "INTJ",
@@ -344,12 +377,17 @@ describe("personality cms adapter contract", () => {
     expect(detail?.seoMeta?.seoTitle).toBe("INTJ Personality Type");
     expect(detail?.landingSurface?.entrySurface).toBe("personality_detail");
     expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/en/tests/mbti-personality-test-16-personality-types");
+    expect(detail?.answerSurface?.surfaceType).toBe("personality_public_detail");
+    expect(detail?.answerSurface?.summaryBlocks[0]?.body).toBe("Answer contract summary.");
+    expect(detail?.answerSurface?.faqBlocks[0]?.question).toBe("What defines INTJ?");
   });
 
   it("personality routes consume landing surface instead of inventing local CTA truth", () => {
     expect(read("app/(localized)/[locale]/personality/page.tsx")).toContain("personality-index-landing-cta");
     expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("personality-detail-landing-cta");
     expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("detail.landingSurface");
+    expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("detail.answerSurface");
+    expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("personality-detail-answer-surface");
   });
 
   it("normalizes canonical and jsonld urls to locale-aware frontend personality urls", () => {
@@ -505,6 +543,8 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain('zh: normalizedSeo.meta.alternates["zh-CN"] ?? buildPersonalityFrontendUrl("zh", detail.routeSlug)');
     expect(source).toContain("detail.displayType");
     expect(source).toContain("extractPersonalityFaqItems");
+    expect(source).toContain("detail.answerSurface?.faqBlocks.length");
+    expect(source).toContain("AnswerSurfaceSection");
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("renderProjectionSections");

@@ -1,5 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { canonicalUrl } from "@/lib/site";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
@@ -85,6 +86,7 @@ type CmsTopicDetailApiResponse = {
   entry_groups?: Record<string, CmsTopicApiEntry[]>;
   seo_meta?: CmsTopicApiSeoMeta;
   landing_surface_v1?: LandingSurfaceRaw | null;
+  answer_surface_v1?: AnswerSurfaceRaw | null;
 };
 
 type CmsTopicSeoApiResponse = {
@@ -190,6 +192,7 @@ export type CmsTopicProfile = CmsTopicProfileSummary & {
   sections: CmsTopicSection[];
   entryGroups: CmsTopicEntryGroups;
   landingSurface: LandingSurfaceViewModel | null;
+  answerSurface: AnswerSurfaceViewModel | null;
 };
 
 export type CmsTopicSeoPayload = {
@@ -420,6 +423,7 @@ export function normalizeTopicProfileDetail(
       : [],
     entryGroups: normalizeTopicEntryGroups(entryGroups),
     landingSurface: null,
+    answerSurface: null,
   };
 }
 
@@ -637,6 +641,7 @@ export async function getTopicBySlug(
     );
 
     topic.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
+    topic.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
 
     return topic.slug && topic.title ? topic : null;
   } catch (error) {

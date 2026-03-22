@@ -188,6 +188,42 @@ function createShareFixture(): ShareSummaryResponse {
       attribution_scope: "share_public_surface",
       share_safety_state: "public_share_safe",
     },
+    answer_surface_v1: {
+      answer_contract_version: "answer.surface.v1",
+      answer_scope: "public_share_safe",
+      surface_type: "mbti_share_public_safe",
+      summary_blocks: [
+        {
+          key: "share_summary",
+          title: "Public-safe answer",
+          body: "Use this public-safe page as a lightweight answer layer before restarting the full MBTI test.",
+        },
+      ],
+      faq_blocks: [
+        {
+          key: "faq_0",
+          question: "Can this page replace the full report?",
+          answer: "No. It only exposes a safe public summary.",
+        },
+      ],
+      compare_blocks: [
+        {
+          key: "comparative",
+          title: "Relative position",
+          body: "This profile sits above roughly 62% of the anonymized cohort.",
+        },
+      ],
+      next_step_blocks: [
+        {
+          key: "start_test",
+          title: "Start MBTI test",
+          href: "/en/tests/mbti-personality-test-16-personality-types/take",
+        },
+      ],
+      public_safety_state: "public_share_safe",
+      indexability_state: "noindex",
+      attribution_scope: "share_public_surface",
+    },
     insight_graph_v1: {
       version: "insight.graph.v1",
       graph_contract_version: "insight.graph.v1",
@@ -538,6 +574,8 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByTestId("share-partner-read-scope")).toHaveTextContent("partner_public_read");
     expect(screen.getByTestId("share-landing-surface")).toHaveTextContent("Public-safe next step");
     expect(screen.getByTestId("share-landing-surface")).toHaveTextContent("Open MBTI topic");
+    expect(screen.getByTestId("share-answer-surface")).toHaveTextContent("Public-safe answer");
+    expect(screen.getByTestId("share-answer-surface")).toHaveTextContent("Can this page replace the full report?");
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent("Start next with Career next step");
     expect(screen.getByTestId("mbti-share-carryover-entry")).toHaveTextContent(
       "The current focus has already moved into the career bridge"
@@ -874,6 +912,8 @@ describe("MBTI share consumer contract", () => {
     expect(viewModel.readContract?.telemetryParityFields).toContain("continuity.carryover_focus_key");
     expect(viewModel.landingSurface?.entrySurface).toBe("mbti_share_entry");
     expect(viewModel.landingSurface?.ctaBundle[1]?.href).toBe("/en/topics/mbti");
+    expect(viewModel.answerSurface?.surfaceType).toBe("mbti_share_public_safe");
+    expect(viewModel.answerSurface?.indexabilityState).toBe("noindex");
   });
 
   it("renders share OG from projection and never from legacy aliases", () => {

@@ -114,6 +114,31 @@ describe("topics cms helpers", () => {
                 { key: "start_test", label: "Start test", href: "/en/tests/mbti-personality-test-16-personality-types" },
               ],
             },
+            answer_surface_v1: {
+              answer_contract_version: "answer.surface.v1",
+              answer_scope: "public_indexable_detail",
+              surface_type: "topic_public_detail",
+              summary_blocks: [
+                {
+                  key: "topic_summary",
+                  body: "MBTI topic answer summary.",
+                },
+              ],
+              faq_blocks: [
+                {
+                  key: "faq_0",
+                  question: "Is MBTI a diagnosis?",
+                  answer: "No. It is a preference model.",
+                },
+              ],
+              next_step_blocks: [
+                {
+                  key: "start_test",
+                  title: "Start test",
+                  href: "/en/tests/mbti-personality-test-16-personality-types",
+                },
+              ],
+            },
           }),
           { status: 200, headers: { "Content-Type": "application/json" } }
         )
@@ -124,6 +149,8 @@ describe("topics cms helpers", () => {
 
     expect(topic?.landingSurface?.entrySurface).toBe("topic_detail");
     expect(topic?.landingSurface?.ctaBundle[0]?.label).toBe("Start test");
+    expect(topic?.answerSurface?.surfaceType).toBe("topic_public_detail");
+    expect(topic?.answerSurface?.summaryBlocks[0]?.body).toBe("MBTI topic answer summary.");
   });
 
   it("ignores unknown sections and entry groups safely", () => {
@@ -335,6 +362,9 @@ describe("topics cms helpers", () => {
     expect(source).toContain("seoSurface: normalizedSeo.surface");
     expect(source).toContain("topic-detail-landing-summary");
     expect(source).toContain("landingSurface?.ctaBundle");
+    expect(source).toContain("topic.answerSurface");
+    expect(source).toContain("topic-detail-answer-surface");
+    expect(source).toContain("topic.answerSurface?.faqBlocks.length");
     expect(read("app/(localized)/[locale]/topics/page.tsx")).toContain("topics-index-landing-cta");
     expect(shouldIncludeInSitemap("/en/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);

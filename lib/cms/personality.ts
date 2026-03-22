@@ -1,5 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
@@ -75,6 +76,7 @@ type CmsPersonalityDetailApiResponse = {
   seo_meta?: CmsPersonalityApiSeoMeta;
   mbti_public_projection_v1?: CmsPersonalityApiProjectionV1 | null;
   landing_surface_v1?: LandingSurfaceRaw | null;
+  answer_surface_v1?: AnswerSurfaceRaw | null;
 };
 
 type CmsPersonalitySeoApiResponse = {
@@ -359,6 +361,7 @@ export type PersonalityProjectionViewModel = {
   supplementalSections: CmsPersonalitySection[];
   seoMeta: CmsPersonalitySeoMeta | null;
   landingSurface: LandingSurfaceViewModel | null;
+  answerSurface: AnswerSurfaceViewModel | null;
 };
 
 export type PersonalitySeoCompatibilityInput = {
@@ -704,6 +707,7 @@ function buildProjectionViewModel(
     supplementalSections,
     seoMeta: detailProfile.seoMeta,
     landingSurface: null,
+    answerSurface: null,
   };
 }
 
@@ -1077,6 +1081,7 @@ export async function getPersonalityProjectionDetailBySlugOrType(
   return {
     ...buildProjectionViewModel(detailProfile, projection),
     landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
+    answerSurface: normalizeAnswerSurface(response.answer_surface_v1 ?? null),
   };
 }
 

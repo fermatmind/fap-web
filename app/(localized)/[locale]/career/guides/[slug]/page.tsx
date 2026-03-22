@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -182,6 +183,12 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
           {renderGuideBody(guide)}
         </article>
       ) : null}
+
+      <AnswerSurfaceSection
+        surface={guide.answerSurface}
+        locale={locale}
+        testId="career-guide-answer-surface"
+      />
 
       <div className="grid gap-4 md:grid-cols-2">
         <Card>

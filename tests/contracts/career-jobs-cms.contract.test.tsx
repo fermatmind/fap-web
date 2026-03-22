@@ -6,6 +6,7 @@ import {
   adaptCareerJobDetail,
   adaptCareerJobSeoPayload,
   buildCareerJobFrontendUrl,
+  getCareerJobFromCmsBySlug,
   listCareerJobsFromCms,
   mapFrontendLocaleToCareerApiLocale,
 } from "@/lib/cms/career-jobs";
@@ -128,6 +129,51 @@ describe("career jobs cms adapter contract", () => {
     expect(detail?.riasecVector.I).toBe(70);
     expect(detail?.riasecVector.R).toBeNull();
     expect(detail?.landingSurface).toBeNull();
+    expect(detail?.answerSurface).toBeNull();
+  });
+
+  it("normalizes answer surface from the backend detail authority", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          job: {
+            slug: "product-manager",
+            locale: "en",
+            title: "Product Manager",
+            excerpt: "Shape product direction across user and business goals.",
+            is_public: true,
+            is_indexable: true,
+          },
+          sections: [],
+          seo_meta: null,
+          answer_surface_v1: {
+            answer_contract_version: "answer.surface.v1",
+            answer_scope: "public_indexable_detail",
+            surface_type: "career_job_public_detail",
+            summary_blocks: [
+              {
+                key: "job_summary",
+                body: "Shape product direction across user and business goals.",
+              },
+            ],
+            faq_blocks: [
+              {
+                key: "faq_0",
+                question: "What is PM?",
+                answer: "A product role.",
+              },
+            ],
+          },
+        })
+      )
+    );
+
+    const detail = await getCareerJobFromCmsBySlug({ slug: "product-manager", locale: "en" });
+
+    expect(detail?.answerSurface?.surfaceType).toBe("career_job_public_detail");
+    expect(detail?.answerSurface?.faqBlocks[0]?.question).toBe("What is PM?");
   });
 
   it("formats structured growth path when raw content is absent and tolerates missing fields", () => {
@@ -322,6 +368,8 @@ describe("career jobs page authority contract", () => {
     expect(detailSource).toContain("getCareerJobFromCmsBySlug");
     expect(detailSource).toContain("seoSurface: seo?.surface");
     expect(detailSource).toContain("job.landingSurface");
+    expect(detailSource).toContain("job.answerSurface");
+    expect(detailSource).toContain("career-job-answer-surface");
     expect(detailSource).toContain("career-job-landing-cta");
     expect(listSource).not.toContain("career-recommendations");
     expect(detailSource).not.toContain("career-recommendations");

@@ -1,5 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import type { LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
+import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
@@ -85,6 +86,7 @@ type CmsCareerJobDetailApiResponse = {
   sections?: CmsCareerJobApiSection[];
   seo_meta?: CmsCareerJobApiSeoMeta;
   landing_surface_v1?: LandingSurfaceRaw | null;
+  answer_surface_v1?: AnswerSurfaceRaw | null;
 };
 
 type CmsCareerJobSeoApiResponse = {
@@ -173,6 +175,7 @@ export type CareerJobViewModel = {
   sections: CareerJobSectionViewModel[];
   seoMeta: CareerJobSeoMetaSummary | null;
   landingSurface: LandingSurfaceViewModel | null;
+  answerSurface: AnswerSurfaceViewModel | null;
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
@@ -653,6 +656,7 @@ export function adaptCareerJobDetail(
     sections,
     seoMeta: normalizeCareerJobSeoMeta(options.seoMeta ?? raw.seo_meta ?? null),
     landingSurface: null,
+    answerSurface: null,
     status: fallbackText(raw.status),
     isPublic: Boolean(raw.is_public),
     isIndexable: Boolean(raw.is_indexable),
@@ -760,6 +764,7 @@ export async function getCareerJobFromCmsBySlug(options: {
 
     if (job) {
       job.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
+      job.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
     }
 
     return job && matchesRequestedLocale(job.locale, options.locale) ? job : null;
