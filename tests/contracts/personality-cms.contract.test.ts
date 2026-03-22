@@ -373,6 +373,7 @@ describe("personality cms adapter contract", () => {
     expect(normalized.meta.canonical).toBe("http://localhost:3000/en/personality/intj-a");
     expect(normalized.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj-a");
     expect(normalized.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj-a");
+    expect(normalized.surface).toBeNull();
     expect(
       (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj-a");
@@ -397,6 +398,7 @@ describe("personality cms adapter contract", () => {
     expect(normalized.meta.canonical).toBe("http://localhost:3000/zh/personality/intj-a");
     expect(normalized.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj-a");
     expect(normalized.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj-a");
+    expect(normalized.surface).toBeNull();
     expect(
       (normalized.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/zh/personality/intj-a");
@@ -479,6 +481,7 @@ describe("personality cms adapter contract", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
     expect(source).toContain("alternatesByLocale");
+    expect(source).toContain("seoSurface: normalizedSeo.surface");
     expect(source).toContain("redirectLegacyBaseRouteIfNeeded");
     expect(source).toContain("getPersonalityProjectionDetailBySlugOrType");
     expect(source).toContain('en: normalizedSeo.meta.alternates.en ?? buildPersonalityFrontendUrl("en", detail.routeSlug)');

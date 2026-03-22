@@ -1,5 +1,7 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
@@ -93,6 +95,7 @@ type CmsPersonalitySeoApiResponse = {
     alternates?: Record<string, string>;
   };
   jsonld?: unknown;
+  seo_surface_v1?: SeoSurfaceRaw | null;
 };
 
 export type CmsPersonalityApiProjectionProfile = {
@@ -248,6 +251,7 @@ export type CmsPersonalitySeoPayload = {
     robots: string;
   };
   jsonld: unknown;
+  surface: SeoSurfaceViewModel | null;
 };
 
 export type PersonalityProjectionProfile = {
@@ -916,6 +920,7 @@ export function normalizePersonalitySeoPayload(
           }
         : profile
     ),
+    surface: seo?.surface ?? null,
   };
 }
 
@@ -1113,6 +1118,7 @@ export async function getPersonalitySeoBySlugOrType(
         robots: fallbackText(response.meta?.robots, "index,follow"),
       },
       jsonld: response.jsonld ?? null,
+      surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {

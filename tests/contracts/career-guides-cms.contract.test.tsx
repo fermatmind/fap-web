@@ -254,6 +254,7 @@ describe("career guides cms adapter contract", () => {
     expect(normalized.meta.alternates["zh-CN"]).toBe(
       "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit"
     );
+    expect(normalized.surface).toBeNull();
     expect(jsonld.url).toBe("http://localhost:3000/zh/career/guides/from-mbti-to-job-fit");
     expect(jsonld["@id"]).toBe(
       "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit#webpage"
@@ -279,6 +280,7 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).toContain("getCareerGuideFromCmsBySlug");
     expect(detailSource).toContain("getCareerGuideSeoFromCmsBySlug");
     expect(detailSource).toContain("normalizeCareerGuideSeoPayload");
+    expect(detailSource).toContain("seoSurface: normalizedSeo.surface");
     expect(detailSource).toContain("renderSimpleMarkdown");
     expect(detailSource).toContain("dangerouslySetInnerHTML");
     expect(detailSource).not.toContain("getCareerGuideBySlug");

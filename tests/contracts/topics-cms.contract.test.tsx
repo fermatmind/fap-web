@@ -200,6 +200,7 @@ describe("topics cms helpers", () => {
     expect(seo.meta.canonical).toBe("http://localhost:3000/zh/topics/mbti");
     expect(seo.meta.alternates.en).toBe("http://localhost:3000/en/topics/mbti");
     expect(seo.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/topics/mbti");
+    expect(seo.surface).toBeNull();
     const jsonld = seo.jsonld as { "@type"?: string; mainEntityOfPage?: string };
 
     expect(jsonld["@type"]).toBe("CollectionPage");
@@ -289,6 +290,7 @@ describe("topics cms helpers", () => {
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("alternatesByLocale");
+    expect(source).toContain("seoSurface: normalizedSeo.surface");
     expect(shouldIncludeInSitemap("/en/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);
   });

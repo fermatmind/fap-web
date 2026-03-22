@@ -1,6 +1,8 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { getBlogPostBySlug, listBlogPosts, type LocalizedBlogPost } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
@@ -77,6 +79,7 @@ type CmsArticleSeoApiResponse = {
     robots?: string;
   };
   jsonld?: unknown;
+  seo_surface_v1?: SeoSurfaceRaw | null;
 };
 
 export type CmsArticleTag = {
@@ -136,6 +139,7 @@ export type CmsArticleSeoPayload = {
     robots: string;
   };
   jsonld: unknown;
+  surface: SeoSurfaceViewModel | null;
 };
 
 export type CmsArticleLlmsEntry = {
@@ -329,6 +333,7 @@ export function normalizeArticleSeoPayload(
       robots: fallbackText(seo.meta?.robots, "index,follow"),
     },
     jsonld: normalizeArticleJsonLd(seo.jsonld ?? null, seo.meta?.canonical, canonicalPath, normalizedSlug),
+    surface: normalizeSeoSurface(seo.seo_surface_v1 ?? null),
   };
 }
 

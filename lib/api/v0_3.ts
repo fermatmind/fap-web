@@ -402,6 +402,29 @@ export type PublicSurfaceRaw = {
   [key: string]: unknown;
 };
 
+export type SeoSurfaceRaw = {
+  version?: string;
+  metadata_contract_version?: string;
+  metadata_fingerprint?: string;
+  metadata_scope?: string;
+  surface_type?: string;
+  canonical_url?: string | null;
+  robots_policy?: string | null;
+  title?: string | null;
+  description?: string | null;
+  og_payload?: Record<string, unknown> | null;
+  twitter_payload?: Record<string, unknown> | null;
+  alternates?: Record<string, string | null | undefined> | null;
+  structured_data_keys?: string[] | null;
+  indexability_state?: string | null;
+  sitemap_state?: string | null;
+  llms_exposure_state?: string | null;
+  share_safety_state?: string | null;
+  public_summary_fingerprint?: string | null;
+  runtime_artifact_ref?: string | null;
+  [key: string]: unknown;
+};
+
 export type InsightGraphNodeRaw = {
   id?: string;
   kind?: string;
@@ -1324,6 +1347,7 @@ export type ShareSummaryResponse = {
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
   working_life_v1?: MbtiWorkingLifeRaw | null;
   public_surface_v1?: PublicSurfaceRaw | null;
+  seo_surface_v1?: SeoSurfaceRaw | null;
   insight_graph_v1?: InsightGraphRaw | null;
   embed_surface_v1?: EmbedSurfaceRaw | null;
   widget_surface_v1?: WidgetSurfaceRaw | null;

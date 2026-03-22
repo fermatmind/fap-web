@@ -1,6 +1,8 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { canonicalUrl } from "@/lib/site";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_PER_PAGE = 100;
@@ -103,6 +105,7 @@ type CmsTopicSeoApiResponse = {
     robots?: string;
   };
   jsonld?: unknown;
+  seo_surface_v1?: SeoSurfaceRaw | null;
 };
 
 export type CmsTopicSectionKey =
@@ -209,6 +212,7 @@ export type CmsTopicSeoPayload = {
     robots: string;
   };
   jsonld: unknown;
+  surface: SeoSurfaceViewModel | null;
 };
 
 export type CmsTopicPagination = {
@@ -537,6 +541,7 @@ export function normalizeTopicSeoPayload(
       robots,
     },
     jsonld: normalizeTopicJsonLd(seo?.jsonld ?? null, seo?.meta.canonical, canonicalPath, profile),
+    surface: seo?.surface ?? null,
   };
 }
 
@@ -681,6 +686,7 @@ export async function getTopicSeoBySlug(
         robots: fallbackText(response.meta?.robots, "index,follow"),
       },
       jsonld: response.jsonld ?? null,
+      surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {

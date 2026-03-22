@@ -40,16 +40,17 @@ export async function generateMetadata({
   });
   const viewModel = buildSharePageViewModel(shareSummary);
   const copy = buildShareMetadataCopy(viewModel);
-  const pathname = viewModel.publicSurface?.canonicalUrl || `/${locale}/share/${id}`;
-  const robotsPolicy = viewModel.publicSurface?.robotsPolicy || "";
+  const pathname = viewModel.seoSurface?.canonicalUrl || viewModel.publicSurface?.canonicalUrl || `/${locale}/share/${id}`;
+  const fallbackRobotsPolicy = viewModel.publicSurface?.robotsPolicy || "";
 
   return buildPageMetadata({
     locale,
     pathname,
-    title: copy.title,
-    description: copy.description,
+    title: viewModel.seoSurface?.title || copy.title,
+    description: viewModel.seoSurface?.description || copy.description,
     imagePath: `/og/share/${id}`,
-    noindex: robotsPolicy.includes("noindex"),
+    seoSurface: viewModel.seoSurface,
+    noindex: !viewModel.seoSurface ? fallbackRobotsPolicy.includes("noindex") : undefined,
     alternatesByLocale: {
       en: `/en/share/${id}`,
       zh: `/zh/share/${id}`,

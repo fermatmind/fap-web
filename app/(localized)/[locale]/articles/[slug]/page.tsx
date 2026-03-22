@@ -20,6 +20,19 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
 
+function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) {
+    return fallbackPath;
+  }
+
+  try {
+    return new URL(normalized).pathname || fallbackPath;
+  } catch {
+    return normalized.startsWith("/") ? normalized : fallbackPath;
+  }
+}
+
 function formatArticleDate(value: string | null, locale: Locale): string | null {
   if (!value) {
     return null;
@@ -94,23 +107,26 @@ export async function generateMetadata({
   }
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
-  const title = seo?.meta.title || article.title;
-  const description = seo?.meta.description || article.excerpt;
+  const seoCanonicalPath = pathFromCanonicalUrl(seo?.surface?.canonicalUrl ?? seo?.meta.canonical, canonicalPath);
+  const title = seo?.surface?.title || seo?.meta.title || article.title;
+  const description = seo?.surface?.description || seo?.meta.description || article.excerpt;
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
   const metadata = buildPageMetadata({
     locale,
-    pathname: canonicalPath,
+    pathname: seoCanonicalPath,
     title,
     description,
-    imagePath: seo?.meta.og.image ?? article.coverImageUrl ?? undefined,
-    noindex,
+    imagePath: seo?.surface?.og.image ?? seo?.meta.og.image ?? article.coverImageUrl ?? undefined,
+    seoSurface: seo?.surface,
+    noindex: !seo?.surface ? noindex : undefined,
     alternatesByLocale: {
       en: buildCanonicalPath(article.slug, "en"),
       zh: buildCanonicalPath(article.slug, "zh"),
       xDefault: "/",
     },
   });
-  const canonical = seo?.meta.canonical ?? String(metadata.alternates?.canonical ?? "");
+  const canonical = seo?.surface?.canonicalUrl ?? seo?.meta.canonical ?? String(metadata.alternates?.canonical ?? "");
+  const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? article.coverImageUrl ?? null;
 
   return {
     ...metadata,
@@ -126,24 +142,18 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       url: canonical,
-      title: seo?.meta.og.title || title,
-      description: seo?.meta.og.description || description,
-      images: seo?.meta.og.image
-        ? [seo.meta.og.image]
-        : article.coverImageUrl
-          ? [article.coverImageUrl]
-          : metadata.openGraph?.images,
+      title: seo?.surface?.og.title || seo?.meta.og.title || title,
+      description: seo?.surface?.og.description || seo?.meta.og.description || description,
+      images: ogImage ? [ogImage] : metadata.openGraph?.images,
       locale: locale === "zh" ? "zh_CN" : "en_US",
     },
     twitter: {
-      card: resolveTwitterCard(seo?.meta.twitter.card),
-      title: seo?.meta.twitter.title || title,
-      description: seo?.meta.twitter.description || description,
-      images: seo?.meta.twitter.image
-        ? [seo.meta.twitter.image]
-        : article.coverImageUrl
-          ? [article.coverImageUrl]
-          : metadata.twitter?.images,
+      card: resolveTwitterCard(seo?.surface?.twitter.card ?? seo?.meta.twitter.card),
+      title: seo?.surface?.twitter.title || seo?.meta.twitter.title || title,
+      description: seo?.surface?.twitter.description || seo?.meta.twitter.description || description,
+      images: (seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage)
+        ? [seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage]
+        : metadata.twitter?.images,
     },
   };
 }

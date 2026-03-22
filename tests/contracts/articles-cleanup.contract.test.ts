@@ -40,7 +40,8 @@ describe("articles cleanup contract", () => {
 
     expect(source).toContain('from "@/lib/cms/articles"');
     expect(source).not.toContain("normalizeStructuredDataUrls");
-    expect(source).toContain("seo?.meta.canonical ??");
+    expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
+    expect(source).toContain("seoSurface: seo?.surface");
     expect(source).toContain("seo?.jsonld ||");
   });
 
@@ -94,6 +95,7 @@ describe("articles cleanup contract", () => {
     expect(normalized?.meta.canonical).toBe("http://localhost:3000/zh/articles/how-to-read-mbti-results");
     expect(normalized?.meta.alternates.en).toBe("http://localhost:3000/en/articles/how-to-read-mbti-results");
     expect(normalized?.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/articles/how-to-read-mbti-results");
+    expect(normalized?.surface).toBeNull();
     expect((normalized?.jsonld as Record<string, unknown>).url).toBe(
       "http://localhost:3000/zh/articles/how-to-read-mbti-results"
     );

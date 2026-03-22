@@ -1,7 +1,9 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { buildPersonalityFrontendUrl } from "@/lib/cms/personality";
 import { getCareerIndustryBySlug, type RelatedContentItem } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
@@ -110,6 +112,7 @@ type CmsCareerGuideSeoApiResponse = {
     robots?: string;
   };
   jsonld?: unknown;
+  seo_surface_v1?: SeoSurfaceRaw | null;
 };
 
 export type ListCareerGuidesOptions = {
@@ -183,6 +186,7 @@ export type CareerGuideSeoViewModel = {
     robots: string;
   };
   jsonld: unknown;
+  surface: SeoSurfaceViewModel | null;
 };
 
 function buildQuery(params: Record<string, string | number | undefined>): string {
@@ -594,6 +598,7 @@ export function normalizeCareerGuideSeoPayload(
       guide,
       normalizedLocale
     ),
+    surface: seo?.surface ?? null,
   };
 }
 
@@ -760,6 +765,7 @@ export async function getCareerGuideSeoFromCmsBySlug(
         robots: fallbackText(response.meta?.robots, "index,follow"),
       },
       jsonld: response.jsonld ?? null,
+      surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {

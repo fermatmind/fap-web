@@ -140,6 +140,35 @@ describe("career recommendation public adapter contract", () => {
           route_mode: "public_variant",
           authority_source: "career_recommendation_service.v1",
         },
+        seo_surface_v1: {
+          metadata_contract_version: "seo.surface.v1",
+          metadata_fingerprint: "career-seo-fingerprint",
+          metadata_scope: "public_indexable_detail",
+          surface_type: "career_recommendation_public_detail",
+          canonical_url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
+          robots_policy: "index,follow",
+          title: "INTJ-A Career Recommendations | FermatMind",
+          description: "Career recommendations, role fit, and growth paths for Architect.",
+          og_payload: {
+            title: "INTJ-A Career Recommendations | FermatMind",
+            description: "Career recommendations, role fit, and growth paths for Architect.",
+            type: "article",
+            url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
+          },
+          twitter_payload: {
+            card: "summary_large_image",
+            title: "INTJ-A Career Recommendations | FermatMind",
+            description: "Career recommendations, role fit, and growth paths for Architect.",
+          },
+          alternates: {
+            en: "https://staging.fermatmind.com/en/career/recommendations/mbti/intj-a",
+            "zh-CN": "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
+          },
+          structured_data_keys: [],
+          indexability_state: "indexable",
+          sitemap_state: "included",
+          llms_exposure_state: "allow",
+        },
       },
       "zh"
     );
@@ -153,6 +182,8 @@ describe("career recommendation public adapter contract", () => {
     expect(detail?.seo.meta.canonical).toBe("http://localhost:3000/zh/career/recommendations/mbti/intj-a");
     expect(detail?.seo.meta.alternates.en).toBe("http://localhost:3000/en/career/recommendations/mbti/intj-a");
     expect(detail?.seo.meta.og.title).toBe("INTJ-A Career Recommendations | FermatMind");
+    expect(detail?.seo.surface?.metadataContractVersion).toBe("seo.surface.v1");
+    expect(detail?.seo.surface?.surfaceType).toBe("career_recommendation_public_detail");
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
@@ -163,8 +194,8 @@ describe("career recommendation public adapter contract", () => {
     expect(source).toContain("parseMbtiContinuityQuery");
     expect(source).toContain("mbti-career-continuity-entry");
     expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
-    expect(source).toContain("detail.seo.meta.canonical");
-    expect(source).toContain("detail.seo.meta.og.title");
+    expect(source).toContain("detail.seo.surface?.canonicalUrl");
+    expect(source).toContain("seoSurface: detail.seo.surface");
     expect(source).not.toContain("getMbtiRecommendation");
     expect(source).not.toContain("getCareerJobBySlug");
     expect(source).not.toContain("listMbtiRecommendationTypes");

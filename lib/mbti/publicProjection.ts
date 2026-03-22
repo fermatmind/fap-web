@@ -19,10 +19,12 @@ import type {
   PartnerReadRaw,
   PublicSurfaceRaw,
   ReportResponse,
+  SeoSurfaceRaw,
   ShareSummaryResponse,
   WidgetSurfaceRaw,
 } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
+import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
 const TECHNICAL_TAG_PREFIXES = [
   "axis:",
@@ -466,6 +468,7 @@ export type MbtiSharePageViewModel = {
   continuity: MbtiContinuityViewModel | null;
   readContract: MbtiReadContractViewModel | null;
   publicSurface: PublicSurfaceViewModel | null;
+  seoSurface: SeoSurfaceViewModel | null;
   insightGraph: InsightGraphViewModel | null;
   embedSurface: EmbedSurfaceViewModel | null;
   widgetSurface: WidgetSurfaceViewModel | null;
@@ -2161,6 +2164,7 @@ export function buildSharePageViewModel(
     normalizeReadContract(asRecord(rawShare?.mbti_read_contract_v1) as MbtiReadContractRaw | null) ??
     normalizeReadContract(asRecord(sharePersonalizationRecord?.read_contract_v1) as MbtiReadContractRaw | null);
   const sharePublicSurface = normalizePublicSurface(asRecord(rawShare?.public_surface_v1) as PublicSurfaceRaw | null);
+  const shareSeoSurface = normalizeSeoSurface(asRecord(rawShare?.seo_surface_v1) as SeoSurfaceRaw | null);
   const shareInsightGraph = normalizeInsightGraph(asRecord(rawShare?.insight_graph_v1) as InsightGraphRaw | null);
   const shareEmbedSurface = normalizeEmbedSurface(asRecord(rawShare?.embed_surface_v1) as EmbedSurfaceRaw | null);
   const shareWidgetSurface = normalizeWidgetSurface(asRecord(rawShare?.widget_surface_v1) as WidgetSurfaceRaw | null);
@@ -2220,6 +2224,7 @@ export function buildSharePageViewModel(
       : null,
     readContract: shareReadContract,
     publicSurface: sharePublicSurface,
+    seoSurface: shareSeoSurface,
     insightGraph: shareInsightGraph,
     embedSurface: shareEmbedSurface,
     widgetSurface: shareWidgetSurface,
