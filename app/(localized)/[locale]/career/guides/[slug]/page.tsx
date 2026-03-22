@@ -73,22 +73,25 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
-    title: normalizedSeo.meta.title,
-    description: normalizedSeo.meta.description,
-    imagePath: normalizedSeo.meta.og.image ?? undefined,
-    noindex,
+    title: normalizedSeo.surface?.title || normalizedSeo.meta.title,
+    description: normalizedSeo.surface?.description || normalizedSeo.meta.description,
+    imagePath: normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? undefined,
+    seoSurface: normalizedSeo.surface,
+    noindex: !normalizedSeo.surface ? noindex : undefined,
     alternatesByLocale: {
       en: buildCareerGuideFrontendUrl("en", guide.slug),
       zh: buildCareerGuideFrontendUrl("zh", guide.slug),
       xDefault: "/",
     },
   });
+  const canonical = normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical;
+  const ogImage = normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? null;
 
   return {
     ...metadata,
     alternates: {
       ...metadata.alternates,
-      canonical: normalizedSeo.meta.canonical,
+      canonical,
       languages: {
         ...metadata.alternates?.languages,
         en: normalizedSeo.meta.alternates.en ?? metadata.alternates?.languages?.en,
@@ -98,21 +101,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       },
     },
     openGraph: {
-      type: normalizedSeo.meta.og.type === "website" ? "website" : "article",
-      url: normalizedSeo.meta.canonical ?? undefined,
-      title: normalizedSeo.meta.og.title,
-      description: normalizedSeo.meta.og.description,
-      images: normalizedSeo.meta.og.image
-        ? [normalizedSeo.meta.og.image]
-        : metadata.openGraph?.images,
+      type: (normalizedSeo.surface?.og.type ?? normalizedSeo.meta.og.type) === "website" ? "website" : "article",
+      url: normalizedSeo.surface?.og.url ?? canonical ?? undefined,
+      title: normalizedSeo.surface?.og.title || normalizedSeo.meta.og.title,
+      description: normalizedSeo.surface?.og.description || normalizedSeo.meta.og.description,
+      images: ogImage ? [ogImage] : metadata.openGraph?.images,
       locale: locale === "zh" ? "zh_CN" : "en_US",
     },
     twitter: {
-      card: resolveTwitterCard(normalizedSeo.meta.twitter.card),
-      title: normalizedSeo.meta.twitter.title,
-      description: normalizedSeo.meta.twitter.description,
-      images: normalizedSeo.meta.twitter.image
-        ? [normalizedSeo.meta.twitter.image]
+      card: resolveTwitterCard(normalizedSeo.surface?.twitter.card ?? normalizedSeo.meta.twitter.card),
+      title: normalizedSeo.surface?.twitter.title || normalizedSeo.meta.twitter.title,
+      description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
+      images: (normalizedSeo.surface?.twitter.image ?? normalizedSeo.meta.twitter.image ?? ogImage)
+        ? [normalizedSeo.surface?.twitter.image ?? normalizedSeo.meta.twitter.image ?? ogImage]
         : metadata.twitter?.images,
     },
   };

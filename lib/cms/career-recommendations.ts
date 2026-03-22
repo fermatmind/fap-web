@@ -1,7 +1,9 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { getCareerGuideBySlug, listCareerGuides, listCareerJobs } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
 type CmsCareerRecommendationListItemApi = {
@@ -71,6 +73,7 @@ type CmsCareerRecommendationDetailApiResponse = CmsCareerRecommendationListItemA
     route_mode?: string | null;
     authority_source?: string | null;
   } | null;
+  seo_surface_v1?: SeoSurfaceRaw | null;
 };
 
 export type CareerRecommendationListItem = {
@@ -166,6 +169,7 @@ export type CareerRecommendationSeoViewModel = {
     };
     robots: string;
   };
+  surface: SeoSurfaceViewModel | null;
 };
 
 export type CareerRecommendationDetail = CareerRecommendationListItem & {
@@ -687,6 +691,7 @@ function normalizeCareerRecommendationSeo(
       },
       robots: "index,follow",
     },
+    surface: null,
   };
 }
 
@@ -760,7 +765,10 @@ export function normalizeCareerRecommendationDetail(
       .filter(isCareerRecommendationMatchedGuideApi)
       .map((item) => normalizeMatchedGuide(item, locale))
       .filter((item): item is CareerRecommendationMatchedGuide => item !== null),
-    seo: normalizeCareerRecommendationSeo(raw.seo, locale, listItem.publicRouteSlug, listItem.typeName, heroSummary),
+    seo: {
+      ...normalizeCareerRecommendationSeo(raw.seo, locale, listItem.publicRouteSlug, listItem.typeName, heroSummary),
+      surface: normalizeSeoSurface(raw.seo_surface_v1 ?? null),
+    },
     meta: {
       publicRouteType: normalizeNullableText(raw._meta?.public_route_type),
       routeMode: normalizeNullableText(raw._meta?.route_mode),

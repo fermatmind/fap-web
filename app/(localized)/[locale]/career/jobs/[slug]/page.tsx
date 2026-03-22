@@ -20,6 +20,19 @@ import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
+function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) {
+    return fallbackPath;
+  }
+
+  try {
+    return new URL(normalized).pathname || fallbackPath;
+  } catch {
+    return normalized.startsWith("/") ? normalized : fallbackPath;
+  }
+}
+
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
   return String(robotsValue ?? "")
     .toLowerCase()
@@ -81,28 +94,32 @@ export async function generateMetadata({
   }
 
   const canonicalPath = buildCanonicalPath(job.slug, locale);
-  const title = seo?.meta.title || job.title;
-  const description = seo?.meta.description || job.summary;
+  const seoCanonicalPath = pathFromCanonicalUrl(seo?.surface?.canonicalUrl ?? seo?.meta.canonical, canonicalPath);
+  const title = seo?.surface?.title || seo?.meta.title || job.title;
+  const description = seo?.surface?.description || seo?.meta.description || job.summary;
   const noindex = !job.isIndexable || shouldNoindex(seo?.meta.robots ?? job.seoMeta?.robots);
   const metadata = buildPageMetadata({
     locale,
-    pathname: canonicalPath,
+    pathname: seoCanonicalPath,
     title,
     description,
-    imagePath: seo?.meta.og.image ?? job.coverImageUrl ?? undefined,
-    noindex,
+    imagePath: seo?.surface?.og.image ?? seo?.meta.og.image ?? job.coverImageUrl ?? undefined,
+    seoSurface: seo?.surface,
+    noindex: !seo?.surface ? noindex : undefined,
     alternatesByLocale: {
       en: buildCareerJobFrontendUrl("en", job.slug),
       zh: buildCareerJobFrontendUrl("zh", job.slug),
       xDefault: "/",
     },
   });
+  const canonical = seo?.surface?.canonicalUrl ?? canonicalUrl(canonicalPath);
+  const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? job.coverImageUrl ?? null;
 
   return {
     ...metadata,
     alternates: {
       ...metadata.alternates,
-      canonical: canonicalUrl(canonicalPath),
+      canonical,
       languages: {
         ...metadata.alternates?.languages,
         en: seo?.meta.alternates.en ?? canonicalUrl(buildCareerJobFrontendUrl("en", job.slug)),
@@ -111,25 +128,19 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      url: canonicalUrl(canonicalPath),
-      title: seo?.meta.og.title || title,
-      description: seo?.meta.og.description || description,
-      images: seo?.meta.og.image
-        ? [seo.meta.og.image]
-        : job.coverImageUrl
-          ? [job.coverImageUrl]
-          : undefined,
+      url: seo?.surface?.og.url ?? canonical,
+      title: seo?.surface?.og.title || seo?.meta.og.title || title,
+      description: seo?.surface?.og.description || seo?.meta.og.description || description,
+      images: ogImage ? [ogImage] : undefined,
       locale: locale === "zh" ? "zh_CN" : "en_US",
     },
     twitter: {
-      card: resolveTwitterCard(seo?.meta.twitter.card),
-      title: seo?.meta.twitter.title || title,
-      description: seo?.meta.twitter.description || description,
-      images: seo?.meta.twitter.image
-        ? [seo.meta.twitter.image]
-        : job.coverImageUrl
-          ? [job.coverImageUrl]
-          : undefined,
+      card: resolveTwitterCard(seo?.surface?.twitter.card ?? seo?.meta.twitter.card),
+      title: seo?.surface?.twitter.title || seo?.meta.twitter.title || title,
+      description: seo?.surface?.twitter.description || seo?.meta.twitter.description || description,
+      images: (seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage)
+        ? [seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage]
+        : undefined,
     },
   };
 }

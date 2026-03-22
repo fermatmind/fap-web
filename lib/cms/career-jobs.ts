@@ -1,5 +1,7 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import type { SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
@@ -104,6 +106,7 @@ type CmsCareerJobSeoApiResponse = {
     robots?: string;
   };
   jsonld?: unknown;
+  seo_surface_v1?: SeoSurfaceRaw | null;
 };
 
 export type CareerJobSeoMetaSummary = {
@@ -198,6 +201,7 @@ export type CareerJobSeoViewModel = {
     robots: string;
   };
   jsonld: unknown;
+  surface: SeoSurfaceViewModel | null;
 };
 
 function buildQuery(params: Record<string, string | number | undefined>): string {
@@ -688,6 +692,7 @@ export function adaptCareerJobSeoPayload(
       robots: fallbackText(raw.meta?.robots, "index,follow"),
     },
     jsonld: normalizeCareerJobJsonLd(raw.jsonld ?? null, raw.meta?.canonical, canonicalPath),
+    surface: normalizeSeoSurface(raw.seo_surface_v1 ?? null),
   };
 }
 

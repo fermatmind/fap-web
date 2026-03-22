@@ -65,36 +65,41 @@ export async function generateMetadata({
   const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
-    title: normalizedSeo.meta.title,
-    description: normalizedSeo.meta.description,
-    imagePath: normalizedSeo.meta.og.image ?? undefined,
-    noindex,
+    title: normalizedSeo.surface?.title || normalizedSeo.meta.title,
+    description: normalizedSeo.surface?.description || normalizedSeo.meta.description,
+    imagePath: normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? undefined,
+    seoSurface: normalizedSeo.surface,
+    noindex: !normalizedSeo.surface ? noindex : undefined,
     alternatesByLocale: {
       en: buildTopicFrontendUrl("en", topic.slug),
       zh: buildTopicFrontendUrl("zh", topic.slug),
       xDefault: "/",
     },
   });
+  const canonical = normalizedSeo.surface?.canonicalUrl || canonicalUrl(canonicalPath);
+  const ogImage = normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? null;
 
   return {
     ...metadata,
     alternates: {
       ...metadata.alternates,
-      canonical: canonicalUrl(canonicalPath),
+      canonical,
     },
     openGraph: {
       type: "article",
-      url: canonicalUrl(canonicalPath),
-      title: normalizedSeo.meta.og.title,
-      description: normalizedSeo.meta.og.description,
-      images: normalizedSeo.meta.og.image ? [normalizedSeo.meta.og.image] : undefined,
+      url: normalizedSeo.surface?.og.url || canonical,
+      title: normalizedSeo.surface?.og.title || normalizedSeo.meta.og.title,
+      description: normalizedSeo.surface?.og.description || normalizedSeo.meta.og.description,
+      images: ogImage ? [ogImage] : undefined,
       locale: locale === "zh" ? "zh_CN" : "en_US",
     },
     twitter: {
-      card: resolveTwitterCard(normalizedSeo.meta.twitter.card),
-      title: normalizedSeo.meta.twitter.title,
-      description: normalizedSeo.meta.twitter.description,
-      images: normalizedSeo.meta.twitter.image ? [normalizedSeo.meta.twitter.image] : undefined,
+      card: resolveTwitterCard(normalizedSeo.surface?.twitter.card ?? normalizedSeo.meta.twitter.card),
+      title: normalizedSeo.surface?.twitter.title || normalizedSeo.meta.twitter.title,
+      description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
+      images: (normalizedSeo.surface?.twitter.image ?? normalizedSeo.meta.twitter.image ?? ogImage)
+        ? [normalizedSeo.surface?.twitter.image ?? normalizedSeo.meta.twitter.image ?? ogImage]
+        : undefined,
     },
   };
 }

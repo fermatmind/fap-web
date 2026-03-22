@@ -197,6 +197,7 @@ describe("career jobs cms adapter contract", () => {
     expect(normalized?.meta.canonical).toBe("http://localhost:3000/zh/career/jobs/product-manager");
     expect(normalized?.meta.alternates.en).toBe("http://localhost:3000/en/career/jobs/product-manager");
     expect(normalized?.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/career/jobs/product-manager");
+    expect(normalized?.surface).toBeNull();
     expect((normalized?.jsonld as Record<string, unknown>)["@type"]).toBe("Occupation");
     expect((normalized?.jsonld as Record<string, unknown>).url).toBe("http://localhost:3000/zh/career/jobs/product-manager");
     expect((normalized?.jsonld as Record<string, unknown>).mainEntityOfPage).toBe("http://localhost:3000/zh/career/jobs/product-manager");
@@ -318,6 +319,7 @@ describe("career jobs page authority contract", () => {
 
     expect(listSource).toContain("listCareerJobsFromCms");
     expect(detailSource).toContain("getCareerJobFromCmsBySlug");
+    expect(detailSource).toContain("seoSurface: seo?.surface");
     expect(listSource).not.toContain("career-recommendations");
     expect(detailSource).not.toContain("career-recommendations");
   });

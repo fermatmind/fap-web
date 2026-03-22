@@ -140,35 +140,37 @@ export async function generateMetadata({
   const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
-    title: detail.seo.meta.title,
-    description: detail.seo.meta.description,
-    noindex,
+    title: detail.seo.surface?.title || detail.seo.meta.title,
+    description: detail.seo.surface?.description || detail.seo.meta.description,
+    seoSurface: detail.seo.surface,
+    noindex: !detail.seo.surface ? noindex : undefined,
     alternatesByLocale: {
       en: detail.seo.meta.alternates.en ?? buildCareerRecommendationFrontendUrl("en", detail.publicRouteSlug),
       zh: detail.seo.meta.alternates["zh-CN"] ?? buildCareerRecommendationFrontendUrl("zh", detail.publicRouteSlug),
       xDefault: "/",
     },
   });
+  const canonical = detail.seo.surface?.canonicalUrl ?? detail.seo.meta.canonical ?? canonicalUrl(canonicalPath);
 
   return {
     ...metadata,
     alternates: {
       ...metadata.alternates,
-      canonical: detail.seo.meta.canonical ?? canonicalUrl(canonicalPath),
+      canonical,
     },
     openGraph: {
       type: "article",
-      url: detail.seo.meta.canonical ?? canonicalUrl(canonicalPath),
-      title: detail.seo.meta.og.title,
-      description: detail.seo.meta.og.description,
-      images: detail.seo.meta.og.image ? [detail.seo.meta.og.image] : undefined,
+      url: detail.seo.surface?.og.url ?? canonical,
+      title: detail.seo.surface?.og.title || detail.seo.meta.og.title,
+      description: detail.seo.surface?.og.description || detail.seo.meta.og.description,
+      images: detail.seo.surface?.og.image ? [detail.seo.surface.og.image] : detail.seo.meta.og.image ? [detail.seo.meta.og.image] : undefined,
       locale: locale === "zh" ? "zh_CN" : "en_US",
     },
     twitter: {
-      card: resolveTwitterCard(detail.seo.meta.twitter.card),
-      title: detail.seo.meta.twitter.title,
-      description: detail.seo.meta.twitter.description,
-      images: detail.seo.meta.twitter.image ? [detail.seo.meta.twitter.image] : undefined,
+      card: resolveTwitterCard(detail.seo.surface?.twitter.card ?? detail.seo.meta.twitter.card),
+      title: detail.seo.surface?.twitter.title || detail.seo.meta.twitter.title,
+      description: detail.seo.surface?.twitter.description || detail.seo.meta.twitter.description,
+      images: detail.seo.surface?.twitter.image ? [detail.seo.surface.twitter.image] : detail.seo.meta.twitter.image ? [detail.seo.meta.twitter.image] : undefined,
     },
   };
 }

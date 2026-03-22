@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
+import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
 type BuildPageMetadataInput = {
   locale: "en" | "zh";
@@ -9,6 +10,7 @@ type BuildPageMetadataInput = {
   description: string;
   imagePath?: string;
   noindex?: boolean;
+  seoSurface?: SeoSurfaceViewModel | null;
   alternatesByLocale: {
     en: string;
     zh: string;
@@ -24,18 +26,29 @@ function toAbsoluteUrl(pathname: string): string {
 }
 
 export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
-  const canonical = toAbsoluteUrl(input.pathname);
+  const canonical = toAbsoluteUrl(input.seoSurface?.canonicalUrl || input.pathname);
   const xDefaultPath = input.alternatesByLocale.xDefault ?? "/";
-  const noindex = typeof input.noindex === "boolean" ? input.noindex : shouldNoindex(input.pathname, input.locale);
+  const robotsPolicy = input.seoSurface?.robotsPolicy || "";
+  const noindex =
+    typeof input.noindex === "boolean"
+      ? input.noindex
+      : robotsPolicy
+        ? robotsPolicy.toLowerCase().split(",").map((part) => part.trim()).includes("noindex")
+        : shouldNoindex(input.pathname, input.locale);
+  const title = input.seoSurface?.title || input.title;
+  const description = input.seoSurface?.description || input.description;
+  const alternates = input.seoSurface?.alternates || {};
+  const image = input.seoSurface?.og.image || input.seoSurface?.twitter.image || input.imagePath;
+  const ogType = input.seoSurface?.og.type || "website";
 
   return {
-    title: input.title,
-    description: input.description,
+    title,
+    description,
     alternates: {
       canonical,
       languages: {
-        en: toAbsoluteUrl(input.alternatesByLocale.en),
-        "zh-CN": toAbsoluteUrl(input.alternatesByLocale.zh),
+        en: toAbsoluteUrl(alternates.en || input.alternatesByLocale.en),
+        "zh-CN": toAbsoluteUrl(alternates["zh-CN"] || input.alternatesByLocale.zh),
         "x-default": toAbsoluteUrl(xDefaultPath),
       },
     },
@@ -59,20 +72,20 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
             index: true,
             follow: true,
           },
-        },
+    },
     openGraph: {
-      type: "website",
-      title: input.title,
-      description: input.description,
-      url: canonical,
+      type: ogType === "article" ? "article" : "website",
+      title: input.seoSurface?.og.title || title,
+      description: input.seoSurface?.og.description || description,
+      url: input.seoSurface?.og.url || canonical,
       locale: input.locale === "zh" ? "zh_CN" : "en_US",
-      images: input.imagePath ? [toAbsoluteUrl(input.imagePath)] : undefined,
+      images: image ? [toAbsoluteUrl(image)] : undefined,
     },
     twitter: {
-      card: "summary_large_image",
-      title: input.title,
-      description: input.description,
-      images: input.imagePath ? [toAbsoluteUrl(input.imagePath)] : undefined,
+      card: input.seoSurface?.twitter.card || "summary_large_image",
+      title: input.seoSurface?.twitter.title || title,
+      description: input.seoSurface?.twitter.description || description,
+      images: image ? [toAbsoluteUrl(image)] : undefined,
     },
   };
 }
