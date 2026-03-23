@@ -401,14 +401,6 @@ export default function ResultClient({
           return;
         }
 
-        if (isProjectionLocked(nextAccessView)) {
-          setReportData(null);
-          setResultData(null);
-          setProcessing(false);
-          setError(dict.result.reportUnavailable);
-          return;
-        }
-
         if (isProjectionUnavailable(nextAccessView) || !canEnterReportPage(nextAccessView)) {
           setReportData(null);
           setResultData(null);
