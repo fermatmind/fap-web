@@ -47,7 +47,9 @@ export default async function HelpPage({
   const landingSurface = gatewaySurface?.landingSurface ?? null;
   const pages = listHelpCenterPages(locale);
   const gatewayItems = landingSurface?.discoverabilityItems ?? [];
-  const pagesBySlug = new Map(pages.map((page) => [page.slug, page]));
+  const pagesBySlug = new Map<string, (typeof pages)[number]>(
+    pages.map((page) => [page.slug, page]),
+  );
   const orderedPages = gatewayItems.length > 0
     ? gatewayItems
         .map((item) => pagesBySlug.get(item.key))

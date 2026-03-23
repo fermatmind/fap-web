@@ -3,6 +3,9 @@ import { getSiteUrlOrThrow } from "@/lib/site";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
+export type TwitterImages = NonNullable<NonNullable<Metadata["twitter"]>["images"]>;
+type TwitterImageItem = TwitterImages extends Array<infer Item> ? Item : never;
+
 type BuildPageMetadataInput = {
   locale: "en" | "zh";
   pathname: string;
@@ -25,6 +28,50 @@ function toAbsoluteUrl(pathname: string): string {
   return `${siteUrl}${normalized}`;
 }
 
+export function resolveTwitterCard(
+  value: string | null | undefined,
+): "summary" | "summary_large_image" | "player" | "app" {
+  if (value === "summary" || value === "player" || value === "app") {
+    return value;
+  }
+
+  return "summary_large_image";
+}
+
+function isTwitterImageItem(value: unknown): value is TwitterImageItem {
+  if (typeof value === "string") {
+    return value.trim().length > 0;
+  }
+
+  if (value instanceof URL) {
+    return true;
+  }
+
+  return typeof value === "object" && value !== null;
+}
+
+export function normalizeTwitterImages(...candidates: unknown[]): TwitterImages | undefined {
+  for (const candidate of candidates) {
+    if (!candidate) {
+      continue;
+    }
+
+    if (Array.isArray(candidate)) {
+      const filtered = candidate.filter(isTwitterImageItem);
+      if (filtered.length > 0) {
+        return filtered as TwitterImages;
+      }
+      continue;
+    }
+
+    if (isTwitterImageItem(candidate)) {
+      return [candidate] as TwitterImages;
+    }
+  }
+
+  return undefined;
+}
+
 export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
   const canonical = toAbsoluteUrl(input.seoSurface?.canonicalUrl || input.pathname);
   const xDefaultPath = input.alternatesByLocale.xDefault ?? "/";
@@ -40,6 +87,10 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
   const alternates = input.seoSurface?.alternates || {};
   const image = input.seoSurface?.og.image || input.seoSurface?.twitter.image || input.imagePath;
   const ogType = input.seoSurface?.og.type || "website";
+  const twitterImages = normalizeTwitterImages(
+    input.seoSurface?.twitter?.image,
+    image ? toAbsoluteUrl(image) : undefined,
+  );
 
   return {
     title,
@@ -82,10 +133,10 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
       images: image ? [toAbsoluteUrl(image)] : undefined,
     },
     twitter: {
-      card: input.seoSurface?.twitter.card || "summary_large_image",
+      card: resolveTwitterCard(input.seoSurface?.twitter?.card),
       title: input.seoSurface?.twitter.title || title,
       description: input.seoSurface?.twitter.description || description,
-      images: image ? [toAbsoluteUrl(image)] : undefined,
+      images: twitterImages,
     },
   };
 }

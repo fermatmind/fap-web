@@ -20,7 +20,7 @@ import { extractPersonalityFaqItems, renderPersonalitySections, renderProjection
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -32,14 +32,6 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .split(",")
     .map((part) => part.trim())
     .includes("noindex");
-}
-
-function resolveTwitterCard(value: string | null | undefined): "summary" | "summary_large_image" | "player" | "app" {
-  if (value === "summary" || value === "player" || value === "app") {
-    return value;
-  }
-
-  return "summary_large_image";
 }
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
@@ -221,6 +213,12 @@ export async function generateMetadata({
   });
   const canonical = normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical ?? canonicalUrl(canonicalPath);
   const ogImage = normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? null;
+  const twitterImages = normalizeTwitterImages(
+    normalizedSeo.surface?.twitter.image,
+    normalizedSeo.meta.twitter.image,
+    ogImage,
+    metadata.twitter?.images,
+  );
 
   return {
     ...metadata,
@@ -240,9 +238,7 @@ export async function generateMetadata({
       card: resolveTwitterCard(normalizedSeo.surface?.twitter.card ?? normalizedSeo.meta.twitter.card),
       title: normalizedSeo.surface?.twitter.title || normalizedSeo.meta.twitter.title,
       description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
-      images: (normalizedSeo.surface?.twitter.image ?? normalizedSeo.meta.twitter.image ?? ogImage)
-        ? [normalizedSeo.surface?.twitter.image ?? normalizedSeo.meta.twitter.image ?? ogImage]
-        : undefined,
+      images: twitterImages,
     },
   };
 }

@@ -16,7 +16,7 @@ import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -40,14 +40,6 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .split(",")
     .map((part) => part.trim())
     .includes("noindex");
-}
-
-function resolveTwitterCard(value: string | null | undefined): "summary" | "summary_large_image" | "player" | "app" {
-  if (value === "summary" || value === "player" || value === "app") {
-    return value;
-  }
-
-  return "summary_large_image";
 }
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
@@ -115,6 +107,12 @@ export async function generateMetadata({
   });
   const canonical = seo?.surface?.canonicalUrl ?? canonicalUrl(canonicalPath);
   const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? job.coverImageUrl ?? null;
+  const twitterImages = normalizeTwitterImages(
+    seo?.surface?.twitter.image,
+    seo?.meta.twitter.image,
+    ogImage,
+    metadata.twitter?.images,
+  );
 
   return {
     ...metadata,
@@ -139,9 +137,7 @@ export async function generateMetadata({
       card: resolveTwitterCard(seo?.surface?.twitter.card ?? seo?.meta.twitter.card),
       title: seo?.surface?.twitter.title || seo?.meta.twitter.title || title,
       description: seo?.surface?.twitter.description || seo?.meta.twitter.description || description,
-      images: (seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage)
-        ? [seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage]
-        : undefined,
+      images: twitterImages,
     },
   };
 }

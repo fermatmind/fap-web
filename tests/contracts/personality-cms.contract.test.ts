@@ -393,6 +393,7 @@ describe("personality cms adapter contract", () => {
   it("normalizes canonical and jsonld urls to locale-aware frontend personality urls", () => {
     const normalized = normalizePersonalitySeoPayload(
       {
+        surface: null,
         meta: {
           title: "INTJ Personality Type",
           description: "Explore INTJ traits.",
@@ -463,6 +464,7 @@ describe("personality cms adapter contract", () => {
   it("converts stale person-shaped jsonld into an about page with locale-aware mainEntityOfPage", () => {
     const normalized = normalizePersonalitySeoPayload(
       {
+        surface: null,
         meta: {
           title: "INTJ Personality Guide",
           description: "Discover INTJ traits.",

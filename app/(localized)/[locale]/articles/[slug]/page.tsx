@@ -18,7 +18,7 @@ import {
   buildArticleJsonLd,
   buildBreadcrumbJsonLd,
 } from "@/lib/seo/generateSchema";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
 
@@ -64,14 +64,6 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .includes("noindex");
 }
 
-function resolveTwitterCard(value: string | null | undefined): "summary" | "summary_large_image" | "player" | "app" {
-  if (value === "summary" || value === "player" || value === "app") {
-    return value;
-  }
-
-  return "summary_large_image";
-}
-
 function renderArticleBody(article: CmsArticle) {
   if (article.contentHtml.trim()) {
     return <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />;
@@ -113,6 +105,7 @@ export async function generateMetadata({
   const title = seo?.surface?.title || seo?.meta.title || article.title;
   const description = seo?.surface?.description || seo?.meta.description || article.excerpt;
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
+
   const metadata = buildPageMetadata({
     locale,
     pathname: seoCanonicalPath,
@@ -127,8 +120,16 @@ export async function generateMetadata({
       xDefault: "/",
     },
   });
+
   const canonical = seo?.surface?.canonicalUrl ?? seo?.meta.canonical ?? String(metadata.alternates?.canonical ?? "");
   const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? article.coverImageUrl ?? null;
+
+  const twitterImages = normalizeTwitterImages(
+    seo?.surface?.twitter.image,
+    seo?.meta.twitter.image,
+    ogImage,
+    metadata.twitter?.images,
+  );
 
   return {
     ...metadata,
@@ -150,12 +151,11 @@ export async function generateMetadata({
       locale: locale === "zh" ? "zh_CN" : "en_US",
     },
     twitter: {
+      ...metadata.twitter,
       card: resolveTwitterCard(seo?.surface?.twitter.card ?? seo?.meta.twitter.card),
       title: seo?.surface?.twitter.title || seo?.meta.twitter.title || title,
       description: seo?.surface?.twitter.description || seo?.meta.twitter.description || description,
-      images: (seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage)
-        ? [seo?.surface?.twitter.image ?? seo?.meta.twitter.image ?? ogImage]
-        : metadata.twitter?.images,
+      images: twitterImages,
     },
   };
 }
@@ -189,11 +189,13 @@ export default async function ArticleDetailPage({
       dateModified: article.updatedAt ?? article.publishedAt ?? article.createdAt ?? new Date().toISOString(),
       authorName: "FermatMind Editorial",
     });
+
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
     { name: article.title, path: canonicalPath },
   ]);
+
   const publishedAt = formatArticleDate(article.publishedAt, locale);
   const updatedAt = formatArticleDate(article.updatedAt, locale);
   const heroSummary = article.landingSurface?.summaryBlocks[0]?.body || article.excerpt;
@@ -201,9 +203,11 @@ export default async function ArticleDetailPage({
     article.category?.name ?? null,
     ...article.tags.map((tag) => tag.name).filter(Boolean),
   ].slice(0, 5);
+
   const backToArticlesCta = findLandingCta(article.landingSurface, "back_to_articles");
   const topicHubCta = findLandingCta(article.landingSurface, "topic_hub");
   const startTestCta = findLandingCta(article.landingSurface, "start_test");
+
   const relatedArticles: RelatedContentItem[] = [];
   const relatedCareerGuides: RelatedContentItem[] = [];
   const relatedTypes: RelatedContentItem[] = [];
@@ -212,6 +216,7 @@ export default async function ArticleDetailPage({
     <Container as="main" className="space-y-6 py-10">
       <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} />
       <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
+
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -219,7 +224,11 @@ export default async function ArticleDetailPage({
           { label: article.title },
         ]}
       />
-      <section id="what-it-is" className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+
+      <section
+        id="what-it-is"
+        className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      >
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {dict.articles.kicker}
         </p>
@@ -246,6 +255,7 @@ export default async function ArticleDetailPage({
             ) : null}
           </div>
         </CardHeader>
+
         <CardContent className="space-y-4">
           {badgeLabels.length > 0 ? (
             <div className="flex flex-wrap gap-2">
@@ -254,6 +264,7 @@ export default async function ArticleDetailPage({
               ))}
             </div>
           ) : null}
+
           <article
             id="how-it-works"
             data-testid="article-detail-content"
@@ -261,12 +272,20 @@ export default async function ArticleDetailPage({
           >
             {renderArticleBody(article)}
           </article>
-          <section id="limitations" className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]">
+
+          <section
+            id="limitations"
+            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]"
+          >
             {locale === "zh"
               ? "本内容用于自我认知与教育参考，不构成医疗或法律建议。"
               : "This content is for self-discovery and educational use, not medical or legal advice."}
           </section>
-          <section id="references" className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]">
+
+          <section
+            id="references"
+            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]"
+          >
             <h2 className="m-0 text-base font-semibold text-[var(--fm-text)]">
               {locale === "zh" ? "参考资料" : "References"}
             </h2>
@@ -276,6 +295,7 @@ export default async function ArticleDetailPage({
                 : "Please refer to citations and public references listed in the article."}
             </p>
           </section>
+
           <div className="flex flex-wrap gap-3">
             <Link
               href={backToArticlesCta?.href ?? localizedPath("/articles", locale)}
@@ -283,6 +303,7 @@ export default async function ArticleDetailPage({
             >
               {backToArticlesCta?.label || dict.articles.backToArticles}
             </Link>
+
             {topicHubCta ? (
               <Link
                 href={topicHubCta.href}
@@ -291,6 +312,7 @@ export default async function ArticleDetailPage({
                 {topicHubCta.label}
               </Link>
             ) : null}
+
             {startTestCta ? (
               <Link
                 href={startTestCta.href}
