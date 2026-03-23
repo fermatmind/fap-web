@@ -234,6 +234,7 @@ describe("topics cms helpers", () => {
 
     const seo = normalizeTopicSeoPayload(
       {
+        surface: null,
         meta: {
           title: "MBTI Guide and Type Hub | FermatMind",
           description: "Explore MBTI concepts, type profiles, guides, and tests.",

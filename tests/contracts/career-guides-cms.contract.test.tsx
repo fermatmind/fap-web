@@ -239,6 +239,7 @@ describe("career guides cms adapter contract", () => {
 
     const normalized = normalizeCareerGuideSeoPayload(
       {
+        surface: null,
         meta: {
           title: "From MBTI to Job Fit | FermatMind",
           description: "Translate personality insights into practical career decisions.",
