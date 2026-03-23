@@ -38,6 +38,7 @@ const hoisted = vi.hoisted(() => ({
   fetchAttemptReportAccess: vi.fn(),
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
+  ensureFmTokenReady: vi.fn(),
   trackEvent: vi.fn(),
   captureError: vi.fn(),
   classifyApiError: vi.fn(() => ({
@@ -105,6 +106,7 @@ vi.mock("@/lib/analytics", () => ({
 }));
 
 vi.mock("@/lib/auth/authRetry", () => ({
+  ensureFmTokenReady: hoisted.ensureFmTokenReady,
   runWithGuestTokenRetry: async ({ runner }: { runner: () => Promise<unknown> }) => runner(),
 }));
 
@@ -172,6 +174,7 @@ vi.mock("@/lib/observability/sentry", () => ({
 describe("ResultClient view-state contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.ensureFmTokenReady.mockResolvedValue("issued");
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
   });
@@ -221,6 +224,10 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
+    });
+    expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
+      anonId: "anon_result_test",
+      locale: "en",
     });
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
       attemptId: "attempt-123",
@@ -290,7 +297,7 @@ describe("ResultClient view-state contract", () => {
       attemptId: "attempt-123",
       anonId: "anon_result_test",
     });
-    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:0");
+    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:5");
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
 
@@ -310,7 +317,7 @@ describe("ResultClient view-state contract", () => {
       attemptId: "attempt-123",
       anonId: "anon_result_test",
     });
-    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:0");
+    expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:5");
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
 });
