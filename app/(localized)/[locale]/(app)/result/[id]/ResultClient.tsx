@@ -29,10 +29,10 @@ import {
   type ReportResponse,
   type ResultResponse,
 } from "@/lib/api/v0_3";
-import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
+import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import { isGuestTokenRequestError } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname } from "@/lib/i18n/locales";
+import { getLocaleFromPathname, type Locale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
@@ -47,7 +47,47 @@ type ResultDimension = {
   score?: number;
   percent?: number;
   value?: number;
+  leftLabel?: string;
+  rightLabel?: string;
+  winnerLabel?: string;
 };
+
+const MBTI_DIMENSION_META: Record<
+  string,
+  {
+    label: { en: string; zh: string };
+    left: { en: string; zh: string };
+    right: { en: string; zh: string };
+  }
+> = {
+  EI: {
+    label: { en: "E / I", zh: "E / I" },
+    left: { en: "Extraversion", zh: "外向 E" },
+    right: { en: "Introversion", zh: "内向 I" },
+  },
+  SN: {
+    label: { en: "S / N", zh: "S / N" },
+    left: { en: "Sensing", zh: "实感 S" },
+    right: { en: "Intuition", zh: "直觉 N" },
+  },
+  TF: {
+    label: { en: "T / F", zh: "T / F" },
+    left: { en: "Thinking", zh: "理性 T" },
+    right: { en: "Feeling", zh: "情感 F" },
+  },
+  JP: {
+    label: { en: "J / P", zh: "J / P" },
+    left: { en: "Judging", zh: "判断 J" },
+    right: { en: "Perceiving", zh: "知觉 P" },
+  },
+  AT: {
+    label: { en: "A / T", zh: "A / T" },
+    left: { en: "Assertive", zh: "自信 A" },
+    right: { en: "Turbulent", zh: "敏感 T" },
+  },
+};
+
+const RESULT_DIMENSION_ORDER = ["EI", "SN", "TF", "JP", "AT"] as const;
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -66,6 +106,18 @@ function normalizeText(...values: unknown[]): string {
   }
 
   return "";
+}
+
+function normalizeNumber(value: unknown): number | null {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    return null;
+  }
+
+  if (value >= 0 && value <= 1) {
+    return value * 100;
+  }
+
+  return Math.max(0, Math.min(100, value));
 }
 
 function resolveRetryMs(retryAfterSeconds: number | undefined): number {
@@ -110,12 +162,87 @@ function hasReadyResultPayload(result: ResultResponse | null): result is ResultR
   return Boolean(result?.result && typeof result.result === "object");
 }
 
-function normalizeDimensions(result: NonNullable<ResultResponse["result"]>): ResultDimension[] {
+function normalizeLegacyDimensions(result: NonNullable<ResultResponse["result"]>): ResultDimension[] {
   if (!Array.isArray(result.dimensions)) return [];
 
   return result.dimensions
     .filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object"))
     .map((item) => item as ResultDimension);
+}
+
+function normalizeDimensionsFromScoreMap(
+  scores: Record<string, unknown>,
+  locale: Locale
+): ResultDimension[] {
+  return Object.entries(scores)
+    .map<ResultDimension | null>(([key, value]) => {
+      const percent = normalizeNumber(value);
+      if (percent === null) {
+        return null;
+      }
+
+      const meta = MBTI_DIMENSION_META[key];
+      if (!meta) {
+        return {
+          code: key,
+          label: key,
+          percent,
+        };
+      }
+
+      const winner = percent >= 50 ? meta.left[locale] : meta.right[locale];
+
+      return {
+        code: key,
+        label: meta.label[locale],
+        percent,
+        leftLabel: meta.left[locale],
+        rightLabel: meta.right[locale],
+        winnerLabel:
+          locale === "zh"
+            ? `当前更偏向 ${winner}`
+            : `Currently leaning toward ${winner}`,
+      };
+    })
+    .filter((item): item is ResultDimension => item !== null)
+    .sort((left, right) => {
+      const leftIndex = RESULT_DIMENSION_ORDER.indexOf((left.code ?? left.key ?? "") as (typeof RESULT_DIMENSION_ORDER)[number]);
+      const rightIndex = RESULT_DIMENSION_ORDER.indexOf(
+        (right.code ?? right.key ?? "") as (typeof RESULT_DIMENSION_ORDER)[number]
+      );
+
+      const normalizedLeft = leftIndex === -1 ? Number.MAX_SAFE_INTEGER : leftIndex;
+      const normalizedRight = rightIndex === -1 ? Number.MAX_SAFE_INTEGER : rightIndex;
+
+      return normalizedLeft - normalizedRight;
+    });
+}
+
+function normalizeDimensions(
+  response: ResultResponse & {
+    result: NonNullable<ResultResponse["result"]>;
+  },
+  locale: Locale
+): ResultDimension[] {
+  const legacyDimensions = normalizeLegacyDimensions(response.result);
+  if (legacyDimensions.length > 0) {
+    return legacyDimensions;
+  }
+
+  const responseRecord = asRecord(response);
+  const resultRecord = asRecord(response.result);
+  const breakdown = asRecord(resultRecord?.breakdown_json);
+  const axisScores = asRecord(resultRecord?.axis_scores_json);
+  const scoreMap =
+    asRecord(responseRecord?.scores_pct) ??
+    asRecord(breakdown?.dimensions) ??
+    asRecord(axisScores?.scores_pct);
+
+  if (!scoreMap) {
+    return [];
+  }
+
+  return normalizeDimensionsFromScoreMap(scoreMap, locale);
 }
 
 function resolveGuestTokenTelemetry(error: unknown): {
@@ -234,6 +361,24 @@ export default function ResultClient({
     const load = async (attempt = 0) => {
       if (attempt === 0) {
         setLoading(true);
+
+        try {
+          await ensureFmTokenReady({
+            anonId,
+            locale,
+          });
+        } catch (guestTokenError) {
+          const telemetry = resolveGuestTokenTelemetry(guestTokenError);
+          trackEvent("auth_guest_token_failure", {
+            scale_code: routeScaleCodeRef.current,
+            stage: "result_bootstrap",
+            status_code: telemetry.statusCode,
+            error_code: telemetry.errorCode,
+            request_id: telemetry.requestId,
+            route: "/result/[id]",
+            locale,
+          });
+        }
       }
       setError(null);
 
@@ -384,9 +529,15 @@ export default function ResultClient({
   }
 
   const result = resultData.result;
-  const typeCode = typeof result.type_code === "string" ? result.type_code : undefined;
+  const responseRecord = asRecord(resultData);
+  const typeCode =
+    typeof result.type_code === "string"
+      ? result.type_code
+      : typeof responseRecord?.type_code === "string"
+        ? responseRecord.type_code
+        : undefined;
   const summary = typeof result.summary === "string" ? result.summary : undefined;
-  const dimensions = normalizeDimensions(result);
+  const dimensions = normalizeDimensions(resultData, locale);
 
   return (
     <div className="space-y-[var(--fm-gap-md)]">
