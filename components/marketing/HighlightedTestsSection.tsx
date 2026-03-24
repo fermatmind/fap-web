@@ -55,12 +55,12 @@ function PathActionLinks({
   const withLocale = (path: string) => toLocalePath(path, locale);
 
   return (
-    <div className={`mt-4 flex flex-wrap gap-2 ${className ?? ""}`}>
+    <div className={`mt-3 flex flex-wrap gap-2 ${className ?? ""}`}>
       <Link
         href={withLocale(`/tests/${item.slug}/take`)}
         className={buttonVariants({
           size: "sm",
-          className: compact ? "h-auto min-h-[40px] px-3 text-xs" : "h-auto min-h-[44px]",
+          className: compact ? "h-auto min-h-[40px] px-3 text-xs" : "h-auto min-h-[40px]",
         })}
       >
         {item.primaryCta}
@@ -70,7 +70,7 @@ function PathActionLinks({
         className={buttonVariants({
           size: "sm",
           variant: compact ? "ghost" : "outline",
-          className: compact ? "h-auto min-h-[40px] px-3 text-xs" : "h-auto min-h-[44px] border-slate-300",
+          className: compact ? "h-auto min-h-[40px] px-3 text-xs" : "h-auto min-h-[40px] border-slate-300",
         })}
       >
         {item.secondaryCta}
@@ -152,16 +152,16 @@ export function HighlightedTestsSection({ locale, content, routes }: Highlighted
     <section
       id="home-highlighted-tests-section"
       data-testid="home-highlighted-tests-section"
-      className="py-[clamp(56px,8vw,96px)]"
+      className="fm-home-section-shell"
     >
-      <Container className="space-y-[var(--fm-space-8)]">
-        <div className="max-w-3xl space-y-2">
+      <Container className="max-w-[1200px] space-y-6">
+        <header className="max-w-3xl space-y-2">
           <p className="fm-home-section-kicker">{content.paths.recommendationTitle}</p>
           <h2 className="m-0 text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
             {content.paths.title}
           </h2>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{content.paths.supporting}</p>
-        </div>
+        </header>
 
         <div className="fm-home-path-tabs">
           {(Object.entries(content.paths.cards) as Array<[HomePathId, (typeof content.paths.cards)[HomePathId]]>).map(
@@ -195,7 +195,7 @@ export function HighlightedTestsSection({ locale, content, routes }: Highlighted
             {pathCard?.title}
           </p>
 
-          <div className="mt-4 grid gap-4 lg:grid-cols-[1.28fr_0.72fr]">
+          <div className="mt-4 grid gap-4 lg:grid-cols-[8fr_4fr]">
             <article className="fm-home-featured-test-card">
               <div className="space-y-2">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.13em] text-[var(--fm-text-muted)]">
@@ -204,15 +204,15 @@ export function HighlightedTestsSection({ locale, content, routes }: Highlighted
                 <h4 className="m-0 text-2xl font-semibold text-[var(--fm-text)]">{featuredTest?.name}</h4>
                 <p className="m-0 text-sm leading-6 text-[var(--fm-text-muted)]">{featuredTest?.desc}</p>
 
-                  <div className="mt-3 grid gap-2 rounded-2xl border border-[var(--fm-border)] bg-slate-50/50 px-3 py-2 text-xs text-[var(--fm-text-muted)]">
-                    <div className="flex items-center justify-between">
-                      <span>{locale === "zh" ? "预计时长" : "Estimated time"}</span>
-                      <span className="font-semibold text-[var(--fm-text)]">
-                        {featuredTest?.duration ?? (featuredTest ? testDurationLookup[featuredTest.id] : "")}
-                      </span>
-                    </div>
-                    <p>
-                      {microPathPreview[0]?.label}：{microPathPreview[0]?.value}
+                <div className="mt-3 grid gap-2 rounded-2xl border border-[var(--fm-border)] bg-slate-50/50 px-3 py-2 text-xs text-[var(--fm-text-muted)]">
+                  <div className="flex items-center justify-between">
+                    <span>{locale === "zh" ? "预计时长" : "Estimated time"}</span>
+                    <span className="font-semibold text-[var(--fm-text)]">
+                      {featuredTest?.duration ?? (featuredTest ? testDurationLookup[featuredTest.id] : "")}
+                    </span>
+                  </div>
+                  <p>
+                    {microPathPreview[0]?.label}：{microPathPreview[0]?.value}
                   </p>
                   <p>
                     {microPathPreview[1]?.label}：{microPathPreview[1]?.value}
@@ -259,7 +259,10 @@ export function HighlightedTestsSection({ locale, content, routes }: Highlighted
         <section aria-labelledby="home-all-tests-quick-browse" className="space-y-4">
           <div className="space-y-2">
             <p className="fm-home-section-kicker">{content.paths.allTestsHeading}</p>
-            <h3 id="home-all-tests-quick-browse" className="m-0 text-2xl font-semibold text-[var(--fm-text)]">
+            <h3
+              id="home-all-tests-quick-browse"
+              className="m-0 text-xl font-semibold text-[var(--fm-text)] md:text-2xl"
+            >
               {quickBrowseTitle}
             </h3>
             <p className="m-0 text-sm text-[var(--fm-text-muted)]">{quickBrowseSupporting}</p>
@@ -285,7 +288,7 @@ export function HighlightedTestsSection({ locale, content, routes }: Highlighted
             })}
           </div>
 
-          <div className="fm-home-all-tests-grid">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {visibleTests.map((item) => (
               <article
                 key={item.slug}

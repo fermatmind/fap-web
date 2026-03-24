@@ -88,7 +88,7 @@ export function HeroSection({ locale, content, routes, pathRecommendations, test
       <div aria-hidden className="fm-home-hero-backdrop" />
       <div aria-hidden className="fm-home-hero-beam" />
 
-      <Container className="fm-home-hero-copy-grid relative z-10">
+      <Container className="fm-home-hero-copy-grid relative z-10 max-w-[1200px]">
         <div className="space-y-[var(--fm-space-6)]">
           <p className="fm-home-section-kicker">{content.eyebrow}</p>
           <h1 className="fm-home-hero-title fm-home-hero-title-landing">{content.title}</h1>

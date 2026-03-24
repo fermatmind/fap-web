@@ -18,8 +18,8 @@ export function ReportPreviewSection({ locale, content, routes }: ReportPreviewS
   };
 
   return (
-    <section className="py-[clamp(56px,8vw,112px)]" data-testid="home-report-preview-section">
-      <Container className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+    <section className="fm-home-section-shell" data-testid="home-report-preview-section">
+      <Container className="max-w-[1200px] grid gap-8 md:gap-10 lg:grid-cols-2 lg:items-start">
         <article className="fm-home-report-mockup">
           <div className="fm-home-report-mockup-head">
             <span>{content.mockup.summaryTitle}</span>
@@ -82,7 +82,7 @@ export function ReportPreviewSection({ locale, content, routes }: ReportPreviewS
         </article>
 
         <div className="space-y-4">
-          <h2 className="m-0 font-serif text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
+          <h2 className="m-0 text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
             {content.title}
           </h2>
           <p className="m-0 text-base leading-8 text-[var(--fm-text-muted)]">{content.supporting}</p>
