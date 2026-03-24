@@ -5,7 +5,6 @@ import { SocialProofSection } from "@/components/marketing/SocialProofSection";
 import { ValuePropsSection } from "@/components/marketing/ValuePropsSection";
 import { ReportPreviewSection } from "@/components/marketing/ReportPreviewSection";
 import { KnowledgeMethodsSection } from "@/components/marketing/KnowledgeMethodsSection";
-import { FaqSection } from "@/components/marketing/FaqSection";
 import { FinalCtaSection } from "@/components/marketing/FinalCtaSection";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -59,15 +58,19 @@ export default async function Home({
         testCatalog={content.testCatalog}
       />
       <HighlightedTestsSection locale={locale} content={content} routes={content.routes} />
-      <ValuePropsSection content={content.valueProps} />
       <ReportPreviewSection locale={locale} content={content.reportPreview} routes={content.routes} />
+      <ValuePropsSection content={content.valueProps} />
       <SocialProofSection
         locale={locale}
         content={content.socialProof}
         routes={{ articles: content.routes.articles }}
       />
-      <KnowledgeMethodsSection locale={locale} content={content.knowledge} routes={content.routes} />
-      <FaqSection locale={locale} content={content.faq} routes={content.routes} />
+      <KnowledgeMethodsSection
+        locale={locale}
+        content={content.knowledge}
+        faq={content.faq}
+        routes={content.routes}
+      />
       <FinalCtaSection
         locale={locale}
         content={content.finalCta}

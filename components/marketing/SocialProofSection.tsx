@@ -15,9 +15,9 @@ export function SocialProofSection({ locale, content, routes }: SocialProofSecti
   const testimonialCards = content.testimonials ?? [];
 
   return (
-    <section data-testid="home-social-proof-section" className="fm-home-social-proof py-[var(--fm-section-y-lg)]">
-      <Container className="space-y-[var(--fm-space-8)]">
-        <div className="space-y-2 md:text-left">
+    <section data-testid="home-social-proof-section" className="fm-home-section-shell fm-home-section-band">
+      <Container className="max-w-[1200px] space-y-6">
+        <div className="max-w-3xl space-y-2">
           <p className="fm-home-section-kicker">{content.useCasesTitle}</p>
           <h2 className="m-0 text-3xl font-semibold text-[var(--fm-trust-blue-strong)] md:text-4xl">
             {content.title}
@@ -26,11 +26,11 @@ export function SocialProofSection({ locale, content, routes }: SocialProofSecti
         </div>
 
         <section aria-labelledby="home-use-cases" className="space-y-4">
-          <h3 id="home-use-cases" className="m-0 text-xl font-semibold text-[var(--fm-text)]">
+          <p className="m-0 text-base font-semibold text-[var(--fm-text)]">
             {content.useCasesTitle}
-          </h3>
+          </p>
           <p className="m-0 max-w-3xl text-sm text-[var(--fm-text-muted)]">{content.useCasesSupporting}</p>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {content.useCaseCards.map((item) => (
               <article key={item.title} className="fm-home-compact-card">
                 <h4 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.title}</h4>
@@ -40,7 +40,7 @@ export function SocialProofSection({ locale, content, routes }: SocialProofSecti
           </div>
         </section>
 
-        <section aria-labelledby="home-rating-testimonials" className="grid gap-4 lg:grid-cols-[0.45fr_1fr]">
+        <section aria-labelledby="home-rating-testimonials" className="grid gap-4 lg:grid-cols-[4fr_6fr]">
           <article className="fm-home-rating-card">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
               {content.ratingTitle}
@@ -49,13 +49,13 @@ export function SocialProofSection({ locale, content, routes }: SocialProofSecti
             <p className="mt-2 text-sm text-[var(--fm-text-muted)]">{content.ratingBody}</p>
             <Link
               href={withLocale(routes.articles)}
-              className={buttonVariants({ size: "sm", className: "mt-4 h-auto min-h-[44px]" })}
+              className={buttonVariants({ size: "sm", className: "mt-4 h-auto min-h-[40px]" })}
             >
               {content.articlesCta}
             </Link>
           </article>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             {testimonialCards.map((item: TestimonialCard) => (
               <article key={item.id} className="fm-home-quote-card">
                 <p className="fm-home-quote">{item.quote}</p>
