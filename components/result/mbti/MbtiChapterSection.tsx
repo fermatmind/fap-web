@@ -4,6 +4,7 @@ import { type ReactNode, useEffect, useRef } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { DimensionBars } from "@/components/result/DimensionBars";
 import { trackEvent } from "@/lib/analytics";
 import type { ReportIdentityLayer } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
