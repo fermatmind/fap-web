@@ -155,6 +155,7 @@ export type SocialProofContent = {
 };
 
 export type KnowledgeCard = {
+  label: string;
   title: string;
   body: string;
   cta: string;
@@ -413,9 +414,9 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         articlesCta: "查看全部文章",
         useCasesTitle: "谁在使用 Fermat",
         useCasesSupporting: "不是只做一次测试，而是把结果带进讨论、辅导与决策。",
-        useCaseCards: [
+      useCaseCards: [
           { title: "个人探索", body: "认识自己、做决定、做复盘。" },
-          { title: "教练 / 导师", body: "快速建立共同语言，把 trait breakdown 变成下一步讨论。" },
+          { title: "教练 / 导师", body: "快速建立共同语言，把特质结果转成下一步讨论。" },
           { title: "团队 / People Ops", body: "用于沟通复盘、角色理解与协作反馈。" },
           { title: "企业 / 组织", body: "用于培训、团队对话与人才发展场景入口。" },
         ],
@@ -455,18 +456,21 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
       supporting: "不只是做测试，也要读懂测试。",
       cards: [
         {
+          label: "工具说明",
           title: "工具说明",
           body: "这份测评测什么，不测什么。",
           cta: "查看帮助中心",
           routeKey: "help",
         },
         {
+          label: "成长引导",
           title: "成长引导",
           body: "如何把结果变成下一步，而不只停在‘知道了’。",
           cta: "浏览全部文章",
           routeKey: "articles",
         },
         {
+          label: "MBTI Basics",
           title: "MBTI Basics",
           body: "给第一次接触人格测评的人，一份更稳妥的起点。",
           cta: "阅读 MBTI Basics",
@@ -801,18 +805,21 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
       supporting: "Taking a test is only part of the experience. Understanding it matters too.",
       cards: [
         {
+          label: "How it works",
           title: "How the tool works",
           body: "What the assessment is designed to measure — and what it is not.",
           cta: "Visit Help Center",
           routeKey: "help",
         },
         {
+          label: "Growth guidance",
           title: "Growth guidance",
           body: "How to turn the result into a next step instead of stopping at now I know.",
           cta: "Browse all articles",
           routeKey: "articles",
         },
         {
+          label: "MBTI Basics",
           title: "MBTI Basics",
           body: "A steadier starting point for people new to personality assessments.",
           cta: "Read MBTI Basics",

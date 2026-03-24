@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Container } from "@/components/layout/Container";
 import { HeroSection } from "@/components/marketing/HeroSection";
 import { HighlightedTestsSection } from "@/components/marketing/HighlightedTestsSection";
 import { SocialProofSection } from "@/components/marketing/SocialProofSection";
@@ -57,14 +58,18 @@ export default async function Home({
         pathRecommendations={content.pathRecommendations}
         testCatalog={content.testCatalog}
       />
-      <HighlightedTestsSection locale={locale} content={content} routes={content.routes} />
+      <HighlightedTestsSection locale={locale} content={content} />
       <ReportPreviewSection locale={locale} content={content.reportPreview} routes={content.routes} />
-      <ValuePropsSection content={content.valueProps} />
-      <SocialProofSection
-        locale={locale}
-        content={content.socialProof}
-        routes={{ articles: content.routes.articles }}
-      />
+      <section className="fm-home-section-shell" data-testid="home-proof-section">
+        <Container className="max-w-[1200px] space-y-8">
+          <ValuePropsSection content={content.valueProps} />
+          <SocialProofSection
+            locale={locale}
+            content={content.socialProof}
+            routes={{ articles: content.routes.articles }}
+          />
+        </Container>
+      </section>
       <KnowledgeMethodsSection
         locale={locale}
         content={content.knowledge}

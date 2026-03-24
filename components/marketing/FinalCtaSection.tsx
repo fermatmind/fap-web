@@ -15,14 +15,14 @@ export function FinalCtaSection({ locale, content, routes }: FinalCtaSectionProp
   const kicker = locale === "zh" ? "一键开始" : "Start with confidence";
 
   return (
-    <section className="fm-home-section-shell" data-testid="home-final-cta-section">
+    <section className="fm-home-section-shell fm-home-final-cta-band" data-testid="home-final-cta-section">
       <Container className="max-w-[1200px]">
         <div className="fm-home-final-cta">
           <p className="fm-home-section-kicker">{kicker}</p>
           <h2 className="m-0 text-3xl font-semibold tracking-tight text-white md:text-4xl">
             {content.title}
           </h2>
-          <p className="mt-3 text-sm leading-8 text-[#cce0ff]">{content.supporting}</p>
+          <p className="mt-3 text-sm leading-7 text-[#cce0ff]">{content.supporting}</p>
 
           <div className="mt-3 flex flex-wrap gap-3">
             <Link
