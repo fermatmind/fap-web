@@ -28,6 +28,9 @@ export function SiteHeader() {
   const locale = useLocale();
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
+  const shouldRenderCompletedMetric =
+    !isHomeRoute || (typeof LIVE_COMPLETED_COUNT === "number" && LIVE_COMPLETED_COUNT > 0);
   const targetLocale = locale === "zh" ? "en" : "zh";
   const localeBasePath = toggleLocalePath(pathname, targetLocale);
   const localeQuery = searchParams.toString();
@@ -122,11 +125,16 @@ export function SiteHeader() {
             <Link href={withLocale("/")} className="font-serif text-xl font-semibold tracking-tight text-white">
               {dict.header.brand}
             </Link>
-            <p data-visual-volatile="true" className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-blue-100">
-              <span>{dict.header.completedPrefix}</span>
-              <AnimatedCounter value={LIVE_COMPLETED_COUNT} className="font-semibold tracking-wide text-white" />
-              <span>{dict.header.completedSuffix}</span>
-            </p>
+            {shouldRenderCompletedMetric ? (
+              <p
+                data-visual-volatile="true"
+                className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-blue-100"
+              >
+                <span>{dict.header.completedPrefix}</span>
+                <AnimatedCounter value={LIVE_COMPLETED_COUNT} className="font-semibold tracking-wide text-white" />
+                <span>{dict.header.completedSuffix}</span>
+              </p>
+            ) : null}
           </div>
 
           <button
