@@ -1,64 +1,65 @@
 import Link from "next/link";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import type { RouteKey, SocialProofContent, TestimonialCard } from "./homepageContent";
+import { Container } from "@/components/layout/Container";
+import { Card, CardContent } from "@/components/ui/card";
+import { SOCIAL_TRUST_SIGNALS, TESTIMONIALS } from "@/lib/marketing/socialProof";
+import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath } from "@/lib/i18n/locales";
+import type { SiteDictionary } from "@/lib/i18n/types";
 
-type SocialProofSectionProps = {
-  locale: Locale;
-  content: SocialProofContent;
-  routes: Pick<Record<RouteKey, string>, "articles">;
-};
-
-export function SocialProofSection({ locale, content, routes }: SocialProofSectionProps) {
+export function SocialProofSection({ dict, locale }: { dict: SiteDictionary; locale: Locale }) {
   const withLocale = (path: string) => localizedPath(path, locale);
-  const testimonialCards = content.testimonials ?? [];
 
   return (
-    <div className="space-y-7">
-      <section aria-labelledby="home-use-cases" className="space-y-4">
-        <p className="m-0 text-base font-semibold text-[var(--fm-text)]">
-          {content.useCasesTitle}
-        </p>
-        <p className="m-0 max-w-3xl text-sm text-[var(--fm-text-muted)]">{content.useCasesSupporting}</p>
+    <section data-testid="home-social-proof-section" className="fm-section-muted py-[var(--fm-section-y-lg)]">
+      <Container className="space-y-[var(--fm-space-8)]">
+        <div className="space-y-[var(--fm-gap-xs)] text-center">
+          <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{dict.home.socialProof.title}</h2>
+          <p className="m-0 text-[var(--fm-text-muted)]">{dict.home.socialProof.subtitle}</p>
+        </div>
 
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-          {content.useCaseCards.map((item) => (
-            <article key={item.title} className="rounded-xl border border-[var(--fm-border)] bg-white p-4">
-              <h4 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.title}</h4>
-              <p className="mt-1.5 text-sm leading-6 text-[var(--fm-text-muted)]">{item.body}</p>
-            </article>
+        <div className="space-y-[var(--fm-gap-sm)]">
+          <h3 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{dict.home.socialProof.trustPillarsTitle}</h3>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.home.socialProof.trustPillarsSubtitle}</p>
+        </div>
+
+        <div className="grid gap-[var(--fm-gap-sm)] sm:grid-cols-2 lg:grid-cols-3">
+          {SOCIAL_TRUST_SIGNALS.map((item) => (
+            <div
+              key={item.id}
+              className="rounded-xl border border-[var(--fm-border)] bg-white p-[var(--fm-space-3)] text-left shadow-[var(--fm-shadow-sm)] transition hover:-translate-y-0.5 hover:shadow-[var(--fm-shadow-md)]"
+            >
+              <p className="m-0 text-sm font-semibold text-[var(--fm-trust-blue-strong)]">
+                {locale === "zh" ? item.label.zh : item.label.en}
+              </p>
+              <p className="m-0 mt-[var(--fm-space-1)] text-xs text-[var(--fm-text-muted)]">
+                {locale === "zh" ? item.detail.zh : item.detail.en}
+              </p>
+            </div>
           ))}
         </div>
-      </section>
 
-      <section aria-labelledby="home-rating-testimonials" className="grid gap-4 lg:grid-cols-[4fr_8fr]">
-        <article className="rounded-xl border border-[var(--fm-border)] bg-white p-4 min-h-full">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
-            {content.ratingTitle}
-          </p>
-          <p className="mt-1 text-4xl font-bold text-[var(--fm-trust-blue-strong)]">{content.ratingValue}</p>
-          <p className="mt-2 text-sm text-[var(--fm-text-muted)]">{content.ratingBody}</p>
-          <Link
-            href={withLocale(routes.articles)}
-            className="mt-4 inline-flex min-h-[40px] text-xs font-semibold text-[var(--fm-text-muted)] underline underline-offset-4 hover:text-[var(--fm-trust-blue)]"
-          >
-            {content.articlesCta}
-          </Link>
-        </article>
-
-        <div className="grid gap-3 sm:grid-cols-2">
-          {testimonialCards.map((item: TestimonialCard) => (
-            <article key={item.id} className="rounded-xl border border-[var(--fm-border)] bg-white p-4">
-              <p className="m-0 text-sm leading-7 text-[var(--fm-text)]">{item.quote}</p>
-              <div className="mt-3 space-y-1">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
-                  {item.author} · {item.role}
-                </p>
-                <p className="m-0 text-sm text-[var(--fm-text-muted)]">{item.testLabel}</p>
-              </div>
-            </article>
-          ))}
+        <div className="space-y-[var(--fm-gap-md)]">
+          <h3 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{dict.home.socialProof.testimonialsTitle}</h3>
+          <div className="grid gap-[var(--fm-gap-md)] md:grid-cols-2">
+            {TESTIMONIALS.map((item) => (
+              <Card key={item.id} className="h-full border-[var(--fm-border)] bg-white">
+                <CardContent className="space-y-[var(--fm-gap-sm)] pt-[var(--fm-space-6)]">
+                  <p className="m-0 text-sm leading-7 text-[var(--fm-text)]">“{item.quote}”</p>
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
+                    {item.author} · {item.role}
+                  </p>
+                  <Link
+                    href={withLocale(`/tests/${item.testSlug}`)}
+                    className="text-sm font-semibold text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
+                  >
+                    {item.testLabel}
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
-      </section>
-    </div>
+      </Container>
+    </section>
   );
 }
