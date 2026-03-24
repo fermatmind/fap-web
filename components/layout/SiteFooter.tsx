@@ -17,8 +17,14 @@ export function SiteFooter() {
   const testLinks = [
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
     { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five" },
-    { href: "/tests/clinical-depression-anxiety-assessment-professional-edition", label: "Clinical Combo" },
-    { href: "/tests/depression-screening-test-standard-edition", label: "SDS-20" },
+    {
+      href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
+      label: locale === "zh" ? "抑郁焦虑综合检测" : "Depression & Anxiety",
+    },
+    {
+      href: "/tests/depression-screening-test-standard-edition",
+      label: locale === "zh" ? "抑郁测评（标准版）" : "Depression Screening",
+    },
     { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ" },
     { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ" },
   ];
@@ -45,7 +51,12 @@ export function SiteFooter() {
             <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.allTestsTitle}</p>
             <div className="space-y-2 text-sm">
               {testLinks.map((item) => (
-                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                <Link
+                  key={item.href}
+                  href={withLocale(item.href)}
+                  className="fm-home-footer-link block text-slate-300 hover:text-white"
+                  aria-label={item.label}
+                >
                   {item.label}
                 </Link>
               ))}
@@ -56,7 +67,7 @@ export function SiteFooter() {
             <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.articlesTitle}</p>
             <div className="space-y-2 text-sm">
               {articleLinks.map((item) => (
-                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                <Link key={item.href} href={withLocale(item.href)} className="fm-home-footer-link block text-slate-300 hover:text-white">
                   {item.label}
                 </Link>
               ))}
@@ -70,8 +81,9 @@ export function SiteFooter() {
                 <Link
                   key={item.href}
                   href={withLocale(item.href)}
-                  className="block text-slate-300 hover:text-white"
+                  className="fm-home-footer-link block text-slate-300 hover:text-white"
                   data-testid={item.testId}
+                  aria-label={item.label}
                 >
                   {item.label}
                 </Link>
@@ -84,7 +96,11 @@ export function SiteFooter() {
             <p className="m-0 text-sm text-slate-300">{dict.footer.ratingLabel}</p>
             <p className="m-0 text-sm text-slate-300">
               {dict.footer.contactLabel}:{" "}
-              <a href={`mailto:${supportEmail}`} className="font-semibold text-white hover:text-[var(--fm-gold)]">
+              <a
+                href={`mailto:${supportEmail}`}
+                className="fm-home-footer-link font-semibold text-white hover:text-[var(--fm-gold)]"
+                aria-label={supportEmail}
+              >
                 {supportEmail}
               </a>
             </p>

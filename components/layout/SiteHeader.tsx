@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
+import { cn } from "@/lib/utils";
 import { AnimatedCounter } from "@/components/design/AnimatedCounter";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonVariants } from "@/components/ui/button";
@@ -22,6 +23,7 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileExpandedKey, setMobileExpandedKey] = useState<HeaderNavKey | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<HeaderNavKey | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const desktopNavRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
@@ -117,8 +119,26 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md">
+    <header
+      className={cn(
+        "sticky top-0 z-50 fm-home-header border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md",
+        isScrolled ? "fm-home-header-scrolled" : ""
+      )}
+    >
       <Container className="max-w-[1320px] py-3">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0 shrink-0">
@@ -153,6 +173,8 @@ export function SiteHeader() {
                 const menuId = `header-dropdown-${item.key}`;
                 const isOpen = activeDropdown === item.key;
                 const items = dropdownMenuMap[item.key] ?? [];
+                const localizedHref = withLocale(item.href);
+                const isCurrent = pathname === localizedHref || pathname.startsWith(`${localizedHref}/`);
 
                 return (
                   <div key={item.key} className="relative shrink-0">
@@ -162,20 +184,24 @@ export function SiteHeader() {
                       aria-controls={menuId}
                       aria-haspopup="menu"
                       onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
-                      className="inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium text-blue-100 transition hover:bg-white/10 hover:text-white xl:px-3 xl:text-sm"
+                      className={cn(
+                        "inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium text-blue-100 transition hover:bg-white/10 hover:text-white xl:px-3 xl:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--fm-trust-blue)]",
+                        isCurrent || isOpen ? "bg-white/12 text-white" : ""
+                      )}
+                      aria-current={isCurrent ? "page" : undefined}
                     >
                       <span>{item.label}</span>
                       <ChevronDown className={isOpen ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
                     </button>
 
                     {isOpen && items.length > 0 ? (
-                      <div id={menuId} role="menu" aria-label={item.label} className="fm-header-dropdown-panel">
+                    <div id={menuId} role="menu" aria-label={item.label} className="fm-header-dropdown-panel">
                         {items.map((menuItem) => (
                           <Link
                             key={`${item.key}-${menuItem.href}`}
                             href={withLocale(menuItem.href)}
                             role="menuitem"
-                            className="fm-header-dropdown-link"
+                            className="fm-header-dropdown-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgba(8,21,44,0.8)]"
                             onClick={() => setActiveDropdown(null)}
                           >
                             {menuItem.label}
@@ -189,18 +215,18 @@ export function SiteHeader() {
             </nav>
 
             <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
-              <Link
-                href={withLocale("/tests?q=")}
-                className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
-                aria-label={dict.header.search}
-                title={dict.header.search}
-              >
+                <Link
+                  href={withLocale("/tests?q=")}
+                  className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--fm-trust-blue)]"
+                  aria-label={dict.header.search}
+                  title={dict.header.search}
+                >
                 <Search className="h-4 w-4" />
               </Link>
               <Link
                 href={withLocale("/history/mbti")}
-                className="inline-flex h-11 min-h-[44px] min-w-[124px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-4 text-sm font-semibold text-white transition hover:bg-white/20 whitespace-nowrap"
-              >
+                className="inline-flex h-11 min-h-[44px] min-w-[124px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-4 text-sm font-semibold text-white transition hover:bg-white/20 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--fm-trust-blue)]"
+                >
                 <UserRound className="h-4 w-4" />
                 <span>{dict.header.profile}</span>
               </Link>

@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import type { SiteDictionary } from "@/lib/i18n/types";
-import { formatCardTitleForUi, formatTestTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 export type HomeHighlightedCard =
   | {
@@ -23,21 +22,81 @@ export type HomeHighlightedCard =
       description: string;
     };
 
-function renderStars(rating: number) {
-  const rounded = Math.max(0, Math.min(5, Math.round(rating)));
-  return (
-    <div
-      data-testid="highlighted-card-rating"
-      className="flex items-center gap-1 text-[var(--fm-gold)]"
-      aria-label={`rating-${rounded}`}
-    >
-      {Array.from({ length: 5 }, (_, idx) => (
-        <span key={idx} aria-hidden className={idx < rounded ? "opacity-100" : "opacity-35"}>
-          ★
-        </span>
-      ))}
-    </div>
-  );
+type TestPresentation = {
+  zh: string;
+  en: string;
+};
+
+const TEST_TITLE_BY_SLUG: Record<string, TestPresentation> = {
+  "mbti-personality-test-16-personality-types": {
+    zh: "MBTI 性格测试",
+    en: "MBTI Personality Test",
+  },
+  "big-five-personality-test-ocean-model": {
+    zh: "大五人格测试",
+    en: "Big Five Personality Test",
+  },
+  "clinical-depression-anxiety-assessment-professional-edition": {
+    zh: "抑郁焦虑综合检测",
+    en: "Clinical Depression & Anxiety Assessment",
+  },
+  "depression-screening-test-standard-edition": {
+    zh: "抑郁测评（标准版）",
+    en: "Depression Screening Test (Standard)",
+  },
+  "iq-test-intelligence-quotient-assessment": {
+    zh: "智商 IQ 测试",
+    en: "IQ Test",
+  },
+  "eq-test-emotional-intelligence-assessment": {
+    zh: "情商 EQ 测试",
+    en: "EQ Test",
+  },
+};
+
+const TEST_CATEGORY_BY_SLUG: Record<string, TestPresentation> = {
+  "mbti-personality-test-16-personality-types": {
+    zh: "人格测评",
+    en: "Personality",
+  },
+  "big-five-personality-test-ocean-model": {
+    zh: "人格测评",
+    en: "Personality",
+  },
+  "clinical-depression-anxiety-assessment-professional-edition": {
+    zh: "情绪状态",
+    en: "Emotional State",
+  },
+  "depression-screening-test-standard-edition": {
+    zh: "情绪状态",
+    en: "Emotional State",
+  },
+  "iq-test-intelligence-quotient-assessment": {
+    zh: "认知能力",
+    en: "Cognitive Ability",
+  },
+  "eq-test-emotional-intelligence-assessment": {
+    zh: "情绪与关系",
+    en: "Emotional Intelligence",
+  },
+};
+
+function resolveDisplayText(
+  slug: string,
+  fallback: string,
+  locale: Locale,
+  source: Record<string, TestPresentation>
+): string {
+  const preset = source[slug];
+  if (!preset) return fallback;
+  return locale === "zh" ? preset.zh : preset.en;
+}
+
+function stripInternalScaleCode(text: string) {
+  return text
+    .replace(/\b(?:BIG5_OCEAN|SDS_20|IQ_RAVEN|EQ_60|CLINICAL_COMBO_68|MBTI|MBTI\s*\d+)/gi, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
 export function HighlightedTestsSection({
@@ -53,68 +112,61 @@ export function HighlightedTestsSection({
 
   return (
     <section
+      id="home-highlighted-tests"
       data-testid="home-highlighted-tests-section"
-      className="fm-section-highlighted relative py-[var(--fm-section-y-lg)] text-[var(--fm-text)]"
+      className="fm-section-highlighted relative py-[var(--fm-section-y-lg)]"
     >
       <Container className="relative z-10">
-        <div className="fm-highlighted-panel mx-auto max-w-[76rem] px-[var(--fm-space-4)] pb-[var(--fm-space-8)] pt-[var(--fm-space-10)] md:px-[var(--fm-space-7)] md:pb-[var(--fm-space-10)] md:pt-[var(--fm-space-12)]">
+        <div className="fm-home-highlighted-shell mx-auto max-w-[76rem]">
           <div className="relative z-10 mx-auto max-w-3xl space-y-[var(--fm-gap-sm)] text-center">
-            <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-trust-blue-strong)]">
+            <p className="fm-home-section-kicker">{locale === "zh" ? "重点测评入口" : "Priority assessments"}</p>
+            <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-trust-blue-strong)] md:text-4xl">
               {dict.home.highlighted.title}
             </h2>
             <p className="m-0 text-[var(--fm-text-muted)]">{dict.home.highlighted.subtitle}</p>
           </div>
 
-          <div className="relative z-10 mt-[var(--fm-space-8)] grid gap-[var(--fm-space-5)] md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-[var(--fm-space-8)] grid gap-[var(--fm-space-5)] md:grid-cols-2 lg:grid-cols-3">
             {cards.map((card) => {
               if (card.kind === "live") {
-                const titleDisplay = formatCardTitleForUi({
-                  title: card.title,
-                  slug: card.slug,
-                  locale,
-                  surface: "home_highlighted",
-                });
+                const displayTitle = resolveDisplayText(card.slug, card.title, locale, TEST_TITLE_BY_SLUG);
+                const displayCategory = resolveDisplayText(card.slug, "", locale, TEST_CATEGORY_BY_SLUG);
+                const safeExcerpt = stripInternalScaleCode(card.excerpt);
+
                 return (
                   <article
                     key={`live-${card.slug}`}
-                    className="group flex h-full flex-col rounded-2xl border border-[#d4deec] bg-white p-[var(--fm-space-6)] text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[#bacce5] hover:shadow-[var(--fm-shadow-md)]"
+                    className="fm-home-highlight-card group flex min-h-[19rem] h-full flex-col rounded-[1.25rem] bg-white p-6 text-[var(--fm-text)]"
                   >
-                    <div className="flex min-h-[4.9rem] flex-col items-start gap-2">
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <Badge className="border-[var(--fm-border-strong)] bg-white font-semibold text-[var(--fm-text)]">
+                          {displayCategory}
+                        </Badge>
+                        {card.isClinical ? <Badge className="border-amber-300 bg-amber-50 text-amber-900">{dict.home.highlighted.clinicalBadge}</Badge> : null}
+                      </div>
+
                       <Link
                         href={withLocale(`/tests/${card.slug}`)}
-                        title={titleDisplay.plain}
-                        className="w-full min-h-[3rem] font-sans text-[1.02rem] font-semibold leading-[1.2] tracking-tight text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)] md:text-[1.08rem] lg:text-[1.12rem]"
+                        className="block"
+                        title={displayTitle}
+                        aria-label={displayTitle}
                       >
-                        {titleDisplay.multilineFallback ? (
-                          <span className="inline-flex w-full flex-col">
-                            <span className="whitespace-nowrap">{titleDisplay.line1}</span>
-                            <span className="mt-1 whitespace-nowrap">{titleDisplay.line2}</span>
-                          </span>
-                        ) : (
-                          <span className="inline-flex w-full flex-col">
-                            <span className="whitespace-nowrap">{titleDisplay.line1}</span>
-                            <span aria-hidden className="mt-1 select-none text-transparent">&nbsp;</span>
-                          </span>
-                        )}
+                        <h3 className="m-0 text-xl leading-snug font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] transition group-hover:text-[var(--fm-trust-blue)]">
+                          {displayTitle}
+                        </h3>
                       </Link>
-                      {renderStars(card.rating)}
-                    </div>
 
-                    <div className="mt-[var(--fm-space-3)] flex flex-wrap items-center gap-[var(--fm-gap-xs)]">
-                      {card.scaleCode ? <Badge>{card.scaleCode}</Badge> : null}
-                      {card.isClinical ? (
-                        <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.clinicalBadge}</Badge>
-                      ) : null}
+                      <p className="m-0 text-sm leading-6 text-[var(--fm-text-muted)]">{safeExcerpt}</p>
                     </div>
-
-                    <p className="mt-[var(--fm-space-4)] text-sm leading-6 text-[var(--fm-text-muted)]">{card.excerpt}</p>
 
                     <div className="mt-auto pt-[var(--fm-space-5)]">
                       <Link
                         href={withLocale(`/tests/${card.slug}/take`)}
-                        className="text-sm font-semibold text-[var(--fm-trust-blue)] transition group-hover:text-[var(--fm-trust-blue-strong)]"
+                        className="inline-flex items-center text-sm font-semibold text-[var(--fm-trust-blue)]"
                       >
-                        {dict.home.highlighted.cta} →
+                        <span>{locale === "zh" ? "开始此测试" : "Start this test"}</span>
+                        <span className="fm-home-highlight-card-arrow">→</span>
                       </Link>
                     </div>
                   </article>
@@ -124,18 +176,13 @@ export function HighlightedTestsSection({
               return (
                 <article
                   key={`coming-${card.id}`}
-                  className="relative flex h-full flex-col rounded-2xl border border-[#d8dfdc] bg-[#f8faf8] p-[var(--fm-space-6)] text-[var(--fm-text)] shadow-[var(--fm-shadow-sm)]"
-                  data-disabled="1"
+                  className="fm-home-highlight-card fm-home-highlight-card--disabled flex h-full min-h-[19rem] flex-col rounded-[1.25rem] bg-[#f9fbff] p-6 text-[var(--fm-text)] opacity-95"
                 >
-                  <div className="flex items-start justify-between gap-[var(--fm-gap-sm)]">
-                    <h3 className="m-0 font-sans text-[1.2rem] font-semibold leading-[1.2] tracking-tight text-[var(--fm-trust-blue-strong)]">
-                      {formatTestTitleForUi(card.title).plain}
-                    </h3>
-                    <Badge className="border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.comingSoonBadge}</Badge>
+                  <div className="space-y-4">
+                    <Badge className="inline-flex w-fit border-amber-300 bg-amber-100 text-amber-900">{dict.home.highlighted.comingSoonBadge}</Badge>
+                    <h3 className="m-0 text-xl leading-snug font-semibold text-[var(--fm-trust-blue-strong)]">{card.title}</h3>
+                    <p className="m-0 text-sm leading-6 text-[var(--fm-text-muted)]">{card.description}</p>
                   </div>
-
-                  <p className="mt-[var(--fm-space-3)] text-sm leading-6 text-[var(--fm-text-muted)]">{card.description}</p>
-
                   <p className="mt-auto pt-[var(--fm-space-5)] text-sm font-semibold text-[var(--fm-text-muted)]">{dict.home.highlighted.comingSoonCta}</p>
                 </article>
               );

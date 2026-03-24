@@ -83,11 +83,14 @@ export default async function Home({
       };
     });
 
+  const primaryTestSlug =
+    highlightedCards[0]?.kind === "live" ? highlightedCards[0].slug : preferredLiveSlugs[0];
+
   return (
-    <main>
+    <main className="fm-home-page">
       <AnalyticsPageViewTracker eventName="view_landing" />
 
-      <HeroSection dict={dict} locale={locale} />
+      <HeroSection dict={dict} locale={locale} primaryTestSlug={primaryTestSlug} />
       <ValuePropsSection dict={dict} />
       <HighlightedTestsSection dict={dict} locale={locale} cards={highlightedCards} />
       <SocialProofSection dict={dict} locale={locale} />
