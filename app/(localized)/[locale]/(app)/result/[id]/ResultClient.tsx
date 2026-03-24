@@ -162,6 +162,37 @@ function hasReadyResultPayload(result: ResultResponse | null): result is ResultR
   return Boolean(result?.result && typeof result.result === "object");
 }
 
+function extractReportPayloadFromAccessResponse(
+  raw: AttemptReportAccessResponse | null | undefined,
+  fallbackAttemptId: string
+): ReportResponse | null {
+  const record = asRecord(raw);
+  if (!record) {
+    return null;
+  }
+
+  const hasReportMarkers =
+    Object.hasOwn(record, "report") ||
+    Object.hasOwn(record, "locked") ||
+    Object.hasOwn(record, "modules_allowed") ||
+    Object.hasOwn(record, "view_policy") ||
+    Object.hasOwn(record, "offers") ||
+    Object.hasOwn(record, "sections") ||
+    Object.hasOwn(record, "headline") ||
+    Object.hasOwn(record, "access_level") ||
+    Object.hasOwn(record, "variant") ||
+    Object.hasOwn(record, "scale_code");
+
+  if (!hasReportMarkers) {
+    return null;
+  }
+
+  return {
+    ...record,
+    attempt_id: fallbackAttemptId,
+  } as ReportResponse;
+}
+
 function normalizeLegacyDimensions(result: NonNullable<ResultResponse["result"]>): ResultDimension[] {
   if (!Array.isArray(result.dimensions)) return [];
 
@@ -391,9 +422,30 @@ export default function ResultClient({
         if (!active) return;
 
         const nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
+        const fallbackReportFromAccess = extractReportPayloadFromAccessResponse(accessResponse, attemptId);
         setAccessView(nextAccessView);
 
         if (!nextAccessView) {
+          if (fallbackReportFromAccess) {
+            setReportData(fallbackReportFromAccess);
+            setResultData(null);
+            routeScaleCodeRef.current = resolveScaleCodeForTelemetry(fallbackReportFromAccess, null);
+
+            if (isGeneratingReportResponse(fallbackReportFromAccess)) {
+              setProcessing(true);
+              scheduleRetry(attempt, resolveResponseRetryMs(fallbackReportFromAccess));
+              return;
+            }
+
+            if (canRenderRichResultReport(fallbackReportFromAccess)) {
+              setProcessing(false);
+              return;
+            }
+
+            await loadFallbackResult(attempt);
+            return;
+          }
+
           throw new Error(dict.result.reportUnavailable);
         }
 
@@ -405,7 +457,35 @@ export default function ResultClient({
           return;
         }
 
-        if (isProjectionUnavailable(nextAccessView) || !canLoadRichReport(nextAccessView)) {
+        if (isProjectionUnavailable(nextAccessView)) {
+          setReportData(null);
+          setResultData(null);
+          setProcessing(false);
+          setError(dict.result.reportUnavailable);
+          return;
+        }
+
+        if (!canLoadRichReport(nextAccessView) && fallbackReportFromAccess) {
+          setReportData(fallbackReportFromAccess);
+          setResultData(null);
+          routeScaleCodeRef.current = resolveScaleCodeForTelemetry(fallbackReportFromAccess, null);
+
+          if (isGeneratingReportResponse(fallbackReportFromAccess)) {
+            setProcessing(true);
+            scheduleRetry(attempt, resolveResponseRetryMs(fallbackReportFromAccess));
+            return;
+          }
+
+          if (canRenderRichResultReport(fallbackReportFromAccess)) {
+            setProcessing(false);
+            return;
+          }
+
+          await loadFallbackResult(attempt);
+          return;
+        }
+
+        if (!canLoadRichReport(nextAccessView)) {
           setReportData(null);
           setResultData(null);
           setProcessing(false);

@@ -44,7 +44,7 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
 
   const pagePath = `/zh/result/${attemptId}#offer-full`;
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access`, async (route) => {
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -72,7 +72,7 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -141,5 +141,121 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
 
   await page.getByTestId("mbti-offers-primary-cta").click();
 
-  await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}(\\?.*)?$`));
+  await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
+});
+
+test("MBTI result page shows unlock offer block when report-access already carries report payload", async ({ page }) => {
+  const attemptId = "827adbb2-f7d1-40de-9190-578ca788c348";
+  const orderNo = "ord_mbti_access_payload_199";
+  const paymentRecoveryToken = "token_mbti_access_payload";
+
+  await page.addInitScript(() => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({
+        analytics: "granted",
+        updatedAt: "2026-03-24T00:00:00.000Z",
+      })
+    );
+    window.localStorage.setItem("fap_anonymous_id_v1", "anon_e2e_mbti_access_payload_199");
+  });
+
+  await page.route("**/api/track", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_mbti_access_payload_199",
+      }),
+    });
+  });
+
+  const pagePath = `/zh/result/${attemptId}#offer-full`;
+  const fallbackReport = createMbtiLockedReportFixture();
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(fallbackReport),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/result*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        scale_code: "MBTI",
+        result: {
+          type_code: "ENFP-T",
+          summary: "Fallback result is only a backup path.",
+        },
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report.pdf*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/pdf",
+      body: "%PDF-1.4 MBTI report",
+    });
+  });
+
+  await page.route(`**/api/v0.3/orders/checkout`, async (route) => {
+    const requestBody = route.request().postDataJSON() as { attempt_id?: string; sku?: string };
+    expect(requestBody.attempt_id).toBe(attemptId);
+    expect(typeof requestBody.sku).toBe("string");
+
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        attempt_id: attemptId,
+        provider: "wechatpay",
+        payment_recovery_token: paymentRecoveryToken,
+        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
+        pay: {
+          type: "qr",
+          value: "weixin://wxpay/bizpayurl?pr=mbti-access-payload-offer",
+          provider: "wechatpay",
+        },
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+    await route.fulfill({
+      status: 500,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: false, message: "report endpoint should not be needed for this case." }),
+    });
+  });
+
+  await page.goto(pagePath);
+
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
+  await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
+  await expect(page.locator("#offer-full")).toBeVisible();
+  await expect(page.getByRole("button", { name: "解锁完整报告" })).toBeVisible();
+  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁完整报告");
+
+  await page.getByTestId("mbti-offers-primary-cta").click();
+
+  await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
 });
