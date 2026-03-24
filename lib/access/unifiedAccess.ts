@@ -125,7 +125,11 @@ export function normalizeAttemptReportAccess(
 }
 
 export function canEnterReportPage(view: AttemptReportAccessView | null): boolean {
-  return Boolean(view?.actions.pageHref) && view?.reportState === "ready";
+  return (
+    Boolean(view?.actions.pageHref)
+    && view?.reportState === "ready"
+    && view?.accessState === "ready"
+  );
 }
 
 export function canDownloadReportPdf(view: AttemptReportAccessView | null): boolean {
