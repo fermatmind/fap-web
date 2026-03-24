@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/layout/Container";
 import { HeroSection } from "@/components/marketing/HeroSection";
-import { HighlightedTestsSection } from "@/components/marketing/HighlightedTestsSection";
+import {
+  HighlightedTestsSection,
+  type HomeHighlightedCard,
+} from "@/components/marketing/HighlightedTestsSection";
 import { SocialProofSection } from "@/components/marketing/SocialProofSection";
 import { ValuePropsSection } from "@/components/marketing/ValuePropsSection";
-import { ReportPreviewSection } from "@/components/marketing/ReportPreviewSection";
-import { KnowledgeMethodsSection } from "@/components/marketing/KnowledgeMethodsSection";
-import { FinalCtaSection } from "@/components/marketing/FinalCtaSection";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { resolveLocale } from "@/lib/i18n/getDict";
-import { getHomepageContent } from "@/components/marketing/homepageContent";
+import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
+import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
@@ -45,46 +44,53 @@ export default async function Home({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const content = getHomepageContent(locale);
+  const dict = getDictSync(locale);
+  const allTests = getAllTests();
+  const bySlug = new Map<string, (typeof allTests)[number]>();
+  for (const item of allTests) {
+    bySlug.set(item.slug, item);
+  }
+
+  const preferredLiveSlugs = [
+    "mbti-personality-test-16-personality-types",
+    "big-five-personality-test-ocean-model",
+    "clinical-depression-anxiety-assessment-professional-edition",
+    "depression-screening-test-standard-edition",
+    "iq-test-intelligence-quotient-assessment",
+    "eq-test-emotional-intelligence-assessment",
+  ] as const;
+
+  const highlightedCards: HomeHighlightedCard[] = preferredLiveSlugs
+    .map((slug) => bySlug.get(slug))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item))
+    .map((item) => {
+      const excerptSource = item.highlight_excerpt_i18n;
+      const localizedExcerpt =
+        excerptSource
+          ? locale === "zh"
+            ? excerptSource.zh ?? excerptSource["zh-CN"] ?? item.description
+            : excerptSource.en ?? item.description
+          : item.description;
+
+      return {
+        kind: "live",
+        slug: item.slug,
+        title: resolveTestTitleByLocale(item, locale),
+        scaleCode: item.scale_code,
+        excerpt: localizedExcerpt,
+        rating: item.highlight_rating ?? 5,
+        isClinical: item.scale_code === "SDS_20" || item.scale_code === "CLINICAL_COMBO_68",
+      };
+    });
 
   return (
-    <main className="fm-home-page">
+    <main>
       <AnalyticsPageViewTracker eventName="view_landing" />
 
-      <HeroSection
-        locale={locale}
-        content={content.hero}
-        routes={{ tests: content.routes.tests }}
-        pathRecommendations={content.pathRecommendations}
-        testCatalog={content.testCatalog}
-      />
-      <HighlightedTestsSection locale={locale} content={content} />
-      <ReportPreviewSection locale={locale} content={content.reportPreview} routes={content.routes} />
-      <section className="fm-home-section-shell" data-testid="home-proof-section">
-        <Container className="max-w-[1200px] space-y-8">
-          <ValuePropsSection content={content.valueProps} />
-          <SocialProofSection
-            locale={locale}
-            content={content.socialProof}
-            routes={{ articles: content.routes.articles }}
-          />
-        </Container>
-      </section>
-      <KnowledgeMethodsSection
-        locale={locale}
-        content={content.knowledge}
-        faq={content.faq}
-        routes={content.routes}
-      />
-      <FinalCtaSection
-        locale={locale}
-        content={content.finalCta}
-        routes={{
-          tests: content.routes.tests,
-          business: content.routes.business,
-          mbtiDetail: content.routes.mbtiDetail,
-        }}
-      />
+      <HeroSection dict={dict} locale={locale} />
+      <ValuePropsSection dict={dict} />
+      <HighlightedTestsSection dict={dict} locale={locale} cards={highlightedCards} />
+      <SocialProofSection dict={dict} locale={locale} />
     </main>
   );
 }
