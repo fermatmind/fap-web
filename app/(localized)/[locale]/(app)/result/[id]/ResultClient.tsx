@@ -25,6 +25,7 @@ import {
   fetchAttemptReport,
   fetchAttemptReportAccess,
   fetchAttemptResult,
+  type AttemptReportAccessResponse,
   type ReportResponse,
   type ResultResponse,
 } from "@/lib/api/v0_3";
