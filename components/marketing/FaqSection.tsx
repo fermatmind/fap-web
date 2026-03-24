@@ -18,7 +18,7 @@ function FaqItemRow({ item, index, isOpen, onToggle }: {
   onToggle: (index: number) => void;
 }) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[var(--fm-shadow-sm)]">
+    <article className="rounded-2xl border border-[var(--fm-border)] bg-white/85 p-4">
       <button
         type="button"
         onClick={() => onToggle(index)}
@@ -44,12 +44,13 @@ function FaqItemRow({ item, index, isOpen, onToggle }: {
 export function FaqSection({ locale, content, routes }: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState<number>(0);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const helpCta = locale === "zh" ? "前往帮助中心" : "Go to Help Center";
 
   return (
-    <section className="py-[clamp(56px,8vw,112px)]" data-testid="home-faq-section">
+    <section className="fm-home-faq py-[var(--fm-section-y-lg)]" data-testid="home-faq-section">
       <Container className="space-y-6">
         <div className="max-w-2xl space-y-2">
-          <h2 className="m-0 font-serif text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
+          <h2 className="m-0 text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
             {content.title}
           </h2>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{content.helpText}</p>
@@ -68,7 +69,7 @@ export function FaqSection({ locale, content, routes }: FaqSectionProps) {
         </div>
 
         <a href={withLocale(routes.help)} className="inline-flex min-h-[44px] text-sm font-semibold text-[var(--fm-trust-blue)]">
-          {content.helpText}
+          {content.helpLinkText ?? helpCta}
         </a>
       </Container>
     </section>

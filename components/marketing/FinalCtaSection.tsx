@@ -12,20 +12,22 @@ type FinalCtaSectionProps = {
 
 export function FinalCtaSection({ locale, content, routes }: FinalCtaSectionProps) {
   const withLocale = (path: string) => localizedPath(path, locale);
+  const kicker = locale === "zh" ? "一键开始" : "Start with confidence";
 
   return (
-    <section className="py-[clamp(56px,8vw,112px)]" data-testid="home-final-cta-section">
+    <section className="py-[clamp(64px,8vw,112px)]" data-testid="home-final-cta-section">
       <Container>
-        <div className="mx-auto grid max-w-3xl gap-4 rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-[var(--fm-shadow-sm)] md:p-8">
-          <h2 className="m-0 font-serif text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
+        <div className="fm-home-final-cta">
+          <p className="fm-home-section-kicker">{kicker}</p>
+          <h2 className="m-0 text-3xl font-semibold tracking-tight text-white md:text-4xl">
             {content.title}
           </h2>
-          <p className="mt-3 text-sm leading-8 text-[var(--fm-text-muted)]">{content.supporting}</p>
+          <p className="mt-3 text-sm leading-8 text-[#cce0ff]">{content.supporting}</p>
 
           <div className="mt-3 flex flex-wrap justify-center gap-3">
             <Link
               href={withLocale(`${routes.mbtiDetail}/take`)}
-              className={buttonVariants({ size: "lg", className: "h-auto min-h-[44px]" })}
+              className={buttonVariants({ size: "lg", className: "h-auto min-h-[44px] bg-white text-[var(--fm-trust-blue-strong)]" })}
             >
               {content.primaryCta}
             </Link>
@@ -39,7 +41,7 @@ export function FinalCtaSection({ locale, content, routes }: FinalCtaSectionProp
 
           <Link
             href={withLocale(routes.business)}
-            className="inline-flex min-h-[44px] text-sm font-semibold text-[var(--fm-trust-blue)]"
+            className="inline-flex min-h-[44px] text-sm font-semibold text-white underline decoration-white/60 underline-offset-4"
           >
             {content.enterpriseText}
           </Link>
