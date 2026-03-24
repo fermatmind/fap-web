@@ -13,7 +13,6 @@ import { DimensionBars } from "@/components/result/DimensionBars";
 import { ResultSummary } from "@/components/result/ResultSummary";
 import { Alert } from "@/components/ui/alert";
 import {
-  canEnterReportPage,
   isProjectionLocked,
   isProjectionProcessing,
   isProjectionUnavailable,
@@ -39,6 +38,7 @@ import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
+const RESULT_PAGE_READY_STATE = "ready";
 
 type ResultDimension = {
   code?: string;
@@ -322,6 +322,10 @@ export default function ResultClient({
     [anonId, locale]
   );
 
+  const canLoadRichReport = useCallback((view: AttemptReportAccessView | null) => {
+    return Boolean(view?.actions.pageHref) && view?.reportState === RESULT_PAGE_READY_STATE;
+  }, []);
+
   useEffect(() => {
     let active = true;
     let retryTimer: number | null = null;
@@ -401,7 +405,7 @@ export default function ResultClient({
           return;
         }
 
-        if (isProjectionUnavailable(nextAccessView) || !canEnterReportPage(nextAccessView)) {
+        if (isProjectionUnavailable(nextAccessView) || !canLoadRichReport(nextAccessView)) {
           setReportData(null);
           setResultData(null);
           setProcessing(false);
@@ -477,7 +481,7 @@ export default function ResultClient({
         window.clearTimeout(retryTimer);
       }
     };
-  }, [anonId, attemptId, dict.result.reportUnavailable, locale, runWithAuthRetry]);
+  }, [anonId, attemptId, canLoadRichReport, dict.result.reportUnavailable, locale, runWithAuthRetry]);
 
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
   const projectionUnavailable = isProjectionUnavailable(accessView);
