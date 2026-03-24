@@ -23,14 +23,12 @@ type MbtiStickyRailProps = {
 
 const NAV_ITEMS: Array<{ anchor: string; en: string; zh: string }> = [
   { anchor: "hero", en: "Hero", zh: "总览" },
-  { anchor: "dimensions", en: "Dimensions", zh: "维度" },
-  { anchor: "dominant-traits", en: "Dominant traits", zh: "主导特质" },
-  { anchor: "highlights", en: "Highlights", zh: "亮点" },
+  { anchor: "intro", en: "Intro", zh: "简介" },
+  { anchor: "traits", en: "Traits", zh: "核心特征" },
   { anchor: "career", en: "Career", zh: "职业" },
   { anchor: "growth", en: "Growth", zh: "成长" },
-  { anchor: "overview", en: "Overview", zh: "概览" },
   { anchor: "relationships", en: "Relationships", zh: "关系" },
-  { anchor: "offers", en: "Offers", zh: "方案" },
+  { anchor: "offer-full", en: "Unlock", zh: "解锁" },
 ];
 
 function normalizeText(...values: unknown[]): string {
@@ -112,9 +110,9 @@ export function MbtiStickyRail({
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)]">
+      <Card className="border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)]">
           <CardHeader className="pb-3">
-            <CardTitle className="text-base text-slate-900">{locale === "zh" ? "章节导航" : "Chapter navigation"}</CardTitle>
+            <CardTitle className="text-base text-slate-900">{locale === "zh" ? "章节导航" : "Report sections"}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
             {NAV_ITEMS.map((item) => (
@@ -129,9 +127,9 @@ export function MbtiStickyRail({
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)]">
+      <Card className="border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)]">
           <CardHeader className="pb-3">
-            <CardTitle className="text-base text-slate-900">{locale === "zh" ? "当前状态" : "Current status"}</CardTitle>
+            <CardTitle className="text-base text-slate-900">{locale === "zh" ? "内容与动作" : "Report actions"}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <p className="m-0 text-sm font-semibold text-slate-900">{unlockSummary.title}</p>

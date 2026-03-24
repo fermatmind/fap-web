@@ -140,12 +140,14 @@ const CHAPTER_COPY: Record<
   ChapterKey,
   {
     anchor: string;
+    order: number;
     title: { en: string; zh: string };
     intro: { en: string; zh: string };
   }
 > = {
   career: {
     anchor: "career",
+    order: 2,
     title: { en: "Career path", zh: "职业路径" },
     intro: {
       en: "This chapter turns the result into role fit, work rhythm, and the environments where you are more likely to do strong work.",
@@ -154,6 +156,7 @@ const CHAPTER_COPY: Record<
   },
   growth: {
     anchor: "growth",
+    order: 3,
     title: { en: "Growth edges", zh: "成长提示" },
     intro: {
       en: "Growth is framed as leverage, friction, and the next repeatable step instead of abstract advice.",
@@ -161,7 +164,8 @@ const CHAPTER_COPY: Record<
     },
   },
   traits: {
-    anchor: "overview",
+    anchor: "traits",
+    order: 1,
     title: { en: "Personality overview", zh: "人格概览" },
     intro: {
       en: "Read this chapter as the structural overview of how your current type tends to show up in everyday situations.",
@@ -170,6 +174,7 @@ const CHAPTER_COPY: Record<
   },
   relationships: {
     anchor: "relationships",
+    order: 4,
     title: { en: "Relationships", zh: "人际与亲密关系" },
     intro: {
       en: "This chapter connects the result to communication needs, boundaries, and the moments where misunderstanding is most likely.",
@@ -787,6 +792,51 @@ function renderPreferredRoleListSection(section: MbtiResultProjectionSectionView
   );
 }
 
+function renderChapterVisualSlot(
+  chapterKey: ChapterKey,
+  locale: Locale,
+  projectionSections: MbtiResultProjectionSectionViewModel[]
+) {
+  const hasSectionText = projectionSections.some((section) => Boolean(section.bodyMd || section.title));
+  const visualTone = chapterKey === "traits"
+    ? locale === "zh"
+      ? "维度解读" :
+      "Dimension lens"
+    : chapterKey === "career"
+      ? locale === "zh"
+        ? "职业场景" :
+        "Work context"
+      : chapterKey === "growth"
+        ? locale === "zh"
+          ? "成长路径" :
+          "Growth path"
+        : locale === "zh"
+          ? "关系场景" :
+          "Relationship scene";
+
+  return (
+    <div className="rounded-2xl border border-white/90 bg-white/90 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+      <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+        {locale === "zh" ? "视觉承载位" : "Visual module"}
+      </p>
+      <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{visualTone}</p>
+      {hasSectionText ? (
+        <p className="m-0 mt-2 text-sm leading-7 text-slate-600">
+          {locale === "zh"
+            ? `当前章节将以上下文逐段展开 ${projectionSections.length} 个模块。`
+            : `This chapter includes ${projectionSections.length} module${projectionSections.length === 1 ? "" : "s"} in sequence.`}
+        </p>
+      ) : (
+        <div className="mt-3 flex gap-2">
+          <span className="h-2 flex-1 rounded-full bg-slate-100" />
+          <span className="h-2 flex-1 rounded-full bg-slate-100" />
+          <span className="h-2 flex-1 rounded-full bg-slate-100" />
+        </div>
+      )}
+    </div>
+  );
+}
+
 function renderPremiumTeaserSection(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale
@@ -1067,6 +1117,28 @@ export function MbtiChapterSection({
     isOverviewChapter && (authoredOverview?.bullets.length ?? 0) > 0
       ? authoredOverview?.bullets ?? []
       : unlock?.benefits ?? [];
+  const orderedProjectionSections = [...projectionSections];
+  const traitDimensionSectionIndex = orderedProjectionSections.findIndex((section) => section.render === "trait_dimension_grid");
+  const hasTraitDimensionRender = traitDimensionSectionIndex > -1;
+
+  if (isOverviewChapter && hasTraitDimensionRender && traitDimensionSectionIndex > 0) {
+    const [traitDimensionSection] = orderedProjectionSections.splice(traitDimensionSectionIndex, 1);
+    orderedProjectionSections.unshift(traitDimensionSection);
+  }
+
+  const traitsLeadEvidence =
+    isOverviewChapter && !hasTraitDimensionRender && projectionDimensions.length > 0 ? (
+      <Card className="border-slate-200 bg-[var(--fm-surface-muted)]/70 shadow-none">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-base text-slate-900">
+            {locale === "zh" ? "主导维度" : "Dominant dimensions"}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3 p-5">
+          <DimensionBars dimensions={projectionDimensions} />
+        </CardContent>
+      </Card>
+    ) : null;
 
   useEffect(() => {
     for (const section of projectionSections) {
@@ -1165,13 +1237,17 @@ export function MbtiChapterSection({
     >
       <header className="space-y-3">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "章节" : "Chapter"}
+          {locale === "zh" ? `章节 ${copy.order}` : `Chapter ${copy.order}`}
         </p>
         <div className="space-y-2">
           <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">{copy.title[locale]}</h2>
           <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{introCopy}</p>
         </div>
       </header>
+
+      {renderChapterVisualSlot(chapterKey, locale, hasProjectionContent ? projectionSections : [])}
+
+      {traitsLeadEvidence}
 
       {isOverviewChapter && authoredOverview && (authoredOverview.title || authoredOverview.subtitle || authoredOverview.oneLiner) ? (
         <Card
@@ -1216,7 +1292,7 @@ export function MbtiChapterSection({
           data-testid={`mbti-chapter-public-${copy.anchor}`}
           className="space-y-4"
         >
-          {projectionSections.map((section, index) =>
+          {orderedProjectionSections.map((section, index) =>
             renderProjectionSection(section, locale, projectionDimensions, personalization, {
               attemptId,
               displayOrder: index + 1,

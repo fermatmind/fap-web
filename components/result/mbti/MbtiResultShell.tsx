@@ -3,22 +3,15 @@
 import Link from "next/link";
 import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { DimensionBars } from "@/components/result/DimensionBars";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
-import {
-  buildDominantTraitItems,
-  MbtiDominantTraitsSection,
-} from "@/components/result/mbti/MbtiDominantTraitsSection";
+import { buildDominantTraitItems } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
-import { MbtiSceneFingerprintSummary } from "@/components/result/mbti/MbtiSceneFingerprintSummary";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
 import { MbtiPostPurchaseSection } from "@/components/result/mbti/MbtiPostPurchaseSection";
-import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  canDownloadReportPdf,
   canEnterReportPage,
   isProjectionLocked,
   type AttemptReportAccessView,
@@ -31,7 +24,6 @@ import {
   type OfferPayload,
   type ReportCta,
   type ReportIdentityLayer,
-  type ReportRecommendedRead,
   type ReportResponse,
 } from "@/lib/api/v0_3";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
@@ -146,7 +138,7 @@ type MbtiResultShellProps = {
   tags: string[];
   dimensions: Array<Record<string, unknown>>;
   projectionViewModel?: MbtiResultProjectionViewModel | null;
-  highlights: HighlightCard[];
+  highlights?: HighlightCard[];
   sections: ReportSection[];
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
@@ -154,9 +146,9 @@ type MbtiResultShellProps = {
   onExternalNavigate?: (url: string) => void;
 };
 
-const CHAPTER_ORDER = ["career", "growth", "traits", "relationships"] as const;
+const CHAPTER_ORDER = ["traits", "career", "growth", "relationships"] as const;
 const OFFER_FULL_HASH = "#offer-full";
-const OFFER_SECTION_ID = "offers";
+const OFFER_SECTION_ID = "offer-full";
 const OFFER_SCROLL_ALIGNMENT: ScrollIntoViewOptions = {
   behavior: "smooth",
   block: "center",
@@ -653,6 +645,130 @@ export function resolveMbtiCheckoutSku(reportData: ReportResponse): string {
   throw new Error("MBTI checkout requires CTA target_sku_effective, target_sku, or a full-report offer sku.");
 }
 
+type MbtiResultShellLoadingShellProps = {
+  locale: Locale;
+  retakeHref: string;
+  statusText?: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  primaryCtaIsInternal: boolean;
+  onShare?: () => void | Promise<void>;
+};
+
+export function MbtiResultShellLoadingShell({
+  locale,
+  retakeHref,
+  statusText,
+  primaryCtaLabel,
+  primaryCtaHref,
+  primaryCtaIsInternal,
+  onShare = () => {},
+}: MbtiResultShellLoadingShellProps) {
+  return (
+    <div
+      data-testid="mbti-result-shell"
+      className="relative space-y-6 pb-28 md:space-y-8 xl:pb-0"
+    >
+      <MbtiMobileChrome
+        locale={locale}
+        retakeHref={retakeHref}
+        primaryCtaLabel={primaryCtaLabel}
+        primaryCtaHref={primaryCtaHref}
+        primaryCtaIsInternal={primaryCtaIsInternal}
+        onShare={onShare}
+      />
+
+      <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_300px] xl:gap-10">
+        <div className="space-y-6 md:space-y-8">
+          <section
+            id="hero"
+            className="scroll-mt-28 rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_20px_48px_rgba(15,23,42,0.08)] md:p-8"
+          >
+            <div className="flex h-8 w-28 animate-pulse rounded-full bg-slate-200" />
+            <div className="mt-6 space-y-3">
+              <div className="h-10 w-56 animate-pulse rounded bg-slate-200" />
+              <div className="h-5 w-80 animate-pulse rounded bg-slate-100" />
+              <div className="h-5 w-full max-w-3xl animate-pulse rounded bg-slate-100" />
+              <div className="h-5 w-11/12 animate-pulse rounded bg-slate-100" />
+            </div>
+            <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1fr)_240px]">
+              <div className="h-44 rounded-2xl border border-slate-100 bg-slate-100/70 p-4" />
+              <div className="h-44 rounded-2xl border border-slate-100 bg-slate-100/70 p-4" />
+            </div>
+          </section>
+
+          <section
+            id="intro"
+            className="scroll-mt-28 space-y-3 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
+          >
+            <p className="m-0 h-5 w-28 animate-pulse rounded bg-slate-200" />
+            <div className="space-y-2">
+              <p className="m-0 h-6 w-2/3 animate-pulse rounded bg-slate-200" />
+              <p className="m-0 h-6 w-11/12 animate-pulse rounded bg-slate-100" />
+            </div>
+            {statusText ? <p className="m-0 text-sm text-slate-500">{statusText}</p> : null}
+          </section>
+
+          {CHAPTER_ORDER.map((chapterKey) => (
+            <section
+              key={chapterKey}
+              id={chapterKey}
+              className="scroll-mt-28 space-y-3 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
+            >
+              <p className="m-0 h-4 w-20 animate-pulse rounded bg-slate-200" />
+              <p className="m-0 h-7 w-56 animate-pulse rounded bg-slate-200" />
+              <p className="m-0 h-5 w-56 animate-pulse rounded bg-slate-100" />
+              <p className="m-0 h-5 w-44 animate-pulse rounded bg-slate-100" />
+              <div className="h-40 rounded-2xl border border-slate-100 bg-slate-100/70 p-4" />
+            </section>
+          ))}
+
+          <section
+            id="offer-full"
+            className="scroll-mt-28 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
+          >
+            <p className="m-0 h-4 w-28 animate-pulse rounded bg-slate-200" />
+            <div className="mt-3 h-6 w-52 animate-pulse rounded bg-slate-200" />
+            <div className="mt-4 h-40 rounded-2xl border border-slate-100 bg-slate-100/70 p-4" />
+          </section>
+
+          <Card className="border-slate-200 bg-slate-950 text-white shadow-[0_22px_52px_rgba(15,23,42,0.22)]">
+            <CardHeader>
+              <CardTitle className="text-white">{locale === "zh" ? "页尾操作" : "Footer actions"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="h-5 w-80 animate-pulse rounded bg-white/30" />
+              <div className="flex flex-wrap gap-3">
+                <span className="inline-flex h-10 w-28 animate-pulse rounded-full bg-white/20" />
+                <span className="inline-flex h-10 w-28 animate-pulse rounded-full bg-white/20" />
+                <span className="inline-flex h-10 w-32 animate-pulse rounded-full bg-white/20" />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <MbtiStickyRail
+          locale={locale}
+          headline={{
+            badge: locale === "zh" ? "MBTI 报告" : "MBTI report",
+            typeCode: "—",
+            displayName: locale === "zh" ? "人格结果预览" : "Type preview",
+            supportingLine: "",
+            summary: "",
+            rarity: "",
+          }}
+          tags={[]}
+          retakeHref={retakeHref}
+          primaryCtaLabel={primaryCtaLabel}
+          primaryCtaHref={primaryCtaHref}
+          primaryCtaIsInternal={primaryCtaIsInternal}
+          onShare={onShare}
+        />
+      </div>
+    </div>
+  );
+}
+
 export function MbtiResultShell({
   locale,
   scaleCode,
@@ -662,7 +778,6 @@ export function MbtiResultShell({
   tags,
   dimensions,
   projectionViewModel,
-  highlights,
   sections,
   sectionUnlocks,
   offers,
@@ -690,9 +805,6 @@ export function MbtiResultShell({
   const comparative = personalization?.comparative ?? null;
   const controlledNarrative = personalization?.controlledNarrative ?? null;
   const culturalCalibration = personalization?.culturalCalibration ?? null;
-  const recommendedReads = Array.isArray(payload?.recommended_reads)
-    ? (payload?.recommended_reads as ReportRecommendedRead[])
-    : [];
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const primaryCtaLabel = resolvePrimaryCtaLabel(locale, cta);
   const isUnlockedPostPurchase = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
@@ -1543,7 +1655,7 @@ export function MbtiResultShell({
     });
   }
 
-  const orderedCtaSurfaceNodes = [...ctaSurfaceEntries]
+  const orderedCtaSurfaceEntries = [...ctaSurfaceEntries]
     .sort((left, right) => {
       if (left.rank === right.rank) {
         return left.key.localeCompare(right.key);
@@ -1551,7 +1663,48 @@ export function MbtiResultShell({
 
       return left.rank - right.rank;
     })
-    .map((entry) => entry.node);
+    ;
+
+  const offerCtaEntry = orderedCtaSurfaceEntries.find(
+    (entry) => entry.key === "unlock_full_report" || entry.key === "workspace_lite"
+  );
+  const auxiliaryCtaEntries = orderedCtaSurfaceEntries.filter((entry) => entry.key !== "unlock_full_report" && entry.key !== "workspace_lite");
+  const chapterSectionNodes = CHAPTER_ORDER.map((chapterKey) => {
+    const legacySection = legacySectionsByKey.get(chapterKey) ?? null;
+    const projectionSections = sortProjectionSectionsForChapter(
+      CHAPTER_PROJECTION_KEYS[chapterKey]
+        .map((sectionKey) => projectionSectionsByKey.get(sectionKey))
+        .filter((section): section is MbtiResultProjectionSectionViewModel => Boolean(section)),
+      orderedSectionKeys,
+      orderedActionKeys
+    );
+
+    if (!legacySection && projectionSections.length === 0) {
+      return null;
+    }
+
+    return (
+      <MbtiChapterSection
+        key={chapterKey}
+        locale={locale}
+        attemptId={attemptId}
+        chapterKey={chapterKey}
+        legacySection={legacySection}
+        projectionSections={projectionSections}
+        projectionDimensions={projectionViewModel?.dimensions ?? []}
+        globalTraits={globalTraits}
+        unlock={sectionUnlocks[chapterKey] ?? null}
+        identityLayer={identityLayer}
+        personalization={personalization}
+        primaryFocusKey={primaryFocusKey}
+      />
+    );
+  }).filter(Boolean);
+  const introParagraphs = [
+    normalizeText(publicHeadline.summary),
+    normalizeText(publicHeadline.supportingLine),
+  ].filter(Boolean).slice(0, 2);
+  const offerPrimaryLabel = isUnlockedPostPurchase ? terminalPrimaryCtaLabel : locale === "zh" ? "解锁完整报告" : "Unlock full report";
 
   return (
     <div
@@ -1596,138 +1749,37 @@ export function MbtiResultShell({
                 ) : null}
               </div>
 
-              <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-end">
-                  <div className="space-y-4">
-                    <div className="space-y-3">
-                      <h1 className="m-0 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                        {publicHeadline.typeCode}
-                        {publicHeadline.displayName ? <span className="text-slate-600"> · {publicHeadline.displayName}</span> : null}
-                      </h1>
-                      {publicTypeName || publicNickname ? (
-                        <p data-testid="mbti-hero-identity-line" className="m-0 text-sm font-medium uppercase tracking-[0.12em] text-slate-500">
-                          {[publicTypeName, publicNickname].filter(Boolean).join(" · ")}
-                        </p>
-                      ) : null}
-                      {publicHeadline.supportingLine ? <p className="m-0 text-lg font-medium text-slate-700">{publicHeadline.supportingLine}</p> : null}
-                      {publicHeadline.summary ? <p className="m-0 max-w-3xl whitespace-pre-wrap text-base leading-8 text-slate-700">{publicHeadline.summary}</p> : null}
-                      {controlledNarrative?.enabled ? (
-                        <div
-                          data-testid="mbti-controlled-narrative"
-                          data-runtime-mode={controlledNarrative.runtimeMode}
-                          data-narrative-fingerprint={controlledNarrative.narrativeFingerprint}
-                          className="rounded-2xl border border-sky-100 bg-white/75 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+              <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end">
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+                      {locale === "zh" ? "你的结果类型" : "Your result type"}
+                    </p>
+                    <h1 className="m-0 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                      {publicHeadline.typeCode}
+                      {publicHeadline.displayName ? <span className="text-slate-600"> · {publicHeadline.displayName}</span> : null}
+                    </h1>
+                    {publicTypeName || publicNickname ? (
+                      <p data-testid="mbti-hero-identity-line" className="m-0 text-sm font-medium uppercase tracking-[0.12em] text-slate-500">
+                        {[publicTypeName, publicNickname].filter(Boolean).join(" · ")}
+                      </p>
+                    ) : null}
+                  </div>
+                  {publicHeadline.supportingLine ? (
+                    <p className="m-0 text-lg font-medium text-slate-700">{publicHeadline.supportingLine}</p>
+                  ) : null}
+                  {publicHeadline.summary ? (
+                    <p className="m-0 max-w-3xl whitespace-pre-wrap text-base leading-8 text-slate-700">
+                      {publicHeadline.summary}
+                    </p>
+                  ) : null}
+                  {publicTags.length > 0 ? (
+                    <div className="flex flex-wrap gap-2">
+                      {publicTags.slice(0, 5).map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex rounded-full border border-white/80 bg-white/90 px-3 py-1 text-sm text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.05)]"
                         >
-                          {controlledNarrative.narrativeIntro ? (
-                            <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-sky-700">
-                              {controlledNarrative.narrativeIntro}
-                            </p>
-                          ) : null}
-                          {controlledNarrative.narrativeSummary ? (
-                            <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                              {controlledNarrative.narrativeSummary}
-                            </p>
-                          ) : null}
-                        </div>
-                      ) : null}
-                      {comparative?.enabled && comparativePercentileValue !== null ? (
-                        <div
-                          data-testid="mbti-comparative"
-                          data-comparative-fingerprint={comparative.comparativeFingerprint || undefined}
-                          data-norming-version={comparative.normingVersion || undefined}
-                          data-norming-scope={comparative.normingScope || undefined}
-                          data-norming-source={comparative.normingSource || undefined}
-                          className="rounded-2xl border border-violet-100 bg-violet-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
-                        >
-                          <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-violet-700">
-                            {locale === "zh" ? "相对参照" : "Comparative reference"}
-                          </p>
-                          <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                            {locale === "zh"
-                              ? `${comparativePercentileLabel || "主轴"} 位于第 ${comparativePercentileValue} 百分位。${comparativePositionLabel || comparativePositionSummary}`
-                              : `${comparativePercentileLabel || "Lead signal"} lands at the ${comparativePercentileValue}th percentile. ${comparativePositionLabel || comparativePositionSummary}`}
-                          </p>
-                          {comparativeSameTypeLabel || comparativeSameTypeSummary ? (
-                            <p className="m-0 mt-2 whitespace-pre-wrap text-xs leading-6 text-slate-600">
-                              {[comparativeSameTypeLabel, comparativeSameTypeSummary].filter(Boolean).join(" · ")}
-                            </p>
-                          ) : null}
-                        </div>
-                      ) : null}
-                      {culturalCalibration?.enabled && (calibrationNarrativeIntro || calibrationNarrativeSummary) ? (
-                        <div
-                          data-testid="mbti-cultural-calibration"
-                          data-locale-context={culturalCalibration.localeContext || undefined}
-                          data-cultural-context={culturalCalibration.culturalContext || undefined}
-                          data-calibration-fingerprint={culturalCalibration.calibrationFingerprint || undefined}
-                          className="rounded-2xl border border-amber-100 bg-amber-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
-                        >
-                          {calibrationNarrativeIntro ? (
-                            <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-amber-700">
-                              {calibrationNarrativeIntro}
-                            </p>
-                          ) : null}
-                          {calibrationNarrativeSummary ? (
-                            <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                              {calibrationNarrativeSummary}
-                            </p>
-                          ) : null}
-                        </div>
-                      ) : null}
-                      {longitudinalMemory ? (
-                        <div
-                          data-testid="mbti-longitudinal-memory"
-                          data-memory-fingerprint={memoryFingerprintSummary || undefined}
-                          data-memory-state={memoryStateSummary || undefined}
-                          data-memory-rewrite-reason={memoryRewriteReasonSummary || undefined}
-                          className="rounded-2xl border border-emerald-100 bg-emerald-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
-                        >
-                          <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-emerald-700">
-                            {locale === "zh" ? "长期记忆已生效" : "Longitudinal memory active"}
-                          </p>
-                          <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                            {memoryRewriteLabel}
-                          </p>
-                          {(resumeBiasKeysSummary || dominantInterestKeysSummary) ? (
-                            <p className="m-0 mt-2 whitespace-pre-wrap text-xs leading-6 text-slate-600">
-                              {locale === "zh"
-                                ? `延续重点：${resumeBiasKeysSummary || "未显式给出"} · 持续关注：${dominantInterestKeysSummary || "未显式给出"}`
-                                : `Resume bias: ${resumeBiasKeysSummary || "not explicit"} · Dominant interests: ${dominantInterestKeysSummary || "not explicit"}`}
-                            </p>
-                          ) : null}
-                        </div>
-                      ) : null}
-                      {adaptiveSelection ? (
-                        <div
-                          data-testid="mbti-adaptive-selection"
-                          data-adaptive-fingerprint={adaptiveFingerprintSummary || undefined}
-                          data-selection-rewrite-reason={adaptiveRewriteReasonSummary || undefined}
-                          data-next-best-action-key={nextBestActionKeySummary || undefined}
-                          className="rounded-2xl border border-sky-100 bg-sky-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
-                        >
-                          <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-sky-700">
-                            {locale === "zh" ? "自适应修正已生效" : "Adaptive correction active"}
-                          </p>
-                          <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                            {adaptiveRewriteLabel}
-                          </p>
-                          {(nextBestActionLabel || nextBestActionSectionSummary) ? (
-                            <p className="m-0 mt-2 whitespace-pre-wrap text-xs leading-6 text-slate-600">
-                              {locale === "zh"
-                                ? `下一步动作：${nextBestActionLabel || "未显式给出"} · 目标章节：${nextBestActionSectionSummary || "未显式给出"}`
-                                : `Next best action: ${nextBestActionLabel || "not explicit"} · Target section: ${nextBestActionSectionSummary || "not explicit"}`}
-                            </p>
-                          ) : null}
-                        </div>
-                      ) : null}
-                    </div>
-
-                    {publicTags.length > 0 ? (
-                      <div className="flex flex-wrap gap-2">
-                        {publicTags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="inline-flex rounded-full border border-white/80 bg-white/90 px-3 py-1 text-sm text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.05)]"
-                          >
                           {tag}
                         </span>
                       ))}
@@ -1737,7 +1789,7 @@ export function MbtiResultShell({
 
                 <div className="rounded-[24px] border border-white/80 bg-white/80 p-5 shadow-[0_14px_28px_rgba(15,23,42,0.06)]">
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                    {locale === "zh" ? "阅读入口" : "Reading entry"}
+                    {locale === "zh" ? "报告主视觉" : "Report visual"}
                   </p>
                   <p className="m-0 mt-3 text-3xl font-bold tracking-tight text-slate-950">{publicHeadline.typeCode}</p>
                   {publicHeadline.rarity ? (
@@ -1746,8 +1798,8 @@ export function MbtiResultShell({
                       {publicHeadline.rarity}
                     </p>
                   ) : null}
-                  <a href="#offer-full" className={buttonVariants({ className: "mt-4 w-full" })}>
-                    {locale === "zh" ? "解锁完整报告" : "Unlock full report"}
+                  <a href={isUnlockedPostPurchase ? "#intro" : "#offer-full"} className={buttonVariants({ className: "mt-4 w-full" })}>
+                    {isUnlockedPostPurchase ? offerPrimaryLabel : locale === "zh" ? "查看解锁入口" : "View unlock entry"}
                   </a>
                 </div>
               </div>
@@ -1755,388 +1807,42 @@ export function MbtiResultShell({
           </section>
 
           <section
-            id="dimensions"
-            data-testid="mbti-dimensions"
-            className="scroll-mt-28 space-y-4 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
+            id="intro"
+            className="scroll-mt-28 space-y-3 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
           >
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+              {locale === "zh" ? "章节导读" : "Report intro"}
+            </p>
             <div className="space-y-2">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                {locale === "zh" ? "维度概览" : "Dimension overview"}
-              </p>
               <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">
-                {locale === "zh" ? "先看结果的整体受力方向" : "Start with the overall directional balance"}
+                {locale === "zh" ? "从类型特征出发，分章理解结果" : "Read the result by chapter"}
               </h2>
-            </div>
-            <DimensionBars dimensions={publicDimensions} />
-          </section>
-
-          <MbtiSceneFingerprintSummary locale={locale} personalization={personalization} />
-
-          <MbtiDominantTraitsSection
-            locale={locale}
-            roleCard={asRecord(layers?.role_card) ?? undefined}
-            strategyCard={asRecord(layers?.strategy_card) ?? undefined}
-            identityLayer={identityLayer}
-            identityTags={normalizeStringArray(identityCard?.tags)}
-            profileKeywords={normalizeStringArray(profile?.keywords)}
-            fallbackTags={tags}
-          />
-
-          <section
-            id="highlights"
-            data-testid="mbti-highlights"
-            className="scroll-mt-28 space-y-4 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
-          >
-            <div className="space-y-2">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                {locale === "zh" ? "高频亮点" : "High-frequency highlights"}
-              </p>
-              <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">
-                {locale === "zh" ? "当前免费结果已经公开的正式亮点" : "The formal highlights already open in the free result"}
-              </h2>
-            </div>
-
-            <div className="grid gap-4 lg:grid-cols-3">
-              {highlights.map((card, index) => (
-                <Card
-                  key={`${card.title}-${index}`}
-                  className="border-slate-200 bg-white/95 shadow-[0_14px_36px_rgba(15,23,42,0.06)]"
-                >
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg text-slate-900">{card.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4 text-sm text-slate-700">
-                    <p className="m-0 whitespace-pre-wrap leading-7">{card.body}</p>
-                    {card.tips.length > 0 ? (
-                      <div className="rounded-2xl border border-emerald-100 bg-emerald-50/80 p-3">
-                        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
-                          {locale === "zh" ? "行动提示" : "Action tip"}
-                        </p>
-                        <ul className="mb-0 mt-2 list-disc space-y-1 pl-4">
-                          {card.tips.map((tip) => (
-                            <li key={tip}>{tip}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : null}
-                  </CardContent>
-                </Card>
-              ))}
+              <div className="space-y-2 text-sm leading-7 text-[var(--fm-text-muted)]">
+                {introParagraphs.length > 0 ? (
+                  introParagraphs.map((paragraph) => <p key={paragraph} className="m-0">{paragraph}</p>)
+                ) : null}
+                {publicHeadline.rarity ? (
+                  <p className="m-0">
+                    {locale === "zh" ? "类型稀有度：" : "Type rarity: "} {publicHeadline.rarity}
+                  </p>
+                ) : null}
+              </div>
             </div>
           </section>
 
-          {actionPlanSummary ? (
-            <section
-              id="action-plan"
-              data-testid="mbti-action-plan-summary"
-              data-primary-focus={actionPlanFocused ? "true" : undefined}
-              className={`scroll-mt-28 rounded-[28px] border bg-gradient-to-br from-amber-50 via-white to-emerald-50/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6 ${
-                actionPlanFocused ? "border-emerald-300 ring-1 ring-emerald-100" : "border-amber-200"
-              }`}
-            >
-              <div className="space-y-3">
-                {actionPlanFocused ? (
-                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                    {locale === "zh" ? "当前重点" : "Current focus"}
-                  </p>
-                ) : null}
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">
-                  {locale === "zh" ? "行动总览" : "Action plan"}
-                </p>
-                <div className="space-y-2">
-                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                    {locale === "zh"
-                      ? "把接下来最值得做的事缩成可重复的小动作"
-                      : "Turn the next useful move into repeatable small actions"}
-                  </h2>
-                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                    {actionPlanSummary}
-                  </p>
-                </div>
-              </div>
-            </section>
-          ) : null}
+          {chapterSectionNodes}
 
-          {actionJourney && isRevisit ? (
-            <section
-              id="action-journey"
-              data-testid="mbti-action-journey"
-              data-journey-scope={journeyScopeSummary || undefined}
-              data-journey-state={journeyStateSummary || undefined}
-              data-progress-state={progressStateSummary || undefined}
-              data-journey-fingerprint={journeyFingerprintSummary || undefined}
-              className="scroll-mt-28 rounded-[28px] border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-sky-50/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
-            >
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                    {locale === "zh" ? "行动旅程" : "Action journey"}
-                  </p>
-                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                    {journeyStateLabel}
-                  </h2>
-                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                    {revisitReorderLabel}
-                  </p>
-                </div>
-                <div className="grid gap-3 md:grid-cols-2">
-                  <div className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4">
-                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                      {locale === "zh" ? "当前进展" : "Progress band"}
-                    </p>
-                    <p className="m-0 text-sm font-medium text-slate-900">{progressStateLabel}</p>
-                    {actionFocusKey ? (
-                      <p className="m-0 text-xs leading-6 text-slate-600">
-                        {locale === "zh"
-                          ? `当前动作焦点：${actionFocusKey}`
-                          : `Current action focus: ${actionFocusKey}`}
-                      </p>
-                    ) : null}
-                    {completedActionKeysSummary ? (
-                      <p className="m-0 text-xs leading-6 text-slate-600">
-                        {locale === "zh"
-                          ? `已形成推进信号：${completedActionKeysSummary}`
-                          : `Completed action signals: ${completedActionKeysSummary}`}
-                      </p>
-                    ) : null}
-                  </div>
-                  <div
-                    data-testid="mbti-pulse-check"
-                    data-pulse-state={pulseStateSummary || undefined}
-                    className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4"
-                  >
-                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                      {locale === "zh" ? "本次 pulse" : "Current pulse"}
-                    </p>
-                    <p className="m-0 text-sm font-medium text-slate-900">
-                      {pulseCheck?.pulseState
-                        ? resolveMbtiPulsePromptLabel(
-                            pulseCheck.pulsePromptKeys[0] ?? pulseCheck.pulseState,
-                            locale
-                          )
-                        : locale === "zh"
-                          ? "继续当前最值得延续的动作"
-                          : "Continue the most useful next action"}
-                    </p>
-                    {pulsePromptLabels.length > 0 ? (
-                      <ul className="mb-0 list-disc space-y-1 pl-4 text-xs leading-6 text-slate-600">
-                        {pulsePromptLabels.map((label) => (
-                          <li key={label}>{label}</li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </div>
-                </div>
-                {journeyHistoryHref ? (
-                  <div className="flex flex-wrap gap-3">
-                    <Link
-                      data-testid="mbti-action-journey-cta"
-                      href={journeyHistoryHref}
-                      className={buttonVariants({ className: "bg-slate-950 text-white hover:bg-slate-800" })}
-                      onClick={() => {
-                        trackEvent("ui_card_interaction", {
-                          slug: "mbti-result-shell",
-                          scale_code: "MBTI",
-                          visual_kind: "mbti_action_journey",
-                          interaction: "click_cta",
-                          attempt_id: attemptId,
-                          continueTarget: "history_continue",
-                          ...personalizationTelemetryContext,
-                          ...buildMbtiActionJourneyTelemetryFields(actionJourney, pulseCheck),
-                        });
-                      }}
-                    >
-                      {locale === "zh" ? "带着当前动作继续回访" : "Continue with the current action loop"}
-                    </Link>
-                    {recommendedNextPulseKeysSummary ? (
-                      <p className="m-0 self-center text-xs leading-6 text-slate-600">
-                        {locale === "zh"
-                          ? `下一步建议：${recommendedNextPulseKeysSummary}`
-                          : `Recommended next pulse: ${recommendedNextPulseKeysSummary}`}
-                      </p>
-                    ) : null}
-                  </div>
-                ) : null}
-              </div>
-            </section>
-          ) : null}
-
-          {workingLifeFocused ? (
-            <section
-              id="working-life-focus"
-              data-testid="mbti-working-life-focus"
-              data-career-focus-key={careerFocusKey || undefined}
-              data-career-journey-keys={careerJourneyKeysSummary || undefined}
-              data-career-action-priority-keys={careerActionPriorityKeysSummary || undefined}
-              data-career-reading-keys={careerReadingKeysSummary || undefined}
-              className="scroll-mt-28 rounded-[28px] border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-emerald-50/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
-            >
-              <div className="space-y-3">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
-                  {locale === "zh" ? "Working-Life OS" : "Working-Life OS"}
-                </p>
-                <div className="space-y-2">
-                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                    {locale === "zh"
-                      ? `当前职业焦点：${resolveCareerJourneyLabel(locale, careerFocusKey)}`
-                      : `Current working-life focus: ${resolveCareerJourneyLabel(locale, careerFocusKey)}`}
-                  </h2>
-                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                    {calibrationWorkingLifeSummary
-                      ? calibrationWorkingLifeSummary
-                      : careerNextStepLead
-                      ? careerNextStepLead
-                      : careerSummaryLead
-                        ? careerSummaryLead
-                        : locale === "zh"
-                          ? "把职业下一步、工作实验和环境匹配放在同一条连续主链里，会比分散阅读更容易形成真实推进。"
-                          : "Treating the next career step, work experiments, and environment fit as one continuous chain is more useful than reading them as isolated sections."}
-                  </p>
-                </div>
-                <div className="grid gap-3 md:grid-cols-2">
-                  <div className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4">
-                      <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                        {locale === "zh" ? "主链顺序" : "Journey order"}
-                      </p>
-                    <div className="flex flex-wrap gap-2">
-                      {workingLifeJourney.map((journeyKey, index) => (
-                        <span
-                          key={journeyKey}
-                          data-career-journey-key={journeyKey}
-                          data-career-action-rank={String(index + 1)}
-                          className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700"
-                        >
-                          {index + 1}. {resolveCareerJourneyLabel(locale, journeyKey)}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="space-y-2 rounded-2xl border border-white/80 bg-white/90 p-4">
-                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                      {locale === "zh" ? "优先动作" : "Priority actions"}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {workingLifeActionPriority.map((actionKey, index) => (
-                        <span
-                          key={actionKey}
-                          data-career-journey-key={actionKey}
-                          data-career-action-rank={String(index + 1)}
-                          className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700"
-                        >
-                          {index + 1}. {resolveCareerJourneyLabel(locale, actionKey)}
-                        </span>
-                      ))}
-                    </div>
-                    {workingLifeReadingFocus ? (
-                      <p className="m-0 text-xs leading-6 text-slate-600">
-                        {locale === "zh"
-                          ? `当前优先阅读：${workingLifeReadingFocus}`
-                          : `Current reading focus: ${workingLifeReadingFocus}`}
-                      </p>
-                    ) : null}
-                    {culturalCalibration?.enabled ? (
-                      <p
-                        className="m-0 text-xs leading-6 text-slate-500"
-                        data-calibration-fingerprint={culturalCalibration.calibrationFingerprint || undefined}
-                      >
-                        {locale === "zh"
-                          ? `当前语境校准：${culturalCalibration.culturalContext || culturalCalibration.localeContext}`
-                          : `Current calibration context: ${culturalCalibration.culturalContext || culturalCalibration.localeContext}`}
-                      </p>
-                    ) : null}
-                  </div>
-                </div>
-              </div>
-            </section>
-          ) : null}
-
-          {carryoverEntryHref ? (
-            <section
-              id="carryover"
-              data-testid="mbti-carryover-entry"
-              data-carryover-focus-key={carryoverFocusKey || undefined}
-              data-carryover-reason={carryoverReason || undefined}
-              className="scroll-mt-28 rounded-[28px] border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-emerald-50/60 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
-            >
-              <div className="space-y-3">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
-                  {locale === "zh" ? "继续阅读" : "Continue reading"}
-                </p>
-                <div className="space-y-2">
-                  <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                    {locale === "zh"
-                      ? `继续看 ${continuityFocusLabel || (carryoverTarget === "career_bridge" ? "职业下一步" : "当前重点")}`
-                      : `Continue with ${continuityFocusLabel || (carryoverTarget === "career_bridge" ? "career next step" : "the current focus")}`}
-                  </h2>
-                  <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                    {continuityReasonLabel}
-                  </p>
-                </div>
-                <Link
-                  data-testid="mbti-carryover-entry-cta"
-                  href={carryoverEntryHref}
-                  className={buttonVariants({ className: "bg-slate-950 text-white hover:bg-slate-800" })}
-                  onClick={() => {
-                    trackEvent("ui_card_interaction", {
-                      slug: "mbti-result-shell",
-                      scale_code: "MBTI",
-                      visual_kind: "mbti_carryover_entry",
-                      interaction: "click_cta",
-                      attempt_id: attemptId,
-                      continueTarget: carryoverTarget,
-                      ...personalizationTelemetryContext,
-                    });
-                  }}
-                >
-                  {locale === "zh"
-                    ? carryoverTarget === "workspace_lite"
-                      ? "回到你当前最相关的入口"
-                      : "继续看这里"
-                    : carryoverTarget === "workspace_lite"
-                      ? "Return to your current entry"
-                      : "Continue here"}
-                </Link>
-              </div>
-            </section>
-          ) : null}
-
-          {CHAPTER_ORDER.map((chapterKey) => {
-            const legacySection = legacySectionsByKey.get(chapterKey) ?? null;
-            const projectionSections = sortProjectionSectionsForChapter(
-              CHAPTER_PROJECTION_KEYS[chapterKey]
-                .map((sectionKey) => projectionSectionsByKey.get(sectionKey))
-                .filter((section): section is MbtiResultProjectionSectionViewModel => Boolean(section)),
-              orderedSectionKeys,
-              orderedActionKeys
-            );
-
-            if (!legacySection && projectionSections.length === 0) {
-              return null;
-            }
-
-            return (
-              <MbtiChapterSection
-                key={chapterKey}
-                locale={locale}
-                attemptId={attemptId}
-                chapterKey={chapterKey}
-                legacySection={legacySection}
-                projectionSections={projectionSections}
-                projectionDimensions={projectionViewModel?.dimensions ?? []}
-                globalTraits={globalTraits}
-                unlock={sectionUnlocks[chapterKey] ?? null}
-                identityLayer={identityLayer}
-                personalization={personalization}
-                primaryFocusKey={primaryFocusKey}
-              />
-            );
-          })}
-
-          {orderedCtaSurfaceNodes.map((node, index) => (
-            <div key={`mbti-cta-surface-${index}`}>{node}</div>
+          {auxiliaryCtaEntries.map((entry) => (
+            <div key={`mbti-cta-surface-${entry.key}-${entry.rank}`}>{entry.node}</div>
           ))}
 
-          <MbtiRecommendedReadsSection locale={locale} reads={recommendedReads} personalization={personalization} />
+          <section
+            id={OFFER_SECTION_ID}
+            data-testid="mbti-offer-full"
+            className="scroll-mt-28 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
+          >
+            {offerCtaEntry?.node}
+          </section>
 
           <Card
             id="footer-cta"
@@ -2144,17 +1850,13 @@ export function MbtiResultShell({
             className="border-slate-950 bg-slate-950 text-white shadow-[0_22px_52px_rgba(15,23,42,0.22)]"
           >
             <CardHeader className="pb-3">
-              <CardTitle className="text-white">{locale === "zh" ? "继续阅读或继续行动" : "Keep reading or take the next step"}</CardTitle>
+              <CardTitle className="text-white">{locale === "zh" ? "下一步操作" : "Next actions"}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="m-0 text-sm leading-7 text-slate-300">
-                {isUnlockedPostPurchase
-                  ? locale === "zh"
-                    ? "页尾仍保留分享与重测，而正式再次进入入口会直接带你回到 MBTI 历史页。"
-                    : "The footer keeps share and retake, while the formal re-entry action now sends you to your MBTI history."
-                  : locale === "zh"
-                    ? "页尾只保留三件事：分享结果、重新测试、或者回看当前结果页对应的解锁方案。"
-                    : "The footer keeps only three actions: share, retake, or jump back to the unlock options tied to this result page."}
+                {locale === "zh"
+                  ? "保留分享与重测动作，并保留当前结果可达的历史/继续入口。"
+                  : "Keep share and retake, and preserve the available history/continuation entry points."}
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button type="button" variant="secondary" onClick={() => void handleShare()}>
@@ -2162,6 +1864,9 @@ export function MbtiResultShell({
                 </Button>
                 <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
                   {locale === "zh" ? "重新测试" : "Retake test"}
+                </Link>
+                <Link href={historyHref} className={buttonVariants({ variant: "outline" })}>
+                  {locale === "zh" ? "查看历史" : "View history"}
                 </Link>
                 {isUnlockedPostPurchase ? (
                   <Link
@@ -2172,7 +1877,7 @@ export function MbtiResultShell({
                   </Link>
                 ) : (
                   <a href="#offer-full" className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}>
-                    {terminalPrimaryCtaLabel}
+                    {offerPrimaryLabel}
                   </a>
                 )}
               </div>

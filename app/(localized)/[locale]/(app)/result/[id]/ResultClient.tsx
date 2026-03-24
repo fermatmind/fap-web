@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
+import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import {
   canRenderRichResultReport,
   isGeneratingReportResponse,
@@ -32,10 +33,11 @@ import {
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import { isGuestTokenRequestError } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, type Locale } from "@/lib/i18n/locales";
+import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
@@ -310,6 +312,20 @@ function resolveScaleCodeForTelemetry(reportData: ReportResponse | null, resultD
   return metaScaleCode || "UNKNOWN";
 }
 
+function resolveRetakeHrefByScale(locale: Locale, scaleCode: string): string {
+  const normalized = scaleCode.toUpperCase();
+  const canonicalSlug = SCALE_CANONICAL_SLUG_MAP[normalized as keyof typeof SCALE_CANONICAL_SLUG_MAP] ?? "mbti";
+  return localizedPath(`/tests/${canonicalSlug}/take`, locale);
+}
+
+function resolveMbtiLoadingStatusText(locale: Locale, state: "processing" | "failed", error: string | null) {
+  if (state === "processing") {
+    return locale === "zh" ? "正在生成你的结果..." : "We are generating your result...";
+  }
+
+  return error ?? (locale === "zh" ? "结果暂时无法读取，请返回后再试。" : "The result is temporarily unavailable, please try again.");
+}
+
 export default function ResultClient({
   attemptId,
   rolloutEnv,
@@ -568,6 +584,10 @@ export default function ResultClient({
   const projectionUnavailable = isProjectionUnavailable(accessView);
   const projectionLocked = isProjectionLocked(accessView);
   const projectionProcessing = isProjectionProcessing(accessView);
+  const resolvedScaleCode = resolveScaleCodeForTelemetry(reportData, resultData);
+  const isMbtiReadyPath =
+    (hasReadyResultPayload(resultData) && normalizeText(resultData.meta?.scale_code).toUpperCase() === "MBTI") ||
+    resolveScaleCodeForTelemetry(reportData, resultData) === "MBTI";
 
   const viewState: "processing" | "ready" | "failed" =
     loading || processing || projectionProcessing
@@ -575,6 +595,23 @@ export default function ResultClient({
       : hasRichReport || hasReadyResultPayload(resultData)
         ? "ready"
         : "failed";
+
+  if (isMbtiReadyPath && viewState !== "ready") {
+    const retakeHref = resolveRetakeHrefByScale(locale, resolvedScaleCode === "MBTI" ? resolvedScaleCode : "MBTI");
+    const statusText = resolveMbtiLoadingStatusText(locale, viewState, error);
+    const primaryCtaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
+
+    return (
+      <MbtiResultShellLoadingShell
+        locale={locale}
+        retakeHref={retakeHref}
+        statusText={statusText}
+        primaryCtaLabel={primaryCtaLabel}
+        primaryCtaHref="#offer-full"
+        primaryCtaIsInternal={false}
+      />
+    );
+  }
 
   if (viewState === "processing") {
     return (
