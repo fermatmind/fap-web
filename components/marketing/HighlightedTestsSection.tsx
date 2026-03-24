@@ -45,10 +45,12 @@ function PathActionLinks({
   item,
   locale,
   className,
+  compact = false,
 }: {
   item: HomepageContent["testCatalog"][number];
   locale: Locale;
   className?: string;
+  compact?: boolean;
 }) {
   const withLocale = (path: string) => toLocalePath(path, locale);
 
@@ -56,7 +58,10 @@ function PathActionLinks({
     <div className={`mt-4 flex flex-wrap gap-2 ${className ?? ""}`}>
       <Link
         href={withLocale(`/tests/${item.slug}/take`)}
-        className={buttonVariants({ size: "sm", className: "h-auto min-h-[44px]" })}
+        className={buttonVariants({
+          size: "sm",
+          className: compact ? "h-auto min-h-[40px] px-3 text-xs" : "h-auto min-h-[44px]",
+        })}
       >
         {item.primaryCta}
       </Link>
@@ -64,8 +69,8 @@ function PathActionLinks({
         href={withLocale(`/tests/${item.slug}`)}
         className={buttonVariants({
           size: "sm",
-          variant: "outline",
-          className: "h-auto min-h-[44px] border-slate-300",
+          variant: compact ? "ghost" : "outline",
+          className: compact ? "h-auto min-h-[40px] px-3 text-xs" : "h-auto min-h-[44px] border-slate-300",
         })}
       >
         {item.secondaryCta}
@@ -73,6 +78,24 @@ function PathActionLinks({
     </div>
   );
 }
+
+const TEST_DURATION_BY_ID: Record<HomeTestId, string> = {
+  mbti: "约 12 分钟",
+  big5: "约 10 分钟",
+  clinical: "约 8 分钟",
+  sds20: "约 5 分钟",
+  iq: "约 15 分钟",
+  eq: "约 14 分钟",
+};
+
+const TEST_DURATION_BY_ID_EN: Record<HomeTestId, string> = {
+  mbti: "Approx. 12 min",
+  big5: "Approx. 10 min",
+  clinical: "Approx. 8 min",
+  sds20: "Approx. 5 min",
+  iq: "Approx. 15 min",
+  eq: "Approx. 14 min",
+};
 
 export function HighlightedTestsSection({ locale, content, routes }: HighlightedTestsSectionProps) {
   const withLocale = (path: string) => toLocalePath(path, locale);
@@ -113,113 +136,116 @@ export function HighlightedTestsSection({ locale, content, routes }: Highlighted
 
   const quickBrowseTitle = content.quickBrowse.title;
   const quickBrowseSupporting = content.quickBrowse.supporting;
+  const testDurationLookup = locale === "zh" ? TEST_DURATION_BY_ID : TEST_DURATION_BY_ID_EN;
+  const microPathPreview =
+    locale === "zh"
+      ? [
+          { label: "结果收益", value: "更快确认问题、减少盲测与重复测试" },
+          { label: "建议时长", value: "12–20 分钟" },
+        ]
+      : [
+          { label: "Takeaway", value: "Clarify your next decision and avoid duplicate tests." },
+          { label: "Expected time", value: "12–20 minutes" },
+        ];
 
   return (
     <section
       id="home-highlighted-tests-section"
       data-testid="home-highlighted-tests-section"
-      className="py-[clamp(56px,8vw,112px)]"
+      className="py-[clamp(56px,8vw,96px)]"
     >
       <Container className="space-y-[var(--fm-space-8)]">
-        <div className="space-y-2">
+        <div className="max-w-3xl space-y-2">
+          <p className="fm-home-section-kicker">{content.paths.recommendationTitle}</p>
           <h2 className="m-0 text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
             {content.paths.title}
           </h2>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{content.paths.supporting}</p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="fm-home-path-tabs">
           {(Object.entries(content.paths.cards) as Array<[HomePathId, (typeof content.paths.cards)[HomePathId]]>).map(
-            ([path, item]) => {
+            ([path, item], index) => {
               const isActive = selectedPath === path;
               return (
-                <article
-                  key={path}
-                  className={`rounded-2xl border p-4 transition md:p-5 ${
-                    isActive
-                      ? "border-[var(--fm-trust-blue)] bg-white shadow-[var(--fm-shadow-sm)]"
-                      : "border-slate-200 bg-white"
-                  }`}
+                <button
+                  key={`path-tab-${path}`}
+                  type="button"
+                  onClick={() => selectPath(path)}
+                  className={`fm-home-path-tab ${isActive ? "is-active" : "is-inactive"}`}
+                  aria-pressed={isActive}
                 >
-                  <button
-                    type="button"
-                    onClick={() => selectPath(path)}
-                    className="w-full text-left"
-                    aria-pressed={isActive}
-                  >
-                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.13em] text-[var(--fm-trust-blue)]">
-                      {path === "self" ? "1" : path === "career" ? "2" : "3"} / 3
-                    </p>
-                    <h3 className="mt-1 text-xl font-semibold text-[var(--fm-text)]">{item.title}</h3>
-                    <p className="mt-2 text-sm text-[var(--fm-text-muted)]">{item.body}</p>
-                    <p className="mt-2 text-xs text-[var(--fm-text-muted)]">{item.meta}</p>
-                  </button>
-                  {path === selectedPath && pathCard ? (
-                    <Link
-                      href={withLocale(`/tests/${featuredTest?.slug ?? ""}/take`)}
-                      className={buttonVariants({
-                        variant: "outline",
-                        size: "sm",
-                        className: "mt-3 h-auto min-h-[44px]",
-                      })}
-                    >
-                      {item.cta}
-                    </Link>
-                  ) : null}
-                </article>
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-trust-blue)]">
+                    {(index + 1).toString().padStart(2, "0")} / 03
+                  </p>
+                  <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{item.title}</h3>
+                  <p className="m-0 text-sm text-[var(--fm-text-muted)]">{item.body}</p>
+                </button>
               );
             }
           )}
         </div>
 
-        <section className="space-y-4 rounded-[1.6rem] border border-slate-200 bg-white p-4 md:p-6" aria-labelledby="home-featured-tests-title">
-          <div className="md:rounded-2xl">
-            <p
-              id="home-featured-tests-title"
-              className="m-0 text-xs font-semibold uppercase tracking-[0.13em] text-[var(--fm-trust-blue)]"
-            >
-              {content.paths.recommendationTitle}
-            </p>
-            <h3 className="mt-2 text-2xl font-semibold text-[var(--fm-text)]">
-              {content.paths.recommendationPrefix}
-              {pathCard?.title}
-            </h3>
-          </div>
+        <section className="rounded-[1.4rem] border border-[var(--fm-border)] bg-white p-4 md:p-6">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.13em] text-[var(--fm-trust-blue)]">
+            {content.paths.recommendationTitle}
+          </p>
+          <p className="mt-2 text-sm text-[var(--fm-text-muted)]">
+            {content.paths.recommendationPrefix}
+            {pathCard?.title}
+          </p>
 
-          <div className="grid gap-4 lg:grid-cols-[1.22fr_0.78fr]">
-            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-                {content.paths.featuredLabel}
-              </p>
-              <h4 className="mt-2 text-2xl font-semibold text-[var(--fm-text)]">{featuredTest?.name}</h4>
-              <p className="mt-2 text-sm text-[var(--fm-text-muted)]">{featuredTest?.desc}</p>
-              <PathActionLinks item={featuredTest ?? content.testCatalog[0]} locale={locale} />
+          <div className="mt-4 grid gap-4 lg:grid-cols-[1.28fr_0.72fr]">
+            <article className="fm-home-featured-test-card">
+              <div className="space-y-2">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.13em] text-[var(--fm-text-muted)]">
+                  {content.paths.featuredLabel}
+                </p>
+                <h4 className="m-0 text-2xl font-semibold text-[var(--fm-text)]">{featuredTest?.name}</h4>
+                <p className="m-0 text-sm leading-6 text-[var(--fm-text-muted)]">{featuredTest?.desc}</p>
+
+                  <div className="mt-3 grid gap-2 rounded-2xl border border-[var(--fm-border)] bg-slate-50/50 px-3 py-2 text-xs text-[var(--fm-text-muted)]">
+                    <div className="flex items-center justify-between">
+                      <span>{locale === "zh" ? "预计时长" : "Estimated time"}</span>
+                      <span className="font-semibold text-[var(--fm-text)]">
+                        {featuredTest?.duration ?? (featuredTest ? testDurationLookup[featuredTest.id] : "")}
+                      </span>
+                    </div>
+                    <p>
+                      {microPathPreview[0]?.label}：{microPathPreview[0]?.value}
+                  </p>
+                  <p>
+                    {microPathPreview[1]?.label}：{microPathPreview[1]?.value}
+                  </p>
+                </div>
+
+                <PathActionLinks item={featuredTest ?? content.testCatalog[0]} locale={locale} />
+              </div>
             </article>
 
             <div className="space-y-3">
               {secondaryTests.map((item, index) => (
-                <article
-                  key={`${item?.id ?? index}`}
-                  className="rounded-2xl border border-slate-200 bg-white p-4"
-                >
+                <article key={`${item?.id ?? index}`} className="fm-home-secondary-test-card">
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
                     {content.paths.secondaryLabel}
                   </p>
-                  <h4 className="mt-1 text-lg font-semibold text-[var(--fm-text)]">{item?.name}</h4>
-                  <p className="mt-2 text-sm text-[var(--fm-text-muted)]">{item?.desc}</p>
-                  <PathActionLinks item={item ?? content.testCatalog[0]} locale={locale} />
+                  <h4 className="mt-1 text-base font-semibold text-[var(--fm-text)]">{item?.name}</h4>
+                  <p className="mt-1.5 text-sm leading-6 text-[var(--fm-text-muted)]">{item?.desc}</p>
+                  <PathActionLinks item={item ?? content.testCatalog[0]} locale={locale} compact />
                 </article>
               ))}
+
               {supportCard ? (
-                <article className="rounded-2xl border border-[var(--fm-trust-blue)] bg-sky-50/80 p-4 text-[var(--fm-trust-blue-strong)]">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em]">{supportCard.title}</p>
-                  <p className="mt-2 text-sm">{supportCard.body}</p>
+                <article className="fm-home-support-card">
+                  <h5 className="m-0 text-sm font-semibold text-[var(--fm-trust-blue-strong)]">{supportCard.title}</h5>
+                  <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{supportCard.body}</p>
                   <Link
                     href={withLocale(supportHref ?? "/help")}
                     className={buttonVariants({
                       size: "sm",
                       variant: "outline",
-                      className: "mt-3 h-auto min-h-[44px] border-[var(--fm-trust-blue)] text-[var(--fm-trust-blue)]",
+                      className:
+                        "mt-3 h-auto min-h-[40px] border-[var(--fm-trust-blue)] text-[var(--fm-trust-blue)]",
                     })}
                   >
                     {supportCard.cta}
@@ -247,7 +273,7 @@ export function HighlightedTestsSection({ locale, content, routes }: Highlighted
                   key={filter.id}
                   type="button"
                   onClick={() => setSelectedFilter(filter.id)}
-                  className={`rounded-full border px-4 py-2 text-sm font-semibold transition min-h-[44px] ${
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold transition min-h-[40px] ${
                     isActive
                       ? "border-[var(--fm-trust-blue)] bg-[var(--fm-trust-blue)] text-white"
                       : "border-slate-300 text-[var(--fm-text-muted)]"
@@ -259,33 +285,28 @@ export function HighlightedTestsSection({ locale, content, routes }: Highlighted
             })}
           </div>
 
-          <div className="grid gap-3 md:grid-cols-2">
+          <div className="fm-home-all-tests-grid">
             {visibleTests.map((item) => (
               <article
                 key={item.slug}
-                className="rounded-2xl border border-slate-200 bg-white p-4"
+                className="fm-home-compact-test-card"
               >
                 <h4 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{item.name}</h4>
-                <p className="mt-2 text-sm text-[var(--fm-text-muted)]">{item.desc}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <p className="mt-1.5 text-sm leading-6 text-[var(--fm-text-muted)]">{item.desc}</p>
+                <p className="mt-2 text-xs text-[var(--fm-trust-blue)]">
+                  {featuredTest && featuredTest.id === item.id
+                    ? (locale === "zh" ? "推荐路径 · 重点" : "Recommended path · Priority")
+                    : (locale === "zh" ? "测试入口" : "Quick entry")}
+                </p>
+                <div className="mt-3">
                   <Link
                     href={withLocale(`/tests/${item.slug}/take`)}
                     className={buttonVariants({
                       size: "sm",
-                      className: "h-auto min-h-[44px]",
+                      className: "h-auto min-h-[40px] px-3 text-xs",
                     })}
                   >
                     {item.primaryCta}
-                  </Link>
-                  <Link
-                    href={withLocale(`/tests/${item.slug}`)}
-                    className={buttonVariants({
-                      size: "sm",
-                      variant: "outline",
-                      className: "h-auto min-h-[44px] border-slate-300",
-                    })}
-                  >
-                    {item.secondaryCta}
                   </Link>
                 </div>
               </article>

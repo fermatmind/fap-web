@@ -20,7 +20,7 @@ export function KnowledgeMethodsSection({ locale, content, routes }: KnowledgeMe
     >
       <Container className="space-y-8">
         <div className="max-w-2xl space-y-3">
-          <h2 className="m-0 font-serif text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
+          <h2 className="m-0 text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
             {content.title}
           </h2>
           <p className="m-0 text-[var(--fm-text-muted)]">{content.supporting}</p>
@@ -31,14 +31,17 @@ export function KnowledgeMethodsSection({ locale, content, routes }: KnowledgeMe
             const route = routes[item.routeKey];
 
             return (
-              <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-5">
-                <h3 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{item.title}</h3>
+              <article key={item.title} className="fm-home-compact-card">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-text-muted)]">
+                  {item.cta}
+                </p>
+                <h3 className="mt-1 m-0 text-lg font-semibold text-[var(--fm-text)]">{item.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{item.body}</p>
                 <Link
                   href={withLocale(route)}
                   className={buttonVariants({
                     size: "sm",
-                    className: "mt-4 h-auto min-h-[44px]",
+                    className: "mt-4 h-auto min-h-[40px] px-3",
                   })}
                 >
                   {item.cta}

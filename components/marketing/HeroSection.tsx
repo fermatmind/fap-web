@@ -20,7 +20,15 @@ type HeroSectionProps = {
 export function HeroSection({ locale, content, routes, pathRecommendations, testCatalog }: HeroSectionProps) {
   const withLocale = (path: string) => localizedPath(path, locale);
   const [activePath, setActivePath] = useState<HomePathId>("self");
-  const pathTargets = useMemo<HomePathId[]>(() => ["self", "career", "wellbeing"], []);
+  const pathTargets = useMemo(
+    () =>
+      [
+        { id: "self", label: content.chips[0] },
+        { id: "career", label: content.chips[1] },
+        { id: "wellbeing", label: content.chips[2] },
+      ] as const,
+    [content.chips]
+  );
   const targetSectionId = "home-highlighted-tests-section";
 
   function emitPathSelect(path: HomePathId) {
@@ -76,35 +84,28 @@ export function HeroSection({ locale, content, routes, pathRecommendations, test
   }, [activePath, pathRecommendations, testCatalog, routes.tests]);
 
   return (
-    <section
-      data-testid="home-hero-section"
-      className="fm-home-hero relative overflow-hidden py-[clamp(56px,8vw,112px)]"
-    >
+    <section data-testid="home-hero-section" className="fm-home-hero fm-home-hero-v2 relative overflow-hidden">
       <div aria-hidden className="fm-home-hero-backdrop" />
       <div aria-hidden className="fm-home-hero-beam" />
 
-      <Container className="relative z-10 grid gap-[var(--fm-space-8)] md:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] md:items-center">
+      <Container className="fm-home-hero-copy-grid relative z-10">
         <div className="space-y-[var(--fm-space-6)]">
           <p className="fm-home-section-kicker">{content.eyebrow}</p>
-          <h1 className="fm-home-hero-title">{content.title}</h1>
+          <h1 className="fm-home-hero-title fm-home-hero-title-landing">{content.title}</h1>
           <p className="fm-home-hero-subtitle">{content.supporting}</p>
 
-          <div className="flex flex-wrap gap-2">
-            {pathTargets.map((path, index) => {
+          <div className="fm-home-chip-stack">
+          {pathTargets.map(({ id: path, label }) => {
               const isActive = activePath === path;
               return (
                 <button
                   key={`hero-path-chip-${path}`}
                   type="button"
                   onClick={() => emitPathSelect(path)}
-                  className={`min-h-[44px] focus-visible:ring-2 ring-[var(--fm-focus)] rounded-full border px-4 py-2 text-sm font-semibold transition ${
-                    isActive
-                      ? "border-[var(--fm-trust-blue)] bg-white text-[var(--fm-trust-blue-strong)]"
-                      : "border-slate-300/90 text-[var(--fm-text)] hover:border-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]"
-                  }`}
+                  className={`fm-home-chip ${isActive ? "is-active" : "is-inactive"}`}
                   aria-pressed={isActive}
                 >
-                  {content.chips[index]}
+                  {label}
                 </button>
               );
             })}
@@ -123,7 +124,7 @@ export function HeroSection({ locale, content, routes, pathRecommendations, test
             {content.trustStrip.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-slate-300/85 bg-white/85 px-3 py-2 text-xs font-semibold tracking-wide text-[var(--fm-text-muted)] backdrop-blur"
+                className="rounded-full border border-white/45 bg-white/75 px-3 py-2 text-xs font-semibold tracking-wide text-[var(--fm-text-muted)] backdrop-blur"
               >
                 {item}
               </span>
@@ -131,42 +132,48 @@ export function HeroSection({ locale, content, routes, pathRecommendations, test
           </div>
         </div>
 
-        <div className="rounded-[1.9rem] border border-slate-200/65 bg-white/88 p-5 shadow-[var(--fm-shadow-md)] backdrop-blur sm:p-6">
-          <div className="space-y-5">
-            <div className="space-y-1">
-              <h2 className="text-xl font-semibold text-[var(--fm-trust-blue-strong)]">{content.visual.summaryTitle}</h2>
-              <p className="text-sm leading-6 text-[var(--fm-text-muted)]">{content.visual.summaryText}</p>
+        <div className="fm-home-preview-stage">
+          <article className="fm-home-preview-panel fm-home-preview-panel--top">
+            <p className="fm-home-preview-kicker">{content.visual.summaryTitle}</p>
+            <h2 className="fm-home-preview-title">{content.visual.summaryTitle}</h2>
+            <p className="fm-home-preview-text">{content.visual.summaryText}</p>
+            <div className="mt-3 grid gap-2 text-xs text-[var(--fm-text-muted)]">
+              <p className="font-semibold text-[var(--fm-trust-blue)]">结果状态：可解释、可复盘、可执行</p>
+              <p>当前建议优先澄清职业目标，再落到可执行的下一步。</p>
             </div>
+          </article>
 
-            <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-xs font-semibold text-[var(--fm-trust-blue)]">{content.visual.dimensionsTitle}</p>
-              <div className="space-y-2">
-                {content.visual.dimensions.map((dimension) => (
-                  <div key={dimension.label}>
-                    <div className="mb-1 flex items-center justify-between text-xs text-[var(--fm-text-muted)]">
-                      <span>{dimension.label}</span>
-                      <span>{dimension.value}</span>
-                    </div>
-                    <div className="h-2 w-full rounded-full bg-slate-200">
-                      <div
-                        className="h-full rounded-full bg-[var(--fm-teal)]"
-                        style={{ width: `${percentFromValue(dimension.value)}%` }}
-                      />
-                    </div>
+          <article className="fm-home-preview-panel fm-home-preview-panel--middle">
+            <p className="fm-home-preview-kicker">{content.visual.dimensionsTitle}</p>
+            <div className="space-y-3">
+              {content.visual.dimensions.map((dimension) => (
+                <div key={dimension.label} className="space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-semibold text-[var(--fm-text)]">{dimension.label}</span>
+                    <span className="text-[var(--fm-text-muted)]">{dimension.value}</span>
                   </div>
-                ))}
-              </div>
+                  <div className="fm-home-preview-progress">
+                    <span
+                      className="fm-home-preview-progress-fill"
+                      style={{ width: `${percentFromValue(dimension.value)}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
+          </article>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p className="mb-2 text-xs font-semibold text-[var(--fm-trust-blue)]">{content.visual.actionsTitle}</p>
-              <ul className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-                {content.visual.actionItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <article className="fm-home-preview-panel fm-home-preview-panel--bottom">
+            <p className="fm-home-preview-kicker">{content.visual.actionsTitle}</p>
+            <ul className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              {content.visual.actionItems.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--fm-trust-blue)]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
       </Container>
     </section>

@@ -78,6 +78,7 @@ export type TestCatalogItem = {
   filterTags: QuickBrowseFilterId[];
   primaryCta: string;
   secondaryCta: string;
+  duration?: string;
 };
 
 export type AllTestsQuickBrowse = {
@@ -132,6 +133,14 @@ export type UseCaseCard = {
   body: string;
 };
 
+export type TestimonialCard = {
+  id: string;
+  author: string;
+  role: string;
+  quote: string;
+  testLabel: string;
+};
+
 export type SocialProofContent = {
   title: string;
   supporting: string;
@@ -142,6 +151,7 @@ export type SocialProofContent = {
   useCasesTitle: string;
   useCasesSupporting: string;
   useCaseCards: UseCaseCard[];
+  testimonials: TestimonialCard[];
 };
 
 export type KnowledgeCard = {
@@ -166,6 +176,7 @@ export type FaqContent = {
   title: string;
   items: [FaqItem, FaqItem, FaqItem, FaqItem, FaqItem];
   helpText: string;
+  helpLinkText?: string;
 };
 
 export type FinalCtaContent = {
@@ -286,6 +297,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["personality", "career", "emotion_relationships"],
         primaryCta: "开始此测试",
         secondaryCta: "查看详情",
+        duration: "12 分钟",
       },
       {
         id: "big5",
@@ -295,6 +307,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["personality", "career", "emotion_relationships"],
         primaryCta: "开始此测试",
         secondaryCta: "查看详情",
+        duration: "10 分钟",
       },
       {
         id: "clinical",
@@ -304,6 +317,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["wellbeing", "career"],
         primaryCta: "开始此测试",
         secondaryCta: "查看详情",
+        duration: "8 分钟",
       },
       {
         id: "sds20",
@@ -313,6 +327,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["wellbeing", "emotion_relationships"],
         primaryCta: "开始此测试",
         secondaryCta: "查看详情",
+        duration: "5 分钟",
       },
       {
         id: "iq",
@@ -322,6 +337,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["career", "cognitive"],
         primaryCta: "开始此测试",
         secondaryCta: "查看详情",
+        duration: "15 分钟",
       },
       {
         id: "eq",
@@ -331,6 +347,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["emotion_relationships", "career"],
         primaryCta: "开始此测试",
         secondaryCta: "查看详情",
+        duration: "14 分钟",
       },
     ],
     quickBrowse: {
@@ -387,22 +404,52 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
       primaryRoute: "mbtiDetail",
       secondaryRoute: "help",
     },
-    socialProof: {
-      title: "真实用户如何使用这些结果",
-      supporting: "从个人探索到团队讨论，结果的价值在于它能被拿来使用。",
+      socialProof: {
+        title: "真实用户如何使用这些结果",
+        supporting: "从个人探索到团队讨论，结果的价值在于它能被拿来使用。",
       ratingTitle: "综合评分",
-      ratingValue: "4.8 / 5",
-      ratingBody: "来自真实用户与推荐方的公开反馈",
-      articlesCta: "查看全部文章",
-      useCasesTitle: "谁在使用 Fermat",
-      useCasesSupporting: "不是只做一次测试，而是把结果带进讨论、辅导与决策。",
-      useCaseCards: [
-        { title: "个人探索", body: "认识自己、做决定、做复盘。" },
-        { title: "教练 / 导师", body: "快速建立共同语言，把 trait breakdown 变成下一步讨论。" },
-        { title: "团队 / People Ops", body: "用于沟通复盘、角色理解与协作反馈。" },
-        { title: "企业 / 组织", body: "用于培训、团队对话与人才发展场景入口。" },
-      ],
-    },
+        ratingValue: "4.8 / 5",
+        ratingBody: "来自真实用户与推荐方的公开反馈",
+        articlesCta: "查看全部文章",
+        useCasesTitle: "谁在使用 Fermat",
+        useCasesSupporting: "不是只做一次测试，而是把结果带进讨论、辅导与决策。",
+        useCaseCards: [
+          { title: "个人探索", body: "认识自己、做决定、做复盘。" },
+          { title: "教练 / 导师", body: "快速建立共同语言，把 trait breakdown 变成下一步讨论。" },
+          { title: "团队 / People Ops", body: "用于沟通复盘、角色理解与协作反馈。" },
+          { title: "企业 / 组织", body: "用于培训、团队对话与人才发展场景入口。" },
+        ],
+        testimonials: [
+          {
+            id: "review_1",
+            author: "陈昕",
+            role: "产品经理",
+            quote: "结构很清晰，生成的结论能直接用于团队讨论，效率比我以前看报告快很多。",
+            testLabel: "Big Five 测试",
+          },
+          {
+            id: "review_2",
+            author: "高铭",
+            role: "职业教练",
+            quote: "客户完成得很快，结果能直接映射到行动目标，不会停留在“知道了”这一层。",
+            testLabel: "MBTI 测试",
+          },
+          {
+            id: "review_3",
+            author: "李珂",
+            role: "团队负责人",
+            quote: "报告语言容易统一团队理解，尤其在角色分工和沟通复盘时非常好用。",
+            testLabel: "SDS-20 结果",
+          },
+        {
+            id: "review_4",
+            author: "王琛",
+            role: "运营分析师",
+            quote: "没有复杂界面，没有无效留白，能快速拿到能执行的结论。",
+            testLabel: "抑郁筛查（标准版）",
+          },
+        ],
+      },
     knowledge: {
       title: "在开始之前，先理解方法与边界",
       supporting: "不只是做测试，也要读懂测试。",
@@ -430,6 +477,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
     faq: {
       title: "常见问题",
       helpText: "前往帮助中心查看更多问题",
+      helpLinkText: "前往帮助中心",
       items: [
         {
           question: "测试需要多久？",
@@ -569,6 +617,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["personality", "career", "emotion_relationships"],
         primaryCta: "Start this test",
         secondaryCta: "View details",
+        duration: "Approx. 12 min",
       },
       {
         id: "big5",
@@ -578,6 +627,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["personality", "career", "emotion_relationships"],
         primaryCta: "Start this test",
         secondaryCta: "View details",
+        duration: "Approx. 10 min",
       },
       {
         id: "clinical",
@@ -587,6 +637,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["wellbeing", "career"],
         primaryCta: "Start this test",
         secondaryCta: "View details",
+        duration: "Approx. 8 min",
       },
       {
         id: "sds20",
@@ -596,6 +647,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["wellbeing", "emotion_relationships"],
         primaryCta: "Start this test",
         secondaryCta: "View details",
+        duration: "Approx. 5 min",
       },
       {
         id: "iq",
@@ -605,6 +657,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["career", "cognitive"],
         primaryCta: "Start this test",
         secondaryCta: "View details",
+        duration: "Approx. 15 min",
       },
       {
         id: "eq",
@@ -614,6 +667,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         filterTags: ["emotion_relationships", "career"],
         primaryCta: "Start this test",
         secondaryCta: "View details",
+        duration: "Approx. 14 min",
       },
     ],
     quickBrowse: {
@@ -681,11 +735,11 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
       primaryRoute: "mbtiDetail",
       secondaryRoute: "help",
     },
-    socialProof: {
-      title: "How real users use these results",
-      supporting:
-        "From personal exploration to team discussion, a result matters when people can actually use it.",
-      ratingTitle: "Overall rating",
+      socialProof: {
+        title: "How real users use these results",
+        supporting:
+          "From personal exploration to team discussion, a result matters when people can actually use it.",
+        ratingTitle: "Overall rating",
       ratingValue: "4.8 / 5",
       ratingBody: "Based on real user and recommender feedback",
       articlesCta: "Browse all articles",
@@ -708,6 +762,37 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
         {
           title: "Organizations",
           body: "Use them in training, team dialogue, and talent development contexts.",
+        },
+      ],
+      testimonials: [
+        {
+          id: "review_1",
+          author: "A. Chen",
+          role: "Product Manager",
+          quote: "The structure is clear and the final explanation is practical enough to discuss with my team immediately.",
+          testLabel: "Big Five test",
+        },
+        {
+          id: "review_2",
+          author: "M. Carter",
+          role: "Career Coach",
+          quote: "Clients finish it quickly and we can directly use the trait breakdown to plan next actions.",
+          testLabel: "MBTI test",
+        },
+        {
+          id: "review_3",
+          author: "S. Li",
+          role: "Team Lead",
+          quote:
+            "The report language is easy to align around, especially for communication and role-fit discussions.",
+          testLabel: "SDS-20 result",
+        },
+        {
+          id: "review_4",
+          author: "R. Gomez",
+          role: "Operations Analyst",
+          quote: "I like the no-friction flow and the way it keeps focus on useful decisions rather than labels.",
+          testLabel: "Depression screening",
         },
       ],
     },
@@ -738,6 +823,7 @@ export const HOME_CONTENT: Record<Locale, HomepageContent> = {
     faq: {
       title: "FAQ",
       helpText: "Visit Help Center for more questions",
+      helpLinkText: "Visit Help Center",
       items: [
         {
           question: "How long do the tests take?",
