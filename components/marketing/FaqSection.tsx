@@ -9,9 +9,15 @@ type FaqSectionProps = {
   locale: Locale;
   content: FaqContent;
   routes: Pick<Record<RouteKey, string>, "help">;
+  compact?: boolean;
 };
 
-function FaqItemRow({ item, index, isOpen, onToggle }: {
+function FaqItemRow({
+  item,
+  index,
+  isOpen,
+  onToggle,
+}: {
   item: FaqItem;
   index: number;
   isOpen: boolean;
@@ -41,10 +47,40 @@ function FaqItemRow({ item, index, isOpen, onToggle }: {
   );
 }
 
-export function FaqSection({ locale, content, routes }: FaqSectionProps) {
+export function FaqSection({ locale, content, routes, compact = false }: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState<number>(0);
   const withLocale = (path: string) => localizedPath(path, locale);
   const helpCta = locale === "zh" ? "前往帮助中心" : "Go to Help Center";
+
+  if (compact) {
+    return (
+      <section className="space-y-4">
+        <div className="space-y-2">
+          <p className="fm-home-section-kicker">FAQ</p>
+          <h3 className="m-0 text-3xl font-semibold tracking-tight text-[var(--fm-trust-blue-strong)] md:text-4xl">
+            {content.title}
+          </h3>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{content.helpText}</p>
+        </div>
+
+        <div className="space-y-3">
+          {content.items.map((item, index) => (
+            <FaqItemRow
+              key={item.question}
+              item={item}
+              index={index}
+              isOpen={openIndex === index}
+              onToggle={(target) => setOpenIndex((prev) => (prev === target ? -1 : target))}
+            />
+          ))}
+        </div>
+
+        <a href={withLocale(routes.help)} className="inline-flex min-h-10 text-sm font-semibold text-[var(--fm-trust-blue)]">
+          {content.helpLinkText ?? helpCta}
+        </a>
+      </section>
+    );
+  }
 
   return (
     <section className="fm-home-faq py-[var(--fm-section-y-lg)]" data-testid="home-faq-section">

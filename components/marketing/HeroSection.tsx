@@ -88,14 +88,14 @@ export function HeroSection({ locale, content, routes, pathRecommendations, test
       <div aria-hidden className="fm-home-hero-backdrop" />
       <div aria-hidden className="fm-home-hero-beam" />
 
-      <Container className="fm-home-hero-copy-grid relative z-10 max-w-[1200px]">
+      <Container className="fm-home-hero-copy-grid relative z-10 max-w-[1200px] py-8">
         <div className="space-y-[var(--fm-space-6)]">
           <p className="fm-home-section-kicker">{content.eyebrow}</p>
           <h1 className="fm-home-hero-title fm-home-hero-title-landing">{content.title}</h1>
           <p className="fm-home-hero-subtitle">{content.supporting}</p>
 
           <div className="fm-home-chip-stack">
-          {pathTargets.map(({ id: path, label }) => {
+            {pathTargets.map(({ id: path, label }) => {
               const isActive = activePath === path;
               return (
                 <button
@@ -119,61 +119,52 @@ export function HeroSection({ locale, content, routes, pathRecommendations, test
               {content.secondaryCta}
             </Link>
           </div>
-
-          <div className="flex flex-wrap gap-2 pt-[var(--fm-space-2)]">
-            {content.trustStrip.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-white/45 bg-white/75 px-3 py-2 text-xs font-semibold tracking-wide text-[var(--fm-text-muted)] backdrop-blur"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
         </div>
 
-        <div className="fm-home-preview-stage">
-          <article className="fm-home-preview-panel fm-home-preview-panel--top">
+        <div className="space-y-3">
+          <article className="rounded-[1.25rem] border border-[var(--fm-border)] bg-white p-4 shadow-[var(--fm-shadow-md)]">
             <p className="fm-home-preview-kicker">{content.visual.summaryTitle}</p>
-            <h2 className="fm-home-preview-title">{content.visual.summaryTitle}</h2>
-            <p className="fm-home-preview-text">{content.visual.summaryText}</p>
-            <div className="mt-3 grid gap-2 text-xs text-[var(--fm-text-muted)]">
-              <p className="font-semibold text-[var(--fm-trust-blue)]">结果状态：可解释、可复盘、可执行</p>
-              <p>当前建议优先澄清职业目标，再落到可执行的下一步。</p>
+            <h2 className="m-0 mt-2 text-lg font-semibold text-[var(--fm-text)]">{content.visual.summaryTitle}</h2>
+            <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{content.visual.summaryText}</p>
+
+            <div className="mt-3 flex items-center justify-between rounded-xl border border-[var(--fm-border)] bg-slate-50/75 px-3 py-2 text-xs text-[var(--fm-text-muted)]">
+              <span className="font-semibold text-[var(--fm-trust-blue)]">结果说明结构</span>
+              <span>摘要 · 维度 · 行动</span>
             </div>
           </article>
 
-          <article className="fm-home-preview-panel fm-home-preview-panel--middle">
-            <p className="fm-home-preview-kicker">{content.visual.dimensionsTitle}</p>
-            <div className="space-y-3">
-              {content.visual.dimensions.map((dimension) => (
-                <div key={dimension.label} className="space-y-1.5">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-[var(--fm-text)]">{dimension.label}</span>
-                    <span className="text-[var(--fm-text-muted)]">{dimension.value}</span>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <article className="rounded-xl border border-[var(--fm-border)] bg-white p-4">
+              <p className="fm-home-preview-kicker">{content.visual.dimensionsTitle}</p>
+              <div className="mt-2 space-y-2.5">
+                {content.visual.dimensions.map((dimension) => (
+                  <div key={dimension.label} className="space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-[var(--fm-text)]">{dimension.label}</span>
+                      <span className="text-[var(--fm-text-muted)]">{dimension.value}</span>
+                    </div>
+                    <div className="fm-home-preview-progress">
+                      <span
+                        className="fm-home-preview-progress-fill"
+                        style={{ width: `${percentFromValue(dimension.value)}%` }}
+                      />
+                    </div>
                   </div>
-                  <div className="fm-home-preview-progress">
-                    <span
-                      className="fm-home-preview-progress-fill"
-                      style={{ width: `${percentFromValue(dimension.value)}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </article>
+                ))}
+              </div>
+            </article>
 
-          <article className="fm-home-preview-panel fm-home-preview-panel--bottom">
-            <p className="fm-home-preview-kicker">{content.visual.actionsTitle}</p>
-            <ul className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-              {content.visual.actionItems.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--fm-trust-blue)]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
+            <article className="rounded-xl border border-[var(--fm-border)] bg-white p-4">
+              <p className="fm-home-preview-kicker">{content.visual.actionsTitle}</p>
+              <ul className="mt-2 space-y-1.5 text-sm text-[var(--fm-text-muted)]">
+                {content.visual.actionItems.map((item) => (
+                  <li key={item} className="list-disc pl-1 leading-6 marker:text-[var(--fm-trust-blue)]">
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
         </div>
       </Container>
     </section>
