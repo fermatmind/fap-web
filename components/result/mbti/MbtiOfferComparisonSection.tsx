@@ -140,7 +140,7 @@ export function MbtiOfferComparisonSection({
 
   return (
     <section
-      id="offers"
+      id="offer-full"
       data-testid="mbti-offer-comparison"
       data-cta-key="unlock_full_report"
       data-cta-rank={ctaRank > 0 ? String(ctaRank) : undefined}
@@ -162,7 +162,6 @@ export function MbtiOfferComparisonSection({
       </div>
 
       <Card
-        id="offer-full"
         data-testid="mbti-offer-card-full"
         className="border-slate-950 bg-slate-950 text-white shadow-[0_22px_48px_rgba(15,23,42,0.2)]"
       >
