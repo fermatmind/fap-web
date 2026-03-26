@@ -58,6 +58,18 @@ function isFullOffer(offer: ResolvedOffer): boolean {
   return offer.moduleCodes.includes("core_full") || key.includes("REPORT_FULL");
 }
 
+function resolveOfferModuleLabel(moduleCode: string, locale: Locale): string {
+  const normalized = moduleCode.trim().toLowerCase();
+  const labels: Record<string, { zh: string; en: string }> = {
+    core_free: { zh: "结果摘要", en: "Result summary" },
+    core_full: { zh: "完整人格判读", en: "Full personality reading" },
+    career: { zh: "职业映射", en: "Career mapping" },
+    relationships: { zh: "关系映射", en: "Relationship mapping" },
+  };
+
+  return labels[normalized]?.[locale] ?? moduleCode;
+}
+
 export function MbtiOfferComparisonSection({
   locale,
   attemptId,
@@ -89,6 +101,18 @@ export function MbtiOfferComparisonSection({
       ? "正在跳转..."
       : "Redirecting..."
     : primaryCtaLabel;
+  const comparisonRows = [
+    {
+      label: locale === "zh" ? "免费预览" : "Preview",
+      value: locale === "zh" ? "公开结果层" : "Public result layer",
+      detail: locale === "zh" ? "保留类型摘要、章节入口与部分公开正文。" : "Keeps the type summary, chapter entry, and selected public content.",
+    },
+    {
+      label: locale === "zh" ? "完整报告" : "Full report",
+      value: locale === "zh" ? "完整判断依据" : "Complete decision basis",
+      detail: locale === "zh" ? "补齐边界解释、场景映射与行动坐标。" : "Adds boundary interpretation, scenario mapping, and action coordinates.",
+    },
+  ];
 
   useEffect(() => {
     if (primaryOffer === null || impressionTrackedRef.current) return;
@@ -140,11 +164,10 @@ export function MbtiOfferComparisonSection({
 
   return (
     <section
-      id="offer-full"
       data-testid="mbti-offer-comparison"
       data-cta-key="unlock_full_report"
       data-cta-rank={ctaRank > 0 ? String(ctaRank) : undefined}
-      className="scroll-mt-28 space-y-4 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
+      className="scroll-mt-28 space-y-5 rounded-[32px] border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.97))] p-5 shadow-[0_22px_56px_rgba(15,23,42,0.09)] md:p-6"
     >
       <div className="space-y-2">
         {ctaRank > 0 ? (
@@ -161,52 +184,93 @@ export function MbtiOfferComparisonSection({
         <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{ctaSubtitle}</p>
       </div>
 
-      <Card
-        data-testid="mbti-offer-card-full"
-        className="border-slate-950 bg-slate-950 text-white shadow-[0_22px_48px_rgba(15,23,42,0.2)]"
-      >
-        <CardHeader className="space-y-2 pb-3">
-          {ctaBadge ? (
-            <span className="inline-flex w-fit rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-200">
-              {ctaBadge}
-            </span>
-          ) : null}
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-200">
-            {locale === "zh" ? "完整报告" : "Full report"}
-          </p>
-          <CardTitle className="text-2xl text-white">{primaryOffer.title}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-5">
-          <p className="m-0 text-4xl font-bold tracking-tight text-white">{primaryOffer.price}</p>
-          <p className="m-0 text-sm leading-7 text-slate-200">{primaryOffer.description}</p>
-          {benefitBullets.length > 0 ? (
-            <ul className="mb-0 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-200">
-              {benefitBullets.map((benefit) => (
-                <li key={benefit}>{benefit}</li>
-              ))}
-            </ul>
-          ) : null}
-          {primaryOffer.modules.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
-              {primaryOffer.modules.map((module) => (
-                <span
-                  key={module}
-                  className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-white/90"
-                >
-                  {module}
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,0.92fr)_minmax(320px,1.08fr)]">
+        <div className="grid gap-3">
+          {comparisonRows.map((row) => (
+            <div
+              key={row.label}
+              className="rounded-[24px] border border-slate-200 bg-white/90 p-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)]"
+            >
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{row.label}</p>
+              <div className="mt-2 flex items-center justify-between gap-3">
+                <p className="m-0 text-base font-semibold tracking-[-0.02em] text-slate-950">{row.value}</p>
+                <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ${
+                  row.label === (locale === "zh" ? "完整报告" : "Full report")
+                    ? "border border-emerald-200 bg-emerald-50 text-emerald-800"
+                    : "border border-slate-200 bg-slate-50 text-slate-500"
+                }`}>
+                  {row.label === (locale === "zh" ? "完整报告" : "Full report")
+                    ? locale === "zh"
+                      ? "更高分辨率"
+                      : "Higher resolution"
+                    : locale === "zh"
+                      ? "当前可见"
+                      : "Currently visible"}
                 </span>
-              ))}
+              </div>
+              <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{row.detail}</p>
             </div>
-          ) : null}
-          <button
-            type="button"
-            data-testid="mbti-offers-primary-cta"
-            disabled={isCheckingOut}
-            className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-[var(--fm-accent)] px-5 py-3 text-sm font-semibold text-white shadow-[var(--fm-shadow-sm)] transition hover:opacity-95"
-            onClick={() => {
-              trackEvent("ui_card_interaction", {
-                slug: "mbti-result-shell",
-                scale_code: "MBTI",
+          ))}
+        </div>
+
+        <Card
+          data-testid="mbti-offer-card-full"
+          className="overflow-hidden border-slate-950 bg-slate-950 text-white shadow-[0_24px_54px_rgba(15,23,42,0.22)]"
+        >
+          <CardHeader className="space-y-2 pb-3">
+            {ctaBadge ? (
+              <span className="inline-flex w-fit rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-200">
+                {ctaBadge}
+              </span>
+            ) : null}
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-200">
+              {locale === "zh" ? "完整报告" : "Full report"}
+            </p>
+            <CardTitle className="text-2xl tracking-[-0.03em] text-white">{primaryOffer.title}</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-5">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="m-0 text-4xl font-bold tracking-tight text-white">{primaryOffer.price}</p>
+                <p className="m-0 mt-2 text-sm leading-7 text-slate-300">{primaryOffer.description}</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                <p className="m-0 text-[11px] uppercase tracking-[0.14em] text-slate-400">
+                  {locale === "zh" ? "升级价值" : "Upgrade value"}
+                </p>
+                <p className="m-0 mt-1 text-sm font-medium text-white">
+                  {locale === "zh" ? "获得更完整的判断依据与行动坐标" : "Gain a more complete decision basis and action map"}
+                </p>
+              </div>
+            </div>
+            {benefitBullets.length > 0 ? (
+              <ul className="mb-0 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-200">
+                {benefitBullets.map((benefit) => (
+                  <li key={benefit}>{benefit}</li>
+                ))}
+              </ul>
+            ) : null}
+            {primaryOffer.modules.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {primaryOffer.modules.map((module) => (
+                  <span
+                    key={module}
+                    className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-white/90"
+                  >
+                    {resolveOfferModuleLabel(module, locale)}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+            <button
+              type="button"
+              data-testid="mbti-offers-primary-cta"
+              disabled={isCheckingOut}
+              className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_16px_34px_rgba(255,255,255,0.14)] transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70"
+              onClick={() => {
+                trackEvent("ui_card_interaction", {
+                  slug: "mbti-result-shell",
+                  scale_code: "MBTI",
                 visual_kind: "offer_primary_cta",
                 interaction: "click",
                 attempt_id: normalizeText(attemptId),
@@ -246,15 +310,16 @@ export function MbtiOfferComparisonSection({
               void onCheckout?.();
             }}
           >
-            {checkoutLabel}
-          </button>
-          {checkoutError ? (
-            <p className="mb-0 text-sm text-rose-300" data-testid="mbti-offers-checkout-error">
-              {checkoutError}
-            </p>
-          ) : null}
-        </CardContent>
-      </Card>
+              {checkoutLabel}
+            </button>
+            {checkoutError ? (
+              <p className="mb-0 text-sm text-rose-300" data-testid="mbti-offers-checkout-error">
+                {checkoutError}
+              </p>
+            ) : null}
+          </CardContent>
+        </Card>
+      </div>
     </section>
   );
 }

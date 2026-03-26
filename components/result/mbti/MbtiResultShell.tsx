@@ -220,6 +220,40 @@ function normalizeText(...values: unknown[]): string {
   return "";
 }
 
+function resolveMbtiModuleLabel(moduleCode: string, locale: Locale): string {
+  const normalized = moduleCode.trim().toLowerCase();
+  const labels: Record<string, { zh: string; en: string }> = {
+    core_free: { zh: "结果摘要", en: "Result summary" },
+    core_full: { zh: "完整人格判读", en: "Full personality reading" },
+    career: { zh: "职业映射", en: "Career mapping" },
+    relationships: { zh: "关系映射", en: "Relationship mapping" },
+  };
+
+  return labels[normalized]?.[locale] ?? moduleCode;
+}
+
+function resolveVisibleModuleLabels(modulesAllowed: string[], locale: Locale): string[] {
+  return Array.from(
+    new Set(
+      normalizeStringArray(modulesAllowed)
+        .map((moduleCode) => resolveMbtiModuleLabel(moduleCode, locale))
+        .filter(Boolean)
+    )
+  );
+}
+
+function resolveDimensionStatLabel(code: string, locale: Locale): string {
+  const labels: Record<string, { zh: string; en: string }> = {
+    EI: { zh: "能量方向", en: "Energy direction" },
+    SN: { zh: "信息偏好", en: "Information preference" },
+    TF: { zh: "决策偏好", en: "Decision preference" },
+    JP: { zh: "行动节奏", en: "Execution rhythm" },
+    AT: { zh: "稳定度", en: "Stability" },
+  };
+
+  return labels[code]?.[locale] ?? code;
+}
+
 function normalizeStringArray(values: unknown): string[] {
   if (!Array.isArray(values)) {
     return [];
@@ -758,6 +792,7 @@ export function MbtiResultShellLoadingShell({
             rarity: "",
           }}
           tags={[]}
+          historyHref={localizedPath("/history/mbti", locale)}
           retakeHref={retakeHref}
           primaryCtaLabel={primaryCtaLabel}
           primaryCtaHref={primaryCtaHref}
@@ -794,6 +829,7 @@ export function MbtiResultShell({
   const [isSharing, setIsSharing] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
   const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP[scaleCode]}/take`, locale);
   const payload = asRecord(reportData.report);
   const reportMeta = asRecord(reportData.meta);
@@ -828,6 +864,10 @@ export function MbtiResultShell({
     projectionViewModel?.dimensions && projectionViewModel.dimensions.length > 0
       ? resolveProjectionDimensions(projectionViewModel.dimensions)
       : dimensions;
+  const visibleModuleLabels = resolveVisibleModuleLabels(
+    Array.isArray(reportData.modules_allowed) ? reportData.modules_allowed : [],
+    locale
+  );
   const careerSummarySection =
     projectionViewModel?.sections.find((section) => section.key === "career.summary") ?? null;
   const careerNextStepSection =
@@ -1700,11 +1740,81 @@ export function MbtiResultShell({
       />
     );
   }).filter(Boolean);
-  const introParagraphs = [
-    normalizeText(publicHeadline.summary),
-    normalizeText(publicHeadline.supportingLine),
-  ].filter(Boolean).slice(0, 2);
   const offerPrimaryLabel = isUnlockedPostPurchase ? terminalPrimaryCtaLabel : locale === "zh" ? "解锁完整报告" : "Unlock full report";
+  const heroSurfaceClass = [
+    "motion-reduce:transform-none motion-reduce:transition-none transition-all duration-500 ease-out",
+    hasEntered ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
+  ].join(" ");
+  const introSurfaceClass = [
+    "motion-reduce:transform-none motion-reduce:transition-none transition-all duration-500 delay-75 ease-out",
+    hasEntered ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
+  ].join(" ");
+  const heroInsightItems = [
+    {
+      label: locale === "zh" ? "阅读模式" : "Reading mode",
+      value: isUnlockedPostPurchase ? (locale === "zh" ? "完整判读" : "Full reading") : locale === "zh" ? "免费预览" : "Preview",
+      detail: isUnlockedPostPurchase
+        ? locale === "zh"
+          ? "已开放完整章节与回访入口"
+          : "Full chapters and revisit entry enabled"
+        : locale === "zh"
+          ? "先看公开层，再决定是否提升结果分辨率"
+          : "Review the public layer before increasing result resolution",
+    },
+    {
+      label: locale === "zh" ? "证据锚点" : "Evidence anchor",
+      value: publicDimensions[0]
+        ? `${resolveDimensionStatLabel(normalizeText(publicDimensions[0].code), locale)} · ${Math.round(
+            Number(publicDimensions[0].percent ?? publicDimensions[0].score ?? publicDimensions[0].value ?? 0)
+          )}%`
+        : locale === "zh"
+          ? "结构化判读"
+          : "Structured reading",
+      detail: locale === "zh"
+        ? "结果由类型骨架、边界轴与场景映射共同解释"
+        : "Explained through type structure, boundary axes, and scenario mapping",
+    },
+    {
+      label: locale === "zh" ? "可见范围" : "Visible scope",
+      value: visibleModuleLabels[0] ?? (locale === "zh" ? "结果摘要" : "Result summary"),
+      detail: visibleModuleLabels.length > 1
+        ? visibleModuleLabels.slice(1, 3).join(" · ")
+        : locale === "zh"
+          ? "完整报告补齐更高分辨率的场景与行动坐标"
+          : "The full report adds higher-resolution scenario and action coordinates",
+    },
+  ];
+  const introGuideItems = [
+    {
+      title: locale === "zh" ? "先看类型骨架" : "Start with structure",
+      body: locale === "zh"
+        ? "先确认结果主轴、边界位置和稀有度，再进入四个章节。"
+        : "Confirm the main axis, boundary position, and rarity before entering the chapters.",
+    },
+    {
+      title: locale === "zh" ? "再看场景映射" : "Then scan scenarios",
+      body: locale === "zh"
+        ? "职业、成长与关系章节负责把类型翻译成场景，不再重复标签。"
+        : "Career, growth, and relationship chapters translate the type into scenarios rather than labels.",
+    },
+    {
+      title: locale === "zh" ? "最后判断是否升级" : "Then decide on depth",
+      body: locale === "zh"
+        ? "免费预览先给公开层；完整报告才补齐完整判断依据与行动坐标。"
+        : "The preview exposes the public layer first; the full report completes the decision basis and action map.",
+    },
+  ];
+  const principleItems = locale === "zh"
+    ? ["可解释", "可行动", "可追溯", "数据主权"]
+    : ["Explainable", "Actionable", "Traceable", "Sovereignty"];
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setHasEntered(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
 
   return (
     <div
@@ -1735,72 +1845,161 @@ export function MbtiResultShell({
           <section
             id="hero"
             data-testid="mbti-hero"
-            className="scroll-mt-28 overflow-hidden rounded-[32px] border border-slate-200 bg-gradient-to-br from-white via-emerald-50/70 to-sky-50 shadow-[0_20px_48px_rgba(15,23,42,0.08)]"
+            className={`scroll-mt-28 overflow-hidden rounded-[32px] border border-slate-200 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.98),rgba(236,253,245,0.92)_30%,rgba(241,245,249,0.98)_62%,rgba(255,255,255,1)_100%)] shadow-[0_24px_64px_rgba(15,23,42,0.12)] ${heroSurfaceClass}`}
           >
-            <div className="space-y-6 p-6 md:p-8">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                  {headline.badge}
-                </span>
-                {(reportData.locked === true || normalizeText(reportData.variant).toLowerCase() === "free") ? (
-                  <span className="inline-flex rounded-full border border-white/85 bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-700">
-                    {locale === "zh" ? "免费预览" : "Free preview"}
+            <div className="relative overflow-hidden">
+              <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/80 to-transparent" />
+              <div className="pointer-events-none absolute -right-6 top-10 h-40 w-40 rounded-full bg-emerald-100/70 blur-3xl" />
+              <div className="pointer-events-none absolute bottom-0 left-1/3 h-24 w-52 rounded-full bg-sky-100/70 blur-3xl" />
+              <div className="space-y-7 p-6 md:p-8">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <span className="inline-flex rounded-full border border-slate-300/80 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.05)]">
+                    {headline.badge}
                   </span>
-                ) : null}
-              </div>
-
-              <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end">
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                      {locale === "zh" ? "你的结果类型" : "Your result type"}
-                    </p>
-                    <h1 className="m-0 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                      {publicHeadline.typeCode}
-                      {publicHeadline.displayName ? <span className="text-slate-600"> · {publicHeadline.displayName}</span> : null}
-                    </h1>
-                    {publicTypeName || publicNickname ? (
-                      <p data-testid="mbti-hero-identity-line" className="m-0 text-sm font-medium uppercase tracking-[0.12em] text-slate-500">
-                        {[publicTypeName, publicNickname].filter(Boolean).join(" · ")}
-                      </p>
-                    ) : null}
-                  </div>
-                  {publicHeadline.supportingLine ? (
-                    <p className="m-0 text-lg font-medium text-slate-700">{publicHeadline.supportingLine}</p>
-                  ) : null}
-                  {publicHeadline.summary ? (
-                    <p className="m-0 max-w-3xl whitespace-pre-wrap text-base leading-8 text-slate-700">
-                      {publicHeadline.summary}
-                    </p>
-                  ) : null}
-                  {publicTags.length > 0 ? (
-                    <div className="flex flex-wrap gap-2">
-                      {publicTags.slice(0, 5).map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex rounded-full border border-white/80 bg-white/90 px-3 py-1 text-sm text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.05)]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                  {principleItems.map((item) => (
+                    <span
+                      key={item}
+                      className="inline-flex rounded-full border border-white/80 bg-white/70 px-3 py-1 text-[11px] font-medium tracking-[0.08em] text-slate-500 shadow-[0_8px_18px_rgba(15,23,42,0.04)]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                  {(reportData.locked === true || normalizeText(reportData.variant).toLowerCase() === "free") ? (
+                    <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-800">
+                      {locale === "zh" ? "免费预览" : "Free preview"}
+                    </span>
                   ) : null}
                 </div>
 
-                <div className="rounded-[24px] border border-white/80 bg-white/80 p-5 shadow-[0_14px_28px_rgba(15,23,42,0.06)]">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                    {locale === "zh" ? "报告主视觉" : "Report visual"}
-                  </p>
-                  <p className="m-0 mt-3 text-3xl font-bold tracking-tight text-slate-950">{publicHeadline.typeCode}</p>
-                  {publicHeadline.rarity ? (
-                    <p className="m-0 mt-3 text-sm leading-7 text-slate-600">
-                      {locale === "zh" ? "稀有度：" : "Rarity: "}
-                      {publicHeadline.rarity}
-                    </p>
-                  ) : null}
-                  <a href={isUnlockedPostPurchase ? "#intro" : "#offer-full"} className={buttonVariants({ className: "mt-4 w-full" })}>
-                    {isUnlockedPostPurchase ? offerPrimaryLabel : locale === "zh" ? "查看解锁入口" : "View unlock entry"}
-                  </a>
+                <div className="grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.85fr)] lg:items-start">
+                  <div className="space-y-5">
+                    <div className="space-y-3">
+                      <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                        {locale === "zh" ? "决策级人格结果" : "Decision-grade personality result"}
+                      </p>
+                      <div className="space-y-2">
+                        <h1 className="m-0 text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
+                          {publicHeadline.typeCode}
+                          {publicHeadline.displayName ? (
+                            <span className="block pt-2 text-[0.45em] font-medium tracking-[-0.02em] text-slate-600 md:inline md:pl-3 md:pt-0">
+                              {publicHeadline.displayName}
+                            </span>
+                          ) : null}
+                        </h1>
+                        {publicTypeName || publicNickname ? (
+                          <p data-testid="mbti-hero-identity-line" className="m-0 text-sm font-medium uppercase tracking-[0.14em] text-slate-500">
+                            {[publicTypeName, publicNickname].filter(Boolean).join(" · ")}
+                          </p>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    {publicHeadline.supportingLine ? (
+                      <p className="m-0 max-w-3xl text-lg font-medium leading-8 text-slate-700">{publicHeadline.supportingLine}</p>
+                    ) : null}
+                    {publicHeadline.summary ? (
+                      <p className="m-0 max-w-3xl text-base leading-8 text-slate-600">{publicHeadline.summary}</p>
+                    ) : null}
+
+                    {publicTags.length > 0 ? (
+                      <div className="flex flex-wrap gap-2">
+                        {publicTags.slice(0, 5).map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex rounded-full border border-white/85 bg-white/75 px-3 py-1.5 text-sm text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
+
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      <div className="rounded-2xl border border-white/80 bg-white/70 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                          {locale === "zh" ? "Methodology / 方法论" : "Methodology"}
+                        </p>
+                        <p className="m-0 mt-2 text-sm font-medium text-slate-900">
+                          {locale === "zh" ? "类型骨架 + 边界轴 + 场景映射" : "Type structure + boundary axes + scenario mapping"}
+                        </p>
+                      </div>
+                      <div className="rounded-2xl border border-white/80 bg-white/70 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                          {locale === "zh" ? "Precision / 精度" : "Precision"}
+                        </p>
+                        <p className="m-0 mt-2 text-sm font-medium text-slate-900">
+                          {publicHeadline.rarity
+                            ? `${locale === "zh" ? "稀有度" : "Rarity"} · ${publicHeadline.rarity}`
+                            : locale === "zh"
+                              ? "按章节读取结构证据"
+                              : "Read structural evidence by chapter"}
+                        </p>
+                      </div>
+                      <div className="rounded-2xl border border-white/80 bg-white/70 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                          {locale === "zh" ? "Sovereignty / 数据主权" : "Sovereignty"}
+                        </p>
+                        <p className="m-0 mt-2 text-sm font-medium text-slate-900">
+                          {locale === "zh" ? "先看公开层，再决定是否提升判读分辨率" : "Review the public layer before increasing reading resolution"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-[28px] border border-slate-200/80 bg-slate-950 text-white shadow-[0_24px_48px_rgba(15,23,42,0.18)]">
+                    <div className="space-y-5 p-5">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="space-y-2">
+                          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-200">
+                            {locale === "zh" ? "结果坐标" : "Result coordinates"}
+                          </p>
+                          <p className="m-0 text-3xl font-semibold tracking-[-0.04em] text-white">{publicHeadline.typeCode}</p>
+                          <p className="m-0 text-sm leading-6 text-slate-300">
+                            {locale === "zh" ? "这份结果用于建立结构化阅读坐标，而不是娱乐化标签。" : "This result defines a structured reading coordinate rather than an entertainment label."}
+                          </p>
+                        </div>
+                        <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-right">
+                          <p className="m-0 text-[11px] uppercase tracking-[0.16em] text-slate-400">
+                            {locale === "zh" ? "常模位置" : "Norm anchor"}
+                          </p>
+                          <p className="m-0 mt-1 text-sm font-medium text-white">
+                            {publicHeadline.rarity || (locale === "zh" ? "按章节读取" : "Read by chapter")}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="space-y-3">
+                        {heroInsightItems.map((item) => (
+                          <div
+                            key={item.label}
+                            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition duration-200 motion-reduce:transition-none hover:border-white/20 hover:bg-white/[0.08]"
+                          >
+                            <div className="flex items-center justify-between gap-3">
+                              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                                {item.label}
+                              </p>
+                              <span className="text-sm font-medium text-white">{item.value}</span>
+                            </div>
+                            <p className="m-0 mt-2 text-sm leading-6 text-slate-300">{item.detail}</p>
+                          </div>
+                        ))}
+                      </div>
+
+                      <a
+                        href={isUnlockedPostPurchase ? "#intro" : "#offer-full"}
+                        className={buttonVariants({
+                          className:
+                            "w-full bg-white text-slate-950 shadow-[0_12px_28px_rgba(255,255,255,0.16)] transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:bg-emerald-50 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
+                        })}
+                      >
+                        {isUnlockedPostPurchase
+                          ? offerPrimaryLabel
+                          : locale === "zh"
+                            ? "查看完整报告边界"
+                            : "Review the full-report boundary"}
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1808,24 +2007,35 @@ export function MbtiResultShell({
 
           <section
             id="intro"
-            className="scroll-mt-28 space-y-3 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
+            className={`scroll-mt-28 rounded-[28px] border border-slate-200 bg-white/90 p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)] backdrop-blur ${introSurfaceClass} md:p-6`}
           >
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "章节导读" : "Report intro"}
-            </p>
-            <div className="space-y-2">
-              <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">
-                {locale === "zh" ? "从类型特征出发，分章理解结果" : "Read the result by chapter"}
-              </h2>
-              <div className="space-y-2 text-sm leading-7 text-[var(--fm-text-muted)]">
-                {introParagraphs.length > 0 ? (
-                  introParagraphs.map((paragraph) => <p key={paragraph} className="m-0">{paragraph}</p>)
-                ) : null}
-                {publicHeadline.rarity ? (
-                  <p className="m-0">
-                    {locale === "zh" ? "类型稀有度：" : "Type rarity: "} {publicHeadline.rarity}
-                  </p>
-                ) : null}
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start">
+              <div className="space-y-3">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  {locale === "zh" ? "如何阅读这份结果" : "How to read this result"}
+                </p>
+                <h2 className="m-0 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+                  {locale === "zh" ? "先确认结构，再进入场景，再决定是否提升判读深度" : "Confirm structure first, then read scenarios, then decide on depth"}
+                </h2>
+                <p className="m-0 text-sm leading-7 text-slate-600">
+                  {locale === "zh"
+                    ? "这一页先交付公开层结果。四个章节依次解释人格骨架、职业映射、成长阻力与关系模式。完整报告负责补齐更高分辨率的判断依据与行动坐标。"
+                    : "This page delivers the public layer first. The four chapters explain type structure, career mapping, growth friction, and relationship patterns before the full report adds higher-resolution evidence and action coordinates."}
+                </p>
+              </div>
+              <div className="grid gap-3 md:grid-cols-3">
+                {introGuideItems.map((item, index) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white"
+                  >
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                      {locale === "zh" ? `步骤 ${index + 1}` : `Step ${index + 1}`}
+                    </p>
+                    <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{item.title}</p>
+                    <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -1850,13 +2060,13 @@ export function MbtiResultShell({
             className="border-slate-950 bg-slate-950 text-white shadow-[0_22px_52px_rgba(15,23,42,0.22)]"
           >
             <CardHeader className="pb-3">
-              <CardTitle className="text-white">{locale === "zh" ? "下一步操作" : "Next actions"}</CardTitle>
+              <CardTitle className="text-white">{locale === "zh" ? "结果收束动作" : "Result actions"}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="m-0 text-sm leading-7 text-slate-300">
                 {locale === "zh"
-                  ? "保留分享与重测动作，并保留当前结果可达的历史/继续入口。"
-                  : "Keep share and retake, and preserve the available history/continuation entry points."}
+                  ? "这里收口分享、重测和历史入口；完整解锁动作仍以主方案区为准。"
+                  : "This footer keeps share, retake, and history entry points while the primary unlock action remains in the main offer section."}
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button type="button" variant="secondary" onClick={() => void handleShare()}>
@@ -1894,6 +2104,7 @@ export function MbtiResultShell({
           accessLevel={reportData.access_level}
           variant={reportData.variant}
           modulesAllowed={Array.isArray(reportData.modules_allowed) ? reportData.modules_allowed : []}
+          historyHref={historyHref}
           retakeHref={retakeHref}
           primaryCtaLabel={terminalPrimaryCtaLabel}
           primaryCtaHref={resolvedTerminalPrimaryCtaHref}
