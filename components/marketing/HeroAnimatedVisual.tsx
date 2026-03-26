@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 
 type HeroAnimatedVisualProps = {
@@ -21,21 +22,31 @@ const COPY = {
       action: "Action Coordinates",
     },
     notes: {
-      matrix: "High-resolution measurement across thirty interpretable facets.",
-      norm: "Norm-anchored reading against a 100,000+ reference set.",
-      scenario: "Current output mapped into real decision contexts.",
-      action: "Three next-step coordinates distilled from the reading.",
+      matrix: "Not broad labels, but thirty quantifiable lower-level facets under continuous calculation.",
+      norm: "Your reading returns to an external reference frame instead of staying an isolated score.",
+      scenario: "The engine translates complex trait structure into decision parameters.",
+      action: "Three indexed coordinates compress the output into executable, reviewable actions.",
     },
     matrixLegend: "30 facets calibrated",
     matrixSummaryLabel: "Decision strands",
     matrixSummaryValue: "30 calibrated",
+    matrixDetail: "Each pulse represents a lower-level facet under live computation.",
+    matrixStreamLabel: "Reading",
     normMeta: "100,000+ reference set",
+    normAnchor: "Objective placement, not an isolated score.",
     normPercentile: "71st percentile",
     normScore: "+1.42 Z",
+    normStatA: "Z-Score",
+    normStatB: "Percentile",
+    scenarioLabels: {
+      parameter: "Parameter",
+      coefficient: "Coefficient",
+      reading: "Reading",
+    },
     scenarioItems: [
-      { name: "Partner fit", score: "0.82", status: "Steady", value: 82 },
-      { name: "Career pivot", score: "0.74", status: "Watch", value: 74 },
-      { name: "Pressure load", score: "0.39", status: "Guarded", value: 39 },
+      { name: "Partner fit", status: "Steady", parameter: "FIT_082", coefficient: "0.82", reading: "Low variance" },
+      { name: "Career pivot", status: "Watch", parameter: "SHIFT_074", coefficient: "0.74", reading: "Signal rising" },
+      { name: "Pressure load", status: "Guarded", parameter: "LOAD_039", coefficient: "0.39", reading: "Risk elevated" },
     ],
     actionRows: [
       { label: "Communication rhythm", value: 84, code: "A1" },
@@ -58,21 +69,31 @@ const COPY = {
       action: "Action Coordinates",
     },
     notes: {
-      matrix: "以三十个可解释分面完成高分辨率测量。",
-      norm: "回到 100,000+ 常模参照中的相对位置读取。",
-      scenario: "将当前输出映射到真实判断链路中的关键场景。",
-      action: "把结果压缩成三条可执行的行动坐标。",
+      matrix: "不是外向或内向这样的粗标签，而是三十个可量化底层分面的持续演算。",
+      norm: "你的结果回到外部参照系中读取，而不是停留在孤立分数。",
+      scenario: "系统已把繁杂的人格结构翻译成进入决策的参数层。",
+      action: "把输出压缩为三条可执行、可复盘的索引坐标。",
     },
     matrixLegend: "30 个分面已校准",
     matrixSummaryLabel: "可用子决策束",
     matrixSummaryValue: "30 分面已校准",
+    matrixDetail: "每一次跳动都对应一个底层分面的实时演算。",
+    matrixStreamLabel: "读数",
     normMeta: "100,000+ 常模参照",
+    normAnchor: "客观坐标，不是孤立分数。",
     normPercentile: "第 71 百分位",
     normScore: "+1.42 Z",
+    normStatA: "Z-Score",
+    normStatB: "Percentile",
+    scenarioLabels: {
+      parameter: "参数轴",
+      coefficient: "系数",
+      reading: "判读",
+    },
     scenarioItems: [
-      { name: "合伙拟合", score: "0.82", status: "稳定", value: 82 },
-      { name: "职业转型", score: "0.74", status: "关注", value: 74 },
-      { name: "压力负荷", score: "0.39", status: "警惕", value: 39 },
+      { name: "合伙拟合", status: "稳定", parameter: "FIT_082", coefficient: "0.82", reading: "低波动" },
+      { name: "职业转型", status: "关注", parameter: "SHIFT_074", coefficient: "0.74", reading: "转向抬升" },
+      { name: "压力负荷", status: "警惕", parameter: "LOAD_039", coefficient: "0.39", reading: "风险抬升" },
     ],
     actionRows: [
       { label: "沟通节奏", value: 84, code: "A1" },
@@ -84,10 +105,13 @@ const COPY = {
   },
 } as const;
 
-const FACET_CELLS = [
-  88, 72, 64, 52, 41, 75, 67, 55, 44, 38,
-  82, 77, 69, 58, 47, 71, 66, 61, 49, 40,
-  86, 79, 73, 63, 54, 74, 68, 59, 51, 43,
+const FACET_STREAMS = [
+  { range: "F01-F05", code: "0xDE02D8D6", probe: "0.612", value: 84 },
+  { range: "F06-F10", code: "0x0679B80F", probe: "0.544", value: 76 },
+  { range: "F11-F15", code: "0x1E21B16F", probe: "0.481", value: 63 },
+  { range: "F16-F20", code: "0x1677B181", probe: "0.573", value: 71 },
+  { range: "F21-F25", code: "0x22E22B26", probe: "0.528", value: 68 },
+  { range: "F26-F30", code: "0x26A2B82F", probe: "0.601", value: 74 },
 ];
 
 function SignalBar({ value, segments = 10, tone = "signal" }: { value: number; segments?: number; tone?: SignalTone }) {
@@ -212,10 +236,21 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
 
               <div className="fm-home-engine-matrix-body">
                 <div className="fm-home-facet-grid" aria-hidden>
-                  {FACET_CELLS.map((value, index) => (
-                    <div key={`${value}-${index}`} className="fm-home-facet-cell">
-                      <span className="fm-home-facet-id">F{`${index + 1}`.padStart(2, "0")}</span>
-                      <SignalBar value={value} segments={4} tone="muted" />
+                  {FACET_STREAMS.map((item, index) => (
+                    <div
+                      key={item.code}
+                      className="fm-home-facet-stream"
+                      style={{ "--fm-stream-delay": `${index * 180}ms` } as CSSProperties}
+                    >
+                      <div className="fm-home-facet-stream-head">
+                        <span className="fm-home-facet-range">{item.range}</span>
+                        <span className="fm-home-facet-code">{item.code}</span>
+                      </div>
+                      <SignalBar value={item.value} segments={10} tone="muted" />
+                      <div className="fm-home-facet-stream-foot">
+                        <span className="fm-home-facet-probe-label">{copy.matrixStreamLabel}</span>
+                        <span className="fm-home-facet-probe-value">{item.probe}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -228,6 +263,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                   <div className="mt-4">
                     <RadarGlyph />
                   </div>
+                  <p className="fm-home-engine-radar-detail m-0">{copy.matrixDetail}</p>
                 </div>
               </div>
             </section>
@@ -238,14 +274,23 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                   <p className="fm-home-engine-label m-0">{copy.modules.norm}</p>
                   <p className="fm-home-engine-note m-0 mt-2">{copy.notes.norm}</p>
                 </div>
-                <div className="text-right">
-                  <p className="fm-home-engine-meta-label m-0">{copy.normMeta}</p>
-                  <p className="fm-home-engine-norm-score m-0 mt-2">{copy.normScore}</p>
-                  <p className="fm-home-engine-norm-percentile m-0 mt-1">{copy.normPercentile}</p>
-                </div>
               </div>
 
-              <div className="mt-4">
+              <div className="fm-home-engine-norm-body">
+                <div className="fm-home-engine-norm-stats">
+                  <div className="fm-home-engine-norm-stat">
+                    <p className="fm-home-engine-meta-label m-0">{copy.normStatA}</p>
+                    <p className="fm-home-engine-norm-score m-0 mt-2">{copy.normScore}</p>
+                  </div>
+                  <div className="fm-home-engine-norm-stat">
+                    <p className="fm-home-engine-meta-label m-0">{copy.normStatB}</p>
+                    <p className="fm-home-engine-norm-percentile m-0 mt-2">{copy.normPercentile}</p>
+                  </div>
+                </div>
+                <p className="fm-home-engine-norm-anchor m-0">
+                  <span className="fm-home-engine-meta-label">{copy.normMeta}</span>
+                  <span>{copy.normAnchor}</span>
+                </p>
                 <NormCurve />
               </div>
             </section>
@@ -261,12 +306,24 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
               <div className="mt-4 space-y-2.5">
                 {copy.scenarioItems.map((item) => (
                   <div key={item.name} className="fm-home-engine-scenario-row">
-                    <div className="min-w-0">
+                    <div className="fm-home-engine-scenario-row-head">
                       <p className="m-0 text-sm font-medium text-[#f2f2f7]">{item.name}</p>
+                      <span className="fm-home-engine-status-pill">{item.status}</span>
                     </div>
-                    <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-[#a1adbb]">{item.score}</p>
-                    <span className="fm-home-engine-status-pill">{item.status}</span>
-                    <SignalBar value={item.value} segments={8} />
+                    <dl className="fm-home-engine-scenario-ledger">
+                      <div className="fm-home-engine-scenario-cell">
+                        <dt>{copy.scenarioLabels.parameter}</dt>
+                        <dd>{item.parameter}</dd>
+                      </div>
+                      <div className="fm-home-engine-scenario-cell">
+                        <dt>{copy.scenarioLabels.coefficient}</dt>
+                        <dd>{item.coefficient}</dd>
+                      </div>
+                      <div className="fm-home-engine-scenario-cell">
+                        <dt>{copy.scenarioLabels.reading}</dt>
+                        <dd>{item.reading}</dd>
+                      </div>
+                    </dl>
                   </div>
                 ))}
               </div>
