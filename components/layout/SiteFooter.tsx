@@ -1,11 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { FOOTER_SOCIAL_ITEMS } from "@/lib/ui/footerSocialIcons";
+import { cn } from "@/lib/utils";
 
 export function SiteFooter() {
   const locale = useLocale();
@@ -13,6 +16,7 @@ export function SiteFooter() {
   const withLocale = (path: string) => localizedPath(path, locale);
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const socialItems = FOOTER_SOCIAL_ITEMS;
+  const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
 
   const testLinks = [
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
@@ -92,22 +96,67 @@ export function SiteFooter() {
         </div>
 
         <div className="border-t border-white/15 pt-6">
+          <p className="m-0 mb-4 text-center text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
+            {dict.footer.socialTitle}
+          </p>
           <div className="fm-social-list">
             {socialItems.map((item) => (
-              <a
+              <div
                 key={item.key}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={locale === "zh" ? item.labels.zh : item.labels.en}
-                aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
-                className="fm-social-badge"
+                className="fm-social-item"
+                onMouseEnter={() => setActiveSocialKey(item.key)}
+                onMouseLeave={() => setActiveSocialKey((current) => (current === item.key ? null : current))}
               >
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="fm-social-logo">
-                  <path d={item.icon.path} />
-                </svg>
-                <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
-              </a>
+                {item.kind === "qr" ? (
+                  <>
+                    <button
+                      type="button"
+                      title={locale === "zh" ? item.labels.zh : item.labels.en}
+                      aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
+                      aria-expanded={activeSocialKey === item.key}
+                      className="fm-social-badge cursor-pointer border-0 bg-transparent p-0"
+                      onClick={() => setActiveSocialKey((current) => (current === item.key ? null : item.key))}
+                      onFocus={() => setActiveSocialKey(item.key)}
+                      onBlur={() => setActiveSocialKey((current) => (current === item.key ? null : current))}
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="fm-social-logo">
+                        <path d={item.icon.path} />
+                      </svg>
+                      <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
+                    </button>
+
+                    {item.qrImageSrc ? (
+                      <div
+                        className={cn("fm-social-qr-panel", activeSocialKey === item.key && "is-open")}
+                        aria-hidden={activeSocialKey === item.key ? "false" : "true"}
+                      >
+                        <Image
+                          src={item.qrImageSrc}
+                          alt={locale === "zh" ? "微信二维码" : "WeChat QR code"}
+                          width={144}
+                          height={144}
+                          className="fm-social-qr-image"
+                        />
+                        <p className="fm-social-qr-label">{locale === "zh" ? "微信扫码关注" : "Scan in WeChat"}</p>
+                      </div>
+                    ) : null}
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={locale === "zh" ? item.labels.zh : item.labels.en}
+                    aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
+                    className="fm-social-badge"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="fm-social-logo">
+                      <path d={item.icon.path} />
+                    </svg>
+                    <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
+                  </a>
+                )}
+              </div>
             ))}
           </div>
         </div>
