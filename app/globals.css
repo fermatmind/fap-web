@@ -1763,20 +1763,21 @@ a {
 }
 
 .fm-home-hero-copy-column {
-  max-width: 32.5rem;
+  max-width: 37.25rem;
   padding-top: 3.5rem;
   padding-bottom: 4rem;
 }
 
 .fm-home-hero-panel-column {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .fm-home-hero-title {
   display: grid;
   gap: 0.65rem;
-  max-width: 32.5rem;
+  max-width: 36.75rem;
 }
 
 .fm-home-hero-title-brand-stack {
@@ -1788,7 +1789,7 @@ a {
   display: block;
   font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
   color: #f2f2f7;
-  font-size: clamp(4.5rem, 5.6vw, 5.25rem);
+  font-size: clamp(5.05rem, 6.2vw, 5.95rem);
   font-weight: 800;
   line-height: 0.98;
   letter-spacing: -0.03em;
@@ -1797,11 +1798,11 @@ a {
 
 .fm-home-hero-title-subline {
   display: block;
-  max-width: 20rem;
+  max-width: 23rem;
   font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
-  color: rgba(242, 242, 247, 0.72);
-  font-size: clamp(1.7rem, 2.25vw, 2.15rem);
-  font-weight: 640;
+  color: rgba(242, 242, 247, 0.76);
+  font-size: clamp(1.9rem, 2.55vw, 2.45rem);
+  font-weight: 620;
   line-height: 1.18;
   letter-spacing: -0.02em;
   text-wrap: balance;
@@ -1809,22 +1810,22 @@ a {
 
 .fm-home-hero-lede {
   display: grid;
-  gap: 0.4rem;
-  max-width: 31.25rem;
+  gap: 0.5rem;
+  max-width: 35.5rem;
 }
 
 .fm-home-hero-lede-primary {
   color: rgba(242, 242, 247, 0.88);
-  font-size: clamp(1.16rem, 1.8vw, 1.375rem);
+  font-size: clamp(1.25rem, 2.05vw, 1.56rem);
   font-weight: 600;
   line-height: 1.45;
 }
 
 .fm-home-hero-lede-secondary {
   color: rgba(242, 242, 247, 0.72);
-  font-size: clamp(1rem, 1.45vw, 1.125rem);
+  font-size: clamp(1.06rem, 1.68vw, 1.22rem);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.72;
 }
 
 .fm-home-hero-cta-row {
@@ -1890,7 +1891,7 @@ a {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  max-width: 34rem;
+  max-width: 37rem;
   line-height: 1.9;
   padding-top: 0.25rem;
 }
@@ -1920,9 +1921,9 @@ a {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 24.75rem;
+  min-height: 28rem;
   border: 1px solid rgba(242, 242, 247, 0.08);
-  border-radius: 1.35rem;
+  border-radius: 1.45rem;
   background:
     linear-gradient(180deg, rgba(18, 23, 31, 0.94) 0%, rgba(12, 17, 24, 0.98) 100%);
   padding: 0;
@@ -1965,7 +1966,7 @@ a {
 .fm-home-engine-shell {
   position: relative;
   z-index: 1;
-  padding: 1.5rem;
+  padding: 1.9rem;
 }
 
 .fm-home-engine-header {
@@ -1980,7 +1981,7 @@ a {
 
 .fm-home-engine-header-label {
   color: rgba(242, 242, 247, 0.88);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
@@ -1988,7 +1989,7 @@ a {
 .fm-home-engine-header-note {
   color: rgba(242, 242, 247, 0.42);
   font-family: var(--font-fm-mono), monospace;
-  font-size: 0.625rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -2005,7 +2006,7 @@ a {
   padding: 0.35rem 0.75rem;
   color: #b5bfcb;
   font-family: var(--font-fm-mono), monospace;
-  font-size: 0.66rem;
+  font-size: 0.69rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -2026,9 +2027,9 @@ a {
 
 .fm-home-engine-layout {
   display: grid;
-  gap: 0.9rem;
-  margin-top: 1rem;
-  grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
+  gap: 1.15rem;
+  margin-top: 1.15rem;
+  grid-template-columns: minmax(0, 0.62fr) minmax(0, 0.38fr);
   align-items: start;
   grid-template-areas: "matrix norm";
 }
@@ -2037,9 +2038,9 @@ a {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 0.95rem;
+  border-radius: 1rem;
   background: linear-gradient(180deg, rgba(19, 24, 32, 0.76) 0%, rgba(13, 18, 25, 0.9) 100%);
-  padding: 0.92rem;
+  padding: 1.15rem;
 }
 
 .fm-home-engine-module::before {
@@ -2070,7 +2071,7 @@ a {
 .fm-home-engine-label {
   color: #f2f2f7;
   font-family: var(--font-fm-mono), monospace;
-  font-size: 0.7rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -2078,8 +2079,8 @@ a {
 
 .fm-home-engine-note {
   color: #96a1af;
-  font-size: 0.84rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.62;
   max-width: 28rem;
 }
 
@@ -2101,15 +2102,15 @@ a {
 
 .fm-home-engine-matrix-body {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(9.2rem, 10.2rem);
-  gap: 0.8rem;
-  margin-top: 1rem;
+  grid-template-columns: minmax(0, 1.08fr) minmax(13rem, 14.5rem);
+  gap: 1.05rem;
+  margin-top: 1.15rem;
 }
 
 .fm-home-facet-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.55rem;
+  gap: 0.72rem;
 }
 
 .fm-home-facet-stream {
@@ -2118,7 +2119,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.015);
-  padding: 0.52rem 0.56rem 0.58rem;
+  padding: 0.66rem 0.7rem 0.72rem;
   transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
@@ -2138,7 +2139,7 @@ a {
 .fm-home-facet-range,
 .fm-home-facet-code {
   font-family: var(--font-fm-mono), monospace;
-  font-size: 0.54rem;
+  font-size: 0.59rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2162,7 +2163,7 @@ a {
 .fm-home-facet-probe-label,
 .fm-home-facet-probe-value {
   font-family: var(--font-fm-mono), monospace;
-  font-size: 0.53rem;
+  font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2183,7 +2184,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 0.9rem;
   background: rgba(255, 255, 255, 0.02);
-  padding: 0.8rem;
+  padding: 1rem;
 }
 
 .fm-home-engine-radar-meta {
@@ -2197,7 +2198,7 @@ a {
 .fm-home-engine-norm-percentile {
   color: #f2f2f7;
   font-family: var(--font-fm-mono), monospace;
-  font-size: 0.76rem;
+  font-size: 0.86rem;
   font-weight: 600;
   letter-spacing: 0.1em;
 }
@@ -2205,14 +2206,14 @@ a {
 .fm-home-engine-radar-detail {
   margin-top: 0.8rem;
   color: rgba(242, 242, 247, 0.52);
-  font-size: 0.73rem;
-  line-height: 1.55;
+  font-size: 0.82rem;
+  line-height: 1.58;
 }
 
 .fm-home-engine-norm-body {
   display: grid;
-  gap: 0.9rem;
-  margin-top: 1rem;
+  gap: 1.05rem;
+  margin-top: 1.15rem;
 }
 
 .fm-home-engine-norm-stats {
@@ -2225,15 +2226,15 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.02);
-  padding: 0.7rem 0.75rem;
+  padding: 0.88rem 0.9rem;
 }
 
 .fm-home-engine-norm-anchor {
   display: grid;
   gap: 0.24rem;
   color: rgba(242, 242, 247, 0.58);
-  font-size: 0.76rem;
-  line-height: 1.5;
+  font-size: 0.84rem;
+  line-height: 1.54;
 }
 
 .fm-home-engine-scenario-row {
