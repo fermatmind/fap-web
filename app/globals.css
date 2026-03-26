@@ -1920,7 +1920,7 @@ a {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 34.5rem;
+  min-height: 24.75rem;
   border: 1px solid rgba(242, 242, 247, 0.08);
   border-radius: 1.35rem;
   background:
@@ -2029,10 +2029,8 @@ a {
   gap: 0.9rem;
   margin-top: 1rem;
   grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
-  grid-template-areas:
-    "matrix norm"
-    "scenario scenario"
-    "action action";
+  align-items: start;
+  grid-template-areas: "matrix norm";
 }
 
 .fm-home-engine-module {
@@ -2058,16 +2056,8 @@ a {
   grid-area: matrix;
 }
 
-.fm-home-engine-module-action {
-  grid-area: action;
-}
-
 .fm-home-engine-layout > .fm-home-engine-module:nth-child(2) {
   grid-area: norm;
-}
-
-.fm-home-engine-layout > .fm-home-engine-module:nth-child(3) {
-  grid-area: scenario;
 }
 
 .fm-home-engine-module-head {
@@ -2585,15 +2575,7 @@ a {
   }
 
   .fm-home-engine-layout {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "matrix matrix"
-      "norm scenario"
-      "action action";
-  }
-
-  .fm-home-engine-action-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 0.56fr) minmax(0, 0.44fr);
   }
 }
 
