@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
+import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
 import { MbtiResultShell } from "@/components/result/mbti/MbtiResultShell";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -755,159 +756,6 @@ function resolveHeadline(scaleCode: RichResultScaleCode, reportData: ReportRespo
   };
 }
 
-function Big5ProjectionSummary({
-  locale,
-  projection,
-}: {
-  locale: Locale;
-  projection: Big5PublicProjection;
-}) {
-  const dominantTraits = Array.isArray(projection.dominant_traits) ? projection.dominant_traits : [];
-  const variantKeys = Array.isArray(projection.variant_keys) ? projection.variant_keys : [];
-  const explainability = asRecord(projection.explainability_summary);
-  const actionPlan = asRecord(projection.action_plan_summary);
-  const comparative = asRecord(projection.comparative_v1);
-  const controlledNarrative = asRecord(projection.controlled_narrative_v1);
-  const culturalCalibration = asRecord(projection.cultural_calibration_v1);
-  const comparativePercentile = asRecord(comparative?.percentile);
-  const comparativePosition = asRecord(comparative?.cohort_relative_position);
-  const comparativeSameType = asRecord(comparative?.same_type_contrast);
-  const comparativePercentileLabel = normalizeText(comparativePercentile?.metric_label);
-  const comparativePercentileValue = normalizeNumber(comparativePercentile?.value);
-  const comparativePositionLabel = normalizeText(comparativePosition?.label);
-  const comparativePositionSummary = normalizeText(comparativePosition?.summary);
-  const comparativeSameTypeLabel = normalizeText(comparativeSameType?.label);
-  const comparativeSameTypeSummary = normalizeText(comparativeSameType?.summary);
-  const comparativeFingerprint = normalizeText(comparative?.comparative_fingerprint);
-  const normingVersion = normalizeText(comparative?.norming_version);
-  const normingScope = normalizeText(comparative?.norming_scope);
-  const normingSource = normalizeText(comparative?.norming_source);
-  const narrativeIntro = normalizeText(controlledNarrative?.narrative_intro);
-  const narrativeSummary = normalizeText(controlledNarrative?.narrative_summary);
-  const narrativeRuntimeMode = normalizeText(controlledNarrative?.runtime_mode);
-  const calibrationIntro = normalizeText(asRecord(culturalCalibration?.narrative_overrides)?.intro);
-  const calibrationSummary = normalizeText(asRecord(culturalCalibration?.narrative_overrides)?.summary);
-  const calibrationFingerprint = normalizeText(culturalCalibration?.calibration_fingerprint);
-  const localeContext = normalizeText(culturalCalibration?.locale_context);
-  const culturalContext = normalizeText(culturalCalibration?.cultural_context);
-  const sceneFingerprint = projection.scene_fingerprint && typeof projection.scene_fingerprint === "object"
-    ? Object.entries(projection.scene_fingerprint)
-    : [];
-
-  return (
-    <Card data-testid="big5-foundation-summary" className="border-slate-200 bg-white shadow-sm">
-      <CardContent className="space-y-4 p-6">
-        <div className="space-y-2">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-            {locale === "zh" ? "Big Five Foundation" : "Big Five Foundation"}
-          </p>
-          {narrativeIntro || narrativeSummary ? (
-            <div
-              data-testid="big5-controlled-narrative"
-              data-runtime-mode={narrativeRuntimeMode}
-              className="rounded-xl border border-sky-100 bg-sky-50 px-4 py-3 text-sm text-sky-900"
-            >
-              {narrativeIntro ? <p className="m-0 font-semibold uppercase tracking-[0.12em] text-sky-700">{narrativeIntro}</p> : null}
-              {narrativeSummary ? <p className="m-0 mt-2 leading-7">{narrativeSummary}</p> : null}
-            </div>
-          ) : null}
-          {comparativePercentileValue !== null ? (
-            <div
-              data-testid="big5-comparative"
-              data-comparative-fingerprint={comparativeFingerprint || undefined}
-              data-norming-version={normingVersion || undefined}
-              data-norming-scope={normingScope || undefined}
-              data-norming-source={normingSource || undefined}
-              className="rounded-xl border border-violet-100 bg-violet-50 px-4 py-3 text-sm text-violet-900"
-            >
-              <p className="m-0 font-semibold uppercase tracking-[0.12em] text-violet-700">
-                {locale === "zh" ? "相对参照" : "Comparative reference"}
-              </p>
-              <p className="m-0 mt-2 leading-7">
-                {locale === "zh"
-                  ? `${comparativePercentileLabel || "主特质"} 位于第 ${comparativePercentileValue} 百分位。${comparativePositionLabel || comparativePositionSummary}`
-                  : `${comparativePercentileLabel || "Lead trait"} lands at the ${comparativePercentileValue}th percentile. ${comparativePositionLabel || comparativePositionSummary}`}
-              </p>
-              {comparativeSameTypeLabel || comparativeSameTypeSummary ? (
-                <p className="m-0 mt-2 text-xs leading-6 text-violet-800">
-                  {[comparativeSameTypeLabel, comparativeSameTypeSummary].filter(Boolean).join(" · ")}
-                </p>
-              ) : null}
-            </div>
-          ) : null}
-          {calibrationIntro || calibrationSummary ? (
-            <div
-              data-testid="big5-cultural-calibration"
-              data-locale-context={localeContext || undefined}
-              data-cultural-context={culturalContext || undefined}
-              data-calibration-fingerprint={calibrationFingerprint || undefined}
-              className="rounded-xl border border-amber-100 bg-amber-50 px-4 py-3 text-sm text-amber-900"
-            >
-              {calibrationIntro ? (
-                <p className="m-0 font-semibold uppercase tracking-[0.12em] text-amber-700">{calibrationIntro}</p>
-              ) : null}
-              {calibrationSummary ? <p className="m-0 mt-2 leading-7">{calibrationSummary}</p> : null}
-            </div>
-          ) : null}
-          {typeof explainability?.headline === "string" && explainability.headline.trim().length > 0 ? (
-            <p className="m-0 text-base leading-7 text-slate-700">{explainability.headline}</p>
-          ) : null}
-        </div>
-
-        {dominantTraits.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
-            {dominantTraits.map((trait, index) => {
-              const traitRecord = asRecord(trait);
-              const label = normalizeText(traitRecord?.label, traitRecord?.key, `Trait ${index + 1}`);
-              const percentile = normalizeNumber(traitRecord?.percentile);
-              return (
-                <span
-                  key={`${label}-${index}`}
-                  className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm text-slate-700"
-                >
-                  {label}
-                  {percentile !== null ? ` · ${percentile}` : ""}
-                </span>
-              );
-            })}
-          </div>
-        ) : null}
-
-        {sceneFingerprint.length > 0 ? (
-          <div className="grid gap-2 sm:grid-cols-2" data-testid="big5-scene-fingerprint">
-            {sceneFingerprint.map(([key, value]) => (
-              <div key={key} className="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2 text-sm text-slate-700">
-                <span className="font-semibold text-slate-900">{key}</span>
-                <span className="text-slate-500"> · </span>
-                <span>{value}</span>
-              </div>
-            ))}
-          </div>
-        ) : null}
-
-        {typeof actionPlan?.headline === "string" && actionPlan.headline.trim().length > 0 ? (
-          <div className="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm text-emerald-900" data-testid="big5-action-plan-summary">
-            {actionPlan.headline}
-          </div>
-        ) : null}
-
-        {variantKeys.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
-            {variantKeys.slice(0, 6).map((key) => (
-              <span
-                key={key}
-                className="inline-flex rounded-full border border-white/80 bg-white px-2.5 py-1 text-xs text-slate-600 shadow-[0_6px_14px_rgba(15,23,42,0.05)]"
-              >
-                {key}
-              </span>
-            ))}
-          </div>
-        ) : null}
-      </CardContent>
-    </Card>
-  );
-}
-
 function humanizeModule(moduleCode: string, locale: Locale): string {
   const normalized = moduleCode.trim().toLowerCase();
   const copy = MODULE_LABELS[normalized];
@@ -1432,6 +1280,26 @@ export function RichResultReport({
     : [];
   const recommendedOffers = resolveRecommendedOffers(lockedSections, offers);
 
+  if (scaleCode === "BIG5_OCEAN") {
+    return (
+      <Big5ResultShell
+        locale={locale}
+        attemptId={accessProjection?.attemptId ?? ""}
+        reportLocked={accessProjection ? accessProjection.accessState !== "ready" : reportData.locked === true}
+        accessProjection={accessProjection}
+        headline={headline}
+        tags={tags}
+        dimensions={dimensions}
+        projection={big5Projection}
+        normsStatus={normalizeText(reportData.norms?.status, asRecord(reportData.report?.norms)?.status)}
+        qualityLevel={normalizeText(reportData.quality?.level, asRecord(reportData.report?.quality)?.level)}
+        visibleSections={visibleSections}
+        lockedSections={lockedSections}
+        recommendedOffers={recommendedOffers}
+      />
+    );
+  }
+
   return (
     <div className="space-y-8">
       <Card className="overflow-hidden border-slate-200 bg-gradient-to-br from-white via-emerald-50/60 to-slate-50 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
@@ -1478,11 +1346,6 @@ export function RichResultReport({
       </Card>
 
       <DimensionBars dimensions={dimensions} />
-
-      {scaleCode === "BIG5_OCEAN" && big5Projection ? (
-        <Big5ProjectionSummary locale={locale} projection={big5Projection} />
-      ) : null}
-
       <HighlightsSection locale={locale} cards={highlights} />
 
       {visibleSections.map((section) => (

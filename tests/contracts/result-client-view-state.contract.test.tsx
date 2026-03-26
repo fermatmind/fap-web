@@ -60,16 +60,30 @@ vi.mock("@/components/result/RichResultReport", () => ({
   canRenderRichResultReport: (
     report: {
       summary?: string;
+      big5_public_projection_v1?: unknown;
       mbti_public_projection_v1?: unknown;
       report?: { sections?: unknown; profile?: unknown };
     } | null
-  ) => Boolean(report?.mbti_public_projection_v1 || report?.summary || report?.report?.sections || report?.report?.profile),
+  ) =>
+    Boolean(
+      report?.mbti_public_projection_v1
+      || report?.big5_public_projection_v1
+      || report?.summary
+      || report?.report?.sections
+      || report?.report?.profile
+    ),
   isGeneratingReportResponse: (report: { generating?: boolean } | null) => report?.generating === true,
   resolveReportScaleCode: (report: { report?: { scale_code?: string } } | null) =>
-    report?.report?.scale_code === "MBTI" ? "MBTI" : null,
+    report?.report?.scale_code === "MBTI"
+      ? "MBTI"
+      : report?.report?.scale_code === "BIG5_OCEAN"
+        ? "BIG5_OCEAN"
+        : null,
   RichResultReport: ({ reportData }: RichResultReportProps) => (
     <div data-testid="rich-result-report">
       {reportData?.mbti_public_projection_v1?.summary_card?.summary
+        ?? (reportData as { big5_public_projection_v1?: { explainability_summary?: { headline?: string } } } | undefined)
+          ?.big5_public_projection_v1?.explainability_summary?.headline
         ?? reportData?.report?.profile?.short_summary
         ?? reportData?.summary
         ?? reportData?.report?.profile?.type_code
@@ -268,6 +282,69 @@ describe("ResultClient view-state contract", () => {
       anonId: "anon_result_test",
     });
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
+  });
+
+  it("keeps BIG5 on the rich report path when report access and report payload are both ready", async () => {
+    const reportFixture = {
+      locked: false,
+      variant: "full",
+      quality: { level: "A" },
+      big5_public_projection_v1: {
+        schema_version: "big5.public_projection.v1",
+        explainability_summary: {
+          headline: "This profile is primarily driven by Openness.",
+        },
+      },
+      report: {
+        scale_code: "BIG5_OCEAN",
+        profile: {
+          type_name: "Openness-led profile",
+        },
+        sections: [
+          {
+            key: "traits.overview",
+            title: "Traits Overview",
+            access_level: "free",
+            blocks: [{ kind: "paragraph", body: "Big Five overview block." }],
+          },
+        ],
+      },
+      meta: {
+        scale_code: "BIG5_OCEAN",
+      },
+    } as ReportResponse;
+
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({
+        attempt_id: "attempt-big5-123",
+        actions: {
+          page_href: "/result/attempt-big5-123",
+          pdf_href: "/api/v0.3/attempts/attempt-big5-123/report.pdf",
+          history_href: "/history/big5",
+          lookup_href: "/orders/lookup",
+        },
+      })
+    );
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
+
+    render(<ResultClient attemptId="attempt-big5-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveTextContent(
+        "This profile is primarily driven by Openness."
+      );
+    });
+
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
+      attemptId: "attempt-big5-123",
+      anonId: "anon_result_test",
+    });
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
+      attemptId: "attempt-big5-123",
+      anonId: "anon_result_test",
+    });
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
   });
 

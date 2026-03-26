@@ -11,7 +11,7 @@ type OfferPayload = {
   [key: string]: unknown;
 };
 
-function displayPrice(offer: OfferPayload): string {
+function displayPrice(offer: OfferPayload, locale: "en" | "zh"): string {
   if (typeof offer.formatted_price === "string" && offer.formatted_price.trim().length > 0) {
     return offer.formatted_price;
   }
@@ -26,20 +26,21 @@ function displayPrice(offer: OfferPayload): string {
     return `${amount} ${offer.currency ?? ""}`.trim();
   }
 
-  return "Price unavailable";
+  return locale === "zh" ? "价格以结算页为准" : "Price unavailable";
 }
 
-export function OfferCard({ offer }: { offer: OfferPayload }) {
+export function OfferCard({ offer, locale = "en" }: { offer: OfferPayload; locale?: "en" | "zh" }) {
   const modules = Array.isArray(offer.modules_included)
     ? offer.modules_included
     : Array.isArray(offer.modules_allowed)
       ? offer.modules_allowed
       : [];
+  const fallbackTitle = locale === "zh" ? "Big Five 完整报告" : "BIG5 Full Report";
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-      <p className="m-0 text-sm font-semibold text-slate-900">{offer.label ?? offer.title ?? "BIG5 Full Report"}</p>
-      <p className="mt-1 text-xl font-bold text-slate-900">{displayPrice(offer)}</p>
+      <p className="m-0 text-sm font-semibold text-slate-900">{offer.label ?? offer.title ?? fallbackTitle}</p>
+      <p className="mt-1 text-xl font-bold text-slate-900">{displayPrice(offer, locale)}</p>
 
       {offer.sku ? <p className="mt-1 text-xs text-slate-500">SKU: {offer.sku}</p> : null}
 
