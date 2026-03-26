@@ -15,7 +15,7 @@ const HERO_COPY = {
       "A decision-grade self-knowledge engine for high-growth individuals. Built on a 30-facet matrix, 100,000+ norm references, and scenario mapping that turns cognitive noise into interpretable, actionable, traceable judgment.",
     primaryCta: "Start calibration",
     secondaryCta: "View measurement matrix",
-    protocolLine: "30-Facet matrix / 100,000+ norms / scenario mapping",
+    protocolLine: "30-FACET matrix / 100,000+ norms / Z-SCORE anchor / AES-256",
   },
   zh: {
     eyebrowPrimary: "循证测评体系",
@@ -25,7 +25,7 @@ const HERO_COPY = {
       "面向高成长个体的决策级自我认知引擎。围绕 30-Facet 分面矩阵、100,000+ 常模参照与场景映射，交付可解释、可执行、可复盘的判断依据。",
     primaryCta: "开始校准",
     secondaryCta: "查看测量矩阵",
-    protocolLine: "30-Facet 分面矩阵 / 100,000+ 常模参照 / 场景映射",
+    protocolLine: "30-FACET 分面矩阵 / 100,000+ 常模参照 / Z-SCORE 锚定 / AES-256",
   },
 } as const;
 

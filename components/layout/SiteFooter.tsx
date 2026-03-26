@@ -119,7 +119,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-white/15 pt-6">
+        <div className="fm-social-rail border-t border-white/15 pt-6">
           <p className="m-0 mb-4 text-center text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
             {dict.footer.socialTitle}
           </p>
