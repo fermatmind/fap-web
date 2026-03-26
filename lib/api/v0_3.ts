@@ -361,6 +361,17 @@ export type Big5TraitProjection = {
   [key: string]: unknown;
 };
 
+export type Big5FacetProjection = {
+  key?: string;
+  label?: string;
+  slug?: string;
+  domain?: string;
+  mean?: number;
+  percentile?: number;
+  bucket?: string;
+  [key: string]: unknown;
+};
+
 export type ComparativeMetricRaw = {
   metric_key?: string;
   metric_label?: string;
@@ -560,6 +571,7 @@ export type PartnerReadRaw = {
 export type Big5PublicProjection = {
   schema_version?: string;
   trait_vector?: Big5TraitProjection[];
+  facet_vector?: Big5FacetProjection[];
   trait_bands?: Record<string, string>;
   dominant_traits?: Big5TraitProjection[];
   variant_keys?: string[];

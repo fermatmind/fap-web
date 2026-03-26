@@ -96,6 +96,18 @@ const big5TraitProjectionSchema = z
   })
   .passthrough();
 
+const big5FacetProjectionSchema = z
+  .object({
+    key: z.string().optional(),
+    label: z.string().optional(),
+    slug: z.string().optional(),
+    domain: z.string().optional(),
+    mean: z.number().optional(),
+    percentile: z.number().optional(),
+    bucket: z.string().optional(),
+  })
+  .passthrough();
+
 const comparativeReferenceSchema = z
   .object({
     key: z.string().optional(),
@@ -131,6 +143,7 @@ const big5PublicProjectionSchema = z
   .object({
     schema_version: z.string().optional(),
     trait_vector: z.array(big5TraitProjectionSchema).optional(),
+    facet_vector: z.array(big5FacetProjectionSchema).optional(),
     trait_bands: z.record(z.string(), z.string()).optional(),
     dominant_traits: z.array(big5TraitProjectionSchema).optional(),
     variant_keys: z.array(z.string()).optional(),
@@ -236,6 +249,8 @@ export const big5MeAttemptsResponseSchema = z
       .object({
         current_attempt_id: z.string().optional(),
         previous_attempt_id: z.string().optional(),
+        current_domains_mean: z.record(z.string(), z.number()).optional(),
+        previous_domains_mean: z.record(z.string(), z.number()).optional(),
         domains_delta: z.record(
           z.string(),
           z

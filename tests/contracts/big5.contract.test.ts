@@ -69,6 +69,17 @@ describe("BIG5 contract schemas", () => {
       variant: "free",
       big5_public_projection_v1: {
         schema_version: "big5.public_projection.v1",
+        facet_vector: [
+          {
+            key: "N1",
+            label: "N1 Anxiety",
+            slug: "anxiety",
+            domain: "N",
+            mean: 2.1,
+            percentile: 18,
+            bucket: "low",
+          },
+        ],
         trait_bands: {
           O: "high",
           C: "mid",
@@ -268,6 +279,14 @@ describe("BIG5 contract schemas", () => {
       history_compare: {
         current_attempt_id: "a2",
         previous_attempt_id: "a1",
+        current_domains_mean: {
+          O: 52,
+          C: 48,
+        },
+        previous_domains_mean: {
+          O: 50,
+          C: 49,
+        },
         domains_delta: {
           O: { delta: 2, direction: "up" },
         },
