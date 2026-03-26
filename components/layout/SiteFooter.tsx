@@ -17,6 +17,22 @@ export function SiteFooter() {
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const socialItems = FOOTER_SOCIAL_ITEMS;
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
+  const footerCopy =
+    locale === "zh"
+      ? {
+          testsTitle: "Measurement Matrix",
+          articlesTitle: "Research & Notes",
+          supportTitle: "Governance",
+          reviewsTitle: "Data Sovereignty",
+          tailnote: "From Noise to Clarity.",
+        }
+      : {
+          testsTitle: "Measurement Matrix",
+          articlesTitle: "Research & Notes",
+          supportTitle: "Governance",
+          reviewsTitle: "Data Sovereignty",
+          tailnote: "From Noise to Clarity.",
+        };
 
   const testLinks = [
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
@@ -44,9 +60,18 @@ export function SiteFooter() {
   return (
     <footer className="fm-section-dark border-t border-white/10 text-white">
       <Container className="space-y-8 py-12">
+        <div className="space-y-2 border-b border-white/10 pb-5">
+          <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/55">Protocol footer</p>
+          <p className="m-0 text-sm text-slate-300">
+            {locale === "zh"
+              ? "测量矩阵、研究笔记、治理规则与数据主权信息被统一收束在同一份协议尾页中。"
+              : "Measurement modules, research notes, governance links, and data sovereignty details close the system in one protocol tail."}
+          </p>
+        </div>
+
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3">
-            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.allTestsTitle}</p>
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.testsTitle}</p>
             <div className="space-y-2 text-sm">
               {testLinks.map((item) => (
                 <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
@@ -57,7 +82,7 @@ export function SiteFooter() {
           </div>
 
           <div className="space-y-3">
-            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.articlesTitle}</p>
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.articlesTitle}</p>
             <div className="space-y-2 text-sm">
               {articleLinks.map((item) => (
                 <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
@@ -68,7 +93,7 @@ export function SiteFooter() {
           </div>
 
           <div className="space-y-3">
-            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.support}</p>
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.supportTitle}</p>
             <div className="space-y-2 text-sm">
               {helpLinks.map((item) => (
                 <Link
@@ -84,10 +109,9 @@ export function SiteFooter() {
           </div>
 
           <div className="space-y-3">
-            <p className="m-0 text-sm font-semibold uppercase tracking-[0.14em] text-white">{dict.footer.reviewsTitle}</p>
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.reviewsTitle}</p>
             <p className="m-0 text-sm text-slate-300">{dict.footer.ratingLabel}</p>
             <p className="m-0 text-sm text-slate-300">
-              {dict.footer.contactLabel}:{" "}
               <a href={`mailto:${supportEmail}`} className="font-semibold text-white hover:text-[var(--fm-gold)]">
                 {supportEmail}
               </a>
@@ -161,9 +185,12 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p data-visual-volatile="true" className="m-0 text-center text-xs text-slate-400">
-          © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
-        </p>
+        <div className="border-t border-white/10 pt-5 text-center">
+          <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-white/62">{footerCopy.tailnote}</p>
+          <p data-visual-volatile="true" className="m-0 mt-3 text-xs text-slate-400">
+            © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
+          </p>
+        </div>
       </Container>
     </footer>
   );

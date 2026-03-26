@@ -20,12 +20,12 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
   await expectHeroAndValuePropsSeparated(page);
   await expect(page.getByText("We use cookies and analytics to improve service quality.")).toHaveCount(0);
 
-  await expect(page.getByRole("heading", { name: "Highlighted tests" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Find your test" })).toBeVisible();
-  await expect(page.getByText("Why people trust FermatMind")).toBeVisible();
-  await expect(page.getByText("Trust signals")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Decision Entry Matrix" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Start calibration" })).toBeVisible();
+  await expect(page.getByText("Three protocol pillars for decision-grade self-knowledge.")).toBeVisible();
+  await expect(page.getByText("Scenario Validation")).toHaveCount(2);
 
-  const highlightedSection = page.locator("section").filter({ hasText: "Highlighted tests" });
+  const highlightedSection = page.getByTestId("home-highlighted-tests-section");
   const highlightCards = highlightedSection.locator("article");
   await expect(highlightCards.first()).toBeVisible();
   await expect(highlightCards).toHaveCount(6);
@@ -45,7 +45,7 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
   await expect(highlightedSection.getByRole("link", { name: "Big Five Personality Test", exact: true })).toBeVisible();
   await expect(highlightedSection.getByRole("link", { name: "IQ Test", exact: true })).toBeVisible();
 
-  const firstStartButton = page.getByRole("link", { name: "Find your test" });
+  const firstStartButton = page.getByRole("link", { name: "Start calibration" });
   const box = await firstStartButton.boundingBox();
   expect(box).not.toBeNull();
   expect((box?.height ?? 0) >= 44).toBeTruthy();
