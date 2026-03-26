@@ -27,9 +27,8 @@ const COPY = {
       action: "Three next-step coordinates distilled from the reading.",
     },
     matrixLegend: "30 facets calibrated",
-    probeLabel: "Probe target",
-    probeTarget: "Strategic caution",
-    probeValue: "0.612",
+    matrixSummaryLabel: "Decision strands",
+    matrixSummaryValue: "30 calibrated",
     normMeta: "100,000+ reference set",
     normPercentile: "71st percentile",
     normScore: "+1.42 Z",
@@ -65,9 +64,8 @@ const COPY = {
       action: "把结果压缩成三条可执行的行动坐标。",
     },
     matrixLegend: "30 个分面已校准",
-    probeLabel: "探针锁定",
-    probeTarget: "战略谨慎",
-    probeValue: "0.612",
+    matrixSummaryLabel: "可用子决策束",
+    matrixSummaryValue: "30 分面已校准",
     normMeta: "100,000+ 常模参照",
     normPercentile: "第 71 百分位",
     normScore: "+1.42 Z",
@@ -182,7 +180,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
   const copy = COPY[localeLabel];
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-[43rem]", className)}>
+    <div className={cn("relative mx-auto w-full max-w-[32.5rem]", className)}>
       <div role="img" aria-label={copy.ariaLabel} className="fm-home-engine-panel">
         <div aria-hidden className="fm-home-engine-grid" />
         <div aria-hidden className="fm-home-engine-noise" />
@@ -224,11 +222,8 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
 
                 <div className="fm-home-engine-radar-box">
                   <div className="fm-home-engine-radar-meta">
-                    <div>
-                      <p className="fm-home-engine-meta-label m-0">{copy.probeLabel}</p>
-                      <p className="fm-home-engine-probe-name m-0 mt-2">{copy.probeTarget}</p>
-                    </div>
-                    <p className="fm-home-engine-probe-value m-0">{copy.probeValue}</p>
+                    <p className="fm-home-engine-meta-label m-0">{copy.matrixSummaryLabel}</p>
+                    <p className="fm-home-engine-probe-value m-0">{copy.matrixSummaryValue}</p>
                   </div>
                   <div className="mt-4">
                     <RadarGlyph />
