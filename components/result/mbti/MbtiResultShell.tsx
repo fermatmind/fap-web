@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
 import { buildDominantTraitItems } from "@/components/result/mbti/MbtiDominantTraitsSection";
@@ -32,24 +32,12 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import {
   appendMbtiActionJourneyQuery,
-  buildMbtiActionJourneyTelemetryFields,
-  resolveMbtiJourneyStateLabel,
-  resolveMbtiProgressStateLabel,
-  resolveMbtiPulsePromptLabel,
-  resolveMbtiRevisitReorderReasonLabel,
 } from "@/lib/mbti/actionJourney";
 import {
   appendMbtiContinuityQuery,
-  resolveMbtiCarryoverFocusLabel,
-  resolveMbtiCarryoverReasonLabel,
 } from "@/lib/mbti/continuity";
 import {
-  resolveMbtiMemoryRewriteReasonLabel,
-} from "@/lib/mbti/longitudinalMemory";
-import {
   appendMbtiAdaptiveSelectionQuery,
-  resolveMbtiAdaptiveNextBestActionLabel,
-  resolveMbtiAdaptiveRewriteReasonLabel,
 } from "@/lib/mbti/adaptiveSelection";
 import { captureError } from "@/lib/observability/sentry";
 import {
@@ -391,7 +379,7 @@ function resolveShareMessages(locale: Locale, shareStatus: "idle" | "copied" | "
   return "";
 }
 
-function resolvePrimaryCtaLabel(locale: Locale, _cta?: ReportCta | null) {
+function resolvePrimaryCtaLabel(locale: Locale) {
   return locale === "zh" ? "解锁完整报告" : "Unlock full report";
 }
 
@@ -402,25 +390,6 @@ function resolveCtaRank(ctaPriorityKeys: string[], ctaKey: string): number {
 
 function resolveCtaRankLabel(locale: Locale, rank: number): string {
   return locale === "zh" ? `优先入口 ${rank}` : `Priority ${rank}`;
-}
-
-function resolveCareerJourneyLabel(locale: Locale, key: string): string {
-  switch (key) {
-    case "career.next_step":
-      return locale === "zh" ? "职业下一步" : "Career next step";
-    case "career.work_experiments":
-      return locale === "zh" ? "工作实验" : "Work experiments";
-    case "career.work_environment":
-      return locale === "zh" ? "工作环境" : "Work environment";
-    case "career.collaboration_fit":
-      return locale === "zh" ? "协作匹配" : "Collaboration fit";
-    case "career_bridge":
-      return locale === "zh" ? "职业推荐入口" : "Career bridge";
-    case "workspace_lite":
-      return locale === "zh" ? "我的报告入口" : "Workspace entry";
-    default:
-      return key;
-  }
 }
 
 function sortProjectionSectionsByOrder(
@@ -839,10 +808,9 @@ export function MbtiResultShell({
   const identityLayer = (asRecord(layers?.identity) ?? null) as ReportIdentityLayer | null;
   const personalization = projectionViewModel?.personalization ?? null;
   const comparative = personalization?.comparative ?? null;
-  const controlledNarrative = personalization?.controlledNarrative ?? null;
   const culturalCalibration = personalization?.culturalCalibration ?? null;
   const cta = (reportData.cta ?? null) as ReportCta | null;
-  const primaryCtaLabel = resolvePrimaryCtaLabel(locale, cta);
+  const primaryCtaLabel = resolvePrimaryCtaLabel(locale);
   const isUnlockedPostPurchase = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
   const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
   const accessVariant = accessProjection?.variant ?? reportData.variant;
@@ -987,10 +955,8 @@ export function MbtiResultShell({
   const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
   const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
   const personalizationPackId = normalizeText(personalization?.packId, reportMeta?.pack_id);
-  const actionPlanSummary = normalizeText(personalization?.actionPlanSummary);
   const actionJourney = personalization?.actionJourney ?? null;
   const pulseCheck = personalization?.pulseCheck ?? null;
-  const longitudinalMemory = personalization?.longitudinalMemory ?? null;
   const adaptiveSelection = personalization?.adaptiveSelection ?? null;
   const personalizationEngineVersion = normalizeText(
     personalization?.engineVersion,
@@ -1007,9 +973,6 @@ export function MbtiResultShell({
   const ctaPriorityKeys = personalization?.orchestration?.ctaPriorityKeys ?? [];
   const workingLife = personalization?.workingLife ?? null;
   const careerFocusKey = normalizeText(workingLife?.careerFocusKey, primaryFocusKey.startsWith("career.") ? primaryFocusKey : "");
-  const careerJourneyKeys = workingLife?.careerJourneyKeys ?? [];
-  const careerActionPriorityKeys = workingLife?.careerActionPriorityKeys ?? [];
-  const careerReadingKeys = workingLife?.careerReadingKeys ?? [];
   const readingFocusKey = normalizeText(personalization?.readingFocusKey);
   const actionFocusKey = normalizeText(personalization?.actionFocusKey);
   const carryoverFocusKey = normalizeText(personalization?.continuity?.carryoverFocusKey);
@@ -1031,17 +994,6 @@ export function MbtiResultShell({
     : historyHref
       ? appendMbtiActionJourneyQuery(historyHref, actionJourney, pulseCheck)
       : "";
-  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(carryoverFocusKey, locale);
-  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(carryoverReason, locale);
-  const journeyStateLabel = resolveMbtiJourneyStateLabel(journeyStateSummary, locale);
-  const progressStateLabel = resolveMbtiProgressStateLabel(progressStateSummary, locale);
-  const revisitReorderLabel = resolveMbtiRevisitReorderReasonLabel(revisitReorderReasonSummary, locale);
-  const pulsePromptLabels = (pulseCheck?.pulsePromptKeys ?? []).map((key) =>
-    resolveMbtiPulsePromptLabel(key, locale)
-  );
-  const memoryRewriteLabel = resolveMbtiMemoryRewriteReasonLabel(memoryRewriteReasonSummary, locale);
-  const adaptiveRewriteLabel = resolveMbtiAdaptiveRewriteReasonLabel(adaptiveRewriteReasonSummary, locale);
-  const nextBestActionLabel = resolveMbtiAdaptiveNextBestActionLabel(nextBestActionKeySummary, locale);
   const carryoverEntryHref = normalizeText(
     carryoverFocusKey.startsWith("career.") ? continuityCareerHref : "",
     isUnlockedPostPurchase ? continuityWorkspaceHref : "",
@@ -1058,119 +1010,175 @@ export function MbtiResultShell({
     ? normalizeText(continuityWorkspaceHref, continuityHistoryHref, terminalPrimaryCtaHref)
     : terminalPrimaryCtaHref;
   const isRevisit = personalization?.userState?.isRevisit === true;
-  const actionPlanFocused = [
-    "growth.next_actions",
-    "growth.weekly_experiments",
-    "growth.watchouts",
-  ].includes(primaryFocusKey);
   const unlockCtaRank = resolveCtaRank(ctaPriorityKeys, "unlock_full_report");
   const careerBridgeCtaRank = resolveCtaRank(ctaPriorityKeys, "career_bridge");
   const workspaceLiteCtaRank = resolveCtaRank(ctaPriorityKeys, "workspace_lite");
   const shareCtaRank = resolveCtaRank(ctaPriorityKeys, "share_result");
-  const workingLifeFocused = careerFocusKey !== "";
-  const workingLifeJourney = careerJourneyKeys.length > 0
-    ? careerJourneyKeys
-    : ["career.next_step", "career.work_experiments", "career.work_environment", "career.collaboration_fit"];
-  const workingLifeActionPriority = careerActionPriorityKeys.length > 0
-    ? careerActionPriorityKeys
-    : ["career.next_step", "career.work_experiments", "career_bridge"];
-  const workingLifeReadingFocus = normalizeText(careerReadingKeys[0], readingFocusKey);
-  const calibrationNarrativeIntro = normalizeText(culturalCalibration?.narrativeIntro);
-  const calibrationNarrativeSummary = normalizeText(culturalCalibration?.narrativeSummary);
-  const calibrationWorkingLifeSummary = normalizeText(culturalCalibration?.workingLifeSummary);
   const calibrationSectionKeysSummary =
     culturalCalibration?.calibratedSectionKeys.join("|") ?? "";
-  const comparativePercentileValue =
-    typeof comparative?.percentileValue === "number" ? comparative.percentileValue : null;
-  const comparativePercentileLabel = normalizeText(comparative?.percentileMetricLabel);
-  const comparativePositionLabel = normalizeText(comparative?.cohortRelativePosition?.label);
-  const comparativePositionSummary = normalizeText(comparative?.cohortRelativePosition?.summary);
-  const comparativeSameTypeLabel = normalizeText(comparative?.sameTypeContrast?.label);
-  const comparativeSameTypeSummary = normalizeText(comparative?.sameTypeContrast?.summary);
-  const personalizationTelemetryContext = {
-    typeCode: personalizationTypeCode,
-    identity: personalizationIdentity,
-    variantKey: overviewVariantKey,
-    variantKeys: variantKeysSummary,
-    sceneFingerprint: sceneFingerprintSummary,
-    boundaryFlags: boundaryFlagsSummary,
-    axisBands: axisBandsSummary,
-    packId: personalizationPackId,
-    engineVersion: personalizationEngineVersion,
-    userState: userStateSummary,
-    feedbackSentiment: feedbackSentimentSummary,
-    feedbackCoverage: feedbackCoverageSummary,
-    actionCompletionTendency: actionCompletionTendencySummary,
-    lastDeepReadSection: lastDeepReadSectionSummary,
-    currentIntentCluster: currentIntentClusterSummary,
-    primaryFocusKey,
-    secondaryFocusKeys: secondaryFocusKeysSummary,
-    orderedSectionKeys: orderedSectionKeysSummary,
-    orderedRecommendationKeys: orderedRecommendationKeysSummary,
-    orderedActionKeys: orderedActionKeysSummary,
-    recommendationPriorityKeys: recommendationPriorityKeysSummary,
-    actionPriorityKeys: actionPriorityKeysSummary,
-    readingFocusKey,
-    actionFocusKey,
-    ctaPriorityKeys: ctaPriorityKeysSummary,
-    careerFocusKey,
-    careerJourneyKeys: careerJourneyKeysSummary,
-    careerActionPriorityKeys: careerActionPriorityKeysSummary,
-    careerReadingKeys: careerReadingKeysSummary,
-    localeContext: normalizeText(culturalCalibration?.localeContext),
-    culturalContext: normalizeText(culturalCalibration?.culturalContext),
-    calibratedSectionKeys: calibrationSectionKeysSummary,
-    calibrationFingerprint: normalizeText(culturalCalibration?.calibrationFingerprint),
-    calibrationContractVersion: normalizeText(culturalCalibration?.calibrationContractVersion),
-    comparativeContractVersion: normalizeText(comparative?.comparativeContractVersion),
-    comparativeFingerprint: normalizeText(comparative?.comparativeFingerprint),
-    comparativeNormingVersion: normalizeText(comparative?.normingVersion),
-    comparativeNormingScope: normalizeText(comparative?.normingScope),
-    comparativeNormingSource: normalizeText(comparative?.normingSource),
-    carryoverFocusKey,
-    carryoverReason,
-    recommendedResumeKeys: recommendedResumeKeysSummary,
-    carryoverSceneKeys: carryoverSceneKeysSummary,
-    carryoverActionKeys: carryoverActionKeysSummary,
-    profileSeedKey: profileSeedKeySummary,
-    sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
-    sectionSelectionKeys: sectionSelectionKeysSummary,
-    actionSelectionKeys: actionSelectionKeysSummary,
-    recommendationSelectionKeys: recommendationSelectionKeysSummary,
-    selectionFingerprint: selectionFingerprintSummary,
-    memoryContractVersion: memoryContractVersionSummary,
-    memoryFingerprint: memoryFingerprintSummary,
-    memoryScope: memoryScopeSummary,
-    memoryState: memoryStateSummary,
-    memoryProgressionState: memoryProgressionStateSummary,
-    sectionHistoryKeys: sectionHistoryKeysSummary,
-    behaviorDeltaKeys: behaviorDeltaKeysSummary,
-    dominantInterestKeys: dominantInterestKeysSummary,
-    resumeBiasKeys: resumeBiasKeysSummary,
-    memoryRewriteKeys: memoryRewriteKeysSummary,
-    memoryRewriteReason: memoryRewriteReasonSummary,
-    adaptiveContractVersion: adaptiveContractVersionSummary,
-    adaptiveFingerprint: adaptiveFingerprintSummary,
-    selectionRewriteReason: adaptiveRewriteReasonSummary,
-    contentFeedbackWeights: contentFeedbackWeightsSummary,
-    actionEffectWeights: actionEffectWeightsSummary,
-    recommendationEffectWeights: recommendationEffectWeightsSummary,
-    ctaEffectWeights: ctaEffectWeightsSummary,
-    nextBestActionKey: nextBestActionKeySummary,
-    nextBestActionSection: nextBestActionSectionSummary,
-    nextBestActionReason: nextBestActionReasonSummary,
-    journeyContractVersion: journeyContractVersionSummary,
-    journeyFingerprint: journeyFingerprintSummary,
-    journeyScope: journeyScopeSummary,
-    journeyState: journeyStateSummary,
-    progressState: progressStateSummary,
-    completedActionKeys: completedActionKeysSummary,
-    recommendedNextPulseKeys: recommendedNextPulseKeysSummary,
-    revisitReorderReason: revisitReorderReasonSummary,
-    pulseState: pulseStateSummary,
-    pulsePromptKeys: pulsePromptKeysSummary,
-    locale,
-  };
+  const personalizationTelemetryContext = useMemo(
+    () => ({
+      typeCode: personalizationTypeCode,
+      identity: personalizationIdentity,
+      variantKey: overviewVariantKey,
+      variantKeys: variantKeysSummary,
+      sceneFingerprint: sceneFingerprintSummary,
+      boundaryFlags: boundaryFlagsSummary,
+      axisBands: axisBandsSummary,
+      packId: personalizationPackId,
+      engineVersion: personalizationEngineVersion,
+      userState: userStateSummary,
+      feedbackSentiment: feedbackSentimentSummary,
+      feedbackCoverage: feedbackCoverageSummary,
+      actionCompletionTendency: actionCompletionTendencySummary,
+      lastDeepReadSection: lastDeepReadSectionSummary,
+      currentIntentCluster: currentIntentClusterSummary,
+      primaryFocusKey,
+      secondaryFocusKeys: secondaryFocusKeysSummary,
+      orderedSectionKeys: orderedSectionKeysSummary,
+      orderedRecommendationKeys: orderedRecommendationKeysSummary,
+      orderedActionKeys: orderedActionKeysSummary,
+      recommendationPriorityKeys: recommendationPriorityKeysSummary,
+      actionPriorityKeys: actionPriorityKeysSummary,
+      readingFocusKey,
+      actionFocusKey,
+      ctaPriorityKeys: ctaPriorityKeysSummary,
+      careerFocusKey,
+      careerJourneyKeys: careerJourneyKeysSummary,
+      careerActionPriorityKeys: careerActionPriorityKeysSummary,
+      careerReadingKeys: careerReadingKeysSummary,
+      localeContext: normalizeText(culturalCalibration?.localeContext),
+      culturalContext: normalizeText(culturalCalibration?.culturalContext),
+      calibratedSectionKeys: calibrationSectionKeysSummary,
+      calibrationFingerprint: normalizeText(culturalCalibration?.calibrationFingerprint),
+      calibrationContractVersion: normalizeText(culturalCalibration?.calibrationContractVersion),
+      comparativeContractVersion: normalizeText(comparative?.comparativeContractVersion),
+      comparativeFingerprint: normalizeText(comparative?.comparativeFingerprint),
+      comparativeNormingVersion: normalizeText(comparative?.normingVersion),
+      comparativeNormingScope: normalizeText(comparative?.normingScope),
+      comparativeNormingSource: normalizeText(comparative?.normingSource),
+      carryoverFocusKey,
+      carryoverReason,
+      recommendedResumeKeys: recommendedResumeKeysSummary,
+      carryoverSceneKeys: carryoverSceneKeysSummary,
+      carryoverActionKeys: carryoverActionKeysSummary,
+      profileSeedKey: profileSeedKeySummary,
+      sameTypeDivergenceKeys: sameTypeDivergenceKeysSummary,
+      sectionSelectionKeys: sectionSelectionKeysSummary,
+      actionSelectionKeys: actionSelectionKeysSummary,
+      recommendationSelectionKeys: recommendationSelectionKeysSummary,
+      selectionFingerprint: selectionFingerprintSummary,
+      memoryContractVersion: memoryContractVersionSummary,
+      memoryFingerprint: memoryFingerprintSummary,
+      memoryScope: memoryScopeSummary,
+      memoryState: memoryStateSummary,
+      memoryProgressionState: memoryProgressionStateSummary,
+      sectionHistoryKeys: sectionHistoryKeysSummary,
+      behaviorDeltaKeys: behaviorDeltaKeysSummary,
+      dominantInterestKeys: dominantInterestKeysSummary,
+      resumeBiasKeys: resumeBiasKeysSummary,
+      memoryRewriteKeys: memoryRewriteKeysSummary,
+      memoryRewriteReason: memoryRewriteReasonSummary,
+      adaptiveContractVersion: adaptiveContractVersionSummary,
+      adaptiveFingerprint: adaptiveFingerprintSummary,
+      selectionRewriteReason: adaptiveRewriteReasonSummary,
+      contentFeedbackWeights: contentFeedbackWeightsSummary,
+      actionEffectWeights: actionEffectWeightsSummary,
+      recommendationEffectWeights: recommendationEffectWeightsSummary,
+      ctaEffectWeights: ctaEffectWeightsSummary,
+      nextBestActionKey: nextBestActionKeySummary,
+      nextBestActionSection: nextBestActionSectionSummary,
+      nextBestActionReason: nextBestActionReasonSummary,
+      journeyContractVersion: journeyContractVersionSummary,
+      journeyFingerprint: journeyFingerprintSummary,
+      journeyScope: journeyScopeSummary,
+      journeyState: journeyStateSummary,
+      progressState: progressStateSummary,
+      completedActionKeys: completedActionKeysSummary,
+      recommendedNextPulseKeys: recommendedNextPulseKeysSummary,
+      revisitReorderReason: revisitReorderReasonSummary,
+      pulseState: pulseStateSummary,
+      pulsePromptKeys: pulsePromptKeysSummary,
+      locale,
+    }),
+    [
+      actionCompletionTendencySummary,
+      actionSelectionKeysSummary,
+      actionEffectWeightsSummary,
+      actionFocusKey,
+      actionPriorityKeysSummary,
+      adaptiveContractVersionSummary,
+      adaptiveFingerprintSummary,
+      adaptiveRewriteReasonSummary,
+      axisBandsSummary,
+      behaviorDeltaKeysSummary,
+      boundaryFlagsSummary,
+      calibrationSectionKeysSummary,
+      carryoverActionKeysSummary,
+      carryoverFocusKey,
+      carryoverReason,
+      carryoverSceneKeysSummary,
+      careerActionPriorityKeysSummary,
+      careerFocusKey,
+      careerJourneyKeysSummary,
+      careerReadingKeysSummary,
+      comparative,
+      completedActionKeysSummary,
+      contentFeedbackWeightsSummary,
+      ctaEffectWeightsSummary,
+      ctaPriorityKeysSummary,
+      culturalCalibration,
+      currentIntentClusterSummary,
+      dominantInterestKeysSummary,
+      feedbackCoverageSummary,
+      feedbackSentimentSummary,
+      journeyContractVersionSummary,
+      journeyFingerprintSummary,
+      journeyScopeSummary,
+      journeyStateSummary,
+      lastDeepReadSectionSummary,
+      locale,
+      memoryContractVersionSummary,
+      memoryFingerprintSummary,
+      memoryProgressionStateSummary,
+      memoryRewriteKeysSummary,
+      memoryRewriteReasonSummary,
+      memoryScopeSummary,
+      memoryStateSummary,
+      nextBestActionKeySummary,
+      nextBestActionReasonSummary,
+      nextBestActionSectionSummary,
+      orderedActionKeysSummary,
+      orderedRecommendationKeysSummary,
+      orderedSectionKeysSummary,
+      overviewVariantKey,
+      personalizationEngineVersion,
+      personalizationIdentity,
+      personalizationPackId,
+      personalizationTypeCode,
+      primaryFocusKey,
+      profileSeedKeySummary,
+      progressStateSummary,
+      pulsePromptKeysSummary,
+      pulseStateSummary,
+      readingFocusKey,
+      recommendationEffectWeightsSummary,
+      recommendationSelectionKeysSummary,
+      recommendationPriorityKeysSummary,
+      recommendedNextPulseKeysSummary,
+      recommendedResumeKeysSummary,
+      resumeBiasKeysSummary,
+      revisitReorderReasonSummary,
+      sameTypeDivergenceKeysSummary,
+      sceneFingerprintSummary,
+      secondaryFocusKeysSummary,
+      sectionHistoryKeysSummary,
+      sectionSelectionKeysSummary,
+      selectionFingerprintSummary,
+      userStateSummary,
+      variantKeysSummary,
+    ]
+  );
 
   const cancelScheduledOfferScroll = useCallback(() => {
     if (offerScrollFrameRef.current === null || typeof window === "undefined") {
@@ -1296,42 +1304,7 @@ export function MbtiResultShell({
 
     trackEvent("revisit_result", basePayload);
     window.sessionStorage.setItem(revisitStorageKey, "1");
-  }, [
-    attemptId,
-    actionFocusKey,
-    actionPriorityKeysSummary,
-    axisBandsSummary,
-    boundaryFlagsSummary,
-    ctaPriorityKeysSummary,
-    isRevisit,
-    locale,
-    overviewVariantKey,
-    orderedSectionKeysSummary,
-    orderedActionKeysSummary,
-    orderedRecommendationKeysSummary,
-    personalizationEngineVersion,
-    personalizationIdentity,
-    personalizationPackId,
-    personalizationTypeCode,
-    primaryFocusKey,
-    projectionLocked,
-    readingFocusKey,
-    recommendationPriorityKeysSummary,
-    sceneFingerprintSummary,
-    secondaryFocusKeysSummary,
-    userStateSummary,
-    variantKeysSummary,
-    feedbackSentimentSummary,
-    feedbackCoverageSummary,
-    actionCompletionTendencySummary,
-    lastDeepReadSectionSummary,
-    currentIntentClusterSummary,
-    carryoverActionKeysSummary,
-    carryoverFocusKey,
-    carryoverReason,
-    carryoverSceneKeysSummary,
-    recommendedResumeKeysSummary,
-  ]);
+  }, [attemptId, isRevisit, personalizationTelemetryContext, projectionLocked]);
 
   useEffect(() => {
     if (!careerRecommendationHref || !careerNextStepSection || careerBridgeImpressionTrackedRef.current) {
@@ -1379,41 +1352,7 @@ export function MbtiResultShell({
       continueTarget: carryoverTarget,
       ...personalizationTelemetryContext,
     });
-  }, [
-    attemptId,
-    axisBandsSummary,
-    boundaryFlagsSummary,
-    carryoverActionKeysSummary,
-    carryoverEntryHref,
-    carryoverFocusKey,
-    carryoverReason,
-    carryoverSceneKeysSummary,
-    carryoverTarget,
-    ctaPriorityKeysSummary,
-    locale,
-    orderedActionKeysSummary,
-    orderedRecommendationKeysSummary,
-    orderedSectionKeysSummary,
-    personalizationEngineVersion,
-    personalizationIdentity,
-    personalizationPackId,
-    personalizationTypeCode,
-    primaryFocusKey,
-    readingFocusKey,
-    actionFocusKey,
-    actionPriorityKeysSummary,
-    recommendedResumeKeysSummary,
-    recommendationPriorityKeysSummary,
-    sceneFingerprintSummary,
-    secondaryFocusKeysSummary,
-    userStateSummary,
-    variantKeysSummary,
-    feedbackSentimentSummary,
-    feedbackCoverageSummary,
-    actionCompletionTendencySummary,
-    lastDeepReadSectionSummary,
-    currentIntentClusterSummary,
-  ]);
+  }, [attemptId, carryoverEntryHref, carryoverTarget, personalizationTelemetryContext]);
 
   async function handleShare() {
     if (typeof window === "undefined" || isSharing) return;
