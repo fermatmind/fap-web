@@ -17,16 +17,27 @@ export function PdfDownloadButton({
   locked,
   accessProjection,
   onDownloaded,
+  locale = "en",
 }: {
   attemptId: string;
   locked: boolean;
   accessProjection?: AttemptReportAccessView | null;
   onDownloaded?: () => void;
+  locale?: "en" | "zh";
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const resolvedAttemptId = accessProjection?.attemptId ?? attemptId;
   const pdfLocked = accessProjection ? !canDownloadReportPdf(accessProjection) : locked;
+  const copy = {
+    locked: locale === "zh" ? "解锁后下载 PDF" : "Unlock to download PDF",
+    loading: locale === "zh" ? "PDF 生成中..." : "Generating PDF...",
+    ready: locale === "zh" ? "下载 PDF" : "Download PDF",
+    pendingError:
+      locale === "zh" ? "PDF 仍在生成中，请稍后重试。" : "PDF is still generating. Please retry.",
+    failure:
+      locale === "zh" ? "PDF 下载失败，请稍后重试。" : "Failed to generate/download PDF. Please retry.",
+  };
 
   const handleDownload = async () => {
     if (pdfLocked) return;
@@ -48,7 +59,7 @@ export function PdfDownloadButton({
       }
 
       if (!blob || blob.size === 0) {
-        throw new Error("PDF is still generating.");
+        throw new Error(copy.pendingError);
       }
 
       const url = URL.createObjectURL(blob);
@@ -62,7 +73,7 @@ export function PdfDownloadButton({
 
       onDownloaded?.();
     } catch {
-      setError("Failed to generate/download PDF. Please retry.");
+      setError(copy.failure);
     } finally {
       setLoading(false);
     }
@@ -71,7 +82,7 @@ export function PdfDownloadButton({
   return (
     <div className="space-y-2">
       <Button type="button" disabled={pdfLocked || loading} onClick={handleDownload}>
-        {pdfLocked ? "Unlock to download PDF" : loading ? "Generating PDF..." : "Download PDF"}
+        {pdfLocked ? copy.locked : loading ? copy.loading : copy.ready}
       </Button>
       {error ? <Alert>{error}</Alert> : null}
     </div>

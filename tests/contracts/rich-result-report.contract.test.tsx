@@ -524,6 +524,14 @@ describe("RichResultReport", () => {
 
   it("leaves non-MBTI branches on the legacy report normalizer", () => {
     const reportData = {
+      locked: false,
+      variant: "full",
+      quality: {
+        level: "A",
+      },
+      norms: {
+        status: "READY",
+      },
       big5_public_projection_v1: {
         schema_version: "big5.public_projection.v1",
         dominant_traits: [
@@ -609,9 +617,43 @@ describe("RichResultReport", () => {
       },
     } satisfies ReportResponse;
 
-    render(<RichResultReport locale="en" reportData={reportData} />);
+    render(
+      <RichResultReport
+        locale="en"
+        reportData={reportData}
+        accessProjection={{
+          attemptId: "attempt-big5-123",
+          accessState: "ready",
+          reportState: "ready",
+          pdfState: "ready",
+          reasonCode: "report_ready",
+          accessLevel: "full",
+          variant: "full",
+          projectionVersion: 1,
+          modulesAllowed: ["big5_full", "big5_action_plan"],
+          modulesPreview: [],
+          actions: {
+            pageHref: "/en/result/attempt-big5-123",
+            pdfHref: "/api/v0.3/attempts/attempt-big5-123/report.pdf",
+            waitHref: null,
+            historyHref: "/en/history/big5",
+            lookupHref: "/en/orders/lookup",
+          },
+          meta: {
+            producedAt: "2026-03-26T00:00:00Z",
+            refreshedAt: "2026-03-26T00:00:00Z",
+          },
+        }}
+      />
+    );
 
     expect(screen.queryByTestId("mbti-result-shell")).not.toBeInTheDocument();
+    expect(screen.getByTestId("big5-result-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-access-summary")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-dimensions")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-sections")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-actions-card")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-pdf-entry")).toBeInTheDocument();
     expect(screen.getByTestId("big5-foundation-summary")).toBeInTheDocument();
     expect(screen.getByTestId("big5-controlled-narrative")).toHaveAttribute("data-runtime-mode", "mock");
     expect(screen.getByTestId("big5-cultural-calibration")).toHaveAttribute(
@@ -679,5 +721,86 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("big5-comparative")).toHaveAttribute("data-norming-version", "2026Q1");
     expect(screen.getByTestId("big5-comparative")).toHaveTextContent("Openness lands at the 81th percentile");
     expect(screen.getByTestId("big5-foundation-summary")).toHaveTextContent("This profile is primarily driven by Openness.");
+  });
+
+  it("renders BIG5 locked sections with unlock offers while keeping the shell on the formal result path", () => {
+    const reportData = {
+      ok: true,
+      locked: true,
+      variant: "free",
+      offers: [
+        {
+          sku: "BIG5_REPORT_FULL",
+          title: "BIG5 Full Report",
+          formatted_price: "¥99",
+          modules_included: ["big5_full", "big5_action_plan"],
+        },
+      ],
+      big5_public_projection_v1: {
+        schema_version: "big5.public_projection.v1",
+        explainability_summary: {
+          headline: "This profile is primarily driven by Openness.",
+        },
+        trait_vector: [{ key: "O", label: "Openness", percentile: 81, band_label: "exploratory" }],
+      },
+      report: {
+        scale_code: "BIG5_OCEAN",
+        sections: [
+          {
+            key: "traits.overview",
+            title: "Traits Overview",
+            access_level: "free",
+            blocks: [{ kind: "paragraph", body: "Visible overview." }],
+          },
+          {
+            key: "growth.next_actions",
+            title: "Next actions",
+            access_level: "paid",
+            module_code: "big5_action_plan",
+            blocks: [],
+          },
+        ],
+      },
+      meta: {
+        scale_code: "BIG5_OCEAN",
+      },
+    } as ReportResponse;
+
+    render(
+      <RichResultReport
+        locale="zh"
+        reportData={reportData}
+        accessProjection={{
+          attemptId: "attempt-big5-locked",
+          accessState: "locked",
+          reportState: "ready",
+          pdfState: "unavailable",
+          reasonCode: "payment_required",
+          accessLevel: "preview",
+          variant: "free",
+          projectionVersion: 1,
+          modulesAllowed: [],
+          modulesPreview: ["big5_core"],
+          actions: {
+            pageHref: "/zh/result/attempt-big5-locked",
+            pdfHref: null,
+            waitHref: null,
+            historyHref: "/zh/history/big5",
+            lookupHref: "/zh/orders/lookup",
+          },
+          meta: {
+            producedAt: "2026-03-26T00:00:00Z",
+            refreshedAt: "2026-03-26T00:00:00Z",
+          },
+        }}
+      />
+    );
+
+    expect(screen.getByTestId("big5-result-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-locked-sections")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-offer-surface")).toBeInTheDocument();
+    expect(screen.getByText("BIG5 Full Report")).toBeInTheDocument();
+    expect(screen.getByText("¥99")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "解锁后下载 PDF" })).toBeDisabled();
   });
 });
