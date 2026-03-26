@@ -1,10 +1,7 @@
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { HeroAnimatedVisual } from "@/components/marketing/HeroAnimatedVisual";
 import { WaveDivider } from "@/components/marketing/WaveDivider";
-import { buttonVariants } from "@/components/ui/button";
 import type { Locale } from "@/lib/i18n/locales";
-import { localizedPath } from "@/lib/i18n/locales";
 
 const HERO_COPY = {
   en: {
@@ -15,28 +12,22 @@ const HERO_COPY = {
     leadPrimary: "A decision-grade self-knowledge engine for high-growth individuals.",
     leadSecondary:
       "Built on a 30-facet matrix, 100,000+ norm references, and scenario mapping that turns cognitive noise into interpretable, actionable, traceable judgment.",
-    primaryCta: "Start calibration",
-    secondaryCta: "View measurement matrix",
     protocolLine: "30-FACET matrix / 100,000+ norms / Z-SCORE anchor / AES-256",
   },
   zh: {
     eyebrowPrimary: "循证测评体系",
     eyebrowSecondary: "Evidence-Informed Measurement",
-    headlinePrimaryLines: ["识微。见远。"],
-    headlineSecondary: "人生架构，始于度量。",
+    headlinePrimaryLines: ["识微，见远"],
+    headlineSecondary: "人生架构，始于度量",
     leadPrimary: "面向高成长个体的决策级自我认知引擎。",
     leadSecondary:
       "围绕 30-Facet 分面矩阵、100,000+ 常模参照与场景映射，交付可解释、可执行、可复盘的判断依据。",
-    primaryCta: "开始校准",
-    secondaryCta: "查看测量矩阵",
     protocolLine: "30-FACET 分面矩阵 / 100,000+ 常模参照 / Z-SCORE 锚定 / AES-256",
   },
 } as const;
 
 export function HeroSection({ locale }: { locale: Locale }) {
   const copy = HERO_COPY[locale];
-  const primaryHref = localizedPath("/tests/mbti-personality-test-16-personality-types/take", locale);
-  const secondaryHref = "#home-highlighted-tests-section";
 
   return (
     <section
@@ -72,28 +63,6 @@ export function HeroSection({ locale }: { locale: Locale }) {
             <span className="fm-home-hero-lede-primary">{copy.leadPrimary}</span>
             <span className="fm-home-hero-lede-secondary">{copy.leadSecondary}</span>
           </p>
-
-          <div className="fm-home-hero-cta-row">
-            <Link
-              href={primaryHref}
-              className={buttonVariants({
-                size: "lg",
-                className: "fm-home-hero-cta fm-home-hero-cta-primary min-w-[9.75rem] rounded-xl px-7",
-              })}
-            >
-              {copy.primaryCta}
-            </Link>
-            <Link
-              href={secondaryHref}
-              className={buttonVariants({
-                size: "lg",
-                variant: "outline",
-                className: "fm-home-hero-cta fm-home-hero-cta-secondary min-w-[10.75rem] rounded-xl px-7",
-              })}
-            >
-              {copy.secondaryCta}
-            </Link>
-          </div>
 
           <p
             className="fm-home-hero-taxonomy m-0"

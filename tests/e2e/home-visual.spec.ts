@@ -15,13 +15,27 @@ async function expectHeroAndValuePropsSeparated(page: Page) {
   expect(valueTop).toBeGreaterThanOrEqual(heroBottom - 1);
 }
 
+async function expectHighlightedBeforeValueProps(page: Page) {
+  const highlighted = page.getByTestId("home-highlighted-tests-section");
+  const valueProps = page.getByTestId("home-value-props-section");
+
+  const [highlightedBox, valuePropsBox] = await Promise.all([highlighted.boundingBox(), valueProps.boundingBox()]);
+  expect(highlightedBox).not.toBeNull();
+  expect(valuePropsBox).not.toBeNull();
+
+  const highlightedBottom = (highlightedBox?.y ?? 0) + (highlightedBox?.height ?? 0);
+  const valueTop = valuePropsBox?.y ?? 0;
+  expect(valueTop).toBeGreaterThanOrEqual(highlightedBottom - 1);
+}
+
 test("home page renders hero, value props, and highlighted tests", async ({ page }) => {
   await page.goto("/en");
   await expectHeroAndValuePropsSeparated(page);
+  await expectHighlightedBeforeValueProps(page);
   await expect(page.getByText("We use cookies and analytics to improve service quality.")).toHaveCount(0);
 
   await expect(page.getByRole("heading", { name: "Decision Entry Matrix" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Start calibration" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Start calibration" })).toHaveCount(0);
   await expect(page.getByText("Three protocol pillars for decision-grade self-knowledge.")).toBeVisible();
   await expect(page.getByText("Scenario Validation")).toHaveCount(2);
 
@@ -44,16 +58,12 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
   await expect(highlightedSection.getByRole("link", { name: "MBTI Personality Test", exact: true })).toBeVisible();
   await expect(highlightedSection.getByRole("link", { name: "Big Five Personality Test", exact: true })).toBeVisible();
   await expect(highlightedSection.getByRole("link", { name: "IQ Test", exact: true })).toBeVisible();
-
-  const firstStartButton = page.getByRole("link", { name: "Start calibration" });
-  const box = await firstStartButton.boundingBox();
-  expect(box).not.toBeNull();
-  expect((box?.height ?? 0) >= 44).toBeTruthy();
 });
 
 test("zh home MBTI highlighted card title shows 16型人格", async ({ page }) => {
   await page.goto("/zh");
   await expectHeroAndValuePropsSeparated(page);
+  await expectHighlightedBeforeValueProps(page);
   await expect(page.getByText("我们使用 Cookie 和分析工具来提升服务质量。")).toHaveCount(0);
 
   const highlightedSection = page.getByTestId("home-highlighted-tests-section");
@@ -75,5 +85,6 @@ test("home hero and value props stay separated on mobile for en and zh", async (
   for (const localePath of ["/en", "/zh"] as const) {
     await page.goto(localePath);
     await expectHeroAndValuePropsSeparated(page);
+    await expectHighlightedBeforeValueProps(page);
   }
 });

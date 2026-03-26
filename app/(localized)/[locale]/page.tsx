@@ -234,8 +234,8 @@ export default async function Home({
       <AnalyticsPageViewTracker eventName="view_landing" />
 
       <HeroSection locale={locale} />
-      <ValuePropsSection locale={locale} />
       <HighlightedTestsSection locale={locale} cards={highlightedCards} />
+      <ValuePropsSection locale={locale} />
       <SocialProofSection locale={locale} />
     </main>
   );
