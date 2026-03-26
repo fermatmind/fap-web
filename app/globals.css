@@ -1533,6 +1533,299 @@ a {
   }
 }
 
+@keyframes fm-home-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fm-home-soft-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fm-home-hero {
+  border-bottom: 1px solid rgba(170, 192, 223, 0.4);
+  background:
+    radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.96), transparent 26%),
+    radial-gradient(circle at 82% 12%, rgba(31, 124, 166, 0.12), transparent 24%),
+    linear-gradient(180deg, #f7fbff 0%, #eef4fc 54%, #f5f8fc 100%);
+}
+
+.fm-home-hero-grid,
+.fm-home-hero-glow,
+.fm-home-hero-orbit {
+  pointer-events: none;
+  position: absolute;
+}
+
+.fm-home-hero-grid {
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(117, 136, 160, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(117, 136, 160, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 85%);
+}
+
+.fm-home-hero-glow {
+  border-radius: 999px;
+  filter: blur(30px);
+}
+
+.fm-home-hero-glow-left {
+  left: -7rem;
+  top: 2rem;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.fm-home-hero-glow-right {
+  right: -4rem;
+  top: 3rem;
+  width: 16rem;
+  height: 16rem;
+  background: rgba(21, 63, 131, 0.08);
+}
+
+.fm-home-enter-primary {
+  animation: fm-home-fade-up 520ms cubic-bezier(0.2, 0.9, 0.22, 1) both;
+}
+
+.fm-home-enter-secondary {
+  animation: fm-home-fade-up 680ms cubic-bezier(0.2, 0.9, 0.22, 1) both;
+}
+
+.fm-home-kicker {
+  color: #61758f;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.fm-home-hero-cta {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.fm-home-hero-cta:hover {
+  transform: translateY(-1px);
+}
+
+.fm-home-hero-cta:active {
+  transform: translateY(1px);
+}
+
+.fm-home-hero-cta-primary {
+  background: linear-gradient(180deg, #153f83 0%, #12386f 100%);
+}
+
+.fm-home-hero-cta-primary:hover {
+  background: linear-gradient(180deg, #12386f 0%, #0f2f61 100%);
+}
+
+.fm-home-hero-cta-primary:focus-visible,
+.fm-home-hero-cta-secondary:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(35, 120, 255, 0.16),
+    0 18px 36px rgba(15, 47, 97, 0.16);
+}
+
+.fm-home-hero-taxonomy {
+  color: #6c8099;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.fm-home-hero-orbit {
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 72%);
+  filter: blur(12px);
+  opacity: 0.7;
+}
+
+.fm-home-hero-orbit-left {
+  top: 2.5rem;
+  left: -2rem;
+  width: 8rem;
+  height: 8rem;
+}
+
+.fm-home-hero-orbit-right {
+  right: -1rem;
+  bottom: 1.5rem;
+  width: 9rem;
+  height: 9rem;
+}
+
+.fm-home-hero-surface {
+  animation: fm-home-soft-drift 7s ease-in-out infinite;
+}
+
+.fm-home-hero-surface::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.fm-home-hero-surface-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(255, 255, 255, 0.86), transparent 28%),
+    linear-gradient(180deg, rgba(21, 63, 131, 0.02) 0%, rgba(21, 63, 131, 0) 100%);
+  pointer-events: none;
+}
+
+.fm-home-value-props {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(247, 250, 254, 1) 100%);
+}
+
+.fm-home-proof-card,
+.fm-home-test-card,
+.fm-home-signal-chip,
+.fm-home-testimonial-card {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    filter 180ms ease;
+}
+
+.fm-home-proof-card:hover,
+.fm-home-proof-card:focus-within {
+  transform: translateY(-3px);
+  border-color: #becddd;
+  box-shadow: 0 20px 42px rgba(19, 41, 71, 0.11);
+}
+
+.fm-home-proof-card:nth-child(1) {
+  animation: fm-home-fade-up 440ms ease both;
+}
+
+.fm-home-proof-card:nth-child(2) {
+  animation: fm-home-fade-up 520ms ease both;
+}
+
+.fm-home-proof-card:nth-child(3) {
+  animation: fm-home-fade-up 600ms ease both;
+}
+
+.fm-home-tests .fm-highlighted-panel {
+  border-color: rgba(255, 255, 255, 0.76);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.4), transparent 34%),
+    linear-gradient(180deg, rgba(158, 182, 207, 0.32) 0%, rgba(195, 211, 227, 0.48) 100%);
+}
+
+.fm-home-test-card {
+  position: relative;
+}
+
+.fm-home-test-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 1.5rem 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(171, 190, 214, 0.42) 0%, rgba(171, 190, 214, 0) 100%);
+  pointer-events: none;
+}
+
+.fm-home-test-card:hover,
+.fm-home-test-card:focus-within {
+  transform: translateY(-4px);
+  border-color: #b9cade;
+  box-shadow: 0 22px 48px rgba(19, 41, 71, 0.12);
+}
+
+.fm-home-test-card:active {
+  transform: translateY(-1px);
+}
+
+.fm-home-test-card-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.fm-home-social-proof {
+  background:
+    linear-gradient(180deg, rgba(244, 248, 253, 0.84) 0%, rgba(248, 251, 255, 1) 100%);
+}
+
+.fm-home-signal-chip:hover,
+.fm-home-signal-chip:focus-within {
+  transform: translateY(-2px);
+  border-color: #c3d1df;
+  box-shadow: 0 16px 32px rgba(19, 41, 71, 0.09);
+}
+
+.fm-home-testimonial-card:hover,
+.fm-home-testimonial-card:focus-within {
+  transform: translateY(-3px);
+  border-color: #bfcede;
+  box-shadow: 0 20px 40px rgba(19, 41, 71, 0.11);
+  filter: brightness(1.01);
+}
+
+@media (max-width: 1023px) {
+  .fm-home-hero-surface {
+    animation-duration: 8.5s;
+  }
+}
+
+@media (max-width: 767px) {
+  .fm-home-hero-grid {
+    background-size: 52px 52px;
+  }
+
+  .fm-home-hero-glow-left {
+    left: -5rem;
+    top: 1.5rem;
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .fm-home-hero-glow-right {
+    right: -5rem;
+    top: 10rem;
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .fm-home-hero-taxonomy {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .fm-home-hero-surface::before {
+    inset: 0.75rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
