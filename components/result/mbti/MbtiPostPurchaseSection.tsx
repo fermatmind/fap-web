@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownloadButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
+import { canDownloadReportPdf, type AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -47,6 +48,7 @@ import {
 export function MbtiPostPurchaseSection({
   locale,
   attemptId,
+  accessProjection,
   accessHub,
   historyHref,
   orderLookupHref,
@@ -55,6 +57,7 @@ export function MbtiPostPurchaseSection({
 }: {
   locale: Locale;
   attemptId?: string | null;
+  accessProjection?: AttemptReportAccessView | null;
   accessHub?: MbtiAccessHubViewModel | null;
   historyHref: string;
   orderLookupHref: string;
@@ -75,61 +78,68 @@ export function MbtiPostPurchaseSection({
     : null;
   const orderDetailHref = accessHub?.links.orderHref ?? null;
   const lookupHref = accessHub?.recovery.canLookupOrder === false ? null : accessHub?.links.lookupHref ?? orderLookupHref;
-  const pdfUrl = accessHub?.pdfAccess.href ?? null;
-  const canShowPdf = accessHub ? accessHub.pdfAccess.canDownloadPdf && Boolean(pdfUrl || resolvedAttemptId) : Boolean(resolvedAttemptId);
+  const pdfUrl = accessProjection?.actions.pdfHref ?? accessHub?.pdfAccess.href ?? null;
+  const canShowPdf = accessProjection
+    ? canDownloadReportPdf(accessProjection) && Boolean(pdfUrl || resolvedAttemptId)
+    : accessHub
+      ? accessHub.pdfAccess.canDownloadPdf && Boolean(pdfUrl || resolvedAttemptId)
+      : Boolean(resolvedAttemptId);
   const canShowWorkspaceEntry = accessHub?.workspaceLite.hasEntry ?? true;
   const carryoverFocusKey = String(personalization?.continuity?.carryoverFocusKey ?? "").trim();
   const carryoverReason = String(personalization?.continuity?.carryoverReason ?? "").trim();
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(carryoverFocusKey, locale);
   const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(carryoverReason, locale);
-  const telemetryPayload = {
-    slug: "mbti-result-shell",
-    scale_code: "MBTI",
-    visual_kind: "post_purchase_history_entry",
-    continueTarget: "workspace_lite",
-    variantKeys: summarizeMbtiVariantKeys(personalization),
-    sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
-    boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
-    axisBands: summarizeMbtiAxisBands(personalization),
-    userState: summarizeMbtiUserState(personalization),
-    feedbackSentiment: summarizeMbtiFeedbackSentiment(personalization),
-    feedbackCoverage: summarizeMbtiFeedbackCoverage(personalization),
-    actionCompletionTendency: summarizeMbtiActionCompletionTendency(personalization),
-    lastDeepReadSection: summarizeMbtiLastDeepReadSection(personalization),
-    currentIntentCluster: summarizeMbtiCurrentIntentCluster(personalization),
-    primaryFocusKey: String(personalization?.orchestration?.primaryFocusKey ?? ""),
-    secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
-    orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
-    orderedRecommendationKeys: summarizeMbtiOrderedRecommendationKeys(personalization),
-    orderedActionKeys: summarizeMbtiOrderedActionKeys(personalization),
-    recommendationPriorityKeys: summarizeMbtiRecommendationPriorityKeys(personalization),
-    actionPriorityKeys: summarizeMbtiActionPriorityKeys(personalization),
-    readingFocusKey: String(personalization?.readingFocusKey ?? ""),
-    actionFocusKey: String(personalization?.actionFocusKey ?? ""),
-    ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
-    carryoverFocusKey,
-    carryoverReason,
-    recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
-    carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
-    carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
-    journeyContractVersion: summarizeMbtiJourneyContractVersion(personalization),
-    journeyFingerprint: summarizeMbtiJourneyFingerprint(personalization),
-    journeyScope: summarizeMbtiJourneyScope(personalization),
-    journeyState: summarizeMbtiJourneyState(personalization),
-    progressState: summarizeMbtiProgressState(personalization),
-    completedActionKeys: summarizeMbtiCompletedActionKeys(personalization),
-    recommendedNextPulseKeys: summarizeMbtiRecommendedNextPulseKeys(personalization),
-    revisitReorderReason: summarizeMbtiRevisitReorderReason(personalization),
-    pulseState: summarizeMbtiPulseState(personalization),
-    pulsePromptKeys: summarizeMbtiPulsePromptKeys(personalization),
-    ctaKey: "workspace_lite",
-    ctaRank,
-    typeCode: String(personalization?.typeCode ?? ""),
-    identity: String(personalization?.identity ?? ""),
-    packId: String(personalization?.packId ?? ""),
-    engineVersion: String(personalization?.engineVersion ?? ""),
-    locale,
-  };
+  const telemetryPayload = useMemo(
+    () => ({
+      slug: "mbti-result-shell",
+      scale_code: "MBTI",
+      visual_kind: "post_purchase_history_entry",
+      continueTarget: "workspace_lite",
+      variantKeys: summarizeMbtiVariantKeys(personalization),
+      sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+      boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+      axisBands: summarizeMbtiAxisBands(personalization),
+      userState: summarizeMbtiUserState(personalization),
+      feedbackSentiment: summarizeMbtiFeedbackSentiment(personalization),
+      feedbackCoverage: summarizeMbtiFeedbackCoverage(personalization),
+      actionCompletionTendency: summarizeMbtiActionCompletionTendency(personalization),
+      lastDeepReadSection: summarizeMbtiLastDeepReadSection(personalization),
+      currentIntentCluster: summarizeMbtiCurrentIntentCluster(personalization),
+      primaryFocusKey: String(personalization?.orchestration?.primaryFocusKey ?? ""),
+      secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+      orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+      orderedRecommendationKeys: summarizeMbtiOrderedRecommendationKeys(personalization),
+      orderedActionKeys: summarizeMbtiOrderedActionKeys(personalization),
+      recommendationPriorityKeys: summarizeMbtiRecommendationPriorityKeys(personalization),
+      actionPriorityKeys: summarizeMbtiActionPriorityKeys(personalization),
+      readingFocusKey: String(personalization?.readingFocusKey ?? ""),
+      actionFocusKey: String(personalization?.actionFocusKey ?? ""),
+      ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
+      carryoverFocusKey,
+      carryoverReason,
+      recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
+      carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
+      carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
+      journeyContractVersion: summarizeMbtiJourneyContractVersion(personalization),
+      journeyFingerprint: summarizeMbtiJourneyFingerprint(personalization),
+      journeyScope: summarizeMbtiJourneyScope(personalization),
+      journeyState: summarizeMbtiJourneyState(personalization),
+      progressState: summarizeMbtiProgressState(personalization),
+      completedActionKeys: summarizeMbtiCompletedActionKeys(personalization),
+      recommendedNextPulseKeys: summarizeMbtiRecommendedNextPulseKeys(personalization),
+      revisitReorderReason: summarizeMbtiRevisitReorderReason(personalization),
+      pulseState: summarizeMbtiPulseState(personalization),
+      pulsePromptKeys: summarizeMbtiPulsePromptKeys(personalization),
+      ctaKey: "workspace_lite",
+      ctaRank,
+      typeCode: String(personalization?.typeCode ?? ""),
+      identity: String(personalization?.identity ?? ""),
+      packId: String(personalization?.packId ?? ""),
+      engineVersion: String(personalization?.engineVersion ?? ""),
+      locale,
+    }),
+    [carryoverFocusKey, carryoverReason, ctaRank, locale, personalization]
+  );
 
   useEffect(() => {
     if (!canShowWorkspaceEntry || impressionTrackedRef.current) {
@@ -210,6 +220,7 @@ export function MbtiPostPurchaseSection({
             <AttemptPdfDownloadButton
               attemptId={resolvedAttemptId}
               locale={locale}
+              accessProjection={accessProjection}
               label={isZh ? "下载 PDF" : "Download PDF"}
               loadingLabel={isZh ? "正在下载 PDF..." : "Downloading PDF..."}
               errorMessage={isZh ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}

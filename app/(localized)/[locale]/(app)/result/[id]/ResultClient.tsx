@@ -26,7 +26,6 @@ import {
   fetchAttemptReport,
   fetchAttemptReportAccess,
   fetchAttemptResult,
-  type AttemptReportAccessResponse,
   type ReportResponse,
   type ResultResponse,
 } from "@/lib/api/v0_3";
@@ -42,6 +41,8 @@ import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
 const RESULT_PAGE_READY_STATE = "ready";
+
+type ResultClientStatus = "loading" | "generating" | "ready" | "failed";
 
 type ResultDimension = {
   code?: string;
@@ -139,7 +140,7 @@ function resolveResponseRetryMs(
     | {
         retry_after_seconds?: number;
         retry_after?: number;
-        meta?: Record<string, unknown>;
+        meta?: Record<string, unknown> | null;
       }
     | null
 ): number {
@@ -159,41 +160,24 @@ function resolveResponseRetryMs(
   return resolveRetryMs(retryAfterSeconds);
 }
 
+function resolveAccessResponseRetryMs(response: {
+  retry_after_seconds?: number | null;
+  retry_after?: number | null;
+  meta?: Record<string, unknown> | null;
+} | null): number {
+  return resolveResponseRetryMs({
+    retry_after_seconds:
+      typeof response?.retry_after_seconds === "number" ? response.retry_after_seconds : undefined,
+    retry_after:
+      typeof response?.retry_after === "number" ? response.retry_after : undefined,
+    meta: response?.meta ?? undefined,
+  });
+}
+
 function hasReadyResultPayload(result: ResultResponse | null): result is ResultResponse & {
   result: NonNullable<ResultResponse["result"]>;
 } {
   return Boolean(result?.result && typeof result.result === "object");
-}
-
-function extractReportPayloadFromAccessResponse(
-  raw: AttemptReportAccessResponse | null | undefined,
-  fallbackAttemptId: string
-): ReportResponse | null {
-  const record = asRecord(raw);
-  if (!record) {
-    return null;
-  }
-
-  const hasReportMarkers =
-    Object.hasOwn(record, "report") ||
-    Object.hasOwn(record, "locked") ||
-    Object.hasOwn(record, "modules_allowed") ||
-    Object.hasOwn(record, "view_policy") ||
-    Object.hasOwn(record, "offers") ||
-    Object.hasOwn(record, "sections") ||
-    Object.hasOwn(record, "headline") ||
-    Object.hasOwn(record, "access_level") ||
-    Object.hasOwn(record, "variant") ||
-    Object.hasOwn(record, "scale_code");
-
-  if (!hasReportMarkers) {
-    return null;
-  }
-
-  return {
-    ...record,
-    attempt_id: fallbackAttemptId,
-  } as ReportResponse;
 }
 
 function normalizeLegacyDimensions(result: NonNullable<ResultResponse["result"]>): ResultDimension[] {
@@ -341,8 +325,7 @@ export default function ResultClient({
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
   const [resultData, setResultData] = useState<ResultResponse | null>(null);
   const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [processing, setProcessing] = useState(false);
+  const [status, setStatus] = useState<ResultClientStatus>("loading");
   const [error, setError] = useState<string | null>(null);
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
@@ -371,7 +354,7 @@ export default function ResultClient({
   );
 
   const canLoadRichReport = useCallback((view: AttemptReportAccessView | null) => {
-    return Boolean(view?.actions.pageHref) && view?.reportState === RESULT_PAGE_READY_STATE;
+    return view?.reportState === RESULT_PAGE_READY_STATE;
   }, []);
 
   useEffect(() => {
@@ -388,7 +371,7 @@ export default function ResultClient({
       }, delayMs);
     };
 
-    const loadFallbackResult = async (attempt: number) => {
+    const loadFallbackResult = async () => {
       const response = await runWithAuthRetry(() => fetchAttemptResult({ attemptId, anonId }));
       if (!active) {
         return { ready: false };
@@ -401,18 +384,16 @@ export default function ResultClient({
       }
 
       if (!hasReadyResultPayload(response)) {
-        setProcessing(true);
-        scheduleRetry(attempt, resolveResponseRetryMs(response));
         return { ready: false };
       }
 
-      setProcessing(false);
+      setStatus("ready");
       return { ready: true, response };
     };
 
     const load = async (attempt = 0) => {
       if (attempt === 0) {
-        setLoading(true);
+        setStatus("loading");
 
         try {
           await ensureFmTokenReady({
@@ -439,73 +420,39 @@ export default function ResultClient({
         if (!active) return;
 
         const nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
-        const fallbackReportFromAccess = extractReportPayloadFromAccessResponse(accessResponse, attemptId);
         setAccessView(nextAccessView);
 
         if (!nextAccessView) {
-          if (fallbackReportFromAccess) {
-            setReportData(fallbackReportFromAccess);
-            setResultData(null);
-            routeScaleCodeRef.current = resolveScaleCodeForTelemetry(fallbackReportFromAccess, null);
-
-            if (isGeneratingReportResponse(fallbackReportFromAccess)) {
-              setProcessing(true);
-              scheduleRetry(attempt, resolveResponseRetryMs(fallbackReportFromAccess));
-              return;
-            }
-
-            if (canRenderRichResultReport(fallbackReportFromAccess)) {
-              setProcessing(false);
-              return;
-            }
-
-            await loadFallbackResult(attempt);
-            return;
-          }
-
           throw new Error(dict.result.reportUnavailable);
         }
 
         if (isProjectionProcessing(nextAccessView)) {
           setReportData(null);
           setResultData(null);
-          setProcessing(true);
-          scheduleRetry(attempt, RESULT_POLL_FALLBACK_MS);
+          setStatus("generating");
+          scheduleRetry(attempt, resolveAccessResponseRetryMs(accessResponse));
           return;
         }
 
         if (isProjectionUnavailable(nextAccessView)) {
           setReportData(null);
           setResultData(null);
-          setProcessing(false);
+          setStatus("failed");
           setError(dict.result.reportUnavailable);
-          return;
-        }
-
-        if (!canLoadRichReport(nextAccessView) && fallbackReportFromAccess) {
-          setReportData(fallbackReportFromAccess);
-          setResultData(null);
-          routeScaleCodeRef.current = resolveScaleCodeForTelemetry(fallbackReportFromAccess, null);
-
-          if (isGeneratingReportResponse(fallbackReportFromAccess)) {
-            setProcessing(true);
-            scheduleRetry(attempt, resolveResponseRetryMs(fallbackReportFromAccess));
-            return;
-          }
-
-          if (canRenderRichResultReport(fallbackReportFromAccess)) {
-            setProcessing(false);
-            return;
-          }
-
-          await loadFallbackResult(attempt);
           return;
         }
 
         if (!canLoadRichReport(nextAccessView)) {
           setReportData(null);
+          const fallback = await loadFallbackResult();
+          if (!active) return;
+
+          if (fallback.ready) {
+            return;
+          }
+
           setResultData(null);
-          setProcessing(false);
+          setStatus("failed");
           setError(dict.result.reportUnavailable);
           return;
         }
@@ -518,30 +465,49 @@ export default function ResultClient({
         routeScaleCodeRef.current = resolveScaleCodeForTelemetry(reportResponse, null);
 
         if (isGeneratingReportResponse(reportResponse)) {
-          setProcessing(true);
+          setStatus("generating");
           scheduleRetry(attempt, resolveResponseRetryMs(reportResponse));
           return;
         }
 
         const richReportReady = canRenderRichResultReport(reportResponse);
         if (richReportReady) {
-          setProcessing(false);
+          setStatus("ready");
           return;
         }
 
-        await loadFallbackResult(attempt);
+        setReportData(null);
+        const fallback = await loadFallbackResult();
+        if (!active) return;
+
+        if (fallback.ready) {
+          return;
+        }
+
+        setResultData(null);
+        setStatus("failed");
+        setError(dict.result.reportUnavailable);
       } catch (reportCause) {
         if (!active) return;
 
         setReportData(null);
 
         try {
-          await loadFallbackResult(attempt);
+          const fallback = await loadFallbackResult();
+          if (!active) return;
+
+          if (fallback.ready) {
+            return;
+          }
+
+          setResultData(null);
+          setStatus("failed");
+          setError(dict.result.reportUnavailable);
         } catch (resultCause) {
           if (!active) return;
 
           setResultData(null);
-          setProcessing(false);
+          setStatus("failed");
           const message = resultCause instanceof Error ? resultCause.message : dict.result.reportUnavailable;
           setError(message);
 
@@ -565,7 +531,7 @@ export default function ResultClient({
         }
       } finally {
         if (active) {
-          setLoading(false);
+          setStatus((current) => (current === "loading" ? "failed" : current));
         }
       }
     };
@@ -583,16 +549,15 @@ export default function ResultClient({
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
   const projectionUnavailable = isProjectionUnavailable(accessView);
   const projectionLocked = isProjectionLocked(accessView);
-  const projectionProcessing = isProjectionProcessing(accessView);
   const resolvedScaleCode = resolveScaleCodeForTelemetry(reportData, resultData);
   const isMbtiReadyPath =
     (hasReadyResultPayload(resultData) && normalizeText(resultData.meta?.scale_code).toUpperCase() === "MBTI") ||
     resolveScaleCodeForTelemetry(reportData, resultData) === "MBTI";
 
   const viewState: "processing" | "ready" | "failed" =
-    loading || processing || projectionProcessing
+    status === "loading" || status === "generating"
       ? "processing"
-      : hasRichReport || hasReadyResultPayload(resultData)
+      : status === "ready" && (hasRichReport || hasReadyResultPayload(resultData))
         ? "ready"
         : "failed";
 
