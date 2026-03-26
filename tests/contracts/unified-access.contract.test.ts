@@ -8,7 +8,11 @@ describe("unified access contract", () => {
       reportState: "ready",
       pdfState: "ready",
       reasonCode: "projection_missing_result_ready",
+      accessLevel: null,
+      variant: null,
       projectionVersion: 1,
+      modulesAllowed: [],
+      modulesPreview: [],
       actions: {
         pageHref: "/attempts/attempt-123/result",
         pdfHref: "/attempts/attempt-123/report.pdf",
@@ -16,7 +20,6 @@ describe("unified access contract", () => {
         historyHref: "/history/mbti",
         lookupHref: "/orders/lookup",
       },
-      payload: null,
       meta: {
         producedAt: "2026-03-24T10:00:00.000Z",
         refreshedAt: "2026-03-24T10:00:00.000Z",
@@ -33,7 +36,11 @@ describe("unified access contract", () => {
       reportState: "ready",
       pdfState: "ready",
       reasonCode: "report_ready",
+      accessLevel: null,
+      variant: null,
       projectionVersion: 1,
+      modulesAllowed: [],
+      modulesPreview: [],
       actions: {
         pageHref: "/attempts/attempt-123/result",
         pdfHref: "/attempts/attempt-123/report.pdf",
@@ -41,7 +48,6 @@ describe("unified access contract", () => {
         historyHref: "/history/mbti",
         lookupHref: "/orders/lookup",
       },
-      payload: null,
       meta: {
         producedAt: "2026-03-24T10:00:00.000Z",
         refreshedAt: "2026-03-24T10:00:00.000Z",
@@ -58,7 +64,11 @@ describe("unified access contract", () => {
       reportState: "ready",
       pdfState: "ready",
       reasonCode: null,
+      accessLevel: null,
+      variant: null,
       projectionVersion: 1,
+      modulesAllowed: [],
+      modulesPreview: [],
       actions: {
         pageHref: null,
         pdfHref: "/attempts/attempt-123/report.pdf",
@@ -66,7 +76,6 @@ describe("unified access contract", () => {
         historyHref: null,
         lookupHref: "/orders/lookup",
       },
-      payload: null,
       meta: {
         producedAt: "2026-03-24T10:00:00.000Z",
         refreshedAt: "2026-03-24T10:00:00.000Z",

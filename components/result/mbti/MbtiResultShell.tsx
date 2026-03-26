@@ -844,6 +844,9 @@ export function MbtiResultShell({
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const primaryCtaLabel = resolvePrimaryCtaLabel(locale, cta);
   const isUnlockedPostPurchase = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
+  const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
+  const accessVariant = accessProjection?.variant ?? reportData.variant;
+  const accessLevel = accessProjection?.accessLevel ?? reportData.access_level;
   const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
   const historyHref = accessProjection?.actions.historyHref ?? accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale);
   const orderLookupHref = accessProjection?.actions.lookupHref ?? accessHub?.links.lookupHref ?? localizedPath("/orders/lookup", locale);
@@ -865,7 +868,11 @@ export function MbtiResultShell({
       ? resolveProjectionDimensions(projectionViewModel.dimensions)
       : dimensions;
   const visibleModuleLabels = resolveVisibleModuleLabels(
-    Array.isArray(reportData.modules_allowed) ? reportData.modules_allowed : [],
+    accessProjection?.modulesAllowed && accessProjection.modulesAllowed.length > 0
+      ? accessProjection.modulesAllowed
+      : Array.isArray(reportData.modules_allowed)
+        ? reportData.modules_allowed
+        : [],
     locale
   );
   const careerSummarySection =
@@ -1243,7 +1250,6 @@ export function MbtiResultShell({
   );
 
   useEffect(() => {
-    const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
     if (projectionLocked || !attemptId) {
       return;
     }
@@ -1252,7 +1258,7 @@ export function MbtiResultShell({
     if (pendingOrder?.attemptId === attemptId) {
       clearPendingOrder();
     }
-  }, [accessProjection, attemptId, reportData.locked]);
+  }, [attemptId, projectionLocked]);
 
   useEffect(() => {
     syncOfferHashScroll();
@@ -1273,7 +1279,7 @@ export function MbtiResultShell({
     const basePayload = {
       attempt_id: attemptId,
       attemptIdMasked: maskIdentifier(attemptId),
-      locked: reportData.locked === true,
+      locked: projectionLocked,
       ...personalizationTelemetryContext,
     };
 
@@ -1308,9 +1314,9 @@ export function MbtiResultShell({
     personalizationPackId,
     personalizationTypeCode,
     primaryFocusKey,
+    projectionLocked,
     readingFocusKey,
     recommendationPriorityKeysSummary,
-    reportData.locked,
     sceneFingerprintSummary,
     secondaryFocusKeysSummary,
     userStateSummary,
@@ -1667,6 +1673,7 @@ export function MbtiResultShell({
         <MbtiPostPurchaseSection
           locale={locale}
           attemptId={attemptId}
+          accessProjection={accessProjection}
           accessHub={accessHub}
           historyHref={journeyHistoryHref || continuityWorkspaceHref || continuityHistoryHref || historyHref}
           orderLookupHref={orderLookupHref}
@@ -1864,7 +1871,7 @@ export function MbtiResultShell({
                       {item}
                     </span>
                   ))}
-                  {(reportData.locked === true || normalizeText(reportData.variant).toLowerCase() === "free") ? (
+                  {(projectionLocked || normalizeText(accessVariant).toLowerCase() === "free" || normalizeText(accessLevel).toLowerCase() === "free") ? (
                     <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-800">
                       {locale === "zh" ? "免费预览" : "Free preview"}
                     </span>
@@ -2100,10 +2107,16 @@ export function MbtiResultShell({
           locale={locale}
           headline={publicHeadline}
           tags={publicTags}
-          locked={reportData.locked}
-          accessLevel={reportData.access_level}
-          variant={reportData.variant}
-          modulesAllowed={Array.isArray(reportData.modules_allowed) ? reportData.modules_allowed : []}
+          locked={projectionLocked}
+          accessLevel={accessLevel}
+          variant={accessVariant}
+          modulesAllowed={
+            accessProjection?.modulesAllowed && accessProjection.modulesAllowed.length > 0
+              ? accessProjection.modulesAllowed
+              : Array.isArray(reportData.modules_allowed)
+                ? reportData.modules_allowed
+                : []
+          }
           historyHref={historyHref}
           retakeHref={retakeHref}
           primaryCtaLabel={terminalPrimaryCtaLabel}

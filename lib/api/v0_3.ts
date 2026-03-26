@@ -715,7 +715,13 @@ export type AttemptReportAccessResponse = {
   report_state: string;
   pdf_state: string;
   reason_code?: string | null;
+  retry_after?: number | null;
+  retry_after_seconds?: number | null;
+  access_level?: string | null;
+  variant?: string | null;
   projection_version?: number;
+  modules_allowed?: string[] | null;
+  modules_preview?: string[] | null;
   actions?: {
     page_href?: string | null;
     pdf_href?: string | null;

@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { AttemptPdfDownloadButton } from "@/components/commerce/AttemptPdfDownloadButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
+import { canDownloadReportPdf, type AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -47,6 +48,7 @@ import {
 export function MbtiPostPurchaseSection({
   locale,
   attemptId,
+  accessProjection,
   accessHub,
   historyHref,
   orderLookupHref,
@@ -55,6 +57,7 @@ export function MbtiPostPurchaseSection({
 }: {
   locale: Locale;
   attemptId?: string | null;
+  accessProjection?: AttemptReportAccessView | null;
   accessHub?: MbtiAccessHubViewModel | null;
   historyHref: string;
   orderLookupHref: string;
@@ -75,8 +78,12 @@ export function MbtiPostPurchaseSection({
     : null;
   const orderDetailHref = accessHub?.links.orderHref ?? null;
   const lookupHref = accessHub?.recovery.canLookupOrder === false ? null : accessHub?.links.lookupHref ?? orderLookupHref;
-  const pdfUrl = accessHub?.pdfAccess.href ?? null;
-  const canShowPdf = accessHub ? accessHub.pdfAccess.canDownloadPdf && Boolean(pdfUrl || resolvedAttemptId) : Boolean(resolvedAttemptId);
+  const pdfUrl = accessProjection?.actions.pdfHref ?? accessHub?.pdfAccess.href ?? null;
+  const canShowPdf = accessProjection
+    ? canDownloadReportPdf(accessProjection) && Boolean(pdfUrl || resolvedAttemptId)
+    : accessHub
+      ? accessHub.pdfAccess.canDownloadPdf && Boolean(pdfUrl || resolvedAttemptId)
+      : Boolean(resolvedAttemptId);
   const canShowWorkspaceEntry = accessHub?.workspaceLite.hasEntry ?? true;
   const carryoverFocusKey = String(personalization?.continuity?.carryoverFocusKey ?? "").trim();
   const carryoverReason = String(personalization?.continuity?.carryoverReason ?? "").trim();
@@ -210,6 +217,7 @@ export function MbtiPostPurchaseSection({
             <AttemptPdfDownloadButton
               attemptId={resolvedAttemptId}
               locale={locale}
+              accessProjection={accessProjection}
               label={isZh ? "下载 PDF" : "Download PDF"}
               loadingLabel={isZh ? "正在下载 PDF..." : "Downloading PDF..."}
               errorMessage={isZh ? "PDF 下载失败，请稍后重试。" : "Failed to download the PDF. Please try again."}

@@ -18,7 +18,11 @@ export type AttemptReportAccessView = {
   reportState: UnifiedAccessState;
   pdfState: UnifiedAccessState;
   reasonCode: string | null;
+  accessLevel: string | null;
+  variant: string | null;
   projectionVersion: number;
+  modulesAllowed: string[];
+  modulesPreview: string[];
   actions: {
     pageHref: string | null;
     pdfHref: string | null;
@@ -26,7 +30,6 @@ export type AttemptReportAccessView = {
     historyHref: string | null;
     lookupHref: string | null;
   };
-  payload: Record<string, unknown> | null;
   meta: {
     producedAt: string | null;
     refreshedAt: string | null;
@@ -86,6 +89,45 @@ function normalizePayload(value: unknown): Record<string, unknown> | null {
   return value as Record<string, unknown>;
 }
 
+function normalizeStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return Array.from(
+    new Set(
+      value
+        .map((item) => normalizeText(item))
+        .filter((item): item is string => Boolean(item))
+    )
+  );
+}
+
+function resolveAccessPayloadRecord(raw: AttemptReportAccessResponse): Record<string, unknown> | null {
+  return normalizePayload(raw.payload);
+}
+
+function normalizeAccessTextField(
+  raw: AttemptReportAccessResponse,
+  field: "access_level" | "variant"
+): string | null {
+  const payload = resolveAccessPayloadRecord(raw);
+  return normalizeText(raw[field]) ?? normalizeText(payload?.[field]);
+}
+
+function normalizeAccessStringArrayField(
+  raw: AttemptReportAccessResponse,
+  field: "modules_allowed" | "modules_preview"
+): string[] {
+  const direct = normalizeStringArray(raw[field]);
+  if (direct.length > 0) {
+    return direct;
+  }
+
+  const payload = resolveAccessPayloadRecord(raw);
+  return normalizeStringArray(payload?.[field]);
+}
+
 export function normalizeAttemptReportAccess(
   raw: AttemptReportAccessResponse | null | undefined,
   locale: Locale
@@ -105,10 +147,14 @@ export function normalizeAttemptReportAccess(
     reportState: normalizeState(raw.report_state, "unavailable"),
     pdfState: normalizeState(raw.pdf_state, "unavailable"),
     reasonCode: normalizeText(raw.reason_code),
+    accessLevel: normalizeAccessTextField(raw, "access_level"),
+    variant: normalizeAccessTextField(raw, "variant"),
     projectionVersion:
       typeof raw.projection_version === "number" && Number.isFinite(raw.projection_version)
         ? raw.projection_version
         : 1,
+    modulesAllowed: normalizeAccessStringArrayField(raw, "modules_allowed"),
+    modulesPreview: normalizeAccessStringArrayField(raw, "modules_preview"),
     actions: {
       pageHref: normalizeActionHref(raw.actions?.page_href, locale),
       pdfHref: normalizeActionHref(raw.actions?.pdf_href, locale),
@@ -116,7 +162,6 @@ export function normalizeAttemptReportAccess(
       historyHref: normalizeActionHref(raw.actions?.history_href, locale),
       lookupHref: normalizeActionHref(raw.actions?.lookup_href, locale),
     },
-    payload: normalizePayload(raw.payload),
     meta: {
       producedAt: normalizeText(raw.meta?.produced_at),
       refreshedAt: normalizeText(raw.meta?.refreshed_at),
