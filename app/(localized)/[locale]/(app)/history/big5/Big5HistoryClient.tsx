@@ -6,16 +6,14 @@ import { useEffect, useMemo, useState } from "react";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getAttemptReport } from "@/lib/api/v0_3";
 import { fetchBig5History } from "@/lib/big5/api";
+import { normalizeBig5HistoryRows, resolveBig5CompareAttemptPair } from "@/lib/big5/secondarySurfaceNormalizer";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 
 type Row = {
   attemptId: string;
   submittedAt: string;
-  qualityLevel: string;
-  normsVersion: string;
-  tags: string[];
+  topDomains: string[];
 };
 
 function parseDate(value: string): string {
@@ -28,12 +26,23 @@ function parseDate(value: string): string {
 export default function Big5HistoryClient() {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
+  const copy = {
+    compareLatest: locale === "zh" ? "对比最近两次结果" : "Compare latest two",
+    loading: locale === "zh" ? "正在加载历史记录..." : "Loading history...",
+    empty: locale === "zh" ? "还没有 Big Five 测试记录。" : "No BIG5 attempts found yet.",
+    attempt: locale === "zh" ? "测试记录" : "Attempt",
+    topDomains: locale === "zh" ? "主导维度" : "Lead domains",
+    viewResult: locale === "zh" ? "查看正式结果页" : "View full result",
+    previous: locale === "zh" ? "上一页" : "Previous page",
+    next: locale === "zh" ? "下一页" : "Next page",
+  };
 
   const [rows, setRows] = useState<Row[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const [comparePair, setComparePair] = useState<{ current: string; previous: string } | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -44,42 +53,8 @@ export default function Big5HistoryClient() {
 
       try {
         const history = await fetchBig5History({ page, pageSize: 10 });
-        const items = Array.isArray(history.items) ? history.items : [];
-
-        const enriched = await Promise.all(
-          items.map(async (item) => {
-            const attemptId = String(item.attempt_id ?? "");
-            let qualityLevel = "unknown";
-            let normsVersion = "unknown";
-            let tags: string[] = [];
-
-            if (attemptId) {
-              try {
-                const report = await getAttemptReport({ attemptId });
-                qualityLevel = String(report.quality?.level ?? "unknown");
-                normsVersion = String(report.norms?.norms_version ?? "unknown");
-
-                const sections = Array.isArray(report.report?.sections) ? report.report?.sections : [];
-                const topFacetsSection = sections.find((section) => section.key === "top_facets");
-                const topBlocks = Array.isArray(topFacetsSection?.blocks) ? topFacetsSection.blocks : [];
-                tags = topBlocks
-                  .map((block) => String(block.title ?? "").trim())
-                  .filter(Boolean)
-                  .slice(0, 3);
-              } catch {
-                // Keep fallback values.
-              }
-            }
-
-            return {
-              attemptId,
-              submittedAt: String(item.submitted_at ?? ""),
-              qualityLevel,
-              normsVersion,
-              tags,
-            } as Row;
-          })
-        );
+        const normalizedRows = normalizeBig5HistoryRows(history.items, locale);
+        const pair = resolveBig5CompareAttemptPair(history, "", "");
 
         const meta = history.meta ?? {};
         const currentPage = Number((meta as { current_page?: unknown }).current_page ?? page);
@@ -87,7 +62,8 @@ export default function Big5HistoryClient() {
 
         if (!active) return;
 
-        setRows(enriched);
+        setRows(normalizedRows);
+        setComparePair(pair);
         setHasNextPage(Number.isFinite(currentPage) && Number.isFinite(lastPage) && currentPage < lastPage);
       } catch (cause) {
         if (!active) return;
@@ -104,12 +80,12 @@ export default function Big5HistoryClient() {
     return () => {
       active = false;
     };
-  }, [page]);
+  }, [locale, page]);
 
   const compareLink = useMemo(() => {
-    if (rows.length < 2) return null;
-    return localizedPath(`/history/big5/compare?current=${rows[0].attemptId}&previous=${rows[1].attemptId}`, locale);
-  }, [locale, rows]);
+    if (!comparePair?.current || !comparePair?.previous) return null;
+    return localizedPath(`/history/big5/compare?current=${comparePair.current}&previous=${comparePair.previous}`, locale);
+  }, [comparePair, locale]);
 
   return (
     <div className="space-y-4">
@@ -117,18 +93,18 @@ export default function Big5HistoryClient() {
         <h1 className="text-2xl font-bold text-slate-900">BIG5 History</h1>
         {compareLink ? (
           <Link href={compareLink} className="text-sm font-semibold text-sky-700 hover:text-sky-800">
-            Compare latest two
+            {copy.compareLatest}
           </Link>
         ) : null}
       </div>
 
       {error ? <Alert>{error}</Alert> : null}
 
-      {loading ? <Card><CardContent className="py-6 text-sm text-slate-600">Loading history...</CardContent></Card> : null}
+      {loading ? <Card><CardContent className="py-6 text-sm text-slate-600">{copy.loading}</CardContent></Card> : null}
 
       {!loading && rows.length === 0 ? (
         <Card>
-          <CardContent className="py-6 text-sm text-slate-600">No BIG5 attempts found yet.</CardContent>
+          <CardContent className="py-6 text-sm text-slate-600">{copy.empty}</CardContent>
         </Card>
       ) : null}
 
@@ -139,10 +115,14 @@ export default function Big5HistoryClient() {
               <CardTitle className="text-base">{parseDate(row.submittedAt)}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-slate-700">
-              <p className="m-0">Attempt: {row.attemptId}</p>
-              <p className="m-0">Quality: {row.qualityLevel}</p>
-              <p className="m-0">Norms version: {row.normsVersion}</p>
-              {row.tags.length > 0 ? <p className="m-0">Profile tags: {row.tags.join(", ")}</p> : null}
+              <p className="m-0">{copy.attempt}: {row.attemptId}</p>
+              {row.topDomains.length > 0 ? <p className="m-0">{copy.topDomains}: {row.topDomains.join(", ")}</p> : null}
+              <Link
+                href={localizedPath(`/result/${row.attemptId}`, locale)}
+                className="inline-flex text-sm font-semibold text-sky-700 hover:text-sky-800"
+              >
+                {copy.viewResult}
+              </Link>
             </CardContent>
           </Card>
         ))}
@@ -150,10 +130,10 @@ export default function Big5HistoryClient() {
 
       <div className="flex items-center gap-2">
         <Button type="button" variant="outline" disabled={page <= 1 || loading} onClick={() => setPage((prev) => Math.max(1, prev - 1))}>
-          Previous page
+          {copy.previous}
         </Button>
         <Button type="button" variant="outline" disabled={!hasNextPage || loading} onClick={() => setPage((prev) => prev + 1)}>
-          Next page
+          {copy.next}
         </Button>
       </div>
     </div>
