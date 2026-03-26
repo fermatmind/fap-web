@@ -18,14 +18,10 @@ const COPY = {
     modules: {
       matrix: "30-Facet Matrix",
       norm: "Norm Position",
-      scenario: "Scenario Output",
-      action: "Action Coordinates",
     },
     notes: {
       matrix: "Thirty lower-level facets form the measurement layer beneath the visible result.",
       norm: "The reading returns to an external reference frame instead of staying an isolated score.",
-      scenario: "Measured output is translated into three decision-facing result parameters.",
-      action: "Three indexed coordinates keep the next step compact, executable, and reviewable.",
     },
     matrixLegend: "30 facets calibrated",
     matrixSummaryLabel: "Measured output",
@@ -38,36 +34,6 @@ const COPY = {
     normScore: "+1.42 Z",
     normStatA: "Z-Score",
     normStatB: "Percentile",
-    scenarioItems: [
-      {
-        name: "Partner fit",
-        status: "Steady",
-        parameter: "FIT_082",
-        coefficient: "0.82",
-        reading: "Suitable for long-horizon collaboration and role-alignment judgment.",
-      },
-      {
-        name: "Career pivot",
-        status: "Watch",
-        parameter: "SHIFT_074",
-        coefficient: "0.74",
-        reading: "Entering path-adjustment judgment with stronger transition sensitivity.",
-      },
-      {
-        name: "Pressure load",
-        status: "Guarded",
-        parameter: "LOAD_039",
-        coefficient: "0.39",
-        reading: "Calls for earlier attention to recovery windows and support thresholds.",
-      },
-    ],
-    actionRows: [
-      { label: "Communication rhythm", value: 84, code: "A1" },
-      { label: "Role-fit signal", value: 76, code: "B4" },
-      { label: "Recovery protocol", value: 63, code: "C2" },
-    ],
-    footerLeft: "Interpretable",
-    footerRight: "Actionable / Traceable",
   },
   zh: {
     ariaLabel: "结构化认知引擎面板",
@@ -78,14 +44,10 @@ const COPY = {
     modules: {
       matrix: "30-Facet Matrix",
       norm: "Norm Position",
-      scenario: "Scenario Output",
-      action: "Action Coordinates",
     },
     notes: {
       matrix: "不是粗标签，而是由三十个底层分面构成的测量层。",
       norm: "你的读数被放回外部参照系中读取，而不是停留在孤立分数。",
-      scenario: "测量结果会被翻译为三条可进入判断链路的输出参数。",
-      action: "在结果之下，系统保留三条可跟进、可复盘的行动坐标。",
     },
     matrixLegend: "30 个分面已校准",
     matrixSummaryLabel: "测量输出",
@@ -98,36 +60,6 @@ const COPY = {
     normScore: "+1.42 Z",
     normStatA: "Z-Score",
     normStatB: "Percentile",
-    scenarioItems: [
-      {
-        name: "合伙拟合",
-        status: "稳定",
-        parameter: "FIT_082",
-        coefficient: "0.82",
-        reading: "适合进入长期协作与角色对齐判断。",
-      },
-      {
-        name: "职业转型",
-        status: "关注",
-        parameter: "SHIFT_074",
-        coefficient: "0.74",
-        reading: "进入路径调整判断，对转向变化更敏感。",
-      },
-      {
-        name: "压力负荷",
-        status: "警惕",
-        parameter: "LOAD_039",
-        coefficient: "0.39",
-        reading: "需要更早关注恢复窗口与支持阈值。",
-      },
-    ],
-    actionRows: [
-      { label: "沟通节奏", value: 84, code: "A1" },
-      { label: "岗位拟合", value: 76, code: "B4" },
-      { label: "恢复协议", value: 63, code: "C2" },
-    ],
-    footerLeft: "可解释",
-    footerRight: "可执行 / 可复盘",
   },
 } as const;
 
@@ -230,7 +162,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
   const copy = COPY[localeLabel];
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-[35.75rem]", className)}>
+    <div className={cn("relative mx-auto w-full max-w-[38.5rem]", className)}>
       <div role="img" aria-label={copy.ariaLabel} className="fm-home-engine-panel">
         <div aria-hidden className="fm-home-engine-grid" />
         <div aria-hidden className="fm-home-engine-noise" />
@@ -320,62 +252,6 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                 <NormCurve />
               </div>
             </section>
-
-            <section className="fm-home-engine-module">
-              <div className="fm-home-engine-module-head">
-                <div>
-                  <p className="fm-home-engine-label m-0">{copy.modules.scenario}</p>
-                  <p className="fm-home-engine-note m-0 mt-2">{copy.notes.scenario}</p>
-                </div>
-              </div>
-
-              <div className="mt-4 space-y-2.5">
-                {copy.scenarioItems.map((item) => (
-                  <div key={item.name} className="fm-home-engine-scenario-row">
-                    <div className="fm-home-engine-scenario-row-head">
-                      <div className="min-w-0">
-                        <p className="m-0 text-sm font-medium text-[#f2f2f7]">{item.name}</p>
-                        <p className="fm-home-engine-scenario-parameter m-0">{item.parameter}</p>
-                      </div>
-                      <div className="fm-home-engine-scenario-metric">
-                        <p className="fm-home-engine-scenario-score m-0">{item.coefficient}</p>
-                        <span className="fm-home-engine-status-pill">{item.status}</span>
-                      </div>
-                    </div>
-                    <p className="fm-home-engine-scenario-reading m-0">{item.reading}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="fm-home-engine-module fm-home-engine-module-action">
-              <div className="fm-home-engine-module-head">
-                <div>
-                  <p className="fm-home-engine-label m-0">{copy.modules.action}</p>
-                  <p className="fm-home-engine-note m-0 mt-2">{copy.notes.action}</p>
-                </div>
-              </div>
-
-              <div className="fm-home-engine-action-grid">
-                {copy.actionRows.map((row) => (
-                  <div key={row.label} className="fm-home-engine-action-row">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="fm-home-engine-meta-label">{row.code}</span>
-                      <span className="fm-home-engine-action-value">{row.value}</span>
-                    </div>
-                    <p className="m-0 mt-3 text-sm font-medium text-[#f2f2f7]">{row.label}</p>
-                    <div className="mt-3">
-                      <SignalBar value={row.value} segments={10} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <div className="fm-home-engine-footer">
-            <span>{copy.footerLeft}</span>
-            <span>{copy.footerRight}</span>
           </div>
         </div>
       </div>
