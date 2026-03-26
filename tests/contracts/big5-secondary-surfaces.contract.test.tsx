@@ -90,7 +90,7 @@ describe("BIG5 secondary surfaces contract", () => {
     expect(hoisted.fetchBig5Report).not.toHaveBeenCalled();
   });
 
-  it("resolves compare pairs from history_compare and normalizes domains from structured projection data", () => {
+  it("resolves compare pairs from history_compare and normalizes compare data from structured projection fields", () => {
     const pair = resolveBig5CompareAttemptPair(
       {
         items: [
@@ -100,6 +100,12 @@ describe("BIG5 secondary surfaces contract", () => {
         history_compare: {
           current_attempt_id: "history-current",
           previous_attempt_id: "history-previous",
+          current_domains_mean: {
+            O: 81,
+          },
+          previous_domains_mean: {
+            O: 70,
+          },
           domains_delta: {
             O: { delta: 11, direction: "up" },
           },
@@ -121,6 +127,9 @@ describe("BIG5 secondary surfaces contract", () => {
           { key: "O", label: "Openness", percentile: 81 },
           { key: "C", label: "Conscientiousness", percentile: 64 },
         ],
+        facet_vector: [
+          { key: "O1", label: "O1 Imagination", domain: "O", percentile: 72, bucket: "high" },
+        ],
       },
       report: {
         sections: [
@@ -141,7 +150,7 @@ describe("BIG5 secondary surfaces contract", () => {
       C: 64,
     });
     expect(snapshot.facetPercentiles).toMatchObject({
-      O1: 60,
+      O1: 72,
     });
   });
 
@@ -156,12 +165,15 @@ describe("BIG5 secondary surfaces contract", () => {
             { key: "O", label: "Openness", percentile: 81 },
             { key: "C", label: "Conscientiousness", percentile: 60 },
           ],
+          facet_vector: [
+            { key: "O1", label: "O1 Imagination", domain: "O", percentile: 60, bucket: "mid" },
+          ],
         },
         report: {
           sections: [
             {
               key: "facet_table",
-              blocks: [{ metric_code: "O1", title: "O1", body: "O1 percentile 60" }],
+              blocks: [{ metric_code: "O1", title: "O1", body: "O1 percentile 12" }],
             },
           ],
         },
@@ -173,12 +185,15 @@ describe("BIG5 secondary surfaces contract", () => {
             { key: "O", label: "Openness", percentile: 52 },
             { key: "C", label: "Conscientiousness", percentile: 65 },
           ],
+          facet_vector: [
+            { key: "O1", label: "O1 Imagination", domain: "O", percentile: 45, bucket: "mid" },
+          ],
         },
         report: {
           sections: [
             {
               key: "facet_table",
-              blocks: [{ metric_code: "O1", title: "O1", body: "O1 percentile 45" }],
+              blocks: [{ metric_code: "O1", title: "O1", body: "O1 percentile 97" }],
             },
           ],
         },

@@ -180,6 +180,18 @@ export function normalizeBig5CompareSnapshot(report: ReportResponse): Big5Compar
     domainPercentiles[code] = percentile;
   }
 
+  const facetVector = Array.isArray(report.big5_public_projection_v1?.facet_vector)
+    ? report.big5_public_projection_v1.facet_vector
+    : [];
+
+  for (const facet of facetVector) {
+    const facetRecord = asRecord(facet);
+    const code = normalizeMetricCode(facetRecord?.key);
+    const percentile = normalizeNumericPercentile(facetRecord?.percentile);
+    if (!code || percentile === null) continue;
+    facetPercentiles[code] = percentile;
+  }
+
   const sections = extractSections(report);
 
   if (Object.keys(domainPercentiles).length === 0) {
@@ -200,18 +212,20 @@ export function normalizeBig5CompareSnapshot(report: ReportResponse): Big5Compar
     }
   }
 
-  const facetSection = sections.find((section) => normalizeText(section.key) === "facet_table");
-  const facetBlocks = Array.isArray(facetSection?.blocks) ? facetSection.blocks : [];
+  if (Object.keys(facetPercentiles).length === 0) {
+    const facetSection = sections.find((section) => normalizeText(section.key) === "facet_table");
+    const facetBlocks = Array.isArray(facetSection?.blocks) ? facetSection.blocks : [];
 
-  for (const block of facetBlocks) {
-    const blockRecord = asRecord(block);
-    if (!blockRecord) continue;
+    for (const block of facetBlocks) {
+      const blockRecord = asRecord(block);
+      if (!blockRecord) continue;
 
-    const code = normalizeMetricCode(blockRecord.metric_code || blockRecord.title);
-    const percentile = extractMetricPercentile(blockRecord);
-    if (!code || percentile === null) continue;
+      const code = normalizeMetricCode(blockRecord.metric_code || blockRecord.title);
+      const percentile = extractMetricPercentile(blockRecord);
+      if (!code || percentile === null) continue;
 
-    facetPercentiles[code] = percentile;
+      facetPercentiles[code] = percentile;
+    }
   }
 
   return {
