@@ -162,7 +162,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
   const copy = COPY[localeLabel];
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-[47rem]", className)}>
+    <div className={cn("relative mx-auto w-full max-w-[52rem]", className)}>
       <div role="img" aria-label={copy.ariaLabel} className="fm-home-engine-panel">
         <div aria-hidden className="fm-home-engine-grid" />
         <div aria-hidden className="fm-home-engine-noise" />

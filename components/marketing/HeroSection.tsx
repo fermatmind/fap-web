@@ -48,7 +48,7 @@ export function HeroSection({ locale }: { locale: Locale }) {
       <div aria-hidden className="fm-home-hero-glow fm-home-hero-glow-left" />
       <div aria-hidden className="fm-home-hero-glow fm-home-hero-glow-right" />
 
-      <Container className="relative z-10 grid gap-[var(--fm-space-8)] max-w-[91rem] px-6 md:grid-cols-[minmax(0,5.6fr)_minmax(0.9rem,0.35fr)_minmax(44rem,7.9fr)] md:items-center md:gap-0 md:px-8 lg:px-10 xl:max-w-[95rem] xl:px-14">
+      <Container className="relative z-10 grid gap-[var(--fm-space-8)] max-w-[101rem] px-6 md:grid-cols-[minmax(0,6.1fr)_minmax(0.4rem,0.18fr)_minmax(48rem,8.9fr)] md:items-center md:gap-0 md:px-8 lg:px-12 xl:max-w-[106rem] xl:px-16 2xl:max-w-[110rem] 2xl:px-20">
         <div className="fm-home-enter-primary fm-home-hero-copy-column space-y-[var(--fm-space-5)]">
           <div className="space-y-4">
             <div className="fm-home-hero-label-stack">
