@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import type { Locale } from "@/lib/i18n/locales";
 
@@ -35,20 +36,72 @@ export function MbtiMobileChrome({
   onShare,
 }: MbtiMobileChromeProps) {
   const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
+  const [activeAnchor, setActiveAnchor] = useState("hero");
+
+  useEffect(() => {
+    const sectionIds = NAV_ITEMS.map((item) => item.anchor);
+    const updateAnchor = () => {
+      let next = sectionIds[0];
+      for (const id of sectionIds) {
+        const element = document.getElementById(id);
+        if (!element) continue;
+        const top = element.getBoundingClientRect().top;
+        if (top <= 160) {
+          next = id;
+        }
+      }
+      setActiveAnchor(window.location.hash.replace("#", "") || next);
+    };
+
+    updateAnchor();
+    window.addEventListener("scroll", updateAnchor, { passive: true });
+    window.addEventListener("hashchange", updateAnchor);
+
+    return () => {
+      window.removeEventListener("scroll", updateAnchor);
+      window.removeEventListener("hashchange", updateAnchor);
+    };
+  }, []);
 
   return (
     <div data-testid="mbti-mobile-chrome" className="xl:hidden">
-      <div className="sticky top-16 z-30 -mx-4 border-b border-slate-200 bg-white/92 px-4 py-3 backdrop-blur md:-mx-6 md:px-6">
-        <details className="rounded-2xl border border-slate-200 bg-white/95 p-3">
+      <div className="sticky top-16 z-30 -mx-4 border-b border-slate-200 bg-white/92 px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur md:-mx-6 md:px-6">
+        <div className="mb-2 flex gap-2 overflow-x-auto pb-1">
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={`quick-${item.anchor}`}
+              href={`#${item.anchor}`}
+              aria-current={activeAnchor === item.anchor ? "location" : undefined}
+              className={`inline-flex min-h-[38px] shrink-0 items-center rounded-full border px-3 text-sm font-medium transition motion-reduce:transition-none ${
+                activeAnchor === item.anchor
+                  ? "border-slate-900 bg-slate-900 text-white"
+                  : "border-slate-200 bg-white text-slate-700"
+              }`}
+            >
+              {item[locale]}
+            </a>
+          ))}
+        </div>
+        <details className="rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-[0_10px_28px_rgba(15,23,42,0.04)]">
           <summary className="cursor-pointer text-sm font-semibold text-slate-900">
-            {locale === "zh" ? "查看目录" : "Report navigation"}
+            {locale === "zh" ? "阅读目录与动作" : "Report navigation and actions"}
           </summary>
+          <p className="mb-0 mt-2 text-xs leading-6 text-slate-500">
+            {locale === "zh"
+              ? "目录负责定位章节，底部动作栏负责分享、重测与解锁。"
+              : "Use the directory for orientation and the bottom bar for actions."}
+          </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.anchor}
                 href={`#${item.anchor}`}
-                className="inline-flex min-h-[40px] items-center rounded-full border border-slate-200 bg-slate-50 px-4 text-sm font-medium text-slate-700"
+                aria-current={activeAnchor === item.anchor ? "location" : undefined}
+                className={`inline-flex min-h-[40px] items-center rounded-full border px-4 text-sm font-medium transition motion-reduce:transition-none ${
+                  activeAnchor === item.anchor
+                    ? "border-slate-900 bg-slate-900 text-white"
+                    : "border-slate-200 bg-slate-50 text-slate-700"
+                }`}
               >
                 {item[locale]}
               </a>
@@ -57,26 +110,57 @@ export function MbtiMobileChrome({
         </details>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/97 p-3 shadow-[0_-12px_30px_rgba(15,23,42,0.12)] backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl items-center gap-2">
-          <Button type="button" variant="outline" className="min-h-[44px] flex-1" onClick={() => void onShare()}>
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/97 p-3 shadow-[0_-16px_36px_rgba(15,23,42,0.12)] backdrop-blur">
+        <div className="mx-auto max-w-6xl rounded-[20px] border border-slate-200 bg-white/95 p-2 shadow-[0_10px_28px_rgba(15,23,42,0.06)]">
+          <div className="mb-2 flex items-center justify-between px-1.5">
+            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+              {locale === "zh" ? "结果动作" : "Result actions"}
+            </p>
+            <p className="m-0 text-[11px] text-slate-400">
+              {activeAnchor === "offer-full" ? (locale === "zh" ? "已定位到解锁区" : "Unlock section in view") : ctaLabel}
+            </p>
+          </div>
+          <div className="flex w-full items-center gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              className="min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+              onClick={() => void onShare()}
+            >
             {locale === "zh" ? "分享" : "Share"}
-          </Button>
+            </Button>
           <Link
             href={retakeHref}
-            className={buttonVariants({ variant: "outline", className: "min-h-[44px] flex-1" })}
+            className={buttonVariants({
+              variant: "outline",
+              className:
+                "min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300",
+            })}
           >
             {locale === "zh" ? "重测" : "Retake"}
           </Link>
           {primaryCtaIsInternal ? (
-            <Link href={primaryCtaHref} className={buttonVariants({ className: "min-h-[44px] flex-1" })}>
+            <Link
+              href={primaryCtaHref}
+              className={buttonVariants({
+                className:
+                  "min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300",
+              })}
+            >
               {ctaLabel}
             </Link>
           ) : (
-            <a href={primaryCtaHref} className={buttonVariants({ className: "min-h-[44px] flex-1" })}>
+            <a
+              href={primaryCtaHref}
+              className={buttonVariants({
+                className:
+                  "min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300",
+              })}
+            >
               {ctaLabel}
             </a>
           )}
+          </div>
         </div>
       </div>
     </div>
