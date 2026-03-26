@@ -22,15 +22,15 @@ const COPY = {
       action: "Action Coordinates",
     },
     notes: {
-      matrix: "Not broad labels, but thirty quantifiable lower-level facets under continuous calculation.",
-      norm: "Your reading returns to an external reference frame instead of staying an isolated score.",
-      scenario: "The engine translates complex trait structure into decision parameters.",
-      action: "Three indexed coordinates compress the output into executable, reviewable actions.",
+      matrix: "Thirty lower-level facets form the measurement layer beneath the visible result.",
+      norm: "The reading returns to an external reference frame instead of staying an isolated score.",
+      scenario: "Measured output is translated into three decision-facing result parameters.",
+      action: "Three indexed coordinates keep the next step compact, executable, and reviewable.",
     },
     matrixLegend: "30 facets calibrated",
-    matrixSummaryLabel: "Decision strands",
-    matrixSummaryValue: "30 calibrated",
-    matrixDetail: "Each pulse represents a lower-level facet under live computation.",
+    matrixSummaryLabel: "Measured output",
+    matrixSummaryValue: "30 facets calibrated",
+    matrixDetail: "Thirty facet signals stay visible without reducing the user to a broad label.",
     matrixStreamLabel: "Reading",
     normMeta: "100,000+ reference set",
     normAnchor: "Objective placement, not an isolated score.",
@@ -38,15 +38,28 @@ const COPY = {
     normScore: "+1.42 Z",
     normStatA: "Z-Score",
     normStatB: "Percentile",
-    scenarioLabels: {
-      parameter: "Parameter",
-      coefficient: "Coefficient",
-      reading: "Reading",
-    },
     scenarioItems: [
-      { name: "Partner fit", status: "Steady", parameter: "FIT_082", coefficient: "0.82", reading: "Low variance" },
-      { name: "Career pivot", status: "Watch", parameter: "SHIFT_074", coefficient: "0.74", reading: "Signal rising" },
-      { name: "Pressure load", status: "Guarded", parameter: "LOAD_039", coefficient: "0.39", reading: "Risk elevated" },
+      {
+        name: "Partner fit",
+        status: "Steady",
+        parameter: "FIT_082",
+        coefficient: "0.82",
+        reading: "Suitable for long-horizon collaboration and role-alignment judgment.",
+      },
+      {
+        name: "Career pivot",
+        status: "Watch",
+        parameter: "SHIFT_074",
+        coefficient: "0.74",
+        reading: "Entering path-adjustment judgment with stronger transition sensitivity.",
+      },
+      {
+        name: "Pressure load",
+        status: "Guarded",
+        parameter: "LOAD_039",
+        coefficient: "0.39",
+        reading: "Calls for earlier attention to recovery windows and support thresholds.",
+      },
     ],
     actionRows: [
       { label: "Communication rhythm", value: 84, code: "A1" },
@@ -69,15 +82,15 @@ const COPY = {
       action: "Action Coordinates",
     },
     notes: {
-      matrix: "不是外向或内向这样的粗标签，而是三十个可量化底层分面的持续演算。",
-      norm: "你的结果回到外部参照系中读取，而不是停留在孤立分数。",
-      scenario: "系统已把繁杂的人格结构翻译成进入决策的参数层。",
-      action: "把输出压缩为三条可执行、可复盘的索引坐标。",
+      matrix: "不是粗标签，而是由三十个底层分面构成的测量层。",
+      norm: "你的读数被放回外部参照系中读取，而不是停留在孤立分数。",
+      scenario: "测量结果会被翻译为三条可进入判断链路的输出参数。",
+      action: "在结果之下，系统保留三条可跟进、可复盘的行动坐标。",
     },
     matrixLegend: "30 个分面已校准",
-    matrixSummaryLabel: "可用子决策束",
+    matrixSummaryLabel: "测量输出",
     matrixSummaryValue: "30 分面已校准",
-    matrixDetail: "每一次跳动都对应一个底层分面的实时演算。",
+    matrixDetail: "三十条分面信号持续可读，而不是被压扁成一个粗略标签。",
     matrixStreamLabel: "读数",
     normMeta: "100,000+ 常模参照",
     normAnchor: "客观坐标，不是孤立分数。",
@@ -85,15 +98,28 @@ const COPY = {
     normScore: "+1.42 Z",
     normStatA: "Z-Score",
     normStatB: "Percentile",
-    scenarioLabels: {
-      parameter: "参数轴",
-      coefficient: "系数",
-      reading: "判读",
-    },
     scenarioItems: [
-      { name: "合伙拟合", status: "稳定", parameter: "FIT_082", coefficient: "0.82", reading: "低波动" },
-      { name: "职业转型", status: "关注", parameter: "SHIFT_074", coefficient: "0.74", reading: "转向抬升" },
-      { name: "压力负荷", status: "警惕", parameter: "LOAD_039", coefficient: "0.39", reading: "风险抬升" },
+      {
+        name: "合伙拟合",
+        status: "稳定",
+        parameter: "FIT_082",
+        coefficient: "0.82",
+        reading: "适合进入长期协作与角色对齐判断。",
+      },
+      {
+        name: "职业转型",
+        status: "关注",
+        parameter: "SHIFT_074",
+        coefficient: "0.74",
+        reading: "进入路径调整判断，对转向变化更敏感。",
+      },
+      {
+        name: "压力负荷",
+        status: "警惕",
+        parameter: "LOAD_039",
+        coefficient: "0.39",
+        reading: "需要更早关注恢复窗口与支持阈值。",
+      },
     ],
     actionRows: [
       { label: "沟通节奏", value: 84, code: "A1" },
@@ -152,13 +178,13 @@ function NormCurve() {
       <path
         d="M24 120 C 64 120, 90 112, 116 88 C 138 68, 154 36, 160 36 C 166 36, 182 68, 204 88 C 230 112, 256 120, 296 120"
         fill="none"
-        stroke="rgba(0,255,65,0.82)"
+        stroke="rgba(0,255,65,0.68)"
         strokeWidth="2.4"
         className="fm-home-engine-curve"
       />
 
-      <line x1="202" y1="36" x2="202" y2="120" stroke="#00ff41" strokeDasharray="4 4" strokeWidth="1.5" />
-      <circle cx="202" cy="60" r="5" fill="#0b0f14" stroke="#00ff41" strokeWidth="2" className="fm-home-engine-curve-dot" />
+      <line x1="202" y1="36" x2="202" y2="120" stroke="rgba(0,255,65,0.56)" strokeDasharray="4 4" strokeWidth="1.5" />
+      <circle cx="202" cy="60" r="5" fill="#0b0f14" stroke="rgba(0,255,65,0.74)" strokeWidth="2" className="fm-home-engine-curve-dot" />
 
       <g fill="#7f8a98" fontSize="10.5" fontFamily="var(--font-fm-mono)">
         <text x="24" y="138" textAnchor="middle">-2</text>
@@ -184,12 +210,12 @@ function RadarGlyph() {
       </g>
       <polygon
         points="72,24 108,47 92,92 53,78 34,51"
-        fill="rgba(0,255,65,0.14)"
-        stroke="#00ff41"
+        fill="rgba(0,255,65,0.1)"
+        stroke="rgba(0,255,65,0.72)"
         strokeWidth="1.8"
         className="fm-home-engine-radar-shape"
       />
-      <g fill="#00ff41" className="fm-home-engine-radar-points">
+      <g fill="rgba(0,255,65,0.78)" className="fm-home-engine-radar-points">
         <circle cx="72" cy="24" r="2.6" />
         <circle cx="108" cy="47" r="2.6" />
         <circle cx="92" cy="92" r="2.6" />
@@ -204,7 +230,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
   const copy = COPY[localeLabel];
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-[32.5rem]", className)}>
+    <div className={cn("relative mx-auto w-full max-w-[35.75rem]", className)}>
       <div role="img" aria-label={copy.ariaLabel} className="fm-home-engine-panel">
         <div aria-hidden className="fm-home-engine-grid" />
         <div aria-hidden className="fm-home-engine-noise" />
@@ -307,23 +333,16 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                 {copy.scenarioItems.map((item) => (
                   <div key={item.name} className="fm-home-engine-scenario-row">
                     <div className="fm-home-engine-scenario-row-head">
-                      <p className="m-0 text-sm font-medium text-[#f2f2f7]">{item.name}</p>
-                      <span className="fm-home-engine-status-pill">{item.status}</span>
+                      <div className="min-w-0">
+                        <p className="m-0 text-sm font-medium text-[#f2f2f7]">{item.name}</p>
+                        <p className="fm-home-engine-scenario-parameter m-0">{item.parameter}</p>
+                      </div>
+                      <div className="fm-home-engine-scenario-metric">
+                        <p className="fm-home-engine-scenario-score m-0">{item.coefficient}</p>
+                        <span className="fm-home-engine-status-pill">{item.status}</span>
+                      </div>
                     </div>
-                    <dl className="fm-home-engine-scenario-ledger">
-                      <div className="fm-home-engine-scenario-cell">
-                        <dt>{copy.scenarioLabels.parameter}</dt>
-                        <dd>{item.parameter}</dd>
-                      </div>
-                      <div className="fm-home-engine-scenario-cell">
-                        <dt>{copy.scenarioLabels.coefficient}</dt>
-                        <dd>{item.coefficient}</dd>
-                      </div>
-                      <div className="fm-home-engine-scenario-cell">
-                        <dt>{copy.scenarioLabels.reading}</dt>
-                        <dd>{item.reading}</dd>
-                      </div>
-                    </dl>
+                    <p className="fm-home-engine-scenario-reading m-0">{item.reading}</p>
                   </div>
                 ))}
               </div>

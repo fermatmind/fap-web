@@ -1630,12 +1630,12 @@ a {
 @keyframes fm-home-status-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.12);
-    opacity: 0.82;
+    box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.08);
+    opacity: 0.72;
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(0, 255, 65, 0);
-    opacity: 1;
+    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0);
+    opacity: 0.9;
   }
 }
 
@@ -1682,8 +1682,8 @@ a {
 .fm-home-hero {
   border-bottom: 1px solid rgba(28, 35, 44, 0.8);
   background:
-    radial-gradient(circle at 16% 14%, rgba(0, 255, 65, 0.07), transparent 26%),
-    radial-gradient(circle at 82% 20%, rgba(78, 90, 106, 0.12), transparent 24%),
+    radial-gradient(circle at 16% 14%, rgba(0, 255, 65, 0.05), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(78, 90, 106, 0.1), transparent 22%),
     linear-gradient(180deg, #0b0f14 0%, #10151d 56%, #141b24 100%);
 }
 
@@ -1697,8 +1697,8 @@ a {
 .fm-home-hero-grid {
   inset: 0;
   background-image:
-    linear-gradient(rgba(242, 242, 247, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(242, 242, 247, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(242, 242, 247, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 242, 247, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.84), transparent 88%);
 }
@@ -1706,9 +1706,9 @@ a {
 .fm-home-hero-grid-secondary {
   inset: auto 0 0 0;
   height: 46%;
-  background-image: radial-gradient(circle, rgba(94, 106, 121, 0.28) 1px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(94, 106, 121, 0.22) 1px, transparent 1.5px);
   background-size: 24px 24px;
-  opacity: 0.22;
+  opacity: 0.16;
   mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 42%, rgba(0, 0, 0, 0.95) 100%);
 }
 
@@ -1722,7 +1722,7 @@ a {
   top: 4rem;
   width: 16rem;
   height: 16rem;
-  background: rgba(0, 255, 65, 0.08);
+  background: rgba(0, 255, 65, 0.05);
 }
 
 .fm-home-hero-glow-right {
@@ -1730,7 +1730,7 @@ a {
   top: 2rem;
   width: 18rem;
   height: 18rem;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .fm-home-enter-primary {
@@ -1797,12 +1797,12 @@ a {
 
 .fm-home-hero-title-subline {
   display: block;
-  max-width: 26rem;
+  max-width: 20rem;
   font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
-  color: rgba(242, 242, 247, 0.9);
-  font-size: clamp(2.35rem, 3vw, 3rem);
-  font-weight: 720;
-  line-height: 1.08;
+  color: rgba(242, 242, 247, 0.72);
+  font-size: clamp(1.7rem, 2.25vw, 2.15rem);
+  font-weight: 640;
+  line-height: 1.18;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
@@ -1920,15 +1920,15 @@ a {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 40rem;
+  min-height: 34.5rem;
   border: 1px solid rgba(242, 242, 247, 0.08);
-  border-radius: 1.5rem;
+  border-radius: 1.35rem;
   background:
     linear-gradient(180deg, rgba(18, 23, 31, 0.94) 0%, rgba(12, 17, 24, 0.98) 100%);
   padding: 0;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 24px 52px rgba(0, 0, 0, 0.24);
+    0 18px 40px rgba(0, 0, 0, 0.2);
   animation: fm-home-soft-drift 7s ease-in-out infinite;
 }
 
@@ -1942,24 +1942,24 @@ a {
 
 .fm-home-engine-grid {
   background-image:
-    linear-gradient(rgba(242, 242, 247, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(242, 242, 247, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.28;
+    linear-gradient(rgba(242, 242, 247, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 242, 247, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.18;
 }
 
 .fm-home-engine-noise {
   background:
-    radial-gradient(circle at 14% 18%, rgba(0, 255, 65, 0.05), transparent 24%),
-    radial-gradient(circle at 82% 14%, rgba(164, 174, 188, 0.04), transparent 18%),
+    radial-gradient(circle at 14% 18%, rgba(0, 255, 65, 0.03), transparent 22%),
+    radial-gradient(circle at 82% 14%, rgba(164, 174, 188, 0.03), transparent 16%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 34%);
 }
 
 .fm-home-engine-scanline {
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 65, 0.06) 48%, transparent 100%);
-  opacity: 0.08;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 65, 0.04) 48%, transparent 100%);
+  opacity: 0.035;
   transform: translateY(-24%);
-  animation: fm-home-scanline 16s linear infinite;
+  animation: fm-home-scanline 20s linear infinite;
 }
 
 .fm-home-engine-shell {
@@ -2015,8 +2015,8 @@ a {
   width: 0.4rem;
   height: 0.4rem;
   border-radius: 999px;
-  background: #00ff41;
-  box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.28);
+  background: rgba(0, 255, 65, 0.82);
+  box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.18);
   animation: fm-home-status-pulse 2.6s ease-in-out infinite;
 }
 
@@ -2026,22 +2026,22 @@ a {
 
 .fm-home-engine-layout {
   display: grid;
-  gap: 1rem;
+  gap: 0.9rem;
   margin-top: 1rem;
-  grid-template-columns: minmax(0, 0.56fr) minmax(0, 0.44fr);
+  grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
   grid-template-areas:
     "matrix norm"
-    "matrix scenario"
+    "scenario scenario"
     "action action";
 }
 
 .fm-home-engine-module {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1rem;
-  background: linear-gradient(180deg, rgba(17, 22, 30, 0.78) 0%, rgba(12, 17, 24, 0.88) 100%);
-  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.95rem;
+  background: linear-gradient(180deg, rgba(19, 24, 32, 0.76) 0%, rgba(13, 18, 25, 0.9) 100%);
+  padding: 0.92rem;
 }
 
 .fm-home-engine-module::before {
@@ -2050,7 +2050,7 @@ a {
   inset: 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 42%),
-    linear-gradient(90deg, rgba(0, 255, 65, 0.03) 0%, rgba(0, 255, 65, 0) 18%);
+    linear-gradient(90deg, rgba(0, 255, 65, 0.015) 0%, rgba(0, 255, 65, 0) 18%);
   pointer-events: none;
 }
 
@@ -2111,29 +2111,30 @@ a {
 
 .fm-home-engine-matrix-body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(8rem, 9.2rem);
-  gap: 0.9rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(9.2rem, 10.2rem);
+  gap: 0.8rem;
   margin-top: 1rem;
 }
 
 .fm-home-facet-grid {
   display: grid;
-  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
 }
 
 .fm-home-facet-stream {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.42rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.015);
-  padding: 0.58rem 0.62rem 0.65rem;
+  padding: 0.52rem 0.56rem 0.58rem;
   transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
 .fm-home-facet-stream:hover {
-  border-color: rgba(0, 255, 65, 0.2);
-  background: rgba(0, 255, 65, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
   transform: translateY(-1px);
 }
 
@@ -2191,8 +2192,8 @@ a {
   justify-content: flex-start;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 0.9rem;
-  background: rgba(255, 255, 255, 0.015);
-  padding: 0.85rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.8rem;
 }
 
 .fm-home-engine-radar-meta {
@@ -2247,39 +2248,23 @@ a {
 
 .fm-home-engine-scenario-row {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.6rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 0.8rem;
-  background: rgba(255, 255, 255, 0.015);
-  padding: 0.8rem 0.85rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.72rem 0.78rem;
 }
 
 .fm-home-engine-scenario-row-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 0.7rem;
 }
 
-.fm-home-engine-scenario-ledger {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.55rem;
-  margin: 0;
-}
-
-.fm-home-engine-scenario-cell {
-  display: grid;
-  gap: 0.28rem;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 0.65rem;
-  background: rgba(255, 255, 255, 0.02);
-  padding: 0.55rem 0.62rem;
-}
-
-.fm-home-engine-scenario-cell dt {
-  margin: 0;
-  color: rgba(242, 242, 247, 0.3);
+.fm-home-engine-scenario-parameter {
+  margin-top: 0.22rem;
+  color: rgba(242, 242, 247, 0.34);
   font-family: var(--font-fm-mono), monospace;
   font-size: 0.56rem;
   font-weight: 600;
@@ -2287,7 +2272,13 @@ a {
   text-transform: uppercase;
 }
 
-.fm-home-engine-scenario-cell dd {
+.fm-home-engine-scenario-metric {
+  display: grid;
+  justify-items: end;
+  gap: 0.4rem;
+}
+
+.fm-home-engine-scenario-score {
   margin: 0;
   color: #d9e0e7;
   font-family: var(--font-fm-mono), monospace;
@@ -2297,6 +2288,12 @@ a {
   text-transform: uppercase;
 }
 
+.fm-home-engine-scenario-reading {
+  color: rgba(242, 242, 247, 0.64);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
 .fm-home-engine-status-pill {
   display: inline-flex;
   justify-content: center;
@@ -2304,7 +2301,7 @@ a {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
   padding: 0.18rem 0.48rem;
-  color: rgba(172, 211, 182, 0.94);
+  color: rgba(186, 200, 191, 0.92);
   font-family: var(--font-fm-mono), monospace;
   font-size: 0.6rem;
   font-weight: 600;
@@ -2315,15 +2312,15 @@ a {
 .fm-home-engine-action-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin-top: 1rem;
+  gap: 0.7rem;
+  margin-top: 0.9rem;
 }
 
 .fm-home-engine-action-row {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 0.8rem;
-  background: rgba(255, 255, 255, 0.015);
-  padding: 0.9rem 0.9rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.78rem 0.8rem;
 }
 
 .fm-home-signal-bar {
@@ -2341,8 +2338,8 @@ a {
 }
 
 .fm-home-signal-segment.is-active {
-  background: linear-gradient(90deg, rgba(0, 255, 65, 0.86) 0%, rgba(86, 255, 137, 0.98) 100%);
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.12);
+  background: linear-gradient(90deg, rgba(0, 255, 65, 0.72) 0%, rgba(96, 219, 140, 0.82) 100%);
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.06);
 }
 
 .fm-home-signal-segment.is-muted.is-active {
@@ -2640,7 +2637,7 @@ a {
 
   .fm-home-hero-title-subline {
     max-width: none;
-    font-size: clamp(1.9rem, 7.4vw, 2.45rem);
+    font-size: clamp(1.45rem, 6vw, 1.82rem);
   }
 
   .fm-home-hero-lede-primary {
@@ -2686,6 +2683,7 @@ a {
   }
 
   .fm-home-facet-grid {
+    grid-template-columns: 1fr;
     gap: 0.45rem;
   }
 
@@ -2695,10 +2693,6 @@ a {
 
   .fm-home-engine-scenario-row-head {
     align-items: flex-start;
-  }
-
-  .fm-home-engine-scenario-ledger {
-    grid-template-columns: 1fr;
   }
 
   .fm-home-engine-action-grid {
