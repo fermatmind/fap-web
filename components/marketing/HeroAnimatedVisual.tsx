@@ -11,6 +11,11 @@ type HeroAnimatedVisualProps = {
 
 type ScenarioKey = "compatibility" | "career" | "risk";
 
+type TickerMetric = {
+  key: string;
+  value: string;
+};
+
 type FacetDefinition = {
   id: string;
   range: string;
@@ -30,85 +35,62 @@ const COPY = {
   en: {
     ariaLabel: "Cognitive telemetry monitor",
     panelLabel: "Cognitive Telemetry Monitor",
-    panelNote: "PROTOCOL: V3.1_SCENARIO_MAPPING",
-    panelSubnote: "30-FACET / NORM_REFERENCE / SCENARIO_TRANSLATION",
+    panelNote: "PROTOCOL: V3.1_CALIBRATION_CORE",
+    panelSubnote: "30-FACET / NORM_REFERENCE / INDEX_STREAM",
     systemStatus: "SYSTEM_STATUS: ACTIVE",
     modules: {
       matrix: "30-Facet Scan Array",
       norm: "Norm Reference System",
-      scenario: "Scenario Translation",
     },
     notes: {
       matrix:
         "Thirty lower-level facets stay visible as a live measurement field instead of collapsing into a coarse label.",
       norm:
         "The signal is sliced against 100,000+ external references so the output lands as a coordinate, not a self-contained score.",
-      scenario:
-        "Scenario mapping translates the live signal into operating parameters for real decisions rather than product labels.",
     },
-    matrixLegend: "30 live nodes / 6-axis scan",
+    matrixLegend: "30 live nodes / 3-column scan",
     matrixProbeTarget: "Probe target",
     matrixProbeHex: "Hex code",
     matrixProbeScore: "Z-score",
+    matrixProbeReading: "Reading",
     matrixStreamLabel: "Reading",
     matrixSummaryLabel: "Live scan",
-    matrixSummaryValue: "Retina-grade facet scan",
+    matrixSummaryValue: "30-node locked field",
     matrixDetail: "Each node remains interrogable in milliseconds instead of being flattened into a broad type label.",
     normMeta: "100,000+ reference set",
     normAnchor: "External coordinate slice, not an isolated score.",
     normStatA: "Z-score",
     normStatB: "Percentile",
     normRuler: "Norm reference ruler",
-    scenarioTabs: {
-      compatibility: "Partner fit",
-      career: "Career fit",
-      risk: "Risk load",
-    },
-    parameterLabel: "Parameter",
-    coefficientLabel: "Coefficient",
-    mappedFacetLabel: "Mapped facets",
-    footerLog:
-      "CALIBRATING_NODE_F01... OK // SYNCING_NORM_REF_V3.1... COMPLETE // LATEST_CALIBRATION: USER_ID_***83 // LOCATION: SHANGHAI",
   },
   zh: {
     ariaLabel: "认知遥测监测终端",
     panelLabel: "认知遥测监测终端",
-    panelNote: "PROTOCOL: V3.1_SCENARIO_MAPPING",
-    panelSubnote: "30-FACET / 常模锚定 / 场景映射",
+    panelNote: "PROTOCOL: V3.1_CALIBRATION_CORE",
+    panelSubnote: "30-FACET / 常模锚定 / 指标流",
     systemStatus: "SYSTEM_STATUS: ACTIVE",
     modules: {
       matrix: "30-Facet Scan Array",
       norm: "Norm Reference System",
-      scenario: "Scenario Translation",
     },
     notes: {
       matrix: "三十个底层分面持续暴露在扫描层中，而不是被压缩成一个粗颗粒标签。",
       norm: "读数被放回 100,000+ 外部参照里切片读取，因此输出的是客观坐标而不是孤立分数。",
-      scenario: "场景映射会把当前信号翻译成决策参数，而不是再讲一遍产品名称。",
     },
-    matrixLegend: "30 个活跃节点 / 6 轴扫描",
+    matrixLegend: "30 个活跃节点 / 3 列扫描",
     matrixProbeTarget: "Probe target",
     matrixProbeHex: "Hex code",
     matrixProbeScore: "Z-score",
+    matrixProbeReading: "Reading",
     matrixStreamLabel: "Reading",
     matrixSummaryLabel: "Live scan",
-    matrixSummaryValue: "Retina 级分面扫描",
+    matrixSummaryValue: "30 节点锁定场",
     matrixDetail: "每一个节点都可被毫秒级追踪，而不是被粗暴折叠成一个类型标签。",
     normMeta: "100,000+ 常模参照",
     normAnchor: "外部坐标切片，不是孤立分数。",
     normStatA: "Z-score",
     normStatB: "Percentile",
     normRuler: "Norm reference ruler",
-    scenarioTabs: {
-      compatibility: "合伙拟合",
-      career: "职业拟合",
-      risk: "风险负载",
-    },
-    parameterLabel: "Parameter",
-    coefficientLabel: "Coefficient",
-    mappedFacetLabel: "Mapped facets",
-    footerLog:
-      "CALIBRATING_NODE_F01... OK // SYNCING_NORM_REF_V3.1... COMPLETE // LATEST_CALIBRATION: USER_ID_***83 // LOCATION: SHANGHAI",
   },
 } as const;
 
@@ -446,110 +428,14 @@ const FACET_DEFINITIONS: FacetDefinition[] = [
 ];
 
 const Z_SCORE_SERIES = [1.422459, 1.421873, 1.423102, 1.420941, 1.422774, 1.421188];
-
-const SCENARIOS = {
-  compatibility: {
-    profile: [0.78, 0.82, 0.58, 0.49, 0.72, 0.76],
-    parameters: [
-      {
-        key: "COMPATIBILITY_INDEX",
-        value: "0.824219",
-        note: {
-          zh: "衡量协作稳态与信任摩擦。",
-          en: "Measures trust stability against collaboration drag.",
-        },
-      },
-      {
-        key: "SOCIAL_TRUST_DELTA",
-        value: "0.612458",
-        note: {
-          zh: "映射社会信任与反馈采纳差值。",
-          en: "Maps social trust against feedback uptake.",
-        },
-      },
-      {
-        key: "COORDINATION_DRAG",
-        value: "0.183441",
-        note: {
-          zh: "提示合伙推进中的协作摩擦。",
-          en: "Indicates coordination friction in partnership mode.",
-        },
-      },
-    ],
-    facets: ["F02", "F03", "F09", "F21", "F23", "F24", "F26"],
-  },
-  career: {
-    profile: [0.58, 0.85, 0.46, 0.8, 0.52, 0.87],
-    parameters: [
-      {
-        key: "CAREER_PIVOT_RISK",
-        value: "0.243771",
-        note: {
-          zh: "评估路径切换时的认知摩擦。",
-          en: "Evaluates cognitive drag during path transition.",
-        },
-      },
-      {
-        key: "ROLE_FIT_VECTOR",
-        value: "0.764118",
-        note: {
-          zh: "输出岗位拟合与推进强度匹配度。",
-          en: "Outputs role fit against execution intensity.",
-        },
-      },
-      {
-        key: "DECISION_PACE",
-        value: "0.691352",
-        note: {
-          zh: "捕捉路径重估时的节奏阈值。",
-          en: "Captures the cadence threshold for path re-evaluation.",
-        },
-      },
-    ],
-    facets: ["F06", "F07", "F09", "F16", "F18", "F26", "F27", "F29"],
-  },
-  risk: {
-    profile: [0.61, 0.44, 0.87, 0.53, 0.47, 0.63],
-    parameters: [
-      {
-        key: "RISK_LOAD",
-        value: "0.392604",
-        note: {
-          zh: "追踪压力负荷与恢复阈值偏移。",
-          en: "Tracks stress load against recovery threshold drift.",
-        },
-      },
-      {
-        key: "RECOVERY_WINDOW",
-        value: "0.582447",
-        note: {
-          zh: "读取恢复窗口与支持需求。",
-          en: "Reads the recovery window and support demand.",
-        },
-      },
-      {
-        key: "ALERT_DELTA",
-        value: "0.214833",
-        note: {
-          zh: "提示当前风险上升的幅度。",
-          en: "Signals the magnitude of rising operational risk.",
-        },
-      },
-    ],
-    facets: ["F01", "F05", "F08", "F11", "F12", "F14", "F17", "F30"],
-  },
-} as const satisfies Record<
-  ScenarioKey,
-  {
-    profile: number[];
-    parameters: Array<{
-      key: string;
-      value: string;
-      note: { zh: string; en: string };
-    }>;
-    facets: string[];
-  }
->;
+const TELEMETRY_PROFILE = [0.76, 0.71, 0.52, 0.66, 0.58, 0.73];
+const TICKER_METRICS: TickerMetric[] = [
+  { key: "COMPATIBILITY_INDEX", value: "0.824219" },
+  { key: "TRUST_DELTA", value: "0.612458" },
+  { key: "COORDINATION_DRAG", value: "0.183441" },
+  { key: "CAREER_VECTOR", value: "0.764118" },
+  { key: "RISK_LOAD", value: "0.392604" },
+];
 
 function formatLocalePercentile(value: number, locale: "zh" | "en") {
   return locale === "zh" ? `第 ${value.toFixed(1)} 百分位` : `${value.toFixed(1)} percentile`;
@@ -737,7 +623,6 @@ function FacetConstellation({
 
 export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisualProps) {
   const copy = COPY[localeLabel];
-  const [selectedScenario, setSelectedScenario] = useState<ScenarioKey>("compatibility");
   const [hoveredFacetId, setHoveredFacetId] = useState<string | null>(null);
   const [tick, setTick] = useState(0);
 
@@ -749,8 +634,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
     return () => window.clearInterval(timer);
   }, []);
 
-  const scenario = SCENARIOS[selectedScenario];
-  const cycleFacetId = scenario.facets[tick % scenario.facets.length] ?? null;
+  const cycleFacetId = FACET_DEFINITIONS[tick % FACET_DEFINITIONS.length]?.id ?? null;
   const activeFacetId = hoveredFacetId ?? cycleFacetId;
 
   const activeFacet = useMemo(
@@ -760,32 +644,26 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
 
   const activeZScore = Z_SCORE_SERIES[tick % Z_SCORE_SERIES.length] ?? Z_SCORE_SERIES[0];
   const percentile = percentileFromZ(activeZScore);
+  const tickerLog = TICKER_METRICS.map(({ key, value }) => `${key}: ${value}`).join(" // ");
 
   const groupedFacets = useMemo(
-    () =>
-      Array.from({ length: 6 }, (_, groupIndex) => {
-        const items = FACET_DEFINITIONS.slice(groupIndex * 5, groupIndex * 5 + 5);
-        const groupReading = items.reduce((sum, item) => sum + item.reading, 0) / items.length;
-        return {
-          id: items[0]?.range ?? `F${groupIndex + 1}`,
-          items,
-          reading: groupReading,
-        };
-      }),
+    () => Array.from({ length: 3 }, (_, columnIndex) => FACET_DEFINITIONS.slice(columnIndex * 10, columnIndex * 10 + 10)),
     [],
   );
 
-  const polygonPoints = scenario.profile
+  const polygonPoints = TELEMETRY_PROFILE
     .map((value, axis) => {
       const point = axisPoint(axis, value);
       return `${point.x},${point.y}`;
     })
     .join(" ");
 
-  const highlightedFacetIds = new Set(scenario.facets);
+  const highlightedFacetIds = new Set(
+    FACET_DEFINITIONS.filter((facet) => facet.reading >= 0.6).map((facet) => facet.id),
+  );
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-[54rem]", className)}>
+    <div className={cn("relative mx-auto w-full max-w-[58rem]", className)}>
       <div role="img" aria-label={copy.ariaLabel} className="fm-home-engine-panel">
         <div aria-hidden className="fm-home-engine-grid" />
         <div aria-hidden className="fm-home-engine-noise" />
@@ -817,7 +695,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
 
               <div className="fm-home-engine-matrix-body">
                 <div className="fm-home-engine-ledger">
-                  <div className="fm-home-engine-probe-panel">
+                  <div className="fm-home-engine-probe-panel fm-home-engine-probe-strip">
                     <div className="fm-home-engine-probe-row">
                       <span className="fm-home-engine-meta-label">{copy.matrixProbeTarget}</span>
                       <span className="fm-home-engine-probe-data">{activeFacet.label[localeLabel]}</span>
@@ -833,30 +711,37 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                         {activeFacet.z.toFixed(6)}
                       </span>
                     </div>
+                    <div className="fm-home-engine-probe-row">
+                      <span className="fm-home-engine-meta-label">{copy.matrixProbeReading}</span>
+                      <span className="fm-home-engine-probe-data">{formatNodeReading(activeFacet.reading)}</span>
+                    </div>
                   </div>
 
-                  <div className="fm-home-engine-ledger-list">
-                    {groupedFacets.map((group, index) => (
-                      <div
-                        key={group.id}
-                        className={cn(
-                          "fm-home-engine-ledger-row",
-                          group.items.some((item) => item.id === activeFacet.id) && "is-active",
-                        )}
-                      >
-                        <div className="fm-home-engine-ledger-range">
-                          <span>{group.id}</span>
-                          <span>{group.items.map((item) => item.id).join(" ")}</span>
-                        </div>
-                        <SignalDots
-                          value={group.reading}
-                          segments={10}
-                          activeIndex={group.items.some((item) => item.id === activeFacet.id) ? index : -1}
-                        />
-                        <div className="fm-home-engine-ledger-reading">
-                          <span>{copy.matrixStreamLabel}</span>
-                          <span>{formatNodeReading(group.reading)}</span>
-                        </div>
+                  <div className="fm-home-engine-node-grid">
+                    {groupedFacets.map((column, columnIndex) => (
+                      <div key={`column-${columnIndex}`} className="fm-home-engine-node-column">
+                        {column.map((facet, facetIndex) => (
+                          <div
+                            key={facet.id}
+                            className={cn("fm-home-engine-node-entry", activeFacet.id === facet.id && "is-active")}
+                            onMouseEnter={() => setHoveredFacetId(facet.id)}
+                            onMouseLeave={() => setHoveredFacetId(null)}
+                          >
+                            <div className="fm-home-engine-node-entry-head">
+                              <span className="fm-home-engine-node-entry-id">{facet.id}</span>
+                              <span className="fm-home-engine-node-entry-hex">{facet.hex}</span>
+                            </div>
+                            <SignalDots
+                              value={facet.reading}
+                              segments={6}
+                              activeIndex={activeFacet.id === facet.id ? Math.min(5, facetIndex % 6) : -1}
+                            />
+                            <div className="fm-home-engine-ledger-reading">
+                              <span>{copy.matrixStreamLabel}</span>
+                              <span>{formatNodeReading(facet.reading)}</span>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     ))}
                   </div>
@@ -915,77 +800,12 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                 <NormCurve zScore={activeZScore} />
               </div>
             </section>
-
-            <section className="fm-home-engine-module fm-home-engine-module-scenario">
-              <div className="fm-home-engine-module-head">
-                <div>
-                  <p className="fm-home-engine-label m-0">{copy.modules.scenario}</p>
-                  <p className="fm-home-engine-note m-0 mt-2">{copy.notes.scenario}</p>
-                </div>
-              </div>
-
-              <div className="fm-home-engine-tabs" role="tablist" aria-label={copy.modules.scenario}>
-                {(Object.keys(SCENARIOS) as ScenarioKey[]).map((key) => (
-                  <button
-                    key={key}
-                    type="button"
-                    role="tab"
-                    aria-selected={selectedScenario === key}
-                    className={cn("fm-home-engine-tab", selectedScenario === key && "is-selected")}
-                    onClick={() => setSelectedScenario(key)}
-                  >
-                    {copy.scenarioTabs[key]}
-                  </button>
-                ))}
-              </div>
-
-              <div className="fm-home-engine-scenario-grid">
-                <div className="fm-home-engine-parameter-grid">
-                  {scenario.parameters.map((parameter) => (
-                    <div key={parameter.key} className="fm-home-engine-parameter-row">
-                      <div className="fm-home-engine-parameter-head">
-                        <span className="fm-home-engine-meta-label">{copy.parameterLabel}</span>
-                        <span className="fm-home-engine-meta-label">{copy.coefficientLabel}</span>
-                      </div>
-                      <div className="fm-home-engine-parameter-body">
-                        <p className="fm-home-engine-parameter-key m-0">{parameter.key}</p>
-                        <p className="fm-home-engine-parameter-value m-0">{parameter.value}</p>
-                      </div>
-                      <p className="fm-home-engine-parameter-note m-0">{parameter.note[localeLabel]}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="fm-home-engine-mapped-facets">
-                  <p className="fm-home-engine-meta-label m-0">{copy.mappedFacetLabel}</p>
-                  <div className="fm-home-engine-mapped-facets-list">
-                    {scenario.facets.map((facetId) => {
-                      const facet = FACET_DEFINITIONS.find((item) => item.id === facetId);
-                      if (!facet) return null;
-
-                      return (
-                        <button
-                          key={facet.id}
-                          type="button"
-                          className={cn("fm-home-engine-mapped-facet", activeFacet.id === facet.id && "is-active")}
-                          onMouseEnter={() => setHoveredFacetId(facet.id)}
-                          onMouseLeave={() => setHoveredFacetId(null)}
-                        >
-                          <span>{facet.id}</span>
-                          <span>{facet.label[localeLabel]}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            </section>
           </div>
 
           <div className="fm-home-engine-footer" aria-hidden>
             <div className="fm-home-engine-log-track">
-              <span>{copy.footerLog}</span>
-              <span>{copy.footerLog}</span>
+              <span>{tickerLog}</span>
+              <span>{tickerLog}</span>
             </div>
           </div>
         </div>

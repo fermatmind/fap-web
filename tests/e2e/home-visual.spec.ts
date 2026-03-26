@@ -36,7 +36,8 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
 
   await expect(page.getByRole("heading", { name: "Decision Entry Matrix" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Start calibration" })).toHaveCount(0);
-  await expect(page.getByText("Three protocol pillars for decision-grade self-knowledge.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "The Architect Protocols" })).toBeVisible();
+  await expect(page.getByText("Precision. Sovereignty. Evidence.")).toBeVisible();
   await expect(page.getByText("Scenario Validation")).toHaveCount(2);
 
   const highlightedSection = page.getByTestId("home-highlighted-tests-section");
