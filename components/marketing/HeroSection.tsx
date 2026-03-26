@@ -10,7 +10,8 @@ const HERO_COPY = {
   en: {
     eyebrowPrimary: "Evidence-Informed Measurement",
     eyebrowSecondary: "循证测评体系",
-    headlineLines: ["See the Micro.", "Lead the Macro.", "Bring self-knowledge into decision."],
+    headlinePrimaryLines: ["See the Micro.", "Lead the Macro."],
+    headlineSecondary: "Bring self-knowledge into decision.",
     leadPrimary: "A decision-grade self-knowledge engine for high-growth individuals.",
     leadSecondary:
       "Built on a 30-facet matrix, 100,000+ norm references, and scenario mapping that turns cognitive noise into interpretable, actionable, traceable judgment.",
@@ -21,8 +22,9 @@ const HERO_COPY = {
   zh: {
     eyebrowPrimary: "循证测评体系",
     eyebrowSecondary: "Evidence-Informed Measurement",
-    headlineLines: ["识微。见远。", "人生架构，", "始于度量"],
-    leadPrimary: "面向青年教育与就业决策的自我认知引擎。",
+    headlinePrimaryLines: ["识微。见远。"],
+    headlineSecondary: "让自我认知进入决策。",
+    leadPrimary: "面向高成长个体的决策级自我认知引擎。",
     leadSecondary:
       "围绕 30-Facet 分面矩阵、100,000+ 常模参照与场景映射，交付可解释、可执行、可复盘的判断依据。",
     primaryCta: "开始校准",
@@ -55,11 +57,14 @@ export function HeroSection({ locale }: { locale: Locale }) {
             </div>
 
             <h1 className="fm-home-hero-title m-0">
-              {copy.headlineLines.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
+              <span className="fm-home-hero-title-brand-stack">
+                {copy.headlinePrimaryLines.map((line) => (
+                  <span key={line} className="fm-home-hero-title-brand">
+                    {line}
+                  </span>
+                ))}
+              </span>
+              <span className="fm-home-hero-title-subline">{copy.headlineSecondary}</span>
             </h1>
           </div>
 
