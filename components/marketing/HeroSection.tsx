@@ -11,7 +11,7 @@ const HERO_COPY = {
     eyebrowPrimary: "Evidence-Informed Measurement",
     eyebrowSecondary: "循证测评体系",
     headlinePrimaryLines: ["See the Micro.", "Lead the Macro."],
-    headlineSecondary: "Bring self-knowledge into decision.",
+    headlineSecondary: "Life architecture begins with measurement.",
     leadPrimary: "A decision-grade self-knowledge engine for high-growth individuals.",
     leadSecondary:
       "Built on a 30-facet matrix, 100,000+ norm references, and scenario mapping that turns cognitive noise into interpretable, actionable, traceable judgment.",
@@ -23,7 +23,7 @@ const HERO_COPY = {
     eyebrowPrimary: "循证测评体系",
     eyebrowSecondary: "Evidence-Informed Measurement",
     headlinePrimaryLines: ["识微。见远。"],
-    headlineSecondary: "让自我认知进入决策。",
+    headlineSecondary: "人生架构，始于度量。",
     leadPrimary: "面向高成长个体的决策级自我认知引擎。",
     leadSecondary:
       "围绕 30-Facet 分面矩阵、100,000+ 常模参照与场景映射，交付可解释、可执行、可复盘的判断依据。",
