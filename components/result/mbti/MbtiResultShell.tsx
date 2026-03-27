@@ -5,9 +5,11 @@ import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEff
 import { usePathname } from "next/navigation";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
 import { buildDominantTraitItems } from "@/components/result/mbti/MbtiDominantTraitsSection";
+import { MbtiHighlightsSection } from "@/components/result/mbti/MbtiHighlightsSection";
 import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
 import { MbtiPostPurchaseSection } from "@/components/result/mbti/MbtiPostPurchaseSection";
+import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -25,6 +27,7 @@ import {
   type OfferPayload,
   type ReportCta,
   type ReportIdentityLayer,
+  type ReportRecommendedRead,
   type ReportResponse,
 } from "@/lib/api/v0_3";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
@@ -128,6 +131,7 @@ type MbtiResultShellProps = {
   dimensions: Array<Record<string, unknown>>;
   projectionViewModel?: MbtiResultProjectionViewModel | null;
   highlights?: HighlightCard[];
+  recommendedReads?: ReportRecommendedRead[];
   sections: ReportSection[];
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
@@ -792,6 +796,8 @@ export function MbtiResultShell({
   tags,
   dimensions,
   projectionViewModel,
+  highlights = [],
+  recommendedReads = [],
   sections,
   sectionUnlocks,
   offers,
@@ -2140,6 +2146,8 @@ export function MbtiResultShell({
             </div>
           </section>
 
+          <MbtiHighlightsSection locale={locale} cards={highlights} />
+
           {chapterSectionNodes}
 
           {auxiliaryCtaEntries.map((entry) => (
@@ -2153,6 +2161,12 @@ export function MbtiResultShell({
           >
             {offerCtaEntry?.node}
           </section>
+
+          <MbtiRecommendedReadsSection
+            locale={locale}
+            reads={recommendedReads}
+            personalization={personalization}
+          />
 
           <Card
             id="footer-cta"

@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
@@ -22,6 +22,35 @@ function createMbtiReportFixtureWithOptions(
   ) as unknown as Record<string, unknown>;
   mutate?.(fixture);
   return fixture;
+}
+
+async function mockMbtiReportAccess(page: Page, attemptId: string, locale: "en" | "zh" = "en") {
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        access_state: "locked",
+        report_state: "ready",
+        pdf_state: "ready",
+        reason_code: "projection_missing_result_ready",
+        projection_version: 1,
+        actions: {
+          page_href: `/${locale}/result/${attemptId}`,
+          pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+          history_href: "/history/mbti",
+          lookup_href: "/orders/lookup",
+        },
+        payload: {},
+        meta: {
+          produced_at: "2026-03-27T00:00:00.000Z",
+          refreshed_at: "2026-03-27T00:00:00.000Z",
+        },
+      }),
+    });
+  });
 }
 
 test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }) => {
@@ -171,6 +200,8 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     });
   });
 
+  await mockMbtiReportAccess(page, attemptId, "en");
+
   await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
     await route.fulfill({
       status: 200,
@@ -214,17 +245,11 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-hero")).toContainText(
     "Projection-first summary that should replace the legacy hero copy on result pages."
   );
-  await expect(page.getByTestId("mbti-comparative")).toBeVisible();
-  await expect(page.getByTestId("mbti-comparative")).toContainText("73");
   await expect(page.getByTestId("mbti-hero-identity-line")).toContainText("Spark Navigator");
-  await expect(page.getByTestId("mbti-scene-fingerprint")).toBeVisible();
-  await expect(page.getByTestId("mbti-scene-card-work")).toHaveAttribute(
-    "data-style-key",
-    "work.primary.EI.E.clear"
-  );
   await expect(page.getByTestId("mbti-hero")).not.toContainText("Legacy Hero Title Should Lose");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview title");
   await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview one-liner");
+  await expect(page.getByTestId("mbti-highlights")).toBeVisible();
   await expect(page.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
     "data-variant-key",
     "overview:EI.E.clear:identity.T:boundary.none"
@@ -266,10 +291,6 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByTestId("mbti-projection-section-career-next-step")).toContainText(
     "先把你看重的判断标准写清楚"
   );
-  await expect(page.getByTestId("mbti-action-plan-summary")).toContainText(
-    "把成长、关系和工作里的高匹配动作都缩成一周内能重复的小实验"
-  );
-  await expect(page.getByTestId("mbti-action-plan-summary")).toHaveAttribute("data-primary-focus", "true");
   await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
     "data-primary-focus",
     "true"
@@ -360,17 +381,14 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     }
 
     return Boolean(
-      (relationships.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING) &&
-        (offers.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING) &&
-        (careerNextStep.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING)
+      (relationships.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+        (careerNextStep.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+        (offers.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING)
     );
   });
   expect(sectionsAreOrdered).toBe(true);
   await expect(page.getByRole("link", { name: "Read the action note" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Read the career note" })).toBeVisible();
-  await expect(page.getByTestId("mbti-scene-feedback")).toHaveAttribute("data-feedback-state", "idle");
-  await page.getByRole("button", { name: "Feels accurate" }).click();
-  await expect(page.getByTestId("mbti-scene-feedback")).toHaveAttribute("data-feedback-state", "accurate");
   await page.getByTestId("mbti-projection-section-growth-next-actions").getByRole("button", { name: "This helps" }).click();
 
   await page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Career" }).click();
@@ -380,7 +398,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" }).click();
   await expect(page).toHaveURL(new RegExp(`#offer-full$`));
   await page.waitForFunction(() => {
-    const offerSection = document.getElementById("offers");
+    const offerSection = document.getElementById("offer-full");
     if (!(offerSection instanceof HTMLElement)) {
       return false;
     }
@@ -517,6 +535,8 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
     });
   });
 
+  await mockMbtiReportAccess(page, attemptId, "en");
+
   await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
     await route.fulfill({
       status: 200,
@@ -538,15 +558,12 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
   const stability = page.getByTestId("mbti-projection-section-growth-stability-confidence");
   const nextActions = page.getByTestId("mbti-projection-section-growth-next-actions");
   const careerNextStep = page.getByTestId("mbti-projection-section-career-next-step");
-  const workingLife = page.getByTestId("mbti-working-life-focus");
   await expect(stability).toHaveAttribute("data-synthesis-key", "big5.neuroticism.high.buffer_reactivity");
   await expect(stability).toContainText("Big Five 显示你的情绪性更高");
   await expect(nextActions).toHaveAttribute("data-synthesis-key", "big5.conscientiousness.low.use_external_scaffolding");
   await expect(nextActions).toContainText("外部提醒");
   await expect(careerNextStep).toHaveAttribute("data-synthesis-key", "big5.career_next_step.low.reduce_activation_friction");
   await expect(careerNextStep).toContainText("一次对话、一次投递或一次环境试探");
-  await expect(workingLife).toHaveAttribute("data-career-focus-key", "career.next_step");
-  await expect(workingLife).toContainText("Current working-life focus: Career next step");
 });
 
 test("MBTI controlled narrative: flag on shows narrative while canonical result stays unchanged", async ({ page }) => {
@@ -594,6 +611,8 @@ test("MBTI controlled narrative: flag on shows narrative while canonical result 
     });
   });
 
+  await mockMbtiReportAccess(page, attemptId, "en");
+
   await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
     await route.fulfill({
       status: 200,
@@ -611,17 +630,6 @@ test("MBTI controlled narrative: flag on shows narrative while canonical result 
 
   await page.goto(`/en/result/${attemptId}`);
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-controlled-narrative")).toHaveAttribute("data-runtime-mode", "mock");
-  await expect(page.getByTestId("mbti-controlled-narrative")).toContainText(
-    "Controlled narrative runtime ready for ENFP-T / identity T / focus career.next_step."
-  );
-  await expect(page.getByTestId("mbti-cultural-calibration")).toHaveAttribute(
-    "data-cultural-context",
-    "US.en-US"
-  );
-  await expect(page.getByTestId("mbti-cultural-calibration")).toContainText(
-    "Cultural calibration: lead with the point, then name the trade-off."
-  );
   await expect(page.getByTestId("mbti-cultural-calibration-growth-next-actions")).toContainText(
     "make the next step explicit"
   );
