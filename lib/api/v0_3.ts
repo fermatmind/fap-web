@@ -180,6 +180,7 @@ export type OfferPayload = {
   sku?: string;
   label?: string;
   title?: string;
+  benefit_code?: string;
   currency?: string;
   amount_cents?: number;
   price_cents?: number;
@@ -1687,6 +1688,37 @@ export type MeAttemptItem = {
   };
   result_summary?: {
     domains_mean?: Record<string, number>;
+  };
+  top_facets_summary_v1?: {
+    items?: Array<{
+      key?: string;
+      label?: string;
+      domain?: string;
+      percentile?: number | null;
+      bucket?: string | null;
+      kind?: string | null;
+      [key: string]: unknown;
+    }>;
+    [key: string]: unknown;
+  };
+  quality_summary?: {
+    level?: string;
+    grade?: string | null;
+    [key: string]: unknown;
+  };
+  norms_summary?: {
+    status?: string;
+    norms_version?: string | null;
+    [key: string]: unknown;
+  };
+  offer_summary?: {
+    primary_offer?: OfferPayload | null;
+    [key: string]: unknown;
+  };
+  share_summary?: {
+    enabled?: boolean;
+    share_kind?: string;
+    [key: string]: unknown;
   };
   [key: string]: unknown;
 };

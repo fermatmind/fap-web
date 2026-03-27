@@ -288,6 +288,41 @@ describe("BIG5 contract schemas", () => {
               N: 50,
             },
           },
+          top_facets_summary_v1: {
+            items: [
+              {
+                key: "O5",
+                label: "O5 Intellect",
+                domain: "O",
+                percentile: 88,
+                bucket: "high",
+                kind: "strength",
+              },
+            ],
+          },
+          quality_summary: {
+            level: "A",
+            grade: "A",
+          },
+          norms_summary: {
+            status: "CALIBRATED",
+            norms_version: "2026Q1",
+          },
+          offer_summary: {
+            primary_offer: {
+              sku: "SKU_BIG5_FULL_REPORT_299",
+              title: "BIG5 Full Report",
+              formatted_price: "¥2.99",
+              price_cents: 299,
+              currency: "CNY",
+              benefit_code: "BIG5_FULL_REPORT",
+              modules_included: ["big5_full", "big5_action_plan"],
+            },
+          },
+          share_summary: {
+            enabled: true,
+            share_kind: "big5_result",
+          },
         },
       ],
       history_compare: {

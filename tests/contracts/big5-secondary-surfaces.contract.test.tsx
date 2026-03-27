@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import Big5HistoryClient from "@/app/(localized)/[locale]/(app)/history/big5/Big5HistoryClient";
 import Big5CompareClient from "@/app/(localized)/[locale]/(app)/history/big5/compare/Big5CompareClient";
@@ -11,6 +11,7 @@ const hoisted = vi.hoisted(() => ({
   fetchBig5History: vi.fn(),
   fetchBig5Report: vi.fn(),
   fetchBig5ReportAccess: vi.fn(),
+  createAttemptShare: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -29,6 +30,15 @@ vi.mock("@/lib/big5/api", () => ({
   fetchBig5ReportAccess: hoisted.fetchBig5ReportAccess,
 }));
 
+vi.mock("@/lib/api/v0_3", async () => {
+  const actual = await vi.importActual<typeof import("@/lib/api/v0_3")>("@/lib/api/v0_3");
+
+  return {
+    ...actual,
+    createAttemptShare: hoisted.createAttemptShare,
+  };
+});
+
 describe("BIG5 secondary surfaces contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -36,7 +46,19 @@ describe("BIG5 secondary surfaces contract", () => {
     hoisted.search = "";
   });
 
-  it("keeps BIG5 history lightweight while making each row access-aware without extra access requests", async () => {
+  it("keeps BIG5 history lightweight while making each row a result-center card without extra access requests", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(window.navigator, "clipboard", {
+      configurable: true,
+      value: {
+        writeText,
+      },
+    });
+
+    hoisted.createAttemptShare.mockResolvedValue({
+      ok: true,
+      share_url: "/en/share/share-big5",
+    });
     hoisted.fetchBig5History.mockResolvedValue({
       ok: true,
       items: [
@@ -51,6 +73,27 @@ describe("BIG5 secondary surfaces contract", () => {
               E: 52,
               N: 41,
             },
+          },
+          top_facets_summary_v1: {
+            items: [
+              { key: "O5", label: "O5 Intellect", domain: "O", percentile: 88, bucket: "high", kind: "strength" },
+              { key: "A3", label: "A3 Altruism", domain: "A", percentile: 74, bucket: "high", kind: "strength" },
+            ],
+          },
+          quality_summary: {
+            level: "A",
+            grade: "A",
+          },
+          norms_summary: {
+            status: "CALIBRATED",
+            norms_version: "2026Q1",
+          },
+          offer_summary: {
+            primary_offer: null,
+          },
+          share_summary: {
+            enabled: true,
+            share_kind: "big5_result",
           },
           access_summary: {
             access_state: "ready",
@@ -74,6 +117,34 @@ describe("BIG5 secondary surfaces contract", () => {
               A: 61,
             },
           },
+          top_facets_summary_v1: {
+            items: [
+              { key: "N1", label: "N1 Anxiety", domain: "N", percentile: 79, bucket: "high", kind: "strength" },
+            ],
+          },
+          quality_summary: {
+            level: "B",
+            grade: "B",
+          },
+          norms_summary: {
+            status: "CALIBRATED",
+            norms_version: "2025Q4",
+          },
+          offer_summary: {
+            primary_offer: {
+              sku: "SKU_BIG5_FULL_REPORT_299",
+              title: "BIG5 Full Report",
+              formatted_price: "¥2.99",
+              price_cents: 299,
+              currency: "CNY",
+              benefit_code: "BIG5_FULL_REPORT",
+              modules_included: ["big5_full", "big5_action_plan"],
+            },
+          },
+          share_summary: {
+            enabled: true,
+            share_kind: "big5_result",
+          },
           access_summary: {
             access_state: "locked",
             report_state: "ready",
@@ -96,6 +167,24 @@ describe("BIG5 secondary surfaces contract", () => {
               C: 63,
             },
           },
+          top_facets_summary_v1: {
+            items: [{ key: "E2", label: "E2 Gregariousness", domain: "E", percentile: 36, bucket: "low" }],
+          },
+          quality_summary: {
+            level: "A",
+            grade: "A",
+          },
+          norms_summary: {
+            status: "CALIBRATED",
+            norms_version: "2026Q1",
+          },
+          offer_summary: {
+            primary_offer: null,
+          },
+          share_summary: {
+            enabled: false,
+            share_kind: "big5_result",
+          },
           access_summary: {
             access_state: "locked",
             report_state: "pending",
@@ -115,6 +204,21 @@ describe("BIG5 secondary surfaces contract", () => {
               A: 51,
               O: 48,
             },
+          },
+          quality_summary: {
+            level: "C",
+            grade: "C",
+          },
+          norms_summary: {
+            status: "MISSING",
+            norms_version: null,
+          },
+          offer_summary: {
+            primary_offer: null,
+          },
+          share_summary: {
+            enabled: false,
+            share_kind: "big5_result",
           },
           access_summary: {
             access_state: "ready",
@@ -145,25 +249,49 @@ describe("BIG5 secondary surfaces contract", () => {
     expect(await screen.findByText("Lead domains: Openness, Agreeableness, Conscientiousness")).toBeInTheDocument();
     const latestRow = screen.getByTestId("big5-history-row-attempt-latest");
     expect(within(latestRow).getByText("Formal result ready")).toBeInTheDocument();
+    expect(within(latestRow).getByTestId("big5-history-row-quality-attempt-latest")).toHaveTextContent("Quality · A");
+    expect(within(latestRow).getByTestId("big5-history-row-norms-attempt-latest")).toHaveTextContent("Norms · CALIBRATED · 2026Q1");
+    expect(within(latestRow).getByTestId("big5-history-row-facet-attempt-latest-O5")).toHaveTextContent("O5 Intellect · P88");
     expect(within(latestRow).getByRole("link", { name: "Open formal result" })).toHaveAttribute("href", "/en/result/attempt-latest");
+    expect(within(latestRow).getByRole("link", { name: "Compare latest two" })).toHaveAttribute(
+      "href",
+      "/en/history/big5/compare?current=attempt-latest&previous=attempt-previous"
+    );
     expect(within(latestRow).getByRole("button", { name: "Download PDF" })).toBeEnabled();
+    expect(hoisted.createAttemptShare).not.toHaveBeenCalled();
 
     const lockedRow = screen.getByTestId("big5-history-row-attempt-previous");
     expect(within(lockedRow).getByText("Preview access only")).toBeInTheDocument();
     expect(within(lockedRow).getByRole("link", { name: "Open result preview" })).toHaveAttribute("href", "/en/result/attempt-previous");
     expect(within(lockedRow).getByRole("button", { name: "Unlock to download PDF" })).toBeDisabled();
+    expect(within(lockedRow).getByTestId("big5-history-row-offer-attempt-previous")).toHaveTextContent("BIG5 Full Report");
+    expect(within(lockedRow).getByTestId("big5-history-row-offer-attempt-previous")).toHaveTextContent("¥2.99");
 
     const processingRow = screen.getByTestId("big5-history-row-attempt-processing");
     expect(within(processingRow).getByText("Result still processing")).toBeInTheDocument();
     expect(within(processingRow).getByRole("link", { name: "Check result status" })).toHaveAttribute("href", "/en/result/attempt-processing");
     expect(within(processingRow).queryByRole("button", { name: "Download PDF" })).not.toBeInTheDocument();
+    expect(within(processingRow).queryByRole("button", { name: "Share result" })).not.toBeInTheDocument();
 
     const unavailableRow = screen.getByTestId("big5-history-row-attempt-unavailable");
     expect(within(unavailableRow).getByText("Result unavailable")).toBeInTheDocument();
     expect(within(unavailableRow).getByText("Formal result unavailable")).toBeInTheDocument();
     expect(within(unavailableRow).queryByRole("link", { name: "Open formal result" })).not.toBeInTheDocument();
+    expect(within(unavailableRow).queryByRole("button", { name: "Share result" })).not.toBeInTheDocument();
 
-    expect(screen.getByRole("link", { name: "Compare latest two" })).toHaveAttribute(
+    fireEvent.click(within(latestRow).getByRole("button", { name: "Share result" }));
+    await waitFor(() => {
+      expect(hoisted.createAttemptShare).toHaveBeenCalledWith({
+        attemptId: "attempt-latest",
+        locale: "en",
+      });
+    });
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledWith(expect.stringContaining("/en/share/share-big5"));
+    });
+    expect(within(latestRow).getByRole("button", { name: "Link copied" })).toBeInTheDocument();
+
+    expect(screen.getAllByRole("link", { name: "Compare latest two" })[0]).toHaveAttribute(
       "href",
       "/en/history/big5/compare?current=attempt-latest&previous=attempt-previous"
     );
