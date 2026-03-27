@@ -606,7 +606,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
   );
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-[58rem]", className)}>
+    <div className={cn("fm-home-engine-wrap relative mx-auto w-full", className)}>
       <div role="img" aria-label={copy.ariaLabel} className="fm-home-engine-panel">
         <div aria-hidden className="fm-home-engine-grid" />
         <div aria-hidden className="fm-home-engine-noise" />
