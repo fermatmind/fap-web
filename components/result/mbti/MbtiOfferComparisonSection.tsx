@@ -113,6 +113,27 @@ export function MbtiOfferComparisonSection({
       detail: locale === "zh" ? "补齐边界解释、场景映射与行动坐标。" : "Adds boundary interpretation, scenario mapping, and action coordinates.",
     },
   ];
+  const quickFacts = [
+    {
+      label: locale === "zh" ? "支付方式" : "Payment model",
+      value: locale === "zh" ? "一次支付" : "One-time unlock",
+    },
+    {
+      label: locale === "zh" ? "覆盖模块" : "Coverage",
+      value:
+        primaryOffer.modules.length > 0
+          ? locale === "zh"
+            ? `${primaryOffer.modules.length} 个模块`
+            : `${primaryOffer.modules.length} modules`
+          : locale === "zh"
+            ? "完整报告层"
+            : "Full report layer",
+    },
+    {
+      label: locale === "zh" ? "解锁方式" : "Unlock path",
+      value: locale === "zh" ? "统一在本区收口" : "Single unlock surface",
+    },
+  ];
 
   useEffect(() => {
     if (primaryOffer === null || impressionTrackedRef.current) return;
@@ -184,6 +205,20 @@ export function MbtiOfferComparisonSection({
               {ctaTitle}
             </h2>
             <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{ctaSubtitle}</p>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-3">
+            {quickFacts.map((fact) => (
+              <div
+                key={fact.label}
+                className="rounded-[20px] border border-slate-200 bg-white/92 px-4 py-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]"
+              >
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  {fact.label}
+                </p>
+                <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{fact.value}</p>
+              </div>
+            ))}
           </div>
 
           <div className="grid gap-3 md:grid-cols-2">

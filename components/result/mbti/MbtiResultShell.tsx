@@ -235,6 +235,26 @@ function resolveVisibleModuleLabels(modulesAllowed: string[], locale: Locale): s
   );
 }
 
+function resolveShareCtaLabel(
+  locale: Locale,
+  shareStatus: "idle" | "copied" | "failed",
+  isSharing: boolean
+) {
+  if (isSharing) {
+    return locale === "zh" ? "正在生成分享链接..." : "Preparing share link...";
+  }
+
+  if (shareStatus === "copied") {
+    return locale === "zh" ? "已复制分享链接" : "Share link copied";
+  }
+
+  if (shareStatus === "failed") {
+    return locale === "zh" ? "重试分享" : "Retry share";
+  }
+
+  return locale === "zh" ? "分享结果" : "Share result";
+}
+
 function resolveDimensionStatLabel(code: string, locale: Locale): string {
   const labels: Record<string, { zh: string; en: string }> = {
     EI: { zh: "能量方向", en: "Energy direction" },
@@ -842,6 +862,19 @@ export function MbtiResultShell({
   const canDownloadPdf = accessProjection
     ? canDownloadReportPdf(accessProjection) && Boolean(pdfHref || accessProjection.attemptId)
     : accessHub?.pdfAccess.canDownloadPdf === true && Boolean(pdfHref || accessHub?.reportAccess.attemptId);
+  const modulesAllowed =
+    accessProjection?.modulesAllowed && accessProjection.modulesAllowed.length > 0
+      ? accessProjection.modulesAllowed
+      : Array.isArray(reportData.modules_allowed)
+        ? reportData.modules_allowed
+        : [];
+  const modulesPreview =
+    accessProjection?.modulesPreview && accessProjection.modulesPreview.length > 0
+      ? accessProjection.modulesPreview
+      : Array.isArray(reportData.modules_preview)
+        ? reportData.modules_preview
+        : [];
+  const nonCoreAllowedModules = normalizeStringArray(modulesAllowed).filter((moduleCode) => moduleCode.toLowerCase() !== "core_free");
   const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
   const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
   const publicSubtitle = normalizeText(projectionViewModel?.subtitle, projectionViewModel?.tagline, headline.supportingLine);
@@ -860,13 +893,13 @@ export function MbtiResultShell({
       ? resolveProjectionDimensions(projectionViewModel.dimensions)
       : dimensions;
   const visibleModuleLabels = resolveVisibleModuleLabels(
-    accessProjection?.modulesAllowed && accessProjection.modulesAllowed.length > 0
-      ? accessProjection.modulesAllowed
-      : Array.isArray(reportData.modules_allowed)
-        ? reportData.modules_allowed
-        : [],
+    nonCoreAllowedModules.length > 0 ? nonCoreAllowedModules : modulesAllowed.length > 0 ? modulesAllowed : modulesPreview,
     locale
   );
+  const previewModuleLabels =
+    nonCoreAllowedModules.length === 0
+      ? resolveVisibleModuleLabels(modulesPreview, locale)
+      : [];
   const careerSummarySection =
     projectionViewModel?.sections.find((section) => section.key === "career.summary") ?? null;
   const careerNextStepSection =
@@ -914,6 +947,7 @@ export function MbtiResultShell({
     (projectionViewModel?.sections ?? []).map((section) => [section.key, section] as const)
   );
   const shareMessage = resolveShareMessages(locale, shareStatus);
+  const shareCtaLabel = resolveShareCtaLabel(locale, shareStatus, isSharing);
   const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
   const variantKeysSummary = summarizeMbtiVariantKeys(personalization);
   const sceneFingerprintSummary = summarizeMbtiSceneFingerprint(personalization);
@@ -1804,6 +1838,12 @@ export function MbtiResultShell({
       value: visibleModuleLabels[0] ?? (locale === "zh" ? "结果摘要" : "Result summary"),
       detail: visibleModuleLabels.length > 1
         ? visibleModuleLabels.slice(1, 3).join(" · ")
+        : previewModuleLabels.length > 1
+          ? previewModuleLabels.slice(1, 3).join(" · ")
+          : previewModuleLabels.length > 0
+            ? locale === "zh"
+              ? "当前预览会按模块逐步开放，完整报告再补齐完整判断依据与行动坐标。"
+              : "The preview opens by module first, while the full report fills in the complete decision basis and action coordinates."
         : locale === "zh"
           ? "完整报告补齐更高分辨率的场景与行动坐标"
           : "The full report adds higher-resolution scenario and action coordinates",
@@ -1892,6 +1932,8 @@ export function MbtiResultShell({
         primaryCtaLabel={terminalPrimaryCtaLabel}
         primaryCtaHref={resolvedTerminalPrimaryCtaHref}
         primaryCtaIsInternal={isUnlockedPostPurchase}
+        shareCtaLabel={shareCtaLabel}
+        shareDisabled={isSharing}
         onShare={handleShare}
       />
 
@@ -2191,8 +2233,8 @@ export function MbtiResultShell({
                   {shareMessage ? <p className="m-0 text-sm text-emerald-200">{shareMessage}</p> : null}
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <Button type="button" variant="secondary" onClick={() => void handleShare()}>
-                    {locale === "zh" ? "分享结果" : "Share result"}
+                  <Button type="button" variant="secondary" disabled={isSharing} onClick={() => void handleShare()}>
+                    {shareCtaLabel}
                   </Button>
                   <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
                     {locale === "zh" ? "重新测试" : "Retake test"}
@@ -2225,13 +2267,8 @@ export function MbtiResultShell({
           locked={projectionLocked}
           accessLevel={accessLevel}
           variant={accessVariant}
-          modulesAllowed={
-            accessProjection?.modulesAllowed && accessProjection.modulesAllowed.length > 0
-              ? accessProjection.modulesAllowed
-              : Array.isArray(reportData.modules_allowed)
-                ? reportData.modules_allowed
-                : []
-          }
+          modulesAllowed={modulesAllowed}
+          modulesPreview={modulesPreview}
           historyHref={historyHref}
           pdfHref={pdfHref}
           pdfReady={canDownloadPdf}
@@ -2242,6 +2279,9 @@ export function MbtiResultShell({
           primaryCtaLabel={terminalPrimaryCtaLabel}
           primaryCtaHref={resolvedTerminalPrimaryCtaHref}
           primaryCtaIsInternal={isUnlockedPostPurchase}
+          shareCtaLabel={shareCtaLabel}
+          shareStatusMessage={shareMessage}
+          shareDisabled={isSharing}
           onShare={handleShare}
         />
       </div>

@@ -300,8 +300,9 @@ describe("RichResultReport", () => {
     expect(screen.getAllByText("完整人格报告").length).toBeGreaterThanOrEqual(1);
     expect(within(screen.getByTestId("mbti-offer-comparison")).queryByText("¥0.99")).not.toBeInTheDocument();
     expect(screen.getAllByText("E / I").length).toBeGreaterThan(0);
-    expect(screen.getByRole("button", { name: "分享结果" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "重新测试" })).toHaveAttribute(
+    const footerActions = screen.getByTestId("mbti-footer-cta");
+    expect(within(footerActions).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
+    expect(within(footerActions).getByRole("link", { name: "重新测试" })).toHaveAttribute(
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types/take"
     );

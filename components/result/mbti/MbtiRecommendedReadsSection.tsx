@@ -357,15 +357,47 @@ export function MbtiRecommendedReadsSection({
       data-adaptive-fingerprint={adaptiveFingerprint || undefined}
       data-selection-rewrite-reason={adaptiveRewriteReason || undefined}
       data-next-best-action-key={nextBestActionKey || undefined}
-      className="space-y-4 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
+      className="space-y-5 rounded-[28px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:p-6"
     >
-      <div className="space-y-2">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "延伸阅读" : "Recommended reads"}
-        </p>
-        <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">
-          {locale === "zh" ? "继续往下看，但不打断当前阅读主线" : "Keep reading without breaking the current report flow"}
-        </h2>
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div className="space-y-2">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+            {locale === "zh" ? "延伸阅读" : "Recommended reads"}
+          </p>
+          <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">
+            {locale === "zh" ? "继续往下看，但不打断当前阅读主线" : "Keep reading without breaking the current report flow"}
+          </h2>
+          <p className="m-0 text-sm leading-7 text-slate-600">
+            {locale === "zh"
+              ? "这一区域放在主解锁区之后，只负责补充延伸阅读和继续探索，不打断当前结果页的主解锁路径。"
+              : "This section stays after the primary unlock area so it can extend the reading without interrupting the main upgrade path."}
+          </p>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50/80 px-4 py-3">
+            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+              {locale === "zh" ? "当前推荐数" : "Current picks"}
+            </p>
+            <p className="m-0 mt-2 text-sm font-semibold text-slate-900">
+              {locale === "zh" ? `${sortedReadEntries.length} 条延伸阅读` : `${sortedReadEntries.length} reading paths`}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3">
+            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {locale === "zh" ? "推荐方式" : "Selection mode"}
+            </p>
+            <p className="m-0 mt-2 text-sm font-semibold text-slate-900">
+              {readingFocusKey
+                ? locale === "zh"
+                  ? "已按当前阅读重点排序"
+                  : "Sorted around the current reading focus"
+                : locale === "zh"
+                  ? "按当前结果上下文排序"
+                  : "Sorted from the current result context"}
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
@@ -391,7 +423,7 @@ export function MbtiRecommendedReadsSection({
                   ? "true"
                   : undefined
               }
-              className={`border-slate-200 bg-white/95 shadow-[0_14px_34px_rgba(15,23,42,0.06)] ${
+              className={`flex h-full flex-col border-slate-200 bg-white/95 shadow-[0_14px_34px_rgba(15,23,42,0.06)] ${
                 isReadingFocus ? "ring-1 ring-emerald-100 border-emerald-300" : ""
               }`}
             >
@@ -408,7 +440,7 @@ export function MbtiRecommendedReadsSection({
                   </p>
                 ) : null}
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="flex h-full flex-col space-y-4">
                 {read.desc ? <p className="m-0 text-sm leading-7 text-slate-600">{read.desc}</p> : null}
                 {tags.length > 0 ? (
                   <div className="flex flex-wrap gap-2">
@@ -424,7 +456,7 @@ export function MbtiRecommendedReadsSection({
                     href={resolvedHref}
                     target={isInternal ? undefined : "_blank"}
                     rel={isInternal ? undefined : "noreferrer"}
-                    className={buttonVariants({ variant: "outline" })}
+                    className={buttonVariants({ variant: "outline", className: "mt-auto" })}
                     onClick={() => {
                       trackEvent("ui_card_interaction", {
                         slug: "mbti-result-shell",

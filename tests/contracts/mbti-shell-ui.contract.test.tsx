@@ -75,12 +75,14 @@ describe("MBTI shell UI contract", () => {
   it("renders the locked current shell path without dormant modules", () => {
     render(<RichResultReport locale="zh" reportData={createLockedProjectionFixture()} />);
 
+    const stickyRail = screen.getByTestId("mbti-sticky-rail");
+
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-dimensions")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
+    expect(stickyRail).toBeInTheDocument();
     expect(screen.getByTestId("mbti-mobile-chrome")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-highlights")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
@@ -89,9 +91,12 @@ describe("MBTI shell UI contract", () => {
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
+    expect(within(stickyRail).getByText("职业映射")).toBeInTheDocument();
+    expect(within(stickyRail).getByText("关系映射")).toBeInTheDocument();
+    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
 
     expect(
-      within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
+      within(stickyRail).getByRole("link", { name: "解锁完整报告" })
     ).toHaveAttribute("href", "#offer-full");
   });
 
