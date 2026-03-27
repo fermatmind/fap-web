@@ -295,7 +295,7 @@ describe("MBTI checkout wiring contract", () => {
     expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
     expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
     expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
-    expect(within(careerChapter).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(within(careerChapter).getByRole("link", { name: "前往主解锁区" })).toHaveAttribute("href", "#offer-full");
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
       "/zh/career/recommendations/mbti/enfp-t?"
     );
@@ -310,7 +310,7 @@ describe("MBTI checkout wiring contract", () => {
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(mobileChrome).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(footer).getByRole("link", { name: "解锁完整报告" }));
-    fireEvent.click(within(careerChapter).getByRole("link", { name: "解锁完整报告" }));
+    fireEvent.click(within(careerChapter).getByRole("link", { name: "前往主解锁区" }));
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
   });

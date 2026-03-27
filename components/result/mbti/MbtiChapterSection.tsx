@@ -1403,6 +1403,11 @@ export function MbtiChapterSection({
                     ? "关系边界"
                     : "Relationship boundaries"}
           </span>
+          {isLocked ? (
+            <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-800">
+              {locale === "zh" ? "预览章节" : "Preview chapter"}
+            </span>
+          ) : null}
         </div>
         <div className="space-y-2">
           <h2 className="m-0 text-2xl font-semibold tracking-[-0.03em] text-[var(--fm-text)]">{copy.title[locale]}</h2>
@@ -1410,11 +1415,9 @@ export function MbtiChapterSection({
         </div>
       </header>
 
-      <div className="grid gap-4 xl:grid-cols-[minmax(0,1.18fr)_minmax(280px,0.82fr)] xl:items-start">
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)] xl:items-start">
         <div className="space-y-4">
           {renderChapterVisualSlot(chapterKey, locale, hasProjectionContent ? projectionSections : [])}
-
-          {traitsLeadEvidence}
 
           {isOverviewChapter && authoredOverview && (authoredOverview.title || authoredOverview.subtitle || authoredOverview.oneLiner) ? (
             <Card
@@ -1436,34 +1439,52 @@ export function MbtiChapterSection({
               </CardContent>
             </Card>
           ) : null}
+
+          {traitsLeadEvidence}
         </div>
 
-        <Card className="border-slate-200 bg-slate-950 text-white shadow-[0_20px_44px_rgba(15,23,42,0.18)]">
-          <CardHeader className="space-y-2 pb-3">
-            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-200">
-              {bridgeTitle}
+        <div className="space-y-4">
+          <Card className="border-slate-200 bg-slate-950 text-white shadow-[0_20px_44px_rgba(15,23,42,0.18)]">
+            <CardHeader className="space-y-2 pb-3">
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-200">
+                {bridgeTitle}
+              </p>
+              <CardTitle className="text-lg text-white">
+                {locale === "zh"
+                  ? "这一章的判读抓手"
+                  : "Reading handles for this chapter"}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="grid gap-3 md:grid-cols-2 xl:grid-cols-1">
+              {bridgeItems.map((item, index) => (
+                <div
+                  key={`${item.title}-${item.description}`}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 transition duration-200 motion-reduce:transition-none hover:border-white/20 hover:bg-white/[0.08]"
+                >
+                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                    {locale === "zh" ? `线索 ${index + 1}` : `Cue ${index + 1}`}
+                  </p>
+                  <p className="m-0 mt-2 text-sm font-semibold text-white">{item.title}</p>
+                  <p className="m-0 mt-2 text-sm leading-7 text-slate-300">{item.description}</p>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+          <div className="rounded-[24px] border border-slate-200 bg-slate-50/80 p-5">
+            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {locale === "zh" ? "正文边界" : "Body boundary"}
             </p>
-            <CardTitle className="text-lg text-white">
-              {locale === "zh"
-                ? "这一章的判读抓手"
-                : "Reading handles for this chapter"}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-3 md:grid-cols-2 xl:grid-cols-1">
-            {bridgeItems.map((item, index) => (
-              <div
-                key={`${item.title}-${item.description}`}
-                className="rounded-2xl border border-white/10 bg-white/5 p-4 transition duration-200 motion-reduce:transition-none hover:border-white/20 hover:bg-white/[0.08]"
-              >
-                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                  {locale === "zh" ? `线索 ${index + 1}` : `Cue ${index + 1}`}
-                </p>
-                <p className="m-0 mt-2 text-sm font-semibold text-white">{item.title}</p>
-                <p className="m-0 mt-2 text-sm leading-7 text-slate-300">{item.description}</p>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
+            <p className="m-0 mt-3 text-sm leading-7 text-slate-600">
+              {isLocked
+                ? locale === "zh"
+                  ? "当前先保留公开层正文，下方 teaser 会说明完整章节继续补充什么。"
+                  : "The public body stays visible first, and the teaser below explains what the full chapter adds."
+                : locale === "zh"
+                  ? "这一章现在已经进入完整正文，可直接继续阅读，不需要跳转。"
+                  : "This chapter is already on the full body and can be read directly without leaving the page."}
+            </p>
+          </div>
+        </div>
       </div>
 
       {hasProjectionContent ? (
@@ -1499,7 +1520,7 @@ export function MbtiChapterSection({
             </p>
             <p className="m-0 mt-3 text-sm leading-7 text-slate-600">
               {locale === "zh"
-                ? "免费预览先保留公开层；完整报告会补齐更深的边界解释、场景分化和行动坐标。"
+                ? "免费预览先保留公开层；完整报告会补齐更深的边界解释、场景分化与行动坐标。"
                 : "The preview keeps the public layer first. The full report adds deeper boundary interpretation, scenario differentiation, and action coordinates."}
             </p>
             {teaserBullets.length > 0 ? (
@@ -1513,7 +1534,7 @@ export function MbtiChapterSection({
             <CardContent className="flex h-full flex-col justify-between gap-4 p-5">
               <div className="space-y-3">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-200">
-                  {locale === "zh" ? "升级这一章的分辨率" : "Increase this chapter's resolution"}
+                  {locale === "zh" ? "回到主解锁区" : "Return to the main unlock area"}
                 </p>
                 <p className="m-0 text-lg font-semibold text-white">
                   {unlock?.offer?.title ?? (locale === "zh" ? "查看完整报告解锁方案" : "View the matching unlock options")}
@@ -1535,7 +1556,7 @@ export function MbtiChapterSection({
               </div>
 
               <div className="flex flex-col items-start gap-3">
-                {unlock?.offer?.price ? <p className="m-0 text-3xl font-semibold tracking-[-0.03em] text-white">{unlock.offer.price}</p> : null}
+                  {unlock?.offer?.price ? <p className="m-0 text-3xl font-semibold tracking-[-0.03em] text-white">{unlock.offer.price}</p> : null}
                 <a
                   href="#offer-full"
                   className={buttonVariants({
@@ -1543,7 +1564,7 @@ export function MbtiChapterSection({
                       "w-full bg-white text-slate-950 transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:bg-emerald-50 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
                   })}
                 >
-                  {locale === "zh" ? "查看完整解锁边界" : "Review full unlock scope"}
+                  {locale === "zh" ? "前往主解锁区" : "Go to the main unlock area"}
                 </a>
               </div>
             </CardContent>

@@ -167,50 +167,71 @@ export function MbtiOfferComparisonSection({
       data-testid="mbti-offer-comparison"
       data-cta-key="unlock_full_report"
       data-cta-rank={ctaRank > 0 ? String(ctaRank) : undefined}
-      className="scroll-mt-28 space-y-5 rounded-[32px] border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.97))] p-5 shadow-[0_22px_56px_rgba(15,23,42,0.09)] md:p-6"
+      className="scroll-mt-28 space-y-6 rounded-[32px] border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.97))] p-5 shadow-[0_22px_56px_rgba(15,23,42,0.09)] md:p-6"
     >
-      <div className="space-y-2">
-        {ctaRank > 0 ? (
-          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
-            {locale === "zh" ? `优先入口 ${ctaRank}` : `Priority ${ctaRank}`}
-          </p>
-        ) : null}
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "解锁方案" : "Unlock options"}
-        </p>
-        <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">
-          {ctaTitle}
-        </h2>
-        <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{ctaSubtitle}</p>
-      </div>
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)] lg:items-start">
+        <div className="space-y-5">
+          <div className="space-y-2">
+            {ctaRank > 0 ? (
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                {locale === "zh" ? `优先入口 ${ctaRank}` : `Priority ${ctaRank}`}
+              </p>
+            ) : null}
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+              {locale === "zh" ? "主解锁区" : "Primary unlock area"}
+            </p>
+            <h2 className="m-0 text-2xl font-semibold tracking-tight text-[var(--fm-text)]">
+              {ctaTitle}
+            </h2>
+            <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{ctaSubtitle}</p>
+          </div>
 
-      <div className="grid gap-4 xl:grid-cols-[minmax(0,0.92fr)_minmax(320px,1.08fr)]">
-        <div className="grid gap-3">
-          {comparisonRows.map((row) => (
-            <div
-              key={row.label}
-              className="rounded-[24px] border border-slate-200 bg-white/90 p-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)]"
-            >
-              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{row.label}</p>
-              <div className="mt-2 flex items-center justify-between gap-3">
-                <p className="m-0 text-base font-semibold tracking-[-0.02em] text-slate-950">{row.value}</p>
-                <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ${
+          <div className="grid gap-3 md:grid-cols-2">
+            {comparisonRows.map((row) => (
+              <div
+                key={row.label}
+                className={`rounded-[24px] border p-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)] ${
                   row.label === (locale === "zh" ? "完整报告" : "Full report")
-                    ? "border border-emerald-200 bg-emerald-50 text-emerald-800"
-                    : "border border-slate-200 bg-slate-50 text-slate-500"
-                }`}>
-                  {row.label === (locale === "zh" ? "完整报告" : "Full report")
-                    ? locale === "zh"
-                      ? "更高分辨率"
-                      : "Higher resolution"
-                    : locale === "zh"
-                      ? "当前可见"
-                      : "Currently visible"}
-                </span>
+                    ? "border-emerald-200 bg-emerald-50/70"
+                    : "border-slate-200 bg-white/90"
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{row.label}</p>
+                  <span
+                    className={`inline-flex rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ${
+                      row.label === (locale === "zh" ? "完整报告" : "Full report")
+                        ? "border border-emerald-200 bg-white text-emerald-800"
+                        : "border border-slate-200 bg-slate-50 text-slate-500"
+                    }`}
+                  >
+                    {row.label === (locale === "zh" ? "完整报告" : "Full report")
+                      ? locale === "zh"
+                        ? "主方案"
+                        : "Primary plan"
+                      : locale === "zh"
+                        ? "当前可见"
+                        : "Visible now"}
+                  </span>
+                </div>
+                <p className="m-0 mt-3 text-base font-semibold tracking-[-0.02em] text-slate-950">{row.value}</p>
+                <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{row.detail}</p>
               </div>
-              <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{row.detail}</p>
+            ))}
+          </div>
+
+          {benefitBullets.length > 0 ? (
+            <div className="rounded-[24px] border border-slate-200 bg-white/90 p-5 shadow-[0_14px_30px_rgba(15,23,42,0.05)]">
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                {locale === "zh" ? "解锁后会得到什么" : "What unlock adds"}
+              </p>
+              <ul className="mb-0 mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700">
+                {benefitBullets.map((benefit) => (
+                  <li key={benefit}>{benefit}</li>
+                ))}
+              </ul>
             </div>
-          ))}
+          ) : null}
         </div>
 
         <Card
@@ -243,13 +264,6 @@ export function MbtiOfferComparisonSection({
                 </p>
               </div>
             </div>
-            {benefitBullets.length > 0 ? (
-              <ul className="mb-0 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-200">
-                {benefitBullets.map((benefit) => (
-                  <li key={benefit}>{benefit}</li>
-                ))}
-              </ul>
-            ) : null}
             {primaryOffer.modules.length > 0 ? (
               <div className="flex flex-wrap gap-2">
                 {primaryOffer.modules.map((module) => (
@@ -262,6 +276,16 @@ export function MbtiOfferComparisonSection({
                 ))}
               </div>
             ) : null}
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                {locale === "zh" ? "为什么主 CTA 收口在这里" : "Why the primary CTA ends here"}
+              </p>
+              <p className="m-0 mt-2 text-sm leading-7 text-slate-300">
+                {locale === "zh"
+                  ? "结果页只保留一个正式解锁收口区。上方 hero、章节 teaser、footer 与 rail 都会回到这里，避免多套付费表达并行。"
+                  : "The result page keeps one formal unlock sink. The hero, chapter teasers, footer, and rail all route back here instead of splitting commerce across multiple surfaces."}
+              </p>
+            </div>
             <button
               type="button"
               data-testid="mbti-offers-primary-cta"
