@@ -1,11 +1,24 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { Alert } from "@/components/ui/alert";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { fetchBig5History, fetchBig5Report } from "@/lib/big5/api";
+import {
+  canDownloadReportPdf,
+  canEnterReportPage,
+  isProjectionLocked,
+  isProjectionProcessing,
+  isProjectionUnavailable,
+  normalizeAttemptReportAccess,
+  type AttemptReportAccessView,
+} from "@/lib/access/unifiedAccess";
+import { fetchBig5History, fetchBig5Report, fetchBig5ReportAccess } from "@/lib/big5/api";
 import { normalizeBig5CompareSnapshot, resolveBig5CompareAttemptPair } from "@/lib/big5/secondarySurfaceNormalizer";
+import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 
 type ReportPayload = {
   attemptId: string;
@@ -22,12 +35,16 @@ type CompareRow = {
 };
 
 export default function Big5CompareClient() {
+  const pathname = usePathname() ?? "/";
+  const locale = getLocaleFromPathname(pathname);
+  const isZh = locale === "zh";
   const searchParams = useSearchParams();
   const queryCurrent = searchParams.get("current") ?? "";
   const queryPrevious = searchParams.get("previous") ?? "";
 
   const [current, setCurrent] = useState<ReportPayload | null>(null);
   const [previous, setPrevious] = useState<ReportPayload | null>(null);
+  const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -48,16 +65,19 @@ export default function Big5CompareClient() {
           throw new Error("Not enough history records to compare.");
         }
 
-        const [currentReport, previousReport] = await Promise.all([
+        const [accessResponse, currentReport, previousReport] = await Promise.all([
+          fetchBig5ReportAccess({ attemptId: pair.current, locale }).catch(() => null),
           fetchBig5Report({ attemptId: pair.current }),
           fetchBig5Report({ attemptId: pair.previous }),
         ]);
 
         const currentExtract = normalizeBig5CompareSnapshot(currentReport);
         const previousExtract = normalizeBig5CompareSnapshot(previousReport);
+        const nextAccessView = accessResponse ? normalizeAttemptReportAccess(accessResponse, locale) : null;
 
         if (!active) return;
 
+        setAccessView(nextAccessView);
         setCurrent({
           attemptId: pair.current,
           domainPercentiles: currentExtract.domainPercentiles,
@@ -70,6 +90,7 @@ export default function Big5CompareClient() {
         });
       } catch (cause) {
         if (!active) return;
+        setAccessView(null);
         setError(cause instanceof Error ? cause.message : "Failed to compare attempts.");
       } finally {
         if (active) {
@@ -83,7 +104,7 @@ export default function Big5CompareClient() {
     return () => {
       active = false;
     };
-  }, [queryCurrent, queryPrevious]);
+  }, [locale, queryCurrent, queryPrevious]);
 
   const domainDeltaRows = useMemo(() => {
     if (!current || !previous) return [];
@@ -152,6 +173,42 @@ export default function Big5CompareClient() {
     if (!row.comparable || row.delta === null) return "--";
     return `${row.delta > 0 ? "+" : ""}${row.delta}`;
   };
+  const resultHref =
+    current?.attemptId && (accessView?.actions.pageHref ?? localizedPath(`/result/${current.attemptId}`, locale));
+  const pdfReady = canDownloadReportPdf(accessView);
+  const reportReady = canEnterReportPage(accessView);
+  const reportLocked = isProjectionLocked(accessView);
+  const reportProcessing = isProjectionProcessing(accessView);
+  const reportUnavailable = isProjectionUnavailable(accessView);
+  const accessHeadline = reportUnavailable
+    ? (isZh ? "正式结果暂时不可用" : "Formal result unavailable")
+    : reportProcessing
+      ? (isZh ? "正式结果仍在处理中" : "Formal result is still processing")
+      : reportLocked
+        ? (isZh ? "当前结果仍是预览状态" : "Current result is still in preview")
+        : reportReady
+          ? (isZh ? "正式结果已就绪" : "Formal result ready")
+          : (isZh ? "可继续查看正式结果页" : "Continue to the formal result page");
+  const accessSummary = reportUnavailable
+    ? (isZh
+        ? "当前对比页不会伪装成正式结果页。请稍后再试，或回到历史页重新进入。"
+        : "This compare view does not replace the formal result page. Please retry later or return to history.")
+    : reportProcessing
+      ? (isZh
+          ? "正式结果仍在生成中。对比数据可以先看，但 PDF 与完整动作会以正式结果页状态为准。"
+          : "The formal result is still generating. You can inspect the comparison now, but PDF and full actions still follow the result-page state.")
+      : reportLocked
+        ? (isZh
+            ? "当前 attempt 仍是预览访问。进入正式结果页后，你会看到一致的解锁与 PDF 入口语义。"
+            : "The current attempt is still on preview access. Open the formal result page for the consistent unlock and PDF flow.")
+        : (isZh
+            ? "当前 attempt 已进入正式结果链。你可以继续打开正式结果页，或直接下载 PDF。"
+            : "The current attempt is already on the formal result chain. Open the full result page or download the PDF directly.");
+  const resultCtaLabel = reportLocked
+    ? (isZh ? "打开正式结果预览" : "Open formal result preview")
+    : reportProcessing
+      ? (isZh ? "查看正式结果状态" : "Check formal result status")
+      : (isZh ? "打开正式结果页" : "Open formal result");
 
   return (
     <div className="space-y-4">
@@ -162,6 +219,35 @@ export default function Big5CompareClient() {
 
       {current && previous ? (
         <>
+          <Card data-testid="big5-compare-access-card">
+            <CardHeader>
+              <CardTitle>{accessHeadline}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm text-slate-700">
+              <p className="m-0">{accessSummary}</p>
+              <div className="flex flex-wrap items-center gap-3">
+                {resultHref && !reportUnavailable ? (
+                  <Link
+                    href={resultHref}
+                    className={buttonVariants({ variant: reportReady ? "default" : "outline" })}
+                  >
+                    {resultCtaLabel}
+                  </Link>
+                ) : null}
+                {accessView && (pdfReady || reportLocked) ? (
+                  <div data-testid="big5-compare-pdf-entry">
+                    <PdfDownloadButton
+                      attemptId={current.attemptId}
+                      locked={reportLocked}
+                      accessProjection={accessView}
+                      locale={locale}
+                    />
+                  </div>
+                ) : null}
+              </div>
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader>
               <CardTitle>Domain percentile delta</CardTitle>

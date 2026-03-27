@@ -1,4 +1,5 @@
 import {
+  fetchAttemptReportAccess,
   fetchScaleQuestions,
   getAttemptReport,
   getFeatureFlags,
@@ -6,6 +7,7 @@ import {
   getScaleLookup,
   startAttempt,
   submitAttempt,
+  type AttemptReportAccessResponse,
   type MeAttemptsResponse,
   type QuestionsResponse,
   type ReportResponse,
@@ -168,6 +170,27 @@ export async function fetchBig5Report({
   });
 
   return assertContract<ReportResponse>("big5ReportResponse", big5ReportResponseSchema, response);
+}
+
+export async function fetchBig5ReportAccess({
+  attemptId,
+  anonId,
+  locale,
+}: {
+  attemptId: string;
+  anonId?: string;
+  locale?: string;
+}): Promise<AttemptReportAccessResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  return withBig5AuthRetry({
+    anonId: resolvedAnonId,
+    locale,
+    run: () =>
+      fetchAttemptReportAccess({
+        attemptId,
+        anonId: resolvedAnonId,
+      }),
+  });
 }
 
 export async function fetchBig5History({
