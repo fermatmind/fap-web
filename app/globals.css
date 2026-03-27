@@ -2189,13 +2189,16 @@ a {
 }
 
 .fm-home-engine-header {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 0.9rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: 0.72rem;
+}
+
+.fm-home-engine-header-stack {
+  min-width: 0;
 }
 
 .fm-home-engine-header-label {
@@ -2276,17 +2279,18 @@ a {
 }
 
 .fm-home-engine-module-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.72rem;
+  display: grid;
+  gap: 0.6rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.fm-home-engine-module-head > div:first-child {
+.fm-home-engine-module-head-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.72rem;
   min-width: 0;
-  flex: 1 1 auto;
 }
 
 .fm-home-engine-label {
@@ -4358,10 +4362,6 @@ a {
       "side";
   }
 
-  .fm-home-engine-matrix-summary {
-    grid-template-columns: 1fr;
-  }
-
   .fm-home-protocol-rack-head {
     padding-left: 0.9rem;
     padding-right: 0.9rem;
@@ -4461,6 +4461,7 @@ a {
   }
 
   .fm-home-engine-header {
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.55rem;
     align-items: flex-start;
   }
@@ -4484,6 +4485,8 @@ a {
   .fm-home-engine-status {
     font-size: 0.58rem;
     letter-spacing: 0.12em;
+    justify-self: end;
+    white-space: nowrap;
   }
 
   .fm-home-engine-layout {
@@ -4506,8 +4509,11 @@ a {
   }
 
   .fm-home-engine-meta {
-    white-space: normal;
-    text-align: left;
+    padding-left: 0.5rem;
+    font-size: 0.54rem;
+    letter-spacing: 0.1em;
+    text-align: right;
+    white-space: nowrap;
   }
 
   .fm-home-engine-probe-panel {
@@ -4515,14 +4521,19 @@ a {
   }
 
   .fm-home-engine-probe-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.42rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.32rem;
   }
 
   .fm-home-engine-probe-data {
-    font-size: 0.62rem;
+    font-size: 0.56rem;
     letter-spacing: 0.04em;
     overflow-wrap: anywhere;
+  }
+
+  .fm-home-engine-meta-label {
+    font-size: 0.56rem;
+    letter-spacing: 0.11em;
   }
 
   .fm-home-engine-node-grid {
@@ -4555,6 +4566,21 @@ a {
   .fm-home-engine-reason-summary,
   .fm-home-engine-norm-anchor {
     overflow-wrap: anywhere;
+  }
+
+  .fm-home-engine-matrix-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.42rem;
+  }
+
+  .fm-home-engine-summary-cell {
+    gap: 0.22rem;
+    padding-top: 0.5rem;
+  }
+
+  .fm-home-engine-summary-value {
+    font-size: 0.72rem;
+    line-height: 1.42;
   }
 
   .fm-home-engine-norm-percentile {
@@ -4592,7 +4618,22 @@ a {
   }
 
   .fm-home-engine-reason-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: 0.42rem;
+  }
+
+  .fm-home-engine-route-block {
+    padding: 0.58rem 0.6rem;
+  }
+
+  .fm-home-engine-route-tags {
+    gap: 0.26rem;
+  }
+
+  .fm-home-engine-route-tag {
+    padding: 0.2rem 0.34rem;
+    font-size: 0.54rem;
+    letter-spacing: 0.08em;
   }
 }
 

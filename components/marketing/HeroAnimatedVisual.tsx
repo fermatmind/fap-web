@@ -621,18 +621,18 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
           <div className="fm-home-engine-layout">
             <section className="fm-home-engine-module fm-home-engine-module-matrix">
               <div className="fm-home-engine-module-head">
-                <div>
+                <div className="fm-home-engine-module-head-row">
                   <p className="fm-home-engine-label m-0">{copy.modules.matrix}</p>
-                  <p
-                    className={cn(
-                      "fm-home-engine-note m-0 mt-2",
-                      localeLabel === "zh" && "fm-home-engine-note-compact"
-                    )}
-                  >
-                    {copy.notes.matrix}
-                  </p>
+                  <span className="fm-home-engine-meta">{copy.matrixLegend}</span>
                 </div>
-                <span className="fm-home-engine-meta">{copy.matrixLegend}</span>
+                <p
+                  className={cn(
+                    "fm-home-engine-note m-0",
+                    localeLabel === "zh" && "fm-home-engine-note-compact"
+                  )}
+                >
+                  {copy.notes.matrix}
+                </p>
               </div>
 
               <div className="fm-home-engine-matrix-body">
@@ -697,18 +697,18 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
             <div className="fm-home-engine-side-stack">
               <section className="fm-home-engine-module fm-home-engine-module-coordinate">
                 <div className="fm-home-engine-module-head">
-                  <div>
+                  <div className="fm-home-engine-module-head-row">
                     <p className="fm-home-engine-label m-0">{copy.modules.coordinate}</p>
-                    <p
-                      className={cn(
-                        "fm-home-engine-note m-0 mt-2",
-                        localeLabel === "zh" && "fm-home-engine-note-compact"
-                      )}
-                    >
-                      {copy.notes.coordinate}
-                    </p>
+                    <span className="fm-home-engine-meta">{copy.coordinateMeta}</span>
                   </div>
-                  <span className="fm-home-engine-meta">{copy.coordinateMeta}</span>
+                  <p
+                    className={cn(
+                      "fm-home-engine-note m-0",
+                      localeLabel === "zh" && "fm-home-engine-note-compact"
+                    )}
+                  >
+                    {copy.notes.coordinate}
+                  </p>
                 </div>
 
                 <div className="fm-home-engine-norm-body">
