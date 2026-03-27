@@ -747,11 +747,20 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                   </div>
                 </div>
 
-                <div className="fm-home-engine-constellation-shell">
-                  <div className="fm-home-engine-radar-meta">
-                    <p className="fm-home-engine-meta-label m-0">{copy.matrixSummaryLabel}</p>
-                    <p className="fm-home-engine-probe-value m-0">{copy.matrixSummaryValue}</p>
+              </div>
+            </section>
+
+            <div className="fm-home-engine-side-stack">
+              <section className="fm-home-engine-module fm-home-engine-module-scan">
+                <div className="fm-home-engine-module-head">
+                  <div>
+                    <p className="fm-home-engine-label m-0">{copy.matrixSummaryLabel}</p>
+                    <p className="fm-home-engine-note m-0 mt-2">{copy.matrixDetail}</p>
                   </div>
+                  <span className="fm-home-engine-meta">{copy.matrixSummaryValue}</span>
+                </div>
+
+                <div className="fm-home-engine-scan-body">
                   <FacetConstellation
                     activeFacetId={activeFacetId}
                     highlightedFacetIds={highlightedFacetIds}
@@ -759,47 +768,46 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                     onFacetEnter={setHoveredFacetId}
                     onFacetLeave={() => setHoveredFacetId(null)}
                   />
-                  <p className="fm-home-engine-radar-detail m-0">{copy.matrixDetail}</p>
                 </div>
-              </div>
-            </section>
+              </section>
 
-            <section className="fm-home-engine-module fm-home-engine-module-norm">
-              <div className="fm-home-engine-module-head">
-                <div>
-                  <p className="fm-home-engine-label m-0">{copy.modules.norm}</p>
-                  <p className="fm-home-engine-note m-0 mt-2">{copy.notes.norm}</p>
-                </div>
-              </div>
-
-              <div className="fm-home-engine-norm-body">
-                <div className="fm-home-engine-norm-stats">
-                  <div className="fm-home-engine-norm-stat">
-                    <p className="fm-home-engine-meta-label m-0">{copy.normStatA}</p>
-                    <p className="fm-home-engine-norm-score m-0 mt-2">
-                      {activeZScore >= 0 ? "+" : ""}
-                      {activeZScore.toFixed(6)}
-                    </p>
-                  </div>
-                  <div className="fm-home-engine-norm-stat">
-                    <p className="fm-home-engine-meta-label m-0">{copy.normStatB}</p>
-                    <p className="fm-home-engine-norm-percentile m-0 mt-2">{formatLocalePercentile(percentile, localeLabel)}</p>
+              <section className="fm-home-engine-module fm-home-engine-module-norm">
+                <div className="fm-home-engine-module-head">
+                  <div>
+                    <p className="fm-home-engine-label m-0">{copy.modules.norm}</p>
+                    <p className="fm-home-engine-note m-0 mt-2">{copy.notes.norm}</p>
                   </div>
                 </div>
 
-                <p className="fm-home-engine-norm-anchor m-0">
-                  <span className="fm-home-engine-meta-label">{copy.normMeta}</span>
-                  <span>{copy.normAnchor}</span>
-                </p>
+                <div className="fm-home-engine-norm-body">
+                  <div className="fm-home-engine-norm-stats">
+                    <div className="fm-home-engine-norm-stat">
+                      <p className="fm-home-engine-meta-label m-0">{copy.normStatA}</p>
+                      <p className="fm-home-engine-norm-score m-0 mt-2">
+                        {activeZScore >= 0 ? "+" : ""}
+                        {activeZScore.toFixed(6)}
+                      </p>
+                    </div>
+                    <div className="fm-home-engine-norm-stat">
+                      <p className="fm-home-engine-meta-label m-0">{copy.normStatB}</p>
+                      <p className="fm-home-engine-norm-percentile m-0 mt-2">{formatLocalePercentile(percentile, localeLabel)}</p>
+                    </div>
+                  </div>
 
-                <div className="fm-home-engine-ruler">
-                  <span className="fm-home-engine-meta-label">{copy.normRuler}</span>
-                  <SignalDots value={(percentile / 100) * 0.92} segments={18} activeIndex={Math.round((percentile / 100) * 17)} />
+                  <p className="fm-home-engine-norm-anchor m-0">
+                    <span className="fm-home-engine-meta-label">{copy.normMeta}</span>
+                    <span>{copy.normAnchor}</span>
+                  </p>
+
+                  <div className="fm-home-engine-ruler">
+                    <span className="fm-home-engine-meta-label">{copy.normRuler}</span>
+                    <SignalDots value={(percentile / 100) * 0.92} segments={18} activeIndex={Math.round((percentile / 100) * 17)} />
+                  </div>
+
+                  <NormCurve zScore={activeZScore} />
                 </div>
-
-                <NormCurve zScore={activeZScore} />
-              </div>
-            </section>
+              </section>
+            </div>
           </div>
 
           <div className="fm-home-engine-footer" aria-hidden>
