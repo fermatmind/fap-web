@@ -261,6 +261,65 @@ export const big5MeAttemptsResponseSchema = z
                 domains_mean: z.record(z.string(), z.number()).optional(),
               })
               .optional(),
+            top_facets_summary_v1: z
+              .object({
+                items: z
+                  .array(
+                    z
+                      .object({
+                        key: z.string().optional(),
+                        label: z.string().optional(),
+                        domain: z.string().optional(),
+                        percentile: z.number().nullable().optional(),
+                        bucket: z.string().nullable().optional(),
+                        kind: z.string().nullable().optional(),
+                      })
+                      .passthrough()
+                  )
+                  .optional(),
+              })
+              .passthrough()
+              .optional(),
+            quality_summary: z
+              .object({
+                level: z.string().optional(),
+                grade: z.string().nullable().optional(),
+              })
+              .passthrough()
+              .optional(),
+            norms_summary: z
+              .object({
+                status: z.string().optional(),
+                norms_version: z.string().nullable().optional(),
+              })
+              .passthrough()
+              .optional(),
+            offer_summary: z
+              .object({
+                primary_offer: z
+                  .object({
+                    sku: z.string().nullable().optional(),
+                    label: z.string().nullable().optional(),
+                    title: z.string().nullable().optional(),
+                    formatted_price: z.string().nullable().optional(),
+                    price_cents: z.number().nullable().optional(),
+                    currency: z.string().nullable().optional(),
+                    benefit_code: z.string().nullable().optional(),
+                    modules_included: z.array(z.string()).optional(),
+                  })
+                  .passthrough()
+                  .nullable()
+                  .optional(),
+              })
+              .passthrough()
+              .optional(),
+            share_summary: z
+              .object({
+                enabled: z.boolean().optional(),
+                share_kind: z.string().optional(),
+              })
+              .passthrough()
+              .optional(),
           })
           .passthrough()
       )
