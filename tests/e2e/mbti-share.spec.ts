@@ -7,6 +7,8 @@ function createMbtiReportFixture() {
 
 test("MBTI result share flow uses /share/{id} and compare CTA routes into take flow with attribution query", async ({ page }) => {
   const attemptId = "mbti-share-attempt-001";
+  const reportAccessPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`);
+  const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
   const shareId = "share-mbti-001";
   const shareClickId = "share-click-001";
   const compareInviteId = "invite-mbti-001";
@@ -304,7 +306,33 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(reportAccessPattern, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        access_state: "locked",
+        report_state: "ready",
+        pdf_state: "ready",
+        reason_code: "projection_missing_result_ready",
+        projection_version: 1,
+        actions: {
+          page_href: `/en/result/${attemptId}`,
+          pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+          history_href: "/history/mbti",
+          lookup_href: "/orders/lookup",
+        },
+        meta: {
+          produced_at: "2026-03-27T00:00:00.000Z",
+          refreshed_at: "2026-03-27T00:00:00.000Z",
+        },
+      }),
+    });
+  });
+
+  await page.route(reportPattern, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",

@@ -26,6 +26,7 @@
     "test:e2e:visual:ci": "bash scripts/visual/run_visual_suite.sh verify",
     "test:e2e:visual:update": "bash scripts/visual/run_visual_suite.sh update",
     "test:e2e:visual:update:linux": "bash scripts/visual/update_linux_snapshots.sh",
+    "verify:release-freeze": "bash scripts/release_freeze_verify.sh",
     "release:gate": "bash scripts/release_gate.sh",
     "postbuild": "next-sitemap && dotenv -e .env.production.local -- node scripts/upload-next-static-to-cos.mjs"
   },

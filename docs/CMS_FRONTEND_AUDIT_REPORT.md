@@ -1,5 +1,7 @@
 # CMS Frontend Audit Report
 
+> Historical snapshot: this 2026-03-06 audit predates the current MBTI + Big5 release-freeze baseline. Do not use it as the current-truth source for release decisions. For active release authority, use [production-launch-checklist](/Users/rainie/Desktop/GitHub/fap-web/docs/release/production-launch-checklist.md) and [2026-03-mbti-big5-release-freeze-closeout](/Users/rainie/Desktop/GitHub/fap-web/docs/release/2026-03-mbti-big5-release-freeze-closeout.md).
+
 审计时间：2026-03-06  
 审计范围：`/Users/rainie/Desktop/GitHub/fap-web`、`app`、`components`、`lib`、`public`、`package.json`、`next.config.*`、`tsconfig.json`、`/Users/rainie/Desktop/GitHub/fap-api/docs`
 

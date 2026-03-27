@@ -1,28 +1,28 @@
 # Production Launch Checklist
 
 ## 1) Release Evidence Chain
-1. Confirm merge target and PR closure:
-   - `PR-WEB-UAT-01`
-   - `PR-WEB-OPS-02`
+1. Confirm the MBTI + Big5 release-freeze PRs are merged and the release SHA is fixed.
 2. Build reproducibility evidence:
    - `pnpm install --frozen-lockfile`
    - `pnpm build`
    - `bash scripts/release_evidence.sh`
-3. Create release notes from template:
-   - `docs/release/release-note-template.md`
-4. Tag format:
-   - `web@YYYY-MM-DD+<scope>`
-   - example: `web@2026-02-23+cc68_sds_launch_gate`
+3. Frontend release-freeze verify:
+   - `bash scripts/release_freeze_verify.sh`
+4. Backend release-freeze verify:
+   - `bash ../fap-api/backend/scripts/release_freeze_verify.sh`
+5. Active closeout notes:
+   - `docs/release/2026-03-mbti-big5-release-freeze-closeout.md`
+   - `../fap-api/docs/verify/release-freeze-mbti-big5.md`
 
 ## 2) Launch Gate (Blockers)
 1. Contract:
-   - `pnpm test:contract`
-2. UAT mock matrix:
-   - `bash scripts/run_uat_matrix.sh mock`
-3. Critical E2E:
-   - `pnpm test:e2e tests/e2e/clinical-combo-flow.spec.ts tests/e2e/sds-flow.spec.ts tests/e2e/big5-flow.spec.ts tests/e2e/mbti-regression.spec.ts`
-4. Release source gate:
+   - `pnpm exec vitest run tests/contracts/unified-access.contract.test.ts tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/mbti-history-account-center.contract.test.tsx tests/contracts/mbti-post-purchase-retention.contract.test.tsx tests/contracts/big5.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx`
+2. Critical E2E / smoke:
+   - `pnpm exec playwright test tests/e2e/result-loading.spec.ts tests/e2e/mbti-access-first-result.spec.ts tests/e2e/mbti-locked-unlock.spec.ts tests/e2e/mbti-post-purchase.spec.ts tests/e2e/mbti-share.spec.ts tests/e2e/big5-flow.spec.ts tests/e2e/big5-history-result-center.spec.ts tests/e2e/share-public-surfaces.spec.ts`
+3. Release source gate:
    - `pnpm release:gate`
+4. Backend freeze contracts:
+   - `bash ../fap-api/backend/scripts/release_freeze_verify.sh`
 
 ## 3) Rollout Controls
 1. Scale switches:
@@ -44,9 +44,9 @@
 ## 4) Launch-Day Dashboard
 1. Questions API failure rate (`questions_load_failure`).
 2. Submit failure rate by status group (`submit_failure`, 422/500/timeout).
-3. Report load failure rate (`report_load_failure`).
-4. Crisis alert view rate (`clinical_crisis_view`).
-5. Unlock success / paid order ratio (`unlock_success`, `pay_success`).
+3. Report-access / report failure rate (`report_access_failure`, `report_load_failure`).
+4. Unlock success / paid order ratio (`unlock_success`, `pay_success`).
+5. Share click / compare invite creation (`share_click`, `compare_invite_create`).
 6. Sentry error rate tagged by `route`, `scale`, `release`.
 
 ## 5) Rollback Drill (Mandatory)
@@ -54,7 +54,7 @@
    - `bash scripts/rollback_smoke.sh`
 2. Complete within 10 minutes:
    - rollback web to previous tag
-   - validate `questions -> submit -> report`
+   - validate `questions -> submit -> result -> report-access -> report`
 3. Save drill record:
    - `docs/release/rollback-drill.md` execution log section
 
@@ -67,4 +67,4 @@
 3. Post-deploy verification must include:
    - `pm2 status` shows `fap-web` in `online`
    - `ss -ltnp | grep ':3000'` confirms local listener
-   - no `502` from `/en`, `/zh`, and one core `/tests/.../take` route
+   - no `502` from `/en`, `/zh`, `/en/result/<attemptId>`, `/en/history/big5`, and one core `/tests/.../take` route
