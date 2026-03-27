@@ -138,7 +138,7 @@ function normalizeFacetLabel(code: string, rawLabel: unknown, locale: Locale): s
     return predefined[locale];
   }
 
-  return normalizeText(rawLabel, code);
+  return normalizeText(rawLabel) || code;
 }
 
 function normalizeFacetDomain(code: string, rawDomain: unknown): string {
