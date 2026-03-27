@@ -26,7 +26,7 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   webServer: {
-    command: "HOST=127.0.0.1 PORT=3000 node .next/standalone/server.js",
+    command: "bash scripts/visual/start_visual_server.sh",
     url: "http://127.0.0.1:3000",
     reuseExistingServer,
     timeout: 180000,

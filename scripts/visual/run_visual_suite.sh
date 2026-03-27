@@ -52,29 +52,7 @@ trap restore_hidden_env_files EXIT
 pnpm exec velite build
 pnpm exec next build
 
-if [[ ! -f .next/standalone/server.js ]]; then
-  echo "missing build artifact: .next/standalone/server.js"
-  exit 1
-fi
-
-sync_dir() {
-  local source_dir="$1"
-  local target_dir="$2"
-
-  mkdir -p "$target_dir"
-  if command -v rsync >/dev/null 2>&1; then
-    rsync -a --delete "${source_dir}/" "${target_dir}/"
-    return
-  fi
-
-  # Fallback for minimal environments where rsync is unavailable.
-  rm -rf "${target_dir:?}/"*
-  cp -a "${source_dir}/." "$target_dir/"
-}
-
-echo "sync standalone static assets for visual server"
-sync_dir "public" ".next/standalone/public"
-sync_dir ".next/static" ".next/standalone/.next/static"
+bash scripts/visual/sync_standalone_assets.sh
 
 ARGS=(
   test
