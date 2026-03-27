@@ -40,7 +40,7 @@ export function HeroSection({ locale }: { locale: Locale }) {
       <div aria-hidden className="fm-home-hero-glow fm-home-hero-glow-left" />
       <div aria-hidden className="fm-home-hero-glow fm-home-hero-glow-right" />
 
-      <Container className="fm-home-hero-shell relative z-10 grid gap-[var(--fm-space-8)] max-w-[101rem] px-6 md:px-8 lg:px-12 xl:max-w-[106rem] xl:px-16 2xl:max-w-[110rem] 2xl:px-20">
+      <Container className="fm-home-hero-shell relative z-10 grid gap-[var(--fm-space-8)] max-w-[104rem] px-6 md:px-8 lg:px-12 xl:max-w-[111rem] xl:px-16 2xl:max-w-[116rem] 2xl:px-20">
         <div className="fm-home-enter-primary fm-home-hero-copy-column space-y-[var(--fm-space-6)]">
           <div className="fm-home-hero-title-shell space-y-5">
             <div aria-hidden className="fm-home-hero-title-matrix-field" />
@@ -82,7 +82,17 @@ export function HeroSection({ locale }: { locale: Locale }) {
 
           <div className="fm-home-hero-reading-stack">
             <p className="fm-home-hero-definition m-0">{copy.leadPrimary}</p>
-            <p className="fm-home-hero-method-note m-0">{copy.leadSecondary}</p>
+            <p className="fm-home-hero-method-note m-0">
+              {locale === "zh" ? (
+                <>
+                  围绕 30-Facet 分面矩阵、100,000+ 常模参照与场景映射，
+                  <br className="fm-home-hero-method-break" />
+                  交付可解释、可执行、可复盘的判断依据。
+                </>
+              ) : (
+                copy.leadSecondary
+              )}
+            </p>
           </div>
 
           <div className="fm-home-hero-footnote">
