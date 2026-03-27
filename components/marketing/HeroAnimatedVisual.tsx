@@ -1,6 +1,5 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -33,64 +32,85 @@ type FacetDefinition = {
 
 const COPY = {
   en: {
-    ariaLabel: "Cognitive telemetry monitor",
-    panelLabel: "Cognitive Telemetry Monitor",
-    panelNote: "PROTOCOL: V3.1_CALIBRATION_CORE",
-    panelSubnote: "30-FACET / NORM_REFERENCE / INDEX_STREAM",
-    systemStatus: "SYSTEM_STATUS: ACTIVE",
+    ariaLabel: "Cognitive engine control console",
+    panelLabel: "Cognitive Engine Control Console",
+    panelNote: "PROTOCOL: V3.1_MEASUREMENT_CONSOLE",
+    panelSubnote: "MEASURE / POSITION / REASON_TRACE",
+    systemStatus: "SYSTEM_STATUS: LOCKED",
     modules: {
-      matrix: "30-Facet Scan Array",
-      norm: "Norm Reference System",
+      matrix: "Measurement array",
+      coordinate: "Coordinate lock",
+      reason: "Judgment basis",
     },
     notes: {
       matrix:
-        "Thirty lower-level facets stay visible as a live measurement field instead of collapsing into a coarse label.",
-      norm:
-        "The signal is sliced against 100,000+ external references so the output lands as a coordinate, not a self-contained score.",
+        "Thirty lower-level facets stay visible as live measurement units instead of collapsing into a coarse personality label.",
+      coordinate:
+        "The reading is positioned against 100,000+ external references so the output lands as a coordinate, not a self-contained score.",
+      reason:
+        "The active facet stays interrogable so the console can explain which judgment route will be activated next.",
     },
-    matrixLegend: "30 live nodes / 3-column scan",
+    matrixLegend: "30 nodes / 3 columns / live probe",
     matrixProbeTarget: "Probe target",
     matrixProbeHex: "Hex code",
     matrixProbeScore: "Z-score",
     matrixProbeReading: "Reading",
     matrixStreamLabel: "Reading",
-    matrixSummaryLabel: "Live scan",
-    matrixSummaryValue: "30-node locked field",
-    matrixDetail: "Each node remains interrogable in milliseconds instead of being flattened into a broad type label.",
-    normMeta: "100,000+ reference set",
-    normAnchor: "External coordinate slice, not an isolated score.",
-    normStatA: "Z-score",
-    normStatB: "Percentile",
-    normRuler: "Norm reference ruler",
+    matrixSummaryLabel: "Active facet",
+    matrixSummaryValue: "Signal routes",
+    coordinateMeta: "100,000+ reference set",
+    coordinateAnchor: "External coordinate lock, not an isolated score.",
+    coordinateStatA: "Z-score",
+    coordinateStatB: "Percentile",
+    coordinateRuler: "Norm reference ruler",
+    reasonSignalLabel: "Active signal",
+    reasonRangeLabel: "Facet range",
+    reasonRoutesLabel: "Output routes",
+    reasonTraceLabel: "Judgment trace",
+    routeLabels: {
+      compatibility: "Partner fit",
+      career: "Career path",
+      risk: "Risk load",
+    },
   },
   zh: {
-    ariaLabel: "认知遥测监测终端",
-    panelLabel: "认知遥测监测终端",
-    panelNote: "PROTOCOL: V3.1_CALIBRATION_CORE",
-    panelSubnote: "30-FACET / 常模锚定 / 指标流",
-    systemStatus: "SYSTEM_STATUS: ACTIVE",
+    ariaLabel: "认知引擎入口控制台",
+    panelLabel: "认知引擎入口控制台",
+    panelNote: "PROTOCOL: V3.1_MEASUREMENT_CONSOLE",
+    panelSubnote: "MEASURE / POSITION / REASON_TRACE",
+    systemStatus: "SYSTEM_STATUS: LOCKED",
     modules: {
-      matrix: "30-Facet Scan Array",
-      norm: "Norm Reference System",
+      matrix: "测量阵列",
+      coordinate: "定位切片",
+      reason: "判断依据",
     },
     notes: {
-      matrix: "三十个底层分面持续暴露在扫描层中，而不是被压缩成一个粗颗粒标签。",
-      norm: "读数被放回 100,000+ 外部参照里切片读取，因此输出的是客观坐标而不是孤立分数。",
+      matrix: "三十个底层分面持续保持为可读节点，而不是被压缩成一个粗颗粒类型标签。",
+      coordinate: "当前读数会被放回 100,000+ 常模参照中定位，因此输出的是坐标，不是孤立分数。",
+      reason: "当前激活分面会继续暴露在控制台中，用来解释判断将被路由到哪条决策链路。",
     },
-    matrixLegend: "30 个活跃节点 / 3 列扫描",
-    matrixProbeTarget: "Probe target",
-    matrixProbeHex: "Hex code",
-    matrixProbeScore: "Z-score",
-    matrixProbeReading: "Reading",
-    matrixStreamLabel: "Reading",
-    matrixSummaryLabel: "Live scan",
-    matrixSummaryValue: "30 节点锁定场",
-    matrixDetail: "每一个节点都可被毫秒级追踪，而不是被粗暴折叠成一个类型标签。",
-    normMeta: "100,000+ 常模参照",
-    normAnchor: "外部坐标切片，不是孤立分数。",
-    normStatA: "Z-score",
-    normStatB: "Percentile",
-    normRuler: "Norm reference ruler",
+    matrixLegend: "30 节点 / 3 列探针阵列",
+    matrixProbeTarget: "探针目标",
+    matrixProbeHex: "节点编号",
+    matrixProbeScore: "Z 分数",
+    matrixProbeReading: "实时读数",
+    matrixStreamLabel: "读数",
+    matrixSummaryLabel: "当前分面",
+    matrixSummaryValue: "信号路由",
+    coordinateMeta: "100,000+ 常模参照",
+    coordinateAnchor: "先定位外部坐标，再解释结果。",
+    coordinateStatA: "Z 分数",
+    coordinateStatB: "百分位",
+    coordinateRuler: "常模定位尺",
+    reasonSignalLabel: "激活信号",
+    reasonRangeLabel: "分面区间",
+    reasonRoutesLabel: "输出路由",
+    reasonTraceLabel: "判断说明",
+    routeLabels: {
+      compatibility: "关系匹配",
+      career: "职业路径",
+      risk: "风险负荷",
+    },
   },
 } as const;
 
@@ -428,7 +448,6 @@ const FACET_DEFINITIONS: FacetDefinition[] = [
 ];
 
 const Z_SCORE_SERIES = [1.422459, 1.421873, 1.423102, 1.420941, 1.422774, 1.421188];
-const TELEMETRY_PROFILE = [0.76, 0.71, 0.52, 0.66, 0.58, 0.73];
 const TICKER_METRICS: TickerMetric[] = [
   { key: "COMPATIBILITY_INDEX", value: "0.824219" },
   { key: "TRUST_DELTA", value: "0.612458" },
@@ -448,18 +467,6 @@ function formatNodeReading(value: number) {
 function percentileFromZ(z: number) {
   const percentile = 50 * (1 + Math.tanh((z / Math.SQRT2) * 0.9));
   return Math.max(0, Math.min(99.9, percentile));
-}
-
-function axisPoint(axis: number, value: number) {
-  const angle = (-Math.PI / 2) + (axis * (Math.PI * 2)) / 6;
-  const radius = 36 + value * 58;
-  const cx = 126;
-  const cy = 126;
-
-  return {
-    x: cx + Math.cos(angle) * radius,
-    y: cy + Math.sin(angle) * radius,
-  };
 }
 
 function SignalDots({ value, segments = 14, activeIndex = -1 }: { value: number; segments?: number; activeIndex?: number }) {
@@ -557,68 +564,14 @@ function NormCurve({ zScore }: { zScore: number }) {
   );
 }
 
-function FacetConstellation({
-  activeFacetId,
-  highlightedFacetIds,
-  polygonPoints,
-  onFacetEnter,
-  onFacetLeave,
-}: {
-  activeFacetId: string | null;
-  highlightedFacetIds: Set<string>;
-  polygonPoints: string;
-  onFacetEnter: (facetId: string) => void;
-  onFacetLeave: () => void;
-}) {
-  const nodes = FACET_DEFINITIONS.map((facet) => {
-    const angle = (-Math.PI / 2) + (facet.axis * (Math.PI * 2)) / 6;
-    const radius = 28 + facet.ring * 18;
-    const x = 126 + Math.cos(angle) * radius;
-    const y = 126 + Math.sin(angle) * radius;
-    return { ...facet, x, y };
-  });
 
-  return (
-    <svg viewBox="0 0 252 252" className="h-auto w-full" aria-hidden>
-      <g stroke="rgba(255,255,255,0.08)" strokeWidth="1">
-        {[44, 64, 84, 104].map((radius) => (
-          <circle key={radius} cx="126" cy="126" r={radius} fill="none" />
-        ))}
-        {Array.from({ length: 6 }, (_, axis) => {
-          const angle = (-Math.PI / 2) + (axis * (Math.PI * 2)) / 6;
-          const x = 126 + Math.cos(angle) * 104;
-          const y = 126 + Math.sin(angle) * 104;
-          return <line key={axis} x1="126" y1="126" x2={x} y2={y} />;
-        })}
-      </g>
+function buildReasonSummary(activeFacet: FacetDefinition, localeLabel: "zh" | "en") {
+  const routeLabels = activeFacet.scenarios.map((scenario) => COPY[localeLabel].routeLabels[scenario]);
+  if (localeLabel === "zh") {
+    return `当前读数集中在「${activeFacet.label.zh}」分面，并被路由到${routeLabels.join("、")}等判断链路。`;
+  }
 
-      <polygon
-        points={polygonPoints}
-        fill="rgba(0,255,65,0.08)"
-        stroke="rgba(0,255,65,0.72)"
-        strokeWidth="1.8"
-        className="fm-home-engine-radar-shape"
-      />
-
-      {nodes.map((facet, index) => {
-        const isHighlighted = highlightedFacetIds.has(facet.id);
-        const isActive = activeFacetId === facet.id;
-
-        return (
-          <g
-            key={facet.id}
-            className={cn("fm-home-engine-node", isHighlighted && "is-scenario", isActive && "is-active")}
-            style={{ "--fm-node-delay": `${index * 60}ms` } as CSSProperties}
-            onMouseEnter={() => onFacetEnter(facet.id)}
-            onMouseLeave={onFacetLeave}
-          >
-            <circle cx={facet.x} cy={facet.y} r="5.6" className="fm-home-engine-node-hit" />
-            <circle cx={facet.x} cy={facet.y} r="2.4" className="fm-home-engine-node-core" />
-          </g>
-        );
-      })}
-    </svg>
-  );
+  return `The current reading stays anchored on the ${activeFacet.label.en} facet and routes into ${routeLabels.join(", ")} judgment chains.`;
 }
 
 export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisualProps) {
@@ -645,21 +598,11 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
   const activeZScore = Z_SCORE_SERIES[tick % Z_SCORE_SERIES.length] ?? Z_SCORE_SERIES[0];
   const percentile = percentileFromZ(activeZScore);
   const tickerLog = TICKER_METRICS.map(({ key, value }) => `${key}: ${value}`).join(" // ");
+  const activeRoutes = activeFacet.scenarios.map((scenario) => copy.routeLabels[scenario]);
 
   const groupedFacets = useMemo(
     () => Array.from({ length: 3 }, (_, columnIndex) => FACET_DEFINITIONS.slice(columnIndex * 10, columnIndex * 10 + 10)),
     [],
-  );
-
-  const polygonPoints = TELEMETRY_PROFILE
-    .map((value, axis) => {
-      const point = axisPoint(axis, value);
-      return `${point.x},${point.y}`;
-    })
-    .join(" ");
-
-  const highlightedFacetIds = new Set(
-    FACET_DEFINITIONS.filter((facet) => facet.reading >= 0.6).map((facet) => facet.id),
   );
 
   return (
@@ -745,66 +688,103 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                       </div>
                     ))}
                   </div>
-                </div>
 
+                  <div className="fm-home-engine-matrix-summary">
+                    <div className="fm-home-engine-summary-cell">
+                      <span className="fm-home-engine-meta-label">{copy.matrixSummaryLabel}</span>
+                      <span className="fm-home-engine-summary-value">
+                        {activeFacet.id} / {activeFacet.label[localeLabel]}
+                      </span>
+                    </div>
+
+                    <div className="fm-home-engine-summary-cell">
+                      <span className="fm-home-engine-meta-label">{copy.matrixSummaryValue}</span>
+                      <span className="fm-home-engine-summary-value">{activeRoutes.join(" / ")}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
             <div className="fm-home-engine-side-stack">
-              <section className="fm-home-engine-module fm-home-engine-module-scan">
+              <section className="fm-home-engine-module fm-home-engine-module-coordinate">
                 <div className="fm-home-engine-module-head">
                   <div>
-                    <p className="fm-home-engine-label m-0">{copy.matrixSummaryLabel}</p>
-                    <p className="fm-home-engine-note m-0 mt-2">{copy.matrixDetail}</p>
+                    <p className="fm-home-engine-label m-0">{copy.modules.coordinate}</p>
+                    <p className="fm-home-engine-note m-0 mt-2">{copy.notes.coordinate}</p>
                   </div>
-                  <span className="fm-home-engine-meta">{copy.matrixSummaryValue}</span>
-                </div>
-
-                <div className="fm-home-engine-scan-body">
-                  <FacetConstellation
-                    activeFacetId={activeFacetId}
-                    highlightedFacetIds={highlightedFacetIds}
-                    polygonPoints={polygonPoints}
-                    onFacetEnter={setHoveredFacetId}
-                    onFacetLeave={() => setHoveredFacetId(null)}
-                  />
-                </div>
-              </section>
-
-              <section className="fm-home-engine-module fm-home-engine-module-norm">
-                <div className="fm-home-engine-module-head">
-                  <div>
-                    <p className="fm-home-engine-label m-0">{copy.modules.norm}</p>
-                    <p className="fm-home-engine-note m-0 mt-2">{copy.notes.norm}</p>
-                  </div>
+                  <span className="fm-home-engine-meta">{copy.coordinateMeta}</span>
                 </div>
 
                 <div className="fm-home-engine-norm-body">
                   <div className="fm-home-engine-norm-stats">
                     <div className="fm-home-engine-norm-stat">
-                      <p className="fm-home-engine-meta-label m-0">{copy.normStatA}</p>
+                      <p className="fm-home-engine-meta-label m-0">{copy.coordinateStatA}</p>
                       <p className="fm-home-engine-norm-score m-0 mt-2">
                         {activeZScore >= 0 ? "+" : ""}
                         {activeZScore.toFixed(6)}
                       </p>
                     </div>
                     <div className="fm-home-engine-norm-stat">
-                      <p className="fm-home-engine-meta-label m-0">{copy.normStatB}</p>
+                      <p className="fm-home-engine-meta-label m-0">{copy.coordinateStatB}</p>
                       <p className="fm-home-engine-norm-percentile m-0 mt-2">{formatLocalePercentile(percentile, localeLabel)}</p>
                     </div>
                   </div>
 
                   <p className="fm-home-engine-norm-anchor m-0">
-                    <span className="fm-home-engine-meta-label">{copy.normMeta}</span>
-                    <span>{copy.normAnchor}</span>
+                    <span className="fm-home-engine-meta-label">{copy.coordinateMeta}</span>
+                    <span>{copy.coordinateAnchor}</span>
                   </p>
 
                   <div className="fm-home-engine-ruler">
-                    <span className="fm-home-engine-meta-label">{copy.normRuler}</span>
+                    <span className="fm-home-engine-meta-label">{copy.coordinateRuler}</span>
                     <SignalDots value={(percentile / 100) * 0.92} segments={18} activeIndex={Math.round((percentile / 100) * 17)} />
                   </div>
 
                   <NormCurve zScore={activeZScore} />
+                </div>
+              </section>
+
+              <section className="fm-home-engine-module fm-home-engine-module-reason">
+                <div className="fm-home-engine-module-head">
+                  <div>
+                    <p className="fm-home-engine-label m-0">{copy.modules.reason}</p>
+                    <p className="fm-home-engine-note m-0 mt-2">{copy.notes.reason}</p>
+                  </div>
+                </div>
+
+                <div className="fm-home-engine-reason-body">
+                  <div className="fm-home-engine-reason-focus">
+                    <div className="fm-home-engine-reason-head">
+                      <span className="fm-home-engine-meta-label">{copy.reasonSignalLabel}</span>
+                      <span className="fm-home-engine-probe-data">{activeFacet.id}</span>
+                    </div>
+                    <p className="fm-home-engine-reason-title m-0">{activeFacet.label[localeLabel]}</p>
+                    <SignalDots value={activeFacet.reading} segments={10} activeIndex={tick % 10} />
+                  </div>
+
+                  <div className="fm-home-engine-reason-grid">
+                    <div className="fm-home-engine-route-block">
+                      <span className="fm-home-engine-meta-label">{copy.reasonRangeLabel}</span>
+                      <span className="fm-home-engine-route-value">{activeFacet.range}</span>
+                    </div>
+
+                    <div className="fm-home-engine-route-block">
+                      <span className="fm-home-engine-meta-label">{copy.reasonRoutesLabel}</span>
+                      <div className="fm-home-engine-route-tags" aria-hidden>
+                        {activeRoutes.map((route) => (
+                          <span key={route} className="fm-home-engine-route-tag">
+                            {route}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="fm-home-engine-reason-summary m-0">
+                    <span className="fm-home-engine-meta-label">{copy.reasonTraceLabel}</span>
+                    <span>{buildReasonSummary(activeFacet, localeLabel)}</span>
+                  </p>
                 </div>
               </section>
             </div>

@@ -9,15 +9,15 @@ const HERO_COPY = {
     eyebrowSecondary: "循证测评体系",
     headlinePrimaryLines: ["See the Micro.", "Lead the Macro."],
     headlineSecondary: "Life architecture begins with measurement.",
-    leadPrimary: "A decision-grade self-knowledge engine for high-growth individuals.",
+    leadPrimary: "A self-knowledge engine for youth education and employment decisions.",
     leadSecondary:
       "Built on a 30-facet matrix, 100,000+ norm references, and scenario mapping that turns cognitive noise into interpretable, actionable, traceable judgment.",
-    protocolLine: "30-FACET matrix / 100,000+ norms / Z-SCORE anchor / AES-256",
+    protocolLine: "30-FACET matrix / 100,000+ norm references / scenario mapping / traceable outputs",
   },
   zh: {
     eyebrowPrimary: "循证测评体系",
     eyebrowSecondary: "Evidence-Informed Measurement",
-    headlinePrimaryLines: ["识微，见远"],
+    headlinePrimaryLines: ["识微", "见远"],
     headlineSecondary: "人生架构，始于度量",
     leadPrimary: "面向青年教育与就业决策的自我认知引擎。",
     leadSecondary:
@@ -28,8 +28,7 @@ const HERO_COPY = {
 
 export function HeroSection({ locale }: { locale: Locale }) {
   const copy = HERO_COPY[locale];
-  const headlineParts =
-    locale === "zh" ? copy.headlinePrimaryLines[0]?.split("，").map((part) => part.trim()).filter(Boolean) ?? [] : [];
+  const headlineParts = locale === "zh" ? copy.headlinePrimaryLines.filter(Boolean) : [];
 
   return (
     <section
@@ -42,16 +41,15 @@ export function HeroSection({ locale }: { locale: Locale }) {
       <div aria-hidden className="fm-home-hero-glow fm-home-hero-glow-right" />
 
       <Container className="relative z-10 grid gap-[var(--fm-space-8)] max-w-[101rem] px-6 md:grid-cols-[minmax(0,6.1fr)_minmax(0.4rem,0.18fr)_minmax(48rem,8.9fr)] md:items-center md:gap-0 md:px-8 lg:px-12 xl:max-w-[106rem] xl:px-16 2xl:max-w-[110rem] 2xl:px-20">
-        <div className="fm-home-enter-primary fm-home-hero-copy-column space-y-[var(--fm-space-5)]">
-          <div className="fm-home-hero-title-shell space-y-4">
+        <div className="fm-home-enter-primary fm-home-hero-copy-column space-y-[var(--fm-space-6)]">
+          <div className="fm-home-hero-title-shell space-y-5">
             <div aria-hidden className="fm-home-hero-title-matrix-field" />
             <div aria-hidden className="fm-home-hero-title-code-rail">
-              <span className="fm-home-hero-title-code-label">RESOLUTION</span>
-              <span className="fm-home-hero-title-code-value">0.000001</span>
-              <span>0x61</span>
-              <span>0x7A</span>
-              <span>0xC4</span>
-              <span>0xF1</span>
+              <span className="fm-home-hero-title-code-label">ENTRY</span>
+              <span className="fm-home-hero-title-code-value">V3.1</span>
+              <span>NORM</span>
+              <span>TRACE</span>
+              <span>LOCK</span>
             </div>
 
             <div className="fm-home-hero-label-stack">
@@ -65,7 +63,6 @@ export function HeroSection({ locale }: { locale: Locale }) {
                   <span className="fm-home-hero-title-brand-row">
                     <span className="fm-home-hero-title-brand-word">{headlineParts[0]}</span>
                     <span className="fm-home-hero-title-punctuation-shell" aria-hidden>
-                      <span className="fm-home-hero-title-punctuation">，</span>
                       <span className="fm-home-hero-title-crosshair">
                         <span className="fm-home-hero-title-crosshair-horizontal" />
                         <span className="fm-home-hero-title-crosshair-vertical" />
@@ -81,25 +78,29 @@ export function HeroSection({ locale }: { locale: Locale }) {
                   ))
                 )}
               </span>
-              <span className="fm-home-hero-title-ruler">
-                <span className="fm-home-hero-title-ruler-mark fm-home-hero-title-ruler-mark-start">[A1]</span>
-                <span className="fm-home-hero-title-subline">{copy.headlineSecondary}</span>
-                <span className="fm-home-hero-title-ruler-mark fm-home-hero-title-ruler-mark-end">[B4]</span>
-              </span>
             </h1>
+
+            <div className="fm-home-hero-title-ruler">
+              <span className="fm-home-hero-title-ruler-mark fm-home-hero-title-ruler-mark-start">[A1]</span>
+              <span className="fm-home-hero-title-subline">{copy.headlineSecondary}</span>
+              <span className="fm-home-hero-title-ruler-mark fm-home-hero-title-ruler-mark-end">[B4]</span>
+            </div>
           </div>
 
-          <p className="fm-home-hero-lede m-0">
-            <span className="fm-home-hero-lede-primary">{copy.leadPrimary}</span>
-            <span className="fm-home-hero-lede-secondary">{copy.leadSecondary}</span>
-          </p>
+          <div className="fm-home-hero-reading-stack">
+            <p className="fm-home-hero-definition m-0">{copy.leadPrimary}</p>
+            <p className="fm-home-hero-method-note m-0">{copy.leadSecondary}</p>
+          </div>
 
-          <p
-            className="fm-home-hero-taxonomy m-0"
-            aria-label={locale === "zh" ? "系统协议" : "System protocols"}
-          >
-            {copy.protocolLine}
-          </p>
+          <div className="fm-home-hero-footnote">
+            <span className="fm-home-hero-footnote-label">METHOD_NOTE</span>
+            <p
+              className="fm-home-hero-taxonomy m-0"
+              aria-label={locale === "zh" ? "系统协议" : "System protocols"}
+            >
+              {copy.protocolLine}
+            </p>
+          </div>
         </div>
 
         <div aria-hidden className="hidden md:block" />

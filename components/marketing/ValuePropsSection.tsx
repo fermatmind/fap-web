@@ -4,19 +4,56 @@ import type { Locale } from "@/lib/i18n/locales";
 const FACET_NODES = Array.from({ length: 30 }, (_, index) => index);
 const NORM_TICKS = ["-2σ", "-1σ", "μ", "+1σ", "+2σ"];
 const SCENARIO_CONNECTIONS = [
-  { label: "F03", target: "Partner fit" },
-  { label: "F12", target: "Career pivot" },
-  { label: "F21", target: "Decision drag" },
-  { label: "F27", target: "Pressure load" },
+  {
+    label: "F03",
+    target: { en: "Partner fit", zh: "关系匹配" },
+  },
+  {
+    label: "F12",
+    target: { en: "Career pivot", zh: "职业转向" },
+  },
+  {
+    label: "F21",
+    target: { en: "Decision drag", zh: "决策阻滞" },
+  },
+  {
+    label: "F27",
+    target: { en: "Pressure load", zh: "压力负荷" },
+  },
 ];
 
-function ProtocolVisual({ type }: { type: "measurement" | "norm" | "mapping" }) {
+function ProtocolVisual({
+  type,
+  locale,
+}: {
+  type: "measurement" | "norm" | "mapping";
+  locale: Locale;
+}) {
+  const copy = {
+    measurement: {
+      head: locale === "zh" ? "分面阵列" : "Sampling lattice",
+      meta: "RETINA / 30",
+      readoutA: "SCAN 084.32",
+      readoutB: "DELTA 0.612",
+    },
+    norm: {
+      head: locale === "zh" ? "常模定位尺" : "Reference ruler",
+      meta: "99.9% ACCURACY",
+    },
+    mapping: {
+      head: locale === "zh" ? "场景拓扑" : "Topology routing",
+      meta: locale === "zh" ? "可执行输出" : "ACTIONABLE",
+      readoutA: "SYNC 03.19.26",
+      readoutB: locale === "zh" ? "就绪" : "READY",
+    },
+  } as const;
+
   if (type === "measurement") {
     return (
       <div className="fm-home-protocol-viz fm-home-protocol-viz--measurement" aria-hidden>
         <div className="fm-home-protocol-viz-head">
-          <span>Sampling lattice</span>
-          <span>RETINA / 30</span>
+          <span>{copy.measurement.head}</span>
+          <span>{copy.measurement.meta}</span>
         </div>
         <div className="fm-home-facet-grid">
           {FACET_NODES.map((node) => (
@@ -27,8 +64,8 @@ function ProtocolVisual({ type }: { type: "measurement" | "norm" | "mapping" }) 
           ))}
         </div>
         <div className="fm-home-protocol-readout">
-          <span>SCAN 084.32</span>
-          <span>DELTA 0.612</span>
+          <span>{copy.measurement.readoutA}</span>
+          <span>{copy.measurement.readoutB}</span>
         </div>
       </div>
     );
@@ -38,8 +75,8 @@ function ProtocolVisual({ type }: { type: "measurement" | "norm" | "mapping" }) 
     return (
       <div className="fm-home-protocol-viz fm-home-protocol-viz--norm" aria-hidden>
         <div className="fm-home-protocol-viz-head">
-          <span>Reference ruler</span>
-          <span>99.9% ACCURACY</span>
+          <span>{copy.norm.head}</span>
+          <span>{copy.norm.meta}</span>
         </div>
         <div className="fm-home-norm-curve">
           <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,8 +102,8 @@ function ProtocolVisual({ type }: { type: "measurement" | "norm" | "mapping" }) 
   return (
     <div className="fm-home-protocol-viz fm-home-protocol-viz--mapping" aria-hidden>
       <div className="fm-home-protocol-viz-head">
-        <span>Topology routing</span>
-        <span>ACTIONABLE</span>
+        <span>{copy.mapping.head}</span>
+        <span>{copy.mapping.meta}</span>
       </div>
       <div className="fm-home-topology">
         <div className="fm-home-topology-spine" />
@@ -74,13 +111,13 @@ function ProtocolVisual({ type }: { type: "measurement" | "norm" | "mapping" }) 
           <div key={connection.label} className="fm-home-topology-row" style={{ ["--row-index" as string]: index }}>
             <span className="fm-home-topology-node">{connection.label}</span>
             <span className="fm-home-topology-link" />
-            <span className="fm-home-topology-target">{connection.target}</span>
+            <span className="fm-home-topology-target">{connection.target[locale]}</span>
           </div>
         ))}
       </div>
       <div className="fm-home-protocol-readout">
-        <span>SYNC 03.19.26</span>
-        <span>READY</span>
+        <span>{copy.mapping.readoutA}</span>
+        <span>{copy.mapping.readoutB}</span>
       </div>
     </div>
   );
@@ -92,7 +129,9 @@ const PROTOCOLS = {
     title: "The Architect Protocols",
     signal: "Precision. Sovereignty. Evidence.",
     subtitle:
-      "Methodology, precision, and sovereignty are wired together as operating constraints, not as soft marketing claims.",
+      "Three base protocols are welded into one chassis so methodology, precision, and sovereignty behave like system constraints instead of soft claims.",
+    rackMetaLeft: "BUS_STATUS: COHERENT",
+    rackMetaRight: "LAYER: FOUNDATIONAL",
     ticker:
       "SYNCING_REF_SET // FACET_DELTA 0.612 // RULER_LOCK 99.9% // ADAPTIVE_PROTOCOL ONLINE //",
     items: [
@@ -126,10 +165,12 @@ const PROTOCOLS = {
     ],
   },
   zh: {
-    kicker: "THE ARCHITECT PROTOCOLS",
+    kicker: "架构协议底座",
     title: "三大架构协议",
-    signal: "Precision. Sovereignty. Evidence.",
-    subtitle: "Methodology、Precision、Sovereignty 被焊接成同一套协议底座，不是三条互不相关的营销优点。",
+    signal: "精度 / 主权 / 证据",
+    subtitle: "这不是三条互不相关的卖点，而是被焊接在同一底座里的三层系统基建。",
+    rackMetaLeft: "BUS_STATUS: COHERENT",
+    rackMetaRight: "LAYER: FOUNDATIONAL",
     ticker: "SYNCING_REF_SET // FACET_DELTA 0.612 // RULER_LOCK 99.9% // ADAPTIVE_PROTOCOL ONLINE //",
     items: [
       {
@@ -181,6 +222,11 @@ export function ValuePropsSection({ locale }: { locale: Locale }) {
         </div>
 
         <div className="fm-home-protocol-rack">
+          <div className="fm-home-protocol-rack-head">
+            <span>{copy.rackMetaLeft}</span>
+            <span>{copy.rackMetaRight}</span>
+          </div>
+
           <div className="fm-home-protocol-bus">
             {copy.items.map((item, index) => (
               <article
@@ -211,7 +257,7 @@ export function ValuePropsSection({ locale }: { locale: Locale }) {
 
                   <p className="m-0 text-[0.92rem] leading-7 text-[#b8c1cc]">{item.description}</p>
 
-                  <ProtocolVisual type={item.type} />
+                  <ProtocolVisual type={item.type} locale={locale} />
                 </div>
               </article>
             ))}
