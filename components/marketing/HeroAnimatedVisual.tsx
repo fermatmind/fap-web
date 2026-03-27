@@ -34,7 +34,6 @@ const COPY = {
   en: {
     ariaLabel: "Cognitive engine control console",
     panelLabel: "Cognitive Engine Control Console",
-    panelNote: "PROTOCOL: V3.1_MEASUREMENT_CONSOLE",
     panelSubnote: "MEASURE / POSITION / REASON_TRACE",
     systemStatus: "SYSTEM_STATUS: LOCKED",
     modules: {
@@ -76,7 +75,6 @@ const COPY = {
   zh: {
     ariaLabel: "认知引擎入口控制台",
     panelLabel: "认知引擎入口控制台",
-    panelNote: "PROTOCOL: V3.1_MEASUREMENT_CONSOLE",
     panelSubnote: "MEASURE / POSITION / REASON_TRACE",
     systemStatus: "SYSTEM_STATUS: LOCKED",
     modules: {
@@ -85,8 +83,8 @@ const COPY = {
       reason: "判断依据",
     },
     notes: {
-      matrix: "三十个底层分面持续保持为可读节点，而不是被压缩成一个粗颗粒类型标签。",
-      coordinate: "当前读数会被放回 100,000+ 常模参照中定位，因此输出的是坐标，不是孤立分数。",
+      matrix: "三十个底层分面持续为可读节点，拒绝被压缩成一个粗颗粒类型标签。",
+      coordinate: "输出的是坐标，不是孤立分数。",
       reason: "当前激活分面会继续暴露在控制台中，用来解释判断将被路由到哪条决策链路。",
     },
     matrixLegend: "30 节点 / 3 列探针阵列",
@@ -457,7 +455,7 @@ const TICKER_METRICS: TickerMetric[] = [
 ];
 
 function formatLocalePercentile(value: number, locale: "zh" | "en") {
-  return locale === "zh" ? `第 ${value.toFixed(1)} 百分位` : `${value.toFixed(1)} percentile`;
+  return locale === "zh" ? `${value.toFixed(1)} 百分位` : `${value.toFixed(1)} percentile`;
 }
 
 function formatNodeReading(value: number) {
@@ -614,9 +612,8 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
 
         <div className="fm-home-engine-shell">
           <div className="fm-home-engine-header">
-            <div className="min-w-0 space-y-1.5">
+            <div className="fm-home-engine-header-stack min-w-0 space-y-1">
               <p className="fm-home-engine-header-label m-0">{copy.panelLabel}</p>
-              <p className="fm-home-engine-header-note m-0">{copy.panelNote}</p>
               <p className="fm-home-engine-header-subnote m-0">{copy.panelSubnote}</p>
             </div>
 
@@ -631,7 +628,14 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
               <div className="fm-home-engine-module-head">
                 <div>
                   <p className="fm-home-engine-label m-0">{copy.modules.matrix}</p>
-                  <p className="fm-home-engine-note m-0 mt-2">{copy.notes.matrix}</p>
+                  <p
+                    className={cn(
+                      "fm-home-engine-note m-0 mt-2",
+                      localeLabel === "zh" && "fm-home-engine-note-compact"
+                    )}
+                  >
+                    {copy.notes.matrix}
+                  </p>
                 </div>
                 <span className="fm-home-engine-meta">{copy.matrixLegend}</span>
               </div>
@@ -711,7 +715,14 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                 <div className="fm-home-engine-module-head">
                   <div>
                     <p className="fm-home-engine-label m-0">{copy.modules.coordinate}</p>
-                    <p className="fm-home-engine-note m-0 mt-2">{copy.notes.coordinate}</p>
+                    <p
+                      className={cn(
+                        "fm-home-engine-note m-0 mt-2",
+                        localeLabel === "zh" && "fm-home-engine-note-compact"
+                      )}
+                    >
+                      {copy.notes.coordinate}
+                    </p>
                   </div>
                   <span className="fm-home-engine-meta">{copy.coordinateMeta}</span>
                 </div>
