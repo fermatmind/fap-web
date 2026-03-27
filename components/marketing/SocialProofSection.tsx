@@ -20,7 +20,7 @@ const SECTION_COPY = {
     title: "Scenario Validation",
     subtitle:
       "These results do not stop at personal reading. They enter real judgment chains across coaching, role-fit, retrospectives, and research conversations.",
-    rackLabel: "DEPLOYMENT PROTOCOL",
+    rackLabel: "DEPLOYMENT / VALIDATION",
     rackTitle: "Academic model, industrial execution.",
     rackLead:
       "Instead of stacking media logos, the system exposes where the protocol is actually deployed and what kind of judgment output it enters.",
@@ -30,16 +30,21 @@ const SECTION_COPY = {
       "[SYSTEM] SYNCING_THU_MODEL_REF_V3.1... OK // [SYSTEM] CALIBRATING_NORM_REF_SET_100K... ACTIVE // [SYSTEM] EXECUTING_DECISION_MAPPING_PROTOCOL... READY //",
     logsTitle: "Evidence Registry",
     logsSubtitle: "Each record is stored like an audited operating note instead of a soft testimonial card.",
-    scoreLabel: "Verification score",
+    scoreLabel: "VERIFICATION_SCORE",
+    slotLabel: "SLOT",
     useCaseLabel: "Use case",
     roleLabel: "User role",
     sourceLabel: "Source module",
+    validationLayerLabel: "Execution layer",
+    validationInterfaceLabel: "Judgment interface",
+    outputLabel: "Output",
+    signalLabel: "Signal channel",
   },
   zh: {
     kicker: "场景验证",
     title: "场景验证",
     subtitle: "这些结果不是停留在个人阅读，而是进入真实判断链路。",
-    rackLabel: "DEPLOYMENT PROTOCOL",
+    rackLabel: "部署 / 校验",
     rackTitle: "学术底模，工业执行。",
     rackLead: "这里不靠媒体 Logo 建立信任，而是直接展示协议被部署到什么场景，以及它输出什么判断接口。",
     rackMetaLeft: "MODEL_SOURCE: PKU / THU DOCTORAL RESEARCH",
@@ -48,10 +53,15 @@ const SECTION_COPY = {
       "[SYSTEM] SYNCING_THU_MODEL_REF_V3.1... OK // [SYSTEM] CALIBRATING_NORM_REF_SET_100K... ACTIVE // [SYSTEM] EXECUTING_DECISION_MAPPING_PROTOCOL... READY //",
     logsTitle: "证据库",
     logsSubtitle: "每条记录都按系统审计日志存档，而不是常规的用户好评卡。",
-    scoreLabel: "验证评分",
+    scoreLabel: "VERIFICATION_SCORE",
+    slotLabel: "SLOT",
     useCaseLabel: "使用场景",
     roleLabel: "用户身份",
     sourceLabel: "来源模块",
+    validationLayerLabel: "执行层",
+    validationInterfaceLabel: "判断接口",
+    outputLabel: "输出接口",
+    signalLabel: "信号通道",
   },
 } as const;
 
@@ -91,11 +101,14 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
               {SCENARIO_VALIDATIONS.map((item) => (
                 <article key={item.id} className="fm-home-scenario-chip">
                   <div className="space-y-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="space-y-1">
-                        <p className="m-0 text-[1rem] font-semibold tracking-[-0.02em] text-[#f2f2f7]">
-                          {locale === "zh" ? item.label.zh : item.label.en}
-                        </p>
+                    <div className="fm-home-scenario-chip-head">
+                      <div className="space-y-1.5">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span className="fm-home-scenario-slot-code">{item.slotCode}</span>
+                          <p className="m-0 text-[1rem] font-semibold tracking-[-0.02em] text-[#f2f2f7]">
+                            {locale === "zh" ? item.label.zh : item.label.en}
+                          </p>
+                        </div>
                         <p className="m-0 font-mono text-[0.64rem] uppercase tracking-[0.18em] text-[#00ff41] opacity-90">
                           {item.protocol}
                         </p>
@@ -109,12 +122,41 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
                       {locale === "zh" ? item.detail.zh : item.detail.en}
                     </p>
 
-                    <div className="fm-home-validation-slot-footer">
+                    <div className="fm-home-validation-slot-grid">
                       <div className="grid gap-1">
-                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">OUTPUT</span>
+                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">
+                          {copy.outputLabel}
+                        </span>
                         <span className="text-sm font-medium text-[#f2f2f7]">
                           {locale === "zh" ? item.output.zh : item.output.en}
                         </span>
+                      </div>
+
+                      <div className="grid gap-1">
+                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">
+                          {copy.validationLayerLabel}
+                        </span>
+                        <span className="text-sm font-medium text-[#f2f2f7]">
+                          {locale === "zh" ? item.layer.zh : item.layer.en}
+                        </span>
+                      </div>
+
+                      <div className="grid gap-1">
+                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">
+                          {copy.validationInterfaceLabel}
+                        </span>
+                        <span className="text-sm font-medium text-[#f2f2f7]">
+                          {locale === "zh" ? item.source.zh : item.source.en}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="fm-home-validation-slot-footer">
+                      <div className="grid gap-1">
+                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">
+                          {copy.slotLabel}
+                        </span>
+                        <span className="text-sm font-medium text-[#f2f2f7]">{item.slotCode}</span>
                       </div>
 
                       <div className="fm-home-validation-slot-signal" aria-hidden>
@@ -148,7 +190,7 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
 
           <div className="fm-home-evidence-registry">
             <div className="grid gap-[1px] bg-[#d4dae1] md:grid-cols-2">
-            {EVIDENCE_LOGS.map((item, index) => (
+            {EVIDENCE_LOGS.map((item) => (
               <article key={item.id} className="fm-home-evidence-entry">
                 <div className="flex h-full flex-col gap-5">
                   <div className="flex items-start justify-between gap-4">
@@ -158,9 +200,11 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
                           LOG_ID: {item.auditId}
                         </span>
                         <span className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-[#7f8a99]">
-                          REC 0{index + 1}
+                          {copy.slotLabel}: {item.slotCode}
                         </span>
                       </div>
+
+                      <p className="fm-home-evidence-signal-label m-0">{locale === "zh" ? item.signalLabel.zh : item.signalLabel.en}</p>
 
                       <div className="grid gap-2">
                         <p className="m-0 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-[#7f8a99]">

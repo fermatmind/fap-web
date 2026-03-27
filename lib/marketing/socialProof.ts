@@ -1,8 +1,17 @@
 export type ScenarioValidation = {
   id: string;
   code: string;
+  slotCode: string;
   protocol: string;
   label: {
+    en: string;
+    zh: string;
+  };
+  layer: {
+    en: string;
+    zh: string;
+  };
+  source: {
     en: string;
     zh: string;
   };
@@ -19,8 +28,13 @@ export type ScenarioValidation = {
 export type EvidenceLog = {
   id: string;
   auditId: string;
+  slotCode: string;
   verificationScore: string;
   author: string;
+  signalLabel: {
+    en: string;
+    zh: string;
+  };
   role: {
     en: string;
     zh: string;
@@ -49,8 +63,11 @@ export const SCENARIO_VALIDATIONS: ScenarioValidation[] = [
   {
     id: "learning-groups",
     code: "S-01",
+    slotCode: "DEPLOY-01",
     protocol: "LEARNING_FEEDBACK_LOOP",
     label: { en: "Learning cohorts", zh: "学习型群组" },
+    layer: { en: "Learning retrospective layer", zh: "学习复盘层" },
+    source: { en: "Role calibration interface", zh: "角色校准接口" },
     detail: {
       en: "Used for project retrospectives, role calibration, and growth feedback loops.",
       zh: "用于项目复盘、角色定位与成长反馈",
@@ -63,8 +80,11 @@ export const SCENARIO_VALIDATIONS: ScenarioValidation[] = [
   {
     id: "coaching",
     code: "S-02",
+    slotCode: "DEPLOY-02",
     protocol: "COACHING_DECISION_SUPPORT",
     label: { en: "Coaching practices", zh: "教练实践" },
+    layer: { en: "Career coaching layer", zh: "生涯辅导层" },
+    source: { en: "Decision support interface", zh: "决策支持接口" },
     detail: {
       en: "Used as structured reference in career-development judgment and coaching workflows.",
       zh: "用于职业发展判断与辅导流程中的结构化参考",
@@ -77,8 +97,11 @@ export const SCENARIO_VALIDATIONS: ScenarioValidation[] = [
   {
     id: "org-reviews",
     code: "S-03",
+    slotCode: "DEPLOY-03",
     protocol: "ROLE_FIT_DIAGNOSTICS",
     label: { en: "Org & people reviews", zh: "组织与人效复盘" },
+    layer: { en: "Organization review layer", zh: "组织复盘层" },
+    source: { en: "Role-fit diagnostic interface", zh: "岗位拟合接口" },
     detail: {
       en: "Used in collaboration reviews, role fit discussions, and communication diagnostics.",
       zh: "用于协作、岗位拟合与沟通机制讨论",
@@ -91,8 +114,11 @@ export const SCENARIO_VALIDATIONS: ScenarioValidation[] = [
   {
     id: "mentor-network",
     code: "S-04",
+    slotCode: "DEPLOY-04",
     protocol: "LONG_HORIZON_CHECKPOINT",
     label: { en: "Mentor networks", zh: "导师网络" },
+    layer: { en: "Mentorship conversation layer", zh: "导师对谈层" },
+    source: { en: "Long-horizon checkpoint interface", zh: "长期校验接口" },
     detail: {
       en: "Used inside long-horizon growth conversations and mentorship checkpoints.",
       zh: "用于长期成长路径中的认知对话",
@@ -105,8 +131,11 @@ export const SCENARIO_VALIDATIONS: ScenarioValidation[] = [
   {
     id: "research-communities",
     code: "S-05",
+    slotCode: "DEPLOY-05",
     protocol: "METHOD_TRANSMISSION",
     label: { en: "Content & research communities", zh: "内容与研究社群" },
+    layer: { en: "Editorial research layer", zh: "研究写作层" },
+    source: { en: "Method transmission interface", zh: "方法传播接口" },
     detail: {
       en: "Used for evidence-informed writing, editorial curation, and method transmission.",
       zh: "用于循证写作、观点策展与方法传播",
@@ -119,8 +148,11 @@ export const SCENARIO_VALIDATIONS: ScenarioValidation[] = [
   {
     id: "ops-teams",
     code: "S-06",
+    slotCode: "DEPLOY-06",
     protocol: "PRESSURE_CADENCE_REVIEW",
     label: { en: "Operations & management teams", zh: "运营与管理团队" },
+    layer: { en: "Operational execution layer", zh: "运营执行层" },
+    source: { en: "Cadence review interface", zh: "节奏复核接口" },
     detail: {
       en: "Used to judge pressure load, division of work, and decision cadence.",
       zh: "用于压力、分工与决策节奏判断",
@@ -136,8 +168,10 @@ export const EVIDENCE_LOGS: EvidenceLog[] = [
   {
     id: "log-01",
     auditId: "#FM-2026-089",
+    slotCode: "REG-01",
     verificationScore: "5.0/5.0",
     author: "A. Chen",
+    signalLabel: { en: "Team cohesion scan", zh: "团队协同校验" },
     role: { en: "Product Manager", zh: "产品经理" },
     quote: {
       en: "The structure is clear and the final explanation is concrete enough to use in team discussion immediately.",
@@ -152,8 +186,10 @@ export const EVIDENCE_LOGS: EvidenceLog[] = [
   {
     id: "log-02",
     auditId: "#FM-2026-104",
+    slotCode: "REG-02",
     verificationScore: "4.9/5.0",
     author: "M. Carter",
+    signalLabel: { en: "Career path decision", zh: "职业路径判断" },
     role: { en: "Career Coach", zh: "职业教练" },
     quote: {
       en: "Clients finish it quickly and we can move straight from the trait breakdown into the next practical step.",
@@ -168,8 +204,10 @@ export const EVIDENCE_LOGS: EvidenceLog[] = [
   {
     id: "log-03",
     auditId: "#FM-2026-127",
+    slotCode: "REG-03",
     verificationScore: "4.8/5.0",
     author: "S. Li",
+    signalLabel: { en: "Team fit audit", zh: "岗位适配审计" },
     role: { en: "Team Lead", zh: "团队负责人" },
     quote: {
       en: "The report language creates fast alignment, especially when we are discussing collaboration and role fit.",
@@ -184,8 +222,10 @@ export const EVIDENCE_LOGS: EvidenceLog[] = [
   {
     id: "log-04",
     auditId: "#FM-2026-141",
+    slotCode: "REG-04",
     verificationScore: "4.9/5.0",
     author: "R. Gomez",
+    signalLabel: { en: "Risk-load review", zh: "风险负载复核" },
     role: { en: "Operations Analyst", zh: "运营分析师" },
     quote: {
       en: "I like how smooth the flow is and how it keeps attention on useful decisions rather than labels.",
