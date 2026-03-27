@@ -10,6 +10,7 @@ const hoisted = vi.hoisted(() => ({
   search: "",
   fetchBig5History: vi.fn(),
   fetchBig5Report: vi.fn(),
+  fetchBig5ReportAccess: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -25,6 +26,7 @@ vi.mock("@/lib/i18n/locales", () => ({
 vi.mock("@/lib/big5/api", () => ({
   fetchBig5History: hoisted.fetchBig5History,
   fetchBig5Report: hoisted.fetchBig5Report,
+  fetchBig5ReportAccess: hoisted.fetchBig5ReportAccess,
 }));
 
 describe("BIG5 secondary surfaces contract", () => {
@@ -79,7 +81,7 @@ describe("BIG5 secondary surfaces contract", () => {
     render(<Big5HistoryClient />);
 
     expect(await screen.findByText("Lead domains: Openness, Agreeableness, Conscientiousness")).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: "View full result" })[0]).toHaveAttribute(
+    expect(screen.getAllByRole("link", { name: "Open formal result" })[0]).toHaveAttribute(
       "href",
       "/en/result/attempt-latest"
     );
@@ -88,6 +90,7 @@ describe("BIG5 secondary surfaces contract", () => {
       "/en/history/big5/compare?current=attempt-latest&previous=attempt-previous"
     );
     expect(hoisted.fetchBig5Report).not.toHaveBeenCalled();
+    expect(hoisted.fetchBig5ReportAccess).not.toHaveBeenCalled();
   });
 
   it("resolves compare pairs from history_compare and normalizes compare data from structured projection fields", () => {
@@ -154,9 +157,20 @@ describe("BIG5 secondary surfaces contract", () => {
     });
   });
 
-  it("renders BIG5 compare from shared normalized report data instead of page-local section parsing", async () => {
+  it("renders BIG5 compare from shared normalized report data and formal result access state", async () => {
     hoisted.pathname = "/en/history/big5/compare";
     hoisted.search = "current=attempt-current&previous=attempt-previous";
+    hoisted.fetchBig5ReportAccess.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-current",
+      access_state: "ready",
+      report_state: "ready",
+      pdf_state: "ready",
+      actions: {
+        page_href: "/en/result/attempt-current",
+        pdf_href: "/api/v0.3/attempts/attempt-current/report.pdf",
+      },
+    });
     hoisted.fetchBig5Report
       .mockResolvedValueOnce({
         ok: true,
@@ -201,6 +215,12 @@ describe("BIG5 secondary surfaces contract", () => {
 
     render(<Big5CompareClient />);
 
+    expect(await screen.findByText("Formal result ready")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Open formal result" })).toHaveAttribute(
+      "href",
+      "/en/result/attempt-current"
+    );
+    expect(screen.getByRole("button", { name: "Download PDF" })).toBeEnabled();
     expect(await screen.findByText("Domain percentile delta")).toBeInTheDocument();
     expect(screen.getByText("Current: attempt-current")).toBeInTheDocument();
     expect(screen.getByText("Previous: attempt-previous")).toBeInTheDocument();
@@ -212,5 +232,83 @@ describe("BIG5 secondary surfaces contract", () => {
     await waitFor(() => {
       expect(hoisted.fetchBig5Report).toHaveBeenCalledTimes(2);
     });
+    expect(hoisted.fetchBig5ReportAccess).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps BIG5 compare access-aware when the current result is locked", async () => {
+    hoisted.pathname = "/en/history/big5/compare";
+    hoisted.search = "current=attempt-current&previous=attempt-previous";
+    hoisted.fetchBig5ReportAccess.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-current",
+      access_state: "locked",
+      report_state: "ready",
+      pdf_state: "missing",
+      actions: {
+        page_href: "/en/result/attempt-current",
+        pdf_href: null,
+      },
+    });
+    hoisted.fetchBig5Report
+      .mockResolvedValueOnce({
+        ok: true,
+        big5_public_projection_v1: {
+          trait_vector: [{ key: "O", label: "Openness", percentile: 81 }],
+          facet_vector: [{ key: "O1", label: "O1 Imagination", domain: "O", percentile: 60, bucket: "mid" }],
+        },
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        big5_public_projection_v1: {
+          trait_vector: [{ key: "O", label: "Openness", percentile: 52 }],
+          facet_vector: [{ key: "O1", label: "O1 Imagination", domain: "O", percentile: 45, bucket: "mid" }],
+        },
+      });
+
+    render(<Big5CompareClient />);
+
+    expect(await screen.findByText("Current result is still in preview")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Open formal result preview" })).toHaveAttribute(
+      "href",
+      "/en/result/attempt-current"
+    );
+    expect(screen.getByRole("button", { name: "Unlock to download PDF" })).toBeDisabled();
+  });
+
+  it("hides compare result actions when the formal result is unavailable", async () => {
+    hoisted.pathname = "/en/history/big5/compare";
+    hoisted.search = "current=attempt-current&previous=attempt-previous";
+    hoisted.fetchBig5ReportAccess.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-current",
+      access_state: "ready",
+      report_state: "unavailable",
+      pdf_state: "missing",
+      actions: {
+        page_href: null,
+        pdf_href: null,
+      },
+    });
+    hoisted.fetchBig5Report
+      .mockResolvedValueOnce({
+        ok: true,
+        big5_public_projection_v1: {
+          trait_vector: [{ key: "O", label: "Openness", percentile: 81 }],
+          facet_vector: [{ key: "O1", label: "O1 Imagination", domain: "O", percentile: 60, bucket: "mid" }],
+        },
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        big5_public_projection_v1: {
+          trait_vector: [{ key: "O", label: "Openness", percentile: 52 }],
+          facet_vector: [{ key: "O1", label: "O1 Imagination", domain: "O", percentile: 45, bucket: "mid" }],
+        },
+      });
+
+    render(<Big5CompareClient />);
+
+    expect(await screen.findByText("Formal result unavailable")).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Open formal result" })).not.toBeInTheDocument();
+    expect(screen.queryByTestId("big5-compare-pdf-entry")).not.toBeInTheDocument();
   });
 });

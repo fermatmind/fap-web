@@ -30,9 +30,13 @@ export default function Big5HistoryClient() {
     compareLatest: locale === "zh" ? "对比最近两次结果" : "Compare latest two",
     loading: locale === "zh" ? "正在加载历史记录..." : "Loading history...",
     empty: locale === "zh" ? "还没有 Big Five 测试记录。" : "No BIG5 attempts found yet.",
+    scope:
+      locale === "zh"
+        ? "这里保持轻量历史列表。解锁、PDF 与正式结果动作统一回到正式结果页处理。"
+        : "This view stays lightweight. Unlock, PDF, and formal result actions are all handled from the formal result page.",
     attempt: locale === "zh" ? "测试记录" : "Attempt",
     topDomains: locale === "zh" ? "主导维度" : "Lead domains",
-    viewResult: locale === "zh" ? "查看正式结果页" : "View full result",
+    viewResult: locale === "zh" ? "打开正式结果页" : "Open formal result",
     previous: locale === "zh" ? "上一页" : "Previous page",
     next: locale === "zh" ? "下一页" : "Next page",
   };
@@ -90,7 +94,10 @@ export default function Big5HistoryClient() {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-2">
-        <h1 className="text-2xl font-bold text-slate-900">BIG5 History</h1>
+        <div className="space-y-1">
+          <h1 className="text-2xl font-bold text-slate-900">BIG5 History</h1>
+          <p className="m-0 text-sm text-slate-600">{copy.scope}</p>
+        </div>
         {compareLink ? (
           <Link href={compareLink} className="text-sm font-semibold text-sky-700 hover:text-sky-800">
             {copy.compareLatest}
