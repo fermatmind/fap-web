@@ -16,6 +16,11 @@ type MbtiStickyRailProps = {
   variant?: string;
   modulesAllowed?: string[];
   historyHref?: string;
+  pdfHref?: string;
+  pdfReady?: boolean;
+  orderLookupHref?: string;
+  orderDetailHref?: string;
+  relationshipHref?: string;
   retakeHref: string;
   primaryCtaLabel?: string;
   primaryCtaHref: string;
@@ -44,8 +49,18 @@ function normalizeText(...values: unknown[]): string {
   return "";
 }
 
-function resolveUnlockSummary(locale: Locale, locked?: boolean, accessLevel?: string, variant?: string, modulesAllowed: string[] = []) {
-  const isFreePreview = locked === true || normalizeText(accessLevel).toLowerCase() === "free" || normalizeText(variant).toLowerCase() === "free";
+function resolveUnlockSummary(
+  locale: Locale,
+  locked?: boolean,
+  accessLevel?: string,
+  variant?: string,
+  modulesAllowed: string[] = []
+) {
+  const isFreePreview =
+    locked === true
+    || normalizeText(accessLevel).toLowerCase() === "free"
+    || normalizeText(variant).toLowerCase() === "free";
+
   const title = isFreePreview
     ? locale === "zh"
       ? "当前为免费预览"
@@ -53,6 +68,7 @@ function resolveUnlockSummary(locale: Locale, locked?: boolean, accessLevel?: st
     : locale === "zh"
       ? "当前为完整访问"
       : "Currently on full access";
+
   const description = modulesAllowed.length > 0
     ? locale === "zh"
       ? `已开放模块：${modulesAllowed.join("、")}`
@@ -93,6 +109,11 @@ export function MbtiStickyRail({
   variant,
   modulesAllowed,
   historyHref,
+  pdfHref,
+  pdfReady = false,
+  orderLookupHref,
+  orderDetailHref,
+  relationshipHref,
   retakeHref,
   primaryCtaLabel,
   primaryCtaHref,
@@ -103,6 +124,15 @@ export function MbtiStickyRail({
   const unlockSummary = resolveUnlockSummary(locale, locked, accessLevel, variant, modulesAllowed);
   const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
   const visibleModuleLabels = resolveVisibleModuleLabels(locale, modulesAllowed);
+  const historyLabel = primaryCtaIsInternal
+    ? locale === "zh"
+      ? "结果工作台"
+      : "Result workspace"
+    : locale === "zh"
+      ? "历史结果 / 工作台"
+      : "History / workspace";
+  const showSecondaryHistoryEntry =
+    Boolean(historyHref) && (!primaryCtaIsInternal || primaryCtaHref !== historyHref);
 
   useEffect(() => {
     const sectionIds = NAV_ITEMS.map((item) => item.anchor);
@@ -135,7 +165,7 @@ export function MbtiStickyRail({
         <Card className="border-slate-200 bg-white/94 shadow-[0_20px_40px_rgba(15,23,42,0.08)] backdrop-blur">
           <CardHeader className="space-y-2 pb-3">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "人格摘要" : "Personality summary"}
+              {locale === "zh" ? "结果摘要" : "Result summary"}
             </p>
             <CardTitle className="text-xl text-slate-950">
               {headline.typeCode}
@@ -143,11 +173,23 @@ export function MbtiStickyRail({
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            {headline.supportingLine ? <p className="m-0 text-sm leading-7 text-slate-600">{headline.supportingLine}</p> : null}
+            <div className="rounded-2xl border border-slate-200 bg-slate-50/90 p-4">
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                {locale === "zh" ? "当前状态" : "Current state"}
+              </p>
+              <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{unlockSummary.title}</p>
+              <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{unlockSummary.description}</p>
+            </div>
+            {headline.supportingLine ? (
+              <p className="m-0 text-sm leading-7 text-slate-600">{headline.supportingLine}</p>
+            ) : null}
             {tags.length > 0 ? (
               <div className="flex flex-wrap gap-2">
                 {tags.slice(0, 4).map((tag) => (
-                  <span key={tag} className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600">
+                  <span
+                    key={tag}
+                    className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -156,7 +198,7 @@ export function MbtiStickyRail({
           </CardContent>
         </Card>
 
-      <Card className="border-slate-200 bg-white/94 shadow-[0_18px_34px_rgba(15,23,42,0.07)] backdrop-blur">
+        <Card className="border-slate-200 bg-white/94 shadow-[0_18px_34px_rgba(15,23,42,0.07)] backdrop-blur">
           <CardHeader className="pb-3">
             <CardTitle className="text-base text-slate-900">{locale === "zh" ? "章节导航" : "Report sections"}</CardTitle>
           </CardHeader>
@@ -178,13 +220,13 @@ export function MbtiStickyRail({
           </CardContent>
         </Card>
 
-      <Card className="border-slate-200 bg-white/94 shadow-[0_18px_34px_rgba(15,23,42,0.07)] backdrop-blur">
+        <Card className="border-slate-200 bg-white/94 shadow-[0_18px_34px_rgba(15,23,42,0.07)] backdrop-blur">
           <CardHeader className="pb-3">
-            <CardTitle className="text-base text-slate-900">{locale === "zh" ? "内容与动作" : "Report actions"}</CardTitle>
+            <CardTitle className="text-base text-slate-900">
+              {locale === "zh" ? "主动作与工作台" : "Primary actions and workspace"}
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            <p className="m-0 text-sm font-semibold text-slate-900">{unlockSummary.title}</p>
-            <p className="m-0 text-sm leading-7 text-slate-600">{unlockSummary.description}</p>
             {visibleModuleLabels.length > 0 ? (
               <div className="flex flex-wrap gap-2">
                 {visibleModuleLabels.map((item) => (
@@ -197,6 +239,7 @@ export function MbtiStickyRail({
                 ))}
               </div>
             ) : null}
+
             {primaryCtaIsInternal ? (
               <Link
                 href={primaryCtaHref}
@@ -218,6 +261,20 @@ export function MbtiStickyRail({
                 {ctaLabel}
               </a>
             )}
+
+            {showSecondaryHistoryEntry && historyHref ? (
+              <Link
+                href={historyHref}
+                className={buttonVariants({
+                  variant: "outline",
+                  className:
+                    "w-full border-slate-300 bg-white/80 transition duration-200 motion-reduce:transition-none hover:border-slate-400 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-emerald-300",
+                })}
+              >
+                {historyLabel}
+              </Link>
+            ) : null}
+
             <div className="grid grid-cols-2 gap-2">
               <Button
                 type="button"
@@ -238,17 +295,61 @@ export function MbtiStickyRail({
                 {locale === "zh" ? "重测" : "Retake"}
               </Link>
             </div>
-            {historyHref ? (
-              <Link
-                href={historyHref}
-                className={buttonVariants({
-                  variant: "ghost",
-                  className:
-                    "w-full justify-start rounded-2xl border border-dashed border-slate-200 px-4 text-slate-700 transition duration-200 motion-reduce:transition-none hover:border-slate-300 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-emerald-300",
-                })}
-              >
-                {locale === "zh" ? "查看历史记录与已购结果" : "View history and unlocked results"}
-              </Link>
+
+            {(pdfReady && pdfHref) || historyHref || relationshipHref || orderDetailHref || orderLookupHref ? (
+              <div className="space-y-2 rounded-2xl border border-dashed border-slate-200 bg-slate-50/75 p-3">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  {locale === "zh" ? "辅助入口" : "Utility entry points"}
+                </p>
+                <div className="flex flex-col gap-2">
+                  {pdfReady && pdfHref ? (
+                    <a
+                      href={pdfHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
+                    >
+                      {locale === "zh" ? "下载 PDF" : "Download PDF"}
+                    </a>
+                  ) : (
+                    <div className="rounded-xl px-3 py-2 text-sm text-slate-500">
+                      {locale === "zh" ? "PDF 将在可用时出现在工作台" : "PDF will appear in the workspace when ready"}
+                    </div>
+                  )}
+                  {historyHref ? (
+                    <Link
+                      href={historyHref}
+                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
+                    >
+                      {locale === "zh" ? "查看历史记录与已购结果" : "View history and unlocked results"}
+                    </Link>
+                  ) : null}
+                  {relationshipHref ? (
+                    <Link
+                      href={relationshipHref}
+                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
+                    >
+                      {locale === "zh" ? "关系回访入口" : "Relationship hub"}
+                    </Link>
+                  ) : null}
+                  {orderDetailHref ? (
+                    <Link
+                      href={orderDetailHref}
+                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
+                    >
+                      {locale === "zh" ? "订单详情" : "Order details"}
+                    </Link>
+                  ) : null}
+                  {orderLookupHref ? (
+                    <Link
+                      href={orderLookupHref}
+                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
+                    >
+                      {locale === "zh" ? "订单找回" : "Order lookup"}
+                    </Link>
+                  ) : null}
+                </div>
+              </div>
             ) : null}
           </CardContent>
         </Card>

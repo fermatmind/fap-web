@@ -171,35 +171,49 @@ export function MbtiPostPurchaseSection({
         </p>
         <CardTitle className="text-2xl tracking-[-0.03em] text-slate-950">{isZh ? "已解锁完整报告" : "Full report unlocked"}</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="m-0 text-sm leading-7 text-slate-600">
-          {isZh
-            ? "完整报告现已进入可回访状态。这里统一收口 PDF、订单、找回与历史入口，方便后续继续使用。"
-            : "The full report is now ready for revisit. This section brings PDF, order, recovery, and history access into one place."}
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-2xl border border-white/80 bg-white/75 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
-            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {isZh ? "状态" : "Status"}
+      <CardContent className="space-y-5">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.9fr)] lg:items-start">
+          <div className="space-y-4">
+            <p className="m-0 text-sm leading-7 text-slate-600">
+              {isZh
+                ? "完整报告现已进入可回访状态。这里是当前结果的主工作台，统一收口 PDF、历史结果、关系入口与订单相关动作。"
+                : "The full report is now ready for revisit. This is the primary workspace for the current result, consolidating PDF, history, relationship, and order actions."}
             </p>
-            <p className="m-0 mt-2 text-sm font-medium text-slate-900">
-              {isZh ? "完整报告已开放" : "Full report available"}
-            </p>
+            <div className="grid gap-3 md:grid-cols-3">
+              <div className="rounded-2xl border border-white/80 bg-white/75 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  {isZh ? "状态" : "Status"}
+                </p>
+                <p className="m-0 mt-2 text-sm font-medium text-slate-900">
+                  {isZh ? "完整报告已开放" : "Full report available"}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/80 bg-white/75 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  {isZh ? "交付" : "Delivery"}
+                </p>
+                <p className="m-0 mt-2 text-sm font-medium text-slate-900">
+                  {canShowPdf ? (isZh ? "PDF 已就绪" : "PDF ready") : (isZh ? "在线访问" : "Online access")}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/80 bg-white/75 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  {isZh ? "延续使用" : "Continue"}
+                </p>
+                <p className="m-0 mt-2 text-sm font-medium text-slate-900">
+                  {isZh ? "可从历史结果再次进入" : "Re-enter through report history"}
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="rounded-2xl border border-white/80 bg-white/75 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
-            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {isZh ? "交付" : "Delivery"}
+          <div className="rounded-[24px] border border-emerald-200 bg-emerald-50/70 p-5">
+            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+              {isZh ? "工作台边界" : "Workspace boundary"}
             </p>
-            <p className="m-0 mt-2 text-sm font-medium text-slate-900">
-              {canShowPdf ? (isZh ? "支持 PDF 下载" : "PDF delivery enabled") : (isZh ? "在线访问" : "Online access")}
-            </p>
-          </div>
-          <div className="rounded-2xl border border-white/80 bg-white/75 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
-            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {isZh ? "延续使用" : "Continue"}
-            </p>
-            <p className="m-0 mt-2 text-sm font-medium text-slate-900">
-              {isZh ? "可从历史结果再次进入" : "Re-enter through report history"}
+            <p className="m-0 mt-3 text-sm leading-7 text-slate-700">
+              {isZh
+                ? "这里不重复正文内容，只负责收口交付与回访动作。正文仍然在章节里继续阅读。"
+                : "This area does not repeat the chapter content. It consolidates delivery and revisit actions while the reading itself stays in the chapters above."}
             </p>
           </div>
         </div>
@@ -215,7 +229,7 @@ export function MbtiPostPurchaseSection({
             <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{continuityReasonLabel}</p>
           </div>
         ) : null}
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-3 md:grid-cols-2">
           {canShowPdf ? (
             <AttemptPdfDownloadButton
               attemptId={resolvedAttemptId}
@@ -247,6 +261,8 @@ export function MbtiPostPurchaseSection({
               {isZh ? "我的 MBTI 报告" : "My MBTI reports"}
             </Link>
           ) : null}
+        </div>
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {privateRelationshipHref ? (
             <Link
               href={privateRelationshipHref}

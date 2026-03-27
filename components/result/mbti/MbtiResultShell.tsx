@@ -13,6 +13,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   canEnterReportPage,
+  canDownloadReportPdf,
   isProjectionLocked,
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
@@ -240,6 +241,15 @@ function resolveDimensionStatLabel(code: string, locale: Locale): string {
   };
 
   return labels[code]?.[locale] ?? code;
+}
+
+function resolveDimensionPercent(value: Record<string, unknown>): number {
+  const raw = Number(value.percent ?? value.score ?? value.value ?? 0);
+  if (!Number.isFinite(raw)) {
+    return 0;
+  }
+
+  return Math.max(0, Math.min(100, Math.round(raw)));
 }
 
 function normalizeStringArray(values: unknown): string[] {
@@ -818,6 +828,14 @@ export function MbtiResultShell({
   const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
   const historyHref = accessProjection?.actions.historyHref ?? accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale);
   const orderLookupHref = accessProjection?.actions.lookupHref ?? accessHub?.links.lookupHref ?? localizedPath("/orders/lookup", locale);
+  const orderDetailHref = accessHub?.links.orderHref ?? "";
+  const relationshipHubHref = accessHub?.recovery.compareInviteId
+    ? localizedPath("/relationships/mbti", locale)
+    : "";
+  const pdfHref = accessProjection?.actions.pdfHref ?? accessHub?.pdfAccess.href ?? "";
+  const canDownloadPdf = accessProjection
+    ? canDownloadReportPdf(accessProjection) && Boolean(pdfHref || accessProjection.attemptId)
+    : accessHub?.pdfAccess.canDownloadPdf === true && Boolean(pdfHref || accessHub?.reportAccess.attemptId);
   const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
   const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
   const publicSubtitle = normalizeText(projectionViewModel?.subtitle, projectionViewModel?.tagline, headline.supportingLine);
@@ -1695,6 +1713,61 @@ export function MbtiResultShell({
     "motion-reduce:transform-none motion-reduce:transition-none transition-all duration-500 delay-75 ease-out",
     hasEntered ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
   ].join(" ");
+  const shellStateLabel = isUnlockedPostPurchase
+    ? locale === "zh"
+      ? "完整报告已解锁"
+      : "Full report unlocked"
+    : locale === "zh"
+      ? "当前为免费预览"
+      : "Currently on free preview";
+  const shellStateBody = isUnlockedPostPurchase
+    ? locale === "zh"
+      ? "正文继续按章节阅读，工作台统一收口 PDF、历史、订单与后续回访入口。"
+      : "Continue through the chapters while the workspace consolidates PDF, history, order, and revisit entry points."
+    : locale === "zh"
+      ? "先看公开层和四个正式章节，再在主方案区决定是否提升判读分辨率。"
+      : "Read the public layer and the four formal chapters first, then decide whether to increase the reading resolution in the main unlock section.";
+  const heroStatusCards = [
+    {
+      label: locale === "zh" ? "状态" : "Status",
+      value: shellStateLabel,
+      detail: shellStateBody,
+    },
+    {
+      label: locale === "zh" ? "交付" : "Delivery",
+      value: canDownloadPdf
+        ? locale === "zh"
+          ? "PDF 已就绪"
+          : "PDF ready"
+        : locale === "zh"
+          ? "在线访问"
+          : "Online access",
+      detail: canDownloadPdf
+        ? locale === "zh"
+          ? "已解锁后可直接从工作台下载 PDF。"
+          : "The PDF can be downloaded directly from the workspace after unlock."
+        : locale === "zh"
+          ? "PDF 保持独立 readiness，不等于已解锁。"
+          : "PDF readiness stays independent from report unlock.",
+    },
+    {
+      label: locale === "zh" ? "后续入口" : "Next entry",
+      value: isUnlockedPostPurchase
+        ? locale === "zh"
+          ? "Workspace / 历史结果"
+          : "Workspace / history"
+        : locale === "zh"
+          ? "主方案区解锁"
+          : "Main unlock section",
+      detail: isUnlockedPostPurchase
+        ? locale === "zh"
+          ? "当前结果会回收到 MBTI Workspace Lite。"
+          : "This result folds back into MBTI Workspace Lite."
+        : locale === "zh"
+          ? "整页只有一个主解锁收口：#offer-full。"
+          : "There is only one primary unlock sink on this page: #offer-full.",
+    },
+  ];
   const heroInsightItems = [
     {
       label: locale === "zh" ? "阅读模式" : "Reading mode",
@@ -1750,6 +1823,36 @@ export function MbtiResultShell({
         : "The preview exposes the public layer first; the full report completes the decision basis and action map.",
     },
   ];
+  const memoryStatusTitle = memoryFingerprintSummary
+    ? locale === "zh"
+      ? "长期记忆已生效"
+      : "Longitudinal memory active"
+    : "";
+  const adaptiveStatusTitle = adaptiveFingerprintSummary
+    ? locale === "zh"
+      ? "自适应修正已生效"
+      : "Adaptive selection active"
+    : "";
+  const introStatusCards = [
+    memoryStatusTitle
+      ? {
+          testId: "mbti-longitudinal-memory",
+          title: memoryStatusTitle,
+          body:
+            normalizeText(memoryProgressionStateSummary, memoryRewriteReasonSummary, memoryStateSummary) ||
+            (locale === "zh" ? "当前阅读会沿用你最近一次的结果上下文。" : "This reading reuses the context from your recent result."),
+        }
+      : null,
+    adaptiveStatusTitle
+      ? {
+          testId: "mbti-adaptive-selection",
+          title: adaptiveStatusTitle,
+          body:
+            normalizeText(adaptiveRewriteReasonSummary, adaptiveContractVersionSummary) ||
+            (locale === "zh" ? "章节排序与动作线索会按当前上下文做微调。" : "Chapter order and action cues are lightly adjusted for the current context."),
+        }
+      : null,
+  ].filter(Boolean) as Array<{ testId: string; title: string; body: string }>;
   const principleItems = locale === "zh"
     ? ["可解释", "可行动", "可追溯", "数据主权"]
     : ["Explainable", "Actionable", "Traceable", "Sovereignty"];
@@ -1814,11 +1917,15 @@ export function MbtiResultShell({
                     <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-800">
                       {locale === "zh" ? "免费预览" : "Free preview"}
                     </span>
-                  ) : null}
+                  ) : (
+                    <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-800">
+                      {locale === "zh" ? "完整访问" : "Full access"}
+                    </span>
+                  )}
                 </div>
 
-                <div className="grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.85fr)] lg:items-start">
-                  <div className="space-y-5">
+                <div className="grid gap-6 lg:grid-cols-[minmax(0,1.18fr)_minmax(300px,0.82fr)] lg:items-start">
+                  <div className="space-y-6">
                     <div className="space-y-3">
                       <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
                         {locale === "zh" ? "决策级人格结果" : "Decision-grade personality result"}
@@ -1860,90 +1967,119 @@ export function MbtiResultShell({
                       </div>
                     ) : null}
 
-                    <div className="grid gap-3 sm:grid-cols-3">
-                      <div className="rounded-2xl border border-white/80 bg-white/70 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                          {locale === "zh" ? "Methodology / 方法论" : "Methodology"}
-                        </p>
-                        <p className="m-0 mt-2 text-sm font-medium text-slate-900">
-                          {locale === "zh" ? "类型骨架 + 边界轴 + 场景映射" : "Type structure + boundary axes + scenario mapping"}
-                        </p>
-                      </div>
-                      <div className="rounded-2xl border border-white/80 bg-white/70 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                          {locale === "zh" ? "Precision / 精度" : "Precision"}
-                        </p>
-                        <p className="m-0 mt-2 text-sm font-medium text-slate-900">
-                          {publicHeadline.rarity
-                            ? `${locale === "zh" ? "稀有度" : "Rarity"} · ${publicHeadline.rarity}`
-                            : locale === "zh"
-                              ? "按章节读取结构证据"
-                              : "Read structural evidence by chapter"}
-                        </p>
-                      </div>
-                      <div className="rounded-2xl border border-white/80 bg-white/70 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                          {locale === "zh" ? "Sovereignty / 数据主权" : "Sovereignty"}
-                        </p>
-                        <p className="m-0 mt-2 text-sm font-medium text-slate-900">
-                          {locale === "zh" ? "先看公开层，再决定是否提升判读分辨率" : "Review the public layer before increasing reading resolution"}
-                        </p>
-                      </div>
+                    <div
+                      data-testid="mbti-dimensions"
+                      className="grid gap-3 rounded-[28px] border border-white/70 bg-white/72 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] md:grid-cols-2"
+                    >
+                      {publicDimensions.slice(0, 4).map((dimension) => {
+                        const code = normalizeText(dimension.code);
+                        const label = normalizeText(
+                          resolveDimensionStatLabel(code, locale),
+                          dimension.label,
+                          code
+                        );
+                        const percent = resolveDimensionPercent(dimension);
+                        const winnerLabel = normalizeText(
+                          dimension.winnerLabel,
+                          dimension.label,
+                          code
+                        );
+
+                        return (
+                          <div
+                            key={`${code}-${label}`}
+                            className="rounded-2xl border border-slate-200/80 bg-white/85 p-4"
+                          >
+                            <div className="flex items-center justify-between gap-3">
+                              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                                {label}
+                              </p>
+                              <span className="text-sm font-semibold text-slate-900">{percent}%</span>
+                            </div>
+                            <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200">
+                              <div
+                                className="h-full rounded-full bg-slate-950"
+                                style={{ width: `${percent}%` }}
+                              />
+                            </div>
+                            <p className="m-0 mt-3 text-sm font-medium text-slate-900">{winnerLabel}</p>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 
-                  <div className="rounded-[28px] border border-slate-200/80 bg-slate-950 text-white shadow-[0_24px_48px_rgba(15,23,42,0.18)]">
-                    <div className="space-y-5 p-5">
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="space-y-2">
-                          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-200">
-                            {locale === "zh" ? "结果坐标" : "Result coordinates"}
-                          </p>
-                          <p className="m-0 text-3xl font-semibold tracking-[-0.04em] text-white">{publicHeadline.typeCode}</p>
-                          <p className="m-0 text-sm leading-6 text-slate-300">
-                            {locale === "zh" ? "这份结果用于建立结构化阅读坐标，而不是娱乐化标签。" : "This result defines a structured reading coordinate rather than an entertainment label."}
-                          </p>
-                        </div>
-                        <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-right">
-                          <p className="m-0 text-[11px] uppercase tracking-[0.16em] text-slate-400">
-                            {locale === "zh" ? "常模位置" : "Norm anchor"}
-                          </p>
-                          <p className="m-0 mt-1 text-sm font-medium text-white">
-                            {publicHeadline.rarity || (locale === "zh" ? "按章节读取" : "Read by chapter")}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="space-y-3">
-                        {heroInsightItems.map((item) => (
-                          <div
-                            key={item.label}
-                            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition duration-200 motion-reduce:transition-none hover:border-white/20 hover:bg-white/[0.08]"
-                          >
-                            <div className="flex items-center justify-between gap-3">
-                              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                                {item.label}
-                              </p>
-                              <span className="text-sm font-medium text-white">{item.value}</span>
-                            </div>
-                            <p className="m-0 mt-2 text-sm leading-6 text-slate-300">{item.detail}</p>
+                  <div className="space-y-4">
+                    <div className="rounded-[28px] border border-slate-200/80 bg-slate-950 text-white shadow-[0_24px_48px_rgba(15,23,42,0.18)]">
+                      <div className="space-y-5 p-5">
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="space-y-2">
+                            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-200">
+                              {locale === "zh" ? "当前状态" : "Current state"}
+                            </p>
+                            <p className="m-0 text-3xl font-semibold tracking-[-0.04em] text-white">
+                              {publicHeadline.typeCode}
+                            </p>
+                            <p className="m-0 text-sm leading-6 text-slate-300">{shellStateBody}</p>
                           </div>
-                        ))}
-                      </div>
+                          <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-right">
+                            <p className="m-0 text-[11px] uppercase tracking-[0.16em] text-slate-400">
+                              {locale === "zh" ? "常模位置" : "Norm anchor"}
+                            </p>
+                            <p className="m-0 mt-1 text-sm font-medium text-white">
+                              {publicHeadline.rarity || (locale === "zh" ? "按章节读取" : "Read by chapter")}
+                            </p>
+                          </div>
+                        </div>
 
-                      <a
-                        href={isUnlockedPostPurchase ? "#intro" : "#offer-full"}
-                        className={buttonVariants({
-                          className:
-                            "w-full bg-white text-slate-950 shadow-[0_12px_28px_rgba(255,255,255,0.16)] transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:bg-emerald-50 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
-                        })}
-                      >
-                        {isUnlockedPostPurchase
-                          ? offerPrimaryLabel
-                          : locale === "zh"
-                            ? "查看完整报告边界"
-                            : "Review the full-report boundary"}
-                      </a>
+                        <div className="space-y-3">
+                          {heroStatusCards.map((item) => (
+                            <div
+                              key={item.label}
+                              className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition duration-200 motion-reduce:transition-none hover:border-white/20 hover:bg-white/[0.08]"
+                            >
+                              <div className="flex items-center justify-between gap-3">
+                                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                                  {item.label}
+                                </p>
+                                <span className="text-sm font-medium text-white">{item.value}</span>
+                              </div>
+                              <p className="m-0 mt-2 text-sm leading-6 text-slate-300">{item.detail}</p>
+                            </div>
+                          ))}
+                        </div>
+
+                        <a
+                          href={isUnlockedPostPurchase ? "#offer-full" : "#offer-full"}
+                          className={buttonVariants({
+                            className:
+                              "w-full bg-white text-slate-950 shadow-[0_12px_28px_rgba(255,255,255,0.16)] transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:bg-emerald-50 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
+                          })}
+                        >
+                          {isUnlockedPostPurchase
+                            ? locale === "zh"
+                              ? "打开完整结果工作台"
+                              : "Open the full result workspace"
+                            : locale === "zh"
+                              ? "查看完整报告边界"
+                              : "Review the full-report boundary"}
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                      {heroInsightItems.map((item) => (
+                        <div
+                          key={item.label}
+                          className="rounded-2xl border border-white/70 bg-white/78 px-4 py-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)]"
+                        >
+                          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                            {item.label}
+                          </p>
+                          <p className="m-0 mt-2 text-sm font-semibold text-slate-950">{item.value}</p>
+                          <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{item.detail}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -1955,7 +2091,7 @@ export function MbtiResultShell({
             id="intro"
             className={`scroll-mt-28 rounded-[28px] border border-slate-200 bg-white/90 p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)] backdrop-blur ${introSurfaceClass} md:p-6`}
           >
-            <div className="grid gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start">
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
               <div className="space-y-3">
                 <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
                   {locale === "zh" ? "如何阅读这份结果" : "How to read this result"}
@@ -1969,19 +2105,37 @@ export function MbtiResultShell({
                     : "This page delivers the public layer first. The four chapters explain type structure, career mapping, growth friction, and relationship patterns before the full report adds higher-resolution evidence and action coordinates."}
                 </p>
               </div>
-              <div className="grid gap-3 md:grid-cols-3">
-                {introGuideItems.map((item, index) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white"
-                  >
-                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                      {locale === "zh" ? `步骤 ${index + 1}` : `Step ${index + 1}`}
-                    </p>
-                    <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{item.title}</p>
-                    <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
+              <div className="space-y-3">
+                {introStatusCards.length > 0 ? (
+                  <div className="grid gap-3 md:grid-cols-2">
+                    {introStatusCards.map((item) => (
+                      <div
+                        key={item.testId}
+                        data-testid={item.testId}
+                        className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4"
+                      >
+                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                          {item.title}
+                        </p>
+                        <p className="m-0 mt-2 text-sm leading-6 text-slate-700">{item.body}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                ) : null}
+                <div className="grid gap-3 md:grid-cols-3">
+                  {introGuideItems.map((item, index) => (
+                    <div
+                      key={item.title}
+                      className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white"
+                    >
+                      <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                        {locale === "zh" ? `步骤 ${index + 1}` : `Step ${index + 1}`}
+                      </p>
+                      <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{item.title}</p>
+                      <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -2009,35 +2163,43 @@ export function MbtiResultShell({
               <CardTitle className="text-white">{locale === "zh" ? "结果收束动作" : "Result actions"}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="m-0 text-sm leading-7 text-slate-300">
-                {locale === "zh"
-                  ? "这里收口分享、重测和历史入口；完整解锁动作仍以主方案区为准。"
-                  : "This footer keeps share, retake, and history entry points while the primary unlock action remains in the main offer section."}
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Button type="button" variant="secondary" onClick={() => void handleShare()}>
-                  {locale === "zh" ? "分享结果" : "Share result"}
-                </Button>
-                <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
-                  {locale === "zh" ? "重新测试" : "Retake test"}
-                </Link>
-                <Link href={historyHref} className={buttonVariants({ variant: "outline" })}>
-                  {locale === "zh" ? "查看历史" : "View history"}
-                </Link>
-                {isUnlockedPostPurchase ? (
-                  <Link
-                    href={resolvedTerminalPrimaryCtaHref}
-                    className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}
-                  >
-                    {terminalPrimaryCtaLabel}
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+                <div className="space-y-2">
+                  <p className="m-0 text-sm leading-7 text-slate-300">
+                    {isUnlockedPostPurchase
+                      ? locale === "zh"
+                        ? "结果正文保留在当前页，后续回访、PDF 与订单入口统一收在工作台与历史结果。"
+                        : "The reading stays on this page while revisit, PDF, and order entry points consolidate into the workspace and history."
+                      : locale === "zh"
+                        ? "这里收口分享、重测与历史入口；唯一主解锁动作仍然回到 #offer-full。"
+                        : "This footer keeps share, retake, and history entry points while the single primary unlock action still resolves to #offer-full."}
+                  </p>
+                  {shareMessage ? <p className="m-0 text-sm text-emerald-200">{shareMessage}</p> : null}
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <Button type="button" variant="secondary" onClick={() => void handleShare()}>
+                    {locale === "zh" ? "分享结果" : "Share result"}
+                  </Button>
+                  <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
+                    {locale === "zh" ? "重新测试" : "Retake test"}
                   </Link>
-                ) : (
-                  <a href="#offer-full" className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}>
-                    {offerPrimaryLabel}
-                  </a>
-                )}
+                  <Link href={historyHref} className={buttonVariants({ variant: "outline" })}>
+                    {locale === "zh" ? "查看历史" : "View history"}
+                  </Link>
+                  {isUnlockedPostPurchase ? (
+                    <Link
+                      href={resolvedTerminalPrimaryCtaHref}
+                      className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}
+                    >
+                      {terminalPrimaryCtaLabel}
+                    </Link>
+                  ) : (
+                    <a href="#offer-full" className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}>
+                      {offerPrimaryLabel}
+                    </a>
+                  )}
+                </div>
               </div>
-              {shareMessage ? <p className="m-0 text-sm text-emerald-200">{shareMessage}</p> : null}
             </CardContent>
           </Card>
         </div>
@@ -2057,6 +2219,11 @@ export function MbtiResultShell({
                 : []
           }
           historyHref={historyHref}
+          pdfHref={pdfHref}
+          pdfReady={canDownloadPdf}
+          orderLookupHref={orderLookupHref}
+          orderDetailHref={orderDetailHref}
+          relationshipHref={relationshipHubHref}
           retakeHref={retakeHref}
           primaryCtaLabel={terminalPrimaryCtaLabel}
           primaryCtaHref={resolvedTerminalPrimaryCtaHref}
