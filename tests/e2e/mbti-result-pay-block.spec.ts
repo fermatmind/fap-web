@@ -144,7 +144,7 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
   await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
 });
 
-test("MBTI result page shows unlock offer block when report-access already carries report payload", async ({ page }) => {
+test("MBTI result page keeps the unlock offer block on the current access-first report path", async ({ page }) => {
   const attemptId = "827adbb2-f7d1-40de-9190-578ca788c348";
   const orderNo = "ord_mbti_access_payload_199";
   const paymentRecoveryToken = "token_mbti_access_payload";
@@ -180,29 +180,39 @@ test("MBTI result page shows unlock offer block when report-access already carri
   });
 
   const pagePath = `/zh/result/${attemptId}#offer-full`;
-  const fallbackReport = createMbtiLockedReportFixture();
-
   await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify(fallbackReport),
-    });
-  });
-
-  await page.route(`**/api/v0.3/attempts/${attemptId}/result*`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
         attempt_id: attemptId,
-        scale_code: "MBTI",
-        result: {
-          type_code: "ENFP-T",
-          summary: "Fallback result is only a backup path.",
+        access_state: "locked",
+        report_state: "ready",
+        pdf_state: "ready",
+        reason_code: "projection_missing_result_ready",
+        projection_version: 1,
+        actions: {
+          page_href: `/zh/result/${attemptId}`,
+          pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+          wait_href: `/pay/wait?order_no=${orderNo}`,
+          history_href: "/history/mbti",
+          lookup_href: "/orders/lookup",
+        },
+        payload: {},
+        meta: {
+          produced_at: "2026-03-24T00:00:00.000Z",
+          refreshed_at: "2026-03-24T00:00:00.000Z",
         },
       }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/result*`, async (route) => {
+    await route.fulfill({
+      status: 500,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: false, message: "result fallback should not be needed for this case." }),
     });
   });
 
@@ -240,9 +250,9 @@ test("MBTI result page shows unlock offer block when report-access already carri
 
   await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
     await route.fulfill({
-      status: 500,
+      status: 200,
       contentType: "application/json",
-      body: JSON.stringify({ ok: false, message: "report endpoint should not be needed for this case." }),
+      body: JSON.stringify(createMbtiLockedReportFixture()),
     });
   });
 

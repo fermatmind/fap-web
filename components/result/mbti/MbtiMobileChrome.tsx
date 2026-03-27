@@ -11,6 +11,8 @@ type MbtiMobileChromeProps = {
   primaryCtaLabel?: string;
   primaryCtaHref: string;
   primaryCtaIsInternal?: boolean;
+  shareCtaLabel?: string;
+  shareDisabled?: boolean;
   onShare: () => void | Promise<void>;
 };
 
@@ -33,10 +35,13 @@ export function MbtiMobileChrome({
   primaryCtaLabel,
   primaryCtaHref,
   primaryCtaIsInternal = false,
+  shareCtaLabel,
+  shareDisabled = false,
   onShare,
 }: MbtiMobileChromeProps) {
   const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
   const [activeAnchor, setActiveAnchor] = useState("hero");
+  const resolvedShareCtaLabel = shareCtaLabel?.trim() || (locale === "zh" ? "分享结果" : "Share result");
 
   useEffect(() => {
     const sectionIds = NAV_ITEMS.map((item) => item.anchor);
@@ -125,9 +130,10 @@ export function MbtiMobileChrome({
               type="button"
               variant="outline"
               className="min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+              disabled={shareDisabled}
               onClick={() => void onShare()}
             >
-            {locale === "zh" ? "分享" : "Share"}
+            {resolvedShareCtaLabel}
             </Button>
           <Link
             href={retakeHref}

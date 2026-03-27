@@ -15,6 +15,7 @@ type MbtiStickyRailProps = {
   accessLevel?: string;
   variant?: string;
   modulesAllowed?: string[];
+  modulesPreview?: string[];
   historyHref?: string;
   pdfHref?: string;
   pdfReady?: boolean;
@@ -25,6 +26,9 @@ type MbtiStickyRailProps = {
   primaryCtaLabel?: string;
   primaryCtaHref: string;
   primaryCtaIsInternal?: boolean;
+  shareCtaLabel?: string;
+  shareStatusMessage?: string;
+  shareDisabled?: boolean;
   onShare: () => void | Promise<void>;
 };
 
@@ -54,12 +58,24 @@ function resolveUnlockSummary(
   locked?: boolean,
   accessLevel?: string,
   variant?: string,
-  modulesAllowed: string[] = []
+  modulesAllowed: string[] = [],
+  modulesPreview: string[] = []
 ) {
   const isFreePreview =
     locked === true
     || normalizeText(accessLevel).toLowerCase() === "free"
     || normalizeText(variant).toLowerCase() === "free";
+
+  const allowedWithoutCoreFree = modulesAllowed.filter(
+    (moduleCode) => normalizeText(moduleCode).toLowerCase() !== "core_free"
+  );
+  const visibleModules =
+    allowedWithoutCoreFree.length > 0
+      ? allowedWithoutCoreFree
+      : modulesPreview.length > 0
+        ? modulesPreview
+        : modulesAllowed;
+  const labels = resolveVisibleModuleLabels(locale, visibleModules);
 
   const title = isFreePreview
     ? locale === "zh"
@@ -69,10 +85,14 @@ function resolveUnlockSummary(
       ? "当前为完整访问"
       : "Currently on full access";
 
-  const description = modulesAllowed.length > 0
+  const description = allowedWithoutCoreFree.length > 0
     ? locale === "zh"
-      ? `已开放模块：${modulesAllowed.join("、")}`
-      : `Open modules: ${modulesAllowed.join(", ")}`
+      ? `已开放模块：${labels.join("、")}`
+      : `Open modules: ${labels.join(", ")}`
+    : labels.length > 0
+      ? locale === "zh"
+        ? `当前预览范围：${labels.join("、")}`
+        : `Preview currently covers: ${labels.join(", ")}`
     : locale === "zh"
       ? "当前以章节骨架阅读为主，解锁方案集中在下方方案区。"
       : "This view stays focused on the reading shell, with unlock options grouped below.";
@@ -108,6 +128,7 @@ export function MbtiStickyRail({
   accessLevel,
   variant,
   modulesAllowed,
+  modulesPreview,
   historyHref,
   pdfHref,
   pdfReady = false,
@@ -118,12 +139,26 @@ export function MbtiStickyRail({
   primaryCtaLabel,
   primaryCtaHref,
   primaryCtaIsInternal = false,
+  shareCtaLabel,
+  shareStatusMessage,
+  shareDisabled = false,
   onShare,
 }: MbtiStickyRailProps) {
   const [activeAnchor, setActiveAnchor] = useState("hero");
-  const unlockSummary = resolveUnlockSummary(locale, locked, accessLevel, variant, modulesAllowed);
+  const unlockSummary = resolveUnlockSummary(locale, locked, accessLevel, variant, modulesAllowed, modulesPreview);
   const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
-  const visibleModuleLabels = resolveVisibleModuleLabels(locale, modulesAllowed);
+  const allowedWithoutCoreFree = (modulesAllowed ?? []).filter(
+    (moduleCode) => normalizeText(moduleCode).toLowerCase() !== "core_free"
+  );
+  const visibleModuleLabels = resolveVisibleModuleLabels(
+    locale,
+    allowedWithoutCoreFree.length > 0
+      ? allowedWithoutCoreFree
+      : modulesPreview && modulesPreview.length > 0
+        ? modulesPreview
+        : modulesAllowed
+  );
+  const resolvedShareLabel = normalizeText(shareCtaLabel, locale === "zh" ? "分享结果" : "Share result");
   const historyLabel = primaryCtaIsInternal
     ? locale === "zh"
       ? "结果工作台"
@@ -280,9 +315,10 @@ export function MbtiStickyRail({
                 type="button"
                 variant="outline"
                 className="flex-1 transition duration-200 motion-reduce:transition-none hover:border-slate-300 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-emerald-300"
+                disabled={shareDisabled}
                 onClick={() => void onShare()}
               >
-                {locale === "zh" ? "分享" : "Share"}
+                {resolvedShareLabel}
               </Button>
               <Link
                 href={retakeHref}
@@ -295,6 +331,15 @@ export function MbtiStickyRail({
                 {locale === "zh" ? "重测" : "Retake"}
               </Link>
             </div>
+
+            {shareStatusMessage ? (
+              <p
+                data-testid="mbti-sticky-rail-share-status"
+                className="m-0 text-xs leading-6 text-emerald-700"
+              >
+                {shareStatusMessage}
+              </p>
+            ) : null}
 
             {(pdfReady && pdfHref) || historyHref || relationshipHref || orderDetailHref || orderLookupHref ? (
               <div className="space-y-2 rounded-2xl border border-dashed border-slate-200 bg-slate-50/75 p-3">

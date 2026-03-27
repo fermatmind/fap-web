@@ -229,6 +229,21 @@ export function MbtiPostPurchaseSection({
             <p className="m-0 mt-1 text-sm leading-7 text-slate-600">{continuityReasonLabel}</p>
           </div>
         ) : null}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between gap-3">
+            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {isZh ? "主动作" : "Primary workspace actions"}
+            </p>
+            <p className="m-0 text-xs text-slate-500">
+              {canShowPdf
+                ? isZh
+                  ? "PDF 与结果历史都已可直接进入"
+                  : "PDF and revisit entry are both available"
+                : isZh
+                  ? "PDF 未就绪时，先从历史结果再次进入"
+                  : "Use history first while the PDF is not ready"}
+            </p>
+          </div>
         <div className="grid gap-3 md:grid-cols-2">
           {canShowPdf ? (
             <AttemptPdfDownloadButton
@@ -262,6 +277,11 @@ export function MbtiPostPurchaseSection({
             </Link>
           ) : null}
         </div>
+        </div>
+        <div className="space-y-3">
+          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+            {isZh ? "辅助入口" : "Recovery and utility actions"}
+          </p>
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {privateRelationshipHref ? (
             <Link
@@ -290,6 +310,7 @@ export function MbtiPostPurchaseSection({
               {isZh ? "订单找回" : "Order lookup"}
             </Link>
           ) : null}
+        </div>
         </div>
       </CardContent>
     </Card>

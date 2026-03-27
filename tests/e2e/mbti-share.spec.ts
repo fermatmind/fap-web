@@ -400,7 +400,8 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   await expect
     .poll(async () => page.evaluate(() => (window as typeof window & { __copiedShareUrl?: string }).__copiedShareUrl ?? ""))
     .toBe(shareUrl);
-  await expect(page.getByText("Result link copied.")).toBeVisible();
+  await expect(page.getByTestId("mbti-footer-cta").getByText("Result link copied.")).toBeVisible();
+  await expect(page.getByTestId("mbti-sticky-rail-share-status")).toHaveText("Result link copied.");
 
   await page.goto(`${shareUrl}?utm_source=wechat&utm_medium=organic&utm_campaign=mbti`, {
     referer: `http://127.0.0.1:3000/en/result/${attemptId}`,
