@@ -52,9 +52,7 @@ const COPY = {
     matrixLegend: "30 nodes / 3 columns / live probe",
     matrixProbeTarget: "Probe target",
     matrixProbeHex: "Hex code",
-    matrixProbeScore: "Z-score",
     matrixProbeReading: "Reading",
-    matrixStreamLabel: "Reading",
     matrixSummaryLabel: "Active facet",
     matrixSummaryValue: "Signal routes",
     coordinateMeta: "100,000+ reference set",
@@ -90,9 +88,7 @@ const COPY = {
     matrixLegend: "30 节点 / 3 列探针阵列",
     matrixProbeTarget: "探针目标",
     matrixProbeHex: "节点编号",
-    matrixProbeScore: "Z 分数",
     matrixProbeReading: "实时读数",
-    matrixStreamLabel: "读数",
     matrixSummaryLabel: "当前分面",
     matrixSummaryValue: "信号路由",
     coordinateMeta: "100,000+ 常模参照",
@@ -445,7 +441,6 @@ const FACET_DEFINITIONS: FacetDefinition[] = [
   },
 ];
 
-const Z_SCORE_SERIES = [1.422459, 1.421873, 1.423102, 1.420941, 1.422774, 1.421188];
 const TICKER_METRICS: TickerMetric[] = [
   { key: "COMPATIBILITY_INDEX", value: "0.824219" },
   { key: "TRUST_DELTA", value: "0.612458" },
@@ -593,7 +588,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
     [activeFacetId],
   );
 
-  const activeZScore = Z_SCORE_SERIES[tick % Z_SCORE_SERIES.length] ?? Z_SCORE_SERIES[0];
+  const activeZScore = activeFacet.z;
   const percentile = percentileFromZ(activeZScore);
   const tickerLog = TICKER_METRICS.map(({ key, value }) => `${key}: ${value}`).join(" // ");
   const activeRoutes = activeFacet.scenarios.map((scenario) => copy.routeLabels[scenario]);
@@ -652,13 +647,6 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                       <span className="fm-home-engine-probe-data">{activeFacet.hex}</span>
                     </div>
                     <div className="fm-home-engine-probe-row">
-                      <span className="fm-home-engine-meta-label">{copy.matrixProbeScore}</span>
-                      <span className="fm-home-engine-probe-data">
-                        {activeFacet.z >= 0 ? "+" : ""}
-                        {activeFacet.z.toFixed(6)}
-                      </span>
-                    </div>
-                    <div className="fm-home-engine-probe-row">
                       <span className="fm-home-engine-meta-label">{copy.matrixProbeReading}</span>
                       <span className="fm-home-engine-probe-data">{formatNodeReading(activeFacet.reading)}</span>
                     </div>
@@ -683,10 +671,6 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                               segments={6}
                               activeIndex={activeFacet.id === facet.id ? Math.min(5, facetIndex % 6) : -1}
                             />
-                            <div className="fm-home-engine-ledger-reading">
-                              <span>{copy.matrixStreamLabel}</span>
-                              <span>{formatNodeReading(facet.reading)}</span>
-                            </div>
                           </div>
                         ))}
                       </div>
@@ -741,12 +725,6 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                       <p className="fm-home-engine-norm-percentile m-0 mt-2">{formatLocalePercentile(percentile, localeLabel)}</p>
                     </div>
                   </div>
-
-                  <p className="fm-home-engine-norm-anchor m-0">
-                    <span className="fm-home-engine-meta-label">{copy.coordinateMeta}</span>
-                    <span>{copy.coordinateAnchor}</span>
-                  </p>
-
                   <div className="fm-home-engine-ruler">
                     <span className="fm-home-engine-meta-label">{copy.coordinateRuler}</span>
                     <SignalDots value={(percentile / 100) * 0.92} segments={18} activeIndex={Math.round((percentile / 100) * 17)} />
@@ -757,13 +735,6 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
               </section>
 
               <section className="fm-home-engine-module fm-home-engine-module-reason">
-                <div className="fm-home-engine-module-head">
-                  <div>
-                    <p className="fm-home-engine-label m-0">{copy.modules.reason}</p>
-                    <p className="fm-home-engine-note m-0 mt-2">{copy.notes.reason}</p>
-                  </div>
-                </div>
-
                 <div className="fm-home-engine-reason-body">
                   <div className="fm-home-engine-reason-focus">
                     <div className="fm-home-engine-reason-head">
