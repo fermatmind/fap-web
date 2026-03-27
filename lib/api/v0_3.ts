@@ -1669,6 +1669,22 @@ export type MeAttemptItem = {
   scale_code?: string;
   submitted_at?: string | null;
   type_code?: string;
+  access_summary?: {
+    access_state?: string;
+    report_state?: string;
+    pdf_state?: string;
+    reason_code?: string | null;
+    access_level?: string | null;
+    variant?: string | null;
+    modules_allowed?: string[];
+    modules_preview?: string[];
+    actions?: {
+      page_href?: string | null;
+      pdf_href?: string | null;
+      [key: string]: unknown;
+    };
+    [key: string]: unknown;
+  };
   result_summary?: {
     domains_mean?: Record<string, number>;
   };

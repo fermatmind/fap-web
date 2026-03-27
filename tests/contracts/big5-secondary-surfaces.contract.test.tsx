@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import Big5HistoryClient from "@/app/(localized)/[locale]/(app)/history/big5/Big5HistoryClient";
 import Big5CompareClient from "@/app/(localized)/[locale]/(app)/history/big5/compare/Big5CompareClient";
@@ -36,7 +36,7 @@ describe("BIG5 secondary surfaces contract", () => {
     hoisted.search = "";
   });
 
-  it("keeps BIG5 history lightweight and links each attempt into the formal result page", async () => {
+  it("keeps BIG5 history lightweight while making each row access-aware without extra access requests", async () => {
     hoisted.fetchBig5History.mockResolvedValue({
       ok: true,
       items: [
@@ -52,6 +52,17 @@ describe("BIG5 secondary surfaces contract", () => {
               N: 41,
             },
           },
+          access_summary: {
+            access_state: "ready",
+            report_state: "ready",
+            pdf_state: "ready",
+            access_level: "full",
+            variant: "full",
+            actions: {
+              page_href: "/en/result/attempt-latest",
+              pdf_href: "/api/v0.3/attempts/attempt-latest/report.pdf",
+            },
+          },
         },
         {
           attempt_id: "attempt-previous",
@@ -61,6 +72,57 @@ describe("BIG5 secondary surfaces contract", () => {
               O: 72,
               C: 65,
               A: 61,
+            },
+          },
+          access_summary: {
+            access_state: "locked",
+            report_state: "ready",
+            pdf_state: "missing",
+            access_level: "preview",
+            variant: "free",
+            actions: {
+              page_href: "/en/result/attempt-previous",
+              pdf_href: null,
+            },
+          },
+        },
+        {
+          attempt_id: "attempt-processing",
+          submitted_at: "2026-03-12T00:00:00Z",
+          result_summary: {
+            domains_mean: {
+              E: 71,
+              O: 69,
+              C: 63,
+            },
+          },
+          access_summary: {
+            access_state: "locked",
+            report_state: "pending",
+            pdf_state: "missing",
+            actions: {
+              page_href: "/en/result/attempt-processing",
+              pdf_href: null,
+            },
+          },
+        },
+        {
+          attempt_id: "attempt-unavailable",
+          submitted_at: "2026-03-09T00:00:00Z",
+          result_summary: {
+            domains_mean: {
+              N: 67,
+              A: 51,
+              O: 48,
+            },
+          },
+          access_summary: {
+            access_state: "ready",
+            report_state: "unavailable",
+            pdf_state: "missing",
+            actions: {
+              page_href: null,
+              pdf_href: null,
             },
           },
         },
@@ -81,10 +143,26 @@ describe("BIG5 secondary surfaces contract", () => {
     render(<Big5HistoryClient />);
 
     expect(await screen.findByText("Lead domains: Openness, Agreeableness, Conscientiousness")).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: "Open formal result" })[0]).toHaveAttribute(
-      "href",
-      "/en/result/attempt-latest"
-    );
+    const latestRow = screen.getByTestId("big5-history-row-attempt-latest");
+    expect(within(latestRow).getByText("Formal result ready")).toBeInTheDocument();
+    expect(within(latestRow).getByRole("link", { name: "Open formal result" })).toHaveAttribute("href", "/en/result/attempt-latest");
+    expect(within(latestRow).getByRole("button", { name: "Download PDF" })).toBeEnabled();
+
+    const lockedRow = screen.getByTestId("big5-history-row-attempt-previous");
+    expect(within(lockedRow).getByText("Preview access only")).toBeInTheDocument();
+    expect(within(lockedRow).getByRole("link", { name: "Open result preview" })).toHaveAttribute("href", "/en/result/attempt-previous");
+    expect(within(lockedRow).getByRole("button", { name: "Unlock to download PDF" })).toBeDisabled();
+
+    const processingRow = screen.getByTestId("big5-history-row-attempt-processing");
+    expect(within(processingRow).getByText("Result still processing")).toBeInTheDocument();
+    expect(within(processingRow).getByRole("link", { name: "Check result status" })).toHaveAttribute("href", "/en/result/attempt-processing");
+    expect(within(processingRow).queryByRole("button", { name: "Download PDF" })).not.toBeInTheDocument();
+
+    const unavailableRow = screen.getByTestId("big5-history-row-attempt-unavailable");
+    expect(within(unavailableRow).getByText("Result unavailable")).toBeInTheDocument();
+    expect(within(unavailableRow).getByText("Formal result unavailable")).toBeInTheDocument();
+    expect(within(unavailableRow).queryByRole("link", { name: "Open formal result" })).not.toBeInTheDocument();
+
     expect(screen.getByRole("link", { name: "Compare latest two" })).toHaveAttribute(
       "href",
       "/en/history/big5/compare?current=attempt-latest&previous=attempt-previous"
