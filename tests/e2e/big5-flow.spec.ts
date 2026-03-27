@@ -3,6 +3,10 @@ import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
   const attemptId = "11111111-1111-1111-1111-111111111111";
+  const reportAccessPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`);
+  const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
+  let reportAccessRequestCount = 0;
+  let reportRequestCount = 0;
   const trackedEvents: Array<{ eventName: string; payload: Record<string, unknown> }> = [];
 
   const questions = Array.from({ length: 120 }, (_, idx) => ({
@@ -177,7 +181,33 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+  await page.route(reportAccessPattern, async (route) => {
+    reportAccessRequestCount += 1;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        access_state: "ready",
+        report_state: "ready",
+        pdf_state: "ready",
+        reason_code: "report_ready",
+        projection_version: 1,
+        actions: {
+          page_href: `/en/result/${attemptId}`,
+          pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+        },
+        meta: {
+          produced_at: "2026-03-27T00:00:00.000Z",
+          refreshed_at: "2026-03-27T00:00:00.000Z",
+        },
+      }),
+    });
+  });
+
+  await page.route(reportPattern, async (route) => {
+    reportRequestCount += 1;
     const payload = {
       ok: true,
       locked: true,
@@ -192,7 +222,7 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
           formatted_price: "$9.99",
           currency: "USD",
           amount_cents: 999,
-          modules_included: ["big5_full", "big5_action_plan"],
+          modules_included: ["core_full", "big5_action_plan"],
         },
       ],
       modules_allowed: ["big5_core"],
@@ -291,8 +321,8 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
   await expect(foundationSummary.getByText("Agreeableness · 76")).toBeVisible();
   await expect(page.getByTestId("big5-action-plan-summary")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Traits Overview" })).toBeVisible();
-  await expect(page.getByText("Locked module", { exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Share result" })).toBeVisible();
+  await expect(page.getByTestId("big5-locked-sections")).toBeVisible();
+  await expect(page.getByTestId("big5-offer-surface")).toBeVisible();
 
   const startEvent = trackedEvents.find((event) => event.eventName === "start_click");
   if (startEvent) {
@@ -307,4 +337,6 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
 
   const reportFreeEvents = trackedEvents.filter((event) => event.eventName === "report_view_free");
   expect(reportFreeEvents.length).toBe(0);
+  expect(reportAccessRequestCount).toBeGreaterThan(0);
+  expect(reportRequestCount).toBeGreaterThan(0);
 });

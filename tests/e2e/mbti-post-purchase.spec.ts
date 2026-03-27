@@ -77,9 +77,39 @@ async function installUnlockedResultMocks(
   page: Page,
   attemptId: string
 ) {
+  const reportAccessPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`);
+  const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
+  let reportAccessRequestCount = 0;
   let reportRequestCount = 0;
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(reportAccessPattern, async (route) => {
+    reportAccessRequestCount += 1;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        access_state: "ready",
+        report_state: "ready",
+        pdf_state: "ready",
+        reason_code: "report_ready",
+        projection_version: 1,
+        actions: {
+          page_href: `/en/result/${attemptId}`,
+          pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+          history_href: "/history/mbti",
+          lookup_href: "/orders/lookup",
+        },
+        meta: {
+          produced_at: "2026-03-27T00:00:00.000Z",
+          refreshed_at: "2026-03-27T00:00:00.000Z",
+        },
+      }),
+    });
+  });
+
+  await page.route(reportPattern, async (route) => {
     reportRequestCount += 1;
     if (reportRequestCount === 1) {
       await new Promise((resolve) => setTimeout(resolve, 1200));
@@ -122,6 +152,11 @@ async function installUnlockedResultMocks(
       body: "%PDF-1.4 MBTI report",
     });
   });
+
+  return {
+    getReportAccessRequestCount: () => reportAccessRequestCount,
+    getReportRequestCount: () => reportRequestCount,
+  };
 }
 
 test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page }) => {
@@ -129,7 +164,7 @@ test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page
   const orderNo = "ord_mbti_post_purchase_0001";
 
   await installCommonMocks(page);
-  await installUnlockedResultMocks(page, attemptId);
+  const counters = await installUnlockedResultMocks(page, attemptId);
 
   await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
     await route.fulfill({
@@ -168,13 +203,15 @@ test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page
   await expect(terminalSurface.getByRole("link", { name: "My MBTI reports" })).toHaveAttribute("href", "/en/history/mbti");
   await expect(terminalSurface.getByRole("link", { name: "Order details" })).toHaveAttribute("href", `/en/orders/${orderNo}`);
   await expect(terminalSurface.getByRole("link", { name: "Order lookup" })).toHaveAttribute("href", "/en/orders/lookup");
+  expect(counters.getReportAccessRequestCount()).toBeGreaterThan(0);
+  expect(counters.getReportRequestCount()).toBeGreaterThan(0);
 });
 
 test("MBTI result pages keep post-purchase retention and history re-entry", async ({ page }) => {
   const attemptId = "mbti-post-purchase-0001";
 
   await installCommonMocks(page);
-  await installUnlockedResultMocks(page, attemptId);
+  const counters = await installUnlockedResultMocks(page, attemptId);
 
   await page.goto(`/en/result/${attemptId}`);
 
@@ -200,4 +237,6 @@ test("MBTI result pages keep post-purchase retention and history re-entry", asyn
 
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
   await expect(page.getByTestId("mbti-post-purchase-section")).toBeVisible();
+  expect(counters.getReportAccessRequestCount()).toBeGreaterThan(0);
+  expect(counters.getReportRequestCount()).toBeGreaterThan(0);
 });
