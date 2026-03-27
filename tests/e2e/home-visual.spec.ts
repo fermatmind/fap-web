@@ -28,8 +28,18 @@ async function expectHighlightedBeforeValueProps(page: Page) {
   expect(valueTop).toBeGreaterThanOrEqual(highlightedBottom - 1);
 }
 
+async function expectNoHorizontalOverflow(page: Page) {
+  const metrics = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+
+  expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth + 1);
+}
+
 test("home page renders hero, value props, and highlighted tests", async ({ page }) => {
   await page.goto("/en");
+  await expectNoHorizontalOverflow(page);
   await expectHeroAndValuePropsSeparated(page);
   await expectHighlightedBeforeValueProps(page);
   await expect(page.getByText("We use cookies and analytics to improve service quality.")).toHaveCount(0);
@@ -63,6 +73,7 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
 
 test("zh home MBTI highlighted card title shows 16型人格", async ({ page }) => {
   await page.goto("/zh");
+  await expectNoHorizontalOverflow(page);
   await expectHeroAndValuePropsSeparated(page);
   await expectHighlightedBeforeValueProps(page);
   await expect(page.getByText("我们使用 Cookie 和分析工具来提升服务质量。")).toHaveCount(0);
@@ -85,7 +96,28 @@ test("home hero and value props stay separated on mobile for en and zh", async (
 
   for (const localePath of ["/en", "/zh"] as const) {
     await page.goto(localePath);
+    await expectNoHorizontalOverflow(page);
     await expectHeroAndValuePropsSeparated(page);
     await expectHighlightedBeforeValueProps(page);
+  }
+});
+
+test("home layout stays within viewport across representative widths", async ({ page }) => {
+  const viewports = [
+    { width: 390, height: 844 },
+    { width: 768, height: 1024 },
+    { width: 1024, height: 900 },
+    { width: 1100, height: 900 },
+    { width: 1180, height: 900 },
+    { width: 1440, height: 960 },
+  ] as const;
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+
+    for (const localePath of ["/en", "/zh"] as const) {
+      await page.goto(localePath);
+      await expectNoHorizontalOverflow(page);
+    }
   }
 });

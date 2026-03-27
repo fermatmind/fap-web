@@ -40,17 +40,10 @@ export function HeroSection({ locale }: { locale: Locale }) {
       <div aria-hidden className="fm-home-hero-glow fm-home-hero-glow-left" />
       <div aria-hidden className="fm-home-hero-glow fm-home-hero-glow-right" />
 
-      <Container className="relative z-10 grid gap-[var(--fm-space-8)] max-w-[101rem] px-6 md:grid-cols-[minmax(0,6.1fr)_minmax(0.4rem,0.18fr)_minmax(48rem,8.9fr)] md:items-center md:gap-0 md:px-8 lg:px-12 xl:max-w-[106rem] xl:px-16 2xl:max-w-[110rem] 2xl:px-20">
+      <Container className="fm-home-hero-shell relative z-10 grid gap-[var(--fm-space-8)] max-w-[101rem] px-6 md:px-8 lg:px-12 xl:max-w-[106rem] xl:px-16 2xl:max-w-[110rem] 2xl:px-20">
         <div className="fm-home-enter-primary fm-home-hero-copy-column space-y-[var(--fm-space-6)]">
           <div className="fm-home-hero-title-shell space-y-5">
             <div aria-hidden className="fm-home-hero-title-matrix-field" />
-            <div aria-hidden className="fm-home-hero-title-code-rail">
-              <span className="fm-home-hero-title-code-label">ENTRY</span>
-              <span className="fm-home-hero-title-code-value">V3.1</span>
-              <span>NORM</span>
-              <span>TRACE</span>
-              <span>LOCK</span>
-            </div>
 
             <div className="fm-home-hero-label-stack">
               <p className="fm-home-kicker m-0">{copy.eyebrowPrimary}</p>
@@ -102,8 +95,6 @@ export function HeroSection({ locale }: { locale: Locale }) {
             </p>
           </div>
         </div>
-
-        <div aria-hidden className="hidden md:block" />
 
         <div className="relative fm-home-enter-secondary fm-home-hero-panel-column">
           <HeroAnimatedVisual localeLabel={locale === "zh" ? "zh" : "en"} />

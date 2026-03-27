@@ -71,7 +71,7 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
 
   return (
     <section data-testid="home-social-proof-section" className="fm-home-social-proof py-[var(--fm-section-y-lg)]">
-      <Container className="space-y-[var(--fm-space-10)]">
+      <Container className="relative z-10 space-y-[var(--fm-space-10)]">
         <div className="mx-auto max-w-[48rem] space-y-3 text-center">
           <p className="fm-home-section-kicker m-0">{copy.kicker}</p>
           <h2 className="m-0 text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.045em] text-[#0b0f14]">

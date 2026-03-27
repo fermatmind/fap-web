@@ -209,7 +209,7 @@ export function ValuePropsSection({ locale }: { locale: Locale }) {
       data-testid="home-value-props-section"
       className="fm-home-value-props relative z-10 pb-[var(--fm-space-14)] pt-[var(--fm-space-10)] md:pb-[var(--fm-space-16)] md:pt-[var(--fm-space-14)]"
     >
-      <Container className="space-y-[var(--fm-space-7)]">
+      <Container className="relative z-10 space-y-[var(--fm-space-7)]">
         <div className="mx-auto max-w-[46rem] space-y-3 text-center">
           <p className="fm-home-section-kicker m-0">{copy.kicker}</p>
           <h2 className="m-0 text-[clamp(2rem,4vw,3.25rem)] font-semibold tracking-[-0.05em] text-[#f2f2f7]">
