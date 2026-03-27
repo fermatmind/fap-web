@@ -597,6 +597,13 @@ function normalizeHighlights(reportData: ReportResponse, gate: RichResultGate, l
     }));
 }
 
+function resolveRecommendedReads(reportData: ReportResponse) {
+  const payload = resolveReportPayload(reportData);
+  return Array.isArray(payload?.recommended_reads)
+    ? payload.recommended_reads.filter((item) => Boolean(item && typeof item === "object"))
+    : [];
+}
+
 function normalizeDimensionsFromScores(
   scaleCode: RichResultScaleCode,
   reportData: ReportResponse,
@@ -1230,6 +1237,7 @@ export function RichResultReport({
   const tags = resolveVisibleTags(reportData);
   const dimensions = normalizeDimensions(scaleCode, reportData, locale);
   const highlights = normalizeHighlights(reportData, gate, locale);
+  const recommendedReads = resolveRecommendedReads(reportData);
   const sections = normalizeRichSections(reportData, locale, gate);
   const rawOffers = normalizeOffers(reportData);
   const offers = scaleCode === "MBTI" ? filterMbtiOffers(rawOffers) : rawOffers;
@@ -1265,6 +1273,7 @@ export function RichResultReport({
         dimensions={dimensions}
         projectionViewModel={projectionViewModel}
         highlights={highlights}
+        recommendedReads={recommendedReads}
         sections={sections}
         sectionUnlocks={sectionUnlocks}
         offers={resolvedOffers}

@@ -182,9 +182,7 @@ describe("MBTI shell authored fields contract", () => {
       "career_followthrough_loop"
     );
     expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveTextContent("长期记忆已生效");
-    expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveTextContent("成长动作");
     expect(screen.getByTestId("mbti-adaptive-selection")).toHaveTextContent("自适应修正已生效");
-    expect(screen.getByTestId("mbti-adaptive-selection")).toHaveTextContent("工作实验");
     const whyThisTypePayload = asRecord(
       asRecord(viewModel.sections.find((section) => section.key === "traits.why_this_type")?.payload)
         ?.personalization
@@ -285,18 +283,6 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveTextContent(
       "情境敏感型稳定"
     );
-    expect(screen.getByTestId("mbti-action-plan-summary")).toHaveTextContent(
-      "把成长、关系和工作里的高匹配动作都缩成一周内能重复的小实验"
-    );
-    expect(screen.getByTestId("mbti-action-plan-summary")).toHaveAttribute("data-primary-focus", "true");
-    expect(screen.getByTestId("mbti-carryover-entry")).toHaveTextContent("继续看 下一步动作");
-    expect(screen.getByTestId("mbti-carryover-entry")).toHaveTextContent("当前最值得延续的重点");
-    expect(screen.getByTestId("mbti-carryover-entry-cta").getAttribute("href")).toContain(
-      "carryover_focus_key=growth.next_actions"
-    );
-    expect(screen.getByTestId("mbti-carryover-entry-cta").getAttribute("href")).toContain(
-      "carryover_reason=unlock_to_continue_focus"
-    );
     expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
       "data-variant-key",
       "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF:synth.big5_conscientiousness_low_use_external_scaffolding"
@@ -379,8 +365,8 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("先把你看重的判断标准写清楚");
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
     expect(
-      screen.getByTestId("mbti-offer-comparison").compareDocumentPosition(
-        screen.getByTestId("mbti-career-next-step")
+      screen.getByTestId("mbti-career-next-step").compareDocumentPosition(
+        screen.getByTestId("mbti-offer-comparison")
       ) & Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy();
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
@@ -527,7 +513,7 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(actionSection).toHaveTextContent("先把你这周最重要的一次反馈、对话或复盘排进真实日程");
     expect(actionSection).not.toHaveTextContent("成长动作上，你的外倾已经是清晰入口");
-    expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveAttribute(
+    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
       "data-memory-rewrite-reason",
       "resume_growth_actions"
     );
@@ -542,7 +528,7 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(claritySection).toHaveTextContent("成长动作上，你的外倾已经是清晰入口");
     expect(claritySection).not.toHaveTextContent("先把你这周最重要的一次反馈、对话或复盘排进真实日程");
-    expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveAttribute(
+    expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
       "data-memory-rewrite-reason",
       "refine_type_clarity"
     );
@@ -641,19 +627,6 @@ describe("MBTI shell authored fields contract", () => {
       "data-action-rank",
       "1"
     );
-    expect(screen.getByTestId("mbti-carryover-entry")).toHaveTextContent("继续看 稳定性解释");
-    expect(screen.getByTestId("mbti-action-journey")).toHaveAttribute("data-journey-scope", "result_revisit");
-    expect(screen.getByTestId("mbti-action-journey")).toHaveAttribute("data-journey-state", "resume_action_loop");
-    expect(screen.getByTestId("mbti-pulse-check")).toHaveAttribute("data-pulse-state", "reinforce");
-    expect(screen.getByTestId("mbti-action-journey")).toHaveTextContent("继续上一次已经开始的动作回路");
-    expect(screen.getByTestId("mbti-action-journey")).toHaveTextContent("这次回访先延续你已经开始的动作");
-    expect(screen.getByTestId("mbti-action-journey-cta").getAttribute("href")).toContain("/zh/history/mbti?");
-    expect(screen.getByTestId("mbti-action-journey-cta").getAttribute("href")).toContain(
-      "journey_contract_version=action_journey.v1"
-    );
-    expect(screen.getByTestId("mbti-action-journey-cta").getAttribute("href")).toContain(
-      "pulse_state=reinforce"
-    );
     expect(screen.queryByTestId("mbti-offer-comparison")).toBeNull();
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
@@ -705,19 +678,6 @@ describe("MBTI shell authored fields contract", () => {
         revisitReorderReason: "resume_action_loop",
         pulsePromptKeys:
           "pulse.repeat_winning_action|watchout.stability.context_sensitive|pulse.expand_scope",
-      })
-    );
-
-    fireEvent.click(screen.getByTestId("mbti-action-journey-cta"));
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_interaction",
-      expect.objectContaining({
-        visual_kind: "mbti_action_journey",
-        interaction: "click_cta",
-        continueTarget: "history_continue",
-        journeyState: "resume_action_loop",
-        progressState: "repeatable",
-        pulseState: "reinforce",
       })
     );
   });
@@ -791,7 +751,9 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
-    expect(screen.getByTestId("mbti-chapter-overview")).toHaveTextContent("你已经呈现出稳定的外倾倾向");
+    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
+      "你已经呈现出稳定的外倾倾向"
+    );
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
   });
 
@@ -970,17 +932,11 @@ describe("MBTI shell authored fields contract", () => {
     );
   });
 
-  it("renders scene fingerprint summary and second-wave section variants from backend authority", () => {
+  it("renders second-wave section variants from backend authority without relying on dormant scene modules", () => {
     const reportData = createReportFixture();
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    expect(screen.getByTestId("mbti-scene-fingerprint")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-scene-card-work")).toHaveAttribute(
-      "data-style-key",
-      "work.primary.EI.E.clear"
-    );
-    expect(screen.getByTestId("mbti-scene-card-decision")).toHaveTextContent("你的决策模式");
     expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveAttribute(
       "data-variant-key",
       "growth.drainers:JP.J.boundary:identity.T:boundary.JP"

@@ -82,13 +82,13 @@ describe("MBTI shell UI contract", () => {
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-mobile-chrome")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-highlights")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-highlights")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
 
     expect(
       within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
@@ -102,6 +102,8 @@ describe("MBTI shell UI contract", () => {
     const stickyRail = screen.getByTestId("mbti-sticky-rail");
     const footer = screen.getByTestId("mbti-footer-cta");
 
+    expect(screen.getByTestId("mbti-highlights")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(terminalSurface).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
     expect(within(terminalSurface).getByRole("button", { name: "下载 PDF" })).toBeInTheDocument();
