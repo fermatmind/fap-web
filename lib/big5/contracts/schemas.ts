@@ -236,6 +236,26 @@ export const big5MeAttemptsResponseSchema = z
             attempt_id: z.string(),
             submitted_at: z.string().nullable().optional(),
             type_code: z.string().optional(),
+            access_summary: z
+              .object({
+                access_state: z.string().optional(),
+                report_state: z.string().optional(),
+                pdf_state: z.string().optional(),
+                reason_code: z.string().nullable().optional(),
+                access_level: z.string().nullable().optional(),
+                variant: z.string().nullable().optional(),
+                modules_allowed: z.array(z.string()).optional(),
+                modules_preview: z.array(z.string()).optional(),
+                actions: z
+                  .object({
+                    page_href: z.string().nullable().optional(),
+                    pdf_href: z.string().nullable().optional(),
+                  })
+                  .passthrough()
+                  .optional(),
+              })
+              .passthrough()
+              .optional(),
             result_summary: z
               .object({
                 domains_mean: z.record(z.string(), z.number()).optional(),

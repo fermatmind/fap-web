@@ -265,6 +265,20 @@ describe("BIG5 contract schemas", () => {
         {
           attempt_id: "a1",
           submitted_at: "2026-02-01T00:00:00Z",
+          access_summary: {
+            access_state: "ready",
+            report_state: "ready",
+            pdf_state: "ready",
+            reason_code: "entitlement_granted",
+            access_level: "full",
+            variant: "full",
+            modules_allowed: ["summary", "report.full", "pdf"],
+            modules_preview: [],
+            actions: {
+              page_href: "/en/result/a1",
+              pdf_href: "/api/v0.3/attempts/a1/report.pdf",
+            },
+          },
           result_summary: {
             domains_mean: {
               O: 50,

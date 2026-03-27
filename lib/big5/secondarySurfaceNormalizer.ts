@@ -17,6 +17,7 @@ export type Big5HistoryRowSummary = {
   attemptId: string;
   submittedAt: string;
   topDomains: string[];
+  accessSummary: MeAttemptItem["access_summary"] | null;
 };
 
 export type Big5CompareSnapshot = {
@@ -127,6 +128,7 @@ export function normalizeBig5HistoryRows(
       attemptId,
       submittedAt,
       topDomains,
+      accessSummary: asRecord(item.access_summary) ? item.access_summary ?? null : null,
     };
   });
 }
