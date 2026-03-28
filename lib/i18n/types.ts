@@ -195,6 +195,7 @@ export type SiteDictionary = {
       title: string;
       descriptionPrimary: string;
       descriptionRecovery: string;
+      descriptionWorkspaceEntry: string;
       recoverCta: string;
       listTitle: string;
       listSubtitle: string;
@@ -207,6 +208,7 @@ export type SiteDictionary = {
       submittedAtLabel: string;
       statusLabel: string;
       statusValue: string;
+      deliveryLabel: string;
       viewReport: string;
       previousPage: string;
       nextPage: string;

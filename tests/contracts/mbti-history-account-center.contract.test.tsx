@@ -5,7 +5,6 @@ import MbtiHistoryClient from "@/app/(localized)/[locale]/(app)/history/mbti/Mbt
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/history/mbti",
   search: "",
-  fetchAttemptReportAccess: vi.fn(),
   getMyAttempts: vi.fn(),
   trackEvent: vi.fn(),
 }));
@@ -20,29 +19,23 @@ vi.mock("@/lib/api/v0_3", async () => {
 
   return {
     ...actual,
-    fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
     getMyAttempts: hoisted.getMyAttempts,
   };
 });
 
-function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}) {
+function createAccessSummary(overrides: Partial<Record<string, unknown>> = {}) {
   return {
-    ok: true,
-    attempt_id: "attempt-history-1",
     access_state: "ready",
     report_state: "ready",
     pdf_state: "ready",
     reason_code: "report_ready",
-    projection_version: 1,
+    access_level: "full",
+    variant: "full",
+    modules_allowed: ["core_full", "career", "relationships"],
+    modules_preview: [],
     actions: {
       page_href: "/result/attempt-history-1",
       pdf_href: "/api/v0.3/attempts/attempt-history-1/report.pdf",
-      history_href: "/history/mbti",
-      lookup_href: "/orders/lookup",
-    },
-    meta: {
-      produced_at: "2026-03-22T10:00:00Z",
-      refreshed_at: "2026-03-22T10:00:00Z",
     },
     ...overrides,
   };
@@ -57,10 +50,9 @@ describe("MBTI history account-center contract", () => {
     vi.clearAllMocks();
     hoisted.pathname = "/en/history/mbti";
     hoisted.search = "";
-    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
   });
 
-  it("renders history as the saved-results entry while preserving the report action", async () => {
+  it("renders history as a workspace-lite re-entry surface with row-level status truth", async () => {
     hoisted.getMyAttempts.mockResolvedValue({
       items: [
         {
@@ -68,6 +60,27 @@ describe("MBTI history account-center contract", () => {
           scale_code: "MBTI",
           submitted_at: "2026-03-12T09:30:00Z",
           type_code: "INTJ-A",
+          access_summary: createAccessSummary(),
+        },
+        {
+          attempt_id: "attempt-history-2",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-10T09:30:00Z",
+          type_code: "ENFP-T",
+          access_summary: createAccessSummary({
+            access_state: "locked",
+            report_state: "ready",
+            pdf_state: "unavailable",
+            reason_code: "preview_visible_report_ready",
+            access_level: "free",
+            variant: "free",
+            modules_allowed: ["core_free"],
+            modules_preview: ["core_full", "career"],
+            actions: {
+              page_href: "/result/attempt-history-2",
+              pdf_href: null,
+            },
+          }),
         },
       ],
       meta: {
@@ -78,8 +91,8 @@ describe("MBTI history account-center contract", () => {
 
     render(<MbtiHistoryClient />);
 
-    expect(screen.getByRole("heading", { level: 1, name: "My MBTI Results" })).toBeInTheDocument();
-    expect(screen.getByText("Your completed MBTI results are kept here for direct re-entry.")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeInTheDocument();
+    expect(screen.getByText("Re-enter saved MBTI result entries from the current workspace-lite surface.")).toBeInTheDocument();
     expect(
       screen.getByText("Need to recover a purchased report from another device or inbox? Use order lookup.")
     ).toBeInTheDocument();
@@ -89,13 +102,22 @@ describe("MBTI history account-center contract", () => {
     expect(screen.getByTestId("mbti-history-recovery-cta")).toHaveAttribute("href", "/en/orders/lookup");
 
     await waitFor(() => {
-      expect(screen.getByTestId("mbti-history-card")).toBeInTheDocument();
+      expect(screen.getAllByTestId("mbti-history-card")).toHaveLength(2);
     });
 
     expect(screen.getByTestId("mbti-history-continue-cta")).toHaveAttribute("href", "/en/result/attempt-history-1");
-    expect(screen.getByTestId("mbti-history-list-copy")).toHaveTextContent("Saved MBTI results");
+    expect(screen.getByTestId("mbti-history-continue-cta")).toHaveTextContent("Continue latest full result");
+    expect(screen.getByTestId("mbti-history-latest-status")).toHaveTextContent("Latest entry · INTJ-A: Full report unlocked · PDF ready");
+    expect(screen.getByTestId("mbti-history-list-copy")).toHaveTextContent("Saved result entries");
     expect(screen.getByTestId("mbti-history-open-attempt-history-1")).toHaveAttribute("href", "/en/result/attempt-history-1");
-    expect(screen.getByRole("link", { name: "View report" })).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-history-open-attempt-history-1")).toHaveTextContent("Open full result");
+    expect(screen.getByTestId("mbti-history-pdf-attempt-history-1")).toHaveAttribute(
+      "href",
+      "/api/v0.3/attempts/attempt-history-1/report.pdf"
+    );
+    expect(screen.getByTestId("mbti-history-status-attempt-history-2")).toHaveTextContent("Preview scope: Full personality reading, Career mapping");
+    expect(screen.getByTestId("mbti-history-delivery-attempt-history-2")).toHaveTextContent("PDF not ready");
+    expect(screen.getByTestId("mbti-history-open-attempt-history-2")).toHaveTextContent("Continue free preview");
     expect(screen.queryByRole("button", { name: /save|bookmark|favorite/i })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /save|bookmark|favorite/i })).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-delivery-actions")).not.toBeInTheDocument();
@@ -112,6 +134,21 @@ describe("MBTI history account-center contract", () => {
           scale_code: "MBTI",
           submitted_at: "2026-03-12T09:30:00Z",
           type_code: "ENFP-T",
+          access_summary: createAccessSummary({
+            attempt_id: "attempt-history-2",
+            access_state: "locked",
+            report_state: "ready",
+            pdf_state: "unavailable",
+            reason_code: "preview_visible_report_ready",
+            access_level: "free",
+            variant: "free",
+            modules_allowed: ["core_free"],
+            modules_preview: ["core_full"],
+            actions: {
+              page_href: "/result/attempt-history-2",
+              pdf_href: null,
+            },
+          }),
         },
       ],
       meta: {
@@ -150,6 +187,7 @@ describe("MBTI history account-center contract", () => {
       "data-next-best-action-key",
       "work_experiment.theme.name_decision_rule"
     );
+    expect(screen.getByTestId("mbti-history-continue-cta")).toHaveTextContent("Continue latest free preview");
     expect(screen.getByTestId("mbti-history-continue-cta").getAttribute("href")).toContain(
       "carryover_focus_key=career.work_experiments"
     );
@@ -165,6 +203,7 @@ describe("MBTI history account-center contract", () => {
     expect(screen.getByTestId("mbti-history-continue-cta").getAttribute("href")).toContain(
       "next_best_action_key=work_experiment.theme.name_decision_rule"
     );
+    expect(screen.getByTestId("mbti-history-open-attempt-history-2")).toHaveTextContent("Continue free preview");
     expect(screen.getByTestId("mbti-history-open-attempt-history-2").getAttribute("href")).toContain(
       "carryover_reason=adaptive_next_best_action"
     );
@@ -293,8 +332,8 @@ describe("MBTI history account-center contract", () => {
 
     render(<MbtiHistoryClient />);
 
-    expect(screen.getByRole("heading", { level: 1, name: "我的 MBTI 结果" })).toBeInTheDocument();
-    expect(screen.getByText("这里保存你当前身份下的 MBTI 历史结果，可直接再次进入。")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeInTheDocument();
+    expect(screen.getByText("这里是你当前身份下的 MBTI Workspace Lite 回访入口，可继续已保存的结果入口。")).toBeInTheDocument();
     expect(screen.getByText("需要跨设备或通过购买邮箱找回已购报告，请使用订单找回。")).toBeInTheDocument();
     expect(screen.getByText("这里现在就是你的 MBTI Workspace Lite 入口：继续查看当前结果，或用订单找回恢复已购报告。")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-history-recovery-cta")).toHaveAttribute("href", "/zh/orders/lookup");
@@ -303,6 +342,7 @@ describe("MBTI history account-center contract", () => {
       expect(screen.getByTestId("mbti-history-empty")).toBeInTheDocument();
     });
 
+    expect(screen.getByTestId("mbti-history-empty")).toHaveTextContent("当前身份下还没有 MBTI Workspace Lite 入口");
     expect(screen.getByTestId("mbti-history-empty-start")).toHaveAttribute(
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types/take"
@@ -310,5 +350,93 @@ describe("MBTI history account-center contract", () => {
     expect(screen.getByTestId("mbti-history-empty-start")).toHaveTextContent("去做 MBTI 测试");
     expect(screen.getByTestId("mbti-history-empty-recovery")).toHaveAttribute("href", "/zh/orders/lookup");
     expect(screen.getByTestId("mbti-history-empty-recovery")).toHaveTextContent("找回已购报告");
+  });
+
+  it("renders unavailable rows without pretending they are normal result entries", async () => {
+    hoisted.getMyAttempts.mockResolvedValue({
+      items: [
+        {
+          attempt_id: "attempt-history-deleted-1",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-12T09:30:00Z",
+          type_code: "INFP-T",
+          access_summary: createAccessSummary({
+            access_state: "deleted",
+            report_state: "deleted",
+            pdf_state: "unavailable",
+            reason_code: "projection_deleted",
+            access_level: "free",
+            variant: "free",
+            modules_allowed: ["core_free"],
+            modules_preview: [],
+            actions: {
+              page_href: null,
+              pdf_href: null,
+            },
+          }),
+        },
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<MbtiHistoryClient />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-history-card")).toBeInTheDocument();
+    });
+
+    expect(screen.queryByTestId("mbti-history-continue-cta")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-history-status-attempt-history-deleted-1")).toHaveTextContent(
+      "This result entry is not currently available for direct re-entry. Use order lookup first."
+    );
+    expect(screen.getByTestId("mbti-history-open-attempt-history-deleted-1")).toBeDisabled();
+    expect(screen.queryByTestId("mbti-history-pdf-attempt-history-deleted-1")).not.toBeInTheDocument();
+  });
+
+  it("does not mislabel locked full rows as unlocked full reports", async () => {
+    hoisted.getMyAttempts.mockResolvedValue({
+      items: [
+        {
+          attempt_id: "attempt-history-locked-full-1",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-12T09:30:00Z",
+          type_code: "ISTJ-A",
+          access_summary: createAccessSummary({
+            access_state: "locked",
+            report_state: "ready",
+            pdf_state: "unavailable",
+            reason_code: "recovery_available",
+            access_level: "full",
+            variant: "full",
+            modules_allowed: ["core_full", "career", "relationships"],
+            modules_preview: [],
+            actions: {
+              page_href: "/result/attempt-history-locked-full-1",
+              pdf_href: null,
+            },
+          }),
+        },
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<MbtiHistoryClient />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-history-card")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("mbti-history-latest-status")).not.toHaveTextContent("Full report unlocked");
+    expect(screen.getByTestId("mbti-history-open-attempt-history-locked-full-1")).toHaveTextContent("Open result entry");
+    expect(screen.getByTestId("mbti-history-status-attempt-history-locked-full-1")).toHaveTextContent(
+      "This entry returns to the current result page while keeping the current revisit path."
+    );
+    expect(screen.queryByTestId("mbti-history-pdf-attempt-history-locked-full-1")).not.toBeInTheDocument();
   });
 });
