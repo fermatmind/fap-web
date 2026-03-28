@@ -18,6 +18,9 @@ function createAccessSummary(attemptId: string, overrides: Partial<Record<string
     actions: {
       page_href: `/result/${attemptId}`,
       pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+      wait_href: null,
+      history_href: "/history/mbti",
+      lookup_href: "/orders/lookup",
     },
     ...overrides,
   };
@@ -106,6 +109,35 @@ test.describe("MBTI history account-center entry", () => {
     await expect(page).toHaveURL("/en/orders/lookup");
   });
 
+  test("full unlocked rows without a ready PDF stay unlocked but keep PDF state honest", async ({ page }) => {
+    await mockCommonApis(page);
+    await mockHistory(page, [
+      {
+        attempt_id: "attempt-history-full-no-pdf-1",
+        scale_code: "MBTI",
+        submitted_at: "2026-03-12T09:30:00Z",
+        type_code: "INTJ-A",
+        access_summary: createAccessSummary("attempt-history-full-no-pdf-1", {
+          pdf_state: "pending",
+          actions: {
+            page_href: "/result/attempt-history-full-no-pdf-1",
+            pdf_href: null,
+            wait_href: null,
+            history_href: "/history/mbti",
+            lookup_href: "/orders/lookup",
+          },
+        }),
+      },
+    ]);
+
+    await page.goto("/en/history/mbti");
+
+    await expect(page.getByTestId("mbti-history-latest-status")).toContainText("Full report unlocked");
+    await expect(page.getByTestId("mbti-history-latest-status")).toContainText("PDF not ready");
+    await expect(page.getByTestId("mbti-history-open-attempt-history-full-no-pdf-1")).toHaveText("Open full result");
+    await expect(page.locator('[data-testid="mbti-history-pdf-attempt-history-full-no-pdf-1"]')).toHaveCount(0);
+  });
+
   test("history rows expose free preview state without pretending the entry is fully unlocked", async ({ page }) => {
     await mockCommonApis(page);
     await mockHistory(page, [
@@ -126,6 +158,9 @@ test.describe("MBTI history account-center entry", () => {
           actions: {
             page_href: "/result/attempt-history-preview-1",
             pdf_href: null,
+            wait_href: null,
+            history_href: "/history/mbti",
+            lookup_href: "/orders/lookup",
           },
         }),
       },
@@ -161,6 +196,9 @@ test.describe("MBTI history account-center entry", () => {
           actions: {
             page_href: "/result/attempt-history-locked-full-1",
             pdf_href: null,
+            wait_href: null,
+            history_href: "/history/mbti",
+            lookup_href: "/orders/lookup",
           },
         }),
       },
@@ -169,11 +207,99 @@ test.describe("MBTI history account-center entry", () => {
     await page.goto("/en/history/mbti");
 
     await expect(page.getByTestId("mbti-history-latest-status")).not.toContainText("Full report unlocked");
-    await expect(page.getByTestId("mbti-history-open-attempt-history-locked-full-1")).toHaveText("Open result entry");
+    await expect(page.getByTestId("mbti-history-open-attempt-history-locked-full-1")).toHaveText("Continue locked entry");
     await expect(page.getByTestId("mbti-history-status-attempt-history-locked-full-1")).toContainText(
-      "This entry returns to the current result page while keeping the current revisit path."
+      "This workspace entry is still locked. Re-open the result page to check the current state or use order lookup if you need recovery."
     );
     await expect(page.locator('[data-testid="mbti-history-pdf-attempt-history-locked-full-1"]')).toHaveCount(0);
+  });
+
+  test("processing and restoring rows use wait-entry truth for both latest and row CTAs", async ({ page }) => {
+    await mockCommonApis(page);
+    await mockHistory(page, [
+      {
+        attempt_id: "attempt-history-processing-1",
+        scale_code: "MBTI",
+        submitted_at: "2026-03-12T09:30:00Z",
+        type_code: "ENTP-A",
+        access_summary: createAccessSummary("attempt-history-processing-1", {
+          access_state: "locked",
+          report_state: "pending",
+          pdf_state: "unavailable",
+          reason_code: "projection_pending",
+          access_level: "free",
+          variant: "free",
+          actions: {
+            page_href: "/result/attempt-history-processing-1",
+            pdf_href: null,
+            wait_href: "/result/attempt-history-processing-1",
+            history_href: "/history/mbti",
+            lookup_href: "/orders/lookup",
+          },
+        }),
+      },
+      {
+        attempt_id: "attempt-history-restoring-1",
+        scale_code: "MBTI",
+        submitted_at: "2026-03-11T09:30:00Z",
+        type_code: "ENTJ-A",
+        access_summary: createAccessSummary("attempt-history-restoring-1", {
+          access_state: "locked",
+          report_state: "restoring",
+          pdf_state: "unavailable",
+          reason_code: "projection_restoring",
+          access_level: "free",
+          variant: "free",
+          actions: {
+            page_href: "/result/attempt-history-restoring-1",
+            pdf_href: null,
+            wait_href: "/result/attempt-history-restoring-1",
+            history_href: "/history/mbti",
+            lookup_href: "/orders/lookup",
+          },
+        }),
+      },
+    ]);
+
+    await page.goto("/en/history/mbti");
+
+    await expect(page.getByTestId("mbti-history-latest-status")).toContainText("Preparing result");
+    await expect(page.getByTestId("mbti-history-continue-cta")).toHaveText("Continue latest processing entry");
+    await expect(page.getByTestId("mbti-history-continue-cta")).toHaveAttribute(
+      "href",
+      "/en/result/attempt-history-processing-1"
+    );
+    await expect(page.getByTestId("mbti-history-open-attempt-history-processing-1")).toHaveText("Continue processing entry");
+    await expect(page.getByTestId("mbti-history-open-attempt-history-processing-1")).toHaveAttribute(
+      "href",
+      "/en/result/attempt-history-processing-1"
+    );
+    await expect(page.getByTestId("mbti-history-open-attempt-history-restoring-1")).toHaveText("Continue restoring entry");
+    await expect(page.getByTestId("mbti-history-status-attempt-history-restoring-1")).toContainText(
+      "This workspace entry is being restored. Use the waiting entry to continue from the current result page."
+    );
+  });
+
+  test("rows without access summary stay in syncing state instead of pretending to be unavailable", async ({ page }) => {
+    await mockCommonApis(page);
+    await mockHistory(page, [
+      {
+        attempt_id: "attempt-history-syncing-1",
+        scale_code: "MBTI",
+        submitted_at: "2026-03-12T09:30:00Z",
+        type_code: "ISFJ-T",
+        access_summary: null,
+      },
+    ]);
+
+    await page.goto("/en/history/mbti");
+
+    await expect(page.getByTestId("mbti-history-latest-status")).toContainText("Status syncing");
+    await expect(page.getByTestId("mbti-history-latest-status")).toContainText("Delivery syncing");
+    await expect(page.getByTestId("mbti-history-status-attempt-history-syncing-1")).toContainText(
+      "This workspace entry has not synced its current access state yet."
+    );
+    await expect(page.getByTestId("mbti-history-open-attempt-history-syncing-1")).toHaveText("Status syncing");
   });
 
   test("history empty state shows both take-test and purchased-report recovery actions", async ({ page }) => {
@@ -222,6 +348,7 @@ test.describe("MBTI history account-center entry", () => {
           actions: {
             page_href: `/en/result/${attemptId}`,
             pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+            wait_href: null,
             history_href: "/history/mbti",
             lookup_href: "/orders/lookup",
           },

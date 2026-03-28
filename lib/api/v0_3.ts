@@ -1708,6 +1708,9 @@ export type MeAttemptItem = {
     actions?: {
       page_href?: string | null;
       pdf_href?: string | null;
+      wait_href?: string | null;
+      history_href?: string | null;
+      lookup_href?: string | null;
       [key: string]: unknown;
     };
     [key: string]: unknown;

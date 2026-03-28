@@ -42,6 +42,26 @@ function createMbtiAccessHubRaw(attemptId: string, orderNo: string) {
   };
 }
 
+function createHistoryAccessSummary(attemptId: string) {
+  return {
+    access_state: "ready",
+    report_state: "ready",
+    pdf_state: "ready",
+    reason_code: "report_ready",
+    access_level: "full",
+    variant: "full",
+    modules_allowed: ["core_full", "career", "relationships"],
+    modules_preview: [],
+    actions: {
+      page_href: `/result/${attemptId}`,
+      pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+      wait_href: null,
+      history_href: "/history/mbti",
+      lookup_href: "/orders/lookup",
+    },
+  };
+}
+
 async function installCommonMocks(page: Page) {
   await page.addInitScript(() => {
     window.localStorage.setItem(
@@ -135,6 +155,7 @@ async function installUnlockedResultMocks(
             scale_code: "MBTI",
             submitted_at: "2026-03-11T12:00:00Z",
             type_code: "ENFP-T",
+            access_summary: createHistoryAccessSummary(attemptId),
           },
         ],
         meta: {
@@ -232,6 +253,8 @@ test("MBTI result pages keep post-purchase retention and history re-entry", asyn
   await expect(page).toHaveURL("/en/history/mbti");
   await expect(page.getByTestId("mbti-history-client")).toBeVisible();
   await expect(page.getByTestId("mbti-history-card")).toContainText("ENFP-T");
+  await expect(page.getByTestId("mbti-history-continue-cta")).toHaveText("Continue latest full result");
+  await expect(page.getByTestId(`mbti-history-open-${attemptId}`)).toHaveText("Open full result");
 
   await page.getByTestId(`mbti-history-open-${attemptId}`).click();
 

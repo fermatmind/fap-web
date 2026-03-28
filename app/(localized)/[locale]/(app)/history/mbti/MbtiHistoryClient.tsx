@@ -10,8 +10,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   canEnterReportPage,
   canDownloadReportPdf,
-  isProjectionProcessing,
-  isProjectionUnavailable,
   normalizeAttemptReportAccess,
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
@@ -51,27 +49,29 @@ type Row = {
 };
 
 type RowSurface = {
+  primaryDisabled: boolean;
   statusLabel: string;
   statusDetail: string;
   deliveryLabel: string;
   primaryHref: string | null;
-  primaryCtaLabel: string | null;
-  latestCtaLabel: string;
+  primaryLabel: string | null;
+  latestPrimaryLabel: string | null;
+  disabledLabel: string;
+  showPdfAction: boolean;
   pdfHref: string | null;
+  pdfLabel: string;
+  previewScopeLabel: string | null;
+  isFull: boolean;
+  isPreview: boolean;
+  isProcessing: boolean;
+  isRestoring: boolean;
+  isUnavailable: boolean;
+  isSyncing: boolean;
+  showLookupAction: boolean;
+  lookupHref: string | null;
 };
 
-const PREVIEW_MODULE_LABELS: Record<
-  string,
-  {
-    en: string;
-    zh: string;
-  }
-> = {
-  core_free: { en: "Result summary", zh: "结果摘要" },
-  core_full: { en: "Full personality reading", zh: "完整人格判读" },
-  career: { en: "Career mapping", zh: "职业映射" },
-  relationships: { en: "Relationship mapping", zh: "关系映射" },
-};
+type HistorySurfaceCopy = ReturnType<typeof getDictSync>["history"]["mbti"]["surface"];
 
 function formatSubmittedAt(value: string, locale: "en" | "zh"): string {
   if (!value) return locale === "zh" ? "时间待同步" : "Pending sync";
@@ -84,20 +84,34 @@ function formatSubmittedAt(value: string, locale: "en" | "zh"): string {
     : `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")} ${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
 }
 
-function resolvePreviewScopeText(view: AttemptReportAccessView | null, locale: "en" | "zh"): string | null {
+function resolvePreviewModuleLabel(moduleCode: string, copy: HistorySurfaceCopy): string {
+  const normalized = moduleCode.trim().toLowerCase();
+  if (normalized === "core_free") return copy.previewModuleLabels.coreFree;
+  if (normalized === "core_full") return copy.previewModuleLabels.coreFull;
+  if (normalized === "career") return copy.previewModuleLabels.career;
+  if (normalized === "relationships") return copy.previewModuleLabels.relationships;
+
+  return moduleCode;
+}
+
+function resolvePreviewScopeText(
+  view: AttemptReportAccessView | null,
+  locale: "en" | "zh",
+  copy: HistorySurfaceCopy
+): string | null {
   if (!view || view.modulesPreview.length === 0) {
     return null;
   }
 
   const labels = view.modulesPreview
-    .map((key) => PREVIEW_MODULE_LABELS[key]?.[locale] ?? key)
+    .map((key) => resolvePreviewModuleLabel(key, copy))
     .filter(Boolean);
 
   if (labels.length === 0) {
     return null;
   }
 
-  return locale === "zh" ? `当前预览范围：${labels.join("、")}` : `Preview scope: ${labels.join(", ")}`;
+  return `${copy.previewScopePrefix}${locale === "zh" ? "：" : ": "}${labels.join(locale === "zh" ? "、" : ", ")}`;
 }
 
 function normalizeRowAccessView(item: MeAttemptItem, locale: "en" | "zh"): AttemptReportAccessView | null {
@@ -121,8 +135,9 @@ function normalizeRowAccessView(item: MeAttemptItem, locale: "en" | "zh"): Attem
       actions: {
         page_href: item.access_summary.actions?.page_href ?? null,
         pdf_href: item.access_summary.actions?.pdf_href ?? null,
-        history_href: null,
-        lookup_href: null,
+        wait_href: item.access_summary.actions?.wait_href ?? null,
+        history_href: item.access_summary.actions?.history_href ?? null,
+        lookup_href: item.access_summary.actions?.lookup_href ?? null,
       },
       meta: null,
     },
@@ -130,12 +145,23 @@ function normalizeRowAccessView(item: MeAttemptItem, locale: "en" | "zh"): Attem
   );
 }
 
-function resolveRowSurface(row: Row, locale: "en" | "zh"): RowSurface {
+function resolveRowSurface(row: Row, locale: "en" | "zh", copy: HistorySurfaceCopy): RowSurface {
   const accessView = row.accessView;
-  const primaryHref = accessView?.actions.pageHref ?? null;
+  const lookupHref = accessView?.actions.lookupHref ?? null;
   const pdfHref = canDownloadReportPdf(accessView) ? accessView?.actions.pdfHref ?? null : null;
-  const previewScopeText = resolvePreviewScopeText(accessView, locale);
+  const previewScopeText = resolvePreviewScopeText(accessView, locale, copy);
   const canEnterPage = canEnterReportPage(accessView);
+  const reportState = accessView?.reportState ?? null;
+  const accessState = accessView?.accessState ?? null;
+  const isProcessing = reportState === "pending";
+  const isRestoring = reportState === "restoring";
+  const isUnavailable = Boolean(
+    reportState === "unavailable"
+    || reportState === "expired"
+    || reportState === "deleted"
+    || accessState === "expired"
+    || accessState === "deleted"
+  );
   const isFull = Boolean(canEnterPage && (accessView?.variant === "full" || accessView?.accessLevel === "full"));
   const isPreview = Boolean(
     accessView
@@ -143,94 +169,212 @@ function resolveRowSurface(row: Row, locale: "en" | "zh"): RowSurface {
     && accessView.reportState === "ready"
     && (accessView.variant === "free" || accessView.accessLevel === "free" || accessView.modulesPreview.length > 0)
   );
+  const isLockedEntry = Boolean(
+    accessView
+    && accessView.accessState === "locked"
+    && accessView.reportState === "ready"
+    && !isPreview
+  );
+  const isReadyEntry = Boolean(canEnterPage && !isFull && !isPreview);
 
   if (!accessView) {
     return {
-      statusLabel: locale === "zh" ? "状态同步中" : "Status syncing",
-      statusDetail:
-        locale === "zh"
-          ? "这个 Workspace Lite 入口的当前访问状态仍在同步，请稍后刷新；若你已购买报告，可先使用订单找回。"
-          : "This workspace entry has not synced its current access state yet. Refresh later or use order lookup if you purchased access.",
-      deliveryLabel: locale === "zh" ? "交付待同步" : "Delivery syncing",
+      primaryDisabled: true,
+      statusLabel: copy.status.syncing,
+      statusDetail: copy.detail.syncing,
+      deliveryLabel: copy.delivery.syncing,
       primaryHref: null,
-      primaryCtaLabel: null,
-      latestCtaLabel: locale === "zh" ? "查看最新状态" : "Check latest status",
+      primaryLabel: null,
+      latestPrimaryLabel: null,
+      disabledLabel: copy.cta.rowDisabledSyncing,
+      showPdfAction: false,
       pdfHref: null,
+      pdfLabel: copy.cta.downloadPdf,
+      previewScopeLabel: null,
+      isFull: false,
+      isPreview: false,
+      isProcessing: false,
+      isRestoring: false,
+      isUnavailable: false,
+      isSyncing: true,
+      showLookupAction: false,
+      lookupHref: null,
     };
   }
 
-  if (isProjectionUnavailable(accessView)) {
+  if (isUnavailable) {
     return {
-      statusLabel: locale === "zh" ? "当前不可用" : "Unavailable",
-      statusDetail:
-        locale === "zh"
-          ? "这个结果入口当前不可直接再次进入，请优先使用订单找回。"
-          : "This result entry is not currently available for direct re-entry. Use order lookup first.",
-      deliveryLabel: locale === "zh" ? "PDF 未提供" : "PDF unavailable",
+      primaryDisabled: true,
+      statusLabel: copy.status.unavailable,
+      statusDetail: copy.detail.unavailable,
+      deliveryLabel: copy.delivery.pdfUnavailable,
       primaryHref: null,
-      primaryCtaLabel: null,
-      latestCtaLabel: locale === "zh" ? "查看最新状态" : "Check latest status",
+      primaryLabel: null,
+      latestPrimaryLabel: null,
+      disabledLabel: copy.cta.rowDisabledUnavailable,
+      showPdfAction: false,
       pdfHref: null,
+      pdfLabel: copy.cta.downloadPdf,
+      previewScopeLabel: null,
+      isFull: false,
+      isPreview: false,
+      isProcessing: false,
+      isRestoring: false,
+      isUnavailable: true,
+      isSyncing: false,
+      showLookupAction: Boolean(lookupHref),
+      lookupHref,
     };
   }
 
-  if (isProjectionProcessing(accessView)) {
+  if (isRestoring) {
     return {
-      statusLabel: locale === "zh" ? "结果准备中" : "Preparing result",
-      statusDetail:
-        locale === "zh"
-          ? "这个结果入口仍在准备中，可返回结果页继续等待。"
-              : "This result entry is still preparing. Re-open the result page to continue waiting.",
-      deliveryLabel: locale === "zh" ? "PDF 未就绪" : "PDF not ready",
-      primaryHref,
-      primaryCtaLabel: locale === "zh" ? "继续准备中的结果" : "Open processing entry",
-      latestCtaLabel: locale === "zh" ? "继续最新结果入口" : "Continue latest entry",
+      primaryDisabled: !accessView.actions.waitHref,
+      statusLabel: copy.status.restoring,
+      statusDetail: copy.detail.restoring,
+      deliveryLabel: copy.delivery.pdfNotReady,
+      primaryHref: accessView.actions.waitHref ?? null,
+      primaryLabel: accessView.actions.waitHref ? copy.cta.rowContinueRestoring : null,
+      latestPrimaryLabel: accessView.actions.waitHref ? copy.cta.latestContinueRestoring : null,
+      disabledLabel: copy.cta.rowDisabledRestoring,
+      showPdfAction: false,
       pdfHref: null,
+      pdfLabel: copy.cta.downloadPdf,
+      previewScopeLabel: null,
+      isFull: false,
+      isPreview: false,
+      isProcessing: false,
+      isRestoring: true,
+      isUnavailable: false,
+      isSyncing: false,
+      showLookupAction: Boolean(lookupHref),
+      lookupHref,
+    };
+  }
+
+  if (isProcessing) {
+    return {
+      primaryDisabled: !accessView.actions.waitHref,
+      statusLabel: copy.status.processing,
+      statusDetail: copy.detail.processing,
+      deliveryLabel: copy.delivery.pdfNotReady,
+      primaryHref: accessView.actions.waitHref ?? null,
+      primaryLabel: accessView.actions.waitHref ? copy.cta.rowContinueProcessing : null,
+      latestPrimaryLabel: accessView.actions.waitHref ? copy.cta.latestContinueProcessing : null,
+      disabledLabel: copy.cta.rowDisabledProcessing,
+      showPdfAction: false,
+      pdfHref: null,
+      pdfLabel: copy.cta.downloadPdf,
+      previewScopeLabel: null,
+      isFull: false,
+      isPreview: false,
+      isProcessing: true,
+      isRestoring: false,
+      isUnavailable: false,
+      isSyncing: false,
+      showLookupAction: Boolean(lookupHref),
+      lookupHref,
     };
   }
 
   if (isFull) {
+    const showPdfAction = Boolean(pdfHref);
     return {
-      statusLabel: locale === "zh" ? "完整报告已开放" : "Full report unlocked",
-      statusDetail:
-        locale === "zh"
-          ? "这是完整结果的 Workspace Lite 回访入口。"
-          : "This is the workspace-lite re-entry for the full result.",
-      deliveryLabel: pdfHref ? (locale === "zh" ? "PDF 已就绪" : "PDF ready") : locale === "zh" ? "在线访问" : "Online access",
-      primaryHref,
-      primaryCtaLabel: locale === "zh" ? "打开完整结果" : "Open full result",
-      latestCtaLabel: locale === "zh" ? "继续最新完整结果" : "Continue latest full result",
+      primaryDisabled: !accessView.actions.pageHref,
+      statusLabel: copy.status.fullUnlocked,
+      statusDetail: copy.detail.fullUnlocked,
+      deliveryLabel: showPdfAction ? copy.delivery.pdfReady : copy.delivery.pdfNotReady,
+      primaryHref: accessView.actions.pageHref ?? null,
+      primaryLabel: accessView.actions.pageHref ? copy.cta.rowOpenFull : null,
+      latestPrimaryLabel: accessView.actions.pageHref ? copy.cta.latestContinueFull : null,
+      disabledLabel: copy.cta.rowDisabledUnavailable,
+      showPdfAction,
       pdfHref,
+      pdfLabel: copy.cta.downloadPdf,
+      previewScopeLabel: null,
+      isFull: true,
+      isPreview: false,
+      isProcessing: false,
+      isRestoring: false,
+      isUnavailable: false,
+      isSyncing: false,
+      showLookupAction: false,
+      lookupHref,
     };
   }
 
   if (isPreview) {
+    const showPdfAction = Boolean(pdfHref);
     return {
-      statusLabel: locale === "zh" ? "免费预览" : "Free preview",
-      statusDetail:
-        previewScopeText
-        ?? (locale === "zh"
-          ? "当前结果仍处于免费预览，完整解锁继续在结果页完成。"
-          : "This entry is still on free preview. Full unlock continues on the result page."),
-      deliveryLabel: locale === "zh" ? "PDF 未就绪" : "PDF not ready",
-      primaryHref,
-      primaryCtaLabel: locale === "zh" ? "继续免费预览" : "Continue free preview",
-      latestCtaLabel: locale === "zh" ? "继续最新免费预览" : "Continue latest free preview",
+      primaryDisabled: !accessView.actions.pageHref,
+      statusLabel: copy.status.freePreview,
+      statusDetail: previewScopeText ?? copy.detail.freePreview,
+      deliveryLabel: showPdfAction ? copy.delivery.pdfReady : copy.delivery.pdfNotReady,
+      primaryHref: accessView.actions.pageHref ?? null,
+      primaryLabel: accessView.actions.pageHref ? copy.cta.rowContinuePreview : null,
+      latestPrimaryLabel: accessView.actions.pageHref ? copy.cta.latestContinuePreview : null,
+      disabledLabel: copy.cta.rowDisabledUnavailable,
+      showPdfAction,
+      pdfHref,
+      pdfLabel: copy.cta.downloadPdf,
+      previewScopeLabel: previewScopeText,
+      isFull: false,
+      isPreview: true,
+      isProcessing: false,
+      isRestoring: false,
+      isUnavailable: false,
+      isSyncing: false,
+      showLookupAction: false,
+      lookupHref,
+    };
+  }
+
+  if (isLockedEntry) {
+    return {
+      primaryDisabled: !accessView.actions.pageHref,
+      statusLabel: copy.status.lockedEntry,
+      statusDetail: copy.detail.lockedEntry,
+      deliveryLabel: copy.delivery.onlineAccess,
+      primaryHref: accessView.actions.pageHref ?? null,
+      primaryLabel: accessView.actions.pageHref ? copy.cta.rowContinueLocked : null,
+      latestPrimaryLabel: accessView.actions.pageHref ? copy.cta.latestContinueLocked : null,
+      disabledLabel: copy.cta.rowDisabledUnavailable,
+      showPdfAction: false,
       pdfHref: null,
+      pdfLabel: copy.cta.downloadPdf,
+      previewScopeLabel: null,
+      isFull: false,
+      isPreview: false,
+      isProcessing: false,
+      isRestoring: false,
+      isUnavailable: false,
+      isSyncing: false,
+      showLookupAction: Boolean(lookupHref),
+      lookupHref,
     };
   }
 
   return {
-    statusLabel: locale === "zh" ? "结果入口" : "Result entry",
-    statusDetail:
-      locale === "zh"
-        ? "这个入口会回到当前结果页，并保留当前回访路径。"
-        : "This entry returns to the current result page while keeping the current revisit path.",
-    deliveryLabel: pdfHref ? (locale === "zh" ? "PDF 已就绪" : "PDF ready") : locale === "zh" ? "在线访问" : "Online access",
-    primaryHref,
-    primaryCtaLabel: locale === "zh" ? "打开结果入口" : "Open result entry",
-    latestCtaLabel: locale === "zh" ? "继续最新结果入口" : "Continue latest entry",
+    primaryDisabled: !accessView.actions.pageHref,
+    statusLabel: copy.status.readyEntry,
+    statusDetail: copy.detail.readyEntry,
+    deliveryLabel: pdfHref ? copy.delivery.pdfReady : copy.delivery.onlineAccess,
+    primaryHref: accessView.actions.pageHref ?? null,
+    primaryLabel: accessView.actions.pageHref ? copy.cta.rowOpenReady : null,
+    latestPrimaryLabel: accessView.actions.pageHref ? copy.cta.latestContinueReady : null,
+    disabledLabel: copy.cta.rowDisabledUnavailable,
+    showPdfAction: Boolean(pdfHref),
     pdfHref,
+    pdfLabel: copy.cta.downloadPdf,
+    previewScopeLabel: null,
+    isFull: false,
+    isPreview: false,
+    isProcessing: false,
+    isRestoring: false,
+    isUnavailable: false,
+    isSyncing: false,
+    showLookupAction: false,
+    lookupHref,
   };
 }
 
@@ -257,6 +401,7 @@ export default function MbtiHistoryClient() {
   const locale = getLocaleFromPathname(pathname);
   const isZh = locale === "zh";
   const copy = getDictSync(locale).history.mbti;
+  const surfaceCopy = copy.surface;
   const startTestHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`, locale);
   const orderLookupHref = localizedPath("/orders/lookup", locale);
 
@@ -288,7 +433,8 @@ export default function MbtiHistoryClient() {
   );
   const pulsePromptLabels = (journey?.pulsePromptKeys ?? []).map((key) => resolveMbtiPulsePromptLabel(key, locale));
   const latestRow = rows[0] ?? null;
-  const latestRowSurface = latestRow ? resolveRowSurface(latestRow, locale) : null;
+  const latestRowSurface = latestRow ? resolveRowSurface(latestRow, locale, surfaceCopy) : null;
+  const recoveryHref = latestRowSurface?.lookupHref ?? orderLookupHref;
   const latestResultHref = latestRow
     && latestRowSurface?.primaryHref
     ? appendMbtiActionJourneyQuery(
@@ -443,7 +589,7 @@ export default function MbtiHistoryClient() {
           ) : null}
         </div>
         <div className="flex flex-wrap gap-3">
-          {latestResultHref && latestRowSurface?.primaryCtaLabel ? (
+          {latestResultHref && latestRowSurface?.latestPrimaryLabel ? (
             <Link
               href={latestResultHref}
               className={buttonVariants({ className: "w-full sm:w-auto" })}
@@ -465,11 +611,11 @@ export default function MbtiHistoryClient() {
                 });
               }}
             >
-              {latestRowSurface.latestCtaLabel}
+              {latestRowSurface.latestPrimaryLabel}
             </Link>
           ) : null}
           <Link
-            href={orderLookupHref}
+            href={recoveryHref}
             className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
             data-testid="mbti-history-recovery-cta"
           >
@@ -482,7 +628,7 @@ export default function MbtiHistoryClient() {
             className="rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-700"
           >
             <span className="font-medium text-slate-950">
-              {isZh ? "最新入口" : "Latest entry"} · {latestRow.typeCode}
+              {surfaceCopy.latestEntryLabel} · {latestRow.typeCode}
             </span>
             <span>{isZh ? "：" : ": "}</span>
             <span>{latestRowSurface.statusLabel}</span>
@@ -532,7 +678,7 @@ export default function MbtiHistoryClient() {
 
       <div className="grid gap-3" data-testid="mbti-history-list">
         {rows.map((row) => {
-          const rowSurface = resolveRowSurface(row, locale);
+          const rowSurface = resolveRowSurface(row, locale, surfaceCopy);
 
           return (
           <Card key={row.attemptId} data-testid="mbti-history-card">
@@ -568,7 +714,7 @@ export default function MbtiHistoryClient() {
                 {rowSurface.deliveryLabel}
               </p>
               <div className="flex flex-wrap gap-3">
-                {rowSurface.primaryHref && rowSurface.primaryCtaLabel ? (
+                {rowSurface.primaryHref && rowSurface.primaryLabel ? (
                   <Link
                     href={appendMbtiActionJourneyQuery(
                       appendMbtiAdaptiveSelectionQuery(
@@ -595,7 +741,7 @@ export default function MbtiHistoryClient() {
                       });
                     }}
                   >
-                    {rowSurface.primaryCtaLabel}
+                    {rowSurface.primaryLabel}
                   </Link>
                 ) : (
                   <Button
@@ -605,10 +751,10 @@ export default function MbtiHistoryClient() {
                     disabled
                     data-testid={`mbti-history-open-${row.attemptId}`}
                   >
-                    {isZh ? "当前不可进入" : "Currently unavailable"}
+                    {rowSurface.disabledLabel}
                   </Button>
                 )}
-                {rowSurface.pdfHref ? (
+                {rowSurface.showPdfAction && rowSurface.pdfHref ? (
                   <a
                     href={rowSurface.pdfHref ?? undefined}
                     target="_blank"
@@ -616,7 +762,7 @@ export default function MbtiHistoryClient() {
                     className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
                     data-testid={`mbti-history-pdf-${row.attemptId}`}
                   >
-                    {isZh ? "下载 PDF" : "Download PDF"}
+                    {rowSurface.pdfLabel}
                   </a>
                 ) : null}
               </div>

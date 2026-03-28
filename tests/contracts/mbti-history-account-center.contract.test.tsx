@@ -36,6 +36,9 @@ function createAccessSummary(overrides: Partial<Record<string, unknown>> = {}) {
     actions: {
       page_href: "/result/attempt-history-1",
       pdf_href: "/api/v0.3/attempts/attempt-history-1/report.pdf",
+      wait_href: null,
+      history_href: "/history/mbti",
+      lookup_href: "/orders/lookup",
     },
     ...overrides,
   };
@@ -79,6 +82,9 @@ describe("MBTI history account-center contract", () => {
             actions: {
               page_href: "/result/attempt-history-2",
               pdf_href: null,
+              wait_href: null,
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
             },
           }),
         },
@@ -147,6 +153,9 @@ describe("MBTI history account-center contract", () => {
             actions: {
               page_href: "/result/attempt-history-2",
               pdf_href: null,
+              wait_href: null,
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
             },
           }),
         },
@@ -372,6 +381,9 @@ describe("MBTI history account-center contract", () => {
             actions: {
               page_href: null,
               pdf_href: null,
+              wait_href: null,
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
             },
           }),
         },
@@ -390,7 +402,7 @@ describe("MBTI history account-center contract", () => {
 
     expect(screen.queryByTestId("mbti-history-continue-cta")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-history-status-attempt-history-deleted-1")).toHaveTextContent(
-      "This result entry is not currently available for direct re-entry. Use order lookup first."
+      "This workspace entry is not currently available for direct re-entry. Use order lookup first."
     );
     expect(screen.getByTestId("mbti-history-open-attempt-history-deleted-1")).toBeDisabled();
     expect(screen.queryByTestId("mbti-history-pdf-attempt-history-deleted-1")).not.toBeInTheDocument();
@@ -416,6 +428,9 @@ describe("MBTI history account-center contract", () => {
             actions: {
               page_href: "/result/attempt-history-locked-full-1",
               pdf_href: null,
+              wait_href: null,
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
             },
           }),
         },
@@ -433,10 +448,197 @@ describe("MBTI history account-center contract", () => {
     });
 
     expect(screen.getByTestId("mbti-history-latest-status")).not.toHaveTextContent("Full report unlocked");
-    expect(screen.getByTestId("mbti-history-open-attempt-history-locked-full-1")).toHaveTextContent("Open result entry");
+    expect(screen.getByTestId("mbti-history-open-attempt-history-locked-full-1")).toHaveTextContent("Continue locked entry");
     expect(screen.getByTestId("mbti-history-status-attempt-history-locked-full-1")).toHaveTextContent(
-      "This entry returns to the current result page while keeping the current revisit path."
+      "This workspace entry is still locked. Re-open the result page to check the current state or use order lookup if you need recovery."
     );
     expect(screen.queryByTestId("mbti-history-pdf-attempt-history-locked-full-1")).not.toBeInTheDocument();
+  });
+
+  it("renders unlocked rows with online access when the PDF is not ready yet", async () => {
+    hoisted.getMyAttempts.mockResolvedValue({
+      items: [
+        {
+          attempt_id: "attempt-history-full-no-pdf-1",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-12T09:30:00Z",
+          type_code: "ENTJ-A",
+          access_summary: createAccessSummary({
+            access_state: "ready",
+            report_state: "ready",
+            pdf_state: "pending",
+            reason_code: "pdf_generating",
+            access_level: "full",
+            variant: "full",
+            actions: {
+              page_href: "/result/attempt-history-full-no-pdf-1",
+              pdf_href: null,
+              wait_href: null,
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
+            },
+          }),
+        },
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<MbtiHistoryClient />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-history-card")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("mbti-history-latest-status")).toHaveTextContent("Full report unlocked");
+    expect(screen.getByTestId("mbti-history-latest-status")).toHaveTextContent("PDF not ready");
+    expect(screen.getByTestId("mbti-history-open-attempt-history-full-no-pdf-1")).toHaveTextContent("Open full result");
+    expect(screen.queryByTestId("mbti-history-pdf-attempt-history-full-no-pdf-1")).not.toBeInTheDocument();
+  });
+
+  it("routes processing and restoring rows through wait truth for both latest and row CTAs", async () => {
+    hoisted.getMyAttempts.mockResolvedValue({
+      items: [
+        {
+          attempt_id: "attempt-history-processing-1",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-12T09:30:00Z",
+          type_code: "ENTP-T",
+          access_summary: createAccessSummary({
+            access_state: "locked",
+            report_state: "pending",
+            pdf_state: "unavailable",
+            reason_code: "projection_pending",
+            access_level: "free",
+            variant: "free",
+            actions: {
+              page_href: "/result/attempt-history-processing-1",
+              pdf_href: null,
+              wait_href: "/result/attempt-history-processing-1",
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
+            },
+          }),
+        },
+        {
+          attempt_id: "attempt-history-restoring-1",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-11T09:30:00Z",
+          type_code: "ISFP-A",
+          access_summary: createAccessSummary({
+            access_state: "locked",
+            report_state: "restoring",
+            pdf_state: "unavailable",
+            reason_code: "projection_restoring",
+            access_level: "free",
+            variant: "free",
+            actions: {
+              page_href: "/result/attempt-history-restoring-1",
+              pdf_href: null,
+              wait_href: "/result/attempt-history-restoring-1",
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
+            },
+          }),
+        },
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<MbtiHistoryClient />);
+
+    await waitFor(() => {
+      expect(screen.getAllByTestId("mbti-history-card")).toHaveLength(2);
+    });
+
+    expect(screen.getByTestId("mbti-history-continue-cta")).toHaveTextContent("Continue latest processing entry");
+    expect(screen.getByTestId("mbti-history-continue-cta")).toHaveAttribute("href", "/en/result/attempt-history-processing-1");
+    expect(screen.getByTestId("mbti-history-open-attempt-history-processing-1")).toHaveTextContent("Continue processing entry");
+    expect(screen.getByTestId("mbti-history-open-attempt-history-processing-1")).toHaveAttribute(
+      "href",
+      "/en/result/attempt-history-processing-1"
+    );
+    expect(screen.getByTestId("mbti-history-status-attempt-history-restoring-1")).toHaveTextContent(
+      "This workspace entry is being restored. Use the waiting entry to continue from the current result page."
+    );
+    expect(screen.getByTestId("mbti-history-open-attempt-history-restoring-1")).toHaveTextContent("Continue restoring entry");
+  });
+
+  it("keeps processing rows on processing wording when wait truth is temporarily unavailable", async () => {
+    hoisted.getMyAttempts.mockResolvedValue({
+      items: [
+        {
+          attempt_id: "attempt-history-processing-nowait-1",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-12T09:30:00Z",
+          type_code: "ENTP-T",
+          access_summary: createAccessSummary({
+            access_state: "locked",
+            report_state: "pending",
+            pdf_state: "unavailable",
+            reason_code: "projection_pending",
+            access_level: "free",
+            variant: "free",
+            actions: {
+              page_href: "/result/attempt-history-processing-nowait-1",
+              pdf_href: null,
+              wait_href: null,
+              history_href: "/history/mbti",
+              lookup_href: "/orders/lookup",
+            },
+          }),
+        },
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<MbtiHistoryClient />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-history-card")).toBeInTheDocument();
+    });
+
+    expect(screen.queryByTestId("mbti-history-continue-cta")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-history-status-attempt-history-processing-nowait-1")).toHaveTextContent(
+      "This workspace entry is still preparing. Use the waiting entry to continue from the current result page."
+    );
+    expect(screen.getByTestId("mbti-history-open-attempt-history-processing-nowait-1")).toHaveTextContent("Preparing result");
+  });
+
+  it("keeps rows without access_summary in syncing state instead of unavailable wording", async () => {
+    hoisted.getMyAttempts.mockResolvedValue({
+      items: [
+        {
+          attempt_id: "attempt-history-syncing-1",
+          scale_code: "MBTI",
+          submitted_at: "2026-03-12T09:30:00Z",
+          type_code: "ESFJ-A",
+        },
+      ],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
+    });
+
+    render(<MbtiHistoryClient />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-history-card")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("mbti-history-status-attempt-history-syncing-1")).toHaveTextContent(
+      "This workspace entry has not synced its current access state yet. Refresh later or use order lookup if you purchased access."
+    );
+    expect(screen.getByTestId("mbti-history-delivery-attempt-history-syncing-1")).toHaveTextContent("Delivery syncing");
+    expect(screen.getByTestId("mbti-history-open-attempt-history-syncing-1")).toHaveTextContent("Status syncing");
   });
 });
