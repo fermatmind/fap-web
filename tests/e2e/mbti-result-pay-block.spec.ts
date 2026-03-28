@@ -19,11 +19,37 @@ function createMbtiLockedPreviewReportFixture() {
   }
 
   projectionSections.growth = structuredClone(freeSections.growth);
+  const growthSection = projectionSections.growth as { cards?: Array<Record<string, unknown>> };
+  growthSection.cards = [];
   reportData.locked = true;
   reportData.variant = "free";
   reportData.access_level = "free";
   reportData.modules_allowed = ["core_free"];
   reportData.modules_preview = ["career", "relationships", "core_full"];
+  reportData.mbti_preview_v1 = {
+    mode: "module_preview",
+    modules: ["career", "relationships", "core_full"],
+    sections: [
+      {
+        key: "growth",
+        module_code: "core_full",
+        has_preview_content: true,
+        visible_preview_cards: [
+          {
+            id: "growth_preview_dto_1",
+            title: "你的成长主线：把强项做成可复用资产",
+            body: "先把已经稳定出现的强项沉淀成自己的方法，再逐步扩展到更复杂的场景。",
+            bullets: ["把优势写成流程", "优先选择可复用的增长动作"],
+            tips: ["先从一周内能重复执行的动作开始"],
+            tags: ["Growth", "Preview"],
+            module_code: "core_full",
+            access_level: "preview",
+          },
+        ],
+        has_locked_remainder: true,
+      },
+    ],
+  };
 
   return reportData as Record<string, unknown>;
 }

@@ -597,6 +597,31 @@ export type Big5PublicProjection = {
   [key: string]: unknown;
 };
 
+export type MbtiPreviewCardRaw = {
+  id: string;
+  title: string;
+  body?: string | null;
+  bullets?: string[];
+  tips?: string[];
+  tags?: string[];
+  module_code: string;
+  access_level: "preview";
+};
+
+export type MbtiPreviewSectionRaw = {
+  key: string;
+  module_code: string;
+  has_preview_content: boolean;
+  visible_preview_cards: MbtiPreviewCardRaw[];
+  has_locked_remainder: boolean;
+};
+
+export type MbtiPreviewContractV1Raw = {
+  mode: "none" | "module_preview";
+  modules: string[];
+  sections: MbtiPreviewSectionRaw[];
+};
+
 export type ReportResponse = {
   ok?: boolean;
   locked?: boolean;
@@ -667,6 +692,7 @@ export type ReportResponse = {
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
+  mbti_preview_v1?: MbtiPreviewContractV1Raw | null;
   [key: string]: unknown;
 };
 

@@ -1,4 +1,9 @@
-import type { ReportResponse } from "@/lib/api/v0_3";
+import type {
+  MbtiPreviewCardRaw,
+  MbtiPreviewContractV1Raw,
+  MbtiPreviewSectionRaw,
+  ReportResponse,
+} from "@/lib/api/v0_3";
 
 export type MbtiPreviewCardViewModel = {
   id: string;
@@ -7,13 +12,22 @@ export type MbtiPreviewCardViewModel = {
   bullets: string[];
   tips: string[];
   tags: string[];
-  accessLevel: "free" | "preview";
+  accessLevel: "preview";
   moduleCode: string;
+};
+
+export type MbtiPreviewSectionViewModel = {
+  key: string;
+  moduleCode: string;
+  hasPreviewContent: boolean;
+  previewCards: MbtiPreviewCardViewModel[];
+  hasLockedRemainder: boolean;
 };
 
 export type MbtiPreviewViewModel = {
   isPreviewMode: boolean;
   previewModules: string[];
+  sections: MbtiPreviewSectionViewModel[];
   visibleSections: string[];
   visibleCardsBySection: Record<string, MbtiPreviewCardViewModel[]>;
   hasVisiblePreviewCards: boolean;
@@ -79,7 +93,7 @@ function normalizePreviewCard(
   sectionModuleCode: string
 ): MbtiPreviewCardViewModel | null {
   const accessLevel = normalizeText(raw.access_level).toLowerCase();
-  if (accessLevel !== "free" && accessLevel !== "preview") {
+  if (accessLevel !== "preview") {
     return null;
   }
 
@@ -99,39 +113,129 @@ function normalizePreviewCard(
     bullets,
     tips: normalizeStringArray(raw.tips),
     tags: normalizeStringArray(raw.tags),
-    accessLevel,
+    accessLevel: "preview",
     moduleCode,
   };
 }
 
-function isVisiblePreviewCard(
-  card: MbtiPreviewCardViewModel,
-  isPreviewMode: boolean,
-  previewModules: Set<string>
-): boolean {
-  if (!isPreviewMode) {
-    return false;
+function normalizePreviewContractCard(raw: MbtiPreviewCardRaw): MbtiPreviewCardViewModel | null {
+  const title = normalizeText(raw.title);
+  const body = normalizeText(raw.body);
+  const bullets = normalizeStringArray(raw.bullets);
+  if (!title && !body && bullets.length === 0) {
+    return null;
   }
 
-  if (card.accessLevel === "free") {
-    return card.moduleCode === "" || card.moduleCode === "core_free" || previewModules.has(card.moduleCode);
-  }
+  return {
+    id: normalizeText(raw.id),
+    title,
+    body,
+    bullets,
+    tips: normalizeStringArray(raw.tips),
+    tags: normalizeStringArray(raw.tags),
+    accessLevel: "preview",
+    moduleCode: normalizeText(raw.module_code).toLowerCase(),
+  };
+}
 
+function isVisiblePreviewCard(card: MbtiPreviewCardViewModel, previewModules: Set<string>): boolean {
   if (previewModules.size === 0) {
     return false;
   }
 
-  return previewModules.has(card.moduleCode);
+  return card.moduleCode === "" || card.moduleCode === "core_free" || previewModules.has(card.moduleCode);
 }
 
-export function buildMbtiPreviewViewModel(reportData: ReportResponse): MbtiPreviewViewModel {
+function buildSectionViewModel(
+  key: string,
+  moduleCode: string,
+  previewCards: MbtiPreviewCardViewModel[],
+  hasLockedRemainder: boolean
+): MbtiPreviewSectionViewModel {
+  return {
+    key,
+    moduleCode,
+    hasPreviewContent: previewCards.length > 0,
+    previewCards,
+    hasLockedRemainder,
+  };
+}
+
+function finalizeViewModel(
+  sections: MbtiPreviewSectionViewModel[],
+  previewModules: string[],
+  isPreviewMode: boolean
+): MbtiPreviewViewModel {
+  const visibleSections = sections.filter((section) => section.hasPreviewContent).map((section) => section.key);
+  const visibleCardsBySection = Object.fromEntries(
+    sections
+      .filter((section) => section.previewCards.length > 0)
+      .map((section) => [section.key, section.previewCards])
+  ) as Record<string, MbtiPreviewCardViewModel[]>;
+
+  return {
+    isPreviewMode,
+    previewModules,
+    sections,
+    visibleSections,
+    visibleCardsBySection,
+    hasVisiblePreviewCards: visibleSections.length > 0,
+  };
+}
+
+function buildPreviewViewModelFromContract(raw: MbtiPreviewContractV1Raw): MbtiPreviewViewModel {
+  const previewModules = normalizeModules(raw.modules);
+  const sections = asArray<MbtiPreviewSectionRaw>(raw.sections)
+    .map((rawSection) => {
+      const key = normalizeText(rawSection.key).toLowerCase();
+      if (!key) {
+        return null;
+      }
+
+      const moduleCode = normalizeText(rawSection.module_code).toLowerCase() || resolveDefaultModuleCode(key);
+      const previewCards = asArray<MbtiPreviewCardRaw>(rawSection.visible_preview_cards)
+        .map((rawCard) => normalizePreviewContractCard(rawCard))
+        .filter((card): card is MbtiPreviewCardViewModel => Boolean(card));
+
+      return buildSectionViewModel(
+        key,
+        moduleCode,
+        previewCards,
+        rawSection.has_locked_remainder === true
+      );
+    })
+    .filter((section): section is MbtiPreviewSectionViewModel => Boolean(section));
+
+  return finalizeViewModel(sections, previewModules, raw.mode === "module_preview");
+}
+
+function buildPreviewViewModelFromLegacyReport(reportData: ReportResponse): MbtiPreviewViewModel {
   const variant = normalizeText(reportData.variant).toLowerCase();
   const previewModules = normalizeModules(reportData.modules_preview);
   const previewModuleSet = new Set(previewModules);
-  const isPreviewMode = reportData.locked === true || variant === "free";
   const payload = resolveReportPayload(reportData);
   const sectionsNode = payload?.sections;
-  const visibleCardsBySection: Record<string, MbtiPreviewCardViewModel[]> = {};
+  const sections: MbtiPreviewSectionViewModel[] = [];
+
+  const pushSection = (
+    sectionKey: string,
+    sectionModuleCode: string,
+    rawCards: Record<string, unknown>[],
+    rawSection?: Record<string, unknown> | null
+  ) => {
+    const previewCards = rawCards
+      .map((rawCard) => normalizePreviewCard(rawCard, sectionKey, sectionModuleCode))
+      .filter((card): card is MbtiPreviewCardViewModel => Boolean(card))
+      .filter((card) => isVisiblePreviewCard(card, previewModuleSet));
+
+    const sectionAccessLevel = normalizeText(rawSection?.access_level).toLowerCase();
+    const hasLockedRemainder =
+      rawSection?.locked === true ||
+      sectionAccessLevel === "paid" ||
+      rawCards.some((card) => normalizeText(card.access_level).toLowerCase() === "paid");
+
+    sections.push(buildSectionViewModel(sectionKey, sectionModuleCode, previewCards, hasLockedRemainder));
+  };
 
   if (Array.isArray(sectionsNode)) {
     for (const rawSection of sectionsNode) {
@@ -146,19 +250,12 @@ export function buildMbtiPreviewViewModel(reportData: ReportResponse): MbtiPrevi
       }
 
       const sectionModuleCode = normalizeText(section.module_code).toLowerCase() || resolveDefaultModuleCode(sectionKey);
-      const visibleCards = asArray<Record<string, unknown>>(section.blocks)
-        .map((rawCard) => normalizePreviewCard(rawCard, sectionKey, sectionModuleCode))
-        .filter((card): card is MbtiPreviewCardViewModel => Boolean(card))
-        .filter((card) => isVisiblePreviewCard(card, isPreviewMode, previewModuleSet));
-
-      if (visibleCards.length > 0) {
-        visibleCardsBySection[sectionKey] = visibleCards;
-      }
+      pushSection(sectionKey, sectionModuleCode, asArray<Record<string, unknown>>(section.blocks), section);
     }
   } else {
-    const sections = asRecord(sectionsNode);
-    if (sections) {
-      for (const [key, rawValue] of Object.entries(sections)) {
+    const sectionsRecord = asRecord(sectionsNode);
+    if (sectionsRecord) {
+      for (const [key, rawValue] of Object.entries(sectionsRecord)) {
         const section = asRecord(rawValue);
         if (!section) {
           continue;
@@ -170,27 +267,21 @@ export function buildMbtiPreviewViewModel(reportData: ReportResponse): MbtiPrevi
         }
 
         const sectionModuleCode = normalizeText(section.module_code).toLowerCase() || resolveDefaultModuleCode(sectionKey);
-        const visibleCards = asArray<Record<string, unknown>>(section.cards)
-          .map((rawCard) => normalizePreviewCard(rawCard, sectionKey, sectionModuleCode))
-          .filter((card): card is MbtiPreviewCardViewModel => Boolean(card))
-          .filter((card) => isVisiblePreviewCard(card, isPreviewMode, previewModuleSet));
-
-        if (visibleCards.length > 0) {
-          visibleCardsBySection[sectionKey] = visibleCards;
-        }
+        pushSection(sectionKey, sectionModuleCode, asArray<Record<string, unknown>>(section.cards), section);
       }
     }
   }
 
-  const visibleSections = Object.entries(visibleCardsBySection)
-    .filter(([, cards]) => cards.some((card) => card.accessLevel === "preview"))
-    .map(([sectionKey]) => sectionKey);
+  const visibleSectionKeys = sections.filter((section) => section.hasPreviewContent).map((section) => section.key);
+  const isPreviewMode = (reportData.locked === true || variant === "free") && (previewModules.length > 0 || visibleSectionKeys.length > 0);
 
-  return {
-    isPreviewMode,
-    previewModules,
-    visibleSections,
-    visibleCardsBySection,
-    hasVisiblePreviewCards: visibleSections.length > 0,
-  };
+  return finalizeViewModel(sections, previewModules, isPreviewMode);
+}
+
+export function buildMbtiPreviewViewModel(reportData: ReportResponse): MbtiPreviewViewModel {
+  if (reportData.mbti_preview_v1) {
+    return buildPreviewViewModelFromContract(reportData.mbti_preview_v1);
+  }
+
+  return buildPreviewViewModelFromLegacyReport(reportData);
 }

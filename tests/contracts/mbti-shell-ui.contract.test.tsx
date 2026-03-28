@@ -20,9 +20,16 @@ vi.mock("@/lib/analytics", () => ({
 }));
 
 function createLockedProjectionFixture(): ReportResponse {
-  return applyMbtiPhase2Fixture(
+  const reportData = applyMbtiPhase2Fixture(
     structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse
   );
+  reportData.mbti_preview_v1 = {
+    mode: "none",
+    modules: [],
+    sections: [],
+  };
+
+  return reportData;
 }
 
 function createMbtiAccessHubRaw(attemptId: string, orderNo: string): MbtiAccessHubV1Raw {
@@ -91,8 +98,8 @@ describe("MBTI shell UI contract", () => {
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
-    expect(within(stickyRail).getByText("职业映射")).toBeInTheDocument();
-    expect(within(stickyRail).getByText("关系映射")).toBeInTheDocument();
+    expect(within(stickyRail).getByText("职业")).toBeInTheDocument();
+    expect(within(stickyRail).getByText("关系")).toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
 
     expect(

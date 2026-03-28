@@ -34,7 +34,7 @@ import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/l
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
-import type { MbtiPreviewCardViewModel, MbtiPreviewViewModel } from "@/lib/mbti/preview";
+import type { MbtiPreviewSectionViewModel, MbtiPreviewViewModel } from "@/lib/mbti/preview";
 import {
   appendMbtiActionJourneyQuery,
 } from "@/lib/mbti/actionJourney";
@@ -871,12 +871,16 @@ export function MbtiResultShell({
       : Array.isArray(reportData.modules_allowed)
         ? reportData.modules_allowed
         : [];
-  const modulesPreview =
-    accessProjection?.modulesPreview && accessProjection.modulesPreview.length > 0
+  const modulesPreview = previewView
+    ? previewView.previewModules
+    : accessProjection?.modulesPreview && accessProjection.modulesPreview.length > 0
       ? accessProjection.modulesPreview
       : Array.isArray(reportData.modules_preview)
         ? reportData.modules_preview
         : [];
+  const previewSectionsByKey = new Map<string, MbtiPreviewSectionViewModel>(
+    (previewView?.sections ?? []).map((section) => [section.key, section] as const)
+  );
   const nonCoreAllowedModules = normalizeStringArray(modulesAllowed).filter((moduleCode) => moduleCode.toLowerCase() !== "core_free");
   const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
   const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
@@ -1742,9 +1746,7 @@ export function MbtiResultShell({
         projectionDimensions={projectionViewModel?.dimensions ?? []}
         globalTraits={globalTraits}
         unlock={sectionUnlocks[chapterKey] ?? null}
-        previewCards={(previewView?.visibleCardsBySection[chapterKey] ?? []).filter(
-          (card): card is MbtiPreviewCardViewModel => card.accessLevel === "preview"
-        )}
+        previewSection={previewSectionsByKey.get(chapterKey) ?? null}
         identityLayer={identityLayer}
         personalization={personalization}
         primaryFocusKey={primaryFocusKey}

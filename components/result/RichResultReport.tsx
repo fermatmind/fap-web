@@ -15,7 +15,7 @@ import {
   buildMbtiResultProjectionViewModel,
   hasMbtiResultProjection,
 } from "@/lib/mbti/publicProjection";
-import { buildMbtiPreviewViewModel } from "@/lib/mbti/preview";
+import { buildMbtiPreviewViewModel, type MbtiPreviewViewModel } from "@/lib/mbti/preview";
 import {
   normalizeSupportedScaleCode,
   SCALE_CANONICAL_SLUG_MAP,
@@ -56,6 +56,7 @@ type RichResultGate = {
   isFreeVariant: boolean;
   modulesAllowed: Set<string>;
   modulesPreview: Set<string>;
+  previewSections: Set<string>;
   freeSections: Set<string> | null;
   preservePreviewBlocks: boolean;
 };
@@ -382,8 +383,13 @@ function resolveModulesAllowed(reportData: ReportResponse): Set<string> {
   return new Set(normalizeStringArray(reportData.modules_allowed).map((item) => item.toLowerCase()));
 }
 
-function resolveModulesPreview(reportData: ReportResponse): Set<string> {
-  return new Set(normalizeStringArray(reportData.modules_preview).map((item) => item.toLowerCase()));
+function resolveModulesPreview(reportData: ReportResponse, previewView?: MbtiPreviewViewModel | null): Set<string> {
+  const modules =
+    previewView
+      ? previewView.previewModules
+      : normalizeStringArray(reportData.modules_preview).map((item) => item.toLowerCase());
+
+  return new Set(modules);
 }
 
 function resolveFreeSections(reportData: ReportResponse): Set<string> | null {
@@ -392,11 +398,15 @@ function resolveFreeSections(reportData: ReportResponse): Set<string> | null {
   return items.length > 0 ? new Set(items) : null;
 }
 
-function resolveRichResultGate(reportData: ReportResponse, scaleCode: RichResultScaleCode): RichResultGate {
+function resolveRichResultGate(
+  reportData: ReportResponse,
+  scaleCode: RichResultScaleCode,
+  previewView?: MbtiPreviewViewModel | null
+): RichResultGate {
   const variant = normalizeText(reportData.variant).toLowerCase();
   const accessLevel = normalizeText(reportData.access_level).toLowerCase();
   const modulesAllowed = resolveModulesAllowed(reportData);
-  const modulesPreview = resolveModulesPreview(reportData);
+  const modulesPreview = resolveModulesPreview(reportData, previewView);
 
   return {
     isFreeVariant:
@@ -406,6 +416,7 @@ function resolveRichResultGate(reportData: ReportResponse, scaleCode: RichResult
       (modulesAllowed.size > 0 && !modulesAllowed.has("full")),
     modulesAllowed,
     modulesPreview,
+    previewSections: new Set((previewView?.visibleSections ?? []).map((item) => item.toLowerCase())),
     freeSections: resolveFreeSections(reportData),
     preservePreviewBlocks: scaleCode === "MBTI",
   };
@@ -497,7 +508,7 @@ function shouldForceSectionLocked(section: ReportSection, gate: RichResultGate):
   const key = normalizeText(section.key).toLowerCase();
   const accessLevel = normalizeText(section.access_level).toLowerCase();
   if (gate.freeSections && key && !gate.freeSections.has(key)) {
-    if (!(gate.preservePreviewBlocks && accessLevel === "preview")) {
+    if (!(gate.preservePreviewBlocks && (accessLevel === "preview" || gate.previewSections.has(key)))) {
       return true;
     }
   }
@@ -582,9 +593,10 @@ function normalizeRichSections(reportData: ReportResponse, locale: Locale, gate:
         .filter((card) => isBlockVisibleInGate(card, gate));
 
       const locked = section.locked === true;
-      const hasVisiblePreviewBlocks = cards.some(
-        (card) => normalizeText(card.access_level).toLowerCase() === "preview"
-      );
+      const normalizedKey = normalizeText(key).toLowerCase();
+      const hasVisiblePreviewBlocks =
+        cards.some((card) => normalizeText(card.access_level).toLowerCase() === "preview") ||
+        gate.previewSections.has(normalizedKey);
       const normalizedSection: ReportSection = {
         key,
         title: resolveSectionTitle(key, section, locale),
@@ -1270,7 +1282,8 @@ export function RichResultReport({
     return null;
   }
 
-  const gate = resolveRichResultGate(reportData, scaleCode);
+  const previewView = scaleCode === "MBTI" ? buildMbtiPreviewViewModel(reportData) : null;
+  const gate = resolveRichResultGate(reportData, scaleCode, previewView);
   const headline = resolveHeadline(scaleCode, reportData);
   const big5Projection = scaleCode === "BIG5_OCEAN" ? resolveBig5Projection(reportData) : null;
   const tags = resolveVisibleTags(reportData);
@@ -1284,7 +1297,6 @@ export function RichResultReport({
 
   if (scaleCode === "MBTI") {
     const projectionViewModel = buildMbtiResultProjectionViewModel(reportData);
-    const previewView = buildMbtiPreviewViewModel(reportData);
     const sectionUnlocks = Object.fromEntries(
       sections.map((section) => {
         const sectionKey = normalizeText(section.key).toLowerCase();
