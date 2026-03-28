@@ -296,6 +296,10 @@ export function HighlightedTestsSection({
 
         <div className="fm-home-calibration-deck">
           <div className="fm-home-calibration-deck-glow" aria-hidden />
+          <span className="fm-home-calibration-focus fm-home-calibration-focus--tl" aria-hidden />
+          <span className="fm-home-calibration-focus fm-home-calibration-focus--tr" aria-hidden />
+          <span className="fm-home-calibration-focus fm-home-calibration-focus--bl" aria-hidden />
+          <span className="fm-home-calibration-focus fm-home-calibration-focus--br" aria-hidden />
 
           <div className="fm-home-calibration-rackbar">
             <span>{copy.rackMeta}</span>
@@ -315,31 +319,46 @@ export function HighlightedTestsSection({
               const isAuth = systemMeta?.accessMode === "auth";
               const accessMode = isAuth ? copy.accessAuth : copy.accessPublic;
               const actionLabel = isAuth && status.mode === "ready" ? copy.authLabel : status.actionLabel;
-              const topBadge =
-                status.mode === "cache" ? `${copy.progressLabel} ${status.progress}%` : accessMode;
-              const badgeClass =
-                status.mode === "cache"
-                  ? "fm-home-calibration-chip fm-home-calibration-chip--cache"
-                  : "fm-home-calibration-chip fm-home-calibration-chip--access";
-              const timeLabel = `${card.timeMinutes} ${copy.minuteUnit}`;
+              const badgeClass = "fm-home-calibration-chip fm-home-calibration-chip--cache";
+              const timeLabel = `[ ${card.timeMinutes}_MIN ]`;
+              const ledClass = isAuth
+                ? "fm-home-calibration-led fm-home-calibration-led--auth"
+                : "fm-home-calibration-led fm-home-calibration-led--public";
 
               return (
                 <article key={card.slug} className="fm-home-calibration-slot">
                   <div className="fm-home-calibration-slot-grid" aria-hidden />
+                  <div
+                    className={`fm-home-calibration-cache-rail${status.mode === "cache" ? " is-active" : ""}`}
+                    aria-hidden
+                  />
 
                   <div className="fm-home-calibration-slot-top">
                     <p className="fm-home-calibration-slot-category m-0">{card.category}</p>
-                    <span className={badgeClass}>
-                      {status.mode === "cache" ? <span className="fm-home-calibration-state-dot" aria-hidden /> : null}
-                      {topBadge}
-                    </span>
+                    {status.mode === "cache" ? (
+                      <span className={badgeClass}>
+                        <span className="fm-home-calibration-state-dot" aria-hidden />
+                        {`${copy.progressLabel} ${status.progress}%`}
+                      </span>
+                    ) : null}
                   </div>
 
                   <div className="fm-home-calibration-slot-body">
                     <div className="fm-home-calibration-slot-heading">
-                      <Link href={withLocale(`/tests/${card.slug}`)} className="fm-home-calibration-slot-title">
-                        {card.title}
-                      </Link>
+                      <div className="fm-home-calibration-slot-sig" aria-hidden>
+                        <span className="fm-home-calibration-slot-sig-id">{`NODE ${systemMeta?.slotCode ?? "R0-C0"}`}</span>
+                        <span className="fm-home-calibration-slot-sig-type">{systemMeta?.typeCode ?? "ASSESSMENT"}</span>
+                      </div>
+                      <div className="fm-home-calibration-slot-titleRow">
+                        <span className={ledClass} aria-hidden />
+                        <Link href={withLocale(`/tests/${card.slug}`)} className="fm-home-calibration-slot-title">
+                          {card.title}
+                        </Link>
+                      </div>
+                      <div className="fm-home-calibration-slot-titleRule" aria-hidden>
+                        <span className="fm-home-calibration-slot-titleRuleLead" />
+                        <span className="fm-home-calibration-slot-titleRuleTrail" />
+                      </div>
                       <div className="fm-home-calibration-slot-metaRow">
                         <span className="fm-home-calibration-time">{timeLabel}</span>
                         <span className="fm-home-calibration-slot-access">{accessMode}</span>
