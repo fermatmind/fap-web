@@ -26,6 +26,49 @@ function createProjectionReportFixture(): ReportResponse {
   return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
 }
 
+function createDtoPreviewFixture(): ReportResponse {
+  const reportData = applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
+  const sections = reportData.report?.sections as Record<string, unknown> | undefined;
+  const growthSection = sections?.growth as { cards?: Array<Record<string, unknown>> } | undefined;
+
+  if (!growthSection) {
+    throw new Error("Expected growth section in MBTI fixture");
+  }
+
+  growthSection.cards = [];
+  reportData.locked = true;
+  reportData.variant = "free";
+  reportData.access_level = "free";
+  reportData.modules_allowed = ["core_free"];
+  reportData.modules_preview = ["core_full"];
+  reportData.mbti_preview_v1 = {
+    mode: "module_preview",
+    modules: ["core_full"],
+    sections: [
+      {
+        key: "growth",
+        module_code: "core_full",
+        has_preview_content: true,
+        visible_preview_cards: [
+          {
+            id: "dto_growth_card",
+            title: "DTO preview growth card",
+            body: "DTO-owned preview content should render even without raw section cards.",
+            bullets: ["DTO path is authoritative"],
+            tips: [],
+            tags: ["dto"],
+            module_code: "core_full",
+            access_level: "preview",
+          },
+        ],
+        has_locked_remainder: true,
+      },
+    ],
+  };
+
+  return reportData;
+}
+
 function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> = {}) {
   return {
     visible: true,
@@ -353,6 +396,19 @@ describe("RichResultReport", () => {
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
+  });
+
+  it("prefers mbti_preview_v1 over raw section scraping for MBTI preview chapters", () => {
+    render(<RichResultReport locale="zh" reportData={createDtoPreviewFixture()} />);
+
+    const growthChapter = screen.getByTestId("mbti-chapter-growth");
+    const previewSurface = screen.getByTestId("mbti-chapter-preview-growth");
+
+    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
+    expect(previewSurface).toBeInTheDocument();
+    expect(within(previewSurface).getByText("DTO preview growth card")).toBeInTheDocument();
+    expect(within(growthChapter).queryByTestId("mbti-chapter-unlock-card")).not.toBeInTheDocument();
+    expect(within(growthChapter).getByText("部分预览已开放")).toBeInTheDocument();
   });
 
   it("renders MBTI cross-assessment enhancements from backend authority without frontend inference", () => {

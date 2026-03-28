@@ -17,7 +17,7 @@ import type {
   MbtiPublicProjectionDimensionViewModel,
   MbtiResultProjectionSectionViewModel,
 } from "@/lib/mbti/publicProjection";
-import type { MbtiPreviewCardViewModel } from "@/lib/mbti/preview";
+import type { MbtiPreviewCardViewModel, MbtiPreviewSectionViewModel } from "@/lib/mbti/preview";
 import {
   summarizeMbtiActionPriorityKeys,
   summarizeMbtiActionCompletionTendency,
@@ -133,7 +133,7 @@ type MbtiChapterSectionProps = {
   projectionDimensions: MbtiPublicProjectionDimensionViewModel[];
   globalTraits: TraitBridgeItem[];
   unlock: MbtiSectionUnlock | null;
-  previewCards?: MbtiPreviewCardViewModel[];
+  previewSection?: MbtiPreviewSectionViewModel | null;
   identityLayer?: ReportIdentityLayer | null;
   personalization?: MbtiResultPersonalizationViewModel | null;
   primaryFocusKey?: string;
@@ -638,6 +638,7 @@ function buildBridgeItems(
   unlock: MbtiSectionUnlock | null,
   globalTraits: TraitBridgeItem[],
   locale: Locale,
+  hasPreviewContent: boolean,
   identityLayer?: ReportIdentityLayer | null
 ): ChapterBridgeItem[] {
   const items: ChapterBridgeItem[] = [];
@@ -683,14 +684,16 @@ function buildBridgeItems(
     }
   }
 
-  for (const benefit of unlock?.benefits ?? []) {
-    pushItem({
-      title: locale === "zh" ? "解锁后重点" : "Unlock focus",
-      description: normalizeText(benefit),
-    });
+  if (!hasPreviewContent) {
+    for (const benefit of unlock?.benefits ?? []) {
+      pushItem({
+        title: locale === "zh" ? "解锁后重点" : "Unlock focus",
+        description: normalizeText(benefit),
+      });
 
-    if (items.length >= 4) {
-      return items.slice(0, 4);
+      if (items.length >= 4) {
+        return items.slice(0, 4);
+      }
     }
   }
 
@@ -1252,7 +1255,7 @@ export function MbtiChapterSection({
   projectionDimensions,
   globalTraits,
   unlock,
-  previewCards = [],
+  previewSection = null,
   identityLayer,
   personalization,
   primaryFocusKey,
@@ -1269,12 +1272,21 @@ export function MbtiChapterSection({
         bullets: normalizeStringArray(identityLayer.bullets),
       }
     : null;
-  const bridgeItems = buildBridgeItems(chapterKey, legacySection ?? null, unlock, globalTraits, locale, identityLayer);
+  const previewCards = previewSection?.previewCards ?? [];
+  const hasVisiblePreviewCards = previewSection?.hasPreviewContent === true && previewCards.length > 0;
+  const bridgeItems = buildBridgeItems(
+    chapterKey,
+    legacySection ?? null,
+    unlock,
+    globalTraits,
+    locale,
+    hasVisiblePreviewCards,
+    identityLayer
+  );
   const hasProjectionContent = projectionSections.length > 0;
   const hasLegacyPublicContent = Array.isArray(legacySection?.blocks) && legacySection.blocks.length > 0;
   const isLocked = normalizeText(legacySection?.access_level).toLowerCase() === "paid";
-  const hasVisiblePreviewCards = previewCards.length > 0;
-  const previewSection = hasVisiblePreviewCards ? buildPreviewSection(chapterKey, locale, previewCards) : null;
+  const previewReportSection = hasVisiblePreviewCards ? buildPreviewSection(chapterKey, locale, previewCards) : null;
   const isPreviewChapter = hasVisiblePreviewCards && !isLocked;
   const bridgeTitle = chapterKey === "traits"
     ? locale === "zh"
@@ -1547,7 +1559,7 @@ export function MbtiChapterSection({
         </div>
       ) : null}
 
-      {previewSection ? (
+      {previewReportSection ? (
         <div
           data-testid={`mbti-chapter-preview-${copy.anchor}`}
           className="rounded-[24px] border border-emerald-200 bg-[linear-gradient(180deg,rgba(236,253,245,0.8),rgba(255,255,255,0.98))] p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
@@ -1571,7 +1583,7 @@ export function MbtiChapterSection({
               ))}
             </div>
           </div>
-          <SectionRenderer section={previewSection} locked={false} locale={locale} scaleCode="MBTI" />
+          <SectionRenderer section={previewReportSection} locked={false} locale={locale} scaleCode="MBTI" />
         </div>
       ) : null}
 
