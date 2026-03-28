@@ -1,6 +1,5 @@
 import { Container } from "@/components/layout/Container";
 import { HeroAnimatedVisual } from "@/components/marketing/HeroAnimatedVisual";
-import { WaveDivider } from "@/components/marketing/WaveDivider";
 import type { Locale } from "@/lib/i18n/locales";
 
 const HERO_COPY = {
@@ -110,8 +109,7 @@ export function HeroSection({ locale }: { locale: Locale }) {
           <HeroAnimatedVisual localeLabel={locale === "zh" ? "zh" : "en"} />
         </div>
       </Container>
-
-      <WaveDivider className="relative z-10" fill="#f2f2f7" />
+      <div aria-hidden className="fm-home-hero-transition" />
     </section>
   );
 }
