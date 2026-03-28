@@ -121,3 +121,22 @@ test("home layout stays within viewport across representative widths", async ({ 
     }
   }
 });
+
+test("home hero keeps the full F01-F30 matrix visible across desktop widths", async ({ page }) => {
+  const viewports = [
+    { width: 1024, height: 900 },
+    { width: 1100, height: 900 },
+    { width: 1180, height: 900 },
+    { width: 1440, height: 960 },
+  ] as const;
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+
+    for (const localePath of ["/en", "/zh"] as const) {
+      await page.goto(localePath);
+      await expectNoHorizontalOverflow(page);
+      await expect(page.getByTestId("home-engine-node-F30")).toBeVisible();
+    }
+  }
+});
