@@ -13,10 +13,11 @@ import type { TraitBridgeItem } from "@/components/result/mbti/MbtiDominantTrait
 import type {
   CulturalCalibrationSectionViewModel,
   MbtiCrossAssessmentSectionEnhancementViewModel,
-  MbtiPublicProjectionDimensionViewModel,
   MbtiResultPersonalizationViewModel,
+  MbtiPublicProjectionDimensionViewModel,
   MbtiResultProjectionSectionViewModel,
 } from "@/lib/mbti/publicProjection";
+import type { MbtiPreviewCardViewModel } from "@/lib/mbti/preview";
 import {
   summarizeMbtiActionPriorityKeys,
   summarizeMbtiActionCompletionTendency,
@@ -132,6 +133,7 @@ type MbtiChapterSectionProps = {
   projectionDimensions: MbtiPublicProjectionDimensionViewModel[];
   globalTraits: TraitBridgeItem[];
   unlock: MbtiSectionUnlock | null;
+  previewCards?: MbtiPreviewCardViewModel[];
   identityLayer?: ReportIdentityLayer | null;
   personalization?: MbtiResultPersonalizationViewModel | null;
   primaryFocusKey?: string;
@@ -1022,6 +1024,30 @@ function renderPremiumTeaserSection(
   );
 }
 
+function buildPreviewSection(
+  chapterKey: ChapterKey,
+  locale: Locale,
+  previewCards: MbtiPreviewCardViewModel[]
+): ReportSection {
+  return {
+    key: `${chapterKey}-preview`,
+    title: locale === "zh" ? "当前已开放的预览内容" : "Preview cards currently visible",
+    access_level: "preview",
+    module_code: chapterKey,
+    blocks: previewCards.map((card) => ({
+      id: card.id,
+      kind: "card",
+      title: card.title,
+      body: card.body,
+      bullets: card.bullets,
+      tips: card.tips,
+      tags: card.tags,
+      access_level: card.accessLevel,
+      module_code: card.moduleCode,
+    })),
+  };
+}
+
 function renderProjectionSection(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
@@ -1226,6 +1252,7 @@ export function MbtiChapterSection({
   projectionDimensions,
   globalTraits,
   unlock,
+  previewCards = [],
   identityLayer,
   personalization,
   primaryFocusKey,
@@ -1246,6 +1273,9 @@ export function MbtiChapterSection({
   const hasProjectionContent = projectionSections.length > 0;
   const hasLegacyPublicContent = Array.isArray(legacySection?.blocks) && legacySection.blocks.length > 0;
   const isLocked = normalizeText(legacySection?.access_level).toLowerCase() === "paid";
+  const hasVisiblePreviewCards = previewCards.length > 0;
+  const previewSection = hasVisiblePreviewCards ? buildPreviewSection(chapterKey, locale, previewCards) : null;
+  const isPreviewChapter = hasVisiblePreviewCards && !isLocked;
   const bridgeTitle = chapterKey === "traits"
     ? locale === "zh"
       ? "主导特质"
@@ -1407,6 +1437,10 @@ export function MbtiChapterSection({
             <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-800">
               {locale === "zh" ? "预览章节" : "Preview chapter"}
             </span>
+          ) : isPreviewChapter ? (
+            <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-800">
+              {locale === "zh" ? "部分预览已开放" : "Partial preview visible"}
+            </span>
           ) : null}
         </div>
         <div className="space-y-2">
@@ -1479,6 +1513,10 @@ export function MbtiChapterSection({
                 ? locale === "zh"
                   ? "当前先保留公开层正文，下方 teaser 会说明完整章节继续补充什么。"
                   : "The public body stays visible first, and the teaser below explains what the full chapter adds."
+                : isPreviewChapter
+                  ? locale === "zh"
+                    ? "这一章已经开放了部分预览卡片；完整报告仍会补齐更深的边界解释、场景分化与行动坐标。"
+                    : "This chapter already exposes partial preview cards, while the full report still adds deeper boundary interpretation, scenario differentiation, and action coordinates."
                 : locale === "zh"
                   ? "这一章现在已经进入完整正文，可直接继续阅读，不需要跳转。"
                   : "This chapter is already on the full body and can be read directly without leaving the page."}
@@ -1506,6 +1544,34 @@ export function MbtiChapterSection({
           className="rounded-[24px] border border-slate-200 bg-white/90 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
         >
           <SectionRenderer section={legacySection} locked={false} locale={locale} scaleCode="MBTI" />
+        </div>
+      ) : null}
+
+      {previewSection ? (
+        <div
+          data-testid={`mbti-chapter-preview-${copy.anchor}`}
+          className="rounded-[24px] border border-emerald-200 bg-[linear-gradient(180deg,rgba(236,253,245,0.8),rgba(255,255,255,0.98))] p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
+        >
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="space-y-2">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                {locale === "zh" ? "章节预览内容" : "Chapter preview cards"}
+              </p>
+              <p className="m-0 text-sm leading-7 text-slate-600">
+                {locale === "zh"
+                  ? "这里展示当前已经开放的部分预览卡片；完整解锁后会继续补齐整章正文。"
+                  : "These cards are already open in preview mode. Unlocking the full report still completes the rest of the chapter."}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {Array.from(new Set(previewCards.map((card) => resolveModuleLabel(card.moduleCode, locale)))).map((label) => (
+                <span key={label} className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-800">
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
+          <SectionRenderer section={previewSection} locked={false} locale={locale} scaleCode="MBTI" />
         </div>
       ) : null}
 
