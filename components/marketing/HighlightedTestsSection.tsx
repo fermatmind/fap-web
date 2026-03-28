@@ -28,17 +28,13 @@ export type HomeHighlightedCard =
 type CardStatus =
   | {
       mode: "ready";
-      label: string;
       actionLabel: string;
       progress: number;
-      readout: string;
     }
   | {
       mode: "cache";
-      label: string;
       actionLabel: string;
       progress: number;
-      readout: string;
     };
 
 type PersistedProgress = {
@@ -53,51 +49,51 @@ type PersistedProgress = {
 
 const SECTION_COPY = {
   en: {
-    kicker: "Decision Entry Layer / Protocol Ready",
-    title: "Decision Entry Matrix",
+    kicker: "Selected Assessment Recommendations",
+    title: "Featured Assessments",
     subtitle:
-      "This is not about choosing a fun test. It is about entering the protocol that best matches the judgment task in front of you.",
-    rackMeta: "RACK_STATUS: ACTIVE / GRID: 3 × 2 / MODULES: 6",
+      "Choose the assessment that best fits your current question and get a clearer path into self-understanding within minutes.",
+    rackMeta: "Selected 6 high-frequency assessment entries",
+    deckStatus: "Personality, cognition, pressure, emotion, and career directions",
     filters: ["Collaboration", "Career & cognition", "Pressure & emotion", "Ability & performance"],
-    progressLabel: "CACHE_FOUND",
-    readyLabel: "PROTOCOL_READY",
-    initLabel: "[ INITIALIZE ]",
-    resumeLabel: "[ RESUME_SCAN ]",
-    authLabel: "[ AUTH_TERMINAL ]",
-    bandwidth: "SCAN_BANDWIDTH",
-    accessPublic: "PUBLIC_PROTOCOL",
-    accessAuth: "REQ_AUTH",
+    progressLabel: "Resume",
+    startLabel: "Start assessment →",
+    resumeLabel: "Continue assessment →",
+    authLabel: "View assessment →",
+    accessPublic: "Free",
+    accessAuth: "Pro",
     authGate: "AUTH_GATE: SECURE_PAYMENT_GATEWAY",
-    authTerminalTitle: "Authorization terminal",
-    authTerminalStatus: "[ INITIATING_SECURE_PAYMENT_GATEWAY ]",
+    authTerminalTitle: "Pro assessment",
+    authTerminalStatus: "PRO ASSESSMENT",
     authTerminalCopy:
-      "This protocol requires elevated access. Authorization is enforced after protocol intake and report unlock. If you already have an order, recover it through Order lookup.",
+      "This assessment is part of the pro catalog. Authorization is completed after you enter the assessment flow. If you already have an order, recover it through Order lookup.",
     authTerminalClose: "Close",
-    authTerminalProceed: "Continue to protocol",
+    authTerminalProceed: "View assessment →",
     authTerminalLookup: "Order lookup",
+    minuteUnit: "min",
   },
   zh: {
-    kicker: "DECISION ENTRY LAYER / PROTOCOL READY",
-    title: "决策入口矩阵",
-    subtitle: "不是选择一个“好玩的测试”，而是进入与你当前判断任务相匹配的测量协议。",
-    rackMeta: "RACK_STATUS: ACTIVE / GRID: 3 × 2 / MODULES: 6",
+    kicker: "精选测评推荐",
+    title: "重点测评",
+    subtitle: "选择适合你的测评入口，用更清晰的时长预期，快速进入更精准的自我认知路径。",
+    rackMeta: "精选 6 个高频测评入口",
+    deckStatus: "涵盖人格、认知、压力、情绪与职业方向",
     filters: ["协作与角色", "职业与认知", "压力与情绪", "能力与表现"],
-    progressLabel: "CACHE_FOUND",
-    readyLabel: "PROTOCOL_READY",
-    initLabel: "[ INITIALIZE ]",
-    resumeLabel: "[ RESUME_SCAN ]",
-    authLabel: "[ AUTH_TERMINAL ]",
-    bandwidth: "SCAN_BANDWIDTH",
-    accessPublic: "PUBLIC_PROTOCOL",
-    accessAuth: "REQ_AUTH",
+    progressLabel: "继续上次",
+    startLabel: "开始测试 →",
+    resumeLabel: "继续测试 →",
+    authLabel: "查看测评 →",
+    accessPublic: "免费",
+    accessAuth: "专业版",
     authGate: "AUTH_GATE: SECURE_PAYMENT_GATEWAY",
-    authTerminalTitle: "鉴权终端",
-    authTerminalStatus: "[ INITIATING_SECURE_PAYMENT_GATEWAY ]",
+    authTerminalTitle: "专业版测评",
+    authTerminalStatus: "PRO ASSESSMENT",
     authTerminalCopy:
-      "该协议需要高级授权。正式鉴权发生在协议进入后的报告解锁阶段；如果你已有订单，可先通过订单查询恢复支付链路。",
+      "该测评属于专业版入口。进入测评流程后可继续完成授权或支付；如果你已有订单，可先通过订单查询恢复流程。",
     authTerminalClose: "关闭",
-    authTerminalProceed: "继续进入协议",
+    authTerminalProceed: "查看测评 →",
     authTerminalLookup: "订单查询",
+    minuteUnit: "分钟",
   },
 } as const;
 
@@ -238,24 +234,16 @@ function resolveCardStatus(
   if (progress !== null) {
     return {
       mode: "cache",
-      label: `${copy.progressLabel}: ${progress}%`,
       actionLabel: copy.resumeLabel,
       progress,
-      readout: `${progress}%`,
     };
   }
 
   return {
     mode: "ready",
-    label: copy.readyLabel,
-    actionLabel: copy.initLabel,
+    actionLabel: copy.startLabel,
     progress: 32,
-    readout: "ACTIVE",
   };
-}
-
-function renderSignalBars(level: number) {
-  return Array.from({ length: 5 }, (_, index) => index < level);
 }
 
 export function HighlightedTestsSection({
@@ -311,7 +299,7 @@ export function HighlightedTestsSection({
 
           <div className="fm-home-calibration-rackbar">
             <span>{copy.rackMeta}</span>
-            <span>{locale === "zh" ? "CALIBRATION_DECK: ONLINE" : "CALIBRATION_DECK: ONLINE"}</span>
+            <span>{copy.deckStatus}</span>
           </div>
 
           <div className="fm-home-calibration-grid">
@@ -321,44 +309,41 @@ export function HighlightedTestsSection({
                 statusBySlug[card.slug] ??
                 ({
                   mode: "ready",
-                  label: copy.readyLabel,
-                  actionLabel: copy.initLabel,
+                  actionLabel: copy.startLabel,
                   progress: 32,
-                  readout: "ACTIVE",
                 } satisfies CardStatus);
-              const signalBars = renderSignalBars(Math.max(2, Math.min(5, Math.round((card.timeMinutes / 20) * 5))));
               const isAuth = systemMeta?.accessMode === "auth";
               const accessMode = isAuth ? copy.accessAuth : copy.accessPublic;
               const actionLabel = isAuth && status.mode === "ready" ? copy.authLabel : status.actionLabel;
+              const topBadge =
+                status.mode === "cache" ? `${copy.progressLabel} ${status.progress}%` : accessMode;
+              const badgeClass =
+                status.mode === "cache"
+                  ? "fm-home-calibration-chip fm-home-calibration-chip--cache"
+                  : "fm-home-calibration-chip fm-home-calibration-chip--access";
+              const timeLabel = `${card.timeMinutes} ${copy.minuteUnit}`;
 
               return (
                 <article key={card.slug} className="fm-home-calibration-slot">
                   <div className="fm-home-calibration-slot-grid" aria-hidden />
 
                   <div className="fm-home-calibration-slot-top">
-                    <div className="fm-home-calibration-slot-meta">
-                      <span>{`TYPE: ${systemMeta?.typeCode ?? "CORE"}`}</span>
-                      <span>{`SLOT: ${systemMeta?.slotCode ?? "R1-C1"}`}</span>
-                    </div>
-
-                    <div className="fm-home-calibration-slot-statuses">
-                      <span className={`fm-home-calibration-state fm-home-calibration-state--${status.mode}`}>
-                        <span className="fm-home-calibration-state-dot" aria-hidden />
-                        {status.label}
-                      </span>
-                      <span className={`fm-home-calibration-access fm-home-calibration-access--${systemMeta?.accessMode ?? "public"}`}>
-                        {systemMeta?.accessMode === "auth" ? <span className="fm-home-calibration-lock" aria-hidden /> : null}
-                        {accessMode}
-                      </span>
-                    </div>
+                    <p className="fm-home-calibration-slot-category m-0">{card.category}</p>
+                    <span className={badgeClass}>
+                      {status.mode === "cache" ? <span className="fm-home-calibration-state-dot" aria-hidden /> : null}
+                      {topBadge}
+                    </span>
                   </div>
 
                   <div className="fm-home-calibration-slot-body">
                     <div className="fm-home-calibration-slot-heading">
-                      <p className="fm-home-calibration-slot-category m-0">{card.category}</p>
                       <Link href={withLocale(`/tests/${card.slug}`)} className="fm-home-calibration-slot-title">
                         {card.title}
                       </Link>
+                      <div className="fm-home-calibration-slot-metaRow">
+                        <span className="fm-home-calibration-time">{timeLabel}</span>
+                        <span className="fm-home-calibration-slot-access">{accessMode}</span>
+                      </div>
                     </div>
 
                     <p className="fm-home-calibration-slot-copy m-0">
@@ -368,33 +353,16 @@ export function HighlightedTestsSection({
                     <p className="fm-home-calibration-slot-tags m-0">{card.tags.join(" / ")}</p>
                   </div>
 
-                  <div className="fm-home-calibration-slot-scan">
-                    <span className="fm-home-calibration-scan-label">{copy.bandwidth}</span>
-                    <div className="fm-home-calibration-scan-bars" aria-hidden>
-                      {signalBars.map((isActive, index) => (
-                        <span
-                          key={`${card.slug}-signal-${index}`}
-                          className={`fm-home-calibration-scan-bar${isActive ? " is-active" : ""}`}
-                        />
-                      ))}
-                    </div>
-                    <span className="fm-home-calibration-scan-time">{`TIME ${card.timeMinutes} MIN`}</span>
-                  </div>
-
-                  <div className="fm-home-calibration-slot-progress">
-                    <div className="fm-home-calibration-slot-progress-track" aria-hidden>
-                      <span style={{ width: `${status.progress}%` }} />
-                    </div>
-                    <span className="fm-home-calibration-slot-progress-value">{status.readout}</span>
-                  </div>
-
                   <div className="fm-home-calibration-slot-footer">
                     <div className="fm-home-calibration-slot-footer-meta">
-                      <div className="fm-home-calibration-slot-protocol">
-                        <span>{`PROTOCOL: ${systemMeta?.protocolCode ?? "CORE_SCAN"}`}</span>
-                        <span>{`ITEMS: ${card.questionsCount}`}</span>
-                      </div>
-                      {isAuth ? <span className="fm-home-calibration-auth-note">{copy.authGate}</span> : null}
+                      <span className="fm-home-calibration-slot-caption">
+                        {locale === "zh" ? `${card.questionsCount} 题` : `${card.questionsCount} questions`}
+                      </span>
+                      {status.mode === "cache" ? (
+                        <span className="fm-home-calibration-slot-caption fm-home-calibration-slot-caption--cache">
+                          {`${copy.progressLabel} ${status.progress}%`}
+                        </span>
+                      ) : null}
                     </div>
 
                     {isAuth && status.mode === "ready" ? (
