@@ -658,6 +658,7 @@ export function HeroAnimatedVisual({ localeLabel, className }: HeroAnimatedVisua
                         {column.map((facet, facetIndex) => (
                           <div
                             key={facet.id}
+                            data-testid={`home-engine-node-${facet.id}`}
                             className={cn("fm-home-engine-node-entry", activeFacet.id === facet.id && "is-active")}
                             onMouseEnter={() => setHoveredFacetId(facet.id)}
                             onMouseLeave={() => setHoveredFacetId(null)}
