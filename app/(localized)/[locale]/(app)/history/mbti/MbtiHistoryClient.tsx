@@ -7,8 +7,15 @@ import { Alert } from "@/components/ui/alert";
 import { trackEvent } from "@/lib/analytics";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { canEnterReportPage, normalizeAttemptReportAccess } from "@/lib/access/unifiedAccess";
-import { fetchAttemptReportAccess, getMyAttempts, type MeAttemptItem } from "@/lib/api/v0_3";
+import {
+  canEnterReportPage,
+  canDownloadReportPdf,
+  isProjectionProcessing,
+  isProjectionUnavailable,
+  normalizeAttemptReportAccess,
+  type AttemptReportAccessView,
+} from "@/lib/access/unifiedAccess";
+import { getMyAttempts, type MeAttemptItem } from "@/lib/api/v0_3";
 import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/assessmentSlugMap";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
@@ -40,6 +47,30 @@ type Row = {
   attemptId: string;
   submittedAt: string;
   typeCode: string;
+  accessView: AttemptReportAccessView | null;
+};
+
+type RowSurface = {
+  statusLabel: string;
+  statusDetail: string;
+  deliveryLabel: string;
+  primaryHref: string | null;
+  primaryCtaLabel: string | null;
+  latestCtaLabel: string;
+  pdfHref: string | null;
+};
+
+const PREVIEW_MODULE_LABELS: Record<
+  string,
+  {
+    en: string;
+    zh: string;
+  }
+> = {
+  core_free: { en: "Result summary", zh: "结果摘要" },
+  core_full: { en: "Full personality reading", zh: "完整人格判读" },
+  career: { en: "Career mapping", zh: "职业映射" },
+  relationships: { en: "Relationship mapping", zh: "关系映射" },
 };
 
 function formatSubmittedAt(value: string, locale: "en" | "zh"): string {
@@ -53,7 +84,157 @@ function formatSubmittedAt(value: string, locale: "en" | "zh"): string {
     : `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")} ${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
 }
 
-function resolveMbtiRow(item: MeAttemptItem): Row | null {
+function resolvePreviewScopeText(view: AttemptReportAccessView | null, locale: "en" | "zh"): string | null {
+  if (!view || view.modulesPreview.length === 0) {
+    return null;
+  }
+
+  const labels = view.modulesPreview
+    .map((key) => PREVIEW_MODULE_LABELS[key]?.[locale] ?? key)
+    .filter(Boolean);
+
+  if (labels.length === 0) {
+    return null;
+  }
+
+  return locale === "zh" ? `当前预览范围：${labels.join("、")}` : `Preview scope: ${labels.join(", ")}`;
+}
+
+function normalizeRowAccessView(item: MeAttemptItem, locale: "en" | "zh"): AttemptReportAccessView | null {
+  if (!item.access_summary || typeof item.access_summary !== "object") {
+    return null;
+  }
+
+  return normalizeAttemptReportAccess(
+    {
+      ok: true,
+      attempt_id: String(item.attempt_id ?? ""),
+      access_state: item.access_summary.access_state ?? "",
+      report_state: item.access_summary.report_state ?? "",
+      pdf_state: item.access_summary.pdf_state ?? "",
+      reason_code: item.access_summary.reason_code ?? null,
+      access_level: item.access_summary.access_level ?? null,
+      variant: item.access_summary.variant ?? null,
+      projection_version: 1,
+      modules_allowed: item.access_summary.modules_allowed ?? null,
+      modules_preview: item.access_summary.modules_preview ?? null,
+      actions: {
+        page_href: item.access_summary.actions?.page_href ?? null,
+        pdf_href: item.access_summary.actions?.pdf_href ?? null,
+        history_href: null,
+        lookup_href: null,
+      },
+      meta: null,
+    },
+    locale
+  );
+}
+
+function resolveRowSurface(row: Row, locale: "en" | "zh"): RowSurface {
+  const accessView = row.accessView;
+  const primaryHref = accessView?.actions.pageHref ?? null;
+  const pdfHref = canDownloadReportPdf(accessView) ? accessView?.actions.pdfHref ?? null : null;
+  const previewScopeText = resolvePreviewScopeText(accessView, locale);
+  const canEnterPage = canEnterReportPage(accessView);
+  const isFull = Boolean(canEnterPage && (accessView?.variant === "full" || accessView?.accessLevel === "full"));
+  const isPreview = Boolean(
+    accessView
+    && accessView.accessState === "locked"
+    && accessView.reportState === "ready"
+    && (accessView.variant === "free" || accessView.accessLevel === "free" || accessView.modulesPreview.length > 0)
+  );
+
+  if (!accessView) {
+    return {
+      statusLabel: locale === "zh" ? "状态同步中" : "Status syncing",
+      statusDetail:
+        locale === "zh"
+          ? "这个 Workspace Lite 入口的当前访问状态仍在同步，请稍后刷新；若你已购买报告，可先使用订单找回。"
+          : "This workspace entry has not synced its current access state yet. Refresh later or use order lookup if you purchased access.",
+      deliveryLabel: locale === "zh" ? "交付待同步" : "Delivery syncing",
+      primaryHref: null,
+      primaryCtaLabel: null,
+      latestCtaLabel: locale === "zh" ? "查看最新状态" : "Check latest status",
+      pdfHref: null,
+    };
+  }
+
+  if (isProjectionUnavailable(accessView)) {
+    return {
+      statusLabel: locale === "zh" ? "当前不可用" : "Unavailable",
+      statusDetail:
+        locale === "zh"
+          ? "这个结果入口当前不可直接再次进入，请优先使用订单找回。"
+          : "This result entry is not currently available for direct re-entry. Use order lookup first.",
+      deliveryLabel: locale === "zh" ? "PDF 未提供" : "PDF unavailable",
+      primaryHref: null,
+      primaryCtaLabel: null,
+      latestCtaLabel: locale === "zh" ? "查看最新状态" : "Check latest status",
+      pdfHref: null,
+    };
+  }
+
+  if (isProjectionProcessing(accessView)) {
+    return {
+      statusLabel: locale === "zh" ? "结果准备中" : "Preparing result",
+      statusDetail:
+        locale === "zh"
+          ? "这个结果入口仍在准备中，可返回结果页继续等待。"
+              : "This result entry is still preparing. Re-open the result page to continue waiting.",
+      deliveryLabel: locale === "zh" ? "PDF 未就绪" : "PDF not ready",
+      primaryHref,
+      primaryCtaLabel: locale === "zh" ? "继续准备中的结果" : "Open processing entry",
+      latestCtaLabel: locale === "zh" ? "继续最新结果入口" : "Continue latest entry",
+      pdfHref: null,
+    };
+  }
+
+  if (isFull) {
+    return {
+      statusLabel: locale === "zh" ? "完整报告已开放" : "Full report unlocked",
+      statusDetail:
+        locale === "zh"
+          ? "这是完整结果的 Workspace Lite 回访入口。"
+          : "This is the workspace-lite re-entry for the full result.",
+      deliveryLabel: pdfHref ? (locale === "zh" ? "PDF 已就绪" : "PDF ready") : locale === "zh" ? "在线访问" : "Online access",
+      primaryHref,
+      primaryCtaLabel: locale === "zh" ? "打开完整结果" : "Open full result",
+      latestCtaLabel: locale === "zh" ? "继续最新完整结果" : "Continue latest full result",
+      pdfHref,
+    };
+  }
+
+  if (isPreview) {
+    return {
+      statusLabel: locale === "zh" ? "免费预览" : "Free preview",
+      statusDetail:
+        previewScopeText
+        ?? (locale === "zh"
+          ? "当前结果仍处于免费预览，完整解锁继续在结果页完成。"
+          : "This entry is still on free preview. Full unlock continues on the result page."),
+      deliveryLabel: locale === "zh" ? "PDF 未就绪" : "PDF not ready",
+      primaryHref,
+      primaryCtaLabel: locale === "zh" ? "继续免费预览" : "Continue free preview",
+      latestCtaLabel: locale === "zh" ? "继续最新免费预览" : "Continue latest free preview",
+      pdfHref: null,
+    };
+  }
+
+  return {
+    statusLabel: locale === "zh" ? "结果入口" : "Result entry",
+    statusDetail:
+      locale === "zh"
+        ? "这个入口会回到当前结果页，并保留当前回访路径。"
+        : "This entry returns to the current result page while keeping the current revisit path.",
+    deliveryLabel: pdfHref ? (locale === "zh" ? "PDF 已就绪" : "PDF ready") : locale === "zh" ? "在线访问" : "Online access",
+    primaryHref,
+    primaryCtaLabel: locale === "zh" ? "打开结果入口" : "Open result entry",
+    latestCtaLabel: locale === "zh" ? "继续最新结果入口" : "Continue latest entry",
+    pdfHref,
+  };
+}
+
+function resolveMbtiRow(item: MeAttemptItem, locale: "en" | "zh"): Row | null {
   const attemptId = String(item.attempt_id ?? "").trim();
   if (!attemptId) return null;
 
@@ -66,6 +247,7 @@ function resolveMbtiRow(item: MeAttemptItem): Row | null {
     attemptId,
     submittedAt: String(item.submitted_at ?? ""),
     typeCode: String(item.type_code ?? "").trim() || "MBTI",
+    accessView: normalizeRowAccessView(item, locale),
   };
 }
 
@@ -83,7 +265,6 @@ export default function MbtiHistoryClient() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
-  const [latestResultPath, setLatestResultPath] = useState<string | null>(null);
   const carryoverImpressionTrackedRef = useRef(false);
   const journeyImpressionTrackedRef = useRef(false);
   const continuity = parseMbtiContinuityQuery(searchParams);
@@ -107,45 +288,17 @@ export default function MbtiHistoryClient() {
   );
   const pulsePromptLabels = (journey?.pulsePromptKeys ?? []).map((key) => resolveMbtiPulsePromptLabel(key, locale));
   const latestRow = rows[0] ?? null;
+  const latestRowSurface = latestRow ? resolveRowSurface(latestRow, locale) : null;
   const latestResultHref = latestRow
+    && latestRowSurface?.primaryHref
     ? appendMbtiActionJourneyQuery(
         appendMbtiAdaptiveSelectionQuery(
-          appendMbtiContinuityQuery(latestResultPath ?? localizedPath(`/result/${latestRow.attemptId}`, locale), continuity),
+          appendMbtiContinuityQuery(latestRowSurface.primaryHref, continuity),
           adaptiveSelection
         ),
         journey
       )
     : null;
-
-  useEffect(() => {
-    let active = true;
-
-    if (!latestRow?.attemptId) {
-      setLatestResultPath(null);
-      return () => {
-        active = false;
-      };
-    }
-
-    void fetchAttemptReportAccess({ attemptId: latestRow.attemptId })
-      .then((response) => {
-        if (!active) return;
-        const accessView = normalizeAttemptReportAccess(response, locale);
-        setLatestResultPath(
-          canEnterReportPage(accessView) && accessView?.actions.pageHref
-            ? accessView.actions.pageHref
-            : localizedPath(`/result/${latestRow.attemptId}`, locale)
-        );
-      })
-      .catch(() => {
-        if (!active) return;
-        setLatestResultPath(localizedPath(`/result/${latestRow.attemptId}`, locale));
-      });
-
-    return () => {
-      active = false;
-    };
-  }, [latestRow?.attemptId, locale]);
 
   useEffect(() => {
     let active = true;
@@ -162,7 +315,7 @@ export default function MbtiHistoryClient() {
         });
         const items = Array.isArray(history.items) ? history.items : [];
         const filteredRows = items
-          .map((item) => resolveMbtiRow(item))
+          .map((item) => resolveMbtiRow(item, locale))
           .filter((item): item is Row => item !== null);
 
         const meta = history.meta ?? {};
@@ -235,11 +388,7 @@ export default function MbtiHistoryClient() {
           <h1 className="text-2xl font-bold text-slate-900">{copy.title}</h1>
           <p className="m-0 text-sm leading-7 text-slate-600">{copy.descriptionPrimary}</p>
           <p className="m-0 text-sm leading-7 text-slate-600">{copy.descriptionRecovery}</p>
-          <p className="m-0 text-sm leading-7 text-slate-600">
-            {isZh
-              ? "这里现在就是你的 MBTI Workspace Lite 入口：继续查看当前结果，或用订单找回恢复已购报告。"
-              : "This is now your MBTI Workspace Lite entry: continue from saved results here, or recover a purchased report through order lookup."}
-          </p>
+          <p className="m-0 text-sm leading-7 text-slate-600">{copy.descriptionWorkspaceEntry}</p>
           {continuity ? (
             <div
               data-testid="mbti-history-carryover-entry"
@@ -294,7 +443,7 @@ export default function MbtiHistoryClient() {
           ) : null}
         </div>
         <div className="flex flex-wrap gap-3">
-          {latestResultHref ? (
+          {latestResultHref && latestRowSurface?.primaryCtaLabel ? (
             <Link
               href={latestResultHref}
               className={buttonVariants({ className: "w-full sm:w-auto" })}
@@ -316,7 +465,7 @@ export default function MbtiHistoryClient() {
                 });
               }}
             >
-              {isZh ? "继续查看最新结果" : "Continue with latest result"}
+              {latestRowSurface.latestCtaLabel}
             </Link>
           ) : null}
           <Link
@@ -327,6 +476,20 @@ export default function MbtiHistoryClient() {
             {copy.recoverCta}
           </Link>
         </div>
+        {latestRow && latestRowSurface ? (
+          <div
+            data-testid="mbti-history-latest-status"
+            className="rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-700"
+          >
+            <span className="font-medium text-slate-950">
+              {isZh ? "最新入口" : "Latest entry"} · {latestRow.typeCode}
+            </span>
+            <span>{isZh ? "：" : ": "}</span>
+            <span>{latestRowSurface.statusLabel}</span>
+            <span>{isZh ? " · " : " · "}</span>
+            <span>{latestRowSurface.deliveryLabel}</span>
+          </div>
+        ) : null}
       </section>
 
       {error ? <Alert>{error}</Alert> : null}
@@ -368,7 +531,10 @@ export default function MbtiHistoryClient() {
       ) : null}
 
       <div className="grid gap-3" data-testid="mbti-history-list">
-        {rows.map((row) => (
+        {rows.map((row) => {
+          const rowSurface = resolveRowSurface(row, locale);
+
+          return (
           <Card key={row.attemptId} data-testid="mbti-history-card">
             <CardHeader className="space-y-2">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
@@ -385,39 +551,78 @@ export default function MbtiHistoryClient() {
               <p className="m-0">
                 {copy.statusLabel}
                 {isZh ? "：" : ": "}
-                {copy.statusValue}
+                {rowSurface.statusLabel}
               </p>
-              <Link
-                href={appendMbtiActionJourneyQuery(
-                  appendMbtiAdaptiveSelectionQuery(
-                    appendMbtiContinuityQuery(localizedPath(`/result/${row.attemptId}`, locale), continuity),
-                    adaptiveSelection
-                  ),
-                  journey
-                )}
-                className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
-                data-testid={`mbti-history-open-${row.attemptId}`}
-                onClick={() => {
-                  trackEvent("ui_card_interaction", {
-                    slug: "mbti-history",
-                    scale_code: "MBTI",
-                    visual_kind: "history_saved_result_entry",
-                    interaction: "click",
-                    continueTarget: "history_saved_result",
-                    ctaKey: "history_saved_result",
-                    attempt_id: row.attemptId,
-                    ...continuityTelemetry,
-                    ...journeyTelemetry,
-                    ...adaptiveTelemetry,
-                    locale,
-                  });
-                }}
+              <p
+                className="m-0 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-sm text-slate-600"
+                data-testid={`mbti-history-status-${row.attemptId}`}
               >
-                {copy.viewReport}
-              </Link>
+                {rowSurface.statusDetail}
+              </p>
+              <p
+                className="m-0 text-sm text-slate-600"
+                data-testid={`mbti-history-delivery-${row.attemptId}`}
+              >
+                {copy.deliveryLabel}
+                {isZh ? "：" : ": "}
+                {rowSurface.deliveryLabel}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {rowSurface.primaryHref && rowSurface.primaryCtaLabel ? (
+                  <Link
+                    href={appendMbtiActionJourneyQuery(
+                      appendMbtiAdaptiveSelectionQuery(
+                        appendMbtiContinuityQuery(rowSurface.primaryHref, continuity),
+                        adaptiveSelection
+                      ),
+                      journey
+                    )}
+                    className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
+                    data-testid={`mbti-history-open-${row.attemptId}`}
+                    onClick={() => {
+                      trackEvent("ui_card_interaction", {
+                        slug: "mbti-history",
+                        scale_code: "MBTI",
+                        visual_kind: "history_saved_result_entry",
+                        interaction: "click",
+                        continueTarget: "history_saved_result",
+                        ctaKey: "history_saved_result",
+                        attempt_id: row.attemptId,
+                        ...continuityTelemetry,
+                        ...journeyTelemetry,
+                        ...adaptiveTelemetry,
+                        locale,
+                      });
+                    }}
+                  >
+                    {rowSurface.primaryCtaLabel}
+                  </Link>
+                ) : (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full sm:w-auto"
+                    disabled
+                    data-testid={`mbti-history-open-${row.attemptId}`}
+                  >
+                    {isZh ? "当前不可进入" : "Currently unavailable"}
+                  </Button>
+                )}
+                {rowSurface.pdfHref ? (
+                  <a
+                    href={rowSurface.pdfHref ?? undefined}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
+                    data-testid={`mbti-history-pdf-${row.attemptId}`}
+                  >
+                    {isZh ? "下载 PDF" : "Download PDF"}
+                  </a>
+                ) : null}
+              </div>
             </CardContent>
           </Card>
-        ))}
+        )})}
       </div>
 
       <div className="flex items-center gap-2">

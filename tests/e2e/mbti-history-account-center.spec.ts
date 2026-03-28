@@ -5,6 +5,24 @@ function createReadyMbtiReportFixture() {
   return structuredClone(reportReadyMbtiFreeFixture) as Record<string, unknown>;
 }
 
+function createAccessSummary(attemptId: string, overrides: Partial<Record<string, unknown>> = {}) {
+  return {
+    access_state: "ready",
+    report_state: "ready",
+    pdf_state: "ready",
+    reason_code: "report_ready",
+    access_level: "full",
+    variant: "full",
+    modules_allowed: ["core_full", "career", "relationships"],
+    modules_preview: [],
+    actions: {
+      page_href: `/result/${attemptId}`,
+      pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+    },
+    ...overrides,
+  };
+}
+
 async function mockCommonApis(page: Page) {
   await page.route("**/api/track", async (route) => {
     await route.fulfill({
@@ -52,15 +70,15 @@ test.describe("MBTI history account-center entry", () => {
     await page.goto("/en");
     await page.getByRole("link", { name: "My Results", exact: true }).click();
     await expect(page).toHaveURL("/en/history/mbti");
-    await expect(page.getByRole("heading", { level: 1, name: "My MBTI Results" })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeVisible();
 
     await page.goto("/zh");
     await page.getByRole("link", { name: "我的结果", exact: true }).click();
     await expect(page).toHaveURL("/zh/history/mbti");
-    await expect(page.getByRole("heading", { level: 1, name: "我的 MBTI 结果" })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeVisible();
   });
 
-  test("history hero keeps a recovery CTA that routes into order lookup", async ({ page }) => {
+  test("history hero keeps recovery while the latest full row exposes workspace-lite re-entry and PDF", async ({ page }) => {
     await mockCommonApis(page);
     await mockHistory(page, [
       {
@@ -68,15 +86,94 @@ test.describe("MBTI history account-center entry", () => {
         scale_code: "MBTI",
         submitted_at: "2026-03-12T09:30:00Z",
         type_code: "ENFP-T",
+        access_summary: createAccessSummary("attempt-history-hero-1"),
       },
     ]);
 
     await page.goto("/en/history/mbti");
     await expect(page.getByTestId("mbti-history-recovery-cta")).toBeVisible();
+    await expect(page.getByTestId("mbti-history-continue-cta")).toHaveText("Continue latest full result");
     await expect(page.getByTestId("mbti-history-continue-cta")).toHaveAttribute("href", "/en/result/attempt-history-hero-1");
+    await expect(page.getByTestId("mbti-history-latest-status")).toContainText("Full report unlocked");
+    await expect(page.getByTestId("mbti-history-latest-status")).toContainText("PDF ready");
+    await expect(page.getByTestId("mbti-history-open-attempt-history-hero-1")).toHaveText("Open full result");
+    await expect(page.getByTestId("mbti-history-pdf-attempt-history-hero-1")).toHaveAttribute(
+      "href",
+      "/api/v0.3/attempts/attempt-history-hero-1/report.pdf"
+    );
     await page.getByTestId("mbti-history-recovery-cta").click();
 
     await expect(page).toHaveURL("/en/orders/lookup");
+  });
+
+  test("history rows expose free preview state without pretending the entry is fully unlocked", async ({ page }) => {
+    await mockCommonApis(page);
+    await mockHistory(page, [
+      {
+        attempt_id: "attempt-history-preview-1",
+        scale_code: "MBTI",
+        submitted_at: "2026-03-12T09:30:00Z",
+        type_code: "INFJ-A",
+        access_summary: createAccessSummary("attempt-history-preview-1", {
+          access_state: "locked",
+          report_state: "ready",
+          pdf_state: "unavailable",
+          reason_code: "preview_visible_report_ready",
+          access_level: "free",
+          variant: "free",
+          modules_allowed: ["core_free"],
+          modules_preview: ["core_full", "career"],
+          actions: {
+            page_href: "/result/attempt-history-preview-1",
+            pdf_href: null,
+          },
+        }),
+      },
+    ]);
+
+    await page.goto("/en/history/mbti");
+
+    await expect(page.getByTestId("mbti-history-latest-status")).toContainText("Free preview");
+    await expect(page.getByTestId("mbti-history-status-attempt-history-preview-1")).toContainText(
+      "Preview scope: Full personality reading, Career mapping"
+    );
+    await expect(page.getByTestId("mbti-history-open-attempt-history-preview-1")).toHaveText("Continue free preview");
+    await expect(page.locator('[data-testid="mbti-history-pdf-attempt-history-preview-1"]')).toHaveCount(0);
+  });
+
+  test("locked full rows stay honest and do not present themselves as unlocked workspaces", async ({ page }) => {
+    await mockCommonApis(page);
+    await mockHistory(page, [
+      {
+        attempt_id: "attempt-history-locked-full-1",
+        scale_code: "MBTI",
+        submitted_at: "2026-03-12T09:30:00Z",
+        type_code: "ISTJ-A",
+        access_summary: createAccessSummary("attempt-history-locked-full-1", {
+          access_state: "locked",
+          report_state: "ready",
+          pdf_state: "unavailable",
+          reason_code: "recovery_available",
+          access_level: "full",
+          variant: "full",
+          modules_allowed: ["core_full", "career", "relationships"],
+          modules_preview: [],
+          actions: {
+            page_href: "/result/attempt-history-locked-full-1",
+            pdf_href: null,
+          },
+        }),
+      },
+    ]);
+
+    await page.goto("/en/history/mbti");
+
+    await expect(page.getByTestId("mbti-history-latest-status")).not.toContainText("Full report unlocked");
+    await expect(page.getByTestId("mbti-history-open-attempt-history-locked-full-1")).toHaveText("Open result entry");
+    await expect(page.getByTestId("mbti-history-status-attempt-history-locked-full-1")).toContainText(
+      "This entry returns to the current result page while keeping the current revisit path."
+    );
+    await expect(page.locator('[data-testid="mbti-history-pdf-attempt-history-locked-full-1"]')).toHaveCount(0);
   });
 
   test("history empty state shows both take-test and purchased-report recovery actions", async ({ page }) => {
@@ -107,9 +204,35 @@ test.describe("MBTI history account-center entry", () => {
         scale_code: "MBTI",
         submitted_at: "2026-03-12T09:30:00Z",
         type_code: "INFJ-A",
+        access_summary: createAccessSummary(attemptId),
       },
     ]);
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          attempt_id: attemptId,
+          access_state: "ready",
+          report_state: "ready",
+          pdf_state: "ready",
+          reason_code: "report_ready",
+          projection_version: 1,
+          actions: {
+            page_href: `/en/result/${attemptId}`,
+            pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+            history_href: "/history/mbti",
+            lookup_href: "/orders/lookup",
+          },
+          meta: {
+            produced_at: "2026-03-27T00:00:00.000Z",
+            refreshed_at: "2026-03-27T00:00:00.000Z",
+          },
+        }),
+      });
+    });
+    await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -120,6 +243,7 @@ test.describe("MBTI history account-center entry", () => {
     await page.goto(`/en/history/mbti?${journeyQuery}`);
     await expect(page.getByTestId(`mbti-history-open-${attemptId}`)).toBeVisible();
     await expect(page.getByText("This is now your MBTI Workspace Lite entry: continue from saved results here, or recover a purchased report through order lookup.")).toBeVisible();
+    await expect(page.getByTestId("mbti-history-open-attempt-history-open-1")).toHaveText("Open full result");
     await expect(page.getByTestId("mbti-history-journey-context")).toContainText(
       "Refine the current focus after feedback"
     );
