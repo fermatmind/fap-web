@@ -6,9 +6,9 @@ import { localizedPath } from "@/lib/i18n/locales";
 
 function EvidenceFacetPreview({ active }: { active: number[] }) {
   return (
-    <div className="fm-home-evidence-preview" aria-hidden>
+    <div className="fm-home-archive-preview" aria-hidden>
       {Array.from({ length: 30 }, (_, index) => (
-        <span key={index} className={`fm-home-evidence-preview-node${active.includes(index) ? " is-active" : ""}`} />
+        <span key={index} className={`fm-home-archive-preview-node${active.includes(index) ? " is-active" : ""}`} />
       ))}
     </div>
   );
@@ -16,254 +16,185 @@ function EvidenceFacetPreview({ active }: { active: number[] }) {
 
 const SECTION_COPY = {
   en: {
-    kicker: "Scenario Validation",
+    kicker: "EVIDENCE REGISTRY / LIVE DEPLOYMENT TRACE",
     title: "Scenario Validation",
     subtitle:
-      "These results do not stop at personal reading. They enter real judgment chains across coaching, role-fit, retrospectives, and research conversations.",
-    rackLabel: "DEPLOYMENT / VALIDATION",
-    rackTitle: "Academic model, industrial execution.",
-    rackLead:
-      "Instead of stacking media logos, the system exposes where the protocol is actually deployed and what kind of judgment output it enters.",
-    rackMetaLeft: "MODEL_SOURCE: PKU / THU DOCTORAL RESEARCH",
-    rackMetaRight: "EXECUTION_LAYER: INDUSTRIAL_PRECISION",
-    rackTicker:
-      "[SYSTEM] SYNCING_THU_MODEL_REF_V3.1... OK // [SYSTEM] CALIBRATING_NORM_REF_SET_100K... ACTIVE // [SYSTEM] EXECUTING_DECISION_MAPPING_PROTOCOL... READY //",
-    logsTitle: "Evidence Registry",
-    logsSubtitle: "Each record is stored like an audited operating note instead of a soft testimonial card.",
+      "These outputs do not stop at personal reading. They enter real judgment chains, then settle into reviewed deployment traces.",
+    boardTitle: "Deployment mainboard",
+    boardLead:
+      "This is not a testimonial carousel. It is a structured board showing where the system is used, what judgment interface it enters, and which value gets verified.",
+    logsTitle: "Audit archive",
+    logsSubtitle: "Each log behaves like a registry entry rather than an emotional endorsement card.",
+    dateLabel: "DATE",
+    statusLabel: "STATUS",
     scoreLabel: "VERIFICATION_SCORE",
+    roleLabel: "USER_ROLE",
+    scenarioLabel: "SCENARIO",
+    summaryLabel: "SUMMARY",
+    traceLabel: "TRACE",
+    sourceLabel: "MODULE",
+    valueLabel: "VERIFIED_VALUE",
     slotLabel: "SLOT",
-    useCaseLabel: "Use case",
-    roleLabel: "User role",
-    sourceLabel: "Source module",
-    validationLayerLabel: "Execution layer",
-    validationInterfaceLabel: "Judgment interface",
-    outputLabel: "Output",
-    signalLabel: "Signal channel",
+    closure: "From Noise to Clarity.",
+    closureSub: "Turn cognitive noise into more reliable judgment.",
   },
   zh: {
-    kicker: "场景验证",
+    kicker: "EVIDENCE REGISTRY / LIVE DEPLOYMENT TRACE",
     title: "场景验证",
-    subtitle: "这些结果不是停留在个人阅读，而是进入真实判断链路。",
-    rackLabel: "部署 / 校验",
-    rackTitle: "学术底模，工业执行。",
-    rackLead: "这里不靠媒体 Logo 建立信任，而是直接展示协议被部署到什么场景，以及它输出什么判断接口。",
-    rackMetaLeft: "MODEL_SOURCE: PKU / THU DOCTORAL RESEARCH",
-    rackMetaRight: "EXECUTION_LAYER: INDUSTRIAL_PRECISION",
-    rackTicker:
-      "[SYSTEM] SYNCING_THU_MODEL_REF_V3.1... OK // [SYSTEM] CALIBRATING_NORM_REF_SET_100K... ACTIVE // [SYSTEM] EXECUTING_DECISION_MAPPING_PROTOCOL... READY //",
-    logsTitle: "证据库",
-    logsSubtitle: "每条记录都按系统审计日志存档，而不是常规的用户好评卡。",
+    subtitle: "这些结果不是停留在个人阅读，而是进入真实判断链路，并沉降为可复查的部署记录。",
+    boardTitle: "部署主板",
+    boardLead: "这里不是用户好评轮播，而是一块结构化证据主板：展示系统被部署到哪里、进入什么判断接口、验证了什么价值。",
+    logsTitle: "审计档案区",
+    logsSubtitle: "每条记录都更像系统归档条目，而不是情绪化背书卡片。",
+    dateLabel: "DATE",
+    statusLabel: "STATUS",
     scoreLabel: "VERIFICATION_SCORE",
+    roleLabel: "USER_ROLE",
+    scenarioLabel: "SCENARIO",
+    summaryLabel: "SUMMARY",
+    traceLabel: "TRACE",
+    sourceLabel: "MODULE",
+    valueLabel: "VERIFIED_VALUE",
     slotLabel: "SLOT",
-    useCaseLabel: "使用场景",
-    roleLabel: "用户身份",
-    sourceLabel: "来源模块",
-    validationLayerLabel: "执行层",
-    validationInterfaceLabel: "判断接口",
-    outputLabel: "输出接口",
-    signalLabel: "信号通道",
+    closure: "From Noise to Clarity.",
+    closureSub: "将认知噪声转化为更清晰的判断依据。",
   },
 } as const;
 
 export function SocialProofSection({ locale }: { locale: Locale }) {
-  const withLocale = (path: string) => localizedPath(path, locale);
   const copy = SECTION_COPY[locale];
+  const withLocale = (path: string) => localizedPath(path, locale);
 
   return (
-    <section data-testid="home-social-proof-section" className="fm-home-social-proof py-[var(--fm-section-y-lg)]">
-      <Container className="relative z-10 space-y-[var(--fm-space-10)]">
-        <div className="mx-auto max-w-[48rem] space-y-3 text-center">
-          <p className="fm-home-section-kicker m-0">{copy.kicker}</p>
-          <h2 className="m-0 text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.045em] text-[#0b0f14]">
-            {copy.title}
-          </h2>
-          <p className="m-0 text-[0.98rem] leading-7 text-[#53606e] md:text-[1.04rem]">{copy.subtitle}</p>
+    <section data-testid="home-social-proof-section" className="fm-home-archive">
+      <Container className="fm-home-archive-shell max-w-[84rem] px-5 md:px-8 lg:px-10">
+        <div className="fm-home-archive-head">
+          <p className="fm-home-archive-kicker m-0">{copy.kicker}</p>
+          <h2 className="fm-home-archive-title m-0">{copy.title}</h2>
+          <p className="fm-home-archive-subtitle m-0">{copy.subtitle}</p>
         </div>
 
-        <div className="space-y-4">
-          <div className="fm-home-validation-rack">
-            <div className="fm-home-validation-rack-head">
-              <div className="space-y-3">
-                <p className="fm-home-section-kicker m-0">{copy.rackLabel}</p>
-                <h3 className="m-0 text-[1.45rem] font-semibold tracking-[-0.03em] text-[#f2f2f7] md:text-[1.7rem]">
-                  {copy.rackTitle}
-                </h3>
-                <p className="m-0 max-w-[46rem] text-sm leading-7 text-[#adb6c2] md:text-[0.98rem]">{copy.rackLead}</p>
-              </div>
-
-              <div className="fm-home-validation-rack-meta">
-                <span>{copy.rackMetaLeft}</span>
-                <span>{copy.rackMetaRight}</span>
-              </div>
+        <div className="fm-home-archive-board">
+          <div className="fm-home-archive-board-head">
+            <div>
+              <p className="fm-home-archive-board-label m-0">{copy.boardTitle}</p>
+              <p className="fm-home-archive-board-copy m-0">{copy.boardLead}</p>
             </div>
-
-            <div className="fm-home-validation-rack-grid">
-              {SCENARIO_VALIDATIONS.map((item) => (
-                <article key={item.id} className="fm-home-scenario-chip">
-                  <div className="space-y-4">
-                    <div className="fm-home-scenario-chip-head">
-                      <div className="space-y-1.5">
-                        <div className="flex flex-wrap items-center gap-3">
-                          <span className="fm-home-scenario-slot-code">{item.slotCode}</span>
-                          <p className="m-0 text-[1rem] font-semibold tracking-[-0.02em] text-[#f2f2f7]">
-                            {locale === "zh" ? item.label.zh : item.label.en}
-                          </p>
-                        </div>
-                        <p className="m-0 font-mono text-[0.64rem] uppercase tracking-[0.18em] text-[#00ff41] opacity-90">
-                          {item.protocol}
-                        </p>
-                      </div>
-                      <span className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-[#758091]">
-                        {item.code}
-                      </span>
-                    </div>
-
-                    <p className="m-0 text-sm leading-7 text-[#b3bcc7]">
-                      {locale === "zh" ? item.detail.zh : item.detail.en}
-                    </p>
-
-                    <div className="fm-home-validation-slot-grid">
-                      <div className="grid gap-1">
-                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">
-                          {copy.outputLabel}
-                        </span>
-                        <span className="text-sm font-medium text-[#f2f2f7]">
-                          {locale === "zh" ? item.output.zh : item.output.en}
-                        </span>
-                      </div>
-
-                      <div className="grid gap-1">
-                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">
-                          {copy.validationLayerLabel}
-                        </span>
-                        <span className="text-sm font-medium text-[#f2f2f7]">
-                          {locale === "zh" ? item.layer.zh : item.layer.en}
-                        </span>
-                      </div>
-
-                      <div className="grid gap-1">
-                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">
-                          {copy.validationInterfaceLabel}
-                        </span>
-                        <span className="text-sm font-medium text-[#f2f2f7]">
-                          {locale === "zh" ? item.source.zh : item.source.en}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="fm-home-validation-slot-footer">
-                      <div className="grid gap-1">
-                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-[#758091]">
-                          {copy.slotLabel}
-                        </span>
-                        <span className="text-sm font-medium text-[#f2f2f7]">{item.slotCode}</span>
-                      </div>
-
-                      <div className="fm-home-validation-slot-signal" aria-hidden>
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <div className="fm-home-validation-rack-log" aria-hidden>
-              <div className="fm-home-validation-rack-log-track">
-                <span>{copy.rackTicker}</span>
-                <span>{copy.rackTicker}</span>
-              </div>
+            <div className="fm-home-archive-board-meta">
+              <span>BOARD_STATUS: SETTLED</span>
+              <span>TRACE_MODE: VERIFIED</span>
             </div>
           </div>
-        </div>
 
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <h3 className="m-0 text-[1.35rem] font-semibold tracking-[-0.03em] text-[#0b0f14]">{copy.logsTitle}</h3>
-            <p className="m-0 max-w-[44rem] text-sm leading-7 text-[#53606e]">{copy.logsSubtitle}</p>
-          </div>
-
-          <div className="fm-home-evidence-registry">
-            <div className="grid gap-[1px] bg-[#d4dae1] md:grid-cols-2">
-            {EVIDENCE_LOGS.map((item) => (
-              <article key={item.id} className="fm-home-evidence-entry">
-                <div className="flex h-full flex-col gap-5">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="grid gap-3">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-[#7f8a99]">
-                          LOG_ID: {item.auditId}
-                        </span>
-                        <span className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-[#7f8a99]">
-                          {copy.slotLabel}: {item.slotCode}
-                        </span>
-                      </div>
-
-                      <p className="fm-home-evidence-signal-label m-0">{locale === "zh" ? item.signalLabel.zh : item.signalLabel.en}</p>
-
-                      <div className="grid gap-2">
-                        <p className="m-0 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-[#7f8a99]">
-                          {copy.scoreLabel}
-                        </p>
-                        <div className="flex items-center gap-3">
-                          <div className="fm-home-evidence-score-bars" aria-hidden>
-                            <span className="is-active" />
-                            <span className="is-active" />
-                            <span className="is-active" />
-                            <span className="is-active" />
-                            <span className="is-active" />
-                          </div>
-                          <span className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-[#f2f2f7]">
-                            {item.verificationScore}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <EvidenceFacetPreview active={item.facetPreview} />
+          <div className="fm-home-archive-board-grid">
+            {SCENARIO_VALIDATIONS.map((item) => (
+              <article key={item.id} className="fm-home-archive-slot">
+                <div className="fm-home-archive-slot-top">
+                  <div>
+                    <span className="fm-home-archive-slot-code">{`${item.slotCode} / ${item.code}`}</span>
+                    <h3 className="fm-home-archive-slot-title m-0">{locale === "zh" ? item.label.zh : item.label.en}</h3>
                   </div>
+                  <span className="fm-home-archive-slot-status">{item.status}</span>
+                </div>
 
-                  <p className="m-0 text-[1rem] leading-8 text-[#f2f2f7]">
-                    “{locale === "zh" ? item.quote.zh : item.quote.en}”
-                  </p>
+                <p className="fm-home-archive-slot-summary m-0">{locale === "zh" ? item.summary.zh : item.summary.en}</p>
 
-                  <div className="mt-auto fm-home-evidence-meta-grid">
-                    <div className="grid gap-1">
-                      <p className="m-0 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-[#7f8a99]">
-                        {copy.useCaseLabel}
-                      </p>
-                      <p className="m-0 text-sm font-medium text-[#f2f2f7]">[{locale === "zh" ? item.useCase.zh : item.useCase.en}]</p>
-                    </div>
-
-                    <div className="grid gap-1">
-                      <p className="m-0 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-[#7f8a99]">{copy.roleLabel}</p>
-                      <p className="m-0 text-sm font-medium text-[#f2f2f7]">[{locale === "zh" ? item.role.zh : item.role.en}]</p>
-                    </div>
-
-                    <div className="grid gap-1">
-                      <p className="m-0 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-[#7f8a99]">
-                        {copy.sourceLabel}
-                      </p>
-                      <Link
-                        href={withLocale(`/tests/${item.testSlug}`)}
-                        className="inline-flex text-sm font-semibold text-[#f2f2f7] hover:text-[#b9ffc9]"
-                      >
-                        [{locale === "zh" ? item.testLabel.zh : item.testLabel.en}]
-                      </Link>
-                    </div>
+                <div className="fm-home-archive-slot-detailgrid">
+                  <div>
+                    <span className="fm-home-archive-slot-label">{copy.valueLabel}</span>
+                    <p className="m-0">{locale === "zh" ? item.output.zh : item.output.en}</p>
                   </div>
+                  <div>
+                    <span className="fm-home-archive-slot-label">{copy.slotLabel}</span>
+                    <p className="m-0">{locale === "zh" ? item.layer.zh : item.layer.en}</p>
+                  </div>
+                  <div>
+                    <span className="fm-home-archive-slot-label">{locale === "zh" ? "INTERFACE" : "INTERFACE"}</span>
+                    <p className="m-0">{locale === "zh" ? item.source.zh : item.source.en}</p>
+                  </div>
+                </div>
 
-                  <div className="fm-home-evidence-scanline" aria-hidden />
+                <div className="fm-home-archive-slot-foot">
+                  <span className="fm-home-archive-slot-protocol">{item.protocol}</span>
+                  <div className="fm-home-archive-slot-signal" aria-hidden>
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
                 </div>
               </article>
             ))}
-            </div>
           </div>
+        </div>
+
+        <div className="fm-home-archive-logs">
+          <div className="fm-home-archive-logs-head">
+            <h3 className="m-0">{copy.logsTitle}</h3>
+            <p className="m-0">{copy.logsSubtitle}</p>
+          </div>
+
+          <div className="fm-home-archive-log-grid">
+            {EVIDENCE_LOGS.map((item) => (
+              <article key={item.id} className="fm-home-archive-log">
+                <div className="fm-home-archive-log-head">
+                  <div className="fm-home-archive-log-meta">
+                    <span>{item.auditId}</span>
+                    <span>{`${copy.slotLabel}: ${item.slotCode}`}</span>
+                    <span>{`${copy.traceLabel}: ${locale === "zh" ? item.useCase.zh : item.useCase.en}`}</span>
+                  </div>
+                  <EvidenceFacetPreview active={item.facetPreview} />
+                </div>
+
+                <div className="fm-home-archive-log-body">
+                  <div className="fm-home-archive-log-line">
+                    <span className="fm-home-archive-log-label">{copy.dateLabel}</span>
+                    <span className="fm-home-archive-log-value">{item.date}</span>
+                  </div>
+                  <div className="fm-home-archive-log-line">
+                    <span className="fm-home-archive-log-label">{copy.scoreLabel}</span>
+                    <span className="fm-home-archive-log-value">{item.verificationScore}</span>
+                  </div>
+                  <div className="fm-home-archive-log-line">
+                    <span className="fm-home-archive-log-label">{copy.statusLabel}</span>
+                    <span className="fm-home-archive-log-value">VERIFIED</span>
+                  </div>
+                </div>
+
+                <div className="fm-home-archive-log-summary">
+                  <span className="fm-home-archive-log-label">{copy.summaryLabel}</span>
+                  <p className="fm-home-archive-log-quote m-0">{locale === "zh" ? item.quote.zh : item.quote.en}</p>
+                </div>
+
+                <div className="fm-home-archive-log-table">
+                  <div>
+                    <span className="fm-home-archive-log-label">{copy.roleLabel}</span>
+                    <p className="m-0">{locale === "zh" ? item.role.zh : item.role.en}</p>
+                  </div>
+                  <div>
+                    <span className="fm-home-archive-log-label">{copy.scenarioLabel}</span>
+                    <p className="m-0">{locale === "zh" ? item.scenario.zh : item.scenario.en}</p>
+                  </div>
+                  <div>
+                    <span className="fm-home-archive-log-label">{copy.sourceLabel}</span>
+                    <Link href={withLocale(`/tests/${item.testSlug}`)} className="fm-home-archive-log-link">
+                      {locale === "zh" ? item.testLabel.zh : item.testLabel.en}
+                    </Link>
+                  </div>
+                  <div className="fm-home-archive-log-span">
+                    <span className="fm-home-archive-log-label">{copy.valueLabel}</span>
+                    <p className="m-0">{locale === "zh" ? item.verifiedValue.zh : item.verifiedValue.en}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="fm-home-archive-closure">
+          <p className="fm-home-archive-closure-title m-0">{copy.closure}</p>
+          <p className="fm-home-archive-closure-copy m-0">{copy.closureSub}</p>
         </div>
       </Container>
     </section>
