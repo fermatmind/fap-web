@@ -212,6 +212,63 @@ export type SiteDictionary = {
       viewReport: string;
       previousPage: string;
       nextPage: string;
+      surface: {
+        latestEntryLabel: string;
+        previewScopePrefix: string;
+        previewModuleLabels: {
+          coreFree: string;
+          coreFull: string;
+          career: string;
+          relationships: string;
+        };
+        status: {
+          syncing: string;
+          unavailable: string;
+          processing: string;
+          restoring: string;
+          fullUnlocked: string;
+          freePreview: string;
+          lockedEntry: string;
+          readyEntry: string;
+        };
+        detail: {
+          syncing: string;
+          unavailable: string;
+          processing: string;
+          restoring: string;
+          fullUnlocked: string;
+          freePreview: string;
+          lockedEntry: string;
+          readyEntry: string;
+        };
+        delivery: {
+          syncing: string;
+          pdfReady: string;
+          pdfNotReady: string;
+          pdfUnavailable: string;
+          onlineAccess: string;
+        };
+        cta: {
+          latestCheckStatus: string;
+          latestContinueProcessing: string;
+          latestContinueRestoring: string;
+          latestContinueFull: string;
+          latestContinuePreview: string;
+          latestContinueLocked: string;
+          latestContinueReady: string;
+          rowContinueProcessing: string;
+          rowContinueRestoring: string;
+          rowOpenFull: string;
+          rowContinuePreview: string;
+          rowContinueLocked: string;
+          rowOpenReady: string;
+          rowDisabledProcessing: string;
+          rowDisabledRestoring: string;
+          rowDisabledSyncing: string;
+          rowDisabledUnavailable: string;
+          downloadPdf: string;
+        };
+      };
     };
   };
   support: {

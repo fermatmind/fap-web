@@ -254,6 +254,68 @@ const en: SiteDictionary = {
       viewReport: "Open result entry",
       previousPage: "Previous page",
       nextPage: "Next page",
+      surface: {
+        latestEntryLabel: "Latest entry",
+        previewScopePrefix: "Preview scope",
+        previewModuleLabels: {
+          coreFree: "Result summary",
+          coreFull: "Full personality reading",
+          career: "Career mapping",
+          relationships: "Relationship mapping",
+        },
+        status: {
+          syncing: "Status syncing",
+          unavailable: "Unavailable",
+          processing: "Preparing result",
+          restoring: "Restoring result",
+          fullUnlocked: "Full report unlocked",
+          freePreview: "Free preview",
+          lockedEntry: "Locked entry",
+          readyEntry: "Result entry",
+        },
+        detail: {
+          syncing:
+            "This workspace entry has not synced its current access state yet. Refresh later or use order lookup if you purchased access.",
+          unavailable:
+            "This workspace entry is not currently available for direct re-entry. Use order lookup first.",
+          processing:
+            "This workspace entry is still preparing. Use the waiting entry to continue from the current result page.",
+          restoring:
+            "This workspace entry is being restored. Use the waiting entry to continue from the current result page.",
+          fullUnlocked: "This is the workspace-lite re-entry for the full result.",
+          freePreview: "This workspace entry is still on free preview. Full unlock continues on the result page.",
+          lockedEntry:
+            "This workspace entry is still locked. Re-open the result page to check the current state or use order lookup if you need recovery.",
+          readyEntry: "This workspace entry returns to the current result page while keeping the current revisit path.",
+        },
+        delivery: {
+          syncing: "Delivery syncing",
+          pdfReady: "PDF ready",
+          pdfNotReady: "PDF not ready",
+          pdfUnavailable: "PDF unavailable",
+          onlineAccess: "Online access",
+        },
+        cta: {
+          latestCheckStatus: "Check latest status",
+          latestContinueProcessing: "Continue latest processing entry",
+          latestContinueRestoring: "Continue latest restoring entry",
+          latestContinueFull: "Continue latest full result",
+          latestContinuePreview: "Continue latest free preview",
+          latestContinueLocked: "Continue latest locked entry",
+          latestContinueReady: "Continue latest entry",
+          rowContinueProcessing: "Continue processing entry",
+          rowContinueRestoring: "Continue restoring entry",
+          rowOpenFull: "Open full result",
+          rowContinuePreview: "Continue free preview",
+          rowContinueLocked: "Continue locked entry",
+          rowOpenReady: "Open result entry",
+          rowDisabledProcessing: "Preparing result",
+          rowDisabledRestoring: "Restoring result",
+          rowDisabledSyncing: "Status syncing",
+          rowDisabledUnavailable: "Currently unavailable",
+          downloadPdf: "Download PDF",
+        },
+      },
     },
   },
   support: {
