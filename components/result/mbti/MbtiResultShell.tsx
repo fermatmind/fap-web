@@ -34,6 +34,7 @@ import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/l
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import type { MbtiPreviewCardViewModel, MbtiPreviewViewModel } from "@/lib/mbti/preview";
 import {
   appendMbtiActionJourneyQuery,
 } from "@/lib/mbti/actionJourney";
@@ -132,6 +133,7 @@ type MbtiResultShellProps = {
   projectionViewModel?: MbtiResultProjectionViewModel | null;
   highlights?: HighlightCard[];
   recommendedReads?: ReportRecommendedRead[];
+  previewView?: MbtiPreviewViewModel | null;
   sections: ReportSection[];
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
@@ -818,6 +820,7 @@ export function MbtiResultShell({
   projectionViewModel,
   highlights = [],
   recommendedReads = [],
+  previewView = null,
   sections,
   sectionUnlocks,
   offers,
@@ -942,6 +945,7 @@ export function MbtiResultShell({
     profileKeywords: normalizeStringArray(profile?.keywords),
     fallbackTags: publicTags,
   });
+  const previewSectionCount = previewView?.visibleSections.length ?? 0;
   const legacySectionsByKey = new Map(sections.map((section) => [normalizeText(section.key).toLowerCase(), section]));
   const projectionSectionsByKey = new Map(
     (projectionViewModel?.sections ?? []).map((section) => [section.key, section] as const)
@@ -1738,6 +1742,9 @@ export function MbtiResultShell({
         projectionDimensions={projectionViewModel?.dimensions ?? []}
         globalTraits={globalTraits}
         unlock={sectionUnlocks[chapterKey] ?? null}
+        previewCards={(previewView?.visibleCardsBySection[chapterKey] ?? []).filter(
+          (card): card is MbtiPreviewCardViewModel => card.accessLevel === "preview"
+        )}
         identityLayer={identityLayer}
         personalization={personalization}
         primaryFocusKey={primaryFocusKey}
@@ -1764,9 +1771,13 @@ export function MbtiResultShell({
     ? locale === "zh"
       ? "正文继续按章节阅读，工作台统一收口 PDF、历史、订单与后续回访入口。"
       : "Continue through the chapters while the workspace consolidates PDF, history, order, and revisit entry points."
-    : locale === "zh"
-      ? "先看公开层和四个正式章节，再在主方案区决定是否提升判读分辨率。"
-      : "Read the public layer and the four formal chapters first, then decide whether to increase the reading resolution in the main unlock section.";
+    : previewView?.hasVisiblePreviewCards
+      ? locale === "zh"
+        ? `先看公开层；当前已有 ${previewSectionCount} 个章节开放了部分预览内容，主方案区继续负责完整解锁。`
+        : `${previewSectionCount} chapters already expose partial preview cards while the main unlock section still handles the full upgrade.`
+      : locale === "zh"
+        ? "先看公开层和四个正式章节，再在主方案区决定是否提升判读分辨率。"
+        : "Read the public layer and the four formal chapters first, then decide whether to increase the reading resolution in the main unlock section.";
   const heroStatusCards = [
     {
       label: locale === "zh" ? "状态" : "Status",

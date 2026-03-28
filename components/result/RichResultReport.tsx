@@ -15,6 +15,7 @@ import {
   buildMbtiResultProjectionViewModel,
   hasMbtiResultProjection,
 } from "@/lib/mbti/publicProjection";
+import { buildMbtiPreviewViewModel } from "@/lib/mbti/preview";
 import {
   normalizeSupportedScaleCode,
   SCALE_CANONICAL_SLUG_MAP,
@@ -54,7 +55,9 @@ export type HighlightCard = {
 type RichResultGate = {
   isFreeVariant: boolean;
   modulesAllowed: Set<string>;
+  modulesPreview: Set<string>;
   freeSections: Set<string> | null;
+  preservePreviewBlocks: boolean;
 };
 
 type LockedSectionContent = {
@@ -379,16 +382,21 @@ function resolveModulesAllowed(reportData: ReportResponse): Set<string> {
   return new Set(normalizeStringArray(reportData.modules_allowed).map((item) => item.toLowerCase()));
 }
 
+function resolveModulesPreview(reportData: ReportResponse): Set<string> {
+  return new Set(normalizeStringArray(reportData.modules_preview).map((item) => item.toLowerCase()));
+}
+
 function resolveFreeSections(reportData: ReportResponse): Set<string> | null {
   const policy = asRecord(reportData.view_policy);
   const items = normalizeStringArray(policy?.free_sections).map((item) => item.toLowerCase());
   return items.length > 0 ? new Set(items) : null;
 }
 
-function resolveRichResultGate(reportData: ReportResponse): RichResultGate {
+function resolveRichResultGate(reportData: ReportResponse, scaleCode: RichResultScaleCode): RichResultGate {
   const variant = normalizeText(reportData.variant).toLowerCase();
   const accessLevel = normalizeText(reportData.access_level).toLowerCase();
   const modulesAllowed = resolveModulesAllowed(reportData);
+  const modulesPreview = resolveModulesPreview(reportData);
 
   return {
     isFreeVariant:
@@ -397,7 +405,9 @@ function resolveRichResultGate(reportData: ReportResponse): RichResultGate {
       accessLevel === "free" ||
       (modulesAllowed.size > 0 && !modulesAllowed.has("full")),
     modulesAllowed,
+    modulesPreview,
     freeSections: resolveFreeSections(reportData),
+    preservePreviewBlocks: scaleCode === "MBTI",
   };
 }
 
@@ -451,11 +461,23 @@ function isBlockVisibleInGate(block: ReportBlock, gate: RichResultGate): boolean
   }
 
   const accessLevel = normalizeText(block.access_level).toLowerCase();
-  if (accessLevel === "paid" || accessLevel === "preview") {
+  if (accessLevel === "paid") {
     return false;
   }
 
   const moduleCode = normalizeText(block.module_code).toLowerCase();
+  if (accessLevel === "preview") {
+    if (!gate.preservePreviewBlocks) {
+      return false;
+    }
+
+    if (!moduleCode || moduleCode === "core_free") {
+      return true;
+    }
+
+    return gate.modulesPreview.has(moduleCode);
+  }
+
   if (!moduleCode || moduleCode === "core_free") {
     return true;
   }
@@ -473,16 +495,30 @@ function shouldForceSectionLocked(section: ReportSection, gate: RichResultGate):
   }
 
   const key = normalizeText(section.key).toLowerCase();
+  const accessLevel = normalizeText(section.access_level).toLowerCase();
   if (gate.freeSections && key && !gate.freeSections.has(key)) {
-    return true;
+    if (!(gate.preservePreviewBlocks && accessLevel === "preview")) {
+      return true;
+    }
   }
 
-  const accessLevel = normalizeText(section.access_level).toLowerCase();
-  if (accessLevel === "paid" || accessLevel === "preview") {
+  if (accessLevel === "paid") {
     return true;
   }
 
   const moduleCode = normalizeText(section.module_code).toLowerCase();
+  if (accessLevel === "preview") {
+    if (!gate.preservePreviewBlocks) {
+      return true;
+    }
+
+    if (!moduleCode || moduleCode === "core_free") {
+      return false;
+    }
+
+    return !gate.modulesPreview.has(moduleCode);
+  }
+
   if (!moduleCode || moduleCode === "core_free") {
     return false;
   }
@@ -546,15 +582,18 @@ function normalizeRichSections(reportData: ReportResponse, locale: Locale, gate:
         .filter((card) => isBlockVisibleInGate(card, gate));
 
       const locked = section.locked === true;
+      const hasVisiblePreviewBlocks = cards.some(
+        (card) => normalizeText(card.access_level).toLowerCase() === "preview"
+      );
       const normalizedSection: ReportSection = {
         key,
         title: resolveSectionTitle(key, section, locale),
-        access_level: normalizeText(section.access_level).toLowerCase() || (locked ? "paid" : "free"),
+        access_level: normalizeText(section.access_level).toLowerCase() || (locked ? (hasVisiblePreviewBlocks ? "preview" : "paid") : "free"),
         module_code: normalizeText(section.module_code).toLowerCase() || key,
         blocks: cards,
       };
 
-      if (locked || shouldForceSectionLocked(normalizedSection, gate)) {
+      if ((locked && !hasVisiblePreviewBlocks) || shouldForceSectionLocked(normalizedSection, gate)) {
         return {
           ...normalizedSection,
           access_level: "paid",
@@ -1231,7 +1270,7 @@ export function RichResultReport({
     return null;
   }
 
-  const gate = resolveRichResultGate(reportData);
+  const gate = resolveRichResultGate(reportData, scaleCode);
   const headline = resolveHeadline(scaleCode, reportData);
   const big5Projection = scaleCode === "BIG5_OCEAN" ? resolveBig5Projection(reportData) : null;
   const tags = resolveVisibleTags(reportData);
@@ -1245,6 +1284,7 @@ export function RichResultReport({
 
   if (scaleCode === "MBTI") {
     const projectionViewModel = buildMbtiResultProjectionViewModel(reportData);
+    const previewView = buildMbtiPreviewViewModel(reportData);
     const sectionUnlocks = Object.fromEntries(
       sections.map((section) => {
         const sectionKey = normalizeText(section.key).toLowerCase();
@@ -1274,6 +1314,7 @@ export function RichResultReport({
         projectionViewModel={projectionViewModel}
         highlights={highlights}
         recommendedReads={recommendedReads}
+        previewView={previewView}
         sections={sections}
         sectionUnlocks={sectionUnlocks}
         offers={resolvedOffers}
