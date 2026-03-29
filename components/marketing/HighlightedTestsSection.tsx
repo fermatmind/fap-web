@@ -319,7 +319,6 @@ export function HighlightedTestsSection({
               const isAuth = systemMeta?.accessMode === "auth";
               const accessMode = isAuth ? copy.accessAuth : copy.accessPublic;
               const actionLabel = isAuth && status.mode === "ready" ? copy.authLabel : status.actionLabel;
-              const badgeClass = "fm-home-calibration-chip fm-home-calibration-chip--cache";
               const timeLabel = `[ ${card.timeMinutes}_MIN ]`;
               const ledClass = isAuth
                 ? "fm-home-calibration-led fm-home-calibration-led--auth"
@@ -333,22 +332,8 @@ export function HighlightedTestsSection({
                     aria-hidden
                   />
 
-                  <div className="fm-home-calibration-slot-top">
-                    <p className="fm-home-calibration-slot-category m-0">{card.category}</p>
-                    {status.mode === "cache" ? (
-                      <span className={badgeClass}>
-                        <span className="fm-home-calibration-state-dot" aria-hidden />
-                        {`${copy.progressLabel} ${status.progress}%`}
-                      </span>
-                    ) : null}
-                  </div>
-
                   <div className="fm-home-calibration-slot-body">
                     <div className="fm-home-calibration-slot-heading">
-                      <div className="fm-home-calibration-slot-sig" aria-hidden>
-                        <span className="fm-home-calibration-slot-sig-id">{`NODE ${systemMeta?.slotCode ?? "R0-C0"}`}</span>
-                        <span className="fm-home-calibration-slot-sig-type">{systemMeta?.typeCode ?? "ASSESSMENT"}</span>
-                      </div>
                       <div className="fm-home-calibration-slot-titleRow">
                         <span className={ledClass} aria-hidden />
                         <Link href={withLocale(`/tests/${card.slug}`)} className="fm-home-calibration-slot-title">

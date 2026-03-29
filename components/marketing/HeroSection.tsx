@@ -32,7 +32,7 @@ export function HeroSection({ locale }: { locale: Locale }) {
   return (
     <section
       data-testid="home-hero-section"
-      className="fm-home-hero relative overflow-hidden pb-[var(--fm-space-14)] pt-[var(--fm-space-8)] md:pb-[var(--fm-space-20)] md:pt-[var(--fm-space-14)]"
+      className="fm-home-hero relative overflow-hidden pb-[var(--fm-space-12)] pt-[var(--fm-space-6)] md:pb-[var(--fm-space-18)] md:pt-[var(--fm-space-10)]"
     >
       <div aria-hidden className="fm-home-hero-grid" />
       <div aria-hidden className="fm-home-hero-grid fm-home-hero-grid-secondary" />
