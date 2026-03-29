@@ -4317,18 +4317,59 @@ a {
 
 @media (min-width: 1080px) {
   .fm-home-hero-shell {
-    grid-template-columns: minmax(0, 40rem) minmax(0, 48rem);
+    grid-template-columns: minmax(0, 39rem) minmax(0, 52rem);
     align-items: center;
     justify-content: space-between;
-    column-gap: clamp(1.2rem, 2.4vw, 2.8rem);
+    column-gap: clamp(1rem, 2vw, 2.1rem);
   }
 
   .fm-home-hero-panel-column {
+    width: min(calc(100% + 8rem), 58rem);
+    max-width: 58rem;
     justify-content: flex-end;
+    justify-self: end;
   }
 
   .fm-home-engine-wrap {
-    max-width: min(100%, 48rem);
+    width: 100%;
+    max-width: none;
+  }
+
+  .fm-home-engine-layout {
+    grid-template-columns: minmax(0, 1.86fr) minmax(15rem, 0.82fr);
+    gap: 0.72rem;
+  }
+
+  .fm-home-engine-node-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.3rem;
+  }
+
+  .fm-home-engine-node-column {
+    gap: 0.3rem;
+  }
+
+  .fm-home-engine-node-entry {
+    gap: 0.16rem;
+    padding: 0.3rem 0.34rem;
+  }
+
+  .fm-home-engine-node-entry-head {
+    gap: 0.22rem;
+  }
+
+  .fm-home-engine-node-entry-id,
+  .fm-home-engine-node-entry-hex {
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+
+  .fm-home-engine-dots {
+    gap: 0.16rem;
+  }
+
+  .fm-home-engine-dot {
+    height: 0.22rem;
   }
 }
 
