@@ -346,6 +346,7 @@ function adaptRelatedJob(
     title,
     href: localizedPath(`/career/jobs/${slug}`, normalizeLocale(locale)),
     summary: fallbackText(raw.excerpt),
+    pageType: "career",
   };
 }
 
@@ -368,6 +369,7 @@ function adaptRelatedIndustry(
     title: industry.title,
     href: localizedPath(`/career/industries/${industry.slug}`, normalizeLocale(locale)),
     summary: industry.summary,
+    pageType: "career",
   };
 }
 
@@ -386,6 +388,7 @@ function adaptRelatedArticle(
     title,
     href: localizedPath(`/articles/${slug}`, normalizeLocale(locale)),
     summary: fallbackText(raw.excerpt),
+    pageType: "guide",
   };
 }
 
@@ -404,6 +407,7 @@ function adaptRelatedPersonalityProfile(
     title,
     href: buildPersonalityFrontendUrl(locale, slug),
     summary: fallbackText(raw.excerpt),
+    pageType: "entity",
   };
 }
 

@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n/locales";
 
-export type HeaderNavKey = "tests" | "articles" | "personality" | "career" | "help" | "business";
+export type HeaderNavKey = "hub" | "type" | "guide" | "test" | "career";
 
 export type HeaderDropdownMenuItem = {
   href: string;
@@ -16,7 +16,31 @@ type HeaderDropdownRegistry = Record<HeaderNavKey, HeaderDropdownMenuItem[]>;
 
 const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
   en: {
-    tests: [
+    hub: [
+      { href: "/topics", label: "Topic hubs" },
+      { href: "/methods", label: "Method hub" },
+      { href: "/data", label: "Data hub" },
+      { href: "/career/recommendations", label: "Career recommendation hubs" },
+      { href: "/career/industries", label: "Industry hubs" },
+    ],
+    type: [
+      { href: "/personality", label: "All personality entities" },
+      { href: "/personality/intp-a", label: "INTP entity" },
+      { href: "/personality/entj-a", label: "ENTJ entity" },
+      { href: "/personality/infp-a", label: "INFP entity" },
+      { href: "/personality/enfj-a", label: "ENFJ entity" },
+    ],
+    guide: [
+      { href: "/articles", label: "All guides" },
+      { href: "/methods", label: "Method pages" },
+      { href: "/data", label: "Data pages" },
+      { href: "/career/guides", label: "Career guides" },
+      { href: "/articles/mbti-basics", label: "MBTI basics" },
+      { href: "/articles/mbti-growth-guide", label: "MBTI growth guide" },
+      { href: "/articles/big-five-tool-guide", label: "Big Five tool guide" },
+      { href: "/help", label: "Help guides" },
+    ],
+    test: [
       { href: "/tests", label: "All tests" },
       { href: "/tests/mbti-personality-test-16-personality-types/take", label: "MBTI personality test" },
       { href: "/tests/big-five-personality-test-ocean-model/take", label: "Big Five personality test" },
@@ -28,21 +52,6 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests/iq-test-intelligence-quotient-assessment/take", label: "IQ assessment" },
       { href: "/tests/eq-test-emotional-intelligence-assessment/take", label: "EQ assessment" },
     ],
-    articles: [
-      { href: "/articles", label: "All articles" },
-      { href: "/topics", label: "Topic clusters" },
-      { href: "/articles/mbti-basics", label: "MBTI basics" },
-      { href: "/articles/mbti-growth-guide", label: "MBTI growth guide" },
-      { href: "/articles/big-five-tool-guide", label: "Big Five tool guide" },
-      { href: "/articles/eq-test-tool-guide", label: "EQ tool guide" },
-    ],
-    personality: [
-      { href: "/personality", label: "All personality profiles" },
-      { href: "/personality/intp", label: "INTP personality" },
-      { href: "/personality/entj", label: "ENTJ personality" },
-      { href: "/personality/infp", label: "INFP personality" },
-      { href: "/personality/enfj", label: "ENFJ personality" },
-    ],
     career: [
       { href: "/career", label: "Career center" },
       { href: "/career/recommendations", label: "Career recommendations" },
@@ -51,23 +60,33 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/guides", label: "Career guides" },
       { href: "/career/tests", label: "Career tests" },
     ],
-    help: [
-      { href: "/help", label: "Help Center" },
-      { href: "/help/faq", label: "FAQ" },
-      { href: "/help/about", label: "About FermatMind" },
-      { href: "/help/team", label: "Team" },
-      { href: "/help/used-and-mentioned", label: "Used and mentioned" },
-      { href: "/help/for-business-and-research", label: "Business and research" },
-      { href: "/help/contact", label: "Contact support" },
-    ],
-    business: [
-      { href: "/business", label: "Business overview" },
-      { href: "/help/for-business-and-research", label: "Business and research usage" },
-      { href: "/help/contact", label: "Contact business support" },
-    ],
   },
   zh: {
-    tests: [
+    hub: [
+      { href: "/topics", label: "主题 Hub" },
+      { href: "/methods", label: "方法 Hub" },
+      { href: "/data", label: "数据 Hub" },
+      { href: "/career/recommendations", label: "职业推荐 Hub" },
+      { href: "/career/industries", label: "行业 Hub" },
+    ],
+    type: [
+      { href: "/personality", label: "全部人格实体" },
+      { href: "/personality/intp-a", label: "INTP 实体页" },
+      { href: "/personality/entj-a", label: "ENTJ 实体页" },
+      { href: "/personality/infp-a", label: "INFP 实体页" },
+      { href: "/personality/enfj-a", label: "ENFJ 实体页" },
+    ],
+    guide: [
+      { href: "/articles", label: "全部指南" },
+      { href: "/methods", label: "方法页" },
+      { href: "/data", label: "数据页" },
+      { href: "/career/guides", label: "职业指南" },
+      { href: "/articles/mbti-basics", label: "MBTI 入门" },
+      { href: "/articles/mbti-growth-guide", label: "MBTI 成长指南" },
+      { href: "/articles/big-five-tool-guide", label: "大五工具说明" },
+      { href: "/help", label: "帮助指南" },
+    ],
+    test: [
       { href: "/tests", label: "全部测试" },
       { href: "/tests/mbti-personality-test-16-personality-types/take", label: "MBTI 性格测试" },
       { href: "/tests/big-five-personality-test-ocean-model/take", label: "大五人格测试" },
@@ -79,21 +98,6 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests/iq-test-intelligence-quotient-assessment/take", label: "IQ 测评" },
       { href: "/tests/eq-test-emotional-intelligence-assessment/take", label: "EQ 测评" },
     ],
-    articles: [
-      { href: "/articles", label: "全部文章" },
-      { href: "/topics", label: "主题聚合" },
-      { href: "/articles/mbti-basics", label: "MBTI 入门" },
-      { href: "/articles/mbti-growth-guide", label: "MBTI 成长指南" },
-      { href: "/articles/big-five-tool-guide", label: "大五工具说明" },
-      { href: "/articles/eq-test-tool-guide", label: "EQ 工具说明" },
-    ],
-    personality: [
-      { href: "/personality", label: "全部人格画像" },
-      { href: "/personality/intp", label: "INTP 人格" },
-      { href: "/personality/entj", label: "ENTJ 人格" },
-      { href: "/personality/infp", label: "INFP 人格" },
-      { href: "/personality/enfj", label: "ENFJ 人格" },
-    ],
     career: [
       { href: "/career", label: "职业发展中心" },
       { href: "/career/recommendations", label: "职业推荐" },
@@ -102,26 +106,12 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/guides", label: "职业发展" },
       { href: "/career/tests", label: "职业测试" },
     ],
-    help: [
-      { href: "/help", label: "帮助中心" },
-      { href: "/help/faq", label: "常见问题" },
-      { href: "/help/about", label: "关于我们" },
-      { href: "/help/team", label: "团队" },
-      { href: "/help/used-and-mentioned", label: "使用与提及" },
-      { href: "/help/for-business-and-research", label: "企业与研究" },
-      { href: "/help/contact", label: "联系方式" },
-    ],
-    business: [
-      { href: "/business", label: "企业服务" },
-      { href: "/help/for-business-and-research", label: "企业与研究使用" },
-      { href: "/help/contact", label: "联系商务支持" },
-    ],
   },
 };
 
 export function getHeaderDropdownMenus(locale: Locale): HeaderDropdownMenu[] {
   const source = HEADER_DROPDOWN_MENUS[locale];
-  const order: HeaderNavKey[] = ["tests", "articles", "personality", "career", "help", "business"];
+  const order: HeaderNavKey[] = ["hub", "type", "guide", "test", "career"];
 
   return order.map((key) => ({ key, items: source[key] }));
 }

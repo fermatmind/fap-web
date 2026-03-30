@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { Locale } from "@/lib/i18n/locales";
+import { formatPublicContentKind, inferPublicContentKind, normalizePublicHref } from "@/lib/navigation/publicLinking";
 
 function sectionTitle(key: string, locale: Locale): string {
   const isZh = locale === "zh";
@@ -125,18 +126,31 @@ export function AnswerSurfaceSection({
             {sectionTitle("next", locale)}
           </p>
           <div className="grid gap-3 md:grid-cols-2">
-            {surface.nextStepBlocks.map((block) => (
-              <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                {block.href ? (
-                  <Link href={block.href} className="text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]">
-                    {block.title || block.href}
-                  </Link>
-                ) : (
-                  <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p>
-                )}
-                {block.body ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
-              </article>
-            ))}
+            {surface.nextStepBlocks.map((block) => {
+              const blockKind = inferPublicContentKind(block.href);
+              const blockKindLabel = formatPublicContentKind(blockKind, locale);
+
+              return (
+                <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+                  {blockKindLabel ? (
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+                      {blockKindLabel}
+                    </p>
+                  ) : null}
+                  {block.href ? (
+                    <Link
+                      href={normalizePublicHref(block.href, locale)}
+                      className="text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]"
+                    >
+                      {block.title || block.href}
+                    </Link>
+                  ) : (
+                    <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p>
+                  )}
+                  {block.body ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
+                </article>
+              );
+            })}
           </div>
         </div>
       ) : null}

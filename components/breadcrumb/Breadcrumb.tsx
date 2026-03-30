@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
 
 type BreadcrumbItem = {
   label: string;
@@ -21,7 +22,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
           <li key={`${item.label}-${index}`} className="flex items-center gap-2">
             {index > 0 ? <span aria-hidden="true">/</span> : null}
             {item.href ? (
-              <Link href={item.href} className="hover:text-[var(--fm-accent)]">
+              <Link href={normalizePublicHref(item.href)} className="hover:text-[var(--fm-accent)]">
                 {item.label}
               </Link>
             ) : (

@@ -19,6 +19,7 @@ import {
 } from "@/lib/api/v0_3";
 import { captureError } from "@/lib/observability/sentry";
 import type { Locale } from "@/lib/i18n/locales";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
 import {
   appendMbtiContinuityQuery,
   buildMbtiContinuityTelemetryFields,
@@ -540,7 +541,7 @@ export default function ShareClient({
                 {landingSurface.ctaBundle.map((cta, index) => (
                   <Link
                     key={cta.key}
-                    href={cta.href}
+                    href={normalizePublicHref(cta.href, locale)}
                     className={buttonVariants({ variant: index === 0 ? "default" : "outline", size: "sm" })}
                     onClick={() => {
                       trackEvent("ui_card_interaction", {

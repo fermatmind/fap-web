@@ -6,33 +6,63 @@ import { useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
 import { FOOTER_SOCIAL_ITEMS } from "@/lib/ui/footerSocialIcons";
 import { cn } from "@/lib/utils";
 
 export function SiteFooter() {
   const locale = useLocale();
   const dict = getDictSync(locale);
-  const withLocale = (path: string) => localizedPath(path, locale);
+  const withLocale = (path: string) => normalizePublicHref(path, locale);
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const socialItems = FOOTER_SOCIAL_ITEMS;
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
   const footerCopy =
     locale === "zh"
       ? {
-          testsTitle: "Measurement Matrix",
-          articlesTitle: "Research & Notes",
-          supportTitle: "Governance",
-          reviewsTitle: "Data Sovereignty",
+          hubsTitle: "专题 Hub",
+          typesTitle: "实体 / 类型",
+          methodsTitle: "方法 / 数据",
+          guidesTitle: "指南网络",
+          testsTitle: "测试入口",
+          careerTitle: "职业图谱",
+          supportTitle: "治理与支持",
           tailnote: "From Noise to Clarity.",
         }
       : {
-          testsTitle: "Measurement Matrix",
-          articlesTitle: "Research & Notes",
-          supportTitle: "Governance",
-          reviewsTitle: "Data Sovereignty",
+          hubsTitle: "Hub network",
+          typesTitle: "Entities / types",
+          methodsTitle: "Methods / data",
+          guidesTitle: "Guide network",
+          testsTitle: "Test entrypoints",
+          careerTitle: "Career graph",
+          supportTitle: "Governance & support",
           tailnote: "From Noise to Clarity.",
         };
+
+  const hubLinks = [
+    { href: "/topics", label: locale === "zh" ? "全部专题" : "All hubs" },
+    { href: "/career/recommendations", label: locale === "zh" ? "职业推荐 Hub" : "Career hubs" },
+    { href: "/career/industries", label: locale === "zh" ? "行业 Hub" : "Industry hubs" },
+  ];
+
+  const typeLinks = [
+    { href: "/personality", label: locale === "zh" ? "全部人格实体" : "All entities" },
+    { href: "/personality/intp-a", label: "INTP" },
+    { href: "/personality/entj-a", label: "ENTJ" },
+    { href: "/personality/infp-a", label: "INFP" },
+  ];
+
+  const guideLinks = [
+    { href: "/articles", label: locale === "zh" ? "全部指南" : "All guides" },
+    { href: "/career/guides", label: locale === "zh" ? "职业指南" : "Career guides" },
+    { href: "/help", label: locale === "zh" ? "帮助指南" : "Help guides" },
+  ];
+
+  const methodDataLinks = [
+    { href: "/methods", label: locale === "zh" ? "方法页中心" : "Methods hub" },
+    { href: "/data", label: locale === "zh" ? "数据页中心" : "Data hub" },
+  ];
 
   const testLinks = [
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
@@ -43,13 +73,16 @@ export function SiteFooter() {
     { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ" },
   ];
 
-  const articleLinks = [
-    { href: "/articles", label: locale === "zh" ? "全部文章" : "All articles" },
-    { href: "/articles/mbti-basics", label: "MBTI Basics" },
+  const careerLinks = [
+    { href: "/career", label: locale === "zh" ? "职业中心" : "Career center" },
+    { href: "/career/jobs", label: locale === "zh" ? "职业库" : "Job library" },
+    { href: "/career/guides", label: locale === "zh" ? "职业指南" : "Career guides" },
+    { href: "/career/recommendations", label: locale === "zh" ? "职业推荐" : "Recommendations" },
   ];
 
   const helpLinks = [
     { href: "/help", label: locale === "zh" ? "帮助中心" : "Help Center" },
+    { href: "/business", label: dict.header.business },
     { href: "/email/preferences", label: dict.footer.manageEmailPreferences, testId: "footer-email-preferences" },
     { href: "/email/unsubscribe", label: dict.footer.unsubscribeFromEmails, testId: "footer-email-unsubscribe" },
     { href: "/privacy", label: dict.footer.privacy },
@@ -64,12 +97,56 @@ export function SiteFooter() {
           <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/55">Protocol footer</p>
           <p className="m-0 text-sm text-slate-300">
             {locale === "zh"
-              ? "测量矩阵、研究笔记、治理规则与数据主权信息被统一收束在同一份协议尾页中。"
-              : "Measurement modules, research notes, governance links, and data sovereignty details close the system in one protocol tail."}
+              ? "用专题、实体、指南、测试和职业图谱收束全站公共语义入口，治理与支持链接只保留在辅助区。"
+              : "Public semantics close through hubs, entities, guides, tests, and career graph links, while governance links stay in the support rail."}
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-7">
+          <div className="space-y-3">
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.hubsTitle}</p>
+            <div className="space-y-2 text-sm">
+              {hubLinks.map((item) => (
+                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.typesTitle}</p>
+            <div className="space-y-2 text-sm">
+              {typeLinks.map((item) => (
+                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.guidesTitle}</p>
+            <div className="space-y-2 text-sm">
+              {guideLinks.map((item) => (
+                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.methodsTitle}</p>
+            <div className="space-y-2 text-sm">
+              {methodDataLinks.map((item) => (
+                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <div className="space-y-3">
             <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.testsTitle}</p>
             <div className="space-y-2 text-sm">
@@ -82,9 +159,9 @@ export function SiteFooter() {
           </div>
 
           <div className="space-y-3">
-            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.articlesTitle}</p>
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.careerTitle}</p>
             <div className="space-y-2 text-sm">
-              {articleLinks.map((item) => (
+              {careerLinks.map((item) => (
                 <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
                   {item.label}
                 </Link>
@@ -106,10 +183,6 @@ export function SiteFooter() {
                 </Link>
               ))}
             </div>
-          </div>
-
-          <div className="space-y-3">
-            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.reviewsTitle}</p>
             <p className="m-0 text-sm text-slate-300">{dict.footer.ratingLabel}</p>
             <p className="m-0 text-sm text-slate-300">
               <a href={`mailto:${supportEmail}`} className="font-semibold text-white hover:text-[var(--fm-gold)]">

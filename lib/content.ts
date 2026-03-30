@@ -7,6 +7,7 @@ import {
   tests,
   types,
 } from "../.velite";
+import type { PublicContentKind } from "@/lib/navigation/publicLinking";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
@@ -33,6 +34,7 @@ export type RelatedContentItem = {
   title: string;
   href: string;
   summary?: string;
+  pageType?: PublicContentKind | null;
 };
 
 export type TestListItem = {
@@ -468,13 +470,15 @@ function toRelatedItem(
   slug: string,
   title: string,
   href: string,
-  summary?: string
+  summary?: string,
+  pageType?: PublicContentKind | null
 ): RelatedContentItem {
   return {
     slug,
     title,
     href,
     summary,
+    pageType: pageType ?? null,
   };
 }
 
@@ -487,7 +491,8 @@ function relatedArticlesForTestSlugs(testSlugs: string[], locale: Locale, exclud
           post.slug,
           post.title,
           localizedPath(`/articles/${post.slug}`, locale),
-          post.summary
+          post.summary,
+          "guide"
         )
       )
   );
@@ -505,7 +510,8 @@ function relatedGuidesBySlugs(guideSlugs: string[], locale: Locale, excludeSlug?
         guide.slug,
         guide.title,
         localizedPath(`/career/guides/${guide.slug}`, locale),
-        guide.summary
+        guide.summary,
+        "guide"
       )
     );
 

@@ -13,6 +13,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, toggleLocalePath } from "@/lib/i18n/locales";
 import { LOCALE_COOKIE_NAME } from "@/lib/i18n/localeNegotiation";
 import { LIVE_COMPLETED_COUNT } from "@/lib/marketing/completionStats";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
 import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
@@ -27,7 +28,7 @@ export function SiteHeader() {
   const searchParams = useSearchParams();
   const locale = useLocale();
   const dict = getDictSync(locale);
-  const withLocale = (path: string) => localizedPath(path, locale);
+  const withLocale = (path: string) => normalizePublicHref(localizedPath(path, locale), locale);
   const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
   const shouldRenderCompletedMetric =
     !isHomeRoute || (typeof LIVE_COMPLETED_COUNT === "number" && LIVE_COMPLETED_COUNT > 0);
@@ -38,12 +39,11 @@ export function SiteHeader() {
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
 
   const navItems: Array<{ key: HeaderNavKey; href: string; label: string }> = [
-    { key: "tests", href: "/tests", label: dict.header.tests },
-    { key: "articles", href: "/articles", label: dict.header.articles },
-    { key: "personality", href: "/personality", label: dict.header.personality },
+    { key: "hub", href: "/topics", label: locale === "zh" ? "专题" : "Hubs" },
+    { key: "type", href: "/personality", label: locale === "zh" ? "类型" : "Types" },
+    { key: "guide", href: "/articles", label: locale === "zh" ? "指南" : "Guides" },
+    { key: "test", href: "/tests", label: dict.header.tests },
     { key: "career", href: "/career", label: dict.header.career },
-    { key: "help", href: "/help", label: dict.header.help },
-    { key: "business", href: "/business", label: dict.header.business },
   ];
 
   const dropdownMenuMap = useMemo(() => {
@@ -173,7 +173,7 @@ export function SiteHeader() {
                         {items.map((menuItem) => (
                           <Link
                             key={`${item.key}-${menuItem.href}`}
-                            href={withLocale(menuItem.href)}
+                            href={normalizePublicHref(menuItem.href, locale)}
                             role="menuitem"
                             className="fm-header-dropdown-link"
                             onClick={() => setActiveDropdown(null)}
@@ -189,6 +189,18 @@ export function SiteHeader() {
             </nav>
 
             <div className="flex shrink-0 items-center gap-1 xl:gap-1.5">
+              <Link
+                href={withLocale("/help")}
+                className="inline-flex min-h-[44px] items-center rounded-full px-2 py-2 text-[13px] font-medium text-blue-100 transition hover:bg-white/10 hover:text-white xl:px-2.5 xl:text-sm"
+              >
+                {dict.header.help}
+              </Link>
+              <Link
+                href={withLocale("/business")}
+                className="inline-flex min-h-[44px] items-center rounded-full px-2 py-2 text-[13px] font-medium text-blue-100 transition hover:bg-white/10 hover:text-white xl:px-2.5 xl:text-sm"
+              >
+                {dict.header.business}
+              </Link>
               <Link
                 href={withLocale("/tests?q=")}
                 className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
@@ -279,7 +291,7 @@ export function SiteHeader() {
                           {menuItems.map((menuItem) => (
                             <Link
                               key={`mobile-submenu-link-${item.key}-${menuItem.href}`}
-                              href={withLocale(menuItem.href)}
+                              href={normalizePublicHref(menuItem.href, locale)}
                               onClick={handleMobileLinkClick}
                               className="block rounded-md px-3 py-2 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white"
                             >
@@ -291,6 +303,22 @@ export function SiteHeader() {
                     </div>
                   );
                 })}
+
+                <Link
+                  href={withLocale("/help")}
+                  onClick={handleMobileLinkClick}
+                  className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  {dict.header.help}
+                </Link>
+
+                <Link
+                  href={withLocale("/business")}
+                  onClick={handleMobileLinkClick}
+                  className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  {dict.header.business}
+                </Link>
 
                 <Link
                   href={withLocale("/tests?q=")}
