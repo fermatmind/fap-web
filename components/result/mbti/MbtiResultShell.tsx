@@ -1988,11 +1988,11 @@ export function MbtiResultShell({
         </section>
       </div>
 
-        <MbtiStickyRail
-          locale={locale}
-          headline={publicHeadline}
-          tags={publicTags}
-          locked={projectionLocked}
+      <MbtiStickyRail
+        locale={locale}
+        headline={publicHeadline}
+        tags={publicTags}
+        locked={projectionLocked}
           accessLevel={accessLevel}
           variant={accessVariant}
           modulesAllowed={modulesAllowed}
@@ -2007,12 +2007,11 @@ export function MbtiResultShell({
           primaryCtaLabel={terminalPrimaryCtaLabel}
           primaryCtaHref={resolvedTerminalPrimaryCtaHref}
           primaryCtaIsInternal={isUnlockedPostPurchase}
-          shareCtaLabel={shareCtaLabel}
-          shareStatusMessage={shareMessage}
-          shareDisabled={isSharing}
-          onShare={handleShare}
-        />
-      </div>
+        shareCtaLabel={shareCtaLabel}
+        shareStatusMessage={shareMessage}
+        shareDisabled={isSharing}
+        onShare={handleShare}
+      />
     </div>
   );
 }
