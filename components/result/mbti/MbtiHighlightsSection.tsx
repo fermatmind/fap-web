@@ -20,7 +20,7 @@ export function MbtiHighlightsSection({
   return (
     <section
       data-testid="mbti-highlights"
-      className="space-y-5 rounded-[28px] border border-slate-200 bg-white/92 p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)] md:p-6"
+      className="flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white/92 p-6 shadow-[0_18px_36px_rgba(15,23,42,0.06)] md:gap-8 md:p-8"
     >
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-2">

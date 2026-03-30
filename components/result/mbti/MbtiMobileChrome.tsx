@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import type { Locale } from "@/lib/i18n/locales";
 
 type MbtiMobileChromeProps = {
@@ -11,9 +11,6 @@ type MbtiMobileChromeProps = {
   primaryCtaLabel?: string;
   primaryCtaHref: string;
   primaryCtaIsInternal?: boolean;
-  shareCtaLabel?: string;
-  shareDisabled?: boolean;
-  onShare: () => void | Promise<void>;
 };
 
 const NAV_ITEMS: Array<{ anchor: string; en: string; zh: string }> = [
@@ -35,13 +32,9 @@ export function MbtiMobileChrome({
   primaryCtaLabel,
   primaryCtaHref,
   primaryCtaIsInternal = false,
-  shareCtaLabel,
-  shareDisabled = false,
-  onShare,
 }: MbtiMobileChromeProps) {
   const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
   const [activeAnchor, setActiveAnchor] = useState("hero");
-  const resolvedShareCtaLabel = shareCtaLabel?.trim() || (locale === "zh" ? "分享结果" : "Share result");
 
   useEffect(() => {
     const sectionIds = NAV_ITEMS.map((item) => item.anchor);
@@ -115,42 +108,14 @@ export function MbtiMobileChrome({
         </details>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/97 p-3 shadow-[0_-16px_36px_rgba(15,23,42,0.12)] backdrop-blur">
-        <div className="mx-auto max-w-6xl rounded-[20px] border border-slate-200 bg-white/95 p-2 shadow-[0_10px_28px_rgba(15,23,42,0.06)]">
-          <div className="mb-2 flex items-center justify-between px-1.5">
-            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-              {locale === "zh" ? "结果动作" : "Result actions"}
-            </p>
-            <p className="m-0 text-[11px] text-slate-400">
-              {activeAnchor === "offer-full" ? (locale === "zh" ? "已定位到解锁区" : "Unlock section in view") : ctaLabel}
-            </p>
-          </div>
-          <div className="flex w-full items-center gap-2">
-            <Button
-              type="button"
-              variant="outline"
-              className="min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300"
-              disabled={shareDisabled}
-              onClick={() => void onShare()}
-            >
-            {resolvedShareCtaLabel}
-            </Button>
-          <Link
-            href={retakeHref}
-            className={buttonVariants({
-              variant: "outline",
-              className:
-                "min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300",
-            })}
-          >
-            {locale === "zh" ? "重测" : "Retake"}
-          </Link>
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-black/80 backdrop-blur-md">
+        <div className="mx-auto max-w-6xl rounded-[20px] border border-white/20 bg-black/80 p-2 shadow-[0_-16px_36px_rgba(15,23,42,0.12)] backdrop-blur">
           {primaryCtaIsInternal ? (
             <Link
               href={primaryCtaHref}
               className={buttonVariants({
                 className:
-                  "min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300",
+                  "min-h-[46px] w-full bg-white text-slate-950 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300",
               })}
             >
               {ctaLabel}
@@ -160,13 +125,17 @@ export function MbtiMobileChrome({
               href={primaryCtaHref}
               className={buttonVariants({
                 className:
-                  "min-h-[46px] flex-1 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300",
+                  "min-h-[46px] w-full bg-white text-slate-950 transition duration-200 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-emerald-300",
               })}
             >
               {ctaLabel}
             </a>
           )}
-          </div>
+          {activeAnchor === "offer-full" ? (
+            <p className="m-0 mt-2 text-center text-xs text-white/80">
+              {locale === "zh" ? "已定位到解锁区" : "Unlock section in view"}
+            </p>
+          ) : null}
         </div>
       </div>
     </div>

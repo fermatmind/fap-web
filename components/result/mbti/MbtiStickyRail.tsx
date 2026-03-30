@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Locale } from "@/lib/i18n/locales";
 import type { RichResultHeadline } from "@/components/result/RichResultReport";
@@ -195,7 +195,10 @@ export function MbtiStickyRail({
   }, []);
 
   return (
-    <aside data-testid="mbti-sticky-rail" className="hidden xl:block xl:sticky xl:top-24">
+    <aside
+      data-testid="mbti-sticky-rail"
+      className="pointer-events-auto hidden xl:block xl:absolute xl:top-24 xl:right-4 xl:z-20 xl:w-[260px] opacity-60 hover:opacity-100"
+    >
       <div className="space-y-4">
         <Card className="border-slate-200 bg-white/94 shadow-[0_20px_40px_rgba(15,23,42,0.08)] backdrop-blur">
           <CardHeader className="space-y-2 pb-3">
@@ -279,6 +282,7 @@ export function MbtiStickyRail({
               <Link
                 href={primaryCtaHref}
                 className={buttonVariants({
+                  variant: "outline",
                   className:
                     "w-full transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
                 })}
@@ -289,6 +293,7 @@ export function MbtiStickyRail({
               <a
                 href={primaryCtaHref}
                 className={buttonVariants({
+                  variant: "outline",
                   className:
                     "w-full transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
                 })}
@@ -310,24 +315,16 @@ export function MbtiStickyRail({
               </Link>
             ) : null}
 
-            <div className="grid grid-cols-2 gap-2">
-              <Button
+            <div className="flex flex-wrap gap-2">
+              <button
                 type="button"
-                variant="outline"
-                className="flex-1 transition duration-200 motion-reduce:transition-none hover:border-slate-300 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-emerald-300"
+                className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white"
                 disabled={shareDisabled}
                 onClick={() => void onShare()}
               >
                 {resolvedShareLabel}
-              </Button>
-              <Link
-                href={retakeHref}
-                className={buttonVariants({
-                  variant: "outline",
-                  className:
-                    "flex-1 transition duration-200 motion-reduce:transition-none hover:border-slate-300 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-emerald-300",
-                })}
-              >
+              </button>
+              <Link href={retakeHref} className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white">
                 {locale === "zh" ? "重测" : "Retake"}
               </Link>
             </div>

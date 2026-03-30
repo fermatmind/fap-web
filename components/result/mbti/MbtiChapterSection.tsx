@@ -146,6 +146,7 @@ const CHAPTER_COPY: Record<
     order: number;
     title: { en: string; zh: string };
     intro: { en: string; zh: string };
+    summaryLine: { en: string; zh: string };
   }
 > = {
   career: {
@@ -156,6 +157,10 @@ const CHAPTER_COPY: Record<
       en: "This chapter turns the result into role fit, work rhythm, and the environments where you are more likely to do strong work.",
       zh: "这一章把结果翻译成更具体的岗位方向、协作节奏与更适合你的工作环境。",
     },
+    summaryLine: {
+      en: "Read the scenario fit first, then check where behavior can break and what to adjust.",
+      zh: "先看职业场景匹配，再确认行为容易失衡的边界并找到调整方向。",
+    },
   },
   growth: {
     anchor: "growth",
@@ -164,6 +169,10 @@ const CHAPTER_COPY: Record<
     intro: {
       en: "Growth is framed as leverage, friction, and the next repeatable step instead of abstract advice.",
       zh: "这一章不讲空泛建议，而是把你的成长重点拆成杠杆、阻力和下一步动作。",
+    },
+    summaryLine: {
+      en: "One repeatable insight at a time to upgrade execution and reduce friction.",
+      zh: "按一个可复用观点推进，逐步把成长动作从想法变成执行。",
     },
   },
   traits: {
@@ -174,6 +183,10 @@ const CHAPTER_COPY: Record<
       en: "Read this chapter as the structural overview of how your current type tends to show up in everyday situations.",
       zh: "把这一章看作整份报告的总览层，用来理解你的类型在日常场景里通常会怎么出现。",
     },
+    summaryLine: {
+      en: "Keep the mental model short and map each signal back to real situations.",
+      zh: "先建立清晰心智模型，再把每个信号对齐到真实场景。",
+    },
   },
   relationships: {
     anchor: "relationships",
@@ -182,6 +195,10 @@ const CHAPTER_COPY: Record<
     intro: {
       en: "This chapter connects the result to communication needs, boundaries, and the moments where misunderstanding is most likely.",
       zh: "这一章把结果落到沟通需求、边界感和最容易出现误解的相处场景上。",
+    },
+    summaryLine: {
+      en: "Use one boundary rule per cycle, and track communication recovery.",
+      zh: "每个周期先锁定一个边界规则，再持续跟进沟通修复。",
     },
   },
 };
@@ -1421,50 +1438,50 @@ export function MbtiChapterSection({
     <section
       id={copy.anchor}
       data-testid={`mbti-chapter-${copy.anchor}`}
-      className="scroll-mt-28 space-y-5 rounded-[30px] border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] p-5 shadow-[0_20px_50px_rgba(15,23,42,0.08)] md:p-6"
+      className="scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] p-6 shadow-[0_20px_50px_rgba(15,23,42,0.08)] md:gap-8 md:p-8"
     >
-      <header className="space-y-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-            {locale === "zh" ? `章节 ${copy.order}` : `Chapter ${copy.order}`}
-          </p>
-          <span className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-slate-500">
-            {chapterKey === "traits"
-              ? locale === "zh"
-                ? "结构总览"
-                : "Structure"
-              : chapterKey === "career"
+      <h2 className="m-0 text-2xl font-semibold tracking-[-0.03em] text-[var(--fm-text)]">
+        {copy.title[locale]}
+      </h2>
+      <p className="m-0 max-w-3xl text-base text-neutral-400">{copy.summaryLine[locale]}</p>
+      <div className="flex flex-col gap-6">
+        <header className="space-y-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+              {locale === "zh" ? `章节 ${copy.order}` : `Chapter ${copy.order}`}
+            </p>
+            <span className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-slate-500">
+              {chapterKey === "traits"
                 ? locale === "zh"
-                  ? "场景映射"
-                  : "Scenario mapping"
-                : chapterKey === "growth"
+                  ? "结构总览"
+                  : "Structure"
+                : chapterKey === "career"
                   ? locale === "zh"
-                    ? "行动坐标"
-                    : "Action coordinates"
-                  : locale === "zh"
-                    ? "关系边界"
-                    : "Relationship boundaries"}
-          </span>
-          {isLocked ? (
-            <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-800">
-              {locale === "zh" ? "预览章节" : "Preview chapter"}
+                    ? "场景映射"
+                    : "Scenario mapping"
+                  : chapterKey === "growth"
+                    ? locale === "zh"
+                      ? "行动坐标"
+                      : "Action coordinates"
+                    : locale === "zh"
+                      ? "关系边界"
+                      : "Relationship boundaries"}
             </span>
-          ) : isPreviewChapter ? (
-            <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-800">
-              {locale === "zh" ? "部分预览已开放" : "Partial preview visible"}
-            </span>
-          ) : null}
-        </div>
-        <div className="space-y-2">
-          <h2 className="m-0 text-2xl font-semibold tracking-[-0.03em] text-[var(--fm-text)]">{copy.title[locale]}</h2>
+            {isLocked ? (
+              <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-800">
+                {locale === "zh" ? "预览章节" : "Preview chapter"}
+              </span>
+            ) : isPreviewChapter ? (
+              <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-800">
+                {locale === "zh" ? "部分预览已开放" : "Partial preview visible"}
+              </span>
+            ) : null}
+          </div>
           <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{introCopy}</p>
-        </div>
-      </header>
+        </header>
 
-      <div className="grid gap-4 xl:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)] xl:items-start">
-        <div className="space-y-4">
+        <div className="flex flex-col gap-6">
           {renderChapterVisualSlot(chapterKey, locale, hasProjectionContent ? projectionSections : [])}
-
           {isOverviewChapter && authoredOverview && (authoredOverview.title || authoredOverview.subtitle || authoredOverview.oneLiner) ? (
             <Card
               data-testid="mbti-overview-authored-intro"
@@ -1485,11 +1502,8 @@ export function MbtiChapterSection({
               </CardContent>
             </Card>
           ) : null}
-
           {traitsLeadEvidence}
-        </div>
 
-        <div className="space-y-4">
           <Card className="border-slate-200 bg-slate-950 text-white shadow-[0_20px_44px_rgba(15,23,42,0.18)]">
             <CardHeader className="space-y-2 pb-3">
               <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-200">
@@ -1501,7 +1515,7 @@ export function MbtiChapterSection({
                   : "Reading handles for this chapter"}
               </CardTitle>
             </CardHeader>
-            <CardContent className="grid gap-3 md:grid-cols-2 xl:grid-cols-1">
+            <CardContent className="space-y-3">
               {bridgeItems.map((item, index) => (
                 <div
                   key={`${item.title}-${item.description}`}
@@ -1523,132 +1537,100 @@ export function MbtiChapterSection({
             <p className="m-0 mt-3 text-sm leading-7 text-slate-600">
               {isLocked
                 ? locale === "zh"
-                  ? "当前先保留公开层正文，下方 teaser 会说明完整章节继续补充什么。"
-                  : "The public body stays visible first, and the teaser below explains what the full chapter adds."
+                  ? "先浏览公开层；完整解锁后展示完整章节。"
+                  : "Browse the public layer first, then unlock for the complete chapter."
                 : isPreviewChapter
                   ? locale === "zh"
-                    ? "这一章已经开放了部分预览卡片；完整报告仍会补齐更深的边界解释、场景分化与行动坐标。"
-                    : "This chapter already exposes partial preview cards, while the full report still adds deeper boundary interpretation, scenario differentiation, and action coordinates."
-                : locale === "zh"
-                  ? "这一章现在已经进入完整正文，可直接继续阅读，不需要跳转。"
-                  : "This chapter is already on the full body and can be read directly without leaving the page."}
+                    ? "本章已开放部分预览；完整报告补齐更深的边界解释与行动坐标。"
+                    : "This chapter already has preview cards; the full report adds deeper interpretation and action coordinates."
+                  : locale === "zh"
+                    ? "当前章节支持完整正文阅读，可继续下滑。"
+                    : "This chapter is fully available in full-body mode; continue reading."}
             </p>
           </div>
         </div>
-      </div>
 
-      {hasProjectionContent ? (
-        <div
-          data-testid={`mbti-chapter-public-${copy.anchor}`}
-          className="space-y-4"
-        >
-          {orderedProjectionSections.map((section, index) =>
-            renderProjectionSection(section, locale, projectionDimensions, personalization, {
-              attemptId,
-              displayOrder: projectionSections.findIndex((candidate) => candidate.key === section.key) + 1 || index + 1,
-              isPrimaryFocus: section.key === primaryFocusKey,
-            })
-          )}
-        </div>
-      ) : hasLegacyPublicContent && legacySection ? (
-        <div
-          data-testid={`mbti-chapter-public-${copy.anchor}`}
-          className="rounded-[24px] border border-slate-200 bg-white/90 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
-        >
-          <SectionRenderer section={legacySection} locked={false} locale={locale} scaleCode="MBTI" />
-        </div>
-      ) : null}
-
-      {previewReportSection ? (
-        <div
-          data-testid={`mbti-chapter-preview-${copy.anchor}`}
-          className="rounded-[24px] border border-emerald-200 bg-[linear-gradient(180deg,rgba(236,253,245,0.8),rgba(255,255,255,0.98))] p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
-        >
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <div className="space-y-2">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
-                {locale === "zh" ? "章节预览内容" : "Chapter preview cards"}
-              </p>
-              <p className="m-0 text-sm leading-7 text-slate-600">
-                {locale === "zh"
-                  ? "这里展示当前已经开放的部分预览卡片；完整解锁后会继续补齐整章正文。"
-                  : "These cards are already open in preview mode. Unlocking the full report still completes the rest of the chapter."}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {Array.from(new Set(previewCards.map((card) => resolveModuleLabel(card.moduleCode, locale)))).map((label) => (
-                <span key={label} className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-800">
-                  {label}
-                </span>
-              ))}
-            </div>
+        {hasProjectionContent ? (
+          <div
+            data-testid={`mbti-chapter-public-${copy.anchor}`}
+            className="space-y-4"
+          >
+            {orderedProjectionSections.map((section, index) =>
+              renderProjectionSection(section, locale, projectionDimensions, personalization, {
+                attemptId,
+                displayOrder: projectionSections.findIndex((candidate) => candidate.key === section.key) + 1 || index + 1,
+                isPrimaryFocus: section.key === primaryFocusKey,
+              })
+            )}
           </div>
-          <SectionRenderer section={previewReportSection} locked={false} locale={locale} scaleCode="MBTI" />
-        </div>
-      ) : null}
-
-      {isLocked ? (
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(260px,0.9fr)]">
-          <div className="rounded-[24px] border border-dashed border-slate-300 bg-[linear-gradient(180deg,rgba(248,250,252,0.95),rgba(255,255,255,0.98))] p-5">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "完整章节预览" : "Full chapter preview"}
-            </p>
-            <p className="m-0 mt-3 text-lg font-semibold tracking-[-0.02em] text-slate-950">
-              {teaserText || (locale === "zh" ? "解锁后可查看这一章的完整解读。" : "Unlock to view the full reading for this chapter.")}
-            </p>
-            <p className="m-0 mt-3 text-sm leading-7 text-slate-600">
-              {locale === "zh"
-                ? "免费预览先保留公开层；完整报告会补齐更深的边界解释、场景分化与行动坐标。"
-                : "The preview keeps the public layer first. The full report adds deeper boundary interpretation, scenario differentiation, and action coordinates."}
-            </p>
-            {teaserBullets.length > 0 ? (
-              <ul className="mb-0 mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-600">
-                {teaserBullets.map((benefit) => <li key={benefit}>{benefit}</li>)}
-              </ul>
-            ) : null}
+        ) : hasLegacyPublicContent && legacySection ? (
+          <div
+            data-testid={`mbti-chapter-public-${copy.anchor}`}
+            className="rounded-[24px] border border-slate-200 bg-white/90 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
+          >
+            <SectionRenderer section={legacySection} locked={false} locale={locale} scaleCode="MBTI" />
           </div>
+        ) : null}
 
-          <Card data-testid="mbti-chapter-unlock-card" className="border-slate-200 bg-slate-950 text-white shadow-[0_18px_42px_rgba(15,23,42,0.18)]">
-            <CardContent className="flex h-full flex-col justify-between gap-4 p-5">
-              <div className="space-y-3">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-200">
-                  {locale === "zh" ? "回到主解锁区" : "Return to the main unlock area"}
+        {previewReportSection ? (
+          <div
+            data-testid={`mbti-chapter-preview-${copy.anchor}`}
+            className="rounded-[24px] border border-emerald-200 bg-[linear-gradient(180deg,rgba(236,253,245,0.8),rgba(255,255,255,0.98))] p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
+          >
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div className="space-y-2">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                  {locale === "zh" ? "章节预览内容" : "Chapter preview cards"}
                 </p>
-                <p className="m-0 text-lg font-semibold text-white">
-                  {unlock?.offer?.title ?? (locale === "zh" ? "查看完整报告解锁方案" : "View the matching unlock options")}
+                <p className="m-0 text-sm leading-7 text-slate-600">
+                  {locale === "zh"
+                    ? "这里展示当前已经开放的部分预览卡片；完整解锁后会继续补齐整章正文。"
+                    : "These cards are already open in preview mode. Unlocking the full report still completes the rest of the chapter."}
                 </p>
-                <p className="m-0 text-sm leading-7 text-slate-300">
-                  {unlock?.offer?.description ?? (locale === "zh"
-                    ? "本章保留公开层；完整报告会统一补齐更完整的判断依据。"
-                    : "This chapter keeps the public layer while the full report completes the decision basis.")}
-                </p>
-                {unlock?.offer?.modules.length ? (
-                  <div className="flex flex-wrap gap-2">
-                    {unlock.offer.modules.map((module) => (
-                      <span key={module} className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
-                        {resolveModuleLabel(module, locale)}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
               </div>
+              <div className="flex flex-wrap gap-2">
+                {Array.from(new Set(previewCards.map((card) => resolveModuleLabel(card.moduleCode, locale)))).map((label) => (
+                  <span
+                    key={label}
+                    className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-800"
+                  >
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <SectionRenderer section={previewReportSection} locked={false} locale={locale} scaleCode="MBTI" />
+          </div>
+        ) : null}
 
-              <div className="flex flex-col items-start gap-3">
-                  {unlock?.offer?.price ? <p className="m-0 text-3xl font-semibold tracking-[-0.03em] text-white">{unlock.offer.price}</p> : null}
+        {isLocked ? (
+          <div className="relative">
+            <div className="relative rounded-[24px] border border-dashed border-slate-300 bg-[linear-gradient(180deg,rgba(248,250,252,0.95),rgba(255,255,255,0.98))] p-5 blur-sm opacity-60">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                {locale === "zh" ? "完整章节预览" : "Full chapter preview"}
+              </p>
+              <p className="m-0 mt-3 text-lg font-semibold tracking-[-0.02em] text-slate-950">
+                {teaserText || (locale === "zh" ? "解锁后可查看这一章的完整解读。" : "Unlock to view the full reading for this chapter.")}
+              </p>
+            </div>
+
+            <div className="absolute inset-0 flex items-center justify-center p-4">
+              <div className="w-full max-w-md rounded-xl bg-white p-6 text-center shadow-lg">
+                <p className="m-0 mb-3 text-sm text-slate-700">解锁完整分析</p>
                 <a
                   href="#offer-full"
                   className={buttonVariants({
                     className:
-                      "w-full bg-white text-slate-950 transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:bg-emerald-50 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
+                      "inline-flex w-full min-h-[44px] items-center justify-center rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white",
                   })}
                 >
-                  {locale === "zh" ? "前往主解锁区" : "Go to the main unlock area"}
+                  {locale === "zh" ? "解锁完整报告" : "Unlock full report"}
                 </a>
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      ) : null}
+            </div>
+          </div>
+        ) : null}
+      </div>
     </section>
   );
 }
