@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /** @type {import('next-sitemap').IConfig} */
 const tests = require("./.velite/tests.json");
+const blog = require("./.velite/blog.json");
+const careerGuidesContent = require("./.velite/careerGuides.json");
 const careerJobs = require("./.velite/careerJobs.json");
 const careerIndustries = require("./.velite/careerIndustries.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
@@ -31,6 +33,12 @@ const NON_PAGE_ROUTE_EXCLUDES = [
   "/en/take/*",
   "/zh/take/*",
 ];
+const CMS_LOCALES = [
+  { localePrefix: "en", apiLocale: "en" },
+  { localePrefix: "zh", apiLocale: "zh-CN" },
+];
+const MBTI_BASE_SLUG_RE = /^[ie][ns][ft][jp]$/i;
+const MBTI_RUNTIME_SLUG_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
@@ -50,6 +58,29 @@ function hasIndexableFlagFalse(item) {
   return item && item.is_indexable === false;
 }
 
+function isPublicIndexable(item) {
+  return item && item.is_public !== false && item.is_indexable !== false;
+}
+
+function buildDefaultPublicPersonalitySlug(value) {
+  const normalized = normalizeSlug(value).toLowerCase();
+  if (!normalized) return "";
+  if (MBTI_RUNTIME_SLUG_RE.test(normalized)) return normalized;
+  return MBTI_BASE_SLUG_RE.test(normalized) ? `${normalized}-a` : normalized;
+}
+
+function extractPathFromCanonicalUrl(value) {
+  const normalized = normalizeSlug(value);
+  if (!normalized) return "";
+
+  try {
+    const url = /^https?:\/\//i.test(normalized) ? new URL(normalized) : new URL(normalized, siteUrl);
+    return normalizePath(url.pathname);
+  } catch {
+    return "";
+  }
+}
+
 function buildTestPaths() {
   const uniqueSlugs = new Set();
   for (const item of tests) {
@@ -66,11 +97,58 @@ function buildTestPaths() {
   return paths;
 }
 
+function buildLocalArticlePaths() {
+  const paths = new Set();
+
+  for (const item of blog) {
+    const slug = normalizeSlug(item?.slug);
+    const locale = normalizeSlug(item?.locale).toLowerCase();
+    const translationReady = item?.translation_ready !== false;
+    if (!slug) continue;
+    if (locale !== "en") {
+      paths.add(`/zh/articles/${slug}`);
+      continue;
+    }
+    if (translationReady) {
+      paths.add(`/en/articles/${slug}`);
+    }
+  }
+
+  return [...paths];
+}
+
+function buildLocalCareerGuidePaths() {
+  const paths = new Set();
+
+  for (const item of careerGuidesContent) {
+    const slug = normalizeSlug(item?.slug);
+    const locale = normalizeSlug(item?.locale).toLowerCase();
+    if (!slug) continue;
+    if (locale === "zh" || locale === "zh-cn") {
+      paths.add(`/zh/career/guides/${slug}`);
+      continue;
+    }
+    if (locale === "en") {
+      paths.add(`/en/career/guides/${slug}`);
+    }
+  }
+
+  return [...paths];
+}
+
 function buildLandingPaths() {
   return [
     "/",
     "/en",
     "/zh",
+    "/en/articles",
+    "/zh/articles",
+    "/en/methods",
+    "/zh/methods",
+    "/en/data",
+    "/zh/data",
+    "/en/personality",
+    "/zh/personality",
     "/en/topics",
     "/zh/topics",
     "/en/help",
@@ -79,6 +157,8 @@ function buildLandingPaths() {
     "/zh/tests",
     "/en/career",
     "/zh/career",
+    "/en/career/guides",
+    "/zh/career/guides",
     "/en/career/jobs",
     "/zh/career/jobs",
     "/en/career/industries",
@@ -143,6 +223,8 @@ const generatedPaths = [
   ...new Set([
     ...buildLandingPaths(),
     ...buildTestPaths(),
+    ...buildLocalArticlePaths(),
+    ...buildLocalCareerGuidePaths(),
     ...buildCareerPaths(),
     ...buildTopicPaths(),
     ...buildHelpPaths(),
@@ -211,6 +293,139 @@ async function buildCareerRecommendationPaths() {
   }
 }
 
+async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = 1500) {
+  const items = [];
+  let page = 1;
+  let lastPage = 1;
+
+  do {
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries({
+      ...queryParams,
+      page,
+      per_page: 100,
+    })) {
+      if (value === undefined || value === null || value === "") continue;
+      params.set(key, String(value));
+    }
+
+    const payload = await fetchJsonWithTimeout(`${buildApiUrl(path)}?${params.toString()}`, timeoutMs);
+    const pageItems = Array.isArray(payload?.items) ? payload.items : [];
+    items.push(...pageItems);
+
+    const reportedLastPage = Number(payload?.pagination?.last_page);
+    lastPage = Number.isFinite(reportedLastPage) && reportedLastPage > 0 ? reportedLastPage : page;
+    page += 1;
+  } while (page <= lastPage);
+
+  return items;
+}
+
+async function buildCmsDetailPaths(path, queryBuilder, toPath, timeoutMs = 1500) {
+  try {
+    const paths = new Set();
+
+    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+      const items = await fetchPaginatedItems(path, queryBuilder(apiLocale), timeoutMs);
+
+      for (const item of items) {
+        if (!isPublicIndexable(item)) continue;
+
+        const loc = normalizePath(toPath(item, localePrefix, apiLocale));
+        if (loc && loc !== "/") {
+          paths.add(loc);
+        }
+      }
+    }
+
+    return [...paths];
+  } catch {
+    return [];
+  }
+}
+
+async function buildArticlePaths() {
+  return buildCmsDetailPaths(
+    "/v0.5/articles",
+    (apiLocale) => ({ locale: apiLocale, org_id: 0 }),
+    (item, localePrefix) => {
+      const slug = normalizeSlug(item?.slug);
+      return slug ? `/${localePrefix}/articles/${slug}` : "";
+    }
+  );
+}
+
+async function buildCareerGuideDetailPaths() {
+  return buildCmsDetailPaths(
+    "/v0.5/career-guides",
+    (apiLocale) => ({ locale: apiLocale, org_id: 0 }),
+    (item, localePrefix) => {
+      const slug = normalizeSlug(item?.slug);
+      return slug ? `/${localePrefix}/career/guides/${slug}` : "";
+    }
+  );
+}
+
+async function buildMethodDetailPaths() {
+  return buildCmsDetailPaths(
+    "/v0.5/methods",
+    (apiLocale) => ({ locale: apiLocale, org_id: 0 }),
+    (item, localePrefix) => {
+      const slug = normalizeSlug(item?.slug);
+      return slug ? `/${localePrefix}/methods/${slug}` : "";
+    }
+  );
+}
+
+async function buildDataDetailPaths() {
+  return buildCmsDetailPaths(
+    "/v0.5/data",
+    (apiLocale) => ({ locale: apiLocale, org_id: 0 }),
+    (item, localePrefix) => {
+      const slug = normalizeSlug(item?.slug);
+      return slug ? `/${localePrefix}/data/${slug}` : "";
+    }
+  );
+}
+
+async function buildCareerJobDetailPathsFromApi() {
+  return buildCmsDetailPaths(
+    "/v0.5/career-jobs",
+    (apiLocale) => ({ locale: apiLocale, org_id: 0 }),
+    (item, localePrefix) => {
+      const slug = normalizeSlug(item?.slug);
+      return slug ? `/${localePrefix}/career/jobs/${slug}` : "";
+    }
+  );
+}
+
+async function buildTopicDetailPathsFromApi() {
+  return buildCmsDetailPaths(
+    "/v0.5/topics",
+    (apiLocale) => ({ locale: apiLocale, org_id: 0 }),
+    (item, localePrefix) => {
+      const slug = normalizeSlug(item?.slug);
+      return slug ? `/${localePrefix}/topics/${slug}` : "";
+    }
+  );
+}
+
+async function buildPersonalityDetailPaths() {
+  return buildCmsDetailPaths(
+    "/v0.5/personality",
+    (apiLocale) => ({ locale: apiLocale, org_id: 0, scale_code: "MBTI" }),
+    (item, localePrefix) => {
+      const canonicalPath = extractPathFromCanonicalUrl(item?.seo_meta?.canonical_url);
+      if (canonicalPath) {
+        return canonicalPath;
+      }
+
+      const slug = buildDefaultPublicPersonalitySlug(item?.slug || item?.type_code);
+      return slug ? `/${localePrefix}/personality/${slug}` : "";
+    }
+  );
+}
+
 module.exports = {
   siteUrl,
   generateRobotsTxt: false,
@@ -228,9 +443,37 @@ module.exports = {
     };
   },
   additionalPaths: async () => {
-    const careerRecommendationPaths = await buildCareerRecommendationPaths();
+    const [
+      articlePaths,
+      careerGuidePaths,
+      methodPaths,
+      dataPaths,
+      careerJobApiPaths,
+      personalityPaths,
+      topicApiPaths,
+      careerRecommendationPaths,
+    ] = await Promise.all([
+      buildArticlePaths(),
+      buildCareerGuideDetailPaths(),
+      buildMethodDetailPaths(),
+      buildDataDetailPaths(),
+      buildCareerJobDetailPathsFromApi(),
+      buildPersonalityDetailPaths(),
+      buildTopicDetailPathsFromApi(),
+      buildCareerRecommendationPaths(),
+    ]);
 
-    return [...new Set([...generatedPaths, ...careerRecommendationPaths])]
+    return [...new Set([
+      ...generatedPaths,
+      ...articlePaths,
+      ...careerGuidePaths,
+      ...methodPaths,
+      ...dataPaths,
+      ...careerJobApiPaths,
+      ...personalityPaths,
+      ...topicApiPaths,
+      ...careerRecommendationPaths,
+    ])]
       .map((path) => normalizePath(path))
       .filter((path) => shouldIncludeInSitemap(path))
       .map((loc) => ({
