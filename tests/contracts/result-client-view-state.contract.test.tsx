@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ResultClient from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
+import { ApiError } from "@/lib/api-client";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import { buildMbtiCareerRecommendationHref } from "@/lib/mbti/publicProjection";
@@ -38,6 +39,7 @@ const hoisted = vi.hoisted(() => ({
   fetchAttemptReportAccess: vi.fn(),
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
+  fetchAttemptSubmission: vi.fn(),
   ensureFmTokenReady: vi.fn(),
   trackEvent: vi.fn(),
   captureError: vi.fn(),
@@ -50,6 +52,7 @@ const hoisted = vi.hoisted(() => ({
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/en/result/attempt-123",
+  useSearchParams: () => new URLSearchParams(),
 }));
 
 vi.mock("@/components/design/AnticipationSkeleton", () => ({
@@ -113,6 +116,7 @@ vi.mock("@/components/ui/alert", () => ({
 
 vi.mock("@/lib/anon", () => ({
   getOrCreateAnonId: () => "anon_result_test",
+  readPendingAnonLinkAttempts: () => [],
 }));
 
 vi.mock("@/lib/analytics", () => ({
@@ -132,6 +136,9 @@ vi.mock("@/lib/api/v0_3", () => ({
   fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
   fetchAttemptReport: hoisted.fetchAttemptReport,
   fetchAttemptResult: hoisted.fetchAttemptResult,
+  fetchAttemptSubmission: hoisted.fetchAttemptSubmission,
+  linkAnonAttemptsOnceOnLoginSuccess: vi.fn(),
+  shouldLinkAnonAttemptsOnLoginSuccess: vi.fn(() => false),
 }));
 
 function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}) {
@@ -191,6 +198,15 @@ describe("ResultClient view-state contract", () => {
     hoisted.ensureFmTokenReady.mockResolvedValue("issued");
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
+    hoisted.fetchAttemptSubmission.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-123",
+      submission: {
+        id: "sub_123",
+        state: "succeeded",
+      },
+      generating: false,
+    });
   });
 
   it("routes the public career next step through the runtime 32-type slug", () => {
@@ -241,6 +257,7 @@ describe("ResultClient view-state contract", () => {
     });
     expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
       anonId: "anon_result_test",
+      forceRefresh: true,
       locale: "en",
     });
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
@@ -369,6 +386,44 @@ describe("ResultClient view-state contract", () => {
     expect(screen.getByTestId("skeleton")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+  });
+
+  it("keeps the page in processing state when report access is 404 but submission is still pending", async () => {
+    hoisted.fetchAttemptReportAccess.mockRejectedValue(
+      new ApiError({
+        status: 404,
+        errorCode: "ATTEMPT_NOT_FOUND",
+        message: "attempt not found.",
+      })
+    );
+    hoisted.fetchAttemptResult.mockRejectedValue(
+      new ApiError({
+        status: 404,
+        errorCode: "RESULT_NOT_FOUND",
+        message: "result not found.",
+      })
+    );
+    hoisted.fetchAttemptSubmission.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-123",
+      generating: true,
+      submission: {
+        id: "sub_pending_123",
+        state: "pending",
+      },
+    });
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByRole("alert")).toHaveTextContent("Report is still generating.");
+    });
+
+    expect(screen.getByTestId("skeleton")).toBeInTheDocument();
+    expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+    });
   });
 
   it("falls back to the legacy result view only when the report payload is not renderable", async () => {

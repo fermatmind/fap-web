@@ -148,6 +148,10 @@ export type SubmitAnswer = {
 export type SubmitResponse = {
   ok: boolean;
   attempt_id?: string;
+  submission_id?: string;
+  submission_state?: string;
+  generating?: boolean;
+  mode?: string;
   result?: Record<string, unknown>;
   report?: ReportResponse;
   meta?: {
@@ -155,6 +159,27 @@ export type SubmitResponse = {
     [key: string]: unknown;
   };
   idempotent?: boolean;
+};
+
+export type AttemptSubmissionResponse = {
+  ok: boolean;
+  attempt_id?: string;
+  submission?: {
+    id?: string;
+    mode?: string;
+    state?: string;
+    error_code?: string | null;
+    error_message?: string | null;
+    started_at?: string | null;
+    finished_at?: string | null;
+    updated_at?: string | null;
+    [key: string]: unknown;
+  };
+  result?: SubmitResponse | Record<string, unknown> | null;
+  generating?: boolean;
+  retry_after_seconds?: number;
+  retry_after?: number;
+  meta?: Record<string, unknown>;
 };
 
 export type ResultResponse = {
@@ -2404,6 +2429,22 @@ export async function fetchAttemptResult({
   const response = await apiClient.get<ResultResponse>(`/v0.3/attempts/${attemptId}/result`, anonHeader(anonId));
 
   return assertApiOk(response, "Failed to load result.");
+}
+
+export async function fetchAttemptSubmission({
+  attemptId,
+  anonId,
+}: {
+  attemptId: string;
+  anonId?: string;
+}): Promise<AttemptSubmissionResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await apiClient.get<AttemptSubmissionResponse>(
+    `/v0.3/attempts/${attemptId}/submission`,
+    anonHeader(resolvedAnonId)
+  );
+
+  return assertApiOk(response, "Failed to load submission.");
 }
 
 export async function getAttemptReport({
