@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
+import { BoundaryNoteBlock, ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -19,8 +20,9 @@ import {
   resolveMbtiCarryoverFocusLabel,
   resolveMbtiCarryoverReasonLabel,
 } from "@/lib/mbti/continuity";
-import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildItemListJsonLd, buildWebPageJsonLd, type FAQItem } from "@/lib/seo/generateSchema";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildItemListJsonLd, type FAQItem } from "@/lib/seo/generateSchema";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -31,14 +33,6 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .split(",")
     .map((part) => part.trim())
     .includes("noindex");
-}
-
-function resolveTwitterCard(value: string | null | undefined): "summary" | "summary_large_image" | "player" | "app" {
-  if (value === "summary" || value === "player" || value === "app") {
-    return value;
-  }
-
-  return "summary_large_image";
 }
 
 function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
@@ -151,11 +145,13 @@ export async function generateMetadata({
     buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
   );
   const noindex = shouldNoindex(detail.seo.meta.robots);
-  const metadata = buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "guide",
     locale,
     pathname: canonicalPath,
     title: detail.seo.surface?.title || detail.seo.meta.title,
     description: detail.seo.surface?.description || detail.seo.meta.description,
+    imagePath: detail.seo.surface?.og.image ?? detail.seo.meta.og.image ?? undefined,
     seoSurface: detail.seo.surface,
     noindex: !detail.seo.surface ? noindex : undefined,
     alternatesByLocale: {
@@ -163,30 +159,13 @@ export async function generateMetadata({
       zh: detail.seo.meta.alternates["zh-CN"] ?? buildCareerRecommendationFrontendUrl("zh", detail.publicRouteSlug),
       xDefault: "/",
     },
+    canonical: detail.seo.surface?.canonicalUrl ?? detail.seo.meta.canonical ?? canonicalUrl(canonicalPath),
+    metaAlternates: {
+      en: detail.seo.meta.alternates.en ?? canonicalUrl(buildCareerRecommendationFrontendUrl("en", detail.publicRouteSlug)),
+      "zh-CN": detail.seo.meta.alternates["zh-CN"] ?? canonicalUrl(buildCareerRecommendationFrontendUrl("zh", detail.publicRouteSlug)),
+    },
+    ogType: "article",
   });
-  const canonical = detail.seo.surface?.canonicalUrl ?? detail.seo.meta.canonical ?? canonicalUrl(canonicalPath);
-
-  return {
-    ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      canonical,
-    },
-    openGraph: {
-      type: "article",
-      url: detail.seo.surface?.og.url ?? canonical,
-      title: detail.seo.surface?.og.title || detail.seo.meta.og.title,
-      description: detail.seo.surface?.og.description || detail.seo.meta.og.description,
-      images: detail.seo.surface?.og.image ? [detail.seo.surface.og.image] : detail.seo.meta.og.image ? [detail.seo.meta.og.image] : undefined,
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-    },
-    twitter: {
-      card: resolveTwitterCard(detail.seo.surface?.twitter.card ?? detail.seo.meta.twitter.card),
-      title: detail.seo.surface?.twitter.title || detail.seo.meta.twitter.title,
-      description: detail.seo.surface?.twitter.description || detail.seo.meta.twitter.description,
-      images: detail.seo.surface?.twitter.image ? [detail.seo.surface.twitter.image] : detail.seo.meta.twitter.image ? [detail.seo.meta.twitter.image] : undefined,
-    },
-  };
 }
 
 export default async function CareerMbtiRecommendationPage({
@@ -222,21 +201,6 @@ export default async function CareerMbtiRecommendationPage({
   const answerFirst = detail.answerSurface?.summaryBlocks[0]?.body || buildAnswerFirst(detail, locale);
   const faqItems = buildAnswerSurfaceFaqItems(detail, locale);
   const landingSurface = detail.landingSurface;
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
-    title: detail.seo.meta.title,
-    description: detail.seo.meta.description,
-    locale,
-  });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
-    {
-      name: locale === "zh" ? "职业推荐" : "Career recommendations",
-      path: localizedPath("/career/recommendations", locale),
-    },
-    { name: detail.displayType, path: canonicalPath },
-  ]);
   const itemListJsonLd = buildItemListJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`,
@@ -248,13 +212,36 @@ export default async function CareerMbtiRecommendationPage({
       description: job.summary,
     })),
   });
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `career-mbti-${detail.publicRouteSlug}`,
+    pageType: "guide",
+    locale,
+    canonicalPath,
+    title: detail.seo.meta.title,
+    description: detail.seo.meta.description,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+      { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
+      {
+        name: locale === "zh" ? "职业推荐" : "Career recommendations",
+        path: localizedPath("/career/recommendations", locale),
+      },
+      { name: detail.displayType, path: canonicalPath },
+    ],
+    faqItems,
+    extraNodes: [
+      {
+        idSuffix: "itemlist",
+        data: itemListJsonLd,
+      },
+    ],
+  });
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`career-mbti-webpage-${detail.publicRouteSlug}`} data={webPageJsonLd} />
-      <JsonLd id={`career-mbti-breadcrumb-${detail.publicRouteSlug}`} data={breadcrumbJsonLd} />
-      <JsonLd id={`career-mbti-itemlist-${detail.publicRouteSlug}`} data={itemListJsonLd} />
-      <JsonLd id={`career-mbti-faq-${detail.publicRouteSlug}`} data={buildFAQPageJsonLd(faqItems)} />
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -332,10 +319,32 @@ export default async function CareerMbtiRecommendationPage({
         </div>
       </section>
 
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={answerFirst}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "推荐口径" : "Recommendation scope"}
+        body={locale === "zh"
+          ? `公开路由使用 ${detail.publicRouteSlug}，但匹配逻辑仍固定回落到 ${detail.graphTypeCode} 这一 canonical family，因此人格推荐只作为路由信号，不直接替代岗位验证。`
+          : `The public route uses ${detail.publicRouteSlug}, but graph matching still falls back to the canonical family ${detail.graphTypeCode}. Personality remains a routing signal rather than the final job decision.`}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
       <AnswerSurfaceSection
         surface={detail.answerSurface}
         locale={locale}
         testId="career-recommendation-answer-surface"
+      />
+
+      <BoundaryNoteBlock
+        title={locale === "zh" ? "边界说明" : "Boundary note"}
+        body={locale === "zh"
+          ? "职业推荐页描述的是相对匹配方向和优先验证顺序，不等于单一人格即可决定职业选择。最终判断仍需结合技能、经历、机会成本和真实岗位信息。"
+          : "Career recommendation pages describe relative fit directions and a validation order. They do not mean a single personality label determines career choice. Final decisions still depend on skills, experience, opportunity cost, and real role constraints."}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       />
 
       <section
@@ -377,7 +386,10 @@ export default async function CareerMbtiRecommendationPage({
                         : "-"}
                   </td>
                   <td className="px-3 py-3">
-                    <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                    <Link
+                      href={normalizePublicHref(job.href, locale)}
+                      className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                    >
                       {job.title}
                     </Link>
                   </td>
@@ -526,7 +538,7 @@ export default async function CareerMbtiRecommendationPage({
         <div className="flex flex-wrap gap-2">
           {landingSurface?.ctaBundle.length
             ? landingSurface.ctaBundle.map((cta) => (
-                <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                <Link key={cta.key} href={normalizePublicHref(cta.href, locale)} className="fm-help-chip-link">
                   {cta.label}
                 </Link>
               ))

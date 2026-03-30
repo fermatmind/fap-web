@@ -19,6 +19,13 @@ type WebPageSchemaInput = {
   locale: LocaleCode;
 };
 
+type CollectionPageSchemaInput = {
+  path: string;
+  title: string;
+  description: string;
+  locale: LocaleCode;
+};
+
 type ArticleSchemaInput = {
   path: string;
   title: string;
@@ -43,6 +50,14 @@ type OccupationSchemaInput = {
   locale: LocaleCode;
   skills?: string[];
   salaryRange?: string;
+};
+
+type ItemPageSchemaInput = {
+  path: string;
+  title: string;
+  description: string;
+  locale: LocaleCode;
+  mainEntity?: Record<string, unknown>;
 };
 
 type ItemListSchemaInput = {
@@ -98,6 +113,20 @@ export function buildWebPageJsonLd(input: WebPageSchemaInput) {
   };
 }
 
+export function buildCollectionPageJsonLd(input: CollectionPageSchemaInput) {
+  const url = canonicalUrl(input.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#collection`,
+    url,
+    name: input.title,
+    description: input.description,
+    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+    mainEntityOfPage: url,
+  };
+}
+
 export function buildArticleJsonLd(input: ArticleSchemaInput) {
   const url = canonicalUrl(input.path);
   return {
@@ -149,6 +178,21 @@ export function buildOccupationJsonLd(input: OccupationSchemaInput) {
     skills: input.skills,
     estimatedSalary: input.salaryRange,
     mainEntityOfPage: url,
+  };
+}
+
+export function buildItemPageJsonLd(input: ItemPageSchemaInput) {
+  const url = canonicalUrl(input.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    "@id": `${url}#itempage`,
+    url,
+    name: input.title,
+    description: input.description,
+    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+    mainEntityOfPage: url,
+    ...(input.mainEntity ? { mainEntity: input.mainEntity } : {}),
   };
 }
 

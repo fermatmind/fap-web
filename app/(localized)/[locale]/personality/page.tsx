@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
+import { ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +21,8 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
 
-  return buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "hub",
     locale,
     pathname: locale === "zh" ? "/zh/personality" : "/en/personality",
     title: locale === "zh" ? "人格类型" : "Personality Types",
@@ -55,24 +57,27 @@ export default async function PersonalityPage({
     },
   }));
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: "personality-index",
+    pageType: "hub",
+    locale,
+    canonicalPath,
     title: locale === "zh" ? "人格类型" : "Personality Types",
     description:
       locale === "zh"
         ? "浏览 16 型人格的优势、风险、人际模式与职业匹配建议。"
         : "Explore strengths, risks, relationship patterns, and career-fit guidance across 16 personality types.",
-    locale,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
+      { name: locale === "zh" ? "人格" : "Personality", path: canonicalPath },
+    ],
   });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "人格" : "Personality", path: canonicalPath },
-  ]);
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id="personality-webpage" data={webPageJsonLd} />
-      <JsonLd id="personality-breadcrumb" data={breadcrumbJsonLd} />
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: withLocale("/") },
@@ -100,13 +105,29 @@ export default async function PersonalityPage({
         {landingSurface?.ctaBundle.length ? (
           <div className="flex flex-wrap gap-2 pt-1" data-testid="personality-index-landing-cta">
             {landingSurface.ctaBundle.map((cta) => (
-              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+              <Link key={cta.key} href={normalizePublicHref(cta.href, locale)} className="fm-help-chip-link">
                 {cta.label}
               </Link>
             ))}
           </div>
         ) : null}
       </section>
+
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={landingSurface?.summaryBlocks[0]?.body || (locale === "zh"
+          ? "人格索引页集中展示 16 型人格入口，帮助用户先理解类型差异，再进入单个实体页、测试页和职业页。"
+          : "The personality index concentrates all 16 type entry points so users can compare type differences before entering a single entity page, test page, or career page.")}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "索引口径" : "Index scope"}
+        body={locale === "zh"
+          ? "本页承担索引和导航角色，关键事实以 HTML 文本和可抓取链接呈现，结构化数据只帮助搜索系统识别这是一个人格聚合页。"
+          : "This page acts as an index and navigation surface. Key facts appear as HTML text and crawlable links, while structured data only helps search systems recognize it as a personality hub."}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
 
       {personalities.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">

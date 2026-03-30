@@ -2,13 +2,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCmsArticles } from "@/lib/cms/articles";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
-import { buildPageMetadata } from "@/lib/seo/metadata";
 import { findLandingCta } from "@/lib/landing/landingSurface";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 
 export const dynamic = "force-dynamic";
 
@@ -54,7 +56,8 @@ export async function generateMetadata({
       ? `${dict.articles.title} · ${locale === "zh" ? `第 ${currentPage} 页` : `Page ${currentPage}`}`
       : dict.articles.title;
 
-  return buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "hub",
     locale,
     pathname,
     title,
@@ -92,6 +95,19 @@ export default async function ArticlesPage({
   const topicHubCta = findLandingCta(landingSurface, "topic_hub");
   const startTestCta = findLandingCta(landingSurface, "start_test");
   const pageLink = (page: number) => (page <= 1 ? withLocale("/articles") : `${withLocale("/articles")}?page=${page}`);
+  const canonicalPath = currentPage > 1 ? `/articles?page=${currentPage}` : "/articles";
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `articles-index-${currentPage}`,
+    pageType: "hub",
+    locale,
+    canonicalPath: localizedPath(canonicalPath, locale),
+    title: heroTitle,
+    description: heroSummary || dict.articles.subtitle,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: withLocale("/") },
+      { name: dict.articles.title, path: localizedPath(canonicalPath, locale) },
+    ],
+  });
   const publishedLabel = locale === "zh" ? "发布于" : "Published";
   const emptyTitle = locale === "zh" ? "暂无已发布文章" : "No published articles yet";
   const emptyDescription =
@@ -101,6 +117,9 @@ export default async function ArticlesPage({
 
   return (
     <Container as="main" className="space-y-6 py-10">
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: withLocale("/") },
@@ -124,7 +143,7 @@ export default async function ArticlesPage({
               .map((cta) => (
                 <Link
                   key={cta.key}
-                  href={cta.href}
+                  href={normalizePublicHref(cta.href, locale)}
                   className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {cta.label}

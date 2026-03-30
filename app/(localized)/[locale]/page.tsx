@@ -4,13 +4,14 @@ import {
   HighlightedTestsSection,
   type HomeHighlightedCard,
 } from "@/components/marketing/HighlightedTestsSection";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { SocialProofSection } from "@/components/marketing/SocialProofSection";
 import { ValuePropsSection } from "@/components/marketing/ValuePropsSection";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 
 const HIGHLIGHTED_CARD_PRESENTATION = {
   "mbti-personality-test-16-personality-types": {
@@ -166,7 +167,8 @@ export async function generateMetadata({
   const isZh = locale === "zh";
   const pathname = isZh ? "/zh" : "/en";
 
-  return buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "hub",
     locale,
     pathname,
     title: "FermatMind",
@@ -189,6 +191,16 @@ export default async function Home({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `home-${locale}`,
+    pageType: "hub",
+    locale,
+    canonicalPath: locale === "zh" ? "/zh" : "/en",
+    title: "FermatMind",
+    description: locale === "zh"
+      ? "费马测试：科学自我测评与人格洞察。"
+      : "FermatMind assessments and personality insights.",
+  });
   const allTests = getAllTests();
   const bySlug = new Map<string, (typeof allTests)[number]>();
   for (const item of allTests) {
@@ -231,6 +243,9 @@ export default async function Home({
 
   return (
     <main className="fm-home">
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <AnalyticsPageViewTracker eventName="view_landing" />
 
       <HeroSection locale={locale} />

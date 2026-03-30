@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { CanonicalLinkCluster } from "@/components/content/CanonicalLinkCluster";
 import { Container } from "@/components/layout/Container";
+import { BoundaryNoteBlock, ConclusionSummaryBlock, MethodologyBlock, SampleInfoBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -15,8 +17,9 @@ import {
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
+import { mergeGraphLinks, requiredGraphLinks } from "@/lib/navigation/contentGraph";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -91,7 +94,8 @@ export async function generateMetadata({
   const title = seo?.surface?.title || seo?.meta.title || job.title;
   const description = seo?.surface?.description || seo?.meta.description || job.summary;
   const noindex = !job.isIndexable || shouldNoindex(seo?.meta.robots ?? job.seoMeta?.robots);
-  const metadata = buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "entity",
     locale,
     pathname: seoCanonicalPath,
     title,
@@ -104,42 +108,13 @@ export async function generateMetadata({
       zh: buildCareerJobFrontendUrl("zh", job.slug),
       xDefault: "/",
     },
+    canonical: seo?.surface?.canonicalUrl ?? canonicalUrl(canonicalPath),
+    metaAlternates: {
+      en: seo?.meta.alternates.en ?? canonicalUrl(buildCareerJobFrontendUrl("en", job.slug)),
+      "zh-CN": seo?.meta.alternates["zh-CN"] ?? canonicalUrl(buildCareerJobFrontendUrl("zh", job.slug)),
+    },
+    ogType: "article",
   });
-  const canonical = seo?.surface?.canonicalUrl ?? canonicalUrl(canonicalPath);
-  const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? job.coverImageUrl ?? null;
-  const twitterImages = normalizeTwitterImages(
-    seo?.surface?.twitter.image,
-    seo?.meta.twitter.image,
-    ogImage,
-    metadata.twitter?.images,
-  );
-
-  return {
-    ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      canonical,
-      languages: {
-        ...metadata.alternates?.languages,
-        en: seo?.meta.alternates.en ?? canonicalUrl(buildCareerJobFrontendUrl("en", job.slug)),
-        "zh-CN": seo?.meta.alternates["zh-CN"] ?? canonicalUrl(buildCareerJobFrontendUrl("zh", job.slug)),
-      },
-    },
-    openGraph: {
-      type: "article",
-      url: seo?.surface?.og.url ?? canonical,
-      title: seo?.surface?.og.title || seo?.meta.og.title || title,
-      description: seo?.surface?.og.description || seo?.meta.og.description || description,
-      images: ogImage ? [ogImage] : undefined,
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-    },
-    twitter: {
-      card: resolveTwitterCard(seo?.surface?.twitter.card ?? seo?.meta.twitter.card),
-      title: seo?.surface?.twitter.title || seo?.meta.twitter.title || title,
-      description: seo?.surface?.twitter.description || seo?.meta.twitter.description || description,
-      images: twitterImages,
-    },
-  };
 }
 
 export default async function CareerJobDetailPage({
@@ -160,23 +135,38 @@ export default async function CareerJobDetailPage({
 
   const canonicalPath = buildCanonicalPath(job.slug, locale);
   const landingSurface = job.landingSurface;
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
-    { name: locale === "zh" ? "职业库" : "Jobs", path: localizedPath("/career/jobs", locale) },
-    { name: job.title, path: canonicalPath },
-  ]);
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `career-job-${job.slug}`,
+    pageType: "entity",
+    locale,
+    canonicalPath,
+    title: seo?.meta.title ?? job.title,
+    description: seo?.meta.description ?? job.summary,
+    primary: seo?.jsonld,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+      { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
+      { name: locale === "zh" ? "职业库" : "Jobs", path: localizedPath("/career/jobs", locale) },
+      { name: job.title, path: canonicalPath },
+    ],
+  });
   const showFitCard =
     job.fitPersonalityItems.length > 0 ||
     job.mbtiPrimary.length > 0 ||
     job.mbtiSecondary.length > 0 ||
     hasRiasecData(job.riasecVector) ||
     Boolean(job.outlookText);
+  const graphLinks = mergeGraphLinks(
+    locale,
+    (landingSurface?.ctaBundle ?? []).map((cta) => ({ href: cta.href, label: cta.label })),
+    requiredGraphLinks("career", locale)
+  );
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      {seo?.jsonld ? <JsonLd id={`career-job-occupation-${job.slug}`} data={seo.jsonld} /> : null}
-      <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={breadcrumbJsonLd} />
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -210,6 +200,33 @@ export default async function CareerJobDetailPage({
           </blockquote>
         ) : null}
       </section>
+
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={job.summary}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "岗位口径" : "Method and scope"}
+        body={
+          locale === "zh"
+            ? "岗位页优先把职责、技能、薪资与匹配线索以 HTML 文本输出，避免把核心信息只留在卡片或交互组件里。"
+            : "Job pages prioritize HTML text for responsibilities, skills, salary, and fit signals, so core facts are not trapped inside cards or interactive UI only."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <SampleInfoBlock
+        title={locale === "zh" ? "页面事实摘要" : "Fact summary"}
+        items={[
+          { label: locale === "zh" ? "岗位代码" : "Job code", value: job.jobCode || job.slug },
+          { label: locale === "zh" ? "语言" : "Locale", value: job.locale },
+          { label: locale === "zh" ? "Canonical" : "Canonical", value: canonicalUrl(canonicalPath) },
+          { label: locale === "zh" ? "索引策略" : "Robots", value: seo?.meta.robots ?? (job.isIndexable ? "index,follow" : "noindex,follow") },
+        ]}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
 
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
@@ -246,6 +263,16 @@ export default async function CareerJobDetailPage({
           </CardContent>
         </Card>
       </div>
+
+      <BoundaryNoteBlock
+        title={locale === "zh" ? "边界说明" : "Boundary note"}
+        body={
+          locale === "zh"
+            ? "岗位匹配用于解释群体层面的倾向与能力要求，不代表个人录用结果，也不能替代真实岗位 JD 与面试判断。"
+            : "Job fit signals explain group-level tendencies and role requirements. They do not predict individual hiring outcomes or replace real job descriptions and interviews."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
 
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
@@ -348,7 +375,7 @@ export default async function CareerJobDetailPage({
           </h2>
           <div className="flex flex-wrap gap-2">
             {landingSurface.ctaBundle.map((cta) => (
-              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+              <Link key={cta.key} href={normalizePublicHref(cta.href, locale)} className="fm-help-chip-link">
                 {cta.label}
               </Link>
             ))}
@@ -356,7 +383,14 @@ export default async function CareerJobDetailPage({
         </section>
       ) : null}
 
-      <Link href={localizedPath("/career/jobs", locale)} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+      <CanonicalLinkCluster
+        title={locale === "zh" ? "图谱必连页面" : "Required graph links"}
+        items={graphLinks}
+        locale={locale}
+        testId="career-job-required-graph-links"
+      />
+
+      <Link href={normalizePublicHref(localizedPath("/career/jobs", locale), locale)} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
         {locale === "zh" ? "返回职业库" : "Back to job library"}
       </Link>
     </Container>

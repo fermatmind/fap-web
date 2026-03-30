@@ -8,6 +8,7 @@ import {
 } from "@/lib/help/helpCenterContent";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
 import { getHelpGatewaySurface } from "@/lib/publicGateway";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -57,7 +58,7 @@ export default async function HelpPage({
     : pages;
   const quickActions = landingSurface?.ctaBundle.length
     ? landingSurface.ctaBundle.map((cta) => ({
-        href: cta.href.replace(/^\/(en|zh)/, ""),
+        href: normalizePublicHref(cta.href, locale),
         label: cta.label,
         description: "",
       }))
@@ -91,7 +92,7 @@ export default async function HelpPage({
                 <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{action.label}</h3>
                 {action.description ? <p className="m-0 text-sm text-[var(--fm-text-muted)]">{action.description}</p> : null}
                 <div>
-                  <Link href={withLocale(action.href)} className="inline-flex">
+                  <Link href={normalizePublicHref(action.href, locale)} className="inline-flex">
                     <Button type="button" variant="outline">{action.label}</Button>
                   </Link>
                 </div>

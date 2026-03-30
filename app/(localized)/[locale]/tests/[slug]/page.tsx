@@ -5,8 +5,9 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
 import { CTASticky } from "@/components/business/CTASticky";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
+import { CanonicalLinkCluster } from "@/components/content/CanonicalLinkCluster";
 import { Container } from "@/components/layout/Container";
-import { CiteableSection } from "@/components/seo/CiteableSection";
+import { BoundaryNoteBlock, ConclusionSummaryBlock, MethodologyBlock, SampleInfoBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -30,12 +31,10 @@ import {
   type SupportedScaleCode,
 } from "@/lib/rollout/scaleRollout";
 import { findLandingCta, normalizeLandingSurface } from "@/lib/landing/landingSurface";
-import {
-  buildBreadcrumbJsonLd,
-  buildFAQPageJsonLd,
-  buildWebPageJsonLd,
-} from "@/lib/seo/generateSchema";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { mergeGraphLinks, requiredGraphLinks } from "@/lib/navigation/contentGraph";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
+import { canonicalUrl } from "@/lib/site";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 type LookupResponse = {
@@ -214,7 +213,8 @@ export async function generateMetadata({
   const ogImage = toStringValue(lookup?.og_image_url) || test.cover_image;
   const forcedNoindex = lookup?.is_indexable === false;
 
-  return buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "test",
     locale,
     pathname: canonical,
     title,
@@ -226,6 +226,7 @@ export async function generateMetadata({
       zh: alternates.zh,
       xDefault: "/",
     },
+    canonical: canonicalUrl(canonical),
   });
 }
 
@@ -272,9 +273,18 @@ export default async function TestLandingPage({
   });
   const testDisabled = !rollout.assessmentEnabled;
   const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
-  const startTestHref = landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`);
+  const startTestHref = normalizePublicHref(landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`), locale);
   const backToTestsCta = findLandingCta(landingSurface, "back_to_tests");
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
+  const graphLinks = mergeGraphLinks(
+    locale,
+    [
+      { href: backToTestsCta?.href || withLocale("/tests"), label: backToTestsCta?.label || (locale === "zh" ? "返回测试列表" : "Back to tests"), kind: "test" },
+      continuePublicContentCta ? { href: continuePublicContentCta.href, label: continuePublicContentCta.label } : null,
+    ],
+    (landingSurface?.ctaBundle ?? []).map((cta) => ({ href: cta.href, label: cta.label })),
+    requiredGraphLinks("test", locale)
+  );
 
   const packId = toStringValue(lookup?.pack_id) || test.scale_code || "BIG5_OCEAN";
   const dirVersion = toStringValue(lookup?.dir_version);
@@ -316,34 +326,42 @@ export default async function TestLandingPage({
   });
   const relatedPosts = listRelatedBlogPosts(test.slug, locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `test-${test.slug}`,
+    pageType: "test",
+    locale,
+    canonicalPath,
     title: toStringValue(lookup?.seo_title) || localizedTestTitle,
     description: toStringValue(lookup?.seo_description) || test.description,
-    locale,
-  });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "测评" : "Tests", path: locale === "zh" ? "/zh/tests" : "/en/tests" },
-    { name: localizedTestTitle, path: canonicalPath },
-  ]);
-  const faqJsonLd = buildFAQPageJsonLd(
-    mergedFaq.map((item) => ({
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
+      { name: locale === "zh" ? "测评" : "Tests", path: locale === "zh" ? "/zh/tests" : "/en/tests" },
+      { name: localizedTestTitle, path: canonicalPath },
+    ],
+    faqItems: mergedFaq.map((item) => ({
       question: item.q,
       answer: item.a,
-    }))
+    })),
+  });
+  const methodologyBody = locale === "zh"
+    ? "你会在一次完整会话中完成问卷，提交后立即查看结果摘要；免费版提供摘要与核心维度，完整版会扩展到刻面表、深度解读与行动建议。"
+    : "You complete the questionnaire in one focused sitting and receive an immediate summary after submission. The free tier covers summary plus core domains, while the full version extends to facet tables, deeper interpretation, and action guidance.";
+  const boundaryBody = disclaimer || (
+    locale === "zh"
+      ? "这是一份用于自我认知的测评，不构成医疗、心理诊断或紧急支持。若你正处于急性危机，请优先联系专业帮助。"
+      : "This assessment supports self-discovery and does not provide medical, psychological, or emergency advice. If you are in acute crisis, seek professional help first."
   );
 
   return (
     <Container as="main" className="pb-[var(--fm-space-30)] pt-12 lg:pb-12">
-      <JsonLd id={`test-webpage-${test.slug}`} data={webPageJsonLd} />
-      <JsonLd id={`test-breadcrumb-${test.slug}`} data={breadcrumbJsonLd} />
-      <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} />
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
-          <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
+          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
               {locale === "zh" ? "人格测评" : "Personality Assessment"}
             </p>
@@ -398,11 +416,34 @@ export default async function TestLandingPage({
                   {locale === "zh" ? "开始测试" : "Start test"}
                 </Link>
               )}
-              <Link href={backToTestsCta?.href || withLocale("/tests")} className={buttonVariants({ variant: "outline", size: "lg" })}>
+              <Link href={normalizePublicHref(backToTestsCta?.href || withLocale("/tests"), locale)} className={buttonVariants({ variant: "outline", size: "lg" })}>
                 {backToTestsCta?.label || (locale === "zh" ? "返回测试列表" : "Back to tests")}
               </Link>
             </div>
           </section>
+
+          <ConclusionSummaryBlock
+            title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+            body={landingCopy || test.description}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          />
+
+          <MethodologyBlock
+            title={locale === "zh" ? "测评流程" : "Method and flow"}
+            body={methodologyBody}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          />
+
+          <SampleInfoBlock
+            title={locale === "zh" ? "页面事实摘要" : "Fact summary"}
+            items={[
+              { label: locale === "zh" ? "题量" : "Questions", value: String(test.questions_count) },
+              { label: locale === "zh" ? "时长" : "Minutes", value: String(test.time_minutes) },
+              { label: locale === "zh" ? "量表" : "Scale", value: test.scale_code || "N/A" },
+              { label: locale === "zh" ? "Canonical" : "Canonical", value: canonicalUrl(canonicalPath) },
+            ]}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          />
 
           {rollout.paywallMode === "free_only" || !rollout.commerceEnabled ? (
             <Card>
@@ -429,34 +470,6 @@ export default async function TestLandingPage({
               </CardContent>
             </Card>
           ) : null}
-
-          <CiteableSection
-            id="when-to-use"
-            title={locale === "zh" ? "何时使用这份测评" : "When to use this assessment"}
-            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-          >
-            <p className="m-0 text-sm text-slate-600">
-              {locale === "zh"
-                ? "适用于希望了解人格倾向、沟通偏好和自我成长路径的场景。若你处于急性危机状态，请优先联系专业帮助。"
-                : "Use this when you want clarity on your personality tendencies, communication patterns, and growth direction. For acute crisis situations, seek professional help first."}
-            </p>
-          </CiteableSection>
-
-          <Card id="how-it-works">
-            <CardHeader>
-              <CardTitle>{locale === "zh" ? "你将获得什么" : "What to expect"}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3 text-sm text-slate-600">
-              <p>{locale === "zh" ? "1. 在一次完整会话中完成问卷。" : "1. Complete the questionnaire in one focused sitting."}</p>
-              <p>{locale === "zh" ? "2. 提交后立即查看结果摘要。" : "2. Submit answers and review the generated summary."}</p>
-              <p>{locale === "zh" ? "3. 可按需解锁完整报告。" : "3. Optionally unlock the full report for deeper interpretation."}</p>
-              <p>
-                {locale === "zh"
-                  ? "4. 免费版包含摘要与核心维度；完整版解锁刻面表、深度解读与行动建议。"
-                  : "4. Free includes summary + core domains; full unlocks facet table, deep dive, and action plan."}
-              </p>
-            </CardContent>
-          </Card>
 
           <Card data-testid="tests-related-articles-section">
             <CardHeader>
@@ -497,7 +510,7 @@ export default async function TestLandingPage({
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
                 {landingSurface.ctaBundle.map((cta) => (
-                  <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                  <Link key={cta.key} href={normalizePublicHref(cta.href, locale)} className="fm-help-chip-link">
                     {cta.label}
                   </Link>
                 ))}
@@ -519,30 +532,23 @@ export default async function TestLandingPage({
             <FAQAccordion items={mergedFaq} />
           </section>
 
-          {disclaimer ? (
-            <Card id="limitations">
-              <CardHeader>
-                <CardTitle>{locale === "zh" ? "免责声明" : "Disclaimer"}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-slate-700">{disclaimer}</CardContent>
-            </Card>
-          ) : null}
-
-          <Card id="references">
-            <CardHeader>
-              <CardTitle>{locale === "zh" ? "参考与说明" : "References and Notes"}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-slate-700">
-              {locale === "zh"
-                ? "请结合测评正文、FAQ 与专业建议综合解读结果。若你正在接受治疗或咨询，请以专业意见为准。"
-                : "Interpret the result with the page content, FAQ, and qualified professional guidance. If you are already in treatment, follow your clinician’s advice."}
-            </CardContent>
-          </Card>
+          <BoundaryNoteBlock
+            title={locale === "zh" ? "边界说明" : "Boundary note"}
+            body={boundaryBody}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          />
           {continuePublicContentCta ? (
-            <Link href={continuePublicContentCta.href} className="fm-help-chip-link">
+            <Link href={normalizePublicHref(continuePublicContentCta.href, locale)} className="fm-help-chip-link">
               {continuePublicContentCta.label}
             </Link>
           ) : null}
+
+          <CanonicalLinkCluster
+            title={locale === "zh" ? "图谱必连页面" : "Required graph links"}
+            items={graphLinks}
+            locale={locale}
+            testId="test-required-graph-links"
+          />
         </div>
 
         <aside>

@@ -3,8 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { CanonicalLinkCluster } from "@/components/content/CanonicalLinkCluster";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
+import { BoundaryNoteBlock, ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -17,8 +19,9 @@ import {
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
+import { mergeGraphLinks, requiredGraphLinks } from "@/lib/navigation/contentGraph";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 
 export const dynamic = "force-dynamic";
 
@@ -61,7 +64,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const canonicalPath = buildCanonicalPath(guide.slug, locale);
   const normalizedSeo = normalizeCareerGuideSeoPayload(seo, guide, locale);
   const noindex = !guide.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
-  const metadata = buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "guide",
     locale,
     pathname: canonicalPath,
     title: normalizedSeo.surface?.title || normalizedSeo.meta.title,
@@ -74,44 +78,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       zh: buildCareerGuideFrontendUrl("zh", guide.slug),
       xDefault: "/",
     },
+    canonical: normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical,
+    metaAlternates: {
+      en: normalizedSeo.meta.alternates.en,
+      "zh-CN": normalizedSeo.meta.alternates["zh-CN"],
+    },
+    ogType: (normalizedSeo.surface?.og.type ?? normalizedSeo.meta.og.type) === "website" ? "website" : "article",
   });
-  const canonical = normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical;
-  const ogImage = normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? null;
-  const twitterImages = normalizeTwitterImages(
-    normalizedSeo.surface?.twitter.image,
-    normalizedSeo.meta.twitter.image,
-    ogImage,
-    metadata.twitter?.images,
-  );
-
-  return {
-    ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      canonical,
-      languages: {
-        ...metadata.alternates?.languages,
-        en: normalizedSeo.meta.alternates.en ?? metadata.alternates?.languages?.en,
-        "zh-CN":
-          normalizedSeo.meta.alternates["zh-CN"] ??
-          metadata.alternates?.languages?.["zh-CN"],
-      },
-    },
-    openGraph: {
-      type: (normalizedSeo.surface?.og.type ?? normalizedSeo.meta.og.type) === "website" ? "website" : "article",
-      url: normalizedSeo.surface?.og.url ?? canonical ?? undefined,
-      title: normalizedSeo.surface?.og.title || normalizedSeo.meta.og.title,
-      description: normalizedSeo.surface?.og.description || normalizedSeo.meta.og.description,
-      images: ogImage ? [ogImage] : metadata.openGraph?.images,
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-    },
-    twitter: {
-      card: resolveTwitterCard(normalizedSeo.surface?.twitter.card ?? normalizedSeo.meta.twitter.card),
-      title: normalizedSeo.surface?.twitter.title || normalizedSeo.meta.twitter.title,
-      description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
-      images: twitterImages,
-    },
-  };
 }
 
 export default async function CareerGuideDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -129,23 +102,43 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
   const normalizedSeo = normalizeCareerGuideSeoPayload(seo, guide, locale);
   const canonicalPath = buildCanonicalPath(guide.slug, locale);
   const landingSurface = guide.landingSurface;
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
-    { name: locale === "zh" ? "职业发展" : "Guides", path: locale === "zh" ? "/zh/career/guides" : "/en/career/guides" },
-    { name: guide.title, path: canonicalPath },
-  ]);
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `career-guide-${guide.slug}`,
+    pageType: "guide",
+    locale,
+    canonicalPath,
+    title: normalizedSeo.meta.title,
+    description: normalizedSeo.meta.description,
+    primary: normalizedSeo.jsonld,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
+      { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
+      { name: locale === "zh" ? "职业发展" : "Guides", path: locale === "zh" ? "/zh/career/guides" : "/en/career/guides" },
+      { name: guide.title, path: canonicalPath },
+    ],
+    articleMeta: {
+      datePublished: guide.publishedAt ?? guide.updatedAt ?? new Date().toISOString(),
+      dateModified: guide.updatedAt ?? guide.publishedAt ?? new Date().toISOString(),
+      authorName: "FermatMind Editorial",
+    },
+  });
   const metadataParts = [
     `${locale === "zh" ? "分类" : "Category"}: ${guide.category}`,
     guide.updatedAt
       ? `${locale === "zh" ? "更新于" : "Updated"}: ${guide.updatedAt}`
       : null,
   ].filter(Boolean);
+  const graphLinks = mergeGraphLinks(
+    locale,
+    (landingSurface?.ctaBundle ?? []).map((cta) => ({ href: cta.href, label: cta.label })),
+    requiredGraphLinks("guide", locale)
+  );
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`career-guide-jsonld-${guide.slug}`} data={normalizedSeo.jsonld} />
-      <JsonLd id={`career-guide-breadcrumb-${guide.slug}`} data={breadcrumbJsonLd} />
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -172,6 +165,22 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
         ) : null}
       </section>
 
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={guide.summary}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "方法与口径" : "Method and scope"}
+        body={
+          locale === "zh"
+            ? "本页优先输出可抓取 HTML 文本，并把页面正文、更新时间、规范链接与后台 SEO contract 对齐；结构化数据只作为理解辅助。"
+            : "This page prioritizes crawlable HTML text and keeps body copy, update timestamps, canonical links, and the CMS SEO contract aligned. Structured data only assists understanding."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
       {guide.bodyMd.trim() || guide.bodyHtml.trim() ? (
         <article className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline">
           {renderGuideBody(guide)}
@@ -184,6 +193,16 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
         testId="career-guide-answer-surface"
       />
 
+      <BoundaryNoteBlock
+        title={locale === "zh" ? "边界说明" : "Boundary note"}
+        body={
+          locale === "zh"
+            ? "职业指南用于帮助理解方向与决策因素，不等于个体录取、求职或职业结果承诺。"
+            : "Career guides help explain direction and decision factors. They are not guarantees about admission, hiring, or career outcomes."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
@@ -192,7 +211,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
           <CardContent className="space-y-1 text-sm text-[var(--fm-text-muted)]">
             {guide.relatedJobs.map((job) => (
               <p key={job.slug} className="m-0">
-                <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                <Link href={normalizePublicHref(job.href, locale)} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
                   {job.title}
                 </Link>
               </p>
@@ -207,7 +226,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
           <CardContent className="space-y-1 text-sm text-[var(--fm-text-muted)]">
             {guide.relatedIndustries.map((industry) => (
               <p key={industry.slug} className="m-0">
-                <Link href={industry.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                <Link href={normalizePublicHref(industry.href, locale)} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
                   {industry.title}
                 </Link>
               </p>
@@ -216,14 +235,19 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
         </Card>
       </div>
 
+      <CanonicalLinkCluster
+        title={locale === "zh" ? "图谱必连页面" : "Required graph links"}
+        items={graphLinks}
+        locale={locale}
+        testId="career-guide-required-graph-links"
+      />
+
       <div className="space-y-6">
-        <RelatedContent
-          title={locale === "zh" ? "相关文章" : "Related articles"}
-          items={guide.relatedArticles}
-        />
+        <RelatedContent title={locale === "zh" ? "相关文章" : "Related articles"} items={guide.relatedArticles} locale={locale} />
         <RelatedContent
           title={locale === "zh" ? "相关人格画像" : "Related personality profiles"}
           items={guide.relatedPersonalityProfiles}
+          locale={locale}
         />
       </div>
 
@@ -234,7 +258,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
           </h2>
           <div className="flex flex-wrap gap-2">
             {landingSurface.ctaBundle.map((cta) => (
-              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+              <Link key={cta.key} href={normalizePublicHref(cta.href, locale)} className="fm-help-chip-link">
                 {cta.label}
               </Link>
             ))}
@@ -242,7 +266,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
         </section>
       ) : null}
 
-      <Link href={localizedPath("/career/guides", locale)} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+      <Link href={normalizePublicHref(localizedPath("/career/guides", locale), locale)} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
         {locale === "zh" ? "返回职业发展" : "Back to career guides"}
       </Link>
     </Container>

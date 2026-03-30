@@ -3,8 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { CanonicalLinkCluster } from "@/components/content/CanonicalLinkCluster";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
+import { BoundaryNoteBlock, ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,11 +16,9 @@ import type { RelatedContentItem } from "@/lib/content";
 import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import {
-  buildArticleJsonLd,
-  buildBreadcrumbJsonLd,
-} from "@/lib/seo/generateSchema";
-import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
+import { mergeGraphLinks, requiredGraphLinks } from "@/lib/navigation/contentGraph";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 
 export const dynamic = "force-dynamic";
 
@@ -106,7 +106,8 @@ export async function generateMetadata({
   const description = seo?.surface?.description || seo?.meta.description || article.excerpt;
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
 
-  const metadata = buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "guide",
     locale,
     pathname: seoCanonicalPath,
     title,
@@ -119,45 +120,13 @@ export async function generateMetadata({
       zh: buildCanonicalPath(article.slug, "zh"),
       xDefault: "/",
     },
+    canonical: seo?.surface?.canonicalUrl ?? seo?.meta.canonical,
+    metaAlternates: {
+      en: seo?.meta.alternates.en,
+      "zh-CN": seo?.meta.alternates["zh-CN"],
+    },
+    ogType: "article",
   });
-
-  const canonical = seo?.surface?.canonicalUrl ?? seo?.meta.canonical ?? String(metadata.alternates?.canonical ?? "");
-  const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? article.coverImageUrl ?? null;
-
-  const twitterImages = normalizeTwitterImages(
-    seo?.surface?.twitter.image,
-    seo?.meta.twitter.image,
-    ogImage,
-    metadata.twitter?.images,
-  );
-
-  return {
-    ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      canonical,
-      languages: {
-        ...metadata.alternates?.languages,
-        en: seo?.meta.alternates.en ?? metadata.alternates?.languages?.en,
-        "zh-CN": seo?.meta.alternates["zh-CN"] ?? metadata.alternates?.languages?.["zh-CN"],
-      },
-    },
-    openGraph: {
-      type: "article",
-      url: canonical,
-      title: seo?.surface?.og.title || seo?.meta.og.title || title,
-      description: seo?.surface?.og.description || seo?.meta.og.description || description,
-      images: ogImage ? [ogImage] : metadata.openGraph?.images,
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-    },
-    twitter: {
-      ...metadata.twitter,
-      card: resolveTwitterCard(seo?.surface?.twitter.card ?? seo?.meta.twitter.card),
-      title: seo?.surface?.twitter.title || seo?.meta.twitter.title || title,
-      description: seo?.surface?.twitter.description || seo?.meta.twitter.description || description,
-      images: twitterImages,
-    },
-  };
 }
 
 export default async function ArticleDetailPage({
@@ -178,23 +147,25 @@ export default async function ArticleDetailPage({
   }
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
-  const articleJsonLd =
-    seo?.jsonld ||
-    buildArticleJsonLd({
-      path: canonicalPath,
-      title: article.title,
-      description: article.excerpt,
-      locale,
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `article-${slug}`,
+    pageType: "guide",
+    locale,
+    canonicalPath,
+    title: article.title,
+    description: article.excerpt,
+    primary: seo?.jsonld,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+      { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
+      { name: article.title, path: canonicalPath },
+    ],
+    articleMeta: {
       datePublished: article.publishedAt ?? article.updatedAt ?? article.createdAt ?? new Date().toISOString(),
       dateModified: article.updatedAt ?? article.publishedAt ?? article.createdAt ?? new Date().toISOString(),
       authorName: "FermatMind Editorial",
-    });
-
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
-    { name: article.title, path: canonicalPath },
-  ]);
+    },
+  });
 
   const publishedAt = formatArticleDate(article.publishedAt, locale);
   const updatedAt = formatArticleDate(article.updatedAt, locale);
@@ -207,6 +178,15 @@ export default async function ArticleDetailPage({
   const backToArticlesCta = findLandingCta(article.landingSurface, "back_to_articles");
   const topicHubCta = findLandingCta(article.landingSurface, "topic_hub");
   const startTestCta = findLandingCta(article.landingSurface, "start_test");
+  const graphLinks = mergeGraphLinks(
+    locale,
+    [
+      { href: backToArticlesCta?.href ?? localizedPath("/articles", locale), label: backToArticlesCta?.label || dict.articles.backToArticles, kind: "guide" },
+      topicHubCta ? { href: topicHubCta.href, label: topicHubCta.label } : null,
+      startTestCta ? { href: startTestCta.href, label: startTestCta.label } : null,
+    ],
+    requiredGraphLinks("guide", locale)
+  );
 
   const relatedArticles: RelatedContentItem[] = [];
   const relatedCareerGuides: RelatedContentItem[] = [];
@@ -214,8 +194,9 @@ export default async function ArticleDetailPage({
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} />
-      <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
 
       <Breadcrumb
         items={[
@@ -237,6 +218,22 @@ export default async function ArticleDetailPage({
       </section>
 
       <AnswerSurfaceSection surface={article.answerSurface} locale={locale} testId="article-answer-surface" />
+
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={heroSummary || article.excerpt}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "内容口径" : "Method and scope"}
+        body={
+          locale === "zh"
+            ? "本页的 metadata 与结构化数据只复述页面可见标题、摘要、发布时间和规范链接，不额外发明页面没有表达的事实。"
+            : "Metadata and structured data on this page only restate visible title, summary, publication dates, and canonical links. They do not invent facts that are not shown on the page."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
 
       <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
         <CardHeader className="space-y-3">
@@ -273,14 +270,15 @@ export default async function ArticleDetailPage({
             {renderArticleBody(article)}
           </article>
 
-          <section
-            id="limitations"
-            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]"
-          >
-            {locale === "zh"
-              ? "本内容用于自我认知与教育参考，不构成医疗或法律建议。"
-              : "This content is for self-discovery and educational use, not medical or legal advice."}
-          </section>
+          <BoundaryNoteBlock
+            title={locale === "zh" ? "边界说明" : "Boundary note"}
+            body={
+              locale === "zh"
+                ? "本内容用于自我认知与教育参考，不构成医疗或法律建议。"
+                : "This content is for self-discovery and educational use, not medical or legal advice."
+            }
+            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+          />
 
           <section
             id="references"
@@ -298,7 +296,7 @@ export default async function ArticleDetailPage({
 
           <div className="flex flex-wrap gap-3">
             <Link
-              href={backToArticlesCta?.href ?? localizedPath("/articles", locale)}
+              href={normalizePublicHref(backToArticlesCta?.href ?? localizedPath("/articles", locale), locale)}
               className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
             >
               {backToArticlesCta?.label || dict.articles.backToArticles}
@@ -306,7 +304,7 @@ export default async function ArticleDetailPage({
 
             {topicHubCta ? (
               <Link
-                href={topicHubCta.href}
+                href={normalizePublicHref(topicHubCta.href, locale)}
                 className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
               >
                 {topicHubCta.label}
@@ -315,7 +313,7 @@ export default async function ArticleDetailPage({
 
             {startTestCta ? (
               <Link
-                href={startTestCta.href}
+                href={normalizePublicHref(startTestCta.href, locale)}
                 className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
               >
                 {startTestCta.label}
@@ -325,18 +323,24 @@ export default async function ArticleDetailPage({
         </CardContent>
       </Card>
 
+      <CanonicalLinkCluster
+        title={locale === "zh" ? "图谱必连页面" : "Required graph links"}
+        items={graphLinks}
+        locale={locale}
+        testId="article-required-graph-links"
+      />
+
       <div className="space-y-6">
-        <RelatedContent
-          title={locale === "zh" ? "相关文章" : "Related articles"}
-          items={relatedArticles}
-        />
+        <RelatedContent title={locale === "zh" ? "相关文章" : "Related articles"} items={relatedArticles} locale={locale} />
         <RelatedContent
           title={locale === "zh" ? "相关职业发展内容" : "Related career guides"}
           items={relatedCareerGuides}
+          locale={locale}
         />
         <RelatedContent
           title={locale === "zh" ? "相关人格画像" : "Related personality profiles"}
           items={relatedTypes}
+          locale={locale}
         />
       </div>
     </Container>

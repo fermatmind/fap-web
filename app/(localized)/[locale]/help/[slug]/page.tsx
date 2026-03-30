@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
+import { BoundaryNoteBlock, ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   HELP_CENTER_SLUGS,
@@ -14,13 +15,9 @@ import {
 } from "@/lib/help/helpCenterContent";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
 import { getHelpDetailGatewaySurface } from "@/lib/publicGateway";
-import {
-  buildBreadcrumbJsonLd,
-  buildFAQPageJsonLd,
-  buildWebPageJsonLd,
-} from "@/lib/seo/generateSchema";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 
 const HELP_LIFECYCLE_PATHS = [
   "/orders/lookup",
@@ -63,7 +60,8 @@ export async function generateMetadata({
     };
   }
 
-  return buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "guide",
     locale,
     pathname: buildCanonicalPath(locale, page.slug),
     title: page.title,
@@ -98,18 +96,24 @@ export default async function HelpDetailPage({
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const canonicalPath = buildCanonicalPath(locale, page.slug);
   const answerFirst = landingSurface?.summaryBlocks[0]?.body || buildHelpAnswerFirst(page, locale);
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "帮助中心" : "Help Center", path: localizedPath("/help", locale) },
-    { name: page.title, path: canonicalPath },
-  ]);
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
+  const isFaqPage = page.slug === "faq" && (page.faqItems?.length ?? 0) > 0;
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `help-${page.slug}`,
+    pageType: "guide",
+    locale,
+    canonicalPath,
     title: page.title,
     description: page.subtitle,
-    locale,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+      { name: locale === "zh" ? "帮助中心" : "Help Center", path: localizedPath("/help", locale) },
+      { name: page.title, path: canonicalPath },
+    ],
+    faqItems: isFaqPage ? (page.faqItems ?? []).map((item) => ({
+      question: item.question,
+      answer: item.answer,
+    })) : [],
   });
-  const isFaqPage = page.slug === "faq" && (page.faqItems?.length ?? 0) > 0;
   const hasLifecycleLinks = HELP_LIFECYCLE_PATHS.every((path) =>
     page.relatedLinks.some((item) => item.href === path)
   );
@@ -119,9 +123,9 @@ export default async function HelpDetailPage({
 
   return (
     <Container as="main" className="max-w-6xl py-10" data-testid={`help-detail-${page.slug}`}>
-      <JsonLd id={`help-webpage-${page.slug}`} data={webPageJsonLd} />
-      <JsonLd id={`help-breadcrumb-${page.slug}`} data={breadcrumbJsonLd} />
-      {isFaqPage ? <JsonLd id={`help-faq-${page.slug}`} data={buildFAQPageJsonLd(page.faqItems ?? [])} /> : null}
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -148,6 +152,20 @@ export default async function HelpDetailPage({
             <p className="m-0 text-lg text-[var(--fm-text)]">{page.subtitle}</p>
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{answerFirst}</p>
           </section>
+
+          <ConclusionSummaryBlock
+            title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+            body={answerFirst}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          />
+
+          <MethodologyBlock
+            title={locale === "zh" ? "帮助页口径" : "Help page scope"}
+            body={locale === "zh"
+              ? "帮助页先给最短可执行答案，再补充上下文、边界和下一步入口；结构化数据只用于帮助搜索系统理解页面，而不是替代正文。"
+              : "Help pages lead with the shortest actionable answer, then add context, boundaries, and next steps. Structured data only helps search systems understand the page and does not replace visible guidance."}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          />
 
           <AnswerSurfaceSection surface={answerSurface} locale={locale} testId={`help-answer-surface-${page.slug}`} />
 
@@ -200,12 +218,12 @@ export default async function HelpDetailPage({
             <div className="flex flex-wrap gap-2">
               {(landingSurface?.ctaBundle.length
                 ? landingSurface.ctaBundle.map((item) => ({
-                    href: item.href.replace(/^\/(en|zh)/, ""),
+                    href: normalizePublicHref(item.href, locale),
                     label: item.label,
                   }))
                 : page.relatedLinks
               ).map((item) => (
-                <Link key={item.href} href={withLocale(item.href)} className="fm-help-chip-link">
+                <Link key={item.href} href={normalizePublicHref(item.href, locale)} className="fm-help-chip-link">
                   {item.label}
                 </Link>
               ))}
@@ -230,6 +248,14 @@ export default async function HelpDetailPage({
               </p>
             ) : null}
           </section>
+
+          <BoundaryNoteBlock
+            title={locale === "zh" ? "边界说明" : "Boundary note"}
+            body={hasLifecycleLinks ? lifecycleSupportCopy : (locale === "zh"
+              ? "帮助页用于解释产品流程、订单处理和支持边界；如果页面内链和邮件入口仍无法解决，再联系支持。"
+              : "Help pages explain product flows, order handling, and support boundaries. If the page links and email entry points still do not resolve the issue, contact support.")}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          />
         </article>
 
         <aside className="h-fit rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)] lg:sticky lg:top-24">

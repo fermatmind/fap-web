@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CareerRecommendationPanel } from "@/components/career/CareerRecommendationPanel";
 import { Container } from "@/components/layout/Container";
+import { ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations";
 import { listBig5RecommendationTraits, listCareerJobs } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 
 type MbtiRecommendationFamily = {
   canonicalTypeCode: string;
@@ -55,7 +56,8 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
 
-  return buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "hub",
     locale,
     pathname: locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations",
     title: locale === "zh" ? "职业推荐" : "Career Recommendations",
@@ -88,25 +90,28 @@ export default async function CareerRecommendationsPage({
   const big5Traits = listBig5RecommendationTraits();
   const canonicalPath =
     locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations";
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: "career-recommendations-index",
+    pageType: "hub",
+    locale,
+    canonicalPath,
     title: locale === "zh" ? "职业推荐" : "Career Recommendations",
     description:
       locale === "zh"
         ? "基于 MBTI、Big5、IQ/EQ 和 RIASEC 的职业个性化推荐。"
         : "Personalized recommendations powered by MBTI, Big5, IQ/EQ, and RIASEC.",
-    locale,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
+      { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
+      { name: locale === "zh" ? "职业推荐" : "Recommendations", path: canonicalPath },
+    ],
   });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
-    { name: locale === "zh" ? "职业推荐" : "Recommendations", path: canonicalPath },
-  ]);
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id="career-recommendation-webpage" data={webPageJsonLd} />
-      <JsonLd id="career-recommendation-breadcrumb" data={breadcrumbJsonLd} />
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {locale === "zh" ? "个性化推荐引擎" : "Recommendation Engine"}
@@ -120,6 +125,22 @@ export default async function CareerRecommendationsPage({
             : "Combines historical assessments with RIASEC to generate explainable recommendations."}
         </p>
       </section>
+
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={locale === "zh"
+          ? "职业推荐页把 MBTI、Big5 与职业兴趣入口组织到同一页面，先分发到正确模型，再进入具体岗位和指南。"
+          : "The recommendation hub organizes MBTI, Big5, and career-interest routes on one page so users enter the right model first and then move into specific roles and guides."}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "推荐口径" : "Recommendation scope"}
+        body={locale === "zh"
+          ? "本页展示的是推荐入口和推荐家族，不把所有结论压缩成一段 marketing copy；具体岗位结论和方法边界在下游详情页中继续展开。"
+          : "This page presents recommendation entry points and families rather than collapsing every conclusion into one marketing block. Specific role conclusions and method boundaries continue on downstream detail pages."}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
 
       <section className="space-y-2">
         <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">MBTI</h2>
@@ -139,7 +160,7 @@ export default async function CareerRecommendationsPage({
                 {family.items.map((item) => (
                   <Link
                     key={item.publicRouteSlug}
-                    href={item.href}
+                    href={normalizePublicHref(item.href, locale)}
                     className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
                   >
                     {item.displayType}

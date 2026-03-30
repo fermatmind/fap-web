@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { CanonicalLinkCluster } from "@/components/content/CanonicalLinkCluster";
 import { Container } from "@/components/layout/Container";
+import { BoundaryNoteBlock, ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -15,8 +17,9 @@ import {
 import { extractTopicFaqItems, renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
+import { mergeGraphLinks, requiredGraphLinks } from "@/lib/navigation/contentGraph";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -31,6 +34,19 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildTopicFrontendUrl(locale, slug);
+}
+
+function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) {
+    return fallbackPath;
+  }
+
+  try {
+    return new URL(normalized).pathname || fallbackPath;
+  } catch {
+    return normalized.startsWith("/") ? normalized : fallbackPath;
+  }
 }
 
 export async function generateMetadata({
@@ -55,9 +71,15 @@ export async function generateMetadata({
   const canonicalPath = buildCanonicalPath(topic.slug, locale);
   const normalizedSeo = normalizeTopicSeoPayload(seo, topic, locale);
   const noindex = !topic.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
-  const metadata = buildPageMetadata({
+  const seoCanonicalPath = pathFromCanonicalUrl(
+    normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical,
+    canonicalPath
+  );
+
+  return buildSeoMetadata({
+    pageType: "hub",
     locale,
-    pathname: canonicalPath,
+    pathname: seoCanonicalPath,
     title: normalizedSeo.surface?.title || normalizedSeo.meta.title,
     description: normalizedSeo.surface?.description || normalizedSeo.meta.description,
     imagePath: normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? undefined,
@@ -68,37 +90,13 @@ export async function generateMetadata({
       zh: buildTopicFrontendUrl("zh", topic.slug),
       xDefault: "/",
     },
+    canonical: normalizedSeo.surface?.canonicalUrl || canonicalUrl(canonicalPath),
+    metaAlternates: {
+      en: canonicalUrl(buildTopicFrontendUrl("en", topic.slug)),
+      "zh-CN": canonicalUrl(buildTopicFrontendUrl("zh", topic.slug)),
+    },
+    ogType: "article",
   });
-  const canonical = normalizedSeo.surface?.canonicalUrl || canonicalUrl(canonicalPath);
-  const ogImage = normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? null;
-  const twitterImages = normalizeTwitterImages(
-    normalizedSeo.surface?.twitter.image,
-    normalizedSeo.meta.twitter.image,
-    ogImage,
-    metadata.twitter?.images,
-  );
-
-  return {
-    ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      canonical,
-    },
-    openGraph: {
-      type: "article",
-      url: normalizedSeo.surface?.og.url || canonical,
-      title: normalizedSeo.surface?.og.title || normalizedSeo.meta.og.title,
-      description: normalizedSeo.surface?.og.description || normalizedSeo.meta.og.description,
-      images: ogImage ? [ogImage] : undefined,
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-    },
-    twitter: {
-      card: resolveTwitterCard(normalizedSeo.surface?.twitter.card ?? normalizedSeo.meta.twitter.card),
-      title: normalizedSeo.surface?.twitter.title || normalizedSeo.meta.twitter.title,
-      description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
-      images: twitterImages,
-    },
-  };
 }
 
 export default async function TopicDetailPage({
@@ -118,7 +116,10 @@ export default async function TopicDetailPage({
   }
 
   const normalizedSeo = normalizeTopicSeoPayload(seo, topic, locale);
-  const canonicalPath = buildCanonicalPath(topic.slug, locale);
+  const canonicalPath = pathFromCanonicalUrl(
+    normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical,
+    buildCanonicalPath(topic.slug, locale)
+  );
   const faqItems = topic.answerSurface?.faqBlocks.length
     ? topic.answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
@@ -128,26 +129,34 @@ export default async function TopicDetailPage({
       }))
     : extractTopicFaqItems(topic.sections);
   const landingSurface = topic.landingSurface;
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `topic-${topic.slug}`,
+    pageType: "hub",
+    locale,
+    canonicalPath,
     title: normalizedSeo.meta.title,
     description: normalizedSeo.meta.description,
-    locale,
+    primary: normalizedSeo.jsonld,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+      { name: locale === "zh" ? "主题" : "Topics", path: localizedPath("/topics", locale) },
+      { name: topic.title, path: canonicalPath },
+    ],
+    faqItems,
   });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "主题" : "Topics", path: localizedPath("/topics", locale) },
-    { name: topic.title, path: canonicalPath },
-  ]);
   const renderedSections = renderTopicSections(topic.sections, locale);
   const renderedEntryGroups = renderTopicEntryGroups(topic.entryGroups, locale);
+  const graphLinks = mergeGraphLinks(
+    locale,
+    (landingSurface?.ctaBundle ?? []).map((cta) => ({ href: cta.href, label: cta.label })),
+    requiredGraphLinks("hub", locale)
+  );
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`topic-jsonld-${topic.slug}`} data={normalizedSeo.jsonld} />
-      <JsonLd id={`topic-webpage-${topic.slug}`} data={webPageJsonLd} />
-      <JsonLd id={`topic-breadcrumb-${topic.slug}`} data={breadcrumbJsonLd} />
-      {faqItems.length > 0 ? <JsonLd id={`topic-faq-${topic.slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -185,6 +194,32 @@ export default async function TopicDetailPage({
         ) : null}
       </section>
 
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={topic.excerpt || landingSurface?.summaryBlocks[0]?.body || normalizedSeo.meta.description}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "专题口径" : "Hub scope"}
+        body={
+          locale === "zh"
+            ? "Topic 页承担聚合与分发角色，正文会用可见 HTML 说明主题范围、相关入口与延伸阅读，结构化数据只辅助理解页面角色。"
+            : "Topic pages act as hubs that aggregate and distribute related entry points. Visible HTML explains the scope, related routes, and follow-up reading, while structured data only supports page understanding."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <BoundaryNoteBlock
+        title={locale === "zh" ? "边界说明" : "Boundary note"}
+        body={
+          locale === "zh"
+            ? "专题页用于组织主题知识网络，不应被视为单一结论页。具体定义、方法和测试解释仍以关联实体页、方法页和测评页为准。"
+            : "Hub pages organize a topical knowledge network and should not be treated as a single conclusion page. Specific definitions, methods, and testing guidance still live on the linked entity, method, and test pages."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">
           {renderedSections}
@@ -201,7 +236,7 @@ export default async function TopicDetailPage({
             <div className="flex flex-wrap gap-2 text-sm">
               {landingSurface?.ctaBundle.length
                 ? landingSurface.ctaBundle.map((cta) => (
-                    <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                    <Link key={cta.key} href={normalizePublicHref(cta.href, locale)} className="fm-help-chip-link">
                       {cta.label}
                     </Link>
                   ))
@@ -260,6 +295,13 @@ export default async function TopicDetailPage({
               </p>
             </CardContent>
           </Card>
+
+          <CanonicalLinkCluster
+            title={locale === "zh" ? "图谱必连页面" : "Required graph links"}
+            items={graphLinks}
+            locale={locale}
+            testId="topic-required-graph-links"
+          />
 
           <Card>
             <CardHeader>

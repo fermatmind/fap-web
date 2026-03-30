@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TestCard } from "@/components/business/TestCard";
 import { Container } from "@/components/layout/Container";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { getAllTests, resolveTestTitleByLocale } from "@/lib/content";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { getTestsGatewaySurface } from "@/lib/publicGateway";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 export async function generateMetadata({
@@ -20,7 +23,8 @@ export async function generateMetadata({
   const isZh = locale === "zh";
   const pathname = isZh ? "/zh/tests" : "/en/tests";
 
-  return buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "hub",
     locale,
     pathname,
     title: isZh ? "测评列表" : "Tests",
@@ -40,6 +44,7 @@ export default async function TestsPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
+  const isZh = locale === "zh";
   const dict = await getDict(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
   const gatewaySurface = await getTestsGatewaySurface(locale);
@@ -47,6 +52,18 @@ export default async function TestsPage({
   const gatewayItems = landingSurface?.discoverabilityItems ?? [];
   const gatewayOrder = new Map(gatewayItems.map((item, index) => [item.key, index]));
   const gatewayItemsBySlug = new Map(gatewayItems.map((item) => [item.key, item]));
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: "tests-index",
+    pageType: "hub",
+    locale,
+    canonicalPath: withLocale("/tests"),
+    title: isZh ? "测评列表" : "Tests",
+    description: isZh ? "浏览所有可用测评。" : "Browse all available tests.",
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: withLocale("/") },
+      { name: isZh ? "测评" : "Tests", path: withLocale("/tests") },
+    ],
+  });
   const tests = getAllTests()
     .sort((a, b) => {
       const aIndex = gatewayOrder.get(a.slug);
@@ -80,6 +97,17 @@ export default async function TestsPage({
 
   return (
     <main>
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
+      <Container className="pt-6">
+        <Breadcrumb
+          items={[
+            { label: locale === "zh" ? "首页" : "Home", href: withLocale("/") },
+            { label: locale === "zh" ? "测评" : "Tests" },
+          ]}
+        />
+      </Container>
       <section
         data-testid="tests-list-hero-section"
         className="fm-section-white border-b border-[var(--fm-border)] py-[var(--fm-section-y-sm)]"
@@ -101,7 +129,7 @@ export default async function TestsPage({
               return (
                 <Link
                   key={item.key}
-                  href={item.href}
+                  href={normalizePublicHref(item.href, locale)}
                   title={titleDisplay.plain}
                   className={buttonVariants({
                     variant: "outline",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import {
   listCareerIndustries,
@@ -9,12 +10,11 @@ import {
 } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
-import { buildPageMetadata } from "@/lib/seo/metadata";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
-import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 
 export async function generateMetadata({
   params,
@@ -24,7 +24,8 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
 
-  return buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "hub",
     locale,
     pathname: locale === "zh" ? "/zh/career" : "/en/career",
     title: locale === "zh" ? "职业发展中心" : "Career Intelligence Center",
@@ -59,22 +60,25 @@ export default async function CareerCenterPage({
     locale === "zh"
       ? "基于人格、能力与兴趣，帮助你做出更高质量的职业决策。"
       : "Make better career decisions with personality, capability, and interest insights.";
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: "career-center",
+    pageType: "hub",
+    locale,
+    canonicalPath,
     title: pageTitle,
     description: pageDescription,
-    locale,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
+      { name: locale === "zh" ? "职业" : "Career", path: canonicalPath },
+    ],
   });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "职业" : "Career", path: canonicalPath },
-  ]);
 
   return (
     <Container as="main" className="space-y-8 py-10">
       <AnalyticsPageViewTracker eventName="career_center_view" properties={{ locale }} />
-      <JsonLd id="career-center-webpage" data={webPageJsonLd} />
-      <JsonLd id="career-center-breadcrumb" data={breadcrumbJsonLd} />
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
@@ -106,6 +110,22 @@ export default async function CareerCenterPage({
           </Link>
         </div>
       </section>
+
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={locale === "zh"
+          ? "职业中心页把职业测试、推荐、岗位库、行业库和职业指南连成一个可导航入口，避免职业内容被拆成彼此孤立的页面。"
+          : "The career center connects career tests, recommendations, job profiles, industry pages, and guides into one navigable entry so career content does not fragment into isolated pages."}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "中心页口径" : "Hub scope"}
+        body={locale === "zh"
+          ? "本页优先输出测试入口、岗位入口、行业入口和职业指南入口的 HTML 链接，结构化数据只用于说明页面角色，不替代正文内容。"
+          : "This page prioritizes HTML links into tests, job profiles, industries, and guides. Structured data only clarifies the page role and does not replace visible content."}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
 
       <section className="space-y-3">
         <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">{locale === "zh" ? "热门职业" : "Popular jobs"}</h2>

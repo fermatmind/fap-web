@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { CanonicalLinkCluster } from "@/components/content/CanonicalLinkCluster";
 import { Container } from "@/components/layout/Container";
+import { BoundaryNoteBlock, ConclusionSummaryBlock, MethodologyBlock } from "@/components/seo/CitationBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -19,8 +21,9 @@ import {
 import { extractPersonalityFaqItems, renderPersonalitySections, renderProjectionSections } from "@/lib/cms/personality-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
+import { mergeGraphLinks, requiredGraphLinks } from "@/lib/navigation/contentGraph";
+import { normalizePublicHref } from "@/lib/navigation/publicLinking";
+import { buildSeoMetadata, buildStructuredDataBundle } from "@/lib/seo/pageInfrastructure";
 import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -197,7 +200,8 @@ export async function generateMetadata({
     buildCanonicalPath(detail.routeSlug, locale)
   );
   const noindex = !detail.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
-  const metadata = buildPageMetadata({
+  return buildSeoMetadata({
+    pageType: "entity",
     locale,
     pathname: canonicalPath,
     title: normalizedSeo.surface?.title || normalizedSeo.meta.title,
@@ -210,37 +214,13 @@ export async function generateMetadata({
       zh: normalizedSeo.meta.alternates["zh-CN"] ?? buildPersonalityFrontendUrl("zh", detail.routeSlug),
       xDefault: "/",
     },
+    canonical: normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical ?? canonicalUrl(canonicalPath),
+    metaAlternates: {
+      en: normalizedSeo.meta.alternates.en ?? canonicalUrl(buildPersonalityFrontendUrl("en", detail.routeSlug)),
+      "zh-CN": normalizedSeo.meta.alternates["zh-CN"] ?? canonicalUrl(buildPersonalityFrontendUrl("zh", detail.routeSlug)),
+    },
+    ogType: "article",
   });
-  const canonical = normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical ?? canonicalUrl(canonicalPath);
-  const ogImage = normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? null;
-  const twitterImages = normalizeTwitterImages(
-    normalizedSeo.surface?.twitter.image,
-    normalizedSeo.meta.twitter.image,
-    ogImage,
-    metadata.twitter?.images,
-  );
-
-  return {
-    ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      canonical,
-    },
-    openGraph: {
-      type: "article",
-      url: normalizedSeo.surface?.og.url ?? canonical,
-      title: normalizedSeo.surface?.og.title || normalizedSeo.meta.og.title,
-      description: normalizedSeo.surface?.og.description || normalizedSeo.meta.og.description,
-      images: ogImage ? [ogImage] : undefined,
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-    },
-    twitter: {
-      card: resolveTwitterCard(normalizedSeo.surface?.twitter.card ?? normalizedSeo.meta.twitter.card),
-      title: normalizedSeo.surface?.twitter.title || normalizedSeo.meta.twitter.title,
-      description: normalizedSeo.surface?.twitter.description || normalizedSeo.meta.twitter.description,
-      images: twitterImages,
-    },
-  };
 }
 
 export default async function PersonalityDetailPage({
@@ -270,17 +250,21 @@ export default async function PersonalityDetailPage({
         answer: item.answer,
       }))
     : extractPersonalityFaqItems(detail.faqSections);
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
+  const schemaNodes = buildStructuredDataBundle({
+    idPrefix: `personality-${detail.slug}`,
+    pageType: "entity",
+    locale,
+    canonicalPath,
     title: normalizedSeo.meta.title,
     description: normalizedSeo.meta.description,
-    locale,
+    primary: normalizedSeo.jsonld,
+    breadcrumbItems: [
+      { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
+      { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
+      { name: detail.displayType, path: canonicalPath },
+    ],
+    faqItems,
   });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
-    { name: detail.displayType, path: canonicalPath },
-  ]);
   const renderedProjectionSections = renderProjectionSections(detail.projection.sections, locale);
   const renderedSupplementalSections = renderPersonalitySections(
     [...detail.faqSections, ...detail.supplementalSections],
@@ -288,13 +272,17 @@ export default async function PersonalityDetailPage({
   );
   const hasRenderableContent = renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
   const landingSurface = detail.landingSurface;
+  const graphLinks = mergeGraphLinks(
+    locale,
+    (landingSurface?.ctaBundle ?? []).map((cta) => ({ href: cta.href, label: cta.label })),
+    requiredGraphLinks("entity", locale)
+  );
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} />
-      <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} />
-      <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} />
-      {faqItems.length > 0 ? <JsonLd id={`personality-faq-${detail.slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
+      {schemaNodes.map((node) => (
+        <JsonLd key={node.id} id={node.id} data={node.data} />
+      ))}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -370,6 +358,32 @@ export default async function PersonalityDetailPage({
         ) : null}
       </section>
 
+      <ConclusionSummaryBlock
+        title={locale === "zh" ? "结论摘要" : "Conclusion summary"}
+        body={detail.summary || detail.heroSummary || detail.projection.summaryCard.summary || ""}
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <MethodologyBlock
+        title={locale === "zh" ? "定义与使用口径" : "Definition and scope"}
+        body={
+          locale === "zh"
+            ? "人格页优先用可见 HTML 给出类型定义、边界与关联入口，结构化数据只用于帮助搜索系统理解，不替代正文中的可见事实。"
+            : "Personality pages prioritize visible HTML for type definitions, boundaries, and related entry points. Structured data only helps search systems understand the page and does not replace visible evidence."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
+      <BoundaryNoteBlock
+        title={locale === "zh" ? "边界说明" : "Boundary note"}
+        body={
+          locale === "zh"
+            ? "该页面描述的是类型层面的倾向、沟通模式和常见特征，不等于对个体的定论，也不构成医疗、心理诊断或职业承诺。"
+            : "This page describes type-level tendencies, communication patterns, and common traits. It is not a final judgment about an individual and does not constitute medical, psychological, or career diagnosis."
+        }
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      />
+
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">
           {hasRenderableContent ? (
@@ -443,13 +457,20 @@ export default async function PersonalityDetailPage({
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2" data-testid="personality-detail-landing-cta">
                 {landingSurface.ctaBundle.map((cta) => (
-                  <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                  <Link key={cta.key} href={normalizePublicHref(cta.href, locale)} className="fm-help-chip-link">
                     {cta.label}
                   </Link>
                 ))}
               </CardContent>
             </Card>
           ) : null}
+
+          <CanonicalLinkCluster
+            title={locale === "zh" ? "图谱必连页面" : "Required graph links"}
+            items={graphLinks}
+            locale={locale}
+            testId="personality-required-graph-links"
+          />
 
           <Card>
             <CardHeader>
