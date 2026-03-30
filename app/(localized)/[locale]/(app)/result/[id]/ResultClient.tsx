@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import {
@@ -20,17 +20,22 @@ import {
   normalizeAttemptReportAccess,
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
-import { getOrCreateAnonId } from "@/lib/anon";
+import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
 import {
   fetchAttemptReport,
   fetchAttemptReportAccess,
   fetchAttemptResult,
+  fetchAttemptSubmission,
+  linkAnonAttemptsOnceOnLoginSuccess,
+  shouldLinkAnonAttemptsOnLoginSuccess,
+  type AttemptSubmissionResponse,
   type ReportResponse,
   type ResultResponse,
 } from "@/lib/api/v0_3";
+import { ApiError } from "@/lib/api-client";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
-import { isGuestTokenRequestError } from "@/lib/auth/fmToken";
+import { isGuestTokenRequestError, setFmToken } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
@@ -137,6 +142,7 @@ function resolveResponseRetryMs(
   response:
     | ResultResponse
     | ReportResponse
+    | AttemptSubmissionResponse
     | {
         retry_after_seconds?: number;
         retry_after?: number;
@@ -310,6 +316,21 @@ function resolveMbtiLoadingStatusText(locale: Locale, state: "processing" | "fai
   return error ?? (locale === "zh" ? "结果暂时无法读取，请返回后再试。" : "The result is temporarily unavailable, please try again.");
 }
 
+function isNotFoundApiError(error: unknown): error is ApiError {
+  return error instanceof ApiError && error.status === 404;
+}
+
+function resolveSubmissionFailureMessage(
+  response: AttemptSubmissionResponse | null,
+  fallbackMessage: string
+): string {
+  return normalizeText(
+    response?.submission?.error_message,
+    response?.submission?.error_code,
+    fallbackMessage
+  );
+}
+
 export default function ResultClient({
   attemptId,
   rolloutEnv,
@@ -320,6 +341,7 @@ export default function ResultClient({
   void rolloutEnv;
 
   const pathname = usePathname() ?? "/";
+  const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
@@ -330,6 +352,35 @@ export default function ResultClient({
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef("UNKNOWN");
+
+  useEffect(() => {
+    const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
+    if (!tokenFromUrl.startsWith("fm_")) {
+      return;
+    }
+
+    setFmToken(tokenFromUrl);
+
+    const candidateAttemptIds = Array.from(new Set([attemptId, ...readPendingAnonLinkAttempts()]));
+    if (
+      candidateAttemptIds.length === 0
+      || !shouldLinkAnonAttemptsOnLoginSuccess({
+        tokenFromUrl,
+        anonId,
+        attemptIds: candidateAttemptIds,
+      })
+    ) {
+      return;
+    }
+
+    void linkAnonAttemptsOnceOnLoginSuccess({
+      tokenFromUrl,
+      anonId,
+      attemptIds: candidateAttemptIds,
+    }).catch(() => {
+      // Keep result entry non-blocking.
+    });
+  }, [anonId, attemptId, searchParams]);
 
   const runWithAuthRetry = useCallback(
     async <T,>(runner: () => Promise<T>): Promise<T> =>
@@ -391,6 +442,51 @@ export default function ResultClient({
       return { ready: true, response };
     };
 
+    const loadSubmissionFallback = async (attempt: number) => {
+      try {
+        const response = await runWithAuthRetry(() => fetchAttemptSubmission({ attemptId, anonId }));
+        if (!active) {
+          return { handled: false };
+        }
+
+        const submissionState = normalizeText(response.submission?.state).toLowerCase();
+        if (response.generating === true || submissionState === "pending" || submissionState === "running") {
+          setReportData(null);
+          setResultData(null);
+          setStatus("generating");
+          scheduleRetry(attempt, resolveResponseRetryMs(response));
+
+          return { handled: true };
+        }
+
+        if (submissionState === "succeeded") {
+          setReportData(null);
+          setResultData(null);
+          setStatus("generating");
+          scheduleRetry(attempt, RESULT_POLL_FALLBACK_MS);
+
+          return { handled: true };
+        }
+
+        if (submissionState === "failed") {
+          setReportData(null);
+          setResultData(null);
+          setStatus("failed");
+          setError(resolveSubmissionFailureMessage(response, dict.result.reportUnavailable));
+
+          return { handled: true };
+        }
+
+        return { handled: false };
+      } catch (submissionCause) {
+        if (isNotFoundApiError(submissionCause)) {
+          return { handled: false };
+        }
+
+        throw submissionCause;
+      }
+    };
+
     const load = async (attempt = 0) => {
       if (attempt === 0) {
         setStatus("loading");
@@ -399,6 +495,7 @@ export default function ResultClient({
           await ensureFmTokenReady({
             anonId,
             locale,
+            forceRefresh: true,
           });
         } catch (guestTokenError) {
           const telemetry = resolveGuestTokenTelemetry(guestTokenError);
@@ -435,6 +532,9 @@ export default function ResultClient({
         }
 
         if (isProjectionUnavailable(nextAccessView)) {
+          const submissionFallback = await loadSubmissionFallback(attempt);
+          if (!active || submissionFallback.handled) return;
+
           setReportData(null);
           setResultData(null);
           setStatus("failed");
@@ -484,6 +584,9 @@ export default function ResultClient({
           return;
         }
 
+        const submissionFallback = await loadSubmissionFallback(attempt);
+        if (!active || submissionFallback.handled) return;
+
         setResultData(null);
         setStatus("failed");
         setError(dict.result.reportUnavailable);
@@ -500,11 +603,21 @@ export default function ResultClient({
             return;
           }
 
+          const submissionFallback = await loadSubmissionFallback(attempt);
+          if (!active || submissionFallback.handled) return;
+
           setResultData(null);
           setStatus("failed");
           setError(dict.result.reportUnavailable);
         } catch (resultCause) {
           if (!active) return;
+
+          try {
+            const submissionFallback = await loadSubmissionFallback(attempt);
+            if (!active || submissionFallback.handled) return;
+          } catch (submissionCause) {
+            resultCause = submissionCause;
+          }
 
           setResultData(null);
           setStatus("failed");
