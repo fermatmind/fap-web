@@ -1,10 +1,11 @@
 "use client";
 
+import type { TraitSlot } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 
 type MbtiCloneInfluentialTraitsCardProps = {
   locale: "zh" | "en";
-  traits: string[];
+  traits: TraitSlot[];
   isUnlocked: boolean;
   unlockHref: string;
   unlockLabel: string;
@@ -27,9 +28,17 @@ export function MbtiCloneInfluentialTraitsCard({
       <p className={styles.microLabel}>{locale === "zh" ? "Influential Traits" : "Influential Traits"}</p>
       <div className={styles.traitSlotRow}>
         {traits.slice(0, 4).map((trait, index) => (
-          <div key={`${trait}-${index}`} className={styles.traitSlot}>
-            <span className={styles.traitSlotIcon}>{normalizeTraitLetter(trait)}</span>
-            <p className={styles.traitSlotLabel}>{trait}</p>
+          <div
+            key={`${trait.label}-${index}`}
+            className={styles.traitSlot}
+            data-placeholder={trait.isPlaceholder ? "true" : "false"}
+            title={trait.body}
+            aria-label={trait.body ? `${trait.label}: ${trait.body}` : trait.label}
+          >
+            <span className={styles.traitSlotIcon} data-color={trait.colorKey ?? "blue"}>
+              {normalizeTraitLetter(trait.label)}
+            </span>
+            <p className={styles.traitSlotLabel}>{trait.label}</p>
           </div>
         ))}
       </div>

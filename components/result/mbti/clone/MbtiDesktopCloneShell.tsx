@@ -134,6 +134,7 @@ export function MbtiDesktopCloneShell({
           eyebrow={slots.hero.eyebrow}
           title={slots.hero.title}
           typeCode={slots.hero.typeCode}
+          summary={slots.hero.summary}
           illustrationLabel={slots.hero.asset.label}
         />
 
@@ -164,12 +165,18 @@ export function MbtiDesktopCloneShell({
               title={slots.chapters.career.title}
               illustrationLabel={slots.chapters.career.asset.label}
               introParagraphs={slots.chapters.career.intro}
-              traitLabels={slots.chapters.career.influentialTraits.map((item) => item.label)}
+              traits={slots.chapters.career.influentialTraits}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
               visibleBlocks={slots.chapters.career.visibleBlocks.filter(Boolean).map((block) => ({ title: block!.title, items: block!.items }))}
-              lockedBlocks={slots.chapters.career.lockedBlocks.map((block) => ({ title: block.title, items: block.blurredItems, overlayTitle: block.overlayTitle, overlayCopy: block.overlayBody }))}
+              lockedBlocks={slots.chapters.career.lockedBlocks.map((block) => ({
+                title: block.title,
+                items: block.blurredItems,
+                overlayTitle: block.overlayTitle,
+                overlayCopy: block.overlayBody,
+                ctaLabel: normalizeText(primaryCtaLabel, block.overlayCtaLabel),
+              }))}
             />
 
             <MbtiCloneNarrativeSection
@@ -179,12 +186,18 @@ export function MbtiDesktopCloneShell({
               title={slots.chapters.growth.title}
               illustrationLabel={slots.chapters.growth.asset.label}
               introParagraphs={slots.chapters.growth.intro}
-              traitLabels={slots.chapters.growth.influentialTraits.map((item) => item.label)}
+              traits={slots.chapters.growth.influentialTraits}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
               visibleBlocks={slots.chapters.growth.visibleBlocks.filter(Boolean).map((block) => ({ title: block!.title, items: block!.items }))}
-              lockedBlocks={slots.chapters.growth.lockedBlocks.map((block) => ({ title: block.title, items: block.blurredItems, overlayTitle: block.overlayTitle, overlayCopy: block.overlayBody }))}
+              lockedBlocks={slots.chapters.growth.lockedBlocks.map((block) => ({
+                title: block.title,
+                items: block.blurredItems,
+                overlayTitle: block.overlayTitle,
+                overlayCopy: block.overlayBody,
+                ctaLabel: normalizeText(primaryCtaLabel, block.overlayCtaLabel),
+              }))}
             />
 
             <MbtiCloneNarrativeSection
@@ -194,12 +207,18 @@ export function MbtiDesktopCloneShell({
               title={slots.chapters.relationships.title}
               illustrationLabel={slots.chapters.relationships.asset.label}
               introParagraphs={slots.chapters.relationships.intro}
-              traitLabels={slots.chapters.relationships.influentialTraits.map((item) => item.label)}
+              traits={slots.chapters.relationships.influentialTraits}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
               visibleBlocks={slots.chapters.relationships.visibleBlocks.filter(Boolean).map((block) => ({ title: block!.title, items: block!.items }))}
-              lockedBlocks={slots.chapters.relationships.lockedBlocks.map((block) => ({ title: block.title, items: block.blurredItems, overlayTitle: block.overlayTitle, overlayCopy: block.overlayBody }))}
+              lockedBlocks={slots.chapters.relationships.lockedBlocks.map((block) => ({
+                title: block.title,
+                items: block.blurredItems,
+                overlayTitle: block.overlayTitle,
+                overlayCopy: block.overlayBody,
+                ctaLabel: normalizeText(primaryCtaLabel, block.overlayCtaLabel),
+              }))}
             />
 
             <section id="offer-full" data-testid="mbti-offer-full" className={styles.section}>
@@ -209,9 +228,9 @@ export function MbtiDesktopCloneShell({
                 headline={slots.finalOffer.headline}
                 copy={slots.finalOffer.body}
                 priceLabel={slots.finalOffer.priceLabel}
-                price={normalizeText(primaryOffer?.price) || slots.finalOffer.priceLabel}
+                price={normalizeText(primaryOffer?.price) || (cloneLocale === "zh" ? "价格以实际结算页为准" : "Price shown on checkout")}
                 guarantee={slots.finalOffer.guarantee}
-                ctaLabel={primaryOffer ? (cloneLocale === "zh" ? "解锁完整报告" : "Unlock full report") : slots.finalOffer.ctaLabel}
+                ctaLabel={normalizeText(primaryCtaLabel, slots.finalOffer.ctaLabel)}
                 isCheckingOut={isCheckingOut}
                 checkoutError={checkoutError}
                 onCheckout={primaryOffer ? onCheckout : undefined}

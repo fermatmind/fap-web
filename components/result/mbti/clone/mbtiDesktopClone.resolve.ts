@@ -422,8 +422,8 @@ export function resolveMbtiDesktopCloneSlots({
       typeCode: fullCode,
       summary:
         pilot?.hero.summary
-        ?? normalizeText(projectionViewModel?.summary, projectionViewModel?.heroSummary, headline.summary, headline.supportingLine)
-        ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary,
+        || normalizeText(projectionViewModel?.summary, projectionViewModel?.heroSummary, headline.summary, headline.supportingLine)
+        || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary,
       asset: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.asset,
     },
     intro: {
@@ -467,7 +467,10 @@ export function resolveMbtiDesktopCloneSlots({
     finalOffer: {
       eyebrow: pilot?.finalOffer.eyebrow ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.eyebrow,
       headline: pilot?.finalOffer.headline ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.headline,
-      body: pilot?.finalOffer.body ?? normalizeText(sectionUnlocks.traits?.teaser, MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.body),
+      body:
+        pilot?.finalOffer.body
+        || normalizeText(sectionUnlocks.traits?.teaser)
+        || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.body,
       priceLabel: pilot?.finalOffer.priceLabel ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.priceLabel,
       ctaLabel: pilot?.finalOffer.ctaLabel ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.ctaLabel,
       guarantee: pilot?.finalOffer.guarantee ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.guarantee,

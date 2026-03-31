@@ -6,6 +6,7 @@ type MbtiCloneHeroProps = {
   eyebrow: string;
   title: string;
   typeCode: string;
+  summary?: string;
   illustrationLabel: string;
 };
 
@@ -13,6 +14,7 @@ export function MbtiCloneHero({
   eyebrow,
   title,
   typeCode,
+  summary,
   illustrationLabel,
 }: MbtiCloneHeroProps) {
   return (
@@ -21,6 +23,7 @@ export function MbtiCloneHero({
         <p className={styles.heroEyebrow}>{eyebrow}</p>
         <h1 className={styles.heroTitle}>{title}</h1>
         <p className={styles.heroCode}>{typeCode}</p>
+        {summary ? <p className={styles.heroSummary}>{summary}</p> : null}
       </div>
       <div className={styles.heroIllustrationWrap}>
         <div className={styles.heroIllustration}>

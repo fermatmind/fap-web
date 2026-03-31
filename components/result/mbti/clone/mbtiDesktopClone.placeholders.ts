@@ -22,12 +22,12 @@ function contentBlock(title: string, prefix: string, tone: ListItem["tone"]): Co
   return {
     title,
     items: [
-      item(`${prefix} 1`, "Placeholder slot: this item reserves a desktop content slot until a mapped or curated paragraph is ready.", tone),
-      item(`${prefix} 2`, "Placeholder slot: this line preserves the six-item list rhythm without pretending to be final analysis.", tone),
-      item(`${prefix} 3`, "Placeholder slot: this list entry exists for shell completeness, not to fabricate an interpretation.", tone),
-      item(`${prefix} 4`, "Placeholder slot: this block remains explicit about missing content and keeps the clone grammar intact.", tone),
-      item(`${prefix} 5`, "Placeholder slot: this row is intentionally protocolized so future content can replace it cleanly.", tone),
-      item(`${prefix} 6`, "Placeholder slot: this final row keeps spacing and density stable for non-pilot types.", tone),
+      item(`${prefix} 1`, "占位槽位：这里保留桌面内容位，等待后续映射或策划文案接入。", tone),
+      item(`${prefix} 2`, "占位槽位：这一行只用于维持六项列表节奏，不伪装成真实分析。", tone),
+      item(`${prefix} 3`, "占位槽位：该条目仅服务版式完整度，不代表已接入正式人格结论。", tone),
+      item(`${prefix} 4`, "占位槽位：此块明确表示内容待补齐，同时保持 clone shell 的卡片语法。", tone),
+      item(`${prefix} 5`, "占位槽位：这一行是协议化保留位，后续可以被真实内容整齐替换。", tone),
+      item(`${prefix} 6`, "占位槽位：这一行用于维持非试点类型的节奏、密度和整体结构。", tone),
     ],
   };
 }
@@ -35,16 +35,16 @@ function contentBlock(title: string, prefix: string, tone: ListItem["tone"]): Co
 function lockedBlock(title: string): LockedListBlock {
   return {
     title,
-    overlayTitle: "Placeholder unlock overlay",
-    overlayBody: "Placeholder slot: this locked overlay remains explicit until premium chapter content is supplied.",
+    overlayTitle: "占位解锁浮层",
+    overlayBody: "占位槽位：此锁定浮层会保持显式占位，直到后续高级章节内容接入为止。",
     overlayCtaLabel: "Unlock full report",
     blurredItems: [
-      item("Placeholder locked item 1", "Placeholder slot: hidden list content will be replaced by real premium detail later."),
-      item("Placeholder locked item 2", "Placeholder slot: keep the blurred background list visible without inventing source-backed insight."),
-      item("Placeholder locked item 3", "Placeholder slot: this reserved row supports the gate layout for non-pilot types."),
-      item("Placeholder locked item 4", "Placeholder slot: this row exists only to maintain the list density of the desktop template."),
-      item("Placeholder locked item 5", "Placeholder slot: this blurred row makes the gating state legible before real content arrives."),
-      item("Placeholder locked item 6", "Placeholder slot: this last row closes the hidden list block without fake specifics."),
+      item("占位锁定项 1", "占位槽位：隐藏列表内容将在后续被真实付费细节替换。"),
+      item("占位锁定项 2", "占位槽位：模糊背景列表保持可见，但不凭空制造有来源感的洞察。"),
+      item("占位锁定项 3", "占位槽位：这一保留行服务非试点类型的 gate 布局。"),
+      item("占位锁定项 4", "占位槽位：这一行只用于维持桌面模板中的列表密度。"),
+      item("占位锁定项 5", "占位槽位：这一模糊行帮助锁定态在真实内容缺席时仍然可读。"),
+      item("占位锁定项 6", "占位槽位：最后一行用于完整收束隐藏列表，而不伪造具体结论。"),
     ],
   };
 }
@@ -66,15 +66,15 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
   },
   hero: {
     eyebrow: "你的人格类型是",
-    title: "Placeholder Type Title",
+    title: "占位人格标题",
     typeCode: "MBTI",
-    summary: "Placeholder slot: hero summary will use curated pilot content or safe runtime text when available.",
+    summary: "占位槽位：Hero 摘要会在试点文案或稳定 runtime 文本可用时替换。",
     asset: asset("hero-illustration", "illustration-slot placeholder", "236:160"),
   },
   intro: {
     paragraphs: [
-      "Placeholder slot: this first intro paragraph reserves the desktop overview position until mapped or curated content is ready.",
-      "Placeholder slot: this second intro paragraph keeps the two-paragraph reading rhythm intact for non-pilot types.",
+      "占位槽位：第一段简介用于保留桌面概览位，等待后续映射或策划文案接入。",
+      "占位槽位：第二段简介用于维持非试点类型的双段阅读节奏，不伪装成真实测评内容。",
     ],
   },
   traits: {
@@ -83,14 +83,14 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
     asset: asset("traits-illustration", "traits illustration-slot placeholder", "636:148"),
     summaryPane: {
       eyebrow: "主导维度",
-      title: "Placeholder trait summary",
+      title: "占位维度摘要",
       value: "00%",
-      body: "Placeholder slot: the summary pane copy will be replaced by pilot content or safe runtime explanation.",
+      body: "占位槽位：右侧摘要说明会由试点文案或稳定 runtime 解释替换。",
       asset: asset("traits-summary-asset", "illustration-slot placeholder", "240:118"),
     },
     body: [
-      "Placeholder slot: this paragraph keeps the post-bars narrative block available for structured clone content.",
-      "Placeholder slot: this paragraph prevents the desktop shell from collapsing before type-specific copy is supplied.",
+      "占位槽位：这一段用于保留维度 bars 后的解释区，等待结构化 clone 内容接入。",
+      "占位槽位：这一段用于避免在类型专属文案尚未准备好时桌面壳体塌缩。",
     ],
   },
   chapters: {
@@ -100,8 +100,8 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
       title: "Your Career Path",
       asset: asset("career-illustration", "career illustration-slot placeholder", "636:148"),
       intro: [
-        "Placeholder slot: this career intro paragraph remains explicit until either runtime mapping or pilot content fills it.",
-        "Placeholder slot: this second career paragraph keeps the section cadence consistent for non-pilot types.",
+        "占位槽位：职业章节第一段会保持显式占位，直到 runtime 映射或试点文案接入。",
+        "占位槽位：职业章节第二段用于维持非试点类型的一致阅读节奏。",
       ],
       influentialTraits: [
         trait("Placeholder trait slot", "blue"),
@@ -110,8 +110,8 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
         trait("Placeholder trait slot", "purple"),
       ],
       visibleBlocks: [
-        contentBlock("Strengths", "Placeholder strength item", "positive"),
-        contentBlock("Weaknesses", "Placeholder weakness item", "negative"),
+        contentBlock("Strengths", "占位优势条目", "positive"),
+        contentBlock("Weaknesses", "占位弱项条目", "negative"),
       ],
       lockedBlocks: [
         lockedBlock("Career roles you may love"),
@@ -124,8 +124,8 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
       title: "Your Personal Growth",
       asset: asset("growth-illustration", "growth illustration-slot placeholder", "636:148"),
       intro: [
-        "Placeholder slot: this growth intro paragraph is reserved for structured self-development copy.",
-        "Placeholder slot: this second growth paragraph keeps the clone shell readable while content remains unfinished.",
+        "占位槽位：成长章节第一段用于保留结构化成长文案位置。",
+        "占位槽位：成长章节第二段在内容未完成前维持 clone shell 的可读性。",
       ],
       influentialTraits: [
         trait("Placeholder trait slot", "blue"),
@@ -148,8 +148,8 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
       title: "Your Relationships",
       asset: asset("relationships-illustration", "relationships illustration-slot placeholder", "636:148"),
       intro: [
-        "Placeholder slot: this relationships intro paragraph reserves the communication summary area for future type content.",
-        "Placeholder slot: this second relationships paragraph keeps the final chapter structure complete for non-pilot paths.",
+        "占位槽位：关系章节第一段用于为未来类型文案保留沟通总结区域。",
+        "占位槽位：关系章节第二段用于保持非试点路径下最后一章结构完整。",
       ],
       influentialTraits: [
         trait("Placeholder trait slot", "blue"),
@@ -169,11 +169,11 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
   },
   finalOffer: {
     eyebrow: "最终解锁",
-    headline: "Placeholder headline: full report offer slot",
-    body: "Placeholder slot: this mint final-offer card will hold real unlock copy once curated or runtime content is available.",
+    headline: "占位标题：完整报告收口位",
+    body: "占位槽位：这张浅绿色收口卡会在策划文案或稳定 runtime 内容可用后替换为真实解锁文案。",
     priceLabel: "价格",
     ctaLabel: "解锁完整报告",
-    guarantee: "Placeholder slot: guarantee copy remains explicit until finalized.",
+    guarantee: "占位槽位：保障说明会保持显式占位，直到正式版本定稿。",
     asset: asset("final-offer-asset", "feature image placeholder", "252:220"),
   },
 };
