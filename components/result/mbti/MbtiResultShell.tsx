@@ -4,6 +4,7 @@ import Link from "next/link";
 import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
+import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import { buildDominantTraitItems } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
@@ -755,6 +756,7 @@ export function MbtiResultShell({
   accessProjection,
   headline,
   tags,
+  dimensions,
   projectionViewModel,
   highlights = [],
   recommendedReads = [],
@@ -1758,16 +1760,17 @@ export function MbtiResultShell({
       className="relative flex min-h-screen flex-col gap-16 pb-28 md:gap-8 xl:pb-0"
       onClickCapture={handleOfferAnchorClickCapture}
     >
-      <MbtiMobileChrome
-        locale={locale}
-        retakeHref={retakeHref}
-        primaryCtaLabel={terminalPrimaryCtaLabel}
-        primaryCtaHref={resolvedTerminalPrimaryCtaHref}
-        primaryCtaIsInternal={isUnlockedPostPurchase}
-      />
+      <div className="xl:hidden">
+        <MbtiMobileChrome
+          locale={locale}
+          retakeHref={retakeHref}
+          primaryCtaLabel={terminalPrimaryCtaLabel}
+          primaryCtaHref={resolvedTerminalPrimaryCtaHref}
+          primaryCtaIsInternal={isUnlockedPostPurchase}
+        />
 
-      <div className="mx-auto grid w-full max-w-[900px] gap-16 px-4 md:px-6 xl:grid-cols-[632px_224px] xl:gap-8 xl:px-4">
-        <main className="flex flex-col gap-16">
+        <div className="mx-auto grid w-full max-w-[900px] gap-16 px-4 md:px-6 xl:grid-cols-[632px_224px] xl:gap-8 xl:px-4">
+          <main className="flex flex-col gap-16">
         <section
           id="hero"
           data-testid="mbti-hero"
@@ -1964,6 +1967,39 @@ export function MbtiResultShell({
             onShare={handleShare}
           />
         </aside>
+        </div>
+      </div>
+
+      <div className="hidden xl:block">
+        <MbtiDesktopCloneShell
+          locale={locale}
+          headline={publicHeadline}
+          tags={publicTags}
+          dimensions={dimensions}
+          highlights={highlights}
+          sections={sections}
+          sectionUnlocks={sectionUnlocks}
+          offers={offers}
+          projectionViewModel={projectionViewModel}
+          isUnlocked={isUnlockedPostPurchase}
+          shareCtaLabel={shareCtaLabel}
+          shareDisabled={isSharing}
+          onShare={handleShare}
+          retakeHref={retakeHref}
+          historyHref={historyHref}
+          workspaceHref={resolvedTerminalPrimaryCtaHref}
+          orderLookupHref={orderLookupHref}
+          orderDetailHref={orderDetailHref}
+          relationshipHref={relationshipHubHref}
+          pdfHref={pdfHref}
+          pdfReady={canDownloadPdf}
+          primaryCtaLabel={terminalPrimaryCtaLabel}
+          primaryCtaHref={resolvedTerminalPrimaryCtaHref}
+          onCheckout={handleCheckout}
+          isCheckingOut={isCheckingOut}
+          checkoutError={checkoutError}
+          unlockedOfferNode={offerCtaEntry?.node}
+        />
       </div>
 
     </div>

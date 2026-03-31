@@ -18,7 +18,7 @@ type Dimension = {
   [key: string]: unknown;
 };
 
-type DimensionBarsVariant = "default" | "desktop-traits-narrative";
+type DimensionBarsVariant = "default" | "desktop-traits-narrative" | "clone16p";
 
 type DimensionBarsProps = {
   dimensions: Dimension[];
@@ -89,6 +89,60 @@ export function DimensionBars({
 
   if (!dimensions.length) {
     return renderEmptyState(dict);
+  }
+
+  if (variant === "clone16p") {
+    return (
+      <div className={`space-y-[18px] ${className}`}>
+        {dimensions.slice(0, 5).map((item, index) => {
+          const label = item.label ?? item.code ?? item.key ?? `Dimension ${index + 1}`;
+          const percent = normalizePercent(item);
+          const leftLabel = typeof item.leftLabel === "string"
+            ? item.leftLabel
+            : typeof item.code === "string"
+              ? item.code.split("/")[0] ?? ""
+              : "";
+          const rightLabel = typeof item.rightLabel === "string"
+            ? item.rightLabel
+            : typeof item.code === "string"
+              ? item.code.split("/")[1] ?? ""
+              : "";
+          const winnerLabel =
+            typeof item.winnerLabel === "string" && item.winnerLabel.trim().length > 0
+              ? item.winnerLabel
+              : typeof item.sideLabel === "string" && item.sideLabel.trim().length > 0
+                ? item.sideLabel
+                : label;
+          const color = ["#4D9FC1", "#D6A43A", "#3CAA8C", "#8E63B1", "#E56B73"][index % 5];
+
+          return (
+            <article key={`${label}-${index}`} className="flex flex-col gap-2">
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-0.5">
+                  <p className="m-0 text-[14px] leading-[1.4] font-bold text-[var(--clone-text,#2E3442)]">{winnerLabel}</p>
+                  <p className="m-0 text-[12px] leading-[1.5] text-[var(--clone-muted,#737B86)]">{label}</p>
+                </div>
+                <span className="text-[13px] leading-[1.3] font-bold text-[var(--clone-body,#4E5562)]">{Math.round(percent)}%</span>
+              </div>
+              <div className="relative h-1 rounded-full bg-[#DFE4EA]">
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full"
+                  style={{ width: `${Math.max(0, Math.min(100, Math.round(percent)))}%`, backgroundColor: color }}
+                />
+                <span
+                  className="absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full border-2 border-white bg-[var(--clone-text,#2E3442)]"
+                  style={{ left: `${Math.max(0, Math.min(100, Math.round(percent)))}%`, transform: "translate(-50%, -50%)" }}
+                />
+              </div>
+              <div className="flex items-center justify-between gap-3 text-[11px] leading-[1.4] text-[var(--clone-muted,#737B86)]">
+                <span>{leftLabel ?? ""}</span>
+                <span>{rightLabel ?? ""}</span>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    );
   }
 
   if (variant === "desktop-traits-narrative") {
