@@ -4,6 +4,7 @@ import { MbtiCloneInfluentialTraitsCard } from "@/components/result/mbti/clone/M
 import { MbtiCloneLockedListBlock } from "@/components/result/mbti/clone/MbtiCloneLockedListBlock";
 import { MbtiCloneSectionHeading } from "@/components/result/mbti/clone/MbtiCloneSectionHeading";
 import { MbtiCloneTwoColumnList, type CloneListItem } from "@/components/result/mbti/clone/MbtiCloneTwoColumnList";
+import type { TraitSlot } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 
 type VisibleBlock = {
@@ -16,6 +17,7 @@ type LockedBlock = {
   items: CloneListItem[];
   overlayTitle: string;
   overlayCopy: string;
+  ctaLabel: string;
 };
 
 type MbtiCloneNarrativeSectionProps = {
@@ -25,7 +27,7 @@ type MbtiCloneNarrativeSectionProps = {
   title: string;
   illustrationLabel: string;
   introParagraphs: string[];
-  traitLabels: string[];
+  traits: TraitSlot[];
   isUnlocked: boolean;
   unlockHref: string;
   unlockLabel: string;
@@ -40,7 +42,7 @@ export function MbtiCloneNarrativeSection({
   title,
   illustrationLabel,
   introParagraphs,
-  traitLabels,
+  traits,
   isUnlocked,
   unlockHref,
   unlockLabel,
@@ -60,7 +62,7 @@ export function MbtiCloneNarrativeSection({
       </div>
       <MbtiCloneInfluentialTraitsCard
         locale={locale}
-        traits={traitLabels}
+        traits={traits}
         isUnlocked={isUnlocked}
         unlockHref={unlockHref}
         unlockLabel={unlockLabel}
@@ -75,7 +77,7 @@ export function MbtiCloneNarrativeSection({
           items={block.items}
           overlayTitle={block.overlayTitle}
           overlayCopy={block.overlayCopy}
-          ctaLabel={unlockLabel}
+          ctaLabel={block.ctaLabel || unlockLabel}
           ctaHref={unlockHref}
         />
       ))}

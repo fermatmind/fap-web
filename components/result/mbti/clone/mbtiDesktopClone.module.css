@@ -107,6 +107,18 @@
   color: var(--clone-green);
 }
 
+.heroSummary {
+  margin: 2px 0 0;
+  max-width: 412px;
+  font-size: 13px;
+  line-height: 1.62;
+  color: var(--clone-body);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .heroIllustrationWrap {
   position: relative;
   display: flex;
@@ -595,6 +607,10 @@
   text-align: center;
 }
 
+.traitSlot[data-placeholder="true"] .traitSlotLabel {
+  color: var(--clone-muted);
+}
+
 .traitSlotIcon {
   width: 50px;
   height: 50px;
@@ -608,6 +624,36 @@
   line-height: 1;
   font-weight: 700;
   color: var(--clone-muted);
+}
+
+.traitSlotIcon[data-color="blue"] {
+  background: rgba(81, 112, 214, 0.1);
+  border-color: rgba(81, 112, 214, 0.22);
+  color: #5170d6;
+}
+
+.traitSlotIcon[data-color="gold"] {
+  background: rgba(211, 166, 70, 0.12);
+  border-color: rgba(211, 166, 70, 0.24);
+  color: #ba8a1b;
+}
+
+.traitSlotIcon[data-color="green"] {
+  background: rgba(54, 173, 115, 0.1);
+  border-color: rgba(54, 173, 115, 0.22);
+  color: var(--clone-green);
+}
+
+.traitSlotIcon[data-color="purple"] {
+  background: rgba(139, 104, 168, 0.1);
+  border-color: rgba(139, 104, 168, 0.22);
+  color: var(--clone-purple-cta);
+}
+
+.traitSlotIcon[data-color="red"] {
+  background: rgba(201, 82, 82, 0.1);
+  border-color: rgba(201, 82, 82, 0.22);
+  color: #c95252;
 }
 
 .traitSlotLabel {
@@ -767,6 +813,27 @@
   inset: 5px;
   border-radius: 999px;
   background: var(--clone-green);
+}
+
+.listIcon[data-tone="negative"] {
+  background: rgba(201, 82, 82, 0.14);
+}
+
+.listIcon[data-tone="negative"]::after {
+  background: #c95252;
+}
+
+.listIcon[data-tone="neutral"] {
+  background: rgba(115, 123, 134, 0.16);
+}
+
+.listIcon[data-tone="neutral"]::after {
+  background: #737b86;
+}
+
+.listItem[data-placeholder="true"] .listItemTitle,
+.listItem[data-placeholder="true"] .listItemBody {
+  color: var(--clone-muted);
 }
 
 .listItemTitle {

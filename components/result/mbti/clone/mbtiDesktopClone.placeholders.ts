@@ -1,207 +1,179 @@
-import type { CloneListItem } from "@/components/result/mbti/clone/MbtiCloneTwoColumnList";
+import type { CloneAssetSlot, ContentListBlock, ListItem, LockedListBlock, MbtiDesktopCloneSlots, TraitSlot } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
-export const MBTI_DESKTOP_CLONE_PLACEHOLDERS = {
-  heroIllustrationLabel: "illustration-slot placeholder",
-  traitsIllustrationLabel: "traits illustration-slot placeholder",
-  chapterIllustrationLabels: {
-    career: "career illustration-slot placeholder",
-    growth: "growth illustration-slot placeholder",
-    relationships: "relationships illustration-slot placeholder",
-  },
-  introParagraphs: [
-    "Placeholder copy: this first desktop intro paragraph reserves the real MBTI overview slot until the chapter-level summary payload is fully mapped into the new shell.",
-    "Placeholder copy: this second desktop intro paragraph preserves the two-paragraph rhythm from the reference layout without pretending to be a finished interpretation.",
-  ],
-  traitsParagraphs: [
-    "Placeholder copy: this paragraph keeps the post-traits narrative slot open for the final personality overview copy and related highlights once the data mapping is complete.",
-    "Placeholder copy: this paragraph keeps the second traits narrative slot visible so the desktop shell can ship before the long-form explanation and supporting assets are ready.",
-  ],
-  narrativeParagraphs: {
-    career: [
-      "Placeholder copy: this chapter intro slot will hold the real career summary once the corresponding public projection or report section is wired into the clone layer.",
-      "Placeholder copy: this follow-up career paragraph intentionally marks an unfinished content slot rather than simulating a completed recommendation.",
+function asset(slotId: string, label: string, aspectRatio: string): CloneAssetSlot {
+  return {
+    slotId,
+    aspectRatio,
+    status: "placeholder",
+    label,
+  };
+}
+
+function item(title: string, body: string, tone: ListItem["tone"] = "neutral"): ListItem {
+  return {
+    title,
+    body,
+    tone,
+    isPlaceholder: true,
+  };
+}
+
+function contentBlock(title: string, prefix: string, tone: ListItem["tone"]): ContentListBlock {
+  return {
+    title,
+    items: [
+      item(`${prefix} 1`, "占位槽位：这里保留桌面内容位，等待后续映射或策划文案接入。", tone),
+      item(`${prefix} 2`, "占位槽位：这一行只用于维持六项列表节奏，不伪装成真实分析。", tone),
+      item(`${prefix} 3`, "占位槽位：该条目仅服务版式完整度，不代表已接入正式人格结论。", tone),
+      item(`${prefix} 4`, "占位槽位：此块明确表示内容待补齐，同时保持 clone shell 的卡片语法。", tone),
+      item(`${prefix} 5`, "占位槽位：这一行是协议化保留位，后续可以被真实内容整齐替换。", tone),
+      item(`${prefix} 6`, "占位槽位：这一行用于维持非试点类型的节奏、密度和整体结构。", tone),
     ],
-    growth: [
-      "Placeholder copy: this growth intro slot is reserved for the real self-development summary and stays explicit until the structured content arrives.",
-      "Placeholder copy: this second growth paragraph preserves the desktop reading rhythm while keeping the missing content visibly marked as placeholder.",
+  };
+}
+
+function lockedBlock(title: string): LockedListBlock {
+  return {
+    title,
+    overlayTitle: "占位解锁浮层",
+    overlayBody: "占位槽位：此锁定浮层会保持显式占位，直到后续高级章节内容接入为止。",
+    overlayCtaLabel: "Unlock full report",
+    blurredItems: [
+      item("占位锁定项 1", "占位槽位：隐藏列表内容将在后续被真实付费细节替换。"),
+      item("占位锁定项 2", "占位槽位：模糊背景列表保持可见，但不凭空制造有来源感的洞察。"),
+      item("占位锁定项 3", "占位槽位：这一保留行服务非试点类型的 gate 布局。"),
+      item("占位锁定项 4", "占位槽位：这一行只用于维持桌面模板中的列表密度。"),
+      item("占位锁定项 5", "占位槽位：这一模糊行帮助锁定态在真实内容缺席时仍然可读。"),
+      item("占位锁定项 6", "占位槽位：最后一行用于完整收束隐藏列表，而不伪造具体结论。"),
     ],
-    relationships: [
-      "Placeholder copy: this relationship intro slot is reserved for the real communication and boundary summary when the mapped content is ready.",
-      "Placeholder copy: this second relationship paragraph keeps the 16P-style section cadence intact without disguising missing content as a real reading.",
+  };
+}
+
+function trait(label: string, colorKey: TraitSlot["colorKey"]): TraitSlot {
+  return {
+    label,
+    colorKey,
+    isPlaceholder: true,
+  };
+}
+
+export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
+  meta: {
+    baseCode: "MBTI",
+    fullCode: "MBTI",
+    locale: "zh",
+    isPilot: false,
+  },
+  hero: {
+    eyebrow: "你的人格类型是",
+    title: "占位人格标题",
+    typeCode: "MBTI",
+    summary: "占位槽位：Hero 摘要会在试点文案或稳定 runtime 文本可用时替换。",
+    asset: asset("hero-illustration", "illustration-slot placeholder", "236:160"),
+  },
+  intro: {
+    paragraphs: [
+      "占位槽位：第一段简介用于保留桌面概览位，等待后续映射或策划文案接入。",
+      "占位槽位：第二段简介用于维持非试点类型的双段阅读节奏，不伪装成真实测评内容。",
     ],
   },
-  influentialTraitLabels: {
-    career: [
-      "Placeholder trait slot",
-      "Placeholder trait slot",
-      "Placeholder trait slot",
-      "Placeholder trait slot",
-    ],
-    growth: [
-      "Placeholder trait slot",
-      "Placeholder trait slot",
-      "Placeholder trait slot",
-      "Placeholder trait slot",
-    ],
-    relationships: [
-      "Placeholder trait slot",
-      "Placeholder trait slot",
-      "Placeholder trait slot",
-      "Placeholder trait slot",
+  traits: {
+    sectionLabel: "人格概览",
+    title: "Personality Traits",
+    asset: asset("traits-illustration", "traits illustration-slot placeholder", "636:148"),
+    summaryPane: {
+      eyebrow: "主导维度",
+      title: "占位维度摘要",
+      value: "00%",
+      body: "占位槽位：右侧摘要说明会由试点文案或稳定 runtime 解释替换。",
+      asset: asset("traits-summary-asset", "illustration-slot placeholder", "240:118"),
+    },
+    body: [
+      "占位槽位：这一段用于保留维度 bars 后的解释区，等待结构化 clone 内容接入。",
+      "占位槽位：这一段用于避免在类型专属文案尚未准备好时桌面壳体塌缩。",
     ],
   },
-  strengths: {
-    career: [
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: reserve this slot for a real career strength description tied to the mapped report content.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: this item keeps the two-column list structure visible until more chapter bullets are available.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: a design-only slot for future mapped strengths, not a fabricated workplace conclusion.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: this keeps the section density and spacing consistent with the desktop reference page.",
-      },
-    ] satisfies CloneListItem[],
-    growth: [
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: reserve this slot for a real growth leverage point once the source section is mapped.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: this item exists only to hold the required shell structure while content is pending.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: keep the visible list rhythm without pretending the advice is finalized.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: this is a design placeholder rather than a real self-development recommendation.",
-      },
-    ] satisfies CloneListItem[],
-    relationships: [
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: reserve this slot for a real relationship strength once the report mapping is ready.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: this item preserves the structural density of the desktop layout while content is pending.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: a design-only placeholder for future mapped communication strengths.",
-      },
-      {
-        title: "Placeholder strength item",
-        body: "Placeholder copy: this slot remains explicitly unfinished and does not simulate a real diagnosis.",
-      },
-    ] satisfies CloneListItem[],
+  chapters: {
+    career: {
+      step: "2",
+      sectionLabel: "职业路径",
+      title: "Your Career Path",
+      asset: asset("career-illustration", "career illustration-slot placeholder", "636:148"),
+      intro: [
+        "占位槽位：职业章节第一段会保持显式占位，直到 runtime 映射或试点文案接入。",
+        "占位槽位：职业章节第二段用于维持非试点类型的一致阅读节奏。",
+      ],
+      influentialTraits: [
+        trait("Placeholder trait slot", "blue"),
+        trait("Placeholder trait slot", "gold"),
+        trait("Placeholder trait slot", "green"),
+        trait("Placeholder trait slot", "purple"),
+      ],
+      visibleBlocks: [
+        contentBlock("Strengths", "占位优势条目", "positive"),
+        contentBlock("Weaknesses", "占位弱项条目", "negative"),
+      ],
+      lockedBlocks: [
+        lockedBlock("Career roles you may love"),
+        lockedBlock("Work styles that suit you"),
+      ],
+    },
+    growth: {
+      step: "3",
+      sectionLabel: "个人成长",
+      title: "Your Personal Growth",
+      asset: asset("growth-illustration", "growth illustration-slot placeholder", "636:148"),
+      intro: [
+        "占位槽位：成长章节第一段用于保留结构化成长文案位置。",
+        "占位槽位：成长章节第二段在内容未完成前维持 clone shell 的可读性。",
+      ],
+      influentialTraits: [
+        trait("Placeholder trait slot", "blue"),
+        trait("Placeholder trait slot", "gold"),
+        trait("Placeholder trait slot", "green"),
+        trait("Placeholder trait slot", "purple"),
+      ],
+      visibleBlocks: [
+        contentBlock("Strengths", "Placeholder growth strength", "positive"),
+        contentBlock("Weaknesses", "Placeholder growth weakness", "negative"),
+      ],
+      lockedBlocks: [
+        lockedBlock("What energizes you"),
+        lockedBlock("What drains you"),
+      ],
+    },
+    relationships: {
+      step: "4",
+      sectionLabel: "关系模式",
+      title: "Your Relationships",
+      asset: asset("relationships-illustration", "relationships illustration-slot placeholder", "636:148"),
+      intro: [
+        "占位槽位：关系章节第一段用于为未来类型文案保留沟通总结区域。",
+        "占位槽位：关系章节第二段用于保持非试点路径下最后一章结构完整。",
+      ],
+      influentialTraits: [
+        trait("Placeholder trait slot", "blue"),
+        trait("Placeholder trait slot", "gold"),
+        trait("Placeholder trait slot", "green"),
+        trait("Placeholder trait slot", "purple"),
+      ],
+      visibleBlocks: [
+        contentBlock("Strengths", "Placeholder relationship strength", "positive"),
+        contentBlock("Weaknesses", "Placeholder relationship weakness", "negative"),
+      ],
+      lockedBlocks: [
+        lockedBlock("Relationship superpowers"),
+        lockedBlock("Relationship pitfalls"),
+      ],
+    },
   },
-  weaknesses: {
-    career: [
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: reserve this slot for a real work-style risk or blind spot when the source data is connected.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: this keeps the second visible list block intact without inventing a finished conclusion.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: a structure-only slot for future chapter-specific caution notes.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: this design placeholder preserves the required two-column rhythm and spacing.",
-      },
-    ] satisfies CloneListItem[],
-    growth: [
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: reserve this slot for a real growth blocker or friction pattern once available.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: this item marks an unfinished content slot instead of simulating advice.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: a design placeholder for future mapped watch-outs and recurring triggers.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: this keeps the clone shell structurally complete before content fill-in.",
-      },
-    ] satisfies CloneListItem[],
-    relationships: [
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: reserve this slot for a real communication risk or relationship blind spot later.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: this item stays explicit about being unfinished content in the desktop shell.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: a structure-only placeholder for future mapped tension patterns.",
-      },
-      {
-        title: "Placeholder weakness item",
-        body: "Placeholder copy: this preserves the second visible list grammar without fabricating real content.",
-      },
-    ] satisfies CloneListItem[],
+  finalOffer: {
+    eyebrow: "最终解锁",
+    headline: "占位标题：完整报告收口位",
+    body: "占位槽位：这张浅绿色收口卡会在策划文案或稳定 runtime 内容可用后替换为真实解锁文案。",
+    priceLabel: "价格",
+    ctaLabel: "解锁完整报告",
+    guarantee: "占位槽位：保障说明会保持显式占位，直到正式版本定稿。",
+    asset: asset("final-offer-asset", "feature image placeholder", "252:220"),
   },
-  lockedBlocks: {
-    roles: [
-      {
-        title: "Placeholder locked item",
-        body: "Placeholder copy: this blurred item reserves a hidden detail slot that will later be replaced by real premium content.",
-      },
-      {
-        title: "Placeholder locked item",
-        body: "Placeholder copy: this keeps the hidden list density visible while the real gated section remains unavailable.",
-      },
-      {
-        title: "Placeholder locked item",
-        body: "Placeholder copy: a design placeholder for future locked insights, not a fabricated recommendation.",
-      },
-      {
-        title: "Placeholder locked item",
-        body: "Placeholder copy: this item exists only to maintain the gated list structure of the desktop reference.",
-      },
-    ] satisfies CloneListItem[],
-    nextSteps: [
-      {
-        title: "Placeholder locked item",
-        body: "Placeholder copy: this blurred action slot will be replaced with a real premium next-step item later.",
-      },
-      {
-        title: "Placeholder locked item",
-        body: "Placeholder copy: this preserves the hidden action list rhythm without pretending the content is ready.",
-      },
-      {
-        title: "Placeholder locked item",
-        body: "Placeholder copy: a structure-only placeholder for future chapter-specific action guidance.",
-      },
-      {
-        title: "Placeholder locked item",
-        body: "Placeholder copy: this keeps the overlay and blur grammar visible in the meantime.",
-      },
-    ] satisfies CloneListItem[],
-  },
-  finalOfferHeadline: "Placeholder headline: full report offer slot",
-  finalOfferCopy:
-    "Placeholder copy: this mint offer card reserves the final pricing and benefit summary area until the preferred business copy is finalized.",
-  finalOfferPrice: "Placeholder price slot",
-} as const;
+};
