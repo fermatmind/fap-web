@@ -1,17 +1,23 @@
 "use client";
 
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
+import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
+import { MbtiCloneIdeaListBlock } from "@/components/result/mbti/clone/MbtiCloneIdeaListBlock";
 import { MbtiCloneInfluentialTraitsCard } from "@/components/result/mbti/clone/MbtiCloneInfluentialTraitsCard";
 import { MbtiCloneLockedListBlock } from "@/components/result/mbti/clone/MbtiCloneLockedListBlock";
 import { MbtiCloneMatchedGuides } from "@/components/result/mbti/clone/MbtiCloneMatchedGuides";
 import { MbtiCloneMatchedJobs } from "@/components/result/mbti/clone/MbtiCloneMatchedJobs";
+import { MbtiCloneRelationshipInsightBlock } from "@/components/result/mbti/clone/MbtiCloneRelationshipInsightBlock";
 import { MbtiCloneSectionHeading } from "@/components/result/mbti/clone/MbtiCloneSectionHeading";
 import { MbtiCloneStrengthWeaknessBlock } from "@/components/result/mbti/clone/MbtiCloneStrengthWeaknessBlock";
 import { MbtiCloneTwoColumnList, type CloneListItem } from "@/components/result/mbti/clone/MbtiCloneTwoColumnList";
 import type {
+  EnergyBlock,
+  IdeaListBlock,
   MatchedGuidesBlock,
   MatchedJobsBlock,
   MbtiDesktopCloneAssetSlotId,
+  RelationshipInsightBlock,
   StrengthWeaknessBlock,
   TraitSlot,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
@@ -31,6 +37,23 @@ type LockedBlock = {
   ctaLabel: string;
 };
 
+type P1ModuleBlock =
+  | {
+      kind: "idea";
+      data: IdeaListBlock;
+      testId: string;
+    }
+  | {
+      kind: "energy";
+      data: EnergyBlock;
+      testId: string;
+    }
+  | {
+      kind: "relationshipInsight";
+      data: RelationshipInsightBlock;
+      testId: string;
+    };
+
 type MbtiCloneNarrativeSectionProps = {
   locale: "zh" | "en";
   id: string;
@@ -48,6 +71,7 @@ type MbtiCloneNarrativeSectionProps = {
   isUnlocked: boolean;
   unlockHref: string;
   unlockLabel: string;
+  p1Blocks?: P1ModuleBlock[];
   visibleBlocks: VisibleBlock[];
   lockedBlocks: LockedBlock[];
 };
@@ -69,6 +93,7 @@ export function MbtiCloneNarrativeSection({
   isUnlocked,
   unlockHref,
   unlockLabel,
+  p1Blocks = [],
   visibleBlocks,
   lockedBlocks,
 }: MbtiCloneNarrativeSectionProps) {
@@ -96,6 +121,17 @@ export function MbtiCloneNarrativeSection({
       ) : null}
       {matchedJobs ? <MbtiCloneMatchedJobs locale={locale} data={matchedJobs} /> : null}
       {matchedGuides ? <MbtiCloneMatchedGuides data={matchedGuides} /> : null}
+      {p1Blocks.map((block) => {
+        if (block.kind === "idea") {
+          return <MbtiCloneIdeaListBlock key={block.testId} data={block.data} testId={block.testId} />;
+        }
+
+        if (block.kind === "energy") {
+          return <MbtiCloneEnergyBlock key={block.testId} data={block.data} testId={block.testId} />;
+        }
+
+        return <MbtiCloneRelationshipInsightBlock key={block.testId} data={block.data} testId={block.testId} />;
+      })}
       <MbtiCloneInfluentialTraitsCard
         locale={locale}
         traits={traits}

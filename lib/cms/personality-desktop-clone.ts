@@ -3,6 +3,8 @@ import { MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS } from "@/components/result/mbti/clon
 import type {
   CloneAssetSlot,
   ContentListBlock,
+  EnergyBlock,
+  IdeaListBlock,
   ListItem,
   LockedListBlock,
   MatchedGuidesBlock,
@@ -10,6 +12,7 @@ import type {
   MbtiDesktopCloneContent,
   MbtiDesktopCloneAssetSlotId,
   OverviewBlock,
+  RelationshipInsightBlock,
   StrengthWeaknessBlock,
   TraitSlot,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
@@ -259,6 +262,18 @@ function normalizeStrengthWeakness(value: unknown): StrengthWeaknessBlock | unde
   };
 }
 
+function normalizeIdeaListBlock(value: unknown): IdeaListBlock | undefined {
+  return normalizeStrengthWeakness(value);
+}
+
+function normalizeEnergyBlock(value: unknown): EnergyBlock | undefined {
+  return normalizeStrengthWeakness(value);
+}
+
+function normalizeRelationshipInsightBlock(value: unknown): RelationshipInsightBlock | undefined {
+  return normalizeStrengthWeakness(value);
+}
+
 function normalizeOverview(value: unknown): OverviewBlock | undefined {
   if (!isRecord(value)) {
     return undefined;
@@ -405,16 +420,22 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
         weaknesses: normalizeStrengthWeakness(career.weaknesses),
         matchedJobs: normalizeMatchedJobs(career.matched_jobs ?? career.matchedJobs),
         matchedGuides: normalizeMatchedGuides(career.matched_guides ?? career.matchedGuides),
+        careerIdeas: normalizeIdeaListBlock(career.career_ideas ?? career.careerIdeas),
+        workStyles: normalizeIdeaListBlock(career.work_styles ?? career.workStyles),
       },
       growth: {
         ...typedContent.chapters.growth,
         strengths: normalizeStrengthWeakness(growth.strengths),
         weaknesses: normalizeStrengthWeakness(growth.weaknesses),
+        whatEnergizes: normalizeEnergyBlock(growth.what_energizes ?? growth.whatEnergizes),
+        whatDrains: normalizeEnergyBlock(growth.what_drains ?? growth.whatDrains),
       },
       relationships: {
         ...typedContent.chapters.relationships,
         strengths: normalizeStrengthWeakness(relationships.strengths),
         weaknesses: normalizeStrengthWeakness(relationships.weaknesses),
+        superpowers: normalizeRelationshipInsightBlock(relationships.superpowers),
+        pitfalls: normalizeRelationshipInsightBlock(relationships.pitfalls),
       },
     },
     finalOffer: typedContent.finalOffer,

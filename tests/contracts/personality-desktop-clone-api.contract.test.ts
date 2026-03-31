@@ -72,6 +72,18 @@ function createValidPayload(tag: string) {
             summary: `matched guides summary ${tag}`,
             fit_reason: `matched guides reason ${tag}`,
           },
+          career_ideas: {
+            title: `career ideas ${tag}`,
+            items: [
+              { title: `career ideas item 1 ${tag}`, description: `career ideas body 1 ${tag}` },
+            ],
+          },
+          work_styles: {
+            title: `work styles ${tag}`,
+            items: [
+              { title: `work styles item 1 ${tag}`, description: `work styles body 1 ${tag}` },
+            ],
+          },
           influentialTraits: [
             { label: `career trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
             { label: `career trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -136,6 +148,18 @@ function createValidPayload(tag: string) {
               { title: `growth weaknesses item 1 ${tag}`, description: `growth weaknesses body 1 ${tag}` },
             ],
           },
+          what_energizes: {
+            title: `what energizes ${tag}`,
+            items: [
+              { title: `what energizes item 1 ${tag}`, description: `what energizes body 1 ${tag}` },
+            ],
+          },
+          what_drains: {
+            title: `what drains ${tag}`,
+            items: [
+              { title: `what drains item 1 ${tag}`, description: `what drains body 1 ${tag}` },
+            ],
+          },
           influentialTraits: [
             { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
             { label: `growth trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -198,6 +222,18 @@ function createValidPayload(tag: string) {
             title: `relationships weaknesses ${tag}`,
             items: [
               { title: `relationships weaknesses item 1 ${tag}`, description: `relationships weaknesses body 1 ${tag}` },
+            ],
+          },
+          superpowers: {
+            title: `superpowers ${tag}`,
+            items: [
+              { title: `superpowers item 1 ${tag}`, description: `superpowers body 1 ${tag}` },
+            ],
+          },
+          pitfalls: {
+            title: `pitfalls ${tag}`,
+            items: [
+              { title: `pitfalls item 1 ${tag}`, description: `pitfalls body 1 ${tag}` },
             ],
           },
           influentialTraits: [
@@ -375,6 +411,12 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.content.chapters.relationships.weaknesses?.items[0]?.description).toBe("relationships weaknesses body 1 seed");
     expect(result?.content.chapters.career.matchedJobs?.fitBucket).toBe("primary");
     expect(result?.content.chapters.career.matchedGuides?.fitReason).toBe("matched guides reason seed");
+    expect(result?.content.chapters.career.careerIdeas?.items[0]?.description).toBe("career ideas body 1 seed");
+    expect(result?.content.chapters.career.workStyles?.items[0]?.description).toBe("work styles body 1 seed");
+    expect(result?.content.chapters.growth.whatEnergizes?.items[0]?.description).toBe("what energizes body 1 seed");
+    expect(result?.content.chapters.growth.whatDrains?.items[0]?.description).toBe("what drains body 1 seed");
+    expect(result?.content.chapters.relationships.superpowers?.items[0]?.description).toBe("superpowers body 1 seed");
+    expect(result?.content.chapters.relationships.pitfalls?.items[0]?.description).toBe("pitfalls body 1 seed");
     expect(result?.assetSlots).toHaveLength(7);
     expect(result?.assetSlots[0]?.slotId).toBe("hero-illustration");
     expect(result?.assetSlots[1]?.status).toBe("ready");
@@ -397,8 +439,13 @@ describe("personality desktop clone api adapter contract", () => {
     delete (payload.content as Record<string, unknown>).overview;
     const chapters = (payload.content as Record<string, unknown>).chapters as Record<string, unknown>;
     const career = chapters.career as Record<string, unknown>;
+    const growth = chapters.growth as Record<string, unknown>;
+    const relationships = chapters.relationships as Record<string, unknown>;
     delete career.matched_jobs;
     delete career.matched_guides;
+    delete career.career_ideas;
+    delete growth.what_energizes;
+    delete relationships.superpowers;
 
     vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(payload)));
 
@@ -408,6 +455,9 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.content.overview).toBeUndefined();
     expect(result?.content.chapters.career.matchedJobs).toBeUndefined();
     expect(result?.content.chapters.career.matchedGuides).toBeUndefined();
+    expect(result?.content.chapters.career.careerIdeas).toBeUndefined();
+    expect(result?.content.chapters.growth.whatEnergizes).toBeUndefined();
+    expect(result?.content.chapters.relationships.superpowers).toBeUndefined();
   });
 
   it("returns null for unsupported fullCode slug input", async () => {
