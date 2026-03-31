@@ -6,7 +6,6 @@ import type { ReportCta } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
 import {
-  summarizeMbtiActionPriorityKeys,
   summarizeMbtiActionCompletionTendency,
   summarizeMbtiAxisBands,
   summarizeMbtiBoundaryFlags,

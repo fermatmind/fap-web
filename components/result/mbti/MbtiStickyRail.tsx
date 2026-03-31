@@ -43,6 +43,7 @@ const MAIN_ANCHORS: RailLink[] = [
   { anchor: "growth", zh: "3 Your Personal Growth", en: "3 Your Personal Growth" },
   { anchor: "relationships", zh: "4 Your Relationships", en: "4 Your Relationships" },
 ];
+const STICKY_SECTION_IDS = ["hero", ...MAIN_ANCHORS.map((item) => item.anchor), "offer-full", "footer-cta"];
 
 function normalizeText(...values: unknown[]): string {
   for (const value of values) {
@@ -114,7 +115,7 @@ export function MbtiStickyRail({
   retakeHref,
   primaryCtaLabel,
   primaryCtaHref,
-  primaryCtaIsInternal = false,
+  primaryCtaIsInternal: _primaryCtaIsInternal = false,
   shareCtaLabel,
   shareStatusMessage,
   shareDisabled = false,
@@ -123,7 +124,6 @@ export function MbtiStickyRail({
   const [activeAnchor, setActiveAnchor] = useState("traits");
   const unlockSummary = resolveUnlockText(locale, locked, accessLevel, variant);
   const shareLabel = normalizeText(shareCtaLabel, locale === "zh" ? "分享结果" : "Share result");
-  const sectionIds = ["hero", ...MAIN_ANCHORS.map((item) => item.anchor), "offer-full", "footer-cta"];
   const visibleModuleLabels = resolveVisibleModuleLabels(
     locale,
     modulesAllowed.filter((item) => normalizeText(item).toLowerCase() !== "core_free").length > 0
@@ -135,14 +135,15 @@ export function MbtiStickyRail({
   const hasUtilityLinks = Boolean(orderDetailHref || orderLookupHref || relationshipHref || (pdfReady && pdfHref));
   const ctaLabel = normalizeText(primaryCtaLabel) || (locale === "zh" ? "查看完整报告" : "View full report");
   const historyLabel = locale === "zh" ? "结果工作台" : "Result workspace";
+  void _primaryCtaIsInternal;
 
   useEffect(() => {
-    const sectionNodes = sectionIds
+    const sectionNodes = STICKY_SECTION_IDS
       .map((id) => document.getElementById(id))
       .filter((element): element is HTMLElement => element instanceof HTMLElement);
     const updateFromViewport = () => {
       let next = "traits";
-      for (const anchor of sectionIds) {
+      for (const anchor of STICKY_SECTION_IDS) {
         const element = document.getElementById(anchor);
         if (!element) {
           continue;
@@ -166,7 +167,7 @@ export function MbtiStickyRail({
       window.removeEventListener("scroll", updateFromViewport);
       window.removeEventListener("hashchange", updateFromViewport);
     };
-  }, [sectionIds]);
+  }, []);
 
   return (
     <aside

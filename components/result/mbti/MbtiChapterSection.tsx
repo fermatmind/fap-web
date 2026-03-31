@@ -1222,24 +1222,6 @@ function renderDesktopLockedOverlay({
   );
 }
 
-function pickTraitsHeadline(chapterKey: ChapterKey, locale: Locale) {
-  return chapterKey === "traits"
-    ? locale === "zh"
-      ? "性格主轴"
-      : "Trait overview"
-    : chapterKey === "career"
-      ? locale === "zh"
-        ? "职业优势与风险"
-        : "Career strengths and risks"
-      : chapterKey === "growth"
-        ? locale === "zh"
-          ? "成长优势与风险"
-          : "Growth strengths and risks"
-        : locale === "zh"
-          ? "关系优势与风险"
-          : "Relationship strengths and risks";
-}
-
 function resolveSectionListText(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale
@@ -1630,10 +1612,6 @@ export function MbtiChapterSection({
   const teaserText = isOverviewChapter
     ? normalizeText(authoredOverview?.oneLiner, authoredOverview?.subtitle, unlock?.teaser)
     : normalizeText(unlock?.teaser);
-  const teaserBullets =
-    isOverviewChapter && (authoredOverview?.bullets.length ?? 0) > 0
-      ? authoredOverview?.bullets ?? []
-      : unlock?.benefits ?? [];
   const desktopIntroParagraphs = normalizeText(introCopy)
     .split("\n")
     .map((line) => normalizeText(line))

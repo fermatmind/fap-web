@@ -75,29 +75,6 @@ function normalizeDictText(value: unknown): string {
   return "";
 }
 
-function resolveEmptyDictionaryFallback(pathname: string) {
-  return {
-    breakdown: pathname.includes("/en") ? "Breakdown" : "维度解析",
-    noDimensions: pathname.includes("/en") ? "No dimensions available." : "暂无维度数据。",
-  };
-}
-
-function normalizeDictionaryFallback(value: unknown): { breakdown: string; noDimensions: string } {
-  const rawDict = value as Record<string, unknown> | null;
-  const dictResult =
-    rawDict && typeof rawDict.result === "object" && rawDict.result !== null
-      ? (rawDict.result as Record<string, unknown>)
-      : null;
-  const fallback = resolveEmptyDictionaryFallback(typeof window === "undefined" ? "" : window.location.pathname);
-  const dictBreakdown = normalizeDictText(dictResult?.breakdown);
-  const dictNoDimensions = normalizeDictText(dictResult?.noDimensions);
-
-  return {
-    breakdown: dictBreakdown || fallback.breakdown,
-    noDimensions: dictNoDimensions || fallback.noDimensions,
-  };
-}
-
 export function DimensionBars({
   dimensions,
   variant = "default",
