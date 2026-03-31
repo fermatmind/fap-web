@@ -121,6 +121,16 @@ export function MbtiCloneNarrativeSection({
       ) : null}
       {matchedJobs ? <MbtiCloneMatchedJobs locale={locale} data={matchedJobs} /> : null}
       {matchedGuides ? <MbtiCloneMatchedGuides data={matchedGuides} /> : null}
+      <MbtiCloneInfluentialTraitsCard
+        locale={locale}
+        traits={traits}
+        isUnlocked={isUnlocked}
+        unlockHref={unlockHref}
+        unlockLabel={unlockLabel}
+      />
+      {visibleBlocks.map((block) => (
+        <MbtiCloneTwoColumnList key={`${id}-${block.title}`} title={block.title} items={block.items} />
+      ))}
       {p1Blocks.map((block) => {
         if (block.kind === "idea") {
           return <MbtiCloneIdeaListBlock key={block.testId} data={block.data} testId={block.testId} />;
@@ -132,16 +142,6 @@ export function MbtiCloneNarrativeSection({
 
         return <MbtiCloneRelationshipInsightBlock key={block.testId} data={block.data} testId={block.testId} />;
       })}
-      <MbtiCloneInfluentialTraitsCard
-        locale={locale}
-        traits={traits}
-        isUnlocked={isUnlocked}
-        unlockHref={unlockHref}
-        unlockLabel={unlockLabel}
-      />
-      {visibleBlocks.map((block) => (
-        <MbtiCloneTwoColumnList key={`${id}-${block.title}`} title={block.title} items={block.items} />
-      ))}
       {lockedBlocks.map((block) => (
         <MbtiCloneLockedListBlock
           key={`${id}-${block.title}`}

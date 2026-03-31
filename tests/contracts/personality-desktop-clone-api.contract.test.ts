@@ -444,8 +444,11 @@ describe("personality desktop clone api adapter contract", () => {
     delete career.matched_jobs;
     delete career.matched_guides;
     delete career.career_ideas;
+    delete career.work_styles;
     delete growth.what_energizes;
+    delete growth.what_drains;
     delete relationships.superpowers;
+    delete relationships.pitfalls;
 
     vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(payload)));
 
@@ -456,8 +459,11 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.content.chapters.career.matchedJobs).toBeUndefined();
     expect(result?.content.chapters.career.matchedGuides).toBeUndefined();
     expect(result?.content.chapters.career.careerIdeas).toBeUndefined();
+    expect(result?.content.chapters.career.workStyles).toBeUndefined();
     expect(result?.content.chapters.growth.whatEnergizes).toBeUndefined();
+    expect(result?.content.chapters.growth.whatDrains).toBeUndefined();
     expect(result?.content.chapters.relationships.superpowers).toBeUndefined();
+    expect(result?.content.chapters.relationships.pitfalls).toBeUndefined();
   });
 
   it("returns null for unsupported fullCode slug input", async () => {

@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
@@ -458,7 +458,42 @@ describe("MBTI desktop clone p1 render contract", () => {
     expect(screen.getByTestId("mbti-p1-growth-what-drains")).toBeInTheDocument();
   });
 
-  it("keeps p0 modules CTA and asset-slot behavior stable", async () => {
+  it("keeps p1 modules before locked blocks in chapter flow", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A");
+
+    const careerSection = document.querySelector("#career");
+    expect(careerSection).not.toBeNull();
+
+    const scoped = within(careerSection as HTMLElement);
+    const careerIdeas = await scoped.findByTestId("mbti-p1-career-career-ideas");
+    const workStyles = scoped.getByTestId("mbti-p1-career-work-styles");
+    const firstLockedTitle = scoped.getByText("locked 1 infj-a");
+
+    expect(careerIdeas.compareDocumentPosition(firstLockedTitle) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
+    expect(workStyles.compareDocumentPosition(firstLockedTitle) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
+  });
+
+  it("does not fetch or render p1 modules for non-zh locale", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A", "en");
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    });
+
+    expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("mbti-p1-career-career-ideas")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p1-career-work-styles")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p1-growth-what-energizes")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p1-growth-what-drains")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p1-relationships-superpowers")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p1-relationships-pitfalls")).not.toBeInTheDocument();
+  });
+
+  it("keeps p0 modules CTA and asset-slot structure stable", async () => {
     const payload = createStoragePayload("INFJ-A", {
       assetSlots: createAssetSlots({
         hero: {
@@ -478,7 +513,7 @@ describe("MBTI desktop clone p1 render contract", () => {
         },
       }),
     });
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(payload);
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(payload);
 
     renderShell("INFJ-A");
 
@@ -488,6 +523,6 @@ describe("MBTI desktop clone p1 render contract", () => {
 
     expect(await screen.findByTestId("mbti-p0-career-strengths")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-mode", "ready");
+    expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-id", "hero-illustration");
   });
 });
