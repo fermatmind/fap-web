@@ -1,10 +1,17 @@
 import type {
   ContentListBlock,
+  ContentListBlockPatch,
   ListItem,
+  ListItemPatch,
   LockedListBlock,
+  LockedListBlockPatch,
   MbtiDesktopCloneContent,
+  MbtiDesktopCloneContentPatch,
+  NarrativeChapterContentPatch,
   NarrativeChapterSlots,
+  TextTuplePatch,
   TraitSlot,
+  TraitSlotPatch,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
 type ItemTone = ListItem["tone"];
@@ -145,6 +152,88 @@ function toChapter(input: ChapterInput): Pick<NarrativeChapterSlots, "intro" | "
   };
 }
 
+function mergeTextTuple(base: [string, string], patch?: TextTuplePatch): [string, string] {
+  if (!patch) {
+    return base;
+  }
+
+  return [patch[0] ?? base[0], patch[1] ?? base[1]];
+}
+
+function mergeTrait(base: TraitSlot, patch?: TraitSlotPatch): TraitSlot {
+  return patch ? { ...base, ...patch } : base;
+}
+
+function mergeListItem(base: ListItem, patch?: ListItemPatch): ListItem {
+  return patch ? { ...base, ...patch } : base;
+}
+
+function mergeContentListBlock(base: ContentListBlock, patch?: ContentListBlockPatch): ContentListBlock {
+  if (!patch) {
+    return base;
+  }
+
+  return {
+    title: patch.title ?? base.title,
+    items: [
+      mergeListItem(base.items[0], patch.items?.[0]),
+      mergeListItem(base.items[1], patch.items?.[1]),
+      mergeListItem(base.items[2], patch.items?.[2]),
+      mergeListItem(base.items[3], patch.items?.[3]),
+      mergeListItem(base.items[4], patch.items?.[4]),
+      mergeListItem(base.items[5], patch.items?.[5]),
+    ],
+  };
+}
+
+function mergeLockedListBlock(base: LockedListBlock, patch?: LockedListBlockPatch): LockedListBlock {
+  if (!patch) {
+    return base;
+  }
+
+  return {
+    title: patch.title ?? base.title,
+    overlayTitle: patch.overlayTitle ?? base.overlayTitle,
+    overlayBody: patch.overlayBody ?? base.overlayBody,
+    overlayCtaLabel: patch.overlayCtaLabel ?? base.overlayCtaLabel,
+    blurredItems: [
+      mergeListItem(base.blurredItems[0], patch.blurredItems?.[0]),
+      mergeListItem(base.blurredItems[1], patch.blurredItems?.[1]),
+      mergeListItem(base.blurredItems[2], patch.blurredItems?.[2]),
+      mergeListItem(base.blurredItems[3], patch.blurredItems?.[3]),
+      mergeListItem(base.blurredItems[4], patch.blurredItems?.[4]),
+      mergeListItem(base.blurredItems[5], patch.blurredItems?.[5]),
+    ],
+  };
+}
+
+function mergeChapter(
+  base: MbtiDesktopCloneContent["chapters"]["career"],
+  patch?: NarrativeChapterContentPatch,
+): MbtiDesktopCloneContent["chapters"]["career"] {
+  if (!patch) {
+    return base;
+  }
+
+  return {
+    intro: mergeTextTuple(base.intro, patch.intro),
+    influentialTraits: [
+      mergeTrait(base.influentialTraits[0], patch.influentialTraits?.[0]),
+      mergeTrait(base.influentialTraits[1], patch.influentialTraits?.[1]),
+      mergeTrait(base.influentialTraits[2], patch.influentialTraits?.[2]),
+      mergeTrait(base.influentialTraits[3], patch.influentialTraits?.[3]),
+    ],
+    visibleBlocks: [
+      mergeContentListBlock(base.visibleBlocks[0], patch.visibleBlocks?.[0]),
+      base.visibleBlocks[1] ? mergeContentListBlock(base.visibleBlocks[1], patch.visibleBlocks?.[1]) : undefined,
+    ],
+    lockedBlocks: [
+      mergeLockedListBlock(base.lockedBlocks[0], patch.lockedBlocks?.[0]),
+      mergeLockedListBlock(base.lockedBlocks[1], patch.lockedBlocks?.[1]),
+    ],
+  };
+}
+
 export function createMbtiDesktopCloneContent(input: ContentInput): MbtiDesktopCloneContent {
   return {
     hero: {
@@ -174,6 +263,50 @@ export function createMbtiDesktopCloneContent(input: ContentInput): MbtiDesktopC
       priceLabel: input.finalOffer.priceLabel ?? "当前价格",
       ctaLabel: input.finalOffer.ctaLabel ?? "解锁完整报告",
       guarantee: input.finalOffer.guarantee,
+    },
+  };
+}
+
+export function createMbtiDesktopCloneContentPatch(input: MbtiDesktopCloneContentPatch): MbtiDesktopCloneContentPatch {
+  return input;
+}
+
+export function mergeMbtiDesktopCloneContent(
+  base: MbtiDesktopCloneContent,
+  patch?: MbtiDesktopCloneContentPatch,
+): MbtiDesktopCloneContent {
+  if (!patch) {
+    return base;
+  }
+
+  return {
+    hero: {
+      summary: patch.hero?.summary ?? base.hero.summary,
+    },
+    intro: {
+      paragraphs: mergeTextTuple(base.intro.paragraphs, patch.intro?.paragraphs),
+    },
+    traits: {
+      summaryPane: {
+        eyebrow: patch.traits?.summaryPane?.eyebrow ?? base.traits.summaryPane.eyebrow,
+        title: patch.traits?.summaryPane?.title ?? base.traits.summaryPane.title,
+        value: patch.traits?.summaryPane?.value ?? base.traits.summaryPane.value,
+        body: patch.traits?.summaryPane?.body ?? base.traits.summaryPane.body,
+      },
+      body: mergeTextTuple(base.traits.body, patch.traits?.body),
+    },
+    chapters: {
+      career: mergeChapter(base.chapters.career, patch.chapters?.career),
+      growth: mergeChapter(base.chapters.growth, patch.chapters?.growth),
+      relationships: mergeChapter(base.chapters.relationships, patch.chapters?.relationships),
+    },
+    finalOffer: {
+      eyebrow: patch.finalOffer?.eyebrow ?? base.finalOffer.eyebrow,
+      headline: patch.finalOffer?.headline ?? base.finalOffer.headline,
+      body: patch.finalOffer?.body ?? base.finalOffer.body,
+      priceLabel: patch.finalOffer?.priceLabel ?? base.finalOffer.priceLabel,
+      ctaLabel: patch.finalOffer?.ctaLabel ?? base.finalOffer.ctaLabel,
+      guarantee: patch.finalOffer?.guarantee ?? base.finalOffer.guarantee,
     },
   };
 }

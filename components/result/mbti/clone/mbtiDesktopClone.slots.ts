@@ -17,7 +17,44 @@ export const MBTI_BASE_CODES = [
   "ESFP",
 ] as const;
 
+export const MBTI_FULL_CODES = [
+  "INTJ-A",
+  "INTJ-T",
+  "INTP-A",
+  "INTP-T",
+  "ENTJ-A",
+  "ENTJ-T",
+  "ENTP-A",
+  "ENTP-T",
+  "INFJ-A",
+  "INFJ-T",
+  "INFP-A",
+  "INFP-T",
+  "ENFJ-A",
+  "ENFJ-T",
+  "ENFP-A",
+  "ENFP-T",
+  "ISTJ-A",
+  "ISTJ-T",
+  "ISFJ-A",
+  "ISFJ-T",
+  "ESTJ-A",
+  "ESTJ-T",
+  "ESFJ-A",
+  "ESFJ-T",
+  "ISTP-A",
+  "ISTP-T",
+  "ISFP-A",
+  "ISFP-T",
+  "ESTP-A",
+  "ESTP-T",
+  "ESFP-A",
+  "ESFP-T",
+] as const;
+
 export type MbtiBaseCode = typeof MBTI_BASE_CODES[number];
+export type MbtiFullCode = typeof MBTI_FULL_CODES[number];
+export type MbtiDesktopCloneAuthoringLevel = "fullCode" | "placeholder";
 
 export type CloneAssetSlot = {
   slotId: string;
@@ -69,6 +106,7 @@ export type MbtiDesktopCloneSlots = {
     baseCode: string;
     fullCode: string;
     locale: string;
+    authoringLevel: MbtiDesktopCloneAuthoringLevel;
   };
   hero: {
     eyebrow: string;
@@ -122,4 +160,64 @@ export type MbtiDesktopCloneContent = {
     relationships: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks">;
   };
   finalOffer: Omit<MbtiDesktopCloneSlots["finalOffer"], "asset">;
+};
+
+export type TextTuplePatch = [string | undefined, string | undefined];
+export type TraitSlotPatch = Partial<TraitSlot>;
+export type ListItemPatch = Partial<ListItem>;
+
+export type ContentListBlockPatch = {
+  title?: string;
+  items?: [
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+  ];
+};
+
+export type LockedListBlockPatch = {
+  title?: string;
+  overlayTitle?: string;
+  overlayBody?: string;
+  overlayCtaLabel?: string;
+  blurredItems?: [
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+    ListItemPatch | undefined,
+  ];
+};
+
+export type NarrativeChapterContentPatch = {
+  intro?: TextTuplePatch;
+  influentialTraits?: [
+    TraitSlotPatch | undefined,
+    TraitSlotPatch | undefined,
+    TraitSlotPatch | undefined,
+    TraitSlotPatch | undefined,
+  ];
+  visibleBlocks?: [ContentListBlockPatch | undefined, ContentListBlockPatch | undefined];
+  lockedBlocks?: [LockedListBlockPatch | undefined, LockedListBlockPatch | undefined];
+};
+
+export type MbtiDesktopCloneContentPatch = {
+  hero?: Partial<MbtiDesktopCloneContent["hero"]>;
+  intro?: {
+    paragraphs?: TextTuplePatch;
+  };
+  traits?: {
+    summaryPane?: Partial<MbtiDesktopCloneContent["traits"]["summaryPane"]>;
+    body?: TextTuplePatch;
+  };
+  chapters?: {
+    career?: NarrativeChapterContentPatch;
+    growth?: NarrativeChapterContentPatch;
+    relationships?: NarrativeChapterContentPatch;
+  };
+  finalOffer?: Partial<MbtiDesktopCloneContent["finalOffer"]>;
 };

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { MBTI_DESKTOP_CLONE_CONTENT_ZH } from "@/components/result/mbti/clone/content";
-import { MBTI_BASE_CODES } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import { MBTI_DESKTOP_CLONE_CONTENT_ZH_32 } from "@/components/result/mbti/clone/content";
+import { MBTI_FULL_CODES } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
@@ -112,14 +112,14 @@ function resolveSlotsForType(typeCode: string, typeName: string, locale: Locale 
 }
 
 describe("MBTI desktop clone slots contract", () => {
-  it("resolves zh registry content for all 16 base codes", () => {
-    MBTI_BASE_CODES.forEach((baseCode, index) => {
-      const fullCode = `${baseCode}-${index % 2 === 0 ? "T" : "A"}`;
-      const slots = resolveSlotsForType(fullCode, `${baseCode} 类型`);
-      const content = MBTI_DESKTOP_CLONE_CONTENT_ZH[baseCode];
+  it("resolves zh fullCode registry content for all 32 authored types", () => {
+    MBTI_FULL_CODES.forEach((fullCode) => {
+      const slots = resolveSlotsForType(fullCode, `${fullCode} 类型`);
+      const content = MBTI_DESKTOP_CLONE_CONTENT_ZH_32[fullCode];
 
-      expect(slots.meta.baseCode).toBe(baseCode);
+      expect(slots.meta.baseCode).toBe(fullCode.slice(0, 4));
       expect(slots.meta.fullCode).toBe(fullCode);
+      expect(slots.meta.authoringLevel).toBe("fullCode");
       expect(slots.hero.summary).toBe(content.hero.summary);
       expect(slots.intro.paragraphs).toEqual(content.intro.paragraphs);
       expect(slots.traits.summaryPane).toMatchObject(content.traits.summaryPane);
@@ -137,9 +137,20 @@ describe("MBTI desktop clone slots contract", () => {
 
     expect(infjSlots.meta.baseCode).toBe("INFJ");
     expect(infjSlots.meta.fullCode).toBe("INFJ-A");
+    expect(infjSlots.meta.authoringLevel).toBe("placeholder");
     expect(infjSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
     expect(infjSlots.intro.paragraphs).toEqual(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.intro.paragraphs);
     expect(infjSlots.chapters.career.lockedBlocks).toEqual(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.career.lockedBlocks);
     expect(infjSlots.finalOffer.headline).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.headline);
+  });
+
+  it("falls back to placeholder when the fullCode is outside the authored 32-type set", () => {
+    const unknownSlots = resolveSlotsForType("MBTI", "Unknown 类型");
+
+    expect(unknownSlots.meta.baseCode).toBe("MBTI");
+    expect(unknownSlots.meta.fullCode).toBe("MBTI");
+    expect(unknownSlots.meta.authoringLevel).toBe("placeholder");
+    expect(unknownSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
+    expect(unknownSlots.finalOffer.body).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.body);
   });
 });

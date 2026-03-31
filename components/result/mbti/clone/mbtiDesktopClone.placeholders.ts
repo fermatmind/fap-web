@@ -62,6 +62,7 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
     baseCode: "MBTI",
     fullCode: "MBTI",
     locale: "zh",
+    authoringLevel: "placeholder",
   },
   hero: {
     eyebrow: "你的人格类型是",
