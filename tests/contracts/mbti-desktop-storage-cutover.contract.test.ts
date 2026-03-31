@@ -36,6 +36,17 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
     intro: {
       paragraphs: [`intro one ${tag}`, `intro two ${tag}`],
     },
+    lettersIntro: {
+      headline: `letters headline ${tag}`,
+      letters: [
+        { letter: "E", title: `letter E ${tag}`, description: `letter E body ${tag}` },
+        { letter: "I", title: `letter I ${tag}`, description: `letter I body ${tag}` },
+      ],
+    },
+    overview: {
+      title: `overview title ${tag}`,
+      paragraphs: [`overview one ${tag}`, `overview two ${tag}`],
+    },
     traits: {
       summaryPane: {
         eyebrow: `eyebrow ${tag}`,
@@ -48,6 +59,30 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
     chapters: {
       career: {
         intro: [`career intro one ${tag}`, `career intro two ${tag}`],
+        strengths: {
+          title: `career strengths ${tag}`,
+          items: [
+            { title: `career strengths item ${tag}`, description: `career strengths body ${tag}` },
+          ],
+        },
+        weaknesses: {
+          title: `career weaknesses ${tag}`,
+          items: [
+            { title: `career weaknesses item ${tag}`, description: `career weaknesses body ${tag}` },
+          ],
+        },
+        matchedJobs: {
+          title: `matched jobs ${tag}`,
+          fitBucket: "primary",
+          summary: `matched jobs summary ${tag}`,
+          fitReason: `matched jobs reason ${tag}`,
+          jobExamples: [`job one ${tag}`, `job two ${tag}`],
+        },
+        matchedGuides: {
+          title: `matched guides ${tag}`,
+          summary: `matched guides summary ${tag}`,
+          fitReason: `matched guides reason ${tag}`,
+        },
         influentialTraits: [
           { label: `career trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
           { label: `career trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -100,6 +135,18 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
       },
       growth: {
         intro: [`growth intro one ${tag}`, `growth intro two ${tag}`],
+        strengths: {
+          title: `growth strengths ${tag}`,
+          items: [
+            { title: `growth strengths item ${tag}`, description: `growth strengths body ${tag}` },
+          ],
+        },
+        weaknesses: {
+          title: `growth weaknesses ${tag}`,
+          items: [
+            { title: `growth weaknesses item ${tag}`, description: `growth weaknesses body ${tag}` },
+          ],
+        },
         influentialTraits: [
           { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
           { label: `growth trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -152,6 +199,18 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
       },
       relationships: {
         intro: [`relationships intro one ${tag}`, `relationships intro two ${tag}`],
+        strengths: {
+          title: `relationships strengths ${tag}`,
+          items: [
+            { title: `relationships strengths item ${tag}`, description: `relationships strengths body ${tag}` },
+          ],
+        },
+        weaknesses: {
+          title: `relationships weaknesses ${tag}`,
+          items: [
+            { title: `relationships weaknesses item ${tag}`, description: `relationships weaknesses body ${tag}` },
+          ],
+        },
         influentialTraits: [
           { label: `relationships trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
           { label: `relationships trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -260,12 +319,22 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(infjSlots.meta.authoringLevel).toBe("fullCode");
     expect(infjSlots.meta.contentSource).toBe("storage");
     expect(infjSlots.hero.summary).toBe(infjStorage.hero.summary);
+    expect(infjSlots.lettersIntro?.headline).toBe(infjStorage.lettersIntro?.headline);
+    expect(infjSlots.overview?.title).toBe(infjStorage.overview?.title);
     expect(infjSlots.finalOffer.headline).toBe(infjStorage.finalOffer.headline);
+    expect(infjSlots.chapters.career.strengths).toEqual(infjStorage.chapters.career.strengths);
+    expect(infjSlots.chapters.career.weaknesses).toEqual(infjStorage.chapters.career.weaknesses);
+    expect(infjSlots.chapters.career.matchedJobs).toEqual(infjStorage.chapters.career.matchedJobs);
+    expect(infjSlots.chapters.career.matchedGuides).toEqual(infjStorage.chapters.career.matchedGuides);
 
     expect(entjSlots.meta.fullCode).toBe("ENTJ-T");
     expect(entjSlots.meta.authoringLevel).toBe("fullCode");
     expect(entjSlots.meta.contentSource).toBe("storage");
     expect(entjSlots.hero.summary).toBe(entjStorage.hero.summary);
+    expect(entjSlots.chapters.growth.strengths).toEqual(entjStorage.chapters.growth.strengths);
+    expect(entjSlots.chapters.growth.weaknesses).toEqual(entjStorage.chapters.growth.weaknesses);
+    expect(entjSlots.chapters.relationships.strengths).toEqual(entjStorage.chapters.relationships.strengths);
+    expect(entjSlots.chapters.relationships.weaknesses).toEqual(entjStorage.chapters.relationships.weaknesses);
     expect(entjSlots.chapters.growth.visibleBlocks).toEqual(entjStorage.chapters.growth.visibleBlocks);
   });
 
@@ -286,9 +355,16 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(enSlots.meta.contentSource).toBe("placeholder");
     expect(enSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
     expect(enSlots.finalOffer.headline).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.headline);
+    expect(enSlots.lettersIntro).toBeNull();
+    expect(enSlots.overview).toBeNull();
+    expect(enSlots.chapters.career.strengths).toBeNull();
+    expect(enSlots.chapters.career.matchedJobs).toBeNull();
 
     expect(missSlots.meta.contentSource).toBe("placeholder");
     expect(missSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
+    expect(missSlots.lettersIntro).toBeNull();
+    expect(missSlots.overview).toBeNull();
+    expect(missSlots.chapters.growth.strengths).toBeNull();
     expect(missSlots.chapters.relationships.lockedBlocks).toEqual(
       MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks,
     );

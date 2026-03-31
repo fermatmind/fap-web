@@ -5,6 +5,8 @@ import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, Ri
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
 import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
 import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCloneNarrativeSection";
+import { MbtiCloneLettersIntro } from "@/components/result/mbti/clone/MbtiCloneLettersIntro";
+import { MbtiCloneOverview } from "@/components/result/mbti/clone/MbtiCloneOverview";
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
@@ -195,6 +197,8 @@ export function MbtiDesktopCloneShell({
               <p>{slots.intro.paragraphs[0]}</p>
               <p>{slots.intro.paragraphs[1]}</p>
             </section>
+            {slots.lettersIntro ? <MbtiCloneLettersIntro data={slots.lettersIntro} /> : null}
+            {slots.overview ? <MbtiCloneOverview data={slots.overview} /> : null}
 
             <MbtiCloneTraitsSection
               title={slots.traits.title}
@@ -221,6 +225,10 @@ export function MbtiDesktopCloneShell({
               illustrationLabel={slots.chapters.career.asset.label}
               assetSlots={storageAssetSlots}
               introParagraphs={slots.chapters.career.intro}
+              strengths={slots.chapters.career.strengths}
+              weaknesses={slots.chapters.career.weaknesses}
+              matchedJobs={slots.chapters.career.matchedJobs}
+              matchedGuides={slots.chapters.career.matchedGuides}
               traits={slots.chapters.career.influentialTraits}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
@@ -244,6 +252,8 @@ export function MbtiDesktopCloneShell({
               illustrationLabel={slots.chapters.growth.asset.label}
               assetSlots={storageAssetSlots}
               introParagraphs={slots.chapters.growth.intro}
+              strengths={slots.chapters.growth.strengths}
+              weaknesses={slots.chapters.growth.weaknesses}
               traits={slots.chapters.growth.influentialTraits}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
@@ -267,6 +277,8 @@ export function MbtiDesktopCloneShell({
               illustrationLabel={slots.chapters.relationships.asset.label}
               assetSlots={storageAssetSlots}
               introParagraphs={slots.chapters.relationships.intro}
+              strengths={slots.chapters.relationships.strengths}
+              weaknesses={slots.chapters.relationships.weaknesses}
               traits={slots.chapters.relationships.influentialTraits}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
