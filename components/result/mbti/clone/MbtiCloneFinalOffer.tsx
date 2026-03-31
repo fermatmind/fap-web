@@ -12,6 +12,7 @@ type MbtiCloneFinalOfferProps = {
   price: string;
   guarantee: string;
   ctaLabel?: string;
+  ctaHref?: string;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
   onCheckout?: () => void | Promise<void>;
@@ -29,6 +30,7 @@ export function MbtiCloneFinalOffer({
   price,
   guarantee,
   ctaLabel,
+  ctaHref,
   isCheckingOut = false,
   checkoutError = null,
   onCheckout,
@@ -69,6 +71,10 @@ export function MbtiCloneFinalOffer({
                   : "Redirecting..."
                 : ctaLabel}
             </button>
+          ) : ctaLabel && ctaHref ? (
+            <a href={ctaHref} data-testid="mbti-offers-primary-cta" className={styles.finalOfferButton}>
+              {ctaLabel}
+            </a>
           ) : null}
         </div>
         {checkoutError ? <p className={styles.errorText}>{checkoutError}</p> : null}
