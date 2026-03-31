@@ -10,7 +10,7 @@ import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferCo
 import { MbtiPostPurchaseSection } from "@/components/result/mbti/MbtiPostPurchaseSection";
 import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   canEnterReportPage,
   canDownloadReportPdf,
@@ -45,7 +45,6 @@ import {
 import { captureError } from "@/lib/observability/sentry";
 import {
   buildMbtiCareerRecommendationHref,
-  type MbtiPublicProjectionDimensionViewModel,
   type MbtiResultProjectionSectionViewModel,
   type MbtiResultProjectionViewModel,
 } from "@/lib/mbti/publicProjection";
@@ -213,28 +212,6 @@ function normalizeText(...values: unknown[]): string {
   return "";
 }
 
-function resolveMbtiModuleLabel(moduleCode: string, locale: Locale): string {
-  const normalized = moduleCode.trim().toLowerCase();
-  const labels: Record<string, { zh: string; en: string }> = {
-    core_free: { zh: "结果摘要", en: "Result summary" },
-    core_full: { zh: "完整人格判读", en: "Full personality reading" },
-    career: { zh: "职业映射", en: "Career mapping" },
-    relationships: { zh: "关系映射", en: "Relationship mapping" },
-  };
-
-  return labels[normalized]?.[locale] ?? moduleCode;
-}
-
-function resolveVisibleModuleLabels(modulesAllowed: string[], locale: Locale): string[] {
-  return Array.from(
-    new Set(
-      normalizeStringArray(modulesAllowed)
-        .map((moduleCode) => resolveMbtiModuleLabel(moduleCode, locale))
-        .filter(Boolean)
-    )
-  );
-}
-
 function resolveShareCtaLabel(
   locale: Locale,
   shareStatus: "idle" | "copied" | "failed",
@@ -255,44 +232,12 @@ function resolveShareCtaLabel(
   return locale === "zh" ? "分享结果" : "Share result";
 }
 
-function resolveDimensionStatLabel(code: string, locale: Locale): string {
-  const labels: Record<string, { zh: string; en: string }> = {
-    EI: { zh: "能量方向", en: "Energy direction" },
-    SN: { zh: "信息偏好", en: "Information preference" },
-    TF: { zh: "决策偏好", en: "Decision preference" },
-    JP: { zh: "行动节奏", en: "Execution rhythm" },
-    AT: { zh: "稳定度", en: "Stability" },
-  };
-
-  return labels[code]?.[locale] ?? code;
-}
-
-function resolveDimensionPercent(value: Record<string, unknown>): number {
-  const raw = Number(value.percent ?? value.score ?? value.value ?? 0);
-  if (!Number.isFinite(raw)) {
-    return 0;
-  }
-
-  return Math.max(0, Math.min(100, Math.round(raw)));
-}
-
 function normalizeStringArray(values: unknown): string[] {
   if (!Array.isArray(values)) {
     return [];
   }
 
   return Array.from(new Set(values.map((value) => normalizeText(value)).filter(Boolean)));
-}
-
-function resolveProjectionDimensions(
-  dimensions: MbtiPublicProjectionDimensionViewModel[]
-): Array<Record<string, unknown>> {
-  return dimensions.map((dimension) => ({
-    code: dimension.code,
-    label: dimension.label || dimension.code,
-    percent: dimension.percent,
-    winnerLabel: normalizeText(dimension.sideLabel, dimension.summary, dimension.state),
-  }));
 }
 
 function extractProjectionSectionLead(
@@ -810,7 +755,6 @@ export function MbtiResultShell({
   accessProjection,
   headline,
   tags,
-  dimensions,
   projectionViewModel,
   highlights = [],
   recommendedReads = [],
@@ -875,32 +819,17 @@ export function MbtiResultShell({
   const previewSectionsByKey = new Map<string, MbtiPreviewSectionViewModel>(
     (previewView?.sections ?? []).map((section) => [section.key, section] as const)
   );
-  const nonCoreAllowedModules = normalizeStringArray(modulesAllowed).filter((moduleCode) => moduleCode.toLowerCase() !== "core_free");
   const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
   const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
   const publicSubtitle = normalizeText(projectionViewModel?.subtitle, projectionViewModel?.tagline, headline.supportingLine);
   const publicSummary = normalizeText(projectionViewModel?.summary, projectionViewModel?.heroSummary, headline.summary);
   const publicRarity = normalizeText(projectionViewModel?.rarity, headline.rarity);
-  const publicTypeName = normalizeText(projectionViewModel?.typeName, headline.displayName);
-  const publicNickname = normalizeText(projectionViewModel?.nickname, profile?.tagline);
   const publicTags =
     projectionViewModel?.publicTags && projectionViewModel.publicTags.length > 0
       ? projectionViewModel.publicTags
       : projectionViewModel?.keywords && projectionViewModel.keywords.length > 0
         ? projectionViewModel.keywords
         : tags;
-  const publicDimensions =
-    projectionViewModel?.dimensions && projectionViewModel.dimensions.length > 0
-      ? resolveProjectionDimensions(projectionViewModel.dimensions)
-      : dimensions;
-  const visibleModuleLabels = resolveVisibleModuleLabels(
-    nonCoreAllowedModules.length > 0 ? nonCoreAllowedModules : modulesAllowed.length > 0 ? modulesAllowed : modulesPreview,
-    locale
-  );
-  const previewModuleLabels =
-    nonCoreAllowedModules.length === 0
-      ? resolveVisibleModuleLabels(modulesPreview, locale)
-      : [];
   const careerSummarySection =
     projectionViewModel?.sections.find((section) => section.key === "career.summary") ?? null;
   const careerNextStepSection =
@@ -943,7 +872,6 @@ export function MbtiResultShell({
     profileKeywords: normalizeStringArray(profile?.keywords),
     fallbackTags: publicTags,
   });
-  const previewSectionCount = previewView?.visibleSections.length ?? 0;
   const legacySectionsByKey = new Map(sections.map((section) => [normalizeText(section.key).toLowerCase(), section]));
   const projectionSectionsByKey = new Map(
     (projectionViewModel?.sections ?? []).map((section) => [section.key, section] as const)
@@ -1807,10 +1735,6 @@ export function MbtiResultShell({
         }
       : null,
   ].filter(Boolean) as Array<{ testId: string; title: string; body: string }>;
-  const principleItems = locale === "zh"
-    ? ["可解释", "可行动", "可追溯", "数据主权"]
-    : ["Explainable", "Actionable", "Traceable", "Sovereignty"];
-
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
       setHasEntered(true);
