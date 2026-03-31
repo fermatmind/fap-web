@@ -55,6 +55,7 @@ export const MBTI_FULL_CODES = [
 export type MbtiBaseCode = typeof MBTI_BASE_CODES[number];
 export type MbtiFullCode = typeof MBTI_FULL_CODES[number];
 export type MbtiDesktopCloneAuthoringLevel = "fullCode" | "placeholder";
+export type MbtiDesktopCloneContentSource = "storage" | "placeholder";
 
 export type CloneAssetSlot = {
   slotId: string;
@@ -107,6 +108,7 @@ export type MbtiDesktopCloneSlots = {
     fullCode: string;
     locale: string;
     authoringLevel: MbtiDesktopCloneAuthoringLevel;
+    contentSource: MbtiDesktopCloneContentSource;
   };
   hero: {
     eyebrow: string;

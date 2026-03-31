@@ -1,0 +1,326 @@
+import fs from "node:fs";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
+import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
+import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
+import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
+import type { Locale } from "@/lib/i18n/locales";
+import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
+
+function createHeadline(typeCode: string, typeName: string): RichResultHeadline {
+  return {
+    badge: "MBTI",
+    typeCode,
+    displayName: typeName,
+    supportingLine: `${typeCode} supporting line`,
+    summary: `${typeName} headline summary`,
+    rarity: "test rarity",
+  };
+}
+
+function createSectionUnlocks(): Record<string, MbtiSectionUnlock> {
+  return {
+    traits: { teaser: "traits teaser", benefits: ["benefit one"], offer: null },
+    career: { teaser: "career teaser", benefits: ["career benefit"], offer: null },
+    growth: { teaser: "growth teaser", benefits: ["growth benefit"], offer: null },
+    relationships: { teaser: "relationships teaser", benefits: ["relationships benefit"], offer: null },
+  };
+}
+
+function createStorageContent(tag: string): MbtiDesktopCloneContent {
+  return {
+    hero: {
+      summary: `hero summary ${tag}`,
+    },
+    intro: {
+      paragraphs: [`intro one ${tag}`, `intro two ${tag}`],
+    },
+    traits: {
+      summaryPane: {
+        eyebrow: `eyebrow ${tag}`,
+        title: `title ${tag}`,
+        value: `value ${tag}`,
+        body: `body ${tag}`,
+      },
+      body: [`traits one ${tag}`, `traits two ${tag}`],
+    },
+    chapters: {
+      career: {
+        intro: [`career intro one ${tag}`, `career intro two ${tag}`],
+        influentialTraits: [
+          { label: `career trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
+          { label: `career trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
+          { label: `career trait 3 ${tag}`, body: "body 3", colorKey: "green" },
+          { label: `career trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
+        ],
+        visibleBlocks: [
+          {
+            title: `career visible ${tag}`,
+            items: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+        ],
+        lockedBlocks: [
+          {
+            title: `career locked 1 ${tag}`,
+            overlayTitle: "overlay 1",
+            overlayBody: "overlay body 1",
+            overlayCtaLabel: "unlock",
+            blurredItems: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+          {
+            title: `career locked 2 ${tag}`,
+            overlayTitle: "overlay 2",
+            overlayBody: "overlay body 2",
+            overlayCtaLabel: "unlock",
+            blurredItems: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+        ],
+      },
+      growth: {
+        intro: [`growth intro one ${tag}`, `growth intro two ${tag}`],
+        influentialTraits: [
+          { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
+          { label: `growth trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
+          { label: `growth trait 3 ${tag}`, body: "body 3", colorKey: "green" },
+          { label: `growth trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
+        ],
+        visibleBlocks: [
+          {
+            title: `growth visible ${tag}`,
+            items: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+        ],
+        lockedBlocks: [
+          {
+            title: `growth locked 1 ${tag}`,
+            overlayTitle: "overlay 1",
+            overlayBody: "overlay body 1",
+            overlayCtaLabel: "unlock",
+            blurredItems: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+          {
+            title: `growth locked 2 ${tag}`,
+            overlayTitle: "overlay 2",
+            overlayBody: "overlay body 2",
+            overlayCtaLabel: "unlock",
+            blurredItems: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+        ],
+      },
+      relationships: {
+        intro: [`relationships intro one ${tag}`, `relationships intro two ${tag}`],
+        influentialTraits: [
+          { label: `relationships trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
+          { label: `relationships trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
+          { label: `relationships trait 3 ${tag}`, body: "body 3", colorKey: "green" },
+          { label: `relationships trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
+        ],
+        visibleBlocks: [
+          {
+            title: `relationships visible ${tag}`,
+            items: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+        ],
+        lockedBlocks: [
+          {
+            title: `relationships locked 1 ${tag}`,
+            overlayTitle: "overlay 1",
+            overlayBody: "overlay body 1",
+            overlayCtaLabel: "unlock",
+            blurredItems: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+          {
+            title: `relationships locked 2 ${tag}`,
+            overlayTitle: "overlay 2",
+            overlayBody: "overlay body 2",
+            overlayCtaLabel: "unlock",
+            blurredItems: [
+              { title: "item 1", body: "body 1" },
+              { title: "item 2", body: "body 2" },
+              { title: "item 3", body: "body 3" },
+              { title: "item 4", body: "body 4" },
+              { title: "item 5", body: "body 5" },
+              { title: "item 6", body: "body 6" },
+            ],
+          },
+        ],
+      },
+    },
+    finalOffer: {
+      eyebrow: `offer eyebrow ${tag}`,
+      headline: `offer headline ${tag}`,
+      body: `offer body ${tag}`,
+      priceLabel: `offer price label ${tag}`,
+      ctaLabel: `offer cta label ${tag}`,
+      guarantee: `offer guarantee ${tag}`,
+    },
+  };
+}
+
+function resolveSlotsForType({
+  typeCode,
+  typeName,
+  locale = "zh",
+  storageContent = null,
+  dimensions = [],
+}: {
+  typeCode: string;
+  typeName: string;
+  locale?: Locale;
+  storageContent?: MbtiDesktopCloneContent | null;
+  dimensions?: Array<Record<string, unknown>>;
+}) {
+  return resolveMbtiDesktopCloneSlots({
+    locale,
+    headline: createHeadline(typeCode, typeName),
+    dimensions,
+    highlights: [],
+    sections: [],
+    sectionUnlocks: createSectionUnlocks(),
+    offers: [],
+    projectionViewModel: null as MbtiResultProjectionViewModel | null,
+    storageContent,
+  });
+}
+
+describe("MBTI desktop storage cutover contract", () => {
+  it("uses storage content for INFJ-A and ENTJ-T under zh", () => {
+    const infjStorage = createStorageContent("infj-a");
+    const entjStorage = createStorageContent("entj-t");
+
+    const infjSlots = resolveSlotsForType({
+      typeCode: "INFJ-A",
+      typeName: "INFJ 类型",
+      storageContent: infjStorage,
+    });
+    const entjSlots = resolveSlotsForType({
+      typeCode: "ENTJ-T",
+      typeName: "ENTJ 类型",
+      storageContent: entjStorage,
+    });
+
+    expect(infjSlots.meta.fullCode).toBe("INFJ-A");
+    expect(infjSlots.meta.authoringLevel).toBe("fullCode");
+    expect(infjSlots.meta.contentSource).toBe("storage");
+    expect(infjSlots.hero.summary).toBe(infjStorage.hero.summary);
+    expect(infjSlots.finalOffer.headline).toBe(infjStorage.finalOffer.headline);
+
+    expect(entjSlots.meta.fullCode).toBe("ENTJ-T");
+    expect(entjSlots.meta.authoringLevel).toBe("fullCode");
+    expect(entjSlots.meta.contentSource).toBe("storage");
+    expect(entjSlots.hero.summary).toBe(entjStorage.hero.summary);
+    expect(entjSlots.chapters.growth.visibleBlocks).toEqual(entjStorage.chapters.growth.visibleBlocks);
+  });
+
+  it("falls back to placeholder for non-zh locales and for storage misses", () => {
+    const infjStorage = createStorageContent("infj-a");
+    const enSlots = resolveSlotsForType({
+      typeCode: "INFJ-A",
+      typeName: "INFJ 类型",
+      locale: "en",
+      storageContent: infjStorage,
+    });
+    const missSlots = resolveSlotsForType({
+      typeCode: "INFJ-A",
+      typeName: "INFJ 类型",
+      storageContent: null,
+    });
+
+    expect(enSlots.meta.contentSource).toBe("placeholder");
+    expect(enSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
+    expect(enSlots.finalOffer.headline).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.headline);
+
+    expect(missSlots.meta.contentSource).toBe("placeholder");
+    expect(missSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
+    expect(missSlots.chapters.relationships.lockedBlocks).toEqual(
+      MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks,
+    );
+  });
+
+  it("keeps runtime dimension summary values on placeholder path", () => {
+    const slots = resolveSlotsForType({
+      typeCode: "INFJ-A",
+      typeName: "INFJ 类型",
+      storageContent: null,
+      dimensions: [
+        {
+          winnerLabel: "Runtime Dimension",
+          percent: 82,
+          summary: "Runtime summary",
+        },
+      ],
+    });
+
+    expect(slots.meta.contentSource).toBe("placeholder");
+    expect(slots.traits.summaryPane.title).toBe("Runtime Dimension");
+    expect(slots.traits.summaryPane.value).toBe("82%");
+    expect(slots.traits.summaryPane.body).toBe("Runtime summary");
+  });
+
+  it("does not import the local 32-type registry in runtime resolver path", () => {
+    const resolverSource = fs.readFileSync(
+      path.join(process.cwd(), "components/result/mbti/clone/mbtiDesktopClone.resolve.ts"),
+      "utf8",
+    );
+
+    expect(resolverSource).not.toContain('from "@/components/result/mbti/clone/content"');
+    expect(resolverSource).not.toContain("MBTI_DESKTOP_CLONE_CONTENT_ZH_32");
+  });
+});

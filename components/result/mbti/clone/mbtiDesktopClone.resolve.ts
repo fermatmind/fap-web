@@ -1,10 +1,7 @@
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
-import { MBTI_DESKTOP_CLONE_CONTENT_ZH_32 } from "@/components/result/mbti/clone/content";
 import {
-  MBTI_FULL_CODES,
   type MbtiDesktopCloneContent,
   type MbtiDesktopCloneSlots,
-  type MbtiFullCode,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
 import type { Locale } from "@/lib/i18n/locales";
@@ -19,6 +16,7 @@ export type ResolveMbtiDesktopCloneSlotsArgs = {
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
   projectionViewModel?: MbtiResultProjectionViewModel | null;
+  storageContent?: MbtiDesktopCloneContent | null;
 };
 
 const SECTION_META = {
@@ -55,10 +53,6 @@ function normalizeBaseMbtiCode(fullCode: string) {
   return match?.[1] ?? fullCode.toUpperCase();
 }
 
-function isMbtiFullCode(value: string): value is MbtiFullCode {
-  return (MBTI_FULL_CODES as readonly string[]).includes(value);
-}
-
 function resolveDisplayTitle(headline: RichResultHeadline, projectionViewModel?: MbtiResultProjectionViewModel | null) {
   return normalizeText(headline.displayName, projectionViewModel?.typeName, headline.typeCode, "MBTI");
 }
@@ -85,28 +79,22 @@ function buildDimensionSummary(
   };
 }
 
-function resolveZhContent(fullCode: string): MbtiDesktopCloneContent | null {
-  if (!isMbtiFullCode(fullCode)) {
-    return null;
-  }
-
-  return MBTI_DESKTOP_CLONE_CONTENT_ZH_32[fullCode];
-}
-
 export function resolveMbtiDesktopCloneSlots({
   locale,
   headline,
   dimensions,
   projectionViewModel,
+  storageContent = null,
 }: ResolveMbtiDesktopCloneSlotsArgs): MbtiDesktopCloneSlots {
   const fullCode = normalizeText(headline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI";
   const baseCode = normalizeBaseMbtiCode(fullCode);
   const isZh = locale === "zh";
   const language = isZh ? "zh" : "en";
-  const content = isZh ? resolveZhContent(fullCode) : null;
+  const content = isZh ? storageContent : null;
   const placeholders = MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH;
   const dimensionSummary = buildDimensionSummary(dimensions, headline, projectionViewModel);
   const authoringLevel = content ? "fullCode" : "placeholder";
+  const contentSource = content ? "storage" : "placeholder";
 
   return {
     meta: {
@@ -114,6 +102,7 @@ export function resolveMbtiDesktopCloneSlots({
       fullCode,
       locale,
       authoringLevel,
+      contentSource,
     },
     hero: {
       eyebrow: isZh ? "你的人格类型是" : "Your personality type is",

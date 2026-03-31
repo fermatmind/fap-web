@@ -1,3 +1,6 @@
+/**
+ * Migration artifact only. Runtime owner moved to fap-api storage read path.
+ */
 import { createMbtiDesktopCloneContentPatch } from "@/components/result/mbti/clone/content/factory";
 
 const ENFP_T_ZH_PATCH = createMbtiDesktopCloneContentPatch({

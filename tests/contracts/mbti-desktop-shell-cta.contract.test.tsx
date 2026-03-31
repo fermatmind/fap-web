@@ -1,10 +1,17 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
+import {
+  fetchPersonalityDesktopCloneContent,
+  type PersonalityDesktopCloneContentPayload,
+} from "@/lib/cms/personality-desktop-clone";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
+}));
+vi.mock("@/lib/cms/personality-desktop-clone", () => ({
+  fetchPersonalityDesktopCloneContent: vi.fn(async () => null),
 }));
 
 function createHeadline(): RichResultHeadline {
@@ -27,8 +34,203 @@ function createSectionUnlocks(): Record<string, MbtiSectionUnlock> {
   };
 }
 
+function createStoragePayload(tag: string): PersonalityDesktopCloneContentPayload {
+  return {
+    templateKey: "mbti_desktop_clone_v1",
+    schemaVersion: "v1",
+    fullCode: "INFJ-T",
+    baseCode: "INFJ",
+    locale: "zh-CN",
+    content: {
+      hero: { summary: `hero ${tag}` },
+      intro: { paragraphs: [`intro 1 ${tag}`, `intro 2 ${tag}`] },
+      traits: {
+        summaryPane: {
+          eyebrow: `eyebrow ${tag}`,
+          title: `title ${tag}`,
+          value: `value ${tag}`,
+          body: `body ${tag}`,
+        },
+        body: [`traits 1 ${tag}`, `traits 2 ${tag}`],
+      },
+      chapters: {
+        career: {
+          intro: [`career intro 1 ${tag}`, `career intro 2 ${tag}`],
+          influentialTraits: [
+            { label: "trait 1", body: "body 1", colorKey: "blue" },
+            { label: "trait 2", body: "body 2", colorKey: "gold" },
+            { label: "trait 3", body: "body 3", colorKey: "green" },
+            { label: "trait 4", body: "body 4", colorKey: "purple" },
+          ],
+          visibleBlocks: [
+            {
+              title: `visible ${tag}`,
+              items: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+          ],
+          lockedBlocks: [
+            {
+              title: `locked 1 ${tag}`,
+              overlayTitle: "overlay 1",
+              overlayBody: "overlay body 1",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+            {
+              title: `locked 2 ${tag}`,
+              overlayTitle: "overlay 2",
+              overlayBody: "overlay body 2",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+          ],
+        },
+        growth: {
+          intro: [`growth intro 1 ${tag}`, `growth intro 2 ${tag}`],
+          influentialTraits: [
+            { label: "trait 1", body: "body 1", colorKey: "blue" },
+            { label: "trait 2", body: "body 2", colorKey: "gold" },
+            { label: "trait 3", body: "body 3", colorKey: "green" },
+            { label: "trait 4", body: "body 4", colorKey: "purple" },
+          ],
+          visibleBlocks: [
+            {
+              title: `visible ${tag}`,
+              items: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+          ],
+          lockedBlocks: [
+            {
+              title: `locked 1 ${tag}`,
+              overlayTitle: "overlay 1",
+              overlayBody: "overlay body 1",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+            {
+              title: `locked 2 ${tag}`,
+              overlayTitle: "overlay 2",
+              overlayBody: "overlay body 2",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+          ],
+        },
+        relationships: {
+          intro: [`rel intro 1 ${tag}`, `rel intro 2 ${tag}`],
+          influentialTraits: [
+            { label: "trait 1", body: "body 1", colorKey: "blue" },
+            { label: "trait 2", body: "body 2", colorKey: "gold" },
+            { label: "trait 3", body: "body 3", colorKey: "green" },
+            { label: "trait 4", body: "body 4", colorKey: "purple" },
+          ],
+          visibleBlocks: [
+            {
+              title: `visible ${tag}`,
+              items: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+          ],
+          lockedBlocks: [
+            {
+              title: `locked 1 ${tag}`,
+              overlayTitle: "overlay 1",
+              overlayBody: "overlay body 1",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+            {
+              title: `locked 2 ${tag}`,
+              overlayTitle: "overlay 2",
+              overlayBody: "overlay body 2",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+          ],
+        },
+      },
+      finalOffer: {
+        eyebrow: `eyebrow ${tag}`,
+        headline: `headline ${tag}`,
+        body: `body ${tag}`,
+        priceLabel: `price label ${tag}`,
+        ctaLabel: `cta ${tag}`,
+        guarantee: `guarantee ${tag}`,
+      },
+    },
+    assetSlots: [],
+    meta: null,
+  };
+}
+
+beforeEach(() => {
+  vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
+});
+
 describe("MBTI desktop clone shell CTA wiring", () => {
-  it("keeps slot CTA labels in locked overlays and falls back to href CTA in final offer", () => {
+  it("keeps slot CTA labels in locked overlays and falls back to href CTA in final offer", async () => {
     render(
       <MbtiDesktopCloneShell
         locale="zh"
@@ -49,11 +251,56 @@ describe("MBTI desktop clone shell CTA wiring", () => {
       />,
     );
 
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
+    });
+
     const finalOfferCta = screen.getByTestId("mbti-offers-primary-cta");
     expect(finalOfferCta).toHaveTextContent("去结算");
     expect(finalOfferCta).toHaveAttribute("href", "/zh/pay/checkout");
 
-    const lockedOverlayCtas = screen.getAllByText("解锁完整报告");
+    const lockedOverlayCtas = screen.getAllByText("Unlock full report");
     expect(lockedOverlayCtas).toHaveLength(6);
+  });
+
+  it("keeps runtime offer price while allowing storage copy to render", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("storage"));
+
+    render(
+      <MbtiDesktopCloneShell
+        locale="zh"
+        headline={createHeadline()}
+        tags={[]}
+        dimensions={[]}
+        highlights={[]}
+        sections={[]}
+        sectionUnlocks={createSectionUnlocks()}
+        offers={[
+          {
+            key: "MBTI_REPORT_FULL",
+            title: "完整报告",
+            price: "¥199",
+            description: "desc",
+            modules: [],
+            moduleCodes: ["core_full"],
+          },
+        ]}
+        projectionViewModel={null}
+        isUnlocked={false}
+        shareCtaLabel="分享"
+        onShare={vi.fn()}
+        retakeHref="/zh/test/mbti"
+        primaryCtaLabel="去结算"
+        primaryCtaHref="/zh/pay/checkout"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
+      expect(screen.getByText("headline storage")).toBeInTheDocument();
+    });
+
+    expect(screen.getByText("price label storage")).toBeInTheDocument();
+    expect(screen.getByText("¥199")).toBeInTheDocument();
   });
 });
