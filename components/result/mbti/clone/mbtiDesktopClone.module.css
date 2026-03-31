@@ -22,13 +22,13 @@
   --clone-hero-py-top: 40px;
   --clone-hero-py-bottom: 32px;
 
-  --clone-section-gap: 88px;
-  --clone-block-gap: 28px;
+  --clone-section-gap: 72px;
+  --clone-block-gap: 20px;
   --clone-card-radius: 10px;
   --clone-card-padding: 24px;
   --clone-overlay-w: 344px;
-  --clone-overlay-h: 96px;
-  --clone-final-offer-h: 236px;
+  --clone-overlay-h: 84px;
+  --clone-final-offer-h: 220px;
 
   background: var(--clone-page-bg);
   color: var(--clone-text);
@@ -340,7 +340,7 @@
 
 .illustrationSlot {
   position: relative;
-  min-height: 172px;
+  min-height: 148px;
   border: 1px solid var(--clone-border);
   border-radius: var(--clone-card-radius);
   background:
@@ -380,8 +380,8 @@
   bottom: 18px;
   max-width: 72%;
   margin: 0;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 11px;
+  line-height: 1.45;
   color: var(--clone-muted);
 }
 
@@ -398,7 +398,7 @@
 
 .summaryIllustration {
   position: relative;
-  min-height: 132px;
+  min-height: 118px;
   border-radius: 10px;
   border: 1px solid var(--clone-border);
   background:
@@ -459,13 +459,13 @@
 .sectionParagraphs {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .sectionParagraphs p {
   margin: 0;
-  font-size: 15px;
-  line-height: 1.85;
+  font-size: 14px;
+  line-height: 1.78;
   color: var(--clone-body);
 }
 
@@ -578,33 +578,33 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 .traitSlotRow {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 .traitSlot {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-align: center;
 }
 
 .traitSlotIcon {
-  width: 54px;
-  height: 54px;
+  width: 50px;
+  height: 50px;
   border-radius: 999px;
   border: 1px solid var(--clone-border);
   background: var(--clone-surface-soft);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1;
   font-weight: 700;
   color: var(--clone-muted);
@@ -612,8 +612,8 @@
 
 .traitSlotLabel {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 11px;
+  line-height: 1.45;
   color: var(--clone-body);
 }
 
@@ -629,16 +629,16 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  height: 22px;
-  min-width: 44px;
+  height: 20px;
+  min-width: 40px;
   border: 1px solid var(--clone-border);
   border-radius: 999px;
   background: var(--clone-surface);
-  padding: 0 10px;
+  padding: 0 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1;
   font-weight: 700;
   color: var(--clone-muted);
@@ -653,18 +653,19 @@
   border-top: 3px solid var(--clone-green);
   border-radius: 10px;
   background: var(--clone-surface);
-  padding: 14px 18px;
+  padding: 10px 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 6px;
+  gap: 4px;
   align-items: center;
   text-align: center;
+  box-shadow: 0 12px 28px rgba(24, 39, 75, 0.08);
 }
 
 .unlockTitle {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.35;
   font-weight: 700;
   color: var(--clone-text);
@@ -672,8 +673,8 @@
 
 .unlockCopy {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 11px;
+  line-height: 1.45;
   color: var(--clone-muted);
 }
 
@@ -681,15 +682,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 34px;
+  min-height: 30px;
   border-radius: 999px;
   background: var(--clone-purple-cta);
   color: #fff;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1;
   font-weight: 700;
-  padding: 0 16px;
+  padding: 0 14px;
 }
 
 .unlockedState {
@@ -726,7 +727,7 @@
 .twoColumnList {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 .twoColumnTitle {
@@ -741,13 +742,13 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 28px;
-  row-gap: 18px;
+  row-gap: 14px;
 }
 
 .listItem {
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
-  gap: 10px;
+  gap: 9px;
   align-items: start;
 }
 
@@ -778,8 +779,8 @@
 
 .listItemBody {
   margin: 4px 0 0;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.62;
   color: var(--clone-body);
 }
 
@@ -788,7 +789,7 @@
   border: 1px solid var(--clone-border);
   border-radius: var(--clone-card-radius);
   background: var(--clone-surface-soft);
-  padding: 22px 24px;
+  padding: 18px 22px;
   overflow: hidden;
 }
 
@@ -804,7 +805,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(246, 247, 249, 0.36), rgba(246, 247, 249, 0.68));
+  background: linear-gradient(180deg, rgba(246, 247, 249, 0.18), rgba(246, 247, 249, 0.58));
 }
 
 .finalOffer {
@@ -815,6 +816,7 @@
   display: grid;
   grid-template-columns: minmax(0, 28%) minmax(0, 72%);
   overflow: hidden;
+  box-shadow: 0 14px 36px rgba(24, 39, 75, 0.06);
 }
 
 .finalOfferMedia {
@@ -826,17 +828,17 @@
 }
 
 .finalOfferBody {
-  padding: 28px 28px 26px;
+  padding: 24px 26px 22px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .finalOfferTitle {
   margin: 0;
-  font-size: 32px;
-  line-height: 1.05;
+  font-size: 28px;
+  line-height: 1.06;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--clone-text);
@@ -844,10 +846,10 @@
 
 .finalOfferCopy {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.75;
+  font-size: 13px;
+  line-height: 1.62;
   color: var(--clone-body);
-  max-width: 420px;
+  max-width: 392px;
 }
 
 .finalOfferRow {
@@ -855,12 +857,12 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
 }
 
 .finalOfferPrice {
   margin: 0;
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -868,9 +870,9 @@
 }
 
 .finalOfferMeta {
-  margin: 6px 0 0;
-  font-size: 12px;
-  line-height: 1.6;
+  margin: 4px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
   color: var(--clone-muted);
 }
 
@@ -878,16 +880,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 182px;
-  min-height: 42px;
+  min-width: 168px;
+  min-height: 38px;
   border: 0;
   border-radius: 999px;
   background: var(--clone-purple-cta);
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   font-weight: 700;
-  padding: 0 18px;
+  padding: 0 16px;
   cursor: pointer;
 }
 
