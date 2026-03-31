@@ -399,6 +399,7 @@ export function resolveMbtiDesktopCloneSlots({
   const baseCode = normalizeBaseMbtiCode(fullCode);
   const isZh = locale === "zh";
   const pilot = isZh ? MBTI_DESKTOP_CLONE_PILOT_CONTENT_ZH[baseCode] ?? null : null;
+  const isPilot = Boolean(pilot);
   const projectionSections = projectionViewModel?.sections ?? [];
   const legacySections = Object.fromEntries(
     sections.map((section) => [normalizeText(section.key).toLowerCase(), section] as const).filter(([key]) => key)
@@ -414,29 +415,17 @@ export function resolveMbtiDesktopCloneSlots({
       baseCode,
       fullCode,
       locale,
-      isPilot: Boolean(pilot),
+      isPilot,
     },
     hero: {
       eyebrow: isZh ? "你的人格类型是" : "Your personality type is",
       title: normalizeText(headline.displayName, projectionViewModel?.typeName, baseCode),
       typeCode: fullCode,
-      summary:
-        pilot?.hero.summary
-        || normalizeText(projectionViewModel?.summary, projectionViewModel?.heroSummary, headline.summary, headline.supportingLine)
-        || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary,
+      summary: pilot?.hero.summary || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary,
       asset: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.asset,
     },
     intro: {
-      paragraphs:
-        pilot?.intro.paragraphs
-        ?? takeParagraphs(
-          [
-            ...collectProjectionParagraphs(projectionSections, SECTION_CONFIG.traits.introKeys),
-            ...collectLegacyParagraphs(legacySections.traits),
-            normalizeParagraph(normalizeText(projectionViewModel?.summary, headline.summary)),
-          ],
-          MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.intro.paragraphs,
-        ),
+      paragraphs: pilot?.intro.paragraphs ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.intro.paragraphs,
     },
     traits: {
       sectionLabel: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.traits.sectionLabel,
@@ -449,31 +438,20 @@ export function resolveMbtiDesktopCloneSlots({
         body: pilot?.traits.summaryPane.body ?? dimensionSummary.body,
         asset: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.traits.summaryPane.asset,
       },
-      body:
-        pilot?.traits.body
-        ?? takeParagraphs(
-          [
-            ...collectProjectionParagraphs(projectionSections, ["traits.why_this_type", "traits.decision_style", "traits.adjacent_type_contrast"]),
-            ...highlights.map((highlight) => normalizeParagraph(highlight.body)),
-          ],
-          MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.traits.body,
-        ),
+      body: pilot?.traits.body ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.traits.body,
     },
     chapters: {
-      career: pilot ? applyPilotChapter(defaultCareer, pilot.chapters.career) : defaultCareer,
-      growth: pilot ? applyPilotChapter(defaultGrowth, pilot.chapters.growth) : defaultGrowth,
-      relationships: pilot ? applyPilotChapter(defaultRelationships, pilot.chapters.relationships) : defaultRelationships,
+      career: pilot ? applyPilotChapter(defaultCareer, pilot.chapters.career) : MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.career,
+      growth: pilot ? applyPilotChapter(defaultGrowth, pilot.chapters.growth) : MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.growth,
+      relationships: pilot ? applyPilotChapter(defaultRelationships, pilot.chapters.relationships) : MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships,
     },
     finalOffer: {
-      eyebrow: pilot?.finalOffer.eyebrow ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.eyebrow,
-      headline: pilot?.finalOffer.headline ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.headline,
-      body:
-        pilot?.finalOffer.body
-        || normalizeText(sectionUnlocks.traits?.teaser)
-        || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.body,
-      priceLabel: pilot?.finalOffer.priceLabel ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.priceLabel,
-      ctaLabel: pilot?.finalOffer.ctaLabel ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.ctaLabel,
-      guarantee: pilot?.finalOffer.guarantee ?? MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.guarantee,
+      eyebrow: (isPilot ? pilot?.finalOffer.eyebrow : "") || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.eyebrow,
+      headline: (isPilot ? pilot?.finalOffer.headline : "") || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.headline,
+      body: (isPilot ? pilot?.finalOffer.body : "") || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.body,
+      priceLabel: (isPilot ? pilot?.finalOffer.priceLabel : "") || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.priceLabel,
+      ctaLabel: (isPilot ? pilot?.finalOffer.ctaLabel : "") || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.ctaLabel,
+      guarantee: (isPilot ? pilot?.finalOffer.guarantee : "") || MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.guarantee,
       asset: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.asset,
     },
   };
