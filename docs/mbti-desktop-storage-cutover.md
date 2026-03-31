@@ -7,8 +7,9 @@
 
 ## Runtime boundary (unchanged)
 - Runtime still owns: `fullCode/baseCode`, display title, bars/dimensions, tools/actions, unlock/purchase handlers, runtime price.
-- Storage content owner provides: `content` (hero/intro/traits/chapter/finalOffer copy) + `asset_slots` metadata.
-- Asset refs are still placeholder metadata in this PR; real asset ownership wiring remains in follow-up PR.
+- Storage content owner provides: `content` (hero/intro/traits/chapter/finalOffer copy) + `asset_slots`.
+- Asset slot consumption cutover details are documented in:
+  - `/Users/rainie/Desktop/GitHub/fap-web/docs/mbti-desktop-asset-slot-consumption.md`
 
 ## Consumer behavior in `fap-web`
 - Adapter: `/Users/rainie/Desktop/GitHub/fap-web/lib/cms/personality-desktop-clone.ts`
@@ -31,6 +32,6 @@ Both are downgraded to migration artifacts / seed history only, not runtime owne
 - Published storage seed expected in backend owner: `32 fullCode` x `zh-CN` for `mbti_desktop_clone_v1`.
 
 ## Follow-ups
-1. AI asset owner wiring for `asset_slots.assetRef`.
+1. Expand `ready` asset coverage in backend owner data (no schema change).
 2. Locale expansion (e.g. `en`) in `fap-api`.
 3. Optional ops/cms editing expansion for desktop clone content.

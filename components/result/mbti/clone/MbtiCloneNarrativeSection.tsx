@@ -1,11 +1,13 @@
 "use client";
 
+import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneInfluentialTraitsCard } from "@/components/result/mbti/clone/MbtiCloneInfluentialTraitsCard";
 import { MbtiCloneLockedListBlock } from "@/components/result/mbti/clone/MbtiCloneLockedListBlock";
 import { MbtiCloneSectionHeading } from "@/components/result/mbti/clone/MbtiCloneSectionHeading";
 import { MbtiCloneTwoColumnList, type CloneListItem } from "@/components/result/mbti/clone/MbtiCloneTwoColumnList";
-import type { TraitSlot } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import type { MbtiDesktopCloneAssetSlotId, TraitSlot } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
+import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
 
 type VisibleBlock = {
   title: string;
@@ -25,7 +27,9 @@ type MbtiCloneNarrativeSectionProps = {
   id: string;
   number: number;
   title: string;
+  illustrationSlotId: MbtiDesktopCloneAssetSlotId;
   illustrationLabel: string;
+  assetSlots?: PersonalityDesktopCloneAssetSlot[] | null;
   introParagraphs: string[];
   traits: TraitSlot[];
   isUnlocked: boolean;
@@ -40,7 +44,9 @@ export function MbtiCloneNarrativeSection({
   id,
   number,
   title,
+  illustrationSlotId,
   illustrationLabel,
+  assetSlots,
   introParagraphs,
   traits,
   isUnlocked,
@@ -52,9 +58,14 @@ export function MbtiCloneNarrativeSection({
   return (
     <section id={id} className={styles.section}>
       <MbtiCloneSectionHeading number={number} title={title} />
-      <div className={styles.illustrationSlot}>
-        <p className={styles.slotLabel}>{illustrationLabel}</p>
-      </div>
+      <MbtiCloneAssetSlot
+        slotId={illustrationSlotId}
+        assetSlots={assetSlots}
+        fallbackLabel={illustrationLabel}
+        className={styles.illustrationSlot}
+        labelClassName={styles.slotLabel}
+        testId={`mbti-asset-slot-${id}`}
+      />
       <div className={styles.sectionParagraphs}>
         {introParagraphs.map((paragraph, index) => (
           <p key={`${id}-paragraph-${index}`}>{paragraph}</p>

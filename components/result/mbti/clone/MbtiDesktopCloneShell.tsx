@@ -10,7 +10,10 @@ import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiClone
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
-import { fetchPersonalityDesktopCloneContent } from "@/lib/cms/personality-desktop-clone";
+import {
+  fetchPersonalityDesktopCloneContent,
+  type PersonalityDesktopCloneAssetSlot,
+} from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
@@ -106,11 +109,14 @@ export function MbtiDesktopCloneShell({
     locale: Locale;
     fullCode: string;
     content: MbtiDesktopCloneContent | null;
+    assetSlots: PersonalityDesktopCloneAssetSlot[] | null;
   } | null>(null);
-  const storageContent =
+  const activeStorageSnapshot =
     storageSnapshot && storageSnapshot.locale === locale && storageSnapshot.fullCode === fullCodeForStorage
-      ? storageSnapshot.content
+      ? storageSnapshot
       : null;
+  const storageContent = activeStorageSnapshot?.content ?? null;
+  const storageAssetSlots = activeStorageSnapshot?.assetSlots ?? null;
 
   useEffect(() => {
     let active = true;
@@ -128,6 +134,7 @@ export function MbtiDesktopCloneShell({
           locale,
           fullCode: fullCodeForStorage,
           content: payload?.content ?? null,
+          assetSlots: payload?.assetSlots ?? null,
         });
       }
     })();
@@ -176,8 +183,10 @@ export function MbtiDesktopCloneShell({
           eyebrow={slots.hero.eyebrow}
           title={slots.hero.title}
           typeCode={slots.hero.typeCode}
+          illustrationSlotId={slots.hero.asset.slotId}
           summary={slots.hero.summary}
           illustrationLabel={slots.hero.asset.label}
+          assetSlots={storageAssetSlots}
         />
 
         <div className={styles.pageGrid}>
@@ -189,12 +198,15 @@ export function MbtiDesktopCloneShell({
 
             <MbtiCloneTraitsSection
               title={slots.traits.title}
+              illustrationSlotId={slots.traits.asset.slotId}
               illustrationLabel={slots.traits.asset.label}
+              assetSlots={storageAssetSlots}
               dimensions={dimensions}
               summaryTitle={slots.traits.summaryPane.eyebrow}
               summaryValue={slots.traits.summaryPane.value}
               summaryLabel={slots.traits.summaryPane.title}
               summaryDescription={slots.traits.summaryPane.body}
+              summarySlotId={slots.traits.summaryPane.asset.slotId}
               summarySlotLabel={slots.traits.summaryPane.asset.label}
               paragraphs={slots.traits.body}
               tools={traitsTools}
@@ -205,7 +217,9 @@ export function MbtiDesktopCloneShell({
               id="career"
               number={Number(slots.chapters.career.step)}
               title={slots.chapters.career.title}
+              illustrationSlotId={slots.chapters.career.asset.slotId}
               illustrationLabel={slots.chapters.career.asset.label}
+              assetSlots={storageAssetSlots}
               introParagraphs={slots.chapters.career.intro}
               traits={slots.chapters.career.influentialTraits}
               isUnlocked={isUnlocked}
@@ -226,7 +240,9 @@ export function MbtiDesktopCloneShell({
               id="growth"
               number={Number(slots.chapters.growth.step)}
               title={slots.chapters.growth.title}
+              illustrationSlotId={slots.chapters.growth.asset.slotId}
               illustrationLabel={slots.chapters.growth.asset.label}
+              assetSlots={storageAssetSlots}
               introParagraphs={slots.chapters.growth.intro}
               traits={slots.chapters.growth.influentialTraits}
               isUnlocked={isUnlocked}
@@ -247,7 +263,9 @@ export function MbtiDesktopCloneShell({
               id="relationships"
               number={Number(slots.chapters.relationships.step)}
               title={slots.chapters.relationships.title}
+              illustrationSlotId={slots.chapters.relationships.asset.slotId}
               illustrationLabel={slots.chapters.relationships.asset.label}
+              assetSlots={storageAssetSlots}
               introParagraphs={slots.chapters.relationships.intro}
               traits={slots.chapters.relationships.influentialTraits}
               isUnlocked={isUnlocked}
@@ -279,7 +297,9 @@ export function MbtiDesktopCloneShell({
                 onCheckout={primaryOffer ? onCheckout : undefined}
                 isUnlocked={isUnlocked}
                 unlockedNode={unlockedOfferNode}
+                illustrationSlotId={slots.finalOffer.asset.slotId}
                 illustrationLabel={slots.finalOffer.asset.label}
+                assetSlots={storageAssetSlots}
               />
             </section>
           </main>

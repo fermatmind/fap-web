@@ -57,10 +57,22 @@ export type MbtiFullCode = typeof MBTI_FULL_CODES[number];
 export type MbtiDesktopCloneAuthoringLevel = "fullCode" | "placeholder";
 export type MbtiDesktopCloneContentSource = "storage" | "placeholder";
 
+export const MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS = [
+  "hero-illustration",
+  "traits-illustration",
+  "traits-summary-illustration",
+  "career-illustration",
+  "growth-illustration",
+  "relationships-illustration",
+  "final-offer-illustration",
+] as const;
+
+export type MbtiDesktopCloneAssetSlotId = typeof MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS[number];
+
 export type CloneAssetSlot = {
-  slotId: string;
+  slotId: MbtiDesktopCloneAssetSlotId;
   aspectRatio: string;
-  status: "placeholder" | "ready";
+  status: "placeholder" | "ready" | "disabled";
   label: string;
 };
 
