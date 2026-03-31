@@ -17,6 +17,11 @@
   - `locale`: `zh`/`zh-CN` -> `zh-CN`
   - non-zh returns `null` (placeholder path)
   - shape/meta validation failures return `null`
+  - P0 modules are parsed as optional fields and never crash rendering when missing:
+    - `letters_intro`
+    - `overview`
+    - `chapters.{career,growth,relationships}.{strengths,weaknesses}`
+    - `chapters.career.{matched_jobs,matched_guides}`
 - Resolver: `/Users/rainie/Desktop/GitHub/fap-web/components/result/mbti/clone/mbtiDesktopClone.resolve.ts`
   - priority: `storage content` -> `placeholder`
   - no local registry fallback
@@ -30,8 +35,45 @@ Both are downgraded to migration artifacts / seed history only, not runtime owne
 
 ## Current coverage
 - Published storage seed expected in backend owner: `32 fullCode` x `zh-CN` for `mbti_desktop_clone_v1`.
+- Desktop clone shell now renders P0 content blocks from storage under zh:
+  - Hero bridge: `letters_intro`, `overview`
+  - Career: `strengths`, `weaknesses`, `matched_jobs`, `matched_guides`
+  - Growth: `strengths`, `weaknesses`
+  - Relationships: `strengths`, `weaknesses`
+
+## Field ownership split
+- Storage-authored content fields:
+  - `content.hero.summary`
+  - `content.intro.paragraphs`
+  - `content.letters_intro`
+  - `content.overview`
+  - `content.traits.*`
+  - `content.chapters.*`
+  - `content.finalOffer.*`
+  - `asset_slots`
+- Runtime-owned fields (unchanged):
+  - `fullCode/baseCode` runtime truth
+  - display title / bars / dimension winners
+  - actions and CTA wiring
+  - unlock & purchase flow
+  - runtime offer price / access state
+
+## Not rendered yet (intentionally out-of-scope)
+- P1/P2 content modules:
+  - `Career Ideas`
+  - `Work Styles`
+  - `What Energizes`
+  - `What Drains`
+  - `Relationship Superpowers`
+  - `Relationship Pitfalls`
+- Runtime personalization:
+  - `selection_fingerprint`
+  - `evidence`
+  - `adaptive`
+  - `memory`
 
 ## Follow-ups
-1. Expand `ready` asset coverage in backend owner data (no schema change).
-2. Locale expansion (e.g. `en`) in `fap-api`.
-3. Optional ops/cms editing expansion for desktop clone content.
+1. P1 module rendering integration on desktop clone shell.
+2. Runtime personalization integration without changing owner boundaries.
+3. Expand `ready` asset coverage in backend owner data (no schema change).
+4. Locale expansion (e.g. `en`) in `fap-api`.

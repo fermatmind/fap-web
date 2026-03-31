@@ -76,6 +76,46 @@ export type CloneAssetSlot = {
   label: string;
 };
 
+export type LettersIntroLetter = {
+  letter: string;
+  title: string;
+  description: string;
+};
+
+export type LettersIntroBlock = {
+  headline: string;
+  letters: LettersIntroLetter[];
+};
+
+export type OverviewBlock = {
+  title: string;
+  paragraphs: string[];
+};
+
+export type StrengthWeaknessItem = {
+  title: string;
+  description: string;
+};
+
+export type StrengthWeaknessBlock = {
+  title: string;
+  items: StrengthWeaknessItem[];
+};
+
+export type MatchedJobsBlock = {
+  title: string;
+  fitBucket: "primary" | "secondary";
+  summary: string;
+  fitReason: string;
+  jobExamples: string[];
+};
+
+export type MatchedGuidesBlock = {
+  title: string;
+  summary: string;
+  fitReason: string;
+};
+
 export type TraitSlot = {
   label: string;
   body?: string;
@@ -109,6 +149,10 @@ export type NarrativeChapterSlots = {
   title: string;
   asset: CloneAssetSlot;
   intro: [string, string];
+  strengths: StrengthWeaknessBlock | null;
+  weaknesses: StrengthWeaknessBlock | null;
+  matchedJobs: MatchedJobsBlock | null;
+  matchedGuides: MatchedGuidesBlock | null;
   influentialTraits: [TraitSlot, TraitSlot, TraitSlot, TraitSlot];
   visibleBlocks: [ContentListBlock, ContentListBlock?];
   lockedBlocks: [LockedListBlock, LockedListBlock];
@@ -132,6 +176,8 @@ export type MbtiDesktopCloneSlots = {
   intro: {
     paragraphs: [string, string];
   };
+  lettersIntro: LettersIntroBlock | null;
+  overview: OverviewBlock | null;
   traits: {
     sectionLabel: string;
     title: string;
@@ -164,14 +210,27 @@ export type MbtiDesktopCloneSlots = {
 export type MbtiDesktopCloneContent = {
   hero: Pick<MbtiDesktopCloneSlots["hero"], "summary">;
   intro: MbtiDesktopCloneSlots["intro"];
+  lettersIntro?: LettersIntroBlock;
+  overview?: OverviewBlock;
   traits: {
     summaryPane: Pick<MbtiDesktopCloneSlots["traits"]["summaryPane"], "eyebrow" | "title" | "value" | "body">;
     body: MbtiDesktopCloneSlots["traits"]["body"];
   };
   chapters: {
-    career: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks">;
-    growth: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks">;
-    relationships: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks">;
+    career: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks"> & {
+      strengths?: StrengthWeaknessBlock;
+      weaknesses?: StrengthWeaknessBlock;
+      matchedJobs?: MatchedJobsBlock;
+      matchedGuides?: MatchedGuidesBlock;
+    };
+    growth: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks"> & {
+      strengths?: StrengthWeaknessBlock;
+      weaknesses?: StrengthWeaknessBlock;
+    };
+    relationships: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks"> & {
+      strengths?: StrengthWeaknessBlock;
+      weaknesses?: StrengthWeaknessBlock;
+    };
   };
   finalOffer: Omit<MbtiDesktopCloneSlots["finalOffer"], "asset">;
 };

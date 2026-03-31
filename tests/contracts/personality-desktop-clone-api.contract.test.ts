@@ -25,6 +25,17 @@ function createValidPayload(tag: string) {
     content: {
       hero: { summary: `hero ${tag}` },
       intro: { paragraphs: [`intro 1 ${tag}`, `intro 2 ${tag}`] },
+      letters_intro: {
+        headline: `letters headline ${tag}`,
+        letters: [
+          { letter: "E", title: `letter E ${tag}`, description: `letter E body ${tag}` },
+          { letter: "I", title: `letter I ${tag}`, description: `letter I body ${tag}` },
+        ],
+      },
+      overview: {
+        title: `overview title ${tag}`,
+        paragraphs: [`overview 1 ${tag}`, `overview 2 ${tag}`],
+      },
       traits: {
         summaryPane: {
           eyebrow: `eyebrow ${tag}`,
@@ -37,6 +48,30 @@ function createValidPayload(tag: string) {
       chapters: {
         career: {
           intro: [`career intro 1 ${tag}`, `career intro 2 ${tag}`],
+          strengths: {
+            title: `career strengths ${tag}`,
+            items: [
+              { title: `career strengths item 1 ${tag}`, description: `career strengths body 1 ${tag}` },
+            ],
+          },
+          weaknesses: {
+            title: `career weaknesses ${tag}`,
+            items: [
+              { title: `career weaknesses item 1 ${tag}`, description: `career weaknesses body 1 ${tag}` },
+            ],
+          },
+          matched_jobs: {
+            title: `matched jobs ${tag}`,
+            fit_bucket: "primary",
+            summary: `matched jobs summary ${tag}`,
+            fit_reason: `matched jobs reason ${tag}`,
+            job_examples: [`job 1 ${tag}`, `job 2 ${tag}`],
+          },
+          matched_guides: {
+            title: `matched guides ${tag}`,
+            summary: `matched guides summary ${tag}`,
+            fit_reason: `matched guides reason ${tag}`,
+          },
           influentialTraits: [
             { label: `career trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
             { label: `career trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -89,6 +124,18 @@ function createValidPayload(tag: string) {
         },
         growth: {
           intro: [`growth intro 1 ${tag}`, `growth intro 2 ${tag}`],
+          strengths: {
+            title: `growth strengths ${tag}`,
+            items: [
+              { title: `growth strengths item 1 ${tag}`, description: `growth strengths body 1 ${tag}` },
+            ],
+          },
+          weaknesses: {
+            title: `growth weaknesses ${tag}`,
+            items: [
+              { title: `growth weaknesses item 1 ${tag}`, description: `growth weaknesses body 1 ${tag}` },
+            ],
+          },
           influentialTraits: [
             { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
             { label: `growth trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -141,6 +188,18 @@ function createValidPayload(tag: string) {
         },
         relationships: {
           intro: [`relationships intro 1 ${tag}`, `relationships intro 2 ${tag}`],
+          strengths: {
+            title: `relationships strengths ${tag}`,
+            items: [
+              { title: `relationships strengths item 1 ${tag}`, description: `relationships strengths body 1 ${tag}` },
+            ],
+          },
+          weaknesses: {
+            title: `relationships weaknesses ${tag}`,
+            items: [
+              { title: `relationships weaknesses item 1 ${tag}`, description: `relationships weaknesses body 1 ${tag}` },
+            ],
+          },
           influentialTraits: [
             { label: `relationships trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
             { label: `relationships trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -306,6 +365,16 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.baseCode).toBe("INFJ");
     expect(result?.locale).toBe("zh-CN");
     expect(result?.content.hero.summary).toBe("hero seed");
+    expect(result?.content.lettersIntro?.headline).toBe("letters headline seed");
+    expect(result?.content.overview?.title).toBe("overview title seed");
+    expect(result?.content.chapters.career.strengths?.items[0]?.description).toBe("career strengths body 1 seed");
+    expect(result?.content.chapters.career.weaknesses?.items[0]?.description).toBe("career weaknesses body 1 seed");
+    expect(result?.content.chapters.growth.strengths?.items[0]?.description).toBe("growth strengths body 1 seed");
+    expect(result?.content.chapters.growth.weaknesses?.items[0]?.description).toBe("growth weaknesses body 1 seed");
+    expect(result?.content.chapters.relationships.strengths?.items[0]?.description).toBe("relationships strengths body 1 seed");
+    expect(result?.content.chapters.relationships.weaknesses?.items[0]?.description).toBe("relationships weaknesses body 1 seed");
+    expect(result?.content.chapters.career.matchedJobs?.fitBucket).toBe("primary");
+    expect(result?.content.chapters.career.matchedGuides?.fitReason).toBe("matched guides reason seed");
     expect(result?.assetSlots).toHaveLength(7);
     expect(result?.assetSlots[0]?.slotId).toBe("hero-illustration");
     expect(result?.assetSlots[1]?.status).toBe("ready");
@@ -320,6 +389,25 @@ describe("personality desktop clone api adapter contract", () => {
     const result = await fetchPersonalityDesktopCloneContent("INFJ-A", "en");
     expect(result).toBeNull();
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("keeps rendering-safe parsing when optional p0 modules are missing", async () => {
+    const payload = createValidPayload("partial");
+    delete (payload.content as Record<string, unknown>).letters_intro;
+    delete (payload.content as Record<string, unknown>).overview;
+    const chapters = (payload.content as Record<string, unknown>).chapters as Record<string, unknown>;
+    const career = chapters.career as Record<string, unknown>;
+    delete career.matched_jobs;
+    delete career.matched_guides;
+
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(payload)));
+
+    const result = await fetchPersonalityDesktopCloneContent("INFJ-A", "zh-CN");
+    expect(result).not.toBeNull();
+    expect(result?.content.lettersIntro).toBeUndefined();
+    expect(result?.content.overview).toBeUndefined();
+    expect(result?.content.chapters.career.matchedJobs).toBeUndefined();
+    expect(result?.content.chapters.career.matchedGuides).toBeUndefined();
   });
 
   it("returns null for unsupported fullCode slug input", async () => {

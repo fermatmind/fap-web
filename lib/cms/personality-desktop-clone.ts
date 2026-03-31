@@ -5,8 +5,12 @@ import type {
   ContentListBlock,
   ListItem,
   LockedListBlock,
+  MatchedGuidesBlock,
+  MatchedJobsBlock,
   MbtiDesktopCloneContent,
   MbtiDesktopCloneAssetSlotId,
+  OverviewBlock,
+  StrengthWeaknessBlock,
   TraitSlot,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
@@ -188,7 +192,7 @@ function isFinalOffer(value: unknown): boolean {
     && normalizeText(value.guarantee).length > 0;
 }
 
-function isMbtiDesktopCloneContent(value: unknown): value is MbtiDesktopCloneContent {
+function hasRequiredMbtiDesktopCloneContent(value: unknown): value is MbtiDesktopCloneContent {
   if (!isRecord(value)) {
     return false;
   }
@@ -214,6 +218,207 @@ function isMbtiDesktopCloneContent(value: unknown): value is MbtiDesktopCloneCon
   }
 
   return isFinalOffer(value.finalOffer);
+}
+
+function normalizeStrengthWeakness(value: unknown): StrengthWeaknessBlock | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+
+  const title = normalizeText(value.title);
+  if (!title || !Array.isArray(value.items)) {
+    return undefined;
+  }
+
+  const items = value.items
+    .map((item) => {
+      if (!isRecord(item)) {
+        return null;
+      }
+
+      const itemTitle = normalizeText(item.title);
+      const description = normalizeText(item.description);
+      if (!itemTitle || !description) {
+        return null;
+      }
+
+      return {
+        title: itemTitle,
+        description,
+      };
+    })
+    .filter((item): item is { title: string; description: string } => item !== null);
+
+  if (items.length === 0) {
+    return undefined;
+  }
+
+  return {
+    title,
+    items,
+  };
+}
+
+function normalizeOverview(value: unknown): OverviewBlock | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+
+  const title = normalizeText(value.title);
+  if (!title || !Array.isArray(value.paragraphs)) {
+    return undefined;
+  }
+
+  const paragraphs = value.paragraphs
+    .map((paragraph) => normalizeText(paragraph))
+    .filter((paragraph) => paragraph.length > 0);
+
+  if (paragraphs.length === 0) {
+    return undefined;
+  }
+
+  return {
+    title,
+    paragraphs,
+  };
+}
+
+function normalizeMatchedJobs(value: unknown): MatchedJobsBlock | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+
+  const title = normalizeText(value.title);
+  const fitBucket = normalizeText(value.fit_bucket ?? value.fitBucket).toLowerCase();
+  const summary = normalizeText(value.summary);
+  const fitReason = normalizeText(value.fit_reason ?? value.fitReason);
+  const rawJobExamples = value.job_examples ?? value.jobExamples;
+
+  if (!title || !summary || !fitReason || !Array.isArray(rawJobExamples)) {
+    return undefined;
+  }
+
+  if (fitBucket !== "primary" && fitBucket !== "secondary") {
+    return undefined;
+  }
+
+  const jobExamples = rawJobExamples
+    .map((entry: unknown) => normalizeText(entry))
+    .filter((entry: string) => entry.length > 0);
+
+  if (jobExamples.length === 0) {
+    return undefined;
+  }
+
+  return {
+    title,
+    fitBucket,
+    summary,
+    fitReason,
+    jobExamples,
+  };
+}
+
+function normalizeMatchedGuides(value: unknown): MatchedGuidesBlock | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+
+  const title = normalizeText(value.title);
+  const summary = normalizeText(value.summary);
+  const fitReason = normalizeText(value.fit_reason ?? value.fitReason);
+
+  if (!title || !summary || !fitReason) {
+    return undefined;
+  }
+
+  return {
+    title,
+    summary,
+    fitReason,
+  };
+}
+
+function normalizeLettersIntro(value: unknown): MbtiDesktopCloneContent["lettersIntro"] | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+
+  const headline = normalizeText(value.headline);
+  if (!headline || !Array.isArray(value.letters)) {
+    return undefined;
+  }
+
+  const letters = value.letters
+    .map((letter) => {
+      if (!isRecord(letter)) {
+        return null;
+      }
+
+      const initial = normalizeText(letter.letter);
+      const title = normalizeText(letter.title);
+      const description = normalizeText(letter.description);
+      if (!initial || !title || !description) {
+        return null;
+      }
+
+      return {
+        letter: initial,
+        title,
+        description,
+      };
+    })
+    .filter((letter): letter is { letter: string; title: string; description: string } => letter !== null);
+
+  if (letters.length === 0) {
+    return undefined;
+  }
+
+  return {
+    headline,
+    letters,
+  };
+}
+
+function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneContent | null {
+  if (!hasRequiredMbtiDesktopCloneContent(value)) {
+    return null;
+  }
+
+  const source = value as Record<string, unknown>;
+  const typedContent = value as MbtiDesktopCloneContent;
+  const chapters = isRecord(source.chapters) ? source.chapters : ({} as Record<string, unknown>);
+  const career = isRecord(chapters.career) ? chapters.career : ({} as Record<string, unknown>);
+  const growth = isRecord(chapters.growth) ? chapters.growth : ({} as Record<string, unknown>);
+  const relationships = isRecord(chapters.relationships) ? chapters.relationships : ({} as Record<string, unknown>);
+
+  return {
+    hero: typedContent.hero,
+    intro: typedContent.intro,
+    lettersIntro: normalizeLettersIntro(source.letters_intro ?? source.lettersIntro),
+    overview: normalizeOverview(source.overview),
+    traits: typedContent.traits,
+    chapters: {
+      career: {
+        ...typedContent.chapters.career,
+        strengths: normalizeStrengthWeakness(career.strengths),
+        weaknesses: normalizeStrengthWeakness(career.weaknesses),
+        matchedJobs: normalizeMatchedJobs(career.matched_jobs ?? career.matchedJobs),
+        matchedGuides: normalizeMatchedGuides(career.matched_guides ?? career.matchedGuides),
+      },
+      growth: {
+        ...typedContent.chapters.growth,
+        strengths: normalizeStrengthWeakness(growth.strengths),
+        weaknesses: normalizeStrengthWeakness(growth.weaknesses),
+      },
+      relationships: {
+        ...typedContent.chapters.relationships,
+        strengths: normalizeStrengthWeakness(relationships.strengths),
+        weaknesses: normalizeStrengthWeakness(relationships.weaknesses),
+      },
+    },
+    finalOffer: typedContent.finalOffer,
+  };
 }
 
 function normalizeAssetSlot(value: unknown): PersonalityDesktopCloneAssetSlot | null {
@@ -358,7 +563,8 @@ function normalizeDesktopCloneResponse(
     return null;
   }
 
-  if (!isMbtiDesktopCloneContent(response.content)) {
+  const content = normalizeMbtiDesktopCloneContent(response.content);
+  if (!content) {
     return null;
   }
 
@@ -383,7 +589,7 @@ function normalizeDesktopCloneResponse(
     fullCode,
     baseCode,
     locale: expectedLocale,
-    content: response.content,
+    content,
     assetSlots,
     meta: response._meta ?? null,
   };

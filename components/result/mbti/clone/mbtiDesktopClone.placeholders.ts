@@ -86,6 +86,8 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
       "占位槽位：第二段简介用于维持桌面双段阅读节奏，不伪装成真实测评内容。",
     ],
   },
+  lettersIntro: null,
+  overview: null,
   traits: {
     sectionLabel: "人格概览",
     title: "Personality Traits",
@@ -112,6 +114,10 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
         "占位槽位：职业章节第一段会保持显式占位，直到 runtime 映射或类型文案接入。",
         "占位槽位：职业章节第二段用于维持桌面 clone 壳的一致阅读节奏。",
       ],
+      strengths: null,
+      weaknesses: null,
+      matchedJobs: null,
+      matchedGuides: null,
       influentialTraits: [
         trait("Placeholder trait slot", "blue"),
         trait("Placeholder trait slot", "gold"),
@@ -136,6 +142,10 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
         "占位槽位：成长章节第一段用于保留结构化成长文案位置。",
         "占位槽位：成长章节第二段在内容未完成前维持 clone shell 的可读性。",
       ],
+      strengths: null,
+      weaknesses: null,
+      matchedJobs: null,
+      matchedGuides: null,
       influentialTraits: [
         trait("Placeholder trait slot", "blue"),
         trait("Placeholder trait slot", "gold"),
@@ -160,6 +170,10 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
         "占位槽位：关系章节第一段用于为未来类型文案保留沟通总结区域。",
         "占位槽位：关系章节第二段用于保持最后一章的结构完整。",
       ],
+      strengths: null,
+      weaknesses: null,
+      matchedJobs: null,
+      matchedGuides: null,
       influentialTraits: [
         trait("Placeholder trait slot", "blue"),
         trait("Placeholder trait slot", "gold"),
