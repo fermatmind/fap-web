@@ -128,7 +128,7 @@ export function MbtiDesktopCloneShell({
   ];
 
   return (
-    <div data-testid="mbti-desktop-clone-shell" className={styles.cloneRoot} data-base-code={slots.meta.baseCode} data-is-pilot={slots.meta.isPilot ? "true" : "false"}>
+    <div data-testid="mbti-desktop-clone-shell" className={styles.cloneRoot} data-base-code={slots.meta.baseCode}>
       <div className={styles.shell}>
         <MbtiCloneHero
           eyebrow={slots.hero.eyebrow}
@@ -175,7 +175,7 @@ export function MbtiDesktopCloneShell({
                 items: block.blurredItems,
                 overlayTitle: block.overlayTitle,
                 overlayCopy: block.overlayBody,
-                ctaLabel: normalizeText(primaryCtaLabel, block.overlayCtaLabel),
+                ctaLabel: normalizeText(block.overlayCtaLabel, primaryCtaLabel),
               }))}
             />
 
@@ -196,7 +196,7 @@ export function MbtiDesktopCloneShell({
                 items: block.blurredItems,
                 overlayTitle: block.overlayTitle,
                 overlayCopy: block.overlayBody,
-                ctaLabel: normalizeText(primaryCtaLabel, block.overlayCtaLabel),
+                ctaLabel: normalizeText(block.overlayCtaLabel, primaryCtaLabel),
               }))}
             />
 
@@ -217,7 +217,7 @@ export function MbtiDesktopCloneShell({
                 items: block.blurredItems,
                 overlayTitle: block.overlayTitle,
                 overlayCopy: block.overlayBody,
-                ctaLabel: normalizeText(primaryCtaLabel, block.overlayCtaLabel),
+                ctaLabel: normalizeText(block.overlayCtaLabel, primaryCtaLabel),
               }))}
             />
 
@@ -231,6 +231,7 @@ export function MbtiDesktopCloneShell({
                 price={normalizeText(primaryOffer?.price) || (cloneLocale === "zh" ? "价格以实际结算页为准" : "Price shown on checkout")}
                 guarantee={slots.finalOffer.guarantee}
                 ctaLabel={normalizeText(primaryCtaLabel, slots.finalOffer.ctaLabel)}
+                ctaHref={primaryCtaHref}
                 isCheckingOut={isCheckingOut}
                 checkoutError={checkoutError}
                 onCheckout={primaryOffer ? onCheckout : undefined}
