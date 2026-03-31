@@ -27,7 +27,7 @@ function contentBlock(title: string, prefix: string, tone: ListItem["tone"]): Co
       item(`${prefix} 3`, "占位槽位：该条目仅服务版式完整度，不代表已接入正式人格结论。", tone),
       item(`${prefix} 4`, "占位槽位：此块明确表示内容待补齐，同时保持 clone shell 的卡片语法。", tone),
       item(`${prefix} 5`, "占位槽位：这一行是协议化保留位，后续可以被真实内容整齐替换。", tone),
-      item(`${prefix} 6`, "占位槽位：这一行用于维持非试点类型的节奏、密度和整体结构。", tone),
+      item(`${prefix} 6`, "占位槽位：这一行用于维持完整页面的节奏、密度和整体结构。", tone),
     ],
   };
 }
@@ -41,7 +41,7 @@ function lockedBlock(title: string): LockedListBlock {
     blurredItems: [
       item("占位锁定项 1", "占位槽位：隐藏列表内容将在后续被真实付费细节替换。"),
       item("占位锁定项 2", "占位槽位：模糊背景列表保持可见，但不凭空制造有来源感的洞察。"),
-      item("占位锁定项 3", "占位槽位：这一保留行服务非试点类型的 gate 布局。"),
+      item("占位锁定项 3", "占位槽位：这一保留行服务桌面锁定态的 gate 布局。"),
       item("占位锁定项 4", "占位槽位：这一行只用于维持桌面模板中的列表密度。"),
       item("占位锁定项 5", "占位槽位：这一模糊行帮助锁定态在真实内容缺席时仍然可读。"),
       item("占位锁定项 6", "占位槽位：最后一行用于完整收束隐藏列表，而不伪造具体结论。"),
@@ -62,19 +62,18 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
     baseCode: "MBTI",
     fullCode: "MBTI",
     locale: "zh",
-    isPilot: false,
   },
   hero: {
     eyebrow: "你的人格类型是",
     title: "占位人格标题",
     typeCode: "MBTI",
-    summary: "占位槽位：Hero 摘要会在试点文案或稳定 runtime 文本可用时替换。",
+    summary: "占位槽位：Hero 摘要会在类型专属文案或稳定 runtime 文本可用时替换。",
     asset: asset("hero-illustration", "illustration-slot placeholder", "236:160"),
   },
   intro: {
     paragraphs: [
       "占位槽位：第一段简介用于保留桌面概览位，等待后续映射或策划文案接入。",
-      "占位槽位：第二段简介用于维持非试点类型的双段阅读节奏，不伪装成真实测评内容。",
+      "占位槽位：第二段简介用于维持桌面双段阅读节奏，不伪装成真实测评内容。",
     ],
   },
   traits: {
@@ -85,7 +84,7 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
       eyebrow: "主导维度",
       title: "占位维度摘要",
       value: "00%",
-      body: "占位槽位：右侧摘要说明会由试点文案或稳定 runtime 解释替换。",
+      body: "占位槽位：右侧摘要说明会由类型专属文案或稳定 runtime 解释替换。",
       asset: asset("traits-summary-asset", "illustration-slot placeholder", "240:118"),
     },
     body: [
@@ -100,8 +99,8 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
       title: "Your Career Path",
       asset: asset("career-illustration", "career illustration-slot placeholder", "636:148"),
       intro: [
-        "占位槽位：职业章节第一段会保持显式占位，直到 runtime 映射或试点文案接入。",
-        "占位槽位：职业章节第二段用于维持非试点类型的一致阅读节奏。",
+        "占位槽位：职业章节第一段会保持显式占位，直到 runtime 映射或类型文案接入。",
+        "占位槽位：职业章节第二段用于维持桌面 clone 壳的一致阅读节奏。",
       ],
       influentialTraits: [
         trait("Placeholder trait slot", "blue"),
@@ -149,7 +148,7 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
       asset: asset("relationships-illustration", "relationships illustration-slot placeholder", "636:148"),
       intro: [
         "占位槽位：关系章节第一段用于为未来类型文案保留沟通总结区域。",
-        "占位槽位：关系章节第二段用于保持非试点路径下最后一章结构完整。",
+        "占位槽位：关系章节第二段用于保持最后一章的结构完整。",
       ],
       influentialTraits: [
         trait("Placeholder trait slot", "blue"),

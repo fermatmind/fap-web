@@ -128,7 +128,7 @@ export function MbtiDesktopCloneShell({
   ];
 
   return (
-    <div data-testid="mbti-desktop-clone-shell" className={styles.cloneRoot} data-base-code={slots.meta.baseCode} data-is-pilot={slots.meta.isPilot ? "true" : "false"}>
+    <div data-testid="mbti-desktop-clone-shell" className={styles.cloneRoot} data-base-code={slots.meta.baseCode}>
       <div className={styles.shell}>
         <MbtiCloneHero
           eyebrow={slots.hero.eyebrow}

@@ -1,3 +1,24 @@
+export const MBTI_BASE_CODES = [
+  "INTJ",
+  "INTP",
+  "ENTJ",
+  "ENTP",
+  "INFJ",
+  "INFP",
+  "ENFJ",
+  "ENFP",
+  "ISTJ",
+  "ISFJ",
+  "ESTJ",
+  "ESFJ",
+  "ISTP",
+  "ISFP",
+  "ESTP",
+  "ESFP",
+] as const;
+
+export type MbtiBaseCode = typeof MBTI_BASE_CODES[number];
+
 export type CloneAssetSlot = {
   slotId: string;
   aspectRatio: string;
@@ -48,7 +69,6 @@ export type MbtiDesktopCloneSlots = {
     baseCode: string;
     fullCode: string;
     locale: string;
-    isPilot: boolean;
   };
   hero: {
     eyebrow: string;
@@ -89,7 +109,7 @@ export type MbtiDesktopCloneSlots = {
   };
 };
 
-export type MbtiDesktopClonePilotContent = {
+export type MbtiDesktopCloneContent = {
   hero: Pick<MbtiDesktopCloneSlots["hero"], "summary">;
   intro: MbtiDesktopCloneSlots["intro"];
   traits: {
