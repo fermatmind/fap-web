@@ -1,6 +1,11 @@
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
-import { MBTI_DESKTOP_CLONE_CONTENT_ZH } from "@/components/result/mbti/clone/content";
-import { MBTI_BASE_CODES, type MbtiBaseCode, type MbtiDesktopCloneContent, type MbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import { MBTI_DESKTOP_CLONE_CONTENT_ZH_32 } from "@/components/result/mbti/clone/content";
+import {
+  MBTI_FULL_CODES,
+  type MbtiDesktopCloneContent,
+  type MbtiDesktopCloneSlots,
+  type MbtiFullCode,
+} from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
@@ -50,8 +55,8 @@ function normalizeBaseMbtiCode(fullCode: string) {
   return match?.[1] ?? fullCode.toUpperCase();
 }
 
-function isMbtiBaseCode(value: string): value is MbtiBaseCode {
-  return (MBTI_BASE_CODES as readonly string[]).includes(value);
+function isMbtiFullCode(value: string): value is MbtiFullCode {
+  return (MBTI_FULL_CODES as readonly string[]).includes(value);
 }
 
 function resolveDisplayTitle(headline: RichResultHeadline, projectionViewModel?: MbtiResultProjectionViewModel | null) {
@@ -80,12 +85,12 @@ function buildDimensionSummary(
   };
 }
 
-function resolveZhContent(baseCode: string): MbtiDesktopCloneContent | null {
-  if (!isMbtiBaseCode(baseCode)) {
+function resolveZhContent(fullCode: string): MbtiDesktopCloneContent | null {
+  if (!isMbtiFullCode(fullCode)) {
     return null;
   }
 
-  return MBTI_DESKTOP_CLONE_CONTENT_ZH[baseCode];
+  return MBTI_DESKTOP_CLONE_CONTENT_ZH_32[fullCode];
 }
 
 export function resolveMbtiDesktopCloneSlots({
@@ -98,15 +103,17 @@ export function resolveMbtiDesktopCloneSlots({
   const baseCode = normalizeBaseMbtiCode(fullCode);
   const isZh = locale === "zh";
   const language = isZh ? "zh" : "en";
-  const content = isZh ? resolveZhContent(baseCode) : null;
+  const content = isZh ? resolveZhContent(fullCode) : null;
   const placeholders = MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH;
   const dimensionSummary = buildDimensionSummary(dimensions, headline, projectionViewModel);
+  const authoringLevel = content ? "fullCode" : "placeholder";
 
   return {
     meta: {
       baseCode,
       fullCode,
       locale,
+      authoringLevel,
     },
     hero: {
       eyebrow: isZh ? "你的人格类型是" : "Your personality type is",
