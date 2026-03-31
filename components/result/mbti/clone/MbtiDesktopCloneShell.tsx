@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { type ReactNode, useEffect, useMemo, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
 import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
@@ -8,7 +8,9 @@ import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCl
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
+import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
+import { fetchPersonalityDesktopCloneContent } from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
@@ -96,6 +98,45 @@ export function MbtiDesktopCloneShell({
   unlockedOfferNode,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
+  const fullCodeForStorage = useMemo(
+    () => normalizeText(headline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
+    [headline.typeCode, projectionViewModel?.displayType],
+  );
+  const [storageSnapshot, setStorageSnapshot] = useState<{
+    locale: Locale;
+    fullCode: string;
+    content: MbtiDesktopCloneContent | null;
+  } | null>(null);
+  const storageContent =
+    storageSnapshot && storageSnapshot.locale === locale && storageSnapshot.fullCode === fullCodeForStorage
+      ? storageSnapshot.content
+      : null;
+
+  useEffect(() => {
+    let active = true;
+
+    if (locale !== "zh") {
+      return () => {
+        active = false;
+      };
+    }
+
+    void (async () => {
+      const payload = await fetchPersonalityDesktopCloneContent(fullCodeForStorage, locale);
+      if (active) {
+        setStorageSnapshot({
+          locale,
+          fullCode: fullCodeForStorage,
+          content: payload?.content ?? null,
+        });
+      }
+    })();
+
+    return () => {
+      active = false;
+    };
+  }, [fullCodeForStorage, locale]);
+
   const slots = resolveMbtiDesktopCloneSlots({
     locale,
     headline,
@@ -105,6 +146,7 @@ export function MbtiDesktopCloneShell({
     sectionUnlocks,
     offers,
     projectionViewModel,
+    storageContent,
   });
   const primaryOffer = resolvePrimaryOffer(offers);
 

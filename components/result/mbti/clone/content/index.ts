@@ -1,3 +1,8 @@
+/**
+ * Migration artifact only.
+ * Runtime desktop clone content owner has moved to fap-api published storage read path.
+ * Keep this registry only as historical seed source for backfill/re-import workflows.
+ */
 import type { MbtiBaseCode, MbtiDesktopCloneContent, MbtiDesktopCloneContentPatch, MbtiFullCode } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { MBTI_FULL_CODES } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { mergeMbtiDesktopCloneContent } from "@/components/result/mbti/clone/content/factory";
