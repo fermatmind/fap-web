@@ -8,7 +8,7 @@ import { DimensionBars } from "@/components/result/DimensionBars";
 import { trackEvent } from "@/lib/analytics";
 import type { ReportIdentityLayer } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
-import type { MbtiSectionUnlock, ReportBlock, ReportSection } from "@/components/result/RichResultReport";
+import type { HighlightCard, MbtiSectionUnlock, ReportBlock, ReportSection } from "@/components/result/RichResultReport";
 import type { TraitBridgeItem } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import type {
   CulturalCalibrationSectionViewModel,
@@ -131,6 +131,7 @@ type MbtiChapterSectionProps = {
   legacySection?: ReportSection | null;
   projectionSections: MbtiResultProjectionSectionViewModel[];
   projectionDimensions: MbtiPublicProjectionDimensionViewModel[];
+  highlights?: HighlightCard[];
   globalTraits: TraitBridgeItem[];
   unlock: MbtiSectionUnlock | null;
   previewSection?: MbtiPreviewSectionViewModel | null;
@@ -1068,6 +1069,316 @@ function buildPreviewSection(
   };
 }
 
+type DesktopNarrativeListItem = {
+  key: string;
+  title: string;
+  body: string;
+};
+
+type DesktopNarrativeListBuckets = {
+  strengths: DesktopNarrativeListItem[];
+  weaknesses: DesktopNarrativeListItem[];
+  notes: DesktopNarrativeListItem[];
+  locked: DesktopNarrativeListItem[];
+};
+
+const NARRATIVE_WEAKNESS_TOKENS = [
+  "weak",
+  "risk",
+  "drain",
+  "pitfall",
+  "watch",
+  "vulnerab",
+  "careers",
+  "failure",
+  "障碍",
+  "风险",
+  "短板",
+  "负面",
+  "挑战",
+];
+
+const NARRATIVE_STRENGTH_TOKENS = [
+  "strength",
+  "advantage",
+  "superpower",
+  "positive",
+  "benefit",
+  "fit",
+  "优势",
+  "长处",
+  "成长",
+  "亮点",
+];
+
+function resolveNarrativeBucket(title: string, key: string): keyof Omit<DesktopNarrativeListBuckets, "locked"> {
+  const target = `${title} ${key}`.toLowerCase();
+  if (NARRATIVE_WEAKNESS_TOKENS.some((token) => target.includes(token))) {
+    return "weaknesses";
+  }
+  if (NARRATIVE_STRENGTH_TOKENS.some((token) => target.includes(token))) {
+    return "strengths";
+  }
+  return "notes";
+}
+
+function splitLegacyItemsIntoBuckets(items: DesktopNarrativeListItem[]): DesktopNarrativeListBuckets {
+  return items.reduce<DesktopNarrativeListBuckets>(
+    (acc, item, index) => {
+      const bucket = resolveNarrativeBucket(item.title, String(index));
+      acc[bucket].push(item);
+      return acc;
+    },
+    { strengths: [], weaknesses: [], notes: [], locked: [] }
+  );
+}
+
+function renderDesktopListCard(
+  headline: string,
+  items: DesktopNarrativeListItem[],
+  locale: Locale,
+  variant: keyof Omit<DesktopNarrativeListBuckets, "locked">
+) {
+  if (items.length === 0) {
+    return null;
+  }
+
+  const badge = {
+    strengths: locale === "zh" ? "优势区域" : "Strengths",
+    weaknesses: locale === "zh" ? "薄弱区域" : "Weaknesses",
+    notes: locale === "zh" ? "补充说明" : "Notes",
+  }[variant];
+  const accent = {
+    strengths: "bg-emerald-50 text-emerald-700",
+    weaknesses: "bg-amber-50 text-amber-700",
+    notes: "bg-slate-50 text-slate-700",
+  }[variant];
+
+  return (
+    <section className="space-y-3">
+      <h3 className="m-0 text-xl font-semibold text-slate-900">{headline}</h3>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {items.map((item, index) => (
+          <article
+            key={item.key}
+            className="space-y-2 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_14px_30px_rgba(15,23,42,0.05)]"
+          >
+            <p
+              className={`m-0 inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold ${accent}`}
+            >
+              {`${badge} ${index + 1}`}
+            </p>
+            <p className="m-0 text-base font-semibold text-slate-900">{item.title}</p>
+            <p className="m-0 text-sm leading-7 text-slate-600">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function renderDesktopLockedOverlay({
+  locale,
+  title,
+  description,
+}: {
+  locale: Locale;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="relative">
+      <div className="pointer-events-none relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/85 p-5 opacity-60 blur-[0.8px]">
+        <div className="space-y-3">
+          <p className="m-0 text-sm font-semibold text-slate-800">{title}</p>
+          <p className="m-0 text-sm leading-7 text-slate-600">{description}</p>
+          <div className="grid gap-3 md:grid-cols-2">
+            {[...Array(4)].map((_, index) => (
+              <div
+                key={index}
+                className="h-16 rounded-xl border border-dashed border-slate-200 bg-white/80"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="w-full max-w-sm rounded-xl border border-emerald-200 bg-white p-4 text-center shadow-[0_20px_40px_rgba(16,185,129,0.2)]">
+          <div className="mx-auto mb-2 grid h-8 w-8 place-items-center rounded-full border border-emerald-300 bg-emerald-50 text-emerald-700">
+            {locale === "zh" ? "🔒" : "🔒"}
+          </div>
+          <p className="m-0 text-sm text-slate-700">{locale === "zh" ? "Unlock full section" : "Unlock full section"}</p>
+          <a
+            href="#offer-full"
+            className={buttonVariants({
+              className: "mt-3 inline-flex min-h-9 w-full items-center justify-center rounded-md bg-emerald-600 px-3 py-2 text-sm font-semibold text-white",
+            })}
+          >
+            {locale === "zh" ? "解锁完整分析" : "Unlock full report"}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function pickTraitsHeadline(chapterKey: ChapterKey, locale: Locale) {
+  return chapterKey === "traits"
+    ? locale === "zh"
+      ? "性格主轴"
+      : "Trait overview"
+    : chapterKey === "career"
+      ? locale === "zh"
+        ? "职业优势与风险"
+        : "Career strengths and risks"
+      : chapterKey === "growth"
+        ? locale === "zh"
+          ? "成长优势与风险"
+          : "Growth strengths and risks"
+        : locale === "zh"
+          ? "关系优势与风险"
+          : "Relationship strengths and risks";
+}
+
+function resolveSectionListText(
+  section: MbtiResultProjectionSectionViewModel,
+  locale: Locale
+) {
+  const payload = asRecord(section.payload);
+  const bullets = asArray<BulletItem>(payload?.items);
+  const resolvedFromBullets = bullets
+    .map((item) => normalizeText(item.title, item.body, item.description, item.summary))
+    .find(Boolean);
+  const plainSummary = normalizeText(
+    payload?.summary,
+    payload?.description,
+    section.bodyMd,
+    resolveProjectionSectionTitle(section, locale),
+    payload?.intro
+  );
+
+  return normalizeText(resolvedFromBullets, plainSummary);
+}
+
+function resolveSectionVisibility(block?: ReportBlock, section?: ReportSection | null, fallback = false) {
+  const blockAccess = normalizeText(block?.access_level).toLowerCase();
+  if (blockAccess) {
+    return blockAccess !== "paid";
+  }
+
+  if (section) {
+    const sectionAccess = normalizeText(section.access_level).toLowerCase();
+    return sectionAccess && sectionAccess !== "paid";
+  }
+
+  return fallback;
+}
+
+function splitProjectionSectionsForNarrative(
+  sections: MbtiResultProjectionSectionViewModel[],
+  locale: Locale,
+  includeLocked: boolean
+): DesktopNarrativeListBuckets {
+  const buckets: DesktopNarrativeListBuckets = {
+    strengths: [],
+    weaknesses: [],
+    notes: [],
+    locked: [],
+  };
+
+  const weaknessKeys = [
+    "weak",
+    "risk",
+    "drain",
+    "pitfall",
+    "watch",
+    "vulnerab",
+    "careers",
+    "failure",
+    "障碍",
+    "风险",
+    "短板",
+    "负面",
+    "挑战",
+  ];
+
+  const strengthKeys = [
+    "strength",
+    "advantage",
+    "superpower",
+    "positive",
+    "benefit",
+    "fit",
+    "优势",
+    "长处",
+    "成长",
+    "亮点",
+  ];
+
+  const resolveBucket = (title: string, key: string): keyof Omit<DesktopNarrativeListBuckets, "locked"> => {
+    const target = `${title} ${key}`.toLowerCase();
+    if (weaknessKeys.some((token) => target.includes(token))) {
+      return "weaknesses";
+    }
+    if (strengthKeys.some((token) => target.includes(token))) {
+      return "strengths";
+    }
+
+    return "notes";
+  };
+
+  sections.forEach((section, index) => {
+    const title = resolveProjectionSectionTitle(section, locale);
+    const body = resolveSectionListText(section, locale);
+    const item = {
+      key: `${section.key}-${index}`,
+      title,
+      body: normalizeText(body, normalizeText(section.bodyMd), locale === "zh" ? "请继续解读" : "Continue reading"),
+    };
+    if (includeLocked) {
+      buckets.locked.push(item);
+      return;
+    }
+
+    const bucket = resolveBucket(title, section.key);
+    buckets[bucket].push(item);
+  });
+
+  return buckets;
+}
+
+function splitLegacyBlocksForNarrative(section: ReportSection | null | undefined): {
+  visible: DesktopNarrativeListItem[];
+  locked: DesktopNarrativeListItem[];
+} {
+  const visible: DesktopNarrativeListItem[] = [];
+  const locked: DesktopNarrativeListItem[] = [];
+
+  if (!section) {
+    return { visible, locked };
+  }
+
+  const blocks = Array.isArray(section.blocks) ? section.blocks : [];
+  blocks.forEach((block, index) => {
+    const title = normalizeText(block.title, block.kind, `Section ${index + 1}`);
+    const body = normalizeText(resolveBody(block), block.body);
+    const item = {
+      key: `${section.key || "legacy"}-${index}`,
+      title: title || `Section ${index + 1}`,
+      body: body || normalizeText(block.kind, "Continue reading"),
+    };
+
+    if (resolveSectionVisibility(block, section, true)) {
+      visible.push(item);
+      return;
+    }
+
+    locked.push(item);
+  });
+
+  return { visible, locked };
+}
+
 function renderProjectionSection(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
@@ -1270,6 +1581,7 @@ export function MbtiChapterSection({
   legacySection,
   projectionSections,
   projectionDimensions,
+  highlights = [],
   globalTraits,
   unlock,
   previewSection = null,
@@ -1322,7 +1634,52 @@ export function MbtiChapterSection({
     isOverviewChapter && (authoredOverview?.bullets.length ?? 0) > 0
       ? authoredOverview?.bullets ?? []
       : unlock?.benefits ?? [];
+  const desktopIntroParagraphs = normalizeText(introCopy)
+    .split("\n")
+    .map((line) => normalizeText(line))
+    .filter(Boolean)
+    .slice(0, 2)
+    .concat(
+      normalizeText(teaserText)
+        .split("\n")
+        .map((line) => normalizeText(line))
+        .filter(Boolean)
+        .slice(0, 1)
+    )
+    .filter(Boolean)
+    .slice(0, 2);
+  const desktopTraitBars = projectionDimensions.length > 0
+    ? projectionDimensions
+    : [];
   const orderedProjectionSections = [...projectionSections];
+  const projectionNarrativeBuckets = splitProjectionSectionsForNarrative(
+    orderedProjectionSections,
+    locale,
+    isLocked
+  );
+  const legacyNarrativeBuckets = splitLegacyBlocksForNarrative(legacySection);
+  const legacyVisibleBuckets = splitLegacyItemsIntoBuckets(legacyNarrativeBuckets.visible);
+  const legacyLockedBuckets = splitLegacyItemsIntoBuckets(legacyNarrativeBuckets.locked);
+  const desktopVisibleBuckets: DesktopNarrativeListBuckets = {
+    strengths: [...projectionNarrativeBuckets.strengths, ...legacyVisibleBuckets.strengths].slice(0, 5),
+    weaknesses: [...projectionNarrativeBuckets.weaknesses, ...legacyVisibleBuckets.weaknesses].slice(0, 5),
+    notes: [...projectionNarrativeBuckets.notes, ...legacyVisibleBuckets.notes].slice(0, 6),
+    locked: [],
+  };
+  const desktopLockedBuckets = [
+    ...projectionNarrativeBuckets.locked,
+    ...legacyLockedBuckets.strengths,
+    ...legacyLockedBuckets.weaknesses,
+    ...legacyLockedBuckets.notes,
+  ].slice(0, 2);
+  const desktopInfluenceTraits = bridgeItems.slice(0, 4).length > 0 ? bridgeItems : [];
+  const traitsIntro = isOverviewChapter
+    ? highlights.slice(0, 2).map((item, index) => ({
+      key: `traits-highlight-${index}`,
+      title: normalizeText(item.title) || `Highlight ${index + 1}`,
+      body: normalizeText(item.body, ...(item.tips ?? [])),
+    }))
+    : [];
   const traitDimensionSectionIndex = orderedProjectionSections.findIndex((section) => section.render === "trait_dimension_grid");
   const hasTraitDimensionRender = traitDimensionSectionIndex > -1;
 
@@ -1438,197 +1795,342 @@ export function MbtiChapterSection({
     <section
       id={copy.anchor}
       data-testid={`mbti-chapter-${copy.anchor}`}
-      className="scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] p-6 shadow-[0_20px_50px_rgba(15,23,42,0.08)] md:gap-8 md:p-8"
+      className="scroll-mt-28"
     >
-      <h2 className="m-0 text-2xl font-semibold tracking-[-0.03em] text-[var(--fm-text)]">
-        {copy.title[locale]}
-      </h2>
-      <p className="m-0 max-w-3xl text-base text-neutral-400">{copy.summaryLine[locale]}</p>
-      <div className="flex flex-col gap-6">
-        <header className="space-y-2">
-          <div className="flex flex-wrap items-center gap-2">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-              {locale === "zh" ? `章节 ${copy.order}` : `Chapter ${copy.order}`}
-            </p>
-            <span className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-slate-500">
-              {chapterKey === "traits"
-                ? locale === "zh"
-                  ? "结构总览"
-                  : "Structure"
-                : chapterKey === "career"
-                  ? locale === "zh"
-                    ? "场景映射"
-                    : "Scenario mapping"
-                  : chapterKey === "growth"
-                    ? locale === "zh"
-                      ? "行动坐标"
-                      : "Action coordinates"
-                    : locale === "zh"
-                      ? "关系边界"
-                      : "Relationship boundaries"}
-            </span>
-            {isLocked ? (
-              <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-800">
-                {locale === "zh" ? "预览章节" : "Preview chapter"}
-              </span>
-            ) : isPreviewChapter ? (
-              <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-800">
-                {locale === "zh" ? "部分预览已开放" : "Partial preview visible"}
-              </span>
-            ) : null}
-          </div>
-          <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{introCopy}</p>
-        </header>
-
+      <div className="flex flex-col gap-6 rounded-2xl border border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] p-6 shadow-[0_20px_50px_rgba(15,23,42,0.08)] md:gap-8 md:p-8 xl:hidden">
+        <h2 className="m-0 text-2xl font-semibold tracking-[-0.03em] text-[var(--fm-text)]">
+          {copy.title[locale]}
+        </h2>
+        <p className="m-0 max-w-3xl text-base text-neutral-400">{copy.summaryLine[locale]}</p>
         <div className="flex flex-col gap-6">
-          {renderChapterVisualSlot(chapterKey, locale, hasProjectionContent ? projectionSections : [])}
-          {isOverviewChapter && authoredOverview && (authoredOverview.title || authoredOverview.subtitle || authoredOverview.oneLiner) ? (
-            <Card
-              data-testid="mbti-overview-authored-intro"
-              className="border-slate-200 bg-white/90 shadow-[0_14px_34px_rgba(15,23,42,0.05)]"
-            >
-              <CardContent className="space-y-3 p-5">
-                {authoredOverview.title ? (
-                  <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                    {authoredOverview.title}
-                  </p>
-                ) : null}
-                {authoredOverview.subtitle ? (
-                  <p className="m-0 text-lg font-semibold tracking-[-0.02em] text-slate-900">{authoredOverview.subtitle}</p>
-                ) : null}
-                {authoredOverview.oneLiner ? (
-                  <p className="m-0 text-sm leading-7 text-slate-600">{authoredOverview.oneLiner}</p>
-                ) : null}
+          <header className="space-y-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+                {locale === "zh" ? `章节 ${copy.order}` : `Chapter ${copy.order}`}
+              </p>
+              <span className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-slate-500">
+                {chapterKey === "traits"
+                  ? locale === "zh"
+                    ? "结构总览"
+                    : "Structure"
+                  : chapterKey === "career"
+                    ? locale === "zh"
+                      ? "场景映射"
+                      : "Scenario mapping"
+                    : chapterKey === "growth"
+                      ? locale === "zh"
+                        ? "行动坐标"
+                        : "Action coordinates"
+                      : locale === "zh"
+                        ? "关系边界"
+                        : "Relationship boundaries"}
+              </span>
+              {isLocked ? (
+                <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-800">
+                  {locale === "zh" ? "预览章节" : "Preview chapter"}
+                </span>
+              ) : isPreviewChapter ? (
+                <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-800">
+                  {locale === "zh" ? "部分预览已开放" : "Partial preview visible"}
+                </span>
+              ) : null}
+            </div>
+            <p className="m-0 max-w-3xl text-sm leading-7 text-[var(--fm-text-muted)]">{introCopy}</p>
+          </header>
+
+          <div className="flex flex-col gap-6">
+            {renderChapterVisualSlot(chapterKey, locale, hasProjectionContent ? projectionSections : [])}
+            {isOverviewChapter && authoredOverview && (authoredOverview.title || authoredOverview.subtitle || authoredOverview.oneLiner) ? (
+              <Card
+                data-testid="mbti-overview-authored-intro"
+                className="border-slate-200 bg-white/90 shadow-[0_14px_34px_rgba(15,23,42,0.05)]"
+              >
+                <CardContent className="space-y-3 p-5">
+                  {authoredOverview.title ? (
+                    <p className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                      {authoredOverview.title}
+                    </p>
+                  ) : null}
+                  {authoredOverview.subtitle ? (
+                    <p className="m-0 text-lg font-semibold tracking-[-0.02em] text-slate-900">{authoredOverview.subtitle}</p>
+                  ) : null}
+                  {authoredOverview.oneLiner ? (
+                    <p className="m-0 text-sm leading-7 text-slate-600">{authoredOverview.oneLiner}</p>
+                  ) : null}
+                </CardContent>
+              </Card>
+            ) : null}
+            {traitsLeadEvidence}
+
+            <Card className="border-slate-200 bg-slate-950 text-white shadow-[0_20px_44px_rgba(15,23,42,0.18)]">
+              <CardHeader className="space-y-2 pb-3">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-200">
+                  {bridgeTitle}
+                </p>
+                <CardTitle className="text-lg text-white">
+                  {locale === "zh"
+                    ? "这一章的判读抓手"
+                    : "Reading handles for this chapter"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {bridgeItems.map((item, index) => (
+                  <div
+                    key={`${item.title}-${item.description}`}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-4 transition duration-200 motion-reduce:transition-none hover:border-white/20 hover:bg-white/[0.08]"
+                  >
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                      {locale === "zh" ? `线索 ${index + 1}` : `Cue ${index + 1}`}
+                    </p>
+                    <p className="m-0 mt-2 text-sm font-semibold text-white">{item.title}</p>
+                    <p className="m-0 mt-2 text-sm leading-7 text-slate-300">{item.description}</p>
+                  </div>
+                ))}
               </CardContent>
             </Card>
-          ) : null}
-          {traitsLeadEvidence}
-
-          <Card className="border-slate-200 bg-slate-950 text-white shadow-[0_20px_44px_rgba(15,23,42,0.18)]">
-            <CardHeader className="space-y-2 pb-3">
-              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-200">
-                {bridgeTitle}
+            <div className="rounded-[24px] border border-slate-200 bg-slate-50/80 p-5">
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                {locale === "zh" ? "正文边界" : "Body boundary"}
               </p>
-              <CardTitle className="text-lg text-white">
-                {locale === "zh"
-                  ? "这一章的判读抓手"
-                  : "Reading handles for this chapter"}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {bridgeItems.map((item, index) => (
-                <div
-                  key={`${item.title}-${item.description}`}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 transition duration-200 motion-reduce:transition-none hover:border-white/20 hover:bg-white/[0.08]"
-                >
-                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                    {locale === "zh" ? `线索 ${index + 1}` : `Cue ${index + 1}`}
-                  </p>
-                  <p className="m-0 mt-2 text-sm font-semibold text-white">{item.title}</p>
-                  <p className="m-0 mt-2 text-sm leading-7 text-slate-300">{item.description}</p>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-          <div className="rounded-[24px] border border-slate-200 bg-slate-50/80 p-5">
-            <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {locale === "zh" ? "正文边界" : "Body boundary"}
-            </p>
-            <p className="m-0 mt-3 text-sm leading-7 text-slate-600">
-              {isLocked
-                ? locale === "zh"
-                  ? "先浏览公开层；完整解锁后展示完整章节。"
-                  : "Browse the public layer first, then unlock for the complete chapter."
-                : isPreviewChapter
+              <p className="m-0 mt-3 text-sm leading-7 text-slate-600">
+                {isLocked
                   ? locale === "zh"
-                    ? "本章已开放部分预览；完整报告补齐更深的边界解释与行动坐标。"
-                    : "This chapter already has preview cards; the full report adds deeper interpretation and action coordinates."
-                  : locale === "zh"
-                    ? "当前章节支持完整正文阅读，可继续下滑。"
-                    : "This chapter is fully available in full-body mode; continue reading."}
-            </p>
+                    ? "先浏览公开层；完整解锁后展示完整章节。"
+                    : "Browse the public layer first, then unlock for the complete chapter."
+                  : isPreviewChapter
+                    ? locale === "zh"
+                      ? "本章已开放部分预览；完整报告补齐更深的边界解释与行动坐标。"
+                      : "This chapter already has preview cards; the full report adds deeper interpretation and action coordinates."
+                    : locale === "zh"
+                      ? "当前章节支持完整正文阅读，可继续下滑。"
+                      : "This chapter is fully available in full-body mode; continue reading."}
+              </p>
+            </div>
           </div>
-        </div>
 
         {hasProjectionContent ? (
           <div
             data-testid={`mbti-chapter-public-${copy.anchor}`}
             className="space-y-4"
           >
-            {orderedProjectionSections.map((section, index) =>
-              renderProjectionSection(section, locale, projectionDimensions, personalization, {
-                attemptId,
-                displayOrder: projectionSections.findIndex((candidate) => candidate.key === section.key) + 1 || index + 1,
-                isPrimaryFocus: section.key === primaryFocusKey,
-              })
+              {orderedProjectionSections.map((section, index) =>
+                renderProjectionSection(section, locale, projectionDimensions, personalization, {
+                  attemptId,
+                  displayOrder: projectionSections.findIndex((candidate) => candidate.key === section.key) + 1 || index + 1,
+                  isPrimaryFocus: section.key === primaryFocusKey,
+                })
+              )}
+            </div>
+          ) : hasLegacyPublicContent && legacySection ? (
+            <div
+              data-testid={`mbti-chapter-public-${copy.anchor}`}
+              className="rounded-[24px] border border-slate-200 bg-white/90 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
+            >
+              <SectionRenderer section={legacySection} locked={false} locale={locale} scaleCode="MBTI" />
+            </div>
+          ) : null}
+
+          {previewReportSection ? (
+            <div
+              data-testid={`mbti-chapter-preview-${copy.anchor}`}
+              className="rounded-[24px] border border-emerald-200 bg-[linear-gradient(180deg,rgba(236,253,245,0.8),rgba(255,255,255,0.98))] p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
+            >
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                <div className="space-y-2">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                    {locale === "zh" ? "章节预览内容" : "Chapter preview cards"}
+                  </p>
+                  <p className="m-0 text-sm leading-7 text-slate-600">
+                    {locale === "zh"
+                      ? "这里展示当前已经开放的部分预览卡片；完整解锁后会继续补齐整章正文。"
+                      : "These cards are already open in preview mode. Unlocking the full report still completes the rest of the chapter."}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {Array.from(new Set(previewCards.map((card) => resolveModuleLabel(card.moduleCode, locale))).entries()).map(
+                    ([, label]) => (
+                      <span
+                        key={label}
+                        className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-800"
+                      >
+                        {label}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+              <SectionRenderer section={previewReportSection} locked={false} locale={locale} scaleCode="MBTI" />
+            </div>
+          ) : null}
+
+          {isLocked ? (
+            <div className="relative">
+              <div className="relative rounded-[24px] border border-dashed border-slate-300 bg-[linear-gradient(180deg,rgba(248,250,252,0.95),rgba(255,255,255,0.98))] p-5 blur-sm opacity-60">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                  {locale === "zh" ? "完整章节预览" : "Full chapter preview"}
+                </p>
+                <p className="m-0 mt-3 text-lg font-semibold tracking-[-0.02em] text-slate-950">
+                  {teaserText || (locale === "zh" ? "解锁后可查看这一章的完整解读。" : "Unlock to view the full reading for this chapter.")}
+                </p>
+              </div>
+
+              <div className="absolute inset-0 flex items-center justify-center p-4">
+                <div className="w-full max-w-md rounded-xl bg-white p-6 text-center shadow-lg">
+                  <p className="m-0 mb-3 text-sm text-slate-700">解锁完整分析</p>
+                  <a
+                    href="#offer-full"
+                    className={buttonVariants({
+                      className:
+                        "inline-flex w-full min-h-[44px] items-center justify-center rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white",
+                    })}
+                  >
+                    {locale === "zh" ? "解锁完整报告" : "Unlock full report"}
+                  </a>
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="hidden xl:block space-y-8">
+        <header className="rounded-2xl border border-slate-200 bg-white p-6">
+          <div className="flex items-start gap-3">
+            <span className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-emerald-500/70 text-sm font-semibold text-slate-700">
+              {copy.order}
+            </span>
+            <div className="space-y-2">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                {locale === "zh" ? `人物章节` : "Chapter"}
+              </p>
+              <h2 className="m-0 text-3xl font-semibold tracking-[-0.02em] text-slate-900">
+                {copy.title[locale]}
+              </h2>
+            </div>
+          </div>
+          <p className="m-0 mt-4 max-w-3xl text-sm leading-7 text-slate-600">{copy.summaryLine[locale]}</p>
+          <div className="mt-4 space-y-2">
+            {desktopIntroParagraphs.length > 0 ? (
+              desktopIntroParagraphs.map((paragraph) => (
+                <p key={paragraph} className="m-0 text-sm leading-7 text-slate-600">
+                  {paragraph}
+                </p>
+              ))
+            ) : (
+              <p className="m-0 text-sm leading-7 text-slate-600">{introCopy}</p>
             )}
           </div>
-        ) : hasLegacyPublicContent && legacySection ? (
-          <div
-            data-testid={`mbti-chapter-public-${copy.anchor}`}
-            className="rounded-[24px] border border-slate-200 bg-white/90 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
-          >
-            <SectionRenderer section={legacySection} locked={false} locale={locale} scaleCode="MBTI" />
-          </div>
-        ) : null}
+        </header>
 
-        {previewReportSection ? (
-          <div
-            data-testid={`mbti-chapter-preview-${copy.anchor}`}
-            className="rounded-[24px] border border-emerald-200 bg-[linear-gradient(180deg,rgba(236,253,245,0.8),rgba(255,255,255,0.98))] p-5 shadow-[0_16px_38px_rgba(15,23,42,0.05)] [&_section]:space-y-3 [&_section>h3]:sr-only [&_section>div]:space-y-3"
-          >
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-              <div className="space-y-2">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
-                  {locale === "zh" ? "章节预览内容" : "Chapter preview cards"}
-                </p>
-                <p className="m-0 text-sm leading-7 text-slate-600">
-                  {locale === "zh"
-                    ? "这里展示当前已经开放的部分预览卡片；完整解锁后会继续补齐整章正文。"
-                    : "These cards are already open in preview mode. Unlocking the full report still completes the rest of the chapter."}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {Array.from(new Set(previewCards.map((card) => resolveModuleLabel(card.moduleCode, locale)))).map((label) => (
-                  <span
-                    key={label}
-                    className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-xs font-medium text-emerald-800"
+        <section className="rounded-2xl border border-slate-200 bg-white p-5">
+          <div className="h-[230px] rounded-2xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-slate-100 p-5">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {chapterKey === "traits"
+                ? locale === "zh"
+                  ? "章节坐标"
+                  : "Chapter visual"
+                : locale === "zh"
+                  ? "场景说明"
+                  : "Scenario view"}
+            </p>
+            {renderChapterVisualSlot(chapterKey, locale, hasProjectionContent ? projectionSections : [])}
+          </div>
+        </section>
+
+        {isOverviewChapter ? (
+          <section className="rounded-2xl border border-slate-200 bg-white p-5">
+            <p className="m-0 text-sm font-semibold text-slate-900">
+              {locale === "zh" ? "主导特质总览" : "Personality traits"}
+            </p>
+            <div className="mt-3">
+              <DimensionBars
+                dimensions={desktopTraitBars}
+                variant="desktop-traits-narrative"
+                summaryTitle={locale === "zh" ? "特征摘要" : "Trait snapshot"}
+                summaryLabel={normalizeText(traitsIntro[0]?.title, copy.summaryLine[locale])}
+                summaryValue={normalizeText(traitsIntro[0]?.body)}
+                summaryDescription={normalizeText(traitsIntro[1]?.body)}
+                className="border border-slate-200/80 shadow-none"
+              />
+            </div>
+          </section>
+        ) : (
+          <section className="rounded-2xl border border-slate-200 bg-white p-5">
+            <p className="m-0 text-sm font-semibold text-slate-900">
+              {locale === "zh" ? "Influential traits" : "Influential traits"}
+            </p>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {desktopInfluenceTraits.length > 0 ? (
+                desktopInfluenceTraits.map((item) => (
+                  <div
+                    key={`${item.title}-${item.description}`}
+                    className="rounded-xl border border-slate-200 bg-slate-50/80 p-3 text-center"
                   >
-                    {label}
-                  </span>
-                ))}
-              </div>
+                    <p className="m-0 h-12 w-12 text-sm font-semibold rounded-full border border-slate-300 bg-white p-2 mx-auto grid place-items-center">
+                      {item.title[0] || "T"}
+                    </p>
+                    <p className="m-0 mt-3 text-xs uppercase tracking-[0.12em] text-slate-500">
+                      {locale === "zh" ? "关键特征" : "Key trait"}
+                    </p>
+                    <p className="m-0 mt-1 text-sm font-semibold text-slate-900">{item.title}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="m-0 text-sm text-slate-600">
+                  {locale === "zh" ? "当前章节暂无可展示特征项。" : "No influence trait entries available yet."}
+                </p>
+              )}
             </div>
-            <SectionRenderer section={previewReportSection} locked={false} locale={locale} scaleCode="MBTI" />
-          </div>
+          </section>
+        )}
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          {desktopVisibleBuckets.strengths.length > 0
+            ? renderDesktopListCard(
+                locale === "zh" ? "你的优势" : "Your strengths",
+                desktopVisibleBuckets.strengths,
+                locale,
+                "strengths"
+              )
+            : null}
+          {desktopVisibleBuckets.weaknesses.length > 0
+            ? renderDesktopListCard(
+                locale === "zh" ? "你的短板与边界" : "Your weaknesses",
+                desktopVisibleBuckets.weaknesses,
+                locale,
+                "weaknesses"
+              )
+            : null}
+        </div>
+
+        {desktopVisibleBuckets.notes.length > 0 ? (
+          <section className="rounded-2xl border border-slate-200 bg-white p-5">
+            {renderDesktopListCard(
+              locale === "zh" ? "补充说明" : "Further notes",
+              desktopVisibleBuckets.notes,
+              locale,
+              "notes"
+            )}
+          </section>
         ) : null}
 
-        {isLocked ? (
-          <div className="relative">
-            <div className="relative rounded-[24px] border border-dashed border-slate-300 bg-[linear-gradient(180deg,rgba(248,250,252,0.95),rgba(255,255,255,0.98))] p-5 blur-sm opacity-60">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                {locale === "zh" ? "完整章节预览" : "Full chapter preview"}
-              </p>
-              <p className="m-0 mt-3 text-lg font-semibold tracking-[-0.02em] text-slate-950">
-                {teaserText || (locale === "zh" ? "解锁后可查看这一章的完整解读。" : "Unlock to view the full reading for this chapter.")}
-              </p>
-            </div>
-
-            <div className="absolute inset-0 flex items-center justify-center p-4">
-              <div className="w-full max-w-md rounded-xl bg-white p-6 text-center shadow-lg">
-                <p className="m-0 mb-3 text-sm text-slate-700">解锁完整分析</p>
-                <a
-                  href="#offer-full"
-                  className={buttonVariants({
-                    className:
-                      "inline-flex w-full min-h-[44px] items-center justify-center rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white",
+        {desktopLockedBuckets.length > 0 ? (
+          <section className="space-y-3">
+            <p className="m-0 text-sm font-semibold text-slate-900">
+              {locale === "zh" ? "待解锁内容" : "Locked sections"}
+            </p>
+            <div className="grid gap-3 md:grid-cols-2">
+              {desktopLockedBuckets.map((item) => (
+                <div key={item.key} className="rounded-2xl">
+                  {renderDesktopLockedOverlay({
+                    locale,
+                    title: item.title,
+                    description: item.body,
                   })}
-                >
-                  {locale === "zh" ? "解锁完整报告" : "Unlock full report"}
-                </a>
-              </div>
+                </div>
+              ))}
             </div>
-          </div>
+          </section>
         ) : null}
       </div>
     </section>

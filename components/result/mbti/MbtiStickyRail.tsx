@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Locale } from "@/lib/i18n/locales";
 import type { RichResultHeadline } from "@/components/result/RichResultReport";
 
@@ -32,14 +31,17 @@ type MbtiStickyRailProps = {
   onShare: () => void | Promise<void>;
 };
 
-const NAV_ITEMS: Array<{ anchor: string; en: string; zh: string }> = [
-  { anchor: "hero", en: "Hero", zh: "总览" },
-  { anchor: "intro", en: "Intro", zh: "简介" },
-  { anchor: "traits", en: "Traits", zh: "核心特征" },
-  { anchor: "career", en: "Career", zh: "职业" },
-  { anchor: "growth", en: "Growth", zh: "成长" },
-  { anchor: "relationships", en: "Relationships", zh: "关系" },
-  { anchor: "offer-full", en: "Unlock", zh: "解锁" },
+type RailLink = {
+  anchor: string;
+  zh: string;
+  en: string;
+};
+
+const MAIN_ANCHORS: RailLink[] = [
+  { anchor: "traits", zh: "1 Personality Traits", en: "1 Personality Traits" },
+  { anchor: "career", zh: "2 Your Career Path", en: "2 Your Career Path" },
+  { anchor: "growth", zh: "3 Your Personal Growth", en: "3 Your Personal Growth" },
+  { anchor: "relationships", zh: "4 Your Relationships", en: "4 Your Relationships" },
 ];
 
 function normalizeText(...values: unknown[]): string {
@@ -53,51 +55,29 @@ function normalizeText(...values: unknown[]): string {
   return "";
 }
 
-function resolveUnlockSummary(
+function resolveUnlockText(
   locale: Locale,
   locked?: boolean,
   accessLevel?: string,
-  variant?: string,
-  modulesAllowed: string[] = [],
-  modulesPreview: string[] = []
+  variant?: string
 ) {
-  const isFreePreview =
-    locked === true
-    || normalizeText(accessLevel).toLowerCase() === "free"
-    || normalizeText(variant).toLowerCase() === "free";
+  if (locked === true || normalizeText(accessLevel).toLowerCase() === "free" || normalizeText(variant).toLowerCase() === "free") {
+    return {
+      title: locale === "zh" ? "免费预览中" : "Free preview",
+      description:
+        locale === "zh"
+          ? "完整内容已保留在下方主收口位，当前阶段只显示公开预览。"
+          : "Unlockable content remains in the final offer section; this view shows a free preview.",
+    };
+  }
 
-  const allowedWithoutCoreFree = modulesAllowed.filter(
-    (moduleCode) => normalizeText(moduleCode).toLowerCase() !== "core_free"
-  );
-  const visibleModules =
-    allowedWithoutCoreFree.length > 0
-      ? allowedWithoutCoreFree
-      : modulesPreview.length > 0
-        ? modulesPreview
-        : modulesAllowed;
-  const labels = resolveVisibleModuleLabels(locale, visibleModules);
-
-  const title = isFreePreview
-    ? locale === "zh"
-      ? "当前为免费预览"
-      : "Currently on free preview"
-    : locale === "zh"
-      ? "当前为完整访问"
-      : "Currently on full access";
-
-  const description = allowedWithoutCoreFree.length > 0
-    ? locale === "zh"
-      ? `已开放模块：${labels.join("、")}`
-      : `Open modules: ${labels.join(", ")}`
-    : labels.length > 0
-      ? locale === "zh"
-        ? `当前预览范围：${labels.join("、")}`
-        : `Preview currently covers: ${labels.join(", ")}`
-    : locale === "zh"
-      ? "当前以章节骨架阅读为主，解锁方案集中在下方方案区。"
-      : "This view stays focused on the reading shell, with unlock options grouped below.";
-
-  return { title, description };
+  return {
+    title: locale === "zh" ? "完整访问中" : "Full access",
+    description:
+      locale === "zh"
+        ? "当前为完整解锁状态，章节信息保留在主内容中。"
+        : "Full access mode: chapter information stays in the main report flow.",
+  };
 }
 
 function resolveVisibleModuleLabels(locale: Locale, modulesAllowed: string[] = []) {
@@ -116,10 +96,6 @@ function resolveVisibleModuleLabels(locale: Locale, modulesAllowed: string[] = [
   return Array.from(new Set(normalized));
 }
 
-function resolvePrimaryCtaLabel(locale: Locale, primaryCtaLabel?: string) {
-  return normalizeText(primaryCtaLabel) || (locale === "zh" ? "解锁完整报告" : "Unlock full report");
-}
-
 export function MbtiStickyRail({
   locale,
   headline,
@@ -127,8 +103,8 @@ export function MbtiStickyRail({
   locked,
   accessLevel,
   variant,
-  modulesAllowed,
-  modulesPreview,
+  modulesAllowed = [],
+  modulesPreview = [],
   historyHref,
   pdfHref,
   pdfReady = false,
@@ -144,257 +120,202 @@ export function MbtiStickyRail({
   shareDisabled = false,
   onShare,
 }: MbtiStickyRailProps) {
-  const [activeAnchor, setActiveAnchor] = useState("hero");
-  const unlockSummary = resolveUnlockSummary(locale, locked, accessLevel, variant, modulesAllowed, modulesPreview);
-  const ctaLabel = resolvePrimaryCtaLabel(locale, primaryCtaLabel);
-  const allowedWithoutCoreFree = (modulesAllowed ?? []).filter(
-    (moduleCode) => normalizeText(moduleCode).toLowerCase() !== "core_free"
-  );
+  const [activeAnchor, setActiveAnchor] = useState("traits");
+  const unlockSummary = resolveUnlockText(locale, locked, accessLevel, variant);
+  const shareLabel = normalizeText(shareCtaLabel, locale === "zh" ? "分享结果" : "Share result");
+  const sectionIds = ["hero", ...MAIN_ANCHORS.map((item) => item.anchor), "offer-full", "footer-cta"];
   const visibleModuleLabels = resolveVisibleModuleLabels(
     locale,
-    allowedWithoutCoreFree.length > 0
-      ? allowedWithoutCoreFree
-      : modulesPreview && modulesPreview.length > 0
+    modulesAllowed.filter((item) => normalizeText(item).toLowerCase() !== "core_free").length > 0
+      ? modulesAllowed
+      : modulesPreview.length > 0
         ? modulesPreview
         : modulesAllowed
   );
-  const resolvedShareLabel = normalizeText(shareCtaLabel, locale === "zh" ? "分享结果" : "Share result");
-  const historyLabel = primaryCtaIsInternal
-    ? locale === "zh"
-      ? "结果工作台"
-      : "Result workspace"
-    : locale === "zh"
-      ? "历史结果 / 工作台"
-      : "History / workspace";
-  const showSecondaryHistoryEntry =
-    Boolean(historyHref) && (!primaryCtaIsInternal || primaryCtaHref !== historyHref);
+  const hasUtilityLinks = Boolean(orderDetailHref || orderLookupHref || relationshipHref || (pdfReady && pdfHref));
+  const ctaLabel = normalizeText(primaryCtaLabel) || (locale === "zh" ? "查看完整报告" : "View full report");
+  const historyLabel = locale === "zh" ? "结果工作台" : "Result workspace";
 
   useEffect(() => {
-    const sectionIds = NAV_ITEMS.map((item) => item.anchor);
+    const sectionNodes = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((element): element is HTMLElement => element instanceof HTMLElement);
     const updateFromViewport = () => {
-      let next = sectionIds[0];
-      for (const id of sectionIds) {
-        const element = document.getElementById(id);
-        if (!element) continue;
-        const top = element.getBoundingClientRect().top;
-        if (top <= 180) {
-          next = id;
+      let next = "traits";
+      for (const anchor of sectionIds) {
+        const element = document.getElementById(anchor);
+        if (!element) {
+          continue;
+        }
+
+        if (element.getBoundingClientRect().top <= 160) {
+          next = anchor === "hero" ? "traits" : anchor;
         }
       }
-      setActiveAnchor(window.location.hash.replace("#", "") || next);
+      setActiveAnchor(next);
     };
 
-    updateFromViewport();
-    window.addEventListener("hashchange", updateFromViewport);
+    if (sectionNodes.length > 0) {
+      updateFromViewport();
+    }
+
     window.addEventListener("scroll", updateFromViewport, { passive: true });
+    window.addEventListener("hashchange", updateFromViewport);
 
     return () => {
-      window.removeEventListener("hashchange", updateFromViewport);
       window.removeEventListener("scroll", updateFromViewport);
+      window.removeEventListener("hashchange", updateFromViewport);
     };
-  }, []);
+  }, [sectionIds]);
 
   return (
     <aside
       data-testid="mbti-sticky-rail"
-      className="pointer-events-auto hidden xl:block xl:absolute xl:top-24 xl:right-4 xl:z-20 xl:w-[260px] opacity-60 hover:opacity-100"
+      className="sticky top-24 hidden xl:block xl:w-[224px]"
     >
-      <div className="space-y-4">
-        <Card className="border-slate-200 bg-white/94 shadow-[0_20px_40px_rgba(15,23,42,0.08)] backdrop-blur">
-          <CardHeader className="space-y-2 pb-3">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "结果摘要" : "Result summary"}
-            </p>
-            <CardTitle className="text-xl text-slate-950">
-              {headline.typeCode}
-              {headline.displayName ? <span className="text-slate-600"> · {headline.displayName}</span> : null}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50/90 p-4">
-              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                {locale === "zh" ? "当前状态" : "Current state"}
-              </p>
-              <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{unlockSummary.title}</p>
-              <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{unlockSummary.description}</p>
+      <div className="space-y-4 opacity-60 transition hover:opacity-100">
+        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_20px_40px_rgba(15,23,42,0.08)]">
+          <div className="flex items-center gap-3">
+            <div className="h-11 w-11 shrink-0 rounded-full bg-slate-900/90 text-center text-xs leading-11 font-semibold text-white">
+              {normalizeText(headline.typeCode) ? normalizeText(headline.typeCode).slice(0, 1) : "MB"}
             </div>
-            {headline.supportingLine ? (
-              <p className="m-0 text-sm leading-7 text-slate-600">{headline.supportingLine}</p>
-            ) : null}
-            {tags.length > 0 ? (
-              <div className="flex flex-wrap gap-2">
-                {tags.slice(0, 4).map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            ) : null}
-          </CardContent>
-        </Card>
+            <div>
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                {locale === "zh" ? "人格类型" : "Type"}
+              </p>
+              <p className="m-0 text-sm font-semibold text-slate-900">
+                {normalizeText(headline.displayName) || normalizeText(headline.typeCode)}
+              </p>
+              <p className="m-0 text-xs text-slate-500">{headline.typeCode}</p>
+            </div>
+          </div>
+          <p className="mt-3 text-[11px] uppercase tracking-[0.14em] text-slate-400">{unlockSummary.title}</p>
+          <p className="mt-1 text-xs leading-5 text-slate-600">{unlockSummary.description}</p>
+          {headline.supportingLine ? (
+            <p className="mt-2 text-xs leading-5 text-slate-500">{headline.supportingLine}</p>
+          ) : null}
+          {tags.length > 0 ? (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {tags.slice(0, 3).map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] text-slate-600"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
 
-        <Card className="border-slate-200 bg-white/94 shadow-[0_18px_34px_rgba(15,23,42,0.07)] backdrop-blur">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base text-slate-900">{locale === "zh" ? "章节导航" : "Report sections"}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {NAV_ITEMS.map((item) => (
+        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_16px_30px_rgba(15,23,42,0.07)]">
+          <p className="m-0 border-b border-slate-200 pb-3 text-sm font-semibold text-slate-900">
+            {locale === "zh" ? "On this page" : "On this page"}
+          </p>
+          <div className="mt-3 space-y-1">
+            {MAIN_ANCHORS.map((item) => (
               <a
                 key={item.anchor}
                 href={`#${item.anchor}`}
                 aria-current={activeAnchor === item.anchor ? "location" : undefined}
-                className={`block rounded-xl px-3 py-2 text-sm font-medium transition motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 ${
+                className={`flex items-center rounded-lg px-3 py-2 text-sm transition ${
                   activeAnchor === item.anchor
-                    ? "bg-slate-950 text-white shadow-[0_10px_24px_rgba(15,23,42,0.16)]"
-                    : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
+                    ? "bg-emerald-50 text-slate-950"
+                    : "text-slate-600 hover:bg-slate-50"
                 }`}
               >
                 {item[locale]}
               </a>
             ))}
-          </CardContent>
-        </Card>
+            <a
+              href="#offer-full"
+              className="mt-1 flex items-center rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-slate-50"
+            >
+              {locale === "zh" ? "Offer" : "Offer"}
+            </a>
+          </div>
+        </div>
 
-        <Card className="border-slate-200 bg-white/94 shadow-[0_18px_34px_rgba(15,23,42,0.07)] backdrop-blur">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base text-slate-900">
-              {locale === "zh" ? "主动作与工作台" : "Primary actions and workspace"}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
+        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_16px_30px_rgba(15,23,42,0.07)]">
+          <p className="m-0 text-sm font-semibold text-slate-900">Tools</p>
+          <div className="mt-3 flex flex-col gap-2">
+            <button
+              type="button"
+              onClick={() => void onShare()}
+              disabled={shareDisabled}
+              className="self-start text-sm text-neutral-500 underline underline-offset-2 hover:text-slate-900 disabled:text-slate-300"
+            >
+              {shareLabel}
+            </button>
+            <Link href={retakeHref} className="self-start text-sm text-neutral-500 underline underline-offset-2 hover:text-slate-900">
+              {locale === "zh" ? "重测" : "Retake"}
+            </Link>
+            {historyHref ? (
+              <Link href={historyHref} className="self-start text-sm text-neutral-500 underline underline-offset-2 hover:text-slate-900">
+                {historyLabel}
+              </Link>
+            ) : null}
+            <a
+              href={primaryCtaHref}
+              className={buttonVariants({
+                variant: "outline",
+                className:
+                  "mt-1 inline-flex w-full justify-center rounded-md border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700",
+              })}
+            >
+              {ctaLabel}
+            </a>
+          </div>
+        </div>
+
+        {(visibleModuleLabels.length > 0 || hasUtilityLinks) ? (
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
             {visibleModuleLabels.length > 0 ? (
-              <div className="flex flex-wrap gap-2">
-                {visibleModuleLabels.map((item) => (
+              <div className="space-y-2">
+                {visibleModuleLabels.slice(0, 3).map((item) => (
                   <span
                     key={item}
-                    className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600"
+                    className="inline-flex mr-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-500"
                   >
                     {item}
                   </span>
                 ))}
               </div>
             ) : null}
-
-            {primaryCtaIsInternal ? (
-              <Link
-                href={primaryCtaHref}
-                className={buttonVariants({
-                  variant: "outline",
-                  className:
-                    "w-full transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
-                })}
-              >
-                {ctaLabel}
-              </Link>
-            ) : (
-              <a
-                href={primaryCtaHref}
-                className={buttonVariants({
-                  variant: "outline",
-                  className:
-                    "w-full transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-0",
-                })}
-              >
-                {ctaLabel}
-              </a>
-            )}
-
-            {showSecondaryHistoryEntry && historyHref ? (
-              <Link
-                href={historyHref}
-                className={buttonVariants({
-                  variant: "outline",
-                  className:
-                    "w-full border-slate-300 bg-white/80 transition duration-200 motion-reduce:transition-none hover:border-slate-400 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-emerald-300",
-                })}
-              >
-                {historyLabel}
-              </Link>
-            ) : null}
-
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white"
-                disabled={shareDisabled}
-                onClick={() => void onShare()}
-              >
-                {resolvedShareLabel}
-              </button>
-              <Link href={retakeHref} className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white">
-                {locale === "zh" ? "重测" : "Retake"}
-              </Link>
-            </div>
-
             {shareStatusMessage ? (
-              <p
-                data-testid="mbti-sticky-rail-share-status"
-                className="m-0 text-xs leading-6 text-emerald-700"
-              >
-                {shareStatusMessage}
-              </p>
+              <p className="mt-3 text-xs leading-6 text-emerald-700">{shareStatusMessage}</p>
             ) : null}
-
-            {(pdfReady && pdfHref) || historyHref || relationshipHref || orderDetailHref || orderLookupHref ? (
-              <div className="space-y-2 rounded-2xl border border-dashed border-slate-200 bg-slate-50/75 p-3">
-                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  {locale === "zh" ? "辅助入口" : "Utility entry points"}
-                </p>
-                <div className="flex flex-col gap-2">
-                  {pdfReady && pdfHref ? (
-                    <a
-                      href={pdfHref}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
-                    >
-                      {locale === "zh" ? "下载 PDF" : "Download PDF"}
-                    </a>
-                  ) : (
-                    <div className="rounded-xl px-3 py-2 text-sm text-slate-500">
-                      {locale === "zh" ? "PDF 将在可用时出现在工作台" : "PDF will appear in the workspace when ready"}
-                    </div>
-                  )}
-                  {historyHref ? (
-                    <Link
-                      href={historyHref}
-                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
-                    >
-                      {locale === "zh" ? "查看历史记录与已购结果" : "View history and unlocked results"}
-                    </Link>
-                  ) : null}
-                  {relationshipHref ? (
-                    <Link
-                      href={relationshipHref}
-                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
-                    >
-                      {locale === "zh" ? "关系回访入口" : "Relationship hub"}
-                    </Link>
-                  ) : null}
-                  {orderDetailHref ? (
-                    <Link
-                      href={orderDetailHref}
-                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
-                    >
-                      {locale === "zh" ? "订单详情" : "Order details"}
-                    </Link>
-                  ) : null}
-                  {orderLookupHref ? (
-                    <Link
-                      href={orderLookupHref}
-                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
-                    >
-                      {locale === "zh" ? "订单找回" : "Order lookup"}
-                    </Link>
-                  ) : null}
-                </div>
+            {hasUtilityLinks ? (
+              <div className="mt-3 space-y-1 text-xs">
+                {pdfReady && pdfHref ? (
+                  <a
+                    href={pdfHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block text-slate-600 hover:text-slate-900"
+                  >
+                    {locale === "zh" ? "下载 PDF" : "Download PDF"}
+                  </a>
+                ) : null}
+                {orderDetailHref ? (
+                  <Link href={orderDetailHref} className="block text-slate-600 hover:text-slate-900">
+                    {locale === "zh" ? "订单详情" : "Order details"}
+                  </Link>
+                ) : null}
+                {orderLookupHref ? (
+                  <Link href={orderLookupHref} className="block text-slate-600 hover:text-slate-900">
+                    {locale === "zh" ? "订单找回" : "Order lookup"}
+                  </Link>
+                ) : null}
+                {relationshipHref ? (
+                  <Link href={relationshipHref} className="block text-slate-600 hover:text-slate-900">
+                    {locale === "zh" ? "关系工作台" : "Relationship hub"}
+                  </Link>
+                ) : null}
               </div>
             ) : null}
-          </CardContent>
-        </Card>
+          </div>
+        ) : null}
       </div>
     </aside>
   );

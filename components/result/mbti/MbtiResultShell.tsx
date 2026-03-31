@@ -5,14 +5,12 @@ import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEff
 import { usePathname } from "next/navigation";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
 import { buildDominantTraitItems } from "@/components/result/mbti/MbtiDominantTraitsSection";
-import { MbtiHighlightsSection } from "@/components/result/mbti/MbtiHighlightsSection";
 import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
 import { MbtiPostPurchaseSection } from "@/components/result/mbti/MbtiPostPurchaseSection";
 import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
 import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   canEnterReportPage,
   canDownloadReportPdf,
@@ -1740,6 +1738,7 @@ export function MbtiResultShell({
         legacySection={legacySection}
         projectionSections={projectionSections}
         projectionDimensions={projectionViewModel?.dimensions ?? []}
+        highlights={chapterKey === "traits" ? highlights : []}
         globalTraits={globalTraits}
         unlock={sectionUnlocks[chapterKey] ?? null}
         previewSection={previewSectionsByKey.get(chapterKey) ?? null}
@@ -1843,90 +1842,115 @@ export function MbtiResultShell({
         primaryCtaIsInternal={isUnlockedPostPurchase}
       />
 
-      <div className="mx-auto flex w-full max-w-[820px] flex-col gap-16 px-4 md:px-6">
+      <div className="mx-auto grid w-full max-w-[900px] gap-16 px-4 md:px-6 xl:grid-cols-[632px_224px] xl:gap-8 xl:px-4">
+        <main className="flex flex-col gap-16">
         <section
           id="hero"
           data-testid="mbti-hero"
-          className={`scroll-mt-28 overflow-hidden rounded-2xl border border-slate-200 bg-[#0B0F14] text-white shadow-[0_24px_64px_rgba(15,23,42,0.12)] ${heroSurfaceClass}`}
+          className={`scroll-mt-28 overflow-hidden rounded-3xl border border-emerald-900/20 bg-[#0B0F14] text-white shadow-[0_22px_50px_rgba(15,23,42,0.24)] ${heroSurfaceClass}`}
+          style={{
+            clipPath: "polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%, 0 0)",
+          }}
         >
-          <div className="py-16 md:py-24">
-            <div className="mx-auto max-w-[820px] px-6">
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
-                {publicHeadline.typeCode}
+          <div className="relative min-h-[220px]">
+            <div
+              className="pointer-events-none absolute inset-x-0 inset-y-0 bg-[radial-gradient(circle_at_75%_30%,rgba(16,185,129,0.3),transparent_55%)]"
+            />
+            <div className="relative z-10 flex flex-col gap-5 px-6 py-14 xl:flex-row xl:items-center xl:gap-10 xl:px-8 xl:py-12">
+              <div className="max-w-[58%]">
+                <p className="m-0 text-sm font-semibold uppercase tracking-[0.16em] text-white/70">{locale === "zh" ? "人格类型" : "Personality type"}</p>
+                <h1 className="mt-3 text-4xl font-semibold tracking-tight xl:text-6xl">
+                  {publicHeadline.typeCode}
+                </h1>
                 {publicHeadline.displayName ? (
-                  <span className="block pt-2 text-2xl font-medium tracking-[-0.02em] text-white/70 md:text-3xl md:inline md:pl-3 md:pt-0">
+                  <p className="m-0 mt-2 text-3xl font-medium tracking-[-0.02em] text-white/85 xl:text-4xl">
                     {publicHeadline.displayName}
-                  </span>
+                  </p>
                 ) : null}
-              </h1>
-              {normalizeText(publicHeadline.supportingLine, publicHeadline.summary) ? (
-                <p className="mt-4 max-w-xl text-lg text-white/70">
-                  {publicHeadline.summary || publicHeadline.supportingLine}
+                <p className="mt-4 max-w-[34rem] text-base leading-7 text-white/75 xl:text-lg">
+                  {normalizeText(publicHeadline.summary, publicHeadline.supportingLine)}
                 </p>
-              ) : null}
+              </div>
+              <div className="relative ml-auto hidden h-44 w-[360px] rounded-[20px] border border-white/15 bg-white/5 shadow-[0_20px_42px_rgba(16,185,129,0.2)] xl:block">
+                <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(16,185,129,0.32),rgba(255,255,255,0))] opacity-80" />
+                <div className="absolute inset-3 rounded-[16px] border border-white/10 bg-black/10" />
+              </div>
             </div>
           </div>
         </section>
 
         <section
           id="intro"
-          className={`scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-[0_18px_36px_rgba(15,23,42,0.06)] backdrop-blur ${introSurfaceClass} md:p-8`}
+          className={`scroll-mt-28 flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_18px_36px_rgba(15,23,42,0.06)] backdrop-blur md:gap-6 md:p-8 ${introSurfaceClass}`}
         >
-          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-            {locale === "zh" ? "如何阅读这份结果" : "How to read this result"}
+          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+            {locale === "zh" ? "结果说明" : "Result overview"}
           </p>
-          <h2 className="m-0 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-            {locale === "zh" ? "先确认结构，再进入场景，再决定是否提升判读深度" : "Confirm structure first, then read scenarios, then decide on depth"}
+          <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+            {locale === "zh" ? "先读人设，再读章节，最后决定是否解锁完整深度" : "Read the structure, then chapters, then decide whether to unlock depth"}
           </h2>
-          <p className="m-0 text-sm leading-7 text-slate-600">
-            {locale === "zh"
-              ? "这一页先交付公开层结果。四个章节依次解释人格骨架、职业映射、成长阻力与关系模式。完整报告负责补齐更高分辨率的判断依据与行动坐标。"
-              : "This page delivers the public layer first. The four chapters explain type structure, career mapping, growth friction, and relationship patterns before the full report adds higher-resolution evidence and action coordinates."}
-          </p>
-          {introStatusCards.length > 0 ? (
-            <div className="grid gap-3 md:grid-cols-2">
-              {introStatusCards.map((item) => (
+          <div className="grid gap-4 md:grid-cols-2">
+            <p className="m-0 text-sm leading-7 text-slate-600">
+              {locale === "zh"
+                ? "这一页展示公开结果层的主线路径。类型、职业、成长与关系先后展开，让你先建立完整认知再继续判断。"
+                : "This page keeps one public reading path: type profile first, then career, growth, and relationships before deciding on the unlock depth."}
+            </p>
+            <p className="m-0 text-sm leading-7 text-slate-600">
+              {locale === "zh"
+                ? "解锁行为位于最终收口，不会在章节中穿插多个大 CTA，减少中段决策疲劳。"
+                : "Unlock actions are concentrated in the final closure, with fewer competing CTAs in between."}
+            </p>
+          </div>
+          <div className="space-y-2 xl:hidden">
+            {introStatusCards.length > 0 ? (
+              <div className="grid gap-3 md:grid-cols-2">
+                {introStatusCards.map((item) => (
+                  <div
+                    key={item.testId}
+                    data-testid={item.testId}
+                    className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4"
+                  >
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                      {item.title}
+                    </p>
+                    <p className="m-0 mt-2 text-sm leading-6 text-slate-700">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+            <div className="grid gap-3 md:grid-cols-3">
+              {introGuideItems.map((item, index) => (
                 <div
-                  key={item.testId}
-                  data-testid={item.testId}
-                  className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4"
+                  key={item.title}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white"
                 >
-                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                    {item.title}
+                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    {locale === "zh" ? `步骤 ${index + 1}` : `Step ${index + 1}`}
                   </p>
-                  <p className="m-0 mt-2 text-sm leading-6 text-slate-700">{item.body}</p>
+                  <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{item.title}</p>
+                  <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
                 </div>
               ))}
             </div>
-          ) : null}
-          <div className="grid gap-3 md:grid-cols-3">
-            {introGuideItems.map((item, index) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white"
-              >
-                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                  {locale === "zh" ? `步骤 ${index + 1}` : `Step ${index + 1}`}
-                </p>
-                <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{item.title}</p>
-                <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
-              </div>
-            ))}
           </div>
         </section>
-
-        <MbtiHighlightsSection locale={locale} cards={highlights} />
 
         {chapterSectionNodes}
 
         {auxiliaryCtaEntries.map((entry) => (
-          <div key={`mbti-cta-surface-${entry.key}-${entry.rank}`}>{entry.node}</div>
+          <div key={`mbti-cta-surface-${entry.key}-${entry.rank}`} className="xl:hidden">
+            {entry.key === "career_bridge" ? (
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-700">{entry.node}</div>
+            ) : (
+              entry.node
+            )}
+          </div>
         ))}
 
         <section
           id={OFFER_SECTION_ID}
           data-testid="mbti-offer-full"
-          className="scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)] md:gap-8 md:p-8"
+          className="scroll-mt-28 flex flex-col gap-6"
         >
           {offerCtaEntry?.node}
         </section>
@@ -1972,46 +1996,52 @@ export function MbtiResultShell({
             {isUnlockedPostPurchase ? (
               <Link
                 href={resolvedTerminalPrimaryCtaHref}
-                className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}
+                className={buttonVariants({ className: "text-sm text-neutral-950 hover:text-white" })}
               >
                 {terminalPrimaryCtaLabel}
               </Link>
             ) : (
               <a
                 href="#offer-full"
-                className={buttonVariants({ className: "bg-emerald-500 text-white hover:bg-emerald-600" })}
+                className={buttonVariants({
+                  className: "text-sm text-neutral-400 underline underline-offset-2 hover:text-white",
+                  variant: "outline",
+                })}
               >
                 {offerPrimaryLabel}
               </a>
             )}
           </div>
         </section>
+        </main>
+        <aside className="xl:pt-8">
+          <MbtiStickyRail
+            locale={locale}
+            headline={publicHeadline}
+            tags={publicTags}
+            locked={projectionLocked}
+            accessLevel={accessLevel}
+            variant={accessVariant}
+            modulesAllowed={modulesAllowed}
+            modulesPreview={modulesPreview}
+            historyHref={historyHref}
+            pdfHref={pdfHref}
+            pdfReady={canDownloadPdf}
+            orderLookupHref={orderLookupHref}
+            orderDetailHref={orderDetailHref}
+            relationshipHref={relationshipHubHref}
+            retakeHref={retakeHref}
+            primaryCtaLabel={terminalPrimaryCtaLabel}
+            primaryCtaHref={resolvedTerminalPrimaryCtaHref}
+            primaryCtaIsInternal={isUnlockedPostPurchase}
+            shareCtaLabel={shareCtaLabel}
+            shareStatusMessage={shareMessage}
+            shareDisabled={isSharing}
+            onShare={handleShare}
+          />
+        </aside>
       </div>
 
-      <MbtiStickyRail
-        locale={locale}
-        headline={publicHeadline}
-        tags={publicTags}
-        locked={projectionLocked}
-          accessLevel={accessLevel}
-          variant={accessVariant}
-          modulesAllowed={modulesAllowed}
-          modulesPreview={modulesPreview}
-          historyHref={historyHref}
-          pdfHref={pdfHref}
-          pdfReady={canDownloadPdf}
-          orderLookupHref={orderLookupHref}
-          orderDetailHref={orderDetailHref}
-          relationshipHref={relationshipHubHref}
-          retakeHref={retakeHref}
-          primaryCtaLabel={terminalPrimaryCtaLabel}
-          primaryCtaHref={resolvedTerminalPrimaryCtaHref}
-          primaryCtaIsInternal={isUnlockedPostPurchase}
-        shareCtaLabel={shareCtaLabel}
-        shareStatusMessage={shareMessage}
-        shareDisabled={isSharing}
-        onShare={handleShare}
-      />
     </div>
   );
 }
