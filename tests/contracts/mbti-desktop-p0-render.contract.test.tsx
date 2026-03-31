@@ -274,10 +274,10 @@ function createStoragePayload(fullCode: "INFJ-A" | "ENTJ-T" | "ISTP-A"): Persona
   };
 }
 
-function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A") {
+function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "en" = "zh") {
   return render(
     <MbtiDesktopCloneShell
-      locale="zh"
+      locale={locale}
       headline={createHeadline(typeCode)}
       tags={[]}
       dimensions={[]}
@@ -297,6 +297,7 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A") {
 }
 
 beforeEach(() => {
+  vi.clearAllMocks();
   vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
 });
 
@@ -371,5 +372,21 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(await screen.findByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-growth-strengths")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-p0-growth-weaknesses")).toBeInTheDocument();
+  });
+
+  it("does not fetch or render p0 modules for non-zh locale", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A", "en");
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    });
+
+    expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("mbti-p0-letters-intro")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p0-overview")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p0-career-matched-jobs")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p0-career-matched-guides")).not.toBeInTheDocument();
   });
 });
