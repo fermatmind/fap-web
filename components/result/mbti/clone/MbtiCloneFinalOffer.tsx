@@ -8,7 +8,9 @@ type MbtiCloneFinalOfferProps = {
   eyebrow: string;
   headline: string;
   copy: string;
+  priceLabel: string;
   price: string;
+  guarantee: string;
   ctaLabel?: string;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
@@ -23,7 +25,9 @@ export function MbtiCloneFinalOffer({
   eyebrow,
   headline,
   copy,
+  priceLabel,
   price,
+  guarantee,
   ctaLabel,
   isCheckingOut = false,
   checkoutError = null,
@@ -47,12 +51,9 @@ export function MbtiCloneFinalOffer({
         <p className={styles.finalOfferCopy}>{copy}</p>
         <div className={styles.finalOfferRow}>
           <div>
+            <p className={styles.microLabel}>{priceLabel}</p>
             <p className={styles.finalOfferPrice}>{price}</p>
-            <p className={styles.finalOfferMeta}>
-              {locale === "zh"
-                ? "当前价格与购买逻辑沿用现有 checkout 流。"
-                : "Pricing and purchase behavior reuse the current checkout flow."}
-            </p>
+            <p className={styles.finalOfferMeta}>{guarantee || (locale === "zh" ? "一次解锁，继续使用当前阅读壳。" : "Unlock once and keep the current desktop reading shell.")}</p>
           </div>
           {ctaLabel && onCheckout ? (
             <button
