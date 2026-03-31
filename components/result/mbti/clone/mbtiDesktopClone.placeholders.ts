@@ -1,6 +1,14 @@
-import type { CloneAssetSlot, ContentListBlock, ListItem, LockedListBlock, MbtiDesktopCloneSlots, TraitSlot } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import type {
+  CloneAssetSlot,
+  ContentListBlock,
+  ListItem,
+  LockedListBlock,
+  MbtiDesktopCloneAssetSlotId,
+  MbtiDesktopCloneSlots,
+  TraitSlot,
+} from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
-function asset(slotId: string, label: string, aspectRatio: string): CloneAssetSlot {
+function asset(slotId: MbtiDesktopCloneAssetSlotId, label: string, aspectRatio: string): CloneAssetSlot {
   return {
     slotId,
     aspectRatio,
@@ -87,7 +95,7 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
       title: "占位维度摘要",
       value: "00%",
       body: "占位槽位：右侧摘要说明会由类型专属文案或稳定 runtime 解释替换。",
-      asset: asset("traits-summary-asset", "illustration-slot placeholder", "240:118"),
+      asset: asset("traits-summary-illustration", "illustration-slot placeholder", "240:118"),
     },
     body: [
       "占位槽位：这一段用于保留维度 bars 后的解释区，等待结构化 clone 内容接入。",
@@ -175,6 +183,6 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
     priceLabel: "价格",
     ctaLabel: "解锁完整报告",
     guarantee: "占位槽位：保障说明会保持显式占位，直到正式版本定稿。",
-    asset: asset("final-offer-asset", "feature image placeholder", "252:220"),
+    asset: asset("final-offer-illustration", "feature image placeholder", "252:220"),
   },
 };

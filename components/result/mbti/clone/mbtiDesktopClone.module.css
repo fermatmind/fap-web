@@ -397,6 +397,36 @@
   color: var(--clone-muted);
 }
 
+.assetSlotImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.assetSlotReady::before,
+.assetSlotReady::after {
+  opacity: 0.22;
+}
+
+.assetSlotReady .slotLabel {
+  z-index: 2;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  padding: 2px 8px;
+}
+
+.assetSlotDisabled {
+  opacity: 0.85;
+}
+
+.assetSlotDisabled::before,
+.assetSlotDisabled::after {
+  opacity: 0.3;
+}
+
 .heroIllustration {
   position: relative;
   width: 236px;

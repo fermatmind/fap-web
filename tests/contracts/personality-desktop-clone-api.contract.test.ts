@@ -203,11 +203,71 @@ function createValidPayload(tag: string) {
     },
     asset_slots: [
       {
-        slotId: "hero.cover",
+        slot_id: "hero-illustration",
         label: "Hero cover",
-        aspectRatio: "4:3",
+        aspect_ratio: "236:160",
         status: "placeholder",
-        assetRef: null,
+        asset_ref: null,
+        alt: null,
+        meta: null,
+      },
+      {
+        slot_id: "traits-illustration",
+        label: "Traits illustration",
+        aspect_ratio: "636:148",
+        status: "ready",
+        asset_ref: {
+          provider: "cdn",
+          path: "mbti/desktop/traits/infj-a/v1.webp",
+          url: "https://cdn.example.com/mbti/desktop/traits/infj-a/v1.webp",
+          version: "v1",
+          checksum: "sha256:abc",
+        },
+        alt: "Traits",
+        meta: null,
+      },
+      {
+        slot_id: "traits-summary-illustration",
+        label: "Traits summary",
+        aspect_ratio: "240:118",
+        status: "disabled",
+        asset_ref: null,
+        alt: null,
+        meta: null,
+      },
+      {
+        slot_id: "career-illustration",
+        label: "Career illustration",
+        aspect_ratio: "636:148",
+        status: "placeholder",
+        asset_ref: null,
+        alt: null,
+        meta: null,
+      },
+      {
+        slot_id: "growth-illustration",
+        label: "Growth illustration",
+        aspect_ratio: "636:148",
+        status: "placeholder",
+        asset_ref: null,
+        alt: null,
+        meta: null,
+      },
+      {
+        slot_id: "relationships-illustration",
+        label: "Relationships illustration",
+        aspect_ratio: "636:148",
+        status: "placeholder",
+        asset_ref: null,
+        alt: null,
+        meta: null,
+      },
+      {
+        slot_id: "final-offer-illustration",
+        label: "Final offer illustration",
+        aspect_ratio: "252:220",
+        status: "placeholder",
+        asset_ref: null,
         alt: null,
         meta: null,
       },
@@ -246,7 +306,10 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.baseCode).toBe("INFJ");
     expect(result?.locale).toBe("zh-CN");
     expect(result?.content.hero.summary).toBe("hero seed");
-    expect(result?.assetSlots[0]?.slotId).toBe("hero.cover");
+    expect(result?.assetSlots).toHaveLength(7);
+    expect(result?.assetSlots[0]?.slotId).toBe("hero-illustration");
+    expect(result?.assetSlots[1]?.status).toBe("ready");
+    expect(result?.assetSlots[2]?.status).toBe("disabled");
     expect(result?.meta?.route_mode).toBe("full_code_exact");
   });
 

@@ -1,7 +1,10 @@
 "use client";
 
 import { type ReactNode } from "react";
+import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
+import type { MbtiDesktopCloneAssetSlotId } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
+import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
 
 type MbtiCloneFinalOfferProps = {
   locale: "zh" | "en";
@@ -18,7 +21,9 @@ type MbtiCloneFinalOfferProps = {
   onCheckout?: () => void | Promise<void>;
   isUnlocked: boolean;
   unlockedNode?: ReactNode;
+  illustrationSlotId: MbtiDesktopCloneAssetSlotId;
   illustrationLabel: string;
+  assetSlots?: PersonalityDesktopCloneAssetSlot[] | null;
 };
 
 export function MbtiCloneFinalOffer({
@@ -36,7 +41,9 @@ export function MbtiCloneFinalOffer({
   onCheckout,
   isUnlocked,
   unlockedNode,
+  illustrationSlotId,
   illustrationLabel,
+  assetSlots,
 }: MbtiCloneFinalOfferProps) {
   if (isUnlocked && unlockedNode) {
     return <div className={styles.finalOfferPurchased}>{unlockedNode}</div>;
@@ -44,9 +51,14 @@ export function MbtiCloneFinalOffer({
 
   return (
     <section data-testid="mbti-offer-comparison" className={styles.finalOffer}>
-      <div className={styles.finalOfferMedia}>
-        <p className={styles.slotLabel}>{illustrationLabel}</p>
-      </div>
+      <MbtiCloneAssetSlot
+        slotId={illustrationSlotId}
+        assetSlots={assetSlots}
+        fallbackLabel={illustrationLabel}
+        className={styles.finalOfferMedia}
+        labelClassName={styles.slotLabel}
+        testId="mbti-asset-slot-final-offer"
+      />
       <div className={styles.finalOfferBody}>
         <p className={styles.microLabel}>{eyebrow}</p>
         <h2 className={styles.finalOfferTitle}>{headline}</h2>

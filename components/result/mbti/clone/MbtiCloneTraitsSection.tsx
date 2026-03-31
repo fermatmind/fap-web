@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { DimensionBars } from "@/components/result/DimensionBars";
+import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneSectionHeading } from "@/components/result/mbti/clone/MbtiCloneSectionHeading";
+import type { MbtiDesktopCloneAssetSlotId } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
+import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
 
 type TraitTool = {
   label: string;
@@ -14,12 +17,15 @@ type TraitTool = {
 
 type MbtiCloneTraitsSectionProps = {
   title: string;
+  illustrationSlotId: MbtiDesktopCloneAssetSlotId;
   illustrationLabel: string;
+  assetSlots?: PersonalityDesktopCloneAssetSlot[] | null;
   dimensions: Array<Record<string, unknown>>;
   summaryTitle: string;
   summaryValue: string;
   summaryLabel: string;
   summaryDescription: string;
+  summarySlotId: MbtiDesktopCloneAssetSlotId;
   summarySlotLabel: string;
   paragraphs: string[];
   tools: TraitTool[];
@@ -27,21 +33,29 @@ type MbtiCloneTraitsSectionProps = {
 
 export function MbtiCloneTraitsSection({
   title,
+  illustrationSlotId,
   illustrationLabel,
+  assetSlots,
   dimensions,
   summaryTitle,
   summaryValue,
   summaryLabel,
   summaryDescription,
+  summarySlotId,
   summarySlotLabel,
   paragraphs,
   tools,
 }: MbtiCloneTraitsSectionProps) {
   return (
     <section id="traits" className={styles.section}>
-      <div className={styles.illustrationSlot}>
-        <p className={styles.slotLabel}>{illustrationLabel}</p>
-      </div>
+      <MbtiCloneAssetSlot
+        slotId={illustrationSlotId}
+        assetSlots={assetSlots}
+        fallbackLabel={illustrationLabel}
+        className={styles.illustrationSlot}
+        labelClassName={styles.slotLabel}
+        testId="mbti-asset-slot-traits"
+      />
       <MbtiCloneSectionHeading number={1} title={title} />
       <div className={styles.traitsCard}>
         <DimensionBars
@@ -59,9 +73,14 @@ export function MbtiCloneTraitsSection({
             <p className={styles.summaryValue}>{summaryValue}</p>
             <p className={styles.summaryLead}>{summaryLabel}</p>
           </div>
-          <div className={styles.summaryIllustration}>
-            <p className={styles.slotLabel}>{summarySlotLabel}</p>
-          </div>
+          <MbtiCloneAssetSlot
+            slotId={summarySlotId}
+            assetSlots={assetSlots}
+            fallbackLabel={summarySlotLabel}
+            className={styles.summaryIllustration}
+            labelClassName={styles.slotLabel}
+            testId="mbti-asset-slot-traits-summary"
+          />
           <p className={styles.summaryText}>{summaryDescription}</p>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import { MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type {
   CloneAssetSlot,
   ContentListBlock,
   ListItem,
   LockedListBlock,
   MbtiDesktopCloneContent,
+  MbtiDesktopCloneAssetSlotId,
   TraitSlot,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
@@ -14,6 +16,8 @@ const DESKTOP_CLONE_TEMPLATE_KEY = "mbti_desktop_clone_v1";
 const MBTI_FULL_CODE_RE = /^[IE][NS][TF][JP]-[AT]$/i;
 const ALLOWED_LIST_ITEM_TONES = new Set(["positive", "negative", "neutral"]);
 const ALLOWED_TRAIT_COLOR_KEYS = new Set(["blue", "gold", "green", "purple", "red"]);
+const ALLOWED_ASSET_SLOT_STATUSES = new Set(["placeholder", "ready", "disabled"]);
+const ALLOWED_ASSET_PROVIDERS = new Set(["oss", "cdn", "internal", "placeholder"]);
 
 type DesktopCloneApiMeta = {
   authority_source?: string | null;
@@ -35,7 +39,13 @@ type PersonalityDesktopCloneApiResponse = {
 };
 
 export type PersonalityDesktopCloneAssetSlot = CloneAssetSlot & {
-  assetRef: unknown | null;
+  assetRef: {
+    provider: string | null;
+    path: string | null;
+    url: string | null;
+    version: string | null;
+    checksum: string | null;
+  } | null;
   alt: string | null;
   meta: Record<string, unknown> | null;
 };
@@ -211,22 +221,29 @@ function normalizeAssetSlot(value: unknown): PersonalityDesktopCloneAssetSlot | 
     return null;
   }
 
-  const slotId = normalizeText(value.slotId);
+  const slotId = normalizeText(value.slot_id ?? value.slotId);
   const label = normalizeText(value.label);
-  const aspectRatio = normalizeText(value.aspectRatio);
-  const status = normalizeText(value.status);
+  const aspectRatio = normalizeText(value.aspect_ratio ?? value.aspectRatio);
+  const status = normalizeText(value.status).toLowerCase();
   const alt = value.alt == null ? null : normalizeText(value.alt) || null;
+  const slotIdSet = new Set(MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS as readonly string[]);
 
-  if (!slotId || !label || !aspectRatio || !status) {
+  if (!slotIdSet.has(slotId) || !label || !aspectRatio || !ALLOWED_ASSET_SLOT_STATUSES.has(status)) {
+    return null;
+  }
+
+  const rawAssetRef = value.asset_ref ?? value.assetRef;
+  const assetRef = normalizeAssetRef(rawAssetRef);
+  if (status === "ready" && !assetRef) {
     return null;
   }
 
   return {
-    slotId,
+    slotId: slotId as MbtiDesktopCloneAssetSlotId,
     label,
     aspectRatio,
     status: status as CloneAssetSlot["status"],
-    assetRef: value.assetRef ?? null,
+    assetRef,
     alt,
     meta: isRecord(value.meta) ? value.meta : null,
   };
@@ -237,16 +254,50 @@ function normalizeAssetSlots(value: unknown): PersonalityDesktopCloneAssetSlot[]
     return null;
   }
 
-  const normalized: PersonalityDesktopCloneAssetSlot[] = [];
+  const bySlotId = new Map<MbtiDesktopCloneAssetSlotId, PersonalityDesktopCloneAssetSlot>();
   for (const slot of value) {
     const parsed = normalizeAssetSlot(slot);
     if (!parsed) {
       return null;
     }
-    normalized.push(parsed);
+    if (bySlotId.has(parsed.slotId)) {
+      return null;
+    }
+    bySlotId.set(parsed.slotId, parsed);
   }
 
-  return normalized;
+  if (bySlotId.size !== MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS.length) {
+    return null;
+  }
+
+  const ordered = MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS.map((slotId) => bySlotId.get(slotId));
+  if (ordered.some((slot) => !slot)) {
+    return null;
+  }
+
+  return ordered as PersonalityDesktopCloneAssetSlot[];
+}
+
+function normalizeAssetRef(value: unknown): PersonalityDesktopCloneAssetSlot["assetRef"] {
+  if (!isRecord(value)) {
+    return null;
+  }
+
+  const provider = normalizeText(value.provider) || null;
+  const path = normalizeText(value.path) || null;
+  const url = normalizeText(value.url) || null;
+  const version = normalizeText(value.version) || null;
+  const checksum = normalizeText(value.checksum) || null;
+
+  if (!provider && !path && !url && !version && !checksum) {
+    return null;
+  }
+
+  if (provider && !ALLOWED_ASSET_PROVIDERS.has(provider)) {
+    return null;
+  }
+
+  return { provider, path, url, version, checksum };
 }
 
 function buildQuery(params: Record<string, string | number | undefined>): string {
