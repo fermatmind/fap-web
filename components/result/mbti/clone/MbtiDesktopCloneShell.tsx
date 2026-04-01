@@ -10,7 +10,8 @@ import { MbtiCloneOverview } from "@/components/result/mbti/clone/MbtiCloneOverv
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
-import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import type { LockedListBlock, MbtiDesktopCloneContent, StrengthWeaknessBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import type { PremiumTeaserItem } from "@/components/result/mbti/clone/MbtiClonePremiumTeaserBlock";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import {
   fetchPersonalityDesktopCloneContent,
@@ -71,6 +72,98 @@ function resolvePrimaryOffer(offers: ResolvedOffer[]) {
   return offers.find((offer) => offer.moduleCodes.includes("core_full") || offer.key.toUpperCase().includes("REPORT_FULL"))
     ?? offers[0]
     ?? null;
+}
+
+type CompatibilityTeaserSource = StrengthWeaknessBlock | null | undefined;
+type TeaserFallbackBlock = LockedListBlock | undefined;
+
+function mapCompatibilityTeaserItems(source: CompatibilityTeaserSource): PremiumTeaserItem[] {
+  if (!source || source.items.length === 0) {
+    return [];
+  }
+
+  return source.items.map((item) => ({
+    title: item.title,
+    body: item.description,
+    tone: "neutral",
+  }));
+}
+
+function mapFallbackTeaserItems(fallback: TeaserFallbackBlock): PremiumTeaserItem[] {
+  if (!fallback) {
+    return [];
+  }
+
+  return fallback.blurredItems.map((item) => ({
+    title: item.title,
+    body: item.body,
+    tone: item.tone,
+    isPlaceholder: item.isPlaceholder,
+  }));
+}
+
+function resolvePremiumTeaserItems(
+  source: CompatibilityTeaserSource,
+  fallback: TeaserFallbackBlock,
+  locale: "zh" | "en",
+): PremiumTeaserItem[] {
+  const sourceItems = mapCompatibilityTeaserItems(source);
+  const fallbackItems = mapFallbackTeaserItems(fallback);
+  const selectedItems = sourceItems.length > 0 ? sourceItems : fallbackItems;
+
+  const padded = [...selectedItems];
+  const fallbackPool = fallbackItems.length > 0
+    ? fallbackItems
+    : [
+        {
+          title: locale === "zh" ? "更多专属内容" : "More tailored insights",
+          body: locale === "zh" ? "解锁后查看完整章尾建议。" : "Unlock to view the full teaser content.",
+          tone: "neutral" as const,
+          isPlaceholder: true,
+        },
+      ];
+
+  let cursor = 0;
+  while (padded.length < 6) {
+    const item = fallbackPool[cursor % fallbackPool.length];
+    padded.push({
+      ...item,
+      isPlaceholder: true,
+    });
+    cursor += 1;
+  }
+
+  return padded.slice(0, 6);
+}
+
+function buildPremiumTeaserBlock({
+  locale,
+  zhTitle,
+  source,
+  fallback,
+  unlockLabel,
+  testId,
+}: {
+  locale: "zh" | "en";
+  zhTitle: string;
+  source: CompatibilityTeaserSource;
+  fallback: TeaserFallbackBlock;
+  unlockLabel: string;
+  testId: string;
+}) {
+  const overlayTitle = locale === "zh" ? "解锁完整报告" : "Unlock full report";
+
+  return {
+    title: locale === "zh" ? zhTitle : normalizeText(source?.title, fallback?.title, zhTitle),
+    items: resolvePremiumTeaserItems(source, fallback, locale),
+    overlayTitle,
+    overlayBody: normalizeText(
+      fallback?.overlayBody,
+      locale === "zh" ? "解锁后查看本章完整解析与行动建议。" : "Unlock to view full chapter analysis and action guidance.",
+    ),
+    overlayCtaLabel: normalizeText(fallback?.overlayCtaLabel, unlockLabel, overlayTitle),
+    testId,
+  };
 }
 
 export function MbtiDesktopCloneShell({
@@ -233,13 +326,24 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              lockedBlocks={slots.chapters.career.lockedBlocks.map((block) => ({
-                title: block.title,
-                items: block.blurredItems,
-                overlayTitle: block.overlayTitle,
-                overlayCopy: block.overlayBody,
-                ctaLabel: normalizeText(block.overlayCtaLabel, primaryCtaLabel),
-              }))}
+              premiumTeasers={[
+                buildPremiumTeaserBlock({
+                  locale: cloneLocale,
+                  zhTitle: "你可能会喜欢的职业选择",
+                  source: slots.chapters.career.careerIdeas,
+                  fallback: slots.chapters.career.lockedBlocks[0],
+                  unlockLabel: primaryCtaLabel,
+                  testId: "mbti-premium-career-career-ideas",
+                }),
+                buildPremiumTeaserBlock({
+                  locale: cloneLocale,
+                  zhTitle: "适合你的工作方式",
+                  source: slots.chapters.career.workStyles,
+                  fallback: slots.chapters.career.lockedBlocks[1],
+                  unlockLabel: primaryCtaLabel,
+                  testId: "mbti-premium-career-work-styles",
+                }),
+              ]}
             />
 
             <MbtiCloneNarrativeSection
@@ -257,13 +361,24 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              lockedBlocks={slots.chapters.growth.lockedBlocks.map((block) => ({
-                title: block.title,
-                items: block.blurredItems,
-                overlayTitle: block.overlayTitle,
-                overlayCopy: block.overlayBody,
-                ctaLabel: normalizeText(block.overlayCtaLabel, primaryCtaLabel),
-              }))}
+              premiumTeasers={[
+                buildPremiumTeaserBlock({
+                  locale: cloneLocale,
+                  zhTitle: "什么能让你充满活力？",
+                  source: slots.chapters.growth.whatEnergizes,
+                  fallback: slots.chapters.growth.lockedBlocks[0],
+                  unlockLabel: primaryCtaLabel,
+                  testId: "mbti-premium-growth-what-energizes",
+                }),
+                buildPremiumTeaserBlock({
+                  locale: cloneLocale,
+                  zhTitle: "什么让你精力力竭？",
+                  source: slots.chapters.growth.whatDrains,
+                  fallback: slots.chapters.growth.lockedBlocks[1],
+                  unlockLabel: primaryCtaLabel,
+                  testId: "mbti-premium-growth-what-drains",
+                }),
+              ]}
             />
 
             <MbtiCloneNarrativeSection
@@ -281,13 +396,24 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              lockedBlocks={slots.chapters.relationships.lockedBlocks.map((block) => ({
-                title: block.title,
-                items: block.blurredItems,
-                overlayTitle: block.overlayTitle,
-                overlayCopy: block.overlayBody,
-                ctaLabel: normalizeText(block.overlayCtaLabel, primaryCtaLabel),
-              }))}
+              premiumTeasers={[
+                buildPremiumTeaserBlock({
+                  locale: cloneLocale,
+                  zhTitle: "你的人际关系优势",
+                  source: slots.chapters.relationships.superpowers,
+                  fallback: slots.chapters.relationships.lockedBlocks[0],
+                  unlockLabel: primaryCtaLabel,
+                  testId: "mbti-premium-relationships-superpowers",
+                }),
+                buildPremiumTeaserBlock({
+                  locale: cloneLocale,
+                  zhTitle: "人际关系陷阱",
+                  source: slots.chapters.relationships.pitfalls,
+                  fallback: slots.chapters.relationships.lockedBlocks[1],
+                  unlockLabel: primaryCtaLabel,
+                  testId: "mbti-premium-relationships-pitfalls",
+                }),
+              ]}
             />
 
             <section id="offer-full" data-testid="mbti-offer-full" className={styles.section}>
