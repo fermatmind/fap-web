@@ -454,6 +454,10 @@ describe("MBTI desktop chapter structure convergence contract", () => {
     const traitsTitle = scoped.getByText("Influential Traits");
     const unlockTitle = scoped.getByText("解锁这一章的完整细节");
     const strengthsCard = scoped.getByTestId("mbti-p0-career-strengths");
+    const weaknessesCard = scoped.getByTestId("mbti-p0-career-weaknesses");
+    const matchedJobsCard = scoped.getByTestId("mbti-p0-career-matched-jobs");
+    const matchedGuidesCard = scoped.getByTestId("mbti-p0-career-matched-guides");
+    const firstLockedTitle = scoped.getByText("career locked 1 infj-a");
 
     expect(scoped.getByText("职业优势")).toBeInTheDocument();
     expect(scoped.getByText("职业短板")).toBeInTheDocument();
@@ -463,6 +467,8 @@ describe("MBTI desktop chapter structure convergence contract", () => {
     expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
     expect(scoped.queryByText("职业方向建议")).not.toBeInTheDocument();
     expect(scoped.queryByText("工作风格建议")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p1-career-career-ideas")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p1-career-work-styles")).not.toBeInTheDocument();
 
     expect(screen.getAllByText("职业优势")).toHaveLength(1);
     expect(screen.getAllByText("职业短板")).toHaveLength(1);
@@ -471,6 +477,10 @@ describe("MBTI desktop chapter structure convergence contract", () => {
 
     expectBefore(traitsTitle as HTMLElement, unlockTitle as HTMLElement);
     expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(strengthsCard, weaknessesCard);
+    expectBefore(weaknessesCard, matchedJobsCard);
+    expectBefore(matchedJobsCard, matchedGuidesCard);
+    expectBefore(matchedGuidesCard, firstLockedTitle as HTMLElement);
   });
 
   it("converges Growth chapter to a single system and keeps unlock position", async () => {
@@ -487,6 +497,8 @@ describe("MBTI desktop chapter structure convergence contract", () => {
 
     const unlockTitle = scoped.getByText("解锁这一章的完整细节");
     const strengthsCard = scoped.getByTestId("mbti-p0-growth-strengths");
+    const weaknessesCard = scoped.getByTestId("mbti-p0-growth-weaknesses");
+    const firstLockedTitle = scoped.getByText("growth locked 1 entj-t");
 
     expect(scoped.getByText("成长优势")).toBeInTheDocument();
     expect(scoped.getByText("成长短板")).toBeInTheDocument();
@@ -494,11 +506,15 @@ describe("MBTI desktop chapter structure convergence contract", () => {
     expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
     expect(scoped.queryByText("什么让你充电")).not.toBeInTheDocument();
     expect(scoped.queryByText("什么让你消耗")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p1-growth-what-energizes")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p1-growth-what-drains")).not.toBeInTheDocument();
 
     expect(screen.getAllByText("成长优势")).toHaveLength(1);
     expect(screen.getAllByText("成长短板")).toHaveLength(1);
 
     expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(strengthsCard, weaknessesCard);
+    expectBefore(weaknessesCard, firstLockedTitle as HTMLElement);
   });
 
   it("converges Relationships chapter to a single system and keeps unlock position", async () => {
@@ -515,6 +531,8 @@ describe("MBTI desktop chapter structure convergence contract", () => {
 
     const unlockTitle = scoped.getByText("解锁这一章的完整细节");
     const strengthsCard = scoped.getByTestId("mbti-p0-relationships-strengths");
+    const weaknessesCard = scoped.getByTestId("mbti-p0-relationships-weaknesses");
+    const firstLockedTitle = scoped.getByText("relationships locked 1 istp-a");
 
     expect(scoped.getByText("关系优势")).toBeInTheDocument();
     expect(scoped.getByText("关系短板")).toBeInTheDocument();
@@ -522,11 +540,15 @@ describe("MBTI desktop chapter structure convergence contract", () => {
     expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
     expect(scoped.queryByText("关系超级优势")).not.toBeInTheDocument();
     expect(scoped.queryByText("关系潜在陷阱")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p1-relationships-superpowers")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p1-relationships-pitfalls")).not.toBeInTheDocument();
 
     expect(screen.getAllByText("关系优势")).toHaveLength(1);
     expect(screen.getAllByText("关系短板")).toHaveLength(1);
 
     expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(strengthsCard, weaknessesCard);
+    expectBefore(weaknessesCard, firstLockedTitle as HTMLElement);
   });
 
   it("keeps hero/rail/final-offer and asset slots stable after convergence", async () => {
