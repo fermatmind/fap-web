@@ -5,8 +5,6 @@ import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, Ri
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
 import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
 import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCloneNarrativeSection";
-import { MbtiCloneLettersIntro } from "@/components/result/mbti/clone/MbtiCloneLettersIntro";
-import { MbtiCloneOverview } from "@/components/result/mbti/clone/MbtiCloneOverview";
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
@@ -270,6 +268,8 @@ export function MbtiDesktopCloneShell({
     ...(pdfReady && pdfHref ? [{ label: cloneLocale === "zh" ? "导出 PDF" : "Export PDF", href: pdfHref }] : []),
     ...(historyHref ? [{ label: cloneLocale === "zh" ? "查看历史" : "History", href: historyHref }] : []),
   ];
+  const traitBodyParagraphs = slots.overview?.paragraphs ?? slots.traits.body;
+  const traitBodySource = slots.overview ? "overview" : "traits";
 
   return (
     <div data-testid="mbti-desktop-clone-shell" className={styles.cloneRoot} data-base-code={slots.meta.baseCode}>
@@ -290,8 +290,6 @@ export function MbtiDesktopCloneShell({
               <p>{slots.intro.paragraphs[0]}</p>
               <p>{slots.intro.paragraphs[1]}</p>
             </section>
-            {slots.lettersIntro ? <MbtiCloneLettersIntro data={slots.lettersIntro} /> : null}
-            {slots.overview ? <MbtiCloneOverview data={slots.overview} /> : null}
 
             <MbtiCloneTraitsSection
               title={slots.traits.title}
@@ -305,7 +303,8 @@ export function MbtiDesktopCloneShell({
               summaryDescription={slots.traits.summaryPane.body}
               summarySlotId={slots.traits.summaryPane.asset.slotId}
               summarySlotLabel={slots.traits.summaryPane.asset.label}
-              paragraphs={slots.traits.body}
+              paragraphs={traitBodyParagraphs}
+              bodySource={traitBodySource}
               tools={traitsTools}
             />
 

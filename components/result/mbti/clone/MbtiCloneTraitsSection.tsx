@@ -28,6 +28,7 @@ type MbtiCloneTraitsSectionProps = {
   summarySlotId: MbtiDesktopCloneAssetSlotId;
   summarySlotLabel: string;
   paragraphs: string[];
+  bodySource: "overview" | "traits";
   tools: TraitTool[];
 };
 
@@ -44,6 +45,7 @@ export function MbtiCloneTraitsSection({
   summarySlotId,
   summarySlotLabel,
   paragraphs,
+  bodySource,
   tools,
 }: MbtiCloneTraitsSectionProps) {
   return (
@@ -84,7 +86,11 @@ export function MbtiCloneTraitsSection({
           <p className={styles.summaryText}>{summaryDescription}</p>
         </div>
       </div>
-      <div className={styles.sectionParagraphs}>
+      <div
+        className={styles.sectionParagraphs}
+        data-testid="mbti-traits-body"
+        data-body-source={bodySource}
+      >
         {paragraphs.map((paragraph, index) => (
           <p key={`${index}-${paragraph.slice(0, 24)}`}>{paragraph}</p>
         ))}
