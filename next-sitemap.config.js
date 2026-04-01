@@ -7,6 +7,11 @@ const careerJobs = require("./.velite/careerJobs.json");
 const careerIndustries = require("./.velite/careerIndustries.json");
 const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
+const {
+  isValidCmsApiRoute,
+  buildInvalidCmsSitemapExcludes,
+  shouldIncludeCmsSitemapPath,
+} = require("./lib/seo/cmsRoutePolicy.cjs");
 const TOPIC_SLUGS = ["mbti", "big-five", "iq-eq"];
 const HELP_PAGE_SLUGS = [
   "faq",
@@ -426,13 +431,30 @@ async function buildPersonalityDetailPaths() {
   );
 }
 
+async function buildValidatedCmsPaths(apiRoute, builder) {
+  if (!isValidCmsApiRoute(apiRoute)) {
+    return [];
+  }
+
+  try {
+    return await builder();
+  } catch {
+    return [];
+  }
+}
+
 module.exports = {
   siteUrl,
   generateRobotsTxt: false,
   sitemapSize: 5000,
-  exclude: ["/server-sitemap.xml", ...NON_PAGE_ROUTE_EXCLUDES],
+  exclude: [
+    "/server-sitemap.xml",
+    ...NON_PAGE_ROUTE_EXCLUDES,
+    ...buildInvalidCmsSitemapExcludes(),
+  ],
   transform: async (_config, path) => {
     const normalized = normalizePath(path);
+    if (!shouldIncludeCmsSitemapPath(normalized)) return null;
     if (!shouldIncludeInSitemap(normalized)) return null;
 
     return {
@@ -453,14 +475,14 @@ module.exports = {
       topicApiPaths,
       careerRecommendationPaths,
     ] = await Promise.all([
-      buildArticlePaths(),
-      buildCareerGuideDetailPaths(),
-      buildMethodDetailPaths(),
-      buildDataDetailPaths(),
-      buildCareerJobDetailPathsFromApi(),
-      buildPersonalityDetailPaths(),
-      buildTopicDetailPathsFromApi(),
-      buildCareerRecommendationPaths(),
+      buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths),
+      buildValidatedCmsPaths("/v0.5/career-guides", buildCareerGuideDetailPaths),
+      buildValidatedCmsPaths("/v0.5/methods", buildMethodDetailPaths),
+      buildValidatedCmsPaths("/v0.5/data", buildDataDetailPaths),
+      buildValidatedCmsPaths("/v0.5/career-jobs", buildCareerJobDetailPathsFromApi),
+      buildValidatedCmsPaths("/v0.5/personality", buildPersonalityDetailPaths),
+      buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
+      buildValidatedCmsPaths("/v0.5/career-recommendations/mbti", buildCareerRecommendationPaths),
     ]);
 
     return [...new Set([
@@ -475,6 +497,7 @@ module.exports = {
       ...careerRecommendationPaths,
     ])]
       .map((path) => normalizePath(path))
+      .filter((path) => shouldIncludeCmsSitemapPath(path))
       .filter((path) => shouldIncludeInSitemap(path))
       .map((loc) => ({
         loc,
