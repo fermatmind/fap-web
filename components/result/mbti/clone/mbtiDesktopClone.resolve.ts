@@ -147,6 +147,7 @@ export function resolveMbtiDesktopCloneSlots({
         superpowers: null,
         pitfalls: null,
         influentialTraits: content?.chapters.career.influentialTraits ?? placeholders.chapters.career.influentialTraits,
+        traitsUnlock: content?.chapters.career.traitsUnlock ?? null,
         visibleBlocks: content?.chapters.career.visibleBlocks ?? placeholders.chapters.career.visibleBlocks,
         lockedBlocks: content?.chapters.career.lockedBlocks ?? placeholders.chapters.career.lockedBlocks,
       },
@@ -167,6 +168,7 @@ export function resolveMbtiDesktopCloneSlots({
         superpowers: null,
         pitfalls: null,
         influentialTraits: content?.chapters.growth.influentialTraits ?? placeholders.chapters.growth.influentialTraits,
+        traitsUnlock: content?.chapters.growth.traitsUnlock ?? null,
         visibleBlocks: content?.chapters.growth.visibleBlocks ?? placeholders.chapters.growth.visibleBlocks,
         lockedBlocks: content?.chapters.growth.lockedBlocks ?? placeholders.chapters.growth.lockedBlocks,
       },
@@ -188,6 +190,7 @@ export function resolveMbtiDesktopCloneSlots({
         pitfalls: content?.chapters.relationships.pitfalls ?? null,
         influentialTraits:
           content?.chapters.relationships.influentialTraits ?? placeholders.chapters.relationships.influentialTraits,
+        traitsUnlock: content?.chapters.relationships.traitsUnlock ?? null,
         visibleBlocks: content?.chapters.relationships.visibleBlocks ?? placeholders.chapters.relationships.visibleBlocks,
         lockedBlocks: content?.chapters.relationships.lockedBlocks ?? placeholders.chapters.relationships.lockedBlocks,
       },

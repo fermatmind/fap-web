@@ -322,6 +322,7 @@ export function MbtiDesktopCloneShell({
               matchedJobs={null}
               matchedGuides={null}
               traits={slots.chapters.career.influentialTraits}
+              traitsUnlock={slots.chapters.career.traitsUnlock}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
@@ -355,6 +356,7 @@ export function MbtiDesktopCloneShell({
               strengths={slots.chapters.growth.strengths}
               weaknesses={slots.chapters.growth.weaknesses}
               traits={slots.chapters.growth.influentialTraits}
+              traitsUnlock={slots.chapters.growth.traitsUnlock}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
@@ -388,6 +390,7 @@ export function MbtiDesktopCloneShell({
               strengths={slots.chapters.relationships.strengths}
               weaknesses={slots.chapters.relationships.weaknesses}
               traits={slots.chapters.relationships.influentialTraits}
+              traitsUnlock={slots.chapters.relationships.traitsUnlock}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}

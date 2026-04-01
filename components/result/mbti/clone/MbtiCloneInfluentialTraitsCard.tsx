@@ -1,11 +1,14 @@
 "use client";
 
-import type { TraitSlot } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import { useState } from "react";
+import type { TraitSlot, TraitUnlockBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 
 type MbtiCloneInfluentialTraitsCardProps = {
+  sectionId: string;
   locale: "zh" | "en";
   traits: TraitSlot[];
+  traitsUnlock?: TraitUnlockBlock | null;
   isUnlocked: boolean;
   unlockHref: string;
   unlockLabel: string;
@@ -17,53 +20,122 @@ function normalizeTraitLetter(label: string) {
 }
 
 export function MbtiCloneInfluentialTraitsCard({
+  sectionId,
   locale,
   traits,
+  traitsUnlock = null,
   isUnlocked,
   unlockHref,
   unlockLabel,
 }: MbtiCloneInfluentialTraitsCardProps) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const canShowDetails = isUnlocked && traitsUnlock?.items.length === 4;
+  const activeIndex = canShowDetails ? Math.min(selectedIndex, 3) : 0;
+  const detailItem = traitsUnlock?.items[activeIndex] ?? traitsUnlock?.items[0] ?? null;
+  const fieldLabels =
+    locale === "zh"
+      ? {
+          why: "为什么重要",
+          expression: "在这一章里的表现",
+          advantage: "它带来的优势",
+          overuse: "过度使用的风险",
+          signal: "现实中的信号",
+          hint: "升级建议",
+        }
+      : {
+          why: "Why it matters",
+          expression: "How it shows up here",
+          advantage: "Where it helps",
+          overuse: "Overuse risk",
+          signal: "Real-world signal",
+          hint: "Upgrade hint",
+        };
+
   return (
     <section className={styles.influentialCard}>
       <p className={styles.microLabel}>{locale === "zh" ? "Influential Traits" : "Influential Traits"}</p>
       <div className={styles.traitSlotRow}>
         {traits.slice(0, 4).map((trait, index) => (
-          <div
+          <button
+            type="button"
             key={`${trait.label}-${index}`}
-            className={styles.traitSlot}
+            className={styles.traitSlotButton}
             data-placeholder={trait.isPlaceholder ? "true" : "false"}
+            data-active={canShowDetails && index === activeIndex ? "true" : "false"}
+            data-interactive={canShowDetails ? "true" : "false"}
             title={trait.body}
             aria-label={trait.body ? `${trait.label}: ${trait.body}` : trait.label}
+            aria-pressed={canShowDetails ? index === activeIndex : undefined}
+            disabled={!canShowDetails}
+            onClick={() => setSelectedIndex(index)}
           >
-            <span className={styles.traitSlotIcon} data-color={trait.colorKey ?? "blue"}>
-              {normalizeTraitLetter(trait.label)}
+            <span className={styles.traitSlot}>
+              <span className={styles.traitSlotIcon} data-color={trait.colorKey ?? "blue"}>
+                {normalizeTraitLetter(trait.label)}
+              </span>
+              <p className={styles.traitSlotLabel}>{trait.label}</p>
             </span>
-            <p className={styles.traitSlotLabel}>{trait.label}</p>
-          </div>
+          </button>
         ))}
       </div>
-      <div className={styles.unlockRule} />
-      {isUnlocked ? (
-        <div className={styles.unlockedState}>
-          <p className={styles.unlockedStateLead}>{locale === "zh" ? "已解锁完整章节内容" : "Full chapter content unlocked"}</p>
-          <p className={styles.unlockedStateBody}>
-            {locale === "zh"
-              ? "同一位置继续保留卡片语法，后续真实内容会接入这一块而不是替换成别的样式。"
-              : "The same card grammar stays in place after unlock instead of switching to a different component style."}
-          </p>
-        </div>
+      {!isUnlocked ? (
+        <>
+          <div className={styles.unlockRule} />
+          <div className={styles.unlockPanel} data-testid={`mbti-${sectionId}-traits-lock-panel`}>
+            <p className={styles.unlockTitle}>{locale === "zh" ? "解锁这一章的完整细节" : "Unlock the full details for this chapter"}</p>
+            <p className={styles.unlockCopy}>
+              {locale === "zh"
+                ? "桌面 clone 壳保留 16P 式中央解锁面板，点击后进入真实购买收口。"
+                : "The desktop clone keeps the central 16P-style unlock panel and sends readers to the real offer block."}
+            </p>
+            <a href={unlockHref} className={styles.unlockButton}>
+              {unlockLabel}
+            </a>
+          </div>
+        </>
+      ) : canShowDetails && detailItem ? (
+        <>
+          <div className={styles.unlockRule} />
+          <div className={styles.traitsUnlockPanel} data-testid={`mbti-${sectionId}-traits-unlock-panel`}>
+            <div className={styles.traitsUnlockHeader}>
+              <p className={styles.traitsUnlockEyebrow}>{traitsUnlock?.title}</p>
+              <h3 className={styles.traitsUnlockTitle}>{detailItem.label}</h3>
+              <p className={styles.traitsUnlockIntro}>{traitsUnlock?.intro}</p>
+            </div>
+            <div className={styles.traitsUnlockGrid}>
+              <article className={styles.traitsUnlockItem}>
+                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.why}</p>
+                <p className={styles.traitsUnlockItemBody}>{detailItem.whyItMatters}</p>
+              </article>
+              <article className={styles.traitsUnlockItem}>
+                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.expression}</p>
+                <p className={styles.traitsUnlockItemBody}>{detailItem.expression}</p>
+              </article>
+              <article className={styles.traitsUnlockItem}>
+                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.advantage}</p>
+                <p className={styles.traitsUnlockItemBody}>{detailItem.advantage}</p>
+              </article>
+              <article className={styles.traitsUnlockItem}>
+                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.overuse}</p>
+                <p className={styles.traitsUnlockItemBody}>{detailItem.overuseRisk}</p>
+              </article>
+              <article className={styles.traitsUnlockItem}>
+                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.signal}</p>
+                <p className={styles.traitsUnlockItemBody}>{detailItem.realWorldSignal}</p>
+              </article>
+              <article className={styles.traitsUnlockItem}>
+                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.hint}</p>
+                <p className={styles.traitsUnlockItemBody}>{detailItem.upgradeHint}</p>
+              </article>
+            </div>
+            <div className={styles.traitsUnlockDefinition}>
+              <p className={styles.traitsUnlockItemLabel}>{locale === "zh" ? "定义" : "Definition"}</p>
+              <p className={styles.traitsUnlockItemBody}>{detailItem.definition}</p>
+            </div>
+          </div>
+        </>
       ) : (
-        <div className={styles.unlockPanel}>
-          <p className={styles.unlockTitle}>{locale === "zh" ? "解锁这一章的完整细节" : "Unlock the full details for this chapter"}</p>
-          <p className={styles.unlockCopy}>
-            {locale === "zh"
-              ? "桌面 clone 壳保留 16P 式中央解锁面板，点击后进入真实购买收口。"
-              : "The desktop clone keeps the central 16P-style unlock panel and sends readers to the real offer block."}
-          </p>
-          <a href={unlockHref} className={styles.unlockButton}>
-            {unlockLabel}
-          </a>
-        </div>
+        null
       )}
     </section>
   );

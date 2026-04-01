@@ -127,6 +127,28 @@ export type TraitSlot = {
   isPlaceholder?: boolean;
 };
 
+export type TraitUnlockLinks = Record<string, string[]>;
+
+export type TraitUnlockItem = {
+  id: string;
+  label: string;
+  role: string;
+  definition: string;
+  whyItMatters: string;
+  expression: string;
+  advantage: string;
+  overuseRisk: string;
+  realWorldSignal: string;
+  upgradeHint: string;
+  linksToExistingBlocks?: TraitUnlockLinks;
+};
+
+export type TraitUnlockBlock = {
+  title: string;
+  intro: string;
+  items: [TraitUnlockItem, TraitUnlockItem, TraitUnlockItem, TraitUnlockItem];
+};
+
 export type ListItem = {
   title: string;
   body: string;
@@ -164,6 +186,7 @@ export type NarrativeChapterSlots = {
   superpowers?: RelationshipInsightBlock | null;
   pitfalls?: RelationshipInsightBlock | null;
   influentialTraits: [TraitSlot, TraitSlot, TraitSlot, TraitSlot];
+  traitsUnlock?: TraitUnlockBlock | null;
   visibleBlocks: [ContentListBlock, ContentListBlock?];
   lockedBlocks: [LockedListBlock, LockedListBlock];
 };
@@ -234,18 +257,21 @@ export type MbtiDesktopCloneContent = {
       matchedGuides?: MatchedGuidesBlock;
       careerIdeas?: IdeaListBlock;
       workStyles?: IdeaListBlock;
+      traitsUnlock?: TraitUnlockBlock;
     };
     growth: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks"> & {
       strengths?: StrengthWeaknessBlock;
       weaknesses?: StrengthWeaknessBlock;
       whatEnergizes?: EnergyBlock;
       whatDrains?: EnergyBlock;
+      traitsUnlock?: TraitUnlockBlock;
     };
     relationships: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks"> & {
       strengths?: StrengthWeaknessBlock;
       weaknesses?: StrengthWeaknessBlock;
       superpowers?: RelationshipInsightBlock;
       pitfalls?: RelationshipInsightBlock;
+      traitsUnlock?: TraitUnlockBlock;
     };
   };
   finalOffer: Omit<MbtiDesktopCloneSlots["finalOffer"], "asset">;
