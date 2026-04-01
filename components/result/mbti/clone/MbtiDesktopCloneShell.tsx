@@ -268,6 +268,9 @@ export function MbtiDesktopCloneShell({
     ...(pdfReady && pdfHref ? [{ label: cloneLocale === "zh" ? "导出 PDF" : "Export PDF", href: pdfHref }] : []),
     ...(historyHref ? [{ label: cloneLocale === "zh" ? "查看历史" : "History", href: historyHref }] : []),
   ];
+  const traitsToolsPrompt = cloneLocale === "zh"
+    ? "你可以继续保存、导出或查看历史结果。"
+    : "You can save, export, or revisit this result.";
   const traitBodyParagraphs = slots.overview?.paragraphs ?? slots.traits.body;
   const traitBodySource = slots.overview ? "overview" : "traits";
 
@@ -306,6 +309,7 @@ export function MbtiDesktopCloneShell({
               paragraphs={traitBodyParagraphs}
               bodySource={traitBodySource}
               tools={traitsTools}
+              toolsPrompt={traitsToolsPrompt}
             />
 
             <MbtiCloneNarrativeSection
