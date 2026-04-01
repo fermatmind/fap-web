@@ -93,10 +93,11 @@ export function DimensionBars({
 
   if (variant === "clone16p") {
     return (
-      <div className={`space-y-[18px] ${className}`}>
+      <div className={`space-y-[16px] ${className}`}>
         {dimensions.slice(0, 5).map((item, index) => {
           const label = item.label ?? item.code ?? item.key ?? `Dimension ${index + 1}`;
           const percent = normalizePercent(item);
+          const clampedPercent = Math.max(0, Math.min(100, Math.round(percent)));
           const leftLabel = typeof item.leftLabel === "string"
             ? item.leftLabel
             : typeof item.code === "string"
@@ -116,22 +117,25 @@ export function DimensionBars({
           const color = ["#4D9FC1", "#D6A43A", "#3CAA8C", "#8E63B1", "#E56B73"][index % 5];
 
           return (
-            <article key={`${label}-${index}`} className="flex flex-col gap-2">
-              <div className="flex items-start justify-between gap-4">
-                <div className="space-y-0.5">
-                  <p className="m-0 text-[14px] leading-[1.4] font-bold text-[var(--clone-text,#2E3442)]">{winnerLabel}</p>
-                  <p className="m-0 text-[12px] leading-[1.5] text-[var(--clone-muted,#737B86)]">{label}</p>
-                </div>
-                <span className="text-[13px] leading-[1.3] font-bold text-[var(--clone-body,#4E5562)]">{Math.round(percent)}%</span>
-              </div>
-              <div className="relative h-1 rounded-full bg-[#DFE4EA]">
-                <div
-                  className="absolute inset-y-0 left-0 rounded-full"
-                  style={{ width: `${Math.max(0, Math.min(100, Math.round(percent)))}%`, backgroundColor: color }}
-                />
+            <article key={`${label}-${index}`} className="flex flex-col gap-[8px]">
+              <div className="flex items-center justify-center gap-1.5 text-center">
                 <span
-                  className="absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full border-2 border-white bg-[var(--clone-text,#2E3442)]"
-                  style={{ left: `${Math.max(0, Math.min(100, Math.round(percent)))}%`, transform: "translate(-50%, -50%)" }}
+                  className="text-[14px] leading-[1.2] font-bold"
+                  style={{ color }}
+                >
+                  {clampedPercent}%
+                </span>
+                <span className="text-[14px] leading-[1.2] font-bold text-[var(--clone-text,#2E3442)]">
+                  {winnerLabel}
+                </span>
+              </div>
+              <div
+                className="relative h-[8px] rounded-full"
+                style={{ backgroundColor: color }}
+              >
+                <span
+                  className="absolute top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-[3px] border-white bg-[var(--clone-surface,#ffffff)] shadow-[0_1px_4px_rgba(46,52,66,0.22)]"
+                  style={{ left: `${clampedPercent}%`, transform: "translate(-50%, -50%)" }}
                 />
               </div>
               <div className="flex items-center justify-between gap-3 text-[11px] leading-[1.4] text-[var(--clone-muted,#737B86)]">

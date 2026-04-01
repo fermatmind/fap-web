@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
@@ -302,5 +302,48 @@ describe("MBTI desktop clone shell CTA wiring", () => {
 
     expect(screen.getByText("price label storage")).toBeInTheDocument();
     expect(screen.getByText("¥199")).toBeInTheDocument();
+  });
+
+  it("renders the traits footer tools inside the same primary card shell", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("storage"));
+
+    render(
+      <MbtiDesktopCloneShell
+        locale="zh"
+        headline={createHeadline()}
+        tags={[]}
+        dimensions={[]}
+        highlights={[]}
+        sections={[]}
+        sectionUnlocks={createSectionUnlocks()}
+        offers={[]}
+        projectionViewModel={null}
+        isUnlocked={false}
+        shareCtaLabel="分享"
+        onShare={vi.fn()}
+        retakeHref="/zh/test/mbti"
+        historyHref="/zh/history"
+        pdfHref="/zh/result/test.pdf"
+        pdfReady
+        primaryCtaLabel="去结算"
+        primaryCtaHref="/zh/pay/checkout"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
+    });
+
+    const traitsTools = screen.getByTestId("mbti-traits-tools");
+    expect(within(traitsTools).getByText("你可以继续保存、导出或查看历史结果。")).toBeInTheDocument();
+    expect(within(traitsTools).getByRole("button", { name: "分享" })).toBeInTheDocument();
+    expect(within(traitsTools).getByRole("link", { name: "导出 PDF" })).toHaveAttribute(
+      "href",
+      "/zh/result/test.pdf",
+    );
+    expect(within(traitsTools).getByRole("link", { name: "查看历史" })).toHaveAttribute(
+      "href",
+      "/zh/history",
+    );
   });
 });
