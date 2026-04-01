@@ -320,8 +320,8 @@ export function MbtiDesktopCloneShell({
               introParagraphs={slots.chapters.career.intro}
               strengths={slots.chapters.career.strengths}
               weaknesses={slots.chapters.career.weaknesses}
-              matchedJobs={slots.chapters.career.matchedJobs}
-              matchedGuides={slots.chapters.career.matchedGuides}
+              matchedJobs={null}
+              matchedGuides={null}
               traits={slots.chapters.career.influentialTraits}
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
