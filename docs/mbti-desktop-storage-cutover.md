@@ -59,21 +59,16 @@ Both are downgraded to migration artifacts / seed history only, not runtime owne
   - runtime offer price / access state
 
 ## Not rendered yet (intentionally out-of-scope)
-- P1/P2 content modules:
-  - `Career Ideas`
-  - `Work Styles`
-  - `What Energizes`
-  - `What Drains`
-  - `Relationship Superpowers`
-  - `Relationship Pitfalls`
 - Runtime personalization:
   - `selection_fingerprint`
   - `evidence`
   - `adaptive`
   - `memory`
 
+P1 deep-content module rendering status now lives in:
+- `/Users/rainie/Desktop/GitHub/fap-web/docs/mbti-desktop-p1-render.md`
+
 ## Follow-ups
-1. P1 module rendering integration on desktop clone shell.
-2. Runtime personalization integration without changing owner boundaries.
-3. Expand `ready` asset coverage in backend owner data (no schema change).
-4. Locale expansion (e.g. `en`) in `fap-api`.
+1. Runtime personalization integration without changing owner boundaries.
+2. Expand `ready` asset coverage in backend owner data (no schema change).
+3. Locale expansion (e.g. `en`) in `fap-api`.

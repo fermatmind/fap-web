@@ -83,6 +83,18 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
           summary: `matched guides summary ${tag}`,
           fitReason: `matched guides reason ${tag}`,
         },
+        careerIdeas: {
+          title: `career ideas ${tag}`,
+          items: [
+            { title: `career ideas item ${tag}`, description: `career ideas body ${tag}` },
+          ],
+        },
+        workStyles: {
+          title: `work styles ${tag}`,
+          items: [
+            { title: `work styles item ${tag}`, description: `work styles body ${tag}` },
+          ],
+        },
         influentialTraits: [
           { label: `career trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
           { label: `career trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -147,6 +159,18 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
             { title: `growth weaknesses item ${tag}`, description: `growth weaknesses body ${tag}` },
           ],
         },
+        whatEnergizes: {
+          title: `what energizes ${tag}`,
+          items: [
+            { title: `what energizes item ${tag}`, description: `what energizes body ${tag}` },
+          ],
+        },
+        whatDrains: {
+          title: `what drains ${tag}`,
+          items: [
+            { title: `what drains item ${tag}`, description: `what drains body ${tag}` },
+          ],
+        },
         influentialTraits: [
           { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
           { label: `growth trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -209,6 +233,18 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
           title: `relationships weaknesses ${tag}`,
           items: [
             { title: `relationships weaknesses item ${tag}`, description: `relationships weaknesses body ${tag}` },
+          ],
+        },
+        superpowers: {
+          title: `superpowers ${tag}`,
+          items: [
+            { title: `superpowers item ${tag}`, description: `superpowers body ${tag}` },
+          ],
+        },
+        pitfalls: {
+          title: `pitfalls ${tag}`,
+          items: [
+            { title: `pitfalls item ${tag}`, description: `pitfalls body ${tag}` },
           ],
         },
         influentialTraits: [
@@ -326,6 +362,8 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(infjSlots.chapters.career.weaknesses).toEqual(infjStorage.chapters.career.weaknesses);
     expect(infjSlots.chapters.career.matchedJobs).toEqual(infjStorage.chapters.career.matchedJobs);
     expect(infjSlots.chapters.career.matchedGuides).toEqual(infjStorage.chapters.career.matchedGuides);
+    expect(infjSlots.chapters.career.careerIdeas).toEqual(infjStorage.chapters.career.careerIdeas);
+    expect(infjSlots.chapters.career.workStyles).toEqual(infjStorage.chapters.career.workStyles);
 
     expect(entjSlots.meta.fullCode).toBe("ENTJ-T");
     expect(entjSlots.meta.authoringLevel).toBe("fullCode");
@@ -333,8 +371,12 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(entjSlots.hero.summary).toBe(entjStorage.hero.summary);
     expect(entjSlots.chapters.growth.strengths).toEqual(entjStorage.chapters.growth.strengths);
     expect(entjSlots.chapters.growth.weaknesses).toEqual(entjStorage.chapters.growth.weaknesses);
+    expect(entjSlots.chapters.growth.whatEnergizes).toEqual(entjStorage.chapters.growth.whatEnergizes);
+    expect(entjSlots.chapters.growth.whatDrains).toEqual(entjStorage.chapters.growth.whatDrains);
     expect(entjSlots.chapters.relationships.strengths).toEqual(entjStorage.chapters.relationships.strengths);
     expect(entjSlots.chapters.relationships.weaknesses).toEqual(entjStorage.chapters.relationships.weaknesses);
+    expect(entjSlots.chapters.relationships.superpowers).toEqual(entjStorage.chapters.relationships.superpowers);
+    expect(entjSlots.chapters.relationships.pitfalls).toEqual(entjStorage.chapters.relationships.pitfalls);
     expect(entjSlots.chapters.growth.visibleBlocks).toEqual(entjStorage.chapters.growth.visibleBlocks);
   });
 
@@ -359,12 +401,17 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(enSlots.overview).toBeNull();
     expect(enSlots.chapters.career.strengths).toBeNull();
     expect(enSlots.chapters.career.matchedJobs).toBeNull();
+    expect(enSlots.chapters.career.careerIdeas).toBeNull();
+    expect(enSlots.chapters.growth.whatEnergizes).toBeNull();
+    expect(enSlots.chapters.relationships.superpowers).toBeNull();
 
     expect(missSlots.meta.contentSource).toBe("placeholder");
     expect(missSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
     expect(missSlots.lettersIntro).toBeNull();
     expect(missSlots.overview).toBeNull();
     expect(missSlots.chapters.growth.strengths).toBeNull();
+    expect(missSlots.chapters.growth.whatDrains).toBeNull();
+    expect(missSlots.chapters.relationships.pitfalls).toBeNull();
     expect(missSlots.chapters.relationships.lockedBlocks).toEqual(
       MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks,
     );

@@ -102,6 +102,10 @@ export type StrengthWeaknessBlock = {
   items: StrengthWeaknessItem[];
 };
 
+export type IdeaListBlock = StrengthWeaknessBlock;
+export type EnergyBlock = StrengthWeaknessBlock;
+export type RelationshipInsightBlock = StrengthWeaknessBlock;
+
 export type MatchedJobsBlock = {
   title: string;
   fitBucket: "primary" | "secondary";
@@ -153,6 +157,12 @@ export type NarrativeChapterSlots = {
   weaknesses: StrengthWeaknessBlock | null;
   matchedJobs: MatchedJobsBlock | null;
   matchedGuides: MatchedGuidesBlock | null;
+  careerIdeas?: IdeaListBlock | null;
+  workStyles?: IdeaListBlock | null;
+  whatEnergizes?: EnergyBlock | null;
+  whatDrains?: EnergyBlock | null;
+  superpowers?: RelationshipInsightBlock | null;
+  pitfalls?: RelationshipInsightBlock | null;
   influentialTraits: [TraitSlot, TraitSlot, TraitSlot, TraitSlot];
   visibleBlocks: [ContentListBlock, ContentListBlock?];
   lockedBlocks: [LockedListBlock, LockedListBlock];
@@ -222,14 +232,20 @@ export type MbtiDesktopCloneContent = {
       weaknesses?: StrengthWeaknessBlock;
       matchedJobs?: MatchedJobsBlock;
       matchedGuides?: MatchedGuidesBlock;
+      careerIdeas?: IdeaListBlock;
+      workStyles?: IdeaListBlock;
     };
     growth: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks"> & {
       strengths?: StrengthWeaknessBlock;
       weaknesses?: StrengthWeaknessBlock;
+      whatEnergizes?: EnergyBlock;
+      whatDrains?: EnergyBlock;
     };
     relationships: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks"> & {
       strengths?: StrengthWeaknessBlock;
       weaknesses?: StrengthWeaknessBlock;
+      superpowers?: RelationshipInsightBlock;
+      pitfalls?: RelationshipInsightBlock;
     };
   };
   finalOffer: Omit<MbtiDesktopCloneSlots["finalOffer"], "asset">;
