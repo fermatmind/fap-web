@@ -439,7 +439,7 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop chapter premium teaser reset contract", () => {
-  it("renders Career chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
+  it("renders Career chapter-end premium teasers from compatibility fields after strengths/weaknesses without extra matched cards", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -455,8 +455,6 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const unlockTitle = scoped.getByText("解锁这一章的完整细节");
     const strengthsCard = scoped.getByTestId("mbti-p0-career-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-career-weaknesses");
-    const matchedJobsCard = scoped.getByTestId("mbti-p0-career-matched-jobs");
-    const matchedGuidesCard = scoped.getByTestId("mbti-p0-career-matched-guides");
     const firstTeaser = scoped.getByTestId("mbti-premium-career-career-ideas");
     const secondTeaser = scoped.getByTestId("mbti-premium-career-work-styles");
     const firstTeaserOverlay = scoped.getByTestId("mbti-premium-career-career-ideas-overlay");
@@ -465,10 +463,12 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     expect(scoped.getByText("职业优势")).toBeInTheDocument();
     expect(scoped.getByText("职业短板")).toBeInTheDocument();
-    expect(scoped.getByText("匹配岗位建议")).toBeInTheDocument();
-    expect(scoped.getByText("匹配阅读指南")).toBeInTheDocument();
     expect(scoped.getByText("你可能会喜欢的职业选择")).toBeInTheDocument();
     expect(scoped.getByText("适合你的工作方式")).toBeInTheDocument();
+    expect(scoped.queryByText("匹配岗位建议")).not.toBeInTheDocument();
+    expect(scoped.queryByText("匹配阅读指南")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p0-career-matched-jobs")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p0-career-matched-guides")).not.toBeInTheDocument();
     expect(scoped.queryByText("Strengths")).not.toBeInTheDocument();
     expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
     expect(scoped.queryByText("职业方向建议")).not.toBeInTheDocument();
@@ -482,15 +482,11 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     expect(screen.getAllByText("职业优势")).toHaveLength(1);
     expect(screen.getAllByText("职业短板")).toHaveLength(1);
-    expect(screen.getAllByText("匹配岗位建议")).toHaveLength(1);
-    expect(screen.getAllByText("匹配阅读指南")).toHaveLength(1);
 
     expectBefore(traitsTitle as HTMLElement, unlockTitle as HTMLElement);
     expectBefore(unlockTitle as HTMLElement, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
-    expectBefore(weaknessesCard, matchedJobsCard);
-    expectBefore(matchedJobsCard, matchedGuidesCard);
-    expectBefore(matchedGuidesCard, firstTeaser);
+    expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, nextSection);
   });

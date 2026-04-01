@@ -302,7 +302,7 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop clone p0 render contract", () => {
-  it("renders INFJ-A letters intro overview and career matched blocks", async () => {
+  it("renders INFJ-A letters intro overview while career matched cards stay removed from desktop main flow", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -313,8 +313,8 @@ describe("MBTI desktop clone p0 render contract", () => {
 
     expect(await screen.findByTestId("mbti-p0-letters-intro")).toHaveTextContent("letters headline infj-a");
     expect(screen.getByTestId("mbti-p0-overview")).toHaveTextContent("overview title infj-a");
-    expect(screen.getByTestId("mbti-p0-career-matched-jobs")).toHaveTextContent("matched jobs summary infj-a");
-    expect(screen.getByTestId("mbti-p0-career-matched-guides")).toHaveTextContent("matched guides summary infj-a");
+    expect(screen.queryByTestId("mbti-p0-career-matched-jobs")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p0-career-matched-guides")).not.toBeInTheDocument();
   });
 
   it("renders ENTJ-T growth strengths and weaknesses", async () => {

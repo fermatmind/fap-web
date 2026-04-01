@@ -48,8 +48,26 @@ They are replaced by chapter content titles while keeping a unified centered loc
 - `你的人际关系优势`
 - `人际关系陷阱`
 
+## Career duplicate-card removal
+Career chapter body no longer renders these two extra white cards:
+
+- `匹配岗位建议`
+- `匹配阅读指南`
+
+Their information role is handled by chapter-end teaser pair only (`careerIdeas` / `workStyles`), so Career flow is now:
+
+1. intro
+2. influential traits
+3. strengths
+4. weaknesses
+5. `你可能会喜欢的职业选择` teaser
+6. `适合你的工作方式` teaser
+7. then enters Growth directly
+
+Backend compatibility fields remain retained; only duplicate desktop body rendering is removed.
+
 ## Positioning rules enforced
-- teaser blocks are rendered after `Strengths / Weaknesses` (and after `matched_jobs / matched_guides` for Career)
+- teaser blocks are rendered after `Strengths / Weaknesses`
 - teaser blocks stay inside their own chapter section
 - chapter-end spacing remains stable before the next section
 - no detached floating unlock card remains as a separate role from teaser content
@@ -71,3 +89,4 @@ After chapter-end teaser structure is stable, runtime personalization can be eva
 - `docs/pr-assets/mbti-desktop-career-teaser-reset.png`
 - `docs/pr-assets/mbti-desktop-growth-teaser-reset.png`
 - `docs/pr-assets/mbti-desktop-relationships-teaser-reset.png`
+- `docs/pr-assets/mbti-desktop-career-after-match-block-removal.png`
