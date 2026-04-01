@@ -438,8 +438,8 @@ beforeEach(() => {
   vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
 });
 
-describe("MBTI desktop chapter structure convergence contract", () => {
-  it("converges Career chapter to a single system and keeps unlock position", async () => {
+describe("MBTI desktop chapter structure convergence contract (compatibility modules not rendered)", () => {
+  it("converges Career chapter to a single system, keeps unlock position, and does not render compatibility fields", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -483,7 +483,7 @@ describe("MBTI desktop chapter structure convergence contract", () => {
     expectBefore(matchedGuidesCard, firstLockedTitle as HTMLElement);
   });
 
-  it("converges Growth chapter to a single system and keeps unlock position", async () => {
+  it("converges Growth chapter to a single system, keeps unlock position, and does not render compatibility fields", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ENTJ-T"));
 
     renderShell("ENTJ-T");
@@ -517,7 +517,7 @@ describe("MBTI desktop chapter structure convergence contract", () => {
     expectBefore(weaknessesCard, firstLockedTitle as HTMLElement);
   });
 
-  it("converges Relationships chapter to a single system and keeps unlock position", async () => {
+  it("converges Relationships chapter to a single system, keeps unlock position, and does not render compatibility fields", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
 
     renderShell("ISTP-A");

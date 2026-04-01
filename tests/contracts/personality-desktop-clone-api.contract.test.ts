@@ -381,7 +381,7 @@ afterEach(() => {
 });
 
 describe("personality desktop clone api adapter contract", () => {
-  it("normalizes locale and fullCode slug, then maps a published payload", async () => {
+  it("normalizes locale and fullCode slug, then maps a published payload with compatibility fields retained", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
       expect(url).toContain("/api/v0.5/personality/infj-a/desktop-clone?");
@@ -411,6 +411,8 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.content.chapters.relationships.weaknesses?.items[0]?.description).toBe("relationships weaknesses body 1 seed");
     expect(result?.content.chapters.career.matchedJobs?.fitBucket).toBe("primary");
     expect(result?.content.chapters.career.matchedGuides?.fitReason).toBe("matched guides reason seed");
+    // Deprecated transition fields remain adapter-visible for compatibility,
+    // but this assertion does not imply they are rendered in desktop main flow.
     expect(result?.content.chapters.career.careerIdeas?.items[0]?.description).toBe("career ideas body 1 seed");
     expect(result?.content.chapters.career.workStyles?.items[0]?.description).toBe("work styles body 1 seed");
     expect(result?.content.chapters.growth.whatEnergizes?.items[0]?.description).toBe("what energizes body 1 seed");
@@ -433,7 +435,7 @@ describe("personality desktop clone api adapter contract", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("keeps rendering-safe parsing when optional p0 modules are missing", async () => {
+  it("keeps rendering-safe parsing when optional canonical and compatibility modules are missing", async () => {
     const payload = createValidPayload("partial");
     delete (payload.content as Record<string, unknown>).letters_intro;
     delete (payload.content as Record<string, unknown>).overview;

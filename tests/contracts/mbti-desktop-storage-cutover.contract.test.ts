@@ -336,7 +336,7 @@ function resolveSlotsForType({
 }
 
 describe("MBTI desktop storage cutover contract", () => {
-  it("uses storage content for INFJ-A and ENTJ-T under zh", () => {
+  it("uses storage content for INFJ-A and ENTJ-T under zh while retaining compatibility fields in resolver slots", () => {
     const infjStorage = createStorageContent("infj-a");
     const entjStorage = createStorageContent("entj-t");
 
@@ -362,6 +362,7 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(infjSlots.chapters.career.weaknesses).toEqual(infjStorage.chapters.career.weaknesses);
     expect(infjSlots.chapters.career.matchedJobs).toEqual(infjStorage.chapters.career.matchedJobs);
     expect(infjSlots.chapters.career.matchedGuides).toEqual(infjStorage.chapters.career.matchedGuides);
+    // Deprecated transition fields remain in resolver slots for compatibility.
     expect(infjSlots.chapters.career.careerIdeas).toEqual(infjStorage.chapters.career.careerIdeas);
     expect(infjSlots.chapters.career.workStyles).toEqual(infjStorage.chapters.career.workStyles);
 
