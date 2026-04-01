@@ -233,23 +233,6 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              p1Blocks={[
-                ...(slots.chapters.career.careerIdeas
-                  ? [{
-                      kind: "idea" as const,
-                      data: slots.chapters.career.careerIdeas,
-                      testId: "mbti-p1-career-career-ideas",
-                    }]
-                  : []),
-                ...(slots.chapters.career.workStyles
-                  ? [{
-                      kind: "idea" as const,
-                      data: slots.chapters.career.workStyles,
-                      testId: "mbti-p1-career-work-styles",
-                    }]
-                  : []),
-              ]}
-              visibleBlocks={slots.chapters.career.visibleBlocks.filter(Boolean).map((block) => ({ title: block!.title, items: block!.items }))}
               lockedBlocks={slots.chapters.career.lockedBlocks.map((block) => ({
                 title: block.title,
                 items: block.blurredItems,
@@ -274,23 +257,6 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              p1Blocks={[
-                ...(slots.chapters.growth.whatEnergizes
-                  ? [{
-                      kind: "energy" as const,
-                      data: slots.chapters.growth.whatEnergizes,
-                      testId: "mbti-p1-growth-what-energizes",
-                    }]
-                  : []),
-                ...(slots.chapters.growth.whatDrains
-                  ? [{
-                      kind: "energy" as const,
-                      data: slots.chapters.growth.whatDrains,
-                      testId: "mbti-p1-growth-what-drains",
-                    }]
-                  : []),
-              ]}
-              visibleBlocks={slots.chapters.growth.visibleBlocks.filter(Boolean).map((block) => ({ title: block!.title, items: block!.items }))}
               lockedBlocks={slots.chapters.growth.lockedBlocks.map((block) => ({
                 title: block.title,
                 items: block.blurredItems,
@@ -315,23 +281,6 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              p1Blocks={[
-                ...(slots.chapters.relationships.superpowers
-                  ? [{
-                      kind: "relationshipInsight" as const,
-                      data: slots.chapters.relationships.superpowers,
-                      testId: "mbti-p1-relationships-superpowers",
-                    }]
-                  : []),
-                ...(slots.chapters.relationships.pitfalls
-                  ? [{
-                      kind: "relationshipInsight" as const,
-                      data: slots.chapters.relationships.pitfalls,
-                      testId: "mbti-p1-relationships-pitfalls",
-                    }]
-                  : []),
-              ]}
-              visibleBlocks={slots.chapters.relationships.visibleBlocks.filter(Boolean).map((block) => ({ title: block!.title, items: block!.items }))}
               lockedBlocks={slots.chapters.relationships.lockedBlocks.map((block) => ({
                 title: block.title,
                 items: block.blurredItems,
