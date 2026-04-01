@@ -438,8 +438,8 @@ beforeEach(() => {
   vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
 });
 
-describe("MBTI desktop chapter structure convergence contract (compatibility modules not rendered)", () => {
-  it("converges Career chapter to a single system, keeps unlock position, and does not render compatibility fields", async () => {
+describe("MBTI desktop chapter premium teaser reset contract", () => {
+  it("renders Career chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -457,18 +457,28 @@ describe("MBTI desktop chapter structure convergence contract (compatibility mod
     const weaknessesCard = scoped.getByTestId("mbti-p0-career-weaknesses");
     const matchedJobsCard = scoped.getByTestId("mbti-p0-career-matched-jobs");
     const matchedGuidesCard = scoped.getByTestId("mbti-p0-career-matched-guides");
-    const firstLockedTitle = scoped.getByText("career locked 1 infj-a");
+    const firstTeaser = scoped.getByTestId("mbti-premium-career-career-ideas");
+    const secondTeaser = scoped.getByTestId("mbti-premium-career-work-styles");
+    const firstTeaserOverlay = scoped.getByTestId("mbti-premium-career-career-ideas-overlay");
+    const secondTeaserOverlay = scoped.getByTestId("mbti-premium-career-work-styles-overlay");
+    const nextSection = document.querySelector("#growth") as HTMLElement;
 
     expect(scoped.getByText("职业优势")).toBeInTheDocument();
     expect(scoped.getByText("职业短板")).toBeInTheDocument();
     expect(scoped.getByText("匹配岗位建议")).toBeInTheDocument();
     expect(scoped.getByText("匹配阅读指南")).toBeInTheDocument();
+    expect(scoped.getByText("你可能会喜欢的职业选择")).toBeInTheDocument();
+    expect(scoped.getByText("适合你的工作方式")).toBeInTheDocument();
     expect(scoped.queryByText("Strengths")).not.toBeInTheDocument();
     expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
     expect(scoped.queryByText("职业方向建议")).not.toBeInTheDocument();
     expect(scoped.queryByText("工作风格建议")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁岗位簇")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁工作方式")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-career-career-ideas")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-career-work-styles")).not.toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
 
     expect(screen.getAllByText("职业优势")).toHaveLength(1);
     expect(screen.getAllByText("职业短板")).toHaveLength(1);
@@ -480,10 +490,12 @@ describe("MBTI desktop chapter structure convergence contract (compatibility mod
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, matchedJobsCard);
     expectBefore(matchedJobsCard, matchedGuidesCard);
-    expectBefore(matchedGuidesCard, firstLockedTitle as HTMLElement);
+    expectBefore(matchedGuidesCard, firstTeaser);
+    expectBefore(firstTeaser, secondTeaser);
+    expectBefore(secondTeaser, nextSection);
   });
 
-  it("converges Growth chapter to a single system, keeps unlock position, and does not render compatibility fields", async () => {
+  it("renders Growth chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ENTJ-T"));
 
     renderShell("ENTJ-T");
@@ -498,26 +510,38 @@ describe("MBTI desktop chapter structure convergence contract (compatibility mod
     const unlockTitle = scoped.getByText("解锁这一章的完整细节");
     const strengthsCard = scoped.getByTestId("mbti-p0-growth-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-growth-weaknesses");
-    const firstLockedTitle = scoped.getByText("growth locked 1 entj-t");
+    const firstTeaser = scoped.getByTestId("mbti-premium-growth-what-energizes");
+    const secondTeaser = scoped.getByTestId("mbti-premium-growth-what-drains");
+    const firstTeaserOverlay = scoped.getByTestId("mbti-premium-growth-what-energizes-overlay");
+    const secondTeaserOverlay = scoped.getByTestId("mbti-premium-growth-what-drains-overlay");
+    const nextSection = document.querySelector("#relationships") as HTMLElement;
 
     expect(scoped.getByText("成长优势")).toBeInTheDocument();
     expect(scoped.getByText("成长短板")).toBeInTheDocument();
+    expect(scoped.getByText("什么能让你充满活力？")).toBeInTheDocument();
+    expect(scoped.getByText("什么让你精力力竭？")).toBeInTheDocument();
     expect(scoped.queryByText("Strengths")).not.toBeInTheDocument();
     expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
     expect(scoped.queryByText("什么让你充电")).not.toBeInTheDocument();
     expect(scoped.queryByText("什么让你消耗")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁补能条件")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁耗损模式")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-growth-what-energizes")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-growth-what-drains")).not.toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
 
     expect(screen.getAllByText("成长优势")).toHaveLength(1);
     expect(screen.getAllByText("成长短板")).toHaveLength(1);
 
     expectBefore(unlockTitle as HTMLElement, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
-    expectBefore(weaknessesCard, firstLockedTitle as HTMLElement);
+    expectBefore(weaknessesCard, firstTeaser);
+    expectBefore(firstTeaser, secondTeaser);
+    expectBefore(secondTeaser, nextSection);
   });
 
-  it("converges Relationships chapter to a single system, keeps unlock position, and does not render compatibility fields", async () => {
+  it("renders Relationships chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
 
     renderShell("ISTP-A");
@@ -532,23 +556,35 @@ describe("MBTI desktop chapter structure convergence contract (compatibility mod
     const unlockTitle = scoped.getByText("解锁这一章的完整细节");
     const strengthsCard = scoped.getByTestId("mbti-p0-relationships-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-relationships-weaknesses");
-    const firstLockedTitle = scoped.getByText("relationships locked 1 istp-a");
+    const firstTeaser = scoped.getByTestId("mbti-premium-relationships-superpowers");
+    const secondTeaser = scoped.getByTestId("mbti-premium-relationships-pitfalls");
+    const firstTeaserOverlay = scoped.getByTestId("mbti-premium-relationships-superpowers-overlay");
+    const secondTeaserOverlay = scoped.getByTestId("mbti-premium-relationships-pitfalls-overlay");
+    const finalOffer = screen.getByTestId("mbti-offer-full");
 
     expect(scoped.getByText("关系优势")).toBeInTheDocument();
     expect(scoped.getByText("关系短板")).toBeInTheDocument();
+    expect(scoped.getByText("你的人际关系优势")).toBeInTheDocument();
+    expect(scoped.getByText("人际关系陷阱")).toBeInTheDocument();
     expect(scoped.queryByText("Strengths")).not.toBeInTheDocument();
     expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
     expect(scoped.queryByText("关系超级优势")).not.toBeInTheDocument();
     expect(scoped.queryByText("关系潜在陷阱")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁关系优势")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁关系盲点")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-relationships-superpowers")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-relationships-pitfalls")).not.toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
 
     expect(screen.getAllByText("关系优势")).toHaveLength(1);
     expect(screen.getAllByText("关系短板")).toHaveLength(1);
 
     expectBefore(unlockTitle as HTMLElement, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
-    expectBefore(weaknessesCard, firstLockedTitle as HTMLElement);
+    expectBefore(weaknessesCard, firstTeaser);
+    expectBefore(firstTeaser, secondTeaser);
+    expectBefore(secondTeaser, finalOffer);
   });
 
   it("keeps hero/rail/final-offer and asset slots stable after convergence", async () => {

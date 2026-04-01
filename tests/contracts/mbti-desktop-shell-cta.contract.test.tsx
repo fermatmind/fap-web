@@ -230,7 +230,7 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop clone shell CTA wiring", () => {
-  it("keeps slot CTA labels in locked overlays and falls back to href CTA in final offer", async () => {
+  it("keeps chapter teaser lock-card CTA unified by locale and keeps final offer href CTA fallback", async () => {
     render(
       <MbtiDesktopCloneShell
         locale="zh"
@@ -259,7 +259,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(finalOfferCta).toHaveTextContent("去结算");
     expect(finalOfferCta).toHaveAttribute("href", "/zh/pay/checkout");
 
-    const lockedOverlayCtas = screen.getAllByText("Unlock full report");
+    const lockedOverlayCtas = screen.getAllByRole("link", { name: "解锁完整报告" });
     expect(lockedOverlayCtas).toHaveLength(6);
   });
 

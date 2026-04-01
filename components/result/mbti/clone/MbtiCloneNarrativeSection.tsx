@@ -2,9 +2,9 @@
 
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneInfluentialTraitsCard } from "@/components/result/mbti/clone/MbtiCloneInfluentialTraitsCard";
-import { MbtiCloneLockedListBlock } from "@/components/result/mbti/clone/MbtiCloneLockedListBlock";
 import { MbtiCloneMatchedGuides } from "@/components/result/mbti/clone/MbtiCloneMatchedGuides";
 import { MbtiCloneMatchedJobs } from "@/components/result/mbti/clone/MbtiCloneMatchedJobs";
+import { MbtiClonePremiumTeaserBlock, type PremiumTeaserItem } from "@/components/result/mbti/clone/MbtiClonePremiumTeaserBlock";
 import { MbtiCloneSectionHeading } from "@/components/result/mbti/clone/MbtiCloneSectionHeading";
 import { MbtiCloneStrengthWeaknessBlock } from "@/components/result/mbti/clone/MbtiCloneStrengthWeaknessBlock";
 import type {
@@ -19,10 +19,11 @@ import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-des
 
 type LockedBlock = {
   title: string;
-  items: Array<{ title: string; body: string; tone?: "positive" | "negative" | "neutral" }>;
+  items: PremiumTeaserItem[];
   overlayTitle: string;
-  overlayCopy: string;
-  ctaLabel: string;
+  overlayBody: string;
+  overlayCtaLabel: string;
+  testId: string;
 };
 
 type MbtiCloneNarrativeSectionProps = {
@@ -42,7 +43,7 @@ type MbtiCloneNarrativeSectionProps = {
   isUnlocked: boolean;
   unlockHref: string;
   unlockLabel: string;
-  lockedBlocks: LockedBlock[];
+  premiumTeasers: LockedBlock[];
 };
 
 export function MbtiCloneNarrativeSection({
@@ -62,7 +63,7 @@ export function MbtiCloneNarrativeSection({
   isUnlocked,
   unlockHref,
   unlockLabel,
-  lockedBlocks,
+  premiumTeasers,
 }: MbtiCloneNarrativeSectionProps) {
   return (
     <section id={id} className={styles.section}>
@@ -95,15 +96,16 @@ export function MbtiCloneNarrativeSection({
       ) : null}
       {matchedJobs ? <MbtiCloneMatchedJobs locale={locale} data={matchedJobs} /> : null}
       {matchedGuides ? <MbtiCloneMatchedGuides data={matchedGuides} /> : null}
-      {lockedBlocks.map((block) => (
-        <MbtiCloneLockedListBlock
-          key={`${id}-${block.title}`}
+      {premiumTeasers.map((block) => (
+        <MbtiClonePremiumTeaserBlock
+          key={`${id}-${block.testId}`}
           title={block.title}
           items={block.items}
           overlayTitle={block.overlayTitle}
-          overlayCopy={block.overlayCopy}
-          ctaLabel={block.ctaLabel || unlockLabel}
-          ctaHref={unlockHref}
+          overlayBody={block.overlayBody}
+          overlayCtaLabel={block.overlayCtaLabel || unlockLabel}
+          overlayCtaHref={unlockHref}
+          testId={block.testId}
         />
       ))}
     </section>
