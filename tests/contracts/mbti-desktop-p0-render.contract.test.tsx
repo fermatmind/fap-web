@@ -296,13 +296,17 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "e
   );
 }
 
+function expectBefore(before: HTMLElement, after: HTMLElement) {
+  expect(before.compareDocumentPosition(after) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+}
+
 beforeEach(() => {
   vi.clearAllMocks();
   vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
 });
 
 describe("MBTI desktop clone p0 render contract", () => {
-  it("renders INFJ-A letters intro overview while career matched cards stay removed from desktop main flow", async () => {
+  it("removes desktop first-screen letters and overview cards while moving overview copy under traits", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -311,10 +315,38 @@ describe("MBTI desktop clone p0 render contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    expect(await screen.findByTestId("mbti-p0-letters-intro")).toHaveTextContent("letters headline infj-a");
-    expect(screen.getByTestId("mbti-p0-overview")).toHaveTextContent("overview title infj-a");
+    const traitsBody = await screen.findByTestId("mbti-traits-body");
+
+    expect(screen.queryByTestId("mbti-p0-letters-intro")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-p0-overview")).not.toBeInTheDocument();
+    expect(traitsBody).toHaveAttribute("data-body-source", "overview");
+    expect(traitsBody).toHaveTextContent("overview 1 infj-a");
+    expect(traitsBody).toHaveTextContent("overview 2 infj-a");
+    expect(screen.queryByText("traits 1 infj-a")).not.toBeInTheDocument();
+    expect(screen.queryByText("traits 2 infj-a")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-career-matched-jobs")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-career-matched-guides")).not.toBeInTheDocument();
+  });
+
+  it("keeps the first-screen order aligned to hero intro traits overview body then career", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A");
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
+    });
+
+    const hero = await screen.findByTestId("mbti-hero");
+    const introParagraph = screen.getByText("intro 1 infj-a");
+    const traitsHeading = screen.getByRole("heading", { level: 2, name: "Personality Traits" });
+    const traitsBody = screen.getByTestId("mbti-traits-body");
+    const careerHeading = screen.getByRole("heading", { level: 2, name: "Your Career Path" });
+
+    expectBefore(hero, introParagraph);
+    expectBefore(introParagraph, traitsHeading);
+    expectBefore(traitsHeading, traitsBody);
+    expectBefore(traitsBody, careerHeading);
   });
 
   it("renders ENTJ-T growth strengths and weaknesses", async () => {
@@ -354,6 +386,10 @@ describe("MBTI desktop clone p0 render contract", () => {
 
     expect(await screen.findByTestId("mbti-hero")).toHaveTextContent("hero infj-a");
     expect(screen.getAllByText("title infj-a").length).toBeGreaterThan(0);
+    expect(screen.getByTestId("mbti-asset-slot-traits")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "Your Career Path" })).toBeInTheDocument();
     expect(screen.getByText("headline infj-a")).toBeInTheDocument();
   });
 
@@ -386,6 +422,7 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
     expect(screen.queryByTestId("mbti-p0-letters-intro")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-overview")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-traits-body")).toHaveAttribute("data-body-source", "traits");
     expect(screen.queryByTestId("mbti-p0-career-matched-jobs")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-career-matched-guides")).not.toBeInTheDocument();
   });
