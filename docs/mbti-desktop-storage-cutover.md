@@ -22,6 +22,11 @@
     - `overview`
     - `chapters.{career,growth,relationships}.{strengths,weaknesses}`
     - `chapters.career.{matched_jobs,matched_guides}`
+  - Compatibility transition fields are also parsed/held as optional:
+    - `chapters.career.{career_ideas,work_styles}`
+    - `chapters.growth.{what_energizes,what_drains}`
+    - `chapters.relationships.{superpowers,pitfalls}`
+  - Compatibility transition fields are retained for contract safety and are not current desktop main-flow render source.
 - Resolver: `/Users/rainie/Desktop/GitHub/fap-web/components/result/mbti/clone/mbtiDesktopClone.resolve.ts`
   - priority: `storage content` -> `placeholder`
   - no local registry fallback
