@@ -146,31 +146,31 @@ function createStoragePayload(
         career: {
           intro: [`career intro 1 ${tag}`, `career intro 2 ${tag}`],
           strengths: {
-            title: `career strengths ${tag}`,
+            title: "职业优势",
             items: [{ title: `career strengths item ${tag}`, description: `career strengths body ${tag}` }],
           },
           weaknesses: {
-            title: `career weaknesses ${tag}`,
+            title: "职业短板",
             items: [{ title: `career weaknesses item ${tag}`, description: `career weaknesses body ${tag}` }],
           },
           matchedJobs: {
-            title: `matched jobs ${tag}`,
+            title: "匹配岗位建议",
             fitBucket: "primary",
             summary: `matched jobs summary ${tag}`,
             fitReason: `matched jobs reason ${tag}`,
             jobExamples: [`job 1 ${tag}`, `job 2 ${tag}`],
           },
           matchedGuides: {
-            title: `matched guides ${tag}`,
+            title: "匹配阅读指南",
             summary: `matched guides summary ${tag}`,
             fitReason: `matched guides reason ${tag}`,
           },
           careerIdeas: {
-            title: `career ideas ${tag}`,
+            title: "职业方向建议",
             items: [{ title: `career ideas item ${tag}`, description: `career ideas body ${tag}` }],
           },
           workStyles: {
-            title: `work styles ${tag}`,
+            title: "工作风格建议",
             items: [{ title: `work styles item ${tag}`, description: `work styles body ${tag}` }],
           },
           influentialTraits: [
@@ -181,7 +181,18 @@ function createStoragePayload(
           ],
           visibleBlocks: [
             {
-              title: `visible ${tag}`,
+              title: "Strengths",
+              items: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+            {
+              title: "Weaknesses",
               items: [
                 { title: "item 1", body: "body 1" },
                 { title: "item 2", body: "body 2" },
@@ -194,7 +205,7 @@ function createStoragePayload(
           ],
           lockedBlocks: [
             {
-              title: `locked 1 ${tag}`,
+              title: `career locked 1 ${tag}`,
               overlayTitle: "overlay 1",
               overlayBody: "overlay body 1",
               overlayCtaLabel: "解锁完整报告",
@@ -208,7 +219,7 @@ function createStoragePayload(
               ],
             },
             {
-              title: `locked 2 ${tag}`,
+              title: `career locked 2 ${tag}`,
               overlayTitle: "overlay 2",
               overlayBody: "overlay body 2",
               overlayCtaLabel: "解锁完整报告",
@@ -226,19 +237,19 @@ function createStoragePayload(
         growth: {
           intro: [`growth intro 1 ${tag}`, `growth intro 2 ${tag}`],
           strengths: {
-            title: `growth strengths ${tag}`,
+            title: "成长优势",
             items: [{ title: `growth strengths item ${tag}`, description: `growth strengths body ${tag}` }],
           },
           weaknesses: {
-            title: `growth weaknesses ${tag}`,
+            title: "成长短板",
             items: [{ title: `growth weaknesses item ${tag}`, description: `growth weaknesses body ${tag}` }],
           },
           whatEnergizes: {
-            title: `what energizes ${tag}`,
+            title: "什么让你充电",
             items: [{ title: `what energizes item ${tag}`, description: `what energizes body ${tag}` }],
           },
           whatDrains: {
-            title: `what drains ${tag}`,
+            title: "什么让你消耗",
             items: [{ title: `what drains item ${tag}`, description: `what drains body ${tag}` }],
           },
           influentialTraits: [
@@ -249,7 +260,18 @@ function createStoragePayload(
           ],
           visibleBlocks: [
             {
-              title: `visible ${tag}`,
+              title: "Strengths",
+              items: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+            {
+              title: "Weaknesses",
               items: [
                 { title: "item 1", body: "body 1" },
                 { title: "item 2", body: "body 2" },
@@ -262,7 +284,7 @@ function createStoragePayload(
           ],
           lockedBlocks: [
             {
-              title: `locked 1 ${tag}`,
+              title: `growth locked 1 ${tag}`,
               overlayTitle: "overlay 1",
               overlayBody: "overlay body 1",
               overlayCtaLabel: "解锁完整报告",
@@ -276,7 +298,7 @@ function createStoragePayload(
               ],
             },
             {
-              title: `locked 2 ${tag}`,
+              title: `growth locked 2 ${tag}`,
               overlayTitle: "overlay 2",
               overlayBody: "overlay body 2",
               overlayCtaLabel: "解锁完整报告",
@@ -294,19 +316,19 @@ function createStoragePayload(
         relationships: {
           intro: [`relationships intro 1 ${tag}`, `relationships intro 2 ${tag}`],
           strengths: {
-            title: `relationships strengths ${tag}`,
+            title: "关系优势",
             items: [{ title: `relationships strengths item ${tag}`, description: `relationships strengths body ${tag}` }],
           },
           weaknesses: {
-            title: `relationships weaknesses ${tag}`,
+            title: "关系短板",
             items: [{ title: `relationships weaknesses item ${tag}`, description: `relationships weaknesses body ${tag}` }],
           },
           superpowers: {
-            title: `superpowers ${tag}`,
+            title: "关系超级优势",
             items: [{ title: `superpowers item ${tag}`, description: `superpowers body ${tag}` }],
           },
           pitfalls: {
-            title: `pitfalls ${tag}`,
+            title: "关系潜在陷阱",
             items: [{ title: `pitfalls item ${tag}`, description: `pitfalls body ${tag}` }],
           },
           influentialTraits: [
@@ -317,7 +339,18 @@ function createStoragePayload(
           ],
           visibleBlocks: [
             {
-              title: `visible ${tag}`,
+              title: "Strengths",
+              items: [
+                { title: "item 1", body: "body 1" },
+                { title: "item 2", body: "body 2" },
+                { title: "item 3", body: "body 3" },
+                { title: "item 4", body: "body 4" },
+                { title: "item 5", body: "body 5" },
+                { title: "item 6", body: "body 6" },
+              ],
+            },
+            {
+              title: "Weaknesses",
               items: [
                 { title: "item 1", body: "body 1" },
                 { title: "item 2", body: "body 2" },
@@ -330,7 +363,7 @@ function createStoragePayload(
           ],
           lockedBlocks: [
             {
-              title: `locked 1 ${tag}`,
+              title: `relationships locked 1 ${tag}`,
               overlayTitle: "overlay 1",
               overlayBody: "overlay body 1",
               overlayCtaLabel: "解锁完整报告",
@@ -344,7 +377,7 @@ function createStoragePayload(
               ],
             },
             {
-              title: `locked 2 ${tag}`,
+              title: `relationships locked 2 ${tag}`,
               overlayTitle: "overlay 2",
               overlayBody: "overlay body 2",
               overlayCtaLabel: "解锁完整报告",
@@ -396,13 +429,17 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "e
   );
 }
 
+function expectBefore(source: HTMLElement, target: HTMLElement) {
+  expect(source.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
+}
+
 beforeEach(() => {
   vi.clearAllMocks();
   vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
 });
 
-describe("MBTI desktop clone p1 render contract", () => {
-  it("renders INFJ-A career ideas and work styles", async () => {
+describe("MBTI desktop chapter structure convergence contract", () => {
+  it("converges Career chapter to a single system and keeps unlock position", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -411,11 +448,32 @@ describe("MBTI desktop clone p1 render contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    expect(await screen.findByTestId("mbti-p1-career-career-ideas")).toHaveTextContent("career ideas infj-a");
-    expect(screen.getByTestId("mbti-p1-career-work-styles")).toHaveTextContent("work styles infj-a");
+    const section = document.querySelector("#career") as HTMLElement;
+    const scoped = within(section);
+
+    const traitsTitle = scoped.getByText("Influential Traits");
+    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const strengthsCard = scoped.getByTestId("mbti-p0-career-strengths");
+
+    expect(scoped.getByText("职业优势")).toBeInTheDocument();
+    expect(scoped.getByText("职业短板")).toBeInTheDocument();
+    expect(scoped.getByText("匹配岗位建议")).toBeInTheDocument();
+    expect(scoped.getByText("匹配阅读指南")).toBeInTheDocument();
+    expect(scoped.queryByText("Strengths")).not.toBeInTheDocument();
+    expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
+    expect(scoped.queryByText("职业方向建议")).not.toBeInTheDocument();
+    expect(scoped.queryByText("工作风格建议")).not.toBeInTheDocument();
+
+    expect(screen.getAllByText("职业优势")).toHaveLength(1);
+    expect(screen.getAllByText("职业短板")).toHaveLength(1);
+    expect(screen.getAllByText("匹配岗位建议")).toHaveLength(1);
+    expect(screen.getAllByText("匹配阅读指南")).toHaveLength(1);
+
+    expectBefore(traitsTitle as HTMLElement, unlockTitle as HTMLElement);
+    expectBefore(unlockTitle as HTMLElement, strengthsCard);
   });
 
-  it("renders ENTJ-T what energizes and what drains", async () => {
+  it("converges Growth chapter to a single system and keeps unlock position", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ENTJ-T"));
 
     renderShell("ENTJ-T");
@@ -424,11 +482,26 @@ describe("MBTI desktop clone p1 render contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENTJ-T", "zh");
     });
 
-    expect(await screen.findByTestId("mbti-p1-growth-what-energizes")).toHaveTextContent("what energizes entj-t");
-    expect(screen.getByTestId("mbti-p1-growth-what-drains")).toHaveTextContent("what drains entj-t");
+    const section = document.querySelector("#growth") as HTMLElement;
+    const scoped = within(section);
+
+    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const strengthsCard = scoped.getByTestId("mbti-p0-growth-strengths");
+
+    expect(scoped.getByText("成长优势")).toBeInTheDocument();
+    expect(scoped.getByText("成长短板")).toBeInTheDocument();
+    expect(scoped.queryByText("Strengths")).not.toBeInTheDocument();
+    expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
+    expect(scoped.queryByText("什么让你充电")).not.toBeInTheDocument();
+    expect(scoped.queryByText("什么让你消耗")).not.toBeInTheDocument();
+
+    expect(screen.getAllByText("成长优势")).toHaveLength(1);
+    expect(screen.getAllByText("成长短板")).toHaveLength(1);
+
+    expectBefore(unlockTitle as HTMLElement, strengthsCard);
   });
 
-  it("renders ISTP-A relationship superpowers and pitfalls", async () => {
+  it("converges Relationships chapter to a single system and keeps unlock position", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
 
     renderShell("ISTP-A");
@@ -437,45 +510,61 @@ describe("MBTI desktop clone p1 render contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ISTP-A", "zh");
     });
 
-    expect(await screen.findByTestId("mbti-p1-relationships-superpowers")).toHaveTextContent("superpowers istp-a");
-    expect(screen.getByTestId("mbti-p1-relationships-pitfalls")).toHaveTextContent("pitfalls istp-a");
+    const section = document.querySelector("#relationships") as HTMLElement;
+    const scoped = within(section);
+
+    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const strengthsCard = scoped.getByTestId("mbti-p0-relationships-strengths");
+
+    expect(scoped.getByText("关系优势")).toBeInTheDocument();
+    expect(scoped.getByText("关系短板")).toBeInTheDocument();
+    expect(scoped.queryByText("Strengths")).not.toBeInTheDocument();
+    expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
+    expect(scoped.queryByText("关系超级优势")).not.toBeInTheDocument();
+    expect(scoped.queryByText("关系潜在陷阱")).not.toBeInTheDocument();
+
+    expect(screen.getAllByText("关系优势")).toHaveLength(1);
+    expect(screen.getAllByText("关系短板")).toHaveLength(1);
+
+    expectBefore(unlockTitle as HTMLElement, strengthsCard);
   });
 
-  it("hides only the missing p1 module and keeps page stable", async () => {
-    const payload = createStoragePayload("ENTJ-T");
-    delete payload.content.chapters.growth.whatEnergizes;
-
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(payload);
-
-    renderShell("ENTJ-T");
-
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENTJ-T", "zh");
-    });
-
-    expect(await screen.findByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-p1-growth-what-energizes")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-p1-growth-what-drains")).toBeInTheDocument();
-  });
-
-  it("keeps p1 modules before locked blocks in chapter flow", async () => {
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+  it("keeps hero/rail/final-offer and asset slots stable after convergence", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(
+      createStoragePayload("INFJ-A", {
+        assetSlots: createAssetSlots({
+          hero: {
+            slotId: "hero-illustration",
+            label: "Hero Ready",
+            aspectRatio: "236:160",
+            status: "ready",
+            assetRef: {
+              provider: "cdn",
+              path: "mbti/desktop/hero/infj-a/v1.webp",
+              url: "https://cdn.example.com/mbti/desktop/hero/infj-a/v1.webp",
+              version: "v1",
+              checksum: "sha256:test",
+            },
+            alt: "Hero ready",
+            meta: null,
+          },
+        }),
+      }),
+    );
 
     renderShell("INFJ-A");
 
-    const careerSection = document.querySelector("#career");
-    expect(careerSection).not.toBeNull();
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
+    });
 
-    const scoped = within(careerSection as HTMLElement);
-    const careerIdeas = await scoped.findByTestId("mbti-p1-career-career-ideas");
-    const workStyles = scoped.getByTestId("mbti-p1-career-work-styles");
-    const firstLockedTitle = scoped.getByText("locked 1 infj-a");
-
-    expect(careerIdeas.compareDocumentPosition(firstLockedTitle) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
-    expect(workStyles.compareDocumentPosition(firstLockedTitle) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
+    expect(await screen.findByTestId("mbti-hero")).toHaveTextContent("hero infj-a");
+    expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-id", "hero-illustration");
   });
 
-  it("does not fetch or render p1 modules for non-zh locale", async () => {
+  it("keeps non-zh path stable without rendering desktop clone storage modules", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A", "en");
@@ -485,44 +574,8 @@ describe("MBTI desktop clone p1 render contract", () => {
     });
 
     expect(fetchPersonalityDesktopCloneContent).not.toHaveBeenCalled();
-    expect(screen.queryByTestId("mbti-p1-career-career-ideas")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-p1-career-work-styles")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-p1-growth-what-energizes")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-p1-growth-what-drains")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-p1-relationships-superpowers")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-p1-relationships-pitfalls")).not.toBeInTheDocument();
-  });
-
-  it("keeps p0 modules CTA and asset-slot structure stable", async () => {
-    const payload = createStoragePayload("INFJ-A", {
-      assetSlots: createAssetSlots({
-        hero: {
-          slotId: "hero-illustration",
-          label: "Hero Ready",
-          aspectRatio: "236:160",
-          status: "ready",
-          assetRef: {
-            provider: "cdn",
-            path: "mbti/desktop/hero/infj-a/v1.webp",
-            url: "https://cdn.example.com/mbti/desktop/hero/infj-a/v1.webp",
-            version: "v1",
-            checksum: "sha256:test",
-          },
-          alt: "Hero ready",
-          meta: null,
-        },
-      }),
-    });
-    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(payload);
-
-    renderShell("INFJ-A");
-
-    await waitFor(() => {
-      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
-    });
-
-    expect(await screen.findByTestId("mbti-p0-career-strengths")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-id", "hero-illustration");
+    expect(screen.queryByText("职业优势")).not.toBeInTheDocument();
+    expect(screen.queryByText("成长优势")).not.toBeInTheDocument();
+    expect(screen.queryByText("关系优势")).not.toBeInTheDocument();
   });
 });
