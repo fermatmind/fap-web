@@ -1287,7 +1287,13 @@ export function RichResultReport({
   const headline = resolveHeadline(scaleCode, reportData);
   const big5Projection = scaleCode === "BIG5_OCEAN" ? resolveBig5Projection(reportData) : null;
   const tags = resolveVisibleTags(reportData);
-  const dimensions = normalizeDimensions(scaleCode, reportData, locale);
+  const projectionViewModel = scaleCode === "MBTI" ? buildMbtiResultProjectionViewModel(reportData) : null;
+  const dimensions =
+    scaleCode === "MBTI" && projectionViewModel?.dimensions.length
+      ? projectionViewModel.dimensions
+      : scaleCode === "MBTI"
+        ? []
+        : normalizeDimensions(scaleCode, reportData, locale);
   const highlights = normalizeHighlights(reportData, gate, locale);
   const recommendedReads = resolveRecommendedReads(reportData);
   const sections = normalizeRichSections(reportData, locale, gate);
@@ -1296,7 +1302,6 @@ export function RichResultReport({
   const resolvedOffers = offers.map((offer) => resolveOfferCopy(offer, locale));
 
   if (scaleCode === "MBTI") {
-    const projectionViewModel = buildMbtiResultProjectionViewModel(reportData);
     const sectionUnlocks = Object.fromEntries(
       sections.map((section) => {
         const sectionKey = normalizeText(section.key).toLowerCase();

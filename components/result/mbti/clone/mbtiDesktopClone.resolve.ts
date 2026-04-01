@@ -57,23 +57,39 @@ function resolveDisplayTitle(headline: RichResultHeadline, projectionViewModel?:
   return normalizeText(headline.displayName, projectionViewModel?.typeName, headline.typeCode, "MBTI");
 }
 
+function normalizeDimensionPercent(dimension: Record<string, unknown> | null | undefined): number {
+  const value = Number(
+    dimension?.dominantPct ??
+      dimension?.dominant_pct ??
+      dimension?.percent ??
+      dimension?.pct ??
+      0,
+  );
+
+  return Number.isFinite(value) ? Math.round(value) : 0;
+}
+
 function buildDimensionSummary(
   dimensions: Array<Record<string, unknown>>,
   headline: RichResultHeadline,
   projectionViewModel?: MbtiResultProjectionViewModel | null,
 ) {
-  const primary =
-    [...dimensions].sort(
-      (left, right) =>
-        Number(right.percent ?? right.score ?? right.value ?? 0) - Number(left.percent ?? left.score ?? left.value ?? 0),
-    )[0] ?? null;
-  const percent = Number(primary?.percent ?? primary?.score ?? primary?.value ?? 0);
-  const roundedPercent = Number.isFinite(percent) ? Math.round(percent) : 0;
+  const primary = dimensions[0] ?? null;
+  const roundedPercent = normalizeDimensionPercent(primary);
   const fallback = MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.traits.summaryPane;
+  const axisTitle = normalizeText(primary?.axisTitle, primary?.axis_title, primary?.label, fallback.eyebrow);
+  const dominantLabel = normalizeText(
+    primary?.dominantLabel,
+    primary?.dominant_label,
+    primary?.sideLabel,
+    primary?.side_label,
+    resolveDisplayTitle(headline, projectionViewModel),
+    fallback.title,
+  );
 
   return {
-    eyebrow: fallback.eyebrow,
-    title: normalizeText(primary?.winnerLabel, primary?.sideLabel, resolveDisplayTitle(headline, projectionViewModel), fallback.title),
+    eyebrow: axisTitle || fallback.eyebrow,
+    title: dominantLabel,
     value: roundedPercent > 0 ? `${roundedPercent}%` : fallback.value,
     body: normalizeText(primary?.summary, headline.supportingLine, headline.summary, fallback.body),
   };

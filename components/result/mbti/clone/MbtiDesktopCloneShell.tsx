@@ -237,10 +237,11 @@ export function MbtiDesktopCloneShell({
     };
   }, [fullCodeForStorage, locale]);
 
+  const traitDimensions = projectionViewModel?.dimensions?.length ? projectionViewModel.dimensions : dimensions;
   const slots = resolveMbtiDesktopCloneSlots({
     locale,
     headline,
-    dimensions,
+    dimensions: traitDimensions,
     highlights,
     sections,
     sectionUnlocks,
@@ -295,15 +296,16 @@ export function MbtiDesktopCloneShell({
             </section>
 
             <MbtiCloneTraitsSection
+              locale={locale}
               title={slots.traits.title}
               illustrationSlotId={slots.traits.asset.slotId}
               illustrationLabel={slots.traits.asset.label}
               assetSlots={storageAssetSlots}
-              dimensions={dimensions}
-              summaryTitle={slots.traits.summaryPane.eyebrow}
-              summaryValue={slots.traits.summaryPane.value}
-              summaryLabel={slots.traits.summaryPane.title}
-              summaryDescription={slots.traits.summaryPane.body}
+              dimensions={traitDimensions}
+              summaryTitleFallback={slots.traits.summaryPane.eyebrow}
+              summaryValueFallback={slots.traits.summaryPane.value}
+              summaryLabelFallback={slots.traits.summaryPane.title}
+              summaryDescriptionFallback={slots.traits.summaryPane.body}
               summarySlotId={slots.traits.summaryPane.asset.slotId}
               summarySlotLabel={slots.traits.summaryPane.asset.label}
               paragraphs={traitBodyParagraphs}

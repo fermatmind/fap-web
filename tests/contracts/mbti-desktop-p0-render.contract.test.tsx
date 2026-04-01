@@ -6,6 +6,7 @@ import {
   fetchPersonalityDesktopCloneContent,
   type PersonalityDesktopCloneContentPayload,
 } from "@/lib/cms/personality-desktop-clone";
+import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
@@ -31,6 +32,32 @@ function createSectionUnlocks(): Record<string, MbtiSectionUnlock> {
     career: { teaser: "career teaser", benefits: ["career benefit"], offer: null },
     growth: { teaser: "growth teaser", benefits: ["growth benefit"], offer: null },
     relationships: { teaser: "relationships teaser", benefits: ["relationships benefit"], offer: null },
+  };
+}
+
+function createProjectionViewModel(
+  dimensions: Array<Record<string, unknown>>,
+): MbtiResultProjectionViewModel {
+  return {
+    canonicalTypeCode: "INFJ",
+    displayType: "INFJ-A",
+    variantCode: "A",
+    typeName: "INFJ 类型",
+    nickname: "",
+    rarity: "",
+    keywords: [],
+    heroSummary: "",
+    title: "INFJ 类型",
+    subtitle: "",
+    summary: "",
+    tagline: "",
+    publicTags: [],
+    dimensions: dimensions as MbtiResultProjectionViewModel["dimensions"],
+    sections: [],
+    seo: null,
+    rawProjection: null,
+    hasProjection: true,
+    personalization: null,
   };
 }
 
@@ -296,6 +323,36 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "e
   );
 }
 
+function renderShellWithProjection({
+  typeCode = "INFJ-A",
+  locale = "zh",
+  projectionViewModel,
+}: {
+  typeCode?: "INFJ-A" | "ENTJ-T" | "ISTP-A";
+  locale?: "zh" | "en";
+  projectionViewModel: MbtiResultProjectionViewModel;
+}) {
+  return render(
+    <MbtiDesktopCloneShell
+      locale={locale}
+      headline={createHeadline(typeCode)}
+      tags={[]}
+      dimensions={[]}
+      highlights={[]}
+      sections={[]}
+      sectionUnlocks={createSectionUnlocks()}
+      offers={[]}
+      projectionViewModel={projectionViewModel}
+      isUnlocked={false}
+      shareCtaLabel="分享"
+      onShare={vi.fn()}
+      retakeHref="/zh/test/mbti"
+      primaryCtaLabel="去结算"
+      primaryCtaHref="/zh/pay/checkout"
+    />,
+  );
+}
+
 function expectBefore(before: HTMLElement, after: HTMLElement) {
   expect(before.compareDocumentPosition(after) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 }
@@ -425,5 +482,74 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(screen.getByTestId("mbti-traits-body")).toHaveAttribute("data-body-source", "traits");
     expect(screen.queryByTestId("mbti-p0-career-matched-jobs")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-career-matched-guides")).not.toBeInTheDocument();
+  });
+
+  it("renders dominant-side percent instead of raw first-pole percent in the traits bars", async () => {
+    renderShellWithProjection({
+      projectionViewModel: createProjectionViewModel([
+        {
+          axisCode: "SN",
+          axisTitle: "Mind",
+          leftPole: "Observant",
+          rightPole: "Intuitive",
+          leftCode: "S",
+          rightCode: "N",
+          rawFirstPolePct: 25,
+          dominantPole: "N",
+          dominantLabel: "Intuitive",
+          dominantPct: 75,
+          oppositePct: 25,
+          strengthBand: "clear",
+          summary: "You focus on patterns and distant possibilities.",
+          percent: 75,
+          side: "N",
+          sideLabel: "Intuitive",
+          label: "Mind",
+        },
+      ]),
+    });
+
+    const traitsAxis = await screen.findByTestId("mbti-traits-axis-SN");
+    expect(traitsAxis).toHaveTextContent("75%");
+    expect(traitsAxis).toHaveTextContent("Intuitive");
+    expect(traitsAxis).not.toHaveTextContent("25%");
+
+    const summaryPane = screen.getByTestId("mbti-traits-summary-pane");
+    expect(summaryPane).toHaveTextContent("Mind");
+    expect(summaryPane).toHaveTextContent("75%");
+    expect(summaryPane).toHaveTextContent("Intuitive");
+  });
+
+  it("renders canonical traits summary on non-zh pages without storage content", async () => {
+    renderShellWithProjection({
+      locale: "en",
+      projectionViewModel: createProjectionViewModel([
+        {
+          axisCode: "EI",
+          axisTitle: "Energy",
+          leftPole: "Extraverted",
+          rightPole: "Introverted",
+          leftCode: "E",
+          rightCode: "I",
+          rawFirstPolePct: 35,
+          dominantPole: "I",
+          dominantLabel: "Introverted",
+          dominantPct: 65,
+          oppositePct: 35,
+          strengthBand: "clear",
+          summary: "You prefer fewer, deeper interactions and quieter spaces.",
+          percent: 65,
+          side: "I",
+          sideLabel: "Introverted",
+          label: "Energy",
+        },
+      ]),
+    });
+
+    const summaryPane = await screen.findByTestId("mbti-traits-summary-pane");
+    expect(summaryPane).toHaveTextContent("Energy");
+    expect(summaryPane).toHaveTextContent("65%");
+    expect(summaryPane).toHaveTextContent("Introverted");
+    expect(summaryPane).toHaveTextContent("You prefer fewer, deeper interactions and quieter spaces.");
   });
 });

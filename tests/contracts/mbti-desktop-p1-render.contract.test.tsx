@@ -8,6 +8,7 @@ import {
   type PersonalityDesktopCloneContentPayload,
 } from "@/lib/cms/personality-desktop-clone";
 import type { TraitUnlockBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
@@ -33,6 +34,32 @@ function createSectionUnlocks(): Record<string, MbtiSectionUnlock> {
     career: { teaser: "career teaser", benefits: ["career benefit"], offer: null },
     growth: { teaser: "growth teaser", benefits: ["growth benefit"], offer: null },
     relationships: { teaser: "relationships teaser", benefits: ["relationships benefit"], offer: null },
+  };
+}
+
+function createProjectionViewModel(
+  dimensions: Array<Record<string, unknown>>,
+): MbtiResultProjectionViewModel {
+  return {
+    canonicalTypeCode: "INFJ",
+    displayType: "INFJ-A",
+    variantCode: "A",
+    typeName: "INFJ 类型",
+    nickname: "",
+    rarity: "",
+    keywords: [],
+    heroSummary: "",
+    title: "INFJ 类型",
+    subtitle: "",
+    summary: "",
+    tagline: "",
+    publicTags: [],
+    dimensions: dimensions as MbtiResultProjectionViewModel["dimensions"],
+    sections: [],
+    seo: null,
+    rawProjection: null,
+    hasProjection: true,
+    personalization: null,
   };
 }
 
@@ -454,6 +481,38 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "e
   );
 }
 
+function renderShellWithProjection({
+  typeCode = "INFJ-A",
+  locale = "zh",
+  isUnlocked = false,
+  projectionViewModel,
+}: {
+  typeCode?: "INFJ-A" | "ENTJ-T" | "ISTP-A";
+  locale?: "zh" | "en";
+  isUnlocked?: boolean;
+  projectionViewModel: MbtiResultProjectionViewModel;
+}) {
+  return render(
+    <MbtiDesktopCloneShell
+      locale={locale}
+      headline={createHeadline(typeCode)}
+      tags={[]}
+      dimensions={[]}
+      highlights={[]}
+      sections={[]}
+      sectionUnlocks={createSectionUnlocks()}
+      offers={[]}
+      projectionViewModel={projectionViewModel}
+      isUnlocked={isUnlocked}
+      shareCtaLabel="分享"
+      onShare={vi.fn()}
+      retakeHref="/zh/test/mbti"
+      primaryCtaLabel="去结算"
+      primaryCtaHref="/zh/pay/checkout"
+    />,
+  );
+}
+
 function expectBefore(source: HTMLElement, target: HTMLElement) {
   expect(source.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
 }
@@ -729,5 +788,98 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(screen.queryByText("职业优势")).not.toBeInTheDocument();
     expect(screen.queryByText("成长优势")).not.toBeInTheDocument();
     expect(screen.queryByText("关系优势")).not.toBeInTheDocument();
+  });
+
+  it("switches the right traits card when a different axis is selected and keeps left/right same-source", async () => {
+    renderShellWithProjection({
+      projectionViewModel: createProjectionViewModel([
+        {
+          axisCode: "EI",
+          axisTitle: "Energy",
+          leftPole: "Extraverted",
+          rightPole: "Introverted",
+          leftCode: "E",
+          rightCode: "I",
+          rawFirstPolePct: 35,
+          dominantPole: "I",
+          dominantLabel: "Introverted",
+          dominantPct: 65,
+          oppositePct: 35,
+          strengthBand: "clear",
+          summary: "You prefer fewer, deeper interactions and quieter spaces.",
+          percent: 65,
+          side: "I",
+          sideLabel: "Introverted",
+          label: "Energy",
+        },
+        {
+          axisCode: "SN",
+          axisTitle: "Mind",
+          leftPole: "Observant",
+          rightPole: "Intuitive",
+          leftCode: "S",
+          rightCode: "N",
+          rawFirstPolePct: 25,
+          dominantPole: "N",
+          dominantLabel: "Intuitive",
+          dominantPct: 75,
+          oppositePct: 25,
+          strengthBand: "clear",
+          summary: "You focus on patterns and distant possibilities.",
+          percent: 75,
+          side: "N",
+          sideLabel: "Intuitive",
+          label: "Mind",
+        },
+        {
+          axisCode: "TF",
+          axisTitle: "Nature",
+          leftPole: "Thinking",
+          rightPole: "Feeling",
+          leftCode: "T",
+          rightCode: "F",
+          rawFirstPolePct: 58,
+          dominantPole: "T",
+          dominantLabel: "Thinking",
+          dominantPct: 58,
+          oppositePct: 42,
+          strengthBand: "moderate",
+          summary: "You lean toward clear logic and consistent principles in decisions.",
+          percent: 58,
+          side: "T",
+          sideLabel: "Thinking",
+          label: "Nature",
+        },
+      ]),
+    });
+
+    const summaryPane = await screen.findByTestId("mbti-traits-summary-pane");
+    const energyAxis = screen.getByTestId("mbti-traits-axis-EI");
+    const mindAxis = screen.getByTestId("mbti-traits-axis-SN");
+    const natureAxis = screen.getByTestId("mbti-traits-axis-TF");
+
+    expect(energyAxis).toHaveAttribute("data-state", "active");
+    expect(summaryPane).toHaveTextContent("Energy");
+    expect(summaryPane).toHaveTextContent("65%");
+    expect(summaryPane).toHaveTextContent("Introverted");
+    expect(summaryPane).toHaveTextContent("You prefer fewer, deeper interactions and quieter spaces.");
+
+    fireEvent.click(mindAxis);
+
+    expect(mindAxis).toHaveAttribute("data-state", "active");
+    expect(energyAxis).toHaveAttribute("data-state", "idle");
+    expect(summaryPane).toHaveTextContent("Mind");
+    expect(summaryPane).toHaveTextContent("75%");
+    expect(summaryPane).toHaveTextContent("Intuitive");
+    expect(summaryPane).toHaveTextContent("You focus on patterns and distant possibilities.");
+    expect(summaryPane).not.toHaveTextContent("25%");
+
+    fireEvent.click(natureAxis);
+
+    expect(natureAxis).toHaveAttribute("data-state", "active");
+    expect(summaryPane).toHaveTextContent("Nature");
+    expect(summaryPane).toHaveTextContent("58%");
+    expect(summaryPane).toHaveTextContent("Thinking");
+    expect(summaryPane).toHaveTextContent("You lean toward clear logic and consistent principles in decisions.");
   });
 });
