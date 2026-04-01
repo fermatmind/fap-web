@@ -15,6 +15,33 @@ function jsonResponse(payload: unknown, status = 200): Response {
 }
 
 function createValidPayload(tag: string) {
+  const createTraitsUnlock = (chapter: "career" | "growth" | "relationships") => {
+    const expressionKey =
+      chapter === "career" ? "career_expression" : chapter === "growth" ? "growth_expression" : "relationship_expression";
+    const advantageKey =
+      chapter === "career" ? "career_advantage" : chapter === "growth" ? "growth_advantage" : "relationship_advantage";
+
+    return {
+      title: `${chapter} traits unlock title ${tag}`,
+      intro: `${chapter} traits unlock intro ${tag}`,
+      items: [1, 2, 3, 4].map((index) => ({
+        id: `${chapter}-trait-${index}`,
+        label: `${chapter} trait ${index} ${tag}`,
+        role: `${chapter} role ${index} ${tag}`,
+        definition: `${chapter} definition ${index} ${tag}`,
+        why_it_matters: `${chapter} why ${index} ${tag}`,
+        [expressionKey]: `${chapter} expression ${index} ${tag}`,
+        [advantageKey]: `${chapter} advantage ${index} ${tag}`,
+        overuse_risk: `${chapter} overuse ${index} ${tag}`,
+        real_world_signal: `${chapter} signal ${index} ${tag}`,
+        upgrade_hint: `${chapter} hint ${index} ${tag}`,
+        links_to_existing_blocks: {
+          summary: [`${chapter}.summary`],
+        },
+      })),
+    };
+  };
+
   return {
     ok: true,
     template_key: "mbti_desktop_clone_v1",
@@ -90,6 +117,7 @@ function createValidPayload(tag: string) {
             { label: `career trait 3 ${tag}`, body: "body 3", colorKey: "green" },
             { label: `career trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
           ],
+          traits_unlock: createTraitsUnlock("career"),
           visibleBlocks: [
             {
               title: `career visible ${tag}`,
@@ -166,6 +194,7 @@ function createValidPayload(tag: string) {
             { label: `growth trait 3 ${tag}`, body: "body 3", colorKey: "green" },
             { label: `growth trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
           ],
+          traits_unlock: createTraitsUnlock("growth"),
           visibleBlocks: [
             {
               title: `growth visible ${tag}`,
@@ -242,6 +271,7 @@ function createValidPayload(tag: string) {
             { label: `relationships trait 3 ${tag}`, body: "body 3", colorKey: "green" },
             { label: `relationships trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
           ],
+          traits_unlock: createTraitsUnlock("relationships"),
           visibleBlocks: [
             {
               title: `relationships visible ${tag}`,
@@ -411,6 +441,22 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.content.chapters.relationships.weaknesses?.items[0]?.description).toBe("relationships weaknesses body 1 seed");
     expect(result?.content.chapters.career.matchedJobs?.fitBucket).toBe("primary");
     expect(result?.content.chapters.career.matchedGuides?.fitReason).toBe("matched guides reason seed");
+    expect(result?.content.chapters.career.traitsUnlock?.title).toBe("career traits unlock title seed");
+    expect(result?.content.chapters.career.traitsUnlock?.items[0]?.label).toBe("career trait 1 seed");
+    expect(result?.content.chapters.career.traitsUnlock?.items[0]?.expression).toBe("career expression 1 seed");
+    expect(result?.content.chapters.career.traitsUnlock?.items[0]?.linksToExistingBlocks).toEqual({
+      summary: ["career.summary"],
+    });
+    expect(result?.content.chapters.growth.traitsUnlock?.items[0]?.label).toBe("growth trait 1 seed");
+    expect(result?.content.chapters.growth.traitsUnlock?.items[0]?.advantage).toBe("growth advantage 1 seed");
+    expect(result?.content.chapters.growth.traitsUnlock?.items[0]?.linksToExistingBlocks).toEqual({
+      summary: ["growth.summary"],
+    });
+    expect(result?.content.chapters.relationships.traitsUnlock?.items[0]?.label).toBe("relationships trait 1 seed");
+    expect(result?.content.chapters.relationships.traitsUnlock?.items[0]?.expression).toBe("relationships expression 1 seed");
+    expect(result?.content.chapters.relationships.traitsUnlock?.items[0]?.linksToExistingBlocks).toEqual({
+      summary: ["relationships.summary"],
+    });
     // Deprecated transition fields remain adapter-visible for compatibility,
     // but this assertion does not imply they are rendered in desktop main flow.
     expect(result?.content.chapters.career.careerIdeas?.items[0]?.description).toBe("career ideas body 1 seed");
@@ -451,6 +497,9 @@ describe("personality desktop clone api adapter contract", () => {
     delete growth.what_drains;
     delete relationships.superpowers;
     delete relationships.pitfalls;
+    delete career.traits_unlock;
+    delete growth.traits_unlock;
+    delete relationships.traits_unlock;
 
     vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(payload)));
 
@@ -466,6 +515,9 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.content.chapters.growth.whatDrains).toBeUndefined();
     expect(result?.content.chapters.relationships.superpowers).toBeUndefined();
     expect(result?.content.chapters.relationships.pitfalls).toBeUndefined();
+    expect(result?.content.chapters.career.traitsUnlock).toBeUndefined();
+    expect(result?.content.chapters.growth.traitsUnlock).toBeUndefined();
+    expect(result?.content.chapters.relationships.traitsUnlock).toBeUndefined();
   });
 
   it("returns null for unsupported fullCode slug input", async () => {

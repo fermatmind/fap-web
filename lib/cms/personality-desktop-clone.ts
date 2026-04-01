@@ -15,6 +15,8 @@ import type {
   RelationshipInsightBlock,
   StrengthWeaknessBlock,
   TraitSlot,
+  TraitUnlockBlock,
+  TraitUnlockItem,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
 const DEFAULT_ORG_ID = "0";
@@ -146,6 +148,10 @@ function isTraitSlot(value: unknown): value is TraitSlot {
 
 function isTraitTuple4(value: unknown): value is [TraitSlot, TraitSlot, TraitSlot, TraitSlot] {
   return Array.isArray(value) && value.length === 4 && value.every(isTraitSlot);
+}
+
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((entry) => normalizeText(entry).length > 0);
 }
 
 function isVisibleBlocks(value: unknown): value is [ContentListBlock, ContentListBlock?] {
@@ -354,6 +360,111 @@ function normalizeMatchedGuides(value: unknown): MatchedGuidesBlock | undefined 
   };
 }
 
+function normalizeTraitUnlockLinks(value: unknown): TraitUnlockItem["linksToExistingBlocks"] | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+
+  const normalizedEntries = Object.entries(value)
+    .map(([key, paths]) => {
+      const normalizedKey = normalizeText(key);
+      if (!normalizedKey || !isStringArray(paths)) {
+        return null;
+      }
+
+      const normalizedPaths = paths
+        .map((path) => normalizeText(path))
+        .filter((path): path is string => path.length > 0);
+
+      if (normalizedPaths.length === 0) {
+        return null;
+      }
+
+      return [normalizedKey, normalizedPaths] as const;
+    })
+    .filter((entry): entry is readonly [string, string[]] => entry !== null);
+
+  if (normalizedEntries.length === 0) {
+    return undefined;
+  }
+
+  return Object.fromEntries(normalizedEntries);
+}
+
+function normalizeTraitUnlockItem(value: unknown, chapterKey: "career" | "growth" | "relationships"): TraitUnlockItem | null {
+  if (!isRecord(value)) {
+    return null;
+  }
+
+  const id = normalizeText(value.id);
+  const label = normalizeText(value.label);
+  const role = normalizeText(value.role);
+  const definition = normalizeText(value.definition);
+  const whyItMatters = normalizeText(value.why_it_matters ?? value.whyItMatters);
+  const expression = normalizeText(
+    chapterKey === "career"
+      ? value.career_expression
+      : chapterKey === "growth"
+        ? value.growth_expression
+        : value.relationship_expression,
+  );
+  const advantage = normalizeText(
+    chapterKey === "career"
+      ? value.career_advantage
+      : chapterKey === "growth"
+        ? value.growth_advantage
+        : value.relationship_advantage,
+  );
+  const overuseRisk = normalizeText(value.overuse_risk ?? value.overuseRisk);
+  const realWorldSignal = normalizeText(value.real_world_signal ?? value.realWorldSignal);
+  const upgradeHint = normalizeText(value.upgrade_hint ?? value.upgradeHint);
+
+  if (!id || !label || !role || !definition || !whyItMatters || !expression || !advantage || !overuseRisk || !realWorldSignal || !upgradeHint) {
+    return null;
+  }
+
+  return {
+    id,
+    label,
+    role,
+    definition,
+    whyItMatters,
+    expression,
+    advantage,
+    overuseRisk,
+    realWorldSignal,
+    upgradeHint,
+    linksToExistingBlocks: normalizeTraitUnlockLinks(value.links_to_existing_blocks ?? value.linksToExistingBlocks),
+  };
+}
+
+function normalizeTraitsUnlock(value: unknown, chapterKey: "career" | "growth" | "relationships"): TraitUnlockBlock | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+
+  const title = normalizeText(value.title);
+  const intro = normalizeText(value.intro);
+
+  if (!title || !intro || !Array.isArray(value.items) || value.items.length !== 4) {
+    return undefined;
+  }
+
+  const items = value.items
+    .map((item) => normalizeTraitUnlockItem(item, chapterKey))
+    .filter((item): item is TraitUnlockItem => item !== null);
+
+  if (items.length !== 4) {
+    return undefined;
+  }
+
+  return {
+    title,
+    intro,
+    items: items as [TraitUnlockItem, TraitUnlockItem, TraitUnlockItem, TraitUnlockItem],
+  };
+}
+
 function normalizeLettersIntro(value: unknown): MbtiDesktopCloneContent["lettersIntro"] | undefined {
   if (!isRecord(value)) {
     return undefined;
@@ -422,6 +533,7 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
         matchedGuides: normalizeMatchedGuides(career.matched_guides ?? career.matchedGuides),
         careerIdeas: normalizeIdeaListBlock(career.career_ideas ?? career.careerIdeas),
         workStyles: normalizeIdeaListBlock(career.work_styles ?? career.workStyles),
+        traitsUnlock: normalizeTraitsUnlock(career.traits_unlock ?? career.traitsUnlock, "career"),
       },
       growth: {
         ...typedContent.chapters.growth,
@@ -429,6 +541,7 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
         weaknesses: normalizeStrengthWeakness(growth.weaknesses),
         whatEnergizes: normalizeEnergyBlock(growth.what_energizes ?? growth.whatEnergizes),
         whatDrains: normalizeEnergyBlock(growth.what_drains ?? growth.whatDrains),
+        traitsUnlock: normalizeTraitsUnlock(growth.traits_unlock ?? growth.traitsUnlock, "growth"),
       },
       relationships: {
         ...typedContent.chapters.relationships,
@@ -436,6 +549,7 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
         weaknesses: normalizeStrengthWeakness(relationships.weaknesses),
         superpowers: normalizeRelationshipInsightBlock(relationships.superpowers),
         pitfalls: normalizeRelationshipInsightBlock(relationships.pitfalls),
+        traitsUnlock: normalizeTraitsUnlock(relationships.traits_unlock ?? relationships.traitsUnlock, "relationships"),
       },
     },
     finalOffer: typedContent.finalOffer,

@@ -774,12 +774,33 @@
   gap: 10px;
 }
 
+.traitSlotButton {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: default;
+}
+
+.traitSlotButton[data-interactive="true"] {
+  cursor: pointer;
+}
+
 .traitSlot {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   text-align: center;
+}
+
+.traitSlotButton[data-active="true"] .traitSlotIcon {
+  box-shadow: 0 0 0 3px rgba(54, 173, 115, 0.16);
+  transform: translateY(-1px);
+}
+
+.traitSlotButton:disabled {
+  opacity: 1;
 }
 
 .traitSlot[data-placeholder="true"] .traitSlotLabel {
@@ -942,6 +963,85 @@
 .unlockedStateBody {
   font-size: 12px;
   line-height: 1.6;
+  color: var(--clone-body);
+}
+
+.traitsUnlockPanel {
+  border: 1px solid var(--clone-border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fbfcfd 0%, #f6f8fa 100%);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.traitsUnlockHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.traitsUnlockEyebrow {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clone-green);
+}
+
+.traitsUnlockTitle {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--clone-text);
+}
+
+.traitsUnlockIntro {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--clone-body);
+}
+
+.traitsUnlockGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.traitsUnlockItem,
+.traitsUnlockDefinition {
+  border: 1px solid var(--clone-border);
+  border-radius: 10px;
+  background: var(--clone-surface);
+  padding: 14px;
+}
+
+.traitsUnlockDefinition {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.traitsUnlockItemLabel {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--clone-muted);
+}
+
+.traitsUnlockItemBody {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.72;
   color: var(--clone-body);
 }
 
@@ -1229,6 +1329,10 @@
 
 @media (max-width: 860px) {
   .lettersGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .traitsUnlockGrid {
     grid-template-columns: 1fr;
   }
 

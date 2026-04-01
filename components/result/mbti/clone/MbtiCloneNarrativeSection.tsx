@@ -13,6 +13,7 @@ import type {
   MbtiDesktopCloneAssetSlotId,
   StrengthWeaknessBlock,
   TraitSlot,
+  TraitUnlockBlock,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
@@ -40,6 +41,7 @@ type MbtiCloneNarrativeSectionProps = {
   matchedJobs?: MatchedJobsBlock | null;
   matchedGuides?: MatchedGuidesBlock | null;
   traits: TraitSlot[];
+  traitsUnlock?: TraitUnlockBlock | null;
   isUnlocked: boolean;
   unlockHref: string;
   unlockLabel: string;
@@ -60,6 +62,7 @@ export function MbtiCloneNarrativeSection({
   matchedJobs = null,
   matchedGuides = null,
   traits,
+  traitsUnlock = null,
   isUnlocked,
   unlockHref,
   unlockLabel,
@@ -82,8 +85,10 @@ export function MbtiCloneNarrativeSection({
         ))}
       </div>
       <MbtiCloneInfluentialTraitsCard
+        sectionId={id}
         locale={locale}
         traits={traits}
+        traitsUnlock={traitsUnlock}
         isUnlocked={isUnlocked}
         unlockHref={unlockHref}
         unlockLabel={unlockLabel}

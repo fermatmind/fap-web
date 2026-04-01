@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
@@ -7,6 +7,7 @@ import {
   type PersonalityDesktopCloneAssetSlot,
   type PersonalityDesktopCloneContentPayload,
 } from "@/lib/cms/personality-desktop-clone";
+import type { TraitUnlockBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
@@ -103,6 +104,27 @@ function createAssetSlots(overrides?: Partial<Record<"hero", PersonalityDesktopC
   ];
 }
 
+function createTraitsUnlock(tag: string, chapter: "career" | "growth" | "relationships"): TraitUnlockBlock {
+  const createItem = (index: number) => ({
+    id: `${chapter}-trait-${index}`,
+    label: `${chapter} trait ${index} ${tag}`,
+    role: `${chapter} role ${index} ${tag}`,
+    definition: `${chapter} definition ${index} ${tag}`,
+    whyItMatters: `${chapter} why ${index} ${tag}`,
+    expression: `${chapter} expression ${index} ${tag}`,
+    advantage: `${chapter} advantage ${index} ${tag}`,
+    overuseRisk: `${chapter} overuse ${index} ${tag}`,
+    realWorldSignal: `${chapter} signal ${index} ${tag}`,
+    upgradeHint: `${chapter} hint ${index} ${tag}`,
+  });
+
+  return {
+    title: `${chapter} traits unlock title ${tag}`,
+    intro: `${chapter} traits unlock intro ${tag}`,
+    items: [createItem(1), createItem(2), createItem(3), createItem(4)],
+  };
+}
+
 function createStoragePayload(
   fullCode: "INFJ-A" | "ENTJ-T" | "ISTP-A",
   {
@@ -174,11 +196,12 @@ function createStoragePayload(
             items: [{ title: `work styles item ${tag}`, description: `work styles body ${tag}` }],
           },
           influentialTraits: [
-            { label: "trait 1", body: "body 1", colorKey: "blue" },
-            { label: "trait 2", body: "body 2", colorKey: "gold" },
-            { label: "trait 3", body: "body 3", colorKey: "green" },
-            { label: "trait 4", body: "body 4", colorKey: "purple" },
+            { label: `career trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
+            { label: `career trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
+            { label: `career trait 3 ${tag}`, body: "body 3", colorKey: "green" },
+            { label: `career trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
           ],
+          traitsUnlock: createTraitsUnlock(tag, "career"),
           visibleBlocks: [
             {
               title: "Strengths",
@@ -253,11 +276,12 @@ function createStoragePayload(
             items: [{ title: `what drains item ${tag}`, description: `what drains body ${tag}` }],
           },
           influentialTraits: [
-            { label: "trait 1", body: "body 1", colorKey: "blue" },
-            { label: "trait 2", body: "body 2", colorKey: "gold" },
-            { label: "trait 3", body: "body 3", colorKey: "green" },
-            { label: "trait 4", body: "body 4", colorKey: "purple" },
+            { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
+            { label: `growth trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
+            { label: `growth trait 3 ${tag}`, body: "body 3", colorKey: "green" },
+            { label: `growth trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
           ],
+          traitsUnlock: createTraitsUnlock(tag, "growth"),
           visibleBlocks: [
             {
               title: "Strengths",
@@ -332,11 +356,12 @@ function createStoragePayload(
             items: [{ title: `pitfalls item ${tag}`, description: `pitfalls body ${tag}` }],
           },
           influentialTraits: [
-            { label: "trait 1", body: "body 1", colorKey: "blue" },
-            { label: "trait 2", body: "body 2", colorKey: "gold" },
-            { label: "trait 3", body: "body 3", colorKey: "green" },
-            { label: "trait 4", body: "body 4", colorKey: "purple" },
+            { label: `relationships trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
+            { label: `relationships trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
+            { label: `relationships trait 3 ${tag}`, body: "body 3", colorKey: "green" },
+            { label: `relationships trait 4 ${tag}`, body: "body 4", colorKey: "purple" },
           ],
+          traitsUnlock: createTraitsUnlock(tag, "relationships"),
           visibleBlocks: [
             {
               title: "Strengths",
@@ -407,7 +432,7 @@ function createStoragePayload(
   };
 }
 
-function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "en" = "zh") {
+function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "en" = "zh", isUnlocked = false) {
   return render(
     <MbtiDesktopCloneShell
       locale={locale}
@@ -419,7 +444,7 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "e
       sectionUnlocks={createSectionUnlocks()}
       offers={[]}
       projectionViewModel={null}
-      isUnlocked={false}
+      isUnlocked={isUnlocked}
       shareCtaLabel="分享"
       onShare={vi.fn()}
       retakeHref="/zh/test/mbti"
@@ -581,6 +606,79 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, finalOffer);
+  });
+
+  it("keeps locked state on the existing central lock card and hides traits unlock detail panels", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A");
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
+    });
+
+    const section = document.querySelector("#career") as HTMLElement;
+    const scoped = within(section);
+
+    expect(scoped.getByTestId("mbti-career-traits-lock-panel")).toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-career-traits-unlock-panel")).not.toBeInTheDocument();
+  });
+
+  it("renders unlocked traits detail panels directly under the trait row and before strengths/weaknesses", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A", "zh", true);
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
+    });
+
+    const careerSection = document.querySelector("#career") as HTMLElement;
+    const careerScoped = within(careerSection);
+    const traitsTitle = careerScoped.getByText("Influential Traits");
+    const detailPanel = careerScoped.getByTestId("mbti-career-traits-unlock-panel");
+    const strengthsCard = careerScoped.getByTestId("mbti-p0-career-strengths");
+    const weaknessesCard = careerScoped.getByTestId("mbti-p0-career-weaknesses");
+
+    expect(careerScoped.queryByTestId("mbti-career-traits-lock-panel")).not.toBeInTheDocument();
+    expect(detailPanel).toHaveTextContent("career traits unlock title infj-a");
+    expect(detailPanel).toHaveTextContent("career trait 1 infj-a");
+    expect(detailPanel).toHaveTextContent("career definition 1 infj-a");
+    expect(detailPanel).toHaveTextContent("career expression 1 infj-a");
+    expect(detailPanel).toHaveTextContent("career advantage 1 infj-a");
+    expectBefore(traitsTitle as HTMLElement, detailPanel);
+    expectBefore(detailPanel, strengthsCard);
+    expectBefore(strengthsCard, weaknessesCard);
+
+    const growthScoped = within(document.querySelector("#growth") as HTMLElement);
+    const relationshipsScoped = within(document.querySelector("#relationships") as HTMLElement);
+    expect(growthScoped.getByTestId("mbti-growth-traits-unlock-panel")).toHaveTextContent("growth traits unlock title infj-a");
+    expect(relationshipsScoped.getByTestId("mbti-relationships-traits-unlock-panel")).toHaveTextContent(
+      "relationships traits unlock title infj-a",
+    );
+  });
+
+  it("switches the unlocked traits detail panel when a different trait pill is selected", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A", "zh", true);
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
+    });
+
+    const careerScoped = within(document.querySelector("#career") as HTMLElement);
+    const detailPanel = careerScoped.getByTestId("mbti-career-traits-unlock-panel");
+
+    expect(detailPanel).toHaveTextContent("career trait 1 infj-a");
+    expect(detailPanel).toHaveTextContent("career definition 1 infj-a");
+
+    fireEvent.click(careerScoped.getByRole("button", { name: "career trait 3 infj-a: body 3" }));
+
+    expect(detailPanel).toHaveTextContent("career trait 3 infj-a");
+    expect(detailPanel).toHaveTextContent("career definition 3 infj-a");
+    expect(detailPanel).toHaveTextContent("career expression 3 infj-a");
+    expect(detailPanel).toHaveTextContent("career advantage 3 infj-a");
   });
 
   it("keeps hero/rail/final-offer and asset slots stable after convergence", async () => {
