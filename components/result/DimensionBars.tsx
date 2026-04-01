@@ -15,6 +15,33 @@ type Dimension = {
   leftLabel?: string;
   rightLabel?: string;
   winnerLabel?: string;
+  axisCode?: string;
+  axisTitle?: string;
+  leftPole?: string;
+  rightPole?: string;
+  leftCode?: string;
+  rightCode?: string;
+  dominantPole?: string;
+  dominantLabel?: string;
+  dominantPct?: number;
+  oppositePct?: number;
+  rawFirstPolePct?: number;
+  strengthBand?: string;
+  axis_code?: string;
+  axis_title?: string;
+  left_pole?: string;
+  right_pole?: string;
+  left_code?: string;
+  right_code?: string;
+  dominant_pole?: string;
+  dominant_label?: string;
+  dominant_pct?: number;
+  opposite_pct?: number;
+  raw_first_pole_pct?: number;
+  strength_band?: string;
+  sideLabel?: string;
+  side_label?: string;
+  pct?: number;
   [key: string]: unknown;
 };
 
@@ -28,6 +55,8 @@ type DimensionBarsProps = {
   summaryValue?: string;
   summaryDescription?: string;
   className?: string;
+  activeDimensionCode?: string | null;
+  onDimensionSelect?: (code: string) => void;
 };
 
 const BAR_STYLES = [
@@ -49,6 +78,39 @@ function normalizePercent(value: Dimension): number {
   if (raw > 1 && raw <= 100) return raw;
   if (raw >= 0 && raw <= 1) return raw * 100;
   return Math.max(0, Math.min(100, raw));
+}
+
+function normalizeClonePercent(value: Dimension): number {
+  const candidates = [
+    value.dominantPct,
+    typeof value.dominant_pct === "number" ? value.dominant_pct : null,
+    value.percent,
+    typeof value.pct === "number" ? value.pct : null,
+  ].filter((item): item is number => typeof item === "number" && Number.isFinite(item));
+
+  if (candidates.length === 0) return 0;
+
+  const raw = candidates[0];
+  if (raw > 1 && raw <= 100) return raw;
+  if (raw >= 0 && raw <= 1) return raw * 100;
+  return Math.max(0, Math.min(100, raw));
+}
+
+function normalizeCloneCode(value: Dimension, fallbackIndex: number): string {
+  const codeCandidates = [
+    value.axisCode,
+    typeof value.axis_code === "string" ? value.axis_code : null,
+    value.code,
+    value.key,
+  ];
+
+  for (const candidate of codeCandidates) {
+    if (typeof candidate === "string" && candidate.trim()) {
+      return candidate.trim().toUpperCase();
+    }
+  }
+
+  return `DIMENSION_${fallbackIndex + 1}`;
 }
 
 function renderEmptyState(dict: Record<string, unknown>) {
@@ -83,6 +145,8 @@ export function DimensionBars({
   summaryValue,
   summaryDescription,
   className = "",
+  activeDimensionCode = null,
+  onDimensionSelect,
 }: DimensionBarsProps) {
   const pathname = usePathname() ?? "/";
   const dict = getDictSync(getLocaleFromPathname(pathname));
@@ -95,29 +159,40 @@ export function DimensionBars({
     return (
       <div className={`space-y-[16px] ${className}`}>
         {dimensions.slice(0, 5).map((item, index) => {
-          const label = item.label ?? item.code ?? item.key ?? `Dimension ${index + 1}`;
-          const percent = normalizePercent(item);
+          const code = normalizeCloneCode(item, index);
+          const label = item.axisTitle ?? (typeof item.axis_title === "string" ? item.axis_title : null) ?? item.label ?? code;
+          const percent = normalizeClonePercent(item);
           const clampedPercent = Math.max(0, Math.min(100, Math.round(percent)));
-          const leftLabel = typeof item.leftLabel === "string"
-            ? item.leftLabel
-            : typeof item.code === "string"
-              ? item.code.split("/")[0] ?? ""
-              : "";
-          const rightLabel = typeof item.rightLabel === "string"
-            ? item.rightLabel
-            : typeof item.code === "string"
-              ? item.code.split("/")[1] ?? ""
-              : "";
+          const leftCode =
+            (typeof item.leftCode === "string" && item.leftCode.trim()) ||
+            (typeof item.left_code === "string" && item.left_code.trim()) ||
+            code.split(/[/_-]/)[0] ||
+            "";
+          const rightCode =
+            (typeof item.rightCode === "string" && item.rightCode.trim()) ||
+            (typeof item.right_code === "string" && item.right_code.trim()) ||
+            code.split(/[/_-]/)[1] ||
+            "";
+          const leftLabel =
+            (typeof item.leftPole === "string" && item.leftPole.trim()) ||
+            (typeof item.left_pole === "string" && item.left_pole.trim()) ||
+            (typeof item.leftLabel === "string" && item.leftLabel.trim()) ||
+            leftCode;
+          const rightLabel =
+            (typeof item.rightPole === "string" && item.rightPole.trim()) ||
+            (typeof item.right_pole === "string" && item.right_pole.trim()) ||
+            (typeof item.rightLabel === "string" && item.rightLabel.trim()) ||
+            rightCode;
           const winnerLabel =
-            typeof item.winnerLabel === "string" && item.winnerLabel.trim().length > 0
-              ? item.winnerLabel
-              : typeof item.sideLabel === "string" && item.sideLabel.trim().length > 0
-                ? item.sideLabel
-                : label;
+            (typeof item.dominantLabel === "string" && item.dominantLabel.trim()) ||
+            (typeof item.dominant_label === "string" && item.dominant_label.trim()) ||
+            (typeof item.sideLabel === "string" && item.sideLabel.trim()) ||
+            (typeof item.side_label === "string" && item.side_label.trim()) ||
+            label;
           const color = ["#4D9FC1", "#D6A43A", "#3CAA8C", "#8E63B1", "#E56B73"][index % 5];
-
-          return (
-            <article key={`${label}-${index}`} className="flex flex-col gap-[8px]">
+          const isActive = activeDimensionCode !== null && code === activeDimensionCode;
+          const content = (
+            <>
               <div className="flex items-center justify-center gap-1.5 text-center">
                 <span
                   className="text-[14px] leading-[1.2] font-bold"
@@ -139,9 +214,35 @@ export function DimensionBars({
                 />
               </div>
               <div className="flex items-center justify-between gap-3 text-[11px] leading-[1.4] text-[var(--clone-muted,#737B86)]">
-                <span>{leftLabel ?? ""}</span>
-                <span>{rightLabel ?? ""}</span>
+                <span>{leftLabel}</span>
+                <span>{rightLabel}</span>
               </div>
+            </>
+          );
+
+          if (typeof onDimensionSelect === "function") {
+            return (
+              <button
+                key={`${code}-${index}`}
+                type="button"
+                data-testid={`mbti-traits-axis-${code}`}
+                data-state={isActive ? "active" : "idle"}
+                aria-pressed={isActive}
+                onClick={() => onDimensionSelect(code)}
+                className={`flex w-full flex-col gap-[8px] rounded-[10px] border px-[10px] py-[8px] text-left transition-colors ${
+                  isActive
+                    ? "border-[var(--clone-green,#36ad73)] bg-white shadow-[0_10px_24px_rgba(54,173,115,0.12)]"
+                    : "border-transparent bg-transparent hover:border-[rgba(54,173,115,0.18)] hover:bg-white/80"
+                }`}
+              >
+                {content}
+              </button>
+            );
+          }
+
+          return (
+            <article key={`${code}-${index}`} className="flex flex-col gap-[8px]">
+              {content}
             </article>
           );
         })}

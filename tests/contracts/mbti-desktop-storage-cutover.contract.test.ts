@@ -418,23 +418,25 @@ describe("MBTI desktop storage cutover contract", () => {
     );
   });
 
-  it("keeps runtime dimension summary values on placeholder path", () => {
+  it("keeps canonical runtime axis summary values on placeholder path", () => {
     const slots = resolveSlotsForType({
       typeCode: "INFJ-A",
       typeName: "INFJ 类型",
       storageContent: null,
       dimensions: [
         {
-          winnerLabel: "Runtime Dimension",
-          percent: 82,
+          axisTitle: "Mind",
+          dominantLabel: "Intuitive",
+          dominantPct: 75,
           summary: "Runtime summary",
         },
       ],
     });
 
     expect(slots.meta.contentSource).toBe("placeholder");
-    expect(slots.traits.summaryPane.title).toBe("Runtime Dimension");
-    expect(slots.traits.summaryPane.value).toBe("82%");
+    expect(slots.traits.summaryPane.eyebrow).toBe("Mind");
+    expect(slots.traits.summaryPane.title).toBe("Intuitive");
+    expect(slots.traits.summaryPane.value).toBe("75%");
     expect(slots.traits.summaryPane.body).toBe("Runtime summary");
   });
 

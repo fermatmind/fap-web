@@ -97,6 +97,18 @@ export type MbtiPublicProjectionDimensionViewModel = {
   sideLabel: string;
   state: string;
   summary: string;
+  axisCode?: string;
+  axisTitle?: string;
+  leftPole?: string;
+  rightPole?: string;
+  leftCode?: string;
+  rightCode?: string;
+  rawFirstPolePct?: number;
+  dominantPole?: string;
+  dominantLabel?: string;
+  dominantPct?: number;
+  oppositePct?: number;
+  strengthBand?: string;
 };
 
 export type MbtiPublicProjectionCardViewModel = {
@@ -698,24 +710,54 @@ function normalizeDimension(
   dimension: MbtiPublicProjectionDimensionRaw,
   index: number
 ): MbtiPublicProjectionDimensionViewModel | null {
-  const code = normalizeText(dimension.code, dimension.id).toUpperCase();
-  const label = normalizeText(dimension.label, dimension.name, code);
-  if (!label) {
+  const axisCode = normalizeText(dimension.axis_code, dimension.code, dimension.id).toUpperCase();
+  const [fallbackLeftCode = "", fallbackRightCode = ""] = axisCode.split(/[/_-]/).filter(Boolean);
+  const axisTitle = normalizeText(dimension.axis_title, dimension.label, dimension.name, axisCode);
+  if (!axisTitle) {
     return null;
   }
 
-  return {
-    code: code || `DIMENSION_${index + 1}`,
-    label,
-    percent: toRoundedPercent(
-      typeof dimension.pct === "number"
+  const rawFirstPolePct = toRoundedPercent(
+    typeof dimension.raw_first_pole_pct === "number" ? dimension.raw_first_pole_pct : dimension.score_pct
+  );
+  const dominantPct = toRoundedPercent(
+    typeof dimension.dominant_pct === "number"
+      ? dimension.dominant_pct
+      : typeof dimension.pct === "number"
         ? dimension.pct
-        : dimension.score_pct
-    ),
-    side: normalizeText(dimension.side),
-    sideLabel: normalizeText(dimension.side_label),
+        : 0
+  );
+  const dominantPole = normalizeText(dimension.dominant_pole, dimension.side).toUpperCase();
+  const dominantLabel = normalizeText(dimension.dominant_label, dimension.side_label);
+  const leftPole = normalizeText(dimension.left_pole, dimension.axis_left);
+  const rightPole = normalizeText(dimension.right_pole, dimension.axis_right);
+  const leftCode = normalizeText(dimension.left_code, fallbackLeftCode).toUpperCase();
+  const rightCode = normalizeText(dimension.right_code, fallbackRightCode).toUpperCase();
+  const oppositePct = toRoundedPercent(
+    typeof dimension.opposite_pct === "number" ? dimension.opposite_pct : 100 - dominantPct
+  );
+  const strengthBand = normalizeText(dimension.strength_band);
+
+  return {
+    code: axisCode || `DIMENSION_${index + 1}`,
+    label: axisTitle,
+    percent: dominantPct,
+    side: dominantPole,
+    sideLabel: dominantLabel,
     state: normalizeText(dimension.state),
     summary: normalizeText(dimension.summary, dimension.description),
+    axisCode: axisCode || `DIMENSION_${index + 1}`,
+    axisTitle,
+    leftPole,
+    rightPole,
+    leftCode,
+    rightCode,
+    rawFirstPolePct,
+    dominantPole,
+    dominantLabel,
+    dominantPct,
+    oppositePct,
+    strengthBand,
   };
 }
 
