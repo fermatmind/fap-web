@@ -5,6 +5,14 @@
 
 本次只做前端渲染骨架替换，不补内容、不改协议。
 
+收敛后，desktop 主链仅保留 canonical 模块；被收敛掉的 6 个字段在协议层继续兼容保留：
+- `career.career_ideas`
+- `career.work_styles`
+- `growth.what_energizes`
+- `growth.what_drains`
+- `relationships.superpowers`
+- `relationships.pitfalls`
+
 ## 变更范围
 - 仅 `fap-web` 的 desktop clone 渲染顺序与模块选择。
 - 仅 Career / Growth / Relationships 三章。
@@ -43,6 +51,11 @@
 ### Relationships
 - `关系优势`
 - `关系短板`
+
+## 协议兼容说明
+- 上述 6 个字段当前仍在 API/adapter/resolver 协议层保留。
+- 当前 desktop main flow 不再渲染这些字段。
+- 后续若做 hard convergence，必须先完成 consumer/tests/import chain 清理，再推进字段移除。
 
 ## 收敛后阅读顺序（Desktop）
 ### Career
