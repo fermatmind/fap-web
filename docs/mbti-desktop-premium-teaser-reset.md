@@ -53,6 +53,7 @@ They are replaced by chapter content titles while keeping a unified centered loc
 - teaser blocks stay inside their own chapter section
 - chapter-end spacing remains stable before the next section
 - no detached floating unlock card remains as a separate role from teaser content
+- centered lock-card copy and CTA label are unified by locale across the three chapters
 
 ## Explicitly unchanged
 - ResultClient / RichResultReport integration

@@ -461,6 +461,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const secondTeaser = scoped.getByTestId("mbti-premium-career-work-styles");
     const firstTeaserOverlay = scoped.getByTestId("mbti-premium-career-career-ideas-overlay");
     const secondTeaserOverlay = scoped.getByTestId("mbti-premium-career-work-styles-overlay");
+    const nextSection = document.querySelector("#growth") as HTMLElement;
 
     expect(scoped.getByText("职业优势")).toBeInTheDocument();
     expect(scoped.getByText("职业短板")).toBeInTheDocument();
@@ -491,6 +492,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expectBefore(matchedJobsCard, matchedGuidesCard);
     expectBefore(matchedGuidesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
+    expectBefore(secondTeaser, nextSection);
   });
 
   it("renders Growth chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
@@ -512,6 +514,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const secondTeaser = scoped.getByTestId("mbti-premium-growth-what-drains");
     const firstTeaserOverlay = scoped.getByTestId("mbti-premium-growth-what-energizes-overlay");
     const secondTeaserOverlay = scoped.getByTestId("mbti-premium-growth-what-drains-overlay");
+    const nextSection = document.querySelector("#relationships") as HTMLElement;
 
     expect(scoped.getByText("成长优势")).toBeInTheDocument();
     expect(scoped.getByText("成长短板")).toBeInTheDocument();
@@ -535,6 +538,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
+    expectBefore(secondTeaser, nextSection);
   });
 
   it("renders Relationships chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
@@ -556,6 +560,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const secondTeaser = scoped.getByTestId("mbti-premium-relationships-pitfalls");
     const firstTeaserOverlay = scoped.getByTestId("mbti-premium-relationships-superpowers-overlay");
     const secondTeaserOverlay = scoped.getByTestId("mbti-premium-relationships-pitfalls-overlay");
+    const finalOffer = screen.getByTestId("mbti-offer-full");
 
     expect(scoped.getByText("关系优势")).toBeInTheDocument();
     expect(scoped.getByText("关系短板")).toBeInTheDocument();
@@ -579,6 +584,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
+    expectBefore(secondTeaser, finalOffer);
   });
 
   it("keeps hero/rail/final-offer and asset slots stable after convergence", async () => {

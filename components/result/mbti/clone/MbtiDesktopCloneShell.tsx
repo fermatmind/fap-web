@@ -141,27 +141,27 @@ function buildPremiumTeaserBlock({
   zhTitle,
   source,
   fallback,
-  unlockLabel,
   testId,
 }: {
   locale: "zh" | "en";
   zhTitle: string;
   source: CompatibilityTeaserSource;
   fallback: TeaserFallbackBlock;
-  unlockLabel: string;
   testId: string;
 }) {
   const overlayTitle = locale === "zh" ? "解锁完整报告" : "Unlock full report";
+  const overlayBody =
+    locale === "zh"
+      ? "解锁后查看本章完整解析与行动建议。"
+      : "Unlock to view full chapter analysis and action guidance.";
+  const overlayCtaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
 
   return {
     title: locale === "zh" ? zhTitle : normalizeText(source?.title, fallback?.title, zhTitle),
     items: resolvePremiumTeaserItems(source, fallback, locale),
     overlayTitle,
-    overlayBody: normalizeText(
-      fallback?.overlayBody,
-      locale === "zh" ? "解锁后查看本章完整解析与行动建议。" : "Unlock to view full chapter analysis and action guidance.",
-    ),
-    overlayCtaLabel: normalizeText(fallback?.overlayCtaLabel, unlockLabel, overlayTitle),
+    overlayBody,
+    overlayCtaLabel,
     testId,
   };
 }
@@ -332,7 +332,6 @@ export function MbtiDesktopCloneShell({
                   zhTitle: "你可能会喜欢的职业选择",
                   source: slots.chapters.career.careerIdeas,
                   fallback: slots.chapters.career.lockedBlocks[0],
-                  unlockLabel: primaryCtaLabel,
                   testId: "mbti-premium-career-career-ideas",
                 }),
                 buildPremiumTeaserBlock({
@@ -340,7 +339,6 @@ export function MbtiDesktopCloneShell({
                   zhTitle: "适合你的工作方式",
                   source: slots.chapters.career.workStyles,
                   fallback: slots.chapters.career.lockedBlocks[1],
-                  unlockLabel: primaryCtaLabel,
                   testId: "mbti-premium-career-work-styles",
                 }),
               ]}
@@ -367,7 +365,6 @@ export function MbtiDesktopCloneShell({
                   zhTitle: "什么能让你充满活力？",
                   source: slots.chapters.growth.whatEnergizes,
                   fallback: slots.chapters.growth.lockedBlocks[0],
-                  unlockLabel: primaryCtaLabel,
                   testId: "mbti-premium-growth-what-energizes",
                 }),
                 buildPremiumTeaserBlock({
@@ -375,7 +372,6 @@ export function MbtiDesktopCloneShell({
                   zhTitle: "什么让你精力力竭？",
                   source: slots.chapters.growth.whatDrains,
                   fallback: slots.chapters.growth.lockedBlocks[1],
-                  unlockLabel: primaryCtaLabel,
                   testId: "mbti-premium-growth-what-drains",
                 }),
               ]}
@@ -402,7 +398,6 @@ export function MbtiDesktopCloneShell({
                   zhTitle: "你的人际关系优势",
                   source: slots.chapters.relationships.superpowers,
                   fallback: slots.chapters.relationships.lockedBlocks[0],
-                  unlockLabel: primaryCtaLabel,
                   testId: "mbti-premium-relationships-superpowers",
                 }),
                 buildPremiumTeaserBlock({
@@ -410,7 +405,6 @@ export function MbtiDesktopCloneShell({
                   zhTitle: "人际关系陷阱",
                   source: slots.chapters.relationships.pitfalls,
                   fallback: slots.chapters.relationships.lockedBlocks[1],
-                  unlockLabel: primaryCtaLabel,
                   testId: "mbti-premium-relationships-pitfalls",
                 }),
               ]}
