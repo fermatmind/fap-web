@@ -136,7 +136,23 @@ function createStoragePayload(fullCode: "INFJ-A" | "ENTJ-T" | "ISTP-A"): Persona
     baseCode: fullCode.split("-")[0] ?? "INFJ",
     locale: "zh-CN",
     content: {
-      hero: { summary: `hero ${tag}` },
+      hero: {
+        summary: `hero ${tag}`,
+        profileIdentity: {
+          code: fullCode,
+          name: `name ${tag}`,
+          nickname: `nickname ${tag}`,
+          rarity: `rarity ${tag}`,
+          keywords: [
+            `keyword 1 ${tag}`,
+            `keyword 2 ${tag}`,
+            `keyword 3 ${tag}`,
+            `keyword 4 ${tag}`,
+            `keyword 5 ${tag}`,
+            `keyword 6 ${tag}`,
+          ],
+        },
+      },
       intro: { paragraphs: [`intro 1 ${tag}`, `intro 2 ${tag}`] },
       lettersIntro: {
         headline: `letters headline ${tag}`,
@@ -514,6 +530,23 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "Your Career Path" })).toBeInTheDocument();
     expect(screen.getByText("headline infj-a")).toBeInTheDocument();
+  });
+
+  it("renders hero identity from authored profileIdentity without local maps", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A");
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
+    });
+
+    const hero = await screen.findByTestId("mbti-hero");
+    expect(hero).toHaveTextContent("INFJ-A");
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("name infj-a · nickname infj-a");
+    expect(screen.getByTestId("mbti-hero-rarity")).toHaveTextContent("稀有度：rarity infj-a");
+    expect(screen.getByTestId("mbti-hero-keywords")).toHaveTextContent("keyword 1 infj-a");
+    expect(hero).toHaveTextContent("hero infj-a");
   });
 
   it("keeps shell stable when one p0 module is missing", async () => {

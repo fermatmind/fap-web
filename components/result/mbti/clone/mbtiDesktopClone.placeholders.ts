@@ -74,6 +74,13 @@ export const MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH: MbtiDesktopCloneSlots = {
     contentSource: "placeholder",
   },
   hero: {
+    profileIdentity: {
+      code: "MBTI",
+      name: "占位人格标题",
+      nickname: "占位身份标签",
+      rarity: "约 --",
+      keywords: ["占位关键词1", "占位关键词2", "占位关键词3", "占位关键词4", "占位关键词5", "占位关键词6"],
+    },
     eyebrow: "你的人格类型是",
     title: "占位人格标题",
     typeCode: "MBTI",

@@ -167,7 +167,6 @@ function buildPremiumTeaserBlock({
 export function MbtiDesktopCloneShell({
   locale,
   headline,
-  tags,
   dimensions,
   highlights,
   sections,
@@ -280,8 +279,7 @@ export function MbtiDesktopCloneShell({
       <div className={styles.shell}>
         <MbtiCloneHero
           eyebrow={slots.hero.eyebrow}
-          title={slots.hero.title}
-          typeCode={slots.hero.typeCode}
+          profileIdentity={slots.hero.profileIdentity}
           illustrationSlotId={slots.hero.asset.slotId}
           summary={slots.hero.summary}
           illustrationLabel={slots.hero.asset.label}
@@ -444,11 +442,7 @@ export function MbtiDesktopCloneShell({
 
           <MbtiCloneRail
             locale={cloneLocale}
-            displayName={normalizeText(headline.displayName, projectionViewModel?.typeName, slots.hero.title)}
-            typeCode={slots.meta.fullCode}
-            tags={tags}
-            isUnlocked={isUnlocked}
-            summary={slots.hero.summary}
+            profileIdentity={slots.hero.profileIdentity}
             primaryCtaLabel={primaryCtaLabel}
             primaryCtaHref={primaryCtaHref}
             tools={railTools}

@@ -42,7 +42,23 @@ function createStoragePayload(fullCode: "INFJ-A" | "ENTJ-T", readySlot: "hero-il
     baseCode: fullCode.split("-")[0] ?? "INFJ",
     locale: "zh-CN",
     content: {
-      hero: { summary: `hero ${fullCode}` },
+      hero: {
+        summary: `hero ${fullCode}`,
+        profileIdentity: {
+          code: fullCode,
+          name: `name ${fullCode}`,
+          nickname: `nickname ${fullCode}`,
+          rarity: `rarity ${fullCode}`,
+          keywords: [
+            `keyword 1 ${fullCode}`,
+            `keyword 2 ${fullCode}`,
+            `keyword 3 ${fullCode}`,
+            `keyword 4 ${fullCode}`,
+            `keyword 5 ${fullCode}`,
+            `keyword 6 ${fullCode}`,
+          ],
+        },
+      },
       intro: { paragraphs: [`intro 1 ${fullCode}`, `intro 2 ${fullCode}`] },
       traits: {
         summaryPane: {

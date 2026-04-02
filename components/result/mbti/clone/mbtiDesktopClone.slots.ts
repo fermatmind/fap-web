@@ -76,6 +76,14 @@ export type CloneAssetSlot = {
   label: string;
 };
 
+export type ProfileIdentity = {
+  code: string;
+  name: string;
+  nickname: string;
+  rarity: string;
+  keywords: string[];
+};
+
 export type LettersIntroLetter = {
   letter: string;
   title: string;
@@ -212,6 +220,7 @@ export type MbtiDesktopCloneSlots = {
     contentSource: MbtiDesktopCloneContentSource;
   };
   hero: {
+    profileIdentity: ProfileIdentity;
     eyebrow: string;
     title: string;
     typeCode: string;
@@ -253,7 +262,9 @@ export type MbtiDesktopCloneSlots = {
 };
 
 export type MbtiDesktopCloneContent = {
-  hero: Pick<MbtiDesktopCloneSlots["hero"], "summary">;
+  hero: Pick<MbtiDesktopCloneSlots["hero"], "summary"> & {
+    profileIdentity?: ProfileIdentity;
+  };
   intro: MbtiDesktopCloneSlots["intro"];
   lettersIntro?: LettersIntroBlock;
   overview?: OverviewBlock;
