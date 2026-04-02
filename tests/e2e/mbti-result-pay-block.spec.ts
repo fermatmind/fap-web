@@ -326,7 +326,7 @@ test("MBTI result page keeps the unlock offer block on the current access-first 
   await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
 });
 
-test("MBTI preview cards stay visible while the page remains on the locked offer path", async ({ page }) => {
+test("MBTI desktop clone hides chapter preview cards while the page remains on the locked offer path", async ({ page }) => {
   const attemptId = "mbti-preview-pay-block-0001";
 
   await page.addInitScript(() => {
@@ -407,6 +407,5 @@ test("MBTI preview cards stay visible while the page remains on the locked offer
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
   await expect(getDesktopOfferComparison(page)).toBeVisible();
-  await expect(page.getByTestId("mbti-desktop-preview-growth")).toBeVisible();
-  await expect(page.getByTestId("mbti-desktop-preview-growth").getByText("你的成长主线：把强项做成可复用资产")).toBeVisible();
+  await expect(page.getByTestId("mbti-desktop-preview-growth")).toHaveCount(0);
 });

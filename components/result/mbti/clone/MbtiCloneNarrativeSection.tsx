@@ -48,7 +48,6 @@ type MbtiCloneNarrativeSectionProps = {
   unlockHref: string;
   unlockLabel: string;
   postCoreBlocks?: ReactNode[];
-  previewContent?: ReactNode | null;
   premiumTeasers: LockedBlock[];
 };
 
@@ -72,7 +71,6 @@ export function MbtiCloneNarrativeSection({
   unlockHref,
   unlockLabel,
   postCoreBlocks = [],
-  previewContent = null,
   premiumTeasers,
 }: MbtiCloneNarrativeSectionProps) {
   return (
@@ -123,7 +121,6 @@ export function MbtiCloneNarrativeSection({
           testId={block.testId}
         />
       ))}
-      {previewContent}
     </section>
   );
 }
