@@ -23,7 +23,7 @@ function buildWaitHref(locale: Locale, orderNo: string, paymentRecoveryToken: st
   return localizedPath(`/pay/wait?${query.toString()}`, locale);
 }
 
-function normalizeInternalHref(locale: Locale, value: string | null | undefined): string | null {
+function normalizeWaitHref(locale: Locale, value: string | null | undefined): string | null {
   const normalized = normalizeText(value);
   if (!normalized) {
     return null;
@@ -31,9 +31,24 @@ function normalizeInternalHref(locale: Locale, value: string | null | undefined)
 
   try {
     const parsed = new URL(normalized, "https://example.test");
-    return localizedPath(`${stripLocalePrefix(parsed.pathname)}${parsed.search}${parsed.hash}`, locale);
+    const normalizedPath = stripLocalePrefix(parsed.pathname);
+    if (normalizedPath !== "/pay/wait") {
+      return null;
+    }
+
+    return localizedPath(`${normalizedPath}${parsed.search}${parsed.hash}`, locale);
   } catch {
-    return localizedPath(normalized.startsWith("/") ? normalized : `/${normalized}`, locale);
+    try {
+      const parsed = new URL(normalized.startsWith("/") ? normalized : `/${normalized}`, "https://example.test");
+      const normalizedPath = stripLocalePrefix(parsed.pathname);
+      if (normalizedPath !== "/pay/wait") {
+        return null;
+      }
+
+      return localizedPath(`${normalizedPath}${parsed.search}${parsed.hash}`, locale);
+    } catch {
+      return null;
+    }
   }
 }
 
@@ -56,14 +71,14 @@ export function OrderReturnFallbackClient({
     const pendingOrder = readPendingOrder();
     const explicitOrderNo = normalizeText(orderNo) ?? normalizeText(outTradeNo);
     const explicitPaymentRecoveryToken = normalizeText(paymentRecoveryToken);
-    const explicitWaitHref = normalizeInternalHref(locale, waitUrl);
+    const explicitWaitHref = normalizeWaitHref(locale, waitUrl);
     const pendingPaymentRecoveryToken =
       pendingOrder?.orderNo === explicitOrderNo
         ? normalizeText(pendingOrder.paymentRecoveryToken)
         : null;
     const pendingWaitHref =
       !explicitOrderNo || pendingOrder?.orderNo === explicitOrderNo
-        ? normalizeInternalHref(locale, pendingOrder?.waitUrl)
+        ? normalizeWaitHref(locale, pendingOrder?.waitUrl)
         : null;
     const explicitWaitFromOrderNo = explicitOrderNo
       ? buildWaitHref(locale, explicitOrderNo, explicitPaymentRecoveryToken ?? pendingPaymentRecoveryToken)

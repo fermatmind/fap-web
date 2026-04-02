@@ -52,6 +52,23 @@ describe("alipay return flow contract", () => {
     });
   });
 
+  it("ignores non-wait recovery URLs and falls back to the canonical order-bound wait flow", async () => {
+    render(
+      <OrderReturnFallbackClient
+        locale="en"
+        orderNo="ord_return_alipay_1b"
+        paymentRecoveryToken="recovery_return_alipay_1b"
+        waitUrl="https://fermatmind.com/en/result/attempt-should-not-open-directly?from=payment"
+      />
+    );
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_return_alipay_1b&payment_recovery_token=recovery_return_alipay_1b"
+      );
+    });
+  });
+
   it("builds the canonical wait flow from order_no and payment token when wait_url is absent", async () => {
     render(
       <OrderReturnFallbackClient
