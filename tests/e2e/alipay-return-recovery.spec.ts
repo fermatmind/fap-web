@@ -38,7 +38,6 @@ test("alipay return page restores the tokenized wait flow from explicit return p
         provider: "alipay",
         payment_recovery_token: paymentRecoveryToken,
         wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
-        result_url: "/result/attempt-alipay-return-1?from=payment",
         pay: {
           type: "redirect",
           value: `https://openapi.alipay.com/gateway.do?trade_no=${orderNo}`,
@@ -49,7 +48,7 @@ test("alipay return page restores the tokenized wait flow from explicit return p
   });
 
   await page.goto(
-    `/en/pay/return/alipay?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}&wait_url=%2Fpay%2Fwait%3Forder_no%3D${orderNo}%26payment_recovery_token%3D${paymentRecoveryToken}&result_url=%2Fresult%2Fattempt-alipay-return-1%3Ffrom%3Dpayment`
+    `/en/pay/return/alipay?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}&wait_url=%2Fpay%2Fwait%3Forder_no%3D${orderNo}%26payment_recovery_token%3D${paymentRecoveryToken}`
   );
 
   await expect(page).toHaveURL(
@@ -107,4 +106,33 @@ test("alipay return page can reuse pending-order recovery context from local sto
   );
   await expect(page.getByText(orderNo)).toBeVisible();
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
+});
+
+test("alipay return page rebuilds wait flow from native out_trade_no without local storage", async ({ page }) => {
+  const orderNo = "ord_alipay_return_3";
+
+  await mockCommonApis(page);
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
+    expect(route.request().url()).not.toContain("payment_recovery_token=");
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        status: "pending",
+        provider: "alipay",
+        pay: {
+          type: "html",
+          value: `/api/v0.3/orders/${orderNo}/pay/alipay?scene=desktop`,
+          provider: "alipay",
+        },
+      }),
+    });
+  });
+
+  await page.goto(`/en/pay/return/alipay?out_trade_no=${orderNo}&trade_no=ali_trade_return_3`);
+
+  await expect(page).toHaveURL(`/en/pay/wait?order_no=${orderNo}`);
+  await expect(page.getByText(orderNo)).toBeVisible();
 });
