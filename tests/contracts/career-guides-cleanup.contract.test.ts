@@ -22,15 +22,17 @@ function sliceBetween(source: string, start: string, end: string): string {
 }
 
 describe("career guides cleanup contract", () => {
-  it("frontend next-sitemap no longer generates guide list or detail authority", async () => {
+  it("frontend next-sitemap keeps guide landing and detail authority available", async () => {
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
     const source = read("next-sitemap.config.js");
 
-    expect(locs.some((loc: string) => /^\/(en|zh)\/career\/guides(?:\/|$)/.test(loc))).toBe(false);
-    expect(source).not.toContain('.velite/careerGuides.json');
-    expect(source).not.toContain("for (const item of careerGuides)");
+    expect(locs).toEqual(expect.arrayContaining(["/en/career/guides", "/zh/career/guides"]));
+    expect(locs.some((loc: string) => /^\/(en|zh)\/career\/guides\/[^/]+$/.test(loc))).toBe(true);
+    expect(source).toContain('.velite/careerGuides.json');
+    expect(source).toContain("for (const item of careerGuidesContent)");
+    expect(source).toContain("buildCareerGuideDetailPaths");
   });
 
   it("llms.txt guide coverage is cms-driven and no longer uses local guide helpers", () => {

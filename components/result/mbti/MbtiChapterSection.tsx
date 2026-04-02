@@ -1952,7 +1952,10 @@ export function MbtiChapterSection({
                 </p>
               </div>
 
-              <div className="absolute inset-0 flex items-center justify-center p-4">
+              <div
+                data-testid="mbti-chapter-unlock-card"
+                className="absolute inset-0 flex items-center justify-center p-4"
+              >
                 <div className="w-full max-w-md rounded-xl bg-white p-6 text-center shadow-lg">
                   <p className="m-0 mb-3 text-sm text-slate-700">解锁完整分析</p>
                   <a

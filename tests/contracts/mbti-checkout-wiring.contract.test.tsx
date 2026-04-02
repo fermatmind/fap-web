@@ -50,6 +50,15 @@ vi.mock("@/lib/api/v0_3", async () => {
   };
 });
 
+function getPrimaryByTestId(testId: string): HTMLElement {
+  const [node] = screen.getAllByTestId(testId);
+  if (!node) {
+    throw new Error(`Missing test id: ${testId}`);
+  }
+
+  return node;
+}
+
 function createReportFixture(): ReportResponse {
   return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse);
 }
@@ -287,7 +296,7 @@ describe("MBTI checkout wiring contract", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    const stickyRail = screen.getByTestId("mbti-sticky-rail");
+    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
     const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
     const footer = screen.getByTestId("mbti-footer-cta");
     const careerChapter = screen.getByTestId("mbti-chapter-career");
@@ -295,7 +304,7 @@ describe("MBTI checkout wiring contract", () => {
     expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
     expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
     expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
-    expect(within(careerChapter).getByRole("link", { name: "前往主解锁区" })).toHaveAttribute("href", "#offer-full");
+    expect(within(careerChapter).getAllByRole("link", { name: "解锁完整分析" })[0]).toHaveAttribute("href", "#offer-full");
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
       "/zh/career/recommendations/mbti/enfp-t?"
     );
@@ -304,13 +313,13 @@ describe("MBTI checkout wiring contract", () => {
     );
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
     expect(screen.getByText("Projection-first summary that should replace the legacy hero copy on result pages.")).toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-offer-comparison")).getByText("Projection fixture commerce title")).toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByText("Projection fixture commerce title")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
 
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(mobileChrome).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(footer).getByRole("link", { name: "解锁完整报告" }));
-    fireEvent.click(within(careerChapter).getByRole("link", { name: "前往主解锁区" }));
+    fireEvent.click(within(careerChapter).getAllByRole("link", { name: "解锁完整分析" })[0]);
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
   });
@@ -320,7 +329,7 @@ describe("MBTI checkout wiring contract", () => {
     const firstRender = render(<MbtiResultShell {...createShellProps(reportData)} />);
     const scrollIntoViewMock = vi.mocked(Element.prototype.scrollIntoView);
 
-    fireEvent.click(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" }));
+    fireEvent.click(within(getPrimaryByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" }));
 
     await waitFor(() => {
       expect(window.location.hash).toBe("#offer-full");
@@ -421,7 +430,7 @@ describe("MBTI checkout wiring contract", () => {
 
     render(<MbtiResultShell {...createShellProps(reportData)} onInternalNavigate={onInternalNavigate} />);
 
-    fireEvent.click(screen.getByTestId("mbti-offers-primary-cta"));
+    fireEvent.click(getPrimaryByTestId("mbti-offers-primary-cta"));
 
     await waitFor(() => {
       expect(hoisted.createCheckoutOrOrder).toHaveBeenCalledWith(
@@ -491,7 +500,7 @@ describe("MBTI checkout wiring contract", () => {
 
     render(<MbtiResultShell {...createShellProps(reportData)} onInternalNavigate={onInternalNavigate} />);
 
-    fireEvent.click(screen.getByTestId("mbti-offers-primary-cta"));
+    fireEvent.click(getPrimaryByTestId("mbti-offers-primary-cta"));
 
     await waitFor(() => {
       expect(onInternalNavigate).toHaveBeenCalledWith(
@@ -514,7 +523,7 @@ describe("MBTI checkout wiring contract", () => {
 
     render(<MbtiResultShell {...createShellProps(reportData)} />);
 
-    fireEvent.click(screen.getByTestId("mbti-offers-primary-cta"));
+    fireEvent.click(getPrimaryByTestId("mbti-offers-primary-cta"));
 
     await waitFor(() => {
       expect(screen.getByTestId("mbti-offers-checkout-error")).toHaveTextContent("支付服务暂时不可用，请稍后重试。");

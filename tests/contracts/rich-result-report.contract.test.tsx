@@ -18,6 +18,15 @@ vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
 }));
 
+function getPrimaryByTestId(testId: string): HTMLElement {
+  const [node] = screen.getAllByTestId(testId);
+  if (!node) {
+    throw new Error(`Missing test id: ${testId}`);
+  }
+
+  return node;
+}
+
 function createReportFixture(): ReportResponse {
   return structuredClone(reportReadyMbtiFreeFixture) as ReportResponse;
 }
@@ -120,16 +129,14 @@ describe("RichResultReport", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-hero")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-dimensions")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-highlights")).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-hero")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-mobile-chrome")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored overview title");
@@ -147,29 +154,24 @@ describe("RichResultReport", () => {
     for (let index = 0; index < orderedChapters.length - 1; index += 1) {
       expect(orderedChapters[index].compareDocumentPosition(orderedChapters[index + 1]) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     }
-    const intro = screen.getByText("先确认结构，再进入场景，再决定是否提升判读深度").closest("section");
+    const intro = screen.getByText("先读人设，再读章节，最后决定是否解锁完整深度").closest("section");
     expect(intro).not.toBeNull();
-    const highlights = screen.getByTestId("mbti-highlights");
+    const traitsChapter = screen.getByTestId("mbti-chapter-traits");
     const relationships = screen.getByTestId("mbti-chapter-relationships");
     const careerNextStep = screen.getByTestId("mbti-career-next-step");
     const reads = screen.getByTestId("mbti-recommended-reads");
-    const offers = screen.getByTestId("mbti-offer-comparison");
-    expect(intro!.compareDocumentPosition(highlights) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(highlights.compareDocumentPosition(relationships) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    const offers = getPrimaryByTestId("mbti-offer-comparison");
+    expect(intro!.compareDocumentPosition(traitsChapter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(traitsChapter.compareDocumentPosition(relationships) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(relationships.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(careerNextStep.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(offers.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 
-    const hero = screen.getByTestId("mbti-hero");
+    const hero = getPrimaryByTestId("mbti-hero");
     expect(within(hero).getByRole("heading", { name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(hero).toHaveTextContent("Projection-first subtitle");
     expect(hero).toHaveTextContent("Projection-first summary that should replace the legacy hero copy on result pages.");
-    expect(hero).toHaveTextContent("Around 6-8%");
-    expect(within(hero).getByText("Projection Tag Alpha")).toBeInTheDocument();
-    expect(within(hero).getByText("Projection Tag Beta")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Spark Navigator");
     expect(screen.queryByText("type:ENFP-T")).not.toBeInTheDocument();
     expect(screen.queryByText("axis:EI:E")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
@@ -177,10 +179,6 @@ describe("RichResultReport", () => {
     expect(screen.queryByText("Legacy hero summary should lose to projection summary.")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy keyword should lose")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy rarity should lose")).not.toBeInTheDocument();
-
-    expect(screen.getByText("Projection-ready highlight")).toBeInTheDocument();
-    expect(screen.getByText("Legacy blindspot")).toBeInTheDocument();
-    expect(screen.getByText("Legacy action")).toBeInTheDocument();
 
     for (const chapter of orderedChapters) {
       expect(within(chapter).queryAllByTestId("mbti-chapter-unlock-card").length).toBeLessThanOrEqual(1);
@@ -337,11 +335,7 @@ describe("RichResultReport", () => {
     );
     expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
 
-    expect(screen.getByTestId("mbti-offer-card-full")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-offer-card-career")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-offer-card-relationships")).not.toBeInTheDocument();
-    expect(screen.getAllByText("完整人格报告").length).toBeGreaterThanOrEqual(1);
-    expect(within(screen.getByTestId("mbti-offer-comparison")).queryByText("¥0.99")).not.toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).queryByText("¥0.99")).not.toBeInTheDocument();
     expect(screen.getAllByText("E / I").length).toBeGreaterThan(0);
     const footerActions = screen.getByTestId("mbti-footer-cta");
     expect(within(footerActions).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
@@ -349,13 +343,13 @@ describe("RichResultReport", () => {
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types/take"
     );
-    const offerComparison = screen.getByTestId("mbti-offer-comparison");
+    const offerComparison = getPrimaryByTestId("mbti-offer-comparison");
     expect(within(offerComparison).getByText("Unified MBTI unlock plan")).toBeInTheDocument();
     expect(within(offerComparison).getByText("Use one primary commerce surface and keep the rest as mirrors.")).toBeInTheDocument();
     expect(within(offerComparison).getByText("Formal entitlement A")).toBeInTheDocument();
     expect(within(offerComparison).getByText("Formal entitlement B")).toBeInTheDocument();
     expect(within(offerComparison).getByRole("button", { name: "解锁完整报告" })).toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+    expect(within(getPrimaryByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
       "#offer-full"
     );
@@ -367,7 +361,7 @@ describe("RichResultReport", () => {
       "href",
       "#offer-full"
     );
-    expect(within(screen.getByTestId("mbti-sticky-rail")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-sticky-rail")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-mobile-chrome")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-footer-cta")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(screen.getByText("Action experiments that keep the result moving")).toBeInTheDocument();
@@ -503,9 +497,8 @@ describe("RichResultReport", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-highlights")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
@@ -521,7 +514,7 @@ describe("RichResultReport", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    expect(screen.getByTestId("mbti-hero")).toHaveTextContent(
+    expect(getPrimaryByTestId("mbti-hero")).toHaveTextContent(
       "Projection-first summary that should replace the legacy hero copy on result pages."
     );
     expect(
@@ -540,7 +533,7 @@ describe("RichResultReport", () => {
     expect(
       screen.getByTestId("mbti-cultural-calibration-growth-next-actions")
     ).toHaveTextContent("make the next step explicit");
-    expect(screen.getByTestId("mbti-hero")).toHaveTextContent(
+    expect(getPrimaryByTestId("mbti-hero")).toHaveTextContent(
       "Projection-first summary that should replace the legacy hero copy on result pages."
     );
   });

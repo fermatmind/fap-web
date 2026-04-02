@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { ProfileIdentity } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 
 type RailTool = {
@@ -14,11 +15,7 @@ type RailTool = {
 
 type MbtiCloneRailProps = {
   locale: "zh" | "en";
-  displayName: string;
-  typeCode: string;
-  tags: string[];
-  isUnlocked: boolean;
-  summary: string;
+  profileIdentity: ProfileIdentity;
   primaryCtaLabel: string;
   primaryCtaHref: string;
   tools: RailTool[];
@@ -50,16 +47,16 @@ function normalizeText(...values: unknown[]) {
 
 export function MbtiCloneRail({
   locale,
-  displayName,
-  typeCode,
-  tags,
-  isUnlocked,
-  summary,
+  profileIdentity,
   primaryCtaLabel,
   primaryCtaHref,
   tools,
 }: MbtiCloneRailProps) {
   const [activeAnchor, setActiveAnchor] = useState("traits");
+  const nameLine = [profileIdentity.name, profileIdentity.nickname]
+    .map((value) => normalizeText(value))
+    .filter((value) => value.length > 0)
+    .join(" · ");
 
   useEffect(() => {
     const updateFromViewport = () => {
@@ -90,30 +87,20 @@ export function MbtiCloneRail({
   return (
     <aside data-testid="mbti-sticky-rail" className={styles.rail}>
       <div className={styles.railCard}>
-        <div className={styles.identityMini}>
-          <span className={styles.identityBadge}>{normalizeText(typeCode).slice(0, 1) || "M"}</span>
-          <div>
-            <p className={styles.microLabel}>{locale === "zh" ? "人格类型" : "Type"}</p>
-            <p className={styles.railTitle}>{displayName || typeCode}</p>
-            <p className={styles.railCode}>{typeCode}</p>
-          </div>
+        <div className={styles.railIdentityCard} data-testid="mbti-rail-profile-identity">
+          <p className={styles.railCodePrimary}>{profileIdentity.code}</p>
+          {nameLine ? <p className={styles.railNameLine}>{nameLine}</p> : null}
+          {profileIdentity.rarity ? <p className={styles.railRarity}>{`稀有度：${profileIdentity.rarity}`}</p> : null}
+          {profileIdentity.keywords.length > 0 ? (
+            <div className={styles.railKeywordRow}>
+              {profileIdentity.keywords.slice(0, 6).map((keyword) => (
+                <span key={keyword} className={styles.railKeyword}>
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          ) : null}
         </div>
-        <p className={styles.railBody}>
-          {isUnlocked
-            ? locale === "zh"
-              ? "完整访问已启用。桌面克隆壳继续保留 16P 式 rail 与章节阅读节奏。"
-              : "Full access is enabled. The desktop clone keeps the 16P-style rail and reading cadence."
-            : summary}
-        </p>
-        {tags.length > 0 ? (
-          <div className={styles.tagRow}>
-            {tags.slice(0, 3).map((tag) => (
-              <span key={tag} className={styles.tag}>
-                {tag}
-              </span>
-            ))}
-          </div>
-        ) : null}
       </div>
 
       <div className={styles.railCard}>

@@ -42,7 +42,23 @@ function createStoragePayload(tag: string): PersonalityDesktopCloneContentPayloa
     baseCode: "INFJ",
     locale: "zh-CN",
     content: {
-      hero: { summary: `hero ${tag}` },
+      hero: {
+        summary: `hero ${tag}`,
+        profileIdentity: {
+          code: "INFJ-T",
+          name: `name ${tag}`,
+          nickname: `nickname ${tag}`,
+          rarity: `rarity ${tag}`,
+          keywords: [
+            `keyword 1 ${tag}`,
+            `keyword 2 ${tag}`,
+            `keyword 3 ${tag}`,
+            `keyword 4 ${tag}`,
+            `keyword 5 ${tag}`,
+            `keyword 6 ${tag}`,
+          ],
+        },
+      },
       intro: { paragraphs: [`intro 1 ${tag}`, `intro 2 ${tag}`] },
       traits: {
         summaryPane: {
@@ -260,7 +276,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(finalOfferCta).toHaveAttribute("href", "/zh/pay/checkout");
 
     const lockedOverlayCtas = screen.getAllByRole("link", { name: "解锁完整报告" });
-    expect(lockedOverlayCtas).toHaveLength(6);
+    expect(lockedOverlayCtas).toHaveLength(9);
   });
 
   it("keeps runtime offer price while allowing storage copy to render", async () => {

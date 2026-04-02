@@ -27,12 +27,13 @@ afterEach(() => {
 });
 
 describe("articles cleanup contract", () => {
-  it("frontend next-sitemap no longer generates article list or detail authority", async () => {
+  it("frontend next-sitemap keeps article landing and detail authority available", async () => {
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
-    expect(locs.some((loc: string) => /^\/(en|zh)\/articles(?:\/|$)/.test(loc))).toBe(false);
+    expect(locs).toEqual(expect.arrayContaining(["/en/articles", "/zh/articles"]));
+    expect(locs.some((loc: string) => /^\/(en|zh)\/articles\/[^/]+$/.test(loc))).toBe(true);
   });
 
   it("article detail page consumes adapter-normalized seo payload without page-level repair helpers", () => {

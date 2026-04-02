@@ -9,9 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      NEXT_PUBLIC_SITE_URL: https://fermatmind.com
 
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.28.1
+          run_install: false
 
       - uses: actions/setup-node@v4
         with:
@@ -31,6 +38,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.28.1
+          run_install: false
 
       - uses: actions/setup-node@v4
         with:

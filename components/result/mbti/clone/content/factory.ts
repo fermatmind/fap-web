@@ -238,6 +238,13 @@ export function createMbtiDesktopCloneContent(input: ContentInput): MbtiDesktopC
   return {
     hero: {
       summary: input.heroSummary,
+      profileIdentity: {
+        code: "MBTI",
+        name: "占位人格标题",
+        nickname: "占位身份标签",
+        rarity: "约 --",
+        keywords: ["占位关键词1", "占位关键词2", "占位关键词3", "占位关键词4", "占位关键词5", "占位关键词6"],
+      },
     },
     intro: {
       paragraphs: input.intro,
@@ -282,6 +289,7 @@ export function mergeMbtiDesktopCloneContent(
   return {
     hero: {
       summary: patch.hero?.summary ?? base.hero.summary,
+      profileIdentity: patch.hero?.profileIdentity ?? base.hero.profileIdentity,
     },
     intro: {
       paragraphs: mergeTextTuple(base.intro.paragraphs, patch.intro?.paragraphs),

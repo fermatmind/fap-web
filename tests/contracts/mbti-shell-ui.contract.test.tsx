@@ -19,6 +19,15 @@ vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
 }));
 
+function getPrimaryByTestId(testId: string): HTMLElement {
+  const [node] = screen.getAllByTestId(testId);
+  if (!node) {
+    throw new Error(`Missing test id: ${testId}`);
+  }
+
+  return node;
+}
+
 function createLockedProjectionFixture(): ReportResponse {
   const reportData = applyMbtiPhase2Fixture(
     structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse
@@ -82,24 +91,22 @@ describe("MBTI shell UI contract", () => {
   it("renders the locked current shell path without dormant modules", () => {
     render(<RichResultReport locale="zh" reportData={createLockedProjectionFixture()} />);
 
-    const stickyRail = screen.getByTestId("mbti-sticky-rail");
+    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-hero")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-dimensions")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-hero")).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
     expect(stickyRail).toBeInTheDocument();
     expect(screen.getByTestId("mbti-mobile-chrome")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-highlights")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
-    expect(within(stickyRail).getByText("职业")).toBeInTheDocument();
-    expect(within(stickyRail).getByText("关系")).toBeInTheDocument();
+    expect(within(stickyRail).getByText("2 Your Career Path")).toBeInTheDocument();
+    expect(within(stickyRail).getByText("4 Your Relationships")).toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
 
     expect(
@@ -110,11 +117,10 @@ describe("MBTI shell UI contract", () => {
   it("renders the unlocked workspace in the main offer slot", () => {
     render(<RichResultReport locale="zh" reportData={createUnlockedFixture()} />);
 
-    const terminalSurface = screen.getByTestId("mbti-post-purchase-section");
-    const stickyRail = screen.getByTestId("mbti-sticky-rail");
+    const terminalSurface = getPrimaryByTestId("mbti-post-purchase-section");
+    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
     const footer = screen.getByTestId("mbti-footer-cta");
 
-    expect(screen.getByTestId("mbti-highlights")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(terminalSurface).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
@@ -127,7 +133,7 @@ describe("MBTI shell UI contract", () => {
       "href",
       "/zh/relationships/mbti"
     );
-    expect(within(stickyRail).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute(
+    expect(within(stickyRail).getByRole("link", { name: "结果工作台" })).toHaveAttribute(
       "href",
       "/zh/history/mbti"
     );

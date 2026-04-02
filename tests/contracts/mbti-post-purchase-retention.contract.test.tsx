@@ -28,6 +28,15 @@ vi.mock("@/lib/api/v0_3", async () => {
   };
 });
 
+function getPrimaryByTestId(testId: string): HTMLElement {
+  const [node] = screen.getAllByTestId(testId);
+  if (!node) {
+    throw new Error(`Missing test id: ${testId}`);
+  }
+
+  return node;
+}
+
 function createReportFixture(): ReportResponse {
   return structuredClone(reportReadyMbtiFreeFixture) as ReportResponse;
 }
@@ -84,9 +93,9 @@ describe("MBTI post-purchase retention contract", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    const terminalSurface = screen.getByTestId("mbti-post-purchase-section");
+    const terminalSurface = getPrimaryByTestId("mbti-post-purchase-section");
     const footer = screen.getByTestId("mbti-footer-cta");
-    const stickyRail = screen.getByTestId("mbti-sticky-rail");
+    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
     const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
 
     expect(terminalSurface).toBeInTheDocument();
@@ -98,7 +107,7 @@ describe("MBTI post-purchase retention contract", () => {
     expect(within(terminalSurface).getByRole("link", { name: "订单找回" })).toHaveAttribute("href", "/zh/orders/lookup");
     expect(within(terminalSurface).queryByRole("link", { name: "查看报告" })).not.toBeInTheDocument();
 
-    expect(within(stickyRail).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
+    expect(within(stickyRail).getByRole("link", { name: "结果工作台" })).toHaveAttribute("href", "/zh/history/mbti");
     expect(within(mobileChrome).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
     expect(within(footer).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
 
@@ -110,7 +119,7 @@ describe("MBTI post-purchase retention contract", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    fireEvent.click(screen.getByTestId("mbti-post-purchase-download"));
+    fireEvent.click(getPrimaryByTestId("mbti-post-purchase-download"));
 
     await waitFor(() => {
       expect(hoisted.openWindow).toHaveBeenCalledWith(
@@ -127,7 +136,7 @@ describe("MBTI post-purchase retention contract", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    const stickyRail = screen.getByTestId("mbti-sticky-rail");
+    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
     const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
     const footer = screen.getByTestId("mbti-footer-cta");
 

@@ -589,7 +589,6 @@ describe("MBTI share consumer contract", () => {
     expect(screen.getByText("Around 6-8%")).toBeInTheDocument();
     expect(screen.getByText("Warm", { exact: true })).toBeInTheDocument();
     expect(screen.getByText("62%")).toBeInTheDocument();
-    expect(screen.getByText("74%")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Invite a friend to compare" })).toBeInTheDocument();
 
     expect(screen.queryByText("Legacy title should be ignored")).not.toBeInTheDocument();

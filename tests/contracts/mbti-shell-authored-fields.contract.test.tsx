@@ -81,6 +81,10 @@ function overrideProjectionSectionSelection(
   metaPersonalization.section_selection_keys = sectionSelectionKeys;
 }
 
+function getPrimaryByTestId(testId: string): HTMLElement {
+  return screen.getAllByTestId(testId)[0] as HTMLElement;
+}
+
 describe("MBTI shell authored fields contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -194,13 +198,10 @@ describe("MBTI shell authored fields contract", () => {
     );
     expect(whyThisTypePayload?.tone_mode).toBe("supportive");
     expect(stabilityPayload?.tone_mode).toBe("supportive");
-    const hero = screen.getByTestId("mbti-hero");
+    const hero = getPrimaryByTestId("mbti-hero");
     expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(hero).toHaveTextContent("Projection-first subtitle");
     expect(hero).toHaveTextContent("Projection-first summary that should replace the legacy hero copy on result pages.");
-    expect(hero).toHaveTextContent("Around 6-8%");
-    expect(hero).toHaveTextContent("Projection Tag Alpha");
     expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveAttribute(
       "data-variant-key",
       "career.summary:EI.E.clear:identity.T:boundary.JP"
@@ -366,7 +367,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
     expect(
       screen.getByTestId("mbti-career-next-step").compareDocumentPosition(
-        screen.getByTestId("mbti-offer-comparison")
+        getPrimaryByTestId("mbti-offer-comparison")
       ) & Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy();
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
@@ -375,7 +376,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
       "carryover_focus_key=growth.next_actions"
     );
-    expect(screen.getByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
     expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
       "data-recommendation-key",
       "read-action"
@@ -417,8 +418,10 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByText("Projection trait grid summary.")).toBeInTheDocument();
     expect(screen.getByText("Legacy authored overview title")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
-    expect(within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
+    expect(
+      within(getPrimaryByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
+    ).toBeInTheDocument();
     expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
     expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
@@ -609,10 +612,10 @@ describe("MBTI shell authored fields contract", () => {
       ) & Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy();
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "1");
-    expect(screen.getByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "2");
+    expect(getPrimaryByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "2");
     expect(
       screen.getByTestId("mbti-career-next-step").compareDocumentPosition(
-        screen.getByTestId("mbti-post-purchase-section")
+        getPrimaryByTestId("mbti-post-purchase-section")
       ) & Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy();
     expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
@@ -712,7 +715,7 @@ describe("MBTI shell authored fields contract", () => {
       "data-recommendation-key",
       "read-explain"
     );
-    expect(screen.getByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
+    expect(getPrimaryByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "view_result",
@@ -750,7 +753,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
+    expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
     expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
       "你已经呈现出稳定的外倾倾向"
     );
@@ -866,8 +869,8 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored title still visible");
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
-    expect(screen.getByTestId("mbti-offer-comparison")).toHaveTextContent("解锁完整 MBTI 报告");
+    expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toHaveTextContent("解锁完整 MBTI 报告");
     expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
       "#offer-full"

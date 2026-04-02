@@ -32,8 +32,9 @@ describe("wider public family contract", () => {
     const home = read("app/(localized)/[locale]/page.tsx");
     const testsIndex = read("app/(localized)/[locale]/tests/page.tsx");
 
-    expect(home).toContain("const gatewaySurface = await getHomeGatewaySurface(locale)");
-    expect(home).toContain("const gatewayHighlights = landingSurface?.discoverabilityItems ?? []");
+    expect(home).toContain('import { HeroSection } from "@/components/marketing/HeroSection"');
+    expect(home).toContain("const highlightedCards: HomeHighlightedCard[] = preferredLiveSlugs");
+    expect(home).toContain("<HighlightedTestsSection locale={locale} cards={highlightedCards} />");
 
     expect(testsIndex).toContain("const gatewaySurface = await getTestsGatewaySurface(locale)");
     expect(testsIndex).toContain("const gatewayItems = landingSurface?.discoverabilityItems ?? []");
