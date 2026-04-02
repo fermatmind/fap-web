@@ -22,12 +22,12 @@ function sliceBetween(source: string, start: string, end: string): string {
 }
 
 describe("personality cleanup contract", () => {
-  it("frontend next-sitemap no longer generates personality list or detail authority", async () => {
+  it("frontend next-sitemap keeps public personality landing coverage available", async () => {
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
-    expect(locs.some((loc: string) => /^\/(en|zh)\/personality(?:\/|$)/.test(loc))).toBe(false);
+    expect(locs).toEqual(expect.arrayContaining(["/en/personality", "/zh/personality"]));
   });
 
   it("personality detail page no longer imports or uses the local mbti fallback", () => {

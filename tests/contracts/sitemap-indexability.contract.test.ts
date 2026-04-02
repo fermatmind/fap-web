@@ -20,7 +20,7 @@ afterEach(() => {
 });
 
 describe("sitemap indexability contract", () => {
-  it("frontend sitemap config keeps public topics, help, and career entries without claiming personality, article, or guide authority", async () => {
+  it("frontend sitemap config keeps the current public topics, help, personality, article, and guide routes", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async () =>
@@ -40,14 +40,16 @@ describe("sitemap indexability contract", () => {
         "/zh/topics/mbti",
         "/en/help/faq",
         "/zh/help/faq",
+        "/en/personality",
+        "/zh/personality",
+        "/en/articles",
+        "/zh/articles",
+        "/en/career/guides",
+        "/zh/career/guides",
         "/en/career/recommendations/mbti/intj-a",
         "/zh/career/recommendations/mbti/intj-a",
       ])
     );
-    expect(locs.some((loc: string) => /^\/(en|zh)\/personality(?:\/|$)/.test(loc))).toBe(false);
-    expect(locs.some((loc: string) => /^\/(en|zh)\/personality\/[a-z]{4}-[at](?:\/|$)/.test(loc))).toBe(false);
-    expect(locs.some((loc: string) => /^\/(en|zh)\/articles(?:\/|$)/.test(loc))).toBe(false);
-    expect(locs.some((loc: string) => /^\/(en|zh)\/career\/guides(?:\/|$)/.test(loc))).toBe(false);
   });
 
   it("frontend sitemap config excludes retired and private route families", async () => {

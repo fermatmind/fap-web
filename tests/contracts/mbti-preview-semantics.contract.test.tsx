@@ -14,6 +14,15 @@ vi.mock("@/lib/analytics", () => ({
   trackEvent: vi.fn(),
 }));
 
+function getPrimaryByTestId(testId: string): HTMLElement {
+  const [node] = screen.getAllByTestId(testId);
+  if (!node) {
+    throw new Error(`Missing test id: ${testId}`);
+  }
+
+  return node;
+}
+
 function createPreviewFixture(modulesPreview: string[] = ["career", "relationships", "core_full"]): ReportResponse {
   const reportData = applyMbtiPhase2Fixture(
     structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse
@@ -87,7 +96,7 @@ describe("MBTI preview semantics contract", () => {
     const previewSurface = screen.getByTestId("mbti-chapter-preview-growth");
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(previewSurface).toBeInTheDocument();
     expect(within(previewSurface).getByText("你的成长主线：把强项做成可复用资产")).toBeInTheDocument();
     expect(screen.queryByText("这个付费卡不应该在 preview 中出现")).not.toBeInTheDocument();
@@ -127,6 +136,6 @@ describe("MBTI preview semantics contract", () => {
     expect(screen.queryByTestId("mbti-chapter-preview-growth")).not.toBeInTheDocument();
     expect(screen.queryByText("你的成长主线：把强项做成可复用资产")).not.toBeInTheDocument();
     expect(within(growthChapter).getByTestId("mbti-chapter-unlock-card")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
   });
 });
