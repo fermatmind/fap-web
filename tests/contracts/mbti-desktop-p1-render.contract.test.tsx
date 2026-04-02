@@ -607,7 +607,7 @@ beforeEach(() => {
 describe("MBTI desktop chapter premium teaser reset contract", () => {
   const unifiedUnlockBody = "解锁完整报告后即可查看这些结果，并纳入你的人格分析。";
 
-  it("renders Career chapter-end premium teasers from compatibility fields after strengths/weaknesses without extra matched cards", async () => {
+  it("keeps Career chapter-end premium teasers on the locked path without extra matched cards", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -664,6 +664,42 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, nextSection);
+  });
+
+  it("renders Career authored body blocks on the unlocked path", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A", "zh", true);
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
+    });
+
+    const section = document.querySelector("#career") as HTMLElement;
+    const scoped = within(section);
+
+    const weaknessesCard = scoped.getByTestId("mbti-p0-career-weaknesses");
+    const careerIdeasBlock = scoped.getByTestId("mbti-p1-career-career-ideas");
+    const workStylesBlock = scoped.getByTestId("mbti-p1-career-work-styles");
+    const nextSection = document.querySelector("#growth") as HTMLElement;
+
+    expect(scoped.getByText("你可能会喜欢的职业选择")).toBeInTheDocument();
+    expect(scoped.getByText("适合你的工作方式")).toBeInTheDocument();
+    expect(scoped.getByText("career ideas item infj-a")).toBeInTheDocument();
+    expect(scoped.getByText("career ideas body infj-a")).toBeInTheDocument();
+    expect(scoped.getByText("work styles item infj-a")).toBeInTheDocument();
+    expect(scoped.getByText("work styles body infj-a")).toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-premium-career-career-ideas")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-premium-career-work-styles")).not.toBeInTheDocument();
+    expect(scoped.queryByText("匹配岗位建议")).not.toBeInTheDocument();
+    expect(scoped.queryByText("匹配阅读指南")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p0-career-matched-jobs")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-p0-career-matched-guides")).not.toBeInTheDocument();
+    expect(scoped.queryByText(unifiedUnlockBody)).not.toBeInTheDocument();
+
+    expectBefore(weaknessesCard, careerIdeasBlock);
+    expectBefore(careerIdeasBlock, workStylesBlock);
+    expectBefore(workStylesBlock, nextSection);
   });
 
   it("renders Growth chapter-end premium teasers with compact inline unlock copy", async () => {

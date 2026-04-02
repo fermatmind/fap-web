@@ -4,6 +4,7 @@ import { type ReactNode, useEffect, useMemo, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
 import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
+import { MbtiCloneIdeaListBlock } from "@/components/result/mbti/clone/MbtiCloneIdeaListBlock";
 import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCloneNarrativeSection";
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
@@ -164,6 +165,17 @@ function buildPremiumTeaserBlock({
   };
 }
 
+function withOverrideTitle<T extends { title: string }>(block: T | null | undefined, title: string): T | null {
+  if (!block) {
+    return null;
+  }
+
+  return {
+    ...block,
+    title,
+  };
+}
+
 export function MbtiDesktopCloneShell({
   locale,
   headline,
@@ -249,6 +261,37 @@ export function MbtiDesktopCloneShell({
     storageContent,
   });
   const primaryOffer = resolvePrimaryOffer(offers);
+  const unlockedCareerIdeaBlock = isUnlocked
+    ? withOverrideTitle(
+        slots.chapters.career.careerIdeas,
+        cloneLocale === "zh" ? "你可能会喜欢的职业选择" : (slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
+      )
+    : null;
+  const unlockedWorkStylesBlock = isUnlocked
+    ? withOverrideTitle(
+        slots.chapters.career.workStyles,
+        cloneLocale === "zh" ? "适合你的工作方式" : (slots.chapters.career.workStyles?.title ?? "Work Styles"),
+      )
+    : null;
+  const careerPostCoreBlocks: ReactNode[] = [];
+  if (unlockedCareerIdeaBlock) {
+    careerPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="career-ideas"
+        data={unlockedCareerIdeaBlock}
+        testId="mbti-p1-career-career-ideas"
+      />,
+    );
+  }
+  if (unlockedWorkStylesBlock) {
+    careerPostCoreBlocks.push(
+      <MbtiCloneIdeaListBlock
+        key="career-work-styles"
+        data={unlockedWorkStylesBlock}
+        testId="mbti-p1-career-work-styles"
+      />,
+    );
+  }
 
   const railTools: DesktopCloneTool[] = [
     { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
@@ -331,7 +374,8 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              premiumTeasers={[
+              postCoreBlocks={careerPostCoreBlocks}
+              premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "你可能会喜欢的职业选择",
