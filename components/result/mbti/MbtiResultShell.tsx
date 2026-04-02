@@ -5,6 +5,10 @@ import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEff
 import { usePathname } from "next/navigation";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
+import {
+  getMbtiDesktopAnchorHash,
+  getMbtiDesktopAnchorId,
+} from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { buildDominantTraitItems } from "@/components/result/mbti/MbtiDominantTraitsSection";
@@ -148,6 +152,8 @@ type MbtiResultShellProps = {
 const CHAPTER_ORDER = ["traits", "career", "growth", "relationships"] as const;
 const OFFER_FULL_HASH = "#offer-full";
 const OFFER_SECTION_ID = "offer-full";
+const DESKTOP_OFFER_FULL_HASH = getMbtiDesktopAnchorHash("offerFull");
+const DESKTOP_OFFER_SECTION_ID = getMbtiDesktopAnchorId("offerFull");
 const OFFER_SCROLL_ALIGNMENT: ScrollIntoViewOptions = {
   behavior: "smooth",
   block: "center",
@@ -376,6 +382,23 @@ function resolveCtaRank(ctaPriorityKeys: string[], ctaKey: string): number {
 
 function resolveCtaRankLabel(locale: Locale, rank: number): string {
   return locale === "zh" ? `优先入口 ${rank}` : `Priority ${rank}`;
+}
+
+function resolveOfferScrollTargetId(hash: string): string | null {
+  const prefersDesktopTarget =
+    typeof window !== "undefined"
+    && typeof window.matchMedia === "function"
+    && window.matchMedia("(min-width: 1280px)").matches;
+
+  if (hash === OFFER_FULL_HASH) {
+    return prefersDesktopTarget ? DESKTOP_OFFER_SECTION_ID : OFFER_SECTION_ID;
+  }
+
+  if (hash === DESKTOP_OFFER_FULL_HASH) {
+    return DESKTOP_OFFER_SECTION_ID;
+  }
+
+  return null;
 }
 
 function sortProjectionSectionsByOrder(
@@ -1035,6 +1058,7 @@ export function MbtiResultShell({
   const resolvedTerminalPrimaryCtaHref = isUnlockedPostPurchase
     ? normalizeText(continuityWorkspaceHref, continuityHistoryHref, terminalPrimaryCtaHref)
     : terminalPrimaryCtaHref;
+  const desktopClonePrimaryCtaHref = isUnlockedPostPurchase ? resolvedTerminalPrimaryCtaHref : DESKTOP_OFFER_FULL_HASH;
   const isRevisit = personalization?.userState?.isRevisit === true;
   const unlockCtaRank = resolveCtaRank(ctaPriorityKeys, "unlock_full_report");
   const careerBridgeCtaRank = resolveCtaRank(ctaPriorityKeys, "career_bridge");
@@ -1215,7 +1239,7 @@ export function MbtiResultShell({
     offerScrollFrameRef.current = null;
   }, []);
 
-  const scrollOfferIntoCenter = useCallback(() => {
+  const scrollOfferIntoCenter = useCallback((targetId: string) => {
     if (typeof window === "undefined") {
       return;
     }
@@ -1225,10 +1249,7 @@ export function MbtiResultShell({
     const scheduleSecondFrame = () => {
       offerScrollFrameRef.current = window.requestAnimationFrame(() => {
         offerScrollFrameRef.current = null;
-        const offerSection =
-          document.getElementById(OFFER_SECTION_ID)
-          ?? document.getElementById("offer-full")?.closest("section")
-          ?? document.getElementById("offer-full");
+        const offerSection = document.getElementById(targetId);
 
         if (!(offerSection instanceof HTMLElement)) {
           return;
@@ -1242,11 +1263,16 @@ export function MbtiResultShell({
   }, [cancelScheduledOfferScroll]);
 
   const syncOfferHashScroll = useCallback(() => {
-    if (typeof window === "undefined" || window.location.hash !== OFFER_FULL_HASH) {
+    if (typeof window === "undefined") {
       return;
     }
 
-    scrollOfferIntoCenter();
+    const targetId = resolveOfferScrollTargetId(window.location.hash);
+    if (!targetId) {
+      return;
+    }
+
+    scrollOfferIntoCenter(targetId);
   }, [scrollOfferIntoCenter]);
 
   const handleOfferAnchorClickCapture = useCallback(
@@ -1260,8 +1286,14 @@ export function MbtiResultShell({
         return;
       }
 
-      const anchor = target.closest('a[href="#offer-full"]');
+      const anchor = target.closest("a[href]");
       if (!(anchor instanceof HTMLAnchorElement)) {
+        return;
+      }
+
+      const href = anchor.getAttribute("href")?.trim() ?? "";
+      const targetId = resolveOfferScrollTargetId(href);
+      if (!targetId) {
         return;
       }
 
@@ -1271,14 +1303,14 @@ export function MbtiResultShell({
 
       event.preventDefault();
 
-      const nextUrl = `${window.location.pathname}${window.location.search}${OFFER_FULL_HASH}`;
-      if (window.location.hash === OFFER_FULL_HASH) {
+      const nextUrl = `${window.location.pathname}${window.location.search}${href}`;
+      if (window.location.hash === href) {
         window.history.replaceState(null, "", nextUrl);
       } else {
         window.history.pushState(null, "", nextUrl);
       }
 
-      scrollOfferIntoCenter();
+      scrollOfferIntoCenter(targetId);
     },
     [scrollOfferIntoCenter]
   );
@@ -2071,14 +2103,14 @@ export function MbtiResultShell({
           onShare={handleShare}
           retakeHref={retakeHref}
           historyHref={historyHref}
-          workspaceHref={resolvedTerminalPrimaryCtaHref}
+          workspaceHref={desktopClonePrimaryCtaHref}
           orderLookupHref={orderLookupHref}
           orderDetailHref={orderDetailHref}
           relationshipHref={relationshipHubHref}
           pdfHref={pdfHref}
           pdfReady={canDownloadPdf}
           primaryCtaLabel={terminalPrimaryCtaLabel}
-          primaryCtaHref={resolvedTerminalPrimaryCtaHref}
+          primaryCtaHref={desktopClonePrimaryCtaHref}
           onCheckout={handleCheckout}
           isCheckingOut={isCheckingOut}
           checkoutError={checkoutError}

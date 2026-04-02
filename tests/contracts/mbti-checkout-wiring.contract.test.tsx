@@ -4,6 +4,10 @@ import { OrderReturnFallbackClient } from "@/components/commerce/OrderReturnFall
 import { RichResultReport } from "@/components/result/RichResultReport";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
 import { MbtiResultShell, resolveMbtiCheckoutSku } from "@/components/result/mbti/MbtiResultShell";
+import {
+  getMbtiDesktopAnchorHash,
+  getMbtiDesktopAnchorId,
+} from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
@@ -57,6 +61,14 @@ function getPrimaryByTestId(testId: string): HTMLElement {
   }
 
   return node;
+}
+
+function getDesktopCloneShell(): HTMLElement {
+  return screen.getByTestId("mbti-desktop-clone-shell");
+}
+
+function getDesktopStickyRail(): HTMLElement {
+  return within(getDesktopCloneShell()).getByTestId("mbti-sticky-rail");
 }
 
 function createReportFixture(): ReportResponse {
@@ -296,15 +308,21 @@ describe("MBTI checkout wiring contract", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
+    const stickyRail = getDesktopStickyRail();
     const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
     const footer = screen.getByTestId("mbti-footer-cta");
-    const careerChapter = screen.getByTestId("mbti-chapter-career");
+    const careerTeaser = screen.getByTestId("mbti-premium-career-career-ideas");
 
-    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("offerFull")
+    );
     expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
     expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
-    expect(within(careerChapter).getAllByRole("link", { name: "解锁完整分析" })[0]).toHaveAttribute("href", "#offer-full");
+    expect(within(careerTeaser).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("offerFull")
+    );
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
       "/zh/career/recommendations/mbti/enfp-t?"
     );
@@ -319,7 +337,7 @@ describe("MBTI checkout wiring contract", () => {
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(mobileChrome).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(footer).getByRole("link", { name: "解锁完整报告" }));
-    fireEvent.click(within(careerChapter).getAllByRole("link", { name: "解锁完整分析" })[0]);
+    fireEvent.click(within(careerTeaser).getByRole("link", { name: "解锁完整报告" }));
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
   });
@@ -329,10 +347,10 @@ describe("MBTI checkout wiring contract", () => {
     const firstRender = render(<MbtiResultShell {...createShellProps(reportData)} />);
     const scrollIntoViewMock = vi.mocked(Element.prototype.scrollIntoView);
 
-    fireEvent.click(within(getPrimaryByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" }));
+    fireEvent.click(within(getDesktopStickyRail()).getByRole("link", { name: "解锁完整报告" }));
 
     await waitFor(() => {
-      expect(window.location.hash).toBe("#offer-full");
+      expect(window.location.hash).toBe(getMbtiDesktopAnchorHash("offerFull"));
       expect(scrollIntoViewMock).toHaveBeenCalledWith(
         expect.objectContaining({
           behavior: "smooth",
@@ -344,11 +362,26 @@ describe("MBTI checkout wiring contract", () => {
 
     firstRender.unmount();
     scrollIntoViewMock.mockClear();
+    const getElementByIdSpy = vi.spyOn(document, "getElementById");
+    vi.stubGlobal(
+      "matchMedia",
+      vi.fn((query: string) => ({
+        matches: query === "(min-width: 1280px)",
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      }))
+    );
     window.history.replaceState(null, "", "/zh/result/attempt-123#offer-full");
 
     render(<MbtiResultShell {...createShellProps(reportData)} />);
 
     await waitFor(() => {
+      expect(getElementByIdSpy).toHaveBeenCalledWith(getMbtiDesktopAnchorId("offerFull"));
       expect(scrollIntoViewMock).toHaveBeenCalledWith(
         expect.objectContaining({
           behavior: "smooth",

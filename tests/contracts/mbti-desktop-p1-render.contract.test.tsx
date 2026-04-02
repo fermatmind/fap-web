@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
+import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
 import {
   fetchPersonalityDesktopCloneContent,
@@ -619,6 +620,10 @@ function expectBefore(source: HTMLElement, target: HTMLElement) {
   expect(source.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
 }
 
+function getDesktopSection(key: "career" | "growth" | "relationships") {
+  return document.getElementById(getMbtiDesktopAnchorId(key)) as HTMLElement;
+}
+
 beforeEach(() => {
   vi.clearAllMocks();
   vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
@@ -636,7 +641,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    const section = document.querySelector("#career") as HTMLElement;
+    const section = getDesktopSection("career");
     const scoped = within(section);
 
     const traitsTitle = scoped.getByText("Influential Traits");
@@ -647,7 +652,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const secondTeaser = scoped.getByTestId("mbti-premium-career-work-styles");
     const firstTeaserOverlay = scoped.getByTestId("mbti-premium-career-career-ideas-overlay");
     const secondTeaserOverlay = scoped.getByTestId("mbti-premium-career-work-styles-overlay");
-    const nextSection = document.querySelector("#growth") as HTMLElement;
+    const nextSection = getDesktopSection("growth");
 
     expect(scoped.getByText("职业优势")).toBeInTheDocument();
     expect(scoped.getByText("职业短板")).toBeInTheDocument();
@@ -695,13 +700,13 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    const section = document.querySelector("#career") as HTMLElement;
+    const section = getDesktopSection("career");
     const scoped = within(section);
 
     const weaknessesCard = scoped.getByTestId("mbti-p0-career-weaknesses");
     const careerIdeasBlock = scoped.getByTestId("mbti-p1-career-career-ideas");
     const workStylesBlock = scoped.getByTestId("mbti-p1-career-work-styles");
-    const nextSection = document.querySelector("#growth") as HTMLElement;
+    const nextSection = getDesktopSection("growth");
 
     expect(scoped.getByText("你可能会喜欢的职业选择")).toBeInTheDocument();
     expect(scoped.getByText("适合你的工作方式")).toBeInTheDocument();
@@ -731,7 +736,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENTJ-T", "zh");
     });
 
-    const section = document.querySelector("#growth") as HTMLElement;
+    const section = getDesktopSection("growth");
     const scoped = within(section);
 
     const traitsLockPanel = scoped.getByTestId("mbti-growth-traits-lock-panel");
@@ -741,7 +746,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const secondTeaser = scoped.getByTestId("mbti-premium-growth-what-drains");
     const firstTeaserOverlay = scoped.getByTestId("mbti-premium-growth-what-energizes-overlay");
     const secondTeaserOverlay = scoped.getByTestId("mbti-premium-growth-what-drains-overlay");
-    const nextSection = document.querySelector("#relationships") as HTMLElement;
+    const nextSection = getDesktopSection("relationships");
 
     expect(scoped.getByText("成长优势")).toBeInTheDocument();
     expect(scoped.getByText("成长短板")).toBeInTheDocument();
@@ -784,13 +789,13 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENTJ-T", "zh");
     });
 
-    const section = document.querySelector("#growth") as HTMLElement;
+    const section = getDesktopSection("growth");
     const scoped = within(section);
 
     const weaknessesCard = scoped.getByTestId("mbti-p0-growth-weaknesses");
     const whatEnergizesBlock = scoped.getByTestId("mbti-p1-growth-what-energizes");
     const whatDrainsBlock = scoped.getByTestId("mbti-p1-growth-what-drains");
-    const nextSection = document.querySelector("#relationships") as HTMLElement;
+    const nextSection = getDesktopSection("relationships");
 
     expect(scoped.getByText("什么能让你充满活力？")).toBeInTheDocument();
     expect(scoped.getByText("什么让你精力力竭？")).toBeInTheDocument();
@@ -820,7 +825,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ISTP-A", "zh");
     });
 
-    const section = document.querySelector("#relationships") as HTMLElement;
+    const section = getDesktopSection("relationships");
     const scoped = within(section);
 
     const traitsLockPanel = scoped.getByTestId("mbti-relationships-traits-lock-panel");
@@ -873,7 +878,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ISTP-A", "zh");
     });
 
-    const section = document.querySelector("#relationships") as HTMLElement;
+    const section = getDesktopSection("relationships");
     const scoped = within(section);
 
     const weaknessesCard = scoped.getByTestId("mbti-p0-relationships-weaknesses");
@@ -908,7 +913,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    const section = document.querySelector("#career") as HTMLElement;
+    const section = getDesktopSection("career");
     const scoped = within(section);
     const traitsLockPanel = scoped.getByTestId("mbti-career-traits-lock-panel");
 
@@ -927,7 +932,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    const careerSection = document.querySelector("#career") as HTMLElement;
+    const careerSection = getDesktopSection("career");
     const careerScoped = within(careerSection);
     const traitsTitle = careerScoped.getByText("Influential Traits");
     const detailPanel = careerScoped.getByTestId("mbti-career-traits-unlock-panel");
@@ -944,8 +949,8 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expectBefore(detailPanel, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
 
-    const growthScoped = within(document.querySelector("#growth") as HTMLElement);
-    const relationshipsScoped = within(document.querySelector("#relationships") as HTMLElement);
+    const growthScoped = within(getDesktopSection("growth"));
+    const relationshipsScoped = within(getDesktopSection("relationships"));
     expect(growthScoped.getByTestId("mbti-growth-traits-unlock-panel")).toHaveTextContent("growth traits unlock title infj-a");
     expect(relationshipsScoped.getByTestId("mbti-relationships-traits-unlock-panel")).toHaveTextContent(
       "relationships traits unlock title infj-a",
@@ -961,7 +966,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    const careerScoped = within(document.querySelector("#career") as HTMLElement);
+    const careerScoped = within(getDesktopSection("career"));
     const detailPanel = careerScoped.getByTestId("mbti-career-traits-unlock-panel");
 
     expect(detailPanel).toHaveTextContent("career trait 1 infj-a");

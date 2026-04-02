@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
+import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import {
   fetchPersonalityDesktopCloneContent,
   type PersonalityDesktopCloneContentPayload,
@@ -33,6 +34,18 @@ function getPrimaryByTestId(testId: string): HTMLElement {
   }
 
   return node;
+}
+
+function getDesktopCloneShell(): HTMLElement {
+  return screen.getByTestId("mbti-desktop-clone-shell");
+}
+
+function getDesktopStickyRail(): HTMLElement {
+  return within(getDesktopCloneShell()).getByTestId("mbti-sticky-rail");
+}
+
+function getDesktopHero(): HTMLElement {
+  return within(getDesktopCloneShell()).getByTestId("mbti-hero");
 }
 
 function createReportFixture(): ReportResponse {
@@ -508,9 +521,9 @@ describe("RichResultReport", () => {
     expect(within(offerComparison).getByText("Formal entitlement A")).toBeInTheDocument();
     expect(within(offerComparison).getByText("Formal entitlement B")).toBeInTheDocument();
     expect(within(offerComparison).getByRole("button", { name: "解锁完整报告" })).toBeInTheDocument();
-    expect(within(getPrimaryByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+    expect(within(getDesktopStickyRail()).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
-      "#offer-full"
+      getMbtiDesktopAnchorHash("offerFull")
     );
     expect(within(screen.getByTestId("mbti-mobile-chrome")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
@@ -520,7 +533,7 @@ describe("RichResultReport", () => {
       "href",
       "#offer-full"
     );
-    expect(within(getPrimaryByTestId("mbti-sticky-rail")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
+    expect(within(getDesktopStickyRail()).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-mobile-chrome")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-footer-cta")).queryByText("Use one primary commerce surface and keep the rest as mirrors.")).not.toBeInTheDocument();
     expect(screen.getByText("Action experiments that keep the result moving")).toBeInTheDocument();
@@ -571,22 +584,22 @@ describe("RichResultReport", () => {
     });
 
     await waitFor(() => {
-      const hero = getPrimaryByTestId("mbti-hero");
-      const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
-      const railIdentity = within(stickyRail).getByTestId("mbti-visible-rail-profile-identity");
+      const hero = getDesktopHero();
+      const stickyRail = getDesktopStickyRail();
+      const railIdentity = within(stickyRail).getByTestId("mbti-rail-profile-identity");
 
       expect(within(hero).getByRole("heading", { name: "ENFJ-T" })).toBeInTheDocument();
-      expect(within(hero).getByTestId("mbti-visible-hero-identity-line")).toHaveTextContent("主人公型 · 温柔引路人");
-      expect(within(hero).getByTestId("mbti-visible-hero-rarity")).toHaveTextContent("稀有度：约 2–5%");
-      expect(within(hero).getByTestId("mbti-visible-hero-keywords")).toHaveTextContent("共情");
-      expect(within(hero).getByTestId("mbti-visible-hero-keywords")).toHaveTextContent("自我反思");
+      expect(within(hero).getByTestId("mbti-hero-identity-line")).toHaveTextContent("主人公型 · 温柔引路人");
+      expect(within(hero).getByTestId("mbti-hero-rarity")).toHaveTextContent("稀有度：约 2–5%");
+      expect(within(hero).getByTestId("mbti-hero-keywords")).toHaveTextContent("共情");
+      expect(within(hero).getByTestId("mbti-hero-keywords")).toHaveTextContent("自我反思");
       expect(hero).not.toHaveTextContent("Projection Campaigner");
 
       expect(railIdentity).toHaveTextContent("ENFJ-T");
       expect(railIdentity).toHaveTextContent("主人公型 · 温柔引路人");
       expect(railIdentity).toHaveTextContent("稀有度：约 2–5%");
+      expect(railIdentity).toHaveTextContent("共情");
       expect(railIdentity).not.toHaveTextContent("Projection Tag Alpha");
-      expect(railIdentity).not.toHaveTextContent("共情");
     });
   });
 

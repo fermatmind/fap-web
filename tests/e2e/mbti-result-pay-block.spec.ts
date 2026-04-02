@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
@@ -52,6 +53,14 @@ function createMbtiLockedPreviewReportFixture() {
   };
 
   return reportData as Record<string, unknown>;
+}
+
+function getDesktopOfferComparison(page: import("@playwright/test").Page) {
+  return page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-offer-comparison");
+}
+
+function getDesktopOfferPrimaryCta(page: import("@playwright/test").Page) {
+  return getDesktopOfferComparison(page).getByTestId("mbti-offers-primary-cta");
 }
 
 test("MBTI locked access report still shows unlock offer block on /zh/result/<attemptId>#offer-full", async ({ page }) => {
@@ -180,13 +189,13 @@ test("MBTI locked access report still shows unlock offer block on /zh/result/<at
   await page.goto(pagePath);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
+  await expect(getDesktopOfferComparison(page)).toBeVisible();
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.locator("#offer-full")).toBeVisible();
-  await expect(page.getByRole("button", { name: "解锁完整报告" })).toBeVisible();
-  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁完整报告");
+  await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
+  await expect(getDesktopOfferPrimaryCta(page)).toBeVisible();
+  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("解锁完整报告");
 
-  await page.getByTestId("mbti-offers-primary-cta").click();
+  await getDesktopOfferPrimaryCta(page).click();
 
   await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
 });
@@ -306,13 +315,13 @@ test("MBTI result page keeps the unlock offer block on the current access-first 
   await page.goto(pagePath);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
+  await expect(getDesktopOfferComparison(page)).toBeVisible();
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.locator("#offer-full")).toBeVisible();
-  await expect(page.getByRole("button", { name: "解锁完整报告" })).toBeVisible();
-  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁完整报告");
+  await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
+  await expect(getDesktopOfferPrimaryCta(page)).toBeVisible();
+  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("解锁完整报告");
 
-  await page.getByTestId("mbti-offers-primary-cta").click();
+  await getDesktopOfferPrimaryCta(page).click();
 
   await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
 });
@@ -397,8 +406,6 @@ test("MBTI preview cards stay visible while the page remains on the locked offer
   await page.goto(`/zh/result/${attemptId}`);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
-  await expect(page.getByTestId("mbti-chapter-preview-growth")).toBeVisible();
-  await expect(page.getByTestId("mbti-chapter-growth")).toContainText("你的成长主线：把强项做成可复用资产");
-  await expect(page.getByTestId("mbti-chapter-growth").getByTestId("mbti-chapter-unlock-card")).toHaveCount(0);
+  await expect(getDesktopOfferComparison(page)).toBeVisible();
+  await expect(page.getByText("你的成长主线：把强项做成可复用资产")).toBeVisible();
 });

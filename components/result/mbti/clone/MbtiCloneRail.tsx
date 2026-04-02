@@ -2,6 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import {
+  getMbtiDesktopAnchorHash,
+  getMbtiDesktopAnchorId,
+} from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { ProfileIdentity } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 
@@ -22,13 +26,23 @@ type MbtiCloneRailProps = {
 };
 
 const ANCHORS = [
-  { id: "traits", label: "1. Personality Traits" },
-  { id: "career", label: "2. Your Career Path" },
-  { id: "growth", label: "3. Your Personal Growth" },
-  { id: "relationships", label: "4. Your Relationships" },
-];
+  { key: "traits", id: getMbtiDesktopAnchorId("traits"), label: "1. Personality Traits" },
+  { key: "career", id: getMbtiDesktopAnchorId("career"), label: "2. Your Career Path" },
+  { key: "growth", id: getMbtiDesktopAnchorId("growth"), label: "3. Your Personal Growth" },
+  { key: "relationships", id: getMbtiDesktopAnchorId("relationships"), label: "4. Your Relationships" },
+] as const;
 
-const ACTIVE_IDS = ["hero", "traits", "career", "growth", "relationships", "offer-full"];
+const HERO_ANCHOR_ID = getMbtiDesktopAnchorId("hero");
+const TRAITS_ANCHOR_ID = getMbtiDesktopAnchorId("traits");
+
+const ACTIVE_IDS = [
+  HERO_ANCHOR_ID,
+  TRAITS_ANCHOR_ID,
+  getMbtiDesktopAnchorId("career"),
+  getMbtiDesktopAnchorId("growth"),
+  getMbtiDesktopAnchorId("relationships"),
+  getMbtiDesktopAnchorId("offerFull"),
+] as const;
 
 function isHashHref(href: string) {
   return href.startsWith("#");
@@ -52,7 +66,7 @@ export function MbtiCloneRail({
   primaryCtaHref,
   tools,
 }: MbtiCloneRailProps) {
-  const [activeAnchor, setActiveAnchor] = useState("traits");
+  const [activeAnchor, setActiveAnchor] = useState(TRAITS_ANCHOR_ID);
   const nameLine = [profileIdentity.name, profileIdentity.nickname]
     .map((value) => normalizeText(value))
     .filter((value) => value.length > 0)
@@ -60,7 +74,7 @@ export function MbtiCloneRail({
 
   useEffect(() => {
     const updateFromViewport = () => {
-      let next = "traits";
+      let next = TRAITS_ANCHOR_ID;
       for (const id of ACTIVE_IDS) {
         const element = document.getElementById(id);
         if (!element) {
@@ -68,7 +82,7 @@ export function MbtiCloneRail({
         }
 
         if (element.getBoundingClientRect().top <= 160) {
-          next = id === "hero" ? "traits" : id;
+          next = id === HERO_ANCHOR_ID ? TRAITS_ANCHOR_ID : id;
         }
       }
       setActiveAnchor(next);
@@ -109,7 +123,7 @@ export function MbtiCloneRail({
           {ANCHORS.map((anchor) => (
             <a
               key={anchor.id}
-              href={`#${anchor.id}`}
+              href={getMbtiDesktopAnchorHash(anchor.key)}
               aria-current={activeAnchor === anchor.id ? "location" : undefined}
               className={`${styles.anchorLink} ${activeAnchor === anchor.id ? styles.anchorLinkActive : ""}`}
             >

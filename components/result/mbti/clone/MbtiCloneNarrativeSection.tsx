@@ -31,6 +31,7 @@ type LockedBlock = {
 type MbtiCloneNarrativeSectionProps = {
   locale: "zh" | "en";
   id: string;
+  anchorId?: string;
   number: number;
   title: string;
   illustrationSlotId: MbtiDesktopCloneAssetSlotId;
@@ -53,6 +54,7 @@ type MbtiCloneNarrativeSectionProps = {
 export function MbtiCloneNarrativeSection({
   locale,
   id,
+  anchorId,
   number,
   title,
   illustrationSlotId,
@@ -72,7 +74,7 @@ export function MbtiCloneNarrativeSection({
   premiumTeasers,
 }: MbtiCloneNarrativeSectionProps) {
   return (
-    <section id={id} className={styles.section}>
+    <section id={anchorId ?? id} className={styles.section}>
       <MbtiCloneSectionHeading number={number} title={title} />
       <MbtiCloneAssetSlot
         slotId={illustrationSlotId}

@@ -1,10 +1,19 @@
 import { expect, test } from "@playwright/test";
+import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import type { ReportResponse } from "@/lib/api/v0_3";
 
 function createMbtiLockedReportFixture() {
   return applyMbtiPhase2Fixture(structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse) as Record<string, unknown>;
+}
+
+function getDesktopOfferComparison(page: import("@playwright/test").Page) {
+  return page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-offer-comparison");
+}
+
+function getDesktopOfferPrimaryCta(page: import("@playwright/test").Page) {
+  return getDesktopOfferComparison(page).getByTestId("mbti-offers-primary-cta");
 }
 
 test("MBTI locked result keeps the unlock offer on the current access-first path", async ({ page }) => {
@@ -131,10 +140,10 @@ test("MBTI locked result keeps the unlock offer on the current access-first path
   await page.goto(pagePath);
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
-  await expect(page.locator("#offer-full")).toBeVisible();
-  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁完整报告");
+  await expect(getDesktopOfferComparison(page)).toBeVisible();
+  await expect(page.locator(`#${getMbtiDesktopAnchorId("offerFull")}`)).toBeVisible();
+  await expect(getDesktopOfferPrimaryCta(page)).toHaveText("解锁完整报告");
 
-  await page.getByTestId("mbti-offers-primary-cta").click();
+  await getDesktopOfferPrimaryCta(page).click();
   await expect(page).toHaveURL(new RegExp(`/zh/pay/wait\\?order_no=${orderNo}.*`));
 });
