@@ -2,6 +2,7 @@ import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, Ri
 import {
   type MbtiDesktopCloneContent,
   type MbtiDesktopCloneSlots,
+  type ProfileIdentity,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
 import type { Locale } from "@/lib/i18n/locales";
@@ -69,6 +70,25 @@ function normalizeDimensionPercent(dimension: Record<string, unknown> | null | u
   return Number.isFinite(value) ? Math.round(value) : 0;
 }
 
+function resolveProfileIdentity(
+  fullCode: string,
+  headline: RichResultHeadline,
+  projectionViewModel?: MbtiResultProjectionViewModel | null,
+  storageContent?: MbtiDesktopCloneContent | null,
+): ProfileIdentity {
+  const authored = storageContent?.hero.profileIdentity;
+
+  return {
+    code: normalizeText(authored?.code, fullCode),
+    name: normalizeText(authored?.name, resolveDisplayTitle(headline, projectionViewModel)),
+    nickname: normalizeText(authored?.nickname),
+    rarity: normalizeText(authored?.rarity),
+    keywords: Array.isArray(authored?.keywords)
+      ? authored.keywords.map((keyword) => normalizeText(keyword)).filter((keyword) => keyword.length > 0).slice(0, 6)
+      : [],
+  };
+}
+
 function buildDimensionSummary(
   dimensions: Array<Record<string, unknown>>,
   headline: RichResultHeadline,
@@ -111,6 +131,7 @@ export function resolveMbtiDesktopCloneSlots({
   const dimensionSummary = buildDimensionSummary(dimensions, headline, projectionViewModel);
   const authoringLevel = content ? "fullCode" : "placeholder";
   const contentSource = content ? "storage" : "placeholder";
+  const profileIdentity = resolveProfileIdentity(fullCode, headline, projectionViewModel, content);
 
   return {
     meta: {
@@ -121,6 +142,7 @@ export function resolveMbtiDesktopCloneSlots({
       contentSource,
     },
     hero: {
+      profileIdentity,
       eyebrow: isZh ? "你的人格类型是" : "Your personality type is",
       title: resolveDisplayTitle(headline, projectionViewModel),
       typeCode: fullCode,

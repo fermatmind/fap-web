@@ -12,6 +12,7 @@ import type {
   MbtiDesktopCloneContent,
   MbtiDesktopCloneAssetSlotId,
   OverviewBlock,
+  ProfileIdentity,
   RelationshipInsightBlock,
   StrengthWeaknessBlock,
   TraitSlot,
@@ -156,6 +157,18 @@ function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every((entry) => normalizeText(entry).length > 0);
 }
 
+function isProfileIdentity(value: unknown): value is ProfileIdentity {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return normalizeText(value.code).length > 0
+    && normalizeText(value.name).length > 0
+    && normalizeText(value.nickname).length > 0
+    && normalizeText(value.rarity).length > 0
+    && isStringArray(value.keywords);
+}
+
 function isVisibleBlocks(value: unknown): value is [ContentListBlock, ContentListBlock?] {
   if (!Array.isArray(value) || value.length < 1 || value.length > 2) {
     return false;
@@ -232,6 +245,12 @@ function hasRequiredMbtiDesktopCloneContent(value: unknown): value is MbtiDeskto
   }
 
   if (!isRecord(value.hero) || normalizeText(value.hero.summary).length === 0) {
+    return false;
+  }
+
+  const hero = value.hero;
+  const profileIdentity = isRecord(hero) ? (hero.profile_identity ?? hero.profileIdentity) : null;
+  if (profileIdentity != null && !isProfileIdentity(profileIdentity)) {
     return false;
   }
 
@@ -570,6 +589,20 @@ function normalizeAxisExplainers(value: unknown): MbtiDesktopCloneContent["trait
   );
 }
 
+function normalizeProfileIdentity(value: unknown): ProfileIdentity | undefined {
+  if (!isProfileIdentity(value)) {
+    return undefined;
+  }
+
+  return {
+    code: normalizeText(value.code),
+    name: normalizeText(value.name),
+    nickname: normalizeText(value.nickname),
+    rarity: normalizeText(value.rarity),
+    keywords: value.keywords.map((keyword) => normalizeText(keyword)).filter((keyword) => keyword.length > 0),
+  };
+}
+
 function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneContent | null {
   if (!hasRequiredMbtiDesktopCloneContent(value)) {
     return null;
@@ -583,9 +616,13 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
   const relationships = isRecord(chapters.relationships) ? chapters.relationships : ({} as Record<string, unknown>);
   const traits = isRecord(source.traits) ? source.traits : ({} as Record<string, unknown>);
   const axisExplainers = traits.axis_explainers ?? traits.axisExplainers;
+  const hero = isRecord(source.hero) ? source.hero : ({} as Record<string, unknown>);
 
   return {
-    hero: typedContent.hero,
+    hero: {
+      summary: typedContent.hero.summary,
+      profileIdentity: normalizeProfileIdentity(hero.profile_identity ?? hero.profileIdentity),
+    },
     intro: typedContent.intro,
     lettersIntro: normalizeLettersIntro(source.letters_intro ?? source.lettersIntro),
     overview: normalizeOverview(source.overview),

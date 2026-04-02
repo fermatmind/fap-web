@@ -16,7 +16,7 @@
   --clone-col-gap: 32px;
   --clone-sticky-top: 92px;
 
-  --clone-hero-h: 232px;
+  --clone-hero-h: 280px;
   --clone-hero-radius: 0px;
   --clone-hero-px: 56px;
   --clone-hero-py-top: 40px;
@@ -99,17 +99,59 @@
   letter-spacing: -0.04em;
 }
 
-.heroCode {
+.heroCodePrimary {
   margin: 0;
-  font-size: 24px;
+  font-size: 58px;
+  line-height: 0.94;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--clone-text);
+}
+
+.heroNameLine {
+  margin: 2px 0 0;
+  font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
+  color: var(--clone-body);
+}
+
+.heroRarityPill {
+  margin: 2px 0 0;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 700;
   color: var(--clone-green);
+  background: rgba(54, 173, 115, 0.12);
+  border: 1px solid rgba(54, 173, 115, 0.18);
+}
+
+.heroKeywordRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.heroKeyword {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--clone-body);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(84, 102, 126, 0.1);
 }
 
 .heroSummary {
-  margin: 2px 0 0;
-  max-width: 412px;
+  margin: 6px 0 0;
+  max-width: 472px;
   font-size: 13px;
   line-height: 1.62;
   color: var(--clone-body);
@@ -175,26 +217,6 @@
   padding: 16px 16px 18px;
 }
 
-.identityMini {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.identityBadge {
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid rgba(54, 173, 115, 0.2);
-  background: var(--clone-green-soft);
-  color: var(--clone-green);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 700;
-}
-
 .microLabel {
   margin: 0;
   font-size: 11px;
@@ -205,45 +227,55 @@
   color: var(--clone-muted);
 }
 
-.railTitle {
-  margin: 2px 0 0;
-  font-size: 15px;
-  line-height: 1.35;
-  font-weight: 700;
+.railIdentityCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.railCodePrimary {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
   color: var(--clone-text);
 }
 
-.railCode {
-  margin: 2px 0 0;
-  font-size: 12px;
-  line-height: 1.4;
-  color: var(--clone-muted);
-}
-
-.railBody {
-  margin: 10px 0 0;
-  font-size: 12px;
-  line-height: 1.7;
+.railNameLine {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 700;
   color: var(--clone-body);
 }
 
-.tagRow {
-  margin-top: 10px;
+.railRarity {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--clone-green);
+}
+
+.railKeywordRow {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  max-height: 50px;
+  overflow: hidden;
 }
 
-.tag {
+.railKeyword {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  border: 1px solid var(--clone-border);
-  padding: 4px 9px;
+  padding: 4px 8px;
   font-size: 11px;
   line-height: 1.2;
-  color: var(--clone-muted);
+  color: var(--clone-body);
   background: var(--clone-surface-soft);
+  border: 1px solid rgba(84, 102, 126, 0.1);
 }
 
 .anchorList {

@@ -113,7 +113,23 @@ function createValidPayload(tag: string) {
     base_code: "INFJ",
     locale: "zh-CN",
     content: {
-      hero: { summary: `hero ${tag}` },
+      hero: {
+        summary: `hero ${tag}`,
+        profile_identity: {
+          code: "INFJ-A",
+          name: `name ${tag}`,
+          nickname: `nickname ${tag}`,
+          rarity: `rarity ${tag}`,
+          keywords: [
+            `keyword 1 ${tag}`,
+            `keyword 2 ${tag}`,
+            `keyword 3 ${tag}`,
+            `keyword 4 ${tag}`,
+            `keyword 5 ${tag}`,
+            `keyword 6 ${tag}`,
+          ],
+        },
+      },
       intro: { paragraphs: [`intro 1 ${tag}`, `intro 2 ${tag}`] },
       letters_intro: {
         headline: `letters headline ${tag}`,
@@ -495,6 +511,18 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.baseCode).toBe("INFJ");
     expect(result?.locale).toBe("zh-CN");
     expect(result?.content.hero.summary).toBe("hero seed");
+    expect(result?.content.hero.profileIdentity?.code).toBe("INFJ-A");
+    expect(result?.content.hero.profileIdentity?.name).toBe("name seed");
+    expect(result?.content.hero.profileIdentity?.nickname).toBe("nickname seed");
+    expect(result?.content.hero.profileIdentity?.rarity).toBe("rarity seed");
+    expect(result?.content.hero.profileIdentity?.keywords).toEqual([
+      "keyword 1 seed",
+      "keyword 2 seed",
+      "keyword 3 seed",
+      "keyword 4 seed",
+      "keyword 5 seed",
+      "keyword 6 seed",
+    ]);
     expect(result?.content.lettersIntro?.headline).toBe("letters headline seed");
     expect(result?.content.overview?.title).toBe("overview title seed");
     expect(result?.content.chapters.career.strengths?.items[0]?.description).toBe("career strengths body 1 seed");

@@ -234,7 +234,23 @@ function createStoragePayload(
     baseCode: fullCode.split("-")[0] ?? "INFJ",
     locale: "zh-CN",
     content: {
-      hero: { summary: `hero ${tag}` },
+      hero: {
+        summary: `hero ${tag}`,
+        profileIdentity: {
+          code: fullCode,
+          name: `name ${tag}`,
+          nickname: `nickname ${tag}`,
+          rarity: `rarity ${tag}`,
+          keywords: [
+            `keyword 1 ${tag}`,
+            `keyword 2 ${tag}`,
+            `keyword 3 ${tag}`,
+            `keyword 4 ${tag}`,
+            `keyword 5 ${tag}`,
+            `keyword 6 ${tag}`,
+          ],
+        },
+      },
       intro: { paragraphs: [`intro 1 ${tag}`, `intro 2 ${tag}`] },
       lettersIntro: {
         headline: `letters headline ${tag}`,
@@ -865,6 +881,24 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-id", "hero-illustration");
+  });
+
+  it("uses the same authored profileIdentity in hero and rail header", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
+    renderShell("INFJ-A");
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
+    });
+
+    expect(await screen.findByTestId("mbti-hero")).toHaveTextContent("INFJ-A");
+    expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("name infj-a · nickname infj-a");
+    const railIdentity = screen.getByTestId("mbti-rail-profile-identity");
+    expect(railIdentity).toHaveTextContent("INFJ-A");
+    expect(railIdentity).toHaveTextContent("name infj-a · nickname infj-a");
+    expect(railIdentity).toHaveTextContent("稀有度：rarity infj-a");
+    expect(railIdentity).toHaveTextContent("keyword 1 infj-a");
   });
 
   it("keeps non-zh path stable without rendering desktop clone storage modules", async () => {

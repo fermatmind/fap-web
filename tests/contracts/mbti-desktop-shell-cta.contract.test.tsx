@@ -42,7 +42,23 @@ function createStoragePayload(tag: string): PersonalityDesktopCloneContentPayloa
     baseCode: "INFJ",
     locale: "zh-CN",
     content: {
-      hero: { summary: `hero ${tag}` },
+      hero: {
+        summary: `hero ${tag}`,
+        profileIdentity: {
+          code: "INFJ-T",
+          name: `name ${tag}`,
+          nickname: `nickname ${tag}`,
+          rarity: `rarity ${tag}`,
+          keywords: [
+            `keyword 1 ${tag}`,
+            `keyword 2 ${tag}`,
+            `keyword 3 ${tag}`,
+            `keyword 4 ${tag}`,
+            `keyword 5 ${tag}`,
+            `keyword 6 ${tag}`,
+          ],
+        },
+      },
       intro: { paragraphs: [`intro 1 ${tag}`, `intro 2 ${tag}`] },
       traits: {
         summaryPane: {

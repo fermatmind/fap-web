@@ -32,6 +32,20 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
   return {
     hero: {
       summary: `hero summary ${tag}`,
+      profileIdentity: {
+        code: tag.toUpperCase(),
+        name: `name ${tag}`,
+        nickname: `nickname ${tag}`,
+        rarity: `rarity ${tag}`,
+        keywords: [
+          `keyword 1 ${tag}`,
+          `keyword 2 ${tag}`,
+          `keyword 3 ${tag}`,
+          `keyword 4 ${tag}`,
+          `keyword 5 ${tag}`,
+          `keyword 6 ${tag}`,
+        ],
+      },
     },
     intro: {
       paragraphs: [`intro one ${tag}`, `intro two ${tag}`],
