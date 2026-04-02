@@ -28,8 +28,9 @@ describe("alipay return flow contract", () => {
     const source = read("app/(localized)/[locale]/pay/return/alipay/page.tsx");
 
     expect(source).toContain("OrderReturnFallbackClient");
+    expect(source).toContain("out_trade_no");
     expect(source).toContain("waitUrl");
-    expect(source).toContain("resultUrl");
+    expect(source).not.toContain("resultUrl");
     expect(source).not.toContain("window.location.href");
     expect(source).not.toContain("window.open");
   });
@@ -41,7 +42,6 @@ describe("alipay return flow contract", () => {
         orderNo="ord_return_alipay_1"
         paymentRecoveryToken="recovery_return_alipay_1"
         waitUrl="https://fermatmind.com/en/pay/wait?order_no=ord_return_alipay_1&payment_recovery_token=recovery_return_alipay_1"
-        resultUrl="/en/result/attempt-return-alipay-1?from=payment"
       />
     );
 
@@ -52,18 +52,79 @@ describe("alipay return flow contract", () => {
     });
   });
 
-  it("falls back to result_url when no wait recovery is available", async () => {
+  it("ignores non-wait recovery URLs and falls back to the canonical order-bound wait flow", async () => {
     render(
       <OrderReturnFallbackClient
-        locale="zh"
-        resultUrl="https://fermatmind.com/zh/result/attempt-return-alipay-2?from=payment"
+        locale="en"
+        orderNo="ord_return_alipay_1b"
+        paymentRecoveryToken="recovery_return_alipay_1b"
+        waitUrl="https://fermatmind.com/en/result/attempt-should-not-open-directly?from=payment"
       />
     );
 
     await waitFor(() => {
       expect(hoisted.routerReplace).toHaveBeenCalledWith(
-        "/zh/result/attempt-return-alipay-2?from=payment"
+        "/en/pay/wait?order_no=ord_return_alipay_1b&payment_recovery_token=recovery_return_alipay_1b"
       );
+    });
+  });
+
+  it("builds the canonical wait flow from order_no and payment token when wait_url is absent", async () => {
+    render(
+      <OrderReturnFallbackClient
+        locale="zh"
+        orderNo="ord_return_alipay_2"
+        paymentRecoveryToken="recovery_return_alipay_2"
+      />
+    );
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/zh/pay/wait?order_no=ord_return_alipay_2&payment_recovery_token=recovery_return_alipay_2"
+      );
+    });
+  });
+
+  it("falls back to out_trade_no when the return page only has native Alipay params", async () => {
+    render(
+      <OrderReturnFallbackClient
+        locale="en"
+        outTradeNo="ord_return_alipay_3"
+      />
+    );
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_return_alipay_3"
+      );
+    });
+  });
+
+  it("keeps return recovery on the wait flow instead of direct-entering a pending result URL", async () => {
+    window.localStorage.setItem(
+      "fm_pending_order_v1",
+      JSON.stringify({
+        orderNo: "ord_return_alipay_4",
+        attemptId: "attempt_return_alipay_4",
+        resultUrl: "/en/result/attempt_return_alipay_4",
+        updatedAt: new Date().toISOString(),
+      })
+    );
+
+    render(<OrderReturnFallbackClient locale="en" />);
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_return_alipay_4"
+      );
+    });
+  });
+
+  it("degrades to order lookup when no wait recovery metadata is available", async () => {
+    render(<OrderReturnFallbackClient locale="zh" />);
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith("/zh/orders/lookup");
     });
   });
 });

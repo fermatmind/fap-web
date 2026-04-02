@@ -627,4 +627,19 @@ describe("MBTI checkout wiring contract", () => {
       );
     });
   });
+
+  it("routes native Alipay out_trade_no returns back into wait flow", async () => {
+    render(
+      <OrderReturnFallbackClient
+        locale="en"
+        outTradeNo="ord_return_native_1"
+      />
+    );
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_return_native_1"
+      );
+    });
+  });
 });

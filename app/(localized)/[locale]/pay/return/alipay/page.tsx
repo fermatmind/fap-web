@@ -25,10 +25,10 @@ export default async function AlipayReturnPage({
   const query = await searchParams;
   const locale = resolveLocale(localeParam);
   const orderNo = firstValue(query.order_no) || firstValue(query.orderNo) || null;
+  const outTradeNo = firstValue(query.out_trade_no) || firstValue(query.outTradeNo) || null;
   const paymentRecoveryToken =
     firstValue(query.payment_recovery_token) || firstValue(query.paymentRecoveryToken) || null;
   const waitUrl = firstValue(query.wait_url) || firstValue(query.waitUrl) || null;
-  const resultUrl = firstValue(query.result_url) || firstValue(query.resultUrl) || null;
   const ordersLookupHref = localizedPath("/orders/lookup", locale);
   const isZh = locale === "zh";
 
@@ -37,9 +37,9 @@ export default async function AlipayReturnPage({
       <OrderReturnFallbackClient
         locale={locale}
         orderNo={orderNo}
+        outTradeNo={outTradeNo}
         paymentRecoveryToken={paymentRecoveryToken}
         waitUrl={waitUrl}
-        resultUrl={resultUrl}
       />
       <h1 className="m-0 text-2xl font-bold text-slate-900">{isZh ? "正在恢复支付状态" : "Restoring your payment"}</h1>
       <p className="mt-3 text-slate-600">
