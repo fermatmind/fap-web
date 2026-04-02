@@ -5,7 +5,7 @@ import Link from "next/link";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneSectionHeading } from "@/components/result/mbti/clone/MbtiCloneSectionHeading";
-import type { MbtiDesktopCloneAssetSlotId } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import type { AxisExplainers, MbtiDesktopCloneAssetSlotId } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
@@ -30,6 +30,7 @@ type MbtiCloneTraitsSectionProps = {
   summaryDescriptionFallback: string;
   summarySlotId: MbtiDesktopCloneAssetSlotId;
   summarySlotLabel: string;
+  axisExplainers?: AxisExplainers | null;
   paragraphs: string[];
   bodySource: "overview" | "traits";
   tools: TraitTool[];
@@ -78,6 +79,22 @@ function resolveStrengthBandLabel(locale: Locale, band: string): string {
   return labels[normalized as keyof typeof labels] ?? normalized.replace(/_/g, " ");
 }
 
+function resolveEditorialBand(dominantPct: number | null | undefined): "light" | "clear" | "strong" | null {
+  if (typeof dominantPct !== "number" || !Number.isFinite(dominantPct)) {
+    return null;
+  }
+
+  if (dominantPct <= 56) {
+    return "light";
+  }
+
+  if (dominantPct <= 67) {
+    return "clear";
+  }
+
+  return "strong";
+}
+
 export function MbtiCloneTraitsSection({
   locale,
   title,
@@ -91,6 +108,7 @@ export function MbtiCloneTraitsSection({
   summaryDescriptionFallback,
   summarySlotId,
   summarySlotLabel,
+  axisExplainers = null,
   paragraphs,
   bodySource,
   tools,
@@ -102,6 +120,7 @@ export function MbtiCloneTraitsSection({
       const record = dimension as Record<string, unknown>;
       const axisCode = normalizeAxisCode(record, index);
       const dominantPct = normalizeNumber(record.dominantPct, record.dominant_pct, record.percent, record.pct) ?? undefined;
+      const dominantPole = normalizeText(record.dominantPole, record.dominant_pole, record.side).toUpperCase();
       const dominantLabel = normalizeText(record.dominantLabel, record.dominant_label, record.sideLabel, record.side_label);
       const axisTitle = normalizeText(record.axisTitle, record.axis_title, record.label);
       const summary = normalizeText(record.summary, record.description);
@@ -115,6 +134,7 @@ export function MbtiCloneTraitsSection({
         ...record,
         axisCode,
         dominantPct,
+        dominantPole,
         dominantLabel,
         axisTitle,
         summary,
@@ -143,6 +163,12 @@ export function MbtiCloneTraitsSection({
   ]
     .filter(Boolean)
     .join(" · ");
+  const activeBand = resolveEditorialBand(activeAxis?.dominantPct);
+  const bandNuance = activeAxis && activeBand
+    ? normalizeText(
+        axisExplainers?.[activeAxis.axisCode]?.[activeAxis.dominantPole]?.[activeBand]?.bandNuance,
+      )
+    : "";
 
   return (
     <section id="traits" className={styles.section}>
@@ -182,6 +208,11 @@ export function MbtiCloneTraitsSection({
             />
             {summaryMeta ? <p className={styles.summaryMeta}>{summaryMeta}</p> : null}
             <p className={styles.summaryText}>{summaryDescription}</p>
+            {bandNuance ? (
+              <p className={styles.summarySupplement} data-testid="mbti-traits-band-nuance">
+                {bandNuance}
+              </p>
+            ) : null}
           </aside>
         </div>
         {tools.length > 0 ? (
