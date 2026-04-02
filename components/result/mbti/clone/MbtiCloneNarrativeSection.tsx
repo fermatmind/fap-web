@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneInfluentialTraitsCard } from "@/components/result/mbti/clone/MbtiCloneInfluentialTraitsCard";
 import { MbtiCloneMatchedGuides } from "@/components/result/mbti/clone/MbtiCloneMatchedGuides";
@@ -45,6 +46,7 @@ type MbtiCloneNarrativeSectionProps = {
   isUnlocked: boolean;
   unlockHref: string;
   unlockLabel: string;
+  postCoreBlocks?: ReactNode[];
   premiumTeasers: LockedBlock[];
 };
 
@@ -66,6 +68,7 @@ export function MbtiCloneNarrativeSection({
   isUnlocked,
   unlockHref,
   unlockLabel,
+  postCoreBlocks = [],
   premiumTeasers,
 }: MbtiCloneNarrativeSectionProps) {
   return (
@@ -101,6 +104,9 @@ export function MbtiCloneNarrativeSection({
       ) : null}
       {matchedJobs ? <MbtiCloneMatchedJobs locale={locale} data={matchedJobs} /> : null}
       {matchedGuides ? <MbtiCloneMatchedGuides data={matchedGuides} /> : null}
+      {postCoreBlocks.map((block, index) => (
+        <div key={`${id}-post-core-${index}`}>{block}</div>
+      ))}
       {premiumTeasers.map((block) => (
         <MbtiClonePremiumTeaserBlock
           key={`${id}-${block.testId}`}
