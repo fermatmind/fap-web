@@ -217,6 +217,30 @@ function createTraitsUnlock(tag: string, chapter: "career" | "growth" | "relatio
   };
 }
 
+function createInsightListBlock(moduleKey: string, title: string, tag: string) {
+  return {
+    schemaVersion: "insight_list_v1" as const,
+    title,
+    intro: `${moduleKey} intro ${tag}`,
+    items: [1, 2, 3, 4].map((index) => ({
+      id: `${moduleKey}-${index}`,
+      title: `${moduleKey} item ${index} ${tag}`,
+      description: `${moduleKey} preview ${index} ${tag}`,
+      body: `${moduleKey} body ${index} ${tag}`,
+      whyItMatters: `${moduleKey} why ${index} ${tag}`,
+      signals: [
+        `${moduleKey} signal ${index}a ${tag}`,
+        `${moduleKey} signal ${index}b ${tag}`,
+      ],
+      actions: {
+        do: `${moduleKey} do ${index} ${tag}`,
+        avoid: `${moduleKey} avoid ${index} ${tag}`,
+      },
+      tags: [moduleKey, tag],
+    })),
+  };
+}
+
 function createStoragePayload(
   fullCode: "INFJ-A" | "ENTJ-T" | "ISTP-A",
   {
@@ -376,14 +400,12 @@ function createStoragePayload(
             title: "成长短板",
             items: [{ title: `growth weaknesses item ${tag}`, description: `growth weaknesses body ${tag}` }],
           },
-          whatEnergizes: {
-            title: "什么让你充电",
-            items: [{ title: `what energizes item ${tag}`, description: `what energizes body ${tag}` }],
-          },
-          whatDrains: {
-            title: "什么让你消耗",
-            items: [{ title: `what drains item ${tag}`, description: `what drains body ${tag}` }],
-          },
+        whatEnergizes: {
+          ...createInsightListBlock("what energizes", "什么让你充电", tag),
+        },
+        whatDrains: {
+          ...createInsightListBlock("what drains", "什么让你消耗", tag),
+        },
           influentialTraits: [
             { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
             { label: `growth trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -457,12 +479,10 @@ function createStoragePayload(
             items: [{ title: `relationships weaknesses item ${tag}`, description: `relationships weaknesses body ${tag}` }],
           },
           superpowers: {
-            title: "关系超级优势",
-            items: [{ title: `superpowers item ${tag}`, description: `superpowers body ${tag}` }],
+            ...createInsightListBlock("superpowers", "关系超级优势", tag),
           },
           pitfalls: {
-            title: "关系潜在陷阱",
-            items: [{ title: `pitfalls item ${tag}`, description: `pitfalls body ${tag}` }],
+            ...createInsightListBlock("pitfalls", "关系潜在陷阱", tag),
           },
           influentialTraits: [
             { label: `relationships trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
@@ -755,6 +775,42 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expectBefore(secondTeaser, nextSection);
   });
 
+  it("renders Growth authored insight blocks on the unlocked path", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ENTJ-T"));
+
+    renderShell("ENTJ-T", "zh", true);
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENTJ-T", "zh");
+    });
+
+    const section = document.querySelector("#growth") as HTMLElement;
+    const scoped = within(section);
+
+    const weaknessesCard = scoped.getByTestId("mbti-p0-growth-weaknesses");
+    const whatEnergizesBlock = scoped.getByTestId("mbti-p1-growth-what-energizes");
+    const whatDrainsBlock = scoped.getByTestId("mbti-p1-growth-what-drains");
+    const nextSection = document.querySelector("#relationships") as HTMLElement;
+
+    expect(scoped.getByText("什么能让你充满活力？")).toBeInTheDocument();
+    expect(scoped.getByText("什么让你精力力竭？")).toBeInTheDocument();
+    expect(scoped.getByText("what energizes intro entj-t")).toBeInTheDocument();
+    expect(scoped.getByText("what energizes item 1 entj-t")).toBeInTheDocument();
+    expect(scoped.getByText("what energizes body 1 entj-t")).toBeInTheDocument();
+    expect(scoped.getByText("what energizes why 1 entj-t")).toBeInTheDocument();
+    expect(scoped.getByText("what energizes do 1 entj-t")).toBeInTheDocument();
+    expect(scoped.getByText("what drains item 1 entj-t")).toBeInTheDocument();
+    expect(scoped.getByText("what drains body 1 entj-t")).toBeInTheDocument();
+    expect(scoped.getByText("what drains avoid 1 entj-t")).toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-premium-growth-what-energizes")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-premium-growth-what-drains")).not.toBeInTheDocument();
+    expect(scoped.queryByText(unifiedUnlockBody)).not.toBeInTheDocument();
+
+    expectBefore(weaknessesCard, whatEnergizesBlock);
+    expectBefore(whatEnergizesBlock, whatDrainsBlock);
+    expectBefore(whatDrainsBlock, nextSection);
+  });
+
   it("renders Relationships chapter-end premium teasers with compact inline unlock copy", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
 
@@ -806,6 +862,41 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, finalOffer);
+  });
+
+  it("renders Relationships authored insight blocks on the unlocked path", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
+
+    renderShell("ISTP-A", "zh", true);
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ISTP-A", "zh");
+    });
+
+    const section = document.querySelector("#relationships") as HTMLElement;
+    const scoped = within(section);
+
+    const weaknessesCard = scoped.getByTestId("mbti-p0-relationships-weaknesses");
+    const superpowersBlock = scoped.getByTestId("mbti-p1-relationships-superpowers");
+    const pitfallsBlock = scoped.getByTestId("mbti-p1-relationships-pitfalls");
+    const finalOffer = screen.getByTestId("mbti-offer-full");
+
+    expect(scoped.getByText("你的人际关系优势")).toBeInTheDocument();
+    expect(scoped.getByText("人际关系陷阱")).toBeInTheDocument();
+    expect(scoped.getByText("superpowers intro istp-a")).toBeInTheDocument();
+    expect(scoped.getByText("superpowers item 1 istp-a")).toBeInTheDocument();
+    expect(scoped.getByText("superpowers body 1 istp-a")).toBeInTheDocument();
+    expect(scoped.getByText("superpowers why 1 istp-a")).toBeInTheDocument();
+    expect(scoped.getByText("pitfalls item 1 istp-a")).toBeInTheDocument();
+    expect(scoped.getByText("pitfalls body 1 istp-a")).toBeInTheDocument();
+    expect(scoped.getByText("pitfalls avoid 1 istp-a")).toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-premium-relationships-superpowers")).not.toBeInTheDocument();
+    expect(scoped.queryByTestId("mbti-premium-relationships-pitfalls")).not.toBeInTheDocument();
+    expect(scoped.queryByText(unifiedUnlockBody)).not.toBeInTheDocument();
+
+    expectBefore(weaknessesCard, superpowersBlock);
+    expectBefore(superpowersBlock, pitfallsBlock);
+    expectBefore(pitfallsBlock, finalOffer);
   });
 
   it("keeps locked state on the compact traits unlock strip and hides traits unlock detail panels", async () => {

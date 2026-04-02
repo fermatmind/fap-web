@@ -105,6 +105,28 @@ function createValidPayload(tag: string) {
     };
   };
 
+  const createInsightListModule = (moduleKey: string) => ({
+    schema_version: "insight_list_v1",
+    title: `${moduleKey} ${tag}`,
+    intro: `${moduleKey} intro ${tag}`,
+    items: [1, 2, 3, 4].map((index) => ({
+      id: `${moduleKey}-${index}`,
+      title: `${moduleKey} item ${index} ${tag}`,
+      description: `${moduleKey} preview ${index} ${tag}`,
+      body: `${moduleKey} body ${index} ${tag}`,
+      why_it_matters: `${moduleKey} why ${index} ${tag}`,
+      signals: [
+        `${moduleKey} signal ${index}a ${tag}`,
+        `${moduleKey} signal ${index}b ${tag}`,
+      ],
+      actions: {
+        do: `${moduleKey} do ${index} ${tag}`,
+        avoid: `${moduleKey} avoid ${index} ${tag}`,
+      },
+      tags: [moduleKey, tag],
+    })),
+  });
+
   return {
     ok: true,
     template_key: "mbti_desktop_clone_v1",
@@ -256,18 +278,8 @@ function createValidPayload(tag: string) {
               { title: `growth weaknesses item 1 ${tag}`, description: `growth weaknesses body 1 ${tag}` },
             ],
           },
-          what_energizes: {
-            title: `what energizes ${tag}`,
-            items: [
-              { title: `what energizes item 1 ${tag}`, description: `what energizes body 1 ${tag}` },
-            ],
-          },
-          what_drains: {
-            title: `what drains ${tag}`,
-            items: [
-              { title: `what drains item 1 ${tag}`, description: `what drains body 1 ${tag}` },
-            ],
-          },
+          what_energizes: createInsightListModule("what energizes"),
+          what_drains: createInsightListModule("what drains"),
           influentialTraits: [
             { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
             { label: `growth trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -333,18 +345,8 @@ function createValidPayload(tag: string) {
               { title: `relationships weaknesses item 1 ${tag}`, description: `relationships weaknesses body 1 ${tag}` },
             ],
           },
-          superpowers: {
-            title: `superpowers ${tag}`,
-            items: [
-              { title: `superpowers item 1 ${tag}`, description: `superpowers body 1 ${tag}` },
-            ],
-          },
-          pitfalls: {
-            title: `pitfalls ${tag}`,
-            items: [
-              { title: `pitfalls item 1 ${tag}`, description: `pitfalls body 1 ${tag}` },
-            ],
-          },
+          superpowers: createInsightListModule("superpowers"),
+          pitfalls: createInsightListModule("pitfalls"),
           influentialTraits: [
             { label: `relationships trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
             { label: `relationships trait 2 ${tag}`, body: "body 2", colorKey: "gold" },
@@ -553,10 +555,22 @@ describe("personality desktop clone api adapter contract", () => {
     // but this assertion does not imply they are rendered in desktop main flow.
     expect(result?.content.chapters.career.careerIdeas?.items[0]?.description).toBe("career ideas body 1 seed");
     expect(result?.content.chapters.career.workStyles?.items[0]?.description).toBe("work styles body 1 seed");
-    expect(result?.content.chapters.growth.whatEnergizes?.items[0]?.description).toBe("what energizes body 1 seed");
-    expect(result?.content.chapters.growth.whatDrains?.items[0]?.description).toBe("what drains body 1 seed");
-    expect(result?.content.chapters.relationships.superpowers?.items[0]?.description).toBe("superpowers body 1 seed");
-    expect(result?.content.chapters.relationships.pitfalls?.items[0]?.description).toBe("pitfalls body 1 seed");
+    expect(result?.content.chapters.growth.whatEnergizes?.schemaVersion).toBe("insight_list_v1");
+    expect(result?.content.chapters.growth.whatEnergizes?.intro).toBe("what energizes intro seed");
+    expect(result?.content.chapters.growth.whatEnergizes?.items[0]?.description).toBe("what energizes preview 1 seed");
+    expect(result?.content.chapters.growth.whatEnergizes?.items[0]?.body).toBe("what energizes body 1 seed");
+    expect(result?.content.chapters.growth.whatEnergizes?.items[0]?.whyItMatters).toBe("what energizes why 1 seed");
+    expect(result?.content.chapters.growth.whatEnergizes?.items[0]?.signals).toEqual([
+      "what energizes signal 1a seed",
+      "what energizes signal 1b seed",
+    ]);
+    expect(result?.content.chapters.growth.whatEnergizes?.items[0]?.actions.do).toBe("what energizes do 1 seed");
+    expect(result?.content.chapters.growth.whatDrains?.items[0]?.actions.avoid).toBe("what drains avoid 1 seed");
+    expect(result?.content.chapters.relationships.superpowers?.schemaVersion).toBe("insight_list_v1");
+    expect(result?.content.chapters.relationships.superpowers?.items[0]?.body).toBe("superpowers body 1 seed");
+    expect(result?.content.chapters.relationships.superpowers?.items[0]?.tags).toEqual(["superpowers", "seed"]);
+    expect(result?.content.chapters.relationships.pitfalls?.items[0]?.whyItMatters).toBe("pitfalls why 1 seed");
+    expect(result?.content.chapters.relationships.pitfalls?.items[0]?.actions.do).toBe("pitfalls do 1 seed");
     expect(result?.content.traits.axisExplainers?.EI?.E?.light?.bandNuance).toBe(
       "你明显更容易被外部世界激活，但这种外倾仍保留着收回来整理自己的能力；你不是一直要热闹，而是更容易在互动中启动状态。",
     );

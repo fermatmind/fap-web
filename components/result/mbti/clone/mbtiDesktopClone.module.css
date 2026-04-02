@@ -614,6 +614,57 @@
   color: var(--clone-body);
 }
 
+.insightRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.insightMetaSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.insightSectionTitle {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clone-muted);
+}
+
+.insightList {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.insightActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.insightActionCard {
+  border: 1px solid var(--clone-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.56);
+  padding: 10px 12px;
+}
+
+.insightActionLabel {
+  margin: 0 0 4px;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--clone-text);
+}
+
 .jobExamplesRow {
   display: flex;
   flex-wrap: wrap;

@@ -111,8 +111,32 @@ export type StrengthWeaknessBlock = {
 };
 
 export type IdeaListBlock = StrengthWeaknessBlock;
-export type EnergyBlock = StrengthWeaknessBlock;
-export type RelationshipInsightBlock = StrengthWeaknessBlock;
+
+export type InsightListActions = {
+  do: string;
+  avoid: string;
+};
+
+export type InsightListItem = {
+  id: string;
+  title: string;
+  description: string;
+  body: string;
+  whyItMatters: string;
+  signals: string[];
+  actions: InsightListActions;
+  tags: string[];
+};
+
+export type InsightListBlock = {
+  schemaVersion: "insight_list_v1";
+  title: string;
+  intro: string;
+  items: InsightListItem[];
+};
+
+export type EnergyBlock = InsightListBlock;
+export type RelationshipInsightBlock = InsightListBlock;
 
 export type MatchedJobsBlock = {
   title: string;
