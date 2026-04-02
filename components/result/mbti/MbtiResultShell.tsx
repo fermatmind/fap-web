@@ -5,6 +5,8 @@ import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEff
 import { usePathname } from "next/navigation";
 import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
+import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
+import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import { buildDominantTraitItems } from "@/components/result/mbti/MbtiDominantTraitsSection";
 import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
@@ -29,6 +31,10 @@ import {
   type ReportRecommendedRead,
   type ReportResponse,
 } from "@/lib/api/v0_3";
+import {
+  fetchPersonalityDesktopCloneContent,
+  type PersonalityDesktopCloneAssetSlot,
+} from "@/lib/cms/personality-desktop-clone";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
@@ -647,6 +653,14 @@ export function MbtiResultShellLoadingShell({
   primaryCtaIsInternal,
   onShare = () => {},
 }: MbtiResultShellLoadingShellProps) {
+  const placeholderProfileIdentity = {
+    code: "—",
+    name: locale === "zh" ? "人格结果预览" : "Type preview",
+    nickname: "",
+    rarity: "",
+    keywords: [],
+  };
+
   return (
     <div
       data-testid="mbti-result-shell"
@@ -729,15 +743,7 @@ export function MbtiResultShellLoadingShell({
 
       <MbtiStickyRail
         locale={locale}
-        headline={{
-          badge: locale === "zh" ? "MBTI 报告" : "MBTI report",
-          typeCode: "—",
-          displayName: locale === "zh" ? "人格结果预览" : "Type preview",
-          supportingLine: "",
-          summary: "",
-          rarity: "",
-        }}
-        tags={[]}
+        profileIdentity={placeholderProfileIdentity}
         historyHref={localizedPath("/history/mbti", locale)}
         retakeHref={retakeHref}
         primaryCtaLabel={primaryCtaLabel}
@@ -859,6 +865,36 @@ export function MbtiResultShell({
     summary: publicSummary || headline.summary,
     rarity: publicRarity || headline.rarity,
   };
+  const fullCodeForStorage = useMemo(
+    () => normalizeText(publicHeadline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
+    [publicHeadline.typeCode, projectionViewModel?.displayType],
+  );
+  const [desktopCloneSnapshot, setDesktopCloneSnapshot] = useState<{
+    locale: Locale;
+    fullCode: string;
+    content: MbtiDesktopCloneContent | null;
+    assetSlots: PersonalityDesktopCloneAssetSlot[] | null;
+  } | null>(null);
+  const activeDesktopCloneSnapshot =
+    desktopCloneSnapshot && desktopCloneSnapshot.locale === locale && desktopCloneSnapshot.fullCode === fullCodeForStorage
+      ? desktopCloneSnapshot
+      : null;
+  const desktopCloneSlots = resolveMbtiDesktopCloneSlots({
+    locale,
+    headline: publicHeadline,
+    dimensions,
+    highlights,
+    sections,
+    sectionUnlocks,
+    offers,
+    projectionViewModel,
+    storageContent: activeDesktopCloneSnapshot?.content ?? null,
+  });
+  const visibleProfileIdentity = desktopCloneSlots.hero.profileIdentity;
+  const visibleIdentityNameLine = [visibleProfileIdentity.name, visibleProfileIdentity.nickname]
+    .map((value) => normalizeText(value))
+    .filter((value) => value.length > 0)
+    .join(" · ");
   const terminalPrimaryCtaLabel = isUnlockedPostPurchase
     ? locale === "zh"
       ? "我的 MBTI 报告"
@@ -1745,6 +1781,32 @@ export function MbtiResultShell({
     return () => window.cancelAnimationFrame(frame);
   }, []);
 
+  useEffect(() => {
+    let active = true;
+
+    if (locale !== "zh") {
+      return () => {
+        active = false;
+      };
+    }
+
+    void (async () => {
+      const payload = await fetchPersonalityDesktopCloneContent(fullCodeForStorage, locale);
+      if (active) {
+        setDesktopCloneSnapshot({
+          locale,
+          fullCode: fullCodeForStorage,
+          content: payload?.content ?? null,
+          assetSlots: payload?.assetSlots ?? null,
+        });
+      }
+    })();
+
+    return () => {
+      active = false;
+    };
+  }, [fullCodeForStorage, locale]);
+
   return (
     <div
       data-testid="mbti-result-shell"
@@ -1787,12 +1849,35 @@ export function MbtiResultShell({
               <div className="max-w-[58%]">
                 <p className="m-0 text-sm font-semibold uppercase tracking-[0.16em] text-white/70">{locale === "zh" ? "人格类型" : "Personality type"}</p>
                 <h1 className="mt-3 text-4xl font-semibold tracking-tight xl:text-6xl">
-                  {publicHeadline.typeCode}
+                  {visibleProfileIdentity.code}
                 </h1>
-                {publicHeadline.displayName ? (
-                  <p className="m-0 mt-2 text-3xl font-medium tracking-[-0.02em] text-white/85 xl:text-4xl">
-                    {publicHeadline.displayName}
+                {visibleIdentityNameLine ? (
+                  <p
+                    data-testid="mbti-visible-hero-identity-line"
+                    className="m-0 mt-2 text-2xl font-medium tracking-[-0.02em] text-white/85 xl:text-3xl"
+                  >
+                    {visibleIdentityNameLine}
                   </p>
+                ) : null}
+                {visibleProfileIdentity.rarity ? (
+                  <p
+                    data-testid="mbti-visible-hero-rarity"
+                    className="mt-4 inline-flex rounded-full border border-white/12 bg-white/10 px-3 py-1 text-sm font-medium text-emerald-100"
+                  >
+                    {`稀有度：${visibleProfileIdentity.rarity}`}
+                  </p>
+                ) : null}
+                {visibleProfileIdentity.keywords.length > 0 ? (
+                  <div data-testid="mbti-visible-hero-keywords" className="mt-4 flex flex-wrap gap-2">
+                    {visibleProfileIdentity.keywords.slice(0, 6).map((keyword) => (
+                      <span
+                        key={keyword}
+                        className="inline-flex rounded-full border border-white/10 bg-white/8 px-3 py-1 text-sm text-white/75"
+                      >
+                        {keyword}
+                      </span>
+                    ))}
+                  </div>
                 ) : null}
                 <p className="mt-4 max-w-[34rem] text-base leading-7 text-white/75 xl:text-lg">
                   {normalizeText(publicHeadline.summary, publicHeadline.supportingLine)}
@@ -1944,8 +2029,7 @@ export function MbtiResultShell({
         <aside className="xl:pt-8">
           <MbtiStickyRail
             locale={locale}
-            headline={publicHeadline}
-            tags={publicTags}
+            profileIdentity={visibleProfileIdentity}
             locked={projectionLocked}
             accessLevel={accessLevel}
             variant={accessVariant}
@@ -1999,6 +2083,9 @@ export function MbtiResultShell({
           isCheckingOut={isCheckingOut}
           checkoutError={checkoutError}
           unlockedOfferNode={offerCtaEntry?.node}
+          storageContentOverride={activeDesktopCloneSnapshot?.content}
+          storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots}
+          storageManagedExternally
         />
       </div>
 

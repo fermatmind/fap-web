@@ -62,6 +62,9 @@ type MbtiDesktopCloneShellProps = {
   isCheckingOut?: boolean;
   checkoutError?: string | null;
   unlockedOfferNode?: ReactNode;
+  storageContentOverride?: MbtiDesktopCloneContent | null;
+  storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
+  storageManagedExternally?: boolean;
 };
 
 function normalizeText(...values: unknown[]) {
@@ -211,6 +214,9 @@ export function MbtiDesktopCloneShell({
   isCheckingOut = false,
   checkoutError = null,
   unlockedOfferNode,
+  storageContentOverride,
+  storageAssetSlotsOverride,
+  storageManagedExternally = false,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
   const fullCodeForStorage = useMemo(
@@ -227,13 +233,20 @@ export function MbtiDesktopCloneShell({
     storageSnapshot && storageSnapshot.locale === locale && storageSnapshot.fullCode === fullCodeForStorage
       ? storageSnapshot
       : null;
-  const storageContent = activeStorageSnapshot?.content ?? null;
-  const storageAssetSlots = activeStorageSnapshot?.assetSlots ?? null;
+  const storageContent =
+    storageContentOverride !== undefined ? storageContentOverride : activeStorageSnapshot?.content ?? null;
+  const storageAssetSlots =
+    storageAssetSlotsOverride !== undefined ? storageAssetSlotsOverride : activeStorageSnapshot?.assetSlots ?? null;
 
   useEffect(() => {
     let active = true;
 
-    if (locale !== "zh") {
+    if (
+      locale !== "zh"
+      || storageManagedExternally
+      || storageContentOverride !== undefined
+      || storageAssetSlotsOverride !== undefined
+    ) {
       return () => {
         active = false;
       };
@@ -254,7 +267,7 @@ export function MbtiDesktopCloneShell({
     return () => {
       active = false;
     };
-  }, [fullCodeForStorage, locale]);
+  }, [fullCodeForStorage, locale, storageAssetSlotsOverride, storageContentOverride, storageManagedExternally]);
 
   const traitDimensions = projectionViewModel?.dimensions?.length ? projectionViewModel.dimensions : dimensions;
   const slots = resolveMbtiDesktopCloneSlots({
