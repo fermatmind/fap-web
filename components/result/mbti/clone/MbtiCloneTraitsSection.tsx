@@ -5,6 +5,7 @@ import Link from "next/link";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneSectionHeading } from "@/components/result/mbti/clone/MbtiCloneSectionHeading";
+import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { AxisExplainers, MbtiDesktopCloneAssetSlotId } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
@@ -171,7 +172,7 @@ export function MbtiCloneTraitsSection({
     : "";
 
   return (
-    <section id="traits" className={styles.section}>
+    <section id={getMbtiDesktopAnchorId("traits")} className={styles.section}>
       <MbtiCloneAssetSlot
         slotId={illustrationSlotId}
         assetSlots={assetSlots}

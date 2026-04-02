@@ -1,6 +1,7 @@
 "use client";
 
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
+import { getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { MbtiDesktopCloneAssetSlotId, ProfileIdentity } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
@@ -29,7 +30,7 @@ export function MbtiCloneHero({
   const nameLine = formatNameLine(profileIdentity);
 
   return (
-    <section id="hero" data-testid="mbti-hero" className={styles.hero}>
+    <section id={getMbtiDesktopAnchorId("hero")} data-testid="mbti-hero" className={styles.hero}>
       <div className={styles.heroCopy}>
         <p className={styles.heroEyebrow}>{eyebrow}</p>
         <h1 className={styles.heroCodePrimary}>{profileIdentity.code}</h1>

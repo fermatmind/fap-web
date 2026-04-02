@@ -1,4 +1,8 @@
 import { expect, test, type Page } from "@playwright/test";
+import {
+  getMbtiDesktopAnchorHash,
+  getMbtiDesktopAnchorId,
+} from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
@@ -391,14 +395,16 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
   await expect(page.getByRole("link", { name: "Read the career note" })).toBeVisible();
   await page.getByTestId("mbti-projection-section-growth-next-actions").getByRole("button", { name: "This helps" }).click();
 
-  await page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Career" }).click();
-  await expect(page).toHaveURL(new RegExp(`#career$`));
+  const desktopStickyRail = page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail");
+
+  await desktopStickyRail.getByRole("link", { name: "2. Your Career Path" }).click();
+  await expect(page).toHaveURL(new RegExp(`${getMbtiDesktopAnchorHash("career")}$`));
   await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
 
-  await page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" }).click();
-  await expect(page).toHaveURL(new RegExp(`#offer-full$`));
-  await page.waitForFunction(() => {
-    const offerSection = document.getElementById("offer-full");
+  await desktopStickyRail.getByRole("link", { name: "Unlock full report" }).click();
+  await expect(page).toHaveURL(new RegExp(`${getMbtiDesktopAnchorHash("offerFull")}$`));
+  await page.waitForFunction((offerId) => {
+    const offerSection = document.getElementById(offerId);
     if (!(offerSection instanceof HTMLElement)) {
       return false;
     }
@@ -407,7 +413,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     const viewportCenter = window.innerHeight / 2;
     const sectionCenter = rect.top + rect.height / 2;
     return Math.abs(sectionCenter - viewportCenter) < 160;
-  });
+  }, getMbtiDesktopAnchorId("offerFull"));
 
 });
 
@@ -726,9 +732,9 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
   await expect(page.getByRole("button", { name: "Share result" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Retake test" })).toBeVisible();
-  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toHaveAttribute(
+  await expect(page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toHaveAttribute(
     "href",
-    "#offer-full"
+    getMbtiDesktopAnchorHash("offerFull")
   );
   await expect(page.getByTestId("mbti-footer-cta").getByRole("link", { name: "Unlock full report" })).toHaveAttribute(
     "href",

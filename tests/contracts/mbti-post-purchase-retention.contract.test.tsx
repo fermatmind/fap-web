@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
+import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
@@ -35,6 +36,10 @@ function getPrimaryByTestId(testId: string): HTMLElement {
   }
 
   return node;
+}
+
+function getDesktopStickyRail(): HTMLElement {
+  return within(screen.getByTestId("mbti-desktop-clone-shell")).getByTestId("mbti-sticky-rail");
 }
 
 function createReportFixture(): ReportResponse {
@@ -95,7 +100,7 @@ describe("MBTI post-purchase retention contract", () => {
 
     const terminalSurface = getPrimaryByTestId("mbti-post-purchase-section");
     const footer = screen.getByTestId("mbti-footer-cta");
-    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
+    const stickyRail = getDesktopStickyRail();
     const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
 
     expect(terminalSurface).toBeInTheDocument();
@@ -107,7 +112,7 @@ describe("MBTI post-purchase retention contract", () => {
     expect(within(terminalSurface).getByRole("link", { name: "订单找回" })).toHaveAttribute("href", "/zh/orders/lookup");
     expect(within(terminalSurface).queryByRole("link", { name: "查看报告" })).not.toBeInTheDocument();
 
-    expect(within(stickyRail).getByRole("link", { name: "结果工作台" })).toHaveAttribute("href", "/zh/history/mbti");
+    expect(within(stickyRail).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
     expect(within(mobileChrome).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
     expect(within(footer).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
 
@@ -136,12 +141,15 @@ describe("MBTI post-purchase retention contract", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
+    const stickyRail = getDesktopStickyRail();
     const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
     const footer = screen.getByTestId("mbti-footer-cta");
 
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
-    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("offerFull")
+    );
     expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
     expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
   });

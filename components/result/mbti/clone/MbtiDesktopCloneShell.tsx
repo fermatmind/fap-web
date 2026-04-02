@@ -10,6 +10,10 @@ import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCl
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneRelationshipInsightBlock } from "@/components/result/mbti/clone/MbtiCloneRelationshipInsightBlock";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
+import {
+  getMbtiDesktopAnchorHash,
+  getMbtiDesktopAnchorId,
+} from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import type {
   EnergyBlock,
@@ -380,12 +384,16 @@ export function MbtiDesktopCloneShell({
     );
   }
 
+  const desktopOfferHref = getMbtiDesktopAnchorHash("offerFull");
+  const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
+  const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
+
   const railTools: DesktopCloneTool[] = [
     { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
     { label: cloneLocale === "zh" ? "重测" : "Retest", href: retakeHref },
     ...(historyHref ? [{ label: cloneLocale === "zh" ? "历史" : "History", href: historyHref }] : []),
-    ...(workspaceHref && workspaceHref !== historyHref
-      ? [{ label: cloneLocale === "zh" ? "工作台" : "Workspace", href: workspaceHref }]
+    ...(desktopWorkspaceHref && desktopWorkspaceHref !== historyHref
+      ? [{ label: cloneLocale === "zh" ? "工作台" : "Workspace", href: desktopWorkspaceHref }]
       : []),
     ...(pdfReady && pdfHref ? [{ label: "PDF", href: pdfHref }] : []),
     ...(orderLookupHref ? [{ label: cloneLocale === "zh" ? "订单" : "Orders", href: orderLookupHref }] : []),
@@ -446,6 +454,7 @@ export function MbtiDesktopCloneShell({
             <MbtiCloneNarrativeSection
               locale={cloneLocale}
               id="career"
+              anchorId={getMbtiDesktopAnchorId("career")}
               number={Number(slots.chapters.career.step)}
               title={slots.chapters.career.title}
               illustrationSlotId={slots.chapters.career.asset.slotId}
@@ -459,7 +468,7 @@ export function MbtiDesktopCloneShell({
               traits={slots.chapters.career.influentialTraits}
               traitsUnlock={slots.chapters.career.traitsUnlock}
               isUnlocked={isUnlocked}
-              unlockHref="#offer-full"
+              unlockHref={desktopOfferHref}
               unlockLabel={primaryCtaLabel}
               postCoreBlocks={careerPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
@@ -483,6 +492,7 @@ export function MbtiDesktopCloneShell({
             <MbtiCloneNarrativeSection
               locale={cloneLocale}
               id="growth"
+              anchorId={getMbtiDesktopAnchorId("growth")}
               number={Number(slots.chapters.growth.step)}
               title={slots.chapters.growth.title}
               illustrationSlotId={slots.chapters.growth.asset.slotId}
@@ -494,7 +504,7 @@ export function MbtiDesktopCloneShell({
               traits={slots.chapters.growth.influentialTraits}
               traitsUnlock={slots.chapters.growth.traitsUnlock}
               isUnlocked={isUnlocked}
-              unlockHref="#offer-full"
+              unlockHref={desktopOfferHref}
               unlockLabel={primaryCtaLabel}
               postCoreBlocks={growthPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
@@ -518,6 +528,7 @@ export function MbtiDesktopCloneShell({
             <MbtiCloneNarrativeSection
               locale={cloneLocale}
               id="relationships"
+              anchorId={getMbtiDesktopAnchorId("relationships")}
               number={Number(slots.chapters.relationships.step)}
               title={slots.chapters.relationships.title}
               illustrationSlotId={slots.chapters.relationships.asset.slotId}
@@ -529,7 +540,7 @@ export function MbtiDesktopCloneShell({
               traits={slots.chapters.relationships.influentialTraits}
               traitsUnlock={slots.chapters.relationships.traitsUnlock}
               isUnlocked={isUnlocked}
-              unlockHref="#offer-full"
+              unlockHref={desktopOfferHref}
               unlockLabel={primaryCtaLabel}
               postCoreBlocks={relationshipsPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
@@ -550,7 +561,7 @@ export function MbtiDesktopCloneShell({
               ]}
             />
 
-            <section id="offer-full" data-testid="mbti-offer-full" className={styles.section}>
+            <section id={getMbtiDesktopAnchorId("offerFull")} data-testid="mbti-offer-full" className={styles.section}>
               <MbtiCloneFinalOffer
                 locale={cloneLocale}
                 eyebrow={slots.finalOffer.eyebrow}
@@ -577,7 +588,7 @@ export function MbtiDesktopCloneShell({
             locale={cloneLocale}
             profileIdentity={slots.hero.profileIdentity}
             primaryCtaLabel={primaryCtaLabel}
-            primaryCtaHref={primaryCtaHref}
+            primaryCtaHref={desktopEntryHref}
             tools={railTools}
           />
         </div>

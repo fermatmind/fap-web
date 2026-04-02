@@ -1,6 +1,7 @@
 import { render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
+import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { MbtiSectionUnlock, RichResultHeadline } from "@/components/result/RichResultReport";
 import {
   fetchPersonalityDesktopCloneContent,
@@ -277,6 +278,27 @@ describe("MBTI desktop clone shell CTA wiring", () => {
 
     const lockedOverlayCtas = screen.getAllByRole("link", { name: "解锁完整报告" });
     expect(lockedOverlayCtas).toHaveLength(9);
+    for (const cta of lockedOverlayCtas) {
+      expect(cta).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+    }
+
+    const rail = screen.getByTestId("mbti-sticky-rail");
+    expect(within(rail).getByRole("link", { name: "1. Personality Traits" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("traits"),
+    );
+    expect(within(rail).getByRole("link", { name: "2. Your Career Path" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("career"),
+    );
+    expect(within(rail).getByRole("link", { name: "去结算" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("offerFull"),
+    );
+    expect(within(rail).getByRole("link", { name: "工作台" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("offerFull"),
+    );
   });
 
   it("keeps runtime offer price while allowing storage copy to render", async () => {
