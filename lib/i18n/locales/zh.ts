@@ -211,6 +211,7 @@ const zh: SiteDictionary = {
     refunded: "订单已退款。",
     reportReady: "你的完整报告已可查看。",
     reportGenerating: "报告仍在生成，请稍后刷新。",
+    reportPendingAfterPayment: "支付已完成，报告仍在生成或恢复中，请稍后刷新。",
     reportFailed: "报告交付延迟，请联系客服。",
     retryPayment: "重试支付",
     contactSupport: "联系客服",

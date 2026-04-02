@@ -172,6 +172,7 @@ export type SiteDictionary = {
     refunded: string;
     reportReady: string;
     reportGenerating: string;
+    reportPendingAfterPayment: string;
     reportFailed: string;
     retryPayment: string;
     contactSupport: string;
