@@ -28,6 +28,30 @@ function createSectionUnlocks(): Record<string, MbtiSectionUnlock> {
   };
 }
 
+function createInsightListBlock(moduleKey: string, title: string, tag: string) {
+  return {
+    schemaVersion: "insight_list_v1" as const,
+    title,
+    intro: `${moduleKey} intro ${tag}`,
+    items: [1, 2, 3, 4].map((index) => ({
+      id: `${moduleKey}-${index}`,
+      title: `${moduleKey} item ${index} ${tag}`,
+      description: `${moduleKey} preview ${index} ${tag}`,
+      body: `${moduleKey} body ${index} ${tag}`,
+      whyItMatters: `${moduleKey} why ${index} ${tag}`,
+      signals: [
+        `${moduleKey} signal ${index}a ${tag}`,
+        `${moduleKey} signal ${index}b ${tag}`,
+      ],
+      actions: {
+        do: `${moduleKey} do ${index} ${tag}`,
+        avoid: `${moduleKey} avoid ${index} ${tag}`,
+      },
+      tags: [moduleKey, tag],
+    })),
+  };
+}
+
 function createStorageContent(tag: string): MbtiDesktopCloneContent {
   return {
     hero: {
@@ -174,16 +198,10 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
           ],
         },
         whatEnergizes: {
-          title: `what energizes ${tag}`,
-          items: [
-            { title: `what energizes item ${tag}`, description: `what energizes body ${tag}` },
-          ],
+          ...createInsightListBlock("what energizes", `what energizes ${tag}`, tag),
         },
         whatDrains: {
-          title: `what drains ${tag}`,
-          items: [
-            { title: `what drains item ${tag}`, description: `what drains body ${tag}` },
-          ],
+          ...createInsightListBlock("what drains", `what drains ${tag}`, tag),
         },
         influentialTraits: [
           { label: `growth trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
@@ -250,16 +268,10 @@ function createStorageContent(tag: string): MbtiDesktopCloneContent {
           ],
         },
         superpowers: {
-          title: `superpowers ${tag}`,
-          items: [
-            { title: `superpowers item ${tag}`, description: `superpowers body ${tag}` },
-          ],
+          ...createInsightListBlock("superpowers", `superpowers ${tag}`, tag),
         },
         pitfalls: {
-          title: `pitfalls ${tag}`,
-          items: [
-            { title: `pitfalls item ${tag}`, description: `pitfalls body ${tag}` },
-          ],
+          ...createInsightListBlock("pitfalls", `pitfalls ${tag}`, tag),
         },
         influentialTraits: [
           { label: `relationships trait 1 ${tag}`, body: "body 1", colorKey: "blue" },
@@ -392,6 +404,11 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(entjSlots.chapters.relationships.weaknesses).toEqual(entjStorage.chapters.relationships.weaknesses);
     expect(entjSlots.chapters.relationships.superpowers).toEqual(entjStorage.chapters.relationships.superpowers);
     expect(entjSlots.chapters.relationships.pitfalls).toEqual(entjStorage.chapters.relationships.pitfalls);
+    expect(entjSlots.chapters.growth.whatEnergizes?.schemaVersion).toBe("insight_list_v1");
+    expect(entjSlots.chapters.growth.whatEnergizes?.intro).toBe("what energizes intro entj-t");
+    expect(entjSlots.chapters.growth.whatEnergizes?.items[0]?.body).toBe("what energizes body 1 entj-t");
+    expect(entjSlots.chapters.relationships.superpowers?.items[0]?.whyItMatters).toBe("superpowers why 1 entj-t");
+    expect(entjSlots.chapters.relationships.pitfalls?.items[0]?.actions.avoid).toBe("pitfalls avoid 1 entj-t");
     expect(entjSlots.chapters.growth.visibleBlocks).toEqual(entjStorage.chapters.growth.visibleBlocks);
   });
 

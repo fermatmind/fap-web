@@ -2,14 +2,22 @@
 
 import { type ReactNode, useEffect, useMemo, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
+import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
 import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
 import { MbtiCloneIdeaListBlock } from "@/components/result/mbti/clone/MbtiCloneIdeaListBlock";
 import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCloneNarrativeSection";
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
+import { MbtiCloneRelationshipInsightBlock } from "@/components/result/mbti/clone/MbtiCloneRelationshipInsightBlock";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
 import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
-import type { LockedListBlock, MbtiDesktopCloneContent, StrengthWeaknessBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
+import type {
+  EnergyBlock,
+  LockedListBlock,
+  MbtiDesktopCloneContent,
+  RelationshipInsightBlock,
+  StrengthWeaknessBlock,
+} from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { PremiumTeaserItem } from "@/components/result/mbti/clone/MbtiClonePremiumTeaserBlock";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import {
@@ -73,7 +81,7 @@ function resolvePrimaryOffer(offers: ResolvedOffer[]) {
     ?? null;
 }
 
-type CompatibilityTeaserSource = StrengthWeaknessBlock | null | undefined;
+type CompatibilityTeaserSource = StrengthWeaknessBlock | EnergyBlock | RelationshipInsightBlock | null | undefined;
 type TeaserFallbackBlock = LockedListBlock | undefined;
 
 function mapCompatibilityTeaserItems(source: CompatibilityTeaserSource): PremiumTeaserItem[] {
@@ -292,6 +300,72 @@ export function MbtiDesktopCloneShell({
       />,
     );
   }
+  const unlockedWhatEnergizesBlock = isUnlocked
+    ? withOverrideTitle(
+        slots.chapters.growth.whatEnergizes,
+        cloneLocale === "zh" ? "什么能让你充满活力？" : (slots.chapters.growth.whatEnergizes?.title ?? "What Energizes You"),
+      )
+    : null;
+  const unlockedWhatDrainsBlock = isUnlocked
+    ? withOverrideTitle(
+        slots.chapters.growth.whatDrains,
+        cloneLocale === "zh" ? "什么让你精力力竭？" : (slots.chapters.growth.whatDrains?.title ?? "What Drains You"),
+      )
+    : null;
+  const growthPostCoreBlocks: ReactNode[] = [];
+  if (unlockedWhatEnergizesBlock) {
+    growthPostCoreBlocks.push(
+      <MbtiCloneEnergyBlock
+        key="growth-what-energizes"
+        locale={cloneLocale}
+        data={unlockedWhatEnergizesBlock}
+        testId="mbti-p1-growth-what-energizes"
+      />,
+    );
+  }
+  if (unlockedWhatDrainsBlock) {
+    growthPostCoreBlocks.push(
+      <MbtiCloneEnergyBlock
+        key="growth-what-drains"
+        locale={cloneLocale}
+        data={unlockedWhatDrainsBlock}
+        testId="mbti-p1-growth-what-drains"
+      />,
+    );
+  }
+  const unlockedSuperpowersBlock = isUnlocked
+    ? withOverrideTitle(
+        slots.chapters.relationships.superpowers,
+        cloneLocale === "zh" ? "你的人际关系优势" : (slots.chapters.relationships.superpowers?.title ?? "Your Relationship Superpowers"),
+      )
+    : null;
+  const unlockedPitfallsBlock = isUnlocked
+    ? withOverrideTitle(
+        slots.chapters.relationships.pitfalls,
+        cloneLocale === "zh" ? "人际关系陷阱" : (slots.chapters.relationships.pitfalls?.title ?? "Relationship Pitfalls"),
+      )
+    : null;
+  const relationshipsPostCoreBlocks: ReactNode[] = [];
+  if (unlockedSuperpowersBlock) {
+    relationshipsPostCoreBlocks.push(
+      <MbtiCloneRelationshipInsightBlock
+        key="relationships-superpowers"
+        locale={cloneLocale}
+        data={unlockedSuperpowersBlock}
+        testId="mbti-p1-relationships-superpowers"
+      />,
+    );
+  }
+  if (unlockedPitfallsBlock) {
+    relationshipsPostCoreBlocks.push(
+      <MbtiCloneRelationshipInsightBlock
+        key="relationships-pitfalls"
+        locale={cloneLocale}
+        data={unlockedPitfallsBlock}
+        testId="mbti-p1-relationships-pitfalls"
+      />,
+    );
+  }
 
   const railTools: DesktopCloneTool[] = [
     { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
@@ -409,7 +483,8 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              premiumTeasers={[
+              postCoreBlocks={growthPostCoreBlocks}
+              premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "什么能让你充满活力？",
@@ -443,7 +518,8 @@ export function MbtiDesktopCloneShell({
               isUnlocked={isUnlocked}
               unlockHref="#offer-full"
               unlockLabel={primaryCtaLabel}
-              premiumTeasers={[
+              postCoreBlocks={relationshipsPostCoreBlocks}
+              premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "你的人际关系优势",

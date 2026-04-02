@@ -5,6 +5,8 @@ import type {
   ContentListBlock,
   EnergyBlock,
   IdeaListBlock,
+  InsightListBlock,
+  InsightListItem,
   ListItem,
   LockedListBlock,
   MatchedGuidesBlock,
@@ -321,12 +323,86 @@ function normalizeIdeaListBlock(value: unknown): IdeaListBlock | undefined {
   return normalizeStrengthWeakness(value);
 }
 
+function normalizeStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => normalizeText(entry))
+    .filter((entry): entry is string => entry.length > 0);
+}
+
+function normalizeInsightListItem(value: unknown): InsightListItem | null {
+  if (!isRecord(value)) {
+    return null;
+  }
+
+  const id = normalizeText(value.id);
+  const title = normalizeText(value.title);
+  const description = normalizeText(value.description);
+  const body = normalizeText(value.body);
+  const whyItMatters = normalizeText(value.why_it_matters ?? value.whyItMatters);
+  const signals = normalizeStringArray(value.signals);
+  const tags = normalizeStringArray(value.tags);
+  const actions = isRecord(value.actions) ? value.actions : null;
+  const doAction = normalizeText(actions?.do);
+  const avoidAction = normalizeText(actions?.avoid);
+
+  if (!id || !title || !description || !body || !whyItMatters || signals.length === 0 || tags.length === 0 || !doAction || !avoidAction) {
+    return null;
+  }
+
+  return {
+    id,
+    title,
+    description,
+    body,
+    whyItMatters,
+    signals,
+    actions: {
+      do: doAction,
+      avoid: avoidAction,
+    },
+    tags,
+  };
+}
+
+function normalizeInsightListBlock(value: unknown): InsightListBlock | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+
+  const schemaVersion = normalizeText(value.schema_version ?? value.schemaVersion);
+  const title = normalizeText(value.title);
+  const intro = normalizeText(value.intro);
+
+  if (schemaVersion !== "insight_list_v1" || !title || !intro || !Array.isArray(value.items)) {
+    return undefined;
+  }
+
+  const items = value.items
+    .map((item) => normalizeInsightListItem(item))
+    .filter((item): item is InsightListItem => item !== null);
+
+  if (items.length === 0) {
+    return undefined;
+  }
+
+  return {
+    schemaVersion: "insight_list_v1",
+    title,
+    intro,
+    items,
+  };
+}
+
 function normalizeEnergyBlock(value: unknown): EnergyBlock | undefined {
-  return normalizeStrengthWeakness(value);
+  return normalizeInsightListBlock(value);
 }
 
 function normalizeRelationshipInsightBlock(value: unknown): RelationshipInsightBlock | undefined {
-  return normalizeStrengthWeakness(value);
+  return normalizeInsightListBlock(value);
 }
 
 function normalizeOverview(value: unknown): OverviewBlock | undefined {
