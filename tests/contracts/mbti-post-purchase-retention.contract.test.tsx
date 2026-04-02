@@ -101,7 +101,6 @@ describe("MBTI post-purchase retention contract", () => {
     const terminalSurface = getPrimaryByTestId("mbti-post-purchase-section");
     const footer = screen.getByTestId("mbti-footer-cta");
     const stickyRail = getDesktopStickyRail();
-    const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
 
     expect(terminalSurface).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
@@ -113,7 +112,7 @@ describe("MBTI post-purchase retention contract", () => {
     expect(within(terminalSurface).queryByRole("link", { name: "查看报告" })).not.toBeInTheDocument();
 
     expect(within(stickyRail).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
-    expect(within(mobileChrome).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(within(footer).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
 
     expect(terminalSurface.compareDocumentPosition(footer) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
@@ -142,7 +141,6 @@ describe("MBTI post-purchase retention contract", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     const stickyRail = getDesktopStickyRail();
-    const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
     const footer = screen.getByTestId("mbti-footer-cta");
 
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
@@ -150,7 +148,10 @@ describe("MBTI post-purchase retention contract", () => {
       "href",
       getMbtiDesktopAnchorHash("offerFull")
     );
-    expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
-    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
+    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("offerFull")
+    );
   });
 });

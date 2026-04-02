@@ -66,6 +66,9 @@ type MbtiDesktopCloneShellProps = {
   isCheckingOut?: boolean;
   checkoutError?: string | null;
   unlockedOfferNode?: ReactNode;
+  supplementaryNodes?: ReactNode[];
+  recommendedReadsNode?: ReactNode;
+  footerNode?: ReactNode;
   storageContentOverride?: MbtiDesktopCloneContent | null;
   storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
   storageManagedExternally?: boolean;
@@ -218,6 +221,9 @@ export function MbtiDesktopCloneShell({
   isCheckingOut = false,
   checkoutError = null,
   unlockedOfferNode,
+  supplementaryNodes = [],
+  recommendedReadsNode = null,
+  footerNode = null,
   storageContentOverride,
   storageAssetSlotsOverride,
   storageManagedExternally = false,
@@ -561,6 +567,10 @@ export function MbtiDesktopCloneShell({
               ]}
             />
 
+            {supplementaryNodes.map((node, index) => (
+              <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
+            ))}
+
             <section id={getMbtiDesktopAnchorId("offerFull")} data-testid="mbti-offer-full" className={styles.section}>
               <MbtiCloneFinalOffer
                 locale={cloneLocale}
@@ -582,6 +592,9 @@ export function MbtiDesktopCloneShell({
                 assetSlots={storageAssetSlots}
               />
             </section>
+
+            {recommendedReadsNode ? <div>{recommendedReadsNode}</div> : null}
+            {footerNode ? <div>{footerNode}</div> : null}
           </main>
 
           <MbtiCloneRail

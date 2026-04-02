@@ -81,7 +81,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     );
   });
 
-  await page.route("**/api/track", async (route) => {
+  await page.route(/\/api\/track$/, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -89,7 +89,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     });
   });
 
-  await page.route("**/api/v0.3/auth/guest", async (route) => {
+  await page.route(/https:\/\/api\.fermatmind\.com\/api\/v0\.3\/auth\/guest$/, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -143,7 +143,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -201,6 +201,48 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
           ];
         })
       ),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report.pdf*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/pdf",
+      body: "%PDF-1.4\n% mock pdf\n",
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/result`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        result: {
+          type_code: "ENFP-T",
+          summary: "fallback result summary",
+          dimensions: [],
+        },
+        meta: {
+          scale_code: "MBTI",
+        },
+      }),
+    });
+  });
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/submission`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        submission: {
+          id: attemptId,
+          state: "ready",
+        },
+      }),
     });
   });
 
@@ -879,10 +921,8 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
   }
 });
 
-test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", async ({ page }) => {
+test("MBTI result uses the same clone shell across mobile and desktop viewports", async ({ page }) => {
   const attemptId = "mbti-result-shell-mobile-0001";
-
-  await page.setViewportSize({ width: 375, height: 812 });
   await page.addInitScript(() => {
     window.localStorage.setItem(
       "fm_consent_v1",
@@ -912,7 +952,39 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(
+    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`),
+    async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          attempt_id: attemptId,
+          access_state: "locked",
+          report_state: "ready",
+          pdf_state: "ready",
+          reason_code: "projection_missing_result_ready",
+          projection_version: 1,
+          actions: {
+            page_href: `/zh/result/${attemptId}`,
+            pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+            history_href: "/history/mbti",
+            lookup_href: "/orders/lookup",
+          },
+          payload: {},
+          meta: {
+            produced_at: "2026-03-27T00:00:00.000Z",
+            refreshed_at: "2026-03-27T00:00:00.000Z",
+          },
+        }),
+      });
+    }
+  );
+
+  await page.route(
+    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`),
+    async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -942,9 +1014,61 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
         })
       ),
     });
-  });
+    }
+  );
 
-  await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
+  await page.route(
+    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/report\\.pdf(?:\\?.*)?$`),
+    async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/pdf",
+        body: "%PDF-1.4\n% mock pdf\n",
+      });
+    }
+  );
+
+  await page.route(
+    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/result(?:\\?.*)?$`),
+    async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          attempt_id: attemptId,
+          result: {
+            type_code: "ENFP-T",
+            summary: "fallback result summary",
+            dimensions: [],
+          },
+          meta: {
+            scale_code: "MBTI",
+          },
+        }),
+      });
+    }
+  );
+
+  await page.route(
+    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/submission(?:\\?.*)?$`),
+    async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          attempt_id: attemptId,
+          submission: {
+            id: attemptId,
+            state: "ready",
+          },
+        }),
+      });
+    }
+  );
+
+  await page.route(/https:\/\/api\.fermatmind\.com\/api\/v0\.3\/scales\/lookup\?.*$/, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -959,27 +1083,41 @@ test("MBTI result shell v2 exposes mobile chapter pills and bottom action bar", 
     });
   });
 
-  await page.goto(`/zh/result/${attemptId}`);
+  const viewports = [
+    { width: 375, height: 812 },
+    { width: 1366, height: 900 },
+  ];
 
-  const mobileChrome = page.getByTestId("mbti-mobile-chrome");
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await page.goto(`/zh/result/${attemptId}`);
 
-  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(mobileChrome).toBeVisible();
-  await expect(mobileChrome.getByRole("button", { name: "分享" })).toBeVisible();
-  await expect(mobileChrome.getByRole("link", { name: "重测" })).toBeVisible();
-  await expect(mobileChrome.getByRole("link", { name: "解锁完整报告" })).toBeVisible();
-  await expect(mobileChrome.getByRole("link", { name: "职业" })).toBeVisible();
-  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁完整报告");
-  await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
-  await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.getByRole("button", { name: "分享结果" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "重新测试" })).toBeVisible();
+    const cloneShell = page.getByTestId("mbti-desktop-clone-shell");
+    const stickyRail = cloneShell.getByTestId("mbti-sticky-rail");
 
-  await mobileChrome.getByRole("link", { name: "关系" }).click();
-  await expect(page).toHaveURL(new RegExp(`#relationships$`));
-  await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
-  await mobileChrome.getByRole("link", { name: "解锁完整报告" }).click();
-  await expect(page).toHaveURL(new RegExp(`#offer-full$`));
+    await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+    await expect(cloneShell).toBeVisible();
+    await expect(page.getByTestId("mbti-mobile-chrome")).toHaveCount(0);
+    await expect(stickyRail).toBeVisible();
+    await expect(page.getByTestId("mbti-chapter-traits")).toBeVisible();
+    await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
+    await expect(page.getByTestId("mbti-chapter-growth")).toBeVisible();
+    await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
+    await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁完整报告");
+    await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
+    await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
+    await expect(stickyRail.getByRole("button", { name: "分享结果" })).toBeVisible();
+    await expect(stickyRail.getByRole("link", { name: "重测" })).toBeVisible();
+    await expect(stickyRail.getByRole("link", { name: "4. Your Relationships" })).toBeVisible();
+    await expect(stickyRail.getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+      "href",
+      "#mbti-desktop-offer-full"
+    );
+
+    await stickyRail.getByRole("link", { name: "4. Your Relationships" }).click();
+    await expect(page).toHaveURL(new RegExp(`#mbti-desktop-relationships$`));
+    await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
+  }
 });
 
 test("MBTI deepened user state can shift revisit focus and recommendation priority", async ({ page }) => {

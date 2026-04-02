@@ -89,7 +89,11 @@ export function MbtiCloneFinalOffer({
             </a>
           ) : null}
         </div>
-        {checkoutError ? <p className={styles.errorText}>{checkoutError}</p> : null}
+        {checkoutError ? (
+          <p data-testid="mbti-offers-checkout-error" className={styles.errorText}>
+            {checkoutError}
+          </p>
+        ) : null}
       </div>
     </section>
   );

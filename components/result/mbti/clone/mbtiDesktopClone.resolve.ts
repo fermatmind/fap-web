@@ -146,7 +146,7 @@ export function resolveMbtiDesktopCloneSlots({
       eyebrow: isZh ? "你的人格类型是" : "Your personality type is",
       title: resolveDisplayTitle(headline, projectionViewModel),
       typeCode: fullCode,
-      summary: content?.hero.summary ?? placeholders.hero.summary,
+      summary: content?.hero.summary ?? headline.summary ?? headline.supportingLine ?? placeholders.hero.summary,
       asset: placeholders.hero.asset,
     },
     intro: {
