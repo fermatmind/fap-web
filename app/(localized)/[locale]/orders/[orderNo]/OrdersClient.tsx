@@ -19,6 +19,7 @@ import {
 import {
   fetchAttemptReportAccess,
   getOrderStatus,
+  recoverAlipayReturnContext,
   resendOrderDelivery,
   type OrderStatusResponse,
 } from "@/lib/api/v0_3";
@@ -28,6 +29,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { captureError } from "@/lib/observability/sentry";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import { readPendingOrder } from "@/lib/commerce/pendingOrder";
 
 type ViewStatus = "initializing" | "pending" | "paid" | "failed" | "canceled" | "refunded";
 type PayType = "qr" | "html" | "redirect" | null;
@@ -52,6 +54,46 @@ function normalizeQueryValue(value: string | null): string | null {
 
 function hasLocalePrefix(path: string): boolean {
   return /^\/(en|zh)(\/|$)/.test(path);
+}
+
+function normalizeLocalizedPath(pathname: string): string {
+  return pathname.replace(/^\/(en|zh)(?=\/|$)/, "") || "/";
+}
+
+function buildCanonicalWaitHref({
+  orderNo,
+  localePath,
+  paymentRecoveryToken,
+  payType,
+  payValue,
+  provider,
+}: {
+  orderNo: string;
+  localePath: (path: string) => string;
+  paymentRecoveryToken?: string | null;
+  payType?: PayType;
+  payValue?: string | null;
+  provider?: string | null;
+}): string {
+  const params = new URLSearchParams({ order_no: orderNo });
+
+  if (payType === "qr" || payType === "html" || payType === "redirect") {
+    params.set("pay_type", payType);
+  }
+
+  if (payValue) {
+    params.set("pay_value", payValue);
+  }
+
+  if (provider) {
+    params.set("provider", provider);
+  }
+
+  if (paymentRecoveryToken) {
+    params.set("payment_recovery_token", paymentRecoveryToken);
+  }
+
+  return localePath(`/pay/wait?${params.toString()}`);
 }
 
 function formatDeliveryEmailTimestamp(value: string | null | undefined, locale: "en" | "zh"): string | null {
@@ -128,6 +170,7 @@ export default function OrdersClient({
   } | null>(null);
   const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string | null>(null);
   const [qrCodeError, setQrCodeError] = useState(false);
+  const oldOrderRouteRecoveryRef = useRef(false);
 
   const pollTimerRef = useRef<number | null>(null);
   const pollStepRef = useRef(0);
@@ -155,6 +198,106 @@ export default function OrdersClient({
       setPayProvider(queryPayProvider);
     }
   }, [queryPayProvider, queryPayType, queryPayValue]);
+
+  useEffect(() => {
+    if (oldOrderRouteRecoveryRef.current) {
+      return;
+    }
+
+    if (normalizeLocalizedPath(pathname) !== `/orders/${orderNo}`) {
+      return;
+    }
+
+    const pendingOrder = readPendingOrder();
+    const pendingMatchesOrder = pendingOrder?.orderNo === orderNo ? pendingOrder : null;
+    const recoveryToken = effectivePaymentRecoveryToken ?? pendingMatchesOrder?.paymentRecoveryToken ?? null;
+    const pendingWaitHref = normalizeQueryValue(pendingMatchesOrder?.waitUrl ?? null);
+    const normalizedSearchEntries = Array.from(searchParams.entries()).map(([key, value]) => [
+      key,
+      normalizeQueryValue(value),
+    ] as const);
+    const returnParams = Object.fromEntries(normalizedSearchEntries);
+    const hasNativeAlipayReturnContext = Boolean(
+      returnParams.out_trade_no || returnParams.outTradeNo || returnParams.trade_no || returnParams.tradeNo || returnParams.sign
+    );
+
+    const nextHref =
+      pendingWaitHref && (/^https?:\/\//i.test(pendingWaitHref) || hasLocalePrefix(pendingWaitHref))
+        ? pendingWaitHref
+        : pendingWaitHref
+          ? withLocale(pendingWaitHref)
+          : recoveryToken
+            ? buildCanonicalWaitHref({
+                orderNo,
+                localePath: withLocale,
+                paymentRecoveryToken: recoveryToken,
+                payType: queryPayType,
+                payValue: queryPayValue,
+                provider: queryPayProvider,
+              })
+            : null;
+
+    if (!nextHref) {
+      if (!hasNativeAlipayReturnContext) {
+        return;
+      }
+
+      oldOrderRouteRecoveryRef.current = true;
+      void (async () => {
+        try {
+          const recovered = await recoverAlipayReturnContext({
+            orderNo,
+            query: {
+              ...returnParams,
+              order_no: returnParams.order_no ?? returnParams.orderNo ?? orderNo,
+              out_trade_no: returnParams.out_trade_no ?? returnParams.outTradeNo ?? orderNo,
+            },
+          });
+          const recoveredWaitHref = normalizeQueryValue(recovered.wait_url ?? null);
+          const recoveredToken = normalizeQueryValue(recovered.payment_recovery_token ?? null);
+          if (recoveredWaitHref) {
+            router.replace(
+              /^https?:\/\//i.test(recoveredWaitHref) || hasLocalePrefix(recoveredWaitHref)
+                ? recoveredWaitHref
+                : withLocale(recoveredWaitHref)
+            );
+            return;
+          }
+
+          if (recoveredToken) {
+            router.replace(
+              buildCanonicalWaitHref({
+                orderNo,
+                localePath: withLocale,
+                paymentRecoveryToken: recoveredToken,
+                payType: queryPayType,
+                payValue: queryPayValue,
+                provider: queryPayProvider,
+              })
+            );
+            return;
+          }
+        } catch {
+          // Fall through to the existing order recovery UI.
+        }
+      })();
+
+      return;
+    }
+
+    oldOrderRouteRecoveryRef.current = true;
+    router.replace(nextHref);
+  }, [
+    effectivePaymentRecoveryToken,
+    orderNo,
+    pathname,
+    queryPayProvider,
+    queryPayType,
+    queryPayValue,
+    searchParams,
+    router,
+    withLocale,
+  ]);
 
   useEffect(() => {
     payProviderRef.current = payProvider;
