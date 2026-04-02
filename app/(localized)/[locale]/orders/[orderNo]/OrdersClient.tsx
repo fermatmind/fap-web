@@ -50,6 +50,10 @@ function normalizeQueryValue(value: string | null): string | null {
   return normalized.length > 0 ? normalized : null;
 }
 
+function hasLocalePrefix(path: string): boolean {
+  return /^\/(en|zh)(\/|$)/.test(path);
+}
+
 function formatDeliveryEmailTimestamp(value: string | null | undefined, locale: "en" | "zh"): string | null {
   const normalized = normalizeQueryValue(value ?? null);
   if (!normalized) {
@@ -105,6 +109,8 @@ export default function OrdersClient({
 
   const [status, setStatus] = useState<ViewStatus>("initializing");
   const [attemptId, setAttemptId] = useState<string | null>(null);
+  const [orderBoundAttemptId, setOrderBoundAttemptId] = useState<string | null>(null);
+  const [orderBoundResultHref, setOrderBoundResultHref] = useState<string | null>(null);
   const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
   const [delivery, setDelivery] = useState<DeliveryPayload | null>(null);
   const [accessHubRaw, setAccessHubRaw] = useState<OrderStatusResponse["mbti_access_hub_v1"] | null>(null);
@@ -265,6 +271,14 @@ export default function OrdersClient({
         const responsePayProvider =
           normalizeQueryValue(typeof response.provider === "string" ? response.provider : null)
           ?? normalizeQueryValue(typeof responsePayNode?.provider === "string" ? responsePayNode.provider : null);
+        const responseOrderBoundAttemptId =
+          normalizeQueryValue(response.exact_result_entry?.attempt_id ?? null)
+          ?? normalizeQueryValue(response.attempt_id ?? null);
+        const responseOrderBoundResultHref = normalizeQueryValue(
+          typeof response.exact_result_entry?.actions?.page_href === "string"
+            ? response.exact_result_entry.actions.page_href
+            : null
+        );
         const responseAttemptId =
           normalizeQueryValue(response.exact_result_entry?.attempt_id ?? null)
           ?? normalizeQueryValue(response.attempt_id ?? null)
@@ -289,6 +303,12 @@ export default function OrdersClient({
 
         setStatus(nextStatus);
         setAttemptId(responseAttemptId);
+        if (responseOrderBoundAttemptId) {
+          setOrderBoundAttemptId(responseOrderBoundAttemptId);
+        }
+        if (responseOrderBoundResultHref) {
+          setOrderBoundResultHref(responseOrderBoundResultHref);
+        }
         setAccessView(nextAccessView);
         setDelivery((response.delivery ?? null) as DeliveryPayload | null);
         setAccessHubRaw(response.mbti_access_hub_v1 ?? null);
@@ -547,6 +567,21 @@ export default function OrdersClient({
   const canViewReport = canEnterReportPage(accessView);
   const resolvedReportHref = accessView?.actions.pageHref ?? null;
   const reportEntryHref = canViewReport ? resolvedReportHref : null;
+  const backToResultHref = useMemo(() => {
+    if (orderBoundResultHref) {
+      if (/^https?:\/\//i.test(orderBoundResultHref) || hasLocalePrefix(orderBoundResultHref)) {
+        return orderBoundResultHref;
+      }
+
+      return withLocale(orderBoundResultHref);
+    }
+
+    if (orderBoundAttemptId) {
+      return withLocale(`/result/${orderBoundAttemptId}`);
+    }
+
+    return null;
+  }, [orderBoundAttemptId, orderBoundResultHref, withLocale]);
   const canDownloadPdf = canDownloadReportPdf(accessView);
   const resolvedPdfHref = accessView?.actions.pdfHref ?? null;
   const canResendDelivery = accessHub?.recovery.canResend ?? (delivery?.can_resend === true);
@@ -624,11 +659,18 @@ export default function OrdersClient({
                 </div>
               ) : null}
 
-              <div className="flex flex-wrap gap-2">
-                <Button type="button" onClick={handleManualRefresh} variant="outline" disabled={isRefreshing}>
+              <div className="flex flex-wrap gap-2" data-testid="order-wait-actions-pending">
+                {backToResultHref ? (
+                  <Link href={backToResultHref} data-testid="order-back-to-result-link" className="inline-flex">
+                    <Button type="button" variant="outline">
+                      {dict.orders.backToMyResult}
+                    </Button>
+                  </Link>
+                ) : null}
+                <Button type="button" onClick={handleManualRefresh} disabled={isRefreshing} data-testid="order-refresh-button">
                   {isRefreshing ? `${dict.orders.refresh}...` : dict.orders.refresh}
                 </Button>
-                <Link href={withLocale("/support")}>
+                <Link href={withLocale("/support")} data-testid="order-contact-support-link">
                   <Button type="button" variant="secondary">
                     {dict.orders.contactSupport}
                   </Button>
@@ -753,15 +795,39 @@ export default function OrdersClient({
                       {deliveryFeedback.message}
                     </Alert>
                   ) : null}
+                  <div className="flex flex-wrap gap-2" data-testid="order-wait-actions-paid-ready">
+                    {backToResultHref ? (
+                      <Link href={backToResultHref} data-testid="order-back-to-result-link" className="inline-flex">
+                        <Button type="button" variant="outline">
+                          {dict.orders.backToMyResult}
+                        </Button>
+                      </Link>
+                    ) : null}
+                    <Button type="button" onClick={handleManualRefresh} disabled={isRefreshing} data-testid="order-refresh-button">
+                      {isRefreshing ? `${dict.orders.refresh}...` : dict.orders.refresh}
+                    </Button>
+                    <Link href={withLocale("/support")} data-testid="order-contact-support-link">
+                      <Button type="button" variant="secondary">
+                        {dict.orders.contactSupport}
+                      </Button>
+                    </Link>
+                  </div>
                 </>
               ) : (
                 <>
                   <Alert data-testid="order-paid-processing-state">{dict.orders.reportPendingAfterPayment}</Alert>
-                  <div className="flex flex-wrap gap-2">
-                    <Button type="button" onClick={handleManualRefresh} variant="outline" disabled={isRefreshing}>
+                  <div className="flex flex-wrap gap-2" data-testid="order-wait-actions-paid-processing">
+                    {backToResultHref ? (
+                      <Link href={backToResultHref} data-testid="order-back-to-result-link" className="inline-flex">
+                        <Button type="button" variant="outline">
+                          {dict.orders.backToMyResult}
+                        </Button>
+                      </Link>
+                    ) : null}
+                    <Button type="button" onClick={handleManualRefresh} disabled={isRefreshing} data-testid="order-refresh-button">
                       {isRefreshing ? `${dict.orders.refresh}...` : dict.orders.refresh}
                     </Button>
-                    <Link href={withLocale("/support")}>
+                    <Link href={withLocale("/support")} data-testid="order-contact-support-link">
                       <Button type="button" variant="secondary">
                         {dict.orders.contactSupport}
                       </Button>
@@ -775,8 +841,15 @@ export default function OrdersClient({
           {!recoveryMode && timedOut ? (
             <div className="space-y-3" data-testid="order-timeout-state">
               <Alert>{message}</Alert>
-              <div className="flex flex-wrap gap-2">
-                <Button type="button" onClick={handleManualRefresh} variant="outline" disabled={isRefreshing}>
+              <div className="flex flex-wrap gap-2" data-testid="order-wait-actions-timeout">
+                {backToResultHref ? (
+                  <Link href={backToResultHref} data-testid="order-back-to-result-link" className="inline-flex">
+                    <Button type="button" variant="outline">
+                      {dict.orders.backToMyResult}
+                    </Button>
+                  </Link>
+                ) : null}
+                <Button type="button" onClick={handleManualRefresh} disabled={isRefreshing} data-testid="order-refresh-button">
                   {isRefreshing ? `${dict.orders.refresh}...` : dict.orders.refresh}
                 </Button>
                 {payType || attemptId ? (
@@ -784,7 +857,7 @@ export default function OrdersClient({
                     {dict.orders.retryPayment}
                   </Button>
                 ) : null}
-                <Link href={withLocale("/support")}>
+                <Link href={withLocale("/support")} data-testid="order-contact-support-link">
                   <Button type="button" variant="secondary">
                     {dict.orders.contactSupport}
                   </Button>

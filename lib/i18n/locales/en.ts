@@ -215,6 +215,7 @@ const en: SiteDictionary = {
     reportPendingAfterPayment: "Payment completed. Your report is still generating or restoring. Refresh in a few seconds.",
     reportFailed: "Report delivery is delayed. Please contact support.",
     retryPayment: "Retry payment",
+    backToMyResult: "Back to my test result",
     contactSupport: "Contact support",
     refresh: "Refresh",
     viewReport: "View full report",
