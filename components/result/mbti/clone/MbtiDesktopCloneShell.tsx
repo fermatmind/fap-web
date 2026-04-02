@@ -482,7 +482,7 @@ export function MbtiDesktopCloneShell({
               previewContent={careerPreviewSection ? (
                 <MbtiClonePreviewCardsBlock locale={cloneLocale} sectionId="career" previewSection={careerPreviewSection} />
               ) : null}
-              premiumTeasers={isUnlocked || careerPreviewSection ? [] : [
+              premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "你可能会喜欢的职业选择",
@@ -521,7 +521,7 @@ export function MbtiDesktopCloneShell({
               previewContent={growthPreviewSection ? (
                 <MbtiClonePreviewCardsBlock locale={cloneLocale} sectionId="growth" previewSection={growthPreviewSection} />
               ) : null}
-              premiumTeasers={isUnlocked || growthPreviewSection ? [] : [
+              premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "什么能让你充满活力？",
@@ -560,7 +560,7 @@ export function MbtiDesktopCloneShell({
               previewContent={relationshipsPreviewSection ? (
                 <MbtiClonePreviewCardsBlock locale={cloneLocale} sectionId="relationships" previewSection={relationshipsPreviewSection} />
               ) : null}
-              premiumTeasers={isUnlocked || relationshipsPreviewSection ? [] : [
+              premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "你的人际关系优势",

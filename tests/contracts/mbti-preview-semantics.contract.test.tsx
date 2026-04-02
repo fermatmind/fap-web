@@ -57,12 +57,30 @@ function createPreviewFixture(modulesPreview: string[] = ["career", "relationshi
   reportData.access_level = "free";
   reportData.modules_allowed = ["core_free"];
   reportData.modules_preview = modulesPreview;
-  const growthPreviewVisible = modulesPreview.includes("core_full");
+  const chapterPreviewVisible = modulesPreview.includes("core_full");
   reportData.mbti_preview_v1 = {
-    mode: growthPreviewVisible ? "module_preview" : "none",
+    mode: chapterPreviewVisible ? "module_preview" : "none",
     modules: modulesPreview,
-    sections: growthPreviewVisible
+    sections: chapterPreviewVisible
       ? [
+          {
+            key: "career",
+            module_code: "core_full",
+            has_preview_content: true,
+            visible_preview_cards: [
+              {
+                id: "career_preview_dto_1",
+                title: "把喜欢做的事情变成可持续投入",
+                body: "先从你自然愿意反复进入的工作情境里识别出更稳定的职业线索。",
+                bullets: ["把偏好写成筛选标准", "先验证能长期投入的工作节奏"],
+                tips: ["先排除明显消耗你的岗位环境"],
+                tags: ["Career", "Preview"],
+                module_code: "core_full",
+                access_level: "preview",
+              },
+            ],
+            has_locked_remainder: true,
+          },
           {
             key: "growth",
             module_code: "core_full",
@@ -75,6 +93,24 @@ function createPreviewFixture(modulesPreview: string[] = ["career", "relationshi
                 bullets: ["把优势写成流程", "优先选择可复用的增长动作"],
                 tips: ["先从一周内能重复执行的动作开始"],
                 tags: ["Growth", "Preview"],
+                module_code: "core_full",
+                access_level: "preview",
+              },
+            ],
+            has_locked_remainder: true,
+          },
+          {
+            key: "relationships",
+            module_code: "core_full",
+            has_preview_content: true,
+            visible_preview_cards: [
+              {
+                id: "relationships_preview_dto_1",
+                title: "你会先用稳定和细节建立信任",
+                body: "别人通常先从你的可靠、温和和边界感里感受到安全感。",
+                bullets: ["关系里先给稳定回应", "用小细节表达在意"],
+                tips: ["冲突出现时先确认彼此真实需求"],
+                tags: ["Relationships", "Preview"],
                 module_code: "core_full",
                 access_level: "preview",
               },
@@ -98,13 +134,22 @@ describe("MBTI preview semantics contract", () => {
 
     const growthChapter = screen.getByTestId("mbti-chapter-growth");
     const previewSurface = screen.getByTestId("mbti-chapter-preview-growth");
+    const desktopCloneShell = within(getDesktopCloneShell());
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(previewSurface).toBeInTheDocument();
     expect(within(previewSurface).getByText("你的成长主线：把强项做成可复用资产")).toBeInTheDocument();
-    expect(within(getDesktopCloneShell()).getByTestId("mbti-desktop-preview-growth")).toBeInTheDocument();
-    expect(within(getDesktopCloneShell()).getByText("你的成长主线：把强项做成可复用资产")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-desktop-preview-career")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-desktop-preview-growth")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-desktop-preview-relationships")).toBeInTheDocument();
+    expect(desktopCloneShell.getByText("你的成长主线：把强项做成可复用资产")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-premium-career-career-ideas")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-premium-career-work-styles")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-premium-growth-what-energizes")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-premium-growth-what-drains")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-premium-relationships-superpowers")).toBeInTheDocument();
+    expect(desktopCloneShell.getByTestId("mbti-premium-relationships-pitfalls")).toBeInTheDocument();
     expect(screen.queryByText("这个付费卡不应该在 preview 中出现")).not.toBeInTheDocument();
     expect(within(growthChapter).queryByTestId("mbti-chapter-unlock-card")).not.toBeInTheDocument();
     expect(within(growthChapter).getByText("部分预览已开放")).toBeInTheDocument();
