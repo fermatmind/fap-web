@@ -47,6 +47,8 @@ type PersonalityDesktopCloneApiResponse = {
   _meta?: DesktopCloneApiMeta;
 };
 
+type AxisExplainersRecord = Record<string, Record<string, Record<string, Record<string, unknown>>>>;
+
 export type PersonalityDesktopCloneAssetSlot = CloneAssetSlot & {
   assetRef: {
     provider: string | null;
@@ -188,6 +190,29 @@ function isSummaryPane(value: unknown): boolean {
     && normalizeText(value.body).length > 0;
 }
 
+function isAxisExplainers(value: unknown): value is AxisExplainersRecord {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return Object.values(value).every((axisValue) => {
+    if (!isRecord(axisValue)) {
+      return false;
+    }
+
+    return Object.values(axisValue).every((poleValue) => {
+      if (!isRecord(poleValue)) {
+        return false;
+      }
+
+      return ["light", "clear", "strong"].every((band) => {
+        const bandValue = poleValue[band];
+        return isRecord(bandValue) && normalizeText(bandValue.band_nuance ?? bandValue.bandNuance).length > 0;
+      });
+    });
+  });
+}
+
 function isFinalOffer(value: unknown): boolean {
   if (!isRecord(value)) {
     return false;
@@ -215,6 +240,11 @@ function hasRequiredMbtiDesktopCloneContent(value: unknown): value is MbtiDeskto
   }
 
   if (!isRecord(value.traits) || !isSummaryPane(value.traits.summaryPane) || !isTextTuple(value.traits.body)) {
+    return false;
+  }
+
+  const axisExplainers = value.traits.axis_explainers ?? value.traits.axisExplainers;
+  if (axisExplainers != null && !isAxisExplainers(axisExplainers)) {
     return false;
   }
 
@@ -506,6 +536,40 @@ function normalizeLettersIntro(value: unknown): MbtiDesktopCloneContent["letters
   };
 }
 
+function normalizeAxisExplainers(value: unknown): MbtiDesktopCloneContent["traits"]["axisExplainers"] | undefined {
+  if (!isAxisExplainers(value)) {
+    return undefined;
+  }
+
+  return Object.fromEntries(
+    Object.entries(value).map(([axisCode, poles]) => [
+      axisCode,
+      Object.fromEntries(
+        Object.entries(poles).map(([pole, bands]) => [
+          pole,
+          Object.fromEntries(
+            ["light", "clear", "strong"]
+              .map((band) => {
+                const bandValue = bands[band];
+                if (!isRecord(bandValue)) {
+                  return null;
+                }
+
+                const bandNuance = normalizeText(bandValue.band_nuance ?? bandValue.bandNuance);
+                if (!bandNuance) {
+                  return null;
+                }
+
+                return [band, { bandNuance }] as const;
+              })
+              .filter((entry): entry is readonly [string, { bandNuance: string }] => entry !== null),
+          ),
+        ]),
+      ),
+    ]),
+  );
+}
+
 function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneContent | null {
   if (!hasRequiredMbtiDesktopCloneContent(value)) {
     return null;
@@ -517,13 +581,18 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
   const career = isRecord(chapters.career) ? chapters.career : ({} as Record<string, unknown>);
   const growth = isRecord(chapters.growth) ? chapters.growth : ({} as Record<string, unknown>);
   const relationships = isRecord(chapters.relationships) ? chapters.relationships : ({} as Record<string, unknown>);
+  const traits = isRecord(source.traits) ? source.traits : ({} as Record<string, unknown>);
+  const axisExplainers = traits.axis_explainers ?? traits.axisExplainers;
 
   return {
     hero: typedContent.hero,
     intro: typedContent.intro,
     lettersIntro: normalizeLettersIntro(source.letters_intro ?? source.lettersIntro),
     overview: normalizeOverview(source.overview),
-    traits: typedContent.traits,
+    traits: {
+      ...typedContent.traits,
+      axisExplainers: normalizeAxisExplainers(axisExplainers),
+    },
     chapters: {
       career: {
         ...typedContent.chapters.career,

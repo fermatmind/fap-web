@@ -308,6 +308,7 @@ export function MbtiDesktopCloneShell({
               summaryDescriptionFallback={slots.traits.summaryPane.body}
               summarySlotId={slots.traits.summaryPane.asset.slotId}
               summarySlotLabel={slots.traits.summaryPane.asset.label}
+              axisExplainers={storageContent?.traits.axisExplainers ?? null}
               paragraphs={traitBodyParagraphs}
               bodySource={traitBodySource}
               tools={traitsTools}
