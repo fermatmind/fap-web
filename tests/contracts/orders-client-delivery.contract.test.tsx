@@ -74,6 +74,14 @@ function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}
   };
 }
 
+function expectInlineActionOrder(container: HTMLElement, labels: string[]) {
+  const orderedLabels = Array.from(container.children)
+    .map((node) => node.textContent?.trim() ?? "")
+    .filter(Boolean);
+
+  expect(orderedLabels).toEqual(labels);
+}
+
 describe("OrdersClient delivery contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -140,6 +148,15 @@ describe("OrdersClient delivery contract", () => {
       "href",
       "/en/orders/lookup?orderNo=ord_delivery_1&mode=claim"
     );
+    expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/attempt-paid-1");
+    expect(screen.getByTestId("order-back-to-result-link").textContent).toContain("Back to my test result");
+    expect(screen.getByTestId("order-back-to-result-link").querySelector("button")?.className).toContain("bg-[var(--fm-surface)]");
+    expect(screen.getByTestId("order-refresh-button").className).toContain("bg-[var(--fm-cta-orange)]");
+    expectInlineActionOrder(screen.getByTestId("order-wait-actions-paid-ready"), [
+      "Back to my test result",
+      "Refresh",
+      "Contact support",
+    ]);
     expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/result/attempt-paid-1");
     expect(screen.queryByTestId("order-view-report")).not.toBeInTheDocument();
     expect(screen.getByTestId("order-download-pdf")).toBeInTheDocument();
@@ -257,6 +274,7 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByTestId("order-delivery-contact-email")).toHaveTextContent("No purchase email on file");
     expect(screen.getByTestId("order-delivery-last-email-sent")).toHaveTextContent("2026");
     expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/result/attempt-paid-3");
+    expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/attempt-paid-3");
     expect(screen.queryByTestId("order-view-report")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
@@ -300,6 +318,7 @@ describe("OrdersClient delivery contract", () => {
     });
 
     expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/result/attempt-paid-2");
+    expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/attempt-paid-2");
     expect(screen.queryByTestId("order-view-report")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-resend-delivery")).not.toBeInTheDocument();
@@ -342,6 +361,14 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByTestId("order-paid-processing-state")).toHaveTextContent(
       "Payment completed. Your report is still generating or restoring. Refresh in a few seconds."
     );
+    expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/attempt-paid-processing-1");
+    expect(screen.getByTestId("order-back-to-result-link").querySelector("button")?.className).toContain("bg-[var(--fm-surface)]");
+    expect(screen.getByTestId("order-refresh-button").className).toContain("bg-[var(--fm-cta-orange)]");
+    expectInlineActionOrder(screen.getByTestId("order-wait-actions-paid-processing"), [
+      "Back to my test result",
+      "Refresh",
+      "Contact support",
+    ]);
     expect(screen.queryByTestId("order-delivery-actions")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-workspace-lite-entry")).not.toBeInTheDocument();
     expect(hoisted.routerReplace).not.toHaveBeenCalled();
@@ -353,6 +380,7 @@ describe("OrdersClient delivery contract", () => {
       ok: true,
       order_no: "ord_pending_pay_1",
       status: "pending",
+      attempt_id: "ord_pending_pay_attempt_1",
       provider: "alipay",
       payment_recovery_token: "recovery_pending_pay_1",
       wait_url: "/en/pay/wait?order_no=ord_pending_pay_1&payment_recovery_token=recovery_pending_pay_1",
@@ -376,6 +404,12 @@ describe("OrdersClient delivery contract", () => {
     });
     expect(screen.getByText("Provider: alipay")).toBeInTheDocument();
     expect(screen.getByText("Continue payment in the provider page, then return to this tab.")).toBeInTheDocument();
+    expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/ord_pending_pay_attempt_1");
+    expectInlineActionOrder(screen.getByTestId("order-wait-actions-pending"), [
+      "Back to my test result",
+      "Refresh",
+      "Contact support",
+    ]);
 
     fireEvent.click(screen.getByRole("button", { name: "Open payment page" }));
 
@@ -392,6 +426,7 @@ describe("OrdersClient delivery contract", () => {
       ok: true,
       order_no: "ord_pending_pay_2",
       status: "pending",
+      attempt_id: "attempt-pending-pay-2",
       payment_recovery_token: "recovery_pending_pay_2",
       wait_url: "/en/pay/wait?order_no=ord_pending_pay_2&payment_recovery_token=recovery_pending_pay_2",
     };
@@ -445,6 +480,7 @@ describe("OrdersClient delivery contract", () => {
     });
 
     expect(screen.getByText("Complete your payment")).toBeInTheDocument();
+    expect(screen.getByTestId("order-back-to-result-link")).toHaveAttribute("href", "/en/result/attempt-pending-pay-2");
   });
 
   it("routes ownership 404 into order lookup recovery instead of leaving the page pending", async () => {

@@ -175,6 +175,7 @@ export type SiteDictionary = {
     reportPendingAfterPayment: string;
     reportFailed: string;
     retryPayment: string;
+    backToMyResult: string;
     contactSupport: string;
     refresh: string;
     viewReport: string;
