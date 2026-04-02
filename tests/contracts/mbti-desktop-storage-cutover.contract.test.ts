@@ -412,7 +412,7 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(entjSlots.chapters.growth.visibleBlocks).toEqual(entjStorage.chapters.growth.visibleBlocks);
   });
 
-  it("falls back to placeholder for non-zh locales and for storage misses", () => {
+  it("falls back to canonical headline summary while leaving authored-only slots on placeholder/null paths", () => {
     const infjStorage = createStorageContent("infj-a");
     const enSlots = resolveSlotsForType({
       typeCode: "INFJ-A",
@@ -426,8 +426,10 @@ describe("MBTI desktop storage cutover contract", () => {
       storageContent: null,
     });
 
+    const expectedHeadlineSummary = createHeadline("INFJ-A", "INFJ 类型").summary;
+
     expect(enSlots.meta.contentSource).toBe("placeholder");
-    expect(enSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
+    expect(enSlots.hero.summary).toBe(expectedHeadlineSummary);
     expect(enSlots.finalOffer.headline).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.finalOffer.headline);
     expect(enSlots.lettersIntro).toBeNull();
     expect(enSlots.overview).toBeNull();
@@ -438,7 +440,7 @@ describe("MBTI desktop storage cutover contract", () => {
     expect(enSlots.chapters.relationships.superpowers).toBeNull();
 
     expect(missSlots.meta.contentSource).toBe("placeholder");
-    expect(missSlots.hero.summary).toBe(MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.hero.summary);
+    expect(missSlots.hero.summary).toBe(expectedHeadlineSummary);
     expect(missSlots.lettersIntro).toBeNull();
     expect(missSlots.overview).toBeNull();
     expect(missSlots.chapters.growth.strengths).toBeNull();

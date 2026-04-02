@@ -309,7 +309,6 @@ describe("MBTI checkout wiring contract", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     const stickyRail = getDesktopStickyRail();
-    const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
     const footer = screen.getByTestId("mbti-footer-cta");
     const careerUnlockSurface = screen.getByTestId("mbti-career-traits-lock-panel");
 
@@ -317,8 +316,11 @@ describe("MBTI checkout wiring contract", () => {
       "href",
       getMbtiDesktopAnchorHash("offerFull")
     );
-    expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
-    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
+    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+      "href",
+      getMbtiDesktopAnchorHash("offerFull")
+    );
     expect(within(careerUnlockSurface).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("offerFull")
@@ -331,11 +333,10 @@ describe("MBTI checkout wiring contract", () => {
     );
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
     expect(screen.getByText("Projection-first summary that should replace the legacy hero copy on result pages.")).toBeInTheDocument();
-    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByText("Projection fixture commerce title")).toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByText("占位标题：完整报告收口位")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
 
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
-    fireEvent.click(within(mobileChrome).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(footer).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(careerUnlockSurface).getByRole("link", { name: "解锁完整报告" }));
 

@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
+import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
@@ -94,24 +95,25 @@ describe("MBTI shell UI contract", () => {
     const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-hero")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
     expect(stickyRail).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-mobile-chrome")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
-    expect(within(stickyRail).getByText("2 Your Career Path")).toBeInTheDocument();
-    expect(within(stickyRail).getByText("4 Your Relationships")).toBeInTheDocument();
+    expect(within(stickyRail).getByText("2. Your Career Path")).toBeInTheDocument();
+    expect(within(stickyRail).getByText("4. Your Relationships")).toBeInTheDocument();
     expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
 
     expect(
       within(stickyRail).getByRole("link", { name: "解锁完整报告" })
-    ).toHaveAttribute("href", "#offer-full");
+    ).toHaveAttribute("href", "#mbti-desktop-offer-full");
   });
 
   it("renders the unlocked workspace in the main offer slot", () => {
@@ -133,7 +135,7 @@ describe("MBTI shell UI contract", () => {
       "href",
       "/zh/relationships/mbti"
     );
-    expect(within(stickyRail).getByRole("link", { name: "结果工作台" })).toHaveAttribute(
+    expect(within(stickyRail).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute(
       "href",
       "/zh/history/mbti"
     );
@@ -141,5 +143,55 @@ describe("MBTI shell UI contract", () => {
       "href",
       "/zh/history/mbti"
     );
+  });
+
+  it("keeps the clone shell as the only MBTI renderer across viewport buckets", () => {
+    const reportData = createLockedProjectionFixture();
+    const matchMediaMock = vi.fn((query: string) => ({
+      matches: query === "(min-width: 1280px)",
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }));
+
+    vi.stubGlobal("matchMedia", matchMediaMock);
+
+    const desktopRender = render(<RichResultReport locale="zh" reportData={reportData} />);
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
+    expect(
+      within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
+    ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+
+    desktopRender.unmount();
+
+    matchMediaMock.mockImplementation((query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }));
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
+    expect(
+      within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
+    ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
   });
 });

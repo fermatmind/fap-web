@@ -74,7 +74,7 @@ export function MbtiCloneNarrativeSection({
   premiumTeasers,
 }: MbtiCloneNarrativeSectionProps) {
   return (
-    <section id={anchorId ?? id} className={styles.section}>
+    <section id={anchorId ?? id} data-testid={`mbti-chapter-${id}`} className={styles.section}>
       <MbtiCloneSectionHeading number={number} title={title} />
       <MbtiCloneAssetSlot
         slotId={illustrationSlotId}

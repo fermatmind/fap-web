@@ -1597,6 +1597,93 @@
 }
 
 @media (max-width: 860px) {
+  .cloneRoot {
+    padding: 20px 0 72px;
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    clip-path: none;
+    border-radius: 20px;
+  }
+
+  .heroCopy {
+    padding: 28px 24px 18px;
+  }
+
+  .heroCodePrimary,
+  .heroTitle {
+    font-size: 42px;
+  }
+
+  .heroNameLine {
+    font-size: 22px;
+  }
+
+  .heroSummary {
+    max-width: none;
+    -webkit-line-clamp: unset;
+  }
+
+  .heroIllustrationWrap {
+    justify-content: flex-start;
+    padding: 0 24px 24px;
+  }
+
+  .heroIllustration {
+    width: min(100%, 236px);
+  }
+
+  .pageGrid {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .main {
+    gap: 48px;
+  }
+
+  .rail {
+    position: static;
+    order: -1;
+    width: auto;
+    gap: 12px;
+  }
+
+  .railIdentityCard {
+    gap: 6px;
+  }
+
+  .anchorList {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .anchorLink {
+    min-height: 36px;
+    white-space: nowrap;
+    border: 1px solid var(--clone-border);
+    background: var(--clone-surface-soft);
+    flex: 0 0 auto;
+  }
+
+  .anchorLinkActive {
+    border-color: rgba(54, 173, 115, 0.22);
+  }
+
+  .railTools {
+    justify-content: flex-start;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
   .lettersGrid {
     grid-template-columns: 1fr;
   }

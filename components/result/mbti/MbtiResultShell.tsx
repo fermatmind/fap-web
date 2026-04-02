@@ -3,20 +3,15 @@
 import Link from "next/link";
 import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { MbtiChapterSection } from "@/components/result/mbti/MbtiChapterSection";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import {
   getMbtiDesktopAnchorHash,
   getMbtiDesktopAnchorId,
 } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
-import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import type { MbtiDesktopCloneContent } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
-import { buildDominantTraitItems } from "@/components/result/mbti/MbtiDominantTraitsSection";
-import { MbtiMobileChrome } from "@/components/result/mbti/MbtiMobileChrome";
 import { MbtiOfferComparisonSection } from "@/components/result/mbti/MbtiOfferComparisonSection";
 import { MbtiPostPurchaseSection } from "@/components/result/mbti/MbtiPostPurchaseSection";
 import { MbtiRecommendedReadsSection } from "@/components/result/mbti/MbtiRecommendedReadsSection";
-import { MbtiStickyRail } from "@/components/result/mbti/MbtiStickyRail";
 import { buttonVariants } from "@/components/ui/button";
 import {
   canEnterReportPage,
@@ -31,7 +26,6 @@ import {
   createCheckoutOrOrder,
   type OfferPayload,
   type ReportCta,
-  type ReportIdentityLayer,
   type ReportRecommendedRead,
   type ReportResponse,
 } from "@/lib/api/v0_3";
@@ -43,7 +37,7 @@ import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/l
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
-import type { MbtiPreviewSectionViewModel, MbtiPreviewViewModel } from "@/lib/mbti/preview";
+import type { MbtiPreviewViewModel } from "@/lib/mbti/preview";
 import {
   appendMbtiActionJourneyQuery,
 } from "@/lib/mbti/actionJourney";
@@ -159,50 +153,6 @@ const OFFER_SCROLL_ALIGNMENT: ScrollIntoViewOptions = {
   block: "center",
   inline: "nearest",
 };
-
-const CHAPTER_PROJECTION_KEYS = {
-  career: [
-    "career.summary",
-    "career.collaboration_fit",
-    "career.work_environment",
-    "career.work_experiments",
-    "career.advantages",
-    "career.weaknesses",
-    "career.preferred_roles",
-    "career.next_step",
-    "career.upgrade_suggestions",
-  ],
-  growth: [
-    "growth.summary",
-    "growth.stability_confidence",
-    "growth.next_actions",
-    "growth.weekly_experiments",
-    "growth.strengths",
-    "growth.weaknesses",
-    "growth.stress_recovery",
-    "growth.watchouts",
-    "growth.motivators",
-    "growth.drainers",
-  ],
-  traits: [
-    "letters_intro",
-    "overview",
-    "trait_overview",
-    "traits.why_this_type",
-    "traits.close_call_axes",
-    "traits.adjacent_type_contrast",
-    "traits.decision_style",
-  ],
-  relationships: [
-    "relationships.summary",
-    "relationships.strengths",
-    "relationships.weaknesses",
-    "relationships.communication_style",
-    "relationships.try_this_week",
-    "relationships.rel_advantages",
-    "relationships.rel_risks",
-  ],
-} as const;
 
 const MBTI_FULL_EFFECTIVE_SKU = "MBTI_REPORT_FULL_199";
 
@@ -401,105 +351,6 @@ function resolveOfferScrollTargetId(hash: string): string | null {
   return null;
 }
 
-function sortProjectionSectionsByOrder(
-  sections: MbtiResultProjectionSectionViewModel[],
-  orderedSectionKeys: string[]
-): MbtiResultProjectionSectionViewModel[] {
-  if (orderedSectionKeys.length === 0 || sections.length <= 1) {
-    return sections;
-  }
-
-  const orderMap = new Map(orderedSectionKeys.map((key, index) => [key, index] as const));
-  return [...sections].sort((left, right) => {
-    const leftRank = orderMap.get(left.key);
-    const rightRank = orderMap.get(right.key);
-
-    if (leftRank === undefined && rightRank === undefined) {
-      return 0;
-    }
-
-    if (leftRank === undefined) {
-      return 1;
-    }
-
-    if (rightRank === undefined) {
-      return -1;
-    }
-
-    return leftRank - rightRank;
-  });
-}
-
-function resolveProjectionSectionActionKey(section: MbtiResultProjectionSectionViewModel): string {
-  const payload = asRecord(section.payload);
-  const personalizationPayload = asRecord(payload?.personalization);
-
-  return normalizeText(personalizationPayload?.action_key);
-}
-
-function sortProjectionSectionsByActionOrder(
-  sections: MbtiResultProjectionSectionViewModel[],
-  orderedActionKeys: string[]
-): MbtiResultProjectionSectionViewModel[] {
-  if (orderedActionKeys.length === 0 || sections.length <= 1) {
-    return sections;
-  }
-
-  const orderMap = new Map(orderedActionKeys.map((key, index) => [key, index] as const));
-
-  return [...sections].sort((left, right) => {
-    const leftActionKey = resolveProjectionSectionActionKey(left);
-    const rightActionKey = resolveProjectionSectionActionKey(right);
-
-    if (!leftActionKey || !rightActionKey) {
-      return 0;
-    }
-
-    const leftRank = orderMap.get(leftActionKey);
-    const rightRank = orderMap.get(rightActionKey);
-
-    if (leftRank === undefined && rightRank === undefined) {
-      return 0;
-    }
-
-    if (leftRank === undefined) {
-      return 1;
-    }
-
-    if (rightRank === undefined) {
-      return -1;
-    }
-
-    return leftRank - rightRank;
-  });
-}
-
-function sortProjectionSectionsForChapter(
-  sections: MbtiResultProjectionSectionViewModel[],
-  orderedSectionKeys: string[],
-  orderedActionKeys: string[]
-): MbtiResultProjectionSectionViewModel[] {
-  const orderedSections = sortProjectionSectionsByOrder(sections, orderedSectionKeys);
-  const orderedActionSections = sortProjectionSectionsByActionOrder(
-    orderedSections.filter((section) => resolveProjectionSectionActionKey(section)),
-    orderedActionKeys
-  );
-
-  if (orderedActionSections.length <= 1) {
-    return orderedSections;
-  }
-
-  const queuedActionSections = [...orderedActionSections];
-
-  return orderedSections.map((section) => {
-    if (!resolveProjectionSectionActionKey(section)) {
-      return section;
-    }
-
-    return queuedActionSections.shift() ?? section;
-  });
-}
-
 function maskIdentifier(value: string): string {
   const normalized = normalizeText(value);
   if (!normalized) return "";
@@ -676,28 +527,19 @@ export function MbtiResultShellLoadingShell({
   primaryCtaIsInternal,
   onShare = () => {},
 }: MbtiResultShellLoadingShellProps) {
-  const placeholderProfileIdentity = {
-    code: "—",
-    name: locale === "zh" ? "人格结果预览" : "Type preview",
-    nickname: "",
-    rarity: "",
-    keywords: [],
-  };
+  void locale;
+  void retakeHref;
+  void primaryCtaLabel;
+  void onShare;
+  void primaryCtaHref;
+  void primaryCtaIsInternal;
 
   return (
     <div
       data-testid="mbti-result-shell"
       className="relative flex min-h-screen flex-col gap-16 pb-28 xl:pb-0"
     >
-      <MbtiMobileChrome
-        locale={locale}
-        retakeHref={retakeHref}
-        primaryCtaLabel={primaryCtaLabel}
-        primaryCtaHref={primaryCtaHref}
-        primaryCtaIsInternal={primaryCtaIsInternal}
-      />
-
-      <div className="mx-auto flex w-full max-w-[820px] flex-col gap-16 px-4 md:px-6">
+      <div className="mx-auto flex w-full max-w-[904px] flex-col gap-12 px-4 md:px-6">
         <section
           id="hero"
           className="scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_20px_48px_rgba(15,23,42,0.08)] md:gap-8 md:p-8"
@@ -763,17 +605,6 @@ export function MbtiResultShellLoadingShell({
           </div>
         </section>
       </div>
-
-      <MbtiStickyRail
-        locale={locale}
-        profileIdentity={placeholderProfileIdentity}
-        historyHref={localizedPath("/history/mbti", locale)}
-        retakeHref={retakeHref}
-        primaryCtaLabel={primaryCtaLabel}
-        primaryCtaHref={primaryCtaHref}
-        primaryCtaIsInternal={primaryCtaIsInternal}
-        onShare={onShare}
-      />
     </div>
   );
 }
@@ -796,6 +627,7 @@ export function MbtiResultShell({
   onInternalNavigate,
   onExternalNavigate,
 }: MbtiResultShellProps) {
+  void previewView;
   const pathname = usePathname();
   const offerScrollFrameRef = useRef<number | null>(null);
   const resultViewTrackedRef = useRef(false);
@@ -806,14 +638,8 @@ export function MbtiResultShell({
   const [isSharing, setIsSharing] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
-  const [hasEntered, setHasEntered] = useState(false);
   const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP[scaleCode]}/take`, locale);
-  const payload = asRecord(reportData.report);
   const reportMeta = asRecord(reportData.meta);
-  const identityCard = asRecord(payload?.identity_card);
-  const profile = asRecord(payload?.profile);
-  const layers = asRecord(payload?.layers);
-  const identityLayer = (asRecord(layers?.identity) ?? null) as ReportIdentityLayer | null;
   const personalization = projectionViewModel?.personalization ?? null;
   const comparative = personalization?.comparative ?? null;
   const culturalCalibration = personalization?.culturalCalibration ?? null;
@@ -821,8 +647,6 @@ export function MbtiResultShell({
   const primaryCtaLabel = resolvePrimaryCtaLabel(locale);
   const isUnlockedPostPurchase = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
   const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
-  const accessVariant = accessProjection?.variant ?? reportData.variant;
-  const accessLevel = accessProjection?.accessLevel ?? reportData.access_level;
   const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
   const historyHref = accessProjection?.actions.historyHref ?? accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale);
   const orderLookupHref = accessProjection?.actions.lookupHref ?? accessHub?.links.lookupHref ?? localizedPath("/orders/lookup", locale);
@@ -834,22 +658,6 @@ export function MbtiResultShell({
   const canDownloadPdf = accessProjection
     ? canDownloadReportPdf(accessProjection) && Boolean(pdfHref || accessProjection.attemptId)
     : accessHub?.pdfAccess.canDownloadPdf === true && Boolean(pdfHref || accessHub?.reportAccess.attemptId);
-  const modulesAllowed =
-    accessProjection?.modulesAllowed && accessProjection.modulesAllowed.length > 0
-      ? accessProjection.modulesAllowed
-      : Array.isArray(reportData.modules_allowed)
-        ? reportData.modules_allowed
-        : [];
-  const modulesPreview = previewView
-    ? previewView.previewModules
-    : accessProjection?.modulesPreview && accessProjection.modulesPreview.length > 0
-      ? accessProjection.modulesPreview
-      : Array.isArray(reportData.modules_preview)
-        ? reportData.modules_preview
-        : [];
-  const previewSectionsByKey = new Map<string, MbtiPreviewSectionViewModel>(
-    (previewView?.sections ?? []).map((section) => [section.key, section] as const)
-  );
   const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
   const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
   const publicSubtitle = normalizeText(projectionViewModel?.subtitle, projectionViewModel?.tagline, headline.supportingLine);
@@ -902,41 +710,12 @@ export function MbtiResultShell({
     desktopCloneSnapshot && desktopCloneSnapshot.locale === locale && desktopCloneSnapshot.fullCode === fullCodeForStorage
       ? desktopCloneSnapshot
       : null;
-  const desktopCloneSlots = resolveMbtiDesktopCloneSlots({
-    locale,
-    headline: publicHeadline,
-    dimensions,
-    highlights,
-    sections,
-    sectionUnlocks,
-    offers,
-    projectionViewModel,
-    storageContent: activeDesktopCloneSnapshot?.content ?? null,
-  });
-  const visibleProfileIdentity = desktopCloneSlots.hero.profileIdentity;
-  const visibleIdentityNameLine = [visibleProfileIdentity.name, visibleProfileIdentity.nickname]
-    .map((value) => normalizeText(value))
-    .filter((value) => value.length > 0)
-    .join(" · ");
   const terminalPrimaryCtaLabel = isUnlockedPostPurchase
     ? locale === "zh"
       ? "我的 MBTI 报告"
       : "My MBTI reports"
     : primaryCtaLabel;
-  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? historyHref : "#offer-full";
-  const globalTraits = buildDominantTraitItems({
-    locale,
-    roleCard: asRecord(layers?.role_card) ?? undefined,
-    strategyCard: asRecord(layers?.strategy_card) ?? undefined,
-    identityLayer,
-    identityTags: normalizeStringArray(identityCard?.tags),
-    profileKeywords: normalizeStringArray(profile?.keywords),
-    fallbackTags: publicTags,
-  });
-  const legacySectionsByKey = new Map(sections.map((section) => [normalizeText(section.key).toLowerCase(), section]));
-  const projectionSectionsByKey = new Map(
-    (projectionViewModel?.sections ?? []).map((section) => [section.key, section] as const)
-  );
+  const terminalPrimaryCtaHref = isUnlockedPostPurchase ? historyHref : DESKTOP_OFFER_FULL_HASH;
   const shareMessage = resolveShareMessages(locale, shareStatus);
   const shareCtaLabel = resolveShareCtaLabel(locale, shareStatus, isSharing);
   const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
@@ -1017,8 +796,6 @@ export function MbtiResultShell({
     offers.find((offer) => offer.moduleCodes.includes("core_full") || offer.key.toUpperCase().includes("REPORT_FULL"))
     ?? null;
   const primaryFocusKey = normalizeText(personalization?.orchestration?.primaryFocusKey);
-  const orderedSectionKeys = personalization?.orchestration?.orderedSectionKeys ?? [];
-  const orderedActionKeys = personalization?.orderedActionKeys ?? [];
   const ctaPriorityKeys = personalization?.orchestration?.ctaPriorityKeys ?? [];
   const workingLife = personalization?.workingLife ?? null;
   const careerFocusKey = normalizeText(workingLife?.careerFocusKey, primaryFocusKey.startsWith("career.") ? primaryFocusKey : "");
@@ -1713,105 +1490,8 @@ export function MbtiResultShell({
     (entry) => entry.key === "unlock_full_report" || entry.key === "workspace_lite"
   );
   const auxiliaryCtaEntries = orderedCtaSurfaceEntries.filter((entry) => entry.key !== "unlock_full_report" && entry.key !== "workspace_lite");
-  const chapterSectionNodes = CHAPTER_ORDER.map((chapterKey) => {
-    const legacySection = legacySectionsByKey.get(chapterKey) ?? null;
-    const projectionSections = sortProjectionSectionsForChapter(
-      CHAPTER_PROJECTION_KEYS[chapterKey]
-        .map((sectionKey) => projectionSectionsByKey.get(sectionKey))
-        .filter((section): section is MbtiResultProjectionSectionViewModel => Boolean(section)),
-      orderedSectionKeys,
-      orderedActionKeys
-    );
-
-    if (!legacySection && projectionSections.length === 0) {
-      return null;
-    }
-
-    return (
-      <MbtiChapterSection
-        key={chapterKey}
-        locale={locale}
-        attemptId={attemptId}
-        chapterKey={chapterKey}
-        legacySection={legacySection}
-        projectionSections={projectionSections}
-        projectionDimensions={projectionViewModel?.dimensions ?? []}
-        highlights={chapterKey === "traits" ? highlights : []}
-        globalTraits={globalTraits}
-        unlock={sectionUnlocks[chapterKey] ?? null}
-        previewSection={previewSectionsByKey.get(chapterKey) ?? null}
-        identityLayer={identityLayer}
-        personalization={personalization}
-        primaryFocusKey={primaryFocusKey}
-      />
-    );
-  }).filter(Boolean);
   const offerPrimaryLabel = isUnlockedPostPurchase ? terminalPrimaryCtaLabel : locale === "zh" ? "解锁完整报告" : "Unlock full report";
-  const heroSurfaceClass = [
-    "motion-reduce:transform-none motion-reduce:transition-none transition-all duration-500 ease-out",
-    hasEntered ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
-  ].join(" ");
-  const introSurfaceClass = [
-    "motion-reduce:transform-none motion-reduce:transition-none transition-all duration-500 delay-75 ease-out",
-    hasEntered ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
-  ].join(" ");
-  const introGuideItems = [
-    {
-      title: locale === "zh" ? "先看类型骨架" : "Start with structure",
-      body: locale === "zh"
-        ? "先确认结果主轴、边界位置和稀有度，再进入四个章节。"
-        : "Confirm the main axis, boundary position, and rarity before entering the chapters.",
-    },
-    {
-      title: locale === "zh" ? "再看场景映射" : "Then scan scenarios",
-      body: locale === "zh"
-        ? "职业、成长与关系章节负责把类型翻译成场景，不再重复标签。"
-        : "Career, growth, and relationship chapters translate the type into scenarios rather than labels.",
-    },
-    {
-      title: locale === "zh" ? "最后判断是否升级" : "Then decide on depth",
-      body: locale === "zh"
-        ? "免费预览先给公开层；完整报告才补齐完整判断依据与行动坐标。"
-        : "The preview exposes the public layer first; the full report completes the decision basis and action map.",
-    },
-  ];
-  const memoryStatusTitle = memoryFingerprintSummary
-    ? locale === "zh"
-      ? "长期记忆已生效"
-      : "Longitudinal memory active"
-    : "";
-  const adaptiveStatusTitle = adaptiveFingerprintSummary
-    ? locale === "zh"
-      ? "自适应修正已生效"
-      : "Adaptive selection active"
-    : "";
-  const introStatusCards = [
-    memoryStatusTitle
-      ? {
-          testId: "mbti-longitudinal-memory",
-          title: memoryStatusTitle,
-          body:
-            normalizeText(memoryProgressionStateSummary, memoryRewriteReasonSummary, memoryStateSummary) ||
-            (locale === "zh" ? "当前阅读会沿用你最近一次的结果上下文。" : "This reading reuses the context from your recent result."),
-        }
-      : null,
-    adaptiveStatusTitle
-      ? {
-          testId: "mbti-adaptive-selection",
-          title: adaptiveStatusTitle,
-          body:
-            normalizeText(adaptiveRewriteReasonSummary, adaptiveContractVersionSummary) ||
-            (locale === "zh" ? "章节排序与动作线索会按当前上下文做微调。" : "Chapter order and action cues are lightly adjusted for the current context."),
-        }
-      : null,
-  ].filter(Boolean) as Array<{ testId: string; title: string; body: string }>;
-  useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      setHasEntered(true);
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, []);
+  const footerPrimaryCtaHref = isUnlockedPostPurchase ? resolvedTerminalPrimaryCtaHref : DESKTOP_OFFER_FULL_HASH;
 
   useEffect(() => {
     let active = true;
@@ -1839,6 +1519,80 @@ export function MbtiResultShell({
     };
   }, [fullCodeForStorage, locale]);
 
+  const supplementaryNodes = auxiliaryCtaEntries.map((entry) =>
+    entry.key === "career_bridge" ? (
+      <div
+        key={`mbti-cta-surface-${entry.key}-${entry.rank}`}
+        className="rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-700"
+      >
+        {entry.node}
+      </div>
+    ) : (
+      <div key={`mbti-cta-surface-${entry.key}-${entry.rank}`}>{entry.node}</div>
+    )
+  );
+  const recommendedReadsNode = (
+    <MbtiRecommendedReadsSection
+      locale={locale}
+      reads={recommendedReads}
+      personalization={personalization}
+    />
+  );
+  const footerNode = (
+    <section
+      id="footer-cta"
+      data-testid="mbti-footer-cta"
+      className="flex flex-col gap-4 rounded-2xl border border-slate-950 bg-slate-950 p-6 shadow-[0_22px_52px_rgba(15,23,42,0.22)] text-white md:p-8"
+    >
+      <div className="space-y-2">
+        <p className="m-0 text-sm leading-7 text-slate-300">
+          {isUnlockedPostPurchase
+            ? locale === "zh"
+              ? "结果正文保留在当前页，后续回访、PDF 与订单入口统一收在工作台与历史结果。"
+              : "The reading stays on this page while revisit, PDF, and order entry points consolidate into the workspace and history."
+            : locale === "zh"
+              ? "这里收口分享、重测与历史入口；唯一主解锁动作仍然回到结果页内的完整报告收口。"
+              : "This footer keeps share, retake, and history entry points while the single primary unlock action still resolves to the in-page full-report closure."}
+        </p>
+        {shareMessage ? <p className="m-0 text-sm text-emerald-200">{shareMessage}</p> : null}
+      </div>
+      <div className="flex flex-wrap gap-3">
+        <button
+          type="button"
+          className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white"
+          disabled={isSharing}
+          onClick={() => void handleShare()}
+        >
+          {shareCtaLabel}
+        </button>
+        <Link href={retakeHref} className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white">
+          {locale === "zh" ? "重新测试" : "Retake test"}
+        </Link>
+        <Link href={historyHref} className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white">
+          {locale === "zh" ? "查看历史" : "View history"}
+        </Link>
+        {isUnlockedPostPurchase ? (
+          <Link
+            href={footerPrimaryCtaHref}
+            className={buttonVariants({ className: "text-sm text-neutral-950 hover:text-white" })}
+          >
+            {terminalPrimaryCtaLabel}
+          </Link>
+        ) : (
+          <a
+            href={footerPrimaryCtaHref}
+            className={buttonVariants({
+              className: "text-sm text-neutral-400 underline underline-offset-2 hover:text-white",
+              variant: "outline",
+            })}
+          >
+            {offerPrimaryLabel}
+          </a>
+        )}
+      </div>
+    </section>
+  );
+
   return (
     <div
       data-testid="mbti-result-shell"
@@ -1854,273 +1608,41 @@ export function MbtiResultShell({
       className="relative flex min-h-screen flex-col gap-16 pb-28 md:gap-8 xl:pb-0"
       onClickCapture={handleOfferAnchorClickCapture}
     >
-      <div className="xl:hidden">
-        <MbtiMobileChrome
-          locale={locale}
-          retakeHref={retakeHref}
-          primaryCtaLabel={terminalPrimaryCtaLabel}
-          primaryCtaHref={resolvedTerminalPrimaryCtaHref}
-          primaryCtaIsInternal={isUnlockedPostPurchase}
-        />
-
-        <div className="mx-auto grid w-full max-w-[900px] gap-16 px-4 md:px-6 xl:grid-cols-[632px_224px] xl:gap-8 xl:px-4">
-          <main className="flex flex-col gap-16">
-        <section
-          id="hero"
-          data-testid="mbti-hero"
-          className={`scroll-mt-28 overflow-hidden rounded-3xl border border-emerald-900/20 bg-[#0B0F14] text-white shadow-[0_22px_50px_rgba(15,23,42,0.24)] ${heroSurfaceClass}`}
-          style={{
-            clipPath: "polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%, 0 0)",
-          }}
-        >
-          <div className="relative min-h-[220px]">
-            <div
-              className="pointer-events-none absolute inset-x-0 inset-y-0 bg-[radial-gradient(circle_at_75%_30%,rgba(16,185,129,0.3),transparent_55%)]"
-            />
-            <div className="relative z-10 flex flex-col gap-5 px-6 py-14 xl:flex-row xl:items-center xl:gap-10 xl:px-8 xl:py-12">
-              <div className="max-w-[58%]">
-                <p className="m-0 text-sm font-semibold uppercase tracking-[0.16em] text-white/70">{locale === "zh" ? "人格类型" : "Personality type"}</p>
-                <h1 className="mt-3 text-4xl font-semibold tracking-tight xl:text-6xl">
-                  {visibleProfileIdentity.code}
-                </h1>
-                {visibleIdentityNameLine ? (
-                  <p
-                    data-testid="mbti-visible-hero-identity-line"
-                    className="m-0 mt-2 text-2xl font-medium tracking-[-0.02em] text-white/85 xl:text-3xl"
-                  >
-                    {visibleIdentityNameLine}
-                  </p>
-                ) : null}
-                {visibleProfileIdentity.rarity ? (
-                  <p
-                    data-testid="mbti-visible-hero-rarity"
-                    className="mt-4 inline-flex rounded-full border border-white/12 bg-white/10 px-3 py-1 text-sm font-medium text-emerald-100"
-                  >
-                    {`稀有度：${visibleProfileIdentity.rarity}`}
-                  </p>
-                ) : null}
-                {visibleProfileIdentity.keywords.length > 0 ? (
-                  <div data-testid="mbti-visible-hero-keywords" className="mt-4 flex flex-wrap gap-2">
-                    {visibleProfileIdentity.keywords.slice(0, 6).map((keyword) => (
-                      <span
-                        key={keyword}
-                        className="inline-flex rounded-full border border-white/10 bg-white/8 px-3 py-1 text-sm text-white/75"
-                      >
-                        {keyword}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
-                <p className="mt-4 max-w-[34rem] text-base leading-7 text-white/75 xl:text-lg">
-                  {normalizeText(publicHeadline.summary, publicHeadline.supportingLine)}
-                </p>
-              </div>
-              <div className="relative ml-auto hidden h-44 w-[360px] rounded-[20px] border border-white/15 bg-white/5 shadow-[0_20px_42px_rgba(16,185,129,0.2)] xl:block">
-                <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(16,185,129,0.32),rgba(255,255,255,0))] opacity-80" />
-                <div className="absolute inset-3 rounded-[16px] border border-white/10 bg-black/10" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="intro"
-          className={`scroll-mt-28 flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_18px_36px_rgba(15,23,42,0.06)] backdrop-blur md:gap-6 md:p-8 ${introSurfaceClass}`}
-        >
-          <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-            {locale === "zh" ? "结果说明" : "Result overview"}
-          </p>
-          <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-            {locale === "zh" ? "先读人设，再读章节，最后决定是否解锁完整深度" : "Read the structure, then chapters, then decide whether to unlock depth"}
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <p className="m-0 text-sm leading-7 text-slate-600">
-              {locale === "zh"
-                ? "这一页展示公开结果层的主线路径。类型、职业、成长与关系先后展开，让你先建立完整认知再继续判断。"
-                : "This page keeps one public reading path: type profile first, then career, growth, and relationships before deciding on the unlock depth."}
-            </p>
-            <p className="m-0 text-sm leading-7 text-slate-600">
-              {locale === "zh"
-                ? "解锁行为位于最终收口，不会在章节中穿插多个大 CTA，减少中段决策疲劳。"
-                : "Unlock actions are concentrated in the final closure, with fewer competing CTAs in between."}
-            </p>
-          </div>
-          <div className="space-y-2 xl:hidden">
-            {introStatusCards.length > 0 ? (
-              <div className="grid gap-3 md:grid-cols-2">
-                {introStatusCards.map((item) => (
-                  <div
-                    key={item.testId}
-                    data-testid={item.testId}
-                    className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4"
-                  >
-                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                      {item.title}
-                    </p>
-                    <p className="m-0 mt-2 text-sm leading-6 text-slate-700">{item.body}</p>
-                  </div>
-                ))}
-              </div>
-            ) : null}
-            <div className="grid gap-3 md:grid-cols-3">
-              {introGuideItems.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 transition duration-200 motion-reduce:transition-none hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white"
-                >
-                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                    {locale === "zh" ? `步骤 ${index + 1}` : `Step ${index + 1}`}
-                  </p>
-                  <p className="m-0 mt-2 text-sm font-semibold text-slate-900">{item.title}</p>
-                  <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {chapterSectionNodes}
-
-        {auxiliaryCtaEntries.map((entry) => (
-          <div key={`mbti-cta-surface-${entry.key}-${entry.rank}`} className="xl:hidden">
-            {entry.key === "career_bridge" ? (
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-700">{entry.node}</div>
-            ) : (
-              entry.node
-            )}
-          </div>
-        ))}
-
-        <section
-          id={OFFER_SECTION_ID}
-          data-testid="mbti-offer-full"
-          className="scroll-mt-28 flex flex-col gap-6"
-        >
-          {offerCtaEntry?.node}
-        </section>
-
-        <MbtiRecommendedReadsSection
-          locale={locale}
-          reads={recommendedReads}
-          personalization={personalization}
-        />
-
-        <section
-          id="footer-cta"
-          data-testid="mbti-footer-cta"
-          className="flex flex-col gap-4 rounded-2xl border border-slate-950 bg-slate-950 p-6 shadow-[0_22px_52px_rgba(15,23,42,0.22)] text-white md:p-8"
-        >
-          <div className="space-y-2">
-            <p className="m-0 text-sm leading-7 text-slate-300">
-              {isUnlockedPostPurchase
-                ? locale === "zh"
-                  ? "结果正文保留在当前页，后续回访、PDF 与订单入口统一收在工作台与历史结果。"
-                  : "The reading stays on this page while revisit, PDF, and order entry points consolidate into the workspace and history."
-                : locale === "zh"
-                  ? "这里收口分享、重测与历史入口；唯一主解锁动作仍然回到 #offer-full。"
-                  : "This footer keeps share, retake, and history entry points while the single primary unlock action still resolves to #offer-full."}
-            </p>
-            {shareMessage ? <p className="m-0 text-sm text-emerald-200">{shareMessage}</p> : null}
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <button
-              type="button"
-              className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white"
-              disabled={isSharing}
-              onClick={() => void handleShare()}
-            >
-              {shareCtaLabel}
-            </button>
-            <Link href={retakeHref} className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white">
-              {locale === "zh" ? "重新测试" : "Retake test"}
-            </Link>
-            <Link href={historyHref} className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white">
-              {locale === "zh" ? "查看历史" : "View history"}
-            </Link>
-            {isUnlockedPostPurchase ? (
-              <Link
-                href={resolvedTerminalPrimaryCtaHref}
-                className={buttonVariants({ className: "text-sm text-neutral-950 hover:text-white" })}
-              >
-                {terminalPrimaryCtaLabel}
-              </Link>
-            ) : (
-              <a
-                href="#offer-full"
-                className={buttonVariants({
-                  className: "text-sm text-neutral-400 underline underline-offset-2 hover:text-white",
-                  variant: "outline",
-                })}
-              >
-                {offerPrimaryLabel}
-              </a>
-            )}
-          </div>
-        </section>
-        </main>
-        <aside className="xl:pt-8">
-          <MbtiStickyRail
-            locale={locale}
-            profileIdentity={visibleProfileIdentity}
-            locked={projectionLocked}
-            accessLevel={accessLevel}
-            variant={accessVariant}
-            modulesAllowed={modulesAllowed}
-            modulesPreview={modulesPreview}
-            historyHref={historyHref}
-            pdfHref={pdfHref}
-            pdfReady={canDownloadPdf}
-            orderLookupHref={orderLookupHref}
-            orderDetailHref={orderDetailHref}
-            relationshipHref={relationshipHubHref}
-            retakeHref={retakeHref}
-            primaryCtaLabel={terminalPrimaryCtaLabel}
-            primaryCtaHref={resolvedTerminalPrimaryCtaHref}
-            primaryCtaIsInternal={isUnlockedPostPurchase}
-            shareCtaLabel={shareCtaLabel}
-            shareStatusMessage={shareMessage}
-            shareDisabled={isSharing}
-            onShare={handleShare}
-          />
-        </aside>
-        </div>
-      </div>
-
-      <div className="hidden xl:block">
-        <MbtiDesktopCloneShell
-          locale={locale}
-          headline={publicHeadline}
-          tags={publicTags}
-          dimensions={dimensions}
-          highlights={highlights}
-          sections={sections}
-          sectionUnlocks={sectionUnlocks}
-          offers={offers}
-          projectionViewModel={projectionViewModel}
-          isUnlocked={isUnlockedPostPurchase}
-          shareCtaLabel={shareCtaLabel}
-          shareDisabled={isSharing}
-          onShare={handleShare}
-          retakeHref={retakeHref}
-          historyHref={historyHref}
-          workspaceHref={desktopClonePrimaryCtaHref}
-          orderLookupHref={orderLookupHref}
-          orderDetailHref={orderDetailHref}
-          relationshipHref={relationshipHubHref}
-          pdfHref={pdfHref}
-          pdfReady={canDownloadPdf}
-          primaryCtaLabel={terminalPrimaryCtaLabel}
-          primaryCtaHref={desktopClonePrimaryCtaHref}
-          onCheckout={handleCheckout}
-          isCheckingOut={isCheckingOut}
-          checkoutError={checkoutError}
-          unlockedOfferNode={offerCtaEntry?.node}
-          storageContentOverride={activeDesktopCloneSnapshot?.content}
-          storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots}
-          storageManagedExternally
-        />
-      </div>
-
+      <MbtiDesktopCloneShell
+        locale={locale}
+        headline={publicHeadline}
+        tags={publicTags}
+        dimensions={dimensions}
+        highlights={highlights}
+        sections={sections}
+        sectionUnlocks={sectionUnlocks}
+        offers={offers}
+        projectionViewModel={projectionViewModel}
+        isUnlocked={isUnlockedPostPurchase}
+        shareCtaLabel={shareCtaLabel}
+        shareDisabled={isSharing}
+        onShare={handleShare}
+        retakeHref={retakeHref}
+        historyHref={historyHref}
+        workspaceHref={desktopClonePrimaryCtaHref}
+        orderLookupHref={orderLookupHref}
+        orderDetailHref={orderDetailHref}
+        relationshipHref={relationshipHubHref}
+        pdfHref={pdfHref}
+        pdfReady={canDownloadPdf}
+        primaryCtaLabel={terminalPrimaryCtaLabel}
+        primaryCtaHref={desktopClonePrimaryCtaHref}
+        onCheckout={handleCheckout}
+        isCheckingOut={isCheckingOut}
+        checkoutError={checkoutError}
+        unlockedOfferNode={offerCtaEntry?.node}
+        supplementaryNodes={supplementaryNodes}
+        recommendedReadsNode={recommendedReadsNode}
+        footerNode={footerNode}
+        storageContentOverride={activeDesktopCloneSnapshot?.content}
+        storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots}
+        storageManagedExternally
+      />
     </div>
   );
 }

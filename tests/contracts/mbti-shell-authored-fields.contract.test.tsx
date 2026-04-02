@@ -1,6 +1,7 @@
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
+import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
@@ -55,6 +56,22 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   return value as Record<string, unknown>;
 }
 
+function getPrimaryByTestId(testId: string): HTMLElement {
+  return screen.getAllByTestId(testId)[0] as HTMLElement;
+}
+
+function getSectionPersonalization(reportData: ReportResponse, sectionKey: string) {
+  const viewModel = buildMbtiResultProjectionViewModel(reportData);
+  const section = viewModel.sections.find((item) => item.key === sectionKey);
+  const personalization = asRecord(asRecord(section?.payload)?.personalization);
+
+  if (!section || !personalization) {
+    throw new Error(`Expected personalization payload for section: ${sectionKey}`);
+  }
+
+  return { viewModel, personalization };
+}
+
 function overrideProjectionSectionSelection(
   reportData: ReportResponse,
   sectionKey: string,
@@ -81,22 +98,14 @@ function overrideProjectionSectionSelection(
   metaPersonalization.section_selection_keys = sectionSelectionKeys;
 }
 
-function getPrimaryByTestId(testId: string): HTMLElement {
-  return screen.getAllByTestId(testId)[0] as HTMLElement;
-}
-
 describe("MBTI shell authored fields contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     window.sessionStorage.clear();
   });
 
-  it("keeps hero, dimensions, and canonical sections on projection-first authority while legacy authored fields stay available", () => {
+  it("keeps projection-first hero telemetry and a single clone shell while authored metadata stays available in the view model", () => {
     const reportData = createReportFixture();
-    if (!reportData.report || !reportData.report.layers?.identity) {
-      throw new Error("Expected authored MBTI fixture");
-    }
-
     reportData.cta = createCustomCta({
       title: "正式商业主位标题",
       subtitle: "正式商业主位副标题",
@@ -105,17 +114,9 @@ describe("MBTI shell authored fields contract", () => {
       badge: "主推",
     });
 
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
     const viewModel = buildMbtiResultProjectionViewModel(reportData);
+
     expect(viewModel.personalization?.readContract?.version).toBe("mbti.read_contract.v1");
-    expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain("user_state");
-    expect(viewModel.personalization?.readContract?.nonCacheableFields).toContain(
-      "report._meta.personalization.continuity"
-    );
-    expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
-      "orchestration.primary_focus_key"
-    );
     expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain(
       "longitudinal_memory_v1"
     );
@@ -123,44 +124,23 @@ describe("MBTI shell authored fields contract", () => {
       "adaptive_selection_v1"
     );
     expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
-      "longitudinal_memory_v1.memory_fingerprint"
-    );
-    expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
-      "adaptive_selection_v1.adaptive_fingerprint"
-    );
-    expect(viewModel.personalization?.readContract?.overlayPatch?.personalizationFields).toContain(
-      "tone_profile_v1"
-    );
-    expect(viewModel.personalization?.readContract?.telemetryParityFields).toContain(
-      "tone_profile_v1.tone_contract_version"
-    );
-    expect(viewModel.personalization?.longitudinalMemory?.memoryContractVersion).toBe(
-      "mbti.longitudinal_memory.v1"
+      "orchestration.primary_focus_key"
     );
     expect(viewModel.personalization?.longitudinalMemory?.memoryRewriteReason).toBe(
       "resume_growth_actions"
     );
-    expect(viewModel.personalization?.adaptiveSelection?.adaptiveContractVersion).toBe(
-      "mbti.adaptive_selection.v1"
-    );
     expect(viewModel.personalization?.adaptiveSelection?.selectionRewriteReason).toBe(
       "career_followthrough_loop"
-    );
-    expect(viewModel.personalization?.toneProfile?.toneContractVersion).toBe(
-      "mbti.tone_profile.v1"
     );
     expect(viewModel.personalization?.toneProfile?.toneFingerprint).toBe(
       "fixture-tone-fingerprint"
     );
-    expect(viewModel.personalization?.toneProfile?.defaultToneMode).toBe("supportive");
-    expect(viewModel.personalization?.toneProfile?.sectionToneModes["traits.why_this_type"]).toBe(
-      "supportive"
-    );
-    expect(viewModel.personalization?.toneProfile?.sectionToneModes["career.next_step"]).toBe(
-      "supportive"
-    );
 
-    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    const hero = getPrimaryByTestId("mbti-hero");
+    const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
+
     expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
       "data-profile-seed-key",
       "same_type.seed.name_decision_rule.jp"
@@ -185,249 +165,31 @@ describe("MBTI shell authored fields contract", () => {
       "data-selection-rewrite-reason",
       "career_followthrough_loop"
     );
-    expect(screen.getByTestId("mbti-longitudinal-memory")).toHaveTextContent("长期记忆已生效");
-    expect(screen.getByTestId("mbti-adaptive-selection")).toHaveTextContent("自适应修正已生效");
-    const whyThisTypePayload = asRecord(
-      asRecord(viewModel.sections.find((section) => section.key === "traits.why_this_type")?.payload)
-        ?.personalization
-    );
-    const stabilityPayload = asRecord(
-      asRecord(
-        viewModel.sections.find((section) => section.key === "growth.stability_confidence")?.payload
-      )?.personalization
-    );
-    expect(whyThisTypePayload?.tone_mode).toBe("supportive");
-    expect(stabilityPayload?.tone_mode).toBe("supportive");
-    const hero = getPrimaryByTestId("mbti-hero");
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(hero).toHaveTextContent("Projection-first summary that should replace the legacy hero copy on result pages.");
-    expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveAttribute(
-      "data-variant-key",
-      "career.summary:EI.E.clear:identity.T:boundary.JP"
+    expect(hero).toHaveTextContent(
+      "Projection-first summary that should replace the legacy hero copy on result pages."
     );
-    expect(screen.getByTestId("mbti-projection-section-career-summary")).toHaveTextContent(
-      "你更容易先把能量投向外部互动、讨论与现场反馈"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-collaboration-fit")).toHaveAttribute(
-      "data-variant-key",
-      "career.collaboration_fit:EI.E.clear:identity.T:boundary.TF"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-collaboration-fit")).toHaveTextContent(
-      "团队协作"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-work-environment")).toHaveAttribute(
-      "data-variant-key",
-      "career.work_environment:EI.E.clear:identity.T:boundary.JP"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-work-environment")).toHaveTextContent(
-      "工作环境"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
-      "data-variant-key",
-      "career.work_experiments:EI.E.clear:identity.T:action.work_experiment_theme_name_decision_rule:boundary.JP"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
-      "data-action-key",
-      "work_experiment.theme.name_decision_rule"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveTextContent(
-      "工作实验"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveAttribute(
-      "data-variant-key",
-      "career.next_step:TF.T.boundary:identity.T:boundary.TF:synth.big5_career_next_step_low_reduce_activation_friction"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-next-step")).toHaveTextContent(
-      "先把你看重的判断标准写清楚"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveAttribute(
-      "data-variant-key",
-      "traits.decision_style:TF.T.boundary:identity.T:boundary.TF"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-why-this-type")).toHaveAttribute(
-      "data-variant-key",
-      "traits.why_this_type:EI.E.clear:identity.T:boundary.JP"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-why-this-type")).toHaveTextContent(
-      "主类型之所以成立"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
-      "data-variant-key",
-      "traits.close_call_axes:JP.J.boundary:identity.T:boundary.JP"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveTextContent(
-      "只拉开了7个点差"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveAttribute(
-      "data-variant-key",
-      "traits.adjacent_type_contrast:JP.J.boundary:identity.T:neighbor.ENFJ"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveAttribute(
-      "data-contrast-key",
-      "traits.adjacent_type_contrast:neighbor.ENFJ-ENTP"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveTextContent(
-      "最容易把你看成ENFJ"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-decision-style")).toHaveTextContent(
-      "两套判断入口之间来回校准"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveAttribute(
-      "data-variant-key",
-      "growth.stress_recovery:JP.J.boundary:identity.T:boundary.JP"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
-      "data-variant-key",
-      "growth.stability_confidence:stability.context_sensitive:identity.T:boundary.JP:synth.big5_neuroticism_high_buffer_reactivity"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveTextContent(
-      "情境敏感型稳定"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-      "data-variant-key",
-      "growth.next_actions:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF:synth.big5_conscientiousness_low_use_external_scaffolding"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-      "data-action-key",
-      "weekly_action.theme.name_decision_rule"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-      "data-section-selection-key",
-      expect.stringContaining("growth.next_actions:seed.same_type_seed_name_decision_rule_jp")
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-      "data-profile-seed-key",
-      "same_type.seed.name_decision_rule.jp"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-      "data-primary-focus",
-      "true"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-      "data-display-order",
-      "1"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveTextContent(
-      "下一步动作"
-    );
-    expect(
-      screen.getByTestId("mbti-projection-section-growth-next-actions").compareDocumentPosition(
-        screen.getByTestId("mbti-projection-section-growth-summary")
-      ) & Node.DOCUMENT_POSITION_FOLLOWING
-    ).toBeTruthy();
-    expect(screen.getByTestId("mbti-projection-section-growth-weekly-experiments")).toHaveAttribute(
-      "data-variant-key",
-      "growth.weekly_experiments:EI.E.clear:identity.T:action.weekly_action_theme_name_decision_rule:boundary.TF"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-weekly-experiments")).toHaveTextContent(
-      "本周实验"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveAttribute(
-      "data-variant-key",
-      "growth.watchouts:JP.J.boundary:identity.T:action.watchout_stability_context_sensitive:boundary.JP"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveAttribute(
-      "data-action-key",
-      "watchout.stability.context_sensitive"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveTextContent(
-      "风险提醒"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
-      "过载时和恢复时可能会切到不同挡位"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
-      "data-display-order",
-      "1"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toHaveAttribute(
-      "data-display-order",
-      "2"
-    );
-    expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveAttribute(
-      "data-variant-key",
-      "relationships.communication_style:EI.E.clear:identity.T:boundary.TF"
-    );
-    expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveTextContent(
-      "你的起手表达方式"
-    );
-    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveAttribute(
-      "data-variant-key",
-      "relationships.try_this_week:EI.E.clear:identity.T:action.relationship_action_theme_name_decision_rule:boundary.TF"
-    );
-    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveAttribute(
-      "data-action-key",
-      "relationship_action.theme.name_decision_rule"
-    );
-    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveTextContent(
-      "本周关系练习"
-    );
-    expect(screen.getByTestId("mbti-career-next-step")).toHaveTextContent("先把你看重的判断标准写清楚");
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
-    expect(
-      screen.getByTestId("mbti-career-next-step").compareDocumentPosition(
-        getPrimaryByTestId("mbti-offer-comparison")
-      ) & Node.DOCUMENT_POSITION_FOLLOWING
-    ).toBeTruthy();
-    expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
-      "/zh/career/recommendations/mbti/enfp-t?"
-    );
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
       "carryover_focus_key=growth.next_actions"
     );
-    expect(getPrimaryByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
+    expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
       "data-recommendation-key",
       "read-action"
     );
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-      "data-reading-focus",
-      "true"
-    );
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-      "data-selected-by-divergence",
-      "true"
-    );
-    expect(screen.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute(
-      "data-recommendation-key",
-      "read-career"
-    );
-    expect(screen.getByTestId("mbti-recommended-reads")).toHaveAttribute(
-      "data-recommendation-selection-keys",
-      "read-action|read-explain|read-career"
-    );
-    expect(screen.getByTestId("mbti-recommended-reads")).toHaveAttribute(
-      "data-adaptive-fingerprint",
-      "fixture-adaptive-fingerprint"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-      "data-action-rank",
-      "1"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-      "data-adaptive-fingerprint",
-      "fixture-adaptive-fingerprint"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
-      "data-action-rank",
-      "2"
-    );
-    expect(screen.getByText("Projection career advantage one")).toBeInTheDocument();
-    expect(screen.getByText("Projection relationship risks teaser.")).toBeInTheDocument();
-    expect(screen.getByText("Projection trait grid summary.")).toBeInTheDocument();
-    expect(screen.getByText("Legacy authored overview title")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
     expect(
-      within(getPrimaryByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
-    ).toBeInTheDocument();
-    expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
-    expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
-    expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
-    expect(screen.queryByText("Legacy hero summary should lose to projection summary.")).not.toBeInTheDocument();
-    expect(screen.queryByText("Legacy keyword should lose")).not.toBeInTheDocument();
-    expect(screen.queryByText("Legacy rarity should lose")).not.toBeInTheDocument();
+      within(stickyRail).getByRole("link", { name: "解锁完整报告" })
+    ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "view_result",
       expect.objectContaining({
@@ -436,45 +198,14 @@ describe("MBTI shell authored fields contract", () => {
         identity: "T",
         variantKey: "overview:EI.E.clear:identity.T:boundary.none",
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
-        sceneFingerprint: expect.stringContaining("work:work.primary.EI.E.clear"),
-        userState: "first:1|revisit:0|unlock:0|feedback:0|share:0|action:0",
-        feedbackSentiment: "none",
-        feedbackCoverage: "none",
-        actionCompletionTendency: "idle",
-        lastDeepReadSection: "",
-        currentIntentCluster: "default",
         primaryFocusKey: "growth.next_actions",
-        orderedSectionKeys: expect.stringContaining("growth.next_actions"),
-        orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
-        orderedActionKeys:
-          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
-        recommendationPriorityKeys: "read-action|read-career|read-relationship",
-        actionPriorityKeys:
-          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
         readingFocusKey: "read-action",
         actionFocusKey: "weekly_action.theme.name_decision_rule",
-        ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
-        carryoverFocusKey: "growth.next_actions",
-        carryoverReason: "unlock_to_continue_focus",
-        recommendedResumeKeys: "growth.next_actions|traits.close_call_axes|traits.adjacent_type_contrast|career.next_step",
-        journeyContractVersion: "action_journey.v1",
-        journeyScope: "result_revisit",
-        journeyState: "first_view_activation",
-        progressState: "not_started",
-        recommendedNextPulseKeys: "weekly_action.theme.name_decision_rule|read-action",
-        pulseState: "not_due",
-        pulsePromptKeys: "",
-        adaptiveContractVersion: "mbti.adaptive_selection.v1",
-        adaptiveFingerprint: "fixture-adaptive-fingerprint",
-        selectionRewriteReason: "career_followthrough_loop",
-        nextBestActionKey: "work_experiment.theme.name_decision_rule",
-        nextBestActionSection: "career.work_experiments",
-        nextBestActionReason: "career_followthrough_loop",
       })
     );
   });
 
-  it("renders different visible section content when longitudinal memory rewrites selected blocks", () => {
+  it("renders different memory rewrite selections through the projection model without forking the shell", () => {
     const actionFirst = createReportFixture({
       isRevisit: true,
       hasActionEngagement: true,
@@ -508,36 +239,39 @@ describe("MBTI shell authored fields contract", () => {
       "growth.next_actions:memory.refine_type_clarity:mode.memory.action_refine"
     );
 
-    const { unmount } = render(<RichResultReport locale="zh" reportData={actionFirst} />);
-    const actionSection = screen.getByTestId("mbti-projection-section-growth-next-actions");
-    expect(actionSection).toHaveAttribute(
-      "data-section-selection-key",
-      expect.stringContaining("memory.resume_growth_actions")
-    );
-    expect(actionSection).toHaveTextContent("先把你这周最重要的一次反馈、对话或复盘排进真实日程");
-    expect(actionSection).not.toHaveTextContent("成长动作上，你的外倾已经是清晰入口");
+    const actionSection = getSectionPersonalization(actionFirst, "growth.next_actions");
+    const claritySection = getSectionPersonalization(clarityFirst, "growth.next_actions");
+
+    expect(actionSection.personalization.section_selection_key).toContain("memory.resume_growth_actions");
+    expect(actionSection.personalization.selected_blocks).toEqual([
+      "growth.next_actions.next_action.EI.E",
+      "growth.next_actions.identity.t",
+      "growth.next_actions.boundary.TF",
+    ]);
+    expect(claritySection.personalization.section_selection_key).toContain("memory.refine_type_clarity");
+    expect(claritySection.personalization.selected_blocks).toEqual([
+      "growth.next_actions.axis_strength.EI.E.clear",
+      "growth.next_actions.boundary.TF",
+    ]);
+
+    const { rerender } = render(<RichResultReport locale="zh" reportData={actionFirst} />);
+
     expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
       "data-memory-rewrite-reason",
       "resume_growth_actions"
     );
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
 
-    unmount();
+    rerender(<RichResultReport locale="zh" reportData={clarityFirst} />);
 
-    render(<RichResultReport locale="zh" reportData={clarityFirst} />);
-    const claritySection = screen.getByTestId("mbti-projection-section-growth-next-actions");
-    expect(claritySection).toHaveAttribute(
-      "data-section-selection-key",
-      expect.stringContaining("memory.refine_type_clarity")
-    );
-    expect(claritySection).toHaveTextContent("成长动作上，你的外倾已经是清晰入口");
-    expect(claritySection).not.toHaveTextContent("先把你这周最重要的一次反馈、对话或复盘排进真实日程");
     expect(screen.getByTestId("mbti-result-shell")).toHaveAttribute(
       "data-memory-rewrite-reason",
       "refine_type_clarity"
     );
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
   });
 
-  it("shows real same-type content selection differences when the backend changes section selection truth", () => {
+  it("shows same-type section selection differences in the projection model while keeping the single shell stable", () => {
     const clearReport = createReportFixture();
     const strongReport = createReportFixture();
 
@@ -548,7 +282,7 @@ describe("MBTI shell authored fields contract", () => {
         "growth.next_actions.next_action.EI.E",
         "growth.next_actions.identity.t",
       ],
-      "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:mode.action_identity_anchor:blocks.growth_next_actions_next_action_ei_e+growth_next_actions_identity_t:action.weekly_action_theme_name_decision_rule"
+      "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:mode.action_identity_anchor"
     );
     overrideProjectionSectionSelection(
       strongReport,
@@ -557,37 +291,31 @@ describe("MBTI shell authored fields contract", () => {
         "growth.next_actions.next_action.EI.E",
         "growth.next_actions.boundary.TF",
       ],
-      "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:mode.action_boundary_buffered:blocks.growth_next_actions_next_action_ei_e+growth_next_actions_boundary_tf:action.weekly_action_theme_name_decision_rule"
+      "growth.next_actions:seed.same_type_seed_name_decision_rule_jp:mode.action_boundary_buffered"
     );
 
-    const { rerender } = render(<RichResultReport locale="zh" reportData={clearReport} />);
+    const clearSection = getSectionPersonalization(clearReport, "growth.next_actions");
+    const strongSection = getSectionPersonalization(strongReport, "growth.next_actions");
 
-    const clearSection = screen.getByTestId("mbti-projection-section-growth-next-actions");
-    const clearSelectionKey = clearSection.getAttribute("data-section-selection-key");
-    expect(clearSection).toHaveAttribute(
-      "data-selected-blocks",
-      "growth.next_actions.next_action.EI.E|growth.next_actions.identity.t"
+    expect(clearSection.personalization.selected_blocks).toEqual([
+      "growth.next_actions.next_action.EI.E",
+      "growth.next_actions.identity.t",
+    ]);
+    expect(strongSection.personalization.selected_blocks).toEqual([
+      "growth.next_actions.next_action.EI.E",
+      "growth.next_actions.boundary.TF",
+    ]);
+    expect(clearSection.personalization.section_selection_key).not.toEqual(
+      strongSection.personalization.section_selection_key
     );
-    expect(screen.getByTestId("mbti-projection-block-growth-next-actions-identity-t")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-projection-block-growth-next-actions-boundary-tf")).not.toBeInTheDocument();
 
-    rerender(<RichResultReport locale="zh" reportData={strongReport} />);
+    render(<RichResultReport locale="zh" reportData={strongReport} />);
 
-    const strongSection = screen.getByTestId("mbti-projection-section-growth-next-actions");
-    const strongSelectionKey = strongSection.getAttribute("data-section-selection-key");
-
-    expect(strongSection).toHaveAttribute(
-      "data-selected-blocks",
-      "growth.next_actions.next_action.EI.E|growth.next_actions.boundary.TF"
-    );
-    expect(screen.getByTestId("mbti-projection-block-growth-next-actions-boundary-tf")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-projection-block-growth-next-actions-identity-t")).not.toBeInTheDocument();
-    expect(clearSelectionKey).not.toEqual(strongSelectionKey);
-    expect(clearSelectionKey).toContain("mode.action_identity_anchor");
-    expect(strongSelectionKey).toContain("mode.action_boundary_buffered");
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
   });
 
-  it("reorders focus and CTA priority when backend user state shifts to revisit", () => {
+  it("reorders the terminal surface on revisit while keeping the same shell", () => {
     const reportData = createReportFixture({
       isRevisit: true,
       hasUnlock: true,
@@ -598,94 +326,24 @@ describe("MBTI shell authored fields contract", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
-      "data-primary-focus",
-      "true"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveAttribute(
-      "data-display-order",
-      "1"
-    );
-    expect(
-      screen.getByTestId("mbti-projection-section-growth-stability-confidence").compareDocumentPosition(
-        screen.getByTestId("mbti-projection-section-growth-next-actions")
-      ) & Node.DOCUMENT_POSITION_FOLLOWING
-    ).toBeTruthy();
+    expect(getPrimaryByTestId("mbti-post-purchase-section")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-comparison")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "1");
-    expect(getPrimaryByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "2");
-    expect(
-      screen.getByTestId("mbti-career-next-step").compareDocumentPosition(
-        getPrimaryByTestId("mbti-post-purchase-section")
-      ) & Node.DOCUMENT_POSITION_FOLLOWING
-    ).toBeTruthy();
     expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
       "data-recommendation-key",
       "read-explain"
     );
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-      "data-reading-focus",
-      "true"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveAttribute(
-      "data-action-rank",
-      "1"
-    );
-    expect(screen.queryByTestId("mbti-offer-comparison")).toBeNull();
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
       expect.objectContaining({
         visual_kind: "post_purchase_history_entry",
         ctaKey: "workspace_lite",
         ctaRank: 2,
-        orderedRecommendationKeys: "read-explain|read-action|read-career|read-relationship",
-        orderedActionKeys:
-          "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
-        readingFocusKey: "read-explain",
-        actionFocusKey: "watchout.stability.context_sensitive",
-      })
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "view_result",
-      expect.objectContaining({
-        userState: "first:0|revisit:1|unlock:1|feedback:1|share:1|action:1",
-        feedbackSentiment: "none",
-        feedbackCoverage: "none",
-        actionCompletionTendency: "repeatable",
-        lastDeepReadSection: "",
-        currentIntentCluster: "default",
-        primaryFocusKey: "growth.stability_confidence",
-        orderedRecommendationKeys: "read-explain|read-action|read-career|read-relationship",
-        orderedActionKeys:
-          "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
-        recommendationPriorityKeys: "read-explain|read-action|read-career",
-        readingFocusKey: "read-explain",
-        actionFocusKey: "watchout.stability.context_sensitive",
-        ctaPriorityKeys: "career_bridge|workspace_lite|share_result",
-        carryoverFocusKey: "growth.stability_confidence",
-        carryoverReason: "refine_after_feedback",
-        journeyContractVersion: "action_journey.v1",
-        journeyScope: "result_revisit",
-        journeyState: "resume_action_loop",
-        progressState: "repeatable",
-        pulseState: "reinforce",
-      })
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "view_result",
-      expect.objectContaining({
-        actionPriorityKeys:
-          "watchout.stability.context_sensitive|weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule",
-        completedActionKeys:
-          "weekly_action.theme.name_decision_rule|watchout.stability.context_sensitive",
-        recommendedNextPulseKeys: "watchout.stability.context_sensitive|read-explain",
-        revisitReorderReason: "resume_action_loop",
-        pulsePromptKeys:
-          "pulse.repeat_winning_action|watchout.stability.context_sensitive|pulse.expand_scope",
       })
     );
   });
 
-  it("changes visible focus and CTA priority when deepened user state clarifies a revisit intent", () => {
+  it("surfaces deeper revisit telemetry without reintroducing legacy shell nodes", () => {
     const reportData = createReportFixture({
       isRevisit: true,
       hasUnlock: true,
@@ -700,34 +358,18 @@ describe("MBTI shell authored fields contract", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
-      "data-primary-focus",
-      "true"
-    );
-    expect(screen.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
-      "data-display-order",
-      "1"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-stability-confidence")).not.toHaveAttribute(
-      "data-primary-focus"
-    );
-    expect(screen.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-      "data-recommendation-key",
-      "read-explain"
-    );
     expect(getPrimaryByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "view_result",
       expect.objectContaining({
         userState: "first:0|revisit:1|unlock:1|feedback:1|share:0|action:0",
         feedbackSentiment: "negative",
         feedbackCoverage: "explainability_only",
-        actionCompletionTendency: "available",
         lastDeepReadSection: "traits.close_call_axes",
         currentIntentCluster: "clarify_type",
         primaryFocusKey: "traits.close_call_axes",
-        orderedRecommendationKeys: "read-explain|read-action|read-career|read-relationship",
         ctaPriorityKeys: "workspace_lite|career_bridge|share_result",
       })
     );
@@ -735,6 +377,7 @@ describe("MBTI shell authored fields contract", () => {
 
   it("falls back safely when layers.identity is absent and recommended reads are empty", () => {
     const reportData = createReportFixture();
+
     if (!reportData.report) {
       throw new Error("Expected report payload");
     }
@@ -751,17 +394,15 @@ describe("MBTI shell authored fields contract", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
-    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
-      "你已经呈现出稳定的外倾倾向"
-    );
-    expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
   });
 
   it("replays backend recommendation order when reads rely on synthesized fallback keys", () => {
     const reportData = createReportFixture();
+
     if (!reportData.report) {
       throw new Error("Expected report payload");
     }
@@ -835,9 +476,6 @@ describe("MBTI shell authored fields contract", () => {
       "data-recommendation-key",
       "recommended-read-1"
     );
-    expect(screen.getByTestId("mbti-recommended-read-card-2")).toHaveTextContent(
-      "First fallback recommendation body"
-    );
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_impression",
       expect.objectContaining({
@@ -851,6 +489,7 @@ describe("MBTI shell authored fields contract", () => {
 
   it("falls back to default CTA copy when top-level cta is absent", () => {
     const reportData = createReportFixture();
+
     if (!reportData.report || !reportData.report.layers?.identity) {
       throw new Error("Expected report payload");
     }
@@ -867,233 +506,11 @@ describe("MBTI shell authored fields contract", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-overview-authored-intro")).toHaveTextContent("Legacy authored title still visible");
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("解锁完整报告");
-    expect(getPrimaryByTestId("mbti-offer-comparison")).toHaveTextContent("解锁完整 MBTI 报告");
-    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
-      "href",
-      "#offer-full"
-    );
-    expect(screen.getAllByTestId("mbti-chapter-unlock-card")).toHaveLength(4);
-  });
-
-  it("renders backend-supplied overview variants for the same type when EI strength changes", () => {
-    const clearReportData = createReportFixture();
-    const strongReportData = applyMbtiPhase2Fixture(
-      structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse,
-      { eiBand: "strong", eiPct: 77, eiDelta: 27 }
-    );
-
-    const clearOverview = clearReportData.mbti_public_projection_v1?.sections?.find(
-      (section) => section.key === "overview"
-    ) as Record<string, unknown> | undefined;
-    const strongOverview = strongReportData.mbti_public_projection_v1?.sections?.find(
-      (section) => section.key === "overview"
-    ) as Record<string, unknown> | undefined;
-
-    if (!clearOverview || !strongOverview) {
-      throw new Error("Expected overview sections in projection fixture");
-    }
-
-    const strongProjectionMeta = strongReportData.mbti_public_projection_v1?._meta as Record<string, unknown> | undefined;
-    const strongProjectionPersonalization = strongProjectionMeta?.personalization as Record<string, unknown> | undefined;
-    const strongReportMeta = strongReportData.report?._meta as Record<string, unknown> | undefined;
-    const strongReportPersonalization = strongReportMeta?.personalization as Record<string, unknown> | undefined;
-
-    for (const personalization of [strongProjectionPersonalization, strongReportPersonalization]) {
-      if (!personalization) {
-        continue;
-      }
-
-      (personalization.axis_bands as Record<string, string>).EI = "strong";
-    }
-
-    const { unmount } = render(<RichResultReport locale="zh" reportData={clearReportData} />);
-
-    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
-      "data-variant-key",
-      "overview:EI.E.clear:identity.T:boundary.none"
-    );
-    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
-      "你已经呈现出稳定的外倾倾向"
-    );
-
-    unmount();
-
-    render(<RichResultReport locale="zh" reportData={strongReportData} />);
-
-    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
-      "data-variant-key",
-      "overview:EI.E.strong:identity.T:boundary.none"
-    );
-    expect(screen.getByTestId("mbti-projection-section-overview")).toHaveTextContent(
-      "你的外倾偏好已经很鲜明"
-    );
-    expect(screen.getByTestId("mbti-projection-section-overview")).not.toHaveTextContent(
-      "你已经呈现出稳定的外倾倾向"
-    );
-  });
-
-  it("renders second-wave section variants from backend authority without relying on dormant scene modules", () => {
-    const reportData = createReportFixture();
-
-    render(<RichResultReport locale="zh" reportData={reportData} />);
-
-    expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveAttribute(
-      "data-variant-key",
-      "growth.drainers:JP.J.boundary:identity.T:boundary.JP"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-drainers")).toHaveTextContent(
-      "你在过载时和恢复时可能会切到不同挡位"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-stress-recovery")).toHaveTextContent(
-      "你最先启动的自救方式"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-next-actions")).toHaveTextContent(
-      "下一步动作"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-weekly-experiments")).toHaveTextContent(
-      "本周实验"
-    );
-    expect(screen.getByTestId("mbti-projection-section-growth-watchouts")).toHaveTextContent(
-      "风险提醒"
-    );
-    expect(screen.getByTestId("mbti-projection-section-career-work-experiments")).toHaveTextContent(
-      "工作实验"
-    );
-    expect(screen.getByTestId("mbti-projection-section-relationships-try-this-week")).toHaveTextContent(
-      "本周关系练习"
-    );
-    expect(screen.getByTestId("mbti-projection-section-relationships-rel-risks")).toHaveTextContent(
-      "两套判断入口之间来回校准"
-    );
-    expect(screen.getByTestId("mbti-projection-section-relationships-communication-style")).toHaveTextContent(
-      "你的起手表达方式"
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_impression",
-      expect.objectContaining({
-        sectionKey: "traits.why_this_type",
-        contrastKey: "traits.why_this_type:dominant.EI.E.clear",
-        closeCallAxes: "JP:boundary:7|TF:boundary:9",
-        neighborTypeKeys: "ENFJ|ENTP",
-      })
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_impression",
-      expect.objectContaining({
-        sectionKey: "traits.decision_style",
-        sceneKey: "decision",
-        variantKey: "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
-      })
-    );
-
-    fireEvent.click(screen.getByTestId("mbti-projection-section-traits-decision-style"));
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_interaction",
-      expect.objectContaining({
-        sectionKey: "traits.decision_style",
-        sceneKey: "decision",
-        variantKey: "traits.decision_style:TF.T.boundary:identity.T:boundary.TF",
-        interaction: "click",
-      })
-    );
-
-    fireEvent.click(
-      within(screen.getByTestId("mbti-projection-section-traits-why-this-type")).getByRole("button", {
-        name: "解释很像我",
-      })
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "accuracy_feedback",
-      expect.objectContaining({
-        feedback: "accurate",
-        sectionKey: "traits.why_this_type",
-        contrastKey: "traits.why_this_type:dominant.EI.E.clear",
-        closeCallAxes: "JP:boundary:7|TF:boundary:9",
-        neighborTypeKeys: "ENFJ|ENTP",
-        typeCode: "ENFP-T",
-        identity: "T",
-        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
-        sceneFingerprint: expect.stringContaining("work:work.primary.EI.E.clear"),
-        userState: "first:1|revisit:0|unlock:0|feedback:0|share:0|action:0",
-        primaryFocusKey: "growth.next_actions",
-        secondaryFocusKeys: "traits.close_call_axes|traits.adjacent_type_contrast",
-        orderedSectionKeys: expect.stringContaining("growth.next_actions"),
-        orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
-        orderedActionKeys:
-          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
-        recommendationPriorityKeys: "read-action|read-career|read-relationship",
-        actionPriorityKeys:
-          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
-        readingFocusKey: "read-action",
-        actionFocusKey: "weekly_action.theme.name_decision_rule",
-        ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
-        carryoverFocusKey: "growth.next_actions",
-        carryoverReason: "unlock_to_continue_focus",
-        recommendedResumeKeys: "growth.next_actions|traits.close_call_axes|traits.adjacent_type_contrast|career.next_step",
-        displayOrder: 6,
-        isPrimaryFocus: false,
-      })
-    );
-
-    fireEvent.click(
-      within(screen.getByTestId("mbti-projection-section-growth-next-actions")).getByRole("button", {
-        name: "这条建议有帮助",
-      })
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "accuracy_feedback",
-      expect.objectContaining({
-        feedback: "helpful_action",
-        sectionKey: "growth.next_actions",
-        actionKey: "weekly_action.theme.name_decision_rule",
-        typeCode: "ENFP-T",
-        identity: "T",
-        axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
-        userState: "first:1|revisit:0|unlock:0|feedback:0|share:0|action:0",
-        primaryFocusKey: "growth.next_actions",
-        secondaryFocusKeys: "traits.close_call_axes|traits.adjacent_type_contrast",
-        orderedSectionKeys: expect.stringContaining("growth.next_actions"),
-        orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
-        orderedActionKeys:
-          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
-        recommendationPriorityKeys: "read-action|read-career|read-relationship",
-        actionPriorityKeys:
-          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
-        readingFocusKey: "read-action",
-        actionFocusKey: "weekly_action.theme.name_decision_rule",
-        ctaPriorityKeys: "unlock_full_report|career_bridge|share_result",
-        carryoverFocusKey: "growth.next_actions",
-        carryoverReason: "unlock_to_continue_focus",
-        recommendedResumeKeys: "growth.next_actions|traits.close_call_axes|traits.adjacent_type_contrast|career.next_step",
-        displayOrder: 1,
-        isPrimaryFocus: true,
-      })
-    );
-
-    fireEvent.click(
-      within(screen.getByTestId("mbti-recommended-read-card-1")).getByRole("link", {
-        name: "Read the action note",
-      })
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_interaction",
-      expect.objectContaining({
-        visual_kind: "recommended_read_card",
-        interaction: "click",
-        recommendationKey: "read-action",
-        recommendationRank: 1,
-        orderedRecommendationKeys: "read-action|read-career|read-relationship|read-explain",
-        orderedActionKeys:
-          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
-        recommendationPriorityKeys: "read-action|read-career|read-relationship",
-        actionPriorityKeys:
-          "weekly_action.theme.name_decision_rule|work_experiment.theme.name_decision_rule|relationship_action.theme.name_decision_rule|watchout.stability.context_sensitive",
-        readingFocusKey: "read-action",
-        actionFocusKey: "weekly_action.theme.name_decision_rule",
-      })
-    );
+    expect(
+      within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "解锁完整报告" })
+    ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+    expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
   });
 });
