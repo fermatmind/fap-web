@@ -266,10 +266,11 @@ export default function OrdersClient({
           normalizeQueryValue(typeof response.provider === "string" ? response.provider : null)
           ?? normalizeQueryValue(typeof responsePayNode?.provider === "string" ? responsePayNode.provider : null);
         const responseAttemptId =
-          normalizeQueryValue(response.attempt_id ?? null)
+          normalizeQueryValue(response.exact_result_entry?.attempt_id ?? null)
+          ?? normalizeQueryValue(response.attempt_id ?? null)
           ?? extractMbtiAccessHubAttemptId(response.mbti_access_hub_v1 ?? null);
-        let nextAccessView: AttemptReportAccessView | null = null;
-        if (responseAttemptId) {
+        let nextAccessView = normalizeAttemptReportAccess(response.exact_result_entry ?? null, locale);
+        if (!nextAccessView && responseAttemptId) {
           try {
             nextAccessView = normalizeAttemptReportAccess(
               await fetchAttemptReportAccess({ attemptId: responseAttemptId }),
@@ -300,6 +301,7 @@ export default function OrdersClient({
         }
 
         if (nextStatus === "paid") {
+          const exactResultReady = canEnterReportPage(nextAccessView) && Boolean(nextAccessView?.actions.pageHref);
           if (reportedStatusRef.current !== "paid") {
             const maskedOrder = `${orderNo.slice(0, 6)}...${orderNo.slice(-4)}`;
             const maskedAttempt = response.attempt_id
@@ -327,8 +329,8 @@ export default function OrdersClient({
             reportedStatusRef.current = "paid";
           }
 
-          if (canEnterReportPage(nextAccessView) && nextAccessView?.actions.pageHref) {
-            setMessage(response.message ?? dict.orders.reportReady);
+          if (exactResultReady && nextAccessView?.actions.pageHref) {
+            setMessage(dict.orders.reportReady);
             stopPolling();
             if (!didAutoRedirectRef.current) {
               didAutoRedirectRef.current = true;
@@ -341,7 +343,7 @@ export default function OrdersClient({
             return;
           }
 
-          setMessage(response.message ?? dict.orders.reportGenerating);
+          setMessage(dict.orders.reportPendingAfterPayment);
           if (hasTimedOut()) {
             stopPolling();
             setTimedOut(true);
@@ -542,9 +544,9 @@ export default function OrdersClient({
     });
     return withLocale(`/orders/lookup?${query.toString()}`);
   }, [accessHub?.recovery.claimHref, delivery?.can_request_claim_email, orderNo, withLocale]);
-  const workspaceLiteHref = accessView?.actions.historyHref ?? accessHub?.workspaceLite.href ?? null;
   const canViewReport = canEnterReportPage(accessView);
   const resolvedReportHref = accessView?.actions.pageHref ?? null;
+  const reportEntryHref = canViewReport ? resolvedReportHref : null;
   const canDownloadPdf = canDownloadReportPdf(accessView);
   const resolvedPdfHref = accessView?.actions.pdfHref ?? null;
   const canResendDelivery = accessHub?.recovery.canResend ?? (delivery?.can_resend === true);
@@ -553,7 +555,8 @@ export default function OrdersClient({
     : delivery?.can_request_claim_email === true && Boolean(claimRecoveryHref);
   const hasDeliveryInfo =
     typeof delivery?.contact_email_present === "boolean" || Boolean(deliveryLastSentAt);
-  const hasDeliveryActions = canViewReport || canDownloadPdf || canResendDelivery || canRequestClaimEmail || Boolean(workspaceLiteHref);
+  const isExactResultReady = Boolean(reportEntryHref);
+  const paidStatusAlert = isExactResultReady ? dict.orders.reportReady : dict.orders.reportPendingAfterPayment;
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl items-center px-4 py-10">
@@ -657,7 +660,7 @@ export default function OrdersClient({
 
           {status === "paid" ? (
             <div className="space-y-3">
-              <Alert className="border-emerald-200 bg-emerald-50 text-emerald-800">{dict.orders.reportReady}</Alert>
+              <Alert className="border-emerald-200 bg-emerald-50 text-emerald-800">{paidStatusAlert}</Alert>
               {hasDeliveryInfo ? (
                 <div
                   data-testid="order-delivery-meta"
@@ -681,15 +684,15 @@ export default function OrdersClient({
                   ) : null}
                 </div>
               ) : null}
-              {hasDeliveryActions ? (
+              {isExactResultReady ? (
                 <>
                   <div data-testid="order-delivery-actions" className="grid gap-2 sm:grid-cols-2">
-                    {canViewReport && resolvedReportHref ? (
-                      <a href={resolvedReportHref} className="inline-flex w-full">
-                        <Button className="w-full" type="button" data-testid="order-view-report">
-                          {dict.orders.viewReport}
+                    {reportEntryHref ? (
+                      <Link href={reportEntryHref} className="inline-flex w-full" data-testid="order-workspace-lite-entry">
+                        <Button className="w-full" type="button">
+                          {locale === "zh" ? "我的 MBTI 报告" : "My MBTI report"}
                         </Button>
-                      </a>
+                      </Link>
                     ) : null}
                     {canDownloadPdf ? (
                       <AttemptPdfDownloadButton
@@ -733,13 +736,6 @@ export default function OrdersClient({
                         </Button>
                       </Link>
                     ) : null}
-                    {workspaceLiteHref ? (
-                      <Link href={workspaceLiteHref} className="inline-flex w-full" data-testid="order-workspace-lite-entry">
-                        <Button className="w-full" type="button" variant="outline">
-                          {locale === "zh" ? "我的 MBTI 报告" : "My MBTI reports"}
-                        </Button>
-                      </Link>
-                    ) : null}
                     <Link href={withLocale("/support")} className="inline-flex w-full">
                       <Button className="w-full" type="button" variant="secondary">
                         {dict.orders.contactSupport}
@@ -760,7 +756,7 @@ export default function OrdersClient({
                 </>
               ) : (
                 <>
-                  <Alert>{dict.orders.reportGenerating}</Alert>
+                  <Alert data-testid="order-paid-processing-state">{dict.orders.reportPendingAfterPayment}</Alert>
                   <div className="flex flex-wrap gap-2">
                     <Button type="button" onClick={handleManualRefresh} variant="outline" disabled={isRefreshing}>
                       {isRefreshing ? `${dict.orders.refresh}...` : dict.orders.refresh}

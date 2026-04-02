@@ -106,16 +106,14 @@ describe("OrdersClient delivery contract", () => {
   });
 
   it("renders paid delivery actions from the contract and wires view report/download/resend", async () => {
-    hoisted.fetchAttemptReportAccess.mockResolvedValue(
-      createAccessProjection({
-        attempt_id: "attempt-paid-1",
-      })
-    );
     hoisted.getOrderStatus.mockResolvedValue({
       ok: true,
       order_no: "ord_delivery_1",
       status: "paid",
       attempt_id: "attempt-paid-1",
+      exact_result_entry: createAccessProjection({
+        attempt_id: "attempt-paid-1",
+      }),
       mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-1", "ord_delivery_1"),
       delivery: {
         contact_email_present: true,
@@ -142,10 +140,11 @@ describe("OrdersClient delivery contract", () => {
       "href",
       "/en/orders/lookup?orderNo=ord_delivery_1&mode=claim"
     );
-    expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/history/mbti");
-    expect(screen.getByTestId("order-view-report").closest("a")).toHaveAttribute("href", "/en/result/attempt-paid-1");
+    expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/result/attempt-paid-1");
+    expect(screen.queryByTestId("order-view-report")).not.toBeInTheDocument();
     expect(screen.getByTestId("order-download-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
+    expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
 
     fireEvent.click(screen.getByTestId("order-download-pdf"));
 
@@ -184,22 +183,21 @@ describe("OrdersClient delivery contract", () => {
   });
 
   it("auto-enters a paid report from the unified access projection even when result_url is absent", async () => {
-    hoisted.fetchAttemptReportAccess.mockResolvedValue(
-      createAccessProjection({
-        attempt_id: "attempt-paid-result-url-1",
-        actions: {
-          page_href: "/result/attempt-paid-result-url-1",
-          pdf_href: "/api/v0.3/attempts/attempt-paid-result-url-1/report.pdf",
-          history_href: "/history/mbti",
-          lookup_href: "/orders/lookup",
-        },
-      })
-    );
+    const exactResultEntry = createAccessProjection({
+      attempt_id: "attempt-paid-result-url-1",
+      actions: {
+        page_href: "/result/attempt-paid-result-url-1",
+        pdf_href: "/api/v0.3/attempts/attempt-paid-result-url-1/report.pdf",
+        history_href: "/history/mbti",
+        lookup_href: "/orders/lookup",
+      },
+    });
     const paidWithoutResultUrl = {
       ok: true,
       order_no: "ord_paid_result_url_1",
       status: "paid",
       attempt_id: "attempt-paid-result-url-1",
+      exact_result_entry: exactResultEntry,
       delivery: {
         can_view_report: true,
         report_url: "/result/attempt-paid-result-url-1",
@@ -216,25 +214,25 @@ describe("OrdersClient delivery contract", () => {
     await waitFor(() => {
       expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-result-url-1");
     });
+    expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
   });
 
   it("shows missing purchase email state and exposes recovery entry without breaking other actions", async () => {
-    hoisted.fetchAttemptReportAccess.mockResolvedValue(
-      createAccessProjection({
-        attempt_id: "attempt-paid-3",
-        actions: {
-          page_href: "/result/attempt-paid-3",
-          pdf_href: "/api/v0.3/attempts/attempt-paid-3/report.pdf",
-          history_href: "/history/mbti",
-          lookup_href: "/orders/lookup",
-        },
-        pdf_state: "unavailable",
-      })
-    );
+    const exactResultEntry = createAccessProjection({
+      attempt_id: "attempt-paid-3",
+      actions: {
+        page_href: "/result/attempt-paid-3",
+        pdf_href: "/api/v0.3/attempts/attempt-paid-3/report.pdf",
+        history_href: "/history/mbti",
+        lookup_href: "/orders/lookup",
+      },
+      pdf_state: "unavailable",
+    });
     hoisted.getOrderStatus.mockResolvedValue({
       ok: true,
       order_no: "ord_delivery_3",
       status: "paid",
+      exact_result_entry: exactResultEntry,
       mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-3", "ord_delivery_3", {
         canRequestClaimEmail: true,
       }),
@@ -258,33 +256,33 @@ describe("OrdersClient delivery contract", () => {
     expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-3");
     expect(screen.getByTestId("order-delivery-contact-email")).toHaveTextContent("No purchase email on file");
     expect(screen.getByTestId("order-delivery-last-email-sent")).toHaveTextContent("2026");
-    expect(screen.getByTestId("order-view-report").closest("a")).toHaveAttribute("href", "/en/result/attempt-paid-3");
+    expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/result/attempt-paid-3");
+    expect(screen.queryByTestId("order-view-report")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
     expect(screen.getByTestId("order-recover-with-email-link")).toHaveAttribute(
       "href",
       "/en/orders/lookup?orderNo=ord_delivery_3&mode=claim"
     );
-    expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/history/mbti");
+    expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
   });
 
   it("hides download and resend when the delivery contract does not allow them", async () => {
-    hoisted.fetchAttemptReportAccess.mockResolvedValue(
-      createAccessProjection({
-        attempt_id: "attempt-paid-2",
-        actions: {
-          page_href: "/result/attempt-paid-2",
-          history_href: "/history/mbti",
-          lookup_href: "/orders/lookup",
-        },
-        pdf_state: "unavailable",
-      })
-    );
+    const exactResultEntry = createAccessProjection({
+      attempt_id: "attempt-paid-2",
+      actions: {
+        page_href: "/result/attempt-paid-2",
+        history_href: "/history/mbti",
+        lookup_href: "/orders/lookup",
+      },
+      pdf_state: "unavailable",
+    });
     hoisted.getOrderStatus.mockResolvedValue({
       ok: true,
       order_no: "ord_delivery_2",
       status: "paid",
       attempt_id: "attempt-paid-2",
+      exact_result_entry: exactResultEntry,
       delivery: {
         contact_email_present: true,
         can_request_claim_email: false,
@@ -301,9 +299,53 @@ describe("OrdersClient delivery contract", () => {
       expect(screen.getByTestId("order-delivery-actions")).toBeInTheDocument();
     });
 
-    expect(screen.getByTestId("order-view-report")).toBeInTheDocument();
+    expect(screen.getByTestId("order-workspace-lite-entry")).toHaveAttribute("href", "/en/result/attempt-paid-2");
+    expect(screen.queryByTestId("order-view-report")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-download-pdf")).not.toBeInTheDocument();
     expect(screen.queryByTestId("order-resend-delivery")).not.toBeInTheDocument();
+  });
+
+  it("keeps paid-but-not-ready orders on the wait flow and removes the history primary CTA", async () => {
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_paid_processing_1",
+      status: "paid",
+      attempt_id: "attempt-paid-processing-1",
+      exact_result_entry: createAccessProjection({
+        attempt_id: "attempt-paid-processing-1",
+        access_state: "locked",
+        report_state: "pending",
+        pdf_state: "unavailable",
+        actions: {
+          page_href: "/result/attempt-paid-processing-1",
+          wait_href: "/result/attempt-paid-processing-1",
+          history_href: "/history/mbti",
+          lookup_href: "/orders/lookup",
+        },
+      }),
+      mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-processing-1", "ord_paid_processing_1"),
+      delivery: {
+        can_view_report: false,
+        can_download_pdf: false,
+        can_resend: false,
+        can_request_claim_email: false,
+        contact_email_present: true,
+      },
+    });
+
+    render(<OrdersClient orderNo="ord_paid_processing_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-paid-processing-state")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("order-paid-processing-state")).toHaveTextContent(
+      "Payment completed. Your report is still generating or restoring. Refresh in a few seconds."
+    );
+    expect(screen.queryByTestId("order-delivery-actions")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("order-workspace-lite-entry")).not.toBeInTheDocument();
+    expect(hoisted.routerReplace).not.toHaveBeenCalled();
+    expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
   });
 
   it("recovers pending payment actions from order status when the URL has no pay params", async () => {

@@ -212,6 +212,7 @@ const en: SiteDictionary = {
     refunded: "Order refunded.",
     reportReady: "Your full report is ready.",
     reportGenerating: "Report is still generating. Refresh in a few seconds.",
+    reportPendingAfterPayment: "Payment completed. Your report is still generating or restoring. Refresh in a few seconds.",
     reportFailed: "Report delivery is delayed. Please contact support.",
     retryPayment: "Retry payment",
     contactSupport: "Contact support",

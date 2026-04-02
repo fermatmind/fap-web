@@ -750,6 +750,7 @@ export type OrderStatusResponse = {
   ok?: boolean;
   order_no?: string;
   attempt_id?: string;
+  exact_result_entry?: AttemptReportAccessResponse | null;
   ownership_verified?: boolean;
   status?: "pending" | "paid" | "failed" | "canceled" | "refunded" | string;
   message?: string;
