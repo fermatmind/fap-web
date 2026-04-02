@@ -407,5 +407,6 @@ test("MBTI preview cards stay visible while the page remains on the locked offer
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
   await expect(getDesktopOfferComparison(page)).toBeVisible();
-  await expect(page.getByText("你的成长主线：把强项做成可复用资产")).toBeVisible();
+  await expect(page.getByTestId("mbti-desktop-preview-growth")).toBeVisible();
+  await expect(page.getByTestId("mbti-desktop-preview-growth").getByText("你的成长主线：把强项做成可复用资产")).toBeVisible();
 });

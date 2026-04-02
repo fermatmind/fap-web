@@ -311,7 +311,7 @@ describe("MBTI checkout wiring contract", () => {
     const stickyRail = getDesktopStickyRail();
     const mobileChrome = screen.getByTestId("mbti-mobile-chrome");
     const footer = screen.getByTestId("mbti-footer-cta");
-    const careerTeaser = screen.getByTestId("mbti-premium-career-career-ideas");
+    const careerUnlockSurface = screen.getByTestId("mbti-career-traits-lock-panel");
 
     expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
@@ -319,7 +319,7 @@ describe("MBTI checkout wiring contract", () => {
     );
     expect(within(mobileChrome).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
     expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute("href", "#offer-full");
-    expect(within(careerTeaser).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+    expect(within(careerUnlockSurface).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("offerFull")
     );
@@ -337,7 +337,7 @@ describe("MBTI checkout wiring contract", () => {
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(mobileChrome).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(footer).getByRole("link", { name: "解锁完整报告" }));
-    fireEvent.click(within(careerTeaser).getByRole("link", { name: "解锁完整报告" }));
+    fireEvent.click(within(careerUnlockSurface).getByRole("link", { name: "解锁完整报告" }));
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
   });

@@ -2097,6 +2097,7 @@ export function MbtiResultShell({
           sectionUnlocks={sectionUnlocks}
           offers={offers}
           projectionViewModel={projectionViewModel}
+          previewView={previewView}
           isUnlocked={isUnlockedPostPurchase}
           shareCtaLabel={shareCtaLabel}
           shareDisabled={isSharing}
