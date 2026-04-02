@@ -19,7 +19,7 @@
     "seo:check-sitemap": "node scripts/seo/check-sitemap-indexability.mjs",
     "seo:push-baidu": "node scripts/seo/push-baidu.mjs",
     "content:check-translations": "velite build && node scripts/content/check-translations.mjs",
-    "test:contract": "vitest run tests/contracts",
+    "test:contract": "velite build && vitest run tests/contracts",
     "test:a11y": "vitest run tests/a11y",
     "test:e2e": "playwright test",
     "test:e2e:visual": "bash scripts/visual/run_visual_suite.sh verify",
