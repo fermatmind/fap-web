@@ -23,6 +23,10 @@ function getPrimaryByTestId(testId: string): HTMLElement {
   return node;
 }
 
+function getDesktopCloneShell(): HTMLElement {
+  return screen.getByTestId("mbti-desktop-clone-shell");
+}
+
 function createPreviewFixture(modulesPreview: string[] = ["career", "relationships", "core_full"]): ReportResponse {
   const reportData = applyMbtiPhase2Fixture(
     structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse
@@ -99,6 +103,8 @@ describe("MBTI preview semantics contract", () => {
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(previewSurface).toBeInTheDocument();
     expect(within(previewSurface).getByText("你的成长主线：把强项做成可复用资产")).toBeInTheDocument();
+    expect(within(getDesktopCloneShell()).getByTestId("mbti-desktop-preview-growth")).toBeInTheDocument();
+    expect(within(getDesktopCloneShell()).getByText("你的成长主线：把强项做成可复用资产")).toBeInTheDocument();
     expect(screen.queryByText("这个付费卡不应该在 preview 中出现")).not.toBeInTheDocument();
     expect(within(growthChapter).queryByTestId("mbti-chapter-unlock-card")).not.toBeInTheDocument();
     expect(within(growthChapter).getByText("部分预览已开放")).toBeInTheDocument();
@@ -123,6 +129,7 @@ describe("MBTI preview semantics contract", () => {
 
     expect(previewSurface).toBeInTheDocument();
     expect(within(previewSurface).getByText("你的成长主线：把强项做成可复用资产")).toBeInTheDocument();
+    expect(within(getDesktopCloneShell()).getByTestId("mbti-desktop-preview-growth")).toBeInTheDocument();
     expect(within(growthChapter).queryByTestId("mbti-chapter-unlock-card")).not.toBeInTheDocument();
     expect(within(growthChapter).getByText("部分预览已开放")).toBeInTheDocument();
     expect(within(growthChapter).queryByText("解锁后重点")).not.toBeInTheDocument();
@@ -134,6 +141,7 @@ describe("MBTI preview semantics contract", () => {
     const growthChapter = screen.getByTestId("mbti-chapter-growth");
 
     expect(screen.queryByTestId("mbti-chapter-preview-growth")).not.toBeInTheDocument();
+    expect(within(getDesktopCloneShell()).queryByTestId("mbti-desktop-preview-growth")).not.toBeInTheDocument();
     expect(screen.queryByText("你的成长主线：把强项做成可复用资产")).not.toBeInTheDocument();
     expect(within(growthChapter).getByTestId("mbti-chapter-unlock-card")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();

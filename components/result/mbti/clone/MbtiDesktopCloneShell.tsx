@@ -7,6 +7,7 @@ import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFin
 import { MbtiCloneHero } from "@/components/result/mbti/clone/MbtiCloneHero";
 import { MbtiCloneIdeaListBlock } from "@/components/result/mbti/clone/MbtiCloneIdeaListBlock";
 import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCloneNarrativeSection";
+import { MbtiClonePreviewCardsBlock } from "@/components/result/mbti/clone/MbtiClonePreviewCardsBlock";
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneRelationshipInsightBlock } from "@/components/result/mbti/clone/MbtiCloneRelationshipInsightBlock";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
@@ -29,6 +30,7 @@ import {
   type PersonalityDesktopCloneAssetSlot,
 } from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
+import type { MbtiPreviewViewModel } from "@/lib/mbti/preview";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
 type DesktopCloneTool = {
@@ -48,6 +50,7 @@ type MbtiDesktopCloneShellProps = {
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
   projectionViewModel?: MbtiResultProjectionViewModel | null;
+  previewView?: MbtiPreviewViewModel | null;
   isUnlocked: boolean;
   shareCtaLabel: string;
   shareDisabled?: boolean;
@@ -200,6 +203,7 @@ export function MbtiDesktopCloneShell({
   sectionUnlocks,
   offers,
   projectionViewModel,
+  previewView = null,
   isUnlocked,
   shareCtaLabel,
   shareDisabled = false,
@@ -387,6 +391,10 @@ export function MbtiDesktopCloneShell({
   const desktopOfferHref = getMbtiDesktopAnchorHash("offerFull");
   const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
   const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
+  const previewSectionsByKey = new Map((previewView?.sections ?? []).map((section) => [section.key, section] as const));
+  const careerPreviewSection = previewSectionsByKey.get("career") ?? null;
+  const growthPreviewSection = previewSectionsByKey.get("growth") ?? null;
+  const relationshipsPreviewSection = previewSectionsByKey.get("relationships") ?? null;
 
   const railTools: DesktopCloneTool[] = [
     { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
@@ -471,7 +479,10 @@ export function MbtiDesktopCloneShell({
               unlockHref={desktopOfferHref}
               unlockLabel={primaryCtaLabel}
               postCoreBlocks={careerPostCoreBlocks}
-              premiumTeasers={isUnlocked ? [] : [
+              previewContent={careerPreviewSection ? (
+                <MbtiClonePreviewCardsBlock locale={cloneLocale} sectionId="career" previewSection={careerPreviewSection} />
+              ) : null}
+              premiumTeasers={isUnlocked || careerPreviewSection ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "你可能会喜欢的职业选择",
@@ -507,7 +518,10 @@ export function MbtiDesktopCloneShell({
               unlockHref={desktopOfferHref}
               unlockLabel={primaryCtaLabel}
               postCoreBlocks={growthPostCoreBlocks}
-              premiumTeasers={isUnlocked ? [] : [
+              previewContent={growthPreviewSection ? (
+                <MbtiClonePreviewCardsBlock locale={cloneLocale} sectionId="growth" previewSection={growthPreviewSection} />
+              ) : null}
+              premiumTeasers={isUnlocked || growthPreviewSection ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "什么能让你充满活力？",
@@ -543,7 +557,10 @@ export function MbtiDesktopCloneShell({
               unlockHref={desktopOfferHref}
               unlockLabel={primaryCtaLabel}
               postCoreBlocks={relationshipsPostCoreBlocks}
-              premiumTeasers={isUnlocked ? [] : [
+              previewContent={relationshipsPreviewSection ? (
+                <MbtiClonePreviewCardsBlock locale={cloneLocale} sectionId="relationships" previewSection={relationshipsPreviewSection} />
+              ) : null}
+              premiumTeasers={isUnlocked || relationshipsPreviewSection ? [] : [
                 buildPremiumTeaserBlock({
                   locale: cloneLocale,
                   zhTitle: "你的人际关系优势",
