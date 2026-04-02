@@ -3,13 +3,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
+import type { ProfileIdentity } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { Locale } from "@/lib/i18n/locales";
-import type { RichResultHeadline } from "@/components/result/RichResultReport";
 
 type MbtiStickyRailProps = {
   locale: Locale;
-  headline: RichResultHeadline;
-  tags: string[];
+  profileIdentity: ProfileIdentity;
   locked?: boolean;
   accessLevel?: string;
   variant?: string;
@@ -56,31 +55,6 @@ function normalizeText(...values: unknown[]): string {
   return "";
 }
 
-function resolveUnlockText(
-  locale: Locale,
-  locked?: boolean,
-  accessLevel?: string,
-  variant?: string
-) {
-  if (locked === true || normalizeText(accessLevel).toLowerCase() === "free" || normalizeText(variant).toLowerCase() === "free") {
-    return {
-      title: locale === "zh" ? "免费预览中" : "Free preview",
-      description:
-        locale === "zh"
-          ? "完整内容已保留在下方主收口位，当前阶段只显示公开预览。"
-          : "Unlockable content remains in the final offer section; this view shows a free preview.",
-    };
-  }
-
-  return {
-    title: locale === "zh" ? "完整访问中" : "Full access",
-    description:
-      locale === "zh"
-        ? "当前为完整解锁状态，章节信息保留在主内容中。"
-        : "Full access mode: chapter information stays in the main report flow.",
-  };
-}
-
 function resolveVisibleModuleLabels(locale: Locale, modulesAllowed: string[] = []) {
   const labelMap: Record<string, { zh: string; en: string }> = {
     core_free: { zh: "结果摘要", en: "Result summary" },
@@ -99,11 +73,10 @@ function resolveVisibleModuleLabels(locale: Locale, modulesAllowed: string[] = [
 
 export function MbtiStickyRail({
   locale,
-  headline,
-  tags,
-  locked,
-  accessLevel,
-  variant,
+  profileIdentity,
+  locked: _locked,
+  accessLevel: _accessLevel,
+  variant: _variant,
   modulesAllowed = [],
   modulesPreview = [],
   historyHref,
@@ -122,8 +95,11 @@ export function MbtiStickyRail({
   onShare,
 }: MbtiStickyRailProps) {
   const [activeAnchor, setActiveAnchor] = useState("traits");
-  const unlockSummary = resolveUnlockText(locale, locked, accessLevel, variant);
   const shareLabel = normalizeText(shareCtaLabel, locale === "zh" ? "分享结果" : "Share result");
+  const nameLine = [profileIdentity.name, profileIdentity.nickname]
+    .map((value) => normalizeText(value))
+    .filter((value) => value.length > 0)
+    .join(" · ");
   const visibleModuleLabels = resolveVisibleModuleLabels(
     locale,
     modulesAllowed.filter((item) => normalizeText(item).toLowerCase() !== "core_free").length > 0
@@ -136,6 +112,9 @@ export function MbtiStickyRail({
   const ctaLabel = normalizeText(primaryCtaLabel) || (locale === "zh" ? "查看完整报告" : "View full report");
   const historyLabel = locale === "zh" ? "结果工作台" : "Result workspace";
   void _primaryCtaIsInternal;
+  void _locked;
+  void _accessLevel;
+  void _variant;
 
   useEffect(() => {
     const sectionNodes = STICKY_SECTION_IDS
@@ -176,37 +155,21 @@ export function MbtiStickyRail({
     >
       <div className="space-y-4 opacity-60 transition hover:opacity-100">
         <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_20px_40px_rgba(15,23,42,0.08)]">
-          <div className="flex items-center gap-3">
-            <div className="h-11 w-11 shrink-0 rounded-full bg-slate-900/90 text-center text-xs leading-11 font-semibold text-white">
-              {normalizeText(headline.typeCode) ? normalizeText(headline.typeCode).slice(0, 1) : "MB"}
-            </div>
-            <div>
-              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                {locale === "zh" ? "人格类型" : "Type"}
+          <div data-testid="mbti-visible-rail-profile-identity">
+            <p className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+              {profileIdentity.code}
+            </p>
+            {nameLine ? (
+              <p className="m-0 mt-2 text-sm font-semibold text-slate-800">
+                {nameLine}
               </p>
-              <p className="m-0 text-sm font-semibold text-slate-900">
-                {normalizeText(headline.displayName) || normalizeText(headline.typeCode)}
+            ) : null}
+            {profileIdentity.rarity ? (
+              <p className="m-0 mt-2 text-xs font-medium text-slate-500">
+                {`稀有度：${profileIdentity.rarity}`}
               </p>
-              <p className="m-0 text-xs text-slate-500">{headline.typeCode}</p>
-            </div>
+            ) : null}
           </div>
-          <p className="mt-3 text-[11px] uppercase tracking-[0.14em] text-slate-400">{unlockSummary.title}</p>
-          <p className="mt-1 text-xs leading-5 text-slate-600">{unlockSummary.description}</p>
-          {headline.supportingLine ? (
-            <p className="mt-2 text-xs leading-5 text-slate-500">{headline.supportingLine}</p>
-          ) : null}
-          {tags.length > 0 ? (
-            <div className="mt-3 flex flex-wrap gap-2">
-              {tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] text-slate-600"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          ) : null}
         </div>
 
         <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_16px_30px_rgba(15,23,42,0.07)]">

@@ -1,6 +1,10 @@
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
+import {
+  fetchPersonalityDesktopCloneContent,
+  type PersonalityDesktopCloneContentPayload,
+} from "@/lib/cms/personality-desktop-clone";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
@@ -16,6 +20,10 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
+}));
+
+vi.mock("@/lib/cms/personality-desktop-clone", () => ({
+  fetchPersonalityDesktopCloneContent: vi.fn(async () => null),
 }));
 
 function getPrimaryByTestId(testId: string): HTMLElement {
@@ -98,10 +106,161 @@ function createCustomCta(overrides: Partial<NonNullable<ReportResponse["cta"]>> 
   };
 }
 
+function createDesktopClonePayload(fullCode: "ENFJ-T"): PersonalityDesktopCloneContentPayload {
+  const keywordSet = ["共情", "愿景感", "协调者", "服务型领导", "价值驱动", "自我反思"];
+  const listItems = [1, 2, 3, 4, 5, 6].map((index) => ({
+    title: `list title ${index}`,
+    body: `list body ${index}`,
+  })) as [
+    { title: string; body: string },
+    { title: string; body: string },
+    { title: string; body: string },
+    { title: string; body: string },
+    { title: string; body: string },
+    { title: string; body: string },
+  ];
+
+  return {
+    templateKey: "mbti_desktop_clone_v1",
+    schemaVersion: "v1",
+    fullCode,
+    baseCode: "ENFJ",
+    locale: "zh-CN",
+    content: {
+      hero: {
+        summary: "desktop clone hero summary",
+        profileIdentity: {
+          code: "ENFJ-T",
+          name: "主人公型",
+          nickname: "温柔引路人",
+          rarity: "约 2–5%",
+          keywords: keywordSet,
+        },
+      },
+      intro: { paragraphs: ["intro paragraph 1", "intro paragraph 2"] },
+      lettersIntro: {
+        headline: "letters headline",
+        letters: [
+          { letter: "E", title: "外向", description: "说明一" },
+          { letter: "N", title: "直觉", description: "说明二" },
+        ],
+      },
+      overview: {
+        title: "overview title",
+        paragraphs: ["overview 1", "overview 2"],
+      },
+      traits: {
+        summaryPane: {
+          eyebrow: "traits eyebrow",
+          title: "traits title",
+          value: "67%",
+          body: "traits body",
+        },
+        body: ["traits paragraph 1", "traits paragraph 2"],
+      },
+      chapters: {
+        career: {
+          intro: ["career intro 1", "career intro 2"],
+          influentialTraits: [
+            { label: "trait 1", body: "trait body 1", colorKey: "blue" },
+            { label: "trait 2", body: "trait body 2", colorKey: "gold" },
+            { label: "trait 3", body: "trait body 3", colorKey: "green" },
+            { label: "trait 4", body: "trait body 4", colorKey: "purple" },
+          ],
+          visibleBlocks: [{ title: "career visible", items: listItems }],
+          lockedBlocks: [
+            {
+              title: "career locked 1",
+              overlayTitle: "overlay 1",
+              overlayBody: "overlay body 1",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: listItems,
+            },
+            {
+              title: "career locked 2",
+              overlayTitle: "overlay 2",
+              overlayBody: "overlay body 2",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: listItems,
+            },
+          ],
+        },
+        growth: {
+          intro: ["growth intro 1", "growth intro 2"],
+          influentialTraits: [
+            { label: "trait 1", body: "trait body 1", colorKey: "blue" },
+            { label: "trait 2", body: "trait body 2", colorKey: "gold" },
+            { label: "trait 3", body: "trait body 3", colorKey: "green" },
+            { label: "trait 4", body: "trait body 4", colorKey: "purple" },
+          ],
+          visibleBlocks: [{ title: "growth visible", items: listItems }],
+          lockedBlocks: [
+            {
+              title: "growth locked 1",
+              overlayTitle: "overlay 1",
+              overlayBody: "overlay body 1",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: listItems,
+            },
+            {
+              title: "growth locked 2",
+              overlayTitle: "overlay 2",
+              overlayBody: "overlay body 2",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: listItems,
+            },
+          ],
+        },
+        relationships: {
+          intro: ["relationships intro 1", "relationships intro 2"],
+          influentialTraits: [
+            { label: "trait 1", body: "trait body 1", colorKey: "blue" },
+            { label: "trait 2", body: "trait body 2", colorKey: "gold" },
+            { label: "trait 3", body: "trait body 3", colorKey: "green" },
+            { label: "trait 4", body: "trait body 4", colorKey: "purple" },
+          ],
+          visibleBlocks: [{ title: "relationships visible", items: listItems }],
+          lockedBlocks: [
+            {
+              title: "relationships locked 1",
+              overlayTitle: "overlay 1",
+              overlayBody: "overlay body 1",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: listItems,
+            },
+            {
+              title: "relationships locked 2",
+              overlayTitle: "overlay 2",
+              overlayBody: "overlay body 2",
+              overlayCtaLabel: "解锁完整报告",
+              blurredItems: listItems,
+            },
+          ],
+        },
+      },
+      finalOffer: {
+        eyebrow: "final offer eyebrow",
+        headline: "final offer headline",
+        body: "final offer body",
+        priceLabel: "¥199",
+        ctaLabel: "解锁完整报告",
+        guarantee: "guarantee",
+      },
+    },
+    assetSlots: [],
+    meta: {
+      authority_source: "storage",
+      route_mode: "desktop-clone",
+      public_route_type: "full_code_exact",
+    },
+  };
+}
+
 describe("RichResultReport", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     window.sessionStorage.clear();
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
   });
 
   it("routes MBTI public hero and canonical sections through projection while keeping commerce and authored layers on legacy", () => {
@@ -390,6 +549,45 @@ describe("RichResultReport", () => {
         axisBands: "EI:clear|SN:clear|TF:boundary|JP:boundary|AT:clear",
       })
     );
+  });
+
+  it("rewires the current visible hero and rail identity to authored desktop clone profileIdentity", async () => {
+    const reportData = createProjectionReportFixture();
+    const projection = reportData.mbti_public_projection_v1 as Record<string, unknown>;
+    const summaryCard = projection.summary_card as Record<string, unknown>;
+
+    projection.runtime_type_code = "ENFJ-T";
+    projection.display_type = "ENFJ-T";
+    projection.canonical_type_code = "ENFJ";
+    projection.variant_code = "T";
+    summaryCard.title = "Projection Campaigner";
+
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createDesktopClonePayload("ENFJ-T"));
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENFJ-T", "zh");
+    });
+
+    await waitFor(() => {
+      const hero = getPrimaryByTestId("mbti-hero");
+      const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
+      const railIdentity = within(stickyRail).getByTestId("mbti-visible-rail-profile-identity");
+
+      expect(within(hero).getByRole("heading", { name: "ENFJ-T" })).toBeInTheDocument();
+      expect(within(hero).getByTestId("mbti-visible-hero-identity-line")).toHaveTextContent("主人公型 · 温柔引路人");
+      expect(within(hero).getByTestId("mbti-visible-hero-rarity")).toHaveTextContent("稀有度：约 2–5%");
+      expect(within(hero).getByTestId("mbti-visible-hero-keywords")).toHaveTextContent("共情");
+      expect(within(hero).getByTestId("mbti-visible-hero-keywords")).toHaveTextContent("自我反思");
+      expect(hero).not.toHaveTextContent("Projection Campaigner");
+
+      expect(railIdentity).toHaveTextContent("ENFJ-T");
+      expect(railIdentity).toHaveTextContent("主人公型 · 温柔引路人");
+      expect(railIdentity).toHaveTextContent("稀有度：约 2–5%");
+      expect(railIdentity).not.toHaveTextContent("Projection Tag Alpha");
+      expect(railIdentity).not.toHaveTextContent("共情");
+    });
   });
 
   it("prefers mbti_preview_v1 over raw section scraping for MBTI preview chapters", () => {
