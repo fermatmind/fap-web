@@ -773,6 +773,15 @@ export type OrderStatusResponse = {
   [key: string]: unknown;
 };
 
+export type OrderReturnRecoveryResponse = {
+  ok?: boolean;
+  order_no?: string;
+  payment_recovery_token?: string | null;
+  wait_url?: string | null;
+  result_url?: string | null;
+  [key: string]: unknown;
+};
+
 export type AttemptReportAccessResponse = {
   ok: boolean;
   attempt_id: string;
@@ -2670,6 +2679,33 @@ export async function getOrderStatus({
     ...normalized,
     status: normalizeOrderStatus(normalized.status),
   };
+}
+
+export async function recoverAlipayReturnContext({
+  orderNo,
+  query,
+  anonId,
+}: {
+  orderNo: string;
+  query: Record<string, string | null | undefined>;
+  anonId?: string;
+}): Promise<OrderReturnRecoveryResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const params = new URLSearchParams();
+
+  for (const [key, value] of Object.entries(query)) {
+    const normalized = normalizeOptionalString(value);
+    if (!normalized) {
+      continue;
+    }
+
+    params.set(key, normalized);
+  }
+
+  const path = `/v0.3/orders/${orderNo}/recover/alipay-return${params.size > 0 ? `?${params.toString()}` : ""}`;
+  const response = await apiClient.get<OrderReturnRecoveryResponse>(path, anonHeader(resolvedAnonId));
+
+  return assertApiOk(response, "Failed to recover the payment return context.");
 }
 
 export async function getMyAttempts({

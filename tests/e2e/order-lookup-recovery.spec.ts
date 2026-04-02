@@ -224,6 +224,107 @@ test("protected order page turns ownership 404 into an order lookup recovery CTA
   await expect(page.getByRole("link", { name: "Open order lookup" })).toBeVisible();
 });
 
+test("legacy protected order return path reuses pending recovery context to re-enter the wait flow", async ({ page }) => {
+  const orderNo = "ord_lookup_legacy_return_001";
+  const paymentRecoveryToken = "recovery_lookup_legacy_return_001";
+  const requestUrls: string[] = [];
+
+  await mockCommonApis(page);
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
+    requestUrls.push(route.request().url());
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        status: "pending",
+        provider: "alipay",
+        payment_recovery_token: paymentRecoveryToken,
+        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
+      }),
+    });
+  });
+
+  await page.addInitScript(
+    ([nextOrderNo, nextToken]) => {
+      window.localStorage.setItem(
+        "fm_pending_order_v1",
+        JSON.stringify({
+          orderNo: nextOrderNo,
+          attemptId: "attempt-lookup-legacy-return-1",
+          sku: "mbti-full-report",
+          provider: "alipay",
+          waitUrl: `/en/pay/wait?order_no=${nextOrderNo}&payment_recovery_token=${nextToken}`,
+          paymentRecoveryToken: nextToken,
+          resultUrl: `/en/result/attempt-lookup-legacy-return-1`,
+          updatedAt: "2026-04-02T13:30:00Z",
+        })
+      );
+    },
+    [orderNo, paymentRecoveryToken]
+  );
+
+  await page.goto(`/en/orders/${orderNo}`);
+
+  await expect(page).toHaveURL(
+    `/en/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`
+  );
+  await expect
+    .poll(() => requestUrls.some((url) => url.includes(`payment_recovery_token=${paymentRecoveryToken}`)))
+    .toBe(true);
+  await expect(page.getByText(orderNo)).toBeVisible();
+});
+
+test("legacy protected order return path rebuilds wait flow from signed Alipay params without local storage", async ({ page }) => {
+  const orderNo = "ord_lookup_legacy_return_002";
+  const paymentRecoveryToken = "recovery_lookup_legacy_return_002";
+  const requestUrls: string[] = [];
+
+  await mockCommonApis(page);
+  await page.route(`**/api/v0.3/orders/${orderNo}/recover/alipay-return*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        payment_recovery_token: paymentRecoveryToken,
+        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
+      }),
+    });
+  });
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
+    requestUrls.push(route.request().url());
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        status: "pending",
+        provider: "alipay",
+        payment_recovery_token: paymentRecoveryToken,
+        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
+      }),
+    });
+  });
+
+  await page.goto(
+    `/en/orders/${orderNo}?out_trade_no=${orderNo}&trade_no=ali_trade_legacy_return_2&sign=signed_payload`
+  );
+
+  await expect(page).toHaveURL(
+    `/en/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`
+  );
+  await expect(page.getByText(orderNo)).toBeVisible();
+  await expect
+    .poll(() =>
+      requestUrls.some((url) => url.includes(`payment_recovery_token=${paymentRecoveryToken}`))
+    )
+    .toBe(true);
+});
+
 test("claim flow shows blind success copy", async ({ page }) => {
   const sequence: string[] = [];
   let captureBody: Record<string, unknown> | null = null;

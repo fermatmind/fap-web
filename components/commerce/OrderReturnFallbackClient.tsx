@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { clearPendingOrder, readPendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
+import { recoverAlipayReturnContext } from "@/lib/api/v0_3";
 
 function normalizeText(value: string | null | undefined): string | null {
   if (typeof value !== "string") {
@@ -58,12 +59,14 @@ export function OrderReturnFallbackClient({
   outTradeNo,
   paymentRecoveryToken,
   waitUrl,
+  returnParams,
 }: {
   locale: Locale;
   orderNo?: string | null;
   outTradeNo?: string | null;
   paymentRecoveryToken?: string | null;
   waitUrl?: string | null;
+  returnParams?: Record<string, string | null | undefined>;
 }) {
   const router = useRouter();
 
@@ -95,15 +98,45 @@ export function OrderReturnFallbackClient({
       clearPendingOrder();
     }
 
-    const redirect = () => {
+    const redirect = async () => {
       if (explicitWaitHref) {
         router.replace(explicitWaitHref);
         return;
       }
 
-      if (explicitWaitFromOrderNo) {
+      if (explicitOrderNo && explicitPaymentRecoveryToken && explicitWaitFromOrderNo) {
         router.replace(explicitWaitFromOrderNo);
         return;
+      }
+
+      if (explicitOrderNo && !explicitPaymentRecoveryToken) {
+        try {
+          const recovered = await recoverAlipayReturnContext({
+            orderNo: explicitOrderNo,
+            query: {
+              ...(returnParams ?? {}),
+              order_no: explicitOrderNo,
+              out_trade_no: normalizeText(outTradeNo),
+            },
+          });
+          const recoveredWaitHref = normalizeWaitHref(locale, recovered.wait_url ?? null);
+          const recoveredToken = normalizeText(recovered.payment_recovery_token ?? null);
+          if (recoveredWaitHref) {
+            router.replace(recoveredWaitHref);
+            return;
+          }
+          if (recoveredToken) {
+            router.replace(buildWaitHref(locale, explicitOrderNo, recoveredToken));
+            return;
+          }
+        } catch {
+          // Fall through to the remaining recovery heuristics.
+        }
+
+        if (explicitWaitFromOrderNo) {
+          router.replace(explicitWaitFromOrderNo);
+          return;
+        }
       }
 
       if (pendingWaitHref) {
@@ -120,7 +153,7 @@ export function OrderReturnFallbackClient({
     };
 
     void redirect();
-  }, [locale, orderNo, outTradeNo, paymentRecoveryToken, router, waitUrl]);
+  }, [locale, orderNo, outTradeNo, paymentRecoveryToken, returnParams, router, waitUrl]);
 
   return null;
 }

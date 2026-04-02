@@ -110,10 +110,23 @@ test("alipay return page can reuse pending-order recovery context from local sto
 
 test("alipay return page rebuilds wait flow from native out_trade_no without local storage", async ({ page }) => {
   const orderNo = "ord_alipay_return_3";
+  const paymentRecoveryToken = "recovery_alipay_return_3";
 
   await mockCommonApis(page);
+  await page.route(`**/api/v0.3/orders/${orderNo}/recover/alipay-return*`, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        order_no: orderNo,
+        payment_recovery_token: paymentRecoveryToken,
+        wait_url: `/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`,
+      }),
+    });
+  });
   await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
-    expect(route.request().url()).not.toContain("payment_recovery_token=");
+    expect(route.request().url()).toContain(`payment_recovery_token=${paymentRecoveryToken}`);
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -122,6 +135,7 @@ test("alipay return page rebuilds wait flow from native out_trade_no without loc
         order_no: orderNo,
         status: "pending",
         provider: "alipay",
+        payment_recovery_token: paymentRecoveryToken,
         pay: {
           type: "html",
           value: `/api/v0.3/orders/${orderNo}/pay/alipay?scene=desktop`,
@@ -133,6 +147,8 @@ test("alipay return page rebuilds wait flow from native out_trade_no without loc
 
   await page.goto(`/en/pay/return/alipay?out_trade_no=${orderNo}&trade_no=ali_trade_return_3`);
 
-  await expect(page).toHaveURL(`/en/pay/wait?order_no=${orderNo}`);
+  await expect(page).toHaveURL(
+    `/en/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`
+  );
   await expect(page.getByText(orderNo)).toBeVisible();
 });

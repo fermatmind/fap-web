@@ -29,6 +29,9 @@ export default async function AlipayReturnPage({
   const paymentRecoveryToken =
     firstValue(query.payment_recovery_token) || firstValue(query.paymentRecoveryToken) || null;
   const waitUrl = firstValue(query.wait_url) || firstValue(query.waitUrl) || null;
+  const returnParams = Object.fromEntries(
+    Object.entries(query).map(([key, value]) => [key, firstValue(value) || null])
+  );
   const ordersLookupHref = localizedPath("/orders/lookup", locale);
   const isZh = locale === "zh";
 
@@ -40,6 +43,7 @@ export default async function AlipayReturnPage({
         outTradeNo={outTradeNo}
         paymentRecoveryToken={paymentRecoveryToken}
         waitUrl={waitUrl}
+        returnParams={returnParams}
       />
       <h1 className="m-0 text-2xl font-bold text-slate-900">{isZh ? "正在恢复支付状态" : "Restoring your payment"}</h1>
       <p className="mt-3 text-slate-600">

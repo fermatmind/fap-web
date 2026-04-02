@@ -19,20 +19,23 @@ const hoisted = vi.hoisted(() => ({
   getOrderStatus: vi.fn(),
   resendOrderDelivery: vi.fn(),
   fetchAttemptReportAccess: vi.fn(),
+  recoverAlipayReturnContext: vi.fn(),
   fetchAttemptReportPdf: vi.fn(),
   trackEvent: vi.fn(),
   routerReplace: vi.fn(),
+  pathname: "/en/orders/ord_delivery_1",
+  searchParams: "",
   createObjectURL: vi.fn(() => "blob:mbti-report"),
   revokeObjectURL: vi.fn(),
   openWindow: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
-  usePathname: () => "/en/orders/ord_delivery_1",
+  usePathname: () => hoisted.pathname,
   useRouter: () => ({
     replace: hoisted.routerReplace,
   }),
-  useSearchParams: () => new URLSearchParams(),
+  useSearchParams: () => new URLSearchParams(hoisted.searchParams),
 }));
 
 vi.mock("@/lib/analytics", () => ({
@@ -46,6 +49,7 @@ vi.mock("@/lib/api/v0_3", async () => {
     ...actual,
     fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
     getOrderStatus: hoisted.getOrderStatus,
+    recoverAlipayReturnContext: hoisted.recoverAlipayReturnContext,
     resendOrderDelivery: hoisted.resendOrderDelivery,
     fetchAttemptReportPdf: hoisted.fetchAttemptReportPdf,
   };
@@ -85,7 +89,17 @@ function expectInlineActionOrder(container: HTMLElement, labels: string[]) {
 describe("OrdersClient delivery contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.pathname = "/en/orders/ord_delivery_1";
+    hoisted.searchParams = "";
+    window.localStorage.clear();
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.recoverAlipayReturnContext.mockResolvedValue({
+      ok: true,
+      order_no: "ord_return_recovery_default",
+      payment_recovery_token: "recovery_return_default",
+      wait_url:
+        "/en/pay/wait?order_no=ord_return_recovery_default&payment_recovery_token=recovery_return_default",
+    });
     hoisted.fetchAttemptReportPdf.mockResolvedValue(new Blob(["pdf"], { type: "application/pdf" }));
     hoisted.resendOrderDelivery.mockResolvedValue({ ok: true, message: "Delivery email sent again." });
     globalThis.URL.createObjectURL = hoisted.createObjectURL;
@@ -232,6 +246,89 @@ describe("OrdersClient delivery contract", () => {
       expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-result-url-1");
     });
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
+  });
+
+  it("rescues legacy /orders return paths back into canonical wait flow when pending order context is available", async () => {
+    window.localStorage.setItem(
+      "fm_pending_order_v1",
+      JSON.stringify({
+        orderNo: "ord_legacy_return_1",
+        attemptId: "attempt-legacy-return-1",
+        sku: "mbti-full-report",
+        provider: "alipay",
+        waitUrl: "/en/pay/wait?order_no=ord_legacy_return_1&payment_recovery_token=recovery_legacy_return_1",
+        paymentRecoveryToken: "recovery_legacy_return_1",
+        resultUrl: "/en/result/attempt-legacy-return-1",
+        updatedAt: "2026-04-02T12:00:00Z",
+      })
+    );
+    hoisted.pathname = "/en/orders/ord_legacy_return_1";
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_legacy_return_1",
+      status: "pending",
+    });
+
+    render(<OrdersClient orderNo="ord_legacy_return_1" />);
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_legacy_return_1&payment_recovery_token=recovery_legacy_return_1"
+      );
+    });
+  });
+
+  it("canonicalizes legacy /orders paths with a recovery token onto /pay/wait before showing recovery-only UI", async () => {
+    hoisted.pathname = "/en/orders/ord_legacy_return_2";
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_legacy_return_2",
+      status: "pending",
+    });
+
+    render(<OrdersClient orderNo="ord_legacy_return_2" paymentRecoveryToken="recovery_legacy_return_2" />);
+
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_legacy_return_2&payment_recovery_token=recovery_legacy_return_2"
+      );
+    });
+  });
+
+  it("recovers legacy /orders return paths from signed Alipay params when local context is gone", async () => {
+    hoisted.pathname = "/en/orders/ord_legacy_return_3";
+    hoisted.searchParams = "out_trade_no=ord_legacy_return_3&trade_no=ali_trade_return_3&sign=signed_payload";
+    hoisted.recoverAlipayReturnContext.mockResolvedValueOnce({
+      ok: true,
+      order_no: "ord_legacy_return_3",
+      payment_recovery_token: "recovery_legacy_return_3",
+      wait_url:
+        "/en/pay/wait?order_no=ord_legacy_return_3&payment_recovery_token=recovery_legacy_return_3",
+    });
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_legacy_return_3",
+      status: "pending",
+    });
+
+    render(<OrdersClient orderNo="ord_legacy_return_3" />);
+
+    await waitFor(() => {
+      expect(hoisted.recoverAlipayReturnContext).toHaveBeenCalledWith({
+        orderNo: "ord_legacy_return_3",
+        query: {
+          out_trade_no: "ord_legacy_return_3",
+          trade_no: "ali_trade_return_3",
+          sign: "signed_payload",
+          order_no: "ord_legacy_return_3",
+        },
+      });
+    });
+    await waitFor(() => {
+      expect(hoisted.routerReplace).toHaveBeenCalledWith(
+        "/en/pay/wait?order_no=ord_legacy_return_3&payment_recovery_token=recovery_legacy_return_3"
+      );
+    });
   });
 
   it("shows missing purchase email state and exposes recovery entry without breaking other actions", async () => {
