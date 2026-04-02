@@ -150,8 +150,8 @@ function buildPremiumTeaserBlock({
   const overlayTitle = locale === "zh" ? "解锁完整报告" : "Unlock full report";
   const overlayBody =
     locale === "zh"
-      ? "解锁后查看本章完整解析与行动建议。"
-      : "Unlock to view full chapter analysis and action guidance.";
+      ? "解锁完整报告后即可查看这些结果，并纳入你的人格分析。"
+      : "Unlock the full report to view these results and add them to your personality analysis.";
   const overlayCtaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
 
   return {

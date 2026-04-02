@@ -50,6 +50,18 @@ export function MbtiCloneInfluentialTraitsCard({
           signal: "Real-world signal",
           hint: "Upgrade hint",
         };
+  const lockedCopy =
+    locale === "zh"
+      ? {
+          title: "解锁完整报告",
+          body: "解锁完整报告后即可查看这些结果，并纳入你的人格分析。",
+          cta: "解锁完整报告",
+        }
+      : {
+          title: "Unlock full report",
+          body: "Unlock the full report to view these results and add them to your personality analysis.",
+          cta: unlockLabel,
+        };
 
   return (
     <section className={styles.influentialCard}>
@@ -81,15 +93,16 @@ export function MbtiCloneInfluentialTraitsCard({
       {!isUnlocked ? (
         <>
           <div className={styles.unlockRule} />
-          <div className={styles.unlockPanel} data-testid={`mbti-${sectionId}-traits-lock-panel`}>
-            <p className={styles.unlockTitle}>{locale === "zh" ? "解锁这一章的完整细节" : "Unlock the full details for this chapter"}</p>
-            <p className={styles.unlockCopy}>
-              {locale === "zh"
-                ? "桌面 clone 壳保留 16P 式中央解锁面板，点击后进入真实购买收口。"
-                : "The desktop clone keeps the central 16P-style unlock panel and sends readers to the real offer block."}
-            </p>
-            <a href={unlockHref} className={styles.unlockButton}>
-              {unlockLabel}
+          <div
+            className={`${styles.unlockPanel} ${styles.unlockPanelCompact} ${styles.traitsLockPanel}`}
+            data-testid={`mbti-${sectionId}-traits-lock-panel`}
+          >
+            <div className={styles.unlockPanelText}>
+              <p className={styles.unlockTitle}>{lockedCopy.title}</p>
+              <p className={styles.unlockCopy}>{lockedCopy.body}</p>
+            </div>
+            <a href={unlockHref} className={`${styles.unlockButton} ${styles.unlockButtonCompact}`}>
+              {lockedCopy.cta}
             </a>
           </div>
         </>

@@ -260,7 +260,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(finalOfferCta).toHaveAttribute("href", "/zh/pay/checkout");
 
     const lockedOverlayCtas = screen.getAllByRole("link", { name: "解锁完整报告" });
-    expect(lockedOverlayCtas).toHaveLength(6);
+    expect(lockedOverlayCtas).toHaveLength(9);
   });
 
   it("keeps runtime offer price while allowing storage copy to render", async () => {

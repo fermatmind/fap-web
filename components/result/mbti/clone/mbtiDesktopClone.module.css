@@ -971,6 +971,27 @@
   box-shadow: 0 12px 28px rgba(24, 39, 75, 0.08);
 }
 
+.unlockPanelCompact {
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 12px 14px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+  box-shadow: none;
+}
+
+.unlockPanelText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
 .unlockTitle {
   margin: 0;
   font-size: 13px;
@@ -999,6 +1020,13 @@
   line-height: 1;
   font-weight: 700;
   padding: 0 14px;
+}
+
+.unlockButtonCompact {
+  min-height: 32px;
+  padding: 0 12px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .unlockedState {
@@ -1111,6 +1139,10 @@
   color: var(--clone-body);
 }
 
+.traitsLockPanel {
+  margin-top: 2px;
+}
+
 .twoColumnList {
   display: flex;
   flex-direction: column;
@@ -1219,7 +1251,7 @@
 .premiumTeaserBlock {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .premiumTeaserTitle {
@@ -1230,21 +1262,33 @@
   color: var(--clone-text);
 }
 
+.premiumTeaserUnlock {
+  background: linear-gradient(180deg, #fbfcfd 0%, #f7f8fa 100%);
+}
+
 .premiumTeaserBody {
   position: relative;
-  min-height: 224px;
+  min-height: 176px;
   border: 1px solid var(--clone-border);
   border-radius: 10px;
   background: var(--clone-surface-soft);
   overflow: hidden;
 }
 
-.premiumTeaserBlurLayer {
+.premiumTeaserBody::after {
+  content: "";
   position: absolute;
   inset: 0;
-  padding: 16px 18px;
-  filter: blur(2.8px);
-  opacity: 0.82;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(246, 247, 249, 0.08), rgba(246, 247, 249, 0.34));
+}
+
+.premiumTeaserBlurLayer {
+  position: relative;
+  inset: 0;
+  padding: 14px 16px;
+  filter: blur(1.8px);
+  opacity: 0.76;
   pointer-events: none;
 }
 
@@ -1265,15 +1309,6 @@
 .premiumTeaserItem[data-placeholder="true"] .listItemTitle,
 .premiumTeaserItem[data-placeholder="true"] .listItemBody {
   color: var(--clone-muted);
-}
-
-.premiumTeaserOverlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, rgba(246, 247, 249, 0.2), rgba(246, 247, 249, 0.62));
 }
 
 .finalOffer {

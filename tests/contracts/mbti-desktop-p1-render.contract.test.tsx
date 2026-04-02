@@ -523,6 +523,8 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop chapter premium teaser reset contract", () => {
+  const unifiedUnlockBody = "解锁完整报告后即可查看这些结果，并纳入你的人格分析。";
+
   it("renders Career chapter-end premium teasers from compatibility fields after strengths/weaknesses without extra matched cards", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
@@ -536,7 +538,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const scoped = within(section);
 
     const traitsTitle = scoped.getByText("Influential Traits");
-    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const traitsLockPanel = scoped.getByTestId("mbti-career-traits-lock-panel");
     const strengthsCard = scoped.getByTestId("mbti-p0-career-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-career-weaknesses");
     const firstTeaser = scoped.getByTestId("mbti-premium-career-career-ideas");
@@ -559,23 +561,30 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByText("工作风格建议")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁岗位簇")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁工作方式")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁这一章的完整细节")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-career-career-ideas")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-career-work-styles")).not.toBeInTheDocument();
+    expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
+    expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
     expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
     expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 
     expect(screen.getAllByText("职业优势")).toHaveLength(1);
     expect(screen.getAllByText("职业短板")).toHaveLength(1);
 
-    expectBefore(traitsTitle as HTMLElement, unlockTitle as HTMLElement);
-    expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(traitsTitle as HTMLElement, traitsLockPanel);
+    expectBefore(traitsLockPanel, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, nextSection);
   });
 
-  it("renders Growth chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
+  it("renders Growth chapter-end premium teasers with compact inline unlock copy", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ENTJ-T"));
 
     renderShell("ENTJ-T");
@@ -587,7 +596,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const section = document.querySelector("#growth") as HTMLElement;
     const scoped = within(section);
 
-    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const traitsLockPanel = scoped.getByTestId("mbti-growth-traits-lock-panel");
     const strengthsCard = scoped.getByTestId("mbti-p0-growth-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-growth-weaknesses");
     const firstTeaser = scoped.getByTestId("mbti-premium-growth-what-energizes");
@@ -606,22 +615,29 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByText("什么让你消耗")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁补能条件")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁耗损模式")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁这一章的完整细节")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-growth-what-energizes")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-growth-what-drains")).not.toBeInTheDocument();
+    expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
+    expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
     expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
     expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 
     expect(screen.getAllByText("成长优势")).toHaveLength(1);
     expect(screen.getAllByText("成长短板")).toHaveLength(1);
 
-    expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(traitsLockPanel, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, nextSection);
   });
 
-  it("renders Relationships chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
+  it("renders Relationships chapter-end premium teasers with compact inline unlock copy", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
 
     renderShell("ISTP-A");
@@ -633,7 +649,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const section = document.querySelector("#relationships") as HTMLElement;
     const scoped = within(section);
 
-    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const traitsLockPanel = scoped.getByTestId("mbti-relationships-traits-lock-panel");
     const strengthsCard = scoped.getByTestId("mbti-p0-relationships-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-relationships-weaknesses");
     const firstTeaser = scoped.getByTestId("mbti-premium-relationships-superpowers");
@@ -652,22 +668,29 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByText("关系潜在陷阱")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁关系优势")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁关系盲点")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁这一章的完整细节")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-relationships-superpowers")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-relationships-pitfalls")).not.toBeInTheDocument();
+    expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
+    expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
     expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
     expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 
     expect(screen.getAllByText("关系优势")).toHaveLength(1);
     expect(screen.getAllByText("关系短板")).toHaveLength(1);
 
-    expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(traitsLockPanel, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, finalOffer);
   });
 
-  it("keeps locked state on the existing central lock card and hides traits unlock detail panels", async () => {
+  it("keeps locked state on the compact traits unlock strip and hides traits unlock detail panels", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -678,8 +701,11 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     const section = document.querySelector("#career") as HTMLElement;
     const scoped = within(section);
+    const traitsLockPanel = scoped.getByTestId("mbti-career-traits-lock-panel");
 
-    expect(scoped.getByTestId("mbti-career-traits-lock-panel")).toBeInTheDocument();
+    expect(traitsLockPanel).toBeInTheDocument();
+    expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
+    expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
     expect(scoped.queryByTestId("mbti-career-traits-unlock-panel")).not.toBeInTheDocument();
   });
 

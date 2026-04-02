@@ -31,6 +31,18 @@ export function MbtiClonePremiumTeaserBlock({
   return (
     <section className={`${styles.card} ${styles.premiumTeaserBlock}`} data-testid={testId}>
       <h3 className={styles.premiumTeaserTitle}>{title}</h3>
+      <div
+        className={`${styles.unlockPanel} ${styles.unlockPanelCompact} ${styles.premiumTeaserUnlock}`}
+        data-testid={`${testId}-overlay`}
+      >
+        <div className={styles.unlockPanelText}>
+          <p className={styles.unlockTitle}>{overlayTitle}</p>
+          <p className={styles.unlockCopy}>{overlayBody}</p>
+        </div>
+        <a href={overlayCtaHref} className={`${styles.unlockButton} ${styles.unlockButtonCompact}`}>
+          {overlayCtaLabel}
+        </a>
+      </div>
       <div className={styles.premiumTeaserBody}>
         <div className={styles.premiumTeaserBlurLayer}>
           <div className={styles.premiumTeaserGrid}>
@@ -47,15 +59,6 @@ export function MbtiClonePremiumTeaserBlock({
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-        <div className={styles.premiumTeaserOverlay} data-testid={`${testId}-overlay`}>
-          <div className={styles.unlockPanel}>
-            <p className={styles.unlockTitle}>{overlayTitle}</p>
-            <p className={styles.unlockCopy}>{overlayBody}</p>
-            <a href={overlayCtaHref} className={styles.unlockButton}>
-              {overlayCtaLabel}
-            </a>
           </div>
         </div>
       </div>
