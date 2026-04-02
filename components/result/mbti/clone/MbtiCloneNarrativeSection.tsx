@@ -111,7 +111,6 @@ export function MbtiCloneNarrativeSection({
       {postCoreBlocks.map((block, index) => (
         <div key={`${id}-post-core-${index}`}>{block}</div>
       ))}
-      {previewContent}
       {premiumTeasers.map((block) => (
         <MbtiClonePremiumTeaserBlock
           key={`${id}-${block.testId}`}
@@ -124,6 +123,7 @@ export function MbtiCloneNarrativeSection({
           testId={block.testId}
         />
       ))}
+      {previewContent}
     </section>
   );
 }
