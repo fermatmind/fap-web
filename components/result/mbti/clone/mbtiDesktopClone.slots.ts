@@ -149,6 +149,18 @@ export type TraitUnlockBlock = {
   items: [TraitUnlockItem, TraitUnlockItem, TraitUnlockItem, TraitUnlockItem];
 };
 
+export type AxisExplainerBand = {
+  bandNuance: string;
+};
+
+export type AxisExplainerBands = {
+  light?: AxisExplainerBand;
+  clear?: AxisExplainerBand;
+  strong?: AxisExplainerBand;
+};
+
+export type AxisExplainers = Record<string, Record<string, AxisExplainerBands>>;
+
 export type ListItem = {
   title: string;
   body: string;
@@ -248,6 +260,7 @@ export type MbtiDesktopCloneContent = {
   traits: {
     summaryPane: Pick<MbtiDesktopCloneSlots["traits"]["summaryPane"], "eyebrow" | "title" | "value" | "body">;
     body: MbtiDesktopCloneSlots["traits"]["body"];
+    axisExplainers?: AxisExplainers;
   };
   chapters: {
     career: Pick<NarrativeChapterSlots, "intro" | "influentialTraits" | "visibleBlocks" | "lockedBlocks"> & {

@@ -63,6 +63,71 @@ function createProjectionViewModel(
   };
 }
 
+function createAxisExplainers() {
+  return {
+    EI: {
+      E: {
+        light: { bandNuance: "你明显更容易被外部世界激活，但这种外倾仍保留着收回来整理自己的能力；你不是一直要热闹，而是更容易在互动中启动状态。" },
+        clear: { bandNuance: "你的外倾已经比较明确。和人碰撞、即时反馈、现场感与变化感，通常会比独自封闭处理更能让你进入状态。" },
+        strong: { bandNuance: "你的外倾倾向非常清楚。你往往需要通过对话、行动、连接与现场推进来保持能量，一旦长期被关在低反馈环境里，就很容易迅速失活。" },
+      },
+      I: {
+        light: { bandNuance: "你更偏向把能量收回到内在世界，但这种内倾并不排斥连接；在合适的关系和话题里，你依然愿意打开自己。" },
+        clear: { bandNuance: "你的内倾已经比较明确。独处、沉淀、内在加工和低刺激环境，会更稳定地帮助你恢复专注和判断。" },
+        strong: { bandNuance: "你的内倾倾向非常清楚。你通常需要较大的心理空间来整理体验和形成观点，过多社交或持续外部打断会明显削弱你的能量质量。" },
+      },
+    },
+    SN: {
+      S: {
+        light: { bandNuance: "你更偏向从可见事实和现实线索出发，但并不是拒绝想象；你只是更相信脚下能落地的东西。" },
+        clear: { bandNuance: "你的实感倾向已经比较明确。你更容易先抓住证据、细节、步骤和现实限制，再决定怎么行动。" },
+        strong: { bandNuance: "你的实感倾向非常清楚。你天然会优先信任眼前可验证的信息，对脱离现实支点的推演和空泛设想会更快失去耐心。" },
+      },
+      N: {
+        light: { bandNuance: "你更偏向看见趋势、含义和可能性，但仍保留对现实条件的基本感知；你不是脱离地面，只是更容易先看到远方。" },
+        clear: { bandNuance: "你的直觉倾向已经比较明确。你通常会比别人更早想到模式、方向和潜在空间，而不只盯着眼前事实。" },
+        strong: { bandNuance: "你的直觉倾向非常清楚。你天然会沿着意义、隐含结构和未来可能性去理解世界，单纯停留在表层信息里会让你很快感到局促。" },
+      },
+    },
+    TF: {
+      T: {
+        light: { bandNuance: "你更常从逻辑、效果和一致性切入判断，但并不是忽略感受；只是你会先问这件事是否合理、是否有效。" },
+        clear: { bandNuance: "你的思考倾向已经比较明确。你在决策时更容易优先考虑结构、效率、边界和结果，而不是先被情绪牵引。" },
+        strong: { bandNuance: "你的思考倾向非常清楚。你往往会本能地把问题拆开、排序、判断利弊，再决定行动方向；当环境过度情绪化时，你会更想把它拉回理性轨道。" },
+      },
+      F: {
+        light: { bandNuance: "你更常从感受、关系与价值切入判断，但并不是没有逻辑；你只是更在意这件事对人意味着什么。" },
+        clear: { bandNuance: "你的情感倾向已经比较明确。你在决策时更容易优先考虑关系质量、价值一致与情绪承接，而不只看表面的效率。" },
+        strong: { bandNuance: "你的情感倾向非常清楚。你会天然把人的处境、关系影响和内在价值放进判断核心，因此很难长期接受只讲结果、不顾人感受的做法。" },
+      },
+    },
+    JP: {
+      J: {
+        light: { bandNuance: "你更偏向先形成框架和判断，但仍保留一定弹性；你喜欢知道大致怎么走，只是不一定把一切都锁死。" },
+        clear: { bandNuance: "你的判断倾向已经比较明确。你通常更安心于有计划、有节点、有预期的推进方式，不喜欢长期处在悬而未决的状态。" },
+        strong: { bandNuance: "你的判断倾向非常清楚。你会自然追求结构、秩序、提前安排和收束感，长期模糊、频繁改动或毫无边界的节奏会很快消耗你。" },
+      },
+      P: {
+        light: { bandNuance: "你更偏向保留空间和灵活应对，但并不是无法规划；你只是更希望计划能跟着现实一起调整。" },
+        clear: { bandNuance: "你的感知倾向已经比较明确。你通常更自在于边走边看、动态修正和根据现场反馈调整节奏，而不是过早把一切定死。" },
+        strong: { bandNuance: "你的感知倾向非常清楚。你会天然保留探索空间和变招余地，过度僵硬的规则、过细的预设和无法调整的流程会明显压缩你的状态。" },
+      },
+    },
+    AT: {
+      A: {
+        light: { bandNuance: "你更偏向内在稳定和自我信任，但并不是完全不受波动影响；只是你比较容易在起伏里重新站稳。" },
+        clear: { bandNuance: "你的果断倾向已经比较明确。你通常更容易保持心理重心，不会因为一时反馈就迅速推翻自己。" },
+        strong: { bandNuance: "你的果断倾向非常清楚。你往往能在压力下维持较稳定的内在秩序和自我判断，不容易长期被外部噪音牵着走。" },
+      },
+      T: {
+        light: { bandNuance: "你更偏向警觉、自我校准和反复审视，但这种敏感也让你保留了细腻与修正空间。" },
+        clear: { bandNuance: "你的敏感倾向已经比较明确。你通常更容易察觉风险、缺口和未完成之处，因此会持续调整自己和周围环境。" },
+        strong: { bandNuance: "你的敏感倾向非常清楚。你会天然保持较高的自我要求和环境警觉度，这会带来推进力与精细度，但也更容易让你长期紧绷、难以彻底放松。" },
+      },
+    },
+  };
+}
+
 function createAssetSlots(overrides?: Partial<Record<"hero", PersonalityDesktopCloneAssetSlot>>): PersonalityDesktopCloneAssetSlot[] {
   return [
     overrides?.hero ?? {
@@ -190,6 +255,7 @@ function createStoragePayload(
           body: `body ${tag}`,
         },
         body: [`traits 1 ${tag}`, `traits 2 ${tag}`],
+        axisExplainers: createAxisExplainers(),
       },
       chapters: {
         career: {
@@ -523,6 +589,8 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop chapter premium teaser reset contract", () => {
+  const unifiedUnlockBody = "解锁完整报告后即可查看这些结果，并纳入你的人格分析。";
+
   it("renders Career chapter-end premium teasers from compatibility fields after strengths/weaknesses without extra matched cards", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
@@ -536,7 +604,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const scoped = within(section);
 
     const traitsTitle = scoped.getByText("Influential Traits");
-    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const traitsLockPanel = scoped.getByTestId("mbti-career-traits-lock-panel");
     const strengthsCard = scoped.getByTestId("mbti-p0-career-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-career-weaknesses");
     const firstTeaser = scoped.getByTestId("mbti-premium-career-career-ideas");
@@ -559,23 +627,30 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByText("工作风格建议")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁岗位簇")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁工作方式")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁这一章的完整细节")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-career-career-ideas")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-career-work-styles")).not.toBeInTheDocument();
+    expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
+    expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
     expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
     expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 
     expect(screen.getAllByText("职业优势")).toHaveLength(1);
     expect(screen.getAllByText("职业短板")).toHaveLength(1);
 
-    expectBefore(traitsTitle as HTMLElement, unlockTitle as HTMLElement);
-    expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(traitsTitle as HTMLElement, traitsLockPanel);
+    expectBefore(traitsLockPanel, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, nextSection);
   });
 
-  it("renders Growth chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
+  it("renders Growth chapter-end premium teasers with compact inline unlock copy", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ENTJ-T"));
 
     renderShell("ENTJ-T");
@@ -587,7 +662,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const section = document.querySelector("#growth") as HTMLElement;
     const scoped = within(section);
 
-    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const traitsLockPanel = scoped.getByTestId("mbti-growth-traits-lock-panel");
     const strengthsCard = scoped.getByTestId("mbti-p0-growth-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-growth-weaknesses");
     const firstTeaser = scoped.getByTestId("mbti-premium-growth-what-energizes");
@@ -606,22 +681,29 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByText("什么让你消耗")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁补能条件")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁耗损模式")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁这一章的完整细节")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-growth-what-energizes")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-growth-what-drains")).not.toBeInTheDocument();
+    expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
+    expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
     expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
     expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 
     expect(screen.getAllByText("成长优势")).toHaveLength(1);
     expect(screen.getAllByText("成长短板")).toHaveLength(1);
 
-    expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(traitsLockPanel, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, nextSection);
   });
 
-  it("renders Relationships chapter-end premium teasers from compatibility fields without floating unlock cards", async () => {
+  it("renders Relationships chapter-end premium teasers with compact inline unlock copy", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("ISTP-A"));
 
     renderShell("ISTP-A");
@@ -633,7 +715,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const section = document.querySelector("#relationships") as HTMLElement;
     const scoped = within(section);
 
-    const unlockTitle = scoped.getByText("解锁这一章的完整细节");
+    const traitsLockPanel = scoped.getByTestId("mbti-relationships-traits-lock-panel");
     const strengthsCard = scoped.getByTestId("mbti-p0-relationships-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-relationships-weaknesses");
     const firstTeaser = scoped.getByTestId("mbti-premium-relationships-superpowers");
@@ -652,22 +734,29 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByText("关系潜在陷阱")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁关系优势")).not.toBeInTheDocument();
     expect(scoped.queryByText("解锁关系盲点")).not.toBeInTheDocument();
+    expect(scoped.queryByText("解锁这一章的完整细节")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-relationships-superpowers")).not.toBeInTheDocument();
     expect(scoped.queryByTestId("mbti-p1-relationships-pitfalls")).not.toBeInTheDocument();
+    expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
+    expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
     expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
     expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
+    expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 
     expect(screen.getAllByText("关系优势")).toHaveLength(1);
     expect(screen.getAllByText("关系短板")).toHaveLength(1);
 
-    expectBefore(unlockTitle as HTMLElement, strengthsCard);
+    expectBefore(traitsLockPanel, strengthsCard);
     expectBefore(strengthsCard, weaknessesCard);
     expectBefore(weaknessesCard, firstTeaser);
     expectBefore(firstTeaser, secondTeaser);
     expectBefore(secondTeaser, finalOffer);
   });
 
-  it("keeps locked state on the existing central lock card and hides traits unlock detail panels", async () => {
+  it("keeps locked state on the compact traits unlock strip and hides traits unlock detail panels", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShell("INFJ-A");
@@ -678,8 +767,11 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     const section = document.querySelector("#career") as HTMLElement;
     const scoped = within(section);
+    const traitsLockPanel = scoped.getByTestId("mbti-career-traits-lock-panel");
 
-    expect(scoped.getByTestId("mbti-career-traits-lock-panel")).toBeInTheDocument();
+    expect(traitsLockPanel).toBeInTheDocument();
+    expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
+    expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
     expect(scoped.queryByTestId("mbti-career-traits-unlock-panel")).not.toBeInTheDocument();
   });
 
@@ -791,6 +883,8 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
   });
 
   it("switches the right traits card when a different axis is selected and keeps left/right same-source", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
+
     renderShellWithProjection({
       projectionViewModel: createProjectionViewModel([
         {
@@ -803,7 +897,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
           rawFirstPolePct: 35,
           dominantPole: "I",
           dominantLabel: "Introverted",
-          dominantPct: 65,
+          dominantPct: 54,
           oppositePct: 35,
           strengthBand: "clear",
           summary: "You prefer fewer, deeper interactions and quieter spaces.",
@@ -822,7 +916,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
           rawFirstPolePct: 25,
           dominantPole: "N",
           dominantLabel: "Intuitive",
-          dominantPct: 75,
+          dominantPct: 62,
           oppositePct: 25,
           strengthBand: "clear",
           summary: "You focus on patterns and distant possibilities.",
@@ -841,7 +935,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
           rawFirstPolePct: 58,
           dominantPole: "T",
           dominantLabel: "Thinking",
-          dominantPct: 58,
+          dominantPct: 75,
           oppositePct: 42,
           strengthBand: "moderate",
           summary: "You lean toward clear logic and consistent principles in decisions.",
@@ -860,26 +954,35 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     expect(energyAxis).toHaveAttribute("data-state", "active");
     expect(summaryPane).toHaveTextContent("Energy");
-    expect(summaryPane).toHaveTextContent("65%");
+    expect(summaryPane).toHaveTextContent("54%");
     expect(summaryPane).toHaveTextContent("Introverted");
     expect(summaryPane).toHaveTextContent("You prefer fewer, deeper interactions and quieter spaces.");
+    expect(summaryPane).toHaveTextContent(
+      "你更偏向把能量收回到内在世界，但这种内倾并不排斥连接；在合适的关系和话题里，你依然愿意打开自己。",
+    );
 
     fireEvent.click(mindAxis);
 
     expect(mindAxis).toHaveAttribute("data-state", "active");
     expect(energyAxis).toHaveAttribute("data-state", "idle");
     expect(summaryPane).toHaveTextContent("Mind");
-    expect(summaryPane).toHaveTextContent("75%");
+    expect(summaryPane).toHaveTextContent("62%");
     expect(summaryPane).toHaveTextContent("Intuitive");
     expect(summaryPane).toHaveTextContent("You focus on patterns and distant possibilities.");
+    expect(summaryPane).toHaveTextContent(
+      "你的直觉倾向已经比较明确。你通常会比别人更早想到模式、方向和潜在空间，而不只盯着眼前事实。",
+    );
     expect(summaryPane).not.toHaveTextContent("25%");
 
     fireEvent.click(natureAxis);
 
     expect(natureAxis).toHaveAttribute("data-state", "active");
     expect(summaryPane).toHaveTextContent("Nature");
-    expect(summaryPane).toHaveTextContent("58%");
+    expect(summaryPane).toHaveTextContent("75%");
     expect(summaryPane).toHaveTextContent("Thinking");
     expect(summaryPane).toHaveTextContent("You lean toward clear logic and consistent principles in decisions.");
+    expect(summaryPane).toHaveTextContent(
+      "你的思考倾向非常清楚。你往往会本能地把问题拆开、排序、判断利弊，再决定行动方向；当环境过度情绪化时，你会更想把它拉回理性轨道。",
+    );
   });
 });
