@@ -28,16 +28,22 @@ describe("wider public family contract", () => {
     expect(helpDetail).toContain("<AnswerSurfaceSection");
   });
 
-  it("home and tests index consume backend discoverability ordering", () => {
+  it("home and tests index publish curated discoverability surfaces with visible structured lists", () => {
     const home = read("app/(localized)/[locale]/page.tsx");
     const testsIndex = read("app/(localized)/[locale]/tests/page.tsx");
 
-    expect(home).toContain('import { HeroSection } from "@/components/marketing/HeroSection"');
-    expect(home).toContain("const highlightedCards: HomeHighlightedCard[] = preferredLiveSlugs");
-    expect(home).toContain("<HighlightedTestsSection locale={locale} cards={highlightedCards} />");
+    expect(home).toContain('import { HomePageExperience } from "@/components/marketing/HomePageExperience"');
+    expect(home).toContain('import { getHomePageContent } from "@/lib/marketing/homepageContent"');
+    expect(home).toContain("function buildHomeJsonLd(locale: Locale)");
+    expect(home).toContain('idSuffix: "quickstart-itemlist"');
+    expect(home).toContain('idSuffix: "family-itemlist"');
+    expect(home).toContain("<HomePageExperience locale={locale} />");
 
-    expect(testsIndex).toContain("const gatewaySurface = await getTestsGatewaySurface(locale)");
-    expect(testsIndex).toContain("const gatewayItems = landingSurface?.discoverabilityItems ?? []");
-    expect(testsIndex).toContain("gatewayItemsBySlug.get(test.slug)?.title");
+    expect(testsIndex).toContain('import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience"');
+    expect(testsIndex).toContain('import { getTestsHubContent } from "@/lib/marketing/testsHubContent"');
+    expect(testsIndex).toContain("function buildTestsHubJsonLd(locale: Locale)");
+    expect(testsIndex).toContain('idSuffix: "quickstart-itemlist"');
+    expect(testsIndex).toContain('idSuffix: "family-itemlist"');
+    expect(testsIndex).toContain("<TestsHubExperience locale={locale} />");
   });
 });
