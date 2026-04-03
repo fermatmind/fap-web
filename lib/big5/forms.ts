@@ -64,12 +64,41 @@ export function listBig5FormMetas(): Big5FormMeta[] {
   return BIG5_FORM_CODES.map((formCode) => BIG5_FORM_META[formCode]);
 }
 
+export function getBig5VariantName(formCode: string | null | undefined): string {
+  const meta = resolveBig5FormMeta(formCode);
+  return `Big Five ${meta.questionCount}Q`;
+}
+
+export function getBig5VariantDescriptor(formCode: string | null | undefined, locale: Locale): string {
+  const meta = resolveBig5FormMeta(formCode);
+  if (locale === "zh") {
+    return meta.formCode === "big5_90" ? "快速版" : "完整特质档案";
+  }
+  return meta.formCode === "big5_90" ? "Quick Read" : "Full Trait Profile";
+}
+
+export function getBig5VariantLabel(formCode: string | null | undefined, locale: Locale): string {
+  return `${getBig5VariantName(formCode)} · ${getBig5VariantDescriptor(formCode, locale)}`;
+}
+
+export function getBig5VariantSummary(formCode: string | null | undefined, locale: Locale): string {
+  const meta = resolveBig5FormMeta(formCode);
+  if (locale === "zh") {
+    return meta.formCode === "big5_90"
+      ? `约 ${meta.estimatedMinutes} 分钟，先看五维轮廓与主要差异。`
+      : `约 ${meta.estimatedMinutes} 分钟，得到更完整的维度分布与特质解释。`;
+  }
+  return meta.formCode === "big5_90"
+    ? `About ${meta.estimatedMinutes} minutes for a fast read on the five-factor outline and major differences.`
+    : `About ${meta.estimatedMinutes} minutes for a fuller trait distribution and interpretation.`;
+}
+
 export function getBig5StartLabel(formCode: string | null | undefined, locale: Locale): string {
   const meta = resolveBig5FormMeta(formCode);
   if (locale === "zh") {
-    return `${meta.questionCount}题开始测试`;
+    return meta.formCode === "big5_90" ? "开始快速版" : "开始完整档案";
   }
-  return `Start ${meta.questionCount}-question test`;
+  return meta.formCode === "big5_90" ? "Start Quick Read" : "Start Full Trait Profile";
 }
 
 export function getBig5QuestionSummary(locale: Locale): string {

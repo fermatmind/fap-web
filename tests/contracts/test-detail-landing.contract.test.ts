@@ -22,7 +22,7 @@ describe("test detail landing contract", () => {
 
     expect(source).toContain('buildMbtiTakeHref');
     expect(source).toContain('getMbtiStartLabel');
-    expect(source).toContain('data-testid={`test-detail-landing-cta-${form.formCode}`}');
+    expect(source).toContain('testId: `test-detail-landing-cta-${form.formCode}`');
     expect(source).toContain('scaleCode={test.scale_code}');
   });
 

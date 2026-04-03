@@ -4,13 +4,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   buildBig5TakeHref,
   getBig5StartLabel,
+  getBig5VariantLabel,
+  getBig5VariantSummary,
   isBig5ScaleCode,
   isBig5Slug,
   listBig5FormMetas,
 } from "@/lib/big5/forms";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
-import { buildMbtiTakeHref, getMbtiStartLabel, isMbtiScaleCode, isMbtiSlug, listMbtiFormMetas } from "@/lib/mbti/forms";
+import {
+  buildMbtiTakeHref,
+  getMbtiStartLabel,
+  getMbtiVariantLabel,
+  getMbtiVariantSummary,
+  isMbtiScaleCode,
+  isMbtiSlug,
+  listMbtiFormMetas,
+} from "@/lib/mbti/forms";
 
 type CTAStickyProps = {
   slug: string;
@@ -24,16 +34,8 @@ type CTAStickyProps = {
 export function CTASticky({ slug, title, questions, minutes, scaleCode, locale = "en" }: CTAStickyProps) {
   const showsMbtiActions = isMbtiScaleCode(scaleCode) || isMbtiSlug(slug);
   const showsBig5Actions = isBig5ScaleCode(scaleCode) || isBig5Slug(slug);
-  const mbtiSummary = listMbtiFormMetas()
-    .map((form) => (locale === "zh"
-      ? `${form.questionCount}题 · 约 ${form.estimatedMinutes} 分钟`
-      : `${form.questionCount} questions · about ${form.estimatedMinutes} minutes`))
-    .join(locale === "zh" ? " / " : " / ");
-  const big5Summary = listBig5FormMetas()
-    .map((form) => (locale === "zh"
-      ? `${form.questionCount}题 · 约 ${form.estimatedMinutes} 分钟`
-      : `${form.questionCount} questions · about ${form.estimatedMinutes} minutes`))
-    .join(locale === "zh" ? " / " : " / ");
+  const mbtiSummary = listMbtiFormMetas().map((form) => getMbtiVariantLabel(form.formCode, locale)).join(" / ");
+  const big5Summary = listBig5FormMetas().map((form) => getBig5VariantLabel(form.formCode, locale)).join(" / ");
 
   return (
     <>
@@ -55,25 +57,35 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
             {showsMbtiActions ? (
               <div className="space-y-2">
                 {listMbtiFormMetas().map((form) => (
-                  <Link
-                    key={form.formCode}
-                    href={buildMbtiTakeHref(slug, locale, form.formCode)}
-                    className={buttonVariants({ className: "w-full" })}
-                  >
-                    {getMbtiStartLabel(form.formCode, locale)}
-                  </Link>
+                  <div key={form.formCode} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {getMbtiVariantLabel(form.formCode, locale)}
+                    </p>
+                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getMbtiVariantSummary(form.formCode, locale)}</p>
+                    <Link
+                      href={buildMbtiTakeHref(slug, locale, form.formCode)}
+                      className={buttonVariants({ className: "mt-3 w-full" })}
+                    >
+                      {getMbtiStartLabel(form.formCode, locale)}
+                    </Link>
+                  </div>
                 ))}
               </div>
             ) : showsBig5Actions ? (
               <div className="space-y-2">
                 {listBig5FormMetas().map((form) => (
-                  <Link
-                    key={form.formCode}
-                    href={buildBig5TakeHref(slug, locale, form.formCode)}
-                    className={buttonVariants({ className: "w-full" })}
-                  >
-                    {getBig5StartLabel(form.formCode, locale)}
-                  </Link>
+                  <div key={form.formCode} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {getBig5VariantLabel(form.formCode, locale)}
+                    </p>
+                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getBig5VariantSummary(form.formCode, locale)}</p>
+                    <Link
+                      href={buildBig5TakeHref(slug, locale, form.formCode)}
+                      className={buttonVariants({ className: "mt-3 w-full" })}
+                    >
+                      {getBig5StartLabel(form.formCode, locale)}
+                    </Link>
+                  </div>
                 ))}
               </div>
             ) : (
@@ -102,7 +114,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                   href={buildMbtiTakeHref(slug, locale, form.formCode)}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
-                  {locale === "zh" ? `${form.questionCount}题开始` : `${form.questionCount}Q`}
+                  {getMbtiStartLabel(form.formCode, locale)}
                 </Link>
               ))}
             </div>
@@ -114,7 +126,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                   href={buildBig5TakeHref(slug, locale, form.formCode)}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
-                  {locale === "zh" ? `${form.questionCount}题开始` : `${form.questionCount}Q`}
+                  {getBig5StartLabel(form.formCode, locale)}
                 </Link>
               ))}
             </div>

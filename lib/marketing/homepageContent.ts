@@ -131,35 +131,35 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       eyebrow: "识微，见远。",
       brand: "FermatMind / 费马测试",
       title: "更清晰地理解自己，把学习、职业与协作判断落到下一步。",
-      body: "通过结构化测评与情境化解释，把模糊感受转成可讨论、可行动的自我认知参考。",
+      body: "通过结构化测评与情境化解释，把模糊感受变成可讨论、可行动的认知参考。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",
       secondaryHref: "#home-quick-start",
       trustRail: ["免费开始", "约 15 分钟", "匿名可用", "结果支持判断，不定义一个人"],
       visualEyebrow: "结果预览",
-      visualTitle: "从一个问题进入，再把结果放回真实判断场景。",
-      visualSummary: "这里先给你看结果的长相，再把开始的秩序排好。",
-      visualPoints: ["特质结构图", "职业方向预览", "状态解释与下一步"],
+      visualTitle: "先选问题，再进入一张真正像产品结果的界面。",
+      visualSummary: "用更少的入口，把结果的结构、方向和下一步放到同一个前门里。",
+      visualPoints: ["特质结构", "方向线索", "状态解释"],
     },
     quickStart: {
       kicker: "Quick Start",
       title: "先回答一个问题，再进入合适的测评。",
-      body: "不需要先懂全部方法。先选你现在最想解决的那个问题。",
+      body: "先选你现在最想解决的那个问题，再进入更合适的测评入口。",
       items: [
         {
           title: "我适合什么职业方向？",
           description: "从职业兴趣、角色偏好与方向判断开始，先把探索范围收窄。",
-          href: "/career/tests/riasec",
+          href: "/tests/category/career",
           label: "进入职业方向入口",
-          hints: ["霍兰德", "职业价值观", "职业人格"],
+          hints: ["霍兰德", "Big Five 90Q", "MBTI 93Q"],
         },
         {
           title: "我的人格结构是什么？",
-          description: "先看偏好结构，再决定要不要继续看更稳定的特质分布。",
-          href: "/tests/mbti-personality-test-16-personality-types/take",
+          description: "先看人格框架和稳定特质，再决定更适合哪一种版本。",
+          href: "/tests/category/personality",
           label: "进入人格结构入口",
-          hints: ["MBTI", "大五", "人格画像"],
+          hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
         },
         {
           title: "我现在的情绪或状态如何？",
@@ -187,7 +187,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     families: {
       kicker: "Featured Paths",
       title: "从人格、职业、状态到能力，找到你的起点。",
-      body: "你可以按问题开始，也可以按更稳定的家族方向继续浏览。",
+      body: "按问题开始，也可以直接进入更适合自己的测评家族。",
       items: [
         {
           title: "人格与风格",
@@ -195,8 +195,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           exploreLabel: "查看此类全部测评",
           exploreHref: "/tests/category/personality",
           links: [
-            { title: "MBTI 性格测试", href: "/tests/mbti-personality-test-16-personality-types/take" },
-            { title: "大五人格测试", href: "/tests/big-five-personality-test-ocean-model/take" },
+            { title: "MBTI 性格测试", href: "/tests/mbti-personality-test-16-personality-types", description: "93Q / 144Q 双版本" },
+            { title: "大五人格测试", href: "/tests/big-five-personality-test-ocean-model", description: "90Q / 120Q 双版本" },
             { title: "人格画像", href: "/personality" },
           ],
         },
@@ -249,7 +249,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     results: {
       kicker: "Results Preview",
       title: "结果不是终点，它把判断往前推一步。",
-      body: "先看结果会长成什么样，再决定你要用它回答什么问题。",
+      body: "先看结果的长相，再决定你要把它用在哪个判断里。",
       previews: [
         {
           eyebrow: "特质结构图预览",
@@ -326,8 +326,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     resources: {
       kicker: "Resources",
-      title: "需要多看一点时，给你三个高信号入口。",
-      body: "它们帮助你读懂测试、职业方向和产品边界，但不会抢走开始动作。",
+      title: "需要多看一点时，再从这里继续。",
+      body: "只保留少量补充阅读，主动作仍然是开始测评。",
       items: [
         {
           title: "MBTI 入门",
@@ -351,7 +351,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     finalCta: {
       title: "从一个问题开始。",
-      body: "如果你现在只做一个动作，就先进入测评入口，找到最适合当下问题的那条路径。",
+      body: "如果你现在只做一个动作，就先进入测评入口，找到最适合当下问题的版本。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",
@@ -360,7 +360,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     header: {
       testsLabel: "测评入口",
       testsTitle: "先从一个你最想回答的问题开始。",
-      testsBody: "职业方向、人格结构、情绪状态、认知能力与协作风格，都可以从这里进入。",
+      testsBody: "职业方向、人格结构、情绪状态和协作风格，都从这里进入。",
       browseAllLabel: "查看全部测评",
       browseAllHref: "/tests",
       groups: [
@@ -368,7 +368,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "按问题开始",
           links: [
             { title: "职业方向", description: "职业兴趣与路径探索", href: "/career/tests/riasec" },
-            { title: "人格结构", description: "MBTI 与大五入口", href: "/tests/mbti-personality-test-16-personality-types/take" },
+            { title: "人格结构", description: "MBTI 与大五双版本", href: "/tests/category/personality" },
             { title: "情绪状态", description: "先看近期基线", href: "/tests/depression-screening-test-standard-edition/take" },
             { title: "协作风格", description: "沟通与关系判断", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
           ],
@@ -376,8 +376,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         {
           title: "热门测评",
           links: [
-            { title: "MBTI 性格测试", href: "/tests/mbti-personality-test-16-personality-types/take" },
-            { title: "大五人格测试", href: "/tests/big-five-personality-test-ocean-model/take" },
+            { title: "MBTI 性格测试", description: "93Q / 144Q", href: "/tests/mbti-personality-test-16-personality-types" },
+            { title: "大五人格测试", description: "90Q / 120Q", href: "/tests/big-five-personality-test-ocean-model" },
             { title: "抑郁筛查", href: "/tests/depression-screening-test-standard-edition/take" },
             { title: "IQ 测评", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
           ],
@@ -395,7 +395,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     footer: {
       introLabel: "继续浏览",
-      introBody: "热门测评、分类、资源和支持入口都放在这里，方便你从首页继续往下走。",
+      introBody: "热门测评、分类、资源和支持入口都放在这里，方便你继续往下走。",
       groups: [
         {
           title: "热门测评",
@@ -478,9 +478,9 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         {
           title: "What does my personality structure look like?",
           description: "Use a fast structural entry first, then decide whether you need a more stable trait view.",
-          href: "/tests/mbti-personality-test-16-personality-types/take",
+          href: "/tests/category/personality",
           label: "Open personality path",
-          hints: ["MBTI", "Big Five", "Profiles"],
+          hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
         },
         {
           title: "How is my current emotional state?",
@@ -516,8 +516,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           exploreLabel: "See all tests in this family",
           exploreHref: "/tests/category/personality",
           links: [
-            { title: "MBTI personality test", href: "/tests/mbti-personality-test-16-personality-types/take" },
-            { title: "Big Five personality test", href: "/tests/big-five-personality-test-ocean-model/take" },
+            { title: "MBTI personality test", href: "/tests/mbti-personality-test-16-personality-types" },
+            { title: "Big Five personality test", href: "/tests/big-five-personality-test-ocean-model" },
             { title: "Personality profiles", href: "/personality" },
           ],
         },
@@ -689,7 +689,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "Start by question",
           links: [
             { title: "Career direction", description: "Interest and path exploration", href: "/career/tests/riasec" },
-            { title: "Personality structure", description: "MBTI and Big Five entry", href: "/tests/mbti-personality-test-16-personality-types/take" },
+            { title: "Personality structure", description: "MBTI and Big Five entry", href: "/tests/category/personality" },
             { title: "Emotional state", description: "Check the recent baseline", href: "/tests/depression-screening-test-standard-edition/take" },
             { title: "Collaboration style", description: "Communication and relationship judgment", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
           ],
@@ -697,8 +697,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         {
           title: "Popular assessments",
           links: [
-            { title: "MBTI personality test", href: "/tests/mbti-personality-test-16-personality-types/take" },
-            { title: "Big Five personality test", href: "/tests/big-five-personality-test-ocean-model/take" },
+            { title: "MBTI personality test", href: "/tests/mbti-personality-test-16-personality-types" },
+            { title: "Big Five personality test", href: "/tests/big-five-personality-test-ocean-model" },
             { title: "Depression screening", href: "/tests/depression-screening-test-standard-edition/take" },
             { title: "IQ assessment", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
           ],
