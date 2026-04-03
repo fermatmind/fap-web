@@ -47,7 +47,9 @@ describe("big5 result assembler interpretation wiring contract", () => {
     expect(facetDetails?.blocks.some((block) => block.kind === "table_row")).toBe(true);
     expect(facetDetails?.blocks.some((block) => String(block.body ?? "").includes(" · "))).toBe(true);
     expect(
-      facetDetails?.blocks.some((block) => Array.isArray(block.tags) && (block.tags as string[]).length > 0)
+      facetDetails?.blocks.some((block) =>
+        String(block.body ?? "").includes("Pair abstraction with concrete deliverables for team alignment.")
+      )
     ).toBe(true);
 
     expect(actionPlan).toBeDefined();

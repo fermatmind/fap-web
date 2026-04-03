@@ -161,13 +161,5 @@ export function selectBig5ActionSnippets({
     }
   }
 
-  if (deduped.length === 0) {
-    const fallback = BIG5_ACTION_SNIPPETS.C.mid;
-    for (const snippet of fallback) {
-      push(snippet);
-      if (deduped.length >= limit) break;
-    }
-  }
-
   return deduped.slice(0, limit);
 }

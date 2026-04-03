@@ -4,6 +4,7 @@ import {
   BIG5_ACTION_SNIPPETS,
   BIG5_DOMAIN_INTERPRETATION,
   BIG5_FACET_GLOSSARY,
+  selectBig5ActionSnippets,
 } from "@/lib/big5/interpretation";
 
 const DIRTY_MARKERS = ["placeholder", "todo", "tbd", "xxx", "待补", "占位"];
@@ -58,5 +59,25 @@ describe("big5 interpretation registry contract", () => {
       snippetsByBand.mid.forEach((item, index) => expectCleanText(item, `${domain}.mid.${index}`));
       snippetsByBand.low.forEach((item, index) => expectCleanText(item, `${domain}.low.${index}`));
     });
+  });
+
+  it("selects snippets from dominant traits without injecting unrelated fallback traits", () => {
+    const selected = selectBig5ActionSnippets({
+      dominantTraits: [{ key: "N" }, { key: "C" }],
+      traitBands: { N: "high", C: "mid" },
+      seedActions: [],
+      limit: 6,
+    });
+    expect(selected.length).toBeGreaterThan(0);
+    expect(selected.some((item) => item.includes("weekly decompression routine"))).toBe(true);
+    expect(selected.some((item) => item.includes("stable execution routine"))).toBe(true);
+
+    const noSignal = selectBig5ActionSnippets({
+      dominantTraits: [],
+      traitBands: {},
+      seedActions: [],
+      limit: 4,
+    });
+    expect(noSignal).toEqual([]);
   });
 });

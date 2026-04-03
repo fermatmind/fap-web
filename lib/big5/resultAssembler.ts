@@ -252,6 +252,9 @@ function buildSyntheticBlocks(
     for (const code of BIG5_DOMAIN_ORDER) {
       const trait = traitVector.find((item) => normalizeText(item.key).toUpperCase() === code);
       const bandRaw = normalizeText(traitBands[code], trait?.band, trait?.band_label, trait?.bucket);
+      if (!trait && !bandRaw) {
+        continue;
+      }
       const interpretation = resolveDomainInterpretation(code, bandRaw);
       const percentile = normalizeNumber(trait?.percentile);
       const percentileText = formatPercentileValue(percentile, locale);
@@ -281,9 +284,8 @@ function buildSyntheticBlocks(
           kind: "table_row",
           metric_code: code,
           title: facetGlossary?.label ?? getFacetLabel(code, locale),
-          body: [percentileText, facetGlossary?.gloss].filter(Boolean).join(" · "),
+          body: [percentileText, facetGlossary?.gloss, facetGlossary?.hint].filter(Boolean).join(" · "),
           bucket: normalizeText(item.bucket),
-          tags: facetGlossary?.hint ? [facetGlossary.hint] : [],
         } satisfies ReportBlock;
       });
   }
