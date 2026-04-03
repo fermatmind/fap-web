@@ -555,7 +555,7 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
   });
 
-  it("leaves non-MBTI branches on the legacy report normalizer", () => {
+  it("routes BIG5 through assembler-driven shell wiring while keeping canonical content visible", () => {
     const reportData = {
       locked: false,
       variant: "full",
@@ -712,8 +712,10 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("big5-action-plan-summary")).toHaveTextContent(
       "The best near-term growth lever is Extraversion."
     );
+    expect(screen.getByText("Domains Overview")).toBeInTheDocument();
+    expect(screen.getAllByText("Methodology and Access").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Traits Overview").length).toBeGreaterThan(0);
-    expect(screen.getByText("Legacy Big Five copy remains unchanged.")).toBeInTheDocument();
+    expect(screen.getAllByText("Legacy Big Five copy remains unchanged.").length).toBeGreaterThan(0);
   });
 
   it("renders BIG5 comparative guidance without mutating the foundation summary", () => {
