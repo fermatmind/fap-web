@@ -12,6 +12,7 @@ import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, toggleLocalePath } from "@/lib/i18n/locales";
 import { LOCALE_COOKIE_NAME } from "@/lib/i18n/localeNegotiation";
+import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { LIVE_COMPLETED_COUNT } from "@/lib/marketing/completionStats";
 import {
   getHeaderDropdownMenus,
@@ -27,10 +28,11 @@ export function SiteHeader() {
   const searchParams = useSearchParams();
   const locale = useLocale();
   const dict = getDictSync(locale);
+  const homeHeader = getHomePageContent(locale).header;
   const withLocale = (path: string) => localizedPath(path, locale);
   const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
   const shouldRenderCompletedMetric =
-    !isHomeRoute || (typeof LIVE_COMPLETED_COUNT === "number" && LIVE_COMPLETED_COUNT > 0);
+    !isHomeRoute && typeof LIVE_COMPLETED_COUNT === "number" && LIVE_COMPLETED_COUNT > 0;
   const targetLocale = locale === "zh" ? "en" : "zh";
   const localeBasePath = toggleLocalePath(pathname, targetLocale);
   const localeQuery = searchParams.toString();
@@ -118,7 +120,13 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md">
+    <header
+      className={
+        isHomeRoute
+          ? "sticky top-0 z-50 border-b border-white/10 bg-[#0d1520]/80 text-white shadow-[0_20px_60px_rgba(6,10,18,0.28)] backdrop-blur-xl"
+          : "sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md"
+      }
+    >
       <Container className="max-w-[1320px] py-3">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0 shrink-0">
@@ -151,16 +159,31 @@ export function SiteHeader() {
             <nav className="flex min-w-0 flex-nowrap items-center justify-end gap-0 xl:gap-0.5">
               {navItems.map((item) => {
                 const menuId = `header-dropdown-${item.key}`;
+                const triggerId = `header-trigger-${item.key}`;
                 const isOpen = activeDropdown === item.key;
                 const items = dropdownMenuMap[item.key] ?? [];
+                const shouldUseHomeTestsPanel = isHomeRoute && item.key === "tests";
+
+                if (isHomeRoute && item.key !== "tests") {
+                  return (
+                    <Link
+                      key={item.key}
+                      href={withLocale(item.href)}
+                      className="fm-home-header-link"
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
 
                 return (
                   <div key={item.key} className="relative shrink-0">
                     <button
+                      id={triggerId}
                       type="button"
                       aria-expanded={isOpen}
                       aria-controls={menuId}
-                      aria-haspopup="menu"
+                      aria-haspopup={shouldUseHomeTestsPanel ? "dialog" : "menu"}
                       onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
                       className="inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-medium text-blue-100 transition hover:bg-white/10 hover:text-white xl:px-2.5 xl:text-sm"
                     >
@@ -169,51 +192,115 @@ export function SiteHeader() {
                     </button>
 
                     {isOpen && items.length > 0 ? (
-                      <div id={menuId} role="menu" aria-label={item.label} className="fm-header-dropdown-panel">
-                        {items.map((menuItem) => (
-                          <Link
-                            key={`${item.key}-${menuItem.href}`}
-                            href={withLocale(menuItem.href)}
-                            role="menuitem"
-                            className="fm-header-dropdown-link"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {menuItem.label}
-                          </Link>
-                        ))}
-                      </div>
+                      shouldUseHomeTestsPanel ? (
+                        <div
+                          id={menuId}
+                          role="dialog"
+                          aria-modal="false"
+                          aria-labelledby={triggerId}
+                          className="fm-home-nav-panel"
+                        >
+                          <div className="fm-home-nav-panel-copy">
+                            <p className="m-0 text-xs font-semibold uppercase tracking-[0.24em] text-white/46">
+                              {homeHeader.testsLabel}
+                            </p>
+                            <h2 className="m-0 mt-3 text-[1.7rem] font-semibold tracking-[-0.04em] text-white">
+                              {homeHeader.testsTitle}
+                            </h2>
+                            <p className="m-0 mt-3 text-sm leading-7 text-slate-300">
+                              {homeHeader.testsBody}
+                            </p>
+                            <Link
+                              href={withLocale(homeHeader.browseAllHref)}
+                              className="fm-home-inline-link mt-5 inline-flex items-center gap-2 text-white"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {homeHeader.browseAllLabel}
+                              <span aria-hidden>+</span>
+                            </Link>
+                          </div>
+                          <div className="fm-home-nav-panel-grid">
+                            {homeHeader.groups.map((group) => (
+                              <section key={group.title} className="fm-home-nav-group">
+                                <p className="fm-home-nav-group-title">{group.title}</p>
+                                <div className="space-y-2.5">
+                                  {group.links.map((menuItem) => (
+                                    <Link
+                                      key={`${group.title}-${menuItem.href}`}
+                                      href={withLocale(menuItem.href)}
+                                      className="fm-home-nav-group-link"
+                                      onClick={() => setActiveDropdown(null)}
+                                    >
+                                      <span>{menuItem.title}</span>
+                                      {menuItem.description ? (
+                                        <span className="fm-home-nav-group-note">{menuItem.description}</span>
+                                      ) : null}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </section>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <div id={menuId} role="menu" aria-label={item.label} className="fm-header-dropdown-panel">
+                          {items.map((menuItem) => (
+                            <Link
+                              key={`${item.key}-${menuItem.href}`}
+                              href={withLocale(menuItem.href)}
+                              role="menuitem"
+                              className="fm-header-dropdown-link"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {menuItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )
                     ) : null}
                   </div>
                 );
               })}
             </nav>
 
-            <div className="flex shrink-0 items-center gap-1 xl:gap-1.5">
-              <Link
-                href={withLocale("/tests?q=")}
-                className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
-                aria-label={dict.header.search}
-                title={dict.header.search}
-              >
-                <Search className="h-4 w-4" />
-              </Link>
-              <Link
-                href={withLocale("/history/mbti")}
-                className="inline-flex h-11 min-h-[44px] min-w-[112px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-[13px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[120px] xl:px-4 xl:text-sm"
-              >
-                <UserRound className="h-4 w-4" />
-                <span>{dict.header.profile}</span>
-              </Link>
+            {isHomeRoute ? (
+              <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
+                <LocaleSwitcher />
+                <Link
+                  href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
+                  className={buttonVariants({ size: "sm", className: "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm" })}
+                >
+                  {dict.header.start}
+                </Link>
+              </div>
+            ) : (
+              <div className="flex shrink-0 items-center gap-1 xl:gap-1.5">
+                <Link
+                  href={withLocale("/tests?q=")}
+                  className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
+                  aria-label={dict.header.search}
+                  title={dict.header.search}
+                >
+                  <Search className="h-4 w-4" />
+                </Link>
+                <Link
+                  href={withLocale("/history/mbti")}
+                  className="inline-flex h-11 min-h-[44px] min-w-[112px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-[13px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[120px] xl:px-4 xl:text-sm"
+                >
+                  <UserRound className="h-4 w-4" />
+                  <span>{dict.header.profile}</span>
+                </Link>
 
-              <LocaleSwitcher />
+                <LocaleSwitcher />
 
-              <Link
-                href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
-                className={buttonVariants({ size: "sm", className: "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm" })}
-              >
-                {dict.header.start}
-              </Link>
-            </div>
+                <Link
+                  href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
+                  className={buttonVariants({ size: "sm", className: "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm" })}
+                >
+                  {dict.header.start}
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </Container>
@@ -248,70 +335,134 @@ export function SiteHeader() {
             </div>
 
             <div className="min-h-0 flex-1 overflow-y-auto px-4 py-3">
-              <nav className="space-y-1">
-                <Link
-                  href={withLocale("/")}
-                  onClick={handleMobileLinkClick}
-                  className="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/12"
-                >
-                  {dict.header.home}
-                </Link>
-
-                {navItems.map((item) => {
-                  const isExpanded = mobileExpandedKey === item.key;
-                  const menuItems = dropdownMenuMap[item.key] ?? [];
-
-                  return (
-                    <div key={`mobile-group-${item.key}`} className="rounded-lg border border-white/10 bg-white/[0.03]">
-                      <button
-                        type="button"
-                        aria-expanded={isExpanded}
-                        aria-controls={`mobile-submenu-${item.key}`}
-                        onClick={() => setMobileExpandedKey((prev) => (prev === item.key ? null : item.key))}
-                        className="flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold text-white transition hover:bg-white/10"
-                      >
-                        <span>{item.label}</span>
-                        <ChevronDown className={isExpanded ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
-                      </button>
-
-                      {isExpanded ? (
-                        <div id={`mobile-submenu-${item.key}`} className="space-y-1 border-t border-white/10 px-2 pb-2 pt-2">
-                          {menuItems.map((menuItem) => (
-                            <Link
-                              key={`mobile-submenu-link-${item.key}-${menuItem.href}`}
-                              href={withLocale(menuItem.href)}
-                              onClick={handleMobileLinkClick}
-                              className="block rounded-md px-3 py-2 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white"
-                            >
-                              {menuItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      ) : null}
+              {isHomeRoute ? (
+                <nav className="space-y-4">
+                  <div className="fm-home-header-mobile-group">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/52">
+                      {homeHeader.testsLabel}
+                    </p>
+                    <h2 className="m-0 mt-3 text-xl font-semibold tracking-[-0.03em] text-white">
+                      {homeHeader.testsTitle}
+                    </h2>
+                    <p className="m-0 mt-3 text-sm leading-7 text-slate-300">
+                      {homeHeader.testsBody}
+                    </p>
+                    <div className="mt-4 space-y-4">
+                      {homeHeader.groups.map((group) => (
+                        <section key={group.title}>
+                          <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/44">
+                            {group.title}
+                          </p>
+                          <div className="mt-2 space-y-2">
+                            {group.links.map((link) => (
+                              <Link
+                                key={`${group.title}-${link.href}`}
+                                href={withLocale(link.href)}
+                                onClick={handleMobileLinkClick}
+                                className="block rounded-xl border border-white/10 bg-white/[0.04] px-3 py-3 text-sm text-white transition hover:bg-white/10"
+                              >
+                                <span className="block font-semibold">{link.title}</span>
+                                {link.description ? (
+                                  <span className="mt-1 block text-xs leading-6 text-slate-400">{link.description}</span>
+                                ) : null}
+                              </Link>
+                            ))}
+                          </div>
+                        </section>
+                      ))}
                     </div>
-                  );
-                })}
+                  </div>
 
-                <Link
-                  href={withLocale("/tests?q=")}
-                  onClick={handleMobileLinkClick}
-                  className="mt-2 flex min-h-[44px] items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  <Search className="h-4 w-4" />
-                  <span>{dict.header.search}</span>
-                </Link>
+                  <div className="space-y-1">
+                    {navItems.filter((item) => item.key !== "tests").map((item) => (
+                      <Link
+                        key={`home-mobile-${item.key}`}
+                        href={withLocale(item.href)}
+                        onClick={handleMobileLinkClick}
+                        className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
 
-                <Link
-                  href={localeHref}
-                  onClick={() => {
-                    persistLocalePreference();
-                    handleMobileLinkClick();
-                  }}
-                  className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  {localeLabel}
-                </Link>
-              </nav>
+                    <Link
+                      href={localeHref}
+                      onClick={() => {
+                        persistLocalePreference();
+                        handleMobileLinkClick();
+                      }}
+                      className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                    >
+                      {localeLabel}
+                    </Link>
+                  </div>
+                </nav>
+              ) : (
+                <nav className="space-y-1">
+                  <Link
+                    href={withLocale("/")}
+                    onClick={handleMobileLinkClick}
+                    className="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/12"
+                  >
+                    {dict.header.home}
+                  </Link>
+
+                  {navItems.map((item) => {
+                    const isExpanded = mobileExpandedKey === item.key;
+                    const menuItems = dropdownMenuMap[item.key] ?? [];
+
+                    return (
+                      <div key={`mobile-group-${item.key}`} className="rounded-lg border border-white/10 bg-white/[0.03]">
+                        <button
+                          type="button"
+                          aria-expanded={isExpanded}
+                          aria-controls={`mobile-submenu-${item.key}`}
+                          onClick={() => setMobileExpandedKey((prev) => (prev === item.key ? null : item.key))}
+                          className="flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold text-white transition hover:bg-white/10"
+                        >
+                          <span>{item.label}</span>
+                          <ChevronDown className={isExpanded ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
+                        </button>
+
+                        {isExpanded ? (
+                          <div id={`mobile-submenu-${item.key}`} className="space-y-1 border-t border-white/10 px-2 pb-2 pt-2">
+                            {menuItems.map((menuItem) => (
+                              <Link
+                                key={`mobile-submenu-link-${item.key}-${menuItem.href}`}
+                                href={withLocale(menuItem.href)}
+                                onClick={handleMobileLinkClick}
+                                className="block rounded-md px-3 py-2 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white"
+                              >
+                                {menuItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
+
+                  <Link
+                    href={withLocale("/tests?q=")}
+                    onClick={handleMobileLinkClick}
+                    className="mt-2 flex min-h-[44px] items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                  >
+                    <Search className="h-4 w-4" />
+                    <span>{dict.header.search}</span>
+                  </Link>
+
+                  <Link
+                    href={localeHref}
+                    onClick={() => {
+                      persistLocalePreference();
+                      handleMobileLinkClick();
+                    }}
+                    className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                  >
+                    {localeLabel}
+                  </Link>
+                </nav>
+              )}
             </div>
 
             <div className="shrink-0 border-t border-white/15 bg-slate-950/20 p-4">

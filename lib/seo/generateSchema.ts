@@ -45,11 +45,19 @@ type OccupationSchemaInput = {
   salaryRange?: string;
 };
 
+type OrganizationSchemaInput = {
+  path: string;
+  name: string;
+  description: string;
+  locale: LocaleCode;
+};
+
 type ItemListSchemaInput = {
   path: string;
   title: string;
   description: string;
   locale: LocaleCode;
+  idSuffix?: string;
   items: Array<{
     name: string;
     path?: string;
@@ -152,12 +160,26 @@ export function buildOccupationJsonLd(input: OccupationSchemaInput) {
   };
 }
 
-export function buildItemListJsonLd(input: ItemListSchemaInput) {
+export function buildOrganizationJsonLd(input: OrganizationSchemaInput) {
   const url = canonicalUrl(input.path);
   return {
     "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${url}#organization`,
+    url,
+    name: input.name,
+    description: input.description,
+    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+  };
+}
+
+export function buildItemListJsonLd(input: ItemListSchemaInput) {
+  const url = canonicalUrl(input.path);
+  const idSuffix = input.idSuffix ? `#${input.idSuffix}` : "#itemlist";
+  return {
+    "@context": "https://schema.org",
     "@type": "ItemList",
-    "@id": `${url}#itemlist`,
+    "@id": `${url}${idSuffix}`,
     url,
     name: input.title,
     description: input.description,
