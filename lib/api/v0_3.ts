@@ -195,6 +195,7 @@ export type ResultResponse = {
     scale_code?: string;
     [key: string]: unknown;
   };
+  mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
@@ -709,6 +710,7 @@ export type ReportResponse = {
     scale_code_v2?: string;
     scale_uid?: string;
   };
+  mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
@@ -769,6 +771,7 @@ export type OrderStatusResponse = {
     [key: string]: unknown;
   } | null;
   delivery?: OrderDeliveryState | null;
+  mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
@@ -805,6 +808,7 @@ export type AttemptReportAccessResponse = {
     [key: string]: unknown;
   } | null;
   payload?: Record<string, unknown> | null;
+  mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   meta?: {
     produced_at?: string | null;
     refreshed_at?: string | null;
@@ -1669,7 +1673,18 @@ export type OrderLookupResponse = {
     [key: string]: unknown;
   } | null;
   delivery?: OrderDeliveryState | null;
+  mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
+  [key: string]: unknown;
+};
+
+export type MbtiFormSummaryV1Raw = {
+  form_code?: string;
+  label?: string;
+  short_label?: string;
+  question_count?: number;
+  estimated_minutes?: number;
+  scale_code?: string;
   [key: string]: unknown;
 };
 
@@ -1743,6 +1758,7 @@ export type MeAttemptItem = {
   scale_code?: string;
   submitted_at?: string | null;
   type_code?: string;
+  mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   access_summary?: {
     access_state?: string;
     report_state?: string;
@@ -2450,11 +2466,18 @@ export async function submitAttempt({
 export async function fetchAttemptResult({
   attemptId,
   anonId,
+  locale,
 }: {
   attemptId: string;
   anonId: string;
+  locale?: string;
 }): Promise<ResultResponse> {
-  const response = await apiClient.get<ResultResponse>(`/v0.3/attempts/${attemptId}/result`, anonHeader(anonId));
+  const params = new URLSearchParams();
+  if (locale) params.set("locale", locale);
+  const response = await apiClient.get<ResultResponse>(
+    `/v0.3/attempts/${attemptId}/result${params.size > 0 ? `?${params.toString()}` : ""}`,
+    anonHeader(anonId)
+  );
 
   return assertApiOk(response, "Failed to load result.");
 }
@@ -2479,13 +2502,18 @@ export async function getAttemptReport({
   attemptId,
   anonId,
   refresh,
+  locale,
 }: {
   attemptId: string;
   anonId?: string;
   refresh?: boolean;
+  locale?: string;
 }): Promise<ReportResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
-  const suffix = refresh ? "?refresh=1" : "";
+  const params = new URLSearchParams();
+  if (refresh) params.set("refresh", "1");
+  if (locale) params.set("locale", locale);
+  const suffix = params.size > 0 ? `?${params.toString()}` : "";
   const response = await apiClient.get<ReportResponse>(
     `/v0.3/attempts/${attemptId}/report${suffix}`,
     anonHeader(resolvedAnonId)
@@ -2498,24 +2526,30 @@ export async function fetchAttemptReport({
   attemptId,
   anonId,
   refresh,
+  locale,
 }: {
   attemptId: string;
   anonId?: string;
   refresh?: boolean;
+  locale?: string;
 }): Promise<ReportResponse> {
-  return getAttemptReport({ attemptId, anonId, refresh });
+  return getAttemptReport({ attemptId, anonId, refresh, locale });
 }
 
 export async function fetchAttemptReportAccess({
   attemptId,
   anonId,
+  locale,
 }: {
   attemptId: string;
   anonId?: string;
+  locale?: string;
 }): Promise<AttemptReportAccessResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
+  const params = new URLSearchParams();
+  if (locale) params.set("locale", locale);
   const response = await apiClient.get<AttemptReportAccessResponse>(
-    `/v0.3/attempts/${attemptId}/report-access`,
+    `/v0.3/attempts/${attemptId}/report-access${params.size > 0 ? `?${params.toString()}` : ""}`,
     anonHeader(resolvedAnonId)
   );
 
@@ -2652,11 +2686,13 @@ export async function getOrderStatus({
   anonId,
   includePaymentAction,
   paymentRecoveryToken,
+  locale,
 }: {
   orderNo: string;
   anonId?: string;
   includePaymentAction?: boolean;
   paymentRecoveryToken?: string;
+  locale?: string;
 }): Promise<OrderStatusResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const params = new URLSearchParams();
@@ -2666,6 +2702,9 @@ export async function getOrderStatus({
   const normalizedPaymentRecoveryToken = normalizeOptionalString(paymentRecoveryToken) ?? undefined;
   if (normalizedPaymentRecoveryToken) {
     params.set("payment_recovery_token", normalizedPaymentRecoveryToken);
+  }
+  if (locale) {
+    params.set("locale", locale);
   }
   const path = `/v0.3/orders/${orderNo}${params.size > 0 ? `?${params.toString()}` : ""}`;
   const response = await apiClient.get<OrderStatusResponse>(
@@ -2719,11 +2758,13 @@ export async function getMyAttempts({
   page,
   pageSize,
   anonId,
+  locale,
 }: {
   scaleCode?: string;
   page?: number;
   pageSize?: number;
   anonId?: string;
+  locale?: string;
 } = {}): Promise<MeAttemptsResponse> {
   const query = new URLSearchParams();
   const resolvedScaleCode = scaleCode ? (buildRequestScaleCodeCandidates(scaleCode)[0] ?? scaleCode) : undefined;
@@ -2732,6 +2773,7 @@ export async function getMyAttempts({
   if (typeof pageSize === "number" && Number.isFinite(pageSize) && pageSize > 0) {
     query.set("page_size", String(pageSize));
   }
+  if (locale) query.set("locale", locale);
 
   const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.get<MeAttemptsResponse>(
@@ -3032,14 +3074,20 @@ export async function mutatePrivateMbtiRelationshipJourney({
 export async function lookupOrder({
   orderNo,
   email,
+  locale,
 }: {
   orderNo: string;
   email: string;
+  locale?: string;
 }): Promise<OrderLookupResponse> {
-  const response = await apiClient.post<OrderLookupResponse>("/v0.3/orders/lookup", {
-    order_no: orderNo,
-    email,
-  });
+  const response = await apiClient.post<OrderLookupResponse>(
+    "/v0.3/orders/lookup",
+    {
+      order_no: orderNo,
+      email,
+    },
+    locale ? { locale } : undefined
+  );
 
   return assertApiOk(response, "Unable to find that order.");
 }

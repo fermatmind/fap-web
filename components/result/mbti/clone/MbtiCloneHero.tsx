@@ -7,6 +7,7 @@ import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
 
 type MbtiCloneHeroProps = {
+  badge?: string;
   eyebrow: string;
   profileIdentity: ProfileIdentity;
   summary?: string;
@@ -20,6 +21,7 @@ function formatNameLine(profileIdentity: ProfileIdentity) {
 }
 
 export function MbtiCloneHero({
+  badge,
   eyebrow,
   profileIdentity,
   summary,
@@ -32,6 +34,11 @@ export function MbtiCloneHero({
   return (
     <section id={getMbtiDesktopAnchorId("hero")} data-testid="mbti-hero" className={styles.hero}>
       <div className={styles.heroCopy}>
+        {badge ? (
+          <p data-testid="mbti-hero-form-summary" className={styles.heroEyebrow}>
+            {badge}
+          </p>
+        ) : null}
         <p className={styles.heroEyebrow}>{eyebrow}</p>
         <h1 className={styles.heroCodePrimary}>{profileIdentity.code}</h1>
         {nameLine ? (

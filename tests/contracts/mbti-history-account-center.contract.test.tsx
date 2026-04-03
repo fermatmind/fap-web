@@ -63,6 +63,14 @@ describe("MBTI history account-center contract", () => {
           scale_code: "MBTI",
           submitted_at: "2026-03-12T09:30:00Z",
           type_code: "INTJ-A",
+          mbti_form_v1: {
+            form_code: "mbti_144",
+            label: "144-question full version",
+            short_label: "144 questions",
+            question_count: 144,
+            estimated_minutes: 15,
+            scale_code: "MBTI",
+          },
           access_summary: createAccessSummary(),
         },
         {
@@ -70,6 +78,14 @@ describe("MBTI history account-center contract", () => {
           scale_code: "MBTI",
           submitted_at: "2026-03-10T09:30:00Z",
           type_code: "ENFP-T",
+          mbti_form_v1: {
+            form_code: "mbti_93",
+            label: "93-question standard version",
+            short_label: "93 questions",
+            question_count: 93,
+            estimated_minutes: 10,
+            scale_code: "MBTI",
+          },
           access_summary: createAccessSummary({
             access_state: "locked",
             report_state: "ready",
@@ -113,10 +129,12 @@ describe("MBTI history account-center contract", () => {
 
     expect(screen.getByTestId("mbti-history-continue-cta")).toHaveAttribute("href", "/en/result/attempt-history-1");
     expect(screen.getByTestId("mbti-history-continue-cta")).toHaveTextContent("Continue latest full result");
-    expect(screen.getByTestId("mbti-history-latest-status")).toHaveTextContent("Latest entry · INTJ-A: Full report unlocked · PDF ready");
+    expect(screen.getByTestId("mbti-history-latest-status")).toHaveTextContent("Latest entry · INTJ-A · MBTI · 144 questions: Full report unlocked · PDF ready");
+    expect(screen.getByTestId("mbti-history-latest-form")).toHaveTextContent("MBTI · 144 questions");
     expect(screen.getByTestId("mbti-history-list-copy")).toHaveTextContent("Saved result entries");
     expect(screen.getByTestId("mbti-history-open-attempt-history-1")).toHaveAttribute("href", "/en/result/attempt-history-1");
     expect(screen.getByTestId("mbti-history-open-attempt-history-1")).toHaveTextContent("Open full result");
+    expect(screen.getByTestId("mbti-history-form-attempt-history-2")).toHaveTextContent("MBTI · 93 questions");
     expect(screen.getByTestId("mbti-history-pdf-attempt-history-1")).toHaveAttribute(
       "href",
       "/api/v0.3/attempts/attempt-history-1/report.pdf"
@@ -140,6 +158,14 @@ describe("MBTI history account-center contract", () => {
           scale_code: "MBTI",
           submitted_at: "2026-03-12T09:30:00Z",
           type_code: "ENFP-T",
+          mbti_form_v1: {
+            form_code: "mbti_93",
+            label: "93-question standard version",
+            short_label: "93 questions",
+            question_count: 93,
+            estimated_minutes: 10,
+            scale_code: "MBTI",
+          },
           access_summary: createAccessSummary({
             attempt_id: "attempt-history-2",
             access_state: "locked",

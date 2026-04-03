@@ -40,11 +40,14 @@ import {
   resolveMbtiAdaptiveContinueReasonLabel,
   resolveMbtiAdaptiveNextBestActionLabel,
 } from "@/lib/mbti/adaptiveSelection";
+import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
 
 type Row = {
   attemptId: string;
   submittedAt: string;
   typeCode: string;
+  formSummaryLabel: string | null;
+  formCode: string | null;
   accessView: AttemptReportAccessView | null;
 };
 
@@ -175,8 +178,6 @@ function resolveRowSurface(row: Row, locale: "en" | "zh", copy: HistorySurfaceCo
     && accessView.reportState === "ready"
     && !isPreview
   );
-  const isReadyEntry = Boolean(canEnterPage && !isFull && !isPreview);
-
   if (!accessView) {
     return {
       primaryDisabled: true,
@@ -391,6 +392,11 @@ function resolveMbtiRow(item: MeAttemptItem, locale: "en" | "zh"): Row | null {
     attemptId,
     submittedAt: String(item.submitted_at ?? ""),
     typeCode: String(item.type_code ?? "").trim() || "MBTI",
+    formSummaryLabel: buildMbtiFormDisplayLabel(normalizeMbtiFormSummary(item.mbti_form_v1), {
+      short: true,
+      includeScaleCode: true,
+    }),
+    formCode: normalizeMbtiFormSummary(item.mbti_form_v1)?.formCode ?? null,
     accessView: normalizeRowAccessView(item, locale),
   };
 }
@@ -458,6 +464,7 @@ export default function MbtiHistoryClient() {
           scaleCode: "MBTI",
           page,
           pageSize: 10,
+          locale,
         });
         const items = Array.isArray(history.items) ? history.items : [];
         const filteredRows = items
@@ -487,7 +494,7 @@ export default function MbtiHistoryClient() {
     return () => {
       active = false;
     };
-  }, [isZh, page]);
+  }, [isZh, locale, page]);
 
   useEffect(() => {
     if (!continuity || carryoverImpressionTrackedRef.current) {
@@ -604,6 +611,7 @@ export default function MbtiHistoryClient() {
                   ctaKey: "history_continue_latest",
                   ctaRank: 1,
                   attempt_id: latestRow?.attemptId,
+                  form_code: latestRow?.formCode ?? undefined,
                   ...continuityTelemetry,
                   ...journeyTelemetry,
                   ...adaptiveTelemetry,
@@ -630,6 +638,12 @@ export default function MbtiHistoryClient() {
             <span className="font-medium text-slate-950">
               {surfaceCopy.latestEntryLabel} · {latestRow.typeCode}
             </span>
+            {latestRow.formSummaryLabel ? (
+              <>
+                <span>{isZh ? " · " : " · "}</span>
+                <span data-testid="mbti-history-latest-form">{latestRow.formSummaryLabel}</span>
+              </>
+            ) : null}
             <span>{isZh ? "：" : ": "}</span>
             <span>{latestRowSurface.statusLabel}</span>
             <span>{isZh ? " · " : " · "}</span>
@@ -687,6 +701,11 @@ export default function MbtiHistoryClient() {
                 {copy.completedLabel}
               </p>
               <CardTitle className="text-base text-slate-950">{row.typeCode}</CardTitle>
+              {row.formSummaryLabel ? (
+                <p className="m-0 text-xs text-slate-500" data-testid={`mbti-history-form-${row.attemptId}`}>
+                  {row.formSummaryLabel}
+                </p>
+              ) : null}
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-slate-700">
               <p className="m-0">
@@ -734,6 +753,7 @@ export default function MbtiHistoryClient() {
                         continueTarget: "history_saved_result",
                         ctaKey: "history_saved_result",
                         attempt_id: row.attemptId,
+                        form_code: row.formCode ?? undefined,
                         ...continuityTelemetry,
                         ...journeyTelemetry,
                         ...adaptiveTelemetry,

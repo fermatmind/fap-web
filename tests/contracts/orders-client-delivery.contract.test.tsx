@@ -133,6 +133,14 @@ describe("OrdersClient delivery contract", () => {
       order_no: "ord_delivery_1",
       status: "paid",
       attempt_id: "attempt-paid-1",
+      mbti_form_v1: {
+        form_code: "mbti_93",
+        label: "93-question standard version",
+        short_label: "93 questions",
+        question_count: 93,
+        estimated_minutes: 10,
+        scale_code: "MBTI",
+      },
       exact_result_entry: createAccessProjection({
         attempt_id: "attempt-paid-1",
       }),
@@ -156,6 +164,7 @@ describe("OrdersClient delivery contract", () => {
     });
 
     expect(hoisted.routerReplace).toHaveBeenCalledWith("/en/result/attempt-paid-1");
+    expect(screen.getByTestId("order-form-summary")).toHaveTextContent("MBTI · 93-question standard version");
     expect(screen.getByTestId("order-delivery-contact-email")).toHaveTextContent("Purchase email on file");
     expect(screen.getByTestId("order-delivery-last-email-sent")).toHaveTextContent("2026");
     expect(screen.getByTestId("order-recover-with-email-link")).toHaveAttribute(
@@ -497,6 +506,7 @@ describe("OrdersClient delivery contract", () => {
     expect(hoisted.getOrderStatus).toHaveBeenCalledWith({
       orderNo: "ord_pending_pay_1",
       includePaymentAction: true,
+      locale: "en",
       paymentRecoveryToken: "recovery_pending_pay_1",
     });
     expect(screen.getByText("Provider: alipay")).toBeInTheDocument();
@@ -554,6 +564,7 @@ describe("OrdersClient delivery contract", () => {
     expect(hoisted.getOrderStatus).toHaveBeenNthCalledWith(1, {
       orderNo: "ord_pending_pay_2",
       includePaymentAction: true,
+      locale: "en",
       paymentRecoveryToken: "recovery_pending_pay_2",
     });
 
@@ -567,6 +578,7 @@ describe("OrdersClient delivery contract", () => {
         return (
           payload?.orderNo === "ord_pending_pay_2"
           && payload?.includePaymentAction === true
+          && payload?.locale === "en"
           && payload?.paymentRecoveryToken === "recovery_pending_pay_2"
         );
       })

@@ -29,6 +29,7 @@ import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
 import { captureError } from "@/lib/observability/sentry";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
@@ -259,6 +260,14 @@ export function OrderLookupForm({
     return resolvedOrderNo ? localizedPath(`/orders/${resolvedOrderNo}`, locale) : null;
   }, [locale, lookupHit?.order_no]);
   const lookupDelivery = lookupHit?.delivery ?? null;
+  const lookupFormSummary = useMemo(
+    () => normalizeMbtiFormSummary(lookupHit?.mbti_form_v1 ?? null),
+    [lookupHit?.mbti_form_v1]
+  );
+  const lookupFormLabel = useMemo(
+    () => buildMbtiFormDisplayLabel(lookupFormSummary, { includeScaleCode: true }),
+    [lookupFormSummary]
+  );
   const lookupReportHref = lookupAccessView?.actions.pageHref ?? null;
   const lookupHistoryHref = lookupAccessView?.actions.historyHref ?? null;
   const lookupPdfHref = lookupAccessView?.actions.pdfHref ?? null;
@@ -400,7 +409,7 @@ export function OrderLookupForm({
       }
 
       if (action === "lookup") {
-        const response = await lookupOrder({ orderNo: trimmedOrderNo, email: trimmedEmail });
+        const response = await lookupOrder({ orderNo: trimmedOrderNo, email: trimmedEmail, locale });
         const resolvedOrderNo = response.order_no || trimmedOrderNo;
 
         if (!resolvedOrderNo) {
@@ -598,6 +607,11 @@ export function OrderLookupForm({
                       ? "已匹配到订单，可直接继续"
                       : "Order matched. Continue from here."}
                 </p>
+                {lookupFormLabel ? (
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" data-testid="order-lookup-form-summary">
+                    {lookupFormLabel}
+                  </p>
+                ) : null}
                 <p className="m-0 text-xs leading-6 text-slate-600">
                   {lookupStatus === "pending"
                     ? locale === "zh"

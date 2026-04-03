@@ -167,6 +167,7 @@ describe("OrderLookupForm recovery contract", () => {
       expect(hoisted.lookupOrder).toHaveBeenCalledWith({
         orderNo: "ord_lookup_001",
         email: "buyer@example.com",
+        locale: "en",
       });
     });
 
@@ -258,6 +259,42 @@ describe("OrderLookupForm recovery contract", () => {
       expect(screen.getByTestId("order-lookup-hit-actions")).toBeInTheDocument();
     });
     expect(hoisted.routerPush).not.toHaveBeenCalled();
+  });
+
+  it("shows backend-owned MBTI form summary on a successful lookup hit", async () => {
+    hoisted.lookupOrder.mockResolvedValueOnce({
+      ok: true,
+      order_no: "ord_lookup_001",
+      status: "paid",
+      attempt_id: "attempt-lookup-hub-1",
+      mbti_form_v1: {
+        form_code: "mbti_144",
+        label: "144-question full version",
+        short_label: "144 questions",
+        question_count: 144,
+        estimated_minutes: 15,
+        scale_code: "MBTI",
+      },
+      delivery: {
+        can_view_report: true,
+        report_url: "/result/attempt-lookup-hub-1",
+        can_download_pdf: true,
+        report_pdf_url: "/api/v0.3/attempts/attempt-lookup-hub-1/report.pdf",
+        can_resend: true,
+        can_request_claim_email: true,
+        contact_email_present: true,
+        last_delivery_email_sent_at: null,
+      },
+    });
+
+    renderForm();
+    await fillLookupForm();
+
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-lookup-form-summary")).toHaveTextContent("MBTI · 144-question full version");
+    });
   });
 
   it("prefers mbti_access_hub_v1 on lookup hits and keeps recovery actions on the lookup surface", async () => {

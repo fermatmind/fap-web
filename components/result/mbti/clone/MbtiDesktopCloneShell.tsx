@@ -422,6 +422,7 @@ export function MbtiDesktopCloneShell({
     <div data-testid="mbti-desktop-clone-shell" className={styles.cloneRoot} data-base-code={slots.meta.baseCode}>
       <div className={styles.shell}>
         <MbtiCloneHero
+          badge={headline.badge}
           eyebrow={slots.hero.eyebrow}
           profileIdentity={slots.hero.profileIdentity}
           illustrationSlotId={slots.hero.asset.slotId}
