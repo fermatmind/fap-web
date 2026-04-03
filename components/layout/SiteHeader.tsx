@@ -31,8 +31,14 @@ export function SiteHeader() {
   const homeHeader = getHomePageContent(locale).header;
   const withLocale = (path: string) => localizedPath(path, locale);
   const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
+  const isTestsHubRoute =
+    pathname === "/zh/tests" ||
+    pathname === "/en/tests" ||
+    pathname.startsWith("/zh/tests/category/") ||
+    pathname.startsWith("/en/tests/category/");
+  const isBrandSurfaceRoute = isHomeRoute || isTestsHubRoute;
   const shouldRenderCompletedMetric =
-    !isHomeRoute && typeof LIVE_COMPLETED_COUNT === "number" && LIVE_COMPLETED_COUNT > 0;
+    !isBrandSurfaceRoute && typeof LIVE_COMPLETED_COUNT === "number" && LIVE_COMPLETED_COUNT > 0;
   const targetLocale = locale === "zh" ? "en" : "zh";
   const localeBasePath = toggleLocalePath(pathname, targetLocale);
   const localeQuery = searchParams.toString();
@@ -122,7 +128,7 @@ export function SiteHeader() {
   return (
     <header
       className={
-        isHomeRoute
+        isBrandSurfaceRoute
           ? "sticky top-0 z-50 border-b border-white/10 bg-[#0d1520]/80 text-white shadow-[0_20px_60px_rgba(6,10,18,0.28)] backdrop-blur-xl"
           : "sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md"
       }
@@ -162,7 +168,7 @@ export function SiteHeader() {
                 const triggerId = `header-trigger-${item.key}`;
                 const isOpen = activeDropdown === item.key;
                 const items = dropdownMenuMap[item.key] ?? [];
-                const shouldUseHomeTestsPanel = isHomeRoute && item.key === "tests";
+                const shouldUseHomeTestsPanel = isBrandSurfaceRoute && item.key === "tests";
 
                 if (isHomeRoute && item.key !== "tests") {
                   return (
