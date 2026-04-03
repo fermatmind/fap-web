@@ -1,6 +1,6 @@
-import type { MbtiFormSummaryV1Raw } from "@/lib/api/v0_3";
+import type { MbtiFormSummaryV1Raw, PublicFormSummaryV1Raw } from "@/lib/api/v0_3";
 
-export type MbtiFormSummaryV1 = {
+export type PublicFormSummaryV1 = {
   formCode: string;
   label: string;
   shortLabel: string;
@@ -9,11 +9,13 @@ export type MbtiFormSummaryV1 = {
   scaleCode: string;
 };
 
+export type MbtiFormSummaryV1 = PublicFormSummaryV1;
+
 function normalizeText(value: unknown): string {
   return String(value ?? "").trim();
 }
 
-export function normalizeMbtiFormSummary(raw: MbtiFormSummaryV1Raw | null | undefined): MbtiFormSummaryV1 | null {
+export function normalizePublicFormSummary(raw: PublicFormSummaryV1Raw | null | undefined): PublicFormSummaryV1 | null {
   if (!raw || typeof raw !== "object") {
     return null;
   }
@@ -39,9 +41,17 @@ export function normalizeMbtiFormSummary(raw: MbtiFormSummaryV1Raw | null | unde
   };
 }
 
-export function buildMbtiFormDisplayLabel(
-  summary: MbtiFormSummaryV1 | null | undefined,
-  options?: { short?: boolean; includeScaleCode?: boolean }
+function resolveScaleDisplayName(scaleCode: string, locale?: "en" | "zh"): string {
+  if (scaleCode === "BIG5_OCEAN") {
+    return locale === "zh" ? "大五人格" : "Big Five";
+  }
+
+  return scaleCode || "MBTI";
+}
+
+export function buildPublicFormDisplayLabel(
+  summary: PublicFormSummaryV1 | null | undefined,
+  options?: { short?: boolean; includeScaleCode?: boolean; locale?: "en" | "zh" }
 ): string | null {
   if (!summary) {
     return null;
@@ -52,5 +62,20 @@ export function buildMbtiFormDisplayLabel(
     return null;
   }
 
-  return options?.includeScaleCode === false ? label : `${summary.scaleCode} · ${label}`;
+  if (options?.includeScaleCode === false) {
+    return label;
+  }
+
+  return `${resolveScaleDisplayName(summary.scaleCode, options?.locale)} · ${label}`;
+}
+
+export function normalizeMbtiFormSummary(raw: MbtiFormSummaryV1Raw | null | undefined): MbtiFormSummaryV1 | null {
+  return normalizePublicFormSummary(raw);
+}
+
+export function buildMbtiFormDisplayLabel(
+  summary: MbtiFormSummaryV1 | null | undefined,
+  options?: { short?: boolean; includeScaleCode?: boolean; locale?: "en" | "zh" }
+): string | null {
+  return buildPublicFormDisplayLabel(summary, options);
 }

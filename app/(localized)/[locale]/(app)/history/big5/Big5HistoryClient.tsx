@@ -35,6 +35,8 @@ type ShareState = "idle" | "loading" | "copied" | "failed";
 type Row = {
   attemptId: string;
   submittedAt: string;
+  formCode: string | null;
+  formSummaryLabel: string | null;
   topDomains: string[];
   topFacets: Big5HistoryFacetSummary[];
   qualitySummary: Big5HistoryQualitySummary | null;
@@ -190,6 +192,8 @@ export default function Big5HistoryClient() {
         const normalizedRows = normalizeBig5HistoryRows(history.items, locale).map((row) => ({
           attemptId: row.attemptId,
           submittedAt: row.submittedAt,
+          formCode: row.formCode,
+          formSummaryLabel: row.formSummaryLabel,
           topDomains: row.topDomains,
           topFacets: row.topFacets,
           qualitySummary: row.qualitySummary,
@@ -353,6 +357,14 @@ export default function Big5HistoryClient() {
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-2">
+                    {row.formSummaryLabel ? (
+                      <span
+                        data-testid={`big5-history-row-form-${row.attemptId}`}
+                        className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700"
+                      >
+                        {row.formSummaryLabel}
+                      </span>
+                    ) : null}
                     {qualityBadge ? (
                       <span
                         data-testid={`big5-history-row-quality-${row.attemptId}`}

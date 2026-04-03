@@ -65,6 +65,14 @@ describe("BIG5 secondary surfaces contract", () => {
         {
           attempt_id: "attempt-latest",
           submitted_at: "2026-03-25T00:00:00Z",
+          big5_form_v1: {
+            form_code: "big5_120",
+            label: "120-question full version",
+            short_label: "120 questions",
+            question_count: 120,
+            estimated_minutes: 14,
+            scale_code: "BIG5_OCEAN",
+          },
           result_summary: {
             domains_mean: {
               O: 88,
@@ -110,6 +118,14 @@ describe("BIG5 secondary surfaces contract", () => {
         {
           attempt_id: "attempt-previous",
           submitted_at: "2026-03-18T00:00:00Z",
+          big5_form_v1: {
+            form_code: "big5_90",
+            label: "90-question standard version",
+            short_label: "90 questions",
+            question_count: 90,
+            estimated_minutes: 11,
+            scale_code: "BIG5_OCEAN",
+          },
           result_summary: {
             domains_mean: {
               O: 72,
@@ -249,6 +265,9 @@ describe("BIG5 secondary surfaces contract", () => {
     expect(await screen.findByText("Lead domains: Openness, Agreeableness, Conscientiousness")).toBeInTheDocument();
     const latestRow = screen.getByTestId("big5-history-row-attempt-latest");
     expect(within(latestRow).getByText("Formal result ready")).toBeInTheDocument();
+    expect(within(latestRow).getByTestId("big5-history-row-form-attempt-latest")).toHaveTextContent(
+      "Big Five · 120-question full version"
+    );
     expect(within(latestRow).getByTestId("big5-history-row-quality-attempt-latest")).toHaveTextContent("Quality · A");
     expect(within(latestRow).getByTestId("big5-history-row-norms-attempt-latest")).toHaveTextContent("Norms · CALIBRATED · 2026Q1");
     expect(within(latestRow).getByTestId("big5-history-row-facet-attempt-latest-O5")).toHaveTextContent("O5 Intellect · P88");
@@ -262,6 +281,9 @@ describe("BIG5 secondary surfaces contract", () => {
 
     const lockedRow = screen.getByTestId("big5-history-row-attempt-previous");
     expect(within(lockedRow).getByText("Preview access only")).toBeInTheDocument();
+    expect(within(lockedRow).getByTestId("big5-history-row-form-attempt-previous")).toHaveTextContent(
+      "Big Five · 90-question standard version"
+    );
     expect(within(lockedRow).getByRole("link", { name: "Open result preview" })).toHaveAttribute("href", "/en/result/attempt-previous");
     expect(within(lockedRow).getByRole("button", { name: "Unlock to download PDF" })).toBeDisabled();
     expect(within(lockedRow).getByTestId("big5-history-row-offer-attempt-previous")).toHaveTextContent("BIG5 Full Report");

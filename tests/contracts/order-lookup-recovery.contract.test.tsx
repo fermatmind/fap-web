@@ -301,6 +301,43 @@ describe("OrderLookupForm recovery contract", () => {
     });
   });
 
+  it("shows backend-owned Big Five form summary on a successful lookup hit", async () => {
+    hoisted.lookupOrder.mockResolvedValueOnce({
+      ok: true,
+      order_no: "ord_lookup_big5_001",
+      status: "paid",
+      attempt_id: "attempt-lookup-big5-1",
+      big5_form_v1: {
+        form_code: "big5_120",
+        label: "120-question full version",
+        short_label: "120 questions",
+        question_count: 120,
+        estimated_minutes: 14,
+        scale_code: "BIG5_OCEAN",
+      },
+      delivery: {
+        can_view_report: true,
+        report_url: "/result/attempt-lookup-big5-1",
+        can_download_pdf: false,
+        can_resend: false,
+        can_request_claim_email: false,
+        contact_email_present: true,
+      },
+    });
+
+    renderForm();
+    await fillLookupForm({
+      orderNo: "ord_lookup_big5_001",
+      email: "buyer@example.com",
+    });
+
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-lookup-form-summary")).toHaveTextContent("Big Five · 120-question full version");
+    });
+  });
+
   it("falls back to report-access mbti_form_v1 when the lookup payload omits the top-level summary", async () => {
     hoisted.fetchAttemptReportAccess.mockResolvedValueOnce(
       createAccessProjection({
@@ -338,6 +375,52 @@ describe("OrderLookupForm recovery contract", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("order-lookup-form-summary")).toHaveTextContent("MBTI · 93-question standard version");
+    });
+  });
+
+  it("falls back to report-access big5_form_v1 when the lookup payload omits the top-level summary", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValueOnce(
+      createAccessProjection({
+        attempt_id: "attempt-lookup-big5-fallback-1",
+        big5_form_v1: {
+          form_code: "big5_90",
+          label: "90-question standard version",
+          short_label: "90 questions",
+          question_count: 90,
+          estimated_minutes: 11,
+          scale_code: "BIG5_OCEAN",
+        },
+        actions: {
+          page_href: "/result/attempt-lookup-big5-fallback-1",
+          pdf_href: "/api/v0.3/attempts/attempt-lookup-big5-fallback-1/report.pdf",
+          history_href: "/history/big5",
+          lookup_href: "/orders/lookup",
+        },
+      })
+    );
+    hoisted.lookupOrder.mockResolvedValueOnce({
+      ok: true,
+      order_no: "ord_lookup_big5_fallback_001",
+      status: "paid",
+      attempt_id: "attempt-lookup-big5-fallback-1",
+      delivery: {
+        can_view_report: true,
+        report_url: "/result/attempt-lookup-big5-fallback-1",
+        can_download_pdf: false,
+        can_request_claim_email: false,
+      },
+    });
+
+    renderForm();
+    await fillLookupForm({
+      orderNo: "ord_lookup_big5_fallback_001",
+      email: "fallback@example.com",
+    });
+
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-lookup-form-summary")).toHaveTextContent("Big Five · 90-question standard version");
     });
   });
 

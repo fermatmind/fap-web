@@ -216,10 +216,65 @@ describe("OrdersClient delivery contract", () => {
         slug: "orders-client",
         visual_kind: "order_resend_delivery",
         interaction: "click",
+        form_code: "mbti_93",
         locale: "en",
       })
     );
     expect(screen.getByText("Delivery email sent again.")).toBeInTheDocument();
+  });
+
+  it("renders backend-owned Big Five form summary and keeps analytics form_code aligned", async () => {
+    hoisted.getOrderStatus.mockResolvedValue({
+      ok: true,
+      order_no: "ord_big5_delivery_1",
+      status: "paid",
+      attempt_id: "attempt-big5-paid-1",
+      big5_form_v1: {
+        form_code: "big5_90",
+        label: "90-question standard version",
+        short_label: "90 questions",
+        question_count: 90,
+        estimated_minutes: 11,
+        scale_code: "BIG5_OCEAN",
+      },
+      exact_result_entry: createAccessProjection({
+        attempt_id: "attempt-big5-paid-1",
+        actions: {
+          page_href: "/result/attempt-big5-paid-1",
+          pdf_href: "/api/v0.3/attempts/attempt-big5-paid-1/report.pdf",
+          history_href: "/history/big5",
+          lookup_href: "/orders/lookup",
+        },
+      }),
+      delivery: {
+        contact_email_present: true,
+        can_request_claim_email: true,
+        can_view_report: true,
+        report_url: "/result/attempt-big5-paid-1",
+        can_download_pdf: true,
+        report_pdf_url: "/api/v0.3/attempts/attempt-big5-paid-1/report.pdf",
+        can_resend: true,
+      },
+    });
+
+    render(<OrdersClient orderNo="ord_big5_delivery_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-form-summary")).toHaveTextContent("Big Five · 90-question standard version");
+    });
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "payment_confirmed",
+      expect.objectContaining({
+        form_code: "big5_90",
+      })
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "purchase_success",
+      expect.objectContaining({
+        form_code: "big5_90",
+      })
+    );
   });
 
   it("auto-enters a paid report from the unified access projection even when result_url is absent", async () => {

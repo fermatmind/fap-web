@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { buildBig5FormDisplayLabel, normalizeBig5FormSummary } from "@/lib/big5/formSummary";
 import {
   buildMbtiResultProjectionViewModel,
   hasMbtiResultProjection,
@@ -1286,6 +1287,10 @@ export function RichResultReport({
   const gate = resolveRichResultGate(reportData, scaleCode, previewView);
   const headline = resolveHeadline(scaleCode, reportData);
   const big5Projection = scaleCode === "BIG5_OCEAN" ? resolveBig5Projection(reportData) : null;
+  const big5FormSummary = scaleCode === "BIG5_OCEAN" ? normalizeBig5FormSummary(reportData.big5_form_v1 ?? null) : null;
+  const big5FormLabel = scaleCode === "BIG5_OCEAN"
+    ? buildBig5FormDisplayLabel(big5FormSummary, { includeScaleCode: true, locale })
+    : null;
   const tags = resolveVisibleTags(reportData);
   const projectionViewModel = scaleCode === "MBTI" ? buildMbtiResultProjectionViewModel(reportData) : null;
   const dimensions =
@@ -1358,6 +1363,7 @@ export function RichResultReport({
         tags={tags}
         dimensions={dimensions}
         projection={big5Projection}
+        formSummaryLabel={big5FormLabel}
         normsStatus={normalizeText(reportData.norms?.status, asRecord(reportData.report?.norms)?.status)}
         qualityLevel={normalizeText(reportData.quality?.level, asRecord(reportData.report?.quality)?.level)}
         visibleSections={visibleSections}

@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n/locales";
 import type { MeAttemptItem, MeAttemptsResponse, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
+import { buildBig5FormDisplayLabel, normalizeBig5FormSummary } from "@/lib/big5/formSummary";
 
 const BIG5_DOMAIN_ORDER = ["O", "C", "E", "A", "N"] as const;
 
@@ -77,6 +78,8 @@ export type Big5HistoryShareSummary = {
 export type Big5HistoryRowSummary = {
   attemptId: string;
   submittedAt: string;
+  formCode: string | null;
+  formSummaryLabel: string | null;
   topDomains: string[];
   topFacets: Big5HistoryFacetSummary[];
   qualitySummary: Big5HistoryQualitySummary | null;
@@ -202,6 +205,7 @@ export function normalizeBig5HistoryRows(
     const normsSummary = asRecord(item.norms_summary);
     const offerSummary = asRecord(item.offer_summary);
     const shareSummary = asRecord(item.share_summary);
+    const formSummary = normalizeBig5FormSummary(item.big5_form_v1 ?? null);
 
     const topDomains = BIG5_DOMAIN_ORDER.map((code) => ({
       code,
@@ -233,6 +237,8 @@ export function normalizeBig5HistoryRows(
     return {
       attemptId,
       submittedAt,
+      formCode: formSummary?.formCode ?? null,
+      formSummaryLabel: buildBig5FormDisplayLabel(formSummary, { includeScaleCode: true, locale }),
       topDomains,
       topFacets,
       qualitySummary: normalizeText(qualitySummary?.level)
