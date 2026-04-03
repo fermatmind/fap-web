@@ -277,6 +277,53 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5", locale: "en" | "zh"): FA
   ];
 }
 
+function getDetailPageLensCopy(scaleCode: string | undefined, locale: "en" | "zh") {
+  switch (String(scaleCode ?? "").trim().toUpperCase()) {
+    case "MBTI":
+    case "BIG5_OCEAN":
+      return {
+        eyebrow: locale === "zh" ? "人格与风格测评" : "Personality & Style Assessment",
+        whenToUseBody:
+          locale === "zh"
+            ? "适用于希望理解人格偏好、稳定特质、协作风格与成长方向的场景。"
+            : "Use this when you want clearer personality, trait, and collaboration signals that can support growth and decision-making.",
+      };
+    case "EQ_60":
+      return {
+        eyebrow: locale === "zh" ? "关系与协作测评" : "Relationship & Collaboration Assessment",
+        whenToUseBody:
+          locale === "zh"
+            ? "适用于希望理解沟通方式、共情能力、反馈模式与协作摩擦的场景。"
+            : "Use this when the main question is communication style, empathy, feedback patterns, and collaboration friction.",
+      };
+    case "SDS_20":
+    case "CLINICAL_COMBO_68":
+      return {
+        eyebrow: locale === "zh" ? "情绪与状态测评" : "Emotion & State Assessment",
+        whenToUseBody:
+          locale === "zh"
+            ? "适用于先确认近期情绪基线、压力信号与是否需要进一步支持的场景。若你处于急性危机状态，请优先联系专业帮助。"
+            : "Use this when you need a clearer read on recent emotional baseline, pressure signals, and whether further support is needed. For acute crisis situations, seek professional help first.",
+      };
+    case "IQ_RAVEN":
+      return {
+        eyebrow: locale === "zh" ? "认知与能力测评" : "Cognition & Ability Assessment",
+        whenToUseBody:
+          locale === "zh"
+            ? "适用于希望了解推理、抽象识别与能力线索，并把它们放回学习和职业判断中的场景。"
+            : "Use this when you want clearer reasoning and ability signals to support learning and career decisions.",
+      };
+    default:
+      return {
+        eyebrow: locale === "zh" ? "结构化测评" : "Structured Assessment",
+        whenToUseBody:
+          locale === "zh"
+            ? "适用于希望通过结构化问卷获得更清晰判断参考的场景。"
+            : "Use this when you want a more structured reference for interpretation and decision-making.",
+      };
+  }
+}
+
 function alternatesForSlug(slug: string) {
   const en = `/en/tests/${slug}`;
   const zh = `/zh/tests/${slug}`;
@@ -482,7 +529,9 @@ export default async function TestLandingPage({
     card_seed: test.card_seed,
     card_density: test.card_density,
   });
-  const landingRating = typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : 5;
+  const landingRating =
+    typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : null;
+  const detailLensCopy = getDetailPageLensCopy(test.scale_code, locale);
   const heroTitleDisplay = formatCardTitleForUi({
     title: localizedTestTitle,
     slug: test.slug,
@@ -520,7 +569,7 @@ export default async function TestLandingPage({
         <div className="space-y-6">
           <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "人格测评" : "Personality Assessment"}
+              {detailLensCopy.eyebrow}
             </p>
             <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
               <div className="space-y-3">
@@ -534,13 +583,15 @@ export default async function TestLandingPage({
                     heroTitleDisplay.line1
                   )}
                 </h1>
-                <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
-                  {Array.from({ length: 5 }, (_, idx) => (
-                    <span key={`landing-star-${idx}`} className={idx < landingRating ? "opacity-100" : "opacity-35"}>
-                      ★
-                    </span>
-                  ))}
-                </div>
+                {landingRating !== null ? (
+                  <div className="flex items-center gap-1 text-[var(--fm-gold)]" aria-hidden>
+                    {Array.from({ length: 5 }, (_, idx) => (
+                      <span key={`landing-star-${idx}`} className={idx < landingRating ? "opacity-100" : "opacity-35"}>
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
                 <p className="max-w-3xl text-[var(--fm-text-muted)]">{landingCopy || test.description}</p>
                 <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--fm-text-muted)]">
                   <span>
@@ -642,9 +693,7 @@ export default async function TestLandingPage({
             className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
           >
             <p className="m-0 text-sm text-slate-600">
-              {locale === "zh"
-                ? "适用于希望了解人格倾向、沟通偏好和自我成长路径的场景。若你处于急性危机状态，请优先联系专业帮助。"
-                : "Use this when you want clarity on your personality tendencies, communication patterns, and growth direction. For acute crisis situations, seek professional help first."}
+              {detailLensCopy.whenToUseBody}
             </p>
           </CiteableSection>
 

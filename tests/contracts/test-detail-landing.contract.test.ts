@@ -26,6 +26,22 @@ describe("test detail landing contract", () => {
     expect(source).toContain('scaleCode={test.scale_code}');
   });
 
+  it("derives detail-page lens copy from scale code instead of hardcoding personality framing", () => {
+    const source = fs.readFileSync(PAGE_PATH, "utf8");
+
+    expect(source).toContain("getDetailPageLensCopy(test.scale_code, locale)");
+    expect(source).toContain("detailLensCopy.eyebrow");
+    expect(source).toContain("detailLensCopy.whenToUseBody");
+  });
+
+  it("does not fake a five-star trust signal when highlight_rating is absent", () => {
+    const source = fs.readFileSync(PAGE_PATH, "utf8");
+
+    expect(source).toContain('typeof test.highlight_rating === "number"');
+    expect(source).toContain('landingRating !== null ? (');
+    expect(source).not.toContain(" : 5;");
+  });
+
   it("wires big5 dual-entry CTAs to the same slug with form-aware query", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
