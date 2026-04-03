@@ -429,13 +429,13 @@ export default function OrdersClient({
           normalizeQueryValue(response.exact_result_entry?.attempt_id ?? null)
           ?? normalizeQueryValue(response.attempt_id ?? null)
           ?? extractMbtiAccessHubAttemptId(response.mbti_access_hub_v1 ?? null);
+        let responseFormSummaryRaw = response.mbti_form_v1 ?? response.exact_result_entry?.mbti_form_v1 ?? null;
         let nextAccessView = normalizeAttemptReportAccess(response.exact_result_entry ?? null, locale);
         if (!nextAccessView && responseAttemptId) {
           try {
-            nextAccessView = normalizeAttemptReportAccess(
-              await fetchAttemptReportAccess({ attemptId: responseAttemptId, locale }),
-              locale
-            );
+            const accessResponse = await fetchAttemptReportAccess({ attemptId: responseAttemptId, locale });
+            nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
+            responseFormSummaryRaw = responseFormSummaryRaw ?? accessResponse.mbti_form_v1 ?? null;
           } catch (accessCause) {
             setAccessView(null);
             captureError(accessCause, {
@@ -458,7 +458,7 @@ export default function OrdersClient({
         setAccessView(nextAccessView);
         setDelivery((response.delivery ?? null) as DeliveryPayload | null);
         setAccessHubRaw(response.mbti_access_hub_v1 ?? null);
-        setMbtiFormSummaryRaw(response.mbti_form_v1 ?? null);
+        setMbtiFormSummaryRaw(responseFormSummaryRaw);
         if (!queryPayType && responsePayType && responsePayValue) {
           setPayType(responsePayType);
           setPayValue(responsePayValue);
@@ -482,7 +482,7 @@ export default function OrdersClient({
             trackEvent("payment_confirmed", {
               orderNoMasked: maskedOrder,
               attemptIdMasked: maskedAttempt,
-              form_code: normalizeMbtiFormSummary(response.mbti_form_v1)?.formCode ?? undefined,
+              form_code: normalizeMbtiFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
               locale,
               ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
@@ -491,7 +491,7 @@ export default function OrdersClient({
               attemptIdMasked: maskedAttempt,
               ...(Number.isFinite(amount) ? { amount } : {}),
               ...(currency ? { currency } : {}),
-              form_code: normalizeMbtiFormSummary(response.mbti_form_v1)?.formCode ?? undefined,
+              form_code: normalizeMbtiFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
               locale,
               ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
@@ -540,7 +540,7 @@ export default function OrdersClient({
             trackEvent("payment_failed", {
               orderNoMasked: `${orderNo.slice(0, 6)}...${orderNo.slice(-4)}`,
               reason: response.message ?? fallbackMessage,
-              form_code: normalizeMbtiFormSummary(response.mbti_form_v1)?.formCode ?? undefined,
+              form_code: normalizeMbtiFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
               locale,
               ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });

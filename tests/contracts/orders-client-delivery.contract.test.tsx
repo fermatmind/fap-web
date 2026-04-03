@@ -257,6 +257,54 @@ describe("OrdersClient delivery contract", () => {
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
   });
 
+  it("falls back to report-access mbti_form_v1 when the order payload omits the top-level summary", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValueOnce(
+      createAccessProjection({
+        attempt_id: "attempt-paid-fallback-1",
+        mbti_form_v1: {
+          form_code: "mbti_144",
+          label: "144-question full version",
+          short_label: "144 questions",
+          question_count: 144,
+          estimated_minutes: 15,
+          scale_code: "MBTI",
+        },
+        actions: {
+          page_href: "/result/attempt-paid-fallback-1",
+          pdf_href: "/api/v0.3/attempts/attempt-paid-fallback-1/report.pdf",
+          history_href: "/history/mbti",
+          lookup_href: "/orders/lookup",
+        },
+      })
+    );
+    const fallbackResponse = {
+      ok: true,
+      order_no: "ord_delivery_fallback_1",
+      status: "paid",
+      attempt_id: "attempt-paid-fallback-1",
+      delivery: {
+        can_view_report: true,
+        report_url: "/result/attempt-paid-fallback-1",
+        can_download_pdf: false,
+        can_resend: false,
+        can_request_claim_email: false,
+        contact_email_present: true,
+      },
+    };
+    hoisted.getOrderStatus.mockResolvedValueOnce(fallbackResponse);
+    hoisted.getOrderStatus.mockResolvedValueOnce(fallbackResponse);
+
+    render(<OrdersClient orderNo="ord_delivery_fallback_1" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-form-summary")).toHaveTextContent("MBTI · 144-question full version");
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
+      attemptId: "attempt-paid-fallback-1",
+      locale: "en",
+    });
+  });
+
   it("rescues legacy /orders return paths back into canonical wait flow when pending order context is available", async () => {
     window.localStorage.setItem(
       "fm_pending_order_v1",

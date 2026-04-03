@@ -295,6 +295,50 @@ describe("OrderLookupForm recovery contract", () => {
     await waitFor(() => {
       expect(screen.getByTestId("order-lookup-form-summary")).toHaveTextContent("MBTI · 144-question full version");
     });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
+      attemptId: "attempt-lookup-hub-1",
+      locale: "en",
+    });
+  });
+
+  it("falls back to report-access mbti_form_v1 when the lookup payload omits the top-level summary", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValueOnce(
+      createAccessProjection({
+        attempt_id: "attempt-lookup-hub-fallback-1",
+        mbti_form_v1: {
+          form_code: "mbti_93",
+          label: "93-question standard version",
+          short_label: "93 questions",
+          question_count: 93,
+          estimated_minutes: 10,
+          scale_code: "MBTI",
+        },
+      })
+    );
+    hoisted.lookupOrder.mockResolvedValueOnce({
+      ok: true,
+      order_no: "ord_lookup_fallback_001",
+      status: "paid",
+      attempt_id: "attempt-lookup-hub-fallback-1",
+      delivery: {
+        can_view_report: true,
+        report_url: "/result/attempt-lookup-hub-fallback-1",
+        can_download_pdf: false,
+        can_request_claim_email: false,
+      },
+    });
+
+    renderForm();
+    await fillLookupForm({
+      orderNo: "ord_lookup_fallback_001",
+      email: "fallback@example.com",
+    });
+
+    fireEvent.click(screen.getByTestId("order-lookup-submit"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("order-lookup-form-summary")).toHaveTextContent("MBTI · 93-question standard version");
+    });
   });
 
   it("prefers mbti_access_hub_v1 on lookup hits and keeps recovery actions on the lookup surface", async () => {

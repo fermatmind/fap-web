@@ -20,6 +20,7 @@ import {
   fetchAttemptReportAccess,
   lookupOrder,
   requestClaimReportEmail,
+  type AttemptReportAccessResponse,
   type AttributionUtm,
   type EmailCaptureResponse,
   type OrderLookupResponse,
@@ -169,6 +170,7 @@ export function OrderLookupForm({
   const [captureState, setCaptureState] = useState<EmailCaptureResponse | null>(null);
   const [lookupHit, setLookupHit] = useState<OrderLookupResponse | null>(null);
   const [lookupAccessView, setLookupAccessView] = useState<AttemptReportAccessView | null>(null);
+  const [lookupAccessFormSummaryRaw, setLookupAccessFormSummaryRaw] = useState<AttemptReportAccessResponse["mbti_form_v1"] | null>(null);
   const [lookupQrCodeDataUrl, setLookupQrCodeDataUrl] = useState<string | null>(null);
   const [lookupQrCodeError, setLookupQrCodeError] = useState(false);
   const [lastSubmitAt, setLastSubmitAt] = useState(0);
@@ -229,8 +231,10 @@ export function OrderLookupForm({
     [lookupHit?.mbti_access_hub_v1, locale]
   );
   const lookupAttemptId = useMemo(
-    () => extractMbtiAccessHubAttemptId(lookupHit?.mbti_access_hub_v1 ?? null),
-    [lookupHit?.mbti_access_hub_v1]
+    () =>
+      extractMbtiAccessHubAttemptId(lookupHit?.mbti_access_hub_v1 ?? null)
+      ?? normalizeQueryValue(typeof lookupHit?.attempt_id === "string" ? lookupHit.attempt_id : null),
+    [lookupHit?.attempt_id, lookupHit?.mbti_access_hub_v1]
   );
   const lookupStatus = useMemo(
     () => normalizeLookupStatus(typeof lookupHit?.status === "string" ? lookupHit.status : null),
@@ -261,8 +265,8 @@ export function OrderLookupForm({
   }, [locale, lookupHit?.order_no]);
   const lookupDelivery = lookupHit?.delivery ?? null;
   const lookupFormSummary = useMemo(
-    () => normalizeMbtiFormSummary(lookupHit?.mbti_form_v1 ?? null),
-    [lookupHit?.mbti_form_v1]
+    () => normalizeMbtiFormSummary(lookupHit?.mbti_form_v1 ?? lookupAccessFormSummaryRaw ?? null),
+    [lookupAccessFormSummaryRaw, lookupHit?.mbti_form_v1]
   );
   const lookupFormLabel = useMemo(
     () => buildMbtiFormDisplayLabel(lookupFormSummary, { includeScaleCode: true }),
@@ -284,19 +288,22 @@ export function OrderLookupForm({
 
     if (!lookupAttemptId) {
       setLookupAccessView(null);
+      setLookupAccessFormSummaryRaw(null);
       return () => {
         active = false;
       };
     }
 
-    void fetchAttemptReportAccess({ attemptId: lookupAttemptId })
+    void fetchAttemptReportAccess({ attemptId: lookupAttemptId, locale })
       .then((response) => {
         if (!active) return;
         setLookupAccessView(normalizeAttemptReportAccess(response, locale));
+        setLookupAccessFormSummaryRaw(response.mbti_form_v1 ?? null);
       })
       .catch((cause) => {
         if (!active) return;
         setLookupAccessView(null);
+        setLookupAccessFormSummaryRaw(null);
         captureError(cause, {
           route: "/orders/lookup",
           attemptId: lookupAttemptId,
@@ -394,6 +401,7 @@ export function OrderLookupForm({
     if (action === "lookup") {
       setLookupHit(null);
       setLookupAccessView(null);
+      setLookupAccessFormSummaryRaw(null);
     }
     setLastSubmitAt(now);
 
