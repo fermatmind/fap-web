@@ -16,4 +16,23 @@ describe("test detail landing contract", () => {
     expect(source).toContain('findLandingCta(landingSurface, "back_to_tests")');
     expect(source).toContain('data-testid="test-detail-landing-cta"');
   });
+
+  it("wires mbti dual-entry CTAs without forking the landing slug", () => {
+    const source = fs.readFileSync(PAGE_PATH, "utf8");
+
+    expect(source).toContain('buildMbtiTakeHref');
+    expect(source).toContain('getMbtiStartLabel');
+    expect(source).toContain('data-testid={`test-detail-landing-cta-${form.formCode}`}');
+    expect(source).toContain('scaleCode={test.scale_code}');
+  });
+
+  it("wires the take page form query into QuizTakeClient props", () => {
+    const takeSource = fs.readFileSync(
+      path.join(process.cwd(), "app/(localized)/[locale]/tests/[slug]/take/page.tsx"),
+      "utf8"
+    );
+
+    expect(takeSource).toContain('normalizeMbtiFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
+    expect(takeSource).toContain('formCode={mbtiFormCode ?? undefined}');
+  });
 });

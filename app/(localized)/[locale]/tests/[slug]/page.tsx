@@ -25,6 +25,14 @@ import { localizedPath } from "@/lib/i18n/locales";
 import { buildApiUrl } from "@/lib/api-base";
 import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
 import {
+  buildMbtiTakeHref,
+  getMbtiDurationSummary,
+  getMbtiQuestionSummary,
+  getMbtiStartLabel,
+  isMbtiScaleCode,
+  listMbtiFormMetas,
+} from "@/lib/mbti/forms";
+import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
   type SupportedScaleCode,
@@ -273,6 +281,7 @@ export default async function TestLandingPage({
   const testDisabled = !rollout.assessmentEnabled;
   const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
   const startTestHref = landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`);
+  const showsMbtiActions = isMbtiScaleCode(test.scale_code);
   const backToTestsCta = findLandingCta(landingSurface, "back_to_tests");
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
 
@@ -368,9 +377,9 @@ export default async function TestLandingPage({
                 </div>
                 <p className="max-w-3xl text-[var(--fm-text-muted)]">{landingCopy || test.description}</p>
                 <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--fm-text-muted)]">
-                  <span>{test.questions_count} {locale === "zh" ? "题" : "questions"}</span>
+                  <span>{showsMbtiActions ? getMbtiQuestionSummary(locale) : `${test.questions_count} ${locale === "zh" ? "题" : "questions"}`}</span>
                   <span>•</span>
-                  <span>{test.time_minutes} {locale === "zh" ? "分钟" : "minutes"}</span>
+                  <span>{showsMbtiActions ? getMbtiDurationSummary(locale) : `${test.time_minutes} ${locale === "zh" ? "分钟" : "minutes"}`}</span>
                   {test.scale_code ? (
                     <>
                       <span>•</span>
@@ -393,6 +402,18 @@ export default async function TestLandingPage({
                 <span className={buttonVariants({ size: "lg", variant: "secondary" })}>
                   {locale === "zh" ? "维护中" : "Temporarily unavailable"}
                 </span>
+              ) : showsMbtiActions ? (
+                listMbtiFormMetas().map((form) => (
+                  <Link
+                    key={form.formCode}
+                    href={buildMbtiTakeHref(test.slug, locale, form.formCode)}
+                    prefetch
+                    className={buttonVariants({ size: "lg" })}
+                    data-testid={`test-detail-landing-cta-${form.formCode}`}
+                  >
+                    {getMbtiStartLabel(form.formCode, locale)}
+                  </Link>
+                ))
               ) : (
                 <Link href={startTestHref} prefetch className={buttonVariants({ size: "lg" })}>
                   {locale === "zh" ? "开始测试" : "Start test"}
@@ -551,6 +572,7 @@ export default async function TestLandingPage({
             title={localizedTestTitle}
             questions={test.questions_count}
             minutes={test.time_minutes}
+            scaleCode={test.scale_code}
             locale={locale}
           />
         </aside>

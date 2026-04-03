@@ -2254,6 +2254,7 @@ function normalizeShareClickMeta(meta?: ShareClickMeta): ShareClickMeta | undefi
 
 export async function startAttempt({
   scaleCode,
+  formCode,
   anonId,
   region,
   locale,
@@ -2271,6 +2272,7 @@ export async function startAttempt({
   utm,
 }: {
   scaleCode: string;
+  formCode?: string;
   anonId?: string;
   region?: string;
   locale?: string;
@@ -2306,6 +2308,7 @@ export async function startAttempt({
       "/v0.3/attempts/start",
       {
         scale_code: resolvedScaleCode,
+        ...(formCode ? { form_code: formCode } : {}),
         anon_id: resolvedAnonId,
         ...(region ? { region } : {}),
         ...(locale ? { locale } : {}),
@@ -2333,17 +2336,20 @@ export async function startAttempt({
 
 export async function fetchScaleQuestions({
   scaleCode,
+  formCode,
   anonId,
   locale,
   region,
 }: {
   scaleCode: string;
+  formCode?: string;
   anonId?: string;
   locale?: string;
   region?: string;
 }): Promise<QuestionsResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const query = new URLSearchParams();
+  if (formCode) query.set("form_code", formCode);
   if (locale) query.set("locale", locale);
   if (region) query.set("region", region);
 

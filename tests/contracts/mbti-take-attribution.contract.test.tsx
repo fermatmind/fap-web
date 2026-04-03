@@ -229,12 +229,13 @@ function buildQuestionResponse() {
   };
 }
 
-function renderClient() {
+function renderClient(formCode?: string) {
   return render(
     <QuizTakeClient
       slug="mbti-personality-test-16-personality-types"
       testTitle="MBTI"
       scaleCode="MBTI"
+      formCode={formCode}
       estimatedMinutes={8}
       questionCount={1}
     />
@@ -278,8 +279,17 @@ describe("MBTI take attribution contract", () => {
     renderClient();
 
     await waitFor(() => {
+      expect(hoisted.fetchScaleQuestions).toHaveBeenCalledWith({
+        scaleCode: "MBTI",
+        formCode: "mbti_144",
+        anonId: "anon_take_test",
+      });
+    });
+
+    await waitFor(() => {
       expect(hoisted.startAttempt).toHaveBeenCalledWith({
         scaleCode: "MBTI",
+        formCode: "mbti_144",
         anonId: "anon_take_test",
         share_id: "share-123",
         compare_invite_id: "invite-456",
@@ -295,6 +305,26 @@ describe("MBTI take attribution contract", () => {
           content: "hero",
         },
       });
+    });
+  });
+
+  it("uses the explicit mbti_93 form when loading questions and starting the attempt", async () => {
+    renderClient("mbti_93");
+
+    await waitFor(() => {
+      expect(hoisted.fetchScaleQuestions).toHaveBeenCalledWith({
+        scaleCode: "MBTI",
+        formCode: "mbti_93",
+        anonId: "anon_take_test",
+      });
+    });
+
+    await waitFor(() => {
+      expect(hoisted.startAttempt).toHaveBeenCalledWith(expect.objectContaining({
+        scaleCode: "MBTI",
+        formCode: "mbti_93",
+        anonId: "anon_take_test",
+      }));
     });
   });
 
@@ -376,6 +406,7 @@ describe("MBTI take attribution contract", () => {
     });
     expect(hoisted.startAttempt.mock.calls[1]?.[0]).toMatchObject({
       scaleCode: "MBTI",
+      formCode: "mbti_144",
       anonId: "anon_take_test",
       share_id: "share-123",
       compare_invite_id: "invite-456",

@@ -9,6 +9,7 @@ import { queuePendingAnonLinkAttempt } from "@/lib/anon";
 export type QuizState = {
   slug: string;
   anonId: string | null;
+  formCode: string | null;
   currentIndex: number;
   answers: Record<string, string>;
   startedAt: number;
@@ -21,33 +22,80 @@ export type QuizState = {
 export type QuizStore = {
   version: number;
   state: QuizState;
-  init: (slug: string, initialQuestionIds: string[], anonId: string | null) => void;
+  init: (slug: string, initialQuestionIds: string[], anonId: string | null, formCode: string | null) => void;
   setAnswer: (questionId: string, optionId: string) => void;
   next: (total: number) => void;
   prev: () => void;
   jump: (index: number, total: number) => void;
-  setAttemptMeta: (attemptId: string, scaleCode: string) => void;
+  setAttemptMeta: (attemptId: string, scaleCode: string, formCode: string | null) => void;
   markSubmitted: () => void;
   clearAttemptMeta: () => void;
   resetAttempt: () => void;
-  reset: (slug: string, anonId: string | null) => void;
+  reset: (slug: string, anonId: string | null, formCode: string | null) => void;
 };
 
-const QUIZ_VERSION = 3;
+const QUIZ_VERSION = 4;
 
-function buildQuizPersistKey(slug: string, anonId: string | null): string {
+function buildQuizPersistKey(slug: string, anonId: string | null, formCode: string | null): string {
   const normalizedAnonId = (anonId ?? "").trim() || "anon";
-  return `fm_quiz_v3_${slug}_${normalizedAnonId}`;
+  const normalizedFormCode = (formCode ?? "").trim() || "default";
+  return `fm_quiz_v4_${slug}_${normalizedAnonId}_${normalizedFormCode}`;
 }
 
-function buildLegacyQuizKeys(slug: string): string[] {
+function buildLegacyQuizKeys(slug: string, anonId: string | null): string[] {
+  const normalizedAnonId = (anonId ?? "").trim() || "anon";
   return [
+    `fm_quiz_v3_${slug}_${normalizedAnonId}`,
     `fm_quiz_v2_${slug}`,
     `fm_quiz_v1_${slug}`,
   ];
 }
 
-function createQuizStorage(slug: string): StateStorage {
+function extractPersistedQuizState(raw: string): Partial<QuizState> | null {
+  try {
+    let candidate: unknown = JSON.parse(raw);
+
+    for (let depth = 0; depth < 3; depth += 1) {
+      if (!candidate || typeof candidate !== "object") {
+        break;
+      }
+      const node = candidate as { state?: unknown };
+      if (!node.state || typeof node.state !== "object") {
+        break;
+      }
+      candidate = node.state;
+    }
+
+    if (!candidate || typeof candidate !== "object") {
+      return null;
+    }
+
+    return candidate as Partial<QuizState>;
+  } catch {
+    return null;
+  }
+}
+
+function upgradeLegacyQuizEnvelope(raw: string, formCode: string | null): string {
+  const persistedQuizState = extractPersistedQuizState(raw);
+
+  if (!persistedQuizState) {
+    return raw;
+  }
+
+  return JSON.stringify({
+    state: {
+      version: QUIZ_VERSION,
+      state: {
+        ...persistedQuizState,
+        formCode: persistedQuizState.formCode ?? formCode,
+      },
+    },
+    version: QUIZ_VERSION,
+  });
+}
+
+function createQuizStorage(slug: string, anonId: string | null, formCode: string | null): StateStorage {
   return {
     getItem: (name) => {
       if (typeof window === "undefined") return null;
@@ -56,11 +104,12 @@ function createQuizStorage(slug: string): StateStorage {
         const direct = window.localStorage.getItem(name);
         if (direct) return direct;
 
-        for (const legacyKey of buildLegacyQuizKeys(slug)) {
+        for (const legacyKey of buildLegacyQuizKeys(slug, anonId)) {
           const legacyValue = window.localStorage.getItem(legacyKey);
           if (!legacyValue) continue;
-          window.localStorage.setItem(name, legacyValue);
-          return legacyValue;
+          const upgradedValue = upgradeLegacyQuizEnvelope(legacyValue, formCode);
+          window.localStorage.setItem(name, upgradedValue);
+          return upgradedValue;
         }
       } catch {
         return null;
@@ -87,11 +136,12 @@ function createQuizStorage(slug: string): StateStorage {
   };
 }
 
-const createEmptyState = (slug: string, anonId: string | null): QuizState => {
+const createEmptyState = (slug: string, anonId: string | null, formCode: string | null): QuizState => {
   const now = Date.now();
   return {
     slug,
     anonId,
+    formCode,
     currentIndex: 0,
     answers: {},
     startedAt: now,
@@ -115,40 +165,58 @@ const touch = (state: QuizState): QuizState => ({
 export const createQuizStore = ({
   slug,
   anonId,
+  formCode,
 }: {
   slug: string;
   anonId: string | null;
+  formCode: string | null;
 }) =>
   createStore<QuizStore>()(
     persist(
       (set, get) => ({
         version: QUIZ_VERSION,
-        state: createEmptyState(slug, anonId),
-        init: (nextSlug, initialQuestionIds, nextAnonId) => {
+        state: createEmptyState(slug, anonId, formCode),
+        init: (nextSlug, initialQuestionIds, nextAnonId, nextFormCode) => {
           const { state } = get();
+          const canAdoptLegacyMbti144Form =
+            state.slug === nextSlug
+            && state.anonId === nextAnonId
+            && state.formCode === null
+            && nextFormCode === "mbti_144";
 
-          if (state.slug !== nextSlug || state.anonId !== nextAnonId) {
-            set({ state: touch(createEmptyState(nextSlug, nextAnonId)) });
+          if (
+            state.slug !== nextSlug
+            || state.anonId !== nextAnonId
+            || (!canAdoptLegacyMbti144Form && state.formCode !== nextFormCode)
+          ) {
+            set({ state: touch(createEmptyState(nextSlug, nextAnonId, nextFormCode)) });
             return;
           }
 
+          const nextState = canAdoptLegacyMbti144Form
+            ? {
+                ...state,
+                formCode: nextFormCode,
+              }
+            : state;
+
           const allowedIds = new Set(initialQuestionIds);
           const filteredAnswers = Object.fromEntries(
-            Object.entries(state.answers).filter(([questionId]) => allowedIds.has(questionId))
+            Object.entries(nextState.answers).filter(([questionId]) => allowedIds.has(questionId))
           ) as Record<string, string>;
 
           const total = initialQuestionIds.length;
-          const nextIndex = clampIndex(state.currentIndex, total);
+          const nextIndex = clampIndex(nextState.currentIndex, total);
           const answersChanged =
-            Object.keys(filteredAnswers).length !== Object.keys(state.answers).length;
+            Object.keys(filteredAnswers).length !== Object.keys(nextState.answers).length;
 
-          if (answersChanged || nextIndex !== state.currentIndex || state.startedAt === 0) {
+          if (answersChanged || nextIndex !== nextState.currentIndex || nextState.startedAt === 0 || canAdoptLegacyMbti144Form) {
             set({
               state: touch({
-                ...state,
+                ...nextState,
                 answers: filteredAnswers,
                 currentIndex: nextIndex,
-                startedAt: state.startedAt || Date.now(),
+                startedAt: nextState.startedAt || Date.now(),
               }),
             });
           }
@@ -182,7 +250,7 @@ export const createQuizStore = ({
               currentIndex: clampIndex(index, total),
             }),
           })),
-        setAttemptMeta: (attemptId, scaleCode) =>
+        setAttemptMeta: (attemptId, scaleCode, nextFormCode) =>
           set((store) => {
             queuePendingAnonLinkAttempt(attemptId);
             return {
@@ -190,6 +258,7 @@ export const createQuizStore = ({
                 ...store.state,
                 attemptId,
                 scaleCode,
+                formCode: nextFormCode,
                 submittedAt: null,
               }),
             };
@@ -219,15 +288,33 @@ export const createQuizStore = ({
               startedAt: Date.now(),
               attemptId: null,
               scaleCode: null,
+              formCode: store.state.formCode,
               submittedAt: null,
             }),
           })),
-        reset: (nextSlug, nextAnonId) => set({ state: touch(createEmptyState(nextSlug, nextAnonId)) }),
+        reset: (nextSlug, nextAnonId, nextFormCode) => set({
+          state: touch(createEmptyState(nextSlug, nextAnonId, nextFormCode)),
+        }),
       }),
       {
-        name: buildQuizPersistKey(slug, anonId),
+        name: buildQuizPersistKey(slug, anonId, formCode),
         version: QUIZ_VERSION,
-        storage: createJSONStorage(() => createQuizStorage(slug)),
+        storage: createJSONStorage(() => createQuizStorage(slug, anonId, formCode)),
+        migrate: (persistedState) => {
+          const envelope = persistedState as {
+            state?: Partial<QuizState>;
+          } | null;
+          const persistedQuizState = envelope?.state ?? {};
+
+          return {
+            version: QUIZ_VERSION,
+            state: {
+              ...createEmptyState(slug, anonId, formCode),
+              ...persistedQuizState,
+              formCode: persistedQuizState.formCode ?? formCode,
+            },
+          };
+        },
         partialize: (store) => ({
           version: store.version,
           state: {
@@ -237,6 +324,7 @@ export const createQuizStore = ({
             startedAt: store.state.startedAt,
             attemptId: store.state.attemptId,
             scaleCode: store.state.scaleCode,
+            formCode: store.state.formCode,
             anonId: store.state.anonId,
           },
         }),
@@ -251,19 +339,21 @@ const QuizStoreContext = createContext<QuizStoreApi | null>(null);
 export function QuizStoreProvider({
   slug,
   anonId,
+  formCode,
   initialQuestionIds,
   children,
 }: {
   slug: string;
   anonId: string | null;
+  formCode: string | null;
   initialQuestionIds: string[];
   children: ReactNode;
 }) {
-  const store = useMemo(() => createQuizStore({ slug, anonId }), [slug, anonId]);
+  const store = useMemo(() => createQuizStore({ slug, anonId, formCode }), [slug, anonId, formCode]);
 
   useEffect(() => {
-    store.getState().init(slug, initialQuestionIds, anonId);
-  }, [store, slug, initialQuestionIds, anonId]);
+    store.getState().init(slug, initialQuestionIds, anonId, formCode);
+  }, [store, slug, initialQuestionIds, anonId, formCode]);
 
   return <QuizStoreContext.Provider value={store}>{children}</QuizStoreContext.Provider>;
 }

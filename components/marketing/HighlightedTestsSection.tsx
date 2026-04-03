@@ -5,6 +5,14 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
+import {
+  buildMbtiTakeHref,
+  getMbtiQuestionSummary,
+  getMbtiStartLabel,
+  isMbtiSlug,
+  listMbtiFormMetas,
+  resolveMbtiFormMeta,
+} from "@/lib/mbti/forms";
 
 export type HomeHighlightedCard =
   | {
@@ -45,6 +53,7 @@ type PersistedProgress = {
   lastSubmittedAt?: string | null;
   slug?: string;
   questionOrder?: string[];
+  formCode?: string | null;
 };
 
 const SECTION_COPY = {
@@ -192,6 +201,18 @@ function resolveProgressPercent(payload: PersistedProgress, totalQuestions: numb
   return Math.max(0, Math.min(100, Math.round((best / totalQuestions) * 100)));
 }
 
+function resolveCachedProgressQuestionCount(slug: string, payload: PersistedProgress, fallbackQuestionCount: number): number {
+  if (!isMbtiSlug(slug)) {
+    return fallbackQuestionCount;
+  }
+
+  if (!payload.formCode) {
+    return fallbackQuestionCount;
+  }
+
+  return resolveMbtiFormMeta(payload.formCode).questionCount;
+}
+
 function findCachedProgress(slug: string, totalQuestions: number): number | null {
   if (typeof window === "undefined") return null;
 
@@ -207,17 +228,32 @@ function findCachedProgress(slug: string, totalQuestions: number): number | null
     if (state?.slug === slug) entries.push(state);
   }
 
-  const quizPrefix = `fm_quiz_v3_${slug}_`;
+  const quizPrefixes = [
+    `fm_quiz_v4_${slug}_`,
+    `fm_quiz_v3_${slug}_`,
+  ];
+  const quizLegacyKeys = [
+    `fm_quiz_v2_${slug}`,
+    `fm_quiz_v1_${slug}`,
+  ];
   for (let index = 0; index < window.localStorage.length; index += 1) {
     const key = window.localStorage.key(index);
-    if (!key || !key.startsWith(quizPrefix)) continue;
+    if (
+      !key
+      || (!quizPrefixes.some((prefix) => key.startsWith(prefix)) && !quizLegacyKeys.includes(key))
+    ) {
+      continue;
+    }
     const state = parsePersistedEnvelope(window.localStorage.getItem(key));
     if (state) entries.push(state);
   }
 
   for (const entry of entries) {
     if (entry.submittedAt || entry.lastSubmittedAt) continue;
-    const progress = resolveProgressPercent(entry, totalQuestions);
+    const progress = resolveProgressPercent(
+      entry,
+      resolveCachedProgressQuestionCount(slug, entry, totalQuestions)
+    );
     if (progress > 0 && progress < 100) return progress;
   }
 
@@ -360,7 +396,11 @@ export function HighlightedTestsSection({
                   <div className="fm-home-calibration-slot-footer">
                     <div className="fm-home-calibration-slot-footer-meta">
                       <span className="fm-home-calibration-slot-caption">
-                        {locale === "zh" ? `${card.questionsCount} 题` : `${card.questionsCount} questions`}
+                        {isMbtiSlug(card.slug)
+                          ? getMbtiQuestionSummary(locale)
+                          : locale === "zh"
+                            ? `${card.questionsCount} 题`
+                            : `${card.questionsCount} questions`}
                       </span>
                       {status.mode === "cache" ? (
                         <span className="fm-home-calibration-slot-caption fm-home-calibration-slot-caption--cache">
@@ -377,6 +417,18 @@ export function HighlightedTestsSection({
                       >
                         {actionLabel}
                       </button>
+                    ) : isMbtiSlug(card.slug) ? (
+                      <div className="flex flex-wrap justify-end gap-2">
+                        {listMbtiFormMetas().map((form) => (
+                          <Link
+                            key={form.formCode}
+                            href={buildMbtiTakeHref(card.slug, locale, form.formCode)}
+                            className="fm-home-calibration-slot-action"
+                          >
+                            {getMbtiStartLabel(form.formCode, locale)}
+                          </Link>
+                        ))}
+                      </div>
                     ) : (
                       <Link href={withLocale(`/tests/${card.slug}/take`)} className="fm-home-calibration-slot-action">
                         {actionLabel}

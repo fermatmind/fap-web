@@ -7,6 +7,15 @@ import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
+import {
+  buildMbtiTakeHref,
+  getMbtiDurationSummary,
+  getMbtiQuestionSummary,
+  getMbtiStartLabel,
+  isMbtiScaleCode,
+  isMbtiSlug,
+  listMbtiFormMetas,
+} from "@/lib/mbti/forms";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
 type TestCardProps = {
@@ -59,6 +68,7 @@ export function TestCard({
     locale,
     surface: "tests_grid_card",
   });
+  const showsMbtiActions = isMbtiScaleCode(scaleCode) || isMbtiSlug(slug);
 
   return (
     <Card
@@ -67,8 +77,8 @@ export function TestCard({
     >
       <div className="p-[var(--fm-space-5)] pb-0">
         <div className="mb-[var(--fm-space-4)] flex items-center justify-between gap-[var(--fm-gap-xs)]">
-          <Badge>{questions} {dict.common.questions_unit}</Badge>
-          <Badge>{timeMinutes} {dict.common.minutes_unit}</Badge>
+          <Badge>{showsMbtiActions ? getMbtiQuestionSummary(locale) : `${questions} ${dict.common.questions_unit}`}</Badge>
+          <Badge>{showsMbtiActions ? getMbtiDurationSummary(locale) : `${timeMinutes} ${dict.common.minutes_unit}`}</Badge>
         </div>
 
         <DataGlyph
@@ -110,10 +120,20 @@ export function TestCard({
         {isCompact ? <p className="m-0 text-xs text-[var(--fm-text-muted)]">{dict.card.compactLabel}</p> : null}
       </CardContent>
 
-      <CardFooter className="gap-[var(--fm-gap-xs)]">
-        <Link href={localizedPath(`/tests/${slug}/take`, locale)} className={buttonVariants({ size: "sm" })}>
-          {dict.common.start}
-        </Link>
+      <CardFooter className="flex flex-wrap gap-[var(--fm-gap-xs)]">
+        {showsMbtiActions ? listMbtiFormMetas().map((form) => (
+          <Link
+            key={form.formCode}
+            href={buildMbtiTakeHref(slug, locale, form.formCode)}
+            className={buttonVariants({ size: "sm" })}
+          >
+            {getMbtiStartLabel(form.formCode, locale)}
+          </Link>
+        )) : (
+          <Link href={localizedPath(`/tests/${slug}/take`, locale)} className={buttonVariants({ size: "sm" })}>
+            {dict.common.start}
+          </Link>
+        )}
         <Link
           href={localizedPath(`/tests/${slug}`, locale)}
           className={buttonVariants({ size: "sm", variant: "outline" })}

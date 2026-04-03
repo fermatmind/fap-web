@@ -7,6 +7,7 @@ import { buildApiUrl } from "@/lib/api-base";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { isMbtiScaleCode, normalizeMbtiFormCode, resolveMbtiFormMeta } from "@/lib/mbti/forms";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
@@ -35,6 +36,13 @@ function appendQuery(path: string, query: Record<string, string | string[] | und
   }
   const queryString = params.toString();
   return queryString ? `${path}?${queryString}` : path;
+}
+
+function firstQueryValue(value: string | string[] | undefined): string {
+  if (Array.isArray(value)) {
+    return value[0] ?? "";
+  }
+  return value ?? "";
 }
 
 async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promise<Record<string, unknown> | null> {
@@ -108,6 +116,10 @@ export default async function TakePage({
 
   if (!test) return notFound();
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
+  const mbtiFormCode = isMbtiScaleCode(test.scale_code)
+    ? normalizeMbtiFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
+    : null;
+  const mbtiFormMeta = mbtiFormCode ? resolveMbtiFormMeta(mbtiFormCode) : null;
 
   if (!test.scale_code) {
     return (
@@ -158,8 +170,9 @@ export default async function TakePage({
           slug={slug}
           testTitle={localizedTestTitle}
           scaleCode={test.scale_code}
-          estimatedMinutes={test.time_minutes}
-          questionCount={test.questions_count}
+          formCode={mbtiFormCode ?? undefined}
+          estimatedMinutes={mbtiFormMeta?.estimatedMinutes ?? test.time_minutes}
+          questionCount={mbtiFormMeta?.questionCount ?? test.questions_count}
         />
       )}
     </main>
