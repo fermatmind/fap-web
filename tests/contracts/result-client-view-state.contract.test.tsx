@@ -254,6 +254,7 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
+      locale: "en",
     });
     expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
       anonId: "anon_result_test",
@@ -263,6 +264,7 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
+      locale: "en",
     });
     expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
@@ -297,6 +299,7 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
+      locale: "en",
     });
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
@@ -356,10 +359,12 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
       attemptId: "attempt-big5-123",
       anonId: "anon_result_test",
+      locale: "en",
     });
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
       attemptId: "attempt-big5-123",
       anonId: "anon_result_test",
+      locale: "en",
     });
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
@@ -456,10 +461,12 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
+      locale: "en",
     });
     expect(hoisted.fetchAttemptResult).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
+      locale: "en",
     });
     expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:5");
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
@@ -480,6 +487,7 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptResult).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
+      locale: "en",
     });
     expect(screen.getByTestId("dimension-bars")).toHaveTextContent("dimensions:5");
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();

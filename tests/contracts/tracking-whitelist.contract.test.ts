@@ -12,6 +12,7 @@ describe("tracking whitelist contract", () => {
       phase: "matching",
       locked: true,
       variant: "free",
+      form_code: "mbti_93",
       locale: "en",
       answers: "forbidden",
       report_tags: ["forbidden"],
@@ -27,6 +28,7 @@ describe("tracking whitelist contract", () => {
       slug: "big-five-personality-test-ocean-model",
       scale_code: "BIG5_OCEAN",
       visual_kind: "bars_ocean",
+      form_code: "mbti_93",
       locale: "en",
     });
 
@@ -36,6 +38,7 @@ describe("tracking whitelist contract", () => {
       scale_code: "BIG5_OCEAN",
       visual_kind: "bars_ocean",
       interaction: "click",
+      form_code: "mbti_93",
       locale: "en",
     });
 
@@ -53,6 +56,7 @@ describe("tracking whitelist contract", () => {
       phase: "matching",
       locked: true,
       variant: "free",
+      form_code: "mbti_93",
       locale: "en",
     });
   });

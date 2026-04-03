@@ -20,6 +20,7 @@ import {
   fetchAttemptReportAccess,
   lookupOrder,
   requestClaimReportEmail,
+  type AttemptReportAccessResponse,
   type AttributionUtm,
   type EmailCaptureResponse,
   type OrderLookupResponse,
@@ -29,6 +30,7 @@ import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
 import { captureError } from "@/lib/observability/sentry";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
@@ -168,6 +170,7 @@ export function OrderLookupForm({
   const [captureState, setCaptureState] = useState<EmailCaptureResponse | null>(null);
   const [lookupHit, setLookupHit] = useState<OrderLookupResponse | null>(null);
   const [lookupAccessView, setLookupAccessView] = useState<AttemptReportAccessView | null>(null);
+  const [lookupAccessFormSummaryRaw, setLookupAccessFormSummaryRaw] = useState<AttemptReportAccessResponse["mbti_form_v1"] | null>(null);
   const [lookupQrCodeDataUrl, setLookupQrCodeDataUrl] = useState<string | null>(null);
   const [lookupQrCodeError, setLookupQrCodeError] = useState(false);
   const [lastSubmitAt, setLastSubmitAt] = useState(0);
@@ -228,8 +231,10 @@ export function OrderLookupForm({
     [lookupHit?.mbti_access_hub_v1, locale]
   );
   const lookupAttemptId = useMemo(
-    () => extractMbtiAccessHubAttemptId(lookupHit?.mbti_access_hub_v1 ?? null),
-    [lookupHit?.mbti_access_hub_v1]
+    () =>
+      extractMbtiAccessHubAttemptId(lookupHit?.mbti_access_hub_v1 ?? null)
+      ?? normalizeQueryValue(typeof lookupHit?.attempt_id === "string" ? lookupHit.attempt_id : null),
+    [lookupHit?.attempt_id, lookupHit?.mbti_access_hub_v1]
   );
   const lookupStatus = useMemo(
     () => normalizeLookupStatus(typeof lookupHit?.status === "string" ? lookupHit.status : null),
@@ -259,6 +264,14 @@ export function OrderLookupForm({
     return resolvedOrderNo ? localizedPath(`/orders/${resolvedOrderNo}`, locale) : null;
   }, [locale, lookupHit?.order_no]);
   const lookupDelivery = lookupHit?.delivery ?? null;
+  const lookupFormSummary = useMemo(
+    () => normalizeMbtiFormSummary(lookupHit?.mbti_form_v1 ?? lookupAccessFormSummaryRaw ?? null),
+    [lookupAccessFormSummaryRaw, lookupHit?.mbti_form_v1]
+  );
+  const lookupFormLabel = useMemo(
+    () => buildMbtiFormDisplayLabel(lookupFormSummary, { includeScaleCode: true }),
+    [lookupFormSummary]
+  );
   const lookupReportHref = lookupAccessView?.actions.pageHref ?? null;
   const lookupHistoryHref = lookupAccessView?.actions.historyHref ?? null;
   const lookupPdfHref = lookupAccessView?.actions.pdfHref ?? null;
@@ -275,19 +288,22 @@ export function OrderLookupForm({
 
     if (!lookupAttemptId) {
       setLookupAccessView(null);
+      setLookupAccessFormSummaryRaw(null);
       return () => {
         active = false;
       };
     }
 
-    void fetchAttemptReportAccess({ attemptId: lookupAttemptId })
+    void fetchAttemptReportAccess({ attemptId: lookupAttemptId, locale })
       .then((response) => {
         if (!active) return;
         setLookupAccessView(normalizeAttemptReportAccess(response, locale));
+        setLookupAccessFormSummaryRaw(response.mbti_form_v1 ?? null);
       })
       .catch((cause) => {
         if (!active) return;
         setLookupAccessView(null);
+        setLookupAccessFormSummaryRaw(null);
         captureError(cause, {
           route: "/orders/lookup",
           attemptId: lookupAttemptId,
@@ -385,6 +401,7 @@ export function OrderLookupForm({
     if (action === "lookup") {
       setLookupHit(null);
       setLookupAccessView(null);
+      setLookupAccessFormSummaryRaw(null);
     }
     setLastSubmitAt(now);
 
@@ -400,7 +417,7 @@ export function OrderLookupForm({
       }
 
       if (action === "lookup") {
-        const response = await lookupOrder({ orderNo: trimmedOrderNo, email: trimmedEmail });
+        const response = await lookupOrder({ orderNo: trimmedOrderNo, email: trimmedEmail, locale });
         const resolvedOrderNo = response.order_no || trimmedOrderNo;
 
         if (!resolvedOrderNo) {
@@ -598,6 +615,11 @@ export function OrderLookupForm({
                       ? "已匹配到订单，可直接继续"
                       : "Order matched. Continue from here."}
                 </p>
+                {lookupFormLabel ? (
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" data-testid="order-lookup-form-summary">
+                    {lookupFormLabel}
+                  </p>
+                ) : null}
                 <p className="m-0 text-xs leading-6 text-slate-600">
                   {lookupStatus === "pending"
                     ? locale === "zh"

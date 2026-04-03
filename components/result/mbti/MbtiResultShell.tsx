@@ -37,6 +37,7 @@ import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/l
 import { clearPendingOrder, readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
+import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
 import type { MbtiPreviewViewModel } from "@/lib/mbti/preview";
 import {
   appendMbtiActionJourneyQuery,
@@ -648,6 +649,7 @@ export function MbtiResultShell({
   const isUnlockedPostPurchase = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
   const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
   const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
+  const mbtiFormSummary = normalizeMbtiFormSummary(reportData.mbti_form_v1 ?? null);
   const historyHref = accessProjection?.actions.historyHref ?? accessHub?.links.historyHref ?? localizedPath("/history/mbti", locale);
   const orderLookupHref = accessProjection?.actions.lookupHref ?? accessHub?.links.lookupHref ?? localizedPath("/orders/lookup", locale);
   const orderDetailHref = accessHub?.links.orderHref ?? "";
@@ -696,6 +698,7 @@ export function MbtiResultShell({
     summary: publicSummary || headline.summary,
     rarity: publicRarity || headline.rarity,
   };
+  const formAwareBadge = buildMbtiFormDisplayLabel(mbtiFormSummary, { includeScaleCode: true }) ?? publicHeadline.badge;
   const fullCodeForStorage = useMemo(
     () => normalizeText(publicHeadline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
     [publicHeadline.typeCode, projectionViewModel?.displayType],
@@ -1123,6 +1126,7 @@ export function MbtiResultShell({
       attempt_id: attemptId,
       attemptIdMasked: maskIdentifier(attemptId),
       locked: projectionLocked,
+      form_code: mbtiFormSummary?.formCode,
       ...personalizationTelemetryContext,
     };
 
@@ -1139,7 +1143,7 @@ export function MbtiResultShell({
 
     trackEvent("revisit_result", basePayload);
     window.sessionStorage.setItem(revisitStorageKey, "1");
-  }, [attemptId, isRevisit, personalizationTelemetryContext, projectionLocked]);
+  }, [attemptId, isRevisit, mbtiFormSummary?.formCode, personalizationTelemetryContext, projectionLocked]);
 
   useEffect(() => {
     if (!careerRecommendationHref || !careerNextStepSection || careerBridgeImpressionTrackedRef.current) {
@@ -1220,6 +1224,7 @@ export function MbtiResultShell({
         trackEvent("share_result", {
           attempt_id: attemptId,
           attemptIdMasked: maskIdentifier(attemptId),
+          form_code: mbtiFormSummary?.formCode,
           ...personalizationTelemetryContext,
           ctaKey: "share_result",
           ctaRank: shareCtaRank,
@@ -1234,6 +1239,7 @@ export function MbtiResultShell({
         trackEvent("share_result", {
           attempt_id: attemptId,
           attemptIdMasked: maskIdentifier(attemptId),
+          form_code: mbtiFormSummary?.formCode,
           ...personalizationTelemetryContext,
           ctaKey: "share_result",
           ctaRank: shareCtaRank,
@@ -1281,6 +1287,7 @@ export function MbtiResultShell({
           ?? (typeof fullRawOffer?.price_cents === "number"
             ? `${fullRawOffer.currency ?? ""} ${fullRawOffer.price_cents}`
             : ""),
+        form_code: mbtiFormSummary?.formCode,
         ...personalizationTelemetryContext,
         ctaKey: "unlock_full_report",
         ctaRank: unlockCtaRank,
@@ -1338,6 +1345,7 @@ export function MbtiResultShell({
         attemptIdMasked: maskIdentifier(attemptId),
         orderNoMasked: maskIdentifier(pendingOrderNo),
         sku,
+        form_code: mbtiFormSummary?.formCode,
         ...personalizationTelemetryContext,
         ctaKey: "unlock_full_report",
         ctaRank: unlockCtaRank,
@@ -1610,7 +1618,7 @@ export function MbtiResultShell({
     >
       <MbtiDesktopCloneShell
         locale={locale}
-        headline={publicHeadline}
+        headline={{ ...publicHeadline, badge: formAwareBadge }}
         tags={publicTags}
         dimensions={dimensions}
         highlights={highlights}

@@ -423,7 +423,7 @@ export default function ResultClient({
     };
 
     const loadFallbackResult = async () => {
-      const response = await runWithAuthRetry(() => fetchAttemptResult({ attemptId, anonId }));
+      const response = await runWithAuthRetry(() => fetchAttemptResult({ attemptId, anonId, locale }));
       if (!active) {
         return { ready: false };
       }
@@ -513,7 +513,7 @@ export default function ResultClient({
       setError(null);
 
       try {
-        const accessResponse = await runWithAuthRetry(() => fetchAttemptReportAccess({ attemptId, anonId }));
+        const accessResponse = await runWithAuthRetry(() => fetchAttemptReportAccess({ attemptId, anonId, locale }));
         if (!active) return;
 
         const nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
@@ -557,7 +557,7 @@ export default function ResultClient({
           return;
         }
 
-        const reportResponse = await runWithAuthRetry(() => fetchAttemptReport({ attemptId, anonId }));
+        const reportResponse = await runWithAuthRetry(() => fetchAttemptReport({ attemptId, anonId, locale }));
         if (!active) return;
 
         setReportData(reportResponse);

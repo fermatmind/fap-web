@@ -33,6 +33,14 @@ function createLockedProjectionFixture(): ReportResponse {
   const reportData = applyMbtiPhase2Fixture(
     structuredClone(reportReadyMbtiProjectionFixture) as ReportResponse
   );
+  reportData.mbti_form_v1 = {
+    form_code: "mbti_93",
+    label: "93题标准版",
+    short_label: "93题",
+    question_count: 93,
+    estimated_minutes: 10,
+    scale_code: "MBTI",
+  };
   reportData.mbti_preview_v1 = {
     mode: "none",
     modules: [],
@@ -78,6 +86,14 @@ function createUnlockedFixture(): ReportResponse {
   reportData.locked = false;
   reportData.variant = "full";
   reportData.access_level = "paid";
+  reportData.mbti_form_v1 = {
+    form_code: "mbti_144",
+    label: "144题完整版",
+    short_label: "144题",
+    question_count: 144,
+    estimated_minutes: 15,
+    scale_code: "MBTI",
+  };
   reportData.modules_allowed = ["core_full", "career", "relationships"];
   reportData.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-unlocked-123", "ord_post_purchase_001");
   return reportData;
@@ -96,6 +112,7 @@ describe("MBTI shell UI contract", () => {
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-hero-form-summary")).toHaveTextContent("MBTI · 93题标准版");
     expect(getPrimaryByTestId("mbti-hero")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
@@ -143,6 +160,7 @@ describe("MBTI shell UI contract", () => {
       "href",
       "/zh/history/mbti"
     );
+    expect(screen.getByTestId("mbti-hero-form-summary")).toHaveTextContent("MBTI · 144题完整版");
   });
 
   it("keeps the clone shell as the only MBTI renderer across viewport buckets", () => {
