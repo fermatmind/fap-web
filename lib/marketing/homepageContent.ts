@@ -108,8 +108,6 @@ type HomeLocaleContent = {
     groups: Array<{ title: string; links: HomeLinkItem[] }>;
   };
   footer: {
-    introLabel: string;
-    introBody: string;
     groups: HomeFooterGroup[];
     supportEmailLabel: string;
     tailnote: string;
@@ -130,69 +128,69 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     hero: {
       eyebrow: "识微，见远。",
       brand: "FermatMind / 费马测试",
-      title: "更清晰地理解自己，把学习、职业与协作判断落到下一步。",
-      body: "通过结构化测评与情境化解释，把模糊感受变成可讨论、可行动的认知参考。",
+      title: "更清晰地理解自己，让学习、职业与协作判断直接进入下一步。",
+      body: "通过结构化测评与结果解释，把模糊感受整理成下一步判断参考。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",
       secondaryHref: "#home-quick-start",
       trustRail: ["免费开始", "约 15 分钟", "匿名可用", "结果支持判断，不定义一个人"],
       visualEyebrow: "结果预览",
-      visualTitle: "先选问题，再进入一张真正像产品结果的界面。",
-      visualSummary: "用更少的入口，把结果的结构、方向和下一步放到同一个前门里。",
+      visualTitle: "从一个问题进入同一张结果面。",
+      visualSummary: "入口、结构和下一步，在一张成熟的测评产品界面里连成一体。",
       visualPoints: ["特质结构", "方向线索", "状态解释"],
     },
     quickStart: {
       kicker: "Quick Start",
-      title: "先回答一个问题，再进入合适的测评。",
-      body: "先选你现在最想解决的那个问题，再进入更合适的测评入口。",
+      title: "从你现在的问题直接开始。",
+      body: "五个高意图入口，直接进入对应测评。",
       items: [
         {
           title: "我适合什么职业方向？",
-          description: "从职业兴趣、角色偏好与方向判断开始，先把探索范围收窄。",
+          description: "先缩小方向，再看更值得继续探索的路径。",
           href: "/tests/category/career",
-          label: "进入职业方向入口",
+          label: "立即开始",
           hints: ["霍兰德", "Big Five 90Q", "MBTI 93Q"],
         },
         {
           title: "我的人格结构是什么？",
-          description: "先看人格框架和稳定特质，再决定更适合哪一种版本。",
+          description: "先看偏好与稳定特质，再决定读哪一版结果。",
           href: "/tests/category/personality",
-          label: "进入人格结构入口",
+          label: "立即开始",
           hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
         },
         {
           title: "我现在的情绪或状态如何？",
-          description: "先确认近期基线，再判断是否需要更完整的解释或支持。",
+          description: "先确认近期基线，再决定是否继续深入。",
           href: "/tests/depression-screening-test-standard-edition/take",
-          label: "进入状态入口",
+          label: "立即开始",
           hints: ["SDS-20", "抑郁焦虑", "状态基线"],
         },
         {
           title: "我的认知能力与优势在哪里？",
-          description: "从能力信号与任务负载准备度切入，辅助学习与职业判断。",
+          description: "把能力线索放回学习与职业判断里看。",
           href: "/tests/iq-test-intelligence-quotient-assessment/take",
-          label: "进入能力入口",
+          label: "立即开始",
           hints: ["IQ 测评", "推理准备度", "能力线索"],
         },
         {
           title: "我在人际、协作与关系中是什么风格？",
-          description: "把沟通、反馈、共情与协作模式放回现实场景里理解。",
+          description: "从沟通、反馈与协作方式进入。",
           href: "/tests/eq-test-emotional-intelligence-assessment/take",
-          label: "进入协作入口",
+          label: "立即开始",
           hints: ["EQ", "沟通风格", "关系判断"],
         },
       ],
     },
     families: {
       kicker: "Featured Paths",
-      title: "从人格、职业、状态到能力，找到你的起点。",
-      body: "按问题开始，也可以直接进入更适合自己的测评家族。",
+      title: "按家族浏览，找到更接近的问题域。",
+      body: "当你知道方向、还没锁定具体测评时，从这里进入。",
       items: [
         {
           title: "人格与风格",
-          description: "理解偏好、稳定倾向与表达方式，适合作为很多判断的底层坐标。",
-          exploreLabel: "查看此类全部测评",
+          description: "偏好、稳定倾向与表达方式。",
+          exploreLabel: "浏览此类",
           exploreHref: "/tests/category/personality",
           links: [
             { title: "MBTI 性格测试", href: "/tests/mbti-personality-test-16-personality-types", description: "93Q / 144Q 双版本" },
@@ -202,8 +200,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "职业与方向",
-          description: "把自我理解转成方向判断，帮助你处理专业选择、角色匹配与长期路径。",
-          exploreLabel: "查看此类全部测评",
+          description: "把自我理解转成专业、岗位与长期路径判断。",
+          exploreLabel: "浏览此类",
           exploreHref: "/tests/category/career",
           links: [
             { title: "职业兴趣测试", href: "/career/tests/riasec" },
@@ -213,8 +211,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "情绪与状态",
-          description: "先识别近期状态与压力信号，再决定要不要继续做更完整的支持性测评。",
-          exploreLabel: "查看此类全部测评",
+          description: "先看近期状态，再决定是否继续深入。",
+          exploreLabel: "浏览此类",
           exploreHref: "/tests",
           links: [
             { title: "抑郁筛查", href: "/tests/depression-screening-test-standard-edition/take" },
@@ -224,8 +222,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "认知与能力",
-          description: "用于理解推理、抽象识别与能力线索，适合和学习或职业选择一起看。",
-          exploreLabel: "查看此类全部测评",
+          description: "推理、抽象与能力线索。",
+          exploreLabel: "浏览此类",
           exploreHref: "/tests",
           links: [
             { title: "IQ 测评", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
@@ -235,8 +233,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "关系与协作",
-          description: "帮助你理解沟通方式、反馈偏好与合作摩擦，更适合放回具体关系里解读。",
-          exploreLabel: "查看此类全部测评",
+          description: "沟通、反馈与合作模式。",
+          exploreLabel: "浏览此类",
           exploreHref: "/tests",
           links: [
             { title: "EQ 测评", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
@@ -249,7 +247,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     results: {
       kicker: "Results Preview",
       title: "结果不是终点，它把判断往前推一步。",
-      body: "先看结果的长相，再决定你要把它用在哪个判断里。",
+      body: "先看结果会把什么带回来。",
       previews: [
         {
           eyebrow: "特质结构图预览",
@@ -282,7 +280,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     trust: {
       kicker: "Trust & Boundaries",
       title: "值得信任的部分，说清楚；边界，也说清楚。",
-      body: "开始之前，先把方法依据、结果边界、隐私方式和使用场景说清楚。",
+      body: "方法、边界、隐私和使用场景，都公开说明。",
       items: [
         {
           title: "方法依据",
@@ -351,7 +349,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     finalCta: {
       title: "从一个问题开始。",
-      body: "如果你现在只做一个动作，就先进入测评入口，找到最适合当下问题的版本。",
+      body: "先进入测评入口，再选最适合当下问题的版本。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",
@@ -394,8 +392,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       ],
     },
     footer: {
-      introLabel: "继续浏览",
-      introBody: "热门测评、分类、资源和支持入口都放在这里，方便你继续往下走。",
       groups: [
         {
           title: "热门测评",
@@ -403,7 +399,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
             { label: "MBTI 性格测试", href: "/tests/mbti-personality-test-16-personality-types" },
             { label: "大五人格测试", href: "/tests/big-five-personality-test-ocean-model" },
             { label: "抑郁筛查", href: "/tests/depression-screening-test-standard-edition" },
-            { label: "EQ 测评", href: "/tests/eq-test-emotional-intelligence-assessment" },
           ],
         },
         {
@@ -412,13 +407,11 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
             { label: "全部测试", href: "/tests" },
             { label: "人格与风格", href: "/tests/category/personality" },
             { label: "职业与方向", href: "/tests/category/career" },
-            { label: "职业测试", href: "/career/tests" },
           ],
         },
         {
           title: "资源",
           links: [
-            { label: "全部文章", href: "/articles" },
             { label: "MBTI 入门", href: "/articles/mbti-basics" },
             { label: "职业发展指南", href: "/career/guides" },
             { label: "帮助中心", href: "/help" },
@@ -429,7 +422,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { label: "隐私政策", href: "/privacy" },
             { label: "服务条款", href: "/terms" },
-            { label: "退款说明", href: "/refund" },
             { label: "联系支持", href: "/help/contact" },
           ],
         },
@@ -451,69 +443,69 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     hero: {
       eyebrow: "See the Micro. Lead the Macro.",
       brand: "FermatMind",
-      title: "Understand yourself more clearly, then turn learning, career, and collaboration decisions into the next step.",
-      body: "Use structured assessments and scenario-based interpretation to turn vague feeling into a self-understanding reference you can discuss and act on.",
+      title: "Understand yourself more clearly, then move learning, career, and collaboration decisions into the next step.",
+      body: "Use structured assessments and result interpretation to turn vague feeling into a next-step reference.",
       primaryCta: "Start a free assessment",
       primaryHref: "/tests",
       secondaryCta: "Browse assessment entry points",
       secondaryHref: "#home-quick-start",
       trustRail: ["Free to start", "About 15 minutes", "Anonymous available", "Results support judgment, not identity"],
       visualEyebrow: "Results preview",
-      visualTitle: "Start from one question, then place the result back into a real decision.",
-      visualSummary: "See the shape of the product result before deciding where to begin.",
-      visualPoints: ["Trait structure view", "Career direction preview", "State explanation"],
+      visualTitle: "Move from one question into one result surface.",
+      visualSummary: "Entry choice, structure, and next move hold together inside one mature assessment surface.",
+      visualPoints: ["Trait structure", "Direction cues", "State interpretation"],
     },
     quickStart: {
       kicker: "Quick Start",
-      title: "Answer one question first, then enter the right assessment.",
-      body: "You do not need to understand every method first. Start with the question that matters right now.",
+      title: "Start directly from the question in front of you.",
+      body: "Five high-intent entry points. Go straight into the right assessment.",
       items: [
         {
           title: "What career direction fits me best?",
-          description: "Start with interest, role fit, and direction signals so the search space gets narrower sooner.",
+          description: "Narrow the direction first, then focus on the paths worth exploring.",
           href: "/career/tests/riasec",
-          label: "Open career direction path",
+          label: "Start now",
           hints: ["Holland Code", "Values", "Career style"],
         },
         {
           title: "What does my personality structure look like?",
-          description: "Use a fast structural entry first, then decide whether you need a more stable trait view.",
+          description: "See preferences and stable traits first, then choose the right report depth.",
           href: "/tests/category/personality",
-          label: "Open personality path",
+          label: "Start now",
           hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
         },
         {
           title: "How is my current emotional state?",
-          description: "Check your recent baseline first, then decide whether deeper interpretation or support is needed.",
+          description: "Check the recent baseline first, then decide whether to go deeper.",
           href: "/tests/depression-screening-test-standard-edition/take",
-          label: "Open state path",
+          label: "Start now",
           hints: ["SDS-20", "Mood baseline", "Support signals"],
         },
         {
           title: "Where are my cognitive strengths and ability signals?",
-          description: "Use ability cues and reasoning readiness to support learning and career decisions.",
+          description: "Bring ability cues back into learning and career judgment.",
           href: "/tests/iq-test-intelligence-quotient-assessment/take",
-          label: "Open ability path",
+          label: "Start now",
           hints: ["IQ", "Reasoning", "Ability cues"],
         },
         {
           title: "How do I show up in relationships and collaboration?",
-          description: "Bring communication, empathy, and feedback style back into practical situations.",
+          description: "Start from communication, feedback, and collaboration style.",
           href: "/tests/eq-test-emotional-intelligence-assessment/take",
-          label: "Open collaboration path",
+          label: "Start now",
           hints: ["EQ", "Communication", "Relating style"],
         },
       ],
     },
     families: {
       kicker: "Featured Paths",
-      title: "Move from personality, career, and state into the family that fits your question.",
-      body: "Start by question when urgency is high. Browse by family when you know the direction but not the exact test.",
+      title: "Browse by family when you already know the domain.",
+      body: "When the direction is clear but the exact test is not, start here.",
       items: [
         {
           title: "Personality and style",
-          description: "Understand preferences, stable tendencies, and expression style before using them in bigger decisions.",
-          exploreLabel: "See all tests in this family",
+          description: "Preferences, stable tendencies, and expression style.",
+          exploreLabel: "Browse this family",
           exploreHref: "/tests/category/personality",
           links: [
             { title: "MBTI personality test", href: "/tests/mbti-personality-test-16-personality-types" },
@@ -523,8 +515,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Career and direction",
-          description: "Turn self-understanding into role-fit, field, and development decisions you can actually compare.",
-          exploreLabel: "See all tests in this family",
+          description: "Turn self-understanding into field, role, and long-range direction judgment.",
+          exploreLabel: "Browse this family",
           exploreHref: "/tests/category/career",
           links: [
             { title: "Career interest test", href: "/career/tests/riasec" },
@@ -534,8 +526,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Emotion and state",
-          description: "Identify current baseline and pressure signals first, then decide whether deeper support is needed.",
-          exploreLabel: "See all tests in this family",
+          description: "Check current baseline and decide whether to go deeper.",
+          exploreLabel: "Browse this family",
           exploreHref: "/tests",
           links: [
             { title: "Depression screening", href: "/tests/depression-screening-test-standard-edition/take" },
@@ -545,8 +537,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Cognition and ability",
-          description: "Useful for understanding reasoning, abstraction, and ability cues alongside learning or career choices.",
-          exploreLabel: "See all tests in this family",
+          description: "Reasoning, abstraction, and ability cues.",
+          exploreLabel: "Browse this family",
           exploreHref: "/tests",
           links: [
             { title: "IQ assessment", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
@@ -556,8 +548,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Relationships and collaboration",
-          description: "Use empathy, communication, and collaboration patterns as a real discussion surface, not as labels.",
-          exploreLabel: "See all tests in this family",
+          description: "Communication, feedback, and collaboration patterns.",
+          exploreLabel: "Browse this family",
           exploreHref: "/tests",
           links: [
             { title: "EQ assessment", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
@@ -570,7 +562,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     results: {
       kicker: "Results Preview",
       title: "The result is not the end. It moves judgment one step forward.",
-      body: "See what the product output looks like before you decide where to start.",
+      body: "See what the result actually brings back.",
       previews: [
         {
           eyebrow: "Trait structure preview",
@@ -603,7 +595,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     trust: {
       kicker: "Trust & Boundaries",
       title: "State the trustworthy parts clearly, and state the boundaries clearly too.",
-      body: "Before asking people to start, make the method basis, result limits, privacy approach, and use cases easy to read.",
+      body: "Method, boundaries, privacy, and usage scenarios stay public and readable.",
       items: [
         {
           title: "Method basis",
@@ -672,7 +664,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     finalCta: {
       title: "Start from one question.",
-      body: "If you only take one action now, move into the assessment hub and choose the path that fits the question in front of you.",
+      body: "Enter the assessment hub, then choose the version that fits the question in front of you.",
       primaryCta: "Start a free assessment",
       primaryHref: "/tests",
       secondaryCta: "Browse assessment entry points",
@@ -715,8 +707,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       ],
     },
     footer: {
-      introLabel: "Keep exploring",
-      introBody: "Popular assessments, categories, resources, and support links live here so you can keep moving after the homepage.",
       groups: [
         {
           title: "Top assessments",
@@ -724,7 +714,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
             { label: "MBTI personality test", href: "/tests/mbti-personality-test-16-personality-types" },
             { label: "Big Five personality test", href: "/tests/big-five-personality-test-ocean-model" },
             { label: "Depression screening", href: "/tests/depression-screening-test-standard-edition" },
-            { label: "EQ assessment", href: "/tests/eq-test-emotional-intelligence-assessment" },
           ],
         },
         {
@@ -733,13 +722,11 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
             { label: "All tests", href: "/tests" },
             { label: "Personality & style", href: "/tests/category/personality" },
             { label: "Career & direction", href: "/tests/category/career" },
-            { label: "Career tests", href: "/career/tests" },
           ],
         },
         {
           title: "Resources",
           links: [
-            { label: "All articles", href: "/articles" },
             { label: "MBTI basics", href: "/articles/mbti-basics" },
             { label: "Career guides", href: "/career/guides" },
             { label: "Help center", href: "/help" },
@@ -750,7 +737,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { label: "Privacy policy", href: "/privacy" },
             { label: "Terms", href: "/terms" },
-            { label: "Refund", href: "/refund" },
             { label: "Contact support", href: "/help/contact" },
           ],
         },
