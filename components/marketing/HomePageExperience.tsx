@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
+import { buildBig5TakeHref, getBig5StartLabel, listBig5FormMetas } from "@/lib/big5/forms";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { cn } from "@/lib/utils";
@@ -204,10 +205,29 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                 </div>
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {family.links.map((link) => (
-                    <Link key={`${family.title}-${link.title}`} href={withLocale(link.href)} className="fm-home-subtle-link-card">
-                      <span>{link.title}</span>
-                      <span aria-hidden>+</span>
-                    </Link>
+                    /\/tests\/big-five-personality-test-ocean-model\/take$/.test(link.href) ? (
+                      <div key={`${family.title}-${link.title}`} className="fm-home-subtle-link-card items-start">
+                        <div className="w-full space-y-3">
+                          <span className="block font-medium text-slate-900">{link.title}</span>
+                          <div className="flex flex-wrap gap-2">
+                            {listBig5FormMetas().map((form) => (
+                              <Link
+                                key={form.formCode}
+                                href={buildBig5TakeHref("big-five-personality-test-ocean-model", locale, form.formCode)}
+                                className="inline-flex items-center rounded-lg border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(234,88,12,0.4)] hover:text-[var(--fm-cta-orange)]"
+                              >
+                                {getBig5StartLabel(form.formCode, locale)}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <Link key={`${family.title}-${link.title}`} href={withLocale(link.href)} className="fm-home-subtle-link-card">
+                        <span>{link.title}</span>
+                        <span aria-hidden>+</span>
+                      </Link>
+                    )
                   ))}
                 </div>
                 <Link href={withLocale(family.exploreHref)} className="fm-home-inline-link mt-6 inline-flex items-center gap-2 text-slate-900">

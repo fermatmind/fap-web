@@ -3,6 +3,14 @@
 import { useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import {
+  buildBig5TakeHref,
+  getBig5QuestionSummary,
+  getBig5StartLabel,
+  isBig5Slug,
+  listBig5FormMetas,
+  resolveBig5FormMeta,
+} from "@/lib/big5/forms";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import {
@@ -200,6 +208,14 @@ function resolveProgressPercent(payload: PersistedProgress, totalQuestions: numb
 }
 
 function resolveCachedProgressQuestionCount(slug: string, payload: PersistedProgress, fallbackQuestionCount: number): number {
+  if (isBig5Slug(slug)) {
+    if (!payload.formCode) {
+      return fallbackQuestionCount;
+    }
+
+    return resolveBig5FormMeta(payload.formCode).questionCount;
+  }
+
   if (!isMbtiSlug(slug)) {
     return fallbackQuestionCount;
   }
@@ -217,8 +233,19 @@ function findCachedProgress(slug: string, totalQuestions: number): number | null
   const entries: PersistedProgress[] = [];
 
   if (slug === "big-five-personality-test-ocean-model") {
-    const state = parsePersistedEnvelope(window.localStorage.getItem("fm_big5_attempt_v1"));
-    if (state) entries.push(state);
+    for (let index = 0; index < window.localStorage.length; index += 1) {
+      const key = window.localStorage.key(index);
+      if (!key) continue;
+      if (
+        key !== "fm_big5_attempt_v1"
+        && !key.startsWith(`fm_big5_attempt_v2_${slug}_`)
+      ) {
+        continue;
+      }
+
+      const state = parsePersistedEnvelope(window.localStorage.getItem(key));
+      if (state) entries.push(state);
+    }
   }
 
   if (slug === "clinical-depression-anxiety-assessment-professional-edition") {
@@ -350,7 +377,8 @@ export function HighlightedTestsSection({
                   actionLabel: copy.startLabel,
                   progress: 32,
                 } satisfies CardStatus);
-              const isAuth = systemMeta?.accessMode === "auth";
+              const isBig5Entry = isBig5Slug(card.slug);
+              const isAuth = systemMeta?.accessMode === "auth" && !isBig5Entry;
               const accessMode = isAuth ? copy.accessAuth : copy.accessPublic;
               const actionLabel = isAuth && status.mode === "ready" ? copy.authLabel : status.actionLabel;
               const timeLabel = locale === "zh" ? `约 ${card.timeMinutes} ${copy.minuteUnit}` : `${card.timeMinutes} ${copy.minuteUnit}`;
@@ -396,6 +424,8 @@ export function HighlightedTestsSection({
                       <span className="fm-home-calibration-slot-caption">
                         {isMbtiSlug(card.slug)
                           ? getMbtiQuestionSummary(locale)
+                          : isBig5Entry
+                            ? getBig5QuestionSummary(locale)
                           : locale === "zh"
                             ? `${card.questionsCount} 题`
                             : `${card.questionsCount} questions`}
@@ -424,6 +454,18 @@ export function HighlightedTestsSection({
                             className="fm-home-calibration-slot-action"
                           >
                             {getMbtiStartLabel(form.formCode, locale)}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : isBig5Entry ? (
+                      <div className="flex flex-wrap justify-end gap-2">
+                        {listBig5FormMetas().map((form) => (
+                          <Link
+                            key={form.formCode}
+                            href={buildBig5TakeHref(card.slug, locale, form.formCode)}
+                            className="fm-home-calibration-slot-action"
+                          >
+                            {getBig5StartLabel(form.formCode, locale)}
                           </Link>
                         ))}
                       </div>

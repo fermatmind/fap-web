@@ -37,6 +37,7 @@ import {
   submitBig5Attempt,
 } from "@/lib/big5/api";
 import { mapBig5Error, type Big5UiError } from "@/lib/big5/errors";
+import { normalizeBig5FormCode, resolveBig5FormMeta } from "@/lib/big5/forms";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
@@ -79,7 +80,15 @@ function resolveGuestTokenTelemetry(error: unknown): {
   };
 }
 
-export default function Big5TakeClient({ slug }: { slug: string }) {
+export default function Big5TakeClient({
+  slug,
+  formCode,
+  estimatedMinutes,
+}: {
+  slug: string;
+  formCode?: string;
+  estimatedMinutes?: number;
+}) {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
@@ -100,6 +109,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const setCurrentIndex = useBig5AttemptStore((store) => store.setCurrentIndex);
   const acceptDisclaimer = useBig5AttemptStore((store) => store.acceptDisclaimer);
   const hydrateAnonId = useBig5AttemptStore((store) => store.hydrateAnonId);
+  const setSessionContext = useBig5AttemptStore((store) => store.setSessionContext);
   const setAuthToken = useBig5AttemptStore((store) => store.setAuthToken);
   const markSubmitted = useBig5AttemptStore((store) => store.markSubmitted);
   const clearAttemptMeta = useBig5AttemptStore((store) => store.clearAttemptMeta);
@@ -145,6 +155,15 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const recoveringAttemptRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
+  const resolvedFormCode = useMemo(
+    () => normalizeBig5FormCode(formCode ?? searchParams.get("form") ?? searchParams.get("form_code")),
+    [formCode, searchParams]
+  );
+  const resolvedFormMeta = useMemo(
+    () => resolveBig5FormMeta(resolvedFormCode),
+    [resolvedFormCode]
+  );
+  const effectiveEstimatedMinutes = estimatedMinutes ?? resolvedFormMeta.estimatedMinutes;
 
   const total = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -170,6 +189,9 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const inCooldown = cooldownSeconds > 0;
   const previousQuestion = currentIndex > 0 ? questions[currentIndex - 1] : null;
   const nextQuestion = currentIndex < total - 1 ? questions[currentIndex + 1] : null;
+  const progressStatus = locale === "zh"
+    ? `${answeredCount}/${total} 已答 · 约 ${effectiveEstimatedMinutes} 分钟`
+    : `${answeredCount}/${total} answered · about ${effectiveEstimatedMinutes} min`;
 
   const trackingFallback = useMemo<Big5TrackingContext>(
     () => ({
@@ -189,9 +211,10 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
   const buildEventPayload = useCallback(
     (payload: Record<string, unknown>) => ({
       ...(trackingBase ?? trackingFallback),
+      form_code: resolvedFormCode,
       ...payload,
     }),
-    [trackingBase, trackingFallback]
+    [resolvedFormCode, trackingBase, trackingFallback]
   );
 
   const handleRestartTest = useCallback(() => {
@@ -263,6 +286,14 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     hydrateAnonId(anonId || null);
   }, [anonId, hydrateAnonId]);
 
+  useEffect(() => {
+    setSessionContext({
+      slug,
+      formCode: resolvedFormCode,
+      anonId: anonId || null,
+    });
+  }, [anonId, resolvedFormCode, setSessionContext, slug]);
+
   const trackGuestTokenFailure = useCallback(
     (stage: "bootstrap" | "questions" | "start_attempt" | "submit_attempt", error: unknown) => {
       const telemetry = resolveGuestTokenTelemetry(error);
@@ -273,10 +304,11 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         error_code: telemetry.errorCode,
         request_id: telemetry.requestId,
         route: "/tests/[slug]/take",
+        form_code: resolvedFormCode,
         locale,
       });
     },
-    [locale]
+    [locale, resolvedFormCode]
   );
 
   useEffect(() => {
@@ -523,6 +555,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
           fetchBig5Questions({
             locale: toApiLocale(locale),
             anonId: anonId || undefined,
+            formCode: resolvedFormCode,
           })
         );
 
@@ -647,7 +680,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     return () => {
       active = false;
     };
-  }, [anonId, applyUiError, authBlockError, authBootstrapping, locale, rolloutBlocked, rolloutChecking, runWithAuthRetry, trackGuestTokenFailure]);
+  }, [anonId, applyUiError, authBlockError, authBootstrapping, locale, resolvedFormCode, rolloutBlocked, rolloutChecking, runWithAuthRetry, trackGuestTokenFailure]);
 
   const startFreshAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError) {
@@ -682,6 +715,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
             anonId: anonId || undefined,
             locale: toApiLocale(locale),
             region: "GLOBAL",
+            formCode: resolvedFormCode,
             meta: requestMeta,
             clientVersion: "fe-big5-2",
           })
@@ -787,6 +821,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
     serverDisclaimerVersion,
     serverDisclaimerHash,
     slug,
+    resolvedFormCode,
     setAttemptMeta,
     buildEventPayload,
     applyUiError,
@@ -1204,8 +1239,11 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         </div>
 
         <div className="text-xs text-slate-600">
-          <p className="m-0">Version: {serverDisclaimerVersion ?? "-"}</p>
-          <p className="m-0">Hash: {serverDisclaimerHash ?? "-"}</p>
+          <p className="m-0">
+            {locale === "zh"
+              ? `当前入口约 ${effectiveEstimatedMinutes} 分钟，可在开始后继续保存进度。`
+              : `This entry takes about ${effectiveEstimatedMinutes} minutes and supports draft progress recovery.`}
+          </p>
         </div>
 
         <label className="flex items-center gap-[var(--fm-gap-xs)] text-sm text-slate-700">
@@ -1335,7 +1373,7 @@ export default function Big5TakeClient({ slug }: { slug: string }) {
         current={currentIndex + 1}
         total={total}
         answered={answeredCount}
-        status={`${answeredCount}/${total} answered`}
+        status={progressStatus}
       />
 
       {milestoneHint ? (

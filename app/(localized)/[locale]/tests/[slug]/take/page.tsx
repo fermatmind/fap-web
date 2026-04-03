@@ -4,6 +4,7 @@ import { cookies, headers } from "next/headers";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
+import { isBig5ScaleCode, normalizeBig5FormCode, resolveBig5FormMeta } from "@/lib/big5/forms";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -120,6 +121,10 @@ export default async function TakePage({
     ? normalizeMbtiFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
     : null;
   const mbtiFormMeta = mbtiFormCode ? resolveMbtiFormMeta(mbtiFormCode) : null;
+  const big5FormCode = isBig5ScaleCode(test.scale_code)
+    ? normalizeBig5FormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
+    : null;
+  const big5FormMeta = big5FormCode ? resolveBig5FormMeta(big5FormCode) : null;
 
   if (!test.scale_code) {
     return (
@@ -162,7 +167,11 @@ export default async function TakePage({
       ) : null}
 
       {test.scale_code === "BIG5_OCEAN" ? (
-        <Big5TakeClient slug={slug} />
+        <Big5TakeClient
+          slug={slug}
+          formCode={big5FormCode ?? undefined}
+          estimatedMinutes={big5FormMeta?.estimatedMinutes}
+        />
       ) : test.scale_code === "SDS_20" || test.scale_code === "CLINICAL_COMBO_68" ? (
         <ClinicalTakeClient slug={slug} scaleCode={test.scale_code} />
       ) : (

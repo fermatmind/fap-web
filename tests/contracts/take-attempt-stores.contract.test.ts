@@ -116,6 +116,79 @@ describe("take attempt stores", () => {
     expect(next.disclaimerHash).toBe("hash-v1");
   });
 
+  it("big5 persistence keeps big5_120 and big5_90 drafts isolated", () => {
+    const slug = "big-five-personality-test-ocean-model";
+    const anonId = "anon-big5-isolated";
+
+    useBig5AttemptStore.getState().setSessionContext({
+      slug,
+      formCode: "big5_120",
+      anonId,
+    });
+    useBig5AttemptStore.getState().setAnswer("q1", "1");
+    useBig5AttemptStore.getState().setAttemptMeta({
+      attemptId: "attempt-big5-120",
+      resumeToken: "resume-big5-120",
+    });
+
+    useBig5AttemptStore.getState().setSessionContext({
+      slug,
+      formCode: "big5_90",
+      anonId,
+    });
+    const state90 = useBig5AttemptStore.getState();
+    expect(state90.formCode).toBe("big5_90");
+    expect(state90.answers).toEqual({});
+    expect(state90.attemptId).toBeNull();
+
+    useBig5AttemptStore.getState().setSessionContext({
+      slug,
+      formCode: "big5_120",
+      anonId,
+    });
+    const state120 = useBig5AttemptStore.getState();
+    expect(state120.formCode).toBe("big5_120");
+    expect(state120.answers).toEqual({ q1: "1" });
+    expect(state120.attemptId).toBe("attempt-big5-120");
+  });
+
+  it("big5 legacy draft only migrates to big5_120 context", () => {
+    window.localStorage.setItem(
+      "fm_big5_attempt_v1",
+      JSON.stringify({
+        state: {
+          attemptId: "attempt-big5-legacy",
+          answers: { q1: "2" },
+          currentIndex: 1,
+        },
+        version: 1,
+      })
+    );
+
+    const slug = "big-five-personality-test-ocean-model";
+    const anonId = "anon-big5-legacy";
+
+    useBig5AttemptStore.getState().setSessionContext({
+      slug,
+      formCode: "big5_120",
+      anonId,
+    });
+    const adopted120 = useBig5AttemptStore.getState();
+    expect(adopted120.formCode).toBe("big5_120");
+    expect(adopted120.attemptId).toBe("attempt-big5-legacy");
+    expect(adopted120.answers).toEqual({ q1: "2" });
+
+    useBig5AttemptStore.getState().setSessionContext({
+      slug,
+      formCode: "big5_90",
+      anonId,
+    });
+    const state90 = useBig5AttemptStore.getState();
+    expect(state90.formCode).toBe("big5_90");
+    expect(state90.attemptId).toBeNull();
+    expect(state90.answers).toEqual({});
+  });
+
   it("clinical clearAttemptMeta preserves answers while dropping stale attempt metadata", () => {
     const store = useClinicalAttemptStore.getState();
 

@@ -69,10 +69,12 @@ export async function fetchBig5Questions({
   locale,
   region,
   anonId,
+  formCode,
 }: {
   locale?: string;
   region?: string;
   anonId?: string;
+  formCode?: string;
 }): Promise<QuestionsResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const response = await withBig5AuthRetry({
@@ -81,6 +83,7 @@ export async function fetchBig5Questions({
     run: () =>
       fetchScaleQuestions({
         scaleCode: BIG5_SCALE_CODE,
+        formCode,
         locale,
         region,
         anonId: resolvedAnonId,
@@ -94,12 +97,14 @@ export async function startBig5Attempt({
   anonId,
   locale,
   region,
+  formCode,
   meta,
   clientVersion,
 }: {
   anonId?: string;
   locale?: string;
   region?: string;
+  formCode?: string;
   meta?: Record<string, unknown>;
   clientVersion?: string;
 }): Promise<StartAttemptResponse> {
@@ -110,6 +115,7 @@ export async function startBig5Attempt({
     run: () =>
       startAttempt({
         scaleCode: BIG5_SCALE_CODE,
+        formCode,
         anonId: resolvedAnonId,
         locale,
         region,
