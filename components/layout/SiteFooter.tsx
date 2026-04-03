@@ -26,6 +26,13 @@ export function SiteFooter() {
     pathname === "/en/tests" ||
     pathname.startsWith("/zh/tests/category/") ||
     pathname.startsWith("/en/tests/category/");
+  const homeSocialItems = isHomeRoute
+    ? socialItems.filter((item) =>
+        locale === "zh"
+          ? ["wx", "weibo", "xhs", "b", "dy"].includes(item.key)
+          : ["x", "ig", "yt", "reddit", "tt"].includes(item.key)
+      )
+    : socialItems;
   const homeFooter = getHomePageContent(locale).footer;
   const footerCopy =
     locale === "zh"
@@ -163,14 +170,14 @@ export function SiteFooter() {
   if (isHomeRoute) {
     return (
       <footer className="border-t border-white/8 bg-[#0a1015] text-white">
-        <Container className="max-w-[110rem] px-5 py-12 md:px-8 md:py-14 xl:px-12">
-          <div className="grid gap-10 xl:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
-            <div className="max-w-[24rem] space-y-4">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-white/38">
+        <Container className="max-w-[110rem] px-5 py-10 md:px-8 md:py-12 xl:px-12">
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+            <div className="max-w-[22rem] space-y-3">
+              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/32">
                 {homeFooter.tailnote}
               </p>
-              <p className="m-0 text-lg font-semibold tracking-[-0.035em] text-white">FermatMind / 费马测试</p>
-              <p className="m-0 text-sm leading-7 text-slate-400">
+              <p className="m-0 text-base font-semibold tracking-[-0.03em] text-white">FermatMind / 费马测试</p>
+              <p className="m-0 text-sm leading-6 text-slate-500">
                 <span className="text-white/48">{homeFooter.supportEmailLabel}: </span>
                 <a href={`mailto:${supportEmail}`} className="text-slate-300 transition hover:text-white">
                   {supportEmail}
@@ -178,13 +185,13 @@ export function SiteFooter() {
               </p>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
               {homeFooter.groups.map((group) => (
-                <section key={group.title} className="space-y-3">
-                  <h3 className="m-0 text-sm font-semibold uppercase tracking-[0.16em] text-white/68">{group.title}</h3>
-                  <div className="space-y-2.5">
+                <section key={group.title} className="space-y-2.5">
+                  <h3 className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/52">{group.title}</h3>
+                  <div className="space-y-2">
                     {group.links.map((item) => (
-                      <Link key={`${group.title}-${item.href}`} href={withLocale(item.href)} className="block text-sm text-slate-400 transition hover:text-white">
+                      <Link key={`${group.title}-${item.href}`} href={withLocale(item.href)} className="block text-sm text-slate-500 transition hover:text-white">
                         {item.label}
                       </Link>
                     ))}
@@ -194,10 +201,10 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col gap-5 border-t border-white/8 pt-5 md:flex-row md:items-center md:justify-between">
+          <div className="mt-6 flex flex-col gap-4 border-t border-white/8 pt-4 md:flex-row md:items-center md:justify-between">
             <div className="fm-social-rail md:w-auto">
-              <div className="fm-social-list fm-social-list--footer mx-0 w-full max-w-[30rem] justify-items-start">
-                {socialItems.map((item) => (
+              <div className="fm-social-list fm-social-list--footer mx-0 w-full max-w-[24rem] justify-items-start">
+                {homeSocialItems.map((item) => (
                   <div
                     key={item.key}
                     className="fm-social-item"
@@ -258,7 +265,7 @@ export function SiteFooter() {
               </div>
             </div>
 
-            <p data-visual-volatile="true" className="m-0 text-xs text-slate-500 md:text-right">
+            <p data-visual-volatile="true" className="m-0 text-[11px] text-slate-600 md:text-right">
               © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
             </p>
           </div>

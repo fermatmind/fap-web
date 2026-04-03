@@ -129,46 +129,46 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       eyebrow: "识微，见远。",
       brand: "FermatMind / 费马测试",
       title: "更清晰地理解自己，让学习、职业与协作判断直接进入下一步。",
-      body: "通过结构化测评与结果解释，把模糊感受整理成下一步判断参考。",
+      body: "用结构化测评，把模糊感受整理成下一步判断。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",
       secondaryHref: "#home-quick-start",
       trustRail: ["免费开始", "约 15 分钟", "匿名可用", "结果支持判断，不定义一个人"],
-      visualEyebrow: "结果预览",
-      visualTitle: "从一个问题进入同一张结果面。",
-      visualSummary: "入口、结构和下一步，在一张成熟的测评产品界面里连成一体。",
+      visualEyebrow: "从问题进入结果",
+      visualTitle: "一个问题，落到同一张结果面。",
+      visualSummary: "结构、方向和下一步，在这里连成一体。",
       visualPoints: ["特质结构", "方向线索", "状态解释"],
     },
     quickStart: {
       kicker: "Quick Start",
       title: "从你现在的问题直接开始。",
-      body: "五个高意图入口，直接进入对应测评。",
+      body: "五个入口，直接开始。",
       items: [
         {
           title: "我适合什么职业方向？",
-          description: "先缩小方向，再看更值得继续探索的路径。",
+          description: "先缩小方向，再看值得继续的路径。",
           href: "/tests/category/career",
           label: "立即开始",
           hints: ["霍兰德", "Big Five 90Q", "MBTI 93Q"],
         },
         {
           title: "我的人格结构是什么？",
-          description: "先看偏好与稳定特质，再决定读哪一版结果。",
+          description: "先看偏好与稳定特质，再决定深入哪一版。",
           href: "/tests/category/personality",
           label: "立即开始",
           hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
         },
         {
           title: "我现在的情绪或状态如何？",
-          description: "先确认近期基线，再决定是否继续深入。",
+          description: "先确认近期基线，再决定是否继续。",
           href: "/tests/depression-screening-test-standard-edition/take",
           label: "立即开始",
           hints: ["SDS-20", "抑郁焦虑", "状态基线"],
         },
         {
           title: "我的认知能力与优势在哪里？",
-          description: "把能力线索放回学习与职业判断里看。",
+          description: "把能力线索放回学习与职业判断。",
           href: "/tests/iq-test-intelligence-quotient-assessment/take",
           label: "立即开始",
           hints: ["IQ 测评", "推理准备度", "能力线索"],
@@ -184,8 +184,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     families: {
       kicker: "Featured Paths",
-      title: "按家族浏览，找到更接近的问题域。",
-      body: "当你知道方向、还没锁定具体测评时，从这里进入。",
+      title: "按家族浏览，找到更接近的方向。",
+      body: "还没锁定具体测评时，从这里慢一点浏览。",
       items: [
         {
           title: "人格与风格",
@@ -200,7 +200,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "职业与方向",
-          description: "把自我理解转成专业、岗位与长期路径判断。",
+          description: "把自我理解带回专业、岗位与长期路径。",
           exploreLabel: "浏览此类",
           exploreHref: "/tests/category/career",
           links: [
@@ -246,75 +246,71 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     results: {
       kicker: "Results Preview",
-      title: "结果不是终点，它把判断往前推一步。",
-      body: "先看结果会把什么带回来。",
+      title: "结果要能让你继续往前。",
+      body: "先看结果会是什么样。",
       previews: [
         {
           eyebrow: "特质结构图预览",
           title: "把稳定倾向看成结构，而不是单一标签。",
-          summary: "在一个页面里看到维度分布、强弱轴与场景差异。",
+          summary: "维度分布、强弱轴与场景差异，在同一面里出现。",
           metrics: ["开放性", "尽责性", "外向能量"],
           tone: "traits",
         },
         {
           eyebrow: "职业方向预览",
           title: "把适配方向缩小到更值得继续看的范围。",
-          summary: "把角色偏好、环境偏好和下一步阅读放在同一张结果面里。",
+          summary: "角色偏好、环境偏好与下一步线索同屏收束。",
           metrics: ["角色匹配", "环境偏好", "下一步阅读"],
           tone: "career",
         },
         {
           eyebrow: "状态解释预览",
           title: "先看基线，再决定要不要进一步支持。",
-          summary: "结果会给出状态解释、风险提醒与更稳的下一步建议。",
+          summary: "状态解释、风险提醒与下一步建议更稳地给出。",
           metrics: ["情绪基线", "压力信号", "支持建议"],
           tone: "state",
         },
       ],
       valuePoints: [
-        "看见结构，而不是只看到标签",
-        "把结果放回学习、职业与协作场景",
-        "帮你决定下一步，而不是替你定义人生",
+        "看到结构，不只看到标签",
+        "把结果带回真实场景",
+        "知道下一步看什么",
       ],
     },
     trust: {
       kicker: "Trust & Boundaries",
       title: "值得信任的部分，说清楚；边界，也说清楚。",
-      body: "方法、边界、隐私和使用场景，都公开说明。",
+      body: "方法、边界、隐私与场景，公开可见。",
       items: [
         {
           title: "方法依据",
-          summary: "基于结构化问卷、可读报告与持续校准，帮助你看懂结果从哪里来。",
+          summary: "结构化问卷、可读报告与持续校准，让结果来路清楚。",
           paragraphs: [
-            "FermatMind 采用结构化问卷与清晰解释路径，让结果更容易被理解、讨论和回看。",
-            "我们持续审查题项表达、完成体验与解释口径，优先修正会影响判断质量的部分。",
+            "结果来自结构化问卷、解释路径与持续校准，我们优先修正会影响判断质量的部分。",
           ],
           href: "/help/about",
           hrefLabel: "查看方法说明",
         },
         {
           title: "结果边界",
-          summary: "结果用于支持判断，不替代临床诊断，也不承诺确定性人生答案。",
+          summary: "用于支持判断，不替代诊断，也不承诺确定性答案。",
           paragraphs: [
-            "它更适合用于自我理解、学习方向、职业探索与协作讨论，而不是替代专业医疗或心理支持。",
-            "我们避免把分数或类型包装成绝对真理，也不会让一个结果代替对人的完整理解。",
+            "它适合用于自我理解、学习方向、职业探索与协作讨论，不替代专业医疗或心理支持。",
           ],
         },
         {
           title: "隐私与匿名",
-          summary: "可以匿名开始；结果默认面向本人；隐私政策与支持渠道始终公开可见。",
+          summary: "可以匿名开始；结果默认面向本人；隐私处理公开说明。",
           paragraphs: [
-            "我们遵循最小必要原则处理数据，用于生成报告、保障稳定性与做脱敏质量优化。",
-            "涉及隐私、条款与数据处理的细节，都通过公开页面明确说明。",
+            "我们按最小必要原则处理数据，用于生成报告、保障稳定性与做脱敏质量优化。",
           ],
           href: "/privacy",
           hrefLabel: "查看隐私政策",
         },
         {
           title: "使用场景",
-          summary: "适合用在学习方向、职业规划、成长复盘、团队沟通与关系判断等真实问题里。",
+          summary: "适合学习方向、职业规划、成长复盘与团队沟通等真实问题。",
           paragraphs: [
-            "常见使用场景包括个人自我认知、成长规划、教练或工作坊准备，以及团队沟通复盘。",
             "当问题更敏感或风险更高时，我们会采用更保守的表达和更明确的使用边界。",
           ],
           href: "/help/used-and-mentioned",
@@ -358,7 +354,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     header: {
       testsLabel: "测评入口",
       testsTitle: "先从一个你最想回答的问题开始。",
-      testsBody: "职业方向、人格结构、情绪状态和协作风格，都从这里进入。",
+      testsBody: "职业方向、人格结构、情绪状态与协作风格，都从这里进入。",
       browseAllLabel: "查看全部测评",
       browseAllHref: "/tests",
       groups: [
@@ -444,21 +440,21 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       eyebrow: "See the Micro. Lead the Macro.",
       brand: "FermatMind",
       title: "Understand yourself more clearly, then move learning, career, and collaboration decisions into the next step.",
-      body: "Use structured assessments and result interpretation to turn vague feeling into a next-step reference.",
+      body: "Use structured assessment to turn vague feeling into a clearer next step.",
       primaryCta: "Start a free assessment",
       primaryHref: "/tests",
       secondaryCta: "Browse assessment entry points",
       secondaryHref: "#home-quick-start",
       trustRail: ["Free to start", "About 15 minutes", "Anonymous available", "Results support judgment, not identity"],
-      visualEyebrow: "Results preview",
-      visualTitle: "Move from one question into one result surface.",
-      visualSummary: "Entry choice, structure, and next move hold together inside one mature assessment surface.",
+      visualEyebrow: "From question to result",
+      visualTitle: "One question, one result surface.",
+      visualSummary: "Structure, direction, and next move hold together here.",
       visualPoints: ["Trait structure", "Direction cues", "State interpretation"],
     },
     quickStart: {
       kicker: "Quick Start",
       title: "Start directly from the question in front of you.",
-      body: "Five high-intent entry points. Go straight into the right assessment.",
+      body: "Five entry points. Start now.",
       items: [
         {
           title: "What career direction fits me best?",
@@ -469,7 +465,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "What does my personality structure look like?",
-          description: "See preferences and stable traits first, then choose the right report depth.",
+          description: "See preferences and stable traits first, then choose the right depth.",
           href: "/tests/category/personality",
           label: "Start now",
           hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
@@ -499,8 +495,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     families: {
       kicker: "Featured Paths",
-      title: "Browse by family when you already know the domain.",
-      body: "When the direction is clear but the exact test is not, start here.",
+      title: "Browse by family when the direction is already clear.",
+      body: "When the exact assessment is not locked in yet, browse here.",
       items: [
         {
           title: "Personality and style",
@@ -515,7 +511,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Career and direction",
-          description: "Turn self-understanding into field, role, and long-range direction judgment.",
+          description: "Bring self-understanding back into field, role, and long-range direction.",
           exploreLabel: "Browse this family",
           exploreHref: "/tests/category/career",
           links: [
@@ -561,76 +557,72 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     results: {
       kicker: "Results Preview",
-      title: "The result is not the end. It moves judgment one step forward.",
-      body: "See what the result actually brings back.",
+      title: "Results should help you move forward.",
+      body: "See what the output feels like.",
       previews: [
         {
           eyebrow: "Trait structure preview",
           title: "See stable tendencies as a structure instead of a single label.",
-          summary: "View dimension balance, stronger and weaker axes, and context differences in one surface.",
+          summary: "Dimension spread, relative strength, and context difference appear on one surface.",
           metrics: ["Openness", "Conscientiousness", "Energy pattern"],
           tone: "traits",
         },
         {
           eyebrow: "Career direction preview",
           title: "Narrow better-fit directions into a range worth exploring.",
-          summary: "Role fit, environment fit, and next-step reading sit on the same result surface.",
+          summary: "Role fit, environment fit, and next reading converge on one surface.",
           metrics: ["Role fit", "Environment", "Next reads"],
           tone: "career",
         },
         {
           eyebrow: "State interpretation preview",
           title: "Check baseline first, then decide whether you need deeper support.",
-          summary: "The output gives a state explanation, risk framing, and the next reasonable move.",
+          summary: "State interpretation, risk reminders, and steadier next-step suggestions come together.",
           metrics: ["Mood baseline", "Pressure signals", "Next move"],
           tone: "state",
         },
       ],
       valuePoints: [
-        "See structure instead of just labels",
-        "Put the result back into learning, career, and collaboration contexts",
-        "Use it to choose the next step, not to define a life",
+        "See structure, not just a label",
+        "Bring results back into real decisions",
+        "Know what to look at next",
       ],
     },
     trust: {
       kicker: "Trust & Boundaries",
-      title: "State the trustworthy parts clearly, and state the boundaries clearly too.",
-      body: "Method, boundaries, privacy, and usage scenarios stay public and readable.",
+      title: "State clearly what earns trust, and what stays within bounds.",
+      body: "Method, boundaries, privacy, and use cases stay visible.",
       items: [
         {
           title: "Method basis",
-          summary: "Structured questionnaires, readable reports, and ongoing calibration help people understand where the result comes from.",
+          summary: "Structured questionnaires, readable reports, and ongoing calibration keep the result path clear.",
           paragraphs: [
-            "FermatMind uses structured questionnaires and explicit interpretation paths so results can be read, discussed, and revisited.",
-            "We continuously review item wording, completion flow, and explanation tone to improve judgment quality in practice.",
+            "Results come from structured questionnaires, interpretation paths, and ongoing calibration, with priority on fixes that affect judgment quality.",
           ],
           href: "/help/about",
           hrefLabel: "Read methodology notes",
         },
         {
           title: "Result boundaries",
-          summary: "Results support judgment. They do not replace clinical diagnosis and they do not promise deterministic life outcomes.",
+          summary: "Results support judgment. They do not replace diagnosis or promise deterministic answers.",
           paragraphs: [
-            "They are built for self-understanding, learning direction, career exploration, and collaboration discussion.",
-            "We do not present one score or one type as a complete definition of a person.",
+            "They work best for self-understanding, learning direction, career exploration, and collaboration discussions, not as a substitute for medical or psychological care.",
           ],
         },
         {
           title: "Privacy and anonymity",
-          summary: "Users can start anonymously. Results default to the individual, and policy pages stay explicitly visible.",
+          summary: "You can start anonymously. Results default to the person taking them, and privacy handling stays visible.",
           paragraphs: [
-            "We follow a minimum-necessary data approach for report generation, reliability, and de-identified quality work.",
-            "Privacy, terms, and support details stay on public pages rather than inside vague reassurance copy.",
+            "We follow a minimum-necessary approach to data handling for report generation, stability, and de-identified quality improvement.",
           ],
           href: "/privacy",
           hrefLabel: "View privacy policy",
         },
         {
           title: "Usage scenarios",
-          summary: "The product is built for real questions around learning direction, career planning, growth review, and collaboration work.",
+          summary: "Use it for learning direction, career planning, growth review, and team communication in real settings.",
           paragraphs: [
-            "Typical use cases include self-understanding, growth planning, coach or workshop preparation, and team retrospectives.",
-            "When the situation is more sensitive or risky, we choose more conservative language and clearer boundaries.",
+            "When the question is more sensitive or higher-risk, we use more conservative language and clearer boundaries.",
           ],
           href: "/help/used-and-mentioned",
           hrefLabel: "View usage scenarios",
@@ -673,7 +665,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     header: {
       testsLabel: "Assessment entry points",
       testsTitle: "Start from the question you want to answer first.",
-      testsBody: "Career direction, personality structure, emotional state, cognitive ability, and collaboration style all start here.",
+      testsBody: "Career direction, personality structure, emotional state, cognitive ability, and collaboration style all begin here.",
       browseAllLabel: "View all assessments",
       browseAllHref: "/tests",
       groups: [
