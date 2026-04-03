@@ -216,6 +216,7 @@ describe("OrdersClient delivery contract", () => {
         slug: "orders-client",
         visual_kind: "order_resend_delivery",
         interaction: "click",
+        form_code: "mbti_93",
         locale: "en",
       })
     );

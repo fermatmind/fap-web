@@ -666,6 +666,7 @@ export default function OrdersClient({
       slug: "orders-client",
       visual_kind: "order_resend_delivery",
       interaction: "click",
+      form_code: normalizePublicFormSummary(formSummaryRaw)?.formCode ?? undefined,
       locale,
     });
 
@@ -693,7 +694,7 @@ export default function OrdersClient({
     } finally {
       setIsResendingDelivery(false);
     }
-  }, [isResendingDelivery, locale, orderNo]);
+  }, [formSummaryRaw, isResendingDelivery, locale, orderNo]);
 
   const icon = useMemo(() => {
     if (status === "paid") return <CheckCircle2 className="h-6 w-6 text-emerald-600" />;
