@@ -19,6 +19,7 @@ Everything added for SEO must also be useful to users, visible in the normal exp
 - misleading structured data
 - fake review, rating, partner, or media entities
 - accordion content used as an SEO text warehouse without clear user value
+- UI copy that explains information architecture, homepage strategy, discoverability rationale, or SEO intent to users
 
 ## Mega Menu Rules
 - Menu content must reflect real information scent and route availability.
@@ -32,6 +33,7 @@ Everything added for SEO must also be useful to users, visible in the normal exp
 - Anchor text must read like navigation, not search bait.
 - Do not repeat the same destination under multiple near-duplicate keyword labels.
 - Keep the number of links high enough to be useful, but low enough to remain curated.
+- Footer intro copy must stay user-facing. Never explain “long-term discoverability,” “navigation value,” or homepage strategy in the footer UI.
 
 ## Accordion / Disclosure Rules
 - Summary labels must stand on their own.
@@ -65,6 +67,7 @@ Everything added for SEO must also be useful to users, visible in the normal exp
 - Link from homepage to tests, categories, articles, topics, career pages, help pages, and policies only when those routes already exist.
 - Avoid duplicative links that differ only by wording.
 - Keep internal links distributed across sections instead of clustering all SEO weight into the footer.
+- Homepage copy must not justify the presence of links with internal language such as “inventory,” “discoverability,” “friction,” or “strategy.”
 
 ## Indexing Risk Checklist
 Before shipping, verify:
