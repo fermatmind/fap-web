@@ -6,6 +6,11 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { cn } from "@/lib/utils";
 
+function isBig5TakeTarget(href: string): boolean {
+  const pathname = href.split("?")[0] ?? "";
+  return pathname.replace(/\/+$/, "").endsWith("/tests/big-five-personality-test-ocean-model/take");
+}
+
 function SectionHeader({
   kicker,
   title,
@@ -205,7 +210,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                 </div>
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {family.links.map((link) => (
-                    /\/tests\/big-five-personality-test-ocean-model\/take$/.test(link.href) ? (
+                    isBig5TakeTarget(link.href) ? (
                       <div key={`${family.title}-${link.title}`} className="fm-home-subtle-link-card items-start">
                         <div className="w-full space-y-3">
                           <span className="block font-medium text-slate-900">{link.title}</span>
