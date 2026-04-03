@@ -25,6 +25,8 @@ export function SiteHeader() {
   const [mobileExpandedKey, setMobileExpandedKey] = useState<HeaderNavKey | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<HeaderNavKey | null>(null);
   const desktopNavRef = useRef<HTMLDivElement | null>(null);
+  const openDropdownTimeoutRef = useRef<number | null>(null);
+  const closeDropdownTimeoutRef = useRef<number | null>(null);
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
   const locale = useLocale();
@@ -87,6 +89,53 @@ export function SiteHeader() {
     });
   }
 
+  function clearDropdownTimers() {
+    if (openDropdownTimeoutRef.current) {
+      window.clearTimeout(openDropdownTimeoutRef.current);
+      openDropdownTimeoutRef.current = null;
+    }
+
+    if (closeDropdownTimeoutRef.current) {
+      window.clearTimeout(closeDropdownTimeoutRef.current);
+      closeDropdownTimeoutRef.current = null;
+    }
+  }
+
+  function openDropdown(key: HeaderNavKey, delay = 0) {
+    clearDropdownTimers();
+
+    if (delay > 0) {
+      openDropdownTimeoutRef.current = window.setTimeout(() => {
+        setActiveDropdown(key);
+        openDropdownTimeoutRef.current = null;
+      }, delay);
+      return;
+    }
+
+    setActiveDropdown(key);
+  }
+
+  function closeDropdown(delay = 0) {
+    if (openDropdownTimeoutRef.current) {
+      window.clearTimeout(openDropdownTimeoutRef.current);
+      openDropdownTimeoutRef.current = null;
+    }
+
+    if (delay > 0) {
+      if (closeDropdownTimeoutRef.current) {
+        window.clearTimeout(closeDropdownTimeoutRef.current);
+      }
+
+      closeDropdownTimeoutRef.current = window.setTimeout(() => {
+        setActiveDropdown(null);
+        closeDropdownTimeoutRef.current = null;
+      }, delay);
+      return;
+    }
+
+    setActiveDropdown(null);
+  }
+
   useEffect(() => {
     const handlePointerDown = (event: PointerEvent) => {
       if (!desktopNavRef.current) return;
@@ -108,6 +157,7 @@ export function SiteHeader() {
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      clearDropdownTimers();
       document.removeEventListener("pointerdown", handlePointerDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
@@ -169,32 +219,34 @@ export function SiteHeader() {
                 const triggerId = `header-trigger-${item.key}`;
                 const isOpen = activeDropdown === item.key;
                 const items = dropdownMenuMap[item.key] ?? [];
-                const shouldUseHomeTestsPanel = isBrandSurfaceRoute && item.key === "tests";
-
-                if (isHomeRoute && item.key !== "tests") {
-                  return (
-                    <Link
-                      key={item.key}
-                      href={withLocale(item.href)}
-                      className="fm-home-header-link"
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                }
+                const shouldUseHomeTestsPanel = isHomeRoute && item.key === "tests";
+                const shouldUseHomeFlyout = isHomeRoute && item.key !== "tests";
 
                 return (
-                  <div key={item.key} className="relative shrink-0">
+                  <div
+                    key={item.key}
+                    className="relative shrink-0"
+                    onMouseEnter={() => openDropdown(item.key, 70)}
+                    onMouseLeave={() => closeDropdown(110)}
+                    onFocus={() => openDropdown(item.key)}
+                    onBlur={(event) => {
+                      const nextTarget = event.relatedTarget;
+                      if (!(nextTarget instanceof Node) || !event.currentTarget.contains(nextTarget)) {
+                        closeDropdown();
+                      }
+                    }}
+                  >
                     <button
                       id={triggerId}
                       type="button"
                       aria-expanded={isOpen}
-                      aria-controls={menuId}
-                      aria-haspopup={shouldUseHomeTestsPanel ? "dialog" : "menu"}
+                      aria-controls={items.length > 0 ? menuId : undefined}
                       onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
                       className={cn(
-                        "inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-medium transition hover:bg-white/10 hover:text-white xl:px-2.5 xl:text-sm",
-                        isBrandSurfaceRoute ? "text-slate-200" : "text-blue-100"
+                        isHomeRoute
+                          ? "fm-home-header-link fm-home-header-trigger"
+                          : "inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-medium transition hover:bg-white/10 hover:text-white xl:px-2.5 xl:text-sm",
+                        !isHomeRoute && (isBrandSurfaceRoute ? "text-slate-200" : "text-blue-100")
                       )}
                     >
                       <span>{item.label}</span>
@@ -205,8 +257,6 @@ export function SiteHeader() {
                       shouldUseHomeTestsPanel ? (
                         <div
                           id={menuId}
-                          role="dialog"
-                          aria-modal="false"
                           aria-labelledby={triggerId}
                           className="fm-home-nav-panel"
                         >
@@ -253,13 +303,16 @@ export function SiteHeader() {
                           </div>
                         </div>
                       ) : (
-                        <div id={menuId} role="menu" aria-label={item.label} className="fm-header-dropdown-panel">
+                        <div
+                          id={menuId}
+                          aria-labelledby={triggerId}
+                          className={shouldUseHomeFlyout ? "fm-home-header-dropdown-panel" : "fm-header-dropdown-panel"}
+                        >
                           {items.map((menuItem) => (
                             <Link
                               key={`${item.key}-${menuItem.href}`}
                               href={withLocale(menuItem.href)}
-                              role="menuitem"
-                              className="fm-header-dropdown-link"
+                              className={shouldUseHomeFlyout ? "fm-home-header-dropdown-link" : "fm-header-dropdown-link"}
                               onClick={() => setActiveDropdown(null)}
                             >
                               {menuItem.label}
@@ -360,70 +413,8 @@ export function SiteHeader() {
             </div>
 
             <div className="min-h-0 flex-1 overflow-y-auto px-4 py-3">
-              {isHomeRoute ? (
-                <nav className="space-y-4">
-                  <div className="fm-home-header-mobile-group">
-                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/52">
-                      {homeHeader.testsLabel}
-                    </p>
-                    <h2 className="m-0 mt-3 text-xl font-semibold tracking-[-0.03em] text-white">
-                      {homeHeader.testsTitle}
-                    </h2>
-                    <p className="m-0 mt-3 text-sm leading-7 text-slate-300">
-                      {homeHeader.testsBody}
-                    </p>
-                    <div className="mt-4 space-y-4">
-                      {homeHeader.groups.map((group) => (
-                        <section key={group.title}>
-                          <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/44">
-                            {group.title}
-                          </p>
-                          <div className="mt-2 space-y-2">
-                            {group.links.map((link) => (
-                              <Link
-                                key={`${group.title}-${link.href}`}
-                                href={withLocale(link.href)}
-                                onClick={handleMobileLinkClick}
-                                className="block rounded-xl border border-white/10 bg-white/[0.04] px-3 py-3 text-sm text-white transition hover:bg-white/10"
-                              >
-                                <span className="block font-semibold">{link.title}</span>
-                                {link.description ? (
-                                  <span className="mt-1 block text-xs leading-6 text-slate-400">{link.description}</span>
-                                ) : null}
-                              </Link>
-                            ))}
-                          </div>
-                        </section>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-1">
-                    {navItems.filter((item) => item.key !== "tests").map((item) => (
-                      <Link
-                        key={`home-mobile-${item.key}`}
-                        href={withLocale(item.href)}
-                        onClick={handleMobileLinkClick}
-                        className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-
-                    <Link
-                      href={localeHref}
-                      onClick={() => {
-                        persistLocalePreference();
-                        handleMobileLinkClick();
-                      }}
-                      className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-                    >
-                      {localeLabel}
-                    </Link>
-                  </div>
-                </nav>
-              ) : (
-                <nav className="space-y-1">
+              <nav className="space-y-1">
+                {!isHomeRoute ? (
                   <Link
                     href={withLocale("/")}
                     onClick={handleMobileLinkClick}
@@ -431,63 +422,63 @@ export function SiteHeader() {
                   >
                     {dict.header.home}
                   </Link>
+                ) : null}
 
-                  {navItems.map((item) => {
-                    const isExpanded = mobileExpandedKey === item.key;
-                    const menuItems = dropdownMenuMap[item.key] ?? [];
+                {navItems.map((item) => {
+                  const isExpanded = mobileExpandedKey === item.key;
+                  const menuItems = dropdownMenuMap[item.key] ?? [];
 
-                    return (
-                      <div key={`mobile-group-${item.key}`} className="rounded-lg border border-white/10 bg-white/[0.03]">
-                        <button
-                          type="button"
-                          aria-expanded={isExpanded}
-                          aria-controls={`mobile-submenu-${item.key}`}
-                          onClick={() => setMobileExpandedKey((prev) => (prev === item.key ? null : item.key))}
-                          className="flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold text-white transition hover:bg-white/10"
-                        >
-                          <span>{item.label}</span>
-                          <ChevronDown className={isExpanded ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
-                        </button>
+                  return (
+                    <div key={`mobile-group-${item.key}`} className="rounded-lg border border-white/10 bg-white/[0.03]">
+                      <button
+                        type="button"
+                        aria-expanded={isExpanded}
+                        aria-controls={`mobile-submenu-${item.key}`}
+                        onClick={() => setMobileExpandedKey((prev) => (prev === item.key ? null : item.key))}
+                        className="flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold text-white transition hover:bg-white/10"
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDown className={isExpanded ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
+                      </button>
 
-                        {isExpanded ? (
-                          <div id={`mobile-submenu-${item.key}`} className="space-y-1 border-t border-white/10 px-2 pb-2 pt-2">
-                            {menuItems.map((menuItem) => (
-                              <Link
-                                key={`mobile-submenu-link-${item.key}-${menuItem.href}`}
-                                href={withLocale(menuItem.href)}
-                                onClick={handleMobileLinkClick}
-                                className="block rounded-md px-3 py-2 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white"
-                              >
-                                {menuItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
-                    );
-                  })}
+                      {isExpanded ? (
+                        <div id={`mobile-submenu-${item.key}`} className="space-y-1 border-t border-white/10 px-2 pb-2 pt-2">
+                          {menuItems.map((menuItem) => (
+                            <Link
+                              key={`mobile-submenu-link-${item.key}-${menuItem.href}`}
+                              href={withLocale(menuItem.href)}
+                              onClick={handleMobileLinkClick}
+                              className="block rounded-md px-3 py-2 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white"
+                            >
+                              {menuItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
 
-                  <Link
-                    href={withLocale("/tests?q=")}
-                    onClick={handleMobileLinkClick}
-                    className="mt-2 flex min-h-[44px] items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-                  >
-                    <Search className="h-4 w-4" />
-                    <span>{dict.header.search}</span>
-                  </Link>
+                <Link
+                  href={withLocale("/tests?q=")}
+                  onClick={handleMobileLinkClick}
+                  className="mt-2 flex min-h-[44px] items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  <Search className="h-4 w-4" />
+                  <span>{dict.header.search}</span>
+                </Link>
 
-                  <Link
-                    href={localeHref}
-                    onClick={() => {
-                      persistLocalePreference();
-                      handleMobileLinkClick();
-                    }}
-                    className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-                  >
-                    {localeLabel}
-                  </Link>
-                </nav>
-              )}
+                <Link
+                  href={localeHref}
+                  onClick={() => {
+                    persistLocalePreference();
+                    handleMobileLinkClick();
+                  }}
+                  className="flex min-h-[44px] items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  {localeLabel}
+                </Link>
+              </nav>
             </div>
 
             <div className="shrink-0 border-t border-white/15 bg-slate-950/20 p-4">
