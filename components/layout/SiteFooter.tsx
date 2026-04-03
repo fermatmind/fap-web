@@ -23,15 +23,21 @@ export function SiteFooter() {
           testsTitle: "Measurement Matrix",
           articlesTitle: "Research & Notes",
           supportTitle: "Governance",
-          reviewsTitle: "Data Sovereignty",
-          tailnote: "From Noise to Clarity.",
+          reviewsTitle: "Support & Policy",
+          tailnote: "识微，见远。See the Micro. Lead the Macro.",
+          introLabel: "Resources & policy",
+          introCopy: "将测评入口、研究内容、支持渠道与政策信息放在同一处，便于快速查阅。",
+          supportMeta: "隐私、条款与支持入口公开可查。",
         }
       : {
           testsTitle: "Measurement Matrix",
           articlesTitle: "Research & Notes",
           supportTitle: "Governance",
-          reviewsTitle: "Data Sovereignty",
-          tailnote: "From Noise to Clarity.",
+          reviewsTitle: "Support & Policy",
+          tailnote: "See the Micro. Lead the Macro.",
+          introLabel: "Resources & policy",
+          introCopy: "Assessments, research links, support channels, and policy pages are grouped in one place for quick access.",
+          supportMeta: "Privacy, terms, and support surfaces are explicitly available.",
         };
 
   const testLinks = [
@@ -61,12 +67,8 @@ export function SiteFooter() {
     <footer className="fm-section-dark border-t border-white/10 text-white">
       <Container className="space-y-8 py-12">
         <div className="space-y-2 border-b border-white/10 pb-5">
-          <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/55">Protocol footer</p>
-          <p className="m-0 text-sm text-slate-300">
-            {locale === "zh"
-              ? "测量矩阵、研究笔记、治理规则与数据主权信息被统一收束在同一份协议尾页中。"
-              : "Measurement modules, research notes, governance links, and data sovereignty details close the system in one protocol tail."}
-          </p>
+          <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/55">{footerCopy.introLabel}</p>
+          <p className="m-0 text-sm text-slate-300">{footerCopy.introCopy}</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -110,7 +112,7 @@ export function SiteFooter() {
 
           <div className="space-y-3">
             <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.reviewsTitle}</p>
-            <p className="m-0 text-sm text-slate-300">{dict.footer.ratingLabel}</p>
+            <p className="m-0 text-sm text-slate-300">{footerCopy.supportMeta}</p>
             <p className="m-0 text-sm text-slate-300">
               <a href={`mailto:${supportEmail}`} className="font-semibold text-white hover:text-[var(--fm-gold)]">
                 {supportEmail}

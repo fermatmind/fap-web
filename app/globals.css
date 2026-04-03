@@ -1715,8 +1715,8 @@ a {
 .fm-home-hero {
   border-bottom: 1px solid rgba(28, 35, 44, 0.8);
   background:
-    radial-gradient(circle at 16% 14%, rgba(0, 255, 65, 0.05), transparent 24%),
-    radial-gradient(circle at 82% 20%, rgba(78, 90, 106, 0.1), transparent 22%),
+    radial-gradient(circle at 16% 14%, rgba(114, 141, 168, 0.1), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(88, 104, 123, 0.12), transparent 22%),
     linear-gradient(180deg, #0b0f14 0%, #10151d 56%, #141b24 100%);
 }
 
@@ -2048,15 +2048,16 @@ a {
 }
 
 .fm-home-hero-cta-primary {
-  border: 1px solid rgba(0, 255, 65, 0.86);
-  background: linear-gradient(180deg, #00ff41 0%, #00e63a 100%);
-  color: #0b0f14;
-  box-shadow: 0 10px 22px rgba(0, 255, 65, 0.12);
+  border: 1px solid rgba(154, 183, 210, 0.74);
+  background: linear-gradient(180deg, #203247 0%, #1a2a3d 100%);
+  color: #f2f5f8;
+  box-shadow: 0 10px 22px rgba(8, 16, 28, 0.24);
 }
 
 .fm-home-hero-cta-primary:hover {
-  background: linear-gradient(180deg, #2aff63 0%, #0ff14b 100%);
-  color: #0b0f14;
+  border-color: rgba(180, 201, 222, 0.86);
+  background: linear-gradient(180deg, #2a3e56 0%, #20344b 100%);
+  color: #ffffff;
 }
 
 .fm-home-hero-cta-secondary {
@@ -2066,7 +2067,7 @@ a {
 }
 
 .fm-home-hero-cta-secondary:hover {
-  border-color: rgba(0, 255, 65, 0.4);
+  border-color: rgba(168, 191, 214, 0.52);
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
@@ -2074,7 +2075,7 @@ a {
 .fm-home-hero-cta-primary:focus-visible,
 .fm-home-hero-cta-secondary:focus-visible {
   box-shadow:
-    0 0 0 3px rgba(0, 255, 65, 0.14),
+    0 0 0 3px rgba(153, 185, 214, 0.24),
     0 18px 36px rgba(0, 0, 0, 0.24);
 }
 
@@ -3794,6 +3795,18 @@ a {
   gap: 0;
 }
 
+.fm-home-hero-title-brand {
+  font-size: clamp(2.6rem, 5.6vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.fm-home-hero-title-brand-word {
+  font-size: clamp(2.6rem, 5.6vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
 .fm-home-hero-title-shell,
 .fm-home-hero-title-brand-stack,
 .fm-home-hero-reading-stack,
@@ -3806,8 +3819,20 @@ a {
 }
 
 .fm-home-hero-title-ruler {
-  margin-top: 0;
-  max-width: 32rem;
+  margin-top: 0.2rem;
+  max-width: 40rem;
+  padding: 0.8rem 0 0;
+  border: 0;
+  border-top: 1px solid rgba(242, 242, 247, 0.16);
+  background: none;
+  box-shadow: none;
+}
+
+.fm-home-hero-title-subline {
+  max-width: 36rem;
+  color: rgba(242, 242, 247, 0.9);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1.4;
 }
 
 .fm-home-hero-reading-stack {
@@ -3826,7 +3851,7 @@ a {
 .fm-home-hero-method-note {
   color: rgba(242, 242, 247, 0.72);
   font-size: clamp(1rem, 1.56vw, 1.14rem);
-  line-height: 1.74;
+  line-height: 1.72;
 }
 
 .fm-home-hero-method-break {
@@ -3838,11 +3863,11 @@ a {
   gap: 0.45rem;
   max-width: 40rem;
   padding-top: 0.35rem;
-  border-top: 1px solid rgba(242, 242, 247, 0.08);
+  border-top: 1px solid rgba(242, 242, 247, 0.12);
 }
 
 .fm-home-hero-footnote-label {
-  color: rgba(0, 255, 65, 0.64);
+  color: rgba(188, 206, 224, 0.72);
   font-family: var(--font-fm-mono), monospace;
   font-size: 0.6rem;
   font-weight: 600;
@@ -3853,7 +3878,8 @@ a {
 .fm-home-hero-taxonomy {
   max-width: 36rem;
   padding-top: 0;
-  line-height: 1.75;
+  line-height: 1.72;
+  color: rgba(242, 242, 247, 0.62);
 }
 
 .fm-home-engine-panel {
@@ -4713,11 +4739,10 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 0%, rgba(42, 52, 63, 0.36), transparent 62%),
-    linear-gradient(180deg, rgba(10, 15, 20, 0.92) 0%, rgba(13, 19, 26, 0.46) 52%, rgba(24, 32, 40, 0.08) 100%);
+    radial-gradient(circle at 50% 0%, rgba(72, 92, 114, 0.22), transparent 60%),
+    linear-gradient(180deg, rgba(10, 15, 20, 0.9) 0%, rgba(13, 19, 26, 0.36) 52%, rgba(24, 32, 40, 0.06) 100%);
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.44) 54%, transparent 100%);
-  mix-blend-mode: overlay;
-  opacity: 0.92;
+  opacity: 0.88;
 }
 
 .fm-home-hero-transition::after {
@@ -4725,18 +4750,10 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.05), transparent 18%),
-    repeating-linear-gradient(
-      90deg,
-      rgba(0, 255, 65, 0.06) 0,
-      rgba(0, 255, 65, 0.06) 1px,
-      transparent 1px,
-      transparent 8rem
-    ),
-    linear-gradient(180deg, rgba(108, 127, 145, 0.12) 0%, rgba(108, 127, 145, 0.03) 54%, rgba(108, 127, 145, 0) 100%),
-    linear-gradient(180deg, rgba(0, 255, 65, 0.12) 0%, rgba(0, 255, 65, 0.02) 48%, rgba(0, 255, 65, 0) 100%);
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.04), transparent 18%),
+    linear-gradient(180deg, rgba(128, 149, 171, 0.14) 0%, rgba(128, 149, 171, 0.04) 54%, rgba(128, 149, 171, 0) 100%);
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.34) 64%, transparent 100%);
-  opacity: 0.3;
+  opacity: 0.22;
 }
 
 .fm-home-calibration {
@@ -5539,11 +5556,11 @@ a {
 .fm-home-core-entryline-rule {
   flex: 1 1 auto;
   height: 1px;
-  background: linear-gradient(90deg, rgba(0, 255, 65, 0), rgba(0, 255, 65, 0.72), rgba(0, 255, 65, 0));
+  background: linear-gradient(90deg, rgba(164, 188, 212, 0), rgba(164, 188, 212, 0.72), rgba(164, 188, 212, 0));
 }
 
 .fm-home-core-entryline-label {
-  color: rgba(0, 255, 65, 0.82);
+  color: rgba(182, 203, 224, 0.82);
   font-family: var(--font-fm-mono), monospace;
   font-size: 0.68rem;
   font-weight: 600;
@@ -5656,7 +5673,7 @@ a {
 }
 
 .fm-home-core-bay-tags span:last-child {
-  color: rgba(0, 255, 65, 0.8);
+  color: rgba(171, 198, 224, 0.88);
 }
 
 .fm-home-core-bay-copy {
@@ -5696,15 +5713,15 @@ a {
 }
 
 .fm-home-core-facet-node.is-active {
-  background: rgba(0, 255, 65, 0.18);
-  border-color: rgba(0, 255, 65, 0.4);
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.12);
+  background: rgba(132, 166, 198, 0.24);
+  border-color: rgba(132, 166, 198, 0.5);
+  box-shadow: 0 0 10px rgba(132, 166, 198, 0.2);
 }
 
 .fm-home-core-norm-curve {
   height: 7.6rem;
   padding: 0.2rem 0.9rem 0;
-  color: rgba(0, 255, 65, 0.74);
+  color: rgba(142, 176, 210, 0.8);
 }
 
 .fm-home-core-norm-ticks {
@@ -5727,7 +5744,7 @@ a {
   bottom: 0;
   left: 5rem;
   width: 1px;
-  background: linear-gradient(180deg, rgba(0, 255, 65, 0.08), rgba(0, 255, 65, 0.28), rgba(0, 255, 65, 0.08));
+  background: linear-gradient(180deg, rgba(142, 176, 210, 0.08), rgba(142, 176, 210, 0.34), rgba(142, 176, 210, 0.08));
 }
 
 .fm-home-core-topology-row {
@@ -5749,7 +5766,7 @@ a {
 
 .fm-home-core-topology-link {
   height: 1px;
-  background: linear-gradient(90deg, rgba(0, 255, 65, 0.08), rgba(0, 255, 65, 0.68), rgba(0, 255, 65, 0.12));
+  background: linear-gradient(90deg, rgba(142, 176, 210, 0.08), rgba(142, 176, 210, 0.68), rgba(142, 176, 210, 0.12));
 }
 
 .fm-home-core-summary {

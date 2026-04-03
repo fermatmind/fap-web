@@ -5,20 +5,20 @@ const FACET_NODES = Array.from({ length: 30 }, (_, index) => index);
 const NORM_TICKS = ["-2σ", "-1σ", "M", "+1σ", "+2σ"];
 const SCENARIO_CONNECTIONS = [
   {
-    label: "F03",
-    target: { en: "Partner fit", zh: "关系匹配" },
+    label: "Learning",
+    target: { en: "Learning strategy", zh: "学习策略" },
   },
   {
-    label: "F12",
-    target: { en: "Career pivot", zh: "职业转向" },
+    label: "Career",
+    target: { en: "Career direction", zh: "职业方向" },
   },
   {
-    label: "F21",
-    target: { en: "Decision drag", zh: "决策阻滞" },
+    label: "Teamwork",
+    target: { en: "Collaboration style", zh: "协作风格" },
   },
   {
-    label: "F27",
-    target: { en: "Pressure load", zh: "压力负荷" },
+    label: "Pressure",
+    target: { en: "Support priority", zh: "支持优先级" },
   },
 ];
 
@@ -31,20 +31,20 @@ function ProtocolVisual({
 }) {
   const copy = {
     measurement: {
-      head: locale === "zh" ? "30-Facet 节点阵列" : "30-facet matrix",
-      meta: locale === "zh" ? "SCAN_DEPTH: HIGH" : "SCAN_DEPTH: HIGH",
-      readoutA: "SAMPLE_RATE: HIGH",
-      readoutB: "TRACEABLE_STATE: ENABLED",
+      head: locale === "zh" ? "30 分面结构视图" : "30-facet structure view",
+      meta: locale === "zh" ? "用于细化特质理解" : "Built for granular understanding",
+      readoutA: locale === "zh" ? "保持分面可见" : "Facet visibility retained",
+      readoutB: locale === "zh" ? "支持复盘与讨论" : "Supports review and discussion",
     },
     norm: {
-      head: locale === "zh" ? "常模定位曲线" : "Norm reference curve",
-      meta: locale === "zh" ? "Z-SCORE: ACTIVE" : "Z-SCORE: ACTIVE",
+      head: locale === "zh" ? "常模参照曲线" : "Norm-referenced curve",
+      meta: locale === "zh" ? "提供相对语境" : "Provides relative context",
     },
     mapping: {
-      head: locale === "zh" ? "规则映射拓扑" : "Scenario topology",
-      meta: locale === "zh" ? "ACTIONABLE_OUTPUTS" : "ACTIONABLE_OUTPUTS",
-      readoutA: "RULE_LOCK: 99.9",
-      readoutB: "OUTPUT_MODE: ACTIONABLE",
+      head: locale === "zh" ? "场景解释路径" : "Scenario interpretation paths",
+      meta: locale === "zh" ? "连接真实决策问题" : "Connected to real decisions",
+      readoutA: locale === "zh" ? "学习 / 职业 / 协作" : "Learning / Career / Teamwork",
+      readoutB: locale === "zh" ? "输出可执行建议" : "Actionable recommendations",
     },
   } as const;
 
@@ -96,8 +96,8 @@ function ProtocolVisual({
           ))}
         </div>
         <div className="fm-home-core-visual-foot">
-          <span>NORM_REFERENCED</span>
-          <span>STABILITY_CHECK: PASS</span>
+          <span>{locale === "zh" ? "基于常模语境" : "Norm-referenced context"}</span>
+          <span>{locale === "zh" ? "避免孤立解读" : "Avoid isolated interpretation"}</span>
         </div>
       </div>
     );
@@ -129,72 +129,72 @@ function ProtocolVisual({
 
 const PROTOCOLS = {
   en: {
-    entryLabel: "[ ENTERING CORE PROTOCOL ZONE ]",
-    kicker: "THE FERMAT PROTOCOLS / CORE ARCHITECTURE",
-    title: "The Architect Protocols",
+    entryLabel: "How FermatMind works",
+    kicker: "Method overview",
+    title: "From assessment to decision support",
     subtitle:
-      "These are not three separate selling points. They are the underlying structure that makes one measurement system possible.",
+      "The product is built as one coherent workflow: structured measurement, norm context, and scenario interpretation.",
     summary:
-      "From explainable, to actionable, to reviewable. FermatMind delivers judgment protocols, not label outputs.",
+      "You get results that are interpretable, discussable, and reviewable. They support decisions without claiming certainty.",
     items: [
       {
-        number: "BAY-01",
-        title: "High-resolution measurement",
+        number: "Step 1",
+        title: "Structured measurement",
         description:
-          "Replace coarse personality labels with a 30-facet scan matrix so the system sees readable structure before it names anything.",
-        footnotePrimary: "FACETS: 30",
-        footnoteSecondary: "SCAN_DEPTH: HIGH",
+          "Use 30 facets to preserve nuance before drawing conclusions, so interpretation is based on structure rather than one coarse label.",
+        footnotePrimary: "30 facets",
+        footnoteSecondary: "Granular profile",
         type: "measurement",
       },
       {
-        number: "BAY-02",
-        title: "Norm reference system",
+        number: "Step 2",
+        title: "Norm-referenced context",
         description:
-          "A calibrated Gaussian slice keeps every score positioned against a large reference set, so interpretation stays relative and stable.",
-        footnotePrimary: "NORM_SET: 100K+",
-        footnoteSecondary: "Z-SCORE: ACTIVE",
+          "Place scores in relative context against a larger reference set, which helps avoid over-interpreting one absolute number.",
+        footnotePrimary: "Norm context",
+        footnoteSecondary: "Relative interpretation",
         type: "norm",
       },
       {
-        number: "BAY-03",
-        title: "Scenario mapping engine",
+        number: "Step 3",
+        title: "Scenario interpretation",
         description:
-          "Trait signals do not stop at description. They are routed into partner-fit, risk-load, and decision contexts that can actually be used.",
-        footnotePrimary: "SCENARIO_ROUTER",
-        footnoteSecondary: "ACTIONABLE_OUTPUTS",
+          "Translate trait signals into practical scenarios such as learning direction, collaboration style, and career decisions.",
+        footnotePrimary: "Decision scenarios",
+        footnoteSecondary: "Actionable outputs",
         type: "mapping",
       },
     ],
   },
   zh: {
-    entryLabel: "[ ENTERING CORE PROTOCOL ZONE ]",
-    kicker: "THE FERMAT PROTOCOLS / CORE ARCHITECTURE",
-    title: "三大架构协议",
-    subtitle: "这不是三套不同的卖点，而是同一套测量系统得以成立的底层结构。",
-    summary: "从可解释，到可执行，再到可复盘。费马测试交付的不是结果标签，而是判断协议。",
+    entryLabel: "FermatMind 的工作方式",
+    kicker: "方法说明",
+    title: "从测评到决策支持",
+    subtitle: "产品采用同一套连续流程：结构化测量、常模语境、场景解释。",
+    summary: "结果强调可解释、可讨论、可复盘，用于支持判断，而不是替代判断。",
     items: [
       {
-        number: "BAY-01",
-        title: "高分辨率测量",
-        description: "以 30-Facet 分面矩阵替代粗颗粒人格标签，让系统先看到结构，再命名结果。",
-        footnotePrimary: "FACETS: 30",
-        footnoteSecondary: "SCAN_DEPTH: HIGH",
+        number: "步骤 1",
+        title: "结构化测量",
+        description: "用 30 个分面保留细节，再进入解释阶段，避免被单一标签过度简化。",
+        footnotePrimary: "30 个分面",
+        footnoteSecondary: "细粒度画像",
         type: "measurement",
       },
       {
-        number: "BAY-02",
-        title: "常模锚定系统",
-        description: "通过大规模常模参照与高斯定位切片，把结果放回动态坐标，而不是孤立地解释一个分数。",
-        footnotePrimary: "NORM_SET: 100K+",
-        footnoteSecondary: "Z-SCORE: ACTIVE",
+        number: "步骤 2",
+        title: "常模参照语境",
+        description: "把结果放回相对语境，降低对单个绝对分数的误读风险。",
+        footnotePrimary: "常模语境",
+        footnoteSecondary: "相对解释",
         type: "norm",
       },
       {
-        number: "BAY-03",
-        title: "场景映射引擎",
-        description: "系统不止于特质描述，而是把结构结果映射进真实任务与判断情境，形成可执行输出。",
-        footnotePrimary: "SCENARIO_ROUTER",
-        footnoteSecondary: "ACTIONABLE_OUTPUTS",
+        number: "步骤 3",
+        title: "场景化解释",
+        description: "把结构结果连接到学习、职业与协作等真实问题，形成可执行的下一步建议。",
+        footnotePrimary: "决策场景",
+        footnoteSecondary: "可执行输出",
         type: "mapping",
       },
     ],
@@ -220,8 +220,8 @@ export function ValuePropsSection({ locale }: { locale: Locale }) {
 
         <div className="fm-home-core-machine">
           <div className="fm-home-core-machine-head">
-            <span>RACK_STATUS: SEALED</span>
-            <span>CORE_ARCHITECTURE: LIVE</span>
+            <span>{locale === "zh" ? "结构化流程" : "Structured workflow"}</span>
+            <span>{locale === "zh" ? "从测量到解释" : "From measurement to interpretation"}</span>
           </div>
 
           <div className="fm-home-core-bays">

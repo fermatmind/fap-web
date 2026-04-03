@@ -1,63 +1,71 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { EVIDENCE_LOGS, SCENARIO_VALIDATIONS } from "@/lib/marketing/socialProof";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 
-function EvidenceFacetPreview({ active }: { active: number[] }) {
-  return (
-    <div className="fm-home-archive-preview" aria-hidden>
-      {Array.from({ length: 30 }, (_, index) => (
-        <span key={index} className={`fm-home-archive-preview-node${active.includes(index) ? " is-active" : ""}`} />
-      ))}
-    </div>
-  );
-}
-
 const SECTION_COPY = {
   en: {
-    kicker: "EVIDENCE REGISTRY / LIVE DEPLOYMENT TRACE",
-    title: "Scenario Validation",
+    kicker: "Methodology, privacy, and boundaries",
+    title: "Why users can trust this product",
     subtitle:
-      "These outputs do not stop at personal reading. They enter real judgment chains, then settle into reviewed deployment traces.",
-    boardTitle: "Deployment mainboard",
-    boardLead:
-      "This is not a testimonial carousel. It is a structured board showing where the system is used, what judgment interface it enters, and which value gets verified.",
-    logsTitle: "Audit archive",
-    logsSubtitle: "Each log behaves like a registry entry rather than an emotional endorsement card.",
-    dateLabel: "DATE",
-    statusLabel: "STATUS",
-    scoreLabel: "VERIFICATION_SCORE",
-    roleLabel: "USER_ROLE",
-    scenarioLabel: "SCENARIO",
-    summaryLabel: "SUMMARY",
-    traceLabel: "TRACE",
-    sourceLabel: "MODULE",
-    valueLabel: "VERIFIED_VALUE",
-    slotLabel: "SLOT",
-    closure: "From Noise to Clarity.",
-    closureSub: "Turn cognitive noise into more reliable judgment.",
+      "FermatMind is designed for structured self-understanding and decision support. It does not claim clinical diagnosis or deterministic life predictions.",
+    cards: [
+      {
+        title: "Structured methodology",
+        body: "Results are organized from facet-level readings to scenario interpretation, so users can follow how conclusions are formed.",
+      },
+      {
+        title: "Transparent interpretation scope",
+        body: "Scores are interpreted in context and used as decision support. They are not positioned as absolute truth.",
+      },
+      {
+        title: "Privacy and policy visibility",
+        body: "Privacy policy, terms, support channels, and order recovery paths are available as explicit product surfaces.",
+        href: "/privacy",
+        linkLabel: "View privacy policy",
+      },
+      {
+        title: "Real-world scenario relevance",
+        body: "The product focuses on practical decisions including learning direction, career planning, and collaboration style.",
+      },
+    ],
+    boundariesTitle: "Interpretation boundaries",
+    boundaries: [
+      "Not a clinical diagnosis tool.",
+      "No guaranteed outcomes or deterministic destiny claims.",
+      "A score never defines a whole person.",
+    ],
+    primaryCta: "Start free assessment",
+    secondaryCta: "Read help center",
   },
   zh: {
-    kicker: "EVIDENCE REGISTRY / LIVE DEPLOYMENT TRACE",
-    title: "场景验证",
-    subtitle: "这些结果不是停留在个人阅读，而是进入真实判断链路，并沉降为可复查的部署记录。",
-    boardTitle: "部署主板",
-    boardLead: "这里不是用户好评轮播，而是一块结构化证据主板：展示系统被部署到哪里、进入什么判断接口、验证了什么价值。",
-    logsTitle: "审计档案区",
-    logsSubtitle: "每条记录都更像系统归档条目，而不是情绪化背书卡片。",
-    dateLabel: "DATE",
-    statusLabel: "STATUS",
-    scoreLabel: "VERIFICATION_SCORE",
-    roleLabel: "USER_ROLE",
-    scenarioLabel: "SCENARIO",
-    summaryLabel: "SUMMARY",
-    traceLabel: "TRACE",
-    sourceLabel: "MODULE",
-    valueLabel: "VERIFIED_VALUE",
-    slotLabel: "SLOT",
-    closure: "From Noise to Clarity.",
-    closureSub: "将认知噪声转化为更清晰的判断依据。",
+    kicker: "方法、隐私与边界",
+    title: "为什么值得信任",
+    subtitle: "FermatMind 用于结构化自我理解与决策支持，不提供临床诊断，也不承诺确定性人生结论。",
+    cards: [
+      {
+        title: "结构化方法",
+        body: "从分面读数到场景解释，结果链路可读、可讨论，便于理解结论如何形成。",
+      },
+      {
+        title: "解释范围透明",
+        body: "结果放在语境中解释，用于支持判断，不被包装为绝对真理。",
+      },
+      {
+        title: "隐私与规则可见",
+        body: "隐私政策、条款、支持渠道和订单恢复入口都在产品中明确可查。",
+        href: "/privacy",
+        linkLabel: "查看隐私政策",
+      },
+      {
+        title: "贴近真实决策场景",
+        body: "重点服务学习方向、职业规划与协作风格等实际问题，而非抽象概念展示。",
+      },
+    ],
+    boundariesTitle: "解释边界",
+    boundaries: ["不用于临床诊断。", "不承诺结果必然发生。", "任何分数都不等于“定义一个人”。"],
+    primaryCta: "开始免费测评",
+    secondaryCta: "查看帮助中心",
   },
 } as const;
 
@@ -74,127 +82,48 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
           <p className="fm-home-archive-subtitle m-0">{copy.subtitle}</p>
         </div>
 
-        <div className="fm-home-archive-board">
-          <div className="fm-home-archive-board-head">
-            <div>
-              <p className="fm-home-archive-board-label m-0">{copy.boardTitle}</p>
-              <p className="fm-home-archive-board-copy m-0">{copy.boardLead}</p>
-            </div>
-            <div className="fm-home-archive-board-meta">
-              <span>BOARD_STATUS: SETTLED</span>
-              <span>TRACE_MODE: VERIFIED</span>
-            </div>
-          </div>
-
-          <div className="fm-home-archive-board-grid">
-            {SCENARIO_VALIDATIONS.map((item) => (
-              <article key={item.id} className="fm-home-archive-slot">
-                <div className="fm-home-archive-slot-top">
-                  <div>
-                    <span className="fm-home-archive-slot-code">{`${item.slotCode} / ${item.code}`}</span>
-                    <h3 className="fm-home-archive-slot-title m-0">{locale === "zh" ? item.label.zh : item.label.en}</h3>
-                  </div>
-                  <span className="fm-home-archive-slot-status">{item.status}</span>
-                </div>
-
-                <p className="fm-home-archive-slot-summary m-0">{locale === "zh" ? item.summary.zh : item.summary.en}</p>
-
-                <div className="fm-home-archive-slot-detailgrid">
-                  <div>
-                    <span className="fm-home-archive-slot-label">{copy.valueLabel}</span>
-                    <p className="m-0">{locale === "zh" ? item.output.zh : item.output.en}</p>
-                  </div>
-                  <div>
-                    <span className="fm-home-archive-slot-label">{copy.slotLabel}</span>
-                    <p className="m-0">{locale === "zh" ? item.layer.zh : item.layer.en}</p>
-                  </div>
-                  <div>
-                    <span className="fm-home-archive-slot-label">{locale === "zh" ? "INTERFACE" : "INTERFACE"}</span>
-                    <p className="m-0">{locale === "zh" ? item.source.zh : item.source.en}</p>
-                  </div>
-                </div>
-
-                <div className="fm-home-archive-slot-foot">
-                  <span className="fm-home-archive-slot-protocol">{item.protocol}</span>
-                  <div className="fm-home-archive-slot-signal" aria-hidden>
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+        <div className="mx-auto mt-10 grid max-w-[60rem] gap-4 md:grid-cols-2">
+          {copy.cards.map((card) => (
+            <article key={card.title} className="rounded-[10px] border border-[#243447]/25 bg-white/95 p-5 shadow-[0_10px_30px_rgba(13,24,39,0.08)]">
+              <h3 className="m-0 text-[1.18rem] font-semibold tracking-[-0.02em] text-slate-900">{card.title}</h3>
+              <p className="m-0 mt-2 text-[0.95rem] leading-7 text-slate-700">{card.body}</p>
+              {"href" in card ? (
+                <Link
+                  href={withLocale(card.href)}
+                  className="mt-3 inline-flex text-sm font-medium text-slate-900 underline-offset-4 hover:underline"
+                >
+                  {card.linkLabel}
+                </Link>
+              ) : null}
+            </article>
+          ))}
         </div>
 
-        <div className="fm-home-archive-logs">
-          <div className="fm-home-archive-logs-head">
-            <h3 className="m-0">{copy.logsTitle}</h3>
-            <p className="m-0">{copy.logsSubtitle}</p>
-          </div>
-
-          <div className="fm-home-archive-log-grid">
-            {EVIDENCE_LOGS.map((item) => (
-              <article key={item.id} className="fm-home-archive-log">
-                <div className="fm-home-archive-log-head">
-                  <div className="fm-home-archive-log-meta">
-                    <span>{item.auditId}</span>
-                    <span>{`${copy.slotLabel}: ${item.slotCode}`}</span>
-                    <span>{`${copy.traceLabel}: ${locale === "zh" ? item.useCase.zh : item.useCase.en}`}</span>
-                  </div>
-                  <EvidenceFacetPreview active={item.facetPreview} />
-                </div>
-
-                <div className="fm-home-archive-log-body">
-                  <div className="fm-home-archive-log-line">
-                    <span className="fm-home-archive-log-label">{copy.dateLabel}</span>
-                    <span className="fm-home-archive-log-value">{item.date}</span>
-                  </div>
-                  <div className="fm-home-archive-log-line">
-                    <span className="fm-home-archive-log-label">{copy.scoreLabel}</span>
-                    <span className="fm-home-archive-log-value">{item.verificationScore}</span>
-                  </div>
-                  <div className="fm-home-archive-log-line">
-                    <span className="fm-home-archive-log-label">{copy.statusLabel}</span>
-                    <span className="fm-home-archive-log-value">VERIFIED</span>
-                  </div>
-                </div>
-
-                <div className="fm-home-archive-log-summary">
-                  <span className="fm-home-archive-log-label">{copy.summaryLabel}</span>
-                  <p className="fm-home-archive-log-quote m-0">{locale === "zh" ? item.quote.zh : item.quote.en}</p>
-                </div>
-
-                <div className="fm-home-archive-log-table">
-                  <div>
-                    <span className="fm-home-archive-log-label">{copy.roleLabel}</span>
-                    <p className="m-0">{locale === "zh" ? item.role.zh : item.role.en}</p>
-                  </div>
-                  <div>
-                    <span className="fm-home-archive-log-label">{copy.scenarioLabel}</span>
-                    <p className="m-0">{locale === "zh" ? item.scenario.zh : item.scenario.en}</p>
-                  </div>
-                  <div>
-                    <span className="fm-home-archive-log-label">{copy.sourceLabel}</span>
-                    <Link href={withLocale(`/tests/${item.testSlug}`)} className="fm-home-archive-log-link">
-                      {locale === "zh" ? item.testLabel.zh : item.testLabel.en}
-                    </Link>
-                  </div>
-                  <div className="fm-home-archive-log-span">
-                    <span className="fm-home-archive-log-label">{copy.valueLabel}</span>
-                    <p className="m-0">{locale === "zh" ? item.verifiedValue.zh : item.verifiedValue.en}</p>
-                  </div>
-                </div>
-              </article>
+        <div className="mx-auto mt-6 max-w-[60rem] rounded-[10px] border border-white/15 bg-[#0f1722] px-5 py-5 text-slate-200 shadow-[0_24px_48px_rgba(10,17,27,0.24)]">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-white/62">{copy.boundariesTitle}</p>
+          <ul className="m-0 mt-3 list-none space-y-2 p-0 text-[0.95rem] leading-7 text-slate-200/88">
+            {copy.boundaries.map((line) => (
+              <li key={line} className="flex items-start gap-2">
+                <span className="mt-[0.45rem] h-1.5 w-1.5 rounded-full bg-[#9db5cd]" aria-hidden />
+                <span>{line}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
-        <div className="fm-home-archive-closure">
-          <p className="fm-home-archive-closure-title m-0">{copy.closure}</p>
-          <p className="fm-home-archive-closure-copy m-0">{copy.closureSub}</p>
+        <div className="mx-auto mt-10 flex max-w-[60rem] flex-wrap items-center justify-center gap-3">
+          <Link
+            href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
+            className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-[#101d2a] bg-[#101d2a] px-6 text-sm font-semibold tracking-[0.04em] text-white transition hover:bg-[#18293b]"
+          >
+            {copy.primaryCta}
+          </Link>
+          <Link
+            href={withLocale("/help")}
+            className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-[#101d2a]/25 bg-white/88 px-6 text-sm font-semibold tracking-[0.04em] text-slate-900 transition hover:bg-white"
+          >
+            {copy.secondaryCta}
+          </Link>
         </div>
       </Container>
     </section>

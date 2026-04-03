@@ -58,49 +58,47 @@ type PersistedProgress = {
 
 const SECTION_COPY = {
   en: {
-    kicker: "Selected Assessment Recommendations",
-    title: "Featured Assessments",
+    kicker: "Start from your current question",
+    title: "Assessment entry points",
     subtitle:
-      "Choose the assessment that best fits your current question and get a clearer path into self-understanding within minutes.",
-    rackMeta: "Selected 6 high-frequency assessment entries",
-    deckStatus: "Personality, cognition, pressure, emotion, and career directions",
+      "Choose the entry that matches your current decision context, then move into a clearer and more actionable self-understanding path.",
+    rackMeta: "6 high-frequency assessment entries",
+    deckStatus: "Covers personality, cognition, pressure, emotion, and career direction",
     filters: ["Collaboration", "Career & cognition", "Pressure & emotion", "Ability & performance"],
     progressLabel: "Resume",
-    startLabel: "Start assessment →",
-    resumeLabel: "Continue assessment →",
-    authLabel: "View assessment →",
+    startLabel: "Start assessment",
+    resumeLabel: "Continue assessment",
+    authLabel: "View assessment",
     accessPublic: "Free",
     accessAuth: "Pro",
-    authGate: "AUTH_GATE: SECURE_PAYMENT_GATEWAY",
-    authTerminalTitle: "Pro assessment",
-    authTerminalStatus: "PRO ASSESSMENT",
+    authTerminalTitle: "Pro assessment entry",
+    authTerminalStatus: "Pro access",
     authTerminalCopy:
-      "This assessment is part of the pro catalog. Authorization is completed after you enter the assessment flow. If you already have an order, recover it through Order lookup.",
+      "This assessment is part of the pro catalog. You can continue authorization after entering the flow. If you already have an order, recover it from Order lookup.",
     authTerminalClose: "Close",
-    authTerminalProceed: "View assessment →",
+    authTerminalProceed: "Go to assessment",
     authTerminalLookup: "Order lookup",
     minuteUnit: "min",
   },
   zh: {
-    kicker: "精选测评推荐",
-    title: "重点测评",
-    subtitle: "选择适合你的测评入口，用更清晰的时长预期，快速进入更精准的自我认知路径。",
-    rackMeta: "精选 6 个高频测评入口",
+    kicker: "从你当前的问题开始",
+    title: "测评入口",
+    subtitle: "选择最贴近你当下决策情境的入口，快速进入更清晰、更可执行的自我认知路径。",
+    rackMeta: "6 个高频测评入口",
     deckStatus: "涵盖人格、认知、压力、情绪与职业方向",
     filters: ["协作与角色", "职业与认知", "压力与情绪", "能力与表现"],
     progressLabel: "继续上次",
-    startLabel: "开始测试 →",
-    resumeLabel: "继续测试 →",
-    authLabel: "查看测评 →",
+    startLabel: "开始测评",
+    resumeLabel: "继续测评",
+    authLabel: "查看测评",
     accessPublic: "免费",
     accessAuth: "专业版",
-    authGate: "AUTH_GATE: SECURE_PAYMENT_GATEWAY",
-    authTerminalTitle: "专业版测评",
-    authTerminalStatus: "PRO ASSESSMENT",
+    authTerminalTitle: "专业版测评入口",
+    authTerminalStatus: "专业版入口",
     authTerminalCopy:
-      "该测评属于专业版入口。进入测评流程后可继续完成授权或支付；如果你已有订单，可先通过订单查询恢复流程。",
+      "该测评属于专业版入口。进入流程后可继续完成授权；如已有订单，可通过订单查询恢复。",
     authTerminalClose: "关闭",
-    authTerminalProceed: "查看测评 →",
+    authTerminalProceed: "进入测评",
     authTerminalLookup: "订单查询",
     minuteUnit: "分钟",
   },
@@ -113,8 +111,8 @@ const CARD_SYSTEM_META = {
     protocolCode: "TEAM_ROLE_ROUTER",
     accessMode: "public",
     question: {
-      en: "Used to establish a baseline map for learning direction, collaboration style, and decision preference.",
-      zh: "用于识别信息获取、判断与决策偏好，适合在学业方向、合作风格与角色定位中建立基础认知。",
+      en: "Clarify how you process information and make decisions, so role fit and collaboration become easier to discuss.",
+      zh: "更清楚地看到你获取信息与做决策的方式，让角色定位与协作沟通更容易落地。",
     },
   },
   "big-five-personality-test-ocean-model": {
@@ -123,8 +121,8 @@ const CARD_SYSTEM_META = {
     protocolCode: "TRAIT_COORDINATE_LOCK",
     accessMode: "auth",
     question: {
-      en: "Used to anchor long-term trait coordinates before committing to a role, field, or development path.",
-      zh: "用于把长期稳定特质放回更完整的常模坐标，适合职业路径与长期发展判断。",
+      en: "Understand your long-term trait tendencies before making bigger choices about role, field, and growth path.",
+      zh: "在做更长期的角色、方向与发展选择前，先看清你的稳定特质走向。",
     },
   },
   "clinical-depression-anxiety-assessment-professional-edition": {
@@ -133,8 +131,8 @@ const CARD_SYSTEM_META = {
     protocolCode: "PRESSURE_PRIORITY_SCAN",
     accessMode: "auth",
     question: {
-      en: "Used to identify pressure load, emotional risk, and support priority under higher-stakes contexts.",
-      zh: "用于识别压力负荷、情绪风险与支持优先级，适合高压和复杂情境下的判断。",
+      en: "Scan pressure load and emotional risk early, then prioritize what support should come first.",
+      zh: "尽早识别压力负荷与情绪风险，先明确支持优先级，再进入下一步判断。",
     },
   },
   "depression-screening-test-standard-edition": {
@@ -143,8 +141,8 @@ const CARD_SYSTEM_META = {
     protocolCode: "RECENT_BASELINE_CHECK",
     accessMode: "public",
     question: {
-      en: "Used to quickly calibrate your recent emotional baseline and whether additional support should be considered.",
-      zh: "用于快速校准近期情绪基线，并判断是否需要进一步支持。",
+      en: "Get a quick view of your recent emotional baseline and whether further support should be considered.",
+      zh: "快速了解近期情绪基线，并判断是否需要进一步支持。",
     },
   },
   "iq-test-intelligence-quotient-assessment": {
@@ -153,8 +151,8 @@ const CARD_SYSTEM_META = {
     protocolCode: "ABSTRACT_REASONING_CHECK",
     accessMode: "auth",
     question: {
-      en: "Used to evaluate pattern recognition and abstract reasoning when the task ahead demands higher cognitive load.",
-      zh: "用于评估模式识别与抽象推理能力，适合高认知负载任务的前置判断。",
+      en: "Estimate pattern recognition and reasoning readiness when upcoming tasks require higher cognitive load.",
+      zh: "在高认知负载任务前，先评估你的模式识别与推理准备度。",
     },
   },
   "eq-test-emotional-intelligence-assessment": {
@@ -163,8 +161,8 @@ const CARD_SYSTEM_META = {
     protocolCode: "RELATION_REGULATION_CHECK",
     accessMode: "public",
     question: {
-      en: "Used to evaluate self-awareness, empathy, and relationship regulation for practical collaboration scenarios.",
-      zh: "用于评估自我觉察、共情与关系调节能力，适合协作与沟通情境判断。",
+      en: "See your current self-awareness, empathy, and regulation tendencies for practical collaboration scenarios.",
+      zh: "了解你在自我觉察、共情与关系调节上的当前倾向，支持真实协作场景判断。",
     },
   },
 } as const;
@@ -355,7 +353,7 @@ export function HighlightedTestsSection({
               const isAuth = systemMeta?.accessMode === "auth";
               const accessMode = isAuth ? copy.accessAuth : copy.accessPublic;
               const actionLabel = isAuth && status.mode === "ready" ? copy.authLabel : status.actionLabel;
-              const timeLabel = `[ ${card.timeMinutes}_MIN ]`;
+              const timeLabel = locale === "zh" ? `约 ${card.timeMinutes} ${copy.minuteUnit}` : `${card.timeMinutes} ${copy.minuteUnit}`;
               const ledClass = isAuth
                 ? "fm-home-calibration-led fm-home-calibration-led--auth"
                 : "fm-home-calibration-led fm-home-calibration-led--public";
@@ -484,11 +482,6 @@ export function HighlightedTestsSection({
             </div>
 
             <div className="fm-home-auth-terminal-body">
-              <div className="fm-home-auth-terminal-meta">
-                <span>{`PROTOCOL: ${CARD_SYSTEM_META[authTerminalCard.slug as keyof typeof CARD_SYSTEM_META]?.protocolCode ?? "SECURE_GATE"}`}</span>
-                <span>{`ROUTE: ${withLocale(`/tests/${authTerminalCard.slug}/take`)}`}</span>
-              </div>
-
               <p className="fm-home-auth-terminal-copy m-0">{copy.authTerminalCopy}</p>
 
               <div className="fm-home-auth-terminal-actions">
