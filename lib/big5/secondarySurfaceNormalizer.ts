@@ -1,51 +1,13 @@
 import type { Locale } from "@/lib/i18n/locales";
 import type { MeAttemptItem, MeAttemptsResponse, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { buildBig5FormDisplayLabel, normalizeBig5FormSummary } from "@/lib/big5/formSummary";
-
-const BIG5_DOMAIN_ORDER = ["O", "C", "E", "A", "N"] as const;
-
-type Big5DomainCode = (typeof BIG5_DOMAIN_ORDER)[number];
-
-const BIG5_DOMAIN_LABELS: Record<Big5DomainCode, { en: string; zh: string }> = {
-  O: { en: "Openness", zh: "开放性" },
-  C: { en: "Conscientiousness", zh: "尽责性" },
-  E: { en: "Extraversion", zh: "外向性" },
-  A: { en: "Agreeableness", zh: "宜人性" },
-  N: { en: "Neuroticism", zh: "情绪性" },
-};
-
-const BIG5_FACET_LABELS: Record<string, { en: string; zh: string; domain: string }> = {
-  N1: { en: "N1 Anxiety", zh: "N1 焦虑", domain: "N" },
-  N2: { en: "N2 Anger", zh: "N2 愤怒", domain: "N" },
-  N3: { en: "N3 Depression", zh: "N3 抑郁", domain: "N" },
-  N4: { en: "N4 Self Consciousness", zh: "N4 自我意识", domain: "N" },
-  N5: { en: "N5 Immoderation", zh: "N5 冲动", domain: "N" },
-  N6: { en: "N6 Vulnerability", zh: "N6 脆弱性", domain: "N" },
-  E1: { en: "E1 Friendliness", zh: "E1 友善", domain: "E" },
-  E2: { en: "E2 Gregariousness", zh: "E2 合群", domain: "E" },
-  E3: { en: "E3 Assertiveness", zh: "E3 自信主张", domain: "E" },
-  E4: { en: "E4 Activity Level", zh: "E4 活跃度", domain: "E" },
-  E5: { en: "E5 Excitement Seeking", zh: "E5 刺激追求", domain: "E" },
-  E6: { en: "E6 Cheerfulness", zh: "E6 愉悦感", domain: "E" },
-  O1: { en: "O1 Imagination", zh: "O1 想象力", domain: "O" },
-  O2: { en: "O2 Artistic Interests", zh: "O2 审美兴趣", domain: "O" },
-  O3: { en: "O3 Emotionality", zh: "O3 情感丰富度", domain: "O" },
-  O4: { en: "O4 Adventurousness", zh: "O4 冒险性", domain: "O" },
-  O5: { en: "O5 Intellect", zh: "O5 智性", domain: "O" },
-  O6: { en: "O6 Liberalism", zh: "O6 开放价值观", domain: "O" },
-  A1: { en: "A1 Trust", zh: "A1 信任", domain: "A" },
-  A2: { en: "A2 Morality", zh: "A2 诚实", domain: "A" },
-  A3: { en: "A3 Altruism", zh: "A3 利他", domain: "A" },
-  A4: { en: "A4 Cooperation", zh: "A4 合作", domain: "A" },
-  A5: { en: "A5 Modesty", zh: "A5 谦逊", domain: "A" },
-  A6: { en: "A6 Sympathy", zh: "A6 同情心", domain: "A" },
-  C1: { en: "C1 Self Efficacy", zh: "C1 自我效能", domain: "C" },
-  C2: { en: "C2 Orderliness", zh: "C2 条理性", domain: "C" },
-  C3: { en: "C3 Dutifulness", zh: "C3 责任感", domain: "C" },
-  C4: { en: "C4 Achievement Striving", zh: "C4 成就追求", domain: "C" },
-  C5: { en: "C5 Self Discipline", zh: "C5 自律", domain: "C" },
-  C6: { en: "C6 Cautiousness", zh: "C6 审慎", domain: "C" },
-};
+import {
+  BIG5_DOMAIN_LABELS,
+  BIG5_DOMAIN_ORDER,
+  BIG5_FACET_LABELS,
+  isBig5DomainCode,
+  type Big5DomainCode,
+} from "@/lib/big5/taxonomy";
 
 export type Big5HistoryFacetSummary = {
   key: string;
@@ -146,7 +108,7 @@ function normalizeFacetLabel(code: string, rawLabel: unknown, locale: Locale): s
 
 function normalizeFacetDomain(code: string, rawDomain: unknown): string {
   const normalizedDomain = normalizeMetricCode(rawDomain);
-  if (normalizedDomain.length === 1) {
+  if (isBig5DomainCode(normalizedDomain)) {
     return normalizedDomain;
   }
 
