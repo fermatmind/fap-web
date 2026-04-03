@@ -46,11 +46,11 @@ describe("mbti entry wiring contract", () => {
     );
 
     expectHref(
-      "144题开始测试",
+      "开始深度版",
       "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144"
     );
     expectHref(
-      "93题开始测试",
+      "开始快速版",
       "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_93"
     );
   });
@@ -76,11 +76,11 @@ describe("mbti entry wiring contract", () => {
     );
 
     expectHref(
-      "144题开始测试",
+      "开始深度版",
       "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144"
     );
     expectHref(
-      "93题开始测试",
+      "开始快速版",
       "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_93"
     );
   });
@@ -147,8 +147,8 @@ describe("mbti entry wiring contract", () => {
       />
     );
 
-    const links144 = screen.getAllByRole("link", { name: /144题开始/ });
-    const links93 = screen.getAllByRole("link", { name: /93题开始/ });
+    const links144 = screen.getAllByRole("link", { name: /开始深度版/ });
+    const links93 = screen.getAllByRole("link", { name: /开始快速版/ });
 
     expect(links144.some((link) => link.getAttribute("href") === "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144")).toBe(true);
     expect(links93.some((link) => link.getAttribute("href") === "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_93")).toBe(true);
@@ -173,20 +173,17 @@ describe("mbti entry wiring contract", () => {
       />
     );
 
-    expectHref(
-      "120题开始测试",
-      "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120"
-    );
-    expectHref(
-      "90题开始测试",
-      "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90"
-    );
+    const links120 = screen.getAllByRole("link", { name: /开始完整档案/ });
+    const links90 = screen.getAllByRole("link", { name: /开始快速版/ });
+
+    expect(links120.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120")).toBe(true);
+    expect(links90.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90")).toBe(true);
   });
 
   it("wires big5 dual-entry route in homepage family cards", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
     expect(source).toContain('buildBig5TakeHref("big-five-personality-test-ocean-model", locale, form.formCode)');
-    expect(source).toContain("getBig5StartLabel(form.formCode, locale)");
+    expect(source).toContain("getBig5VariantLabel(form.formCode, locale)");
   });
 });

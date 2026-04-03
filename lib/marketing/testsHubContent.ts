@@ -11,9 +11,18 @@ import {
   buildBig5TakeHref,
   getBig5DurationSummary,
   getBig5QuestionSummary,
-  getBig5StartLabel,
+  getBig5VariantLabel,
+  getBig5VariantSummary,
   listBig5FormMetas,
 } from "@/lib/big5/forms";
+import {
+  buildMbtiTakeHref,
+  getMbtiDurationSummary,
+  getMbtiQuestionSummary,
+  getMbtiVariantLabel,
+  getMbtiVariantSummary,
+  listMbtiFormMetas,
+} from "@/lib/mbti/forms";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 export type TestsCategorySlug = "personality" | "career";
@@ -38,6 +47,7 @@ export type HubTestCardItem = {
   primaryActions?: Array<{
     href: string;
     label: string;
+    meta?: string;
   }>;
   detailsHref?: string;
   primaryLabel: string;
@@ -218,13 +228,23 @@ function buildCardFromTest(
   test: TestListItem,
   options: LocalizedCardOptions
 ): HubTestCardItem {
+  const isMbti = test.slug === "mbti-personality-test-16-personality-types";
   const isBig5 = test.slug === "big-five-personality-test-ocean-model";
+  const mbtiActions = isMbti
+    ? listMbtiFormMetas().map((form) => ({
+        href: buildMbtiTakeHref(test.slug, locale, form.formCode),
+        label: getMbtiVariantLabel(form.formCode, locale),
+        meta: getMbtiVariantSummary(form.formCode, locale),
+      }))
+    : undefined;
   const big5Actions = isBig5
     ? listBig5FormMetas().map((form) => ({
         href: buildBig5TakeHref(test.slug, locale, form.formCode),
-        label: getBig5StartLabel(form.formCode, locale),
+        label: getBig5VariantLabel(form.formCode, locale),
+        meta: getBig5VariantSummary(form.formCode, locale),
       }))
     : undefined;
+  const primaryActions = mbtiActions ?? big5Actions;
 
   return {
     key: test.slug,
@@ -232,24 +252,28 @@ function buildCardFromTest(
     description: getLocalizedValue(locale, options.description),
     questionsLabel:
       options.questionsLabel?.[locale] ??
-      (isBig5
+      (isMbti
+        ? getMbtiQuestionSummary(locale)
+        : isBig5
         ? getBig5QuestionSummary(locale)
         : locale === "zh"
           ? `${test.questions_count} 题`
           : `${test.questions_count} questions`),
     durationLabel:
       options.durationLabel?.[locale] ??
-      (isBig5
+      (isMbti
+        ? getMbtiDurationSummary(locale)
+        : isBig5
         ? getBig5DurationSummary(locale)
         : locale === "zh"
           ? `约 ${test.time_minutes} 分钟`
           : `${test.time_minutes} min`),
     outputLabel: getLocalizedValue(locale, options.outputLabel),
-    href: big5Actions?.[0]?.href ?? localizedPath(options.hrefPath ?? `/tests/${test.slug}/take`, locale),
-    primaryActions: big5Actions,
+    href: primaryActions?.[0]?.href ?? localizedPath(options.hrefPath ?? `/tests/${test.slug}/take`, locale),
+    primaryActions,
     detailsHref: localizedPath(options.detailsPath ?? `/tests/${test.slug}`, locale),
     primaryLabel:
-      big5Actions?.[0]?.label ??
+      primaryActions?.[0]?.label ??
       (locale === "zh" ? "开始测试" : "Start test"),
     secondaryLabel: locale === "zh" ? "查看详情" : "View details",
     scientificBasis: options.scientificBasis ? getLocalizedValue(locale, options.scientificBasis) : undefined,
@@ -326,7 +350,7 @@ function buildSharedTrust(locale: Locale): TrustItem[] {
       },
       {
         title: "可匿名开始",
-        body: "入口页以选择效率为优先，不要求先理解整套方法论，也不要求先留下完整身份信息。",
+        body: "可以先从问题和测试版本开始，匿名完成后再决定是否继续留下更多信息。",
       },
       {
         title: "不替代医疗、法律或诊断意见",
@@ -344,10 +368,10 @@ function buildSharedTrust(locale: Locale): TrustItem[] {
       title: "Results support judgment. They do not define a person.",
       body: "Use reports to structure discussion, clarify tendencies, and decide the next move instead of treating them as final labels.",
     },
-    {
-      title: "You can start anonymously",
-      body: "The entry layer is built for selection efficiency first. Users do not need to learn the full system or provide full identity data up front.",
-    },
+      {
+        title: "You can start anonymously",
+        body: "You can start from the question and the right test version first, then decide later whether to share more information.",
+      },
     {
       title: "Not a substitute for medical, legal, or diagnostic advice",
       body: "State-oriented results are structured references, not formal diagnosis, treatment, or legal guidance.",
@@ -474,7 +498,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "从人格风格与稳定特质切入，先建立可讨论、可复盘的自我认知底图。",
             href: localizedPath("/tests/category/personality", locale),
             ctaLabel: "进入人格测评入口",
-            scent: ["MBTI", "Big Five", "EQ"],
+            scent: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
           },
           {
             id: "emotion-state",
@@ -516,7 +540,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "Build a decision-ready self-understanding baseline through personality style and stable trait structure.",
             href: localizedPath("/tests/category/personality", locale),
             ctaLabel: "Open personality entry",
-            scent: ["MBTI", "Big Five", "EQ"],
+            scent: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
           },
           {
             id: "emotion-state",
@@ -553,7 +577,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "适合先建立稳定的人格底图，再讨论偏好、风格与长期倾向。",
             exploreHref: localizedPath("/tests/category/personality", locale),
             exploreLabel: "查看人格与风格入口",
-            representativeLabels: ["MBTI", "Big Five", "EQ"],
+            representativeLabels: ["MBTI 93Q", "MBTI 144Q", "Big Five 120Q"],
             tests: [cards.mbti, cards.bigFive, cards.eq],
           },
           {
@@ -562,7 +586,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "适合把兴趣、工作风格与能力线索拼起来，用于职业方向判断。",
             exploreHref: localizedPath("/tests/category/career", locale),
             exploreLabel: "查看职业与方向入口",
-            representativeLabels: ["霍兰德职业兴趣", "Big Five", "MBTI"],
+            representativeLabels: ["霍兰德职业兴趣", "Big Five 90Q", "MBTI 93Q"],
             tests: [cards.riasec, cards.bigFive, cards.mbti],
           },
           {
@@ -600,7 +624,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "Best for building a stable map of preferences, traits, and long-horizon tendencies.",
             exploreHref: localizedPath("/tests/category/personality", locale),
             exploreLabel: "View personality entry",
-            representativeLabels: ["MBTI", "Big Five", "EQ"],
+            representativeLabels: ["MBTI 93Q", "MBTI 144Q", "Big Five 120Q"],
             tests: [cards.mbti, cards.bigFive, cards.eq],
           },
           {
@@ -609,7 +633,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "Best for combining interest, work style, and capability signals into career direction decisions.",
             exploreHref: localizedPath("/tests/category/career", locale),
             exploreLabel: "View career entry",
-            representativeLabels: ["RIASEC", "Big Five", "MBTI"],
+            representativeLabels: ["RIASEC", "Big Five 90Q", "MBTI 93Q"],
             tests: [cards.riasec, cards.bigFive, cards.mbti],
           },
           {
@@ -683,26 +707,26 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
           : "Start from a clearer question or category and choose the right FermatMind assessment more quickly.",
     },
     hero: {
-      eyebrow: locale === "zh" ? "Tests Hub" : "Tests Hub",
+      eyebrow: locale === "zh" ? "测评入口" : "Tests",
       title:
         locale === "zh"
           ? "从一个更清晰的问题开始，找到适合你的测评。"
           : "Start from a clearer question and find the assessment that fits.",
       body:
         locale === "zh"
-          ? "围绕自我认知、学习、职业方向、关系与协作的结构化测评入口。帮助你更快开始，也更清楚地选择。"
-          : "A structured entry layer for self-understanding, learning, career direction, relationships, and collaboration. Built to help you start faster and choose more clearly.",
+          ? "围绕自我认知、学习、职业方向与协作判断的精选入口，帮你更快开始，也更容易选对。"
+          : "A curated set of assessment entry points for self-understanding, learning, career direction, relationships, and collaboration.",
       primaryLabel: locale === "zh" ? "开始选择" : "Start choosing",
       primaryHref: "#tests-quick-start",
       secondaryLabel: locale === "zh" ? "浏览全部测评" : "Browse all assessments",
       secondaryHref: "#tests-families",
-      previewLabel: locale === "zh" ? "选择界面预览" : "Selection preview",
+      previewLabel: locale === "zh" ? "选择预览" : "Selection preview",
       previewTitle:
-        locale === "zh" ? "问题先于库存，入口先于列表。" : "Question-first entry before inventory-first browsing.",
+        locale === "zh" ? "先定问题，再进入最适合的测评。" : "Start with the question, then move into the right assessment.",
       previewBody:
         locale === "zh"
-          ? "先判断你要解决什么问题，再进入对应家族与代表测试。这样更快，也更不容易掉进旧式目录页。"
-          : "Start with the question you need to answer, then move into the relevant family and representative tests.",
+          ? "职业方向、人格结构、状态判断和能力线索，都先用一个更清楚的入口接住。"
+          : "Use a clearer starting surface for career direction, personality structure, state, and ability signals.",
       previewFlow:
         locale === "zh"
           ? ["选择问题", "进入分类", "查看代表测试"]
@@ -714,17 +738,17 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
       title: locale === "zh" ? "按你现在最在意的问题开始。" : "Start from the question that matters most right now.",
       body:
         locale === "zh"
-          ? "这一层不是库存清单，而是分流层。每个入口都对应一个更适合的测试起点。"
-          : "This layer is for routing, not inventory. Each entry points to the better starting place for a real user question.",
+          ? "先把你现在要解决的问题说清楚，再进入更合适的测试版本。"
+          : "Name the question first, then move into the version that fits best.",
       items: quickStartItems,
     },
     families: {
       kicker: locale === "zh" ? "Test Families" : "Test Families",
-      title: locale === "zh" ? "按测评家族浏览，而不是一次看完全部库存。" : "Browse by test family instead of scanning the whole inventory at once.",
+      title: locale === "zh" ? "按你要理解的方向继续往下走。" : "Continue through the family that best matches your question.",
       body:
         locale === "zh"
-          ? "如果你已经知道大方向，但还没决定具体做哪个测试，从这里往下会更高效。"
-          : "If you already know the broad topic but not the exact test, the family layer is the faster way forward.",
+          ? "如果你已经知道大方向，但还没决定具体做哪个测试，这里会更清楚。"
+          : "If you know the broad topic but not the exact test, this is the clearer way forward.",
       items: families,
     },
     howToChoose: {
@@ -732,13 +756,13 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
       title: locale === "zh" ? "先判断你要解决哪类问题。" : "Choose based on the decision you need to make.",
       body:
         locale === "zh"
-          ? "这不是方法论文，只是更快的判断规则。"
-          : "This is not theory. It is a faster set of selection rules.",
+          ? "只保留足够做决定的判断规则。"
+          : "Only keep the rules you need to make the next decision.",
       items:
         locale === "zh"
           ? [
               {
-                title: "不知道从哪开始，先从人格或职业方向入口进入",
+                title: "第一次进入，先从人格或职业方向开始",
                 description: "它们更适合作为第一次进入产品时的总入口，帮助你建立后续判断框架。",
               },
               {
@@ -752,7 +776,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             ]
           : [
               {
-                title: "If you do not know where to start, begin with personality or career",
+                title: "For a first pass, start with personality or career direction",
                 description: "Those entries work best as first-pass routes because they help build the broader decision frame.",
               },
               {
@@ -774,8 +798,8 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
       title: locale === "zh" ? "在开始前，先看最值得读的 3 个入口。" : "Read the three most useful resources before you go deeper.",
       body:
         locale === "zh"
-          ? "这部分是支持层，不抢测评入口主任务。"
-          : "This layer supports selection without taking over the main task of starting a test.",
+          ? "给开始前后最值得看的少量补充内容。"
+          : "Three short reads that make the next choice easier.",
       items: resources,
       allHref: localizedPath("/articles", locale),
       allLabel: locale === "zh" ? "查看全部资源" : "View all resources",
@@ -783,11 +807,11 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
     finalCta: {
       title:
         locale === "zh"
-          ? "先从一个更适合的问题开始，再决定是否深入。"
+          ? "先从更适合的问题开始，再决定做哪一个版本。"
           : "Start from the better question first, then decide how deep to go.",
       body:
         locale === "zh"
-          ? "如果你还不确定具体做哪个测试，先进入问题入口与分类页，再从代表测试开始。"
+          ? "如果你还不确定具体做哪个测试，就先进入问题入口，再从代表测试或双版本产品开始。"
           : "If you are not sure which test to take yet, start with the question entry or the category hubs first.",
       primaryLabel: locale === "zh" ? "开始选择" : "Start choosing",
       primaryHref: "#tests-quick-start",
@@ -813,7 +837,7 @@ export function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug)
       },
       breadcrumb: [
         {
-          label: "Tests",
+          label: locale === "zh" ? "测评入口" : "Tests",
           href: localizedPath("/tests", locale),
           path: locale === "zh" ? "/zh/tests" : "/en/tests",
         },
@@ -823,11 +847,11 @@ export function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug)
         },
       ],
       hero: {
-        eyebrow: locale === "zh" ? "Category Hub" : "Category Hub",
+        eyebrow: locale === "zh" ? "人格与风格" : "Personality & Style",
         title: locale === "zh" ? "人格与风格测评" : "Personality & Style Tests",
         body:
           locale === "zh"
-            ? "适合先理解自己在偏好、稳定特质与协作方式上的结构，再把结果放进学习、职业与关系场景里使用。"
+            ? "先看人格语言与稳定特质，再把结果放回学习、职业与协作场景里判断下一步。"
             : "Best for reading preference patterns, stable traits, and collaboration style before applying them to learning, career, and relationship decisions.",
         points:
           locale === "zh"
@@ -843,17 +867,17 @@ export function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug)
         title: locale === "zh" ? "先从最适合起步的代表测试进入。" : "Start with the most useful representative tests first.",
         body:
           locale === "zh"
-            ? "不是所有人格测试都解决同一个问题。先从入口效率更高的 2-3 个开始。"
-            : "Not every personality test answers the same question. Begin with the 2-3 tests that route best.",
-        items: [cards.mbti, cards.bigFive, cards.eq],
+            ? "先把最常用的两条入口说清楚：MBTI 更容易讨论，Big Five 更偏维度化解释。"
+          : "Start with MBTI for a discussable type frame, or Big Five for a more dimensional trait read.",
+        items: [cards.mbti, cards.bigFive],
       },
       allTests: {
         kicker: locale === "zh" ? "All Tests in Category" : "All Tests in Category",
         title: locale === "zh" ? "这一类下的全部测试" : "All tests in this category",
         body:
           locale === "zh"
-            ? "如果你已经有更明确的偏好，可以直接从这里进入具体测试。"
-            : "If you already know what kind of read you want, jump directly into the specific test here.",
+            ? "如果你已经知道自己更偏好哪一种入口，可以直接从这里进入。"
+          : "If you already know what kind of read you want, jump directly into the specific test here.",
         items: [cards.mbti, cards.bigFive, cards.eq],
       },
       differences: {
@@ -861,22 +885,22 @@ export function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug)
         title: locale === "zh" ? "同一类测试，关注点并不相同。" : "Tests in the same family do not solve the same problem.",
         body:
           locale === "zh"
-            ? "选得更准，比一次看完所有名字更重要。"
-            : "Choosing the right lens matters more than scanning every title.",
+            ? "先明白你更需要哪一种结果，再选版本会更稳。"
+          : "Choosing the right lens matters more than scanning every title.",
         items:
           locale === "zh"
             ? [
                 {
-                  title: "MBTI 更适合第一次进入",
-                  description: "如果你需要一套更容易讨论、记忆与沟通的性格语言，它通常是更顺手的起点。",
+                  title: "MBTI 更适合先拿到一个可讨论的人格框架",
+                  description: "93Q 更适合快速读懂整体类型感，144Q 更适合继续看更完整的偏好与场景解释。",
                 },
                 {
-                  title: "Big Five 更偏维度化解释",
-                  description: "如果你更看重稳定特质、连续分布与更少类型化表达，Big Five 会更合适。",
+                  title: "Big Five 更适合看稳定特质的连续分布",
+                  description: "90Q 适合先看五维轮廓，120Q 更适合在职业、关系和压力情境下读完整特质档案。",
                 },
                 {
-                  title: "EQ 更偏关系与协作中的实际表现",
-                  description: "它更适合放进沟通、冲突、反馈与协作场景，而不是代替整体人格结构。",
+                  title: "EQ 适合作为补充，而不是代替人格底图",
+                  description: "当你的核心问题是沟通、反馈和协作时，再把 EQ 放进来会更有用。",
                 },
               ]
             : [
@@ -896,11 +920,11 @@ export function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug)
       },
       resources: {
         kicker: locale === "zh" ? "Related Resources" : "Related Resources",
-        title: locale === "zh" ? "开始前后的相关阅读" : "Useful reading before or after starting",
+        title: locale === "zh" ? "只保留三条最值得延伸的内容" : "Three useful reads to deepen the choice",
         body:
           locale === "zh"
-            ? "这些内容适合作为解释层，不抢主入口。"
-            : "These resources add explanation without taking over the main entry task.",
+            ? "如果你还想多看一点，就从这三条开始。"
+          : "Read these if you want more context before choosing.",
         items: [
           toResourceItem(locale, getBlogPostBySlug("mbti-basics", locale), {
             key: "mbti-basics",
@@ -942,8 +966,8 @@ export function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug)
         title: locale === "zh" ? "先从一个更顺手的人格入口开始。" : "Start with the personality entry that fits your decision style.",
         body:
           locale === "zh"
-            ? "如果你想先要一个更容易讨论的人格框架，从 MBTI 开始；如果你想要更稳定的维度解释，从 Big Five 开始。"
-            : "Start with MBTI for a more discussable type framework, or Big Five for a more dimensional read.",
+            ? "想先要一个更容易讨论的人格框架，从 MBTI 开始；想先看稳定特质分布，从 Big Five 开始。"
+          : "Start with MBTI for a more discussable type framework, or Big Five for a more dimensional read.",
         primaryLabel: locale === "zh" ? "开始人格测评" : "Start personality tests",
         primaryHref: cards.mbti.href,
       },
@@ -961,7 +985,7 @@ export function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug)
     },
     breadcrumb: [
       {
-        label: "Tests",
+        label: locale === "zh" ? "测评入口" : "Tests",
         href: localizedPath("/tests", locale),
         path: locale === "zh" ? "/zh/tests" : "/en/tests",
       },

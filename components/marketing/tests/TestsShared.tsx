@@ -172,9 +172,12 @@ export function HubTestCard({
           <div className="flex flex-wrap gap-3">
             {item.primaryActions && item.primaryActions.length > 0 ? (
               item.primaryActions.map((action) => (
-                <Link key={`${item.key}-${action.href}`} href={action.href} className={buttonVariants({ size: "sm" })}>
-                  {action.label}
-                </Link>
+                <div key={`${item.key}-${action.href}`} className="min-w-[13rem] space-y-2">
+                  <Link href={action.href} className={buttonVariants({ size: "sm", className: "w-full justify-start px-4" })}>
+                    {action.label}
+                  </Link>
+                  {action.meta ? <p className="m-0 text-xs leading-6 text-slate-500">{action.meta}</p> : null}
+                </div>
               ))
             ) : (
               <Link href={item.href} className={buttonVariants({ size: "sm" })}>

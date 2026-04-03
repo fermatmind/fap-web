@@ -61,12 +61,41 @@ export function listMbtiFormMetas(): MbtiFormMeta[] {
   return MBTI_FORM_CODES.map((formCode) => MBTI_FORM_META[formCode]);
 }
 
+export function getMbtiVariantName(formCode: string | null | undefined): string {
+  const meta = resolveMbtiFormMeta(formCode);
+  return `MBTI ${meta.questionCount}Q`;
+}
+
+export function getMbtiVariantDescriptor(formCode: string | null | undefined, locale: Locale): string {
+  const meta = resolveMbtiFormMeta(formCode);
+  if (locale === "zh") {
+    return meta.formCode === "mbti_93" ? "快速版" : "深度版";
+  }
+  return meta.formCode === "mbti_93" ? "Quick Read" : "Deep Profile";
+}
+
+export function getMbtiVariantLabel(formCode: string | null | undefined, locale: Locale): string {
+  return `${getMbtiVariantName(formCode)} · ${getMbtiVariantDescriptor(formCode, locale)}`;
+}
+
+export function getMbtiVariantSummary(formCode: string | null | undefined, locale: Locale): string {
+  const meta = resolveMbtiFormMeta(formCode);
+  if (locale === "zh") {
+    return meta.formCode === "mbti_93"
+      ? `约 ${meta.estimatedMinutes} 分钟，先读懂人格轮廓与协作风格。`
+      : `约 ${meta.estimatedMinutes} 分钟，得到更完整的画像与场景解释。`;
+  }
+  return meta.formCode === "mbti_93"
+    ? `About ${meta.estimatedMinutes} minutes for a fast read on type pattern and collaboration style.`
+    : `About ${meta.estimatedMinutes} minutes for a deeper profile with fuller scene-based interpretation.`;
+}
+
 export function getMbtiStartLabel(formCode: string | null | undefined, locale: Locale): string {
   const meta = resolveMbtiFormMeta(formCode);
   if (locale === "zh") {
-    return `${meta.questionCount}题开始测试`;
+    return meta.formCode === "mbti_93" ? "开始快速版" : "开始深度版";
   }
-  return `Start ${meta.questionCount}-question test`;
+  return meta.formCode === "mbti_93" ? "Start Quick Read" : "Start Deep Profile";
 }
 
 export function getMbtiQuestionSummary(locale: Locale): string {

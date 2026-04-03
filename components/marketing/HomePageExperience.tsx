@@ -1,14 +1,22 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
-import { buildBig5TakeHref, getBig5StartLabel, listBig5FormMetas } from "@/lib/big5/forms";
+import { buildBig5TakeHref, getBig5VariantLabel, listBig5FormMetas } from "@/lib/big5/forms";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
+import { buildMbtiTakeHref, getMbtiVariantLabel, listMbtiFormMetas } from "@/lib/mbti/forms";
 import { cn } from "@/lib/utils";
 
-function isBig5TakeTarget(href: string): boolean {
+function resolveVariantFamily(href: string): "mbti" | "big5" | null {
   const pathname = href.split("?")[0] ?? "";
-  return pathname.replace(/\/+$/, "").endsWith("/tests/big-five-personality-test-ocean-model/take");
+  const normalized = pathname.replace(/\/+$/, "");
+  if (normalized.endsWith("/tests/big-five-personality-test-ocean-model")) {
+    return "big5";
+  }
+  if (normalized.endsWith("/tests/mbti-personality-test-16-personality-types")) {
+    return "mbti";
+  }
+  return null;
 }
 
 function SectionHeader({
@@ -68,7 +76,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
         <Container className="relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-24)] pt-[calc(var(--fm-space-16)+var(--fm-space-10))] md:px-8 md:pb-[var(--fm-space-30)] md:pt-[calc(var(--fm-space-20)+var(--fm-space-10))] xl:px-12">
           <div className="fm-home-hero-panel">
-            <div className="grid gap-10 xl:grid-cols-[minmax(0,0.96fr)_minmax(24rem,0.9fr)] xl:items-center">
+            <div className="space-y-10">
               <div className="space-y-8">
                 <div className="space-y-4">
                   <p className="fm-home-eyebrow">{copy.hero.eyebrow}</p>
@@ -111,7 +119,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
                 <div className="fm-home-hero-stage-grid">
                   <div className="fm-home-hero-select-panel">
-                    <p className="fm-home-hero-map-label">{locale === "zh" ? "先选问题" : "Choose the question first"}</p>
+                      <p className="fm-home-hero-map-label">{locale === "zh" ? "先选问题" : "Choose a question"}</p>
                     <div className="fm-home-hero-choice-list">
                       {copy.quickStart.items.slice(0, 5).map((item, index) => (
                         <div key={item.title} className={cn("fm-home-hero-choice-row", index === 1 && "is-emphasis")}>
@@ -131,7 +139,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
                   <div className="fm-home-hero-preview-panel">
                     <div className="fm-home-hero-preview-card">
-                      <p className="fm-home-hero-map-label">{locale === "zh" ? "结果预览" : "Result preview"}</p>
+                      <p className="fm-home-hero-map-label">{locale === "zh" ? "结果界面" : "Result surface"}</p>
                       <p className="m-0 mt-3 text-[1.05rem] font-semibold tracking-[-0.03em] text-white">
                         {copy.hero.visualTitle}
                       </p>
@@ -144,7 +152,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                     </div>
 
                     <div className="fm-home-hero-preview-card">
-                      <p className="fm-home-hero-map-label">{locale === "zh" ? "你会看到" : "You will see"}</p>
+                      <p className="fm-home-hero-map-label">{locale === "zh" ? "结果会包括" : "What the result includes"}</p>
                       <div className="mt-4 grid gap-2">
                         {copy.hero.visualPoints.map((point) => (
                           <div key={point} className="fm-home-hero-preview-chip">
@@ -226,20 +234,37 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:max-w-[58rem]">
                   {family.links.map((link) =>
-                    isBig5TakeTarget(link.href) ? (
+                    resolveVariantFamily(link.href) ? (
                       <div key={`${family.title}-${link.title}`} className="fm-home-subtle-link-card items-start">
                         <div className="w-full space-y-3">
-                          <span className="block font-medium text-slate-900">{link.title}</span>
+                          <Link
+                            href={withLocale(link.href)}
+                            className="inline-flex items-center gap-2 font-medium text-slate-900 transition hover:text-slate-700"
+                          >
+                            <span>{link.title}</span>
+                            <span aria-hidden>+</span>
+                          </Link>
+                          {link.description ? <span className="block text-xs leading-6 text-slate-500">{link.description}</span> : null}
                           <div className="flex flex-wrap gap-2">
-                            {listBig5FormMetas().map((form) => (
-                              <Link
-                                key={form.formCode}
-                                href={buildBig5TakeHref("big-five-personality-test-ocean-model", locale, form.formCode)}
-                                className="inline-flex items-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(75,108,102,0.36)] hover:bg-[#f5f8f6]"
-                              >
-                                {getBig5StartLabel(form.formCode, locale)}
-                              </Link>
-                            ))}
+                            {resolveVariantFamily(link.href) === "big5"
+                              ? listBig5FormMetas().map((form) => (
+                                  <Link
+                                    key={form.formCode}
+                                    href={buildBig5TakeHref("big-five-personality-test-ocean-model", locale, form.formCode)}
+                                    className="inline-flex items-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(75,108,102,0.36)] hover:bg-[#f5f8f6]"
+                                  >
+                                    {getBig5VariantLabel(form.formCode, locale)}
+                                  </Link>
+                                ))
+                              : listMbtiFormMetas().map((form) => (
+                                  <Link
+                                    key={form.formCode}
+                                    href={buildMbtiTakeHref("mbti-personality-test-16-personality-types", locale, form.formCode)}
+                                    className="inline-flex items-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(75,108,102,0.36)] hover:bg-[#f5f8f6]"
+                                  >
+                                    {getMbtiVariantLabel(form.formCode, locale)}
+                                  </Link>
+                                ))}
                           </div>
                         </div>
                       </div>
@@ -350,25 +375,6 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                 </details>
               ))}
             </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-[#f7f3ec] py-[var(--fm-space-24)] md:py-[8rem]">
-        <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
-          <SectionHeader kicker={copy.resources.kicker} title={copy.resources.title} body={copy.resources.body} />
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {copy.resources.items.map((resource) => (
-              <article key={resource.title} className="fm-home-resource-panel">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{resource.typeLabel}</p>
-                <h3 className="m-0 mt-4 text-[1.16rem] font-semibold tracking-[-0.03em] text-slate-950">{resource.title}</h3>
-                <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{resource.description}</p>
-                <Link href={withLocale(resource.href)} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">
-                  {locale === "zh" ? "打开入口" : "Open resource"}
-                  <span aria-hidden>+</span>
-                </Link>
-              </article>
-            ))}
           </div>
         </Container>
       </section>

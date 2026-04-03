@@ -18,7 +18,7 @@ export function TestsHubExperience({ locale }: { locale: Locale }) {
   return (
     <>
       <section className="relative overflow-hidden bg-[#0d141b] text-white">
-        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_28%),radial-gradient(circle_at_78%_12%,rgba(129,140,248,0.12),transparent_22%),linear-gradient(180deg,#0d141b_0%,#121d28_54%,#162332_100%)]" />
+        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(98,134,128,0.18),transparent_26%),radial-gradient(circle_at_78%_12%,rgba(255,255,255,0.08),transparent_20%),linear-gradient(180deg,#0d141b_0%,#121d28_54%,#162332_100%)]" />
         <Container className="relative z-10 max-w-[110rem] px-5 pb-[5.5rem] pt-[calc(var(--fm-space-16)+var(--fm-space-9))] md:px-8 md:pb-[7rem] md:pt-[calc(var(--fm-space-20)+var(--fm-space-10))] xl:px-12">
           <div className="rounded-[2.25rem] border border-white/10 bg-white/[0.035] px-5 py-6 shadow-[0_32px_120px_rgba(6,10,18,0.28)] backdrop-blur-md md:px-8 md:py-8 xl:px-10 xl:py-10">
             <div className="grid gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(20rem,0.84fr)] xl:items-end">
@@ -56,9 +56,9 @@ export function TestsHubExperience({ locale }: { locale: Locale }) {
                 <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-[#111a24] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                   <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
                     <span className="text-xs font-semibold uppercase tracking-[0.22em] text-white/44">
-                      {locale === "zh" ? "Selection flow" : "Selection flow"}
+                      {locale === "zh" ? "精选入口" : "Curated entry"}
                     </span>
-                    <span className="text-xs text-white/40">{locale === "zh" ? "Structured entry map" : "Structured entry map"}</span>
+                    <span className="text-xs text-white/40">{locale === "zh" ? "从问题到版本" : "From question to version"}</span>
                   </div>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-3">
@@ -100,7 +100,7 @@ export function TestsHubExperience({ locale }: { locale: Locale }) {
                   invert
                 />
                 <Link href="#tests-families" className="inline-flex items-center gap-2 text-sm font-semibold text-white/78 transition hover:text-white">
-                  {content.hero.secondaryLabel}
+                  {locale === "zh" ? "查看测评家族" : "Browse families"}
                   <span aria-hidden>+</span>
                 </Link>
               </div>
@@ -151,7 +151,7 @@ export function TestsHubExperience({ locale }: { locale: Locale }) {
         <Container className="max-w-[96rem] px-5 md:px-8 xl:px-12">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading eyebrow={content.resources.kicker} title={content.resources.title} body={content.resources.body} />
-            <Link href={content.resources.allHref} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-[var(--fm-cta-orange)]">
+            <Link href={content.resources.allHref} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">
               {content.resources.allLabel}
               <span aria-hidden>+</span>
             </Link>

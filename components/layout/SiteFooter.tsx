@@ -30,24 +30,24 @@ export function SiteFooter() {
   const footerCopy =
     locale === "zh"
       ? {
-          testsTitle: "Measurement Matrix",
-          articlesTitle: "Research & Notes",
-          supportTitle: "Governance",
-          reviewsTitle: "Support & Policy",
+          testsTitle: "热门测评",
+          articlesTitle: "阅读与指南",
+          supportTitle: "支持",
+          reviewsTitle: "政策",
           tailnote: "识微，见远。See the Micro. Lead the Macro.",
-          introLabel: "Resources & policy",
-          introCopy: "将测评入口、研究内容、支持渠道与政策信息放在同一处，便于快速查阅。",
-          supportMeta: "隐私、条款与支持入口公开可查。",
+          introLabel: "继续浏览",
+          introCopy: "把热门测评、延伸阅读、支持和政策入口放在一起，方便继续往下走。",
+          supportMeta: "隐私、条款、退款与联系支持都在这里。",
         }
       : {
-          testsTitle: "Measurement Matrix",
-          articlesTitle: "Research & Notes",
-          supportTitle: "Governance",
-          reviewsTitle: "Support & Policy",
+          testsTitle: "Top tests",
+          articlesTitle: "Reading & guides",
+          supportTitle: "Support",
+          reviewsTitle: "Policies",
           tailnote: "See the Micro. Lead the Macro.",
-          introLabel: "Resources & policy",
-          introCopy: "Assessments, research links, support channels, and policy pages are grouped in one place for quick access.",
-          supportMeta: "Privacy, terms, and support surfaces are explicitly available.",
+          introLabel: "Continue browsing",
+          introCopy: "Keep top tests, reading, support, and policy links together so the next step stays easy.",
+          supportMeta: "Privacy, terms, refunds, and contact support are all available here.",
         };
 
   const testLinks = [
@@ -76,8 +76,8 @@ export function SiteFooter() {
   const testsHubFooter =
     locale === "zh"
       ? {
-          introLabel: "Tests Navigation",
-          introCopy: "按问题、分类、代表测试与资源入口组织导航，帮助你从首页进入后继续停留在同一个产品世界里。",
+          introLabel: "继续浏览",
+          introCopy: "从这里继续进入热门测评、分类、资源和支持入口。",
           groups: [
             {
               title: "Top Tests",
@@ -118,8 +118,8 @@ export function SiteFooter() {
           ],
         }
       : {
-          introLabel: "Tests Navigation",
-          introCopy: "Navigation is grouped by question, category, representative tests, and resources so the experience stays continuous after users leave the homepage.",
+          introLabel: "Continue browsing",
+          introCopy: "Keep moving through top tests, categories, resources, and support from here.",
           groups: [
             {
               title: "Top Tests",
