@@ -32,6 +32,7 @@ Acceptance:
 - quick-start questions are understandable in seconds
 - desktop and mobile first two screens feel visually continuous
 - discoverability remains keyboard-accessible and route-backed
+- no strategy-copy language remains in hero, quick start, header tests panel, or footer
 
 Rollback notes:
 - keep homepage data/config isolated so sections can be reverted without affecting test-detail or app flows
@@ -52,9 +53,10 @@ Likely files/components:
 
 Acceptance:
 - family browsing is broader but still curated
-- value section explains results in decision language
+- value section explains results through product previews plus short decision language
 - trust section is readable, restrained, and evidence-bounded
 - no fake proof patterns introduced
+- no user-facing copy explains why the homepage is structured this way
 
 Rollback notes:
 - trust content should degrade to simple static blocks if disclosure behavior needs to be removed
@@ -80,6 +82,7 @@ Acceptance:
 - footer is useful and non-spammy
 - structured data reflects visible content only
 - mobile retains the same core content as desktop
+- resources remain support-layer only and do not read like a strategy memo
 
 Rollback notes:
 - structured data should be additive and removable without touching route behavior
@@ -93,6 +96,7 @@ Rollback notes:
 - inspect homepage in browser at mobile width (~390)
 - verify hero clarity and CTA hierarchy
 - verify nav and discoverability interactions
+- verify no internal strategy copy remains in rendered UI
 - verify no overflow or density collapse on mobile
 - verify trust disclosure accessibility
 - verify footer links remain route-backed and useful

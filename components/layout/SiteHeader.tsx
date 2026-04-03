@@ -18,6 +18,7 @@ import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
 } from "@/lib/navigation/headerDropdownMenus";
+import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -129,7 +130,7 @@ export function SiteHeader() {
     <header
       className={
         isBrandSurfaceRoute
-          ? "sticky top-0 z-50 border-b border-white/10 bg-[#0d1520]/80 text-white shadow-[0_20px_60px_rgba(6,10,18,0.28)] backdrop-blur-xl"
+          ? "sticky top-0 z-50 border-b border-white/10 bg-[#0c131b]/82 text-white shadow-[0_20px_60px_rgba(6,10,18,0.28)] backdrop-blur-xl"
           : "sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md"
       }
     >
@@ -191,7 +192,10 @@ export function SiteHeader() {
                       aria-controls={menuId}
                       aria-haspopup={shouldUseHomeTestsPanel ? "dialog" : "menu"}
                       onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
-                      className="inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-medium text-blue-100 transition hover:bg-white/10 hover:text-white xl:px-2.5 xl:text-sm"
+                      className={cn(
+                        "inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-medium transition hover:bg-white/10 hover:text-white xl:px-2.5 xl:text-sm",
+                        isBrandSurfaceRoute ? "text-slate-200" : "text-blue-100"
+                      )}
                     >
                       <span>{item.label}</span>
                       <ChevronDown className={isOpen ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
@@ -274,7 +278,12 @@ export function SiteHeader() {
                 <LocaleSwitcher />
                 <Link
                   href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
-                  className={buttonVariants({ size: "sm", className: "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm" })}
+                  className={buttonVariants({
+                    size: "sm",
+                    className: isBrandSurfaceRoute
+                      ? "shrink-0 whitespace-nowrap border-transparent bg-[#dfe9e3] px-3.5 text-[13px] text-slate-950 hover:bg-[#edf4f0] xl:px-4 xl:text-sm"
+                      : "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm",
+                  })}
                 >
                   {dict.header.start}
                 </Link>
@@ -301,7 +310,12 @@ export function SiteHeader() {
 
                 <Link
                   href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
-                  className={buttonVariants({ size: "sm", className: "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm" })}
+                  className={buttonVariants({
+                    size: "sm",
+                    className: isBrandSurfaceRoute
+                      ? "shrink-0 whitespace-nowrap border-transparent bg-[#dfe9e3] px-3.5 text-[13px] text-slate-950 hover:bg-[#edf4f0] xl:px-4 xl:text-sm"
+                      : "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm",
+                  })}
                 >
                   {dict.header.start}
                 </Link>
@@ -324,7 +338,12 @@ export function SiteHeader() {
             role="dialog"
             aria-modal="true"
             aria-label={dict.header.menu}
-            className="absolute right-0 top-0 flex h-[100dvh] w-[clamp(280px,82vw,360px)] flex-col border-l border-white/18 bg-gradient-to-b from-[#1e427f] via-[#173567] to-[#11284f] shadow-[-24px_0_56px_rgba(5,16,34,0.48)]"
+            className={cn(
+              "absolute right-0 top-0 flex h-[100dvh] w-[clamp(280px,82vw,360px)] flex-col border-l border-white/18 shadow-[-24px_0_56px_rgba(5,16,34,0.48)]",
+              isBrandSurfaceRoute
+                ? "bg-gradient-to-b from-[#101921] via-[#0d151d] to-[#0a1218]"
+                : "bg-gradient-to-b from-[#1e427f] via-[#173567] to-[#11284f]"
+            )}
           >
             <div className="flex items-center justify-between border-b border-white/15 px-4 py-4">
               <Link href={withLocale("/")} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-white">

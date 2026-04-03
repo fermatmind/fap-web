@@ -1,10 +1,10 @@
 # Homepage Redesign Spec
 
 ## Goal
-Rebuild the FermatMind homepage so it combines premium product order, efficient test discovery, and SEO-safe information architecture without introducing fake trust or crawler-only content.
+Rebuild the FermatMind homepage into a premium cognitive front door: immediately clear, easy to start, trustworthy, and naturally oriented toward `/tests` without turning the homepage into an inventory wall.
 
 ## Visual Thesis
-Calm-premium and evidence-led: deep ink surfaces, disciplined grid structure, generous spacing, and one strong visual anchor that feels analytical rather than theatrical.
+Calm-premium and product-led: deep graphite surfaces, warm light support sections, disciplined spacing, and one strong visual anchor that feels like a result preview rather than a dashboard or concept object.
 
 ## Homepage Narrative
 The homepage must answer four questions within three seconds:
@@ -12,6 +12,9 @@ The homepage must answer four questions within three seconds:
 2. Who is it for?
 3. Where should I start?
 4. Why is it trustworthy?
+
+Additional rule:
+- The UI must never explain homepage strategy, IA rationale, SEO goals, or “why this block exists.” Those ideas belong in docs, not in user-facing copy.
 
 Narrative order:
 1. Immediate value statement and start path
@@ -35,21 +38,22 @@ Narrative order:
 
 ## Hero Strategy
 - Keep the product unmistakable, but make the H1 a user-value sentence instead of a slogan-only treatment.
-- Use a single dominant visual plane: structured report geometry plus guided entry points, not a dashboard collage.
+- Use a single dominant visual plane: abstracted report-preview geometry plus guided entry points, not a dashboard collage or a left-copy/right-generic-panel template.
 - Keep CTA count to two.
 - Add a compact trust rail directly in the hero.
 - Keep the first screen readable in one glance on desktop and mobile.
-- Avoid left-copy/right-generic-card SaaS composition; the hero should feel like one integrated surface.
+- Hero should feel like one integrated product surface that previews both result structure and starting paths.
 
 ## Quick-Start Strategy
 - Organize by user question, not by test inventory.
+- Each card should contain only the question, one short explanation, and one entry action.
+- Light “visual scent” is allowed through 2-3 real hints per card; no hover menu or second-level panel.
 - Expose the highest-intent paths first:
   - career direction
   - personality structure
   - current emotional state
+  - cognitive ability and strength
   - collaboration and relationship style
-  - choosing the right assessment
-- Each path must include a short explanation and one clear start action.
 - Preserve SSR-visible copy so the block improves both user orientation and search comprehension.
 
 ## Test-Family Architecture
@@ -66,7 +70,15 @@ Initial family set:
 - Collaboration & relationship patterns
 - Cognitive & ability signals
 
-The family section should scan like a curated product map, not a dense directory wall.
+The family section should scan like a curated product map, not a dense directory wall or a second tests index.
+
+## Results Preview Strategy
+- Replace explanation-first value cards with abstracted sample report previews that show the shape of the product output.
+- Keep previews generic and non-personalized.
+- Pair those previews with only three short user-value lines:
+  - see structure, not just labels
+  - put results back into real contexts
+  - use results to choose the next move
 
 ## Trust / Methodology Strategy
 - Present trust as readable product discipline, not badge theater.
@@ -75,14 +87,15 @@ The family section should scan like a curated product map, not a dense directory
   - result boundaries
   - privacy and anonymity
   - usage scenarios
-  - ongoing research / professional background
 - Keep the collapsed summary useful by itself.
 - Expanded content must be visible, keyboard reachable, and meaningful to users.
+- Compress trust to the fewest sections needed; do not let it become a whitepaper block.
 
 ## Resources Strategy
-- Show only the most important 3-4 resources on the homepage.
+- Show only the most important 3 resources on the homepage.
 - Treat resources as a support layer that deepens understanding and strengthens discoverability.
 - Prefer resource types that already exist in the repo: articles, topics, career guides, help pages.
+- Resource copy must stay user-facing; no “the homepage should only keep…” wording in the UI.
 
 ## Footer Strategy
 - Footer must be navigational, not a keyword farm.
@@ -93,6 +106,7 @@ The family section should scan like a curated product map, not a dense directory
   - support and policies
 - Keep anchor text natural and route-backed.
 - Preserve access to privacy, terms, refund, help, and contact surfaces.
+- Never label a homepage footer block as “Homepage Navigation” or similar self-referential strategy language.
 
 ## Desktop Behavior
 - Hero and Quick Start should feel like one continuous premium surface.

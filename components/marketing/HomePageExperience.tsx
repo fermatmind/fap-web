@@ -23,12 +23,22 @@ function SectionHeader({
   invert?: boolean;
 }) {
   return (
-    <div className="max-w-[44rem] space-y-4">
-      <p className={cn("fm-home-section-kicker", invert && "text-white/72")}>{kicker}</p>
-      <h2 className={cn("m-0 text-[clamp(2rem,4vw,3.45rem)] font-semibold tracking-[-0.04em]", invert ? "text-white" : "text-slate-950")}>
+    <div className="max-w-[42rem] space-y-4">
+      <p className={cn("fm-home-section-kicker", invert && "text-white/65")}>{kicker}</p>
+      <h2
+        className={cn(
+          "m-0 text-balance text-[clamp(2rem,4vw,3.45rem)] font-semibold tracking-[-0.045em]",
+          invert ? "text-white" : "text-slate-950"
+        )}
+      >
         {title}
       </h2>
-      <p className={cn("m-0 max-w-[40rem] text-[1rem] leading-7 md:text-[1.06rem]", invert ? "text-slate-300" : "text-slate-600")}>
+      <p
+        className={cn(
+          "m-0 max-w-[38rem] text-[1rem] leading-7 md:text-[1.05rem]",
+          invert ? "text-slate-300" : "text-slate-600"
+        )}
+      >
         {body}
       </p>
     </div>
@@ -38,115 +48,109 @@ function SectionHeader({
 export function HomePageExperience({ locale }: { locale: Locale }) {
   const copy = getHomePageContent(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const primaryButtonClass = buttonVariants({
+    size: "lg",
+    className:
+      "px-7 border-transparent bg-[#dfe9e3] text-slate-950 shadow-[0_18px_40px_rgba(4,8,14,0.22)] hover:bg-[#edf4f0]",
+  });
+  const darkOutlineButtonClass = buttonVariants({
+    variant: "outline",
+    size: "lg",
+    className:
+      "border-white/14 bg-white/[0.05] px-7 text-white hover:border-white/28 hover:bg-white/[0.09] hover:text-white",
+  });
 
   return (
     <>
       <section className="fm-home-hero-surface relative overflow-hidden">
         <div aria-hidden className="fm-home-ambient fm-home-ambient--left" />
         <div aria-hidden className="fm-home-ambient fm-home-ambient--right" />
+
         <Container className="relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-24)] pt-[calc(var(--fm-space-16)+var(--fm-space-10))] md:px-8 md:pb-[var(--fm-space-30)] md:pt-[calc(var(--fm-space-20)+var(--fm-space-10))] xl:px-12">
-          <div className="fm-home-hero-panel space-y-8 px-5 py-6 md:px-8 md:py-8 xl:space-y-10 xl:px-12 xl:py-12">
-            <div className="grid gap-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(18rem,0.72fr)] xl:items-end">
+          <div className="fm-home-hero-panel">
+            <div className="grid gap-10 xl:grid-cols-[minmax(0,0.96fr)_minmax(24rem,0.9fr)] xl:items-center">
               <div className="space-y-8">
                 <div className="space-y-4">
                   <p className="fm-home-eyebrow">{copy.hero.eyebrow}</p>
-                  <p className="m-0 text-sm font-medium uppercase tracking-[0.24em] text-white/42">{copy.hero.brand}</p>
+                  <p className="m-0 text-sm font-medium uppercase tracking-[0.22em] text-white/42">{copy.hero.brand}</p>
                 </div>
 
-                <div className="max-w-[48rem] space-y-5">
-                  <h1 className="m-0 max-w-[16ch] text-balance text-[clamp(2.5rem,5vw,5.1rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white md:max-w-[14ch]">
+                <div className="space-y-5">
+                  <h1 className="m-0 max-w-[13ch] text-balance text-[clamp(2.75rem,5vw,5.35rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-white">
                     {copy.hero.title}
                   </h1>
-                  <p className="m-0 max-w-[38rem] text-[1.03rem] leading-8 text-slate-300 md:text-[1.12rem]">
+                  <p className="m-0 max-w-[37rem] text-[1.02rem] leading-8 text-slate-300 md:text-[1.12rem]">
                     {copy.hero.body}
                   </p>
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Link href={withLocale(copy.hero.primaryHref)} className={buttonVariants({ size: "lg", className: "px-7" })}>
+                  <Link href={withLocale(copy.hero.primaryHref)} className={primaryButtonClass}>
                     {copy.hero.primaryCta}
                   </Link>
                   <Link
                     href={copy.hero.secondaryHref.startsWith("#") ? copy.hero.secondaryHref : withLocale(copy.hero.secondaryHref)}
-                    className={buttonVariants({
-                      variant: "outline",
-                      size: "lg",
-                      className: "border-white/16 bg-white/6 px-7 text-white hover:border-white/28 hover:bg-white/10 hover:text-white",
-                    })}
+                    className={darkOutlineButtonClass}
                   >
                     {copy.hero.secondaryCta}
                   </Link>
                 </div>
-              </div>
 
-              <div className="space-y-4 rounded-[1.65rem] border border-white/10 bg-white/[0.035] p-5">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-white/44">
-                  {locale === "zh" ? "为什么从这里开始" : "Why start here"}
-                </p>
-                <p className="m-0 text-[1.05rem] font-semibold tracking-[-0.03em] text-white">
-                  {copy.hero.visualTitle}
-                </p>
-                <p className="m-0 text-sm leading-7 text-slate-300">{copy.hero.visualSummary}</p>
-                <ul className="fm-home-trust-rail" aria-label={locale === "zh" ? "信任说明" : "Trust rail"}>
+                <ul className="fm-home-trust-rail" aria-label={locale === "zh" ? "开始说明" : "Start details"}>
                   {copy.hero.trustRail.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
-            </div>
 
-            <div className="fm-home-hero-visual">
-              <div className="fm-home-hero-visual-header">
-                <span>{copy.hero.visualEyebrow}</span>
-                <span>{locale === "zh" ? "结构化启动地图" : "Structured launch map"}</span>
-              </div>
+              <div className="fm-home-hero-stage">
+                <div className="fm-home-hero-stage-head">
+                  <span>{copy.hero.visualEyebrow}</span>
+                  <span>{locale === "zh" ? "从模糊感受，到可判断结构" : "From vague feeling to usable structure"}</span>
+                </div>
 
-              <div className="fm-home-hero-visual-body">
-                <div className="grid gap-4 xl:grid-cols-[minmax(0,1.18fr)_minmax(18rem,0.82fr)]">
-                  <div className="fm-home-hero-map-card fm-home-hero-map-card--primary">
-                    <p className="fm-home-hero-map-label">{locale === "zh" ? "起点问题" : "Starting question"}</p>
-                    <div className="fm-home-hero-map-list">
-                      {copy.quickStart.items.slice(0, 4).map((item, index) => (
-                        <div key={item.title} className="fm-home-hero-map-row">
-                          <span className="fm-home-hero-map-index">0{index + 1}</span>
-                          <div>
+                <div className="fm-home-hero-stage-grid">
+                  <div className="fm-home-hero-select-panel">
+                    <p className="fm-home-hero-map-label">{locale === "zh" ? "先选问题" : "Choose the question first"}</p>
+                    <div className="fm-home-hero-choice-list">
+                      {copy.quickStart.items.slice(0, 5).map((item, index) => (
+                        <div key={item.title} className={cn("fm-home-hero-choice-row", index === 1 && "is-emphasis")}>
+                          <span className="fm-home-hero-choice-index">0{index + 1}</span>
+                          <div className="min-w-0">
                             <p className="m-0 text-sm font-medium text-white">{item.title}</p>
-                            <p className="m-0 mt-1 text-xs leading-6 text-slate-400">{item.label}</p>
+                            {item.hints?.length ? (
+                              <p className="m-0 mt-1 text-xs leading-6 text-slate-400">
+                                {item.hints.slice(0, 3).join(" · ")}
+                              </p>
+                            ) : null}
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="space-y-4">
-                    <div className="fm-home-hero-map-card">
-                      <p className="fm-home-hero-map-label">{locale === "zh" ? "结果组织" : "Result structure"}</p>
-                      <div className="fm-home-signal-stack" aria-hidden>
-                        <span />
-                        <span />
-                        <span />
+                  <div className="fm-home-hero-preview-panel">
+                    <div className="fm-home-hero-preview-card">
+                      <p className="fm-home-hero-map-label">{locale === "zh" ? "结果预览" : "Result preview"}</p>
+                      <p className="m-0 mt-3 text-[1.05rem] font-semibold tracking-[-0.03em] text-white">
+                        {copy.hero.visualTitle}
+                      </p>
+                      <p className="m-0 mt-2 text-sm leading-7 text-slate-300">{copy.hero.visualSummary}</p>
+                      <div className="fm-home-hero-preview-metrics" aria-hidden>
+                        <span className="is-long" />
+                        <span className="is-mid" />
+                        <span className="is-short" />
                       </div>
-                      <ul className="m-0 space-y-2 p-0 text-sm leading-6 text-slate-300">
-                        {copy.hero.visualPoints.map((point) => (
-                          <li key={point} className="list-none border-t border-white/10 pt-2 first:border-t-0 first:pt-0">
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
                     </div>
 
-                    <div className="fm-home-hero-map-card">
-                      <p className="fm-home-hero-map-label">{locale === "zh" ? "继续方式" : "Next move"}</p>
+                    <div className="fm-home-hero-preview-card">
+                      <p className="fm-home-hero-map-label">{locale === "zh" ? "你会看到" : "You will see"}</p>
                       <div className="mt-4 grid gap-2">
-                        {copy.quickStart.items.slice(0, 3).map((item) => (
-                          <Link
-                            key={`${item.title}-hero-link`}
-                            href={withLocale(item.href)}
-                            className="rounded-[0.95rem] border border-white/10 bg-white/[0.03] px-3 py-3 text-sm text-white no-underline transition hover:border-white/20 hover:bg-white/[0.05]"
-                          >
-                            <span className="block font-medium">{item.label ?? item.title}</span>
-                            <span className="mt-1 block text-xs leading-5 text-slate-400">{item.meta ?? item.description}</span>
-                          </Link>
+                        {copy.hero.visualPoints.map((point) => (
+                          <div key={point} className="fm-home-hero-preview-chip">
+                            <span className="fm-home-hero-preview-chip-dot" aria-hidden />
+                            <span>{point}</span>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -154,62 +158,74 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div id="home-quick-start" className="fm-home-quick-start-shell mt-6 md:mt-8">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <SectionHeader
-                kicker={copy.quickStart.kicker}
-                title={copy.quickStart.title}
-                body={copy.quickStart.body}
-                invert
-              />
-              <Link
-                href={withLocale("/tests")}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white/78 transition hover:text-white"
-              >
-                {locale === "zh" ? "查看全部测评" : "View all assessments"}
-                <span aria-hidden>+</span>
-              </Link>
-            </div>
+            <div id="home-quick-start" className="fm-home-quick-start-shell">
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                <SectionHeader
+                  kicker={copy.quickStart.kicker}
+                  title={copy.quickStart.title}
+                  body={copy.quickStart.body}
+                  invert
+                />
+                <Link href={withLocale("/tests")} className="fm-home-inline-link inline-flex items-center gap-2">
+                  {locale === "zh" ? "查看全部测评" : "View all assessments"}
+                  <span aria-hidden>+</span>
+                </Link>
+              </div>
 
-            <div className="mt-8 grid gap-3 lg:grid-cols-5 lg:gap-4">
-              {copy.quickStart.items.map((item, index) => (
-                <article key={item.title} className={cn("fm-home-quick-card", index === 0 && "lg:col-span-2") }>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="fm-home-quick-card-index">0{index + 1}</span>
-                      {item.meta ? <span className="fm-home-quick-card-meta">{item.meta}</span> : null}
+              <div className="mt-8 grid gap-3 lg:grid-cols-5 lg:gap-4">
+                {copy.quickStart.items.map((item) => (
+                  <article key={item.title} className="fm-home-quick-card">
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <h3 className="m-0 text-[1.08rem] font-semibold tracking-[-0.03em] text-white">{item.title}</h3>
+                        <p className="m-0 text-sm leading-7 text-slate-300">{item.description}</p>
+                      </div>
+
+                      {item.hints?.length ? (
+                        <ul className="fm-home-quick-hints" aria-label={locale === "zh" ? "相关入口提示" : "Related entry hints"}>
+                          {item.hints.map((hint) => (
+                            <li key={hint}>{hint}</li>
+                          ))}
+                        </ul>
+                      ) : null}
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="m-0 text-[1.1rem] font-semibold tracking-[-0.03em] text-white">{item.title}</h3>
-                      <p className="m-0 text-sm leading-7 text-slate-300">{item.description}</p>
-                    </div>
-                  </div>
-                  <Link href={withLocale(item.href)} className="fm-home-inline-link mt-6 inline-flex items-center gap-2">
-                    {item.label ?? (locale === "zh" ? "查看入口" : "Open entry")}
-                    <span aria-hidden>+</span>
-                  </Link>
-                </article>
-              ))}
+
+                    <Link href={withLocale(item.href)} className="fm-home-inline-link mt-6 inline-flex items-center gap-2">
+                      {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
+                      <span aria-hidden>+</span>
+                    </Link>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <section id="home-test-families" className="bg-[#f4f1ea] py-[var(--fm-space-24)] md:py-[8rem]">
+      <section id="home-featured-paths" className="bg-[#f4efe7] py-[var(--fm-space-24)] md:py-[8rem]">
         <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
-          <SectionHeader kicker={copy.families.kicker} title={copy.families.title} body={copy.families.body} />
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <SectionHeader kicker={copy.families.kicker} title={copy.families.title} body={copy.families.body} />
+            <Link href={withLocale("/tests")} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">
+              {locale === "zh" ? "进入测评入口中心" : "Open the tests hub"}
+              <span aria-hidden>+</span>
+            </Link>
+          </div>
 
           <div className="mt-10 grid gap-5 xl:grid-cols-2">
-            {copy.families.items.map((family) => (
-              <article key={family.title} className="fm-home-family-panel">
+            {copy.families.items.map((family, index) => (
+              <article key={family.title} className={cn("fm-home-family-panel", index === 0 && "xl:col-span-2")}>
                 <div className="space-y-3">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                    {locale === "zh" ? "测评家族" : "Test family"}
+                  </p>
                   <h3 className="m-0 text-[1.45rem] font-semibold tracking-[-0.035em] text-slate-950">{family.title}</h3>
-                  <p className="m-0 max-w-[38rem] text-[0.98rem] leading-7 text-slate-600">{family.description}</p>
+                  <p className="m-0 max-w-[42rem] text-[0.98rem] leading-7 text-slate-600">{family.description}</p>
                 </div>
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {family.links.map((link) => (
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:max-w-[58rem]">
+                  {family.links.map((link) =>
                     isBig5TakeTarget(link.href) ? (
                       <div key={`${family.title}-${link.title}`} className="fm-home-subtle-link-card items-start">
                         <div className="w-full space-y-3">
@@ -219,7 +235,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                               <Link
                                 key={form.formCode}
                                 href={buildBig5TakeHref("big-five-personality-test-ocean-model", locale, form.formCode)}
-                                className="inline-flex items-center rounded-lg border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(234,88,12,0.4)] hover:text-[var(--fm-cta-orange)]"
+                                className="inline-flex items-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(75,108,102,0.36)] hover:bg-[#f5f8f6]"
                               >
                                 {getBig5StartLabel(form.formCode, locale)}
                               </Link>
@@ -229,13 +245,17 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                       </div>
                     ) : (
                       <Link key={`${family.title}-${link.title}`} href={withLocale(link.href)} className="fm-home-subtle-link-card">
-                        <span>{link.title}</span>
+                        <div className="space-y-1">
+                          <span className="block font-medium">{link.title}</span>
+                          {link.description ? <span className="block text-xs leading-6 text-slate-500">{link.description}</span> : null}
+                        </div>
                         <span aria-hidden>+</span>
                       </Link>
                     )
-                  ))}
+                  )}
                 </div>
-                <Link href={withLocale(family.exploreHref)} className="fm-home-inline-link mt-6 inline-flex items-center gap-2 text-slate-900">
+
+                <Link href={withLocale(family.exploreHref)} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">
                   {family.exploreLabel}
                   <span aria-hidden>+</span>
                 </Link>
@@ -245,20 +265,48 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         </Container>
       </section>
 
-      <section className="bg-[#e9e5dd] py-[var(--fm-space-24)] md:py-[8rem]">
+      <section className="bg-[#ebe5db] py-[var(--fm-space-24)] md:py-[8rem]">
         <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
-          <div className="grid gap-10 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] xl:items-start">
-            <SectionHeader kicker={copy.results.kicker} title={copy.results.title} body={copy.results.body} />
-            <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1">
-              {copy.results.items.map((item) => (
-                <article key={item.title} className="fm-home-value-panel">
-                  <h3 className="m-0 text-[1.24rem] font-semibold tracking-[-0.03em] text-slate-950">{item.title}</h3>
-                  <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+          <div className="grid gap-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-start">
+            <div className="space-y-8">
+              <SectionHeader kicker={copy.results.kicker} title={copy.results.title} body={copy.results.body} />
+              <ul className="fm-home-result-points" aria-label={locale === "zh" ? "结果价值" : "Result value"}>
+                {copy.results.valuePoints.map((point, index) => (
+                  <li key={point} className="fm-home-result-point">
+                    <span className="fm-home-result-point-index">0{index + 1}</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="grid gap-4 lg:grid-cols-3">
+              {copy.results.previews.map((item) => (
+                <article key={item.title} className="fm-home-report-preview" data-tone={item.tone}>
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{item.eyebrow}</p>
+                  <h3 className="m-0 mt-4 text-[1.18rem] font-semibold tracking-[-0.03em] text-slate-950">{item.title}</h3>
+                  <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{item.summary}</p>
+
+                  <div className="fm-home-report-preview-graphic" aria-hidden>
+                    <div className="fm-home-report-preview-surface">
+                      <div className="fm-home-report-preview-bars">
+                        {item.metrics.map((metric) => (
+                          <div key={metric} className="fm-home-report-preview-bar" />
+                        ))}
+                      </div>
+                      <div className="fm-home-report-preview-chart">
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                    </div>
+                  </div>
+
                   <ul className="mt-5 space-y-2 p-0 text-sm leading-6 text-slate-700">
-                    {item.bullets.map((bullet) => (
-                      <li key={bullet} className="flex list-none items-start gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--fm-cta-orange)]" aria-hidden />
-                        <span>{bullet}</span>
+                    {item.metrics.map((metric) => (
+                      <li key={metric} className="flex list-none items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#6d817b]" aria-hidden />
+                        <span>{metric}</span>
                       </li>
                     ))}
                   </ul>
@@ -269,13 +317,13 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         </Container>
       </section>
 
-      <section className="bg-[#0f1720] py-[var(--fm-space-24)] md:py-[8rem]">
+      <section className="bg-[#10171f] py-[var(--fm-space-24)] md:py-[8rem]">
         <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
           <div className="grid gap-10 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:items-start">
             <SectionHeader kicker={copy.trust.kicker} title={copy.trust.title} body={copy.trust.body} invert />
             <div className="space-y-3">
               {copy.trust.items.map((item) => (
-                <details key={item.title} className="fm-home-trust-item group" name="home-trust">
+                <details key={item.title} className="fm-home-trust-item group">
                   <summary className="fm-home-trust-summary">
                     <div>
                       <p className="m-0 text-[1rem] font-semibold tracking-[-0.02em] text-white">{item.title}</p>
@@ -306,16 +354,16 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         </Container>
       </section>
 
-      <section className="bg-[#f8f6f1] py-[var(--fm-space-24)] md:py-[8rem]">
+      <section className="bg-[#f7f3ec] py-[var(--fm-space-24)] md:py-[8rem]">
         <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
           <SectionHeader kicker={copy.resources.kicker} title={copy.resources.title} body={copy.resources.body} />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
             {copy.resources.items.map((resource) => (
               <article key={resource.title} className="fm-home-resource-panel">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{resource.typeLabel}</p>
                 <h3 className="m-0 mt-4 text-[1.16rem] font-semibold tracking-[-0.03em] text-slate-950">{resource.title}</h3>
                 <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{resource.description}</p>
-                <Link href={withLocale(resource.href)} className="fm-home-inline-link mt-6 inline-flex items-center gap-2 text-slate-900">
+                <Link href={withLocale(resource.href)} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">
                   {locale === "zh" ? "打开入口" : "Open resource"}
                   <span aria-hidden>+</span>
                 </Link>
@@ -335,17 +383,10 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
               <p className="m-0 text-[1rem] leading-7 text-slate-300 md:text-[1.05rem]">{copy.finalCta.body}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href={withLocale(copy.finalCta.primaryHref)} className={buttonVariants({ size: "lg", className: "px-7" })}>
+              <Link href={withLocale(copy.finalCta.primaryHref)} className={primaryButtonClass}>
                 {copy.finalCta.primaryCta}
               </Link>
-              <Link
-                href={withLocale(copy.finalCta.secondaryHref)}
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "lg",
-                  className: "border-white/16 bg-white/6 px-7 text-white hover:border-white/28 hover:bg-white/10 hover:text-white",
-                })}
-              >
+              <Link href={withLocale(copy.finalCta.secondaryHref)} className={darkOutlineButtonClass}>
                 {copy.finalCta.secondaryCta}
               </Link>
             </div>
