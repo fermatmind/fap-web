@@ -1,0 +1,81 @@
+{
+  "ok": true,
+  "locked": false,
+  "variant": "full",
+  "modules_allowed": ["big5_core", "big5_full", "big5_action_plan"],
+  "modules_preview": [],
+  "norms": {
+    "status": "MISSING",
+    "norms_version": "2026Q1"
+  },
+  "quality": {
+    "level": "B"
+  },
+  "comparative_v1": {
+    "version": "comparative.norming.v1",
+    "enabled": true,
+    "percentile": {
+      "metric_key": "C",
+      "metric_label": "Conscientiousness",
+      "value": 82
+    }
+  },
+  "big5_public_projection_v1": {
+    "schema_version": "big5.public_projection.v1",
+    "trait_vector": [
+      { "key": "O", "label": "Openness", "percentile": 43, "band": "mid" },
+      { "key": "C", "label": "Conscientiousness", "percentile": 82, "band": "high" },
+      { "key": "E", "label": "Extraversion", "percentile": 38, "band": "low" },
+      { "key": "A", "label": "Agreeableness", "percentile": 46, "band": "mid" },
+      { "key": "N", "label": "Neuroticism", "percentile": 71, "band": "high" }
+    ],
+    "facet_vector": [
+      { "key": "C5", "label": "C5 Self Discipline", "domain": "C", "percentile": 86, "bucket": "high" },
+      { "key": "N1", "label": "N1 Anxiety", "domain": "N", "percentile": 73, "bucket": "high" },
+      { "key": "N5", "label": "N5 Immoderation", "domain": "N", "percentile": 69, "bucket": "high" },
+      { "key": "O1", "label": "O1 Imagination", "domain": "O", "percentile": 41, "bucket": "mid" }
+    ],
+    "trait_bands": {
+      "O": "mid",
+      "C": "high",
+      "E": "low",
+      "A": "mid",
+      "N": "high"
+    },
+    "dominant_traits": [
+      { "key": "C", "label": "Conscientiousness", "percentile": 82, "band": "high", "rank": 1 },
+      { "key": "N", "label": "Neuroticism", "percentile": 71, "band": "high", "rank": 2 }
+    ],
+    "ordered_section_keys": [
+      "hero_summary",
+      "domains_overview",
+      "domain_deep_dive",
+      "facet_details",
+      "core_portrait",
+      "norms_comparison",
+      "action_plan",
+      "methodology_and_access"
+    ],
+    "explainability_summary": {
+      "headline": "This profile combines high Conscientiousness with elevated stress sensitivity."
+    },
+    "action_plan_summary": {
+      "headline": "Protect delivery quality while reducing avoidable stress loops.",
+      "focus_trait": "N",
+      "actions": []
+    }
+  },
+  "report": {
+    "scale_code": "BIG5_OCEAN",
+    "sections": [
+      {
+        "key": "hero_summary",
+        "title": "Profile Summary",
+        "access_level": "free",
+        "blocks": [
+          { "kind": "paragraph", "title": "Summary", "body": "A profile with strong execution and stress-reactive signals." }
+        ]
+      }
+    ]
+  }
+}
