@@ -1,5 +1,10 @@
 import type { Big5PublicProjection, ReportResponse } from "@/lib/api/v0_3";
 import { buildBig5FormDisplayLabel, normalizeBig5FormSummary } from "@/lib/big5/formSummary";
+import {
+  resolveDomainInterpretation,
+  resolveFacetGlossary,
+  selectBig5ActionSnippets,
+} from "@/lib/big5/interpretation";
 import { BIG5_V1_SECTION_MICROCOPY } from "@/lib/big5/microcopy";
 import {
   BIG5_V1_SAFE_BLOCK_KINDS,
@@ -108,6 +113,14 @@ function normalizeStringArray(value: unknown): string[] {
     .filter(Boolean);
 }
 
+function formatPercentileValue(value: number | null, locale: Locale): string {
+  if (value === null) {
+    return "";
+  }
+
+  return locale === "zh" ? `百分位 ${value}` : `Percentile ${value}`;
+}
+
 function resolveBig5Projection(reportData: ReportResponse): Big5PublicProjection | null {
   if (reportData.big5_public_projection_v1 && typeof reportData.big5_public_projection_v1 === "object") {
     return reportData.big5_public_projection_v1;
@@ -202,6 +215,8 @@ function buildSyntheticBlocks(
   const comparative = asRecord(reportData.comparative_v1 ?? projection?.comparative_v1);
   const traitVector = asArray<Record<string, unknown>>(projection?.trait_vector);
   const facetVector = asArray<Record<string, unknown>>(projection?.facet_vector);
+  const dominantTraits = asArray<Record<string, unknown>>(projection?.dominant_traits);
+  const traitBands = asRecord(projection?.trait_bands) ?? {};
 
   if (blueprint.section_key === "hero_summary") {
     const headline = normalizeText(
@@ -221,16 +236,35 @@ function buildSyntheticBlocks(
       const trait = traitVector.find((item) => normalizeText(item.key).toUpperCase() === code);
       if (!trait) continue;
       const percentile = normalizeNumber(trait.percentile);
-      const body = percentile !== null
-        ? locale === "zh"
-          ? `百分位 ${percentile}`
-          : `Percentile ${percentile}`
-        : normalizeText(trait.band_label, trait.band);
+      const body = formatPercentileValue(percentile, locale) || normalizeText(trait.band_label, trait.band);
       blocks.push({
         kind: "chart",
         metric_code: code,
         title: getDomainLabel(code, locale),
         body,
+      });
+    }
+    return blocks;
+  }
+
+  if (blueprint.section_key === "domain_deep_dive") {
+    const blocks: ReportBlock[] = [];
+    for (const code of BIG5_DOMAIN_ORDER) {
+      const trait = traitVector.find((item) => normalizeText(item.key).toUpperCase() === code);
+      const bandRaw = normalizeText(traitBands[code], trait?.band, trait?.band_label, trait?.bucket);
+      if (!trait && !bandRaw) {
+        continue;
+      }
+      const interpretation = resolveDomainInterpretation(code, bandRaw);
+      const percentile = normalizeNumber(trait?.percentile);
+      const percentileText = formatPercentileValue(percentile, locale);
+      const bodyParts = [interpretation.definition, interpretation.band_copy, percentileText].filter(Boolean);
+      blocks.push({
+        kind: "metric_card",
+        metric_code: code,
+        title: getDomainLabel(code, locale),
+        body: bodyParts.join(" "),
+        bullets: [interpretation.tradeoff],
       });
     }
     return blocks;
@@ -243,19 +277,77 @@ function buildSyntheticBlocks(
       .slice(0, 8)
       .map((item) => {
         const code = normalizeText(item.key).toUpperCase();
+        const facetGlossary = resolveFacetGlossary(code);
         const percentile = normalizeNumber(item.percentile);
+        const percentileText = formatPercentileValue(percentile, locale) || normalizeText(item.bucket, item.band);
         return {
           kind: "table_row",
           metric_code: code,
-          title: getFacetLabel(code, locale),
-          body: percentile !== null
-            ? locale === "zh"
-              ? `百分位 ${percentile}`
-              : `Percentile ${percentile}`
-            : normalizeText(item.bucket, item.band),
+          title: facetGlossary?.label ?? getFacetLabel(code, locale),
+          body: [percentileText, facetGlossary?.gloss, facetGlossary?.hint].filter(Boolean).join(" · "),
           bucket: normalizeText(item.bucket),
         } satisfies ReportBlock;
       });
+  }
+
+  if (blueprint.section_key === "core_portrait") {
+    const dominant = dominantTraits
+      .slice()
+      .sort((left, right) => (normalizeNumber(left.rank) ?? 99) - (normalizeNumber(right.rank) ?? 99))
+      .slice(0, 2)
+      .map((item) => {
+        const code = normalizeText(item.key).toUpperCase();
+        const domain = BIG5_DOMAIN_ORDER.find((entry) => entry === code) ?? null;
+        const label = normalizeText(item.label, domain ? getDomainLabel(domain, locale) : code);
+        const percentile = normalizeNumber(item.percentile);
+        if (!domain) {
+          return {
+            label,
+            insight: "",
+            percentileText: formatPercentileValue(percentile, locale),
+          };
+        }
+        const interpretation = resolveDomainInterpretation(
+          domain,
+          normalizeText(traitBands[domain], item.band, item.band_label, item.bucket)
+        );
+        return {
+          label,
+          insight: interpretation.band_copy,
+          percentileText: formatPercentileValue(percentile, locale),
+        };
+      });
+
+    const headline = normalizeText(
+      explainability?.headline,
+      reportData.summary,
+      reportData.report?.summary,
+      locale === "zh"
+        ? "当前画像由若干核心特质共同驱动，请结合场景理解。"
+        : "The current profile is shaped by a small set of dominant trait signals."
+    );
+
+    const bullets = dominant
+      .map((item) => [item.label, item.percentileText, item.insight].filter(Boolean).join(" · "))
+      .filter(Boolean);
+
+    const blocks: ReportBlock[] = [
+      {
+        kind: "paragraph",
+        title: BIG5_V1_SECTION_MICROCOPY.core_portrait.title,
+        body: headline,
+      },
+    ];
+
+    if (bullets.length > 0) {
+      blocks.push({
+        kind: "bullets",
+        title: locale === "zh" ? "核心信号" : "Core signals",
+        body: bullets.join("\n"),
+      });
+    }
+
+    return blocks;
   }
 
   if (blueprint.section_key === "norms_comparison") {
@@ -277,17 +369,30 @@ function buildSyntheticBlocks(
   }
 
   if (blueprint.section_key === "action_plan") {
-    const actions = normalizeStringArray(actionPlan?.actions);
+    const actions = selectBig5ActionSnippets({
+      dominantTraits,
+      traitBands,
+      seedActions: normalizeStringArray(actionPlan?.actions),
+      limit: 4,
+    });
     if (actions.length === 0) {
       return [];
     }
-    return [
-      {
-        kind: "bullets",
-        title: normalizeText(actionPlan?.headline, BIG5_V1_SECTION_MICROCOPY.action_plan.title),
-        body: actions.join("\n"),
-      },
-    ];
+    const headline = normalizeText(actionPlan?.headline);
+    const blocks: ReportBlock[] = [];
+    if (headline) {
+      blocks.push({
+        kind: "paragraph",
+        title: BIG5_V1_SECTION_MICROCOPY.action_plan.title,
+        body: headline,
+      });
+    }
+    blocks.push({
+      kind: "bullets",
+      title: locale === "zh" ? "下一步建议" : "Next actions",
+      body: actions.join("\n"),
+    });
+    return blocks;
   }
 
   if (blueprint.section_key === "methodology_and_access") {
