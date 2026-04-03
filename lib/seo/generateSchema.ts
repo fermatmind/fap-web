@@ -19,6 +19,13 @@ type WebPageSchemaInput = {
   locale: LocaleCode;
 };
 
+type CollectionPageSchemaInput = {
+  path: string;
+  title: string;
+  description: string;
+  locale: LocaleCode;
+};
+
 type ArticleSchemaInput = {
   path: string;
   title: string;
@@ -99,6 +106,19 @@ export function buildWebPageJsonLd(input: WebPageSchemaInput) {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${url}#webpage`,
+    url,
+    name: input.title,
+    description: input.description,
+    inLanguage: input.locale === "zh" ? "zh-CN" : "en",
+  };
+}
+
+export function buildCollectionPageJsonLd(input: CollectionPageSchemaInput) {
+  const url = canonicalUrl(input.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#collectionpage`,
     url,
     name: input.title,
     description: input.description,

@@ -21,6 +21,11 @@ export function SiteFooter() {
   const socialItems = FOOTER_SOCIAL_ITEMS;
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
   const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
+  const isTestsHubRoute =
+    pathname === "/zh/tests" ||
+    pathname === "/en/tests" ||
+    pathname.startsWith("/zh/tests/category/") ||
+    pathname.startsWith("/en/tests/category/");
   const homeFooter = getHomePageContent(locale).footer;
   const footerCopy =
     locale === "zh"
@@ -67,6 +72,93 @@ export function SiteFooter() {
     { href: "/terms", label: dict.footer.terms },
     { href: "/refund", label: dict.footer.refund },
   ];
+
+  const testsHubFooter =
+    locale === "zh"
+      ? {
+          introLabel: "Tests Navigation",
+          introCopy: "按问题、分类、代表测试与资源入口组织导航，帮助你从首页进入后继续停留在同一个产品世界里。",
+          groups: [
+            {
+              title: "Top Tests",
+              links: [
+                { href: "/career/tests/riasec", label: "霍兰德职业兴趣测试" },
+                { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试" },
+                { href: "/tests/big-five-personality-test-ocean-model", label: "大五人格测试" },
+                { href: "/tests/eq-test-emotional-intelligence-assessment", label: "情商（EQ）测试" },
+              ],
+            },
+            {
+              title: "Categories",
+              links: [
+                { href: "/tests", label: "测评入口中心" },
+                { href: "/tests/category/personality", label: "人格与风格" },
+                { href: "/tests/category/career", label: "职业与方向" },
+                { href: "/career/tests", label: "职业测试" },
+              ],
+            },
+            {
+              title: "Resources",
+              links: [
+                { href: "/articles/mbti-basics", label: "MBTI 入门" },
+                { href: "/articles/big-five-tool-guide", label: "大五工具说明" },
+                { href: "/career/guides/how-to-find-right-career-direction", label: "如何找到更适合自己的职业方向" },
+                { href: "/articles", label: "全部资源" },
+              ],
+            },
+            {
+              title: "Support",
+              links: [
+                { href: "/help", label: "帮助中心" },
+                { href: "/privacy", label: dict.footer.privacy },
+                { href: "/terms", label: dict.footer.terms },
+                { href: "/help/contact", label: "联系支持" },
+              ],
+            },
+          ],
+        }
+      : {
+          introLabel: "Tests Navigation",
+          introCopy: "Navigation is grouped by question, category, representative tests, and resources so the experience stays continuous after users leave the homepage.",
+          groups: [
+            {
+              title: "Top Tests",
+              links: [
+                { href: "/career/tests/riasec", label: "RIASEC career interest test" },
+                { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI personality test" },
+                { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five personality test" },
+                { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ assessment" },
+              ],
+            },
+            {
+              title: "Categories",
+              links: [
+                { href: "/tests", label: "Tests hub" },
+                { href: "/tests/category/personality", label: "Personality & style" },
+                { href: "/tests/category/career", label: "Career & direction" },
+                { href: "/career/tests", label: "Career tests" },
+              ],
+            },
+            {
+              title: "Resources",
+              links: [
+                { href: "/articles/mbti-basics", label: "MBTI basics" },
+                { href: "/articles/big-five-tool-guide", label: "Big Five tool guide" },
+                { href: "/career/guides/how-to-find-right-career-direction", label: "How to find a better-fit career direction" },
+                { href: "/articles", label: "All resources" },
+              ],
+            },
+            {
+              title: "Support",
+              links: [
+                { href: "/help", label: "Help center" },
+                { href: "/privacy", label: dict.footer.privacy },
+                { href: "/terms", label: dict.footer.terms },
+                { href: "/help/contact", label: "Contact support" },
+              ],
+            },
+          ],
+        };
 
   if (isHomeRoute) {
     return (
@@ -180,6 +272,107 @@ export function SiteFooter() {
                 © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
               </p>
             </div>
+          </div>
+        </Container>
+      </footer>
+    );
+  }
+
+  if (isTestsHubRoute) {
+    return (
+      <footer className="fm-section-dark border-t border-white/10 text-white">
+        <Container className="space-y-8 py-12">
+          <div className="space-y-2 border-b border-white/10 pb-5">
+            <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/55">{testsHubFooter.introLabel}</p>
+            <p className="m-0 text-sm text-slate-300">{testsHubFooter.introCopy}</p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {testsHubFooter.groups.map((group) => (
+              <div key={group.title} className="space-y-3">
+                <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{group.title}</p>
+                <div className="space-y-2 text-sm">
+                  {group.links.map((item) => (
+                    <Link key={`${group.title}-${item.href}`} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="fm-social-rail border-t border-white/15 pt-6">
+            <p className="m-0 mb-4 text-center text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
+              {dict.footer.socialTitle}
+            </p>
+            <div className="fm-social-list">
+              {socialItems.map((item) => (
+                <div
+                  key={item.key}
+                  className="fm-social-item"
+                  onMouseEnter={() => setActiveSocialKey(item.key)}
+                  onMouseLeave={() => setActiveSocialKey((current) => (current === item.key ? null : current))}
+                >
+                  {item.kind === "qr" ? (
+                    <>
+                      <button
+                        type="button"
+                        title={locale === "zh" ? item.labels.zh : item.labels.en}
+                        aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
+                        aria-expanded={activeSocialKey === item.key}
+                        className="fm-social-badge cursor-pointer border-0 bg-transparent p-0"
+                        onClick={() => setActiveSocialKey((current) => (current === item.key ? null : item.key))}
+                        onFocus={() => setActiveSocialKey(item.key)}
+                        onBlur={() => setActiveSocialKey((current) => (current === item.key ? null : current))}
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true" className="fm-social-logo">
+                          <path d={item.icon.path} />
+                        </svg>
+                        <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
+                      </button>
+
+                      {item.qrImageSrc ? (
+                        <div
+                          className={cn("fm-social-qr-panel", activeSocialKey === item.key && "is-open")}
+                          aria-hidden={activeSocialKey === item.key ? "false" : "true"}
+                        >
+                          <Image
+                            src={item.qrImageSrc}
+                            alt={locale === "zh" ? "微信二维码" : "WeChat QR code"}
+                            width={144}
+                            height={144}
+                            className="fm-social-qr-image"
+                          />
+                          <p className="fm-social-qr-label">{locale === "zh" ? "微信扫码关注" : "Scan in WeChat"}</p>
+                        </div>
+                      ) : null}
+                    </>
+                  ) : (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={locale === "zh" ? item.labels.zh : item.labels.en}
+                      aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
+                      className="fm-social-badge"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="fm-social-logo">
+                        <path d={item.icon.path} />
+                      </svg>
+                      <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-5 text-center">
+            <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-white/62">{footerCopy.tailnote}</p>
+            <p data-visual-volatile="true" className="m-0 mt-3 text-xs text-slate-400">
+              © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
+            </p>
           </div>
         </Container>
       </footer>

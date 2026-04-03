@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  buildBig5TakeHref,
+  getBig5StartLabel,
+  isBig5ScaleCode,
+  isBig5Slug,
+  listBig5FormMetas,
+} from "@/lib/big5/forms";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildMbtiTakeHref, getMbtiStartLabel, isMbtiScaleCode, isMbtiSlug, listMbtiFormMetas } from "@/lib/mbti/forms";
@@ -16,7 +23,13 @@ type CTAStickyProps = {
 
 export function CTASticky({ slug, title, questions, minutes, scaleCode, locale = "en" }: CTAStickyProps) {
   const showsMbtiActions = isMbtiScaleCode(scaleCode) || isMbtiSlug(slug);
+  const showsBig5Actions = isBig5ScaleCode(scaleCode) || isBig5Slug(slug);
   const mbtiSummary = listMbtiFormMetas()
+    .map((form) => (locale === "zh"
+      ? `${form.questionCount}题 · 约 ${form.estimatedMinutes} 分钟`
+      : `${form.questionCount} questions · about ${form.estimatedMinutes} minutes`))
+    .join(locale === "zh" ? " / " : " / ");
+  const big5Summary = listBig5FormMetas()
     .map((form) => (locale === "zh"
       ? `${form.questionCount}题 · 约 ${form.estimatedMinutes} 分钟`
       : `${form.questionCount} questions · about ${form.estimatedMinutes} minutes`))
@@ -35,6 +48,8 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
               <br />
               {showsMbtiActions
                 ? mbtiSummary
+                : showsBig5Actions
+                ? big5Summary
                 : `${questions} ${locale === "zh" ? "题" : "questions"} · ${locale === "zh" ? `约 ${minutes} 分钟` : `about ${minutes} minutes`}.`}
             </p>
             {showsMbtiActions ? (
@@ -46,6 +61,18 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                     className={buttonVariants({ className: "w-full" })}
                   >
                     {getMbtiStartLabel(form.formCode, locale)}
+                  </Link>
+                ))}
+              </div>
+            ) : showsBig5Actions ? (
+              <div className="space-y-2">
+                {listBig5FormMetas().map((form) => (
+                  <Link
+                    key={form.formCode}
+                    href={buildBig5TakeHref(slug, locale, form.formCode)}
+                    className={buttonVariants({ className: "w-full" })}
+                  >
+                    {getBig5StartLabel(form.formCode, locale)}
                   </Link>
                 ))}
               </div>
@@ -61,7 +88,11 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/97 p-3 shadow-[0_-10px_24px_rgba(15,23,42,0.1)] backdrop-blur lg:hidden">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="line-clamp-2 text-xs font-medium text-slate-700 sm:flex-1">
-            {showsMbtiActions ? `${title} · ${mbtiSummary}` : `${title} · ${questions}Q · ${minutes}m`}
+            {showsMbtiActions
+              ? `${title} · ${mbtiSummary}`
+              : showsBig5Actions
+              ? `${title} · ${big5Summary}`
+              : `${title} · ${questions}Q · ${minutes}m`}
           </p>
           {showsMbtiActions ? (
             <div className="flex w-full gap-2 sm:w-auto">
@@ -69,6 +100,18 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                 <Link
                   key={form.formCode}
                   href={buildMbtiTakeHref(slug, locale, form.formCode)}
+                  className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
+                >
+                  {locale === "zh" ? `${form.questionCount}题开始` : `${form.questionCount}Q`}
+                </Link>
+              ))}
+            </div>
+          ) : showsBig5Actions ? (
+            <div className="flex w-full gap-2 sm:w-auto">
+              {listBig5FormMetas().map((form) => (
+                <Link
+                  key={form.formCode}
+                  href={buildBig5TakeHref(slug, locale, form.formCode)}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
                   {locale === "zh" ? `${form.questionCount}题开始` : `${form.questionCount}Q`}

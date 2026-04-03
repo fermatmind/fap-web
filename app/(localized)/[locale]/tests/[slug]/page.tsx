@@ -25,6 +25,14 @@ import { localizedPath } from "@/lib/i18n/locales";
 import { buildApiUrl } from "@/lib/api-base";
 import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
 import {
+  buildBig5TakeHref,
+  getBig5DurationSummary,
+  getBig5QuestionSummary,
+  getBig5StartLabel,
+  isBig5ScaleCode,
+  listBig5FormMetas,
+} from "@/lib/big5/forms";
+import {
   buildMbtiTakeHref,
   getMbtiDurationSummary,
   getMbtiQuestionSummary,
@@ -282,6 +290,7 @@ export default async function TestLandingPage({
   const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
   const startTestHref = landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`);
   const showsMbtiActions = isMbtiScaleCode(test.scale_code);
+  const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const backToTestsCta = findLandingCta(landingSurface, "back_to_tests");
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
 
@@ -377,9 +386,21 @@ export default async function TestLandingPage({
                 </div>
                 <p className="max-w-3xl text-[var(--fm-text-muted)]">{landingCopy || test.description}</p>
                 <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--fm-text-muted)]">
-                  <span>{showsMbtiActions ? getMbtiQuestionSummary(locale) : `${test.questions_count} ${locale === "zh" ? "题" : "questions"}`}</span>
+                  <span>
+                    {showsMbtiActions
+                      ? getMbtiQuestionSummary(locale)
+                      : showsBig5Actions
+                      ? getBig5QuestionSummary(locale)
+                      : `${test.questions_count} ${locale === "zh" ? "题" : "questions"}`}
+                  </span>
                   <span>•</span>
-                  <span>{showsMbtiActions ? getMbtiDurationSummary(locale) : `${test.time_minutes} ${locale === "zh" ? "分钟" : "minutes"}`}</span>
+                  <span>
+                    {showsMbtiActions
+                      ? getMbtiDurationSummary(locale)
+                      : showsBig5Actions
+                      ? getBig5DurationSummary(locale)
+                      : `${test.time_minutes} ${locale === "zh" ? "分钟" : "minutes"}`}
+                  </span>
                   {test.scale_code ? (
                     <>
                       <span>•</span>
@@ -412,6 +433,18 @@ export default async function TestLandingPage({
                     data-testid={`test-detail-landing-cta-${form.formCode}`}
                   >
                     {getMbtiStartLabel(form.formCode, locale)}
+                  </Link>
+                ))
+              ) : showsBig5Actions ? (
+                listBig5FormMetas().map((form) => (
+                  <Link
+                    key={form.formCode}
+                    href={buildBig5TakeHref(test.slug, locale, form.formCode)}
+                    prefetch
+                    className={buttonVariants({ size: "lg" })}
+                    data-testid={`test-detail-landing-cta-${form.formCode}`}
+                  >
+                    {getBig5StartLabel(form.formCode, locale)}
                   </Link>
                 ))
               ) : (

@@ -52,17 +52,18 @@ export async function computeManifestHash(payload: {
 export function clearBig5ClientCaches(): void {
   if (typeof window === "undefined") return;
 
-  const keys = [
-    "fm_big5_attempt_v1",
-    "fm_big5_last_report_v1",
-    "fm_big5_last_order_v1",
-  ];
-
-  for (const key of keys) {
-    try {
-      window.localStorage.removeItem(key);
-    } catch {
-      // Ignore storage cleanup failures.
+  try {
+    for (let index = window.localStorage.length - 1; index >= 0; index -= 1) {
+      const key = window.localStorage.key(index);
+      if (!key) continue;
+      if (key.startsWith("fm_big5_attempt_v2_") || key === "fm_big5_attempt_v1") {
+        window.localStorage.removeItem(key);
+      }
     }
+
+    window.localStorage.removeItem("fm_big5_last_report_v1");
+    window.localStorage.removeItem("fm_big5_last_order_v1");
+  } catch {
+    // Ignore storage cleanup failures.
   }
 }

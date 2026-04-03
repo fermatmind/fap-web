@@ -26,6 +26,15 @@ describe("test detail landing contract", () => {
     expect(source).toContain('scaleCode={test.scale_code}');
   });
 
+  it("wires big5 dual-entry CTAs to the same slug with form-aware query", () => {
+    const source = fs.readFileSync(PAGE_PATH, "utf8");
+
+    expect(source).toContain('buildBig5TakeHref');
+    expect(source).toContain('getBig5StartLabel');
+    expect(source).toContain('listBig5FormMetas');
+    expect(source).toContain('showsBig5Actions');
+  });
+
   it("wires the take page form query into QuizTakeClient props", () => {
     const takeSource = fs.readFileSync(
       path.join(process.cwd(), "app/(localized)/[locale]/tests/[slug]/take/page.tsx"),
@@ -34,5 +43,7 @@ describe("test detail landing contract", () => {
 
     expect(takeSource).toContain('normalizeMbtiFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
     expect(takeSource).toContain('formCode={mbtiFormCode ?? undefined}');
+    expect(takeSource).toContain('normalizeBig5FormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
+    expect(takeSource).toContain('formCode={big5FormCode ?? undefined}');
   });
 });

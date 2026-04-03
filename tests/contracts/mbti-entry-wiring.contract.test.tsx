@@ -160,4 +160,33 @@ describe("mbti entry wiring contract", () => {
     expect(source).toContain('buildMbtiTakeHref(card.slug, locale, form.formCode)');
     expect(source).toContain('getMbtiStartLabel(form.formCode, locale)');
   });
+
+  it("renders dual big5 CTAs in landing sticky CTA surface", () => {
+    render(
+      <CTASticky
+        slug="big-five-personality-test-ocean-model"
+        title="大五人格测试"
+        questions={120}
+        minutes={20}
+        scaleCode="BIG5_OCEAN"
+        locale="zh"
+      />
+    );
+
+    expectHref(
+      "120题开始测试",
+      "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120"
+    );
+    expectHref(
+      "90题开始测试",
+      "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90"
+    );
+  });
+
+  it("wires big5 dual-entry route in homepage family cards", () => {
+    const source = read("components/marketing/HomePageExperience.tsx");
+
+    expect(source).toContain('buildBig5TakeHref("big-five-personality-test-ocean-model", locale, form.formCode)');
+    expect(source).toContain("getBig5StartLabel(form.formCode, locale)");
+  });
 });
