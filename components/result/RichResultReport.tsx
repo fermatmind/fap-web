@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { buildBig5FormDisplayLabel, normalizeBig5FormSummary } from "@/lib/big5/formSummary";
+import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import {
   buildMbtiResultProjectionViewModel,
   hasMbtiResultProjection,
@@ -1286,11 +1286,6 @@ export function RichResultReport({
   const previewView = scaleCode === "MBTI" ? buildMbtiPreviewViewModel(reportData) : null;
   const gate = resolveRichResultGate(reportData, scaleCode, previewView);
   const headline = resolveHeadline(scaleCode, reportData);
-  const big5Projection = scaleCode === "BIG5_OCEAN" ? resolveBig5Projection(reportData) : null;
-  const big5FormSummary = scaleCode === "BIG5_OCEAN" ? normalizeBig5FormSummary(reportData.big5_form_v1 ?? null) : null;
-  const big5FormLabel = scaleCode === "BIG5_OCEAN"
-    ? buildBig5FormDisplayLabel(big5FormSummary, { includeScaleCode: true, locale })
-    : null;
   const tags = resolveVisibleTags(reportData);
   const projectionViewModel = scaleCode === "MBTI" ? buildMbtiResultProjectionViewModel(reportData) : null;
   const dimensions =
@@ -1298,10 +1293,12 @@ export function RichResultReport({
       ? projectionViewModel.dimensions
       : scaleCode === "MBTI"
         ? []
+        : scaleCode === "BIG5_OCEAN"
+          ? []
         : normalizeDimensions(scaleCode, reportData, locale);
   const highlights = normalizeHighlights(reportData, gate, locale);
   const recommendedReads = resolveRecommendedReads(reportData);
-  const sections = normalizeRichSections(reportData, locale, gate);
+  const sections = scaleCode === "BIG5_OCEAN" ? [] : normalizeRichSections(reportData, locale, gate);
   const rawOffers = normalizeOffers(reportData);
   const offers = scaleCode === "MBTI" ? filterMbtiOffers(rawOffers) : rawOffers;
   const resolvedOffers = offers.map((offer) => resolveOfferCopy(offer, locale));
@@ -1350,9 +1347,20 @@ export function RichResultReport({
   const lockedSections = gate.isFreeVariant
     ? sections.filter((section) => normalizeText(section.access_level).toLowerCase() === "paid")
     : [];
-  const recommendedOffers = resolveRecommendedOffers(lockedSections, offers);
 
   if (scaleCode === "BIG5_OCEAN") {
+    const assembled = assembleBig5ResultViewModel({
+      locale,
+      reportData,
+      gate: {
+        isFreeVariant: gate.isFreeVariant,
+        modulesAllowed: gate.modulesAllowed,
+        modulesPreview: gate.modulesPreview,
+        freeSections: gate.freeSections,
+      },
+    });
+    const recommendedOffers = resolveRecommendedOffers(assembled.lockedSections, offers);
+
     return (
       <Big5ResultShell
         locale={locale}
@@ -1361,17 +1369,19 @@ export function RichResultReport({
         accessProjection={accessProjection}
         headline={headline}
         tags={tags}
-        dimensions={dimensions}
-        projection={big5Projection}
-        formSummaryLabel={big5FormLabel}
-        normsStatus={normalizeText(reportData.norms?.status, asRecord(reportData.report?.norms)?.status)}
-        qualityLevel={normalizeText(reportData.quality?.level, asRecord(reportData.report?.quality)?.level)}
-        visibleSections={visibleSections}
-        lockedSections={lockedSections}
+        dimensions={assembled.dimensions}
+        projection={assembled.projection}
+        formSummaryLabel={assembled.formSummaryLabel}
+        normsStatus={assembled.normsStatus}
+        qualityLevel={assembled.qualityLevel}
+        visibleSections={assembled.visibleSections}
+        lockedSections={assembled.lockedSections}
         recommendedOffers={recommendedOffers}
       />
     );
   }
+
+  const recommendedOffers = resolveRecommendedOffers(lockedSections, offers);
 
   return (
     <div className="space-y-8">

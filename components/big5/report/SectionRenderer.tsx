@@ -1,5 +1,6 @@
 import { BlockRenderer } from "@/components/big5/report/BlockRenderer";
 import { LockedBlock } from "@/components/big5/report/LockedBlock";
+import { BIG5_V1_STATE_MICROCOPY } from "@/lib/big5/microcopy";
 
 type Section = {
   key?: string;
@@ -46,7 +47,7 @@ export function SectionRenderer({
       <section className="space-y-2">
         <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
         <div className="rounded-xl border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
-          Percentile views are temporarily unavailable because current norms status is MISSING.
+          {BIG5_V1_STATE_MICROCOPY.norms.missing}
         </div>
         <div className="space-y-2">
           {blocks.map((block, idx) => (
