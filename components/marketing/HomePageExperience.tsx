@@ -1,19 +1,24 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
-import { buildBig5TakeHref, getBig5VariantLabel, listBig5FormMetas } from "@/lib/big5/forms";
+import { buildBig5TakeHref, getBig5VariantLabel, isBig5Slug, listBig5FormMetas } from "@/lib/big5/forms";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
-import { buildMbtiTakeHref, getMbtiVariantLabel, listMbtiFormMetas } from "@/lib/mbti/forms";
+import { buildMbtiTakeHref, getMbtiVariantLabel, isMbtiSlug, listMbtiFormMetas } from "@/lib/mbti/forms";
 import { cn } from "@/lib/utils";
 
-function resolveVariantFamily(href: string): "mbti" | "big5" | null {
+function extractTestSlugFromHref(href: string): string | null {
   const pathname = href.split("?")[0] ?? "";
   const normalized = pathname.replace(/\/+$/, "");
-  if (normalized.endsWith("/tests/big-five-personality-test-ocean-model")) {
+  const match = normalized.match(/\/tests\/([^/]+)$/);
+  return match?.[1] ?? null;
+}
+
+function resolveVariantFamily(slug: string | null): "mbti" | "big5" | null {
+  if (slug && isBig5Slug(slug)) {
     return "big5";
   }
-  if (normalized.endsWith("/tests/mbti-personality-test-16-personality-types")) {
+  if (slug && isMbtiSlug(slug)) {
     return "mbti";
   }
   return null;
@@ -233,8 +238,11 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                 </div>
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:max-w-[58rem]">
-                  {family.links.map((link) =>
-                    resolveVariantFamily(link.href) ? (
+                  {family.links.map((link) => {
+                    const linkSlug = extractTestSlugFromHref(link.href);
+                    const variantFamily = resolveVariantFamily(linkSlug);
+
+                    return variantFamily ? (
                       <div key={`${family.title}-${link.title}`} className="fm-home-subtle-link-card items-start">
                         <div className="w-full space-y-3">
                           <Link
@@ -246,25 +254,27 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                           </Link>
                           {link.description ? <span className="block text-xs leading-6 text-slate-500">{link.description}</span> : null}
                           <div className="flex flex-wrap gap-2">
-                            {resolveVariantFamily(link.href) === "big5"
+                            {variantFamily === "big5" && linkSlug
                               ? listBig5FormMetas().map((form) => (
                                   <Link
                                     key={form.formCode}
-                                    href={buildBig5TakeHref("big-five-personality-test-ocean-model", locale, form.formCode)}
+                                    href={buildBig5TakeHref(linkSlug, locale, form.formCode)}
                                     className="inline-flex items-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(75,108,102,0.36)] hover:bg-[#f5f8f6]"
                                   >
                                     {getBig5VariantLabel(form.formCode, locale)}
                                   </Link>
                                 ))
-                              : listMbtiFormMetas().map((form) => (
+                              : variantFamily === "mbti" && linkSlug
+                              ? listMbtiFormMetas().map((form) => (
                                   <Link
                                     key={form.formCode}
-                                    href={buildMbtiTakeHref("mbti-personality-test-16-personality-types", locale, form.formCode)}
+                                    href={buildMbtiTakeHref(linkSlug, locale, form.formCode)}
                                     className="inline-flex items-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(75,108,102,0.36)] hover:bg-[#f5f8f6]"
                                   >
                                     {getMbtiVariantLabel(form.formCode, locale)}
                                   </Link>
-                                ))}
+                                ))
+                              : null}
                           </div>
                         </div>
                       </div>
@@ -276,8 +286,8 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                         </div>
                         <span aria-hidden>+</span>
                       </Link>
-                    )
-                  )}
+                    );
+                  })}
                 </div>
 
                 <Link href={withLocale(family.exploreHref)} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">

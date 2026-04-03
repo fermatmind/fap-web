@@ -183,7 +183,9 @@ describe("mbti entry wiring contract", () => {
   it("wires big5 dual-entry route in homepage family cards", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
-    expect(source).toContain('buildBig5TakeHref("big-five-personality-test-ocean-model", locale, form.formCode)');
+    expect(source).toContain("const linkSlug = extractTestSlugFromHref(link.href)");
+    expect(source).toContain("variantFamily === \"big5\" && linkSlug");
+    expect(source).toContain("buildBig5TakeHref(linkSlug, locale, form.formCode)");
     expect(source).toContain("getBig5VariantLabel(form.formCode, locale)");
   });
 });
