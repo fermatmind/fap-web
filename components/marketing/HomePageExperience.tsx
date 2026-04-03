@@ -79,138 +79,163 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         <div aria-hidden className="fm-home-ambient fm-home-ambient--left" />
         <div aria-hidden className="fm-home-ambient fm-home-ambient--right" />
 
-        <Container className="relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-24)] pt-[calc(var(--fm-space-16)+var(--fm-space-10))] md:px-8 md:pb-[var(--fm-space-30)] md:pt-[calc(var(--fm-space-20)+var(--fm-space-10))] xl:px-12">
-          <div className="fm-home-hero-panel">
-            <div className="space-y-10">
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <p className="fm-home-eyebrow">{copy.hero.eyebrow}</p>
-                  <p className="m-0 text-sm font-medium uppercase tracking-[0.22em] text-white/42">{copy.hero.brand}</p>
-                </div>
-
-                <div className="space-y-5">
-                  <h1 className="m-0 max-w-[13ch] text-balance text-[clamp(2.75rem,5vw,5.35rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-white">
-                    {copy.hero.title}
-                  </h1>
-                  <p className="m-0 max-w-[37rem] text-[1.02rem] leading-8 text-slate-300 md:text-[1.12rem]">
-                    {copy.hero.body}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  <Link href={withLocale(copy.hero.primaryHref)} className={primaryButtonClass}>
-                    {copy.hero.primaryCta}
-                  </Link>
-                  <Link
-                    href={copy.hero.secondaryHref.startsWith("#") ? copy.hero.secondaryHref : withLocale(copy.hero.secondaryHref)}
-                    className={darkOutlineButtonClass}
-                  >
-                    {copy.hero.secondaryCta}
-                  </Link>
-                </div>
-
-                <ul className="fm-home-trust-rail" aria-label={locale === "zh" ? "开始说明" : "Start details"}>
-                  {copy.hero.trustRail.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+        <Container className="relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-18)] pt-[calc(var(--fm-space-16)+var(--fm-space-10))] md:px-8 md:pb-[var(--fm-space-22)] md:pt-[calc(var(--fm-space-20)+var(--fm-space-10))] xl:px-12">
+          <div className="fm-home-hero-poster">
+            <div className="fm-home-hero-copy-shell">
+              <div className="space-y-4">
+                <p className="fm-home-eyebrow">{copy.hero.eyebrow}</p>
+                <p className="m-0 text-sm font-medium uppercase tracking-[0.22em] text-white/42">{copy.hero.brand}</p>
               </div>
 
-              <div className="fm-home-hero-stage">
-                <div className="fm-home-hero-stage-head">
-                  <span>{copy.hero.visualEyebrow}</span>
-                  <span>{locale === "zh" ? "从模糊感受，到可判断结构" : "From vague feeling to usable structure"}</span>
+              <div className="space-y-5">
+                <h1 className="m-0 max-w-[8.9em] text-balance text-[clamp(2.95rem,5.6vw,5.8rem)] font-semibold leading-[0.92] tracking-[-0.065em] text-white">
+                  {copy.hero.title}
+                </h1>
+                <p className="m-0 max-w-[31rem] text-[0.98rem] leading-7 text-slate-300 md:text-[1.04rem] md:leading-8">
+                  {copy.hero.body}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <Link href={withLocale(copy.hero.primaryHref)} className={primaryButtonClass}>
+                  {copy.hero.primaryCta}
+                </Link>
+                <Link
+                  href={copy.hero.secondaryHref.startsWith("#") ? copy.hero.secondaryHref : withLocale(copy.hero.secondaryHref)}
+                  className={darkOutlineButtonClass}
+                >
+                  {copy.hero.secondaryCta}
+                </Link>
+              </div>
+
+              <ul className="fm-home-trust-rail" aria-label={locale === "zh" ? "开始说明" : "Start details"}>
+                {copy.hero.trustRail.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="fm-home-hero-stage">
+              <div className="fm-home-hero-stage-head">
+                <span>{copy.hero.visualEyebrow}</span>
+              </div>
+
+              <div className="fm-home-hero-stage-grid">
+                <div className="fm-home-hero-select-panel">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="fm-home-hero-map-label">{locale === "zh" ? "现在的问题" : "Start from the question"}</p>
+                    <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/34">05</span>
+                  </div>
+                  <div className="fm-home-hero-choice-list">
+                    {copy.quickStart.items.slice(0, 5).map((item, index) => (
+                      <div key={item.title} className={cn("fm-home-hero-choice-row", index === 0 && "is-emphasis")}>
+                        <span className="fm-home-hero-choice-index">0{index + 1}</span>
+                        <div className="min-w-0">
+                          <p className="m-0 text-sm font-medium text-white">{item.title}</p>
+                          {item.hints?.length ? (
+                            <p className="m-0 mt-1 text-xs leading-6 text-slate-400">{item.hints.slice(0, 2).join(" · ")}</p>
+                          ) : null}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="fm-home-hero-stage-grid">
-                  <div className="fm-home-hero-select-panel">
-                      <p className="fm-home-hero-map-label">{locale === "zh" ? "先选问题" : "Choose a question"}</p>
-                    <div className="fm-home-hero-choice-list">
-                      {copy.quickStart.items.slice(0, 5).map((item, index) => (
-                        <div key={item.title} className={cn("fm-home-hero-choice-row", index === 1 && "is-emphasis")}>
-                          <span className="fm-home-hero-choice-index">0{index + 1}</span>
-                          <div className="min-w-0">
-                            <p className="m-0 text-sm font-medium text-white">{item.title}</p>
-                            {item.hints?.length ? (
-                              <p className="m-0 mt-1 text-xs leading-6 text-slate-400">
-                                {item.hints.slice(0, 3).join(" · ")}
-                              </p>
-                            ) : null}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                <div className="fm-home-hero-stage-canvas">
+                  <div aria-hidden className="fm-home-hero-stage-orbit" />
 
-                  <div className="fm-home-hero-preview-panel">
-                    <div className="fm-home-hero-preview-card">
-                      <p className="fm-home-hero-map-label">{locale === "zh" ? "结果界面" : "Result surface"}</p>
-                      <p className="m-0 mt-3 text-[1.05rem] font-semibold tracking-[-0.03em] text-white">
-                        {copy.hero.visualTitle}
-                      </p>
-                      <p className="m-0 mt-2 text-sm leading-7 text-slate-300">{copy.hero.visualSummary}</p>
-                      <div className="fm-home-hero-preview-metrics" aria-hidden>
-                        <span className="is-long" />
-                        <span className="is-mid" />
-                        <span className="is-short" />
+                  <div className="fm-home-hero-result-surface">
+                    <div className="fm-home-hero-result-head">
+                      <div className="space-y-3">
+                        <p className="fm-home-hero-map-label">{locale === "zh" ? "结果界面" : "Result surface"}</p>
+                        <p className="m-0 max-w-[24rem] text-balance text-[clamp(1.45rem,2.4vw,2.25rem)] font-semibold tracking-[-0.045em] text-white">
+                          {copy.hero.visualTitle}
+                        </p>
+                      </div>
+                      <div className="fm-home-hero-result-badge">
+                        {locale === "zh" ? "结构化输出" : "Structured output"}
                       </div>
                     </div>
 
-                    <div className="fm-home-hero-preview-card">
-                      <p className="fm-home-hero-map-label">{locale === "zh" ? "结果会包括" : "What the result includes"}</p>
-                      <div className="mt-4 grid gap-2">
-                        {copy.hero.visualPoints.map((point) => (
-                          <div key={point} className="fm-home-hero-preview-chip">
-                            <span className="fm-home-hero-preview-chip-dot" aria-hidden />
-                            <span>{point}</span>
-                          </div>
-                        ))}
+                    <p className="m-0 max-w-[30rem] text-[0.92rem] leading-7 text-slate-300 md:text-[0.98rem]">
+                      {copy.hero.visualSummary}
+                    </p>
+
+                    <div className="fm-home-hero-preview-metrics" aria-hidden>
+                      <span className="is-long" />
+                      <span className="is-mid" />
+                      <span className="is-short" />
+                    </div>
+
+                    <div className="fm-home-hero-stage-detail-grid">
+                      <div className="fm-home-hero-preview-card fm-home-hero-preview-card--compressed">
+                        <p className="fm-home-hero-map-label">{locale === "zh" ? "结果会带回" : "What comes back"}</p>
+                        <div className="mt-4 grid gap-2">
+                          {copy.hero.visualPoints.map((point) => (
+                            <div key={point} className="fm-home-hero-preview-chip">
+                              <span className="fm-home-hero-preview-chip-dot" aria-hidden />
+                              <span>{point}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="fm-home-hero-preview-card fm-home-hero-preview-card--compressed">
+                        <p className="fm-home-hero-map-label">{locale === "zh" ? "下一步" : "Next move"}</p>
+                        <ul className="fm-home-hero-next-list" aria-label={locale === "zh" ? "结果下一步" : "Result next move"}>
+                          {copy.results.valuePoints.slice(0, 3).map((point) => (
+                            <li key={point}>{point}</li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </Container>
+      </section>
 
-            <div id="home-quick-start" className="fm-home-quick-start-shell">
-              <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-                <SectionHeader
-                  kicker={copy.quickStart.kicker}
-                  title={copy.quickStart.title}
-                  body={copy.quickStart.body}
-                  invert
-                />
-                <Link href={withLocale("/tests")} className="fm-home-inline-link inline-flex items-center gap-2">
-                  {locale === "zh" ? "查看全部测评" : "View all assessments"}
-                  <span aria-hidden>+</span>
-                </Link>
-              </div>
+      <section id="home-quick-start" className="bg-[#111922] pb-[var(--fm-space-24)] md:pb-[7rem]">
+        <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
+          <div className="fm-home-quick-start-shell">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+              <SectionHeader kicker={copy.quickStart.kicker} title={copy.quickStart.title} body={copy.quickStart.body} invert />
+              <Link href={withLocale("/tests")} className="fm-home-inline-link inline-flex items-center gap-2">
+                {locale === "zh" ? "查看全部测评" : "View all assessments"}
+                <span aria-hidden>+</span>
+              </Link>
+            </div>
 
-              <div className="mt-8 grid gap-3 lg:grid-cols-5 lg:gap-4">
-                {copy.quickStart.items.map((item) => (
-                  <article key={item.title} className="fm-home-quick-card">
-                    <div className="space-y-4">
-                      <div className="space-y-2">
-                        <h3 className="m-0 text-[1.08rem] font-semibold tracking-[-0.03em] text-white">{item.title}</h3>
-                        <p className="m-0 text-sm leading-7 text-slate-300">{item.description}</p>
-                      </div>
-
-                      {item.hints?.length ? (
-                        <ul className="fm-home-quick-hints" aria-label={locale === "zh" ? "相关入口提示" : "Related entry hints"}>
-                          {item.hints.map((hint) => (
-                            <li key={hint}>{hint}</li>
-                          ))}
-                        </ul>
-                      ) : null}
+            <div className="mt-8 grid gap-3 lg:grid-cols-5 lg:gap-4">
+              {copy.quickStart.items.map((item, index) => (
+                <article key={item.title} className="fm-home-quick-card">
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <span className="fm-home-quick-card-index">0{index + 1}</span>
                     </div>
 
-                    <Link href={withLocale(item.href)} className="fm-home-inline-link mt-6 inline-flex items-center gap-2">
-                      {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
-                      <span aria-hidden>+</span>
-                    </Link>
-                  </article>
-                ))}
-              </div>
+                    <div className="space-y-2">
+                      <h3 className="m-0 text-[1.08rem] font-semibold tracking-[-0.03em] text-white">{item.title}</h3>
+                      <p className="m-0 text-sm leading-7 text-slate-300">{item.description}</p>
+                    </div>
+
+                    {item.hints?.length ? (
+                      <ul className="fm-home-quick-hints" aria-label={locale === "zh" ? "相关入口提示" : "Related entry hints"}>
+                        {item.hints.slice(0, 2).map((hint) => (
+                          <li key={hint}>{hint}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+
+                  <Link href={withLocale(item.href)} className="fm-home-inline-link mt-6 inline-flex items-center gap-2">
+                    {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
+                    <span aria-hidden>+</span>
+                  </Link>
+                </article>
+              ))}
             </div>
           </div>
         </Container>
@@ -226,40 +251,40 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
             </Link>
           </div>
 
-          <div className="mt-10 grid gap-5 xl:grid-cols-2">
-            {copy.families.items.map((family, index) => (
-              <article key={family.title} className={cn("fm-home-family-panel", index === 0 && "xl:col-span-2")}>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {copy.families.items.map((family) => (
+              <article key={family.title} className="fm-home-family-panel">
                 <div className="space-y-3">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                    {locale === "zh" ? "测评家族" : "Test family"}
+                  <p className="m-0 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    {locale === "zh" ? "家族路径" : "Family path"}
                   </p>
                   <h3 className="m-0 text-[1.45rem] font-semibold tracking-[-0.035em] text-slate-950">{family.title}</h3>
-                  <p className="m-0 max-w-[42rem] text-[0.98rem] leading-7 text-slate-600">{family.description}</p>
+                  <p className="m-0 max-w-[34rem] text-[0.96rem] leading-7 text-slate-600">{family.description}</p>
                 </div>
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:max-w-[58rem]">
+                <div className="fm-home-family-link-stack">
                   {family.links.map((link) => {
                     const linkSlug = extractTestSlugFromHref(link.href);
                     const variantFamily = resolveVariantFamily(linkSlug);
 
-                    return variantFamily ? (
-                      <div key={`${family.title}-${link.title}`} className="fm-home-subtle-link-card items-start">
-                        <div className="w-full space-y-3">
+                    return (
+                      <div key={`${family.title}-${link.title}`} className="fm-home-family-link-row">
+                        <div className="space-y-2">
                           <Link
                             href={withLocale(link.href)}
-                            className="inline-flex items-center gap-2 font-medium text-slate-900 transition hover:text-slate-700"
+                            className="inline-flex items-center gap-2 text-[0.98rem] font-medium text-slate-900 transition hover:text-slate-700"
                           >
                             <span>{link.title}</span>
                             <span aria-hidden>+</span>
                           </Link>
-                          {link.description ? <span className="block text-xs leading-6 text-slate-500">{link.description}</span> : null}
+                          {link.description ? <p className="m-0 text-xs leading-6 text-slate-500">{link.description}</p> : null}
                           <div className="flex flex-wrap gap-2">
                             {variantFamily === "big5" && linkSlug
                               ? listBig5FormMetas().map((form) => (
                                   <Link
                                     key={form.formCode}
                                     href={buildBig5TakeHref(linkSlug, locale, form.formCode)}
-                                    className="inline-flex items-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(75,108,102,0.36)] hover:bg-[#f5f8f6]"
+                                    className="fm-home-family-variant-pill"
                                   >
                                     {getBig5VariantLabel(form.formCode, locale)}
                                   </Link>
@@ -269,7 +294,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                                   <Link
                                     key={form.formCode}
                                     href={buildMbtiTakeHref(linkSlug, locale, form.formCode)}
-                                    className="inline-flex items-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-2 text-xs font-semibold text-slate-800 transition hover:border-[rgba(75,108,102,0.36)] hover:bg-[#f5f8f6]"
+                                    className="fm-home-family-variant-pill"
                                   >
                                     {getMbtiVariantLabel(form.formCode, locale)}
                                   </Link>
@@ -278,14 +303,6 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                           </div>
                         </div>
                       </div>
-                    ) : (
-                      <Link key={`${family.title}-${link.title}`} href={withLocale(link.href)} className="fm-home-subtle-link-card">
-                        <div className="space-y-1">
-                          <span className="block font-medium">{link.title}</span>
-                          {link.description ? <span className="block text-xs leading-6 text-slate-500">{link.description}</span> : null}
-                        </div>
-                        <span aria-hidden>+</span>
-                      </Link>
                     );
                   })}
                 </div>
