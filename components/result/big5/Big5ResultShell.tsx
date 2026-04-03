@@ -269,6 +269,7 @@ export function Big5ResultShell({
   reportLocked,
   accessProjection,
   headline,
+  formSummaryLabel,
   tags,
   dimensions,
   projection,
@@ -283,6 +284,7 @@ export function Big5ResultShell({
   reportLocked: boolean;
   accessProjection?: AttemptReportAccessView | null;
   headline: Headline;
+  formSummaryLabel?: string | null;
   tags: string[];
   dimensions: Array<Record<string, unknown>>;
   projection: Big5PublicProjection | null;
@@ -305,6 +307,14 @@ export function Big5ResultShell({
             <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
               {headline.badge || (isZh ? "Big Five" : "Big Five")}
             </span>
+            {formSummaryLabel ? (
+              <span
+                data-testid="big5-form-summary"
+                className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600"
+              >
+                {formSummaryLabel}
+              </span>
+            ) : null}
             <span className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
               {resolveVariantLabel(locale, reportLocked)}
             </span>

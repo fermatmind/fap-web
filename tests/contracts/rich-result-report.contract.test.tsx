@@ -628,6 +628,14 @@ describe("RichResultReport", () => {
         ],
         variant_keys: ["profile:explorer", "band:o.high"],
       },
+      big5_form_v1: {
+        form_code: "big5_90",
+        label: "90-question standard version",
+        short_label: "90 questions",
+        question_count: 90,
+        estimated_minutes: 11,
+        scale_code: "BIG5_OCEAN",
+      },
       report: {
         scale_code: "BIG5_OCEAN",
         sections: [
@@ -682,6 +690,7 @@ describe("RichResultReport", () => {
 
     expect(screen.queryByTestId("mbti-result-shell")).not.toBeInTheDocument();
     expect(screen.getByTestId("big5-result-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-form-summary")).toHaveTextContent("Big Five · 90-question standard version");
     expect(screen.getByTestId("big5-access-summary")).toBeInTheDocument();
     expect(screen.getByTestId("big5-dimensions")).toBeInTheDocument();
     expect(screen.getByTestId("big5-sections")).toBeInTheDocument();

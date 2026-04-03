@@ -196,6 +196,7 @@ export type ResultResponse = {
     [key: string]: unknown;
   };
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
+  big5_form_v1?: Big5FormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
@@ -711,6 +712,7 @@ export type ReportResponse = {
     scale_uid?: string;
   };
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
+  big5_form_v1?: Big5FormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
@@ -772,6 +774,7 @@ export type OrderStatusResponse = {
   } | null;
   delivery?: OrderDeliveryState | null;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
+  big5_form_v1?: Big5FormSummaryV1Raw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
@@ -809,6 +812,7 @@ export type AttemptReportAccessResponse = {
   } | null;
   payload?: Record<string, unknown> | null;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
+  big5_form_v1?: Big5FormSummaryV1Raw | null;
   meta?: {
     produced_at?: string | null;
     refreshed_at?: string | null;
@@ -1674,11 +1678,12 @@ export type OrderLookupResponse = {
   } | null;
   delivery?: OrderDeliveryState | null;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
+  big5_form_v1?: Big5FormSummaryV1Raw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
 
-export type MbtiFormSummaryV1Raw = {
+export type PublicFormSummaryV1Raw = {
   form_code?: string;
   label?: string;
   short_label?: string;
@@ -1687,6 +1692,9 @@ export type MbtiFormSummaryV1Raw = {
   scale_code?: string;
   [key: string]: unknown;
 };
+
+export type MbtiFormSummaryV1Raw = PublicFormSummaryV1Raw;
+export type Big5FormSummaryV1Raw = PublicFormSummaryV1Raw;
 
 export type OrderResendResponse = {
   ok?: boolean;
@@ -1759,6 +1767,7 @@ export type MeAttemptItem = {
   submitted_at?: string | null;
   type_code?: string;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
+  big5_form_v1?: Big5FormSummaryV1Raw | null;
   access_summary?: {
     access_state?: string;
     report_state?: string;

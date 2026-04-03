@@ -21,6 +21,7 @@ import {
   getOrderStatus,
   recoverAlipayReturnContext,
   resendOrderDelivery,
+  type PublicFormSummaryV1Raw,
   type OrderStatusResponse,
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
@@ -29,7 +30,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { captureError } from "@/lib/observability/sentry";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
-import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
+import { buildPublicFormDisplayLabel, normalizePublicFormSummary } from "@/lib/mbti/formSummary";
 import { readPendingOrder } from "@/lib/commerce/pendingOrder";
 
 type ViewStatus = "initializing" | "pending" | "paid" | "failed" | "canceled" | "refunded";
@@ -157,7 +158,7 @@ export default function OrdersClient({
   const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
   const [delivery, setDelivery] = useState<DeliveryPayload | null>(null);
   const [accessHubRaw, setAccessHubRaw] = useState<OrderStatusResponse["mbti_access_hub_v1"] | null>(null);
-  const [mbtiFormSummaryRaw, setMbtiFormSummaryRaw] = useState<OrderStatusResponse["mbti_form_v1"] | null>(null);
+  const [formSummaryRaw, setFormSummaryRaw] = useState<PublicFormSummaryV1Raw | null>(null);
   const [payType, setPayType] = useState<PayType>(queryPayType);
   const [payValue, setPayValue] = useState<string | null>(queryPayValue);
   const [payProvider, setPayProvider] = useState<string | null>(queryPayProvider);
@@ -429,13 +430,22 @@ export default function OrdersClient({
           normalizeQueryValue(response.exact_result_entry?.attempt_id ?? null)
           ?? normalizeQueryValue(response.attempt_id ?? null)
           ?? extractMbtiAccessHubAttemptId(response.mbti_access_hub_v1 ?? null);
-        let responseFormSummaryRaw = response.mbti_form_v1 ?? response.exact_result_entry?.mbti_form_v1 ?? null;
+        let responseFormSummaryRaw: PublicFormSummaryV1Raw | null =
+          response.big5_form_v1
+          ?? response.mbti_form_v1
+          ?? response.exact_result_entry?.big5_form_v1
+          ?? response.exact_result_entry?.mbti_form_v1
+          ?? null;
         let nextAccessView = normalizeAttemptReportAccess(response.exact_result_entry ?? null, locale);
         if (!nextAccessView && responseAttemptId) {
           try {
             const accessResponse = await fetchAttemptReportAccess({ attemptId: responseAttemptId, locale });
             nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
-            responseFormSummaryRaw = responseFormSummaryRaw ?? accessResponse.mbti_form_v1 ?? null;
+            responseFormSummaryRaw =
+              responseFormSummaryRaw
+              ?? accessResponse.big5_form_v1
+              ?? accessResponse.mbti_form_v1
+              ?? null;
           } catch (accessCause) {
             setAccessView(null);
             captureError(accessCause, {
@@ -458,7 +468,7 @@ export default function OrdersClient({
         setAccessView(nextAccessView);
         setDelivery((response.delivery ?? null) as DeliveryPayload | null);
         setAccessHubRaw(response.mbti_access_hub_v1 ?? null);
-        setMbtiFormSummaryRaw(responseFormSummaryRaw);
+        setFormSummaryRaw(responseFormSummaryRaw);
         if (!queryPayType && responsePayType && responsePayValue) {
           setPayType(responsePayType);
           setPayValue(responsePayValue);
@@ -482,7 +492,7 @@ export default function OrdersClient({
             trackEvent("payment_confirmed", {
               orderNoMasked: maskedOrder,
               attemptIdMasked: maskedAttempt,
-              form_code: normalizeMbtiFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
+              form_code: normalizePublicFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
               locale,
               ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
@@ -491,7 +501,7 @@ export default function OrdersClient({
               attemptIdMasked: maskedAttempt,
               ...(Number.isFinite(amount) ? { amount } : {}),
               ...(currency ? { currency } : {}),
-              form_code: normalizeMbtiFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
+              form_code: normalizePublicFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
               locale,
               ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
@@ -540,7 +550,7 @@ export default function OrdersClient({
             trackEvent("payment_failed", {
               orderNoMasked: `${orderNo.slice(0, 6)}...${orderNo.slice(-4)}`,
               reason: response.message ?? fallbackMessage,
-              form_code: normalizeMbtiFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
+              form_code: normalizePublicFormSummary(responseFormSummaryRaw)?.formCode ?? undefined,
               locale,
               ...(payProviderRef.current ? { provider: payProviderRef.current } : {}),
             });
@@ -695,10 +705,10 @@ export default function OrdersClient({
     () => normalizeMbtiAccessHub(accessHubRaw ?? null, locale),
     [accessHubRaw, locale]
   );
-  const mbtiFormSummary = useMemo(() => normalizeMbtiFormSummary(mbtiFormSummaryRaw), [mbtiFormSummaryRaw]);
-  const mbtiFormLabel = useMemo(
-    () => buildMbtiFormDisplayLabel(mbtiFormSummary, { includeScaleCode: true }),
-    [mbtiFormSummary]
+  const formSummary = useMemo(() => normalizePublicFormSummary(formSummaryRaw), [formSummaryRaw]);
+  const formSummaryLabel = useMemo(
+    () => buildPublicFormDisplayLabel(formSummary, { includeScaleCode: true, locale }),
+    [formSummary, locale]
   );
   const deliveryLastSentAt = useMemo(
     () => formatDeliveryEmailTimestamp(delivery?.last_delivery_email_sent_at ?? null, locale),
@@ -756,9 +766,9 @@ export default function OrdersClient({
             {icon}
             <CardTitle>{dict.orders.title} #{orderNo}</CardTitle>
           </div>
-          {mbtiFormLabel ? (
+          {formSummaryLabel ? (
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" data-testid="order-form-summary">
-              {mbtiFormLabel}
+              {formSummaryLabel}
             </p>
           ) : null}
           <p className="m-0 text-sm text-slate-600">{message}</p>

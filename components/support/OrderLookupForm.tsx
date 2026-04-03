@@ -20,17 +20,17 @@ import {
   fetchAttemptReportAccess,
   lookupOrder,
   requestClaimReportEmail,
-  type AttemptReportAccessResponse,
   type AttributionUtm,
   type EmailCaptureResponse,
   type OrderLookupResponse,
+  type PublicFormSummaryV1Raw,
 } from "@/lib/api/v0_3";
 import { buildOrderWaitPath, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
 import { writePendingOrder } from "@/lib/commerce/pendingOrder";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
-import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
+import { buildPublicFormDisplayLabel, normalizePublicFormSummary } from "@/lib/mbti/formSummary";
 import { captureError } from "@/lib/observability/sentry";
 import type { SiteDictionary } from "@/lib/i18n/types";
 
@@ -170,7 +170,7 @@ export function OrderLookupForm({
   const [captureState, setCaptureState] = useState<EmailCaptureResponse | null>(null);
   const [lookupHit, setLookupHit] = useState<OrderLookupResponse | null>(null);
   const [lookupAccessView, setLookupAccessView] = useState<AttemptReportAccessView | null>(null);
-  const [lookupAccessFormSummaryRaw, setLookupAccessFormSummaryRaw] = useState<AttemptReportAccessResponse["mbti_form_v1"] | null>(null);
+  const [lookupAccessFormSummaryRaw, setLookupAccessFormSummaryRaw] = useState<PublicFormSummaryV1Raw | null>(null);
   const [lookupQrCodeDataUrl, setLookupQrCodeDataUrl] = useState<string | null>(null);
   const [lookupQrCodeError, setLookupQrCodeError] = useState(false);
   const [lastSubmitAt, setLastSubmitAt] = useState(0);
@@ -265,12 +265,13 @@ export function OrderLookupForm({
   }, [locale, lookupHit?.order_no]);
   const lookupDelivery = lookupHit?.delivery ?? null;
   const lookupFormSummary = useMemo(
-    () => normalizeMbtiFormSummary(lookupHit?.mbti_form_v1 ?? lookupAccessFormSummaryRaw ?? null),
-    [lookupAccessFormSummaryRaw, lookupHit?.mbti_form_v1]
+    () =>
+      normalizePublicFormSummary(lookupHit?.big5_form_v1 ?? lookupHit?.mbti_form_v1 ?? lookupAccessFormSummaryRaw ?? null),
+    [lookupAccessFormSummaryRaw, lookupHit?.big5_form_v1, lookupHit?.mbti_form_v1]
   );
   const lookupFormLabel = useMemo(
-    () => buildMbtiFormDisplayLabel(lookupFormSummary, { includeScaleCode: true }),
-    [lookupFormSummary]
+    () => buildPublicFormDisplayLabel(lookupFormSummary, { includeScaleCode: true, locale }),
+    [lookupFormSummary, locale]
   );
   const lookupReportHref = lookupAccessView?.actions.pageHref ?? null;
   const lookupHistoryHref = lookupAccessView?.actions.historyHref ?? null;
@@ -298,7 +299,7 @@ export function OrderLookupForm({
       .then((response) => {
         if (!active) return;
         setLookupAccessView(normalizeAttemptReportAccess(response, locale));
-        setLookupAccessFormSummaryRaw(response.mbti_form_v1 ?? null);
+        setLookupAccessFormSummaryRaw(response.big5_form_v1 ?? response.mbti_form_v1 ?? null);
       })
       .catch((cause) => {
         if (!active) return;
