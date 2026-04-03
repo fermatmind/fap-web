@@ -2,21 +2,26 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { FOOTER_SOCIAL_ITEMS } from "@/lib/ui/footerSocialIcons";
 import { cn } from "@/lib/utils";
 
 export function SiteFooter() {
   const locale = useLocale();
+  const pathname = usePathname() ?? "/";
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const socialItems = FOOTER_SOCIAL_ITEMS;
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
+  const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
+  const homeFooter = getHomePageContent(locale).footer;
   const footerCopy =
     locale === "zh"
       ? {
@@ -62,6 +67,124 @@ export function SiteFooter() {
     { href: "/terms", label: dict.footer.terms },
     { href: "/refund", label: dict.footer.refund },
   ];
+
+  if (isHomeRoute) {
+    return (
+      <footer className="border-t border-white/10 bg-[#0c1218] text-white">
+        <Container className="max-w-[110rem] px-5 py-14 md:px-8 md:py-16 xl:px-12">
+          <div className="grid gap-10 border-b border-white/10 pb-10 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+            <div className="max-w-[28rem] space-y-4">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.24em] text-white/46">
+                {homeFooter.introLabel}
+              </p>
+              <h2 className="m-0 text-[clamp(1.9rem,3vw,2.8rem)] font-semibold tracking-[-0.045em] text-white">
+                FermatMind / 费马测试
+              </h2>
+              <p className="m-0 text-sm leading-7 text-slate-300">{homeFooter.introBody}</p>
+              <p className="m-0 text-sm leading-7 text-slate-400">
+                {homeFooter.supportEmailLabel}:{" "}
+                <a href={`mailto:${supportEmail}`} className="font-semibold text-white transition hover:text-[var(--fm-gold)]">
+                  {supportEmail}
+                </a>
+              </p>
+            </div>
+
+            <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+              {homeFooter.groups.map((group) => (
+                <section key={group.title} className="space-y-3">
+                  <h3 className="m-0 text-sm font-semibold uppercase tracking-[0.18em] text-white/78">{group.title}</h3>
+                  <div className="space-y-2.5">
+                    {group.links.map((item) => (
+                      <Link key={`${group.title}-${item.href}`} href={withLocale(item.href)} className="block text-sm text-slate-300 transition hover:text-white">
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="fm-social-rail">
+              <p className="m-0 mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/42">
+                {dict.footer.socialTitle}
+              </p>
+              <div className="fm-social-list mx-0 w-full max-w-[42rem] justify-items-start">
+                {socialItems.map((item) => (
+                  <div
+                    key={item.key}
+                    className="fm-social-item"
+                    onMouseEnter={() => setActiveSocialKey(item.key)}
+                    onMouseLeave={() => setActiveSocialKey((current) => (current === item.key ? null : current))}
+                  >
+                    {item.kind === "qr" ? (
+                      <>
+                        <button
+                          type="button"
+                          title={locale === "zh" ? item.labels.zh : item.labels.en}
+                          aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
+                          aria-expanded={activeSocialKey === item.key}
+                          className="fm-social-badge cursor-pointer border-0 bg-transparent p-0"
+                          onClick={() => setActiveSocialKey((current) => (current === item.key ? null : item.key))}
+                          onFocus={() => setActiveSocialKey(item.key)}
+                          onBlur={() => setActiveSocialKey((current) => (current === item.key ? null : current))}
+                        >
+                          <svg viewBox="0 0 24 24" aria-hidden="true" className="fm-social-logo">
+                            <path d={item.icon.path} />
+                          </svg>
+                          <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
+                        </button>
+
+                        {item.qrImageSrc ? (
+                          <div
+                            className={cn("fm-social-qr-panel", activeSocialKey === item.key && "is-open")}
+                            aria-hidden={activeSocialKey === item.key ? "false" : "true"}
+                          >
+                            <Image
+                              src={item.qrImageSrc}
+                              alt={locale === "zh" ? "微信二维码" : "WeChat QR code"}
+                              width={144}
+                              height={144}
+                              className="fm-social-qr-image"
+                            />
+                            <p className="fm-social-qr-label">{locale === "zh" ? "微信扫码关注" : "Scan in WeChat"}</p>
+                          </div>
+                        ) : null}
+                      </>
+                    ) : (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={locale === "zh" ? item.labels.zh : item.labels.en}
+                        aria-label={locale === "zh" ? item.labels.zh : item.labels.en}
+                        className="fm-social-badge"
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true" className="fm-social-logo">
+                          <path d={item.icon.path} />
+                        </svg>
+                        <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="text-left md:text-right">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-white/46">
+                {homeFooter.tailnote}
+              </p>
+              <p data-visual-volatile="true" className="m-0 mt-3 text-xs text-slate-400">
+                © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
+              </p>
+            </div>
+          </div>
+        </Container>
+      </footer>
+    );
+  }
 
   return (
     <footer className="fm-section-dark border-t border-white/10 text-white">
