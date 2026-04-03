@@ -36,6 +36,7 @@ import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { isMbtiScaleCode, normalizeMbtiFormCode } from "@/lib/mbti/forms";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
@@ -155,25 +156,37 @@ export default function QuizTakeClient({
   slug,
   testTitle,
   scaleCode,
+  formCode,
   estimatedMinutes,
   questionCount,
 }: {
   slug: string;
   testTitle: string;
   scaleCode: string;
+  formCode?: string;
   estimatedMinutes?: number;
   questionCount?: number;
 }) {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const questionIds = useMemo(() => questions.map((question) => question.id), [questions]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
+  const resolvedFormCode = useMemo(
+    () => (isMbtiScaleCode(scaleCode) ? normalizeMbtiFormCode(formCode) : undefined),
+    [formCode, scaleCode]
+  );
 
   return (
-    <QuizStoreProvider slug={slug} anonId={anonId || null} initialQuestionIds={questionIds}>
+    <QuizStoreProvider
+      slug={slug}
+      anonId={anonId || null}
+      formCode={resolvedFormCode ?? null}
+      initialQuestionIds={questionIds}
+    >
       <QuizTakeInner
         slug={slug}
         testTitle={testTitle}
         scaleCode={scaleCode}
+        formCode={resolvedFormCode}
         estimatedMinutes={estimatedMinutes}
         questionCount={questionCount}
         anonId={anonId}
@@ -188,6 +201,7 @@ function QuizTakeInner({
   slug,
   testTitle,
   scaleCode,
+  formCode,
   estimatedMinutes,
   questionCount,
   anonId,
@@ -197,6 +211,7 @@ function QuizTakeInner({
   slug: string;
   testTitle: string;
   scaleCode: string;
+  formCode?: string;
   estimatedMinutes?: number;
   questionCount?: number;
   anonId: string;
@@ -219,6 +234,7 @@ function QuizTakeInner({
   const startedAt = useQuizStore((store) => store.state.startedAt);
   const attemptId = useQuizStore((store) => store.state.attemptId);
   const savedScaleCode = useQuizStore((store) => store.state.scaleCode);
+  const savedFormCode = useQuizStore((store) => store.state.formCode);
 
   const setAnswer = useQuizStore((store) => store.setAnswer);
   const jump = useQuizStore((store) => store.jump);
@@ -249,6 +265,19 @@ function QuizTakeInner({
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
+  const resolvedFormCode = useMemo(
+    () => (isMbtiScaleCode(scaleCode) ? normalizeMbtiFormCode(formCode) : undefined),
+    [formCode, scaleCode]
+  );
+  const matchesSavedAttempt = useMemo(() => {
+    if (!attemptId || savedScaleCode !== scaleCode) {
+      return false;
+    }
+    if (!resolvedFormCode) {
+      return true;
+    }
+    return savedFormCode === resolvedFormCode;
+  }, [attemptId, resolvedFormCode, savedFormCode, savedScaleCode, scaleCode]);
 
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
@@ -390,7 +419,7 @@ function QuizTakeInner({
 
       try {
         const response = await runWithAuthRetry("questions", () =>
-          fetchScaleQuestions({ scaleCode, anonId })
+          fetchScaleQuestions({ scaleCode, formCode: resolvedFormCode, anonId })
         );
 
         if (!active) return;
@@ -439,7 +468,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, locale, runWithAuthRetry, scaleCode, setQuestions, slug]);
+  }, [anonId, authBlockError, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -462,6 +491,7 @@ function QuizTakeInner({
         const response = await runWithAuthRetry("start_attempt", () =>
           startAttempt({
             scaleCode,
+            formCode: resolvedFormCode,
             anonId,
             ...attribution,
           })
@@ -469,7 +499,7 @@ function QuizTakeInner({
         if (!isFlowActive(runId)) {
           return null;
         }
-        setAttemptMeta(response.attempt_id, scaleCode);
+        setAttemptMeta(response.attempt_id, scaleCode, resolvedFormCode ?? null);
         return response.attempt_id;
       } catch (error) {
         if (!isFlowActive(runId)) {
@@ -504,19 +534,19 @@ function QuizTakeInner({
 
     ensureAttemptPromiseRef.current = pending;
     return pending;
-  }, [anonId, attribution, authBlockError, isFlowActive, locale, runWithAuthRetry, scaleCode, setAttemptMeta, slug, staleDraftError]);
+  }, [anonId, attribution, authBlockError, isFlowActive, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setAttemptMeta, slug, staleDraftError]);
 
   const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
       return null;
     }
 
-    if (attemptId && savedScaleCode === scaleCode) {
+    if (matchesSavedAttempt) {
       return attemptId;
     }
 
     return startFreshAttempt(runId);
-  }, [attemptId, authBlockError, savedScaleCode, scaleCode, staleDraftError, startFreshAttempt]);
+  }, [attemptId, authBlockError, matchesSavedAttempt, staleDraftError, startFreshAttempt]);
 
   const total = questions.length;
   const question = questions[currentIndex];
@@ -545,7 +575,7 @@ function QuizTakeInner({
         return;
       }
 
-      if (attemptId && savedScaleCode === scaleCode) {
+      if (matchesSavedAttempt) {
         setAttemptLoading(false);
         return;
       }
@@ -559,7 +589,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [answeredCount, attemptId, ensureAttempt, questions.length, questionsLoading, savedScaleCode, scaleCode, staleDraftError]);
+  }, [answeredCount, attemptId, ensureAttempt, matchesSavedAttempt, questions.length, questionsLoading, staleDraftError]);
 
   useEffect(() => {
     if (!attemptId || trackedStartRef.current) return;
@@ -568,9 +598,10 @@ function QuizTakeInner({
     trackEvent("start_attempt", {
       slug,
       scaleCode,
+      ...(resolvedFormCode ? { form_code: resolvedFormCode } : {}),
       attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
     });
-  }, [attemptId, scaleCode, slug]);
+  }, [attemptId, resolvedFormCode, scaleCode, slug]);
 
   useEffect(() => {
     const takeFlow = takeFlowRef.current;
