@@ -29,14 +29,16 @@ function SectionHeader({
       >
         {title}
       </h2>
-      <p
-        className={cn(
-          "m-0 max-w-[38rem] text-[1rem] leading-7 md:text-[1.05rem]",
-          invert ? "text-slate-300" : "text-slate-600"
-        )}
-      >
-        {body}
-      </p>
+      {body ? (
+        <p
+          className={cn(
+            "m-0 max-w-[38rem] text-[1rem] leading-7 md:text-[1.05rem]",
+            invert ? "text-slate-300" : "text-slate-600"
+          )}
+        >
+          {body}
+        </p>
+      ) : null}
     </div>
   );
 }
