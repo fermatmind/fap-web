@@ -184,10 +184,26 @@ export function SiteHeader() {
           : "sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md"
       }
     >
-      <Container className="max-w-[1320px] py-3">
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0 shrink-0">
-            <Link href={withLocale("/")} className="font-serif text-xl font-semibold tracking-tight text-white">
+      <Container
+        className={cn(
+          isHomeRoute ? "max-w-[1500px] px-5 py-3.5 md:px-8 xl:px-10" : "max-w-[1320px] py-3"
+        )}
+      >
+        <div
+          className={cn(
+            "flex items-center justify-between gap-3",
+            isHomeRoute &&
+              "lg:grid lg:grid-cols-[minmax(11rem,1fr)_auto_minmax(11rem,1fr)] lg:items-center lg:gap-6 xl:grid-cols-[minmax(13rem,1fr)_auto_minmax(13rem,1fr)]"
+          )}
+        >
+          <div className={cn("min-w-0 shrink-0", isHomeRoute && "lg:justify-self-start")}>
+            <Link
+              href={withLocale("/")}
+              className={cn(
+                "font-serif font-semibold tracking-tight text-white",
+                isHomeRoute ? "text-[1.7rem] leading-none xl:text-[1.82rem]" : "text-xl"
+              )}
+            >
               {dict.header.brand}
             </Link>
             {shouldRenderCompletedMetric ? (
@@ -212,8 +228,19 @@ export function SiteHeader() {
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
-          <div ref={desktopNavRef} className="hidden min-w-0 flex-1 items-center justify-end gap-1.5 lg:flex xl:gap-2.5">
-            <nav className="flex min-w-0 flex-nowrap items-center justify-end gap-0 xl:gap-0.5">
+          <div
+            ref={desktopNavRef}
+            className={cn(
+              "hidden min-w-0 items-center gap-1.5 lg:flex xl:gap-2.5",
+              isHomeRoute ? "lg:justify-self-center" : "flex-1 justify-end"
+            )}
+          >
+            <nav
+              className={cn(
+                "flex min-w-0 flex-nowrap items-center gap-0 xl:gap-0.5",
+                isHomeRoute ? "justify-center" : "justify-end"
+              )}
+            >
               {navItems.map((item) => {
                 const menuId = `header-dropdown-${item.key}`;
                 const triggerId = `header-trigger-${item.key}`;
@@ -239,9 +266,21 @@ export function SiteHeader() {
                     <button
                       id={triggerId}
                       type="button"
+                      aria-haspopup={items.length > 0 ? true : undefined}
                       aria-expanded={isOpen}
                       aria-controls={items.length > 0 ? menuId : undefined}
                       onClick={() => setActiveDropdown((prev) => (prev === item.key ? null : item.key))}
+                      onKeyDown={(event) => {
+                        if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          openDropdown(item.key);
+                        }
+
+                        if (event.key === "Escape") {
+                          event.preventDefault();
+                          closeDropdown();
+                        }
+                      }}
                       className={cn(
                         isHomeRoute
                           ? "fm-home-header-link fm-home-header-trigger"
@@ -327,7 +366,7 @@ export function SiteHeader() {
             </nav>
 
             {isHomeRoute ? (
-              <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
+              <div className="flex shrink-0 items-center gap-1.5 xl:gap-2 lg:justify-self-end">
                 <LocaleSwitcher />
                 <Link
                   href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
