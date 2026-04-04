@@ -9,7 +9,7 @@ type ChildrenProps = {
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/tests/mbti-personality-test-16-personality-types/take",
-  search: "share_id=share-123&compare_invite_id=invite-456&share_click_id=click-123&entrypoint=share_compare_invite&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true",
+  search: "share_id=share-123&compare_invite_id=invite-456&invite_code=iul_test_001&share_click_id=click-123&entrypoint=share_compare_invite&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true",
   routerPush: vi.fn(),
   fetchScaleQuestions: vi.fn(),
   startAttempt: vi.fn(),
@@ -259,7 +259,7 @@ describe("MBTI take attribution contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     hoisted.pathname = "/en/tests/mbti-personality-test-16-personality-types/take";
-    hoisted.search = "share_id=share-123&compare_invite_id=invite-456&share_click_id=click-123&entrypoint=share_compare_invite&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true";
+    hoisted.search = "share_id=share-123&compare_invite_id=invite-456&invite_code=iul_test_001&share_click_id=click-123&entrypoint=share_compare_invite&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true";
     hoisted.fetchScaleQuestions.mockResolvedValue(buildQuestionResponse());
     hoisted.startAttempt.mockResolvedValue({
       ok: true,
@@ -293,6 +293,7 @@ describe("MBTI take attribution contract", () => {
         anonId: "anon_take_test",
         share_id: "share-123",
         compare_invite_id: "invite-456",
+        invite_unlock_code: "iul_test_001",
         share_click_id: "click-123",
         entrypoint: "share_compare_invite",
         referrer: "https://example.com/en/share/share-123",
@@ -346,6 +347,7 @@ describe("MBTI take attribution contract", () => {
         anonId: "anon_take_test",
         share_id: "share-123",
         compare_invite_id: "invite-456",
+        invite_unlock_code: "iul_test_001",
         share_click_id: "click-123",
         entrypoint: "share_compare_invite",
         referrer: "https://example.com/en/share/share-123",
@@ -410,6 +412,7 @@ describe("MBTI take attribution contract", () => {
       anonId: "anon_take_test",
       share_id: "share-123",
       compare_invite_id: "invite-456",
+      invite_unlock_code: "iul_test_001",
       share_click_id: "click-123",
       entrypoint: "share_compare_invite",
       referrer: "https://example.com/en/share/share-123",
@@ -422,6 +425,7 @@ describe("MBTI take attribution contract", () => {
     expect(hoisted.submitAttempt.mock.calls[1]?.[0]).toMatchObject({
       share_id: "share-123",
       compare_invite_id: "invite-456",
+      invite_unlock_code: "iul_test_001",
       share_click_id: "click-123",
       entrypoint: "share_compare_invite",
       referrer: "https://example.com/en/share/share-123",
@@ -438,5 +442,10 @@ describe("MBTI take attribution contract", () => {
     await waitFor(() => {
       expect(hoisted.routerPush).toHaveBeenCalledWith("/en/result/attempt-result-123");
     });
+
+    const startPayload = hoisted.startAttempt.mock.calls[0]?.[0] as Record<string, unknown>;
+    const submitPayload = hoisted.submitAttempt.mock.calls[0]?.[0] as Record<string, unknown>;
+    expect(startPayload).not.toHaveProperty("invite_unlock_code");
+    expect(submitPayload).not.toHaveProperty("invite_unlock_code");
   });
 });
