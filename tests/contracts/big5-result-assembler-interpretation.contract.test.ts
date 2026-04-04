@@ -73,6 +73,23 @@ describe("big5 result assembler interpretation wiring contract", () => {
     expect(actionBulletsBody).toContain("Maintain a weekly decompression routine protected like a core task.");
   });
 
+  it("emits order/page_slot/subtitle metadata for interpretation-heavy sections", () => {
+    const assembled = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData: createFixtureA(),
+      gate: buildGate(),
+    });
+
+    const keys = ["core_portrait", "domain_deep_dive", "facet_details", "action_plan"] as const;
+    keys.forEach((key) => {
+      const section = assembled.plannedSections.find((item) => item.key === key);
+      expect(section).toBeDefined();
+      expect(Number(section?.order)).toBeGreaterThan(0);
+      expect(String(section?.page_slot ?? "")).toMatch(/^page_[0-9]+$/);
+      expect(String(section?.subtitle ?? "").trim().length).toBeGreaterThan(0);
+    });
+  });
+
   it("keeps interpretation-generated blocks inside the blueprint safe block kind subset", () => {
     const assembled = assembleBig5ResultViewModel({
       locale: "en",

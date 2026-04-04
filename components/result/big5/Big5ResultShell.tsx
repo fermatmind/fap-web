@@ -9,6 +9,7 @@ import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload } from "@/lib/api/v0_3";
+import { BIG5_V1_SHELL_MICROCOPY } from "@/lib/big5/microcopy";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
@@ -85,29 +86,19 @@ function resolveVariantLabel(locale: Locale, locked: boolean): string {
   return locale === "zh" ? "免费预览" : "Free preview";
 }
 
-function resolveModules(accessProjection: AttemptReportAccessView | null | undefined): string[] {
-  if (!accessProjection) {
-    return [];
+function pickSectionTitles(sections: ReportSection[], limit = 3): string[] {
+  const result: string[] = [];
+  for (const section of sections) {
+    const title = normalizeText(section.title, section.key);
+    if (!title || result.includes(title)) {
+      continue;
+    }
+    result.push(title);
+    if (result.length >= limit) {
+      break;
+    }
   }
-
-  if (accessProjection.modulesAllowed.length > 0) {
-    return accessProjection.modulesAllowed;
-  }
-
-  return accessProjection.modulesPreview;
-}
-
-function humanizeModule(moduleCode: string, locale: Locale): string {
-  const normalized = moduleCode.trim().toLowerCase();
-  const labels: Record<string, { en: string; zh: string }> = {
-    big5_core: { en: "Core insight", zh: "核心解读" },
-    big5_full: { en: "Full Big Five report", zh: "完整 Big Five 报告" },
-    big5_action_plan: { en: "Action plan", zh: "行动计划" },
-    full: { en: "Full report", zh: "完整报告" },
-  };
-
-  const copy = labels[normalized];
-  return copy ? copy[locale] : moduleCode;
+  return result;
 }
 
 function Big5ProjectionSummary({
@@ -296,8 +287,15 @@ export function Big5ResultShell({
 }) {
   const isZh = locale === "zh";
   const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}/take`, locale);
-  const activeModules = resolveModules(accessProjection);
   const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
+  const visibleTitles = pickSectionTitles(visibleSections, 4);
+  const lockedTitles = pickSectionTitles(lockedSections, 4);
+  const previewSummary = isZh
+    ? BIG5_V1_SHELL_MICROCOPY.hero.preview_summary_zh
+    : BIG5_V1_SHELL_MICROCOPY.hero.preview_summary_en;
+  const fullSummary = isZh
+    ? BIG5_V1_SHELL_MICROCOPY.hero.full_summary_zh
+    : BIG5_V1_SHELL_MICROCOPY.hero.full_summary_en;
 
   return (
     <div data-testid="big5-result-shell" className="space-y-8">
@@ -347,6 +345,7 @@ export function Big5ResultShell({
                 {headline.rarity}
               </p>
             ) : null}
+            <p className="m-0 text-sm leading-7 text-slate-700">{reportLocked ? previewSummary : fullSummary}</p>
           </div>
 
           {tags.length > 0 ? (
@@ -362,46 +361,61 @@ export function Big5ResultShell({
             </div>
           ) : null}
 
+          <div data-testid="big5-dimensions">
+            <DimensionBars dimensions={dimensions} />
+          </div>
+
           <div data-testid="big5-access-summary" className="grid gap-3 md:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-2xl border border-white/80 bg-white/85 p-4 shadow-[0_10px_28px_rgba(15,23,42,0.05)]">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                {isZh ? "结果状态" : "Result status"}
+                {isZh ? BIG5_V1_SHELL_MICROCOPY.hero.unlocked_now_title_zh : BIG5_V1_SHELL_MICROCOPY.hero.unlocked_now_title_en}
               </p>
-              <p className="m-0 mt-2 text-sm leading-7 text-slate-700">
-                {reportLocked
-                  ? (isZh ? "当前是免费预览版本，正式结果页会保留公开基础画像，并在需要的模块处明确展示解锁入口。" : "You are currently viewing the free preview. The formal result page keeps the public foundation visible and shows clear unlock points where paid modules begin.")
-                  : (isZh ? "当前已经进入正式结果页，可继续浏览完整 Big Five 解读并下载 PDF。" : "You are on the full result page and can continue through the Big Five read plus PDF export.")}
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/80 bg-white/85 p-4 shadow-[0_10px_28px_rgba(15,23,42,0.05)]">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                {isZh ? "当前可用模块" : "Available modules"}
-              </p>
-              {activeModules.length > 0 ? (
+              {visibleTitles.length > 0 ? (
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {activeModules.map((moduleCode) => (
+                  {visibleTitles.map((title) => (
                     <span
-                      key={moduleCode}
+                      key={title}
                       className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-700"
                     >
-                      {humanizeModule(moduleCode, locale)}
+                      {title}
                     </span>
                   ))}
                 </div>
               ) : (
                 <p className="m-0 mt-2 text-sm text-slate-600">
-                  {isZh ? "当前未暴露模块级 access 清单。" : "No module-level access list is exposed yet."}
+                  {isZh ? "当前已展示基础画像与关键摘要。" : "The profile foundation and key summary are already visible."}
+                </p>
+              )}
+            </div>
+
+            <div className="rounded-2xl border border-white/80 bg-white/85 p-4 shadow-[0_10px_28px_rgba(15,23,42,0.05)]">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                {reportLocked
+                  ? (isZh ? BIG5_V1_SHELL_MICROCOPY.hero.unlock_more_title_zh : BIG5_V1_SHELL_MICROCOPY.hero.unlock_more_title_en)
+                  : (isZh ? BIG5_V1_SHELL_MICROCOPY.hero.full_now_title_zh : BIG5_V1_SHELL_MICROCOPY.hero.full_now_title_en)}
+              </p>
+              {lockedTitles.length > 0 ? (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {lockedTitles.map((title) => (
+                    <span
+                      key={title}
+                      className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-700"
+                    >
+                      {title}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <p className="m-0 mt-2 text-sm text-slate-600">
+                  {reportLocked
+                    ? (isZh ? "完整报告还包含更深入的维度解释与行动建议。" : "The full report also includes deeper domain interpretation and action guidance.")
+                    : (isZh ? "你已进入完整阅读路径，可继续逐节展开。": "You already have the full reading path unlocked.")}
                 </p>
               )}
             </div>
           </div>
         </CardContent>
       </Card>
-
-      <div data-testid="big5-dimensions">
-        <DimensionBars dimensions={dimensions} />
-      </div>
 
       {projection ? <Big5ProjectionSummary locale={locale} projection={projection} /> : null}
 
@@ -461,15 +475,13 @@ export function Big5ResultShell({
         <section data-testid="big5-offer-surface" className="space-y-4">
           <div className="space-y-2">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {isZh ? "解锁完整 Big Five 正文" : "Unlock the full Big Five read"}
+              {isZh ? BIG5_V1_SHELL_MICROCOPY.offer.eyebrow_zh : BIG5_V1_SHELL_MICROCOPY.offer.eyebrow_en}
             </p>
             <h3 className="m-0 text-2xl font-semibold text-slate-950">
-              {isZh ? "把付费模块放回正式结果页主路径里" : "Bring the paid modules back into the formal result path"}
+              {isZh ? BIG5_V1_SHELL_MICROCOPY.offer.title_zh : BIG5_V1_SHELL_MICROCOPY.offer.title_en}
             </h3>
             <p className="m-0 text-sm leading-7 text-slate-600">
-              {isZh
-                ? "这里展示当前结果页真正相关的解锁项，而不是散落在历史页面或独立工具里的入口。"
-                : "These are the unlock options that matter for this result page, instead of scattering them across history tools."}
+              {isZh ? BIG5_V1_SHELL_MICROCOPY.offer.summary_zh : BIG5_V1_SHELL_MICROCOPY.offer.summary_en}
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">

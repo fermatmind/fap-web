@@ -5,10 +5,35 @@ import { BIG5_V1_STATE_MICROCOPY } from "@/lib/big5/microcopy";
 type Section = {
   key?: string;
   title?: string;
+  subtitle?: string;
+  order?: number;
+  page_slot?: string;
   access_level?: string;
+  locked_preview_policy?: string;
+  locked_preview_description?: string;
+  locked_preview_cta?: string;
   blocks?: Array<Record<string, unknown>>;
   [key: string]: unknown;
 };
+
+function formatSectionKicker(section: Section, locale: "en" | "zh"): string {
+  const orderValue = Number(section.order);
+  const pageSlot = String(section.page_slot ?? "").trim();
+  const parts: string[] = [];
+
+  if (Number.isFinite(orderValue) && orderValue > 0) {
+    parts.push(locale === "zh" ? `第 ${orderValue} 节` : `Step ${orderValue}`);
+  }
+
+  if (pageSlot) {
+    const normalized = pageSlot.replace(/^page_/i, "");
+    if (normalized) {
+      parts.push(locale === "zh" ? `第 ${normalized} 页` : `Page ${normalized}`);
+    }
+  }
+
+  return parts.join(" · ");
+}
 
 export function SectionRenderer({
   section,
@@ -30,22 +55,50 @@ export function SectionRenderer({
   const accessLevel = (section.access_level ?? "free").toString().toLowerCase();
   const isPaidSection = accessLevel === "paid";
   const blocks = Array.isArray(section.blocks) ? section.blocks : [];
+  const subtitle = String(section.subtitle ?? "").trim();
+  const kicker = formatSectionKicker(section, locale);
+  const lockedPreviewPolicy = String(section.locked_preview_policy ?? "none").trim().toLowerCase();
+  const previewBlocks =
+    lockedPreviewPolicy === "teaser_card"
+      ? blocks.slice(0, 1)
+      : lockedPreviewPolicy === "mask_and_cta"
+        ? blocks.slice(0, 2)
+        : [];
 
   const intent = scaleCode === "SDS_20" || scaleCode === "CLINICAL_COMBO_68" ? "clinical" : "personality";
 
   if (locked && isPaidSection) {
     return (
       <section className="space-y-2">
+        {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
         <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-        <LockedBlock title={title} ctaLabel={ctaLabel} locale={locale} intent={intent} />
+        {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
+        {previewBlocks.length > 0 ? (
+          <div className="space-y-2 rounded-xl border border-slate-200 bg-slate-50/70 p-3">
+            {previewBlocks.map((block, idx) => (
+              <div key={`${key}-preview-${idx}`} className="opacity-70">
+                <BlockRenderer block={block} sectionKey={key} normsStatus={normsStatus} />
+              </div>
+            ))}
+          </div>
+        ) : null}
+        <LockedBlock
+          title={title}
+          ctaLabel={String(section.locked_preview_cta ?? ctaLabel ?? "").trim() || ctaLabel}
+          description={String(section.locked_preview_description ?? "").trim() || undefined}
+          locale={locale}
+          intent={intent}
+        />
       </section>
     );
   }
 
-  if (normsStatus === "MISSING" && (key === "domains_overview" || key === "facet_table")) {
+  if (normsStatus === "MISSING" && (key === "domains_overview" || key === "facet_table" || key === "facet_details")) {
     return (
       <section className="space-y-2">
+        {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
         <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+        {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
         <div className="rounded-xl border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
           {BIG5_V1_STATE_MICROCOPY.norms.missing}
         </div>
@@ -60,7 +113,9 @@ export function SectionRenderer({
 
   return (
     <section className="space-y-2">
+      {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
       <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+      {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
       <div className="space-y-2">
         {blocks.map((block, idx) => (
           <BlockRenderer key={`${key}-${idx}`} block={block} sectionKey={key} normsStatus={normsStatus} />

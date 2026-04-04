@@ -41,4 +41,89 @@ describe("big5 section renderer contract", () => {
 
     expect(screen.queryByText(BIG5_V1_STATE_MICROCOPY.norms.missing)).not.toBeInTheDocument();
   });
+
+  it("shows norms missing message for facet_details key after taxonomy migration", () => {
+    render(
+      <SectionRenderer
+        section={{
+          key: "facet_details",
+          title: "Facet Details",
+          access_level: "free",
+          blocks: [{ kind: "table_row", metric_code: "O5", body: "Percentile 81" }],
+        }}
+        locked={false}
+        normsStatus="MISSING"
+        locale="en"
+        scaleCode="BIG5_OCEAN"
+      />
+    );
+
+    expect(screen.getByText(BIG5_V1_STATE_MICROCOPY.norms.missing)).toBeInTheDocument();
+  });
+
+  it("renders section hierarchy metadata (step, page, subtitle) when provided", () => {
+    render(
+      <SectionRenderer
+        section={{
+          key: "core_portrait",
+          title: "Core Portrait",
+          subtitle: "Dominant trait structure and calibrated profile framing.",
+          order: 5,
+          page_slot: "page_5",
+          access_level: "free",
+          blocks: [{ kind: "paragraph", body: "Core profile read." }],
+        }}
+        locked={false}
+        normsStatus="CALIBRATED"
+        locale="en"
+        scaleCode="BIG5_OCEAN"
+      />
+    );
+
+    expect(screen.getByText("Step 5 · Page 5")).toBeInTheDocument();
+    expect(screen.getByText("Dominant trait structure and calibrated profile framing.")).toBeInTheDocument();
+  });
+
+  it("uses section-specific locked preview description from assembler metadata", () => {
+    render(
+      <SectionRenderer
+        section={{
+          key: "action_plan",
+          title: "Action Plan",
+          subtitle: "Near-term actions derived from your current trait profile.",
+          access_level: "paid",
+          locked_preview_description: "Unlock to reveal the full section and practical guidance.",
+          locked_preview_cta: "Unlock full report",
+          blocks: [],
+        }}
+        locked
+        normsStatus="CALIBRATED"
+        locale="en"
+        scaleCode="BIG5_OCEAN"
+      />
+    );
+
+    expect(screen.getByText("Unlock to reveal the full section and practical guidance.")).toBeInTheDocument();
+    expect(screen.getByText("Unlock full report")).toBeInTheDocument();
+  });
+
+  it("renders preview blocks for mask_and_cta locked preview policy", () => {
+    render(
+      <SectionRenderer
+        section={{
+          key: "domain_deep_dive",
+          title: "Domain Deep Dive",
+          access_level: "paid",
+          locked_preview_policy: "mask_and_cta",
+          blocks: [{ kind: "paragraph", title: "Openness", body: "Higher Openness supports idea discovery." }],
+        }}
+        locked
+        normsStatus="CALIBRATED"
+        locale="en"
+        scaleCode="BIG5_OCEAN"
+      />
+    );
+
+    expect(screen.getByText("Higher Openness supports idea discovery.")).toBeInTheDocument();
+  });
 });

@@ -74,3 +74,57 @@ export const BIG5_V1_AUX_MICROCOPY = {
   method_label: "Method boundary",
   method_note: "Use this report as structured decision support, not as an identity verdict.",
 } as const;
+
+export const BIG5_V1_SHELL_MICROCOPY = {
+  hero: {
+    preview_label_en: "Preview",
+    preview_label_zh: "预览版",
+    full_label_en: "Full report",
+    full_label_zh: "完整报告",
+    preview_summary_en:
+      "You can already read your core profile and domain overview. Unlock to continue into deeper domain, facet, and action interpretation.",
+    preview_summary_zh:
+      "你已可查看核心画像与五维总览。解锁后可继续阅读更深入的维度解释、facet 细节与行动计划。",
+    full_summary_en:
+      "Your full Big Five report is ready. Continue through the core portrait, domain interpretation, facet details, and action plan.",
+    full_summary_zh:
+      "你的完整 Big Five 报告已就绪。可继续阅读核心画像、维度解释、facet 细节与行动计划。",
+    unlocked_now_title_en: "You can read now",
+    unlocked_now_title_zh: "当前可读",
+    unlock_more_title_en: "Unlock to continue",
+    unlock_more_title_zh: "解锁后可继续",
+    full_now_title_en: "Included in this report",
+    full_now_title_zh: "本报告包含",
+  },
+  section_step_prefix_en: "Step",
+  section_step_prefix_zh: "第",
+  section_slot_prefix_en: "Page",
+  section_slot_prefix_zh: "页",
+  section_locked_policy: {
+    none_description_en: "This section is available in the full report.",
+    none_description_zh: "该章节在完整报告中可查看。",
+    teaser_description_en: "Unlock to continue from this section preview into the full interpretation.",
+    teaser_description_zh: "解锁后可从当前预览继续阅读完整解读。",
+    mask_description_en: "Unlock to reveal the full section and practical guidance.",
+    mask_description_zh: "解锁后可查看该章节完整内容与可执行建议。",
+  },
+  methodology: {
+    title_en: "How to read this report",
+    title_zh: "如何阅读这份报告",
+    preview_scope_en:
+      "The preview keeps your foundation visible and withholds deeper interpretation modules until unlock.",
+    preview_scope_zh: "预览版会保留基础画像，并将更深入的解释模块放在解锁后查看。",
+    full_scope_en: "The full report keeps all eight sections available in one continuous reading path.",
+    full_scope_zh: "完整报告会将 8 个章节全部开放，形成连续阅读路径。",
+    method_note_en: "Use this report as structured decision support, not as an identity verdict.",
+    method_note_zh: "将这份结果用于结构化决策支持，而不是对自我的单一定义。",
+  },
+  offer: {
+    eyebrow_en: "Continue with full interpretation",
+    eyebrow_zh: "继续阅读完整解读",
+    title_en: "Unlock deeper trait interpretation and action guidance",
+    title_zh: "解锁更深入的特质解释与行动建议",
+    summary_en: "Unlock to continue from your current profile into deeper sections and actionable next steps.",
+    summary_zh: "解锁后可在当前画像基础上继续阅读更深入的章节，并获得可执行的下一步建议。",
+  },
+} as const;

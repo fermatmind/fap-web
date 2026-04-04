@@ -61,7 +61,26 @@ describe("big5 result assembler contract", () => {
     expect(assembled.lockedSections.length).toBeGreaterThan(0);
     assembled.lockedSections.forEach((section) => {
       expect(section.access_level).toBe("paid");
+      expect(typeof section.locked_preview_policy).toBe("string");
+      expect(String(section.locked_preview_description ?? "").trim().length).toBeGreaterThan(0);
     });
+  });
+
+  it("uses locked preview policy metadata from blueprint at runtime", () => {
+    const reportData = createReportFixture();
+    const assembled = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData,
+      gate: buildGate(),
+    });
+
+    const deepDive = assembled.plannedSections.find((section) => section.key === "domain_deep_dive");
+    const corePortrait = assembled.plannedSections.find((section) => section.key === "core_portrait");
+    const methodology = assembled.plannedSections.find((section) => section.key === "methodology_and_access");
+
+    expect(deepDive?.locked_preview_policy).toBe("teaser_card");
+    expect(corePortrait?.locked_preview_policy).toBe("mask_and_cta");
+    expect(methodology?.locked_preview_policy).toBe("none");
   });
 
   it("falls back to microcopy title when payload title is missing", () => {
@@ -126,6 +145,46 @@ describe("big5 result assembler contract", () => {
     });
 
     expect(assembled.plannedSections.some((section) => section.key === "methodology_and_access")).toBe(false);
+  });
+
+  it("prevents traits.overview legacy alias from feeding both core_portrait and domain_deep_dive", () => {
+    const reportData = createReportFixture();
+    if (!Array.isArray(reportData.report?.sections)) {
+      throw new Error("Expected report.sections array in fixture");
+    }
+    reportData.report.sections.push({
+      key: "traits.overview",
+      title: "Traits Overview",
+      access_level: "paid",
+      blocks: [{ kind: "paragraph", body: "legacy overlap copy" }],
+    });
+
+    const assembled = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData,
+      gate: buildGate(),
+    });
+
+    const corePortrait = assembled.plannedSections.find((section) => section.key === "core_portrait");
+    const domainDeepDive = assembled.plannedSections.find((section) => section.key === "domain_deep_dive");
+    const coreHasLegacy = corePortrait?.blocks.some((block) => String(block.body ?? "").includes("legacy overlap copy")) ?? false;
+    const deepDiveHasLegacy = domainDeepDive?.blocks.some((block) => String(block.body ?? "").includes("legacy overlap copy")) ?? false;
+
+    expect(coreHasLegacy).toBe(true);
+    expect(deepDiveHasLegacy).toBe(false);
+  });
+
+  it("keeps methodology_and_access in product language instead of status-string concatenation", () => {
+    const reportData = createReportFixture();
+    const assembled = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData,
+      gate: buildGate(),
+    });
+    const methodology = assembled.plannedSections.find((section) => section.key === "methodology_and_access");
+    expect(methodology).toBeDefined();
+    const text = methodology?.blocks.map((block) => `${block.title ?? ""} ${block.body ?? ""}`).join(" ");
+    expect(text).not.toContain("Quality A · Norms CALIBRATED");
   });
 
   it("keeps the output shape aligned to existing Big5 shell inputs", () => {
