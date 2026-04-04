@@ -168,7 +168,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         <div aria-hidden className="fm-home-hero-gridline fm-home-hero-gridline--x" />
         <div aria-hidden className="fm-home-hero-gridline fm-home-hero-gridline--y" />
 
-        <Container className="fm-home-hero-frame relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-18)] pt-[calc(var(--fm-space-12)+var(--fm-space-8))] md:px-8 md:pb-[var(--fm-space-22)] md:pt-[calc(var(--fm-space-14)+var(--fm-space-8))] xl:px-12">
+        <Container className="fm-home-hero-frame relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-6)] pt-[calc(var(--fm-space-6)+var(--fm-space-6))] md:px-8 md:pb-[var(--fm-space-8)] md:pt-[calc(var(--fm-space-7)+var(--fm-space-6))] xl:px-12">
           <div className="fm-home-hero-composition">
             <div className="fm-home-hero-copy-shell">
               <p className="fm-home-hero-eyebrow fm-home-hero-line fm-home-hero-line--identity m-0">{copy.hero.eyebrow}</p>
