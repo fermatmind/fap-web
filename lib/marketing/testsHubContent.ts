@@ -244,9 +244,9 @@ function buildCardFromTest(
         meta: getBig5VariantSummary(form.formCode, locale),
       }))
     : undefined;
-  const primaryActions = mbtiActions ?? big5Actions;
-
-  return {
+  const fallbackHref = localizedPath(options.hrefPath ?? `/tests/${test.slug}/take`, locale);
+  const fallbackPrimaryLabel = locale === "zh" ? "开始测试" : "Start test";
+  const baseCard = {
     key: test.slug,
     title: options.title ? getLocalizedValue(locale, options.title) : resolveTestTitleByLocale(test, locale),
     description: getLocalizedValue(locale, options.description),
@@ -269,15 +269,34 @@ function buildCardFromTest(
           ? `约 ${test.time_minutes} 分钟`
           : `${test.time_minutes} min`),
     outputLabel: getLocalizedValue(locale, options.outputLabel),
-    href: primaryActions?.[0]?.href ?? localizedPath(options.hrefPath ?? `/tests/${test.slug}/take`, locale),
-    primaryActions,
     detailsHref: localizedPath(options.detailsPath ?? `/tests/${test.slug}`, locale),
-    primaryLabel:
-      primaryActions?.[0]?.label ??
-      (locale === "zh" ? "开始测试" : "Start test"),
     secondaryLabel: locale === "zh" ? "查看详情" : "View details",
     scientificBasis: options.scientificBasis ? getLocalizedValue(locale, options.scientificBasis) : undefined,
     previewVariant: options.previewVariant,
+  } satisfies Omit<HubTestCardItem, "href" | "primaryLabel" | "primaryActions">;
+
+  if (mbtiActions) {
+    return {
+      ...baseCard,
+      href: mbtiActions[0]?.href ?? fallbackHref,
+      primaryActions: mbtiActions,
+      primaryLabel: mbtiActions[0]?.label ?? fallbackPrimaryLabel,
+    };
+  }
+
+  if (big5Actions) {
+    return {
+      ...baseCard,
+      href: big5Actions[0]?.href ?? fallbackHref,
+      primaryActions: big5Actions,
+      primaryLabel: big5Actions[0]?.label ?? fallbackPrimaryLabel,
+    };
+  }
+
+  return {
+    ...baseCard,
+    href: fallbackHref,
+    primaryLabel: fallbackPrimaryLabel,
   };
 }
 
