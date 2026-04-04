@@ -137,6 +137,9 @@ export function MbtiOfferComparisonSection({
 }: MbtiOfferComparisonSectionProps) {
   const primaryOffer = offers.find((offer) => isFullOffer(offer)) ?? offers[0] ?? null;
   const impressionTrackedRef = useRef(false);
+  const inviteProgressTrackedRef = useRef(false);
+  const inviteCtaTrackedRef = useRef(false);
+  const inviteResultRevisitTrackedRef = useRef(false);
   const [inviteStatus, setInviteStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
   const ctaTitle = normalizeText(cta?.title) || (locale === "zh" ? "解锁完整 MBTI 报告" : "Unlock the full MBTI report");
   const ctaSubtitle =
@@ -232,6 +235,15 @@ export function MbtiOfferComparisonSection({
     try {
       if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(inviteUrl);
+        trackEvent("invite_link_copied", {
+          scale_code: "MBTI",
+          attempt_id: normalizeText(attemptId),
+          unlock_stage: unlockStage,
+          unlock_source: unlockSource,
+          completed_invitees: completedInvitees,
+          required_invitees: requiredInvitees,
+          locale,
+        });
         setInviteStatus("copied");
         return;
       }
@@ -284,6 +296,85 @@ export function MbtiOfferComparisonSection({
       locale,
     });
   }, [attemptId, ctaRank, locale, personalization, primaryOffer]);
+
+  useEffect(() => {
+    if (inviteProgressTrackedRef.current) {
+      return;
+    }
+
+    inviteProgressTrackedRef.current = true;
+    trackEvent("invite_progress_viewed", {
+      scale_code: "MBTI",
+      attempt_id: normalizeText(attemptId),
+      unlock_stage: unlockStage,
+      unlock_source: unlockSource,
+      completed_invitees: completedInvitees,
+      required_invitees: requiredInvitees,
+      locale,
+    });
+  }, [
+    attemptId,
+    completedInvitees,
+    locale,
+    requiredInvitees,
+    unlockSource,
+    unlockStage,
+  ]);
+
+  useEffect(() => {
+    if (inviteResultRevisitTrackedRef.current) {
+      return;
+    }
+
+    const hasInviteRevisitSignal = completedInvitees > 0 || unlockSource === "invite" || unlockSource === "mixed";
+    if (!hasInviteRevisitSignal) {
+      return;
+    }
+
+    inviteResultRevisitTrackedRef.current = true;
+    trackEvent("result_revisit_after_invite", {
+      scale_code: "MBTI",
+      attempt_id: normalizeText(attemptId),
+      unlock_stage: unlockStage,
+      unlock_source: unlockSource,
+      completed_invitees: completedInvitees,
+      required_invitees: requiredInvitees,
+      entry_surface: "result_page",
+      locale,
+    });
+  }, [
+    attemptId,
+    completedInvitees,
+    locale,
+    requiredInvitees,
+    unlockSource,
+    unlockStage,
+  ]);
+
+  useEffect(() => {
+    if (!showInvitePrimaryCta || inviteCtaTrackedRef.current) {
+      return;
+    }
+
+    inviteCtaTrackedRef.current = true;
+    trackEvent("invite_cta_shown", {
+      scale_code: "MBTI",
+      attempt_id: normalizeText(attemptId),
+      unlock_stage: unlockStage,
+      unlock_source: unlockSource,
+      completed_invitees: completedInvitees,
+      required_invitees: requiredInvitees,
+      locale,
+    });
+  }, [
+    attemptId,
+    completedInvitees,
+    locale,
+    requiredInvitees,
+    showInvitePrimaryCta,
+    unlockSource,
+    unlockStage,
+  ]);
 
   if (primaryOffer === null) {
     return null;

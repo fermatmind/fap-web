@@ -364,6 +364,22 @@ describe("MBTI checkout wiring contract", () => {
       />
     );
 
+    await waitFor(() => {
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "result_revisit_after_invite",
+        expect.objectContaining({
+          scale_code: "MBTI",
+          attempt_id: "attempt-123",
+          unlock_stage: "locked",
+          unlock_source: "invite",
+          completed_invitees: 0,
+          required_invitees: 2,
+          entry_surface: "result_page",
+          locale: "zh",
+        })
+      );
+    });
+
     fireEvent.click(screen.getByTestId("mbti-offers-invite-cta"));
 
     await waitFor(() => {

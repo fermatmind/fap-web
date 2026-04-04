@@ -1,4 +1,9 @@
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import {
+  normalizeInviteUnlockSummary,
+  type InviteUnlockSummaryRaw,
+  type InviteUnlockSummaryView,
+} from "@/lib/access/inviteUnlockSummary";
 
 type MbtiAccessState = "locked" | "ready" | "pending" | "recovery_available" | string;
 type MbtiAccessSource = "report_gate" | "order_delivery" | "attempt_pdf" | "none" | string;
@@ -8,6 +13,9 @@ type MbtiAccessHubId = string | number | null | undefined;
 
 export type MbtiAccessHubV1Raw = {
   access_state: MbtiAccessState;
+  unlock_stage?: "locked" | "partial" | "full" | string | null;
+  unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
+  invite_unlock_v1?: InviteUnlockSummaryRaw | null;
   report_access: {
     can_view_report: boolean;
     attempt_id: MbtiAccessHubId;
@@ -44,6 +52,9 @@ export type MbtiAccessHubLinks = {
 
 export type MbtiAccessHubViewModel = {
   accessState: MbtiAccessState;
+  unlockStage: "locked" | "partial" | "full" | null;
+  unlockSource: "none" | "invite" | "payment" | "mixed" | null;
+  inviteUnlock: InviteUnlockSummaryView | null;
   reportAccess: {
     canViewReport: boolean;
     attemptId: string | null;
@@ -191,6 +202,18 @@ export function normalizeMbtiAccessHub(
   const orderNo = normalizeText(raw.report_access?.order_no);
   const core: MbtiAccessHubCoreViewModel = {
     accessState: normalizeText(raw.access_state) ?? "locked",
+    unlockStage: null,
+    unlockSource: null,
+    inviteUnlock: normalizeInviteUnlockSummary(raw.invite_unlock_v1 ?? null, {
+      unlockStage:
+        raw.unlock_stage === "locked" || raw.unlock_stage === "partial" || raw.unlock_stage === "full"
+          ? raw.unlock_stage
+          : null,
+      unlockSource:
+        raw.unlock_source === "none" || raw.unlock_source === "invite" || raw.unlock_source === "payment" || raw.unlock_source === "mixed"
+          ? raw.unlock_source
+          : null,
+    }),
     reportAccess: {
       canViewReport: normalizeBoolean(raw.report_access?.can_view_report),
       attemptId: reportAttemptId,
@@ -221,6 +244,9 @@ export function normalizeMbtiAccessHub(
       href: null,
     },
   };
+
+  core.unlockStage = core.inviteUnlock?.unlockStage ?? null;
+  core.unlockSource = core.inviteUnlock?.unlockSource ?? null;
 
   const links = buildMbtiAccessHubLinks(core, locale);
   const workspaceHref =
