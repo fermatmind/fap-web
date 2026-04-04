@@ -186,16 +186,10 @@ export function SiteHeader() {
     >
       <Container
         className={cn(
-          isHomeRoute ? "max-w-[1500px] px-5 py-3.5 md:px-8 xl:px-10" : "max-w-[1320px] py-3"
+          isHomeRoute ? "max-w-[110rem] px-5 py-3.5 md:px-8 xl:px-12" : "max-w-[1320px] py-3"
         )}
       >
-        <div
-          className={cn(
-            "flex items-center justify-between gap-3",
-            isHomeRoute &&
-              "lg:grid lg:grid-cols-[minmax(11rem,1fr)_auto_minmax(11rem,1fr)] lg:items-center lg:gap-6 xl:grid-cols-[minmax(13rem,1fr)_auto_minmax(13rem,1fr)]"
-          )}
-        >
+        <div className="flex items-center justify-between gap-3">
           <div className={cn("min-w-0 shrink-0", isHomeRoute && "lg:justify-self-start")}>
             <Link
               href={withLocale("/")}
@@ -232,7 +226,7 @@ export function SiteHeader() {
             ref={desktopNavRef}
             className={cn(
               "hidden min-w-0 items-center gap-1.5 lg:flex xl:gap-2.5",
-              isHomeRoute ? "lg:justify-self-center" : "flex-1 justify-end"
+              "flex-1 justify-end"
             )}
           >
             <nav

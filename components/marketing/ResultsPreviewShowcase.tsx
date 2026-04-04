@@ -9,7 +9,6 @@ type ResultsPreviewShowcaseProps = {
 
 const RESULTS_COPY = {
   zh: {
-    reportLabel: "结果首页",
     summaryTitle: "结构画像会先把真正影响判断的部分拉到前面。",
     summaryBody: "你看到的不是结论口号，而是结构、结论与行动顺序被整理后的第一屏。",
     reportSummaryLabel: "判断摘要",
@@ -34,7 +33,6 @@ const RESULTS_COPY = {
     ],
   },
   en: {
-    reportLabel: "Result front page",
     summaryTitle: "The structural profile pulls the decision-relevant parts to the front first.",
     summaryBody: "What comes back is not a slogan. It is the first screen of structure, conclusion, and next action already arranged for use.",
     reportSummaryLabel: "Judgment summary",
@@ -126,9 +124,12 @@ export function ResultsPreviewShowcase({ locale, previews }: ResultsPreviewShowc
       <article className="fm-home-results-main-card">
         <div className="fm-home-results-main-header">
           <div className="fm-home-results-main-copy">
-            <p className="fm-home-results-overline">{copy.reportLabel}</p>
-            <h3 className="fm-home-results-main-title">{copy.summaryTitle}</h3>
-            <p className="fm-home-results-main-body">{copy.summaryBody}</p>
+            <h3 className={cn("fm-home-results-main-title", locale === "zh" && "fm-home-results-main-title--zh-single-line")}>
+              {copy.summaryTitle}
+            </h3>
+            <p className={cn("fm-home-results-main-body", locale === "zh" && "fm-home-results-main-body--zh-single-line")}>
+              {copy.summaryBody}
+            </p>
           </div>
 
           <div className="fm-home-results-main-summary">

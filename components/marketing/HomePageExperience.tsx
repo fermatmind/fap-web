@@ -168,41 +168,16 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         <div aria-hidden className="fm-home-hero-gridline fm-home-hero-gridline--x" />
         <div aria-hidden className="fm-home-hero-gridline fm-home-hero-gridline--y" />
 
-        <Container className="fm-home-hero-frame relative z-10 max-w-[118rem] px-5 pb-[var(--fm-space-18)] pt-[calc(var(--fm-space-12)+var(--fm-space-8))] md:px-8 md:pb-[var(--fm-space-22)] md:pt-[calc(var(--fm-space-14)+var(--fm-space-8))] xl:px-12">
+        <Container className="fm-home-hero-frame relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-18)] pt-[calc(var(--fm-space-12)+var(--fm-space-8))] md:px-8 md:pb-[var(--fm-space-22)] md:pt-[calc(var(--fm-space-14)+var(--fm-space-8))] xl:px-12">
           <div className="fm-home-hero-composition">
             <div className="fm-home-hero-copy-shell">
-              <div className="space-y-5 md:space-y-6">
-                <div className="space-y-3">
-                  <p className="fm-home-hero-brand-tag m-0">{copy.hero.brand}</p>
-                  <p className="fm-home-hero-eyebrow m-0">{copy.hero.eyebrow}</p>
-                </div>
-
-                <div className="space-y-4">
-                  <h1 className="fm-home-hero-title m-0 text-white">
-                    <span className="fm-home-hero-title-line fm-home-hero-title-line--poster">{copy.hero.title}</span>
-                  </h1>
-                  <p className="fm-home-hero-subhead m-0">{copy.hero.subhead}</p>
-                  <p className="fm-home-hero-description m-0 max-w-[34rem]">{copy.hero.body}</p>
-                </div>
-              </div>
-
-              <div className="fm-home-hero-cta-row">
-                <Link href={withLocale(copy.hero.primaryHref)} className={primaryButtonClass}>
-                  {copy.hero.primaryCta}
-                </Link>
-                <Link
-                  href={copy.hero.secondaryHref.startsWith("#") ? copy.hero.secondaryHref : withLocale(copy.hero.secondaryHref)}
-                  className={darkOutlineButtonClass}
-                >
-                  {copy.hero.secondaryCta}
-                </Link>
-              </div>
-
-              <ul className="fm-home-trust-rail" aria-label={locale === "zh" ? "开始说明" : "Start details"}>
-                {copy.hero.trustRail.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <p className="fm-home-hero-eyebrow fm-home-hero-line fm-home-hero-line--identity m-0">{copy.hero.eyebrow}</p>
+              <h1 className="fm-home-hero-title m-0 text-white">
+                <span className="fm-home-hero-title-line fm-home-hero-title-line--poster fm-home-hero-line fm-home-hero-line--philosophy">
+                  {copy.hero.title}
+                </span>
+              </h1>
+              <p className="fm-home-hero-subhead fm-home-hero-line fm-home-hero-line--function m-0">{copy.hero.subhead}</p>
             </div>
 
             <div className="fm-home-hero-product-stage" aria-hidden>
@@ -373,7 +348,9 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
           <div className="space-y-10">
             <div className="fm-home-results-header">
               <p className="fm-home-section-kicker">{copy.results.kicker}</p>
-              <h2 className="fm-home-results-heading">{copy.results.title}</h2>
+              <h2 className={cn("fm-home-results-heading", locale === "zh" && "fm-home-results-heading--zh-single-line")}>
+                {copy.results.title}
+              </h2>
               <p className="fm-home-results-heading-body">{copy.results.body}</p>
             </div>
             <ResultsPreviewShowcase locale={locale} previews={copy.results.previews} />

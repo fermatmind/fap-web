@@ -297,7 +297,7 @@ The homepage must:
 
 - feel like a real product, not a concept interface
 - lead with user benefit before system language
-- make the main CTA obvious
+- make the main CTA obvious at page level (not necessarily inside hero)
 - make the product name and main value proposition unmistakable
 - create visual continuity across sections
 - frame trust in human-readable terms
@@ -322,8 +322,8 @@ The hero should:
 
 - make the brand/product signature prominent
 - make the value proposition clear immediately
-- support the value proposition with one strong supporting explanation
-- present one primary CTA and at most one secondary CTA
+- support the value proposition with concise copy (supporting line is optional when noise needs to be reduced)
+- prefer one primary CTA and at most one secondary CTA, but may omit hero CTA when immediate-start entry is already the next block and clearly visible
 - use one dominant visual anchor, not many competing decorative elements
 - feel like a premium product front door, not a product explainer
 
@@ -338,10 +338,20 @@ Do not turn the hero into:
 
 Default homepage messaging, unless a task-specific approved copy overrides it:
 
-- Brand signature: **识微，见远。**
-- H1: **人生架构，始于度量。**
+- Brand signature: **识微 见远**
+- H1: **人生架构，始于度量**
 - Subhead: **面向青年教育与就业决策的结构化认知系统。**
 - Supporting line: **从人格、能力与状态出发，把天赋、倾向与情境反应整理成可执行的判断依据。**
+
+Presentation note:
+- Do not force all messaging layers to appear simultaneously in hero.
+- The technical brand label (for example `FermatMind / 费马测试`), supporting line, hero CTA row, and trust chips are optional presentation layers.
+- When these layers are removed for focus, keep start-path clarity in the immediate-start section and final CTA section.
+- Current homepage baseline for typography and spacing:
+  - line 1 (`识微 见远`) is the largest visual line
+  - line 2 (`人生架构，始于度量`) is the second line with strong but lower emphasis than line 1
+  - line 3 (`面向青年教育与就业决策的结构化认知系统。`) should stay single-line on desktop when layout allows
+  - vertical spacing between these three lines should remain tight and intentional (avoid loose stacking)
 
 Do not weaken this into generic self-help language.
 Do not replace it with softer but flatter “understand yourself more clearly” phrasing unless explicitly instructed.
@@ -442,6 +452,16 @@ The footer should:
 
 Keep grouped navigation if useful, but reduce visual and cognitive weight.
 Social links and support details should be visually weaker than the main footer navigation.
+
+### 6.11 Homepage header alignment rules
+
+Homepage header alignment must match the homepage content rails.
+
+Rules:
+- Desktop header content should align with the same left/right rail used by hero and primary homepage sections.
+- Do not let homepage nav collapse into a narrow centered cluster while body sections use a wider rail.
+- Keep top navigation breathing room; avoid crowded trigger spacing that makes the bar feel compressed.
+- When changing homepage container widths, update header and hero together unless there is an explicit reason not to.
 
 ---
 
