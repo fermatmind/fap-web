@@ -127,7 +127,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       eyebrow: "识微 见远",
       brand: "FermatMind / 费马测试",
       title: "人生架构，始于度量",
-      subhead: "面向青年教育与就业决策的结构化认知系统。",
+      subhead: "面向青年教育与就业决策的结构化认知系统",
       body: "从人格、能力与状态出发，把天赋、倾向与情境反应整理成可执行的判断依据。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",

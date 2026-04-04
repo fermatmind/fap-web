@@ -189,6 +189,14 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                 </span>
               </h1>
               <p className="fm-home-hero-subhead fm-home-hero-line fm-home-hero-line--function m-0">{copy.hero.subhead}</p>
+              <div className="fm-home-hero-cta-row fm-home-hero-line fm-home-hero-line--function">
+                <Link href={withLocale(copy.hero.primaryHref)} className={primaryButtonClass}>
+                  {copy.hero.primaryCta}
+                </Link>
+                <Link href={copy.hero.secondaryHref} className={darkOutlineButtonClass}>
+                  {copy.hero.secondaryCta}
+                </Link>
+              </div>
             </div>
 
             <div className="fm-home-hero-product-stage" aria-hidden>
@@ -256,9 +264,15 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
               </Link>
             </div>
 
-            <div className="fm-home-quick-grid mt-8">
+            <div className="fm-home-quick-grid mt-8 lg:grid-cols-6">
               {copy.quickStart.items.map((item, index) => (
-                <article key={item.title} className={cn("fm-home-quick-card", index < 2 ? "is-primary" : "is-secondary")}>
+                <article
+                  key={item.title}
+                  className={cn(
+                    "fm-home-quick-card",
+                    index < 2 ? "is-primary lg:col-span-3" : "is-secondary lg:col-span-2"
+                  )}
+                >
                   <div className="fm-home-quick-card-head">
                     <span className="fm-home-quick-card-index">0{index + 1}</span>
                     <h3 className="m-0 text-[1.18rem] font-semibold tracking-[-0.035em] text-white">{item.title}</h3>
