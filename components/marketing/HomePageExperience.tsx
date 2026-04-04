@@ -138,6 +138,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
   const heroTitleLines = copy.hero.title.split("\n");
   const heroLeadLine = heroTitleLines[0] ?? copy.hero.title;
   const heroSecondLine = heroTitleLines[1];
+  const heroLeadParts = heroLeadLine.split(" · ");
   const primaryButtonClass = buttonVariants({
     size: "lg",
     className:
@@ -161,7 +162,19 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
             <div className="fm-home-hero-copy-shell">
               <div className="space-y-8 md:space-y-10">
                 <h1 className="fm-home-hero-title m-0 text-white">
-                  <span className="fm-home-hero-title-line fm-home-hero-title-line--lead">{heroLeadLine}</span>
+                  <span className="fm-home-hero-title-line fm-home-hero-title-line--lead">
+                    {heroLeadParts.length === 2 ? (
+                      <>
+                        <span>{heroLeadParts[0]}</span>
+                        <span className="fm-home-hero-title-divider" aria-hidden>
+                          +
+                        </span>
+                        <span>{heroLeadParts[1]}</span>
+                      </>
+                    ) : (
+                      heroLeadLine
+                    )}
+                  </span>
                   {heroSecondLine ? (
                     <span className="fm-home-hero-title-line fm-home-hero-title-line--subtle">{heroSecondLine}</span>
                   ) : null}
