@@ -1,9 +1,11 @@
 import type { Big5PublicProjection, ReportResponse } from "@/lib/api/v0_3";
 import { buildBig5FormDisplayLabel, normalizeBig5FormSummary } from "@/lib/big5/formSummary";
 import {
+  BIG5_NORMS_INTERPRETATION,
+  buildBig5NormsStandoutLine,
   resolveDomainInterpretation,
   resolveFacetGlossary,
-  selectBig5ActionSnippets,
+  selectBig5ActionPlan,
 } from "@/lib/big5/interpretation";
 import {
   BIG5_V1_SECTION_MICROCOPY,
@@ -213,6 +215,38 @@ function getDomainLabel(code: Big5DomainCode, locale: Locale): string {
   return BIG5_DOMAIN_LABELS[code][locale];
 }
 
+function getFacetPositionLine(percentile: number | null, locale: Locale) {
+  const percentileText = formatPercentileValue(percentile, locale);
+  if (!percentileText) {
+    return locale === "zh" ? "当前位置以现有结果信号为准。" : "Current position is inferred from the available result signal.";
+  }
+
+  return locale === "zh"
+    ? `你当前大致位于${percentileText.replace("约 ", "")}。`
+    : `You currently sit at ${percentileText}.`;
+}
+
+function getFacetBehaviorLine(
+  percentile: number | null,
+  facetGlossary: ReturnType<typeof resolveFacetGlossary>,
+  locale: Locale
+) {
+  if (!facetGlossary) {
+    return locale === "zh" ? "这项倾向会在具体场景里决定你更自然的反应方式。" : "This facet shapes the reaction style that feels more natural in real situations.";
+  }
+
+  if (percentile !== null && percentile <= 35) {
+    return facetGlossary.low_cue;
+  }
+  if (percentile !== null && percentile >= 65) {
+    return facetGlossary.high_cue;
+  }
+
+  return locale === "zh"
+    ? `这项倾向更可能选择性地出现，而不是在所有场景都很强。${facetGlossary.daily_signal}`
+    : `This tendency is more likely to show up selectively than everywhere. ${facetGlossary.daily_signal}`;
+}
+
 function buildSyntheticBlocks(
   blueprint: Big5V1SectionBlueprint,
   reportData: ReportResponse,
@@ -267,36 +301,106 @@ function buildSyntheticBlocks(
       const interpretation = resolveDomainInterpretation(code, bandRaw);
       const percentile = normalizeNumber(trait?.percentile);
       const percentileText = formatPercentileValue(percentile, locale);
-      const bodyParts = [interpretation.definition, interpretation.band_copy, percentileText].filter(Boolean);
+      const positionLine = [
+        interpretation.band_copy,
+        percentileText
+          ? locale === "zh"
+            ? `相对位置大致在${percentileText.replace("约 ", "")}。`
+            : `Relative position sits at ${percentileText}.`
+          : "",
+      ]
+        .filter(Boolean)
+        .join(" ");
       blocks.push({
         kind: "metric_card",
         metric_code: code,
         title: getDomainLabel(code, locale),
-        body: bodyParts.join(" "),
-        bullets: [interpretation.tradeoff],
+        body: [interpretation.definition, positionLine].filter(Boolean).join(" "),
+        bullets: [
+          locale === "zh" ? `优势：${interpretation.upside}` : `Upside: ${interpretation.upside}`,
+          locale === "zh" ? `代价：${interpretation.tradeoff}` : `Trade-off: ${interpretation.tradeoff}`,
+          locale === "zh" ? `现实场景：${interpretation.scene_line}` : `In daily life: ${interpretation.scene_line}`,
+        ],
       });
     }
     return blocks;
   }
 
   if (blueprint.section_key === "facet_details") {
-    return facetVector
+    const sortedFacets = facetVector
       .slice()
-      .sort((left, right) => (normalizeNumber(right.percentile) ?? 0) - (normalizeNumber(left.percentile) ?? 0))
-      .slice(0, 8)
-      .map((item) => {
+      .sort((left, right) => (normalizeNumber(right.percentile) ?? 0) - (normalizeNumber(left.percentile) ?? 0));
+
+    const focusFacetPool = [
+      ...sortedFacets.slice(0, 3),
+      ...sortedFacets.slice(-2),
+    ].filter((item, index, list) => index === list.findIndex((entry) => normalizeText(entry.key) === normalizeText(item.key)));
+
+    const blocks: ReportBlock[] = [];
+
+    if (focusFacetPool.length > 0) {
+      blocks.push({
+        kind: "paragraph",
+        title: locale === "zh" ? "重点 facets" : "Standout facets",
+        body:
+          locale === "zh"
+            ? "先看最突出的 3 个 facets 和最需要留意的 2 个 facets。这里不是在给你贴标签，而是在说明哪些细部倾向更容易在现实中跳出来。"
+            : "Start with the three facets that stand out most and the two that deserve extra attention. The goal is not to label you, but to show which narrower tendencies are most likely to show up in real situations.",
+      });
+
+      focusFacetPool.forEach((item) => {
         const code = normalizeText(item.key).toUpperCase();
         const facetGlossary = resolveFacetGlossary(code);
         const percentile = normalizeNumber(item.percentile);
-        const percentileText = formatPercentileValue(percentile, locale) || normalizeText(item.bucket, item.band);
-        return {
+        blocks.push({
+          kind: "metric_card",
+          metric_code: code,
+          title: facetGlossary?.label ?? getFacetLabel(code, locale),
+          body: [
+            getFacetPositionLine(percentile, locale),
+            facetGlossary?.gloss,
+          ]
+            .filter(Boolean)
+            .join(" "),
+          bullets: [
+            facetGlossary?.why_it_matters,
+            getFacetBehaviorLine(percentile, facetGlossary, locale),
+            facetGlossary?.daily_signal,
+          ].filter(Boolean) as string[],
+        });
+      });
+    }
+
+    if (sortedFacets.length > 0) {
+      blocks.push({
+        kind: "paragraph",
+        title: locale === "zh" ? "完整 glossary" : "Complete glossary",
+        body:
+          locale === "zh"
+            ? "下面这部分保留全部 facets 的短释义和轻提示，用来帮助你快速定位每个细部倾向。"
+            : "The full glossary keeps every available facet in view with a short definition and one light prompt, so you can quickly place each narrower tendency.",
+      });
+
+      sortedFacets.forEach((item) => {
+        const code = normalizeText(item.key).toUpperCase();
+        const facetGlossary = resolveFacetGlossary(code);
+        blocks.push({
           kind: "table_row",
           metric_code: code,
           title: facetGlossary?.label ?? getFacetLabel(code, locale),
-          body: [percentileText, facetGlossary?.gloss, facetGlossary?.hint].filter(Boolean).join(" · "),
+          body: [
+            getFacetPositionLine(normalizeNumber(item.percentile), locale),
+            facetGlossary?.gloss,
+            facetGlossary?.hint,
+          ]
+            .filter(Boolean)
+            .join(" "),
           bucket: normalizeText(item.bucket),
-        } satisfies ReportBlock;
+        } satisfies ReportBlock);
       });
+    }
+
+    return blocks;
   }
 
   if (blueprint.section_key === "core_portrait") {
@@ -311,9 +415,13 @@ function buildSyntheticBlocks(
         const percentile = normalizeNumber(item.percentile);
         if (!domain) {
           return {
+            domain,
             label,
             insight: "",
             percentileText: formatPercentileValue(percentile, locale),
+            upside: "",
+            tradeoff: "",
+            impression: "",
           };
         }
         const interpretation = resolveDomainInterpretation(
@@ -321,9 +429,13 @@ function buildSyntheticBlocks(
           normalizeText(traitBands[domain], item.band, item.band_label, item.bucket)
         );
         return {
+          domain,
           label,
           insight: interpretation.band_copy,
           percentileText: formatPercentileValue(percentile, locale),
+          upside: interpretation.upside,
+          tradeoff: interpretation.tradeoff,
+          impression: interpretation.impression,
         };
       });
 
@@ -336,23 +448,47 @@ function buildSyntheticBlocks(
         : "The current profile is shaped by a small set of dominant trait signals."
     );
 
-    const bullets = dominant
-      .map((item) => [item.label, item.percentileText, item.insight].filter(Boolean).join(" · "))
-      .filter(Boolean);
-
     const blocks: ReportBlock[] = [
       {
         kind: "paragraph",
         title: BIG5_V1_SECTION_MICROCOPY.core_portrait.title,
-        body: headline,
+        body: [
+          headline,
+          dominant.length > 0
+            ? locale === "zh"
+              ? `当前画像主要由${dominant.map((item) => item.label).join("和")}这几个倾向共同拉动。`
+              : `The clearest pull in this profile comes from ${dominant.map((item) => item.label).join(" and ")}.`
+            : "",
+        ]
+          .filter(Boolean)
+          .join(" "),
       },
     ];
 
-    if (bullets.length > 0) {
+    if (dominant.length > 0) {
       blocks.push({
-        kind: "bullets",
-        title: locale === "zh" ? "核心信号" : "Core signals",
-        body: bullets.join("\n"),
+        kind: "callout",
+        title: locale === "zh" ? "默认风格" : "Default style",
+        body: dominant
+          .map((item) => item.impression)
+          .filter(Boolean)
+          .join(" "),
+      });
+      blocks.push({
+        kind: "callout",
+        title: locale === "zh" ? "这种结构的优势" : "Where this structure helps",
+        body: dominant
+          .map((item) => item.upside)
+          .filter(Boolean)
+          .join(" "),
+      });
+      blocks.push({
+        kind: "callout",
+        title: locale === "zh" ? "这种结构的代价" : "Where this structure can cost you",
+        body: dominant
+          .map((item) => item.tradeoff)
+          .filter(Boolean)
+          .join(" "),
       });
     }
 
@@ -360,30 +496,55 @@ function buildSyntheticBlocks(
   }
 
   if (blueprint.section_key === "norms_comparison") {
-    const percentile = asRecord(comparative?.percentile);
-    const label = normalizeText(percentile?.metric_label);
-    const value = normalizeNumber(percentile?.value);
-    if (value === null) {
+    const sortedTraits = traitVector
+      .slice()
+      .sort((left, right) => (normalizeNumber(right.percentile) ?? 0) - (normalizeNumber(left.percentile) ?? 0));
+    const leadTrait = sortedTraits[0];
+    const lowTrait = sortedTraits.at(-1);
+    const leadPercentile = normalizeNumber(leadTrait?.percentile);
+    if (leadPercentile === null) {
       return [];
     }
     return [
       {
-        kind: "callout",
+        kind: "paragraph",
         title: BIG5_V1_SECTION_MICROCOPY.norms_comparison.title,
-        body: locale === "zh"
-          ? `${label || "主维度"} 位于第 ${value} 百分位。`
-          : `${label || "Lead trait"} lands at the ${value}th percentile.`,
+        body:
+          normalizeText(reportData.norms?.status).toUpperCase() === "CALIBRATED"
+            ? BIG5_NORMS_INTERPRETATION.context
+            : BIG5_NORMS_INTERPRETATION.context_missing,
+      },
+      {
+        kind: "paragraph",
+        title: locale === "zh" ? "百分位怎么读" : "How to read the percentile",
+        body: BIG5_NORMS_INTERPRETATION.percentile,
+      },
+      {
+        kind: "metric_card",
+        metric_code: normalizeText(leadTrait?.key).toUpperCase(),
+        title: locale === "zh" ? "最突出的相对位置" : "What stands out most",
+        body: buildBig5NormsStandoutLine({
+          leadTrait: normalizeText(leadTrait?.key).toUpperCase(),
+          leadPercentile,
+          lowTrait: normalizeText(lowTrait?.key).toUpperCase(),
+          lowPercentile: normalizeNumber(lowTrait?.percentile),
+        }),
+      },
+      {
+        kind: "callout",
+        title: locale === "zh" ? "边界提示" : "Boundary note",
+        body: BIG5_NORMS_INTERPRETATION.boundary,
       },
     ];
   }
 
   if (blueprint.section_key === "action_plan") {
-    const actions = selectBig5ActionSnippets({
+    const actionSelection = selectBig5ActionPlan({
       dominantTraits,
       traitBands,
       seedActions: normalizeStringArray(actionPlan?.actions),
-      limit: 4,
     });
+    const actions = [...actionSelection.leverage, ...actionSelection.watch_out, ...actionSelection.experiment];
     if (actions.length === 0) {
       return [];
     }
@@ -396,11 +557,27 @@ function buildSyntheticBlocks(
         body: headline,
       });
     }
-    blocks.push({
-      kind: "bullets",
-      title: locale === "zh" ? "下一步建议" : "Next actions",
-      body: actions.join("\n"),
-    });
+    if (actionSelection.leverage.length > 0) {
+      blocks.push({
+        kind: "bullets",
+        title: locale === "zh" ? "继续放大的 2 点" : "Keep amplifying",
+        body: actionSelection.leverage.join("\n"),
+      });
+    }
+    if (actionSelection.watch_out.length > 0) {
+      blocks.push({
+        kind: "bullets",
+        title: locale === "zh" ? "最值得留意的 2 点" : "Watch closely",
+        body: actionSelection.watch_out.join("\n"),
+      });
+    }
+    if (actionSelection.experiment.length > 0) {
+      blocks.push({
+        kind: "bullets",
+        title: locale === "zh" ? "现在就能试的动作" : "Try this next",
+        body: actionSelection.experiment.join("\n"),
+      });
+    }
     return blocks;
   }
 

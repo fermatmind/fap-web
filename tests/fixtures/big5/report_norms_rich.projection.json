@@ -1,0 +1,158 @@
+{
+  "ok": true,
+  "locked": false,
+  "variant": "full",
+  "modules_allowed": [
+    "big5_core",
+    "big5_full",
+    "big5_action_plan"
+  ],
+  "modules_preview": [],
+  "norms": {
+    "status": "CALIBRATED",
+    "norms_version": "2026Q1"
+  },
+  "quality": {
+    "level": "A"
+  },
+  "comparative_v1": {
+    "percentile": {
+      "metric_key": "O",
+      "metric_label": "Openness",
+      "value": 88
+    }
+  },
+  "big5_public_projection_v1": {
+    "schema_version": "big5.public_projection.v1",
+    "trait_vector": [
+      {
+        "key": "O",
+        "label": "Openness",
+        "percentile": 88,
+        "band": "high",
+        "bucket": "high"
+      },
+      {
+        "key": "C",
+        "label": "Conscientiousness",
+        "percentile": 64,
+        "band": "mid",
+        "bucket": "mid"
+      },
+      {
+        "key": "E",
+        "label": "Extraversion",
+        "percentile": 57,
+        "band": "mid",
+        "bucket": "mid"
+      },
+      {
+        "key": "A",
+        "label": "Agreeableness",
+        "percentile": 76,
+        "band": "high",
+        "bucket": "high"
+      },
+      {
+        "key": "N",
+        "label": "Neuroticism",
+        "percentile": 28,
+        "band": "low",
+        "bucket": "low"
+      }
+    ],
+    "facet_vector": [
+      {
+        "key": "O5",
+        "label": "O5 Intellect",
+        "domain": "O",
+        "percentile": 90,
+        "bucket": "high"
+      },
+      {
+        "key": "A3",
+        "label": "A3 Altruism",
+        "domain": "A",
+        "percentile": 79,
+        "bucket": "high"
+      },
+      {
+        "key": "C2",
+        "label": "C2 Orderliness",
+        "domain": "C",
+        "percentile": 66,
+        "bucket": "mid"
+      },
+      {
+        "key": "N1",
+        "label": "N1 Anxiety",
+        "domain": "N",
+        "percentile": 22,
+        "bucket": "low"
+      }
+    ],
+    "trait_bands": {
+      "O": "high",
+      "C": "mid",
+      "E": "mid",
+      "A": "high",
+      "N": "low"
+    },
+    "dominant_traits": [
+      {
+        "key": "O",
+        "label": "Openness",
+        "percentile": 84,
+        "band": "high",
+        "rank": 1
+      },
+      {
+        "key": "A",
+        "label": "Agreeableness",
+        "percentile": 77,
+        "band": "high",
+        "rank": 2
+      }
+    ],
+    "ordered_section_keys": [
+      "hero_summary",
+      "domains_overview",
+      "domain_deep_dive",
+      "facet_details",
+      "core_portrait",
+      "norms_comparison",
+      "action_plan",
+      "methodology_and_access"
+    ],
+    "explainability_summary": {
+      "headline": "This profile is driven by Openness and Agreeableness.",
+      "reasons": [
+        "Openness and Agreeableness are currently the strongest signals."
+      ]
+    },
+    "action_plan_summary": {
+      "headline": "Use social feedback loops to increase execution clarity.",
+      "focus_trait": "E",
+      "actions": [
+        "Add one weekly collaboration checkpoint."
+      ]
+    }
+  },
+  "report": {
+    "scale_code": "BIG5_OCEAN",
+    "sections": [
+      {
+        "key": "hero_summary",
+        "title": "Profile Summary",
+        "access_level": "free",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "title": "Summary",
+            "body": "A structured read of your current profile."
+          }
+        ]
+      }
+    ]
+  }
+}

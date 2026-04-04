@@ -1,81 +1,115 @@
-import type { Big5DomainCode } from "@/lib/big5/taxonomy";
+import { BIG5_DOMAIN_ORDER, type Big5DomainCode } from "@/lib/big5/taxonomy";
 
-export const BIG5_INTERPRETATION_BANDS = ["high", "mid", "low"] as const;
-export type Big5InterpretationBand = (typeof BIG5_INTERPRETATION_BANDS)[number];
+export type Big5TraitBand = "high" | "mid" | "low";
 
 export type Big5DomainInterpretationEntry = {
   domain_id: Big5DomainCode;
   definition: string;
-  bands: Record<Big5InterpretationBand, string>;
+  bands: Record<Big5TraitBand, string>;
+  upside: string;
   tradeoff: string;
+  impression: string;
+  scene_line: string;
 };
 
-export const BIG5_DOMAIN_INTERPRETATION: Record<Big5DomainCode, Big5DomainInterpretationEntry> = {
+const DOMAIN_COPY: Record<Big5DomainCode, Omit<Big5DomainInterpretationEntry, "domain_id">> = {
   O: {
-    domain_id: "O",
-    definition: "Openness reflects preference for novelty, abstraction, and conceptual exploration.",
+    definition:
+      "Openness tracks how strongly you move toward novelty, imagination, and broader frames for making sense of things.",
     bands: {
-      high: "Higher Openness usually supports idea discovery and strategic reframing in ambiguous contexts.",
-      mid: "Mid Openness often balances exploration with practical constraints during decision making.",
-      low: "Lower Openness often favors proven methods, standardization, and predictable execution.",
+      high: "You currently lean toward curiosity, experimentation, and expanding the frame before settling on one answer.",
+      mid: "You can explore new ideas without losing contact with what is practical, proven, or already working.",
+      low: "You tend to prefer familiar methods, concrete evidence, and a clearer path from question to answer.",
     },
-    tradeoff: "Higher Openness widens option search but can slow convergence; lower Openness speeds execution but can narrow exploration.",
+    upside: "This can help you notice possibilities early, connect distant ideas, and stay mentally flexible when the context changes.",
+    tradeoff:
+      "The cost is that broad exploration can outrun practical constraints, or keep decisions open longer than the situation needs.",
+    impression: "Your default style is to widen the frame before committing to one interpretation.",
+    scene_line:
+      "In daily life this often shows up in how quickly you reframe a question, test alternatives, or lose energy for repetitive routines.",
   },
   C: {
-    domain_id: "C",
-    definition: "Conscientiousness reflects planning discipline, follow-through, and execution reliability.",
+    definition:
+      "Conscientiousness tracks how strongly you lean toward structure, follow-through, and regulating yourself around goals.",
     bands: {
-      high: "Higher Conscientiousness usually strengthens planning quality, pacing, and delivery consistency.",
-      mid: "Mid Conscientiousness can flex between structured plans and adaptive iteration when context shifts.",
-      low: "Lower Conscientiousness may prioritize flexibility and speed over strict structure or routine control.",
+      high: "You currently lean toward planning ahead, keeping order, and staying responsible for the details that carry a task.",
+      mid: "You can stay dependable without feeling locked into one rigid way of organizing work or time.",
+      low: "You tend to work with more spontaneity, looser structure, and more tolerance for unfinished edges while a task is still moving.",
     },
-    tradeoff: "Higher Conscientiousness increases reliability but may reduce spontaneity; lower Conscientiousness boosts flexibility but can create execution drift.",
+    upside: "This can help you convert intentions into repeatable progress and give other people a clearer sense that you will follow through.",
+    tradeoff:
+      "The cost is that strong structure can harden into overcontrol, while lighter structure can leave too much to mood or last-minute pressure.",
+    impression: "Your default style is to regulate effort through systems, habits, and visible checkpoints.",
+    scene_line:
+      "In daily life this often shows up in how early you prepare, how tightly you manage deadlines, and how uneasy unfinished work feels.",
   },
   E: {
-    domain_id: "E",
-    definition: "Extraversion reflects social energy, outward engagement, and activity tempo in group settings.",
+    definition:
+      "Extraversion tracks how much you draw energy from outward engagement, visible momentum, and social stimulation.",
     bands: {
-      high: "Higher Extraversion typically supports proactive communication, visibility, and momentum in collaborative work.",
-      mid: "Mid Extraversion often shifts effectively between independent focus and social coordination.",
-      low: "Lower Extraversion usually supports deep-focus output and lower-stimulation work rhythms.",
+      high: "You currently lean toward external engagement, speaking up early, and gaining energy from visible interaction.",
+      mid: "You can step forward when the context needs it, while still keeping space for quieter processing and recovery.",
+      low: "You tend to conserve energy, prefer lower-stimulation settings, and think before making yourself part of the room.",
     },
-    tradeoff: "Higher Extraversion increases outward momentum but can dilute deep-focus windows; lower Extraversion protects focus but can reduce visibility.",
+    upside: "This can help you create momentum quickly, make yourself known, and keep interaction moving when a group stalls.",
+    tradeoff:
+      "The cost is that high outward energy can crowd reflection, while lower outward energy can leave your thinking under-shared or under-seen.",
+    impression: "Your default style is to regulate energy through either outward participation or selective reserve.",
+    scene_line:
+      "In daily life this often shows up in how quickly you enter conversations, how long social settings feel sustainable, and how much space you need to reset.",
   },
   A: {
-    domain_id: "A",
-    definition: "Agreeableness reflects cooperative orientation, trust tendency, and conflict handling style.",
+    definition:
+      "Agreeableness tracks how strongly you lean toward cooperation, accommodation, trust, and relational smoothness.",
     bands: {
-      high: "Higher Agreeableness often supports trust building, mediation, and stable cross-functional collaboration.",
-      mid: "Mid Agreeableness can maintain cooperation while preserving room for selective challenge.",
-      low: "Lower Agreeableness may improve direct challenge and boundary defense in high-friction decisions.",
+      high: "You currently lean toward warmth, flexibility, and preserving workable relationships even when there is some friction.",
+      mid: "You can cooperate without disappearing, and hold a position without needing every interaction to become a fight.",
+      low: "You tend to be more skeptical, more willing to push back, and less motivated by harmony for its own sake.",
     },
-    tradeoff: "Higher Agreeableness improves social cohesion but may reduce confrontation speed; lower Agreeableness sharpens challenge but can increase relational friction.",
+    upside: "This can help you build trust, reduce avoidable friction, and keep collaboration workable when personalities differ.",
+    tradeoff:
+      "The cost is that stronger accommodation can soften necessary boundaries, while lower accommodation can make candor feel sharper than you intend.",
+    impression: "Your default style is to manage tension through either cooperation, firmness, or a deliberate balance between both.",
+    scene_line:
+      "In daily life this often shows up in how easily you compromise, how quickly you question motives, and how directly you surface disagreement.",
   },
   N: {
-    domain_id: "N",
-    definition: "Neuroticism reflects emotional reactivity, stress sensitivity, and volatility under uncertainty.",
+    definition:
+      "Neuroticism tracks how strongly you react to stress, uncertainty, inner friction, and emotionally costly situations.",
     bands: {
-      high: "Higher Neuroticism often amplifies risk scanning and emotional load during pressure cycles.",
-      mid: "Mid Neuroticism may maintain useful sensitivity to risk without sustained emotional overload.",
-      low: "Lower Neuroticism usually supports emotional steadiness and recovery under operational stress.",
+      high: "You currently lean toward stronger vigilance, more noticeable emotional shifts, and faster stress activation under pressure.",
+      mid: "You can register stress clearly without being fully driven by it, especially when the situation becomes more predictable.",
+      low: "You tend to stay steadier under pressure, recover more quickly, and give less internal weight to uncertainty or emotional noise.",
     },
-    tradeoff: "Higher Neuroticism can improve early threat detection but raises cognitive noise; lower Neuroticism supports stability but can underweight weak risk signals.",
+    upside: "This can help you detect risk early, stay sensitive to weak signals, and notice when something important feels off.",
+    tradeoff:
+      "The cost is that stronger sensitivity can turn into over-reading or longer recovery loops, while lower sensitivity can miss softer warning signs.",
+    impression: "Your default style is to register pressure either intensely and early, or with more emotional distance and stability.",
+    scene_line:
+      "In daily life this often shows up in how long stress lingers, how much uncertainty keeps running in the background, and how easily a setback follows you into the next task.",
   },
 };
 
-export function normalizeInterpretationBand(value: string): Big5InterpretationBand {
-  const normalized = value.trim().toLowerCase();
-  if (normalized === "high") return "high";
-  if (normalized === "mid" || normalized === "middle" || normalized === "balanced" || normalized === "moderate") return "mid";
-  return "low";
+export const BIG5_DOMAIN_INTERPRETATION: Record<Big5DomainCode, Big5DomainInterpretationEntry> =
+  BIG5_DOMAIN_ORDER.reduce<Record<Big5DomainCode, Big5DomainInterpretationEntry>>((acc, domainId) => {
+    acc[domainId] = {
+      domain_id: domainId,
+      ...DOMAIN_COPY[domainId],
+    };
+    return acc;
+  }, {} as Record<Big5DomainCode, Big5DomainInterpretationEntry>);
+
+export function normalizeTraitBand(value: string | null | undefined): Big5TraitBand {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  if (normalized === "high" || normalized === "low") {
+    return normalized;
+  }
+  return "mid";
 }
 
-export function resolveDomainInterpretation(
-  domainId: Big5DomainCode,
-  bandRaw: string
-): Big5DomainInterpretationEntry & { band: Big5InterpretationBand; band_copy: string } {
+export function resolveDomainInterpretation(domainId: Big5DomainCode, bandRaw: string | null | undefined) {
+  const band = normalizeTraitBand(bandRaw);
   const entry = BIG5_DOMAIN_INTERPRETATION[domainId];
-  const band = normalizeInterpretationBand(bandRaw);
 
   return {
     ...entry,
