@@ -19,6 +19,7 @@ import {
   isProjectionLocked,
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
+import type { AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock";
 import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
 import {
@@ -130,6 +131,7 @@ type MbtiResultShellProps = {
   scaleCode: "MBTI";
   reportData: ReportResponse;
   accessProjection?: AttemptReportAccessView | null;
+  inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
   headline: RichResultHeadline;
   tags: string[];
   dimensions: Array<Record<string, unknown>>;
@@ -615,6 +617,7 @@ export function MbtiResultShell({
   scaleCode,
   reportData,
   accessProjection,
+  inviteUnlockProgress = null,
   headline,
   tags,
   dimensions,
@@ -646,7 +649,9 @@ export function MbtiResultShell({
   const culturalCalibration = personalization?.culturalCalibration ?? null;
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const primaryCtaLabel = resolvePrimaryCtaLabel(locale);
-  const isUnlockedPostPurchase = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
+  const reportReadyByLegacyRule = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
+  const stagedUnlockStage = accessProjection?.unlockStage ?? null;
+  const isUnlockedPostPurchase = stagedUnlockStage === "full" || (stagedUnlockStage === null && reportReadyByLegacyRule);
   const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
   const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
   const mbtiFormSummary = normalizeMbtiFormSummary(reportData.mbti_form_v1 ?? null);
@@ -1474,6 +1479,9 @@ export function MbtiResultShell({
           attemptId={attemptId}
           offers={offers}
           cta={cta}
+          unlockStage={accessProjection?.unlockStage ?? null}
+          unlockSource={accessProjection?.unlockSource ?? null}
+          inviteUnlockProgress={inviteUnlockProgress}
           personalization={personalization}
           ctaRank={unlockCtaRank}
           onCheckout={handleCheckout}
