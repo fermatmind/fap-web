@@ -158,7 +158,19 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
     className:
       "border-white/14 bg-white/[0.04] px-7 text-white hover:border-white/26 hover:bg-white/[0.08] hover:text-white",
   });
-  const heroPreviewItems = copy.quickStart.items.slice(0, 5);
+  const heroMetricLevels = locale === "zh" ? ["偏高", "中位偏高", "中位"] : ["High", "Mid-high", "Moderate"];
+  const heroSourceLabels =
+    locale === "zh" ? ["职业方向", "人格结构", "情绪状态"] : ["Career direction", "Personality", "Current state"];
+  const heroResultSummary =
+    locale === "zh" ? "把判断放回一个清楚的结构里。" : "Bring judgment back into one clear structure.";
+  const heroLeadCue =
+    locale === "zh"
+      ? "偏好结构清楚，环境敏感度高。"
+      : "Preference structure is clear, with higher context sensitivity.";
+  const heroScenarioLine =
+    locale === "zh" ? "学习、职业、协作分别呈现。" : "Learning, career, and collaboration are mapped separately.";
+  const heroNextStepLine =
+    locale === "zh" ? "先看最值得继续验证的一条。" : "Start with the path most worth validating next.";
 
   return (
     <>
@@ -171,9 +183,8 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         <Container className="fm-home-hero-frame relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-6)] pt-[calc(var(--fm-space-6)+var(--fm-space-6))] md:px-8 md:pb-[var(--fm-space-8)] md:pt-[calc(var(--fm-space-7)+var(--fm-space-6))] xl:px-12">
           <div className="fm-home-hero-composition">
             <div className="fm-home-hero-copy-shell">
-              <p className="fm-home-hero-eyebrow fm-home-hero-line fm-home-hero-line--identity m-0">{copy.hero.eyebrow}</p>
               <h1 className="fm-home-hero-title m-0 text-white">
-                <span className="fm-home-hero-title-line fm-home-hero-title-line--poster fm-home-hero-line fm-home-hero-line--philosophy">
+                <span className="fm-home-hero-title-line fm-home-hero-title-line--poster fm-home-hero-line fm-home-hero-line--identity">
                   {copy.hero.title}
                 </span>
               </h1>
@@ -182,71 +193,51 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
             <div className="fm-home-hero-product-stage" aria-hidden>
               <div className="fm-home-hero-workbench">
-                <div className="fm-home-hero-entry-rail">
-                  {heroPreviewItems.map((item, index) => (
-                    <div key={item.title} className={cn("fm-home-hero-entry-row", index === 0 && "is-active")}>
-                      <span className="fm-home-hero-entry-index">0{index + 1}</span>
-                      <div>
-                        <p>{item.title}</p>
-                        <small>{item.description}</small>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="fm-home-hero-report-plane">
-                  <div className="fm-home-hero-report-topline">
-                    <span />
-                    <span />
-                    <span />
+                <div className="fm-home-hero-result-surface">
+                  <div className="fm-home-hero-result-header">
+                    <span className="fm-home-hero-result-kicker">{locale === "zh" ? "结果首页" : "Result front page"}</span>
+                    <strong>{heroResultSummary}</strong>
                   </div>
 
-                  <div className="fm-home-hero-report-header">
-                    <div>
-                      <p>{locale === "zh" ? "结构总览" : "Structure view"}</p>
-                      <strong>{locale === "zh" ? "把判断放回一个清楚的结构里。" : "Bring judgment back into one clear structure."}</strong>
-                    </div>
-                    <div className="fm-home-hero-report-badge">
-                      <span>{locale === "zh" ? "结果首页" : "Result front page"}</span>
-                    </div>
-                  </div>
-
-                  <div className="fm-home-hero-report-body">
-                    <div className="fm-home-hero-report-radar">
+                  <div className="fm-home-hero-result-main">
+                    <div className="fm-home-hero-chart-surface">
                       <svg viewBox="0 0 220 180" className="fm-home-hero-radar" role="presentation">
                         <polygon points="110,18 176,56 176,124 110,162 44,124 44,56" className="fm-home-hero-radar-ring is-outer" />
                         <polygon points="110,42 160,69 160,111 110,138 60,111 60,69" className="fm-home-hero-radar-ring" />
                         <polygon points="110,64 143,82 143,98 110,116 77,98 77,82" className="fm-home-hero-radar-ring" />
                         <polygon points="110,28 171,61 157,124 110,144 74,110 70,60" className="fm-home-hero-radar-shape" />
                       </svg>
-                    </div>
-
-                    <div className="fm-home-hero-report-summary">
-                      <div className="fm-home-hero-report-stat">
-                        <label>{locale === "zh" ? "主导线索" : "Primary cue"}</label>
-                        <strong>{locale === "zh" ? "偏好结构清楚，环境敏感度高。" : "Clear preference structure, high sensitivity to context."}</strong>
-                      </div>
-                      <div className="fm-home-hero-report-bars">
-                        {copy.results.previews[0].metrics.map((metric, index) => (
-                          <div key={metric} className="fm-home-hero-report-bar-row">
-                            <span>{metric}</span>
-                            <i className={cn(index === 0 && "is-long", index === 1 && "is-mid", index === 2 && "is-short")} />
-                          </div>
+                      <p className="fm-home-hero-chart-summary">{heroLeadCue}</p>
+                      <div className="fm-home-hero-source-tags">
+                        {heroSourceLabels.map((label) => (
+                          <span key={label}>{label}</span>
                         ))}
                       </div>
                     </div>
-                  </div>
 
-                  <div className="fm-home-hero-report-footer">
-                    <div className="fm-home-hero-report-note">
-                      <span>{locale === "zh" ? "场景线索" : "Scenario cues"}</span>
-                      <p>{locale === "zh" ? "学习、职业、协作分别呈现。" : "Learning, career, and collaboration show up separately."}</p>
-                    </div>
-                    <div className="fm-home-hero-report-note">
-                      <span>{locale === "zh" ? "下一步" : "Next step"}</span>
-                      <p>{locale === "zh" ? "先看最值得继续验证的一条。" : "Start with the path most worth validating next."}</p>
+                    <div className="fm-home-hero-cue-list">
+                      {copy.results.previews[0].metrics.slice(0, 3).map((metric, index) => (
+                        <div key={metric} className="fm-home-hero-cue-row">
+                          <div className="fm-home-hero-cue-head">
+                            <span>{metric}</span>
+                            <b>{heroMetricLevels[index] ?? (locale === "zh" ? "中位" : "Moderate")}</b>
+                          </div>
+                          <i className={cn(index === 0 && "is-long", index === 1 && "is-mid", index === 2 && "is-short")} />
+                        </div>
+                      ))}
                     </div>
                   </div>
+                </div>
+
+                <div className="fm-home-hero-support-grid">
+                  <article className="fm-home-hero-support-card">
+                    <span>{locale === "zh" ? "场景映射" : "Scenario cues"}</span>
+                    <p>{heroScenarioLine}</p>
+                  </article>
+                  <article className="fm-home-hero-support-card">
+                    <span>{locale === "zh" ? "下一步" : "Next step"}</span>
+                    <p>{heroNextStepLine}</p>
+                  </article>
                 </div>
               </div>
             </div>
@@ -267,25 +258,27 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
             <div className="fm-home-quick-grid mt-8">
               {copy.quickStart.items.map((item, index) => (
-                <article key={item.title} className="fm-home-quick-card">
+                <article key={item.title} className={cn("fm-home-quick-card", index < 2 ? "is-primary" : "is-secondary")}>
                   <div className="fm-home-quick-card-head">
                     <span className="fm-home-quick-card-index">0{index + 1}</span>
                     <h3 className="m-0 text-[1.18rem] font-semibold tracking-[-0.035em] text-white">{item.title}</h3>
                   </div>
 
-                  <p className="fm-home-quick-card-body m-0">{item.description}</p>
-
-                  {item.hints?.length ? (
-                    <ul className="fm-home-quick-hints" aria-label={locale === "zh" ? "代表测试" : "Representative assessments"}>
-                      {item.hints.slice(0, 3).map((hint) => (
-                        <li key={hint}>{hint}</li>
+                  {item.variants?.length ? (
+                    <div className="fm-home-quick-variants" aria-label={locale === "zh" ? "版本选择" : "Version options"}>
+                      {item.variants.map((variant) => (
+                        <div key={`${item.title}-${variant.title}`} className="fm-home-quick-variant">
+                          <p className="m-0">{variant.title}</p>
+                          <small>{variant.description}</small>
+                        </div>
                       ))}
-                    </ul>
-                  ) : null}
+                    </div>
+                  ) : (
+                    <p className="fm-home-quick-card-body m-0">{item.description}</p>
+                  )}
 
                   <Link href={withLocale(item.href)} className="fm-home-quick-card-link">
                     {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
-                    <span aria-hidden>+</span>
                   </Link>
                 </article>
               ))}

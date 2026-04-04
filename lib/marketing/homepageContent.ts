@@ -6,6 +6,10 @@ export type HomeLinkItem = {
   href: string;
   label?: string;
   hints?: string[];
+  variants?: Array<{
+    title: string;
+    description: string;
+  }>;
 };
 
 type HomeFamily = {
@@ -132,44 +136,57 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       trustRail: ["免费开始", "约 15 分钟", "匿名可用", "结果支持判断，不定义一个人"],
     },
     quickStart: {
-      kicker: "Quick Start",
-      title: "现在就从一个问题开始。",
-      body: "五个入口，直接进入当前最值得判断的问题。",
+      kicker: "FEATURED TESTS",
+      title: "精选测试",
+      body: "选择一项你现在最想了解的测试。",
       items: [
         {
-          title: "我适合什么职业方向？",
-          description: "先把方向缩到值得继续验证的几条路径。",
-          href: "/tests/category/career",
-          label: "立即开始",
-          hints: ["霍兰德", "Big Five 90Q", "MBTI 93Q"],
+          title: "MBTI 性格测试",
+          href: "/tests/mbti-personality-test-16-personality-types",
+          label: "选择版本",
+          variants: [
+            {
+              title: "93题｜快速版",
+              description: "快速了解你的类型偏好与决策风格",
+            },
+            {
+              title: "144题｜深度版",
+              description: "获得更完整的类型画像与倾向结构",
+            },
+          ],
         },
         {
-          title: "我的人格结构是什么？",
-          description: "先看偏好结构，再决定读到多深。",
-          href: "/tests/category/personality",
-          label: "立即开始",
-          hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
+          title: "大五人格测试",
+          href: "/tests/big-five-personality-test-ocean-model",
+          label: "选择版本",
+          variants: [
+            {
+              title: "90题｜快速版",
+              description: "快速查看五维人格轮廓",
+            },
+            {
+              title: "120题｜全量版",
+              description: "获得更完整的特质结构与行为线索",
+            },
+          ],
         },
         {
-          title: "我现在的情绪或状态如何？",
-          description: "先确认当前基线，再决定是否继续深入。",
+          title: "职业方向测试",
+          description: "缩小值得继续验证的职业方向",
+          href: "/career/tests/riasec",
+          label: "开始测试",
+        },
+        {
+          title: "情绪状态测试",
+          description: "先确认当前状态基线，再决定是否继续深入",
           href: "/tests/depression-screening-test-standard-edition/take",
-          label: "立即开始",
-          hints: ["SDS-20", "抑郁焦虑", "状态基线"],
+          label: "开始测试",
         },
         {
-          title: "我的认知能力与优势在哪里？",
-          description: "把能力线索放回学习与职业判断。",
-          href: "/tests/iq-test-intelligence-quotient-assessment/take",
-          label: "立即开始",
-          hints: ["IQ 测评", "推理准备度", "能力线索"],
-        },
-        {
-          title: "我在人际、协作与关系中是什么风格？",
-          description: "从沟通、协作与关系反应进入。",
+          title: "人际协作测试",
+          description: "了解你在沟通、协作与关系中的表现方式",
           href: "/tests/eq-test-emotional-intelligence-assessment/take",
-          label: "立即开始",
-          hints: ["EQ", "沟通风格", "关系判断"],
+          label: "开始测试",
         },
       ],
     },
@@ -408,8 +425,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     seo: {
       title: "FermatMind / 费马测试",
       description: "费马测试是一个面向自我理解、学习、职业方向与协作判断的结构化测评产品。先从测评入口开始，再用结果支持更清晰的下一步判断。",
-      quickStartListTitle: "费马测试首页快速开始入口",
-      quickStartListDescription: "按用户问题组织的首页入口，包括职业方向、人格结构、情绪状态、认知能力与协作风格。",
+      quickStartListTitle: "费马测试首页精选测试入口",
+      quickStartListDescription: "首页精选测试入口，包括 MBTI、大五人格、职业方向、情绪状态与人际协作测试。",
       familyListTitle: "费马测试测评家族入口",
       familyListDescription: "首页可见的测评家族导航，覆盖人格与风格、职业与方向、情绪与状态、认知与能力以及关系与协作。",
       organizationDescription: "FermatMind / 费马测试提供用于自我理解、学习、职业方向与协作判断的结构化测评与解释内容。",
