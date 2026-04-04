@@ -17,9 +17,7 @@ type HomeFamily = {
 };
 
 type HomeResultPreview = {
-  eyebrow: string;
   title: string;
-  summary: string;
   metrics: string[];
   tone: "traits" | "career" | "state";
 };
@@ -55,10 +53,6 @@ type HomeLocaleContent = {
     secondaryCta: string;
     secondaryHref: string;
     trustRail: string[];
-    visualEyebrow: string;
-    visualTitle: string;
-    visualSummary: string;
-    visualPoints: string[];
   };
   quickStart: {
     kicker: string;
@@ -77,7 +71,6 @@ type HomeLocaleContent = {
     title: string;
     body: string;
     previews: HomeResultPreview[];
-    valuePoints: string[];
   };
   trust: {
     kicker: string;
@@ -129,53 +122,49 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       eyebrow: "识微，见远。",
       brand: "FermatMind / 费马测试",
       title: "更清晰地理解自己，让学习、职业与协作判断直接进入下一步。",
-      body: "用结构化测评，把模糊感受整理成下一步判断。",
+      body: "把模糊感受整理成下一步判断。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",
       secondaryHref: "#home-quick-start",
-      trustRail: ["免费开始", "约 15 分钟", "匿名可用", "结果支持判断，不定义一个人"],
-      visualEyebrow: "从问题进入结果",
-      visualTitle: "一个问题，落到同一张结果面。",
-      visualSummary: "结构、方向和下一步，在这里连成一体。",
-      visualPoints: ["特质结构", "方向线索", "状态解释"],
+      trustRail: ["免费开始", "约 15 分钟", "匿名可用", "支持判断"],
     },
     quickStart: {
       kicker: "Quick Start",
       title: "从你现在的问题直接开始。",
-      body: "五个入口，直接开始。",
+      body: "五个问题，直接开始。",
       items: [
         {
           title: "我适合什么职业方向？",
-          description: "先缩小方向，再看值得继续的路径。",
+          description: "先缩小方向。",
           href: "/tests/category/career",
           label: "立即开始",
           hints: ["霍兰德", "Big Five 90Q", "MBTI 93Q"],
         },
         {
           title: "我的人格结构是什么？",
-          description: "先看偏好与稳定特质，再决定深入哪一版。",
+          description: "先看偏好与稳定特质。",
           href: "/tests/category/personality",
           label: "立即开始",
           hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
         },
         {
           title: "我现在的情绪或状态如何？",
-          description: "先确认近期基线，再决定是否继续。",
+          description: "先确认近期基线。",
           href: "/tests/depression-screening-test-standard-edition/take",
           label: "立即开始",
           hints: ["SDS-20", "抑郁焦虑", "状态基线"],
         },
         {
           title: "我的认知能力与优势在哪里？",
-          description: "把能力线索放回学习与职业判断。",
+          description: "把能力线索放回判断。",
           href: "/tests/iq-test-intelligence-quotient-assessment/take",
           label: "立即开始",
           hints: ["IQ 测评", "推理准备度", "能力线索"],
         },
         {
           title: "我在人际、协作与关系中是什么风格？",
-          description: "从沟通、反馈与协作方式进入。",
+          description: "从沟通与协作进入。",
           href: "/tests/eq-test-emotional-intelligence-assessment/take",
           label: "立即开始",
           hints: ["EQ", "沟通风格", "关系判断"],
@@ -185,11 +174,11 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     families: {
       kicker: "Featured Paths",
       title: "按家族浏览，找到更接近的方向。",
-      body: "还没锁定具体测评时，从这里慢一点浏览。",
+      body: "按家族浏览。",
       items: [
         {
           title: "人格与风格",
-          description: "偏好、稳定倾向与表达方式。",
+          description: "偏好与稳定倾向。",
           exploreLabel: "浏览此类",
           exploreHref: "/tests/category/personality",
           links: [
@@ -200,7 +189,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "职业与方向",
-          description: "把自我理解带回专业、岗位与长期路径。",
+          description: "专业、岗位与长期路径。",
           exploreLabel: "浏览此类",
           exploreHref: "/tests/category/career",
           links: [
@@ -211,7 +200,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "情绪与状态",
-          description: "先看近期状态，再决定是否继续深入。",
+          description: "先看近期状态。",
           exploreLabel: "浏览此类",
           exploreHref: "/tests",
           links: [
@@ -222,7 +211,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "认知与能力",
-          description: "推理、抽象与能力线索。",
+          description: "推理与能力线索。",
           exploreLabel: "浏览此类",
           exploreHref: "/tests",
           links: [
@@ -233,7 +222,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "关系与协作",
-          description: "沟通、反馈与合作模式。",
+          description: "沟通与合作模式。",
           exploreLabel: "浏览此类",
           exploreHref: "/tests",
           links: [
@@ -246,47 +235,36 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     results: {
       kicker: "Results Preview",
-      title: "结果要能让你继续往前。",
-      body: "先看结果会是什么样。",
+      title: "你会带回这样的结果。",
+      body: "先看结果界面。",
       previews: [
         {
-          eyebrow: "特质结构图预览",
-          title: "把稳定倾向看成结构，而不是单一标签。",
-          summary: "维度分布、强弱轴与场景差异，在同一面里出现。",
+          title: "把稳定倾向放回同一张结构图。",
           metrics: ["开放性", "尽责性", "外向能量"],
           tone: "traits",
         },
         {
-          eyebrow: "职业方向预览",
-          title: "把适配方向缩小到更值得继续看的范围。",
-          summary: "角色偏好、环境偏好与下一步线索同屏收束。",
+          title: "把值得继续看的方向先收束出来。",
           metrics: ["角色匹配", "环境偏好", "下一步阅读"],
           tone: "career",
         },
         {
-          eyebrow: "状态解释预览",
-          title: "先看基线，再决定要不要进一步支持。",
-          summary: "状态解释、风险提醒与下一步建议更稳地给出。",
+          title: "先看当前基线，再决定下一步支持。",
           metrics: ["情绪基线", "压力信号", "支持建议"],
           tone: "state",
         },
       ],
-      valuePoints: [
-        "看到结构，不只看到标签",
-        "把结果带回真实场景",
-        "知道下一步看什么",
-      ],
     },
     trust: {
       kicker: "Trust & Boundaries",
-      title: "值得信任的部分，说清楚；边界，也说清楚。",
-      body: "方法、边界、隐私与场景，公开可见。",
+      title: "方法、边界与隐私，都放在明处。",
+      body: "公开、可扫读。",
       items: [
         {
           title: "方法依据",
           summary: "结构化问卷、可读报告与持续校准，让结果来路清楚。",
           paragraphs: [
-            "结果来自结构化问卷、解释路径与持续校准，我们优先修正会影响判断质量的部分。",
+            "结果来自结构化问卷、解释路径与持续校准，我们持续修正会影响判断质量的部分。",
           ],
           href: "/help/about",
           hrefLabel: "查看方法说明",
@@ -295,14 +273,14 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "结果边界",
           summary: "用于支持判断，不替代诊断，也不承诺确定性答案。",
           paragraphs: [
-            "它适合用于自我理解、学习方向、职业探索与协作讨论，不替代专业医疗或心理支持。",
+            "适合用于自我理解、学习方向、职业探索与协作讨论，不替代专业医疗或心理支持。",
           ],
         },
         {
           title: "隐私与匿名",
-          summary: "可以匿名开始；结果默认面向本人；隐私处理公开说明。",
+          summary: "支持匿名开始；结果默认面向本人；隐私处理公开说明。",
           paragraphs: [
-            "我们按最小必要原则处理数据，用于生成报告、保障稳定性与做脱敏质量优化。",
+            "我们按最小必要原则处理数据，用于生成报告、保障稳定性与脱敏质量优化。",
           ],
           href: "/privacy",
           hrefLabel: "查看隐私政策",
@@ -311,7 +289,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "使用场景",
           summary: "适合学习方向、职业规划、成长复盘与团队沟通等真实问题。",
           paragraphs: [
-            "当问题更敏感或风险更高时，我们会采用更保守的表达和更明确的使用边界。",
+            "更敏感或风险更高的问题，我们会采用更保守的表达和更明确的使用边界。",
           ],
           href: "/help/used-and-mentioned",
           hrefLabel: "查看使用场景",
@@ -345,7 +323,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     finalCta: {
       title: "从一个问题开始。",
-      body: "先进入测评入口，再选最适合当下问题的版本。",
+      body: "进入测评入口，开始当前最重要的问题。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",
@@ -440,53 +418,49 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       eyebrow: "See the Micro. Lead the Macro.",
       brand: "FermatMind",
       title: "Understand yourself more clearly, then move learning, career, and collaboration decisions into the next step.",
-      body: "Use structured assessment to turn vague feeling into a clearer next step.",
+      body: "Turn vague feeling into a clearer next step.",
       primaryCta: "Start a free assessment",
       primaryHref: "/tests",
       secondaryCta: "Browse assessment entry points",
       secondaryHref: "#home-quick-start",
-      trustRail: ["Free to start", "About 15 minutes", "Anonymous available", "Results support judgment, not identity"],
-      visualEyebrow: "From question to result",
-      visualTitle: "One question, one result surface.",
-      visualSummary: "Structure, direction, and next move hold together here.",
-      visualPoints: ["Trait structure", "Direction cues", "State interpretation"],
+      trustRail: ["Free to start", "About 15 minutes", "Anonymous available", "Supports judgment"],
     },
     quickStart: {
       kicker: "Quick Start",
       title: "Start directly from the question in front of you.",
-      body: "Five entry points. Start now.",
+      body: "Five questions. Start now.",
       items: [
         {
           title: "What career direction fits me best?",
-          description: "Narrow the direction first, then focus on the paths worth exploring.",
+          description: "Narrow the direction first.",
           href: "/career/tests/riasec",
           label: "Start now",
           hints: ["Holland Code", "Values", "Career style"],
         },
         {
           title: "What does my personality structure look like?",
-          description: "See preferences and stable traits first, then choose the right depth.",
+          description: "See preferences and stable traits first.",
           href: "/tests/category/personality",
           label: "Start now",
           hints: ["MBTI 93Q", "MBTI 144Q", "Big Five 90Q"],
         },
         {
           title: "How is my current emotional state?",
-          description: "Check the recent baseline first, then decide whether to go deeper.",
+          description: "Check the recent baseline first.",
           href: "/tests/depression-screening-test-standard-edition/take",
           label: "Start now",
           hints: ["SDS-20", "Mood baseline", "Support signals"],
         },
         {
           title: "Where are my cognitive strengths and ability signals?",
-          description: "Bring ability cues back into learning and career judgment.",
+          description: "Bring ability cues back into judgment.",
           href: "/tests/iq-test-intelligence-quotient-assessment/take",
           label: "Start now",
           hints: ["IQ", "Reasoning", "Ability cues"],
         },
         {
           title: "How do I show up in relationships and collaboration?",
-          description: "Start from communication, feedback, and collaboration style.",
+          description: "Start from communication and collaboration.",
           href: "/tests/eq-test-emotional-intelligence-assessment/take",
           label: "Start now",
           hints: ["EQ", "Communication", "Relating style"],
@@ -496,11 +470,11 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     families: {
       kicker: "Featured Paths",
       title: "Browse by family when the direction is already clear.",
-      body: "When the exact assessment is not locked in yet, browse here.",
+      body: "Browse by family.",
       items: [
         {
           title: "Personality and style",
-          description: "Preferences, stable tendencies, and expression style.",
+          description: "Preferences and stable tendencies.",
           exploreLabel: "Browse this family",
           exploreHref: "/tests/category/personality",
           links: [
@@ -511,7 +485,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Career and direction",
-          description: "Bring self-understanding back into field, role, and long-range direction.",
+          description: "Field, role, and long-range direction.",
           exploreLabel: "Browse this family",
           exploreHref: "/tests/category/career",
           links: [
@@ -522,7 +496,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Emotion and state",
-          description: "Check current baseline and decide whether to go deeper.",
+          description: "Start with the current baseline.",
           exploreLabel: "Browse this family",
           exploreHref: "/tests",
           links: [
@@ -533,7 +507,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Cognition and ability",
-          description: "Reasoning, abstraction, and ability cues.",
+          description: "Reasoning and ability cues.",
           exploreLabel: "Browse this family",
           exploreHref: "/tests",
           links: [
@@ -544,7 +518,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         },
         {
           title: "Relationships and collaboration",
-          description: "Communication, feedback, and collaboration patterns.",
+          description: "Communication and collaboration patterns.",
           exploreLabel: "Browse this family",
           exploreHref: "/tests",
           links: [
@@ -557,41 +531,30 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     results: {
       kicker: "Results Preview",
-      title: "Results should help you move forward.",
-      body: "See what the output feels like.",
+      title: "This is the kind of result you bring back.",
+      body: "See the result surface first.",
       previews: [
         {
-          eyebrow: "Trait structure preview",
-          title: "See stable tendencies as a structure instead of a single label.",
-          summary: "Dimension spread, relative strength, and context difference appear on one surface.",
+          title: "Read stable tendencies inside one structure view.",
           metrics: ["Openness", "Conscientiousness", "Energy pattern"],
           tone: "traits",
         },
         {
-          eyebrow: "Career direction preview",
-          title: "Narrow better-fit directions into a range worth exploring.",
-          summary: "Role fit, environment fit, and next reading converge on one surface.",
+          title: "Narrow the fit into the paths worth carrying forward.",
           metrics: ["Role fit", "Environment", "Next reads"],
           tone: "career",
         },
         {
-          eyebrow: "State interpretation preview",
-          title: "Check baseline first, then decide whether you need deeper support.",
-          summary: "State interpretation, risk reminders, and steadier next-step suggestions come together.",
+          title: "Check the current baseline, then decide the next support step.",
           metrics: ["Mood baseline", "Pressure signals", "Next move"],
           tone: "state",
         },
       ],
-      valuePoints: [
-        "See structure, not just a label",
-        "Bring results back into real decisions",
-        "Know what to look at next",
-      ],
     },
     trust: {
       kicker: "Trust & Boundaries",
-      title: "State clearly what earns trust, and what stays within bounds.",
-      body: "Method, boundaries, privacy, and use cases stay visible.",
+      title: "Method, boundaries, and privacy stay in plain view.",
+      body: "Visible and easy to scan.",
       items: [
         {
           title: "Method basis",
@@ -622,7 +585,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "Usage scenarios",
           summary: "Use it for learning direction, career planning, growth review, and team communication in real settings.",
           paragraphs: [
-            "When the question is more sensitive or higher-risk, we use more conservative language and clearer boundaries.",
+            "For more sensitive or higher-risk questions, the wording becomes more conservative and the boundary becomes more explicit.",
           ],
           href: "/help/used-and-mentioned",
           hrefLabel: "View usage scenarios",
@@ -656,7 +619,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     finalCta: {
       title: "Start from one question.",
-      body: "Enter the assessment hub, then choose the version that fits the question in front of you.",
+      body: "Enter the assessment hub and start with the question that matters now.",
       primaryCta: "Start a free assessment",
       primaryHref: "/tests",
       secondaryCta: "Browse assessment entry points",

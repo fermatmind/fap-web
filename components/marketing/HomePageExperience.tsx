@@ -1,28 +1,9 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
-import { buildBig5TakeHref, getBig5VariantLabel, isBig5Slug, listBig5FormMetas } from "@/lib/big5/forms";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
-import { buildMbtiTakeHref, getMbtiVariantLabel, isMbtiSlug, listMbtiFormMetas } from "@/lib/mbti/forms";
 import { cn } from "@/lib/utils";
-
-function extractTestSlugFromHref(href: string): string | null {
-  const pathname = href.split("?")[0] ?? "";
-  const normalized = pathname.replace(/\/+$/, "");
-  const match = normalized.match(/\/tests\/([^/]+)$/);
-  return match?.[1] ?? null;
-}
-
-function resolveVariantFamily(slug: string | null): "mbti" | "big5" | null {
-  if (slug && isBig5Slug(slug)) {
-    return "big5";
-  }
-  if (slug && isMbtiSlug(slug)) {
-    return "mbti";
-  }
-  return null;
-}
 
 function SectionHeader({
   kicker,
@@ -88,10 +69,10 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
               </div>
 
               <div className="space-y-5">
-                <h1 className="m-0 max-w-[10.35em] text-balance text-[clamp(2.8rem,5.15vw,5.35rem)] font-semibold leading-[0.9] tracking-[-0.062em] text-white">
+                <h1 className="m-0 max-w-[13.6em] text-balance text-[clamp(2.8rem,5.15vw,5.35rem)] font-semibold leading-[0.9] tracking-[-0.062em] text-white">
                   {copy.hero.title}
                 </h1>
-                <p className="m-0 max-w-[31rem] text-[0.98rem] leading-7 text-slate-300 md:text-[1.04rem] md:leading-8">
+                <p className="m-0 max-w-[28rem] text-[0.96rem] leading-7 text-slate-300 md:text-[1.02rem] md:leading-7">
                   {copy.hero.body}
                 </p>
               </div>
@@ -116,16 +97,8 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
             </div>
 
             <div className="fm-home-hero-stage">
-              <div className="fm-home-hero-stage-head">
-                <span>{copy.hero.visualEyebrow}</span>
-              </div>
-
               <div className="fm-home-hero-stage-grid">
                 <div className="fm-home-hero-select-panel">
-                  <div className="fm-home-hero-select-head">
-                    <span className="fm-home-hero-select-line" aria-hidden />
-                    <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/34">05</span>
-                  </div>
                   <div className="fm-home-hero-choice-list">
                     {copy.quickStart.items.slice(0, 5).map((item, index) => (
                       <div key={item.title} className={cn("fm-home-hero-choice-row", index === 0 && "is-emphasis")}>
@@ -142,53 +115,52 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                   <div aria-hidden className="fm-home-hero-stage-orbit" />
 
                   <div className="fm-home-hero-result-surface">
-                    <div className="fm-home-hero-result-head">
-                      <div className="space-y-3">
-                        <p className="m-0 max-w-[24rem] text-balance text-[clamp(1.45rem,2.4vw,2.25rem)] font-semibold tracking-[-0.045em] text-white">
-                          {copy.hero.visualTitle}
-                        </p>
-                        <p className="m-0 max-w-[27rem] text-[0.92rem] leading-7 text-slate-300 md:text-[0.98rem]">
-                          {copy.hero.visualSummary}
-                        </p>
+                    <div className="fm-home-hero-surface-topline" aria-hidden>
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+
+                    <div className="fm-home-hero-surface-grid">
+                      <div className="fm-home-hero-surface-metrics" aria-label={locale === "zh" ? "结果维度" : "Result dimensions"}>
+                        {copy.results.previews[0].metrics.map((metric, index) => (
+                          <div key={metric} className="fm-home-hero-surface-metric-row">
+                            <span>{metric}</span>
+                            <span className={cn("fm-home-hero-surface-meter", index === 0 && "is-long", index === 1 && "is-mid", index === 2 && "is-short")}>
+                              <i />
+                            </span>
+                          </div>
+                        ))}
                       </div>
-                      <div className="fm-home-hero-result-badge">
-                        {locale === "zh" ? "结果面" : "Result surface"}
-                      </div>
-                    </div>
 
-                    <div className="fm-home-hero-result-pill-row" aria-label={locale === "zh" ? "结果线索" : "Result signals"}>
-                      {copy.hero.visualPoints.map((point) => (
-                        <span key={point} className="fm-home-hero-result-pill">
-                          {point}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="fm-home-hero-preview-metrics" aria-hidden>
-                      <span className="is-long" />
-                      <span className="is-mid" />
-                      <span className="is-short" />
-                    </div>
-
-                    <div className="fm-home-hero-stage-detail-grid">
-                      <div className="fm-home-hero-preview-card fm-home-hero-preview-card--compressed">
-                        <div className="grid gap-2">
-                          {copy.hero.visualPoints.map((point) => (
-                            <div key={point} className="fm-home-hero-preview-chip">
-                              <span className="fm-home-hero-preview-chip-dot" aria-hidden />
-                              <span>{point}</span>
-                            </div>
-                          ))}
+                      <div className="fm-home-hero-surface-plot" aria-hidden>
+                        <div className="fm-home-hero-surface-plot-bars">
+                          <span />
+                          <span />
+                          <span />
+                        </div>
+                        <div className="fm-home-hero-surface-plot-lines">
+                          <span />
+                          <span />
+                          <span />
                         </div>
                       </div>
+                    </div>
 
-                      <div className="fm-home-hero-preview-card fm-home-hero-preview-card--compressed">
-                        <ul className="fm-home-hero-next-list" aria-label={locale === "zh" ? "结果下一步" : "Result next move"}>
-                          {copy.results.valuePoints.slice(0, 3).map((point) => (
-                            <li key={point}>{point}</li>
-                          ))}
-                        </ul>
-                      </div>
+                    <div className="fm-home-hero-surface-module-row">
+                      {copy.results.previews.slice(1).map((item) => (
+                        <div key={item.title} className="fm-home-hero-surface-module">
+                          <div className="fm-home-hero-surface-module-bars" aria-hidden>
+                            <span />
+                            <span />
+                          </div>
+                          <div className="fm-home-hero-surface-module-list">
+                            {item.metrics.slice(0, 2).map((metric) => (
+                              <span key={`${item.title}-${metric}`}>{metric}</span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -219,7 +191,6 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
                     <div className="space-y-2">
                       <h3 className="m-0 text-[1.08rem] font-semibold tracking-[-0.03em] text-white">{item.title}</h3>
-                      <p className="m-0 text-sm leading-7 text-slate-300">{item.description}</p>
                     </div>
 
                     {item.hints?.length ? (
@@ -249,60 +220,26 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {copy.families.items.map((family) => (
               <article key={family.title} className="fm-home-family-panel">
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   <h3 className="m-0 text-[1.45rem] font-semibold tracking-[-0.035em] text-slate-950">{family.title}</h3>
-                  <p className="m-0 max-w-[34rem] text-[0.96rem] leading-7 text-slate-600">{family.description}</p>
+                  <p className="m-0 max-w-[28rem] text-[0.9rem] leading-6 text-slate-500">{family.description}</p>
                 </div>
 
                 <div className="fm-home-family-link-stack">
                   {family.links.map((link) => {
-                    const linkSlug = extractTestSlugFromHref(link.href);
-                    const variantFamily = resolveVariantFamily(linkSlug);
-
                     return (
                       <div key={`${family.title}-${link.title}`} className="fm-home-family-link-row">
-                        <div className="space-y-2">
-                          <Link
-                            href={withLocale(link.href)}
-                            className="inline-flex items-center gap-2 text-[0.98rem] font-medium text-slate-900 transition hover:text-slate-700"
-                          >
-                            <span>{link.title}</span>
-                            <span aria-hidden>+</span>
-                          </Link>
-                          {link.description ? <p className="m-0 text-xs leading-6 text-slate-500">{link.description}</p> : null}
-                          <div className="flex flex-wrap gap-2">
-                            {variantFamily === "big5" && linkSlug
-                              ? listBig5FormMetas().map((form) => (
-                                  <Link
-                                    key={form.formCode}
-                                    href={buildBig5TakeHref(linkSlug, locale, form.formCode)}
-                                    className="fm-home-family-variant-pill"
-                                  >
-                                    {getBig5VariantLabel(form.formCode, locale)}
-                                  </Link>
-                                ))
-                              : variantFamily === "mbti" && linkSlug
-                              ? listMbtiFormMetas().map((form) => (
-                                  <Link
-                                    key={form.formCode}
-                                    href={buildMbtiTakeHref(linkSlug, locale, form.formCode)}
-                                    className="fm-home-family-variant-pill"
-                                  >
-                                    {getMbtiVariantLabel(form.formCode, locale)}
-                                  </Link>
-                                ))
-                              : null}
-                          </div>
-                        </div>
+                        <Link
+                          href={withLocale(link.href)}
+                          className="inline-flex items-center gap-2 text-[0.98rem] font-medium text-slate-900 transition hover:text-slate-700"
+                        >
+                          <span>{link.title}</span>
+                          <span aria-hidden>+</span>
+                        </Link>
                       </div>
                     );
                   })}
                 </div>
-
-                <Link href={withLocale(family.exploreHref)} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition hover:text-slate-950">
-                  {family.exploreLabel}
-                  <span aria-hidden>+</span>
-                </Link>
               </article>
             ))}
           </div>
@@ -312,17 +249,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
       <section className="bg-[#ebe5db] py-[var(--fm-space-24)] md:py-[8rem]">
         <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
           <div className="space-y-10">
-            <div className="flex flex-col gap-8 xl:flex-row xl:items-end xl:justify-between">
-              <SectionHeader kicker={copy.results.kicker} title={copy.results.title} body={copy.results.body} />
-              <ul className="fm-home-result-points fm-home-result-points--inline" aria-label={locale === "zh" ? "结果价值" : "Result value"}>
-                {copy.results.valuePoints.map((point, index) => (
-                  <li key={point} className="fm-home-result-point">
-                    <span className="fm-home-result-point-index">0{index + 1}</span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <SectionHeader kicker={copy.results.kicker} title={copy.results.title} body={copy.results.body} />
             <div className="grid gap-4 lg:grid-cols-3">
               {copy.results.previews.map((item) => (
                 <article key={item.title} className="fm-home-report-preview" data-tone={item.tone}>
@@ -345,9 +272,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                       </div>
                     </div>
                   </div>
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{item.eyebrow}</p>
-                  <h3 className="m-0 mt-4 text-[1.18rem] font-semibold tracking-[-0.03em] text-slate-950">{item.title}</h3>
-                  <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{item.summary}</p>
+                  <h3 className="m-0 text-[1.22rem] font-semibold tracking-[-0.035em] text-slate-950">{item.title}</h3>
 
                   <ul className="fm-home-report-preview-chiplist" aria-label={locale === "zh" ? "结果模块" : "Result modules"}>
                     {item.metrics.map((metric) => (
@@ -399,8 +324,8 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
       <section className="bg-[#121a22] py-[var(--fm-space-20)] md:py-[6.5rem]">
         <Container className="max-w-[90rem] px-5 md:px-8 xl:px-12">
-          <div className="fm-home-final-band flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-[38rem] space-y-4">
+          <div className="fm-home-final-band flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-[34rem] space-y-3">
               <h2 className="m-0 text-balance text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.045em] text-white">
                 {copy.finalCta.title}
               </h2>
