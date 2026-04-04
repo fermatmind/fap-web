@@ -2,10 +2,12 @@
 
 This file defines the operating rules for agents working in the `fap-web` repository.
 
-If a task involves UI, UX, visual polish, landing pages, homepage redesign, result pages, responsive behavior, design consistency, copy framing, component refinement, or presentation logic, follow this file strictly.
+If a task involves UI, UX, visual polish, landing pages, homepage redesign, tests hub, category hubs, result pages, responsive behavior, design consistency, copy framing, component refinement, or presentation logic, follow this file strictly.
 
 When this file conflicts with a vague task request, prefer this file.
 When this file conflicts with explicit human instructions in the current task, follow the human instructions while preserving the spirit of this file wherever possible.
+
+This file supersedes earlier UI guidance. Prefer this version.
 
 ---
 
@@ -13,14 +15,24 @@ When this file conflicts with explicit human instructions in the current task, f
 
 - Product: **FermatMind / 费马测试**
 - Positioning: **a structured self-understanding product for youth education, career direction, and decision support**
-- Brand slogan: **识微，见远。See the Micro. Lead the Macro.**
-- Action line: **人生架构，始于度量。**
+- Brand signature: **识微，见远。**
+- Core promise: **人生架构，始于度量。**
+- Default product descriptor: **面向青年教育与就业决策的结构化认知系统。**
 - Brand personality: **The Objective Strategist / 冷静的智囊**
 - Tone: **minimal, precise, evidence-led**
-- Frontend goal: make the product feel **premium, trustworthy, clear, structured, and user-first**
+- Frontend goal: make the product feel **premium, trustworthy, clear, structured, sharp, and user-first**
 
-This is not a toy demo, not a hacker console, and not a sci-fi landing page.
-It is a real consumer-facing product that must help users quickly understand what it is, why it matters, and where to begin.
+This is not:
+- a toy demo
+- a hacker console
+- a sci-fi landing page
+- a directory wall
+- a product strategy memo rendered as UI
+
+This is:
+- a real consumer-facing product
+- for real-world self-understanding and decision support
+- that must help users quickly understand what it is, why it matters, where to start, and what they get back
 
 ---
 
@@ -29,11 +41,12 @@ It is a real consumer-facing product that must help users quickly understand wha
 FermatMind should present itself as:
 
 - a serious self-assessment product
-- for real-world decisions around self-understanding, learning, career, and direction
+- for real-world decisions around self-understanding, learning, career direction, and collaboration
 - with structured explanation and bounded interpretation
 - without emotional manipulation
 - without fake scientific certainty
 - without theatrical “system console” performance
+- without pretending to be clinical diagnosis when it is not
 
 The frontend must communicate:
 
@@ -41,8 +54,9 @@ The frontend must communicate:
 2. who it is for
 3. what decisions it helps with
 4. where the user should start
-5. why it can be trusted
-6. what its evidence boundaries are
+5. what the result gives back
+6. why it can be trusted
+7. what its evidence boundaries are
 
 ---
 
@@ -74,6 +88,8 @@ Do **not** make the site feel like:
 - a generic SaaS template
 - a cute illustration product
 - a flashy over-animated startup page
+- a site map pretending to be a product
+- a strategy deck translated into UI
 
 ### 3.3 Visual identity guardrails
 
@@ -88,6 +104,8 @@ Allowed visual language:
 - deliberate hierarchy
 - industrial minimalism
 - mono accents used with purpose
+- high-finish product surfaces
+- abstracted but believable report/result interfaces
 
 Forbidden visual language:
 
@@ -100,6 +118,8 @@ Forbidden visual language:
 - fake code blocks used as decoration
 - noisy futuristic gimmicks
 - overly dense control-panel widgets
+- abstract placeholder geometry that does not communicate product value
+- giant empty cards with no information scent
 
 ### 3.4 Typography and composition
 
@@ -113,6 +133,8 @@ Prefer:
 - one primary action per section
 - short copy that can be scanned in seconds
 - composition first, components second
+- strong visual anchors
+- quiet supporting text
 
 Do not solve weak hierarchy by adding more cards, pills, labels, borders, or decorative elements.
 
@@ -141,8 +163,9 @@ Always lead with:
 
 1. user value
 2. scenario relevance
-3. structured explanation
-4. methodology context
+3. what the result gives back
+4. structured explanation
+5. methodology context
 
 Not the other way around.
 
@@ -162,6 +185,8 @@ Do not write like:
 - a soft emotional coach
 - a fanboy of your own system
 - a sci-fi interface narrator
+- a product manager explaining IA decisions
+- a content strategist explaining module purpose
 
 ### 4.3 Must do
 
@@ -172,13 +197,14 @@ Prefer phrasing that is:
 - interpretable
 - bounded
 - useful for decision-making
+- product-like rather than essay-like
 
 Good direction:
 
-- “Understand your trait structure in a clearer, more decision-relevant way.”
+- “Use structured results and scenario interpretation to support better decisions.”
+- “Start with a question, then move into a result worth reading.”
 - “See how your profile may affect learning, career choice, and collaboration.”
-- “Use structured results, normative context, and scenario interpretation to support better decisions.”
-- “Start with a free assessment, then explore a deeper report if needed.”
+- “Choose between quick and deeper versions when a product has variants.”
 
 ### 4.4 Must not do
 
@@ -191,6 +217,7 @@ Do not use:
 - fake authority phrasing
 - empty theater phrasing
 - overly dense internal jargon
+- UI copy that explains why a section exists
 
 Avoid lines like:
 
@@ -202,7 +229,11 @@ Avoid lines like:
 - “RACK_STATUS”
 - “DEPLOY”
 - “AUDIT ARCHIVE”
-- any similar performative console language unless it has real user-facing meaning
+- “This block exists to...”
+- “This layer is for routing...”
+- “Start by question when urgency is high...”
+- “The homepage should only keep...”
+- any similar performative or internal-strategy language unless it has real user-facing meaning
 
 ### 4.5 Evidence boundaries
 
@@ -220,13 +251,17 @@ The product can be rigorous without pretending to be omniscient.
 
 ## 5) Information architecture principles
 
-For major landing pages, especially the homepage, structure the page in this order unless the existing page architecture strongly requires a close equivalent:
+For major marketing and entry pages, structure the page so that users can understand and act without reading everything.
+
+Default homepage sequence should be close to:
 
 1. **Hero**
-2. **Support / explanation**
-3. **Primary choices or product entry points**
-4. **Trust / methodology / privacy / evidence boundaries**
-5. **Final CTA**
+2. **Immediate start layer**
+3. **Secondary browse layer**
+4. **Results / output value**
+5. **Trust / boundaries**
+6. **Final CTA**
+7. **Footer**
 
 Each section should have:
 
@@ -236,6 +271,7 @@ Each section should have:
 - one primary action, if any
 
 Do not stack sections that all compete for attention.
+Do not use two adjacent sections to answer the same question in the same way.
 
 ---
 
@@ -251,6 +287,7 @@ Within 3 seconds, the homepage must answer:
 2. Who is it for?
 3. Why should I trust it?
 4. Where do I start?
+5. What kind of result will I get?
 
 ### 6.2 Homepage must do
 
@@ -263,6 +300,7 @@ The homepage must:
 - create visual continuity across sections
 - frame trust in human-readable terms
 - guide the user toward starting an assessment
+- create desire for the result, not just explain the assessment
 
 ### 6.3 Homepage must not do
 
@@ -273,58 +311,106 @@ The homepage must not:
 - overuse status chips, badges, grid labels, IDs, or fake telemetry
 - rely on self-congratulatory proof framing
 - make users decode the product before they can use it
+- explain its own IA or section logic in user-facing copy
+- repeat the same “how to start” message in two adjacent sections
 
-### 6.4 Hero rules
+### 6.4 Homepage hero rules
 
 The hero should:
 
-- make the brand/product name prominent
+- make the brand/product signature prominent
 - make the value proposition clear immediately
 - support the value proposition with one strong supporting explanation
 - present one primary CTA and at most one secondary CTA
 - use one dominant visual anchor, not many competing decorative elements
+- feel like a premium product front door, not a product explainer
 
-Do not turn the hero into a dashboard collage.
+Do not turn the hero into:
+- a dashboard collage
+- a label-heavy scaffold
+- a collection of helper tags
+- a stock-visual composition
+- a hollow abstract graphic
 
-### 6.5 Assessment entry rules
+### 6.5 Homepage messaging hierarchy
 
-Assessment entry cards or modules must be:
+Default homepage messaging, unless a task-specific approved copy overrides it:
 
-- problem-led
-- understandable immediately
-- framed around real user questions or outcomes
+- Brand signature: **识微，见远。**
+- H1: **人生架构，始于度量。**
+- Subhead: **面向青年教育与就业决策的结构化认知系统。**
+- Supporting line: **从人格、能力与状态出发，把天赋、倾向与情境反应整理成可执行的判断依据。**
 
-Prefer:
+Do not weaken this into generic self-help language.
+Do not replace it with softer but flatter “understand yourself more clearly” phrasing unless explicitly instructed.
 
-- “Career direction”
-- “Personality structure”
-- “Emotional state”
-- “Collaboration style”
-- “Learning and decision patterns”
+### 6.6 Homepage entry-layer rules
 
-Avoid internal-method-first framing like:
+The homepage may contain both:
 
-- “Used to establish...”
-- “Used to anchor...”
-- “Used to evaluate...”
+- an immediate start layer
+- a secondary browse layer
 
-These may appear later in detail copy, but should not dominate the primary entry layer.
+But they must have clearly different jobs.
 
-### 6.6 Trust section rules
+#### Immediate start layer
+This layer serves users who want to start now.
+
+Rules:
+- must be question-led
+- must feel action-led
+- must have the highest intent
+- cards must be concise
+- do not over-explain
+
+#### Secondary browse layer
+This layer serves users who know the domain but not the exact assessment.
+
+Rules:
+- must feel calmer and more exploratory
+- must be visually secondary to the immediate start layer
+- must not repeat the same “how to start” logic in full
+- must feel like curated browsing, not a second start layer
+
+### 6.7 Homepage results preview rules
+
+Results Preview is not a feature explanation block.
+It is a **result desire block**.
+
+Rules:
+- show what the product gives back
+- make results feel valuable, legible, and worth owning
+- use one primary result surface plus supporting result surfaces where useful
+- let visuals carry more persuasion than body copy
+- keep copy short and sharp
+
+Do not use:
+- giant empty cards
+- meaningless abstract geometry
+- oversized black polygons
+- generic placeholders
+- overly explanatory preview text
+
+The section should make users feel:
+“I want this result.”
+
+### 6.8 Homepage trust section rules
 
 Trust should be framed through:
 
 - methodology
 - privacy
 - scenarios of use
-- normative context
 - interpretation boundaries
 - product discipline
 
-Trust must be credible and human-readable.
+Trust must be:
+- credible
+- bounded
+- short
+- human-readable
 
 Do not use fake trust devices:
-
 - fake testimonials
 - fake ratings
 - fake counters
@@ -333,19 +419,149 @@ Do not use fake trust devices:
 - fake media mentions
 - unverifiable “verified value” framing
 
-If real proof is not available in the code/content source, do not invent it.
+### 6.9 Homepage resources rules
+
+The homepage should not become a resource hub.
+Resources are support, not the main stage.
+
+If resources appear on the homepage:
+- keep them light
+- show only high-signal items
+- do not let them compete with product entry and results value
+
+### 6.10 Homepage footer rules
+
+The footer should:
+- remain useful
+- remain navigable
+- feel quiet and secondary
+- not feel like a portal
+- not explain itself
+
+Keep grouped navigation if useful, but reduce visual and cognitive weight.
+Social links and support details should be visually weaker than the main footer navigation.
 
 ---
 
-## 7) Shared component and design system rules
+## 7) Tests hub and category hub rules
 
-### 7.1 No second design system
+### 7.1 Tests hub
+
+The tests hub is a **curated front door**, not a directory wall.
+
+It should:
+- help users start from a question
+- help users browse by domain
+- reduce inventory feeling
+- avoid explaining IA in UI copy
+
+Do not make the tests hub sound like:
+- a routing layer
+- an inventory explanation
+- an internal taxonomy diagram
+
+### 7.2 Category hubs
+
+Category hubs should feel like:
+- small product pages
+- curated entry points
+- guided choices
+
+Not:
+- plain categorized list pages
+
+Each category hub should ideally include:
+- breadcrumb
+- category hero
+- featured assessments
+- all assessments in category
+- “how these differ” guidance
+- related resources
+
+Featured assessments must feel meaningfully different from the full list below.
+
+---
+
+## 8) Product-line and assessment-variant rules
+
+Some assessments are product lines with meaningful variants.
+Do not present them as a raw question-count choice.
+Present them as a **depth choice**.
+
+### 8.1 MBTI and Big Five variant rules
+
+Use consistent productized naming and hierarchy across homepage, hubs, category pages, and detail pages.
+
+Recommended direction:
+
+- MBTI
+  - quick / standard version
+  - deep / full version
+
+- Big Five
+  - quick / standard version
+  - full / deeper version
+
+Keep question counts visible, but secondary.
+Lead with the level of depth and expected use, not the burden.
+
+Do not use misleading terms such as:
+- clinical grade
+- diagnostic grade
+- scientifically guaranteed
+unless such language is truly justified and approved.
+
+### 8.2 Variant communication rules
+
+Users should feel they are choosing:
+- depth
+- detail
+- intended use
+
+Not simply:
+- more questions vs fewer questions
+
+Variant surfaces must be:
+- visually coherent
+- consistent across pages
+- easy to compare
+- obviously intentional
+
+---
+
+## 9) Results and report surfaces
+
+Results and report UI should feel like real product output.
+
+Prefer:
+- believable report surfaces
+- structured visual summaries
+- trait charts
+- scenario mapping
+- next-step guidance
+- compact but high-finish result compositions
+
+Avoid:
+- abstract filler graphics
+- giant meaningless shapes
+- low-information placeholders
+- decorative blocks with no product scent
+
+If a preview exists:
+- it should resemble a real result
+- it must not fake personalized output before the user has completed an assessment
+
+---
+
+## 10) Shared component and design system rules
+
+### 10.1 No second design system
 
 Do not create a parallel design system.
 Do not introduce a second visual language beside the existing one.
 Refactor and improve the current system instead of layering a new one on top.
 
-### 7.2 Prefer token discipline
+### 10.2 Prefer token discipline
 
 Before introducing new values, inspect and reuse:
 
@@ -358,7 +574,7 @@ Before introducing new values, inspect and reuse:
 
 Only add new tokens when absolutely necessary and keep additions minimal.
 
-### 7.3 Component discipline
+### 10.3 Component discipline
 
 Prefer:
 
@@ -367,6 +583,7 @@ Prefer:
 - consistent spacing
 - consistent interaction states
 - consistent mobile behavior
+- product-like surfaces with clear information scent
 
 Avoid:
 
@@ -374,14 +591,14 @@ Avoid:
 - duplicated component variants that only differ cosmetically
 - decorative components with no information or UX job
 
-### 7.4 Dynamic block contract
+### 10.4 Dynamic block contract
 
 Result-page and report-page components must be **config-driven** and **variant-aware**.
 
 Rules:
 
 - Components should support server-driven presentation variants such as `variant_key` or an equivalent config field.
-- UI details such as emphasis level, icon weight, accent depth, and section treatment should be able to adapt from configuration rather than being hardcoded into one static presentation.
+- UI details such as emphasis level, icon weight, accent depth, and section treatment should adapt from configuration rather than being hardcoded into one static presentation.
 - Dynamic data components must explicitly handle at least:
   - `loading`
   - `skeleton`
@@ -392,11 +609,12 @@ Rules:
 - Do not make dynamic pages feel broken while the engine is computing.
 - Do not hardcode a single visual treatment when the product clearly requires multi-variant result rendering.
 
-Config-driven does not mean chaotic. Variants must still remain inside one coherent FermatMind system.
+Config-driven does not mean chaotic.
+Variants must still remain inside one coherent FermatMind system.
 
 ---
 
-## 8) Motion and interaction rules
+## 11) Motion and interaction rules
 
 Motion should be:
 
@@ -405,6 +623,7 @@ Motion should be:
 - memorable in small number
 - tied to hierarchy or feedback
 - subtle and premium
+- physically believable
 
 Do not use motion as decoration spam.
 
@@ -414,6 +633,8 @@ Allowed motion use:
 - micro-interactions for focus/hover
 - restrained emphasis for primary CTA or chart transitions
 - smooth reveal tied to content meaning
+- light staggered fade-in
+- light press/scale feedback when appropriate
 
 Avoid:
 
@@ -423,7 +644,26 @@ Avoid:
 - ornamental animation that distracts from scanning
 - anything that weakens perceived performance
 
-### 8.1 Paywall & locking interaction
+### 11.1 Navigation dropdown behavior
+
+For top-level nav items with children:
+
+Desktop should support:
+- hover reveal
+- keyboard focus reveal
+- stable pointer transition into the panel
+- Esc close
+- click-outside close
+
+Mobile should support:
+- tap disclosure
+- clear expanded/collapsed state
+- touch-friendly targets
+
+Do not rely on hover only.
+Do not use misleading ARIA roles.
+
+### 11.2 Paywall & locking interaction
 
 For locked modules on result pages or report pages, use the principle of:
 
@@ -454,7 +694,7 @@ The purpose of locking UI is to increase perceived value while preserving trust.
 
 ---
 
-## 9) Accessibility, usability, and responsiveness
+## 12) Accessibility, usability, and responsiveness
 
 Every UI change must preserve or improve:
 
@@ -481,10 +721,12 @@ Before finishing, check at least:
 - heading rhythm
 - trust section readability
 - footer spacing and density
+- dropdown behavior on desktop and mobile
+- result preview clarity on mobile
 
 ---
 
-## 10) SEO and route safety
+## 13) SEO and route safety
 
 Do not degrade SEO or route behavior.
 
@@ -503,9 +745,22 @@ If a UI task requires touching SEO-sensitive files, keep the change minimal and 
 
 Do not break marketing page discoverability.
 
+All important SEO-relevant content must be:
+- user-visible
+- user-useful
+- semantically honest
+- mobile-equivalent
+
+Do not use:
+- hidden text
+- hidden links
+- crawler-only content
+- misleading structured data
+- keyword-farm footer language
+
 ---
 
-## 11) Performance and implementation constraints
+## 14) Performance and implementation constraints
 
 Prefer implementation choices that preserve or improve:
 
@@ -528,7 +783,7 @@ Prefer:
 Inspect the repository before assuming package manager or command names.
 Use the lockfile and package scripts as source of truth.
 
-### 11.2 AI-assistance privacy & code hygiene
+### 14.1 AI-assistance privacy & code hygiene
 
 All AI-assisted code must be treated as draft material until reviewed by a human.
 
@@ -551,11 +806,12 @@ Rules:
   - redundant complexity
   - non-idiomatic code style
 
-AI assistance is allowed. Unreviewed leakage is not.
+AI assistance is allowed.
+Unreviewed leakage is not.
 
 ---
 
-## 12) Backend and product boundary rules
+## 15) Backend and product boundary rules
 
 This repo is frontend-first.
 Do not expand a UI task into backend redesign.
@@ -577,7 +833,7 @@ Do not invent fallback bridges in the consumer layer to hide weak UI or unclear 
 
 ---
 
-## 13) Source of truth priority
+## 16) Source of truth priority
 
 For frontend and UI tasks, use this priority:
 
@@ -593,7 +849,7 @@ Do not guess when inspection is possible.
 
 ---
 
-## 14) Working model for UI tasks
+## 17) Working model for UI tasks
 
 Before building, write these three things in the task notes or response:
 
@@ -605,13 +861,13 @@ Then inspect the actual code and implement.
 
 ---
 
-## 15) Default execution flow
+## 18) Default execution flow
 
 For meaningful UI tasks, follow this order:
 
 1. inspect the relevant live page if available
 2. inspect the relevant repo files and shared primitives
-3. identify the page’s structural problems
+3. identify the page’s structural and sensory problems
 4. produce a short execution plan
 5. implement directly in code
 6. run validation
@@ -622,7 +878,7 @@ Do not stop at critique if implementation is possible.
 
 ---
 
-## 16) Validation requirements
+## 19) Validation requirements
 
 Before finishing, run the relevant checks from the repo.
 At minimum, use the project’s existing equivalents of:
@@ -638,9 +894,20 @@ If browser tooling is available, verify the changed page on desktop and mobile w
 If a check cannot run, state exactly why.
 Do not claim validation you did not perform.
 
+For homepage-related work, verify at minimum:
+- hero clarity
+- CTA hierarchy
+- immediate start layer
+- secondary browse layer
+- results preview quality
+- trust readability
+- footer weight
+- dropdown behavior
+- desktop/mobile overflow
+
 ---
 
-## 17) Output contract for agents
+## 20) Output contract for agents
 
 When completing a UI task, report:
 
@@ -658,7 +925,7 @@ Do not exaggerate.
 
 ---
 
-## 18) Done criteria
+## 21) Done criteria
 
 A UI task is done only when:
 
@@ -671,9 +938,15 @@ A UI task is done only when:
 - desktop and mobile both feel intentional
 - validation has been run or the exact blocker has been stated
 
+For homepage work specifically:
+- it must feel more like a premium product front door
+- not more like an explainer page
+- not more like a directory
+- not more like a strategy memo
+
 ---
 
-## 19) Repo-specific reminders for FermatMind
+## 22) Repo-specific reminders for FermatMind
 
 Always remember:
 
@@ -682,9 +955,11 @@ Always remember:
 - It should feel **evidence-led**, not self-mythologizing
 - It should feel **structured**, not emotionally needy
 - It should feel **human-readable**, not like an internal protocol console
+- It should make users want the result, not just understand the product
+- It should explain less by copy and more by hierarchy, composition, and product surface quality
 
 Keep the identity.
 Remove the theater.
 Preserve the rigor.
 Increase the trust.
-Make the product easier to understand and easier to start.
+Make the product easier to understand, easier to start, and more worth finishing.
