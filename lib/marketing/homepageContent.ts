@@ -121,8 +121,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     hero: {
       eyebrow: "识微，见远。",
       brand: "FermatMind / 费马测试",
-      title: "更清晰地理解自己，让学习、职业与协作判断直接进入下一步。",
-      body: "把模糊感受整理成下一步判断。",
+      title: "识微，见远\n人生架构，始于度量\n面向青年教育与就业决策的自我认知引擎",
+      body: "",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",

@@ -69,12 +69,14 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
               </div>
 
               <div className="space-y-5">
-                <h1 className="m-0 max-w-[13.6em] text-balance text-[clamp(2.8rem,5.15vw,5.35rem)] font-semibold leading-[0.9] tracking-[-0.062em] text-white">
+                <h1 className="m-0 max-w-[13.6em] whitespace-pre-line text-[clamp(2.8rem,5.15vw,5.35rem)] font-semibold leading-[0.9] tracking-[-0.062em] text-white">
                   {copy.hero.title}
                 </h1>
-                <p className="m-0 max-w-[28rem] text-[0.96rem] leading-7 text-slate-300 md:text-[1.02rem] md:leading-7">
-                  {copy.hero.body}
-                </p>
+                {copy.hero.body ? (
+                  <p className="m-0 max-w-[28rem] text-[0.96rem] leading-7 text-slate-300 md:text-[1.02rem] md:leading-7">
+                    {copy.hero.body}
+                  </p>
+                ) : null}
               </div>
 
               <div className="flex flex-wrap gap-3">
