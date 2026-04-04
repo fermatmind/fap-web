@@ -119,10 +119,10 @@ type HomeLocaleContent = {
 const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
   zh: {
     hero: {
-      eyebrow: "识微，见远。",
-      brand: "FermatMind / 费马测试",
-      title: "识微，见远\n人生架构，始于度量\n面向青年教育与就业决策的自我认知引擎",
-      body: "",
+      eyebrow: "",
+      brand: "",
+      title: "识微 · 见远\n人生架构，始于度量",
+      body: "面向青年教育与就业决策的自我认知引擎。",
       primaryCta: "开始免费测评",
       primaryHref: "/tests",
       secondaryCta: "浏览测评入口",
