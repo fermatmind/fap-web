@@ -28,11 +28,22 @@ function createAccessSummary(overrides: Partial<Record<string, unknown>> = {}) {
     access_state: "ready",
     report_state: "ready",
     pdf_state: "ready",
+    unlock_stage: "full",
+    unlock_source: "payment",
     reason_code: "report_ready",
     access_level: "full",
     variant: "full",
     modules_allowed: ["core_full", "career", "relationships"],
     modules_preview: [],
+    invite_unlock_v1: {
+      unlock_stage: "full",
+      unlock_source: "payment",
+      completed_invitees: 0,
+      required_invitees: 2,
+      partial_scope: "career",
+      label: "Paid unlock active",
+      short_label: "Paid unlock",
+    },
     actions: {
       page_href: "/result/attempt-history-1",
       pdf_href: "/api/v0.3/attempts/attempt-history-1/report.pdf",
@@ -90,11 +101,22 @@ describe("MBTI history account-center contract", () => {
             access_state: "locked",
             report_state: "ready",
             pdf_state: "unavailable",
+            unlock_stage: "partial",
+            unlock_source: "invite",
             reason_code: "preview_visible_report_ready",
             access_level: "free",
             variant: "free",
             modules_allowed: ["core_free"],
             modules_preview: ["core_full", "career"],
+            invite_unlock_v1: {
+              unlock_stage: "partial",
+              unlock_source: "invite",
+              completed_invitees: 1,
+              required_invitees: 2,
+              partial_scope: "career",
+              label: "Invite unlock 1/2 · Career unlocked",
+              short_label: "Invite unlock 1/2",
+            },
             actions: {
               page_href: "/result/attempt-history-2",
               pdf_href: null,
@@ -129,8 +151,9 @@ describe("MBTI history account-center contract", () => {
 
     expect(screen.getByTestId("mbti-history-continue-cta")).toHaveAttribute("href", "/en/result/attempt-history-1");
     expect(screen.getByTestId("mbti-history-continue-cta")).toHaveTextContent("Continue latest full result");
-    expect(screen.getByTestId("mbti-history-latest-status")).toHaveTextContent("Latest entry · INTJ-A · MBTI · 144 questions: Full report unlocked · PDF ready");
+    expect(screen.getByTestId("mbti-history-latest-status")).toHaveTextContent("Latest entry · INTJ-A · MBTI · 144 questions: Full report unlocked · PDF ready · Paid unlock");
     expect(screen.getByTestId("mbti-history-latest-form")).toHaveTextContent("MBTI · 144 questions");
+    expect(screen.getByTestId("mbti-history-latest-invite-stage")).toHaveTextContent("Paid unlock");
     expect(screen.getByTestId("mbti-history-list-copy")).toHaveTextContent("Saved result entries");
     expect(screen.getByTestId("mbti-history-open-attempt-history-1")).toHaveAttribute("href", "/en/result/attempt-history-1");
     expect(screen.getByTestId("mbti-history-open-attempt-history-1")).toHaveTextContent("Open full result");
@@ -141,6 +164,9 @@ describe("MBTI history account-center contract", () => {
     );
     expect(screen.getByTestId("mbti-history-status-attempt-history-2")).toHaveTextContent("Preview scope: Full personality reading, Career mapping");
     expect(screen.getByTestId("mbti-history-delivery-attempt-history-2")).toHaveTextContent("PDF not ready");
+    expect(screen.getByTestId("mbti-history-invite-summary-attempt-history-2")).toHaveTextContent(
+      "Invite unlock 1/2: Invite unlock 1/2 · Career unlocked"
+    );
     expect(screen.getByTestId("mbti-history-open-attempt-history-2")).toHaveTextContent("Continue free preview");
     expect(screen.queryByRole("button", { name: /save|bookmark|favorite/i })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /save|bookmark|favorite/i })).not.toBeInTheDocument();

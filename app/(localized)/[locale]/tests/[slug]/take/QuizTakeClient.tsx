@@ -181,7 +181,6 @@ export default function QuizTakeClient({
     () => (isMbtiScaleCode(scaleCode) ? normalizeMbtiFormCode(formCode) : undefined),
     [formCode, scaleCode]
   );
-
   return (
     <QuizStoreProvider
       slug={slug}
@@ -270,12 +269,14 @@ function QuizTakeInner({
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
+  const inviteLinkOpenedTrackedRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
   const resolvedFormCode = useMemo(
     () => (isMbtiScaleCode(scaleCode) ? normalizeMbtiFormCode(formCode) : undefined),
     [formCode, scaleCode]
   );
+  const normalizedScaleCode = useMemo(() => scaleCode.trim().toUpperCase(), [scaleCode]);
   const matchesSavedAttempt = useMemo(() => {
     if (!attemptId || savedScaleCode !== scaleCode) {
       return false;
@@ -285,6 +286,26 @@ function QuizTakeInner({
     }
     return savedFormCode === resolvedFormCode;
   }, [attemptId, resolvedFormCode, savedFormCode, savedScaleCode, scaleCode]);
+
+  useEffect(() => {
+    if (!attribution.invite_unlock_code || inviteLinkOpenedTrackedRef.current) {
+      return;
+    }
+
+    inviteLinkOpenedTrackedRef.current = true;
+    trackEvent("invite_link_opened", {
+      scale_code: normalizedScaleCode,
+      unlock_stage: "locked",
+      unlock_source: "invite",
+      completed_invitees: 0,
+      required_invitees: 2,
+      target_attempt_id: null,
+      attempt_id: attemptId ?? null,
+      form_code: resolvedFormCode ?? undefined,
+      entry_surface: "quiz_take",
+      locale,
+    });
+  }, [attemptId, attribution.invite_unlock_code, locale, normalizedScaleCode, resolvedFormCode]);
 
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
@@ -625,7 +646,6 @@ function QuizTakeInner({
     attemptId,
   });
 
-  const normalizedScaleCode = scaleCode.trim().toUpperCase();
   const compareRedirectInviteId =
     normalizedScaleCode === "MBTI" && (compareIntent || Boolean(attribution.compare_invite_id))
       ? attribution.compare_invite_id

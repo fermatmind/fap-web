@@ -99,4 +99,36 @@ describe("tracking whitelist contract", () => {
       secondary_code: "R",
     });
   });
+
+  it("whitelists invite unlock funnel fields", () => {
+    const payload = {
+      scale_code: "MBTI",
+      unlock_stage: "partial",
+      unlock_source: "invite",
+      completed_invitees: 1,
+      required_invitees: 2,
+      target_attempt_id: "attempt-target-1",
+      attempt_id: "attempt-invitee-1",
+      form_code: "mbti_93",
+      entry_surface: "order_lookup",
+      locale: "en",
+      invite_code: "iul_secret",
+      answers: "forbidden",
+      token: "forbidden",
+      unexpected: "drop-me",
+    };
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.INVITE_STAGED_SUMMARY_VIEWED, payload)).toEqual({
+      scale_code: "MBTI",
+      unlock_stage: "partial",
+      unlock_source: "invite",
+      completed_invitees: 1,
+      required_invitees: 2,
+      target_attempt_id: "attempt-target-1",
+      attempt_id: "attempt-invitee-1",
+      form_code: "mbti_93",
+      entry_surface: "order_lookup",
+      locale: "en",
+    });
+  });
 });

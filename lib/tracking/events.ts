@@ -45,6 +45,12 @@ export const TRACKING_EVENTS = {
   UI_CARD_INTERACTION: "ui_card_interaction",
   UI_QUIZ_MILESTONE: "ui_quiz_milestone",
   UI_REPORT_LOADING_PHASE: "ui_report_loading_phase",
+  INVITE_CTA_SHOWN: "invite_cta_shown",
+  INVITE_LINK_COPIED: "invite_link_copied",
+  INVITE_LINK_OPENED: "invite_link_opened",
+  INVITE_PROGRESS_VIEWED: "invite_progress_viewed",
+  RESULT_REVISIT_AFTER_INVITE: "result_revisit_after_invite",
+  INVITE_STAGED_SUMMARY_VIEWED: "invite_staged_summary_viewed",
 
   // Career center events
   CAREER_CENTER_VIEW: "career_center_view",
@@ -95,6 +101,19 @@ const COMMON_MBTI_ADAPTIVE_FIELDS = [
   "nextBestActionReason",
 ] as const;
 
+const COMMON_INVITE_UNLOCK_FIELDS = [
+  "scale_code",
+  "unlock_stage",
+  "unlock_source",
+  "completed_invitees",
+  "required_invitees",
+  "target_attempt_id",
+  "attempt_id",
+  "form_code",
+  "entry_surface",
+  "locale",
+] as const;
+
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   view_landing: ["locale"],
   view_test: ["slug", "locale"],
@@ -136,6 +155,12 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   ui_card_interaction: ["slug", "scale_code", "visual_kind", "interaction", "attempt_id", "sectionKey", "sceneKey", "styleKey", "actionKey", "actionRank", "recommendationKey", "recommendationRank", "variantKey", "contrastKey", "synthesisKey", "supportingScale", "supportingScales", "crossAssessmentVersion", "neighborTypeKeys", "closeCallAxes", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "overviewVariantKey", "typeCode", "identity", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseContractVersion", "pulseState", "pulsePromptKeys", "dyadicActionFocusKey", "completedDyadicActionKeys", "recommendedNextDyadicPulseKeys", "displayOrder", "isPrimaryFocus", "ctaKey", "ctaRank", "continueTarget", "entrySurface", "attributionScope", "publicSummaryFingerprint", "discoverabilityKeys", "relationshipIndexVersion", "relationshipIndexFingerprint", "indexScope", "relationshipScope", "relationshipFingerprint", "relationshipContractVersion", "subjectJoinMode", "participantRole", "accessState", "consentScope", "consentState", "consentFingerprint", "consentArtifactVersion", "consentRefreshRequired", "privateRelationshipAccessVersion", "revocationState", "expiryState", "graphScope", "graphFingerprint", "graphContractVersion", "embedSurfaceKey", "embedFingerprint", "widgetScope", "widgetContractVersion", "hostMode", "slotKey", "sizePreset", "readScope", "subjectScope", "form_code", "locale"],
   ui_quiz_milestone: ["scale_code", "milestone", "duration_bucket", "locale"],
   ui_report_loading_phase: ["scale_code", "phase", "stage_detail", "locked", "variant", "form_code", "locale"],
+  invite_cta_shown: [...COMMON_INVITE_UNLOCK_FIELDS],
+  invite_link_copied: [...COMMON_INVITE_UNLOCK_FIELDS],
+  invite_link_opened: [...COMMON_INVITE_UNLOCK_FIELDS],
+  invite_progress_viewed: [...COMMON_INVITE_UNLOCK_FIELDS],
+  result_revisit_after_invite: [...COMMON_INVITE_UNLOCK_FIELDS],
+  invite_staged_summary_viewed: [...COMMON_INVITE_UNLOCK_FIELDS],
   career_center_view: ["locale"],
   career_recommendation_view: ["locale"],
   career_recommendation_click: ["locale", "job_slug", "rank", "score"],

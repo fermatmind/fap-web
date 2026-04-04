@@ -26,6 +26,7 @@ const hoisted = vi.hoisted(() => ({
   lookupOrder: vi.fn(),
   requestClaimReportEmail: vi.fn(),
   captureError: vi.fn(),
+  trackEvent: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -73,6 +74,10 @@ function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}
 
 vi.mock("@/lib/observability/sentry", () => ({
   captureError: hoisted.captureError,
+}));
+
+vi.mock("@/lib/analytics", () => ({
+  trackEvent: hoisted.trackEvent,
 }));
 
 function createDict(): SiteDictionary {
@@ -439,7 +444,19 @@ describe("OrderLookupForm recovery contract", () => {
     hoisted.lookupOrder.mockResolvedValueOnce({
       ok: true,
       order_no: "ord_lookup_hub_001",
-      mbti_access_hub_v1: createLookupHubRaw("attempt-lookup-hub-1", "ord_lookup_hub_001"),
+      mbti_access_hub_v1: createLookupHubRaw("attempt-lookup-hub-1", "ord_lookup_hub_001", {
+        unlock_stage: "partial",
+        unlock_source: "invite",
+        invite_unlock_v1: {
+          unlock_stage: "partial",
+          unlock_source: "invite",
+          completed_invitees: 1,
+          required_invitees: 2,
+          partial_scope: "career",
+          label: "Invite unlock 1/2 · Career unlocked",
+          short_label: "Invite unlock 1/2",
+        },
+      }),
     });
 
     renderForm();
@@ -459,9 +476,22 @@ describe("OrderLookupForm recovery contract", () => {
 
     expect(hoisted.routerPush).not.toHaveBeenCalled();
     expect(screen.getByTestId("order-lookup-hit-order")).toHaveAttribute("href", "/en/orders/ord_lookup_hub_001");
+    expect(screen.getByTestId("order-lookup-invite-unlock-summary")).toHaveTextContent("Invite unlock 1/2");
+    expect(screen.getByTestId("order-lookup-invite-unlock-summary")).toHaveTextContent("Invite unlock 1/2 · Career unlocked");
     expect(screen.getByTestId("order-lookup-hit-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-lookup-hit-claim")).toBeInTheDocument();
     expect(screen.getByTestId("order-lookup-hit-history")).toHaveAttribute("href", "/en/history/mbti");
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "invite_staged_summary_viewed",
+      expect.objectContaining({
+        unlock_stage: "partial",
+        unlock_source: "invite",
+        completed_invitees: 1,
+        required_invitees: 2,
+        entry_surface: "order_lookup",
+        locale: "en",
+      })
+    );
   });
 
   it("renders pending payment recovery inline on lookup hits instead of redirecting back to the order page", async () => {
@@ -645,9 +675,20 @@ describe("OrderLookupForm recovery contract", () => {
   });
 });
 
-function createLookupHubRaw(attemptId: string, orderNo: string): MbtiAccessHubV1Raw {
+function createLookupHubRaw(
+  attemptId: string,
+  orderNo: string,
+  overrides: {
+    unlock_stage?: "locked" | "partial" | "full" | string;
+    unlock_source?: "none" | "invite" | "payment" | "mixed" | string;
+    invite_unlock_v1?: Record<string, unknown> | null;
+  } = {}
+): MbtiAccessHubV1Raw {
   return {
     access_state: "recovery_available",
+    unlock_stage: overrides.unlock_stage ?? "locked",
+    unlock_source: overrides.unlock_source ?? "none",
+    invite_unlock_v1: overrides.invite_unlock_v1 ?? null,
     report_access: {
       can_view_report: true,
       attempt_id: attemptId,

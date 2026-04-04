@@ -13,6 +13,12 @@ import {
   normalizeAttemptReportAccess,
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
+import {
+  normalizeInviteUnlockSummary,
+  resolveInviteUnlockSummaryBadge,
+  resolveInviteUnlockSummaryLabel,
+  type InviteUnlockSummaryView,
+} from "@/lib/access/inviteUnlockSummary";
 import { getMyAttempts, type MeAttemptItem } from "@/lib/api/v0_3";
 import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode } from "@/lib/assessmentSlugMap";
 import { getDictSync } from "@/lib/i18n/getDict";
@@ -49,6 +55,7 @@ type Row = {
   formSummaryLabel: string | null;
   formCode: string | null;
   accessView: AttemptReportAccessView | null;
+  inviteSummary: InviteUnlockSummaryView | null;
 };
 
 type RowSurface = {
@@ -129,6 +136,8 @@ function normalizeRowAccessView(item: MeAttemptItem, locale: "en" | "zh"): Attem
       access_state: item.access_summary.access_state ?? "",
       report_state: item.access_summary.report_state ?? "",
       pdf_state: item.access_summary.pdf_state ?? "",
+      unlock_stage: item.access_summary.unlock_stage ?? null,
+      unlock_source: item.access_summary.unlock_source ?? null,
       reason_code: item.access_summary.reason_code ?? null,
       access_level: item.access_summary.access_level ?? null,
       variant: item.access_summary.variant ?? null,
@@ -142,10 +151,31 @@ function normalizeRowAccessView(item: MeAttemptItem, locale: "en" | "zh"): Attem
         history_href: item.access_summary.actions?.history_href ?? null,
         lookup_href: item.access_summary.actions?.lookup_href ?? null,
       },
+      invite_unlock_v1: item.access_summary.invite_unlock_v1 ?? null,
       meta: null,
     },
     locale
   );
+}
+
+function normalizeRowInviteSummary(item: MeAttemptItem, accessView: AttemptReportAccessView | null): InviteUnlockSummaryView | null {
+  const accessSummary = item.access_summary && typeof item.access_summary === "object" ? item.access_summary : null;
+  const fallbackUnlockStage =
+    accessSummary?.unlock_stage === "locked" || accessSummary?.unlock_stage === "partial" || accessSummary?.unlock_stage === "full"
+      ? accessSummary.unlock_stage
+      : accessView?.unlockStage ?? null;
+  const fallbackUnlockSource =
+    accessSummary?.unlock_source === "none"
+    || accessSummary?.unlock_source === "invite"
+    || accessSummary?.unlock_source === "payment"
+    || accessSummary?.unlock_source === "mixed"
+      ? accessSummary.unlock_source
+      : accessView?.unlockSource ?? null;
+
+  return normalizeInviteUnlockSummary(accessSummary?.invite_unlock_v1 ?? null, {
+    unlockStage: fallbackUnlockStage,
+    unlockSource: fallbackUnlockSource,
+  });
 }
 
 function resolveRowSurface(row: Row, locale: "en" | "zh", copy: HistorySurfaceCopy): RowSurface {
@@ -388,6 +418,7 @@ function resolveMbtiRow(item: MeAttemptItem, locale: "en" | "zh"): Row | null {
     return null;
   }
 
+  const accessView = normalizeRowAccessView(item, locale);
   return {
     attemptId,
     submittedAt: String(item.submitted_at ?? ""),
@@ -397,7 +428,8 @@ function resolveMbtiRow(item: MeAttemptItem, locale: "en" | "zh"): Row | null {
       includeScaleCode: true,
     }),
     formCode: normalizeMbtiFormSummary(item.mbti_form_v1)?.formCode ?? null,
-    accessView: normalizeRowAccessView(item, locale),
+    accessView,
+    inviteSummary: normalizeRowInviteSummary(item, accessView),
   };
 }
 
@@ -418,6 +450,7 @@ export default function MbtiHistoryClient() {
   const [hasNextPage, setHasNextPage] = useState(false);
   const carryoverImpressionTrackedRef = useRef(false);
   const journeyImpressionTrackedRef = useRef(false);
+  const inviteSummaryImpressionTrackedRef = useRef(false);
   const continuity = parseMbtiContinuityQuery(searchParams);
   const journey = parseMbtiActionJourneyQuery(searchParams);
   const adaptiveSelection = parseMbtiAdaptiveSelectionQuery(searchParams);
@@ -529,6 +562,25 @@ export default function MbtiHistoryClient() {
       locale,
     });
   }, [adaptiveTelemetry, journey, journeyTelemetry, locale]);
+
+  useEffect(() => {
+    if (!latestRow?.inviteSummary || inviteSummaryImpressionTrackedRef.current) {
+      return;
+    }
+
+    inviteSummaryImpressionTrackedRef.current = true;
+    trackEvent("invite_staged_summary_viewed", {
+      scale_code: "MBTI",
+      unlock_stage: latestRow.inviteSummary.unlockStage,
+      unlock_source: latestRow.inviteSummary.unlockSource,
+      completed_invitees: latestRow.inviteSummary.completedInvitees,
+      required_invitees: latestRow.inviteSummary.requiredInvitees,
+      attempt_id: latestRow.attemptId,
+      form_code: latestRow.formCode ?? undefined,
+      entry_surface: "history_mbti",
+      locale,
+    });
+  }, [latestRow, locale]);
 
   return (
     <div data-testid="mbti-history-client" className="space-y-4">
@@ -648,6 +700,14 @@ export default function MbtiHistoryClient() {
             <span>{latestRowSurface.statusLabel}</span>
             <span>{isZh ? " · " : " · "}</span>
             <span>{latestRowSurface.deliveryLabel}</span>
+            {latestRow.inviteSummary ? (
+              <>
+                <span>{isZh ? " · " : " · "}</span>
+                <span data-testid="mbti-history-latest-invite-stage">
+                  {resolveInviteUnlockSummaryBadge(latestRow.inviteSummary, locale)}
+                </span>
+              </>
+            ) : null}
           </div>
         ) : null}
       </section>
@@ -732,6 +792,16 @@ export default function MbtiHistoryClient() {
                 {isZh ? "：" : ": "}
                 {rowSurface.deliveryLabel}
               </p>
+              {row.inviteSummary ? (
+                <p
+                  className="m-0 rounded-xl border border-violet-200 bg-violet-50/60 px-3 py-2 text-sm text-violet-900"
+                  data-testid={`mbti-history-invite-summary-${row.attemptId}`}
+                >
+                  {resolveInviteUnlockSummaryBadge(row.inviteSummary, locale)}
+                  {": "}
+                  {resolveInviteUnlockSummaryLabel(row.inviteSummary, locale)}
+                </p>
+              ) : null}
               <div className="flex flex-wrap gap-3">
                 {rowSurface.primaryHref && rowSurface.primaryLabel ? (
                   <Link

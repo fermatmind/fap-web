@@ -788,6 +788,17 @@ export type OrderReturnRecoveryResponse = {
   [key: string]: unknown;
 };
 
+export type InviteUnlockSummaryRaw = {
+  unlock_stage?: "locked" | "partial" | "full" | string | null;
+  unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
+  completed_invitees?: number | null;
+  required_invitees?: number | null;
+  partial_scope?: string | null;
+  label?: string | null;
+  short_label?: string | null;
+  [key: string]: unknown;
+};
+
 export type AttemptReportAccessResponse = {
   ok: boolean;
   attempt_id: string;
@@ -813,6 +824,7 @@ export type AttemptReportAccessResponse = {
     [key: string]: unknown;
   } | null;
   payload?: Record<string, unknown> | null;
+  invite_unlock_v1?: InviteUnlockSummaryRaw | null;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
   meta?: {
@@ -834,6 +846,7 @@ export type AttemptInviteUnlockProgressResponse = {
   target_attempt_id?: string | null;
   unlock_stage?: "locked" | "partial" | "full" | string | null;
   unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
+  invite_unlock_v1?: InviteUnlockSummaryRaw | null;
   [key: string]: unknown;
 };
 
@@ -1789,11 +1802,14 @@ export type MeAttemptItem = {
     access_state?: string;
     report_state?: string;
     pdf_state?: string;
+    unlock_stage?: "locked" | "partial" | "full" | string | null;
+    unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
     reason_code?: string | null;
     access_level?: string | null;
     variant?: string | null;
     modules_allowed?: string[];
     modules_preview?: string[];
+    invite_unlock_v1?: InviteUnlockSummaryRaw | null;
     actions?: {
       page_href?: string | null;
       pdf_href?: string | null;

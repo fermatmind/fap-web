@@ -17,6 +17,12 @@ import {
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
 import {
+  normalizeInviteUnlockSummary,
+  resolveInviteUnlockSummaryBadge,
+  resolveInviteUnlockSummaryLabel,
+  type InviteUnlockSummaryView,
+} from "@/lib/access/inviteUnlockSummary";
+import {
   fetchAttemptReportAccess,
   getOrderStatus,
   recoverAlipayReturnContext,
@@ -185,6 +191,7 @@ export default function OrdersClient({
   const reportedStatusRef = useRef<ViewStatus | null>(null);
   const didAutoRedirectRef = useRef(false);
   const triggerPollRef = useRef<((options?: { manual?: boolean }) => void) | null>(null);
+  const inviteSummaryTrackedRef = useRef(false);
   const orderLookupHref = useMemo(() => {
     const query = new URLSearchParams({ orderNo });
     return withLocale(`/orders/lookup?${query.toString()}`);
@@ -706,6 +713,24 @@ export default function OrdersClient({
     () => normalizeMbtiAccessHub(accessHubRaw ?? null, locale),
     [accessHubRaw, locale]
   );
+  const inviteUnlockSummary = useMemo<InviteUnlockSummaryView | null>(() => {
+    if (accessHub?.inviteUnlock) {
+      return accessHub.inviteUnlock;
+    }
+
+    return normalizeInviteUnlockSummary(null, {
+      unlockStage: accessView?.unlockStage ?? null,
+      unlockSource: accessView?.unlockSource ?? null,
+    });
+  }, [accessHub?.inviteUnlock, accessView?.unlockSource, accessView?.unlockStage]);
+  const inviteSummaryBadge = useMemo(
+    () => resolveInviteUnlockSummaryBadge(inviteUnlockSummary, locale),
+    [inviteUnlockSummary, locale]
+  );
+  const inviteSummaryLabel = useMemo(
+    () => resolveInviteUnlockSummaryLabel(inviteUnlockSummary, locale),
+    [inviteUnlockSummary, locale]
+  );
   const formSummary = useMemo(() => normalizePublicFormSummary(formSummaryRaw), [formSummaryRaw]);
   const formSummaryLabel = useMemo(
     () => buildPublicFormDisplayLabel(formSummary, { includeScaleCode: true, locale }),
@@ -759,6 +784,23 @@ export default function OrdersClient({
   const isExactResultReady = Boolean(reportEntryHref);
   const paidStatusAlert = isExactResultReady ? dict.orders.reportReady : dict.orders.reportPendingAfterPayment;
 
+  useEffect(() => {
+    if (!inviteUnlockSummary || inviteSummaryTrackedRef.current) {
+      return;
+    }
+
+    inviteSummaryTrackedRef.current = true;
+    trackEvent("invite_staged_summary_viewed", {
+      scale_code: "MBTI",
+      unlock_stage: inviteUnlockSummary.unlockStage,
+      unlock_source: inviteUnlockSummary.unlockSource,
+      completed_invitees: inviteUnlockSummary.completedInvitees,
+      required_invitees: inviteUnlockSummary.requiredInvitees,
+      form_code: formSummary?.formCode ?? undefined,
+      locale,
+    });
+  }, [formSummary?.formCode, inviteUnlockSummary, locale]);
+
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl items-center px-4 py-10">
       <Card className="w-full">
@@ -771,6 +813,15 @@ export default function OrdersClient({
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" data-testid="order-form-summary">
               {formSummaryLabel}
             </p>
+          ) : null}
+          {inviteUnlockSummary && inviteSummaryBadge && inviteSummaryLabel ? (
+            <div
+              className="rounded-lg border border-violet-200 bg-violet-50/70 px-3 py-2 text-sm text-violet-900"
+              data-testid="order-invite-unlock-summary"
+            >
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-violet-700">{inviteSummaryBadge}</p>
+              <p className="m-0 mt-1">{inviteSummaryLabel}</p>
+            </div>
           ) : null}
           <p className="m-0 text-sm text-slate-600">{message}</p>
         </CardHeader>

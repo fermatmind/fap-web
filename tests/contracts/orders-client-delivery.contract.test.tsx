@@ -143,8 +143,31 @@ describe("OrdersClient delivery contract", () => {
       },
       exact_result_entry: createAccessProjection({
         attempt_id: "attempt-paid-1",
+        unlock_stage: "partial",
+        unlock_source: "invite",
+        invite_unlock_v1: {
+          unlock_stage: "partial",
+          unlock_source: "invite",
+          completed_invitees: 1,
+          required_invitees: 2,
+          partial_scope: "career",
+          label: "Invite unlock 1/2 · Career unlocked",
+          short_label: "Invite unlock 1/2",
+        },
       }),
-      mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-1", "ord_delivery_1"),
+      mbti_access_hub_v1: createMbtiAccessHubRaw("attempt-paid-1", "ord_delivery_1", {
+        unlock_stage: "partial",
+        unlock_source: "invite",
+        invite_unlock_v1: {
+          unlock_stage: "partial",
+          unlock_source: "invite",
+          completed_invitees: 1,
+          required_invitees: 2,
+          partial_scope: "career",
+          label: "Invite unlock 1/2 · Career unlocked",
+          short_label: "Invite unlock 1/2",
+        },
+      }),
       delivery: {
         contact_email_present: true,
         last_delivery_email_sent_at: "2026-03-11T10:30:00Z",
@@ -175,6 +198,8 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByTestId("order-back-to-result-link").textContent).toContain("Back to my test result");
     expect(screen.getByTestId("order-back-to-result-link").querySelector("button")?.className).toContain("bg-[var(--fm-surface)]");
     expect(screen.getByTestId("order-refresh-button").className).toContain("bg-[var(--fm-cta-orange)]");
+    expect(screen.getByTestId("order-invite-unlock-summary")).toHaveTextContent("Invite unlock 1/2");
+    expect(screen.getByTestId("order-invite-unlock-summary")).toHaveTextContent("Invite unlock 1/2 · Career unlocked");
     expectInlineActionOrder(screen.getByTestId("order-wait-actions-paid-ready"), [
       "Back to my test result",
       "Refresh",
@@ -185,6 +210,17 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByTestId("order-download-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "invite_staged_summary_viewed",
+      expect.objectContaining({
+        unlock_stage: "partial",
+        unlock_source: "invite",
+        completed_invitees: 1,
+        required_invitees: 2,
+        scale_code: "MBTI",
+        locale: "en",
+      })
+    );
 
     fireEvent.click(screen.getByTestId("order-download-pdf"));
 
@@ -755,10 +791,16 @@ function createMbtiAccessHubRaw(
     canDownloadPdf?: boolean;
     canRequestClaimEmail?: boolean;
     canResend?: boolean;
+    unlock_stage?: "locked" | "partial" | "full" | string;
+    unlock_source?: "none" | "invite" | "payment" | "mixed" | string;
+    invite_unlock_v1?: Record<string, unknown> | null;
   } = {}
 ): MbtiAccessHubV1Raw {
   return {
     access_state: "ready",
+    unlock_stage: overrides.unlock_stage ?? "locked",
+    unlock_source: overrides.unlock_source ?? "none",
+    invite_unlock_v1: overrides.invite_unlock_v1 ?? null,
     report_access: {
       can_view_report: true,
       attempt_id: attemptId,

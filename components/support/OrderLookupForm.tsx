@@ -16,6 +16,12 @@ import {
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
 import {
+  normalizeInviteUnlockSummary,
+  resolveInviteUnlockSummaryBadge,
+  resolveInviteUnlockSummaryLabel,
+  type InviteUnlockSummaryView,
+} from "@/lib/access/inviteUnlockSummary";
+import {
   captureEmailContact,
   fetchAttemptReportAccess,
   lookupOrder,
@@ -33,6 +39,7 @@ import { extractMbtiAccessHubAttemptId, normalizeMbtiAccessHub } from "@/lib/mbt
 import { buildPublicFormDisplayLabel, normalizePublicFormSummary } from "@/lib/mbti/formSummary";
 import { captureError } from "@/lib/observability/sentry";
 import type { SiteDictionary } from "@/lib/i18n/types";
+import { trackEvent } from "@/lib/analytics";
 
 const COOLDOWN_MS = 4000;
 
@@ -174,6 +181,7 @@ export function OrderLookupForm({
   const [lookupQrCodeDataUrl, setLookupQrCodeDataUrl] = useState<string | null>(null);
   const [lookupQrCodeError, setLookupQrCodeError] = useState(false);
   const [lastSubmitAt, setLastSubmitAt] = useState(0);
+  const inviteSummaryTrackedRef = useRef(false);
 
   useEffect(() => {
     setOrderNo(queryOrderNo);
@@ -230,6 +238,24 @@ export function OrderLookupForm({
     () => normalizeMbtiAccessHub(lookupHit?.mbti_access_hub_v1 ?? null, locale),
     [lookupHit?.mbti_access_hub_v1, locale]
   );
+  const lookupInviteSummary = useMemo<InviteUnlockSummaryView | null>(() => {
+    if (lookupAccessHub?.inviteUnlock) {
+      return lookupAccessHub.inviteUnlock;
+    }
+
+    return normalizeInviteUnlockSummary(null, {
+      unlockStage: lookupAccessView?.unlockStage ?? null,
+      unlockSource: lookupAccessView?.unlockSource ?? null,
+    });
+  }, [lookupAccessHub?.inviteUnlock, lookupAccessView?.unlockSource, lookupAccessView?.unlockStage]);
+  const lookupInviteBadge = useMemo(
+    () => resolveInviteUnlockSummaryBadge(lookupInviteSummary, locale),
+    [lookupInviteSummary, locale]
+  );
+  const lookupInviteLabel = useMemo(
+    () => resolveInviteUnlockSummaryLabel(lookupInviteSummary, locale),
+    [lookupInviteSummary, locale]
+  );
   const lookupAttemptId = useMemo(
     () =>
       extractMbtiAccessHubAttemptId(lookupHit?.mbti_access_hub_v1 ?? null)
@@ -283,6 +309,29 @@ export function OrderLookupForm({
     lookupAccessHub?.recovery.canRequestClaimEmail
     ?? (lookupDelivery?.can_request_claim_email === true);
   const showLookupHitActions = Boolean(lookupHit);
+
+  useEffect(() => {
+    if (!showLookupHitActions) {
+      inviteSummaryTrackedRef.current = false;
+      return;
+    }
+
+    if (!lookupInviteSummary || inviteSummaryTrackedRef.current) {
+      return;
+    }
+
+    inviteSummaryTrackedRef.current = true;
+    trackEvent("invite_staged_summary_viewed", {
+      scale_code: "MBTI",
+      unlock_stage: lookupInviteSummary.unlockStage,
+      unlock_source: lookupInviteSummary.unlockSource,
+      completed_invitees: lookupInviteSummary.completedInvitees,
+      required_invitees: lookupInviteSummary.requiredInvitees,
+      form_code: lookupFormSummary?.formCode ?? undefined,
+      entry_surface: "order_lookup",
+      locale,
+    });
+  }, [locale, lookupFormSummary?.formCode, lookupInviteSummary, showLookupHitActions]);
 
   useEffect(() => {
     let active = true;
@@ -620,6 +669,15 @@ export function OrderLookupForm({
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" data-testid="order-lookup-form-summary">
                     {lookupFormLabel}
                   </p>
+                ) : null}
+                {lookupInviteSummary && lookupInviteBadge && lookupInviteLabel ? (
+                  <div
+                    className="rounded-lg border border-violet-200 bg-violet-50/70 px-3 py-2 text-sm text-violet-900"
+                    data-testid="order-lookup-invite-unlock-summary"
+                  >
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-violet-700">{lookupInviteBadge}</p>
+                    <p className="m-0 mt-1">{lookupInviteLabel}</p>
+                  </div>
                 ) : null}
                 <p className="m-0 text-xs leading-6 text-slate-600">
                   {lookupStatus === "pending"
