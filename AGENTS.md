@@ -7,7 +7,8 @@ If a task involves UI, UX, visual polish, landing pages, homepage redesign, test
 When this file conflicts with a vague task request, prefer this file.
 When this file conflicts with explicit human instructions in the current task, follow the human instructions while preserving the spirit of this file wherever possible.
 
-This file supersedes earlier UI guidance. Prefer this version.
+This file is the long-lived rule system for FermatMind frontend work.
+Do not treat temporary iteration ideas as permanent rules unless they are added here.
 
 ---
 
@@ -26,8 +27,10 @@ This is not:
 - a toy demo
 - a hacker console
 - a sci-fi landing page
-- a directory wall
-- a product strategy memo rendered as UI
+- a generic SaaS template
+- a site map pretending to be a product
+- a strategy deck rendered as UI
+- a psychology self-help site
 
 This is:
 - a real consumer-facing product
@@ -54,7 +57,7 @@ The frontend must communicate:
 2. who it is for
 3. what decisions it helps with
 4. where the user should start
-5. what the result gives back
+5. what kind of result the user gets back
 6. why it can be trusted
 7. what its evidence boundaries are
 
@@ -88,8 +91,8 @@ Do **not** make the site feel like:
 - a generic SaaS template
 - a cute illustration product
 - a flashy over-animated startup page
-- a site map pretending to be a product
-- a strategy deck translated into UI
+- a portal
+- a product strategy memo
 
 ### 3.3 Visual identity guardrails
 
@@ -104,8 +107,7 @@ Allowed visual language:
 - deliberate hierarchy
 - industrial minimalism
 - mono accents used with purpose
-- high-finish product surfaces
-- abstracted but believable report/result interfaces
+- believable product/report surfaces
 
 Forbidden visual language:
 
@@ -118,7 +120,7 @@ Forbidden visual language:
 - fake code blocks used as decoration
 - noisy futuristic gimmicks
 - overly dense control-panel widgets
-- abstract placeholder geometry that does not communicate product value
+- giant abstract geometry with no product meaning
 - giant empty cards with no information scent
 
 ### 3.4 Typography and composition
@@ -185,8 +187,8 @@ Do not write like:
 - a soft emotional coach
 - a fanboy of your own system
 - a sci-fi interface narrator
-- a product manager explaining IA decisions
-- a content strategist explaining module purpose
+- a product manager explaining IA
+- a content strategist explaining why sections exist
 
 ### 4.3 Must do
 
@@ -202,7 +204,7 @@ Prefer phrasing that is:
 Good direction:
 
 - “Use structured results and scenario interpretation to support better decisions.”
-- “Start with a question, then move into a result worth reading.”
+- “Start from a question, then move into a result worth reading.”
 - “See how your profile may affect learning, career choice, and collaboration.”
 - “Choose between quick and deeper versions when a product has variants.”
 
@@ -230,9 +232,9 @@ Avoid lines like:
 - “DEPLOY”
 - “AUDIT ARCHIVE”
 - “This block exists to...”
-- “This layer is for routing...”
+- “This layer is for...”
 - “Start by question when urgency is high...”
-- “The homepage should only keep...”
+- “The homepage should...”
 - any similar performative or internal-strategy language unless it has real user-facing meaning
 
 ### 4.5 Evidence boundaries
@@ -251,7 +253,7 @@ The product can be rigorous without pretending to be omniscient.
 
 ## 5) Information architecture principles
 
-For major marketing and entry pages, structure the page so that users can understand and act without reading everything.
+For major marketing and entry pages, structure the page so users can understand and act without reading everything.
 
 Default homepage sequence should be close to:
 
@@ -963,3 +965,41 @@ Remove the theater.
 Preserve the rigor.
 Increase the trust.
 Make the product easier to understand, easier to start, and more worth finishing.
+
+---
+
+## 23) Homepage rule maintenance
+
+When homepage UI changes alter long-lived behavior, hierarchy, or brand expression, update this `AGENTS.md` in the same PR.
+
+This includes changes to:
+- brand messaging hierarchy
+- homepage section responsibilities
+- hero structure
+- immediate start vs secondary browse logic
+- results preview principles
+- trust section principles
+- footer behavior and weight
+- navigation interaction rules
+- product-line / variant presentation rules
+
+Do **not** update `AGENTS.md` for:
+- temporary experiments
+- one-off visual trials
+- unvalidated iteration ideas
+- copy tests that are not yet stable
+- small styling tweaks that do not change long-term rules
+
+Promotion rule:
+Only promote a homepage decision into `AGENTS.md` when it is:
+1. implemented
+2. reviewed
+3. likely to persist across future iterations
+
+If a homepage change is still exploratory, keep it in:
+- task instructions
+- iteration notes
+- temporary design docs
+
+Do not let `AGENTS.md` become a dump of unstable ideas.
+It should stay stable, durable, and high-signal.
