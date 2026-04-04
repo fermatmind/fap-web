@@ -29,6 +29,10 @@ type RichResultReportProps = {
       };
     };
   };
+  accessProjection?: {
+    unlockStage?: string | null;
+    unlockSource?: string | null;
+  } | null;
 };
 
 function cloneFixture<T>(fixture: T): T {
@@ -37,6 +41,7 @@ function cloneFixture<T>(fixture: T): T {
 
 const hoisted = vi.hoisted(() => ({
   fetchAttemptReportAccess: vi.fn(),
+  fetchAttemptInviteUnlockProgress: vi.fn(),
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
   fetchAttemptSubmission: vi.fn(),
@@ -82,8 +87,12 @@ vi.mock("@/components/result/RichResultReport", () => ({
       : report?.report?.scale_code === "BIG5_OCEAN"
         ? "BIG5_OCEAN"
         : null,
-  RichResultReport: ({ reportData }: RichResultReportProps) => (
-    <div data-testid="rich-result-report">
+  RichResultReport: ({ reportData, accessProjection }: RichResultReportProps) => (
+    <div
+      data-testid="rich-result-report"
+      data-unlock-stage={accessProjection?.unlockStage ?? ""}
+      data-unlock-source={accessProjection?.unlockSource ?? ""}
+    >
       {reportData?.mbti_public_projection_v1?.summary_card?.summary
         ?? (reportData as { big5_public_projection_v1?: { explainability_summary?: { headline?: string } } } | undefined)
           ?.big5_public_projection_v1?.explainability_summary?.headline
@@ -134,6 +143,7 @@ vi.mock("@/lib/auth/fmToken", () => ({
 
 vi.mock("@/lib/api/v0_3", () => ({
   fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
+  fetchAttemptInviteUnlockProgress: hoisted.fetchAttemptInviteUnlockProgress,
   fetchAttemptReport: hoisted.fetchAttemptReport,
   fetchAttemptResult: hoisted.fetchAttemptResult,
   fetchAttemptSubmission: hoisted.fetchAttemptSubmission,
@@ -148,6 +158,8 @@ function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}
     access_state: "ready",
     report_state: "ready",
     pdf_state: "ready",
+    unlock_stage: "locked",
+    unlock_source: "none",
     reason_code: "report_ready",
     projection_version: 1,
     actions: {
@@ -197,6 +209,12 @@ describe("ResultClient view-state contract", () => {
     vi.clearAllMocks();
     hoisted.ensureFmTokenReady.mockResolvedValue("issued");
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptInviteUnlockProgress.mockResolvedValue({
+      ok: true,
+      invite_code: "invite_result_test_001",
+      required_invitees: 2,
+      completed_invitees: 0,
+    });
     hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
     hoisted.fetchAttemptSubmission.mockResolvedValue({
       ok: true,
@@ -266,7 +284,14 @@ describe("ResultClient view-state contract", () => {
       anonId: "anon_result_test",
       locale: "en",
     });
+    expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+      locale: "en",
+    });
     expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "locked");
+    expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "none");
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
     expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
@@ -366,6 +391,7 @@ describe("ResultClient view-state contract", () => {
       anonId: "anon_result_test",
       locale: "en",
     });
+    expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
   });

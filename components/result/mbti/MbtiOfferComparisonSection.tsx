@@ -1,8 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import type { ReportCta } from "@/lib/api/v0_3";
+import {
+  resolveAbsoluteInviteUnlockUrl,
+  type AttemptInviteUnlockProgressView,
+} from "@/lib/access/inviteUnlock";
+import type { UnifiedUnlockSource, UnifiedUnlockStage } from "@/lib/access/unifiedAccess";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultPersonalizationViewModel } from "@/lib/mbti/publicProjection";
 import {
@@ -34,6 +39,9 @@ type MbtiOfferComparisonSectionProps = {
   attemptId: string;
   offers: ResolvedOffer[];
   cta?: ReportCta | null;
+  unlockStage?: UnifiedUnlockStage | null;
+  unlockSource?: UnifiedUnlockSource | null;
+  inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
   personalization?: MbtiResultPersonalizationViewModel | null;
   ctaRank?: number;
   onCheckout?: () => void | Promise<void>;
@@ -69,11 +77,58 @@ function resolveOfferModuleLabel(moduleCode: string, locale: Locale): string {
   return labels[normalized]?.[locale] ?? moduleCode;
 }
 
+function resolveInviteCtaLabel(
+  locale: Locale,
+  inviteStatus: "idle" | "copying" | "copied" | "failed"
+): string {
+  if (inviteStatus === "copying") {
+    return locale === "zh" ? "正在生成邀请链接..." : "Preparing invite link...";
+  }
+
+  if (inviteStatus === "copied") {
+    return locale === "zh" ? "已复制邀请链接" : "Invite link copied";
+  }
+
+  if (inviteStatus === "failed") {
+    return locale === "zh" ? "重试复制邀请链接" : "Retry invite link";
+  }
+
+  return locale === "zh" ? "邀请好友完成测试" : "Invite a friend to finish the test";
+}
+
+function resolveInviteProgress({
+  requiredInvitees,
+  completedInvitees,
+  unlockStage,
+}: {
+  requiredInvitees: number;
+  completedInvitees: number;
+  unlockStage: UnifiedUnlockStage | null | undefined;
+}) {
+  const normalizedRequired = requiredInvitees > 0 ? requiredInvitees : 2;
+  if (completedInvitees >= 0) {
+    return Math.min(normalizedRequired, completedInvitees);
+  }
+
+  if (unlockStage === "full") {
+    return normalizedRequired;
+  }
+
+  if (unlockStage === "partial") {
+    return Math.min(normalizedRequired, 1);
+  }
+
+  return 0;
+}
+
 export function MbtiOfferComparisonSection({
   locale,
   attemptId,
   offers,
   cta,
+  unlockStage = null,
+  unlockSource = null,
+  inviteUnlockProgress = null,
   personalization = null,
   ctaRank = 0,
   onCheckout,
@@ -82,6 +137,7 @@ export function MbtiOfferComparisonSection({
 }: MbtiOfferComparisonSectionProps) {
   const primaryOffer = offers.find((offer) => isFullOffer(offer)) ?? offers[0] ?? null;
   const impressionTrackedRef = useRef(false);
+  const [inviteStatus, setInviteStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
   const ctaTitle = normalizeText(cta?.title) || (locale === "zh" ? "解锁完整 MBTI 报告" : "Unlock the full MBTI report");
   const ctaSubtitle =
     normalizeText(cta?.subtitle) ||
@@ -98,6 +154,48 @@ export function MbtiOfferComparisonSection({
     : locale === "zh"
       ? "解锁完整报告"
       : "Unlock full report";
+  const inviteLabel = resolveInviteCtaLabel(locale, inviteStatus);
+  const requiredInvitees = inviteUnlockProgress?.requiredInvitees ?? 2;
+  const completedInvitees = resolveInviteProgress({
+    requiredInvitees,
+    completedInvitees: inviteUnlockProgress?.completedInvitees ?? -1,
+    unlockStage,
+  });
+  const inviteProgressText = `${completedInvitees}/${requiredInvitees}`;
+  const hasInviteLink = Boolean(
+    resolveAbsoluteInviteUnlockUrl({
+      progress: inviteUnlockProgress,
+      locale,
+    })
+  );
+  const showInvitePrimaryCta = unlockStage !== "full";
+  const showPaymentCta = unlockStage !== "full";
+  const fullUnlockSourceHint =
+    unlockSource === "invite"
+      ? locale === "zh"
+        ? "已通过邀请解锁全部结果。"
+        : "Fully unlocked through invites."
+      : unlockSource === "mixed"
+      ? locale === "zh"
+        ? "已通过邀请与支付组合解锁全部结果。"
+        : "Fully unlocked through invite and payment."
+      : unlockSource === "payment"
+      ? locale === "zh"
+        ? "已通过支付解锁全部结果。"
+        : "Fully unlocked through payment."
+      : locale === "zh"
+      ? "已全部解锁。"
+      : "Fully unlocked.";
+  const progressHint =
+    unlockStage === "partial"
+      ? locale === "zh"
+        ? "职业章节已解锁，再邀请 1 位好友即可解锁全部结果。"
+        : "Career is unlocked. Invite one more friend to unlock the full result."
+      : unlockStage === "full"
+      ? fullUnlockSourceHint
+      : locale === "zh"
+      ? "邀请 1 位好友完成测试，先解锁职业章节；邀请 2 位解锁全部结果。"
+      : "Invite one friend to unlock Career first, and two friends to unlock everything.";
   const compactFacts = [
     {
       label: locale === "zh" ? "覆盖模块" : "Coverage",
@@ -113,6 +211,36 @@ export function MbtiOfferComparisonSection({
       value: locale === "zh" ? "一次性付费" : "One-time access",
     },
   ];
+
+  async function handleInviteAction() {
+    if (!showInvitePrimaryCta || inviteStatus === "copying") {
+      return;
+    }
+
+    const inviteUrl = resolveAbsoluteInviteUnlockUrl({
+      progress: inviteUnlockProgress,
+      locale,
+    });
+
+    if (!inviteUrl) {
+      setInviteStatus("failed");
+      return;
+    }
+
+    setInviteStatus("copying");
+
+    try {
+      if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(inviteUrl);
+        setInviteStatus("copied");
+        return;
+      }
+    } catch {
+      // Fall through to failed state.
+    }
+
+    setInviteStatus("failed");
+  }
 
   useEffect(() => {
     if (primaryOffer === null || impressionTrackedRef.current) {
@@ -221,6 +349,34 @@ export function MbtiOfferComparisonSection({
               </ul>
             ) : null}
 
+            <div className="rounded-2xl border border-emerald-200 bg-white/90 p-4">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+                {locale === "zh" ? "邀请解锁进度" : "Invite unlock progress"}
+              </p>
+              <p className="m-0 mt-1 text-lg font-semibold text-slate-900" data-testid="mbti-invite-progress-value">
+                {inviteProgressText}
+              </p>
+              <p className="m-0 mt-2 text-sm leading-7 text-slate-600" data-testid="mbti-invite-progress-hint">
+                {progressHint}
+              </p>
+              {showInvitePrimaryCta ? (
+                <button
+                  type="button"
+                  data-testid="mbti-offers-invite-cta"
+                  onClick={() => {
+                    void handleInviteAction();
+                  }}
+                  disabled={inviteStatus === "copying" || !hasInviteLink}
+                  className={buttonVariants({
+                    className:
+                      "mt-3 inline-flex min-h-[44px] min-w-[220px] items-center justify-center rounded-md bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70",
+                  })}
+                >
+                  {inviteLabel}
+                </button>
+              ) : null}
+            </div>
+
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
               <div>
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
@@ -229,56 +385,58 @@ export function MbtiOfferComparisonSection({
                 <p className="m-0 mt-1 text-3xl font-semibold text-slate-900">{primaryOffer.price}</p>
                 {primaryOffer.description ? <p className="m-0 mt-2 text-sm text-slate-500">{primaryOffer.description}</p> : null}
               </div>
-              <button
-                type="button"
-                data-testid="mbti-offers-primary-cta"
-                disabled={isCheckingOut}
-                className={buttonVariants({
-                  className:
-                    "inline-flex min-h-[44px] min-w-[180px] items-center justify-center rounded-md bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-70",
-                })}
-                onClick={() => {
-                  trackEvent("ui_card_interaction", {
-                    slug: "mbti-result-shell",
-                    scale_code: "MBTI",
-                    visual_kind: "offer_primary_cta",
-                    interaction: "click",
-                    attempt_id: normalizeText(attemptId),
-                    ctaKey: "unlock_full_report",
-                    ctaRank,
-                    userState: summarizeMbtiUserState(personalization),
-                    feedbackSentiment: summarizeMbtiFeedbackSentiment(personalization),
-                    feedbackCoverage: summarizeMbtiFeedbackCoverage(personalization),
-                    actionCompletionTendency: summarizeMbtiActionCompletionTendency(personalization),
-                    lastDeepReadSection: summarizeMbtiLastDeepReadSection(personalization),
-                    currentIntentCluster: summarizeMbtiCurrentIntentCluster(personalization),
-                    primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
-                    secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
-                    orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
-                    orderedRecommendationKeys: summarizeMbtiOrderedRecommendationKeys(personalization),
-                    orderedActionKeys: summarizeMbtiOrderedActionKeys(personalization),
-                    recommendationPriorityKeys: summarizeMbtiRecommendationPriorityKeys(personalization),
-                    ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
-                    carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
-                    carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
-                    recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
-                    carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
-                    carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
-                    variantKeys: summarizeMbtiVariantKeys(personalization),
-                    sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
-                    boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
-                    axisBands: summarizeMbtiAxisBands(personalization),
-                    typeCode: normalizeText(personalization?.typeCode),
-                    identity: normalizeText(personalization?.identity),
-                    packId: normalizeText(personalization?.packId),
-                    engineVersion: normalizeText(personalization?.engineVersion),
-                    locale,
-                  });
-                  void onCheckout?.();
-                }}
-              >
-                {checkoutLabel}
-              </button>
+              {showPaymentCta ? (
+                <button
+                  type="button"
+                  data-testid="mbti-offers-primary-cta"
+                  disabled={isCheckingOut}
+                  className={buttonVariants({
+                    className:
+                      "inline-flex min-h-[44px] min-w-[180px] items-center justify-center rounded-md bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-70",
+                  })}
+                  onClick={() => {
+                    trackEvent("ui_card_interaction", {
+                      slug: "mbti-result-shell",
+                      scale_code: "MBTI",
+                      visual_kind: "offer_primary_cta",
+                      interaction: "click",
+                      attempt_id: normalizeText(attemptId),
+                      ctaKey: "unlock_full_report",
+                      ctaRank,
+                      userState: summarizeMbtiUserState(personalization),
+                      feedbackSentiment: summarizeMbtiFeedbackSentiment(personalization),
+                      feedbackCoverage: summarizeMbtiFeedbackCoverage(personalization),
+                      actionCompletionTendency: summarizeMbtiActionCompletionTendency(personalization),
+                      lastDeepReadSection: summarizeMbtiLastDeepReadSection(personalization),
+                      currentIntentCluster: summarizeMbtiCurrentIntentCluster(personalization),
+                      primaryFocusKey: normalizeText(personalization?.orchestration?.primaryFocusKey),
+                      secondaryFocusKeys: summarizeMbtiSecondaryFocusKeys(personalization),
+                      orderedSectionKeys: summarizeMbtiOrderedSectionKeys(personalization),
+                      orderedRecommendationKeys: summarizeMbtiOrderedRecommendationKeys(personalization),
+                      orderedActionKeys: summarizeMbtiOrderedActionKeys(personalization),
+                      recommendationPriorityKeys: summarizeMbtiRecommendationPriorityKeys(personalization),
+                      ctaPriorityKeys: summarizeMbtiCtaPriorityKeys(personalization),
+                      carryoverFocusKey: normalizeText(personalization?.continuity?.carryoverFocusKey),
+                      carryoverReason: normalizeText(personalization?.continuity?.carryoverReason),
+                      recommendedResumeKeys: summarizeMbtiCarryoverResumeKeys(personalization),
+                      carryoverSceneKeys: summarizeMbtiCarryoverSceneKeys(personalization),
+                      carryoverActionKeys: summarizeMbtiCarryoverActionKeys(personalization),
+                      variantKeys: summarizeMbtiVariantKeys(personalization),
+                      sceneFingerprint: summarizeMbtiSceneFingerprint(personalization),
+                      boundaryFlags: summarizeMbtiBoundaryFlags(personalization),
+                      axisBands: summarizeMbtiAxisBands(personalization),
+                      typeCode: normalizeText(personalization?.typeCode),
+                      identity: normalizeText(personalization?.identity),
+                      packId: normalizeText(personalization?.packId),
+                      engineVersion: normalizeText(personalization?.engineVersion),
+                      locale,
+                    });
+                    void onCheckout?.();
+                  }}
+                >
+                  {checkoutLabel}
+                </button>
+              ) : null}
             </div>
 
             {checkoutError ? (
@@ -286,11 +444,13 @@ export function MbtiOfferComparisonSection({
                 {checkoutError}
               </p>
             ) : null}
-            <p className="m-0 text-xs text-slate-500">
-              {locale === "zh"
-                ? "支付成功后立即解锁完整报告，并进入统一结果工作台。"
-                : "After payment, the full report is unlocked and available in your workspace."}
-            </p>
+            {showPaymentCta ? (
+              <p className="m-0 text-xs text-slate-500">
+                {locale === "zh"
+                  ? "支付成功后立即解锁完整报告，并进入统一结果工作台。"
+                  : "After payment, the full report is unlocked and available in your workspace."}
+              </p>
+            ) : null}
           </div>
         </div>
       </div>

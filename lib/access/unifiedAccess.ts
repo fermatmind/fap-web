@@ -12,11 +12,16 @@ export type UnifiedAccessState =
   | "expired"
   | "deleted";
 
+export type UnifiedUnlockStage = "locked" | "partial" | "full";
+export type UnifiedUnlockSource = "none" | "invite" | "payment" | "mixed";
+
 export type AttemptReportAccessView = {
   attemptId: string;
   accessState: UnifiedAccessState;
   reportState: UnifiedAccessState;
   pdfState: UnifiedAccessState;
+  unlockStage: UnifiedUnlockStage | null;
+  unlockSource: UnifiedUnlockSource | null;
   reasonCode: string | null;
   accessLevel: string | null;
   variant: string | null;
@@ -128,6 +133,26 @@ function normalizeAccessStringArrayField(
   return normalizeStringArray(payload?.[field]);
 }
 
+function normalizeUnlockStageField(raw: AttemptReportAccessResponse): UnifiedUnlockStage | null {
+  const payload = resolveAccessPayloadRecord(raw);
+  const normalized = normalizeText(raw.unlock_stage) ?? normalizeText(payload?.unlock_stage);
+  if (normalized === "locked" || normalized === "partial" || normalized === "full") {
+    return normalized;
+  }
+
+  return null;
+}
+
+function normalizeUnlockSourceField(raw: AttemptReportAccessResponse): UnifiedUnlockSource | null {
+  const payload = resolveAccessPayloadRecord(raw);
+  const normalized = normalizeText(raw.unlock_source) ?? normalizeText(payload?.unlock_source);
+  if (normalized === "none" || normalized === "invite" || normalized === "payment" || normalized === "mixed") {
+    return normalized;
+  }
+
+  return null;
+}
+
 export function normalizeAttemptReportAccess(
   raw: AttemptReportAccessResponse | null | undefined,
   locale: Locale
@@ -146,6 +171,8 @@ export function normalizeAttemptReportAccess(
     accessState: normalizeState(raw.access_state, "locked"),
     reportState: normalizeState(raw.report_state, "unavailable"),
     pdfState: normalizeState(raw.pdf_state, "unavailable"),
+    unlockStage: normalizeUnlockStageField(raw),
+    unlockSource: normalizeUnlockSourceField(raw),
     reasonCode: normalizeText(raw.reason_code),
     accessLevel: normalizeAccessTextField(raw, "access_level"),
     variant: normalizeAccessTextField(raw, "variant"),

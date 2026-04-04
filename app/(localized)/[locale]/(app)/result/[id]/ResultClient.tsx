@@ -14,6 +14,10 @@ import { DimensionBars } from "@/components/result/DimensionBars";
 import { ResultSummary } from "@/components/result/ResultSummary";
 import { Alert } from "@/components/ui/alert";
 import {
+  normalizeAttemptInviteUnlockProgress,
+  type AttemptInviteUnlockProgressView,
+} from "@/lib/access/inviteUnlock";
+import {
   isProjectionLocked,
   isProjectionProcessing,
   isProjectionUnavailable,
@@ -25,10 +29,12 @@ import { trackEvent } from "@/lib/analytics";
 import {
   fetchAttemptReport,
   fetchAttemptReportAccess,
+  fetchAttemptInviteUnlockProgress,
   fetchAttemptResult,
   fetchAttemptSubmission,
   linkAnonAttemptsOnceOnLoginSuccess,
   shouldLinkAnonAttemptsOnLoginSuccess,
+  type AttemptReportAccessResponse,
   type AttemptSubmissionResponse,
   type ReportResponse,
   type ResultResponse,
@@ -302,6 +308,16 @@ function resolveScaleCodeForTelemetry(reportData: ReportResponse | null, resultD
   return metaScaleCode || "UNKNOWN";
 }
 
+function isMbtiReportAccessResponse(response: AttemptReportAccessResponse): boolean {
+  if (response?.mbti_form_v1 && typeof response.mbti_form_v1 === "object") {
+    return true;
+  }
+
+  const payload = asRecord(response?.payload);
+  const payloadScaleCode = normalizeText(payload?.scale_code, payload?.scaleCode).toUpperCase();
+  return payloadScaleCode === "MBTI";
+}
+
 function resolveRetakeHrefByScale(locale: Locale, scaleCode: string): string {
   const normalized = scaleCode.toUpperCase();
   const canonicalSlug = SCALE_CANONICAL_SLUG_MAP[normalized as keyof typeof SCALE_CANONICAL_SLUG_MAP] ?? "mbti";
@@ -347,6 +363,7 @@ export default function ResultClient({
   const [reportData, setReportData] = useState<ReportResponse | null>(null);
   const [resultData, setResultData] = useState<ResultResponse | null>(null);
   const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
+  const [inviteUnlockProgress, setInviteUnlockProgress] = useState<AttemptInviteUnlockProgressView | null>(null);
   const [status, setStatus] = useState<ResultClientStatus>("loading");
   const [error, setError] = useState<string | null>(null);
 
@@ -411,6 +428,7 @@ export default function ResultClient({
   useEffect(() => {
     let active = true;
     let retryTimer: number | null = null;
+    let inviteProgressRequested = false;
 
     const scheduleRetry = (attempt: number, delayMs: number) => {
       if (attempt >= RESULT_POLL_MAX - 1) {
@@ -420,6 +438,30 @@ export default function ResultClient({
       retryTimer = window.setTimeout(() => {
         void load(attempt + 1);
       }, delayMs);
+    };
+
+    const startInviteProgressSync = () => {
+      if (inviteProgressRequested) {
+        return;
+      }
+
+      inviteProgressRequested = true;
+      void runWithAuthRetry(() => fetchAttemptInviteUnlockProgress({ attemptId, anonId, locale }))
+        .then((progressResponse) => {
+          if (!active) {
+            return;
+          }
+
+          setInviteUnlockProgress(normalizeAttemptInviteUnlockProgress(progressResponse, locale));
+        })
+        .catch(() => {
+          if (!active) {
+            return;
+          }
+
+          // Invite progress should not break the result-delivery chain.
+          setInviteUnlockProgress(null);
+        });
     };
 
     const loadFallbackResult = async () => {
@@ -490,6 +532,7 @@ export default function ResultClient({
     const load = async (attempt = 0) => {
       if (attempt === 0) {
         setStatus("loading");
+        setInviteUnlockProgress(null);
 
         try {
           await ensureFmTokenReady({
@@ -518,6 +561,10 @@ export default function ResultClient({
 
         const nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
         setAccessView(nextAccessView);
+
+        if (isMbtiReportAccessResponse(accessResponse)) {
+          startInviteProgressSync();
+        }
 
         if (!nextAccessView) {
           throw new Error(dict.result.reportUnavailable);
@@ -562,7 +609,12 @@ export default function ResultClient({
 
         setReportData(reportResponse);
         setResultData(null);
-        routeScaleCodeRef.current = resolveScaleCodeForTelemetry(reportResponse, null);
+        const reportScaleCode = resolveScaleCodeForTelemetry(reportResponse, null);
+        routeScaleCodeRef.current = reportScaleCode;
+
+        if (reportScaleCode === "MBTI") {
+          startInviteProgressSync();
+        }
 
         if (isGeneratingReportResponse(reportResponse)) {
           setStatus("generating");
@@ -713,7 +765,14 @@ export default function ResultClient({
   }
 
   if (hasRichReport && reportData) {
-    return <RichResultReport locale={locale} reportData={reportData} accessProjection={accessView} />;
+    return (
+      <RichResultReport
+        locale={locale}
+        reportData={reportData}
+        accessProjection={accessView}
+        inviteUnlockProgress={inviteUnlockProgress}
+      />
+    );
   }
 
   if (!hasReadyResultPayload(resultData)) {

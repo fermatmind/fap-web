@@ -8,6 +8,7 @@ import { MbtiResultShell } from "@/components/result/mbti/MbtiResultShell";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
@@ -1273,10 +1274,12 @@ export function RichResultReport({
   locale,
   reportData,
   accessProjection,
+  inviteUnlockProgress,
 }: {
   locale: Locale;
   reportData: ReportResponse;
   accessProjection?: AttemptReportAccessView | null;
+  inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
 }) {
   const scaleCode = resolveReportScaleCode(reportData);
   if (!scaleCode) {
@@ -1327,6 +1330,7 @@ export function RichResultReport({
         scaleCode={scaleCode}
         reportData={reportData}
         accessProjection={accessProjection}
+        inviteUnlockProgress={inviteUnlockProgress}
         headline={headline}
         tags={tags}
         dimensions={dimensions}

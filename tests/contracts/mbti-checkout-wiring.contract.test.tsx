@@ -11,6 +11,7 @@ import {
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { readPendingOrder, writePendingOrder } from "@/lib/commerce/pendingOrder";
 import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
+import type { AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock";
 import { applyMbtiPhase2Fixture } from "@/tests/helpers/mbtiPhase2Fixture";
 import type {
   HighlightCard,
@@ -179,6 +180,20 @@ function createShellProps(reportData: ReportResponse) {
   };
 }
 
+function createInviteProgress(overrides: Partial<AttemptInviteUnlockProgressView> = {}): AttemptInviteUnlockProgressView {
+  return {
+    inviteCode: "invite_mbti_001",
+    inviteUrl: "https://example.com/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001",
+    status: "in_progress",
+    requiredInvitees: 2,
+    completedInvitees: 0,
+    targetAttemptId: "attempt-123",
+    unlockStage: "locked",
+    unlockSource: "invite",
+    ...overrides,
+  };
+}
+
 describe("MBTI checkout wiring contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -243,6 +258,196 @@ describe("MBTI checkout wiring contract", () => {
     fireEvent.click(screen.getByTestId("mbti-offers-primary-cta"));
 
     expect(onCheckout).toHaveBeenCalledTimes(1);
+  });
+
+  it("renders locked invite CTA with 0/2 progress and keeps payment CTA visible", () => {
+    render(
+      <MbtiOfferComparisonSection
+        locale="zh"
+        attemptId="attempt-123"
+        offers={[
+          {
+            key: "MBTI_REPORT_FULL",
+            title: "完整人格报告",
+            price: "¥1.99",
+            description: "完整报告",
+            modules: ["人格概览", "职业路径"],
+            moduleCodes: ["core_full", "career", "relationships"],
+          },
+        ]}
+        unlockStage="locked"
+        unlockSource="invite"
+        inviteUnlockProgress={createInviteProgress({ completedInvitees: 0 })}
+        onCheckout={vi.fn()}
+      />
+    );
+
+    expect(screen.getByTestId("mbti-invite-progress-value")).toHaveTextContent("0/2");
+    expect(screen.getByTestId("mbti-offers-invite-cta")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
+  });
+
+  it("renders partial invite messaging with 1/2 progress and keeps payment CTA", () => {
+    render(
+      <MbtiOfferComparisonSection
+        locale="zh"
+        attemptId="attempt-123"
+        offers={[
+          {
+            key: "MBTI_REPORT_FULL",
+            title: "完整人格报告",
+            price: "¥1.99",
+            description: "完整报告",
+            modules: ["人格概览", "职业路径"],
+            moduleCodes: ["core_full", "career", "relationships"],
+          },
+        ]}
+        unlockStage="partial"
+        unlockSource="invite"
+        inviteUnlockProgress={createInviteProgress({ completedInvitees: 1, unlockStage: "partial" })}
+        onCheckout={vi.fn()}
+      />
+    );
+
+    expect(screen.getByTestId("mbti-invite-progress-value")).toHaveTextContent("1/2");
+    expect(screen.getByTestId("mbti-invite-progress-hint")).toHaveTextContent("职业章节已解锁");
+    expect(screen.getByTestId("mbti-offers-invite-cta")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
+  });
+
+  it("removes invite primary CTA in full stage", () => {
+    render(
+      <MbtiOfferComparisonSection
+        locale="zh"
+        attemptId="attempt-123"
+        offers={[
+          {
+            key: "MBTI_REPORT_FULL",
+            title: "完整人格报告",
+            price: "¥1.99",
+            description: "完整报告",
+            modules: ["人格概览", "职业路径"],
+            moduleCodes: ["core_full", "career", "relationships"],
+          },
+        ]}
+        unlockStage="full"
+        unlockSource="invite"
+        inviteUnlockProgress={createInviteProgress({ completedInvitees: 2, unlockStage: "full" })}
+      />
+    );
+
+    expect(screen.getByTestId("mbti-invite-progress-value")).toHaveTextContent("2/2");
+    expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offers-primary-cta")).not.toBeInTheDocument();
+  });
+
+  it("copies backend invite_url when invite CTA is clicked", async () => {
+    render(
+      <MbtiOfferComparisonSection
+        locale="zh"
+        attemptId="attempt-123"
+        offers={[
+          {
+            key: "MBTI_REPORT_FULL",
+            title: "完整人格报告",
+            price: "¥1.99",
+            description: "完整报告",
+            modules: ["人格概览", "职业路径"],
+            moduleCodes: ["core_full", "career", "relationships"],
+          },
+        ]}
+        unlockStage="locked"
+        unlockSource="invite"
+        inviteUnlockProgress={createInviteProgress({
+          inviteUrl: "https://example.com/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001",
+        })}
+      />
+    );
+
+    fireEvent.click(screen.getByTestId("mbti-offers-invite-cta"));
+
+    await waitFor(() => {
+      expect(window.navigator.clipboard.writeText).toHaveBeenCalledWith(
+        "https://example.com/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001"
+      );
+    });
+  });
+
+  it("builds locale invite URL from invite_code when invite_url is missing", async () => {
+    render(
+      <MbtiOfferComparisonSection
+        locale="zh"
+        attemptId="attempt-123"
+        offers={[
+          {
+            key: "MBTI_REPORT_FULL",
+            title: "完整人格报告",
+            price: "¥1.99",
+            description: "完整报告",
+            modules: ["人格概览", "职业路径"],
+            moduleCodes: ["core_full", "career", "relationships"],
+          },
+        ]}
+        unlockStage="locked"
+        unlockSource="invite"
+        inviteUnlockProgress={createInviteProgress({
+          inviteCode: "invite_mbti_fallback_001",
+          inviteUrl: null,
+        })}
+      />
+    );
+
+    fireEvent.click(screen.getByTestId("mbti-offers-invite-cta"));
+
+    await waitFor(() => {
+      expect(window.navigator.clipboard.writeText).toHaveBeenCalledWith(
+        expect.stringContaining("/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_fallback_001")
+      );
+    });
+  });
+
+  it("keeps the offer comparison surface in partial stage even when legacy ready rule is true", () => {
+    const reportData = createReportFixture();
+
+    render(
+      <MbtiResultShell
+        {...createShellProps(reportData)}
+        accessProjection={{
+          attemptId: "attempt-123",
+          accessState: "ready",
+          reportState: "ready",
+          pdfState: "ready",
+          unlockStage: "partial",
+          unlockSource: "invite",
+          reasonCode: "invite_partial_unlock",
+          accessLevel: "preview",
+          variant: "free",
+          projectionVersion: 1,
+          modulesAllowed: ["career"],
+          modulesPreview: ["career"],
+          actions: {
+            pageHref: "/zh/result/attempt-123",
+            pdfHref: null,
+            waitHref: null,
+            historyHref: "/zh/history/mbti",
+            lookupHref: "/zh/orders/lookup",
+          },
+          meta: {
+            producedAt: "2026-04-04T10:00:00Z",
+            refreshedAt: "2026-04-04T10:00:00Z",
+          },
+        }}
+        inviteUnlockProgress={createInviteProgress({
+          completedInvitees: 1,
+          requiredInvitees: 2,
+          unlockStage: "partial",
+        })}
+      />
+    );
+
+    expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
   });
 
   it("resolves checkout sku with the required priority", () => {

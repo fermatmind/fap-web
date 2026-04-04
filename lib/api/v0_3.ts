@@ -794,6 +794,8 @@ export type AttemptReportAccessResponse = {
   access_state: string;
   report_state: string;
   pdf_state: string;
+  unlock_stage?: "locked" | "partial" | "full" | string | null;
+  unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
   reason_code?: string | null;
   retry_after?: number | null;
   retry_after_seconds?: number | null;
@@ -818,6 +820,20 @@ export type AttemptReportAccessResponse = {
     refreshed_at?: string | null;
     [key: string]: unknown;
   } | null;
+  [key: string]: unknown;
+};
+
+export type AttemptInviteUnlockProgressResponse = {
+  ok: boolean;
+  invite_id?: string | null;
+  invite_code?: string | null;
+  invite_url?: string | null;
+  status?: string | null;
+  required_invitees?: number | null;
+  completed_invitees?: number | null;
+  target_attempt_id?: string | null;
+  unlock_stage?: "locked" | "partial" | "full" | string | null;
+  unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
   [key: string]: unknown;
 };
 
@@ -2563,6 +2579,26 @@ export async function fetchAttemptReportAccess({
   );
 
   return assertApiOk(response, "Failed to load report access.");
+}
+
+export async function fetchAttemptInviteUnlockProgress({
+  attemptId,
+  anonId,
+  locale,
+}: {
+  attemptId: string;
+  anonId?: string;
+  locale?: string;
+}): Promise<AttemptInviteUnlockProgressResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const params = new URLSearchParams();
+  if (locale) params.set("locale", locale);
+  const response = await apiClient.get<AttemptInviteUnlockProgressResponse>(
+    `/v0.3/attempts/${attemptId}/invite-unlocks${params.size > 0 ? `?${params.toString()}` : ""}`,
+    anonHeader(resolvedAnonId)
+  );
+
+  return assertApiOk(response, "Failed to load invite unlock progress.");
 }
 
 export function getAttemptReportPdfUrl({
