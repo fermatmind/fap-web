@@ -356,13 +356,19 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
           <div className="space-y-10">
             <SectionHeader kicker={copy.results.kicker} title={copy.results.title} body={copy.results.body} />
             <div className="fm-home-results-grid">
-              {copy.results.previews.map((item) => (
-                <article key={item.title} className="fm-home-report-preview" data-tone={item.tone}>
-                  <ResultsPreviewGraphic item={item} locale={locale} />
-                  <h3 className="m-0 text-[1.22rem] font-semibold tracking-[-0.035em] text-slate-950">{item.title}</h3>
-                  <p className="m-0 text-[0.95rem] leading-7 text-slate-500">{item.caption}</p>
-                </article>
-              ))}
+              {copy.results.previews.map((item) => {
+                const previewCaption =
+                  "caption" in item && typeof item.caption === "string" && item.caption.trim().length > 0
+                    ? item.caption
+                    : item.metrics.join(" · ");
+                return (
+                  <article key={item.title} className="fm-home-report-preview" data-tone={item.tone}>
+                    <ResultsPreviewGraphic item={item} locale={locale} />
+                    <h3 className="m-0 text-[1.22rem] font-semibold tracking-[-0.035em] text-slate-950">{item.title}</h3>
+                    <p className="m-0 text-[0.95rem] leading-7 text-slate-500">{previewCaption}</p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </Container>
