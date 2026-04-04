@@ -32,7 +32,7 @@ export function LocaleSwitcher() {
     <Link
       href={href}
       onClick={persistLocalePreference}
-      className="inline-flex h-11 min-h-[44px] min-w-[54px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 px-2.5 text-[13px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[60px] xl:px-3 xl:text-sm"
+      className="inline-flex h-11 min-h-[44px] min-w-[52px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 px-2 text-[12px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[56px] xl:px-2.5 xl:text-[12.5px]"
       aria-label={targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label}
     >
       {targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label}
