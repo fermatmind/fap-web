@@ -225,14 +225,14 @@ export function SiteHeader() {
           <div
             ref={desktopNavRef}
             className={cn(
-              "hidden min-w-0 items-center gap-1.5 lg:flex xl:gap-2.5",
-              "flex-1 justify-end"
+              "hidden min-w-0 items-center lg:flex",
+              isHomeRoute ? "ml-auto w-full max-w-[60rem] gap-2.5 xl:gap-3.5" : "flex-1 justify-end gap-1.5 xl:gap-2.5"
             )}
           >
             <nav
               className={cn(
-                "flex min-w-0 flex-nowrap items-center gap-0 xl:gap-0.5",
-                isHomeRoute ? "justify-center" : "justify-end"
+                "flex min-w-0 flex-nowrap items-center",
+                isHomeRoute ? "flex-1 justify-start gap-0.35 xl:gap-0.55" : "justify-end gap-0 xl:gap-0.5"
               )}
             >
               {navItems.map((item) => {

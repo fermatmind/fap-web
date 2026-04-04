@@ -2,7 +2,7 @@ import type { SiteDictionary } from "@/lib/i18n/types";
 
 const zh: SiteDictionary = {
   header: {
-    brand: "FermatMind",
+    brand: "费马测试",
     home: "首页",
     tests: "测试",
     articles: "文章",
