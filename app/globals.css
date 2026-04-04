@@ -7869,7 +7869,7 @@ a {
 }
 
 .fm-home-hero-frame {
-  min-height: calc(100svh - 4.85rem);
+  min-height: clamp(22rem, 52svh, 30rem);
   display: flex;
   align-items: center;
 }
@@ -7987,7 +7987,7 @@ a {
 
 .fm-home-hero-workbench {
   position: relative;
-  min-height: clamp(28rem, 36vw, 38rem);
+  min-height: clamp(18.5rem, 22vw, 23rem);
   border-radius: 2.3rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
