@@ -7961,6 +7961,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  margin-top: clamp(1.4rem, 1.8vw, 1.8rem);
 }
 
 .fm-home-trust-rail {
@@ -9098,7 +9099,7 @@ a {
   }
 
   .fm-home-quick-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .fm-home-family-grid {
@@ -9153,6 +9154,7 @@ a {
   .fm-home-lineup-grid {
     grid-template-columns: 1fr;
   }
+
 }
 
 @media (max-width: 767px) {
