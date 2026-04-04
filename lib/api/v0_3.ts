@@ -1589,6 +1589,7 @@ export type AttributionUtm = {
 export type AttemptAttributionPayload = {
   share_id?: string;
   compare_invite_id?: string;
+  invite_unlock_code?: string;
   share_click_id?: string;
   entrypoint?: string;
   referrer?: string;
@@ -2267,6 +2268,7 @@ function normalizeAttemptAttributionPayload(
   const normalized = {
     share_id: normalizeOptionalString(attribution.share_id),
     compare_invite_id: normalizeOptionalString(attribution.compare_invite_id),
+    invite_unlock_code: normalizeOptionalString(attribution.invite_unlock_code),
     share_click_id: normalizeOptionalString(attribution.share_click_id),
     entrypoint: normalizeOptionalString(attribution.entrypoint),
     referrer: normalizeOptionalString(attribution.referrer),
@@ -2307,6 +2309,7 @@ export async function startAttempt({
   referrer,
   share_id,
   compare_invite_id,
+  invite_unlock_code,
   share_click_id,
   entrypoint,
   landing_path,
@@ -2329,6 +2332,7 @@ export async function startAttempt({
   referrer?: string;
   share_id?: string;
   compare_invite_id?: string;
+  invite_unlock_code?: string;
   share_click_id?: string;
   entrypoint?: string;
   landing_path?: string;
@@ -2338,6 +2342,7 @@ export async function startAttempt({
   const attribution = normalizeAttemptAttributionPayload({
     share_id,
     compare_invite_id,
+    invite_unlock_code,
     share_click_id,
     entrypoint,
     referrer,
@@ -2432,6 +2437,7 @@ export async function submitAttempt({
   consent,
   share_id,
   compare_invite_id,
+  invite_unlock_code,
   share_click_id,
   entrypoint,
   referrer,
@@ -2449,6 +2455,7 @@ export async function submitAttempt({
   };
   share_id?: string;
   compare_invite_id?: string;
+  invite_unlock_code?: string;
   share_click_id?: string;
   entrypoint?: string;
   referrer?: string;
@@ -2459,6 +2466,7 @@ export async function submitAttempt({
   const attribution = normalizeAttemptAttributionPayload({
     share_id,
     compare_invite_id,
+    invite_unlock_code,
     share_click_id,
     entrypoint,
     referrer,

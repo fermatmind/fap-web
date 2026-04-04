@@ -113,10 +113,16 @@ function normalizeQueryValue(value: string | null): string | undefined {
 }
 
 function readTakeFlowAttribution(
-  searchParams: ReadonlyURLSearchParams
+  searchParams: ReadonlyURLSearchParams,
+  scaleCode: string
 ): { attribution: AttemptAttributionPayload; compareIntent: boolean } {
+  const isMbti = isMbtiScaleCode(scaleCode);
   const share_id = normalizeQueryValue(searchParams.get("share_id"));
   const compare_invite_id = normalizeQueryValue(searchParams.get("compare_invite_id"));
+  const invite_unlock_code = isMbti
+    ? normalizeQueryValue(searchParams.get("invite_code"))
+      ?? normalizeQueryValue(searchParams.get("invite_unlock_code"))
+    : undefined;
   const share_click_id = normalizeQueryValue(searchParams.get("share_click_id"));
   const entrypoint = normalizeQueryValue(searchParams.get("entrypoint"));
   const referrer = normalizeQueryValue(searchParams.get("referrer"));
@@ -132,6 +138,7 @@ function readTakeFlowAttribution(
     attribution: {
       ...(share_id ? { share_id } : {}),
       ...(compare_invite_id ? { compare_invite_id } : {}),
+      ...(invite_unlock_code ? { invite_unlock_code } : {}),
       ...(share_click_id ? { share_click_id } : {}),
       ...(entrypoint ? { entrypoint } : {}),
       ...(referrer ? { referrer } : {}),
@@ -225,8 +232,8 @@ function QuizTakeInner({
   const withLocale = (path: string) => localizedPath(path, locale);
   const dict = getDictSync(locale);
   const { attribution, compareIntent } = useMemo(
-    () => readTakeFlowAttribution(searchParams),
-    [searchParams]
+    () => readTakeFlowAttribution(searchParams, scaleCode),
+    [scaleCode, searchParams]
   );
 
   const currentIndex = useQuizStore((store) => store.state.currentIndex);
