@@ -170,28 +170,28 @@ export function SiteFooter() {
   if (isHomeRoute) {
     return (
       <footer className="border-t border-white/8 bg-[#0a1015] text-white">
-        <Container className="max-w-[110rem] px-5 py-10 md:px-8 md:py-12 xl:px-12">
-          <div className="grid gap-8 xl:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-            <div className="max-w-[22rem] space-y-3">
-              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/32">
+        <Container className="max-w-[110rem] px-5 py-7 md:px-8 md:py-9 xl:px-12">
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)]">
+            <div className="max-w-[18.5rem] space-y-2">
+              <p className="m-0 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/24">
                 {homeFooter.tailnote}
               </p>
-              <p className="m-0 text-base font-semibold tracking-[-0.03em] text-white">FermatMind / 费马测试</p>
-              <p className="m-0 text-sm leading-6 text-slate-500">
-                <span className="text-white/48">{homeFooter.supportEmailLabel}: </span>
+              <p className="m-0 text-[14px] font-semibold tracking-[-0.03em] text-white/92">FermatMind / 费马测试</p>
+              <p className="m-0 text-[12px] leading-6 text-slate-600">
+                <span className="text-white/40">{homeFooter.supportEmailLabel}: </span>
                 <a href={`mailto:${supportEmail}`} className="text-slate-300 transition hover:text-white">
                   {supportEmail}
                 </a>
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
               {homeFooter.groups.map((group) => (
-                <section key={group.title} className="space-y-2.5">
-                  <h3 className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/52">{group.title}</h3>
-                  <div className="space-y-2">
-                    {group.links.map((item) => (
-                      <Link key={`${group.title}-${item.href}`} href={withLocale(item.href)} className="block text-sm text-slate-500 transition hover:text-white">
+                <section key={group.title} className="space-y-1.5">
+                  <h3 className="m-0 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">{group.title}</h3>
+                  <div className="space-y-1.5">
+                    {group.links.slice(0, 2).map((item) => (
+                      <Link key={`${group.title}-${item.href}`} href={withLocale(item.href)} className="block text-[12px] text-slate-600 transition hover:text-white">
                         {item.label}
                       </Link>
                     ))}
@@ -201,9 +201,9 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col gap-4 border-t border-white/8 pt-4 md:flex-row md:items-center md:justify-between">
+          <div className="mt-4 flex flex-col gap-2.5 border-t border-white/8 pt-3 md:flex-row md:items-center md:justify-between">
             <div className="fm-social-rail md:w-auto">
-              <div className="fm-social-list fm-social-list--footer mx-0 w-full max-w-[24rem] justify-items-start">
+              <div className="fm-social-list fm-social-list--footer mx-0 w-full max-w-[10.75rem] justify-items-start">
                 {homeSocialItems.map((item) => (
                   <div
                     key={item.key}
@@ -265,7 +265,7 @@ export function SiteFooter() {
               </div>
             </div>
 
-            <p data-visual-volatile="true" className="m-0 text-[11px] text-slate-600 md:text-right">
+            <p data-visual-volatile="true" className="m-0 text-[10px] text-slate-700 md:text-right">
               © {new Date().getFullYear()} FermatMind. {dict.footer.copyright}
             </p>
           </div>
