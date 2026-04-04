@@ -172,9 +172,9 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       ],
     },
     families: {
-      kicker: "Featured Paths",
-      title: "按家族浏览，找到更接近的方向。",
-      body: "按家族浏览。",
+      kicker: "DISCOVER BY AREA",
+      title: "探索你的认知版图。",
+      body: "",
       items: [
         {
           title: "人格与风格",
@@ -468,9 +468,9 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       ],
     },
     families: {
-      kicker: "Featured Paths",
-      title: "Browse by family when the direction is already clear.",
-      body: "Browse by family.",
+      kicker: "DISCOVER BY AREA",
+      title: "Explore your map of mind.",
+      body: "",
       items: [
         {
           title: "Personality and style",
