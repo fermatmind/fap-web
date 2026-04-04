@@ -5,10 +5,15 @@ import {
   resolveFacetGlossary,
   selectBig5ActionSnippets,
 } from "@/lib/big5/interpretation";
-import { BIG5_V1_SECTION_MICROCOPY } from "@/lib/big5/microcopy";
+import {
+  BIG5_V1_SECTION_MICROCOPY,
+  BIG5_V1_SHELL_MICROCOPY,
+  BIG5_V1_STATE_MICROCOPY,
+} from "@/lib/big5/microcopy";
 import {
   BIG5_V1_SAFE_BLOCK_KINDS,
   BIG5_V1_SECTION_BLUEPRINTS,
+  type Big5V1LockedPreviewPolicy,
   type Big5V1SafeBlockKind,
   type Big5V1SectionBlueprint,
 } from "@/lib/big5/sectionBlueprint";
@@ -32,8 +37,12 @@ export type Big5AssembledSection = {
   key: string;
   title: string;
   subtitle?: string;
+  order: number;
   page_slot: string;
   access_level: string;
+  locked_preview_policy: Big5V1LockedPreviewPolicy;
+  locked_preview_description?: string;
+  locked_preview_cta?: string;
   module_code?: string;
   blocks: ReportBlock[];
 };
@@ -61,7 +70,7 @@ const SAFE_BLOCK_KIND_SET = new Set<string>(BIG5_V1_SAFE_BLOCK_KINDS);
 const SECTION_ALIASES: Record<string, readonly string[]> = {
   hero_summary: ["hero_summary", "summary"],
   domains_overview: ["domains_overview"],
-  domain_deep_dive: ["domain_deep_dive", "traits.overview", "traits.why_this_profile"],
+  domain_deep_dive: ["domain_deep_dive", "traits.why_this_profile"],
   facet_details: ["facet_details", "facet_table", "top_facets"],
   core_portrait: ["core_portrait", "traits.overview"],
   norms_comparison: ["norms_comparison", "comparative"],
@@ -398,17 +407,48 @@ function buildSyntheticBlocks(
   if (blueprint.section_key === "methodology_and_access") {
     const qualityLevel = normalizeText(reportData.quality?.level).toUpperCase();
     const normsStatus = normalizeText(reportData.norms?.status).toUpperCase();
-    const bodyParts = [qualityLevel ? `Quality ${qualityLevel}` : "", normsStatus ? `Norms ${normsStatus}` : ""].filter(Boolean);
-    if (bodyParts.length === 0) {
+    const isPreview = reportData.locked === true || normalizeText(reportData.variant).toLowerCase() === "free";
+    const qualityKey = qualityLevel.toLowerCase() as "a" | "b" | "c";
+    const qualityCopy = BIG5_V1_STATE_MICROCOPY.quality[qualityKey] ?? "";
+    const normsCopy = normsStatus === "MISSING"
+      ? BIG5_V1_STATE_MICROCOPY.norms.missing
+      : BIG5_V1_STATE_MICROCOPY.norms.calibrated;
+    const scopeCopy = locale === "zh"
+      ? isPreview
+        ? BIG5_V1_SHELL_MICROCOPY.methodology.preview_scope_zh
+        : BIG5_V1_SHELL_MICROCOPY.methodology.full_scope_zh
+      : isPreview
+        ? BIG5_V1_SHELL_MICROCOPY.methodology.preview_scope_en
+        : BIG5_V1_SHELL_MICROCOPY.methodology.full_scope_en;
+    const methodologyTitle = locale === "zh"
+      ? BIG5_V1_SHELL_MICROCOPY.methodology.title_zh
+      : BIG5_V1_SHELL_MICROCOPY.methodology.title_en;
+    const methodNote = locale === "zh"
+      ? BIG5_V1_SHELL_MICROCOPY.methodology.method_note_zh
+      : BIG5_V1_SHELL_MICROCOPY.methodology.method_note_en;
+    const bullets = [qualityCopy, normsCopy, methodNote].filter(Boolean);
+
+    if (!scopeCopy && bullets.length === 0) {
       return [];
     }
-    return [
+
+    const blocks: ReportBlock[] = [
       {
-        kind: "paragraph",
-        title: BIG5_V1_SECTION_MICROCOPY.methodology_and_access.title,
-        body: bodyParts.join(" · "),
+        kind: "callout",
+        title: methodologyTitle,
+        body: scopeCopy,
       },
     ];
+
+    if (bullets.length > 0) {
+      blocks.push({
+        kind: "bullets",
+        title: BIG5_V1_SECTION_MICROCOPY.methodology_and_access.title,
+        body: bullets.join("\n"),
+      });
+    }
+
+    return blocks;
   }
 
   const fallbackHeadline = normalizeText(explainability?.headline, actionPlan?.headline);
@@ -417,6 +457,21 @@ function buildSyntheticBlocks(
   }
 
   return [];
+}
+
+function resolveLockedPreviewDescription(
+  policy: Big5V1LockedPreviewPolicy,
+  locale: Locale
+): string {
+  if (locale === "zh") {
+    if (policy === "teaser_card") return BIG5_V1_SHELL_MICROCOPY.section_locked_policy.teaser_description_zh;
+    if (policy === "mask_and_cta") return BIG5_V1_SHELL_MICROCOPY.section_locked_policy.mask_description_zh;
+    return BIG5_V1_SHELL_MICROCOPY.section_locked_policy.none_description_zh;
+  }
+
+  if (policy === "teaser_card") return BIG5_V1_SHELL_MICROCOPY.section_locked_policy.teaser_description_en;
+  if (policy === "mask_and_cta") return BIG5_V1_SHELL_MICROCOPY.section_locked_policy.mask_description_en;
+  return BIG5_V1_SHELL_MICROCOPY.section_locked_policy.none_description_en;
 }
 
 function hasSourceField(
@@ -544,13 +599,18 @@ function buildSectionFromBlueprint(
 
   const title = normalizeText(rawSection?.title, BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].title, blueprint.title);
   const accessLevel = normalizeText(rawSection?.access_level, blueprint.access_level).toLowerCase();
+  const lockedPreviewPolicy = blueprint.locked_preview_policy;
 
   return {
     key: blueprint.section_key,
     title,
-    subtitle: BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].subtitle,
+    subtitle: normalizeText(rawSection?.subtitle, BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].subtitle, blueprint.subtitle),
+    order: blueprint.order,
     page_slot: blueprint.page_slot,
     access_level: accessLevel || blueprint.access_level,
+    locked_preview_policy: lockedPreviewPolicy,
+    locked_preview_description: resolveLockedPreviewDescription(lockedPreviewPolicy, locale),
+    locked_preview_cta: locale === "zh" ? "解锁完整报告" : BIG5_V1_STATE_MICROCOPY.locked_preview.cta,
     module_code: normalizeText(rawSection?.module_code),
     blocks,
   };

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
+import { buildBig5TakeHref, getBig5VariantLabel, listBig5FormMetas } from "@/lib/big5/forms";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { cn } from "@/lib/utils";
@@ -39,9 +40,104 @@ function SectionHeader({
   );
 }
 
+function ResultsPreviewGraphic({
+  item,
+  locale,
+}: {
+  item: ReturnType<typeof getHomePageContent>["results"]["previews"][number];
+  locale: Locale;
+}) {
+  if (item.tone === "traits") {
+    return (
+      <div className="fm-home-report-preview-visual fm-home-report-preview-visual--traits" aria-hidden>
+        <div className="fm-home-report-preview-chrome">
+          <span />
+          <span />
+          <span />
+        </div>
+        <svg viewBox="0 0 240 176" className="fm-home-report-radar" role="presentation">
+          <polygon points="120,16 188,52 188,124 120,160 52,124 52,52" className="fm-home-report-radar-grid is-outer" />
+          <polygon points="120,40 168,64 168,112 120,136 72,112 72,64" className="fm-home-report-radar-grid" />
+          <polygon points="120,64 148,78 148,98 120,112 92,98 92,78" className="fm-home-report-radar-grid" />
+          <polygon points="120,28 173,63 160,122 120,138 78,108 70,58" className="fm-home-report-radar-shape" />
+        </svg>
+        <div className="fm-home-report-preview-meta">
+          {item.metrics.map((metric) => (
+            <span key={`${item.title}-${metric}`}>{metric}</span>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (item.tone === "career") {
+    return (
+      <div className="fm-home-report-preview-visual fm-home-report-preview-visual--career" aria-hidden>
+        <div className="fm-home-report-preview-chrome">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="fm-home-report-career-icon">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M6 18h12M8 18v-5m4 5V8m4 10v-7" />
+          </svg>
+        </div>
+        <div className="fm-home-report-career-bars">
+          {item.metrics.map((metric, index) => (
+            <div key={`${item.title}-${metric}`} className="fm-home-report-career-row">
+              <span>{metric}</span>
+              <i className={`is-${index + 1}`} />
+            </div>
+          ))}
+        </div>
+        <div className="fm-home-report-preview-footer">
+          <span>{locale === "zh" ? "最佳配适区间" : "Best-fit range"}</span>
+          <strong>{locale === "zh" ? "74%" : "74%"}</strong>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="fm-home-report-preview-visual fm-home-report-preview-visual--cognition" aria-hidden>
+      <div className="fm-home-report-preview-chrome">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="fm-home-report-cognition-panorama">
+        <div className="fm-home-report-cognition-column is-wide">
+          <span className="is-tall" />
+          <span className="is-mid" />
+          <span className="is-short" />
+        </div>
+        <div className="fm-home-report-cognition-column">
+          <i />
+          <i />
+          <i />
+        </div>
+      </div>
+      <div className="fm-home-report-preview-meta">
+        {item.metrics.map((metric) => (
+          <span key={`${item.title}-${metric}`}>{metric}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function extractTestSlugFromHref(href: string): string | null {
+  const slugMatch = href.match(/\/tests\/([^/?#]+)/);
+  return slugMatch?.[1] ?? null;
+}
+
 export function HomePageExperience({ locale }: { locale: Locale }) {
   const copy = getHomePageContent(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const heroTitleLines = copy.hero.title.split("\n");
+  const heroLeadLine = heroTitleLines[0] ?? copy.hero.title;
+  const heroSecondLine = heroTitleLines[1];
   const primaryButtonClass = buttonVariants({
     size: "lg",
     className:
@@ -63,17 +159,15 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         <Container className="relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-18)] pt-[calc(var(--fm-space-16)+var(--fm-space-10))] md:px-8 md:pb-[var(--fm-space-22)] md:pt-[calc(var(--fm-space-20)+var(--fm-space-10))] xl:px-12">
           <div className="fm-home-hero-poster">
             <div className="fm-home-hero-copy-shell">
-              <div className="space-y-4">
-                <p className="fm-home-eyebrow">{copy.hero.eyebrow}</p>
-                <p className="m-0 text-sm font-medium uppercase tracking-[0.22em] text-white/42">{copy.hero.brand}</p>
-              </div>
-
-              <div className="space-y-5">
-                <h1 className="m-0 max-w-[13.6em] whitespace-pre-line text-[clamp(2.8rem,5.15vw,5.35rem)] font-semibold leading-[0.9] tracking-[-0.062em] text-white">
-                  {copy.hero.title}
+              <div className="space-y-8 md:space-y-10">
+                <h1 className="fm-home-hero-title m-0 text-white">
+                  <span className="fm-home-hero-title-line fm-home-hero-title-line--lead">{heroLeadLine}</span>
+                  {heroSecondLine ? (
+                    <span className="fm-home-hero-title-line fm-home-hero-title-line--subtle">{heroSecondLine}</span>
+                  ) : null}
                 </h1>
                 {copy.hero.body ? (
-                  <p className="m-0 max-w-[28rem] text-[0.96rem] leading-7 text-slate-300 md:text-[1.02rem] md:leading-7">
+                  <p className="fm-home-hero-description m-0 max-w-[31rem]">
                     {copy.hero.body}
                   </p>
                 ) : null}
@@ -229,10 +323,19 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
                 <div className="fm-home-family-link-stack">
                   {family.links.map((link) => {
+                    const linkSlug = extractTestSlugFromHref(link.href);
+                    const variantFamily = linkSlug === "big-five-personality-test-ocean-model" ? "big5" : null;
+                    const form = listBig5FormMetas()[0];
+                    const big5Href =
+                      variantFamily === "big5" && linkSlug && form
+                        ? buildBig5TakeHref(linkSlug, locale, form.formCode)
+                        : null;
+                    const big5AriaLabel = form ? getBig5VariantLabel(form.formCode, locale) : null;
                     return (
                       <div key={`${family.title}-${link.title}`} className="fm-home-family-link-row">
                         <Link
-                          href={withLocale(link.href)}
+                          href={big5Href ?? withLocale(link.href)}
+                          aria-label={big5Href ? `${link.title} · ${big5AriaLabel}` : undefined}
                           className="inline-flex items-center gap-2 text-[0.98rem] font-medium text-slate-900 transition hover:text-slate-700"
                         >
                           <span>{link.title}</span>
@@ -252,40 +355,20 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
           <div className="space-y-10">
             <SectionHeader kicker={copy.results.kicker} title={copy.results.title} body={copy.results.body} />
-            <div className="grid gap-4 lg:grid-cols-3">
-              {copy.results.previews.map((item) => (
-                <article key={item.title} className="fm-home-report-preview" data-tone={item.tone}>
-                  <div className="fm-home-report-preview-graphic" aria-hidden>
-                    <div className="fm-home-report-preview-surface">
-                      <div className="fm-home-report-preview-topline">
-                        <span />
-                        <span />
-                        <span />
-                      </div>
-                      <div className="fm-home-report-preview-bars">
-                        {item.metrics.map((metric) => (
-                          <div key={metric} className="fm-home-report-preview-bar" />
-                        ))}
-                      </div>
-                      <div className="fm-home-report-preview-chart">
-                        <span />
-                        <span />
-                        <span />
-                      </div>
-                    </div>
-                  </div>
-                  <h3 className="m-0 text-[1.22rem] font-semibold tracking-[-0.035em] text-slate-950">{item.title}</h3>
-
-                  <ul className="fm-home-report-preview-chiplist" aria-label={locale === "zh" ? "结果模块" : "Result modules"}>
-                    {item.metrics.map((metric) => (
-                      <li key={metric} className="flex list-none items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#6d817b]" aria-hidden />
-                        <span>{metric}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
+            <div className="fm-home-results-grid">
+              {copy.results.previews.map((item) => {
+                const previewCaption =
+                  "caption" in item && typeof item.caption === "string" && item.caption.trim().length > 0
+                    ? item.caption
+                    : item.metrics.join(" · ");
+                return (
+                  <article key={item.title} className="fm-home-report-preview" data-tone={item.tone}>
+                    <ResultsPreviewGraphic item={item} locale={locale} />
+                    <h3 className="m-0 text-[1.22rem] font-semibold tracking-[-0.035em] text-slate-950">{item.title}</h3>
+                    <p className="m-0 text-[0.95rem] leading-7 text-slate-500">{previewCaption}</p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </Container>

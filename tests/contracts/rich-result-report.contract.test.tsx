@@ -712,7 +712,14 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("big5-action-plan-summary")).toHaveTextContent(
       "The best near-term growth lever is Extraversion."
     );
-    expect(screen.getByText("Domains Overview")).toBeInTheDocument();
+    expect(screen.queryByText("Result status")).not.toBeInTheDocument();
+    expect(screen.queryByText("Available modules")).not.toBeInTheDocument();
+    expect(screen.getByText("You can read now")).toBeInTheDocument();
+    expect(screen.getByText("Included in this report")).toBeInTheDocument();
+    expect(screen.queryByText("Bring the paid modules back into the formal result path")).not.toBeInTheDocument();
+    expect(screen.getByText("Step 1 · Page 1")).toBeInTheDocument();
+    expect(screen.getByText("Step 8 · Page 8")).toBeInTheDocument();
+    expect(screen.getAllByText("Domains Overview").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Methodology and Access").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Traits Overview").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Legacy Big Five copy remains unchanged.").length).toBeGreaterThan(0);
@@ -843,6 +850,9 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("big5-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("big5-locked-sections")).toBeInTheDocument();
     expect(screen.getByTestId("big5-offer-surface")).toBeInTheDocument();
+    expect(screen.getByText("当前可读")).toBeInTheDocument();
+    expect(screen.getByText("解锁后可继续")).toBeInTheDocument();
+    expect(screen.getByText("解锁更深入的特质解释与行动建议")).toBeInTheDocument();
     expect(screen.getByText("BIG5 Full Report")).toBeInTheDocument();
     expect(screen.getByText("¥99")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "解锁后下载 PDF" })).toBeDisabled();
