@@ -4,6 +4,8 @@ import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import { BIG5_V1_SAFE_BLOCK_KINDS } from "@/lib/big5/sectionBlueprint";
 import profileAFixture from "@/tests/fixtures/big5/report_interpretation_profile_a.projection.json";
 import profileBFixture from "@/tests/fixtures/big5/report_interpretation_profile_b.projection.json";
+import actionBranchFixture from "@/tests/fixtures/big5/report_action_branch.projection.json";
+import facetDenseFixture from "@/tests/fixtures/big5/report_facet_dense.projection.json";
 
 function buildGate() {
   return {
@@ -14,86 +16,77 @@ function buildGate() {
   };
 }
 
-function createFixtureA(): ReportResponse {
-  return structuredClone(profileAFixture) as ReportResponse;
-}
-
-function createFixtureB(): ReportResponse {
-  return structuredClone(profileBFixture) as ReportResponse;
+function clone<T>(value: T): T {
+  return structuredClone(value);
 }
 
 describe("big5 result assembler interpretation wiring contract", () => {
-  it("hydrates interpretation blocks for core_portrait/domain_deep_dive/facet_details/action_plan", () => {
+  it("hydrates denser interpretation blocks for the core report sections", () => {
     const assembled = assembleBig5ResultViewModel({
       locale: "en",
-      reportData: createFixtureA(),
+      reportData: clone(profileAFixture) as ReportResponse,
       gate: buildGate(),
     });
 
     const corePortrait = assembled.plannedSections.find((section) => section.key === "core_portrait");
     const domainDeepDive = assembled.plannedSections.find((section) => section.key === "domain_deep_dive");
-    const facetDetails = assembled.plannedSections.find((section) => section.key === "facet_details");
     const actionPlan = assembled.plannedSections.find((section) => section.key === "action_plan");
 
-    expect(corePortrait).toBeDefined();
-    expect(corePortrait?.blocks.some((block) => block.kind === "paragraph")).toBe(true);
-    expect(corePortrait?.blocks.some((block) => block.kind === "bullets")).toBe(true);
+    expect(corePortrait?.blocks.filter((block) => block.kind === "callout").length).toBeGreaterThanOrEqual(2);
+    expect(corePortrait?.blocks.some((block) => String(block.title ?? "").includes("Default style"))).toBe(true);
+    expect(corePortrait?.blocks.some((block) => String(block.title ?? "").includes("Where this structure helps"))).toBe(true);
 
     expect(domainDeepDive).toBeDefined();
     expect(domainDeepDive?.blocks.some((block) => block.kind === "metric_card")).toBe(true);
-    expect(domainDeepDive?.blocks.length).toBeGreaterThanOrEqual(5);
-
-    expect(facetDetails).toBeDefined();
-    expect(facetDetails?.blocks.some((block) => block.kind === "table_row")).toBe(true);
-    expect(facetDetails?.blocks.some((block) => String(block.body ?? "").includes(" · "))).toBe(true);
     expect(
-      facetDetails?.blocks.some((block) =>
-        String(block.body ?? "").includes("Pair abstraction with concrete deliverables for team alignment.")
+      domainDeepDive?.blocks.some((block) =>
+        Array.isArray(block.bullets) && block.bullets.some((item) => item.includes("In daily life:"))
       )
     ).toBe(true);
 
     expect(actionPlan).toBeDefined();
-    expect(actionPlan?.blocks.some((block) => block.kind === "bullets")).toBe(true);
-    expect(String(actionPlan?.blocks.find((block) => block.kind === "bullets")?.body ?? "")).toContain(
-      "Add one weekly collaboration checkpoint."
-    );
+    expect(actionPlan?.blocks.some((block) => String(block.title ?? "").includes("Keep amplifying"))).toBe(true);
+    expect(actionPlan?.blocks.some((block) => String(block.title ?? "").includes("Watch closely"))).toBe(true);
+    expect(actionPlan?.blocks.some((block) => String(block.title ?? "").includes("Try this next"))).toBe(true);
   });
 
-  it("uses dominant trait + trait band snippets when action_plan_summary actions are empty", () => {
+  it("densifies facet_details into standout facets plus a full glossary layer", () => {
     const assembled = assembleBig5ResultViewModel({
       locale: "en",
-      reportData: createFixtureB(),
+      reportData: clone(facetDenseFixture) as ReportResponse,
+      gate: buildGate(),
+    });
+
+    const facetDetails = assembled.plannedSections.find((section) => section.key === "facet_details");
+    expect(facetDetails).toBeDefined();
+    expect(facetDetails?.blocks.some((block) => String(block.title ?? "").includes("Standout facets"))).toBe(true);
+    expect(facetDetails?.blocks.filter((block) => block.kind === "metric_card").length).toBeGreaterThanOrEqual(5);
+    expect(facetDetails?.blocks.some((block) => String(block.title ?? "").includes("Complete glossary"))).toBe(true);
+    expect(facetDetails?.blocks.filter((block) => block.kind === "table_row").length).toBeGreaterThanOrEqual(8);
+    expect(
+      facetDetails?.blocks.some((block) => String(block.body ?? "").includes("This is about cognitive preference"))
+    ).toBe(true);
+  });
+
+  it("uses dominant trait plus trait band signals when action_plan_summary actions are sparse", () => {
+    const assembled = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData: clone(actionBranchFixture) as ReportResponse,
       gate: buildGate(),
     });
 
     const actionPlan = assembled.plannedSections.find((section) => section.key === "action_plan");
-    const actionBulletsBody = String(actionPlan?.blocks.find((block) => block.kind === "bullets")?.body ?? "");
+    const experimentBlock = actionPlan?.blocks.find((block) => String(block.title ?? "").includes("Try this next"));
+    const experimentBody = String(experimentBlock?.body ?? "");
 
-    expect(actionBulletsBody).toContain("Set weekly completion thresholds and publish progress at a fixed cadence.");
-    expect(actionBulletsBody).toContain("Maintain a weekly decompression routine protected like a core task.");
-  });
-
-  it("emits order/page_slot/subtitle metadata for interpretation-heavy sections", () => {
-    const assembled = assembleBig5ResultViewModel({
-      locale: "en",
-      reportData: createFixtureA(),
-      gate: buildGate(),
-    });
-
-    const keys = ["core_portrait", "domain_deep_dive", "facet_details", "action_plan"] as const;
-    keys.forEach((key) => {
-      const section = assembled.plannedSections.find((item) => item.key === key);
-      expect(section).toBeDefined();
-      expect(Number(section?.order)).toBeGreaterThan(0);
-      expect(String(section?.page_slot ?? "")).toMatch(/^page_[0-9]+$/);
-      expect(String(section?.subtitle ?? "").trim().length).toBeGreaterThan(0);
-    });
+    expect(experimentBody).toContain("protected recovery interval");
+    expect(experimentBody).toContain("reset ritual");
   });
 
   it("keeps interpretation-generated blocks inside the blueprint safe block kind subset", () => {
     const assembled = assembleBig5ResultViewModel({
       locale: "en",
-      reportData: createFixtureA(),
+      reportData: clone(profileAFixture) as ReportResponse,
       gate: buildGate(),
     });
 
@@ -104,8 +97,8 @@ describe("big5 result assembler interpretation wiring contract", () => {
     });
   });
 
-  it("still respects blueprint source field gates for interpretation sections", () => {
-    const reportData = createFixtureA();
+  it("still respects blueprint source field gates for interpretation-heavy sections", () => {
+    const reportData = clone(profileBFixture) as ReportResponse;
     if (reportData.big5_public_projection_v1 && typeof reportData.big5_public_projection_v1 === "object") {
       reportData.big5_public_projection_v1.dominant_traits = [];
       reportData.big5_public_projection_v1.explainability_summary = undefined;

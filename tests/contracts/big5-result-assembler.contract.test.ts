@@ -4,6 +4,7 @@ import { BIG5_V1_SECTION_MICROCOPY } from "@/lib/big5/microcopy";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import { BIG5_V1_SECTION_BLUEPRINTS, BIG5_V1_SECTION_KEYS } from "@/lib/big5/sectionBlueprint";
 import reportReadyProjectionFixture from "@/tests/fixtures/big5/report_ready.projection.json";
+import normsRichFixture from "@/tests/fixtures/big5/report_norms_rich.projection.json";
 
 function buildGate(overrides?: Partial<{
   isFreeVariant: boolean;
@@ -185,6 +186,20 @@ describe("big5 result assembler contract", () => {
     expect(methodology).toBeDefined();
     const text = methodology?.blocks.map((block) => `${block.title ?? ""} ${block.body ?? ""}`).join(" ");
     expect(text).not.toContain("Quality A · Norms CALIBRATED");
+  });
+
+  it("renders norms_comparison as a multi-block explanation instead of a single thin callout", () => {
+    const assembled = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData: structuredClone(normsRichFixture) as ReportResponse,
+      gate: buildGate(),
+    });
+
+    const norms = assembled.plannedSections.find((section) => section.key === "norms_comparison");
+    expect(norms).toBeDefined();
+    expect(norms?.blocks.filter((block) => block.kind === "paragraph").length).toBeGreaterThanOrEqual(2);
+    expect(norms?.blocks.some((block) => block.kind === "metric_card")).toBe(true);
+    expect(norms?.blocks.some((block) => block.kind === "callout")).toBe(true);
   });
 
   it("keeps the output shape aligned to existing Big5 shell inputs", () => {
