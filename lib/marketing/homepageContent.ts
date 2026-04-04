@@ -16,7 +16,7 @@ type HomeFamily = {
   links: HomeLinkItem[];
 };
 
-type HomeResultPreview = {
+export type HomeResultPreview = {
   title: string;
   metrics: string[];
   tone: "traits" | "career" | "state";
@@ -235,22 +235,22 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     results: {
       kicker: "Results Preview",
-      title: "你会带回这样的结果。",
-      body: "先看结果界面。",
+      title: "你拿到的，不只是一个标签。",
+      body: "结果会把结构、场景和下一步放进同一张结果面里，让判断更容易开始。",
       previews: [
         {
-          title: "把稳定倾向放回同一张结构图。",
+          title: "结构画像",
           metrics: ["开放性", "尽责性", "外向能量"],
           tone: "traits",
         },
         {
-          title: "把值得继续看的方向先收束出来。",
-          metrics: ["角色匹配", "环境偏好", "下一步阅读"],
+          title: "场景线索",
+          metrics: ["学习场景", "职业场景", "协作场景"],
           tone: "career",
         },
         {
-          title: "先看当前基线，再决定下一步支持。",
-          metrics: ["情绪基线", "压力信号", "支持建议"],
+          title: "下一步",
+          metrics: ["先看什么", "先讨论什么", "先验证什么"],
           tone: "state",
         },
       ],
@@ -531,22 +531,22 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
     },
     results: {
       kicker: "Results Preview",
-      title: "This is the kind of result you bring back.",
-      body: "See the result surface first.",
+      title: "What you get back is more than a label.",
+      body: "Structure, scenarios, and next steps live in one result surface so judgment can start faster.",
       previews: [
         {
-          title: "Read stable tendencies inside one structure view.",
+          title: "Structure profile",
           metrics: ["Openness", "Conscientiousness", "Energy pattern"],
           tone: "traits",
         },
         {
-          title: "Narrow the fit into the paths worth carrying forward.",
-          metrics: ["Role fit", "Environment", "Next reads"],
+          title: "Scenario cues",
+          metrics: ["Learning context", "Career context", "Collaboration context"],
           tone: "career",
         },
         {
-          title: "Check the current baseline, then decide the next support step.",
-          metrics: ["Mood baseline", "Pressure signals", "Next move"],
+          title: "Next steps",
+          metrics: ["What to review", "What to discuss", "What to verify"],
           tone: "state",
         },
       ],
