@@ -41,7 +41,7 @@ import {
 } from "@/lib/api/v0_3";
 import { ApiError } from "@/lib/api-client";
 import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
-import { isGuestTokenRequestError, setFmToken } from "@/lib/auth/fmToken";
+import { getFmToken, isGuestTokenRequestError, setFmToken } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
@@ -336,6 +336,38 @@ function isNotFoundApiError(error: unknown): error is ApiError {
   return error instanceof ApiError && error.status === 404;
 }
 
+function isAttemptNotFoundProblem(error: unknown): error is ApiError {
+  if (!(error instanceof ApiError) || error.status !== 404) {
+    return false;
+  }
+
+  const details = asRecord(error.details);
+  const nestedDetails = asRecord(details?.details);
+  const normalizedErrorCodes = [
+    normalizeText(error.errorCode),
+    normalizeText(details?.error_code, details?.errorCode, details?.reason_code, details?.reasonCode, details?.code),
+    normalizeText(
+      nestedDetails?.error_code,
+      nestedDetails?.errorCode,
+      nestedDetails?.reason_code,
+      nestedDetails?.reasonCode,
+      nestedDetails?.code
+    ),
+  ]
+    .map((value) => value.toUpperCase())
+    .filter(Boolean);
+
+  if (normalizedErrorCodes.includes("ATTEMPT_NOT_FOUND")) {
+    return true;
+  }
+
+  return normalizeText(error.message).toLowerCase().includes("attempt not found");
+}
+
+function hasAuthOrAnonContext(anonId: string): boolean {
+  return anonId.trim().length > 0 || Boolean(getFmToken());
+}
+
 function resolveSubmissionFailureMessage(
   response: AttemptSubmissionResponse | null,
   fallbackMessage: string
@@ -420,6 +452,40 @@ export default function ResultClient({
       }),
     [anonId, locale]
   );
+
+  const fetchReportAccessWithAuthMismatchRetry = useCallback(async () => {
+    try {
+      return await runWithAuthRetry(() => fetchAttemptReportAccess({ attemptId, anonId, locale }));
+    } catch (error) {
+      if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
+        throw error;
+      }
+
+      return fetchAttemptReportAccess({
+        attemptId,
+        locale,
+        skipAuth: true,
+        includeAnonId: false,
+      });
+    }
+  }, [anonId, attemptId, locale, runWithAuthRetry]);
+
+  const fetchReportWithAuthMismatchRetry = useCallback(async () => {
+    try {
+      return await runWithAuthRetry(() => fetchAttemptReport({ attemptId, anonId, locale }));
+    } catch (error) {
+      if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
+        throw error;
+      }
+
+      return fetchAttemptReport({
+        attemptId,
+        locale,
+        skipAuth: true,
+        includeAnonId: false,
+      });
+    }
+  }, [anonId, attemptId, locale, runWithAuthRetry]);
 
   const canLoadRichReport = useCallback((view: AttemptReportAccessView | null) => {
     return view?.reportState === RESULT_PAGE_READY_STATE;
@@ -556,7 +622,7 @@ export default function ResultClient({
       setError(null);
 
       try {
-        const accessResponse = await runWithAuthRetry(() => fetchAttemptReportAccess({ attemptId, anonId, locale }));
+        const accessResponse = await fetchReportAccessWithAuthMismatchRetry();
         if (!active) return;
 
         const nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
@@ -604,7 +670,7 @@ export default function ResultClient({
           return;
         }
 
-        const reportResponse = await runWithAuthRetry(() => fetchAttemptReport({ attemptId, anonId, locale }));
+        const reportResponse = await fetchReportWithAuthMismatchRetry();
         if (!active) return;
 
         setReportData(reportResponse);
@@ -709,7 +775,16 @@ export default function ResultClient({
         window.clearTimeout(retryTimer);
       }
     };
-  }, [anonId, attemptId, canLoadRichReport, dict.result.reportUnavailable, locale, runWithAuthRetry]);
+  }, [
+    anonId,
+    attemptId,
+    canLoadRichReport,
+    dict.result.reportUnavailable,
+    fetchReportAccessWithAuthMismatchRetry,
+    fetchReportWithAuthMismatchRetry,
+    locale,
+    runWithAuthRetry,
+  ]);
 
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
   const projectionUnavailable = isProjectionUnavailable(accessView);
