@@ -222,8 +222,10 @@ export function SiteFooter() {
                             <Image
                               src={item.qrImageSrc}
                               alt={locale === "zh" ? "微信二维码" : "WeChat QR code"}
-                              width={144}
-                              height={144}
+                              width={258}
+                              height={258}
+                              unoptimized
+                              priority
                               className="fm-social-qr-image"
                             />
                             <p className="fm-social-qr-label">{locale === "zh" ? "微信扫码关注" : "Scan in WeChat"}</p>
@@ -291,9 +293,6 @@ export function SiteFooter() {
           </div>
 
           <div className="fm-social-rail border-t border-white/15 pt-6">
-            <p className="m-0 mb-4 text-center text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
-              {dict.footer.socialTitle}
-            </p>
             <div className="fm-social-list">
               {socialItems.map((item) => (
                 <div
@@ -328,8 +327,10 @@ export function SiteFooter() {
                           <Image
                             src={item.qrImageSrc}
                             alt={locale === "zh" ? "微信二维码" : "WeChat QR code"}
-                            width={144}
-                            height={144}
+                            width={258}
+                            height={258}
+                            unoptimized
+                            priority
                             className="fm-social-qr-image"
                           />
                           <p className="fm-social-qr-label">{locale === "zh" ? "微信扫码关注" : "Scan in WeChat"}</p>
@@ -426,9 +427,6 @@ export function SiteFooter() {
         </div>
 
         <div className="fm-social-rail border-t border-white/15 pt-6">
-          <p className="m-0 mb-4 text-center text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
-            {dict.footer.socialTitle}
-          </p>
           <div className="fm-social-list">
             {socialItems.map((item) => (
               <div
@@ -463,8 +461,10 @@ export function SiteFooter() {
                         <Image
                           src={item.qrImageSrc}
                           alt={locale === "zh" ? "微信二维码" : "WeChat QR code"}
-                          width={144}
-                          height={144}
+                          width={258}
+                          height={258}
+                          unoptimized
+                          priority
                           className="fm-social-qr-image"
                         />
                         <p className="fm-social-qr-label">{locale === "zh" ? "微信扫码关注" : "Scan in WeChat"}</p>
