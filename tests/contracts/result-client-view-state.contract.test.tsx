@@ -45,6 +45,8 @@ const hoisted = vi.hoisted(() => ({
   fetchAttemptReport: vi.fn(),
   fetchAttemptResult: vi.fn(),
   fetchAttemptSubmission: vi.fn(),
+  getFmToken: vi.fn(() => "fm_result_test_token"),
+  setFmToken: vi.fn(),
   ensureFmTokenReady: vi.fn(),
   trackEvent: vi.fn(),
   captureError: vi.fn(),
@@ -139,6 +141,8 @@ vi.mock("@/lib/auth/authRetry", () => ({
 
 vi.mock("@/lib/auth/fmToken", () => ({
   isGuestTokenRequestError: () => false,
+  getFmToken: hoisted.getFmToken,
+  setFmToken: hoisted.setFmToken,
 }));
 
 vi.mock("@/lib/api/v0_3", () => ({
@@ -207,6 +211,7 @@ vi.mock("@/lib/observability/sentry", () => ({
 describe("ResultClient view-state contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.getFmToken.mockReturnValue("fm_result_test_token");
     hoisted.ensureFmTokenReady.mockResolvedValue("issued");
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.fetchAttemptInviteUnlockProgress.mockResolvedValue({
@@ -289,6 +294,8 @@ describe("ResultClient view-state contract", () => {
       anonId: "anon_result_test",
       locale: "en",
     });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(1);
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledTimes(1);
     expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "locked");
     expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "none");
@@ -451,10 +458,100 @@ describe("ResultClient view-state contract", () => {
     });
 
     expect(screen.getByTestId("skeleton")).toBeInTheDocument();
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(2);
     expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledWith({
       attemptId: "attempt-123",
       anonId: "anon_result_test",
     });
+  });
+
+  it("retries report-access without auth/anon once when ATTEMPT_NOT_FOUND is returned", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    hoisted.fetchAttemptReportAccess
+      .mockRejectedValueOnce(
+        new ApiError({
+          status: 404,
+          errorCode: "ATTEMPT_NOT_FOUND",
+          message: "attempt not found.",
+        })
+      )
+      .mockResolvedValueOnce(createAccessProjection());
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenNthCalledWith(1, {
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+      locale: "en",
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenNthCalledWith(2, {
+      attemptId: "attempt-123",
+      locale: "en",
+      skipAuth: true,
+      includeAnonId: false,
+    });
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledTimes(1);
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+  });
+
+  it("retries report without auth/anon once when ATTEMPT_NOT_FOUND is returned", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptReport
+      .mockRejectedValueOnce(
+        new ApiError({
+          status: 404,
+          errorCode: "ATTEMPT_NOT_FOUND",
+          message: "attempt not found.",
+        })
+      )
+      .mockResolvedValueOnce(reportFixture);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(hoisted.fetchAttemptReport).toHaveBeenNthCalledWith(1, {
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+      locale: "en",
+    });
+    expect(hoisted.fetchAttemptReport).toHaveBeenNthCalledWith(2, {
+      attemptId: "attempt-123",
+      locale: "en",
+      skipAuth: true,
+      includeAnonId: false,
+    });
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+  });
+
+  it("does not trigger auth-mismatch retry for non-ATTEMPT_NOT_FOUND 404", async () => {
+    hoisted.fetchAttemptReportAccess.mockRejectedValue(
+      new ApiError({
+        status: 404,
+        errorCode: "RESULT_NOT_FOUND",
+        message: "result not found.",
+      })
+    );
+    hoisted.fetchAttemptResult.mockResolvedValue(cloneFixture(resultReadyMbtiFreeFixture) as ResultResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("result-summary")).toHaveTextContent("ENFP-T");
+    });
+
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(1);
+    expect(hoisted.fetchAttemptReport).not.toHaveBeenCalled();
   });
 
   it("falls back to the legacy result view only when the report payload is not renderable", async () => {

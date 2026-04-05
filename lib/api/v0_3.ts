@@ -2553,20 +2553,27 @@ export async function getAttemptReport({
   anonId,
   refresh,
   locale,
+  skipAuth,
+  includeAnonId = true,
 }: {
   attemptId: string;
   anonId?: string;
   refresh?: boolean;
   locale?: string;
+  skipAuth?: boolean;
+  includeAnonId?: boolean;
 }): Promise<ReportResponse> {
-  const resolvedAnonId = resolveAnonId(anonId);
+  const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
   const params = new URLSearchParams();
   if (refresh) params.set("refresh", "1");
   if (locale) params.set("locale", locale);
   const suffix = params.size > 0 ? `?${params.toString()}` : "";
   const response = await apiClient.get<ReportResponse>(
     `/v0.3/attempts/${attemptId}/report${suffix}`,
-    anonHeader(resolvedAnonId)
+    {
+      ...anonHeader(resolvedAnonId),
+      ...(skipAuth ? { skipAuth: true } : {}),
+    }
   );
 
   return assertApiOk(response, "Failed to load report.");
@@ -2577,30 +2584,41 @@ export async function fetchAttemptReport({
   anonId,
   refresh,
   locale,
+  skipAuth,
+  includeAnonId = true,
 }: {
   attemptId: string;
   anonId?: string;
   refresh?: boolean;
   locale?: string;
+  skipAuth?: boolean;
+  includeAnonId?: boolean;
 }): Promise<ReportResponse> {
-  return getAttemptReport({ attemptId, anonId, refresh, locale });
+  return getAttemptReport({ attemptId, anonId, refresh, locale, skipAuth, includeAnonId });
 }
 
 export async function fetchAttemptReportAccess({
   attemptId,
   anonId,
   locale,
+  skipAuth,
+  includeAnonId = true,
 }: {
   attemptId: string;
   anonId?: string;
   locale?: string;
+  skipAuth?: boolean;
+  includeAnonId?: boolean;
 }): Promise<AttemptReportAccessResponse> {
-  const resolvedAnonId = resolveAnonId(anonId);
+  const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
   const response = await apiClient.get<AttemptReportAccessResponse>(
     `/v0.3/attempts/${attemptId}/report-access${params.size > 0 ? `?${params.toString()}` : ""}`,
-    anonHeader(resolvedAnonId)
+    {
+      ...anonHeader(resolvedAnonId),
+      ...(skipAuth ? { skipAuth: true } : {}),
+    }
   );
 
   return assertApiOk(response, "Failed to load report access.");
