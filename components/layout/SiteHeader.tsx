@@ -186,7 +186,7 @@ export function SiteHeader() {
     >
       <Container
         className={cn(
-          isHomeRoute ? "max-w-[110rem] px-5 py-3.5 md:px-8 xl:px-12" : "max-w-[1320px] py-3"
+          isHomeRoute ? "max-w-[110rem] px-5 py-2.5 md:px-8 xl:px-12" : "max-w-[1320px] py-3"
         )}
       >
         <div className="flex items-center justify-between gap-3">
@@ -195,7 +195,7 @@ export function SiteHeader() {
               href={withLocale("/")}
               className={cn(
                 "font-serif font-semibold tracking-tight text-white",
-                isHomeRoute ? "text-[1.7rem] leading-none xl:text-[1.82rem]" : "text-xl"
+                isHomeRoute ? "text-[2rem] leading-none xl:text-[2.08rem]" : "text-xl"
               )}
             >
               {dict.header.brand}
@@ -226,13 +226,13 @@ export function SiteHeader() {
             ref={desktopNavRef}
             className={cn(
               "hidden min-w-0 items-center lg:flex",
-              isHomeRoute ? "ml-auto w-full max-w-[53.5rem] justify-end gap-1.25 xl:gap-1.75" : "flex-1 justify-end gap-1.5 xl:gap-2.5"
+              isHomeRoute ? "ml-auto w-full max-w-[60rem] justify-end gap-1 xl:gap-1.5" : "flex-1 justify-end gap-1.5 xl:gap-2.5"
             )}
           >
             <nav
               className={cn(
                 "flex min-w-0 flex-nowrap items-center",
-                isHomeRoute ? "flex-1 justify-end gap-0" : "justify-end gap-0 xl:gap-0.5"
+                isHomeRoute ? "flex-1 justify-end gap-0.25 xl:gap-0.5" : "justify-end gap-0 xl:gap-0.5"
               )}
             >
               {navItems.map((item) => {
@@ -360,14 +360,14 @@ export function SiteHeader() {
             </nav>
 
             {isHomeRoute ? (
-              <div className="flex shrink-0 items-center gap-1 xl:gap-1.25 lg:justify-self-end">
+              <div className="flex shrink-0 items-center gap-1.5 xl:gap-2 lg:justify-self-end">
                 <LocaleSwitcher />
                 <Link
                   href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
                   className={buttonVariants({
                     size: "sm",
                     className: isBrandSurfaceRoute
-                      ? "shrink-0 whitespace-nowrap border-transparent bg-[#dfe9e3] px-3 text-[12px] font-semibold text-slate-950 hover:bg-[#edf4f0] xl:px-3.5 xl:text-[12.5px]"
+                      ? "shrink-0 whitespace-nowrap border-transparent bg-[#e8efea] px-4 text-[12.5px] font-semibold text-slate-950 hover:bg-[#f2f6f3] xl:px-4.5 xl:text-[13px]"
                       : "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm",
                   })}
                 >

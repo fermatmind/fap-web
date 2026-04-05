@@ -202,19 +202,49 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
     className:
       "border-white/14 bg-white/[0.04] px-7 text-white hover:border-white/26 hover:bg-white/[0.08] hover:text-white",
   });
-  const heroMetricLevels = locale === "zh" ? ["偏高", "中位偏高", "中位"] : ["High", "Mid-high", "Moderate"];
-  const heroSourceLabels =
-    locale === "zh" ? ["职业方向", "人格结构", "情绪状态"] : ["Career direction", "Personality", "Current state"];
-  const heroResultSummary =
-    locale === "zh" ? "把判断放回一个清楚的结构里。" : "Bring judgment back into one clear structure.";
-  const heroLeadCue =
-    locale === "zh"
-      ? "偏好结构清楚，环境敏感度高。"
-      : "Preference structure is clear, with higher context sensitivity.";
-  const heroScenarioLine =
-    locale === "zh" ? "学习、职业、协作分别呈现。" : "Learning, career, and collaboration are mapped separately.";
-  const heroNextStepLine =
-    locale === "zh" ? "先看最值得继续验证的一条。" : "Start with the path most worth validating next.";
+  const dossierCopy = locale === "zh"
+    ? {
+      title: "认知档案册",
+      summary: "把人格、能力与状态折叠成一页可判断的产品界面。",
+      fields: ["人格结构", "能力基线", "状态信号"],
+      cueLabel: "结构摘要",
+      cueLead: "判断线索稳定，决策噪音更低。",
+      scenarioLabel: "场景线索",
+      scenarioLine: "学习、职业、协作分别对齐到同一份档案。",
+      nextLabel: "下一步",
+      nextLine: "先验证最关键的一条，再决定是否继续深入。",
+      metrics: [
+        { label: "结构一致性", value: "高" },
+        { label: "情境敏感度", value: "中高" },
+        { label: "执行回路", value: "中位" },
+      ],
+      backMethodTitle: "方法框架",
+      backMethodLine: "30 分面结构 · 常模参照 · 场景解释",
+      backUseTitle: "应用域",
+      backUseLine: "学习 / 职业 / 协作",
+      sourceTags: ["人格", "能力", "状态"],
+    }
+    : {
+      title: "Cognitive Dossier",
+      summary: "Fold personality, ability, and state into one decision-ready product surface.",
+      fields: ["Personality", "Ability", "State"],
+      cueLabel: "Structure summary",
+      cueLead: "Judgment signals are stable with lower decision noise.",
+      scenarioLabel: "Scenario cues",
+      scenarioLine: "Learning, career, and collaboration map to one dossier.",
+      nextLabel: "Next step",
+      nextLine: "Validate the highest-leverage path before going deeper.",
+      metrics: [
+        { label: "Structure coherence", value: "High" },
+        { label: "Context sensitivity", value: "Mid-high" },
+        { label: "Execution loop", value: "Mid" },
+      ],
+      backMethodTitle: "Method frame",
+      backMethodLine: "30-facet model · Norm context · Scenario interpretation",
+      backUseTitle: "Use domains",
+      backUseLine: "Learning / Career / Collaboration",
+      sourceTags: ["Personality", "Ability", "State"],
+    };
 
   return (
     <>
@@ -233,64 +263,75 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                 </span>
               </h1>
               <p className="fm-home-hero-subhead fm-home-hero-line fm-home-hero-line--function m-0">{copy.hero.subhead}</p>
-              <div className="fm-home-hero-cta-row fm-home-hero-line fm-home-hero-line--function">
-                <Link href={withLocale(copy.hero.primaryHref)} className={primaryButtonClass}>
-                  {copy.hero.primaryCta}
-                </Link>
-                <Link href={copy.hero.secondaryHref} className={darkOutlineButtonClass}>
-                  {copy.hero.secondaryCta}
-                </Link>
-              </div>
             </div>
 
             <div className="fm-home-hero-product-stage" aria-hidden>
-              <div className="fm-home-hero-workbench">
-                <div className="fm-home-hero-result-surface">
-                  <div className="fm-home-hero-result-header">
-                    <span className="fm-home-hero-result-kicker">{locale === "zh" ? "结果首页" : "Result front page"}</span>
-                    <strong>{heroResultSummary}</strong>
+              <div className="fm-home-dossier-stack">
+                <article className="fm-home-dossier-card fm-home-dossier-card--rear">
+                  <span>{dossierCopy.backMethodTitle}</span>
+                  <p>{dossierCopy.backMethodLine}</p>
+                </article>
+
+                <article className="fm-home-dossier-card fm-home-dossier-card--middle">
+                  <span>{dossierCopy.backUseTitle}</span>
+                  <p>{dossierCopy.backUseLine}</p>
+                </article>
+
+                <article className="fm-home-dossier-card fm-home-dossier-card--front">
+                  <div className="fm-home-dossier-head">
+                    <span>{dossierCopy.title}</span>
+                    <div className="fm-home-dossier-tags">
+                      {dossierCopy.sourceTags.map((tag) => (
+                        <i key={tag}>{tag}</i>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="fm-home-hero-result-main">
-                    <div className="fm-home-hero-chart-surface">
-                      <svg viewBox="0 0 220 180" className="fm-home-hero-radar" role="presentation">
-                        <polygon points="110,18 176,56 176,124 110,162 44,124 44,56" className="fm-home-hero-radar-ring is-outer" />
-                        <polygon points="110,42 160,69 160,111 110,138 60,111 60,69" className="fm-home-hero-radar-ring" />
-                        <polygon points="110,64 143,82 143,98 110,116 77,98 77,82" className="fm-home-hero-radar-ring" />
-                        <polygon points="110,28 171,61 157,124 110,144 74,110 70,60" className="fm-home-hero-radar-shape" />
+                  <p className="fm-home-dossier-summary">{dossierCopy.summary}</p>
+
+                  <div className="fm-home-dossier-main">
+                    <section className="fm-home-dossier-chart">
+                      <svg viewBox="0 0 220 188" className="fm-home-dossier-radar" role="presentation">
+                        <polygon points="110,18 183,59 183,129 110,170 37,129 37,59" className="fm-home-hero-radar-ring is-outer" />
+                        <polygon points="110,38 167,70 167,118 110,150 53,118 53,70" className="fm-home-hero-radar-ring" />
+                        <polygon points="110,61 146,82 146,106 110,127 74,106 74,82" className="fm-home-hero-radar-ring" />
+                        <polygon points="110,29 170,63 157,123 110,146 69,114 61,66" className="fm-home-hero-radar-shape" />
                       </svg>
-                      <p className="fm-home-hero-chart-summary">{heroLeadCue}</p>
-                      <div className="fm-home-hero-source-tags">
-                        {heroSourceLabels.map((label) => (
-                          <span key={label}>{label}</span>
+                      <div className="fm-home-dossier-fields">
+                        {dossierCopy.fields.map((field) => (
+                          <span key={field}>{field}</span>
                         ))}
                       </div>
-                    </div>
+                    </section>
 
-                    <div className="fm-home-hero-cue-list">
-                      {copy.results.previews[0].metrics.slice(0, 3).map((metric, index) => (
-                        <div key={metric} className="fm-home-hero-cue-row">
-                          <div className="fm-home-hero-cue-head">
-                            <span>{metric}</span>
-                            <b>{heroMetricLevels[index] ?? (locale === "zh" ? "中位" : "Moderate")}</b>
+                    <section className="fm-home-dossier-cues">
+                      <div className="fm-home-dossier-cue-card">
+                        <label>{dossierCopy.cueLabel}</label>
+                        <strong>{dossierCopy.cueLead}</strong>
+                      </div>
+                      {dossierCopy.metrics.map((metric, index) => (
+                        <div key={metric.label} className="fm-home-dossier-meter-row">
+                          <div className="fm-home-dossier-meter-head">
+                            <span>{metric.label}</span>
+                            <b>{metric.value}</b>
                           </div>
                           <i className={cn(index === 0 && "is-long", index === 1 && "is-mid", index === 2 && "is-short")} />
                         </div>
                       ))}
-                    </div>
+                    </section>
                   </div>
-                </div>
 
-                <div className="fm-home-hero-support-grid">
-                  <article className="fm-home-hero-support-card">
-                    <span>{locale === "zh" ? "场景映射" : "Scenario cues"}</span>
-                    <p>{heroScenarioLine}</p>
-                  </article>
-                  <article className="fm-home-hero-support-card">
-                    <span>{locale === "zh" ? "下一步" : "Next step"}</span>
-                    <p>{heroNextStepLine}</p>
-                  </article>
-                </div>
+                  <div className="fm-home-dossier-support">
+                    <article>
+                      <span>{dossierCopy.scenarioLabel}</span>
+                      <p>{dossierCopy.scenarioLine}</p>
+                    </article>
+                    <article>
+                      <span>{dossierCopy.nextLabel}</span>
+                      <p>{dossierCopy.nextLine}</p>
+                    </article>
+                  </div>
+                </article>
               </div>
             </div>
           </div>
@@ -318,7 +359,6 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                   )}
                 >
                   <div className="fm-home-quick-card-head">
-                    <span className="fm-home-quick-card-index">0{index + 1}</span>
                     <h3 className="m-0 text-[1.18rem] font-semibold tracking-[-0.035em] text-white">{item.title}</h3>
                   </div>
 
