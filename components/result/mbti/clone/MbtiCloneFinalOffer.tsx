@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode } from "react";
+import { type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import type { MbtiDesktopCloneAssetSlotId } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
@@ -18,6 +18,8 @@ type MbtiCloneFinalOfferProps = {
   ctaHref?: string;
   inviteCtaLabel?: string;
   inviteCtaHref?: string;
+  onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
+  inviteCtaDisabled?: boolean;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
   onCheckout?: () => void | Promise<void>;
@@ -40,6 +42,8 @@ export function MbtiCloneFinalOffer({
   ctaHref,
   inviteCtaLabel,
   inviteCtaHref,
+  onInviteCtaClick,
+  inviteCtaDisabled = false,
   isCheckingOut = false,
   checkoutError = null,
   onCheckout,
@@ -49,12 +53,8 @@ export function MbtiCloneFinalOffer({
   illustrationLabel,
   assetSlots,
 }: MbtiCloneFinalOfferProps) {
-  if (unlockedNode) {
-    if (isUnlocked) {
-      return <div className={styles.finalOfferPurchased}>{unlockedNode}</div>;
-    }
-
-    return <>{unlockedNode}</>;
+  if (isUnlocked && unlockedNode) {
+    return <div className={styles.finalOfferPurchased}>{unlockedNode}</div>;
   }
 
   return (
@@ -101,7 +101,9 @@ export function MbtiCloneFinalOffer({
               <a
                 href={inviteCtaHref}
                 data-testid="mbti-offers-invite-cta"
-                className={`${styles.finalOfferButton} ${styles.finalOfferInviteButton}`}
+                onClick={onInviteCtaClick}
+                aria-disabled={inviteCtaDisabled ? "true" : undefined}
+                className={`${styles.finalOfferButton} ${styles.finalOfferInviteButton} ${inviteCtaDisabled ? styles.finalOfferButtonDisabled : ""}`}
               >
                 {inviteCtaLabel}
               </a>

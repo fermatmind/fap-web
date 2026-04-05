@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { type MouseEvent as ReactMouseEvent, useState } from "react";
 import type { TraitSlot, TraitUnlockBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 
@@ -14,6 +14,7 @@ type MbtiCloneInfluentialTraitsCardProps = {
   unlockPayLabel: string;
   unlockInviteLabel: string;
   unlockInviteHref: string;
+  onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
 };
 
 function normalizeTraitLetter(label: string) {
@@ -31,6 +32,7 @@ export function MbtiCloneInfluentialTraitsCard({
   unlockPayLabel,
   unlockInviteLabel,
   unlockInviteHref,
+  onInviteCtaClick,
 }: MbtiCloneInfluentialTraitsCardProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const canShowDetails = isUnlocked && traitsUnlock?.items.length === 4;
@@ -113,6 +115,7 @@ export function MbtiCloneInfluentialTraitsCard({
               </a>
               <a
                 href={unlockInviteHref}
+                onClick={onInviteCtaClick}
                 className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
                 data-testid={`mbti-${sectionId}-invite-cta`}
               >

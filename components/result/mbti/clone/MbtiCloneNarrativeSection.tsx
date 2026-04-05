@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { MouseEvent as ReactMouseEvent, ReactNode } from "react";
 import { MbtiCloneAssetSlot } from "@/components/result/mbti/clone/MbtiCloneAssetSlot";
 import { MbtiCloneInfluentialTraitsCard } from "@/components/result/mbti/clone/MbtiCloneInfluentialTraitsCard";
 import { MbtiCloneMatchedGuides } from "@/components/result/mbti/clone/MbtiCloneMatchedGuides";
@@ -49,6 +49,7 @@ type MbtiCloneNarrativeSectionProps = {
   unlockPayLabel: string;
   unlockInviteLabel: string;
   unlockInviteHref: string;
+  onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
   postCoreBlocks?: ReactNode[];
   premiumTeasers: LockedBlock[];
 };
@@ -74,6 +75,7 @@ export function MbtiCloneNarrativeSection({
   unlockPayLabel,
   unlockInviteLabel,
   unlockInviteHref,
+  onInviteCtaClick,
   postCoreBlocks = [],
   premiumTeasers,
 }: MbtiCloneNarrativeSectionProps) {
@@ -103,6 +105,7 @@ export function MbtiCloneNarrativeSection({
         unlockPayLabel={unlockPayLabel}
         unlockInviteLabel={unlockInviteLabel}
         unlockInviteHref={unlockInviteHref}
+        onInviteCtaClick={onInviteCtaClick}
       />
       {strengths ? (
         <MbtiCloneStrengthWeaknessBlock data={strengths} testId={`mbti-p0-${id}-strengths`} />
@@ -126,6 +129,7 @@ export function MbtiCloneNarrativeSection({
           overlayPayCtaHref={unlockHref}
           overlayInviteCtaLabel={unlockInviteLabel}
           overlayInviteCtaHref={unlockInviteHref}
+          onInviteCtaClick={onInviteCtaClick}
           testId={block.testId}
         />
       ))}

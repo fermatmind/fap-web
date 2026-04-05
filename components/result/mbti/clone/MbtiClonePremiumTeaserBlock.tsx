@@ -1,5 +1,6 @@
 "use client";
 
+import { type MouseEvent as ReactMouseEvent } from "react";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 
 export type PremiumTeaserItem = {
@@ -18,6 +19,7 @@ type MbtiClonePremiumTeaserBlockProps = {
   overlayPayCtaHref: string;
   overlayInviteCtaLabel: string;
   overlayInviteCtaHref: string;
+  onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
   testId: string;
 };
 
@@ -30,6 +32,7 @@ export function MbtiClonePremiumTeaserBlock({
   overlayPayCtaHref,
   overlayInviteCtaLabel,
   overlayInviteCtaHref,
+  onInviteCtaClick,
   testId,
 }: MbtiClonePremiumTeaserBlockProps) {
   return (
@@ -53,6 +56,7 @@ export function MbtiClonePremiumTeaserBlock({
           </a>
           <a
             href={overlayInviteCtaHref}
+            onClick={onInviteCtaClick}
             className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
             data-testid={`${testId}-invite-cta`}
           >

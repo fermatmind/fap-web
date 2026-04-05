@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
 import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
@@ -399,11 +399,73 @@ export function MbtiDesktopCloneShell({
   const desktopOfferHref = getMbtiDesktopAnchorHash("offerFull");
   const sectionPayCtaLabel = lockedPayCtaLabel
     ?? (cloneLocale === "zh" ? "1.99元直接解锁" : "Unlock now ¥1.99");
-  const sectionInviteCtaLabel = lockedInviteCtaLabel
+  const defaultInviteCtaLabel = lockedInviteCtaLabel
     ?? (cloneLocale === "zh" ? "邀2人测完领报告" : "Invite 2 friends to unlock");
   const sectionInviteCtaHref = lockedInviteCtaHref || desktopOfferHref;
+  const [inviteCtaStatus, setInviteCtaStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
+  const inviteLinkCopyable = sectionInviteCtaHref.length > 0 && !sectionInviteCtaHref.startsWith("#");
+  const sectionInviteCtaLabel =
+    inviteLinkCopyable && inviteCtaStatus === "copying"
+      ? (cloneLocale === "zh" ? "正在复制邀请链接..." : "Copying invite link...")
+      : inviteLinkCopyable && inviteCtaStatus === "copied"
+      ? (cloneLocale === "zh" ? "已复制邀请链接" : "Invite link copied")
+      : inviteLinkCopyable && inviteCtaStatus === "failed"
+      ? (cloneLocale === "zh" ? "复制失败，点击重试" : "Copy failed, retry")
+      : defaultInviteCtaLabel;
   const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
   const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
+
+  useEffect(() => {
+    if (inviteCtaStatus !== "copied" && inviteCtaStatus !== "failed") {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setInviteCtaStatus("idle");
+    }, 2400);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [inviteCtaStatus]);
+
+  const handleInviteCtaClick = useCallback(
+    (event: ReactMouseEvent<HTMLAnchorElement>) => {
+      if (!inviteLinkCopyable || typeof window === "undefined" || inviteCtaStatus === "copying") {
+        return;
+      }
+
+      event.preventDefault();
+
+      const targetHref = sectionInviteCtaHref.trim();
+      if (!targetHref) {
+        setInviteCtaStatus("failed");
+        return;
+      }
+
+      setInviteCtaStatus("copying");
+
+      const absoluteHref = /^https?:\/\//i.test(targetHref)
+        ? targetHref
+        : new URL(targetHref, window.location.origin).toString();
+
+      void (async () => {
+        try {
+          if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+            await navigator.clipboard.writeText(absoluteHref);
+            setInviteCtaStatus("copied");
+            return;
+          }
+        } catch {
+          // Fall back to navigation when clipboard is unavailable.
+        }
+
+        setInviteCtaStatus("failed");
+        window.location.assign(targetHref);
+      })();
+    },
+    [inviteCtaStatus, inviteLinkCopyable, sectionInviteCtaHref]
+  );
 
   const railTools: DesktopCloneTool[] = [
     { label: shareCtaLabel, onClick: onShare, disabled: shareDisabled },
@@ -490,6 +552,7 @@ export function MbtiDesktopCloneShell({
               unlockPayLabel={sectionPayCtaLabel}
               unlockInviteLabel={sectionInviteCtaLabel}
               unlockInviteHref={sectionInviteCtaHref}
+              onInviteCtaClick={inviteLinkCopyable ? handleInviteCtaClick : undefined}
               postCoreBlocks={careerPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -528,6 +591,7 @@ export function MbtiDesktopCloneShell({
               unlockPayLabel={sectionPayCtaLabel}
               unlockInviteLabel={sectionInviteCtaLabel}
               unlockInviteHref={sectionInviteCtaHref}
+              onInviteCtaClick={inviteLinkCopyable ? handleInviteCtaClick : undefined}
               postCoreBlocks={growthPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -566,6 +630,7 @@ export function MbtiDesktopCloneShell({
               unlockPayLabel={sectionPayCtaLabel}
               unlockInviteLabel={sectionInviteCtaLabel}
               unlockInviteHref={sectionInviteCtaHref}
+              onInviteCtaClick={inviteLinkCopyable ? handleInviteCtaClick : undefined}
               postCoreBlocks={relationshipsPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -602,6 +667,8 @@ export function MbtiDesktopCloneShell({
                 ctaHref={primaryCtaHref}
                 inviteCtaLabel={sectionInviteCtaLabel}
                 inviteCtaHref={sectionInviteCtaHref}
+                onInviteCtaClick={inviteLinkCopyable ? handleInviteCtaClick : undefined}
+                inviteCtaDisabled={inviteCtaStatus === "copying"}
                 isCheckingOut={isCheckingOut}
                 checkoutError={checkoutError}
                 onCheckout={primaryOffer ? onCheckout : undefined}

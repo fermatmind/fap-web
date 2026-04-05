@@ -534,6 +534,49 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
   });
 
+  it("retries invite-unlocks without auth/anon once when ATTEMPT_NOT_FOUND is returned", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
+    hoisted.fetchAttemptInviteUnlockProgress
+      .mockRejectedValueOnce(
+        new ApiError({
+          status: 404,
+          errorCode: "ATTEMPT_NOT_FOUND",
+          message: "attempt not found.",
+        })
+      )
+      .mockResolvedValueOnce({
+        ok: true,
+        invite_code: "invite_retry_001",
+        required_invitees: 2,
+        completed_invitees: 0,
+      });
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    await waitFor(() => {
+      expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenCalledTimes(2);
+    });
+
+    expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenNthCalledWith(1, {
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+      locale: "en",
+    });
+    expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenNthCalledWith(2, {
+      attemptId: "attempt-123",
+      locale: "en",
+      skipAuth: true,
+      includeAnonId: false,
+    });
+  });
+
   it("does not trigger auth-mismatch retry for non-ATTEMPT_NOT_FOUND 404", async () => {
     hoisted.fetchAttemptReportAccess.mockRejectedValue(
       new ApiError({

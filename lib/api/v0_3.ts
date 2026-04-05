@@ -2628,17 +2628,24 @@ export async function fetchAttemptInviteUnlockProgress({
   attemptId,
   anonId,
   locale,
+  skipAuth,
+  includeAnonId = true,
 }: {
   attemptId: string;
   anonId?: string;
   locale?: string;
+  skipAuth?: boolean;
+  includeAnonId?: boolean;
 }): Promise<AttemptInviteUnlockProgressResponse> {
-  const resolvedAnonId = resolveAnonId(anonId);
+  const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
   const response = await apiClient.get<AttemptInviteUnlockProgressResponse>(
     `/v0.3/attempts/${attemptId}/invite-unlocks${params.size > 0 ? `?${params.toString()}` : ""}`,
-    anonHeader(resolvedAnonId)
+    {
+      ...anonHeader(resolvedAnonId),
+      ...(skipAuth ? { skipAuth: true } : {}),
+    }
   );
 
   return assertApiOk(response, "Failed to load invite unlock progress.");

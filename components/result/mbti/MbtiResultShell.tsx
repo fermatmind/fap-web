@@ -158,7 +158,6 @@ const OFFER_SCROLL_ALIGNMENT: ScrollIntoViewOptions = {
 };
 
 const MBTI_FULL_EFFECTIVE_SKU = "MBTI_REPORT_FULL_199";
-const MBTI_TAKE_PATH = "/tests/mbti-personality-test-16-personality-types/take";
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -846,7 +845,7 @@ export function MbtiResultShell({
     : terminalPrimaryCtaHref;
   const desktopClonePrimaryCtaHref = isUnlockedPostPurchase ? resolvedTerminalPrimaryCtaHref : DESKTOP_OFFER_FULL_HASH;
   const inviteUnlockHref = resolveInviteUnlockUrl({ progress: inviteUnlockProgress, locale })
-    ?? localizedPath(MBTI_TAKE_PATH, locale);
+    ?? DESKTOP_OFFER_FULL_HASH;
   const inviteRequiredInvitees = inviteUnlockProgress?.requiredInvitees ?? 2;
   const chapterPayCtaLabel = locale === "zh" ? "1.99元直接解锁" : "Unlock now ¥1.99";
   const chapterInviteCtaLabel =
@@ -1663,7 +1662,7 @@ export function MbtiResultShell({
         onCheckout={handleCheckout}
         isCheckingOut={isCheckingOut}
         checkoutError={checkoutError}
-        unlockedOfferNode={offerCtaEntry?.node}
+        unlockedOfferNode={isUnlockedPostPurchase ? offerCtaEntry?.node : undefined}
         supplementaryNodes={supplementaryNodes}
         recommendedReadsNode={recommendedReadsNode}
         footerNode={footerNode}

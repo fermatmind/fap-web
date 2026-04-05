@@ -487,6 +487,23 @@ export default function ResultClient({
     }
   }, [anonId, attemptId, locale, runWithAuthRetry]);
 
+  const fetchInviteUnlockProgressWithAuthMismatchRetry = useCallback(async () => {
+    try {
+      return await runWithAuthRetry(() => fetchAttemptInviteUnlockProgress({ attemptId, anonId, locale }));
+    } catch (error) {
+      if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
+        throw error;
+      }
+
+      return fetchAttemptInviteUnlockProgress({
+        attemptId,
+        locale,
+        skipAuth: true,
+        includeAnonId: false,
+      });
+    }
+  }, [anonId, attemptId, locale, runWithAuthRetry]);
+
   const canLoadRichReport = useCallback((view: AttemptReportAccessView | null) => {
     return view?.reportState === RESULT_PAGE_READY_STATE;
   }, []);
@@ -512,7 +529,7 @@ export default function ResultClient({
       }
 
       inviteProgressRequested = true;
-      void runWithAuthRetry(() => fetchAttemptInviteUnlockProgress({ attemptId, anonId, locale }))
+      void fetchInviteUnlockProgressWithAuthMismatchRetry()
         .then((progressResponse) => {
           if (!active) {
             return;
@@ -780,6 +797,7 @@ export default function ResultClient({
     attemptId,
     canLoadRichReport,
     dict.result.reportUnavailable,
+    fetchInviteUnlockProgressWithAuthMismatchRetry,
     fetchReportAccessWithAuthMismatchRetry,
     fetchReportWithAuthMismatchRetry,
     locale,
