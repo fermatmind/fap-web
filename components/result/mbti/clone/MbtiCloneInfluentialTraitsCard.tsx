@@ -11,7 +11,9 @@ type MbtiCloneInfluentialTraitsCardProps = {
   traitsUnlock?: TraitUnlockBlock | null;
   isUnlocked: boolean;
   unlockHref: string;
-  unlockLabel: string;
+  unlockPayLabel: string;
+  unlockInviteLabel: string;
+  unlockInviteHref: string;
 };
 
 function normalizeTraitLetter(label: string) {
@@ -26,7 +28,9 @@ export function MbtiCloneInfluentialTraitsCard({
   traitsUnlock = null,
   isUnlocked,
   unlockHref,
-  unlockLabel,
+  unlockPayLabel,
+  unlockInviteLabel,
+  unlockInviteHref,
 }: MbtiCloneInfluentialTraitsCardProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const canShowDetails = isUnlocked && traitsUnlock?.items.length === 4;
@@ -55,12 +59,10 @@ export function MbtiCloneInfluentialTraitsCard({
       ? {
           title: "解锁完整报告",
           body: "解锁完整报告后即可查看这些结果，并纳入你的人格分析。",
-          cta: "解锁完整报告",
         }
       : {
           title: "Unlock full report",
           body: "Unlock the full report to view these results and add them to your personality analysis.",
-          cta: unlockLabel,
         };
 
   return (
@@ -101,9 +103,22 @@ export function MbtiCloneInfluentialTraitsCard({
               <p className={styles.unlockTitle}>{lockedCopy.title}</p>
               <p className={styles.unlockCopy}>{lockedCopy.body}</p>
             </div>
-            <a href={unlockHref} className={`${styles.unlockButton} ${styles.unlockButtonCompact}`}>
-              {lockedCopy.cta}
-            </a>
+            <div className={styles.unlockButtonRow} data-testid={`mbti-${sectionId}-unlock-actions`}>
+              <a
+                href={unlockHref}
+                className={`${styles.unlockButton} ${styles.unlockButtonCompact}`}
+                data-testid={`mbti-${sectionId}-pay-cta`}
+              >
+                {unlockPayLabel}
+              </a>
+              <a
+                href={unlockInviteHref}
+                className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
+                data-testid={`mbti-${sectionId}-invite-cta`}
+              >
+                {unlockInviteLabel}
+              </a>
+            </div>
           </div>
         </>
       ) : canShowDetails && detailItem ? (

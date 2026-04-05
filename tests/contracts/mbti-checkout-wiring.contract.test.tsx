@@ -542,9 +542,13 @@ describe("MBTI checkout wiring contract", () => {
       "href",
       getMbtiDesktopAnchorHash("offerFull")
     );
-    expect(within(careerUnlockSurface).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
+    expect(within(careerUnlockSurface).getByRole("link", { name: "1.99元直接解锁" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("offerFull")
+    );
+    expect(within(careerUnlockSurface).getByRole("link", { name: "邀2人测完领报告" })).toHaveAttribute(
+      "href",
+      "/zh/tests/mbti-personality-test-16-personality-types/take"
     );
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
       "/zh/career/recommendations/mbti/enfp-t?"
@@ -561,7 +565,7 @@ describe("MBTI checkout wiring contract", () => {
 
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(footer).getByRole("link", { name: "解锁完整报告" }));
-    fireEvent.click(within(careerUnlockSurface).getByRole("link", { name: "解锁完整报告" }));
+    fireEvent.click(within(careerUnlockSurface).getByRole("link", { name: "1.99元直接解锁" }));
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
   });

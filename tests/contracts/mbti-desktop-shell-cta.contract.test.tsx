@@ -273,12 +273,13 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     });
 
     const finalOfferCta = screen.getByTestId("mbti-offers-primary-cta");
-    expect(finalOfferCta).toHaveTextContent("去结算");
+    expect(finalOfferCta).toHaveTextContent("1.99元直接解锁");
     expect(finalOfferCta).toHaveAttribute("href", "/zh/pay/checkout");
+    expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("邀2人测完领报告");
 
-    const lockedOverlayCtas = screen.getAllByRole("link", { name: "解锁完整报告" });
-    expect(lockedOverlayCtas).toHaveLength(9);
-    for (const cta of lockedOverlayCtas) {
+    const lockedOverlayPayCtas = screen.getAllByTestId(/mbti-.*-pay-cta/);
+    expect(lockedOverlayPayCtas).toHaveLength(9);
+    for (const cta of lockedOverlayPayCtas) {
       expect(cta).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
     }
 

@@ -1119,6 +1119,24 @@
   white-space: nowrap;
 }
 
+.unlockButtonRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.unlockButtonSecondary {
+  background: rgba(54, 173, 115, 0.12);
+  color: var(--clone-green);
+  border: 1px solid rgba(54, 173, 115, 0.28);
+}
+
+.unlockButtonSecondary:hover {
+  background: rgba(54, 173, 115, 0.18);
+}
+
 .unlockedState {
   width: min(100%, var(--clone-overlay-w));
   min-height: var(--clone-overlay-h);
@@ -1531,6 +1549,13 @@
   gap: 16px;
 }
 
+.finalOfferActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .finalOfferPrice {
   margin: 0;
   font-size: 26px;
@@ -1562,6 +1587,16 @@
   font-weight: 700;
   padding: 0 16px;
   cursor: pointer;
+}
+
+.finalOfferInviteButton {
+  background: rgba(54, 173, 115, 0.12);
+  color: var(--clone-green);
+  border: 1px solid rgba(54, 173, 115, 0.3);
+}
+
+.finalOfferInviteButton:hover {
+  background: rgba(54, 173, 115, 0.18);
 }
 
 .finalOfferButton:disabled {
@@ -1708,5 +1743,14 @@
   .p0HeaderInline {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .finalOfferRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .finalOfferActions {
+    justify-content: flex-start;
   }
 }
