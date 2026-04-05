@@ -338,10 +338,10 @@ describe("RichResultReport", () => {
     expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy hero summary should lose to projection summary.")).not.toBeInTheDocument();
 
+    expect(within(offerComparison).getByText("占位标题：完整报告收口位")).toBeInTheDocument();
     expect(within(offerComparison).getByText("¥1.99")).toBeInTheDocument();
-    expect(within(offerComparison).getByTestId("mbti-invite-progress-value")).toHaveTextContent("0/2");
-    expect(within(offerComparison).getByTestId("mbti-offers-invite-cta")).toBeInTheDocument();
-    expect(within(offerComparison).getByRole("button", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(offerComparison).getByRole("button", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(offerComparison).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("offerFull")

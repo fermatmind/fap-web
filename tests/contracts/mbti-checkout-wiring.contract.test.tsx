@@ -548,7 +548,7 @@ describe("MBTI checkout wiring contract", () => {
     );
     expect(within(careerUnlockSurface).getByRole("link", { name: "邀2人测完领报告" })).toHaveAttribute(
       "href",
-      "/zh/tests/mbti-personality-test-16-personality-types/take"
+      getMbtiDesktopAnchorHash("offerFull")
     );
     expect(screen.getByTestId("mbti-career-next-step-cta").getAttribute("href")).toContain(
       "/zh/career/recommendations/mbti/enfp-t?"
@@ -558,9 +558,9 @@ describe("MBTI checkout wiring contract", () => {
     );
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
     expect(screen.getByText("Projection-first summary that should replace the legacy hero copy on result pages.")).toBeInTheDocument();
-    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByTestId("mbti-invite-progress-value")).toHaveTextContent("0/2");
-    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByTestId("mbti-offers-invite-cta")).toBeInTheDocument();
-    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByText(/价格|Price/)).toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByRole("button", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
 
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
