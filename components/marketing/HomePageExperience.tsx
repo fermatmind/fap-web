@@ -75,6 +75,15 @@ function extractTestSlugFromHref(href: string): string | null {
   return matched?.[1] ?? null;
 }
 
+function resolveQuickCardKind(href: string): "mbti" | "big5" | "iq" | "eq" | "depression" | null {
+  if (href.includes("mbti-personality-test-16-personality-types")) return "mbti";
+  if (href.includes("big-five-personality-test-ocean-model")) return "big5";
+  if (href.includes("iq-test-intelligence-quotient-assessment")) return "iq";
+  if (href.includes("eq-test-emotional-intelligence-assessment")) return "eq";
+  if (href.includes("depression-screening-test-standard-edition")) return "depression";
+  return null;
+}
+
 function resolveVariantFamily(title: string): "mbti" | "big5" | null {
   const normalized = title.trim().toLowerCase();
   if (normalized === "mbti") {
@@ -338,47 +347,112 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         </Container>
       </section>
 
-      <section id="home-quick-start" className="bg-[#111922] pb-[var(--fm-space-24)] pt-[var(--fm-space-8)] md:pb-[8rem]">
+      <section id="home-quick-start" className="fm-home-featured-tests-section bg-[#111922]">
         <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
           <div className="fm-home-quick-start-shell">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-              <SectionHeader kicker={copy.quickStart.kicker} title={copy.quickStart.title} body={copy.quickStart.body} invert />
-              <Link href={withLocale("/tests")} className="fm-home-inline-link inline-flex items-center gap-2">
+            <div className="fm-home-featured-head">
+              <div className="fm-home-featured-copy">
+                <h2 className="fm-home-featured-title m-0 text-white">{copy.quickStart.title}</h2>
+                <p className="fm-home-featured-subhead m-0 text-slate-300">{copy.quickStart.body}</p>
+              </div>
+              <Link href={withLocale("/tests")} className="fm-home-featured-all-link">
                 {locale === "zh" ? "查看全部测评" : "View all assessments"}
-                <span aria-hidden>+</span>
+                <span aria-hidden>→</span>
               </Link>
             </div>
 
-            <div className="fm-home-quick-grid mt-8 lg:grid-cols-6">
+            <div className="fm-home-quick-grid fm-home-quick-grid--featured lg:grid-cols-6">
               {copy.quickStart.items.map((item, index) => (
+                (() => {
+                  const kind = resolveQuickCardKind(item.href);
+                  const isPrimary = index < 2;
+                  const isDepression = kind === "depression";
+                  const depressionDescription = locale === "zh"
+                    ? "标准版与学术专业版，用于确认当前状态基线。"
+                    : "Standard and Academic Pro versions establish your current baseline.";
+
+                  return (
                 <article
                   key={item.title}
                   className={cn(
                     "fm-home-quick-card",
-                    index < 2 ? "is-primary lg:col-span-3" : "is-secondary lg:col-span-2"
+                    isPrimary ? "is-primary lg:col-span-3" : "is-secondary lg:col-span-2"
                   )}
                 >
-                  <div className="fm-home-quick-card-head">
-                    <h3 className="m-0 text-[1.18rem] font-semibold tracking-[-0.035em] text-white">{item.title}</h3>
-                  </div>
+                  {isPrimary ? (
+                    <>
+                      <div className="fm-home-quick-primary-layout">
+                        <div className="fm-home-quick-primary-content">
+                          <div className="fm-home-quick-card-head">
+                            <h3 className="m-0 text-[1.95rem] font-semibold tracking-[-0.035em] text-white">{item.title}</h3>
+                          </div>
 
-                  {item.variants?.length ? (
-                    <div className="fm-home-quick-variants" aria-label={locale === "zh" ? "版本选择" : "Version options"}>
-                      {item.variants.map((variant) => (
-                        <div key={`${item.title}-${variant.title}`} className="fm-home-quick-variant">
-                          <p className="m-0">{variant.title}</p>
-                          <small>{variant.description}</small>
+                          {item.variants?.length ? (
+                            <div className="fm-home-quick-variants" aria-label={locale === "zh" ? "版本选择" : "Version options"}>
+                              {item.variants.map((variant) => (
+                                <div key={`${item.title}-${variant.title}`} className="fm-home-quick-variant">
+                                  <p className="m-0">{variant.title}</p>
+                                  <small>{variant.description}</small>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <p className="fm-home-quick-card-body m-0">{item.description}</p>
+                          )}
                         </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="fm-home-quick-card-body m-0">{item.description}</p>
-                  )}
 
-                  <Link href={withLocale(item.href)} className="fm-home-quick-card-link">
-                    {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
-                  </Link>
+                        <div className={cn("fm-home-quick-primary-visual", kind === "mbti" ? "is-mbti" : "is-big5")} aria-hidden>
+                          {kind === "mbti" ? (
+                            <svg viewBox="0 0 192 192" role="presentation">
+                              <rect x="18" y="18" width="156" height="156" rx="18" className="fm-home-quick-visual-frame" />
+                              <path d="M57 18V174M96 18V174M135 18V174M18 57H174M18 96H174M18 135H174" className="fm-home-quick-visual-grid" />
+                              <path d="M18 18L174 174M174 18L18 174" className="fm-home-quick-visual-grid-weak" />
+                            </svg>
+                          ) : (
+                            <svg viewBox="0 0 210 192" role="presentation">
+                              <rect x="18" y="20" width="174" height="152" rx="18" className="fm-home-quick-visual-frame" />
+                              <path d="M55 138H170M55 114H157M55 90H145M55 66H131M55 42H118" className="fm-home-quick-visual-bar" />
+                              <path d="M44 36V142" className="fm-home-quick-visual-axis" />
+                            </svg>
+                          )}
+                        </div>
+                      </div>
+                      <div className="fm-home-quick-card-action">
+                        <Link href={withLocale(item.href)} className="fm-home-quick-card-link is-featured-primary">
+                          {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
+                        </Link>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="fm-home-quick-secondary-head">
+                        <h3 className="m-0 text-[1.6rem] font-semibold tracking-[-0.03em] text-white">{item.title}</h3>
+                        {kind === "iq" || kind === "eq" ? (
+                          <span className={cn("fm-home-quick-secondary-icon", kind === "iq" ? "is-iq" : "is-eq")} aria-hidden>
+                            {kind === "iq" ? "◫" : "≈"}
+                          </span>
+                        ) : null}
+                      </div>
+                      <p className="fm-home-quick-card-body m-0">
+                        {isDepression ? depressionDescription : item.description}
+                      </p>
+                      {isDepression && item.variants?.length ? (
+                        <div className="fm-home-quick-version-line" aria-label={locale === "zh" ? "版本" : "Versions"}>
+                          {item.variants.map((variant) => (
+                            <span key={`${item.title}-${variant.title}`}>{variant.title}</span>
+                          ))}
+                        </div>
+                      ) : null}
+                      <div className="fm-home-quick-card-action">
+                        <Link href={withLocale(item.href)} className="fm-home-quick-card-link is-featured-secondary">
+                          {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
+                        </Link>
+                      </div>
+                    </>
+                  )}
                 </article>
+                  );
+                })()
               ))}
             </div>
           </div>
