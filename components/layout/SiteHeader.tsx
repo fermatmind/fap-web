@@ -12,7 +12,6 @@ import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, toggleLocalePath } from "@/lib/i18n/locales";
 import { LOCALE_COOKIE_NAME } from "@/lib/i18n/localeNegotiation";
-import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { LIVE_COMPLETED_COUNT } from "@/lib/marketing/completionStats";
 import {
   getHeaderDropdownMenus,
@@ -31,7 +30,6 @@ export function SiteHeader() {
   const searchParams = useSearchParams();
   const locale = useLocale();
   const dict = getDictSync(locale);
-  const homeHeader = getHomePageContent(locale).header;
   const withLocale = (path: string) => localizedPath(path, locale);
   const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
   const isTestsHubRoute =
@@ -222,26 +220,16 @@ export function SiteHeader() {
 
           <div
             ref={desktopNavRef}
-            className={cn(
-              "hidden min-w-0 items-center lg:flex",
-              isHomeRoute
-                ? "ml-auto w-full max-w-[56rem] justify-end gap-3 xl:gap-3.5"
-                : "flex-1 justify-end gap-3 xl:gap-3.5"
-            )}
+            className="hidden min-w-0 flex-1 items-center justify-end gap-3 xl:gap-3.5 lg:flex"
           >
             <nav
-              className={cn(
-                "flex min-w-0 flex-nowrap items-center",
-                isHomeRoute ? "flex-1 justify-end gap-2.5 xl:gap-3.5" : "justify-end gap-2.5 xl:gap-3.5"
-              )}
+              className="flex min-w-0 flex-1 flex-nowrap items-center justify-end gap-2.5 xl:gap-3.5"
             >
               {navItems.map((item) => {
                 const menuId = `header-dropdown-${item.key}`;
                 const triggerId = `header-trigger-${item.key}`;
                 const isOpen = activeDropdown === item.key;
                 const items = dropdownMenuMap[item.key] ?? [];
-                const shouldUseHomeTestsPanel = isHomeRoute && item.key === "tests";
-                const shouldUseHomeFlyout = isHomeRoute && item.key !== "tests";
 
                 return (
                   <div
@@ -276,8 +264,7 @@ export function SiteHeader() {
                         }
                       }}
                       className={cn(
-                        "fm-site-header-link fm-site-header-trigger",
-                        isHomeRoute ? "fm-home-header-link fm-home-header-trigger" : ""
+                        "fm-site-header-link fm-site-header-trigger"
                       )}
                     >
                       <span>{item.label}</span>
@@ -285,116 +272,54 @@ export function SiteHeader() {
                     </button>
 
                     {isOpen && items.length > 0 ? (
-                      shouldUseHomeTestsPanel ? (
-                        <div
-                          id={menuId}
-                          aria-labelledby={triggerId}
-                          className="fm-home-nav-panel"
-                        >
-                          <div className="fm-home-nav-panel-copy">
-                            <p className="m-0 text-xs font-semibold uppercase tracking-[0.24em] text-white/46">
-                              {homeHeader.testsLabel}
-                            </p>
-                            <h2 className="m-0 mt-3 text-[1.7rem] font-semibold tracking-[-0.04em] text-white">
-                              {homeHeader.testsTitle}
-                            </h2>
-                            <p className="m-0 mt-3 text-sm leading-7 text-slate-300">
-                              {homeHeader.testsBody}
-                            </p>
-                            <Link
-                              href={withLocale(homeHeader.browseAllHref)}
-                              className="fm-home-inline-link mt-5 inline-flex items-center gap-2 text-white"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              {homeHeader.browseAllLabel}
-                              <span aria-hidden>+</span>
-                            </Link>
-                          </div>
-                          <div className="fm-home-nav-panel-grid">
-                            {homeHeader.groups.map((group) => (
-                              <section key={group.title} className="fm-home-nav-group">
-                                <p className="fm-home-nav-group-title">{group.title}</p>
-                                <div className="space-y-2.5">
-                                  {group.links.map((menuItem) => (
-                                    <Link
-                                      key={`${group.title}-${menuItem.href}`}
-                                      href={withLocale(menuItem.href)}
-                                      className="fm-home-nav-group-link"
-                                      onClick={() => setActiveDropdown(null)}
-                                    >
-                                      <span>{menuItem.title}</span>
-                                      {menuItem.description ? (
-                                        <span className="fm-home-nav-group-note">{menuItem.description}</span>
-                                      ) : null}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </section>
-                            ))}
-                          </div>
-                        </div>
-                      ) : (
-                        <div
-                          id={menuId}
-                          aria-labelledby={triggerId}
-                          className={shouldUseHomeFlyout ? "fm-home-header-dropdown-panel" : "fm-header-dropdown-panel"}
-                        >
-                          {items.map((menuItem) => (
-                            <Link
-                              key={`${item.key}-${menuItem.href}`}
-                              href={withLocale(menuItem.href)}
-                              className={shouldUseHomeFlyout ? "fm-home-header-dropdown-link" : "fm-header-dropdown-link"}
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              {menuItem.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )
+                      <div
+                        id={menuId}
+                        aria-labelledby={triggerId}
+                        className="fm-header-dropdown-panel"
+                      >
+                        {items.map((menuItem) => (
+                          <Link
+                            key={`${item.key}-${menuItem.href}`}
+                            href={withLocale(menuItem.href)}
+                            className="fm-header-dropdown-link"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {menuItem.label}
+                          </Link>
+                        ))}
+                      </div>
                     ) : null}
                   </div>
                 );
               })}
             </nav>
 
-            {isHomeRoute ? (
-              <div className="flex shrink-0 items-center gap-2.5 lg:justify-self-end">
-                <LocaleSwitcher />
-                <Link
-                  href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
-                  className={startButtonClass}
-                >
-                  {dict.header.start}
-                </Link>
-              </div>
-            ) : (
-              <div className="flex shrink-0 items-center gap-2">
-                <Link
-                  href={withLocale("/tests?q=")}
-                  className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
-                  aria-label={dict.header.search}
-                  title={dict.header.search}
-                >
-                  <Search className="h-4 w-4" />
-                </Link>
-                <Link
-                  href={withLocale("/history/mbti")}
-                  className="inline-flex h-11 min-h-[44px] min-w-[112px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-[13px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[120px] xl:px-4 xl:text-sm"
-                >
-                  <UserRound className="h-4 w-4" />
-                  <span>{dict.header.profile}</span>
-                </Link>
+            <div className="flex shrink-0 items-center gap-2">
+              <Link
+                href={withLocale("/tests?q=")}
+                className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
+                aria-label={dict.header.search}
+                title={dict.header.search}
+              >
+                <Search className="h-4 w-4" />
+              </Link>
+              <Link
+                href={withLocale("/history/mbti")}
+                className="inline-flex h-11 min-h-[44px] min-w-[112px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-[13px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[120px] xl:px-4 xl:text-sm"
+              >
+                <UserRound className="h-4 w-4" />
+                <span>{dict.header.profile}</span>
+              </Link>
 
-                <LocaleSwitcher />
+              <LocaleSwitcher />
 
-                <Link
-                  href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
-                  className={startButtonClass}
-                >
-                  {dict.header.start}
-                </Link>
-              </div>
-            )}
+              <Link
+                href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
+                className={startButtonClass}
+              >
+                {dict.header.start}
+              </Link>
+            </div>
           </div>
         </div>
       </Container>
