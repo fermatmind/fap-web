@@ -1,11 +1,19 @@
 import Link from "next/link";
-import { buildBig5TakeHref } from "@/lib/big5/forms";
+import {
+  buildBig5TakeHref,
+  getBig5VariantLabel,
+  listBig5FormMetas,
+} from "@/lib/big5/forms";
 import { Container } from "@/components/layout/Container";
 import { ResultsPreviewShowcase } from "@/components/marketing/ResultsPreviewShowcase";
 import { buttonVariants } from "@/components/ui/button";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent, type HomeLinkItem } from "@/lib/marketing/homepageContent";
-import { buildMbtiTakeHref } from "@/lib/mbti/forms";
+import {
+  buildMbtiTakeHref,
+  getMbtiStartLabel,
+  listMbtiFormMetas,
+} from "@/lib/mbti/forms";
 import { cn } from "@/lib/utils";
 
 function SectionHeader({
@@ -61,6 +69,23 @@ function VariantLink({
   );
 }
 
+function extractTestSlugFromHref(href: string): string | null {
+  const trimmed = href.trim();
+  const matched = trimmed.match(/^\/tests\/([^/?#]+)/);
+  return matched?.[1] ?? null;
+}
+
+function resolveVariantFamily(title: string): "mbti" | "big5" | null {
+  const normalized = title.trim().toLowerCase();
+  if (normalized === "mbti") {
+    return "mbti";
+  }
+  if (normalized === "big five" || normalized === "big5") {
+    return "big5";
+  }
+  return null;
+}
+
 function PersonalityFamilyPanel({
   locale,
   withLocale,
@@ -76,8 +101,46 @@ function PersonalityFamilyPanel({
     links: HomeLinkItem[];
   };
 }) {
-  const mbtiSlug = "mbti-personality-test-16-personality-types";
-  const big5Slug = "big-five-personality-test-ocean-model";
+  const variantLinks = family.links
+    .map((link) => {
+      const linkSlug = extractTestSlugFromHref(link.href);
+      const variantFamily = resolveVariantFamily(link.title);
+
+      if (variantFamily === "mbti" && linkSlug) {
+        return {
+          key: "mbti",
+          title: "MBTI",
+          description: locale === "zh"
+            ? "先快速读懂整体，再决定是否进入更完整画像。"
+            : "Start with the fast read, then move into the fuller profile if needed.",
+          variants: listMbtiFormMetas().map((form) => ({
+            formCode: form.formCode,
+            href: buildMbtiTakeHref(linkSlug, locale, form.formCode),
+            label: getMbtiStartLabel(form.formCode, locale),
+            meta: locale === "zh" ? `${form.questionCount} 题` : `${form.questionCount} questions`,
+          })),
+        };
+      }
+
+      if (variantFamily === "big5" && linkSlug) {
+        return {
+          key: "big5",
+          title: "Big Five",
+          description: locale === "zh"
+            ? "从轮廓进入，或直接读取更完整的五维分布。"
+            : "Start from the outline, or go straight to the fuller five-factor profile.",
+          variants: listBig5FormMetas().map((form) => ({
+            formCode: form.formCode,
+            href: buildBig5TakeHref(linkSlug, locale, form.formCode),
+            label: getBig5VariantLabel(form.formCode, locale),
+            meta: locale === "zh" ? `${form.questionCount} 题` : `${form.questionCount} questions`,
+          })),
+        };
+      }
+
+      return null;
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
     <article className="fm-home-family-panel fm-home-family-panel--lead">
@@ -87,43 +150,24 @@ function PersonalityFamilyPanel({
       </div>
 
       <div className="fm-home-lineup-grid">
-        <section className="fm-home-lineup-block">
-          <div className="fm-home-lineup-block-head">
-            <h4>MBTI</h4>
-            <p>{locale === "zh" ? "先快速读懂整体，再决定是否进入更完整画像。" : "Start with the fast read, then move into the fuller profile if needed."}</p>
-          </div>
-          <div className="fm-home-lineup-variants">
-            <VariantLink
-              href={buildMbtiTakeHref(mbtiSlug, locale, "mbti_93")}
-              label={locale === "zh" ? "快速版" : "Quick Read"}
-              meta={locale === "zh" ? "93 题" : "93 questions"}
-            />
-            <VariantLink
-              href={buildMbtiTakeHref(mbtiSlug, locale, "mbti_144")}
-              label={locale === "zh" ? "深度版" : "Deep Profile"}
-              meta={locale === "zh" ? "144 题" : "144 questions"}
-            />
-          </div>
-        </section>
-
-        <section className="fm-home-lineup-block">
-          <div className="fm-home-lineup-block-head">
-            <h4>Big Five</h4>
-            <p>{locale === "zh" ? "从轮廓进入，或直接读取更完整的五维分布。" : "Start from the outline, or go straight to the fuller five-factor profile."}</p>
-          </div>
-          <div className="fm-home-lineup-variants">
-            <VariantLink
-              href={buildBig5TakeHref(big5Slug, locale, "big5_90")}
-              label={locale === "zh" ? "快速版" : "Quick Read"}
-              meta={locale === "zh" ? "90 题" : "90 questions"}
-            />
-            <VariantLink
-              href={buildBig5TakeHref(big5Slug, locale, "big5_120")}
-              label={locale === "zh" ? "全量版" : "Full Profile"}
-              meta={locale === "zh" ? "120 题" : "120 questions"}
-            />
-          </div>
-        </section>
+        {variantLinks.map((variantGroup) => (
+          <section key={variantGroup.key} className="fm-home-lineup-block">
+            <div className="fm-home-lineup-block-head">
+              <h4>{variantGroup.title}</h4>
+              <p>{variantGroup.description}</p>
+            </div>
+            <div className="fm-home-lineup-variants">
+              {variantGroup.variants.map((variant) => (
+                <VariantLink
+                  key={`${variantGroup.key}-${variant.formCode}`}
+                  href={variant.href}
+                  label={variant.label}
+                  meta={variant.meta}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
 
       <div className="fm-home-family-footer">

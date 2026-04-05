@@ -53,6 +53,7 @@ export const big5QuestionsResponseSchema = z.object({
 export const big5StartAttemptResponseSchema = z.object({
   ok: z.boolean(),
   attempt_id: z.string().min(1),
+  form_code: z.string().optional(),
   scale_code: z.string().optional(),
   pack_id: z.string().optional(),
   dir_version: z.string().optional(),

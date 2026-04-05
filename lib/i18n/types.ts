@@ -103,6 +103,24 @@ export type SiteDictionary = {
       next: string;
       submit: string;
     };
+    big5Retake: {
+      title: string;
+      forms: {
+        big5_120: string;
+        big5_90: string;
+        generic: string;
+      };
+      reasons: {
+        cooldownWithRetry: string;
+        cooldownWithoutRetry: string;
+        limitExceededWithWindow: string;
+        limitExceededDefault: string;
+        genericWithRetry: string;
+        genericWithoutRetry: string;
+      };
+      guidance: string;
+      retryCountdown: string;
+    };
   };
   loading: {
     phases: string[];

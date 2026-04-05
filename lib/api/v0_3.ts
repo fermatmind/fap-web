@@ -125,6 +125,7 @@ export type QuestionsResponse = {
 export type StartAttemptResponse = {
   ok: boolean;
   attempt_id: string;
+  form_code?: string;
   pack_id?: string;
   dir_version?: string;
   resume_token?: string;

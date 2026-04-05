@@ -136,6 +136,24 @@ const en: SiteDictionary = {
       next: "Next question",
       submit: "Submit answers",
     },
+    big5Retake: {
+      title: "Retake temporarily unavailable",
+      forms: {
+        big5_120: "Big Five 120-question Full Edition",
+        big5_90: "Big Five 90-question Standard Edition",
+        generic: "this Big Five assessment entry",
+      },
+      reasons: {
+        cooldownWithRetry: "You already started {form_label}. Please try again in {retry_after}.",
+        cooldownWithoutRetry: "You already started {form_label}. Please try again later.",
+        limitExceededWithWindow: "You have reached the restart limit for {form_label} in the last 30 days.",
+        limitExceededDefault: "You have reached the restart limit for {form_label}. Please try again later.",
+        genericWithRetry: "Starting is temporarily limited. Please try again in {retry_after}.",
+        genericWithoutRetry: "Starting is temporarily limited. Please try again later.",
+      },
+      guidance: "If you want to continue, come back later or explore another assessment.",
+      retryCountdown: "Please wait {retry_after} before retrying.",
+    },
   },
   loading: {
     phases: [
