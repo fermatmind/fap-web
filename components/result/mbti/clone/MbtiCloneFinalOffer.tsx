@@ -45,8 +45,12 @@ export function MbtiCloneFinalOffer({
   illustrationLabel,
   assetSlots,
 }: MbtiCloneFinalOfferProps) {
-  if (isUnlocked && unlockedNode) {
-    return <div className={styles.finalOfferPurchased}>{unlockedNode}</div>;
+  if (unlockedNode) {
+    if (isUnlocked) {
+      return <div className={styles.finalOfferPurchased}>{unlockedNode}</div>;
+    }
+
+    return <>{unlockedNode}</>;
   }
 
   return (
