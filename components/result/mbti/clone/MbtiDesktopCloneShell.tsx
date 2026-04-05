@@ -62,6 +62,9 @@ type MbtiDesktopCloneShellProps = {
   pdfReady?: boolean;
   primaryCtaLabel: string;
   primaryCtaHref: string;
+  lockedPayCtaLabel?: string;
+  lockedInviteCtaLabel?: string;
+  lockedInviteCtaHref?: string;
   onCheckout?: () => void | Promise<void>;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
@@ -217,6 +220,9 @@ export function MbtiDesktopCloneShell({
   pdfReady = false,
   primaryCtaLabel,
   primaryCtaHref,
+  lockedPayCtaLabel,
+  lockedInviteCtaLabel,
+  lockedInviteCtaHref,
   onCheckout,
   isCheckingOut = false,
   checkoutError = null,
@@ -391,6 +397,11 @@ export function MbtiDesktopCloneShell({
   }
 
   const desktopOfferHref = getMbtiDesktopAnchorHash("offerFull");
+  const sectionPayCtaLabel = lockedPayCtaLabel
+    ?? (cloneLocale === "zh" ? "1.99元直接解锁" : "Unlock now ¥1.99");
+  const sectionInviteCtaLabel = lockedInviteCtaLabel
+    ?? (cloneLocale === "zh" ? "邀2人测完领报告" : "Invite 2 friends to unlock");
+  const sectionInviteCtaHref = lockedInviteCtaHref || desktopOfferHref;
   const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
   const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
 
@@ -476,7 +487,9 @@ export function MbtiDesktopCloneShell({
               traitsUnlock={slots.chapters.career.traitsUnlock}
               isUnlocked={isUnlocked}
               unlockHref={desktopOfferHref}
-              unlockLabel={primaryCtaLabel}
+              unlockPayLabel={sectionPayCtaLabel}
+              unlockInviteLabel={sectionInviteCtaLabel}
+              unlockInviteHref={sectionInviteCtaHref}
               postCoreBlocks={careerPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -512,7 +525,9 @@ export function MbtiDesktopCloneShell({
               traitsUnlock={slots.chapters.growth.traitsUnlock}
               isUnlocked={isUnlocked}
               unlockHref={desktopOfferHref}
-              unlockLabel={primaryCtaLabel}
+              unlockPayLabel={sectionPayCtaLabel}
+              unlockInviteLabel={sectionInviteCtaLabel}
+              unlockInviteHref={sectionInviteCtaHref}
               postCoreBlocks={growthPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -548,7 +563,9 @@ export function MbtiDesktopCloneShell({
               traitsUnlock={slots.chapters.relationships.traitsUnlock}
               isUnlocked={isUnlocked}
               unlockHref={desktopOfferHref}
-              unlockLabel={primaryCtaLabel}
+              unlockPayLabel={sectionPayCtaLabel}
+              unlockInviteLabel={sectionInviteCtaLabel}
+              unlockInviteHref={sectionInviteCtaHref}
               postCoreBlocks={relationshipsPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -581,8 +598,10 @@ export function MbtiDesktopCloneShell({
                 priceLabel={slots.finalOffer.priceLabel}
                 price={normalizeText(primaryOffer?.price) || (cloneLocale === "zh" ? "价格以实际结算页为准" : "Price shown on checkout")}
                 guarantee={slots.finalOffer.guarantee}
-                ctaLabel={normalizeText(primaryCtaLabel, slots.finalOffer.ctaLabel)}
+                ctaLabel={isUnlocked ? normalizeText(primaryCtaLabel, slots.finalOffer.ctaLabel) : sectionPayCtaLabel}
                 ctaHref={primaryCtaHref}
+                inviteCtaLabel={sectionInviteCtaLabel}
+                inviteCtaHref={sectionInviteCtaHref}
                 isCheckingOut={isCheckingOut}
                 checkoutError={checkoutError}
                 onCheckout={primaryOffer ? onCheckout : undefined}

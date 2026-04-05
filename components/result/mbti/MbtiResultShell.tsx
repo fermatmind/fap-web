@@ -19,7 +19,7 @@ import {
   isProjectionLocked,
   type AttemptReportAccessView,
 } from "@/lib/access/unifiedAccess";
-import type { AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock";
+import { resolveInviteUnlockUrl, type AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock";
 import { ApiError } from "@/lib/api-client";
 import { trackEvent } from "@/lib/analytics";
 import {
@@ -158,6 +158,7 @@ const OFFER_SCROLL_ALIGNMENT: ScrollIntoViewOptions = {
 };
 
 const MBTI_FULL_EFFECTIVE_SKU = "MBTI_REPORT_FULL_199";
+const MBTI_TAKE_PATH = "/tests/mbti-personality-test-16-personality-types/take";
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -844,6 +845,14 @@ export function MbtiResultShell({
     ? normalizeText(continuityWorkspaceHref, continuityHistoryHref, terminalPrimaryCtaHref)
     : terminalPrimaryCtaHref;
   const desktopClonePrimaryCtaHref = isUnlockedPostPurchase ? resolvedTerminalPrimaryCtaHref : DESKTOP_OFFER_FULL_HASH;
+  const inviteUnlockHref = resolveInviteUnlockUrl({ progress: inviteUnlockProgress, locale })
+    ?? localizedPath(MBTI_TAKE_PATH, locale);
+  const inviteRequiredInvitees = inviteUnlockProgress?.requiredInvitees ?? 2;
+  const chapterPayCtaLabel = locale === "zh" ? "1.99元直接解锁" : "Unlock now ¥1.99";
+  const chapterInviteCtaLabel =
+    locale === "zh"
+      ? `邀${inviteRequiredInvitees}人测完领报告`
+      : `Invite ${inviteRequiredInvitees} friends to unlock`;
   const isRevisit = personalization?.userState?.isRevisit === true;
   const unlockCtaRank = resolveCtaRank(ctaPriorityKeys, "unlock_full_report");
   const careerBridgeCtaRank = resolveCtaRank(ctaPriorityKeys, "career_bridge");
@@ -1648,6 +1657,9 @@ export function MbtiResultShell({
         pdfReady={canDownloadPdf}
         primaryCtaLabel={terminalPrimaryCtaLabel}
         primaryCtaHref={desktopClonePrimaryCtaHref}
+        lockedPayCtaLabel={chapterPayCtaLabel}
+        lockedInviteCtaLabel={chapterInviteCtaLabel}
+        lockedInviteCtaHref={inviteUnlockHref}
         onCheckout={handleCheckout}
         isCheckingOut={isCheckingOut}
         checkoutError={checkoutError}

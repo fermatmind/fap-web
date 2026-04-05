@@ -16,6 +16,8 @@ type MbtiCloneFinalOfferProps = {
   guarantee: string;
   ctaLabel?: string;
   ctaHref?: string;
+  inviteCtaLabel?: string;
+  inviteCtaHref?: string;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
   onCheckout?: () => void | Promise<void>;
@@ -36,6 +38,8 @@ export function MbtiCloneFinalOffer({
   guarantee,
   ctaLabel,
   ctaHref,
+  inviteCtaLabel,
+  inviteCtaHref,
   isCheckingOut = false,
   checkoutError = null,
   onCheckout,
@@ -73,25 +77,36 @@ export function MbtiCloneFinalOffer({
             <p className={styles.finalOfferPrice}>{price}</p>
             <p className={styles.finalOfferMeta}>{guarantee || (locale === "zh" ? "一次解锁，继续使用当前阅读壳。" : "Unlock once and keep the current desktop reading shell.")}</p>
           </div>
-          {ctaLabel && onCheckout ? (
-            <button
-              type="button"
-              data-testid="mbti-offers-primary-cta"
-              onClick={() => void onCheckout()}
-              disabled={isCheckingOut}
-              className={styles.finalOfferButton}
-            >
-              {isCheckingOut
-                ? locale === "zh"
-                  ? "正在跳转..."
-                  : "Redirecting..."
-                : ctaLabel}
-            </button>
-          ) : ctaLabel && ctaHref ? (
-            <a href={ctaHref} data-testid="mbti-offers-primary-cta" className={styles.finalOfferButton}>
-              {ctaLabel}
-            </a>
-          ) : null}
+          <div className={styles.finalOfferActions}>
+            {ctaLabel && onCheckout ? (
+              <button
+                type="button"
+                data-testid="mbti-offers-primary-cta"
+                onClick={() => void onCheckout()}
+                disabled={isCheckingOut}
+                className={styles.finalOfferButton}
+              >
+                {isCheckingOut
+                  ? locale === "zh"
+                    ? "正在跳转..."
+                    : "Redirecting..."
+                  : ctaLabel}
+              </button>
+            ) : ctaLabel && ctaHref ? (
+              <a href={ctaHref} data-testid="mbti-offers-primary-cta" className={styles.finalOfferButton}>
+                {ctaLabel}
+              </a>
+            ) : null}
+            {inviteCtaLabel && inviteCtaHref ? (
+              <a
+                href={inviteCtaHref}
+                data-testid="mbti-offers-invite-cta"
+                className={`${styles.finalOfferButton} ${styles.finalOfferInviteButton}`}
+              >
+                {inviteCtaLabel}
+              </a>
+            ) : null}
+          </div>
         </div>
         {checkoutError ? (
           <p data-testid="mbti-offers-checkout-error" className={styles.errorText}>

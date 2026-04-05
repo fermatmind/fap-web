@@ -673,10 +673,14 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByTestId("mbti-p1-career-work-styles")).not.toBeInTheDocument();
     expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
     expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
-    expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(traitsLockPanel).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(traitsLockPanel).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
     expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
-    expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
     expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 
@@ -763,10 +767,14 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByTestId("mbti-p1-growth-what-drains")).not.toBeInTheDocument();
     expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
     expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
-    expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(traitsLockPanel).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(traitsLockPanel).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
     expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
-    expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
     expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 
@@ -852,10 +860,14 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.queryByTestId("mbti-p1-relationships-pitfalls")).not.toBeInTheDocument();
     expect(traitsLockPanel).toHaveTextContent("解锁完整报告");
     expect(traitsLockPanel).toHaveTextContent(unifiedUnlockBody);
-    expect(within(firstTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(traitsLockPanel).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(traitsLockPanel).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(firstTeaserOverlay).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
     expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
-    expect(within(secondTeaserOverlay).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
+    expect(within(secondTeaserOverlay).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
     expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
 

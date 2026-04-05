@@ -46,7 +46,9 @@ type MbtiCloneNarrativeSectionProps = {
   traitsUnlock?: TraitUnlockBlock | null;
   isUnlocked: boolean;
   unlockHref: string;
-  unlockLabel: string;
+  unlockPayLabel: string;
+  unlockInviteLabel: string;
+  unlockInviteHref: string;
   postCoreBlocks?: ReactNode[];
   premiumTeasers: LockedBlock[];
 };
@@ -69,7 +71,9 @@ export function MbtiCloneNarrativeSection({
   traitsUnlock = null,
   isUnlocked,
   unlockHref,
-  unlockLabel,
+  unlockPayLabel,
+  unlockInviteLabel,
+  unlockInviteHref,
   postCoreBlocks = [],
   premiumTeasers,
 }: MbtiCloneNarrativeSectionProps) {
@@ -96,7 +100,9 @@ export function MbtiCloneNarrativeSection({
         traitsUnlock={traitsUnlock}
         isUnlocked={isUnlocked}
         unlockHref={unlockHref}
-        unlockLabel={unlockLabel}
+        unlockPayLabel={unlockPayLabel}
+        unlockInviteLabel={unlockInviteLabel}
+        unlockInviteHref={unlockInviteHref}
       />
       {strengths ? (
         <MbtiCloneStrengthWeaknessBlock data={strengths} testId={`mbti-p0-${id}-strengths`} />
@@ -116,8 +122,10 @@ export function MbtiCloneNarrativeSection({
           items={block.items}
           overlayTitle={block.overlayTitle}
           overlayBody={block.overlayBody}
-          overlayCtaLabel={block.overlayCtaLabel || unlockLabel}
-          overlayCtaHref={unlockHref}
+          overlayPayCtaLabel={unlockPayLabel}
+          overlayPayCtaHref={unlockHref}
+          overlayInviteCtaLabel={unlockInviteLabel}
+          overlayInviteCtaHref={unlockInviteHref}
           testId={block.testId}
         />
       ))}

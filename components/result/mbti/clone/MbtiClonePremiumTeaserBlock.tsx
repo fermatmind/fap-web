@@ -14,8 +14,10 @@ type MbtiClonePremiumTeaserBlockProps = {
   items: PremiumTeaserItem[];
   overlayTitle: string;
   overlayBody: string;
-  overlayCtaLabel: string;
-  overlayCtaHref: string;
+  overlayPayCtaLabel: string;
+  overlayPayCtaHref: string;
+  overlayInviteCtaLabel: string;
+  overlayInviteCtaHref: string;
   testId: string;
 };
 
@@ -24,8 +26,10 @@ export function MbtiClonePremiumTeaserBlock({
   items,
   overlayTitle,
   overlayBody,
-  overlayCtaLabel,
-  overlayCtaHref,
+  overlayPayCtaLabel,
+  overlayPayCtaHref,
+  overlayInviteCtaLabel,
+  overlayInviteCtaHref,
   testId,
 }: MbtiClonePremiumTeaserBlockProps) {
   return (
@@ -39,9 +43,22 @@ export function MbtiClonePremiumTeaserBlock({
           <p className={styles.unlockTitle}>{overlayTitle}</p>
           <p className={styles.unlockCopy}>{overlayBody}</p>
         </div>
-        <a href={overlayCtaHref} className={`${styles.unlockButton} ${styles.unlockButtonCompact}`}>
-          {overlayCtaLabel}
-        </a>
+        <div className={styles.unlockButtonRow} data-testid={`${testId}-unlock-actions`}>
+          <a
+            href={overlayPayCtaHref}
+            className={`${styles.unlockButton} ${styles.unlockButtonCompact}`}
+            data-testid={`${testId}-pay-cta`}
+          >
+            {overlayPayCtaLabel}
+          </a>
+          <a
+            href={overlayInviteCtaHref}
+            className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
+            data-testid={`${testId}-invite-cta`}
+          >
+            {overlayInviteCtaLabel}
+          </a>
+        </div>
       </div>
       <div className={styles.premiumTeaserBody}>
         <div className={styles.premiumTeaserBlurLayer}>
