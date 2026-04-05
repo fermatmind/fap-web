@@ -20,6 +20,7 @@ type MbtiCloneFinalOfferProps = {
   inviteCtaHref?: string;
   onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
   inviteCtaDisabled?: boolean;
+  inviteFallbackHint?: string | null;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
   onCheckout?: () => void | Promise<void>;
@@ -44,6 +45,7 @@ export function MbtiCloneFinalOffer({
   inviteCtaHref,
   onInviteCtaClick,
   inviteCtaDisabled = false,
+  inviteFallbackHint = null,
   isCheckingOut = false,
   checkoutError = null,
   onCheckout,
@@ -113,6 +115,11 @@ export function MbtiCloneFinalOffer({
         {checkoutError ? (
           <p data-testid="mbti-offers-checkout-error" className={styles.errorText}>
             {checkoutError}
+          </p>
+        ) : null}
+        {inviteFallbackHint ? (
+          <p data-testid="mbti-offers-invite-fallback-hint" className={styles.errorText}>
+            {inviteFallbackHint}
           </p>
         ) : null}
       </div>

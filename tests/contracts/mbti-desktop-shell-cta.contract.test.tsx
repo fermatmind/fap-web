@@ -1,4 +1,5 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import type { ComponentProps } from "react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
@@ -7,12 +8,16 @@ import {
   fetchPersonalityDesktopCloneContent,
   type PersonalityDesktopCloneContentPayload,
 } from "@/lib/cms/personality-desktop-clone";
+import { assignWindowLocation } from "@/lib/browser/locationNavigation";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
 }));
 vi.mock("@/lib/cms/personality-desktop-clone", () => ({
   fetchPersonalityDesktopCloneContent: vi.fn(async () => null),
+}));
+vi.mock("@/lib/browser/locationNavigation", () => ({
+  assignWindowLocation: vi.fn(),
 }));
 
 function createHeadline(): RichResultHeadline {
@@ -244,7 +249,32 @@ function createStoragePayload(tag: string): PersonalityDesktopCloneContentPayloa
 
 beforeEach(() => {
   vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
+  vi.mocked(assignWindowLocation).mockReset();
 });
+const INVITE_TAKE_HREF = "/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001";
+
+function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktopCloneShell>> = {}) {
+  return render(
+    <MbtiDesktopCloneShell
+      locale="zh"
+      headline={createHeadline()}
+      tags={[]}
+      dimensions={[]}
+      highlights={[]}
+      sections={[]}
+      sectionUnlocks={createSectionUnlocks()}
+      offers={[]}
+      projectionViewModel={null}
+      isUnlocked={false}
+      shareCtaLabel="分享"
+      onShare={vi.fn()}
+      retakeHref="/zh/test/mbti"
+      primaryCtaLabel="去结算"
+      primaryCtaHref="/zh/pay/checkout"
+      {...overrides}
+    />,
+  );
+}
 
 describe("MBTI desktop clone shell CTA wiring", () => {
   it("keeps chapter teaser lock-card CTA unified by locale and keeps final offer href CTA fallback", async () => {
@@ -384,5 +414,78 @@ describe("MBTI desktop clone shell CTA wiring", () => {
       "href",
       "/zh/history",
     );
+  });
+
+  it("keeps invite CTA and payment CTA wiring intact on the owner locked surface", async () => {
+    renderDefaultShell({ lockedInviteCtaHref: INVITE_TAKE_HREF });
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
+    });
+
+    expect(screen.getByTestId("mbti-offers-invite-cta")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveAttribute("href", "/zh/pay/checkout");
+    expect(screen.getByTestId("mbti-career-pay-cta")).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+  });
+
+  it("copies invite URL on success without redirecting", async () => {
+    const assignSpy = vi.mocked(assignWindowLocation);
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(window.navigator, "clipboard", {
+      configurable: true,
+      value: { writeText },
+    });
+
+    renderDefaultShell({ lockedInviteCtaHref: INVITE_TAKE_HREF });
+    fireEvent.click(screen.getByTestId("mbti-offers-invite-cta"));
+
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledWith(expect.stringContaining(INVITE_TAKE_HREF));
+      expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("已复制邀请链接");
+    });
+    expect(assignSpy).not.toHaveBeenCalled();
+  });
+
+  it("shows explicit fallback actions on copy failure and does not auto-redirect", async () => {
+    const assignSpy = vi.mocked(assignWindowLocation);
+    const writeText = vi.fn().mockRejectedValue(new Error("clipboard blocked"));
+    Object.defineProperty(window.navigator, "clipboard", {
+      configurable: true,
+      value: { writeText },
+    });
+
+    renderDefaultShell({ lockedInviteCtaHref: INVITE_TAKE_HREF });
+    fireEvent.click(screen.getByTestId("mbti-offers-invite-cta"));
+
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledTimes(1);
+      expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("复制失败，点击打开邀请页");
+      expect(screen.getByTestId("mbti-offers-invite-fallback-hint")).toHaveTextContent(
+        "复制失败，请手动打开邀请页或手动复制链接。",
+      );
+    });
+    expect(assignSpy).not.toHaveBeenCalled();
+  });
+
+  it("opens invite page only when user explicitly clicks after copy failure", async () => {
+    const assignSpy = vi.mocked(assignWindowLocation);
+    const writeText = vi.fn().mockRejectedValue(new Error("clipboard blocked"));
+    Object.defineProperty(window.navigator, "clipboard", {
+      configurable: true,
+      value: { writeText },
+    });
+
+    renderDefaultShell({ lockedInviteCtaHref: INVITE_TAKE_HREF });
+    const inviteCta = screen.getByTestId("mbti-offers-invite-cta");
+
+    fireEvent.click(inviteCta);
+    await waitFor(() => {
+      expect(inviteCta).toHaveTextContent("复制失败，点击打开邀请页");
+    });
+    expect(assignSpy).not.toHaveBeenCalled();
+
+    fireEvent.click(inviteCta);
+    expect(assignSpy).toHaveBeenCalledWith(INVITE_TAKE_HREF);
+    expect(writeText).toHaveBeenCalledTimes(1);
   });
 });
