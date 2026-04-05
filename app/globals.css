@@ -9401,23 +9401,39 @@ a {
 }
 
 .fm-home-hero-copy-shell {
-  max-width: 40rem;
+  width: min(100%, 680px);
+  max-width: 680px;
   align-content: center;
   padding-block: clamp(1.8rem, 4vw, 3.2rem);
 }
 
+.fm-home-hero-title {
+  margin: 0 0 28px 0;
+}
+
 .fm-home-hero-title-line--poster {
-  font-size: clamp(56px, 3.8vw, 82px);
-  line-height: 1.04;
+  font-size: clamp(64px, 5.6vw, 78px);
+  line-height: 1.06;
   letter-spacing: -0.04em;
+  font-weight: 700;
+  color: rgba(248, 250, 252, 0.96);
+  text-shadow: 0 1px 16px rgba(255, 255, 255, 0.03);
   white-space: nowrap;
 }
 
+.fm-home-hero-title-punc {
+  opacity: 0.82;
+  margin: 0 -0.02em;
+}
+
 .fm-home-hero-subhead {
-  margin-top: 34px;
-  max-width: none;
-  font-size: clamp(20px, 2vw, 24px);
-  line-height: 1.55;
+  margin-top: 0;
+  max-width: 22ch;
+  font-size: clamp(20px, 1.9vw, 24px);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(245, 247, 250, 0.76);
   white-space: nowrap;
   text-align: center;
   margin-inline: auto;

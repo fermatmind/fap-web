@@ -199,6 +199,10 @@ function PersonalityFamilyPanel({
 export function HomePageExperience({ locale }: { locale: Locale }) {
   const copy = getHomePageContent(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const heroTitleParts = copy.hero.title.split("，");
+  const heroTitleHasMutedComma = locale === "zh" && heroTitleParts.length > 1;
+  const heroTitleLead = heroTitleParts[0] ?? copy.hero.title;
+  const heroTitleTail = heroTitleParts.slice(1).join("，");
   const dossierCopy = locale === "zh"
     ? {
       title: "认知档案册",
@@ -256,7 +260,15 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
             <div className="fm-home-hero-copy-shell">
               <h1 className="fm-home-hero-title m-0 text-white">
                 <span className="fm-home-hero-title-line fm-home-hero-title-line--poster fm-home-hero-line fm-home-hero-line--identity">
-                  {copy.hero.title}
+                  {heroTitleHasMutedComma ? (
+                    <>
+                      {heroTitleLead}
+                      <span className="fm-home-hero-title-punc">，</span>
+                      {heroTitleTail}
+                    </>
+                  ) : (
+                    copy.hero.title
+                  )}
                 </span>
               </h1>
               <p className="fm-home-hero-subhead fm-home-hero-line fm-home-hero-line--function m-0">{copy.hero.subhead}</p>
