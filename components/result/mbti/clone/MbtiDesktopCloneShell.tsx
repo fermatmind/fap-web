@@ -30,6 +30,7 @@ import {
 } from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
+import { assignWindowLocation } from "@/lib/browser/locationNavigation";
 
 type DesktopCloneTool = {
   label: string;
@@ -410,13 +411,19 @@ export function MbtiDesktopCloneShell({
       : inviteLinkCopyable && inviteCtaStatus === "copied"
       ? (cloneLocale === "zh" ? "已复制邀请链接" : "Invite link copied")
       : inviteLinkCopyable && inviteCtaStatus === "failed"
-      ? (cloneLocale === "zh" ? "复制失败，点击重试" : "Copy failed, retry")
+      ? (cloneLocale === "zh" ? "复制失败，点击打开邀请页" : "Copy failed, open invite page")
       : defaultInviteCtaLabel;
+  const inviteCtaFallbackHint =
+    inviteLinkCopyable && inviteCtaStatus === "failed"
+      ? (cloneLocale === "zh"
+          ? "复制失败，请手动打开邀请页或手动复制链接。"
+          : "Copy failed. Open the invite page or copy the link manually.")
+      : null;
   const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
   const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
 
   useEffect(() => {
-    if (inviteCtaStatus !== "copied" && inviteCtaStatus !== "failed") {
+    if (inviteCtaStatus !== "copied") {
       return;
     }
 
@@ -443,6 +450,11 @@ export function MbtiDesktopCloneShell({
         return;
       }
 
+      if (inviteCtaStatus === "failed") {
+        assignWindowLocation(targetHref);
+        return;
+      }
+
       setInviteCtaStatus("copying");
 
       const absoluteHref = /^https?:\/\//i.test(targetHref)
@@ -457,11 +469,10 @@ export function MbtiDesktopCloneShell({
             return;
           }
         } catch {
-          // Fall back to navigation when clipboard is unavailable.
+          // Keep user in place and show explicit fallback actions.
         }
 
         setInviteCtaStatus("failed");
-        window.location.assign(targetHref);
       })();
     },
     [inviteCtaStatus, inviteLinkCopyable, sectionInviteCtaHref]
@@ -669,6 +680,7 @@ export function MbtiDesktopCloneShell({
                 inviteCtaHref={sectionInviteCtaHref}
                 onInviteCtaClick={inviteLinkCopyable ? handleInviteCtaClick : undefined}
                 inviteCtaDisabled={inviteCtaStatus === "copying"}
+                inviteFallbackHint={inviteCtaFallbackHint}
                 isCheckingOut={isCheckingOut}
                 checkoutError={checkoutError}
                 onCheckout={primaryOffer ? onCheckout : undefined}
