@@ -554,7 +554,9 @@ describe("MBTI checkout wiring contract", () => {
     );
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
     expect(screen.getByText("Projection-first summary that should replace the legacy hero copy on result pages.")).toBeInTheDocument();
-    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByText("占位标题：完整报告收口位")).toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByTestId("mbti-invite-progress-value")).toHaveTextContent("0/2");
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByTestId("mbti-offers-invite-cta")).toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
 
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
