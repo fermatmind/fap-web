@@ -6,7 +6,6 @@ import {
 } from "@/lib/big5/forms";
 import { Container } from "@/components/layout/Container";
 import { ResultsPreviewShowcase } from "@/components/marketing/ResultsPreviewShowcase";
-import { buttonVariants } from "@/components/ui/button";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent, type HomeLinkItem } from "@/lib/marketing/homepageContent";
 import {
@@ -200,17 +199,6 @@ function PersonalityFamilyPanel({
 export function HomePageExperience({ locale }: { locale: Locale }) {
   const copy = getHomePageContent(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const primaryButtonClass = buttonVariants({
-    size: "lg",
-    className:
-      "px-7 border-transparent bg-[#e7efe9] text-slate-950 shadow-[0_18px_40px_rgba(4,8,14,0.18)] hover:bg-[#f2f6f3]",
-  });
-  const darkOutlineButtonClass = buttonVariants({
-    variant: "outline",
-    size: "lg",
-    className:
-      "border-white/14 bg-white/[0.04] px-7 text-white hover:border-white/26 hover:bg-white/[0.08] hover:text-white",
-  });
   const dossierCopy = locale === "zh"
     ? {
       title: "认知档案册",
@@ -523,56 +511,38 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         </Container>
       </section>
 
-      <section className="bg-[#10171f] py-[var(--fm-space-24)] md:py-[8rem]">
+      <section className="bg-[#10171f] pb-0 pt-[var(--fm-space-24)] md:pt-[8rem]">
         <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
-          <div className="grid gap-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-start">
-            <SectionHeader kicker={copy.trust.kicker} title={copy.trust.title} body={copy.trust.body} invert />
-            <div className="space-y-3">
-              {copy.trust.items.map((item) => (
-                <details key={item.title} className="fm-home-trust-item group">
-                  <summary className="fm-home-trust-summary">
-                    <div>
-                      <p className="m-0 text-[0.98rem] font-semibold tracking-[-0.02em] text-white">{item.title}</p>
-                      <p className="m-0 mt-1.5 max-w-[42rem] text-[0.92rem] leading-7 text-slate-400">{item.summary}</p>
+          <div className="fm-home-trust-wrap">
+            <div className="grid gap-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-start">
+              <SectionHeader kicker={copy.trust.kicker} title={copy.trust.title} body={copy.trust.body} invert />
+              <div className="space-y-3">
+                {copy.trust.items.map((item) => (
+                  <details key={item.title} className="fm-home-trust-item group">
+                    <summary className="fm-home-trust-summary">
+                      <div>
+                        <p className="m-0 text-[0.98rem] font-semibold tracking-[-0.02em] text-white">{item.title}</p>
+                        <p className="m-0 mt-1.5 max-w-[42rem] text-[0.92rem] leading-7 text-slate-400">{item.summary}</p>
+                      </div>
+                      <span className="fm-home-trust-plus" aria-hidden>
+                        <span />
+                        <span />
+                      </span>
+                    </summary>
+                    <div className="fm-home-trust-body">
+                      {item.paragraphs[0] ? <p className="m-0 text-[0.9rem] leading-7 text-slate-300">{item.paragraphs[0]}</p> : null}
+                      {item.href && item.hrefLabel ? (
+                        <Link href={withLocale(item.href)} className="fm-home-inline-link inline-flex items-center gap-2 text-white">
+                          {item.hrefLabel}
+                          <span aria-hidden>+</span>
+                        </Link>
+                      ) : null}
                     </div>
-                    <span className="fm-home-trust-plus" aria-hidden>
-                      <span />
-                      <span />
-                    </span>
-                  </summary>
-                  <div className="fm-home-trust-body">
-                    {item.paragraphs[0] ? <p className="m-0 text-[0.9rem] leading-7 text-slate-300">{item.paragraphs[0]}</p> : null}
-                    {item.href && item.hrefLabel ? (
-                      <Link href={withLocale(item.href)} className="fm-home-inline-link inline-flex items-center gap-2 text-white">
-                        {item.hrefLabel}
-                        <span aria-hidden>+</span>
-                      </Link>
-                    ) : null}
-                  </div>
-                </details>
-              ))}
+                  </details>
+                ))}
+              </div>
             </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-[#121a22] py-[var(--fm-space-18)] md:py-[6rem]">
-        <Container className="max-w-[90rem] px-5 md:px-8 xl:px-12">
-          <div className="fm-home-final-band flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-[34rem] space-y-2">
-              <h2 className="m-0 text-balance text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.05em] text-white">
-                {copy.finalCta.title}
-              </h2>
-              <p className="m-0 text-[0.98rem] leading-7 text-slate-300 md:text-[1.02rem]">{copy.finalCta.body}</p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href={withLocale(copy.finalCta.primaryHref)} className={primaryButtonClass}>
-                {copy.finalCta.primaryCta}
-              </Link>
-              <Link href={withLocale(copy.finalCta.secondaryHref)} className={darkOutlineButtonClass}>
-                {copy.finalCta.secondaryCta}
-              </Link>
-            </div>
+            <div className="fm-home-trust-footer-divider" aria-hidden />
           </div>
         </Container>
       </section>
