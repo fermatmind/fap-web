@@ -57,7 +57,7 @@ export const FOOTER_SOCIAL_ITEMS: FooterSocialItem[] = [
   {
     key: "wx",
     kind: "qr",
-    qrImageSrc: "/social/wechat-qr.jpg",
+    qrImageSrc: "/social/wechat-qr-official-258.jpg",
     icon: requireSimpleIcon("siWechat"),
     labels: { zh: "微信", en: "WeChat" },
   },
