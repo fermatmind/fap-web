@@ -62,6 +62,8 @@ export function SiteHeader() {
       getHeaderDropdownMenus(locale).map((menu) => [menu.key, menu.items])
     ) as Record<HeaderNavKey, Array<{ href: string; label: string }>>;
   }, [locale]);
+  const startButtonClass =
+    "inline-flex h-9 min-h-[36px] shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-white/12 bg-[#e6ece8] px-4 text-[13px] font-semibold text-[#121923] shadow-none transition hover:bg-[#f1f5f2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
 
   function persistLocalePreference() {
     if (typeof document === "undefined") return;
@@ -178,16 +180,10 @@ export function SiteHeader() {
 
   return (
     <header
-      className={
-        isBrandSurfaceRoute
-          ? "sticky top-0 z-50 border-b border-white/10 bg-[#0c131b]/82 text-white shadow-[0_20px_60px_rgba(6,10,18,0.28)] backdrop-blur-xl"
-          : "sticky top-0 z-50 border-b border-[var(--fm-trust-blue-strong)] bg-[var(--fm-trust-blue)]/95 text-white shadow-[var(--fm-shadow-md)] backdrop-blur-md"
-      }
+      className="sticky top-0 z-50 border-b border-white/10 bg-[#353e49]/92 text-white shadow-[0_16px_44px_rgba(3,8,16,0.3)] backdrop-blur-xl"
     >
       <Container
-        className={cn(
-          isHomeRoute ? "max-w-[110rem] px-5 py-2.5 md:px-8 xl:px-12" : "max-w-[1320px] py-3"
-        )}
+        className="max-w-[1320px] px-6 py-2.5 md:px-10 xl:px-12"
       >
         <div className="flex items-center justify-between gap-3">
           <div className={cn("min-w-0 shrink-0", isHomeRoute && "lg:justify-self-start")}>
@@ -195,7 +191,9 @@ export function SiteHeader() {
               href={withLocale("/")}
               className={cn(
                 "font-serif font-semibold tracking-tight text-white",
-                isHomeRoute ? "text-[2rem] leading-none xl:text-[2.08rem]" : "text-xl"
+                isHomeRoute
+                  ? "text-[1.22rem] leading-none xl:text-[1.28rem]"
+                  : "text-[1.22rem] leading-none xl:text-[1.28rem]"
               )}
             >
               {dict.header.brand}
@@ -226,13 +224,15 @@ export function SiteHeader() {
             ref={desktopNavRef}
             className={cn(
               "hidden min-w-0 items-center lg:flex",
-              isHomeRoute ? "ml-auto w-full max-w-[60rem] justify-end gap-1 xl:gap-1.5" : "flex-1 justify-end gap-1.5 xl:gap-2.5"
+              isHomeRoute
+                ? "ml-auto w-full max-w-[56rem] justify-end gap-3 xl:gap-3.5"
+                : "flex-1 justify-end gap-3 xl:gap-3.5"
             )}
           >
             <nav
               className={cn(
                 "flex min-w-0 flex-nowrap items-center",
-                isHomeRoute ? "flex-1 justify-end gap-0.25 xl:gap-0.5" : "justify-end gap-0 xl:gap-0.5"
+                isHomeRoute ? "flex-1 justify-end gap-2.5 xl:gap-3.5" : "justify-end gap-2.5 xl:gap-3.5"
               )}
             >
               {navItems.map((item) => {
@@ -276,14 +276,12 @@ export function SiteHeader() {
                         }
                       }}
                       className={cn(
-                        isHomeRoute
-                          ? "fm-home-header-link fm-home-header-trigger"
-                          : "inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-medium transition hover:bg-white/10 hover:text-white xl:px-2.5 xl:text-sm",
-                        !isHomeRoute && (isBrandSurfaceRoute ? "text-slate-200" : "text-blue-100")
+                        "fm-site-header-link fm-site-header-trigger",
+                        isHomeRoute ? "fm-home-header-link fm-home-header-trigger" : ""
                       )}
                     >
                       <span>{item.label}</span>
-                      <ChevronDown className={isOpen ? "h-4 w-4 rotate-180 transition" : "h-4 w-4 transition"} />
+                      <ChevronDown className={isOpen ? "h-3.5 w-3.5 rotate-180 transition" : "h-3.5 w-3.5 transition"} />
                     </button>
 
                     {isOpen && items.length > 0 ? (
@@ -360,22 +358,17 @@ export function SiteHeader() {
             </nav>
 
             {isHomeRoute ? (
-              <div className="flex shrink-0 items-center gap-1.5 xl:gap-2 lg:justify-self-end">
+              <div className="flex shrink-0 items-center gap-2.5 lg:justify-self-end">
                 <LocaleSwitcher />
                 <Link
                   href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
-                  className={buttonVariants({
-                    size: "sm",
-                    className: isBrandSurfaceRoute
-                      ? "shrink-0 whitespace-nowrap border-transparent bg-[#e8efea] px-4 text-[12.5px] font-semibold text-slate-950 hover:bg-[#f2f6f3] xl:px-4.5 xl:text-[13px]"
-                      : "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm",
-                  })}
+                  className={startButtonClass}
                 >
                   {dict.header.start}
                 </Link>
               </div>
             ) : (
-              <div className="flex shrink-0 items-center gap-1 xl:gap-1.5">
+              <div className="flex shrink-0 items-center gap-2">
                 <Link
                   href={withLocale("/tests?q=")}
                   className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
@@ -396,12 +389,7 @@ export function SiteHeader() {
 
                 <Link
                   href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
-                  className={buttonVariants({
-                    size: "sm",
-                    className: isBrandSurfaceRoute
-                      ? "shrink-0 whitespace-nowrap border-transparent bg-[#dfe9e3] px-3.5 text-[13px] text-slate-950 hover:bg-[#edf4f0] xl:px-4 xl:text-sm"
-                      : "shrink-0 whitespace-nowrap px-3.5 text-[13px] xl:px-4 xl:text-sm",
-                  })}
+                  className={startButtonClass}
                 >
                   {dict.header.start}
                 </Link>
