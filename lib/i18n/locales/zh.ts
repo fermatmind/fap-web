@@ -135,6 +135,24 @@ const zh: SiteDictionary = {
       next: "下一题",
       submit: "提交答案",
     },
+    big5Retake: {
+      title: "暂时无法重新开始",
+      forms: {
+        big5_120: "大五人格120题完整版",
+        big5_90: "大五人格90题标准版",
+        generic: "当前大五人格测试入口",
+      },
+      reasons: {
+        cooldownWithRetry: "你刚刚已经开始了{form_label}，请在{retry_after}后再试。",
+        cooldownWithoutRetry: "你刚刚已经开始了{form_label}，请稍后再试。",
+        limitExceededWithWindow: "你在最近30天内已达到{form_label}的重测次数上限。",
+        limitExceededDefault: "你已达到{form_label}的重测次数上限，请稍后再试。",
+        genericWithRetry: "当前开始测评请求较多，请在{retry_after}后再试。",
+        genericWithoutRetry: "当前开始测评请求较多，请稍后再试。",
+      },
+      guidance: "如需继续，请稍后重试，或先看看其他测试。",
+      retryCountdown: "请在{retry_after}后重试。",
+    },
   },
   loading: {
     phases: [

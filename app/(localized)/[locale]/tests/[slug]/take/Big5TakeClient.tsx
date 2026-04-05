@@ -36,7 +36,11 @@ import {
   startBig5Attempt,
   submitBig5Attempt,
 } from "@/lib/big5/api";
-import { mapBig5Error, type Big5UiError } from "@/lib/big5/errors";
+import {
+  formatBig5RetryCountdown,
+  mapBig5Error,
+  type Big5UiError,
+} from "@/lib/big5/errors";
 import { normalizeBig5FormCode, resolveBig5FormMeta } from "@/lib/big5/forms";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
@@ -54,13 +58,6 @@ import {
   linkAnonAttemptsOnceOnLoginSuccess,
   shouldLinkAnonAttemptsOnLoginSuccess,
 } from "@/lib/api/v0_3";
-
-function retryCountdownText(locale: "en" | "zh", seconds: number): string {
-  if (locale === "zh") {
-    return `请等待 ${seconds} 秒后重试。`;
-  }
-  return `Please wait ${seconds} seconds before retrying.`;
-}
 
 function resolveGuestTokenTelemetry(error: unknown): {
   statusCode?: number;
@@ -186,6 +183,10 @@ export default function Big5TakeClient({
     disclaimerHash !== serverDisclaimerHash;
 
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
+  const big5RetakeCopy = dict.quiz.big5Retake;
+  const retryCountdownText = useCallback((seconds: number): string => (
+    formatBig5RetryCountdown(locale, seconds, big5RetakeCopy)
+  ), [big5RetakeCopy, locale]);
   const inCooldown = cooldownSeconds > 0;
   const previousQuestion = currentIndex > 0 ? questions[currentIndex - 1] : null;
   const nextQuestion = currentIndex < total - 1 ? questions[currentIndex + 1] : null;
@@ -655,7 +656,11 @@ export default function Big5TakeClient({
           }
         }
 
-        const mapped = mapBig5Error(error);
+        const mapped = mapBig5Error(error, {
+          locale,
+          fallbackFormCode: resolvedFormCode,
+          copy: big5RetakeCopy,
+        });
         const classified = classifyApiError(error);
         trackEvent("questions_load_failure", {
           scale_code: "BIG5_OCEAN",
@@ -680,7 +685,7 @@ export default function Big5TakeClient({
     return () => {
       active = false;
     };
-  }, [anonId, applyUiError, authBlockError, authBootstrapping, locale, resolvedFormCode, rolloutBlocked, rolloutChecking, runWithAuthRetry, trackGuestTokenFailure]);
+  }, [anonId, applyUiError, authBlockError, authBootstrapping, big5RetakeCopy, locale, resolvedFormCode, rolloutBlocked, rolloutChecking, runWithAuthRetry, trackGuestTokenFailure]);
 
   const startFreshAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError) {
@@ -688,7 +693,7 @@ export default function Big5TakeClient({
     }
 
     if (inCooldown) {
-      setStartError(retryCountdownText(locale, cooldownSeconds));
+      setStartError(retryCountdownText(cooldownSeconds));
       return null;
     }
 
@@ -781,7 +786,11 @@ export default function Big5TakeClient({
           }
         }
 
-        const mapped = mapBig5Error(error);
+        const mapped = mapBig5Error(error, {
+          locale,
+          fallbackFormCode: resolvedFormCode,
+          copy: big5RetakeCopy,
+        });
         const classified = classifyApiError(error);
         trackEvent("submit_failure", {
           scale_code: "BIG5_OCEAN",
@@ -798,10 +807,10 @@ export default function Big5TakeClient({
           trackBig5Event(
             "retake_blocked",
             buildEventPayload({
-              reason: error.errorCode,
-              retry_after_seconds: Number(
-                (error.details as { retry_after_seconds?: unknown } | undefined)?.retry_after_seconds ?? 0
-              ),
+              reason: mapped.reasonCode ?? error.errorCode,
+              form_code: mapped.formCode ?? resolvedFormCode,
+              scope_key: mapped.scopeKey ?? undefined,
+              retry_after_seconds: mapped.retryAfterSeconds ?? 0,
             })
           );
         }
@@ -829,6 +838,8 @@ export default function Big5TakeClient({
     runWithAuthRetry,
     trackGuestTokenFailure,
     staleDraftError,
+    retryCountdownText,
+    big5RetakeCopy,
   ]);
 
   const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
@@ -933,7 +944,7 @@ export default function Big5TakeClient({
 
     if (inCooldown) {
       if (isFlowActive(activeRunId)) {
-        setSubmitError(retryCountdownText(locale, cooldownSeconds));
+        setSubmitError(retryCountdownText(cooldownSeconds));
       }
       return null;
     }
@@ -1021,7 +1032,11 @@ export default function Big5TakeClient({
         }
       }
 
-      const mapped = mapBig5Error(error);
+      const mapped = mapBig5Error(error, {
+        locale,
+        fallbackFormCode: resolvedFormCode,
+        copy: big5RetakeCopy,
+      });
       const classified = classifyApiError(error);
       trackEvent("submit_failure", {
         scale_code: "BIG5_OCEAN",
@@ -1043,10 +1058,10 @@ export default function Big5TakeClient({
           "retake_blocked",
           buildEventPayload({
             attempt_id: activeAttemptId,
-            reason: error.errorCode,
-            retry_after_seconds: Number(
-              (error.details as { retry_after_seconds?: unknown } | undefined)?.retry_after_seconds ?? 0
-            ),
+            reason: mapped.reasonCode ?? error.errorCode,
+            form_code: mapped.formCode ?? resolvedFormCode,
+            scope_key: mapped.scopeKey ?? undefined,
+            retry_after_seconds: mapped.retryAfterSeconds ?? 0,
           })
         );
       }
@@ -1069,11 +1084,14 @@ export default function Big5TakeClient({
     isFlowActive,
     locale,
     questions,
+    resolvedFormCode,
     setCurrentIndex,
     staleDraftError,
     startFreshAttempt,
     submitAttemptWithId,
+    big5RetakeCopy,
     trackGuestTokenFailure,
+    retryCountdownText,
   ]);
 
   const finalizeSuccessfulSubmit = useCallback(
@@ -1192,7 +1210,7 @@ export default function Big5TakeClient({
     return (
       <div className="space-y-[var(--fm-gap-sm)] rounded-2xl border border-slate-200 bg-white p-[var(--fm-space-5)] shadow-sm">
         <Alert>{authBlockError ?? questionError}</Alert>
-        {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
+        {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
         {rolloutBlocked ? null : (
           <Button type="button" variant="outline" onClick={() => window.location.reload()} disabled={inCooldown}>
             Retry
@@ -1256,7 +1274,7 @@ export default function Big5TakeClient({
         </label>
 
         {startError ? <Alert>{startError}</Alert> : null}
-        {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
+        {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
 
         <div className="flex flex-wrap items-center gap-[var(--fm-gap-xs)]">
           <Button
@@ -1353,7 +1371,7 @@ export default function Big5TakeClient({
             />
 
             {submitError ? <Alert>{submitError}</Alert> : null}
-            {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
+            {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
           </article>
         </ImmersiveTakeLayout>
 
@@ -1406,7 +1424,7 @@ export default function Big5TakeClient({
           />
 
           {submitError ? <Alert>{submitError}</Alert> : null}
-          {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(locale, cooldownSeconds)}</p> : null}
+          {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
 
           <div className="flex flex-wrap items-center gap-[var(--fm-gap-xs)]">
             <Button

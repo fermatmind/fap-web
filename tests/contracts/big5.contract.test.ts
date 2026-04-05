@@ -48,6 +48,7 @@ describe("BIG5 contract schemas", () => {
       big5StartAttemptResponseSchema.parse({
         ok: true,
         attempt_id: "11111111-1111-1111-1111-111111111111",
+        form_code: "big5_90",
         resume_token: "resume_token",
       })
     ).not.toThrow();
