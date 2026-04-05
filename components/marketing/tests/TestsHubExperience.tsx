@@ -165,36 +165,6 @@ export function TestsHubExperience({ locale }: { locale: Locale }) {
         </Container>
       </section>
 
-      <section className="bg-[#121a22] py-[var(--fm-space-18)] md:py-[5.5rem]">
-        <Container className="max-w-[90rem] px-5 md:px-8 xl:px-12">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] px-5 py-6 md:px-8 md:py-8">
-            <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-[40rem] space-y-4">
-                <h2 className="m-0 text-balance text-[clamp(2rem,4vw,3.2rem)] font-semibold tracking-[-0.045em] text-white">
-                  {content.finalCta.title}
-                </h2>
-                <p className="m-0 text-[1rem] leading-7 text-slate-300">{content.finalCta.body}</p>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                <Link href={content.finalCta.primaryHref} className={buttonVariants({ size: "lg", className: "px-7" })}>
-                  {content.finalCta.primaryLabel}
-                </Link>
-                <Link
-                  href={content.finalCta.secondaryHref}
-                  className={buttonVariants({
-                    variant: "outline",
-                    size: "lg",
-                    className: "border-white/16 bg-white/6 px-7 text-white hover:border-white/30 hover:bg-white/10 hover:text-white",
-                  })}
-                >
-                  {content.finalCta.secondaryLabel}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
     </>
   );
 }
