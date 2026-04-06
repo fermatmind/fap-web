@@ -47,8 +47,8 @@ type MbtiCloneNarrativeSectionProps = {
   isUnlocked: boolean;
   unlockHref: string;
   unlockPayLabel: string;
-  unlockInviteLabel: string;
-  unlockInviteHref: string;
+  unlockInviteLabel?: string;
+  unlockInviteHref?: string;
   onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
   postCoreBlocks?: ReactNode[];
   premiumTeasers: LockedBlock[];
