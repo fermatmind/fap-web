@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
+import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -25,6 +26,7 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import { buildMbtiPersonalityScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
@@ -301,6 +303,10 @@ export default async function PersonalityDetailPage({
     sourcePath: canonicalPath,
   });
   const mbtiLandingHref = localizedPath("/tests/mbti-personality-test-16-personality-types", locale);
+  const personalityScenarioDeepModules = buildMbtiPersonalityScenarioDeepModules({
+    locale,
+    typeCode: detail.canonicalTypeCode,
+  });
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -409,6 +415,23 @@ export default async function PersonalityDetailPage({
         sourcePageType="personality_detail"
         blocks={detail.answerSurface?.sceneSummaryBlocks}
         testId="personality-detail-scene-entry"
+      />
+      <MbtiScenarioDeepDiveSection
+        locale={locale}
+        modules={personalityScenarioDeepModules}
+        sourcePageType="personality_detail"
+        sourcePath={canonicalPath}
+        testId="personality-detail-scene-deep-dive"
+        heading={
+          locale === "zh"
+            ? `${detail.canonicalTypeCode} 场景深化（职业 / 协作 / 专业）`
+            : `${detail.canonicalTypeCode} scene depth (career / collaboration / major)`
+        }
+        subtitle={
+          locale === "zh"
+            ? "在类型页里直接完成场景解释与下一步路径选择。"
+            : "Use type detail as the primary layer for scenario explanation and next-step routing."
+        }
       />
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">

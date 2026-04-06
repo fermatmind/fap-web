@@ -48,6 +48,7 @@ import {
   listMbtiFormMetas,
 } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import { buildMbtiTestLandingContinuityItems } from "@/lib/mbti/sceneDeepContent";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
@@ -604,6 +605,7 @@ export default async function TestLandingPage({
   });
   const relatedPosts = listRelatedBlogPosts(test.slug, locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
+  const mbtiLandingContinuityItems = showsMbtiActions ? buildMbtiTestLandingContinuityItems(locale) : [];
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: toStringValue(lookup?.seo_title) || localizedTestTitle,
@@ -772,6 +774,36 @@ export default async function TestLandingPage({
               sourcePageType="test_landing"
               testId="mbti-test-landing-scene-entry"
             />
+          ) : null}
+          {showsMbtiActions && mbtiLandingContinuityItems.length > 0 ? (
+            <section
+              className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+              data-testid="mbti-landing-continuity-strip"
+            >
+              <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+                {locale === "zh" ? "开始前先看这三条路径" : "Three quick paths before you start"}
+              </h2>
+              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
+                {locale === "zh"
+                  ? "这是轻量回流区：帮助你在开始测试前先明确阅读路径，不替代主 CTA。"
+                  : "This is a lightweight continuity strip. It clarifies reading paths before starting, without replacing the primary CTA."}
+              </p>
+              <div className="grid gap-3 md:grid-cols-3">
+                {mbtiLandingContinuityItems.map((item) => (
+                  <article
+                    key={item.key}
+                    className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+                    data-testid={`mbti-landing-continuity-${item.key}`}
+                  >
+                    <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{item.title}</p>
+                    <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{item.body}</p>
+                    <Link href={item.href} className="fm-help-chip-link">
+                      {locale === "zh" ? "继续查看" : "Continue"}
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            </section>
           ) : null}
 
           {rollout.paywallMode === "free_only" || !rollout.commerceEnabled ? (
