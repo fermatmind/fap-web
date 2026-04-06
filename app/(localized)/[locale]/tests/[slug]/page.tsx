@@ -3,6 +3,7 @@ import Link from "next/link";
 import { cookies, headers } from "next/headers";
 import { notFound, permanentRedirect } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { CTASticky } from "@/components/business/CTASticky";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
 import { Container } from "@/components/layout/Container";
@@ -35,6 +36,7 @@ import {
   listBig5FormMetas,
 } from "@/lib/big5/forms";
 import {
+  DEFAULT_MBTI_FORM_CODE,
   buildMbtiTakeHref,
   getMbtiDurationSummary,
   getMbtiQuestionSummary,
@@ -44,6 +46,7 @@ import {
   isMbtiScaleCode,
   listMbtiFormMetas,
 } from "@/lib/mbti/forms";
+import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
@@ -497,6 +500,65 @@ export default async function TestLandingPage({
           testId: `test-detail-landing-cta-${form.formCode}`,
         }))
       : [];
+  const mbtiPrimaryChoice = showsMbtiActions
+    ? flagshipVariantChoices.find((choice) => choice.key === DEFAULT_MBTI_FORM_CODE) ?? flagshipVariantChoices[0] ?? null
+    : null;
+  const mbtiSecondaryChoice = showsMbtiActions
+    ? flagshipVariantChoices.find((choice) => choice.key !== (mbtiPrimaryChoice?.key ?? DEFAULT_MBTI_FORM_CODE)) ?? null
+    : null;
+  const mbtiLandingPath = withLocale(`/tests/${test.slug}`);
+  const mbtiPrimaryHref = mbtiPrimaryChoice
+    ? buildMbtiEntryHref({
+        locale,
+        testSlug: test.slug,
+        formCode: mbtiPrimaryChoice.key,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "start_mbti_test_primary",
+        sourcePath: mbtiLandingPath,
+      })
+    : null;
+  const mbtiSecondaryHref = mbtiSecondaryChoice
+    ? buildMbtiEntryHref({
+        locale,
+        testSlug: test.slug,
+        formCode: mbtiSecondaryChoice.key,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "start_mbti_test_secondary",
+        sourcePath: mbtiLandingPath,
+      })
+    : null;
+  const mbtiEntryViewTrackingProps = showsMbtiActions
+    ? buildMbtiEntryTrackingPayload({
+        locale,
+        testSlug: test.slug,
+        formCode: mbtiPrimaryChoice?.key ?? DEFAULT_MBTI_FORM_CODE,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "entry_view",
+      })
+    : null;
+  const mbtiPrimaryClickTrackingProps = mbtiPrimaryChoice
+    ? buildMbtiEntryTrackingPayload({
+        locale,
+        testSlug: test.slug,
+        formCode: mbtiPrimaryChoice.key,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "start_mbti_test_primary",
+      })
+    : null;
+  const mbtiSecondaryClickTrackingProps = mbtiSecondaryChoice
+    ? buildMbtiEntryTrackingPayload({
+        locale,
+        testSlug: test.slug,
+        formCode: mbtiSecondaryChoice.key,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "start_mbti_test_secondary",
+      })
+    : null;
 
   const packId = toStringValue(lookup?.pack_id) || test.scale_code || "BIG5_OCEAN";
   const dirVersion = toStringValue(lookup?.dir_version);
@@ -519,6 +581,7 @@ export default async function TestLandingPage({
     locked: true,
     variant: "free",
     sku_id: "",
+    ...(mbtiEntryViewTrackingProps ?? {}),
   };
 
   const cardSpec = resolveCardSpec({
@@ -632,7 +695,48 @@ export default async function TestLandingPage({
                   {locale === "zh" ? "维护中" : "Temporarily unavailable"}
                 </span>
               </div>
-            ) : isFlagshipDualVariant ? (
+            ) : showsMbtiActions ? (
+              <div className="space-y-4 pt-2" data-testid="mbti-landing-entry-cta-group">
+                <div className="rounded-[1.25rem] border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+                  <p className="m-0 text-sm leading-7 text-slate-600">
+                    {locale === "zh"
+                      ? "先从一个版本开始：主入口为深度版，次入口为快速版。"
+                      : "Start from one version: the deep profile is primary, and quick read remains a secondary option."}
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  {mbtiPrimaryHref && mbtiPrimaryClickTrackingProps ? (
+                    <TrackedEntryCtaLink
+                      href={mbtiPrimaryHref}
+                      prefetch
+                      data-testid="mbti-landing-primary-cta"
+                      eventProperties={mbtiPrimaryClickTrackingProps}
+                      className={buttonVariants({ size: "lg" })}
+                    >
+                      {mbtiPrimaryChoice?.ctaLabel || (locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test")}
+                    </TrackedEntryCtaLink>
+                  ) : (
+                    <Link href={startTestHref} prefetch className={buttonVariants({ size: "lg" })} data-testid="mbti-landing-primary-cta">
+                      {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
+                    </Link>
+                  )}
+                  {mbtiSecondaryHref && mbtiSecondaryClickTrackingProps ? (
+                    <TrackedEntryCtaLink
+                      href={mbtiSecondaryHref}
+                      prefetch
+                      data-testid="mbti-landing-secondary-cta"
+                      eventProperties={mbtiSecondaryClickTrackingProps}
+                      className={buttonVariants({ variant: "outline", size: "lg" })}
+                    >
+                      {mbtiSecondaryChoice?.ctaLabel || (locale === "zh" ? "开始快速版" : "Start Quick Read")}
+                    </TrackedEntryCtaLink>
+                  ) : null}
+                  <Link href={backToTestsCta?.href || withLocale("/tests")} className={buttonVariants({ variant: "outline", size: "lg" })}>
+                    {backToTestsCta?.label || (locale === "zh" ? "返回测评入口" : "Back to tests")}
+                  </Link>
+                </div>
+              </div>
+            ) : showsBig5Actions ? (
               <div className="space-y-4 pt-2">
                 <FlagshipVariantChooser
                   title={locale === "zh" ? "选择更适合你的版本" : "Choose the version that fits best"}
@@ -782,7 +886,7 @@ export default async function TestLandingPage({
             <FAQAccordion items={mergedFaq} />
           </section>
 
-          {isFlagshipDualVariant ? (
+          {showsBig5Actions ? (
             <section className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
               <div className="space-y-5">
                 <div className="space-y-2">

@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
   buildCareerRecommendationFrontendUrl,
   getMbtiCareerRecommendationByType,
@@ -14,6 +17,8 @@ import {
 } from "@/lib/cms/career-recommendations";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
+import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import {
   parseMbtiContinuityQuery,
   resolveMbtiCarryoverFocusLabel,
@@ -203,6 +208,29 @@ export default async function CareerMbtiRecommendationPage({
   const answerFirst = detail.answerSurface?.summaryBlocks[0]?.body || buildAnswerFirst(detail, locale);
   const faqItems = buildAnswerSurfaceFaqItems(detail, locale);
   const landingSurface = detail.landingSurface;
+  const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_career_recommendation_detail",
+    sourcePageType: "career_recommendation_detail",
+    targetAction: "entry_view",
+  });
+  const mbtiPrimaryCtaTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_career_recommendation_detail",
+    sourcePageType: "career_recommendation_detail",
+    targetAction: "start_mbti_test_primary",
+  });
+  const mbtiPrimaryCtaHref = buildMbtiEntryHref({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_career_recommendation_detail",
+    sourcePageType: "career_recommendation_detail",
+    targetAction: "start_mbti_test_primary",
+    sourcePath: canonicalPath,
+  });
+  const mbtiLandingHref = withLocale("/tests/mbti-personality-test-16-personality-types");
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: detail.seo.meta.title,
@@ -232,6 +260,7 @@ export default async function CareerMbtiRecommendationPage({
 
   return (
     <Container as="main" className="space-y-6 py-10">
+      <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       <JsonLd id={`career-mbti-webpage-${detail.publicRouteSlug}`} data={webPageJsonLd} />
       <JsonLd id={`career-mbti-breadcrumb-${detail.publicRouteSlug}`} data={breadcrumbJsonLd} />
       <JsonLd id={`career-mbti-itemlist-${detail.publicRouteSlug}`} data={itemListJsonLd} />
@@ -289,6 +318,24 @@ export default async function CareerMbtiRecommendationPage({
             ))}
           </div>
         ) : null}
+        <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-career-entry-cta-group">
+          <TrackedEntryCtaLink
+            href={mbtiPrimaryCtaHref}
+            prefetch
+            data-testid="mbti-career-primary-cta"
+            eventProperties={mbtiPrimaryCtaTrackingProps}
+            className={buttonVariants({ size: "lg" })}
+          >
+            {locale === "zh" ? "验证我的类型（开始 MBTI 测试）" : "Validate my type (Start MBTI test)"}
+          </TrackedEntryCtaLink>
+          <Link
+            href={mbtiLandingHref}
+            data-testid="mbti-career-secondary-cta"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            {locale === "zh" ? "查看测试介绍" : "View test overview"}
+          </Link>
+        </div>
         <div className="grid gap-3 md:grid-cols-3">
           <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">

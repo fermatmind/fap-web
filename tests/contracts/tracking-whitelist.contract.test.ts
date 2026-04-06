@@ -190,4 +190,55 @@ describe("tracking whitelist contract", () => {
       reason: "poll",
     });
   });
+
+  it("keeps mbti entry attribution fields for view/click/start_attempt events", () => {
+    const payload = {
+      slug: "mbti-personality-test-16-personality-types",
+      test_slug: "mbti-personality-test-16-personality-types",
+      form_code: "mbti_144",
+      entry_surface: "mbti_personality_detail",
+      source_page_type: "personality_detail",
+      target_action: "start_mbti_test_primary",
+      locale: "zh",
+      scaleCode: "MBTI",
+      attemptIdMasked: "abc123...xyz9",
+      disclaimer_version: "v1",
+      answers: "forbidden",
+      token: "forbidden",
+      unexpected: "drop-me",
+    };
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.LANDING_VIEW, payload)).toEqual({
+      slug: "mbti-personality-test-16-personality-types",
+      test_slug: "mbti-personality-test-16-personality-types",
+      form_code: "mbti_144",
+      entry_surface: "mbti_personality_detail",
+      source_page_type: "personality_detail",
+      target_action: "start_mbti_test_primary",
+      locale: "zh",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.START_CLICK, payload)).toEqual({
+      slug: "mbti-personality-test-16-personality-types",
+      test_slug: "mbti-personality-test-16-personality-types",
+      form_code: "mbti_144",
+      entry_surface: "mbti_personality_detail",
+      source_page_type: "personality_detail",
+      target_action: "start_mbti_test_primary",
+      locale: "zh",
+      disclaimer_version: "v1",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.START_ATTEMPT, payload)).toEqual({
+      slug: "mbti-personality-test-16-personality-types",
+      test_slug: "mbti-personality-test-16-personality-types",
+      scaleCode: "MBTI",
+      attemptIdMasked: "abc123...xyz9",
+      form_code: "mbti_144",
+      entry_surface: "mbti_personality_detail",
+      source_page_type: "personality_detail",
+      target_action: "start_mbti_test_primary",
+      locale: "zh",
+    });
+  });
 });
