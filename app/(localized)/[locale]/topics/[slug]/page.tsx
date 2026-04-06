@@ -5,6 +5,7 @@ import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink"
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
+import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -21,6 +22,7 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import { buildMbtiTopicScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
@@ -175,6 +177,7 @@ export default async function TopicDetailPage({
   const mbtiTopicHubHref = localizedPath("/topics/mbti", locale);
   const mbtiPersonalityHubHref = localizedPath("/personality", locale);
   const mbtiCareerRecommendationHubHref = localizedPath("/career/recommendations", locale);
+  const topicScenarioDeepModules = isMbtiTopic ? buildMbtiTopicScenarioDeepModules(locale) : [];
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -246,6 +249,21 @@ export default async function TopicDetailPage({
           sourcePageType="topic_detail"
           blocks={topicSceneBlocks}
           testId="topic-detail-scene-entry"
+        />
+      ) : null}
+      {isMbtiTopic ? (
+        <MbtiScenarioDeepDiveSection
+          locale={locale}
+          modules={topicScenarioDeepModules}
+          sourcePageType="topic_detail"
+          sourcePath={canonicalPath}
+          testId="topic-detail-scene-deep-dive"
+          heading={locale === "zh" ? "MBTI 场景深化（主题页）" : "MBTI scene depth on the topic hub"}
+          subtitle={
+            locale === "zh"
+              ? "先用主题页建立判断框架，再进入类型与推荐页做下一步验证。"
+              : "Use the topic hub as a decision frame before validating on type and recommendation pages."
+          }
         />
       ) : null}
 

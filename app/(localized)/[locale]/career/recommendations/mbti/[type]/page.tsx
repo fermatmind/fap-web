@@ -6,6 +6,7 @@ import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink"
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
+import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -20,6 +21,7 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import { buildMbtiRecommendationScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
 import {
   parseMbtiContinuityQuery,
   resolveMbtiCarryoverFocusLabel,
@@ -231,6 +233,10 @@ export default async function CareerMbtiRecommendationPage({
     targetAction: "start_mbti_test_primary",
     sourcePath: canonicalPath,
   });
+  const recommendationScenarioDeepModules = buildMbtiRecommendationScenarioDeepModules({
+    locale,
+    typeCode: detail.graphTypeCode,
+  });
   const mbtiLandingHref = withLocale("/tests/mbti-personality-test-16-personality-types");
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -366,6 +372,23 @@ export default async function CareerMbtiRecommendationPage({
         sourcePageType="career_recommendation_detail"
         blocks={detail.answerSurface?.sceneSummaryBlocks}
         testId="career-recommendation-scene-entry"
+      />
+      <MbtiScenarioDeepDiveSection
+        locale={locale}
+        modules={recommendationScenarioDeepModules}
+        sourcePageType="career_recommendation_detail"
+        sourcePath={canonicalPath}
+        testId="career-recommendation-scene-deep-dive"
+        heading={
+          locale === "zh"
+            ? `${detail.graphTypeCode} 场景深化（以职业方向为主）`
+            : `${detail.graphTypeCode} scene depth (career-first)`
+        }
+        subtitle={
+          locale === "zh"
+            ? "在职业推荐页延伸团队协作与专业选择，避免只看岗位列表。"
+            : "Extend collaboration and major-selection guidance here, not just a job list."
+        }
       />
 
       <AnswerSurfaceSection
