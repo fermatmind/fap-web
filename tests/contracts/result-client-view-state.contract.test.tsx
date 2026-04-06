@@ -430,6 +430,38 @@ describe("ResultClient view-state contract", () => {
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
 
+  it("shows MBTI critical-surface loading shell early after access projection is identified", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({
+        report_state: "pending",
+        pdf_state: "unavailable",
+        reason_code: "projection_pending",
+        mbti_form_v1: {
+          form_code: "mbti_93",
+          scale_code: "MBTI",
+        },
+      })
+    );
+    hoisted.fetchAttemptReport.mockReset();
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-loading-critical-surface")).toBeInTheDocument();
+    });
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "ui_report_loading_phase",
+      expect.objectContaining({
+        scale_code: "MBTI",
+        phase: "result_bootstrap_start",
+        stage_detail: "access_projection_loaded",
+      })
+    );
+    expect(hoisted.fetchAttemptReport).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+  });
+
   it("keeps the page in processing state when report access is 404 but submission is still pending", async () => {
     hoisted.fetchAttemptReportAccess.mockRejectedValue(
       new ApiError({

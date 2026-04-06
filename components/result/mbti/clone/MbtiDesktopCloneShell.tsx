@@ -311,6 +311,14 @@ function resolveInviteProgressDisplay({
   };
 }
 
+function readIsMobileViewport() {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return false;
+  }
+
+  return window.matchMedia("(max-width: 860px)").matches;
+}
+
 export function MbtiDesktopCloneShell({
   locale,
   headline,
@@ -351,6 +359,9 @@ export function MbtiDesktopCloneShell({
   storageManagedExternally = false,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
+  const initialMobileViewport = useMemo(() => readIsMobileViewport(), []);
+  const [isMobileViewport, setIsMobileViewport] = useState(initialMobileViewport);
+  const [isDeepContentReady, setIsDeepContentReady] = useState(!initialMobileViewport);
   const fullCodeForStorage = useMemo(
     () => normalizeText(headline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
     [headline.typeCode, projectionViewModel?.displayType],
@@ -369,6 +380,51 @@ export function MbtiDesktopCloneShell({
     storageContentOverride !== undefined ? storageContentOverride : activeStorageSnapshot?.content ?? null;
   const storageAssetSlots =
     storageAssetSlotsOverride !== undefined ? storageAssetSlotsOverride : activeStorageSnapshot?.assetSlots ?? null;
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 860px)");
+    const syncViewport = () => {
+      setIsMobileViewport(mediaQuery.matches);
+    };
+
+    syncViewport();
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", syncViewport);
+      return () => mediaQuery.removeEventListener("change", syncViewport);
+    }
+
+    mediaQuery.addListener(syncViewport);
+    return () => mediaQuery.removeListener(syncViewport);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileViewport) {
+      setIsDeepContentReady(true);
+      return;
+    }
+
+    setIsDeepContentReady(false);
+    if (typeof window.requestAnimationFrame !== "function") {
+      const timerId = window.setTimeout(() => {
+        setIsDeepContentReady(true);
+      }, 16);
+      return () => {
+        window.clearTimeout(timerId);
+      };
+    }
+
+    const rafId = window.requestAnimationFrame(() => {
+      setIsDeepContentReady(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+    };
+  }, [fullCodeForStorage, isMobileViewport, isUnlocked]);
 
   useEffect(() => {
     let active = true;
@@ -542,6 +598,7 @@ export function MbtiDesktopCloneShell({
       ? "/zh/tests/mbti-personality-test-16-personality-types/take"
       : "/en/tests/mbti-personality-test-16-personality-types/take");
   const inviteCreateInFlightRef = useRef<Promise<string> | null>(null);
+  const primaryCtaReadyTrackedRef = useRef(false);
   const [inviteCtaStatus, setInviteCtaStatus] = useState<
     "idle" | "creating" | "copying" | "copied" | "copy_failed" | "create_failed"
   >("idle");
@@ -594,6 +651,26 @@ export function MbtiDesktopCloneShell({
       window.clearTimeout(timer);
     };
   }, [inviteCtaStatus]);
+
+  useEffect(() => {
+    if (primaryCtaReadyTrackedRef.current) {
+      return;
+    }
+
+    if (!primaryCtaLabel || !desktopEntryHref) {
+      return;
+    }
+
+    primaryCtaReadyTrackedRef.current = true;
+    trackEvent("ui_report_loading_phase", {
+      scale_code: "MBTI",
+      phase: "result_primary_cta_ready",
+      stage_detail: isUnlocked ? "workspace_entry_ready" : "unlock_entry_ready",
+      locked: !isUnlocked,
+      variant: normalizeText(headline.typeCode) || undefined,
+      locale,
+    });
+  }, [desktopEntryHref, headline.typeCode, isUnlocked, locale, primaryCtaLabel]);
 
   const handleInviteCtaClick = useCallback(
     (event: ReactMouseEvent<HTMLAnchorElement>) => {
@@ -739,6 +816,177 @@ export function MbtiDesktopCloneShell({
     : "You can save, export, or revisit this result.";
   const traitBodyParagraphs = slots.overview?.paragraphs ?? slots.traits.body;
   const traitBodySource = slots.overview ? "overview" : "traits";
+  const showTopInviteProgress = isMobileViewport && inviteProgressDisplay.showProgressCard;
+  const deepContentPlaceholderLabel = cloneLocale === "zh"
+    ? "正在加载详细章节..."
+    : "Loading detailed chapters...";
+  const deepContentPlaceholderHint = cloneLocale === "zh"
+    ? "首屏先展示类型、解锁状态与关键入口。"
+    : "Showing type, unlock status, and key actions first.";
+  const finalOfferNode = (
+    <section id={getMbtiDesktopAnchorId("offerFull")} data-testid="mbti-offer-full" className={styles.section}>
+      <MbtiCloneFinalOffer
+        locale={cloneLocale}
+        eyebrow={slots.finalOffer.eyebrow}
+        headline={slots.finalOffer.headline}
+        copy={slots.finalOffer.body}
+        priceLabel={slots.finalOffer.priceLabel}
+        price={normalizeText(primaryOffer?.price) || (cloneLocale === "zh" ? "价格以实际结算页为准" : "Price shown on checkout")}
+        guarantee={slots.finalOffer.guarantee}
+        ctaLabel={isUnlocked ? normalizeText(primaryCtaLabel, slots.finalOffer.ctaLabel) : sectionPayCtaLabel}
+        ctaHref={primaryCtaHref}
+        inviteCtaLabel={sectionInviteCtaLabel}
+        inviteCtaHref={inviteCtaRenderHref}
+        onInviteCtaClick={handleInviteCtaClick}
+        inviteCtaDisabled={inviteCtaBusy}
+        inviteFallbackHint={inviteCtaFallbackHint}
+        inviteProgressVisible={inviteProgressDisplay.showProgressCard}
+        inviteProgressBadge={inviteProgressDisplay.badge}
+        inviteProgressLabel={inviteProgressDisplay.progressLabel}
+        inviteProgressHint={inviteProgressDisplay.progressHint}
+        isCheckingOut={isCheckingOut}
+        checkoutError={checkoutError}
+        onCheckout={primaryOffer ? onCheckout : undefined}
+        isUnlocked={isUnlocked}
+        unlockedNode={unlockedOfferNode}
+        illustrationSlotId={slots.finalOffer.asset.slotId}
+        illustrationLabel={slots.finalOffer.asset.label}
+        assetSlots={storageAssetSlots}
+      />
+    </section>
+  );
+  const deepNarrativeSectionsNode = (
+    <>
+      <MbtiCloneNarrativeSection
+        locale={cloneLocale}
+        id="career"
+        anchorId={getMbtiDesktopAnchorId("career")}
+        number={Number(slots.chapters.career.step)}
+        title={slots.chapters.career.title}
+        illustrationSlotId={slots.chapters.career.asset.slotId}
+        illustrationLabel={slots.chapters.career.asset.label}
+        assetSlots={storageAssetSlots}
+        introParagraphs={slots.chapters.career.intro}
+        strengths={slots.chapters.career.strengths}
+        weaknesses={slots.chapters.career.weaknesses}
+        matchedJobs={null}
+        matchedGuides={null}
+        traits={slots.chapters.career.influentialTraits}
+        traitsUnlock={slots.chapters.career.traitsUnlock}
+        isUnlocked={isUnlocked}
+        unlockHref={desktopOfferHref}
+        unlockPayLabel={sectionPayCtaLabel}
+        unlockInviteLabel={sectionInviteCtaLabel}
+        unlockInviteHref={inviteCtaRenderHref}
+        onInviteCtaClick={handleInviteCtaClick}
+        postCoreBlocks={careerPostCoreBlocks}
+        premiumTeasers={isUnlocked ? [] : [
+          buildPremiumTeaserBlock({
+            locale: cloneLocale,
+            zhTitle: "你可能会喜欢的职业选择",
+            source: slots.chapters.career.careerIdeas,
+            fallback: slots.chapters.career.lockedBlocks[0],
+            testId: "mbti-premium-career-career-ideas",
+          }),
+          buildPremiumTeaserBlock({
+            locale: cloneLocale,
+            zhTitle: "适合你的工作方式",
+            source: slots.chapters.career.workStyles,
+            fallback: slots.chapters.career.lockedBlocks[1],
+            testId: "mbti-premium-career-work-styles",
+          }),
+        ]}
+      />
+
+      <MbtiCloneNarrativeSection
+        locale={cloneLocale}
+        id="growth"
+        anchorId={getMbtiDesktopAnchorId("growth")}
+        number={Number(slots.chapters.growth.step)}
+        title={slots.chapters.growth.title}
+        illustrationSlotId={slots.chapters.growth.asset.slotId}
+        illustrationLabel={slots.chapters.growth.asset.label}
+        assetSlots={storageAssetSlots}
+        introParagraphs={slots.chapters.growth.intro}
+        strengths={slots.chapters.growth.strengths}
+        weaknesses={slots.chapters.growth.weaknesses}
+        traits={slots.chapters.growth.influentialTraits}
+        traitsUnlock={slots.chapters.growth.traitsUnlock}
+        isUnlocked={isUnlocked}
+        unlockHref={desktopOfferHref}
+        unlockPayLabel={sectionPayCtaLabel}
+        unlockInviteLabel={sectionInviteCtaLabel}
+        unlockInviteHref={inviteCtaRenderHref}
+        onInviteCtaClick={handleInviteCtaClick}
+        postCoreBlocks={growthPostCoreBlocks}
+        premiumTeasers={isUnlocked ? [] : [
+          buildPremiumTeaserBlock({
+            locale: cloneLocale,
+            zhTitle: "什么能让你充满活力？",
+            source: slots.chapters.growth.whatEnergizes,
+            fallback: slots.chapters.growth.lockedBlocks[0],
+            testId: "mbti-premium-growth-what-energizes",
+          }),
+          buildPremiumTeaserBlock({
+            locale: cloneLocale,
+            zhTitle: "什么让你精力力竭？",
+            source: slots.chapters.growth.whatDrains,
+            fallback: slots.chapters.growth.lockedBlocks[1],
+            testId: "mbti-premium-growth-what-drains",
+          }),
+        ]}
+      />
+
+      <MbtiCloneNarrativeSection
+        locale={cloneLocale}
+        id="relationships"
+        anchorId={getMbtiDesktopAnchorId("relationships")}
+        number={Number(slots.chapters.relationships.step)}
+        title={slots.chapters.relationships.title}
+        illustrationSlotId={slots.chapters.relationships.asset.slotId}
+        illustrationLabel={slots.chapters.relationships.asset.label}
+        assetSlots={storageAssetSlots}
+        introParagraphs={slots.chapters.relationships.intro}
+        strengths={slots.chapters.relationships.strengths}
+        weaknesses={slots.chapters.relationships.weaknesses}
+        traits={slots.chapters.relationships.influentialTraits}
+        traitsUnlock={slots.chapters.relationships.traitsUnlock}
+        isUnlocked={isUnlocked}
+        unlockHref={desktopOfferHref}
+        unlockPayLabel={sectionPayCtaLabel}
+        unlockInviteLabel={sectionInviteCtaLabel}
+        unlockInviteHref={inviteCtaRenderHref}
+        onInviteCtaClick={handleInviteCtaClick}
+        postCoreBlocks={relationshipsPostCoreBlocks}
+        premiumTeasers={isUnlocked ? [] : [
+          buildPremiumTeaserBlock({
+            locale: cloneLocale,
+            zhTitle: "你的人际关系优势",
+            source: slots.chapters.relationships.superpowers,
+            fallback: slots.chapters.relationships.lockedBlocks[0],
+            testId: "mbti-premium-relationships-superpowers",
+          }),
+          buildPremiumTeaserBlock({
+            locale: cloneLocale,
+            zhTitle: "人际关系陷阱",
+            source: slots.chapters.relationships.pitfalls,
+            fallback: slots.chapters.relationships.lockedBlocks[1],
+            testId: "mbti-premium-relationships-pitfalls",
+          }),
+        ]}
+      />
+
+      {supplementaryNodes.map((node, index) => (
+        <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
+      ))}
+    </>
+  );
+  const trailingNodes = (
+    <>
+      {recommendedReadsNode ? <div>{recommendedReadsNode}</div> : null}
+      {footerNode ? <div>{footerNode}</div> : null}
+    </>
+  );
 
   return (
     <div
@@ -767,6 +1015,19 @@ export function MbtiDesktopCloneShell({
               <p>{slots.intro.paragraphs[1]}</p>
             </section>
 
+            {showTopInviteProgress ? (
+              <section data-testid="mbti-invite-progress-summary-top" className={styles.mobileInviteSummary}>
+                <p className={styles.mobileInviteSummaryBadge}>{inviteProgressDisplay.badge}</p>
+                <p className={styles.mobileInviteSummaryLabel}>{inviteProgressDisplay.progressLabel}</p>
+                <p className={styles.mobileInviteSummaryHint}>{inviteProgressDisplay.progressHint}</p>
+                {!isUnlocked ? (
+                  <a href={desktopOfferHref} className={styles.mobileInviteSummaryLink}>
+                    {cloneLocale === "zh" ? "去解锁入口" : "Go to unlock entry"}
+                  </a>
+                ) : null}
+              </section>
+            ) : null}
+
             <MbtiCloneTraitsSection
               locale={locale}
               title={slots.traits.title}
@@ -787,162 +1048,15 @@ export function MbtiDesktopCloneShell({
               toolsPrompt={traitsToolsPrompt}
             />
 
-            <MbtiCloneNarrativeSection
-              locale={cloneLocale}
-              id="career"
-              anchorId={getMbtiDesktopAnchorId("career")}
-              number={Number(slots.chapters.career.step)}
-              title={slots.chapters.career.title}
-              illustrationSlotId={slots.chapters.career.asset.slotId}
-              illustrationLabel={slots.chapters.career.asset.label}
-              assetSlots={storageAssetSlots}
-              introParagraphs={slots.chapters.career.intro}
-              strengths={slots.chapters.career.strengths}
-              weaknesses={slots.chapters.career.weaknesses}
-              matchedJobs={null}
-              matchedGuides={null}
-              traits={slots.chapters.career.influentialTraits}
-              traitsUnlock={slots.chapters.career.traitsUnlock}
-              isUnlocked={isUnlocked}
-              unlockHref={desktopOfferHref}
-              unlockPayLabel={sectionPayCtaLabel}
-              unlockInviteLabel={sectionInviteCtaLabel}
-              unlockInviteHref={inviteCtaRenderHref}
-              onInviteCtaClick={handleInviteCtaClick}
-              postCoreBlocks={careerPostCoreBlocks}
-              premiumTeasers={isUnlocked ? [] : [
-                buildPremiumTeaserBlock({
-                  locale: cloneLocale,
-                  zhTitle: "你可能会喜欢的职业选择",
-                  source: slots.chapters.career.careerIdeas,
-                  fallback: slots.chapters.career.lockedBlocks[0],
-                  testId: "mbti-premium-career-career-ideas",
-                }),
-                buildPremiumTeaserBlock({
-                  locale: cloneLocale,
-                  zhTitle: "适合你的工作方式",
-                  source: slots.chapters.career.workStyles,
-                  fallback: slots.chapters.career.lockedBlocks[1],
-                  testId: "mbti-premium-career-work-styles",
-                }),
-              ]}
-            />
-
-            <MbtiCloneNarrativeSection
-              locale={cloneLocale}
-              id="growth"
-              anchorId={getMbtiDesktopAnchorId("growth")}
-              number={Number(slots.chapters.growth.step)}
-              title={slots.chapters.growth.title}
-              illustrationSlotId={slots.chapters.growth.asset.slotId}
-              illustrationLabel={slots.chapters.growth.asset.label}
-              assetSlots={storageAssetSlots}
-              introParagraphs={slots.chapters.growth.intro}
-              strengths={slots.chapters.growth.strengths}
-              weaknesses={slots.chapters.growth.weaknesses}
-              traits={slots.chapters.growth.influentialTraits}
-              traitsUnlock={slots.chapters.growth.traitsUnlock}
-              isUnlocked={isUnlocked}
-              unlockHref={desktopOfferHref}
-              unlockPayLabel={sectionPayCtaLabel}
-              unlockInviteLabel={sectionInviteCtaLabel}
-              unlockInviteHref={inviteCtaRenderHref}
-              onInviteCtaClick={handleInviteCtaClick}
-              postCoreBlocks={growthPostCoreBlocks}
-              premiumTeasers={isUnlocked ? [] : [
-                buildPremiumTeaserBlock({
-                  locale: cloneLocale,
-                  zhTitle: "什么能让你充满活力？",
-                  source: slots.chapters.growth.whatEnergizes,
-                  fallback: slots.chapters.growth.lockedBlocks[0],
-                  testId: "mbti-premium-growth-what-energizes",
-                }),
-                buildPremiumTeaserBlock({
-                  locale: cloneLocale,
-                  zhTitle: "什么让你精力力竭？",
-                  source: slots.chapters.growth.whatDrains,
-                  fallback: slots.chapters.growth.lockedBlocks[1],
-                  testId: "mbti-premium-growth-what-drains",
-                }),
-              ]}
-            />
-
-            <MbtiCloneNarrativeSection
-              locale={cloneLocale}
-              id="relationships"
-              anchorId={getMbtiDesktopAnchorId("relationships")}
-              number={Number(slots.chapters.relationships.step)}
-              title={slots.chapters.relationships.title}
-              illustrationSlotId={slots.chapters.relationships.asset.slotId}
-              illustrationLabel={slots.chapters.relationships.asset.label}
-              assetSlots={storageAssetSlots}
-              introParagraphs={slots.chapters.relationships.intro}
-              strengths={slots.chapters.relationships.strengths}
-              weaknesses={slots.chapters.relationships.weaknesses}
-              traits={slots.chapters.relationships.influentialTraits}
-              traitsUnlock={slots.chapters.relationships.traitsUnlock}
-              isUnlocked={isUnlocked}
-              unlockHref={desktopOfferHref}
-              unlockPayLabel={sectionPayCtaLabel}
-              unlockInviteLabel={sectionInviteCtaLabel}
-              unlockInviteHref={inviteCtaRenderHref}
-              onInviteCtaClick={handleInviteCtaClick}
-              postCoreBlocks={relationshipsPostCoreBlocks}
-              premiumTeasers={isUnlocked ? [] : [
-                buildPremiumTeaserBlock({
-                  locale: cloneLocale,
-                  zhTitle: "你的人际关系优势",
-                  source: slots.chapters.relationships.superpowers,
-                  fallback: slots.chapters.relationships.lockedBlocks[0],
-                  testId: "mbti-premium-relationships-superpowers",
-                }),
-                buildPremiumTeaserBlock({
-                  locale: cloneLocale,
-                  zhTitle: "人际关系陷阱",
-                  source: slots.chapters.relationships.pitfalls,
-                  fallback: slots.chapters.relationships.lockedBlocks[1],
-                  testId: "mbti-premium-relationships-pitfalls",
-                }),
-              ]}
-            />
-
-            {supplementaryNodes.map((node, index) => (
-              <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
-            ))}
-
-            <section id={getMbtiDesktopAnchorId("offerFull")} data-testid="mbti-offer-full" className={styles.section}>
-              <MbtiCloneFinalOffer
-                locale={cloneLocale}
-                eyebrow={slots.finalOffer.eyebrow}
-                headline={slots.finalOffer.headline}
-                copy={slots.finalOffer.body}
-                priceLabel={slots.finalOffer.priceLabel}
-                price={normalizeText(primaryOffer?.price) || (cloneLocale === "zh" ? "价格以实际结算页为准" : "Price shown on checkout")}
-                guarantee={slots.finalOffer.guarantee}
-                ctaLabel={isUnlocked ? normalizeText(primaryCtaLabel, slots.finalOffer.ctaLabel) : sectionPayCtaLabel}
-                ctaHref={primaryCtaHref}
-                inviteCtaLabel={sectionInviteCtaLabel}
-                inviteCtaHref={inviteCtaRenderHref}
-                onInviteCtaClick={handleInviteCtaClick}
-                inviteCtaDisabled={inviteCtaBusy}
-                inviteFallbackHint={inviteCtaFallbackHint}
-                inviteProgressVisible={inviteProgressDisplay.showProgressCard}
-                inviteProgressBadge={inviteProgressDisplay.badge}
-                inviteProgressLabel={inviteProgressDisplay.progressLabel}
-                inviteProgressHint={inviteProgressDisplay.progressHint}
-                isCheckingOut={isCheckingOut}
-                checkoutError={checkoutError}
-                onCheckout={primaryOffer ? onCheckout : undefined}
-                isUnlocked={isUnlocked}
-                unlockedNode={unlockedOfferNode}
-                illustrationSlotId={slots.finalOffer.asset.slotId}
-                illustrationLabel={slots.finalOffer.asset.label}
-                assetSlots={storageAssetSlots}
-              />
-            </section>
-
-            {recommendedReadsNode ? <div>{recommendedReadsNode}</div> : null}
-            {footerNode ? <div>{footerNode}</div> : null}
+            {isMobileViewport ? finalOfferNode : null}
+            {isDeepContentReady ? deepNarrativeSectionsNode : (
+              <section data-testid="mbti-deferred-content-placeholder" className={styles.deferredContentPlaceholder}>
+                <p className={styles.deferredContentPlaceholderTitle}>{deepContentPlaceholderLabel}</p>
+                <p className={styles.deferredContentPlaceholderHint}>{deepContentPlaceholderHint}</p>
+              </section>
+            )}
+            {!isMobileViewport ? finalOfferNode : null}
+            {isDeepContentReady ? trailingNodes : null}
           </main>
 
           <MbtiCloneRail

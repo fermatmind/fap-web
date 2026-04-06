@@ -146,7 +146,6 @@ type MbtiResultShellProps = {
   onExternalNavigate?: (url: string) => void;
 };
 
-const CHAPTER_ORDER = ["traits", "career", "growth", "relationships"] as const;
 const OFFER_FULL_HASH = "#offer-full";
 const OFFER_SECTION_ID = "offer-full";
 const DESKTOP_OFFER_FULL_HASH = getMbtiDesktopAnchorHash("offerFull");
@@ -515,97 +514,111 @@ type MbtiResultShellLoadingShellProps = {
   locale: Locale;
   retakeHref: string;
   statusText?: string;
+  unlockStage?: AttemptReportAccessView["unlockStage"] | null;
+  inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
   primaryCtaLabel: string;
   primaryCtaHref: string;
   primaryCtaIsInternal: boolean;
   onShare?: () => void | Promise<void>;
 };
 
+function resolveLoadingUnlockStageLabel(
+  locale: Locale,
+  unlockStage: AttemptReportAccessView["unlockStage"] | null | undefined
+) {
+  if (unlockStage === "full") {
+    return locale === "zh" ? "完整报告已解锁" : "Full report unlocked";
+  }
+  if (unlockStage === "partial") {
+    return locale === "zh" ? "报告已部分解锁" : "Partially unlocked";
+  }
+
+  return locale === "zh" ? "报告待解锁" : "Report locked";
+}
+
+function resolveLoadingInviteProgressCopy(
+  locale: Locale,
+  progress: AttemptInviteUnlockProgressView | null | undefined
+) {
+  if (!progress) {
+    return locale === "zh"
+      ? "邀请进度：已完成 0/2，邀请 2 人完成测试可免费解锁完整报告。"
+      : "Invite progress: 0/2 completed. Invite 2 friends to complete the test and unlock the full report.";
+  }
+
+  const requiredInvitees = Math.max(1, progress.requiredInvitees || 2);
+  const completedInvitees = Math.max(0, Math.min(requiredInvitees, progress.completedInvitees || 0));
+  if (completedInvitees >= requiredInvitees || progress.unlockStage === "full") {
+    return locale === "zh"
+      ? `邀请进度：已完成 ${requiredInvitees}/${requiredInvitees}，完整报告已免费解锁。`
+      : `Invite progress: ${requiredInvitees}/${requiredInvitees} completed. Full report unlocked.`;
+  }
+
+  const remainingInvitees = Math.max(0, requiredInvitees - completedInvitees);
+  return locale === "zh"
+    ? `邀请进度：已完成 ${completedInvitees}/${requiredInvitees}，再邀请 ${remainingInvitees} 人即可解锁完整报告。`
+    : `Invite progress: ${completedInvitees}/${requiredInvitees} completed. Invite ${remainingInvitees} more to unlock the full report.`;
+}
+
 export function MbtiResultShellLoadingShell({
   locale,
   retakeHref,
   statusText,
+  unlockStage = null,
+  inviteUnlockProgress = null,
   primaryCtaLabel,
   primaryCtaHref,
   primaryCtaIsInternal,
   onShare = () => {},
 }: MbtiResultShellLoadingShellProps) {
-  void locale;
   void retakeHref;
-  void primaryCtaLabel;
   void onShare;
-  void primaryCtaHref;
-  void primaryCtaIsInternal;
+  const unlockStageLabel = resolveLoadingUnlockStageLabel(locale, unlockStage);
+  const inviteProgressLabel = resolveLoadingInviteProgressCopy(locale, inviteUnlockProgress);
 
   return (
     <div
       data-testid="mbti-result-shell"
-      className="relative flex min-h-screen flex-col gap-16 pb-28 xl:pb-0"
+      className="relative flex min-h-[60vh] flex-col gap-8 pb-16 xl:pb-0"
     >
-      <div className="mx-auto flex w-full max-w-[904px] flex-col gap-12 px-4 md:px-6">
+      <div className="mx-auto flex w-full max-w-[904px] flex-col gap-6 px-4 md:px-6">
         <section
           id="hero"
-          className="scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_20px_48px_rgba(15,23,42,0.08)] md:gap-8 md:p-8"
+          data-testid="mbti-loading-critical-surface"
+          className="scroll-mt-28 flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_14px_36px_rgba(15,23,42,0.08)] md:p-6"
         >
-          <div className="h-8 w-28 animate-pulse rounded-full bg-slate-200" />
+          <div className="h-7 w-24 animate-pulse rounded-full bg-slate-200" />
           <div className="space-y-3">
-            <div className="h-10 w-56 animate-pulse rounded bg-slate-200" />
-            <div className="h-5 w-80 animate-pulse rounded bg-slate-100" />
-            <div className="h-5 w-full max-w-3xl animate-pulse rounded bg-slate-100" />
-            <div className="h-5 w-11/12 animate-pulse rounded bg-slate-100" />
+            <div className="h-8 w-44 animate-pulse rounded bg-slate-200" />
+            <div className="h-4 w-72 animate-pulse rounded bg-slate-100" />
+            <div className="h-4 w-full max-w-xl animate-pulse rounded bg-slate-100" />
           </div>
-          <div className="grid gap-4 rounded-2xl border border-slate-100 bg-slate-100/70 p-4 md:grid-cols-2">
-            <div className="h-44 rounded-2xl border border-slate-100 bg-slate-100/70 p-4" />
-            <div className="h-44 rounded-2xl border border-slate-100 bg-slate-100/70 p-4" />
+          <div className="rounded-xl border border-emerald-100 bg-emerald-50/60 p-3">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+              {locale === "zh" ? "当前状态" : "Current status"}
+            </p>
+            <p className="m-0 mt-1 text-sm text-slate-700">{unlockStageLabel}</p>
+            <p className="m-0 mt-1 text-sm text-slate-700">{inviteProgressLabel}</p>
           </div>
-        </section>
-
-        <section
-          id="intro"
-          className="scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)] md:gap-8 md:p-8"
-        >
-          <p className="m-0 h-5 w-28 animate-pulse rounded bg-slate-200" />
-          <div className="space-y-2">
-            <p className="m-0 h-6 w-2/3 animate-pulse rounded bg-slate-200" />
-            <p className="m-0 h-6 w-11/12 animate-pulse rounded bg-slate-100" />
+          <div className="flex flex-wrap items-center gap-3">
+            {primaryCtaIsInternal ? (
+              <Link
+                href={primaryCtaHref}
+                className={buttonVariants({ className: "h-10 px-4 text-sm font-semibold" })}
+              >
+                {primaryCtaLabel}
+              </Link>
+            ) : (
+              <a
+                href={primaryCtaHref}
+                className={buttonVariants({ className: "h-10 px-4 text-sm font-semibold" })}
+              >
+                {primaryCtaLabel}
+              </a>
+            )}
+            <span className="inline-flex h-10 w-24 animate-pulse rounded bg-slate-100" />
           </div>
           {statusText ? <p className="m-0 text-sm text-slate-500">{statusText}</p> : null}
-        </section>
-
-        {CHAPTER_ORDER.map((chapterKey) => (
-          <section
-            key={chapterKey}
-            id={chapterKey}
-            className="scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)] md:gap-8 md:p-8"
-          >
-            <p className="m-0 h-4 w-20 animate-pulse rounded bg-slate-200" />
-            <p className="m-0 h-7 w-56 animate-pulse rounded bg-slate-200" />
-            <p className="m-0 h-5 w-56 animate-pulse rounded bg-slate-100" />
-            <p className="m-0 h-5 w-44 animate-pulse rounded bg-slate-100" />
-            <div className="h-40 rounded-2xl border border-slate-100 bg-slate-100/70 p-4" />
-          </section>
-        ))}
-
-        <section
-          id="offer-full"
-          className="scroll-mt-28 flex flex-col gap-6 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)] md:gap-8 md:p-8"
-        >
-          <p className="m-0 h-4 w-28 animate-pulse rounded bg-slate-200" />
-          <div className="h-6 w-52 animate-pulse rounded bg-slate-200" />
-          <div className="h-40 rounded-2xl border border-slate-100 bg-slate-100/70 p-4" />
-        </section>
-
-        <section
-          id="footer-cta"
-          data-testid="mbti-footer-loading"
-          className="flex flex-col gap-6 rounded-2xl border border-slate-200 bg-slate-950 p-6 text-white shadow-[0_22px_52px_rgba(15,23,42,0.22)] md:gap-8 md:p-8"
-        >
-          <p className="m-0 h-5 w-80 animate-pulse rounded bg-white/30" />
-          <div className="flex flex-wrap gap-3">
-            <span className="inline-flex h-10 w-28 animate-pulse rounded bg-white/20" />
-            <span className="inline-flex h-10 w-28 animate-pulse rounded bg-white/20" />
-            <span className="inline-flex h-10 w-32 animate-pulse rounded bg-white/20" />
-          </div>
         </section>
       </div>
     </div>
@@ -634,6 +647,7 @@ export function MbtiResultShell({
   void previewView;
   const pathname = usePathname();
   const offerScrollFrameRef = useRef<number | null>(null);
+  const shellReadyPhaseTrackedRef = useRef(false);
   const resultViewTrackedRef = useRef(false);
   const careerBridgeImpressionTrackedRef = useRef(false);
   const actionJourneyImpressionTrackedRef = useRef(false);
@@ -727,77 +741,152 @@ export function MbtiResultShell({
   const shareMessage = resolveShareMessages(locale, shareStatus);
   const shareCtaLabel = resolveShareCtaLabel(locale, shareStatus, isSharing);
   const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
-  const variantKeysSummary = summarizeMbtiVariantKeys(personalization);
-  const sceneFingerprintSummary = summarizeMbtiSceneFingerprint(personalization);
-  const boundaryFlagsSummary = summarizeMbtiBoundaryFlags(personalization);
-  const axisBandsSummary = summarizeMbtiAxisBands(personalization);
-  const userStateSummary = summarizeMbtiUserState(personalization);
-  const feedbackSentimentSummary = summarizeMbtiFeedbackSentiment(personalization);
-  const feedbackCoverageSummary = summarizeMbtiFeedbackCoverage(personalization);
-  const actionCompletionTendencySummary = summarizeMbtiActionCompletionTendency(personalization);
-  const lastDeepReadSectionSummary = summarizeMbtiLastDeepReadSection(personalization);
-  const currentIntentClusterSummary = summarizeMbtiCurrentIntentCluster(personalization);
-  const secondaryFocusKeysSummary = summarizeMbtiSecondaryFocusKeys(personalization);
-  const orderedSectionKeysSummary = summarizeMbtiOrderedSectionKeys(personalization);
-  const orderedRecommendationKeysSummary = summarizeMbtiOrderedRecommendationKeys(personalization);
-  const orderedActionKeysSummary = summarizeMbtiOrderedActionKeys(personalization);
-  const recommendationPriorityKeysSummary = summarizeMbtiRecommendationPriorityKeys(personalization);
-  const actionPriorityKeysSummary = summarizeMbtiActionPriorityKeys(personalization);
-  const ctaPriorityKeysSummary = summarizeMbtiCtaPriorityKeys(personalization);
-  const careerJourneyKeysSummary = summarizeMbtiCareerJourneyKeys(personalization);
-  const careerActionPriorityKeysSummary = summarizeMbtiCareerActionPriorityKeys(personalization);
-  const careerReadingKeysSummary = summarizeMbtiCareerReadingKeys(personalization);
-  const recommendedResumeKeysSummary = summarizeMbtiCarryoverResumeKeys(personalization);
-  const carryoverSceneKeysSummary = summarizeMbtiCarryoverSceneKeys(personalization);
-  const carryoverActionKeysSummary = summarizeMbtiCarryoverActionKeys(personalization);
-  const profileSeedKeySummary = summarizeMbtiProfileSeedKey(personalization);
-  const sameTypeDivergenceKeysSummary = summarizeMbtiSameTypeDivergenceKeys(personalization);
-  const sectionSelectionKeysSummary = summarizeMbtiSectionSelectionKeys(personalization);
-  const actionSelectionKeysSummary = summarizeMbtiActionSelectionKeys(personalization);
-  const recommendationSelectionKeysSummary = summarizeMbtiRecommendationSelectionKeys(personalization);
-  const selectionFingerprintSummary = summarizeMbtiSelectionFingerprint(personalization);
-  const memoryContractVersionSummary = summarizeMbtiMemoryContractVersion(personalization);
-  const memoryFingerprintSummary = summarizeMbtiMemoryFingerprint(personalization);
-  const memoryScopeSummary = summarizeMbtiMemoryScope(personalization);
-  const memoryStateSummary = summarizeMbtiMemoryState(personalization);
-  const memoryProgressionStateSummary = summarizeMbtiMemoryProgressionState(personalization);
-  const sectionHistoryKeysSummary = summarizeMbtiSectionHistoryKeys(personalization);
-  const behaviorDeltaKeysSummary = summarizeMbtiBehaviorDeltaKeys(personalization);
-  const dominantInterestKeysSummary = summarizeMbtiDominantInterestKeys(personalization);
-  const resumeBiasKeysSummary = summarizeMbtiResumeBiasKeys(personalization);
-  const memoryRewriteKeysSummary = summarizeMbtiMemoryRewriteKeys(personalization);
-  const memoryRewriteReasonSummary = summarizeMbtiMemoryRewriteReason(personalization);
-  const adaptiveContractVersionSummary = summarizeMbtiAdaptiveContractVersion(personalization);
-  const adaptiveFingerprintSummary = summarizeMbtiAdaptiveFingerprint(personalization);
-  const adaptiveRewriteReasonSummary = summarizeMbtiAdaptiveRewriteReason(personalization);
-  const contentFeedbackWeightsSummary = summarizeMbtiContentFeedbackWeights(personalization);
-  const actionEffectWeightsSummary = summarizeMbtiActionEffectWeights(personalization);
-  const recommendationEffectWeightsSummary = summarizeMbtiRecommendationEffectWeights(personalization);
-  const ctaEffectWeightsSummary = summarizeMbtiCtaEffectWeights(personalization);
-  const nextBestActionKeySummary = summarizeMbtiNextBestActionKey(personalization);
-  const nextBestActionSectionSummary = summarizeMbtiNextBestActionSection(personalization);
-  const nextBestActionReasonSummary = summarizeMbtiNextBestActionReason(personalization);
-  const journeyContractVersionSummary = summarizeMbtiJourneyContractVersion(personalization);
-  const journeyFingerprintSummary = summarizeMbtiJourneyFingerprint(personalization);
-  const journeyScopeSummary = summarizeMbtiJourneyScope(personalization);
-  const journeyStateSummary = summarizeMbtiJourneyState(personalization);
-  const progressStateSummary = summarizeMbtiProgressState(personalization);
-  const completedActionKeysSummary = summarizeMbtiCompletedActionKeys(personalization);
-  const recommendedNextPulseKeysSummary = summarizeMbtiRecommendedNextPulseKeys(personalization);
-  const revisitReorderReasonSummary = summarizeMbtiRevisitReorderReason(personalization);
-  const pulseStateSummary = summarizeMbtiPulseState(personalization);
-  const pulsePromptKeysSummary = summarizeMbtiPulsePromptKeys(personalization);
-  const overviewVariantKey = normalizeText(personalization?.variantKeys.overview);
-  const personalizationTypeCode = normalizeText(personalization?.typeCode, publicTypeCode);
-  const personalizationIdentity = normalizeText(personalization?.identity, projectionViewModel?.variantCode);
-  const personalizationPackId = normalizeText(personalization?.packId, reportMeta?.pack_id);
-  const actionJourney = personalization?.actionJourney ?? null;
-  const pulseCheck = personalization?.pulseCheck ?? null;
-  const adaptiveSelection = personalization?.adaptiveSelection ?? null;
-  const personalizationEngineVersion = normalizeText(
-    personalization?.engineVersion,
-    reportMeta?.report_engine_version
-  );
+  const personalizationDerived = useMemo(() => ({
+    variantKeysSummary: summarizeMbtiVariantKeys(personalization),
+    sceneFingerprintSummary: summarizeMbtiSceneFingerprint(personalization),
+    boundaryFlagsSummary: summarizeMbtiBoundaryFlags(personalization),
+    axisBandsSummary: summarizeMbtiAxisBands(personalization),
+    userStateSummary: summarizeMbtiUserState(personalization),
+    feedbackSentimentSummary: summarizeMbtiFeedbackSentiment(personalization),
+    feedbackCoverageSummary: summarizeMbtiFeedbackCoverage(personalization),
+    actionCompletionTendencySummary: summarizeMbtiActionCompletionTendency(personalization),
+    lastDeepReadSectionSummary: summarizeMbtiLastDeepReadSection(personalization),
+    currentIntentClusterSummary: summarizeMbtiCurrentIntentCluster(personalization),
+    secondaryFocusKeysSummary: summarizeMbtiSecondaryFocusKeys(personalization),
+    orderedSectionKeysSummary: summarizeMbtiOrderedSectionKeys(personalization),
+    orderedRecommendationKeysSummary: summarizeMbtiOrderedRecommendationKeys(personalization),
+    orderedActionKeysSummary: summarizeMbtiOrderedActionKeys(personalization),
+    recommendationPriorityKeysSummary: summarizeMbtiRecommendationPriorityKeys(personalization),
+    actionPriorityKeysSummary: summarizeMbtiActionPriorityKeys(personalization),
+    ctaPriorityKeysSummary: summarizeMbtiCtaPriorityKeys(personalization),
+    careerJourneyKeysSummary: summarizeMbtiCareerJourneyKeys(personalization),
+    careerActionPriorityKeysSummary: summarizeMbtiCareerActionPriorityKeys(personalization),
+    careerReadingKeysSummary: summarizeMbtiCareerReadingKeys(personalization),
+    recommendedResumeKeysSummary: summarizeMbtiCarryoverResumeKeys(personalization),
+    carryoverSceneKeysSummary: summarizeMbtiCarryoverSceneKeys(personalization),
+    carryoverActionKeysSummary: summarizeMbtiCarryoverActionKeys(personalization),
+    profileSeedKeySummary: summarizeMbtiProfileSeedKey(personalization),
+    sameTypeDivergenceKeysSummary: summarizeMbtiSameTypeDivergenceKeys(personalization),
+    sectionSelectionKeysSummary: summarizeMbtiSectionSelectionKeys(personalization),
+    actionSelectionKeysSummary: summarizeMbtiActionSelectionKeys(personalization),
+    recommendationSelectionKeysSummary: summarizeMbtiRecommendationSelectionKeys(personalization),
+    selectionFingerprintSummary: summarizeMbtiSelectionFingerprint(personalization),
+    memoryContractVersionSummary: summarizeMbtiMemoryContractVersion(personalization),
+    memoryFingerprintSummary: summarizeMbtiMemoryFingerprint(personalization),
+    memoryScopeSummary: summarizeMbtiMemoryScope(personalization),
+    memoryStateSummary: summarizeMbtiMemoryState(personalization),
+    memoryProgressionStateSummary: summarizeMbtiMemoryProgressionState(personalization),
+    sectionHistoryKeysSummary: summarizeMbtiSectionHistoryKeys(personalization),
+    behaviorDeltaKeysSummary: summarizeMbtiBehaviorDeltaKeys(personalization),
+    dominantInterestKeysSummary: summarizeMbtiDominantInterestKeys(personalization),
+    resumeBiasKeysSummary: summarizeMbtiResumeBiasKeys(personalization),
+    memoryRewriteKeysSummary: summarizeMbtiMemoryRewriteKeys(personalization),
+    memoryRewriteReasonSummary: summarizeMbtiMemoryRewriteReason(personalization),
+    adaptiveContractVersionSummary: summarizeMbtiAdaptiveContractVersion(personalization),
+    adaptiveFingerprintSummary: summarizeMbtiAdaptiveFingerprint(personalization),
+    adaptiveRewriteReasonSummary: summarizeMbtiAdaptiveRewriteReason(personalization),
+    contentFeedbackWeightsSummary: summarizeMbtiContentFeedbackWeights(personalization),
+    actionEffectWeightsSummary: summarizeMbtiActionEffectWeights(personalization),
+    recommendationEffectWeightsSummary: summarizeMbtiRecommendationEffectWeights(personalization),
+    ctaEffectWeightsSummary: summarizeMbtiCtaEffectWeights(personalization),
+    nextBestActionKeySummary: summarizeMbtiNextBestActionKey(personalization),
+    nextBestActionSectionSummary: summarizeMbtiNextBestActionSection(personalization),
+    nextBestActionReasonSummary: summarizeMbtiNextBestActionReason(personalization),
+    journeyContractVersionSummary: summarizeMbtiJourneyContractVersion(personalization),
+    journeyFingerprintSummary: summarizeMbtiJourneyFingerprint(personalization),
+    journeyScopeSummary: summarizeMbtiJourneyScope(personalization),
+    journeyStateSummary: summarizeMbtiJourneyState(personalization),
+    progressStateSummary: summarizeMbtiProgressState(personalization),
+    completedActionKeysSummary: summarizeMbtiCompletedActionKeys(personalization),
+    recommendedNextPulseKeysSummary: summarizeMbtiRecommendedNextPulseKeys(personalization),
+    revisitReorderReasonSummary: summarizeMbtiRevisitReorderReason(personalization),
+    pulseStateSummary: summarizeMbtiPulseState(personalization),
+    pulsePromptKeysSummary: summarizeMbtiPulsePromptKeys(personalization),
+    overviewVariantKey: normalizeText(personalization?.variantKeys.overview),
+    personalizationTypeCode: normalizeText(personalization?.typeCode, publicTypeCode),
+    personalizationIdentity: normalizeText(personalization?.identity, projectionViewModel?.variantCode),
+    personalizationPackId: normalizeText(personalization?.packId, reportMeta?.pack_id),
+    actionJourney: personalization?.actionJourney ?? null,
+    pulseCheck: personalization?.pulseCheck ?? null,
+    adaptiveSelection: personalization?.adaptiveSelection ?? null,
+    personalizationEngineVersion: normalizeText(personalization?.engineVersion, reportMeta?.report_engine_version),
+  }), [
+    personalization,
+    projectionViewModel?.variantCode,
+    publicTypeCode,
+    reportMeta?.pack_id,
+    reportMeta?.report_engine_version,
+  ]);
+  const {
+    variantKeysSummary,
+    sceneFingerprintSummary,
+    boundaryFlagsSummary,
+    axisBandsSummary,
+    userStateSummary,
+    feedbackSentimentSummary,
+    feedbackCoverageSummary,
+    actionCompletionTendencySummary,
+    lastDeepReadSectionSummary,
+    currentIntentClusterSummary,
+    secondaryFocusKeysSummary,
+    orderedSectionKeysSummary,
+    orderedRecommendationKeysSummary,
+    orderedActionKeysSummary,
+    recommendationPriorityKeysSummary,
+    actionPriorityKeysSummary,
+    ctaPriorityKeysSummary,
+    careerJourneyKeysSummary,
+    careerActionPriorityKeysSummary,
+    careerReadingKeysSummary,
+    recommendedResumeKeysSummary,
+    carryoverSceneKeysSummary,
+    carryoverActionKeysSummary,
+    profileSeedKeySummary,
+    sameTypeDivergenceKeysSummary,
+    sectionSelectionKeysSummary,
+    actionSelectionKeysSummary,
+    recommendationSelectionKeysSummary,
+    selectionFingerprintSummary,
+    memoryContractVersionSummary,
+    memoryFingerprintSummary,
+    memoryScopeSummary,
+    memoryStateSummary,
+    memoryProgressionStateSummary,
+    sectionHistoryKeysSummary,
+    behaviorDeltaKeysSummary,
+    dominantInterestKeysSummary,
+    resumeBiasKeysSummary,
+    memoryRewriteKeysSummary,
+    memoryRewriteReasonSummary,
+    adaptiveContractVersionSummary,
+    adaptiveFingerprintSummary,
+    adaptiveRewriteReasonSummary,
+    contentFeedbackWeightsSummary,
+    actionEffectWeightsSummary,
+    recommendationEffectWeightsSummary,
+    ctaEffectWeightsSummary,
+    nextBestActionKeySummary,
+    nextBestActionSectionSummary,
+    nextBestActionReasonSummary,
+    journeyContractVersionSummary,
+    journeyFingerprintSummary,
+    journeyScopeSummary,
+    journeyStateSummary,
+    progressStateSummary,
+    completedActionKeysSummary,
+    recommendedNextPulseKeysSummary,
+    revisitReorderReasonSummary,
+    pulseStateSummary,
+    pulsePromptKeysSummary,
+    overviewVariantKey,
+    personalizationTypeCode,
+    personalizationIdentity,
+    personalizationPackId,
+    actionJourney,
+    pulseCheck,
+    adaptiveSelection,
+    personalizationEngineVersion,
+  } = personalizationDerived;
   const rawOffers = resolveOfferPayloads(reportData);
   const fullRawOffer = findFullOfferPayload(rawOffers);
   const fullResolvedOffer =
@@ -1122,6 +1211,30 @@ export function MbtiResultShell({
       cancelScheduledOfferScroll();
     };
   }, [cancelScheduledOfferScroll, syncOfferHashScroll]);
+
+  useEffect(() => {
+    if (!attemptId || shellReadyPhaseTrackedRef.current) {
+      return;
+    }
+
+    shellReadyPhaseTrackedRef.current = true;
+    trackEvent("ui_report_loading_phase", {
+      scale_code: "MBTI",
+      phase: "result_shell_first_paint",
+      stage_detail: isUnlockedPostPurchase ? "unlocked_shell" : "locked_shell",
+      locked: projectionLocked,
+      variant: publicTypeCode || undefined,
+      form_code: mbtiFormSummary?.formCode,
+      locale,
+    });
+  }, [
+    attemptId,
+    isUnlockedPostPurchase,
+    locale,
+    mbtiFormSummary?.formCode,
+    projectionLocked,
+    publicTypeCode,
+  ]);
 
   useEffect(() => {
     if (!attemptId || resultViewTrackedRef.current) {
