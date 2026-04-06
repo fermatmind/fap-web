@@ -800,6 +800,21 @@ export type InviteUnlockSummaryRaw = {
   [key: string]: unknown;
 };
 
+export type InviteUnlockDiagnosticRaw = {
+  status?: "locked" | "partial_unlock" | "full_unlock" | "mixed_unlock" | string | null;
+  status_reason?: string | null;
+  completed_invitees?: number | null;
+  required_invitees?: number | null;
+  remaining_invitees?: number | null;
+  progress_ratio?: number | null;
+  progress_percent?: number | null;
+  unlock_stage?: "locked" | "partial" | "full" | string | null;
+  unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
+  invite_status?: string | null;
+  snapshot_at?: string | null;
+  [key: string]: unknown;
+};
+
 export type AttemptReportAccessResponse = {
   ok: boolean;
   attempt_id: string;
@@ -826,6 +841,7 @@ export type AttemptReportAccessResponse = {
   } | null;
   payload?: Record<string, unknown> | null;
   invite_unlock_v1?: InviteUnlockSummaryRaw | null;
+  invite_unlock_diag_v1?: InviteUnlockDiagnosticRaw | null;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
   meta?: {
@@ -848,6 +864,7 @@ export type AttemptInviteUnlockProgressResponse = {
   unlock_stage?: "locked" | "partial" | "full" | string | null;
   unlock_source?: "none" | "invite" | "payment" | "mixed" | string | null;
   invite_unlock_v1?: InviteUnlockSummaryRaw | null;
+  invite_unlock_diag_v1?: InviteUnlockDiagnosticRaw | null;
   [key: string]: unknown;
 };
 

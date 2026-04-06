@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import ResultClient from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
 import { ApiError } from "@/lib/api-client";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
@@ -230,6 +230,10 @@ describe("ResultClient view-state contract", () => {
       },
       generating: false,
     });
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
   });
 
   it("routes the public career next step through the runtime 32-type slug", () => {
@@ -575,6 +579,94 @@ describe("ResultClient view-state contract", () => {
       skipAuth: true,
       includeAnonId: false,
     });
+  });
+
+  it("applies invite-unlocks polling updates from partial to full on the visible report state", async () => {
+    const intervalCallbacks: Array<() => void> = [];
+    const setIntervalSpy = vi
+      .spyOn(window, "setInterval")
+      .mockImplementation(((callback: TimerHandler) => {
+        if (typeof callback === "function") {
+          intervalCallbacks.push(callback as () => void);
+        }
+        return 1 as unknown as ReturnType<typeof setInterval>;
+      }) as typeof window.setInterval);
+    const clearIntervalSpy = vi.spyOn(window, "clearInterval").mockImplementation(() => {});
+
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({
+        unlock_stage: "partial",
+        unlock_source: "invite",
+        payload: {
+          scale_code: "MBTI",
+          unlock_stage: "partial",
+          unlock_source: "invite",
+        },
+        invite_unlock_diag_v1: {
+          status: "partial_unlock",
+          status_reason: "unlock_stage_partial",
+          progress_percent: 50,
+        },
+      })
+    );
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
+    hoisted.fetchAttemptInviteUnlockProgress
+      .mockResolvedValueOnce({
+        ok: true,
+        status: "in_progress",
+        required_invitees: 2,
+        completed_invitees: 1,
+        unlock_stage: "partial",
+        unlock_source: "invite",
+        invite_unlock_diag_v1: {
+          status: "partial_unlock",
+          status_reason: "unlock_stage_partial",
+          remaining_invitees: 1,
+          progress_percent: 50,
+          snapshot_at: "2026-04-06T06:00:00+00:00",
+        },
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        status: "completed",
+        required_invitees: 2,
+        completed_invitees: 2,
+        unlock_stage: "full",
+        unlock_source: "invite",
+        invite_unlock_diag_v1: {
+          status: "full_unlock",
+          status_reason: "unlock_stage_full",
+          remaining_invitees: 0,
+          progress_percent: 100,
+          snapshot_at: "2026-04-06T06:00:15+00:00",
+        },
+      });
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "partial");
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "invite");
+    });
+
+    expect(intervalCallbacks.length).toBeGreaterThan(0);
+    intervalCallbacks.forEach((callback) => {
+      callback();
+    });
+
+    await waitFor(() => {
+      expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenCalledTimes(2);
+    });
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "full");
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "invite");
+    });
+
+    setIntervalSpy.mockRestore();
+    clearIntervalSpy.mockRestore();
   });
 
   it("does not trigger auth-mismatch retry for non-ATTEMPT_NOT_FOUND 404", async () => {

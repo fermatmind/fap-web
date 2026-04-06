@@ -1,6 +1,6 @@
 "use client";
 
-import type { AttemptInviteUnlockProgressResponse } from "@/lib/api/v0_3";
+import type { AttemptInviteUnlockProgressResponse, InviteUnlockDiagnosticRaw } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import type { UnifiedUnlockSource, UnifiedUnlockStage } from "@/lib/access/unifiedAccess";
 
@@ -15,6 +15,13 @@ export type AttemptInviteUnlockProgressView = {
   targetAttemptId: string | null;
   unlockStage: UnifiedUnlockStage | null;
   unlockSource: UnifiedUnlockSource | null;
+  diagnostics?: {
+    status: string | null;
+    statusReason: string | null;
+    remainingInvitees: number;
+    progressPercent: number;
+    snapshotAt: string | null;
+  } | null;
 };
 
 function normalizeText(value: unknown): string | null {
@@ -70,6 +77,46 @@ function normalizeUnlockSource(value: unknown): UnifiedUnlockSource | null {
   return null;
 }
 
+function normalizeProgressPercent(value: unknown, completedInvitees: number, requiredInvitees: number): number {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    const normalized = Math.floor(value);
+    if (normalized >= 0 && normalized <= 100) {
+      return normalized;
+    }
+  }
+
+  if (requiredInvitees <= 0) {
+    return 0;
+  }
+
+  return Math.max(0, Math.min(100, Math.round((completedInvitees / requiredInvitees) * 100)));
+}
+
+function normalizeInviteUnlockDiagnostics(
+  raw: InviteUnlockDiagnosticRaw | null | undefined,
+  completedInvitees: number,
+  requiredInvitees: number
+): AttemptInviteUnlockProgressView["diagnostics"] {
+  if (!raw || typeof raw !== "object") {
+    return null;
+  }
+
+  const status = normalizeText(raw.status);
+  const statusReason = normalizeText(raw.status_reason);
+  const snapshotAt = normalizeText(raw.snapshot_at);
+  const remainingFromPayload = normalizeNonNegativeInteger(raw.remaining_invitees, requiredInvitees - completedInvitees);
+  const remainingInvitees = Math.max(0, Math.min(requiredInvitees, remainingFromPayload));
+  const progressPercent = normalizeProgressPercent(raw.progress_percent, completedInvitees, requiredInvitees);
+
+  return {
+    status,
+    statusReason,
+    remainingInvitees,
+    progressPercent,
+    snapshotAt,
+  };
+}
+
 function normalizeInviteUrl(value: unknown, locale: Locale): string | null {
   const normalized = normalizeText(value);
   if (!normalized) {
@@ -112,6 +159,7 @@ export function normalizeAttemptInviteUnlockProgress(
     targetAttemptId: normalizeText(raw.target_attempt_id),
     unlockStage: normalizeUnlockStage(raw.unlock_stage),
     unlockSource: normalizeUnlockSource(raw.unlock_source),
+    diagnostics: normalizeInviteUnlockDiagnostics(raw.invite_unlock_diag_v1, completedInvitees, requiredInvitees),
   };
 }
 
