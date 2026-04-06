@@ -243,4 +243,29 @@ describe("tracking whitelist contract", () => {
       locale: "zh",
     });
   });
+
+  it("keeps scene block attribution payload for entry click events", () => {
+    const payload = {
+      slug: "mbti-personality-test-16-personality-types",
+      test_slug: "mbti-personality-test-16-personality-types",
+      form_code: "mbti_93",
+      entry_surface: "mbti_scene_block",
+      source_page_type: "scene_block",
+      target_action: "open_scene_career_direction",
+      locale: "zh",
+      answers: "forbidden",
+      token: "forbidden",
+      unexpected: "drop-me",
+    };
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.START_CLICK, payload)).toEqual({
+      slug: "mbti-personality-test-16-personality-types",
+      test_slug: "mbti-personality-test-16-personality-types",
+      form_code: "mbti_93",
+      entry_surface: "mbti_scene_block",
+      source_page_type: "scene_block",
+      target_action: "open_scene_career_direction",
+      locale: "zh",
+    });
+  });
 });

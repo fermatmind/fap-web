@@ -111,7 +111,13 @@ export function AnswerSurfaceSection({
           <div className="grid gap-3 md:grid-cols-2">
             {surface.sceneSummaryBlocks.map((block) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
+                {block.href ? (
+                  <Link href={block.href} className="m-0 text-sm font-medium text-[var(--fm-text)] hover:text-[var(--fm-accent)]">
+                    {block.title || block.href}
+                  </Link>
+                ) : block.title ? (
+                  <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p>
+                ) : null}
                 {block.body ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
               </article>
             ))}

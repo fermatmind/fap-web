@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -359,6 +360,13 @@ export default async function CareerMbtiRecommendationPage({
           </div>
         </div>
       </section>
+
+      <MbtiSceneEntrySection
+        locale={locale}
+        sourcePageType="career_recommendation_detail"
+        blocks={detail.answerSurface?.sceneSummaryBlocks}
+        testId="career-recommendation-scene-entry"
+      />
 
       <AnswerSurfaceSection
         surface={detail.answerSurface}

@@ -4,6 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -402,6 +403,13 @@ export default async function PersonalityDetailPage({
           </blockquote>
         ) : null}
       </section>
+
+      <MbtiSceneEntrySection
+        locale={locale}
+        sourcePageType="personality_detail"
+        blocks={detail.answerSurface?.sceneSummaryBlocks}
+        testId="personality-detail-scene-entry"
+      />
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">

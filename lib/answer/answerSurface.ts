@@ -4,6 +4,7 @@ export type AnswerContentBlockViewModel = {
   key: string;
   title: string;
   body: string;
+  href: string | null;
   kind: string | null;
 };
 
@@ -91,6 +92,7 @@ function normalizeContentBlocks(value: unknown): AnswerContentBlockViewModel[] {
         key: key || title || body,
         title,
         body,
+        href: normalizeNullableText(record.href),
         kind: normalizeNullableText(record.kind),
       };
     })

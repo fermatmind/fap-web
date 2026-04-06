@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
   buildTopicFrontendUrl,
   getTopicBySlug,
@@ -15,6 +19,8 @@ import {
 import { extractTopicFaqItems, renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
+import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
@@ -141,9 +147,38 @@ export default async function TopicDetailPage({
   ]);
   const renderedSections = renderTopicSections(topic.sections, locale);
   const renderedEntryGroups = renderTopicEntryGroups(topic.entryGroups, locale);
+  const isMbtiTopic =
+    String(topic.topicCode || "").toLowerCase() === "mbti" || String(topic.slug || "").toLowerCase() === "mbti";
+  const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_topic_detail",
+    sourcePageType: "topic_detail",
+    targetAction: "entry_view",
+  });
+  const mbtiPrimaryCtaTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_topic_detail",
+    sourcePageType: "topic_detail",
+    targetAction: "start_mbti_test_primary",
+  });
+  const mbtiPrimaryCtaHref = buildMbtiEntryHref({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_topic_detail",
+    sourcePageType: "topic_detail",
+    targetAction: "start_mbti_test_primary",
+    sourcePath: canonicalPath,
+  });
+  const topicSceneBlocks = topic.answerSurface?.sceneSummaryBlocks ?? [];
+  const mbtiTopicHubHref = localizedPath("/topics/mbti", locale);
+  const mbtiPersonalityHubHref = localizedPath("/personality", locale);
+  const mbtiCareerRecommendationHubHref = localizedPath("/career/recommendations", locale);
 
   return (
     <Container as="main" className="space-y-6 py-10">
+      {isMbtiTopic ? <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} /> : null}
       <JsonLd id={`topic-jsonld-${topic.slug}`} data={normalizedSeo.jsonld} />
       <JsonLd id={`topic-webpage-${topic.slug}`} data={webPageJsonLd} />
       <JsonLd id={`topic-breadcrumb-${topic.slug}`} data={breadcrumbJsonLd} />
@@ -168,6 +203,26 @@ export default async function TopicDetailPage({
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{topic.title}</h1>
         {topic.subtitle ? <p className="m-0 text-lg text-[var(--fm-text)]">{topic.subtitle}</p> : null}
         {topic.excerpt ? <p className="m-0 text-[var(--fm-text-muted)]">{topic.excerpt}</p> : null}
+        {isMbtiTopic ? (
+          <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-topic-detail-entry-cta-group">
+            <TrackedEntryCtaLink
+              href={mbtiPrimaryCtaHref}
+              prefetch
+              data-testid="mbti-topic-detail-primary-cta"
+              eventProperties={mbtiPrimaryCtaTrackingProps}
+              className={buttonVariants({ size: "lg" })}
+            >
+              {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
+            </TrackedEntryCtaLink>
+            <Link
+              href={mbtiPersonalityHubHref}
+              data-testid="mbti-topic-detail-secondary-cta"
+              className={buttonVariants({ variant: "outline", size: "lg" })}
+            >
+              {locale === "zh" ? "查看人格类型" : "Browse personality types"}
+            </Link>
+          </div>
+        ) : null}
         {landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="topic-detail-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
@@ -184,6 +239,15 @@ export default async function TopicDetailPage({
           </blockquote>
         ) : null}
       </section>
+
+      {isMbtiTopic ? (
+        <MbtiSceneEntrySection
+          locale={locale}
+          sourcePageType="topic_detail"
+          blocks={topicSceneBlocks}
+          testId="topic-detail-scene-entry"
+        />
+      ) : null}
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">
@@ -207,11 +271,14 @@ export default async function TopicDetailPage({
                   ))
                 : (
                     <>
-                      <Link href={localizedPath("/personality", locale)} className="fm-help-chip-link">
+                      <Link href={mbtiPersonalityHubHref} className="fm-help-chip-link">
                         {locale === "zh" ? "人格画像" : "Personality hub"}
                       </Link>
-                      <Link href={localizedPath("/career/recommendations", locale)} className="fm-help-chip-link">
+                      <Link href={mbtiCareerRecommendationHubHref} className="fm-help-chip-link">
                         {locale === "zh" ? "职业推荐" : "Career recommendations"}
+                      </Link>
+                      <Link href={mbtiTopicHubHref} className="fm-help-chip-link">
+                        {locale === "zh" ? "MBTI 主题页" : "MBTI topic hub"}
                       </Link>
                       <Link href={localizedPath("/help/faq", locale)} className="fm-help-chip-link">
                         {locale === "zh" ? "帮助与 FAQ" : "Help and FAQ"}

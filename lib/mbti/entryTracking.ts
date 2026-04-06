@@ -5,13 +5,21 @@ export const MBTI_ENTRY_TEST_SLUG = "mbti-personality-test-16-personality-types"
 
 export type MbtiEntrySurface =
   | "mbti_test_landing"
+  | "mbti_topic_detail"
+  | "mbti_topic_index"
+  | "mbti_personality_index"
   | "mbti_personality_detail"
-  | "mbti_career_recommendation_detail";
+  | "mbti_career_recommendation_detail"
+  | "mbti_scene_block";
 
 export type MbtiEntrySourcePageType =
   | "test_landing"
+  | "topic_detail"
+  | "topic_index"
+  | "personality_index"
   | "personality_detail"
-  | "career_recommendation_detail";
+  | "career_recommendation_detail"
+  | "scene_block";
 
 type BuildMbtiEntryHrefInput = {
   locale: Locale;
