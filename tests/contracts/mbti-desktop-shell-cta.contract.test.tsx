@@ -10,6 +10,11 @@ import {
 } from "@/lib/cms/personality-desktop-clone";
 import { assignWindowLocation } from "@/lib/browser/locationNavigation";
 
+const hoisted = vi.hoisted(() => ({
+  createAttemptInviteUnlock: vi.fn(),
+  trackEvent: vi.fn(),
+}));
+
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
 }));
@@ -18,6 +23,12 @@ vi.mock("@/lib/cms/personality-desktop-clone", () => ({
 }));
 vi.mock("@/lib/browser/locationNavigation", () => ({
   assignWindowLocation: vi.fn(),
+}));
+vi.mock("@/lib/api/v0_3", () => ({
+  createAttemptInviteUnlock: hoisted.createAttemptInviteUnlock,
+}));
+vi.mock("@/lib/analytics", () => ({
+  trackEvent: hoisted.trackEvent,
 }));
 
 function createHeadline(): RichResultHeadline {
@@ -250,8 +261,23 @@ function createStoragePayload(tag: string): PersonalityDesktopCloneContentPayloa
 beforeEach(() => {
   vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(null);
   vi.mocked(assignWindowLocation).mockReset();
+  hoisted.trackEvent.mockReset();
+  hoisted.createAttemptInviteUnlock.mockReset();
+  hoisted.createAttemptInviteUnlock.mockResolvedValue({
+    ok: true,
+    invite_code: "invite_mbti_created_001",
+    invite_url: INVITE_TAKE_HREF,
+    status: "in_progress",
+    required_invitees: 2,
+    completed_invitees: 0,
+    target_attempt_id: "attempt-123",
+    unlock_stage: "locked",
+    unlock_source: "invite",
+    invite_unlock_diag_v1: null,
+  });
 });
 const INVITE_TAKE_HREF = "/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001";
+const INVITE_TAKE_BASE_HREF = "/zh/tests/mbti-personality-test-16-personality-types/take";
 
 function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktopCloneShell>> = {}) {
   return render(
@@ -271,6 +297,7 @@ function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktop
       retakeHref="/zh/test/mbti"
       primaryCtaLabel="去结算"
       primaryCtaHref="/zh/pay/checkout"
+      inviteUnlockAttemptId="attempt-123"
       {...overrides}
     />,
   );
@@ -295,6 +322,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
         retakeHref="/zh/test/mbti"
         primaryCtaLabel="去结算"
         primaryCtaHref="/zh/pay/checkout"
+        inviteUnlockAttemptId="attempt-123"
       />,
     );
 
@@ -305,8 +333,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     const finalOfferCta = screen.getByTestId("mbti-offers-primary-cta");
     expect(finalOfferCta).toHaveTextContent("1.99元直接解锁");
     expect(finalOfferCta).toHaveAttribute("href", "/zh/pay/checkout");
-    expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
-    expect(screen.queryAllByTestId(/mbti-.*-invite-cta/)).toHaveLength(0);
+    expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("邀2人测完领报告");
 
     const lockedOverlayPayCtas = screen.getAllByTestId(/mbti-.*-pay-cta/);
     expect(lockedOverlayPayCtas).toHaveLength(9);
@@ -429,7 +456,13 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(screen.getByTestId("mbti-career-pay-cta")).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
   });
 
-  it("removes invite CTA surfaces when invite href falls back to hash", async () => {
+  it("keeps invite CTA visible and lazily creates invite link when href falls back to hash", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(window.navigator, "clipboard", {
+      configurable: true,
+      value: { writeText },
+    });
+
     renderDefaultShell({
       lockedInviteCtaHref: getMbtiDesktopAnchorHash("offerFull"),
       lockedInviteCtaLabel: "邀2人测完领报告",
@@ -440,8 +473,43 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     });
 
     expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveAttribute("href", "/zh/pay/checkout");
-    expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
-    expect(screen.queryAllByTestId(/mbti-.*-invite-cta/)).toHaveLength(0);
+    const inviteCta = screen.getByTestId("mbti-offers-invite-cta");
+    expect(inviteCta).toHaveTextContent("邀2人测完领报告");
+    expect(inviteCta).toHaveAttribute("href", INVITE_TAKE_BASE_HREF);
+
+    fireEvent.click(inviteCta);
+
+    await waitFor(() => {
+      expect(hoisted.createAttemptInviteUnlock).toHaveBeenCalledWith({
+        attemptId: "attempt-123",
+        locale: "zh",
+      });
+      expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("已复制邀请链接");
+      expect(writeText).toHaveBeenCalledWith(expect.stringContaining(INVITE_TAKE_HREF));
+      expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-invite-has-invite", "true");
+      expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-invite-href", INVITE_TAKE_HREF);
+      expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-invite-code", "invite_mbti_created_001");
+    });
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "invite_create_start",
+      expect.objectContaining({
+        attempt_id: "attempt-123",
+      }),
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "invite_create_success",
+      expect.objectContaining({
+        attempt_id: "attempt-123",
+      }),
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "invite_share_or_copy",
+      expect.objectContaining({
+        attempt_id: "attempt-123",
+        action: "copy",
+      }),
+    );
   });
 
   it("copies invite URL on success without redirecting", async () => {
@@ -460,6 +528,92 @@ describe("MBTI desktop clone shell CTA wiring", () => {
       expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("已复制邀请链接");
     });
     expect(assignSpy).not.toHaveBeenCalled();
+  });
+
+  it("shows pending state and deduplicates in-flight invite creation requests", async () => {
+    let resolveCreate!: (value: {
+      ok: boolean;
+      invite_code: string;
+      invite_url: string;
+      status: string;
+      required_invitees: number;
+      completed_invitees: number;
+      target_attempt_id: string;
+      unlock_stage: string;
+      unlock_source: string;
+      invite_unlock_diag_v1: null;
+    }) => void;
+    const createPromise = new Promise<{
+      ok: boolean;
+      invite_code: string;
+      invite_url: string;
+      status: string;
+      required_invitees: number;
+      completed_invitees: number;
+      target_attempt_id: string;
+      unlock_stage: string;
+      unlock_source: string;
+      invite_unlock_diag_v1: null;
+    }>((resolve) => {
+      resolveCreate = resolve;
+    });
+    hoisted.createAttemptInviteUnlock.mockReturnValueOnce(createPromise);
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(window.navigator, "clipboard", {
+      configurable: true,
+      value: { writeText },
+    });
+
+    renderDefaultShell({ lockedInviteCtaHref: "" });
+    const inviteCta = screen.getByTestId("mbti-offers-invite-cta");
+
+    fireEvent.click(inviteCta);
+    fireEvent.click(inviteCta);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("正在创建邀请链接...");
+      expect(hoisted.createAttemptInviteUnlock).toHaveBeenCalledTimes(1);
+    });
+
+    resolveCreate({
+      ok: true,
+      invite_code: "invite_mbti_created_pending_001",
+      invite_url: INVITE_TAKE_HREF,
+      status: "in_progress",
+      required_invitees: 2,
+      completed_invitees: 0,
+      target_attempt_id: "attempt-123",
+      unlock_stage: "locked",
+      unlock_source: "invite",
+      invite_unlock_diag_v1: null,
+    });
+
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledTimes(1);
+      expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("已复制邀请链接");
+    });
+  });
+
+  it("shows explicit feedback when invite creation fails", async () => {
+    hoisted.createAttemptInviteUnlock.mockRejectedValueOnce(new Error("create failed"));
+    renderDefaultShell({ lockedInviteCtaHref: "" });
+    const inviteCta = screen.getByTestId("mbti-offers-invite-cta");
+
+    fireEvent.click(inviteCta);
+
+    await waitFor(() => {
+      expect(hoisted.createAttemptInviteUnlock).toHaveBeenCalledTimes(1);
+      expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("创建失败，点击重试");
+      expect(screen.getByTestId("mbti-offers-invite-fallback-hint")).toHaveTextContent(
+        "创建邀请链接失败，请重试。若持续失败，请稍后再试。",
+      );
+    });
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "invite_create_failed",
+      expect.objectContaining({
+        attempt_id: "attempt-123",
+      }),
+    );
   });
 
   it("shows explicit fallback actions on copy failure and does not auto-redirect", async () => {

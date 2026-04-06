@@ -1,6 +1,6 @@
 "use client";
 
-import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useState } from "react";
+import { type MouseEvent as ReactMouseEvent, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { HighlightCard, MbtiSectionUnlock, ReportSection, ResolvedOffer, RichResultHeadline } from "@/components/result/RichResultReport";
 import { MbtiCloneEnergyBlock } from "@/components/result/mbti/clone/MbtiCloneEnergyBlock";
 import { MbtiCloneFinalOffer } from "@/components/result/mbti/clone/MbtiCloneFinalOffer";
@@ -24,6 +24,13 @@ import type {
 } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { PremiumTeaserItem } from "@/components/result/mbti/clone/MbtiClonePremiumTeaserBlock";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
+import {
+  type AttemptInviteUnlockProgressView,
+  normalizeAttemptInviteUnlockProgress,
+  resolveInviteUnlockUrl,
+} from "@/lib/access/inviteUnlock";
+import { createAttemptInviteUnlock } from "@/lib/api/v0_3";
+import { trackEvent } from "@/lib/analytics";
 import {
   fetchPersonalityDesktopCloneContent,
   type PersonalityDesktopCloneAssetSlot,
@@ -66,6 +73,8 @@ type MbtiDesktopCloneShellProps = {
   lockedPayCtaLabel?: string;
   lockedInviteCtaLabel?: string;
   lockedInviteCtaHref?: string;
+  inviteUnlockAttemptId?: string;
+  inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
   onCheckout?: () => void | Promise<void>;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
@@ -224,6 +233,8 @@ export function MbtiDesktopCloneShell({
   lockedPayCtaLabel,
   lockedInviteCtaLabel,
   lockedInviteCtaHref,
+  inviteUnlockAttemptId,
+  inviteUnlockProgress = null,
   onCheckout,
   isCheckingOut = false,
   checkoutError = null,
@@ -401,29 +412,65 @@ export function MbtiDesktopCloneShell({
   const sectionPayCtaLabel = lockedPayCtaLabel
     ?? (cloneLocale === "zh" ? "1.99元直接解锁" : "Unlock now ¥1.99");
   const normalizedInviteCtaHref = normalizeText(lockedInviteCtaHref);
-  const inviteCtaAvailable = normalizedInviteCtaHref.length > 0 && !normalizedInviteCtaHref.startsWith("#");
+  const inviteHrefFromProps =
+    normalizedInviteCtaHref.length > 0 && !normalizedInviteCtaHref.startsWith("#")
+      ? normalizedInviteCtaHref
+      : "";
+  const inviteCodeFromProps = normalizeText(inviteUnlockProgress?.inviteCode);
+  const hasInviteFromProps = inviteHrefFromProps.length > 0 || inviteCodeFromProps.length > 0;
   const defaultInviteCtaLabel = lockedInviteCtaLabel
     ?? (cloneLocale === "zh" ? "邀2人测完领报告" : "Invite 2 friends to unlock");
-  const sectionInviteCtaHref = inviteCtaAvailable ? normalizedInviteCtaHref : "";
-  const [inviteCtaStatus, setInviteCtaStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
+  const [runtimeInviteState, setRuntimeInviteState] = useState(() => ({
+    inviteHref: inviteHrefFromProps,
+    inviteCode: inviteCodeFromProps,
+    hasInvite: hasInviteFromProps,
+  }));
+  const sectionInviteCtaHref = runtimeInviteState.inviteHref || inviteHrefFromProps;
+  const sectionInviteCode = runtimeInviteState.inviteCode || inviteCodeFromProps;
+  const hasInvite = runtimeInviteState.hasInvite || hasInviteFromProps || sectionInviteCtaHref.length > 0 || sectionInviteCode.length > 0;
+  const inviteCtaRenderHref = sectionInviteCtaHref
+    || (cloneLocale === "zh"
+      ? "/zh/tests/mbti-personality-test-16-personality-types/take"
+      : "/en/tests/mbti-personality-test-16-personality-types/take");
+  const inviteCreateInFlightRef = useRef<Promise<string> | null>(null);
+  const [inviteCtaStatus, setInviteCtaStatus] = useState<
+    "idle" | "creating" | "copying" | "copied" | "copy_failed" | "create_failed"
+  >("idle");
   const sectionInviteCtaLabel =
-    !inviteCtaAvailable
-      ? undefined
+    inviteCtaStatus === "creating"
+      ? (cloneLocale === "zh" ? "正在创建邀请链接..." : "Creating invite link...")
       : inviteCtaStatus === "copying"
       ? (cloneLocale === "zh" ? "正在复制邀请链接..." : "Copying invite link...")
       : inviteCtaStatus === "copied"
       ? (cloneLocale === "zh" ? "已复制邀请链接" : "Invite link copied")
-      : inviteCtaStatus === "failed"
+      : inviteCtaStatus === "copy_failed"
       ? (cloneLocale === "zh" ? "复制失败，点击打开邀请页" : "Copy failed, open invite page")
+      : inviteCtaStatus === "create_failed"
+      ? (cloneLocale === "zh" ? "创建失败，点击重试" : "Create failed, click to retry")
       : defaultInviteCtaLabel;
   const inviteCtaFallbackHint =
-    inviteCtaAvailable && inviteCtaStatus === "failed"
+    inviteCtaStatus === "copy_failed"
       ? (cloneLocale === "zh"
           ? "复制失败，请手动打开邀请页或手动复制链接。"
           : "Copy failed. Open the invite page or copy the link manually.")
+      : inviteCtaStatus === "create_failed"
+      ? (cloneLocale === "zh"
+          ? "创建邀请链接失败，请重试。若持续失败，请稍后再试。"
+          : "Failed to create invite link. Retry, or try again later.")
       : null;
+  const inviteCtaBusy = inviteCtaStatus === "creating" || inviteCtaStatus === "copying";
   const desktopEntryHref = isUnlocked ? primaryCtaHref : desktopOfferHref;
   const desktopWorkspaceHref = isUnlocked ? workspaceHref : desktopOfferHref;
+
+  useEffect(() => {
+    if (inviteHrefFromProps || inviteCodeFromProps) {
+      setRuntimeInviteState((previous) => ({
+        inviteHref: inviteHrefFromProps || previous.inviteHref,
+        inviteCode: inviteCodeFromProps || previous.inviteCode,
+        hasInvite: true,
+      }));
+    }
+  }, [inviteCodeFromProps, inviteHrefFromProps]);
 
   useEffect(() => {
     if (inviteCtaStatus !== "copied") {
@@ -441,37 +488,112 @@ export function MbtiDesktopCloneShell({
 
   const handleInviteCtaClick = useCallback(
     (event: ReactMouseEvent<HTMLAnchorElement>) => {
-      if (!inviteCtaAvailable || typeof window === "undefined") {
+      if (typeof window === "undefined") {
         return;
       }
 
       event.preventDefault();
 
-      if (inviteCtaStatus === "copying") {
+      if (inviteCtaStatus === "creating" || inviteCtaStatus === "copying") {
         return;
       }
-
-      const targetHref = sectionInviteCtaHref.trim();
-      if (!targetHref) {
-        setInviteCtaStatus("failed");
-        return;
-      }
-
-      if (inviteCtaStatus === "failed") {
-        assignWindowLocation(targetHref);
-        return;
-      }
-
-      setInviteCtaStatus("copying");
-
-      const absoluteHref = /^https?:\/\//i.test(targetHref)
-        ? targetHref
-        : new URL(targetHref, window.location.origin).toString();
 
       void (async () => {
+        let targetHref = sectionInviteCtaHref.trim();
+        if (!targetHref) {
+          if (!inviteUnlockAttemptId) {
+            setInviteCtaStatus("create_failed");
+            trackEvent("invite_create_failed", {
+              scale_code: "MBTI",
+              attempt_id: inviteUnlockAttemptId ?? "",
+              reason: "missing_attempt_id",
+            });
+            return;
+          }
+
+          const existingCreateTask = inviteCreateInFlightRef.current;
+          if (existingCreateTask) {
+            setInviteCtaStatus("creating");
+            try {
+              targetHref = await existingCreateTask;
+            } catch {
+              setInviteCtaStatus("create_failed");
+              return;
+            }
+          } else {
+            setInviteCtaStatus("creating");
+            trackEvent("invite_create_start", {
+              scale_code: "MBTI",
+              attempt_id: inviteUnlockAttemptId,
+              has_invite: hasInvite,
+            });
+            const createTask = (async () => {
+              const createdProgress = await createAttemptInviteUnlock({
+                attemptId: inviteUnlockAttemptId,
+                locale,
+              });
+              const normalizedProgress = normalizeAttemptInviteUnlockProgress(createdProgress, locale);
+              const resolvedInviteHref = normalizeText(resolveInviteUnlockUrl({
+                progress: normalizedProgress,
+                locale,
+              }));
+              const resolvedInviteCode = normalizeText(normalizedProgress?.inviteCode);
+              const createdHasInvite = Boolean(resolvedInviteHref || resolvedInviteCode);
+              if (!resolvedInviteHref || resolvedInviteHref.startsWith("#") || !createdHasInvite) {
+                throw new Error("invite_link_missing");
+              }
+              setRuntimeInviteState({
+                inviteHref: resolvedInviteHref,
+                inviteCode: resolvedInviteCode,
+                hasInvite: true,
+              });
+              trackEvent("invite_create_success", {
+                scale_code: "MBTI",
+                attempt_id: inviteUnlockAttemptId,
+                has_invite: true,
+              });
+              return resolvedInviteHref;
+            })();
+            inviteCreateInFlightRef.current = createTask;
+            try {
+              targetHref = await createTask;
+            } catch {
+              trackEvent("invite_create_failed", {
+                scale_code: "MBTI",
+                attempt_id: inviteUnlockAttemptId,
+                reason: "request_failed",
+              });
+              setInviteCtaStatus("create_failed");
+              return;
+            } finally {
+              inviteCreateInFlightRef.current = null;
+            }
+          }
+        }
+
+        if (inviteCtaStatus === "copy_failed") {
+          trackEvent("invite_share_or_copy", {
+            scale_code: "MBTI",
+            attempt_id: inviteUnlockAttemptId ?? "",
+            action: "open_invite_page",
+          });
+          assignWindowLocation(targetHref);
+          return;
+        }
+
+        setInviteCtaStatus("copying");
+        const absoluteHref = /^https?:\/\//i.test(targetHref)
+          ? targetHref
+          : new URL(targetHref, window.location.origin).toString();
+
         try {
           if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
             await navigator.clipboard.writeText(absoluteHref);
+            trackEvent("invite_share_or_copy", {
+              scale_code: "MBTI",
+              attempt_id: inviteUnlockAttemptId ?? "",
+              action: "copy",
+            });
             setInviteCtaStatus("copied");
             return;
           }
@@ -479,10 +601,10 @@ export function MbtiDesktopCloneShell({
           // Keep user in place and show explicit fallback actions.
         }
 
-        setInviteCtaStatus("failed");
+        setInviteCtaStatus("copy_failed");
       })();
     },
-    [inviteCtaAvailable, inviteCtaStatus, sectionInviteCtaHref]
+    [hasInvite, inviteCtaStatus, inviteUnlockAttemptId, locale, sectionInviteCtaHref]
   );
 
   const railTools: DesktopCloneTool[] = [
@@ -510,7 +632,14 @@ export function MbtiDesktopCloneShell({
   const traitBodySource = slots.overview ? "overview" : "traits";
 
   return (
-    <div data-testid="mbti-desktop-clone-shell" className={styles.cloneRoot} data-base-code={slots.meta.baseCode}>
+    <div
+      data-testid="mbti-desktop-clone-shell"
+      className={styles.cloneRoot}
+      data-base-code={slots.meta.baseCode}
+      data-invite-has-invite={hasInvite ? "true" : "false"}
+      data-invite-code={sectionInviteCode || undefined}
+      data-invite-href={sectionInviteCtaHref || undefined}
+    >
       <div className={styles.shell}>
         <MbtiCloneHero
           badge={headline.badge}
@@ -569,8 +698,8 @@ export function MbtiDesktopCloneShell({
               unlockHref={desktopOfferHref}
               unlockPayLabel={sectionPayCtaLabel}
               unlockInviteLabel={sectionInviteCtaLabel}
-              unlockInviteHref={inviteCtaAvailable ? sectionInviteCtaHref : undefined}
-              onInviteCtaClick={inviteCtaAvailable ? handleInviteCtaClick : undefined}
+              unlockInviteHref={inviteCtaRenderHref}
+              onInviteCtaClick={handleInviteCtaClick}
               postCoreBlocks={careerPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -608,8 +737,8 @@ export function MbtiDesktopCloneShell({
               unlockHref={desktopOfferHref}
               unlockPayLabel={sectionPayCtaLabel}
               unlockInviteLabel={sectionInviteCtaLabel}
-              unlockInviteHref={inviteCtaAvailable ? sectionInviteCtaHref : undefined}
-              onInviteCtaClick={inviteCtaAvailable ? handleInviteCtaClick : undefined}
+              unlockInviteHref={inviteCtaRenderHref}
+              onInviteCtaClick={handleInviteCtaClick}
               postCoreBlocks={growthPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -647,8 +776,8 @@ export function MbtiDesktopCloneShell({
               unlockHref={desktopOfferHref}
               unlockPayLabel={sectionPayCtaLabel}
               unlockInviteLabel={sectionInviteCtaLabel}
-              unlockInviteHref={inviteCtaAvailable ? sectionInviteCtaHref : undefined}
-              onInviteCtaClick={inviteCtaAvailable ? handleInviteCtaClick : undefined}
+              unlockInviteHref={inviteCtaRenderHref}
+              onInviteCtaClick={handleInviteCtaClick}
               postCoreBlocks={relationshipsPostCoreBlocks}
               premiumTeasers={isUnlocked ? [] : [
                 buildPremiumTeaserBlock({
@@ -684,9 +813,9 @@ export function MbtiDesktopCloneShell({
                 ctaLabel={isUnlocked ? normalizeText(primaryCtaLabel, slots.finalOffer.ctaLabel) : sectionPayCtaLabel}
                 ctaHref={primaryCtaHref}
                 inviteCtaLabel={sectionInviteCtaLabel}
-                inviteCtaHref={inviteCtaAvailable ? sectionInviteCtaHref : undefined}
-                onInviteCtaClick={inviteCtaAvailable ? handleInviteCtaClick : undefined}
-                inviteCtaDisabled={inviteCtaAvailable && inviteCtaStatus === "copying"}
+                inviteCtaHref={inviteCtaRenderHref}
+                onInviteCtaClick={handleInviteCtaClick}
+                inviteCtaDisabled={inviteCtaBusy}
                 inviteFallbackHint={inviteCtaFallbackHint}
                 isCheckingOut={isCheckingOut}
                 checkoutError={checkoutError}
