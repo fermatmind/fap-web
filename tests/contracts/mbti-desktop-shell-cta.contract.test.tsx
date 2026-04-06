@@ -334,6 +334,10 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(finalOfferCta).toHaveTextContent("1.99元直接解锁");
     expect(finalOfferCta).toHaveAttribute("href", "/zh/pay/checkout");
     expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("邀2人测完领报告");
+    expect(screen.getByTestId("mbti-offers-invite-progress")).toHaveTextContent("已完成 0/2");
+    expect(screen.getByTestId("mbti-offers-invite-progress")).toHaveTextContent(
+      "邀请 2 人完成测试即可免费解锁完整报告"
+    );
 
     const lockedOverlayPayCtas = screen.getAllByTestId(/mbti-.*-pay-cta/);
     expect(lockedOverlayPayCtas).toHaveLength(9);
@@ -358,6 +362,60 @@ describe("MBTI desktop clone shell CTA wiring", () => {
       "href",
       getMbtiDesktopAnchorHash("offerFull"),
     );
+  });
+
+  it("renders 1/2 partial-unlock progress with explicit next action and synced invite CTA labels", async () => {
+    renderDefaultShell({
+      inviteUnlockProgress: {
+        inviteCode: "invite_mbti_progress_001",
+        inviteUrl: INVITE_TAKE_HREF,
+        status: "in_progress",
+        requiredInvitees: 2,
+        completedInvitees: 1,
+        targetAttemptId: "attempt-123",
+        unlockStage: "partial",
+        unlockSource: "invite",
+        diagnostics: null,
+      },
+    });
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
+    });
+
+    const progressCard = screen.getByTestId("mbti-offers-invite-progress");
+    expect(progressCard).toHaveTextContent("已完成 1/2");
+    expect(progressCard).toHaveTextContent("已部分解锁（职业推荐）；再邀请 1 人即可解锁完整报告");
+    expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("再邀1人解锁完整报告");
+    expect(screen.getByTestId("mbti-career-invite-cta")).toHaveTextContent("再邀1人解锁完整报告");
+  });
+
+  it("renders 2/2 completion message on unlocked result surfaces without degrading invite semantics", async () => {
+    renderDefaultShell({
+      isUnlocked: true,
+      unlockedOfferNode: <div data-testid="mbti-unlocked-offer-node">unlocked</div>,
+      inviteUnlockProgress: {
+        inviteCode: "invite_mbti_progress_002",
+        inviteUrl: INVITE_TAKE_HREF,
+        status: "completed",
+        requiredInvitees: 2,
+        completedInvitees: 2,
+        targetAttemptId: "attempt-123",
+        unlockStage: "full",
+        unlockSource: "invite",
+        diagnostics: null,
+      },
+    });
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
+    });
+
+    const progressCard = screen.getByTestId("mbti-offers-invite-progress");
+    expect(progressCard).toHaveTextContent("已完成 2/2");
+    expect(progressCard).toHaveTextContent("完整报告已免费解锁");
+    expect(screen.getByTestId("mbti-unlocked-offer-node")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
   });
 
   it("keeps runtime offer price while allowing storage copy to render", async () => {

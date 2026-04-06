@@ -21,6 +21,10 @@ type MbtiCloneFinalOfferProps = {
   onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
   inviteCtaDisabled?: boolean;
   inviteFallbackHint?: string | null;
+  inviteProgressVisible?: boolean;
+  inviteProgressBadge?: string;
+  inviteProgressLabel?: string;
+  inviteProgressHint?: string;
   isCheckingOut?: boolean;
   checkoutError?: string | null;
   onCheckout?: () => void | Promise<void>;
@@ -46,6 +50,10 @@ export function MbtiCloneFinalOffer({
   onInviteCtaClick,
   inviteCtaDisabled = false,
   inviteFallbackHint = null,
+  inviteProgressVisible = false,
+  inviteProgressBadge,
+  inviteProgressLabel,
+  inviteProgressHint,
   isCheckingOut = false,
   checkoutError = null,
   onCheckout,
@@ -55,8 +63,22 @@ export function MbtiCloneFinalOffer({
   illustrationLabel,
   assetSlots,
 }: MbtiCloneFinalOfferProps) {
+  const inviteProgressNode =
+    inviteProgressVisible && inviteProgressLabel && inviteProgressHint ? (
+      <div className={styles.finalOfferInviteProgress} data-testid="mbti-offers-invite-progress">
+        {inviteProgressBadge ? <p className={styles.finalOfferInviteProgressBadge}>{inviteProgressBadge}</p> : null}
+        <p className={styles.finalOfferInviteProgressLabel}>{inviteProgressLabel}</p>
+        <p className={styles.finalOfferInviteProgressHint}>{inviteProgressHint}</p>
+      </div>
+    ) : null;
+
   if (isUnlocked && unlockedNode) {
-    return <div className={styles.finalOfferPurchased}>{unlockedNode}</div>;
+    return (
+      <div className={styles.finalOfferPurchased}>
+        {inviteProgressNode}
+        {unlockedNode}
+      </div>
+    );
   }
 
   return (
@@ -73,6 +95,7 @@ export function MbtiCloneFinalOffer({
         <p className={styles.microLabel}>{eyebrow}</p>
         <h2 className={styles.finalOfferTitle}>{headline}</h2>
         <p className={styles.finalOfferCopy}>{copy}</p>
+        {inviteProgressNode}
         <div className={styles.finalOfferRow}>
           <div>
             <p className={styles.microLabel}>{priceLabel}</p>

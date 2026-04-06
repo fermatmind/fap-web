@@ -370,6 +370,93 @@ function hasAuthOrAnonContext(anonId: string): boolean {
   return anonId.trim().length > 0 || Boolean(getFmToken());
 }
 
+type InviteProgressSnapshot = {
+  completedInvitees: number;
+  requiredInvitees: number;
+  unlockStage: "locked" | "partial" | "full" | null;
+  unlockSource: "none" | "invite" | "payment" | "mixed" | null;
+};
+
+function resolveUnlockStageRank(stage: AttemptReportAccessView["unlockStage"] | AttemptInviteUnlockProgressView["unlockStage"]): number {
+  if (stage === "full") return 3;
+  if (stage === "partial") return 2;
+  if (stage === "locked") return 1;
+  return 0;
+}
+
+function resolveUnlockSourceMerge({
+  previousSource,
+  nextSource,
+}: {
+  previousSource: AttemptReportAccessView["unlockSource"];
+  nextSource: AttemptInviteUnlockProgressView["unlockSource"];
+}): AttemptReportAccessView["unlockSource"] {
+  if (!nextSource) {
+    return previousSource;
+  }
+
+  if (!previousSource || previousSource === "none") {
+    return nextSource;
+  }
+
+  if (nextSource === "mixed") {
+    return "mixed";
+  }
+
+  return previousSource;
+}
+
+function mergeAccessUnlockStateFromInviteProgress({
+  previousStage,
+  previousSource,
+  nextStage,
+  nextSource,
+}: {
+  previousStage: AttemptReportAccessView["unlockStage"];
+  previousSource: AttemptReportAccessView["unlockSource"];
+  nextStage: AttemptInviteUnlockProgressView["unlockStage"];
+  nextSource: AttemptInviteUnlockProgressView["unlockSource"];
+}): {
+  unlockStage: AttemptReportAccessView["unlockStage"];
+  unlockSource: AttemptReportAccessView["unlockSource"];
+  changed: boolean;
+} {
+  if (!nextStage && !nextSource) {
+    return {
+      unlockStage: previousStage,
+      unlockSource: previousSource,
+      changed: false,
+    };
+  }
+
+  const previousRank = resolveUnlockStageRank(previousStage);
+  const nextRank = resolveUnlockStageRank(nextStage);
+  if (nextRank < previousRank) {
+    return {
+      unlockStage: previousStage,
+      unlockSource: previousSource,
+      changed: false,
+    };
+  }
+  const stageCanUpgrade = nextRank >= previousRank;
+  const mergedStage = stageCanUpgrade && nextStage ? nextStage : previousStage;
+  const mergedSource = stageCanUpgrade && nextRank > previousRank
+    ? resolveUnlockSourceMerge({
+        previousSource: previousSource,
+        nextSource,
+      })
+    : resolveUnlockSourceMerge({
+        previousSource,
+        nextSource,
+      });
+
+  return {
+    unlockStage: mergedStage,
+    unlockSource: mergedSource,
+    changed: mergedStage !== previousStage || mergedSource !== previousSource,
+  };
+}
+
 function resolveSubmissionFailureMessage(
   response: AttemptSubmissionResponse | null,
   fallbackMessage: string
@@ -403,6 +490,7 @@ export default function ResultClient({
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef("UNKNOWN");
+  const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
 
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
@@ -543,20 +631,22 @@ export default function ResultClient({
           return previous;
         }
 
-        const nextUnlockStage = normalizedProgress.unlockStage ?? previous.unlockStage;
-        const nextUnlockSource = normalizedProgress.unlockSource ?? previous.unlockSource;
-        const stageChanged = previous.unlockStage !== nextUnlockStage;
-        const sourceChanged = previous.unlockSource !== nextUnlockSource;
-        if (!stageChanged && !sourceChanged) {
+        const mergedUnlockState = mergeAccessUnlockStateFromInviteProgress({
+          previousStage: previous.unlockStage,
+          previousSource: previous.unlockSource,
+          nextStage: normalizedProgress.unlockStage,
+          nextSource: normalizedProgress.unlockSource,
+        });
+        if (!mergedUnlockState.changed) {
           return previous;
         }
 
         logInfo("result_invite_unlock_status_synced", {
           attempt_id: attemptId,
           from_unlock_stage: previous.unlockStage,
-          to_unlock_stage: nextUnlockStage,
+          to_unlock_stage: mergedUnlockState.unlockStage,
           from_unlock_source: previous.unlockSource,
-          to_unlock_source: nextUnlockSource,
+          to_unlock_source: mergedUnlockState.unlockSource,
           completed_invitees: normalizedProgress.completedInvitees,
           required_invitees: normalizedProgress.requiredInvitees,
           diagnostic_status: normalizedProgress.diagnostics?.status ?? null,
@@ -564,8 +654,8 @@ export default function ResultClient({
 
         return {
           ...previous,
-          unlockStage: nextUnlockStage,
-          unlockSource: nextUnlockSource,
+          unlockStage: mergedUnlockState.unlockStage,
+          unlockSource: mergedUnlockState.unlockSource,
         };
       });
     };
@@ -580,6 +670,43 @@ export default function ResultClient({
         const normalizedProgress = normalizeAttemptInviteUnlockProgress(progressResponse, locale);
         setInviteUnlockProgress(normalizedProgress);
         applyInviteProgressToAccessView(normalizedProgress);
+
+        if (normalizedProgress) {
+          const previousSnapshot = inviteProgressSnapshotRef.current;
+          const currentSnapshot: InviteProgressSnapshot = {
+            completedInvitees: normalizedProgress.completedInvitees,
+            requiredInvitees: normalizedProgress.requiredInvitees,
+            unlockStage: normalizedProgress.unlockStage,
+            unlockSource: normalizedProgress.unlockSource,
+          };
+          const progressAdvanced = previousSnapshot === null
+            || previousSnapshot.completedInvitees !== currentSnapshot.completedInvitees
+            || previousSnapshot.requiredInvitees !== currentSnapshot.requiredInvitees
+            || previousSnapshot.unlockStage !== currentSnapshot.unlockStage
+            || previousSnapshot.unlockSource !== currentSnapshot.unlockSource;
+
+          if (progressAdvanced) {
+            trackEvent("invite_progress_advanced", {
+              scale_code: "MBTI",
+              attempt_id: attemptId,
+              target_attempt_id: normalizedProgress.targetAttemptId ?? attemptId,
+              completed_invitees: currentSnapshot.completedInvitees,
+              required_invitees: currentSnapshot.requiredInvitees,
+              unlock_stage: currentSnapshot.unlockStage ?? undefined,
+              unlock_source: currentSnapshot.unlockSource ?? undefined,
+              previous_completed_invitees: previousSnapshot?.completedInvitees,
+              previous_required_invitees: previousSnapshot?.requiredInvitees,
+              previous_unlock_stage: previousSnapshot?.unlockStage ?? undefined,
+              previous_unlock_source: previousSnapshot?.unlockSource ?? undefined,
+              reason,
+              entry_surface: "result_page",
+              locale,
+            });
+          }
+
+          inviteProgressSnapshotRef.current = currentSnapshot;
+        }
+
         logInfo("result_invite_unlock_progress_refreshed", {
           attempt_id: attemptId,
           reason,
@@ -694,6 +821,7 @@ export default function ResultClient({
       if (attempt === 0) {
         setStatus("loading");
         setInviteUnlockProgress(null);
+        inviteProgressSnapshotRef.current = null;
 
         try {
           await ensureFmTokenReady({
