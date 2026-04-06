@@ -41,19 +41,6 @@ function resolveTwitterCard(value: string | null | undefined): "summary" | "summ
   return "summary_large_image";
 }
 
-function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
-  const normalized = String(value ?? "").trim();
-  if (!normalized) {
-    return fallbackPath;
-  }
-
-  try {
-    return new URL(normalized).pathname || fallbackPath;
-  } catch {
-    return normalized.startsWith("/") ? normalized : fallbackPath;
-  }
-}
-
 function normalizeRequestedSlug(value: string): string {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -146,10 +133,7 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  const canonicalPath = pathFromCanonicalUrl(
-    detail.seo.meta.canonical,
-    buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
-  );
+  const canonicalPath = buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug);
   const noindex = shouldNoindex(detail.seo.meta.robots);
   const metadata = buildPageMetadata({
     locale,
@@ -164,7 +148,7 @@ export async function generateMetadata({
       xDefault: "/",
     },
   });
-  const canonical = detail.seo.surface?.canonicalUrl ?? detail.seo.meta.canonical ?? canonicalUrl(canonicalPath);
+  const canonical = canonicalUrl(canonicalPath);
 
   return {
     ...metadata,
@@ -174,7 +158,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      url: detail.seo.surface?.og.url ?? canonical,
+      url: canonical,
       title: detail.seo.surface?.og.title || detail.seo.meta.og.title,
       description: detail.seo.surface?.og.description || detail.seo.meta.og.description,
       images: detail.seo.surface?.og.image ? [detail.seo.surface.og.image] : detail.seo.meta.og.image ? [detail.seo.meta.og.image] : undefined,
@@ -215,10 +199,7 @@ export default async function CareerMbtiRecommendationPage({
     permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
   }
 
-  const canonicalPath = pathFromCanonicalUrl(
-    detail.seo.meta.canonical,
-    buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
-  );
+  const canonicalPath = buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug);
   const answerFirst = detail.answerSurface?.summaryBlocks[0]?.body || buildAnswerFirst(detail, locale);
   const faqItems = buildAnswerSurfaceFaqItems(detail, locale);
   const landingSurface = detail.landingSurface;

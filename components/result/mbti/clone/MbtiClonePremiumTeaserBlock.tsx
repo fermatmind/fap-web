@@ -17,8 +17,8 @@ type MbtiClonePremiumTeaserBlockProps = {
   overlayBody: string;
   overlayPayCtaLabel: string;
   overlayPayCtaHref: string;
-  overlayInviteCtaLabel: string;
-  overlayInviteCtaHref: string;
+  overlayInviteCtaLabel?: string;
+  overlayInviteCtaHref?: string;
   onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
   testId: string;
 };
@@ -54,14 +54,16 @@ export function MbtiClonePremiumTeaserBlock({
           >
             {overlayPayCtaLabel}
           </a>
-          <a
-            href={overlayInviteCtaHref}
-            onClick={onInviteCtaClick}
-            className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
-            data-testid={`${testId}-invite-cta`}
-          >
-            {overlayInviteCtaLabel}
-          </a>
+          {overlayInviteCtaLabel && overlayInviteCtaHref ? (
+            <a
+              href={overlayInviteCtaHref}
+              onClick={onInviteCtaClick}
+              className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
+              data-testid={`${testId}-invite-cta`}
+            >
+              {overlayInviteCtaLabel}
+            </a>
+          ) : null}
         </div>
       </div>
       <div className={styles.premiumTeaserBody}>

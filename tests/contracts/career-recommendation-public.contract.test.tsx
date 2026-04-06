@@ -239,7 +239,9 @@ describe("career recommendation public adapter contract", () => {
     expect(source).toContain("parseMbtiContinuityQuery");
     expect(source).toContain("mbti-career-continuity-entry");
     expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
-    expect(source).toContain("detail.seo.surface?.canonicalUrl");
+    expect(source).toContain("const canonicalPath = buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug);");
+    expect(source).toContain("const canonical = canonicalUrl(canonicalPath);");
+    expect(source).toContain("url: canonical,");
     expect(source).toContain("seoSurface: detail.seo.surface");
     expect(source).toContain("landingSurface?.ctaBundle");
     expect(source).toContain("detail.answerSurface");

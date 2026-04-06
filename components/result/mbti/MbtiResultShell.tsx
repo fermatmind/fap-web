@@ -844,8 +844,7 @@ export function MbtiResultShell({
     ? normalizeText(continuityWorkspaceHref, continuityHistoryHref, terminalPrimaryCtaHref)
     : terminalPrimaryCtaHref;
   const desktopClonePrimaryCtaHref = isUnlockedPostPurchase ? resolvedTerminalPrimaryCtaHref : DESKTOP_OFFER_FULL_HASH;
-  const inviteUnlockHref = resolveInviteUnlockUrl({ progress: inviteUnlockProgress, locale })
-    ?? DESKTOP_OFFER_FULL_HASH;
+  const inviteUnlockHref = resolveInviteUnlockUrl({ progress: inviteUnlockProgress, locale });
   const inviteRequiredInvitees = inviteUnlockProgress?.requiredInvitees ?? 2;
   const chapterPayCtaLabel = locale === "zh" ? "1.99元直接解锁" : "Unlock now ¥1.99";
   const chapterInviteCtaLabel =
@@ -1657,8 +1656,8 @@ export function MbtiResultShell({
         primaryCtaLabel={terminalPrimaryCtaLabel}
         primaryCtaHref={desktopClonePrimaryCtaHref}
         lockedPayCtaLabel={chapterPayCtaLabel}
-        lockedInviteCtaLabel={chapterInviteCtaLabel}
-        lockedInviteCtaHref={inviteUnlockHref}
+        lockedInviteCtaLabel={inviteUnlockHref ? chapterInviteCtaLabel : undefined}
+        lockedInviteCtaHref={inviteUnlockHref ?? undefined}
         onCheckout={handleCheckout}
         isCheckingOut={isCheckingOut}
         checkoutError={checkoutError}

@@ -12,8 +12,8 @@ type MbtiCloneInfluentialTraitsCardProps = {
   isUnlocked: boolean;
   unlockHref: string;
   unlockPayLabel: string;
-  unlockInviteLabel: string;
-  unlockInviteHref: string;
+  unlockInviteLabel?: string;
+  unlockInviteHref?: string;
   onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
 };
 
@@ -113,14 +113,16 @@ export function MbtiCloneInfluentialTraitsCard({
               >
                 {unlockPayLabel}
               </a>
-              <a
-                href={unlockInviteHref}
-                onClick={onInviteCtaClick}
-                className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
-                data-testid={`mbti-${sectionId}-invite-cta`}
-              >
-                {unlockInviteLabel}
-              </a>
+              {unlockInviteLabel && unlockInviteHref ? (
+                <a
+                  href={unlockInviteHref}
+                  onClick={onInviteCtaClick}
+                  className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
+                  data-testid={`mbti-${sectionId}-invite-cta`}
+                >
+                  {unlockInviteLabel}
+                </a>
+              ) : null}
             </div>
           </div>
         </>

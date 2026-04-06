@@ -35,6 +35,8 @@ const NON_PAGE_ROUTE_EXCLUDES = [
   "/zh/result/*",
   "/en/history/*",
   "/zh/history/*",
+  "/en/relationships/*",
+  "/zh/relationships/*",
   "/en/take/*",
   "/zh/take/*",
 ];

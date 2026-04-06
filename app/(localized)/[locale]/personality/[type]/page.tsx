@@ -46,19 +46,6 @@ function redirectLegacyBaseRouteIfNeeded(type: string, locale: Locale): void {
   permanentRedirect(buildPersonalityFrontendUrl(locale, buildDefaultPublicPersonalitySlug(type)));
 }
 
-function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
-  const normalized = String(value ?? "").trim();
-  if (!normalized) {
-    return fallbackPath;
-  }
-
-  try {
-    return new URL(normalized).pathname || fallbackPath;
-  } catch {
-    return normalized.startsWith("/") ? normalized : fallbackPath;
-  }
-}
-
 function normalizePublicPersonalityVariantSlug(value: string): string | null {
   const normalized = String(value ?? "").trim().toLowerCase();
   return PUBLIC_PERSONALITY_VARIANT_RE.test(normalized) ? normalized : null;
@@ -102,7 +89,7 @@ function buildFallbackProjection(type: string, locale: Locale): PersonalityProje
       twitterDescription: summary,
       twitterImageUrl: null,
       canonicalUrl: null,
-      robots: "index,follow",
+      robots: "noindex,nofollow",
       jsonld: null,
     },
     offerSet: null,
@@ -134,7 +121,7 @@ function buildFallbackPersonalityDetail(type: string, locale: Locale): Personali
     slug: routeSlug,
     routeSlug,
     locale,
-    isIndexable: true,
+    isIndexable: false,
     heroKicker: locale === "zh" ? "MBTI Public Gateway" : "MBTI Public Gateway",
     heroQuote: null,
     heroImageUrl: null,
@@ -192,10 +179,7 @@ export async function generateMetadata({
   }
 
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
-  const canonicalPath = pathFromCanonicalUrl(
-    normalizedSeo.meta.canonical,
-    buildCanonicalPath(detail.routeSlug, locale)
-  );
+  const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const noindex = !detail.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
   const metadata = buildPageMetadata({
     locale,
@@ -211,7 +195,7 @@ export async function generateMetadata({
       xDefault: "/",
     },
   });
-  const canonical = normalizedSeo.surface?.canonicalUrl ?? normalizedSeo.meta.canonical ?? canonicalUrl(canonicalPath);
+  const canonical = canonicalUrl(canonicalPath);
   const ogImage = normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? null;
   const twitterImages = normalizeTwitterImages(
     normalizedSeo.surface?.twitter.image,
@@ -228,7 +212,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      url: normalizedSeo.surface?.og.url ?? canonical,
+      url: canonical,
       title: normalizedSeo.surface?.og.title || normalizedSeo.meta.og.title,
       description: normalizedSeo.surface?.og.description || normalizedSeo.meta.og.description,
       images: ogImage ? [ogImage] : undefined,
@@ -258,10 +242,10 @@ export default async function PersonalityDetailPage({
   }
 
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
-  const canonicalPath = pathFromCanonicalUrl(
-    normalizedSeo.meta.canonical,
-    buildCanonicalPath(detail.routeSlug, locale)
-  );
+  const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
+  const isFallbackRoute =
+    detail.projection.meta.routeMode === "fallback" ||
+    detail.projection.meta.authoritySource === "frontend_gateway_fallback";
   const faqItems = detail.answerSurface?.faqBlocks.length
     ? detail.answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
@@ -291,10 +275,12 @@ export default async function PersonalityDetailPage({
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} />
-      <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} />
-      <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} />
-      {faqItems.length > 0 ? <JsonLd id={`personality-faq-${detail.slug}`} data={buildFAQPageJsonLd(faqItems)} /> : null}
+      {!isFallbackRoute ? <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} /> : null}
+      {!isFallbackRoute ? <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} /> : null}
+      {!isFallbackRoute ? <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} /> : null}
+      {!isFallbackRoute && faqItems.length > 0 ? (
+        <JsonLd id={`personality-faq-${detail.slug}`} data={buildFAQPageJsonLd(faqItems)} />
+      ) : null}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },

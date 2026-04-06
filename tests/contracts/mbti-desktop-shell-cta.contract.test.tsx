@@ -305,7 +305,8 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     const finalOfferCta = screen.getByTestId("mbti-offers-primary-cta");
     expect(finalOfferCta).toHaveTextContent("1.99元直接解锁");
     expect(finalOfferCta).toHaveAttribute("href", "/zh/pay/checkout");
-    expect(screen.getByTestId("mbti-offers-invite-cta")).toHaveTextContent("邀2人测完领报告");
+    expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
+    expect(screen.queryAllByTestId(/mbti-.*-invite-cta/)).toHaveLength(0);
 
     const lockedOverlayPayCtas = screen.getAllByTestId(/mbti-.*-pay-cta/);
     expect(lockedOverlayPayCtas).toHaveLength(9);
@@ -428,6 +429,21 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(screen.getByTestId("mbti-career-pay-cta")).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
   });
 
+  it("removes invite CTA surfaces when invite href falls back to hash", async () => {
+    renderDefaultShell({
+      lockedInviteCtaHref: getMbtiDesktopAnchorHash("offerFull"),
+      lockedInviteCtaLabel: "邀2人测完领报告",
+    });
+
+    await waitFor(() => {
+      expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
+    });
+
+    expect(screen.getByTestId("mbti-offers-primary-cta")).toHaveAttribute("href", "/zh/pay/checkout");
+    expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
+    expect(screen.queryAllByTestId(/mbti-.*-invite-cta/)).toHaveLength(0);
+  });
+
   it("copies invite URL on success without redirecting", async () => {
     const assignSpy = vi.mocked(assignWindowLocation);
     const writeText = vi.fn().mockResolvedValue(undefined);
@@ -487,5 +503,24 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     fireEvent.click(inviteCta);
     expect(assignSpy).toHaveBeenCalledWith(INVITE_TAKE_HREF);
     expect(writeText).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps default navigation suppressed while invite copy is in progress", async () => {
+    const assignSpy = vi.mocked(assignWindowLocation);
+    const writeText = vi.fn(() => new Promise<void>(() => {}));
+    Object.defineProperty(window.navigator, "clipboard", {
+      configurable: true,
+      value: { writeText },
+    });
+
+    renderDefaultShell({ lockedInviteCtaHref: INVITE_TAKE_HREF });
+    const inviteCta = screen.getByTestId("mbti-offers-invite-cta");
+
+    expect(fireEvent.click(inviteCta)).toBe(false);
+    expect(writeText).toHaveBeenCalledTimes(1);
+
+    expect(fireEvent.click(inviteCta)).toBe(false);
+    expect(writeText).toHaveBeenCalledTimes(1);
+    expect(assignSpy).not.toHaveBeenCalled();
   });
 });

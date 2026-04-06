@@ -562,6 +562,8 @@ function createStoragePayload(
   };
 }
 
+const INVITE_TAKE_HREF = "/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001";
+
 function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "en" = "zh", isUnlocked = false) {
   return render(
     <MbtiDesktopCloneShell
@@ -580,6 +582,7 @@ function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "e
       retakeHref="/zh/test/mbti"
       primaryCtaLabel="去结算"
       primaryCtaHref="/zh/pay/checkout"
+      lockedInviteCtaHref={INVITE_TAKE_HREF}
     />,
   );
 }
@@ -612,6 +615,7 @@ function renderShellWithProjection({
       retakeHref="/zh/test/mbti"
       primaryCtaLabel="去结算"
       primaryCtaHref="/zh/pay/checkout"
+      lockedInviteCtaHref={INVITE_TAKE_HREF}
     />,
   );
 }

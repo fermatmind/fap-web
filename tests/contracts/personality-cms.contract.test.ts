@@ -550,5 +550,12 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("renderProjectionSections");
+    expect(source).toContain("const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);");
+    expect(source).toContain("const canonical = canonicalUrl(canonicalPath);");
+    expect(source).toContain("url: canonical,");
+    expect(source).toContain('robots: "noindex,nofollow"');
+    expect(source).toContain("isIndexable: false");
+    expect(source).toContain("const isFallbackRoute =");
+    expect(source).toContain("!isFallbackRoute ? <JsonLd");
   });
 });
