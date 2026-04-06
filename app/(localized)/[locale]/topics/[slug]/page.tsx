@@ -147,6 +147,8 @@ export default async function TopicDetailPage({
   ]);
   const renderedSections = renderTopicSections(topic.sections, locale);
   const renderedEntryGroups = renderTopicEntryGroups(topic.entryGroups, locale);
+  const isMbtiTopic =
+    String(topic.topicCode || "").toLowerCase() === "mbti" || String(topic.slug || "").toLowerCase() === "mbti";
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -176,7 +178,7 @@ export default async function TopicDetailPage({
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
+      {isMbtiTopic ? <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} /> : null}
       <JsonLd id={`topic-jsonld-${topic.slug}`} data={normalizedSeo.jsonld} />
       <JsonLd id={`topic-webpage-${topic.slug}`} data={webPageJsonLd} />
       <JsonLd id={`topic-breadcrumb-${topic.slug}`} data={breadcrumbJsonLd} />
@@ -201,24 +203,26 @@ export default async function TopicDetailPage({
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{topic.title}</h1>
         {topic.subtitle ? <p className="m-0 text-lg text-[var(--fm-text)]">{topic.subtitle}</p> : null}
         {topic.excerpt ? <p className="m-0 text-[var(--fm-text-muted)]">{topic.excerpt}</p> : null}
-        <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-topic-detail-entry-cta-group">
-          <TrackedEntryCtaLink
-            href={mbtiPrimaryCtaHref}
-            prefetch
-            data-testid="mbti-topic-detail-primary-cta"
-            eventProperties={mbtiPrimaryCtaTrackingProps}
-            className={buttonVariants({ size: "lg" })}
-          >
-            {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
-          </TrackedEntryCtaLink>
-          <Link
-            href={mbtiPersonalityHubHref}
-            data-testid="mbti-topic-detail-secondary-cta"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
-          >
-            {locale === "zh" ? "查看人格类型" : "Browse personality types"}
-          </Link>
-        </div>
+        {isMbtiTopic ? (
+          <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-topic-detail-entry-cta-group">
+            <TrackedEntryCtaLink
+              href={mbtiPrimaryCtaHref}
+              prefetch
+              data-testid="mbti-topic-detail-primary-cta"
+              eventProperties={mbtiPrimaryCtaTrackingProps}
+              className={buttonVariants({ size: "lg" })}
+            >
+              {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
+            </TrackedEntryCtaLink>
+            <Link
+              href={mbtiPersonalityHubHref}
+              data-testid="mbti-topic-detail-secondary-cta"
+              className={buttonVariants({ variant: "outline", size: "lg" })}
+            >
+              {locale === "zh" ? "查看人格类型" : "Browse personality types"}
+            </Link>
+          </div>
+        ) : null}
         {landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="topic-detail-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
@@ -236,12 +240,14 @@ export default async function TopicDetailPage({
         ) : null}
       </section>
 
-      <MbtiSceneEntrySection
-        locale={locale}
-        sourcePageType="topic_detail"
-        blocks={topicSceneBlocks}
-        testId="topic-detail-scene-entry"
-      />
+      {isMbtiTopic ? (
+        <MbtiSceneEntrySection
+          locale={locale}
+          sourcePageType="topic_detail"
+          blocks={topicSceneBlocks}
+          testId="topic-detail-scene-entry"
+        />
+      ) : null}
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">

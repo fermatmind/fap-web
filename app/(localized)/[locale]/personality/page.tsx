@@ -84,7 +84,6 @@ export default async function PersonalityPage({
     sourcePath: canonicalPath,
   });
   const mbtiTopicHubHref = withLocale("/topics/mbti");
-  const mbtiRecommendationHubHref = withLocale("/career/recommendations");
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? "人格类型" : "Personality Types",
@@ -178,9 +177,6 @@ export default async function PersonalityPage({
                   className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {locale === "zh" ? "查看人格页" : "View profile"}
-                </Link>
-                <Link href={mbtiRecommendationHubHref} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                  {locale === "zh" ? "查看职业推荐" : "View career recommendations"}
                 </Link>
               </CardContent>
             </Card>

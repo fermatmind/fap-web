@@ -17,7 +17,9 @@ describe("mbti entry surface contract", () => {
   it("wires topic detail with one primary mbti CTA and entry tracking", () => {
     const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
 
+    expect(source).toContain("const isMbtiTopic =");
     expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
+    expect(source).toContain("{isMbtiTopic ? <AnalyticsPageViewTracker");
     expect(source).toContain('entrySurface: "mbti_topic_detail"');
     expect(source).toContain('sourcePageType: "topic_detail"');
     expect(source).toContain('data-testid="mbti-topic-detail-entry-cta-group"');

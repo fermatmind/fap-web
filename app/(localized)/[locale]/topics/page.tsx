@@ -84,7 +84,6 @@ export default async function TopicsPage({
     sourcePath: canonicalPath,
   });
   const mbtiPersonalityHubHref = withLocale("/personality");
-  const mbtiRecommendationHubHref = withLocale("/career/recommendations");
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? "主题内容聚合" : "Topic Clusters",
@@ -176,9 +175,6 @@ export default async function TopicsPage({
                   className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {locale === "zh" ? "查看主题页" : "View topic page"}
-                </Link>
-                <Link href={mbtiRecommendationHubHref} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                  {locale === "zh" ? "查看职业推荐" : "View career recommendations"}
                 </Link>
               </CardContent>
             </Card>
