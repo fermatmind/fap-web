@@ -341,7 +341,7 @@ describe("RichResultReport", () => {
     expect(within(offerComparison).getByText("占位标题：完整报告收口位")).toBeInTheDocument();
     expect(within(offerComparison).getByText("¥1.99")).toBeInTheDocument();
     expect(within(offerComparison).getByRole("button", { name: "1.99元直接解锁" })).toBeInTheDocument();
-    expect(within(offerComparison).queryByRole("link", { name: "邀2人测完领报告" })).not.toBeInTheDocument();
+    expect(within(offerComparison).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("offerFull")

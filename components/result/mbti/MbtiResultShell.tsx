@@ -1656,8 +1656,10 @@ export function MbtiResultShell({
         primaryCtaLabel={terminalPrimaryCtaLabel}
         primaryCtaHref={desktopClonePrimaryCtaHref}
         lockedPayCtaLabel={chapterPayCtaLabel}
-        lockedInviteCtaLabel={inviteUnlockHref ? chapterInviteCtaLabel : undefined}
+        lockedInviteCtaLabel={chapterInviteCtaLabel}
         lockedInviteCtaHref={inviteUnlockHref ?? undefined}
+        inviteUnlockAttemptId={attemptId}
+        inviteUnlockProgress={inviteUnlockProgress}
         onCheckout={handleCheckout}
         isCheckingOut={isCheckingOut}
         checkoutError={checkoutError}

@@ -2668,6 +2668,34 @@ export async function fetchAttemptInviteUnlockProgress({
   return assertApiOk(response, "Failed to load invite unlock progress.");
 }
 
+export async function createAttemptInviteUnlock({
+  attemptId,
+  anonId,
+  locale,
+  skipAuth,
+  includeAnonId = true,
+}: {
+  attemptId: string;
+  anonId?: string;
+  locale?: string;
+  skipAuth?: boolean;
+  includeAnonId?: boolean;
+}): Promise<AttemptInviteUnlockProgressResponse> {
+  const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
+  const params = new URLSearchParams();
+  if (locale) params.set("locale", locale);
+  const response = await apiClient.post<AttemptInviteUnlockProgressResponse>(
+    `/v0.3/attempts/${attemptId}/invite-unlocks${params.size > 0 ? `?${params.toString()}` : ""}`,
+    {},
+    {
+      ...anonHeader(resolvedAnonId),
+      ...(skipAuth ? { skipAuth: true } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Failed to create invite unlock.");
+}
+
 export function getAttemptReportPdfUrl({
   attemptId,
   inline,

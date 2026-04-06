@@ -113,9 +113,9 @@ export function MbtiCloneInfluentialTraitsCard({
               >
                 {unlockPayLabel}
               </a>
-              {unlockInviteLabel && unlockInviteHref ? (
+              {unlockInviteLabel ? (
                 <a
-                  href={unlockInviteHref}
+                  href={unlockInviteHref ?? ""}
                   onClick={onInviteCtaClick}
                   className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
                   data-testid={`mbti-${sectionId}-invite-cta`}

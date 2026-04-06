@@ -54,9 +54,9 @@ export function MbtiClonePremiumTeaserBlock({
           >
             {overlayPayCtaLabel}
           </a>
-          {overlayInviteCtaLabel && overlayInviteCtaHref ? (
+          {overlayInviteCtaLabel ? (
             <a
-              href={overlayInviteCtaHref}
+              href={overlayInviteCtaHref ?? ""}
               onClick={onInviteCtaClick}
               className={`${styles.unlockButton} ${styles.unlockButtonCompact} ${styles.unlockButtonSecondary}`}
               data-testid={`${testId}-invite-cta`}

@@ -99,9 +99,9 @@ export function MbtiCloneFinalOffer({
                 {ctaLabel}
               </a>
             ) : null}
-            {inviteCtaLabel && inviteCtaHref ? (
+            {inviteCtaLabel ? (
               <a
-                href={inviteCtaHref}
+                href={inviteCtaHref ?? ""}
                 data-testid="mbti-offers-invite-cta"
                 onClick={onInviteCtaClick}
                 aria-disabled={inviteCtaDisabled ? "true" : undefined}
