@@ -32,12 +32,12 @@ export function MbtiScenarioDeepDiveSection({
   }
 
   const sectionHeading =
-    heading || (locale === "zh" ? "场景深化（第一阶段）" : "Scenario deep dive (phase 1)");
+    heading || (locale === "zh" ? "场景深化模块" : "Scenario deep-dive modules");
   const sectionSubtitle =
     subtitle ||
     (locale === "zh"
-      ? "把场景入口升级成可索引、可解释、可执行下一步的中层内容。"
-      : "Upgrade scene entry cards into indexable, interpretable, and actionable mid-layer content.");
+      ? "把场景入口升级成可索引、可解释、可执行下一步的中层内容，并保持主 CTA 清晰。"
+      : "Upgrade scene entry cards into indexable, interpretable, and actionable mid-layer content while keeping the primary CTA clear.");
 
   return (
     <section

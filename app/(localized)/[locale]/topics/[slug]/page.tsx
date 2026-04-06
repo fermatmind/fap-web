@@ -261,8 +261,8 @@ export default async function TopicDetailPage({
           heading={locale === "zh" ? "MBTI 场景深化（主题页）" : "MBTI scene depth on the topic hub"}
           subtitle={
             locale === "zh"
-              ? "先用主题页建立判断框架，再进入类型与推荐页做下一步验证。"
-              : "Use the topic hub as a decision frame before validating on type and recommendation pages."
+              ? "先用主题页建立职业/协作/专业/成长判断框架，再进入类型与推荐页做下一步验证。"
+              : "Use the topic hub as a decision frame for career, collaboration, major, and growth before validating on type and recommendation pages."
           }
         />
       ) : null}

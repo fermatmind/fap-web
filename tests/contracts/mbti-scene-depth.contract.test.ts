@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+  MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES,
   MBTI_SCENE_DEEP_PRIORITY_SCENES,
   MBTI_SCENE_DEEP_PRIORITY_TYPES,
   buildMbtiPersonalityScenarioDeepModules,
@@ -12,6 +13,8 @@ import {
 } from "@/lib/mbti/sceneDeepContent";
 
 const ROOT = process.cwd();
+const EXPECTED_PRIORITY_TYPES = ["ENTJ", "INTP", "INTJ", "ENFJ", "ENTP", "INFJ", "ENFP", "ESTP", "ISTJ", "ISFJ"] as const;
+const EXPECTED_GROWTH_EXPANSION_TYPES = ["ENTP", "INFJ", "ENFP", "ESTP", "ISTJ", "ISFJ"] as const;
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
@@ -31,37 +34,87 @@ function expectValidScenarioModule(sceneModule: MbtiSceneDeepModule): void {
 }
 
 describe("mbti scene depth contract", () => {
+  it("locks priority type scope and growth-expansion type scope for PR-9", () => {
+    expect(MBTI_SCENE_DEEP_PRIORITY_TYPES).toEqual(EXPECTED_PRIORITY_TYPES);
+    expect(MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES).toEqual(EXPECTED_GROWTH_EXPANSION_TYPES);
+  });
+
+  it("locks scene scope to three baseline scenes plus controlled growth expansion", () => {
+    expect(MBTI_SCENE_DEEP_PRIORITY_SCENES).toEqual([
+      "career_direction",
+      "team_collaboration",
+      "major_selection",
+      "growth_planning",
+    ]);
+  });
+
   it("keeps topic-level scenario modules non-empty and executable", () => {
     const modules = buildMbtiTopicScenarioDeepModules("zh");
 
-    expect(modules).toHaveLength(3);
+    expect(modules).toHaveLength(4);
     for (const sceneModule of modules) {
       expectValidScenarioModule(sceneModule);
     }
+    expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(true);
   });
 
-  it("enforces priority 4x3 scene depth matrix on personality detail", () => {
+  it("enforces type-priority scene depth matrix on personality detail", () => {
     for (const typeCode of MBTI_SCENE_DEEP_PRIORITY_TYPES) {
       const modules = buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode });
-      expect(modules).toHaveLength(3);
+      const expectedLength = MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode) ? 4 : 3;
+      expect(modules).toHaveLength(expectedLength);
       for (const sceneModule of modules) {
         expectValidScenarioModule(sceneModule);
       }
+      expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(
+        MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode)
+      );
     }
 
     expect(buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode: "ISTP" })).toHaveLength(0);
   });
 
-  it("enforces priority 4x3 scene depth matrix on recommendation detail", () => {
+  it("enforces type-priority scene depth matrix on recommendation detail", () => {
     for (const typeCode of MBTI_SCENE_DEEP_PRIORITY_TYPES) {
       const modules = buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode });
-      expect(modules).toHaveLength(3);
+      const expectedLength = MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode) ? 4 : 3;
+      expect(modules).toHaveLength(expectedLength);
       for (const sceneModule of modules) {
         expectValidScenarioModule(sceneModule);
       }
+      expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(
+        MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode)
+      );
     }
 
     expect(buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode: "ISFP" })).toHaveLength(0);
+  });
+
+  it("keeps growth scene links actionable and attribution-ready for second-batch types", () => {
+    for (const typeCode of MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES) {
+      const personalityModules = buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode });
+      const recommendationModules = buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode });
+
+      const personalityGrowth = personalityModules.find((module) => module.sceneKey === "growth_planning");
+      const recommendationGrowth = recommendationModules.find((module) => module.sceneKey === "growth_planning");
+
+      expect(personalityGrowth).toBeTruthy();
+      expect(recommendationGrowth).toBeTruthy();
+      expect(personalityGrowth?.links.length).toBeGreaterThanOrEqual(2);
+      expect(recommendationGrowth?.links.length).toBeGreaterThanOrEqual(2);
+      expect(personalityGrowth?.links.some((link) => link.kind === "start_test")).toBe(true);
+      expect(recommendationGrowth?.links.some((link) => link.kind === "start_test")).toBe(true);
+      expect(
+        personalityGrowth?.links.some(
+          (link) => link.kind === "start_test" && link.targetAction === "start_mbti_test_scene_growth_planning"
+        )
+      ).toBe(true);
+      expect(
+        recommendationGrowth?.links.some(
+          (link) => link.kind === "start_test" && link.targetAction === "start_mbti_test_scene_growth_planning"
+        )
+      ).toBe(true);
+    }
   });
 
   it("keeps test landing continuity strip lightweight but actionable", () => {

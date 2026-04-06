@@ -210,17 +210,19 @@ describe("OrdersClient delivery contract", () => {
     expect(screen.getByTestId("order-download-pdf")).toBeInTheDocument();
     expect(screen.getByTestId("order-resend-delivery")).toBeInTheDocument();
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "invite_staged_summary_viewed",
-      expect.objectContaining({
-        unlock_stage: "partial",
-        unlock_source: "invite",
-        completed_invitees: 1,
-        required_invitees: 2,
-        scale_code: "MBTI",
-        locale: "en",
-      })
-    );
+    await waitFor(() => {
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "invite_staged_summary_viewed",
+        expect.objectContaining({
+          unlock_stage: "partial",
+          unlock_source: "invite",
+          completed_invitees: 1,
+          required_invitees: 2,
+          scale_code: "MBTI",
+          locale: "en",
+        })
+      );
+    });
 
     fireEvent.click(screen.getByTestId("order-download-pdf"));
 
