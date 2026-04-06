@@ -4,6 +4,9 @@ import { fileURLToPath } from "node:url";
 import policy from "../../lib/seo/indexingPolicy.cjs";
 
 const { shouldIncludeInSitemap } = policy;
+const NOINDEX_SITEMAP_PATTERNS = [
+  /^\/(?:en|zh)\/relationships(?:\/|$)/i,
+];
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const sitemapPath = path.resolve(ROOT_DIR, process.env.SITEMAP_PATH || "public/sitemap-0.xml");
@@ -30,6 +33,12 @@ const indexableEnglishArticleSlugs = new Set(
 const errors = [];
 for (const rawUrl of urls) {
   const pathname = new URL(rawUrl).pathname;
+
+  if (NOINDEX_SITEMAP_PATTERNS.some((pattern) => pattern.test(pathname))) {
+    errors.push(`[noindex-in-sitemap] ${pathname}`);
+    continue;
+  }
+
   if (!shouldIncludeInSitemap(pathname)) {
     errors.push(`[non-indexable] ${pathname}`);
     continue;

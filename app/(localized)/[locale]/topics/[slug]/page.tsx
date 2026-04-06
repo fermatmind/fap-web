@@ -69,7 +69,7 @@ export async function generateMetadata({
       xDefault: "/",
     },
   });
-  const canonical = normalizedSeo.surface?.canonicalUrl || canonicalUrl(canonicalPath);
+  const canonical = canonicalUrl(canonicalPath);
   const ogImage = normalizedSeo.surface?.og.image ?? normalizedSeo.meta.og.image ?? null;
   const twitterImages = normalizeTwitterImages(
     normalizedSeo.surface?.twitter.image,
@@ -86,7 +86,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      url: normalizedSeo.surface?.og.url || canonical,
+      url: canonical,
       title: normalizedSeo.surface?.og.title || normalizedSeo.meta.og.title,
       description: normalizedSeo.surface?.og.description || normalizedSeo.meta.og.description,
       images: ogImage ? [ogImage] : undefined,

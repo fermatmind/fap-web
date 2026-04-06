@@ -54,6 +54,7 @@ describe("sitemap indexability contract", () => {
 
   it("frontend sitemap config excludes retired and private route families", async () => {
     const config = requireFromRoot("./next-sitemap.config.js");
+    const policy = requireFromRoot("./lib/seo/indexingPolicy.cjs");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
@@ -62,6 +63,9 @@ describe("sitemap indexability contract", () => {
     expect(locs.some((loc: string) => loc.includes("/result/"))).toBe(false);
     expect(locs.some((loc: string) => loc.includes("/compare/"))).toBe(false);
     expect(locs.some((loc: string) => loc.includes("/history/"))).toBe(false);
+    expect(locs.some((loc: string) => /\/relationships(\/|$)/.test(loc))).toBe(false);
     expect(locs.some((loc: string) => /\/take(\/|$)/.test(loc))).toBe(false);
+    expect(policy.shouldIncludeInSitemap("/en/relationships/mbti")).toBe(false);
+    expect(policy.shouldIncludeInSitemap("/zh/relationships/mbti")).toBe(false);
   });
 });

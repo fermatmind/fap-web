@@ -366,6 +366,10 @@ describe("topics cms helpers", () => {
     expect(source).toContain("topic.answerSurface");
     expect(source).toContain("topic-detail-answer-surface");
     expect(source).toContain("topic.answerSurface?.faqBlocks.length");
+    expect(source).toContain("const canonical = canonicalUrl(canonicalPath);");
+    expect(source).toContain("url: canonical,");
+    expect(source).not.toContain("normalizedSeo.surface?.canonicalUrl || canonicalUrl(canonicalPath)");
+    expect(source).not.toContain("normalizedSeo.surface?.og.url || canonical");
     expect(read("app/(localized)/[locale]/topics/page.tsx")).toContain("topics-index-landing-cta");
     expect(shouldIncludeInSitemap("/en/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);

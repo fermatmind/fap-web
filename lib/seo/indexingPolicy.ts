@@ -15,6 +15,7 @@ const DENY_PATH_PATTERNS: RegExp[] = [
   /^\/orders(\/|$)/i,
   /^\/share(\/|$)/i,
   /^\/attempts(\/|$)/i,
+  /^\/relationships(\/|$)/i,
   /^\/payment(\/|$)/i,
   /^\/pay(\/|$)/i,
   /^\/quiz(\/|$)/i,
