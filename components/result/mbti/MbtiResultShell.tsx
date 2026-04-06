@@ -845,12 +845,7 @@ export function MbtiResultShell({
     : terminalPrimaryCtaHref;
   const desktopClonePrimaryCtaHref = isUnlockedPostPurchase ? resolvedTerminalPrimaryCtaHref : DESKTOP_OFFER_FULL_HASH;
   const inviteUnlockHref = resolveInviteUnlockUrl({ progress: inviteUnlockProgress, locale });
-  const inviteRequiredInvitees = inviteUnlockProgress?.requiredInvitees ?? 2;
   const chapterPayCtaLabel = locale === "zh" ? "1.99元直接解锁" : "Unlock now ¥1.99";
-  const chapterInviteCtaLabel =
-    locale === "zh"
-      ? `邀${inviteRequiredInvitees}人测完领报告`
-      : `Invite ${inviteRequiredInvitees} friends to unlock`;
   const isRevisit = personalization?.userState?.isRevisit === true;
   const unlockCtaRank = resolveCtaRank(ctaPriorityKeys, "unlock_full_report");
   const careerBridgeCtaRank = resolveCtaRank(ctaPriorityKeys, "career_bridge");
@@ -1656,7 +1651,6 @@ export function MbtiResultShell({
         primaryCtaLabel={terminalPrimaryCtaLabel}
         primaryCtaHref={desktopClonePrimaryCtaHref}
         lockedPayCtaLabel={chapterPayCtaLabel}
-        lockedInviteCtaLabel={chapterInviteCtaLabel}
         lockedInviteCtaHref={inviteUnlockHref ?? undefined}
         inviteUnlockAttemptId={attemptId}
         inviteUnlockProgress={inviteUnlockProgress}

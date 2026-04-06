@@ -1541,6 +1541,41 @@
   max-width: 392px;
 }
 
+.finalOfferInviteProgress {
+  border: 1px solid rgba(54, 173, 115, 0.24);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.finalOfferInviteProgressBadge {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clone-green);
+}
+
+.finalOfferInviteProgressLabel {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--clone-text);
+}
+
+.finalOfferInviteProgressHint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--clone-body);
+}
+
 .finalOfferRow {
   margin-top: 2px;
   display: flex;
@@ -1611,6 +1646,9 @@
 
 .finalOfferPurchased {
   min-height: var(--clone-final-offer-h);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .finalOfferPurchased :global([data-testid="mbti-post-purchase-section"]) {

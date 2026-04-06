@@ -669,6 +669,84 @@ describe("ResultClient view-state contract", () => {
     clearIntervalSpy.mockRestore();
   });
 
+  it("keeps report-access as unlock authority when invite-unlocks snapshots are locked", async () => {
+    const intervalCallbacks: Array<() => void> = [];
+    const setIntervalSpy = vi
+      .spyOn(window, "setInterval")
+      .mockImplementation(((callback: TimerHandler) => {
+        if (typeof callback === "function") {
+          intervalCallbacks.push(callback as () => void);
+        }
+        return 1 as unknown as ReturnType<typeof setInterval>;
+      }) as typeof window.setInterval);
+    const clearIntervalSpy = vi.spyOn(window, "clearInterval").mockImplementation(() => {});
+
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({
+        unlock_stage: "full",
+        unlock_source: "payment",
+        payload: {
+          scale_code: "MBTI",
+          unlock_stage: "full",
+          unlock_source: "payment",
+        },
+      })
+    );
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
+    hoisted.fetchAttemptInviteUnlockProgress
+      .mockResolvedValueOnce({
+        ok: true,
+        has_invite: false,
+        required_invitees: 2,
+        completed_invitees: 0,
+        unlock_stage: "locked",
+        unlock_source: "mixed",
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        has_invite: false,
+        required_invitees: 2,
+        completed_invitees: 0,
+        unlock_stage: "locked",
+        unlock_source: "mixed",
+      });
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "full");
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "payment");
+    });
+
+    expect(intervalCallbacks.length).toBeGreaterThan(0);
+    intervalCallbacks.forEach((callback) => callback());
+
+    await waitFor(() => {
+      expect(hoisted.fetchAttemptInviteUnlockProgress).toHaveBeenCalledTimes(2);
+    });
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-stage", "full");
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-unlock-source", "payment");
+    });
+
+    expect(hoisted.trackEvent).toHaveBeenCalledWith(
+      "invite_progress_advanced",
+      expect.objectContaining({
+        attempt_id: "attempt-123",
+        completed_invitees: 0,
+        required_invitees: 2,
+        unlock_stage: "locked",
+        unlock_source: "mixed",
+      })
+    );
+
+    setIntervalSpy.mockRestore();
+    clearIntervalSpy.mockRestore();
+  });
+
   it("does not trigger auth-mismatch retry for non-ATTEMPT_NOT_FOUND 404", async () => {
     hoisted.fetchAttemptReportAccess.mockRejectedValue(
       new ApiError({

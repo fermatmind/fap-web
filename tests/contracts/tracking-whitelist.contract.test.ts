@@ -130,5 +130,64 @@ describe("tracking whitelist contract", () => {
       entry_surface: "order_lookup",
       locale: "en",
     });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.INVITE_CREATE_START, payload)).toEqual({
+      scale_code: "MBTI",
+      unlock_stage: "partial",
+      unlock_source: "invite",
+      completed_invitees: 1,
+      required_invitees: 2,
+      target_attempt_id: "attempt-target-1",
+      attempt_id: "attempt-invitee-1",
+      form_code: "mbti_93",
+      entry_surface: "order_lookup",
+      locale: "en",
+    });
+
+    expect(
+      filterTrackingPayload(TRACKING_EVENTS.INVITE_SHARE_OR_COPY, {
+        ...payload,
+        action: "copy",
+      })
+    ).toEqual({
+      scale_code: "MBTI",
+      unlock_stage: "partial",
+      unlock_source: "invite",
+      completed_invitees: 1,
+      required_invitees: 2,
+      target_attempt_id: "attempt-target-1",
+      attempt_id: "attempt-invitee-1",
+      form_code: "mbti_93",
+      entry_surface: "order_lookup",
+      locale: "en",
+      action: "copy",
+    });
+
+    expect(
+      filterTrackingPayload(TRACKING_EVENTS.INVITE_PROGRESS_ADVANCED, {
+        ...payload,
+        previous_completed_invitees: 0,
+        previous_required_invitees: 2,
+        previous_unlock_stage: "locked",
+        previous_unlock_source: "none",
+        reason: "poll",
+      })
+    ).toEqual({
+      scale_code: "MBTI",
+      unlock_stage: "partial",
+      unlock_source: "invite",
+      completed_invitees: 1,
+      required_invitees: 2,
+      target_attempt_id: "attempt-target-1",
+      attempt_id: "attempt-invitee-1",
+      form_code: "mbti_93",
+      entry_surface: "order_lookup",
+      locale: "en",
+      previous_completed_invitees: 0,
+      previous_required_invitees: 2,
+      previous_unlock_stage: "locked",
+      previous_unlock_source: "none",
+      reason: "poll",
+    });
   });
 });

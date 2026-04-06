@@ -207,6 +207,110 @@ function withOverrideTitle<T extends { title: string }>(block: T | null | undefi
   };
 }
 
+type InviteProgressDisplayModel = {
+  showProgressCard: boolean;
+  badge: string;
+  progressLabel: string;
+  progressHint: string;
+  defaultInviteCtaLabel: string;
+};
+
+function resolveInviteProgressDisplay({
+  locale,
+  isUnlocked,
+  progress,
+}: {
+  locale: "zh" | "en";
+  isUnlocked: boolean;
+  progress: AttemptInviteUnlockProgressView | null;
+}): InviteProgressDisplayModel {
+  const requiredInvitees = Math.max(1, progress?.requiredInvitees ?? 2);
+  const stageFallbackCompleted =
+    progress?.unlockStage === "full"
+      ? requiredInvitees
+      : progress?.unlockStage === "partial"
+      ? Math.min(requiredInvitees, 1)
+      : 0;
+  const completedInvitees = Math.max(
+    0,
+    Math.min(requiredInvitees, progress?.completedInvitees ?? stageFallbackCompleted)
+  );
+  const unlockStage =
+    progress?.unlockStage
+    ?? (completedInvitees >= requiredInvitees ? "full" : completedInvitees > 0 ? "partial" : "locked");
+  const unlockSource = progress?.unlockSource ?? "none";
+  const remainingInvitees = Math.max(0, requiredInvitees - completedInvitees);
+  const inviteDrivenFullUnlock =
+    unlockStage === "full" && (unlockSource === "invite" || unlockSource === "mixed" || completedInvitees >= requiredInvitees);
+  const showProgressCard =
+    !isUnlocked
+    || completedInvitees > 0
+    || unlockStage === "partial"
+    || inviteDrivenFullUnlock
+    || unlockSource === "invite"
+    || unlockSource === "mixed";
+
+  if (locale === "zh") {
+    const progressLabel = `已完成 ${completedInvitees}/${requiredInvitees}`;
+    if (unlockStage === "full" || completedInvitees >= requiredInvitees) {
+      return {
+        showProgressCard,
+        badge: "邀请解锁进度",
+        progressLabel,
+        progressHint: "完整报告已免费解锁",
+        defaultInviteCtaLabel: "完整报告已免费解锁",
+      };
+    }
+
+    if (unlockStage === "partial" || completedInvitees > 0) {
+      return {
+        showProgressCard,
+        badge: unlockStage === "partial" ? "已部分解锁" : "邀请解锁进度",
+        progressLabel,
+        progressHint: `已部分解锁（职业推荐）；再邀请 ${Math.max(1, remainingInvitees)} 人即可解锁完整报告`,
+        defaultInviteCtaLabel: `再邀${Math.max(1, remainingInvitees)}人解锁完整报告`,
+      };
+    }
+
+    return {
+      showProgressCard,
+      badge: "邀请解锁进度",
+      progressLabel,
+      progressHint: `邀请 ${requiredInvitees} 人完成测试即可免费解锁完整报告`,
+      defaultInviteCtaLabel: `邀${requiredInvitees}人测完领报告`,
+    };
+  }
+
+  const progressLabel = `${completedInvitees}/${requiredInvitees} completed`;
+  if (unlockStage === "full" || completedInvitees >= requiredInvitees) {
+    return {
+      showProgressCard,
+      badge: "Invite progress",
+      progressLabel,
+      progressHint: "The full report is now unlocked for free.",
+      defaultInviteCtaLabel: "Full report unlocked",
+    };
+  }
+
+  if (unlockStage === "partial" || completedInvitees > 0) {
+    return {
+      showProgressCard,
+      badge: unlockStage === "partial" ? "Partially unlocked" : "Invite progress",
+      progressLabel,
+      progressHint: `Career is unlocked. Invite ${Math.max(1, remainingInvitees)} more to unlock the full report.`,
+      defaultInviteCtaLabel: `Invite ${Math.max(1, remainingInvitees)} more to unlock`,
+    };
+  }
+
+  return {
+    showProgressCard,
+    badge: "Invite progress",
+    progressLabel,
+    progressHint: `Invite ${requiredInvitees} friends to complete the test and unlock the full report for free.`,
+    defaultInviteCtaLabel: `Invite ${requiredInvitees} friends to unlock`,
+  };
+}
+
 export function MbtiDesktopCloneShell({
   locale,
   headline,
@@ -418,8 +522,13 @@ export function MbtiDesktopCloneShell({
       : "";
   const inviteCodeFromProps = normalizeText(inviteUnlockProgress?.inviteCode);
   const hasInviteFromProps = inviteHrefFromProps.length > 0 || inviteCodeFromProps.length > 0;
+  const inviteProgressDisplay = resolveInviteProgressDisplay({
+    locale: cloneLocale,
+    isUnlocked,
+    progress: inviteUnlockProgress,
+  });
   const defaultInviteCtaLabel = lockedInviteCtaLabel
-    ?? (cloneLocale === "zh" ? "邀2人测完领报告" : "Invite 2 friends to unlock");
+    ?? inviteProgressDisplay.defaultInviteCtaLabel;
   const [runtimeInviteState, setRuntimeInviteState] = useState(() => ({
     inviteHref: inviteHrefFromProps,
     inviteCode: inviteCodeFromProps,
@@ -817,6 +926,10 @@ export function MbtiDesktopCloneShell({
                 onInviteCtaClick={handleInviteCtaClick}
                 inviteCtaDisabled={inviteCtaBusy}
                 inviteFallbackHint={inviteCtaFallbackHint}
+                inviteProgressVisible={inviteProgressDisplay.showProgressCard}
+                inviteProgressBadge={inviteProgressDisplay.badge}
+                inviteProgressLabel={inviteProgressDisplay.progressLabel}
+                inviteProgressHint={inviteProgressDisplay.progressHint}
                 isCheckingOut={isCheckingOut}
                 checkoutError={checkoutError}
                 onCheckout={primaryOffer ? onCheckout : undefined}
