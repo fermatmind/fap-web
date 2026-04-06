@@ -424,7 +424,7 @@ export function MbtiDesktopCloneShell({
     return () => {
       window.cancelAnimationFrame(rafId);
     };
-  }, [fullCodeForStorage, isMobileViewport, isUnlocked]);
+  }, [fullCodeForStorage, isMobileViewport]);
 
   useEffect(() => {
     let active = true;
