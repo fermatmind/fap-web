@@ -150,8 +150,22 @@ describe("mbti entry wiring contract", () => {
     const links144 = screen.getAllByRole("link", { name: /开始深度版/ });
     const links93 = screen.getAllByRole("link", { name: /开始快速版/ });
 
-    expect(links144.some((link) => link.getAttribute("href") === "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144")).toBe(true);
-    expect(links93.some((link) => link.getAttribute("href") === "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_93")).toBe(true);
+    expect(
+      links144.some((link) => {
+        const href = link.getAttribute("href") ?? "";
+        return href.startsWith("/zh/tests/mbti-personality-test-16-personality-types/take?")
+          && href.includes("form=mbti_144")
+          && href.includes("entry_surface=mbti_test_landing");
+      })
+    ).toBe(true);
+    expect(
+      links93.some((link) => {
+        const href = link.getAttribute("href") ?? "";
+        return href.startsWith("/zh/tests/mbti-personality-test-16-personality-types/take?")
+          && href.includes("form=mbti_93")
+          && href.includes("entry_surface=mbti_test_landing");
+      })
+    ).toBe(true);
   });
 
   it("wires the highlighted home section directly to MBTI form-aware take routes", () => {

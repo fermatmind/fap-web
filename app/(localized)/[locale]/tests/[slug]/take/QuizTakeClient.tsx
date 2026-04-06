@@ -115,7 +115,16 @@ function normalizeQueryValue(value: string | null): string | undefined {
 function readTakeFlowAttribution(
   searchParams: ReadonlyURLSearchParams,
   scaleCode: string
-): { attribution: AttemptAttributionPayload; compareIntent: boolean } {
+): {
+  attribution: AttemptAttributionPayload;
+  compareIntent: boolean;
+  entryContext: {
+    entrySurface?: string;
+    sourcePageType?: string;
+    targetAction?: string;
+    testSlug?: string;
+  };
+} {
   const isMbti = isMbtiScaleCode(scaleCode);
   const share_id = normalizeQueryValue(searchParams.get("share_id"));
   const compare_invite_id = normalizeQueryValue(searchParams.get("compare_invite_id"));
@@ -132,6 +141,10 @@ function readTakeFlowAttribution(
   const campaign = normalizeQueryValue(searchParams.get("utm_campaign"));
   const term = normalizeQueryValue(searchParams.get("utm_term"));
   const content = normalizeQueryValue(searchParams.get("utm_content"));
+  const entrySurface = normalizeQueryValue(searchParams.get("entry_surface"));
+  const sourcePageType = normalizeQueryValue(searchParams.get("source_page_type"));
+  const targetAction = normalizeQueryValue(searchParams.get("target_action"));
+  const testSlug = normalizeQueryValue(searchParams.get("test_slug"));
   const compareIntent = searchParams.get("compare_intent") === "true";
 
   return {
@@ -156,6 +169,12 @@ function readTakeFlowAttribution(
         : {}),
     },
     compareIntent,
+    entryContext: {
+      ...(entrySurface ? { entrySurface } : {}),
+      ...(sourcePageType ? { sourcePageType } : {}),
+      ...(targetAction ? { targetAction } : {}),
+      ...(testSlug ? { testSlug } : {}),
+    },
   };
 }
 
@@ -230,7 +249,7 @@ function QuizTakeInner({
   const locale = getLocaleFromPathname(pathname);
   const withLocale = (path: string) => localizedPath(path, locale);
   const dict = getDictSync(locale);
-  const { attribution, compareIntent } = useMemo(
+  const { attribution, compareIntent, entryContext } = useMemo(
     () => readTakeFlowAttribution(searchParams, scaleCode),
     [scaleCode, searchParams]
   );
@@ -626,10 +645,14 @@ function QuizTakeInner({
     trackEvent("start_attempt", {
       slug,
       scaleCode,
+      test_slug: entryContext.testSlug ?? slug,
+      ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
+      ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
+      ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
       ...(resolvedFormCode ? { form_code: resolvedFormCode } : {}),
       attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
     });
-  }, [attemptId, resolvedFormCode, scaleCode, slug]);
+  }, [attemptId, entryContext.entrySurface, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, resolvedFormCode, scaleCode, slug]);
 
   useEffect(() => {
     const takeFlow = takeFlowRef.current;

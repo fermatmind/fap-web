@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -13,7 +14,7 @@ import {
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import {
-  buildMbtiTakeHref,
+  DEFAULT_MBTI_FORM_CODE,
   getMbtiStartLabel,
   getMbtiVariantLabel,
   getMbtiVariantSummary,
@@ -21,6 +22,7 @@ import {
   isMbtiSlug,
   listMbtiFormMetas,
 } from "@/lib/mbti/forms";
+import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 
 type CTAStickyProps = {
   slug: string;
@@ -34,6 +36,52 @@ type CTAStickyProps = {
 export function CTASticky({ slug, title, questions, minutes, scaleCode, locale = "en" }: CTAStickyProps) {
   const showsMbtiActions = isMbtiScaleCode(scaleCode) || isMbtiSlug(slug);
   const showsBig5Actions = isBig5ScaleCode(scaleCode) || isBig5Slug(slug);
+  const mbtiForms = listMbtiFormMetas();
+  const mbtiPrimaryForm = mbtiForms.find((form) => form.formCode === DEFAULT_MBTI_FORM_CODE) ?? mbtiForms[0] ?? null;
+  const mbtiSecondaryForm = mbtiForms.find((form) => form.formCode !== (mbtiPrimaryForm?.formCode ?? DEFAULT_MBTI_FORM_CODE)) ?? null;
+  const mbtiLandingPath = localizedPath(`/tests/${slug}`, locale);
+  const mbtiPrimaryHref = mbtiPrimaryForm
+    ? buildMbtiEntryHref({
+        locale,
+        testSlug: slug,
+        formCode: mbtiPrimaryForm.formCode,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "start_mbti_test_primary",
+        sourcePath: mbtiLandingPath,
+      })
+    : null;
+  const mbtiSecondaryHref = mbtiSecondaryForm
+    ? buildMbtiEntryHref({
+        locale,
+        testSlug: slug,
+        formCode: mbtiSecondaryForm.formCode,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "start_mbti_test_secondary",
+        sourcePath: mbtiLandingPath,
+      })
+    : null;
+  const mbtiPrimaryTrackingProps = mbtiPrimaryForm
+    ? buildMbtiEntryTrackingPayload({
+        locale,
+        testSlug: slug,
+        formCode: mbtiPrimaryForm.formCode,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "start_mbti_test_primary",
+      })
+    : null;
+  const mbtiSecondaryTrackingProps = mbtiSecondaryForm
+    ? buildMbtiEntryTrackingPayload({
+        locale,
+        testSlug: slug,
+        formCode: mbtiSecondaryForm.formCode,
+        entrySurface: "mbti_test_landing",
+        sourcePageType: "test_landing",
+        targetAction: "start_mbti_test_secondary",
+      })
+    : null;
   const mbtiSummary = listMbtiFormMetas().map((form) => getMbtiVariantLabel(form.formCode, locale)).join(" / ");
   const big5Summary = listBig5FormMetas().map((form) => getBig5VariantLabel(form.formCode, locale)).join(" / ");
 
@@ -56,20 +104,36 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
             </p>
             {showsMbtiActions ? (
               <div className="space-y-2">
-                {listMbtiFormMetas().map((form) => (
-                  <div key={form.formCode} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                {mbtiPrimaryForm && mbtiPrimaryHref && mbtiPrimaryTrackingProps ? (
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
                     <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                      {getMbtiVariantLabel(form.formCode, locale)}
+                      {getMbtiVariantLabel(mbtiPrimaryForm.formCode, locale)}
                     </p>
-                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getMbtiVariantSummary(form.formCode, locale)}</p>
-                    <Link
-                      href={buildMbtiTakeHref(slug, locale, form.formCode)}
+                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getMbtiVariantSummary(mbtiPrimaryForm.formCode, locale)}</p>
+                    <TrackedEntryCtaLink
+                      href={mbtiPrimaryHref}
+                      eventProperties={mbtiPrimaryTrackingProps}
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
-                      {getMbtiStartLabel(form.formCode, locale)}
-                    </Link>
+                      {getMbtiStartLabel(mbtiPrimaryForm.formCode, locale)}
+                    </TrackedEntryCtaLink>
                   </div>
-                ))}
+                ) : null}
+                {mbtiSecondaryForm && mbtiSecondaryHref && mbtiSecondaryTrackingProps ? (
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {getMbtiVariantLabel(mbtiSecondaryForm.formCode, locale)}
+                    </p>
+                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getMbtiVariantSummary(mbtiSecondaryForm.formCode, locale)}</p>
+                    <TrackedEntryCtaLink
+                      href={mbtiSecondaryHref}
+                      eventProperties={mbtiSecondaryTrackingProps}
+                      className={buttonVariants({ variant: "outline", className: "mt-3 w-full" })}
+                    >
+                      {getMbtiStartLabel(mbtiSecondaryForm.formCode, locale)}
+                    </TrackedEntryCtaLink>
+                  </div>
+                ) : null}
               </div>
             ) : showsBig5Actions ? (
               <div className="space-y-2">
@@ -108,15 +172,24 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
           </p>
           {showsMbtiActions ? (
             <div className="flex w-full gap-2 sm:w-auto">
-              {listMbtiFormMetas().map((form) => (
-                <Link
-                  key={form.formCode}
-                  href={buildMbtiTakeHref(slug, locale, form.formCode)}
+              {mbtiPrimaryForm && mbtiPrimaryHref && mbtiPrimaryTrackingProps ? (
+                <TrackedEntryCtaLink
+                  href={mbtiPrimaryHref}
+                  eventProperties={mbtiPrimaryTrackingProps}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
-                  {getMbtiStartLabel(form.formCode, locale)}
-                </Link>
-              ))}
+                  {getMbtiStartLabel(mbtiPrimaryForm.formCode, locale)}
+                </TrackedEntryCtaLink>
+              ) : null}
+              {mbtiSecondaryForm && mbtiSecondaryHref && mbtiSecondaryTrackingProps ? (
+                <TrackedEntryCtaLink
+                  href={mbtiSecondaryHref}
+                  eventProperties={mbtiSecondaryTrackingProps}
+                  className={buttonVariants({ size: "sm", variant: "outline", className: "flex-1 sm:flex-none" })}
+                >
+                  {getMbtiStartLabel(mbtiSecondaryForm.formCode, locale)}
+                </TrackedEntryCtaLink>
+              ) : null}
             </div>
           ) : showsBig5Actions ? (
             <div className="flex w-full gap-2 sm:w-auto">

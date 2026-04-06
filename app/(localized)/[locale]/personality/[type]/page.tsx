@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
   buildPersonalityFrontendUrl,
   buildDefaultPublicPersonalitySlug,
@@ -19,6 +22,8 @@ import {
 import { extractPersonalityFaqItems, renderPersonalitySections, renderProjectionSections } from "@/lib/cms/personality-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
+import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
@@ -272,9 +277,33 @@ export default async function PersonalityDetailPage({
   );
   const hasRenderableContent = renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
   const landingSurface = detail.landingSurface;
+  const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_personality_detail",
+    sourcePageType: "personality_detail",
+    targetAction: "entry_view",
+  });
+  const mbtiPrimaryCtaTrackingProps = buildMbtiEntryTrackingPayload({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_personality_detail",
+    sourcePageType: "personality_detail",
+    targetAction: "start_mbti_test_primary",
+  });
+  const mbtiPrimaryCtaHref = buildMbtiEntryHref({
+    locale,
+    formCode: DEFAULT_MBTI_FORM_CODE,
+    entrySurface: "mbti_personality_detail",
+    sourcePageType: "personality_detail",
+    targetAction: "start_mbti_test_primary",
+    sourcePath: canonicalPath,
+  });
+  const mbtiLandingHref = localizedPath("/tests/mbti-personality-test-16-personality-types", locale);
 
   return (
     <Container as="main" className="space-y-6 py-10">
+      <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       {!isFallbackRoute ? <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} /> : null}
       {!isFallbackRoute ? <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} /> : null}
       {!isFallbackRoute ? <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} /> : null}
@@ -303,6 +332,24 @@ export default async function PersonalityDetailPage({
         {detail.heroSummary && detail.heroSummary !== detail.summary ? (
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
         ) : null}
+        <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-personality-entry-cta-group">
+          <TrackedEntryCtaLink
+            href={mbtiPrimaryCtaHref}
+            prefetch
+            data-testid="mbti-personality-primary-cta"
+            eventProperties={mbtiPrimaryCtaTrackingProps}
+            className={buttonVariants({ size: "lg" })}
+          >
+            {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
+          </TrackedEntryCtaLink>
+          <Link
+            href={mbtiLandingHref}
+            data-testid="mbti-personality-secondary-cta"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            {locale === "zh" ? "查看测试介绍" : "View test overview"}
+          </Link>
+        </div>
         {landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="personality-detail-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (

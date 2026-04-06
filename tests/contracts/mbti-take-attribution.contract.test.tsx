@@ -9,7 +9,7 @@ type ChildrenProps = {
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/tests/mbti-personality-test-16-personality-types/take",
-  search: "share_id=share-123&compare_invite_id=invite-456&invite_code=iul_test_001&share_click_id=click-123&entrypoint=share_compare_invite&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true",
+  search: "share_id=share-123&compare_invite_id=invite-456&invite_code=iul_test_001&share_click_id=click-123&entrypoint=share_compare_invite&entry_surface=mbti_personality_detail&source_page_type=personality_detail&target_action=start_mbti_test_primary&test_slug=mbti-personality-test-16-personality-types&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true",
   routerPush: vi.fn(),
   fetchScaleQuestions: vi.fn(),
   startAttempt: vi.fn(),
@@ -259,7 +259,7 @@ describe("MBTI take attribution contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     hoisted.pathname = "/en/tests/mbti-personality-test-16-personality-types/take";
-    hoisted.search = "share_id=share-123&compare_invite_id=invite-456&invite_code=iul_test_001&share_click_id=click-123&entrypoint=share_compare_invite&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true";
+    hoisted.search = "share_id=share-123&compare_invite_id=invite-456&invite_code=iul_test_001&share_click_id=click-123&entrypoint=share_compare_invite&entry_surface=mbti_personality_detail&source_page_type=personality_detail&target_action=start_mbti_test_primary&test_slug=mbti-personality-test-16-personality-types&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true";
     hoisted.fetchScaleQuestions.mockResolvedValue(buildQuestionResponse());
     hoisted.startAttempt.mockResolvedValue({
       ok: true,
@@ -326,6 +326,24 @@ describe("MBTI take attribution contract", () => {
         formCode: "mbti_93",
         anonId: "anon_take_test",
       }));
+    });
+  });
+
+  it("emits start_attempt tracking with entry attribution from query params", async () => {
+    renderClient();
+
+    await waitFor(() => {
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "start_attempt",
+        expect.objectContaining({
+          slug: "mbti-personality-test-16-personality-types",
+          test_slug: "mbti-personality-test-16-personality-types",
+          form_code: "mbti_144",
+          entry_surface: "mbti_personality_detail",
+          source_page_type: "personality_detail",
+          target_action: "start_mbti_test_primary",
+        })
+      );
     });
   });
 

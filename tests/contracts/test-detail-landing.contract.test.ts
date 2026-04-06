@@ -17,13 +17,15 @@ describe("test detail landing contract", () => {
     expect(source).toContain('data-testid="test-detail-landing-cta"');
   });
 
-  it("wires mbti dual-entry CTAs without forking the landing slug", () => {
+  it("keeps one primary mbti CTA plus a secondary CTA on the landing hero", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
-    expect(source).toContain('buildMbtiTakeHref');
-    expect(source).toContain('getMbtiStartLabel');
-    expect(source).toContain('testId: `test-detail-landing-cta-${form.formCode}`');
-    expect(source).toContain('scaleCode={test.scale_code}');
+    expect(source).toContain('data-testid="mbti-landing-entry-cta-group"');
+    expect(source).toContain('data-testid="mbti-landing-primary-cta"');
+    expect(source).toContain('data-testid="mbti-landing-secondary-cta"');
+    expect(source).toContain('buildMbtiEntryHref({');
+    expect(source).toContain('buildMbtiEntryTrackingPayload({');
+    expect(source).toContain('targetAction: "start_mbti_test_primary"');
   });
 
   it("derives detail-page lens copy from scale code instead of hardcoding personality framing", () => {
