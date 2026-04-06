@@ -485,12 +485,14 @@ export default function ResultClient({
   const [resultData, setResultData] = useState<ResultResponse | null>(null);
   const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
   const [inviteUnlockProgress, setInviteUnlockProgress] = useState<AttemptInviteUnlockProgressView | null>(null);
+  const [mbtiAccessPath, setMbtiAccessPath] = useState(false);
   const [status, setStatus] = useState<ResultClientStatus>("loading");
   const [error, setError] = useState<string | null>(null);
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef("UNKNOWN");
   const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
+  const mbtiBootstrapPhaseTrackedRef = useRef(false);
 
   useEffect(() => {
     const tokenFromUrl = searchParams.get("token")?.trim() ?? "";
@@ -821,7 +823,9 @@ export default function ResultClient({
       if (attempt === 0) {
         setStatus("loading");
         setInviteUnlockProgress(null);
+        setMbtiAccessPath(false);
         inviteProgressSnapshotRef.current = null;
+        mbtiBootstrapPhaseTrackedRef.current = false;
 
         try {
           await ensureFmTokenReady({
@@ -865,6 +869,18 @@ export default function ResultClient({
         });
 
         if (isMbtiReportAccessResponse(accessResponse)) {
+          setMbtiAccessPath(true);
+          if (!mbtiBootstrapPhaseTrackedRef.current) {
+            mbtiBootstrapPhaseTrackedRef.current = true;
+            trackEvent("ui_report_loading_phase", {
+              scale_code: "MBTI",
+              phase: "result_bootstrap_start",
+              stage_detail: "access_projection_loaded",
+              locked: nextAccessView?.accessState !== "ready",
+              variant: nextAccessView?.variant ?? undefined,
+              locale,
+            });
+          }
           startInviteProgressSync();
         }
 
@@ -1028,9 +1044,11 @@ export default function ResultClient({
   const projectionUnavailable = isProjectionUnavailable(accessView);
   const projectionLocked = isProjectionLocked(accessView);
   const resolvedScaleCode = resolveScaleCodeForTelemetry(reportData, resultData);
-  const isMbtiReadyPath =
-    (hasReadyResultPayload(resultData) && normalizeText(resultData.meta?.scale_code).toUpperCase() === "MBTI") ||
-    resolveScaleCodeForTelemetry(reportData, resultData) === "MBTI";
+  const isMbtiReadyPath = mbtiAccessPath
+    || Boolean(reportData?.mbti_public_projection_v1)
+    || Boolean(reportData?.mbti_access_hub_v1)
+    || (hasReadyResultPayload(resultData) && normalizeText(resultData.meta?.scale_code).toUpperCase() === "MBTI")
+    || resolveScaleCodeForTelemetry(reportData, resultData) === "MBTI";
 
   const viewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"
@@ -1049,6 +1067,8 @@ export default function ResultClient({
         locale={locale}
         retakeHref={retakeHref}
         statusText={statusText}
+        unlockStage={accessView?.unlockStage ?? null}
+        inviteUnlockProgress={inviteUnlockProgress}
         primaryCtaLabel={primaryCtaLabel}
         primaryCtaHref="#offer-full"
         primaryCtaIsInternal={false}

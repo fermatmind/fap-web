@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
@@ -211,5 +211,19 @@ describe("MBTI shell UI contract", () => {
     expect(
       within(screen.getByTestId("mbti-sticky-rail")).getByRole("link", { name: "解锁完整报告" })
     ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+  });
+
+  it("emits shell-first-paint loading phase telemetry when MBTI shell mounts", async () => {
+    render(<RichResultReport locale="zh" reportData={createLockedProjectionFixture()} />);
+
+    await waitFor(() => {
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_report_loading_phase",
+        expect.objectContaining({
+          scale_code: "MBTI",
+          phase: "result_shell_first_paint",
+        }),
+      );
+    });
   });
 });

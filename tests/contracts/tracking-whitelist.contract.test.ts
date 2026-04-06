@@ -10,6 +10,7 @@ describe("tracking whitelist contract", () => {
       milestone: 40,
       duration_bucket: "60_120s",
       phase: "matching",
+      stage_detail: "access_projection_loaded",
       locked: true,
       variant: "free",
       form_code: "mbti_93",
@@ -54,6 +55,7 @@ describe("tracking whitelist contract", () => {
     expect(loading).toEqual({
       scale_code: "BIG5_OCEAN",
       phase: "matching",
+      stage_detail: "access_projection_loaded",
       locked: true,
       variant: "free",
       form_code: "mbti_93",

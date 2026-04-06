@@ -418,6 +418,80 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
   });
 
+  it("keeps mobile first screen decision surface visible while deferring deep sections", async () => {
+    const originalMatchMedia = window.matchMedia;
+    const originalRequestAnimationFrame = window.requestAnimationFrame;
+    const originalCancelAnimationFrame = window.cancelAnimationFrame;
+    const matchMediaMock = vi.fn((query: string) => ({
+      matches: query === "(max-width: 860px)",
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }));
+
+    Object.defineProperty(window, "matchMedia", {
+      configurable: true,
+      value: matchMediaMock,
+    });
+    Object.defineProperty(window, "requestAnimationFrame", {
+      configurable: true,
+      value: vi.fn(() => 1),
+    });
+    Object.defineProperty(window, "cancelAnimationFrame", {
+      configurable: true,
+      value: vi.fn(),
+    });
+
+    try {
+      renderDefaultShell({
+        inviteUnlockProgress: {
+          inviteCode: "invite_mbti_progress_mobile_001",
+          inviteUrl: INVITE_TAKE_HREF,
+          status: "in_progress",
+          requiredInvitees: 2,
+          completedInvitees: 1,
+          targetAttemptId: "attempt-123",
+          unlockStage: "partial",
+          unlockSource: "invite",
+          diagnostics: null,
+        },
+      });
+
+      await waitFor(() => {
+        expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
+        expect(screen.getByTestId("mbti-invite-progress-summary-top")).toHaveTextContent("已完成 1/2");
+        expect(screen.getByTestId("mbti-deferred-content-placeholder")).toBeInTheDocument();
+        expect(screen.queryByTestId("mbti-chapter-career")).not.toBeInTheDocument();
+        expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
+      });
+
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_report_loading_phase",
+        expect.objectContaining({
+          scale_code: "MBTI",
+          phase: "result_primary_cta_ready",
+        }),
+      );
+    } finally {
+      Object.defineProperty(window, "matchMedia", {
+        configurable: true,
+        value: originalMatchMedia,
+      });
+      Object.defineProperty(window, "requestAnimationFrame", {
+        configurable: true,
+        value: originalRequestAnimationFrame,
+      });
+      Object.defineProperty(window, "cancelAnimationFrame", {
+        configurable: true,
+        value: originalCancelAnimationFrame,
+      });
+    }
+  });
+
   it("keeps runtime offer price while allowing storage copy to render", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("storage"));
 
