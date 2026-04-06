@@ -123,6 +123,7 @@ function readTakeFlowAttribution(
     sourcePageType?: string;
     targetAction?: string;
     testSlug?: string;
+    landingPath?: string;
   };
 } {
   const isMbti = isMbtiScaleCode(scaleCode);
@@ -174,6 +175,7 @@ function readTakeFlowAttribution(
       ...(sourcePageType ? { sourcePageType } : {}),
       ...(targetAction ? { targetAction } : {}),
       ...(testSlug ? { testSlug } : {}),
+      ...(landing_path ? { landingPath: landing_path } : {}),
     },
   };
 }
@@ -540,6 +542,13 @@ function QuizTakeInner({
             scaleCode,
             formCode: resolvedFormCode,
             anonId,
+            meta: {
+              ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
+              ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
+              ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
+              ...(entryContext.testSlug ? { test_slug: entryContext.testSlug } : {}),
+              ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
+            },
             ...attribution,
           })
         );
@@ -649,10 +658,13 @@ function QuizTakeInner({
       ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
       ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
       ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
+      ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
       ...(resolvedFormCode ? { form_code: resolvedFormCode } : {}),
+      attempt_id: attemptId,
       attemptIdMasked: `${attemptId.slice(0, 6)}...${attemptId.slice(-4)}`,
+      locale,
     });
-  }, [attemptId, entryContext.entrySurface, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, resolvedFormCode, scaleCode, slug]);
+  }, [attemptId, entryContext.entrySurface, entryContext.landingPath, entryContext.sourcePageType, entryContext.targetAction, entryContext.testSlug, locale, resolvedFormCode, scaleCode, slug]);
 
   useEffect(() => {
     const takeFlow = takeFlowRef.current;

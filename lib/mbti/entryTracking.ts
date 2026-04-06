@@ -38,6 +38,7 @@ type BuildMbtiEntryTrackingPayloadInput = {
   entrySurface: MbtiEntrySurface;
   sourcePageType: MbtiEntrySourcePageType;
   targetAction: string;
+  sourcePath?: string;
 };
 
 function appendQueryToHref(href: string, query: Record<string, string | undefined>): string {
@@ -82,6 +83,7 @@ export function buildMbtiEntryTrackingPayload({
   entrySurface,
   sourcePageType,
   targetAction,
+  sourcePath,
 }: BuildMbtiEntryTrackingPayloadInput): Record<string, string> {
   const normalizedFormCode = normalizeMbtiFormCode(formCode);
   return {
@@ -91,6 +93,7 @@ export function buildMbtiEntryTrackingPayload({
     entry_surface: entrySurface,
     source_page_type: sourcePageType,
     target_action: targetAction,
+    ...(sourcePath ? { landing_path: sourcePath } : {}),
     locale,
   };
 }
