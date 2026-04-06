@@ -258,20 +258,22 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
         <Container className="fm-home-hero-frame relative z-10 max-w-[110rem] px-5 pb-[var(--fm-space-6)] pt-[calc(var(--fm-space-6)+var(--fm-space-6))] md:px-8 md:pb-[var(--fm-space-8)] md:pt-[calc(var(--fm-space-7)+var(--fm-space-6))] xl:px-12">
           <div className="fm-home-hero-composition">
             <div className="fm-home-hero-copy-shell">
-              <h1 className="fm-home-hero-title m-0 text-white">
-                <span className="fm-home-hero-title-line fm-home-hero-title-line--poster fm-home-hero-line fm-home-hero-line--identity">
-                  {heroTitleHasMutedComma ? (
-                    <>
-                      {heroTitleLead}
-                      <span className="fm-home-hero-title-punc">，</span>
-                      {heroTitleTail}
-                    </>
-                  ) : (
-                    copy.hero.title
-                  )}
-                </span>
-              </h1>
-              <p className="fm-home-hero-subhead fm-home-hero-line fm-home-hero-line--function m-0">{copy.hero.subhead}</p>
+              <div className="fm-home-hero-lockup">
+                <h1 className="fm-home-hero-title m-0 text-white">
+                  <span className="fm-home-hero-title-line fm-home-hero-title-line--poster fm-home-hero-line fm-home-hero-line--identity">
+                    {heroTitleHasMutedComma ? (
+                      <>
+                        {heroTitleLead}
+                        <span className="fm-home-hero-title-punc">，</span>
+                        {heroTitleTail}
+                      </>
+                    ) : (
+                      copy.hero.title
+                    )}
+                  </span>
+                </h1>
+                <p className="fm-home-hero-subhead fm-home-hero-line fm-home-hero-line--function m-0">{copy.hero.subhead}</p>
+              </div>
             </div>
 
             <div className="fm-home-hero-product-stage" aria-hidden>
