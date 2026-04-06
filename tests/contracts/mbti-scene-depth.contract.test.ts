@@ -13,6 +13,8 @@ import {
 } from "@/lib/mbti/sceneDeepContent";
 
 const ROOT = process.cwd();
+const EXPECTED_PRIORITY_TYPES = ["ENTJ", "INTP", "INTJ", "ENFJ", "ENTP", "INFJ", "ENFP", "ESTP", "ISTJ", "ISFJ"] as const;
+const EXPECTED_GROWTH_EXPANSION_TYPES = ["ENTP", "INFJ", "ENFP", "ESTP", "ISTJ", "ISFJ"] as const;
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
@@ -32,6 +34,20 @@ function expectValidScenarioModule(sceneModule: MbtiSceneDeepModule): void {
 }
 
 describe("mbti scene depth contract", () => {
+  it("locks priority type scope and growth-expansion type scope for PR-9", () => {
+    expect(MBTI_SCENE_DEEP_PRIORITY_TYPES).toEqual(EXPECTED_PRIORITY_TYPES);
+    expect(MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES).toEqual(EXPECTED_GROWTH_EXPANSION_TYPES);
+  });
+
+  it("locks scene scope to three baseline scenes plus controlled growth expansion", () => {
+    expect(MBTI_SCENE_DEEP_PRIORITY_SCENES).toEqual([
+      "career_direction",
+      "team_collaboration",
+      "major_selection",
+      "growth_planning",
+    ]);
+  });
+
   it("keeps topic-level scenario modules non-empty and executable", () => {
     const modules = buildMbtiTopicScenarioDeepModules("zh");
 
@@ -72,6 +88,33 @@ describe("mbti scene depth contract", () => {
     }
 
     expect(buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode: "ISFP" })).toHaveLength(0);
+  });
+
+  it("keeps growth scene links actionable and attribution-ready for second-batch types", () => {
+    for (const typeCode of MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES) {
+      const personalityModules = buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode });
+      const recommendationModules = buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode });
+
+      const personalityGrowth = personalityModules.find((module) => module.sceneKey === "growth_planning");
+      const recommendationGrowth = recommendationModules.find((module) => module.sceneKey === "growth_planning");
+
+      expect(personalityGrowth).toBeTruthy();
+      expect(recommendationGrowth).toBeTruthy();
+      expect(personalityGrowth?.links.length).toBeGreaterThanOrEqual(2);
+      expect(recommendationGrowth?.links.length).toBeGreaterThanOrEqual(2);
+      expect(personalityGrowth?.links.some((link) => link.kind === "start_test")).toBe(true);
+      expect(recommendationGrowth?.links.some((link) => link.kind === "start_test")).toBe(true);
+      expect(
+        personalityGrowth?.links.some(
+          (link) => link.kind === "start_test" && link.targetAction === "start_mbti_test_scene_growth_planning"
+        )
+      ).toBe(true);
+      expect(
+        recommendationGrowth?.links.some(
+          (link) => link.kind === "start_test" && link.targetAction === "start_mbti_test_scene_growth_planning"
+        )
+      ).toBe(true);
+    }
   });
 
   it("keeps test landing continuity strip lightweight but actionable", () => {
