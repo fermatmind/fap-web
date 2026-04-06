@@ -9403,14 +9403,20 @@ a {
 .fm-home-hero-copy-shell {
   width: min(100%, 680px);
   max-width: 680px;
-  justify-items: center;
+  justify-items: start;
   align-content: center;
   padding-block: clamp(1.8rem, 4vw, 3.2rem);
 }
 
+.fm-home-hero-lockup {
+  width: fit-content;
+  display: grid;
+  justify-items: center;
+}
+
 .fm-home-hero-title {
   width: fit-content;
-  margin: 0 auto 44px;
+  margin: 0 0 56px;
 }
 
 .fm-home-hero-title-line--poster {
@@ -9432,7 +9438,8 @@ a {
 
 .fm-home-hero-subhead {
   margin-top: 0;
-  max-width: 22ch;
+  width: fit-content;
+  max-width: none;
   font-size: clamp(20px, 1.9vw, 24px);
   line-height: 1.5;
   font-weight: 400;
@@ -9971,12 +9978,19 @@ a {
     padding-block: 0;
   }
 
+  .fm-home-hero-lockup {
+    width: 100%;
+    justify-items: start;
+  }
+
   .fm-home-hero-title {
     width: auto;
-    margin: 0 0 32px 0;
+    margin: 0 0 44px 0;
   }
 
   .fm-home-hero-subhead {
+    width: auto;
+    max-width: 22ch;
     white-space: normal;
     text-align: left;
   }
@@ -10016,13 +10030,17 @@ a {
 }
 
 @media (max-width: 767px) {
+  .fm-home-hero-title {
+    margin: 0 0 30px 0;
+  }
+
   .fm-home-hero-title-line--poster {
     font-size: clamp(42px, 11.8vw, 62px);
     white-space: normal;
   }
 
   .fm-home-hero-subhead {
-    margin-top: 18px;
+    margin-top: 0;
     font-size: clamp(18px, 4.7vw, 22px);
     max-width: 19ch;
     white-space: normal;
