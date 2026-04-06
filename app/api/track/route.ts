@@ -54,6 +54,7 @@ export async function POST(request: NextRequest) {
   const payloadWithLocale = {
     ...payload,
     locale: payload.locale ?? locale,
+    landing_path: payload.landing_path ?? path,
   };
 
   const event = {
@@ -66,9 +67,11 @@ export async function POST(request: NextRequest) {
   };
 
   const token = process.env.TRACK_INGEST_TOKEN;
-  const targets = [process.env.ANALYTICS_ENDPOINT, process.env.EDM_ENDPOINT].filter(
-    (value): value is string => Boolean(value)
-  );
+  const targets = Array.from(new Set([
+    process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT,
+    process.env.ANALYTICS_ENDPOINT,
+    process.env.EDM_ENDPOINT,
+  ])).filter((value): value is string => Boolean(value));
 
   if (targets.length === 0) {
     return NextResponse.json({ ok: true, requestId, forwarded: 0 });

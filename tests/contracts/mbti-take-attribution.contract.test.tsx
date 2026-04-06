@@ -291,6 +291,13 @@ describe("MBTI take attribution contract", () => {
         scaleCode: "MBTI",
         formCode: "mbti_144",
         anonId: "anon_take_test",
+        meta: {
+          entry_surface: "mbti_personality_detail",
+          source_page_type: "personality_detail",
+          target_action: "start_mbti_test_primary",
+          test_slug: "mbti-personality-test-16-personality-types",
+          landing_path: "/en/share/share-123",
+        },
         share_id: "share-123",
         compare_invite_id: "invite-456",
         invite_unlock_code: "iul_test_001",
@@ -338,10 +345,13 @@ describe("MBTI take attribution contract", () => {
         expect.objectContaining({
           slug: "mbti-personality-test-16-personality-types",
           test_slug: "mbti-personality-test-16-personality-types",
+          attempt_id: "attempt-start-123",
           form_code: "mbti_144",
           entry_surface: "mbti_personality_detail",
           source_page_type: "personality_detail",
           target_action: "start_mbti_test_primary",
+          landing_path: "/en/share/share-123",
+          locale: "en",
         })
       );
     });
@@ -428,6 +438,13 @@ describe("MBTI take attribution contract", () => {
       scaleCode: "MBTI",
       formCode: "mbti_144",
       anonId: "anon_take_test",
+      meta: {
+        entry_surface: "mbti_personality_detail",
+        source_page_type: "personality_detail",
+        target_action: "start_mbti_test_primary",
+        test_slug: "mbti-personality-test-16-personality-types",
+        landing_path: "/en/share/share-123",
+      },
       share_id: "share-123",
       compare_invite_id: "invite-456",
       invite_unlock_code: "iul_test_001",
