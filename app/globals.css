@@ -9409,10 +9409,12 @@ a {
 }
 
 .fm-home-hero-title {
-  margin: 0 0 36px 0;
+  width: fit-content;
+  margin: 0 auto 44px;
 }
 
 .fm-home-hero-title-line--poster {
+  display: block;
   font-size: clamp(64px, 5.6vw, 78px);
   line-height: 1.06;
   letter-spacing: -0.04em;
@@ -9420,6 +9422,7 @@ a {
   color: rgba(248, 250, 252, 0.96);
   text-shadow: 0 1px 16px rgba(255, 255, 255, 0.03);
   white-space: nowrap;
+  text-align: center;
 }
 
 .fm-home-hero-title-punc {
@@ -9966,6 +9969,11 @@ a {
     max-width: 30rem;
     justify-items: start;
     padding-block: 0;
+  }
+
+  .fm-home-hero-title {
+    width: auto;
+    margin: 0 0 32px 0;
   }
 
   .fm-home-hero-subhead {
