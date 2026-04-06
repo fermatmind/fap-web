@@ -365,12 +365,17 @@ describe("topics cms helpers", () => {
     expect(source).toContain("landingSurface?.ctaBundle");
     expect(source).toContain("topic.answerSurface");
     expect(source).toContain("topic-detail-answer-surface");
+    expect(source).toContain("topic-detail-scene-entry");
+    expect(source).toContain('data-testid="mbti-topic-detail-primary-cta"');
     expect(source).toContain("topic.answerSurface?.faqBlocks.length");
     expect(source).toContain("const canonical = canonicalUrl(canonicalPath);");
     expect(source).toContain("url: canonical,");
     expect(source).not.toContain("normalizedSeo.surface?.canonicalUrl || canonicalUrl(canonicalPath)");
     expect(source).not.toContain("normalizedSeo.surface?.og.url || canonical");
-    expect(read("app/(localized)/[locale]/topics/page.tsx")).toContain("topics-index-landing-cta");
+    const indexSource = read("app/(localized)/[locale]/topics/page.tsx");
+    expect(indexSource).toContain("topics-index-landing-cta");
+    expect(indexSource).toContain("topics-index-scene-entry");
+    expect(indexSource).toContain('data-testid="mbti-topics-index-primary-cta"');
     expect(shouldIncludeInSitemap("/en/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);
   });

@@ -246,6 +246,7 @@ describe("career recommendation public adapter contract", () => {
     expect(source).toContain("landingSurface?.ctaBundle");
     expect(source).toContain("detail.answerSurface");
     expect(source).toContain("career-recommendation-answer-surface");
+    expect(source).toContain("career-recommendation-scene-entry");
     expect(source).not.toContain("getMbtiRecommendation");
     expect(source).not.toContain("getCareerJobBySlug");
     expect(source).not.toContain("listMbtiRecommendationTypes");

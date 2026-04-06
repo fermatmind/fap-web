@@ -383,11 +383,17 @@ describe("personality cms adapter contract", () => {
   });
 
   it("personality routes consume landing surface instead of inventing local CTA truth", () => {
-    expect(read("app/(localized)/[locale]/personality/page.tsx")).toContain("personality-index-landing-cta");
-    expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("personality-detail-landing-cta");
-    expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("detail.landingSurface");
-    expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("detail.answerSurface");
-    expect(read("app/(localized)/[locale]/personality/[type]/page.tsx")).toContain("personality-detail-answer-surface");
+    const indexSource = read("app/(localized)/[locale]/personality/page.tsx");
+    const detailSource = read("app/(localized)/[locale]/personality/[type]/page.tsx");
+
+    expect(indexSource).toContain("personality-index-landing-cta");
+    expect(indexSource).toContain('data-testid="mbti-personality-index-primary-cta"');
+    expect(indexSource).toContain("personality-index-scene-entry");
+    expect(detailSource).toContain("personality-detail-landing-cta");
+    expect(detailSource).toContain("personality-detail-scene-entry");
+    expect(detailSource).toContain("detail.landingSurface");
+    expect(detailSource).toContain("detail.answerSurface");
+    expect(detailSource).toContain("personality-detail-answer-surface");
   });
 
   it("normalizes canonical and jsonld urls to locale-aware frontend personality urls", () => {

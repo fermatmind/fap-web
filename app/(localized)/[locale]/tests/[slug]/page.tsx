@@ -6,6 +6,7 @@ import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { CTASticky } from "@/components/business/CTASticky";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
+import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
 import { CiteableSection } from "@/components/seo/CiteableSection";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -764,6 +765,14 @@ export default async function TestLandingPage({
               </div>
             )}
           </section>
+
+          {showsMbtiActions ? (
+            <MbtiSceneEntrySection
+              locale={locale}
+              sourcePageType="test_landing"
+              testId="mbti-test-landing-scene-entry"
+            />
+          ) : null}
 
           {rollout.paywallMode === "free_only" || !rollout.commerceEnabled ? (
             <Card>

@@ -14,6 +14,48 @@ function count(source: string, needle: string): number {
 }
 
 describe("mbti entry surface contract", () => {
+  it("wires topic detail with one primary mbti CTA and entry tracking", () => {
+    const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
+
+    expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
+    expect(source).toContain('entrySurface: "mbti_topic_detail"');
+    expect(source).toContain('sourcePageType: "topic_detail"');
+    expect(source).toContain('data-testid="mbti-topic-detail-entry-cta-group"');
+    expect(source).toContain('data-testid="mbti-topic-detail-primary-cta"');
+    expect(source).toContain('targetAction: "start_mbti_test_primary"');
+    expect(source).toContain('TrackedEntryCtaLink');
+    expect(source).toContain('buildMbtiEntryHref({');
+    expect(count(source, 'data-testid="mbti-topic-detail-primary-cta"')).toBe(1);
+  });
+
+  it("wires topic index with one primary mbti CTA and entry tracking", () => {
+    const source = read("app/(localized)/[locale]/topics/page.tsx");
+
+    expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
+    expect(source).toContain('entrySurface: "mbti_topic_index"');
+    expect(source).toContain('sourcePageType: "topic_index"');
+    expect(source).toContain('data-testid="mbti-topics-index-entry-cta-group"');
+    expect(source).toContain('data-testid="mbti-topics-index-primary-cta"');
+    expect(source).toContain('targetAction: "start_mbti_test_primary"');
+    expect(source).toContain('TrackedEntryCtaLink');
+    expect(source).toContain('buildMbtiEntryHref({');
+    expect(count(source, 'data-testid="mbti-topics-index-primary-cta"')).toBe(1);
+  });
+
+  it("wires personality index with one primary mbti CTA and entry tracking", () => {
+    const source = read("app/(localized)/[locale]/personality/page.tsx");
+
+    expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
+    expect(source).toContain('entrySurface: "mbti_personality_index"');
+    expect(source).toContain('sourcePageType: "personality_index"');
+    expect(source).toContain('data-testid="mbti-personality-index-entry-cta-group"');
+    expect(source).toContain('data-testid="mbti-personality-index-primary-cta"');
+    expect(source).toContain('targetAction: "start_mbti_test_primary"');
+    expect(source).toContain('TrackedEntryCtaLink');
+    expect(source).toContain('buildMbtiEntryHref({');
+    expect(count(source, 'data-testid="mbti-personality-index-primary-cta"')).toBe(1);
+  });
+
   it("wires personality detail with one primary mbti CTA and entry tracking", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
@@ -40,6 +82,32 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
     expect(count(source, 'data-testid="mbti-career-primary-cta"')).toBe(1);
+  });
+
+  it("keeps scene entry skeleton on mbti detail and landing surfaces", () => {
+    const topicDetail = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
+    const personalityDetail = read("app/(localized)/[locale]/personality/[type]/page.tsx");
+    const recommendationDetail = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
+    const testLanding = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
+
+    expect(topicDetail).toContain("topic-detail-scene-entry");
+    expect(personalityDetail).toContain("personality-detail-scene-entry");
+    expect(recommendationDetail).toContain("career-recommendation-scene-entry");
+    expect(testLanding).toContain("mbti-test-landing-scene-entry");
+    expect(testLanding).toContain("showsMbtiActions ? (");
+  });
+
+  it("expands mbti entry tracking surfaces for topic/index/scene attribution", () => {
+    const source = read("lib/mbti/entryTracking.ts");
+
+    expect(source).toContain('"mbti_topic_detail"');
+    expect(source).toContain('"mbti_topic_index"');
+    expect(source).toContain('"mbti_personality_index"');
+    expect(source).toContain('"mbti_scene_block"');
+    expect(source).toContain('"topic_detail"');
+    expect(source).toContain('"topic_index"');
+    expect(source).toContain('"personality_index"');
+    expect(source).toContain('"scene_block"');
   });
 
   it("builds executable mbti take hrefs with entry attribution query", () => {
