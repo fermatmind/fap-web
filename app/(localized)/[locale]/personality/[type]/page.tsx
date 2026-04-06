@@ -307,6 +307,7 @@ export default async function PersonalityDetailPage({
     locale,
     typeCode: detail.canonicalTypeCode,
   });
+  const personalityHasGrowthScene = personalityScenarioDeepModules.some((module) => module.sceneKey === "growth_planning");
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -424,13 +425,21 @@ export default async function PersonalityDetailPage({
         testId="personality-detail-scene-deep-dive"
         heading={
           locale === "zh"
-            ? `${detail.canonicalTypeCode} 场景深化（职业 / 协作 / 专业）`
-            : `${detail.canonicalTypeCode} scene depth (career / collaboration / major)`
+            ? personalityHasGrowthScene
+              ? `${detail.canonicalTypeCode} 场景深化（职业 / 协作 / 专业 / 成长）`
+              : `${detail.canonicalTypeCode} 场景深化（职业 / 协作 / 专业）`
+            : personalityHasGrowthScene
+              ? `${detail.canonicalTypeCode} scene depth (career / collaboration / major / growth)`
+              : `${detail.canonicalTypeCode} scene depth (career / collaboration / major)`
         }
         subtitle={
           locale === "zh"
-            ? "在类型页里直接完成场景解释与下一步路径选择。"
-            : "Use type detail as the primary layer for scenario explanation and next-step routing."
+            ? personalityHasGrowthScene
+              ? "在类型页里直接完成场景解释与下一步路径选择，并补上成长建议的执行路径。"
+              : "在类型页里直接完成场景解释与下一步路径选择。"
+            : personalityHasGrowthScene
+              ? "Use type detail as the primary layer for scenario explanation, next-step routing, and growth execution."
+              : "Use type detail as the primary layer for scenario explanation and next-step routing."
         }
       />
 

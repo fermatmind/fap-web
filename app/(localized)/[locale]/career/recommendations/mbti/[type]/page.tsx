@@ -237,6 +237,7 @@ export default async function CareerMbtiRecommendationPage({
     locale,
     typeCode: detail.graphTypeCode,
   });
+  const recommendationHasGrowthScene = recommendationScenarioDeepModules.some((module) => module.sceneKey === "growth_planning");
   const mbtiLandingHref = withLocale("/tests/mbti-personality-test-16-personality-types");
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -381,13 +382,21 @@ export default async function CareerMbtiRecommendationPage({
         testId="career-recommendation-scene-deep-dive"
         heading={
           locale === "zh"
-            ? `${detail.graphTypeCode} 场景深化（以职业方向为主）`
-            : `${detail.graphTypeCode} scene depth (career-first)`
+            ? recommendationHasGrowthScene
+              ? `${detail.graphTypeCode} 场景深化（职业优先 + 协作/专业/成长承接）`
+              : `${detail.graphTypeCode} 场景深化（以职业方向为主）`
+            : recommendationHasGrowthScene
+              ? `${detail.graphTypeCode} scene depth (career-first with collaboration / major / growth continuity)`
+              : `${detail.graphTypeCode} scene depth (career-first)`
         }
         subtitle={
           locale === "zh"
-            ? "在职业推荐页延伸团队协作与专业选择，避免只看岗位列表。"
-            : "Extend collaboration and major-selection guidance here, not just a job list."
+            ? recommendationHasGrowthScene
+              ? "在职业推荐页延伸团队协作、专业选择和成长建议，避免只看岗位列表。"
+              : "在职业推荐页延伸团队协作与专业选择，避免只看岗位列表。"
+            : recommendationHasGrowthScene
+              ? "Extend collaboration, major-selection, and growth guidance here, not just a job list."
+              : "Extend collaboration and major-selection guidance here, not just a job list."
         }
       />
 

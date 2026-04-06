@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+  MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES,
   MBTI_SCENE_DEEP_PRIORITY_SCENES,
   MBTI_SCENE_DEEP_PRIORITY_TYPES,
   buildMbtiPersonalityScenarioDeepModules,
@@ -34,31 +35,40 @@ describe("mbti scene depth contract", () => {
   it("keeps topic-level scenario modules non-empty and executable", () => {
     const modules = buildMbtiTopicScenarioDeepModules("zh");
 
-    expect(modules).toHaveLength(3);
+    expect(modules).toHaveLength(4);
     for (const sceneModule of modules) {
       expectValidScenarioModule(sceneModule);
     }
+    expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(true);
   });
 
-  it("enforces priority 4x3 scene depth matrix on personality detail", () => {
+  it("enforces type-priority scene depth matrix on personality detail", () => {
     for (const typeCode of MBTI_SCENE_DEEP_PRIORITY_TYPES) {
       const modules = buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode });
-      expect(modules).toHaveLength(3);
+      const expectedLength = MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode) ? 4 : 3;
+      expect(modules).toHaveLength(expectedLength);
       for (const sceneModule of modules) {
         expectValidScenarioModule(sceneModule);
       }
+      expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(
+        MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode)
+      );
     }
 
     expect(buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode: "ISTP" })).toHaveLength(0);
   });
 
-  it("enforces priority 4x3 scene depth matrix on recommendation detail", () => {
+  it("enforces type-priority scene depth matrix on recommendation detail", () => {
     for (const typeCode of MBTI_SCENE_DEEP_PRIORITY_TYPES) {
       const modules = buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode });
-      expect(modules).toHaveLength(3);
+      const expectedLength = MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode) ? 4 : 3;
+      expect(modules).toHaveLength(expectedLength);
       for (const sceneModule of modules) {
         expectValidScenarioModule(sceneModule);
       }
+      expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(
+        MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode)
+      );
     }
 
     expect(buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode: "ISFP" })).toHaveLength(0);
