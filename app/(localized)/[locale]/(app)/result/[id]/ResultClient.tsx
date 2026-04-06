@@ -45,6 +45,7 @@ import { getFmToken, isGuestTokenRequestError, setFmToken } from "@/lib/auth/fmT
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
+import { logInfo, logWarn } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
@@ -52,6 +53,7 @@ import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
 const RESULT_PAGE_READY_STATE = "ready";
+const INVITE_PROGRESS_POLL_MS = 15000;
 
 type ResultClientStatus = "loading" | "generating" | "ready" | "failed";
 
@@ -511,6 +513,7 @@ export default function ResultClient({
   useEffect(() => {
     let active = true;
     let retryTimer: number | null = null;
+    let inviteProgressTimer: number | null = null;
     let inviteProgressRequested = false;
 
     const scheduleRetry = (attempt: number, delayMs: number) => {
@@ -523,28 +526,103 @@ export default function ResultClient({
       }, delayMs);
     };
 
+    const stopInviteProgressSync = () => {
+      if (inviteProgressTimer !== null) {
+        window.clearInterval(inviteProgressTimer);
+        inviteProgressTimer = null;
+      }
+    };
+
+    const applyInviteProgressToAccessView = (normalizedProgress: AttemptInviteUnlockProgressView | null) => {
+      if (!normalizedProgress) {
+        return;
+      }
+
+      setAccessView((previous) => {
+        if (!previous) {
+          return previous;
+        }
+
+        const nextUnlockStage = normalizedProgress.unlockStage ?? previous.unlockStage;
+        const nextUnlockSource = normalizedProgress.unlockSource ?? previous.unlockSource;
+        const stageChanged = previous.unlockStage !== nextUnlockStage;
+        const sourceChanged = previous.unlockSource !== nextUnlockSource;
+        if (!stageChanged && !sourceChanged) {
+          return previous;
+        }
+
+        logInfo("result_invite_unlock_status_synced", {
+          attempt_id: attemptId,
+          from_unlock_stage: previous.unlockStage,
+          to_unlock_stage: nextUnlockStage,
+          from_unlock_source: previous.unlockSource,
+          to_unlock_source: nextUnlockSource,
+          completed_invitees: normalizedProgress.completedInvitees,
+          required_invitees: normalizedProgress.requiredInvitees,
+          diagnostic_status: normalizedProgress.diagnostics?.status ?? null,
+        });
+
+        return {
+          ...previous,
+          unlockStage: nextUnlockStage,
+          unlockSource: nextUnlockSource,
+        };
+      });
+    };
+
+    const requestInviteProgress = async (reason: "initial" | "poll") => {
+      try {
+        const progressResponse = await fetchInviteUnlockProgressWithAuthMismatchRetry();
+        if (!active) {
+          return;
+        }
+
+        const normalizedProgress = normalizeAttemptInviteUnlockProgress(progressResponse, locale);
+        setInviteUnlockProgress(normalizedProgress);
+        applyInviteProgressToAccessView(normalizedProgress);
+        logInfo("result_invite_unlock_progress_refreshed", {
+          attempt_id: attemptId,
+          reason,
+          unlock_stage: normalizedProgress?.unlockStage ?? null,
+          unlock_source: normalizedProgress?.unlockSource ?? null,
+          completed_invitees: normalizedProgress?.completedInvitees ?? null,
+          required_invitees: normalizedProgress?.requiredInvitees ?? null,
+          progress_percent: normalizedProgress?.diagnostics?.progressPercent ?? null,
+          diagnostic_status: normalizedProgress?.diagnostics?.status ?? null,
+        });
+
+        if (normalizedProgress?.unlockStage === "full") {
+          stopInviteProgressSync();
+        }
+      } catch (cause) {
+        if (!active) {
+          return;
+        }
+
+        const message = cause instanceof Error ? cause.message : String(cause);
+        logWarn("result_invite_unlock_progress_refresh_failed", {
+          attempt_id: attemptId,
+          reason,
+          message,
+        });
+
+        if (reason === "initial") {
+          // Invite progress should not break the result-delivery chain.
+          setInviteUnlockProgress(null);
+        }
+      }
+    };
+
     const startInviteProgressSync = () => {
       if (inviteProgressRequested) {
         return;
       }
 
       inviteProgressRequested = true;
-      void fetchInviteUnlockProgressWithAuthMismatchRetry()
-        .then((progressResponse) => {
-          if (!active) {
-            return;
-          }
-
-          setInviteUnlockProgress(normalizeAttemptInviteUnlockProgress(progressResponse, locale));
-        })
-        .catch(() => {
-          if (!active) {
-            return;
-          }
-
-          // Invite progress should not break the result-delivery chain.
-          setInviteUnlockProgress(null);
-        });
+      void requestInviteProgress("initial");
+      inviteProgressTimer = window.setInterval(() => {
+        void requestInviteProgress("poll");
+      }, INVITE_PROGRESS_POLL_MS);
     };
 
     const loadFallbackResult = async () => {
@@ -644,6 +722,19 @@ export default function ResultClient({
 
         const nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
         setAccessView(nextAccessView);
+        const inviteDiagnostic = asRecord(accessResponse.invite_unlock_diag_v1);
+        logInfo("result_report_access_diagnostic", {
+          attempt_id: attemptId,
+          access_state: accessResponse.access_state ?? null,
+          report_state: accessResponse.report_state ?? null,
+          unlock_stage: nextAccessView?.unlockStage ?? null,
+          unlock_source: nextAccessView?.unlockSource ?? null,
+          diagnostic_status: normalizeText(inviteDiagnostic?.status),
+          diagnostic_reason: normalizeText(inviteDiagnostic?.status_reason),
+          diagnostic_progress_percent:
+            typeof inviteDiagnostic?.progress_percent === "number" ? inviteDiagnostic.progress_percent : null,
+          diagnostic_snapshot_at: normalizeText(inviteDiagnostic?.snapshot_at),
+        });
 
         if (isMbtiReportAccessResponse(accessResponse)) {
           startInviteProgressSync();
@@ -788,6 +879,7 @@ export default function ResultClient({
 
     return () => {
       active = false;
+      stopInviteProgressSync();
       if (retryTimer) {
         window.clearTimeout(retryTimer);
       }

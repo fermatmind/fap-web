@@ -190,6 +190,13 @@ function createInviteProgress(overrides: Partial<AttemptInviteUnlockProgressView
     targetAttemptId: "attempt-123",
     unlockStage: "locked",
     unlockSource: "invite",
+    diagnostics: {
+      status: "locked",
+      statusReason: "unlock_stage_locked",
+      remainingInvitees: 2,
+      progressPercent: 0,
+      snapshotAt: "2026-04-06T06:00:00+00:00",
+    },
     ...overrides,
   };
 }
@@ -283,6 +290,8 @@ describe("MBTI checkout wiring contract", () => {
     );
 
     expect(screen.getByTestId("mbti-invite-progress-value")).toHaveTextContent("0/2");
+    expect(screen.getByTestId("mbti-invite-progress-status")).toHaveTextContent("未解锁");
+    expect(screen.getByTestId("mbti-invite-progress-hint")).toHaveTextContent("邀请 1 位好友完成测试");
     expect(screen.getByTestId("mbti-offers-invite-cta")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
   });
@@ -310,6 +319,7 @@ describe("MBTI checkout wiring contract", () => {
     );
 
     expect(screen.getByTestId("mbti-invite-progress-value")).toHaveTextContent("1/2");
+    expect(screen.getByTestId("mbti-invite-progress-status")).toHaveTextContent("部分解锁");
     expect(screen.getByTestId("mbti-invite-progress-hint")).toHaveTextContent("职业章节已解锁");
     expect(screen.getByTestId("mbti-offers-invite-cta")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
@@ -337,8 +347,83 @@ describe("MBTI checkout wiring contract", () => {
     );
 
     expect(screen.getByTestId("mbti-invite-progress-value")).toHaveTextContent("2/2");
+    expect(screen.getByTestId("mbti-invite-progress-status")).toHaveTextContent("邀请完全解锁");
+    expect(screen.getByTestId("mbti-invite-progress-hint")).toHaveTextContent("已通过邀请解锁全部结果");
     expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-offers-primary-cta")).not.toBeInTheDocument();
+  });
+
+  it("renders mixed unlock status label when unlock_source is mixed", () => {
+    render(
+      <MbtiOfferComparisonSection
+        locale="zh"
+        attemptId="attempt-123"
+        offers={[
+          {
+            key: "MBTI_REPORT_FULL",
+            title: "完整人格报告",
+            price: "¥1.99",
+            description: "完整报告",
+            modules: ["人格概览", "职业路径"],
+            moduleCodes: ["core_full", "career", "relationships"],
+          },
+        ]}
+        unlockStage="full"
+        unlockSource="mixed"
+        inviteUnlockProgress={createInviteProgress({
+          completedInvitees: 2,
+          unlockStage: "full",
+          unlockSource: "mixed",
+          diagnostics: {
+            status: "mixed_unlock",
+            statusReason: "unlock_source_mixed",
+            remainingInvitees: 0,
+            progressPercent: 100,
+            snapshotAt: "2026-04-06T06:00:00+00:00",
+          },
+        })}
+      />
+    );
+
+    expect(screen.getByTestId("mbti-invite-progress-status")).toHaveTextContent("混合解锁");
+    expect(screen.getByTestId("mbti-invite-progress-hint")).toHaveTextContent("邀请与支付组合解锁");
+    expect(screen.getByText("诊断状态：mixed_unlock")).toBeInTheDocument();
+  });
+
+  it("renders payment full unlock status label when unlock_source is payment", () => {
+    render(
+      <MbtiOfferComparisonSection
+        locale="zh"
+        attemptId="attempt-123"
+        offers={[
+          {
+            key: "MBTI_REPORT_FULL",
+            title: "完整人格报告",
+            price: "¥1.99",
+            description: "完整报告",
+            modules: ["人格概览", "职业路径"],
+            moduleCodes: ["core_full", "career", "relationships"],
+          },
+        ]}
+        unlockStage="full"
+        unlockSource="payment"
+        inviteUnlockProgress={createInviteProgress({
+          completedInvitees: 2,
+          unlockStage: "full",
+          unlockSource: "payment",
+          diagnostics: {
+            status: "full_unlock",
+            statusReason: "unlock_source_payment",
+            remainingInvitees: 0,
+            progressPercent: 100,
+            snapshotAt: "2026-04-06T06:00:00+00:00",
+          },
+        })}
+      />
+    );
+
+    expect(screen.getByTestId("mbti-invite-progress-status")).toHaveTextContent("支付完全解锁");
+    expect(screen.getByTestId("mbti-invite-progress-hint")).toHaveTextContent("已通过支付解锁全部结果");
   });
 
   it("copies backend invite_url when invite CTA is clicked", async () => {

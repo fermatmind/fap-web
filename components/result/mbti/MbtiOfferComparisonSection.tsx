@@ -199,6 +199,32 @@ export function MbtiOfferComparisonSection({
       : locale === "zh"
       ? "邀请 1 位好友完成测试，先解锁职业章节；邀请 2 位解锁全部结果。"
       : "Invite one friend to unlock Career first, and two friends to unlock everything.";
+  const inviteDiagnosticStatus = normalizeText(inviteUnlockProgress?.diagnostics?.status);
+  const unlockStatusLabel =
+    unlockStage === "full"
+      ? unlockSource === "mixed"
+        ? locale === "zh"
+          ? "混合解锁"
+          : "Mixed unlock"
+        : unlockSource === "payment"
+          ? locale === "zh"
+            ? "支付完全解锁"
+            : "Payment full unlock"
+          : locale === "zh"
+            ? "邀请完全解锁"
+            : "Invite full unlock"
+      : unlockStage === "partial"
+        ? locale === "zh"
+          ? "部分解锁"
+          : "Partial unlock"
+        : locale === "zh"
+          ? "未解锁"
+          : "Locked";
+  const unlockStatusDescription = inviteDiagnosticStatus
+    ? locale === "zh"
+      ? `诊断状态：${inviteDiagnosticStatus}`
+      : `Diagnostic status: ${inviteDiagnosticStatus}`
+    : null;
   const compactFacts = [
     {
       label: locale === "zh" ? "覆盖模块" : "Coverage",
@@ -447,9 +473,15 @@ export function MbtiOfferComparisonSection({
               <p className="m-0 mt-1 text-lg font-semibold text-slate-900" data-testid="mbti-invite-progress-value">
                 {inviteProgressText}
               </p>
+              <p className="m-0 mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" data-testid="mbti-invite-progress-status">
+                {unlockStatusLabel}
+              </p>
               <p className="m-0 mt-2 text-sm leading-7 text-slate-600" data-testid="mbti-invite-progress-hint">
                 {progressHint}
               </p>
+              {unlockStatusDescription ? (
+                <p className="m-0 mt-1 text-xs text-slate-500">{unlockStatusDescription}</p>
+              ) : null}
               {showInvitePrimaryCta ? (
                 <button
                   type="button"
