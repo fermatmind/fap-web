@@ -80,7 +80,7 @@ test("INTP personality pages render three scenario sections and keep source entr
   const html = await response.text();
 
   expect(html).toContain('id="answer-first"');
-  expect(html).toContain('INTP-Hub: career / collaboration / growth');
+  expect(html).toContain('INTP hub: career / collaboration / growth');
   expect(html).toContain('id="intp-personality-scene-career"');
   expect(html).toContain('id="intp-personality-scene-team"');
   expect(html).toContain('id="intp-personality-scene-growth"');
@@ -122,6 +122,8 @@ test("mbti career recommendation route treats 32-type as authority and 4-letter 
 
 test("mbti result career CTA points to the 32-type recommendation authority route", async ({ page }) => {
   const attemptId = "mbti-career-join-0001";
+  const reportAccessPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`);
+  const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
 
   await page.route("**/api/track", async (route) => {
     await route.fulfill({
@@ -142,11 +144,50 @@ test("mbti result career CTA points to the 32-type recommendation authority rout
     });
   });
 
+  await page.route(reportAccessPattern, async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        access_state: "ready",
+        report_state: "ready",
+        pdf_state: "ready",
+        reason_code: "report_ready",
+        projection_version: 1,
+        actions: {
+          page_href: `/en/result/${attemptId}`,
+          pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+        },
+        meta: {
+          produced_at: "2026-03-27T00:00:00.000Z",
+          refreshed_at: "2026-03-27T00:00:00.000Z",
+        },
+      }),
+    });
+  });
+
   await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify(createCareerContinuityFixture()),
+    });
+  });
+
+  await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        slug: "mbti-personality-test-16-personality-types",
+        capabilities: {
+          enabled_in_prod: true,
+          paywall_mode: "full",
+        },
+      }),
     });
   });
 
