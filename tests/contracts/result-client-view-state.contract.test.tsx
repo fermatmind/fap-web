@@ -462,6 +462,52 @@ describe("ResultClient view-state contract", () => {
     expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
   });
 
+  it("shows an actionable failure state instead of MBTI loading shell when submission ended with different answers conflict", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({
+        access_state: "unavailable",
+        report_state: "unavailable",
+        pdf_state: "unavailable",
+        reason_code: "report_unavailable",
+        mbti_form_v1: {
+          form_code: "mbti_93",
+          scale_code: "MBTI",
+        },
+      })
+    );
+    hoisted.fetchAttemptResult.mockRejectedValue(
+      new ApiError({
+        status: 404,
+        errorCode: "RESULT_NOT_FOUND",
+        message: "result not found.",
+      })
+    );
+    hoisted.fetchAttemptSubmission.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-123",
+      generating: false,
+      submission: {
+        id: "sub_conflict_123",
+        state: "failed",
+        error_message: "attempt already submitted with different answers.",
+      },
+    });
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByRole("alert")).toHaveTextContent("already submitted with different answers");
+    });
+
+    const restartLink = screen.getByTestId("mbti-result-force-retake-link");
+    expect(restartLink).toHaveAttribute(
+      "href",
+      expect.stringContaining("force_new_attempt=1&reason=submission_conflict")
+    );
+    expect(screen.queryByTestId("mbti-loading-critical-surface")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+  });
+
   it("keeps the page in processing state when report access is 404 but submission is still pending", async () => {
     hoisted.fetchAttemptReportAccess.mockRejectedValue(
       new ApiError({

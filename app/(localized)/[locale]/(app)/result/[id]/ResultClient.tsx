@@ -334,6 +334,22 @@ function resolveMbtiLoadingStatusText(locale: Locale, state: "processing" | "fai
   return error ?? (locale === "zh" ? "结果暂时无法读取，请返回后再试。" : "The result is temporarily unavailable, please try again.");
 }
 
+function isAttemptResubmitConflictMessage(message: string | null | undefined): boolean {
+  const normalized = normalizeText(message).toLowerCase();
+  if (!normalized) {
+    return false;
+  }
+
+  return normalized.includes("attempt already submitted with different answers")
+    || normalized.includes("already submitted with different answers")
+    || normalized.includes("submitted with different answers");
+}
+
+function buildForcedFreshAttemptHref(baseHref: string): string {
+  const separator = baseHref.includes("?") ? "&" : "?";
+  return `${baseHref}${separator}force_new_attempt=1&reason=submission_conflict`;
+}
+
 function isNotFoundApiError(error: unknown): error is ApiError {
   return error instanceof ApiError && error.status === 404;
 }
@@ -1057,7 +1073,7 @@ export default function ResultClient({
         ? "ready"
         : "failed";
 
-  if (isMbtiReadyPath && viewState !== "ready") {
+  if (isMbtiReadyPath && viewState === "processing") {
     const retakeHref = resolveRetakeHrefByScale(locale, resolvedScaleCode === "MBTI" ? resolvedScaleCode : "MBTI");
     const statusText = resolveMbtiLoadingStatusText(locale, viewState, error);
     const primaryCtaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
@@ -1086,6 +1102,34 @@ export default function ResultClient({
   }
 
   if (viewState === "failed") {
+    if (isMbtiReadyPath) {
+      const retakeHref = resolveRetakeHrefByScale(
+        locale,
+        resolvedScaleCode === "MBTI" ? resolvedScaleCode : "MBTI"
+      );
+      const isSubmissionConflict = isAttemptResubmitConflictMessage(error);
+      const failureMessage = isSubmissionConflict
+        ? (locale === "zh"
+          ? "检测到该答卷已提交过另一套答案，当前结果不可恢复。请重新开始测评，我们会强制创建新的作答会话。"
+          : "This attempt was already submitted with different answers and cannot be recovered. Please restart the assessment with a fresh attempt.")
+        : (error ?? dict.result.reportUnavailable);
+
+      return (
+        <div className="space-y-[var(--fm-gap-sm)]">
+          <Alert>{failureMessage}</Alert>
+          {isSubmissionConflict ? (
+            <a
+              data-testid="mbti-result-force-retake-link"
+              href={buildForcedFreshAttemptHref(retakeHref)}
+              className="inline-flex text-sm font-semibold text-slate-900 underline underline-offset-2"
+            >
+              {locale === "zh" ? "重新开始测评" : "Restart assessment"}
+            </a>
+          ) : null}
+        </div>
+      );
+    }
+
     if (projectionLocked) {
       return <Alert>{dict.result.reportUnavailable}</Alert>;
     }

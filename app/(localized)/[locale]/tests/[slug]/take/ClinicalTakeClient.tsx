@@ -190,6 +190,7 @@ export default function ClinicalTakeClient({
   scaleCode: ClinicalScaleCode;
 }) {
   const searchParams = useSearchParams();
+  const forceNewAttemptRequested = searchParams.get("force_new_attempt") === "1";
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
@@ -243,6 +244,7 @@ export default function ClinicalTakeClient({
   const submitInFlightRef = useRef(false);
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
+  const forceNewAttemptAppliedRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
 
@@ -655,12 +657,18 @@ export default function ClinicalTakeClient({
       return null;
     }
 
+    if (forceNewAttemptRequested && !forceNewAttemptAppliedRef.current) {
+      forceNewAttemptAppliedRef.current = true;
+      clearAttemptMeta();
+      return startFreshAttempt(runId);
+    }
+
     if (attemptId) {
       return attemptId;
     }
 
     return startFreshAttempt(runId);
-  }, [attemptId, authBlockError, staleDraftError, startFreshAttempt]);
+  }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, staleDraftError, startFreshAttempt]);
 
   const handleStart = async () => {
     if (!consentChecked) {

@@ -11,18 +11,77 @@ export type TakeFlowController = {
   dispose: () => void;
 };
 
-export function isStaleAttemptSubmitError(error: unknown): boolean {
-  if (!(error instanceof ApiError) || error.status !== 404) {
+function hasAttemptResubmitConflictCode(error: ApiError): boolean {
+  const details = error.details && typeof error.details === "object"
+    ? (error.details as Record<string, unknown>)
+    : null;
+
+  const nestedDetails = details?.details && typeof details.details === "object"
+    ? (details.details as Record<string, unknown>)
+    : null;
+
+  const normalizedCodes = [
+    String(error.errorCode ?? ""),
+    String(details?.error_code ?? details?.errorCode ?? details?.reason_code ?? details?.reasonCode ?? details?.code ?? ""),
+    String(
+      nestedDetails?.error_code
+      ?? nestedDetails?.errorCode
+      ?? nestedDetails?.reason_code
+      ?? nestedDetails?.reasonCode
+      ?? nestedDetails?.code
+      ?? ""
+    ),
+  ]
+    .map((value) => value.trim().toUpperCase())
+    .filter(Boolean);
+
+  return normalizedCodes.some((code) =>
+    code === "ATTEMPT_ALREADY_SUBMITTED_WITH_DIFFERENT_ANSWERS"
+    || code === "ATTEMPT_ALREADY_SUBMITTED_DIFFERENT_ANSWERS"
+    || code === "ALREADY_SUBMITTED_WITH_DIFFERENT_ANSWERS"
+    || code === "ATTEMPT_SUBMISSION_CONFLICT"
+    || code === "ATTEMPT_ANSWERS_MISMATCH"
+  );
+}
+
+function hasAttemptResubmitConflictMessage(message: string): boolean {
+  const normalized = message.trim().toLowerCase();
+  if (!normalized) {
     return false;
   }
 
-  const errorCode = String(error.errorCode ?? "").trim().toUpperCase();
-  if (errorCode === "RESOURCE_NOT_FOUND" || errorCode === "NOT_FOUND") {
-    return true;
+  return normalized.includes("attempt already submitted with different answers")
+    || normalized.includes("already submitted with different answers")
+    || normalized.includes("submitted with different answers");
+}
+
+export function isStaleAttemptSubmitError(error: unknown): boolean {
+  if (error instanceof ApiError) {
+    if (error.status === 404) {
+      const errorCode = String(error.errorCode ?? "").trim().toUpperCase();
+      if (errorCode === "RESOURCE_NOT_FOUND" || errorCode === "NOT_FOUND") {
+        return true;
+      }
+
+      const message = String(error.message ?? "").trim().toLowerCase();
+      if (message.includes("attempt not found") || message.includes("app\\models\\attempt")) {
+        return true;
+      }
+    }
+
+    if ((error.status === 400 || error.status === 409 || error.status === 422)
+      && (hasAttemptResubmitConflictCode(error) || hasAttemptResubmitConflictMessage(String(error.message ?? "")))) {
+      return true;
+    }
+
+    return false;
   }
 
-  const message = String(error.message ?? "").trim().toLowerCase();
-  return message.includes("attempt not found") || message.includes("app\\models\\attempt");
+  if (error instanceof Error) {
+    return hasAttemptResubmitConflictMessage(error.message);
+  }
+
+  return false;
 }
 
 export function isDraftNearComplete(answeredCount: number, totalQuestions: number): boolean {

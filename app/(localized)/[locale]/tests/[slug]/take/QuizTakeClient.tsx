@@ -255,6 +255,7 @@ function QuizTakeInner({
     () => readTakeFlowAttribution(searchParams, scaleCode),
     [scaleCode, searchParams]
   );
+  const forceNewAttemptRequested = searchParams.get("force_new_attempt") === "1";
 
   const currentIndex = useQuizStore((store) => store.state.currentIndex);
   const answers = useQuizStore((store) => store.state.answers);
@@ -291,6 +292,7 @@ function QuizTakeInner({
   const recoveringAttemptRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const inviteLinkOpenedTrackedRef = useRef(false);
+  const forceNewAttemptAppliedRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const trackedStartRef = useRef(false);
   const resolvedFormCode = useMemo(
@@ -590,11 +592,34 @@ function QuizTakeInner({
 
     ensureAttemptPromiseRef.current = pending;
     return pending;
-  }, [anonId, attribution, authBlockError, isFlowActive, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setAttemptMeta, slug, staleDraftError]);
+  }, [
+    anonId,
+    attribution,
+    authBlockError,
+    entryContext.entrySurface,
+    entryContext.landingPath,
+    entryContext.sourcePageType,
+    entryContext.targetAction,
+    entryContext.testSlug,
+    isFlowActive,
+    locale,
+    resolvedFormCode,
+    runWithAuthRetry,
+    scaleCode,
+    setAttemptMeta,
+    slug,
+    staleDraftError,
+  ]);
 
   const ensureAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
       return null;
+    }
+
+    if (forceNewAttemptRequested && !forceNewAttemptAppliedRef.current) {
+      forceNewAttemptAppliedRef.current = true;
+      clearAttemptMeta();
+      return startFreshAttempt(runId);
     }
 
     if (matchesSavedAttempt) {
@@ -602,7 +627,15 @@ function QuizTakeInner({
     }
 
     return startFreshAttempt(runId);
-  }, [attemptId, authBlockError, matchesSavedAttempt, staleDraftError, startFreshAttempt]);
+  }, [
+    attemptId,
+    authBlockError,
+    clearAttemptMeta,
+    forceNewAttemptRequested,
+    matchesSavedAttempt,
+    staleDraftError,
+    startFreshAttempt,
+  ]);
 
   const total = questions.length;
   const question = questions[currentIndex];
@@ -631,7 +664,7 @@ function QuizTakeInner({
         return;
       }
 
-      if (matchesSavedAttempt) {
+      if (matchesSavedAttempt && !forceNewAttemptRequested) {
         setAttemptLoading(false);
         return;
       }
@@ -645,7 +678,16 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [answeredCount, attemptId, ensureAttempt, matchesSavedAttempt, questions.length, questionsLoading, staleDraftError]);
+  }, [
+    answeredCount,
+    attemptId,
+    ensureAttempt,
+    forceNewAttemptRequested,
+    matchesSavedAttempt,
+    questions.length,
+    questionsLoading,
+    staleDraftError,
+  ]);
 
   useEffect(() => {
     if (!attemptId || trackedStartRef.current) return;
