@@ -22,6 +22,7 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import { MBTI_TYPE_GROUPS } from "@/lib/mbti/mbtiTypeContentPack";
 import { buildMbtiTopicScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
@@ -177,10 +178,6 @@ export default async function TopicDetailPage({
   const mbtiTopicHubHref = localizedPath("/topics/mbti", locale);
   const mbtiPersonalityHubHref = localizedPath("/personality", locale);
   const mbtiCareerRecommendationHubHref = localizedPath("/career/recommendations", locale);
-  const intpPersonalityAHref = localizedPath("/personality/intp-a", locale);
-  const intpPersonalityTHref = localizedPath("/personality/intp-t", locale);
-  const intpRecommendationAHref = localizedPath("/career/recommendations/mbti/intp-a", locale);
-  const intpRecommendationTHref = localizedPath("/career/recommendations/mbti/intp-t", locale);
   const topicScenarioDeepModules = isMbtiTopic ? buildMbtiTopicScenarioDeepModules(locale) : [];
 
   return (
@@ -250,29 +247,46 @@ export default async function TopicDetailPage({
       {isMbtiTopic ? (
         <section
           className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-          data-testid="mbti-topic-intp-entry"
+          data-testid="mbti-topic-type-grid"
         >
-          <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "INTP 承接入口" : "INTP continuation entry"}
-          </h2>
-          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-            {locale === "zh"
-              ? "从 MBTI 主题进入 INTP 深层内容：先看类型差异，再看职业建议，快速补齐职业/协作/成长决策。"
-              : "Entry point for INTP continuation: type variants, then career recommendations, with linked paths for career, collaboration, and growth."}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            <Link href={intpPersonalityAHref} className="fm-help-chip-link">
-              {locale === "zh" ? "查看 INTP-A 类型页" : "Open INTP-A personality"}
-            </Link>
-            <Link href={intpPersonalityTHref} className="fm-help-chip-link">
-              {locale === "zh" ? "查看 INTP-T 类型页" : "Open INTP-T personality"}
-            </Link>
-            <Link href={intpRecommendationAHref} className="fm-help-chip-link">
-              {locale === "zh" ? "查看 INTP-A 职业建议" : "Open INTP-A career recommendations"}
-            </Link>
-            <Link href={intpRecommendationTHref} className="fm-help-chip-link">
-              {locale === "zh" ? "查看 INTP-T 职业建议" : "Open INTP-T career recommendations"}
-            </Link>
+          <div className="space-y-2">
+            <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+              {locale === "zh" ? "MBTI 类型继续入口" : "MBTI type continue grid"}
+            </h2>
+            <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
+              {locale === "zh"
+                ? "这里保持轻量，只提供类型入口与职业推荐入口，不把主题页变成长文页。"
+                : "This remains lightweight: type entry points and recommendation entry points only, not a long-form topic page."}
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {(Object.entries(MBTI_TYPE_GROUPS) as Array<[keyof typeof MBTI_TYPE_GROUPS, readonly string[]]>).map(([groupKey, typeCodes]) => (
+              <Card key={groupKey} className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-lg">{groupKey}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+                  {typeCodes.map((typeCode) => {
+                    const personalityHref = localizedPath(`/personality/${typeCode.toLowerCase()}-a`, locale);
+                    const recommendationHref = localizedPath(`/career/recommendations/mbti/${typeCode.toLowerCase()}-a`, locale);
+
+                    return (
+                      <div key={typeCode} className="space-y-1 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3">
+                        <p className="m-0 font-medium text-[var(--fm-text)]">{typeCode}</p>
+                        <div className="flex flex-wrap gap-2">
+                          <Link href={personalityHref} className="fm-help-chip-link">
+                            {locale === "zh" ? "类型页" : "Personality"}
+                          </Link>
+                          <Link href={recommendationHref} className="fm-help-chip-link">
+                            {locale === "zh" ? "职业推荐" : "Recommendation"}
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
       ) : null}

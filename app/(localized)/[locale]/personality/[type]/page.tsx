@@ -32,20 +32,23 @@ import {
   buildMbtiEntryTrackingPayload,
 } from "@/lib/mbti/entryTracking";
 import { buildMbtiPersonalityScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
+import { getMbtiPersonalityContent } from "@/lib/mbti/mbtiTypeContentPack";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
-import { getIntpPersonalityContent } from "@/lib/mbti/intpContentPack";
 
 export const dynamic = "force-dynamic";
 const PUBLIC_PERSONALITY_VARIANT_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
-type IntpSceneRenderBlock = {
+type PersonalitySceneRenderBlock = {
   summary: string;
+  bottleneck: string;
+  advice: string;
   strengths: string[];
   risks: string[];
   why: string;
-  variantDelta: string;
+  variantDeltaA: string;
+  variantDeltaT: string;
   nextLinks: {
     key: string;
     label: string;
@@ -53,18 +56,18 @@ type IntpSceneRenderBlock = {
   }[];
 };
 
-type IntpTrackedLink = {
+type MbtiTrackedLink = {
   href: string;
   eventProperties: ReturnType<typeof buildMbtiEntryTrackingPayload>;
 };
 
-function buildIntpTrackedLink(
+function buildMbtiSceneTrackedLink(
   link: { href: string; key: string; label: string },
   sourcePath: string,
   locale: Locale,
   sourcePageType: "personality_detail",
   targetAction: string
-): IntpTrackedLink | null {
+): MbtiTrackedLink | null {
   if (!link.href.startsWith(`/tests/${MBTI_ENTRY_TEST_SLUG}`)) {
     return null;
   }
@@ -309,7 +312,6 @@ export default async function PersonalityDetailPage({
   const isFallbackRoute =
     detail.projection.meta.routeMode === "fallback" ||
     detail.projection.meta.authoritySource === "frontend_gateway_fallback";
-  const intpPersonalityContent = getIntpPersonalityContent(detail.routeSlug, locale);
   const faqItems = detail.answerSurface?.faqBlocks.length
     ? detail.answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
@@ -364,11 +366,11 @@ export default async function PersonalityDetailPage({
     typeCode: detail.canonicalTypeCode,
   });
   const personalityHasGrowthScene = personalityScenarioDeepModules.some((module) => module.sceneKey === "growth_planning");
-  const shouldShowIntpSceneBlocks = !!intpPersonalityContent;
+  const personalityTypeContent = getMbtiPersonalityContent(detail.routeSlug, locale);
 
-  const renderIntpSceneBlock = (
+  const renderSceneBlock = (
     label: string,
-    block: IntpSceneRenderBlock,
+    block: PersonalitySceneRenderBlock,
     anchor: string,
     sourcePath: string
   ): ReactElement => (
@@ -378,6 +380,18 @@ export default async function PersonalityDetailPage({
       </CardHeader>
       <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
         <p className="m-0">{block.summary}</p>
+        {block.bottleneck ? (
+          <p className="m-0">
+            <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "瓶颈：" : "Bottleneck:"}</span>{" "}
+            {block.bottleneck}
+          </p>
+        ) : null}
+        {block.advice ? (
+          <p className="m-0">
+            <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "建议：" : "Advice:"}</span>{" "}
+            {block.advice}
+          </p>
+        ) : null}
         <div className="space-y-2">
           <p className="m-0 font-medium text-[var(--fm-text)]">
             {locale === "zh" ? "核心优势" : "Core strengths"}
@@ -403,15 +417,17 @@ export default async function PersonalityDetailPage({
           {block.why}
         </p>
         <p className="m-0">
-          <span className="font-medium text-[var(--fm-text)]">
-            {locale === "zh" ? "A/T 差异：" : "A/T split:"}
-          </span>{" "}
-          {block.variantDelta}
+          <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "A 型：" : "A variant:"}</span>{" "}
+          {block.variantDeltaA || block.variantDeltaT}
+        </p>
+        <p className="m-0">
+          <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "T 型：" : "T variant:"}</span>{" "}
+          {block.variantDeltaT || block.variantDeltaA}
         </p>
         <div className="flex flex-wrap gap-2">
           {block.nextLinks.slice(0, 3).map((link) => {
             const targetAction = `start_mbti_test_${anchor}_continuation`;
-            const trackedLink = buildIntpTrackedLink(link, sourcePath, locale, "personality_detail", targetAction);
+            const trackedLink = buildMbtiSceneTrackedLink(link, sourcePath, locale, "personality_detail", targetAction);
             if (!trackedLink) {
               return (
                 <Link key={link.key} href={link.href} className="fm-help-chip-link">
@@ -536,29 +552,103 @@ export default async function PersonalityDetailPage({
             {detail.heroQuote}
           </blockquote>
         ) : null}
-        {shouldShowIntpSceneBlocks ? (
-          <Card>
-            <CardHeader>
-              <CardTitle>{locale === "zh" ? "INTP 场景定位补充" : "INTP scene positioning"}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">
-                <span className="font-medium text-[var(--fm-text)]">
-                  {locale === "zh" ? "定位句" : "Positioning"}
-                </span>{" "}
-                {intpPersonalityContent.heroPositioning}
+        {personalityTypeContent ? (
+          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="mbti-personality-content-pack">
+            <div className="space-y-2">
+              <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+                {locale === "zh" ? `${detail.displayType} 内容包` : `${detail.displayType} content pack`}
+              </h2>
+              <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+                {locale === "zh"
+                  ? "这里把通用页、A/T 差异和下一步入口放在同一层里，方便直接进入职业、协作和成长判断。"
+                  : "This layer keeps the common frame, A/T split, and next-step routing together for career, collaboration, and growth decisions."}
               </p>
-              <p className="m-0">{intpPersonalityContent.heroCoreStrength}</p>
-              <p className="m-0">{intpPersonalityContent.heroRealWorldFriction}</p>
-              <p className="m-0">{intpPersonalityContent.heroNextStepHint}</p>
-              <p className="m-0">
-                <span className="font-medium text-[var(--fm-text)]">
-                  {locale === "zh" ? "A/T 分化" : "A/T distinction"}
-                </span>{" "}
-                {intpPersonalityContent.variantDelta}
-              </p>
-            </CardContent>
-          </Card>
+            </div>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>{locale === "zh" ? "通用页框架" : "Common frame"}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
+                <p className="m-0">{personalityTypeContent.common.hero.summary}</p>
+                <p className="m-0">{personalityTypeContent.common.hero.positioning}</p>
+                <p className="m-0">{personalityTypeContent.common.hero.coreStrength}</p>
+                <p className="m-0">{personalityTypeContent.common.hero.realWorldFriction}</p>
+                <p className="m-0">{personalityTypeContent.common.hero.nextStepHint}</p>
+                <div className="grid gap-3 md:grid-cols-3">
+                  <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+                    <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "A 型差异" : "A variant"}</p>
+                    <p className="m-0 mt-1">{personalityTypeContent.common.hero.variantDeltaA}</p>
+                  </div>
+                  <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+                    <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "T 型差异" : "T variant"}</p>
+                    <p className="m-0 mt-1">{personalityTypeContent.common.hero.variantDeltaT}</p>
+                  </div>
+                  <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+                    <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "继续入口" : "Next step"}</p>
+                    <p className="m-0 mt-1">{personalityTypeContent.common.hero.primaryCta}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="grid gap-4 lg:grid-cols-3">
+              {renderSceneBlock(
+                locale === "zh" ? "职业方向" : "Career direction",
+                personalityTypeContent.variantCopy.careerDirection,
+                detail.typeCode === "INTP" ? "intp-personality-scene-career" : "mbti-personality-scene-career",
+                canonicalPath
+              )}
+              {renderSceneBlock(
+                locale === "zh" ? "团队协作" : "Team collaboration",
+                personalityTypeContent.variantCopy.teamCollaboration,
+                detail.typeCode === "INTP" ? "intp-personality-scene-team" : "mbti-personality-scene-team",
+                canonicalPath
+              )}
+              {renderSceneBlock(
+                locale === "zh" ? "成长建议" : "Growth planning",
+                personalityTypeContent.variantCopy.growthPlanning,
+                detail.typeCode === "INTP" ? "intp-personality-scene-growth" : "mbti-personality-scene-growth",
+                canonicalPath
+              )}
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <Card>
+                <CardHeader>
+                  <CardTitle>{locale === "zh" ? "继续入口" : "Continue"}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-wrap gap-2">
+                  <Link href={personalityTypeContent.support.recommendationBacklink.href} className="fm-help-chip-link">
+                    {personalityTypeContent.support.recommendationBacklink.label}
+                  </Link>
+                  <Link href={personalityTypeContent.support.topicBacklink.href} className="fm-help-chip-link">
+                    {personalityTypeContent.support.topicBacklink.label}
+                  </Link>
+                  <Link href={personalityTypeContent.support.testEntryLink.href} className="fm-help-chip-link">
+                    {personalityTypeContent.support.testEntryLink.label}
+                  </Link>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>{locale === "zh" ? "相关阅读" : "Related reading"}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-wrap gap-2">
+                  {personalityTypeContent.support.linkedGuides.map((link) => (
+                    <Link key={link.key} href={link.href} className="fm-help-chip-link">
+                      {link.label}
+                    </Link>
+                  ))}
+                  {personalityTypeContent.support.linkedArticles.map((link) => (
+                    <Link key={link.key} href={link.href} className="fm-help-chip-link">
+                      {link.label}
+                    </Link>
+                  ))}
+                </CardContent>
+              </Card>
+            </div>
+          </section>
         ) : null}
       </section>
 
@@ -593,39 +683,6 @@ export default async function PersonalityDetailPage({
               : "Use type detail as the primary layer for scenario explanation and next-step routing."
         }
       />
-      {shouldShowIntpSceneBlocks && intpPersonalityContent ? (
-        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "INTP-Hub：职业 / 协作 / 成长" : "INTP hub: career / collaboration / growth"}
-          </h2>
-          <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-            {locale === "zh"
-              ? "在类型页完成 4 大核心场景的差异化解释，让“能理解”变成“可执行”。"
-              : "Deliver differentiated explanations for the four core scenarios so understanding turns into execution."}
-          </p>
-          <div className="grid gap-4 lg:grid-cols-3">
-            {renderIntpSceneBlock(
-              locale === "zh" ? "职业方向" : "Career direction",
-              intpPersonalityContent.careerDirection,
-              "intp-personality-scene-career",
-              canonicalPath
-            )}
-            {renderIntpSceneBlock(
-              locale === "zh" ? "团队协作" : "Team collaboration",
-              intpPersonalityContent.teamCollaboration,
-              "intp-personality-scene-team",
-              canonicalPath
-            )}
-            {renderIntpSceneBlock(
-              locale === "zh" ? "成长建议" : "Growth planning",
-              intpPersonalityContent.growthPlanning,
-              "intp-personality-scene-growth",
-              canonicalPath
-            )}
-          </div>
-        </section>
-      ) : null}
-
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">
           {hasRenderableContent ? (
@@ -662,7 +719,7 @@ export default async function PersonalityDetailPage({
         </div>
 
         <div className="space-y-4">
-          {shouldShowIntpSceneBlocks && intpPersonalityContent ? (
+          {personalityTypeContent ? (
             <>
               <Card>
                 <CardHeader>
@@ -670,14 +727,14 @@ export default async function PersonalityDetailPage({
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
                   <div className="space-y-2">
-                    <Link href={intpPersonalityContent.topicBacklink.href} className="fm-help-chip-link">
-                      {intpPersonalityContent.topicBacklink.label}
+                    <Link href={personalityTypeContent.support.topicBacklink.href} className="fm-help-chip-link">
+                      {personalityTypeContent.support.topicBacklink.label}
                     </Link>
-                    <Link href={intpPersonalityContent.recommendationBacklink.href} className="fm-help-chip-link">
-                      {intpPersonalityContent.recommendationBacklink.label}
+                    <Link href={personalityTypeContent.support.recommendationBacklink.href} className="fm-help-chip-link">
+                      {personalityTypeContent.support.recommendationBacklink.label}
                     </Link>
-                    <Link href={intpPersonalityContent.testEntryLink.href} className="fm-help-chip-link">
-                      {intpPersonalityContent.testEntryLink.label}
+                    <Link href={personalityTypeContent.support.testEntryLink.href} className="fm-help-chip-link">
+                      {personalityTypeContent.support.testEntryLink.label}
                     </Link>
                   </div>
                   <p className="m-0 text-xs text-[var(--fm-text-muted)]">
@@ -691,7 +748,7 @@ export default async function PersonalityDetailPage({
                 </CardHeader>
                 <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
                   <div className="flex flex-wrap gap-2">
-                    {[...intpPersonalityContent.linkedGuides, ...intpPersonalityContent.linkedArticles].map((link) => (
+                    {[...personalityTypeContent.support.linkedGuides, ...personalityTypeContent.support.linkedArticles].map((link) => (
                       <Link key={link.key} href={link.href} className="fm-help-chip-link">
                         {link.label}
                       </Link>

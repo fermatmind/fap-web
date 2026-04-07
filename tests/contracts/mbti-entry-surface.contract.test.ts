@@ -66,6 +66,8 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('entrySurface: "mbti_personality_detail"');
     expect(source).toContain('data-testid="mbti-personality-entry-cta-group"');
     expect(source).toContain('data-testid="mbti-personality-primary-cta"');
+    expect(source).toContain('data-testid="mbti-personality-content-pack"');
+    expect(source).toContain('mbti-personality-scene-career');
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
@@ -80,6 +82,7 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('entrySurface: "mbti_career_recommendation_detail"');
     expect(source).toContain('data-testid="mbti-career-entry-cta-group"');
     expect(source).toContain('data-testid="mbti-career-primary-cta"');
+    expect(source).toContain('career-recommendation-type-interpretation');
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
@@ -97,6 +100,15 @@ describe("mbti entry surface contract", () => {
     expect(recommendationDetail).toContain("career-recommendation-scene-entry");
     expect(testLanding).toContain("mbti-test-landing-scene-entry");
     expect(testLanding).toContain("showsMbtiActions ? (");
+  });
+
+  it("keeps the mbti topic hub as a lightweight type continuation grid", () => {
+    const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
+
+    expect(source).toContain('data-testid="mbti-topic-type-grid"');
+    expect(source).toContain("MBTI_TYPE_GROUPS");
+    expect(source).toContain("typeCode.toLowerCase()}-a");
+    expect(source).toContain("MBTI type continue grid");
   });
 
   it("expands mbti entry tracking surfaces for topic/index/scene attribution", () => {
