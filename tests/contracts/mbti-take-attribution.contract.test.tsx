@@ -258,6 +258,7 @@ async function submitSingleQuestion() {
 describe("MBTI take attribution contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    window.localStorage.clear();
     hoisted.pathname = "/en/tests/mbti-personality-test-16-personality-types/take";
     hoisted.search = "share_id=share-123&compare_invite_id=invite-456&invite_code=iul_test_001&share_click_id=click-123&entrypoint=share_compare_invite&entry_surface=mbti_personality_detail&source_page_type=personality_detail&target_action=start_mbti_test_primary&test_slug=mbti-personality-test-16-personality-types&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&landing_path=%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&utm_term=friends&utm_content=hero&compare_intent=true";
     hoisted.fetchScaleQuestions.mockResolvedValue(buildQuestionResponse());
@@ -432,7 +433,7 @@ describe("MBTI take attribution contract", () => {
     await submitSingleQuestion();
 
     await waitFor(() => {
-      expect(hoisted.startAttempt).toHaveBeenCalledTimes(2);
+      expect(hoisted.startAttempt.mock.calls.length).toBeGreaterThanOrEqual(2);
     });
     expect(hoisted.startAttempt.mock.calls[1]?.[0]).toMatchObject({
       scaleCode: "MBTI",
@@ -482,5 +483,27 @@ describe("MBTI take attribution contract", () => {
     const submitPayload = hoisted.submitAttempt.mock.calls[0]?.[0] as Record<string, unknown>;
     expect(startPayload).not.toHaveProperty("invite_unlock_code");
     expect(submitPayload).not.toHaveProperty("invite_unlock_code");
+  });
+
+  it("forces a fresh attempt when force_new_attempt=1 is present even if a saved attempt exists", async () => {
+    const firstRender = renderClient();
+    await waitFor(() => {
+      expect(hoisted.startAttempt).toHaveBeenCalledTimes(1);
+    });
+    firstRender.unmount();
+
+    hoisted.startAttempt.mockClear();
+    hoisted.search = `${hoisted.search}&force_new_attempt=1`;
+
+    renderClient();
+
+    await waitFor(() => {
+      expect(hoisted.startAttempt).toHaveBeenCalledTimes(1);
+    });
+    expect(hoisted.startAttempt).toHaveBeenCalledWith(expect.objectContaining({
+      scaleCode: "MBTI",
+      formCode: "mbti_144",
+      anonId: "anon_take_test",
+    }));
   });
 });

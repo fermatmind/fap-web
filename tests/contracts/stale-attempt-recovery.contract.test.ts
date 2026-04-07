@@ -19,6 +19,16 @@ function buildNotFoundError(message = "attempt not found."): ApiError {
   });
 }
 
+function buildDifferentAnswersConflictError(
+  message = "attempt already submitted with different answers."
+): ApiError {
+  return new ApiError({
+    status: 409,
+    errorCode: "ATTEMPT_ALREADY_SUBMITTED_WITH_DIFFERENT_ANSWERS",
+    message,
+  });
+}
+
 afterEach(() => {
   vi.useRealTimers();
 });
@@ -102,6 +112,32 @@ describe("stale attempt recovery", () => {
     ).toBe(false);
     expect(resolveStaleDraftResetMessage("zh")).toBe("当前草稿已失效，请重新开始。");
     expect(isStaleAttemptSubmitError(buildNotFoundError())).toBe(true);
+  });
+
+  it("treats different-answer resubmit conflicts as recoverable stale submit errors", async () => {
+    const clearAttemptState = vi.fn();
+    const startFreshAttempt = vi.fn().mockResolvedValue("attempt-fresh-conflict-001");
+    const submitFreshAttempt = vi.fn().mockResolvedValue("result-fresh-conflict-001");
+
+    expect(
+      isStaleAttemptSubmitError(buildDifferentAnswersConflictError())
+    ).toBe(true);
+
+    const recovery = await recoverStaleAttemptSubmit({
+      error: buildDifferentAnswersConflictError(),
+      alreadyRecovered: false,
+      clearAttemptState,
+      startFreshAttempt,
+      submitFreshAttempt,
+    });
+
+    expect(recovery).toEqual({
+      kind: "recovered",
+      value: "result-fresh-conflict-001",
+    });
+    expect(clearAttemptState).toHaveBeenCalledTimes(1);
+    expect(startFreshAttempt).toHaveBeenCalledTimes(1);
+    expect(submitFreshAttempt).toHaveBeenCalledWith("attempt-fresh-conflict-001");
   });
 
   it("cancels pending delayed submit work after route change or unmount", async () => {

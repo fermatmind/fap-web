@@ -91,6 +91,7 @@ export default function Big5TakeClient({
   const dict = getDictSync(locale);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const forceNewAttemptRequested = searchParams.get("force_new_attempt") === "1";
   const anonId = useMemo(() => getOrCreateAnonId(), []);
 
   const attemptId = useBig5AttemptStore((store) => store.attemptId);
@@ -150,6 +151,7 @@ export default function Big5TakeClient({
   const submitInFlightRef = useRef(false);
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
+  const forceNewAttemptAppliedRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
   const resolvedFormCode = useMemo(
@@ -847,12 +849,18 @@ export default function Big5TakeClient({
       return null;
     }
 
+    if (forceNewAttemptRequested && !forceNewAttemptAppliedRef.current) {
+      forceNewAttemptAppliedRef.current = true;
+      clearAttemptMeta();
+      return startFreshAttempt(runId);
+    }
+
     if (attemptId) {
       return attemptId;
     }
 
     return startFreshAttempt(runId);
-  }, [attemptId, authBlockError, staleDraftError, startFreshAttempt]);
+  }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, staleDraftError, startFreshAttempt]);
 
   const handleAgreeAndStart = async () => {
     if (!consentChecked) return;
