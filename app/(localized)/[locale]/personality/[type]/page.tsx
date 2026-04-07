@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import type { ReactElement } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
@@ -370,7 +371,7 @@ export default async function PersonalityDetailPage({
     block: IntpSceneRenderBlock,
     anchor: string,
     sourcePath: string
-  ): JSX.Element => (
+  ): ReactElement => (
     <Card id={anchor}>
       <CardHeader>
         <CardTitle className="text-lg">{label}</CardTitle>

@@ -115,7 +115,7 @@ function localizeLink(locale: Locale, link: LocalizedLink): { key: string; label
   };
 }
 
-function localizeLinks(locale: Locale, links: LocalizedLink[]): { key: string; label: string; href: string }[] {
+function localizeLinks(locale: Locale, links: readonly LocalizedLink[]): { key: string; label: string; href: string }[] {
   return links.map((link) => localizeLink(locale, link));
 }
 
