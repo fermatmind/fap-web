@@ -177,6 +177,10 @@ export default async function TopicDetailPage({
   const mbtiTopicHubHref = localizedPath("/topics/mbti", locale);
   const mbtiPersonalityHubHref = localizedPath("/personality", locale);
   const mbtiCareerRecommendationHubHref = localizedPath("/career/recommendations", locale);
+  const intpPersonalityAHref = localizedPath("/personality/intp-a", locale);
+  const intpPersonalityTHref = localizedPath("/personality/intp-t", locale);
+  const intpRecommendationAHref = localizedPath("/career/recommendations/mbti/intp-a", locale);
+  const intpRecommendationTHref = localizedPath("/career/recommendations/mbti/intp-t", locale);
   const topicScenarioDeepModules = isMbtiTopic ? buildMbtiTopicScenarioDeepModules(locale) : [];
 
   return (
@@ -243,6 +247,35 @@ export default async function TopicDetailPage({
         ) : null}
       </section>
 
+      {isMbtiTopic ? (
+        <section
+          className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          data-testid="mbti-topic-intp-entry"
+        >
+          <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "INTP 承接入口" : "INTP continuation entry"}
+          </h2>
+          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
+            {locale === "zh"
+              ? "从 MBTI 主题进入 INTP 深层内容：先看类型差异，再看职业建议，快速补齐职业/协作/成长决策。"
+              : "Entry point for INTP continuation: type variants, then career recommendations, with linked paths for career, collaboration, and growth."}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Link href={intpPersonalityAHref} className="fm-help-chip-link">
+              {locale === "zh" ? "查看 INTP-A 类型页" : "Open INTP-A personality"}
+            </Link>
+            <Link href={intpPersonalityTHref} className="fm-help-chip-link">
+              {locale === "zh" ? "查看 INTP-T 类型页" : "Open INTP-T personality"}
+            </Link>
+            <Link href={intpRecommendationAHref} className="fm-help-chip-link">
+              {locale === "zh" ? "查看 INTP-A 职业建议" : "Open INTP-A career recommendations"}
+            </Link>
+            <Link href={intpRecommendationTHref} className="fm-help-chip-link">
+              {locale === "zh" ? "查看 INTP-T 职业建议" : "Open INTP-T career recommendations"}
+            </Link>
+          </div>
+        </section>
+      ) : null}
       {isMbtiTopic ? (
         <MbtiSceneEntrySection
           locale={locale}

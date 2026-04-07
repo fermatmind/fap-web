@@ -579,11 +579,11 @@ export function buildMbtiTestLandingContinuityItems(locale: Locale): MbtiTestLan
 
   return [
     {
-      key: "to_topic",
-      title: isZh ? "先看 MBTI 主题框架" : "Start with the MBTI topic framework",
+      key: "to_intp_scene_summary",
+      title: isZh ? "先探索 INTP 轮廓" : "Explore the INTP profile first",
       body: isZh
-        ? "如果你还不确定从哪个角度进入，先看 topic 框架再开始测试，会更容易理解“职业/协作/专业/成长”四类场景。"
-        : "If you are unsure where to start, review the topic framework first to interpret career/collaboration/major/growth scenarios clearly.",
+        ? "先看 INTP 人格页，快速确认职业偏好、协作方式和成长建议的落地差异。"
+        : "Start with the INTP personality profile to confirm practical differences in career fit, collaboration style, and growth direction.",
       href: withLocale(locale, "/topics/mbti"),
     },
     {
@@ -596,11 +596,19 @@ export function buildMbtiTestLandingContinuityItems(locale: Locale): MbtiTestLan
     },
     {
       key: "to_recommendation",
-      title: isZh ? "查看职业推荐入口" : "Preview career recommendation entry",
+      title: isZh ? "看职业建议" : "Review career recommendations",
       body: isZh
-        ? "你可以先看职业推荐入口，明确测试后最想验证的问题，再回到测试完成判断闭环。"
-        : "Preview recommendation entry first to define what to validate after test, then return to testing with a clear decision loop.",
+        ? "先看职业建议，明确你想验证的场景，再回到测试前会更容易形成有效决策闭环。"
+        : "Review career recommendations first so the test can be used to validate clearer decisions.",
       href: withLocale(locale, "/career/recommendations"),
+    },
+    {
+      key: "to_recommendation_intp",
+      title: isZh ? "看 INTP 团队协作与成长建议" : "Review INTP team collaboration and growth guidance",
+      body: isZh
+        ? "如果你需要立即判断协作摩擦和成长节奏，先去 INTP 类型页里拿到可执行承接。"
+        : "If you need immediate clarity on collaboration friction and growth cadence, go to INTP pages for the execution-first continuation.",
+      href: withLocale(locale, "/personality/intp-a"),
     },
   ];
 }

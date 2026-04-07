@@ -119,12 +119,13 @@ describe("mbti scene depth contract", () => {
 
   it("keeps test landing continuity strip lightweight but actionable", () => {
     const items = buildMbtiTestLandingContinuityItems("zh");
-    expect(items).toHaveLength(3);
+    expect(items).toHaveLength(4);
     for (const item of items) {
       expect(item.title.trim().length).toBeGreaterThan(4);
       expect(item.body.trim().length).toBeGreaterThan(12);
       expect(item.href.startsWith("/")).toBe(true);
     }
+    expect(items.some((item) => item.key === "to_recommendation_intp")).toBe(true);
   });
 
   it("mounts deep-dive sections on topic/personality/recommendation and continuity strip on test landing", () => {

@@ -781,14 +781,14 @@ export default async function TestLandingPage({
               data-testid="mbti-landing-continuity-strip"
             >
               <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-                {locale === "zh" ? "开始前先看这三条路径" : "Three quick paths before you start"}
+                {locale === "zh" ? "开始前先看这四条路径" : "Four quick paths before you start"}
               </h2>
               <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
                 {locale === "zh"
                   ? "这是轻量回流区：帮助你在开始测试前先明确阅读路径，不替代主 CTA。"
                   : "This is a lightweight continuity strip. It clarifies reading paths before starting, without replacing the primary CTA."}
               </p>
-              <div className="grid gap-3 md:grid-cols-3">
+              <div className="grid gap-3 md:grid-cols-4">
                 {mbtiLandingContinuityItems.map((item) => (
                   <article
                     key={item.key}
