@@ -74,6 +74,41 @@ test("mbti career recommendation route exposes answer-first, table, faq, and pub
   expect(html).toContain("/en/help/faq");
 });
 
+test("INTP personality pages render three scenario sections and keep source entry anchors", async ({ request }) => {
+  const response = await request.get("/en/personality/intp-a");
+  expect(response.status()).toBe(200);
+  const html = await response.text();
+
+  expect(html).toContain('id="answer-first"');
+  expect(html).toContain('INTP-Hub: career / collaboration / growth');
+  expect(html).toContain('id="intp-personality-scene-career"');
+  expect(html).toContain('id="intp-personality-scene-team"');
+  expect(html).toContain('id="intp-personality-scene-growth"');
+});
+
+test("INTP recommendation pages render interpretation block instead of list-only view", async ({ request }) => {
+  const response = await request.get("/en/career/recommendations/mbti/intp-a");
+  expect(response.status()).toBe(200);
+  const html = await response.text();
+
+  expect(html).toContain('id="career-recommendation-intp-interpretation"');
+  expect(html).toContain("Why these roles attract INTP");
+  expect(html).toContain("Why some jobs drain INTP");
+  expect(html).toContain("Career recommendation");
+});
+
+test("MBTI topic page exposes INTP continuation entry links", async ({ request }) => {
+  const response = await request.get("/en/topics/mbti");
+  expect(response.status()).toBe(200);
+  const html = await response.text();
+
+  expect(html).toContain('data-testid="mbti-topic-intp-entry"');
+  expect(html).toContain("/en/personality/intp-a");
+  expect(html).toContain("/en/personality/intp-t");
+  expect(html).toContain("/en/career/recommendations/mbti/intp-a");
+  expect(html).toContain("/en/career/recommendations/mbti/intp-t");
+});
+
 test("mbti career recommendation route treats 32-type as authority and 4-letter as a redirecting compatibility entry", async ({ request }) => {
   const legacyResponse = await request.get("/en/career/recommendations/mbti/intj", { maxRedirects: 0 });
   expect(legacyResponse.status()).toBe(308);

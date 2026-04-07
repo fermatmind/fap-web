@@ -6,6 +6,7 @@ import { ApiError } from "@/lib/api-client";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import { buildMbtiCareerRecommendationHref } from "@/lib/mbti/publicProjection";
+import { buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 import resultReadyMbtiFreeFixture from "@/tests/fixtures/result_ready.mbti.free.json";
@@ -306,6 +307,27 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
     expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
+  });
+
+  it("keeps MBTI continue-test attribution params for recommendation scene links", () => {
+    const recommendationAttribution = buildMbtiEntryTrackingPayload({
+      locale: "en",
+      formCode: "mbti_144",
+      entrySurface: "mbti_career_recommendation_detail",
+      sourcePageType: "recommendation_detail",
+      targetAction: "start_mbti_test_recommendation_intp_team",
+      sourcePath: "/en/career/recommendations/mbti/intp-a",
+    });
+
+    expect(recommendationAttribution).toMatchObject({
+      form_code: "mbti_144",
+      entry_surface: "mbti_career_recommendation_detail",
+      source_page_type: "recommendation_detail",
+      target_action: "start_mbti_test_recommendation_intp_team",
+      test_slug: "mbti-personality-test-16-personality-types",
+      locale: "en",
+      landing_path: "/en/career/recommendations/mbti/intp-a",
+    });
   });
 
   it("keeps the page on the rich report path when report access is locked but the report page is ready", async () => {

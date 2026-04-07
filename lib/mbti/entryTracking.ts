@@ -18,6 +18,7 @@ export type MbtiEntrySourcePageType =
   | "topic_index"
   | "personality_index"
   | "personality_detail"
+  | "recommendation_detail"
   | "career_recommendation_detail"
   | "scene_block";
 
