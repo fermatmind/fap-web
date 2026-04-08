@@ -59,6 +59,20 @@ describe("mbti ads whitelist contract", () => {
     expect(sticky).toContain('sourcePath: mbtiLandingPath');
   });
 
+  it("routes public mbti discovery entry points to the landing page instead of the take page", () => {
+    const headerMenus = read("lib/navigation/headerDropdownMenus.ts");
+    const siteHeader = read("components/layout/SiteHeader.tsx");
+    const hero = read("components/marketing/HeroSection.tsx");
+    const socialProof = read("components/marketing/SocialProofSection.tsx");
+
+    expect(headerMenus).toContain('/tests/mbti-personality-test-16-personality-types", label: "MBTI personality test"');
+    expect(headerMenus).toContain('/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试"');
+    expect(headerMenus).not.toContain('/tests/mbti-personality-test-16-personality-types/take", label: "MBTI personality test"');
+    expect(siteHeader).toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types")}');
+    expect(hero).toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types")}');
+    expect(socialProof).toContain('href={withLocale("/tests/mbti-personality-test-16-personality-types")}');
+  });
+
   it("keeps personality and recommendation detail pages in the ads secondary whitelist with reduced secondary CTA weight", () => {
     const personality = read("app/(localized)/[locale]/personality/[type]/page.tsx");
     const recommendation = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
