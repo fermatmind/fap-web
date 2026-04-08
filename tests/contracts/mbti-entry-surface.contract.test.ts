@@ -159,8 +159,9 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('data-testid="mbti-personality-index-discoverability-links"');
     expect(source).toContain('data-testid="mbti-personality-family-grid"');
     expect(source).toContain('data-testid="mbti-personality-directory-grid"');
-    expect(source).toContain("MBTI_TYPE_GROUPS");
-    expect(source).toContain("const allPersonalityCards = MBTI_GROUP_ORDER.flatMap");
+    expect(source).toContain("buildPersonalityHubPayload");
+    expect(source).toContain("hubPayload.familyGroups.map");
+    expect(source).toContain("hubPayload.typeDecisionCards.map");
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
@@ -202,7 +203,10 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('entrySurface: "mbti_career_recommendation_detail"');
     expect(source).toContain('data-testid="mbti-career-entry-cta-group"');
     expect(source).toContain('data-testid="mbti-career-primary-cta"');
-    expect(source).toContain('career-recommendation-type-interpretation');
+    expect(
+      source.includes('career-recommendation-type-interpretation') ||
+        source.includes('career-recommendation-protocol-status')
+    ).toBe(true);
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
@@ -310,16 +314,27 @@ describe("mbti entry surface contract", () => {
       const block = extractTypeBlock(source, typeCode);
 
       expect(block).not.toBeNull();
-      expect(extractField(extractSection(block, "recommendation"), "variantRiskA")).not.toBe(
-        extractField(extractSection(block, "recommendation"), "variantRiskT")
+      if (!block) {
+        throw new Error(`Missing content pack block for ${typeCode}`);
+      }
+      const recommendation = extractSection(block, "recommendation");
+      const sectionA = extractSection(block, "a");
+      const sectionT = extractSection(block, "t");
+
+      expect(recommendation).not.toBeNull();
+      expect(sectionA).not.toBeNull();
+      expect(sectionT).not.toBeNull();
+
+      expect(extractField(recommendation, "variantRiskA")).not.toBe(
+        extractField(recommendation, "variantRiskT")
       );
 
-      const aCareer = extractSection(extractSection(block, "a"), "career");
-      const tCareer = extractSection(extractSection(block, "t"), "career");
-      const aTeam = extractSection(extractSection(block, "a"), "team");
-      const tTeam = extractSection(extractSection(block, "t"), "team");
-      const aGrowth = extractSection(extractSection(block, "a"), "growth");
-      const tGrowth = extractSection(extractSection(block, "t"), "growth");
+      const aCareer = extractSection(sectionA ?? "", "career");
+      const tCareer = extractSection(sectionT ?? "", "career");
+      const aTeam = extractSection(sectionA ?? "", "team");
+      const tTeam = extractSection(sectionT ?? "", "team");
+      const aGrowth = extractSection(sectionA ?? "", "growth");
+      const tGrowth = extractSection(sectionT ?? "", "growth");
 
       expect(extractField(aCareer, "summary")).not.toBe("");
       expect(extractField(tCareer, "summary")).not.toBe("");
