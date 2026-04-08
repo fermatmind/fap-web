@@ -328,6 +328,7 @@ describe("career guides frontend boundary contract", () => {
     expect(aliasSource).toContain('export const dynamic = "force-dynamic"');
     expect(landingSource).toContain("listCareerGuidesFromCms");
     expect(landingSource).not.toContain("listCareerGuides(");
+    expect(landingSource).toContain('data-authority-owner="editorial_cms_guides"');
     expect(landingSource).toContain("perPage: 4");
     expect(landingSource).toContain(".slice(0, 4)");
   });

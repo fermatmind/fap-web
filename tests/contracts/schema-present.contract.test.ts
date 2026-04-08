@@ -107,6 +107,25 @@ describe("schema injection contract", () => {
     expect(landingSource).not.toContain("listCareerGuides(");
   });
 
+  it("career landing page composes backend-backed jobs and recommendations while keeping editorial guides and industries", () => {
+    const source = read("app/(localized)/[locale]/career/page.tsx");
+
+    expect(source).toContain("fetchCareerJobIndex");
+    expect(source).toContain("adaptCareerJobIndex");
+    expect(source).toContain("fetchCareerRecommendationIndex");
+    expect(source).toContain("adaptCareerRecommendationIndex");
+    expect(source).not.toContain("listCareerJobs(");
+    expect(source).not.toContain("CareerRecommendationPanel");
+    expect(source).toContain("listCareerIndustries");
+    expect(source).toContain("listCareerGuidesFromCms");
+    expect(source).toContain('data-authority-owner="backend_lightweight_jobs"');
+    expect(source).toContain('data-authority-owner="backend_lightweight_recommendations"');
+    expect(source).toContain('data-authority-owner="editorial_local_industries"');
+    expect(source).toContain('data-authority-owner="editorial_cms_guides"');
+    expect(source).toContain('data-authority-owner="editorial_cta_only"');
+    expect(source).not.toContain("growth_path[0]");
+  });
+
   it("personality detail page injects cms seo jsonld, webpage, breadcrumb, and faq jsonld", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
     expect(source).toContain("normalizePersonalitySeoPayload");
