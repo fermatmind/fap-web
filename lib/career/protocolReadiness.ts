@@ -130,6 +130,7 @@ export function getCareerRecommendationRenderState(
   const allowStrongClaim = hasCareerStrongClaimPermission(input.claimPermissions);
   const allowTransitionRecommendation = hasCareerTransitionPermission(input.claimPermissions);
   const hasIndexGate = hasExplicitIndexGate(input.careerAsset);
+  const canIndexPage = isCareerIndexEligible(input.careerAsset) && hasSeoSurface;
 
   const missingFields: string[] = [];
   if (!hasAuthoritySource) {
@@ -153,35 +154,23 @@ export function getCareerRecommendationRenderState(
   if (!hasMatchedJobs) {
     missingFields.push("matched_jobs");
   }
-  if ((hasAnswerTruth || hasMatchedJobs) && !allowStrongClaim) {
-    missingFields.push("claim_permissions.allow_strong_claim");
-  }
-  if (hasMatchedJobs && !allowTransitionRecommendation) {
-    missingFields.push("claim_permissions.allow_transition_recommendation");
-  }
 
   const canRenderStrongTruth = hasAuthoritySource && hasAnswerTruth && isTrustReady && allowStrongClaim;
   const canRenderMatchedJobs =
     hasAuthoritySource && hasMatchedJobs && isTrustReady && allowTransitionRecommendation;
-  const canIndexPage =
-    isCareerIndexEligible(input.careerAsset) &&
-    hasSeoSurface &&
-    isTrustReady &&
-    allowStrongClaim &&
-    hasAnswerTruth &&
-    hasMatchedJobs;
+  const careerDataStatus = deriveCareerDataStatus({
+    canIndexPage,
+    hasAnyProtocolSignal:
+      hasAuthoritySource ||
+      hasMatchedJobs ||
+      hasLandingContent ||
+      hasSeoSurface ||
+      hasClaimPermissions ||
+      hasTrustManifest,
+  });
 
   return {
-    careerDataStatus: deriveCareerDataStatus({
-      canIndexPage,
-      hasAnyProtocolSignal:
-        hasAuthoritySource ||
-        hasMatchedJobs ||
-        hasLandingContent ||
-        hasSeoSurface ||
-        hasClaimPermissions ||
-        hasTrustManifest,
-    }),
+    careerDataStatus,
     canRenderStrongTruth,
     canRenderMatchedJobs,
     canRenderAnswerSurface: canRenderStrongTruth,
@@ -215,7 +204,7 @@ export function getCareerJobRenderState(
   const allowStrongClaim = hasCareerStrongClaimPermission(input.claimPermissions);
   const allowSalaryComparison = hasCareerSalaryPermission(input.claimPermissions);
   const hasIndexGate = hasExplicitIndexGate(input.careerAsset);
-  const canIndexPage = isCareerIndexEligible(input.careerAsset) && isTrustReady && allowStrongClaim;
+  const canIndexPage = isCareerIndexEligible(input.careerAsset);
 
   const missingFields: string[] = [];
   if (!hasAuthoritySource) {
