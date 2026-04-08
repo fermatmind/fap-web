@@ -65,6 +65,16 @@ describe("career routing cleanup contract", () => {
     expect(source).not.toContain('withLocale("/help/faq")');
   });
 
+  it("career job detail page exposes claim-gated protocol status and does not treat legacy vm fields as authority", () => {
+    const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
+
+    expect(source).toContain("career-job-protocol-status");
+    expect(source).toContain("career-job-claim-gated-status");
+    expect(source).toContain("renderState.canRenderSalarySurface");
+    expect(source).toContain("renderState.canRenderFitSurface");
+    expect(source).toContain("renderState.canRenderAnswerSurface");
+  });
+
   it("machine-readable routes keep public career recommendations and skip private flows", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");

@@ -49,6 +49,8 @@ describe("sitemap indexability contract", () => {
       ])
     );
     expect(locs.some((loc: string) => loc.includes("/career/recommendations/mbti/"))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("/career/jobs/"))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("/career/recommendations/big5/"))).toBe(false);
   });
 
   it("frontend sitemap config excludes retired and private route families", async () => {

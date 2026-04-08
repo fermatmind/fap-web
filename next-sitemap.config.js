@@ -88,6 +88,50 @@ function extractPathFromCanonicalUrl(value) {
   }
 }
 
+function isExplicitCareerIndexableState(value) {
+  const normalized = normalizeSlug(value).toLowerCase();
+  if (!normalized) return null;
+  if (normalized === "indexable" || normalized === "promotion_candidate" || normalized === "seed_index") {
+    return true;
+  }
+  if (normalized === "noindex" || normalized === "blocked" || normalized === "excluded") {
+    return false;
+  }
+  return null;
+}
+
+function resolveCareerExplicitGate(item) {
+  if (!item || typeof item !== "object") {
+    return null;
+  }
+
+  const seoContract = item.seo_contract && typeof item.seo_contract === "object" ? item.seo_contract : null;
+  const seoSurface = item.seo_surface_v1 && typeof item.seo_surface_v1 === "object" ? item.seo_surface_v1 : null;
+  const indexState = normalizeSlug(
+    (seoContract && seoContract.index_state) ||
+      item.index_state ||
+      (seoSurface && (seoSurface.index_state || seoSurface.indexability_state))
+  );
+  const explicitBoolean =
+    (seoContract && typeof seoContract.index_eligible === "boolean" ? seoContract.index_eligible : null) ??
+    (typeof item.index_eligible === "boolean" ? item.index_eligible : null) ??
+    (seoSurface && typeof seoSurface.index_eligible === "boolean" ? seoSurface.index_eligible : null);
+  const derivedBoolean = explicitBoolean === null ? isExplicitCareerIndexableState(indexState) : explicitBoolean;
+
+  if (derivedBoolean === null && !indexState) {
+    return { indexEligible: null, indexState: null };
+  }
+
+  return {
+    indexEligible: derivedBoolean,
+    indexState: indexState || null,
+  };
+}
+
+function shouldIncludeCareerSitemapPath(path, item) {
+  return shouldIncludeInSitemap(path, resolveCareerExplicitGate(item));
+}
+
 function buildTestPaths() {
   const uniqueSlugs = new Set();
   for (const item of tests) {
@@ -185,8 +229,14 @@ function buildCareerPaths() {
   for (const item of careerJobs) {
     const slug = normalizeSlug(item?.slug);
     if (!slug) continue;
-    paths.add(`/en/career/jobs/${slug}`);
-    paths.add(`/zh/career/jobs/${slug}`);
+    const enPath = `/en/career/jobs/${slug}`;
+    const zhPath = `/zh/career/jobs/${slug}`;
+    if (shouldIncludeCareerSitemapPath(enPath, item)) {
+      paths.add(enPath);
+    }
+    if (shouldIncludeCareerSitemapPath(zhPath, item)) {
+      paths.add(zhPath);
+    }
   }
 
   for (const item of careerIndustries) {
@@ -203,8 +253,14 @@ function buildCareerPaths() {
 
     if (profileType === "big5") {
       const trait = key.toLowerCase();
-      paths.add(`/en/career/recommendations/big5/${trait}`);
-      paths.add(`/zh/career/recommendations/big5/${trait}`);
+      const enPath = `/en/career/recommendations/big5/${trait}`;
+      const zhPath = `/zh/career/recommendations/big5/${trait}`;
+      if (shouldIncludeCareerSitemapPath(enPath, item)) {
+        paths.add(enPath);
+      }
+      if (shouldIncludeCareerSitemapPath(zhPath, item)) {
+        paths.add(zhPath);
+      }
     }
   }
 
@@ -369,14 +425,27 @@ async function buildDataDetailPaths() {
 }
 
 async function buildCareerJobDetailPathsFromApi() {
-  return buildCmsDetailPaths(
-    "/v0.5/career-jobs",
-    (apiLocale) => ({ locale: apiLocale, org_id: 0 }),
-    (item, localePrefix) => {
-      const slug = normalizeSlug(item?.slug);
-      return slug ? `/${localePrefix}/career/jobs/${slug}` : "";
+  try {
+    const paths = new Set();
+
+    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+      const items = await fetchPaginatedItems("/v0.5/career-jobs", { locale: apiLocale, org_id: 0 });
+
+      for (const item of items) {
+        if (!isPublicIndexable(item)) continue;
+        const slug = normalizeSlug(item?.slug);
+        if (!slug) continue;
+        const path = `/${localePrefix}/career/jobs/${slug}`;
+        if (shouldIncludeCareerSitemapPath(path, item)) {
+          paths.add(path);
+        }
+      }
     }
-  );
+
+    return [...paths];
+  } catch {
+    return [];
+  }
 }
 
 async function buildTopicDetailPathsFromApi() {

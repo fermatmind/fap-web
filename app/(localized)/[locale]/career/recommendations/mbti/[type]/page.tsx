@@ -76,8 +76,8 @@ function renderCareerDataStatus(detail: CareerRecommendationDetail, locale: Loca
       </p>
       <p className="m-0 mt-2 leading-7">
         {locale === "zh"
-          ? "Career recommendation 页面现在只消费显式协议 surface。缺少 answer / seo / matched job 等关键字段时，页面不会再本地合成职业解释。"
-          : "This recommendation page now consumes explicit protocol surfaces only. When answer / SEO / matched-job fields are missing, it no longer synthesizes local career explanations."}
+          ? "Career recommendation 页面现在只消费显式协议 surface，并要求 claim / trust / index gate 明确放行。缺少关键协议字段时，页面不会再本地合成职业解释。"
+          : "This recommendation page now consumes explicit protocol surfaces only, with explicit claim, trust, and index gates. When key protocol fields are missing, it no longer synthesizes local career explanations."}
       </p>
       {detail.renderState.missingFields.length > 0 ? (
         <p className="m-0 mt-2 text-xs uppercase tracking-[0.08em] text-amber-900/80">
@@ -118,6 +118,10 @@ export async function generateMetadata({
     title: detail.seo.surface?.title || detail.seo.meta.title,
     description: detail.seo.surface?.description || detail.seo.meta.description,
     seoSurface: detail.seo.surface,
+    explicitIndexGate: {
+      indexEligible: detail.protocol.careerAsset?.seo_contract.index_eligible ?? detail.seo.surface?.indexEligible ?? null,
+      indexState: detail.protocol.careerAsset?.seo_contract.index_state ?? detail.seo.surface?.indexState ?? null,
+    },
     noindex: !detail.renderState.canIndexPage || noindex,
     alternatesByLocale: {
       en: detail.seo.meta.alternates.en ?? buildCareerRecommendationFrontendUrl("en", detail.publicRouteSlug),

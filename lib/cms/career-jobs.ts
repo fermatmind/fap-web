@@ -1,15 +1,23 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
+import {
+  createUnavailableCareerScoreResult,
+  normalizeCareerAssetMaster,
+  normalizeCareerClaimPermissions,
+  normalizeCareerTrustManifest,
+  type CareerAssetMaster,
+  type CareerClaimPermissions,
+  type CareerTrustManifest,
+} from "@/lib/career/contracts";
+import { getCareerJobRenderState, type CareerJobRenderState } from "@/lib/career/protocolReadiness";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
-const RIASEC_KEYS = ["R", "I", "A", "S", "E", "C"] as const;
-
-type RiasecKey = (typeof RIASEC_KEYS)[number];
+type RiasecKey = "R" | "I" | "A" | "S" | "E" | "C";
 
 type CmsCareerJobApiSeoMeta = {
   seo_title?: string | null;
@@ -29,6 +37,7 @@ type CmsCareerJobApiRecord = {
   id?: number;
   org_id?: number;
   job_code?: string;
+  occupation_uuid?: string | null;
   slug?: string;
   locale?: string;
   title?: string;
@@ -56,6 +65,13 @@ type CmsCareerJobApiRecord = {
   mbti_secondary_codes?: unknown;
   riasec_profile?: unknown;
   seo_meta?: CmsCareerJobApiSeoMeta;
+  career_asset_master_v4_1?: unknown;
+  trust_manifest?: unknown;
+  claim_permissions?: unknown;
+  index_state?: string | null;
+  index_eligible?: boolean;
+  dataset_eligible?: boolean;
+  article_eligible?: boolean;
 };
 
 type CmsCareerJobApiSection = {
@@ -148,7 +164,13 @@ export type CareerJobListItem = {
   href: string;
 };
 
-export type CareerJobViewModel = {
+export type CareerJobProtocolBundle = {
+  careerAsset: CareerAssetMaster | null;
+  trustManifest: CareerTrustManifest | null;
+  claimPermissions: CareerClaimPermissions;
+};
+
+export type CareerJobAdapterViewModel = {
   id: number | null;
   orgId: number;
   jobCode: string;
@@ -176,12 +198,20 @@ export type CareerJobViewModel = {
   seoMeta: CareerJobSeoMetaSummary | null;
   landingSurface: LandingSurfaceViewModel | null;
   answerSurface: AnswerSurfaceViewModel | null;
+  renderState: CareerJobRenderState;
+  protocol: CareerJobProtocolBundle;
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
   publishedAt: string | null;
   updatedAt: string | null;
 };
+
+/**
+ * @deprecated Adapter-layer export retained for existing page imports.
+ * The canonical protocol authority now lives under `lib/career/contracts`.
+ */
+export type CareerJobViewModel = CareerJobAdapterViewModel;
 
 export type CareerJobSeoViewModel = {
   meta: {
@@ -241,16 +271,16 @@ function normalizeIsoValue(value: unknown): string | null {
   return normalized || null;
 }
 
+function normalizeBoolean(value: unknown): boolean | null {
+  return typeof value === "boolean" ? value : null;
+}
+
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return null;
   }
 
   return value as Record<string, unknown>;
-}
-
-function asArray<T = unknown>(value: unknown): T[] {
-  return Array.isArray(value) ? (value as T[]) : [];
 }
 
 function normalizeStringArray(value: unknown): string[] {
@@ -570,6 +600,192 @@ function normalizeCareerJobJsonLd(
   return jsonld ? walk(jsonld) : null;
 }
 
+function isIndexEligibleFromLegacyState(indexState: string | null): boolean | null {
+  const normalized = String(indexState ?? "").trim().toLowerCase();
+  if (!normalized) {
+    return null;
+  }
+
+  if (normalized === "indexable" || normalized === "promotion_candidate" || normalized === "seed_index") {
+    return true;
+  }
+
+  if (normalized === "noindex" || normalized === "blocked" || normalized === "excluded") {
+    return false;
+  }
+
+  return null;
+}
+
+function buildCareerJobProtocolBundle(raw: CmsCareerJobApiRecord, locale: Locale | string): CareerJobProtocolBundle {
+  const explicitAsset = normalizeCareerAssetMaster(raw.career_asset_master_v4_1);
+  const trustManifest = normalizeCareerTrustManifest(raw.trust_manifest);
+  const claimPermissions = normalizeCareerClaimPermissions(raw.claim_permissions);
+
+  if (explicitAsset) {
+    return {
+      careerAsset: {
+        ...explicitAsset,
+        claim_permissions: claimPermissions,
+      },
+      trustManifest,
+      claimPermissions,
+    };
+  }
+
+  const slug = normalizeCareerJobSlug(String(raw.slug ?? raw.job_code ?? ""));
+  const canonicalPath = slug ? buildCareerJobFrontendUrl(locale, slug) : null;
+  const authoritySource = fallbackText(raw.job_code, raw.slug);
+  const explicitIndexState = fallbackText(raw.index_state) || null;
+  const explicitIndexEligible = normalizeBoolean(raw.index_eligible) ?? isIndexEligibleFromLegacyState(explicitIndexState);
+
+  return {
+    careerAsset: {
+      envelope: {
+        asset_version: "career_asset_master_v4.1",
+        schema_version: "career.asset_master.schema.v4.1",
+        protocol_version: "career.protocol.v1",
+        generated_at: null,
+        content_version: "unknown",
+        data_version: "unknown",
+        logic_version: "unknown",
+      },
+      identity: {
+        occupation_uuid: normalizeIsoValue(raw.occupation_uuid),
+        canonical_slug: slug,
+        entity_level: "career_job_detail",
+        family_uuid: null,
+        parent_uuid: null,
+      },
+      locale_policy: {
+        truth_market: null,
+        display_market: normalizeLocale(locale) === "zh" ? "CN" : "US",
+        crosswalk_mode: null,
+        locale_warning: null,
+        truth_notice_required: false,
+      },
+      titles: {
+        canonical_en: fallbackText(raw.title) || null,
+        canonical_zh: fallbackText(raw.title) || null,
+        search_h1_zh: fallbackText(raw.title) || null,
+        short_title_en: fallbackText(raw.title) || null,
+        short_title_zh: fallbackText(raw.title) || null,
+      },
+      alias_index: [],
+      ontology: {
+        task_prototype_signature: {},
+        structural_stability: null,
+        task_prototype_overlap: null,
+        market_semantics_gap: null,
+        regulatory_divergence: null,
+        toolchain_divergence: null,
+        skill_gap_threshold: null,
+        trust_inheritance_scope: {},
+      },
+      crosswalks: {
+        us_soc: [],
+        cn_occ: [],
+        market_titles: [],
+      },
+      truth_layer: {
+        source_refs: authoritySource ? [authoritySource] : [],
+        median_pay_usd_annual: null,
+        jobs_2024: null,
+        projected_jobs_2034: null,
+        employment_change: null,
+        outlook_pct_2024_2034: null,
+        outlook_description: null,
+        entry_education: null,
+        work_experience: null,
+        on_the_job_training: null,
+        ai_exposure: null,
+        ai_rationale: null,
+        bls_url: null,
+        truth_last_reviewed_at: null,
+      },
+      derived_signals: {
+        ai_risk_band: null,
+        growth_band: null,
+        pay_band: null,
+        entry_barrier: null,
+        human_moat_tags: [],
+        work_structure_tags: [],
+        collaboration_load: null,
+        abstraction_level: null,
+        autonomy_level: null,
+        variability_level: null,
+        people_intensity: null,
+        closure_demand: null,
+        cadence_rigidity: null,
+        process_repeatability: null,
+        deadline_hardness: null,
+        likely_fit_types: normalizeCodeItems(raw.fit_personality_codes),
+        likely_strain_types: [],
+        derivation_refs: authoritySource ? [authoritySource] : [],
+      },
+      scoring: {
+        fit_score: createUnavailableCareerScoreResult("score_result.fit_score"),
+        strain_score: createUnavailableCareerScoreResult("score_result.strain_score"),
+        ai_survival_score: createUnavailableCareerScoreResult("score_result.ai_survival_score"),
+        mobility_score: createUnavailableCareerScoreResult("score_result.mobility_score"),
+        confidence_score: createUnavailableCareerScoreResult("score_result.confidence_score"),
+      },
+      warnings: {
+        red_flags: [],
+        amber_flags: [],
+        blocked_claims: claimPermissions.reason_codes,
+      },
+      claim_permissions: claimPermissions,
+      transition_seed: {
+        bridge_candidate_refs: [],
+        hedge_candidate_refs: [],
+        stable_upside_candidate_refs: [],
+      },
+      seo_contract: {
+        route_family: "career_job_detail",
+        canonical_path: canonicalPath,
+        index_state: explicitIndexState,
+        index_eligible: explicitIndexEligible,
+        dataset_eligible: normalizeBoolean(raw.dataset_eligible),
+        article_eligible: normalizeBoolean(raw.article_eligible),
+        canonical_target: canonicalPath ? canonicalUrl(canonicalPath) : null,
+      },
+      trust_contract: {
+        trust_manifest_ref: trustManifest ? `${trustManifest.entity_id}:${trustManifest.page_type}:${trustManifest.page_slug}` : null,
+        review_required: !trustManifest,
+        editorial_patch_required: !trustManifest,
+        editorial_patch_status: trustManifest ? "provided" : "missing",
+      },
+      audit: {
+        created_by: authoritySource || null,
+        reviewed_by: trustManifest?.reviewer.reviewer_id ?? null,
+        created_at: null,
+        last_substantive_update_at: trustManifest?.last_substantive_update_at ?? null,
+        schema_hash: null,
+      },
+    },
+    trustManifest,
+    claimPermissions,
+  };
+}
+
+function buildCareerJobRenderStateForViewModel(job: CareerJobAdapterViewModel): CareerJobRenderState {
+  return getCareerJobRenderState({
+    answerSurface: job.answerSurface,
+    authoritySource: job.protocol.careerAsset?.audit.created_by ?? job.jobCode,
+    claimPermissions: job.protocol.claimPermissions,
+    trustManifest: job.protocol.trustManifest,
+    careerAsset: job.protocol.careerAsset,
+    hasSalaryData: Boolean(job.salaryText),
+    hasOutlookData: Boolean(job.outlookText),
+    hasFitData:
+      job.fitPersonalityItems.length > 0 ||
+      job.mbtiPrimary.length > 0 ||
+      job.mbtiSecondary.length > 0 ||
+      Object.values(job.riasecVector).some((value) => value !== null),
+  });
+}
+
 export function mapFrontendLocaleToCareerApiLocale(locale: Locale | string): "en" | "zh-CN" {
   return toApiLocale(locale);
 }
@@ -606,7 +822,7 @@ export function adaptCareerJobDetail(
     sections?: CmsCareerJobApiSection[];
     seoMeta?: CmsCareerJobApiSeoMeta;
   }
-): CareerJobViewModel | null {
+): CareerJobAdapterViewModel | null {
   if (!raw) {
     return null;
   }
@@ -621,6 +837,7 @@ export function adaptCareerJobDetail(
   const workContents = normalizeWorkContents(raw.work_contents);
   const skills = normalizeSkills(raw.skills);
   const fitPersonalityItems = normalizeCodeItems(raw.fit_personality_codes);
+  const protocol = buildCareerJobProtocolBundle(raw, options.locale);
   const sections = Array.isArray(options.sections)
     ? options.sections
         .map(normalizeSection)
@@ -629,7 +846,7 @@ export function adaptCareerJobDetail(
         .sort((left, right) => left.sortOrder - right.sortOrder)
     : [];
 
-  return {
+  const job: CareerJobAdapterViewModel = {
     id: typeof raw.id === "number" ? raw.id : null,
     orgId: typeof raw.org_id === "number" ? raw.org_id : 0,
     jobCode: fallbackText(raw.job_code, slug),
@@ -657,12 +874,27 @@ export function adaptCareerJobDetail(
     seoMeta: normalizeCareerJobSeoMeta(options.seoMeta ?? raw.seo_meta ?? null),
     landingSurface: null,
     answerSurface: null,
+    renderState: {
+      careerDataStatus: "trust_limited",
+      canRenderSalarySurface: false,
+      canRenderOutlookSurface: false,
+      canRenderFitSurface: false,
+      canRenderAnswerSurface: false,
+      canRenderStructuredData: false,
+      canIndexPage: false,
+      missingFields: ["career_job_protocol_pending"],
+    },
+    protocol,
     status: fallbackText(raw.status),
     isPublic: Boolean(raw.is_public),
     isIndexable: Boolean(raw.is_indexable),
     publishedAt: normalizeIsoValue(raw.published_at),
     updatedAt: normalizeIsoValue(raw.updated_at),
   };
+
+  job.renderState = buildCareerJobRenderStateForViewModel(job);
+
+  return job;
 }
 
 export function adaptCareerJobSeoPayload(
@@ -735,7 +967,7 @@ export async function listCareerJobsFromCms(options: { locale: Locale | string }
 export async function getCareerJobFromCmsBySlug(options: {
   slug: string;
   locale: Locale | string;
-}): Promise<CareerJobViewModel | null> {
+}): Promise<CareerJobAdapterViewModel | null> {
   const normalizedSlug = normalizeCareerJobSlug(options.slug);
   if (!normalizedSlug) {
     return null;
@@ -765,6 +997,7 @@ export async function getCareerJobFromCmsBySlug(options: {
     if (job) {
       job.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
       job.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
+      job.renderState = buildCareerJobRenderStateForViewModel(job);
     }
 
     return job && matchesRequestedLocale(job.locale, options.locale) ? job : null;

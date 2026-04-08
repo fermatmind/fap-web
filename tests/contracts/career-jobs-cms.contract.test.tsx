@@ -85,6 +85,7 @@ describe("career jobs cms adapter contract", () => {
     const detail = adaptCareerJobDetail(
       {
         slug: "product-manager",
+        occupation_uuid: "occ_product_manager",
         locale: "en",
         title: "Product Manager",
         excerpt: "Shape product direction across user and business goals.",
@@ -111,6 +112,53 @@ describe("career jobs cms adapter contract", () => {
           core: ["roadmapping"],
           supporting: ["stakeholder management"],
         },
+        trust_manifest: {
+          manifest_version: "trust_manifest.v1",
+          entity_id: "occ_product_manager",
+          page_type: "career_job_detail",
+          page_slug: "product-manager",
+          content_version: "content.v1",
+          data_version: "data.v1",
+          logic_version: "logic.v1",
+          locale_context: {
+            truth_market: "US",
+            display_market: "US",
+            locale: "en",
+          },
+          source_trace: [],
+          methodology: {
+            crosswalk_mode: "exact",
+            derivation_policy: "job_detail_projection",
+            notes: [],
+          },
+          reviewer: {
+            reviewed: true,
+            reviewer_id: "career_editor",
+            reviewer_status: "approved",
+          },
+          ai_assistance: {
+            used: true,
+            summary: "surface drafting only",
+          },
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+          last_substantive_update_at: "2026-04-08T00:00:00.000Z",
+          next_review_due_at: "2026-07-08T00:00:00.000Z",
+        },
+        claim_permissions: {
+          allow_strong_claim: true,
+          allow_salary_comparison: true,
+          allow_ai_strategy: true,
+          allow_transition_recommendation: true,
+          allow_cross_market_pay_copy: false,
+          reason_codes: [],
+        },
+        index_eligible: true,
+        index_state: "promotion_candidate",
       },
       {
         locale: "en",
@@ -130,6 +178,11 @@ describe("career jobs cms adapter contract", () => {
     expect(detail?.riasecVector.R).toBeNull();
     expect(detail?.landingSurface).toBeNull();
     expect(detail?.answerSurface).toBeNull();
+    expect(detail?.protocol.claimPermissions.allow_salary_comparison).toBe(true);
+    expect(detail?.protocol.trustManifest?.quality.complete).toBe(true);
+    expect(detail?.renderState.canRenderSalarySurface).toBe(true);
+    expect(detail?.renderState.canRenderFitSurface).toBe(true);
+    expect(detail?.renderState.canIndexPage).toBe(true);
   });
 
   it("normalizes answer surface from the backend detail authority", async () => {
@@ -369,6 +422,9 @@ describe("career jobs page authority contract", () => {
     expect(detailSource).toContain("seoSurface: seo?.surface");
     expect(detailSource).toContain("job.landingSurface");
     expect(detailSource).toContain("job.answerSurface");
+    expect(detailSource).toContain("career-job-protocol-status");
+    expect(detailSource).toContain("renderState.canRenderSalarySurface");
+    expect(detailSource).toContain("renderState.canRenderAnswerSurface");
     expect(detailSource).toContain("career-job-answer-surface");
     expect(detailSource).toContain("career-job-landing-cta");
     expect(listSource).not.toContain("career-recommendations");

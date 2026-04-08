@@ -6,6 +6,11 @@ export type ContentIndexabilityState = {
   enforceLocalizedContent?: boolean;
 };
 
+export type ExplicitIndexGate = {
+  indexEligible?: boolean | null;
+  indexState?: string | null;
+};
+
 const LOCALE_PREFIX_RE = /^\/(en|zh)(?=\/|$)/i;
 const DENY_PATH_PATTERNS: RegExp[] = [
   /^\/api(\/|$)/i,
@@ -49,12 +54,28 @@ export function isIndexablePath(pathname: string): boolean {
   return !DENY_PATH_PATTERNS.some((pattern) => pattern.test(stripped));
 }
 
+function normalizeIndexState(value: string | null | undefined): string {
+  return String(value ?? "").trim().toLowerCase();
+}
+
+function isExplicitlyExcludedFromIndex(gate?: ExplicitIndexGate | null): boolean {
+  const indexState = normalizeIndexState(gate?.indexState);
+
+  if (gate?.indexEligible === false) {
+    return true;
+  }
+
+  return indexState === "noindex" || indexState === "blocked" || indexState === "excluded";
+}
+
 export function shouldNoindex(
   pathname: string,
   locale: Locale | null | undefined,
-  contentState?: ContentIndexabilityState
+  contentState?: ContentIndexabilityState,
+  explicitGate?: ExplicitIndexGate | null
 ): boolean {
   if (!isIndexablePath(pathname)) return true;
+  if (isExplicitlyExcludedFromIndex(explicitGate)) return true;
 
   if (contentState?.enforceLocalizedContent && locale) {
     if (contentState.hasLocalizedContent === false) return true;
@@ -64,6 +85,14 @@ export function shouldNoindex(
   return false;
 }
 
-export function shouldIncludeInSitemap(pathname: string): boolean {
-  return isIndexablePath(pathname);
+export function shouldIncludeInSitemap(pathname: string, explicitGate?: ExplicitIndexGate | null): boolean {
+  if (!isIndexablePath(pathname)) {
+    return false;
+  }
+
+  if (explicitGate) {
+    return explicitGate.indexEligible === true && !isExplicitlyExcludedFromIndex(explicitGate);
+  }
+
+  return true;
 }

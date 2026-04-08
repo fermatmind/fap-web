@@ -1,0 +1,8 @@
+{
+  "allow_strong_claim": true,
+  "allow_salary_comparison": false,
+  "allow_ai_strategy": true,
+  "allow_transition_recommendation": true,
+  "allow_cross_market_pay_copy": false,
+  "reason_codes": ["cross_market_pay_requires_explicit_gate"]
+}
