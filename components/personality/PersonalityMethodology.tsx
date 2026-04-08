@@ -19,7 +19,7 @@ export function PersonalityMethodology({
     >
       <div className="space-y-2">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-hub-navy)]">
-          {locale === "zh" ? "Methodology" : "Methodology"}
+          {locale === "zh" ? "判断方法" : "Methodology"}
         </p>
         <h2 className="m-0 font-serif text-[length:var(--fm-hub-heading-section)] text-[var(--fm-hub-navy-strong)]">
           {locale === "zh"

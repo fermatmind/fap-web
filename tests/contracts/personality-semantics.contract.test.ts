@@ -58,4 +58,13 @@ describe("personality semantics contract", () => {
     expect(pageSource.indexOf("<CareerIntelligencePreview")).toBeLessThan(pageSource.indexOf("<PersonalityMethodology"));
     expect(pageSource.indexOf("<PersonalityMethodology")).toBeLessThan(pageSource.indexOf("<PersonalityFaq"));
   });
+
+  it("uses the same faq authority for page rendering and FAQPage schema composition", () => {
+    const pagePath = path.join(process.cwd(), "app/(localized)/[locale]/personality/page.tsx");
+    const pageSource = fs.readFileSync(pagePath, "utf8");
+
+    expect(pageSource).toContain("const faqItems = hubPayload.faqItems ?? hubPayload.faqBlocks;");
+    expect(pageSource).toContain("buildFAQPageJsonLd(faqItems)");
+    expect(pageSource).toContain("<PersonalityFaq locale={locale} items={faqItems} />");
+  });
 });

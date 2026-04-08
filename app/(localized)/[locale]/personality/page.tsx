@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { PersonalityHeroExecutiveSummary } from "@/components/personality/PersonalityHeroExecutiveSummary";
@@ -9,7 +8,7 @@ import { ScenarioIntelligenceMatrix } from "@/components/personality/ScenarioInt
 import { PersonalityMethodology } from "@/components/personality/PersonalityMethodology";
 import { TypeNavigatorWorkbench } from "@/components/personality/TypeNavigatorWorkbench";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -119,7 +118,9 @@ export default async function PersonalityPage({
     sourcePath: canonicalPath,
   });
   const mbtiTopicHubHref = withLocale("/topics/mbti");
-  const mbtiCareerRecommendationHubHref = withLocale("/career/recommendations");
+  const methodologyItems = hubPayload.methodologyItems ?? hubPayload.methodologyBlocks;
+  const faqItems = hubPayload.faqItems ?? hubPayload.faqBlocks;
+  const typeItemList = hubPayload.jsonLdInputs?.typeItemList ?? [];
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? "人格类型" : "Personality Types",
@@ -134,11 +135,11 @@ export default async function PersonalityPage({
     { name: locale === "zh" ? "人格" : "Personality", path: canonicalPath },
   ]);
   const faqJsonLd =
-    hubPayload.jsonLdInputs?.faqItems.length
-      ? buildFAQPageJsonLd(hubPayload.jsonLdInputs.faqItems)
+    faqItems.length
+      ? buildFAQPageJsonLd(faqItems)
       : null;
   const itemListJsonLd =
-    hubPayload.jsonLdInputs?.typeItemList.length
+    typeItemList.length
       ? buildItemListJsonLd({
           path: canonicalPath,
           title: locale === "zh" ? "16 型人格目录" : "16 personality type inventory",
@@ -148,7 +149,7 @@ export default async function PersonalityPage({
               : "Browse the published profile routes for all 16 personality types.",
           locale,
           idSuffix: "personality-inventory",
-          items: hubPayload.jsonLdInputs.typeItemList.map((item) => ({
+          items: typeItemList.map((item) => ({
             name: item.name,
             path: item.url,
             description: item.description,
@@ -209,8 +210,8 @@ export default async function PersonalityPage({
       )}
 
       <CareerIntelligencePreview locale={locale} cards={careerPreviewCards} />
-      <PersonalityMethodology locale={locale} blocks={hubPayload.methodologyBlocks} />
-      <PersonalityFaq locale={locale} items={hubPayload.faqItems ?? hubPayload.faqBlocks} />
+      <PersonalityMethodology locale={locale} blocks={methodologyItems} />
+      <PersonalityFaq locale={locale} items={faqItems} />
     </Container>
   );
 }

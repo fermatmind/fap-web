@@ -19,7 +19,7 @@ export function PersonalityFaq({
     >
       <div className="space-y-2">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-hub-navy)]">
-          {locale === "zh" ? "FAQ" : "FAQ"}
+          {locale === "zh" ? "常见问题" : "FAQ"}
         </p>
         <h2 className="m-0 font-serif text-[length:var(--fm-hub-heading-section)] text-[var(--fm-hub-navy-strong)]">
           {locale === "zh" ? "在继续往下点之前，先把这几件事看清楚" : "Before you click deeper, clarify these points first"}
