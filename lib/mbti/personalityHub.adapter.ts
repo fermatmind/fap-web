@@ -146,32 +146,38 @@ function buildFamilyGroups(input: BuildPersonalityHubPayloadInput): PersonalityH
 
 function buildCareerPreviewSeed(input: BuildPersonalityHubPayloadInput, cards: TypeDecisionCard[]): CareerPreviewSeed[] {
   const selected: TypeDecisionCard[] = [];
-  const seenGroups = new Set<string>();
-
-  for (const card of cards) {
-    if (selected.length >= 3) {
-      break;
-    }
-
-    if (card.launchTier !== "stable" || seenGroups.has(card.groupKey)) {
-      continue;
+  const selectedTypes = new Set<string>();
+  const pushCard = (card: TypeDecisionCard) => {
+    if (selectedTypes.has(card.typeCode)) {
+      return;
     }
 
     selected.push(card);
-    seenGroups.add(card.groupKey);
+    selectedTypes.add(card.typeCode);
+  };
+
+  const stableGrouped = cards.filter(
+    (card, index, collection) =>
+      card.launchTier === "stable" &&
+      collection.findIndex((candidate) => candidate.groupKey === card.groupKey && candidate.launchTier === "stable") === index
+  );
+
+  const nonStableGrouped = cards.filter(
+    (card, index, collection) =>
+      card.launchTier !== "stable" &&
+      collection.findIndex((candidate) => candidate.groupKey === card.groupKey && candidate.launchTier !== "stable") === index
+  );
+
+  for (const card of stableGrouped) {
+    pushCard(card);
+  }
+
+  for (const card of nonStableGrouped) {
+    pushCard(card);
   }
 
   for (const card of cards) {
-    if (selected.length >= 3) {
-      break;
-    }
-
-    if (seenGroups.has(card.groupKey)) {
-      continue;
-    }
-
-    selected.push(card);
-    seenGroups.add(card.groupKey);
+    pushCard(card);
   }
 
   return selected.map((card) => ({

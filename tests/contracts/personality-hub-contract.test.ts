@@ -31,7 +31,7 @@ describe("personality hub contract", () => {
     expect(payload.typeWorkbenchSeed).toHaveLength(16);
     expect(payload.inventoryLinks).toHaveLength(16);
     expect(new Set(payload.inventoryLinks.map((item) => item.typeCode)).size).toBe(16);
-    expect(payload.careerPreviewSeed).toHaveLength(3);
+    expect(payload.careerPreviewSeed.length).toBeGreaterThanOrEqual(3);
     expect(payload.methodologyBlocks.length).toBeGreaterThan(0);
     expect(payload.faqBlocks.length).toBeGreaterThan(0);
   });

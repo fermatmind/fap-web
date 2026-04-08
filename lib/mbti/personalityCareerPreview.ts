@@ -234,9 +234,23 @@ export async function buildPersonalityCareerPreview(input: {
 
   const jobListMap = new Map(jobList.map((job) => [job.slug, job]));
 
-  return details
-    .filter((detail): detail is CareerRecommendationDetail => detail !== null)
-    .map((detail) => createCareerPreviewCardFromDetail(detail, jobListMap, input.locale))
-    .filter((card): card is CareerPreviewCard => card !== null)
-    .slice(0, 3);
+  const cards: CareerPreviewCard[] = [];
+
+  for (const detail of details) {
+    if (!detail) {
+      continue;
+    }
+
+    const card = createCareerPreviewCardFromDetail(detail, jobListMap, input.locale);
+    if (!card) {
+      continue;
+    }
+
+    cards.push(card);
+    if (cards.length >= 3) {
+      break;
+    }
+  }
+
+  return cards;
 }

@@ -120,4 +120,16 @@ describe("personality career preview contract", () => {
     expect(pageSource).toContain("<CareerIntelligencePreview");
     expect(pageSource).toContain("<TypeNavigatorWorkbench");
   });
+
+  it("keeps a longer preview seed and fills cards until three valid previews are produced", () => {
+    const adapterPath = path.join(process.cwd(), "lib/mbti/personalityHub.adapter.ts");
+    const previewPath = path.join(process.cwd(), "lib/mbti/personalityCareerPreview.ts");
+    const adapterSource = fs.readFileSync(adapterPath, "utf8");
+    const previewSource = fs.readFileSync(previewPath, "utf8");
+
+    expect(adapterSource).toContain("for (const card of stableGrouped)");
+    expect(adapterSource).toContain("for (const card of nonStableGrouped)");
+    expect(previewSource).toContain("if (cards.length >= 3)");
+    expect(previewSource).toContain("for (const detail of details)");
+  });
 });
