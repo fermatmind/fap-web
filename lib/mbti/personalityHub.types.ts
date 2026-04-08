@@ -47,13 +47,56 @@ export interface TypeDecisionCard {
   claim_permissions?: string[];
 }
 
+export type CareerPreviewStance = "recommended" | "conditional" | "not_recommended";
+
+export interface CareerPreviewLink {
+  label: string;
+  href: string;
+  kind: "primary" | "secondary";
+}
+
+export interface CareerPreviewSignal {
+  key: string;
+  label: string;
+  value: string;
+  tone?: "neutral" | "positive" | "friction";
+}
+
+export interface MiniStrainRadarAxis {
+  key: string;
+  label: string;
+  value: number;
+}
+
+export interface MiniStrainRadarData {
+  title: string;
+  subtitle: string;
+  axes: MiniStrainRadarAxis[];
+}
+
+export interface CareerPreviewSeed {
+  typeCode: string;
+  slug: string;
+  title: string;
+  groupKey: string;
+  groupTitle: string;
+  launchTier: "stable" | "candidate" | "hold";
+  recommendationHref: string;
+}
+
 export interface CareerPreviewCard {
   key: string;
-  title: string;
+  typeCode: string;
+  roleTitle: string;
   summary: string;
-  href: string;
-  keywords: string[];
-  matchedJobSlugs: string[];
+  fitSummary: string;
+  cautionSummary: string;
+  topMatchingTypes: string[];
+  stance: CareerPreviewStance;
+  primaryCta: CareerPreviewLink;
+  secondaryCta: CareerPreviewLink;
+  signals: CareerPreviewSignal[];
+  radar: MiniStrainRadarData;
 }
 
 export type TypeWorkbenchSortKey =
@@ -159,7 +202,7 @@ export interface PersonalityHubPayload {
   familyGroups: PersonalityHubFamilyGroup[];
   typeDecisionCards: TypeDecisionCard[];
   typeWorkbenchSeed: TypeWorkbenchCard[];
-  careerPreviewCards: CareerPreviewCard[];
+  careerPreviewSeed: CareerPreviewSeed[];
   methodologyBlocks: MethodologyBlock[];
   faqBlocks: FaqBlock[];
   inventoryLinks: { typeCode: string; href: string }[];
