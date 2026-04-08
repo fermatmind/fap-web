@@ -99,8 +99,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正耗损他们的不是投入太少，而是投入太多：在长期承担关系与群体责任后，反而越来越难区分什么是自己的负载。",
-        "variantRiskT": "真正耗损他们的不是投入太少，而是投入太多：在长期承担关系与群体责任后，反而越来越难区分什么是自己的负载。"
+        "variantRiskA": "A 型更容易把责任接住并继续推进，但会低估自己的恢复需求。",
+        "variantRiskT": "T 型更容易把每次他人反应都纳入自我评估，风险是过载持续放大。"
       }
     },
     "a": {
@@ -301,8 +301,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "coreStrength": "让僵死的局面重新产生选择，让人和想法快速流动起来。",
         "realWorldFriction": "真正耗损他们的不是没有热情，而是当现实要求他们长期维持单一路径时，会感到可能性被过早封闭。",
         "nextStepHint": "这页要解释的不是你为什么有感染力，而是为什么你的高能量与高开放性会同时成为放大器和分散器。",
-        "variantDeltaA": "更像稳定点火器：仍然开阔，但更能在选定方向后持续推进。",
-        "variantDeltaT": "更像高敏感的可能性振荡器：感知更细，联想更快，也更容易因为担心选错而迟迟不收束。",
+        "variantDeltaA": "A 型更容易把热情落成推进，不太会因为短期挫折就立刻收手。",
+        "variantDeltaT": "T 型更敏感也更容易担心选错，常在比较中把启动门槛抬高。",
         "primaryCta": "",
         "secondaryCta1": "",
         "secondaryCta2": ""
@@ -391,13 +391,13 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正耗损他们的不是没有热情，而是当现实要求他们长期维持单一路径时，会感到可能性被过早封闭。",
-        "variantRiskT": "真正耗损他们的不是没有热情，而是当现实要求他们长期维持单一路径时，会感到可能性被过早封闭。"
+        "variantRiskA": "A 型更容易把热情落成推进，但会低估单一路径的收口要求。",
+        "variantRiskT": "T 型更容易在担心选错中反复比较，风险是把启动门槛抬高。"
       }
     },
     "a": {
       "hero": {
-        "summary": "更稳的可能性点火者。你不是少了热情，而是更能把热情接到持续推进的结构上。",
+        "summary": "适合能把人、内容和变化快速连接起来的岗位。",
         "positioning": "更稳的可能性点火者。你不是少了热情，而是更能把热情接到持续推进的结构上。",
         "coreStrength": "你能把灵感和热情更快转成现实动作，而不只是点燃气氛。",
         "realWorldFriction": "ENFP-A 更容易在高兴奋中及时收口，把热情转成推动力。",
@@ -409,9 +409,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "适合能把人、内容和变化快速连接起来的岗位。",
+        "bottleneck": "如果环境长期只允许单线推进，可能性会被过早封闭，热情就容易转成耗损。",
+        "advice": "先选一条能持续迭代的路径，再允许灵感在路径里生长。",
         "strengths": [
           "激活停滞局面",
           "快速建立关系",
@@ -426,7 +426,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         ],
         "why": "Ne 让 ENFP 对新可能性高度敏感，Fi 让他们持续判断这件事是否与自己有真实连接。因此他们在品牌、创意、用户增长、教育、组织激活、产品传播等需要人和新意流动的岗位里能量更顺；在长期封闭、低变化、高重复环境里容易快速负载过载。",
         "variantDeltaA": "ENFP-A 更容易在高兴奋中及时收口，把热情转成推动力",
-        "variantDeltaT": "ENFP-A 更容易在高兴奋中及时收口，把热情转成推动力。",
+        "variantDeltaT": "ENFP-T 更容易在多个机会之间持续权衡，导致推进周期被拉长",
         "nextActions": [
           "查看 ENFP-A 职业推荐",
           "开始深度测试"
@@ -436,9 +436,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "ENFP 在团队里会把气氛、意义和行动一起点亮。",
+        "bottleneck": "如果团队只消耗热度、不提供结构，热情很快会转成疲惫。",
+        "advice": "让热度挂在明确节点上，而不是挂在情绪峰值上。",
         "strengths": [
           "提升气氛与投入度",
           "把不同人连起来",
@@ -463,9 +463,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：你很会打开局面，但不一定把打开后的路径持续经营下去。",
-        "advice": "保留探索，不等于放弃收口；每一轮只允许自己维护一个主方向，把其余可能性降级为暂存。",
+        "summary": "成长不是压掉想象力，而是把想象力接到更稳定的执行轨道上。",
+        "bottleneck": "如果一直停留在灵感层，成长会被拆成很多没有收口的开端。",
+        "advice": "每次新想法都要配一个最小验证步骤。",
         "strengths": [],
         "risks": [],
         "why": "Ne 优势让 ENFP 持续看见新路，但当 Te 结构不足时，可能性会变成算法冗余。成长的关键不是少想一点，而是让已选方向拥有执行骨架。",
@@ -491,7 +491,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
     },
     "t": {
       "hero": {
-        "summary": "更敏锐的可能性点火者。你不只是看见未来，还会反复追问哪一条未来才最值得进入。",
+        "summary": "适合需要感知变化、再把变化转成参与感的岗位。",
         "positioning": "更敏锐的可能性点火者。你不只是看见未来，还会反复追问哪一条未来才最值得进入。",
         "coreStrength": "你能更快感知机会之间的差别与隐藏代价。",
         "realWorldFriction": "ENFP-T 更容易在多个机会之间持续权衡，导致推进周期被拉长。",
@@ -503,9 +503,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "适合需要感知变化、再把变化转成参与感的岗位。",
+        "bottleneck": "如果每一次反馈都被拿来做自我审判，热情会越来越难稳定输出。",
+        "advice": "把反馈分成“修正动作”和“定义自我”两层，不要把两者绑死。",
         "strengths": [
           "激活停滞局面",
           "快速建立关系",
@@ -530,9 +530,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "ENFP-T 更需要被看见变化，不然参与感会很快下降。",
+        "bottleneck": "如果所有反馈都被放大成自我判断，团队参与会越来越谨慎。",
+        "advice": "把反馈当作动作修正，不要当作自我价值判决。",
         "strengths": [
           "提升气氛与投入度",
           "把不同人连起来",
@@ -546,7 +546,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
           "遇到长期低反馈任务容易掉速"
         ],
         "why": "ENFP 会本能地把团队看成一个动态关系网络，而不是固定流程机器。这让他们非常适合激活团队，但也容易对稳定维护类工作失去耐受。",
-        "variantDeltaA": "ENFP-T 更可能因为在意关系反馈而不断调整自己，最后反而分散了行动能量。",
+        "variantDeltaA": "ENFP-A 更可能把连接和热情转成行动，不会一直停留在点燃阶段",
         "variantDeltaT": "ENFP-T 更可能因为在意关系反馈而不断调整自己，最后反而分散了行动能量",
         "nextActions": [
           "查看团队协作建议",
@@ -557,13 +557,13 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：你很会打开局面，但不一定把打开后的路径持续经营下去。",
-        "advice": "保留探索，不等于放弃收口；每一轮只允许自己维护一个主方向，把其余可能性降级为暂存。",
+        "summary": "成长重点是让情绪和路径分离，不要让每次波动都重写方向。",
+        "bottleneck": "如果担心选错总在脑内回放，行动会越来越稀薄。",
+        "advice": "先走一小段，再根据真实反馈修正，而不是在原地反复模拟。",
         "strengths": [],
         "risks": [],
         "why": "Ne 优势让 ENFP 持续看见新路，但当 Te 结构不足时，可能性会变成算法冗余。成长的关键不是少想一点，而是让已选方向拥有执行骨架。",
-        "variantDeltaA": "ENFP-T 需要补的是决策许可，不要因为可能性太多而无限延迟真正选择。",
+        "variantDeltaA": "ENFP-A 需要补的是节律维护，防止热情过快前冲后快速掉速",
         "variantDeltaT": "ENFP-T 需要补的是决策许可，不要因为可能性太多而无限延迟真正选择",
         "nextActions": [],
         "primaryCta": "",
@@ -683,8 +683,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的，不是判断不清，而是环境、团队与制度的演进速度往往跟不上他们的问题解决速度。",
-        "variantRiskT": "真正拖住他们的，不是判断不清，而是环境、团队与制度的演进速度往往跟不上他们的问题解决速度。"
+        "variantRiskA": "A 型更容易把判断直接推成行动，但会低估中间层级的阻力。",
+        "variantRiskT": "T 型更容易在推进前反复校准标准，风险是把执行拉进过度审计。"
       }
     },
     "a": {
@@ -885,8 +885,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "coreStrength": "把僵化问题重新定义，并迅速制造新的解决空间。",
         "realWorldFriction": "真正拖住他们的不是没有想法，而是想法更新速度远快于现实系统的吸收速度，导致方向频繁切换。",
         "nextStepHint": "这页要解释的不是你为什么点子多，而是为什么你的高频创新既能带来突破，也会制造持续的执行摩擦。",
-        "variantDeltaA": "更像高频推进器：想到路径后更敢立即试、立即撞、立即改，较少被失败预演拖住。",
-        "variantDeltaT": "更像高压实验室：对每种可能都会继续拆解与怀疑，因此在关键动作前更容易多开分支、抬高启动门槛。",
+        "variantDeltaA": "A 型更敢先试后修，适合快速验证；风险是过早切换方向，让协同成本上升。",
+        "variantDeltaT": "T 型更会反复比对路径，适合高精度判断；风险是把启动门槛抬高，最后卡在比较里。",
         "primaryCta": "",
         "secondaryCta1": "",
         "secondaryCta2": ""
@@ -975,13 +975,13 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的不是没有想法，而是想法更新速度远快于现实系统的吸收速度，导致方向频繁切换。",
-        "variantRiskT": "真正拖住他们的不是没有想法，而是想法更新速度远快于现实系统的吸收速度，导致方向频繁切换。"
+        "variantRiskA": "A 型更容易先试后修，风险是频繁切换方向，让协同成本上升。",
+        "variantRiskT": "T 型更容易在比较中抬高启动门槛，风险是启动太晚。"
       }
     },
     "a": {
       "hero": {
-        "summary": "更稳的可能性黑客。你不是没有新想法，而是更能在多种可能性之间更快收口并进入动作。",
+        "summary": "适合高变化、快试错、允许边做边改的岗位。",
         "positioning": "更稳的可能性黑客。你不是没有新想法，而是更能在多种可能性之间更快收口并进入动作。",
         "coreStrength": "一旦看见可行路线，你更容易从发散转向试验，而不是一直停留在想法层。",
         "realWorldFriction": "ENTP-A 更愿意带着不完整信息启动实验，因此看起来更像增长黑客或业务破局者；风险是过早跳向下一个问题。",
@@ -993,9 +993,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "适合高变化、快试错、允许边做边改的岗位。",
+        "bottleneck": "如果岗位要求长期重复、低自主和强服从，能力会被磨成噪音。",
+        "advice": "先把一个方向跑通，再允许第二个想法进入；收口要当成能力的一部分。",
         "strengths": [
           "快速生成方案",
           "发现制度漏洞",
@@ -1020,9 +1020,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "ENTP 在团队里最强的是把停滞局面重新打开。",
+        "bottleneck": "如果团队过度依赖确定性，他们会被当成搅动源而不是推进器。",
+        "advice": "把质疑收束成少数关键问题，先对齐一条路再开启下一条。",
         "strengths": [
           "激活停滞团队",
           "提出反常识路径",
@@ -1047,9 +1047,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：每个想法都值得试，但现实资源无法同时支持全部分支，于是启动很多、交付很少。",
-        "advice": "先定义本轮唯一要验证的假设，再允许其余想法暂时归档；用实验优先级替代灵感冲动。",
+        "summary": "成长关键不是压低好奇心，而是建立更强的收口和完成机制。",
+        "bottleneck": "如果总是开新口不关旧口，能力会被分流成很多半成品。",
+        "advice": "每次新增一个想法，就要同时关掉一个旧分叉。",
         "strengths": [],
         "risks": [],
         "why": "Ne 的优势是扩展可能性，但当筛选标准不足时，会演变成结构冗余。真正限制 ENTP 的不是想法少，而是没有建立足够狠的收口机制。",
@@ -1075,7 +1075,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
     },
     "t": {
       "hero": {
-        "summary": "更敏锐的可能性黑客。你不仅能看见更多路，也更容易在路径对比中提高启动阈值。",
+        "summary": "更适合需要持续比较方案、但仍允许快速试验的岗位。",
         "positioning": "更敏锐的可能性黑客。你不仅能看见更多路，也更容易在路径对比中提高启动阈值。",
         "coreStrength": "你能同时维护更多假设，并更早发现哪条路径的隐形代价更高。",
         "realWorldFriction": "ENTP-T 会在脑内同时维护更多方案，因此洞察更密，却也可能在‘哪条路最好’之间持续迟滞。",
@@ -1087,9 +1087,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "更适合需要持续比较方案、但仍允许快速试验的岗位。",
+        "bottleneck": "如果环境只奖励“多想”不奖励“落地”，他们会在比较里一直抬高启动门槛。",
+        "advice": "把比较压缩到少数关键变量，先启动最小闭环，再继续优化。",
         "strengths": [
           "快速生成方案",
           "发现制度漏洞",
@@ -1114,9 +1114,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "ENTP-T 更适合在需要持续讨论方案但仍要落地的团队里。",
+        "bottleneck": "如果讨论没有收口，比较会越来越多，启动阈值也会越来越高。",
+        "advice": "先定一条可执行路径，再把剩余分叉放进下一轮。",
         "strengths": [
           "激活停滞团队",
           "提出反常识路径",
@@ -1141,13 +1141,13 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：每个想法都值得试，但现实资源无法同时支持全部分支，于是启动很多、交付很少。",
-        "advice": "先定义本轮唯一要验证的假设，再允许其余想法暂时归档；用实验优先级替代灵感冲动。",
+        "summary": "成长重点是让判断更快收束，而不是继续延长比较时间。",
+        "bottleneck": "如果每一次选择都要再比较一轮，启动机会会不断被错过。",
+        "advice": "把“足够可行”当作启动条件，而不是等待唯一最优。",
         "strengths": [],
         "risks": [],
         "why": "Ne 的优势是扩展可能性，但当筛选标准不足时，会演变成结构冗余。真正限制 ENTP 的不是想法少，而是没有建立足够狠的收口机制。",
-        "variantDeltaA": "ENTP-T 需要补的是决策清洁度：不是继续比较哪条最好，而是尽快选一条进入现实验证。",
+        "variantDeltaA": "ENTP-A 需要补的是项目封闭能力：不是再多开可能性，而是把已选路径跑到足够完整",
         "variantDeltaT": "ENTP-T 需要补的是决策清洁度：不是继续比较哪条最好，而是尽快选一条进入现实验证",
         "nextActions": [],
         "primaryCta": "",
@@ -1267,8 +1267,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的不是不够努力，而是把关系稳定当成系统正常运行的唯一条件，于是不断用自我让渡补住结构漏洞，最后连自己的真实需求也被一并静音。",
-        "variantRiskT": "真正拖住他们的不是不够努力，而是把关系稳定当成系统正常运行的唯一条件，于是不断用自我让渡补住结构漏洞，最后连自己的真实需求也被一并静音。"
+        "variantRiskA": "A 型更容易把关系和结构同时推进，但会低估自己的负载。",
+        "variantRiskT": "T 型更容易把群体反馈放进自我评估，风险是过度在意是否被认可。"
       }
     },
     "a": {
@@ -1469,8 +1469,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "coreStrength": "快速点亮现场，让人、情绪和行动进入同一频率。",
         "realWorldFriction": "真正拖住他们的不是没能力，而是当现实要求他们长期留在低反馈、低活性、低连接的结构里时，能量会迅速流失。",
         "nextStepHint": "这页要解释的不是你为什么热情，而是为什么你的生命力在高互动环境里极有价值，在低反馈环境里却会快速衰减。",
-        "variantDeltaA": "更像稳定的体验驱动者：热情更能转成行动，不容易被短期挫折打散。",
-        "variantDeltaT": "更像高敏感的关系反馈接收器：同样有感染力，但更容易被外界反应放大，从而影响节奏与行动信心。",
+        "variantDeltaA": "A 型更能把现场热度转成持续动作，不容易被一次波动打散。",
+        "variantDeltaT": "T 型更敏感，也更容易把外界反应放大成内在波动。",
         "primaryCta": "",
         "secondaryCta1": "",
         "secondaryCta2": ""
@@ -1559,13 +1559,13 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的不是没能力，而是当现实要求他们长期留在低反馈、低活性、低连接的结构里时，能量会迅速流失。",
-        "variantRiskT": "真正拖住他们的不是没能力，而是当现实要求他们长期留在低反馈、低活性、低连接的结构里时，能量会迅速流失。"
+        "variantRiskA": "A 型更容易把现场热度转成持续动作，但会低估低反馈环境的耗损。",
+        "variantRiskT": "T 型更容易把外界反应放大成内在波动，风险是节奏被情绪拉扯。"
       }
     },
     "a": {
       "hero": {
-        "summary": "更稳的体验能量放大器。你不是降低热度，而是更能把现场能量转成长期结构。",
+        "summary": "适合能直接接触人群、反馈和结果的岗位。",
         "positioning": "更稳的体验能量放大器。你不是降低热度，而是更能把现场能量转成长期结构。",
         "coreStrength": "你能把现场感染力转成持续推进，而不只依赖气氛峰值。",
         "realWorldFriction": "ESFP-A 更可能把现场能量直接转成持续动作，不容易因一次反馈波动而失去推进。",
@@ -1577,9 +1577,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "适合能直接接触人群、反馈和结果的岗位。",
+        "bottleneck": "在低反馈、长周期、纯抽象环境里，能量会被迅速消耗。",
+        "advice": "把节奏切成能看见结果的小段，不要只靠情绪峰值推进。",
         "strengths": [
           "现场感染力",
           "高人群互动能力",
@@ -1594,7 +1594,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         ],
         "why": "Se 让 ESFP 对现实体验和人际现场极敏锐，Fi 让他们持续判断这件事是否有真实感与参与感。因此他们在活动、内容表达、社群、销售前线、体验设计、教育互动、品牌现场等需要即时连接和活化环境的岗位里能量更高，而在低反馈、长周期、低互动环境中容易持续掉速。",
         "variantDeltaA": "ESFP-A 更可能把现场能量直接转成持续动作，不容易因一次反馈波动而失去推进",
-        "variantDeltaT": "ESFP-A 更可能把现场能量直接转成持续动作，不容易因一次反馈波动而失去推进。",
+        "variantDeltaT": "ESFP-T 更容易把外界反应纳入内部判断，因此在被冷落、被误解或反馈不足时会更快动摇",
         "nextActions": [
           "查看 ESFP-A 职业推荐",
           "开始深度测试"
@@ -1604,9 +1604,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "在互动型团队里，他们最容易把气氛和执行一起点起来。",
+        "bottleneck": "如果团队长期没有反馈，他们会先失去参与感，再失去续航。",
+        "advice": "给他们明确的现场目标和即时回路。",
         "strengths": [
           "让团队有参与感",
           "快速建立连接",
@@ -1621,7 +1621,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         ],
         "why": "ESFP 默认把‘有没有真实参与感’当作协作质量的重要指标。这让他们在现场型、互动型团队里极有价值，但在低互动、高抽象、长周期的团队里容易感到窒息。",
         "variantDeltaA": "ESFP-A 更能在群体波动中保持自己的行动节奏",
-        "variantDeltaT": "ESFP-A 更能在群体波动中保持自己的行动节奏。",
+        "variantDeltaT": "ESFP-T 更可能因为群体氛围变化而显著改变自己的状态和输出",
         "nextActions": [
           "查看团队协作建议",
           "进入 MBTI 主题中心"
@@ -1631,14 +1631,14 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：你很会把现场做活，却不一定把高能量状态沉淀成可持续机制，一旦环境变冷，行动就会失去抓手。",
-        "advice": "为热情设置节律和复盘位；不是降低感受，而是让行动不再只依赖当下状态。",
+        "summary": "成长重点是把热度沉淀成节律，而不是只依赖当下状态。",
+        "bottleneck": "如果一直靠现场冲劲，状态一冷就会断档。",
+        "advice": "为热情设置节律和复盘点。",
         "strengths": [],
         "risks": [],
         "why": "Se-Fi 的组合让 ESFP 极其依赖真实体验与关系反馈，但若 Te/Ni 支撑不足，热情很容易变成波峰波谷式输出。",
         "variantDeltaA": "ESFP-A 需要补的是长期结构，不要只靠能量高峰推动自己",
-        "variantDeltaT": "ESFP-A 需要补的是长期结构，不要只靠能量高峰推动自己。",
+        "variantDeltaT": "ESFP-T 需要补的是反馈去耦合，把他人反应和自我稳定度适当拆开",
         "nextActions": [],
         "primaryCta": "",
         "secondaryCta1": "",
@@ -1659,7 +1659,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
     },
     "t": {
       "hero": {
-        "summary": "更敏锐的体验能量放大器。你不仅感受强，也更容易被外界反馈带动自己的节奏与信心。",
+        "summary": "适合需要即时互动，但也需要稍微留出复盘空间的岗位。",
         "positioning": "更敏锐的体验能量放大器。你不仅感受强，也更容易被外界反馈带动自己的节奏与信心。",
         "coreStrength": "你对他人反应和现场气氛的变化更敏感。",
         "realWorldFriction": "ESFP-T 更容易把外部反应纳入内部判断，因此在被冷落、被误解或反馈不足时会更快动摇。",
@@ -1671,9 +1671,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "适合需要即时互动，但也需要稍微留出复盘空间的岗位。",
+        "bottleneck": "如果外界反应太强、太密，容易把波动直接放大成内部压力。",
+        "advice": "保留现场感，同时给自己一个延迟几分钟再判断的缓冲。",
         "strengths": [
           "现场感染力",
           "高人群互动能力",
@@ -1698,9 +1698,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "ESFP-T 在团队里更需要清晰反馈，不然波动会被放大。",
+        "bottleneck": "如果环境本身很冷，他们会更快感到被抽空。",
+        "advice": "让协作里有可见的回应点，而不是只给结果要求。",
         "strengths": [
           "让团队有参与感",
           "快速建立连接",
@@ -1725,9 +1725,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：你很会把现场做活，却不一定把高能量状态沉淀成可持续机制，一旦环境变冷，行动就会失去抓手。",
-        "advice": "为热情设置节律和复盘位；不是降低感受，而是让行动不再只依赖当下状态。",
+        "summary": "成长重点是让反馈进入节律，而不是让反馈直接变成情绪波动。",
+        "bottleneck": "如果每次外界反应都同步改写内在状态，稳定性会越来越弱。",
+        "advice": "把外界信号先放进节律，再决定是否改动作。",
         "strengths": [],
         "risks": [],
         "why": "Se-Fi 的组合让 ESFP 极其依赖真实体验与关系反馈，但若 Te/Ni 支撑不足，热情很容易变成波峰波谷式输出。",
@@ -1851,8 +1851,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的不是工作量，而是当现实变量不断违背规则、拖慢执行时，他们会把大量能量花在重新夺回控制权上。",
-        "variantRiskT": "真正拖住他们的不是工作量，而是当现实变量不断违背规则、拖慢执行时，他们会把大量能量花在重新夺回控制权上。"
+        "variantRiskA": "A 型更容易把结构直接推出来，但会低估关系节奏和接受成本。",
+        "variantRiskT": "T 型更容易反复校准标准与秩序，风险是把推进速度拖慢。"
       }
     },
     "a": {
@@ -2053,8 +2053,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "coreStrength": "在快速变化和高压环境中抓住窗口，立刻把机会转成动作。",
         "realWorldFriction": "真正拖住他们的不是不会决策，而是长期后果、慢变量和延迟代价往往不会在当下完整显现，导致他们在速度与后果之间持续拉扯。",
         "nextStepHint": "这页要解释的不是你为什么敢冲，而是为什么你的行动优势会在长期结果管理上变成双刃剑。",
-        "variantDeltaA": "更像稳定的即时操盘手：进入动作更快，面对不确定也更敢压上去。",
-        "variantDeltaT": "更像高敏感的机会校准者：同样反应快，但更在意动作后的损耗与反馈，因而会在关键节点提高微观审计密度。",
+        "variantDeltaA": "A 型更敢快速进入动作，面对不确定更少犹豫。",
+        "variantDeltaT": "T 型更会检查动作后的代价，也更容易在关键点提高审计密度。",
         "primaryCta": "",
         "secondaryCta1": "",
         "secondaryCta2": ""
@@ -2143,13 +2143,13 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的不是不会决策，而是长期后果、慢变量和延迟代价往往不会在当下完整显现，导致他们在速度与后果之间持续拉扯。",
-        "variantRiskT": "真正拖住他们的不是不会决策，而是长期后果、慢变量和延迟代价往往不会在当下完整显现，导致他们在速度与后果之间持续拉扯。"
+        "variantRiskA": "A 型更容易先进入动作，风险是低估慢变量带来的后果。",
+        "variantRiskT": "T 型更容易在动作后提高审计密度，风险是速度被自己磨掉。"
       }
     },
     "a": {
       "hero": {
-        "summary": "更稳的即时机会操盘手。你不是少了冲劲，而是更能把速度与后果放进同一张图里。",
+        "summary": "适合节奏快、反馈直接、机会窗口短的岗位。",
         "positioning": "更稳的即时机会操盘手。你不是少了冲劲，而是更能把速度与后果放进同一张图里。",
         "coreStrength": "你能把当下的机会反应更稳定地接到后续动作链上。",
         "realWorldFriction": "ESTP-A 更可能直接吃下不确定性并先行动，速度更猛。",
@@ -2161,9 +2161,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "适合节奏快、反馈直接、机会窗口短的岗位。",
+        "bottleneck": "在结果延迟、反馈稀薄、慢变量主导的场景里，优势很难被即时看见。",
+        "advice": "保留速度，但为后果和复盘预留缓冲。",
         "strengths": [
           "临场决策",
           "快速抓机会",
@@ -2178,7 +2178,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         ],
         "why": "Se 让 ESTP 对现实信号和即时变化极其敏锐，Ti 让他们能在混乱里快速找出最可行的动作。因此他们在销售、谈判、交易、应急处理、运营前线、商务拓展、活动执行等即时反馈强的岗位里能量最高，而在延迟收益高、但短期刺激低的环境里容易结构断裂。",
         "variantDeltaA": "ESTP-A 更可能直接吃下不确定性并先行动，速度更猛",
-        "variantDeltaT": "ESTP-A 更可能直接吃下不确定性并先行动，速度更猛。",
+        "variantDeltaT": "ESTP-T 在保持速度的同时会更频繁检查代价，因此节奏可能更碎但风险意识更强",
         "nextActions": [
           "查看 ESTP-A 职业推荐",
           "开始深度测试"
@@ -2188,9 +2188,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "在需要快速响应的团队里，他们能把局面迅速拉回可操作状态。",
+        "bottleneck": "如果团队只要求反应、不要求复盘，速度会变成重复消耗。",
+        "advice": "让每次快速推进后都保留一个短复盘。",
         "strengths": [
           "快速解决现实问题",
           "在压力里保持行动",
@@ -2205,7 +2205,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         ],
         "why": "ESTP 默认认为‘先进入局面、再继续调参’比‘先把所有变量想完’更有效，这使他们在实战场景中很强，但在需要高耐心与慢决策的团队里容易造成节奏冲突。",
         "variantDeltaA": "ESTP-A 更像直接推进器，会把团队推到行动区",
-        "variantDeltaT": "ESTP-A 更像直接推进器，会把团队推到行动区。",
+        "variantDeltaT": "ESTP-T 更像高速调校者，会边冲边修，但也更可能因为不断校准而显得起伏较大",
         "nextActions": [
           "查看团队协作建议",
           "进入 MBTI 主题中心"
@@ -2215,14 +2215,14 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：你总能抓住当下的最优动作，但不一定把延迟代价一起纳入判断。",
-        "advice": "给每次高能动作增加一个‘后续成本检查位’，把长期后果从事后补救前移到动作前判断。",
+        "summary": "成长重点是让速度和后果一起进入视野。",
+        "bottleneck": "如果只看当下机会，不看后续影响，速度会带来重复代价。",
+        "advice": "每次动作前多问一次后果，动作后多留一次复盘。",
         "strengths": [],
         "risks": [],
         "why": "Se 优势让 ESTP 在当下几乎无敌，但当 Ni 长期判断未被调动时，短期最优会不断侵蚀长期结构。",
         "variantDeltaA": "ESTP-A 需要补的是后果意识，而不是再提高动作速度",
-        "variantDeltaT": "ESTP-A 需要补的是后果意识，而不是再提高动作速度。",
+        "variantDeltaT": "ESTP-T 需要补的是避免过度微调，把风险意识转成清晰阈值而非碎片迟疑",
         "nextActions": [],
         "primaryCta": "",
         "secondaryCta1": "",
@@ -2243,7 +2243,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
     },
     "t": {
       "hero": {
-        "summary": "更敏锐的即时机会操盘手。你不只会抓窗口，也更容易在动作前不断扫描代价与反馈。",
+        "summary": "适合现场变化多、需要持续微调的岗位。",
         "positioning": "更敏锐的即时机会操盘手。你不只会抓窗口，也更容易在动作前不断扫描代价与反馈。",
         "coreStrength": "你能更早捕捉行动窗口中的风险变化。",
         "realWorldFriction": "ESTP-T 在保持速度的同时会更频繁检查代价，因此节奏可能更碎但风险意识更强。",
@@ -2255,9 +2255,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "适合现场变化多、需要持续微调的岗位。",
+        "bottleneck": "如果每次动作后都要反复审计，速度优势会被自己磨掉。",
+        "advice": "先完成动作，再做一次关键复盘，不要在启动前把所有变量都算尽。",
         "strengths": [
           "临场决策",
           "快速抓机会",
@@ -2282,9 +2282,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "ESTP-T 在团队里更适合边行动边复盘的高节奏场景。",
+        "bottleneck": "如果动作后的反馈太密，他们会容易把自己审计得过重。",
+        "advice": "把复盘压缩成关键节点，而不是每一步都重算。",
         "strengths": [
           "快速解决现实问题",
           "在压力里保持行动",
@@ -2309,9 +2309,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：你总能抓住当下的最优动作，但不一定把延迟代价一起纳入判断。",
-        "advice": "给每次高能动作增加一个‘后续成本检查位’，把长期后果从事后补救前移到动作前判断。",
+        "summary": "成长重点是别把审计做成迟疑，让复盘服务于速度。",
+        "bottleneck": "如果每次都要先确保万无一失，机会窗口会越来越短。",
+        "advice": "先动，再用最小成本补审计。",
         "strengths": [],
         "risks": [],
         "why": "Se 优势让 ESTP 在当下几乎无敌，但当 Ni 长期判断未被调动时，短期最优会不断侵蚀长期结构。",
@@ -2435,8 +2435,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正耗损他们的不是事情多，而是长期暴露在高情绪噪音、高关系密度和低意义输出的环境中。",
-        "variantRiskT": "真正耗损他们的不是事情多，而是长期暴露在高情绪噪音、高关系密度和低意义输出的环境中。"
+        "variantRiskA": "A 型更容易在理解他人后守住自己的重心，但会低估长期情绪负载。",
+        "variantRiskT": "T 型更容易把他人的波动纳入自我评估，风险是情绪负载持续放大。"
       }
     },
     "a": {
@@ -2727,8 +2727,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的不是能力不足，而是当现实要求他们违背内在标准时，会出现强烈的行动阻滞与认知摩擦。",
-        "variantRiskT": "真正拖住他们的不是能力不足，而是当现实要求他们违背内在标准时，会出现强烈的行动阻滞与认知摩擦。"
+        "variantRiskA": "A 型更容易把价值感转成行动，但会低估现实推进的摩擦。",
+        "variantRiskT": "T 型更容易因为“是否足够真”而反复自检，风险是启动被拖慢。"
       }
     },
     "a": {
@@ -3019,8 +3019,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖慢他们的不是想不明白，而是外部世界经常要求他们在尚未建立完整模型前就参与低质量协作。",
-        "variantRiskT": "真正拖慢他们的不是想不明白，而是外部世界经常要求他们在尚未建立完整模型前就参与低质量协作。"
+        "variantRiskA": "A 型更容易在方向成立后快速推进，但会低估组织和关系摩擦。",
+        "variantRiskT": "T 型更容易反复重算风险与路径，最后把启动门槛抬得过高。"
       }
     },
     "a": {
@@ -3311,8 +3311,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正耗损他们的不是付出，而是长期默默承担之后，自己的边界和负载被系统性忽略。",
-        "variantRiskT": "真正耗损他们的不是付出，而是长期默默承担之后，自己的边界和负载被系统性忽略。"
+        "variantRiskA": "A 型更容易先把照顾和执行做出来，但会低估持续承担的消耗。",
+        "variantRiskT": "T 型更容易把他人的需求先放进自我评估，风险是边界过度收缩。"
       }
     },
     "a": {
@@ -3513,8 +3513,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "coreStrength": "把体验、感觉和真实偏好守住，并把它转成有温度、有质感的现实表达。",
         "realWorldFriction": "真正拖住他们的不是没能力，而是现实系统常要求他们长时间压缩个体风格与审美主权，久了就会产生强烈磨损。",
         "nextStepHint": "这页要解释的不是你为什么感性，而是为什么你的真实感与审美判断会在现实生存结构里反复遭遇消耗。",
-        "variantDeltaA": "更像稳定的美学执行者：知道自己喜欢什么，也更能把这种偏好落到真实选择里。",
-        "variantDeltaT": "更像高敏感的真实感探针：感受更细、偏差更刺痛，也更容易在自我审计中放大迟疑。",
+        "variantDeltaA": "A 型更能把偏好转成具体选择，较不容易被外部标准牵着走。",
+        "variantDeltaT": "T 型更敏感也更容易自我审视，常在比对中放大迟疑。",
         "primaryCta": "",
         "secondaryCta1": "",
         "secondaryCta2": ""
@@ -3603,13 +3603,13 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的不是没能力，而是现实系统常要求他们长时间压缩个体风格与审美主权，久了就会产生强烈磨损。",
-        "variantRiskT": "真正拖住他们的不是没能力，而是现实系统常要求他们长时间压缩个体风格与审美主权，久了就会产生强烈磨损。"
+        "variantRiskA": "A 型更容易把偏好落成具体选择，但会低估外部标准的持续压力。",
+        "variantRiskT": "T 型更容易在比对中放大迟疑，风险是把表达先压缩掉。"
       }
     },
     "a": {
       "hero": {
-        "summary": "更稳的审美主权守护者。你不是妥协，而是更能把真实感落成可持续选择。",
+        "summary": "更适合保留风格、保留手感、保留真实表达空间的岗位。",
         "positioning": "更稳的审美主权守护者。你不是妥协，而是更能把真实感落成可持续选择。",
         "coreStrength": "你更能把审美和真实感转成持续选择，而不只是瞬间判断。",
         "realWorldFriction": "ISFP-A 更能把自己的审美和偏好转成现实选择，不会一直停在感受层。",
@@ -3621,9 +3621,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "更适合保留风格、保留手感、保留真实表达空间的岗位。",
+        "bottleneck": "如果环境持续要求你按别人的模板表达，风格会先被磨掉。",
+        "advice": "把审美偏好落实到真实选择里，而不是只在心里坚持。",
         "strengths": [
           "审美判断",
           "真实感表达",
@@ -3638,7 +3638,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         ],
         "why": "Fi 让 ISFP 先判断这件事是否与自己真实一致，Se 则把这种一致感拉回现实体验与行动。因此他们在设计、影像、品牌体验、手作、产品美学、现场执行、用户体验等强调真实触感与审美质量的岗位中更能保持能量；在高度机械、低表达、只剩流水线执行的环境里会快速产生美学磨损。",
         "variantDeltaA": "ISFP-A 更能把自己的审美和偏好转成现实选择，不会一直停在感受层",
-        "variantDeltaT": "ISFP-A 更能把自己的审美和偏好转成现实选择，不会一直停在感受层。",
+        "variantDeltaT": "ISFP-T 更容易在“这真的是我想要的吗”的反复审查中拉高启动门槛",
         "nextActions": [
           "查看 ISFP-A 职业推荐",
           "开始深度测试"
@@ -3648,9 +3648,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "ISFP 在团队里最怕的不是辛苦，而是被要求持续表演不属于自己的方式。",
+        "bottleneck": "如果团队长期只看结果、不看表达方式，风格会先收缩。",
+        "advice": "给自己保留一小块不被模板化的输出区。",
         "strengths": [
           "体验与细节敏感",
           "能在执行中修正粗糙感",
@@ -3665,7 +3665,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         ],
         "why": "ISFP 往往通过作品、体验和选择表达自己，而不是通过抽象辩论赢得位置。这使他们在强调真实体验的团队里有价值，但在高会议、高政治表达环境里容易失语。",
         "variantDeltaA": "ISFP-A 更可能直接用行动和作品表明立场，不会一直隐忍",
-        "variantDeltaT": "ISFP-A 更可能直接用行动和作品表明立场，不会一直隐忍。",
+        "variantDeltaT": "ISFP-T 更可能先内部消化不适，直到磨损累积到无法继续配合",
         "nextActions": [
           "查看团队协作建议",
           "进入 MBTI 主题中心"
@@ -3675,14 +3675,14 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：你很清楚什么不属于自己，却不一定把真正想靠近的方向组织成可持续路径，于是判断总是存在，结构始终缺席。",
-        "advice": "把偏好从感觉升级成结构：明确边界、建立节奏、让表达拥有最低可持续框架。",
+        "summary": "成长不是变得更迎合，而是在保留真实感的同时建立可持续输出机制。",
+        "bottleneck": "如果一直只顾保护风格，不建立节律，输出会变得很脆。",
+        "advice": "把真实感和节律一起设计进去。",
         "strengths": [],
         "risks": [],
         "why": "Fi-Se 的组合让 ISFP 对真实感极敏锐，但若 Te 不足，就容易停在‘我知道哪里不对’，却没有形成‘我接下来如何构建’。",
         "variantDeltaA": "ISFP-A 需要补的是结构持久度，让表达不仅真实，也可持续",
-        "variantDeltaT": "ISFP-A 需要补的是结构持久度，让表达不仅真实，也可持续。",
+        "variantDeltaT": "ISFP-T 需要补的是行动许可，停止在“不够对”里反复冻结自己",
         "nextActions": [],
         "primaryCta": "",
         "secondaryCta1": "",
@@ -3703,7 +3703,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
     },
     "t": {
       "hero": {
-        "summary": "更敏锐的审美主权守护者。你不仅知道什么真实，也更容易在偏差感里不断提高现实进入门槛。",
+        "summary": "更适合既能表达真实感、又允许慢慢打磨的岗位。",
         "positioning": "更敏锐的审美主权守护者。你不仅知道什么真实，也更容易在偏差感里不断提高现实进入门槛。",
         "coreStrength": "你对真实感与违和感的判断更敏锐。",
         "realWorldFriction": "ISFP-T 更容易在‘这真的是我想要的吗’的反复审查中拉高启动门槛。",
@@ -3715,9 +3715,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "更适合既能表达真实感、又允许慢慢打磨的岗位。",
+        "bottleneck": "如果每次输出都要先通过外界评价，迟疑会比创造更先放大。",
+        "advice": "先保住表达，再保住标准；不要让自我审查先把手感掐断。",
         "strengths": [
           "审美判断",
           "真实感表达",
@@ -3742,9 +3742,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
-        "bottleneck": "",
-        "advice": "",
+        "summary": "ISFP-T 更需要安全的表达边界，不然会先自我收缩。",
+        "bottleneck": "如果表达总被外部评价打断，迟疑会越来越重。",
+        "advice": "先让自己能稳定表达，再去处理外部标准。",
         "strengths": [
           "体验与细节敏感",
           "能在执行中修正粗糙感",
@@ -3769,9 +3769,9 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
-        "bottleneck": "最常见的卡点是：你很清楚什么不属于自己，却不一定把真正想靠近的方向组织成可持续路径，于是判断总是存在，结构始终缺席。",
-        "advice": "把偏好从感觉升级成结构：明确边界、建立节奏、让表达拥有最低可持续框架。",
+        "summary": "成长重点是降低自我审查的音量，让表达先发生。",
+        "bottleneck": "如果每次都要等自己足够确定，机会会先过去。",
+        "advice": "先做一版，再慢慢打磨，不要一开始就把自己锁住。",
         "strengths": [],
         "risks": [],
         "why": "Fi-Se 的组合让 ISFP 对真实感极敏锐，但若 Te 不足，就容易停在‘我知道哪里不对’，却没有形成‘我接下来如何构建’。",
@@ -3895,8 +3895,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正耗损他们的不是事情多，而是规则持续变化、要求反复重来、标准一变再变却还要假装一切都很合理。",
-        "variantRiskT": "真正耗损他们的不是事情多，而是规则持续变化、要求反复重来、标准一变再变却还要假装一切都很合理。"
+        "variantRiskA": "A 型更容易直接落地执行，但会低估环境变化带来的额外调整。",
+        "variantRiskT": "T 型更容易反复核对细节，风险是把确认流程拉得过长。"
       }
     },
     "a": {
@@ -4187,8 +4187,8 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "primaryCta": "开始 MBTI 深度测试",
         "secondaryCta1": "查看职业推荐",
         "secondaryCta2": "进入 MBTI 主题中心",
-        "variantRiskA": "真正拖住他们的不是不会做，而是当现实要求他们长期被固定、持续解释、持续照顾关系时，会感到精力被低效抽走。",
-        "variantRiskT": "真正拖住他们的不是不会做，而是当现实要求他们长期被固定、持续解释、持续照顾关系时，会感到精力被低效抽走。"
+        "variantRiskA": "A 型更容易先动手再修正，但会低估后续协作的收口。",
+        "variantRiskT": "T 型更容易反复比较实现路径，风险是把动作窗口错过。"
       }
     },
     "a": {

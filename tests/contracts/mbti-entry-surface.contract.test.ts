@@ -13,6 +13,105 @@ function count(source: string, needle: string): number {
   return source.split(needle).length - 1;
 }
 
+function extractTypeBlock(source: string, typeCode: string): string | null {
+  const start = source.indexOf(`"${typeCode}": {`);
+  if (start === -1) {
+    return null;
+  }
+
+  let index = start;
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  let quote = "";
+
+  for (; index < source.length; index += 1) {
+    const char = source[index];
+
+    if (inString) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        inString = false;
+      }
+      continue;
+    }
+
+    if (char === '"' || char === "'") {
+      inString = true;
+      quote = char;
+      continue;
+    }
+
+    if (char === "{") {
+      depth += 1;
+    } else if (char === "}") {
+      depth -= 1;
+      if (depth === 0) {
+        return source.slice(start, index + 1);
+      }
+    }
+  }
+
+  return null;
+}
+
+function extractSection(block: string, sectionName: string): string | null {
+  const start = block.indexOf(`"${sectionName}": {`);
+  if (start === -1) {
+    return null;
+  }
+
+  let index = start;
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  let quote = "";
+
+  for (; index < block.length; index += 1) {
+    const char = block[index];
+
+    if (inString) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        inString = false;
+      }
+      continue;
+    }
+
+    if (char === '"' || char === "'") {
+      inString = true;
+      quote = char;
+      continue;
+    }
+
+    if (char === "{") {
+      depth += 1;
+    } else if (char === "}") {
+      depth -= 1;
+      if (depth === 0) {
+        return block.slice(start, index + 1);
+      }
+    }
+  }
+
+  return null;
+}
+
+function extractField(section: string | null, fieldName: string): string {
+  if (!section) {
+    return "";
+  }
+
+  const match = section.match(new RegExp(`"${fieldName}":\\s*"((?:\\\\.|[^"\\\\])*)"`));
+  return match?.[1] ?? "";
+}
+
 describe("mbti entry surface contract", () => {
   it("wires topic detail with one primary mbti CTA and entry tracking", () => {
     const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
@@ -141,5 +240,42 @@ describe("mbti entry surface contract", () => {
     expect(href).toContain("source_page_type=personality_detail");
     expect(href).toContain("target_action=start_mbti_test_primary");
     expect(href).toContain("landing_path=%2Fzh%2Fpersonality%2Fintj-a");
+  });
+
+  it("keeps the weakest mbti packs split across A/T risk and scene parity", () => {
+    const source = read("lib/mbti/mbtiTypeContentPacks.generated.ts");
+    const weakTypes = ["ENTP", "ENFP", "ESFP", "ISFP", "ESTP"];
+
+    for (const typeCode of weakTypes) {
+      const block = extractTypeBlock(source, typeCode);
+
+      expect(block).not.toBeNull();
+      expect(extractField(extractSection(block, "recommendation"), "variantRiskA")).not.toBe(
+        extractField(extractSection(block, "recommendation"), "variantRiskT")
+      );
+
+      const aCareer = extractSection(extractSection(block, "a"), "career");
+      const tCareer = extractSection(extractSection(block, "t"), "career");
+      const aTeam = extractSection(extractSection(block, "a"), "team");
+      const tTeam = extractSection(extractSection(block, "t"), "team");
+      const aGrowth = extractSection(extractSection(block, "a"), "growth");
+      const tGrowth = extractSection(extractSection(block, "t"), "growth");
+
+      expect(extractField(aCareer, "summary")).not.toBe("");
+      expect(extractField(tCareer, "summary")).not.toBe("");
+      expect(extractField(aCareer, "summary")).not.toBe(extractField(tCareer, "summary"));
+      expect(extractField(aCareer, "variantDeltaA")).not.toBe(extractField(aCareer, "variantDeltaT"));
+      expect(extractField(tCareer, "variantDeltaA")).not.toBe(extractField(tCareer, "variantDeltaT"));
+      expect(extractField(aTeam, "summary")).not.toBe("");
+      expect(extractField(tTeam, "summary")).not.toBe("");
+      expect(extractField(aTeam, "summary")).not.toBe(extractField(tTeam, "summary"));
+      expect(extractField(aTeam, "variantDeltaA")).not.toBe(extractField(aTeam, "variantDeltaT"));
+      expect(extractField(tTeam, "variantDeltaA")).not.toBe(extractField(tTeam, "variantDeltaT"));
+      expect(extractField(aGrowth, "summary")).not.toBe("");
+      expect(extractField(tGrowth, "summary")).not.toBe("");
+      expect(extractField(aGrowth, "summary")).not.toBe(extractField(tGrowth, "summary"));
+      expect(extractField(aGrowth, "variantDeltaA")).not.toBe(extractField(aGrowth, "variantDeltaT"));
+      expect(extractField(tGrowth, "variantDeltaA")).not.toBe(extractField(tGrowth, "variantDeltaT"));
+    }
   });
 });
