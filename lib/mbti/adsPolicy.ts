@@ -1,3 +1,4 @@
+import type { Locale } from "@/lib/i18n/locales";
 import { MBTI_TYPE_CODES } from "@/lib/mbti/mbtiTypeContentPack";
 
 export const MBTI_ADS_PRIMARY_WHITELIST = [
@@ -52,9 +53,46 @@ export const MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES = [
   ...MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES,
 ] as const;
 
+export const MBTI_ADS_STABLE_SMOKE_PERSONALITY_TYPES = ["INTJ", "INFJ", "ISTJ", "ENFJ"] as const;
+
+export const MBTI_ADS_STABLE_SMOKE_RECOMMENDATION_TYPES = ["INTJ", "ENTJ", "INFJ", "ISTJ"] as const;
+
+export const MBTI_ADS_LAUNCH_SIGNAL_EVENTS = [
+  "landing_view",
+  "start_click",
+  "start_attempt",
+  "view_result",
+  "click_unlock",
+  "create_order",
+] as const;
+
+export const MBTI_ADS_LAUNCH_SIGNAL_REQUIREMENTS = {
+  landing_view: ["test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale"],
+  start_click: ["test_slug", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale"],
+  start_attempt: ["test_slug", "attempt_id", "form_code", "entry_surface", "source_page_type", "target_action", "landing_path", "locale"],
+  view_result: ["attempt_id", "form_code", "locale"],
+  click_unlock: ["attempt_id", "form_code", "locale"],
+  create_order: ["attempt_id", "orderNoMasked", "form_code", "locale"],
+} as const;
+
 export type MbtiAdsSurfacePolicy = "primary" | "secondary" | "seo_only" | "forbidden" | "other";
 export type MbtiAdsLaunchTier = "stable" | "candidate" | "hold";
 export type MbtiAdsTypeCode = (typeof MBTI_TYPE_CODES)[number];
+export type MbtiAdsLaunchSmokeSurface = "primary" | "secondary" | "seo_only";
+export type MbtiAdsLaunchSignalEvent = (typeof MBTI_ADS_LAUNCH_SIGNAL_EVENTS)[number];
+
+export type MbtiAdsLaunchSmokeEntry = {
+  key: string;
+  path: string;
+  surface: MbtiAdsLaunchSmokeSurface;
+  pageType:
+    | "test_landing"
+    | "personality_detail"
+    | "career_recommendation_detail"
+    | "personality_index"
+    | "topic_detail";
+  typeCode?: MbtiAdsTypeCode;
+};
 
 const LOCALE_PREFIX_RE = /^\/(en|zh)(?=\/|$)/;
 const SECONDARY_PATTERNS = [/^\/personality\/[^/]+$/, /^\/career\/recommendations\/mbti\/[^/]+$/];
@@ -85,7 +123,18 @@ export const MBTI_ADS_LAUNCH_MANIFEST = {
         typeCode as (typeof MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES)[number]
       )
   ),
+  stableSmokePersonalityTypes: MBTI_ADS_STABLE_SMOKE_PERSONALITY_TYPES,
+  stableSmokeRecommendationTypes: MBTI_ADS_STABLE_SMOKE_RECOMMENDATION_TYPES,
+  launchSignalEvents: MBTI_ADS_LAUNCH_SIGNAL_EVENTS,
+  launchSignalRequirements: MBTI_ADS_LAUNCH_SIGNAL_REQUIREMENTS,
 } as const;
+
+function buildLocalizedMbtiTypePath(locale: Locale, typeCode: string, kind: "personality" | "recommendation"): string {
+  const slug = `${String(typeCode).trim().toLowerCase()}-a`;
+  return kind === "personality"
+    ? `/${locale}/personality/${slug}`
+    : `/${locale}/career/recommendations/mbti/${slug}`;
+}
 
 export function normalizeMbtiAdsPath(pathname: string): string {
   const [withoutQuery] = pathname.split(/[?#]/, 1);
@@ -156,4 +205,41 @@ export function getMbtiAdsSurfacePolicy(pathname: string): MbtiAdsSurfacePolicy 
   }
 
   return "other";
+}
+
+export function getMbtiStableLaunchSmokeEntries(locale: Locale): MbtiAdsLaunchSmokeEntry[] {
+  return [
+    {
+      key: "mbti_test_landing",
+      path: `/${locale}${MBTI_ADS_PRIMARY_WHITELIST[0]}`,
+      surface: "primary",
+      pageType: "test_landing",
+    },
+    ...MBTI_ADS_STABLE_SMOKE_PERSONALITY_TYPES.map((typeCode) => ({
+      key: `personality_${String(typeCode).toLowerCase()}`,
+      path: buildLocalizedMbtiTypePath(locale, typeCode, "personality"),
+      surface: "secondary" as const,
+      pageType: "personality_detail" as const,
+      typeCode,
+    })),
+    ...MBTI_ADS_STABLE_SMOKE_RECOMMENDATION_TYPES.map((typeCode) => ({
+      key: `recommendation_${String(typeCode).toLowerCase()}`,
+      path: buildLocalizedMbtiTypePath(locale, typeCode, "recommendation"),
+      surface: "secondary" as const,
+      pageType: "career_recommendation_detail" as const,
+      typeCode,
+    })),
+    {
+      key: "personality_index",
+      path: `/${locale}/personality`,
+      surface: "seo_only",
+      pageType: "personality_index",
+    },
+    {
+      key: "mbti_topic_detail",
+      path: `/${locale}/topics/mbti`,
+      surface: "seo_only",
+      pageType: "topic_detail",
+    },
+  ];
 }
