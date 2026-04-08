@@ -231,6 +231,42 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain("MBTI type continue grid");
   });
 
+  it("keeps weak-type personality parity and recommendation judgment density above the ads-secondary threshold", () => {
+    const weakTypes = ["ENTP", "ENFP", "ISFP", "ESTP", "ESFP", "ISTP"] as const;
+
+    for (const type of weakTypes) {
+      const personalityA = getMbtiPersonalityContent(`${type.toLowerCase()}-a`, "zh");
+      const personalityT = getMbtiPersonalityContent(`${type.toLowerCase()}-t`, "zh");
+      const recommendationA = getMbtiRecommendationContent(`${type.toLowerCase()}-a`, "zh");
+      const recommendationT = getMbtiRecommendationContent(`${type.toLowerCase()}-t`, "zh");
+
+      expect(personalityA?.variantCopy.hero.summary).toBeTruthy();
+      expect(personalityT?.variantCopy.hero.summary).toBeTruthy();
+      expect(personalityA?.variantCopy.hero.summary).not.toBe(personalityT?.variantCopy.hero.summary);
+
+      expect(personalityA?.variantCopy.careerDirection.summary).toBeTruthy();
+      expect(personalityT?.variantCopy.careerDirection.summary).toBeTruthy();
+      expect(personalityA?.variantCopy.careerDirection.summary).not.toBe(personalityT?.variantCopy.careerDirection.summary);
+
+      expect(personalityA?.variantCopy.teamCollaboration.summary).toBeTruthy();
+      expect(personalityT?.variantCopy.teamCollaboration.summary).toBeTruthy();
+      expect(personalityA?.variantCopy.teamCollaboration.summary).not.toBe(personalityT?.variantCopy.teamCollaboration.summary);
+
+      expect(personalityA?.variantCopy.growthPlanning.summary).toBeTruthy();
+      expect(personalityT?.variantCopy.growthPlanning.summary).toBeTruthy();
+      expect(personalityA?.variantCopy.growthPlanning.summary).not.toBe(personalityT?.variantCopy.growthPlanning.summary);
+
+      expect(recommendationA?.fitWhy).toBeTruthy();
+      expect(recommendationA?.costWhy).toBeTruthy();
+      expect(recommendationA?.jobStructure).toBeTruthy();
+      expect(recommendationA?.nextStep).toBeTruthy();
+      expect(recommendationA?.support.nextSteps.length).toBeGreaterThan(0);
+      expect(recommendationA?.variantRisk).toBeTruthy();
+      expect(recommendationT?.variantRisk).toBeTruthy();
+      expect(recommendationA?.variantRisk).not.toBe(recommendationT?.variantRisk);
+    }
+  });
+
   it("expands mbti entry tracking surfaces for topic/index/scene attribution", () => {
     const source = read("lib/mbti/entryTracking.ts");
 
