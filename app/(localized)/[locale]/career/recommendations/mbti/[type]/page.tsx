@@ -24,6 +24,7 @@ import {
 } from "@/lib/mbti/continuity";
 import {
   buildBreadcrumbJsonLd,
+  buildFAQPageJsonLd,
   buildItemListJsonLd,
   buildWebPageJsonLd,
 } from "@/lib/seo/generateSchema";
@@ -244,6 +245,22 @@ export default async function CareerMbtiRecommendationPage({
       description: job.summary,
     })),
   });
+  const faqItems = [
+    {
+      question: locale === "zh" ? "这页的职业推荐依据来自哪里？" : "Where do the recommendation signals on this page come from?",
+      answer:
+        locale === "zh"
+          ? "当前页面直接消费 backend authority bundle，显式读取 score bundle、warnings、claim permissions、trust manifest 和 provenance meta，不在前端本地合成职业解释。"
+          : "This page consumes the backend authority bundle directly and reads explicit score bundles, warnings, claim permissions, trust manifest, and provenance metadata without synthesizing local career explanations.",
+    },
+    {
+      question: locale === "zh" ? "为什么有些岗位或结论没有展示？" : "Why are some roles or claims not shown?",
+      answer:
+        locale === "zh"
+          ? "只有在 backend bundle 显式放行 matched jobs、strong truth 或相关 claim permission 时，页面才会渲染这些内容；否则保持保守隐藏。"
+          : "The page only renders matched roles, strong-truth sections, or related claims when the backend bundle explicitly allows them; otherwise they stay conservatively hidden.",
+    },
+  ];
   const canRenderAiScore =
     detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable";
 
@@ -255,6 +272,7 @@ export default async function CareerMbtiRecommendationPage({
       {renderState.canRenderMatchedJobs && matchedJobs.length > 0 ? (
         <JsonLd id={`career-mbti-itemlist-${detail.publicRouteSlug}`} data={itemListJsonLd} />
       ) : null}
+      <JsonLd id={`career-mbti-faq-${detail.publicRouteSlug}`} data={buildFAQPageJsonLd(faqItems)} />
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -516,6 +534,23 @@ export default async function CareerMbtiRecommendationPage({
           </div>
         </section>
       ) : null}
+
+      <section
+        id="faq"
+        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      >
+        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+          {locale === "zh" ? "常见问题" : "FAQ"}
+        </h2>
+        <div className="space-y-3">
+          {faqItems.map((item) => (
+            <article key={item.question} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+              <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.question}</h3>
+              <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">

@@ -180,6 +180,7 @@ export default async function CareerJobDetailPage({
 
   const canRenderAiStrategy =
     job.claimPermissions.allow_ai_strategy && job.renderState.careerDataStatus !== "unavailable";
+  const canRenderAnswerSurface = job.renderState.canRenderAnswerSurface;
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -254,36 +255,51 @@ export default async function CareerJobDetailPage({
           </Card>
         )}
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "职业事实层" : "Truth layer"}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-            {job.truthLayer.entryEducation ? (
+        {canRenderAnswerSurface ? (
+          <Card>
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "职业事实层" : "Truth layer"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              {job.truthLayer.entryEducation ? (
+                <p className="m-0">
+                  {locale === "zh" ? "入门学历" : "Entry education"}: {job.truthLayer.entryEducation}
+                </p>
+              ) : null}
+              {job.truthLayer.workExperience ? (
+                <p className="m-0">
+                  {locale === "zh" ? "工作经验" : "Work experience"}: {job.truthLayer.workExperience}
+                </p>
+              ) : null}
+              {job.truthLayer.onTheJobTraining ? (
+                <p className="m-0">
+                  {locale === "zh" ? "在岗训练" : "On-the-job training"}: {job.truthLayer.onTheJobTraining}
+                </p>
+              ) : null}
+              {canRenderAiStrategy && job.truthLayer.aiExposure !== null ? (
+                <p className="m-0">
+                  AI exposure: {job.truthLayer.aiExposure}
+                </p>
+              ) : null}
+              {job.truthLayer.sourceRefs.length === 0 ? (
+                <p className="m-0">{locale === "zh" ? "暂未提供更多来源。" : "No additional source refs yet."}</p>
+              ) : null}
+            </CardContent>
+          </Card>
+        ) : (
+          <Card>
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "职业事实层" : "Truth layer"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">
-                {locale === "zh" ? "入门学历" : "Entry education"}: {job.truthLayer.entryEducation}
+                {locale === "zh"
+                  ? "当前 answer surface 未被 backend 显式放行，因此页面不会补写本地职业解释。"
+                  : "The answer surface is not explicitly enabled by the backend, so this page does not synthesize a local job explanation."}
               </p>
-            ) : null}
-            {job.truthLayer.workExperience ? (
-              <p className="m-0">
-                {locale === "zh" ? "工作经验" : "Work experience"}: {job.truthLayer.workExperience}
-              </p>
-            ) : null}
-            {job.truthLayer.onTheJobTraining ? (
-              <p className="m-0">
-                {locale === "zh" ? "在岗训练" : "On-the-job training"}: {job.truthLayer.onTheJobTraining}
-              </p>
-            ) : null}
-            {canRenderAiStrategy && job.truthLayer.aiExposure !== null ? (
-              <p className="m-0">
-                AI exposure: {job.truthLayer.aiExposure}
-              </p>
-            ) : null}
-            {job.truthLayer.sourceRefs.length === 0 ? (
-              <p className="m-0">{locale === "zh" ? "暂未提供更多来源。" : "No additional source refs yet."}</p>
-            ) : null}
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        )}
       </div>
 
       {job.renderState.canRenderFitSurface ? (
