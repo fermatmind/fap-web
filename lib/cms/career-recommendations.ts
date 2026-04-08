@@ -775,7 +775,7 @@ export function normalizeCareerRecommendationDetail(
   };
 }
 
-export async function listMbtiCareerRecommendations(locale: Locale | string): Promise<CareerRecommendationListItem[]> {
+export async function listMbtiCareerRecommendations(locale: Locale | string): Promise<CareerRecommendationListAdapterItem[]> {
   const query = buildQuery({
     locale: normalizeApiLocale(locale),
     org_id: DEFAULT_ORG_ID,
@@ -794,7 +794,7 @@ export async function listMbtiCareerRecommendations(locale: Locale | string): Pr
     return asArray(response.items)
       .filter(isCareerRecommendationListItemApi)
       .map((item) => normalizeCareerRecommendationListItem(item, locale))
-      .filter((item): item is CareerRecommendationListItem => item !== null);
+      .filter((item): item is CareerRecommendationListAdapterItem => item !== null);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return [];
@@ -807,7 +807,7 @@ export async function listMbtiCareerRecommendations(locale: Locale | string): Pr
 export async function getMbtiCareerRecommendationByType(
   locale: Locale | string,
   type: string
-): Promise<CareerRecommendationDetail | null> {
+): Promise<CareerRecommendationAdapterDetail | null> {
   const normalizedType = normalizeText(type);
   if (!normalizedType) {
     return null;

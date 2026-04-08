@@ -62,6 +62,7 @@ describe("schema injection contract", () => {
     expect(source).toContain("JsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("career-job-protocol-status");
+    expect(source).toContain("job?.protocol.careerAsset?.seo_contract.index_eligible ?? seo?.surface?.indexEligible");
     expect(source).not.toContain("buildOccupationJsonLd");
     expect(source).not.toContain("getCareerJobBySlug");
     expect(source).not.toContain("renderVeliteMdx");
@@ -123,6 +124,8 @@ describe("schema injection contract", () => {
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("buildItemListJsonLd");
     expect(source).toContain("buildFAQPageJsonLd");
+    expect(source).toContain("CareerRecommendationAdapterDetail");
+    expect(source).not.toContain("CareerRecommendationDetail");
     expect(source).toContain("getMbtiCareerRecommendationByType");
     expect(source).toContain("renderCareerDataStatus");
     expect(source).toContain("renderState.canRenderStrongTruth");

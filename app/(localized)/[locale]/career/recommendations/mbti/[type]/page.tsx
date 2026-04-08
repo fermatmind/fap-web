@@ -14,7 +14,7 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
   buildCareerRecommendationFrontendUrl,
   getMbtiCareerRecommendationByType,
-  type CareerRecommendationDetail,
+  type CareerRecommendationAdapterDetail,
 } from "@/lib/cms/career-recommendations";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
@@ -54,7 +54,7 @@ function normalizeRequestedSlug(value: string): string {
   return String(value ?? "").trim().toLowerCase();
 }
 
-function renderCareerDataStatus(detail: CareerRecommendationDetail, locale: Locale) {
+function renderCareerDataStatus(detail: CareerRecommendationAdapterDetail, locale: Locale) {
   if (detail.careerDataStatus === "available") {
     return null;
   }
@@ -88,7 +88,7 @@ function renderCareerDataStatus(detail: CareerRecommendationDetail, locale: Loca
   );
 }
 
-async function getDetailOrNotFound(locale: Locale, type: string): Promise<CareerRecommendationDetail> {
+async function getDetailOrNotFound(locale: Locale, type: string): Promise<CareerRecommendationAdapterDetail> {
   const detail = await getMbtiCareerRecommendationByType(locale, type);
   if (!detail) {
     notFound();

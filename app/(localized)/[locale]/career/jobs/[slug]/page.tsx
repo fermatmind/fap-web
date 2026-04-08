@@ -47,8 +47,8 @@ function resolveCareerExplicitIndexGate(
   seo: Awaited<ReturnType<typeof getCareerJobSeoFromCmsBySlug>>
 ) {
   return {
-    indexEligible: seo?.surface?.indexEligible ?? job?.protocol.careerAsset?.seo_contract.index_eligible ?? null,
-    indexState: seo?.surface?.indexState || job?.protocol.careerAsset?.seo_contract.index_state || null,
+    indexEligible: job?.protocol.careerAsset?.seo_contract.index_eligible ?? seo?.surface?.indexEligible ?? null,
+    indexState: job?.protocol.careerAsset?.seo_contract.index_state ?? seo?.surface?.indexState ?? null,
   };
 }
 
