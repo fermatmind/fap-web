@@ -14,6 +14,8 @@ export type CareerSeoContractAdapter = {
   articleEligible: boolean | null;
 };
 
+export type CareerLightweightDataStatus = "available" | "trust_limited" | "unavailable";
+
 export type CareerProvenanceMetaAdapter = {
   contentVersion: string;
   dataVersion: string;
@@ -138,4 +140,77 @@ export type CareerRecommendationBundleAdapter = {
     href: string | null;
   }>;
   renderState: CareerRecommendationRenderState;
+};
+
+export type CareerJobIndexCardAdapter = {
+  authoritySource: string;
+  dataStatus: CareerLightweightDataStatus;
+  identity: {
+    occupationUuid: string | null;
+    canonicalSlug: string;
+    entityLevel: string | null;
+    familyUuid: string | null;
+  };
+  titles: {
+    title: string;
+    canonicalEn: string | null;
+    canonicalZh: string | null;
+    searchH1Zh: string | null;
+  };
+  truthSummary: {
+    truthMarket: string | null;
+    medianPayUsdAnnual: number | null;
+    outlookPct20242034: number | null;
+    outlookDescription: string | null;
+    aiExposure: number | null;
+  };
+  trustSummary: {
+    reviewerStatus: string | null;
+    reviewedAt: string | null;
+    contentVersion: string | null;
+    dataVersion: string | null;
+    logicVersion: string | null;
+    editorialPatchRequired: boolean;
+    editorialPatchStatus: string | null;
+    allowStrongClaim: boolean;
+    allowSalaryComparison: boolean;
+    allowAiStrategy: boolean;
+    reasonCodes: string[];
+  };
+  scoreSummary: {
+    fitScore: CareerScoreResult;
+    confidenceScore: CareerScoreResult;
+  };
+  seoContract: CareerSeoContractAdapter;
+  provenanceMeta: CareerProvenanceMetaAdapter;
+  href: string;
+};
+
+export type CareerRecommendationIndexCardAdapter = {
+  authoritySource: string;
+  dataStatus: CareerLightweightDataStatus;
+  recommendationSubjectMeta: {
+    typeCode: string | null;
+    canonicalTypeCode: string | null;
+    displayTitle: string;
+    publicRouteSlug: string;
+  };
+  scoreSummary: {
+    fitScore: CareerScoreResult;
+    confidenceScore: CareerScoreResult;
+  };
+  trustSummary: {
+    reviewerStatus: string | null;
+    reviewedAt: string | null;
+    contentVersion: string | null;
+    dataVersion: string | null;
+    logicVersion: string | null;
+    allowStrongClaim: boolean;
+    allowSalaryComparison: boolean;
+    allowAiStrategy: boolean;
+    reasonCodes: string[];
+  };
+  seoContract: CareerSeoContractAdapter;
+  provenanceMeta: CareerProvenanceMetaAdapter;
+  href: string;
 };
