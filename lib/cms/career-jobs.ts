@@ -17,7 +17,9 @@ import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurf
 import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
-type RiasecKey = "R" | "I" | "A" | "S" | "E" | "C";
+const RIASEC_KEYS = ["R", "I", "A", "S", "E", "C"] as const;
+
+type RiasecKey = (typeof RIASEC_KEYS)[number];
 
 type CmsCareerJobApiSeoMeta = {
   seo_title?: string | null;
@@ -281,6 +283,10 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   }
 
   return value as Record<string, unknown>;
+}
+
+function asArray<T = unknown>(value: unknown): T[] {
+  return Array.isArray(value) ? (value as T[]) : [];
 }
 
 function normalizeStringArray(value: unknown): string[] {
