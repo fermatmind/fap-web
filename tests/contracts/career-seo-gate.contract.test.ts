@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { shouldIncludeInSitemap, shouldNoindex } from "@/lib/seo/indexingPolicy";
+import { isCareerJobsQueryPage, shouldIncludeInSitemap, shouldNoindex } from "@/lib/seo/indexingPolicy";
 
 describe("career seo gate contract", () => {
   it("keeps explicit Career gates conservative when index eligibility is missing", () => {
@@ -30,5 +30,12 @@ describe("career seo gate contract", () => {
         indexState: "promotion_candidate",
       })
     ).toBe(true);
+  });
+
+  it("keeps career jobs query pages out of indexable discoverability surfaces", () => {
+    expect(isCareerJobsQueryPage("/en/career/jobs?q=backend")).toBe(true);
+    expect(isCareerJobsQueryPage("/zh/career/jobs?q=%20%20%20")).toBe(false);
+    expect(shouldNoindex("/en/career/jobs?q=backend", "en")).toBe(true);
+    expect(shouldIncludeInSitemap("/en/career/jobs?q=backend")).toBe(false);
   });
 });

@@ -3,9 +3,7 @@
 const tests = require("./.velite/tests.json");
 const blog = require("./.velite/blog.json");
 const careerGuidesContent = require("./.velite/careerGuides.json");
-const careerJobs = require("./.velite/careerJobs.json");
 const careerIndustries = require("./.velite/careerIndustries.json");
-const careerRecommendationProfiles = require("./.velite/careerRecommendationProfiles.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
 const {
   isValidCmsApiRoute,
@@ -132,6 +130,31 @@ function shouldIncludeCareerSitemapPath(path, item) {
   return shouldIncludeInSitemap(path, resolveCareerExplicitGate(item));
 }
 
+function extractAuthorityItems(payload) {
+  if (Array.isArray(payload && payload.items)) {
+    return payload.items;
+  }
+
+  if (Array.isArray(payload && payload.data)) {
+    return payload.data;
+  }
+
+  return [];
+}
+
+function buildLocalizedAuthorityCareerPath(localePrefix, canonicalPath, fallbackPath) {
+  const normalizedCanonical = normalizePath(canonicalPath || "");
+  if (/^\/(en|zh)(\/|$)/i.test(normalizedCanonical)) {
+    return normalizedCanonical;
+  }
+
+  if (normalizedCanonical.startsWith("/career/")) {
+    return `/${localePrefix}${normalizedCanonical}`;
+  }
+
+  return normalizePath(fallbackPath);
+}
+
 function buildTestPaths() {
   const uniqueSlugs = new Set();
   for (const item of tests) {
@@ -226,42 +249,11 @@ function buildLandingPaths() {
 function buildCareerPaths() {
   const paths = new Set();
 
-  for (const item of careerJobs) {
-    const slug = normalizeSlug(item?.slug);
-    if (!slug) continue;
-    const enPath = `/en/career/jobs/${slug}`;
-    const zhPath = `/zh/career/jobs/${slug}`;
-    if (shouldIncludeCareerSitemapPath(enPath, item)) {
-      paths.add(enPath);
-    }
-    if (shouldIncludeCareerSitemapPath(zhPath, item)) {
-      paths.add(zhPath);
-    }
-  }
-
   for (const item of careerIndustries) {
     const slug = normalizeSlug(item?.slug);
     if (!slug) continue;
     paths.add(`/en/career/industries/${slug}`);
     paths.add(`/zh/career/industries/${slug}`);
-  }
-
-  for (const item of careerRecommendationProfiles) {
-    const profileType = normalizeSlug(item?.profile_type).toLowerCase();
-    const key = normalizeSlug(item?.key);
-    if (!profileType || !key) continue;
-
-    if (profileType === "big5") {
-      const trait = key.toLowerCase();
-      const enPath = `/en/career/recommendations/big5/${trait}`;
-      const zhPath = `/zh/career/recommendations/big5/${trait}`;
-      if (shouldIncludeCareerSitemapPath(enPath, item)) {
-        paths.add(enPath);
-      }
-      if (shouldIncludeCareerSitemapPath(zhPath, item)) {
-        paths.add(zhPath);
-      }
-    }
   }
 
   return [...paths];
@@ -424,18 +416,58 @@ async function buildDataDetailPaths() {
   );
 }
 
-async function buildCareerJobDetailPathsFromApi() {
+async function buildCareerJobDetailPathsFromAuthority() {
   try {
     const paths = new Set();
 
     for (const { localePrefix, apiLocale } of CMS_LOCALES) {
-      const items = await fetchPaginatedItems("/v0.5/career-jobs", { locale: apiLocale, org_id: 0 });
+      const params = new URLSearchParams({ locale: apiLocale });
+      const payload = await fetchJsonWithTimeout(`${buildApiUrl("/v0.5/career/jobs")}?${params.toString()}`);
+      const items = extractAuthorityItems(payload);
 
       for (const item of items) {
-        if (!isPublicIndexable(item)) continue;
-        const slug = normalizeSlug(item?.slug);
+        const slug = normalizeSlug(item?.identity?.canonical_slug);
         if (!slug) continue;
-        const path = `/${localePrefix}/career/jobs/${slug}`;
+        const path = buildLocalizedAuthorityCareerPath(
+          localePrefix,
+          item?.seo_contract?.canonical_path,
+          `/${localePrefix}/career/jobs/${slug}`
+        );
+        if (shouldIncludeCareerSitemapPath(path, item)) {
+          paths.add(path);
+        }
+      }
+    }
+
+    return [...paths];
+  } catch {
+    return [];
+  }
+}
+
+async function buildCareerRecommendationDetailPathsFromAuthority() {
+  try {
+    const paths = new Set();
+
+    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+      const params = new URLSearchParams({ locale: apiLocale });
+      const payload = await fetchJsonWithTimeout(
+        `${buildApiUrl("/v0.5/career/recommendations/mbti")}?${params.toString()}`
+      );
+      const items = extractAuthorityItems(payload);
+
+      for (const item of items) {
+        const routeSlug = normalizeSlug(
+          item?.recommendation_subject_meta?.public_route_slug ||
+          item?.recommendation_subject_meta?.canonical_type_code ||
+          item?.recommendation_subject_meta?.type_code
+        ).toLowerCase();
+        if (!routeSlug) continue;
+        const path = buildLocalizedAuthorityCareerPath(
+          localePrefix,
+          item?.seo_contract?.canonical_path,
+          `/${localePrefix}/career/recommendations/mbti/${routeSlug}`
+        );
         if (shouldIncludeCareerSitemapPath(path, item)) {
           paths.add(path);
         }
@@ -515,6 +547,7 @@ module.exports = {
       methodPaths,
       dataPaths,
       careerJobApiPaths,
+      careerRecommendationApiPaths,
       personalityPaths,
       topicApiPaths,
     ] = await Promise.all([
@@ -522,7 +555,8 @@ module.exports = {
       buildValidatedCmsPaths("/v0.5/career-guides", buildCareerGuideDetailPaths),
       buildValidatedCmsPaths("/v0.5/methods", buildMethodDetailPaths),
       buildValidatedCmsPaths("/v0.5/data", buildDataDetailPaths),
-      buildValidatedCmsPaths("/v0.5/career-jobs", buildCareerJobDetailPathsFromApi),
+      buildCareerJobDetailPathsFromAuthority(),
+      buildCareerRecommendationDetailPathsFromAuthority(),
       buildValidatedCmsPaths("/v0.5/personality", buildPersonalityDetailPaths),
       buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
     ]);
@@ -534,6 +568,7 @@ module.exports = {
       ...methodPaths,
       ...dataPaths,
       ...careerJobApiPaths,
+      ...careerRecommendationApiPaths,
       ...personalityPaths,
       ...topicApiPaths,
     ])]

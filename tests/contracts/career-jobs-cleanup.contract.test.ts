@@ -79,13 +79,22 @@ describe("career routing cleanup contract", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
 
-    expect(llms).toContain('import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations"');
-    expect(llmsFull).toContain('import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations"');
-    expect(llms).toContain("...enCareerRecommendations.map((item) => item.href)");
-    expect(llms).toContain("...zhCareerRecommendations.map((item) => item.href)");
-    expect(llmsFull).toContain("path: item.href");
+    expect(llms).toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
+    expect(llms).toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
+    expect(llms).toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
+    expect(llms).toContain('import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex"');
+    expect(llmsFull).toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
+    expect(llmsFull).toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
+    expect(llms).not.toContain('import { listCareerJobsFromCms } from "@/lib/cms/career-jobs"');
+    expect(llms).not.toContain('import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations"');
+    expect(llmsFull).not.toContain('import { listCareerJobsFromCms } from "@/lib/cms/career-jobs"');
+    expect(llmsFull).not.toContain('import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations"');
+    expect(llms).not.toContain("listBig5RecommendationTraits");
+    expect(llmsFull).not.toContain("listBig5RecommendationTraits");
     expect(llms).not.toContain("/career/tests/riasec/result");
     expect(llmsFull).not.toContain("/career/tests/riasec/result");
+    expect(llms).not.toContain("?q=");
+    expect(llmsFull).not.toContain("?q=");
     expect(llms).not.toContain("/compare/");
     expect(llmsFull).not.toContain("/share/");
   });
