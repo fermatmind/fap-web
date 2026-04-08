@@ -257,6 +257,7 @@ export default async function CareerMbtiRecommendationPage({
     entrySurface: "mbti_career_recommendation_detail",
     sourcePageType: "career_recommendation_detail",
     targetAction: "entry_view",
+    sourcePath: canonicalPath,
   });
   const mbtiPrimaryCtaTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
@@ -264,6 +265,7 @@ export default async function CareerMbtiRecommendationPage({
     entrySurface: "mbti_career_recommendation_detail",
     sourcePageType: "career_recommendation_detail",
     targetAction: "start_mbti_test_primary",
+    sourcePath: canonicalPath,
   });
   const mbtiPrimaryCtaHref = buildMbtiEntryHref({
     locale,
@@ -367,7 +369,11 @@ export default async function CareerMbtiRecommendationPage({
             ))}
           </div>
         ) : null}
-        <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-career-entry-cta-group">
+        <div
+          className="flex flex-wrap items-center gap-3 pt-1"
+          data-testid="mbti-career-entry-cta-group"
+          data-ads-surface="secondary"
+        >
           <TrackedEntryCtaLink
             href={mbtiPrimaryCtaHref}
             prefetch
@@ -380,11 +386,16 @@ export default async function CareerMbtiRecommendationPage({
           <Link
             href={mbtiLandingHref}
             data-testid="mbti-career-secondary-cta"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
+            className={buttonVariants({ variant: "outline", size: "sm" })}
           >
             {locale === "zh" ? "查看测试介绍" : "View test overview"}
           </Link>
         </div>
+        <p className="m-0 text-xs text-[var(--fm-text-muted)]" data-testid="mbti-career-cta-guidance">
+          {locale === "zh"
+            ? "如果你是从职业意图进入，先用测试验证类型是否吻合，再用这页判断职业方向。"
+            : "If you arrived with career intent, validate the type first so this recommendation page reflects your actual pattern."}
+        </p>
         <div className="grid gap-3 md:grid-cols-3">
           <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">

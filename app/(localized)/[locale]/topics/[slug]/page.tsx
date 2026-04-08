@@ -158,6 +158,7 @@ export default async function TopicDetailPage({
     entrySurface: "mbti_topic_detail",
     sourcePageType: "topic_detail",
     targetAction: "entry_view",
+    sourcePath: canonicalPath,
   });
   const mbtiPrimaryCtaTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
@@ -165,6 +166,7 @@ export default async function TopicDetailPage({
     entrySurface: "mbti_topic_detail",
     sourcePageType: "topic_detail",
     targetAction: "start_mbti_test_primary",
+    sourcePath: canonicalPath,
   });
   const mbtiPrimaryCtaHref = buildMbtiEntryHref({
     locale,

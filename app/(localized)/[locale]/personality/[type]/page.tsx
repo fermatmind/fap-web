@@ -344,6 +344,7 @@ export default async function PersonalityDetailPage({
     entrySurface: "mbti_personality_detail",
     sourcePageType: "personality_detail",
     targetAction: "entry_view",
+    sourcePath: canonicalPath,
   });
   const mbtiPrimaryCtaTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
@@ -351,6 +352,7 @@ export default async function PersonalityDetailPage({
     entrySurface: "mbti_personality_detail",
     sourcePageType: "personality_detail",
     targetAction: "start_mbti_test_primary",
+    sourcePath: canonicalPath,
   });
   const mbtiPrimaryCtaHref = buildMbtiEntryHref({
     locale,
@@ -483,7 +485,11 @@ export default async function PersonalityDetailPage({
         {detail.heroSummary && detail.heroSummary !== detail.summary ? (
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
         ) : null}
-        <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-personality-entry-cta-group">
+        <div
+          className="flex flex-wrap items-center gap-3 pt-1"
+          data-testid="mbti-personality-entry-cta-group"
+          data-ads-surface="secondary"
+        >
           <TrackedEntryCtaLink
             href={mbtiPrimaryCtaHref}
             prefetch
@@ -496,11 +502,16 @@ export default async function PersonalityDetailPage({
           <Link
             href={mbtiLandingHref}
             data-testid="mbti-personality-secondary-cta"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
+            className={buttonVariants({ variant: "outline", size: "sm" })}
           >
             {locale === "zh" ? "查看测试介绍" : "View test overview"}
           </Link>
         </div>
+        <p className="m-0 text-xs text-[var(--fm-text-muted)]" data-testid="mbti-personality-cta-guidance">
+          {locale === "zh"
+            ? "如果你是从类型词进入，先用测试验证这是否真的符合你的答案，再继续读职业与协作场景。"
+            : "If you arrived on a type-specific page, use the test to validate fit before treating this profile as your final answer."}
+        </p>
         {landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="personality-detail-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (

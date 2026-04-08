@@ -70,6 +70,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
         entrySurface: "mbti_test_landing",
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_primary",
+        sourcePath: mbtiLandingPath,
       })
     : null;
   const mbtiSecondaryTrackingProps = mbtiSecondaryForm
@@ -80,6 +81,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
         entrySurface: "mbti_test_landing",
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_secondary",
+        sourcePath: mbtiLandingPath,
       })
     : null;
   const mbtiSummary = listMbtiFormMetas().map((form) => getMbtiVariantLabel(form.formCode, locale)).join(" / ");
@@ -103,9 +105,12 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                 : `${questions} ${locale === "zh" ? "题" : "questions"} · ${locale === "zh" ? `约 ${minutes} 分钟` : `about ${minutes} minutes`}.`}
             </p>
             {showsMbtiActions ? (
-              <div className="space-y-2">
+              <div className="space-y-2" data-testid="mbti-sticky-entry-cta-group">
                 {mbtiPrimaryForm && mbtiPrimaryHref && mbtiPrimaryTrackingProps ? (
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      {locale === "zh" ? "推荐起点" : "Recommended start"}
+                    </p>
                     <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
                       {getMbtiVariantLabel(mbtiPrimaryForm.formCode, locale)}
                     </p>
@@ -113,6 +118,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                     <TrackedEntryCtaLink
                       href={mbtiPrimaryHref}
                       eventProperties={mbtiPrimaryTrackingProps}
+                      data-testid="mbti-sticky-primary-cta"
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
                       {getMbtiStartLabel(mbtiPrimaryForm.formCode, locale)}
@@ -128,6 +134,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                     <TrackedEntryCtaLink
                       href={mbtiSecondaryHref}
                       eventProperties={mbtiSecondaryTrackingProps}
+                      data-testid="mbti-sticky-secondary-cta"
                       className={buttonVariants({ variant: "outline", className: "mt-3 w-full" })}
                     >
                       {getMbtiStartLabel(mbtiSecondaryForm.formCode, locale)}
@@ -176,6 +183,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                 <TrackedEntryCtaLink
                   href={mbtiPrimaryHref}
                   eventProperties={mbtiPrimaryTrackingProps}
+                  data-testid="mbti-sticky-mobile-primary-cta"
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
                   {getMbtiStartLabel(mbtiPrimaryForm.formCode, locale)}
@@ -185,7 +193,8 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                 <TrackedEntryCtaLink
                   href={mbtiSecondaryHref}
                   eventProperties={mbtiSecondaryTrackingProps}
-                  className={buttonVariants({ size: "sm", variant: "outline", className: "flex-1 sm:flex-none" })}
+                  data-testid="mbti-sticky-mobile-secondary-cta"
+                  className={buttonVariants({ size: "sm", variant: "outline", className: "sm:flex-none" })}
                 >
                   {getMbtiStartLabel(mbtiSecondaryForm.formCode, locale)}
                 </TrackedEntryCtaLink>
