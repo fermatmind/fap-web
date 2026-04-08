@@ -81,18 +81,29 @@ function renderSearchStatusNotice(dataStatus: "available" | "trust_limited" | "u
   );
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}): Promise<Metadata> {
   const { locale: localeParam } = await params;
+  const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
+  const pathname = locale === "zh" ? "/zh/career/jobs" : "/en/career/jobs";
+  const submittedQuery = normalizeSearchQuery(resolvedSearchParams.q);
 
   return buildPageMetadata({
     locale,
-    pathname: locale === "zh" ? "/zh/career/jobs" : "/en/career/jobs",
+    pathname: submittedQuery ? `${pathname}?q=${encodeURIComponent(submittedQuery)}` : pathname,
+    canonicalPathname: pathname,
     title: locale === "zh" ? "职业库" : "Career Job Library",
     description:
       locale === "zh"
         ? "基于 backend authority 轻量索引浏览职业事实、评分摘要与信任边界。"
         : "Browse job facts, compact score summaries, and trust boundaries from the backend authority index.",
+    noindex: submittedQuery.length > 0,
     alternatesByLocale: {
       en: "/en/career/jobs",
       zh: "/zh/career/jobs",

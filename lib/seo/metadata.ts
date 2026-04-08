@@ -9,6 +9,7 @@ type TwitterImageItem = TwitterImages extends Array<infer Item> ? Item : never;
 type BuildPageMetadataInput = {
   locale: "en" | "zh";
   pathname: string;
+  canonicalPathname?: string;
   title: string;
   description: string;
   imagePath?: string;
@@ -74,7 +75,9 @@ export function normalizeTwitterImages(...candidates: unknown[]): TwitterImages 
 }
 
 export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
-  const canonical = toAbsoluteUrl(input.seoSurface?.canonicalUrl || input.pathname);
+  const canonical = toAbsoluteUrl(
+    input.seoSurface?.canonicalUrl || input.canonicalPathname || input.pathname
+  );
   const xDefaultPath = input.alternatesByLocale.xDefault ?? "/";
   const robotsPolicy = input.seoSurface?.robotsPolicy || "";
   const noindex =

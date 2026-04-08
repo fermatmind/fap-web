@@ -20,14 +20,48 @@ afterEach(() => {
 });
 
 describe("sitemap indexability contract", () => {
-  it("frontend sitemap config keeps the current public topics, help, personality, article, and guide routes", async () => {
+  it("frontend sitemap config keeps authority-safe Career detail routes and excludes query/search-style Career discovery", async () => {
     vi.stubGlobal(
       "fetch",
-      vi.fn(async () =>
-        jsonResponse({
-          items: [{ public_route_slug: "intj-a" }],
-        })
-      )
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        if (url.includes("/api/v0.5/career/jobs?")) {
+          return jsonResponse({
+            items: [
+              {
+                identity: {
+                  canonical_slug: "backend-architect",
+                },
+                seo_contract: {
+                  canonical_path: "/career/jobs/backend-architect",
+                  index_state: "indexed",
+                  index_eligible: true,
+                },
+              },
+            ],
+          });
+        }
+
+        if (url.includes("/api/v0.5/career/recommendations/mbti?")) {
+          return jsonResponse({
+            items: [
+              {
+                recommendation_subject_meta: {
+                  public_route_slug: "intj-a",
+                },
+                seo_contract: {
+                  canonical_path: "/career/recommendations/mbti/intj-a",
+                  index_state: "indexed",
+                  index_eligible: true,
+                },
+              },
+            ],
+          });
+        }
+
+        return jsonResponse({ items: [] });
+      })
     );
 
     const config = requireFromRoot("./next-sitemap.config.js");
@@ -46,11 +80,14 @@ describe("sitemap indexability contract", () => {
         "/zh/articles",
         "/en/career/guides",
         "/zh/career/guides",
+        "/en/career/jobs/backend-architect",
+        "/zh/career/jobs/backend-architect",
+        "/en/career/recommendations/mbti/intj-a",
+        "/zh/career/recommendations/mbti/intj-a",
       ])
     );
-    expect(locs.some((loc: string) => loc.includes("/career/recommendations/mbti/"))).toBe(false);
-    expect(locs.some((loc: string) => loc.includes("/career/jobs/"))).toBe(false);
     expect(locs.some((loc: string) => loc.includes("/career/recommendations/big5/"))).toBe(false);
+    expect(locs.some((loc: string) => loc.includes("?q="))).toBe(false);
   });
 
   it("frontend sitemap config excludes retired and private route families", async () => {

@@ -32,6 +32,7 @@ describe("robots contract", () => {
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);
     expect(shouldIncludeInSitemap("/en/help/faq")).toBe(true);
     expect(shouldIncludeInSitemap("/en/career/recommendations/mbti/INTJ")).toBe(true);
+    expect(shouldIncludeInSitemap("/en/career/jobs?q=backend")).toBe(false);
 
     expect(shouldIncludeInSitemap("/en/types/intj")).toBe(false);
     expect(shouldIncludeInSitemap("/en/share/share-123")).toBe(false);
@@ -49,5 +50,6 @@ describe("robots contract", () => {
     expect(compareSource).toContain("noindex: true");
     expect(shouldNoindex("/en/share/share-123", "en")).toBe(true);
     expect(shouldNoindex("/en/result/attempt-123", "en")).toBe(true);
+    expect(shouldNoindex("/en/career/jobs?q=backend", "en")).toBe(true);
   });
 });

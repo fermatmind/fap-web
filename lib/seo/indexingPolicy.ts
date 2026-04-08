@@ -38,6 +38,21 @@ function normalizePathname(pathname: string): string {
   return withLeadingSlash.replace(/\/{2,}/g, "/");
 }
 
+function extractQueryString(pathname: string): string {
+  const raw = String(pathname || "").trim();
+  const queryIndex = raw.indexOf("?");
+  if (queryIndex === -1) {
+    return "";
+  }
+
+  const hashIndex = raw.indexOf("#", queryIndex);
+  if (hashIndex === -1) {
+    return raw.slice(queryIndex + 1);
+  }
+
+  return raw.slice(queryIndex + 1, hashIndex);
+}
+
 export function stripLocalePrefix(pathname: string): string {
   const normalized = normalizePathname(pathname);
   const stripped = normalized.replace(LOCALE_PREFIX_RE, "");
@@ -52,6 +67,23 @@ export function hasLocalePrefix(pathname: string): boolean {
 export function isIndexablePath(pathname: string): boolean {
   const stripped = stripLocalePrefix(pathname);
   return !DENY_PATH_PATTERNS.some((pattern) => pattern.test(stripped));
+}
+
+export function isCareerJobsQueryPage(pathname: string): boolean {
+  const stripped = stripLocalePrefix(pathname);
+  if (stripped !== "/career/jobs") {
+    return false;
+  }
+
+  const query = extractQueryString(pathname);
+  if (!query) {
+    return false;
+  }
+
+  const params = new URLSearchParams(query);
+  const rawQuery = params.get("q");
+
+  return typeof rawQuery === "string" && rawQuery.trim().length > 0;
 }
 
 function normalizeIndexState(value: string | null | undefined): string {
@@ -75,6 +107,7 @@ export function shouldNoindex(
   explicitGate?: ExplicitIndexGate | null
 ): boolean {
   if (!isIndexablePath(pathname)) return true;
+  if (isCareerJobsQueryPage(pathname)) return true;
   if (isExplicitlyExcludedFromIndex(explicitGate)) return true;
 
   if (contentState?.enforceLocalizedContent && locale) {
@@ -87,6 +120,10 @@ export function shouldNoindex(
 
 export function shouldIncludeInSitemap(pathname: string, explicitGate?: ExplicitIndexGate | null): boolean {
   if (!isIndexablePath(pathname)) {
+    return false;
+  }
+
+  if (isCareerJobsQueryPage(pathname)) {
     return false;
   }
 

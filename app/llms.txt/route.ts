@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
-import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
-import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
+import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
+import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
+import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
+import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
-  listBig5RecommendationTraits,
   listCareerIndustrySlugs,
 } from "@/lib/content";
 import { HELP_CENTER_SLUGS } from "@/lib/help/helpCenterContent";
@@ -23,6 +24,16 @@ function toCanonical(siteUrl: string, path: string): string {
 
 function dedupePaths(paths: string[]): string[] {
   return [...new Set(paths)].filter((path) => shouldIncludeInSitemap(path));
+}
+
+function shouldKeepCareerAuthorityRoute(item: {
+  href: string;
+  seoContract: { indexEligible: boolean | null; indexState: string | null };
+}): boolean {
+  return shouldIncludeInSitemap(item.href, {
+    indexEligible: item.seoContract.indexEligible,
+    indexState: item.seoContract.indexState,
+  });
 }
 
 function publishedPersonalityVariantSlugs(value: string): string[] {
@@ -106,12 +117,20 @@ export async function GET() {
     enArticles,
     zhArticles,
   ] = await Promise.all([
-    listCareerJobsFromCms({ locale: "en" }).catch(() => []),
-    listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
+    fetchCareerJobIndex({ locale: "en" })
+      .then((payload) => adaptCareerJobIndex({ locale: "en", payload }))
+      .catch(() => []),
+    fetchCareerJobIndex({ locale: "zh" })
+      .then((payload) => adaptCareerJobIndex({ locale: "zh", payload }))
+      .catch(() => []),
     listCareerGuidesFromCms("en").catch(() => []),
     listCareerGuidesFromCms("zh").catch(() => []),
-    listMbtiCareerRecommendations("en").catch(() => []),
-    listMbtiCareerRecommendations("zh").catch(() => []),
+    fetchCareerRecommendationIndex({ locale: "en" })
+      .then((payload) => adaptCareerRecommendationIndex({ locale: "en", payload }))
+      .catch(() => []),
+    fetchCareerRecommendationIndex({ locale: "zh" })
+      .then((payload) => adaptCareerRecommendationIndex({ locale: "zh", payload }))
+      .catch(() => []),
     listPersonalityPaths(),
     listTopicPaths(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
@@ -149,16 +168,12 @@ export async function GET() {
     "/zh/career/tests",
     "/en/career/tests/riasec",
     "/zh/career/tests/riasec",
-    ...enCareerJobs.map((job) => job.href),
-    ...zhCareerJobs.map((job) => job.href),
+    ...enCareerJobs.filter(shouldKeepCareerAuthorityRoute).map((job) => job.href),
+    ...zhCareerJobs.filter(shouldKeepCareerAuthorityRoute).map((job) => job.href),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...guideEntries,
-    ...enCareerRecommendations.map((item) => item.href),
-    ...zhCareerRecommendations.map((item) => item.href),
-    ...listBig5RecommendationTraits().flatMap((trait) => [
-      `/en/career/recommendations/big5/${trait}`,
-      `/zh/career/recommendations/big5/${trait}`,
-    ]),
+    ...enCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
+    ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
   ]);
 
   const lines = [
@@ -176,6 +191,10 @@ export async function GET() {
     `- ${toCanonical(siteUrl, "/zh/topics")}`,
     `- ${toCanonical(siteUrl, "/en/help")}`,
     `- ${toCanonical(siteUrl, "/zh/help")}`,
+    `- ${toCanonical(siteUrl, "/en/career")}`,
+    `- ${toCanonical(siteUrl, "/zh/career")}`,
+    `- ${toCanonical(siteUrl, "/en/career/jobs")}`,
+    `- ${toCanonical(siteUrl, "/zh/career/jobs")}`,
     `- ${toCanonical(siteUrl, "/en/career/recommendations")}`,
     `- ${toCanonical(siteUrl, "/zh/career/recommendations")}`,
     "",

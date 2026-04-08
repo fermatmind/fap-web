@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
-import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
-import { listCareerJobsFromCms } from "@/lib/cms/career-jobs";
+import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
+import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
+import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
+import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
   getAllTests,
-  listBig5RecommendationTraits,
   listCareerIndustrySlugs,
 } from "@/lib/content";
 import { listHelpCenterPages } from "@/lib/help/helpCenterContent";
@@ -27,6 +28,16 @@ function toCanonical(siteUrl: string, path: string): string {
 
 function shouldKeep(path: string): boolean {
   return shouldIncludeInSitemap(path);
+}
+
+function shouldKeepCareerAuthorityEntry(entry: {
+  href: string;
+  seoContract: { indexEligible: boolean | null; indexState: string | null };
+}): boolean {
+  return shouldIncludeInSitemap(entry.href, {
+    indexEligible: entry.seoContract.indexEligible,
+    indexState: entry.seoContract.indexState,
+  });
 }
 
 function publishedPersonalityVariantSlugs(value: string): string[] {
@@ -123,12 +134,20 @@ export async function GET() {
     enArticles,
     zhArticles,
   ] = await Promise.all([
-    listCareerJobsFromCms({ locale: "en" }).catch(() => []),
-    listCareerJobsFromCms({ locale: "zh" }).catch(() => []),
+    fetchCareerJobIndex({ locale: "en" })
+      .then((payload) => adaptCareerJobIndex({ locale: "en", payload }))
+      .catch(() => []),
+    fetchCareerJobIndex({ locale: "zh" })
+      .then((payload) => adaptCareerJobIndex({ locale: "zh", payload }))
+      .catch(() => []),
     listCareerGuidesFromCms("en").catch(() => []),
     listCareerGuidesFromCms("zh").catch(() => []),
-    listMbtiCareerRecommendations("en").catch(() => []),
-    listMbtiCareerRecommendations("zh").catch(() => []),
+    fetchCareerRecommendationIndex({ locale: "en" })
+      .then((payload) => adaptCareerRecommendationIndex({ locale: "en", payload }))
+      .catch(() => []),
+    fetchCareerRecommendationIndex({ locale: "zh" })
+      .then((payload) => adaptCareerRecommendationIndex({ locale: "zh", payload }))
+      .catch(() => []),
     listPersonalityEntries(),
     listTopicEntries(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
@@ -184,31 +203,43 @@ export async function GET() {
   ].filter((entry) => shouldKeep(entry.path));
 
   const careers = [
+    { locale: "en", path: "/en/career", title: "Career center", updatedAt: "" },
+    { locale: "zh", path: "/zh/career", title: "职业发展中心", updatedAt: "" },
+    { locale: "en", path: "/en/career/jobs", title: "Career jobs", updatedAt: "" },
+    { locale: "zh", path: "/zh/career/jobs", title: "职业库", updatedAt: "" },
     { locale: "en", path: "/en/career/recommendations", title: "Career recommendations", updatedAt: "" },
     { locale: "zh", path: "/zh/career/recommendations", title: "职业推荐", updatedAt: "" },
-    ...enCareerJobs.map((job) => ({ locale: "en", path: job.href, title: job.title, updatedAt: "" })),
-    ...zhCareerJobs.map((job) => ({ locale: "zh", path: job.href, title: job.title, updatedAt: "" })),
+    { locale: "en", path: "/en/career/industries", title: "Career industries", updatedAt: "" },
+    { locale: "zh", path: "/zh/career/industries", title: "职业行业", updatedAt: "" },
+    ...enCareerJobs.filter(shouldKeepCareerAuthorityEntry).map((job) => ({
+      locale: "en",
+      path: job.href,
+      title: job.titles.title,
+      updatedAt: job.provenanceMeta.compiledAt ?? "",
+    })),
+    ...zhCareerJobs.filter(shouldKeepCareerAuthorityEntry).map((job) => ({
+      locale: "zh",
+      path: job.href,
+      title: job.titles.title,
+      updatedAt: job.provenanceMeta.compiledAt ?? "",
+    })),
     ...listCareerIndustrySlugs().flatMap((slug) => [
       { locale: "en", path: `/en/career/industries/${slug}`, title: slug, updatedAt: "" },
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },
     ]),
     ...guideEntries,
-    ...enCareerRecommendations.map((item) => ({
+    ...enCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
       locale: "en",
       path: item.href,
-      title: `${item.displayType} | ${item.typeName}`,
-      updatedAt: "",
+      title: item.recommendationSubjectMeta.displayTitle,
+      updatedAt: item.provenanceMeta.compiledAt ?? "",
     })),
-    ...zhCareerRecommendations.map((item) => ({
+    ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
       locale: "zh",
       path: item.href,
-      title: `${item.displayType} | ${item.typeName}`,
-      updatedAt: "",
+      title: item.recommendationSubjectMeta.displayTitle,
+      updatedAt: item.provenanceMeta.compiledAt ?? "",
     })),
-    ...listBig5RecommendationTraits().flatMap((trait) => [
-      { locale: "en", path: `/en/career/recommendations/big5/${trait}`, title: `Big5 ${trait}`, updatedAt: "" },
-      { locale: "zh", path: `/zh/career/recommendations/big5/${trait}`, title: `Big5 ${trait}`, updatedAt: "" },
-    ]),
   ].filter((entry) => shouldKeep(entry.path));
 
   const lines = [
@@ -231,6 +262,10 @@ export async function GET() {
     `- ${toCanonical(siteUrl, "/zh/topics")}`,
     `- ${toCanonical(siteUrl, "/en/help")}`,
     `- ${toCanonical(siteUrl, "/zh/help")}`,
+    `- ${toCanonical(siteUrl, "/en/career")}`,
+    `- ${toCanonical(siteUrl, "/zh/career")}`,
+    `- ${toCanonical(siteUrl, "/en/career/jobs")}`,
+    `- ${toCanonical(siteUrl, "/zh/career/jobs")}`,
     `- ${toCanonical(siteUrl, "/en/career/recommendations")}`,
     `- ${toCanonical(siteUrl, "/zh/career/recommendations")}`,
     "",
