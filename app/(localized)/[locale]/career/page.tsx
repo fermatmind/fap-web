@@ -72,15 +72,18 @@ export default async function CareerCenterPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const jobIndexPayload = await fetchCareerJobIndex({ locale });
-  const recommendationIndexPayload = await fetchCareerRecommendationIndex({ locale });
+  const [jobIndexPayload, recommendationIndexPayload, guides] = await Promise.all([
+    fetchCareerJobIndex({ locale }),
+    fetchCareerRecommendationIndex({ locale }),
+    listCareerGuidesFromCms(locale, { perPage: 4 }),
+  ]);
   const topJobs = adaptCareerJobIndex({ locale, payload: jobIndexPayload }).slice(0, 6);
   const recommendationPreviewItems = adaptCareerRecommendationIndex({
     locale,
     payload: recommendationIndexPayload,
   }).slice(0, 4);
   const industries = listCareerIndustries(locale).slice(0, 12);
-  const guides = (await listCareerGuidesFromCms(locale, { perPage: 4 })).slice(0, 4);
+  const topGuides = guides.slice(0, 4);
   const canonicalPath = locale === "zh" ? "/zh/career" : "/en/career";
   const pageTitle = locale === "zh" ? "职业发展中心" : "Career Intelligence Center";
   const pageDescription =
@@ -113,7 +116,11 @@ export default async function CareerCenterPage({
         }))}
       />
 
-      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]">
+      <section
+        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]"
+        data-testid="career-landing-hero"
+        data-authority-owner="editorial_local_wrapper"
+      >
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           Career Center
         </p>
@@ -153,59 +160,62 @@ export default async function CareerCenterPage({
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {topJobs.length > 0 ? (
             topJobs.map((job) => (
-            <Card
-              key={job.identity.canonicalSlug}
-              data-testid="career-landing-job-card"
-              data-career-data-status={job.dataStatus}
-            >
-              <CardHeader>
-                <div className="space-y-2">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                    {job.identity.canonicalSlug}
-                  </p>
-                  <CardTitle className="text-lg">{job.titles.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0">
-                  {job.truthSummary.outlookDescription ||
-                    (locale === "zh"
-                      ? "当前卡片只显示 backend authority 明确提供的轻量摘要。"
-                      : "This card only shows the lightweight summary explicitly provided by the backend authority.")}
-                </p>
-                {job.dataStatus === "available" ? (
-                  <>
-                    <p className="m-0">
-                      {locale === "zh" ? "薪资" : "Salary"}:{" "}
-                      {formatUsdAnnual(job.truthSummary.medianPayUsdAnnual, locale)}
+              <Card
+                key={job.identity.canonicalSlug}
+                data-testid="career-landing-job-card"
+                data-career-data-status={job.dataStatus}
+              >
+                <CardHeader>
+                  <div className="space-y-2">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                      {job.identity.canonicalSlug}
                     </p>
-                    <p className="m-0">
-                      {locale === "zh" ? "十年增速" : "Ten-year outlook"}:{" "}
-                      {formatPercent(job.truthSummary.outlookPct20242034, locale)}
-                    </p>
-                    <p className="m-0">
-                      {locale === "zh" ? "Fit 分数" : "Fit score"}: {job.scoreSummary.fitScore.value ?? "—"}
-                    </p>
-                  </>
-                ) : (
+                    <CardTitle className="text-lg">{job.titles.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
                   <p className="m-0">
-                    {job.dataStatus === "trust_limited"
-                      ? locale === "zh"
-                        ? "当前职位卡片处于 trust-limited 模式，仅显示后端明确放行的轻量状态。"
-                        : "This job card is in trust-limited mode and only shows the lightweight status explicitly allowed by the backend."
-                      : locale === "zh"
-                        ? "当前职位卡片不可用，页面不会本地合成职业事实。"
-                        : "This job card is unavailable, and the page does not synthesize local career facts."}
+                    {job.truthSummary.outlookDescription ||
+                      (locale === "zh"
+                        ? "当前卡片只显示 backend authority 明确提供的轻量摘要。"
+                        : "This card only shows the lightweight summary explicitly provided by the backend authority.")}
                   </p>
-                )}
-                <p className="m-0">
-                  {locale === "zh" ? "Reviewer" : "Reviewer"}: {job.trustSummary.reviewerStatus ?? "unknown"}
-                </p>
-                <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                  {locale === "zh" ? "查看职业详情" : "View role profile"}
-                </Link>
-              </CardContent>
-            </Card>
+                  {job.dataStatus === "available" ? (
+                    <>
+                      <p className="m-0">
+                        {locale === "zh" ? "薪资" : "Salary"}:{" "}
+                        {formatUsdAnnual(job.truthSummary.medianPayUsdAnnual, locale)}
+                      </p>
+                      <p className="m-0">
+                        {locale === "zh" ? "十年增速" : "Ten-year outlook"}:{" "}
+                        {formatPercent(job.truthSummary.outlookPct20242034, locale)}
+                      </p>
+                      <p className="m-0">
+                        {locale === "zh" ? "Fit 分数" : "Fit score"}: {job.scoreSummary.fitScore.value ?? "—"}
+                      </p>
+                    </>
+                  ) : (
+                    <p className="m-0">
+                      {job.dataStatus === "trust_limited"
+                        ? locale === "zh"
+                          ? "当前职位卡片处于 trust-limited 模式，仅显示后端明确放行的轻量状态。"
+                          : "This job card is in trust-limited mode and only shows the lightweight status explicitly allowed by the backend."
+                        : locale === "zh"
+                          ? "当前职位卡片不可用，页面不会本地合成职业事实。"
+                          : "This job card is unavailable, and the page does not synthesize local career facts."}
+                    </p>
+                  )}
+                  <p className="m-0">
+                    {locale === "zh" ? "Reviewer" : "Reviewer"}: {job.trustSummary.reviewerStatus ?? "unknown"}
+                  </p>
+                  <Link
+                    href={job.href}
+                    className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                  >
+                    {locale === "zh" ? "查看职业详情" : "View role profile"}
+                  </Link>
+                </CardContent>
+              </Card>
             ))
           ) : (
             <Card
@@ -352,7 +362,7 @@ export default async function CareerCenterPage({
       >
         <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">{locale === "zh" ? "职业发展文章" : "Career development guides"}</h2>
         <div className="grid gap-3 md:grid-cols-2">
-          {guides.map((guide) => (
+          {topGuides.map((guide) => (
             <Card key={guide.slug}>
               <CardHeader>
                 <CardTitle className="text-lg">{guide.title}</CardTitle>

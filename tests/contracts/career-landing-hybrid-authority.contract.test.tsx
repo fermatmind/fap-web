@@ -96,6 +96,8 @@ describe("career landing hybrid authority contract", () => {
 
     expect(html).toContain('data-testid="career-landing-jobs-preview"');
     expect(html).toContain('data-authority-owner="backend_lightweight_jobs"');
+    expect(html).toContain('data-testid="career-landing-hero"');
+    expect(html).toContain('data-authority-owner="editorial_local_wrapper"');
     expect(html).toContain('data-testid="career-landing-recommendation-preview"');
     expect(html).toContain('data-authority-owner="backend_lightweight_recommendations"');
     expect(html).toContain('data-testid="career-landing-guides"');
