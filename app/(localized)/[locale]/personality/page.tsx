@@ -159,7 +159,7 @@ export default async function PersonalityPage({
       : null;
 
   return (
-    <Container as="main" className="space-y-6 py-10">
+    <Container as="main" className="space-y-6 py-10 pb-28 md:pb-10">
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       <JsonLd id="personality-webpage" data={webPageJsonLd} />
       <JsonLd id="personality-breadcrumb" data={breadcrumbJsonLd} />

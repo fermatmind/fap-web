@@ -37,7 +37,7 @@ export function PersonalityMobileDecisionBar({
 
   return (
     <div
-      className="fixed inset-x-0 bottom-4 z-40 px-4 md:hidden"
+      className="fixed inset-x-0 bottom-4 z-40 px-4 pb-[max(env(safe-area-inset-bottom),0px)] md:hidden"
       data-testid="personality-mobile-decision-bar"
     >
       <div className="flex items-center gap-2 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-sticky-bg)] p-3 shadow-[var(--fm-shadow-md)] backdrop-blur">
