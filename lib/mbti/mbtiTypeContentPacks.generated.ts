@@ -117,7 +117,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ENFJ-A 更能在推动群体时保持自我节奏，不会无限度牺牲自己",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -144,7 +144,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ENFJ-A 更可能在组织团队的同时保留边界，不会无限补位",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -171,7 +171,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ENFJ-A 需要补的是结构化 delegation，而不是再多给自己加责任",
         "bottleneck": "最常见的卡点是：你很会推动别人往前走，却不擅长在系统还可运转时就先把自己的恢复、拒绝和优先级放进计划，结果总在耗尽后才意识到边界缺失。",
         "advice": "把‘不承担全部’视为成熟，而不是冷漠；把领导力从持续救火，升级成建立可持续的结构。",
         "strengths": [],
@@ -211,7 +211,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ENFJ-T 更可能把每一次他人反应都纳入自我评估，导致负载持续放大",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -238,7 +238,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ENFJ-T 更可能因为过度扫描他人感受而让自己长期处于高压响应状态",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -265,7 +265,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ENFJ-T 需要补的是情绪边界，把他人的状态从自我价值评估里拆出来",
         "bottleneck": "最常见的卡点是：你很会推动别人往前走，却不擅长在系统还可运转时就先把自己的恢复、拒绝和优先级放进计划，结果总在耗尽后才意识到边界缺失。",
         "advice": "把‘不承担全部’视为成熟，而不是冷漠；把领导力从持续救火，升级成建立可持续的结构。",
         "strengths": [],
@@ -701,7 +701,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ENTJ-A 更容易在阻力中维持推进，不太会因短期失败怀疑方向",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -728,7 +728,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ENTJ-A 更敢直接定方向并要求跟上，团队会感受到强烈推进力，也更容易感受到压力",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -755,7 +755,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ENTJ-A 需要补的是吸收他人的处理时间，而不是继续拉高推进压强",
         "bottleneck": "最常见的卡点是：你已经看见最短路径，但系统里的人、惯性与情绪变量没有同步完成准备，结果推进越快，阻力越大。",
         "advice": "把推进拆成节奏设计：方向、理由、接受、执行、反馈，每一步都不是对速度的妥协，而是提高长期吞吐量。",
         "strengths": [],
@@ -795,7 +795,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ENTJ-T 仍然高推进，但会更在意失控点和外部反馈，因此在高压项目中更可能出现过度监控和过度修正",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -822,7 +822,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ENTJ-T 会更频繁地盯控变量、校正执行偏差，因此在团队中更容易显得高压与过度介入",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -849,7 +849,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ENTJ-T 需要补的是在高压监控中给系统留出自我调整空间，避免因为过度校正让团队持续处于应激状态",
         "bottleneck": "最常见的卡点是：你已经看见最短路径，但系统里的人、惯性与情绪变量没有同步完成准备，结果推进越快，阻力越大。",
         "advice": "把推进拆成节奏设计：方向、理由、接受、执行、反馈，每一步都不是对速度的妥协，而是提高长期吞吐量。",
         "strengths": [],
@@ -1285,7 +1285,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ESFJ-A 更能在照顾他人时保留自己的判断和边界",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -1312,7 +1312,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ESFJ-A 更可能在维持关系的同时划清职责边界",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -1339,7 +1339,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ESFJ-A 需要补的是更明确地表达需求，而不是继续默默承担",
         "bottleneck": "最常见的卡点是：你很会维持和谐，却很难在系统还没失控之前就先划出边界，结果往往是秩序稳定了，你先透支了。",
         "advice": "把边界视为合作可持续的一部分；真正成熟的照料不是无限供给，而是稳定供给。",
         "strengths": [],
@@ -1379,7 +1379,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ESFJ-T 更容易把每一次负面反馈都吸收入内部系统，导致高频自我修正",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -1406,7 +1406,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ESFJ-T 更可能不断补位直到负载过载，再通过情绪崩盘显现问题",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -1433,7 +1433,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ESFJ-T 需要补的是把外部反馈与自我价值拆开，不再让每次关系波动都进入内部审判",
         "bottleneck": "最常见的卡点是：你很会维持和谐，却很难在系统还没失控之前就先划出边界，结果往往是秩序稳定了，你先透支了。",
         "advice": "把边界视为合作可持续的一部分；真正成熟的照料不是无限供给，而是稳定供给。",
         "strengths": [],
@@ -1869,7 +1869,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ESTJ-A 更容易在混乱中迅速重建控制面，不会轻易因偏差而失序",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -1896,7 +1896,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ESTJ-A 更像外部秩序重建者，会快速压住混乱",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -1923,7 +1923,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ESTJ-A 需要补的是容纳合理例外，不要把弹性误解成失控",
         "bottleneck": "最常见的卡点是：当现实不按标准运行时，你会本能把所有变量都提升为必须纠正的问题，结果自己先过载。",
         "advice": "把控制从‘全部抓住’转成‘抓关键杠杆’；不是每个偏差都要立即压平。",
         "strengths": [],
@@ -1963,7 +1963,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ESTJ-T 会更强烈感知偏差，容易在控制失手时进一步加压和自我责备",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -1990,7 +1990,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ESTJ-T 更可能在混乱出现时持续放大控制需求，导致高压反馈循环",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2017,7 +2017,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ESTJ-T 需要补的是降低持续警戒，把偏差分层，而不是全部同级响应",
         "bottleneck": "最常见的卡点是：当现实不按标准运行时，你会本能把所有变量都提升为必须纠正的问题，结果自己先过载。",
         "advice": "把控制从‘全部抓住’转成‘抓关键杠杆’；不是每个偏差都要立即压平。",
         "strengths": [],
@@ -2453,7 +2453,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "INFJ-A 更能在理解他人的同时保留自己的重心，因此适合承担更大结构责任",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2480,7 +2480,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "INFJ-A 更可能在感知到问题后设置边界并及时纠偏，因此不会无限承接",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2507,7 +2507,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "INFJ-A 需要补的是外部执行力度，不要让沉着变成延后",
         "bottleneck": "最常见的卡点是：你已经看见问题核心，却因为不想伤害关系、害怕打破表面平衡，而迟迟不进入必要的行动。",
         "advice": "把边界视为长期善意的一部分，而不是冷酷；把行动视为对洞察的兑现，而不是对关系的背叛。",
         "strengths": [],
@@ -2547,7 +2547,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "INFJ-T 会更频繁地吸收关系细节和情绪波动，因此洞察很深，但也更容易把别人的问题变成自己的内部负载",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2574,7 +2574,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "INFJ-T 更可能继续消化外部情绪，直到自己负载过高才退场",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2601,7 +2601,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "INFJ-T 需要补的是边界与行动许可，不要再把所有关系代价都提前在脑内承担",
         "bottleneck": "最常见的卡点是：你已经看见问题核心，却因为不想伤害关系、害怕打破表面平衡，而迟迟不进入必要的行动。",
         "advice": "把边界视为长期善意的一部分，而不是冷酷；把行动视为对洞察的兑现，而不是对关系的背叛。",
         "strengths": [],
@@ -2745,7 +2745,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "INFP-A 更能在不完美现实中守住价值主线，因此更容易把理想转成可执行路径",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2772,7 +2772,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "INFP-A 更可能守住边界并清楚表达不认同，不至于无限内耗",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2799,7 +2799,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "INFP-A 需要补的是执行结构，而不是更多意义感确认",
         "bottleneck": "最常见的卡点是：你很清楚自己不想成为什么，却迟迟没有把“真正想成为的样子”拆成可验证、可迭代、可先启动的现实路径。",
         "advice": "把价值感从抽象信念翻译成周期目标；允许自己在不完美的现实里先靠近，而不是等待完全纯净的机会。",
         "strengths": [],
@@ -2839,7 +2839,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "INFP-T 会更频繁地怀疑‘这是不是我真正该做的’，从而在机会面前不断拉高进入门槛",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2866,7 +2866,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "INFP-T 更可能把不认同先压回内部，直到耗损累积后才退出",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -2893,7 +2893,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "INFP-T 需要补的是行动许可，停止用内在审计把每一次现实尝试都变成价值审判",
         "bottleneck": "最常见的卡点是：你很清楚自己不想成为什么，却迟迟没有把“真正想成为的样子”拆成可验证、可迭代、可先启动的现实路径。",
         "advice": "把价值感从抽象信念翻译成周期目标；允许自己在不完美的现实里先靠近，而不是等待完全纯净的机会。",
         "strengths": [],
@@ -3037,7 +3037,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "INTJ-A 更容易接受‘不完美但方向正确’的推进现实，因此能更快拉起项目与资源",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3064,7 +3064,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "INTJ-A 更可能直接重写方向、重设边界，推进很强，但容易让别人感觉被跨级校正",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3091,7 +3091,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "INTJ-A 需要补的是现实兼容性：不是再提高方向精度，而是让别人也能进入你的路线图",
         "bottleneck": "最常见的卡点是：模型已经很清楚，但现实里的非理性变量没有被纳入设计，因此推进遇阻时容易把人看成问题、把环境看成噪音。",
         "advice": "把长期路线拆成可协作、可解释、可验证的阶段；不是降低标准，而是提高现实兼容性。",
         "strengths": [],
@@ -3131,7 +3131,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "INTJ-T 会更频繁地重算风险与路径，因此战略精度高，但也更容易在关键时点继续内部推演，延迟现实推进",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3158,7 +3158,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "INTJ-T 更可能先观察全局后再出手，判断更谨慎，却也可能因为等待最佳时点而显得距离感强",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3185,7 +3185,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "INTJ-T 需要补的是启动许可：不是再多做一轮推演，而是在主要变量已足够清晰时开始第一阶段执行",
         "bottleneck": "最常见的卡点是：模型已经很清楚，但现实里的非理性变量没有被纳入设计，因此推进遇阻时容易把人看成问题、把环境看成噪音。",
         "advice": "把长期路线拆成可协作、可解释、可验证的阶段；不是降低标准，而是提高现实兼容性。",
         "strengths": [],
@@ -3329,7 +3329,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ISFJ-A 更能在负责的同时守住边界，因此更能持续输出",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3356,7 +3356,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ISFJ-A 更可能适时表达边界，不会无限补位",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3383,7 +3383,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ISFJ-A 需要补的是更明确的结构表达，不要让别人误以为你一直都能继续承受",
         "bottleneck": "最常见的卡点是：你对系统责任感极强，却很少在系统还正常运转时就先计算自己的负载，结果常常是别人没崩，自己先满载。",
         "advice": "把边界纳入责任结构；与其等到崩溃后退出，不如在一开始就声明你能承担的范围。",
         "strengths": [],
@@ -3423,7 +3423,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ISFJ-T 更容易把他人的需要放大成自己的持续责任，从而长期过载",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3450,7 +3450,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ISFJ-T 更可能持续补位直到自己耗尽，再突然抽离",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3477,7 +3477,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ISFJ-T 需要补的是负载可视化，把‘我还可以’从自动反应变成经过评估后的决定",
         "bottleneck": "最常见的卡点是：你对系统责任感极强，却很少在系统还正常运转时就先计算自己的负载，结果常常是别人没崩，自己先满载。",
         "advice": "把边界纳入责任结构；与其等到崩溃后退出，不如在一开始就声明你能承担的范围。",
         "strengths": [],
@@ -3913,7 +3913,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ISTJ-A 更能在变化出现时保持执行秩序，不会立即被例外击穿",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3940,7 +3940,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ISTJ-A 更可能在变化来临时快速重建秩序，而不是只是抱怨秩序被破坏",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -3967,7 +3967,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ISTJ-A 需要补的是弹性设计，不是再提高控制力度",
         "bottleneck": "最常见的卡点是：你能把已知系统维护得很好，但当现实开始大量出现例外时，会本能把它们视为噪声，而不是新的设计输入。",
         "advice": "练习把变化纳入流程，而不是等变化停止后再恢复秩序；让规则升级，而不是只守旧规则。",
         "strengths": [],
@@ -4007,7 +4007,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ISTJ-T 对偏差更敏感，因此在标准失序时更容易进入高压警戒状态",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -4034,7 +4034,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ISTJ-T 更可能在变化出现时持续盯紧偏差点，导致自己长期紧张",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -4061,7 +4061,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ISTJ-T 需要补的是降低对偏差的持续警戒，把变化分层处理，而不是全部拉高到同一风险等级",
         "bottleneck": "最常见的卡点是：你能把已知系统维护得很好，但当现实开始大量出现例外时，会本能把它们视为噪声，而不是新的设计输入。",
         "advice": "练习把变化纳入流程，而不是等变化停止后再恢复秩序；让规则升级，而不是只守旧规则。",
         "strengths": [],
@@ -4205,7 +4205,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ISTP-A 更敢在不确定现场直接进入操作，反应更快",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -4232,7 +4232,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ISTP-A 更可能直接上手处理，不太等别人确认",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -4259,7 +4259,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ISTP-A 需要补的是后果意识与持续维护，不要只完成即时修复",
         "bottleneck": "最常见的卡点是：你能解决眼前问题，却未必愿意持续承担问题之外的长期维护与关系沟通。",
         "advice": "把长期责任拆成最小操作单元；不要把‘长期’理解成只能靠忍耐维持。",
         "strengths": [],
@@ -4299,7 +4299,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "career": {
-        "summary": "",
+        "summary": "ISTP-T 会更谨慎地审查操作后果，因此精度高，但启动动作可能稍慢",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -4326,7 +4326,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "team": {
-        "summary": "",
+        "summary": "ISTP-T 更可能先校准再出手，因此在团队中显得更寡言、更谨慎",
         "bottleneck": "",
         "advice": "",
         "strengths": [
@@ -4353,7 +4353,7 @@ export const MBTI_TYPE_CONTENT_PACKS = {
         "secondaryCta2": ""
       },
       "growth": {
-        "summary": "",
+        "summary": "ISTP-T 需要补的是在谨慎之外更早启动现实测试，避免过度审查削弱效率",
         "bottleneck": "最常见的卡点是：你能解决眼前问题，却未必愿意持续承担问题之外的长期维护与关系沟通。",
         "advice": "把长期责任拆成最小操作单元；不要把‘长期’理解成只能靠忍耐维持。",
         "strengths": [],

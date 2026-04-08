@@ -2,6 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { buildMbtiEntryHref } from "@/lib/mbti/entryTracking";
+import {
+  MBTI_TYPE_CODES,
+  getMbtiPersonalityContent,
+  getMbtiRecommendationContent,
+} from "@/lib/mbti/mbtiTypeContentPack";
 
 const ROOT = process.cwd();
 
@@ -276,6 +281,73 @@ describe("mbti entry surface contract", () => {
       expect(extractField(aGrowth, "summary")).not.toBe(extractField(tGrowth, "summary"));
       expect(extractField(aGrowth, "variantDeltaA")).not.toBe(extractField(aGrowth, "variantDeltaT"));
       expect(extractField(tGrowth, "variantDeltaA")).not.toBe(extractField(tGrowth, "variantDeltaT"));
+    }
+  });
+
+  it("resolves all 16 mbti types through the shared helper with complete scene and recommendation layers", () => {
+    const assertFilled = (value: string, context: string) => {
+      if (value === "") {
+        throw new Error(`${context} is empty`);
+      }
+    };
+
+    for (const typeCode of MBTI_TYPE_CODES) {
+      const slugA = `${typeCode.toLowerCase()}-a`;
+      const slugT = `${typeCode.toLowerCase()}-t`;
+      const personalityA = getMbtiPersonalityContent(slugA, "en");
+      const personalityT = getMbtiPersonalityContent(slugT, "en");
+      const recommendationA = getMbtiRecommendationContent(slugA, "en");
+      const recommendationT = getMbtiRecommendationContent(slugT, "en");
+
+      expect(personalityA).not.toBeNull();
+      expect(personalityT).not.toBeNull();
+      expect(recommendationA).not.toBeNull();
+      expect(recommendationT).not.toBeNull();
+
+      for (const pack of [personalityA!, personalityT!]) {
+        assertFilled(pack.common.hero.summary, `${typeCode}.common.hero.summary`);
+        assertFilled(pack.common.hero.positioning, `${typeCode}.common.hero.positioning`);
+        assertFilled(pack.common.hero.coreStrength, `${typeCode}.common.hero.coreStrength`);
+        assertFilled(pack.common.hero.realWorldFriction, `${typeCode}.common.hero.realWorldFriction`);
+        assertFilled(pack.common.hero.nextStepHint, `${typeCode}.common.hero.nextStepHint`);
+        assertFilled(pack.common.careerDirection.summary, `${typeCode}.common.careerDirection.summary`);
+        assertFilled(pack.common.careerDirection.why, `${typeCode}.common.careerDirection.why`);
+        expect(pack.common.careerDirection.nextLinks.length).toBeGreaterThan(0);
+        assertFilled(pack.common.teamCollaboration.summary, `${typeCode}.common.teamCollaboration.summary`);
+        assertFilled(pack.common.teamCollaboration.why, `${typeCode}.common.teamCollaboration.why`);
+        expect(pack.common.teamCollaboration.nextLinks.length).toBeGreaterThan(0);
+        assertFilled(pack.common.growthPlanning.summary, `${typeCode}.common.growthPlanning.summary`);
+        assertFilled(pack.common.growthPlanning.why, `${typeCode}.common.growthPlanning.why`);
+        expect(pack.common.growthPlanning.nextLinks.length).toBeGreaterThan(0);
+
+        assertFilled(pack.variantCopy.hero.summary, `${typeCode}.variant.hero.summary`);
+        assertFilled(pack.variantCopy.careerDirection.summary, `${typeCode}.variant.careerDirection.summary`);
+        assertFilled(pack.variantCopy.teamCollaboration.summary, `${typeCode}.variant.teamCollaboration.summary`);
+        assertFilled(pack.variantCopy.growthPlanning.summary, `${typeCode}.variant.growthPlanning.summary`);
+        expect(pack.support.linkedGuides.length).toBeGreaterThan(0);
+        expect(pack.support.linkedArticles.length).toBeGreaterThan(0);
+        expect(pack.support.testEntryLink.href).toContain("/tests/mbti-personality-test-16-personality-types");
+        expect(pack.support.topicBacklink.href).toContain("/topics/mbti");
+      }
+
+      for (const rec of [recommendationA!, recommendationT!]) {
+        assertFilled(rec.heroSummary, `${typeCode}.recommendation.heroSummary`);
+        assertFilled(rec.fitWhy, `${typeCode}.recommendation.fitWhy`);
+        assertFilled(rec.costWhy, `${typeCode}.recommendation.costWhy`);
+        assertFilled(rec.jobStructure, `${typeCode}.recommendation.jobStructure`);
+        assertFilled(rec.nextStep, `${typeCode}.recommendation.nextStep`);
+        expect(rec.support.nextSteps.length).toBeGreaterThan(0);
+        expect(rec.support.linkedGuides.length).toBeGreaterThan(0);
+        expect(rec.support.linkedArticles.length).toBeGreaterThan(0);
+      }
+
+      if (typeCode !== "INTP") {
+        expect(personalityA!.variantCopy.hero.summary).not.toBe(personalityT!.variantCopy.hero.summary);
+        expect(personalityA!.variantCopy.careerDirection.summary).not.toBe(personalityT!.variantCopy.careerDirection.summary);
+        expect(personalityA!.variantCopy.teamCollaboration.summary).not.toBe(personalityT!.variantCopy.teamCollaboration.summary);
+        expect(personalityA!.variantCopy.growthPlanning.summary).not.toBe(personalityT!.variantCopy.growthPlanning.summary);
+        expect(recommendationA!.variantRisk).not.toBe(recommendationT!.variantRisk);
+      }
     }
   });
 });
