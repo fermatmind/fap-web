@@ -87,7 +87,8 @@ describe("schema injection contract", () => {
     const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const aliasSource = read("app/(localized)/[locale]/career/[slug]/page.tsx");
 
-    expect(listSource).toContain("listCareerJobsFromCms");
+    expect(listSource).toContain("fetchCareerJobIndex");
+    expect(listSource).toContain("adaptCareerJobIndex");
     expect(listSource).not.toContain("listCareerJobs(");
     expect(aliasSource).toContain("getCareerJobFromCmsBySlug");
     expect(aliasSource).not.toContain("getCareerJobBySlug");
@@ -134,6 +135,15 @@ describe("schema injection contract", () => {
     expect(source).toContain('data-testid="career-recommendation-type-interpretation"');
     expect(source).not.toContain("getCareerJobBySlug");
     expect(source).toContain('id="answer-first"');
+  });
+
+  it("career recommendation index page uses the lightweight backend index path instead of the cms family list authority", () => {
+    const source = read("app/(localized)/[locale]/career/recommendations/page.tsx");
+
+    expect(source).toContain("fetchCareerRecommendationIndex");
+    expect(source).toContain("adaptCareerRecommendationIndex");
+    expect(source).not.toContain("listMbtiCareerRecommendations");
+    expect(source).not.toContain("CareerRecommendationPanel");
   });
 
   it("help detail page injects webpage, breadcrumb, and faq jsonld only when faq content exists", () => {

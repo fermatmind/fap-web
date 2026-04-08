@@ -16,6 +16,25 @@ export type CareerJobBundleResponseRaw = {
   supporting_truth_summary?: unknown;
 };
 
+export type CareerJobIndexItemResponseRaw = {
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
+  identity?: unknown;
+  titles?: unknown;
+  truth_summary?: unknown;
+  trust_summary?: unknown;
+  score_summary?: unknown;
+  seo_contract?: unknown;
+  provenance_meta?: unknown;
+};
+
+export type CareerJobIndexResponseRaw = {
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
+  items?: unknown;
+  data?: unknown;
+};
+
 export type CareerRecommendationBundleResponseRaw = {
   data?: unknown;
   identity?: unknown;
@@ -30,4 +49,21 @@ export type CareerRecommendationBundleResponseRaw = {
   supporting_truth_summary?: unknown;
   matched_jobs?: unknown;
   matched_guides?: unknown;
+};
+
+export type CareerRecommendationIndexItemResponseRaw = {
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
+  recommendation_subject_meta?: unknown;
+  score_summary?: unknown;
+  trust_summary?: unknown;
+  seo_contract?: unknown;
+  provenance_meta?: unknown;
+};
+
+export type CareerRecommendationIndexResponseRaw = {
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
+  items?: unknown;
+  data?: unknown;
 };

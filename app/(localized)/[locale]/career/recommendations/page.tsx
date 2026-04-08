@@ -1,50 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CareerRecommendationPanel } from "@/components/career/CareerRecommendationPanel";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations";
+import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
+import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import { listBig5RecommendationTraits } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-type MbtiRecommendationFamily = {
-  canonicalTypeCode: string;
-  typeName: string;
-  items: Awaited<ReturnType<typeof listMbtiCareerRecommendations>>;
-};
-
-function groupMbtiFamilies(
-  items: Awaited<ReturnType<typeof listMbtiCareerRecommendations>>
-): MbtiRecommendationFamily[] {
-  const byFamily = new Map<string, MbtiRecommendationFamily>();
-
-  for (const item of items) {
-    const existing = byFamily.get(item.canonicalTypeCode);
-    if (existing) {
-      existing.items.push(item);
-      continue;
-    }
-
-    byFamily.set(item.canonicalTypeCode, {
-      canonicalTypeCode: item.canonicalTypeCode,
-      typeName: item.typeName,
-      items: [item],
-    });
+function renderLightweightRecommendationStatusNotice(
+  dataStatus: "available" | "trust_limited" | "unavailable",
+  locale: "en" | "zh"
+) {
+  if (dataStatus === "available") {
+    return null;
   }
 
-  return [...byFamily.values()]
-    .map((family) => ({
-      ...family,
-      items: [...family.items].sort((left, right) => {
-        const leftRank = left.variantCode === "A" ? 0 : left.variantCode === "T" ? 1 : 9;
-        const rightRank = right.variantCode === "A" ? 0 : right.variantCode === "T" ? 1 : 9;
-        return leftRank - rightRank || left.displayType.localeCompare(right.displayType);
-      }),
-    }))
-    .sort((left, right) => left.canonicalTypeCode.localeCompare(right.canonicalTypeCode));
+  return (
+    <p className="m-0">
+      {dataStatus === "trust_limited"
+        ? locale === "zh"
+          ? "当前 recommendation 卡片处于 trust-limited 模式，仅显示后端明确放行的轻量状态。"
+          : "This recommendation card is in trust-limited mode and only shows the lightweight status explicitly allowed by the backend."
+        : locale === "zh"
+          ? "当前 recommendation 卡片不可用，页面不会本地合成推荐解释。"
+          : "This recommendation card is unavailable, and the page does not synthesize local recommendation explanations."}
+    </p>
+  );
 }
 
 export async function generateMetadata({
@@ -61,8 +45,8 @@ export async function generateMetadata({
     title: locale === "zh" ? "职业推荐" : "Career Recommendations",
     description:
       locale === "zh"
-        ? "基于 MBTI、Big5、IQ/EQ 和 RIASEC 的职业个性化推荐。"
-        : "Personalized recommendations powered by MBTI, Big5, IQ/EQ, and RIASEC.",
+        ? "基于 backend authority 的轻量职业推荐索引。"
+        : "A lightweight career recommendation index powered by backend authority.",
     alternatesByLocale: {
       en: "/en/career/recommendations",
       zh: "/zh/career/recommendations",
@@ -80,8 +64,8 @@ export default async function CareerRecommendationsPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const mbtiRecommendationItems = await listMbtiCareerRecommendations(locale).catch(() => []);
-  const mbtiFamilies = groupMbtiFamilies(mbtiRecommendationItems);
+  const payload = await fetchCareerRecommendationIndex({ locale });
+  const recommendationItems = adaptCareerRecommendationIndex({ locale, payload });
   const big5Traits = listBig5RecommendationTraits();
   const canonicalPath =
     locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations";
@@ -90,8 +74,8 @@ export default async function CareerRecommendationsPage({
     title: locale === "zh" ? "职业推荐" : "Career Recommendations",
     description:
       locale === "zh"
-        ? "基于 MBTI、Big5、IQ/EQ 和 RIASEC 的职业个性化推荐。"
-        : "Personalized recommendations powered by MBTI, Big5, IQ/EQ, and RIASEC.",
+        ? "基于 backend authority 的轻量职业推荐索引。"
+        : "A lightweight career recommendation index powered by backend authority.",
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -106,45 +90,70 @@ export default async function CareerRecommendationsPage({
       <JsonLd id="career-recommendation-breadcrumb" data={breadcrumbJsonLd} />
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "个性化推荐引擎" : "Recommendation Engine"}
+          {locale === "zh" ? "后端 recommendation index" : "Backend recommendation index"}
         </p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "适合你的职业" : "Careers that fit you"}
+          {locale === "zh" ? "适合你的职业方向" : "Career directions that fit you"}
         </h1>
         <p className="m-0 text-[var(--fm-text-muted)]">
           {locale === "zh"
-            ? "融合历史测评结果与职业兴趣小测，输出可解释职业推荐。"
-            : "Combines historical assessments with RIASEC to generate explainable recommendations."}
+            ? "这一页现在直接消费 backend B5 lightweight recommendation index，不再把 CMS family / variant 形状当成 authority。"
+            : "This page now consumes the backend B5 lightweight recommendation index directly and no longer treats the CMS family/variant shape as authority."}
         </p>
       </section>
 
-      <section className="space-y-2">
+      <section className="space-y-3">
         <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">MBTI</h2>
-        {mbtiFamilies.length > 0 ? (
+        {recommendationItems.length > 0 ? (
           <div className="grid gap-3 md:grid-cols-2">
-            {mbtiFamilies.map((family) => (
-              <div
-                key={family.canonicalTypeCode}
+            {recommendationItems.map((item) => (
+              <article
+                key={item.recommendationSubjectMeta.publicRouteSlug}
                 className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)]"
+                data-testid="career-recommendation-index-card"
+                data-career-data-status={item.dataStatus}
               >
                 <div className="space-y-1">
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                    {family.canonicalTypeCode}
+                    {item.recommendationSubjectMeta.canonicalTypeCode ??
+                      item.recommendationSubjectMeta.typeCode ??
+                      item.recommendationSubjectMeta.publicRouteSlug.toUpperCase()}
                   </p>
-                  <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{family.typeName}</h3>
+                  <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">
+                    {item.recommendationSubjectMeta.displayTitle}
+                  </h3>
                 </div>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {family.items.map((item) => (
-                    <Link
-                      key={item.publicRouteSlug}
-                      href={item.href}
-                      className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
-                    >
-                      {item.displayType}
-                    </Link>
-                  ))}
+                <div className="mt-3 space-y-1 text-sm text-[var(--fm-text-muted)]">
+                  <p className="m-0">
+                    {locale === "zh" ? "Authority route" : "Authority route"}: /
+                    {item.recommendationSubjectMeta.publicRouteSlug}
+                  </p>
+                  {item.dataStatus === "available" ? (
+                    <>
+                      <p className="m-0">
+                        {locale === "zh" ? "Fit 分数" : "Fit score"}: {item.scoreSummary.fitScore.value ?? "—"}
+                      </p>
+                      <p className="m-0">
+                        {locale === "zh" ? "Confidence 分数" : "Confidence score"}:{" "}
+                        {item.scoreSummary.confidenceScore.value ?? "—"}
+                      </p>
+                    </>
+                  ) : (
+                    renderLightweightRecommendationStatusNotice(item.dataStatus, locale)
+                  )}
+                  <p className="m-0">
+                    {locale === "zh" ? "Reviewer" : "Reviewer"}: {item.trustSummary.reviewerStatus ?? "unknown"}
+                  </p>
                 </div>
-              </div>
+                <div className="mt-3">
+                  <Link
+                    href={item.href}
+                    className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                  >
+                    {locale === "zh" ? "查看 recommendation detail" : "View recommendation detail"}
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
         ) : (
@@ -154,8 +163,8 @@ export default async function CareerRecommendationsPage({
             data-career-data-status="unavailable"
           >
             {locale === "zh"
-              ? "Career recommendation authority 当前不可用，索引页不会再回退到本地合成列表。"
-              : "Career recommendation authority is currently unavailable, so the index does not fall back to a local synthesized list."}
+              ? "backend recommendation index 当前不可用，因此页面不会回退到 CMS family / variant 列表，也不会退化成 job list。"
+              : "The backend recommendation index is currently unavailable, so this page does not fall back to the CMS family/variant list and does not degrade into a job list."}
           </div>
         )}
       </section>
@@ -164,14 +173,16 @@ export default async function CareerRecommendationsPage({
         <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">Big5</h2>
         <div className="flex flex-wrap gap-2">
           {big5Traits.map((trait) => (
-            <Link key={trait} href={withLocale(`/career/recommendations/big5/${trait}`)} className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]">
+            <Link
+              key={trait}
+              href={withLocale(`/career/recommendations/big5/${trait}`)}
+              className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
+            >
               {trait}
             </Link>
           ))}
         </div>
       </section>
-
-      <CareerRecommendationPanel locale={locale} />
     </Container>
   );
 }
