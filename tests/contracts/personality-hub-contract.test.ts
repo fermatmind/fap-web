@@ -25,8 +25,10 @@ describe("personality hub contract", () => {
 
     expect(payload.hero.title).toBe("Personality types");
     expect(payload.scenarioCards.length).toBeGreaterThan(0);
+    expect(payload.scenarioMatrixSeed.length).toBeGreaterThan(0);
     expect(payload.familyGroups).toHaveLength(4);
     expect(payload.typeDecisionCards).toHaveLength(16);
+    expect(payload.typeWorkbenchSeed).toHaveLength(16);
     expect(payload.inventoryLinks).toHaveLength(16);
     expect(new Set(payload.inventoryLinks.map((item) => item.typeCode)).size).toBe(16);
     expect(payload.careerPreviewCards).toHaveLength(4);
@@ -56,9 +58,15 @@ describe("personality hub contract", () => {
     expect(pageSource).toContain('from "@/lib/mbti/personalityHub.adapter"');
     expect(pageSource).toContain('from "@/lib/mbti/personalityQuickLocate"');
     expect(pageSource).toContain('from "@/components/personality/PersonalityHeroExecutiveSummary"');
+    expect(pageSource).toContain('from "@/components/personality/ScenarioIntelligenceMatrix"');
+    expect(pageSource).toContain('from "@/components/personality/TypeNavigatorWorkbench"');
     expect(pageSource).toContain("buildPersonalityHubPayload({");
     expect(pageSource).toContain("buildPersonalityQuickLocateIndex({");
+    expect(pageSource).toContain("buildPersonalityScenarioMatrix({");
+    expect(pageSource).toContain("buildPersonalityWorkbench({");
     expect(pageSource).toContain("<PersonalityHeroExecutiveSummary");
+    expect(pageSource).toContain("<ScenarioIntelligenceMatrix");
+    expect(pageSource).toContain("<TypeNavigatorWorkbench");
     expect(pageSource).toContain("quickLocateIndex={quickLocateIndex}");
     expect(pageSource).toContain("hubPayload.familyGroups");
     expect(pageSource).toContain("hubPayload.typeDecisionCards");

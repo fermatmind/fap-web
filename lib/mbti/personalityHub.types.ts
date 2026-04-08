@@ -21,6 +21,19 @@ export interface ScenarioCard {
   cta?: HubCtaLink;
 }
 
+export interface ScenarioMatrixCard {
+  key: string;
+  title: string;
+  summary: string;
+  href: string;
+  primaryMetric: HubMetric;
+  secondaryMetric?: HubMetric;
+  primaryCta: HubCtaLink;
+  secondaryCta?: HubCtaLink;
+  familyHints: string[];
+  topTypeCodes: string[];
+}
+
 export interface TypeDecisionCard {
   typeCode: string;
   slug: string;
@@ -41,6 +54,45 @@ export interface CareerPreviewCard {
   href: string;
   keywords: string[];
   matchedJobSlugs: string[];
+}
+
+export type TypeWorkbenchSortKey =
+  | "all"
+  | "stable"
+  | "recommendation"
+  | "introvert"
+  | "extravert"
+  | "analysts"
+  | "diplomats"
+  | "sentinels"
+  | "explorers";
+
+export type TypeWorkbenchTraitKey =
+  | "introvert"
+  | "extravert"
+  | "intuition"
+  | "sensing"
+  | "thinking"
+  | "feeling"
+  | "judging"
+  | "perceiving";
+
+export interface TypeWorkbenchSortOption {
+  key: TypeWorkbenchSortKey;
+  label: string;
+  description: string;
+}
+
+export interface TypeWorkbenchCard extends TypeDecisionCard {
+  recommendationHref: string;
+  recommendationReady: boolean;
+  derivedTraitKeys: TypeWorkbenchTraitKey[];
+  derivedTraitLabels: string[];
+}
+
+export interface TypeWorkbenchPayload {
+  sortOptions: TypeWorkbenchSortOption[];
+  cards: TypeWorkbenchCard[];
 }
 
 export interface QuickLocateTypeResult {
@@ -103,8 +155,10 @@ export interface PersonalityHubFamilyGroup {
 export interface PersonalityHubPayload {
   hero: PersonalityHubHero;
   scenarioCards: ScenarioCard[];
+  scenarioMatrixSeed: ScenarioCard[];
   familyGroups: PersonalityHubFamilyGroup[];
   typeDecisionCards: TypeDecisionCard[];
+  typeWorkbenchSeed: TypeWorkbenchCard[];
   careerPreviewCards: CareerPreviewCard[];
   methodologyBlocks: MethodologyBlock[];
   faqBlocks: FaqBlock[];

@@ -151,17 +151,19 @@ describe("mbti entry surface contract", () => {
   it("wires personality index with one primary mbti CTA and entry tracking", () => {
     const source = read("app/(localized)/[locale]/personality/page.tsx");
     const heroSource = read("components/personality/PersonalityHeroExecutiveSummary.tsx");
+    const matrixSource = read("components/personality/ScenarioIntelligenceMatrix.tsx");
+    const workbenchSource = read("components/personality/TypeNavigatorWorkbench.tsx");
 
     expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
     expect(source).toContain('entrySurface: "mbti_personality_index"');
     expect(source).toContain('sourcePageType: "personality_index"');
     expect(source).toContain("PersonalityHeroExecutiveSummary");
     expect(source).toContain("buildPersonalityQuickLocateIndex");
-    expect(source).toContain('data-testid="mbti-personality-family-grid"');
-    expect(source).toContain('data-testid="mbti-personality-directory-grid"');
     expect(source).toContain("buildPersonalityHubPayload");
-    expect(source).toContain("hubPayload.familyGroups.map");
-    expect(source).toContain("hubPayload.typeDecisionCards.map");
+    expect(source).toContain("buildPersonalityScenarioMatrix");
+    expect(source).toContain("buildPersonalityWorkbench");
+    expect(source).toContain("<ScenarioIntelligenceMatrix");
+    expect(source).toContain("<TypeNavigatorWorkbench");
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('buildMbtiEntryHref({');
     expect(heroSource).toContain('data-testid="mbti-personality-index-entry-cta-group"');
@@ -169,6 +171,10 @@ describe("mbti entry surface contract", () => {
     expect(heroSource).toContain('data-testid="mbti-personality-index-discoverability-links"');
     expect(heroSource).toContain("TrackedEntryCtaLink");
     expect(heroSource).toContain("PersonalityQuickLocateBar");
+    expect(matrixSource).toContain('data-testid="personality-index-scene-entry"');
+    expect(workbenchSource).toContain('data-testid="mbti-personality-family-grid"');
+    expect(workbenchSource).toContain('data-testid="mbti-personality-directory-grid"');
+    expect(workbenchSource).toContain("recommendationHref");
     expect(count(heroSource, 'data-testid="mbti-personality-index-primary-cta"')).toBe(1);
   });
 

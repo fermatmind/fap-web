@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
 import { PersonalityHeroExecutiveSummary } from "@/components/personality/PersonalityHeroExecutiveSummary";
+import { ScenarioIntelligenceMatrix } from "@/components/personality/ScenarioIntelligenceMatrix";
+import { TypeNavigatorWorkbench } from "@/components/personality/TypeNavigatorWorkbench";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
@@ -14,6 +15,8 @@ import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
 import { buildPersonalityQuickLocateIndex } from "@/lib/mbti/personalityQuickLocate";
+import { buildPersonalityScenarioMatrix } from "@/lib/mbti/personalityScenarioMatrix";
+import { buildPersonalityWorkbench } from "@/lib/mbti/personalityWorkbench";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -71,6 +74,17 @@ export default async function PersonalityPage({
   const quickLocateIndex = await buildPersonalityQuickLocateIndex({
     locale,
     typeResults: hubPayload.typeDecisionCards,
+  });
+  const scenarioMatrix = buildPersonalityScenarioMatrix({
+    locale,
+    scenarioCards: hubPayload.scenarioMatrixSeed,
+    familyGroups: hubPayload.familyGroups,
+    typeDecisionCards: hubPayload.typeDecisionCards,
+  });
+  const workbenchPayload = buildPersonalityWorkbench({
+    locale,
+    familyGroups: hubPayload.familyGroups,
+    typeDecisionCards: hubPayload.typeDecisionCards,
   });
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
@@ -139,104 +153,14 @@ export default async function PersonalityPage({
         }
       />
 
-      <MbtiSceneEntrySection locale={locale} sourcePageType="personality_index" testId="personality-index-scene-entry" />
+      <ScenarioIntelligenceMatrix locale={locale} cards={scenarioMatrix} />
 
-      <section
-        id="mbti-family-groups"
-        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-        data-testid="mbti-personality-family-grid"
-      >
-        <div className="space-y-2">
-          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "按类型组浏览 16 型人格" : "Browse all 16 personality types by family"}
-          </h2>
-          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-            {locale === "zh"
-              ? "这里承担 16 型总入口职责：先按类型组缩小范围，再进入具体人格页或对应职业推荐页。"
-              : "This is the 16-type release center: narrow by family first, then move into the profile or the matching career recommendation route."}
-          </p>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-2">
-          {hubPayload.familyGroups.map((family) => (
-            <Card
-              key={family.groupKey}
-              id={family.groupKey.toLowerCase()}
-              className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]"
-            >
-              <CardHeader className="space-y-2">
-                <CardTitle className="font-serif text-[var(--fm-text)]">
-                  {family.groupKey} · {family.title}
-                </CardTitle>
-                <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{family.summary}</p>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {family.cards.map((item) => {
-                    return (
-                      <Link
-                        key={`${family.groupKey}-${item.typeCode}`}
-                        href={item.href}
-                        className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
-                      >
-                        {item.typeCode}
-                      </Link>
-                    );
-                  })}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <Link href={mbtiCareerRecommendationHubHref} className="fm-help-chip-link">
-                    {locale === "zh" ? "查看 MBTI 职业推荐目录" : "Browse MBTI career recommendations"}
-                  </Link>
-                  <Link href={mbtiTopicHubHref} className="fm-help-chip-link">
-                    {locale === "zh" ? "回到 MBTI 主题中心" : "Continue in the MBTI topic hub"}
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {hubPayload.typeDecisionCards.length > 0 ? (
-        <div className="space-y-3" data-testid="mbti-personality-directory-grid">
-          <div className="space-y-1">
-            <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">
-              {locale === "zh" ? "全部人格页" : "All profile routes"}
-            </h2>
-            <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-              {locale === "zh"
-                ? "这里保留完整目录层，方便直接进入具体人格页。"
-                : "This keeps the full directory layer for direct profile access."}
-            </p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {hubPayload.typeDecisionCards.map((personality) => (
-            <Card
-              key={personality.typeCode}
-              className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]"
-            >
-              <CardHeader className="space-y-2">
-                <CardTitle className="font-serif text-[var(--fm-text)]">
-                  {personality.typeCode} · {personality.title}
-                </CardTitle>
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                  {personality.groupKey} · {personality.groupTitle}
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0">{personality.excerpt}</p>
-                <Link
-                  href={personality.href}
-                  className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-                >
-                  {locale === "zh" ? "查看人格页" : "View profile"}
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
-          </div>
-        </div>
+      {workbenchPayload.cards.length > 0 ? (
+        <TypeNavigatorWorkbench
+          locale={locale}
+          payload={workbenchPayload}
+          familyGroups={hubPayload.familyGroups}
+        />
       ) : (
         <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
           <CardHeader className="space-y-2">

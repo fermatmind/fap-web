@@ -14,6 +14,7 @@ import type {
   PersonalityHubPayload,
   ScenarioCard,
   TypeDecisionCard,
+  TypeWorkbenchCard,
 } from "@/lib/mbti/personalityHub.types";
 
 const MBTI_GROUP_ORDER = ["NT", "NF", "SJ", "SP"] as const;
@@ -165,6 +166,40 @@ function buildCareerPreviewCards(input: BuildPersonalityHubPayloadInput): Career
   });
 }
 
+function buildTypeWorkbenchSeed(input: BuildPersonalityHubPayloadInput, cards: TypeDecisionCard[]): TypeWorkbenchCard[] {
+  return cards.map((card) => {
+    const derivedTraitKeys = [
+      card.typeCode.startsWith("I") ? "introvert" : "extravert",
+      card.typeCode[1] === "N" ? "intuition" : "sensing",
+      card.typeCode[2] === "T" ? "thinking" : "feeling",
+      card.typeCode[3] === "J" ? "judging" : "perceiving",
+    ] as const;
+
+    const derivedTraitLabels = derivedTraitKeys.map((trait) => {
+      const labels = {
+        introvert: input.locale === "zh" ? "内倾" : "Introvert",
+        extravert: input.locale === "zh" ? "外倾" : "Extravert",
+        intuition: input.locale === "zh" ? "直觉" : "Intuitive",
+        sensing: input.locale === "zh" ? "实感" : "Sensing",
+        thinking: input.locale === "zh" ? "思考" : "Thinking",
+        feeling: input.locale === "zh" ? "情感" : "Feeling",
+        judging: input.locale === "zh" ? "判断" : "Judging",
+        perceiving: input.locale === "zh" ? "感知" : "Perceiving",
+      } as const;
+
+      return labels[trait];
+    });
+
+    return {
+      ...card,
+      recommendationHref: localizedPath(`/career/recommendations/mbti/${card.slug}`, input.locale),
+      recommendationReady: true,
+      derivedTraitKeys: [...derivedTraitKeys],
+      derivedTraitLabels,
+    };
+  });
+}
+
 function buildMethodologyBlocks(locale: Locale): MethodologyBlock[] {
   return [
     {
@@ -201,6 +236,7 @@ function buildFaqBlocks(locale: Locale): FaqBlock[] {
 export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInput): PersonalityHubPayload {
   const familyGroups = buildFamilyGroups(input);
   const typeDecisionCards = familyGroups.flatMap((group) => group.cards);
+  const typeWorkbenchSeed = buildTypeWorkbenchSeed(input, typeDecisionCards);
   const stableCount = typeDecisionCards.filter((card) => card.launchTier === "stable").length;
   const summaryBody =
     input.landingSurface?.summaryBlocks[0]?.body ||
@@ -266,8 +302,10 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
       ],
     },
     scenarioCards: buildScenarioCards(input),
+    scenarioMatrixSeed: buildScenarioCards(input),
     familyGroups,
     typeDecisionCards,
+    typeWorkbenchSeed,
     careerPreviewCards: buildCareerPreviewCards(input),
     methodologyBlocks: buildMethodologyBlocks(input.locale),
     faqBlocks: buildFaqBlocks(input.locale),
