@@ -2,12 +2,21 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+  MBTI_ADS_LAUNCH_MANIFEST,
   MBTI_ADS_FORBIDDEN_PATTERNS,
   MBTI_ADS_PRIMARY_WHITELIST,
   MBTI_ADS_SECONDARY_WHITELIST,
+  MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES,
+  MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES,
+  MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES,
   MBTI_ADS_SEO_ONLY_PAGES,
+  getMbtiAdsLaunchTier,
   getMbtiAdsSurfacePolicy,
+  getMbtiSecondaryWhitelistHoldTypes,
+  isMbtiSecondaryWhitelistCandidate,
+  isMbtiSecondaryWhitelistStable,
 } from "@/lib/mbti/adsPolicy";
+import { MBTI_TYPE_CODES } from "@/lib/mbti/mbtiTypeContentPack";
 
 const ROOT = process.cwd();
 
@@ -32,6 +41,79 @@ describe("mbti ads whitelist contract", () => {
       "/compare/*",
       "/history/*",
     ]);
+  });
+
+  it("locks the mbti secondary whitelist into stable and candidate type tiers", () => {
+    expect(MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES).toEqual([
+      "INTP",
+      "INTJ",
+      "ENTJ",
+      "INFJ",
+      "INFP",
+      "ENFJ",
+      "ISTJ",
+      "ISFJ",
+      "ESTJ",
+      "ESFJ",
+    ]);
+
+    expect(MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES).toEqual([
+      "ENTP",
+      "ENFP",
+      "ISTP",
+      "ISFP",
+      "ESTP",
+      "ESFP",
+    ]);
+  });
+
+  it("keeps the launch tier helpers locale-agnostic and non-overlapping", () => {
+    const stable = new Set(MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES);
+    const candidate = new Set(MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES);
+
+    for (const typeCode of MBTI_TYPE_CODES) {
+      if (stable.has(typeCode as (typeof MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES)[number])) {
+        expect(isMbtiSecondaryWhitelistStable(typeCode)).toBe(true);
+        expect(getMbtiAdsLaunchTier(typeCode)).toBe("stable");
+      }
+
+      if (candidate.has(typeCode as (typeof MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES)[number])) {
+        expect(isMbtiSecondaryWhitelistCandidate(typeCode)).toBe(true);
+        expect(getMbtiAdsLaunchTier(typeCode)).toBe("candidate");
+      }
+    }
+
+    for (const typeCode of MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES) {
+      expect(candidate.has(typeCode as (typeof MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES)[number])).toBe(false);
+    }
+
+    expect(getMbtiAdsLaunchTier("entp")).toBe("candidate");
+    expect(getMbtiAdsLaunchTier("intj")).toBe("stable");
+    expect(getMbtiAdsLaunchTier("xxxx")).toBe("hold");
+    expect(getMbtiSecondaryWhitelistHoldTypes()).toEqual([]);
+  });
+
+  it("keeps the type-tier rollout exhaustive across all 16 mbti canonical types", () => {
+    expect(new Set(MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES)).toEqual(new Set(MBTI_TYPE_CODES));
+    expect(new Set(MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES).size).toBe(MBTI_TYPE_CODES.length);
+    expect(new Set(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistAllTypes)).toEqual(new Set(MBTI_TYPE_CODES));
+    expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistHoldTypes).toEqual([]);
+  });
+
+  it("keeps a single launch manifest for ops-readable mbti ads rollout", () => {
+    expect(MBTI_ADS_LAUNCH_MANIFEST.primaryWhitelistPages).toEqual(MBTI_ADS_PRIMARY_WHITELIST);
+    expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistPages).toEqual(MBTI_ADS_SECONDARY_WHITELIST);
+    expect(MBTI_ADS_LAUNCH_MANIFEST.seoOnlyPages).toEqual(MBTI_ADS_SEO_ONLY_PAGES);
+    expect(MBTI_ADS_LAUNCH_MANIFEST.forbiddenPatterns).toEqual(MBTI_ADS_FORBIDDEN_PATTERNS);
+    expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistAllTypes).toEqual(
+      MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES
+    );
+    expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistStableTypes).toEqual(
+      MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES
+    );
+    expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistCandidateTypes).toEqual(
+      MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES
+    );
   });
 
   it("classifies mbti ads surfaces with locale-aware routing", () => {
