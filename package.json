@@ -16,6 +16,7 @@
     "lint": "eslint",
     "lint:spacing": "node scripts/check-spacing-tokens.mjs",
     "typecheck": "velite build && tsc --noEmit",
+    "verify:pr": "pnpm lint . && pnpm typecheck && pnpm build && pnpm test:contract",
     "seo:check-sitemap": "node scripts/seo/check-sitemap-indexability.mjs",
     "seo:push-baidu": "node scripts/seo/push-baidu.mjs",
     "content:check-translations": "velite build && node scripts/content/check-translations.mjs",
