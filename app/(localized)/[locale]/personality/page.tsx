@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
+import { PersonalityHeroExecutiveSummary } from "@/components/personality/PersonalityHeroExecutiveSummary";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { listPersonalityProfiles } from "@/lib/cms/personality";
@@ -14,6 +13,7 @@ import { localizedPath } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
+import { buildPersonalityQuickLocateIndex } from "@/lib/mbti/personalityQuickLocate";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -68,6 +68,10 @@ export default async function PersonalityPage({
     personalities,
     landingSurface,
   });
+  const quickLocateIndex = await buildPersonalityQuickLocateIndex({
+    locale,
+    typeResults: hubPayload.typeDecisionCards,
+  });
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -120,56 +124,20 @@ export default async function PersonalityPage({
         ]}
       />
 
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "MBTI Content Framework" : "MBTI Content Framework"}
-        </p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "人格类型" : "Personality types"}
-        </h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">
-          {hubPayload.hero.summary}
-        </p>
-        <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-personality-index-entry-cta-group">
-          <TrackedEntryCtaLink
-            href={mbtiPrimaryCtaHref}
-            prefetch
-            data-testid="mbti-personality-index-primary-cta"
-            eventProperties={mbtiPrimaryCtaTrackingProps}
-            className={buttonVariants({ size: "lg" })}
-          >
-            {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
-          </TrackedEntryCtaLink>
-          <Link
-            href={mbtiTopicHubHref}
-            data-testid="mbti-personality-index-secondary-cta"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
-          >
-            {locale === "zh" ? "查看 MBTI 主题" : "View MBTI topic"}
-          </Link>
-        </div>
-        <div className="flex flex-wrap gap-2 pt-1" data-testid="mbti-personality-index-discoverability-links">
-          {hubPayload.hero.discoverabilityLinks.map((link) => (
-            <Link key={link.label} href={link.href} className="fm-help-chip-link">
-              {link.label}
-            </Link>
-          ))}
-        </div>
-        <p className="m-0 text-xs text-[var(--fm-text-muted)]">
-          {locale === "zh"
+      <PersonalityHeroExecutiveSummary
+        locale={locale}
+        hero={hubPayload.hero}
+        primaryHref={mbtiPrimaryCtaHref}
+        primaryTrackingProps={mbtiPrimaryCtaTrackingProps}
+        secondaryHref={mbtiTopicHubHref}
+        quickLocateIndex={quickLocateIndex}
+        supportingLinks={landingSurface?.ctaBundle ?? []}
+        footerNote={
+          locale === "zh"
             ? "内容来自 Personality CMS，仅展示已发布且公开的 profile。"
-            : "Powered by Personality CMS and showing published public profiles only."}
-        </p>
-        {landingSurface?.ctaBundle.length ? (
-          <div className="flex flex-wrap gap-2 pt-1" data-testid="personality-index-landing-cta">
-            {landingSurface.ctaBundle.map((cta) => (
-              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
-                {cta.label}
-              </Link>
-            ))}
-          </div>
-        ) : null}
-      </section>
+            : "Powered by Personality CMS and showing published public profiles only."
+        }
+      />
 
       <MbtiSceneEntrySection locale={locale} sourcePageType="personality_index" testId="personality-index-scene-entry" />
 

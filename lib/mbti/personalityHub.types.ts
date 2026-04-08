@@ -43,6 +43,28 @@ export interface CareerPreviewCard {
   matchedJobSlugs: string[];
 }
 
+export interface QuickLocateTypeResult {
+  kind: "type";
+  typeCode: string;
+  title: string;
+  excerpt: string;
+  href: string;
+  recommendationHref: string;
+  groupKey: string;
+  groupTitle: string;
+  launchTier: "stable" | "candidate" | "hold";
+  keywords: string[];
+}
+
+export interface QuickLocateCareerResult {
+  kind: "career";
+  slug: string;
+  title: string;
+  summary: string;
+  href: string;
+  keywords: string[];
+}
+
 export interface MethodologyBlock {
   key: string;
   title: string;
@@ -57,6 +79,8 @@ export interface FaqBlock {
 export interface QuickLocateResult {
   query: string;
   matchedTypeCodes: string[];
+  typeResults: QuickLocateTypeResult[];
+  careerResults: QuickLocateCareerResult[];
 }
 
 export interface PersonalityHubHero {

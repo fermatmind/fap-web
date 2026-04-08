@@ -384,10 +384,12 @@ describe("personality cms adapter contract", () => {
 
   it("personality routes consume landing surface instead of inventing local CTA truth", () => {
     const indexSource = read("app/(localized)/[locale]/personality/page.tsx");
+    const heroSource = read("components/personality/PersonalityHeroExecutiveSummary.tsx");
     const detailSource = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
-    expect(indexSource).toContain("personality-index-landing-cta");
-    expect(indexSource).toContain('data-testid="mbti-personality-index-primary-cta"');
+    expect(indexSource).toContain("PersonalityHeroExecutiveSummary");
+    expect(heroSource).toContain("personality-index-landing-cta");
+    expect(heroSource).toContain('data-testid="mbti-personality-index-primary-cta"');
     expect(indexSource).toContain("personality-index-scene-entry");
     expect(detailSource).toContain("personality-detail-landing-cta");
     expect(detailSource).toContain("personality-detail-scene-entry");
