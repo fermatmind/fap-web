@@ -34,8 +34,13 @@ export function FeaturedCareerCard({
   locale: "en" | "zh";
   card: CareerPreviewCard;
 }) {
+  const mobileTopTypes = card.topMatchingTypes.slice(0, 2);
+  const hiddenTopTypeCount = Math.max(card.topMatchingTypes.length - mobileTopTypes.length, 0);
+  const mobileSignals = card.signals.slice(0, 2);
+  const hiddenSignalCount = Math.max(card.signals.length - mobileSignals.length, 0);
+
   return (
-    <article className="space-y-4 rounded-3xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+    <article className="space-y-4 rounded-3xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)] sm:p-5">
       <div className="space-y-2">
         <div className="flex flex-wrap items-center gap-2">
           <span className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] ${renderStanceClass(card.stance)}`}>
@@ -49,7 +54,7 @@ export function FeaturedCareerCard({
         <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{card.summary}</p>
       </div>
 
-      <div className="grid gap-3 md:grid-cols-2">
+      <div className="grid gap-3 xl:grid-cols-2">
         <div className="space-y-3">
           <div className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-panel-muted-bg)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-hub-decision-green)]">
@@ -67,7 +72,22 @@ export function FeaturedCareerCard({
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
               {locale === "zh" ? "Top matching types" : "Top matching types"}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 md:hidden">
+              {mobileTopTypes.map((typeCode) => (
+                <span
+                  key={`${card.key}-${typeCode}`}
+                  className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-[11px] font-semibold text-[var(--fm-text)]"
+                >
+                  {typeCode}
+                </span>
+              ))}
+              {hiddenTopTypeCount > 0 ? (
+                <span className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-[11px] font-semibold text-[var(--fm-text-muted)]">
+                  +{hiddenTopTypeCount}
+                </span>
+              ) : null}
+            </div>
+            <div className="hidden flex-wrap gap-2 md:flex">
               {card.topMatchingTypes.map((typeCode) => (
                 <span
                   key={`${card.key}-${typeCode}`}
@@ -78,7 +98,22 @@ export function FeaturedCareerCard({
               ))}
             </div>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 md:hidden">
+            {mobileSignals.map((signal) => (
+              <span
+                key={`${card.key}-${signal.key}`}
+                className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-[11px] font-semibold text-[var(--fm-text)]"
+              >
+                {signal.label} · {signal.value}
+              </span>
+            ))}
+            {hiddenSignalCount > 0 ? (
+              <span className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-[11px] font-semibold text-[var(--fm-text-muted)]">
+                +{hiddenSignalCount}
+              </span>
+            ) : null}
+          </div>
+          <div className="hidden flex-wrap gap-2 md:flex">
             {card.signals.map((signal) => (
               <span
                 key={`${card.key}-${signal.key}`}

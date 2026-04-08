@@ -33,7 +33,35 @@ export function PersonalityMethodology({
         </p>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-3">
+      <details className="md:hidden" data-testid="personality-methodology-more">
+        <summary className="cursor-pointer list-none text-sm font-semibold text-[var(--fm-accent)]">
+          {locale === "zh" ? "展开 3 步判断方法" : "Show the 3-step method"}
+        </summary>
+        <div className="mt-4 grid gap-4">
+          {blocks.map((block, index) => (
+            <article
+              key={block.key}
+              className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+            >
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                {locale === "zh" ? `步骤 ${index + 1}` : `Step ${index + 1}`}
+              </p>
+              <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{block.title}</h3>
+              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p>
+            </article>
+          ))}
+          <p className="m-0 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-shell-bg)] px-4 py-3 text-sm leading-7 text-[var(--fm-text-muted)]">
+            <span className="font-semibold text-[var(--fm-text)]">
+              {locale === "zh" ? "收束判断：" : "Decision rule:"}
+            </span>{" "}
+            {locale === "zh"
+              ? "如果一个人格方向看起来吸引人，但结构损耗和职业预览已经开始冲突，就不要急着把它当成最终答案。"
+              : "If a personality direction feels attractive while structural strain and career preview already start to conflict, do not treat it as a final answer yet."}
+          </p>
+        </div>
+      </details>
+
+      <div className="hidden gap-4 lg:grid-cols-3 md:grid">
         {blocks.map((block, index) => (
           <article
             key={block.key}
@@ -48,7 +76,7 @@ export function PersonalityMethodology({
         ))}
       </div>
 
-      <p className="m-0 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-shell-bg)] px-4 py-3 text-sm leading-7 text-[var(--fm-text-muted)]">
+      <p className="m-0 hidden rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-shell-bg)] px-4 py-3 text-sm leading-7 text-[var(--fm-text-muted)] md:block">
         <span className="font-semibold text-[var(--fm-text)]">
           {locale === "zh" ? "收束判断：" : "Decision rule:"}
         </span>{" "}

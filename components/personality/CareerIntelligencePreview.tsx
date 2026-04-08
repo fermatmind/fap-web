@@ -19,7 +19,7 @@ export function CareerIntelligencePreview({
     >
       <div className="space-y-2">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-hub-navy)]">
-          {locale === "zh" ? "Career Intelligence Preview" : "Career Intelligence Preview"}
+          {locale === "zh" ? "职业预览" : "Career Intelligence Preview"}
         </p>
         <h2 className="m-0 font-serif text-[length:var(--fm-hub-heading-section)] text-[var(--fm-hub-navy-strong)]">
           {locale === "zh" ? "人格不是终点，职业结构判断才是下一步" : "Personality is not the endpoint. Career structure is the next decision."}
@@ -31,7 +31,7 @@ export function CareerIntelligencePreview({
         </p>
       </div>
 
-      <div className="grid gap-4 xl:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {cards.map((card) => (
           <FeaturedCareerCard key={card.key} locale={locale} card={card} />
         ))}

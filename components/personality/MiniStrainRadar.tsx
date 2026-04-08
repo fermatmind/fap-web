@@ -33,7 +33,7 @@ export function MiniStrainRadar({
       </div>
       <svg
         viewBox={`0 0 ${size} ${size}`}
-        className="mx-auto h-40 w-40"
+        className="mx-auto h-32 w-32 sm:h-40 sm:w-40"
         role="img"
         aria-label={data.title}
       >
@@ -78,7 +78,7 @@ export function MiniStrainRadar({
           strokeWidth="2"
         />
       </svg>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid gap-2 sm:grid-cols-2">
         {data.axes.map((axis) => (
           <div key={axis.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-hub-panel-muted-bg)] p-2">
             <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--fm-text-muted)]">

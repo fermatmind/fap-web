@@ -26,7 +26,22 @@ export function PersonalityFaq({
         </h2>
       </div>
 
-      <dl className="m-0 space-y-4">
+      <div className="space-y-3 md:hidden" data-testid="personality-faq-mobile">
+        {items.map((item, index) => (
+          <details
+            key={item.question}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+            data-testid={`personality-faq-item-${index}`}
+          >
+            <summary className="cursor-pointer list-none text-base font-semibold text-[var(--fm-text)]">
+              {item.question}
+            </summary>
+            <p className="m-0 mt-3 text-sm leading-7 text-[var(--fm-text-muted)]">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+
+      <dl className="m-0 hidden space-y-4 md:block">
         {items.map((item) => (
           <div
             key={item.question}

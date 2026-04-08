@@ -16,6 +16,7 @@ export function TypeNavigatorWorkbench({
   familyGroups: PersonalityHubFamilyGroup[];
 }) {
   const [activeSort, setActiveSort] = useState<TypeWorkbenchSortKey>("all");
+  const [showAllMobile, setShowAllMobile] = useState(false);
   const cards = useMemo(
     () => rankPersonalityWorkbenchCards(payload.cards, activeSort),
     [payload.cards, activeSort]
@@ -30,7 +31,7 @@ export function TypeNavigatorWorkbench({
       >
         <div className="space-y-2">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-hub-navy)]">
-            {locale === "zh" ? "Type Navigator Workbench" : "Type Navigator Workbench"}
+            {locale === "zh" ? "类型工作台" : "Type Navigator Workbench"}
           </p>
           <h2 className="m-0 font-serif text-[length:var(--fm-hub-heading-section)] text-[var(--fm-hub-navy-strong)]">
             {locale === "zh" ? "按优先判断逻辑重排 16 型" : "Re-rank all 16 types by decision priority"}
@@ -42,7 +43,7 @@ export function TypeNavigatorWorkbench({
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex gap-2 overflow-x-auto pb-1">
           {payload.sortOptions.map((option) => (
             <button
               key={option.key}
@@ -60,7 +61,18 @@ export function TypeNavigatorWorkbench({
           ))}
         </div>
 
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        <div className="flex flex-wrap gap-2 md:hidden" data-testid="personality-workbench-family-summary-mobile">
+          {familyGroups.map((family) => (
+            <span
+              key={family.groupKey}
+              className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-hub-panel-muted-bg)] px-3 py-2 text-xs font-semibold text-[var(--fm-text)]"
+            >
+              {family.groupKey} · {family.title}
+            </span>
+          ))}
+        </div>
+
+        <div className="hidden gap-3 md:grid md:grid-cols-2 xl:grid-cols-4">
           {familyGroups.map((family) => (
             <article
               key={family.groupKey}
@@ -99,10 +111,10 @@ export function TypeNavigatorWorkbench({
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {cards.map((personality) => (
+          {cards.map((personality, index) => (
             <article
               key={personality.typeCode}
-              className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+              className={`space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)] sm:p-5 ${!showAllMobile && index >= 6 ? "hidden md:block" : ""}`}
             >
               <div className="space-y-2">
                 <h3 className="m-0 font-serif text-lg text-[var(--fm-text)]">
@@ -145,6 +157,24 @@ export function TypeNavigatorWorkbench({
             </article>
           ))}
         </div>
+        {cards.length > 6 ? (
+          <div className="md:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAllMobile((value) => !value)}
+              className="w-full rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-4 py-3 text-sm font-semibold text-[var(--fm-accent)]"
+              data-testid="personality-workbench-show-all"
+            >
+              {showAllMobile
+                ? locale === "zh"
+                  ? "收起部分类型"
+                  : "Show fewer types"
+                : locale === "zh"
+                  ? "展开全部 16 型"
+                  : "Show all 16 types"}
+            </button>
+          </div>
+        ) : null}
       </section>
     </section>
   );

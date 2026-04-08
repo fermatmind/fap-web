@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { PersonalityHeroExecutiveSummary } from "@/components/personality/PersonalityHeroExecutiveSummary";
 import { CareerIntelligencePreview } from "@/components/personality/CareerIntelligencePreview";
 import { PersonalityFaq } from "@/components/personality/PersonalityFaq";
+import { PersonalityMobileDecisionBar } from "@/components/personality/PersonalityMobileDecisionBar";
 import { ScenarioIntelligenceMatrix } from "@/components/personality/ScenarioIntelligenceMatrix";
 import { PersonalityMethodology } from "@/components/personality/PersonalityMethodology";
 import { TypeNavigatorWorkbench } from "@/components/personality/TypeNavigatorWorkbench";
@@ -169,6 +170,12 @@ export default async function PersonalityPage({
           { label: locale === "zh" ? "首页" : "Home", href: withLocale("/") },
           { label: locale === "zh" ? "人格" : "Personality" },
         ]}
+      />
+      <PersonalityMobileDecisionBar
+        locale={locale}
+        primaryHref={mbtiPrimaryCtaHref}
+        primaryTrackingProps={mbtiPrimaryCtaTrackingProps}
+        quickLocateHref="#personality-quick-locate"
       />
 
       <PersonalityHeroExecutiveSummary
