@@ -15,6 +15,7 @@ import {
 const ROOT = process.cwd();
 const EXPECTED_PRIORITY_TYPES = ["ENTJ", "INTP", "INTJ", "ENFJ", "ENTP", "INFJ", "ENFP", "ESTP", "ISTJ", "ISFJ"] as const;
 const EXPECTED_GROWTH_EXPANSION_TYPES = ["ENTP", "INFJ", "ENFP", "ESTP", "ISTJ", "ISFJ"] as const;
+const GROWTH_EXPANSION_TYPE_SET = new Set<string>(MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES);
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
@@ -61,13 +62,13 @@ describe("mbti scene depth contract", () => {
   it("enforces type-priority scene depth matrix on personality detail", () => {
     for (const typeCode of MBTI_SCENE_DEEP_PRIORITY_TYPES) {
       const modules = buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode });
-      const expectedLength = MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode) ? 4 : 3;
+      const expectedLength = GROWTH_EXPANSION_TYPE_SET.has(typeCode) ? 4 : 3;
       expect(modules).toHaveLength(expectedLength);
       for (const sceneModule of modules) {
         expectValidScenarioModule(sceneModule);
       }
       expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(
-        MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode)
+        GROWTH_EXPANSION_TYPE_SET.has(typeCode)
       );
     }
 
@@ -77,13 +78,13 @@ describe("mbti scene depth contract", () => {
   it("enforces type-priority scene depth matrix on recommendation detail", () => {
     for (const typeCode of MBTI_SCENE_DEEP_PRIORITY_TYPES) {
       const modules = buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode });
-      const expectedLength = MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode) ? 4 : 3;
+      const expectedLength = GROWTH_EXPANSION_TYPE_SET.has(typeCode) ? 4 : 3;
       expect(modules).toHaveLength(expectedLength);
       for (const sceneModule of modules) {
         expectValidScenarioModule(sceneModule);
       }
       expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(
-        MBTI_SCENE_DEEP_GROWTH_EXPANSION_TYPES.includes(typeCode)
+        GROWTH_EXPANSION_TYPE_SET.has(typeCode)
       );
     }
 
@@ -128,7 +129,7 @@ describe("mbti scene depth contract", () => {
     expect(items.some((item) => item.key === "to_recommendation_intp")).toBe(true);
   });
 
-  it("mounts deep-dive sections on topic/personality/recommendation and continuity strip on test landing", () => {
+  it("keeps deep-dive sections on topic/personality while recommendation detail switches to protocol-guarded rendering and continuity strip on test landing", () => {
     const topicDetail = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
     const personalityDetail = read("app/(localized)/[locale]/personality/[type]/page.tsx");
     const recommendationDetail = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
@@ -136,7 +137,9 @@ describe("mbti scene depth contract", () => {
 
     expect(topicDetail).toContain('testId="topic-detail-scene-deep-dive"');
     expect(personalityDetail).toContain('testId="personality-detail-scene-deep-dive"');
-    expect(recommendationDetail).toContain('testId="career-recommendation-scene-deep-dive"');
+    expect(recommendationDetail).toContain('testId="career-recommendation-scene-entry"');
+    expect(recommendationDetail).toContain('data-testid="career-recommendation-protocol-status"');
+    expect(recommendationDetail).not.toContain('testId="career-recommendation-scene-deep-dive"');
     expect(testLanding).toContain('data-testid="mbti-landing-continuity-strip"');
   });
 });

@@ -25,7 +25,7 @@ afterEach(() => {
 });
 
 describe("career routing cleanup contract", () => {
-  it("frontend sitemap config includes mbti recommendation routes and excludes stale private result paths", async () => {
+  it("frontend sitemap config keeps recommendation detail routes out until protocol gating exists and excludes stale private result paths", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async () =>
@@ -42,14 +42,7 @@ describe("career routing cleanup contract", () => {
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
-    expect(locs).toEqual(
-      expect.arrayContaining([
-        "/en/career/recommendations/mbti/intj-a",
-        "/zh/career/recommendations/mbti/intj-a",
-        "/en/career/recommendations/mbti/enfp-t",
-        "/zh/career/recommendations/mbti/enfp-t",
-      ])
-    );
+    expect(locs.some((loc: string) => loc.includes("/career/recommendations/mbti/"))).toBe(false);
     expect(locs).not.toEqual(
       expect.arrayContaining([
         "/en/career/tests/riasec/result",
@@ -58,16 +51,18 @@ describe("career routing cleanup contract", () => {
     );
   });
 
-  it("career recommendation detail page exposes answer-first, item list, faq schema, and public backlinks", () => {
+  it("career recommendation detail page exposes protocol-guarded schema and status surfaces without local fallback truth", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
     expect(source).toContain("buildItemListJsonLd");
     expect(source).toContain("buildFAQPageJsonLd");
-    expect(source).toContain("buildAnswerFirst");
+    expect(source).toContain("renderCareerDataStatus");
+    expect(source).toContain("career-recommendation-protocol-status");
     expect(source).toContain('id="recommended-roles"');
     expect(source).toContain('id="faq"');
-    expect(source).toContain('withLocale("/topics/mbti")');
-    expect(source).toContain('withLocale("/help/faq")');
+    expect(source).not.toContain("buildAnswerFirst");
+    expect(source).not.toContain('withLocale("/topics/mbti")');
+    expect(source).not.toContain('withLocale("/help/faq")');
   });
 
   it("machine-readable routes keep public career recommendations and skip private flows", () => {

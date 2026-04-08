@@ -19,7 +19,7 @@ const baseJob = {
 } satisfies Omit<CareerRecommendationJobInput, "slug" | "title" | "riasecVector" | "marketDemand">;
 
 describe("career recommendation engine", () => {
-  it("ranks jobs by weighted factors and returns explainable reasons", () => {
+  it("no longer returns local recommendation truth from the consumer layer", () => {
     const jobs: CareerRecommendationJobInput[] = [
       {
         ...baseJob,
@@ -67,13 +67,6 @@ describe("career recommendation engine", () => {
       topN: 2,
     });
 
-    expect(result).toHaveLength(2);
-    expect(result[0]?.jobSlug).toBe("job-a");
-    expect(result[0]?.totalScore).toBeGreaterThan(result[1]?.totalScore ?? 0);
-    expect(result[0]?.factors.interest).toBeGreaterThan(0);
-    expect(result[0]?.why_interest.length).toBeGreaterThan(0);
-    expect(result[0]?.why_personality.length).toBeGreaterThan(0);
-    expect(result[0]?.why_capability.length).toBeGreaterThan(0);
-    expect(result[0]?.risks.length).toBeGreaterThan(0);
+    expect(result).toEqual([]);
   });
 });

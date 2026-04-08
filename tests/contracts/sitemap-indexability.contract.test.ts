@@ -46,10 +46,9 @@ describe("sitemap indexability contract", () => {
         "/zh/articles",
         "/en/career/guides",
         "/zh/career/guides",
-        "/en/career/recommendations/mbti/intj-a",
-        "/zh/career/recommendations/mbti/intj-a",
       ])
     );
+    expect(locs.some((loc: string) => loc.includes("/career/recommendations/mbti/"))).toBe(false);
   });
 
   it("frontend sitemap config excludes retired and private route families", async () => {

@@ -6,7 +6,6 @@ import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink"
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
-import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -21,12 +20,9 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import {
-  MBTI_ENTRY_TEST_SLUG,
   buildMbtiEntryHref,
   buildMbtiEntryTrackingPayload,
 } from "@/lib/mbti/entryTracking";
-import { buildMbtiRecommendationScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
-import { getMbtiRecommendationContent } from "@/lib/mbti/mbtiTypeContentPack";
 import {
   parseMbtiContinuityQuery,
   resolveMbtiCarryoverFocusLabel,
@@ -58,105 +54,38 @@ function normalizeRequestedSlug(value: string): string {
   return String(value ?? "").trim().toLowerCase();
 }
 
-function buildAnswerFirst(detail: CareerRecommendationDetail, locale: Locale): string {
-  const firstParagraph = detail.career.summary.paragraphs[0];
-  const matchedJobTitles = detail.matchedJobs.slice(0, 3).map((job) => job.title).join(locale === "zh" ? "、" : ", ");
-
-  if (locale === "zh") {
-    return firstParagraph
-      ? `${detail.displayType} 的职业建议现在由后端 authority 直接提供。${firstParagraph}`
-      : `${detail.displayType} 的职业建议现在由后端 authority 直接提供，当前优先关注 ${matchedJobTitles || "高匹配的结构化岗位"}，但内部 graph match 仍固定回落到 ${detail.graphTypeCode}。`;
-  }
-
-  return firstParagraph
-    ? `Career guidance for ${detail.displayType} now comes directly from backend authority. ${firstParagraph}`
-    : `Career guidance for ${detail.displayType} now comes directly from backend authority. Start with ${matchedJobTitles || "the highest-fit structured roles"}, while the internal graph match still falls back to ${detail.graphTypeCode}.`;
-}
-
-function buildCareerFaqItems(detail: CareerRecommendationDetail, locale: Locale): FAQItem[] {
-  const primaryJobs = detail.matchedJobs.filter((job) => job.fitBucket === "primary").map((job) => job.title);
-  const guideTitles = detail.matchedGuides.map((guide) => guide.title);
-  const roleExamples = detail.career.preferredRoles.groups.flatMap((group) => group.examples).slice(0, 4);
-
-  if (locale === "zh") {
-    return [
-      {
-        question: `${detail.displayType} 的职业匹配是按什么 key 算的？`,
-        answer: `公开路由使用 ${detail.publicRouteSlug}，但 graph match 固定回落到 ${detail.graphTypeCode}，因此岗位匹配仍以 4-letter canonical family 为准。`,
-      },
-      {
-        question: `${detail.displayType} 现在优先看哪些方向？`,
-        answer: `${primaryJobs.slice(0, 4).join("、") || roleExamples.join("、") || "高自主、高结构化的角色"} 是当前优先方向。`,
-      },
-      {
-        question: `除了岗位，还应该看什么？`,
-        answer: `${guideTitles.slice(0, 3).join("、") || "相关职业指南"} 可以继续补齐路径判断，不要只看单一人格标签。`,
-      },
-    ];
-  }
-
-  return [
-    {
-      question: `Which key does ${detail.displayType} use for career graph matching?`,
-      answer: `The public route uses ${detail.publicRouteSlug}, but graph matching is fixed to ${detail.graphTypeCode}, so jobs still match through the canonical 4-letter family.`,
-    },
-    {
-      question: `Which roles should ${detail.displayType} review first?`,
-      answer: `${primaryJobs.slice(0, 4).join(", ") || roleExamples.join(", ") || "High-autonomy, high-structure roles"} are the current first-pass directions.`,
-    },
-    {
-      question: `What else should you validate besides the job list?`,
-      answer: `${guideTitles.slice(0, 3).join(", ") || "Related career guides"} should be part of the decision, so personality stays a routing signal rather than the only filter.`,
-    },
-  ];
-}
-
-function buildAnswerSurfaceFaqItems(detail: CareerRecommendationDetail, locale: Locale): FAQItem[] {
-  if (detail.answerSurface?.faqBlocks.length) {
-    return detail.answerSurface.faqBlocks
-      .filter((item) => item.question && item.answer)
-      .map((item) => ({
-        question: item.question,
-        answer: item.answer,
-      }));
-  }
-
-  return buildCareerFaqItems(detail, locale);
-}
-
-type MbtiRecommendationTrackedLink = {
-  href: string;
-  eventProperties: ReturnType<typeof buildMbtiEntryTrackingPayload>;
-};
-
-function buildMbtiRecommendationTrackedLink(
-  link: { href: string; key: string; label: string },
-  sourcePath: string,
-  locale: Locale,
-  targetAction: string
-): MbtiRecommendationTrackedLink | null {
-  if (!link.href.startsWith(`/tests/${MBTI_ENTRY_TEST_SLUG}`)) {
+function renderCareerDataStatus(detail: CareerRecommendationDetail, locale: Locale) {
+  if (detail.careerDataStatus === "available") {
     return null;
   }
 
-  return {
-    href: buildMbtiEntryHref({
-      locale,
-      formCode: DEFAULT_MBTI_FORM_CODE,
-      entrySurface: "mbti_scene_block",
-      sourcePageType: "recommendation_detail",
-      targetAction,
-      sourcePath,
-    }),
-    eventProperties: buildMbtiEntryTrackingPayload({
-      locale,
-      formCode: DEFAULT_MBTI_FORM_CODE,
-      entrySurface: "mbti_scene_block",
-      sourcePageType: "recommendation_detail",
-      targetAction,
-      sourcePath,
-    }),
-  };
+  return (
+    <div
+      className="rounded-xl border border-amber-200 bg-amber-50/80 p-4 text-sm text-amber-950"
+      data-testid="career-recommendation-protocol-status"
+      data-career-data-status={detail.careerDataStatus}
+    >
+      <p className="m-0 font-medium">
+        {detail.careerDataStatus === "trust_limited"
+          ? locale === "zh"
+            ? "当前为 trust-limited 渲染"
+            : "Rendering in trust-limited mode"
+          : locale === "zh"
+            ? "当前内容不可用"
+            : "Career data is currently unavailable"}
+      </p>
+      <p className="m-0 mt-2 leading-7">
+        {locale === "zh"
+          ? "Career recommendation 页面现在只消费显式协议 surface。缺少 answer / seo / matched job 等关键字段时，页面不会再本地合成职业解释。"
+          : "This recommendation page now consumes explicit protocol surfaces only. When answer / SEO / matched-job fields are missing, it no longer synthesizes local career explanations."}
+      </p>
+      {detail.renderState.missingFields.length > 0 ? (
+        <p className="m-0 mt-2 text-xs uppercase tracking-[0.08em] text-amber-900/80">
+          {locale === "zh" ? "缺失字段" : "Missing fields"}: {detail.renderState.missingFields.join(", ")}
+        </p>
+      ) : null}
+    </div>
+  );
 }
 
 async function getDetailOrNotFound(locale: Locale, type: string): Promise<CareerRecommendationDetail> {
@@ -189,7 +118,7 @@ export async function generateMetadata({
     title: detail.seo.surface?.title || detail.seo.meta.title,
     description: detail.seo.surface?.description || detail.seo.meta.description,
     seoSurface: detail.seo.surface,
-    noindex: !detail.seo.surface ? noindex : undefined,
+    noindex: !detail.renderState.canIndexPage || noindex,
     alternatesByLocale: {
       en: detail.seo.meta.alternates.en ?? buildCareerRecommendationFrontendUrl("en", detail.publicRouteSlug),
       zh: detail.seo.meta.alternates["zh-CN"] ?? buildCareerRecommendationFrontendUrl("zh", detail.publicRouteSlug),
@@ -248,9 +177,21 @@ export default async function CareerMbtiRecommendationPage({
   }
 
   const canonicalPath = buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug);
-  const answerFirst = detail.answerSurface?.summaryBlocks[0]?.body || buildAnswerFirst(detail, locale);
-  const faqItems = buildAnswerSurfaceFaqItems(detail, locale);
-  const landingSurface = detail.landingSurface;
+  const renderState = detail.renderState;
+  const answerSurface = renderState.canRenderAnswerSurface ? detail.answerSurface : null;
+  const landingSurface = renderState.canRenderLandingSurface ? detail.landingSurface : null;
+  const matchedJobs = renderState.canRenderMatchedJobs ? detail.matchedJobs : [];
+  const faqItems: FAQItem[] = renderState.canRenderStrongTruth
+    ? (detail.answerSurface?.faqBlocks ?? [])
+        .filter((item) => item.question && item.answer)
+        .map((item) => ({
+          question: item.question,
+          answer: item.answer,
+        }))
+    : [];
+  const answerFirst = renderState.canRenderStrongTruth
+    ? detail.answerSurface?.summaryBlocks.find((block) => block.body)?.body ?? null
+    : null;
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -275,12 +216,6 @@ export default async function CareerMbtiRecommendationPage({
     targetAction: "start_mbti_test_primary",
     sourcePath: canonicalPath,
   });
-  const recommendationScenarioDeepModules = buildMbtiRecommendationScenarioDeepModules({
-    locale,
-    typeCode: detail.graphTypeCode,
-  });
-  const recommendationHasGrowthScene = recommendationScenarioDeepModules.some((module) => module.sceneKey === "growth_planning");
-  const recommendationTypeContent = getMbtiRecommendationContent(detail.publicRouteSlug, locale);
   const mbtiLandingHref = withLocale("/tests/mbti-personality-test-16-personality-types");
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -300,9 +235,9 @@ export default async function CareerMbtiRecommendationPage({
   const itemListJsonLd = buildItemListJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`,
-    description: answerFirst,
+    description: answerFirst ?? detail.seo.meta.description,
     locale,
-    items: detail.matchedJobs.map((job) => ({
+    items: matchedJobs.map((job) => ({
       name: job.title,
       path: localizedPath(`/career/jobs/${job.slug}`, locale),
       description: job.summary,
@@ -314,8 +249,12 @@ export default async function CareerMbtiRecommendationPage({
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       <JsonLd id={`career-mbti-webpage-${detail.publicRouteSlug}`} data={webPageJsonLd} />
       <JsonLd id={`career-mbti-breadcrumb-${detail.publicRouteSlug}`} data={breadcrumbJsonLd} />
-      <JsonLd id={`career-mbti-itemlist-${detail.publicRouteSlug}`} data={itemListJsonLd} />
-      <JsonLd id={`career-mbti-faq-${detail.publicRouteSlug}`} data={buildFAQPageJsonLd(faqItems)} />
+      {renderState.canRenderMatchedJobs && matchedJobs.length > 0 ? (
+        <JsonLd id={`career-mbti-itemlist-${detail.publicRouteSlug}`} data={itemListJsonLd} />
+      ) : null}
+      {faqItems.length > 0 ? (
+        <JsonLd id={`career-mbti-faq-${detail.publicRouteSlug}`} data={buildFAQPageJsonLd(faqItems)} />
+      ) : null}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -358,7 +297,8 @@ export default async function CareerMbtiRecommendationPage({
           {detail.typeName}
           {detail.nickname ? <span className="text-[var(--fm-text-muted)]"> · {detail.nickname}</span> : null}
         </h1>
-        <p className="m-0 text-base leading-7 text-[var(--fm-text)]">{answerFirst}</p>
+        {renderCareerDataStatus(detail, locale)}
+        {answerFirst ? <p className="m-0 text-base leading-7 text-[var(--fm-text)]">{answerFirst}</p> : null}
         {landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="career-recommendation-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
@@ -414,296 +354,201 @@ export default async function CareerMbtiRecommendationPage({
               {locale === "zh" ? "Keywords" : "Keywords"}
             </p>
             <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">
-              {detail.keywords.join(locale === "zh" ? "、" : ", ") || detail.heroSummary}
+              {detail.keywords.join(locale === "zh" ? "、" : ", ") || detail.graphTypeCode}
             </p>
           </div>
         </div>
       </section>
 
-      <MbtiSceneEntrySection
-        locale={locale}
-        sourcePageType="career_recommendation_detail"
-        blocks={detail.answerSurface?.sceneSummaryBlocks}
-        testId="career-recommendation-scene-entry"
-      />
-      <MbtiScenarioDeepDiveSection
-        locale={locale}
-        modules={recommendationScenarioDeepModules}
-        sourcePageType="career_recommendation_detail"
-        sourcePath={canonicalPath}
-        testId="career-recommendation-scene-deep-dive"
-        heading={
-          locale === "zh"
-            ? recommendationHasGrowthScene
-              ? `${detail.graphTypeCode} 场景深化（职业优先 + 协作/专业/成长承接）`
-              : `${detail.graphTypeCode} 场景深化（以职业方向为主）`
-            : recommendationHasGrowthScene
-              ? `${detail.graphTypeCode} scene depth (career-first with collaboration / major / growth continuity)`
-              : `${detail.graphTypeCode} scene depth (career-first)`
-        }
-        subtitle={
-          locale === "zh"
-            ? recommendationHasGrowthScene
-              ? "在职业推荐页延伸团队协作、专业选择和成长建议，避免只看岗位列表。"
-              : "在职业推荐页延伸团队协作与专业选择，避免只看岗位列表。"
-            : recommendationHasGrowthScene
-              ? "Extend collaboration, major-selection, and growth guidance here, not just a job list."
-              : "Extend collaboration and major-selection guidance here, not just a job list."
-        }
-      />
-      {recommendationTypeContent ? (
+      {renderState.canRenderAnswerSurface ? (
+        <MbtiSceneEntrySection
+          locale={locale}
+          sourcePageType="career_recommendation_detail"
+          blocks={answerSurface?.sceneSummaryBlocks}
+          testId="career-recommendation-scene-entry"
+        />
+      ) : null}
+
+      {renderState.canRenderAnswerSurface ? (
+        <AnswerSurfaceSection
+          surface={answerSurface}
+          locale={locale}
+          testId="career-recommendation-answer-surface"
+        />
+      ) : null}
+
+      {renderState.canRenderMatchedJobs && matchedJobs.length > 0 ? (
         <section
-          id={detail.canonicalTypeCode === "INTP" ? "career-recommendation-intp-interpretation" : "career-recommendation-type-interpretation"}
-          data-testid={detail.canonicalTypeCode === "INTP" ? "career-recommendation-intp-interpretation" : "career-recommendation-type-interpretation"}
+          id="recommended-roles"
           className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
         >
-          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh"
-              ? `${detail.displayType} 职业解释与承接`
-              : `${detail.displayType} career interpretation and continuation`}
-          </h2>
+          <div className="space-y-1">
+            <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+              {locale === "zh" ? "匹配岗位矩阵" : "Matched role matrix"}
+            </h2>
+            <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+              {locale === "zh"
+                ? "岗位列表只在 authority payload 明确提供时渲染，并显式区分 primary / secondary fit。"
+                : "The job list renders only when the authority payload provides it explicitly, with primary / secondary fit separated."}
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full border-collapse text-left text-sm">
+              <thead>
+                <tr className="border-b border-[var(--fm-border)] text-[var(--fm-text)]">
+                  <th className="px-3 py-2">{locale === "zh" ? "Fit" : "Fit"}</th>
+                  <th className="px-3 py-2">{locale === "zh" ? "岗位" : "Role"}</th>
+                  <th className="px-3 py-2">{locale === "zh" ? "摘要" : "Summary"}</th>
+                  <th className="px-3 py-2">{locale === "zh" ? "匹配编码" : "Matching codes"}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {matchedJobs.map((job) => (
+                  <tr key={job.slug} className="border-b border-[var(--fm-border)] align-top text-[var(--fm-text-muted)]">
+                    <td className="px-3 py-3 font-medium text-[var(--fm-text)]">
+                      {job.fitBucket === "primary"
+                        ? locale === "zh"
+                          ? "Primary"
+                          : "Primary"
+                        : job.fitBucket === "secondary"
+                          ? locale === "zh"
+                            ? "Secondary"
+                            : "Secondary"
+                          : "-"}
+                    </td>
+                    <td className="px-3 py-3">
+                      <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                        {job.title}
+                      </Link>
+                    </td>
+                    <td className="px-3 py-3">{job.summary || "-"}</td>
+                    <td className="px-3 py-3">
+                      {[...job.fitPersonalityCodes, ...job.mbtiPrimaryCodes, ...job.mbtiSecondaryCodes].join(", ") || detail.graphTypeCode}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : (
+        <section
+          className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          data-testid="career-recommendation-matched-jobs-status"
+          data-career-data-status={detail.careerDataStatus}
+        >
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-            {recommendationTypeContent.heroSummary}
+            {locale === "zh"
+              ? "当前未拿到可渲染的 authority matched jobs，页面不会再本地拼接岗位矩阵。"
+              : "Authority matched jobs are not currently available, so this page does not assemble a local role matrix."}
           </p>
+        </section>
+      )}
+
+      {renderState.canRenderStrongTruth ? (
+        <>
+          {detail.career.summary.paragraphs.length > 0 ? (
+            <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+              <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+                {detail.career.summary.title || (locale === "zh" ? "职业摘要" : "Career summary")}
+              </h2>
+              <div className="space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
+                {detail.career.summary.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="m-0">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle>{locale === "zh" ? "为什么这些工作吸引这个类型" : "Why these roles attract this type"}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0 leading-7">{recommendationTypeContent.fitWhy}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>
-                  {locale === "zh" ? "为什么某些工作会消耗这个类型" : "Why some jobs drain this type"}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0 leading-7">{recommendationTypeContent.costWhy}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>{locale === "zh" ? "这些岗位的共同结构" : "Common structure across roles"}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0 leading-7">{recommendationTypeContent.jobStructure}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>{locale === "zh" ? "A/T 风险语气差异" : "A/T risk lens"}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0 leading-7">{recommendationTypeContent.variantRisk}</p>
-              </CardContent>
-            </Card>
-          </div>
-          {recommendationTypeContent.nextStep ? (
-            <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-              <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "下一步：" : "Next step:"}</span>{" "}
-              {recommendationTypeContent.nextStep}
-            </p>
-          ) : null}
-          <div className="space-y-3">
-            <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">
-              {locale === "zh" ? "下一步 / 继续入口" : "Next steps / continuation"}
-            </h3>
-            <div className="flex flex-wrap gap-2" data-testid="career-recommendation-type-next-steps">
-              {recommendationTypeContent.support.nextSteps.map((link) => {
-                const trackedLink = buildMbtiRecommendationTrackedLink(
-                  link,
-                  canonicalPath,
-                  locale,
-                  `start_mbti_test_recommendation_${link.key}`
-                );
-
-                if (!trackedLink) {
-                  return (
-                    <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                      {link.label}
-                    </Link>
-                  );
-                }
-
-                return (
-                  <TrackedEntryCtaLink
-                    key={link.key}
-                    href={trackedLink.href}
-                    className="fm-help-chip-link"
-                    eventProperties={trackedLink.eventProperties}
-                  >
-                    {link.label}
-                  </TrackedEntryCtaLink>
-                );
-              })}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {recommendationTypeContent.support.linkedGuides.map((link) => (
-                <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                  {link.label}
-                </Link>
-              ))}
-              {recommendationTypeContent.support.linkedArticles.map((link) => (
-                <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-            <Link href={recommendationTypeContent.support.topicBacklink.href} className="fm-help-chip-link">
-              {recommendationTypeContent.support.topicBacklink.label}
-            </Link>
-          </div>
-        </section>
-      ) : null}
-
-      <AnswerSurfaceSection
-        surface={detail.answerSurface}
-        locale={locale}
-        testId="career-recommendation-answer-surface"
-      />
-
-      <section
-        id="recommended-roles"
-        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-      >
-        <div className="space-y-1">
-          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "匹配岗位矩阵" : "Matched role matrix"}
-          </h2>
-          <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-            {locale === "zh"
-              ? "岗位列表直接来自 backend authority，并显式区分 primary / secondary fit。"
-              : "The job list now comes directly from backend authority and explicitly separates primary and secondary fit."}
-          </p>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="min-w-full border-collapse text-left text-sm">
-            <thead>
-              <tr className="border-b border-[var(--fm-border)] text-[var(--fm-text)]">
-                <th className="px-3 py-2">{locale === "zh" ? "Fit" : "Fit"}</th>
-                <th className="px-3 py-2">{locale === "zh" ? "岗位" : "Role"}</th>
-                <th className="px-3 py-2">{locale === "zh" ? "摘要" : "Summary"}</th>
-                <th className="px-3 py-2">{locale === "zh" ? "匹配编码" : "Matching codes"}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {detail.matchedJobs.map((job) => (
-                <tr key={job.slug} className="border-b border-[var(--fm-border)] align-top text-[var(--fm-text-muted)]">
-                  <td className="px-3 py-3 font-medium text-[var(--fm-text)]">
-                    {job.fitBucket === "primary"
-                      ? locale === "zh"
-                        ? "Primary"
-                        : "Primary"
-                      : job.fitBucket === "secondary"
-                        ? locale === "zh"
-                          ? "Secondary"
-                          : "Secondary"
-                        : "-"}
-                  </td>
-                  <td className="px-3 py-3">
-                    <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                      {job.title}
-                    </Link>
-                  </td>
-                  <td className="px-3 py-3">{job.summary || "-"}</td>
-                  <td className="px-3 py-3">
-                    {[...job.fitPersonalityCodes, ...job.mbtiPrimaryCodes, ...job.mbtiSecondaryCodes].join(", ") || detail.graphTypeCode}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>{detail.career.advantages.title || (locale === "zh" ? "职业优势" : "Career advantages")}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-            {detail.career.advantages.items.map((item) => (
-              <div key={`${item.title}-${item.description}`}>
-                {item.title ? <p className="m-0 font-medium text-[var(--fm-text)]">{item.title}</p> : null}
-                {item.description ? <p className="m-0 mt-1">{item.description}</p> : null}
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>{detail.career.weaknesses.title || (locale === "zh" ? "职业短板" : "Career weaknesses")}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-            {detail.career.weaknesses.items.map((item) => (
-              <div key={`${item.title}-${item.description}`}>
-                {item.title ? <p className="m-0 font-medium text-[var(--fm-text)]">{item.title}</p> : null}
-                {item.description ? <p className="m-0 mt-1">{item.description}</p> : null}
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-      </div>
-
-      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {detail.career.preferredRoles.title || (locale === "zh" ? "偏好角色" : "Preferred roles")}
-        </h2>
-        {detail.career.preferredRoles.intro ? (
-          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.career.preferredRoles.intro}</p>
-        ) : null}
-        <div className="grid gap-4 md:grid-cols-2">
-          {detail.career.preferredRoles.groups.map((group) => (
-            <Card key={`${group.groupTitle}-${group.description}`}>
-              <CardHeader>
-                <CardTitle>{group.groupTitle || (locale === "zh" ? "角色组" : "Role group")}</CardTitle>
+                <CardTitle>{detail.career.advantages.title || (locale === "zh" ? "职业优势" : "Career advantages")}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-                {group.description ? <p className="m-0">{group.description}</p> : null}
-                {group.examples.length > 0 ? (
-                  <ul className="m-0 list-disc space-y-1 pl-5">
-                    {group.examples.map((example) => (
-                      <li key={example}>{example}</li>
-                    ))}
-                  </ul>
-                ) : null}
+                {detail.career.advantages.items.map((item) => (
+                  <div key={`${item.title}-${item.description}`}>
+                    {item.title ? <p className="m-0 font-medium text-[var(--fm-text)]">{item.title}</p> : null}
+                    {item.description ? <p className="m-0 mt-1">{item.description}</p> : null}
+                  </div>
+                ))}
               </CardContent>
             </Card>
-          ))}
-        </div>
-        {detail.career.preferredRoles.outro ? (
-          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.career.preferredRoles.outro}</p>
-        ) : null}
-      </section>
 
-      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {detail.career.upgradeSuggestions.title || (locale === "zh" ? "升级建议" : "Upgrade suggestions")}
-        </h2>
-        <div className="space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
-          {detail.career.upgradeSuggestions.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="m-0">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-        {detail.career.upgradeSuggestions.bullets.length > 0 ? (
-          <div className="grid gap-3 md:grid-cols-2">
-            {detail.career.upgradeSuggestions.bullets.map((bullet) => (
-              <div key={`${bullet.label}-${bullet.content}`} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                {bullet.label ? <p className="m-0 font-medium text-[var(--fm-text)]">{bullet.label}</p> : null}
-                {bullet.content ? <p className="m-0 mt-1 text-sm text-[var(--fm-text-muted)]">{bullet.content}</p> : null}
-              </div>
-            ))}
+            <Card>
+              <CardHeader>
+                <CardTitle>{detail.career.weaknesses.title || (locale === "zh" ? "职业短板" : "Career weaknesses")}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+                {detail.career.weaknesses.items.map((item) => (
+                  <div key={`${item.title}-${item.description}`}>
+                    {item.title ? <p className="m-0 font-medium text-[var(--fm-text)]">{item.title}</p> : null}
+                    {item.description ? <p className="m-0 mt-1">{item.description}</p> : null}
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
           </div>
-        ) : null}
-      </section>
 
-      {detail.matchedGuides.length > 0 ? (
+          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+            <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+              {detail.career.preferredRoles.title || (locale === "zh" ? "偏好角色" : "Preferred roles")}
+            </h2>
+            {detail.career.preferredRoles.intro ? (
+              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.career.preferredRoles.intro}</p>
+            ) : null}
+            <div className="grid gap-4 md:grid-cols-2">
+              {detail.career.preferredRoles.groups.map((group) => (
+                <Card key={`${group.groupTitle}-${group.description}`}>
+                  <CardHeader>
+                    <CardTitle>{group.groupTitle || (locale === "zh" ? "角色组" : "Role group")}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
+                    {group.description ? <p className="m-0">{group.description}</p> : null}
+                    {group.examples.length > 0 ? (
+                      <ul className="m-0 list-disc space-y-1 pl-5">
+                        {group.examples.map((example) => (
+                          <li key={example}>{example}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            {detail.career.preferredRoles.outro ? (
+              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.career.preferredRoles.outro}</p>
+            ) : null}
+          </section>
+
+          <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+            <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+              {detail.career.upgradeSuggestions.title || (locale === "zh" ? "升级建议" : "Upgrade suggestions")}
+            </h2>
+            <div className="space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
+              {detail.career.upgradeSuggestions.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="m-0">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            {detail.career.upgradeSuggestions.bullets.length > 0 ? (
+              <div className="grid gap-3 md:grid-cols-2">
+                {detail.career.upgradeSuggestions.bullets.map((bullet) => (
+                  <div key={`${bullet.label}-${bullet.content}`} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+                    {bullet.label ? <p className="m-0 font-medium text-[var(--fm-text)]">{bullet.label}</p> : null}
+                    {bullet.content ? <p className="m-0 mt-1 text-sm text-[var(--fm-text-muted)]">{bullet.content}</p> : null}
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </section>
+        </>
+      ) : null}
+
+      {renderState.canRenderStrongTruth && detail.matchedGuides.length > 0 ? (
         <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
           <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
             {locale === "zh" ? "匹配指南" : "Matched guides"}
@@ -732,46 +577,36 @@ export default async function CareerMbtiRecommendationPage({
         </section>
       ) : null}
 
-      <section id="faq" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "常见问题" : "Frequently asked questions"}
-        </h2>
-        <dl className="m-0 space-y-4">
-          {faqItems.map((item) => (
-            <div key={item.question} className="space-y-1">
-              <dt className="font-medium text-[var(--fm-text)]">{item.question}</dt>
-              <dd className="m-0 text-[var(--fm-text-muted)]">{item.answer}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      {faqItems.length > 0 ? (
+        <section id="faq" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "常见问题" : "Frequently asked questions"}
+          </h2>
+          <dl className="m-0 space-y-4">
+            {faqItems.map((item) => (
+              <div key={item.question} className="space-y-1">
+                <dt className="font-medium text-[var(--fm-text)]">{item.question}</dt>
+                <dd className="m-0 text-[var(--fm-text-muted)]">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ) : null}
 
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "继续查看相关公域页面" : "Continue with related public pages"}
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {landingSurface?.ctaBundle.length
-            ? landingSurface.ctaBundle.map((cta) => (
-                <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
-                  {cta.label}
-                </Link>
-              ))
-            : (
-                <>
-                  <Link href={withLocale(`/personality/${detail.publicRouteSlug}`)} className="fm-help-chip-link">
-                    {locale === "zh" ? `${detail.displayType} 人格主页` : `${detail.displayType} personality page`}
-                  </Link>
-                  <Link href={withLocale("/topics/mbti")} className="fm-help-chip-link">
-                    {locale === "zh" ? "MBTI 主题页" : "MBTI topic page"}
-                  </Link>
-                  <Link href={withLocale("/help/faq")} className="fm-help-chip-link">
-                    {locale === "zh" ? "帮助与 FAQ" : "Help and FAQ"}
-                  </Link>
-                </>
-              )}
-        </div>
-      </section>
+      {landingSurface?.ctaBundle.length ? (
+        <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "继续查看相关公域页面" : "Continue with related public pages"}
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {landingSurface.ctaBundle.map((cta) => (
+              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
+                {cta.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </Container>
   );
 }
