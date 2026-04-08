@@ -211,8 +211,16 @@ export interface PersonalityHubPayload {
   claim_permissions?: string[];
   faqItems?: FaqBlock[];
   methodologyItems?: MethodologyBlock[];
-  jsonLdInputs?: {
-    faqItems?: FaqBlock[];
-    typeItemList?: { name: string; url: string }[];
-  };
+  jsonLdInputs?: PersonalityHubJsonLdInputs;
+}
+
+export interface PersonalityHubJsonLdItem {
+  name: string;
+  url: string;
+  description?: string;
+}
+
+export interface PersonalityHubJsonLdInputs {
+  faqItems: FaqBlock[];
+  typeItemList: PersonalityHubJsonLdItem[];
 }

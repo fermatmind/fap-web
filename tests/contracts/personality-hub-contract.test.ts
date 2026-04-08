@@ -32,8 +32,9 @@ describe("personality hub contract", () => {
     expect(payload.inventoryLinks).toHaveLength(16);
     expect(new Set(payload.inventoryLinks.map((item) => item.typeCode)).size).toBe(16);
     expect(payload.careerPreviewSeed.length).toBeGreaterThanOrEqual(3);
-    expect(payload.methodologyBlocks.length).toBeGreaterThan(0);
-    expect(payload.faqBlocks.length).toBeGreaterThan(0);
+    expect(payload.methodologyBlocks).toHaveLength(3);
+    expect(payload.faqBlocks.length).toBeGreaterThanOrEqual(4);
+    expect(payload.faqBlocks.length).toBeLessThanOrEqual(6);
   });
 
   it("keeps optional future-facing fields non-blocking", () => {
@@ -47,6 +48,8 @@ describe("personality hub contract", () => {
     expect(payload.faqItems).toBeDefined();
     expect(payload.methodologyItems).toBeDefined();
     expect(payload.jsonLdInputs).toBeDefined();
+    expect(payload.jsonLdInputs?.faqItems.length).toBeGreaterThanOrEqual(4);
+    expect(payload.jsonLdInputs?.typeItemList).toHaveLength(16);
   });
 
   it("wires the personality page through the adapter and globals through hub css vars", () => {
@@ -59,8 +62,12 @@ describe("personality hub contract", () => {
     expect(pageSource).toContain('from "@/lib/mbti/personalityQuickLocate"');
     expect(pageSource).toContain('from "@/components/personality/PersonalityHeroExecutiveSummary"');
     expect(pageSource).toContain('from "@/components/personality/CareerIntelligencePreview"');
+    expect(pageSource).toContain('from "@/components/personality/PersonalityMethodology"');
+    expect(pageSource).toContain('from "@/components/personality/PersonalityFaq"');
     expect(pageSource).toContain('from "@/components/personality/ScenarioIntelligenceMatrix"');
     expect(pageSource).toContain('from "@/components/personality/TypeNavigatorWorkbench"');
+    expect(pageSource).toContain("buildFAQPageJsonLd");
+    expect(pageSource).toContain("buildItemListJsonLd");
     expect(pageSource).toContain("buildPersonalityHubPayload({");
     expect(pageSource).toContain("buildPersonalityQuickLocateIndex({");
     expect(pageSource).toContain("buildPersonalityCareerPreview({");
@@ -68,8 +75,12 @@ describe("personality hub contract", () => {
     expect(pageSource).toContain("buildPersonalityWorkbench({");
     expect(pageSource).toContain("<PersonalityHeroExecutiveSummary");
     expect(pageSource).toContain("<CareerIntelligencePreview");
+    expect(pageSource).toContain("<PersonalityMethodology");
+    expect(pageSource).toContain("<PersonalityFaq");
     expect(pageSource).toContain("<ScenarioIntelligenceMatrix");
     expect(pageSource).toContain("<TypeNavigatorWorkbench");
+    expect(pageSource).toContain('id="personality-faq-jsonld"');
+    expect(pageSource).toContain('id="personality-itemlist-jsonld"');
     expect(pageSource).toContain("quickLocateIndex={quickLocateIndex}");
     expect(pageSource).toContain("seed: hubPayload.careerPreviewSeed");
     expect(pageSource).toContain("hubPayload.familyGroups");
