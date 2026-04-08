@@ -228,20 +228,28 @@ function buildTypeWorkbenchSeed(input: BuildPersonalityHubPayloadInput, cards: T
 function buildMethodologyBlocks(locale: Locale): MethodologyBlock[] {
   return [
     {
-      key: "coverage",
-      title: locale === "zh" ? "内容覆盖" : "Coverage",
+      key: "first-variable",
+      title: locale === "zh" ? "第一步：人格只负责缩小范围" : "Step 1: Use personality to narrow the field",
       body:
         locale === "zh"
-          ? "当前 hub 基于已发布人格摘要、场景入口和职业推荐目录进行聚合，不改动 source authority。"
-          : "The current hub aggregates published personality summaries, scenario entry points, and career recommendation routes without changing source authority.",
+          ? "这页先用 16 型人格帮助你识别更可能顺手的决策方式、协作方式和长期消耗点，但它不直接代替职业判断。"
+          : "This page uses the 16 types to narrow likely decision styles, collaboration patterns, and long-term friction points, but it does not replace career judgment.",
     },
     {
-      key: "inventory",
-      title: locale === "zh" ? "目录完整性" : "Inventory integrity",
+      key: "strain-before-fit",
+      title: locale === "zh" ? "第二步：先看结构性损耗，再看适配" : "Step 2: Check structural strain before fit",
       body:
         locale === "zh"
-          ? "16 型链接 inventory 始终由 adapter 完整输出，后续动态重排只允许改变顺序，不允许改变 crawlable inventory。"
-          : "The adapter always outputs the full 16-type link inventory. Future dynamic reordering may change ranking, not crawlable inventory.",
+          ? "场景矩阵、工作台和职业预览优先帮助你看清什么样的工作结构会开始消耗你，再判断哪些角色只是看起来匹配。"
+          : "The matrix, workbench, and career preview first show which work structures start to drain you, before deciding which roles merely look attractive on paper.",
+    },
+    {
+      key: "recommendation-depth",
+      title: locale === "zh" ? "第三步：把 recommendation 深页当作第二层判断" : "Step 3: Use recommendation detail as the second decision layer",
+      body:
+        locale === "zh"
+          ? "当人格方向、结构损耗和职业样板开始对齐时，再进入 recommendation 深页核对岗位、风险与继续路径，而不是在这里抢结论。"
+          : "When personality direction, structural strain, and role pattern begin to align, move into the recommendation detail route to verify jobs, risks, and next steps instead of forcing a final answer here.",
     },
   ];
 }
@@ -254,6 +262,56 @@ function buildFaqBlocks(locale: Locale): FaqBlock[] {
         locale === "zh"
           ? "这里是 16 型人格发布中心。测试仍然从 MBTI landing 进入，这里负责浏览、比较与继续探索。"
           : "This is the 16-type release hub. Testing still starts from the MBTI landing page, while this page is for browsing, comparing, and continuing exploration.",
+    },
+    {
+      question:
+        locale === "zh"
+          ? "为什么这里不直接给我最终职业结论？"
+          : "Why does this page not give me a final career answer directly?",
+      answer:
+        locale === "zh"
+          ? "因为人格只是第一层变量。这一页先帮你缩小方向，再用 recommendation 深页核对具体岗位、风险和继续路径。"
+          : "Because personality is only the first variable. This page narrows direction first, then the recommendation detail route verifies concrete roles, risks, and next steps.",
+    },
+    {
+      question:
+        locale === "zh"
+          ? "为什么 recommendation 是下一步，而不是起点？"
+          : "Why is the recommendation route the next step instead of the starting point?",
+      answer:
+        locale === "zh"
+          ? "因为 recommendation 需要建立在人格方向和结构损耗已经看清的前提下，否则你会把职业列表误当成结论。"
+          : "Because recommendation works best after personality direction and structural strain are already clear. Otherwise the job list becomes a premature conclusion.",
+    },
+    {
+      question:
+        locale === "zh"
+          ? "为什么要先看损耗，再看适配？"
+          : "Why look at strain before fit?",
+      answer:
+        locale === "zh"
+          ? "很多角色表面上看起来适配，但长期结构会持续消耗你。先看损耗，能更早排除代价过高的路径。"
+          : "Many roles look compatible on paper while their long-term structure keeps draining you. Looking at strain first helps rule out paths with hidden long-term cost.",
+    },
+    {
+      question:
+        locale === "zh"
+          ? "/personality、类型详情页和 recommendation 深页有什么区别？"
+          : "What is the difference between /personality, a type detail page, and a recommendation detail page?",
+      answer:
+        locale === "zh"
+          ? "/personality 负责总览、比较和继续导航；类型详情页负责解释单一人格；recommendation 深页负责把人格判断延伸到职业结构与岗位建议。"
+          : "/personality is the hub for overview, comparison, and navigation. A type detail page explains one personality. A recommendation detail page extends that judgment into work structure and job guidance.",
+    },
+    {
+      question:
+        locale === "zh"
+          ? "这里的职业预览是不是对我个人的最终真值？"
+          : "Is the career preview here a final personal truth for me?",
+      answer:
+        locale === "zh"
+          ? "不是。这里展示的是职业样板与结构信号，用来提示下一步应该验证什么，不是对你个人的最终职业判决。"
+          : "No. The preview shows role patterns and structure signals to clarify what should be validated next, not a final career verdict for you personally.",
     },
   ];
 }
@@ -364,6 +422,7 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
       typeItemList: typeDecisionCards.map((card) => ({
         name: `${card.typeCode} · ${card.title}`,
         url: card.href,
+        description: card.excerpt,
       })),
     },
   };
