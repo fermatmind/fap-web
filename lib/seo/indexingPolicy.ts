@@ -90,9 +90,9 @@ export function shouldIncludeInSitemap(pathname: string, explicitGate?: Explicit
     return false;
   }
 
-  if (explicitGate) {
-    return explicitGate.indexEligible === true && !isExplicitlyExcludedFromIndex(explicitGate);
+  if (explicitGate && explicitGate.indexEligible !== true) {
+    return false;
   }
 
-  return true;
+  return !isExplicitlyExcludedFromIndex(explicitGate);
 }

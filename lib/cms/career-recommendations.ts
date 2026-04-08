@@ -2,6 +2,7 @@ import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import {
+  createConservativeCareerClaimPermissions,
   createUnavailableCareerScoreResult,
   normalizeCareerAssetMaster,
   normalizeCareerClaimPermissions,
@@ -775,7 +776,7 @@ export function normalizeCareerRecommendationDetail(
   };
 }
 
-export async function listMbtiCareerRecommendations(locale: Locale | string): Promise<CareerRecommendationListAdapterItem[]> {
+export async function listMbtiCareerRecommendations(locale: Locale | string): Promise<CareerRecommendationListItem[]> {
   const query = buildQuery({
     locale: normalizeApiLocale(locale),
     org_id: DEFAULT_ORG_ID,
@@ -794,7 +795,7 @@ export async function listMbtiCareerRecommendations(locale: Locale | string): Pr
     return asArray(response.items)
       .filter(isCareerRecommendationListItemApi)
       .map((item) => normalizeCareerRecommendationListItem(item, locale))
-      .filter((item): item is CareerRecommendationListAdapterItem => item !== null);
+      .filter((item): item is CareerRecommendationListItem => item !== null);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return [];
@@ -807,7 +808,7 @@ export async function listMbtiCareerRecommendations(locale: Locale | string): Pr
 export async function getMbtiCareerRecommendationByType(
   locale: Locale | string,
   type: string
-): Promise<CareerRecommendationAdapterDetail | null> {
+): Promise<CareerRecommendationDetail | null> {
   const normalizedType = normalizeText(type);
   if (!normalizedType) {
     return null;
