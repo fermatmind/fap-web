@@ -130,7 +130,13 @@ export function getCareerRecommendationRenderState(
   const allowStrongClaim = hasCareerStrongClaimPermission(input.claimPermissions);
   const allowTransitionRecommendation = hasCareerTransitionPermission(input.claimPermissions);
   const hasIndexGate = hasExplicitIndexGate(input.careerAsset);
-  const canIndexPage = isCareerIndexEligible(input.careerAsset) && hasSeoSurface;
+  const canIndexPage =
+    isCareerIndexEligible(input.careerAsset) &&
+    hasSeoSurface &&
+    isTrustReady &&
+    allowStrongClaim &&
+    hasAnswerTruth &&
+    hasMatchedJobs;
 
   const missingFields: string[] = [];
   if (!hasAuthoritySource) {
@@ -153,6 +159,12 @@ export function getCareerRecommendationRenderState(
   }
   if (!hasMatchedJobs) {
     missingFields.push("matched_jobs");
+  }
+  if ((hasAnswerTruth || hasMatchedJobs) && !allowStrongClaim) {
+    missingFields.push("claim_permissions.allow_strong_claim");
+  }
+  if (hasMatchedJobs && !allowTransitionRecommendation) {
+    missingFields.push("claim_permissions.allow_transition_recommendation");
   }
 
   const canRenderStrongTruth = hasAuthoritySource && hasAnswerTruth && isTrustReady && allowStrongClaim;
