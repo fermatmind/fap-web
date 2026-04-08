@@ -102,6 +102,327 @@ function createMockResultResponse(attemptId: string): JsonValue {
   };
 }
 
+function createMockMbtiPersonalityDetailResponse(routeSlug: string): JsonValue {
+  const canonical = routeSlug.slice(0, 4).toUpperCase();
+  const variant = routeSlug.toLowerCase().endsWith("-t") ? "T" : "A";
+
+  return {
+    ok: true,
+    profile: {
+      id: 1,
+      org_id: 0,
+      scale_code: "MBTI",
+      type_code: canonical,
+      slug: canonical.toLowerCase(),
+      locale: "en",
+      title: `${canonical} - Architect`,
+      subtitle: "Independent, strategic, and future-oriented.",
+      excerpt: `${canonical} personality detail.`,
+      hero_kicker: "The Strategist",
+      hero_quote: "See the pattern. Build the system.",
+      hero_image_url: null,
+      status: "published",
+      is_public: true,
+      is_indexable: true,
+      published_at: "2026-03-08T10:00:00Z",
+      updated_at: "2026-03-08T10:30:00Z",
+      seo_meta: {
+        seo_title: `${canonical} Personality Type`,
+        seo_description: `${canonical} personality detail.`,
+        canonical_url: `/en/personality/${routeSlug}`,
+        og_title: `${canonical} Personality Type`,
+        og_description: `${canonical} personality detail.`,
+        twitter_title: `${canonical} Personality Type`,
+        twitter_description: `${canonical} personality detail.`,
+      },
+    },
+    sections: [
+      {
+        section_key: "faq",
+        title: "FAQ",
+        render_variant: "faq",
+        body_md: "",
+        body_html: null,
+        payload_json: {
+          items: [{ question: `What defines ${canonical}?`, answer: "Pattern logic and long-range planning." }],
+        },
+        sort_order: 90,
+        is_enabled: true,
+      },
+      {
+        section_key: "related_content",
+        title: "Related content",
+        render_variant: "links",
+        body_md: "",
+        body_html: null,
+        payload_json: {
+          items: [{ title: `${canonical} career`, slug: `${canonical.toLowerCase()}-career`, summary: "Career guidance." }],
+        },
+        sort_order: 100,
+        is_enabled: true,
+      },
+    ],
+    seo_meta: {
+      seo_title: `${canonical} Personality Type`,
+      seo_description: `${canonical} personality detail.`,
+      canonical_url: `/en/personality/${routeSlug}`,
+    },
+    mbti_public_projection_v1: {
+      runtime_type_code: `${canonical}-${variant}`,
+      canonical_type_code: canonical,
+      display_type: `${canonical}-${variant}`,
+      variant_code: variant,
+      profile: {
+        type_name: "Architect",
+        nickname: "Strategic Planner",
+        rarity: "About 2%",
+        keywords: ["strategy", "systems"],
+        hero_summary: `${canonical} projection hero summary.`,
+      },
+      summary_card: {
+        title: `${canonical} - Architect`,
+        subtitle: "Independent, strategic, and future-oriented.",
+        summary: `${canonical} projection summary card body.`,
+        tagline: "Stable projection route",
+        public_tags: ["MBTI"],
+      },
+      dimensions: [
+        {
+          id: "EI",
+          name: "Energy",
+          axis_left: "Extraversion",
+          axis_right: "Introversion",
+          summary: "Leans inward before acting.",
+          description: "Prefers solitary synthesis before social output.",
+        },
+      ],
+      sections: [
+        {
+          key: "overview",
+          title: "Overview",
+          render: "rich_text",
+          body_md: "Projection overview body",
+          payload: null,
+          is_enabled: true,
+          source: "base",
+        },
+      ],
+      seo: {
+        title: `${canonical} Personality Type`,
+        description: `${canonical} projection-backed seo description.`,
+        canonical_url: `/en/personality/${routeSlug}`,
+        og_title: `${canonical} Personality Type`,
+        og_description: `${canonical} projection-backed seo description.`,
+        twitter_title: `${canonical} Personality Type`,
+        twitter_description: `${canonical} projection-backed seo description.`,
+        robots: "index,follow",
+      },
+      offer_set: [],
+      _meta: {
+        authority_source: "personality_cms_v2",
+        route_mode: "public_variant",
+        public_route_type: "32-type",
+        schema_version: "v2",
+      },
+    },
+    landing_surface_v1: {
+      landing_contract_version: "landing.surface.v1",
+      landing_scope: "public_indexable_detail",
+      entry_surface: "personality_detail",
+      entry_type: "personality_profile",
+      cta_bundle: [
+        { key: "start_test", label: "Start test", href: "/en/tests/mbti-personality-test-16-personality-types" },
+      ],
+    },
+    answer_surface_v1: {
+      answer_contract_version: "answer.surface.v1",
+      answer_scope: "public_indexable_detail",
+      surface_type: "personality_public_detail",
+      summary_blocks: [
+        {
+          key: "hero_summary",
+          title: "Quick summary",
+          body: `${canonical} projection summary.`,
+        },
+      ],
+      faq_blocks: [
+        {
+          key: "faq_0",
+          question: `What defines ${canonical}?`,
+          answer: "Pattern logic and long-range planning.",
+        },
+      ],
+      compare_blocks: [
+        {
+          key: "EI",
+          title: "Energy",
+          body: "Leans inward before acting.",
+        },
+      ],
+      next_step_blocks: [
+        {
+          key: "start_test",
+          title: "Start test",
+          href: "/en/tests/mbti-personality-test-16-personality-types",
+        },
+      ],
+    },
+  };
+}
+
+function createMockMbtiCareerRecommendationDetailResponse(routeSlug: string): JsonValue {
+  const canonical = routeSlug.slice(0, 4).toUpperCase();
+  const variant = routeSlug.toLowerCase().endsWith("-t") ? "T" : "A";
+
+  return {
+    ok: true,
+    runtime_type_code: `${canonical}-${variant}`,
+    canonical_type_code: canonical,
+    display_type: `${canonical}-${variant}`,
+    variant_code: variant,
+    public_route_slug: routeSlug,
+    graph_type_code: canonical,
+    type_name: "Architect",
+    nickname: "Strategic Planner",
+    hero_summary: `${canonical} recommendation summary.`,
+    keywords: ["strategy", "systems"],
+    career: {
+      summary: {
+        title: "Career summary",
+        paragraphs: [`${canonical} thrives in systems work.`],
+      },
+      advantages: {
+        title: "Advantages",
+        items: [{ title: "Systems thinking", description: "They connect moving parts quickly." }],
+      },
+      weaknesses: {
+        title: "Weaknesses",
+        items: [{ title: "Patience", description: "They can move faster than group consensus." }],
+      },
+      preferred_roles: {
+        title: "Preferred roles",
+        intro: "Architects like strategic ownership.",
+        groups: [
+          {
+            group_title: "Strategy",
+            description: "Roles with leverage and direction.",
+            examples: ["Product Strategy", "Research Lead"],
+          },
+        ],
+        outro: "They usually want room to design systems.",
+      },
+      upgrade_suggestions: {
+        title: "Upgrade suggestions",
+        paragraphs: ["Work on translating complex reasoning."],
+        bullets: [{ label: "Communication", content: "Explain the why before the conclusion." }],
+      },
+    },
+    matched_jobs: [
+      {
+        slug: `${canonical.toLowerCase()}-strategist`,
+        title: "Product Strategist",
+        summary: "Shape product direction and operating decisions.",
+        fit_bucket: "primary",
+        fit_personality_codes: [canonical],
+        mbti_primary_codes: [canonical],
+        mbti_secondary_codes: [],
+      },
+    ],
+    matched_guides: [
+      {
+        slug: "systems-career-playbook",
+        title: "Systems Career Playbook",
+        summary: "How to choose roles with leverage and clarity.",
+        fit_personality_codes: [canonical],
+      },
+    ],
+    seo: {
+      title: `${canonical}-${variant} Career Recommendations | FermatMind`,
+      description: `Career recommendations for ${canonical}.`,
+      canonical: `/en/career/recommendations/mbti/${routeSlug}`,
+      alternates: {
+        en: `/en/career/recommendations/mbti/${routeSlug}`,
+        "zh-CN": `/zh/career/recommendations/mbti/${routeSlug}`,
+      },
+    },
+    _meta: {
+      public_route_type: "32-type",
+      route_mode: "public_variant",
+      authority_source: "career_recommendation_service.v1",
+    },
+    seo_surface_v1: {
+      metadata_contract_version: "seo.surface.v1",
+      metadata_fingerprint: "career-seo-fingerprint",
+      metadata_scope: "public_indexable_detail",
+      surface_type: "career_recommendation_public_detail",
+      canonical_url: `http://localhost:3000/en/career/recommendations/mbti/${routeSlug}`,
+      robots_policy: "index,follow",
+      title: `${canonical}-${variant} Career Recommendations | FermatMind`,
+      description: `Career recommendations for ${canonical}.`,
+      og_payload: {
+        title: `${canonical}-${variant} Career Recommendations | FermatMind`,
+        description: `Career recommendations for ${canonical}.`,
+        type: "article",
+        url: `http://localhost:3000/en/career/recommendations/mbti/${routeSlug}`,
+      },
+      twitter_payload: {
+        card: "summary_large_image",
+        title: `${canonical}-${variant} Career Recommendations | FermatMind`,
+        description: `Career recommendations for ${canonical}.`,
+      },
+      alternates: {
+        en: `http://localhost:3000/en/career/recommendations/mbti/${routeSlug}`,
+        "zh-CN": `http://localhost:3000/zh/career/recommendations/mbti/${routeSlug}`,
+      },
+      structured_data_keys: [],
+      indexability_state: "indexable",
+      sitemap_state: "included",
+      llms_exposure_state: "allow",
+    },
+    landing_surface_v1: {
+      landing_contract_version: "landing.surface.v1",
+      landing_scope: "public_indexable_detail",
+      entry_surface: "career_recommendation_detail",
+      entry_type: "career_recommendation",
+      cta_bundle: [
+        { key: "matched_job", label: "View matching job", href: `/en/career/jobs/${canonical.toLowerCase()}-strategist` },
+      ],
+    },
+    answer_surface_v1: {
+      answer_contract_version: "answer.surface.v1",
+      answer_scope: "public_indexable_detail",
+      surface_type: "career_recommendation_public_detail",
+      summary_blocks: [
+        {
+          key: "career_summary",
+          body: `${canonical} thrives in systems work.`,
+        },
+      ],
+      faq_blocks: [
+        {
+          key: "faq_0",
+          question: "Which roles fit first?",
+          answer: "Start with the highest-fit structured roles.",
+        },
+      ],
+      compare_blocks: [
+        {
+          key: "graph_route_alignment",
+          title: "Graph key",
+          body: `Graph matching still follows ${canonical}.`,
+        },
+      ],
+      next_step_blocks: [
+        {
+          key: "matched_job",
+          title: "View matching job",
+          href: `/en/career/jobs/${canonical.toLowerCase()}-strategist`,
+        },
+      ],
+    },
+  };
+}
+
 function createMockReportAccessResponse(attemptId: string): JsonValue {
   return {
     ok: true,
@@ -152,6 +473,65 @@ function handleMockApiRequest(req: IncomingMessage, res: ServerResponse) {
 
   if (pathname === "/v0.5/topics/mbti/seo") {
     writeJson(res, 200, createMockTopicSeoResponse());
+    return;
+  }
+
+  if (pathname === "/v0.5/personality/intj-a") {
+    writeJson(res, 200, createMockMbtiPersonalityDetailResponse("intj-a"));
+    return;
+  }
+
+  if (pathname === "/v0.5/personality/intp-a") {
+    writeJson(res, 200, createMockMbtiPersonalityDetailResponse("intp-a"));
+    return;
+  }
+
+  if (pathname === "/v0.5/personality/intj-a/seo") {
+    writeJson(res, 200, { meta: { title: "INTJ Personality Type", description: "INTJ personality detail." }, jsonld: null, seo_surface_v1: null });
+    return;
+  }
+
+  if (pathname === "/v0.5/personality/intp-a/seo") {
+    writeJson(res, 200, { meta: { title: "INTP Personality Type", description: "INTP personality detail." }, jsonld: null, seo_surface_v1: null });
+    return;
+  }
+
+  if (pathname === "/v0.5/career-recommendations/mbti/intj-a" || pathname === "/v0.5/career-recommendations/mbti/intj") {
+    writeJson(res, 200, createMockMbtiCareerRecommendationDetailResponse("intj-a"));
+    return;
+  }
+
+  if (pathname === "/v0.5/career-recommendations/mbti/intp-a") {
+    writeJson(res, 200, createMockMbtiCareerRecommendationDetailResponse("intp-a"));
+    return;
+  }
+
+  if (pathname === "/v0.5/career-recommendations/mbti") {
+    writeJson(res, 200, {
+      ok: true,
+      items: [
+        {
+          runtime_type_code: "INTJ-A",
+          canonical_type_code: "INTJ",
+          display_type: "INTJ-A",
+          variant_code: "A",
+          public_route_slug: "intj-a",
+          type_name: "Architect",
+          nickname: "Strategic Planner",
+          hero_summary: "Assertive architect summary.",
+        },
+        {
+          runtime_type_code: "INTP-A",
+          canonical_type_code: "INTP",
+          display_type: "INTP-A",
+          variant_code: "A",
+          public_route_slug: "intp-a",
+          type_name: "Logician",
+          nickname: "Systems analyst",
+          hero_summary: "INTP summary.",
+        },
+      ],
+    });
     return;
   }
 
@@ -365,24 +745,27 @@ test("mbti career recommendation route exposes answer-first, table, faq, and pub
   const html = await response.text();
 
   expect(html).toContain('id="answer-first"');
+  expect(html).toContain('id="career-recommendation-type-interpretation"');
+  expect(html).toContain("Why these roles attract this type");
+  expect(html).toContain("Why some jobs drain this type");
   expect(html).toContain('id="recommended-roles"');
   expect(html).toContain('"@type":"ItemList"');
   expect(html).toContain('"@type":"FAQPage"');
   expect(html).toContain("/en/personality/intj-a");
   expect(html).toContain("/en/topics/mbti");
-  expect(html).toContain("/en/help/faq");
+  expect(html).toContain("/en/career/guides/from-mbti-to-job-fit");
 });
 
-test("INTP personality pages render three scenario sections and keep source entry anchors", async ({ request }) => {
-  const response = await request.get("/en/personality/intp-a");
+test("INTJ personality pages render the generic content pack and keep source entry anchors", async ({ request }) => {
+  const response = await request.get("/en/personality/intj-a");
   expect(response.status()).toBe(200);
   const html = await response.text();
 
   expect(html).toContain('id="answer-first"');
-  expect(html).toContain('INTP hub: career / collaboration / growth');
-  expect(html).toContain('id="intp-personality-scene-career"');
-  expect(html).toContain('id="intp-personality-scene-team"');
-  expect(html).toContain('id="intp-personality-scene-growth"');
+  expect(html).toContain('data-testid="mbti-personality-content-pack"');
+  expect(html).toContain('id="mbti-personality-scene-career"');
+  expect(html).toContain('id="mbti-personality-scene-team"');
+  expect(html).toContain('id="mbti-personality-scene-growth"');
 });
 
 test("INTP recommendation pages render interpretation block instead of list-only view", async ({ request }) => {
@@ -391,21 +774,20 @@ test("INTP recommendation pages render interpretation block instead of list-only
   const html = await response.text();
 
   expect(html).toContain('id="career-recommendation-intp-interpretation"');
-  expect(html).toContain("Why these roles attract INTP");
-  expect(html).toContain("Why some jobs drain INTP");
-  expect(html).toContain("Career recommendation");
+  expect(html).toContain("INTP-A career interpretation and continuation");
+  expect(html).toContain("Why these roles attract this type");
+  expect(html).toContain("Why some jobs drain this type");
 });
 
-test("MBTI topic page exposes INTP continuation entry links", async ({ request }) => {
+test("MBTI topic page exposes grouped continuation entry links", async ({ request }) => {
   const response = await request.get("/en/topics/mbti");
   expect(response.status()).toBe(200);
   const html = await response.text();
 
-  expect(html).toContain('data-testid="mbti-topic-intp-entry"');
-  expect(html).toContain("/en/personality/intp-a");
-  expect(html).toContain("/en/personality/intp-t");
-  expect(html).toContain("/en/career/recommendations/mbti/intp-a");
-  expect(html).toContain("/en/career/recommendations/mbti/intp-t");
+  expect(html).toContain('data-testid="mbti-topic-type-grid"');
+  expect(html).toContain("/en/personality/intj-a");
+  expect(html).toContain("/en/career/recommendations/mbti/intj-a");
+  expect(html).toContain("/en/personality/enfp-a");
 });
 
 test("mbti career recommendation route treats 32-type as authority and 4-letter as a redirecting compatibility entry", async ({ request }) => {

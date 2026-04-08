@@ -26,7 +26,7 @@ import {
   buildMbtiEntryTrackingPayload,
 } from "@/lib/mbti/entryTracking";
 import { buildMbtiRecommendationScenarioDeepModules } from "@/lib/mbti/sceneDeepContent";
-import { getIntpRecommendationContent } from "@/lib/mbti/intpContentPack";
+import { getMbtiRecommendationContent } from "@/lib/mbti/mbtiTypeContentPack";
 import {
   parseMbtiContinuityQuery,
   resolveMbtiCarryoverFocusLabel,
@@ -124,17 +124,17 @@ function buildAnswerSurfaceFaqItems(detail: CareerRecommendationDetail, locale: 
   return buildCareerFaqItems(detail, locale);
 }
 
-type IntpRecommendationTrackedLink = {
+type MbtiRecommendationTrackedLink = {
   href: string;
   eventProperties: ReturnType<typeof buildMbtiEntryTrackingPayload>;
 };
 
-function buildIntpRecommendationTrackedLink(
+function buildMbtiRecommendationTrackedLink(
   link: { href: string; key: string; label: string },
   sourcePath: string,
   locale: Locale,
   targetAction: string
-): IntpRecommendationTrackedLink | null {
+): MbtiRecommendationTrackedLink | null {
   if (!link.href.startsWith(`/tests/${MBTI_ENTRY_TEST_SLUG}`)) {
     return null;
   }
@@ -278,8 +278,7 @@ export default async function CareerMbtiRecommendationPage({
     typeCode: detail.graphTypeCode,
   });
   const recommendationHasGrowthScene = recommendationScenarioDeepModules.some((module) => module.sceneKey === "growth_planning");
-  const intpRecommendationContent = getIntpRecommendationContent(detail.publicRouteSlug, locale);
-  const isIntpRecommendation = !!intpRecommendationContent;
+  const recommendationTypeContent = getMbtiRecommendationContent(detail.publicRouteSlug, locale);
   const mbtiLandingHref = withLocale("/tests/mbti-personality-test-16-personality-types");
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
@@ -441,35 +440,37 @@ export default async function CareerMbtiRecommendationPage({
               : "Extend collaboration and major-selection guidance here, not just a job list."
         }
       />
-      {isIntpRecommendation && intpRecommendationContent ? (
+      {recommendationTypeContent ? (
         <section
-          id="career-recommendation-intp-interpretation"
-          data-testid="career-recommendation-intp-interpretation"
+          id={detail.canonicalTypeCode === "INTP" ? "career-recommendation-intp-interpretation" : "career-recommendation-type-interpretation"}
+          data-testid={detail.canonicalTypeCode === "INTP" ? "career-recommendation-intp-interpretation" : "career-recommendation-type-interpretation"}
           className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
         >
           <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "INTP 职业解释与承接" : "INTP career interpretation and continuation"}
+            {locale === "zh"
+              ? `${detail.displayType} 职业解释与承接`
+              : `${detail.displayType} career interpretation and continuation`}
           </h2>
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-            {locale === "zh" ? intpRecommendationContent.heroSummary : intpRecommendationContent.heroSummary}
+            {recommendationTypeContent.heroSummary}
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle>{locale === "zh" ? "为什么这些工作吸引 INTP" : "Why these roles attract INTP"}</CardTitle>
+                <CardTitle>{locale === "zh" ? "为什么这些工作吸引这个类型" : "Why these roles attract this type"}</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0 leading-7">{intpRecommendationContent.fitWhy}</p>
+                <p className="m-0 leading-7">{recommendationTypeContent.fitWhy}</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
                 <CardTitle>
-                  {locale === "zh" ? "为什么某些工作会消耗 INTP" : "Why some jobs drain INTP"}
+                  {locale === "zh" ? "为什么某些工作会消耗这个类型" : "Why some jobs drain this type"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0 leading-7">{intpRecommendationContent.costWhy}</p>
+                <p className="m-0 leading-7">{recommendationTypeContent.costWhy}</p>
               </CardContent>
             </Card>
             <Card>
@@ -477,7 +478,7 @@ export default async function CareerMbtiRecommendationPage({
                 <CardTitle>{locale === "zh" ? "这些岗位的共同结构" : "Common structure across roles"}</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0 leading-7">{intpRecommendationContent.jobStructure}</p>
+                <p className="m-0 leading-7">{recommendationTypeContent.jobStructure}</p>
               </CardContent>
             </Card>
             <Card>
@@ -485,59 +486,63 @@ export default async function CareerMbtiRecommendationPage({
                 <CardTitle>{locale === "zh" ? "A/T 风险语气差异" : "A/T risk lens"}</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0 leading-7">{intpRecommendationContent.variantRisk}</p>
+                <p className="m-0 leading-7">{recommendationTypeContent.variantRisk}</p>
               </CardContent>
             </Card>
           </div>
-            <div className="space-y-3">
+          {recommendationTypeContent.nextStep ? (
+            <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
+              <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "下一步：" : "Next step:"}</span>{" "}
+              {recommendationTypeContent.nextStep}
+            </p>
+          ) : null}
+          <div className="space-y-3">
             <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">
               {locale === "zh" ? "下一步 / 继续入口" : "Next steps / continuation"}
             </h3>
-            <div className="flex flex-wrap gap-2" data-testid="career-recommendation-intp-linked-guides">
-              {intpRecommendationContent.nextSteps.map((link) => (
-                (() => {
-                  const trackedLink = buildIntpRecommendationTrackedLink(
-                    link,
-                    canonicalPath,
-                    locale,
-                    `start_mbti_test_recommendation_${link.key}`
-                  );
+            <div className="flex flex-wrap gap-2" data-testid="career-recommendation-type-next-steps">
+              {recommendationTypeContent.support.nextSteps.map((link) => {
+                const trackedLink = buildMbtiRecommendationTrackedLink(
+                  link,
+                  canonicalPath,
+                  locale,
+                  `start_mbti_test_recommendation_${link.key}`
+                );
 
-                  if (!trackedLink) {
-                    return (
-                      <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                        {link.label}
-                      </Link>
-                    );
-                  }
-
+                if (!trackedLink) {
                   return (
-                    <TrackedEntryCtaLink
-                      key={link.key}
-                      href={trackedLink.href}
-                      className="fm-help-chip-link"
-                      eventProperties={trackedLink.eventProperties}
-                    >
+                    <Link key={link.key} href={link.href} className="fm-help-chip-link">
                       {link.label}
-                    </TrackedEntryCtaLink>
+                    </Link>
                   );
-                })()
-              ))}
+                }
+
+                return (
+                  <TrackedEntryCtaLink
+                    key={link.key}
+                    href={trackedLink.href}
+                    className="fm-help-chip-link"
+                    eventProperties={trackedLink.eventProperties}
+                  >
+                    {link.label}
+                  </TrackedEntryCtaLink>
+                );
+              })}
             </div>
             <div className="flex flex-wrap gap-2">
-              {intpRecommendationContent.linkedGuides.map((link) => (
+              {recommendationTypeContent.support.linkedGuides.map((link) => (
                 <Link key={link.key} href={link.href} className="fm-help-chip-link">
                   {link.label}
                 </Link>
               ))}
-              {intpRecommendationContent.linkedArticles.map((link) => (
+              {recommendationTypeContent.support.linkedArticles.map((link) => (
                 <Link key={link.key} href={link.href} className="fm-help-chip-link">
                   {link.label}
                 </Link>
               ))}
             </div>
-            <Link href={intpRecommendationContent.topicBacklink.href} className="fm-help-chip-link">
-              {intpRecommendationContent.topicBacklink.label}
+            <Link href={recommendationTypeContent.support.topicBacklink.href} className="fm-help-chip-link">
+              {recommendationTypeContent.support.topicBacklink.label}
             </Link>
           </div>
         </section>
