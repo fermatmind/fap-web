@@ -130,6 +130,8 @@ describe("career recommendation public contract", () => {
     expect(source).toContain("parseMbtiContinuityQuery");
     expect(source).toContain("mbti-career-continuity-entry");
     expect(source).toContain("const canonicalPath =");
+    expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
+    expect(source).toContain("normalizeCareerBundleCanonicalPath");
     expect(source).toContain("detail.seoContract.indexEligible");
     expect(source).toContain("renderCareerDataStatus(detail, locale)");
     expect(source).toContain("career-recommendation-matched-jobs-status");

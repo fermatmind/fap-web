@@ -127,6 +127,8 @@ describe("schema injection contract", () => {
     expect(source).toContain("CareerRecommendationBundleAdapter");
     expect(source).toContain("fetchCareerRecommendationBundle");
     expect(source).toContain("adaptCareerRecommendationBundle");
+    expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
+    expect(source).toContain("normalizeCareerBundleCanonicalPath");
     expect(source).toContain("renderCareerDataStatus");
     expect(source).toContain("renderState.canRenderStrongTruth");
     expect(source).toContain('data-testid="career-recommendation-type-interpretation"');

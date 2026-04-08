@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
@@ -12,7 +12,7 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
 import type { CareerRecommendationBundleAdapter } from "@/lib/career/adapters/types";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
-import { buildCareerRecommendationFrontendUrl } from "@/lib/career/urls";
+import { buildCareerRecommendationFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
@@ -30,6 +30,10 @@ import {
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
+
+function normalizeRequestedSlug(value: string): string {
+  return String(value ?? "").trim().toLowerCase();
+}
 
 function shouldNoindex(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();
@@ -117,8 +121,11 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  const canonicalPath =
-    detail.seoContract.canonicalPath ?? buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug);
+  const canonicalPath = normalizeCareerBundleCanonicalPath(
+    locale,
+    detail.seoContract.canonicalPath,
+    buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
+  );
   const title = `${detail.displayType} Career Recommendations | FermatMind`;
   const description =
     detail.supportingTruthSummary.summary ||
@@ -161,6 +168,10 @@ export default async function CareerMbtiRecommendationPage({
     return notFound();
   }
 
+  if (normalizeRequestedSlug(type) !== detail.publicRouteSlug) {
+    permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
+  }
+
   const continuity = parseMbtiContinuityQuery(resolvedSearchParams);
   const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(
     String(continuity?.carryoverFocusKey ?? ""),
@@ -171,8 +182,11 @@ export default async function CareerMbtiRecommendationPage({
     locale
   );
 
-  const canonicalPath =
-    detail.seoContract.canonicalPath ?? buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug);
+  const canonicalPath = normalizeCareerBundleCanonicalPath(
+    locale,
+    detail.seoContract.canonicalPath,
+    buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
+  );
   const renderState = detail.renderState;
   const matchedJobs = renderState.canRenderMatchedJobs ? detail.matchedJobs : [];
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
@@ -477,6 +491,31 @@ export default async function CareerMbtiRecommendationPage({
           </p>
         </section>
       )}
+
+      {renderState.canRenderStrongTruth && detail.matchedGuides.length > 0 ? (
+        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "匹配指南" : "Matched guides"}
+          </h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {detail.matchedGuides.map((guide) => (
+              <article key={guide.slug} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+                <p className="m-0 text-lg font-semibold text-[var(--fm-text)]">
+                  <Link href={guide.href} className="text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                    {guide.title}
+                  </Link>
+                </p>
+                {guide.summary ? <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{guide.summary}</p> : null}
+                {guide.fitPersonalityCodes.length > 0 ? (
+                  <p className="m-0 mt-2 text-xs text-[var(--fm-text-muted)]">
+                    fit_personality_codes: {guide.fitPersonalityCodes.join(", ")}
+                  </p>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">

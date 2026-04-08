@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
 import type { CareerJobBundleAdapter } from "@/lib/career/adapters/types";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
-import { buildCareerJobFrontendUrl } from "@/lib/career/urls";
+import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
@@ -123,7 +123,11 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  const canonicalPath = job.seoContract.canonicalPath ?? buildCanonicalPath(job.slug, locale);
+  const canonicalPath = normalizeCareerBundleCanonicalPath(
+    locale,
+    job.seoContract.canonicalPath,
+    buildCanonicalPath(job.slug, locale)
+  );
   const title = `${job.title} | FermatMind`;
   const description =
     job.summary ||
@@ -162,7 +166,11 @@ export default async function CareerJobDetailPage({
     return notFound();
   }
 
-  const canonicalPath = job.seoContract.canonicalPath ?? buildCanonicalPath(job.slug, locale);
+  const canonicalPath = normalizeCareerBundleCanonicalPath(
+    locale,
+    job.seoContract.canonicalPath,
+    buildCanonicalPath(job.slug, locale)
+  );
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },

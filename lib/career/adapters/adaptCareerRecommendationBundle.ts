@@ -247,7 +247,7 @@ function normalizeMatchedJobs(value: unknown, locale: "en" | "zh"): CareerRecomm
     .filter((item): item is CareerRecommendationMatchedJobAdapter => item !== null);
 }
 
-function normalizeMatchedGuides(value: unknown): CareerRecommendationMatchedGuideAdapter[] {
+function normalizeMatchedGuides(value: unknown, locale: "en" | "zh"): CareerRecommendationMatchedGuideAdapter[] {
   if (!Array.isArray(value)) {
     return [];
   }
@@ -265,7 +265,7 @@ function normalizeMatchedGuides(value: unknown): CareerRecommendationMatchedGuid
         title: normalizeString(item.title) ?? slug,
         summary: normalizeString(item.summary) ?? "",
         fitPersonalityCodes: normalizeStringArray(item.fit_personality_codes).map((code) => code.toUpperCase()),
-        href: `/career/guides/${slug}`,
+        href: `/${locale}/career/guides/${slug}`,
       };
     })
     .filter((item): item is CareerRecommendationMatchedGuideAdapter => item !== null);
@@ -298,7 +298,7 @@ export function adaptCareerRecommendationBundle(
   const provenanceMeta = buildProvenanceMeta(raw, trustManifest);
   const integritySummary = buildIntegritySummary(raw, scoreBundle);
   const matchedJobs = normalizeMatchedJobs(raw.matched_jobs, input.locale);
-  const matchedGuides = normalizeMatchedGuides(raw.matched_guides);
+  const matchedGuides = normalizeMatchedGuides(raw.matched_guides, input.locale);
   const hasSupportingTruth =
     normalizeNumber((supportingTruth as Record<string, unknown>).median_pay_usd_annual) !== null ||
     normalizeNumber((supportingTruth as Record<string, unknown>).outlook_pct_2024_2034) !== null ||

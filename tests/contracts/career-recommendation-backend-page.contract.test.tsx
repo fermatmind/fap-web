@@ -25,6 +25,9 @@ describe("career recommendation backend page contract", () => {
         notFound: vi.fn(() => {
           throw new Error("not-found");
         }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
         usePathname: vi.fn(() => "/en/career/recommendations/mbti/intj-a"),
       };
     });
@@ -98,5 +101,78 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("career-recommendation-matched-jobs-status");
     expect(html).toContain("INTJ-A");
     expect(html).not.toContain("Matched role matrix");
+  });
+
+  it("redirects to the canonical public route when backend bundle slug differs from the request", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/en/career/recommendations/mbti/intj"),
+      };
+    });
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationBundle", () => ({
+      fetchCareerRecommendationBundle: vi.fn(async () => ({
+        identity: {
+          mbti_type: "INTJ-A",
+        },
+        recommendation_subject_meta: {
+          canonical_type: "INTJ",
+        },
+        claim_permissions: {
+          allow_strong_claim: true,
+          allow_salary_comparison: false,
+          allow_ai_strategy: true,
+          allow_transition_recommendation: true,
+          allow_cross_market_pay_copy: false,
+          reason_codes: [],
+        },
+        trust_manifest: {
+          reviewer_status: "reviewed",
+          content_version: "content.v1",
+          data_version: "data.v1",
+          logic_version: "logic.v1",
+        },
+        seo_contract: {
+          canonical_path: "/career/recommendations/mbti/intj-a",
+          index_state: "index",
+          index_eligible: true,
+        },
+      })),
+    }));
+
+    const { default: CareerRecommendationPage } = await import(
+      "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
+    );
+
+    await expect(
+      CareerRecommendationPage({
+        params: Promise.resolve({ locale: "en", type: "intj" }),
+        searchParams: Promise.resolve({}),
+      })
+    ).rejects.toThrow("redirect:/en/career/recommendations/mbti/intj-a");
   });
 });
