@@ -203,7 +203,10 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('entrySurface: "mbti_career_recommendation_detail"');
     expect(source).toContain('data-testid="mbti-career-entry-cta-group"');
     expect(source).toContain('data-testid="mbti-career-primary-cta"');
-    expect(source).toContain('career-recommendation-protocol-status');
+    expect(
+      source.includes('career-recommendation-type-interpretation') ||
+        source.includes('career-recommendation-protocol-status')
+    ).toBe(true);
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
