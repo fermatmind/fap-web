@@ -64,6 +64,12 @@ const MBTI_GROUP_META = {
   },
 } as const;
 
+const MBTI_GROUP_LABEL_BY_TYPE = Object.fromEntries(
+  MBTI_GROUP_ORDER.flatMap((groupKey) =>
+    MBTI_TYPE_GROUPS[groupKey].map((typeCode) => [typeCode, groupKey])
+  )
+) as Record<string, (typeof MBTI_GROUP_ORDER)[number]>;
+
 export async function generateMetadata({
   params,
 }: {
@@ -149,9 +155,19 @@ export default async function PersonalityPage({
   );
   const personalityFamilies = MBTI_GROUP_ORDER.map((groupKey) => {
     const meta = MBTI_GROUP_META[groupKey][locale];
-    const items = MBTI_TYPE_GROUPS[groupKey]
-      .map((typeCode) => personalityByType.get(typeCode))
-      .filter((personality): personality is NonNullable<typeof personality> => Boolean(personality));
+    const items = MBTI_TYPE_GROUPS[groupKey].map((typeCode) => {
+      const personality = personalityByType.get(typeCode);
+
+      return {
+        typeCode,
+        href: withLocale(`/personality/${buildDefaultPublicPersonalitySlug(typeCode)}`),
+        title: personality?.title || typeCode,
+        excerpt:
+          personality?.excerpt ||
+          personality?.subtitle ||
+          meta.body,
+      };
+    });
 
     return {
       groupKey,
@@ -160,6 +176,22 @@ export default async function PersonalityPage({
       body: meta.body,
       items,
     };
+  });
+  const allPersonalityCards = MBTI_GROUP_ORDER.flatMap((groupKey) => {
+    const groupMeta = MBTI_GROUP_META[groupKey][locale];
+
+    return MBTI_TYPE_GROUPS[groupKey].map((typeCode) => {
+      const personality = personalityByType.get(typeCode);
+
+      return {
+        typeCode,
+        href: withLocale(`/personality/${buildDefaultPublicPersonalitySlug(typeCode)}`),
+        title: personality?.title || typeCode,
+        excerpt: personality?.excerpt || personality?.subtitle || groupMeta.body,
+        groupKey,
+        groupTitle: groupMeta.title,
+      };
+    });
   });
 
   return (
@@ -264,27 +296,22 @@ export default async function PersonalityPage({
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2">
-                  {family.items.map((personality) => {
-                    const typeCode = String(personality.typeCode ?? "").toUpperCase();
-                    const personalityHref = withLocale(`/personality/${buildDefaultPublicPersonalitySlug(typeCode)}`);
-
+                  {family.items.map((item) => {
                     return (
                       <Link
-                        key={`${family.groupKey}-${typeCode}`}
-                        href={personalityHref}
+                        key={`${family.groupKey}-${item.typeCode}`}
+                        href={item.href}
                         className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
                       >
-                        {typeCode}
+                        {item.typeCode}
                       </Link>
                     );
                   })}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {family.items.length > 0 ? (
-                    <Link href={withLocale(`/career/recommendations/mbti/${family.items[0].typeCode.toLowerCase()}-a`)} className="fm-help-chip-link">
-                      {locale === "zh" ? `${family.title} 职业建议示例` : `${family.title} career example`}
-                    </Link>
-                  ) : null}
+                  <Link href={mbtiCareerRecommendationHubHref} className="fm-help-chip-link">
+                    {locale === "zh" ? "查看 MBTI 职业推荐目录" : "Browse MBTI career recommendations"}
+                  </Link>
                   <Link href={mbtiTopicHubHref} className="fm-help-chip-link">
                     {locale === "zh" ? "回到 MBTI 主题中心" : "Continue in the MBTI topic hub"}
                   </Link>
@@ -295,7 +322,7 @@ export default async function PersonalityPage({
         </div>
       </section>
 
-      {personalities.length > 0 ? (
+      {allPersonalityCards.length > 0 ? (
         <div className="space-y-3" data-testid="mbti-personality-directory-grid">
           <div className="space-y-1">
             <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">
@@ -308,20 +335,23 @@ export default async function PersonalityPage({
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {personalities.map((personality) => (
+          {allPersonalityCards.map((personality) => (
             <Card
-              key={`${personality.locale}:${personality.slug}`}
+              key={personality.typeCode}
               className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]"
             >
               <CardHeader className="space-y-2">
                 <CardTitle className="font-serif text-[var(--fm-text)]">
                   {personality.typeCode} · {personality.title}
                 </CardTitle>
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                  {MBTI_GROUP_LABEL_BY_TYPE[personality.typeCode]} · {personality.groupTitle}
+                </p>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0">{personality.excerpt || personality.subtitle || "-"}</p>
+                <p className="m-0">{personality.excerpt}</p>
                 <Link
-                  href={withLocale(`/personality/${buildDefaultPublicPersonalitySlug(personality.typeCode || personality.slug)}`)}
+                  href={personality.href}
                   className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {locale === "zh" ? "查看人格页" : "View profile"}

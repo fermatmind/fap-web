@@ -160,6 +160,7 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('data-testid="mbti-personality-family-grid"');
     expect(source).toContain('data-testid="mbti-personality-directory-grid"');
     expect(source).toContain("MBTI_TYPE_GROUPS");
+    expect(source).toContain("const allPersonalityCards = MBTI_GROUP_ORDER.flatMap");
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
