@@ -243,6 +243,9 @@ describe("mbti entry surface contract", () => {
       expect(personalityA?.variantCopy.hero.summary).toBeTruthy();
       expect(personalityT?.variantCopy.hero.summary).toBeTruthy();
       expect(personalityA?.variantCopy.hero.summary).not.toBe(personalityT?.variantCopy.hero.summary);
+      expect(personalityA?.common.hero.variantDeltaA).toBeTruthy();
+      expect(personalityA?.common.hero.variantDeltaT).toBeTruthy();
+      expect(personalityA?.common.hero.variantDeltaA).not.toBe(personalityA?.common.hero.variantDeltaT);
 
       expect(personalityA?.variantCopy.careerDirection.summary).toBeTruthy();
       expect(personalityT?.variantCopy.careerDirection.summary).toBeTruthy();
