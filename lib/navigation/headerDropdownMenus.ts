@@ -41,10 +41,12 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     personality: [
       { href: "/personality", label: "All personality profiles" },
-      { href: "/personality/intp", label: "INTP personality" },
-      { href: "/personality/entj", label: "ENTJ personality" },
-      { href: "/personality/infp", label: "INFP personality" },
-      { href: "/personality/enfj", label: "ENFJ personality" },
+      { href: "/personality#nt", label: "Analysts (NT)" },
+      { href: "/personality#nf", label: "Diplomats (NF)" },
+      { href: "/personality#sj", label: "Sentinels (SJ)" },
+      { href: "/personality#sp", label: "Explorers (SP)" },
+      { href: "/topics/mbti", label: "MBTI topic hub" },
+      { href: "/career/recommendations", label: "Career recommendations" },
     ],
     career: [
       { href: "/career", label: "Career center" },
@@ -95,10 +97,12 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     personality: [
       { href: "/personality", label: "全部人格画像" },
-      { href: "/personality/intp", label: "INTP 人格" },
-      { href: "/personality/entj", label: "ENTJ 人格" },
-      { href: "/personality/infp", label: "INFP 人格" },
-      { href: "/personality/enfj", label: "ENFJ 人格" },
+      { href: "/personality#nt", label: "分析家（NT）" },
+      { href: "/personality#nf", label: "外交家（NF）" },
+      { href: "/personality#sj", label: "守护者（SJ）" },
+      { href: "/personality#sp", label: "探索者（SP）" },
+      { href: "/topics/mbti", label: "MBTI 主题中心" },
+      { href: "/career/recommendations", label: "职业推荐" },
     ],
     career: [
       { href: "/career", label: "职业发展中心" },
