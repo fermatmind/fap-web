@@ -6,9 +6,11 @@ import {
   MBTI_ADS_LAUNCH_SIGNAL_EVENTS,
   MBTI_ADS_LAUNCH_SIGNAL_REQUIREMENTS,
   MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES,
+  MBTI_ADS_STABLE_SMOKE_LOCALES,
   getMbtiAdsLaunchTier,
   getMbtiAdsSurfacePolicy,
   getMbtiStableLaunchSmokeEntries,
+  getMbtiStableLaunchSmokeMatrix,
 } from "@/lib/mbti/adsPolicy";
 import { filterTrackingPayload, TRACKING_EVENTS } from "@/lib/tracking/events";
 
@@ -65,8 +67,24 @@ describe("mbti launch smoke contract", () => {
       "INFJ",
       "ISTJ",
     ]);
+    expect(MBTI_ADS_LAUNCH_MANIFEST.stableSmokeLocales).toEqual(MBTI_ADS_STABLE_SMOKE_LOCALES);
     expect(MBTI_ADS_LAUNCH_MANIFEST.launchSignalEvents).toEqual(MBTI_ADS_LAUNCH_SIGNAL_EVENTS);
     expect(MBTI_ADS_LAUNCH_MANIFEST.launchSignalRequirements).toEqual(MBTI_ADS_LAUNCH_SIGNAL_REQUIREMENTS);
+  });
+
+  it("builds the stable launch smoke matrix for both public locales", () => {
+    const matrix = getMbtiStableLaunchSmokeMatrix();
+
+    expect(Object.keys(matrix)).toEqual(["en", "zh"]);
+    expect(matrix.en).toEqual(getMbtiStableLaunchSmokeEntries("en"));
+    expect(matrix.zh).toEqual(getMbtiStableLaunchSmokeEntries("zh"));
+
+    for (const locale of MBTI_ADS_STABLE_SMOKE_LOCALES) {
+      for (const entry of matrix[locale]) {
+        expect(entry.path.startsWith(`/${locale}/`)).toBe(true);
+        expect(getMbtiAdsSurfacePolicy(entry.path)).toBe(entry.surface);
+      }
+    }
   });
 
   it("preserves launch attribution fields for landing, click, and start events", () => {

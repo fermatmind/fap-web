@@ -94,6 +94,8 @@ export type MbtiAdsLaunchSmokeEntry = {
   typeCode?: MbtiAdsTypeCode;
 };
 
+export const MBTI_ADS_STABLE_SMOKE_LOCALES = ["en", "zh"] as const;
+
 const LOCALE_PREFIX_RE = /^\/(en|zh)(?=\/|$)/;
 const SECONDARY_PATTERNS = [/^\/personality\/[^/]+$/, /^\/career\/recommendations\/mbti\/[^/]+$/];
 const FORBIDDEN_PATTERNS = [
@@ -125,6 +127,7 @@ export const MBTI_ADS_LAUNCH_MANIFEST = {
   ),
   stableSmokePersonalityTypes: MBTI_ADS_STABLE_SMOKE_PERSONALITY_TYPES,
   stableSmokeRecommendationTypes: MBTI_ADS_STABLE_SMOKE_RECOMMENDATION_TYPES,
+  stableSmokeLocales: MBTI_ADS_STABLE_SMOKE_LOCALES,
   launchSignalEvents: MBTI_ADS_LAUNCH_SIGNAL_EVENTS,
   launchSignalRequirements: MBTI_ADS_LAUNCH_SIGNAL_REQUIREMENTS,
 } as const;
@@ -242,4 +245,14 @@ export function getMbtiStableLaunchSmokeEntries(locale: Locale): MbtiAdsLaunchSm
       pageType: "topic_detail",
     },
   ];
+}
+
+export function getMbtiStableLaunchSmokeMatrix(): Record<
+  (typeof MBTI_ADS_STABLE_SMOKE_LOCALES)[number],
+  MbtiAdsLaunchSmokeEntry[]
+> {
+  return {
+    en: getMbtiStableLaunchSmokeEntries("en"),
+    zh: getMbtiStableLaunchSmokeEntries("zh"),
+  };
 }
