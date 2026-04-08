@@ -33,80 +33,28 @@ describe("career claim gate render contract", () => {
         localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
       };
     });
-    vi.doMock("@/lib/cms/career-jobs", () => ({
-      buildCareerJobFrontendUrl: vi.fn((locale: string, slug: string) => `/${locale}/career/jobs/${slug}`),
-      getCareerJobFromCmsBySlug: vi.fn(async () => ({
-        id: 1,
-        orgId: 0,
-        jobCode: "product-manager",
-        slug: "product-manager",
-        locale: "en",
-        title: "Product Manager",
-        summary: "Shape product direction.",
-        industrySlug: "technology",
-        industryLabel: "Technology",
-        heroKicker: "Career",
-        heroQuote: "Lead through product decisions.",
-        coverImageUrl: null,
-        workContents: ["Define product direction"],
-        skills: ["roadmapping"],
-        salaryText: "USD 80,000 - 180,000 annually",
-        outlookText: "Growing fast",
-        growthPathItems: ["Associate PM", "PM", "Senior PM"],
-        fitPersonalityItems: ["INTJ"],
-        mbtiPrimary: ["INTJ"],
-        mbtiSecondary: ["ENTJ"],
-        riasecVector: { R: null, I: 70, A: null, S: null, E: 60, C: null },
-        bodyMarkdown: "",
-        bodyHtml: "",
-        sections: [],
-        seoMeta: null,
-        landingSurface: null,
-        answerSurface: {
-          summaryBlocks: [{ key: "summary", title: null, body: "Strong-fit copy." }],
-          faqBlocks: [],
-          compareBlocks: [],
-          sceneSummaryBlocks: [],
-          nextStepBlocks: [],
-          surfaceType: "career_job_public_detail",
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => ({
+        identity: {
+          canonical_slug: "product-manager",
         },
-        renderState: {
-          careerDataStatus: "trust_limited",
-          canRenderSalarySurface: false,
-          canRenderOutlookSurface: false,
-          canRenderFitSurface: false,
-          canRenderAnswerSurface: false,
-          canRenderStructuredData: false,
-          canIndexPage: false,
-          missingFields: ["claim_permissions", "trust_manifest"],
+        titles: {
+          canonical_en: "Product Manager",
         },
-        protocol: {
-          claimPermissions: {
-            allow_strong_claim: false,
-            allow_salary_comparison: false,
-            allow_ai_strategy: false,
-            allow_transition_recommendation: false,
-            allow_cross_market_pay_copy: false,
-            reason_codes: ["missing_claim_permissions"],
-          },
-          trustManifest: null,
-          careerAsset: {
-            seo_contract: {
-              index_eligible: false,
-              index_state: "blocked",
-            },
-            audit: {
-              created_by: "career_jobs_cms.v0.5",
-            },
-          },
+        truth_layer: {
+          median_pay_usd_annual: 150000,
+          outlook_pct_2024_2034: 12,
         },
-        status: "published",
-        isPublic: true,
-        isIndexable: false,
-        publishedAt: null,
-        updatedAt: null,
+        score_bundle: {
+          fit_score: { value: 81, integrity_state: "full", degradation_factor: 1 },
+          confidence_score: { value: 70, integrity_state: "provisional", degradation_factor: 0.9 },
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/product-manager",
+          index_state: "blocked",
+          index_eligible: false,
+        },
       })),
-      getCareerJobSeoFromCmsBySlug: vi.fn(async () => null),
     }));
 
     const { default: CareerJobDetailPage } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
@@ -117,9 +65,8 @@ describe("career claim gate render contract", () => {
 
     expect(html).toContain("career-job-protocol-status");
     expect(html).toContain("Career claim gate");
-    expect(html).not.toContain("USD 80,000 - 180,000 annually");
-    expect(html).not.toContain("Future outlook");
-    expect(html).not.toContain("MBTI:");
-    expect(html).not.toContain("Strong-fit copy.");
+    expect(html).not.toContain("$150,000");
+    expect(html).not.toContain("Ten-year outlook");
+    expect(html).not.toContain("Backend score dimensions");
   });
 });

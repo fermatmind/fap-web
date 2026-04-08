@@ -2,88 +2,59 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  buildCareerJobFrontendUrl,
-  getCareerJobFromCmsBySlug,
-  getCareerJobSeoFromCmsBySlug,
-  type CareerJobSectionViewModel,
-} from "@/lib/cms/career-jobs";
-import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
+import type { CareerJobBundleAdapter } from "@/lib/career/adapters/types";
+import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
+import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
-import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
-import { canonicalUrl } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
-
-function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
-  const normalized = String(value ?? "").trim();
-  if (!normalized) {
-    return fallbackPath;
-  }
-
-  try {
-    return new URL(normalized).pathname || fallbackPath;
-  } catch {
-    return normalized.startsWith("/") ? normalized : fallbackPath;
-  }
-}
-
-function shouldNoindex(robotsValue: string | null | undefined): boolean {
-  return String(robotsValue ?? "")
-    .toLowerCase()
-    .split(",")
-    .map((part) => part.trim())
-    .includes("noindex");
-}
-
-function resolveCareerExplicitIndexGate(
-  job: Awaited<ReturnType<typeof getCareerJobFromCmsBySlug>>,
-  seo: Awaited<ReturnType<typeof getCareerJobSeoFromCmsBySlug>>
-) {
-  return {
-    indexEligible: job?.protocol.careerAsset?.seo_contract.index_eligible ?? seo?.surface?.indexEligible ?? null,
-    indexState: job?.protocol.careerAsset?.seo_contract.index_state ?? seo?.surface?.indexState ?? null,
-  };
-}
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildCareerJobFrontendUrl(locale, slug);
 }
 
-function hasRiasecData(vector: Record<string, number | null>): boolean {
-  return Object.values(vector).some((value) => value !== null);
-}
-
-function hasSupplementalSections(sections: CareerJobSectionViewModel[]): boolean {
-  return sections.some((section) => section.bodyMarkdown.trim() || section.bodyHtml.trim());
-}
-
-function renderSectionBody(section: CareerJobSectionViewModel) {
-  if (section.bodyMarkdown.trim()) {
-    return renderSimpleMarkdown(section.bodyMarkdown);
+function formatUsdAnnual(value: number | null, locale: Locale): string {
+  if (value === null) {
+    return locale === "zh" ? "暂未提供" : "Not available yet";
   }
 
-  if (section.bodyHtml.trim()) {
-    return <div dangerouslySetInnerHTML={{ __html: section.bodyHtml }} />;
+  return new Intl.NumberFormat(locale === "zh" ? "zh-CN" : "en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
+
+function formatPercent(value: number | null): string | null {
+  if (value === null) {
+    return null;
   }
 
-  return null;
+  return `${value}%`;
 }
 
-function renderSectionTitle(section: CareerJobSectionViewModel): string {
-  return section.title || section.sectionKey.replace(/_/g, " ");
+function shouldNoindex(indexState: string | null | undefined): boolean {
+  const normalized = String(indexState ?? "").trim().toLowerCase();
+  return normalized === "blocked" || normalized === "noindex" || normalized === "unavailable";
 }
 
-function renderCareerJobProtocolStatus(
-  job: NonNullable<Awaited<ReturnType<typeof getCareerJobFromCmsBySlug>>>,
-  locale: Locale
-) {
+async function loadCareerJobBundle(locale: Locale, slug: string): Promise<CareerJobBundleAdapter | null> {
+  const payload = await fetchCareerJobBundle({ locale, slug });
+  return adaptCareerJobBundle({
+    locale,
+    requestedSlug: slug,
+    payload,
+  });
+}
+
+function renderCareerJobProtocolStatus(job: CareerJobBundleAdapter, locale: Locale) {
   if (job.renderState.careerDataStatus === "available") {
     return null;
   }
@@ -105,14 +76,36 @@ function renderCareerJobProtocolStatus(
       </p>
       <p className="m-0 mt-2 leading-7">
         {locale === "zh"
-          ? "Career job 页面现在只在显式 claim / trust / index gate 放行时渲染薪资、前景和性格适配等强结论内容。"
-          : "This career job page now renders salary, outlook, and fit surfaces only when explicit claim, trust, and index gates allow them."}
+          ? "当前页面只消费 backend authority bundle，并严格跟随 claim / trust / index gate。未明确放行的强结论内容不会渲染。"
+          : "This page now renders only from backend authority bundles and follows explicit claim, trust, and index gates. Strong claims stay hidden unless they are explicitly allowed."}
       </p>
       {job.renderState.missingFields.length > 0 ? (
         <p className="m-0 mt-2 text-xs uppercase tracking-[0.08em] text-amber-900/80">
           {locale === "zh" ? "缺失字段" : "Missing fields"}: {job.renderState.missingFields.join(", ")}
         </p>
       ) : null}
+    </div>
+  );
+}
+
+function renderScoreValue(value: number | null): string {
+  return value === null ? "—" : String(value);
+}
+
+function ScoreCard({
+  title,
+  value,
+  integrity,
+}: {
+  title: string;
+  value: number | null;
+  integrity: string;
+}) {
+  return (
+    <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+      <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">{title}</p>
+      <p className="m-0 mt-2 text-2xl font-semibold text-[var(--fm-text)]">{renderScoreValue(value)}</p>
+      <p className="m-0 mt-1 text-xs text-[var(--fm-text-muted)]">{integrity}</p>
     </div>
   );
 }
@@ -124,74 +117,40 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [job, seo] = await Promise.all([
-    getCareerJobFromCmsBySlug({ slug, locale }),
-    getCareerJobSeoFromCmsBySlug({ slug, locale }),
-  ]);
+  const job = await loadCareerJobBundle(locale, slug);
 
   if (!job) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  const canonicalPath = buildCanonicalPath(job.slug, locale);
-  const seoCanonicalPath = pathFromCanonicalUrl(seo?.surface?.canonicalUrl ?? seo?.meta.canonical, canonicalPath);
-  const title = seo?.surface?.title || seo?.meta.title || job.title;
-  const description = seo?.surface?.description || seo?.meta.description || job.summary;
-  const explicitIndexGate = resolveCareerExplicitIndexGate(job, seo);
-  const noindex =
-    !job.isIndexable ||
-    !job.renderState.canIndexPage ||
-    shouldNoindex(seo?.meta.robots ?? job.seoMeta?.robots);
-  const metadata = buildPageMetadata({
+  const canonicalPath = normalizeCareerBundleCanonicalPath(
     locale,
-    pathname: seoCanonicalPath,
+    job.seoContract.canonicalPath,
+    buildCanonicalPath(job.slug, locale)
+  );
+  const title = `${job.title} | FermatMind`;
+  const description =
+    job.summary ||
+    (locale === "zh"
+      ? `${job.title} 的职业事实、信任边界、评分与风险提示。`
+      : `Career facts, trust boundaries, scoring, and warnings for ${job.title}.`);
+
+  return buildPageMetadata({
+    locale,
+    pathname: canonicalPath,
     title,
     description,
-    imagePath: seo?.surface?.og.image ?? seo?.meta.og.image ?? job.coverImageUrl ?? undefined,
-    seoSurface: seo?.surface,
-    explicitIndexGate,
-    noindex,
+    explicitIndexGate: {
+      indexEligible: job.seoContract.indexEligible,
+      indexState: job.seoContract.indexState,
+    },
+    noindex: !job.renderState.canIndexPage || shouldNoindex(job.seoContract.indexState),
     alternatesByLocale: {
       en: buildCareerJobFrontendUrl("en", job.slug),
       zh: buildCareerJobFrontendUrl("zh", job.slug),
       xDefault: "/",
     },
   });
-  const canonical = seo?.surface?.canonicalUrl ?? canonicalUrl(canonicalPath);
-  const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? job.coverImageUrl ?? null;
-  const twitterImages = normalizeTwitterImages(
-    seo?.surface?.twitter.image,
-    seo?.meta.twitter.image,
-    ogImage,
-    metadata.twitter?.images,
-  );
-
-  return {
-    ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      canonical,
-      languages: {
-        ...metadata.alternates?.languages,
-        en: seo?.meta.alternates.en ?? canonicalUrl(buildCareerJobFrontendUrl("en", job.slug)),
-        "zh-CN": seo?.meta.alternates["zh-CN"] ?? canonicalUrl(buildCareerJobFrontendUrl("zh", job.slug)),
-      },
-    },
-    openGraph: {
-      type: "article",
-      url: seo?.surface?.og.url ?? canonical,
-      title: seo?.surface?.og.title || seo?.meta.og.title || title,
-      description: seo?.surface?.og.description || seo?.meta.og.description || description,
-      images: ogImage ? [ogImage] : undefined,
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-    },
-    twitter: {
-      card: resolveTwitterCard(seo?.surface?.twitter.card ?? seo?.meta.twitter.card),
-      title: seo?.surface?.twitter.title || seo?.meta.twitter.title || title,
-      description: seo?.surface?.twitter.description || seo?.meta.twitter.description || description,
-      images: twitterImages,
-    },
-  };
 }
 
 export default async function CareerJobDetailPage({
@@ -201,37 +160,30 @@ export default async function CareerJobDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [job, seo] = await Promise.all([
-    getCareerJobFromCmsBySlug({ slug, locale }),
-    getCareerJobSeoFromCmsBySlug({ slug, locale }),
-  ]);
+  const job = await loadCareerJobBundle(locale, slug);
 
   if (!job) {
     return notFound();
   }
 
-  const canonicalPath = buildCanonicalPath(job.slug, locale);
-  const landingSurface = job.landingSurface;
-  const renderState = job.renderState;
+  const canonicalPath = normalizeCareerBundleCanonicalPath(
+    locale,
+    job.seoContract.canonicalPath,
+    buildCanonicalPath(job.slug, locale)
+  );
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
     { name: locale === "zh" ? "职业库" : "Jobs", path: localizedPath("/career/jobs", locale) },
     { name: job.title, path: canonicalPath },
   ]);
-  const showFitCard =
-    renderState.canRenderFitSurface &&
-    (job.fitPersonalityItems.length > 0 ||
-      job.mbtiPrimary.length > 0 ||
-      job.mbtiSecondary.length > 0 ||
-      hasRiasecData(job.riasecVector) ||
-      (renderState.canRenderOutlookSurface && Boolean(job.outlookText)));
+
+  const canRenderAiStrategy =
+    job.claimPermissions.allow_ai_strategy && job.renderState.careerDataStatus !== "unavailable";
+  const canRenderAnswerSurface = job.renderState.canRenderAnswerSurface;
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      {renderState.canRenderStructuredData && seo?.jsonld ? (
-        <JsonLd id={`career-job-occupation-${job.slug}`} data={seo.jsonld} />
-      ) : null}
       <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={breadcrumbJsonLd} />
       <Breadcrumb
         items={[
@@ -243,76 +195,49 @@ export default async function CareerJobDetailPage({
       />
 
       <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        {job.heroKicker ? (
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-            {job.heroKicker}
-          </p>
-        ) : null}
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          {locale === "zh" ? "Career bundle" : "Career bundle"}
+        </p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{job.title}</h1>
         {job.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{job.summary}</p> : null}
         {renderCareerJobProtocolStatus(job, locale)}
-        {landingSurface?.summaryBlocks.length ? (
-          <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="career-job-landing-summary">
-            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
-              <div key={block.key}>
-                {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
-                {block.body ? <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
-              </div>
-            ))}
+        <div className="grid gap-3 md:grid-cols-3">
+          <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {locale === "zh" ? "Canonical slug" : "Canonical slug"}
+            </p>
+            <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{job.slug}</p>
           </div>
-        ) : null}
-        {job.heroQuote ? (
-          <blockquote className="m-0 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
-            {job.heroQuote}
-          </blockquote>
-        ) : null}
+          <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {locale === "zh" ? "Index state" : "Index state"}
+            </p>
+            <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{job.seoContract.indexState ?? "unknown"}</p>
+          </div>
+          <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {locale === "zh" ? "Compiler version" : "Compiler version"}
+            </p>
+            <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">
+              {job.provenanceMeta.compilerVersion ?? "unknown"}
+            </p>
+          </div>
+        </div>
       </section>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "主要工作内容" : "Main responsibilities"}</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-[var(--fm-text-muted)]">
-            {job.workContents.length > 0 ? (
-              <ul className="space-y-1 pl-5">
-                {job.workContents.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ) : (
-              <p className="m-0">{locale === "zh" ? "暂未提供。" : "Not available yet."}</p>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "技能要求" : "Required skills"}</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-[var(--fm-text-muted)]">
-            {job.skills.length > 0 ? (
-              <ul className="space-y-1 pl-5">
-                {job.skills.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ) : (
-              <p className="m-0">{locale === "zh" ? "暂未提供。" : "Not available yet."}</p>
-            )}
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-2">
-        {renderState.canRenderSalarySurface ? (
+        {job.renderState.canRenderSalarySurface ? (
           <Card data-testid="career-job-salary-surface">
             <CardHeader>
               <CardTitle>{locale === "zh" ? "薪资水平" : "Salary range"}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">{job.salaryText || (locale === "zh" ? "暂未提供" : "Not available yet")}</p>
-              {renderState.canRenderOutlookSurface && job.outlookText ? <p className="m-0">{job.outlookText}</p> : null}
+              <p className="m-0">{formatUsdAnnual(job.truthLayer.medianPayUsdAnnual, locale)}</p>
+              {job.truthLayer.outlookPct20242034 !== null ? (
+                <p className="m-0">
+                  {locale === "zh" ? "十年增速" : "Ten-year outlook"}: {formatPercent(job.truthLayer.outlookPct20242034)}
+                </p>
+              ) : null}
             </CardContent>
           </Card>
         ) : (
@@ -323,114 +248,157 @@ export default async function CareerJobDetailPage({
             <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">
                 {locale === "zh"
-                  ? "薪资、前景与适配性等强结论内容需要显式 claim permissions。当前页面保持保守，不显示未放行内容。"
-                  : "Salary, outlook, and fit claims require explicit claim permissions. This page stays conservative until those gates are available."}
+                  ? "薪资与强结论内容必须经过 backend claim permissions 放行。当前页面保持保守。"
+                  : "Salary and strong-claim surfaces require explicit backend claim permissions. This page stays conservative."}
               </p>
             </CardContent>
           </Card>
         )}
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "发展路径" : "Growth path"}</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-[var(--fm-text-muted)]">
-            {job.growthPathItems.length > 0 ? (
-              <ul className="space-y-1 pl-5">
-                {job.growthPathItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ) : (
-              <p className="m-0">{locale === "zh" ? "暂未提供。" : "Not available yet."}</p>
-            )}
-          </CardContent>
-        </Card>
+        {canRenderAnswerSurface ? (
+          <Card>
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "职业事实层" : "Truth layer"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              {job.truthLayer.entryEducation ? (
+                <p className="m-0">
+                  {locale === "zh" ? "入门学历" : "Entry education"}: {job.truthLayer.entryEducation}
+                </p>
+              ) : null}
+              {job.truthLayer.workExperience ? (
+                <p className="m-0">
+                  {locale === "zh" ? "工作经验" : "Work experience"}: {job.truthLayer.workExperience}
+                </p>
+              ) : null}
+              {job.truthLayer.onTheJobTraining ? (
+                <p className="m-0">
+                  {locale === "zh" ? "在岗训练" : "On-the-job training"}: {job.truthLayer.onTheJobTraining}
+                </p>
+              ) : null}
+              {canRenderAiStrategy && job.truthLayer.aiExposure !== null ? (
+                <p className="m-0">
+                  AI exposure: {job.truthLayer.aiExposure}
+                </p>
+              ) : null}
+              {job.truthLayer.sourceRefs.length === 0 ? (
+                <p className="m-0">{locale === "zh" ? "暂未提供更多来源。" : "No additional source refs yet."}</p>
+              ) : null}
+            </CardContent>
+          </Card>
+        ) : (
+          <Card>
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "职业事实层" : "Truth layer"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">
+                {locale === "zh"
+                  ? "当前 answer surface 未被 backend 显式放行，因此页面不会补写本地职业解释。"
+                  : "The answer surface is not explicitly enabled by the backend, so this page does not synthesize a local job explanation."}
+              </p>
+            </CardContent>
+          </Card>
+        )}
       </div>
 
-      {showFitCard ? (
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "适配性格与发展前景" : "Fit personality and outlook"}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-            {job.fitPersonalityItems.length > 0 ? (
-              <ul className="space-y-1 pl-5">
-                {job.fitPersonalityItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ) : null}
-            {job.mbtiPrimary.length > 0 || job.mbtiSecondary.length > 0 ? (
-              <p className="m-0">
-                MBTI: {job.mbtiPrimary.join(", ") || "-"}
-                {job.mbtiSecondary.length > 0 ? ` / ${job.mbtiSecondary.join(", ")}` : ""}
-              </p>
-            ) : null}
-            {hasRiasecData(job.riasecVector) ? (
-              <p className="m-0">
-                RIASEC: R {job.riasecVector.R ?? "-"} · I {job.riasecVector.I ?? "-"} · A {job.riasecVector.A ?? "-"} ·
-                {" "}S {job.riasecVector.S ?? "-"} · E {job.riasecVector.E ?? "-"} · C {job.riasecVector.C ?? "-"}
-              </p>
-            ) : null}
-            {renderState.canRenderOutlookSurface && job.outlookText ? (
-              <p className="m-0">
-                {locale === "zh" ? "未来展望" : "Future outlook"}: {job.outlookText}
-              </p>
-            ) : null}
-          </CardContent>
-        </Card>
-      ) : null}
-
-      {job.bodyMarkdown.trim() || job.bodyHtml.trim() ? (
-        <article className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline">
-          {job.bodyMarkdown.trim()
-            ? renderSimpleMarkdown(job.bodyMarkdown)
-            : <div dangerouslySetInnerHTML={{ __html: job.bodyHtml }} />}
-        </article>
-      ) : null}
-
-      {hasSupplementalSections(job.sections) ? (
-        <section className="space-y-4">
-          {job.sections
-            .filter((section) => section.bodyMarkdown.trim() || section.bodyHtml.trim())
-            .map((section) => (
-              <Card key={section.sectionKey}>
-                <CardHeader>
-                  <CardTitle>{renderSectionTitle(section)}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 text-sm text-[var(--fm-text-muted)]">
-                  {renderSectionBody(section)}
-                </CardContent>
-              </Card>
-            ))}
+      {job.renderState.canRenderFitSurface ? (
+        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <div className="space-y-1">
+            <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+              {locale === "zh" ? "后端评分维度" : "Backend score dimensions"}
+            </h2>
+            <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+              {locale === "zh"
+                ? "页面直接消费 backend white-box score bundle，不在前端复算。"
+                : "This page consumes the backend white-box score bundle directly and does not recompute scores in the client."}
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+            <ScoreCard title="Fit" value={job.scoreBundle.fitScore.value} integrity={job.scoreBundle.fitScore.integrity_state} />
+            <ScoreCard title="Strain" value={job.scoreBundle.strainScore.value} integrity={job.scoreBundle.strainScore.integrity_state} />
+            <ScoreCard title="AI" value={canRenderAiStrategy ? job.scoreBundle.aiSurvivalScore.value : null} integrity={job.scoreBundle.aiSurvivalScore.integrity_state} />
+            <ScoreCard title="Mobility" value={job.scoreBundle.mobilityScore.value} integrity={job.scoreBundle.mobilityScore.integrity_state} />
+            <ScoreCard title="Confidence" value={job.scoreBundle.confidenceScore.value} integrity={job.scoreBundle.confidenceScore.integrity_state} />
+          </div>
         </section>
       ) : null}
 
-      {renderState.canRenderAnswerSurface ? (
-        <AnswerSurfaceSection
-          surface={job.answerSurface}
-          locale={locale}
-          testId="career-job-answer-surface"
-        />
+      {(job.warnings.redFlags.length > 0 || job.warnings.amberFlags.length > 0 || job.warnings.blockedClaims.length > 0) ? (
+        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "显式警告与边界" : "Explicit warnings and limits"}
+          </h2>
+          <div className="grid gap-4 md:grid-cols-3 text-sm text-[var(--fm-text-muted)]">
+            <div>
+              <p className="m-0 font-medium text-[var(--fm-text)]">Red flags</p>
+              <ul className="mt-2 space-y-1 pl-5">
+                {job.warnings.redFlags.length > 0 ? job.warnings.redFlags.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
+              </ul>
+            </div>
+            <div>
+              <p className="m-0 font-medium text-[var(--fm-text)]">Amber flags</p>
+              <ul className="mt-2 space-y-1 pl-5">
+                {job.warnings.amberFlags.length > 0 ? job.warnings.amberFlags.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
+              </ul>
+            </div>
+            <div>
+              <p className="m-0 font-medium text-[var(--fm-text)]">Blocked claims</p>
+              <ul className="mt-2 space-y-1 pl-5">
+                {job.warnings.blockedClaims.length > 0 ? job.warnings.blockedClaims.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
+              </ul>
+            </div>
+          </div>
+        </section>
       ) : null}
 
-      {landingSurface?.ctaBundle.length ? (
-        <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="career-job-landing-cta">
+      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+          {locale === "zh" ? "Trust 与 provenance" : "Trust and provenance"}
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2 text-sm text-[var(--fm-text-muted)]">
+          <div className="space-y-2">
+            <p className="m-0">
+              reviewer_status: {job.trustManifest?.reviewer.reviewer_status ?? "unknown"}
+            </p>
+            <p className="m-0">
+              content_version: {job.provenanceMeta.contentVersion}
+            </p>
+            <p className="m-0">
+              data_version: {job.provenanceMeta.dataVersion}
+            </p>
+            <p className="m-0">
+              logic_version: {job.provenanceMeta.logicVersion}
+            </p>
+          </div>
+          <div className="space-y-2">
+            <p className="m-0">compiled_at: {job.provenanceMeta.compiledAt ?? "unknown"}</p>
+            <p className="m-0">truth_metric_id: {job.provenanceMeta.truthMetricId ?? "unknown"}</p>
+            <p className="m-0">trust_manifest_id: {job.provenanceMeta.trustManifestId ?? "unknown"}</p>
+            <p className="m-0">index_state_id: {job.provenanceMeta.indexStateId ?? "unknown"}</p>
+          </div>
+        </div>
+      </section>
+
+      {job.aliasIndex.length > 0 ? (
+        <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
           <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "继续探索" : "Continue exploring"}
+            {locale === "zh" ? "保守别名索引" : "Conservative alias index"}
           </h2>
-          <div className="flex flex-wrap gap-2">
-            {landingSurface.ctaBundle.map((cta) => (
-              <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
-                {cta.label}
-              </Link>
+          <div className="flex flex-wrap gap-2 text-sm text-[var(--fm-text-muted)]">
+            {job.aliasIndex.map((alias) => (
+              <span key={`${alias.lang}-${alias.alias}`} className="rounded-full border border-[var(--fm-border)] px-3 py-1">
+                {alias.alias}
+              </span>
             ))}
           </div>
         </section>
       ) : null}
 
-      <Link href={localizedPath("/career/jobs", locale)} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+      <Link
+        href={localizedPath("/career/jobs", locale)}
+        className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+      >
         {locale === "zh" ? "返回职业库" : "Back to job library"}
       </Link>
     </Container>
