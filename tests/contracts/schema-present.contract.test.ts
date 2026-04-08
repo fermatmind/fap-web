@@ -9,6 +9,23 @@ function read(relPath: string): string {
 }
 
 describe("schema injection contract", () => {
+  it("career canonical protocol files exist and export the frozen contracts", () => {
+    const careerAssetSource = read("lib/career/contracts/careerAssetMaster.ts");
+    const trustManifestSource = read("lib/career/contracts/trustManifest.ts");
+    const scoreResultSource = read("lib/career/contracts/scoreResult.ts");
+    const claimPermissionsSource = read("lib/career/contracts/claimPermissions.ts");
+    const indexSource = read("lib/career/contracts/index.ts");
+
+    expect(careerAssetSource).toContain("export type CareerAssetMaster");
+    expect(trustManifestSource).toContain("export type CareerTrustManifest");
+    expect(scoreResultSource).toContain("export type CareerScoreResult");
+    expect(claimPermissionsSource).toContain("export type CareerClaimPermissions");
+    expect(indexSource).toContain("careerAssetMaster");
+    expect(indexSource).toContain("trustManifest");
+    expect(indexSource).toContain("scoreResult");
+    expect(indexSource).toContain("claimPermissions");
+  });
+
   it("tests detail page injects webpage, breadcrumb and faq JSON-LD", () => {
     const source = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
     expect(source).toContain("JsonLd");
@@ -44,6 +61,8 @@ describe("schema injection contract", () => {
     expect(source).toContain("getCareerJobSeoFromCmsBySlug");
     expect(source).toContain("JsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).toContain("career-job-protocol-status");
+    expect(source).toContain("job?.protocol.careerAsset?.seo_contract.index_eligible ?? seo?.surface?.indexEligible");
     expect(source).not.toContain("buildOccupationJsonLd");
     expect(source).not.toContain("getCareerJobBySlug");
     expect(source).not.toContain("renderVeliteMdx");
@@ -105,6 +124,8 @@ describe("schema injection contract", () => {
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("buildItemListJsonLd");
     expect(source).toContain("buildFAQPageJsonLd");
+    expect(source).toContain("CareerRecommendationAdapterDetail");
+    expect(source).not.toContain("CareerRecommendationDetail");
     expect(source).toContain("getMbtiCareerRecommendationByType");
     expect(source).toContain("renderCareerDataStatus");
     expect(source).toContain("renderState.canRenderStrongTruth");

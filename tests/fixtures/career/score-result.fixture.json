@@ -1,0 +1,18 @@
+{
+  "value": 72,
+  "integrity_state": "provisional",
+  "critical_missing_fields": ["ai_exposure"],
+  "confidence_cap": 74,
+  "formula_ref": "confidence_score.v1",
+  "component_breakdown": {
+    "task_alignment": 38
+  },
+  "penalties": [
+    {
+      "code": "missing_ai_exposure",
+      "value": -6,
+      "reason": "ai_exposure not confirmed"
+    }
+  ],
+  "degradation_factor": 0.92
+}

@@ -8,6 +8,10 @@ export type Big5TraitKey = "openness" | "conscientiousness" | "extraversion" | "
 
 export type Big5ScoreVector = Record<Big5TraitKey, number>;
 
+/**
+ * Legacy adapter-only profile snapshot types kept for pre-canonical local tooling.
+ * Canonical Career protocol authority now lives under `lib/career/contracts`.
+ */
 export type CareerProfileSnapshot = {
   mbtiType?: string;
   big5?: Partial<Big5ScoreVector>;
@@ -23,6 +27,10 @@ export type CareerProfileSnapshot = {
   };
 };
 
+/**
+ * @deprecated Legacy adapter-only recommendation input.
+ * Do not use as canonical Career protocol shape.
+ */
 export type CareerRecommendationJobInput = {
   slug: string;
   title: string;
@@ -37,6 +45,10 @@ export type CareerRecommendationJobInput = {
   marketDemand: number;
 };
 
+/**
+ * @deprecated Legacy adapter-only recommendation factors.
+ * Do not use as canonical Career protocol shape.
+ */
 export type CareerRecommendationFactors = {
   interest: number;
   mbti: number;
@@ -45,6 +57,10 @@ export type CareerRecommendationFactors = {
   market: number;
 };
 
+/**
+ * @deprecated Legacy adapter-only recommendation result.
+ * Do not use as canonical Career protocol shape.
+ */
 export type CareerRecommendationResult = {
   jobSlug: string;
   totalScore: number;

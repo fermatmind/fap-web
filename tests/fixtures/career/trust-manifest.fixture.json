@@ -1,0 +1,44 @@
+{
+  "manifest_version": "trust_manifest.v1",
+  "entity_id": "occ_backend_architect",
+  "page_type": "career_job_detail",
+  "page_slug": "backend-architect",
+  "content_version": "content.v1",
+  "data_version": "data.v1",
+  "logic_version": "logic.v1",
+  "locale_context": {
+    "truth_market": "US",
+    "display_market": "CN",
+    "locale": "zh-CN"
+  },
+  "source_trace": [
+    {
+      "ref": "bls_ooh_15_1252",
+      "source": "BLS Occupational Outlook Handbook",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
+      "last_reviewed_at": "2025-08-28"
+    }
+  ],
+  "methodology": {
+    "crosswalk_mode": "trust_inheritance",
+    "derivation_policy": "market_title_patch_with_proxy_truth",
+    "notes": ["Pay and outlook are not directly inherited across markets."]
+  },
+  "reviewer": {
+    "reviewed": true,
+    "reviewer_id": "career_editor",
+    "reviewer_status": "approved"
+  },
+  "ai_assistance": {
+    "used": true,
+    "summary": "AI assistance used for structure drafting only."
+  },
+  "quality": {
+    "complete": true,
+    "reviewed": true,
+    "stale": false,
+    "blocked_reasons": []
+  },
+  "last_substantive_update_at": "2026-04-08T00:00:00.000Z",
+  "next_review_due_at": "2026-07-08T00:00:00.000Z"
+}

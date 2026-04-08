@@ -42,6 +42,16 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .includes("noindex");
 }
 
+function resolveCareerExplicitIndexGate(
+  job: Awaited<ReturnType<typeof getCareerJobFromCmsBySlug>>,
+  seo: Awaited<ReturnType<typeof getCareerJobSeoFromCmsBySlug>>
+) {
+  return {
+    indexEligible: job?.protocol.careerAsset?.seo_contract.index_eligible ?? seo?.surface?.indexEligible ?? null,
+    indexState: job?.protocol.careerAsset?.seo_contract.index_state ?? seo?.surface?.indexState ?? null,
+  };
+}
+
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildCareerJobFrontendUrl(locale, slug);
 }
@@ -70,6 +80,43 @@ function renderSectionTitle(section: CareerJobSectionViewModel): string {
   return section.title || section.sectionKey.replace(/_/g, " ");
 }
 
+function renderCareerJobProtocolStatus(
+  job: NonNullable<Awaited<ReturnType<typeof getCareerJobFromCmsBySlug>>>,
+  locale: Locale
+) {
+  if (job.renderState.careerDataStatus === "available") {
+    return null;
+  }
+
+  return (
+    <div
+      className="rounded-xl border border-amber-200 bg-amber-50/80 p-4 text-sm text-amber-950"
+      data-testid="career-job-protocol-status"
+      data-career-data-status={job.renderState.careerDataStatus}
+    >
+      <p className="m-0 font-medium">
+        {job.renderState.careerDataStatus === "trust_limited"
+          ? locale === "zh"
+            ? "当前为 trust-limited 渲染"
+            : "Rendering in trust-limited mode"
+          : locale === "zh"
+            ? "当前内容不可用"
+            : "Career job data is currently unavailable"}
+      </p>
+      <p className="m-0 mt-2 leading-7">
+        {locale === "zh"
+          ? "Career job 页面现在只在显式 claim / trust / index gate 放行时渲染薪资、前景和性格适配等强结论内容。"
+          : "This career job page now renders salary, outlook, and fit surfaces only when explicit claim, trust, and index gates allow them."}
+      </p>
+      {job.renderState.missingFields.length > 0 ? (
+        <p className="m-0 mt-2 text-xs uppercase tracking-[0.08em] text-amber-900/80">
+          {locale === "zh" ? "缺失字段" : "Missing fields"}: {job.renderState.missingFields.join(", ")}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -90,7 +137,11 @@ export async function generateMetadata({
   const seoCanonicalPath = pathFromCanonicalUrl(seo?.surface?.canonicalUrl ?? seo?.meta.canonical, canonicalPath);
   const title = seo?.surface?.title || seo?.meta.title || job.title;
   const description = seo?.surface?.description || seo?.meta.description || job.summary;
-  const noindex = !job.isIndexable || shouldNoindex(seo?.meta.robots ?? job.seoMeta?.robots);
+  const explicitIndexGate = resolveCareerExplicitIndexGate(job, seo);
+  const noindex =
+    !job.isIndexable ||
+    !job.renderState.canIndexPage ||
+    shouldNoindex(seo?.meta.robots ?? job.seoMeta?.robots);
   const metadata = buildPageMetadata({
     locale,
     pathname: seoCanonicalPath,
@@ -98,7 +149,8 @@ export async function generateMetadata({
     description,
     imagePath: seo?.surface?.og.image ?? seo?.meta.og.image ?? job.coverImageUrl ?? undefined,
     seoSurface: seo?.surface,
-    noindex: !seo?.surface ? noindex : undefined,
+    explicitIndexGate,
+    noindex,
     alternatesByLocale: {
       en: buildCareerJobFrontendUrl("en", job.slug),
       zh: buildCareerJobFrontendUrl("zh", job.slug),
@@ -160,6 +212,7 @@ export default async function CareerJobDetailPage({
 
   const canonicalPath = buildCanonicalPath(job.slug, locale);
   const landingSurface = job.landingSurface;
+  const renderState = job.renderState;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
@@ -167,15 +220,18 @@ export default async function CareerJobDetailPage({
     { name: job.title, path: canonicalPath },
   ]);
   const showFitCard =
-    job.fitPersonalityItems.length > 0 ||
-    job.mbtiPrimary.length > 0 ||
-    job.mbtiSecondary.length > 0 ||
-    hasRiasecData(job.riasecVector) ||
-    Boolean(job.outlookText);
+    renderState.canRenderFitSurface &&
+    (job.fitPersonalityItems.length > 0 ||
+      job.mbtiPrimary.length > 0 ||
+      job.mbtiSecondary.length > 0 ||
+      hasRiasecData(job.riasecVector) ||
+      (renderState.canRenderOutlookSurface && Boolean(job.outlookText)));
 
   return (
     <Container as="main" className="space-y-6 py-10">
-      {seo?.jsonld ? <JsonLd id={`career-job-occupation-${job.slug}`} data={seo.jsonld} /> : null}
+      {renderState.canRenderStructuredData && seo?.jsonld ? (
+        <JsonLd id={`career-job-occupation-${job.slug}`} data={seo.jsonld} />
+      ) : null}
       <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={breadcrumbJsonLd} />
       <Breadcrumb
         items={[
@@ -194,6 +250,7 @@ export default async function CareerJobDetailPage({
         ) : null}
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{job.title}</h1>
         {job.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{job.summary}</p> : null}
+        {renderCareerJobProtocolStatus(job, locale)}
         {landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="career-job-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
@@ -248,15 +305,30 @@ export default async function CareerJobDetailPage({
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "薪资水平" : "Salary range"}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-            <p className="m-0">{job.salaryText || (locale === "zh" ? "暂未提供" : "Not available yet")}</p>
-            {job.outlookText ? <p className="m-0">{job.outlookText}</p> : null}
-          </CardContent>
-        </Card>
+        {renderState.canRenderSalarySurface ? (
+          <Card data-testid="career-job-salary-surface">
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "薪资水平" : "Salary range"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">{job.salaryText || (locale === "zh" ? "暂未提供" : "Not available yet")}</p>
+              {renderState.canRenderOutlookSurface && job.outlookText ? <p className="m-0">{job.outlookText}</p> : null}
+            </CardContent>
+          </Card>
+        ) : (
+          <Card data-testid="career-job-claim-gated-status">
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "职业结论闸门" : "Career claim gate"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">
+                {locale === "zh"
+                  ? "薪资、前景与适配性等强结论内容需要显式 claim permissions。当前页面保持保守，不显示未放行内容。"
+                  : "Salary, outlook, and fit claims require explicit claim permissions. This page stays conservative until those gates are available."}
+              </p>
+            </CardContent>
+          </Card>
+        )}
 
         <Card>
           <CardHeader>
@@ -301,7 +373,7 @@ export default async function CareerJobDetailPage({
                 {" "}S {job.riasecVector.S ?? "-"} · E {job.riasecVector.E ?? "-"} · C {job.riasecVector.C ?? "-"}
               </p>
             ) : null}
-            {job.outlookText ? (
+            {renderState.canRenderOutlookSurface && job.outlookText ? (
               <p className="m-0">
                 {locale === "zh" ? "未来展望" : "Future outlook"}: {job.outlookText}
               </p>
@@ -335,11 +407,13 @@ export default async function CareerJobDetailPage({
         </section>
       ) : null}
 
-      <AnswerSurfaceSection
-        surface={job.answerSurface}
-        locale={locale}
-        testId="career-job-answer-surface"
-      />
+      {renderState.canRenderAnswerSurface ? (
+        <AnswerSurfaceSection
+          surface={job.answerSurface}
+          locale={locale}
+          testId="career-job-answer-surface"
+        />
+      ) : null}
 
       {landingSurface?.ctaBundle.length ? (
         <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="career-job-landing-cta">

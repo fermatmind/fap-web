@@ -7,6 +7,7 @@ export type SeoSurfaceViewModel = {
   metadataScope: string;
   surfaceType: string;
   canonicalUrl: string | null;
+  canonicalPath: string | null;
   robotsPolicy: string;
   title: string;
   description: string;
@@ -26,7 +27,11 @@ export type SeoSurfaceViewModel = {
   alternates: Record<string, string>;
   structuredDataKeys: string[];
   indexabilityState: string;
+  indexEligible: boolean | null;
+  indexState: string;
   sitemapState: string;
+  datasetEligible: boolean | null;
+  articleEligible: boolean | null;
   llmsExposureState: string;
   shareSafetyState: string | null;
   publicSummaryFingerprint: string | null;
@@ -61,6 +66,26 @@ function normalizeStringMap(value: unknown): Record<string, string> {
   return normalized;
 }
 
+function normalizeBoolean(value: unknown): boolean | null {
+  return typeof value === "boolean" ? value : null;
+}
+
+function pathFromCanonicalUrl(value: string | null): string | null {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    return new URL(value).pathname || null;
+  } catch {
+    return value.startsWith("/") ? value : null;
+  }
+}
+
+function readExtraField(raw: SeoSurfaceRaw, field: string): unknown {
+  return (raw as Record<string, unknown>)[field];
+}
+
 export function normalizeSeoSurface(raw: SeoSurfaceRaw | null | undefined): SeoSurfaceViewModel | null {
   if (!raw || typeof raw !== "object") {
     return null;
@@ -84,6 +109,7 @@ export function normalizeSeoSurface(raw: SeoSurfaceRaw | null | undefined): SeoS
     metadataScope: normalizeText(raw.metadata_scope),
     surfaceType: normalizeText(raw.surface_type),
     canonicalUrl,
+    canonicalPath: pathFromCanonicalUrl(canonicalUrl),
     robotsPolicy: normalizeText(raw.robots_policy || "index,follow") || "index,follow",
     title,
     description,
@@ -105,7 +131,11 @@ export function normalizeSeoSurface(raw: SeoSurfaceRaw | null | undefined): SeoS
       ? raw.structured_data_keys.map((item) => normalizeText(item)).filter(Boolean)
       : [],
     indexabilityState: normalizeText(raw.indexability_state),
+    indexEligible: normalizeBoolean(readExtraField(raw, "index_eligible")),
+    indexState: normalizeText(readExtraField(raw, "index_state") || raw.indexability_state),
     sitemapState: normalizeText(raw.sitemap_state),
+    datasetEligible: normalizeBoolean(readExtraField(raw, "dataset_eligible")),
+    articleEligible: normalizeBoolean(readExtraField(raw, "article_eligible")),
     llmsExposureState: normalizeText(raw.llms_exposure_state),
     shareSafetyState: normalizeNullableText(raw.share_safety_state),
     publicSummaryFingerprint: normalizeNullableText(raw.public_summary_fingerprint),

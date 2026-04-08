@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getSiteUrlOrThrow } from "@/lib/site";
-import { shouldNoindex } from "@/lib/seo/indexingPolicy";
+import { shouldNoindex, type ExplicitIndexGate } from "@/lib/seo/indexingPolicy";
 import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
 export type TwitterImages = NonNullable<NonNullable<Metadata["twitter"]>["images"]>;
@@ -14,6 +14,7 @@ type BuildPageMetadataInput = {
   imagePath?: string;
   noindex?: boolean;
   seoSurface?: SeoSurfaceViewModel | null;
+  explicitIndexGate?: ExplicitIndexGate | null;
   alternatesByLocale: {
     en: string;
     zh: string;
@@ -81,7 +82,7 @@ export function buildPageMetadata(input: BuildPageMetadataInput): Metadata {
       ? input.noindex
       : robotsPolicy
         ? robotsPolicy.toLowerCase().split(",").map((part) => part.trim()).includes("noindex")
-        : shouldNoindex(input.pathname, input.locale);
+        : shouldNoindex(input.pathname, input.locale, undefined, input.explicitIndexGate);
   const title = input.seoSurface?.title || input.title;
   const description = input.seoSurface?.description || input.description;
   const alternates = input.seoSurface?.alternates || {};

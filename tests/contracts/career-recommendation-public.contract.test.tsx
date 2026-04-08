@@ -163,6 +163,51 @@ describe("career recommendation public adapter contract", () => {
           route_mode: "public_variant",
           authority_source: "career_recommendation_service.v1",
         },
+        trust_manifest: {
+          manifest_version: "trust_manifest.v1",
+          entity_id: "occ_intj_a",
+          page_type: "career_recommendation_detail",
+          page_slug: "intj-a",
+          content_version: "content.v1",
+          data_version: "data.v1",
+          logic_version: "logic.v1",
+          locale_context: {
+            truth_market: "US",
+            display_market: "CN",
+            locale: "zh-CN",
+          },
+          source_trace: [],
+          methodology: {
+            crosswalk_mode: "trust_inheritance",
+            derivation_policy: "recommendation_projection",
+            notes: [],
+          },
+          reviewer: {
+            reviewed: true,
+            reviewer_id: "career_editor",
+            reviewer_status: "approved",
+          },
+          ai_assistance: {
+            used: true,
+            summary: "surface drafting only",
+          },
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+          last_substantive_update_at: "2026-04-08T00:00:00.000Z",
+          next_review_due_at: "2026-07-08T00:00:00.000Z",
+        },
+        claim_permissions: {
+          allow_strong_claim: true,
+          allow_salary_comparison: false,
+          allow_ai_strategy: true,
+          allow_transition_recommendation: true,
+          allow_cross_market_pay_copy: false,
+          reason_codes: [],
+        },
         seo_surface_v1: {
           metadata_contract_version: "seo.surface.v1",
           metadata_fingerprint: "career-seo-fingerprint",
@@ -255,6 +300,8 @@ describe("career recommendation public adapter contract", () => {
     expect(detail?.careerDataStatus).toBe("available");
     expect(detail?.renderState.canRenderStrongTruth).toBe(true);
     expect(detail?.renderState.canIndexPage).toBe(true);
+    expect(detail?.protocol.claimPermissions.allow_strong_claim).toBe(true);
+    expect(detail?.protocol.trustManifest?.quality.complete).toBe(true);
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
@@ -279,9 +326,55 @@ describe("career recommendation public adapter contract", () => {
           metadata_contract_version: "seo.surface.v1",
           surface_type: "career_recommendation_public_detail",
           canonical_url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
+          indexability_state: "indexable",
         },
         _meta: {
           authority_source: "career_recommendation_service.v1",
+        },
+        trust_manifest: {
+          manifest_version: "trust_manifest.v1",
+          entity_id: "occ_intj_a",
+          page_type: "career_recommendation_detail",
+          page_slug: "intj-a",
+          content_version: "content.v1",
+          data_version: "data.v1",
+          logic_version: "logic.v1",
+          locale_context: {
+            truth_market: "US",
+            display_market: "CN",
+            locale: "zh-CN",
+          },
+          source_trace: [],
+          methodology: {
+            crosswalk_mode: "trust_inheritance",
+            derivation_policy: "recommendation_projection",
+            notes: [],
+          },
+          reviewer: {
+            reviewed: true,
+            reviewer_id: "career_editor",
+            reviewer_status: "approved",
+          },
+          ai_assistance: {
+            used: true,
+            summary: "surface drafting only",
+          },
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+          last_substantive_update_at: "2026-04-08T00:00:00.000Z",
+          next_review_due_at: "2026-07-08T00:00:00.000Z",
+        },
+        claim_permissions: {
+          allow_strong_claim: true,
+          allow_salary_comparison: false,
+          allow_ai_strategy: true,
+          allow_transition_recommendation: true,
+          allow_cross_market_pay_copy: false,
+          reason_codes: [],
         },
       },
       "zh"
@@ -296,6 +389,55 @@ describe("career recommendation public adapter contract", () => {
     expect(detail?.renderState.missingFields).toContain("answer_surface_v1");
   });
 
+  it("blocks strong rendering when explicit claim permissions are missing", () => {
+    const detail = normalizeCareerRecommendationDetail(
+      {
+        runtime_type_code: "INTJ-A",
+        canonical_type_code: "INTJ",
+        display_type: "INTJ-A",
+        public_route_slug: "intj-a",
+        graph_type_code: "INTJ",
+        type_name: "Architect",
+        hero_summary: "Assertive architect summary.",
+        matched_jobs: [
+          {
+            slug: "product-strategist",
+            title: "Product Strategist",
+          },
+        ],
+        seo_surface_v1: {
+          metadata_contract_version: "seo.surface.v1",
+          surface_type: "career_recommendation_public_detail",
+          canonical_url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
+          indexability_state: "indexable",
+        },
+        answer_surface_v1: {
+          answer_contract_version: "answer.surface.v1",
+          answer_scope: "public_indexable_detail",
+          surface_type: "career_recommendation_public_detail",
+          summary_blocks: [
+            {
+              key: "career_summary",
+              body: "Architects thrive in systems work.",
+            },
+          ],
+        },
+        _meta: {
+          authority_source: "career_recommendation_service.v1",
+        },
+      },
+      "zh"
+    );
+
+    expect(detail).not.toBeNull();
+    expect(detail?.careerDataStatus).toBe("trust_limited");
+    expect(detail?.renderState.canRenderStrongTruth).toBe(false);
+    expect(detail?.renderState.canRenderMatchedJobs).toBe(false);
+    expect(detail?.renderState.missingFields).toContain("claim_permissions.allow_strong_claim");
+    expect(detail?.renderState.missingFields).toContain("trust_manifest");
+    expect(detail?.protocol.claimPermissions.allow_strong_claim).toBe(false);
+  });
+
   it("career recommendation detail page redirects legacy 4-letter routes and blocks local authority fallbacks", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
@@ -307,6 +449,7 @@ describe("career recommendation public adapter contract", () => {
     expect(source).toContain("const canonical = canonicalUrl(canonicalPath);");
     expect(source).toContain("url: canonical,");
     expect(source).toContain("seoSurface: detail.seo.surface");
+    expect(source).toContain("explicitIndexGate:");
     expect(source).toContain("renderCareerDataStatus(detail, locale)");
     expect(source).toContain("renderState.canRenderStrongTruth");
     expect(source).toContain("data-career-data-status={detail.careerDataStatus}");

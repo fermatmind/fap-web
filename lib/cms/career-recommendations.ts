@@ -2,6 +2,15 @@ import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import {
+  createUnavailableCareerScoreResult,
+  normalizeCareerAssetMaster,
+  normalizeCareerClaimPermissions,
+  normalizeCareerTrustManifest,
+  type CareerAssetMaster,
+  type CareerClaimPermissions,
+  type CareerTrustManifest,
+} from "@/lib/career/contracts";
+import {
   getCareerRecommendationRenderState,
   type CareerDataStatus,
   type CareerRecommendationRenderState,
@@ -81,9 +90,18 @@ type CmsCareerRecommendationDetailApiResponse = CmsCareerRecommendationListItemA
   seo_surface_v1?: SeoSurfaceRaw | null;
   landing_surface_v1?: LandingSurfaceRaw | null;
   answer_surface_v1?: AnswerSurfaceRaw | null;
+  career_asset_master_v4_1?: unknown;
+  trust_manifest?: unknown;
+  claim_permissions?: unknown;
 };
 
-export type CareerRecommendationListItem = {
+export type CareerRecommendationProtocolBundle = {
+  careerAsset: CareerAssetMaster | null;
+  trustManifest: CareerTrustManifest | null;
+  claimPermissions: CareerClaimPermissions;
+};
+
+export type CareerRecommendationListAdapterItem = {
   careerDataStatus: CareerDataStatus;
   runtimeTypeCode: string;
   canonicalTypeCode: string;
@@ -180,8 +198,9 @@ export type CareerRecommendationSeoViewModel = {
   surface: SeoSurfaceViewModel | null;
 };
 
-export type CareerRecommendationDetail = CareerRecommendationListItem & {
+export type CareerRecommendationAdapterDetail = CareerRecommendationListAdapterItem & {
   renderState: CareerRecommendationRenderState;
+  protocol: CareerRecommendationProtocolBundle;
   graphTypeCode: string;
   keywords: string[];
   career: {
@@ -202,6 +221,18 @@ export type CareerRecommendationDetail = CareerRecommendationListItem & {
     authoritySource: string | null;
   };
 };
+
+/**
+ * @deprecated Adapter-layer export retained for existing page imports.
+ * The canonical protocol authority now lives under `lib/career/contracts`.
+ */
+export type CareerRecommendationListItem = CareerRecommendationListAdapterItem;
+
+/**
+ * @deprecated Adapter-layer export retained for existing page imports.
+ * The canonical protocol authority now lives under `lib/career/contracts`.
+ */
+export type CareerRecommendationDetail = CareerRecommendationAdapterDetail;
 
 const DEFAULT_ORG_ID = "0";
 
@@ -315,6 +346,212 @@ function normalizeAbsoluteUrl(value: string | null | undefined, fallbackPath: st
   }
 
   return fallbackPath ? canonicalUrl(fallbackPath) : null;
+}
+
+function readDetailExtraField(raw: CmsCareerRecommendationDetailApiResponse, field: string): unknown {
+  return (raw as Record<string, unknown>)[field];
+}
+
+function normalizeBoolean(value: unknown): boolean | null {
+  return typeof value === "boolean" ? value : null;
+}
+
+function normalizeNumber(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+
+  if (typeof value === "string" && value.trim()) {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  return null;
+}
+
+function isIndexEligibleFromLegacyState(indexState: string | null): boolean | null {
+  const normalized = normalizeText(indexState).toLowerCase();
+  if (!normalized) {
+    return null;
+  }
+
+  if (normalized === "indexable" || normalized === "promotion_candidate" || normalized === "seed_index") {
+    return true;
+  }
+
+  if (normalized === "noindex" || normalized === "blocked" || normalized === "excluded") {
+    return false;
+  }
+
+  return null;
+}
+
+function buildRecommendationProtocolBundle(
+  raw: CmsCareerRecommendationDetailApiResponse,
+  locale: Locale | string,
+  listItem: CareerRecommendationListAdapterItem,
+  seoSurface: SeoSurfaceViewModel | null
+): CareerRecommendationProtocolBundle {
+  const explicitAsset = normalizeCareerAssetMaster(raw.career_asset_master_v4_1 ?? readDetailExtraField(raw, "career_asset"));
+  const trustManifest = normalizeCareerTrustManifest(raw.trust_manifest ?? readDetailExtraField(raw, "trust_manifest"));
+  const claimPermissions = normalizeCareerClaimPermissions(
+    raw.claim_permissions ?? readDetailExtraField(raw, "claim_permissions")
+  );
+
+  if (explicitAsset) {
+    return {
+      careerAsset: {
+        ...explicitAsset,
+        claim_permissions: claimPermissions,
+      },
+      trustManifest,
+      claimPermissions,
+    };
+  }
+
+  const canonicalPath = buildCareerRecommendationFrontendUrl(locale, listItem.publicRouteSlug);
+  const legacyIndexState = normalizeNullableText(
+    readDetailExtraField(raw, "index_state"),
+    seoSurface?.indexState,
+    seoSurface?.indexabilityState
+  );
+  const legacyIndexEligible =
+    normalizeBoolean(readDetailExtraField(raw, "index_eligible")) ?? isIndexEligibleFromLegacyState(legacyIndexState);
+  const titleZh = normalizeNullableText(raw.type_name, raw.display_type);
+  const authoritySource = normalizeNullableText(raw._meta?.authority_source);
+
+  return {
+    careerAsset: {
+      envelope: {
+        asset_version: "career_asset_master_v4.1",
+        schema_version: "career.asset_master.schema.v4.1",
+        protocol_version: "career.protocol.v1",
+        generated_at: null,
+        content_version: "unknown",
+        data_version: "unknown",
+        logic_version: "unknown",
+      },
+      identity: {
+        occupation_uuid: normalizeNullableText(readDetailExtraField(raw, "occupation_uuid"), readDetailExtraField(raw, "occupation_uid")),
+        canonical_slug: listItem.publicRouteSlug,
+        entity_level: "mbti_recommendation_detail",
+        family_uuid: null,
+        parent_uuid: null,
+      },
+      locale_policy: {
+        truth_market: null,
+        display_market: normalizeLocale(locale) === "zh" ? "CN" : "US",
+        crosswalk_mode: null,
+        locale_warning: null,
+        truth_notice_required: false,
+      },
+      titles: {
+        canonical_en: normalizeNullableText(raw.type_name),
+        canonical_zh: titleZh,
+        search_h1_zh: titleZh,
+        short_title_en: normalizeNullableText(raw.display_type),
+        short_title_zh: titleZh,
+      },
+      alias_index: [],
+      ontology: {
+        task_prototype_signature: {},
+        structural_stability: null,
+        task_prototype_overlap: null,
+        market_semantics_gap: null,
+        regulatory_divergence: null,
+        toolchain_divergence: null,
+        skill_gap_threshold: null,
+        trust_inheritance_scope: {},
+      },
+      crosswalks: {
+        us_soc: [],
+        cn_occ: [],
+        market_titles: [],
+      },
+      truth_layer: {
+        source_refs: authoritySource ? [authoritySource] : [],
+        median_pay_usd_annual: null,
+        jobs_2024: null,
+        projected_jobs_2034: null,
+        employment_change: null,
+        outlook_pct_2024_2034: null,
+        outlook_description: null,
+        entry_education: null,
+        work_experience: null,
+        on_the_job_training: null,
+        ai_exposure: null,
+        ai_rationale: null,
+        bls_url: null,
+        truth_last_reviewed_at: null,
+      },
+      derived_signals: {
+        ai_risk_band: null,
+        growth_band: null,
+        pay_band: null,
+        entry_barrier: null,
+        human_moat_tags: [],
+        work_structure_tags: [],
+        collaboration_load: null,
+        abstraction_level: null,
+        autonomy_level: null,
+        variability_level: null,
+        people_intensity: null,
+        closure_demand: null,
+        cadence_rigidity: null,
+        process_repeatability: null,
+        deadline_hardness: null,
+        likely_fit_types: [listItem.canonicalTypeCode],
+        likely_strain_types: [],
+        derivation_refs: authoritySource ? [authoritySource] : [],
+      },
+      scoring: {
+        fit_score: createUnavailableCareerScoreResult("score_result.fit_score"),
+        strain_score: createUnavailableCareerScoreResult("score_result.strain_score"),
+        ai_survival_score: createUnavailableCareerScoreResult("score_result.ai_survival_score"),
+        mobility_score: createUnavailableCareerScoreResult("score_result.mobility_score"),
+        confidence_score: {
+          ...createUnavailableCareerScoreResult("score_result.confidence_score"),
+          value: normalizeNumber(readDetailExtraField(raw, "confidence_score")),
+          integrity_state: "missing",
+        },
+      },
+      warnings: {
+        red_flags: [],
+        amber_flags: [],
+        blocked_claims: claimPermissions.reason_codes,
+      },
+      claim_permissions: claimPermissions,
+      transition_seed: {
+        bridge_candidate_refs: [],
+        hedge_candidate_refs: [],
+        stable_upside_candidate_refs: [],
+      },
+      seo_contract: {
+        route_family: "career_recommendation_mbti_detail",
+        canonical_path: canonicalPath,
+        index_state: legacyIndexState,
+        index_eligible: legacyIndexEligible,
+        dataset_eligible: normalizeBoolean(readDetailExtraField(raw, "dataset_eligible")),
+        article_eligible: normalizeBoolean(readDetailExtraField(raw, "article_eligible")),
+        canonical_target: seoSurface?.canonicalUrl ?? normalizeAbsoluteUrl(raw.seo?.canonical, canonicalPath),
+      },
+      trust_contract: {
+        trust_manifest_ref: trustManifest ? `${trustManifest.entity_id}:${trustManifest.page_type}:${trustManifest.page_slug}` : null,
+        review_required: !trustManifest,
+        editorial_patch_required: !trustManifest,
+        editorial_patch_status: trustManifest ? "provided" : "missing",
+      },
+      audit: {
+        created_by: authoritySource,
+        reviewed_by: trustManifest?.reviewer.reviewer_id ?? null,
+        created_at: null,
+        last_substantive_update_at: trustManifest?.last_substantive_update_at ?? null,
+        schema_hash: null,
+      },
+    },
+    trustManifest,
+    claimPermissions,
+  };
 }
 
 function normalizeApiLocale(locale: Locale | string): "en" | "zh-CN" {
@@ -446,7 +683,7 @@ export function buildCareerRecommendationFrontendUrl(locale: Locale | string, sl
 export function normalizeCareerRecommendationListItem(
   raw: CmsCareerRecommendationListItemApi,
   locale: Locale | string
-): CareerRecommendationListItem | null {
+): CareerRecommendationListAdapterItem | null {
   const publicRouteSlug = normalizeCareerRecommendationSlug(raw.public_route_slug);
   const canonicalTypeCode = normalizeText(raw.canonical_type_code).toUpperCase();
   const displayType = normalizeText(raw.display_type, raw.runtime_type_code, canonicalTypeCode).toUpperCase();
@@ -472,7 +709,7 @@ export function normalizeCareerRecommendationListItem(
 export function normalizeCareerRecommendationDetail(
   raw: CmsCareerRecommendationDetailApiResponse | null,
   locale: Locale | string
-): CareerRecommendationDetail | null {
+): CareerRecommendationAdapterDetail | null {
   if (!raw) {
     return null;
   }
@@ -487,18 +724,23 @@ export function normalizeCareerRecommendationDetail(
   const landingSurface = normalizeLandingSurface(raw.landing_surface_v1 ?? null);
   const answerSurface = normalizeAnswerSurface(raw.answer_surface_v1 ?? null);
   const seoSurface = normalizeSeoSurface(raw.seo_surface_v1 ?? null);
+  const protocol = buildRecommendationProtocolBundle(raw, locale, listItem, seoSurface);
   const renderState = getCareerRecommendationRenderState({
     answerSurface,
     landingSurface,
     seoSurface,
     matchedJobs: asArray(raw.matched_jobs).filter(isCareerRecommendationMatchedJobApi),
     authoritySource: normalizeNullableText(raw._meta?.authority_source),
+    claimPermissions: protocol.claimPermissions,
+    trustManifest: protocol.trustManifest,
+    careerAsset: protocol.careerAsset,
   });
 
   return {
     ...listItem,
     careerDataStatus: renderState.careerDataStatus,
     renderState,
+    protocol,
     graphTypeCode: normalizeText(raw.graph_type_code, listItem.canonicalTypeCode).toUpperCase(),
     keywords: uniqueStrings(asArray(raw.keywords).map((item) => normalizeText(item)).filter(Boolean)),
     career: {
@@ -533,7 +775,7 @@ export function normalizeCareerRecommendationDetail(
   };
 }
 
-export async function listMbtiCareerRecommendations(locale: Locale | string): Promise<CareerRecommendationListItem[]> {
+export async function listMbtiCareerRecommendations(locale: Locale | string): Promise<CareerRecommendationListAdapterItem[]> {
   const query = buildQuery({
     locale: normalizeApiLocale(locale),
     org_id: DEFAULT_ORG_ID,
@@ -552,7 +794,7 @@ export async function listMbtiCareerRecommendations(locale: Locale | string): Pr
     return asArray(response.items)
       .filter(isCareerRecommendationListItemApi)
       .map((item) => normalizeCareerRecommendationListItem(item, locale))
-      .filter((item): item is CareerRecommendationListItem => item !== null);
+      .filter((item): item is CareerRecommendationListAdapterItem => item !== null);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return [];
@@ -565,7 +807,7 @@ export async function listMbtiCareerRecommendations(locale: Locale | string): Pr
 export async function getMbtiCareerRecommendationByType(
   locale: Locale | string,
   type: string
-): Promise<CareerRecommendationDetail | null> {
+): Promise<CareerRecommendationAdapterDetail | null> {
   const normalizedType = normalizeText(type);
   if (!normalizedType) {
     return null;
