@@ -79,6 +79,28 @@
   --fm-shadow-lg: 0 24px 56px rgba(19, 41, 71, 0.18);
   --fm-radius-lg: 1rem;
   --fm-radius-xl: 1.25rem;
+
+  --fm-hub-navy: #17324d;
+  --fm-hub-navy-strong: #0f2437;
+  --fm-hub-decision-green: #1c6b57;
+  --fm-hub-decision-green-soft: #e6f3ee;
+  --fm-hub-friction-rose: #9e4b63;
+  --fm-hub-friction-rose-soft: #f9edf1;
+  --fm-hub-shell-bg: linear-gradient(180deg, #f7fafc 0%, #f1f6fa 100%);
+  --fm-hub-hero-bg: linear-gradient(135deg, rgba(23, 50, 77, 0.06) 0%, rgba(28, 107, 87, 0.04) 100%);
+  --fm-hub-panel-bg: #ffffff;
+  --fm-hub-panel-muted-bg: #f7fafc;
+  --fm-hub-matrix-bg: #f4f8fb;
+  --fm-hub-rail-bg: rgba(23, 50, 77, 0.04);
+  --fm-hub-sticky-bg: rgba(255, 255, 255, 0.94);
+  --fm-hub-sticky-border: rgba(13, 41, 74, 0.12);
+  --fm-hub-heading-display: clamp(2.5rem, 4vw, 4rem);
+  --fm-hub-heading-section: clamp(1.5rem, 2.2vw, 2.25rem);
+  --fm-hub-body-lg: 1.125rem;
+  --fm-hub-body-sm: 0.9375rem;
+  --fm-hub-density-compact: 0.75rem;
+  --fm-hub-density-comfortable: 1rem;
+  --fm-hub-density-spacious: 1.5rem;
 }
 
 @media (min-width: 768px) {

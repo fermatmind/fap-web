@@ -8,67 +8,16 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
+import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
-import { MBTI_TYPE_GROUPS } from "@/lib/mbti/mbtiTypeContentPack";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
-
-const MBTI_GROUP_ORDER = ["NT", "NF", "SJ", "SP"] as const;
-
-const MBTI_GROUP_META = {
-  NT: {
-    en: {
-      title: "Analysts",
-      body: "Strategy-first types that lean on abstraction, systems thinking, and long-range pattern reading.",
-    },
-    zh: {
-      title: "分析家",
-      body: "更偏抽象、策略、系统化判断的类型组，适合从长期结构和模式中做决策。",
-    },
-  },
-  NF: {
-    en: {
-      title: "Diplomats",
-      body: "Meaning-led types that read people, values, and future possibility before locking a direction.",
-    },
-    zh: {
-      title: "外交家",
-      body: "更关注意义、关系和未来可能性的类型组，适合从价值与人际动力里理解自己。",
-    },
-  },
-  SJ: {
-    en: {
-      title: "Sentinels",
-      body: "Stability-led types that organize commitments, routines, and dependable systems around real-world execution.",
-    },
-    zh: {
-      title: "守护者",
-      body: "更偏稳定、秩序和责任落实的类型组，适合从执行、协作和长期承诺里理解自己。",
-    },
-  },
-  SP: {
-    en: {
-      title: "Explorers",
-      body: "Action-led types that read the moment quickly, respond with flexibility, and test through direct contact.",
-    },
-    zh: {
-      title: "探索者",
-      body: "更偏行动、当下反馈和灵活应变的类型组，适合从现场感与真实体验里理解自己。",
-    },
-  },
-} as const;
-
-const MBTI_GROUP_LABEL_BY_TYPE = Object.fromEntries(
-  MBTI_GROUP_ORDER.flatMap((groupKey) =>
-    MBTI_TYPE_GROUPS[groupKey].map((typeCode) => [typeCode, groupKey])
-  )
-) as Record<string, (typeof MBTI_GROUP_ORDER)[number]>;
 
 export async function generateMetadata({
   params,
@@ -113,6 +62,12 @@ export default async function PersonalityPage({
     },
   }));
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
+  const hubPayload = buildPersonalityHubPayload({
+    locale,
+    canonicalPath,
+    personalities,
+    landingSurface,
+  });
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -152,49 +107,6 @@ export default async function PersonalityPage({
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "人格" : "Personality", path: canonicalPath },
   ]);
-  const personalityByType = new Map(
-    personalities.map((personality) => [String(personality.typeCode ?? "").toUpperCase(), personality])
-  );
-  const personalityFamilies = MBTI_GROUP_ORDER.map((groupKey) => {
-    const meta = MBTI_GROUP_META[groupKey][locale];
-    const items = MBTI_TYPE_GROUPS[groupKey].map((typeCode) => {
-      const personality = personalityByType.get(typeCode);
-
-      return {
-        typeCode,
-        href: withLocale(`/personality/${buildDefaultPublicPersonalitySlug(typeCode)}`),
-        title: personality?.title || typeCode,
-        excerpt:
-          personality?.excerpt ||
-          personality?.subtitle ||
-          meta.body,
-      };
-    });
-
-    return {
-      groupKey,
-      id: groupKey.toLowerCase(),
-      title: meta.title,
-      body: meta.body,
-      items,
-    };
-  });
-  const allPersonalityCards = MBTI_GROUP_ORDER.flatMap((groupKey) => {
-    const groupMeta = MBTI_GROUP_META[groupKey][locale];
-
-    return MBTI_TYPE_GROUPS[groupKey].map((typeCode) => {
-      const personality = personalityByType.get(typeCode);
-
-      return {
-        typeCode,
-        href: withLocale(`/personality/${buildDefaultPublicPersonalitySlug(typeCode)}`),
-        title: personality?.title || typeCode,
-        excerpt: personality?.excerpt || personality?.subtitle || groupMeta.body,
-        groupKey,
-        groupTitle: groupMeta.title,
-      };
-    });
-  });
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -216,9 +128,7 @@ export default async function PersonalityPage({
           {locale === "zh" ? "人格类型" : "Personality types"}
         </h1>
         <p className="m-0 text-[var(--fm-text-muted)]">
-          {landingSurface?.summaryBlocks[0]?.body || (locale === "zh"
-            ? "16 型人格的优势、风险、关系模式与职业方向。"
-            : "Strengths, risks, relationship patterns, and career direction across all 16 types.")}
+          {hubPayload.hero.summary}
         </p>
         <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-personality-index-entry-cta-group">
           <TrackedEntryCtaLink
@@ -239,15 +149,11 @@ export default async function PersonalityPage({
           </Link>
         </div>
         <div className="flex flex-wrap gap-2 pt-1" data-testid="mbti-personality-index-discoverability-links">
-          <Link href={`${canonicalPath}#mbti-family-groups`} className="fm-help-chip-link">
-            {locale === "zh" ? "按类型组浏览 16 型" : "Browse all 16 by family"}
-          </Link>
-          <Link href={mbtiCareerRecommendationHubHref} className="fm-help-chip-link">
-            {locale === "zh" ? "查看职业推荐目录" : "Browse career recommendations"}
-          </Link>
-          <Link href={mbtiTopicHubHref} className="fm-help-chip-link">
-            {locale === "zh" ? "进入 MBTI 主题中心" : "Open the MBTI topic hub"}
-          </Link>
+          {hubPayload.hero.discoverabilityLinks.map((link) => (
+            <Link key={link.label} href={link.href} className="fm-help-chip-link">
+              {link.label}
+            </Link>
+          ))}
         </div>
         <p className="m-0 text-xs text-[var(--fm-text-muted)]">
           {locale === "zh"
@@ -284,21 +190,21 @@ export default async function PersonalityPage({
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
-          {personalityFamilies.map((family) => (
+          {hubPayload.familyGroups.map((family) => (
             <Card
               key={family.groupKey}
-              id={family.id}
+              id={family.groupKey.toLowerCase()}
               className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]"
             >
               <CardHeader className="space-y-2">
                 <CardTitle className="font-serif text-[var(--fm-text)]">
                   {family.groupKey} · {family.title}
                 </CardTitle>
-                <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{family.body}</p>
+                <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{family.summary}</p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2">
-                  {family.items.map((item) => {
+                  {family.cards.map((item) => {
                     return (
                       <Link
                         key={`${family.groupKey}-${item.typeCode}`}
@@ -324,7 +230,7 @@ export default async function PersonalityPage({
         </div>
       </section>
 
-      {allPersonalityCards.length > 0 ? (
+      {hubPayload.typeDecisionCards.length > 0 ? (
         <div className="space-y-3" data-testid="mbti-personality-directory-grid">
           <div className="space-y-1">
             <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">
@@ -337,7 +243,7 @@ export default async function PersonalityPage({
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {allPersonalityCards.map((personality) => (
+          {hubPayload.typeDecisionCards.map((personality) => (
             <Card
               key={personality.typeCode}
               className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]"
@@ -347,7 +253,7 @@ export default async function PersonalityPage({
                   {personality.typeCode} · {personality.title}
                 </CardTitle>
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                  {MBTI_GROUP_LABEL_BY_TYPE[personality.typeCode]} · {personality.groupTitle}
+                  {personality.groupKey} · {personality.groupTitle}
                 </p>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
