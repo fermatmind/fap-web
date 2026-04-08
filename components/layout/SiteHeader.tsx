@@ -314,7 +314,7 @@ export function SiteHeader() {
               <LocaleSwitcher />
 
               <Link
-                href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
+                href={withLocale("/tests/mbti-personality-test-16-personality-types")}
                 className={startButtonClass}
               >
                 {dict.header.start}
@@ -430,7 +430,7 @@ export function SiteHeader() {
             <div className="shrink-0 border-t border-white/15 bg-slate-950/20 p-4">
               <div className="flex items-center gap-2">
                 <Link
-                  href={withLocale("/tests/mbti-personality-test-16-personality-types/take")}
+                  href={withLocale("/tests/mbti-personality-test-16-personality-types")}
                   className={`${buttonVariants({ size: "sm" })} flex-1 justify-center`}
                   onClick={handleMobileLinkClick}
                 >

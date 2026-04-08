@@ -539,6 +539,7 @@ export default async function TestLandingPage({
         entrySurface: "mbti_test_landing",
         sourcePageType: "test_landing",
         targetAction: "entry_view",
+        sourcePath: mbtiLandingPath,
       })
     : null;
   const mbtiPrimaryClickTrackingProps = mbtiPrimaryChoice
@@ -549,6 +550,7 @@ export default async function TestLandingPage({
         entrySurface: "mbti_test_landing",
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_primary",
+        sourcePath: mbtiLandingPath,
       })
     : null;
   const mbtiSecondaryClickTrackingProps = mbtiSecondaryChoice
@@ -559,6 +561,7 @@ export default async function TestLandingPage({
         entrySurface: "mbti_test_landing",
         sourcePageType: "test_landing",
         targetAction: "start_mbti_test_secondary",
+        sourcePath: mbtiLandingPath,
       })
     : null;
 
@@ -701,13 +704,16 @@ export default async function TestLandingPage({
             ) : showsMbtiActions ? (
               <div className="space-y-4 pt-2" data-testid="mbti-landing-entry-cta-group">
                 <div className="rounded-[1.25rem] border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                  <p className="m-0 text-sm leading-7 text-slate-600">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {locale === "zh" ? "主白名单页" : "Primary ad landing"}
+                  </p>
+                  <p className="m-0 mt-2 text-sm leading-7 text-slate-600">
                     {locale === "zh"
-                      ? "先从一个版本开始：主入口为深度版，次入口为快速版。"
-                      : "Start from one version: the deep profile is primary, and quick read remains a secondary option."}
+                      ? "先从深度版开始。快速版保留为次入口，只在你明确想要更轻量起步时使用。"
+                      : "Start with the deep profile first. Quick Read remains available as a lighter secondary entry."}
                   </p>
                 </div>
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3" data-testid="mbti-ads-primary-whitelist">
                   {mbtiPrimaryHref && mbtiPrimaryClickTrackingProps ? (
                     <TrackedEntryCtaLink
                       href={mbtiPrimaryHref}
@@ -734,10 +740,12 @@ export default async function TestLandingPage({
                       {mbtiSecondaryChoice?.ctaLabel || (locale === "zh" ? "开始快速版" : "Start Quick Read")}
                     </TrackedEntryCtaLink>
                   ) : null}
-                  <Link href={backToTestsCta?.href || withLocale("/tests")} className={buttonVariants({ variant: "outline", size: "lg" })}>
-                    {backToTestsCta?.label || (locale === "zh" ? "返回测评入口" : "Back to tests")}
-                  </Link>
                 </div>
+                <p className="m-0 text-xs text-slate-500" data-testid="mbti-landing-cta-guidance">
+                  {locale === "zh"
+                    ? "广告冷流量默认优先进入主入口；次入口仅作为轻量备选。"
+                    : "Cold traffic should default to the primary start path; the secondary entry stays as a lighter fallback."}
+                </p>
               </div>
             ) : showsBig5Actions ? (
               <div className="space-y-4 pt-2">

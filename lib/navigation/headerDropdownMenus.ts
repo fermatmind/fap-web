@@ -21,7 +21,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests/category/personality", label: "Personality & style" },
       { href: "/tests/category/career", label: "Career & direction" },
       { href: "/career/tests/riasec", label: "RIASEC career interest test" },
-      { href: "/tests/mbti-personality-test-16-personality-types/take", label: "MBTI personality test" },
+      { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI personality test" },
       { href: "/tests/big-five-personality-test-ocean-model/take", label: "Big Five personality test" },
       {
         href: "/tests/clinical-depression-anxiety-assessment-professional-edition/take",
@@ -77,7 +77,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests/category/personality", label: "人格与风格" },
       { href: "/tests/category/career", label: "职业与方向" },
       { href: "/career/tests/riasec", label: "霍兰德职业兴趣测试" },
-      { href: "/tests/mbti-personality-test-16-personality-types/take", label: "MBTI 性格测试" },
+      { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试" },
       { href: "/tests/big-five-personality-test-ocean-model/take", label: "大五人格测试" },
       {
         href: "/tests/clinical-depression-anxiety-assessment-professional-edition/take",
