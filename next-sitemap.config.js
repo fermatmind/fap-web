@@ -273,33 +273,6 @@ async function fetchJsonWithTimeout(url, timeoutMs = 1500) {
   }
 }
 
-async function buildCareerRecommendationPaths() {
-  try {
-    const [enPayload, zhPayload] = await Promise.all([
-      fetchJsonWithTimeout(buildApiUrl("/v0.5/career-recommendations/mbti?locale=en&org_id=0")),
-      fetchJsonWithTimeout(buildApiUrl("/v0.5/career-recommendations/mbti?locale=zh-CN&org_id=0")),
-    ]);
-    const paths = new Set();
-
-    for (const [localePrefix, payload] of [
-      ["en", enPayload],
-      ["zh", zhPayload],
-    ]) {
-      const items = Array.isArray(payload?.items) ? payload.items : [];
-
-      for (const item of items) {
-        const slug = normalizeSlug(item?.public_route_slug).toLowerCase();
-        if (!slug) continue;
-        paths.add(`/${localePrefix}/career/recommendations/mbti/${slug}`);
-      }
-    }
-
-    return [...paths];
-  } catch {
-    return [];
-  }
-}
-
 async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = 1500) {
   const items = [];
   let page = 1;
@@ -475,7 +448,6 @@ module.exports = {
       careerJobApiPaths,
       personalityPaths,
       topicApiPaths,
-      careerRecommendationPaths,
     ] = await Promise.all([
       buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths),
       buildValidatedCmsPaths("/v0.5/career-guides", buildCareerGuideDetailPaths),
@@ -484,7 +456,6 @@ module.exports = {
       buildValidatedCmsPaths("/v0.5/career-jobs", buildCareerJobDetailPathsFromApi),
       buildValidatedCmsPaths("/v0.5/personality", buildPersonalityDetailPaths),
       buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
-      buildValidatedCmsPaths("/v0.5/career-recommendations/mbti", buildCareerRecommendationPaths),
     ]);
 
     return [...new Set([
@@ -496,7 +467,6 @@ module.exports = {
       ...careerJobApiPaths,
       ...personalityPaths,
       ...topicApiPaths,
-      ...careerRecommendationPaths,
     ])]
       .map((path) => normalizePath(path))
       .filter((path) => shouldIncludeCmsSitemapPath(path))

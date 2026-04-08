@@ -3,6 +3,7 @@ import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildCareerRecommendationFrontendUrl,
+  getMbtiCareerRecommendationByType,
   listMbtiCareerRecommendations,
   normalizeCareerRecommendationDetail,
 } from "@/lib/cms/career-recommendations";
@@ -61,6 +62,28 @@ describe("career recommendation public adapter contract", () => {
     expect(items[0]?.displayType).toBe("INTJ-A");
     expect(items[0]?.publicRouteSlug).toBe("intj-a");
     expect(items[0]?.href).toBe("/zh/career/recommendations/mbti/intj-a");
+  });
+
+  it("returns an empty list on API failure instead of synthesizing recommendation truth", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => jsonResponse({ message: "upstream failure" }, 500))
+    );
+
+    const items = await listMbtiCareerRecommendations("zh");
+
+    expect(items).toEqual([]);
+  });
+
+  it("returns null on detail API failure instead of synthesizing recommendation truth", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => jsonResponse({ message: "upstream failure" }, 500))
+    );
+
+    const detail = await getMbtiCareerRecommendationByType("zh", "intj-a");
+
+    expect(detail).toBeNull();
   });
 
   it("normalizes detail payload from backend authority and keeps seo plus matched jobs/guides", () => {
@@ -229,14 +252,54 @@ describe("career recommendation public adapter contract", () => {
     expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/zh/career/jobs/product-strategist");
     expect(detail?.answerSurface?.surfaceType).toBe("career_recommendation_public_detail");
     expect(detail?.answerSurface?.faqBlocks[0]?.question).toBe("Which roles fit first?");
+    expect(detail?.careerDataStatus).toBe("available");
+    expect(detail?.renderState.canRenderStrongTruth).toBe(true);
+    expect(detail?.renderState.canIndexPage).toBe(true);
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
-  it("career recommendation detail page redirects legacy 4-letter routes to the returned public slug and avoids local velite authority", () => {
+  it("marks missing answer surface as trust-limited and blocks strong rendering", () => {
+    const detail = normalizeCareerRecommendationDetail(
+      {
+        runtime_type_code: "INTJ-A",
+        canonical_type_code: "INTJ",
+        display_type: "INTJ-A",
+        variant_code: "A",
+        public_route_slug: "intj-a",
+        graph_type_code: "INTJ",
+        type_name: "Architect",
+        hero_summary: "Assertive architect summary.",
+        matched_jobs: [
+          {
+            slug: "product-strategist",
+            title: "Product Strategist",
+          },
+        ],
+        seo_surface_v1: {
+          metadata_contract_version: "seo.surface.v1",
+          surface_type: "career_recommendation_public_detail",
+          canonical_url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
+        },
+        _meta: {
+          authority_source: "career_recommendation_service.v1",
+        },
+      },
+      "zh"
+    );
+
+    expect(detail).not.toBeNull();
+    expect(detail?.careerDataStatus).toBe("trust_limited");
+    expect(detail?.renderState.canRenderStrongTruth).toBe(false);
+    expect(detail?.renderState.canRenderAnswerSurface).toBe(false);
+    expect(detail?.renderState.canRenderMatchedJobs).toBe(true);
+    expect(detail?.renderState.canIndexPage).toBe(false);
+    expect(detail?.renderState.missingFields).toContain("answer_surface_v1");
+  });
+
+  it("career recommendation detail page redirects legacy 4-letter routes and blocks local authority fallbacks", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
     expect(source).toContain("getMbtiCareerRecommendationByType");
-    expect(source).toContain("getMbtiRecommendationContent");
     expect(source).toContain("parseMbtiContinuityQuery");
     expect(source).toContain("mbti-career-continuity-entry");
     expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
@@ -244,10 +307,17 @@ describe("career recommendation public adapter contract", () => {
     expect(source).toContain("const canonical = canonicalUrl(canonicalPath);");
     expect(source).toContain("url: canonical,");
     expect(source).toContain("seoSurface: detail.seo.surface");
-    expect(source).toContain("landingSurface?.ctaBundle");
-    expect(source).toContain("detail.answerSurface");
+    expect(source).toContain("renderCareerDataStatus(detail, locale)");
+    expect(source).toContain("renderState.canRenderStrongTruth");
+    expect(source).toContain("data-career-data-status={detail.careerDataStatus}");
+    expect(source).toContain("career-recommendation-matched-jobs-status");
     expect(source).toContain("career-recommendation-answer-surface");
     expect(source).toContain("career-recommendation-scene-entry");
+    expect(source).not.toContain("getMbtiRecommendationContent");
+    expect(source).not.toContain("MbtiScenarioDeepDiveSection");
+    expect(source).not.toContain("buildAnswerFirst");
+    expect(source).not.toContain("buildCareerFaqItems");
+    expect(source).not.toContain("buildAnswerSurfaceFaqItems");
     expect(source).not.toContain("getCareerJobBySlug");
     expect(source).not.toContain("listMbtiRecommendationTypes");
   });

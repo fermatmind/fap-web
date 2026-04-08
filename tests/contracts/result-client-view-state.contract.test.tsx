@@ -690,7 +690,7 @@ describe("ResultClient view-state contract", () => {
           intervalCallbacks.push(callback as () => void);
         }
         return 1 as unknown as ReturnType<typeof setInterval>;
-      }) as typeof window.setInterval);
+      }) as unknown as typeof window.setInterval);
     const clearIntervalSpy = vi.spyOn(window, "clearInterval").mockImplementation(() => {});
 
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
@@ -778,7 +778,7 @@ describe("ResultClient view-state contract", () => {
           intervalCallbacks.push(callback as () => void);
         }
         return 1 as unknown as ReturnType<typeof setInterval>;
-      }) as typeof window.setInterval);
+      }) as unknown as typeof window.setInterval);
     const clearIntervalSpy = vi.spyOn(window, "clearInterval").mockImplementation(() => {});
 
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;

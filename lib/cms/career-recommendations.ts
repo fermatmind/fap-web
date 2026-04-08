@@ -1,8 +1,11 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
-import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
-import { getCareerGuideBySlug, listCareerGuides, listCareerJobs } from "@/lib/content";
+import {
+  getCareerRecommendationRenderState,
+  type CareerDataStatus,
+  type CareerRecommendationRenderState,
+} from "@/lib/career/protocolReadiness";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
@@ -81,6 +84,7 @@ type CmsCareerRecommendationDetailApiResponse = CmsCareerRecommendationListItemA
 };
 
 export type CareerRecommendationListItem = {
+  careerDataStatus: CareerDataStatus;
   runtimeTypeCode: string;
   canonicalTypeCode: string;
   displayType: string;
@@ -177,6 +181,7 @@ export type CareerRecommendationSeoViewModel = {
 };
 
 export type CareerRecommendationDetail = CareerRecommendationListItem & {
+  renderState: CareerRecommendationRenderState;
   graphTypeCode: string;
   keywords: string[];
   career: {
@@ -199,15 +204,6 @@ export type CareerRecommendationDetail = CareerRecommendationListItem & {
 };
 
 const DEFAULT_ORG_ID = "0";
-const MBTI_CANONICAL_CODE_RE = /^[IE][NS][FT][JP]$/i;
-const MBTI_PUBLIC_ROUTE_RE = /^[IE][NS][FT][JP]-[AT]$/i;
-
-type FallbackCareerJobCandidate = {
-  slug: string;
-  title: string;
-  summary: string;
-  fitBucket: "primary" | "secondary";
-};
 
 function buildQuery(params: Record<string, string | number | undefined>): string {
   const query = new URLSearchParams();
@@ -323,269 +319,6 @@ function normalizeAbsoluteUrl(value: string | null | undefined, fallbackPath: st
 
 function normalizeApiLocale(locale: Locale | string): "en" | "zh-CN" {
   return toApiLocale(locale);
-}
-
-function normalizeMbtiCanonicalCode(value: unknown): string {
-  const normalized = normalizeText(value).toUpperCase();
-  return MBTI_CANONICAL_CODE_RE.test(normalized) ? normalized : "";
-}
-
-function normalizeMbtiPublicRouteSlug(value: unknown): string {
-  const normalized = normalizeCareerRecommendationSlug(value);
-  if (MBTI_PUBLIC_ROUTE_RE.test(normalized)) {
-    return normalized;
-  }
-
-  const canonical = normalizeMbtiCanonicalCode(normalized);
-  if (!canonical) {
-    return "";
-  }
-
-  return buildDefaultPublicPersonalitySlug(canonical);
-}
-
-function buildFallbackTypeName(canonicalTypeCode: string, locale: Locale): string {
-  return locale === "zh" ? `${canonicalTypeCode} 职业建议` : `${canonicalTypeCode} career guidance`;
-}
-
-function buildFallbackHeroSummary(displayType: string, locale: Locale): string {
-  return locale === "zh"
-    ? `${displayType} 的职业建议在本地回退模式下仍会保留岗位匹配、职业指南和公开回链。`
-    : `${displayType} career guidance stays available in local fallback mode with role matches, guides, and public backlinks.`;
-}
-
-function buildFallbackJobCandidates(locale: Locale, canonicalTypeCode: string): FallbackCareerJobCandidate[] {
-  const localizedJobs = listCareerJobs(locale);
-  const primary = localizedJobs
-    .filter((job) => job.mbti_primary.includes(canonicalTypeCode))
-    .map<FallbackCareerJobCandidate>((job) => ({
-      slug: job.slug,
-      title: job.title,
-      summary: job.summary,
-      fitBucket: "primary",
-    }));
-  const secondary = localizedJobs
-    .filter(
-      (job) =>
-        !job.mbti_primary.includes(canonicalTypeCode) &&
-        job.mbti_secondary.includes(canonicalTypeCode)
-    )
-    .map<FallbackCareerJobCandidate>((job) => ({
-      slug: job.slug,
-      title: job.title,
-      summary: job.summary,
-      fitBucket: "secondary",
-    }));
-
-  return [...primary, ...secondary].slice(0, 6);
-}
-
-function buildFallbackMatchedGuides(
-  locale: Locale,
-  matchedJobSlugs: string[]
-): CareerRecommendationMatchedGuide[] {
-  return listCareerGuides(locale)
-    .filter(
-      (guide) =>
-        Array.isArray(guide.related_job_slugs) &&
-        guide.related_job_slugs.some((slug) => matchedJobSlugs.includes(String(slug)))
-    )
-    .slice(0, 3)
-    .map((guide) => {
-      const localizedGuide = getCareerGuideBySlug(guide.slug, locale) ?? guide;
-
-      return {
-        slug: localizedGuide.slug,
-        title: localizedGuide.title,
-        summary: localizedGuide.summary,
-        fitPersonalityCodes: [],
-        href: localizedPath(`/career/guides/${localizedGuide.slug}`, locale),
-      };
-    });
-}
-
-function buildFallbackCareerRecommendationList(locale: Locale): CareerRecommendationListItem[] {
-  const counts = new Map<string, number>();
-
-  for (const job of listCareerJobs(locale)) {
-    for (const code of [...job.mbti_primary, ...job.mbti_secondary]) {
-      const normalizedCode = normalizeMbtiCanonicalCode(code);
-      if (!normalizedCode) {
-        continue;
-      }
-
-      counts.set(normalizedCode, (counts.get(normalizedCode) ?? 0) + 1);
-    }
-  }
-
-  return [...counts.entries()]
-    .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
-    .map(([canonicalTypeCode]) => {
-      const publicRouteSlug = buildDefaultPublicPersonalitySlug(canonicalTypeCode);
-      const displayType = publicRouteSlug.toUpperCase();
-
-      return {
-        runtimeTypeCode: displayType,
-        canonicalTypeCode,
-        displayType,
-        variantCode: publicRouteSlug.endsWith("-t") ? "T" : "A",
-        publicRouteSlug,
-        typeName: buildFallbackTypeName(canonicalTypeCode, locale),
-        nickname: "",
-        heroSummary: buildFallbackHeroSummary(displayType, locale),
-        href: buildCareerRecommendationFrontendUrl(locale, publicRouteSlug),
-      };
-    });
-}
-
-function buildFallbackCareerRecommendationDetail(
-  localeInput: Locale | string,
-  type: string
-): CareerRecommendationDetail | null {
-  const locale = normalizeLocale(localeInput);
-  const publicRouteSlug = normalizeMbtiPublicRouteSlug(type);
-  if (!publicRouteSlug) {
-    return null;
-  }
-
-  const canonicalTypeCode = normalizeMbtiCanonicalCode(publicRouteSlug.slice(0, 4));
-  if (!canonicalTypeCode) {
-    return null;
-  }
-
-  const displayType = publicRouteSlug.toUpperCase();
-  const matchedJobs = buildFallbackJobCandidates(locale, canonicalTypeCode).map<CareerRecommendationMatchedJob>((job) => ({
-    slug: job.slug,
-    title: job.title,
-    summary: job.summary,
-    fitBucket: job.fitBucket,
-    fitPersonalityCodes: [canonicalTypeCode],
-    mbtiPrimaryCodes: job.fitBucket === "primary" ? [canonicalTypeCode] : [],
-    mbtiSecondaryCodes: job.fitBucket === "secondary" ? [canonicalTypeCode] : [],
-    href: localizedPath(`/career/jobs/${job.slug}`, locale),
-  }));
-  const matchedGuides = buildFallbackMatchedGuides(
-    locale,
-    matchedJobs.map((job) => job.slug)
-  );
-  const firstRoleTitles = matchedJobs.slice(0, 3).map((job) => job.title);
-  const description =
-    locale === "zh"
-      ? `${displayType} 的职业建议在本地回退模式下仍会优先展示岗位匹配、公开回链与延续入口。`
-      : `${displayType} career guidance remains available in local fallback mode with role fit, public backlinks, and continuity carryover.`;
-
-  return {
-    runtimeTypeCode: displayType,
-    canonicalTypeCode,
-    displayType,
-    variantCode: publicRouteSlug.endsWith("-t") ? "T" : "A",
-    publicRouteSlug,
-    typeName: buildFallbackTypeName(canonicalTypeCode, locale),
-    nickname: "",
-    heroSummary: buildFallbackHeroSummary(displayType, locale),
-    href: buildCareerRecommendationFrontendUrl(locale, publicRouteSlug),
-    graphTypeCode: canonicalTypeCode,
-    keywords: [canonicalTypeCode, publicRouteSlug, "career"],
-    career: {
-      summary: {
-        title: locale === "zh" ? "职业概览" : "Career summary",
-        paragraphs: [
-          locale === "zh"
-            ? `${displayType} 在职业路径上更适合先查看高结构、高杠杆和可持续复用的岗位场景。`
-            : `${displayType} tends to benefit from roles with structured leverage, clear scope, and repeatable execution loops.`,
-        ],
-      },
-      advantages: {
-        title: locale === "zh" ? "优势场景" : "Advantages",
-        items: [
-          {
-            title: locale === "zh" ? "岗位匹配仍可用" : "Role fit stays available",
-            description:
-              locale === "zh"
-                ? "即使后端 recommendation authority 暂时不可用，本地回退仍会保留高匹配岗位入口。"
-                : "Even without the backend recommendation authority, local fallback keeps high-fit role entries available.",
-          },
-        ],
-      },
-      weaknesses: {
-        title: locale === "zh" ? "使用边界" : "Watchouts",
-        items: [
-          {
-            title: locale === "zh" ? "仅作为回退层" : "Fallback-only layer",
-            description:
-              locale === "zh"
-                ? "本地回退不会替代正式后端 authority，只用于保证公开路由可读。"
-                : "This local layer does not replace the backend authority; it only keeps the public route readable.",
-          },
-        ],
-      },
-      preferredRoles: {
-        title: locale === "zh" ? "优先查看岗位" : "Preferred roles",
-        intro:
-          locale === "zh"
-            ? "先看这些公开岗位说明，再结合人格页与主题页做判断。"
-            : "Start with these public role pages, then validate the decision against the personality and topic pages.",
-        groups: [
-          {
-            groupTitle: locale === "zh" ? "高匹配岗位" : "High-fit roles",
-            description:
-              locale === "zh"
-                ? "这些岗位来自本地数据集中对该 canonical family 的优先匹配。"
-                : "These roles come from the local dataset's primary fit for this canonical family.",
-            examples: firstRoleTitles,
-          },
-        ],
-        outro:
-          locale === "zh"
-            ? "回退模式下仍建议优先以岗位内容和职业指南为准。"
-            : "In fallback mode, prioritize the role pages and career guides over personality labels alone.",
-      },
-      upgradeSuggestions: {
-        title: locale === "zh" ? "下一步建议" : "Upgrade suggestions",
-        paragraphs: [
-          locale === "zh"
-            ? "把职业推荐页当成公开入口，再回到人格页和帮助页交叉验证。"
-            : "Use the career recommendation page as a public entrypoint, then cross-check with the personality and help pages.",
-        ],
-        bullets: [
-          {
-            label: locale === "zh" ? "先看岗位" : "Start with roles",
-            content:
-              locale === "zh"
-                ? "先浏览 2-3 个高匹配岗位，再判断你真正想继续的方向。"
-                : "Review 2-3 high-fit roles first, then decide which direction is worth pursuing further.",
-          },
-        ],
-      },
-    },
-    matchedJobs,
-    matchedGuides,
-    seo: normalizeCareerRecommendationSeo(
-      {
-        title:
-          locale === "zh"
-            ? `${displayType} 职业推荐 | FermatMind`
-            : `${displayType} Career Recommendations | FermatMind`,
-        description,
-        canonical: buildCareerRecommendationFrontendUrl(locale, publicRouteSlug),
-        alternates: {
-          en: buildCareerRecommendationFrontendUrl("en", publicRouteSlug),
-          "zh-CN": buildCareerRecommendationFrontendUrl("zh", publicRouteSlug),
-        },
-      },
-      locale,
-      publicRouteSlug,
-      locale === "zh" ? `${displayType} 职业推荐` : `${displayType} Career Recommendations`,
-      description
-    ),
-    landingSurface: null,
-    answerSurface: null,
-    meta: {
-      publicRouteType: "32-type",
-      routeMode: "local_fallback",
-      authoritySource: "career_recommendation_local_fallback.v1",
-    },
-  };
 }
 
 function normalizeMatchedJob(
@@ -723,6 +456,7 @@ export function normalizeCareerRecommendationListItem(
   }
 
   return {
+    careerDataStatus: "trust_limited",
     runtimeTypeCode: normalizeText(raw.runtime_type_code, displayType).toUpperCase(),
     canonicalTypeCode,
     displayType,
@@ -750,9 +484,21 @@ export function normalizeCareerRecommendationDetail(
 
   const summary = raw.career?.summary ?? null;
   const heroSummary = normalizeText(raw.hero_summary, raw.seo?.description);
+  const landingSurface = normalizeLandingSurface(raw.landing_surface_v1 ?? null);
+  const answerSurface = normalizeAnswerSurface(raw.answer_surface_v1 ?? null);
+  const seoSurface = normalizeSeoSurface(raw.seo_surface_v1 ?? null);
+  const renderState = getCareerRecommendationRenderState({
+    answerSurface,
+    landingSurface,
+    seoSurface,
+    matchedJobs: asArray(raw.matched_jobs).filter(isCareerRecommendationMatchedJobApi),
+    authoritySource: normalizeNullableText(raw._meta?.authority_source),
+  });
 
   return {
     ...listItem,
+    careerDataStatus: renderState.careerDataStatus,
+    renderState,
     graphTypeCode: normalizeText(raw.graph_type_code, listItem.canonicalTypeCode).toUpperCase(),
     keywords: uniqueStrings(asArray(raw.keywords).map((item) => normalizeText(item)).filter(Boolean)),
     career: {
@@ -775,10 +521,10 @@ export function normalizeCareerRecommendationDetail(
       .filter((item): item is CareerRecommendationMatchedGuide => item !== null),
     seo: {
       ...normalizeCareerRecommendationSeo(raw.seo, locale, listItem.publicRouteSlug, listItem.typeName, heroSummary),
-      surface: normalizeSeoSurface(raw.seo_surface_v1 ?? null),
+      surface: seoSurface,
     },
-    landingSurface: normalizeLandingSurface(raw.landing_surface_v1 ?? null),
-    answerSurface: normalizeAnswerSurface(raw.answer_surface_v1 ?? null),
+    landingSurface,
+    answerSurface,
     meta: {
       publicRouteType: normalizeNullableText(raw._meta?.public_route_type),
       routeMode: normalizeNullableText(raw._meta?.route_mode),
@@ -788,7 +534,6 @@ export function normalizeCareerRecommendationDetail(
 }
 
 export async function listMbtiCareerRecommendations(locale: Locale | string): Promise<CareerRecommendationListItem[]> {
-  const normalizedLocale = normalizeLocale(locale);
   const query = buildQuery({
     locale: normalizeApiLocale(locale),
     org_id: DEFAULT_ORG_ID,
@@ -810,10 +555,10 @@ export async function listMbtiCareerRecommendations(locale: Locale | string): Pr
       .filter((item): item is CareerRecommendationListItem => item !== null);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return buildFallbackCareerRecommendationList(normalizedLocale);
+      return [];
     }
 
-    return buildFallbackCareerRecommendationList(normalizedLocale);
+    return [];
   }
 }
 
@@ -844,9 +589,9 @@ export async function getMbtiCareerRecommendationByType(
     return normalizeCareerRecommendationDetail(response, locale);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return buildFallbackCareerRecommendationDetail(locale, normalizedType);
+      return null;
     }
 
-    return buildFallbackCareerRecommendationDetail(locale, normalizedType);
+    return null;
   }
 }

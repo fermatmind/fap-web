@@ -4,7 +4,7 @@ import { CareerRecommendationPanel } from "@/components/career/CareerRecommendat
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations";
-import { listBig5RecommendationTraits, listCareerJobs } from "@/lib/content";
+import { listBig5RecommendationTraits } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
@@ -80,10 +80,7 @@ export default async function CareerRecommendationsPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const [jobs, mbtiRecommendationItems] = await Promise.all([
-    Promise.resolve(listCareerJobs(locale)),
-    listMbtiCareerRecommendations(locale).catch(() => []),
-  ]);
+  const mbtiRecommendationItems = await listMbtiCareerRecommendations(locale).catch(() => []);
   const mbtiFamilies = groupMbtiFamilies(mbtiRecommendationItems);
   const big5Traits = listBig5RecommendationTraits();
   const canonicalPath =
@@ -123,32 +120,44 @@ export default async function CareerRecommendationsPage({
 
       <section className="space-y-2">
         <h2 className="m-0 font-serif text-xl text-[var(--fm-text)]">MBTI</h2>
-        <div className="grid gap-3 md:grid-cols-2">
-          {mbtiFamilies.map((family) => (
-            <div
-              key={family.canonicalTypeCode}
-              className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)]"
-            >
-              <div className="space-y-1">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                  {family.canonicalTypeCode}
-                </p>
-                <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{family.typeName}</h3>
+        {mbtiFamilies.length > 0 ? (
+          <div className="grid gap-3 md:grid-cols-2">
+            {mbtiFamilies.map((family) => (
+              <div
+                key={family.canonicalTypeCode}
+                className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)]"
+              >
+                <div className="space-y-1">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                    {family.canonicalTypeCode}
+                  </p>
+                  <h3 className="m-0 text-lg font-semibold text-[var(--fm-text)]">{family.typeName}</h3>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {family.items.map((item) => (
+                    <Link
+                      key={item.publicRouteSlug}
+                      href={item.href}
+                      className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
+                    >
+                      {item.displayType}
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {family.items.map((item) => (
-                  <Link
-                    key={item.publicRouteSlug}
-                    href={item.href}
-                    className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
-                  >
-                    {item.displayType}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div
+            className="rounded-2xl border border-dashed border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm text-[var(--fm-text-muted)]"
+            data-testid="career-recommendation-index-status"
+            data-career-data-status="unavailable"
+          >
+            {locale === "zh"
+              ? "Career recommendation authority 当前不可用，索引页不会再回退到本地合成列表。"
+              : "Career recommendation authority is currently unavailable, so the index does not fall back to a local synthesized list."}
+          </div>
+        )}
       </section>
 
       <section className="space-y-2">
@@ -162,7 +171,7 @@ export default async function CareerRecommendationsPage({
         </div>
       </section>
 
-      <CareerRecommendationPanel locale={locale} jobs={jobs} />
+      <CareerRecommendationPanel locale={locale} />
     </Container>
   );
 }
