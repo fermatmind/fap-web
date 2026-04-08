@@ -44,8 +44,8 @@ type PersonalitySceneRenderBlock = {
   summary: string;
   bottleneck: string;
   advice: string;
-  strengths: string[];
-  risks: string[];
+  strengths: readonly string[];
+  risks: readonly string[];
   why: string;
   variantDeltaA: string;
   variantDeltaT: string;
@@ -596,19 +596,19 @@ export default async function PersonalityDetailPage({
               {renderSceneBlock(
                 locale === "zh" ? "职业方向" : "Career direction",
                 personalityTypeContent.variantCopy.careerDirection,
-                detail.typeCode === "INTP" ? "intp-personality-scene-career" : "mbti-personality-scene-career",
+                detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-career" : "mbti-personality-scene-career",
                 canonicalPath
               )}
               {renderSceneBlock(
                 locale === "zh" ? "团队协作" : "Team collaboration",
                 personalityTypeContent.variantCopy.teamCollaboration,
-                detail.typeCode === "INTP" ? "intp-personality-scene-team" : "mbti-personality-scene-team",
+                detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-team" : "mbti-personality-scene-team",
                 canonicalPath
               )}
               {renderSceneBlock(
                 locale === "zh" ? "成长建议" : "Growth planning",
                 personalityTypeContent.variantCopy.growthPlanning,
-                detail.typeCode === "INTP" ? "intp-personality-scene-growth" : "mbti-personality-scene-growth",
+                detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-growth" : "mbti-personality-scene-growth",
                 canonicalPath
               )}
             </div>

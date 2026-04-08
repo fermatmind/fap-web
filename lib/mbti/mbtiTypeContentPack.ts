@@ -62,8 +62,8 @@ type RenderedSceneCopy = {
   summary: string;
   bottleneck: string;
   advice: string;
-  strengths: string[];
-  risks: string[];
+  strengths: readonly string[];
+  risks: readonly string[];
   why: string;
   variantDeltaA: string;
   variantDeltaT: string;
@@ -293,8 +293,8 @@ function renderSceneCopy(
     summary: string;
     bottleneck?: string;
     advice?: string;
-    strengths: string[];
-    risks: string[];
+    strengths: readonly string[];
+    risks: readonly string[];
     why: string;
     variantDeltaA: string;
     variantDeltaT: string;
