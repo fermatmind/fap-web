@@ -56,17 +56,18 @@ describe("schema injection contract", () => {
     expect(source).toContain("renderTopicEntryGroups");
   });
 
-  it("career job detail page injects cms occupation jsonld and breadcrumb jsonld", () => {
+  it("career job detail page injects breadcrumb jsonld and uses the backend bundle path", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
-    expect(source).toContain("getCareerJobSeoFromCmsBySlug");
+    expect(source).toContain("fetchCareerJobBundle");
+    expect(source).toContain("adaptCareerJobBundle");
     expect(source).toContain("JsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("career-job-protocol-status");
-    expect(source).toContain("job?.protocol.careerAsset?.seo_contract.index_eligible ?? seo?.surface?.indexEligible");
+    expect(source).toContain("job.seoContract.indexEligible");
     expect(source).not.toContain("buildOccupationJsonLd");
-    expect(source).not.toContain("getCareerJobBySlug");
-    expect(source).not.toContain("renderVeliteMdx");
-    expect(source).toContain("Future outlook");
+    expect(source).not.toContain("getCareerJobFromCmsBySlug");
+    expect(source).not.toContain("renderSimpleMarkdown");
+    expect(source).toContain("Ten-year outlook");
   });
 
   it("career guide detail page injects cms seo jsonld and breadcrumb jsonld", () => {
@@ -117,21 +118,20 @@ describe("schema injection contract", () => {
     expect(source).toContain("JsonLd");
   });
 
-  it("career mbti recommendation page injects webpage, breadcrumb, item list, and faq jsonld", () => {
+  it("career mbti recommendation page injects webpage, breadcrumb, and item list jsonld on the backend bundle path", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
     expect(source).toContain("JsonLd");
     expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("buildItemListJsonLd");
-    expect(source).toContain("buildFAQPageJsonLd");
-    expect(source).toContain("CareerRecommendationAdapterDetail");
-    expect(source).not.toContain("CareerRecommendationDetail");
-    expect(source).toContain("getMbtiCareerRecommendationByType");
+    expect(source).toContain("CareerRecommendationBundleAdapter");
+    expect(source).toContain("fetchCareerRecommendationBundle");
+    expect(source).toContain("adaptCareerRecommendationBundle");
     expect(source).toContain("renderCareerDataStatus");
     expect(source).toContain("renderState.canRenderStrongTruth");
-    expect(source).toContain("permanentRedirect");
+    expect(source).toContain('data-testid="career-recommendation-type-interpretation"');
     expect(source).not.toContain("getCareerJobBySlug");
-    expect(source).toContain('id="faq"');
+    expect(source).toContain('id="answer-first"');
   });
 
   it("help detail page injects webpage, breadcrumb, and faq jsonld only when faq content exists", () => {

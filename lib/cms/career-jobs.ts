@@ -16,10 +16,12 @@ import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/lan
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
+/**
+ * Legacy CMS adapter only.
+ * Do not use this file as authority for backend-owned Career bundle pages.
+ */
 const DEFAULT_ORG_ID = "0";
-const RIASEC_KEYS = ["R", "I", "A", "S", "E", "C"] as const;
-
-type RiasecKey = (typeof RIASEC_KEYS)[number];
+type RiasecKey = "R" | "I" | "A" | "S" | "E" | "C";
 
 type CmsCareerJobApiSeoMeta = {
   seo_title?: string | null;
@@ -283,10 +285,6 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   }
 
   return value as Record<string, unknown>;
-}
-
-function asArray<T = unknown>(value: unknown): T[] {
-  return Array.isArray(value) ? (value as T[]) : [];
 }
 
 function normalizeStringArray(value: unknown): string[] {

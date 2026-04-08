@@ -413,20 +413,18 @@ describe("career alias route contract", () => {
 });
 
 describe("career jobs page authority contract", () => {
-  it("keeps jobs list and detail pages on the career-jobs cms adapter instead of the recommendation authority adapter", () => {
+  it("keeps jobs list on the cms adapter while moving job detail to the backend bundle path", () => {
     const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const detailSource = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
 
     expect(listSource).toContain("listCareerJobsFromCms");
-    expect(detailSource).toContain("getCareerJobFromCmsBySlug");
-    expect(detailSource).toContain("seoSurface: seo?.surface");
-    expect(detailSource).toContain("job.landingSurface");
-    expect(detailSource).toContain("job.answerSurface");
+    expect(detailSource).toContain("fetchCareerJobBundle");
+    expect(detailSource).toContain("adaptCareerJobBundle");
     expect(detailSource).toContain("career-job-protocol-status");
     expect(detailSource).toContain("renderState.canRenderSalarySurface");
-    expect(detailSource).toContain("renderState.canRenderAnswerSurface");
-    expect(detailSource).toContain("career-job-answer-surface");
-    expect(detailSource).toContain("career-job-landing-cta");
+    expect(detailSource).toContain("job.seoContract.indexEligible");
+    expect(detailSource).not.toContain("getCareerJobFromCmsBySlug");
+    expect(detailSource).not.toContain("job.answerSurface");
     expect(listSource).not.toContain("career-recommendations");
     expect(detailSource).not.toContain("career-recommendations");
   });

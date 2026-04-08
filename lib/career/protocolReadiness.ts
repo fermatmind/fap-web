@@ -42,6 +42,22 @@ type CareerRecommendationProtocolInput = {
   claimPermissions?: CareerClaimPermissions | null;
   trustManifest?: CareerTrustManifest | null;
   careerAsset?: Pick<CareerAssetMaster, "seo_contract"> | null;
+  seoContract?: {
+    index_eligible?: boolean | null;
+    index_state?: string | null;
+  } | null;
+  warnings?: {
+    redFlags?: string[];
+    amberFlags?: string[];
+    blockedClaims?: string[];
+  } | null;
+  integritySummary?: {
+    integrityState?: string | null;
+    criticalMissingFields?: string[];
+    confidenceCap?: number | null;
+    degradationFactor?: number | null;
+  } | null;
+  hasStrongContent?: boolean;
 };
 
 type CareerJobProtocolInput = {
@@ -50,9 +66,24 @@ type CareerJobProtocolInput = {
   claimPermissions?: CareerClaimPermissions | null;
   trustManifest?: CareerTrustManifest | null;
   careerAsset?: Pick<CareerAssetMaster, "seo_contract"> | null;
+  seoContract?: {
+    index_eligible?: boolean | null;
+    index_state?: string | null;
+  } | null;
   hasSalaryData?: boolean;
   hasOutlookData?: boolean;
   hasFitData?: boolean;
+  warnings?: {
+    redFlags?: string[];
+    amberFlags?: string[];
+    blockedClaims?: string[];
+  } | null;
+  integritySummary?: {
+    integrityState?: string | null;
+    criticalMissingFields?: string[];
+    confidenceCap?: number | null;
+    degradationFactor?: number | null;
+  } | null;
 };
 
 function normalizeText(value: unknown): string {
@@ -93,6 +124,50 @@ function hasExplicitIndexGate(careerAsset?: Pick<CareerAssetMaster, "seo_contrac
   return typeof careerAsset?.seo_contract.index_eligible === "boolean";
 }
 
+function hasExplicitIndexGateFromSeoContract(
+  seoContract?: { index_eligible?: boolean | null } | null
+): boolean {
+  return typeof seoContract?.index_eligible === "boolean";
+}
+
+function isSeoContractIndexEligible(
+  seoContract?: { index_eligible?: boolean | null } | null
+): boolean {
+  return seoContract?.index_eligible === true;
+}
+
+function hasWarningSignals(
+  warnings?: {
+    redFlags?: string[];
+    amberFlags?: string[];
+    blockedClaims?: string[];
+  } | null
+): boolean {
+  return Boolean(
+    warnings &&
+      ((Array.isArray(warnings.redFlags) && warnings.redFlags.length > 0) ||
+        (Array.isArray(warnings.amberFlags) && warnings.amberFlags.length > 0) ||
+        (Array.isArray(warnings.blockedClaims) && warnings.blockedClaims.length > 0))
+  );
+}
+
+function hasIntegritySignals(
+  summary?: {
+    integrityState?: string | null;
+    criticalMissingFields?: string[];
+    confidenceCap?: number | null;
+    degradationFactor?: number | null;
+  } | null
+): boolean {
+  return Boolean(
+    summary &&
+      (Boolean(normalizeText(summary.integrityState)) ||
+        (Array.isArray(summary.criticalMissingFields) && summary.criticalMissingFields.length > 0) ||
+        typeof summary.confidenceCap === "number" ||
+        typeof summary.degradationFactor === "number")
+  );
+}
+
 function deriveCareerDataStatus(options: {
   canIndexPage: boolean;
   hasAnyProtocolSignal: boolean;
@@ -129,14 +204,16 @@ export function getCareerRecommendationRenderState(
   const hasClaimPermissions = Boolean(input.claimPermissions);
   const allowStrongClaim = hasCareerStrongClaimPermission(input.claimPermissions);
   const allowTransitionRecommendation = hasCareerTransitionPermission(input.claimPermissions);
-  const hasIndexGate = hasExplicitIndexGate(input.careerAsset);
+  const hasIndexGate =
+    hasExplicitIndexGate(input.careerAsset) || hasExplicitIndexGateFromSeoContract(input.seoContract);
+  const hasBundleSignals =
+    Boolean(input.hasStrongContent) || hasWarningSignals(input.warnings) || hasIntegritySignals(input.integritySummary);
   const canIndexPage =
-    isCareerIndexEligible(input.careerAsset) &&
-    hasSeoSurface &&
+    (isCareerIndexEligible(input.careerAsset) || isSeoContractIndexEligible(input.seoContract)) &&
+    (hasSeoSurface || hasIndexGate) &&
     isTrustReady &&
     allowStrongClaim &&
-    hasAnswerTruth &&
-    hasMatchedJobs;
+    (hasAnswerTruth || hasBundleSignals || hasMatchedJobs);
 
   const missingFields: string[] = [];
   if (!hasAuthoritySource) {
@@ -148,10 +225,10 @@ export function getCareerRecommendationRenderState(
   if (!hasTrustManifest) {
     missingFields.push("trust_manifest");
   }
-  if (!hasAnswerTruth) {
+  if (!hasAnswerTruth && !hasBundleSignals) {
     missingFields.push("answer_surface_v1");
   }
-  if (!hasSeoSurface) {
+  if (!hasSeoSurface && !hasIndexGate) {
     missingFields.push("seo_surface_v1");
   }
   if (!hasIndexGate) {
@@ -167,7 +244,8 @@ export function getCareerRecommendationRenderState(
     missingFields.push("claim_permissions.allow_transition_recommendation");
   }
 
-  const canRenderStrongTruth = hasAuthoritySource && hasAnswerTruth && isTrustReady && allowStrongClaim;
+  const canRenderStrongTruth =
+    hasAuthoritySource && (hasAnswerTruth || hasBundleSignals) && isTrustReady && allowStrongClaim;
   const canRenderMatchedJobs =
     hasAuthoritySource && hasMatchedJobs && isTrustReady && allowTransitionRecommendation;
   const careerDataStatus = deriveCareerDataStatus({
@@ -177,6 +255,7 @@ export function getCareerRecommendationRenderState(
       hasMatchedJobs ||
       hasLandingContent ||
       hasSeoSurface ||
+      hasBundleSignals ||
       hasClaimPermissions ||
       hasTrustManifest,
   });
@@ -215,8 +294,9 @@ export function getCareerJobRenderState(
   const hasClaimPermissions = Boolean(input.claimPermissions);
   const allowStrongClaim = hasCareerStrongClaimPermission(input.claimPermissions);
   const allowSalaryComparison = hasCareerSalaryPermission(input.claimPermissions);
-  const hasIndexGate = hasExplicitIndexGate(input.careerAsset);
-  const canIndexPage = isCareerIndexEligible(input.careerAsset);
+  const hasIndexGate =
+    hasExplicitIndexGate(input.careerAsset) || hasExplicitIndexGateFromSeoContract(input.seoContract);
+  const canIndexPage = isCareerIndexEligible(input.careerAsset) || isSeoContractIndexEligible(input.seoContract);
 
   const missingFields: string[] = [];
   if (!hasAuthoritySource) {
@@ -248,6 +328,8 @@ export function getCareerJobRenderState(
         Boolean(input.hasSalaryData) ||
         Boolean(input.hasOutlookData) ||
         Boolean(input.hasFitData) ||
+        hasWarningSignals(input.warnings) ||
+        hasIntegritySignals(input.integritySummary) ||
         hasAnswerTruth,
     }),
     canRenderSalarySurface: hasAuthoritySource && isTrustReady && allowSalaryComparison && Boolean(input.hasSalaryData),

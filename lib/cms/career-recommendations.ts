@@ -2,7 +2,6 @@ import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import {
-  createConservativeCareerClaimPermissions,
   createUnavailableCareerScoreResult,
   normalizeCareerAssetMaster,
   normalizeCareerClaimPermissions,
@@ -21,6 +20,10 @@ import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/lan
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
+/**
+ * Legacy CMS adapter only.
+ * Do not use this file as authority for backend-owned Career bundle pages.
+ */
 type CmsCareerRecommendationListItemApi = {
   runtime_type_code?: string | null;
   canonical_type_code?: string | null;

@@ -1,12 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import {
-  buildCareerRecommendationFrontendUrl,
-  getMbtiCareerRecommendationByType,
-  listMbtiCareerRecommendations,
-  normalizeCareerRecommendationDetail,
-} from "@/lib/cms/career-recommendations";
+import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
+import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
+import { buildCareerRecommendationFrontendUrl } from "@/lib/career/urls";
 
 function jsonResponse(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
@@ -28,51 +25,27 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-describe("career recommendation public adapter contract", () => {
-  it("requests the backend list endpoint and returns 32-type frontend hrefs", async () => {
+describe("career recommendation public contract", () => {
+  it("requests the backend recommendation bundle endpoint", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: RequestInfo | URL) => {
         const url = String(input);
 
-        expect(url).toContain("/api/v0.5/career-recommendations/mbti?");
+        expect(url).toContain("/api/v0.5/career/recommendations/mbti/intj-a?");
         expect(url).toContain("locale=zh-CN");
-        expect(url).toContain("org_id=0");
 
         return jsonResponse({
-          items: [
-            {
-              runtime_type_code: "INTJ-A",
-              canonical_type_code: "INTJ",
-              display_type: "INTJ-A",
-              variant_code: "A",
-              public_route_slug: "intj-a",
-              type_name: "Architect",
-              nickname: "Strategic Planner",
-              hero_summary: "Assertive architect summary.",
-            },
-          ],
+          identity: {
+            mbti_type: "INTJ-A",
+          },
         });
       })
     );
 
-    const items = await listMbtiCareerRecommendations("zh");
+    const payload = await fetchCareerRecommendationBundle({ locale: "zh", type: "intj-a" });
 
-    expect(items).toHaveLength(1);
-    expect(items[0]?.displayType).toBe("INTJ-A");
-    expect(items[0]?.publicRouteSlug).toBe("intj-a");
-    expect(items[0]?.href).toBe("/zh/career/recommendations/mbti/intj-a");
-  });
-
-  it("returns an empty list on API failure instead of synthesizing recommendation truth", async () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () => jsonResponse({ message: "upstream failure" }, 500))
-    );
-
-    const items = await listMbtiCareerRecommendations("zh");
-
-    expect(items).toEqual([]);
+    expect(payload).not.toBeNull();
   });
 
   it("returns null on detail API failure instead of synthesizing recommendation truth", async () => {
@@ -81,124 +54,30 @@ describe("career recommendation public adapter contract", () => {
       vi.fn(async () => jsonResponse({ message: "upstream failure" }, 500))
     );
 
-    const detail = await getMbtiCareerRecommendationByType("zh", "intj-a");
+    const detail = await fetchCareerRecommendationBundle({ locale: "zh", type: "intj-a" });
 
     expect(detail).toBeNull();
   });
 
-  it("normalizes detail payload from backend authority and keeps seo plus matched jobs/guides", () => {
-    const detail = normalizeCareerRecommendationDetail(
-      {
-        runtime_type_code: "INTJ-A",
-        canonical_type_code: "INTJ",
-        display_type: "INTJ-A",
-        variant_code: "A",
-        public_route_slug: "intj-a",
-        graph_type_code: "INTJ",
-        type_name: "Architect",
-        nickname: "Strategic Planner",
-        hero_summary: "Assertive architect summary.",
-        keywords: ["strategy", "systems"],
-        career: {
-          summary: {
-            title: "Career summary",
-            paragraphs: ["Architects thrive in systems work.", "They like long-range leverage."],
-          },
-          advantages: {
-            title: "Advantages",
-            items: [{ title: "Systems thinking", description: "They connect moving parts quickly." }],
-          },
-          weaknesses: {
-            title: "Weaknesses",
-            items: [{ title: "Patience", description: "They can move faster than group consensus." }],
-          },
-          preferred_roles: {
-            title: "Preferred roles",
-            intro: "Architects like strategic ownership.",
-            groups: [
-              {
-                group_title: "Strategy",
-                description: "Roles with leverage and direction.",
-                examples: ["Product Strategy", "Research Lead"],
-              },
-            ],
-            outro: "They usually want room to design systems.",
-          },
-          upgrade_suggestions: {
-            title: "Upgrade suggestions",
-            paragraphs: ["Work on translating complex reasoning."],
-            bullets: [{ label: "Communication", content: "Explain the why before the conclusion." }],
-          },
+  it("adapts backend recommendation bundle and keeps explicit claim, trust, warning, and provenance sections", () => {
+    const detail = adaptCareerRecommendationBundle({
+      locale: "zh",
+      requestedType: "intj-a",
+      payload: {
+        identity: {
+          mbti_type: "INTJ-A",
         },
-        matched_jobs: [
-          {
-            slug: "product-strategist",
-            title: "Product Strategist",
-            summary: "Shape product direction and operating decisions.",
-            fit_bucket: "primary",
-            fit_personality_codes: ["INTJ"],
-            mbti_primary_codes: ["INTJ"],
-            mbti_secondary_codes: [],
-          },
-        ],
-        matched_guides: [
-          {
-            slug: "systems-career-playbook",
-            title: "Systems Career Playbook",
-            summary: "How to choose roles with leverage and clarity.",
-            fit_personality_codes: ["INTJ"],
-          },
-        ],
-        seo: {
-          title: "INTJ-A Career Recommendations | FermatMind",
-          description: "Career recommendations, role fit, and growth paths for Architect.",
-          canonical: "/zh/career/recommendations/mbti/intj-a",
-          alternates: {
-            en: "/en/career/recommendations/mbti/intj-a",
-            "zh-CN": "/zh/career/recommendations/mbti/intj-a",
-          },
+        recommendation_subject_meta: {
+          canonical_type: "INTJ",
         },
-        _meta: {
-          public_route_type: "32-type",
-          route_mode: "public_variant",
-          authority_source: "career_recommendation_service.v1",
+        score_bundle: {
+          fit_score: { value: 82, integrity_state: "full", degradation_factor: 1.0 },
+          ai_survival_score: { value: 74, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 77, integrity_state: "full", degradation_factor: 1.0 },
         },
-        trust_manifest: {
-          manifest_version: "trust_manifest.v1",
-          entity_id: "occ_intj_a",
-          page_type: "career_recommendation_detail",
-          page_slug: "intj-a",
-          content_version: "content.v1",
-          data_version: "data.v1",
-          logic_version: "logic.v1",
-          locale_context: {
-            truth_market: "US",
-            display_market: "CN",
-            locale: "zh-CN",
-          },
-          source_trace: [],
-          methodology: {
-            crosswalk_mode: "trust_inheritance",
-            derivation_policy: "recommendation_projection",
-            notes: [],
-          },
-          reviewer: {
-            reviewed: true,
-            reviewer_id: "career_editor",
-            reviewer_status: "approved",
-          },
-          ai_assistance: {
-            used: true,
-            summary: "surface drafting only",
-          },
-          quality: {
-            complete: true,
-            reviewed: true,
-            stale: false,
-            blocked_reasons: [],
-          },
-          last_substantive_update_at: "2026-04-08T00:00:00.000Z",
-          next_review_due_at: "2026-07-08T00:00:00.000Z",
+        warnings: {
+          red_flags: [],
+          amber_flags: ["ai_role_shift_risk"],
         },
         claim_permissions: {
           allow_strong_claim: true,
@@ -208,260 +87,57 @@ describe("career recommendation public adapter contract", () => {
           allow_cross_market_pay_copy: false,
           reason_codes: [],
         },
-        seo_surface_v1: {
-          metadata_contract_version: "seo.surface.v1",
-          metadata_fingerprint: "career-seo-fingerprint",
-          metadata_scope: "public_indexable_detail",
-          surface_type: "career_recommendation_public_detail",
-          canonical_url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
-          robots_policy: "index,follow",
-          title: "INTJ-A Career Recommendations | FermatMind",
-          description: "Career recommendations, role fit, and growth paths for Architect.",
-          og_payload: {
-            title: "INTJ-A Career Recommendations | FermatMind",
-            description: "Career recommendations, role fit, and growth paths for Architect.",
-            type: "article",
-            url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
-          },
-          twitter_payload: {
-            card: "summary_large_image",
-            title: "INTJ-A Career Recommendations | FermatMind",
-            description: "Career recommendations, role fit, and growth paths for Architect.",
-          },
-          alternates: {
-            en: "https://staging.fermatmind.com/en/career/recommendations/mbti/intj-a",
-            "zh-CN": "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
-          },
-          structured_data_keys: [],
-          indexability_state: "indexable",
-          sitemap_state: "included",
-          llms_exposure_state: "allow",
+        trust_manifest: {
+          reviewer_status: "reviewed",
+          logic_version: "v1.2",
+          content_version: "content.v1",
+          data_version: "data.v1",
         },
-        landing_surface_v1: {
-          landing_contract_version: "landing.surface.v1",
-          landing_scope: "public_indexable_detail",
-          entry_surface: "career_recommendation_detail",
-          entry_type: "career_recommendation",
-          cta_bundle: [
-            { key: "matched_job", label: "View matching job", href: "/zh/career/jobs/product-strategist" },
-          ],
+        seo_contract: {
+          canonical_path: "/career/recommendations/mbti/intj-a",
+          index_state: "index",
+          index_eligible: true,
         },
-        answer_surface_v1: {
-          answer_contract_version: "answer.surface.v1",
-          answer_scope: "public_indexable_detail",
-          surface_type: "career_recommendation_public_detail",
-          summary_blocks: [
-            {
-              key: "career_summary",
-              body: "Architects thrive in systems work.",
-            },
-          ],
-          faq_blocks: [
-            {
-              key: "faq_0",
-              question: "Which roles fit first?",
-              answer: "Start with the highest-fit structured roles.",
-            },
-          ],
-          compare_blocks: [
-            {
-              key: "graph_route_alignment",
-              title: "Graph key",
-              body: "Graph matching still follows INTJ.",
-            },
-          ],
-          next_step_blocks: [
-            {
-              key: "matched_job",
-              title: "View matching job",
-              href: "/zh/career/jobs/product-strategist",
-            },
-          ],
+        provenance_meta: {
+          compiler_version: "v2.1",
+          compiled_at: "2026-04-08T10:05:00Z",
+          compile_run_id: "run_789",
         },
       },
-      "zh"
-    );
+    });
 
     expect(detail).not.toBeNull();
-    expect(detail?.graphTypeCode).toBe("INTJ");
-    expect(detail?.matchedJobs[0]?.fitBucket).toBe("primary");
-    expect(detail?.matchedJobs[0]?.href).toBe("/zh/career/jobs/product-strategist");
-    expect(detail?.matchedGuides[0]?.href).toBe("/zh/career/guides/systems-career-playbook");
-    expect(detail?.career.preferredRoles.groups[0]?.groupTitle).toBe("Strategy");
-    expect(detail?.seo.meta.canonical).toBe("http://localhost:3000/zh/career/recommendations/mbti/intj-a");
-    expect(detail?.seo.meta.alternates.en).toBe("http://localhost:3000/en/career/recommendations/mbti/intj-a");
-    expect(detail?.seo.meta.og.title).toBe("INTJ-A Career Recommendations | FermatMind");
-    expect(detail?.seo.surface?.metadataContractVersion).toBe("seo.surface.v1");
-    expect(detail?.seo.surface?.surfaceType).toBe("career_recommendation_public_detail");
-    expect(detail?.landingSurface?.entrySurface).toBe("career_recommendation_detail");
-    expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/zh/career/jobs/product-strategist");
-    expect(detail?.answerSurface?.surfaceType).toBe("career_recommendation_public_detail");
-    expect(detail?.answerSurface?.faqBlocks[0]?.question).toBe("Which roles fit first?");
+    expect(detail?.displayType).toBe("INTJ-A");
+    expect(detail?.canonicalTypeCode).toBe("INTJ");
+    expect(detail?.publicRouteSlug).toBe("intj-a");
+    expect(detail?.scoreBundle.fitScore.value).toBe(82);
+    expect(detail?.warnings.amberFlags).toContain("ai_role_shift_risk");
+    expect(detail?.claimPermissions.allow_transition_recommendation).toBe(true);
+    expect(detail?.trustManifest?.logic_version).toBe("v1.2");
+    expect(detail?.seoContract.canonicalPath).toBe("/career/recommendations/mbti/intj-a");
+    expect(detail?.provenanceMeta.compileRunId).toBe("run_789");
     expect(detail?.careerDataStatus).toBe("available");
     expect(detail?.renderState.canRenderStrongTruth).toBe(true);
     expect(detail?.renderState.canIndexPage).toBe(true);
-    expect(detail?.protocol.claimPermissions.allow_strong_claim).toBe(true);
-    expect(detail?.protocol.trustManifest?.quality.complete).toBe(true);
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
-  it("marks missing answer surface as trust-limited and blocks strong rendering", () => {
-    const detail = normalizeCareerRecommendationDetail(
-      {
-        runtime_type_code: "INTJ-A",
-        canonical_type_code: "INTJ",
-        display_type: "INTJ-A",
-        variant_code: "A",
-        public_route_slug: "intj-a",
-        graph_type_code: "INTJ",
-        type_name: "Architect",
-        hero_summary: "Assertive architect summary.",
-        matched_jobs: [
-          {
-            slug: "product-strategist",
-            title: "Product Strategist",
-          },
-        ],
-        seo_surface_v1: {
-          metadata_contract_version: "seo.surface.v1",
-          surface_type: "career_recommendation_public_detail",
-          canonical_url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
-          indexability_state: "indexable",
-        },
-        _meta: {
-          authority_source: "career_recommendation_service.v1",
-        },
-        trust_manifest: {
-          manifest_version: "trust_manifest.v1",
-          entity_id: "occ_intj_a",
-          page_type: "career_recommendation_detail",
-          page_slug: "intj-a",
-          content_version: "content.v1",
-          data_version: "data.v1",
-          logic_version: "logic.v1",
-          locale_context: {
-            truth_market: "US",
-            display_market: "CN",
-            locale: "zh-CN",
-          },
-          source_trace: [],
-          methodology: {
-            crosswalk_mode: "trust_inheritance",
-            derivation_policy: "recommendation_projection",
-            notes: [],
-          },
-          reviewer: {
-            reviewed: true,
-            reviewer_id: "career_editor",
-            reviewer_status: "approved",
-          },
-          ai_assistance: {
-            used: true,
-            summary: "surface drafting only",
-          },
-          quality: {
-            complete: true,
-            reviewed: true,
-            stale: false,
-            blocked_reasons: [],
-          },
-          last_substantive_update_at: "2026-04-08T00:00:00.000Z",
-          next_review_due_at: "2026-07-08T00:00:00.000Z",
-        },
-        claim_permissions: {
-          allow_strong_claim: true,
-          allow_salary_comparison: false,
-          allow_ai_strategy: true,
-          allow_transition_recommendation: true,
-          allow_cross_market_pay_copy: false,
-          reason_codes: [],
-        },
-      },
-      "zh"
-    );
-
-    expect(detail).not.toBeNull();
-    expect(detail?.careerDataStatus).toBe("trust_limited");
-    expect(detail?.renderState.canRenderStrongTruth).toBe(false);
-    expect(detail?.renderState.canRenderAnswerSurface).toBe(false);
-    expect(detail?.renderState.canRenderMatchedJobs).toBe(true);
-    expect(detail?.renderState.canIndexPage).toBe(false);
-    expect(detail?.renderState.missingFields).toContain("answer_surface_v1");
-  });
-
-  it("blocks strong rendering when explicit claim permissions are missing", () => {
-    const detail = normalizeCareerRecommendationDetail(
-      {
-        runtime_type_code: "INTJ-A",
-        canonical_type_code: "INTJ",
-        display_type: "INTJ-A",
-        public_route_slug: "intj-a",
-        graph_type_code: "INTJ",
-        type_name: "Architect",
-        hero_summary: "Assertive architect summary.",
-        matched_jobs: [
-          {
-            slug: "product-strategist",
-            title: "Product Strategist",
-          },
-        ],
-        seo_surface_v1: {
-          metadata_contract_version: "seo.surface.v1",
-          surface_type: "career_recommendation_public_detail",
-          canonical_url: "https://staging.fermatmind.com/zh/career/recommendations/mbti/intj-a",
-          indexability_state: "indexable",
-        },
-        answer_surface_v1: {
-          answer_contract_version: "answer.surface.v1",
-          answer_scope: "public_indexable_detail",
-          surface_type: "career_recommendation_public_detail",
-          summary_blocks: [
-            {
-              key: "career_summary",
-              body: "Architects thrive in systems work.",
-            },
-          ],
-        },
-        _meta: {
-          authority_source: "career_recommendation_service.v1",
-        },
-      },
-      "zh"
-    );
-
-    expect(detail).not.toBeNull();
-    expect(detail?.careerDataStatus).toBe("trust_limited");
-    expect(detail?.renderState.canRenderStrongTruth).toBe(false);
-    expect(detail?.renderState.canRenderMatchedJobs).toBe(false);
-    expect(detail?.renderState.missingFields).toContain("claim_permissions.allow_strong_claim");
-    expect(detail?.renderState.missingFields).toContain("trust_manifest");
-    expect(detail?.protocol.claimPermissions.allow_strong_claim).toBe(false);
-  });
-
-  it("career recommendation detail page redirects legacy 4-letter routes and blocks local authority fallbacks", () => {
+  it("career recommendation detail page reads the backend bundle path and blocks CMS fallback authority", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
-    expect(source).toContain("getMbtiCareerRecommendationByType");
+    expect(source).toContain("fetchCareerRecommendationBundle");
+    expect(source).toContain("adaptCareerRecommendationBundle");
     expect(source).toContain("parseMbtiContinuityQuery");
     expect(source).toContain("mbti-career-continuity-entry");
-    expect(source).toContain("permanentRedirect(buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug))");
-    expect(source).toContain("const canonicalPath = buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug);");
-    expect(source).toContain("const canonical = canonicalUrl(canonicalPath);");
-    expect(source).toContain("url: canonical,");
-    expect(source).toContain("seoSurface: detail.seo.surface");
-    expect(source).toContain("explicitIndexGate:");
+    expect(source).toContain("const canonicalPath =");
+    expect(source).toContain("detail.seoContract.indexEligible");
     expect(source).toContain("renderCareerDataStatus(detail, locale)");
-    expect(source).toContain("renderState.canRenderStrongTruth");
-    expect(source).toContain("data-career-data-status={detail.careerDataStatus}");
     expect(source).toContain("career-recommendation-matched-jobs-status");
-    expect(source).toContain("career-recommendation-answer-surface");
-    expect(source).toContain("career-recommendation-scene-entry");
+    expect(source).toContain('testId="career-recommendation-scene-entry"');
+    expect(source).toContain('data-testid="career-recommendation-type-interpretation"');
+    expect(source).not.toContain("getMbtiCareerRecommendationByType");
     expect(source).not.toContain("getMbtiRecommendationContent");
-    expect(source).not.toContain("MbtiScenarioDeepDiveSection");
-    expect(source).not.toContain("buildAnswerFirst");
-    expect(source).not.toContain("buildCareerFaqItems");
-    expect(source).not.toContain("buildAnswerSurfaceFaqItems");
-    expect(source).not.toContain("getCareerJobBySlug");
-    expect(source).not.toContain("listMbtiRecommendationTypes");
+    expect(source).not.toContain("AnswerSurfaceSection");
+    expect(source).not.toContain("career-recommendations.ts");
   });
 });
