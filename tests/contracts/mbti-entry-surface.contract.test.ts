@@ -150,22 +150,26 @@ describe("mbti entry surface contract", () => {
 
   it("wires personality index with one primary mbti CTA and entry tracking", () => {
     const source = read("app/(localized)/[locale]/personality/page.tsx");
+    const heroSource = read("components/personality/PersonalityHeroExecutiveSummary.tsx");
 
     expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
     expect(source).toContain('entrySurface: "mbti_personality_index"');
     expect(source).toContain('sourcePageType: "personality_index"');
-    expect(source).toContain('data-testid="mbti-personality-index-entry-cta-group"');
-    expect(source).toContain('data-testid="mbti-personality-index-primary-cta"');
-    expect(source).toContain('data-testid="mbti-personality-index-discoverability-links"');
+    expect(source).toContain("PersonalityHeroExecutiveSummary");
+    expect(source).toContain("buildPersonalityQuickLocateIndex");
     expect(source).toContain('data-testid="mbti-personality-family-grid"');
     expect(source).toContain('data-testid="mbti-personality-directory-grid"');
     expect(source).toContain("buildPersonalityHubPayload");
     expect(source).toContain("hubPayload.familyGroups.map");
     expect(source).toContain("hubPayload.typeDecisionCards.map");
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
-    expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
-    expect(count(source, 'data-testid="mbti-personality-index-primary-cta"')).toBe(1);
+    expect(heroSource).toContain('data-testid="mbti-personality-index-entry-cta-group"');
+    expect(heroSource).toContain('data-testid="mbti-personality-index-primary-cta"');
+    expect(heroSource).toContain('data-testid="mbti-personality-index-discoverability-links"');
+    expect(heroSource).toContain("TrackedEntryCtaLink");
+    expect(heroSource).toContain("PersonalityQuickLocateBar");
+    expect(count(heroSource, 'data-testid="mbti-personality-index-primary-cta"')).toBe(1);
   });
 
   it("keeps header personality navigation focused on the hub plus family-level entry points", () => {
