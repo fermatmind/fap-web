@@ -89,7 +89,10 @@ describe("schema injection contract", () => {
 
     expect(listSource).toContain("fetchCareerJobIndex");
     expect(listSource).toContain("adaptCareerJobIndex");
+    expect(listSource).toContain("fetchCareerSearch");
+    expect(listSource).toContain("adaptCareerSearch");
     expect(listSource).not.toContain("listCareerJobs(");
+    expect(listSource).not.toContain("personalityQuickLocate");
     expect(aliasSource).toContain("getCareerJobFromCmsBySlug");
     expect(aliasSource).not.toContain("getCareerJobBySlug");
   });
@@ -118,6 +121,8 @@ describe("schema injection contract", () => {
     expect(source).not.toContain("CareerRecommendationPanel");
     expect(source).toContain("listCareerIndustries");
     expect(source).toContain("listCareerGuidesFromCms");
+    expect(source).toContain('data-testid="career-landing-search-entry"');
+    expect(source).toContain('action={withLocale("/career/jobs")}');
     expect(source).toContain('data-authority-owner="backend_lightweight_jobs"');
     expect(source).toContain('data-authority-owner="backend_lightweight_recommendations"');
     expect(source).toContain('data-authority-owner="editorial_local_industries"');

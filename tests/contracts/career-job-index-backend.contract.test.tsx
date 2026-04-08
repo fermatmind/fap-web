@@ -147,6 +147,7 @@ describe("career job index backend contract", () => {
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({}),
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
@@ -202,6 +203,7 @@ describe("career job index backend contract", () => {
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({}),
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
@@ -209,5 +211,103 @@ describe("career job index backend contract", () => {
     expect(html).not.toContain("Salary:");
     expect(html).not.toContain("Fit score:");
     expect(html).not.toContain("Confidence score:");
+  });
+
+  it("treats whitespace-only q as no query and keeps the default backend job index path", async () => {
+    const fetchCareerJobIndexMock = vi.fn(async () => ({
+      bundle_kind: "career_job_index",
+      items: [
+        {
+          identity: {
+            canonical_slug: "backend-architect",
+          },
+          titles: {
+            canonical_en: "Backend Architect",
+          },
+          truth_summary: {
+            median_pay_usd_annual: 182000,
+            outlook_pct_2024_2034: 14,
+            outlook_description: "High-trust systems work.",
+          },
+          trust_summary: {
+            reviewer_status: "approved",
+          },
+          score_summary: {
+            fit_score: { value: 84, integrity_state: "full", degradation_factor: 1.0 },
+            confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
+          },
+          seo_contract: {
+            canonical_path: "/career/jobs/backend-architect",
+            index_state: "index",
+            index_eligible: true,
+          },
+        },
+      ],
+    }));
+
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
+      fetchCareerJobIndex: fetchCareerJobIndexMock,
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
+      fetchCareerSearch: vi.fn(async () => {
+        throw new Error("search fetch should not run for whitespace-only q");
+      }),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const page = await CareerJobsPage({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "   " }),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(fetchCareerJobIndexMock).toHaveBeenCalledTimes(1);
+    expect(html).toContain("career-job-index-card");
+    expect(html).not.toContain("career-job-search-card");
+  });
+
+  it("renders an explicit conservative empty state for real no-result queries", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
+      fetchCareerSearch: vi.fn(async () => ({
+        bundle_kind: "career_search_results",
+        data: [],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
+      fetchCareerJobIndex: vi.fn(async () => {
+        throw new Error("job index fetch should not run when a real search query exists");
+      }),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const page = await CareerJobsPage({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "zzzz" }),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(html).toContain("career-job-search-empty-state");
+    expect(html).toContain("No public matching jobs were found");
+    expect(html).not.toContain("CMS did not return any public career jobs");
   });
 });

@@ -214,3 +214,27 @@ export type CareerRecommendationIndexCardAdapter = {
   provenanceMeta: CareerProvenanceMetaAdapter;
   href: string;
 };
+
+export type CareerSearchResultCardAdapter = {
+  authoritySource: string;
+  dataStatus: CareerLightweightDataStatus;
+  matchKind: string;
+  matchedText: string | null;
+  identity: {
+    occupationUuid: string | null;
+    canonicalSlug: string;
+  };
+  titles: {
+    title: string;
+    canonicalEn: string | null;
+    canonicalZh: string | null;
+  };
+  trustSummary: {
+    status: string | null;
+    reviewerStatus: string | null;
+    crossMarketNotice: string | null;
+  };
+  seoContract: CareerSeoContractAdapter;
+  provenanceMeta: CareerProvenanceMetaAdapter;
+  href: string;
+};
