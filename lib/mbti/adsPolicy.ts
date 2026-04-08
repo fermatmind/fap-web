@@ -47,6 +47,11 @@ export const MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES = [
   "ESFP",
 ] as const;
 
+export const MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES = [
+  ...MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES,
+  ...MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES,
+] as const;
+
 export type MbtiAdsSurfacePolicy = "primary" | "secondary" | "seo_only" | "forbidden" | "other";
 export type MbtiAdsLaunchTier = "stable" | "candidate" | "hold";
 export type MbtiAdsTypeCode = (typeof MBTI_TYPE_CODES)[number];
@@ -70,6 +75,16 @@ export const MBTI_ADS_LAUNCH_MANIFEST = {
   forbiddenPatterns: MBTI_ADS_FORBIDDEN_PATTERNS,
   secondaryWhitelistStableTypes: MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES,
   secondaryWhitelistCandidateTypes: MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES,
+  secondaryWhitelistAllTypes: MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES,
+  secondaryWhitelistHoldTypes: MBTI_TYPE_CODES.filter(
+    (typeCode) =>
+      !MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES.includes(
+        typeCode as (typeof MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES)[number]
+      ) &&
+      !MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES.includes(
+        typeCode as (typeof MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES)[number]
+      )
+  ),
 } as const;
 
 export function normalizeMbtiAdsPath(pathname: string): string {

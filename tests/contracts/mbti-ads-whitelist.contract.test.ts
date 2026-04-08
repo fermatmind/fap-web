@@ -6,6 +6,7 @@ import {
   MBTI_ADS_FORBIDDEN_PATTERNS,
   MBTI_ADS_PRIMARY_WHITELIST,
   MBTI_ADS_SECONDARY_WHITELIST,
+  MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES,
   MBTI_ADS_SECONDARY_WHITELIST_CANDIDATE_TYPES,
   MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES,
   MBTI_ADS_SEO_ONLY_PAGES,
@@ -92,11 +93,21 @@ describe("mbti ads whitelist contract", () => {
     expect(getMbtiSecondaryWhitelistHoldTypes()).toEqual([]);
   });
 
+  it("keeps the type-tier rollout exhaustive across all 16 mbti canonical types", () => {
+    expect(new Set(MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES)).toEqual(new Set(MBTI_TYPE_CODES));
+    expect(new Set(MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES).size).toBe(MBTI_TYPE_CODES.length);
+    expect(new Set(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistAllTypes)).toEqual(new Set(MBTI_TYPE_CODES));
+    expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistHoldTypes).toEqual([]);
+  });
+
   it("keeps a single launch manifest for ops-readable mbti ads rollout", () => {
     expect(MBTI_ADS_LAUNCH_MANIFEST.primaryWhitelistPages).toEqual(MBTI_ADS_PRIMARY_WHITELIST);
     expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistPages).toEqual(MBTI_ADS_SECONDARY_WHITELIST);
     expect(MBTI_ADS_LAUNCH_MANIFEST.seoOnlyPages).toEqual(MBTI_ADS_SEO_ONLY_PAGES);
     expect(MBTI_ADS_LAUNCH_MANIFEST.forbiddenPatterns).toEqual(MBTI_ADS_FORBIDDEN_PATTERNS);
+    expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistAllTypes).toEqual(
+      MBTI_ADS_SECONDARY_WHITELIST_ALL_TYPES
+    );
     expect(MBTI_ADS_LAUNCH_MANIFEST.secondaryWhitelistStableTypes).toEqual(
       MBTI_ADS_SECONDARY_WHITELIST_STABLE_TYPES
     );
