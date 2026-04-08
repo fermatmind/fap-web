@@ -156,10 +156,26 @@ describe("mbti entry surface contract", () => {
     expect(source).toContain('sourcePageType: "personality_index"');
     expect(source).toContain('data-testid="mbti-personality-index-entry-cta-group"');
     expect(source).toContain('data-testid="mbti-personality-index-primary-cta"');
+    expect(source).toContain('data-testid="mbti-personality-index-discoverability-links"');
+    expect(source).toContain('data-testid="mbti-personality-family-grid"');
+    expect(source).toContain('data-testid="mbti-personality-directory-grid"');
+    expect(source).toContain("MBTI_TYPE_GROUPS");
+    expect(source).toContain("const allPersonalityCards = MBTI_GROUP_ORDER.flatMap");
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('TrackedEntryCtaLink');
     expect(source).toContain('buildMbtiEntryHref({');
     expect(count(source, 'data-testid="mbti-personality-index-primary-cta"')).toBe(1);
+  });
+
+  it("keeps header personality navigation focused on the hub plus family-level entry points", () => {
+    const source = read("lib/navigation/headerDropdownMenus.ts");
+
+    expect(source).toContain('{ href: "/personality", label: "All personality profiles" }');
+    expect(source).toContain('{ href: "/personality#nt", label: "Analysts (NT)" }');
+    expect(source).toContain('{ href: "/personality#nf", label: "Diplomats (NF)" }');
+    expect(source).toContain('{ href: "/personality#sj", label: "Sentinels (SJ)" }');
+    expect(source).toContain('{ href: "/personality#sp", label: "Explorers (SP)" }');
+    expect(source).not.toContain('{ href: "/personality/intp", label: "INTP personality" }');
   });
 
   it("wires personality detail with one primary mbti CTA and entry tracking", () => {
