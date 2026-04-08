@@ -17,7 +17,7 @@ export function ScenarioIntelligenceMatrix({
     >
       <div className="space-y-2">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-hub-navy)]">
-          {locale === "zh" ? "Scenario Intelligence Matrix" : "Scenario Intelligence Matrix"}
+          {locale === "zh" ? "场景矩阵" : "Scenario Intelligence Matrix"}
         </p>
         <h2 className="m-0 font-serif text-[length:var(--fm-hub-heading-section)] text-[var(--fm-hub-navy-strong)]">
           {locale === "zh" ? "按决策场景选择入口" : "Choose the entry by decision scenario"}
@@ -33,7 +33,7 @@ export function ScenarioIntelligenceMatrix({
         {cards.map((card) => (
           <article
             key={card.key}
-            className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-panel-bg)] p-5 shadow-[var(--fm-shadow-sm)]"
+            className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-panel-bg)] p-4 shadow-[var(--fm-shadow-sm)] sm:p-5"
           >
             <div className="space-y-2">
               <h3 className="m-0 font-serif text-xl text-[var(--fm-hub-navy-strong)]">{card.title}</h3>
@@ -48,7 +48,7 @@ export function ScenarioIntelligenceMatrix({
                 <p className="mb-0 mt-2 text-sm font-medium text-[var(--fm-text)]">{card.primaryMetric.value}</p>
               </div>
               {card.secondaryMetric ? (
-                <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-hub-panel-muted-bg)] p-4">
+                <div className="hidden rounded-xl border border-[var(--fm-border)] bg-[var(--fm-hub-panel-muted-bg)] p-4 sm:block">
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-hub-friction-rose)]">
                     {card.secondaryMetric.label}
                   </p>
@@ -61,7 +61,7 @@ export function ScenarioIntelligenceMatrix({
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
                 {locale === "zh" ? "优先查看类型" : "Prioritize these types"}
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="hidden flex-wrap gap-2 sm:flex">
                 {card.topTypeCodes.map((typeCode) => (
                   <span
                     key={`${card.key}-${typeCode}`}
@@ -71,8 +71,14 @@ export function ScenarioIntelligenceMatrix({
                   </span>
                 ))}
               </div>
-              <p className="m-0 text-xs text-[var(--fm-text-muted)]">
+              <p className="m-0 text-xs text-[var(--fm-text-muted)] sm:hidden">
+                {card.topTypeCodes.join(" / ")}
+              </p>
+              <p className="hidden text-xs text-[var(--fm-text-muted)] sm:block">
                 {locale === "zh" ? "Family hints：" : "Family hints: "}
+                {card.familyHints.join(" / ")}
+              </p>
+              <p className="m-0 text-xs text-[var(--fm-text-muted)] sm:hidden">
                 {card.familyHints.join(" / ")}
               </p>
             </div>

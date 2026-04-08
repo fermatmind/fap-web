@@ -51,7 +51,11 @@ export function PersonalityQuickLocateBar({
   const hasQuery = query.trim().length > 0;
 
   return (
-    <div className="space-y-3" data-testid="personality-quick-locate-bar">
+    <div
+      id="personality-quick-locate"
+      className="scroll-mt-24 space-y-2 sm:scroll-mt-28 sm:space-y-3"
+      data-testid="personality-quick-locate-bar"
+    >
       <label className="block text-sm font-medium text-[var(--fm-text)]" htmlFor="personality-quick-locate-input">
         {locale === "zh" ? "快速定位人格代码或职业名" : "Quick locate a type code or career title"}
       </label>

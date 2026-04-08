@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { PersonalityHeroExecutiveSummary } from "@/components/personality/PersonalityHeroExecutiveSummary";
 import { CareerIntelligencePreview } from "@/components/personality/CareerIntelligencePreview";
 import { PersonalityFaq } from "@/components/personality/PersonalityFaq";
+import { PersonalityMobileDecisionBar } from "@/components/personality/PersonalityMobileDecisionBar";
 import { ScenarioIntelligenceMatrix } from "@/components/personality/ScenarioIntelligenceMatrix";
 import { PersonalityMethodology } from "@/components/personality/PersonalityMethodology";
 import { TypeNavigatorWorkbench } from "@/components/personality/TypeNavigatorWorkbench";
@@ -158,7 +159,7 @@ export default async function PersonalityPage({
       : null;
 
   return (
-    <Container as="main" className="space-y-6 py-10">
+    <Container as="main" className="space-y-6 py-10 pb-28 md:pb-10">
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       <JsonLd id="personality-webpage" data={webPageJsonLd} />
       <JsonLd id="personality-breadcrumb" data={breadcrumbJsonLd} />
@@ -169,6 +170,12 @@ export default async function PersonalityPage({
           { label: locale === "zh" ? "首页" : "Home", href: withLocale("/") },
           { label: locale === "zh" ? "人格" : "Personality" },
         ]}
+      />
+      <PersonalityMobileDecisionBar
+        locale={locale}
+        primaryHref={mbtiPrimaryCtaHref}
+        primaryTrackingProps={mbtiPrimaryCtaTrackingProps}
+        quickLocateHref="#personality-quick-locate"
       />
 
       <PersonalityHeroExecutiveSummary

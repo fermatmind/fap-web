@@ -64,6 +64,7 @@ describe("personality hub contract", () => {
     expect(pageSource).toContain('from "@/components/personality/CareerIntelligencePreview"');
     expect(pageSource).toContain('from "@/components/personality/PersonalityMethodology"');
     expect(pageSource).toContain('from "@/components/personality/PersonalityFaq"');
+    expect(pageSource).toContain('from "@/components/personality/PersonalityMobileDecisionBar"');
     expect(pageSource).toContain('from "@/components/personality/ScenarioIntelligenceMatrix"');
     expect(pageSource).toContain('from "@/components/personality/TypeNavigatorWorkbench"');
     expect(pageSource).toContain("buildFAQPageJsonLd");
@@ -77,6 +78,7 @@ describe("personality hub contract", () => {
     expect(pageSource).toContain("<CareerIntelligencePreview");
     expect(pageSource).toContain("<PersonalityMethodology");
     expect(pageSource).toContain("<PersonalityFaq");
+    expect(pageSource).toContain("<PersonalityMobileDecisionBar");
     expect(pageSource).toContain("<ScenarioIntelligenceMatrix");
     expect(pageSource).toContain("<TypeNavigatorWorkbench");
     expect(pageSource).toContain('id="personality-faq-jsonld"');
