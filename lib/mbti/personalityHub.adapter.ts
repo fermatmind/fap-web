@@ -7,7 +7,7 @@ import { getMbtiAdsLaunchTier } from "@/lib/mbti/adsPolicy";
 import { MBTI_TYPE_GROUPS } from "@/lib/mbti/mbtiTypeContentPack";
 import { buildDefaultMbtiSceneBlocks } from "@/lib/mbti/sceneBlocks";
 import type {
-  CareerPreviewCard,
+  CareerPreviewSeed,
   FaqBlock,
   MethodologyBlock,
   PersonalityHubFamilyGroup,
@@ -144,26 +144,45 @@ function buildFamilyGroups(input: BuildPersonalityHubPayloadInput): PersonalityH
   }));
 }
 
-function buildCareerPreviewCards(input: BuildPersonalityHubPayloadInput): CareerPreviewCard[] {
-  return MBTI_GROUP_ORDER.map((groupKey) => {
-    const meta = MBTI_GROUP_META[groupKey][input.locale];
-    const representativeType = MBTI_TYPE_GROUPS[groupKey][0];
+function buildCareerPreviewSeed(input: BuildPersonalityHubPayloadInput, cards: TypeDecisionCard[]): CareerPreviewSeed[] {
+  const selected: TypeDecisionCard[] = [];
+  const seenGroups = new Set<string>();
 
-    return {
-      key: groupKey,
-      title: input.locale === "zh" ? `${meta.title}职业预览` : `${meta.title} career preview`,
-      summary:
-        input.locale === "zh"
-          ? `先从 ${representativeType} 切入该类型组的职业判断路径，再进入对应 recommendation 页面。`
-          : `Start with ${representativeType} to inspect the career decision pattern for this family, then move into the recommendation detail route.`,
-      href: localizedPath(
-        `/career/recommendations/mbti/${buildDefaultPublicPersonalitySlug(representativeType)}`,
-        input.locale
-      ),
-      keywords: [representativeType, meta.title],
-      matchedJobSlugs: [representativeType.toLowerCase()],
-    };
-  });
+  for (const card of cards) {
+    if (selected.length >= 3) {
+      break;
+    }
+
+    if (card.launchTier !== "stable" || seenGroups.has(card.groupKey)) {
+      continue;
+    }
+
+    selected.push(card);
+    seenGroups.add(card.groupKey);
+  }
+
+  for (const card of cards) {
+    if (selected.length >= 3) {
+      break;
+    }
+
+    if (seenGroups.has(card.groupKey)) {
+      continue;
+    }
+
+    selected.push(card);
+    seenGroups.add(card.groupKey);
+  }
+
+  return selected.map((card) => ({
+    typeCode: card.typeCode,
+    slug: card.slug,
+    title: card.title,
+    groupKey: card.groupKey,
+    groupTitle: card.groupTitle,
+    launchTier: card.launchTier,
+    recommendationHref: localizedPath(`/career/recommendations/mbti/${card.slug}`, input.locale),
+  }));
 }
 
 function buildTypeWorkbenchSeed(input: BuildPersonalityHubPayloadInput, cards: TypeDecisionCard[]): TypeWorkbenchCard[] {
@@ -296,8 +315,8 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
         },
         {
           key: "career-preview",
-          label: input.locale === "zh" ? "职业预览组" : "Career preview groups",
-          value: String(MBTI_GROUP_ORDER.length),
+          label: input.locale === "zh" ? "职业预览样板" : "Career preview samples",
+          value: "3",
         },
       ],
     },
@@ -306,7 +325,7 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
     familyGroups,
     typeDecisionCards,
     typeWorkbenchSeed,
-    careerPreviewCards: buildCareerPreviewCards(input),
+    careerPreviewSeed: buildCareerPreviewSeed(input, typeDecisionCards),
     methodologyBlocks: buildMethodologyBlocks(input.locale),
     faqBlocks: buildFaqBlocks(input.locale),
     inventoryLinks: typeDecisionCards.map((card) => ({

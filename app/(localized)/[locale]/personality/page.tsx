@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { PersonalityHeroExecutiveSummary } from "@/components/personality/PersonalityHeroExecutiveSummary";
+import { CareerIntelligencePreview } from "@/components/personality/CareerIntelligencePreview";
 import { ScenarioIntelligenceMatrix } from "@/components/personality/ScenarioIntelligenceMatrix";
 import { TypeNavigatorWorkbench } from "@/components/personality/TypeNavigatorWorkbench";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -15,6 +16,7 @@ import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
 import { buildPersonalityQuickLocateIndex } from "@/lib/mbti/personalityQuickLocate";
+import { buildPersonalityCareerPreview } from "@/lib/mbti/personalityCareerPreview";
 import { buildPersonalityScenarioMatrix } from "@/lib/mbti/personalityScenarioMatrix";
 import { buildPersonalityWorkbench } from "@/lib/mbti/personalityWorkbench";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
@@ -85,6 +87,10 @@ export default async function PersonalityPage({
     locale,
     familyGroups: hubPayload.familyGroups,
     typeDecisionCards: hubPayload.typeDecisionCards,
+  });
+  const careerPreviewCards = await buildPersonalityCareerPreview({
+    locale,
+    seed: hubPayload.careerPreviewSeed,
   });
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
@@ -175,6 +181,8 @@ export default async function PersonalityPage({
           </CardHeader>
         </Card>
       )}
+
+      <CareerIntelligencePreview locale={locale} cards={careerPreviewCards} />
     </Container>
   );
 }
