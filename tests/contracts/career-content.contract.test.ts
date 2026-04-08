@@ -16,6 +16,10 @@ const cmsCareerRecommendationSource = readFileSync(
   resolve(process.cwd(), "lib/cms/career-recommendations.ts"),
   "utf8"
 );
+const careerLandingSource = readFileSync(
+  resolve(process.cwd(), "app/(localized)/[locale]/career/page.tsx"),
+  "utf8"
+);
 
 describe("career content contract", () => {
   it("keeps launch volume targets", () => {
@@ -56,5 +60,14 @@ describe("career content contract", () => {
     expect(cmsCareerRecommendationSource).toContain("/v0.5/career-recommendations/mbti");
     expect(cmsCareerRecommendationSource).toContain("authoritySource");
     expect(cmsCareerRecommendationSource).toContain("publicRouteSlug");
+  });
+
+  it("keeps local content helpers out of backend-backed landing sections", () => {
+    expect(careerLandingSource).not.toContain("listCareerJobs(");
+    expect(careerLandingSource).toContain("listCareerIndustries");
+    expect(careerLandingSource).toContain("listCareerGuidesFromCms");
+    expect(careerLandingSource).toContain("fetchCareerJobIndex");
+    expect(careerLandingSource).toContain("fetchCareerRecommendationIndex");
+    expect(careerLandingSource).not.toContain("growth_path[0]");
   });
 });
