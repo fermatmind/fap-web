@@ -20,7 +20,25 @@ describe("personality career preview contract", () => {
 
     expect(radar).not.toBeNull();
     expect(radar?.axes).toHaveLength(5);
-    expect(radar?.axes.every((axis) => axis.value > 0)).toBe(true);
+    expect(radar?.axes.some((axis) => axis.value > 0)).toBe(true);
+  });
+
+  it("keeps radar renderable when some structural axes are zero", () => {
+    const radar = buildMiniStrainRadarData(
+      {
+        derived_signals: {
+          autonomy_level: 0,
+          people_intensity: 2,
+          variability_level: 0,
+          closure_demand: 5,
+          cadence_rigidity: 0,
+        },
+      } as never,
+      "en"
+    );
+
+    expect(radar).not.toBeNull();
+    expect(radar?.axes).toHaveLength(5);
   });
 
   it("creates preview cards with recommendation primary cta and job secondary cta", () => {

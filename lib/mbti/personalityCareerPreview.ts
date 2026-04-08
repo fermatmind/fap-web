@@ -133,7 +133,7 @@ export function buildMiniStrainRadarData(
     value: normalizeRadarValue(asset.derived_signals[dimension.key]),
   }));
 
-  if (axes.some((axis) => axis.value <= 0)) {
+  if (axes.every((axis) => axis.value <= 0)) {
     return null;
   }
 

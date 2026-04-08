@@ -145,15 +145,34 @@ function buildFamilyGroups(input: BuildPersonalityHubPayloadInput): PersonalityH
 }
 
 function buildCareerPreviewSeed(input: BuildPersonalityHubPayloadInput, cards: TypeDecisionCard[]): CareerPreviewSeed[] {
-  const stableUniqueFamilies = cards.filter((card, index, collection) => {
-    if (card.launchTier !== "stable") {
-      return false;
+  const selected: TypeDecisionCard[] = [];
+  const seenGroups = new Set<string>();
+
+  for (const card of cards) {
+    if (selected.length >= 3) {
+      break;
     }
 
-    return collection.findIndex((candidate) => candidate.groupKey === card.groupKey && candidate.launchTier === "stable") === index;
-  });
+    if (card.launchTier !== "stable" || seenGroups.has(card.groupKey)) {
+      continue;
+    }
 
-  const selected = stableUniqueFamilies.slice(0, 3);
+    selected.push(card);
+    seenGroups.add(card.groupKey);
+  }
+
+  for (const card of cards) {
+    if (selected.length >= 3) {
+      break;
+    }
+
+    if (seenGroups.has(card.groupKey)) {
+      continue;
+    }
+
+    selected.push(card);
+    seenGroups.add(card.groupKey);
+  }
 
   return selected.map((card) => ({
     typeCode: card.typeCode,
