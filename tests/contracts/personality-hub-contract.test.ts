@@ -54,7 +54,12 @@ describe("personality hub contract", () => {
     const globalsSource = fs.readFileSync(globalsPath, "utf8");
 
     expect(pageSource).toContain('from "@/lib/mbti/personalityHub.adapter"');
+    expect(pageSource).toContain('from "@/lib/mbti/personalityQuickLocate"');
+    expect(pageSource).toContain('from "@/components/personality/PersonalityHeroExecutiveSummary"');
     expect(pageSource).toContain("buildPersonalityHubPayload({");
+    expect(pageSource).toContain("buildPersonalityQuickLocateIndex({");
+    expect(pageSource).toContain("<PersonalityHeroExecutiveSummary");
+    expect(pageSource).toContain("quickLocateIndex={quickLocateIndex}");
     expect(pageSource).toContain("hubPayload.familyGroups");
     expect(pageSource).toContain("hubPayload.typeDecisionCards");
     expect(globalsSource).toContain("--fm-hub-navy");

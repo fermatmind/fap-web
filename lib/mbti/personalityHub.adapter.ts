@@ -201,6 +201,7 @@ function buildFaqBlocks(locale: Locale): FaqBlock[] {
 export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInput): PersonalityHubPayload {
   const familyGroups = buildFamilyGroups(input);
   const typeDecisionCards = familyGroups.flatMap((group) => group.cards);
+  const stableCount = typeDecisionCards.filter((card) => card.launchTier === "stable").length;
   const summaryBody =
     input.landingSurface?.summaryBlocks[0]?.body ||
     (input.locale === "zh"
@@ -251,6 +252,17 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
           label: input.locale === "zh" ? "类型组" : "Families",
           value: String(familyGroups.length),
         },
+        {
+          key: "stable-launch",
+          label: input.locale === "zh" ? "稳定副白名单" : "Stable launch types",
+          value: String(stableCount),
+          tone: "positive",
+        },
+        {
+          key: "career-preview",
+          label: input.locale === "zh" ? "职业预览组" : "Career preview groups",
+          value: String(MBTI_GROUP_ORDER.length),
+        },
       ],
     },
     scenarioCards: buildScenarioCards(input),
@@ -266,6 +278,21 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
     quickLocateSeed: typeDecisionCards.map((card) => ({
       query: card.typeCode,
       matchedTypeCodes: [card.typeCode],
+      typeResults: [
+        {
+          kind: "type",
+          typeCode: card.typeCode,
+          title: card.title,
+          excerpt: card.excerpt,
+          href: card.href,
+          groupKey: card.groupKey,
+          groupTitle: card.groupTitle,
+          recommendationHref: localizedPath(`/career/recommendations/mbti/${card.slug}`, input.locale),
+          keywords: [card.typeCode.toLowerCase(), card.title.toLowerCase(), card.groupTitle.toLowerCase()],
+          launchTier: card.launchTier,
+        },
+      ],
+      careerResults: [],
     })),
     faqItems: buildFaqBlocks(input.locale),
     methodologyItems: buildMethodologyBlocks(input.locale),
