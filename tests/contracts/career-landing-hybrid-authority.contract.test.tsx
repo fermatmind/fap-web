@@ -104,6 +104,9 @@ describe("career landing hybrid authority contract", () => {
     expect(html).toContain('data-authority-owner="editorial_cms_guides"');
     expect(html).toContain('data-testid="career-landing-industries"');
     expect(html).toContain('data-authority-owner="editorial_local_industries"');
+    expect(html).toContain('data-testid="career-landing-search-entry"');
+    expect(html).toContain('action="/en/career/jobs"');
+    expect(html).toContain('name="q"');
     expect(html).toContain("INTJ Career Match");
     expect(html).toContain("Backend Architect");
     expect(html).toContain("Browse recommendations");

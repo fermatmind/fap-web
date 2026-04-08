@@ -140,6 +140,22 @@ export default async function CareerCenterPage({
             {locale === "zh" ? "查看职业推荐" : "View recommendations"}
           </Link>
         </div>
+        <form
+          action={withLocale("/career/jobs")}
+          method="get"
+          className="flex flex-col gap-3 md:flex-row md:items-center"
+          data-testid="career-landing-search-entry"
+        >
+          <input
+            type="search"
+            name="q"
+            placeholder={locale === "zh" ? "搜索职业 slug、标题或别名" : "Search slug, title, or alias"}
+            className="h-12 w-full rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-4 text-sm text-[var(--fm-text)] outline-none ring-0 placeholder:text-[var(--fm-text-muted)] focus:border-[var(--fm-accent)]"
+          />
+          <button type="submit" className={buttonVariants({ variant: "outline" })}>
+            {locale === "zh" ? "去职业库搜索" : "Search in jobs"}
+          </button>
+        </form>
       </section>
 
       <section
