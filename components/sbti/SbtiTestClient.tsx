@@ -21,6 +21,7 @@ function createDefaultState(locale: Locale): SbtiStoredState {
     updatedAt: new Date().toISOString(),
     answers: {},
     completedResult: null,
+    submissionCount: 0,
   };
 }
 
@@ -29,6 +30,7 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
   const questionRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [answers, setAnswers] = useState<SbtiAnswerMap>({});
   const [completedResult, setCompletedResult] = useState<SbtiStoredState["completedResult"]>(null);
+  const [submissionCount, setSubmissionCount] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -45,6 +47,7 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
 
     setAnswers(nextState.answers);
     setCompletedResult(nextState.completedResult);
+    setSubmissionCount(nextState.submissionCount);
     setLoaded(true);
   }, [locale]);
 
@@ -57,8 +60,9 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
       updatedAt: new Date().toISOString(),
       answers,
       completedResult,
+      submissionCount,
     });
-  }, [answers, completedResult, loaded, locale]);
+  }, [answers, completedResult, loaded, locale, submissionCount]);
 
   useEffect(() => {
     trackEvent("landing_view", {
@@ -79,6 +83,7 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
   );
   const unansweredCount = SBTI_QUESTIONS.length - answeredCount;
   const canViewResult = unansweredCount === 0;
+  const hasPreviousSubmission = submissionCount > 0;
   const progress = Math.round((answeredCount / SBTI_QUESTIONS.length) * 100);
 
   const updateAnswer = (questionId: string, optionId: string) => {
@@ -116,6 +121,7 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
     setSubmitting(true);
 
     try {
+      const nextSubmissionCount = submissionCount + 1;
       const scores = scoreSbtiAnswers(SBTI_QUESTIONS, answers);
       const resolved = resolveSbtiPrimaryType(scores, SBTI_RESULT_PROFILES);
       const nextResult = {
@@ -130,6 +136,7 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
       };
 
       setCompletedResult(nextResult);
+      setSubmissionCount(nextSubmissionCount);
 
       writeSbtiState({
         version: 1,
@@ -137,6 +144,7 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
         updatedAt: new Date().toISOString(),
         answers,
         completedResult: nextResult,
+        submissionCount: nextSubmissionCount,
       });
 
       trackEvent("submit_click", {
@@ -183,6 +191,12 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
       </Card>
 
       {error ? <Alert>{error}</Alert> : null}
+
+      {hasPreviousSubmission ? (
+        <Alert className="border-sky-200 bg-sky-50 text-sky-900">
+          已载入你上次提交时的答案。你可以直接重新提交，或改几题后再重新提交结果。
+        </Alert>
+      ) : null}
 
       <div className="space-y-4">
         {SBTI_QUESTIONS.map((question) => (
@@ -244,7 +258,7 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
               返回首页
             </Button>
             <Button type="button" onClick={handleSubmit} disabled={submitting || !canViewResult}>
-              {submitting ? "生成中..." : canViewResult ? "查看结果" : "继续作答"}
+              {submitting ? "生成中..." : canViewResult ? (hasPreviousSubmission ? "重新提交结果" : "查看结果") : "继续作答"}
             </Button>
           </div>
         </div>

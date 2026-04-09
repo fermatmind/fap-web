@@ -7,7 +7,16 @@ export type SbtiStoredState = {
   updatedAt: string;
   answers: SbtiAnswerMap;
   completedResult: SbtiComputedResult | null;
+  submissionCount: number;
 };
+
+function normalizeSubmissionCount(state: Pick<SbtiStoredState, "completedResult"> & { submissionCount?: unknown }): number {
+  if (typeof state.submissionCount === "number" && Number.isFinite(state.submissionCount) && state.submissionCount >= 0) {
+    return state.submissionCount;
+  }
+
+  return state.completedResult ? 1 : 0;
+}
 
 export function readSbtiState(): SbtiStoredState | null {
   if (typeof window === "undefined") return null;
@@ -19,7 +28,10 @@ export function readSbtiState(): SbtiStoredState | null {
     if (!parsed || parsed.version !== 1 || typeof parsed.answers !== "object") {
       return null;
     }
-    return parsed;
+    return {
+      ...parsed,
+      submissionCount: normalizeSubmissionCount(parsed),
+    };
   } catch {
     return null;
   }
@@ -33,4 +45,19 @@ export function writeSbtiState(state: SbtiStoredState): void {
 export function clearSbtiState(): void {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(SBTI_STORAGE_KEY);
+}
+
+export function resetSbtiCompletedResult(): SbtiStoredState | null {
+  const current = readSbtiState();
+  if (!current) return null;
+
+  const nextState: SbtiStoredState = {
+    ...current,
+    updatedAt: new Date().toISOString(),
+    completedResult: null,
+    submissionCount: normalizeSubmissionCount(current),
+  };
+
+  writeSbtiState(nextState);
+  return nextState;
 }

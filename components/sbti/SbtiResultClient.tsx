@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { SbtiResultIllustrationCard } from "@/components/sbti/result/SbtiResultIllustrationCard";
 import { getSbtiIllustration } from "@/components/sbti/result/sbtiIllustrationMap";
 import { Alert } from "@/components/ui/alert";
@@ -16,13 +17,14 @@ import {
   resolveSbtiResultProfile,
   SBTI_RESULT_DISCLAIMER,
 } from "@/lib/sbti/results";
-import { clearSbtiState, readSbtiState } from "@/lib/sbti/storage";
+import { clearSbtiState, readSbtiState, resetSbtiCompletedResult } from "@/lib/sbti/storage";
 
 function ResultSectionTitle({ children }: { children: ReactNode }) {
   return <CardTitle className="text-lg sm:text-xl">{children}</CardTitle>;
 }
 
 export function SbtiResultClient({ locale }: { locale: Locale }) {
+  const router = useRouter();
   const state = useMemo(() => readSbtiState(), []);
   const result = state?.completedResult ?? null;
   const profile = result ? resolveSbtiResultProfile(result.primaryTypeCode) : null;
@@ -49,14 +51,25 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
   const illustration = getSbtiIllustration(profile.code);
 
   const handleRetake = () => {
+    resetSbtiCompletedResult();
+    trackEvent("ui_card_interaction", {
+      slug: "sbti-result",
+      visual_kind: "result_cta",
+      interaction: "retake_sbti_with_answers",
+      locale,
+    });
+    router.push(localizedPath("/fun/sbti", locale));
+  };
+
+  const handleRestart = () => {
     clearSbtiState();
     trackEvent("ui_card_interaction", {
       slug: "sbti-result",
       visual_kind: "result_cta",
-      interaction: "retake_sbti",
+      interaction: "restart_sbti_from_scratch",
       locale,
     });
-    window.location.href = localizedPath("/fun/sbti", locale);
+    router.push(localizedPath("/fun/sbti", locale));
   };
 
   const homeHref = localizedPath("/", locale);
@@ -158,7 +171,10 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
           <Button type="button" onClick={handleRetake} className="w-full sm:w-auto">
-            重新测试
+            返回题目重新提交
+          </Button>
+          <Button type="button" variant="outline" onClick={handleRestart} className="w-full sm:w-auto">
+            清空答案重新开始
           </Button>
           <Link
             href={homeHref}
