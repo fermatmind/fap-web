@@ -40,7 +40,7 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
             SBTI 人格测试
           </h2>
           <p className="m-0 mx-auto max-w-[18rem] px-3 pt-2 text-center text-sm leading-6 text-slate-100/88 sm:max-w-[30rem] sm:px-0 sm:pt-2 sm:text-center sm:text-[0.95rem] sm:leading-7">
-            一个轻量、好玩、可分享的人格画像实验。
+            B站美女UP主蛆肉儿串儿（UID417038183）原创测试模型
           </p>
         </div>
 
