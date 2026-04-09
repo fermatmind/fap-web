@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-09T08:45:00Z",
+  "updated_at": "2026-04-09T08:55:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -73,10 +73,10 @@
     "PR-F8": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f8-career-recommendation-matched-job-alignment",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "2f81a15da3eea7adaefa89b064925fc9bdfe3aef",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/378",
       "checks": {
         "local": [
           {
