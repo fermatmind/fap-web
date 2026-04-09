@@ -47,8 +47,10 @@ describe("sbti scoring contract", () => {
 
     const distribution = [...counts.values()].sort((left, right) => right - left);
     const dominantShare = (distribution[0] ?? 0) / 5000;
+    const weakestShare = (distribution.at(-1) ?? 0) / 5000;
 
     expect(counts.size).toBe(25);
-    expect(dominantShare).toBeLessThan(0.2);
+    expect(dominantShare).toBeLessThan(0.05);
+    expect(weakestShare).toBeGreaterThan(0.03);
   });
 });

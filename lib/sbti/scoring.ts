@@ -46,9 +46,10 @@ export function scoreSbtiAnswers(questions: SbtiQuestion[], answers: SbtiAnswerM
 }
 
 const MAX_CENTERED_DISTANCE = Math.sqrt(SBTI_RESULT_DIMENSION_KEYS.length * 100 ** 2);
-const PROFILE_SPREAD_SCALE = 150;
-const PROFILE_SPREAD_POWER = 1.25;
-const PROFILE_MISMATCH_WEIGHT = 40;
+const PROFILE_MISMATCH_WEIGHT = 28;
+const PROFILE_UNIFORM_BUCKET_CONFIDENCE = 0.99;
+const PROFILE_HASH_POOL_CONFIDENCE = 0.99;
+const PROFILE_HASH_POOL_SIZE = 6;
 
 export function centeredDistance(a: SbtiResultScoreVector, b: SbtiResultScoreVector): number {
   let sum = 0;
@@ -116,15 +117,26 @@ export function resolveSbtiProfileFromResultScores(
     .sort((left, right) => left.rankScore - right.rankScore);
 
   const best = ranked[0];
+  if (best.mismatchCount === 0 && best.distance === 0) {
+    return {
+      primary: best.item,
+      similarity: 1,
+      matchPercent: 96,
+      mismatchCount: 0,
+      distance: 0,
+    };
+  }
+
+  const fingerprint = fingerprintResultScores(scores);
   const confidence = computeSbtiConfidence(best.mismatchCount, best.distance);
-  const poolSize = Math.max(
-    1,
-    Math.min(
-      profiles.length,
-      1 + Math.floor(Math.pow(1 - confidence, PROFILE_SPREAD_POWER) * PROFILE_SPREAD_SCALE)
-    )
-  );
-  const picked = ranked[hashString(fingerprintResultScores(scores)) % poolSize] ?? best;
+  const uniformBucketIndex = hashString(`${fingerprint}#uniform`) % profiles.length;
+  const pooledIndex = hashString(`${fingerprint}#pool`) % Math.min(PROFILE_HASH_POOL_SIZE, profiles.length);
+  const picked =
+    confidence < PROFILE_UNIFORM_BUCKET_CONFIDENCE
+      ? ranked.find((entry) => entry.item.code === profiles[uniformBucketIndex]?.code) ?? best
+      : confidence < PROFILE_HASH_POOL_CONFIDENCE
+        ? ranked[pooledIndex] ?? best
+        : best;
   const similarity = Number(
     computeSbtiConfidence(picked.mismatchCount, picked.distance).toFixed(4)
   );
