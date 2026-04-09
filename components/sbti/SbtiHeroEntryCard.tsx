@@ -22,12 +22,12 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
   const mbtiHref = localizedPath("/tests/mbti-personality-test-16-personality-types", locale);
 
   return (
-    <section className="relative rounded-[2rem] border border-white/14 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08))] p-5 text-white shadow-[0_28px_80px_rgba(4,12,24,0.34)] backdrop-blur-xl sm:p-6">
+    <section className="relative rounded-[2rem] border border-white/14 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08))] p-4 text-white shadow-[0_28px_80px_rgba(4,12,24,0.34)] backdrop-blur-xl sm:p-5 lg:p-6">
       <div
         aria-hidden
-        className="absolute inset-x-5 top-5 h-32 rounded-[1.5rem] bg-[radial-gradient(circle_at_top_left,rgba(255,211,140,0.42),transparent_58%),radial-gradient(circle_at_bottom_right,rgba(112,213,255,0.28),transparent_52%)]"
+        className="absolute inset-x-4 top-4 h-24 rounded-[1.5rem] bg-[radial-gradient(circle_at_top_left,rgba(255,211,140,0.42),transparent_58%),radial-gradient(circle_at_bottom_right,rgba(112,213,255,0.28),transparent_52%)] sm:inset-x-5 sm:top-5 sm:h-28"
       />
-      <div className="relative space-y-5">
+      <div className="relative space-y-4 sm:space-y-5">
         <div className="flex flex-wrap items-center gap-2">
           <Badge className="border-white/20 bg-white/12 text-white">娱乐实验</Badge>
           <span className="rounded-full border border-white/16 bg-black/10 px-3 py-1 text-xs font-medium text-white/82">
@@ -35,32 +35,32 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
           </span>
         </div>
 
-        <div className="space-y-3">
-          <h2 className="m-0 text-[clamp(1.8rem,4vw,2.5rem)] font-semibold tracking-[-0.04em] text-white">
+        <div className="space-y-2.5">
+          <h2 className="m-0 text-[clamp(1.7rem,3.6vw,2.35rem)] font-semibold tracking-[-0.04em] text-white">
             SBTI 人格测试
           </h2>
-          <p className="m-0 max-w-[30rem] text-sm leading-7 text-slate-100/90 sm:text-[0.95rem]">
+          <p className="m-0 max-w-[32rem] text-sm leading-6 text-slate-100/88 sm:max-w-[34rem] sm:text-[0.95rem] sm:leading-7">
             一个轻量、好玩、可分享的人格画像实验。适合拿来笑一笑，不适合拿来做诊断、招聘、相亲或重大决定。
           </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
           <div className="rounded-2xl border border-white/12 bg-black/12 px-4 py-3">
-            <p className="m-0 text-[0.72rem] uppercase tracking-[0.16em] text-white/58">今晚可直接上线</p>
-            <p className="m-0 mt-2 text-sm text-white/90">纯前端本地算分，不接正式报告、不走后端链路。</p>
+            <p className="m-0 text-[0.72rem] uppercase tracking-[0.16em] text-white/58">玩法</p>
+            <p className="m-0 mt-1.5 text-sm leading-6 text-white/90">纯前端本地算分，不接后端。</p>
           </div>
           <div className="rounded-2xl border border-white/12 bg-black/12 px-4 py-3">
-            <p className="m-0 text-[0.72rem] uppercase tracking-[0.16em] text-white/58">结果结构</p>
-            <p className="m-0 mt-2 text-sm text-white/90">主类型、匹配度、15 维评分、友情提示，一次看完。</p>
+            <p className="m-0 text-[0.72rem] uppercase tracking-[0.16em] text-white/58">结果</p>
+            <p className="m-0 mt-1.5 text-sm leading-6 text-white/90">主类型、匹配度、15 维评分。</p>
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <TrackedEntryCtaLink
             href={primaryHref}
             className={buttonVariants({
               size: "lg",
-              className: "justify-center bg-white text-slate-950 hover:bg-slate-100",
+              className: "justify-center bg-white text-slate-950 hover:bg-slate-100 sm:min-w-[10rem]",
             })}
             eventProperties={{
               slug: "sbti-home-hero",
@@ -80,7 +80,7 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
               size: "lg",
               variant: "outline",
               className: cn(
-                "justify-center border-white/28 bg-white/6 text-white hover:border-white/45 hover:bg-white/10 hover:text-white"
+                "justify-center border-white/28 bg-white/6 text-white hover:border-white/45 hover:bg-white/10 hover:text-white sm:min-w-[12rem]"
               ),
             })}
             eventProperties={{
@@ -94,7 +94,7 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
           </TrackedEntryCtaLink>
         </div>
 
-        <p className="m-0 text-xs leading-6 text-white/68">
+        <p className="m-0 text-xs leading-5 text-white/68">
           仅供娱乐，不作诊断依据
         </p>
       </div>
