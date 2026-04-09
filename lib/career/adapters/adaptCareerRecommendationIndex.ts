@@ -50,6 +50,7 @@ function buildSeoContract(raw: Record<string, unknown>): CareerSeoContractAdapte
     canonicalTarget: normalizeString(seoContract.canonical_target),
     indexState: normalizeString(seoContract.index_state),
     indexEligible: normalizeBoolean(seoContract.index_eligible),
+    reasonCodes: normalizeStringArray(seoContract.reason_codes),
     datasetEligible: null,
     articleEligible: null,
   };

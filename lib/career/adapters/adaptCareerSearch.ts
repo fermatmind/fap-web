@@ -26,6 +26,14 @@ function normalizeString(value: unknown): string | null {
   return normalized || null;
 }
 
+function normalizeStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return [...new Set(value.map((item) => String(item ?? "").trim()).filter(Boolean))];
+}
+
 function normalizeBoolean(value: unknown): boolean | null {
   return typeof value === "boolean" ? value : null;
 }
@@ -75,6 +83,7 @@ function buildSeoContract(raw: Record<string, unknown>): CareerSeoContractAdapte
     canonicalTarget: normalizeString(seoContract.canonical_target),
     indexState: normalizeString(seoContract.index_state),
     indexEligible: normalizeBoolean(seoContract.index_eligible),
+    reasonCodes: normalizeStringArray(seoContract.reason_codes),
     datasetEligible: null,
     articleEligible: null,
   };

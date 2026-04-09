@@ -103,6 +103,24 @@ describe("career recommendation public contract", () => {
           compiled_at: "2026-04-08T10:05:00Z",
           compile_run_id: "run_789",
         },
+        matched_jobs: [
+          {
+            occupation_uuid: "occ_123",
+            canonical_slug: "data-scientist",
+            title: "Data Scientist",
+            summary: "Analyze data and models.",
+            seo_contract: {
+              canonical_path: "/career/jobs/data-scientist",
+              canonical_target: "/career/jobs/data-scientist",
+              index_state: "indexable",
+              index_eligible: true,
+              reason_codes: ["stable_publish_ready"],
+            },
+            trust_summary: {
+              reviewer_status: "approved",
+            },
+          },
+        ],
       },
     });
 
@@ -119,6 +137,13 @@ describe("career recommendation public contract", () => {
     expect(detail?.careerDataStatus).toBe("available");
     expect(detail?.renderState.canRenderStrongTruth).toBe(true);
     expect(detail?.renderState.canIndexPage).toBe(true);
+    expect(detail?.matchedJobs).toHaveLength(1);
+    expect(detail?.matchedJobs[0]?.occupationUuid).toBe("occ_123");
+    expect(detail?.matchedJobs[0]?.canonicalSlug).toBe("data-scientist");
+    expect(detail?.matchedJobs[0]?.seoContract.indexEligible).toBe(true);
+    expect(detail?.matchedJobs[0]?.seoContract.indexState).toBe("indexable");
+    expect(detail?.matchedJobs[0]?.seoContract.reasonCodes).toEqual(["stable_publish_ready"]);
+    expect(detail?.matchedJobs[0]?.trustSummary.reviewerStatus).toBe("approved");
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
@@ -127,6 +152,7 @@ describe("career recommendation public contract", () => {
 
     expect(source).toContain("fetchCareerRecommendationBundle");
     expect(source).toContain("adaptCareerRecommendationBundle");
+    expect(source).toContain("filterStableRecommendationMatchedJobs");
     expect(source).toContain("parseMbtiContinuityQuery");
     expect(source).toContain("mbti-career-continuity-entry");
     expect(source).toContain("const canonicalPath =");

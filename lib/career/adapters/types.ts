@@ -10,6 +10,7 @@ export type CareerSeoContractAdapter = {
   canonicalTarget: string | null;
   indexState: string | null;
   indexEligible: boolean | null;
+  reasonCodes: string[];
   datasetEligible: boolean | null;
   articleEligible: boolean | null;
 };
@@ -87,13 +88,18 @@ export type CareerJobBundleAdapter = {
 };
 
 export type CareerRecommendationMatchedJobAdapter = {
-  slug: string;
+  occupationUuid: string | null;
+  canonicalSlug: string;
   title: string;
   summary: string;
   fitBucket: "primary" | "secondary" | null;
   fitPersonalityCodes: string[];
   mbtiPrimaryCodes: string[];
   mbtiSecondaryCodes: string[];
+  seoContract: CareerSeoContractAdapter;
+  trustSummary: {
+    reviewerStatus: string | null;
+  };
   href: string;
 };
 

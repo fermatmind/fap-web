@@ -12,6 +12,7 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
 import type { CareerRecommendationBundleAdapter } from "@/lib/career/adapters/types";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
+import { filterStableRecommendationMatchedJobs } from "@/lib/career/recommendationMatchedJobExposurePolicy";
 import { buildCareerRecommendationFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
@@ -189,7 +190,7 @@ export default async function CareerMbtiRecommendationPage({
     buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
   );
   const renderState = detail.renderState;
-  const matchedJobs = renderState.canRenderMatchedJobs ? detail.matchedJobs : [];
+  const matchedJobs = renderState.canRenderMatchedJobs ? filterStableRecommendationMatchedJobs(detail.matchedJobs) : [];
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -241,7 +242,7 @@ export default async function CareerMbtiRecommendationPage({
     locale,
     items: matchedJobs.map((job) => ({
       name: job.title,
-      path: localizedPath(`/career/jobs/${job.slug}`, locale),
+      path: localizedPath(`/career/jobs/${job.canonicalSlug}`, locale),
       description: job.summary,
     })),
   });
@@ -477,7 +478,10 @@ export default async function CareerMbtiRecommendationPage({
               </thead>
               <tbody>
                 {matchedJobs.map((job) => (
-                  <tr key={job.slug} className="border-b border-[var(--fm-border)] align-top text-[var(--fm-text-muted)]">
+                  <tr
+                    key={job.canonicalSlug}
+                    className="border-b border-[var(--fm-border)] align-top text-[var(--fm-text-muted)]"
+                  >
                     <td className="px-3 py-3 font-medium text-[var(--fm-text)]">
                       {job.fitBucket === "primary" ? "Primary" : job.fitBucket === "secondary" ? "Secondary" : "-"}
                     </td>

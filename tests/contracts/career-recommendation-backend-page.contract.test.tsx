@@ -175,4 +175,134 @@ describe("career recommendation backend page contract", () => {
       })
     ).rejects.toThrow("redirect:/en/career/recommendations/mbti/intj-a");
   });
+
+  it("renders only stable matched jobs from authority readiness signals", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/en/career/recommendations/mbti/intj-a"),
+      };
+    });
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationBundle", () => ({
+      fetchCareerRecommendationBundle: vi.fn(async () => ({
+        identity: {
+          mbti_type: "INTJ-A",
+        },
+        recommendation_subject_meta: {
+          canonical_type: "INTJ",
+        },
+        score_bundle: {
+          fit_score: { value: 82, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 75, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        claim_permissions: {
+          allow_strong_claim: true,
+          allow_salary_comparison: false,
+          allow_ai_strategy: true,
+          allow_transition_recommendation: true,
+          allow_cross_market_pay_copy: false,
+          reason_codes: [],
+        },
+        trust_manifest: {
+          reviewer_status: "reviewed",
+          content_version: "content.v1",
+          data_version: "data.v1",
+          logic_version: "logic.v1",
+        },
+        seo_contract: {
+          canonical_path: "/career/recommendations/mbti/intj-a",
+          index_state: "index",
+          index_eligible: true,
+        },
+        matched_jobs: [
+          {
+            occupation_uuid: "occ_stable",
+            canonical_slug: "data-scientist",
+            title: "Data Scientist",
+            seo_contract: {
+              canonical_path: "/career/jobs/data-scientist",
+              canonical_target: "/career/jobs/data-scientist",
+              index_state: "indexable",
+              index_eligible: true,
+              reason_codes: ["stable_publish_ready"],
+            },
+            trust_summary: {
+              reviewer_status: "approved",
+            },
+          },
+          {
+            occupation_uuid: "occ_trust_limited",
+            canonical_slug: "marketing-manager",
+            title: "Marketing Manager",
+            seo_contract: {
+              canonical_path: "/career/jobs/marketing-manager",
+              canonical_target: "/career/jobs/marketing-manager",
+              index_state: "trust_limited",
+              index_eligible: false,
+              reason_codes: ["trust_limited"],
+            },
+            trust_summary: {
+              reviewer_status: "pending",
+            },
+          },
+          {
+            occupation_uuid: "occ_blocked",
+            canonical_slug: "financial-analyst",
+            title: "Financial Analyst",
+            seo_contract: {
+              canonical_path: "/career/jobs/financial-analyst",
+              canonical_target: "/career/jobs/financial-analyst",
+              index_state: "blocked",
+              index_eligible: false,
+              reason_codes: ["missing_crosswalk_source_code"],
+            },
+            trust_summary: {
+              reviewer_status: "approved",
+            },
+          },
+        ],
+      })),
+    }));
+
+    const { default: CareerRecommendationPage } = await import(
+      "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
+    );
+    const page = await CareerRecommendationPage({
+      params: Promise.resolve({ locale: "en", type: "intj-a" }),
+      searchParams: Promise.resolve({}),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(html).toContain("Matched role matrix");
+    expect(html).toContain("Data Scientist");
+    expect(html).not.toContain("Marketing Manager");
+    expect(html).not.toContain("Financial Analyst");
+    expect(html).toContain("/en/career/jobs/data-scientist");
+    expect(html).not.toContain("/en/career/jobs/marketing-manager");
+    expect(html).not.toContain("/en/career/jobs/financial-analyst");
+  });
 });
