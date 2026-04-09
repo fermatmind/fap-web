@@ -75,6 +75,24 @@ function generateAnonId(): string {
   return buildFallbackAnonId();
 }
 
+function shouldAttachAnonIdentity(strippedPath: string): boolean {
+  if (!strippedPath || strippedPath === "/") {
+    return false;
+  }
+
+  return (
+    /^\/tests(?:\/|$)/i.test(strippedPath)
+    || /^\/test(?:\/|$)/i.test(strippedPath)
+    || /^\/quiz(?:\/|$)/i.test(strippedPath)
+    || /^\/attempts(?:\/|$)/i.test(strippedPath)
+    || /^\/result(?:\/|$)/i.test(strippedPath)
+    || /^\/share(?:\/|$)/i.test(strippedPath)
+    || /^\/compare(?:\/|$)/i.test(strippedPath)
+    || /^\/orders(?:\/|$)/i.test(strippedPath)
+    || /^\/fun\/sbti\/result(?:\/|$)/i.test(strippedPath)
+  );
+}
+
 export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const strippedPath = stripLocalePrefix(pathname);
@@ -116,9 +134,10 @@ export function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   const requestAnonHeader = requestHeaders.get("x-anon-id")?.trim() ?? "";
   const cookieAnonId = request.cookies.get(ANON_COOKIE_NAME)?.value?.trim() ?? "";
-  const resolvedAnonId = cookieAnonId || requestAnonHeader || generateAnonId();
+  const shouldAttachAnon = shouldAttachAnonIdentity(strippedPath);
+  const resolvedAnonId = shouldAttachAnon ? (cookieAnonId || requestAnonHeader || generateAnonId()) : "";
 
-  if (!requestAnonHeader && resolvedAnonId) {
+  if (shouldAttachAnon && !requestAnonHeader && resolvedAnonId) {
     requestHeaders.set("x-anon-id", resolvedAnonId);
   }
 
@@ -128,7 +147,7 @@ export function proxy(request: NextRequest) {
     },
   });
 
-  if (!cookieAnonId || cookieAnonId !== resolvedAnonId) {
+  if (shouldAttachAnon && resolvedAnonId && (!cookieAnonId || cookieAnonId !== resolvedAnonId)) {
     response.cookies.set({
       name: ANON_COOKIE_NAME,
       value: resolvedAnonId,
