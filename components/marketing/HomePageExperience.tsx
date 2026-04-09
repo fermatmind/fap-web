@@ -261,7 +261,12 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
             <div className="fm-home-hero-copy-shell">
               <div className="fm-home-hero-lockup">
                 <h1 className="fm-home-hero-title m-0 text-white">
-                  <span className="fm-home-hero-title-line fm-home-hero-title-line--poster fm-home-hero-line fm-home-hero-line--identity">
+                  <span
+                    className={cn(
+                      "fm-home-hero-title-line fm-home-hero-title-line--poster fm-home-hero-line fm-home-hero-line--identity",
+                      locale === "zh" && "fm-home-hero-title-line--mobile-single"
+                    )}
+                  >
                     {heroTitleHasMutedComma ? (
                       <>
                         {heroTitleLead}
@@ -278,7 +283,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
             </div>
 
             {locale === "zh" ? (
-              <div className="fm-home-hero-product-stage">
+              <div className={cn("fm-home-hero-product-stage", "xl:translate-x-8 2xl:translate-x-12")}>
                 <SbtiHeroEntryCard locale={locale} />
               </div>
             ) : (
