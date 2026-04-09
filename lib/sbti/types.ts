@@ -1,0 +1,100 @@
+import type { Locale } from "@/lib/i18n/locales";
+
+export const SBTI_STORAGE_KEY = "fm_sbti_fun_v1";
+
+export const SBTI_DIMENSIONS = [
+  "social_drive",
+  "expression_directness",
+  "novelty_seeking",
+  "boundary_awareness",
+  "emotional_openness",
+  "playfulness",
+  "stability",
+  "initiative",
+  "signal_sensitivity",
+  "group_energy",
+  "reflection",
+  "aesthetic_showcase",
+  "ambiguity_tolerance",
+  "warmth",
+  "rhythm_control",
+] as const;
+
+export type SbtiDimensionKey = (typeof SBTI_DIMENSIONS)[number];
+
+export type SbtiAnswerValue = 1 | 2 | 3 | 4 | 5;
+export type SbtiAnswerMap = Record<string, string>;
+export type SbtiScoreVector = Record<SbtiDimensionKey, number>;
+
+export type SbtiQuestionOption = {
+  id: string;
+  label: {
+    zh: string;
+    en: string;
+  };
+  impacts: Partial<Record<SbtiDimensionKey, number>>;
+};
+
+export type SbtiQuestion = {
+  id: string;
+  order: number;
+  prompt: {
+    zh: string;
+    en: string;
+  };
+  reverse?: boolean;
+  dimensionWeights: Partial<Record<SbtiDimensionKey, number>>;
+  options: SbtiQuestionOption[];
+};
+
+export type SbtiDimensionDescriptor = {
+  key: SbtiDimensionKey;
+  label: {
+    zh: string;
+    en: string;
+  };
+  leftPole: {
+    zh: string;
+    en: string;
+  };
+  rightPole: {
+    zh: string;
+    en: string;
+  };
+};
+
+export type SbtiArchetype = {
+  code: string;
+  name: {
+    zh: string;
+    en: string;
+  };
+  tagline: {
+    zh: string;
+    en: string;
+  };
+  summary: {
+    zh: string;
+    en: string;
+  };
+  friendshipTip: {
+    zh: string;
+    en: string;
+  };
+  disclaimer: {
+    zh: string;
+    en: string;
+  };
+  centroid: SbtiScoreVector;
+};
+
+export type SbtiComputedResult = {
+  version: 1;
+  updatedAt: string;
+  locale: Locale;
+  answers: SbtiAnswerMap;
+  scores: SbtiScoreVector;
+  primaryTypeCode: string;
+  matchPercent: number;
+  similarity: number;
+};

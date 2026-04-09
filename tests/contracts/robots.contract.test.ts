@@ -43,13 +43,27 @@ describe("robots contract", () => {
   it("continues to noindex private share and compare pages through page metadata", () => {
     const shareSource = read("app/(localized)/[locale]/share/[id]/page.tsx");
     const compareSource = read("app/(localized)/[locale]/compare/mbti/[inviteId]/page.tsx");
+    const sbtiPageSource = read("app/(localized)/[locale]/fun/sbti/page.tsx");
+    const sbtiResultSource = read("app/(localized)/[locale]/fun/sbti/result/page.tsx");
 
     expect(shareSource).toContain('viewModel.publicSurface?.robotsPolicy || ""');
     expect(shareSource).toContain("seoSurface: viewModel.seoSurface");
     expect(shareSource).toContain('? (fallbackRobotsPolicy ? fallbackRobotsPolicy.includes("noindex") : true)');
     expect(compareSource).toContain("noindex: true");
+    expect(sbtiPageSource).toContain("noindex: true");
+    expect(sbtiResultSource).toContain("noindex: true");
     expect(shouldNoindex("/en/share/share-123", "en")).toBe(true);
     expect(shouldNoindex("/en/result/attempt-123", "en")).toBe(true);
     expect(shouldNoindex("/en/career/jobs?q=backend", "en")).toBe(true);
+    expect(shouldNoindex("/zh/fun/sbti", "zh", undefined, { indexEligible: false, indexState: "noindex" })).toBe(true);
+  });
+
+  it("keeps sbti fun routes outside sitemap generation", () => {
+    const sitemapSource = read("next-sitemap.config.js");
+
+    expect(sitemapSource).toContain('"/en/fun/sbti"');
+    expect(sitemapSource).toContain('"/zh/fun/sbti"');
+    expect(sitemapSource).toContain('"/en/fun/sbti/*"');
+    expect(sitemapSource).toContain('"/zh/fun/sbti/*"');
   });
 });
