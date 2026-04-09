@@ -28,11 +28,11 @@ describe("sbti scoring contract", () => {
     }
   });
 
-  it("does not let one type dominate randomized answer samples", () => {
+  it("hits all 25 result profiles across 5000 randomized answer samples", () => {
     const random = createMulberry32(20260409);
     const counts = new Map<string, number>();
 
-    for (let index = 0; index < 2048; index += 1) {
+    for (let index = 0; index < 5000; index += 1) {
       const answers = Object.fromEntries(
         SBTI_QUESTIONS.map((question) => {
           const choiceIndex = Math.floor(random() * question.options.length);
@@ -46,9 +46,9 @@ describe("sbti scoring contract", () => {
     }
 
     const distribution = [...counts.values()].sort((left, right) => right - left);
-    const dominantShare = (distribution[0] ?? 0) / 2048;
+    const dominantShare = (distribution[0] ?? 0) / 5000;
 
-    expect(counts.size).toBeGreaterThanOrEqual(8);
-    expect(dominantShare).toBeLessThan(0.5);
+    expect(counts.size).toBe(25);
+    expect(dominantShare).toBeLessThan(0.2);
   });
 });
