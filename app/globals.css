@@ -10061,6 +10061,13 @@ a {
     white-space: normal;
   }
 
+  .fm-home-hero-title-line--mobile-single {
+    font-size: clamp(30px, 8.8vw, 44px);
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    white-space: nowrap;
+  }
+
   .fm-home-hero-subhead {
     margin-top: 0;
     font-size: clamp(18px, 4.7vw, 22px);

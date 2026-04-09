@@ -35,11 +35,11 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
           </span>
         </div>
 
-        <div className="space-y-2.5">
-          <h2 className="m-0 text-[clamp(1.7rem,3.6vw,2.35rem)] font-semibold tracking-[-0.04em] text-white">
+        <div className="space-y-2.5 sm:space-y-3">
+          <h2 className="m-0 text-center text-[clamp(1.7rem,3.6vw,2.35rem)] font-semibold tracking-[-0.04em] text-white">
             SBTI 人格测试
           </h2>
-          <p className="m-0 max-w-[32rem] text-sm leading-6 text-slate-100/88 sm:max-w-[34rem] sm:text-[0.95rem] sm:leading-7">
+          <p className="m-0 pt-1 text-sm leading-6 text-slate-100/88 sm:pt-2 sm:text-[0.95rem] sm:leading-7">
             一个轻量、好玩、可分享的人格画像实验。适合拿来笑一笑，不适合拿来做诊断、招聘、相亲或重大决定。
           </p>
         </div>
@@ -47,7 +47,7 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
         <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
           <div className="rounded-2xl border border-white/12 bg-black/12 px-4 py-3">
             <p className="m-0 text-[0.72rem] uppercase tracking-[0.16em] text-white/58">玩法</p>
-            <p className="m-0 mt-1.5 text-sm leading-6 text-white/90">纯前端本地算分，不接后端。</p>
+            <p className="m-0 mt-1.5 text-sm leading-6 text-white/90">图个乐，欢迎分享。</p>
           </div>
           <div className="rounded-2xl border border-white/12 bg-black/12 px-4 py-3">
             <p className="m-0 text-[0.72rem] uppercase tracking-[0.16em] text-white/58">结果</p>
