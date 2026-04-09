@@ -6,6 +6,7 @@ import {
 } from "@/lib/big5/forms";
 import { Container } from "@/components/layout/Container";
 import { ResultsPreviewShowcase } from "@/components/marketing/ResultsPreviewShowcase";
+import { SbtiHeroEntryCard } from "@/components/sbti/SbtiHeroEntryCard";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent, type HomeLinkItem } from "@/lib/marketing/homepageContent";
 import {
@@ -276,75 +277,81 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
               </div>
             </div>
 
-            <div className="fm-home-hero-product-stage" aria-hidden>
-              <div className="fm-home-dossier-stack">
-                <article className="fm-home-dossier-card fm-home-dossier-card--rear">
-                  <span>{dossierCopy.backMethodTitle}</span>
-                  <p>{dossierCopy.backMethodLine}</p>
-                </article>
+            {locale === "zh" ? (
+              <div className="fm-home-hero-product-stage">
+                <SbtiHeroEntryCard locale={locale} />
+              </div>
+            ) : (
+              <div className="fm-home-hero-product-stage" aria-hidden>
+                <div className="fm-home-dossier-stack">
+                  <article className="fm-home-dossier-card fm-home-dossier-card--rear">
+                    <span>{dossierCopy.backMethodTitle}</span>
+                    <p>{dossierCopy.backMethodLine}</p>
+                  </article>
 
-                <article className="fm-home-dossier-card fm-home-dossier-card--middle">
-                  <span>{dossierCopy.backUseTitle}</span>
-                  <p>{dossierCopy.backUseLine}</p>
-                </article>
+                  <article className="fm-home-dossier-card fm-home-dossier-card--middle">
+                    <span>{dossierCopy.backUseTitle}</span>
+                    <p>{dossierCopy.backUseLine}</p>
+                  </article>
 
-                <article className="fm-home-dossier-card fm-home-dossier-card--front">
-                  <div className="fm-home-dossier-head">
-                    <span>{dossierCopy.title}</span>
-                    <div className="fm-home-dossier-tags">
-                      {dossierCopy.sourceTags.map((tag) => (
-                        <i key={tag}>{tag}</i>
-                      ))}
-                    </div>
-                  </div>
-
-                  <p className="fm-home-dossier-summary">{dossierCopy.summary}</p>
-
-                  <div className="fm-home-dossier-main">
-                    <section className="fm-home-dossier-chart">
-                      <svg viewBox="0 0 220 188" className="fm-home-dossier-radar" role="presentation">
-                        <polygon points="110,18 183,59 183,129 110,170 37,129 37,59" className="fm-home-hero-radar-ring is-outer" />
-                        <polygon points="110,38 167,70 167,118 110,150 53,118 53,70" className="fm-home-hero-radar-ring" />
-                        <polygon points="110,61 146,82 146,106 110,127 74,106 74,82" className="fm-home-hero-radar-ring" />
-                        <polygon points="110,29 170,63 157,123 110,146 69,114 61,66" className="fm-home-hero-radar-shape" />
-                      </svg>
-                      <div className="fm-home-dossier-fields">
-                        {dossierCopy.fields.map((field) => (
-                          <span key={field}>{field}</span>
+                  <article className="fm-home-dossier-card fm-home-dossier-card--front">
+                    <div className="fm-home-dossier-head">
+                      <span>{dossierCopy.title}</span>
+                      <div className="fm-home-dossier-tags">
+                        {dossierCopy.sourceTags.map((tag) => (
+                          <i key={tag}>{tag}</i>
                         ))}
                       </div>
-                    </section>
+                    </div>
 
-                    <section className="fm-home-dossier-cues">
-                      <div className="fm-home-dossier-cue-card">
-                        <label>{dossierCopy.cueLabel}</label>
-                        <strong>{dossierCopy.cueLead}</strong>
-                      </div>
-                      {dossierCopy.metrics.map((metric, index) => (
-                        <div key={metric.label} className="fm-home-dossier-meter-row">
-                          <div className="fm-home-dossier-meter-head">
-                            <span>{metric.label}</span>
-                            <b>{metric.value}</b>
-                          </div>
-                          <i className={cn(index === 0 && "is-long", index === 1 && "is-mid", index === 2 && "is-short")} />
+                    <p className="fm-home-dossier-summary">{dossierCopy.summary}</p>
+
+                    <div className="fm-home-dossier-main">
+                      <section className="fm-home-dossier-chart">
+                        <svg viewBox="0 0 220 188" className="fm-home-dossier-radar" role="presentation">
+                          <polygon points="110,18 183,59 183,129 110,170 37,129 37,59" className="fm-home-hero-radar-ring is-outer" />
+                          <polygon points="110,38 167,70 167,118 110,150 53,118 53,70" className="fm-home-hero-radar-ring" />
+                          <polygon points="110,61 146,82 146,106 110,127 74,106 74,82" className="fm-home-hero-radar-ring" />
+                          <polygon points="110,29 170,63 157,123 110,146 69,114 61,66" className="fm-home-hero-radar-shape" />
+                        </svg>
+                        <div className="fm-home-dossier-fields">
+                          {dossierCopy.fields.map((field) => (
+                            <span key={field}>{field}</span>
+                          ))}
                         </div>
-                      ))}
-                    </section>
-                  </div>
+                      </section>
 
-                  <div className="fm-home-dossier-support">
-                    <article>
-                      <span>{dossierCopy.scenarioLabel}</span>
-                      <p>{dossierCopy.scenarioLine}</p>
-                    </article>
-                    <article>
-                      <span>{dossierCopy.nextLabel}</span>
-                      <p>{dossierCopy.nextLine}</p>
-                    </article>
-                  </div>
-                </article>
+                      <section className="fm-home-dossier-cues">
+                        <div className="fm-home-dossier-cue-card">
+                          <label>{dossierCopy.cueLabel}</label>
+                          <strong>{dossierCopy.cueLead}</strong>
+                        </div>
+                        {dossierCopy.metrics.map((metric, index) => (
+                          <div key={metric.label} className="fm-home-dossier-meter-row">
+                            <div className="fm-home-dossier-meter-head">
+                              <span>{metric.label}</span>
+                              <b>{metric.value}</b>
+                            </div>
+                            <i className={cn(index === 0 && "is-long", index === 1 && "is-mid", index === 2 && "is-short")} />
+                          </div>
+                        ))}
+                      </section>
+                    </div>
+
+                    <div className="fm-home-dossier-support">
+                      <article>
+                        <span>{dossierCopy.scenarioLabel}</span>
+                        <p>{dossierCopy.scenarioLine}</p>
+                      </article>
+                      <article>
+                        <span>{dossierCopy.nextLabel}</span>
+                        <p>{dossierCopy.nextLine}</p>
+                      </article>
+                    </div>
+                  </article>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </Container>
       </section>

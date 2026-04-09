@@ -37,6 +37,10 @@ const NON_PAGE_ROUTE_EXCLUDES = [
   "/zh/relationships/*",
   "/en/take/*",
   "/zh/take/*",
+  "/en/fun/sbti",
+  "/zh/fun/sbti",
+  "/en/fun/sbti/*",
+  "/zh/fun/sbti/*",
 ];
 const CMS_LOCALES = [
   { localePrefix: "en", apiLocale: "en" },
