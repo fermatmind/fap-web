@@ -1,10 +1,13 @@
 import {
   SBTI_DIMENSIONS,
+  SBTI_RESULT_DIMENSION_KEYS,
   type SbtiAnswerMap,
-  type SbtiArchetype,
   type SbtiQuestion,
+  type SbtiResultProfile,
+  type SbtiResultScoreVector,
   type SbtiScoreVector,
 } from "@/lib/sbti/types";
+import { mapSbtiScoreToResultDimensions, toSbtiBand } from "@/lib/sbti/results";
 
 export function createEmptySbtiVector(fill = 0): SbtiScoreVector {
   return SBTI_DIMENSIONS.reduce((acc, key) => {
@@ -42,36 +45,76 @@ export function scoreSbtiAnswers(questions: SbtiQuestion[], answers: SbtiAnswerM
   return result;
 }
 
-export function cosineSimilarity(a: SbtiScoreVector, b: SbtiScoreVector): number {
-  let dot = 0;
-  let normA = 0;
-  let normB = 0;
+const MAX_CENTERED_DISTANCE = Math.sqrt(SBTI_RESULT_DIMENSION_KEYS.length * 100 ** 2);
 
-  for (const key of SBTI_DIMENSIONS) {
-    dot += a[key] * b[key];
-    normA += a[key] * a[key];
-    normB += b[key] * b[key];
+export function centeredDistance(a: SbtiResultScoreVector, b: SbtiResultScoreVector): number {
+  let sum = 0;
+
+  for (const key of SBTI_RESULT_DIMENSION_KEYS) {
+    const delta = (a[key] - 50) - (b[key] - 50);
+    sum += delta * delta;
   }
 
-  if (normA <= 0 || normB <= 0) return 0;
-  return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+  return Math.sqrt(sum);
 }
 
-export function resolveSbtiPrimaryType(
-  scores: SbtiScoreVector,
-  archetypes: SbtiArchetype[]
-): { primary: SbtiArchetype; similarity: number; matchPercent: number } {
-  const ranked = archetypes
-    .map((item) => ({ item, similarity: cosineSimilarity(scores, item.centroid) }))
-    .sort((left, right) => right.similarity - left.similarity);
+export function getSbtiBandMismatchCount(
+  scores: SbtiResultScoreVector,
+  profile: SbtiResultProfile
+): number {
+  return SBTI_RESULT_DIMENSION_KEYS.filter(
+    (key) => toSbtiBand(scores[key]) !== toSbtiBand(profile.centroid[key])
+  ).length;
+}
+
+export function resolveSbtiProfileFromResultScores(
+  scores: SbtiResultScoreVector,
+  profiles: SbtiResultProfile[]
+): {
+  primary: SbtiResultProfile;
+  similarity: number;
+  matchPercent: number;
+  mismatchCount: number;
+  distance: number;
+} {
+  const ranked = profiles
+    .map((item) => ({
+      item,
+      mismatchCount: getSbtiBandMismatchCount(scores, item),
+      distance: centeredDistance(scores, item.centroid),
+    }))
+    .sort((left, right) => {
+      if (left.mismatchCount !== right.mismatchCount) {
+        return left.mismatchCount - right.mismatchCount;
+      }
+
+      return left.distance - right.distance;
+    });
 
   const best = ranked[0];
-  const similarity = Number(best.similarity.toFixed(4));
-  const matchPercent = Math.max(61, Math.min(97, Math.round(60 + similarity * 38)));
+  const bandCloseness = 1 - best.mismatchCount / SBTI_RESULT_DIMENSION_KEYS.length;
+  const distanceCloseness = 1 - best.distance / MAX_CENTERED_DISTANCE;
+  const similarity = Number((bandCloseness * 0.7 + distanceCloseness * 0.3).toFixed(4));
+  const matchPercent = Math.max(52, Math.min(96, Math.round(50 + similarity * 46)));
 
   return {
     primary: best.item,
     similarity,
     matchPercent,
+    mismatchCount: best.mismatchCount,
+    distance: Number(best.distance.toFixed(4)),
   };
+}
+
+export function resolveSbtiPrimaryType(
+  scores: SbtiScoreVector,
+  profiles: SbtiResultProfile[]
+): {
+  primary: SbtiResultProfile;
+  similarity: number;
+  matchPercent: number;
+  mismatchCount: number;
+  distance: number;
+} {
+  return resolveSbtiProfileFromResultScores(mapSbtiScoreToResultDimensions(scores), profiles);
 }
