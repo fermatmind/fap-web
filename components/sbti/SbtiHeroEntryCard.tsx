@@ -22,13 +22,13 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
   const mbtiHref = localizedPath("/tests/mbti-personality-test-16-personality-types", locale);
 
   return (
-    <section className="relative rounded-[2rem] border border-white/14 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08))] p-4 text-white shadow-[0_28px_80px_rgba(4,12,24,0.34)] backdrop-blur-xl sm:p-5 lg:p-6">
+    <section className="relative w-full rounded-[2rem] border border-white/14 bg-[linear-gradient(145deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08))] p-4 text-white shadow-[0_28px_80px_rgba(4,12,24,0.34)] backdrop-blur-xl sm:p-5 lg:p-6">
       <div
         aria-hidden
         className="absolute inset-x-4 top-4 h-24 rounded-[1.5rem] bg-[radial-gradient(circle_at_top_left,rgba(255,211,140,0.42),transparent_58%),radial-gradient(circle_at_bottom_right,rgba(112,213,255,0.28),transparent_52%)] sm:inset-x-5 sm:top-5 sm:h-28"
       />
       <div className="relative space-y-4 sm:space-y-5">
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           <Badge className="border-white/20 bg-white/12 text-white">娱乐实验</Badge>
           <span className="rounded-full border border-white/16 bg-black/10 px-3 py-1 text-xs font-medium text-white/82">
             31 题 · 3-5 分钟
@@ -39,8 +39,8 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
           <h2 className="m-0 text-center text-[clamp(1.7rem,3.6vw,2.35rem)] font-semibold tracking-[-0.04em] text-white">
             SBTI 人格测试
           </h2>
-          <p className="mx-auto max-w-[18.5rem] pt-2 text-center text-sm leading-6 text-slate-100/88 sm:max-w-none sm:pt-2 sm:text-left sm:text-[0.95rem] sm:leading-7">
-            一个轻量、好玩、可分享的人格画像实验。适合拿来笑一笑，不适合拿来做诊断、招聘、相亲或重大决定。
+          <p className="m-0 px-3 pt-2 text-center text-sm leading-6 text-slate-100/88 sm:px-0 sm:pt-2 sm:text-left sm:text-[0.95rem] sm:leading-7">
+            一个轻量、好玩、可分享的人格画像实验。
           </p>
         </div>
 
