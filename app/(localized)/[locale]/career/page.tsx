@@ -6,6 +6,7 @@ import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
+import { filterStableExposableJobCards } from "@/lib/career/jobExposurePolicy";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import {
   listCareerIndustries,
@@ -77,7 +78,9 @@ export default async function CareerCenterPage({
     fetchCareerRecommendationIndex({ locale }),
     listCareerGuidesFromCms(locale, { perPage: 4 }),
   ]);
-  const topJobs = adaptCareerJobIndex({ locale, payload: jobIndexPayload }).slice(0, 6);
+  const topJobs = filterStableExposableJobCards(
+    adaptCareerJobIndex({ locale, payload: jobIndexPayload })
+  ).slice(0, 6);
   const recommendationPreviewItems = adaptCareerRecommendationIndex({
     locale,
     payload: recommendationIndexPayload,

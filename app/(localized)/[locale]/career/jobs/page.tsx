@@ -7,6 +7,7 @@ import { adaptCareerSearch } from "@/lib/career/adapters/adaptCareerSearch";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { fetchCareerSearch } from "@/lib/career/api/fetchCareerSearch";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
+import { filterStableExposableJobCards } from "@/lib/career/jobExposurePolicy";
 import { localizedPath } from "@/lib/i18n/locales";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -129,8 +130,12 @@ export default async function CareerJobsPage({
     hasSearchQuery ? Promise.resolve(null) : fetchCareerJobIndex({ locale }),
     hasSearchQuery ? fetchCareerSearch({ q: submittedQuery, locale, limit: 12, mode: "auto" }) : Promise.resolve(null),
   ]);
-  const jobs = hasSearchQuery ? [] : adaptCareerJobIndex({ locale, payload: jobIndexPayload });
-  const searchResults = hasSearchQuery ? adaptCareerSearch({ locale, payload: searchPayload }) : [];
+  const jobs = hasSearchQuery
+    ? []
+    : filterStableExposableJobCards(adaptCareerJobIndex({ locale, payload: jobIndexPayload }));
+  const searchResults = hasSearchQuery
+    ? filterStableExposableJobCards(adaptCareerSearch({ locale, payload: searchPayload }))
+    : [];
 
   return (
     <Container as="main" className="space-y-6 py-10">

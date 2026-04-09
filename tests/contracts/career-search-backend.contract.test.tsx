@@ -207,4 +207,71 @@ describe("career search backend contract", () => {
     expect(html).not.toContain("Fit score:");
     expect(html).not.toContain("Confidence score:");
   });
+
+  it("suppresses blocked or non-available search hits and falls back to the empty state", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
+      fetchCareerSearch: vi.fn(async () => ({
+        bundle_kind: "career_search_results",
+        data: [
+          {
+            match_kind: "canonical_slug_exact",
+            matched_text: "backend-architect",
+            identity: {
+              occupation_uuid: "occ_backend_architect",
+              canonical_slug: "backend-architect",
+            },
+            titles: {
+              canonical_en: "Backend Architect",
+            },
+            seo_contract: {
+              canonical_path: "/career/jobs/backend-architect",
+              index_state: "blocked",
+              index_eligible: false,
+            },
+            trust_summary: {
+              status: "trust_limited",
+              reviewer_status: "reviewed",
+            },
+            provenance_meta: {
+              compiler_version: "career_search_v1",
+            },
+          },
+        ],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
+      fetchCareerJobIndex: vi.fn(async () => {
+        throw new Error("job index fetch should not run in search mode");
+      }),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const page = await CareerJobsPage({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "backend" }),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(html).toContain("career-job-search-empty-state");
+    expect(html).toContain("No public matching jobs were found");
+    expect(html).not.toContain("career-job-search-card");
+    expect(html).not.toContain("Backend Architect");
+  });
 });
