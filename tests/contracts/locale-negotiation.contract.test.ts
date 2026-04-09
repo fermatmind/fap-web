@@ -20,6 +20,16 @@ describe("locale negotiation contract", () => {
     ).toBe("en");
   });
 
+  it("forces chinese when the request country is mainland china", () => {
+    expect(
+      resolvePreferredLocale({
+        cookieLocale: "en",
+        acceptLanguage: "en-US,en;q=0.9",
+        countryCode: "CN",
+      })
+    ).toBe("zh");
+  });
+
   it("falls back to default locale when no signals are available", () => {
     expect(
       resolvePreferredLocale({

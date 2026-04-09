@@ -20,6 +20,20 @@ test("root path redirects to the preferred localized home", async ({ request }) 
   expect(enResponse.headers().location).toContain("/en");
 });
 
+test("china country traffic is forced to the chinese home even when browser and cookie prefer english", async ({ request }) => {
+  const response = await request.get("/", {
+    headers: {
+      cookie: "fm_locale=en",
+      "accept-language": "en-US,en;q=0.9",
+      "cf-ipcountry": "CN",
+    },
+    maxRedirects: 0,
+  });
+
+  expect(response.status()).toBe(307);
+  expect(response.headers().location).toContain("/zh");
+});
+
 test("localized public gateway keeps personality/topics/help reachable and does not revive /types", async ({ request }) => {
   for (const pathname of ["/en/personality", "/en/topics", "/en/help"]) {
     const response = await request.get(pathname);
