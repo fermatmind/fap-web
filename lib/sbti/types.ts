@@ -21,10 +21,59 @@ export const SBTI_DIMENSIONS = [
 ] as const;
 
 export type SbtiDimensionKey = (typeof SBTI_DIMENSIONS)[number];
+export const SBTI_RESULT_DIMENSION_KEYS = [
+  "S1",
+  "S2",
+  "S3",
+  "E1",
+  "E2",
+  "E3",
+  "A1",
+  "A2",
+  "A3",
+  "Ac1",
+  "Ac2",
+  "Ac3",
+  "So1",
+  "So2",
+  "So3",
+] as const;
+
+export type SbtiResultDimensionKey = (typeof SBTI_RESULT_DIMENSION_KEYS)[number];
+export type SbtiBand = "L" | "M" | "H";
+export type SbtiRawTypeCode =
+  | "IMSB"
+  | "BOSS"
+  | "MUM"
+  | "FAKE"
+  | "DEAD"
+  | "ZZZZ"
+  | "GOGO"
+  | "FUCK"
+  | "CTRL"
+  | "HHHH"
+  | "SEXY"
+  | "OJBK"
+  | "POOR"
+  | "OH-NO"
+  | "MONK"
+  | "SHIT"
+  | "THAN-K"
+  | "MALO"
+  | "ATM"
+  | "THIN-K"
+  | "SOLO"
+  | "LOVE-R"
+  | "WOC"
+  | "DRUNK"
+  | "IMFW";
+export type SbtiRiskLevel = "low" | "medium" | "high" | "extreme";
+export type SbtiLaunchStatus = "launch" | "rename" | "hold";
 
 export type SbtiAnswerValue = 1 | 2 | 3 | 4 | 5;
 export type SbtiAnswerMap = Record<string, string>;
 export type SbtiScoreVector = Record<SbtiDimensionKey, number>;
+export type SbtiResultScoreVector = Record<SbtiResultDimensionKey, number>;
 
 export type SbtiQuestionOption = {
   id: string;
@@ -63,8 +112,15 @@ export type SbtiDimensionDescriptor = {
   };
 };
 
+export type SbtiResultDimensionDescriptor = {
+  key: SbtiResultDimensionKey;
+  nameZh: string;
+  group: "S" | "E" | "A" | "Ac" | "So";
+};
+
 export type SbtiArchetype = {
   code: string;
+  profileCode: SbtiRawTypeCode;
   name: {
     zh: string;
     en: string;
@@ -86,6 +142,18 @@ export type SbtiArchetype = {
     en: string;
   };
   centroid: SbtiScoreVector;
+};
+
+export type SbtiResultProfile = {
+  code: SbtiRawTypeCode;
+  nameZh: string;
+  safeNameZh?: string;
+  riskLevel: SbtiRiskLevel;
+  launchStatus: SbtiLaunchStatus;
+  heroTagline: string;
+  overview: string;
+  centroid: SbtiResultScoreVector;
+  dimensionCopy: Partial<Record<SbtiResultDimensionKey, string>>;
 };
 
 export type SbtiComputedResult = {
