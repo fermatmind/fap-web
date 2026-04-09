@@ -876,6 +876,7 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
   }),
 ];
 
+// Legacy eight-bucket mapping kept only so older localStorage payloads can still resolve.
 export const SBTI_ARCHETYPES: SbtiArchetype[] = [
   {
     code: "SPARK",

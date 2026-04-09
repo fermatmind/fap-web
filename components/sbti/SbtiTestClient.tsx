@@ -9,7 +9,7 @@ import { Progress } from "@/components/ui/progress";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { trackEvent } from "@/lib/analytics";
 import { SBTI_QUESTIONS } from "@/lib/sbti/questions";
-import { SBTI_ARCHETYPES } from "@/lib/sbti/results";
+import { SBTI_RESULT_PROFILES } from "@/lib/sbti/results";
 import { resolveSbtiPrimaryType, scoreSbtiAnswers } from "@/lib/sbti/scoring";
 import { readSbtiState, writeSbtiState, type SbtiStoredState } from "@/lib/sbti/storage";
 import type { SbtiAnswerMap } from "@/lib/sbti/types";
@@ -117,7 +117,7 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
 
     try {
       const scores = scoreSbtiAnswers(SBTI_QUESTIONS, answers);
-      const resolved = resolveSbtiPrimaryType(scores, SBTI_ARCHETYPES);
+      const resolved = resolveSbtiPrimaryType(scores, SBTI_RESULT_PROFILES);
       const nextResult = {
         version: 1 as const,
         updatedAt: new Date().toISOString(),
