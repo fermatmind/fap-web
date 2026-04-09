@@ -151,6 +151,7 @@ export type SbtiResultProfile = {
   riskLevel: SbtiRiskLevel;
   launchStatus: SbtiLaunchStatus;
   heroTagline: string;
+  summaryNote: string;
   overview: string;
   centroid: SbtiResultScoreVector;
   dimensionCopy: Partial<Record<SbtiResultDimensionKey, string>>;
