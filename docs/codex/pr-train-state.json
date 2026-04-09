@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
-  "started_at": "",
-  "updated_at": "",
+  "started_at": "2026-04-09T00:00:00Z",
+  "updated_at": "2026-04-09T05:36:30Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -60,12 +60,25 @@
     "PR-D1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pending",
+      "status": "in_progress",
       "branch": "codex/pr-d1-career-batch-production-sop",
       "commit_sha": "",
       "pr_url": "",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "command": "pnpm eslint tests/contracts/career-batch-governance.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-batch-governance.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm verify:pr",
+            "status": "passed"
+          }
+        ],
         "github": []
       },
       "failure_reason": "",
