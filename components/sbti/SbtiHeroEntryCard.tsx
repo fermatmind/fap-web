@@ -28,18 +28,18 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
         className="absolute inset-x-4 top-4 h-24 rounded-[1.5rem] bg-[radial-gradient(circle_at_top_left,rgba(255,211,140,0.42),transparent_58%),radial-gradient(circle_at_bottom_right,rgba(112,213,255,0.28),transparent_52%)] sm:inset-x-5 sm:top-5 sm:h-28"
       />
       <div className="relative space-y-4 sm:space-y-5">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
           <Badge className="border-white/20 bg-white/12 text-white">娱乐实验</Badge>
           <span className="rounded-full border border-white/16 bg-black/10 px-3 py-1 text-xs font-medium text-white/82">
             31 题 · 3-5 分钟
           </span>
         </div>
 
-        <div className="space-y-2.5 sm:space-y-3">
+        <div className="space-y-3 sm:space-y-3">
           <h2 className="m-0 text-center text-[clamp(1.7rem,3.6vw,2.35rem)] font-semibold tracking-[-0.04em] text-white">
             SBTI 人格测试
           </h2>
-          <p className="m-0 pt-1 text-sm leading-6 text-slate-100/88 sm:pt-2 sm:text-[0.95rem] sm:leading-7">
+          <p className="mx-auto max-w-[18.5rem] pt-2 text-center text-sm leading-6 text-slate-100/88 sm:max-w-none sm:pt-2 sm:text-left sm:text-[0.95rem] sm:leading-7">
             一个轻量、好玩、可分享的人格画像实验。适合拿来笑一笑，不适合拿来做诊断、招聘、相亲或重大决定。
           </p>
         </div>
