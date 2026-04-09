@@ -46,7 +46,6 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
   const displayName = getSbtiDisplayName(profile);
   const hitCount = getSbtiHitCount(result.scores, profile);
   const dimensions = getSbtiDimensionCards(result.scores, profile);
-  const summaryDisplayName = `${displayName}（${profile.code}）`;
   const illustration = getSbtiIllustration(profile.code);
 
   const handleRetake = () => {
@@ -93,10 +92,6 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
           <ResultSectionTitle>你的主类型</ResultSectionTitle>
         </CardHeader>
         <CardContent className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:col-span-3">
-            <p className="m-0 text-xl font-semibold text-slate-900">{summaryDisplayName}</p>
-            <p className="m-0 mt-2 text-sm leading-7 text-slate-600">{profile.summaryNote}</p>
-          </div>
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
             <p className="m-0 text-xs uppercase tracking-[0.14em] text-slate-500">匹配度</p>
             <p className="m-0 mt-2 text-3xl font-semibold text-slate-950">{result.matchPercent}%</p>
