@@ -37,7 +37,7 @@ type CareerRecommendationProtocolInput = {
   answerSurface?: AnswerSurfaceViewModel | null;
   landingSurface?: LandingSurfaceViewModel | null;
   seoSurface?: SeoSurfaceViewModel | null;
-  matchedJobs?: Array<{ slug?: string | null }> | null;
+  matchedJobs?: Array<{ slug?: string | null; canonicalSlug?: string | null }> | null;
   authoritySource?: string | null;
   claimPermissions?: CareerClaimPermissions | null;
   trustManifest?: CareerTrustManifest | null;

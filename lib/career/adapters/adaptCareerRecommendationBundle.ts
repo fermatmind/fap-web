@@ -130,9 +130,14 @@ function buildSeoContract(raw: Record<string, unknown>): CareerSeoContractAdapte
     canonicalTarget: normalizeString(seoContract.canonical_target),
     indexState: normalizeString(seoContract.index_state),
     indexEligible: normalizeBoolean(seoContract.index_eligible),
+    reasonCodes: normalizeStringArray(seoContract.reason_codes),
     datasetEligible: normalizeBoolean(seoContract.dataset_eligible),
     articleEligible: normalizeBoolean(seoContract.article_eligible),
   };
+}
+
+function buildSeoContractFromValue(value: unknown): CareerSeoContractAdapter {
+  return buildSeoContract(isRecord(value) ? { seo_contract: value } : {});
 }
 
 function buildTrustManifest(raw: Record<string, unknown>, pageSlug: string): CareerTrustManifest | null {
@@ -223,16 +228,18 @@ function normalizeMatchedJobs(value: unknown, locale: "en" | "zh"): CareerRecomm
   return value
     .filter(isRecord)
     .map((item) => {
-      const slug = normalizeString(item.slug);
-      if (!slug) {
+      const canonicalSlug = normalizeString(item.canonical_slug) ?? normalizeString(item.slug);
+      if (!canonicalSlug) {
         return null;
       }
 
       const normalizedFitBucket = normalizeString(item.fit_bucket);
+      const trustSummary = isRecord(item.trust_summary) ? item.trust_summary : {};
 
       return {
-        slug,
-        title: normalizeString(item.title) ?? slug,
+        occupationUuid: normalizeString(item.occupation_uuid),
+        canonicalSlug,
+        title: normalizeString(item.title) ?? canonicalSlug,
         summary: normalizeString(item.summary) ?? "",
         fitBucket:
           normalizedFitBucket === "primary" || normalizedFitBucket === "secondary"
@@ -241,7 +248,11 @@ function normalizeMatchedJobs(value: unknown, locale: "en" | "zh"): CareerRecomm
         fitPersonalityCodes: normalizeStringArray(item.fit_personality_codes).map((code) => code.toUpperCase()),
         mbtiPrimaryCodes: normalizeStringArray(item.mbti_primary_codes).map((code) => code.toUpperCase()),
         mbtiSecondaryCodes: normalizeStringArray(item.mbti_secondary_codes).map((code) => code.toUpperCase()),
-        href: buildCareerJobFrontendUrl(locale, slug),
+        seoContract: buildSeoContractFromValue(item.seo_contract),
+        trustSummary: {
+          reviewerStatus: normalizeString(trustSummary.reviewer_status),
+        },
+        href: buildCareerJobFrontendUrl(locale, canonicalSlug),
       };
     })
     .filter((item): item is CareerRecommendationMatchedJobAdapter => item !== null);

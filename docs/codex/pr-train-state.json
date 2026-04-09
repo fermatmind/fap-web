@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-09T07:20:00Z",
+  "updated_at": "2026-04-09T08:45:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -59,6 +59,36 @@
           },
           {
             "command": "pnpm vitest run tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-job-index-backend.contract.test.tsx tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-seo-gate.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts tests/contracts/career-recommendation-index-backend.contract.test.tsx tests/contracts/career-recommendation-public.contract.test.tsx tests/contracts/mbti-career-continuity.contract.test.tsx tests/contracts/mbti-entry-surface.contract.test.ts tests/contracts/mbti-scene-depth.contract.test.ts",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F8": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-f8-career-recommendation-matched-job-alignment",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm eslint lib/career/recommendationMatchedJobExposurePolicy.ts lib/career/adapters/types.ts lib/career/adapters/adaptCareerRecommendationBundle.ts lib/career/adapters/adaptCareerRecommendationIndex.ts lib/career/adapters/adaptCareerJobBundle.ts lib/career/adapters/adaptCareerJobIndex.ts lib/career/adapters/adaptCareerSearch.ts lib/career/protocolReadiness.ts 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' tests/contracts/career-recommendation-public.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-recommendation-matched-job-exposure.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-recommendation-public.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-recommendation-index-backend.contract.test.tsx tests/contracts/career-recommendation-matched-job-exposure.contract.test.ts tests/contracts/mbti-career-continuity.contract.test.tsx tests/contracts/mbti-entry-surface.contract.test.ts tests/contracts/mbti-scene-depth.contract.test.ts",
             "status": "passed"
           }
         ],
