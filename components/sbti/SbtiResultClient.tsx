@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, type ReactNode } from "react";
+import { SbtiResultIllustrationCard } from "@/components/sbti/result/SbtiResultIllustrationCard";
+import { getSbtiIllustration } from "@/components/sbti/result/sbtiIllustrationMap";
 import { Alert } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -45,6 +47,7 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
   const hitCount = getSbtiHitCount(result.scores, profile);
   const dimensions = getSbtiDimensionCards(result.scores, profile);
   const summaryDisplayName = `${displayName}（${profile.code}）`;
+  const illustration = getSbtiIllustration(profile.code);
 
   const handleRetake = () => {
     clearSbtiState();
@@ -63,7 +66,14 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
   return (
     <div className="space-y-6">
       <Card className="overflow-hidden border-[var(--fm-border)] bg-[linear-gradient(180deg,#ffffff,rgba(240,249,255,0.92))]">
-        <CardContent className="grid gap-5 p-5 sm:p-6 md:grid-cols-[minmax(0,1fr)_120px] md:items-center">
+        <CardContent
+          className={[
+            "grid gap-5 p-5 sm:p-6 md:items-center",
+            illustration ? "md:grid-cols-[minmax(0,1fr)_minmax(220px,260px)]" : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
           <div className="space-y-3 text-center md:text-left">
             <p className="m-0 text-sm font-medium text-slate-500">你的性格类型是：</p>
             <div className="space-y-1">
@@ -74,13 +84,7 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
             </div>
             <p className="m-0 text-base leading-7 text-slate-700">{profile.heroTagline}</p>
           </div>
-          <div className="flex h-[120px] items-center justify-center rounded-[1.75rem] border border-slate-200 bg-white/90 text-center shadow-[0_12px_28px_rgba(15,23,42,0.08)]">
-            <div className="space-y-1">
-              <p className="m-0 text-xs uppercase tracking-[0.18em] text-slate-400">SBTI</p>
-              <p className="m-0 text-sm font-medium text-slate-600">结果占位卡</p>
-              <p className="m-0 text-xs text-slate-500">插画可下一轮补</p>
-            </div>
-          </div>
+          <SbtiResultIllustrationCard typeCode={profile.code} displayName={displayName} />
         </CardContent>
       </Card>
 
