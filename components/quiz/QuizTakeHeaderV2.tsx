@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { AnimatedCounter } from "@/components/design/AnimatedCounter";
-import { LIVE_COMPLETED_COUNT } from "@/lib/marketing/completionStats";
+import { LiveCompletedCounter } from "@/components/marketing/LiveCompletedCounter";
 
 export function QuizTakeHeaderV2({
   brand,
@@ -46,7 +45,7 @@ export function QuizTakeHeaderV2({
           <p className="m-0 font-serif text-lg font-semibold text-[var(--fm-text)]">{brand}</p>
           <p className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-[var(--fm-text-muted)]">
             <span>{completedPrefix}</span>
-            <AnimatedCounter value={LIVE_COMPLETED_COUNT} className="font-semibold text-[var(--fm-text)]" />
+            <LiveCompletedCounter className="font-semibold text-[var(--fm-text)]" />
             <span>{completedSuffix}</span>
           </p>
         </div>
