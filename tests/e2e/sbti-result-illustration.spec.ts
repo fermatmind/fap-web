@@ -54,10 +54,13 @@ test("SBTI result page renders the mapped MUM illustration without a broken imag
   await expect(image).toBeVisible();
   await expect(image).toHaveAttribute("src", /\/_next\/static\/media\/mum\..+\.png$/);
 
-  const imageMetrics = await image.evaluate((element) => ({
-    complete: element.complete,
-    naturalWidth: element.naturalWidth,
-  }));
+  const imageMetrics = await image.evaluate((element) => {
+    const img = element as HTMLImageElement;
+    return {
+      complete: img.complete,
+      naturalWidth: img.naturalWidth,
+    };
+  });
 
   expect(imageMetrics.complete).toBe(true);
   expect(imageMetrics.naturalWidth).toBeGreaterThan(0);
