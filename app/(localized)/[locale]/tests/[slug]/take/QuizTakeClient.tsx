@@ -384,7 +384,6 @@ function QuizTakeInner({
         await ensureFmTokenReady({
           anonId,
           locale,
-          forceRefresh: true,
         });
       } catch (error) {
         if (!active) return;
@@ -460,6 +459,10 @@ function QuizTakeInner({
     let active = true;
 
     const run = async () => {
+      if (authBootstrapping) {
+        return;
+      }
+
       if (authBlockError) {
         setQuestionsLoading(false);
         return;
@@ -519,7 +522,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
+  }, [anonId, authBlockError, authBootstrapping, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;

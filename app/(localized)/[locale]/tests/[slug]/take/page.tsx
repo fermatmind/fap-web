@@ -4,6 +4,7 @@ import { cookies, headers } from "next/headers";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { isBig5ScaleCode, normalizeBig5FormCode, resolveBig5FormMeta } from "@/lib/big5/forms";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
@@ -55,7 +56,7 @@ async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promi
           Accept: "application/json",
           "X-FAP-Locale": locale === "zh" ? "zh-CN" : "en",
         },
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
     if (!response.ok) return null;

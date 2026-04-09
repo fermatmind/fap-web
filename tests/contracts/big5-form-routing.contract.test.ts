@@ -32,6 +32,7 @@ describe("big5 form routing contract", () => {
     expect(source).toContain("formCode: resolvedFormCode");
     expect(source).toContain("startBig5Attempt({");
     expect(source).toContain("setSessionContext({");
+    expect(source).not.toContain("forceRefresh: true");
   });
 
   it("keeps big5 api layer form-aware for both questions and attempt start", () => {

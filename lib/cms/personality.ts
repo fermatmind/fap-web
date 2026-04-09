@@ -3,6 +3,7 @@ import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/a
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -974,7 +975,7 @@ export async function listPersonalityProfiles(
     const response = await apiClient.get<CmsPersonalityListApiResponse>(`/v0.5/personality${query}`, {
       locale: params.locale,
       skipAuth: true,
-      cache: "no-store",
+      ...PUBLIC_API_CACHE_OPTIONS,
     });
 
     const items = Array.isArray(response.items)
@@ -1034,7 +1035,7 @@ async function getPersonalityDetailResponseBySlugOrType(
       {
         locale,
         skipAuth: true,
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
   } catch (error) {
@@ -1106,7 +1107,7 @@ export async function getPersonalitySeoBySlugOrType(
       {
         locale,
         skipAuth: true,
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
 

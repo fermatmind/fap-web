@@ -325,7 +325,6 @@ export default function Big5TakeClient({
         await ensureFmTokenReady({
           anonId: anonId || undefined,
           locale,
-          forceRefresh: true,
         });
       } catch (error) {
         if (!active) return;
