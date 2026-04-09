@@ -79,9 +79,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "自我攻击者",
     riskLevel: "medium",
     launchStatus: "launch",
-    heroTagline: "总能先对自己下重手的人。",
+    heroTagline: "你脑子里住着两个最狠的批评家。",
+    summaryNote: "维度命中度较高，当前结果可视为你的第一人格画像。",
     overview:
-      "你对自己的问题看得很快，甚至快到会先把刀口朝里。别人还没来得及点评，你已经在脑内把复盘、批评和补刀流程全跑完了。娱乐版地说，你像一个随身携带内置审判庭的人，敏感、清醒、偶尔也有点过于严格。",
+      "你不是不行，你只是太会对自己下手。别人还在犹豫，你已经在脑内把自己否定了三轮：一边想冲，一边又怕自己不够好。你对“变强”这件事是认真的，只是方法有点极端，别人靠鼓励，你靠自我拷打。也正因为如此，你往往比别人更清醒、更敏感，也更容易在关键时刻突然泄气。你不是废，你只是对自己要求太高了。",
     centroid: resultVector({
       S1: 28,
       S2: 58,
@@ -111,9 +112,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "领导者",
     riskLevel: "low",
     launchStatus: "launch",
-    heroTagline: "不一定最大声，但默认会接过方向盘。",
+    heroTagline: "你不是在参与局，你是在控盘。",
+    summaryNote: "行动和决策维度更突出，结果稳定性较强。",
     overview:
-      "你对推进事情、定节奏、把散掉的局重新拢回来这件事很有本能。别人还在观望时，你已经在想下一步怎么走。娱乐版地说，你很像那种会自带项目管理气场的人，能开场、能定调，也容易不知不觉把局面接管过去。",
+      "你天然带着一种“事情得有人来收”的气场。很多人还在观望的时候，你已经开始分配资源、安排顺序、推进节奏。你不一定非要当主角，但你很难接受一群人糊糊涂涂把事做烂。别人觉得你强势，其实你只是对失控过敏。你喜欢确定性，也擅长在混乱里快速抓重点，所以常常会不自觉地站到前排。",
     centroid: resultVector({
       S1: 82,
       S2: 76,
@@ -143,9 +145,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "妈妈",
     riskLevel: "low",
     launchStatus: "launch",
-    heroTagline: "场上还没出事，你已经想好怎么接住了。",
+    heroTagline: "你会下意识照顾全场。",
+    summaryNote: "情感与关系维度更集中，亲密倾向明显。",
     overview:
-      "你有一种很强的照顾感和接住感，别人一乱、一丧、一有情绪，你就会本能地想把场面托住。娱乐版地说，你像局里的情绪后勤，总能让人感觉有被安放到一点点，但也容易不小心把别人的作业背到自己身上。",
+      "你很容易进入“照顾者模式”。不管是朋友、对象，还是一群刚认识的人，只要你在场，就会下意识去观察谁不舒服、谁没被照顾到、谁需要被接一下。你不是刻意讨好，而是真的习惯把别人放进自己的关注范围。你给人的感觉很稳、很暖、很能托底，但问题是，你有时候会把自己照顾丢了。",
     centroid: resultVector({
       S1: 64,
       S2: 66,
@@ -175,9 +178,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "伪人",
     riskLevel: "medium",
     launchStatus: "launch",
-    heroTagline: "会切频道，也会看场面的人。",
+    heroTagline: "你很会切换版本。",
+    summaryNote: "场景适配能力较强，表达与真实度更复杂。",
     overview:
-      "你不是没有真心，而是很清楚不同场景需要不同版本的自己。你会调语气、调状态、调存在感，必要时切换得非常丝滑。娱乐版地说，你像社交场里的变速器，适应力很强，只是偶尔会让自己也分不清哪一面最像“我本人”。",
+      "你对不同场景的“适配能力”非常强。见什么人说什么话，进什么场切什么模式，很多时候不是你故意演，而是你太清楚“原样直出”并不总是最优解。你会根据对方、环境、氛围快速调整自己，因此看起来像个高适配选手。久而久之，你偶尔也会困惑：哪一面最像我？还是说，这些版本其实全都是我？",
     centroid: resultVector({
       S1: 56,
       S2: 48,
@@ -207,9 +211,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "停机者",
     riskLevel: "high",
     launchStatus: "rename",
-    heroTagline: "不是没感觉，是先把整个人调成静音模式。",
+    heroTagline: "很多东西，对你来说已经没那么重要了。",
+    summaryNote: "动机和意义感维度偏低，整体更抽离。",
     overview:
-      "你一旦累到某个阈值，第一反应不是解释，而是直接进入低功耗状态。外面看像失联、像熄火，里面其实更像系统在强制自保。娱乐版地说，你属于那种情绪过载时会原地关机的人。",
+      "你不是没有脑子，也不是没有经历，恰恰相反，你像是把很多热闹都提前看穿了。别人还在为目标、关系、成败激动的时候，你会默默冒出一句：“也就那样吧。”这不是纯粹摆烂，而是一种被透支后的抽离感。你看世界有点像顶级玩家通关后回新手村，知道机制、明白套路，但已经提不起太大兴奋。",
     centroid: resultVector({
       S1: 40,
       S2: 58,
@@ -239,9 +244,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "休眠者",
     riskLevel: "high",
     launchStatus: "rename",
-    heroTagline: "能不回就先不回，等系统缓过来再说。",
+    heroTagline: "你不是消失了，你只是进入了省电模式。",
+    summaryNote: "关系和行动维度波动较大，回避倾向偏明显。",
     overview:
-      "你不是故意让别人找不到，而是会在压力、麻烦或复杂关系面前自然缩回去。娱乐版地说，你的处理方式不是正面硬刚，而是先休眠，等情绪和能量回到能开机的水平再出现。",
+      "你的核心生存技能之一，就是“先静一下”。消息可以晚回，局可以先不接，压力来了先把自己折起来，像手机切到省电模式。你不是故意冷暴力，也不一定是没心，只是你很懂得在过载之前先把自己撤出来。别人看你像装死，其实你是在争取一点恢复时间。等你缓过来，很多事反而会处理得更稳。",
     centroid: resultVector({
       S1: 44,
       S2: 52,
@@ -271,9 +277,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "行者",
     riskLevel: "low",
     launchStatus: "launch",
-    heroTagline: "先走起来再说，路上再想也不迟。",
+    heroTagline: "想到了就动，卡住了就绕。",
+    summaryNote: "执行与推进维度更高，停滞容忍度较低。",
     overview:
-      "你对新鲜感、流动感和往前冲的欲望都比较强。比起把一切想透，你更容易被“先去看看”点燃。娱乐版地说，你像一个行动版的试错派，很多答案不是坐着想出来的，而是走两步以后自己冒出来的。",
+      "你不太能忍受长期停滞。哪怕方向还不完美，你也更愿意先走一步再看。你相信很多事不是想清楚才开始，而是开始之后才会慢慢清楚。你不一定是最稳的人，但常常是最先出发的那个。你会撞墙，也会拐弯，但比起一直原地分析，你更愿意把自己丢进真实世界里边走边修。",
     centroid: resultVector({
       S1: 68,
       S2: 56,
@@ -303,9 +310,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "高压者",
     riskLevel: "extreme",
     launchStatus: "hold",
-    heroTagline: "情绪上来时，所有字都想用最大音量说。",
+    heroTagline: "你的情绪不是藏起来的，是直接长出来的。",
+    summaryNote: "表达冲劲和即时反应更强，边界感也更硬。",
     overview:
-      "这一类命名保留在内部识别层，前台首发不直出原始名称。它更像一种高压、爆裂、临界点很低的情绪风格，后续若要上线，需要完整改名和重写文案。",
+      "你给人的感觉很直接，甚至有点“炸”。开心就笑，烦了就写在脸上，看不惯的事情也懒得拐弯。你不是故意制造冲突，而是天生不太擅长把情绪打磨成圆滑版本。你对很多事情的第一反应是本能的、原生态的，像一片突然窜出来的草，野、快、压不住。别人觉得你冲，你自己觉得：我只是没演。",
     centroid: resultVector({
       S1: 50,
       S2: 46,
@@ -331,9 +339,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "拿捏者",
     riskLevel: "low",
     launchStatus: "launch",
-    heroTagline: "不一定抢话，但会把局面慢慢捏回自己手里。",
+    heroTagline: "局面最好在你可控范围内。",
+    summaryNote: "掌控感需求更高，风险预判也更强。",
     overview:
-      "你对节奏、分寸、边界和推进感的拿捏相对稳定。你不一定最外放，但会在关键时刻把事情往自己想要的方向拧。娱乐版地说，你像一个低调控场型选手，表面不炸，内里很会掌舵。",
+      "你对“掌控感”有很强需求。不是非要当中心，而是至少要知道现在发生了什么、接下来可能出什么事。你擅长提前想好 Plan B、Plan C，甚至把最坏情况都默默过一遍。别人觉得你稳、细、会拿捏，本质上是因为你太不喜欢把自己交给随机性。你看起来很会控场，其实是在给自己留安全空间。",
     centroid: resultVector({
       S1: 74,
       S2: 70,
@@ -363,9 +372,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "傻乐者",
     riskLevel: "medium",
     launchStatus: "launch",
-    heroTagline: "先笑了再说，很多事不要太往心里去。",
+    heroTagline: "先开心，再说。",
+    summaryNote: "情绪缓冲能力较高，轻松感更显著。",
     overview:
-      "你有一种天然的轻巧感，不一定要把一切都想成大事，更容易先抓住好笑、好玩和能让自己缓口气的东西。娱乐版地说，你像局里的快乐缓冲垫，很多人靠近你会先放松下来。",
+      "你有一种很珍贵的能力：能把生活先过得没那么重。很多人被气氛拖着走的时候，你往往能先把局面拉松一点，用笑、梗、乐子感把压力冲淡。你不是没脑子，也不是不懂沉重，而是很清楚很多事认真到最后也未必有解，不如先让自己和别人活得轻一点。你看着傻乐，其实是很会活。",
     centroid: resultVector({
       S1: 62,
       S2: 50,
@@ -395,9 +405,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "吸睛者",
     riskLevel: "high",
     launchStatus: "rename",
-    heroTagline: "存在感不是靠吵，而是靠气场和风格自己冒出来。",
+    heroTagline: "你身上有一种会自动聚光的存在感。",
+    summaryNote: "外显魅力和氛围感维度更高，辨识度强。",
     overview:
-      "你对氛围、审美和呈现方式很敏感，知道怎么让自己和场景都更有记忆点。娱乐版地说，你不是非得抢中心位，但很多时候会自然成为别人视线停留得更久的那一格。",
+      "你不一定是传统意义上最漂亮、最耀眼的那种人，但你很容易被注意到。你有一种会自动聚光的存在感，可能来自外形、气质、表达，也可能只是因为你站在那里就很有画面。你对氛围、审美、细节很敏感，也知道自己什么时候在发光。别人会觉得你“很会”，你自己知道，这更多是一种天然的可见性。",
     centroid: resultVector({
       S1: 70,
       S2: 62,
@@ -427,9 +438,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "无所谓人",
     riskLevel: "low",
     launchStatus: "launch",
-    heroTagline: "不是没在听，是很多事真没必要太上头。",
+    heroTagline: "也行，都行，无所谓。",
+    summaryNote: "情绪起伏不算高，抽离和松弛感更明显。",
     overview:
-      "你对很多事都保留一种‘行、也不是不行’的松弛距离，不太容易被一点波动拖进情绪泥潭。娱乐版地说，你像一个自带缓冲层的人，场面再吵也能给自己留出一点淡定空间。",
+      "你对很多事情的态度是：别太较真。不是没有想法，而是你更看重轻松和成本。别人卷得很激烈的时候，你会本能地后退半步，看看这事到底值不值得投入那么多精力。你不会为了一点面子把自己逼得太狠，也不太容易被外界节奏彻底裹挟。你不一定总赢，但你通常也不会输得很惨。",
     centroid: resultVector({
       S1: 68,
       S2: 64,
@@ -459,9 +471,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "穷忙者",
     riskLevel: "high",
     launchStatus: "rename",
-    heroTagline: "不是懒，是时间、精力和资源老像在互相打架。",
+    heroTagline: "你的生活感，总带着一点拮据的现实主义。",
+    summaryNote: "资源感知更强，安全感经常和现实条件绑定。",
     overview:
-      "你常常会有一种资源不够用的感受，时间不够、精力不够、心情也不够，于是总在忙，但忙完又像没真正轻下来。娱乐版地说，你更像一个高频转却不总能满格输出的人。",
+      "你对“资源够不够”这件事很敏感。钱、时间、精力、人情，你都能很快算出自己手里还有多少。别人可能会觉得你现实、谨慎、偶尔甚至有点穷忙，但那是因为你太清楚生活不是光靠热血就能撑下去。你会为未来发愁，也会被当下压住，可你还是会一边抠着成本，一边想办法把日子过下去。",
     centroid: resultVector({
       S1: 42,
       S2: 54,
@@ -491,9 +504,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "哦不人",
     riskLevel: "low",
     launchStatus: "launch",
-    heroTagline: "问题还没完全发生，你已经先替它捏了把汗。",
+    heroTagline: "你总能比别人更早看到风险。",
+    summaryNote: "负面预判更快，风险雷达更灵。",
     overview:
-      "你对风险和不妙气息的感应速度偏快，别人还在‘再看看’，你脑子里已经把几条可能出事的线跑完了。娱乐版地说，你像一个提前开机的预警系统，偶尔会多想，但也因此少踩一些坑。",
+      "你是那种“提前看到问题”的人。别人还在乐观，你已经开始担心接下来会不会翻车；别人觉得没事，你已经在心里把后果排到了第三层。你不是故意扫兴，也不纯粹是悲观，而是你的风险雷达确实开得比很多人更早。这让你显得有点紧绷，但也让你少踩了很多坑。你嘴里的“哦不”，本质上是一种预警机制。",
     centroid: resultVector({
       S1: 50,
       S2: 66,
@@ -524,8 +538,9 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     riskLevel: "low",
     launchStatus: "launch",
     heroTagline: "没有那种世俗的欲望。",
+    summaryNote: "欲望驱动较弱，抽离感和稳定感更明显。",
     overview:
-      "你对热闹、刺激和情绪拉扯的需求没那么强，更在意内在秩序、清净感和自己能不能稳稳待着。娱乐版地说，你像一个自带静音模式的人，不是没有感受，而是懒得把所有波动都放到台面上演一遍。",
+      "你对很多热闹的东西没有强烈兴趣。不是完全没追求，而是你对“想要”的反应没那么猛烈。很多人拼命争抢的东西，在你眼里可能只是“也还行”；很多人纠缠的情绪和关系，你也更容易后退一步看。你不一定最快乐，但你很少被卷进大起大落里。你像个站在边上的人，安静地看大家上头。",
     centroid: resultVector({
       S1: 76,
       S2: 82,
@@ -555,9 +570,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "失序者",
     riskLevel: "extreme",
     launchStatus: "hold",
-    heroTagline: "很多事一乱起来，就容易全线一起乱。",
+    heroTagline: "你的运气和处境，好像总有点一言难尽。",
+    summaryNote: "挫败感与混乱感偏高，对现实的无语值上升。",
     overview:
-      "这一类命名保留在内部识别层，本轮不上前台原名。它更像一种秩序感失灵、生活感被打碎的状态描述，后续若要上线，需要更温和且更清楚的命名和说明。",
+      "你的人生体验里，常常混着一种“怎么又这样”的无语感。不是你不努力，也不是你没脑子，而是很多事情落到你头上时，偏偏就会带一点狼狈、出戏和倒霉。你对混乱并不陌生，甚至已经练出一种带点黑色幽默的接受能力。别人可能觉得你惨得有点好笑，你自己更清楚：能一边崩一边活，已经算本事。",
     centroid: resultVector({
       S1: 34,
       S2: 38,
@@ -583,9 +599,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "感恩者",
     riskLevel: "low",
     launchStatus: "launch",
-    heroTagline: "会记得别人好，也愿意把善意回回去。",
+    heroTagline: "你习惯先看到好的那一面。",
+    summaryNote: "温和与善意维度较高，关系里更愿意正向理解。",
     overview:
-      "你对别人释放出来的善意、情绪和照顾比较有感，也更容易把感谢、回应和回馈落到行动上。娱乐版地说，你像局里的温和回声，别人给你一点亮光，你通常会想办法把这点亮光再传出去。",
+      "你看世界的默认视角偏温和。别人对你一点好，你会记很久；哪怕事情不完美，你也更容易看到其中还算值得感谢的部分。你不是天真，而是更愿意用善意理解人和关系。这样的你通常很好相处，也很容易让别人放下戒心。当然，偶尔你也会因为太愿意理解别人，而对自己的委屈反应慢半拍。",
     centroid: resultVector({
       S1: 68,
       S2: 64,
@@ -615,9 +632,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "忙乱者",
     riskLevel: "medium",
     launchStatus: "hold",
-    heroTagline: "看起来一直在动，但不一定每次都动到点上。",
+    heroTagline: "你身上有种忙忙叨叨又很灵活的生存感。",
+    summaryNote: "动作快、反应快、生活感强，偶尔也显得乱。",
     overview:
-      "这类命名本轮先停留在内部识别层。它更像一种忙、乱、被生活追着跑的状态感，后续如果上线，需要先把语气从攻击式改成更轻松可笑但不贬人的版本。",
+      "你像一只在人群里到处蹿的灵活小动物。你不一定最体面、最安静、最稳重，但通常很能活、很会适应，也很懂怎么在现实里给自己找路。你有时候会显得忙、碎、跳跃，像同时开了好几个标签页，但也正因为如此，你在复杂环境里的存活率很高。别人以为你在瞎忙，你其实是在用自己的节奏穿过去。",
     centroid: resultVector({
       S1: 40,
       S2: 42,
@@ -643,9 +661,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "付出者",
     riskLevel: "medium",
     launchStatus: "rename",
-    heroTagline: "嘴上说算了，行动上还是会先把资源掏出来。",
+    heroTagline: "你很容易在关系里多掏一点。",
+    summaryNote: "付出型倾向明显，资源和情感都偏愿意给人。",
     overview:
-      "你在关系里有一种天然的付出倾向，时间、精力、钱、情绪价值，能给的你常常会先给。娱乐版地说，你像一个高频启动的供给型角色，很会成全别人，但也要记得自己的电量和余额不是无限的。",
+      "你在关系里有种天然的“多给一点”倾向。请客、帮忙、垫一下、买单、兜底，这些事情你常常做得很顺手。你不是完全没边界，只是当你在意一个人或一段关系时，很容易把付出当成表达方式。别人会觉得你大方、靠谱、够意思；但你也要小心，别把自己活成了关系里的自动出钞机。",
     centroid: resultVector({
       S1: 58,
       S2: 60,
@@ -675,9 +694,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "思考者",
     riskLevel: "low",
     launchStatus: "launch",
-    heroTagline: "会先在脑内过很多遍，才决定怎么落地。",
+    heroTagline: "你停不下来地在想。",
+    summaryNote: "认知加工深度更高，但也更容易过度分析。",
     overview:
-      "你对想清楚这件事有执念，很多人觉得你慢半拍，但你只是想先把逻辑、意义和可能性捋顺。娱乐版地说，你像一个脑内标签系统很全的人，信息进来以后会先归档、比对、拆解，然后再给反应。",
+      "你对很多事情都有自己的分析路径。哪怕是很日常的小事，你也会忍不住多想一层：为什么会这样、背后逻辑是什么、还有没有别的解释。你在理解世界这件事上很有耐心，也很有天赋，但副作用就是容易想过头。别人觉得你慢，你知道自己只是在进行一场完整的内部计算。",
     centroid: resultVector({
       S1: 66,
       S2: 82,
@@ -707,9 +727,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "独行者",
     riskLevel: "high",
     launchStatus: "hold",
-    heroTagline: "靠自己走完全程，对你来说并不陌生。",
+    heroTagline: "你更习惯一个人扛，一个人消化。",
+    summaryNote: "独处需求高，关系上的自给自足倾向更强。",
     overview:
-      "这类命名本轮不以上线原名呈现。它更像一种强独行、低依赖、对外求援意愿较低的关系风格，后续若要上线，建议用更中性的名字和更克制的文案。",
+      "你不是完全不需要别人，但你很习惯靠自己。很多情绪、问题、决定，你第一反应不是去求助，而是先自己消化、自己处理。久而久之，你会形成一种“一个人也能过”的稳定外壳。别人看你会觉得你独、冷、难靠近，可其实你只是太早学会了：很多时候，最稳的依靠还是自己。",
     centroid: resultVector({
       S1: 64,
       S2: 74,
@@ -735,9 +756,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "多情者",
     riskLevel: "low",
     launchStatus: "rename",
-    heroTagline: "心动来得快一点，投入也往往更真一点。",
+    heroTagline: "你很容易认真，也很容易上头。",
+    summaryNote: "情感投入度较高，心动阈值偏低但也偏真。",
     overview:
-      "你对关系、氛围和喜欢这件事的感受力偏强，一旦真的被点到，往往不太只停留在表面。娱乐版地说，你像一个感情浓度稍高的人，容易认真、容易共鸣，也容易在乎那些别人没太注意到的小反馈。",
+      "你对“喜欢”这件事反应很快，而且很真。别人还在观察的时候，你已经开始代入、开始想象、开始把对方放进自己的情绪系统里。你不是一定恋爱脑，只是你对人与人的连接很有感觉，也愿意为那种感觉承担风险。你的世界不缺波澜，缺的是一个能接住你热情的人。",
     centroid: resultVector({
       S1: 60,
       S2: 58,
@@ -767,9 +789,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "震惊体",
     riskLevel: "high",
     launchStatus: "hold",
-    heroTagline: "世界稍微一歪，你的反应就先弹出来了。",
+    heroTagline: "你的情绪经常会被世界突然刷新。",
+    summaryNote: "惊讶阈值低，反应夸张但很真实。",
     overview:
-      "这类命名本轮先停在内部识别层。它更像一种高反应、高惊讶值的情绪风格，后续如果要前台上线，需要更稳定的命名和更清晰的娱乐边界。",
+      "你是那种很有“现场反应”的人。世界稍微离谱一点，你就会当场被刷新三观；别人还在消化，你已经进入震惊、吐槽、放大、复盘一条龙。你不是戏精，而是对很多事真的反应强、感受快。你的生活里常常有“我靠还能这样”的瞬间，而你本人，就是那种会把这种瞬间活成表情包的人。",
     centroid: resultVector({
       S1: 48,
       S2: 50,
@@ -795,9 +818,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "微醺者",
     riskLevel: "high",
     launchStatus: "rename",
-    heroTagline: "不一定真喝了，但状态里总带点松、飘、随性。",
+    heroTagline: "你身上有种微醺式的松动感。",
+    summaryNote: "感官和当下体验更突出，控制感相对放松。",
     overview:
-      "你对松弛、放空、顺着感觉流动这件事有天然偏好。比起把一切都抠得很紧，你更容易在舒服和氛围里找到自己的节奏。娱乐版地说，你像一个轻微脱框型选手，越紧的场子越想给它拧松一点。",
+      "你不一定真的爱喝，但你很懂那种“松下来”的状态。你比很多人更容易被气氛、夜晚、音乐、杯子碰撞的声音打动，也更懂得把自己暂时从规训里释放出来。你不是永远自律挂的人，你更像一个知道什么时候该收、什么时候该放的人。别人觉得你有点飘，你自己觉得：人生也不必时刻绷着。",
     centroid: resultVector({
       S1: 58,
       S2: 52,
@@ -827,9 +851,10 @@ export const SBTI_RESULT_PROFILES: SbtiResultProfile[] = [
     safeNameZh: "低电量者",
     riskLevel: "extreme",
     launchStatus: "hold",
-    heroTagline: "不是完全不行，是现在电量真的见底了。",
+    heroTagline: "你对自己的评价，经常比别人狠得多。",
+    summaryNote: "自我否定和无力感偏高，恢复速度受环境影响大。",
     overview:
-      "这类命名本轮仅保留在内部识别层。它更像一种低能量、低驱动、自我评价也偏低的状态描述，后续若要上线，需要完整改名和更温和的结果文案。",
+      "你嘴上说自己是“废物”，未必是真的认命，更像是一种先把自己吐槽掉的防御。你对自己的状态很敏感，一旦卡住、失误、拖延，就容易迅速进入“完了我不行”的频道。你不是真的没有能力，而是经常在能量很低的时候给自己下结论。你像一台一边报警一边还能继续跑的机器，只是太少被温柔对待。",
     centroid: resultVector({
       S1: 24,
       S2: 34,

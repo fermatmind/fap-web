@@ -64,7 +64,7 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
     <div className="space-y-6">
       <Card className="overflow-hidden border-[var(--fm-border)] bg-[linear-gradient(180deg,#ffffff,rgba(240,249,255,0.92))]">
         <CardContent className="grid gap-5 p-5 sm:p-6 md:grid-cols-[minmax(0,1fr)_120px] md:items-center">
-          <div className="space-y-3">
+          <div className="space-y-3 text-center md:text-left">
             <p className="m-0 text-sm font-medium text-slate-500">你的性格类型是：</p>
             <div className="space-y-1">
               <h1 className="m-0 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -91,9 +91,7 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
         <CardContent className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:col-span-3">
             <p className="m-0 text-xl font-semibold text-slate-900">{summaryDisplayName}</p>
-            <p className="m-0 mt-2 text-sm leading-7 text-slate-600">
-              维度命中度较高，当前结果可视为你的第一人格画像。
-            </p>
+            <p className="m-0 mt-2 text-sm leading-7 text-slate-600">{profile.summaryNote}</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
             <p className="m-0 text-xs uppercase tracking-[0.14em] text-slate-500">匹配度</p>
@@ -130,9 +128,7 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
             <div key={dimension.key} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="m-0 text-xs uppercase tracking-[0.14em] text-slate-400">
-                    {dimension.group} · {dimension.key}
-                  </p>
+                  <p className="m-0 text-xs uppercase tracking-[0.14em] text-slate-400">{dimension.key}</p>
                   <p className="m-0 mt-1 text-base font-semibold text-slate-900">{dimension.nameZh}</p>
                 </div>
                 <span className="rounded-full border border-slate-200 px-2.5 py-1 text-xs font-semibold text-slate-600">
