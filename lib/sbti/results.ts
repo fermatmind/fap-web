@@ -960,11 +960,52 @@ export const SBTI_ARCHETYPES: SbtiArchetype[] = [
   },
 ];
 
+export const SBTI_RESULT_RARITY_PERCENT_MAP: Record<SbtiRawTypeCode, number> = {
+  IMSB: 0.8963,
+  BOSS: 0.3559,
+  MUM: 3.7678,
+  FAKE: 6.0681,
+  DEAD: 0.3536,
+  ZZZZ: 0.6933,
+  GOGO: 1.2356,
+  FUCK: 0.8193,
+  CTRL: 0.5548,
+  HHHH: 5.125,
+  SEXY: 5.8171,
+  OJBK: 1.5731,
+  POOR: 15.499,
+  "OH-NO": 3.34,
+  MONK: 0.2004,
+  SHIT: 0.157,
+  "THAN-K": 5.8393,
+  MALO: 14.8161,
+  ATM: 14.0385,
+  "THIN-K": 0.6275,
+  SOLO: 0.3047,
+  "LOVE-R": 9.3095,
+  WOC: 5.4633,
+  DRUNK: 3.0496,
+  IMFW: 0.0952,
+};
+
 const RESULT_PROFILE_BY_CODE = new Map(SBTI_RESULT_PROFILES.map((item) => [item.code, item] as const));
 const SCORING_ARCHETYPE_BY_CODE = new Map(SBTI_ARCHETYPES.map((item) => [item.code, item] as const));
 
 export function getSbtiDisplayName(profile: SbtiResultProfile): string {
   return profile.launchStatus === "launch" ? profile.nameZh : profile.safeNameZh ?? profile.nameZh;
+}
+
+export function getSbtiRarityPercent(primaryTypeCode: string): number | null {
+  return SBTI_RESULT_RARITY_PERCENT_MAP[primaryTypeCode as SbtiRawTypeCode] ?? null;
+}
+
+export function formatSbtiRarityPercent(primaryTypeCode: string): string {
+  const rarity = getSbtiRarityPercent(primaryTypeCode);
+  if (rarity === null) {
+    return "暂无数据";
+  }
+
+  return `${rarity.toFixed(4)}%`;
 }
 
 export function toSbtiBand(score: number): SbtiBand {

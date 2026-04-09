@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { SbtiResultClient } from "@/components/sbti/SbtiResultClient";
 import { SbtiTestClient } from "@/components/sbti/SbtiTestClient";
-import { SBTI_RESULT_PROFILES } from "@/lib/sbti/results";
+import { formatSbtiRarityPercent, SBTI_RESULT_PROFILES } from "@/lib/sbti/results";
 import { SBTI_QUESTIONS } from "@/lib/sbti/questions";
 import { resolveSbtiPrimaryType, scoreSbtiAnswers } from "@/lib/sbti/scoring";
 import { readSbtiState, writeSbtiState, type SbtiStoredState } from "@/lib/sbti/storage";
@@ -98,5 +98,16 @@ describe("SBTI retake and resubmit contract", () => {
 
     expect(screen.getByText("已载入你上次提交时的答案。你可以直接重新提交，或改几题后再重新提交结果。")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "重新提交结果" })).toBeInTheDocument();
+  });
+
+  it("renders rarity instead of launch status on the result summary card", () => {
+    const state = buildCompletedState();
+    writeSbtiState(state);
+
+    render(<SbtiResultClient locale="zh" />);
+
+    expect(screen.getByText("稀有度")).toBeInTheDocument();
+    expect(screen.getByText(formatSbtiRarityPercent(state.completedResult!.primaryTypeCode))).toBeInTheDocument();
+    expect(screen.queryByText("结果状态")).not.toBeInTheDocument();
   });
 });

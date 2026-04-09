@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { trackEvent } from "@/lib/analytics";
 import {
+  formatSbtiRarityPercent,
   getSbtiDimensionCards,
   getSbtiDisplayName,
   getSbtiHitCount,
@@ -49,6 +50,7 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
   const hitCount = getSbtiHitCount(result.scores, profile);
   const dimensions = getSbtiDimensionCards(result.scores, profile);
   const illustration = getSbtiIllustration(profile.code);
+  const rarityLabel = formatSbtiRarityPercent(profile.code);
 
   const handleRetake = () => {
     resetSbtiCompletedResult();
@@ -114,10 +116,8 @@ export function SbtiResultClient({ locale }: { locale: Locale }) {
             <p className="m-0 mt-2 text-3xl font-semibold text-slate-950">{hitCount}/15</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <p className="m-0 text-xs uppercase tracking-[0.14em] text-slate-500">结果状态</p>
-            <p className="m-0 mt-2 text-sm font-medium text-slate-800">
-              {profile.launchStatus === "launch" ? "首发直出类型" : profile.launchStatus === "rename" ? "安全改名展示" : "内部目录映射"}
-            </p>
+            <p className="m-0 text-xs uppercase tracking-[0.14em] text-slate-500">稀有度</p>
+            <p className="m-0 mt-2 text-3xl font-semibold text-slate-950">{rarityLabel}</p>
           </div>
         </CardContent>
       </Card>
