@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,7 @@ function createDefaultState(locale: Locale): SbtiStoredState {
 
 export function SbtiTestClient({ locale }: { locale: Locale }) {
   const router = useRouter();
+  const questionRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [answers, setAnswers] = useState<SbtiAnswerMap>({});
   const [completedResult, setCompletedResult] = useState<SbtiStoredState["completedResult"]>(null);
   const [loaded, setLoaded] = useState(false);
@@ -84,6 +85,26 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
     setAnswers((current) => ({ ...current, [questionId]: optionId }));
     setCompletedResult(null);
     setError(null);
+
+    const currentQuestionIndex = SBTI_QUESTIONS.findIndex((question) => question.id === questionId);
+    const nextQuestion = SBTI_QUESTIONS[currentQuestionIndex + 1];
+
+    if (!nextQuestion) {
+      return;
+    }
+
+    const scheduleScroll =
+      typeof window !== "undefined" && typeof window.requestAnimationFrame === "function"
+        ? window.requestAnimationFrame.bind(window)
+        : (callback: FrameRequestCallback) => window.setTimeout(callback, 0);
+
+    scheduleScroll(() => {
+      questionRefs.current[nextQuestion.id]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    });
   };
 
   const handleSubmit = () => {
@@ -165,42 +186,51 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
 
       <div className="space-y-4">
         {SBTI_QUESTIONS.map((question) => (
-          <Card key={question.id}>
-            <CardHeader className="space-y-2">
-              <CardTitle className="text-base sm:text-lg">
-                {question.order}. {question.prompt.zh}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-2">
-                {question.options.map((option) => {
-                  const checked = answers[question.id] === option.id;
+          <div
+            key={question.id}
+            ref={(node) => {
+              questionRefs.current[question.id] = node;
+            }}
+            data-testid={`sbti-question-${question.order}`}
+            className="scroll-mt-28 md:scroll-mt-32"
+          >
+            <Card>
+              <CardHeader className="space-y-2">
+                <CardTitle className="text-base sm:text-lg">
+                  {question.order}. {question.prompt.zh}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid gap-2">
+                  {question.options.map((option) => {
+                    const checked = answers[question.id] === option.id;
 
-                  return (
-                    <label
-                      key={`${question.id}-${option.id}`}
-                      className={[
-                        "cursor-pointer rounded-2xl border px-4 py-3 text-sm transition",
-                        checked
-                          ? "border-[var(--fm-accent)] bg-sky-50 text-sky-900 shadow-[0_10px_28px_rgba(56,189,248,0.12)]"
-                          : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50",
-                      ].join(" ")}
-                    >
-                      <input
-                        type="radio"
-                        className="sr-only"
-                        name={question.id}
-                        value={option.id}
-                        checked={checked}
-                        onChange={() => updateAnswer(question.id, option.id)}
-                      />
-                      <span className="font-medium">{option.id}. {option.label.zh}</span>
-                    </label>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
+                    return (
+                      <label
+                        key={`${question.id}-${option.id}`}
+                        className={[
+                          "cursor-pointer rounded-2xl border px-4 py-3 text-sm transition",
+                          checked
+                            ? "border-[var(--fm-accent)] bg-sky-50 text-sky-900 shadow-[0_10px_28px_rgba(56,189,248,0.12)]"
+                            : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50",
+                        ].join(" ")}
+                      >
+                        <input
+                          type="radio"
+                          className="sr-only"
+                          name={question.id}
+                          value={option.id}
+                          checked={checked}
+                          onChange={() => updateAnswer(question.id, option.id)}
+                        />
+                        <span className="font-medium">{option.id}. {option.label.zh}</span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         ))}
       </div>
 
