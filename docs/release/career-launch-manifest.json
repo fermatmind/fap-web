@@ -1,0 +1,114 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_from": "lib/career/launchPolicy.ts",
+  "generated_at": "2026-04-09T00:00:00Z",
+  "wave_name": "career-first-wave-launch",
+  "stable_routes": [
+    {
+      "key": "career_landing",
+      "route": "/career",
+      "authorityOwner": [
+        "editorial_local_wrapper",
+        "backend_lightweight_jobs",
+        "backend_lightweight_recommendations"
+      ],
+      "rationale": "Hybrid landing is the stable public entry surface for the current Career launch."
+    },
+    {
+      "key": "career_jobs_index",
+      "route": "/career/jobs",
+      "authorityOwner": "backend_lightweight_jobs",
+      "rationale": "Backend B5/B6 jobs surface is the stable public job library."
+    },
+    {
+      "key": "career_job_detail",
+      "route": "/career/jobs/[slug]",
+      "authorityOwner": "backend_career_job_bundle",
+      "rationale": "Job detail routes are stable only when the backend explicit seo gate allows indexing."
+    },
+    {
+      "key": "career_recommendations_index",
+      "route": "/career/recommendations",
+      "authorityOwner": "backend_lightweight_recommendations",
+      "rationale": "Recommendation index is a stable public recommendation entry surface and must not degrade into a job list."
+    },
+    {
+      "key": "career_mbti_recommendation_detail",
+      "route": "/career/recommendations/mbti/[type]",
+      "authorityOwner": "backend_career_recommendation_bundle",
+      "rationale": "MBTI recommendation detail routes are stable only when the backend explicit seo gate allows indexing."
+    }
+  ],
+  "candidate_routes": [
+    {
+      "key": "career_guides_index",
+      "route": "/career/guides",
+      "authorityOwner": "editorial_cms_guides",
+      "rationale": "Guides are live editorial surfaces but not first-wave backend authority-critical routes."
+    },
+    {
+      "key": "career_guide_detail",
+      "route": "/career/guides/[slug]",
+      "authorityOwner": "editorial_cms_guides",
+      "rationale": "Guide detail pages remain live editorial surfaces and should stay out of the stable launch tier."
+    },
+    {
+      "key": "career_industries_index",
+      "route": "/career/industries",
+      "authorityOwner": "editorial_local_industries",
+      "rationale": "Industry hubs are reachable and indexable but not part of the backend-owned first-wave authority path."
+    },
+    {
+      "key": "career_industry_detail",
+      "route": "/career/industries/[slug]",
+      "authorityOwner": "editorial_local_industries",
+      "rationale": "Industry details are live supporting surfaces and should remain candidate-tier."
+    },
+    {
+      "key": "career_tests_index",
+      "route": "/career/tests",
+      "authorityOwner": "editorial_cta_only",
+      "rationale": "Career tests are live entry surfaces but not first-wave backend authority-critical routes."
+    },
+    {
+      "key": "career_riasec_test",
+      "route": "/career/tests/riasec",
+      "authorityOwner": "editorial_cta_only",
+      "rationale": "RIASEC start remains live, but it is not part of the stable authority-critical launch inventory."
+    }
+  ],
+  "hold_routes": [
+    {
+      "key": "career_legacy_slug_bridge",
+      "route": "/career/[slug]",
+      "authorityOwner": "legacy_cms_redirect_bridge",
+      "rationale": "Legacy slug bridge remains reachable but must stay out of launch-facing exposure."
+    },
+    {
+      "key": "career_big5_recommendation_detail",
+      "route": "/career/recommendations/big5/[trait]",
+      "authorityOwner": "editorial_local_big5",
+      "rationale": "Big5 recommendation detail is intentionally reachable but not part of the backend-owned first-wave recommendation launch."
+    }
+  ],
+  "noindex_routes": [
+    {
+      "key": "career_jobs_query",
+      "route": "/career/jobs?q={query}",
+      "authorityOwner": "backend_conservative_search",
+      "rationale": "Query/result search pages must stay noindex and outside launch discoverability inventory."
+    },
+    {
+      "key": "career_riasec_result",
+      "route": "/career/tests/riasec/result",
+      "authorityOwner": "editorial_cta_only",
+      "rationale": "RIASEC result is a private-style result surface and must stay out of launch discoverability inventory."
+    }
+  ],
+  "notes": {
+    "stable": "Stable routes map to the current backend-safe entry and detail classes. Detail classes remain gated by backend explicit seo contracts.",
+    "candidate": "Candidate routes are intentionally live but not first-wave backend authority-critical and should not be promoted to stable by discoverability helpers alone.",
+    "hold": "Hold routes remain reachable or legacy but are intentionally excluded from launch-facing exposure.",
+    "noindex": "Noindex routes are excluded from launch inventory and public discoverability even when reachable."
+  }
+}
