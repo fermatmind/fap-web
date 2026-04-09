@@ -32,11 +32,12 @@ export function TestsHubExperience({ locale }: { locale: Locale }) {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Link href={content.hero.primaryHref} className={buttonVariants({ size: "lg", className: "px-7" })}>
+                  <Link href={content.hero.primaryHref} prefetch={false} className={buttonVariants({ size: "lg", className: "px-7" })}>
                     {content.hero.primaryLabel}
                   </Link>
                   <Link
                     href={content.hero.secondaryHref}
+                    prefetch={false}
                     className={buttonVariants({
                       variant: "outline",
                       size: "lg",
@@ -99,7 +100,7 @@ export function TestsHubExperience({ locale }: { locale: Locale }) {
                   body={content.quickStart.body}
                   invert
                 />
-                <Link href="#tests-families" className="inline-flex items-center gap-2 text-sm font-semibold text-white/78 transition hover:text-white">
+                <Link href="#tests-families" prefetch={false} className="inline-flex items-center gap-2 text-sm font-semibold text-white/78 transition hover:text-white">
                   {locale === "zh" ? "查看测评家族" : "Browse families"}
                   <span aria-hidden>+</span>
                 </Link>
@@ -151,7 +152,7 @@ export function TestsHubExperience({ locale }: { locale: Locale }) {
         <Container className="max-w-[96rem] px-5 md:px-8 xl:px-12">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading eyebrow={content.resources.kicker} title={content.resources.title} body={content.resources.body} />
-            <Link href={content.resources.allHref} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">
+            <Link href={content.resources.allHref} prefetch={false} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">
               {content.resources.allLabel}
               <span aria-hidden>+</span>
             </Link>

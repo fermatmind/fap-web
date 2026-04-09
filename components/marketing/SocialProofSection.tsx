@@ -90,6 +90,7 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
               {"href" in card ? (
                 <Link
                   href={withLocale(card.href)}
+                  prefetch={false}
                   className="mt-3 inline-flex text-sm font-medium text-slate-900 underline-offset-4 hover:underline"
                 >
                   {card.linkLabel}
@@ -114,12 +115,14 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
         <div className="mx-auto mt-10 flex max-w-[60rem] flex-wrap items-center justify-center gap-3">
           <Link
             href={withLocale("/tests/mbti-personality-test-16-personality-types")}
+            prefetch={false}
             className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-[#101d2a] bg-[#101d2a] px-6 text-sm font-semibold tracking-[0.04em] text-white transition hover:bg-[#18293b]"
           >
             {copy.primaryCta}
           </Link>
           <Link
             href={withLocale("/help")}
+            prefetch={false}
             className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-[#101d2a]/25 bg-white/88 px-6 text-sm font-semibold tracking-[0.04em] text-slate-900 transition hover:bg-white"
           >
             {copy.secondaryCta}

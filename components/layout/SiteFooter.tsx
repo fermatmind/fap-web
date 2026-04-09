@@ -76,7 +76,7 @@ export function SiteFooter() {
             <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.testsTitle}</p>
             <div className="space-y-2 text-sm">
               {testLinks.map((item) => (
-                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                <Link key={item.href} href={withLocale(item.href)} prefetch={false} className="block text-slate-300 hover:text-white">
                   {item.label}
                 </Link>
               ))}
@@ -87,7 +87,7 @@ export function SiteFooter() {
             <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.articlesTitle}</p>
             <div className="space-y-2 text-sm">
               {articleLinks.map((item) => (
-                <Link key={item.href} href={withLocale(item.href)} className="block text-slate-300 hover:text-white">
+                <Link key={item.href} href={withLocale(item.href)} prefetch={false} className="block text-slate-300 hover:text-white">
                   {item.label}
                 </Link>
               ))}
@@ -101,6 +101,7 @@ export function SiteFooter() {
                 <Link
                   key={item.href}
                   href={withLocale(item.href)}
+                  prefetch={false}
                   className="block text-slate-300 hover:text-white"
                   data-testid={item.testId}
                 >

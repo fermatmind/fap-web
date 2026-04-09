@@ -13,6 +13,7 @@ export function TrackedEntryCtaLink({
   eventName = "start_click",
   eventProperties,
   onClick,
+  prefetch = false,
   ...props
 }: TrackedEntryCtaLinkProps) {
   const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
@@ -20,5 +21,5 @@ export function TrackedEntryCtaLink({
     onClick?.(event);
   };
 
-  return <Link {...props} onClick={handleClick} />;
+  return <Link {...props} prefetch={prefetch} onClick={handleClick} />;
 }

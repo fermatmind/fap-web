@@ -281,6 +281,7 @@ export function SiteHeader() {
                           <Link
                             key={`${item.key}-${menuItem.href}`}
                             href={withLocale(menuItem.href)}
+                            prefetch={false}
                             className="fm-header-dropdown-link"
                             onClick={() => setActiveDropdown(null)}
                           >
@@ -297,6 +298,7 @@ export function SiteHeader() {
             <div className="flex shrink-0 items-center gap-2">
               <Link
                 href={withLocale("/tests?q=")}
+                prefetch={false}
                 className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20"
                 aria-label={dict.header.search}
                 title={dict.header.search}
@@ -305,6 +307,7 @@ export function SiteHeader() {
               </Link>
               <Link
                 href={withLocale("/history/mbti")}
+                prefetch={false}
                 className="inline-flex h-11 min-h-[44px] min-w-[112px] shrink-0 items-center justify-center gap-1 rounded-full border border-white/25 bg-white/10 px-3.5 text-[13px] font-semibold text-white transition hover:bg-white/20 whitespace-nowrap xl:min-w-[120px] xl:px-4 xl:text-sm"
               >
                 <UserRound className="h-4 w-4" />
@@ -315,6 +318,7 @@ export function SiteHeader() {
 
               <Link
                 href={withLocale("/tests/mbti-personality-test-16-personality-types")}
+                prefetch={false}
                 className={startButtonClass}
               >
                 {dict.header.start}
@@ -345,7 +349,7 @@ export function SiteHeader() {
             )}
           >
             <div className="flex items-center justify-between border-b border-white/15 px-4 py-4">
-              <Link href={withLocale("/")} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-white">
+              <Link href={withLocale("/")} prefetch={false} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-white">
                 {dict.header.brand}
               </Link>
               <button
@@ -363,6 +367,7 @@ export function SiteHeader() {
                 {!isHomeRoute ? (
                   <Link
                     href={withLocale("/")}
+                    prefetch={false}
                     onClick={handleMobileLinkClick}
                     className="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/12"
                   >
@@ -393,6 +398,7 @@ export function SiteHeader() {
                             <Link
                               key={`mobile-submenu-link-${item.key}-${menuItem.href}`}
                               href={withLocale(menuItem.href)}
+                              prefetch={false}
                               onClick={handleMobileLinkClick}
                               className="block rounded-md px-3 py-2 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white"
                             >
@@ -407,6 +413,7 @@ export function SiteHeader() {
 
                 <Link
                   href={withLocale("/tests?q=")}
+                  prefetch={false}
                   onClick={handleMobileLinkClick}
                   className="mt-2 flex min-h-[44px] items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
@@ -416,6 +423,7 @@ export function SiteHeader() {
 
                 <Link
                   href={localeHref}
+                  prefetch={false}
                   onClick={() => {
                     persistLocalePreference();
                     handleMobileLinkClick();
@@ -431,6 +439,7 @@ export function SiteHeader() {
               <div className="flex items-center gap-2">
                 <Link
                   href={withLocale("/tests/mbti-personality-test-16-personality-types")}
+                  prefetch={false}
                   className={`${buttonVariants({ size: "sm" })} flex-1 justify-center`}
                   onClick={handleMobileLinkClick}
                 >
@@ -438,6 +447,7 @@ export function SiteHeader() {
                 </Link>
                 <Link
                   href={withLocale("/history/mbti")}
+                  prefetch={false}
                   onClick={handleMobileLinkClick}
                   className="inline-flex h-11 min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 text-sm font-semibold text-white transition hover:bg-white/20"
                 >

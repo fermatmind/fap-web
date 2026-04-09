@@ -66,7 +66,7 @@ export function QuickStartCard({ item, index }: { item: HubQuestionItem; index: 
         </p>
       </div>
 
-      <Link href={item.href} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-[var(--fm-gold)]">
+      <Link href={item.href} prefetch={false} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-[var(--fm-gold)]">
         {item.ctaLabel}
         <ChevronRight className="h-4 w-4" />
       </Link>
@@ -173,19 +173,19 @@ export function HubTestCard({
             {item.primaryActions && item.primaryActions.length > 0 ? (
               item.primaryActions.map((action) => (
                 <div key={`${item.key}-${action.href}`} className="min-w-[13rem] space-y-2">
-                  <Link href={action.href} className={buttonVariants({ size: "sm", className: "w-full justify-start px-4" })}>
+                  <Link href={action.href} prefetch={false} className={buttonVariants({ size: "sm", className: "w-full justify-start px-4" })}>
                     {action.label}
                   </Link>
                   {action.meta ? <p className="m-0 text-xs leading-6 text-slate-500">{action.meta}</p> : null}
                 </div>
               ))
             ) : (
-              <Link href={item.href} className={buttonVariants({ size: "sm" })}>
+              <Link href={item.href} prefetch={false} className={buttonVariants({ size: "sm" })}>
                 {item.primaryLabel}
               </Link>
             )}
             {showSecondary && item.detailsHref && item.secondaryLabel ? (
-              <Link href={item.detailsHref} className={buttonVariants({ size: "sm", variant: "outline" })}>
+              <Link href={item.detailsHref} prefetch={false} className={buttonVariants({ size: "sm", variant: "outline" })}>
                 {item.secondaryLabel}
               </Link>
             ) : null}
@@ -204,7 +204,7 @@ export function ResourceCard({ item, locale }: { item: ResourceItem; locale: "zh
       <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{item.typeLabel}</p>
       <h3 className="m-0 mt-4 text-[1.08rem] font-semibold tracking-[-0.028em] text-slate-950">{item.title}</h3>
       <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
-      <Link href={item.href} className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-slate-900 transition hover:text-[var(--fm-cta-orange)]">
+      <Link href={item.href} prefetch={false} className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-slate-900 transition hover:text-[var(--fm-cta-orange)]">
         <span>{locale === "zh" ? "打开资源" : "Open resource"}</span>
         <ChevronRight className="h-4 w-4" />
       </Link>
