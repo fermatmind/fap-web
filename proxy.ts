@@ -1,7 +1,11 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
-import { LOCALE_COOKIE_NAME, resolvePreferredLocale } from "@/lib/i18n/localeNegotiation";
+import {
+  LOCALE_COOKIE_NAME,
+  resolveCountryCodeFromHeaders,
+  resolvePreferredLocale,
+} from "@/lib/i18n/localeNegotiation";
 import { localizedPath, stripLocalePrefix } from "@/lib/i18n/locales";
 import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
@@ -82,6 +86,7 @@ export function proxy(request: NextRequest) {
   const preferredLocale = resolvePreferredLocale({
     cookieLocale: request.cookies.get(LOCALE_COOKIE_NAME)?.value ?? null,
     acceptLanguage: request.headers.get("accept-language"),
+    countryCode: resolveCountryCodeFromHeaders(request.headers),
   });
   const typesRedirectPath = resolveTypesRedirectPath(pathname, preferredLocale);
 

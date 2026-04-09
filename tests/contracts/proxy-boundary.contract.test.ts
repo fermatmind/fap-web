@@ -33,6 +33,21 @@ describe("proxy boundary contract", () => {
     expect(response.headers.get("location")).toBe("https://example.com/zh/personality/intj-a?utm=a");
   });
 
+  it("forces locale-less content roots to chinese for china country traffic", () => {
+    const response = proxy(
+      new NextRequest("https://example.com/career?utm=a", {
+        headers: {
+          cookie: "fm_locale=en",
+          "cf-ipcountry": "CN",
+          "accept-language": "en-US,en;q=0.9",
+        },
+      })
+    );
+
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe("https://example.com/zh/career?utm=a");
+  });
+
   it("redirects localized types detail pages into localized personality detail pages", () => {
     const response = proxy(new NextRequest("https://example.com/en/types/intj"));
 
