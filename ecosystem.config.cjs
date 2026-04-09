@@ -1,5 +1,16 @@
-const parsedInstances = Number.parseInt(process.env.PM2_INSTANCES ?? "2", 10);
-const APP_INSTANCES = Number.isFinite(parsedInstances) ? Math.max(2, parsedInstances) : 2;
+const os = require("node:os");
+
+function resolveDefaultInstances() {
+  if (typeof os.availableParallelism === "function") {
+    return Math.max(2, os.availableParallelism());
+  }
+
+  const cpuCount = Array.isArray(os.cpus()) ? os.cpus().length : 2;
+  return Math.max(2, cpuCount);
+}
+
+const parsedInstances = Number.parseInt(process.env.PM2_INSTANCES ?? "", 10);
+const APP_INSTANCES = Number.isFinite(parsedInstances) ? Math.max(2, parsedInstances) : resolveDefaultInstances();
 
 module.exports = {
   apps: [

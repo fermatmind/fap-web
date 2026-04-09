@@ -25,9 +25,19 @@ require_bin() {
 }
 
 resolve_desired_instances() {
-  local raw="${PM2_INSTANCES:-2}"
+  local raw="${PM2_INSTANCES:-}"
+  local fallback
+
+  fallback="$(getconf _NPROCESSORS_ONLN 2>/dev/null || nproc 2>/dev/null || printf '2')"
+  if [[ ! "$fallback" =~ ^[0-9]+$ ]]; then
+    fallback='2'
+  fi
+  if (( fallback < 2 )); then
+    fallback='2'
+  fi
+
   if [[ ! "$raw" =~ ^[0-9]+$ ]]; then
-    printf '2'
+    printf '%s' "$fallback"
     return
   fi
   if (( raw < 2 )); then
