@@ -9,7 +9,7 @@ import {
 } from "@/lib/marketing/completionStats";
 
 let currentCompletedCount = LIVE_COMPLETED_COUNT;
-let intervalId: ReturnType<typeof window.setInterval> | null = null;
+let intervalId: number | null = null;
 const listeners = new Set<() => void>();
 
 function emitChange() {
@@ -17,7 +17,7 @@ function emitChange() {
 }
 
 function ensureCounterTicker() {
-  if (typeof window === "undefined" || intervalId) {
+  if (typeof window === "undefined" || intervalId !== null) {
     return;
   }
 
@@ -34,7 +34,7 @@ function subscribe(listener: () => void) {
   return () => {
     listeners.delete(listener);
 
-    if (listeners.size === 0 && intervalId) {
+    if (listeners.size === 0 && intervalId !== null) {
       window.clearInterval(intervalId);
       intervalId = null;
     }
