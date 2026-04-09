@@ -68,11 +68,16 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
     });
   }, [locale]);
 
-  const unansweredCount = useMemo(
-    () => SBTI_QUESTIONS.filter((question) => typeof answers[question.id] !== "number").length,
+  const answeredCount = useMemo(
+    () =>
+      SBTI_QUESTIONS.filter((question) => {
+        const answer = answers[question.id];
+        return typeof answer === "string" && question.options.some((option) => option.id === answer);
+      }).length,
     [answers]
   );
-  const answeredCount = SBTI_QUESTIONS.length - unansweredCount;
+  const unansweredCount = SBTI_QUESTIONS.length - answeredCount;
+  const canViewResult = unansweredCount === 0;
   const progress = Math.round((answeredCount / SBTI_QUESTIONS.length) * 100);
 
   const updateAnswer = (questionId: string, optionId: string) => {
@@ -208,8 +213,8 @@ export function SbtiTestClient({ locale }: { locale: Locale }) {
             <Button type="button" variant="outline" onClick={() => router.push(localizedPath("/", locale))}>
               返回首页
             </Button>
-            <Button type="button" onClick={handleSubmit} disabled={submitting}>
-              {submitting ? "生成中..." : "查看结果"}
+            <Button type="button" onClick={handleSubmit} disabled={submitting || !canViewResult}>
+              {submitting ? "生成中..." : canViewResult ? "查看结果" : "继续作答"}
             </Button>
           </div>
         </div>
