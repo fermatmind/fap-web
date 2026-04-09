@@ -27,8 +27,8 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
         aria-hidden
         className="absolute inset-x-4 top-4 h-24 rounded-[1.5rem] bg-[radial-gradient(circle_at_top_left,rgba(255,211,140,0.42),transparent_58%),radial-gradient(circle_at_bottom_right,rgba(112,213,255,0.28),transparent_52%)] sm:inset-x-5 sm:top-5 sm:h-28"
       />
-      <div className="relative space-y-4 sm:space-y-5">
-        <div className="flex flex-wrap items-center justify-center gap-2">
+      <div className="relative space-y-5 sm:space-y-5">
+        <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
           <Badge className="border-white/20 bg-white/12 text-white">娱乐实验</Badge>
           <span className="rounded-full border border-white/16 bg-black/10 px-3 py-1 text-xs font-medium text-white/82">
             31 题 · 3-5 分钟
@@ -39,7 +39,7 @@ export function SbtiHeroEntryCard({ locale }: { locale: Locale }) {
           <h2 className="m-0 text-center text-[clamp(1.7rem,3.6vw,2.35rem)] font-semibold tracking-[-0.04em] text-white">
             SBTI 人格测试
           </h2>
-          <p className="m-0 px-3 pt-2 text-center text-sm leading-6 text-slate-100/88 sm:px-0 sm:pt-2 sm:text-left sm:text-[0.95rem] sm:leading-7">
+          <p className="m-0 mx-auto max-w-[18rem] px-3 pt-2 text-center text-sm leading-6 text-slate-100/88 sm:max-w-[30rem] sm:px-0 sm:pt-2 sm:text-center sm:text-[0.95rem] sm:leading-7">
             一个轻量、好玩、可分享的人格画像实验。
           </p>
         </div>
