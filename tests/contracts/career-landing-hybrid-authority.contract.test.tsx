@@ -115,7 +115,7 @@ describe("career landing hybrid authority contract", () => {
     expect(html).not.toContain("career-personalized-status");
   });
 
-  it("keeps trust-limited landing preview cards compact", async () => {
+  it("hides non-stable job cards from the landing jobs preview while keeping recommendation preview intact", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -192,9 +192,8 @@ describe("career landing hybrid authority contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("trust-limited mode");
-    expect(html).not.toContain("Salary:");
-    expect(html).not.toContain("Fit score: 84");
-    expect(html).not.toContain("Confidence score: 76");
+    expect(html).toContain("No public job previews are currently available");
+    expect(html).not.toContain("Backend Architect");
+    expect(html).toContain("INTJ Career Match");
   });
 });

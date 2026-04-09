@@ -157,7 +157,7 @@ describe("career job index backend contract", () => {
     expect(html).not.toContain("CMS did not return any public career jobs");
   });
 
-  it("suppresses score and salary lines when the backend marks a job card as trust-limited", async () => {
+  it("filters non-stable job cards out of the public jobs index", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -207,10 +207,9 @@ describe("career job index backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("trust-limited mode");
-    expect(html).not.toContain("Salary:");
-    expect(html).not.toContain("Fit score:");
-    expect(html).not.toContain("Confidence score:");
+    expect(html).toContain("career-job-index-status");
+    expect(html).toContain("No public job index items are currently available");
+    expect(html).not.toContain("Backend Architect");
   });
 
   it("treats whitespace-only q as no query and keeps the default backend job index path", async () => {
