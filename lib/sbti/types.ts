@@ -41,32 +41,35 @@ export const SBTI_RESULT_DIMENSION_KEYS = [
 
 export type SbtiResultDimensionKey = (typeof SBTI_RESULT_DIMENSION_KEYS)[number];
 export type SbtiBand = "L" | "M" | "H";
-export type SbtiRawTypeCode =
-  | "IMSB"
-  | "BOSS"
-  | "MUM"
-  | "FAKE"
-  | "DEAD"
-  | "ZZZZ"
-  | "GOGO"
-  | "FUCK"
-  | "CTRL"
-  | "HHHH"
-  | "SEXY"
-  | "OJBK"
-  | "POOR"
-  | "OH-NO"
-  | "MONK"
-  | "SHIT"
-  | "THAN-K"
-  | "MALO"
-  | "ATM"
-  | "THIN-K"
-  | "SOLO"
-  | "LOVE-R"
-  | "WOC"
-  | "DRUNK"
-  | "IMFW";
+export const SBTI_RAW_TYPE_CODES = [
+  "IMSB",
+  "BOSS",
+  "MUM",
+  "FAKE",
+  "DEAD",
+  "ZZZZ",
+  "GOGO",
+  "FUCK",
+  "CTRL",
+  "HHHH",
+  "SEXY",
+  "OJBK",
+  "POOR",
+  "OH-NO",
+  "MONK",
+  "SHIT",
+  "THAN-K",
+  "MALO",
+  "ATM",
+  "THIN-K",
+  "SOLO",
+  "LOVE-R",
+  "WOC",
+  "DRUNK",
+  "IMFW",
+] as const;
+
+export type SbtiRawTypeCode = (typeof SBTI_RAW_TYPE_CODES)[number];
 export type SbtiRiskLevel = "low" | "medium" | "high" | "extreme";
 export type SbtiLaunchStatus = "launch" | "rename" | "hold";
 
