@@ -89,7 +89,7 @@ export function TestsFamilyExplorer({
         </div>
 
         <div className="mt-6">
-          <Link href={activeFamily.exploreHref} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-[var(--fm-cta-orange)]">
+          <Link href={activeFamily.exploreHref} prefetch={false} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-[var(--fm-cta-orange)]">
             {activeFamily.exploreLabel}
             <span aria-hidden>+</span>
           </Link>

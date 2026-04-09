@@ -398,7 +398,7 @@ export function HighlightedTestsSection({
                     <div className="fm-home-calibration-slot-heading">
                       <div className="fm-home-calibration-slot-titleRow">
                         <span className={ledClass} aria-hidden />
-                        <Link href={withLocale(`/tests/${card.slug}`)} className="fm-home-calibration-slot-title">
+                        <Link href={withLocale(`/tests/${card.slug}`)} prefetch={false} className="fm-home-calibration-slot-title">
                           {card.title}
                         </Link>
                       </div>
@@ -451,6 +451,7 @@ export function HighlightedTestsSection({
                           <Link
                             key={form.formCode}
                             href={buildMbtiTakeHref(card.slug, locale, form.formCode)}
+                            prefetch={false}
                             className="fm-home-calibration-slot-action"
                           >
                             {getMbtiStartLabel(form.formCode, locale)}
@@ -463,6 +464,7 @@ export function HighlightedTestsSection({
                           <Link
                             key={form.formCode}
                             href={buildBig5TakeHref(card.slug, locale, form.formCode)}
+                            prefetch={false}
                             className="fm-home-calibration-slot-action"
                           >
                             {getBig5StartLabel(form.formCode, locale)}
@@ -470,7 +472,7 @@ export function HighlightedTestsSection({
                         ))}
                       </div>
                     ) : (
-                      <Link href={withLocale(`/tests/${card.slug}/take`)} className="fm-home-calibration-slot-action">
+                      <Link href={withLocale(`/tests/${card.slug}/take`)} prefetch={false} className="fm-home-calibration-slot-action">
                         {actionLabel}
                       </Link>
                     )}
@@ -527,7 +529,7 @@ export function HighlightedTestsSection({
               <p className="fm-home-auth-terminal-copy m-0">{copy.authTerminalCopy}</p>
 
               <div className="fm-home-auth-terminal-actions">
-                <Link href={withLocale("/orders/lookup")} className="fm-home-auth-terminal-secondary fm-home-auth-terminal-link">
+                <Link href={withLocale("/orders/lookup")} prefetch={false} className="fm-home-auth-terminal-secondary fm-home-auth-terminal-link">
                   {copy.authTerminalLookup}
                 </Link>
                 <button
@@ -539,6 +541,7 @@ export function HighlightedTestsSection({
                 </button>
                 <Link
                   href={withLocale(`/tests/${authTerminalCard.slug}/take`)}
+                  prefetch={false}
                   className="fm-home-auth-terminal-primary"
                 >
                   {copy.authTerminalProceed}

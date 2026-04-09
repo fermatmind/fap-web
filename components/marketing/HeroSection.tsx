@@ -73,11 +73,12 @@ export function HeroSection({ locale }: { locale: Locale }) {
           <div className="fm-home-hero-cta-row">
             <Link
               href={withLocale("/tests/mbti-personality-test-16-personality-types")}
+              prefetch={false}
               className="fm-home-hero-cta fm-home-hero-cta-primary"
             >
               {copy.primaryCta}
             </Link>
-            <Link href="#home-highlighted-tests-section" className="fm-home-hero-cta fm-home-hero-cta-secondary">
+            <Link href="#home-highlighted-tests-section" prefetch={false} className="fm-home-hero-cta fm-home-hero-cta-secondary">
               {copy.secondaryCta}
             </Link>
           </div>

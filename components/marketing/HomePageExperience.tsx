@@ -62,7 +62,7 @@ function VariantLink({
   meta: string;
 }) {
   return (
-    <Link href={href} className="fm-home-lineup-variant">
+    <Link href={href} prefetch={false} className="fm-home-lineup-variant">
       <span>{label}</span>
       <small>{meta}</small>
     </Link>
@@ -183,12 +183,12 @@ function PersonalityFamilyPanel({
         {family.links
           .filter((link) => !["MBTI", "Big Five"].includes(link.title))
           .map((link) => (
-            <Link key={`${family.title}-${link.title}`} href={withLocale(link.href)} className="fm-home-family-muted-link">
+            <Link key={`${family.title}-${link.title}`} href={withLocale(link.href)} prefetch={false} className="fm-home-family-muted-link">
               <span>{link.title}</span>
               <span aria-hidden>+</span>
             </Link>
           ))}
-        <Link href={withLocale(family.exploreHref)} className="fm-home-family-explore">
+        <Link href={withLocale(family.exploreHref)} prefetch={false} className="fm-home-family-explore">
           {family.exploreLabel}
           <span aria-hidden>+</span>
         </Link>
@@ -369,7 +369,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                 <h2 className="fm-home-featured-title m-0 text-white">{copy.quickStart.title}</h2>
                 <p className="fm-home-featured-subhead m-0 text-slate-300">{copy.quickStart.body}</p>
               </div>
-              <Link href={withLocale("/tests")} className="fm-home-featured-all-link">
+              <Link href={withLocale("/tests")} prefetch={false} className="fm-home-featured-all-link">
                 {locale === "zh" ? "查看全部测评" : "View all assessments"}
                 <span aria-hidden>→</span>
               </Link>
@@ -432,7 +432,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                         </div>
                       </div>
                       <div className="fm-home-quick-card-action">
-                        <Link href={withLocale(item.href)} className="fm-home-quick-card-link is-featured-primary">
+                        <Link href={withLocale(item.href)} prefetch={false} className="fm-home-quick-card-link is-featured-primary">
                           {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
                         </Link>
                       </div>
@@ -458,7 +458,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                         </div>
                       ) : null}
                       <div className="fm-home-quick-card-action">
-                        <Link href={withLocale(item.href)} className="fm-home-quick-card-link is-featured-secondary">
+                        <Link href={withLocale(item.href)} prefetch={false} className="fm-home-quick-card-link is-featured-secondary">
                           {item.label ?? (locale === "zh" ? "查看入口" : "Open path")}
                         </Link>
                       </div>
@@ -501,7 +501,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                     {family.links.map((link) => {
                       return (
                         <div key={`${family.title}-${link.title}`} className="fm-home-family-link-row">
-                          <Link href={withLocale(link.href)} className="fm-home-family-muted-link">
+                          <Link href={withLocale(link.href)} prefetch={false} className="fm-home-family-muted-link">
                             <span>{link.title}</span>
                             <span aria-hidden>+</span>
                           </Link>
@@ -511,7 +511,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                     })}
                   </div>
 
-                  <Link href={withLocale(family.exploreHref)} className="fm-home-family-explore">
+                  <Link href={withLocale(family.exploreHref)} prefetch={false} className="fm-home-family-explore">
                     {family.exploreLabel}
                     <span aria-hidden>+</span>
                   </Link>
@@ -558,7 +558,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
                     <div className="fm-home-trust-body">
                       {item.paragraphs[0] ? <p className="m-0 text-[0.9rem] leading-7 text-slate-300">{item.paragraphs[0]}</p> : null}
                       {item.href && item.hrefLabel ? (
-                        <Link href={withLocale(item.href)} className="fm-home-inline-link inline-flex items-center gap-2 text-white">
+                        <Link href={withLocale(item.href)} prefetch={false} className="fm-home-inline-link inline-flex items-center gap-2 text-white">
                           {item.hrefLabel}
                           <span aria-hidden>+</span>
                         </Link>
