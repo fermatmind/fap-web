@@ -5,10 +5,10 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
-import { AnimatedCounter } from "@/components/design/AnimatedCounter";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
+import { LiveCompletedCounter } from "@/components/marketing/LiveCompletedCounter";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, toggleLocalePath } from "@/lib/i18n/locales";
 import { LOCALE_COOKIE_NAME } from "@/lib/i18n/localeNegotiation";
@@ -202,7 +202,7 @@ export function SiteHeader() {
                 className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-blue-100"
               >
                 <span>{dict.header.completedPrefix}</span>
-                <AnimatedCounter value={LIVE_COMPLETED_COUNT} className="font-semibold tracking-wide text-white" />
+                <LiveCompletedCounter className="font-semibold tracking-wide text-white" />
                 <span>{dict.header.completedSuffix}</span>
               </p>
             ) : null}
