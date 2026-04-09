@@ -46,6 +46,9 @@ export function scoreSbtiAnswers(questions: SbtiQuestion[], answers: SbtiAnswerM
 }
 
 const MAX_CENTERED_DISTANCE = Math.sqrt(SBTI_RESULT_DIMENSION_KEYS.length * 100 ** 2);
+const PROFILE_SPREAD_SCALE = 150;
+const PROFILE_SPREAD_POWER = 1.25;
+const PROFILE_MISMATCH_WEIGHT = 40;
 
 export function centeredDistance(a: SbtiResultScoreVector, b: SbtiResultScoreVector): number {
   let sum = 0;
@@ -67,6 +70,28 @@ export function getSbtiBandMismatchCount(
   ).length;
 }
 
+function hashString(value: string): number {
+  let hash = 2166136261 >>> 0;
+
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return hash >>> 0;
+}
+
+function fingerprintResultScores(scores: SbtiResultScoreVector): string {
+  return SBTI_RESULT_DIMENSION_KEYS.map((key) => String(scores[key]).padStart(3, "0")).join("|");
+}
+
+function computeSbtiConfidence(mismatchCount: number, distance: number): number {
+  const bandCloseness = 1 - mismatchCount / SBTI_RESULT_DIMENSION_KEYS.length;
+  const distanceCloseness = 1 - distance / MAX_CENTERED_DISTANCE;
+
+  return Math.max(0, Math.min(1, bandCloseness * 0.7 + distanceCloseness * 0.3));
+}
+
 export function resolveSbtiProfileFromResultScores(
   scores: SbtiResultScoreVector,
   profiles: SbtiResultProfile[]
@@ -82,27 +107,35 @@ export function resolveSbtiProfileFromResultScores(
       item,
       mismatchCount: getSbtiBandMismatchCount(scores, item),
       distance: centeredDistance(scores, item.centroid),
+      rankScore: 0,
     }))
-    .sort((left, right) => {
-      if (left.mismatchCount !== right.mismatchCount) {
-        return left.mismatchCount - right.mismatchCount;
-      }
-
-      return left.distance - right.distance;
-    });
+    .map((item) => ({
+      ...item,
+      rankScore: item.mismatchCount * PROFILE_MISMATCH_WEIGHT + item.distance,
+    }))
+    .sort((left, right) => left.rankScore - right.rankScore);
 
   const best = ranked[0];
-  const bandCloseness = 1 - best.mismatchCount / SBTI_RESULT_DIMENSION_KEYS.length;
-  const distanceCloseness = 1 - best.distance / MAX_CENTERED_DISTANCE;
-  const similarity = Number((bandCloseness * 0.7 + distanceCloseness * 0.3).toFixed(4));
+  const confidence = computeSbtiConfidence(best.mismatchCount, best.distance);
+  const poolSize = Math.max(
+    1,
+    Math.min(
+      profiles.length,
+      1 + Math.floor(Math.pow(1 - confidence, PROFILE_SPREAD_POWER) * PROFILE_SPREAD_SCALE)
+    )
+  );
+  const picked = ranked[hashString(fingerprintResultScores(scores)) % poolSize] ?? best;
+  const similarity = Number(
+    computeSbtiConfidence(picked.mismatchCount, picked.distance).toFixed(4)
+  );
   const matchPercent = Math.max(52, Math.min(96, Math.round(50 + similarity * 46)));
 
   return {
-    primary: best.item,
+    primary: picked.item,
     similarity,
     matchPercent,
-    mismatchCount: best.mismatchCount,
-    distance: Number(best.distance.toFixed(4)),
+    mismatchCount: picked.mismatchCount,
+    distance: Number(picked.distance.toFixed(4)),
   };
 }
 
