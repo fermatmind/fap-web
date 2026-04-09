@@ -25,6 +25,7 @@ import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildApiUrl } from "@/lib/api-base";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
 import {
   buildBig5TakeHref,
@@ -150,7 +151,7 @@ async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupRes
           Accept: "application/json",
           "X-FAP-Locale": locale === "zh" ? "zh-CN" : "en",
         },
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
 

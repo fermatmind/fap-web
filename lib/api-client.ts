@@ -33,6 +33,10 @@ type RequestOptions = RequestInit & {
   locale?: string;
   authToken?: string | null;
   skipAuth?: boolean;
+  next?: {
+    revalidate?: number | false;
+    tags?: string[];
+  };
 };
 
 function resolveRequestLocale(headers: Headers, localeHint?: string): "en" | "zh-CN" {

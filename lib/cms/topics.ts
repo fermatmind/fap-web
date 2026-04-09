@@ -4,6 +4,7 @@ import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answe
 import { canonicalUrl } from "@/lib/site";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 
 const DEFAULT_ORG_ID = "0";
@@ -570,7 +571,7 @@ export async function listTopics(params: ListTopicsParams): Promise<ListTopicsRe
     const response = await apiClient.get<CmsTopicListApiResponse>(`/v0.5/topics${query}`, {
       locale: params.locale,
       skipAuth: true,
-      cache: "no-store",
+      ...PUBLIC_API_CACHE_OPTIONS,
     });
 
     const items = Array.isArray(response.items)
@@ -625,7 +626,7 @@ export async function getTopicBySlug(
       {
         locale,
         skipAuth: true,
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
 
@@ -673,7 +674,7 @@ export async function getTopicSeoBySlug(
       {
         locale,
         skipAuth: true,
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
 

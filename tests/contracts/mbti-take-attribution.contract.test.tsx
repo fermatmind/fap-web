@@ -22,6 +22,7 @@ const hoisted = vi.hoisted(() => ({
     statusCode: 500,
     errorCode: "TEST_ERROR",
   })),
+  ensureFmTokenReady: vi.fn(async () => "existing" as const),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -106,7 +107,7 @@ vi.mock("@/lib/anon", () => ({
 }));
 
 vi.mock("@/lib/auth/authRetry", () => ({
-  ensureFmTokenReady: async () => undefined,
+  ensureFmTokenReady: hoisted.ensureFmTokenReady,
   runWithGuestTokenRetry: async ({ runner }: { runner: () => Promise<unknown> }) => runner(),
 }));
 
@@ -274,10 +275,18 @@ describe("MBTI take attribution contract", () => {
     hoisted.recoverStaleAttemptSubmit.mockResolvedValue({
       kind: "not_recoverable",
     });
+    hoisted.ensureFmTokenReady.mockResolvedValue("existing");
   });
 
   it("reads attribution from query and attaches it to startAttempt", async () => {
     renderClient();
+
+    await waitFor(() => {
+      expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
+        anonId: "anon_take_test",
+        locale: "en",
+      });
+    });
 
     await waitFor(() => {
       expect(hoisted.fetchScaleQuestions).toHaveBeenCalledWith({
@@ -313,6 +322,33 @@ describe("MBTI take attribution contract", () => {
           term: "friends",
           content: "hero",
         },
+      });
+    });
+  });
+
+  it("waits for auth bootstrap before loading questions", async () => {
+    let releaseBootstrap: (() => void) | null = null;
+    hoisted.ensureFmTokenReady.mockImplementation(
+      () =>
+        new Promise<"existing">((resolve) => {
+          releaseBootstrap = () => resolve("existing");
+        })
+    );
+
+    renderClient();
+
+    await waitFor(() => {
+      expect(hoisted.ensureFmTokenReady).toHaveBeenCalledTimes(1);
+    });
+    expect(hoisted.fetchScaleQuestions).not.toHaveBeenCalled();
+
+    releaseBootstrap?.();
+
+    await waitFor(() => {
+      expect(hoisted.fetchScaleQuestions).toHaveBeenCalledWith({
+        scaleCode: "MBTI",
+        formCode: "mbti_144",
+        anonId: "anon_take_test",
       });
     });
   });
