@@ -696,6 +696,12 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
           },
         ];
 
+  const visibleFamilies = families.filter((family) => family.tests.length > 0);
+  const hasEmotionStateFamily = visibleFamilies.some((family) => family.id === "family-emotion-state");
+  const visibleQuickStartItems = quickStartItems.filter(
+    (item) => item.id !== "emotion-state" || hasEmotionStateFamily
+  );
+
   const resources: ResourceItem[] = [
     toResourceItem(locale, getCareerGuideBySlug("how-to-find-right-career-direction", locale), {
       key: "career-direction-guide",
@@ -762,7 +768,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
         locale === "zh"
           ? ["选择问题", "进入分类", "查看代表测试"]
           : ["Choose a question", "Enter a category", "See representative tests"],
-      previewFamilies: families.map((family) => family.title),
+      previewFamilies: visibleFamilies.map((family) => family.title),
     },
     quickStart: {
       kicker: locale === "zh" ? "Quick Start" : "Quick Start",
@@ -771,7 +777,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
         locale === "zh"
           ? "先把你现在要解决的问题说清楚，再进入更合适的测试版本。"
           : "Name the question first, then move into the version that fits best.",
-      items: quickStartItems,
+      items: visibleQuickStartItems,
     },
     families: {
       kicker: locale === "zh" ? "Test Families" : "Test Families",
@@ -780,7 +786,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
         locale === "zh"
           ? "如果你已经知道大方向，但还没决定具体做哪个测试，这里会更清楚。"
           : "If you know the broad topic but not the exact test, this is the clearer way forward.",
-      items: families,
+      items: visibleFamilies,
     },
     howToChoose: {
       kicker: locale === "zh" ? "How to Choose" : "How to Choose",

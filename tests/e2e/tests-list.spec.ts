@@ -18,9 +18,7 @@ test("tests list keeps card titles visible and aligned in EN", async ({ page }) 
   const clinicalHeading = grid.locator(
     'h3[title="Clinical Depression & Anxiety Assessment 【Professional Edition】"]'
   );
-  await expect(clinicalHeading).toBeVisible();
-  await expect(clinicalHeading).toContainText("Clinical Depression & Anxiety Assessment");
-  await expect(clinicalHeading).toContainText("【Professional Edition】");
+  await expect(clinicalHeading).toHaveCount(0);
 
   const topRowRatings = grid.getByTestId("tests-grid-card-rating");
   const firstRow = [0, 1, 2];
@@ -40,7 +38,7 @@ test("tests list keeps zh core titles on one line without truncation", async ({ 
 
   await expect(grid.locator('h3[title="MBTI 性格测试【16型人格】"]')).toBeVisible();
   await expect(grid.locator('h3[title="大五人格测试【OCEAN 模型】"]')).toBeVisible();
-  await expect(grid.locator('h3[title="抑郁焦虑综合检测【学术专业版】"]')).toBeVisible();
+  await expect(grid.locator('h3[title="抑郁焦虑综合检测【学术专业版】"]')).toHaveCount(0);
 
   const headingTexts = await grid.locator("h3").allTextContents();
   expect(headingTexts.some((text) => text.includes("...") || text.includes("…"))).toBe(false);
