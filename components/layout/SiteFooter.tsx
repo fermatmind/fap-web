@@ -7,6 +7,7 @@ import { useLocale } from "@/components/i18n/LocaleContext";
 import { Container } from "@/components/layout/Container";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 import { FOOTER_SOCIAL_ITEMS } from "@/lib/ui/footerSocialIcons";
 import { cn } from "@/lib/utils";
 
@@ -41,14 +42,14 @@ export function SiteFooter() {
           supportMeta: "Privacy, terms, refunds, and contact support are all available here.",
         };
 
-  const testLinks = [
+  const testLinks = filterVisiblePublicTestEntries([
     { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI" },
     { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five" },
     { href: "/tests/clinical-depression-anxiety-assessment-professional-edition", label: "Clinical Combo" },
     { href: "/tests/depression-screening-test-standard-edition", label: "SDS-20" },
     { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ" },
     { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ" },
-  ];
+  ]);
 
   const articleLinks = [
     { href: "/articles", label: locale === "zh" ? "全部文章" : "All articles" },

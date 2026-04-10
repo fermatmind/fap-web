@@ -21,6 +21,7 @@ import {
   listMbtiFormMetas,
   resolveMbtiFormMeta,
 } from "@/lib/mbti/forms";
+import { isPublicTestEntryVisible } from "@/lib/tests/publicTestEntryVisibility";
 
 export type HomeHighlightedCard =
   | {
@@ -319,7 +320,11 @@ export function HighlightedTestsSection({
   const [authTerminalSlug, setAuthTerminalSlug] = useState<string | null>(null);
 
   const liveCards = useMemo(
-    () => cards.filter((card): card is Extract<HomeHighlightedCard, { kind: "live" }> => card.kind === "live"),
+    () =>
+      cards.filter(
+        (card): card is Extract<HomeHighlightedCard, { kind: "live" }> =>
+          card.kind === "live" && isPublicTestEntryVisible({ slug: card.slug })
+      ),
     [cards]
   );
 
