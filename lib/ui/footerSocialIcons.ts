@@ -8,6 +8,7 @@ export type FooterSocialItem = {
   kind?: "link" | "qr";
   href?: string;
   qrImageSrc?: string;
+  qrFallbackSrc?: string;
   icon: FooterIcon;
   labels: {
     zh: string;
@@ -58,6 +59,7 @@ export const FOOTER_SOCIAL_ITEMS: FooterSocialItem[] = [
     key: "wx",
     kind: "qr",
     qrImageSrc: "/social/wechat-qr-official-258.jpg",
+    qrFallbackSrc: "/social/wechat-qr.jpg",
     icon: requireSimpleIcon("siWechat"),
     labels: { zh: "微信", en: "WeChat" },
   },

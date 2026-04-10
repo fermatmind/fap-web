@@ -135,6 +135,10 @@ const nextConfig = {
           source: "/api/v0.3/:path*",
           destination: `${apiOrigin}/api/v0.3/:path*`,
         },
+        {
+          source: "/api/v0.5/:path*",
+          destination: `${apiOrigin}/api/v0.5/:path*`,
+        },
       ],
     };
   },
