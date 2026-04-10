@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-10T08:29:56Z",
+  "updated_at": "2026-04-10T08:31:42Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -103,10 +103,10 @@
     "PR-F9": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f9-career-readiness-summary-consumption",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "29ada815ad2447530df3eef0b158a52e5746c7a9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/413",
       "checks": {
         "local": [
           {
@@ -122,9 +122,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24234100741/job/70752282737"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24234100741/job/70752282729"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs were not started because the repository account billing or spending limit blocked CI execution.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
