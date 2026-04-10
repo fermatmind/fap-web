@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
+import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCareerFirstWaveReadinessSummary";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { filterStableExposableJobCards } from "@/lib/career/jobExposurePolicy";
+import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import {
   listCareerIndustries,
@@ -73,12 +75,17 @@ export default async function CareerCenterPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const [jobIndexPayload, recommendationIndexPayload, guides] = await Promise.all([
+  const [readinessSummaryPayload, jobIndexPayload, recommendationIndexPayload, guides] = await Promise.all([
+    fetchCareerFirstWaveReadinessSummary({ locale }),
     fetchCareerJobIndex({ locale }),
     fetchCareerRecommendationIndex({ locale }),
     listCareerGuidesFromCms(locale, { perPage: 4 }),
   ]);
-  const topJobs = filterStableExposableJobCards(
+  const firstWaveReadinessSummary = adaptCareerFirstWaveReadinessSummary({
+    payload: readinessSummaryPayload,
+  });
+  const topJobs = filterJobFacingCardsByFirstWaveSummary(
+    firstWaveReadinessSummary,
     adaptCareerJobIndex({ locale, payload: jobIndexPayload })
   ).slice(0, 6);
   const recommendationPreviewItems = adaptCareerRecommendationIndex({

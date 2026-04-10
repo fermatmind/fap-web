@@ -114,10 +114,10 @@ describe("career job index backend contract", () => {
         items: [
           {
             identity: {
-              canonical_slug: "backend-architect",
+              canonical_slug: "data-scientists",
             },
             titles: {
-              canonical_en: "Backend Architect",
+              canonical_en: "Data Scientists",
             },
             truth_summary: {
               median_pay_usd_annual: 182000,
@@ -132,13 +132,35 @@ describe("career job index backend contract", () => {
               confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
             },
             seo_contract: {
-              canonical_path: "/career/jobs/backend-architect",
+              canonical_path: "/career/jobs/data-scientists",
               index_state: "index",
               index_eligible: true,
             },
             provenance_meta: {
               compiler_version: "v2.2",
             },
+          },
+        ],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [
+          {
+            canonical_slug: "data-scientists",
+            status: "publish_ready",
+            reason_codes: ["publish_ready"],
           },
         ],
       })),
@@ -152,7 +174,7 @@ describe("career job index backend contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("career-job-index-card");
-    expect(html).toContain("Backend Architect");
+    expect(html).toContain("Data Scientists");
     expect(html).toContain("View details");
     expect(html).not.toContain("CMS did not return any public career jobs");
   });
@@ -174,10 +196,10 @@ describe("career job index backend contract", () => {
         items: [
           {
             identity: {
-              canonical_slug: "backend-architect",
+              canonical_slug: "financial-analysts",
             },
             titles: {
-              canonical_en: "Backend Architect",
+              canonical_en: "Financial Analysts",
             },
             truth_summary: {
               median_pay_usd_annual: 182000,
@@ -191,10 +213,32 @@ describe("career job index backend contract", () => {
               confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
             },
             seo_contract: {
-              canonical_path: "/career/jobs/backend-architect",
-              index_state: "noindex",
-              index_eligible: false,
+              canonical_path: "/career/jobs/financial-analysts",
+              index_state: "index",
+              index_eligible: true,
             },
+          },
+        ],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [
+          {
+            canonical_slug: "financial-analysts",
+            status: "blocked_override_eligible",
+            reason_codes: ["missing_crosswalk_source_code"],
           },
         ],
       })),
@@ -209,7 +253,7 @@ describe("career job index backend contract", () => {
 
     expect(html).toContain("career-job-index-status");
     expect(html).toContain("No public job index items are currently available");
-    expect(html).not.toContain("Backend Architect");
+    expect(html).not.toContain("Financial Analysts");
   });
 
   it("treats whitespace-only q as no query and keeps the default backend job index path", async () => {
@@ -256,6 +300,22 @@ describe("career job index backend contract", () => {
     }));
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
       fetchCareerJobIndex: fetchCareerJobIndexMock,
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [],
+      })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
       fetchCareerSearch: vi.fn(async () => {

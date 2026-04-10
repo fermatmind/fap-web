@@ -3,11 +3,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerSearch } from "@/lib/career/adapters/adaptCareerSearch";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
+import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCareerFirstWaveReadinessSummary";
 import { fetchCareerSearch } from "@/lib/career/api/fetchCareerSearch";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
-import { filterStableExposableJobCards } from "@/lib/career/jobExposurePolicy";
+import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
 import { localizedPath } from "@/lib/i18n/locales";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -126,15 +128,25 @@ export default async function CareerJobsPage({
   const submittedQuery = normalizeSearchQuery(resolvedSearchParams.q);
   const hasSearchQuery = submittedQuery.length > 0;
   const jobsPath = localizedPath("/career/jobs", locale);
-  const [jobIndexPayload, searchPayload] = await Promise.all([
+  const [readinessSummaryPayload, jobIndexPayload, searchPayload] = await Promise.all([
+    fetchCareerFirstWaveReadinessSummary({ locale }),
     hasSearchQuery ? Promise.resolve(null) : fetchCareerJobIndex({ locale }),
     hasSearchQuery ? fetchCareerSearch({ q: submittedQuery, locale, limit: 12, mode: "auto" }) : Promise.resolve(null),
   ]);
+  const firstWaveReadinessSummary = adaptCareerFirstWaveReadinessSummary({
+    payload: readinessSummaryPayload,
+  });
   const jobs = hasSearchQuery
     ? []
-    : filterStableExposableJobCards(adaptCareerJobIndex({ locale, payload: jobIndexPayload }));
+    : filterJobFacingCardsByFirstWaveSummary(
+        firstWaveReadinessSummary,
+        adaptCareerJobIndex({ locale, payload: jobIndexPayload })
+      );
   const searchResults = hasSearchQuery
-    ? filterStableExposableJobCards(adaptCareerSearch({ locale, payload: searchPayload }))
+    ? filterJobFacingCardsByFirstWaveSummary(
+        firstWaveReadinessSummary,
+        adaptCareerSearch({ locale, payload: searchPayload })
+      )
     : [];
 
   return (

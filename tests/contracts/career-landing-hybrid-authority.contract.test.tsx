@@ -32,8 +32,8 @@ describe("career landing hybrid authority contract", () => {
         bundle_kind: "career_job_index",
         items: [
           {
-            identity: { canonical_slug: "backend-architect" },
-            titles: { canonical_en: "Backend Architect" },
+            identity: { canonical_slug: "data-scientists" },
+            titles: { canonical_en: "Data Scientists" },
             truth_summary: {
               outlook_description: "High-trust systems work.",
               median_pay_usd_annual: 182000,
@@ -45,10 +45,32 @@ describe("career landing hybrid authority contract", () => {
               confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
             },
             seo_contract: {
-              canonical_path: "/career/jobs/backend-architect",
+              canonical_path: "/career/jobs/data-scientists",
               index_state: "index",
               index_eligible: true,
             },
+          },
+        ],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [
+          {
+            canonical_slug: "data-scientists",
+            status: "publish_ready",
+            reason_codes: ["publish_ready"],
           },
         ],
       })),
@@ -108,7 +130,7 @@ describe("career landing hybrid authority contract", () => {
     expect(html).toContain('action="/en/career/jobs"');
     expect(html).toContain('name="q"');
     expect(html).toContain("INTJ Career Match");
-    expect(html).toContain("Backend Architect");
+    expect(html).toContain("Data Scientists");
     expect(html).toContain("Browse recommendations");
     expect(html).toContain("Keep exploring career paths");
     expect(html).not.toContain("See growth path");
@@ -138,8 +160,8 @@ describe("career landing hybrid authority contract", () => {
         bundle_kind: "career_job_index",
         items: [
           {
-            identity: { canonical_slug: "backend-architect" },
-            titles: { canonical_en: "Backend Architect" },
+            identity: { canonical_slug: "financial-analysts" },
+            titles: { canonical_en: "Financial Analysts" },
             truth_summary: {
               median_pay_usd_annual: 182000,
               outlook_pct_2024_2034: 14,
@@ -150,10 +172,32 @@ describe("career landing hybrid authority contract", () => {
               confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
             },
             seo_contract: {
-              canonical_path: "/career/jobs/backend-architect",
-              index_state: "noindex",
-              index_eligible: false,
+              canonical_path: "/career/jobs/financial-analysts",
+              index_state: "index",
+              index_eligible: true,
             },
+          },
+        ],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [
+          {
+            canonical_slug: "financial-analysts",
+            status: "blocked_override_eligible",
+            reason_codes: ["missing_crosswalk_source_code"],
           },
         ],
       })),
@@ -193,7 +237,7 @@ describe("career landing hybrid authority contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("No public job previews are currently available");
-    expect(html).not.toContain("Backend Architect");
+    expect(html).not.toContain("Financial Analysts");
     expect(html).toContain("INTJ Career Match");
   });
 });

@@ -164,14 +164,14 @@ describe("career search backend contract", () => {
             match_kind: "canonical_title_prefix",
             matched_text: "Backend Architect",
             identity: {
-              occupation_uuid: "occ_backend_architect",
-              canonical_slug: "backend-architect",
+              occupation_uuid: "occ_data_scientists",
+              canonical_slug: "data-scientists",
             },
             titles: {
-              canonical_en: "Backend Architect",
+              canonical_en: "Data Scientists",
             },
             seo_contract: {
-              canonical_path: "/career/jobs/backend-architect",
+              canonical_path: "/career/jobs/data-scientists",
               index_state: "indexed",
               index_eligible: true,
             },
@@ -182,6 +182,28 @@ describe("career search backend contract", () => {
             provenance_meta: {
               compiler_version: "career_search_v1",
             },
+          },
+        ],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [
+          {
+            canonical_slug: "data-scientists",
+            status: "publish_ready",
+            reason_codes: ["publish_ready"],
           },
         ],
       })),
@@ -201,7 +223,7 @@ describe("career search backend contract", () => {
 
     expect(html).toContain("career-job-search-results");
     expect(html).toContain("career-job-search-card");
-    expect(html).toContain("Backend Architect");
+    expect(html).toContain("Data Scientists");
     expect(html).toContain("Matched text");
     expect(html).not.toContain("Salary:");
     expect(html).not.toContain("Fit score:");
@@ -232,26 +254,48 @@ describe("career search backend contract", () => {
         data: [
           {
             match_kind: "canonical_slug_exact",
-            matched_text: "backend-architect",
+            matched_text: "financial-analysts",
             identity: {
-              occupation_uuid: "occ_backend_architect",
-              canonical_slug: "backend-architect",
+              occupation_uuid: "occ_financial_analysts",
+              canonical_slug: "financial-analysts",
             },
             titles: {
-              canonical_en: "Backend Architect",
+              canonical_en: "Financial Analysts",
             },
             seo_contract: {
-              canonical_path: "/career/jobs/backend-architect",
-              index_state: "blocked",
-              index_eligible: false,
+              canonical_path: "/career/jobs/financial-analysts",
+              index_state: "indexed",
+              index_eligible: true,
             },
             trust_summary: {
-              status: "trust_limited",
+              status: "available",
               reviewer_status: "reviewed",
             },
             provenance_meta: {
               compiler_version: "career_search_v1",
             },
+          },
+        ],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [
+          {
+            canonical_slug: "financial-analysts",
+            status: "blocked_override_eligible",
+            reason_codes: ["missing_crosswalk_source_code"],
           },
         ],
       })),
