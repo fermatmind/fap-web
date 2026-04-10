@@ -88,3 +88,28 @@ export type CareerSearchResponseRaw = {
   query?: unknown;
   meta?: unknown;
 };
+
+export type CareerFirstWaveReadinessOccupationResponseRaw = {
+  occupation_uuid?: unknown;
+  canonical_slug?: unknown;
+  canonical_title_en?: unknown;
+  status?: unknown;
+  blocker_type?: unknown;
+  remediation_class?: unknown;
+  authority_override_supplied?: unknown;
+  review_required?: unknown;
+  crosswalk_mode?: unknown;
+  reviewer_status?: unknown;
+  index_state?: unknown;
+  index_eligible?: unknown;
+  reason_codes?: unknown;
+};
+
+export type CareerFirstWaveReadinessSummaryResponseRaw = {
+  summary_kind?: unknown;
+  summary_version?: unknown;
+  wave_name?: unknown;
+  counts?: unknown;
+  occupations?: unknown;
+  data?: unknown;
+};

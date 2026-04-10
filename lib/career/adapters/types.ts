@@ -244,3 +244,42 @@ export type CareerSearchResultCardAdapter = {
   provenanceMeta: CareerProvenanceMetaAdapter;
   href: string;
 };
+
+export type CareerFirstWaveReadinessStatus =
+  | "publish_ready"
+  | "blocked_override_eligible"
+  | "blocked_not_safely_remediable"
+  | "partial_raw";
+
+export type CareerFirstWaveReadinessOccupationAdapter = {
+  occupationUuid: string | null;
+  canonicalSlug: string;
+  canonicalTitleEn: string | null;
+  status: CareerFirstWaveReadinessStatus;
+  blockerType: string | null;
+  remediationClass: string | null;
+  authorityOverrideSupplied: boolean;
+  reviewRequired: boolean;
+  crosswalkMode: string | null;
+  reviewerStatus: string | null;
+  indexState: string | null;
+  indexEligible: boolean | null;
+  reasonCodes: string[];
+};
+
+export type CareerFirstWaveReadinessSummaryAdapter = {
+  authoritySource: string;
+  summaryKind: string;
+  summaryVersion: string;
+  waveName: string;
+  counts: {
+    total: number;
+    publishReady: number;
+    blockedOverrideEligible: number;
+    blockedNotSafelyRemediable: number;
+    blockedTotal: number;
+    partialRaw: number;
+  };
+  occupations: CareerFirstWaveReadinessOccupationAdapter[];
+  occupationsBySlug: Record<string, CareerFirstWaveReadinessOccupationAdapter>;
+};
