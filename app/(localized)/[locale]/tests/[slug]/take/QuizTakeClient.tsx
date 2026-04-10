@@ -18,7 +18,7 @@ import { QuizShell } from "@/components/quiz/QuizShell";
 import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
-import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
+import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   isGuestTokenEndpointMissingError,
   isGuestTokenRequestError,
@@ -76,6 +76,61 @@ function resolveNoTokenServiceMessage(locale: "en" | "zh"): string {
   return "Submission is temporarily unavailable because authentication service is not configured.";
 }
 
+function normalizeRetryAfterSeconds(value: unknown): number | null {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric) || numeric <= 0) {
+    return null;
+  }
+
+  return Math.max(1, Math.ceil(numeric));
+}
+
+function readRetryAfterSeconds(error: unknown): number | null {
+  if (!(error instanceof ApiError)) {
+    return null;
+  }
+
+  const details = error.details && typeof error.details === "object"
+    ? (error.details as Record<string, unknown>)
+    : null;
+
+  const nestedDetails = details?.details && typeof details.details === "object"
+    ? (details.details as Record<string, unknown>)
+    : null;
+
+  return normalizeRetryAfterSeconds(
+    details?.retry_after_seconds
+    ?? details?.retry_after
+    ?? nestedDetails?.retry_after_seconds
+    ?? nestedDetails?.retry_after
+  );
+}
+
+function resolveRateLimitMessage(locale: "en" | "zh", retryAfterSeconds: number | null): string {
+  if (retryAfterSeconds) {
+    if (locale === "zh") {
+      return `请求过于频繁，请等待 ${retryAfterSeconds} 秒后重试。`;
+    }
+    return `Too many requests. Please wait ${retryAfterSeconds} seconds before retrying.`;
+  }
+
+  if (locale === "zh") {
+    return "请求过于频繁，请稍后重试。";
+  }
+  return "Too many requests. Please retry later.";
+}
+
+function resolveRetryButtonLabel(locale: "en" | "zh", retryAfterSeconds: number | null): string {
+  if (retryAfterSeconds && retryAfterSeconds > 0) {
+    if (locale === "zh") {
+      return `请等待 ${retryAfterSeconds} 秒`;
+    }
+    return `Wait ${retryAfterSeconds}s`;
+  }
+
+  return "Retry";
+}
+
 function resolveGuestTokenTelemetry(error: unknown): {
   statusCode?: number;
   errorCode: string;
@@ -94,17 +149,44 @@ function resolveGuestTokenTelemetry(error: unknown): {
   };
 }
 
-function toUiMessage(error: unknown, fallback: string, locale: "en" | "zh"): string {
+function toUiError(
+  error: unknown,
+  fallback: string,
+  locale: "en" | "zh"
+): {
+  message: string;
+  retryAfterSeconds: number | null;
+} {
   if (isGuestTokenEndpointMissingError(error)) {
-    return resolveNoTokenServiceMessage(locale);
+    return {
+      message: resolveNoTokenServiceMessage(locale),
+      retryAfterSeconds: null,
+    };
   }
   if (isGuestTokenRequestError(error)) {
-    return resolveGuestTokenFailureMessage(locale);
+    return {
+      message: resolveGuestTokenFailureMessage(locale),
+      retryAfterSeconds: null,
+    };
   }
   if (isUnauthorizedError(error)) {
-    return resolveAuthErrorMessage(locale);
+    return {
+      message: resolveAuthErrorMessage(locale),
+      retryAfterSeconds: null,
+    };
   }
-  return error instanceof Error && error.message ? error.message : fallback;
+  if (error instanceof ApiError && error.status === 429) {
+    const retryAfterSeconds = readRetryAfterSeconds(error);
+    return {
+      message: resolveRateLimitMessage(locale, retryAfterSeconds),
+      retryAfterSeconds,
+    };
+  }
+
+  return {
+    message: error instanceof Error && error.message ? error.message : fallback,
+    retryAfterSeconds: null,
+  };
 }
 
 function normalizeQueryValue(value: string | null): string | undefined {
@@ -271,13 +353,12 @@ function QuizTakeInner({
   const resetAttempt = useQuizStore((store) => store.resetAttempt);
 
   const [questionsLoading, setQuestionsLoading] = useState(true);
-  const [attemptLoading, setAttemptLoading] = useState(true);
-  const [authBootstrapping, setAuthBootstrapping] = useState(true);
   const [authBlockError, setAuthBlockError] = useState<string | null>(null);
   const [questionsError, setQuestionsError] = useState<string | null>(null);
   const [attemptError, setAttemptError] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [staleDraftError, setStaleDraftError] = useState<string | null>(null);
+  const [retryAfterSeconds, setRetryAfterSeconds] = useState<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
   const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
@@ -374,46 +455,23 @@ function QuizTakeInner({
   );
 
   useEffect(() => {
-    let active = true;
+    if (!retryAfterSeconds || retryAfterSeconds <= 0) {
+      return;
+    }
 
-    const run = async () => {
-      setAuthBootstrapping(true);
-      setAuthBlockError(null);
-
-      try {
-        await ensureFmTokenReady({
-          anonId,
-          locale,
-        });
-      } catch (error) {
-        if (!active) return;
-        trackGuestTokenFailure("bootstrap", error);
-
-        if (isGuestTokenEndpointMissingError(error)) {
-          setAuthBlockError(resolveNoTokenServiceMessage(locale));
-          const telemetry = resolveGuestTokenTelemetry(error);
-          trackEvent("submit_blocked_no_token_service", {
-            scale_code: scaleCode,
-            status_code: telemetry.statusCode,
-            error_code: telemetry.errorCode,
-            request_id: telemetry.requestId,
-            route: "/tests/[slug]/take",
-            locale,
-          });
+    const timer = window.setTimeout(() => {
+      setRetryAfterSeconds((current) => {
+        if (!current || current <= 1) {
+          return null;
         }
-      } finally {
-        if (active) {
-          setAuthBootstrapping(false);
-        }
-      }
-    };
-
-    void run();
+        return current - 1;
+      });
+    }, 1000);
 
     return () => {
-      active = false;
+      window.clearTimeout(timer);
     };
-  }, [anonId, locale, scaleCode, trackGuestTokenFailure]);
+  }, [retryAfterSeconds]);
 
   const runWithAuthRetry = useCallback(
     async <T,>(
@@ -459,10 +517,6 @@ function QuizTakeInner({
     let active = true;
 
     const run = async () => {
-      if (authBootstrapping) {
-        return;
-      }
-
       if (authBlockError) {
         setQuestionsLoading(false);
         return;
@@ -490,10 +544,12 @@ function QuizTakeInner({
             optionsFormat: response.options?.format,
           })
         );
+        setRetryAfterSeconds(null);
       } catch (error) {
         if (!active) return;
-        const message = toUiMessage(error, "Failed to load questions.", locale);
-        setQuestionsError(message);
+        const uiError = toUiError(error, "Failed to load questions.", locale);
+        setQuestionsError(uiError.message);
+        setRetryAfterSeconds(uiError.retryAfterSeconds);
         const classified = classifyApiError(error);
         trackEvent("questions_load_failure", {
           scale_code: scaleCode,
@@ -522,7 +578,7 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, authBootstrapping, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
+  }, [anonId, authBlockError, locale, resolvedFormCode, runWithAuthRetry, scaleCode, setQuestions, slug]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -537,7 +593,6 @@ function QuizTakeInner({
       return ensureAttemptPromiseRef.current;
     }
 
-    setAttemptLoading(true);
     setAttemptError(null);
 
     const pending = (async () => {
@@ -561,13 +616,15 @@ function QuizTakeInner({
           return null;
         }
         setAttemptMeta(response.attempt_id, scaleCode, resolvedFormCode ?? null);
+        setRetryAfterSeconds(null);
         return response.attempt_id;
       } catch (error) {
         if (!isFlowActive(runId)) {
           return null;
         }
-        const message = toUiMessage(error, "Failed to start attempt.", locale);
-        setAttemptError(message);
+        const uiError = toUiError(error, "Failed to start attempt.", locale);
+        setAttemptError(uiError.message);
+        setRetryAfterSeconds(uiError.retryAfterSeconds);
         const classified = classifyApiError(error);
         trackEvent("submit_failure", {
           scale_code: scaleCode,
@@ -586,9 +643,6 @@ function QuizTakeInner({
         });
         return null;
       } finally {
-        if (isFlowActive(runId)) {
-          setAttemptLoading(false);
-        }
         ensureAttemptPromiseRef.current = null;
       }
     })();
@@ -643,54 +697,11 @@ function QuizTakeInner({
   const total = questions.length;
   const question = questions[currentIndex];
   const selectedOptionId = question ? answers[question.id] : undefined;
-  const loadError = authBlockError ?? questionsError ?? attemptError;
+  const loadError = authBlockError ?? questionsError;
   const answeredCount = useMemo(
     () => questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
     [answers, questions]
   );
-
-  useEffect(() => {
-    let active = true;
-
-    const run = async () => {
-      if (
-        questionsLoading ||
-        staleDraftError ||
-        recoveringAttemptRef.current ||
-        shouldBlockInvalidDraftOnTakePage({
-          answeredCount,
-          totalQuestions: questions.length,
-          attemptId,
-        })
-      ) {
-        setAttemptLoading(false);
-        return;
-      }
-
-      if (matchesSavedAttempt && !forceNewAttemptRequested) {
-        setAttemptLoading(false);
-        return;
-      }
-
-      await ensureAttempt();
-      if (!active) return;
-    };
-
-    void run();
-
-    return () => {
-      active = false;
-    };
-  }, [
-    answeredCount,
-    attemptId,
-    ensureAttempt,
-    forceNewAttemptRequested,
-    matchesSavedAttempt,
-    questions.length,
-    questionsLoading,
-    staleDraftError,
-  ]);
 
   useEffect(() => {
     if (!attemptId || trackedStartRef.current) return;
@@ -779,7 +790,6 @@ function QuizTakeInner({
       setSubmitError(null);
       setAttemptError(null);
       setStaleDraftError(resolveStaleDraftResetMessage(locale));
-      setAttemptLoading(false);
       return;
     }
 
@@ -831,6 +841,15 @@ function QuizTakeInner({
 
     return snapshot;
   }, []);
+
+  const handleAnswerSelection = useCallback((questionId: string, code: string) => {
+    const shouldPrimeAttempt = !attemptId && !matchesSavedAttempt && Object.keys(latestAnswersRef.current).length === 0;
+    setAnswer(questionId, code);
+
+    if (shouldPrimeAttempt) {
+      void ensureAttempt();
+    }
+  }, [attemptId, ensureAttempt, matchesSavedAttempt, setAnswer]);
 
   const submitAttemptWithId = useCallback(async (
     activeAttemptId: string,
@@ -914,6 +933,8 @@ function QuizTakeInner({
       if (!isFlowActive(activeRunId) || !resultAttemptId) {
         return null;
       }
+      setAttemptError(null);
+      setRetryAfterSeconds(null);
       return resultAttemptId;
     } catch (error) {
       recoveringAttemptRef.current = true;
@@ -947,8 +968,9 @@ function QuizTakeInner({
         return null;
       }
 
-      const message = toUiMessage(error, "Submit failed.", locale);
-      setSubmitError(message);
+      const uiError = toUiError(error, "Submit failed.", locale);
+      setSubmitError(uiError.message);
+      setRetryAfterSeconds(uiError.retryAfterSeconds);
       const classified = classifyApiError(error);
       trackEvent("submit_failure", {
         scale_code: scaleCode,
@@ -1064,11 +1086,11 @@ function QuizTakeInner({
     cancelAutoAdvanceRef.current = cancelPending;
   }, [cancelPending]);
 
-  if (authBootstrapping || questionsLoading || attemptLoading) {
+  if (questionsLoading) {
     return (
       <QuizShell>
         <p className="m-0 text-slate-600">
-          {authBootstrapping ? "Preparing secure session..." : "Loading quiz data..."}
+          Loading quiz data...
         </p>
       </QuizShell>
     );
@@ -1078,8 +1100,13 @@ function QuizTakeInner({
     return (
       <QuizShell>
         <p className="m-0 text-red-700">{loadError}</p>
-        <Button type="button" variant="outline" onClick={() => window.location.reload()}>
-          Retry
+        <Button
+          type="button"
+          variant="outline"
+          disabled={Boolean(retryAfterSeconds && retryAfterSeconds > 0)}
+          onClick={() => window.location.reload()}
+        >
+          {resolveRetryButtonLabel(locale, retryAfterSeconds)}
         </Button>
       </QuizShell>
     );
@@ -1216,7 +1243,7 @@ function QuizTakeInner({
                 value={selectedOptionId}
                 locale={locale}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
-                onChange={(code) => setAnswer(question.id, code)}
+                onChange={(code) => handleAnswerSelection(question.id, code)}
               />
             ) : useV2LikertScale ? (
               <V2LikertScale
@@ -1228,7 +1255,7 @@ function QuizTakeInner({
                 value={selectedOptionId}
                 onChange={(code) =>
                   selectAndAdvance(() => {
-                    setAnswer(question.id, code);
+                    handleAnswerSelection(question.id, code);
                   }, {
                     questionId: question.id,
                     code,
@@ -1243,7 +1270,7 @@ function QuizTakeInner({
                 noOptionsLabel={dict.quiz.immersive.noOptions}
                 onChange={(code) =>
                   selectAndAdvance(() => {
-                    setAnswer(question.id, code);
+                    handleAnswerSelection(question.id, code);
                   }, {
                     questionId: question.id,
                     code,
@@ -1260,6 +1287,7 @@ function QuizTakeInner({
               <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
             ) : null}
 
+            {attemptError ? <p className="m-0 text-sm text-red-700">{attemptError}</p> : null}
             {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
           </article>
         </ImmersiveTakeLayout>
@@ -1315,7 +1343,7 @@ function QuizTakeInner({
             value={selectedOptionId}
             locale={locale}
             noOptionsLabel={dict.quiz.immersive.noOptions}
-            onChange={(code) => setAnswer(question.id, code)}
+            onChange={(code) => handleAnswerSelection(question.id, code)}
           />
         ) : useV2LikertScale ? (
           <V2LikertScale
@@ -1327,7 +1355,7 @@ function QuizTakeInner({
             value={selectedOptionId}
             onChange={(code) =>
               selectAndAdvance(() => {
-                setAnswer(question.id, code);
+                handleAnswerSelection(question.id, code);
               }, {
                 questionId: question.id,
                 code,
@@ -1342,7 +1370,7 @@ function QuizTakeInner({
             noOptionsLabel={dict.quiz.immersive.noOptions}
             onChange={(code) =>
               selectAndAdvance(() => {
-                setAnswer(question.id, code);
+                handleAnswerSelection(question.id, code);
               }, {
                 questionId: question.id,
                 code,
@@ -1359,6 +1387,7 @@ function QuizTakeInner({
           <p className="m-0 text-sm font-medium text-amber-700">{dict.quiz.iq.selectHint}</p>
         ) : null}
 
+        {attemptError ? <p className="m-0 text-sm text-red-700">{attemptError}</p> : null}
         {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
       </article>
 
