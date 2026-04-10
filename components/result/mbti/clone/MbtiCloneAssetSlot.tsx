@@ -46,6 +46,7 @@ export function MbtiCloneAssetSlot({
     : slot?.status === "ready" && !assetLoadFailed && Boolean(resolvedUrl)
       ? "ready"
       : "placeholder";
+  const showSlotLabel = mode === "ready";
 
   return (
     <div
@@ -72,7 +73,7 @@ export function MbtiCloneAssetSlot({
           }}
         />
       ) : null}
-      <p className={labelClassName}>{slotLabel}</p>
+      {showSlotLabel ? <p className={labelClassName}>{slotLabel}</p> : null}
     </div>
   );
 }

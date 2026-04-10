@@ -17,6 +17,7 @@ export function SiteFooter() {
   const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const socialItems = FOOTER_SOCIAL_ITEMS;
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
+  const [qrFallbackState, setQrFallbackState] = useState<Record<string, boolean>>({});
   const footerCopy =
     locale === "zh"
       ? {
@@ -155,13 +156,17 @@ export function SiteFooter() {
                         aria-hidden={activeSocialKey === item.key ? "false" : "true"}
                       >
                         <Image
-                          src={item.qrImageSrc}
+                          src={qrFallbackState[item.key] && item.qrFallbackSrc ? item.qrFallbackSrc : item.qrImageSrc}
                           alt={locale === "zh" ? "微信二维码" : "WeChat QR code"}
                           width={258}
                           height={258}
                           unoptimized
                           priority
                           className="fm-social-qr-image"
+                          onError={() => {
+                            if (!item.qrFallbackSrc || qrFallbackState[item.key]) return;
+                            setQrFallbackState((current) => ({ ...current, [item.key]: true }));
+                          }}
                         />
                         <p className="fm-social-qr-label">{locale === "zh" ? "微信扫码关注" : "Scan in WeChat"}</p>
                       </div>
