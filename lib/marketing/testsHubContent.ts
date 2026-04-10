@@ -24,6 +24,7 @@ import {
   listMbtiFormMetas,
 } from "@/lib/mbti/forms";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 export type TestsCategorySlug = "personality" | "career";
 
@@ -490,7 +491,18 @@ function buildTestCards(locale: Locale) {
 
   const riasec = buildRiasecCard(locale);
 
-  return { mbti, bigFive, eq, iq, depression, clinical, riasec };
+  const visibleCards = filterVisiblePublicTestEntries([mbti, bigFive, eq, iq, depression, clinical, riasec]);
+
+  return {
+    mbti,
+    bigFive,
+    eq,
+    iq,
+    depression,
+    clinical,
+    riasec,
+    visibleCards,
+  };
 }
 
 export function listTestsCategorySlugs(): TestsCategorySlug[] {
@@ -525,7 +537,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "如果你更关心近期波动与风险信号，先看状态类测试，再决定是否需要进一步支持。",
             href: localizedPath("/tests#family-emotion-state", locale),
             ctaLabel: "查看状态类测试",
-            scent: ["综合抑郁焦虑", "SDS-20"],
+            scent: ["综合抑郁焦虑"],
           },
           {
             id: "cognitive-ability",
@@ -567,7 +579,7 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "If your main concern is recent fluctuation or warning signals, state-oriented tests should come first.",
             href: localizedPath("/tests#family-emotion-state", locale),
             ctaLabel: "View state tests",
-            scent: ["Clinical combo", "SDS-20"],
+            scent: ["Clinical combo"],
           },
           {
             id: "cognitive-ability",
@@ -614,8 +626,8 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "适合关注近期波动、风险信号与是否需要进一步支持的用户。",
             exploreHref: localizedPath("/tests#family-emotion-state", locale),
             exploreLabel: "查看这一组测试",
-            representativeLabels: ["综合抑郁焦虑", "SDS-20"],
-            tests: [cards.clinical, cards.depression],
+            representativeLabels: ["综合抑郁焦虑"],
+            tests: cards.visibleCards.filter((card) => ["clinical-depression-anxiety-assessment-professional-edition"].includes(card.key)),
           },
           {
             id: "family-cognitive-ability",
@@ -661,8 +673,8 @@ export function getTestsHubContent(locale: Locale): TestsHubContent {
             description: "Best for recent fluctuation, warning signals, and deciding whether further support is needed.",
             exploreHref: localizedPath("/tests#family-emotion-state", locale),
             exploreLabel: "View this group",
-            representativeLabels: ["Clinical combo", "SDS-20"],
-            tests: [cards.clinical, cards.depression],
+            representativeLabels: ["Clinical combo"],
+            tests: cards.visibleCards.filter((card) => ["clinical-depression-anxiety-assessment-professional-edition"].includes(card.key)),
           },
           {
             id: "family-cognitive-ability",

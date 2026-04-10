@@ -53,7 +53,7 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
   const highlightedSection = page.getByTestId("home-highlighted-tests-section");
   const highlightCards = highlightedSection.locator("article");
   await expect(highlightCards.first()).toBeVisible();
-  await expect(highlightCards).toHaveCount(6);
+  await expect(highlightCards).toHaveCount(5);
   await expect(highlightedSection.locator('article[data-disabled="1"]')).toHaveCount(0);
   await expect(highlightedSection.locator('a[href*="/take"]')).toHaveCount(6);
   await expect(page.getByText("BIG5_OCEAN")).toHaveCount(0);
@@ -65,6 +65,9 @@ test("home page renders hero, value props, and highlighted tests", async ({ page
   await expect(
     highlightedSection.getByRole("link", { name: "Depression & Anxiety Assessment", exact: true })
   ).toBeVisible();
+  await expect(
+    highlightedSection.getByRole("link", { name: "Depression Screening (Standard)", exact: true })
+  ).toHaveCount(0);
 
   await expect(highlightedSection.getByRole("link", { name: "MBTI Personality Test", exact: true })).toBeVisible();
   await expect(highlightedSection.getByRole("link", { name: "Big Five Personality Test", exact: true })).toBeVisible();
@@ -83,7 +86,7 @@ test("zh home MBTI highlighted card title shows 16型人格", async ({ page }) =
   await expect(highlightedSection.getByRole("link", { name: "MBTI 性格测试", exact: true })).toBeVisible();
   await expect(highlightedSection.getByRole("link", { name: "大五人格测试", exact: true })).toBeVisible();
   await expect(highlightedSection.getByRole("link", { name: "抑郁焦虑综合检测", exact: true })).toBeVisible();
-  await expect(highlightedSection.getByRole("link", { name: "抑郁测评（标准版）", exact: true })).toBeVisible();
+  await expect(highlightedSection.getByRole("link", { name: "抑郁测评（标准版）", exact: true })).toHaveCount(0);
   await expect(page.getByText("BIG5_OCEAN")).toHaveCount(0);
   await expect(page.getByText("SDS_20")).toHaveCount(0);
   await expect(page.getByText("IQ_RAVEN")).toHaveCount(0);

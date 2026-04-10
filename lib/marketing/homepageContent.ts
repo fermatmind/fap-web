@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n/locales";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 export type HomeLinkItem = {
   title: string;
@@ -232,7 +233,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           exploreLabel: "浏览此类",
           exploreHref: "/tests",
           links: [
-            { title: "抑郁筛查", href: "/tests/depression-screening-test-standard-edition/take" },
             { title: "抑郁焦虑综合测评", href: "/tests/clinical-depression-anxiety-assessment-professional-edition/take" },
             { title: "帮助中心", href: "/help/faq" },
           ],
@@ -369,7 +369,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { title: "职业方向", description: "兴趣与路径探索", href: "/career/tests/riasec" },
             { title: "人格结构", description: "MBTI 与 Big Five", href: "/tests/category/personality" },
-            { title: "情绪状态", description: "近期状态基线", href: "/tests/depression-screening-test-standard-edition/take" },
+            { title: "情绪状态", description: "近期状态基线", href: "/tests#family-emotion-state" },
             { title: "协作风格", description: "沟通与关系判断", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
           ],
         },
@@ -378,7 +378,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { title: "MBTI", description: "快速版 · 93 题 / 深度版 · 144 题", href: "/tests/mbti-personality-test-16-personality-types" },
             { title: "Big Five", description: "快速版 · 90 题 / 全量版 · 120 题", href: "/tests/big-five-personality-test-ocean-model" },
-            { title: "抑郁筛查", href: "/tests/depression-screening-test-standard-edition/take" },
+            { title: "抑郁焦虑综合测评", href: "/tests/clinical-depression-anxiety-assessment-professional-edition/take" },
             { title: "IQ 测评", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
           ],
         },
@@ -435,7 +435,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       title: "FermatMind / 费马测试",
       description: "费马测试是一个面向自我理解、学习、职业方向与协作判断的结构化测评产品。先从测评入口开始，再用结果支持更清晰的下一步判断。",
       quickStartListTitle: "费马测试首页精选测试入口",
-      quickStartListDescription: "首页精选测试入口，包括 MBTI、大五人格、智商（IQ）、情商（EQ）与抑郁症测试。",
+      quickStartListDescription: "首页精选测试入口，包括 MBTI、大五人格、智商（IQ）与情商（EQ）测试。",
       familyListTitle: "费马测试测评家族入口",
       familyListDescription: "首页可见的测评家族导航，覆盖人格与风格、职业与方向、情绪与状态、认知与能力以及关系与协作。",
       organizationDescription: "FermatMind / 费马测试提供用于自我理解、学习、职业方向与协作判断的结构化测评与解释内容。",
@@ -551,7 +551,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           exploreLabel: "Browse this family",
           exploreHref: "/tests",
           links: [
-            { title: "Depression screening", href: "/tests/depression-screening-test-standard-edition/take" },
             { title: "Depression and anxiety assessment", href: "/tests/clinical-depression-anxiety-assessment-professional-edition/take" },
             { title: "Help center", href: "/help/faq" },
           ],
@@ -688,7 +687,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { title: "Career direction", description: "Interest and path exploration", href: "/career/tests/riasec" },
             { title: "Personality structure", description: "MBTI and Big Five", href: "/tests/category/personality" },
-            { title: "Emotional state", description: "Recent baseline", href: "/tests/depression-screening-test-standard-edition/take" },
+            { title: "Emotional state", description: "Recent baseline", href: "/tests#family-emotion-state" },
             { title: "Collaboration style", description: "Communication and relationship judgment", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
           ],
         },
@@ -697,7 +696,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { title: "MBTI", description: "Quick Read · 93 / Deep Profile · 144", href: "/tests/mbti-personality-test-16-personality-types" },
             { title: "Big Five", description: "Quick Read · 90 / Full Profile · 120", href: "/tests/big-five-personality-test-ocean-model" },
-            { title: "Depression screening", href: "/tests/depression-screening-test-standard-edition/take" },
+            { title: "Depression and anxiety assessment", href: "/tests/clinical-depression-anxiety-assessment-professional-edition/take" },
             { title: "IQ assessment", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
           ],
         },
@@ -754,7 +753,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       title: "FermatMind",
       description: "FermatMind is a structured self-understanding product for learning, career direction, and collaboration judgment. Start from the assessment hub, then use results to support a clearer next step.",
       quickStartListTitle: "FermatMind quick-start entry points",
-      quickStartListDescription: "Featured homepage assessments including MBTI, Big Five, IQ, EQ, and depression screening.",
+      quickStartListDescription: "Featured homepage assessments including MBTI, Big Five, IQ, and EQ.",
       familyListTitle: "FermatMind assessment families",
       familyListDescription: "Visible homepage assessment families covering personality and style, career and direction, emotion and state, cognition and ability, and relationships and collaboration.",
       organizationDescription: "FermatMind provides structured assessments and interpretable guidance for self-understanding, learning, career direction, and collaboration judgment.",
@@ -763,5 +762,34 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
 };
 
 export function getHomePageContent(locale: Locale) {
-  return HOME_PAGE_CONTENT[locale];
+  const content = HOME_PAGE_CONTENT[locale];
+
+  return {
+    ...content,
+    quickStart: {
+      ...content.quickStart,
+      items: filterVisiblePublicTestEntries(content.quickStart.items),
+    },
+    families: {
+      ...content.families,
+      items: content.families.items.map((family) => ({
+        ...family,
+        links: filterVisiblePublicTestEntries(family.links),
+      })),
+    },
+    header: {
+      ...content.header,
+      groups: content.header.groups.map((group) => ({
+        ...group,
+        links: filterVisiblePublicTestEntries(group.links),
+      })),
+    },
+    footer: {
+      ...content.footer,
+      groups: content.footer.groups.map((group) => ({
+        ...group,
+        links: filterVisiblePublicTestEntries(group.links),
+      })),
+    },
+  };
 }

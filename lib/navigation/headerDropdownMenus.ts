@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n/locales";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 export type HeaderNavKey = "tests" | "articles" | "personality" | "career" | "help" | "business";
 
@@ -133,5 +134,8 @@ export function getHeaderDropdownMenus(locale: Locale): HeaderDropdownMenu[] {
   const source = HEADER_DROPDOWN_MENUS[locale];
   const order: HeaderNavKey[] = ["tests", "articles", "personality", "career", "help", "business"];
 
-  return order.map((key) => ({ key, items: source[key] }));
+  return order.map((key) => ({
+    key,
+    items: key === "tests" ? filterVisiblePublicTestEntries(source[key]) : source[key],
+  }));
 }
