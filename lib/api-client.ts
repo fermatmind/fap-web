@@ -39,6 +39,30 @@ type RequestOptions = RequestInit & {
   };
 };
 
+function parseRetryAfterSeconds(value: string | null): number | undefined {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) {
+    return undefined;
+  }
+
+  const numeric = Number(normalized);
+  if (Number.isFinite(numeric) && numeric > 0) {
+    return Math.max(1, Math.ceil(numeric));
+  }
+
+  const parsedAt = Date.parse(normalized);
+  if (!Number.isFinite(parsedAt)) {
+    return undefined;
+  }
+
+  const deltaMs = parsedAt - Date.now();
+  if (deltaMs <= 0) {
+    return undefined;
+  }
+
+  return Math.max(1, Math.ceil(deltaMs / 1000));
+}
+
 function resolveRequestLocale(headers: Headers, localeHint?: string): "en" | "zh-CN" {
   if (localeHint) {
     return toApiLocale(localeHint);
@@ -112,6 +136,7 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
       payload && typeof payload === "object" && !Array.isArray(payload)
         ? (payload as Record<string, unknown>)
         : null;
+    const retryAfterSeconds = parseRetryAfterSeconds(res.headers.get("retry-after"));
 
     const fallbackErrorCode =
       res.status === 401
@@ -136,10 +161,23 @@ async function request<T>(method: string, path: string, body?: Json, init: Reque
         ? payloadNode.error_code.trim()
         : fallbackErrorCode;
 
-    const details =
+    let details =
       payloadNode && Object.prototype.hasOwnProperty.call(payloadNode, "details")
         ? payloadNode.details
         : payloadNode;
+
+    if (retryAfterSeconds) {
+      if (!details || typeof details !== "object" || Array.isArray(details)) {
+        details = {
+          retry_after_seconds: retryAfterSeconds,
+        };
+      } else if (!Object.prototype.hasOwnProperty.call(details, "retry_after_seconds")) {
+        details = {
+          ...(details as Record<string, unknown>),
+          retry_after_seconds: retryAfterSeconds,
+        };
+      }
+    }
 
     const requestId =
       typeof payloadNode?.request_id === "string" && payloadNode.request_id.trim().length > 0

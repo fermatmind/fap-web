@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import QuizTakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient";
+import { ApiError } from "@/lib/api-client";
 
 type ChildrenProps = {
   children?: ReactNode;
@@ -282,19 +283,14 @@ describe("MBTI take attribution contract", () => {
     renderClient();
 
     await waitFor(() => {
-      expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
-        anonId: "anon_take_test",
-        locale: "en",
-      });
-    });
-
-    await waitFor(() => {
       expect(hoisted.fetchScaleQuestions).toHaveBeenCalledWith({
         scaleCode: "MBTI",
         formCode: "mbti_144",
         anonId: "anon_take_test",
       });
     });
+
+    await submitSingleQuestion();
 
     await waitFor(() => {
       expect(hoisted.startAttempt).toHaveBeenCalledWith({
@@ -326,23 +322,8 @@ describe("MBTI take attribution contract", () => {
     });
   });
 
-  it("waits for auth bootstrap before loading questions", async () => {
-    let releaseBootstrap: (() => void) | null = null;
-    hoisted.ensureFmTokenReady.mockImplementation(
-      () =>
-        new Promise<"existing">((resolve) => {
-          releaseBootstrap = () => resolve("existing");
-        })
-    );
-
+  it("loads questions without eager auth bootstrap", async () => {
     renderClient();
-
-    await waitFor(() => {
-      expect(hoisted.ensureFmTokenReady).toHaveBeenCalledTimes(1);
-    });
-    expect(hoisted.fetchScaleQuestions).not.toHaveBeenCalled();
-
-    releaseBootstrap?.();
 
     await waitFor(() => {
       expect(hoisted.fetchScaleQuestions).toHaveBeenCalledWith({
@@ -351,6 +332,9 @@ describe("MBTI take attribution contract", () => {
         anonId: "anon_take_test",
       });
     });
+
+    expect(hoisted.ensureFmTokenReady).not.toHaveBeenCalled();
+    expect(hoisted.startAttempt).not.toHaveBeenCalled();
   });
 
   it("uses the explicit mbti_93 form when loading questions and starting the attempt", async () => {
@@ -364,6 +348,8 @@ describe("MBTI take attribution contract", () => {
       });
     });
 
+    await submitSingleQuestion();
+
     await waitFor(() => {
       expect(hoisted.startAttempt).toHaveBeenCalledWith(expect.objectContaining({
         scaleCode: "MBTI",
@@ -375,6 +361,7 @@ describe("MBTI take attribution contract", () => {
 
   it("emits start_attempt tracking with entry attribution from query params", async () => {
     renderClient();
+    await submitSingleQuestion();
 
     await waitFor(() => {
       expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -523,15 +510,14 @@ describe("MBTI take attribution contract", () => {
 
   it("forces a fresh attempt when force_new_attempt=1 is present even if a saved attempt exists", async () => {
     const firstRender = renderClient();
-    await waitFor(() => {
-      expect(hoisted.startAttempt).toHaveBeenCalledTimes(1);
-    });
+    await submitSingleQuestion();
     firstRender.unmount();
 
     hoisted.startAttempt.mockClear();
     hoisted.search = `${hoisted.search}&force_new_attempt=1`;
 
     renderClient();
+    await submitSingleQuestion();
 
     await waitFor(() => {
       expect(hoisted.startAttempt).toHaveBeenCalledTimes(1);
@@ -541,5 +527,25 @@ describe("MBTI take attribution contract", () => {
       formCode: "mbti_144",
       anonId: "anon_take_test",
     }));
+  });
+
+  it("renders a localized 429 retry countdown instead of echoing backend english copy", async () => {
+    hoisted.pathname = "/zh/tests/mbti-personality-test-16-personality-types/take";
+    hoisted.search = "form=mbti_144";
+    hoisted.fetchScaleQuestions.mockRejectedValueOnce(new ApiError({
+      status: 429,
+      errorCode: "RATE_LIMIT_PUBLIC",
+      message: "Too many requests. Please retry later.",
+      details: {
+        retry_after_seconds: 12,
+      },
+    }));
+
+    renderClient();
+
+    await waitFor(() => {
+      expect(screen.getByText("请求过于频繁，请等待 12 秒后重试。")).toBeInTheDocument();
+    });
+    expect(screen.getByRole("button", { name: "请等待 12 秒" })).toBeDisabled();
   });
 });
