@@ -4,6 +4,7 @@ import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answe
 import { getBlogPostBySlug, listBlogPosts, type LocalizedBlogPost } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -506,7 +507,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
     const response = await apiClient.get<CmsArticlesApiResponse>(`/v0.5/articles${query}`, {
       locale: params.locale,
       skipAuth: true,
-      cache: "no-store",
+      ...PUBLIC_API_CACHE_OPTIONS,
     });
 
     const items = Array.isArray(response.items)
@@ -607,7 +608,7 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
     const response = await apiClient.get<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
       locale,
       skipAuth: true,
-      cache: "no-store",
+      ...PUBLIC_API_CACHE_OPTIONS,
     });
 
     if (!response.article) {
@@ -644,7 +645,7 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
       {
         locale,
         skipAuth: true,
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
 

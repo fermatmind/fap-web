@@ -1,6 +1,7 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import type { CareerJobBundleResponseRaw } from "@/lib/career/api/types";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
 type FetchCareerJobBundleInput = {
   locale: Locale | string;
@@ -27,7 +28,7 @@ export async function fetchCareerJobBundle(
       {
         locale: input.locale,
         skipAuth: true,
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
   } catch (error) {
