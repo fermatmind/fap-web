@@ -29,7 +29,7 @@
     "test:e2e:visual:update:linux": "bash scripts/visual/update_linux_snapshots.sh",
     "verify:release-freeze": "bash scripts/release_freeze_verify.sh",
     "release:gate": "bash scripts/release_gate.sh",
-    "postbuild": "next-sitemap && dotenv -e .env.production.local -- node scripts/upload-next-static-to-cos.mjs"
+    "postbuild": "next-sitemap && dotenv -e .env.production.local -- node scripts/upload-next-static-to-cos.mjs && dotenv -e .env.production.local -- node scripts/prune-next-static-in-cos.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
