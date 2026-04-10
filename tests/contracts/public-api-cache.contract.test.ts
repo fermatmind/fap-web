@@ -11,6 +11,12 @@ describe("public api cache contract", () => {
     const files = [
       "app/(localized)/[locale]/tests/[slug]/page.tsx",
       "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+      "lib/career/api/fetchCareerRecommendationIndex.ts",
+      "lib/career/api/fetchCareerRecommendationBundle.ts",
+      "lib/career/api/fetchCareerJobIndex.ts",
+      "lib/career/api/fetchCareerJobBundle.ts",
+      "lib/cms/articles.ts",
+      "lib/cms/career-guides.ts",
       "lib/cms/topics.ts",
       "lib/cms/personality.ts",
       "lib/cms/career-jobs.ts",

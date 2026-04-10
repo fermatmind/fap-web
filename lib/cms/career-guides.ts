@@ -5,6 +5,7 @@ import { buildPersonalityFrontendUrl } from "@/lib/cms/personality";
 import { getCareerIndustryBySlug, type RelatedContentItem } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -643,7 +644,7 @@ export async function listCareerGuidesFromCms(
         {
           locale,
           skipAuth: true,
-          cache: "no-store",
+          ...PUBLIC_API_CACHE_OPTIONS,
         }
       );
 
@@ -705,7 +706,7 @@ export async function getCareerGuideFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
 
@@ -740,7 +741,7 @@ export async function getCareerGuideSeoFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        cache: "no-store",
+        ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
 
