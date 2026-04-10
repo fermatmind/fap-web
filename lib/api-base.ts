@@ -31,10 +31,22 @@ export function resolveApiBaseUrl(): string {
   return `${resolveApiOrigin()}${API_PUBLIC_PREFIX}`;
 }
 
+function buildClientApiUrl(normalizedPath: string): string {
+  if (normalizedPath === API_PUBLIC_PREFIX || normalizedPath.startsWith(`${API_PUBLIC_PREFIX}/`)) {
+    return normalizedPath;
+  }
+
+  return `${API_PUBLIC_PREFIX}${normalizedPath}`;
+}
+
 export function buildApiUrl(path: string): string {
   const normalizedPath = normalizePath(path);
   if (/^https?:\/\//i.test(normalizedPath)) {
     return normalizedPath;
+  }
+
+  if (typeof window !== "undefined") {
+    return buildClientApiUrl(normalizedPath);
   }
 
   if (normalizedPath === API_PUBLIC_PREFIX || normalizedPath.startsWith(`${API_PUBLIC_PREFIX}/`)) {

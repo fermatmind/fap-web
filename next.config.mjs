@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === "production";
 const cdnUrl = (process.env.NEXT_PUBLIC_CDN_URL || "").replace(/\/$/, "");
+const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
 const legacyPathMode = String(process.env.FAP_LEGACY_PATH_MODE || "redirect").trim().toLowerCase();
 const enableRootQuizRedirects = legacyPathMode !== "gone";
 
@@ -126,6 +127,16 @@ const nextConfig = {
         permanent: true,
       },
     ];
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/api/v0.3/:path*",
+          destination: `${apiOrigin}/api/v0.3/:path*`,
+        },
+      ],
+    };
   },
 };
 
