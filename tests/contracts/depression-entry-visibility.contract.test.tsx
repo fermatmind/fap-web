@@ -40,7 +40,7 @@ function collectHomeEntryHrefs(locale: "zh" | "en"): string[] {
 }
 
 describe("depression entry visibility contract", () => {
-  it("hides the standard depression screening slug from public entry filtering", () => {
+  it("hides both public depression-related slugs from public entry filtering", () => {
     expect(
       isPublicTestEntryVisible({ href: "/tests/depression-screening-test-standard-edition/take" })
     ).toBe(false);
@@ -48,36 +48,35 @@ describe("depression entry visibility contract", () => {
       isPublicTestEntryVisible({
         href: "/tests/clinical-depression-anxiety-assessment-professional-edition/take",
       })
-    ).toBe(true);
+    ).toBe(false);
     expect(extractTestSlugFromEntryHref("/tests/depression-screening-test-standard-edition/take")).toBe(
       "depression-screening-test-standard-edition"
     );
   });
 
-  it("removes the standard depression screening entry from home marketing content in both locales", () => {
+  it("removes both depression-related entries from home marketing content in both locales", () => {
     for (const locale of ["zh", "en"] as const) {
       const hrefs = collectHomeEntryHrefs(locale);
 
       expect(hrefs.some((href) => href.includes("depression-screening-test-standard-edition"))).toBe(false);
+      expect(
+        hrefs.some((href) => href.includes("clinical-depression-anxiety-assessment-professional-edition"))
+      ).toBe(false);
     }
   });
 
-  it("keeps tests hub emotion-state family visible while removing the standard depression card", () => {
+  it("removes the tests hub emotion-state family when all depression-related test cards are hidden", () => {
     for (const locale of ["zh", "en"] as const) {
       const content = getTestsHubContent(locale);
       const emotionFamily = content.families.items.find((family) => family.id === "family-emotion-state");
+      const emotionQuickStart = content.quickStart.items.find((item) => item.id === "emotion-state");
 
-      expect(emotionFamily).toBeTruthy();
-      expect(emotionFamily?.tests.some((test) => test.key === "depression-screening-test-standard-edition")).toBe(false);
-      expect(
-        emotionFamily?.tests.some(
-          (test) => test.key === "clinical-depression-anxiety-assessment-professional-edition"
-        )
-      ).toBe(true);
+      expect(emotionFamily).toBeUndefined();
+      expect(emotionQuickStart).toBeUndefined();
     }
   });
 
-  it("removes the standard depression screening entry from header dropdown menus", () => {
+  it("removes both depression-related entries from header dropdown menus", () => {
     for (const locale of ["zh", "en"] as const) {
       const testsMenu = getHeaderDropdownMenus(locale).find((menu) => menu.key === "tests");
 
@@ -85,10 +84,15 @@ describe("depression entry visibility contract", () => {
       expect(
         testsMenu?.items.some((item) => item.href.includes("depression-screening-test-standard-edition"))
       ).toBe(false);
+      expect(
+        testsMenu?.items.some((item) =>
+          item.href.includes("clinical-depression-anxiety-assessment-professional-edition")
+        )
+      ).toBe(false);
     }
   });
 
-  it("removes the standard depression screening entry from the rendered footer while keeping the clinical entry", () => {
+  it("removes both depression-related entries from the rendered footer", () => {
     render(
       <LocaleProvider locale="en">
         <SiteFooter />
@@ -96,10 +100,10 @@ describe("depression entry visibility contract", () => {
     );
 
     expect(screen.queryByRole("link", { name: "SDS-20" })).not.toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Clinical Combo" })).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Clinical Combo" })).not.toBeInTheDocument();
   });
 
-  it("suppresses the standard depression highlighted card at render time while keeping other cards visible", () => {
+  it("suppresses both depression-related highlighted cards at render time while keeping other cards visible", () => {
     render(
       <HighlightedTestsSection
         locale="en"
@@ -134,7 +138,7 @@ describe("depression entry visibility contract", () => {
       screen.queryByRole("link", { name: "Depression Screening (Standard)" })
     ).not.toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "Depression & Anxiety Assessment" })
-    ).toBeInTheDocument();
+      screen.queryByRole("link", { name: "Depression & Anxiety Assessment" })
+    ).not.toBeInTheDocument();
   });
 });

@@ -1,4 +1,5 @@
 const HIDDEN_PUBLIC_TEST_ENTRY_SLUGS = new Set([
+  "clinical-depression-anxiety-assessment-professional-edition",
   "depression-screening-test-standard-edition",
 ]);
 
