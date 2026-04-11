@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-11T04:31:00Z",
+  "updated_at": "2026-04-11T04:34:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -185,10 +185,10 @@
     "PR-F11": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f11-career-transition-preview-frontend-wiring",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "3673a2140be375176402aa8166e6078fe5ffd7eb",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/418",
       "checks": {
         "local": [
           {
@@ -204,9 +204,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24274687281/job/70886338214"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24274687281/job/70886338233"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs were not started successfully; the workflow reported immediate build/contracts failure with no executable steps, consistent with the current repository CI/billing blockage.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
