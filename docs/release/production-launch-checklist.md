@@ -57,6 +57,8 @@
    - validate `questions -> submit -> result -> report-access -> report`
 3. Save drill record:
    - `docs/release/rollback-drill.md` execution log section
+4. For Career first-wave stable routes, also follow:
+   - `docs/release/career-first-wave-smoke-and-rollback.md`
 
 ## 6) Deployment Command Audit (Mandatory)
 1. Only deploy through:
