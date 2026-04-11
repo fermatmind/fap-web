@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-11T23:25:00Z",
+  "updated_at": "2026-04-11T23:27:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -360,10 +360,10 @@
     "PR-F15": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f15-career-alias-disambiguation-frontend-wiring",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "0bdb9b971295d821b5e00c891265550d3a9ec394",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/422",
       "checks": {
         "local": [
           {
@@ -383,9 +383,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24285528543/job/70914152238"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24285528543/job/70914152234"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs failed immediately with no executable steps for build/contracts, matching the current repository workflow startup failure pattern rather than a locally reproducible F15 regression.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
