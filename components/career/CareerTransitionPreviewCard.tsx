@@ -10,16 +10,14 @@ function renderScoreValue(value: number | null): string {
 type CareerTransitionPreviewCardProps = {
   locale: Locale;
   preview: CareerTransitionPreviewAdapter;
-  recommendationSlug: string;
+  landingPath: string;
 };
 
 export function CareerTransitionPreviewCard({
   locale,
   preview,
-  recommendationSlug,
+  landingPath,
 }: CareerTransitionPreviewCardProps) {
-  const landingPath = `/${locale}/career/recommendations/mbti/${recommendationSlug}`;
-
   return (
     <section
       className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"

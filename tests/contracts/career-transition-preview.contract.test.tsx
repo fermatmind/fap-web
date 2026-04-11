@@ -345,12 +345,48 @@ describe("career transition preview recommendation detail wiring", () => {
   });
 
   it("renders nothing when the backend preview is absent", async () => {
+    const pageViewEvents: Array<{ eventName: string; properties?: Record<string, unknown> }> = [];
+    const trackedLinks: Array<{ eventName: string; eventPayload: Record<string, unknown>; href: string }> = [];
+
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
           {children}
         </a>
       ),
+    }));
+    vi.doMock("@/hooks/useAnalytics", () => ({
+      AnalyticsPageViewTracker: ({
+        eventName,
+        properties,
+      }: {
+        eventName: string;
+        properties?: Record<string, unknown>;
+      }) => {
+        pageViewEvents.push({ eventName, properties });
+        return null;
+      },
+    }));
+    vi.doMock("@/components/analytics/TrackedCareerLink", () => ({
+      TrackedCareerLink: ({
+        eventName,
+        eventPayload,
+        href,
+        children,
+        ...props
+      }: {
+        eventName: string;
+        eventPayload: Record<string, unknown>;
+        href: string;
+        children: ReactNode;
+      }) => {
+        trackedLinks.push({ eventName, eventPayload, href });
+        return (
+          <a href={href} data-event-name={eventName} {...props}>
+            {children}
+          </a>
+        );
+      },
     }));
     vi.doMock("next/navigation", async () => {
       const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
@@ -419,5 +455,11 @@ describe("career transition preview recommendation detail wiring", () => {
 
     expect(html).not.toContain("career-transition-preview");
     expect(html).not.toContain("Next-step role preview");
+    expect(pageViewEvents).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_transition_preview_view" })])
+    );
+    expect(trackedLinks).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_transition_preview_target_click" })])
+    );
   });
 });

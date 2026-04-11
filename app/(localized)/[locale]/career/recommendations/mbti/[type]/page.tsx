@@ -458,7 +458,7 @@ export default async function CareerMbtiRecommendationPage({
         <CareerTransitionPreviewCard
           locale={locale}
           preview={transitionPreview}
-          recommendationSlug={detail.publicRouteSlug}
+          landingPath={recommendationLandingPath}
         />
       ) : null}
 
