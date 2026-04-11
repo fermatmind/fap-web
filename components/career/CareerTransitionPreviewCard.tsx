@@ -1,0 +1,84 @@
+import Link from "next/link";
+import type { CareerTransitionPreviewAdapter } from "@/lib/career/adapters/types";
+import type { Locale } from "@/lib/i18n/locales";
+
+function renderScoreValue(value: number | null): string {
+  return value === null ? "—" : String(value);
+}
+
+type CareerTransitionPreviewCardProps = {
+  locale: Locale;
+  preview: CareerTransitionPreviewAdapter;
+};
+
+export function CareerTransitionPreviewCard({
+  locale,
+  preview,
+}: CareerTransitionPreviewCardProps) {
+  return (
+    <section
+      className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      data-testid="career-transition-preview"
+    >
+      <div className="space-y-1">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+          {locale === "zh" ? "Transition preview" : "Transition preview"}
+        </p>
+        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+          {locale === "zh" ? "下一步岗位预览" : "Next-step role preview"}
+        </h2>
+        <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+          {locale === "zh"
+            ? "只展示 backend authority 已放行的 transition target，不做本地解释扩写。"
+            : "Only backend-authorized transition targets are shown here, without local narrative expansion."}
+        </p>
+      </div>
+
+      <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="space-y-1">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {preview.pathType.replace(/_/g, " ")}
+            </p>
+            <Link
+              href={preview.targetJob.href}
+              data-testid="career-transition-preview-link"
+              className="text-lg font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+            >
+              {preview.targetJob.title}
+            </Link>
+          </div>
+          <div className="text-right text-xs text-[var(--fm-text-muted)]">
+            <p className="m-0">reviewer_status: {preview.trustSummary.reviewerStatus ?? "unknown"}</p>
+            <p className="m-0">index_state: {preview.seoContract.indexState ?? "unknown"}</p>
+          </div>
+        </div>
+
+        <div className="mt-4 grid gap-3 md:grid-cols-2">
+          <div className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              Mobility
+            </p>
+            <p className="m-0 mt-2 text-2xl font-semibold text-[var(--fm-text)]">
+              {renderScoreValue(preview.scoreSummary.mobilityScore.value)}
+            </p>
+            <p className="m-0 mt-1 text-xs text-[var(--fm-text-muted)]">
+              {preview.scoreSummary.mobilityScore.integrity_state}
+            </p>
+          </div>
+          <div className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              Confidence
+            </p>
+            <p className="m-0 mt-2 text-2xl font-semibold text-[var(--fm-text)]">
+              {renderScoreValue(preview.scoreSummary.confidenceScore.value)}
+            </p>
+            <p className="m-0 mt-1 text-xs text-[var(--fm-text-muted)]">
+              {preview.scoreSummary.confidenceScore.integrity_state}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

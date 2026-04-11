@@ -82,6 +82,9 @@ describe("career recommendation backend page contract", () => {
         },
       })),
     }));
+    vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
+      fetchCareerTransitionPreview: vi.fn(async () => null),
+    }));
 
     const { default: CareerRecommendationPage } = await import(
       "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
@@ -162,6 +165,9 @@ describe("career recommendation backend page contract", () => {
           index_eligible: true,
         },
       })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
+      fetchCareerTransitionPreview: vi.fn(async () => null),
     }));
 
     const { default: CareerRecommendationPage } = await import(
@@ -286,6 +292,9 @@ describe("career recommendation backend page contract", () => {
           },
         ],
       })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
+      fetchCareerTransitionPreview: vi.fn(async () => null),
     }));
 
     const { default: CareerRecommendationPage } = await import(

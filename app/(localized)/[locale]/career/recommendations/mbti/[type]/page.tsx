@@ -4,6 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
+import { CareerTransitionPreviewCard } from "@/components/career/CareerTransitionPreviewCard";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
@@ -11,9 +12,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
-import type { CareerRecommendationBundleAdapter } from "@/lib/career/adapters/types";
+import { adaptCareerTransitionPreview } from "@/lib/career/adapters/adaptCareerTransitionPreview";
+import type { CareerRecommendationBundleAdapter, CareerTransitionPreviewAdapter } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
+import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
 import { filterStableRecommendationMatchedJobs } from "@/lib/career/recommendationMatchedJobExposurePolicy";
 import { buildCareerRecommendationFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -112,6 +115,18 @@ async function loadRecommendationBundle(
   });
 }
 
+async function loadTransitionPreview(
+  locale: Locale,
+  requestedType: string
+): Promise<CareerTransitionPreviewAdapter | null> {
+  const payload = await fetchCareerTransitionPreview({ locale, type: requestedType });
+
+  return adaptCareerTransitionPreview({
+    locale,
+    payload,
+  });
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -166,7 +181,10 @@ export default async function CareerMbtiRecommendationPage({
   const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const detail = await loadRecommendationBundle(locale, type);
+  const [detail, transitionPreview] = await Promise.all([
+    loadRecommendationBundle(locale, type),
+    loadTransitionPreview(locale, type),
+  ]);
 
   if (!detail) {
     return notFound();
@@ -417,6 +435,8 @@ export default async function CareerMbtiRecommendationPage({
           </div>
         </section>
       ) : null}
+
+      {transitionPreview ? <CareerTransitionPreviewCard locale={locale} preview={transitionPreview} /> : null}
 
       {(detail.warnings.redFlags.length > 0 || detail.warnings.amberFlags.length > 0 || detail.warnings.blockedClaims.length > 0) ? (
         <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">

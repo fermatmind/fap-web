@@ -13,6 +13,7 @@ describe("public api cache contract", () => {
       "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
       "lib/career/api/fetchCareerRecommendationIndex.ts",
       "lib/career/api/fetchCareerRecommendationBundle.ts",
+      "lib/career/api/fetchCareerTransitionPreview.ts",
       "lib/career/api/fetchCareerJobIndex.ts",
       "lib/career/api/fetchCareerJobBundle.ts",
       "lib/cms/articles.ts",

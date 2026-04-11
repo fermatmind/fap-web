@@ -111,6 +111,26 @@ export type CareerRecommendationMatchedGuideAdapter = {
   href: string;
 };
 
+export type CareerTransitionPreviewAdapter = {
+  pathType: string;
+  targetJob: {
+    occupationUuid: string | null;
+    canonicalSlug: string;
+    title: string;
+    href: string;
+  };
+  scoreSummary: {
+    mobilityScore: CareerScoreResult;
+    confidenceScore: CareerScoreResult;
+  };
+  trustSummary: {
+    allowTransitionRecommendation: boolean;
+    reviewerStatus: string | null;
+    reasonCodes: string[];
+  };
+  seoContract: CareerSeoContractAdapter;
+};
+
 export type CareerRecommendationBundleAdapter = {
   authoritySource: string;
   requestedType: string;

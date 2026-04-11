@@ -68,6 +68,18 @@ export type CareerRecommendationIndexResponseRaw = {
   data?: unknown;
 };
 
+export type CareerTransitionPreviewResponseRaw = {
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
+  path_type?: unknown;
+  target_job?: unknown;
+  score_summary?: unknown;
+  trust_summary?: unknown;
+  seo_contract?: unknown;
+  provenance_meta?: unknown;
+  data?: unknown;
+};
+
 export type CareerSearchResultItemResponseRaw = {
   bundle_kind?: unknown;
   bundle_version?: unknown;
