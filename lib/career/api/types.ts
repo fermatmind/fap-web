@@ -81,6 +81,24 @@ export type CareerTransitionPreviewResponseRaw = {
   data?: unknown;
 };
 
+export type CareerFamilyHubVisibleChildResponseRaw = {
+  occupation_uuid?: unknown;
+  canonical_slug?: unknown;
+  canonical_title_en?: unknown;
+  canonical_title_zh?: unknown;
+  seo_contract?: unknown;
+  trust_summary?: unknown;
+};
+
+export type CareerFamilyHubResponseRaw = {
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
+  family?: unknown;
+  visible_children?: unknown;
+  counts?: unknown;
+  data?: unknown;
+};
+
 export type CareerSearchResultItemResponseRaw = {
   bundle_kind?: unknown;
   bundle_version?: unknown;

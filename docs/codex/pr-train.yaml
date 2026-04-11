@@ -235,6 +235,33 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-F14
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f14-career-family-hub-frontend-wiring
+    base: main
+    depends_on: ["PR-F13"]
+    mode: execute
+    scope: >
+      Career family hub frontend wiring.
+      Consume backend B23 family hub authority on a dedicated /career/family/[slug] page,
+      render only family identity, visible children, and compact counts,
+      and avoid explorer/disambiguation behavior, SEO rollout, attribution changes,
+      or changes to other Career surfaces.
+    checks:
+      - "pnpm eslint 'app/(localized)/[locale]/career/family/[slug]/page.tsx' lib/career/api/types.ts lib/career/api/fetchCareerFamilyHub.ts lib/career/adapters/types.ts lib/career/adapters/adaptCareerFamilyHub.ts components/career/*.tsx tests/contracts/career-family-hub.contract.test.tsx"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/career-family-hub.contract.test.tsx tests/contracts/career-job-index-backend.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-recommendation-public.contract.test.tsx tests/contracts/career-transition-preview.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-B8
     repo: fap-api
     repo_path: /Users/rainie/Desktop/GitHub/fap-api/backend

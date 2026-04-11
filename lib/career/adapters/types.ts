@@ -132,6 +132,38 @@ export type CareerTransitionPreviewAdapter = {
   seoContract: CareerSeoContractAdapter;
 };
 
+export type CareerFamilyHubVisibleChildAdapter = {
+  occupationUuid: string | null;
+  canonicalSlug: string;
+  canonicalTitleEn: string | null;
+  canonicalTitleZh: string | null;
+  title: string;
+  href: string;
+  seoContract: CareerSeoContractAdapter;
+  trustSummary: {
+    reviewerStatus: string | null;
+  };
+};
+
+export type CareerFamilyHubAdapter = {
+  authoritySource: string;
+  family: {
+    familyUuid: string | null;
+    canonicalSlug: string;
+    titleEn: string | null;
+    titleZh: string | null;
+    title: string;
+  };
+  visibleChildren: CareerFamilyHubVisibleChildAdapter[];
+  counts: {
+    visibleChildrenCount: number;
+    publishReadyCount: number;
+    blockedOverrideEligibleCount: number;
+    blockedNotSafelyRemediableCount: number;
+    blockedTotal: number;
+  };
+};
+
 export type CareerRecommendationBundleAdapter = {
   authoritySource: string;
   requestedType: string;
