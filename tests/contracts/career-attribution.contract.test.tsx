@@ -612,7 +612,29 @@ describe("career attribution page wiring contract", () => {
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
-      fetchCareerTransitionPreview: vi.fn(async () => null),
+      fetchCareerTransitionPreview: vi.fn(async () => ({
+        path_type: "stable_upside",
+        target_job: {
+          occupation_uuid: "occ_next",
+          canonical_slug: "product-manager",
+          title: "Product Manager",
+        },
+        score_summary: {
+          mobility_score: { value: 78, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 71, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        trust_summary: {
+          allow_transition_recommendation: true,
+          reviewer_status: "approved",
+          reason_codes: ["publish_ready"],
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/product-manager",
+          canonical_target: "/career/jobs/product-manager",
+          index_state: "index",
+          index_eligible: true,
+        },
+      })),
     }));
 
     const { default: CareerRecommendationDetailPage } = await import(
@@ -625,10 +647,30 @@ describe("career attribution page wiring contract", () => {
     renderToStaticMarkup(detailPage as ReactNode);
 
     expect(pageViewEvents).toEqual(
-      expect.arrayContaining([expect.objectContaining({ eventName: "career_recommendation_detail_view" })])
+      expect.arrayContaining([
+        expect.objectContaining({ eventName: "career_recommendation_detail_view" }),
+        expect.objectContaining({
+          eventName: "career_transition_preview_view",
+          properties: expect.objectContaining({
+            entry_surface: "career_recommendation_detail_transition_preview",
+            route_family: "recommendation_detail",
+            subject_kind: "job_slug",
+            subject_key: "product-manager",
+          }),
+        }),
+      ])
     );
     expect(trackedLinks).toEqual(
       expect.arrayContaining([
+        expect.objectContaining({
+          eventName: "career_transition_preview_target_click",
+          eventPayload: expect.objectContaining({
+            entrySurface: "career_recommendation_detail_transition_preview",
+            routeFamily: "recommendation_detail",
+            subjectKind: "job_slug",
+            subjectKey: "product-manager",
+          }),
+        }),
         expect.objectContaining({
           eventName: "career_recommendation_matched_job_click",
           eventPayload: expect.objectContaining({
@@ -640,7 +682,10 @@ describe("career attribution page wiring contract", () => {
       ])
     );
     expect(trackedLinks).not.toEqual(
-      expect.arrayContaining([expect.objectContaining({ eventName: "career_job_index_result_click" })])
+      expect.arrayContaining([
+        expect.objectContaining({ eventName: "career_job_index_result_click" }),
+        expect.objectContaining({ eventName: "career_recommendation_result_click" }),
+      ])
     );
   });
 });

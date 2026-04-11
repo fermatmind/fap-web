@@ -75,6 +75,8 @@ export const TRACKING_EVENTS = {
   CAREER_JOB_DETAIL_CTA_CLICK: "career_job_detail_cta_click",
   CAREER_RECOMMENDATION_RESULT_CLICK: "career_recommendation_result_click",
   CAREER_RECOMMENDATION_MATCHED_JOB_CLICK: "career_recommendation_matched_job_click",
+  CAREER_TRANSITION_PREVIEW_VIEW: "career_transition_preview_view",
+  CAREER_TRANSITION_PREVIEW_TARGET_CLICK: "career_transition_preview_target_click",
   CAREER_READY_SURFACE_EXPOSED: "career_ready_surface_exposed",
   CAREER_BLOCKED_SURFACE_EXPOSED: "career_blocked_surface_exposed",
 
@@ -220,6 +222,8 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   career_job_detail_cta_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   career_recommendation_result_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   career_recommendation_matched_job_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_transition_preview_view: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_transition_preview_target_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   career_ready_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   career_blocked_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   questions_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
@@ -239,6 +243,8 @@ const CAREER_ATTRIBUTION_EVENTS = [
   TRACKING_EVENTS.CAREER_JOB_DETAIL_CTA_CLICK,
   TRACKING_EVENTS.CAREER_RECOMMENDATION_RESULT_CLICK,
   TRACKING_EVENTS.CAREER_RECOMMENDATION_MATCHED_JOB_CLICK,
+  TRACKING_EVENTS.CAREER_TRANSITION_PREVIEW_VIEW,
+  TRACKING_EVENTS.CAREER_TRANSITION_PREVIEW_TARGET_CLICK,
   TRACKING_EVENTS.CAREER_READY_SURFACE_EXPOSED,
   TRACKING_EVENTS.CAREER_BLOCKED_SURFACE_EXPOSED,
 ] as const satisfies readonly TrackingEventName[];

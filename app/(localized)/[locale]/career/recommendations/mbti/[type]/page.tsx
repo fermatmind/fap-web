@@ -209,6 +209,7 @@ export default async function CareerMbtiRecommendationPage({
     detail.seoContract.canonicalPath,
     buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
   );
+  const recommendationLandingPath = localizedPath(`/career/recommendations/mbti/${detail.publicRouteSlug}`, locale);
   const renderState = detail.renderState;
   const matchedJobs = renderState.canRenderMatchedJobs ? filterStableRecommendationMatchedJobs(detail.matchedJobs) : [];
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
@@ -295,12 +296,29 @@ export default async function CareerMbtiRecommendationPage({
           entrySurface: "career_recommendation_detail",
           sourcePageType: "career_recommendation_detail",
           targetAction: "view_surface",
-          landingPath: localizedPath(`/career/recommendations/mbti/${detail.publicRouteSlug}`, locale),
+          landingPath: recommendationLandingPath,
           routeFamily: "recommendation_detail",
           subjectKind: "recommendation_type",
           subjectKey: detail.publicRouteSlug,
         })}
       />
+      {transitionPreview ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.transitionPreviewView}
+          trackingKey={`transition-preview:${detail.publicRouteSlug}:${transitionPreview.targetJob.canonicalSlug}`}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_recommendation_detail_transition_preview",
+            sourcePageType: "career_recommendation_detail",
+            targetAction: "view_transition_preview",
+            landingPath: recommendationLandingPath,
+            routeFamily: "recommendation_detail",
+            subjectKind: "job_slug",
+            subjectKey: transitionPreview.targetJob.canonicalSlug,
+            queryMode: "non_query",
+          })}
+        />
+      ) : null}
       <JsonLd id={`career-mbti-webpage-${detail.publicRouteSlug}`} data={webPageJsonLd} />
       <JsonLd id={`career-mbti-breadcrumb-${detail.publicRouteSlug}`} data={breadcrumbJsonLd} />
       {renderState.canRenderMatchedJobs && matchedJobs.length > 0 ? (
@@ -436,7 +454,13 @@ export default async function CareerMbtiRecommendationPage({
         </section>
       ) : null}
 
-      {transitionPreview ? <CareerTransitionPreviewCard locale={locale} preview={transitionPreview} /> : null}
+      {transitionPreview ? (
+        <CareerTransitionPreviewCard
+          locale={locale}
+          preview={transitionPreview}
+          recommendationSlug={detail.publicRouteSlug}
+        />
+      ) : null}
 
       {(detail.warnings.redFlags.length > 0 || detail.warnings.amberFlags.length > 0 || detail.warnings.blockedClaims.length > 0) ? (
         <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">

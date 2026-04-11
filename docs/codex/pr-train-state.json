@@ -223,6 +223,36 @@
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
     },
+    "PR-F12": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-f12-career-transition-preview-attribution-frontend-wiring",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' components/career/CareerTransitionPreviewCard.tsx lib/career/attribution.ts lib/tracking/events.ts tests/contracts/career-transition-preview.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-transition-preview.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-recommendation-public.contract.test.tsx tests/contracts/career-recommendation-matched-job-exposure.contract.test.ts tests/contracts/mbti-career-continuity.contract.test.tsx tests/contracts/mbti-scene-depth.contract.test.ts",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-B8": {
       "repo": "fap-api",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-api/backend",
