@@ -133,6 +133,30 @@ describe("tracking whitelist contract", () => {
       subject_key: "software-engineer",
       query_mode: "query",
     });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_TRANSITION_PREVIEW_VIEW, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_TRANSITION_PREVIEW_TARGET_CLICK, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+    });
   });
 
   it("whitelists invite unlock funnel fields", () => {

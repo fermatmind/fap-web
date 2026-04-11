@@ -156,12 +156,48 @@ describe("career transition preview fetch and adapter contract", () => {
 
 describe("career transition preview recommendation detail wiring", () => {
   it("renders a compact preview on recommendation detail without replacing matched jobs", async () => {
+    const pageViewEvents: Array<{ eventName: string; properties?: Record<string, unknown> }> = [];
+    const trackedLinks: Array<{ eventName: string; eventPayload: Record<string, unknown>; href: string }> = [];
+
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
           {children}
         </a>
       ),
+    }));
+    vi.doMock("@/hooks/useAnalytics", () => ({
+      AnalyticsPageViewTracker: ({
+        eventName,
+        properties,
+      }: {
+        eventName: string;
+        properties?: Record<string, unknown>;
+      }) => {
+        pageViewEvents.push({ eventName, properties });
+        return null;
+      },
+    }));
+    vi.doMock("@/components/analytics/TrackedCareerLink", () => ({
+      TrackedCareerLink: ({
+        eventName,
+        eventPayload,
+        href,
+        children,
+        ...props
+      }: {
+        eventName: string;
+        eventPayload: Record<string, unknown>;
+        href: string;
+        children: ReactNode;
+      }) => {
+        trackedLinks.push({ eventName, eventPayload, href });
+        return (
+          <a href={href} data-event-name={eventName} {...props}>
+            {children}
+          </a>
+        );
+      },
     }));
     vi.doMock("next/navigation", async () => {
       const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
@@ -281,15 +317,76 @@ describe("career transition preview recommendation detail wiring", () => {
     expect(html).not.toContain("why_this_path");
     expect(html).not.toContain("what_is_lost");
     expect(html).not.toContain("bridge_steps_90d");
+    expect(pageViewEvents).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          eventName: "career_transition_preview_view",
+          properties: expect.objectContaining({
+            entry_surface: "career_recommendation_detail_transition_preview",
+            target_action: "view_transition_preview",
+            subject_key: "product-manager",
+          }),
+        }),
+      ])
+    );
+    expect(trackedLinks).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          eventName: "career_transition_preview_target_click",
+          href: "/en/career/jobs/product-manager",
+          eventPayload: expect.objectContaining({
+            entrySurface: "career_recommendation_detail_transition_preview",
+            targetAction: "open_transition_target_job",
+            subjectKey: "product-manager",
+          }),
+        }),
+      ])
+    );
   });
 
   it("renders nothing when the backend preview is absent", async () => {
+    const pageViewEvents: Array<{ eventName: string; properties?: Record<string, unknown> }> = [];
+    const trackedLinks: Array<{ eventName: string; eventPayload: Record<string, unknown>; href: string }> = [];
+
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
           {children}
         </a>
       ),
+    }));
+    vi.doMock("@/hooks/useAnalytics", () => ({
+      AnalyticsPageViewTracker: ({
+        eventName,
+        properties,
+      }: {
+        eventName: string;
+        properties?: Record<string, unknown>;
+      }) => {
+        pageViewEvents.push({ eventName, properties });
+        return null;
+      },
+    }));
+    vi.doMock("@/components/analytics/TrackedCareerLink", () => ({
+      TrackedCareerLink: ({
+        eventName,
+        eventPayload,
+        href,
+        children,
+        ...props
+      }: {
+        eventName: string;
+        eventPayload: Record<string, unknown>;
+        href: string;
+        children: ReactNode;
+      }) => {
+        trackedLinks.push({ eventName, eventPayload, href });
+        return (
+          <a href={href} data-event-name={eventName} {...props}>
+            {children}
+          </a>
+        );
+      },
     }));
     vi.doMock("next/navigation", async () => {
       const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
@@ -358,5 +455,11 @@ describe("career transition preview recommendation detail wiring", () => {
 
     expect(html).not.toContain("career-transition-preview");
     expect(html).not.toContain("Next-step role preview");
+    expect(pageViewEvents).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_transition_preview_view" })])
+    );
+    expect(trackedLinks).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_transition_preview_target_click" })])
+    );
   });
 });

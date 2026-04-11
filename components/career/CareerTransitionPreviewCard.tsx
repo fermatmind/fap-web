@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
 import type { CareerTransitionPreviewAdapter } from "@/lib/career/adapters/types";
 import type { Locale } from "@/lib/i18n/locales";
 
@@ -9,11 +10,13 @@ function renderScoreValue(value: number | null): string {
 type CareerTransitionPreviewCardProps = {
   locale: Locale;
   preview: CareerTransitionPreviewAdapter;
+  landingPath: string;
 };
 
 export function CareerTransitionPreviewCard({
   locale,
   preview,
+  landingPath,
 }: CareerTransitionPreviewCardProps) {
   return (
     <section
@@ -40,13 +43,25 @@ export function CareerTransitionPreviewCard({
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
               {preview.pathType.replace(/_/g, " ")}
             </p>
-            <Link
+            <TrackedCareerLink
               href={preview.targetJob.href}
+              eventName={CAREER_TRACKING_EVENTS.transitionPreviewTargetClick}
+              eventPayload={{
+                locale,
+                entrySurface: "career_recommendation_detail_transition_preview",
+                sourcePageType: "career_recommendation_detail",
+                targetAction: "open_transition_target_job",
+                landingPath,
+                routeFamily: "recommendation_detail",
+                subjectKind: "job_slug",
+                subjectKey: preview.targetJob.canonicalSlug,
+                queryMode: "non_query",
+              }}
               data-testid="career-transition-preview-link"
               className="text-lg font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
             >
               {preview.targetJob.title}
-            </Link>
+            </TrackedCareerLink>
           </div>
           <div className="text-right text-xs text-[var(--fm-text-muted)]">
             <p className="m-0">reviewer_status: {preview.trustSummary.reviewerStatus ?? "unknown"}</p>
