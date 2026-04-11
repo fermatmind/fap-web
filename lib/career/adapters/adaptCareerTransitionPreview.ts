@@ -8,6 +8,8 @@ type AdaptCareerTransitionPreviewInput = {
   payload: CareerTransitionPreviewResponseRaw | null;
 };
 
+const TRANSITION_PREVIEW_STEP_ALLOWLIST = new Set(["skill_overlap", "task_overlap", "tool_overlap"]);
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -68,6 +70,7 @@ export function adaptCareerTransitionPreview(
   }
 
   const pathType = normalizeString(raw.path_type);
+  const rawSteps = normalizeStringArray(raw.steps);
   const targetJob = isRecord(raw.target_job) ? raw.target_job : {};
   const scoreSummary = isRecord(raw.score_summary) ? raw.score_summary : {};
   const trustSummary = isRecord(raw.trust_summary) ? raw.trust_summary : {};
@@ -83,8 +86,14 @@ export function adaptCareerTransitionPreview(
     return null;
   }
 
+  const steps =
+    rawSteps.length > 0 && rawSteps.every((step) => TRANSITION_PREVIEW_STEP_ALLOWLIST.has(step))
+      ? rawSteps
+      : undefined;
+
   return {
     pathType,
+    ...(steps ? { steps } : {}),
     targetJob: {
       occupationUuid: normalizeString(targetJob.occupation_uuid),
       canonicalSlug,

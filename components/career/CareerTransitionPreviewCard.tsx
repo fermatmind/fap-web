@@ -18,6 +18,8 @@ export function CareerTransitionPreviewCard({
   preview,
   landingPath,
 }: CareerTransitionPreviewCardProps) {
+  const hasSteps = Array.isArray(preview.steps) && preview.steps.length > 0;
+
   return (
     <section
       className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
@@ -68,6 +70,22 @@ export function CareerTransitionPreviewCard({
             <p className="m-0">index_state: {preview.seoContract.indexState ?? "unknown"}</p>
           </div>
         </div>
+
+        {hasSteps ? (
+          <div
+            className="mt-4 flex flex-wrap gap-2 text-[11px] text-[var(--fm-text-muted)]"
+            data-testid="career-transition-preview-steps"
+          >
+            {preview.steps?.map((step) => (
+              <span
+                key={step}
+                className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-2 py-1 font-mono"
+              >
+                {step}
+              </span>
+            ))}
+          </div>
+        ) : null}
 
         <div className="mt-4 grid gap-3 md:grid-cols-2">
           <div className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3">
