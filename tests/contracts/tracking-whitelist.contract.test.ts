@@ -72,6 +72,15 @@ describe("tracking whitelist contract", () => {
       answered_count: 36,
       primary_code: "I",
       secondary_code: "R",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+      q: "software engineer",
       answers: "forbidden",
       report: "forbidden",
       email: "forbidden@example.com",
@@ -99,6 +108,30 @@ describe("tracking whitelist contract", () => {
       answered_count: 36,
       primary_code: "I",
       secondary_code: "R",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_JOB_SEARCH_RESULT_CLICK, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_RECOMMENDATION_RESULT_CLICK, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
     });
   });
 

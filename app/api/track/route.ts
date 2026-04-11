@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import {
   filterTrackingPayload,
+  isCareerAttributionEvent,
   isTrackingEvent,
   type TrackingEventName,
 } from "@/lib/tracking/events";
@@ -67,11 +68,15 @@ export async function POST(request: NextRequest) {
   };
 
   const token = process.env.TRACK_INGEST_TOKEN;
-  const targets = Array.from(new Set([
-    process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT,
-    process.env.ANALYTICS_ENDPOINT,
-    process.env.EDM_ENDPOINT,
-  ])).filter((value): value is string => Boolean(value));
+  const targets = (
+    isCareerAttributionEvent(eventName)
+      ? [process.env.CAREER_ATTRIBUTION_INGEST_ENDPOINT ?? process.env.ANALYTICS_ENDPOINT]
+      : [
+          process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT,
+          process.env.ANALYTICS_ENDPOINT,
+          process.env.EDM_ENDPOINT,
+        ]
+  ).filter((value): value is string => Boolean(value));
 
   if (targets.length === 0) {
     return NextResponse.json({ ok: true, requestId, forwarded: 0 });

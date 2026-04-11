@@ -131,6 +131,32 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-F10
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f10-career-attribution-frontend-wiring
+    base: main
+    depends_on: ["PR-F9"]
+    mode: execute
+    scope: >
+      Career attribution frontend wiring.
+      Reuse the existing tracking transport, add a Career-specific payload builder,
+      and wire truthful Career surface view/click/search events to backend B15
+      without changing authority, readiness, recommendation semantics, or MBTI continuity.
+    checks:
+      - "pnpm eslint hooks/useAnalytics.ts lib/career/attribution.ts components/analytics/TrackedCareerLink.tsx lib/tracking/events.ts app/api/track/route.ts 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-job-index-backend.contract.test.tsx tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-recommendation-public.contract.test.tsx tests/contracts/career-recommendation-matched-job-exposure.contract.test.ts tests/contracts/mbti-entry-surface.contract.test.ts tests/contracts/mbti-entry-wiring.contract.test.tsx tests/contracts/mbti-career-continuity.contract.test.tsx tests/contracts/mbti-scene-depth.contract.test.ts"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-B8
     repo: fap-api
     repo_path: /Users/rainie/Desktop/GitHub/fap-api/backend
