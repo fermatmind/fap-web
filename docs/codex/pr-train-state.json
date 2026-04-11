@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-11T02:40:26Z",
+  "updated_at": "2026-04-11T02:42:05Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -146,7 +146,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "pr_open",
       "branch": "codex/pr-f10-career-attribution-frontend-wiring",
-      "commit_sha": "88387d200413fabc818ae14740e4568f6d7f12a8",
+      "commit_sha": "d0a9d4336d2e1e9be22d9e7bdf1ff8d23e7f082f",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/416",
       "checks": {
         "local": [
@@ -167,12 +167,12 @@
           {
             "name": "build",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24272789798/job/70880926264"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24272821411/job/70881013091"
           },
           {
             "name": "contracts",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24272789798/job/70880926250"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24272821411/job/70881013089"
           }
         ]
       },
