@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-10T08:31:42Z",
+  "updated_at": "2026-04-11T02:42:05Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -132,6 +132,47 @@
             "name": "contracts",
             "status": "failed",
             "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24234100741/job/70752282729"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions jobs were not started because the repository account billing or spending limit blocked CI execution.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F10": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "pr_open",
+      "branch": "codex/pr-f10-career-attribution-frontend-wiring",
+      "commit_sha": "d0a9d4336d2e1e9be22d9e7bdf1ff8d23e7f082f",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/416",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm eslint hooks/useAnalytics.ts lib/career/attribution.ts components/analytics/TrackedCareerLink.tsx lib/tracking/events.ts app/api/track/route.ts 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-job-index-backend.contract.test.tsx tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-recommendation-public.contract.test.tsx tests/contracts/career-recommendation-matched-job-exposure.contract.test.ts tests/contracts/mbti-entry-surface.contract.test.ts tests/contracts/mbti-entry-wiring.contract.test.tsx tests/contracts/mbti-career-continuity.contract.test.tsx tests/contracts/mbti-scene-depth.contract.test.ts",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24272821411/job/70881013091"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24272821411/job/70881013089"
           }
         ]
       },

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
+import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import { listBig5RecommendationTraits } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -86,6 +89,17 @@ export default async function CareerRecommendationsPage({
 
   return (
     <Container as="main" className="space-y-6 py-10">
+      <AnalyticsPageViewTracker
+        eventName={CAREER_TRACKING_EVENTS.recommendationIndexView}
+        properties={buildCareerAttributionPayload({
+          locale,
+          entrySurface: "career_recommendation_index",
+          sourcePageType: "career_recommendation_index",
+          targetAction: "view_surface",
+          landingPath: canonicalPath,
+          routeFamily: "recommendations",
+        })}
+      />
       <JsonLd id="career-recommendation-webpage" data={webPageJsonLd} />
       <JsonLd id="career-recommendation-breadcrumb" data={breadcrumbJsonLd} />
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
@@ -146,12 +160,23 @@ export default async function CareerRecommendationsPage({
                   </p>
                 </div>
                 <div className="mt-3">
-                  <Link
+                  <TrackedCareerLink
                     href={item.href}
+                    eventName={CAREER_TRACKING_EVENTS.recommendationResultClick}
+                    eventPayload={{
+                      locale,
+                      entrySurface: "career_recommendation_index",
+                      sourcePageType: "career_recommendation_index",
+                      targetAction: "open_recommendation_detail",
+                      landingPath: canonicalPath,
+                      routeFamily: "recommendations",
+                      subjectKind: "recommendation_type",
+                      subjectKey: item.recommendationSubjectMeta.publicRouteSlug,
+                    }}
                     className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                   >
                     {locale === "zh" ? "查看 recommendation detail" : "View recommendation detail"}
-                  </Link>
+                  </TrackedCareerLink>
                 </div>
               </article>
             ))}

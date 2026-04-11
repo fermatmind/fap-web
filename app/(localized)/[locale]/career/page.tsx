@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
@@ -94,6 +96,7 @@ export default async function CareerCenterPage({
   }).slice(0, 4);
   const industries = listCareerIndustries(locale).slice(0, 12);
   const topGuides = guides.slice(0, 4);
+  const landingPath = withLocale("/career");
   const canonicalPath = locale === "zh" ? "/zh/career" : "/en/career";
   const pageTitle = locale === "zh" ? "职业发展中心" : "Career Intelligence Center";
   const pageDescription =
@@ -113,7 +116,33 @@ export default async function CareerCenterPage({
 
   return (
     <Container as="main" className="space-y-8 py-10">
-      <AnalyticsPageViewTracker eventName="career_center_view" properties={{ locale }} />
+      <AnalyticsPageViewTracker
+        eventName={CAREER_TRACKING_EVENTS.landingView}
+        properties={buildCareerAttributionPayload({
+          locale,
+          entrySurface: "career_landing",
+          sourcePageType: "career_landing",
+          targetAction: "view_surface",
+          landingPath,
+          routeFamily: "landing",
+        })}
+      />
+      {topJobs.map((job) => (
+        <AnalyticsPageViewTracker
+          key={`career-ready-exposure:${job.identity.canonicalSlug}`}
+          eventName={CAREER_TRACKING_EVENTS.readySurfaceExposed}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_landing_jobs_preview",
+            sourcePageType: "career_landing",
+            targetAction: "render_ready_job_preview",
+            landingPath,
+            routeFamily: "landing",
+            subjectKind: "job_slug",
+            subjectKey: job.identity.canonicalSlug,
+          })}
+        />
+      ))}
       <JsonLd id="career-center-webpage" data={webPageJsonLd} />
       <JsonLd id="career-center-breadcrumb" data={breadcrumbJsonLd} />
       <Breadcrumb
@@ -234,12 +263,23 @@ export default async function CareerCenterPage({
                   <p className="m-0">
                     {locale === "zh" ? "Reviewer" : "Reviewer"}: {job.trustSummary.reviewerStatus ?? "unknown"}
                   </p>
-                  <Link
+                  <TrackedCareerLink
                     href={job.href}
+                    eventName={CAREER_TRACKING_EVENTS.jobIndexResultClick}
+                    eventPayload={{
+                      locale,
+                      entrySurface: "career_landing_jobs_preview",
+                      sourcePageType: "career_landing",
+                      targetAction: "open_job_detail",
+                      landingPath,
+                      routeFamily: "landing",
+                      subjectKind: "job_slug",
+                      subjectKey: job.identity.canonicalSlug,
+                    }}
                     className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                   >
                     {locale === "zh" ? "查看职业详情" : "View role profile"}
-                  </Link>
+                  </TrackedCareerLink>
                 </CardContent>
               </Card>
             ))

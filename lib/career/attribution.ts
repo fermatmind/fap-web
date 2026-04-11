@@ -1,0 +1,90 @@
+import { trackEvent, type AnalyticsProperties } from "@/lib/analytics";
+import { TRACKING_EVENTS, type CareerTrackingEventName } from "@/lib/tracking/events";
+import type { Locale } from "@/lib/i18n/locales";
+
+export const CAREER_ROUTE_FAMILIES = [
+  "landing",
+  "jobs",
+  "jobs_search",
+  "job_detail",
+  "recommendations",
+  "recommendation_detail",
+] as const;
+
+export const CAREER_SUBJECT_KINDS = ["none", "job_slug", "recommendation_type"] as const;
+
+export const CAREER_QUERY_MODES = ["query", "non_query"] as const;
+
+export type CareerRouteFamily = (typeof CAREER_ROUTE_FAMILIES)[number];
+export type CareerSubjectKind = (typeof CAREER_SUBJECT_KINDS)[number];
+export type CareerQueryMode = (typeof CAREER_QUERY_MODES)[number];
+
+export type CareerAttributionPayloadInput = {
+  locale: Locale;
+  entrySurface: string;
+  sourcePageType: string;
+  targetAction: string;
+  landingPath: string;
+  routeFamily: CareerRouteFamily;
+  subjectKind?: CareerSubjectKind;
+  subjectKey?: string | null;
+  queryMode?: CareerQueryMode;
+};
+
+function compactTrackingPayload(
+  payload: Record<string, string | number | boolean | null | undefined>
+): AnalyticsProperties {
+  return Object.entries(payload).reduce<AnalyticsProperties>((acc, [key, value]) => {
+    if (value === undefined || value === null || value === "") {
+      return acc;
+    }
+
+    acc[key] = value;
+    return acc;
+  }, {});
+}
+
+export function buildCareerAttributionPayload({
+  locale,
+  entrySurface,
+  sourcePageType,
+  targetAction,
+  landingPath,
+  routeFamily,
+  subjectKind = "none",
+  subjectKey,
+  queryMode = "non_query",
+}: CareerAttributionPayloadInput): AnalyticsProperties {
+  return compactTrackingPayload({
+    locale,
+    entry_surface: entrySurface,
+    source_page_type: sourcePageType,
+    target_action: targetAction,
+    landing_path: landingPath,
+    route_family: routeFamily,
+    subject_kind: subjectKind,
+    subject_key: subjectKind === "none" ? undefined : subjectKey ?? undefined,
+    query_mode: queryMode,
+  });
+}
+
+export function trackCareerAttributionEvent(
+  eventName: CareerTrackingEventName,
+  payload: CareerAttributionPayloadInput
+) {
+  trackEvent(eventName, buildCareerAttributionPayload(payload));
+}
+
+export const CAREER_TRACKING_EVENTS = {
+  landingView: TRACKING_EVENTS.CAREER_LANDING_VIEW,
+  jobIndexView: TRACKING_EVENTS.CAREER_JOB_INDEX_VIEW,
+  jobDetailView: TRACKING_EVENTS.CAREER_JOB_DETAIL_VIEW,
+  recommendationIndexView: TRACKING_EVENTS.CAREER_RECOMMENDATION_INDEX_VIEW,
+  recommendationDetailView: TRACKING_EVENTS.CAREER_RECOMMENDATION_DETAIL_VIEW,
+  jobSearchSubmit: TRACKING_EVENTS.CAREER_JOB_SEARCH_SUBMIT,
+  jobSearchResultClick: TRACKING_EVENTS.CAREER_JOB_SEARCH_RESULT_CLICK,
+  jobIndexResultClick: TRACKING_EVENTS.CAREER_JOB_INDEX_RESULT_CLICK,
+  recommendationResultClick: TRACKING_EVENTS.CAREER_RECOMMENDATION_RESULT_CLICK,
+  recommendationMatchedJobClick: TRACKING_EVENTS.CAREER_RECOMMENDATION_MATCHED_JOB_CLICK,
+  readySurfaceExposed: TRACKING_EVENTS.CAREER_READY_SURFACE_EXPOSED,
+} as const;

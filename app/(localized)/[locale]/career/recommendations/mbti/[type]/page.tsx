@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
@@ -11,6 +12,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
 import type { CareerRecommendationBundleAdapter } from "@/lib/career/adapters/types";
+import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
 import { filterStableRecommendationMatchedJobs } from "@/lib/career/recommendationMatchedJobExposurePolicy";
 import { buildCareerRecommendationFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
@@ -268,6 +270,19 @@ export default async function CareerMbtiRecommendationPage({
   return (
     <Container as="main" className="space-y-6 py-10">
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
+      <AnalyticsPageViewTracker
+        eventName={CAREER_TRACKING_EVENTS.recommendationDetailView}
+        properties={buildCareerAttributionPayload({
+          locale,
+          entrySurface: "career_recommendation_detail",
+          sourcePageType: "career_recommendation_detail",
+          targetAction: "view_surface",
+          landingPath: localizedPath(`/career/recommendations/mbti/${detail.publicRouteSlug}`, locale),
+          routeFamily: "recommendation_detail",
+          subjectKind: "recommendation_type",
+          subjectKey: detail.publicRouteSlug,
+        })}
+      />
       <JsonLd id={`career-mbti-webpage-${detail.publicRouteSlug}`} data={webPageJsonLd} />
       <JsonLd id={`career-mbti-breadcrumb-${detail.publicRouteSlug}`} data={breadcrumbJsonLd} />
       {renderState.canRenderMatchedJobs && matchedJobs.length > 0 ? (
@@ -486,9 +501,23 @@ export default async function CareerMbtiRecommendationPage({
                       {job.fitBucket === "primary" ? "Primary" : job.fitBucket === "secondary" ? "Secondary" : "-"}
                     </td>
                     <td className="px-3 py-3">
-                      <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                      <TrackedCareerLink
+                        href={job.href}
+                        eventName={CAREER_TRACKING_EVENTS.recommendationMatchedJobClick}
+                        eventPayload={{
+                          locale,
+                          entrySurface: "career_recommendation_detail_matched_jobs",
+                          sourcePageType: "career_recommendation_detail",
+                          targetAction: "open_matched_job_detail",
+                          landingPath: localizedPath(`/career/recommendations/mbti/${detail.publicRouteSlug}`, locale),
+                          routeFamily: "recommendation_detail",
+                          subjectKind: "job_slug",
+                          subjectKey: job.canonicalSlug,
+                        }}
+                        className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                      >
                         {job.title}
-                      </Link>
+                      </TrackedCareerLink>
                     </td>
                     <td className="px-3 py-3">{job.summary || "-"}</td>
                     <td className="px-3 py-3">

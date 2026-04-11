@@ -7,7 +7,8 @@ import { trackEvent, type AnalyticsProperties } from "@/lib/analytics";
 export function useAnalyticsPageView(
   eventName: string,
   properties: AnalyticsProperties = {},
-  enabled = true
+  enabled = true,
+  trackingKey?: string
 ): void {
   const pathname = usePathname();
   const propertiesRef = useRef<AnalyticsProperties>(properties);
@@ -19,18 +20,20 @@ export function useAnalyticsPageView(
   useEffect(() => {
     if (!enabled || !eventName) return;
     trackEvent(eventName, propertiesRef.current);
-  }, [enabled, eventName, pathname]);
+  }, [enabled, eventName, pathname, trackingKey]);
 }
 
 export function AnalyticsPageViewTracker({
   eventName,
   properties,
   enabled = true,
+  trackingKey,
 }: {
   eventName: string;
   properties?: AnalyticsProperties;
   enabled?: boolean;
+  trackingKey?: string;
 }) {
-  useAnalyticsPageView(eventName, properties, enabled);
+  useAnalyticsPageView(eventName, properties, enabled, trackingKey);
   return null;
 }

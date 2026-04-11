@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerSearch } from "@/lib/career/adapters/adaptCareerSearch";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
@@ -148,9 +151,50 @@ export default async function CareerJobsPage({
         adaptCareerSearch({ locale, payload: searchPayload })
       )
     : [];
+  const pageViewEventName = hasSearchQuery
+    ? CAREER_TRACKING_EVENTS.jobSearchSubmit
+    : CAREER_TRACKING_EVENTS.jobIndexView;
+  const pageViewPayload = buildCareerAttributionPayload({
+    locale,
+    entrySurface: hasSearchQuery ? "career_job_search" : "career_job_index",
+    sourcePageType: hasSearchQuery ? "career_job_search" : "career_job_index",
+    targetAction: hasSearchQuery ? "submit_job_search" : "view_surface",
+    landingPath: jobsPath,
+    routeFamily: hasSearchQuery ? "jobs_search" : "jobs",
+    queryMode: hasSearchQuery ? "query" : "non_query",
+  });
+  const readyExposureCards = hasSearchQuery ? searchResults : jobs;
+  const readyExposureSurface = hasSearchQuery ? "career_job_search_results" : "career_job_index";
+  const readyExposureRouteFamily = hasSearchQuery ? "jobs_search" : "jobs";
+  const readyExposureTargetAction = hasSearchQuery
+    ? "render_ready_search_result"
+    : "render_ready_job_card";
+  const readyExposureQueryMode = hasSearchQuery ? "query" : "non_query";
 
   return (
     <Container as="main" className="space-y-6 py-10">
+      <AnalyticsPageViewTracker
+        eventName={pageViewEventName}
+        properties={pageViewPayload}
+        trackingKey={hasSearchQuery ? `query:${submittedQuery}` : "non_query"}
+      />
+      {readyExposureCards.map((item) => (
+        <AnalyticsPageViewTracker
+          key={`career-ready-exposure:${item.identity.canonicalSlug}:${readyExposureSurface}`}
+          eventName={CAREER_TRACKING_EVENTS.readySurfaceExposed}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: readyExposureSurface,
+            sourcePageType: hasSearchQuery ? "career_job_search" : "career_job_index",
+            targetAction: readyExposureTargetAction,
+            landingPath: jobsPath,
+            routeFamily: readyExposureRouteFamily,
+            subjectKind: "job_slug",
+            subjectKey: item.identity.canonicalSlug,
+            queryMode: readyExposureQueryMode,
+          })}
+        />
+      ))}
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">Career Jobs</p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
@@ -232,12 +276,24 @@ export default async function CareerJobsPage({
                       {locale === "zh" ? "Reviewer" : "Reviewer"}:{" "}
                       {result.trustSummary.reviewerStatus ?? "unknown"}
                     </p>
-                    <Link
+                    <TrackedCareerLink
                       href={result.href}
+                      eventName={CAREER_TRACKING_EVENTS.jobSearchResultClick}
+                      eventPayload={{
+                        locale,
+                        entrySurface: "career_job_search_results",
+                        sourcePageType: "career_job_search",
+                        targetAction: "open_job_detail",
+                        landingPath: jobsPath,
+                        routeFamily: "jobs_search",
+                        subjectKind: "job_slug",
+                        subjectKey: result.identity.canonicalSlug,
+                        queryMode: "query",
+                      }}
                       className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                     >
                       {locale === "zh" ? "查看详情" : "View details"}
-                    </Link>
+                    </TrackedCareerLink>
                   </CardContent>
                 </Card>
               ))
@@ -317,12 +373,24 @@ export default async function CareerJobsPage({
                     </p>
                   </div>
                 )}
-                <Link
+                <TrackedCareerLink
                   href={job.href}
+                  eventName={CAREER_TRACKING_EVENTS.jobIndexResultClick}
+                  eventPayload={{
+                    locale,
+                    entrySurface: "career_job_index",
+                    sourcePageType: "career_job_index",
+                    targetAction: "open_job_detail",
+                    landingPath: jobsPath,
+                    routeFamily: "jobs",
+                    subjectKind: "job_slug",
+                    subjectKey: job.identity.canonicalSlug,
+                    queryMode: "non_query",
+                  }}
                   className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {locale === "zh" ? "查看详情" : "View details"}
-                </Link>
+                </TrackedCareerLink>
               </CardContent>
             </Card>
           ))

@@ -64,6 +64,19 @@ export const TRACKING_EVENTS = {
   CAREER_RIASEC_START: "career_riasec_start",
   CAREER_RIASEC_SUBMIT: "career_riasec_submit",
   CAREER_RIASEC_RESULT_VIEW: "career_riasec_result_view",
+  CAREER_LANDING_VIEW: "career_landing_view",
+  CAREER_JOB_INDEX_VIEW: "career_job_index_view",
+  CAREER_JOB_DETAIL_VIEW: "career_job_detail_view",
+  CAREER_RECOMMENDATION_INDEX_VIEW: "career_recommendation_index_view",
+  CAREER_RECOMMENDATION_DETAIL_VIEW: "career_recommendation_detail_view",
+  CAREER_JOB_SEARCH_SUBMIT: "career_job_search_submit",
+  CAREER_JOB_SEARCH_RESULT_CLICK: "career_job_search_result_click",
+  CAREER_JOB_INDEX_RESULT_CLICK: "career_job_index_result_click",
+  CAREER_JOB_DETAIL_CTA_CLICK: "career_job_detail_cta_click",
+  CAREER_RECOMMENDATION_RESULT_CLICK: "career_recommendation_result_click",
+  CAREER_RECOMMENDATION_MATCHED_JOB_CLICK: "career_recommendation_matched_job_click",
+  CAREER_READY_SURFACE_EXPOSED: "career_ready_surface_exposed",
+  CAREER_BLOCKED_SURFACE_EXPOSED: "career_blocked_surface_exposed",
 
   // Reliability and launch-day SLO events
   QUESTIONS_LOAD_FAILURE: "questions_load_failure",
@@ -117,6 +130,18 @@ const COMMON_INVITE_UNLOCK_FIELDS = [
   "form_code",
   "entry_surface",
   "locale",
+] as const;
+
+const COMMON_CAREER_ATTRIBUTION_FIELDS = [
+  "locale",
+  "entry_surface",
+  "source_page_type",
+  "target_action",
+  "landing_path",
+  "route_family",
+  "subject_kind",
+  "subject_key",
+  "query_mode",
 ] as const;
 
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
@@ -184,10 +209,41 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   career_riasec_start: ["locale"],
   career_riasec_submit: ["locale", "answered_count", "primary_code", "secondary_code"],
   career_riasec_result_view: ["locale", "primary_code", "secondary_code"],
+  career_landing_view: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_job_index_view: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_job_detail_view: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_recommendation_index_view: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_recommendation_detail_view: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_job_search_submit: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_job_search_result_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_job_index_result_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_job_detail_cta_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_recommendation_result_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_recommendation_matched_job_click: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_ready_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_blocked_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   questions_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   submit_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   report_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
 };
+
+const CAREER_ATTRIBUTION_EVENTS = [
+  TRACKING_EVENTS.CAREER_LANDING_VIEW,
+  TRACKING_EVENTS.CAREER_JOB_INDEX_VIEW,
+  TRACKING_EVENTS.CAREER_JOB_DETAIL_VIEW,
+  TRACKING_EVENTS.CAREER_RECOMMENDATION_INDEX_VIEW,
+  TRACKING_EVENTS.CAREER_RECOMMENDATION_DETAIL_VIEW,
+  TRACKING_EVENTS.CAREER_JOB_SEARCH_SUBMIT,
+  TRACKING_EVENTS.CAREER_JOB_SEARCH_RESULT_CLICK,
+  TRACKING_EVENTS.CAREER_JOB_INDEX_RESULT_CLICK,
+  TRACKING_EVENTS.CAREER_JOB_DETAIL_CTA_CLICK,
+  TRACKING_EVENTS.CAREER_RECOMMENDATION_RESULT_CLICK,
+  TRACKING_EVENTS.CAREER_RECOMMENDATION_MATCHED_JOB_CLICK,
+  TRACKING_EVENTS.CAREER_READY_SURFACE_EXPOSED,
+  TRACKING_EVENTS.CAREER_BLOCKED_SURFACE_EXPOSED,
+] as const satisfies readonly TrackingEventName[];
+
+export type CareerTrackingEventName = (typeof CAREER_ATTRIBUTION_EVENTS)[number];
 
 const FORBIDDEN_FIELD_PATTERNS = [/^answers?($|_)/, /^reports?($|_)/, /email/, /token/, /authorization/];
 
@@ -205,6 +261,10 @@ function sanitizeValue(value: unknown): string | number | boolean | null {
 
 export function isTrackingEvent(eventName: string): eventName is TrackingEventName {
   return Object.values(TRACKING_EVENTS).includes(eventName as TrackingEventName);
+}
+
+export function isCareerAttributionEvent(eventName: string): eventName is CareerTrackingEventName {
+  return CAREER_ATTRIBUTION_EVENTS.includes(eventName as CareerTrackingEventName);
 }
 
 export function filterTrackingPayload(

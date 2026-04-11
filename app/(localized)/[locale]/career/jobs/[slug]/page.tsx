@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
 import type { CareerJobBundleAdapter } from "@/lib/career/adapters/types";
+import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -184,6 +186,19 @@ export default async function CareerJobDetailPage({
 
   return (
     <Container as="main" className="space-y-6 py-10">
+      <AnalyticsPageViewTracker
+        eventName={CAREER_TRACKING_EVENTS.jobDetailView}
+        properties={buildCareerAttributionPayload({
+          locale,
+          entrySurface: "career_job_detail",
+          sourcePageType: "career_job_detail",
+          targetAction: "view_surface",
+          landingPath: localizedPath(`/career/jobs/${job.slug}`, locale),
+          routeFamily: "job_detail",
+          subjectKind: "job_slug",
+          subjectKey: job.slug,
+        })}
+      />
       <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={breadcrumbJsonLd} />
       <Breadcrumb
         items={[
