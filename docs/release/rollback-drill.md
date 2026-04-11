@@ -3,6 +3,9 @@
 ## Goal
 Validate that frontend rollback can recover core path (`questions -> submit -> report`) within 10 minutes.
 
+For Career first-wave launch surfaces, pair this drill with:
+- `docs/release/career-first-wave-smoke-and-rollback.md`
+
 ## Prerequisites
 1. Previous stable web tag available.
 2. Staging or production-like API endpoint available.
