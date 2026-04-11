@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-11T07:50:00Z",
+  "updated_at": "2026-04-11T08:05:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -278,10 +278,10 @@
     "PR-F13": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f13-career-transition-preview-raw-steps-frontend-consumption",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "fb584a12d4c1a0b11b8e4b37ea1d0be7c07dfeb9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/420",
       "checks": {
         "local": [
           {
@@ -297,9 +297,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24277862444/job/70894766506"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24277862444/job/70894766507"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs failed immediately with no executable steps for build/contracts, matching the current repository workflow startup failure pattern rather than a locally reproducible F13 regression.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
