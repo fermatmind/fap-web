@@ -151,7 +151,10 @@ describe("career recommendation public contract", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
     expect(source).toContain("fetchCareerRecommendationBundle");
+    expect(source).toContain("fetchCareerTransitionPreview");
     expect(source).toContain("adaptCareerRecommendationBundle");
+    expect(source).toContain("adaptCareerTransitionPreview");
+    expect(source).toContain("CareerTransitionPreviewCard");
     expect(source).toContain("filterStableRecommendationMatchedJobs");
     expect(source).toContain("parseMbtiContinuityQuery");
     expect(source).toContain("mbti-career-continuity-entry");
@@ -165,6 +168,9 @@ describe("career recommendation public contract", () => {
     expect(source).toContain('data-testid="career-recommendation-type-interpretation"');
     expect(source).not.toContain("getMbtiCareerRecommendationByType");
     expect(source).not.toContain("getMbtiRecommendationContent");
+    expect(source).not.toContain("why_this_path");
+    expect(source).not.toContain("what_is_lost");
+    expect(source).not.toContain("bridge_steps_90d");
     expect(source).not.toContain("AnswerSurfaceSection");
     expect(source).not.toContain("career-recommendations.ts");
   });

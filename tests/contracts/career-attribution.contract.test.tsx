@@ -611,6 +611,9 @@ describe("career attribution page wiring contract", () => {
         ],
       })),
     }));
+    vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
+      fetchCareerTransitionPreview: vi.fn(async () => null),
+    }));
 
     const { default: CareerRecommendationDetailPage } = await import(
       "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
