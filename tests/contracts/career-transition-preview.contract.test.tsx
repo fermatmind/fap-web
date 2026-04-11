@@ -65,6 +65,7 @@ describe("career transition preview fetch and adapter contract", () => {
       locale: "en",
       payload: {
         path_type: "stable_upside",
+        steps: ["skill_overlap", "task_overlap", "tool_overlap"],
         target_job: {
           occupation_uuid: "occ_123",
           canonical_slug: "data-scientist",
@@ -93,6 +94,7 @@ describe("career transition preview fetch and adapter contract", () => {
 
     expect(preview).toEqual({
       pathType: "stable_upside",
+      steps: ["skill_overlap", "task_overlap", "tool_overlap"],
       targetJob: {
         occupationUuid: "occ_123",
         canonicalSlug: "data-scientist",
@@ -118,6 +120,43 @@ describe("career transition preview fetch and adapter contract", () => {
     expect(preview).not.toHaveProperty("what_is_lost");
     expect(preview).not.toHaveProperty("bridge_steps_90d");
     expect(preview).not.toHaveProperty("provenanceMeta");
+  });
+
+  it("omits raw steps when the payload includes non-allowlisted values", () => {
+    const preview = adaptCareerTransitionPreview({
+      locale: "en",
+      payload: {
+        path_type: "stable_upside",
+        steps: ["skill_overlap", "friendly_step_label"],
+        target_job: {
+          occupation_uuid: "occ_123",
+          canonical_slug: "data-scientist",
+          title: "Data Scientist",
+        },
+        score_summary: {
+          mobility_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 73, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        trust_summary: {
+          allow_transition_recommendation: true,
+          reviewer_status: "approved",
+          reason_codes: ["publish_ready"],
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/data-scientist",
+          canonical_target: "/career/jobs/data-scientist",
+          index_state: "index",
+          index_eligible: true,
+        },
+      },
+    });
+
+    expect(preview).toEqual(
+      expect.objectContaining({
+        pathType: "stable_upside",
+      })
+    );
+    expect(preview).not.toHaveProperty("steps");
   });
 
   it("returns null for absent or non-renderable previews", () => {
@@ -276,6 +315,7 @@ describe("career transition preview recommendation detail wiring", () => {
     vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
       fetchCareerTransitionPreview: vi.fn(async () => ({
         path_type: "stable_upside",
+        steps: ["skill_overlap", "task_overlap", "tool_overlap"],
         target_job: {
           occupation_uuid: "occ_next",
           canonical_slug: "product-manager",
@@ -312,11 +352,17 @@ describe("career transition preview recommendation detail wiring", () => {
     expect(html).toContain("Next-step role preview");
     expect(html).toContain("Product Manager");
     expect(html).toContain("/en/career/jobs/product-manager");
+    expect(html).toContain("career-transition-preview-steps");
+    expect(html).toContain("skill_overlap");
+    expect(html).toContain("task_overlap");
+    expect(html).toContain("tool_overlap");
     expect(html).toContain("Matched role matrix");
     expect(html).toContain("Data Scientist");
     expect(html).not.toContain("why_this_path");
     expect(html).not.toContain("what_is_lost");
     expect(html).not.toContain("bridge_steps_90d");
+    expect(html).not.toContain("suggested action");
+    expect(html).not.toContain("90-day");
     expect(pageViewEvents).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
@@ -455,6 +501,7 @@ describe("career transition preview recommendation detail wiring", () => {
 
     expect(html).not.toContain("career-transition-preview");
     expect(html).not.toContain("Next-step role preview");
+    expect(html).not.toContain("career-transition-preview-steps");
     expect(pageViewEvents).not.toEqual(
       expect.arrayContaining([expect.objectContaining({ eventName: "career_transition_preview_view" })])
     );

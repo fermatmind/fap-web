@@ -113,6 +113,7 @@ export type CareerRecommendationMatchedGuideAdapter = {
 
 export type CareerTransitionPreviewAdapter = {
   pathType: string;
+  steps?: string[];
   targetJob: {
     occupationUuid: string | null;
     canonicalSlug: string;

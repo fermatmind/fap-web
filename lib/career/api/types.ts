@@ -72,6 +72,7 @@ export type CareerTransitionPreviewResponseRaw = {
   bundle_kind?: unknown;
   bundle_version?: unknown;
   path_type?: unknown;
+  steps?: unknown;
   target_job?: unknown;
   score_summary?: unknown;
   trust_summary?: unknown;
