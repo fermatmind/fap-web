@@ -226,10 +226,10 @@
     "PR-F12": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f12-career-transition-preview-attribution-frontend-wiring",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "41b3cbf272bd3f2bf7437497f41427aebaa80583",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/419",
       "checks": {
         "local": [
           {
