@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-11T23:27:00Z",
+  "updated_at": "2026-04-11T23:33:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -362,7 +362,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "github_checks_failed",
       "branch": "codex/pr-f15-career-alias-disambiguation-frontend-wiring",
-      "commit_sha": "0bdb9b971295d821b5e00c891265550d3a9ec394",
+      "commit_sha": "32d5da912b340397181d939b6140a32da767e5cd",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/422",
       "checks": {
         "local": [
@@ -387,12 +387,12 @@
           {
             "name": "build",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24285528543/job/70914152238"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24285543823/job/70914191115"
           },
           {
             "name": "contracts",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24285528543/job/70914152234"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24285543823/job/70914191111"
           }
         ]
       },
