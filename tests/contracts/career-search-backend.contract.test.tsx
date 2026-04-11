@@ -17,6 +17,7 @@ afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   vi.resetModules();
+  vi.unmock("next/navigation");
 });
 
 describe("career search backend contract", () => {
@@ -156,6 +157,20 @@ describe("career search backend contract", () => {
         localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
       };
     });
+    vi.doMock("next/navigation", () => ({
+      usePathname: vi.fn(() => "/en/career/jobs"),
+      redirect: vi.fn((destination: string) => {
+        throw new Error(`unexpected-redirect:${destination}`);
+      }),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerAliasResolution", () => ({
+      fetchCareerAliasResolution: vi.fn(async () => ({
+        bundle_kind: "career_alias_resolution",
+        resolution: {
+          resolved_kind: "none",
+        },
+      })),
+    }));
     vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
       fetchCareerSearch: vi.fn(async () => ({
         bundle_kind: "career_search_results",
@@ -248,6 +263,20 @@ describe("career search backend contract", () => {
         localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
       };
     });
+    vi.doMock("next/navigation", () => ({
+      usePathname: vi.fn(() => "/en/career/jobs"),
+      redirect: vi.fn((destination: string) => {
+        throw new Error(`unexpected-redirect:${destination}`);
+      }),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerAliasResolution", () => ({
+      fetchCareerAliasResolution: vi.fn(async () => ({
+        bundle_kind: "career_alias_resolution",
+        resolution: {
+          resolved_kind: "none",
+        },
+      })),
+    }));
     vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
       fetchCareerSearch: vi.fn(async () => ({
         bundle_kind: "career_search_results",
@@ -317,5 +346,173 @@ describe("career search backend contract", () => {
     expect(html).toContain("No public matching jobs were found");
     expect(html).not.toContain("career-job-search-card");
     expect(html).not.toContain("Backend Architect");
+  });
+
+  it("redirects to job detail when the resolver returns occupation", async () => {
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("next/navigation", () => ({
+      usePathname: vi.fn(() => "/en/career/jobs"),
+      redirect: vi.fn((destination: string) => {
+        throw new Error(`redirect:${destination}`);
+      }),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerAliasResolution", () => ({
+      fetchCareerAliasResolution: vi.fn(async () => ({
+        bundle_kind: "career_alias_resolution",
+        query: {
+          raw: "data scientist",
+          normalized: "data scientist",
+          locale: "en-us",
+        },
+        resolution: {
+          resolved_kind: "occupation",
+          occupation: {
+            canonical_slug: "data-scientists",
+            canonical_title_en: "Data Scientists",
+          },
+        },
+      })),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+
+    await expect(
+      CareerJobsPage({
+        params: Promise.resolve({ locale: "en" }),
+        searchParams: Promise.resolve({ q: "data scientist" }),
+      })
+    ).rejects.toThrow("redirect:/en/career/jobs/data-scientists");
+  });
+
+  it("redirects to family hub when the resolver returns family", async () => {
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("next/navigation", () => ({
+      usePathname: vi.fn(() => "/en/career/jobs"),
+      redirect: vi.fn((destination: string) => {
+        throw new Error(`redirect:${destination}`);
+      }),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerAliasResolution", () => ({
+      fetchCareerAliasResolution: vi.fn(async () => ({
+        bundle_kind: "career_alias_resolution",
+        query: {
+          raw: "data science",
+          normalized: "data science",
+          locale: "en-us",
+        },
+        resolution: {
+          resolved_kind: "family",
+          family: {
+            canonical_slug: "data-science",
+            title_en: "Data Science",
+          },
+        },
+      })),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+
+    await expect(
+      CareerJobsPage({
+        params: Promise.resolve({ locale: "en" }),
+        searchParams: Promise.resolve({ q: "data science" }),
+      })
+    ).rejects.toThrow("redirect:/en/career/family/data-science");
+  });
+
+  it("renders a minimal candidate block when the resolver returns ambiguous", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("next/navigation", () => ({
+      usePathname: vi.fn(() => "/en/career/jobs"),
+      redirect: vi.fn((destination: string) => {
+        throw new Error(`unexpected-redirect:${destination}`);
+      }),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerAliasResolution", () => ({
+      fetchCareerAliasResolution: vi.fn(async () => ({
+        bundle_kind: "career_alias_resolution",
+        query: {
+          raw: "analytics",
+          normalized: "analytics",
+          locale: "en-us",
+        },
+        resolution: {
+          resolved_kind: "ambiguous",
+          candidates: [
+            {
+              candidate_kind: "occupation",
+              canonical_slug: "data-scientists",
+              canonical_title_en: "Data Scientists",
+            },
+            {
+              candidate_kind: "family",
+              canonical_slug: "data-science",
+              title_en: "Data Science",
+            },
+          ],
+        },
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
+      fetchCareerSearch: vi.fn(async () => {
+        throw new Error("search fetch should not run in ambiguous mode");
+      }),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
+      fetchCareerJobIndex: vi.fn(async () => {
+        throw new Error("job index fetch should not run in search mode");
+      }),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const page = await CareerJobsPage({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "analytics" }),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(html).toContain("career-alias-resolution-candidates");
+    expect(html).toContain("career-alias-resolution-candidate");
+    expect(html).toContain("Data Scientists");
+    expect(html).toContain("Data Science");
+    expect(html).toContain("/en/career/jobs/data-scientists");
+    expect(html).toContain("/en/career/family/data-science");
+    expect(html).not.toContain("career-job-search-card");
   });
 });

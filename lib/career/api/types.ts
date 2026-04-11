@@ -99,6 +99,43 @@ export type CareerFamilyHubResponseRaw = {
   data?: unknown;
 };
 
+export type CareerAliasResolutionOccupationResponseRaw = {
+  occupation_uuid?: unknown;
+  canonical_slug?: unknown;
+  canonical_title_en?: unknown;
+  canonical_title_zh?: unknown;
+  seo_contract?: unknown;
+  trust_summary?: unknown;
+};
+
+export type CareerAliasResolutionFamilyResponseRaw = {
+  family_uuid?: unknown;
+  canonical_slug?: unknown;
+  title_en?: unknown;
+  title_zh?: unknown;
+};
+
+export type CareerAliasResolutionCandidateResponseRaw = {
+  candidate_kind?: unknown;
+  occupation_uuid?: unknown;
+  family_uuid?: unknown;
+  canonical_slug?: unknown;
+  canonical_title_en?: unknown;
+  canonical_title_zh?: unknown;
+  title_en?: unknown;
+  title_zh?: unknown;
+  seo_contract?: unknown;
+  trust_summary?: unknown;
+};
+
+export type CareerAliasResolutionResponseRaw = {
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
+  query?: unknown;
+  resolution?: unknown;
+  data?: unknown;
+};
+
 export type CareerSearchResultItemResponseRaw = {
   bundle_kind?: unknown;
   bundle_version?: unknown;
