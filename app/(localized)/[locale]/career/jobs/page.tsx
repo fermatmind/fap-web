@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { CareerAliasResolutionCandidates } from "@/components/career/CareerAliasResolutionCandidates";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
+import { adaptCareerAliasResolution } from "@/lib/career/adapters/adaptCareerAliasResolution";
 import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerSearch } from "@/lib/career/adapters/adaptCareerSearch";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
+import { fetchCareerAliasResolution } from "@/lib/career/api/fetchCareerAliasResolution";
 import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCareerFirstWaveReadinessSummary";
 import { fetchCareerSearch } from "@/lib/career/api/fetchCareerSearch";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
+import { buildCareerFamilyFrontendUrl, buildCareerJobFrontendUrl } from "@/lib/career/urls";
 import { localizedPath } from "@/lib/i18n/locales";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -131,10 +136,31 @@ export default async function CareerJobsPage({
   const submittedQuery = normalizeSearchQuery(resolvedSearchParams.q);
   const hasSearchQuery = submittedQuery.length > 0;
   const jobsPath = localizedPath("/career/jobs", locale);
+  const aliasResolutionPayload = hasSearchQuery
+    ? await fetchCareerAliasResolution({ q: submittedQuery, locale })
+    : null;
+  const aliasResolution = hasSearchQuery
+    ? adaptCareerAliasResolution({ locale, payload: aliasResolutionPayload })
+    : null;
+
+  if (aliasResolution?.resolution.resolvedKind === "occupation") {
+    redirect(buildCareerJobFrontendUrl(locale, aliasResolution.resolution.occupation.canonicalSlug));
+  }
+
+  if (aliasResolution?.resolution.resolvedKind === "family") {
+    redirect(buildCareerFamilyFrontendUrl(locale, aliasResolution.resolution.family.canonicalSlug));
+  }
+
+  const ambiguousResolution =
+    aliasResolution?.resolution.resolvedKind === "ambiguous" ? aliasResolution.resolution : null;
+  const hasAmbiguousResolution = ambiguousResolution !== null;
+  const ambiguousCandidates = ambiguousResolution?.candidates ?? [];
   const [readinessSummaryPayload, jobIndexPayload, searchPayload] = await Promise.all([
     fetchCareerFirstWaveReadinessSummary({ locale }),
     hasSearchQuery ? Promise.resolve(null) : fetchCareerJobIndex({ locale }),
-    hasSearchQuery ? fetchCareerSearch({ q: submittedQuery, locale, limit: 12, mode: "auto" }) : Promise.resolve(null),
+    hasSearchQuery && !hasAmbiguousResolution
+      ? fetchCareerSearch({ q: submittedQuery, locale, limit: 12, mode: "auto" })
+      : Promise.resolve(null),
   ]);
   const firstWaveReadinessSummary = adaptCareerFirstWaveReadinessSummary({
     payload: readinessSummaryPayload,
@@ -240,14 +266,24 @@ export default async function CareerJobsPage({
               {locale === "zh" ? "搜索结果" : "Search results"}
             </h2>
             <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-              {locale === "zh"
-                ? `当前结果来自 backend B6 conservative search: “${submittedQuery}”。`
-                : `These results come from the backend B6 conservative search for “${submittedQuery}”.`}
+              {hasAmbiguousResolution
+                ? locale === "zh"
+                  ? `当前候选目标来自 backend authority resolver: “${submittedQuery}”。`
+                  : `These candidate targets come from the backend authority resolver for “${submittedQuery}”.`
+                : locale === "zh"
+                  ? `当前结果来自 backend B6 conservative search: “${submittedQuery}”。`
+                  : `These results come from the backend B6 conservative search for “${submittedQuery}”.`}
             </p>
           </div>
 
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-            {searchResults.length > 0 ? (
+          {hasAmbiguousResolution ? (
+            <CareerAliasResolutionCandidates
+              locale={locale}
+              candidates={ambiguousCandidates}
+            />
+          ) : (
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+              {searchResults.length > 0 ? (
               searchResults.map((result) => (
                 <Card
                   key={`${result.identity.canonicalSlug}:${result.matchKind}:${result.matchedText ?? ""}`}
@@ -297,25 +333,26 @@ export default async function CareerJobsPage({
                   </CardContent>
                 </Card>
               ))
-            ) : (
-              <Card
-                className="md:col-span-2 xl:col-span-3"
-                data-testid="career-job-search-empty-state"
-                data-career-data-status="unavailable"
-              >
-                <CardHeader>
-                  <CardTitle>{locale === "zh" ? "没有找到可公开展示的匹配职业" : "No public matching jobs were found"}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                  <p className="m-0">
-                    {locale === "zh"
-                      ? "当前搜索不会回退到 CMS 职业列表，也不会做更宽泛的本地匹配。"
-                      : "This search does not fall back to the CMS job list and does not broaden into local matching."}
-                  </p>
-                </CardContent>
-              </Card>
-            )}
-          </div>
+              ) : (
+                <Card
+                  className="md:col-span-2 xl:col-span-3"
+                  data-testid="career-job-search-empty-state"
+                  data-career-data-status="unavailable"
+                >
+                  <CardHeader>
+                    <CardTitle>{locale === "zh" ? "没有找到可公开展示的匹配职业" : "No public matching jobs were found"}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-sm text-[var(--fm-text-muted)]">
+                    <p className="m-0">
+                      {locale === "zh"
+                        ? "当前搜索不会回退到 CMS 职业列表，也不会做更宽泛的本地匹配。"
+                        : "This search does not fall back to the CMS job list and does not broaden into local matching."}
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          )}
         </section>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

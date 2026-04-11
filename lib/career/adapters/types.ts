@@ -164,6 +164,44 @@ export type CareerFamilyHubAdapter = {
   };
 };
 
+export type CareerAliasResolutionTargetAdapter = {
+  canonicalSlug: string;
+  title: string;
+  href: string;
+};
+
+export type CareerAliasResolutionAmbiguousCandidateAdapter = {
+  candidateKind: "occupation" | "family";
+  canonicalSlug: string;
+  title: string;
+  href: string;
+};
+
+export type CareerAliasResolutionAdapter = {
+  authoritySource: string;
+  query: {
+    raw: string;
+    normalized: string;
+    locale: string | null;
+  };
+  resolution:
+    | {
+        resolvedKind: "occupation";
+        occupation: CareerAliasResolutionTargetAdapter;
+      }
+    | {
+        resolvedKind: "family";
+        family: CareerAliasResolutionTargetAdapter;
+      }
+    | {
+        resolvedKind: "ambiguous";
+        candidates: CareerAliasResolutionAmbiguousCandidateAdapter[];
+      }
+    | {
+        resolvedKind: "none";
+      };
+};
+
 export type CareerRecommendationBundleAdapter = {
   authoritySource: string;
   requestedType: string;

@@ -11,6 +11,11 @@ export function buildCareerJobFrontendUrl(locale: Locale | string, slug: string)
   return localizedPath(`/career/jobs/${normalizeCareerSlug(slug)}`, normalizedLocale);
 }
 
+export function buildCareerFamilyFrontendUrl(locale: Locale | string, slug: string): string {
+  const normalizedLocale = normalizeLocale(locale);
+  return localizedPath(`/career/family/${normalizeCareerSlug(slug)}`, normalizedLocale);
+}
+
 export function buildCareerRecommendationFrontendUrl(locale: Locale | string, slug: string): string {
   const normalizedLocale = normalizeLocale(locale);
   return localizedPath(`/career/recommendations/mbti/${normalizeCareerSlug(slug)}`, normalizedLocale);

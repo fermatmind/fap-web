@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-11T08:27:50Z",
+  "updated_at": "2026-04-11T23:33:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -352,6 +352,51 @@
         ]
       },
       "failure_reason": "GitHub Actions jobs failed immediately with no executable steps for build/contracts, matching the current repository workflow startup failure pattern rather than a locally reproducible F14 regression.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F15": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/pr-f15-career-alias-disambiguation-frontend-wiring",
+      "commit_sha": "32d5da912b340397181d939b6140a32da767e5cd",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/422",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/page.tsx' lib/career/api/types.ts lib/career/api/fetchCareerAliasResolution.ts lib/career/adapters/types.ts lib/career/adapters/adaptCareerAliasResolution.ts lib/career/urls.ts components/career/*.tsx tests/contracts/career-alias-resolution.contract.test.tsx tests/contracts/career-search-backend.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-alias-resolution.contract.test.tsx tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-job-index-backend.contract.test.tsx tests/contracts/career-family-hub.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-transition-preview.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24285543823/job/70914191115"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24285543823/job/70914191111"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions jobs failed immediately with no executable steps for build/contracts, matching the current repository workflow startup failure pattern rather than a locally reproducible F15 regression.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
