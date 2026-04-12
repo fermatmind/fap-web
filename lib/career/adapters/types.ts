@@ -588,12 +588,14 @@ export type CareerFirstWaveNextStepLinksSummaryAdapter = {
 
 export type CareerFirstWaveRecommendationCompanionLinkRouteKind =
   | "career_family_hub"
-  | "career_job_detail";
+  | "career_job_detail"
+  | "test_landing";
 
 export type CareerFirstWaveRecommendationCompanionLinkReasonCode =
   | "target_job_detail_companion"
   | "target_family_hub_companion"
-  | "matched_job_detail_companion";
+  | "matched_job_detail_companion"
+  | "recommendation_test_support";
 
 type CareerFirstWaveRecommendationCompanionLinkBaseAdapter = {
   routeKind: CareerFirstWaveRecommendationCompanionLinkRouteKind;
@@ -616,9 +618,16 @@ export type CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter =
     canonicalTitleEn: string | null;
   };
 
+export type CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter =
+  CareerFirstWaveRecommendationCompanionLinkBaseAdapter & {
+    routeKind: "test_landing";
+    scaleCode: string | null;
+  };
+
 export type CareerFirstWaveRecommendationCompanionLinkAdapter =
   | CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter
-  | CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter;
+  | CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter
+  | CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter;
 
 export type CareerFirstWaveRecommendationCompanionLinksSummaryAdapter = {
   authoritySource: string;
@@ -636,8 +645,10 @@ export type CareerFirstWaveRecommendationCompanionLinksSummaryAdapter = {
     total: number;
     jobDetail: number;
     familyHub: number;
+    testLanding: number;
   };
   companionLinks: CareerFirstWaveRecommendationCompanionLinkAdapter[];
   familyHubLinks: CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter[];
   jobDetailLinks: CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter[];
+  testLandingLinks: CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter[];
 };

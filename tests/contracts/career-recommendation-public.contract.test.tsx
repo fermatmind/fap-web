@@ -295,9 +295,10 @@ describe("career recommendation public contract", () => {
           display_title: "INTJ-A Architect",
         },
         counts: {
-          total: 3,
+          total: 4,
           job_detail: 2,
           family_hub: 1,
+          test_landing: 1,
         },
         companion_links: [
           {
@@ -316,6 +317,13 @@ describe("career recommendation public contract", () => {
             family_uuid: "fam_123",
             title_en: "Data and Research",
           },
+          {
+            route_kind: "test_landing",
+            canonical_path: "/tests/mbti-personality-test-16-personality-types",
+            canonical_slug: "mbti-personality-test-16-personality-types",
+            link_reason_code: "recommendation_test_support",
+            scale_code: "MBTI",
+          },
         ],
       },
     });
@@ -325,6 +333,9 @@ describe("career recommendation public contract", () => {
     expect(summary?.subjectIdentity.publicRouteSlug).toBe("intj-a");
     expect(summary?.jobDetailLinks).toHaveLength(1);
     expect(summary?.familyHubLinks).toHaveLength(1);
+    expect(summary?.testLandingLinks).toHaveLength(1);
+    expect(summary?.testLandingLinks[0]?.canonicalSlug).toBe("mbti-personality-test-16-personality-types");
+    expect(summary?.counts.testLanding).toBe(1);
   });
 
   it("career recommendation detail page reads the backend bundle path and blocks CMS fallback authority", () => {

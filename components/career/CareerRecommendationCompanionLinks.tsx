@@ -3,13 +3,14 @@ import type {
   CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter,
   CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter,
   CareerFirstWaveRecommendationCompanionLinksSummaryAdapter,
+  CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter,
 } from "@/lib/career/adapters/types";
 import {
   buildCareerFamilyFrontendUrl,
   buildCareerJobFrontendUrl,
   normalizeCareerBundleCanonicalPath,
 } from "@/lib/career/urls";
-import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 type CareerRecommendationCompanionLinksProps = {
   locale: Locale;
@@ -32,6 +33,13 @@ function getJobDetailHref(
   return normalizeCareerBundleCanonicalPath(locale, link.canonicalPath, buildCareerJobFrontendUrl(locale, link.canonicalSlug));
 }
 
+function getTestLandingHref(
+  locale: Locale,
+  link: CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter
+): string {
+  return normalizeCareerBundleCanonicalPath(locale, link.canonicalPath, localizedPath(`/tests/${link.canonicalSlug}`, locale));
+}
+
 function renderFamilyHubTitle(locale: Locale, link: CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter): string {
   if (link.titleEn) {
     return link.titleEn;
@@ -42,6 +50,14 @@ function renderFamilyHubTitle(locale: Locale, link: CareerFirstWaveRecommendatio
 
 function renderJobDetailTitle(link: CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter): string {
   return link.canonicalTitleEn ?? link.canonicalSlug;
+}
+
+function renderTestLandingTitle(locale: Locale, link: CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter): string {
+  if (link.scaleCode === "MBTI") {
+    return locale === "zh" ? "MBTI 人格测试" : "MBTI personality test";
+  }
+
+  return locale === "zh" ? "相关测试" : "Related test";
 }
 
 export function CareerRecommendationCompanionLinks({
@@ -103,6 +119,29 @@ export function CareerRecommendationCompanionLinks({
                   className="font-medium text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {renderJobDetailTitle(link)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
+      {summary.testLandingLinks.length > 0 ? (
+        <div className="space-y-2">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+            {locale === "zh" ? "相关测试" : "Related test"}
+          </p>
+          <ul className="m-0 space-y-2 pl-5 text-sm text-[var(--fm-text-muted)]">
+            {summary.testLandingLinks.map((link) => (
+              <li
+                key={`${link.routeKind}:${link.canonicalPath}:${link.canonicalSlug}`}
+                data-testid="career-recommendation-companion-test-link"
+              >
+                <Link
+                  href={getTestLandingHref(locale, link)}
+                  className="font-medium text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                >
+                  {renderTestLandingTitle(locale, link)}
                 </Link>
               </li>
             ))}
