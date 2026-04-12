@@ -364,7 +364,7 @@ function FlagshipVariantChooser({
             </div>
             <Link
               href={choice.href}
-              prefetch
+              prefetch={false}
               data-testid={choice.testId}
               className={buttonVariants({ size: "sm", className: "mt-4 w-full justify-center" })}
             >
@@ -705,7 +705,7 @@ export default async function TestLandingPage({
                   {mbtiPrimaryHref && mbtiPrimaryClickTrackingProps ? (
                     <TrackedEntryCtaLink
                       href={mbtiPrimaryHref}
-                      prefetch
+                      prefetch={false}
                       data-testid="mbti-landing-primary-cta"
                       eventProperties={mbtiPrimaryClickTrackingProps}
                       className={buttonVariants({ size: "lg" })}
@@ -713,14 +713,14 @@ export default async function TestLandingPage({
                       {mbtiPrimaryChoice?.ctaLabel || (locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test")}
                     </TrackedEntryCtaLink>
                   ) : (
-                    <Link href={startTestHref} prefetch className={buttonVariants({ size: "lg" })} data-testid="mbti-landing-primary-cta">
+                    <Link href={startTestHref} prefetch={false} className={buttonVariants({ size: "lg" })} data-testid="mbti-landing-primary-cta">
                       {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
                     </Link>
                   )}
                   {mbtiSecondaryHref && mbtiSecondaryClickTrackingProps ? (
                     <TrackedEntryCtaLink
                       href={mbtiSecondaryHref}
-                      prefetch
+                      prefetch={false}
                       data-testid="mbti-landing-secondary-cta"
                       eventProperties={mbtiSecondaryClickTrackingProps}
                       className={buttonVariants({ variant: "outline", size: "lg" })}
@@ -754,7 +754,7 @@ export default async function TestLandingPage({
               </div>
             ) : (
               <div className="flex flex-wrap items-center gap-3 pt-1">
-                <Link href={startTestHref} prefetch className={buttonVariants({ size: "lg" })}>
+                <Link href={startTestHref} prefetch={false} className={buttonVariants({ size: "lg" })}>
                   {locale === "zh" ? "开始测试" : "Start test"}
                 </Link>
                 <Link href={backToTestsCta?.href || withLocale("/tests")} className={buttonVariants({ variant: "outline", size: "lg" })}>
