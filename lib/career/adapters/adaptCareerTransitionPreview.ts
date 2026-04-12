@@ -1,6 +1,11 @@
 import { normalizeCareerScoreResult } from "@/lib/career/contracts";
 import type { CareerTransitionPreviewResponseRaw } from "@/lib/career/api/types";
-import type { CareerSeoContractAdapter, CareerTransitionPreviewAdapter } from "@/lib/career/adapters/types";
+import type {
+  CareerSeoContractAdapter,
+  CareerTransitionPreviewAdapter,
+  CareerTransitionPreviewDeltaDirection,
+  CareerTransitionPreviewDeltaEntryAdapter,
+} from "@/lib/career/adapters/types";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 
 type AdaptCareerTransitionPreviewInput = {
@@ -9,6 +14,11 @@ type AdaptCareerTransitionPreviewInput = {
 };
 
 const TRANSITION_PREVIEW_STEP_ALLOWLIST = new Set(["skill_overlap", "task_overlap", "tool_overlap"]);
+const TRANSITION_PREVIEW_DELTA_DIRECTION_ALLOWLIST = new Set<CareerTransitionPreviewDeltaDirection>([
+  "same",
+  "higher",
+  "lower",
+]);
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -61,6 +71,48 @@ function buildSeoContract(raw: Record<string, unknown>): CareerSeoContractAdapte
   };
 }
 
+function normalizeTransitionPreviewDeltaEntry(value: unknown): CareerTransitionPreviewDeltaEntryAdapter | null {
+  const entry = isRecord(value) ? value : null;
+  if (!entry) {
+    return null;
+  }
+
+  const sourceValue = normalizeString(entry.source_value);
+  const targetValue = normalizeString(entry.target_value);
+  const direction = normalizeString(entry.direction) as CareerTransitionPreviewDeltaDirection | null;
+
+  if (!sourceValue || !targetValue || !direction || !TRANSITION_PREVIEW_DELTA_DIRECTION_ALLOWLIST.has(direction)) {
+    return null;
+  }
+
+  return {
+    sourceValue,
+    targetValue,
+    direction,
+  };
+}
+
+function normalizeTransitionPreviewDelta(raw: Record<string, unknown>): CareerTransitionPreviewAdapter["delta"] {
+  const delta = isRecord(raw.delta) ? raw.delta : null;
+  if (!delta) {
+    return undefined;
+  }
+
+  const entryEducationDelta = normalizeTransitionPreviewDeltaEntry(delta.entry_education_delta);
+  const workExperienceDelta = normalizeTransitionPreviewDeltaEntry(delta.work_experience_delta);
+  const trainingDelta = normalizeTransitionPreviewDeltaEntry(delta.training_delta);
+
+  if (!entryEducationDelta && !workExperienceDelta && !trainingDelta) {
+    return undefined;
+  }
+
+  return {
+    ...(entryEducationDelta ? { entryEducationDelta } : {}),
+    ...(workExperienceDelta ? { workExperienceDelta } : {}),
+    ...(trainingDelta ? { trainingDelta } : {}),
+  };
+}
+
 export function adaptCareerTransitionPreview(
   input: AdaptCareerTransitionPreviewInput
 ): CareerTransitionPreviewAdapter | null {
@@ -90,10 +142,12 @@ export function adaptCareerTransitionPreview(
     rawSteps.length > 0 && rawSteps.every((step) => TRANSITION_PREVIEW_STEP_ALLOWLIST.has(step))
       ? rawSteps
       : undefined;
+  const delta = normalizeTransitionPreviewDelta(raw);
 
   return {
     pathType,
     ...(steps ? { steps } : {}),
+    ...(delta ? { delta } : {}),
     targetJob: {
       occupationUuid: normalizeString(targetJob.occupation_uuid),
       canonicalSlug,

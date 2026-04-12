@@ -109,12 +109,27 @@ export type CareerTransitionPreviewResponseRaw = {
   bundle_version?: unknown;
   path_type?: unknown;
   steps?: unknown;
+  delta?: CareerTransitionPreviewDeltaResponseRaw | unknown;
   target_job?: unknown;
   score_summary?: unknown;
   trust_summary?: unknown;
   seo_contract?: unknown;
   provenance_meta?: unknown;
   data?: unknown;
+};
+
+export type CareerTransitionPreviewDeltaDirectionResponseRaw = "same" | "higher" | "lower";
+
+export type CareerTransitionPreviewDeltaEntryResponseRaw = {
+  source_value?: unknown;
+  target_value?: unknown;
+  direction?: CareerTransitionPreviewDeltaDirectionResponseRaw | unknown;
+};
+
+export type CareerTransitionPreviewDeltaResponseRaw = {
+  entry_education_delta?: CareerTransitionPreviewDeltaEntryResponseRaw | unknown;
+  work_experience_delta?: CareerTransitionPreviewDeltaEntryResponseRaw | unknown;
+  training_delta?: CareerTransitionPreviewDeltaEntryResponseRaw | unknown;
 };
 
 export type CareerFamilyHubVisibleChildResponseRaw = {

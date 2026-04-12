@@ -1,11 +1,36 @@
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
-import type { CareerTransitionPreviewAdapter } from "@/lib/career/adapters/types";
+import type {
+  CareerTransitionPreviewAdapter,
+  CareerTransitionPreviewDeltaEntryAdapter,
+} from "@/lib/career/adapters/types";
 import type { Locale } from "@/lib/i18n/locales";
 
 function renderScoreValue(value: number | null): string {
   return value === null ? "—" : String(value);
+}
+
+function getDeltaLabel(locale: Locale, key: "entryEducationDelta" | "workExperienceDelta" | "trainingDelta"): string {
+  if (locale === "zh") {
+    switch (key) {
+      case "entryEducationDelta":
+        return "入门学历";
+      case "workExperienceDelta":
+        return "工作经验";
+      case "trainingDelta":
+        return "在岗培训";
+    }
+  }
+
+  switch (key) {
+    case "entryEducationDelta":
+      return "Entry education";
+    case "workExperienceDelta":
+      return "Work experience";
+    case "trainingDelta":
+      return "Training";
+  }
 }
 
 type CareerTransitionPreviewCardProps = {
@@ -20,6 +45,16 @@ export function CareerTransitionPreviewCard({
   landingPath,
 }: CareerTransitionPreviewCardProps) {
   const hasSteps = Array.isArray(preview.steps) && preview.steps.length > 0;
+  const deltaEntries = preview.delta
+    ? ([
+        ["entryEducationDelta", preview.delta.entryEducationDelta],
+        ["workExperienceDelta", preview.delta.workExperienceDelta],
+        ["trainingDelta", preview.delta.trainingDelta],
+      ] as const).filter((entry): entry is [
+        "entryEducationDelta" | "workExperienceDelta" | "trainingDelta",
+        CareerTransitionPreviewDeltaEntryAdapter,
+      ] => Boolean(entry[1]))
+    : [];
 
   return (
     <section
@@ -89,6 +124,36 @@ export function CareerTransitionPreviewCard({
               >
                 {step}
               </span>
+            ))}
+          </div>
+        ) : null}
+
+        {deltaEntries.length > 0 ? (
+          <div
+            className="mt-4 space-y-2 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3"
+            data-testid="career-transition-preview-delta"
+          >
+            {deltaEntries.map(([key, entry]) => (
+              <div
+                key={key}
+                className="grid gap-2 border-b border-[var(--fm-border)] pb-2 last:border-b-0 last:pb-0 md:grid-cols-[minmax(0,1fr)_auto]"
+              >
+                <div className="space-y-1">
+                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                    {getDeltaLabel(locale, key)}
+                  </p>
+                  <p className="m-0 text-sm text-[var(--fm-text)]" data-testid={`career-transition-preview-delta-${key}`}>
+                    <span className="font-mono">{entry.sourceValue}</span>
+                    <span className="px-2 text-[var(--fm-text-muted)]">→</span>
+                    <span className="font-mono">{entry.targetValue}</span>
+                  </p>
+                </div>
+                <div className="flex items-center md:justify-end">
+                  <span className="rounded-full border border-[var(--fm-border)] px-2 py-1 font-mono text-[11px] text-[var(--fm-text-muted)]">
+                    {entry.direction}
+                  </span>
+                </div>
+              </div>
             ))}
           </div>
         ) : null}
