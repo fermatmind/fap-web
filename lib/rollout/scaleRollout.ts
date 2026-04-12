@@ -62,6 +62,14 @@ export type ScaleRolloutDecision = {
   reasons: string[];
 };
 
+export type ProductPriorityEnvSnapshot = {
+  mbtiPriorityMode: boolean;
+  sbtiEnabled: boolean;
+  articlesEnabled: boolean;
+  topicsEnabled: boolean;
+  careerRecommendEnabled: boolean;
+};
+
 function toRecord(value: unknown): Record<string, unknown> {
   if (value && typeof value === "object" && !Array.isArray(value)) {
     return value as Record<string, unknown>;
@@ -84,6 +92,14 @@ function parsePercent(value: unknown, fallback = 100): number {
   const parsed = Number(value);
   if (!Number.isFinite(parsed)) return fallback;
   return Math.max(0, Math.min(100, Math.floor(parsed)));
+}
+
+function readEnvValue(
+  env: Record<string, string | undefined>,
+  key: string,
+  publicKey: string
+): string | undefined {
+  return env[key] ?? env[publicKey];
 }
 
 function normalizeScaleCode(scaleCode: string | null | undefined): SupportedScaleCode | null {
@@ -155,6 +171,43 @@ export function createScaleRolloutEnvSnapshot(
     };
     return acc;
   }, {} as ScaleRolloutEnvSnapshot);
+}
+
+export function createProductPriorityEnvSnapshot(
+  env: Record<string, string | undefined> = process.env as Record<string, string | undefined>
+): ProductPriorityEnvSnapshot {
+  const mbtiPriorityMode = parseBoolean(
+    readEnvValue(env, "MBTI_PRIORITY_MODE", "NEXT_PUBLIC_MBTI_PRIORITY_MODE"),
+    false
+  );
+  const sbtiEnabled = parseBoolean(readEnvValue(env, "SBTI_ENABLED", "NEXT_PUBLIC_SBTI_ENABLED"), true);
+  const articlesEnabled = parseBoolean(
+    readEnvValue(env, "ARTICLES_ENABLED", "NEXT_PUBLIC_ARTICLES_ENABLED"),
+    true
+  );
+  const topicsEnabled = parseBoolean(readEnvValue(env, "TOPICS_ENABLED", "NEXT_PUBLIC_TOPICS_ENABLED"), true);
+  const careerRecommendEnabled = parseBoolean(
+    readEnvValue(env, "CAREER_RECOMMEND_ENABLED", "NEXT_PUBLIC_CAREER_RECOMMEND_ENABLED"),
+    true
+  );
+
+  if (!mbtiPriorityMode) {
+    return {
+      mbtiPriorityMode,
+      sbtiEnabled,
+      articlesEnabled,
+      topicsEnabled,
+      careerRecommendEnabled,
+    };
+  }
+
+  return {
+    mbtiPriorityMode,
+    sbtiEnabled: false,
+    articlesEnabled: false,
+    topicsEnabled: false,
+    careerRecommendEnabled: false,
+  };
 }
 
 export function resolveScaleRollout({

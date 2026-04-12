@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cookies, headers } from "next/headers";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
@@ -67,15 +66,6 @@ async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promi
   } catch {
     return null;
   }
-}
-
-async function resolveRequestAnonId(): Promise<string | undefined> {
-  const [cookieStore, headerStore] = await Promise.all([cookies(), headers()]);
-  const fromCookie = cookieStore.get("fap_anonymous_id_v1")?.value?.trim();
-  if (fromCookie) return fromCookie;
-
-  const fromHeader = headerStore.get("x-anon-id")?.trim() ?? "";
-  return fromHeader || undefined;
 }
 
 export async function generateMetadata({
@@ -148,7 +138,6 @@ export default async function TakePage({
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode,
     capabilities,
-    anonId: await resolveRequestAnonId(),
     envSnapshot: createScaleRolloutEnvSnapshot(),
   });
   if (!rollout.assessmentEnabled) {

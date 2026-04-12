@@ -14,6 +14,7 @@ import {
   getMbtiStartLabel,
   listMbtiFormMetas,
 } from "@/lib/mbti/forms";
+import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { cn } from "@/lib/utils";
 
 function SectionHeader({
@@ -93,6 +94,16 @@ function resolveVariantFamily(title: string): "mbti" | "big5" | null {
     return "big5";
   }
   return null;
+}
+
+function shouldHideHomeSurfaceHref(
+  href: string,
+  flags: ReturnType<typeof createProductPriorityEnvSnapshot>
+): boolean {
+  if (!flags.articlesEnabled && href.startsWith("/articles")) return true;
+  if (!flags.topicsEnabled && href.startsWith("/topics")) return true;
+  if (!flags.careerRecommendEnabled && href.startsWith("/career/recommendations")) return true;
+  return false;
 }
 
 function PersonalityFamilyPanel({
@@ -200,6 +211,7 @@ function PersonalityFamilyPanel({
 export function HomePageExperience({ locale }: { locale: Locale }) {
   const copy = getHomePageContent(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
+  const priorityFlags = createProductPriorityEnvSnapshot();
   const heroTitleParts = copy.hero.title.split("，");
   const heroTitleHasMutedComma = locale === "zh" && heroTitleParts.length > 1;
   const heroTitleLead = heroTitleParts[0] ?? copy.hero.title;
@@ -247,6 +259,18 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
       backUseLine: "Learning / Career / Collaboration",
       sourceTags: ["Personality", "Ability", "State"],
     };
+  const quickStartItems = priorityFlags.mbtiPriorityMode
+    ? copy.quickStart.items.filter((item) => {
+        const kind = resolveQuickCardKind(item.href);
+        return kind === "mbti" || kind === "big5";
+      })
+    : copy.quickStart.items;
+  const familyItems = copy.families.items
+    .map((family) => ({
+      ...family,
+      links: family.links.filter((link) => !shouldHideHomeSurfaceHref(link.href, priorityFlags)),
+    }))
+    .filter((family) => !shouldHideHomeSurfaceHref(family.exploreHref, priorityFlags) || family.links.length > 0);
 
   return (
     <>
@@ -282,7 +306,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
               </div>
             </div>
 
-            {locale === "zh" ? (
+            {locale === "zh" && priorityFlags.sbtiEnabled ? (
               <div className={cn("fm-home-hero-product-stage", "xl:translate-x-8 2xl:translate-x-12")}>
                 <SbtiHeroEntryCard locale={locale} />
               </div>
@@ -376,7 +400,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
             </div>
 
             <div className="fm-home-quick-grid fm-home-quick-grid--featured lg:grid-cols-6">
-              {copy.quickStart.items.map((item, index) => (
+              {quickStartItems.map((item, index) => (
                 (() => {
                   const kind = resolveQuickCardKind(item.href);
                   const isPrimary = index < 2;
@@ -478,7 +502,7 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
           <SectionHeader kicker={copy.families.kicker} title={copy.families.title} body={copy.families.body} />
 
           <div className="fm-home-family-grid mt-12">
-            {copy.families.items.map((family) => {
+            {familyItems.map((family) => {
               if (family.title === (locale === "zh" ? "人格与风格" : "Personality and style")) {
                 return (
                   <PersonalityFamilyPanel

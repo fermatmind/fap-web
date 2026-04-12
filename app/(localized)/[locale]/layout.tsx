@@ -5,6 +5,7 @@ import { SiteChrome } from "@/components/layout/SiteChrome";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
 import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
+import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SITE_URL } from "@/lib/site";
 import "../../globals.css";
 
@@ -77,13 +78,14 @@ export default async function LocalizedRootLayout({
     notFound();
   }
   const resolvedLocale: Locale = locale;
+  const productPriority = createProductPriorityEnvSnapshot();
 
   return (
     <html lang={resolvedLocale}>
       <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
         <Providers>
           <LocaleProvider locale={resolvedLocale}>
-            <SiteChrome>{children}</SiteChrome>
+            <SiteChrome productPriority={productPriority}>{children}</SiteChrome>
           </LocaleProvider>
         </Providers>
       </body>
