@@ -67,6 +67,26 @@ export type CareerExplainabilityScoreDimensionAdapter = {
   degradationFactor: number | null;
 };
 
+export type CareerExplainabilityStrainRadarAxisKey =
+  | "peopleFriction"
+  | "contextSwitchLoad"
+  | "politicalLoad"
+  | "uncertaintyLoad"
+  | "lowAutonomyTrap"
+  | "repetitionMismatch";
+
+export type CareerExplainabilityStrainRadarAxisAdapter = {
+  value: number | null;
+};
+
+export type CareerExplainabilityStrainRadarAdapter = {
+  integrityState: string | null;
+  confidenceCap: number | null;
+  degradationFactor: number | null;
+  formulaVersion: string | null;
+  axes: Record<CareerExplainabilityStrainRadarAxisKey, CareerExplainabilityStrainRadarAxisAdapter>;
+};
+
 export type CareerExplainabilityAdapter = {
   summaryKind: string;
   summaryVersion: string;
@@ -87,6 +107,7 @@ export type CareerExplainabilityAdapter = {
     mobilityScore: CareerExplainabilityScoreDimensionAdapter;
     confidenceScore: CareerExplainabilityScoreDimensionAdapter;
   };
+  strainRadar: CareerExplainabilityStrainRadarAdapter | null;
   warnings: CareerWarningsAdapter;
   claimPermissions: CareerClaimPermissions;
   integritySummary: CareerIntegritySummaryAdapter;

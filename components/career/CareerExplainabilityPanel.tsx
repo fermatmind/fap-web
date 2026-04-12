@@ -1,4 +1,5 @@
 import type { CareerExplainabilityAdapter, CareerExplainabilityScoreDimensionAdapter } from "@/lib/career/adapters/types";
+import { CareerStrainRadar } from "@/components/career/CareerStrainRadar";
 import type { Locale } from "@/lib/i18n/locales";
 
 type CareerExplainabilityPanelProps = {
@@ -170,6 +171,14 @@ export function CareerExplainabilityPanel({
           <ExplainabilityDimensionCard key={key} label={label} dimension={explainability.scoreBundle[key]} />
         ))}
       </div>
+
+      {explainability.strainRadar ? (
+        <CareerStrainRadar
+          locale={locale}
+          radar={explainability.strainRadar}
+          testId="career-explainability-strain-radar"
+        />
+      ) : null}
     </section>
   );
 }

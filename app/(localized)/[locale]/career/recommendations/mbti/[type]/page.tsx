@@ -497,8 +497,8 @@ export default async function CareerMbtiRecommendationPage({
           title={locale === "zh" ? "结构化 explainability" : "Structured explainability"}
           subtitle={
             locale === "zh"
-              ? "这一节只消费 backend explainability authority payload 的结构化字段，不扩写为推荐建议、路径说明或 radar。"
-              : "This section consumes structured fields from the backend explainability authority payload only, without turning them into recommendation advice, path guidance, or radar semantics."
+              ? "这一节只消费 backend explainability authority payload 的结构化字段与受限 strain radar，不扩写为推荐建议或路径说明。"
+              : "This section consumes structured fields and bounded strain-radar data from the backend explainability authority payload only, without turning them into recommendation advice or path guidance."
           }
           testId="career-recommendation-explainability-panel"
         />

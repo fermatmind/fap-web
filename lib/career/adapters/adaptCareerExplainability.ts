@@ -3,6 +3,8 @@ import type { CareerExplainabilityResponseRaw } from "@/lib/career/api/types";
 import type {
   CareerExplainabilityAdapter,
   CareerExplainabilityScoreDimensionAdapter,
+  CareerExplainabilityStrainRadarAdapter,
+  CareerExplainabilityStrainRadarAxisKey,
   CareerIntegritySummaryAdapter,
   CareerWarningsAdapter,
 } from "@/lib/career/adapters/types";
@@ -57,6 +59,15 @@ function normalizeNumber(value: unknown): number | null {
   return null;
 }
 
+const STRAIN_RADAR_AXIS_MAP: Array<[string, CareerExplainabilityStrainRadarAxisKey]> = [
+  ["people_friction", "peopleFriction"],
+  ["context_switch_load", "contextSwitchLoad"],
+  ["political_load", "politicalLoad"],
+  ["uncertainty_load", "uncertaintyLoad"],
+  ["low_autonomy_trap", "lowAutonomyTrap"],
+  ["repetition_mismatch", "repetitionMismatch"],
+];
+
 function buildWarnings(raw: Record<string, unknown>): CareerWarningsAdapter {
   const warnings = isRecord(raw.warnings) ? raw.warnings : {};
 
@@ -109,6 +120,38 @@ function buildExplainabilityDimension(value: unknown): CareerExplainabilityScore
   };
 }
 
+function buildStrainRadar(raw: Record<string, unknown>): CareerExplainabilityStrainRadarAdapter | null {
+  const radar = isRecord(raw.strain_radar) ? raw.strain_radar : null;
+  if (!radar) {
+    return null;
+  }
+
+  const axesRaw = isRecord(radar.axes) ? radar.axes : null;
+  if (!axesRaw) {
+    return null;
+  }
+
+  const axes = Object.fromEntries(
+    STRAIN_RADAR_AXIS_MAP.map(([rawKey, adaptedKey]) => {
+      const axis = isRecord(axesRaw[rawKey]) ? axesRaw[rawKey] : {};
+      return [
+        adaptedKey,
+        {
+          value: normalizeNumber(axis.value),
+        },
+      ];
+    })
+  ) as CareerExplainabilityStrainRadarAdapter["axes"];
+
+  return {
+    integrityState: normalizeString(radar.integrity_state),
+    confidenceCap: normalizeNumber(radar.confidence_cap),
+    degradationFactor: normalizeNumber(radar.degradation_factor),
+    formulaVersion: normalizeString(radar.formula_version),
+    axes,
+  };
+}
+
 export function adaptCareerExplainability(input: AdaptCareerExplainabilityInput): CareerExplainabilityAdapter | null {
   const raw = unwrapPayload(input.payload);
   if (!raw) {
@@ -143,6 +186,7 @@ export function adaptCareerExplainability(input: AdaptCareerExplainabilityInput)
       mobilityScore: buildExplainabilityDimension(scoreBundle.mobility_score),
       confidenceScore: buildExplainabilityDimension(scoreBundle.confidence_score),
     },
+    strainRadar: buildStrainRadar(raw),
     warnings: buildWarnings(raw),
     claimPermissions: normalizeCareerClaimPermissions(raw.claim_permissions),
     integritySummary: buildIntegritySummary(raw),

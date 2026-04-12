@@ -13,7 +13,7 @@ afterEach(() => {
 });
 
 describe("career explainability contract", () => {
-  it("renders a bounded machine-safe panel without radar or narrative expansion", () => {
+  it("renders a bounded machine-safe panel with allowlisted strain radar only", () => {
     const explainability = adaptCareerJobExplainability({
       summary_kind: "career_explainability",
       summary_version: "career.explainability.v1",
@@ -56,6 +56,21 @@ describe("career explainability contract", () => {
           degradation_factor: 0.88,
         },
       },
+      strain_radar: {
+        integrity_state: "restricted",
+        confidence_cap: 0.72,
+        degradation_factor: 0.84,
+        formula_version: "career.strain_v1.2",
+        axes: {
+          people_friction: { value: 0.61 },
+          context_switch_load: { value: 0.52 },
+          political_load: { value: 0.47 },
+          uncertainty_load: { value: 0.58 },
+          low_autonomy_trap: { value: 0.41 },
+          repetition_mismatch: { value: 0.33 },
+          environment_fit: { value: 0.11 },
+        },
+      },
       warnings: {
         amber_flags: ["ai_role_shift_risk"],
         blocked_claims: ["salary_comparison"],
@@ -95,8 +110,12 @@ describe("career explainability contract", () => {
     expect(panel).toHaveTextContent("partial_data (-0.05): onet_context");
     expect(panel).toHaveTextContent("components");
     expect(panel).toHaveTextContent("blocked_claims: salary_comparison");
-    expect(panel).not.toHaveTextContent("strainRadar");
-    expect(panel).not.toHaveTextContent("people_friction");
+    expect(panel).toHaveTextContent("Strain radar");
+    expect(panel).toHaveTextContent("People friction");
+    expect(panel).toHaveTextContent("formula_version: career.strain_v1.2");
+    expect(panel).toHaveTextContent("degradation_factor: 0.84");
+    expect(panel).not.toHaveTextContent("environment_fit");
+    expect(panel).not.toHaveTextContent("strongest");
     expect(panel).not.toHaveTextContent("why this path");
   });
 
@@ -184,6 +203,20 @@ describe("career explainability contract", () => {
             degradation_factor: 0.95,
           },
         },
+        strain_radar: {
+          integrity_state: "restricted",
+          confidence_cap: 0.72,
+          degradation_factor: 0.84,
+          formula_version: "career.strain_v1.2",
+          axes: {
+            people_friction: { value: 0.61 },
+            context_switch_load: { value: 0.52 },
+            political_load: { value: 0.47 },
+            uncertainty_load: { value: 0.58 },
+            low_autonomy_trap: { value: 0.41 },
+            repetition_mismatch: { value: 0.33 },
+          },
+        },
         claim_permissions: {
           allow_strong_claim: true,
           allow_salary_comparison: true,
@@ -210,7 +243,8 @@ describe("career explainability contract", () => {
 
     expect(html).toContain("career-job-explainability-panel");
     expect(html).toContain("Structured explainability");
-    expect(html).not.toContain("strainRadar");
-    expect(html).not.toContain("people_friction");
+    expect(html).toContain("career-explainability-strain-radar");
+    expect(html).toContain("People friction");
+    expect(html).not.toContain("environment_fit");
   });
 });

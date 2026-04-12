@@ -124,6 +124,20 @@ describe("career recommendation backend page contract", () => {
           confidence_cap: 0.95,
           degradation_factor: 1,
         },
+        strain_radar: {
+          integrity_state: "full",
+          confidence_cap: 0.91,
+          degradation_factor: 0.84,
+          formula_version: "career.strain_v1.2",
+          axes: {
+            people_friction: { value: 0.64 },
+            context_switch_load: { value: 0.59 },
+            political_load: { value: 0.41 },
+            uncertainty_load: { value: 0.72 },
+            low_autonomy_trap: { value: 0.53 },
+            repetition_mismatch: { value: 0.37 },
+          },
+        },
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
@@ -147,11 +161,14 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("career-recommendation-trust-strip");
     expect(html).toContain("career-recommendation-type-interpretation");
     expect(html).toContain("career-recommendation-explainability-panel");
+    expect(html).toContain("career-explainability-strain-radar");
     expect(html).toContain("career-recommendation-warning-banner");
     expect(html).toContain("career-recommendation-matched-jobs-status");
     expect(html).toContain("INTJ-A");
+    expect(html).toContain("People friction");
     expect(html).not.toContain("Matched role matrix");
-    expect(html).not.toContain("strainRadar");
+    expect(html).not.toContain("environment_fit");
+    expect(html).not.toContain("strongest");
   });
 
   it("redirects to the canonical public route when backend bundle slug differs from the request", async () => {
