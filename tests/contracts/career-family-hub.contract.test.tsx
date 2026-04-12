@@ -259,3 +259,98 @@ describe("career family hub page wiring", () => {
     expect(html).not.toContain('data-testid="career-family-hub-visible-child"');
   });
 });
+
+describe("career family hub metadata contract", () => {
+  it("marks visible family pages as indexable with self canonical metadata", async () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
+
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFamilyHub", () => ({
+      fetchCareerFamilyHub: vi.fn(async () => ({
+        bundle_kind: "career_family_hub",
+        bundle_version: "career.protocol.family_hub.v1",
+        family: {
+          family_uuid: "fam_123",
+          canonical_slug: "data-science",
+          title_en: "Data Science",
+          title_zh: "数据科学",
+        },
+        visible_children: [
+          {
+            occupation_uuid: "occ_123",
+            canonical_slug: "data-scientist",
+            canonical_title_en: "Data Scientist",
+            canonical_title_zh: "数据科学家",
+            seo_contract: {
+              canonical_path: "/career/jobs/data-scientist",
+              index_state: "indexed",
+              index_eligible: true,
+            },
+            trust_summary: {
+              reviewer_status: "approved",
+            },
+          },
+        ],
+        counts: {
+          visible_children_count: 1,
+          publish_ready_count: 1,
+          blocked_override_eligible_count: 0,
+          blocked_not_safely_remediable_count: 0,
+          blocked_total: 0,
+        },
+      })),
+    }));
+
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/family/[slug]/page");
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "en", slug: "data-science" }),
+    });
+
+    expect(metadata.alternates?.canonical).toBe("https://fermatmind.com/en/career/family/data-science");
+    expect(metadata.robots).toMatchObject({
+      index: true,
+      follow: true,
+    });
+  });
+
+  it("keeps zero-visible family pages valid but noindex", async () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
+
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFamilyHub", () => ({
+      fetchCareerFamilyHub: vi.fn(async () => ({
+        bundle_kind: "career_family_hub",
+        bundle_version: "career.protocol.family_hub.v1",
+        family: {
+          family_uuid: "fam_124",
+          canonical_slug: "compliance",
+          title_en: "Compliance",
+          title_zh: "合规",
+        },
+        visible_children: [],
+        counts: {
+          visible_children_count: 0,
+          publish_ready_count: 0,
+          blocked_override_eligible_count: 1,
+          blocked_not_safely_remediable_count: 2,
+          blocked_total: 3,
+        },
+      })),
+    }));
+
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/family/[slug]/page");
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "en", slug: "compliance" }),
+    });
+
+    expect(metadata.alternates?.canonical).toBe("https://fermatmind.com/en/career/family/compliance");
+    expect(metadata.robots).toMatchObject({
+      index: false,
+      follow: false,
+    });
+  });
+});

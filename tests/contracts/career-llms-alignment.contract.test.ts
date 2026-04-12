@@ -7,6 +7,56 @@ afterEach(() => {
 
 describe("career llms alignment contract", () => {
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
+    vi.doMock("@/lib/career/api/fetchCareerFamilyHub", () => ({
+      fetchCareerFamilyHub: vi.fn(async ({ slug }: { slug: string }) => {
+        if (slug === "data-science") {
+          return {
+            bundle_kind: "career_family_hub",
+            bundle_version: "career.protocol.family_hub.v1",
+            family: {
+              family_uuid: "fam_123",
+              canonical_slug: "data-science",
+              title_en: "Data Science",
+              title_zh: "数据科学",
+            },
+            visible_children: [
+              {
+                occupation_uuid: "occ_123",
+                canonical_slug: "data-scientist",
+                canonical_title_en: "Data Scientist",
+                canonical_title_zh: "数据科学家",
+              },
+            ],
+            counts: {
+              visible_children_count: 1,
+              publish_ready_count: 1,
+              blocked_override_eligible_count: 0,
+              blocked_not_safely_remediable_count: 0,
+              blocked_total: 0,
+            },
+          };
+        }
+
+        return {
+          bundle_kind: "career_family_hub",
+          bundle_version: "career.protocol.family_hub.v1",
+          family: {
+            family_uuid: "fam_124",
+            canonical_slug: "compliance",
+            title_en: "Compliance",
+            title_zh: "合规",
+          },
+          visible_children: [],
+          counts: {
+            visible_children_count: 0,
+            publish_ready_count: 0,
+            blocked_override_eligible_count: 0,
+            blocked_not_safely_remediable_count: 0,
+            blocked_total: 0,
+          },
+        };
+      }),
+    }));
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
       fetchCareerJobIndex: vi.fn(async () => ({ items: [] })),
     }));
@@ -61,12 +111,64 @@ describe("career llms alignment contract", () => {
     expect(text).toContain("https://fermatmind.com/en/career/jobs");
     expect(text).toContain("https://fermatmind.com/en/career/recommendations");
     expect(text).toContain("https://fermatmind.com/en/career/jobs/backend-architect");
+    expect(text).toContain("https://fermatmind.com/en/career/family/data-science");
     expect(text).toContain("https://fermatmind.com/en/career/recommendations/mbti/intj-a");
+    expect(text).not.toContain("https://fermatmind.com/en/career/family/compliance");
     expect(text).not.toContain("?q=");
     expect(text).not.toContain("/career/recommendations/big5/");
   });
 
   it("llms-full.txt reflects backend-owned Career detail routes and excludes query search urls", async () => {
+    vi.doMock("@/lib/career/api/fetchCareerFamilyHub", () => ({
+      fetchCareerFamilyHub: vi.fn(async ({ slug }: { slug: string }) => {
+        if (slug === "data-science") {
+          return {
+            bundle_kind: "career_family_hub",
+            bundle_version: "career.protocol.family_hub.v1",
+            family: {
+              family_uuid: "fam_123",
+              canonical_slug: "data-science",
+              title_en: "Data Science",
+              title_zh: "数据科学",
+            },
+            visible_children: [
+              {
+                occupation_uuid: "occ_123",
+                canonical_slug: "data-scientist",
+                canonical_title_en: "Data Scientist",
+                canonical_title_zh: "数据科学家",
+              },
+            ],
+            counts: {
+              visible_children_count: 1,
+              publish_ready_count: 1,
+              blocked_override_eligible_count: 0,
+              blocked_not_safely_remediable_count: 0,
+              blocked_total: 0,
+            },
+          };
+        }
+
+        return {
+          bundle_kind: "career_family_hub",
+          bundle_version: "career.protocol.family_hub.v1",
+          family: {
+            family_uuid: "fam_124",
+            canonical_slug: "compliance",
+            title_en: "Compliance",
+            title_zh: "合规",
+          },
+          visible_children: [],
+          counts: {
+            visible_children_count: 0,
+            publish_ready_count: 0,
+            blocked_override_eligible_count: 0,
+            blocked_not_safely_remediable_count: 0,
+            blocked_total: 0,
+          },
+        };
+      }),
+    }));
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
       fetchCareerJobIndex: vi.fn(async () => ({ items: [] })),
     }));
@@ -125,7 +227,9 @@ describe("career llms alignment contract", () => {
     expect(text).toContain("[en] Career jobs | https://fermatmind.com/en/career/jobs");
     expect(text).toContain("[en] Career recommendations | https://fermatmind.com/en/career/recommendations");
     expect(text).toContain("[en] Backend Architect | https://fermatmind.com/en/career/jobs/backend-architect");
+    expect(text).toContain("[en] Data Science | https://fermatmind.com/en/career/family/data-science");
     expect(text).toContain("[en] INTJ Career Match | https://fermatmind.com/en/career/recommendations/mbti/intj-a");
+    expect(text).not.toContain("[en] Compliance | https://fermatmind.com/en/career/family/compliance");
     expect(text).not.toContain("?q=");
     expect(text).not.toContain("/career/recommendations/big5/");
   });

@@ -74,6 +74,19 @@
       "notes": "Verify MBTI detail routing, attribution continuity, and backend explicit gate behavior."
     },
     {
+      "key": "career_family_hub_detail",
+      "route": "/career/family/[slug]",
+      "launchState": "candidate",
+      "authorityOwner": "backend_career_family_hub_bundle",
+      "renderMode": "render",
+      "canonicalMode": "self",
+      "robotsMode": "family_visibility_gate",
+      "requiresBackendExplicitGate": false,
+      "requiresLocalizedRoute": true,
+      "requiresNextStepOrPrimaryCta": false,
+      "notes": "Verify family identity renders, blocked rows stay counts-only, and zero-visible pages remain valid but stay out of discoverability."
+    },
+    {
       "key": "career_guides_index",
       "route": "/career/guides",
       "launchState": "candidate",

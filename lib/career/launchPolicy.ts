@@ -8,6 +8,7 @@ export type CareerLaunchRouteKey =
   | "career_landing"
   | "career_jobs_index"
   | "career_job_detail"
+  | "career_family_hub_detail"
   | "career_recommendations_index"
   | "career_mbti_recommendation_detail"
   | "career_guides_index"
@@ -35,7 +36,7 @@ export type CareerLaunchSmokeEntry = {
   authorityOwner: string | readonly string[];
   renderMode: "render" | "redirect";
   canonicalMode: "self" | "backend_explicit_gate" | "base_jobs" | "legacy_redirect";
-  robotsMode: "index" | "noindex" | "backend_explicit_gate";
+  robotsMode: "index" | "noindex" | "backend_explicit_gate" | "family_visibility_gate";
   requiresBackendExplicitGate: boolean;
   requiresLocalizedRoute: boolean;
   requiresNextStepOrPrimaryCta: boolean;
@@ -87,6 +88,13 @@ export const CAREER_STABLE_ROUTES = [
 ] as const satisfies readonly CareerLaunchRouteEntry[];
 
 export const CAREER_CANDIDATE_ROUTES = [
+  {
+    key: "career_family_hub_detail",
+    route: "/career/family/[slug]",
+    authorityOwner: "backend_career_family_hub_bundle",
+    rationale:
+      "Family hub detail routes are backend-owned candidate surfaces and should become discoverable only when the backend exposes at least one visible child.",
+  },
   {
     key: "career_guides_index",
     route: "/career/guides",
@@ -250,6 +258,20 @@ export const CAREER_LAUNCH_SMOKE_MATRIX = {
       requiresLocalizedRoute: true,
       requiresNextStepOrPrimaryCta: true,
       notes: "Verify MBTI detail routing, attribution continuity, and backend explicit gate behavior.",
+    },
+    {
+      key: "career_family_hub_detail",
+      route: "/career/family/[slug]",
+      launchState: "candidate",
+      authorityOwner: "backend_career_family_hub_bundle",
+      renderMode: "render",
+      canonicalMode: "self",
+      robotsMode: "family_visibility_gate",
+      requiresBackendExplicitGate: false,
+      requiresLocalizedRoute: true,
+      requiresNextStepOrPrimaryCta: false,
+      notes:
+        "Verify family identity renders, blocked rows stay counts-only, and zero-visible pages remain valid but stay out of discoverability.",
     },
     {
       key: "career_guides_index",
