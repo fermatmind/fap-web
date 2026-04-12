@@ -268,8 +268,8 @@ export default async function CareerJobsPage({
             <p className="m-0 text-sm text-[var(--fm-text-muted)]">
               {hasAmbiguousResolution
                 ? locale === "zh"
-                  ? `当前候选目标来自 backend authority resolver: “${submittedQuery}”。`
-                  : `These candidate targets come from the backend authority resolver for “${submittedQuery}”.`
+                  ? `当前查询命中了 backend authority resolver 的多目标结果： “${submittedQuery}”。`
+                  : `This query resolved to multiple backend-authoritative targets for “${submittedQuery}”.`
                 : locale === "zh"
                   ? `当前结果来自 backend B6 conservative search: “${submittedQuery}”。`
                   : `These results come from the backend B6 conservative search for “${submittedQuery}”.`}
