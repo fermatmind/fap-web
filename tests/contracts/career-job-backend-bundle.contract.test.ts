@@ -134,7 +134,7 @@ describe("career job backend bundle contract", () => {
     expect(detail?.authoritySource).toBe("career_backend_bundle.v0.5");
   });
 
-  it("adapts backend explainability into a machine-safe frontend dto without radar fields", () => {
+  it("adapts backend explainability into a machine-safe frontend dto with allowlisted strain radar only", () => {
     const explainability = adaptCareerJobExplainability({
       summary_kind: "career_explainability",
       summary_version: "career.explainability.v1",
@@ -154,6 +154,21 @@ describe("career job backend bundle contract", () => {
           components: { demand: 0.4, capability: 0.38 },
           penalties: [{ code: "trust_limited", value: -0.08, reason: "partial_data" }],
           degradation_factor: 0.9,
+        },
+      },
+      strain_radar: {
+        integrity_state: "restricted",
+        confidence_cap: 0.72,
+        degradation_factor: 0.84,
+        formula_version: "career.strain_v1.2",
+        axes: {
+          people_friction: { value: 0.61 },
+          context_switch_load: { value: 0.52 },
+          political_load: { value: 0.47 },
+          uncertainty_load: { value: 0.58 },
+          low_autonomy_trap: { value: 0.41 },
+          repetition_mismatch: { value: 0.33 },
+          environment_fit: { value: 0.11 },
         },
       },
       warnings: {
@@ -187,7 +202,21 @@ describe("career job backend bundle contract", () => {
       value: -0.08,
       reason: "partial_data",
     });
-    expect(explainability).not.toHaveProperty("strainRadar");
+    expect(explainability?.strainRadar).toEqual({
+      integrityState: "restricted",
+      confidenceCap: 0.72,
+      degradationFactor: 0.84,
+      formulaVersion: "career.strain_v1.2",
+      axes: {
+        peopleFriction: { value: 0.61 },
+        contextSwitchLoad: { value: 0.52 },
+        politicalLoad: { value: 0.47 },
+        uncertaintyLoad: { value: 0.58 },
+        lowAutonomyTrap: { value: 0.41 },
+        repetitionMismatch: { value: 0.33 },
+      },
+    });
+    expect(explainability?.strainRadar?.axes).not.toHaveProperty("environmentFit");
   });
 
   it("career job detail page wires explainability through the dedicated fetch and panel only", () => {

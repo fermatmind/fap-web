@@ -171,7 +171,7 @@ describe("career recommendation public contract", () => {
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
-  it("adapts backend recommendation explainability into a machine-safe dto without radar semantics", () => {
+  it("adapts backend recommendation explainability into a machine-safe dto with allowlisted strain radar only", () => {
     const explainability = adaptCareerRecommendationExplainability({
       summary_kind: "career_explainability",
       summary_version: "career.explainability.v1",
@@ -195,6 +195,21 @@ describe("career recommendation public contract", () => {
           components: { ambiguity: 0.21, interruption: 0.2 },
           penalties: [{ code: "partial_data", value: -0.1, reason: "team_shape" }],
           degradation_factor: 0.84,
+        },
+      },
+      strain_radar: {
+        integrity_state: "provisional",
+        confidence_cap: 0.81,
+        degradation_factor: 0.84,
+        formula_version: "career.strain_v1.2",
+        axes: {
+          people_friction: { value: 0.44 },
+          context_switch_load: { value: 0.38 },
+          political_load: { value: 0.29 },
+          uncertainty_load: { value: 0.41 },
+          low_autonomy_trap: { value: 0.27 },
+          repetition_mismatch: { value: 0.19 },
+          environment_mismatch: { value: 0.73 },
         },
       },
       warnings: {
@@ -223,7 +238,21 @@ describe("career recommendation public contract", () => {
       ambiguity: 0.21,
       interruption: 0.2,
     });
-    expect(explainability).not.toHaveProperty("strainRadar");
+    expect(explainability?.strainRadar).toEqual({
+      integrityState: "provisional",
+      confidenceCap: 0.81,
+      degradationFactor: 0.84,
+      formulaVersion: "career.strain_v1.2",
+      axes: {
+        peopleFriction: { value: 0.44 },
+        contextSwitchLoad: { value: 0.38 },
+        politicalLoad: { value: 0.29 },
+        uncertaintyLoad: { value: 0.41 },
+        lowAutonomyTrap: { value: 0.27 },
+        repetitionMismatch: { value: 0.19 },
+      },
+    });
+    expect(explainability?.strainRadar?.axes).not.toHaveProperty("environmentMismatch");
   });
 
   it("career recommendation detail page reads the backend bundle path and blocks CMS fallback authority", () => {

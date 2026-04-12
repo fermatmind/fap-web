@@ -383,8 +383,8 @@ export default async function CareerJobDetailPage({
           title={locale === "zh" ? "结构化 explainability" : "Structured explainability"}
           subtitle={
             locale === "zh"
-              ? "只展示 backend explainability authority payload 的结构化字段，不在前端扩写为建议、策略或 radar。"
-              : "This section renders structured fields from the backend explainability authority payload only, without frontend advice, strategy expansion, or radar semantics."
+              ? "只展示 backend explainability authority payload 的结构化字段与受限 strain radar，不在前端扩写为建议或策略。"
+              : "This section renders structured fields and bounded strain-radar data from the backend explainability authority payload only, without frontend advice or strategy expansion."
           }
           testId="career-job-explainability-panel"
         />

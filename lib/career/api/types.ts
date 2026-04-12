@@ -62,6 +62,18 @@ export type CareerExplainabilityScoreDimensionResponseRaw = {
   degradation_factor?: unknown;
 };
 
+export type CareerExplainabilityStrainRadarAxisResponseRaw = {
+  value?: unknown;
+};
+
+export type CareerExplainabilityStrainRadarResponseRaw = {
+  integrity_state?: unknown;
+  confidence_cap?: unknown;
+  degradation_factor?: unknown;
+  formula_version?: unknown;
+  axes?: unknown;
+};
+
 export type CareerExplainabilityResponseRaw = {
   data?: unknown;
   summary_kind?: unknown;
@@ -69,6 +81,7 @@ export type CareerExplainabilityResponseRaw = {
   subject_kind?: unknown;
   subject_identity?: unknown;
   score_bundle?: unknown;
+  strain_radar?: unknown;
   warnings?: unknown;
   claim_permissions?: unknown;
   integrity_summary?: unknown;
