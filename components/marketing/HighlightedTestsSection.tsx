@@ -21,6 +21,7 @@ import {
   listMbtiFormMetas,
   resolveMbtiFormMeta,
 } from "@/lib/mbti/forms";
+import type { ProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { isPublicTestEntryVisible } from "@/lib/tests/publicTestEntryVisibility";
 
 export type HomeHighlightedCard =
@@ -311,9 +312,11 @@ function resolveCardStatus(
 export function HighlightedTestsSection({
   locale,
   cards,
+  productPriority,
 }: {
   locale: Locale;
   cards: HomeHighlightedCard[];
+  productPriority?: ProductPriorityEnvSnapshot;
 }) {
   const copy = SECTION_COPY[locale];
   const withLocale = (path: string) => localizedPath(path, locale);
@@ -323,9 +326,15 @@ export function HighlightedTestsSection({
     () =>
       cards.filter(
         (card): card is Extract<HomeHighlightedCard, { kind: "live" }> =>
-          card.kind === "live" && isPublicTestEntryVisible({ slug: card.slug })
+          card.kind === "live"
+          && isPublicTestEntryVisible({ slug: card.slug })
+          && (
+            !productPriority?.mbtiPriorityMode
+            || isMbtiSlug(card.slug)
+            || isBig5Slug(card.slug)
+          )
       ),
-    [cards]
+    [cards, productPriority?.mbtiPriorityMode]
   );
 
   const hydrationReady = useSyncExternalStore(

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cookies, headers } from "next/headers";
 import { notFound, permanentRedirect } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
@@ -131,15 +130,6 @@ function parseFaq(value: unknown): FAQItem[] {
     }
   }
   return out;
-}
-
-async function resolveRequestAnonId(): Promise<string | undefined> {
-  const [cookieStore, headerStore] = await Promise.all([cookies(), headers()]);
-  const fromCookie = cookieStore.get("fap_anonymous_id_v1")?.value?.trim();
-  if (fromCookie) return fromCookie;
-
-  const fromHeader = headerStore.get("x-anon-id")?.trim() ?? "";
-  return fromHeader || undefined;
 }
 
 async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupResponse | null> {
@@ -459,8 +449,6 @@ export default async function TestLandingPage({
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
   const reportNode = toRecord(toRecord(lookup?.report_summary_i18n_json)[locale]);
-  const anonId = await resolveRequestAnonId();
-
   const landingCopy = toStringValue(langNode.landing_copy);
   const disclaimer = toStringValue(langNode.disclaimer);
   const reportSummary = toStringValue(reportNode.summary);
@@ -468,7 +456,6 @@ export default async function TestLandingPage({
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode | undefined,
     capabilities: lookup?.capabilities,
-    anonId,
     envSnapshot: createScaleRolloutEnvSnapshot(),
   });
   const testDisabled = !rollout.assessmentEnabled;

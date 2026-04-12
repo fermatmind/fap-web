@@ -17,9 +17,28 @@ import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
 } from "@/lib/navigation/headerDropdownMenus";
+import type { ProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { cn } from "@/lib/utils";
 
-export function SiteHeader() {
+function shouldHideNavItem(
+  item: { key: HeaderNavKey; href: string; label: string },
+  flags: ProductPriorityEnvSnapshot
+): boolean {
+  return item.key === "articles" && !flags.articlesEnabled;
+}
+
+function shouldHideMenuHref(href: string, flags: ProductPriorityEnvSnapshot): boolean {
+  if (!flags.articlesEnabled && href.startsWith("/articles")) return true;
+  if (!flags.topicsEnabled && href.startsWith("/topics")) return true;
+  if (!flags.careerRecommendEnabled && href.startsWith("/career/recommendations")) return true;
+  return false;
+}
+
+export function SiteHeader({
+  productPriority,
+}: {
+  productPriority?: ProductPriorityEnvSnapshot;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileExpandedKey, setMobileExpandedKey] = useState<HeaderNavKey | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<HeaderNavKey | null>(null);
@@ -45,21 +64,32 @@ export function SiteHeader() {
   const localeQuery = searchParams.toString();
   const localeHref = localeQuery ? `${localeBasePath}?${localeQuery}` : localeBasePath;
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
+  const priorityFlags: ProductPriorityEnvSnapshot = productPriority ?? {
+    mbtiPriorityMode: false,
+    sbtiEnabled: true,
+    articlesEnabled: true,
+    topicsEnabled: true,
+    careerRecommendEnabled: true,
+  };
 
-  const navItems: Array<{ key: HeaderNavKey; href: string; label: string }> = [
+  const navItems = [
     { key: "tests", href: "/tests", label: dict.header.tests },
     { key: "articles", href: "/articles", label: dict.header.articles },
     { key: "personality", href: "/personality", label: dict.header.personality },
     { key: "career", href: "/career", label: dict.header.career },
     { key: "help", href: "/help", label: dict.header.help },
     { key: "business", href: "/business", label: dict.header.business },
-  ];
+  ] satisfies Array<{ key: HeaderNavKey; href: string; label: string }>;
+  const visibleNavItems = navItems.filter((item) => !shouldHideNavItem(item, priorityFlags));
 
   const dropdownMenuMap = useMemo(() => {
     return Object.fromEntries(
-      getHeaderDropdownMenus(locale).map((menu) => [menu.key, menu.items])
+      getHeaderDropdownMenus(locale).map((menu) => [
+        menu.key,
+        menu.items.filter((item) => !shouldHideMenuHref(item.href, priorityFlags)),
+      ])
     ) as Record<HeaderNavKey, Array<{ href: string; label: string }>>;
-  }, [locale]);
+  }, [locale, priorityFlags]);
   const startButtonClass =
     "inline-flex h-9 min-h-[36px] shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-white/12 bg-[#e6ece8] px-4 text-[13px] font-semibold text-[#121923] shadow-none transition hover:bg-[#f1f5f2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
 
@@ -225,7 +255,7 @@ export function SiteHeader() {
             <nav
               className="flex min-w-0 flex-1 flex-nowrap items-center justify-end gap-2.5 xl:gap-3.5"
             >
-              {navItems.map((item) => {
+              {visibleNavItems.map((item) => {
                 const menuId = `header-dropdown-${item.key}`;
                 const triggerId = `header-trigger-${item.key}`;
                 const isOpen = activeDropdown === item.key;
@@ -375,7 +405,7 @@ export function SiteHeader() {
                   </Link>
                 ) : null}
 
-                {navItems.map((item) => {
+                {visibleNavItems.map((item) => {
                   const isExpanded = mobileExpandedKey === item.key;
                   const menuItems = dropdownMenuMap[item.key] ?? [];
 
