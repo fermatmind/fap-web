@@ -1,8 +1,14 @@
+import type {
+  CareerFirstWaveLaunchTier,
+  CareerFirstWaveLaunchTierSummaryAdapter,
+} from "@/lib/career/adapters/types";
 import { isCareerJobsQueryPage, stripLocalePrefix } from "@/lib/seo/indexingPolicy";
 
 export const CAREER_LAUNCH_STATES = ["stable", "candidate", "hold", "noindex"] as const;
 
 export type CareerLaunchState = (typeof CAREER_LAUNCH_STATES)[number];
+export const CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS = ["career_job_detail"] as const;
+export type CareerLaunchTierAuthorityRouteKey = (typeof CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS)[number];
 
 export type CareerLaunchRouteKey =
   | "career_landing"
@@ -469,4 +475,29 @@ export function getCareerLaunchManifestRouteKeys(): CareerLaunchRouteKey[] {
     ...CAREER_HOLD_ROUTES,
     ...CAREER_NOINDEX_ROUTES,
   ].map((entry) => entry.key);
+}
+
+export function isCareerLaunchTierAuthorityRouteKey(
+  key: CareerLaunchRouteKey | null | undefined
+): key is CareerLaunchTierAuthorityRouteKey {
+  return key === "career_job_detail";
+}
+
+export function getCareerOccupationLaunchTier(
+  summary: CareerFirstWaveLaunchTierSummaryAdapter | null,
+  slug: string | null | undefined
+): CareerFirstWaveLaunchTier | null {
+  const normalizedSlug = String(slug ?? "").trim().toLowerCase();
+  if (!summary || !normalizedSlug) {
+    return null;
+  }
+
+  return summary.launchTierBySlug[normalizedSlug] ?? null;
+}
+
+export function isCareerJobDetailStableByLaunchTier(
+  summary: CareerFirstWaveLaunchTierSummaryAdapter | null,
+  slug: string | null | undefined
+): boolean {
+  return getCareerOccupationLaunchTier(summary, slug) === "stable";
 }

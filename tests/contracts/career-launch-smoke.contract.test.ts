@@ -1,7 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { CAREER_LAUNCH_SMOKE_MATRIX } from "@/lib/career/launchPolicy";
+import {
+  CAREER_LAUNCH_SMOKE_MATRIX,
+  isCareerLaunchTierAuthorityRouteKey,
+} from "@/lib/career/launchPolicy";
 
 const ROOT = process.cwd();
 
@@ -87,5 +90,11 @@ describe("career launch smoke contract", () => {
     expect(recommendationDetailPage).toContain("detail.seoContract.indexEligible");
     expect(legacySlugPage).toContain("getCareerJobFromCmsBySlug");
     expect(big5DetailPage).toContain("listBig5RecommendationTraits");
+  });
+
+  it("keeps B34 launch-tier authority out of family and recommendation runtime route classes", () => {
+    expect(isCareerLaunchTierAuthorityRouteKey("career_job_detail")).toBe(true);
+    expect(isCareerLaunchTierAuthorityRouteKey("career_family_hub_detail")).toBe(false);
+    expect(isCareerLaunchTierAuthorityRouteKey("career_mbti_recommendation_detail")).toBe(false);
   });
 });

@@ -2,11 +2,14 @@ import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
+import { adaptCareerFirstWaveLaunchTierSummary } from "@/lib/career/adapters/adaptCareerFirstWaveLaunchTierSummary";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
+import { fetchCareerFirstWaveLaunchTierSummary } from "@/lib/career/api/fetchCareerFirstWaveLaunchTierSummary";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
+import { isCareerJobDetailStableByLaunchTier } from "@/lib/career/launchPolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
@@ -38,6 +41,17 @@ function shouldKeepCareerAuthorityRoute(item: {
     indexEligible: item.seoContract.indexEligible,
     indexState: item.seoContract.indexState,
   });
+}
+
+function extractCareerJobSlug(item: { identity?: { canonicalSlug?: string | null }; href?: string | null }): string | null {
+  const identitySlug = String(item.identity?.canonicalSlug ?? "").trim().toLowerCase();
+  if (identitySlug) {
+    return identitySlug;
+  }
+
+  const href = String(item.href ?? "").trim();
+  const match = href.match(/\/career\/jobs\/([^/?#]+)$/i);
+  return match ? String(match[1]).trim().toLowerCase() || null : null;
 }
 
 function publishedPersonalityVariantSlugs(value: string): string[] {
@@ -129,6 +143,8 @@ export async function GET() {
   const [
     enCareerJobs,
     zhCareerJobs,
+    enLaunchTierSummary,
+    zhLaunchTierSummary,
     enCareerGuides,
     zhCareerGuides,
     enCareerRecommendations,
@@ -146,6 +162,12 @@ export async function GET() {
     fetchCareerJobIndex({ locale: "zh" })
       .then((payload) => adaptCareerJobIndex({ locale: "zh", payload }))
       .catch(() => []),
+    fetchCareerFirstWaveLaunchTierSummary({ locale: "en" })
+      .then((payload) => adaptCareerFirstWaveLaunchTierSummary({ payload }))
+      .catch(() => null),
+    fetchCareerFirstWaveLaunchTierSummary({ locale: "zh" })
+      .then((payload) => adaptCareerFirstWaveLaunchTierSummary({ payload }))
+      .catch(() => null),
     listCareerGuidesFromCms("en").catch(() => []),
     listCareerGuidesFromCms("zh").catch(() => []),
     fetchCareerRecommendationIndex({ locale: "en" })
@@ -193,8 +215,20 @@ export async function GET() {
     "/zh/career/tests",
     "/en/career/tests/riasec",
     "/zh/career/tests/riasec",
-    ...enCareerJobs.filter(shouldKeepCareerAuthorityRoute).map((job) => job.href),
-    ...zhCareerJobs.filter(shouldKeepCareerAuthorityRoute).map((job) => job.href),
+    ...enCareerJobs
+      .filter(
+        (job) =>
+          shouldKeepCareerAuthorityRoute(job) &&
+          isCareerJobDetailStableByLaunchTier(enLaunchTierSummary, extractCareerJobSlug(job))
+      )
+      .map((job) => job.href),
+    ...zhCareerJobs
+      .filter(
+        (job) =>
+          shouldKeepCareerAuthorityRoute(job) &&
+          isCareerJobDetailStableByLaunchTier(zhLaunchTierSummary, extractCareerJobSlug(job))
+      )
+      .map((job) => job.href),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...guideEntries,
     ...enCareerFamilies,

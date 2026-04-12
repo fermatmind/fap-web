@@ -317,6 +317,25 @@ function normalizeNumber(value) {
   return 0;
 }
 
+function normalizeLaunchTier(value) {
+  const normalized = normalizeSlug(value).toLowerCase();
+  if (normalized === "stable" || normalized === "candidate" || normalized === "hold") {
+    return normalized;
+  }
+  return null;
+}
+
+function extractCareerJobSlugFromAuthorityItem(item) {
+  const identitySlug = normalizeSlug(item?.identity?.canonical_slug).toLowerCase();
+  if (identitySlug) {
+    return identitySlug;
+  }
+
+  const canonicalPath = normalizePath(item?.seo_contract?.canonical_path || "");
+  const match = canonicalPath.match(/\/career\/jobs\/([^/?#]+)$/i);
+  return match ? normalizeSlug(match[1]).toLowerCase() : "";
+}
+
 async function fetchJsonWithTimeout(url, timeoutMs = 1500) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -439,13 +458,29 @@ async function buildCareerJobDetailPathsFromAuthority() {
     const paths = new Set();
 
     for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+      const launchTierParams = new URLSearchParams({ locale: apiLocale });
+      const launchTierPayload = await fetchJsonWithTimeout(
+        `${buildApiUrl("/v0.5/career/first-wave/launch-tier")}?${launchTierParams.toString()}`
+      );
+      const launchTierBySlug = new Map();
+      const launchTierRows = Array.isArray(launchTierPayload?.occupations) ? launchTierPayload.occupations : [];
+
+      for (const row of launchTierRows) {
+        const slug = normalizeSlug(row?.canonical_slug).toLowerCase();
+        const launchTier = normalizeLaunchTier(row?.launch_tier);
+        if (slug && launchTier) {
+          launchTierBySlug.set(slug, launchTier);
+        }
+      }
+
       const params = new URLSearchParams({ locale: apiLocale });
       const payload = await fetchJsonWithTimeout(`${buildApiUrl("/v0.5/career/jobs")}?${params.toString()}`);
       const items = extractAuthorityItems(payload);
 
       for (const item of items) {
-        const slug = normalizeSlug(item?.identity?.canonical_slug);
+        const slug = extractCareerJobSlugFromAuthorityItem(item);
         if (!slug) continue;
+        if (launchTierBySlug.get(slug) !== "stable") continue;
         const path = buildLocalizedAuthorityCareerPath(
           localePrefix,
           item?.seo_contract?.canonical_path,
