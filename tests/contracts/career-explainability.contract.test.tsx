@@ -234,6 +234,42 @@ describe("career explainability contract", () => {
         },
       })),
     }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveNextStepLinks", () => ({
+      fetchCareerFirstWaveNextStepLinks: vi.fn(async () => ({
+        summary_kind: "career_first_wave_next_step_links",
+        summary_version: "career.next_step.first_wave.v1",
+        scope: "career_first_wave_10",
+        subject_kind: "occupation",
+        subject_identity: {
+          occupation_uuid: "occ_software_developer",
+          canonical_slug: "software-developer",
+          canonical_title_en: "Software Developer",
+        },
+        counts: {
+          total: 2,
+          job_detail: 1,
+          family_hub: 1,
+        },
+        next_step_links: [
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/software-engineering",
+            canonical_slug: "software-engineering",
+            link_reason_code: "family_hub_discoverable",
+            family_uuid: "fam_software_engineering",
+            title_en: "Software Engineering",
+          },
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/backend-architect",
+            canonical_slug: "backend-architect",
+            link_reason_code: "same_family_sibling_discoverable",
+            occupation_uuid: "occ_backend_architect",
+            canonical_title_en: "Backend Architect",
+          },
+        ],
+      })),
+    }));
 
     const { default: CareerJobDetailPage } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
     const page = await CareerJobDetailPage({
@@ -245,6 +281,11 @@ describe("career explainability contract", () => {
     expect(html).toContain("Structured explainability");
     expect(html).toContain("career-explainability-strain-radar");
     expect(html).toContain("People friction");
+    expect(html).toContain("career-job-next-step-links");
+    expect(html).toContain("Next-step links");
+    expect(html).toContain("Software Engineering");
+    expect(html).toContain("Backend Architect");
     expect(html).not.toContain("environment_fit");
+    expect(html.indexOf("career-job-explainability-panel")).toBeLessThan(html.indexOf("career-job-next-step-links"));
   });
 });

@@ -70,9 +70,12 @@ describe("career routing cleanup contract", () => {
 
     expect(source).toContain("career-job-protocol-status");
     expect(source).toContain("career-job-claim-gated-status");
+    expect(source).toContain("career-job-next-step-links");
     expect(source).toContain("renderState.canRenderSalarySurface");
     expect(source).toContain("renderState.canRenderFitSurface");
     expect(source).toContain("renderState.canRenderAnswerSurface");
+    expect(source).not.toContain("CareerTransitionPreviewCard");
+    expect(source).not.toContain("best next move");
   });
 
   it("machine-readable routes keep public career recommendations and skip private flows", () => {
