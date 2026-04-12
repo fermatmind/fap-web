@@ -3,8 +3,11 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { CareerTransitionPreviewCard } from "@/components/career/CareerTransitionPreviewCard";
+import { TrustStrip } from "@/components/career/TrustStrip";
+import { WarningBanner } from "@/components/career/WarningBanner";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
@@ -422,6 +425,23 @@ export default async function CareerMbtiRecommendationPage({
         </div>
       </section>
 
+      <TrustStrip
+        locale={locale}
+        reviewerStatus={detail.trustManifest?.reviewer.reviewer_status}
+        indexState={detail.seoContract.indexState}
+        reasonCodes={detail.claimPermissions.reason_codes}
+        contentVersion={detail.provenanceMeta.contentVersion}
+        dataVersion={detail.provenanceMeta.dataVersion}
+        logicVersion={detail.provenanceMeta.logicVersion}
+        compilerVersion={detail.provenanceMeta.compilerVersion}
+        compiledAt={detail.provenanceMeta.compiledAt}
+        compileRunId={detail.provenanceMeta.compileRunId}
+        truthMetricId={detail.provenanceMeta.truthMetricId}
+        trustManifestId={detail.provenanceMeta.trustManifestId}
+        indexStateId={detail.provenanceMeta.indexStateId}
+        testId="career-recommendation-trust-strip"
+      />
+
       <MbtiSceneEntrySection
         locale={locale}
         sourcePageType="career_recommendation_detail"
@@ -429,7 +449,7 @@ export default async function CareerMbtiRecommendationPage({
         testId="career-recommendation-scene-entry"
       />
 
-      {renderState.canRenderStrongTruth ? (
+      <ClaimGuard allowed={renderState.canRenderStrongTruth}>
         <section
           className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
           data-testid="career-recommendation-type-interpretation"
@@ -452,7 +472,7 @@ export default async function CareerMbtiRecommendationPage({
             <ScoreCard title="Confidence" value={detail.scoreBundle.confidenceScore.value} integrity={detail.scoreBundle.confidenceScore.integrity_state} />
           </div>
         </section>
-      ) : null}
+      </ClaimGuard>
 
       {transitionPreview ? (
         <CareerTransitionPreviewCard
@@ -462,33 +482,12 @@ export default async function CareerMbtiRecommendationPage({
         />
       ) : null}
 
-      {(detail.warnings.redFlags.length > 0 || detail.warnings.amberFlags.length > 0 || detail.warnings.blockedClaims.length > 0) ? (
-        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "显式警告与限制" : "Explicit warnings and limits"}
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3 text-sm text-[var(--fm-text-muted)]">
-            <div>
-              <p className="m-0 font-medium text-[var(--fm-text)]">Red flags</p>
-              <ul className="mt-2 space-y-1 pl-5">
-                {detail.warnings.redFlags.length > 0 ? detail.warnings.redFlags.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
-              </ul>
-            </div>
-            <div>
-              <p className="m-0 font-medium text-[var(--fm-text)]">Amber flags</p>
-              <ul className="mt-2 space-y-1 pl-5">
-                {detail.warnings.amberFlags.length > 0 ? detail.warnings.amberFlags.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
-              </ul>
-            </div>
-            <div>
-              <p className="m-0 font-medium text-[var(--fm-text)]">Blocked claims</p>
-              <ul className="mt-2 space-y-1 pl-5">
-                {detail.warnings.blockedClaims.length > 0 ? detail.warnings.blockedClaims.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
-              </ul>
-            </div>
-          </div>
-        </section>
-      ) : null}
+      <WarningBanner
+        locale={locale}
+        warnings={detail.warnings}
+        title={locale === "zh" ? "显式警告与限制" : "Explicit warnings and limits"}
+        testId="career-recommendation-warning-banner"
+      />
 
       {(detail.supportingTruthSummary.summary || detail.supportingTruthSummary.medianPayUsdAnnual !== null || detail.supportingTruthSummary.outlookPct20242034 !== null || detail.supportingTruthSummary.aiExposure !== null) ? (
         <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
@@ -629,25 +628,6 @@ export default async function CareerMbtiRecommendationPage({
         </div>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "Trust 与 provenance" : "Trust and provenance"}
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2 text-sm text-[var(--fm-text-muted)]">
-          <div className="space-y-2">
-            <p className="m-0">reviewer_status: {detail.trustManifest?.reviewer.reviewer_status ?? "unknown"}</p>
-            <p className="m-0">content_version: {detail.provenanceMeta.contentVersion}</p>
-            <p className="m-0">data_version: {detail.provenanceMeta.dataVersion}</p>
-            <p className="m-0">logic_version: {detail.provenanceMeta.logicVersion}</p>
-          </div>
-          <div className="space-y-2">
-            <p className="m-0">compiler_version: {detail.provenanceMeta.compilerVersion ?? "unknown"}</p>
-            <p className="m-0">compiled_at: {detail.provenanceMeta.compiledAt ?? "unknown"}</p>
-            <p className="m-0">compile_run_id: {detail.provenanceMeta.compileRunId ?? "unknown"}</p>
-            <p className="m-0">trust_manifest_id: {detail.provenanceMeta.trustManifestId ?? "unknown"}</p>
-          </div>
-        </div>
-      </section>
     </Container>
   );
 }

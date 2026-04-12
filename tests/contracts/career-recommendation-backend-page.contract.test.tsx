@@ -100,7 +100,9 @@ describe("career recommendation backend page contract", () => {
 
     expect(html).toContain("mbti-career-continuity-entry");
     expect(html).toContain("mbti-career-primary-cta");
+    expect(html).toContain("career-recommendation-trust-strip");
     expect(html).toContain("career-recommendation-type-interpretation");
+    expect(html).toContain("career-recommendation-warning-banner");
     expect(html).toContain("career-recommendation-matched-jobs-status");
     expect(html).toContain("INTJ-A");
     expect(html).not.toContain("Matched role matrix");

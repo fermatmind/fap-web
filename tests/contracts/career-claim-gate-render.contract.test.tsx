@@ -18,11 +18,16 @@ describe("career claim gate render contract", () => {
         </a>
       ),
     }));
-    vi.doMock("next/navigation", () => ({
-      notFound: vi.fn(() => {
-        throw new Error("not-found");
-      }),
-    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        usePathname: vi.fn(() => "/en/career/jobs/product-manager"),
+      };
+    });
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
     }));
@@ -64,6 +69,7 @@ describe("career claim gate render contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("career-job-protocol-status");
+    expect(html).toContain("career-job-trust-strip");
     expect(html).toContain("Career claim gate");
     expect(html).not.toContain("$150,000");
     expect(html).not.toContain("Ten-year outlook");
