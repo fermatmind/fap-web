@@ -193,9 +193,10 @@ describe("career recommendation backend page contract", () => {
           display_title: "INTJ-A Architect",
         },
         counts: {
-          total: 2,
+          total: 3,
           job_detail: 1,
           family_hub: 1,
+          test_landing: 1,
         },
         companion_links: [
           {
@@ -213,6 +214,13 @@ describe("career recommendation backend page contract", () => {
             link_reason_code: "target_job_detail_companion",
             occupation_uuid: "occ_123",
             canonical_title_en: "Data Scientist",
+          },
+          {
+            route_kind: "test_landing",
+            canonical_path: "/tests/mbti-personality-test-16-personality-types",
+            canonical_slug: "mbti-personality-test-16-personality-types",
+            link_reason_code: "recommendation_test_support",
+            scale_code: "MBTI",
           },
         ],
       })),
@@ -250,6 +258,8 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("Companion links");
     expect(html).toContain("Data and Research");
     expect(html).toContain("Data Scientist");
+    expect(html).toContain("Related test");
+    expect(html).toContain("MBTI personality test");
     expect(html).toContain("INTJ-A");
     expect(html).toContain("People friction");
     expect(html).not.toContain("Matched role matrix");
@@ -261,6 +271,9 @@ describe("career recommendation backend page contract", () => {
     expect(html).not.toContain("bridge_steps_90d");
     expect(html).not.toContain("target_family_hub_companion");
     expect(html).not.toContain("target_job_detail_companion");
+    expect(html).not.toContain("recommendation_test_support");
+    expect(html).not.toContain("topic_detail");
+    expect(html).not.toContain("take this test now");
     expect(html).not.toContain("strongest");
   });
 
