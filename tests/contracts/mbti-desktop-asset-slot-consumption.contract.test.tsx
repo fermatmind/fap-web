@@ -401,4 +401,36 @@ describe("MBTI desktop asset slot consumption contract", () => {
     expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-mode", "placeholder");
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toHaveAttribute("data-slot-mode", "placeholder");
   });
+
+  it("keeps the shell readable when a Tencent-hosted hero asset has no local fallback", async () => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce({
+      ...createStoragePayload("INFJ-A", "hero-illustration"),
+      assetSlots: [
+        {
+          slotId: "hero-illustration",
+          label: "Hero illustration",
+          aspectRatio: "236:160",
+          status: "ready",
+          assetRef: {
+            provider: "cdn",
+            path: null,
+            url: "https://fermatmind-1316873116.cos.ap-shanghai.myqcloud.com/mbti/desktop/hero/infj-a/v5.webp",
+            version: "v5",
+            checksum: "sha256:v5",
+          },
+          alt: "Tencent hero",
+          meta: null,
+        },
+      ],
+    });
+
+    renderShell("INFJ-A");
+
+    await waitFor(() => {
+      expect(screen.getByText("hero INFJ-A")).toBeInTheDocument();
+    });
+
+    const heroSlot = screen.getByTestId("mbti-asset-slot-hero");
+    expect(heroSlot).toHaveAttribute("data-slot-mode", "placeholder");
+  });
 });

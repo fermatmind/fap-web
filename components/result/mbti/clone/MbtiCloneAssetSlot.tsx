@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import {
   getCloneAssetSlot,
   resolveAssetSlotUrl,
+  shouldSkipRemoteCloneAssetLoad,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.assets";
 import type { MbtiDesktopCloneAssetSlotId } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
@@ -38,12 +39,20 @@ export function MbtiCloneAssetSlot({
   );
 
   const resolvedUrl = useMemo(() => resolveAssetSlotUrl(slot), [slot]);
+  const skipRemoteAssetLoad = useMemo(
+    () => shouldSkipRemoteCloneAssetLoad(slot),
+    [slot],
+  );
+
+  useEffect(() => {
+    setAssetLoadFailed(false);
+  }, [resolvedUrl]);
 
   const slotLabel = slot?.label?.trim() || fallbackLabel;
   const slotAlt = slot?.alt?.trim() || slotLabel;
   const mode: "ready" | "placeholder" | "disabled" = slot?.status === "disabled"
     ? "disabled"
-    : slot?.status === "ready" && !assetLoadFailed && Boolean(resolvedUrl)
+    : slot?.status === "ready" && !assetLoadFailed && !skipRemoteAssetLoad && Boolean(resolvedUrl)
       ? "ready"
       : "placeholder";
   const showSlotLabel = mode === "ready";

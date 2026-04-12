@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest";
 import {
   getCloneAssetSlot,
   indexAssetSlotsById,
+  isTencentAssetUrl,
   resolveAssetSlotUrl,
+  shouldSkipRemoteCloneAssetLoad,
   type CloneResolvedAssetSlot,
 } from "@/components/result/mbti/clone/mbtiDesktopClone.assets";
 import { MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
@@ -143,5 +145,42 @@ describe("MBTI desktop clone asset slot api contract", () => {
     const readyBroken = getCloneAssetSlot(slots, "hero-illustration");
     expect(readyBroken?.status).toBe("ready");
     expect(resolveAssetSlotUrl(readyBroken)).toBeNull();
+  });
+
+  it("falls back to same-origin path when a Tencent url is paired with a local asset path", () => {
+    const slots = createAssetSlots();
+    slots[0] = {
+      ...slots[0],
+      assetRef: {
+        provider: "cdn",
+        path: "storage/content_assets/mbti/desktop/hero/infj-a/v3.webp",
+        url: "https://fermatmind-1316873116.cos.ap-shanghai.myqcloud.com/mbti/desktop/hero/infj-a/v3.webp",
+        version: "v3",
+        checksum: "sha256:v3",
+      },
+    };
+
+    const ready = getCloneAssetSlot(slots, "hero-illustration");
+    expect(isTencentAssetUrl(slots[0]?.assetRef?.url)).toBe(true);
+    expect(resolveAssetSlotUrl(ready)).toBe("/storage/content_assets/mbti/desktop/hero/infj-a/v3.webp");
+    expect(shouldSkipRemoteCloneAssetLoad(ready)).toBe(false);
+  });
+
+  it("returns null and skips remote loading when a Tencent url has no safe fallback path", () => {
+    const slots = createAssetSlots();
+    slots[0] = {
+      ...slots[0],
+      assetRef: {
+        provider: "cdn",
+        path: null,
+        url: "https://fermatmind-1316873116.cos.ap-shanghai.myqcloud.com/mbti/desktop/hero/infj-a/v4.webp",
+        version: "v4",
+        checksum: "sha256:v4",
+      },
+    };
+
+    const ready = getCloneAssetSlot(slots, "hero-illustration");
+    expect(resolveAssetSlotUrl(ready)).toBeNull();
+    expect(shouldSkipRemoteCloneAssetLoad(ready)).toBe(true);
   });
 });

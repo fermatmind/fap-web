@@ -726,7 +726,7 @@ export function MbtiResultShell({
     locale: Locale;
     fullCode: string;
     content: MbtiDesktopCloneContent | null;
-    assetSlots: PersonalityDesktopCloneAssetSlot[] | null;
+    assetSlots: PersonalityDesktopCloneAssetSlot[];
   } | null>(null);
   const activeDesktopCloneSnapshot =
     desktopCloneSnapshot && desktopCloneSnapshot.locale === locale && desktopCloneSnapshot.fullCode === fullCodeForStorage
@@ -1640,7 +1640,7 @@ export function MbtiResultShell({
           locale,
           fullCode: fullCodeForStorage,
           content: payload?.content ?? null,
-          assetSlots: payload?.assetSlots ?? null,
+          assetSlots: payload?.assetSlots ?? [],
         });
       }
     })();
@@ -1774,8 +1774,8 @@ export function MbtiResultShell({
         supplementaryNodes={supplementaryNodes}
         recommendedReadsNode={recommendedReadsNode}
         footerNode={footerNode}
-        storageContentOverride={activeDesktopCloneSnapshot?.content}
-        storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots}
+        storageContentOverride={activeDesktopCloneSnapshot?.content ?? null}
+        storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots ?? []}
         storageManagedExternally
       />
     </div>
