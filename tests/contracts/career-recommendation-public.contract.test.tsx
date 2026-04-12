@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { adaptCareerRecommendationExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
+import { fetchCareerRecommendationExplainability } from "@/lib/career/api/fetchCareerRecommendationExplainability";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
 import { buildCareerRecommendationFrontendUrl } from "@/lib/career/urls";
 
@@ -26,6 +28,28 @@ afterEach(() => {
 });
 
 describe("career recommendation public contract", () => {
+  it("requests the backend recommendation explainability endpoint", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        expect(url).toContain("/api/v0.5/career/recommendations/mbti/intj-a/explainability?");
+        expect(url).toContain("locale=zh-CN");
+
+        return jsonResponse({
+          summary_kind: "career_explainability",
+          summary_version: "career.explainability.v1",
+          subject_kind: "recommendation",
+        });
+      })
+    );
+
+    const payload = await fetchCareerRecommendationExplainability({ locale: "zh", type: "intj-a" });
+
+    expect(payload).not.toBeNull();
+  });
+
   it("requests the backend recommendation bundle endpoint", async () => {
     vi.stubGlobal(
       "fetch",
@@ -147,13 +171,71 @@ describe("career recommendation public contract", () => {
     expect(buildCareerRecommendationFrontendUrl("en", "INTJ-A")).toBe("/en/career/recommendations/mbti/intj-a");
   });
 
+  it("adapts backend recommendation explainability into a machine-safe dto without radar semantics", () => {
+    const explainability = adaptCareerRecommendationExplainability({
+      summary_kind: "career_explainability",
+      summary_version: "career.explainability.v1",
+      subject_kind: "recommendation",
+      subject_identity: {
+        public_route_slug: "intj-a",
+        type: "INTJ-A",
+        canonical_type_code: "INTJ",
+        display_title: "INTJ-A Architect",
+        occupation_uuid: "occ_123",
+        canonical_slug: "data-scientist",
+        canonical_title_en: "Data Scientist",
+      },
+      score_bundle: {
+        strain_score: {
+          value: 41,
+          integrity_state: "provisional",
+          critical_missing_fields: ["team_shape"],
+          confidence_cap: 0.81,
+          formula_version: "strain.v1",
+          components: { ambiguity: 0.21, interruption: 0.2 },
+          penalties: [{ code: "partial_data", value: -0.1, reason: "team_shape" }],
+          degradation_factor: 0.84,
+        },
+      },
+      warnings: {
+        amber_flags: ["ai_role_shift_risk"],
+      },
+      claim_permissions: {
+        allow_strong_claim: true,
+        allow_salary_comparison: false,
+        allow_ai_strategy: true,
+        allow_transition_recommendation: true,
+        allow_cross_market_pay_copy: false,
+        reason_codes: ["candidate_only"],
+      },
+      integrity_summary: {
+        integrity_state: "provisional",
+        critical_missing_fields: ["team_shape"],
+        confidence_cap: 0.81,
+        degradation_factor: 0.84,
+      },
+    });
+
+    expect(explainability).not.toBeNull();
+    expect(explainability?.subjectKind).toBe("recommendation");
+    expect(explainability?.subjectIdentity.publicRouteSlug).toBe("intj-a");
+    expect(explainability?.scoreBundle.strainScore.components).toEqual({
+      ambiguity: 0.21,
+      interruption: 0.2,
+    });
+    expect(explainability).not.toHaveProperty("strainRadar");
+  });
+
   it("career recommendation detail page reads the backend bundle path and blocks CMS fallback authority", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
     expect(source).toContain("fetchCareerRecommendationBundle");
+    expect(source).toContain("fetchCareerRecommendationExplainability");
     expect(source).toContain("fetchCareerTransitionPreview");
     expect(source).toContain("adaptCareerRecommendationBundle");
+    expect(source).toContain("adaptCareerRecommendationExplainability");
     expect(source).toContain("adaptCareerTransitionPreview");
+    expect(source).toContain("CareerExplainabilityPanel");
     expect(source).toContain("CareerTransitionPreviewCard");
     expect(source).toContain("filterStableRecommendationMatchedJobs");
     expect(source).toContain("parseMbtiContinuityQuery");
@@ -166,8 +248,11 @@ describe("career recommendation public contract", () => {
     expect(source).toContain("career-recommendation-matched-jobs-status");
     expect(source).toContain('testId="career-recommendation-scene-entry"');
     expect(source).toContain('data-testid="career-recommendation-type-interpretation"');
+    expect(source).toContain('testId="career-recommendation-explainability-panel"');
     expect(source).not.toContain("getMbtiCareerRecommendationByType");
     expect(source).not.toContain("getMbtiRecommendationContent");
+    expect(source).not.toContain("strainRadar");
+    expect(source).not.toContain("people_friction");
     expect(source).not.toContain("why_this_path");
     expect(source).not.toContain("what_is_lost");
     expect(source).not.toContain("bridge_steps_90d");

@@ -9,7 +9,8 @@
 ## Branch discipline
 - Always start from the latest `main`.
 - Always pull with `git pull --ff-only origin main` before creating a PR branch.
-- Stop if the worktree is dirty before starting a PR.
+- A dirty worktree does not automatically block a PR start if the unrelated changes are clearly identifiable and can be kept out of the current PR.
+- Stop if the worktree is dirty and the current PR scope cannot be isolated cleanly from those existing changes.
 - Stop if the target branch already exists locally or remotely with unrelated commits.
 
 ## Dependency discipline

@@ -1,6 +1,10 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { adaptCareerJobExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
+import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 function jsonResponse(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
@@ -17,6 +21,28 @@ afterEach(() => {
 });
 
 describe("career job backend bundle contract", () => {
+  it("requests the backend explainability endpoint for job detail only", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        expect(url).toContain("/api/v0.5/career/jobs/software-developer/explainability?");
+        expect(url).toContain("locale=zh-CN");
+
+        return jsonResponse({
+          summary_kind: "career_explainability",
+          summary_version: "career.explainability.v1",
+          subject_kind: "job",
+        });
+      })
+    );
+
+    const payload = await fetchCareerJobExplainability({ locale: "zh", slug: "software-developer" });
+
+    expect(payload).not.toBeNull();
+  });
+
   it("requests the backend job bundle endpoint", async () => {
     vi.stubGlobal(
       "fetch",
@@ -106,5 +132,77 @@ describe("career job backend bundle contract", () => {
     expect(detail?.renderState.careerDataStatus).toBe("available");
     expect(detail?.renderState.canRenderSalarySurface).toBe(false);
     expect(detail?.authoritySource).toBe("career_backend_bundle.v0.5");
+  });
+
+  it("adapts backend explainability into a machine-safe frontend dto without radar fields", () => {
+    const explainability = adaptCareerJobExplainability({
+      summary_kind: "career_explainability",
+      summary_version: "career.explainability.v1",
+      subject_kind: "job",
+      subject_identity: {
+        occupation_uuid: "occ_software_developer",
+        canonical_slug: "software-developer",
+        canonical_title_en: "Software Developer",
+      },
+      score_bundle: {
+        fit_score: {
+          value: 78,
+          integrity_state: "full",
+          critical_missing_fields: ["onet_context"],
+          confidence_cap: 0.92,
+          formula_version: "fit.v1",
+          components: { demand: 0.4, capability: 0.38 },
+          penalties: [{ code: "trust_limited", value: -0.08, reason: "partial_data" }],
+          degradation_factor: 0.9,
+        },
+      },
+      warnings: {
+        amber_flags: ["ai_role_shift_risk"],
+      },
+      claim_permissions: {
+        allow_strong_claim: true,
+        allow_salary_comparison: false,
+        allow_ai_strategy: true,
+        allow_transition_recommendation: false,
+        allow_cross_market_pay_copy: false,
+        reason_codes: ["trust_limited"],
+      },
+      integrity_summary: {
+        integrity_state: "provisional",
+        critical_missing_fields: ["onet_context"],
+        confidence_cap: 0.92,
+        degradation_factor: 0.9,
+      },
+    });
+
+    expect(explainability).not.toBeNull();
+    expect(explainability?.subjectKind).toBe("job");
+    expect(explainability?.scoreBundle.fitScore.formulaVersion).toBe("fit.v1");
+    expect(explainability?.scoreBundle.fitScore.components).toEqual({
+      demand: 0.4,
+      capability: 0.38,
+    });
+    expect(explainability?.scoreBundle.fitScore.penalties[0]).toEqual({
+      code: "trust_limited",
+      value: -0.08,
+      reason: "partial_data",
+    });
+    expect(explainability).not.toHaveProperty("strainRadar");
+  });
+
+  it("career job detail page wires explainability through the dedicated fetch and panel only", () => {
+    const source = readFileSync(
+      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
+      "utf8"
+    );
+
+    expect(source).toContain("fetchCareerJobExplainability");
+    expect(source).toContain("adaptCareerJobExplainability");
+    expect(source).toContain("CareerExplainabilityPanel");
+    expect(source).toContain('testId="career-job-explainability-panel"');
+    expect(source).not.toContain("strainRadar");
+    expect(source).not.toContain("people_friction");
+    expect(source).not.toContain("why_this_path");
+    expect(source).not.toContain("bridge_steps_90d");
   });
 });

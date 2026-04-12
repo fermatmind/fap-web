@@ -61,6 +61,9 @@ describe("career claim gate render contract", () => {
         },
       })),
     }));
+    vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
+      fetchCareerJobExplainability: vi.fn(async () => null),
+    }));
 
     const { default: CareerJobDetailPage } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
     const page = await CareerJobDetailPage({

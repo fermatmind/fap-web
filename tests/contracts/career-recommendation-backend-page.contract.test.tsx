@@ -82,6 +82,50 @@ describe("career recommendation backend page contract", () => {
         },
       })),
     }));
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationExplainability", () => ({
+      fetchCareerRecommendationExplainability: vi.fn(async () => ({
+        summary_kind: "career_explainability",
+        summary_version: "career.explainability.v1",
+        subject_kind: "recommendation",
+        subject_identity: {
+          public_route_slug: "intj-a",
+          type: "INTJ-A",
+          canonical_type_code: "INTJ",
+          display_title: "INTJ-A Architect",
+          canonical_slug: "data-scientist",
+          canonical_title_en: "Data Scientist",
+        },
+        score_bundle: {
+          fit_score: {
+            value: 82,
+            integrity_state: "full",
+            critical_missing_fields: [],
+            confidence_cap: 0.95,
+            formula_version: "fit.v1",
+            components: { demand: 0.4 },
+            penalties: [],
+            degradation_factor: 1,
+          },
+        },
+        claim_permissions: {
+          allow_strong_claim: true,
+          allow_salary_comparison: false,
+          allow_ai_strategy: true,
+          allow_transition_recommendation: false,
+          allow_cross_market_pay_copy: false,
+          reason_codes: [],
+        },
+        warnings: {
+          amber_flags: ["ai_role_shift_risk"],
+        },
+        integrity_summary: {
+          integrity_state: "full",
+          critical_missing_fields: [],
+          confidence_cap: 0.95,
+          degradation_factor: 1,
+        },
+      })),
+    }));
     vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
       fetchCareerTransitionPreview: vi.fn(async () => null),
     }));
@@ -102,10 +146,12 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("mbti-career-primary-cta");
     expect(html).toContain("career-recommendation-trust-strip");
     expect(html).toContain("career-recommendation-type-interpretation");
+    expect(html).toContain("career-recommendation-explainability-panel");
     expect(html).toContain("career-recommendation-warning-banner");
     expect(html).toContain("career-recommendation-matched-jobs-status");
     expect(html).toContain("INTJ-A");
     expect(html).not.toContain("Matched role matrix");
+    expect(html).not.toContain("strainRadar");
   });
 
   it("redirects to the canonical public route when backend bundle slug differs from the request", async () => {
@@ -167,6 +213,9 @@ describe("career recommendation backend page contract", () => {
           index_eligible: true,
         },
       })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationExplainability", () => ({
+      fetchCareerRecommendationExplainability: vi.fn(async () => null),
     }));
     vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
       fetchCareerTransitionPreview: vi.fn(async () => null),
@@ -294,6 +343,9 @@ describe("career recommendation backend page contract", () => {
           },
         ],
       })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationExplainability", () => ({
+      fetchCareerRecommendationExplainability: vi.fn(async () => null),
     }));
     vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
       fetchCareerTransitionPreview: vi.fn(async () => null),
