@@ -352,6 +352,8 @@ describe("career transition preview recommendation detail wiring", () => {
     expect(html).toContain("Next-step role preview");
     expect(html).toContain("Product Manager");
     expect(html).toContain("/en/career/jobs/product-manager");
+    expect(html).toContain("career-transition-preview-trust-strip");
+    expect(html).toContain("reason_codes: publish_ready");
     expect(html).toContain("career-transition-preview-steps");
     expect(html).toContain("skill_overlap");
     expect(html).toContain("task_overlap");

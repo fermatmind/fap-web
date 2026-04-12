@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { ClaimGuard } from "@/components/career/ClaimGuard";
+import { TrustStrip } from "@/components/career/TrustStrip";
+import { WarningBanner } from "@/components/career/WarningBanner";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -240,8 +243,41 @@ export default async function CareerJobDetailPage({
         </div>
       </section>
 
+      <TrustStrip
+        locale={locale}
+        reviewerStatus={job.trustManifest?.reviewer.reviewer_status}
+        indexState={job.seoContract.indexState}
+        reasonCodes={job.claimPermissions.reason_codes}
+        contentVersion={job.provenanceMeta.contentVersion}
+        dataVersion={job.provenanceMeta.dataVersion}
+        logicVersion={job.provenanceMeta.logicVersion}
+        compilerVersion={job.provenanceMeta.compilerVersion}
+        compiledAt={job.provenanceMeta.compiledAt}
+        compileRunId={job.provenanceMeta.compileRunId}
+        truthMetricId={job.provenanceMeta.truthMetricId}
+        trustManifestId={job.provenanceMeta.trustManifestId}
+        indexStateId={job.provenanceMeta.indexStateId}
+        testId="career-job-trust-strip"
+      />
+
       <div className="grid gap-4 md:grid-cols-2">
-        {job.renderState.canRenderSalarySurface ? (
+        <ClaimGuard
+          allowed={job.renderState.canRenderSalarySurface}
+          fallback={
+            <Card data-testid="career-job-claim-gated-status">
+              <CardHeader>
+                <CardTitle>{locale === "zh" ? "职业结论闸门" : "Career claim gate"}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">
+                  {locale === "zh"
+                    ? "薪资与强结论内容必须经过 backend claim permissions 放行。当前页面保持保守。"
+                    : "Salary and strong-claim surfaces require explicit backend claim permissions. This page stays conservative."}
+                </p>
+              </CardContent>
+            </Card>
+          }
+        >
           <Card data-testid="career-job-salary-surface">
             <CardHeader>
               <CardTitle>{locale === "zh" ? "薪资水平" : "Salary range"}</CardTitle>
@@ -255,22 +291,25 @@ export default async function CareerJobDetailPage({
               ) : null}
             </CardContent>
           </Card>
-        ) : (
-          <Card data-testid="career-job-claim-gated-status">
-            <CardHeader>
-              <CardTitle>{locale === "zh" ? "职业结论闸门" : "Career claim gate"}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">
-                {locale === "zh"
-                  ? "薪资与强结论内容必须经过 backend claim permissions 放行。当前页面保持保守。"
-                  : "Salary and strong-claim surfaces require explicit backend claim permissions. This page stays conservative."}
-              </p>
-            </CardContent>
-          </Card>
-        )}
+        </ClaimGuard>
 
-        {canRenderAnswerSurface ? (
+        <ClaimGuard
+          allowed={canRenderAnswerSurface}
+          fallback={
+            <Card>
+              <CardHeader>
+                <CardTitle>{locale === "zh" ? "职业事实层" : "Truth layer"}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">
+                  {locale === "zh"
+                    ? "当前 answer surface 未被 backend 显式放行，因此页面不会补写本地职业解释。"
+                    : "The answer surface is not explicitly enabled by the backend, so this page does not synthesize a local job explanation."}
+                </p>
+              </CardContent>
+            </Card>
+          }
+        >
           <Card>
             <CardHeader>
               <CardTitle>{locale === "zh" ? "职业事实层" : "Truth layer"}</CardTitle>
@@ -301,20 +340,7 @@ export default async function CareerJobDetailPage({
               ) : null}
             </CardContent>
           </Card>
-        ) : (
-          <Card>
-            <CardHeader>
-              <CardTitle>{locale === "zh" ? "职业事实层" : "Truth layer"}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">
-                {locale === "zh"
-                  ? "当前 answer surface 未被 backend 显式放行，因此页面不会补写本地职业解释。"
-                  : "The answer surface is not explicitly enabled by the backend, so this page does not synthesize a local job explanation."}
-              </p>
-            </CardContent>
-          </Card>
-        )}
+        </ClaimGuard>
       </div>
 
       {job.renderState.canRenderFitSurface ? (
@@ -339,61 +365,12 @@ export default async function CareerJobDetailPage({
         </section>
       ) : null}
 
-      {(job.warnings.redFlags.length > 0 || job.warnings.amberFlags.length > 0 || job.warnings.blockedClaims.length > 0) ? (
-        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "显式警告与边界" : "Explicit warnings and limits"}
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3 text-sm text-[var(--fm-text-muted)]">
-            <div>
-              <p className="m-0 font-medium text-[var(--fm-text)]">Red flags</p>
-              <ul className="mt-2 space-y-1 pl-5">
-                {job.warnings.redFlags.length > 0 ? job.warnings.redFlags.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
-              </ul>
-            </div>
-            <div>
-              <p className="m-0 font-medium text-[var(--fm-text)]">Amber flags</p>
-              <ul className="mt-2 space-y-1 pl-5">
-                {job.warnings.amberFlags.length > 0 ? job.warnings.amberFlags.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
-              </ul>
-            </div>
-            <div>
-              <p className="m-0 font-medium text-[var(--fm-text)]">Blocked claims</p>
-              <ul className="mt-2 space-y-1 pl-5">
-                {job.warnings.blockedClaims.length > 0 ? job.warnings.blockedClaims.map((flag) => <li key={flag}>{flag}</li>) : <li>—</li>}
-              </ul>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "Trust 与 provenance" : "Trust and provenance"}
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2 text-sm text-[var(--fm-text-muted)]">
-          <div className="space-y-2">
-            <p className="m-0">
-              reviewer_status: {job.trustManifest?.reviewer.reviewer_status ?? "unknown"}
-            </p>
-            <p className="m-0">
-              content_version: {job.provenanceMeta.contentVersion}
-            </p>
-            <p className="m-0">
-              data_version: {job.provenanceMeta.dataVersion}
-            </p>
-            <p className="m-0">
-              logic_version: {job.provenanceMeta.logicVersion}
-            </p>
-          </div>
-          <div className="space-y-2">
-            <p className="m-0">compiled_at: {job.provenanceMeta.compiledAt ?? "unknown"}</p>
-            <p className="m-0">truth_metric_id: {job.provenanceMeta.truthMetricId ?? "unknown"}</p>
-            <p className="m-0">trust_manifest_id: {job.provenanceMeta.trustManifestId ?? "unknown"}</p>
-            <p className="m-0">index_state_id: {job.provenanceMeta.indexStateId ?? "unknown"}</p>
-          </div>
-        </div>
-      </section>
+      <WarningBanner
+        locale={locale}
+        warnings={job.warnings}
+        title={locale === "zh" ? "显式警告与边界" : "Explicit warnings and limits"}
+        testId="career-job-warning-banner"
+      />
 
       {job.aliasIndex.length > 0 ? (
         <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">

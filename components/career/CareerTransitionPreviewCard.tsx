@@ -1,4 +1,5 @@
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { TrustStrip } from "@/components/career/TrustStrip";
 import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
 import type { CareerTransitionPreviewAdapter } from "@/lib/career/adapters/types";
 import type { Locale } from "@/lib/i18n/locales";
@@ -65,11 +66,16 @@ export function CareerTransitionPreviewCard({
               {preview.targetJob.title}
             </TrackedCareerLink>
           </div>
-          <div className="text-right text-xs text-[var(--fm-text-muted)]">
-            <p className="m-0">reviewer_status: {preview.trustSummary.reviewerStatus ?? "unknown"}</p>
-            <p className="m-0">index_state: {preview.seoContract.indexState ?? "unknown"}</p>
-          </div>
         </div>
+
+        <TrustStrip
+          locale={locale}
+          reviewerStatus={preview.trustSummary.reviewerStatus}
+          indexState={preview.seoContract.indexState}
+          reasonCodes={preview.trustSummary.reasonCodes}
+          compact
+          testId="career-transition-preview-trust-strip"
+        />
 
         {hasSteps ? (
           <div
