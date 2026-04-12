@@ -4,12 +4,14 @@ import type {
   CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter,
   CareerFirstWaveRecommendationCompanionLinksSummaryAdapter,
   CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter,
+  CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter,
 } from "@/lib/career/adapters/types";
 import {
   buildCareerFamilyFrontendUrl,
   buildCareerJobFrontendUrl,
   normalizeCareerBundleCanonicalPath,
 } from "@/lib/career/urls";
+import { buildTopicFrontendUrl } from "@/lib/cms/topics";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 type CareerRecommendationCompanionLinksProps = {
@@ -40,6 +42,13 @@ function getTestLandingHref(
   return normalizeCareerBundleCanonicalPath(locale, link.canonicalPath, localizedPath(`/tests/${link.canonicalSlug}`, locale));
 }
 
+function getTopicDetailHref(
+  locale: Locale,
+  link: CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter
+): string {
+  return normalizeCareerBundleCanonicalPath(locale, link.canonicalPath, buildTopicFrontendUrl(locale, link.canonicalSlug));
+}
+
 function renderFamilyHubTitle(locale: Locale, link: CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter): string {
   if (link.titleEn) {
     return link.titleEn;
@@ -58,6 +67,14 @@ function renderTestLandingTitle(locale: Locale, link: CareerFirstWaveRecommendat
   }
 
   return locale === "zh" ? "相关测试" : "Related test";
+}
+
+function renderTopicDetailTitle(locale: Locale, link: CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter): string {
+  if (link.topicCode?.toLowerCase() === "mbti" || link.canonicalSlug === "mbti") {
+    return locale === "zh" ? "MBTI 主题页" : "MBTI topic";
+  }
+
+  return locale === "zh" ? "相关主题" : "Related topic";
 }
 
 export function CareerRecommendationCompanionLinks({
@@ -142,6 +159,29 @@ export function CareerRecommendationCompanionLinks({
                   className="font-medium text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {renderTestLandingTitle(locale, link)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
+      {summary.topicDetailLinks.length > 0 ? (
+        <div className="space-y-2">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+            {locale === "zh" ? "相关主题" : "Related topic"}
+          </p>
+          <ul className="m-0 space-y-2 pl-5 text-sm text-[var(--fm-text-muted)]">
+            {summary.topicDetailLinks.map((link) => (
+              <li
+                key={`${link.routeKind}:${link.canonicalPath}:${link.canonicalSlug}`}
+                data-testid="career-recommendation-companion-topic-link"
+              >
+                <Link
+                  href={getTopicDetailHref(locale, link)}
+                  className="font-medium text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                >
+                  {renderTopicDetailTitle(locale, link)}
                 </Link>
               </li>
             ))}

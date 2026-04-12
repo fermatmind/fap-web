@@ -347,13 +347,15 @@ export type CareerFirstWaveNextStepLinksResponseRaw = {
 export type CareerFirstWaveRecommendationCompanionLinkRouteKindResponseRaw =
   | "career_family_hub"
   | "career_job_detail"
-  | "test_landing";
+  | "test_landing"
+  | "topic_detail";
 
 export type CareerFirstWaveRecommendationCompanionLinkReasonCodeResponseRaw =
   | "target_job_detail_companion"
   | "target_family_hub_companion"
   | "matched_job_detail_companion"
-  | "recommendation_test_support";
+  | "recommendation_test_support"
+  | "recommendation_topic_support";
 
 export type CareerFirstWaveRecommendationCompanionLinkBaseResponseRaw = {
   route_kind?: CareerFirstWaveRecommendationCompanionLinkRouteKindResponseRaw | unknown;
@@ -379,10 +381,16 @@ export type CareerFirstWaveRecommendationCompanionTestLandingLinkResponseRaw =
     scale_code?: unknown;
   };
 
+export type CareerFirstWaveRecommendationCompanionTopicDetailLinkResponseRaw =
+  CareerFirstWaveRecommendationCompanionLinkBaseResponseRaw & {
+    topic_code?: unknown;
+  };
+
 export type CareerFirstWaveRecommendationCompanionLinkResponseRaw =
   | CareerFirstWaveRecommendationCompanionFamilyHubLinkResponseRaw
   | CareerFirstWaveRecommendationCompanionJobDetailLinkResponseRaw
-  | CareerFirstWaveRecommendationCompanionTestLandingLinkResponseRaw;
+  | CareerFirstWaveRecommendationCompanionTestLandingLinkResponseRaw
+  | CareerFirstWaveRecommendationCompanionTopicDetailLinkResponseRaw;
 
 export type CareerFirstWaveRecommendationCompanionLinksResponseRaw = {
   summary_kind?: unknown;

@@ -6,6 +6,7 @@ import type {
   CareerFirstWaveRecommendationCompanionLinkReasonCode,
   CareerFirstWaveRecommendationCompanionLinksSummaryAdapter,
   CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter,
+  CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter,
 } from "@/lib/career/adapters/types";
 
 type AdaptCareerFirstWaveRecommendationCompanionLinksInput = {
@@ -45,7 +46,8 @@ function normalizeReasonCode(value: unknown): CareerFirstWaveRecommendationCompa
     normalized === "target_job_detail_companion" ||
     normalized === "target_family_hub_companion" ||
     normalized === "matched_job_detail_companion" ||
-    normalized === "recommendation_test_support"
+    normalized === "recommendation_test_support" ||
+    normalized === "recommendation_topic_support"
   ) {
     return normalized;
   }
@@ -115,6 +117,26 @@ function adaptTestLandingLink(
   };
 }
 
+function adaptTopicDetailLink(
+  raw: Record<string, unknown>
+): CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter | null {
+  const canonicalPath = normalizeString(raw.canonical_path);
+  const canonicalSlug = normalizeString(raw.canonical_slug);
+  const linkReasonCode = normalizeReasonCode(raw.link_reason_code);
+
+  if (!canonicalPath || !canonicalSlug || linkReasonCode !== "recommendation_topic_support") {
+    return null;
+  }
+
+  return {
+    routeKind: "topic_detail",
+    canonicalPath,
+    canonicalSlug,
+    linkReasonCode,
+    topicCode: normalizeString(raw.topic_code),
+  };
+}
+
 function adaptLink(raw: Record<string, unknown>): CareerFirstWaveRecommendationCompanionLinkAdapter | null {
   const routeKind = normalizeString(raw.route_kind);
 
@@ -128,6 +150,10 @@ function adaptLink(raw: Record<string, unknown>): CareerFirstWaveRecommendationC
 
   if (routeKind === "test_landing") {
     return adaptTestLandingLink(raw);
+  }
+
+  if (routeKind === "topic_detail") {
+    return adaptTopicDetailLink(raw);
   }
 
   return null;
@@ -159,6 +185,9 @@ export function adaptCareerFirstWaveRecommendationCompanionLinks(
   const testLandingLinks = companionLinks.filter(
     (link): link is CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter => link.routeKind === "test_landing"
   );
+  const topicDetailLinks = companionLinks.filter(
+    (link): link is CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter => link.routeKind === "topic_detail"
+  );
   const counts = isRecord(raw.counts) ? raw.counts : {};
   const subjectIdentity = isRecord(raw.subject_identity) ? raw.subject_identity : {};
 
@@ -179,10 +208,12 @@ export function adaptCareerFirstWaveRecommendationCompanionLinks(
       jobDetail: normalizeNumber(counts.job_detail),
       familyHub: normalizeNumber(counts.family_hub),
       testLanding: normalizeNumber(counts.test_landing),
+      topicDetail: normalizeNumber(counts.topic_detail),
     },
     companionLinks,
     familyHubLinks,
     jobDetailLinks,
     testLandingLinks,
+    topicDetailLinks,
   };
 }
