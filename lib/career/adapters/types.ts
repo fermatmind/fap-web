@@ -52,6 +52,46 @@ export type CareerScoreBundleAdapter = {
   confidenceScore: CareerScoreResult;
 };
 
+export type CareerExplainabilityScoreDimensionAdapter = {
+  value: number | null;
+  integrityState: string;
+  criticalMissingFields: string[];
+  confidenceCap: number | null;
+  formulaVersion: string | null;
+  components: Record<string, number | null>;
+  penalties: Array<{
+    code: string;
+    value: number | null;
+    reason: string | null;
+  }>;
+  degradationFactor: number | null;
+};
+
+export type CareerExplainabilityAdapter = {
+  summaryKind: string;
+  summaryVersion: string;
+  subjectKind: "job" | "recommendation";
+  subjectIdentity: {
+    occupationUuid: string | null;
+    canonicalSlug: string | null;
+    canonicalTitleEn: string | null;
+    publicRouteSlug?: string | null;
+    type?: string | null;
+    canonicalTypeCode?: string | null;
+    displayTitle?: string | null;
+  };
+  scoreBundle: {
+    fitScore: CareerExplainabilityScoreDimensionAdapter;
+    strainScore: CareerExplainabilityScoreDimensionAdapter;
+    aiSurvivalScore: CareerExplainabilityScoreDimensionAdapter;
+    mobilityScore: CareerExplainabilityScoreDimensionAdapter;
+    confidenceScore: CareerExplainabilityScoreDimensionAdapter;
+  };
+  warnings: CareerWarningsAdapter;
+  claimPermissions: CareerClaimPermissions;
+  integritySummary: CareerIntegritySummaryAdapter;
+};
+
 export type CareerJobBundleAdapter = {
   authoritySource: string;
   slug: string;

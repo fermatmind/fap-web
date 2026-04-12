@@ -51,6 +51,29 @@ export type CareerRecommendationBundleResponseRaw = {
   matched_guides?: unknown;
 };
 
+export type CareerExplainabilityScoreDimensionResponseRaw = {
+  value?: unknown;
+  integrity_state?: unknown;
+  critical_missing_fields?: unknown;
+  confidence_cap?: unknown;
+  formula_version?: unknown;
+  components?: unknown;
+  penalties?: unknown;
+  degradation_factor?: unknown;
+};
+
+export type CareerExplainabilityResponseRaw = {
+  data?: unknown;
+  summary_kind?: unknown;
+  summary_version?: unknown;
+  subject_kind?: unknown;
+  subject_identity?: unknown;
+  score_bundle?: unknown;
+  warnings?: unknown;
+  claim_permissions?: unknown;
+  integrity_summary?: unknown;
+};
+
 export type CareerRecommendationIndexItemResponseRaw = {
   bundle_kind?: unknown;
   bundle_version?: unknown;

@@ -5,6 +5,7 @@ import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
+import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { CareerTransitionPreviewCard } from "@/components/career/CareerTransitionPreviewCard";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
@@ -14,10 +15,16 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import { adaptCareerRecommendationExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
 import { adaptCareerTransitionPreview } from "@/lib/career/adapters/adaptCareerTransitionPreview";
-import type { CareerRecommendationBundleAdapter, CareerTransitionPreviewAdapter } from "@/lib/career/adapters/types";
+import type {
+  CareerExplainabilityAdapter,
+  CareerRecommendationBundleAdapter,
+  CareerTransitionPreviewAdapter,
+} from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
+import { fetchCareerRecommendationExplainability } from "@/lib/career/api/fetchCareerRecommendationExplainability";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
 import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
 import { filterStableRecommendationMatchedJobs } from "@/lib/career/recommendationMatchedJobExposurePolicy";
@@ -130,6 +137,14 @@ async function loadTransitionPreview(
   });
 }
 
+async function loadRecommendationExplainability(
+  locale: Locale,
+  requestedType: string
+): Promise<CareerExplainabilityAdapter | null> {
+  const payload = await fetchCareerRecommendationExplainability({ locale, type: requestedType });
+  return adaptCareerRecommendationExplainability(payload);
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -184,8 +199,9 @@ export default async function CareerMbtiRecommendationPage({
   const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const [detail, transitionPreview] = await Promise.all([
+  const [detail, explainability, transitionPreview] = await Promise.all([
     loadRecommendationBundle(locale, type),
+    loadRecommendationExplainability(locale, type),
     loadTransitionPreview(locale, type),
   ]);
 
@@ -473,6 +489,20 @@ export default async function CareerMbtiRecommendationPage({
           </div>
         </section>
       </ClaimGuard>
+
+      {explainability ? (
+        <CareerExplainabilityPanel
+          locale={locale}
+          explainability={explainability}
+          title={locale === "zh" ? "结构化 explainability" : "Structured explainability"}
+          subtitle={
+            locale === "zh"
+              ? "这一节只消费 backend explainability authority payload 的结构化字段，不扩写为推荐建议、路径说明或 radar。"
+              : "This section consumes structured fields from the backend explainability authority payload only, without turning them into recommendation advice, path guidance, or radar semantics."
+          }
+          testId="career-recommendation-explainability-panel"
+        />
+      ) : null}
 
       {transitionPreview ? (
         <CareerTransitionPreviewCard

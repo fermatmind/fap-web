@@ -3,15 +3,18 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
+import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { adaptCareerJobExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
-import type { CareerJobBundleAdapter } from "@/lib/career/adapters/types";
+import type { CareerExplainabilityAdapter, CareerJobBundleAdapter } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
+import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -57,6 +60,11 @@ async function loadCareerJobBundle(locale: Locale, slug: string): Promise<Career
     requestedSlug: slug,
     payload,
   });
+}
+
+async function loadCareerJobExplainability(locale: Locale, slug: string): Promise<CareerExplainabilityAdapter | null> {
+  const payload = await fetchCareerJobExplainability({ locale, slug });
+  return adaptCareerJobExplainability(payload);
 }
 
 function renderCareerJobProtocolStatus(job: CareerJobBundleAdapter, locale: Locale) {
@@ -165,7 +173,10 @@ export default async function CareerJobDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const job = await loadCareerJobBundle(locale, slug);
+  const [job, explainability] = await Promise.all([
+    loadCareerJobBundle(locale, slug),
+    loadCareerJobExplainability(locale, slug),
+  ]);
 
   if (!job) {
     return notFound();
@@ -363,6 +374,20 @@ export default async function CareerJobDetailPage({
             <ScoreCard title="Confidence" value={job.scoreBundle.confidenceScore.value} integrity={job.scoreBundle.confidenceScore.integrity_state} />
           </div>
         </section>
+      ) : null}
+
+      {explainability ? (
+        <CareerExplainabilityPanel
+          locale={locale}
+          explainability={explainability}
+          title={locale === "zh" ? "结构化 explainability" : "Structured explainability"}
+          subtitle={
+            locale === "zh"
+              ? "只展示 backend explainability authority payload 的结构化字段，不在前端扩写为建议、策略或 radar。"
+              : "This section renders structured fields from the backend explainability authority payload only, without frontend advice, strategy expansion, or radar semantics."
+          }
+          testId="career-job-explainability-panel"
+        />
       ) : null}
 
       <WarningBanner
