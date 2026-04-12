@@ -39,6 +39,40 @@ describe("sitemap indexability contract", () => {
                   index_eligible: true,
                 },
               },
+              {
+                identity: {
+                  canonical_slug: "data-engineer",
+                },
+                seo_contract: {
+                  canonical_path: "/career/jobs/data-engineer",
+                  index_state: "indexed",
+                  index_eligible: true,
+                },
+              },
+            ],
+          });
+        }
+
+        if (url.includes("/api/v0.5/career/first-wave/launch-tier?")) {
+          return jsonResponse({
+            summary_kind: "career_first_wave_launch_tier",
+            summary_version: "career.launch_tier.first_wave.v1",
+            scope: "career_first_wave_10",
+            counts: {
+              total: 2,
+              stable: 1,
+              candidate: 1,
+              hold: 0,
+            },
+            occupations: [
+              {
+                canonical_slug: "backend-architect",
+                launch_tier: "stable",
+              },
+              {
+                canonical_slug: "data-engineer",
+                launch_tier: "candidate",
+              },
             ],
           });
         }
@@ -110,6 +144,8 @@ describe("sitemap indexability contract", () => {
         "/zh/career/recommendations/mbti/intj-a",
       ])
     );
+    expect(locs).not.toContain("/en/career/jobs/data-engineer");
+    expect(locs).not.toContain("/zh/career/jobs/data-engineer");
     expect(locs).not.toContain("/en/career/family/compliance");
     expect(locs).not.toContain("/zh/career/family/compliance");
     expect(locs.some((loc: string) => loc.includes("/career/recommendations/big5/"))).toBe(false);

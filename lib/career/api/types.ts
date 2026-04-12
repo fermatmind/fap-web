@@ -232,3 +232,29 @@ export type CareerFirstWaveReadinessSummaryResponseRaw = {
   occupations?: unknown;
   data?: unknown;
 };
+
+export type CareerFirstWaveLaunchTierResponseRaw = {
+  summary_kind?: unknown;
+  summary_version?: unknown;
+  scope?: unknown;
+  counts?: unknown;
+  occupations?: unknown;
+  data?: unknown;
+};
+
+export type CareerFirstWaveLaunchTierOccupationResponseRaw = {
+  occupation_uuid?: unknown;
+  canonical_slug?: unknown;
+  canonical_title_en?: unknown;
+  launch_tier?: unknown;
+  readiness_status?: unknown;
+  lifecycle_state?: unknown;
+  public_index_state?: unknown;
+  index_eligible?: unknown;
+  reviewer_status?: unknown;
+  crosswalk_mode?: unknown;
+  allow_strong_claim?: unknown;
+  confidence_score?: unknown;
+  blocked_governance_status?: unknown;
+  reason_codes?: unknown;
+};

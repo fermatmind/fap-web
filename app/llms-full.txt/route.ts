@@ -2,11 +2,14 @@ import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
+import { adaptCareerFirstWaveLaunchTierSummary } from "@/lib/career/adapters/adaptCareerFirstWaveLaunchTierSummary";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
+import { fetchCareerFirstWaveLaunchTierSummary } from "@/lib/career/api/fetchCareerFirstWaveLaunchTierSummary";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
+import { isCareerJobDetailStableByLaunchTier } from "@/lib/career/launchPolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
@@ -42,6 +45,17 @@ function shouldKeepCareerAuthorityEntry(entry: {
     indexEligible: entry.seoContract.indexEligible,
     indexState: entry.seoContract.indexState,
   });
+}
+
+function extractCareerJobSlug(entry: { identity?: { canonicalSlug?: string | null }; path?: string; href?: string }): string | null {
+  const identitySlug = String(entry.identity?.canonicalSlug ?? "").trim().toLowerCase();
+  if (identitySlug) {
+    return identitySlug;
+  }
+
+  const candidatePath = String(entry.path ?? entry.href ?? "").trim();
+  const match = candidatePath.match(/\/career\/jobs\/([^/?#]+)$/i);
+  return match ? String(match[1]).trim().toLowerCase() || null : null;
 }
 
 function publishedPersonalityVariantSlugs(value: string): string[] {
@@ -151,6 +165,8 @@ export async function GET() {
   const [
     enCareerJobs,
     zhCareerJobs,
+    enLaunchTierSummary,
+    zhLaunchTierSummary,
     enCareerGuides,
     zhCareerGuides,
     enCareerRecommendations,
@@ -168,6 +184,12 @@ export async function GET() {
     fetchCareerJobIndex({ locale: "zh" })
       .then((payload) => adaptCareerJobIndex({ locale: "zh", payload }))
       .catch(() => []),
+    fetchCareerFirstWaveLaunchTierSummary({ locale: "en" })
+      .then((payload) => adaptCareerFirstWaveLaunchTierSummary({ payload }))
+      .catch(() => null),
+    fetchCareerFirstWaveLaunchTierSummary({ locale: "zh" })
+      .then((payload) => adaptCareerFirstWaveLaunchTierSummary({ payload }))
+      .catch(() => null),
     listCareerGuidesFromCms("en").catch(() => []),
     listCareerGuidesFromCms("zh").catch(() => []),
     fetchCareerRecommendationIndex({ locale: "en" })
@@ -241,18 +263,30 @@ export async function GET() {
     { locale: "zh", path: "/zh/career/recommendations", title: "职业推荐", updatedAt: "" },
     { locale: "en", path: "/en/career/industries", title: "Career industries", updatedAt: "" },
     { locale: "zh", path: "/zh/career/industries", title: "职业行业", updatedAt: "" },
-    ...enCareerJobs.filter(shouldKeepCareerAuthorityEntry).map((job) => ({
-      locale: "en",
-      path: job.href,
-      title: job.titles.title,
-      updatedAt: job.provenanceMeta.compiledAt ?? "",
-    })),
-    ...zhCareerJobs.filter(shouldKeepCareerAuthorityEntry).map((job) => ({
-      locale: "zh",
-      path: job.href,
-      title: job.titles.title,
-      updatedAt: job.provenanceMeta.compiledAt ?? "",
-    })),
+    ...enCareerJobs
+      .filter(
+        (job) =>
+          shouldKeepCareerAuthorityEntry(job) &&
+          isCareerJobDetailStableByLaunchTier(enLaunchTierSummary, extractCareerJobSlug(job))
+      )
+      .map((job) => ({
+        locale: "en",
+        path: job.href,
+        title: job.titles.title,
+        updatedAt: job.provenanceMeta.compiledAt ?? "",
+      })),
+    ...zhCareerJobs
+      .filter(
+        (job) =>
+          shouldKeepCareerAuthorityEntry(job) &&
+          isCareerJobDetailStableByLaunchTier(zhLaunchTierSummary, extractCareerJobSlug(job))
+      )
+      .map((job) => ({
+        locale: "zh",
+        path: job.href,
+        title: job.titles.title,
+        updatedAt: job.provenanceMeta.compiledAt ?? "",
+      })),
     ...listCareerIndustrySlugs().flatMap((slug) => [
       { locale: "en", path: `/en/career/industries/${slug}`, title: slug, updatedAt: "" },
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },

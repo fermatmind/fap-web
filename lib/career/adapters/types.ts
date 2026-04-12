@@ -448,3 +448,38 @@ export type CareerFirstWaveReadinessSummaryAdapter = {
   occupations: CareerFirstWaveReadinessOccupationAdapter[];
   occupationsBySlug: Record<string, CareerFirstWaveReadinessOccupationAdapter>;
 };
+
+export type CareerFirstWaveLaunchTier = "stable" | "candidate" | "hold";
+
+export type CareerFirstWaveLaunchTierOccupationAdapter = {
+  occupationUuid: string | null;
+  canonicalSlug: string;
+  canonicalTitleEn: string | null;
+  launchTier: CareerFirstWaveLaunchTier;
+  readinessStatus: string | null;
+  lifecycleState: string | null;
+  publicIndexState: string | null;
+  indexEligible: boolean | null;
+  reviewerStatus: string | null;
+  crosswalkMode: string | null;
+  allowStrongClaim: boolean;
+  confidenceScore: number | null;
+  blockedGovernanceStatus: string | null;
+  reasonCodes: string[];
+};
+
+export type CareerFirstWaveLaunchTierSummaryAdapter = {
+  authoritySource: string;
+  summaryKind: string;
+  summaryVersion: string;
+  scope: string;
+  counts: {
+    total: number;
+    stable: number;
+    candidate: number;
+    hold: number;
+  };
+  occupations: CareerFirstWaveLaunchTierOccupationAdapter[];
+  occupationsBySlug: Record<string, CareerFirstWaveLaunchTierOccupationAdapter>;
+  launchTierBySlug: Record<string, CareerFirstWaveLaunchTier>;
+};

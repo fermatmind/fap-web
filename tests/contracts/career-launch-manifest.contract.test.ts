@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+  CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS,
   CAREER_LAUNCH_MANIFEST,
   CAREER_NOINDEX_ROUTES,
   CAREER_STABLE_ROUTES,
@@ -65,5 +66,9 @@ describe("career launch manifest contract", () => {
     expect(manifestKeys).not.toContain("career_riasec_result");
     expect(CAREER_NOINDEX_ROUTES.map((entry) => entry.route)).toContain("/career/jobs?q={query}");
     expect(CAREER_NOINDEX_ROUTES.map((entry) => entry.route)).toContain("/career/tests/riasec/result");
+  });
+
+  it("keeps backend B34 launch-tier authority scoped to occupation-backed job detail governance only", () => {
+    expect(CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS).toEqual(["career_job_detail"]);
   });
 });

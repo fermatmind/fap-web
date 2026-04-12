@@ -1,10 +1,14 @@
 import { describe, expect, it } from "vitest";
 import {
   CAREER_LAUNCH_SMOKE_MATRIX,
+  CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS,
+  getCareerOccupationLaunchTier,
   getCareerLaunchManifestRouteKeys,
   getCareerLaunchRouteKey,
   getCareerLaunchState,
+  isCareerJobDetailStableByLaunchTier,
 } from "@/lib/career/launchPolicy";
+import { adaptCareerFirstWaveLaunchTierSummary } from "@/lib/career/adapters/adaptCareerFirstWaveLaunchTierSummary";
 
 describe("career launch policy alignment contract", () => {
   it("classifies current career routes deterministically", () => {
@@ -43,5 +47,38 @@ describe("career launch policy alignment contract", () => {
     );
     expect(getCareerLaunchRouteKey("/en/career/tests/riasec/result")).toBe("career_riasec_result");
     expect(getCareerLaunchRouteKey("/en/career/random-legacy-slug")).toBe("career_legacy_slug_bridge");
+  });
+
+  it("keeps backend launch-tier alignment separate from static route-class launch states", () => {
+    const summary = adaptCareerFirstWaveLaunchTierSummary({
+      payload: {
+        summary_kind: "career_first_wave_launch_tier",
+        summary_version: "career.launch_tier.first_wave.v1",
+        scope: "career_first_wave_10",
+        counts: {
+          total: 2,
+          stable: 1,
+          candidate: 1,
+          hold: 0,
+        },
+        occupations: [
+          {
+            canonical_slug: "backend-architect",
+            launch_tier: "stable",
+          },
+          {
+            canonical_slug: "data-engineer",
+            launch_tier: "candidate",
+          },
+        ],
+      },
+    });
+
+    expect(CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS).toEqual(["career_job_detail"]);
+    expect(getCareerLaunchState("/en/career/jobs/backend-architect")).toBe("stable");
+    expect(getCareerOccupationLaunchTier(summary, "backend-architect")).toBe("stable");
+    expect(getCareerOccupationLaunchTier(summary, "data-engineer")).toBe("candidate");
+    expect(isCareerJobDetailStableByLaunchTier(summary, "backend-architect")).toBe(true);
+    expect(isCareerJobDetailStableByLaunchTier(summary, "data-engineer")).toBe(false);
   });
 });
