@@ -258,3 +258,50 @@ export type CareerFirstWaveLaunchTierOccupationResponseRaw = {
   blocked_governance_status?: unknown;
   reason_codes?: unknown;
 };
+
+export type CareerFirstWaveDiscoverabilityManifestRouteKindResponseRaw =
+  | "career_job_detail"
+  | "career_family_hub";
+
+export type CareerFirstWaveDiscoverabilityStateResponseRaw = "discoverable" | "excluded";
+
+export type CareerFirstWaveDiscoverabilityManifestBaseRouteResponseRaw = {
+  route_kind?: CareerFirstWaveDiscoverabilityManifestRouteKindResponseRaw | unknown;
+  canonical_path?: unknown;
+  discoverability_state?: CareerFirstWaveDiscoverabilityStateResponseRaw | unknown;
+  reason_codes?: unknown;
+};
+
+export type CareerFirstWaveDiscoverabilityManifestJobDetailRouteResponseRaw =
+  CareerFirstWaveDiscoverabilityManifestBaseRouteResponseRaw & {
+    occupation_uuid?: unknown;
+    canonical_slug?: unknown;
+    canonical_title_en?: unknown;
+    launch_tier?: unknown;
+    readiness_status?: unknown;
+    public_index_state?: unknown;
+    index_eligible?: unknown;
+    reviewer_status?: unknown;
+    crosswalk_mode?: unknown;
+    blocked_governance_status?: unknown;
+  };
+
+export type CareerFirstWaveDiscoverabilityManifestFamilyHubRouteResponseRaw =
+  CareerFirstWaveDiscoverabilityManifestBaseRouteResponseRaw & {
+    family_uuid?: unknown;
+    canonical_slug?: unknown;
+    title_en?: unknown;
+    visible_children_count?: unknown;
+  };
+
+export type CareerFirstWaveDiscoverabilityManifestRouteResponseRaw =
+  | CareerFirstWaveDiscoverabilityManifestJobDetailRouteResponseRaw
+  | CareerFirstWaveDiscoverabilityManifestFamilyHubRouteResponseRaw;
+
+export type CareerFirstWaveDiscoverabilityManifestResponseRaw = {
+  manifest_kind?: unknown;
+  manifest_version?: unknown;
+  scope?: unknown;
+  routes?: unknown;
+  data?: unknown;
+};

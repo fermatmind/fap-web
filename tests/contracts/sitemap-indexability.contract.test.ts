@@ -53,25 +53,35 @@ describe("sitemap indexability contract", () => {
           });
         }
 
-        if (url.includes("/api/v0.5/career/first-wave/launch-tier?")) {
+        if (url.includes("/api/v0.5/career/first-wave/discoverability-manifest?")) {
           return jsonResponse({
-            summary_kind: "career_first_wave_launch_tier",
-            summary_version: "career.launch_tier.first_wave.v1",
+            manifest_kind: "career_first_wave_discoverability_manifest",
+            manifest_version: "career.discoverability.first_wave.v1",
             scope: "career_first_wave_10",
-            counts: {
-              total: 2,
-              stable: 1,
-              candidate: 1,
-              hold: 0,
-            },
-            occupations: [
+            routes: [
               {
+                route_kind: "career_job_detail",
+                canonical_path: "/career/jobs/backend-architect",
+                discoverability_state: "discoverable",
                 canonical_slug: "backend-architect",
-                launch_tier: "stable",
               },
               {
+                route_kind: "career_job_detail",
+                canonical_path: "/career/jobs/data-engineer",
+                discoverability_state: "excluded",
                 canonical_slug: "data-engineer",
-                launch_tier: "candidate",
+              },
+              {
+                route_kind: "career_family_hub",
+                canonical_path: "/career/family/data-science",
+                discoverability_state: "discoverable",
+                canonical_slug: "data-science",
+              },
+              {
+                route_kind: "career_family_hub",
+                canonical_path: "/career/family/compliance",
+                discoverability_state: "excluded",
+                canonical_slug: "compliance",
               },
             ],
           });
@@ -91,28 +101,6 @@ describe("sitemap indexability contract", () => {
                 },
               },
             ],
-          });
-        }
-
-        if (url.includes("/api/v0.5/career/family/data-science?")) {
-          return jsonResponse({
-            family: {
-              canonical_slug: "data-science",
-            },
-            counts: {
-              visible_children_count: 1,
-            },
-          });
-        }
-
-        if (url.includes("/api/v0.5/career/family/compliance?")) {
-          return jsonResponse({
-            family: {
-              canonical_slug: "compliance",
-            },
-            counts: {
-              visible_children_count: 0,
-            },
           });
         }
 

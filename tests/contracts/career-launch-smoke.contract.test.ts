@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   CAREER_LAUNCH_SMOKE_MATRIX,
+  isCareerDiscoverabilityManifestAuthorityRouteKey,
   isCareerLaunchTierAuthorityRouteKey,
 } from "@/lib/career/launchPolicy";
 
@@ -96,5 +97,11 @@ describe("career launch smoke contract", () => {
     expect(isCareerLaunchTierAuthorityRouteKey("career_job_detail")).toBe(true);
     expect(isCareerLaunchTierAuthorityRouteKey("career_family_hub_detail")).toBe(false);
     expect(isCareerLaunchTierAuthorityRouteKey("career_mbti_recommendation_detail")).toBe(false);
+  });
+
+  it("keeps B35 discoverability authority limited to job detail and family hub inventory classes", () => {
+    expect(isCareerDiscoverabilityManifestAuthorityRouteKey("career_job_detail")).toBe(true);
+    expect(isCareerDiscoverabilityManifestAuthorityRouteKey("career_family_hub_detail")).toBe(true);
+    expect(isCareerDiscoverabilityManifestAuthorityRouteKey("career_mbti_recommendation_detail")).toBe(false);
   });
 });

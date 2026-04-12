@@ -1,11 +1,17 @@
 import { describe, expect, it } from "vitest";
+import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
 import {
+  getCareerFamilyHubDiscoverabilityState,
   CAREER_LAUNCH_SMOKE_MATRIX,
+  CAREER_DISCOVERABILITY_MANIFEST_AUTHORITY_ROUTE_KEYS,
   CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS,
+  getCareerJobDetailDiscoverabilityState,
   getCareerOccupationLaunchTier,
   getCareerLaunchManifestRouteKeys,
   getCareerLaunchRouteKey,
   getCareerLaunchState,
+  isCareerFamilyHubDiscoverableByManifest,
+  isCareerJobDetailDiscoverableByManifest,
   isCareerJobDetailStableByLaunchTier,
 } from "@/lib/career/launchPolicy";
 import { adaptCareerFirstWaveLaunchTierSummary } from "@/lib/career/adapters/adaptCareerFirstWaveLaunchTierSummary";
@@ -80,5 +86,49 @@ describe("career launch policy alignment contract", () => {
     expect(getCareerOccupationLaunchTier(summary, "data-engineer")).toBe("candidate");
     expect(isCareerJobDetailStableByLaunchTier(summary, "backend-architect")).toBe(true);
     expect(isCareerJobDetailStableByLaunchTier(summary, "data-engineer")).toBe(false);
+  });
+
+  it("uses backend B35 manifest truth for discoverability inventory without rewriting static route-class launch states", () => {
+    const manifest = adaptCareerFirstWaveDiscoverabilityManifest({
+      payload: {
+        manifest_kind: "career_first_wave_discoverability_manifest",
+        manifest_version: "career.discoverability.first_wave.v1",
+        scope: "career_first_wave_10",
+        routes: [
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/backend-architect",
+            discoverability_state: "discoverable",
+            canonical_slug: "backend-architect",
+          },
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/data-science",
+            discoverability_state: "discoverable",
+            canonical_slug: "data-science",
+            visible_children_count: 1,
+          },
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/compliance",
+            discoverability_state: "excluded",
+            canonical_slug: "compliance",
+            visible_children_count: 0,
+          },
+        ],
+      },
+    });
+
+    expect(CAREER_DISCOVERABILITY_MANIFEST_AUTHORITY_ROUTE_KEYS).toEqual([
+      "career_job_detail",
+      "career_family_hub_detail",
+    ]);
+    expect(getCareerLaunchState("/en/career/family/data-science")).toBeNull();
+    expect(getCareerJobDetailDiscoverabilityState(manifest, "backend-architect")).toBe("discoverable");
+    expect(getCareerFamilyHubDiscoverabilityState(manifest, "data-science")).toBe("discoverable");
+    expect(getCareerFamilyHubDiscoverabilityState(manifest, "compliance")).toBe("excluded");
+    expect(isCareerJobDetailDiscoverableByManifest(manifest, "backend-architect")).toBe(true);
+    expect(isCareerFamilyHubDiscoverableByManifest(manifest, "data-science")).toBe(true);
+    expect(isCareerFamilyHubDiscoverableByManifest(manifest, "compliance")).toBe(false);
   });
 });
