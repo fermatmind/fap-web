@@ -36,6 +36,7 @@ describe("career launch manifest contract", () => {
       "career_mbti_recommendation_detail",
     ]);
     expect(candidateKeys).toEqual([
+      "career_family_hub_detail",
       "career_guides_index",
       "career_guide_detail",
       "career_industries_index",

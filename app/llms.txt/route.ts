@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
+import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
+import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
+import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
@@ -16,6 +19,7 @@ import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
 
 const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
+const CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS = ["data-science", "compliance"] as const;
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -49,6 +53,23 @@ function publishedPersonalityVariantSlugs(value: string): string[] {
   }
 
   return [defaultSlug];
+}
+
+async function listCareerFamilyPaths(locale: "en" | "zh"): Promise<string[]> {
+  const paths = await Promise.all(
+    CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS.map(async (slug) => {
+      const payload = await fetchCareerFamilyHub({ locale, slug }).catch(() => null);
+      const hub = adaptCareerFamilyHub({ locale, payload });
+
+      if (!hub || hub.counts.visibleChildrenCount <= 0) {
+        return null;
+      }
+
+      return buildCareerFamilyFrontendUrl(locale, hub.family.canonicalSlug);
+    })
+  );
+
+  return paths.filter((path): path is string => Boolean(path));
 }
 
 async function listPersonalityPaths(): Promise<string[]> {
@@ -112,6 +133,8 @@ export async function GET() {
     zhCareerGuides,
     enCareerRecommendations,
     zhCareerRecommendations,
+    enCareerFamilies,
+    zhCareerFamilies,
     personalityEntries,
     topicEntries,
     enArticles,
@@ -131,6 +154,8 @@ export async function GET() {
     fetchCareerRecommendationIndex({ locale: "zh" })
       .then((payload) => adaptCareerRecommendationIndex({ locale: "zh", payload }))
       .catch(() => []),
+    listCareerFamilyPaths("en"),
+    listCareerFamilyPaths("zh"),
     listPersonalityPaths(),
     listTopicPaths(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
@@ -172,6 +197,8 @@ export async function GET() {
     ...zhCareerJobs.filter(shouldKeepCareerAuthorityRoute).map((job) => job.href),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...guideEntries,
+    ...enCareerFamilies,
+    ...zhCareerFamilies,
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
     ...zhCareerRecommendations.filter(shouldKeepCareerAuthorityRoute).map((item) => item.href),
   ]);

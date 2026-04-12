@@ -42,6 +42,12 @@ describe("career launch smoke contract", () => {
       robotsMode: "backend_explicit_gate",
       requiresBackendExplicitGate: true,
     });
+    expect(byKey.get("career_family_hub_detail")).toMatchObject({
+      launchState: "candidate",
+      canonicalMode: "self",
+      robotsMode: "family_visibility_gate",
+      requiresBackendExplicitGate: false,
+    });
     expect(byKey.get("career_jobs_query")).toMatchObject({
       launchState: "noindex",
       canonicalMode: "base_jobs",
@@ -62,6 +68,7 @@ describe("career launch smoke contract", () => {
     const landingPage = read("app/(localized)/[locale]/career/page.tsx");
     const jobsPage = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const recommendationsPage = read("app/(localized)/[locale]/career/recommendations/page.tsx");
+    const familyHubPage = read("app/(localized)/[locale]/career/family/[slug]/page.tsx");
     const jobDetailPage = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
     const recommendationDetailPage = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
     const legacySlugPage = read("app/(localized)/[locale]/career/[slug]/page.tsx");
@@ -74,6 +81,8 @@ describe("career launch smoke contract", () => {
     expect(jobsPage).toContain("fetchCareerSearch");
     expect(recommendationsPage).toContain("fetchCareerRecommendationIndex");
     expect(recommendationsPage).toContain("listBig5RecommendationTraits");
+    expect(familyHubPage).toContain("fetchCareerFamilyHub");
+    expect(familyHubPage).toContain("generateMetadata");
     expect(jobDetailPage).toContain("job.seoContract.indexEligible");
     expect(recommendationDetailPage).toContain("detail.seoContract.indexEligible");
     expect(legacySlugPage).toContain("getCareerJobFromCmsBySlug");

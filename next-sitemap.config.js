@@ -46,6 +46,7 @@ const CMS_LOCALES = [
   { localePrefix: "en", apiLocale: "en" },
   { localePrefix: "zh", apiLocale: "zh-CN" },
 ];
+const CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS = ["data-science", "compliance"];
 const MBTI_BASE_SLUG_RE = /^[ie][ns][ft][jp]$/i;
 const MBTI_RUNTIME_SLUG_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
@@ -303,6 +304,19 @@ function buildApiUrl(path) {
   return `${apiOrigin}/api${normalized}`;
 }
 
+function normalizeNumber(value) {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+
+  if (typeof value === "string" && value.trim()) {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+
+  return 0;
+}
+
 async function fetchJsonWithTimeout(url, timeoutMs = 1500) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -484,6 +498,35 @@ async function buildCareerRecommendationDetailPathsFromAuthority() {
   }
 }
 
+async function buildCareerFamilyDetailPathsFromAuthority() {
+  try {
+    const paths = new Set();
+
+    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+      for (const slug of CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS) {
+        const params = new URLSearchParams({ locale: apiLocale });
+        const payload = await fetchJsonWithTimeout(
+          `${buildApiUrl(`/v0.5/career/family/${encodeURIComponent(slug)}`)}?${params.toString()}`
+        );
+        const family = payload && typeof payload.family === "object" && payload.family ? payload.family : {};
+        const counts = payload && typeof payload.counts === "object" && payload.counts ? payload.counts : {};
+        const canonicalSlug = normalizeSlug(family.canonical_slug) || slug;
+        const visibleChildrenCount = normalizeNumber(counts.visible_children_count);
+
+        if (visibleChildrenCount <= 0) {
+          continue;
+        }
+
+        paths.add(`/${localePrefix}/career/family/${canonicalSlug}`);
+      }
+    }
+
+    return [...paths];
+  } catch {
+    return [];
+  }
+}
+
 async function buildTopicDetailPathsFromApi() {
   return buildCmsDetailPaths(
     "/v0.5/topics",
@@ -551,6 +594,7 @@ module.exports = {
       methodPaths,
       dataPaths,
       careerJobApiPaths,
+      careerFamilyApiPaths,
       careerRecommendationApiPaths,
       personalityPaths,
       topicApiPaths,
@@ -560,6 +604,7 @@ module.exports = {
       buildValidatedCmsPaths("/v0.5/methods", buildMethodDetailPaths),
       buildValidatedCmsPaths("/v0.5/data", buildDataDetailPaths),
       buildCareerJobDetailPathsFromAuthority(),
+      buildCareerFamilyDetailPathsFromAuthority(),
       buildCareerRecommendationDetailPathsFromAuthority(),
       buildValidatedCmsPaths("/v0.5/personality", buildPersonalityDetailPaths),
       buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
@@ -572,6 +617,7 @@ module.exports = {
       ...methodPaths,
       ...dataPaths,
       ...careerJobApiPaths,
+      ...careerFamilyApiPaths,
       ...careerRecommendationApiPaths,
       ...personalityPaths,
       ...topicApiPaths,

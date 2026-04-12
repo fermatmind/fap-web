@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
+import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
+import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
+import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
@@ -20,6 +23,7 @@ const TOPIC_FALLBACKS = [
   { slug: "big-five", title: "Big Five" },
   { slug: "iq-eq", title: "IQ and EQ" },
 ];
+const CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS = ["data-science", "compliance"] as const;
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -53,6 +57,28 @@ function publishedPersonalityVariantSlugs(value: string): string[] {
   }
 
   return [defaultSlug];
+}
+
+async function listCareerFamilyEntries(locale: "en" | "zh") {
+  const entries = await Promise.all(
+    CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS.map(async (slug) => {
+      const payload = await fetchCareerFamilyHub({ locale, slug }).catch(() => null);
+      const hub = adaptCareerFamilyHub({ locale, payload });
+
+      if (!hub || hub.counts.visibleChildrenCount <= 0) {
+        return null;
+      }
+
+      return {
+        locale,
+        path: buildCareerFamilyFrontendUrl(locale, hub.family.canonicalSlug),
+        title: hub.family.title,
+        updatedAt: "",
+      };
+    })
+  );
+
+  return entries.filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 }
 
 async function listPersonalityEntries() {
@@ -129,6 +155,8 @@ export async function GET() {
     zhCareerGuides,
     enCareerRecommendations,
     zhCareerRecommendations,
+    enCareerFamilies,
+    zhCareerFamilies,
     personalityEntries,
     topicEntries,
     enArticles,
@@ -148,6 +176,8 @@ export async function GET() {
     fetchCareerRecommendationIndex({ locale: "zh" })
       .then((payload) => adaptCareerRecommendationIndex({ locale: "zh", payload }))
       .catch(() => []),
+    listCareerFamilyEntries("en"),
+    listCareerFamilyEntries("zh"),
     listPersonalityEntries(),
     listTopicEntries(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
@@ -228,6 +258,8 @@ export async function GET() {
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },
     ]),
     ...guideEntries,
+    ...enCareerFamilies,
+    ...zhCareerFamilies,
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
       locale: "en",
       path: item.href,

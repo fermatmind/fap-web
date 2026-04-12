@@ -41,6 +41,12 @@
   ],
   "candidate_routes": [
     {
+      "key": "career_family_hub_detail",
+      "route": "/career/family/[slug]",
+      "authorityOwner": "backend_career_family_hub_bundle",
+      "rationale": "Family hub detail routes are backend-owned candidate surfaces and should become discoverable only when the backend exposes at least one visible child."
+    },
+    {
       "key": "career_guides_index",
       "route": "/career/guides",
       "authorityOwner": "editorial_cms_guides",

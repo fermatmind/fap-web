@@ -60,6 +60,28 @@ describe("sitemap indexability contract", () => {
           });
         }
 
+        if (url.includes("/api/v0.5/career/family/data-science?")) {
+          return jsonResponse({
+            family: {
+              canonical_slug: "data-science",
+            },
+            counts: {
+              visible_children_count: 1,
+            },
+          });
+        }
+
+        if (url.includes("/api/v0.5/career/family/compliance?")) {
+          return jsonResponse({
+            family: {
+              canonical_slug: "compliance",
+            },
+            counts: {
+              visible_children_count: 0,
+            },
+          });
+        }
+
         return jsonResponse({ items: [] });
       })
     );
@@ -82,10 +104,14 @@ describe("sitemap indexability contract", () => {
         "/zh/career/guides",
         "/en/career/jobs/backend-architect",
         "/zh/career/jobs/backend-architect",
+        "/en/career/family/data-science",
+        "/zh/career/family/data-science",
         "/en/career/recommendations/mbti/intj-a",
         "/zh/career/recommendations/mbti/intj-a",
       ])
     );
+    expect(locs).not.toContain("/en/career/family/compliance");
+    expect(locs).not.toContain("/zh/career/family/compliance");
     expect(locs.some((loc: string) => loc.includes("/career/recommendations/big5/"))).toBe(false);
     expect(locs.some((loc: string) => loc.includes("?q="))).toBe(false);
   });
