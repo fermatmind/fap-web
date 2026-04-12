@@ -589,13 +589,15 @@ export type CareerFirstWaveNextStepLinksSummaryAdapter = {
 export type CareerFirstWaveRecommendationCompanionLinkRouteKind =
   | "career_family_hub"
   | "career_job_detail"
-  | "test_landing";
+  | "test_landing"
+  | "topic_detail";
 
 export type CareerFirstWaveRecommendationCompanionLinkReasonCode =
   | "target_job_detail_companion"
   | "target_family_hub_companion"
   | "matched_job_detail_companion"
-  | "recommendation_test_support";
+  | "recommendation_test_support"
+  | "recommendation_topic_support";
 
 type CareerFirstWaveRecommendationCompanionLinkBaseAdapter = {
   routeKind: CareerFirstWaveRecommendationCompanionLinkRouteKind;
@@ -624,10 +626,17 @@ export type CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter =
     scaleCode: string | null;
   };
 
+export type CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter =
+  CareerFirstWaveRecommendationCompanionLinkBaseAdapter & {
+    routeKind: "topic_detail";
+    topicCode: string | null;
+  };
+
 export type CareerFirstWaveRecommendationCompanionLinkAdapter =
   | CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter
   | CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter
-  | CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter;
+  | CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter
+  | CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter;
 
 export type CareerFirstWaveRecommendationCompanionLinksSummaryAdapter = {
   authoritySource: string;
@@ -646,9 +655,11 @@ export type CareerFirstWaveRecommendationCompanionLinksSummaryAdapter = {
     jobDetail: number;
     familyHub: number;
     testLanding: number;
+    topicDetail: number;
   };
   companionLinks: CareerFirstWaveRecommendationCompanionLinkAdapter[];
   familyHubLinks: CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter[];
   jobDetailLinks: CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter[];
   testLandingLinks: CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter[];
+  topicDetailLinks: CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter[];
 };

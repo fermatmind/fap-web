@@ -60,10 +60,11 @@ describe("career recommendation companion links contract", () => {
           display_title: "INTJ-A Architect",
         },
         counts: {
-          total: 5,
+          total: 6,
           job_detail: 2,
           family_hub: 1,
           test_landing: 1,
+          topic_detail: 1,
         },
         companion_links: [
           {
@@ -91,7 +92,14 @@ describe("career recommendation companion links contract", () => {
             route_kind: "topic_detail",
             canonical_path: "/topics/mbti",
             canonical_slug: "mbti",
-            link_reason_code: "canonical_topic_detail",
+            link_reason_code: "recommendation_topic_support",
+            topic_code: "mbti",
+          },
+          {
+            route_kind: "test_take",
+            canonical_path: "/tests/mbti-personality-test-16-personality-types/take",
+            canonical_slug: "mbti-personality-test-16-personality-types",
+            link_reason_code: "take",
           },
           {
             route_kind: "career_family_hub",
@@ -106,20 +114,24 @@ describe("career recommendation companion links contract", () => {
     });
 
     expect(summary).not.toBeNull();
-    expect(summary?.companionLinks).toHaveLength(3);
+    expect(summary?.companionLinks).toHaveLength(4);
     expect(summary?.companionLinks.map((link) => link.routeKind)).toEqual([
       "career_job_detail",
       "test_landing",
+      "topic_detail",
       "career_family_hub",
     ]);
     expect(summary?.jobDetailLinks).toHaveLength(1);
     expect(summary?.familyHubLinks).toHaveLength(1);
     expect(summary?.testLandingLinks).toHaveLength(1);
+    expect(summary?.topicDetailLinks).toHaveLength(1);
     expect(summary?.testLandingLinks[0]?.scaleCode).toBe("MBTI");
+    expect(summary?.topicDetailLinks[0]?.topicCode).toBe("mbti");
     expect(summary?.counts.testLanding).toBe(1);
+    expect(summary?.counts.topicDetail).toBe(1);
   });
 
-  it("renders a compact non-narrative section with backend-provided family, job, and support links only", async () => {
+  it("renders a compact non-narrative section with backend-provided family, job, test, and topic links only", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) =>
         createElement("a", { href, ...props }, children),
@@ -138,10 +150,11 @@ describe("career recommendation companion links contract", () => {
           display_title: "INTJ-A Architect",
         },
         counts: {
-          total: 4,
+          total: 5,
           job_detail: 2,
           family_hub: 1,
           test_landing: 1,
+          topic_detail: 1,
         },
         companion_links: [
           {
@@ -175,6 +188,13 @@ describe("career recommendation companion links contract", () => {
             link_reason_code: "recommendation_test_support",
             scale_code: "MBTI",
           },
+          {
+            route_kind: "topic_detail",
+            canonical_path: "/topics/mbti",
+            canonical_slug: "mbti",
+            link_reason_code: "recommendation_topic_support",
+            topic_code: "mbti",
+          },
         ],
       },
     });
@@ -195,22 +215,29 @@ describe("career recommendation companion links contract", () => {
     expect(section).toHaveTextContent("Family hub");
     expect(section).toHaveTextContent("Related job pages");
     expect(section).toHaveTextContent("Related test");
+    expect(section).toHaveTextContent("Related topic");
     expect(section).toHaveTextContent("Data and Research");
     expect(section).toHaveTextContent("Data Scientist");
     expect(section).toHaveTextContent("Business Analyst");
     expect(section).toHaveTextContent("MBTI personality test");
+    expect(section).toHaveTextContent("MBTI topic");
     expect(section).not.toHaveTextContent("best next move");
     expect(section).not.toHaveTextContent("recommended next step");
     expect(section).not.toHaveTextContent("strategy");
     expect(section).not.toHaveTextContent("take this test now");
+    expect(section).not.toHaveTextContent("continue reading");
+    expect(section).not.toHaveTextContent("content recommendation");
     expect(section).not.toHaveTextContent("target_job_detail_companion");
     expect(section).not.toHaveTextContent("target_family_hub_companion");
     expect(section).not.toHaveTextContent("matched_job_detail_companion");
     expect(section).not.toHaveTextContent("recommendation_test_support");
-    expect(section).not.toHaveTextContent("canonical_topic_detail");
+    expect(section).not.toHaveTextContent("recommendation_topic_support");
+    expect(section).not.toHaveTextContent("topic_code");
     expect(container.querySelectorAll('[data-testid="career-recommendation-companion-family-link"]')).toHaveLength(1);
     expect(container.querySelectorAll('[data-testid="career-recommendation-companion-job-link"]')).toHaveLength(2);
     expect(container.querySelectorAll('[data-testid="career-recommendation-companion-test-link"]')).toHaveLength(1);
+    expect(container.querySelectorAll('[data-testid="career-recommendation-companion-topic-link"]')).toHaveLength(1);
     expect(container.querySelector("a[href='/tests/mbti-personality-test-16-personality-types']")).not.toBeNull();
+    expect(container.querySelector("a[href='/topics/mbti']")).not.toBeNull();
   });
 });

@@ -193,10 +193,11 @@ describe("career recommendation backend page contract", () => {
           display_title: "INTJ-A Architect",
         },
         counts: {
-          total: 3,
+          total: 4,
           job_detail: 1,
           family_hub: 1,
           test_landing: 1,
+          topic_detail: 1,
         },
         companion_links: [
           {
@@ -221,6 +222,13 @@ describe("career recommendation backend page contract", () => {
             canonical_slug: "mbti-personality-test-16-personality-types",
             link_reason_code: "recommendation_test_support",
             scale_code: "MBTI",
+          },
+          {
+            route_kind: "topic_detail",
+            canonical_path: "/topics/mbti",
+            canonical_slug: "mbti",
+            link_reason_code: "recommendation_topic_support",
+            topic_code: "mbti",
           },
         ],
       })),
@@ -259,7 +267,9 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("Data and Research");
     expect(html).toContain("Data Scientist");
     expect(html).toContain("Related test");
+    expect(html).toContain("Related topic");
     expect(html).toContain("MBTI personality test");
+    expect(html).toContain("MBTI topic");
     expect(html).toContain("INTJ-A");
     expect(html).toContain("People friction");
     expect(html).not.toContain("Matched role matrix");
@@ -272,8 +282,13 @@ describe("career recommendation backend page contract", () => {
     expect(html).not.toContain("target_family_hub_companion");
     expect(html).not.toContain("target_job_detail_companion");
     expect(html).not.toContain("recommendation_test_support");
-    expect(html).not.toContain("topic_detail");
+    expect(html).not.toContain("recommendation_topic_support");
     expect(html).not.toContain("take this test now");
+    expect(html).not.toContain("continue reading");
+    expect(html).not.toContain("/articles/");
+    expect(html).not.toContain("/guides/");
+    expect(html).not.toContain("/topics/mbti/take");
+    expect(html).not.toContain("/tests-index");
     expect(html).not.toContain("strongest");
   });
 
