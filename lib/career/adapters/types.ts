@@ -483,3 +483,55 @@ export type CareerFirstWaveLaunchTierSummaryAdapter = {
   occupationsBySlug: Record<string, CareerFirstWaveLaunchTierOccupationAdapter>;
   launchTierBySlug: Record<string, CareerFirstWaveLaunchTier>;
 };
+
+export type CareerFirstWaveDiscoverabilityManifestRouteKind = "career_job_detail" | "career_family_hub";
+
+export type CareerFirstWaveDiscoverabilityState = "discoverable" | "excluded";
+
+type CareerFirstWaveDiscoverabilityManifestRouteBaseAdapter = {
+  routeKind: CareerFirstWaveDiscoverabilityManifestRouteKind;
+  canonicalPath: string;
+  discoverabilityState: CareerFirstWaveDiscoverabilityState;
+  reasonCodes: string[];
+};
+
+export type CareerFirstWaveDiscoverabilityManifestJobDetailRouteAdapter =
+  CareerFirstWaveDiscoverabilityManifestRouteBaseAdapter & {
+    routeKind: "career_job_detail";
+    occupationUuid: string | null;
+    canonicalSlug: string;
+    canonicalTitleEn: string | null;
+    launchTier: CareerFirstWaveLaunchTier | null;
+    readinessStatus: string | null;
+    publicIndexState: string | null;
+    indexEligible: boolean | null;
+    reviewerStatus: string | null;
+    crosswalkMode: string | null;
+    blockedGovernanceStatus: string | null;
+  };
+
+export type CareerFirstWaveDiscoverabilityManifestFamilyHubRouteAdapter =
+  CareerFirstWaveDiscoverabilityManifestRouteBaseAdapter & {
+    routeKind: "career_family_hub";
+    familyUuid: string | null;
+    canonicalSlug: string;
+    titleEn: string | null;
+    visibleChildrenCount: number;
+  };
+
+export type CareerFirstWaveDiscoverabilityManifestRouteAdapter =
+  | CareerFirstWaveDiscoverabilityManifestJobDetailRouteAdapter
+  | CareerFirstWaveDiscoverabilityManifestFamilyHubRouteAdapter;
+
+export type CareerFirstWaveDiscoverabilityManifestAdapter = {
+  authoritySource: string;
+  manifestKind: string;
+  manifestVersion: string;
+  scope: string;
+  routes: CareerFirstWaveDiscoverabilityManifestRouteAdapter[];
+  routesByPath: Record<string, CareerFirstWaveDiscoverabilityManifestRouteAdapter>;
+  jobDetailBySlug: Record<string, CareerFirstWaveDiscoverabilityManifestJobDetailRouteAdapter>;
+  familyHubBySlug: Record<string, CareerFirstWaveDiscoverabilityManifestFamilyHubRouteAdapter>;
+  discoverableJobDetailSlugs: string[];
+  discoverableFamilyHubSlugs: string[];
+};

@@ -1,4 +1,6 @@
 import type {
+  CareerFirstWaveDiscoverabilityManifestAdapter,
+  CareerFirstWaveDiscoverabilityState,
   CareerFirstWaveLaunchTier,
   CareerFirstWaveLaunchTierSummaryAdapter,
 } from "@/lib/career/adapters/types";
@@ -9,6 +11,12 @@ export const CAREER_LAUNCH_STATES = ["stable", "candidate", "hold", "noindex"] a
 export type CareerLaunchState = (typeof CAREER_LAUNCH_STATES)[number];
 export const CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS = ["career_job_detail"] as const;
 export type CareerLaunchTierAuthorityRouteKey = (typeof CAREER_LAUNCH_TIER_AUTHORITY_ROUTE_KEYS)[number];
+export const CAREER_DISCOVERABILITY_MANIFEST_AUTHORITY_ROUTE_KEYS = [
+  "career_job_detail",
+  "career_family_hub_detail",
+] as const;
+export type CareerDiscoverabilityManifestAuthorityRouteKey =
+  (typeof CAREER_DISCOVERABILITY_MANIFEST_AUTHORITY_ROUTE_KEYS)[number];
 
 export type CareerLaunchRouteKey =
   | "career_landing"
@@ -483,6 +491,12 @@ export function isCareerLaunchTierAuthorityRouteKey(
   return key === "career_job_detail";
 }
 
+export function isCareerDiscoverabilityManifestAuthorityRouteKey(
+  key: CareerLaunchRouteKey | null | undefined
+): key is CareerDiscoverabilityManifestAuthorityRouteKey {
+  return key === "career_job_detail" || key === "career_family_hub_detail";
+}
+
 export function getCareerOccupationLaunchTier(
   summary: CareerFirstWaveLaunchTierSummaryAdapter | null,
   slug: string | null | undefined
@@ -500,4 +514,42 @@ export function isCareerJobDetailStableByLaunchTier(
   slug: string | null | undefined
 ): boolean {
   return getCareerOccupationLaunchTier(summary, slug) === "stable";
+}
+
+export function getCareerJobDetailDiscoverabilityState(
+  manifest: CareerFirstWaveDiscoverabilityManifestAdapter | null,
+  slug: string | null | undefined
+): CareerFirstWaveDiscoverabilityState | null {
+  const normalizedSlug = String(slug ?? "").trim().toLowerCase();
+  if (!manifest || !normalizedSlug) {
+    return null;
+  }
+
+  return manifest.jobDetailBySlug[normalizedSlug]?.discoverabilityState ?? null;
+}
+
+export function getCareerFamilyHubDiscoverabilityState(
+  manifest: CareerFirstWaveDiscoverabilityManifestAdapter | null,
+  slug: string | null | undefined
+): CareerFirstWaveDiscoverabilityState | null {
+  const normalizedSlug = String(slug ?? "").trim().toLowerCase();
+  if (!manifest || !normalizedSlug) {
+    return null;
+  }
+
+  return manifest.familyHubBySlug[normalizedSlug]?.discoverabilityState ?? null;
+}
+
+export function isCareerJobDetailDiscoverableByManifest(
+  manifest: CareerFirstWaveDiscoverabilityManifestAdapter | null,
+  slug: string | null | undefined
+): boolean {
+  return getCareerJobDetailDiscoverabilityState(manifest, slug) === "discoverable";
+}
+
+export function isCareerFamilyHubDiscoverableByManifest(
+  manifest: CareerFirstWaveDiscoverabilityManifestAdapter | null,
+  slug: string | null | undefined
+): boolean {
+  return getCareerFamilyHubDiscoverabilityState(manifest, slug) === "discoverable";
 }

@@ -7,68 +7,39 @@ afterEach(() => {
 
 describe("career llms alignment contract", () => {
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
-    vi.doMock("@/lib/career/api/fetchCareerFamilyHub", () => ({
-      fetchCareerFamilyHub: vi.fn(async ({ slug }: { slug: string }) => {
-        if (slug === "data-science") {
-          return {
-            bundle_kind: "career_family_hub",
-            bundle_version: "career.protocol.family_hub.v1",
-            family: {
-              family_uuid: "fam_123",
-              canonical_slug: "data-science",
-              title_en: "Data Science",
-              title_zh: "数据科学",
-            },
-            visible_children: [
-              {
-                occupation_uuid: "occ_123",
-                canonical_slug: "data-scientist",
-                canonical_title_en: "Data Scientist",
-                canonical_title_zh: "数据科学家",
-              },
-            ],
-            counts: {
-              visible_children_count: 1,
-              publish_ready_count: 1,
-              blocked_override_eligible_count: 0,
-              blocked_not_safely_remediable_count: 0,
-              blocked_total: 0,
-            },
-          };
-        }
-
-        return {
-          bundle_kind: "career_family_hub",
-          bundle_version: "career.protocol.family_hub.v1",
-          family: {
-            family_uuid: "fam_124",
-            canonical_slug: "compliance",
-            title_en: "Compliance",
-            title_zh: "合规",
-          },
-          visible_children: [],
-          counts: {
-            visible_children_count: 0,
-            publish_ready_count: 0,
-            blocked_override_eligible_count: 0,
-            blocked_not_safely_remediable_count: 0,
-            blocked_total: 0,
-          },
-        };
-      }),
-    }));
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
       fetchCareerJobIndex: vi.fn(async () => ({ items: [] })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerFirstWaveLaunchTierSummary", () => ({
-      fetchCareerFirstWaveLaunchTierSummary: vi.fn(async () => ({
-        summary_kind: "career_first_wave_launch_tier",
-        summary_version: "career.launch_tier.first_wave.v1",
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest", () => ({
+      fetchCareerFirstWaveDiscoverabilityManifest: vi.fn(async () => ({
+        manifest_kind: "career_first_wave_discoverability_manifest",
+        manifest_version: "career.discoverability.first_wave.v1",
         scope: "career_first_wave_10",
-        counts: { total: 2, stable: 1, candidate: 1, hold: 0 },
-        occupations: [
-          { canonical_slug: "backend-architect", launch_tier: "stable" },
-          { canonical_slug: "data-engineer", launch_tier: "candidate" },
+        routes: [
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/backend-architect",
+            discoverability_state: "discoverable",
+            canonical_slug: "backend-architect",
+          },
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/data-engineer",
+            discoverability_state: "excluded",
+            canonical_slug: "data-engineer",
+          },
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/data-science",
+            discoverability_state: "discoverable",
+            canonical_slug: "data-science",
+          },
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/compliance",
+            discoverability_state: "excluded",
+            canonical_slug: "compliance",
+          },
         ],
       })),
     }));
@@ -191,15 +162,36 @@ describe("career llms alignment contract", () => {
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
       fetchCareerJobIndex: vi.fn(async () => ({ items: [] })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerFirstWaveLaunchTierSummary", () => ({
-      fetchCareerFirstWaveLaunchTierSummary: vi.fn(async () => ({
-        summary_kind: "career_first_wave_launch_tier",
-        summary_version: "career.launch_tier.first_wave.v1",
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest", () => ({
+      fetchCareerFirstWaveDiscoverabilityManifest: vi.fn(async () => ({
+        manifest_kind: "career_first_wave_discoverability_manifest",
+        manifest_version: "career.discoverability.first_wave.v1",
         scope: "career_first_wave_10",
-        counts: { total: 2, stable: 1, candidate: 1, hold: 0 },
-        occupations: [
-          { canonical_slug: "backend-architect", launch_tier: "stable" },
-          { canonical_slug: "data-engineer", launch_tier: "candidate" },
+        routes: [
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/backend-architect",
+            discoverability_state: "discoverable",
+            canonical_slug: "backend-architect",
+          },
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/data-engineer",
+            discoverability_state: "excluded",
+            canonical_slug: "data-engineer",
+          },
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/data-science",
+            discoverability_state: "discoverable",
+            canonical_slug: "data-science",
+          },
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/compliance",
+            discoverability_state: "excluded",
+            canonical_slug: "compliance",
+          },
         ],
       })),
     }));

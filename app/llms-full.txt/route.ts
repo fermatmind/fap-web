@@ -2,14 +2,17 @@ import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
-import { adaptCareerFirstWaveLaunchTierSummary } from "@/lib/career/adapters/adaptCareerFirstWaveLaunchTierSummary";
+import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
-import { fetchCareerFirstWaveLaunchTierSummary } from "@/lib/career/api/fetchCareerFirstWaveLaunchTierSummary";
+import { fetchCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { isCareerJobDetailStableByLaunchTier } from "@/lib/career/launchPolicy";
+import {
+  isCareerFamilyHubDiscoverableByManifest,
+  isCareerJobDetailDiscoverableByManifest,
+} from "@/lib/career/launchPolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
@@ -20,13 +23,13 @@ import {
 import { listHelpCenterPages } from "@/lib/help/helpCenterContent";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
+import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 
 const TOPIC_FALLBACKS = [
   { slug: "mbti", title: "MBTI" },
   { slug: "big-five", title: "Big Five" },
   { slug: "iq-eq", title: "IQ and EQ" },
 ];
-const CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS = ["data-science", "compliance"] as const;
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -73,9 +76,20 @@ function publishedPersonalityVariantSlugs(value: string): string[] {
   return [defaultSlug];
 }
 
-async function listCareerFamilyEntries(locale: "en" | "zh") {
+async function listCareerFamilyEntriesFromManifest(
+  locale: "en" | "zh",
+  manifest: CareerFirstWaveDiscoverabilityManifestAdapter | null
+) {
+  if (!manifest) {
+    return [];
+  }
+
   const entries = await Promise.all(
-    CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS.map(async (slug) => {
+    manifest.discoverableFamilyHubSlugs.map(async (slug) => {
+      if (!isCareerFamilyHubDiscoverableByManifest(manifest, slug)) {
+        return null;
+      }
+
       const payload = await fetchCareerFamilyHub({ locale, slug }).catch(() => null);
       const hub = adaptCareerFamilyHub({ locale, payload });
 
@@ -165,14 +179,12 @@ export async function GET() {
   const [
     enCareerJobs,
     zhCareerJobs,
-    enLaunchTierSummary,
-    zhLaunchTierSummary,
+    enDiscoverabilityManifest,
+    zhDiscoverabilityManifest,
     enCareerGuides,
     zhCareerGuides,
     enCareerRecommendations,
     zhCareerRecommendations,
-    enCareerFamilies,
-    zhCareerFamilies,
     personalityEntries,
     topicEntries,
     enArticles,
@@ -184,11 +196,11 @@ export async function GET() {
     fetchCareerJobIndex({ locale: "zh" })
       .then((payload) => adaptCareerJobIndex({ locale: "zh", payload }))
       .catch(() => []),
-    fetchCareerFirstWaveLaunchTierSummary({ locale: "en" })
-      .then((payload) => adaptCareerFirstWaveLaunchTierSummary({ payload }))
+    fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" })
+      .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
       .catch(() => null),
-    fetchCareerFirstWaveLaunchTierSummary({ locale: "zh" })
-      .then((payload) => adaptCareerFirstWaveLaunchTierSummary({ payload }))
+    fetchCareerFirstWaveDiscoverabilityManifest({ locale: "zh" })
+      .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
       .catch(() => null),
     listCareerGuidesFromCms("en").catch(() => []),
     listCareerGuidesFromCms("zh").catch(() => []),
@@ -198,12 +210,15 @@ export async function GET() {
     fetchCareerRecommendationIndex({ locale: "zh" })
       .then((payload) => adaptCareerRecommendationIndex({ locale: "zh", payload }))
       .catch(() => []),
-    listCareerFamilyEntries("en"),
-    listCareerFamilyEntries("zh"),
     listPersonalityEntries(),
     listTopicEntries(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
     listCmsArticlesForLlms({ locale: "zh" }).catch(() => []),
+  ]);
+
+  const [enCareerFamilies, zhCareerFamilies] = await Promise.all([
+    listCareerFamilyEntriesFromManifest("en", enDiscoverabilityManifest),
+    listCareerFamilyEntriesFromManifest("zh", zhDiscoverabilityManifest),
   ]);
 
   const helpEntries = [
@@ -267,7 +282,7 @@ export async function GET() {
       .filter(
         (job) =>
           shouldKeepCareerAuthorityEntry(job) &&
-          isCareerJobDetailStableByLaunchTier(enLaunchTierSummary, extractCareerJobSlug(job))
+          isCareerJobDetailDiscoverableByManifest(enDiscoverabilityManifest, extractCareerJobSlug(job))
       )
       .map((job) => ({
         locale: "en",
@@ -279,7 +294,7 @@ export async function GET() {
       .filter(
         (job) =>
           shouldKeepCareerAuthorityEntry(job) &&
-          isCareerJobDetailStableByLaunchTier(zhLaunchTierSummary, extractCareerJobSlug(job))
+          isCareerJobDetailDiscoverableByManifest(zhDiscoverabilityManifest, extractCareerJobSlug(job))
       )
       .map((job) => ({
         locale: "zh",

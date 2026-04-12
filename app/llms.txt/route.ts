@@ -1,16 +1,16 @@
 import { NextResponse } from "next/server";
 import { listCmsArticlesForLlms } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
-import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
-import { adaptCareerFirstWaveLaunchTierSummary } from "@/lib/career/adapters/adaptCareerFirstWaveLaunchTierSummary";
+import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
-import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
-import { fetchCareerFirstWaveLaunchTierSummary } from "@/lib/career/api/fetchCareerFirstWaveLaunchTierSummary";
+import { fetchCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { isCareerJobDetailStableByLaunchTier } from "@/lib/career/launchPolicy";
-import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
+import {
+  isCareerFamilyHubDiscoverableByManifest,
+  isCareerJobDetailDiscoverableByManifest,
+} from "@/lib/career/launchPolicy";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import {
@@ -20,9 +20,9 @@ import {
 import { HELP_CENTER_SLUGS } from "@/lib/help/helpCenterContent";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
+import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 
 const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
-const CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS = ["data-science", "compliance"] as const;
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -69,21 +69,21 @@ function publishedPersonalityVariantSlugs(value: string): string[] {
   return [defaultSlug];
 }
 
-async function listCareerFamilyPaths(locale: "en" | "zh"): Promise<string[]> {
-  const paths = await Promise.all(
-    CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS.map(async (slug) => {
-      const payload = await fetchCareerFamilyHub({ locale, slug }).catch(() => null);
-      const hub = adaptCareerFamilyHub({ locale, payload });
+function listCareerFamilyPathsFromManifest(
+  locale: "en" | "zh",
+  manifest: CareerFirstWaveDiscoverabilityManifestAdapter | null
+): string[] {
+  if (!manifest) {
+    return [];
+  }
 
-      if (!hub || hub.counts.visibleChildrenCount <= 0) {
-        return null;
-      }
-
-      return buildCareerFamilyFrontendUrl(locale, hub.family.canonicalSlug);
-    })
-  );
-
-  return paths.filter((path): path is string => Boolean(path));
+  return manifest.routes
+    .filter(
+      (route) =>
+        route.routeKind === "career_family_hub" &&
+        isCareerFamilyHubDiscoverableByManifest(manifest, route.canonicalSlug)
+    )
+    .map((route) => `/${locale}/career/family/${route.canonicalSlug}`);
 }
 
 async function listPersonalityPaths(): Promise<string[]> {
@@ -143,14 +143,12 @@ export async function GET() {
   const [
     enCareerJobs,
     zhCareerJobs,
-    enLaunchTierSummary,
-    zhLaunchTierSummary,
+    enDiscoverabilityManifest,
+    zhDiscoverabilityManifest,
     enCareerGuides,
     zhCareerGuides,
     enCareerRecommendations,
     zhCareerRecommendations,
-    enCareerFamilies,
-    zhCareerFamilies,
     personalityEntries,
     topicEntries,
     enArticles,
@@ -162,11 +160,11 @@ export async function GET() {
     fetchCareerJobIndex({ locale: "zh" })
       .then((payload) => adaptCareerJobIndex({ locale: "zh", payload }))
       .catch(() => []),
-    fetchCareerFirstWaveLaunchTierSummary({ locale: "en" })
-      .then((payload) => adaptCareerFirstWaveLaunchTierSummary({ payload }))
+    fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" })
+      .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
       .catch(() => null),
-    fetchCareerFirstWaveLaunchTierSummary({ locale: "zh" })
-      .then((payload) => adaptCareerFirstWaveLaunchTierSummary({ payload }))
+    fetchCareerFirstWaveDiscoverabilityManifest({ locale: "zh" })
+      .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
       .catch(() => null),
     listCareerGuidesFromCms("en").catch(() => []),
     listCareerGuidesFromCms("zh").catch(() => []),
@@ -176,13 +174,14 @@ export async function GET() {
     fetchCareerRecommendationIndex({ locale: "zh" })
       .then((payload) => adaptCareerRecommendationIndex({ locale: "zh", payload }))
       .catch(() => []),
-    listCareerFamilyPaths("en"),
-    listCareerFamilyPaths("zh"),
     listPersonalityPaths(),
     listTopicPaths(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
     listCmsArticlesForLlms({ locale: "zh" }).catch(() => []),
   ]);
+
+  const enCareerFamilies = listCareerFamilyPathsFromManifest("en", enDiscoverabilityManifest);
+  const zhCareerFamilies = listCareerFamilyPathsFromManifest("zh", zhDiscoverabilityManifest);
 
   const helpEntries = dedupePaths(HELP_CENTER_SLUGS.flatMap((slug) => [`/en/help/${slug}`, `/zh/help/${slug}`]));
   const testEntries = dedupePaths(
@@ -219,14 +218,14 @@ export async function GET() {
       .filter(
         (job) =>
           shouldKeepCareerAuthorityRoute(job) &&
-          isCareerJobDetailStableByLaunchTier(enLaunchTierSummary, extractCareerJobSlug(job))
+          isCareerJobDetailDiscoverableByManifest(enDiscoverabilityManifest, extractCareerJobSlug(job))
       )
       .map((job) => job.href),
     ...zhCareerJobs
       .filter(
         (job) =>
           shouldKeepCareerAuthorityRoute(job) &&
-          isCareerJobDetailStableByLaunchTier(zhLaunchTierSummary, extractCareerJobSlug(job))
+          isCareerJobDetailDiscoverableByManifest(zhDiscoverabilityManifest, extractCareerJobSlug(job))
       )
       .map((job) => job.href),
     ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),

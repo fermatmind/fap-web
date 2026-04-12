@@ -46,7 +46,6 @@ const CMS_LOCALES = [
   { localePrefix: "en", apiLocale: "en" },
   { localePrefix: "zh", apiLocale: "zh-CN" },
 ];
-const CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS = ["data-science", "compliance"];
 const MBTI_BASE_SLUG_RE = /^[ie][ns][ft][jp]$/i;
 const MBTI_RUNTIME_SLUG_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
@@ -304,38 +303,6 @@ function buildApiUrl(path) {
   return `${apiOrigin}/api${normalized}`;
 }
 
-function normalizeNumber(value) {
-  if (typeof value === "number" && Number.isFinite(value)) {
-    return value;
-  }
-
-  if (typeof value === "string" && value.trim()) {
-    const parsed = Number(value);
-    return Number.isFinite(parsed) ? parsed : 0;
-  }
-
-  return 0;
-}
-
-function normalizeLaunchTier(value) {
-  const normalized = normalizeSlug(value).toLowerCase();
-  if (normalized === "stable" || normalized === "candidate" || normalized === "hold") {
-    return normalized;
-  }
-  return null;
-}
-
-function extractCareerJobSlugFromAuthorityItem(item) {
-  const identitySlug = normalizeSlug(item?.identity?.canonical_slug).toLowerCase();
-  if (identitySlug) {
-    return identitySlug;
-  }
-
-  const canonicalPath = normalizePath(item?.seo_contract?.canonical_path || "");
-  const match = canonicalPath.match(/\/career\/jobs\/([^/?#]+)$/i);
-  return match ? normalizeSlug(match[1]).toLowerCase() : "";
-}
-
 async function fetchJsonWithTimeout(url, timeoutMs = 1500) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -356,6 +323,57 @@ async function fetchJsonWithTimeout(url, timeoutMs = 1500) {
   } finally {
     clearTimeout(timer);
   }
+}
+
+function normalizeDiscoverabilityState(value) {
+  const normalized = normalizeSlug(value).toLowerCase();
+  if (normalized === "discoverable" || normalized === "excluded") {
+    return normalized;
+  }
+  return null;
+}
+
+function extractCareerDiscoverabilityManifestRoutes(payload) {
+  const rows = Array.isArray(payload?.routes) ? payload.routes : [];
+
+  return rows
+    .filter((row) => row && typeof row === "object")
+    .map((row) => {
+      const routeKind = normalizeSlug(row.route_kind);
+      const canonicalPath = normalizePath(row.canonical_path || "");
+      const canonicalSlug = normalizeSlug(row.canonical_slug).toLowerCase();
+      const discoverabilityState = normalizeDiscoverabilityState(row.discoverability_state);
+
+      if (!routeKind || !canonicalPath || !canonicalSlug || !discoverabilityState) {
+        return null;
+      }
+
+      return {
+        routeKind,
+        canonicalPath,
+        canonicalSlug,
+        discoverabilityState,
+      };
+    })
+    .filter(Boolean);
+}
+
+const careerDiscoverabilityManifestRouteCache = new Map();
+
+async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
+  const cacheKey = normalizeSlug(apiLocale).toLowerCase() || "default";
+  if (careerDiscoverabilityManifestRouteCache.has(cacheKey)) {
+    return careerDiscoverabilityManifestRouteCache.get(cacheKey);
+  }
+
+  const params = new URLSearchParams({ locale: apiLocale });
+  const payload = await fetchJsonWithTimeout(
+    `${buildApiUrl("/v0.5/career/first-wave/discoverability-manifest")}?${params.toString()}`
+  );
+  const routes = extractCareerDiscoverabilityManifestRoutes(payload);
+  careerDiscoverabilityManifestRouteCache.set(cacheKey, routes);
+
+  return routes;
 }
 
 async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = 1500) {
@@ -458,37 +476,20 @@ async function buildCareerJobDetailPathsFromAuthority() {
     const paths = new Set();
 
     for (const { localePrefix, apiLocale } of CMS_LOCALES) {
-      const launchTierParams = new URLSearchParams({ locale: apiLocale });
-      const launchTierPayload = await fetchJsonWithTimeout(
-        `${buildApiUrl("/v0.5/career/first-wave/launch-tier")}?${launchTierParams.toString()}`
-      );
-      const launchTierBySlug = new Map();
-      const launchTierRows = Array.isArray(launchTierPayload?.occupations) ? launchTierPayload.occupations : [];
+      const routes = await fetchCareerDiscoverabilityManifestRoutes(apiLocale);
 
-      for (const row of launchTierRows) {
-        const slug = normalizeSlug(row?.canonical_slug).toLowerCase();
-        const launchTier = normalizeLaunchTier(row?.launch_tier);
-        if (slug && launchTier) {
-          launchTierBySlug.set(slug, launchTier);
+      for (const route of routes) {
+        if (route.routeKind !== "career_job_detail" || route.discoverabilityState !== "discoverable") {
+          continue;
         }
-      }
 
-      const params = new URLSearchParams({ locale: apiLocale });
-      const payload = await fetchJsonWithTimeout(`${buildApiUrl("/v0.5/career/jobs")}?${params.toString()}`);
-      const items = extractAuthorityItems(payload);
-
-      for (const item of items) {
-        const slug = extractCareerJobSlugFromAuthorityItem(item);
-        if (!slug) continue;
-        if (launchTierBySlug.get(slug) !== "stable") continue;
-        const path = buildLocalizedAuthorityCareerPath(
-          localePrefix,
-          item?.seo_contract?.canonical_path,
-          `/${localePrefix}/career/jobs/${slug}`
+        paths.add(
+          buildLocalizedAuthorityCareerPath(
+            localePrefix,
+            route.canonicalPath,
+            `/${localePrefix}/career/jobs/${route.canonicalSlug}`
+          )
         );
-        if (shouldIncludeCareerSitemapPath(path, item)) {
-          paths.add(path);
-        }
       }
     }
 
@@ -538,21 +539,20 @@ async function buildCareerFamilyDetailPathsFromAuthority() {
     const paths = new Set();
 
     for (const { localePrefix, apiLocale } of CMS_LOCALES) {
-      for (const slug of CAREER_FAMILY_DISCOVERABILITY_CANDIDATE_SLUGS) {
-        const params = new URLSearchParams({ locale: apiLocale });
-        const payload = await fetchJsonWithTimeout(
-          `${buildApiUrl(`/v0.5/career/family/${encodeURIComponent(slug)}`)}?${params.toString()}`
-        );
-        const family = payload && typeof payload.family === "object" && payload.family ? payload.family : {};
-        const counts = payload && typeof payload.counts === "object" && payload.counts ? payload.counts : {};
-        const canonicalSlug = normalizeSlug(family.canonical_slug) || slug;
-        const visibleChildrenCount = normalizeNumber(counts.visible_children_count);
+      const routes = await fetchCareerDiscoverabilityManifestRoutes(apiLocale);
 
-        if (visibleChildrenCount <= 0) {
+      for (const route of routes) {
+        if (route.routeKind !== "career_family_hub" || route.discoverabilityState !== "discoverable") {
           continue;
         }
 
-        paths.add(`/${localePrefix}/career/family/${canonicalSlug}`);
+        paths.add(
+          buildLocalizedAuthorityCareerPath(
+            localePrefix,
+            route.canonicalPath,
+            `/${localePrefix}/career/family/${route.canonicalSlug}`
+          )
+        );
       }
     }
 
