@@ -180,6 +180,43 @@ describe("career recommendation backend page contract", () => {
         tradeoff_codes: ["higher_training_required"],
       })),
     }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks", () => ({
+      fetchCareerFirstWaveRecommendationCompanionLinks: vi.fn(async () => ({
+        summary_kind: "career_first_wave_recommendation_companion_links",
+        summary_version: "career.companion.recommendation.first_wave.v1",
+        scope: "career_first_wave_10",
+        subject_kind: "recommendation_subject",
+        subject_identity: {
+          type_code: "INTJ-A",
+          canonical_type_code: "INTJ",
+          public_route_slug: "intj-a",
+          display_title: "INTJ-A Architect",
+        },
+        counts: {
+          total: 2,
+          job_detail: 1,
+          family_hub: 1,
+        },
+        companion_links: [
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/data-and-research",
+            canonical_slug: "data-and-research",
+            link_reason_code: "target_family_hub_companion",
+            family_uuid: "fam_123",
+            title_en: "Data and Research",
+          },
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/data-scientist",
+            canonical_slug: "data-scientist",
+            link_reason_code: "target_job_detail_companion",
+            occupation_uuid: "occ_123",
+            canonical_title_en: "Data Scientist",
+          },
+        ],
+      })),
+    }));
 
     const { default: CareerRecommendationPage } = await import(
       "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
@@ -209,6 +246,10 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("lower");
     expect(html).toContain("career-recommendation-warning-banner");
     expect(html).toContain("career-recommendation-matched-jobs-status");
+    expect(html).toContain("career-recommendation-companion-links");
+    expect(html).toContain("Companion links");
+    expect(html).toContain("Data and Research");
+    expect(html).toContain("Data Scientist");
     expect(html).toContain("INTJ-A");
     expect(html).toContain("People friction");
     expect(html).not.toContain("Matched role matrix");
@@ -218,6 +259,8 @@ describe("career recommendation backend page contract", () => {
     expect(html).not.toContain("why this path");
     expect(html).not.toContain("what_is_lost");
     expect(html).not.toContain("bridge_steps_90d");
+    expect(html).not.toContain("target_family_hub_companion");
+    expect(html).not.toContain("target_job_detail_companion");
     expect(html).not.toContain("strongest");
   });
 
