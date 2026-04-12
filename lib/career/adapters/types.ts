@@ -585,3 +585,59 @@ export type CareerFirstWaveNextStepLinksSummaryAdapter = {
   familyHubLinks: CareerFirstWaveNextStepFamilyHubLinkAdapter[];
   jobDetailLinks: CareerFirstWaveNextStepJobDetailLinkAdapter[];
 };
+
+export type CareerFirstWaveRecommendationCompanionLinkRouteKind =
+  | "career_family_hub"
+  | "career_job_detail";
+
+export type CareerFirstWaveRecommendationCompanionLinkReasonCode =
+  | "target_job_detail_companion"
+  | "target_family_hub_companion"
+  | "matched_job_detail_companion";
+
+type CareerFirstWaveRecommendationCompanionLinkBaseAdapter = {
+  routeKind: CareerFirstWaveRecommendationCompanionLinkRouteKind;
+  canonicalPath: string;
+  canonicalSlug: string;
+  linkReasonCode: CareerFirstWaveRecommendationCompanionLinkReasonCode;
+};
+
+export type CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter =
+  CareerFirstWaveRecommendationCompanionLinkBaseAdapter & {
+    routeKind: "career_family_hub";
+    familyUuid: string | null;
+    titleEn: string | null;
+  };
+
+export type CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter =
+  CareerFirstWaveRecommendationCompanionLinkBaseAdapter & {
+    routeKind: "career_job_detail";
+    occupationUuid: string | null;
+    canonicalTitleEn: string | null;
+  };
+
+export type CareerFirstWaveRecommendationCompanionLinkAdapter =
+  | CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter
+  | CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter;
+
+export type CareerFirstWaveRecommendationCompanionLinksSummaryAdapter = {
+  authoritySource: string;
+  summaryKind: string;
+  summaryVersion: string;
+  scope: string;
+  subjectKind: string;
+  subjectIdentity: {
+    typeCode: string | null;
+    canonicalTypeCode: string | null;
+    publicRouteSlug: string | null;
+    displayTitle: string | null;
+  };
+  counts: {
+    total: number;
+    jobDetail: number;
+    familyHub: number;
+  };
+  companionLinks: CareerFirstWaveRecommendationCompanionLinkAdapter[];
+  familyHubLinks: CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter[];
+  jobDetailLinks: CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter[];
+};

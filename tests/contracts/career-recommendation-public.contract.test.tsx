@@ -1,8 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { adaptCareerFirstWaveRecommendationCompanionLinks } from "@/lib/career/adapters/adaptCareerFirstWaveRecommendationCompanionLinks";
 import { adaptCareerRecommendationExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
+import { fetchCareerFirstWaveRecommendationCompanionLinks } from "@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks";
 import { fetchCareerRecommendationExplainability } from "@/lib/career/api/fetchCareerRecommendationExplainability";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
 import { buildCareerRecommendationFrontendUrl } from "@/lib/career/urls";
@@ -68,6 +70,30 @@ describe("career recommendation public contract", () => {
     );
 
     const payload = await fetchCareerRecommendationBundle({ locale: "zh", type: "intj-a" });
+
+    expect(payload).not.toBeNull();
+  });
+
+  it("requests the backend recommendation companion-links endpoint", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        expect(url).toContain("/api/v0.5/career/first-wave/recommendations/mbti/intj-a/companion-links?");
+        expect(url).toContain("locale=zh-CN");
+
+        return jsonResponse({
+          summary_kind: "career_first_wave_recommendation_companion_links",
+          summary_version: "career.companion.recommendation.first_wave.v1",
+          scope: "career_first_wave_10",
+          subject_kind: "recommendation_subject",
+          companion_links: [],
+        });
+      })
+    );
+
+    const payload = await fetchCareerFirstWaveRecommendationCompanionLinks({ locale: "zh", type: "intj-a" });
 
     expect(payload).not.toBeNull();
   });
@@ -255,16 +281,65 @@ describe("career recommendation public contract", () => {
     expect(explainability?.strainRadar?.axes).not.toHaveProperty("environmentMismatch");
   });
 
+  it("adapts backend recommendation companion links into a narrow authority-backed inventory", () => {
+    const summary = adaptCareerFirstWaveRecommendationCompanionLinks({
+      payload: {
+        summary_kind: "career_first_wave_recommendation_companion_links",
+        summary_version: "career.companion.recommendation.first_wave.v1",
+        scope: "career_first_wave_10",
+        subject_kind: "recommendation_subject",
+        subject_identity: {
+          type_code: "INTJ-A",
+          canonical_type_code: "INTJ",
+          public_route_slug: "intj-a",
+          display_title: "INTJ-A Architect",
+        },
+        counts: {
+          total: 3,
+          job_detail: 2,
+          family_hub: 1,
+        },
+        companion_links: [
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/data-scientist",
+            canonical_slug: "data-scientist",
+            link_reason_code: "target_job_detail_companion",
+            occupation_uuid: "occ_123",
+            canonical_title_en: "Data Scientist",
+          },
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/data-and-research",
+            canonical_slug: "data-and-research",
+            link_reason_code: "target_family_hub_companion",
+            family_uuid: "fam_123",
+            title_en: "Data and Research",
+          },
+        ],
+      },
+    });
+
+    expect(summary).not.toBeNull();
+    expect(summary?.subjectKind).toBe("recommendation_subject");
+    expect(summary?.subjectIdentity.publicRouteSlug).toBe("intj-a");
+    expect(summary?.jobDetailLinks).toHaveLength(1);
+    expect(summary?.familyHubLinks).toHaveLength(1);
+  });
+
   it("career recommendation detail page reads the backend bundle path and blocks CMS fallback authority", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
 
     expect(source).toContain("fetchCareerRecommendationBundle");
     expect(source).toContain("fetchCareerRecommendationExplainability");
+    expect(source).toContain("fetchCareerFirstWaveRecommendationCompanionLinks");
     expect(source).toContain("fetchCareerTransitionPreview");
     expect(source).toContain("adaptCareerRecommendationBundle");
     expect(source).toContain("adaptCareerRecommendationExplainability");
+    expect(source).toContain("adaptCareerFirstWaveRecommendationCompanionLinks");
     expect(source).toContain("adaptCareerTransitionPreview");
     expect(source).toContain("CareerExplainabilityPanel");
+    expect(source).toContain("CareerRecommendationCompanionLinks");
     expect(source).toContain("CareerTransitionPreviewCard");
     expect(source).toContain("filterStableRecommendationMatchedJobs");
     expect(source).toContain("parseMbtiContinuityQuery");
@@ -278,6 +353,7 @@ describe("career recommendation public contract", () => {
     expect(source).toContain('testId="career-recommendation-scene-entry"');
     expect(source).toContain('data-testid="career-recommendation-type-interpretation"');
     expect(source).toContain('testId="career-recommendation-explainability-panel"');
+    expect(source).toContain('testId="career-recommendation-companion-links"');
     expect(source).not.toContain("getMbtiCareerRecommendationByType");
     expect(source).not.toContain("getMbtiRecommendationContent");
     expect(source).not.toContain("strainRadar");
@@ -287,5 +363,7 @@ describe("career recommendation public contract", () => {
     expect(source).not.toContain("bridge_steps_90d");
     expect(source).not.toContain("AnswerSurfaceSection");
     expect(source).not.toContain("career-recommendations.ts");
+    expect(source).not.toContain("recommended next step");
+    expect(source).not.toContain("best next move");
   });
 });

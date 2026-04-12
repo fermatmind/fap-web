@@ -343,3 +343,46 @@ export type CareerFirstWaveNextStepLinksResponseRaw = {
   next_step_links?: unknown;
   data?: unknown;
 };
+
+export type CareerFirstWaveRecommendationCompanionLinkRouteKindResponseRaw =
+  | "career_family_hub"
+  | "career_job_detail";
+
+export type CareerFirstWaveRecommendationCompanionLinkReasonCodeResponseRaw =
+  | "target_job_detail_companion"
+  | "target_family_hub_companion"
+  | "matched_job_detail_companion";
+
+export type CareerFirstWaveRecommendationCompanionLinkBaseResponseRaw = {
+  route_kind?: CareerFirstWaveRecommendationCompanionLinkRouteKindResponseRaw | unknown;
+  canonical_path?: unknown;
+  canonical_slug?: unknown;
+  link_reason_code?: CareerFirstWaveRecommendationCompanionLinkReasonCodeResponseRaw | unknown;
+};
+
+export type CareerFirstWaveRecommendationCompanionFamilyHubLinkResponseRaw =
+  CareerFirstWaveRecommendationCompanionLinkBaseResponseRaw & {
+    family_uuid?: unknown;
+    title_en?: unknown;
+  };
+
+export type CareerFirstWaveRecommendationCompanionJobDetailLinkResponseRaw =
+  CareerFirstWaveRecommendationCompanionLinkBaseResponseRaw & {
+    occupation_uuid?: unknown;
+    canonical_title_en?: unknown;
+  };
+
+export type CareerFirstWaveRecommendationCompanionLinkResponseRaw =
+  | CareerFirstWaveRecommendationCompanionFamilyHubLinkResponseRaw
+  | CareerFirstWaveRecommendationCompanionJobDetailLinkResponseRaw;
+
+export type CareerFirstWaveRecommendationCompanionLinksResponseRaw = {
+  summary_kind?: unknown;
+  summary_version?: unknown;
+  scope?: unknown;
+  subject_kind?: unknown;
+  subject_identity?: unknown;
+  counts?: unknown;
+  companion_links?: unknown;
+  data?: unknown;
+};

@@ -6,6 +6,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
+import { CareerRecommendationCompanionLinks } from "@/components/career/CareerRecommendationCompanionLinks";
 import { CareerTransitionPreviewCard } from "@/components/career/CareerTransitionPreviewCard";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
@@ -16,14 +17,17 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { adaptCareerRecommendationExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
+import { adaptCareerFirstWaveRecommendationCompanionLinks } from "@/lib/career/adapters/adaptCareerFirstWaveRecommendationCompanionLinks";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
 import { adaptCareerTransitionPreview } from "@/lib/career/adapters/adaptCareerTransitionPreview";
 import type {
   CareerExplainabilityAdapter,
+  CareerFirstWaveRecommendationCompanionLinksSummaryAdapter,
   CareerRecommendationBundleAdapter,
   CareerTransitionPreviewAdapter,
 } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
+import { fetchCareerFirstWaveRecommendationCompanionLinks } from "@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks";
 import { fetchCareerRecommendationExplainability } from "@/lib/career/api/fetchCareerRecommendationExplainability";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
 import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
@@ -145,6 +149,14 @@ async function loadRecommendationExplainability(
   return adaptCareerRecommendationExplainability(payload);
 }
 
+async function loadRecommendationCompanionLinks(
+  locale: Locale,
+  requestedType: string
+): Promise<CareerFirstWaveRecommendationCompanionLinksSummaryAdapter | null> {
+  const payload = await fetchCareerFirstWaveRecommendationCompanionLinks({ locale, type: requestedType });
+  return adaptCareerFirstWaveRecommendationCompanionLinks({ payload });
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -199,10 +211,11 @@ export default async function CareerMbtiRecommendationPage({
   const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const [detail, explainability, transitionPreview] = await Promise.all([
+  const [detail, explainability, transitionPreview, companionLinks] = await Promise.all([
     loadRecommendationBundle(locale, type),
     loadRecommendationExplainability(locale, type),
     loadTransitionPreview(locale, type),
+    loadRecommendationCompanionLinks(locale, type),
   ]);
 
   if (!detail) {
@@ -615,6 +628,14 @@ export default async function CareerMbtiRecommendationPage({
           </p>
         </section>
       )}
+
+      {companionLinks ? (
+        <CareerRecommendationCompanionLinks
+          locale={locale}
+          summary={companionLinks}
+          testId="career-recommendation-companion-links"
+        />
+      ) : null}
 
       {renderState.canRenderStrongTruth && detail.matchedGuides.length > 0 ? (
         <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
