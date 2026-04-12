@@ -1,20 +1,8 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-const cdnUrl = (process.env.NEXT_PUBLIC_CDN_URL || "").replace(/\/$/, "");
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
 const legacyPathMode = String(process.env.FAP_LEGACY_PATH_MODE || "redirect").trim().toLowerCase();
 const enableRootQuizRedirects = legacyPathMode !== "gone";
-
-function parseHostname(value) {
-  try {
-    return new URL(value).hostname;
-  } catch {
-    return "";
-  }
-}
-
-const cdnHostname = parseHostname(cdnUrl);
-const remotePatternHostnames = [...new Set(["**.fermatmind.com", "**.myqcloud.com", cdnHostname].filter(Boolean))];
+const remotePatternHostnames = ["**.fermatmind.com"];
 const cspReportOnlyDirectives = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -40,7 +28,7 @@ const securityHeaders = [
 
 const nextConfig = {
   output: "standalone",
-  assetPrefix: isProd && cdnUrl ? cdnUrl : undefined,
+  assetPrefix: undefined,
   images: {
     remotePatterns: remotePatternHostnames.map((hostname) => ({
       protocol: "https",
