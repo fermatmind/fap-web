@@ -305,3 +305,41 @@ export type CareerFirstWaveDiscoverabilityManifestResponseRaw = {
   routes?: unknown;
   data?: unknown;
 };
+
+export type CareerFirstWaveNextStepLinkRouteKindResponseRaw = "career_family_hub" | "career_job_detail";
+
+export type CareerFirstWaveNextStepLinkReasonCodeResponseRaw =
+  | "family_hub_discoverable"
+  | "same_family_sibling_discoverable";
+
+export type CareerFirstWaveNextStepLinkBaseResponseRaw = {
+  route_kind?: CareerFirstWaveNextStepLinkRouteKindResponseRaw | unknown;
+  canonical_path?: unknown;
+  canonical_slug?: unknown;
+  link_reason_code?: CareerFirstWaveNextStepLinkReasonCodeResponseRaw | unknown;
+};
+
+export type CareerFirstWaveNextStepFamilyHubLinkResponseRaw = CareerFirstWaveNextStepLinkBaseResponseRaw & {
+  family_uuid?: unknown;
+  title_en?: unknown;
+};
+
+export type CareerFirstWaveNextStepJobDetailLinkResponseRaw = CareerFirstWaveNextStepLinkBaseResponseRaw & {
+  occupation_uuid?: unknown;
+  canonical_title_en?: unknown;
+};
+
+export type CareerFirstWaveNextStepLinkResponseRaw =
+  | CareerFirstWaveNextStepFamilyHubLinkResponseRaw
+  | CareerFirstWaveNextStepJobDetailLinkResponseRaw;
+
+export type CareerFirstWaveNextStepLinksResponseRaw = {
+  summary_kind?: unknown;
+  summary_version?: unknown;
+  scope?: unknown;
+  subject_kind?: unknown;
+  subject_identity?: unknown;
+  counts?: unknown;
+  next_step_links?: unknown;
+  data?: unknown;
+};

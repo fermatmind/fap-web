@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { adaptCareerFirstWaveNextStepLinks } from "@/lib/career/adapters/adaptCareerFirstWaveNextStepLinks";
 import { adaptCareerJobExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
+import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
 import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { readFileSync } from "node:fs";
@@ -61,6 +63,30 @@ describe("career job backend bundle contract", () => {
     );
 
     const payload = await fetchCareerJobBundle({ locale: "zh", slug: "software-developer" });
+
+    expect(payload).not.toBeNull();
+  });
+
+  it("requests the backend next-step links endpoint for job detail only", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+
+        expect(url).toContain("/api/v0.5/career/first-wave/jobs/software-developer/next-step-links?");
+        expect(url).toContain("locale=zh-CN");
+
+        return jsonResponse({
+          summary_kind: "career_first_wave_next_step_links",
+          summary_version: "career.next_step.first_wave.v1",
+          scope: "career_first_wave_10",
+          subject_kind: "occupation",
+          next_step_links: [],
+        });
+      })
+    );
+
+    const payload = await fetchCareerFirstWaveNextStepLinks({ locale: "zh", slug: "software-developer" });
 
     expect(payload).not.toBeNull();
   });
@@ -219,6 +245,70 @@ describe("career job backend bundle contract", () => {
     expect(explainability?.strainRadar?.axes).not.toHaveProperty("environmentFit");
   });
 
+  it("adapts backend next-step links into a narrow frontend dto without synthesizing unsupported routes", () => {
+    const nextStepLinks = adaptCareerFirstWaveNextStepLinks({
+      payload: {
+        summary_kind: "career_first_wave_next_step_links",
+        summary_version: "career.next_step.first_wave.v1",
+        scope: "career_first_wave_10",
+        subject_kind: "occupation",
+        subject_identity: {
+          occupation_uuid: "occ_software_developer",
+          canonical_slug: "software-developer",
+          canonical_title_en: "Software Developer",
+        },
+        counts: {
+          total: 2,
+          job_detail: 1,
+          family_hub: 1,
+        },
+        next_step_links: [
+          {
+            route_kind: "career_family_hub",
+            canonical_path: "/career/family/software-engineering",
+            canonical_slug: "software-engineering",
+            link_reason_code: "family_hub_discoverable",
+            family_uuid: "fam_software_engineering",
+            title_en: "Software Engineering",
+          },
+          {
+            route_kind: "career_job_detail",
+            canonical_path: "/career/jobs/backend-architect",
+            canonical_slug: "backend-architect",
+            link_reason_code: "same_family_sibling_discoverable",
+            occupation_uuid: "occ_backend_architect",
+            canonical_title_en: "Backend Architect",
+          },
+          {
+            route_kind: "career_recommendation_detail",
+            canonical_path: "/career/recommendations/mbti/intj",
+            canonical_slug: "intj",
+            link_reason_code: "unsupported",
+          },
+        ],
+      },
+    });
+
+    expect(nextStepLinks).not.toBeNull();
+    expect(nextStepLinks?.nextStepLinks).toHaveLength(2);
+    expect(nextStepLinks?.familyHubLinks[0]).toEqual({
+      routeKind: "career_family_hub",
+      canonicalPath: "/career/family/software-engineering",
+      canonicalSlug: "software-engineering",
+      linkReasonCode: "family_hub_discoverable",
+      familyUuid: "fam_software_engineering",
+      titleEn: "Software Engineering",
+    });
+    expect(nextStepLinks?.jobDetailLinks[0]).toEqual({
+      routeKind: "career_job_detail",
+      canonicalPath: "/career/jobs/backend-architect",
+      canonicalSlug: "backend-architect",
+      linkReasonCode: "same_family_sibling_discoverable",
+      occupationUuid: "occ_backend_architect",
+      canonicalTitleEn: "Backend Architect",
+    });
+  });
+
   it("career job detail page wires explainability through the dedicated fetch and panel only", () => {
     const source = readFileSync(
       path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
@@ -227,11 +317,16 @@ describe("career job backend bundle contract", () => {
 
     expect(source).toContain("fetchCareerJobExplainability");
     expect(source).toContain("adaptCareerJobExplainability");
+    expect(source).toContain("fetchCareerFirstWaveNextStepLinks");
+    expect(source).toContain("adaptCareerFirstWaveNextStepLinks");
     expect(source).toContain("CareerExplainabilityPanel");
+    expect(source).toContain("CareerNextStepLinks");
     expect(source).toContain('testId="career-job-explainability-panel"');
+    expect(source).toContain('testId="career-job-next-step-links"');
     expect(source).not.toContain("strainRadar");
     expect(source).not.toContain("people_friction");
     expect(source).not.toContain("why_this_path");
     expect(source).not.toContain("bridge_steps_90d");
+    expect(source).not.toContain("CareerTransitionPreviewCard");
   });
 });

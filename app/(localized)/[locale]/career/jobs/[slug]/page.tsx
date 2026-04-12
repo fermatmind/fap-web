@@ -4,16 +4,23 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
+import { CareerNextStepLinks } from "@/components/career/CareerNextStepLinks";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { adaptCareerFirstWaveNextStepLinks } from "@/lib/career/adapters/adaptCareerFirstWaveNextStepLinks";
 import { adaptCareerJobExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
-import type { CareerExplainabilityAdapter, CareerJobBundleAdapter } from "@/lib/career/adapters/types";
+import type {
+  CareerExplainabilityAdapter,
+  CareerFirstWaveNextStepLinksSummaryAdapter,
+  CareerJobBundleAdapter,
+} from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
+import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
 import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
@@ -65,6 +72,11 @@ async function loadCareerJobBundle(locale: Locale, slug: string): Promise<Career
 async function loadCareerJobExplainability(locale: Locale, slug: string): Promise<CareerExplainabilityAdapter | null> {
   const payload = await fetchCareerJobExplainability({ locale, slug });
   return adaptCareerJobExplainability(payload);
+}
+
+async function loadCareerNextStepLinks(locale: Locale, slug: string): Promise<CareerFirstWaveNextStepLinksSummaryAdapter | null> {
+  const payload = await fetchCareerFirstWaveNextStepLinks({ locale, slug });
+  return adaptCareerFirstWaveNextStepLinks({ payload });
 }
 
 function renderCareerJobProtocolStatus(job: CareerJobBundleAdapter, locale: Locale) {
@@ -173,9 +185,10 @@ export default async function CareerJobDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [job, explainability] = await Promise.all([
+  const [job, explainability, nextStepLinks] = await Promise.all([
     loadCareerJobBundle(locale, slug),
     loadCareerJobExplainability(locale, slug),
+    loadCareerNextStepLinks(locale, slug),
   ]);
 
   if (!job) {
@@ -396,6 +409,8 @@ export default async function CareerJobDetailPage({
         title={locale === "zh" ? "显式警告与边界" : "Explicit warnings and limits"}
         testId="career-job-warning-banner"
       />
+
+      {nextStepLinks ? <CareerNextStepLinks locale={locale} summary={nextStepLinks} testId="career-job-next-step-links" /> : null}
 
       {job.aliasIndex.length > 0 ? (
         <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">

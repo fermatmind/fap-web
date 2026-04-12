@@ -535,3 +535,53 @@ export type CareerFirstWaveDiscoverabilityManifestAdapter = {
   discoverableJobDetailSlugs: string[];
   discoverableFamilyHubSlugs: string[];
 };
+
+export type CareerFirstWaveNextStepLinkRouteKind = "career_family_hub" | "career_job_detail";
+
+export type CareerFirstWaveNextStepLinkReasonCode =
+  | "family_hub_discoverable"
+  | "same_family_sibling_discoverable";
+
+type CareerFirstWaveNextStepLinkBaseAdapter = {
+  routeKind: CareerFirstWaveNextStepLinkRouteKind;
+  canonicalPath: string;
+  canonicalSlug: string;
+  linkReasonCode: CareerFirstWaveNextStepLinkReasonCode;
+};
+
+export type CareerFirstWaveNextStepFamilyHubLinkAdapter = CareerFirstWaveNextStepLinkBaseAdapter & {
+  routeKind: "career_family_hub";
+  familyUuid: string | null;
+  titleEn: string | null;
+};
+
+export type CareerFirstWaveNextStepJobDetailLinkAdapter = CareerFirstWaveNextStepLinkBaseAdapter & {
+  routeKind: "career_job_detail";
+  occupationUuid: string | null;
+  canonicalTitleEn: string | null;
+};
+
+export type CareerFirstWaveNextStepLinkAdapter =
+  | CareerFirstWaveNextStepFamilyHubLinkAdapter
+  | CareerFirstWaveNextStepJobDetailLinkAdapter;
+
+export type CareerFirstWaveNextStepLinksSummaryAdapter = {
+  authoritySource: string;
+  summaryKind: string;
+  summaryVersion: string;
+  scope: string;
+  subjectKind: string;
+  subjectIdentity: {
+    occupationUuid: string | null;
+    canonicalSlug: string | null;
+    canonicalTitleEn: string | null;
+  };
+  counts: {
+    total: number;
+    jobDetail: number;
+    familyHub: number;
+  };
+  nextStepLinks: CareerFirstWaveNextStepLinkAdapter[];
+  familyHubLinks: CareerFirstWaveNextStepFamilyHubLinkAdapter[];
+  jobDetailLinks: CareerFirstWaveNextStepJobDetailLinkAdapter[];
+};
