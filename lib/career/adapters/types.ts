@@ -172,9 +172,22 @@ export type CareerRecommendationMatchedGuideAdapter = {
   href: string;
 };
 
+export type CareerTransitionPreviewDeltaDirection = "same" | "higher" | "lower";
+
+export type CareerTransitionPreviewDeltaEntryAdapter = {
+  sourceValue: string;
+  targetValue: string;
+  direction: CareerTransitionPreviewDeltaDirection;
+};
+
 export type CareerTransitionPreviewAdapter = {
   pathType: string;
   steps?: string[];
+  delta?: {
+    entryEducationDelta?: CareerTransitionPreviewDeltaEntryAdapter;
+    workExperienceDelta?: CareerTransitionPreviewDeltaEntryAdapter;
+    trainingDelta?: CareerTransitionPreviewDeltaEntryAdapter;
+  };
   targetJob: {
     occupationUuid: string | null;
     canonicalSlug: string;

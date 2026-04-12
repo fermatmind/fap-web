@@ -141,7 +141,44 @@ describe("career recommendation backend page contract", () => {
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
-      fetchCareerTransitionPreview: vi.fn(async () => null),
+      fetchCareerTransitionPreview: vi.fn(async () => ({
+        path_type: "stable_upside",
+        steps: ["skill_overlap", "task_overlap"],
+        delta: {
+          entry_education_delta: {
+            source_value: "Bachelor's degree",
+            target_value: "Bachelor's degree",
+            direction: "same",
+          },
+          training_delta: {
+            source_value: "Moderate-term",
+            target_value: "Short-term",
+            direction: "lower",
+          },
+        },
+        target_job: {
+          occupation_uuid: "occ_transition",
+          canonical_slug: "product-manager",
+          title: "Product Manager",
+        },
+        score_summary: {
+          mobility_score: { value: 74, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 68, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        trust_summary: {
+          allow_transition_recommendation: true,
+          reviewer_status: "approved",
+          reason_codes: ["publish_ready"],
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/product-manager",
+          canonical_target: "/career/jobs/product-manager",
+          index_state: "index",
+          index_eligible: true,
+        },
+        rationale_codes: ["same_family_target"],
+        tradeoff_codes: ["higher_training_required"],
+      })),
     }));
 
     const { default: CareerRecommendationPage } = await import(
@@ -162,12 +199,25 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("career-recommendation-type-interpretation");
     expect(html).toContain("career-recommendation-explainability-panel");
     expect(html).toContain("career-explainability-strain-radar");
+    expect(html).toContain("career-transition-preview");
+    expect(html).toContain("career-transition-preview-delta");
+    expect(html).toContain("Product Manager");
+    expect(html).toContain("Bachelor&#x27;s degree");
+    expect(html).toContain("Moderate-term");
+    expect(html).toContain("Short-term");
+    expect(html).toContain("same");
+    expect(html).toContain("lower");
     expect(html).toContain("career-recommendation-warning-banner");
     expect(html).toContain("career-recommendation-matched-jobs-status");
     expect(html).toContain("INTJ-A");
     expect(html).toContain("People friction");
     expect(html).not.toContain("Matched role matrix");
     expect(html).not.toContain("environment_fit");
+    expect(html).not.toContain("rationale_codes");
+    expect(html).not.toContain("tradeoff_codes");
+    expect(html).not.toContain("why this path");
+    expect(html).not.toContain("what_is_lost");
+    expect(html).not.toContain("bridge_steps_90d");
     expect(html).not.toContain("strongest");
   });
 

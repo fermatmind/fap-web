@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { adaptCareerTransitionPreview } from "@/lib/career/adapters/adaptCareerTransitionPreview";
+import type { CareerTransitionPreviewResponseRaw } from "@/lib/career/api/types";
 import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
 
 function jsonResponse(payload: unknown, status = 200): Response {
@@ -66,6 +67,28 @@ describe("career transition preview fetch and adapter contract", () => {
       payload: {
         path_type: "stable_upside",
         steps: ["skill_overlap", "task_overlap", "tool_overlap"],
+        delta: {
+          entry_education_delta: {
+            source_value: "Bachelor's degree",
+            target_value: "Bachelor's degree",
+            direction: "same",
+          },
+          work_experience_delta: {
+            source_value: "None",
+            target_value: "Less than 5 years",
+            direction: "higher",
+          },
+          training_delta: {
+            source_value: "Moderate-term",
+            target_value: "Short-term",
+            direction: "lower",
+          },
+          unsupported_delta: {
+            source_value: "ignored",
+            target_value: "ignored",
+            direction: "higher",
+          },
+        },
         target_job: {
           occupation_uuid: "occ_123",
           canonical_slug: "data-scientist",
@@ -95,6 +118,23 @@ describe("career transition preview fetch and adapter contract", () => {
     expect(preview).toEqual({
       pathType: "stable_upside",
       steps: ["skill_overlap", "task_overlap", "tool_overlap"],
+      delta: {
+        entryEducationDelta: {
+          sourceValue: "Bachelor's degree",
+          targetValue: "Bachelor's degree",
+          direction: "same",
+        },
+        workExperienceDelta: {
+          sourceValue: "None",
+          targetValue: "Less than 5 years",
+          direction: "higher",
+        },
+        trainingDelta: {
+          sourceValue: "Moderate-term",
+          targetValue: "Short-term",
+          direction: "lower",
+        },
+      },
       targetJob: {
         occupationUuid: "occ_123",
         canonicalSlug: "data-scientist",
@@ -120,6 +160,8 @@ describe("career transition preview fetch and adapter contract", () => {
     expect(preview).not.toHaveProperty("what_is_lost");
     expect(preview).not.toHaveProperty("bridge_steps_90d");
     expect(preview).not.toHaveProperty("provenanceMeta");
+    expect(preview).not.toHaveProperty("rationaleCodes");
+    expect(preview).not.toHaveProperty("tradeoffCodes");
   });
 
   it("omits raw steps when the payload includes non-allowlisted values", () => {
@@ -157,6 +199,116 @@ describe("career transition preview fetch and adapter contract", () => {
       })
     );
     expect(preview).not.toHaveProperty("steps");
+  });
+
+  it("omits delta entries that are missing, unrankable, or not allowlisted", () => {
+    const preview = adaptCareerTransitionPreview({
+      locale: "en",
+      payload: {
+        path_type: "stable_upside",
+        delta: {
+          entry_education_delta: {
+            source_value: "Bachelor's degree",
+            target_value: "Master's degree",
+            direction: "higher",
+          },
+          work_experience_delta: {
+            source_value: "None",
+            target_value: "3 years",
+            direction: "upward",
+          },
+          training_delta: {
+            source_value: null,
+            target_value: "Short-term",
+            direction: "lower",
+          },
+          extra_delta: {
+            source_value: "ignored",
+            target_value: "ignored",
+            direction: "same",
+          },
+        },
+        target_job: {
+          occupation_uuid: "occ_123",
+          canonical_slug: "data-scientist",
+          title: "Data Scientist",
+        },
+        score_summary: {
+          mobility_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 73, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        trust_summary: {
+          allow_transition_recommendation: true,
+          reviewer_status: "approved",
+          reason_codes: ["publish_ready"],
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/data-scientist",
+          canonical_target: "/career/jobs/data-scientist",
+          index_state: "index",
+          index_eligible: true,
+        },
+        rationale_codes: ["same_family_target"],
+        tradeoff_codes: ["higher_training_required"],
+      } as unknown as CareerTransitionPreviewResponseRaw,
+    });
+
+    expect(preview).toEqual(
+      expect.objectContaining({
+        delta: {
+          entryEducationDelta: {
+            sourceValue: "Bachelor's degree",
+            targetValue: "Master's degree",
+            direction: "higher",
+          },
+        },
+      })
+    );
+    expect(preview?.delta).not.toHaveProperty("workExperienceDelta");
+    expect(preview?.delta).not.toHaveProperty("trainingDelta");
+  });
+
+  it("omits the whole delta block when no valid delta entries remain", () => {
+    const preview = adaptCareerTransitionPreview({
+      locale: "en",
+      payload: {
+        path_type: "stable_upside",
+        delta: {
+          entry_education_delta: {
+            source_value: "Bachelor's degree",
+            target_value: "Master's degree",
+            direction: "upward",
+          },
+        },
+        target_job: {
+          occupation_uuid: "occ_123",
+          canonical_slug: "data-scientist",
+          title: "Data Scientist",
+        },
+        score_summary: {
+          mobility_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 73, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        trust_summary: {
+          allow_transition_recommendation: true,
+          reviewer_status: "approved",
+          reason_codes: ["publish_ready"],
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/data-scientist",
+          canonical_target: "/career/jobs/data-scientist",
+          index_state: "index",
+          index_eligible: true,
+        },
+      },
+    });
+
+    expect(preview).toEqual(
+      expect.objectContaining({
+        pathType: "stable_upside",
+      })
+    );
+    expect(preview).not.toHaveProperty("delta");
   });
 
   it("returns null for absent or non-renderable previews", () => {
@@ -316,6 +468,28 @@ describe("career transition preview recommendation detail wiring", () => {
       fetchCareerTransitionPreview: vi.fn(async () => ({
         path_type: "stable_upside",
         steps: ["skill_overlap", "task_overlap", "tool_overlap"],
+        delta: {
+          entry_education_delta: {
+            source_value: "Bachelor's degree",
+            target_value: "Bachelor's degree",
+            direction: "same",
+          },
+          work_experience_delta: {
+            source_value: "None",
+            target_value: "Less than 5 years",
+            direction: "higher",
+          },
+          training_delta: {
+            source_value: "Moderate-term",
+            target_value: "Short-term",
+            direction: "lower",
+          },
+          unsupported_delta: {
+            source_value: "ignored",
+            target_value: "ignored",
+            direction: "higher",
+          },
+        },
         target_job: {
           occupation_uuid: "occ_next",
           canonical_slug: "product-manager",
@@ -355,14 +529,27 @@ describe("career transition preview recommendation detail wiring", () => {
     expect(html).toContain("career-transition-preview-trust-strip");
     expect(html).toContain("reason_codes: publish_ready");
     expect(html).toContain("career-transition-preview-steps");
+    expect(html).toContain("career-transition-preview-delta");
     expect(html).toContain("skill_overlap");
     expect(html).toContain("task_overlap");
     expect(html).toContain("tool_overlap");
+    expect(html).toContain("Entry education");
+    expect(html).toContain("Work experience");
+    expect(html).toContain("Training");
+    expect(html).toContain("Bachelor&#x27;s degree");
+    expect(html).toContain("Less than 5 years");
+    expect(html).toContain("Moderate-term");
+    expect(html).toContain("Short-term");
+    expect(html).toContain("same");
+    expect(html).toContain("higher");
+    expect(html).toContain("lower");
     expect(html).toContain("Matched role matrix");
     expect(html).toContain("Data Scientist");
     expect(html).not.toContain("why_this_path");
     expect(html).not.toContain("what_is_lost");
     expect(html).not.toContain("bridge_steps_90d");
+    expect(html).not.toContain("rationale_codes");
+    expect(html).not.toContain("tradeoff_codes");
     expect(html).not.toContain("suggested action");
     expect(html).not.toContain("90-day");
     expect(pageViewEvents).toEqual(
