@@ -22,6 +22,16 @@ export type CloneResolvedAssetSlot = {
   meta: Record<string, unknown> | null;
 };
 
+const TENCENT_ASSET_MARKERS = [
+  "myqcloud.com",
+  ".qcloud.com",
+  "qcloud",
+  "cos.",
+  "ci-process",
+  "imagemogr2",
+  "watermark",
+] as const;
+
 export function indexAssetSlotsById(
   assetSlots: PersonalityDesktopCloneAssetSlot[] | null | undefined,
 ): Record<MbtiDesktopCloneAssetSlotId, CloneResolvedAssetSlot | null> {
@@ -66,6 +76,10 @@ function normalizeUrl(value: string | null | undefined): string | null {
   }
 
   if (/^https?:\/\//i.test(normalized)) {
+    if (isTencentAssetUrl(normalized)) {
+      return null;
+    }
+
     return normalized;
   }
 
@@ -74,11 +88,32 @@ function normalizeUrl(value: string | null | undefined): string | null {
   }
 
   const cdnBase = String(process.env.NEXT_PUBLIC_CDN_URL ?? "").trim().replace(/\/+$/, "");
-  if (cdnBase) {
+  if (cdnBase && !isTencentAssetUrl(cdnBase)) {
     return `${cdnBase}/${normalized.replace(/^\/+/, "")}`;
   }
 
   return `/${normalized.replace(/^\/+/, "")}`;
+}
+
+export function isTencentAssetUrl(value: string | null | undefined): boolean {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  if (!normalized) {
+    return false;
+  }
+
+  return TENCENT_ASSET_MARKERS.some((marker) => normalized.includes(marker));
+}
+
+export function shouldSkipRemoteCloneAssetLoad(
+  slot: CloneResolvedAssetSlot | null,
+): boolean {
+  const directUrl = String(slot?.assetRef?.url ?? "").trim();
+  if (!directUrl || !isTencentAssetUrl(directUrl)) {
+    return false;
+  }
+
+  const fallbackPath = normalizeUrl(slot?.assetRef?.path ?? null);
+  return !Boolean(fallbackPath);
 }
 
 export function resolveAssetSlotUrl(slot: CloneResolvedAssetSlot | null): string | null {
@@ -86,5 +121,10 @@ export function resolveAssetSlotUrl(slot: CloneResolvedAssetSlot | null): string
     return null;
   }
 
-  return normalizeUrl(slot.assetRef.url) ?? normalizeUrl(slot.assetRef.path);
+  const directUrl = normalizeUrl(slot.assetRef.url);
+  if (directUrl) {
+    return directUrl;
+  }
+
+  return normalizeUrl(slot.assetRef.path);
 }
