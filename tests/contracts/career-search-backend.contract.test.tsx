@@ -508,7 +508,13 @@ describe("career search backend contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("career-alias-resolution-candidates");
+    expect(html).toContain("career-alias-resolution-group-occupation");
+    expect(html).toContain("career-alias-resolution-group-family");
     expect(html).toContain("career-alias-resolution-candidate");
+    expect(html).toContain("data-candidate-kind=\"occupation\"");
+    expect(html).toContain("data-candidate-kind=\"family\"");
+    expect(html).toContain("Occupation candidates");
+    expect(html).toContain("Family candidates");
     expect(html).toContain("Data Scientists");
     expect(html).toContain("Data Science");
     expect(html).toContain("/en/career/jobs/data-scientists");
