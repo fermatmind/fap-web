@@ -137,6 +137,39 @@ describe("career job backend bundle contract", () => {
           index_state: "index",
           index_eligible: true,
         },
+        structured_data: {
+          occupation: {
+            "@context": "https://schema.org",
+            "@type": "Occupation",
+            name: "Software Developer",
+            url: "https://backend.example.test/career/jobs/software-developer",
+            mainEntityOfPage: "https://backend.example.test/career/jobs/software-developer",
+            educationRequirements: "Bachelor's degree",
+            experienceRequirements: "1 year",
+            description: "should_not_leak",
+          },
+          breadcrumb_list: {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Career",
+                item: "https://backend.example.test/career",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Software Developer",
+                item: "https://backend.example.test/career/jobs/software-developer",
+              },
+            ],
+          },
+          dataset: {
+            "@type": "Dataset",
+          },
+        },
         provenance_meta: {
           compiler_version: "v2.1",
           compiled_at: "2026-04-08T10:00:00Z",
@@ -155,6 +188,35 @@ describe("career job backend bundle contract", () => {
     expect(detail?.claimPermissions.allow_salary_comparison).toBe(false);
     expect(detail?.seoContract.canonicalPath).toBe("/career/jobs/software-developer");
     expect(detail?.provenanceMeta.compilerVersion).toBe("v2.1");
+    expect(detail?.structuredData.occupation).toEqual({
+      "@context": "https://schema.org",
+      "@type": "Occupation",
+      name: "Software Developer",
+      url: "http://localhost:3000/zh/career/jobs/software-developer",
+      mainEntityOfPage: "http://localhost:3000/zh/career/jobs/software-developer",
+      educationRequirements: "Bachelor's degree",
+      experienceRequirements: "1 year",
+    });
+    expect(detail?.structuredData.breadcrumbList).toEqual({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Career",
+          item: "http://localhost:3000/zh/career",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Software Developer",
+          item: "http://localhost:3000/zh/career/jobs/software-developer",
+        },
+      ],
+    });
+    expect((detail?.structuredData as Record<string, unknown> | undefined)?.dataset).toBeUndefined();
+    expect((detail?.structuredData as Record<string, unknown> | undefined)?.article).toBeUndefined();
     expect(detail?.renderState.careerDataStatus).toBe("available");
     expect(detail?.renderState.canRenderSalarySurface).toBe(false);
     expect(detail?.authoritySource).toBe("career_backend_bundle.v0.5");

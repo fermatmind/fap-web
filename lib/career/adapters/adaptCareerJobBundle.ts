@@ -5,6 +5,7 @@ import {
   type CareerTrustManifest,
 } from "@/lib/career/contracts";
 import { getCareerJobRenderState } from "@/lib/career/protocolReadiness";
+import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import type { CareerJobBundleResponseRaw } from "@/lib/career/api/types";
 import type {
   CareerIntegritySummaryAdapter,
@@ -14,6 +15,8 @@ import type {
   CareerSeoContractAdapter,
   CareerWarningsAdapter,
 } from "@/lib/career/adapters/types";
+import { localizedPath } from "@/lib/i18n/locales";
+import { canonicalUrl } from "@/lib/site";
 
 type AdaptCareerJobBundleInput = {
   locale: "en" | "zh";
@@ -195,6 +198,106 @@ function buildTrustManifest(raw: Record<string, unknown>, slug: string): CareerT
   });
 }
 
+function normalizeStructuredDataUrl(
+  locale: "en" | "zh",
+  value: unknown,
+  fallbackPath?: string | null
+): string | null {
+  const raw = normalizeString(value) ?? normalizeString(fallbackPath);
+  if (!raw) {
+    return null;
+  }
+
+  const normalized = /^https?:\/\//i.test(raw)
+    ? (() => {
+        try {
+          return new URL(raw).pathname || raw;
+        } catch {
+          return raw;
+        }
+      })()
+    : raw;
+
+  if (/^https?:\/\//i.test(normalized)) {
+    return null;
+  }
+
+  if (/^\/(en|zh)(\/|$)/i.test(normalized)) {
+    return canonicalUrl(normalized);
+  }
+
+  if (normalized === "/career" || normalized.startsWith("/career/")) {
+    return canonicalUrl(localizedPath(normalized, locale));
+  }
+
+  if (normalized.startsWith("/")) {
+    return canonicalUrl(normalized);
+  }
+
+  return null;
+}
+
+function buildStructuredData(
+  raw: Record<string, unknown>,
+  locale: "en" | "zh",
+  slug: string
+): CareerJobBundleAdapter["structuredData"] {
+  const structuredData = isRecord(raw.structured_data) ? raw.structured_data : {};
+  const occupation = isRecord(structuredData.occupation) ? structuredData.occupation : null;
+  const breadcrumbList = isRecord(structuredData.breadcrumb_list) ? structuredData.breadcrumb_list : null;
+  const fallbackJobPath = buildCareerJobFrontendUrl(locale, slug);
+  const occupationCanonicalPath = normalizeCareerBundleCanonicalPath(
+    locale,
+    normalizeString(occupation?.url) ?? normalizeString(occupation?.mainEntityOfPage),
+    fallbackJobPath
+  );
+
+  const normalizedOccupation = occupation
+    ? (arrayFilterRecord({
+        "@context": normalizeString(occupation["@context"]),
+        "@type": normalizeString(occupation["@type"]),
+        name: normalizeString(occupation.name),
+        url: normalizeStructuredDataUrl(locale, occupation.url, occupationCanonicalPath),
+        mainEntityOfPage: normalizeStructuredDataUrl(locale, occupation.mainEntityOfPage, occupationCanonicalPath),
+        educationRequirements: normalizeString(occupation.educationRequirements),
+        experienceRequirements: normalizeString(occupation.experienceRequirements),
+      }) as Record<string, unknown>)
+    : null;
+
+  const normalizedBreadcrumbItems = Array.isArray(breadcrumbList?.itemListElement)
+    ? breadcrumbList.itemListElement
+        .filter(isRecord)
+        .map((item) =>
+          arrayFilterRecord({
+            "@type": normalizeString(item["@type"]),
+            position: normalizeNumber(item.position),
+            name: normalizeString(item.name),
+            item: normalizeStructuredDataUrl(locale, item.item),
+          })
+        )
+        .filter((item) => typeof item.name === "string" && typeof item.item === "string")
+    : [];
+
+  const normalizedBreadcrumbList = breadcrumbList
+    ? (arrayFilterRecord({
+        "@context": normalizeString(breadcrumbList["@context"]),
+        "@type": normalizeString(breadcrumbList["@type"]),
+        itemListElement: normalizedBreadcrumbItems,
+      }) as Record<string, unknown>)
+    : null;
+
+  return {
+    occupation:
+      normalizedOccupation && typeof normalizedOccupation["@type"] === "string" ? normalizedOccupation : null,
+    breadcrumbList:
+      normalizedBreadcrumbList && typeof normalizedBreadcrumbList["@type"] === "string" ? normalizedBreadcrumbList : null,
+  };
+}
+
+function arrayFilterRecord(input: Record<string, unknown>): Record<string, unknown> {
+  return Object.fromEntries(Object.entries(input).filter(([, value]) => value !== null && value !== undefined));
+}
+
 export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJobBundleAdapter | null {
   const raw = unwrapPayload(input.payload);
   if (!raw) {
@@ -223,6 +326,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
   const seoContract = buildSeoContract(raw);
   const provenanceMeta = buildProvenanceMeta(raw, trustManifest);
   const integritySummary = buildIntegritySummary(raw, scoreBundle);
+  const structuredData = buildStructuredData(raw, input.locale, slug);
 
   const adapter: CareerJobBundleAdapter = {
     authoritySource: "career_backend_bundle.v0.5",
@@ -259,6 +363,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     seoContract,
     provenanceMeta,
     integritySummary,
+    structuredData,
     renderState: getCareerJobRenderState({
       authoritySource: "career_backend_bundle.v0.5",
       claimPermissions,

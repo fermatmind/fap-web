@@ -59,6 +59,33 @@ describe("career claim gate render contract", () => {
           index_state: "blocked",
           index_eligible: false,
         },
+        structured_data: {
+          occupation: {
+            "@context": "https://schema.org",
+            "@type": "Occupation",
+            name: "Product Manager",
+            url: "/career/jobs/product-manager",
+            mainEntityOfPage: "/career/jobs/product-manager",
+          },
+          breadcrumb_list: {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Career",
+                item: "/career",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Product Manager",
+                item: "/career/jobs/product-manager",
+              },
+            ],
+          },
+        },
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
@@ -74,6 +101,10 @@ describe("career claim gate render contract", () => {
     expect(html).toContain("career-job-protocol-status");
     expect(html).toContain("career-job-trust-strip");
     expect(html).toContain("Career claim gate");
+    expect(html).toContain('"@type":"Occupation"');
+    expect(html.match(/"@type":"BreadcrumbList"/g)).toHaveLength(1);
+    expect(html).toContain("http://localhost:3000/en/career/jobs/product-manager");
+    expect(html).toContain("http://localhost:3000/en/career");
     expect(html).not.toContain("$150,000");
     expect(html).not.toContain("Ten-year outlook");
     expect(html).not.toContain("Backend score dimensions");

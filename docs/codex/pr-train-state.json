@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-13T13:38:30Z",
+  "updated_at": "2026-04-13T16:11:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -468,6 +468,47 @@
         "github": []
       },
       "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F30": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/pr-f30-career-job-detail-structured-data-frontend-consumption",
+      "commit_sha": "c130e0fe997274cd6af715cadc4a6e3b1e5913b7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/442",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' lib/career/api/types.ts lib/career/adapters/types.ts lib/career/adapters/adaptCareerJobBundle.ts tests/contracts/schema-present.contract.test.ts tests/contracts/career-job-backend-bundle.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/schema-present.contract.test.ts tests/contracts/career-job-backend-bundle.contract.test.ts tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-jobs-cleanup.contract.test.ts",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24353331902/job/71113499672"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24353331902/job/71113499691"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions jobs failed immediately for build/contracts on PR-F30; local validation passed, but the remote CI run is currently not green.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

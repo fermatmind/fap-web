@@ -56,15 +56,19 @@ describe("schema injection contract", () => {
     expect(source).toContain("renderTopicEntryGroups");
   });
 
-  it("career job detail page injects breadcrumb jsonld and uses the backend bundle path", () => {
+  it("career job detail page injects backend occupation and breadcrumb jsonld on the backend bundle path", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
     expect(source).toContain("fetchCareerJobBundle");
     expect(source).toContain("adaptCareerJobBundle");
     expect(source).toContain("JsonLd");
-    expect(source).toContain("buildBreadcrumbJsonLd");
+    expect(source).toContain("job.structuredData.occupation");
+    expect(source).toContain("job.structuredData.breadcrumbList");
     expect(source).toContain("career-job-protocol-status");
     expect(source).toContain("job.seoContract.indexEligible");
     expect(source).not.toContain("buildOccupationJsonLd");
+    expect(source).not.toContain("buildBreadcrumbJsonLd");
+    expect(source).not.toContain("Dataset");
+    expect(source).not.toContain("Article");
     expect(source).not.toContain("getCareerJobFromCmsBySlug");
     expect(source).not.toContain("renderSimpleMarkdown");
     expect(source).toContain("Ten-year outlook");
