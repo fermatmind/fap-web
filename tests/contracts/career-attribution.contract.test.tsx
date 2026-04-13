@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { ReactNode } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -63,6 +65,12 @@ function installCareerTrackingMocks() {
   }));
 
   return { pageViewEvents, trackedLinks };
+}
+
+const ROOT = process.cwd();
+
+function read(relPath: string): string {
+  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
 }
 
 describe("career attribution payload builder contract", () => {
@@ -197,7 +205,25 @@ describe("career attribution payload builder contract", () => {
 });
 
 describe("career attribution page wiring contract", () => {
-  it("wires landing view, ready exposure, and landing job clicks without touching recommendation preview semantics", async () => {
+  it("keeps deferred career events out of the current frontend wiring path", () => {
+    const trackedSources = [
+      "app/(localized)/[locale]/career/page.tsx",
+      "app/(localized)/[locale]/career/jobs/page.tsx",
+      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "app/(localized)/[locale]/career/recommendations/page.tsx",
+      "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+      "components/analytics/TrackedCareerLink.tsx",
+      "lib/career/attribution.ts",
+    ].map(read).join("\n");
+
+    expect(trackedSources).not.toContain("career_alias_search");
+    expect(trackedSources).not.toContain("career_shortlist_add");
+    expect(trackedSources).not.toContain("career_view");
+    expect(trackedSources).not.toContain("career_job_detail_cta_click");
+    expect(trackedSources).not.toContain("career_blocked_surface_exposed");
+  });
+
+  it("wires landing view, ready exposure, and landing preview clicks through the shared career event set", async () => {
     vi.doMock("next/link", () => ({
       default: ({
         href,
@@ -282,7 +308,25 @@ describe("career attribution page wiring contract", () => {
     vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
       fetchCareerRecommendationIndex: vi.fn(async () => ({
         bundle_kind: "career_recommendation_index",
-        items: [],
+        items: [
+          {
+            recommendation_subject_meta: {
+              canonical_type_code: "INTJ",
+              display_title: "INTJ Career Match",
+              public_route_slug: "intj",
+            },
+            score_summary: {
+              fit_score: { value: 82, integrity_state: "full", degradation_factor: 1.0 },
+              confidence_score: { value: 76, integrity_state: "full", degradation_factor: 1.0 },
+            },
+            trust_summary: { reviewer_status: "reviewed" },
+            seo_contract: {
+              canonical_path: "/career/recommendations/mbti/intj",
+              index_state: "index",
+              index_eligible: true,
+            },
+          },
+        ],
       })),
     }));
     vi.doMock("@/lib/cms/career-guides", () => ({
@@ -315,6 +359,16 @@ describe("career attribution page wiring contract", () => {
           eventPayload: expect.objectContaining({
             subjectKey: "data-scientists",
             routeFamily: "landing",
+          }),
+        }),
+        expect.objectContaining({
+          eventName: "career_recommendation_result_click",
+          eventPayload: expect.objectContaining({
+            entrySurface: "career_landing_recommendation_preview",
+            sourcePageType: "career_landing",
+            routeFamily: "landing",
+            subjectKind: "recommendation_type",
+            subjectKey: "intj",
           }),
         }),
       ])

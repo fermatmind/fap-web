@@ -371,9 +371,23 @@ export default async function CareerCenterPage({
                   <p className="m-0">
                     {locale === "zh" ? "Reviewer" : "Reviewer"}: {item.trustSummary.reviewerStatus ?? "unknown"}
                   </p>
-                  <Link href={item.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                  <TrackedCareerLink
+                    href={item.href}
+                    eventName={CAREER_TRACKING_EVENTS.recommendationResultClick}
+                    eventPayload={{
+                      locale,
+                      entrySurface: "career_landing_recommendation_preview",
+                      sourcePageType: "career_landing",
+                      targetAction: "open_recommendation_detail",
+                      landingPath,
+                      routeFamily: "landing",
+                      subjectKind: "recommendation_type",
+                      subjectKey: item.recommendationSubjectMeta.publicRouteSlug,
+                    }}
+                    className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                  >
                     {locale === "zh" ? "查看 recommendation detail" : "View recommendation detail"}
-                  </Link>
+                  </TrackedCareerLink>
                 </CardContent>
               </Card>
             ))}

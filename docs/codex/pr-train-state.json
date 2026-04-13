@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-11T23:33:00Z",
+  "updated_at": "2026-04-13T12:50:02Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -397,6 +397,36 @@
         ]
       },
       "failure_reason": "GitHub Actions jobs failed immediately with no executable steps for build/contracts, matching the current repository workflow startup failure pattern rather than a locally reproducible F15 regression.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F28": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-f28-career-attribution-frontend-instrumentation-funnel-alignment",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' lib/career/attribution.ts tests/contracts/*.ts tests/contracts/*.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-transition-preview.contract.test.tsx tests/contracts/career-search-backend.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
