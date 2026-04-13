@@ -1,6 +1,12 @@
 import { TRACKING_EVENTS, filterTrackingPayload } from "@/lib/tracking/events";
 
 describe("tracking whitelist contract", () => {
+  it("keeps speculative career events out of the supported tracking vocabulary", () => {
+    expect(Object.values(TRACKING_EVENTS)).not.toContain("career_alias_search");
+    expect(Object.values(TRACKING_EVENTS)).not.toContain("career_shortlist_add");
+    expect(Object.values(TRACKING_EVENTS)).not.toContain("career_view");
+  });
+
   it("enforces strict whitelist for card/report UI events", () => {
     const basePayload = {
       slug: "big-five-personality-test-ocean-model",
@@ -147,6 +153,18 @@ describe("tracking whitelist contract", () => {
     });
 
     expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_TRANSITION_PREVIEW_TARGET_CLICK, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_READY_SURFACE_EXPOSED, payload)).toEqual({
       locale: "en",
       entry_surface: "career_job_search_results",
       source_page_type: "career_job_search",

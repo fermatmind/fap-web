@@ -11,18 +11,43 @@ export const CAREER_ROUTE_FAMILIES = [
   "recommendation_detail",
 ] as const;
 
+export const CAREER_ENTRY_SURFACES = [
+  "career_landing",
+  "career_landing_jobs_preview",
+  "career_landing_recommendation_preview",
+  "career_job_index",
+  "career_job_search",
+  "career_job_search_results",
+  "career_job_detail",
+  "career_recommendation_index",
+  "career_recommendation_detail",
+  "career_recommendation_detail_matched_jobs",
+  "career_recommendation_detail_transition_preview",
+] as const;
+
+export const CAREER_SOURCE_PAGE_TYPES = [
+  "career_landing",
+  "career_job_index",
+  "career_job_search",
+  "career_job_detail",
+  "career_recommendation_index",
+  "career_recommendation_detail",
+] as const;
+
 export const CAREER_SUBJECT_KINDS = ["none", "job_slug", "recommendation_type"] as const;
 
 export const CAREER_QUERY_MODES = ["query", "non_query"] as const;
 
 export type CareerRouteFamily = (typeof CAREER_ROUTE_FAMILIES)[number];
+export type CareerEntrySurface = (typeof CAREER_ENTRY_SURFACES)[number];
+export type CareerSourcePageType = (typeof CAREER_SOURCE_PAGE_TYPES)[number];
 export type CareerSubjectKind = (typeof CAREER_SUBJECT_KINDS)[number];
 export type CareerQueryMode = (typeof CAREER_QUERY_MODES)[number];
 
 export type CareerAttributionPayloadInput = {
   locale: Locale;
-  entrySurface: string;
-  sourcePageType: string;
+  entrySurface: CareerEntrySurface;
+  sourcePageType: CareerSourcePageType;
   targetAction: string;
   landingPath: string;
   routeFamily: CareerRouteFamily;
