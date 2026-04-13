@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-13T13:35:00Z",
+  "updated_at": "2026-04-13T13:38:30Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -446,10 +446,10 @@
     "PR-F29": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f29-career-transition-preview-product-layer-uplift",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "ea84f8e111f16e31587daaf4ec56c35a8a43e887",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/441",
       "checks": {
         "local": [
           {
