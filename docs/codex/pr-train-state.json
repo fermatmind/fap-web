@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-13T16:05:00Z",
+  "updated_at": "2026-04-13T16:09:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -476,10 +476,10 @@
     "PR-F30": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "committed",
+      "status": "pr_open",
       "branch": "codex/pr-f30-career-job-detail-structured-data-frontend-consumption",
-      "commit_sha": "00d609e06ba918f24956486e350f42adbb271ee4",
-      "pr_url": "",
+      "commit_sha": "c130e0fe997274cd6af715cadc4a6e3b1e5913b7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/442",
       "checks": {
         "local": [
           {
