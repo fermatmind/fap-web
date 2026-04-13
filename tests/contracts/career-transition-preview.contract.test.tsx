@@ -523,9 +523,22 @@ describe("career transition preview recommendation detail wiring", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("career-transition-preview");
+    expect(html).toContain("career-transition-preview-header");
+    expect(html).toContain("career-transition-preview-path-type");
+    expect(html).toContain("Stable upside");
+    expect(html).toContain("career-transition-preview-target");
+    expect(html).toContain("Target role");
+    expect(html).toContain("career-transition-preview-score-band");
+    expect(html).toContain("career-transition-preview-score-mobility");
+    expect(html).toContain("career-transition-preview-score-confidence");
     expect(html).toContain("Next-step role preview");
     expect(html).toContain("Product Manager");
     expect(html).toContain("/en/career/jobs/product-manager");
+    expect(html).toContain("career-transition-preview-comparison");
+    expect(html).toContain("Comparison snapshot");
+    expect(html).toContain("career-transition-preview-ingredients");
+    expect(html).toContain("Transition ingredients");
+    expect(html).toContain("career-transition-preview-footer");
     expect(html).toContain("career-transition-preview-trust-strip");
     expect(html).toContain("reason_codes: publish_ready");
     expect(html).toContain("career-transition-preview-steps");
