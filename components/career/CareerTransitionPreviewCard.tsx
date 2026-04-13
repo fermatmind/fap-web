@@ -11,6 +11,26 @@ function renderScoreValue(value: number | null): string {
   return value === null ? "—" : String(value);
 }
 
+function getPathTypeLabel(locale: Locale, pathType: string): string {
+  if (pathType === "stable_upside") {
+    return locale === "zh" ? "稳定上行路径" : "Stable upside";
+  }
+
+  return pathType.replace(/_/g, " ");
+}
+
+function getTargetRoleLabel(locale: Locale): string {
+  return locale === "zh" ? "目标岗位" : "Target role";
+}
+
+function getIngredientsLabel(locale: Locale): string {
+  return locale === "zh" ? "转岗要素" : "Transition ingredients";
+}
+
+function getComparisonLabel(locale: Locale): string {
+  return locale === "zh" ? "对比快照" : "Comparison snapshot";
+}
+
 function getDeltaLabel(locale: Locale, key: "entryEducationDelta" | "workExperienceDelta" | "trainingDelta"): string {
   if (locale === "zh") {
     switch (key) {
@@ -61,25 +81,31 @@ export function CareerTransitionPreviewCard({
       className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       data-testid="career-transition-preview"
     >
-      <div className="space-y-1">
+      <div className="space-y-1" data-testid="career-transition-preview-header">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "Transition preview" : "Transition preview"}
+          {locale === "zh" ? "转岗预览" : "Transition preview"}
         </p>
-        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "下一步岗位预览" : "Next-step role preview"}
-        </h2>
-        <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-          {locale === "zh"
-            ? "只展示 backend authority 已放行的 transition target，不做本地解释扩写。"
-            : "Only backend-authorized transition targets are shown here, without local narrative expansion."}
-        </p>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "下一步岗位预览" : "Next-step role preview"}
+          </h2>
+          <span
+            className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]"
+            data-testid="career-transition-preview-path-type"
+          >
+            {getPathTypeLabel(locale, preview.pathType)}
+          </span>
+        </div>
       </div>
 
-      <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="space-y-4 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+        <div
+          className="flex flex-wrap items-start justify-between gap-3"
+          data-testid="career-transition-preview-target"
+        >
           <div className="space-y-1">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {preview.pathType.replace(/_/g, " ")}
+              {getTargetRoleLabel(locale)}
             </p>
             <TrackedCareerLink
               href={preview.targetJob.href}
@@ -103,63 +129,14 @@ export function CareerTransitionPreviewCard({
           </div>
         </div>
 
-        <TrustStrip
-          locale={locale}
-          reviewerStatus={preview.trustSummary.reviewerStatus}
-          indexState={preview.seoContract.indexState}
-          reasonCodes={preview.trustSummary.reasonCodes}
-          compact
-          testId="career-transition-preview-trust-strip"
-        />
-
-        {hasSteps ? (
+        <div
+          className="grid gap-3 md:grid-cols-2"
+          data-testid="career-transition-preview-score-band"
+        >
           <div
-            className="mt-4 flex flex-wrap gap-2 text-[11px] text-[var(--fm-text-muted)]"
-            data-testid="career-transition-preview-steps"
+            className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3"
+            data-testid="career-transition-preview-score-mobility"
           >
-            {preview.steps?.map((step) => (
-              <span
-                key={step}
-                className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-2 py-1 font-mono"
-              >
-                {step}
-              </span>
-            ))}
-          </div>
-        ) : null}
-
-        {deltaEntries.length > 0 ? (
-          <div
-            className="mt-4 space-y-2 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3"
-            data-testid="career-transition-preview-delta"
-          >
-            {deltaEntries.map(([key, entry]) => (
-              <div
-                key={key}
-                className="grid gap-2 border-b border-[var(--fm-border)] pb-2 last:border-b-0 last:pb-0 md:grid-cols-[minmax(0,1fr)_auto]"
-              >
-                <div className="space-y-1">
-                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                    {getDeltaLabel(locale, key)}
-                  </p>
-                  <p className="m-0 text-sm text-[var(--fm-text)]" data-testid={`career-transition-preview-delta-${key}`}>
-                    <span className="font-mono">{entry.sourceValue}</span>
-                    <span className="px-2 text-[var(--fm-text-muted)]">→</span>
-                    <span className="font-mono">{entry.targetValue}</span>
-                  </p>
-                </div>
-                <div className="flex items-center md:justify-end">
-                  <span className="rounded-full border border-[var(--fm-border)] px-2 py-1 font-mono text-[11px] text-[var(--fm-text-muted)]">
-                    {entry.direction}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : null}
-
-        <div className="mt-4 grid gap-3 md:grid-cols-2">
-          <div className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
               Mobility
             </p>
@@ -170,7 +147,10 @@ export function CareerTransitionPreviewCard({
               {preview.scoreSummary.mobilityScore.integrity_state}
             </p>
           </div>
-          <div className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3">
+          <div
+            className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3"
+            data-testid="career-transition-preview-score-confidence"
+          >
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
               Confidence
             </p>
@@ -181,6 +161,79 @@ export function CareerTransitionPreviewCard({
               {preview.scoreSummary.confidenceScore.integrity_state}
             </p>
           </div>
+        </div>
+
+        {hasSteps ? (
+          <div
+            className="space-y-2 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3"
+            data-testid="career-transition-preview-ingredients"
+          >
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {getIngredientsLabel(locale)}
+            </p>
+            <div
+              className="flex flex-wrap gap-2 text-[11px] text-[var(--fm-text-muted)]"
+              data-testid="career-transition-preview-steps"
+            >
+              {preview.steps?.map((step) => (
+                <span
+                  key={step}
+                  className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-2 py-1 font-mono"
+                >
+                  {step}
+                </span>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {deltaEntries.length > 0 ? (
+          <div
+            className="space-y-2 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3"
+            data-testid="career-transition-preview-comparison"
+          >
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {getComparisonLabel(locale)}
+            </p>
+            <div
+              className="space-y-2"
+              data-testid="career-transition-preview-delta"
+            >
+              {deltaEntries.map(([key, entry]) => (
+                <div
+                  key={key}
+                  className="grid gap-2 border-b border-[var(--fm-border)] pb-2 last:border-b-0 last:pb-0 md:grid-cols-[minmax(0,1fr)_auto]"
+                >
+                  <div className="space-y-1">
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                      {getDeltaLabel(locale, key)}
+                    </p>
+                    <p className="m-0 text-sm text-[var(--fm-text)]" data-testid={`career-transition-preview-delta-${key}`}>
+                      <span className="font-mono">{entry.sourceValue}</span>
+                      <span className="px-2 text-[var(--fm-text-muted)]">→</span>
+                      <span className="font-mono">{entry.targetValue}</span>
+                    </p>
+                  </div>
+                  <div className="flex items-center md:justify-end">
+                    <span className="rounded-full border border-[var(--fm-border)] px-2 py-1 font-mono text-[11px] text-[var(--fm-text-muted)]">
+                      {entry.direction}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        <div data-testid="career-transition-preview-footer">
+          <TrustStrip
+            locale={locale}
+            reviewerStatus={preview.trustSummary.reviewerStatus}
+            indexState={preview.seoContract.indexState}
+            reasonCodes={preview.trustSummary.reasonCodes}
+            compact
+            testId="career-transition-preview-trust-strip"
+          />
         </div>
       </div>
     </section>

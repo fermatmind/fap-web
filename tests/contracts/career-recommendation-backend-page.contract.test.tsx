@@ -253,6 +253,11 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("career-recommendation-explainability-panel");
     expect(html).toContain("career-explainability-strain-radar");
     expect(html).toContain("career-transition-preview");
+    expect(html).toContain("career-transition-preview-header");
+    expect(html).toContain("career-transition-preview-score-band");
+    expect(html).toContain("career-transition-preview-ingredients");
+    expect(html).toContain("career-transition-preview-comparison");
+    expect(html).toContain("career-transition-preview-footer");
     expect(html).toContain("career-transition-preview-delta");
     expect(html).toContain("Product Manager");
     expect(html).toContain("Bachelor&#x27;s degree");
@@ -290,6 +295,16 @@ describe("career recommendation backend page contract", () => {
     expect(html).not.toContain("/topics/mbti/take");
     expect(html).not.toContain("/tests-index");
     expect(html).not.toContain("strongest");
+
+    const explainabilityIndex = html.indexOf("career-recommendation-explainability-panel");
+    const transitionPreviewIndex = html.indexOf("career-transition-preview");
+    const matchedJobsIndex = html.indexOf("career-recommendation-matched-jobs-status");
+    const companionLinksIndex = html.indexOf("career-recommendation-companion-links");
+
+    expect(explainabilityIndex).toBeGreaterThan(-1);
+    expect(transitionPreviewIndex).toBeGreaterThan(explainabilityIndex);
+    expect(matchedJobsIndex).toBeGreaterThan(transitionPreviewIndex);
+    expect(companionLinksIndex).toBeGreaterThan(matchedJobsIndex);
   });
 
   it("redirects to the canonical public route when backend bundle slug differs from the request", async () => {
