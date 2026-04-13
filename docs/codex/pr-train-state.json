@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-13T12:50:02Z",
+  "updated_at": "2026-04-13T12:52:05Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -405,10 +405,10 @@
     "PR-F28": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f28-career-attribution-frontend-instrumentation-funnel-alignment",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "094d3787475615c42bcf4ad8b3db1cf61653f5f8",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/439",
       "checks": {
         "local": [
           {
@@ -424,9 +424,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24344327333/job/71080995387"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24344327333/job/71080995426"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs failed immediately for build/contracts on PR-F28; local validation passed, but the remote CI run is currently not green.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
