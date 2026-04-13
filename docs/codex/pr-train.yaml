@@ -364,3 +364,29 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-D2
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-d2-agents-discipline-fallback-hardening
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      AGENTS discipline fallback hardening.
+      Clarify dirty-worktree isolation, allow manifest/state initialization when the user
+      explicitly provides a missing PR id, permit scoped follow-up on the same PR while
+      checks are pending or failing, and allow immediate branch creation when scoped edits
+      were made on main before commit/push.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "git diff --check -- AGENTS.md docs/codex/pr-train.yaml docs/codex/pr-train-state.json"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
