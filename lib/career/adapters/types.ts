@@ -145,6 +145,10 @@ export type CareerJobBundleAdapter = {
   seoContract: CareerSeoContractAdapter;
   provenanceMeta: CareerProvenanceMetaAdapter;
   integritySummary: CareerIntegritySummaryAdapter;
+  structuredData: {
+    occupation: Record<string, unknown> | null;
+    breadcrumbList: Record<string, unknown> | null;
+  };
   renderState: CareerJobRenderState;
 };
 

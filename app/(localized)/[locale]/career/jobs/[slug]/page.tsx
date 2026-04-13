@@ -26,7 +26,6 @@ import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
@@ -195,18 +194,6 @@ export default async function CareerJobDetailPage({
     return notFound();
   }
 
-  const canonicalPath = normalizeCareerBundleCanonicalPath(
-    locale,
-    job.seoContract.canonicalPath,
-    buildCanonicalPath(job.slug, locale)
-  );
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
-    { name: locale === "zh" ? "职业库" : "Jobs", path: localizedPath("/career/jobs", locale) },
-    { name: job.title, path: canonicalPath },
-  ]);
-
   const canRenderAiStrategy =
     job.claimPermissions.allow_ai_strategy && job.renderState.careerDataStatus !== "unavailable";
   const canRenderAnswerSurface = job.renderState.canRenderAnswerSurface;
@@ -226,7 +213,12 @@ export default async function CareerJobDetailPage({
           subjectKey: job.slug,
         })}
       />
-      <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={breadcrumbJsonLd} />
+      {job.structuredData.occupation ? (
+        <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} />
+      ) : null}
+      {job.structuredData.breadcrumbList ? (
+        <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} />
+      ) : null}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },

@@ -14,6 +14,35 @@ export type CareerJobBundleResponseRaw = {
   provenance_meta?: unknown;
   integrity_summary?: unknown;
   supporting_truth_summary?: unknown;
+  structured_data?: CareerJobStructuredDataResponseRaw | unknown;
+};
+
+export type CareerJobStructuredDataOccupationResponseRaw = {
+  "@context"?: unknown;
+  "@type"?: unknown;
+  name?: unknown;
+  url?: unknown;
+  mainEntityOfPage?: unknown;
+  educationRequirements?: unknown;
+  experienceRequirements?: unknown;
+};
+
+export type CareerJobStructuredDataBreadcrumbListItemResponseRaw = {
+  "@type"?: unknown;
+  position?: unknown;
+  name?: unknown;
+  item?: unknown;
+};
+
+export type CareerJobStructuredDataBreadcrumbListResponseRaw = {
+  "@context"?: unknown;
+  "@type"?: unknown;
+  itemListElement?: Array<CareerJobStructuredDataBreadcrumbListItemResponseRaw | unknown> | unknown;
+};
+
+export type CareerJobStructuredDataResponseRaw = {
+  occupation?: CareerJobStructuredDataOccupationResponseRaw | unknown;
+  breadcrumb_list?: CareerJobStructuredDataBreadcrumbListResponseRaw | unknown;
 };
 
 export type CareerJobIndexItemResponseRaw = {
