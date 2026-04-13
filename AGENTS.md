@@ -9,13 +9,28 @@
 ## Branch discipline
 - Always start from the latest `main`.
 - Always pull with `git pull --ff-only origin main` before creating a PR branch.
-- A dirty worktree does not automatically block a PR start if the unrelated changes are clearly identifiable and can be kept out of the current PR.
+- A dirty worktree does not automatically block a PR start if unrelated changes are clearly isolated from the current PR.
+- “Clearly isolated” means at least one of:
+  - the unrelated changes are in files outside the declared PR scope, and the current PR can avoid touching them
+  - the current PR can be staged with an explicit path-limited file list
+  - the unrelated changes are already committed on another branch and are not part of the current branch diff
 - Stop if the worktree is dirty and the current PR scope cannot be isolated cleanly from those existing changes.
+- If scoped changes were made on `main` before a PR branch was created, Codex may still create the correct PR branch immediately, provided:
+  - the changes are fully within the declared scope
+  - the worktree contains no unrelated modifications
+  - the branch is created before commit, push, or PR creation
 - Stop if the target branch already exists locally or remotely with unrelated commits.
 
 ## Dependency discipline
 - A PR may start only when all `depends_on` items are already merged into `main`.
 - If a dependency is not merged, mark the current item `blocked_dependency` in `docs/codex/pr-train-state.json` and stop.
+
+## Manifest discipline
+- If the requested PR id is missing from `docs/codex/pr-train.yaml`, stop and report the gap unless the user explicitly asks to update the train manifest.
+- If the user explicitly asks to proceed with that PR, Codex may add the missing manifest/state entry first, then continue under the same scope discipline.
+- Never invent a PR id or scope that is not either:
+  - already present in the manifest, or
+  - explicitly provided by the user.
 
 ## Verification discipline
 - Run all local checks listed in the PR manifest before push.
@@ -31,7 +46,8 @@
   - why
   - validation commands
   - intentionally deferred items
-- If a PR is open and checks are pending, wait; do not start the next PR.
+- If a PR for the current task is already open and checks are pending, do not start a different PR.
+- Codex may continue working only on that same PR when the user explicitly asks for a scoped follow-up, review fix, or CI fix.
 
 ## Merge discipline
 - Merge only when the current PR satisfies its `merge_policy`.
@@ -42,6 +58,7 @@
 
 ## State ledger discipline
 - Record every state transition in `docs/codex/pr-train-state.json`.
+- If the current PR id is missing from `docs/codex/pr-train-state.json` but exists in the manifest, Codex may initialize the missing state entry before continuing.
 - Update at minimum:
   - status
   - commit_sha
@@ -57,12 +74,13 @@
 - Stop immediately on:
   - preflight failure
   - failed local checks
-  - failed required GitHub checks
+  - failed required GitHub checks for merge progression
   - merge block
   - review requirement block
   - ambiguous repository state
 - Do not improvise around failures.
 - Prefer stopping cleanly over partial progress.
+- Codex may continue only if the user explicitly asks to diagnose or fix that same PR's failing checks.
 
 ## Local vs cloud execution
 - If operating in a cloud-only environment, remote branch deletion is allowed, but local cleanup must be reported as not executed.
