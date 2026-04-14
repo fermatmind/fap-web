@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-14T14:19:58Z",
+  "updated_at": "2026-04-14T14:20:50Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -558,9 +558,9 @@
     "PR-F32": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "pr_open",
       "branch": "codex/pr-f32-career-claim-permission-ui-gating-alignment",
-      "commit_sha": "8b7983bd77d2c5f7b621991e97f8cf1bf2575b73",
+      "commit_sha": "d36e327d09ab4a757e511713bf555ef0bd638c71",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/444",
       "checks": {
         "local": [
@@ -580,17 +580,17 @@
         "github": [
           {
             "name": "build",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24404272012/job/71283074802"
+            "status": "pending",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24404308630/job/71283208026"
           },
           {
             "name": "contracts",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24404272012/job/71283074816"
+            "status": "pending",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24404308630/job/71283207858"
           }
         ]
       },
-      "failure_reason": "GitHub Actions jobs failed immediately for build/contracts on PR-F32; local validation passed, but the remote CI run is currently not green.",
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
