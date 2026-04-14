@@ -170,12 +170,55 @@ export type CareerFamilyHubVisibleChildResponseRaw = {
   trust_summary?: unknown;
 };
 
+export type CareerFamilyHubStructuredDataCollectionPageResponseRaw = {
+  "@context"?: unknown;
+  "@type"?: unknown;
+  name?: unknown;
+  url?: unknown;
+  mainEntityOfPage?: unknown;
+  numberOfItems?: unknown;
+};
+
+export type CareerFamilyHubStructuredDataItemListElementResponseRaw = {
+  "@type"?: unknown;
+  position?: unknown;
+  name?: unknown;
+  url?: unknown;
+};
+
+export type CareerFamilyHubStructuredDataItemListResponseRaw = {
+  "@context"?: unknown;
+  "@type"?: unknown;
+  numberOfItems?: unknown;
+  itemListElement?: Array<CareerFamilyHubStructuredDataItemListElementResponseRaw | unknown> | unknown;
+};
+
+export type CareerFamilyHubStructuredDataBreadcrumbListItemResponseRaw = {
+  "@type"?: unknown;
+  position?: unknown;
+  name?: unknown;
+  item?: unknown;
+};
+
+export type CareerFamilyHubStructuredDataBreadcrumbListResponseRaw = {
+  "@context"?: unknown;
+  "@type"?: unknown;
+  itemListElement?: Array<CareerFamilyHubStructuredDataBreadcrumbListItemResponseRaw | unknown> | unknown;
+};
+
+export type CareerFamilyHubStructuredDataResponseRaw = {
+  collection_page?: CareerFamilyHubStructuredDataCollectionPageResponseRaw | unknown;
+  item_list?: CareerFamilyHubStructuredDataItemListResponseRaw | unknown;
+  breadcrumb_list?: CareerFamilyHubStructuredDataBreadcrumbListResponseRaw | unknown;
+};
+
 export type CareerFamilyHubResponseRaw = {
   bundle_kind?: unknown;
   bundle_version?: unknown;
   family?: unknown;
   visible_children?: unknown;
   counts?: unknown;
+  structured_data?: CareerFamilyHubStructuredDataResponseRaw | unknown;
   data?: unknown;
 };
 
