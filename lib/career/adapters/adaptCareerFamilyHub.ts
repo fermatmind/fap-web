@@ -4,7 +4,13 @@ import type {
   CareerFamilyHubVisibleChildAdapter,
   CareerSeoContractAdapter,
 } from "@/lib/career/adapters/types";
-import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
+import {
+  buildCareerFamilyFrontendUrl,
+  buildCareerJobFrontendUrl,
+  normalizeCareerBundleCanonicalPath,
+} from "@/lib/career/urls";
+import { localizedPath } from "@/lib/i18n/locales";
+import { canonicalUrl } from "@/lib/site";
 
 type AdaptCareerFamilyHubInput = {
   locale: "en" | "zh";
@@ -61,6 +67,10 @@ function normalizeBoolean(value: unknown): boolean | null {
   return typeof value === "boolean" ? value : null;
 }
 
+function arrayFilterRecord(input: Record<string, unknown>): Record<string, unknown> {
+  return Object.fromEntries(Object.entries(input).filter(([, value]) => value !== null && value !== undefined));
+}
+
 function humanizeSlug(slug: string): string {
   return slug
     .split("-")
@@ -81,6 +91,45 @@ function buildSeoContract(raw: Record<string, unknown>): CareerSeoContractAdapte
     datasetEligible: null,
     articleEligible: null,
   };
+}
+
+function normalizeStructuredDataUrl(
+  locale: "en" | "zh",
+  value: unknown,
+  fallbackPath?: string | null
+): string | null {
+  const raw = normalizeString(value) ?? normalizeString(fallbackPath);
+  if (!raw) {
+    return null;
+  }
+
+  const normalized = /^https?:\/\//i.test(raw)
+    ? (() => {
+        try {
+          return new URL(raw).pathname || raw;
+        } catch {
+          return raw;
+        }
+      })()
+    : raw;
+
+  if (/^https?:\/\//i.test(normalized)) {
+    return null;
+  }
+
+  if (/^\/(en|zh)(\/|$)/i.test(normalized)) {
+    return canonicalUrl(normalized);
+  }
+
+  if (normalized === "/career" || normalized.startsWith("/career/")) {
+    return canonicalUrl(localizedPath(normalized, locale));
+  }
+
+  if (normalized.startsWith("/")) {
+    return canonicalUrl(normalized);
+  }
+
+  return null;
 }
 
 function adaptVisibleChild(
@@ -118,6 +167,95 @@ function adaptVisibleChild(
   };
 }
 
+function buildStructuredData(
+  raw: Record<string, unknown>,
+  locale: "en" | "zh",
+  canonicalSlug: string
+): CareerFamilyHubAdapter["structuredData"] {
+  const structuredData = isRecord(raw.structured_data) ? raw.structured_data : {};
+  const collectionPage = isRecord(structuredData.collection_page) ? structuredData.collection_page : null;
+  const itemList = isRecord(structuredData.item_list) ? structuredData.item_list : null;
+  const breadcrumbList = isRecord(structuredData.breadcrumb_list) ? structuredData.breadcrumb_list : null;
+  const fallbackFamilyPath = buildCareerFamilyFrontendUrl(locale, canonicalSlug);
+  const collectionPageCanonicalPath = normalizeCareerBundleCanonicalPath(
+    locale,
+    normalizeString(collectionPage?.url) ?? normalizeString(collectionPage?.mainEntityOfPage),
+    fallbackFamilyPath
+  );
+
+  const normalizedCollectionPage = collectionPage
+    ? (arrayFilterRecord({
+        "@context": normalizeString(collectionPage["@context"]),
+        "@type": normalizeString(collectionPage["@type"]),
+        name: normalizeString(collectionPage.name),
+        url: normalizeStructuredDataUrl(locale, collectionPage.url, collectionPageCanonicalPath),
+        mainEntityOfPage: normalizeStructuredDataUrl(
+          locale,
+          collectionPage.mainEntityOfPage,
+          collectionPageCanonicalPath
+        ),
+        numberOfItems: normalizeNumber(collectionPage.numberOfItems),
+      }) as Record<string, unknown>)
+    : null;
+
+  const normalizedItemListElements = Array.isArray(itemList?.itemListElement)
+    ? itemList.itemListElement
+        .filter(isRecord)
+        .map((item) =>
+          arrayFilterRecord({
+            "@type": normalizeString(item["@type"]),
+            position: normalizeNumber(item.position),
+            name: normalizeString(item.name),
+            url: normalizeStructuredDataUrl(locale, item.url),
+          })
+        )
+        .filter((item) => typeof item.name === "string" && typeof item.url === "string")
+    : [];
+
+  const normalizedItemList = itemList
+    ? (arrayFilterRecord({
+        "@context": normalizeString(itemList["@context"]),
+        "@type": normalizeString(itemList["@type"]),
+        numberOfItems: normalizeNumber(itemList.numberOfItems),
+        itemListElement: normalizedItemListElements,
+      }) as Record<string, unknown>)
+    : null;
+
+  const normalizedBreadcrumbItems = Array.isArray(breadcrumbList?.itemListElement)
+    ? breadcrumbList.itemListElement
+        .filter(isRecord)
+        .map((item) =>
+          arrayFilterRecord({
+            "@type": normalizeString(item["@type"]),
+            position: normalizeNumber(item.position),
+            name: normalizeString(item.name),
+            item: normalizeStructuredDataUrl(locale, item.item),
+          })
+        )
+        .filter((item) => typeof item.name === "string" && typeof item.item === "string")
+    : [];
+
+  const normalizedBreadcrumbList = breadcrumbList
+    ? (arrayFilterRecord({
+        "@context": normalizeString(breadcrumbList["@context"]),
+        "@type": normalizeString(breadcrumbList["@type"]),
+        itemListElement: normalizedBreadcrumbItems,
+      }) as Record<string, unknown>)
+    : null;
+
+  return {
+    collectionPage:
+      normalizedCollectionPage && typeof normalizedCollectionPage["@type"] === "string"
+        ? normalizedCollectionPage
+        : null,
+    itemList: normalizedItemList && typeof normalizedItemList["@type"] === "string" ? normalizedItemList : null,
+    breadcrumbList:
+      normalizedBreadcrumbList && typeof normalizedBreadcrumbList["@type"] === "string"
+        ? normalizedBreadcrumbList
+        : null,
+  };
+}
+
 export function adaptCareerFamilyHub(input: AdaptCareerFamilyHubInput): CareerFamilyHubAdapter | null {
   const raw = unwrapPayload(input.payload);
   if (!raw) {
@@ -136,6 +274,7 @@ export function adaptCareerFamilyHub(input: AdaptCareerFamilyHubInput): CareerFa
   const visibleChildren = Array.isArray(raw.visible_children)
     ? raw.visible_children.filter(isRecord).map((item) => adaptVisibleChild(item, input.locale)).filter(Boolean)
     : [];
+  const structuredData = buildStructuredData(raw, input.locale, canonicalSlug);
 
   return {
     authoritySource: "career_backend_family_hub.v0.5",
@@ -157,5 +296,6 @@ export function adaptCareerFamilyHub(input: AdaptCareerFamilyHubInput): CareerFa
       blockedNotSafelyRemediableCount: normalizeNumber(counts.blocked_not_safely_remediable_count),
       blockedTotal: normalizeNumber(counts.blocked_total),
     },
+    structuredData,
   };
 }

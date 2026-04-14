@@ -240,6 +240,11 @@ export type CareerFamilyHubAdapter = {
     blockedNotSafelyRemediableCount: number;
     blockedTotal: number;
   };
+  structuredData: {
+    collectionPage: Record<string, unknown> | null;
+    itemList: Record<string, unknown> | null;
+    breadcrumbList: Record<string, unknown> | null;
+  };
 };
 
 export type CareerAliasResolutionTargetAdapter = {

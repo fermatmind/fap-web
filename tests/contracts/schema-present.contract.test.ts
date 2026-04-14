@@ -74,6 +74,24 @@ describe("schema injection contract", () => {
     expect(source).toContain("Ten-year outlook");
   });
 
+  it("career family hub page injects backend collection, item list, and breadcrumb jsonld on the backend bundle path", () => {
+    const source = read("app/(localized)/[locale]/career/family/[slug]/page.tsx");
+    expect(source).toContain("fetchCareerFamilyHub");
+    expect(source).toContain("adaptCareerFamilyHub");
+    expect(source).toContain("JsonLd");
+    expect(source).toContain("hub.structuredData.collectionPage");
+    expect(source).toContain("hub.structuredData.itemList");
+    expect(source).toContain("hub.structuredData.breadcrumbList");
+    expect(source).not.toContain("buildCollectionPageJsonLd");
+    expect(source).not.toContain("buildItemListJsonLd");
+    expect(source).not.toContain("buildBreadcrumbJsonLd");
+    expect(source).not.toContain("Dataset");
+    expect(source).not.toContain("Article");
+    expect(source).not.toContain("DefinedTermSet");
+    expect(source).toContain("CareerFamilyHubPage");
+    expect(source).toContain("buildPageMetadata");
+  });
+
   it("career guide detail page injects cms seo jsonld and breadcrumb jsonld", () => {
     const source = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
     expect(source).toContain("getCareerGuideSeoFromCmsBySlug");

@@ -88,6 +88,50 @@ describe("career family hub fetch and adapter contract", () => {
           blocked_not_safely_remediable_count: 1,
           blocked_total: 3,
         },
+        structured_data: {
+          collection_page: {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Data Science",
+            url: "https://backend.example.test/career/family/data-science",
+            mainEntityOfPage: "https://backend.example.test/career/family/data-science",
+            numberOfItems: 1,
+          },
+          item_list: {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            numberOfItems: 1,
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Data Scientist",
+                url: "https://backend.example.test/career/jobs/data-scientist",
+              },
+            ],
+          },
+          breadcrumb_list: {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Career",
+                item: "https://backend.example.test/career",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Data Science",
+                item: "https://backend.example.test/career/family/data-science",
+              },
+            ],
+          },
+          dataset: {
+            "@type": "Dataset",
+          },
+        },
       },
     });
 
@@ -125,10 +169,54 @@ describe("career family hub fetch and adapter contract", () => {
         blockedNotSafelyRemediableCount: 1,
         blockedTotal: 3,
       },
+      structuredData: {
+        collectionPage: {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Data Science",
+          url: "http://localhost:3000/en/career/family/data-science",
+          mainEntityOfPage: "http://localhost:3000/en/career/family/data-science",
+          numberOfItems: 1,
+        },
+        itemList: {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          numberOfItems: 1,
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Data Scientist",
+              url: "http://localhost:3000/en/career/jobs/data-scientist",
+            },
+          ],
+        },
+        breadcrumbList: {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Career",
+              item: "http://localhost:3000/en/career",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Data Science",
+              item: "http://localhost:3000/en/career/family/data-science",
+            },
+          ],
+        },
+      },
     });
     expect(hub).not.toHaveProperty("summary");
     expect(hub).not.toHaveProperty("aliases");
     expect(hub).not.toHaveProperty("guidance");
+    expect((hub?.structuredData as Record<string, unknown> | undefined)?.dataset).toBeUndefined();
+    expect((hub?.structuredData as Record<string, unknown> | undefined)?.article).toBeUndefined();
+    expect((hub?.structuredData as Record<string, unknown> | undefined)?.definedTermSet).toBeUndefined();
   });
 });
 
@@ -177,6 +265,47 @@ describe("career family hub page wiring", () => {
           blocked_not_safely_remediable_count: 1,
           blocked_total: 3,
         },
+        structured_data: {
+          collection_page: {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Data Science",
+            url: "/career/family/data-science",
+            mainEntityOfPage: "/career/family/data-science",
+            numberOfItems: 1,
+          },
+          item_list: {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            numberOfItems: 1,
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Data Scientist",
+                url: "/career/jobs/data-scientist",
+              },
+            ],
+          },
+          breadcrumb_list: {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Career",
+                item: "/career",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Data Science",
+                item: "/career/family/data-science",
+              },
+            ],
+          },
+        },
       })),
     }));
     vi.doMock("next/navigation", async () => {
@@ -203,6 +332,12 @@ describe("career family hub page wiring", () => {
     expect(html).toContain(">3<");
     expect(html).toContain("career-family-hub-visible-child");
     expect(html).toContain("Data Scientist");
+    expect(html).toContain('"@type":"CollectionPage"');
+    expect(html).toContain('"@type":"ItemList"');
+    expect(html.match(/"@type":"BreadcrumbList"/g)).toHaveLength(1);
+    expect(html).toContain("http://localhost:3000/en/career/family/data-science");
+    expect(html).toContain("http://localhost:3000/en/career/jobs/data-scientist");
+    expect(html).toContain("http://localhost:3000/en/career");
     expect(html).not.toContain("blocked role");
   });
 
@@ -235,6 +370,40 @@ describe("career family hub page wiring", () => {
           blocked_not_safely_remediable_count: 2,
           blocked_total: 3,
         },
+        structured_data: {
+          collection_page: {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Compliance",
+            url: "/career/family/compliance",
+            mainEntityOfPage: "/career/family/compliance",
+            numberOfItems: 0,
+          },
+          item_list: {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            numberOfItems: 0,
+            itemListElement: [],
+          },
+          breadcrumb_list: {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Career",
+                item: "/career",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Compliance",
+                item: "/career/family/compliance",
+              },
+            ],
+          },
+        },
       })),
     }));
     vi.doMock("next/navigation", async () => {
@@ -256,6 +425,11 @@ describe("career family hub page wiring", () => {
     expect(html).toContain("Compliance");
     expect(html).toContain("career-family-hub-empty-state");
     expect(html).toContain("no public publish-ready children");
+    expect(html).toContain('"@type":"CollectionPage"');
+    expect(html).toContain('"@type":"ItemList"');
+    expect(html).toContain('"numberOfItems":0');
+    expect(html).toContain('"itemListElement":[]');
+    expect(html).toContain('"@type":"BreadcrumbList"');
     expect(html).not.toContain('data-testid="career-family-hub-visible-child"');
   });
 });

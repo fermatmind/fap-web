@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CareerFamilyHubPage } from "@/components/career/CareerFamilyHubPage";
 import { Container } from "@/components/layout/Container";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
 import type { CareerFamilyHubAdapter } from "@/lib/career/adapters/types";
 import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
@@ -73,8 +74,19 @@ export default async function CareerFamilyPage({
   }
 
   return (
-    <Container as="main" className="py-10">
-      <CareerFamilyHubPage locale={locale} hub={hub} />
-    </Container>
+    <>
+      {hub.structuredData.collectionPage ? (
+        <JsonLd id="career-family-collection-jsonld" data={hub.structuredData.collectionPage} />
+      ) : null}
+      {hub.structuredData.itemList ? (
+        <JsonLd id="career-family-item-list-jsonld" data={hub.structuredData.itemList} />
+      ) : null}
+      {hub.structuredData.breadcrumbList ? (
+        <JsonLd id="career-family-breadcrumb-jsonld" data={hub.structuredData.breadcrumbList} />
+      ) : null}
+      <Container as="main" className="py-10">
+        <CareerFamilyHubPage locale={locale} hub={hub} />
+      </Container>
+    </>
   );
 }
