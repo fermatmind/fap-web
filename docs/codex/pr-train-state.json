@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-14T15:05:00Z",
+  "updated_at": "2026-04-14T15:12:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -683,10 +683,10 @@
     "P1-D": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/p1d-mbti-fm-token-bootstrap",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "7210a6eed6cd8cd02673a29e090256d2473389e7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/445",
       "checks": {
         "local": [
           {
