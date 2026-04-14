@@ -386,6 +386,109 @@ describe("career recommendation backend page contract", () => {
     ).rejects.toThrow("redirect:/en/career/recommendations/mbti/intj-a");
   });
 
+  it("suppresses recommendation summary surfaces when strong claims are not explicitly allowed", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/en/career/recommendations/mbti/intj-a"),
+      };
+    });
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationBundle", () => ({
+      fetchCareerRecommendationBundle: vi.fn(async () => ({
+        identity: {
+          mbti_type: "INTJ-A",
+        },
+        recommendation_subject_meta: {
+          canonical_type: "INTJ",
+        },
+        score_bundle: {
+          fit_score: { value: 82, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 75, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        supporting_truth_summary: {
+          summary: "Strong-fit summary copy",
+          median_pay_usd_annual: 155000,
+          outlook_pct_2024_2034: 11,
+          ai_exposure: 6.8,
+        },
+        claim_permissions: {
+          allow_strong_claim: false,
+          allow_salary_comparison: false,
+          allow_ai_strategy: true,
+          allow_transition_recommendation: false,
+          allow_cross_market_pay_copy: false,
+          reason_codes: ["trust_limited"],
+        },
+        trust_manifest: {
+          reviewer_status: "reviewed",
+          reviewed: true,
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+          content_version: "content.v1",
+          data_version: "data.v1",
+          logic_version: "logic.v1",
+        },
+        seo_contract: {
+          canonical_path: "/career/recommendations/mbti/intj-a",
+          index_state: "blocked",
+          index_eligible: false,
+        },
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationExplainability", () => ({
+      fetchCareerRecommendationExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
+      fetchCareerTransitionPreview: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks", () => ({
+      fetchCareerFirstWaveRecommendationCompanionLinks: vi.fn(async () => null),
+    }));
+
+    const { default: CareerRecommendationPage } = await import(
+      "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
+    );
+    const page = await CareerRecommendationPage({
+      params: Promise.resolve({ locale: "en", type: "intj-a" }),
+      searchParams: Promise.resolve({}),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(html).toContain("career-recommendation-trust-strip");
+    expect(html).toContain("career-recommendation-protocol-status");
+    expect(html).not.toContain("career-recommendation-hero-summary");
+    expect(html).not.toContain("career-recommendation-supporting-truth-summary");
+    expect(html).not.toContain("career-recommendation-type-interpretation");
+  });
+
   it("renders only stable matched jobs from authority readiness signals", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (

@@ -334,6 +334,10 @@ export function adaptCareerRecommendationBundle(
       warnings.redFlags.length > 0 ||
       warnings.amberFlags.length > 0 ||
       hasSupportingTruth,
+    hasSummaryText: normalizeString((supportingTruth as Record<string, unknown>).summary) !== null,
+    hasSalaryData: normalizeNumber((supportingTruth as Record<string, unknown>).median_pay_usd_annual) !== null,
+    hasOutlookData: normalizeNumber((supportingTruth as Record<string, unknown>).outlook_pct_2024_2034) !== null,
+    hasAiData: normalizeNumber((supportingTruth as Record<string, unknown>).ai_exposure) !== null,
     integritySummary,
   });
 

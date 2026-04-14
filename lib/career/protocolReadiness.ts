@@ -15,6 +15,8 @@ export type CareerDataStatus = "available" | "unavailable" | "trust_limited";
 export type CareerRecommendationRenderState = {
   careerDataStatus: CareerDataStatus;
   canRenderStrongTruth: boolean;
+  canRenderSummarySurface: boolean;
+  canRenderSalarySummary: boolean;
   canRenderMatchedJobs: boolean;
   canRenderAnswerSurface: boolean;
   canRenderLandingSurface: boolean;
@@ -57,6 +59,10 @@ type CareerRecommendationProtocolInput = {
     confidenceCap?: number | null;
     degradationFactor?: number | null;
   } | null;
+  hasSummaryText?: boolean;
+  hasSalaryData?: boolean;
+  hasOutlookData?: boolean;
+  hasAiData?: boolean;
   hasStrongContent?: boolean;
 };
 
@@ -186,6 +192,8 @@ export function getCareerRecommendationRenderState(
     return {
       careerDataStatus: "unavailable",
       canRenderStrongTruth: false,
+      canRenderSummarySurface: false,
+      canRenderSalarySummary: false,
       canRenderMatchedJobs: false,
       canRenderAnswerSurface: false,
       canRenderLandingSurface: false,
@@ -203,6 +211,7 @@ export function getCareerRecommendationRenderState(
   const isTrustReady = isCareerTrustManifestReady(input.trustManifest);
   const hasClaimPermissions = Boolean(input.claimPermissions);
   const allowStrongClaim = hasCareerStrongClaimPermission(input.claimPermissions);
+  const allowSalaryComparison = hasCareerSalaryPermission(input.claimPermissions);
   const allowTransitionRecommendation = hasCareerTransitionPermission(input.claimPermissions);
   const hasIndexGate =
     hasExplicitIndexGate(input.careerAsset) || hasExplicitIndexGateFromSeoContract(input.seoContract);
@@ -240,12 +249,23 @@ export function getCareerRecommendationRenderState(
   if ((hasAnswerTruth || hasMatchedJobs) && !allowStrongClaim) {
     missingFields.push("claim_permissions.allow_strong_claim");
   }
+  if (input.hasSalaryData && !allowSalaryComparison) {
+    missingFields.push("claim_permissions.allow_salary_comparison");
+  }
   if (hasMatchedJobs && !allowTransitionRecommendation) {
     missingFields.push("claim_permissions.allow_transition_recommendation");
   }
 
   const canRenderStrongTruth =
     hasAuthoritySource && (hasAnswerTruth || hasBundleSignals) && isTrustReady && allowStrongClaim;
+  const hasSummarySurfaceData =
+    Boolean(input.hasSummaryText) ||
+    Boolean(input.hasSalaryData) ||
+    Boolean(input.hasOutlookData) ||
+    Boolean(input.hasAiData);
+  const canRenderSummarySurface = hasAuthoritySource && hasSummarySurfaceData && isTrustReady && allowStrongClaim;
+  const canRenderSalarySummary =
+    hasAuthoritySource && Boolean(input.hasSalaryData) && isTrustReady && allowSalaryComparison;
   const canRenderMatchedJobs =
     hasAuthoritySource && hasMatchedJobs && isTrustReady && allowTransitionRecommendation;
   const careerDataStatus = deriveCareerDataStatus({
@@ -263,6 +283,8 @@ export function getCareerRecommendationRenderState(
   return {
     careerDataStatus,
     canRenderStrongTruth,
+    canRenderSummarySurface,
+    canRenderSalarySummary,
     canRenderMatchedJobs,
     canRenderAnswerSurface: canRenderStrongTruth,
     canRenderLandingSurface: hasLandingContent,
