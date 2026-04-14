@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-14T11:56:07Z",
+  "updated_at": "2026-04-14T11:56:55Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -519,7 +519,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "github_checks_failed",
       "branch": "codex/pr-f31-career-family-hub-structured-data-frontend-consumption",
-      "commit_sha": "204c01eaea7bd527d3391b2e3c5f73d62a86fbce",
+      "commit_sha": "7f935c3b77627c84c7e957f7abab610a80f18e83",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/443",
       "checks": {
         "local": [
@@ -540,12 +540,12 @@
           {
             "name": "build",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24397525000/job/71259025793"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24397566496/job/71259166289"
           },
           {
             "name": "contracts",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24397525000/job/71259025708"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24397566496/job/71259166233"
           }
         ]
       },
