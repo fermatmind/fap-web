@@ -711,4 +711,126 @@ describe("career transition preview recommendation detail wiring", () => {
       expect.arrayContaining([expect.objectContaining({ eventName: "career_transition_preview_target_click" })])
     );
   });
+
+  it("keeps transition preview renderable even when strong-claim surfaces stay gated", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        permanentRedirect: vi.fn((href: string) => {
+          throw new Error(`redirect:${href}`);
+        }),
+        usePathname: vi.fn(() => "/en/career/recommendations/mbti/intj-a"),
+      };
+    });
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationBundle", () => ({
+      fetchCareerRecommendationBundle: vi.fn(async () => ({
+        identity: {
+          mbti_type: "INTJ-A",
+        },
+        recommendation_subject_meta: {
+          canonical_type: "INTJ",
+        },
+        score_bundle: {
+          fit_score: { value: 82, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 75, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        claim_permissions: {
+          allow_strong_claim: false,
+          allow_salary_comparison: false,
+          allow_ai_strategy: true,
+          allow_transition_recommendation: true,
+          allow_cross_market_pay_copy: false,
+          reason_codes: ["trust_limited"],
+        },
+        trust_manifest: {
+          reviewer_status: "reviewed",
+          reviewed: true,
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+          content_version: "content.v1",
+          data_version: "data.v1",
+          logic_version: "logic.v1",
+        },
+        seo_contract: {
+          canonical_path: "/career/recommendations/mbti/intj-a",
+          index_state: "blocked",
+          index_eligible: false,
+        },
+        supporting_truth_summary: {
+          summary: "Hidden summary copy",
+        },
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerRecommendationExplainability", () => ({
+      fetchCareerRecommendationExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerTransitionPreview", () => ({
+      fetchCareerTransitionPreview: vi.fn(async () => ({
+        path_type: "stable_upside",
+        target_job: {
+          occupation_uuid: "occ_next",
+          canonical_slug: "product-manager",
+          title: "Product Manager",
+        },
+        score_summary: {
+          mobility_score: { value: 78, integrity_state: "full", degradation_factor: 1.0 },
+          confidence_score: { value: 71, integrity_state: "full", degradation_factor: 1.0 },
+        },
+        trust_summary: {
+          allow_transition_recommendation: true,
+          reviewer_status: "approved",
+          reason_codes: ["publish_ready"],
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/product-manager",
+          canonical_target: "/career/jobs/product-manager",
+          index_state: "index",
+          index_eligible: true,
+        },
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks", () => ({
+      fetchCareerFirstWaveRecommendationCompanionLinks: vi.fn(async () => null),
+    }));
+
+    const { default: CareerRecommendationPage } = await import(
+      "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
+    );
+    const page = await CareerRecommendationPage({
+      params: Promise.resolve({ locale: "en", type: "intj-a" }),
+      searchParams: Promise.resolve({}),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(html).toContain("career-transition-preview");
+    expect(html).toContain("Product Manager");
+    expect(html).not.toContain("career-recommendation-hero-summary");
+    expect(html).not.toContain("career-recommendation-supporting-truth-summary");
+    expect(html).not.toContain("career-recommendation-type-interpretation");
+  });
 });

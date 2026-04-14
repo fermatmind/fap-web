@@ -300,7 +300,7 @@ export default async function CareerJobDetailPage({
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">{formatUsdAnnual(job.truthLayer.medianPayUsdAnnual, locale)}</p>
-              {job.truthLayer.outlookPct20242034 !== null ? (
+              {job.renderState.canRenderOutlookSurface && job.truthLayer.outlookPct20242034 !== null ? (
                 <p className="m-0">
                   {locale === "zh" ? "十年增速" : "Ten-year outlook"}: {formatPercent(job.truthLayer.outlookPct20242034)}
                 </p>

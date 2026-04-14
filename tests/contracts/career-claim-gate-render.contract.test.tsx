@@ -109,4 +109,91 @@ describe("career claim gate render contract", () => {
     expect(html).not.toContain("Ten-year outlook");
     expect(html).not.toContain("Backend score dimensions");
   });
+
+  it("keeps salary visible but suppresses outlook when the strong-claim gate stays closed", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      ),
+    }));
+    vi.doMock("next/navigation", async () => {
+      const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
+      return {
+        ...actual,
+        notFound: vi.fn(() => {
+          throw new Error("not-found");
+        }),
+        usePathname: vi.fn(() => "/en/career/jobs/product-manager"),
+      };
+    });
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => ({
+        identity: {
+          canonical_slug: "product-manager",
+        },
+        titles: {
+          canonical_en: "Product Manager",
+        },
+        truth_layer: {
+          median_pay_usd_annual: 150000,
+          outlook_pct_2024_2034: 12,
+        },
+        claim_permissions: {
+          allow_strong_claim: false,
+          allow_salary_comparison: true,
+          allow_ai_strategy: false,
+          allow_transition_recommendation: false,
+          allow_cross_market_pay_copy: false,
+          reason_codes: ["trust_limited"],
+        },
+        trust_manifest: {
+          reviewer_status: "reviewed",
+          reviewed: true,
+          quality: {
+            complete: true,
+            reviewed: true,
+            stale: false,
+            blocked_reasons: [],
+          },
+        },
+        score_bundle: {
+          fit_score: { value: 81, integrity_state: "full", degradation_factor: 1 },
+          confidence_score: { value: 70, integrity_state: "provisional", degradation_factor: 0.9 },
+        },
+        seo_contract: {
+          canonical_path: "/career/jobs/product-manager",
+          index_state: "index",
+          index_eligible: true,
+        },
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobExplainability", () => ({
+      fetchCareerJobExplainability: vi.fn(async () => null),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveNextStepLinks", () => ({
+      fetchCareerFirstWaveNextStepLinks: vi.fn(async () => null),
+    }));
+
+    const { default: CareerJobDetailPage } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const page = await CareerJobDetailPage({
+      params: Promise.resolve({ locale: "en", slug: "product-manager" }),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(html).toContain("$150,000");
+    expect(html).not.toContain("Ten-year outlook");
+    expect(html).not.toContain("Backend score dimensions");
+  });
 });

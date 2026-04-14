@@ -317,6 +317,8 @@ export default async function CareerMbtiRecommendationPage({
   ];
   const canRenderAiScore =
     detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable";
+  const canRenderSummarySurface = renderState.canRenderSummarySurface;
+  const canRenderSalarySummary = renderState.canRenderSalarySummary;
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -400,8 +402,10 @@ export default async function CareerMbtiRecommendationPage({
           {detail.nickname ? <span className="text-[var(--fm-text-muted)]"> · {detail.nickname}</span> : null}
         </h1>
         {renderCareerDataStatus(detail, locale)}
-        {detail.supportingTruthSummary.summary ? (
-          <p className="m-0 text-base leading-7 text-[var(--fm-text)]">{detail.supportingTruthSummary.summary}</p>
+        {canRenderSummarySurface && detail.supportingTruthSummary.summary ? (
+          <p className="m-0 text-base leading-7 text-[var(--fm-text)]" data-testid="career-recommendation-hero-summary">
+            {detail.supportingTruthSummary.summary}
+          </p>
         ) : null}
         <div
           className="flex flex-wrap items-center gap-3 pt-1"
@@ -532,14 +536,19 @@ export default async function CareerMbtiRecommendationPage({
         testId="career-recommendation-warning-banner"
       />
 
-      {(detail.supportingTruthSummary.summary || detail.supportingTruthSummary.medianPayUsdAnnual !== null || detail.supportingTruthSummary.outlookPct20242034 !== null || detail.supportingTruthSummary.aiExposure !== null) ? (
+      {canRenderSummarySurface &&
+      (detail.supportingTruthSummary.summary ||
+        detail.supportingTruthSummary.medianPayUsdAnnual !== null ||
+        detail.supportingTruthSummary.outlookPct20242034 !== null ||
+        detail.supportingTruthSummary.aiExposure !== null) ? (
         <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+          <div data-testid="career-recommendation-supporting-truth-summary" className="space-y-4">
           <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
             {locale === "zh" ? "支持性事实摘要" : "Supporting truth summary"}
           </h2>
           <div className="space-y-2 text-sm text-[var(--fm-text-muted)]">
             {detail.supportingTruthSummary.summary ? <p className="m-0">{detail.supportingTruthSummary.summary}</p> : null}
-            {detail.supportingTruthSummary.medianPayUsdAnnual !== null ? (
+            {canRenderSalarySummary && detail.supportingTruthSummary.medianPayUsdAnnual !== null ? (
               <p className="m-0">median_pay_usd_annual: {detail.supportingTruthSummary.medianPayUsdAnnual}</p>
             ) : null}
             {detail.supportingTruthSummary.outlookPct20242034 !== null ? (
@@ -548,6 +557,7 @@ export default async function CareerMbtiRecommendationPage({
             {canRenderAiScore && detail.supportingTruthSummary.aiExposure !== null ? (
               <p className="m-0">ai_exposure: {detail.supportingTruthSummary.aiExposure}</p>
             ) : null}
+          </div>
           </div>
         </section>
       ) : null}
