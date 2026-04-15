@@ -61,6 +61,16 @@ function shouldNoindex(indexState: string | null | undefined): boolean {
   return normalized === "blocked" || normalized === "noindex" || normalized === "unavailable";
 }
 
+function extractJobSlugFromCanonicalTarget(canonicalTarget: string | null): string | null {
+  if (!canonicalTarget) {
+    return null;
+  }
+
+  const match = canonicalTarget.match(/\/career\/jobs\/([^/?#]+)/i);
+  const slug = match?.[1]?.trim().toLowerCase();
+  return slug || null;
+}
+
 function renderCareerDataStatus(detail: CareerRecommendationBundleAdapter, locale: Locale) {
   if (detail.careerDataStatus === "available") {
     return null;
@@ -319,6 +329,30 @@ export default async function CareerMbtiRecommendationPage({
     detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable";
   const canRenderSummarySurface = renderState.canRenderSummarySurface;
   const canRenderSalarySummary = renderState.canRenderSalarySummary;
+  const recommendationSubjectSlug =
+    matchedJobs[0]?.canonicalSlug ??
+    transitionPreview?.targetJob.canonicalSlug ??
+    extractJobSlugFromCanonicalTarget(detail.seoContract.canonicalTarget);
+  const recommendationSubjectKind = recommendationSubjectSlug ? "job_slug" : "none";
+  const strongClaimBlocked =
+    !renderState.canRenderStrongTruth &&
+    !detail.claimPermissions.allow_strong_claim &&
+    (detail.supportingTruthSummary.summary !== null ||
+      detail.scoreBundle.fitScore.value !== null ||
+      detail.matchedJobs.length > 0);
+  const salaryClaimBlocked =
+    !canRenderSalarySummary &&
+    detail.supportingTruthSummary.medianPayUsdAnnual !== null &&
+    !detail.claimPermissions.allow_salary_comparison;
+  const aiStrategyClaimBlocked =
+    renderState.canRenderStrongTruth &&
+    !detail.claimPermissions.allow_ai_strategy &&
+    detail.careerDataStatus !== "unavailable" &&
+    detail.supportingTruthSummary.aiExposure !== null;
+  const transitionRecommendationClaimBlocked =
+    !renderState.canRenderMatchedJobs &&
+    detail.matchedJobs.length > 0 &&
+    !detail.claimPermissions.allow_transition_recommendation;
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -336,6 +370,74 @@ export default async function CareerMbtiRecommendationPage({
           subjectKey: detail.publicRouteSlug,
         })}
       />
+      {strongClaimBlocked ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+          trackingKey={`claim-blocked:strong-claim:${detail.publicRouteSlug}`}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_recommendation_detail",
+            sourcePageType: "career_recommendation_detail",
+            targetAction: "expose_claim_blocked_surface",
+            landingPath: recommendationLandingPath,
+            routeFamily: "recommendation_detail",
+            subjectKind: recommendationSubjectKind,
+            subjectKey: recommendationSubjectSlug,
+            blockedClaimKind: "strong_claim",
+          })}
+        />
+      ) : null}
+      {salaryClaimBlocked ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+          trackingKey={`claim-blocked:salary:${detail.publicRouteSlug}`}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_recommendation_detail",
+            sourcePageType: "career_recommendation_detail",
+            targetAction: "expose_claim_blocked_surface",
+            landingPath: recommendationLandingPath,
+            routeFamily: "recommendation_detail",
+            subjectKind: recommendationSubjectKind,
+            subjectKey: recommendationSubjectSlug,
+            blockedClaimKind: "salary",
+          })}
+        />
+      ) : null}
+      {aiStrategyClaimBlocked ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+          trackingKey={`claim-blocked:ai-strategy:${detail.publicRouteSlug}`}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_recommendation_detail",
+            sourcePageType: "career_recommendation_detail",
+            targetAction: "expose_claim_blocked_surface",
+            landingPath: recommendationLandingPath,
+            routeFamily: "recommendation_detail",
+            subjectKind: recommendationSubjectKind,
+            subjectKey: recommendationSubjectSlug,
+            blockedClaimKind: "ai_strategy",
+          })}
+        />
+      ) : null}
+      {transitionRecommendationClaimBlocked ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+          trackingKey={`claim-blocked:transition:${detail.publicRouteSlug}`}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_recommendation_detail",
+            sourcePageType: "career_recommendation_detail",
+            targetAction: "expose_claim_blocked_surface",
+            landingPath: recommendationLandingPath,
+            routeFamily: "recommendation_detail",
+            subjectKind: recommendationSubjectKind,
+            subjectKey: recommendationSubjectSlug,
+            blockedClaimKind: "transition_recommendation",
+          })}
+        />
+      ) : null}
       {transitionPreview ? (
         <AnalyticsPageViewTracker
           eventName={CAREER_TRACKING_EVENTS.transitionPreviewView}

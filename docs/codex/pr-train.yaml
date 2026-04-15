@@ -530,6 +530,33 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-F36
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f36-career-claim-blocked-frontend-attribution-instrumentation
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Career claim-blocked frontend attribution instrumentation (job/recommendation detail first).
+      Add only the backend B63-aligned claim-blocked exposure event on explicit claim-permission
+      gated branches for job detail and recommendation detail, keep broad blocked semantics additive,
+      and avoid expanding into search/alias/support-link/dataset/editorial or runtime view-only tracking.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' lib/career/attribution.ts lib/tracking/events.ts tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-claim-blocked-attribution.contract.test.tsx"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-D1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

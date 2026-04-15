@@ -84,6 +84,7 @@ export const TRACKING_EVENTS = {
   CAREER_ALIAS_RESOLUTION_NO_RESULT: "career_alias_resolution_no_result",
   CAREER_READY_SURFACE_EXPOSED: "career_ready_surface_exposed",
   CAREER_BLOCKED_SURFACE_EXPOSED: "career_blocked_surface_exposed",
+  CAREER_CLAIM_BLOCKED_SURFACE_EXPOSED: "career_claim_blocked_surface_exposed",
 
   // Reliability and launch-day SLO events
   QUESTIONS_LOAD_FAILURE: "questions_load_failure",
@@ -236,6 +237,7 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   career_alias_resolution_no_result: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   career_ready_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
   career_blocked_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS],
+  career_claim_blocked_surface_exposed: [...COMMON_CAREER_ATTRIBUTION_FIELDS, "blocked_claim_kind"],
   questions_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   submit_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   report_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
@@ -262,6 +264,7 @@ const CAREER_ATTRIBUTION_EVENTS = [
   TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_NO_RESULT,
   TRACKING_EVENTS.CAREER_READY_SURFACE_EXPOSED,
   TRACKING_EVENTS.CAREER_BLOCKED_SURFACE_EXPOSED,
+  TRACKING_EVENTS.CAREER_CLAIM_BLOCKED_SURFACE_EXPOSED,
 ] as const satisfies readonly TrackingEventName[];
 
 export type CareerTrackingEventName = (typeof CAREER_ATTRIBUTION_EVENTS)[number];
