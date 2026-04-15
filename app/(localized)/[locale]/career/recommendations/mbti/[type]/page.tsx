@@ -7,6 +7,7 @@ import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { CareerRecommendationCompanionLinks } from "@/components/career/CareerRecommendationCompanionLinks";
+import { StrainRadar } from "@/components/career/StrainRadar";
 import { CareerTransitionPreviewCard } from "@/components/career/CareerTransitionPreviewCard";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
@@ -652,6 +653,14 @@ export default async function CareerMbtiRecommendationPage({
         </section>
       </ClaimGuard>
 
+      {detail.whiteBoxScores.strainScore?.radarDimensions ? (
+        <StrainRadar
+          locale={locale}
+          dimensions={detail.whiteBoxScores.strainScore.radarDimensions}
+          testId="career-recommendation-strain-radar"
+        />
+      ) : null}
+
       {explainability ? (
         <CareerExplainabilityPanel
           locale={locale}
@@ -663,6 +672,7 @@ export default async function CareerMbtiRecommendationPage({
               : "This section consumes structured fields and bounded strain-radar data from the backend explainability authority payload only, without turning them into recommendation advice or path guidance."
           }
           testId="career-recommendation-explainability-panel"
+          showStrainRadar={false}
         />
       ) : null}
 

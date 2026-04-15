@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T16:15:09Z",
+  "updated_at": "2026-04-15T23:41:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -983,7 +983,7 @@
     "PR-F40": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "merged",
       "branch": "codex/pr-f40-career-renderer-contract-completion",
       "commit_sha": "c7e540b1814453137259b5c077f4f1f0f6332dfe",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/454",
@@ -1009,13 +1009,58 @@
         "github": [
           {
             "name": "build",
+            "status": "passed",
+            "details_url": ""
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "details_url": ""
+          }
+        ]
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-16T00:16:43+08:00",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-F41": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/pr-f41-career-strain-radar-implementation",
+      "commit_sha": "0cc7e91b03da61a6c945108beb9c3e8005d1ecae",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/455",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' components/career/StrainRadar.tsx tests/contracts/career-strain-radar.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-strain-radar.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24465365779/job/71490800134"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24484018157/job/71554749101"
           },
           {
             "name": "contracts",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24465365779/job/71490800155"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24484018157/job/71554749173"
           }
         ]
       },

@@ -53,6 +53,25 @@ describe("career recommendation backend page contract", () => {
           fit_score: { value: 82, integrity_state: "full", degradation_factor: 1.0 },
           confidence_score: { value: 75, integrity_state: "full", degradation_factor: 1.0 },
         },
+        white_box_scores: {
+          strain_score: {
+            score: 41,
+            integrity_state: "provisional",
+            degradation_factor: 0.84,
+            formula_breakdown: [{ code: "baseline", value: 0.41 }],
+            component_weights: { demand: 0.33 },
+            penalties: [{ code: "partial_data", value: -0.03 }],
+            warnings: ["trust_limited"],
+            radar_dimensions: {
+              people_friction: 0.64,
+              context_switch_load: 0.59,
+              political_load: 0.41,
+              uncertainty_load: 0.72,
+              low_autonomy_trap: 0.53,
+              repetition_mismatch: 0.37,
+            },
+          },
+        },
         warnings: {
           amber_flags: ["ai_role_shift_risk"],
         },
@@ -251,7 +270,8 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("career-recommendation-trust-strip");
     expect(html).toContain("career-recommendation-type-interpretation");
     expect(html).toContain("career-recommendation-explainability-panel");
-    expect(html).toContain("career-explainability-strain-radar");
+    expect(html).toContain("career-recommendation-strain-radar");
+    expect(html).toContain("Strain six-axis radar");
     expect(html).toContain("career-transition-preview");
     expect(html).toContain("career-transition-preview-header");
     expect(html).toContain("career-transition-preview-score-band");

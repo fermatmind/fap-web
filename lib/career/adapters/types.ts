@@ -52,6 +52,43 @@ export type CareerScoreBundleAdapter = {
   confidenceScore: CareerScoreResult;
 };
 
+export type CareerWhiteBoxStrainRadarAxisKey =
+  | "people_friction"
+  | "context_switch_load"
+  | "political_load"
+  | "uncertainty_load"
+  | "low_autonomy_trap"
+  | "repetition_mismatch";
+
+export type CareerWhiteBoxScoreFormulaBreakdownItemAdapter = {
+  code: string;
+  label: string | null;
+  value: number | null;
+  weight: number | null;
+  contribution: number | null;
+};
+
+export type CareerWhiteBoxScorePenaltyItemAdapter = {
+  code: string;
+  value: number | null;
+  reason: string | null;
+};
+
+export type CareerWhiteBoxStrainScoreAdapter = {
+  score: number | null;
+  integrityState: string | null;
+  degradationFactor: number | null;
+  formulaBreakdown: CareerWhiteBoxScoreFormulaBreakdownItemAdapter[];
+  componentWeights: Record<string, number | null>;
+  penalties: CareerWhiteBoxScorePenaltyItemAdapter[];
+  warnings: string[];
+  radarDimensions: Record<CareerWhiteBoxStrainRadarAxisKey, number | null> | null;
+};
+
+export type CareerWhiteBoxScoresAdapter = {
+  strainScore: CareerWhiteBoxStrainScoreAdapter | null;
+};
+
 export type CareerExplainabilityScoreDimensionAdapter = {
   value: number | null;
   integrityState: string;
@@ -145,6 +182,7 @@ export type CareerJobBundleAdapter = {
   seoContract: CareerSeoContractAdapter;
   provenanceMeta: CareerProvenanceMetaAdapter;
   integritySummary: CareerIntegritySummaryAdapter;
+  whiteBoxScores: CareerWhiteBoxScoresAdapter;
   structuredData: {
     occupation: Record<string, unknown> | null;
     breadcrumbList: Record<string, unknown> | null;
@@ -314,6 +352,7 @@ export type CareerRecommendationBundleAdapter = {
   seoContract: CareerSeoContractAdapter;
   provenanceMeta: CareerProvenanceMetaAdapter;
   integritySummary: CareerIntegritySummaryAdapter;
+  whiteBoxScores: CareerWhiteBoxScoresAdapter;
   supportingTruthSummary: {
     medianPayUsdAnnual: number | null;
     outlookPct20242034: number | null;
