@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T09:05:00Z",
+  "updated_at": "2026-04-15T09:08:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -713,10 +713,10 @@
     "PR-F34": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f34-career-family-hub-frontend-attribution-instrumentation",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "045c8634ae1155b734da9149364e72354d27674d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/447",
       "checks": {
         "local": [
           {
@@ -736,9 +736,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24431014935/job/71375278675"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24431014935/job/71375278688"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs failed immediately for build/contracts on PR-F34; local validation passed, but the remote CI run is currently not green.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
