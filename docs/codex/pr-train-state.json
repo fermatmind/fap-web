@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T13:44:24Z",
+  "updated_at": "2026-04-15T13:49:04Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -769,10 +769,10 @@
     "PR-F35": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f35-career-alias-resolution-frontend-attribution-instrumentation-resolution-flow-alignment",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "0bc9eb3396367a05fff3f2df1bcd4d5102f28b85",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/449",
       "checks": {
         "local": [
           {
