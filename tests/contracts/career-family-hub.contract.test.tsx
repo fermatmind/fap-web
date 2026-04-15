@@ -13,6 +13,53 @@ function jsonResponse(payload: unknown, status = 200): Response {
   });
 }
 
+function installFamilyHubTrackingMocks() {
+  const pageViewEvents: Array<{ eventName: string; properties: Record<string, unknown> | undefined }> = [];
+  const trackedLinks: Array<{
+    eventName: string;
+    eventPayload: Record<string, unknown>;
+    href: string;
+  }> = [];
+
+  vi.doMock("@/hooks/useAnalytics", () => ({
+    AnalyticsPageViewTracker: ({
+      eventName,
+      properties,
+    }: {
+      eventName: string;
+      properties?: Record<string, unknown>;
+    }) => {
+      pageViewEvents.push({ eventName, properties });
+      return null;
+    },
+  }));
+
+  vi.doMock("@/components/analytics/TrackedCareerLink", () => ({
+    TrackedCareerLink: ({
+      eventName,
+      eventPayload,
+      href,
+      children,
+      ...props
+    }: {
+      eventName: string;
+      eventPayload: Record<string, unknown>;
+      href: string;
+      children: ReactNode;
+    }) => {
+      trackedLinks.push({ eventName, eventPayload, href });
+
+      return (
+        <a href={href} data-event-name={eventName} {...props}>
+          {children}
+        </a>
+      );
+    },
+  }));
+
+  return { pageViewEvents, trackedLinks };
+}
+
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
@@ -236,6 +283,8 @@ describe("career family hub fetch and adapter contract", () => {
 
 describe("career family hub page wiring", () => {
   it("renders family identity, counts, and visible children while keeping blocked rows hidden", async () => {
+    const { pageViewEvents, trackedLinks } = installFamilyHubTrackingMocks();
+
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -360,9 +409,44 @@ describe("career family hub page wiring", () => {
     expect(html).toContain("http://localhost:3000/en/career/jobs/data-scientist");
     expect(html).toContain("http://localhost:3000/en/career");
     expect(html).not.toContain("blocked role");
+    expect(pageViewEvents).toEqual([
+      {
+        eventName: "career_family_hub_view",
+        properties: {
+          locale: "en",
+          entry_surface: "career_family_hub",
+          source_page_type: "career_family_hub",
+          target_action: "view_family_hub",
+          landing_path: "/en/career/family/data-science",
+          route_family: "family_hub",
+          subject_kind: "family_slug",
+          subject_key: "data-science",
+          query_mode: "non_query",
+        },
+      },
+    ]);
+    expect(trackedLinks).toEqual([
+      {
+        eventName: "career_family_hub_child_click",
+        eventPayload: {
+          locale: "en",
+          entrySurface: "career_family_hub",
+          sourcePageType: "career_family_hub",
+          targetAction: "open_family_hub_child",
+          landingPath: "/en/career/family/data-science",
+          routeFamily: "family_hub",
+          subjectKind: "job_slug",
+          subjectKey: "data-scientist",
+          queryMode: "non_query",
+        },
+        href: "/en/career/jobs/data-scientist",
+      },
+    ]);
   });
 
   it("renders a valid empty state when the family has zero visible children", async () => {
+    const { pageViewEvents, trackedLinks } = installFamilyHubTrackingMocks();
+
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -459,6 +543,23 @@ describe("career family hub page wiring", () => {
     expect(html).toContain('"itemListElement":[]');
     expect(html).toContain('"@type":"BreadcrumbList"');
     expect(html).not.toContain('data-testid="career-family-hub-visible-child"');
+    expect(pageViewEvents).toEqual([
+      {
+        eventName: "career_family_hub_view",
+        properties: {
+          locale: "en",
+          entry_surface: "career_family_hub",
+          source_page_type: "career_family_hub",
+          target_action: "view_family_hub",
+          landing_path: "/en/career/family/compliance",
+          route_family: "family_hub",
+          subject_kind: "family_slug",
+          subject_key: "compliance",
+          query_mode: "non_query",
+        },
+      },
+    ]);
+    expect(trackedLinks).toEqual([]);
   });
 });
 
