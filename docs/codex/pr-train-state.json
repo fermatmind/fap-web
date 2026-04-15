@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T23:39:40Z",
+  "updated_at": "2026-04-15T23:41:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1030,7 +1030,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "github_checks_failed",
       "branch": "codex/pr-f41-career-strain-radar-implementation",
-      "commit_sha": "8cdc110e6bf656a2f0c20ef92df66dcddf554440",
+      "commit_sha": "0cc7e91b03da61a6c945108beb9c3e8005d1ecae",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/455",
       "checks": {
         "local": [
@@ -1055,12 +1055,12 @@
           {
             "name": "build",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24483995353/job/71554677477"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24484018157/job/71554749101"
           },
           {
             "name": "contracts",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24483995353/job/71554677468"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24484018157/job/71554749173"
           }
         ]
       },
