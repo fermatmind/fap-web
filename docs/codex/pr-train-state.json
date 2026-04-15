@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T16:13:08Z",
+  "updated_at": "2026-04-15T16:13:51Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -983,7 +983,7 @@
     "PR-F40": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f40-career-renderer-contract-completion",
       "commit_sha": "c7e540b1814453137259b5c077f4f1f0f6332dfe",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/454",
@@ -1006,9 +1006,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24465319847/job/71490636520"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24465319847/job/71490636631"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions build/contracts failed immediately with no executable steps, matching the current repository CI startup failure pattern rather than a locally reproducible regression.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
