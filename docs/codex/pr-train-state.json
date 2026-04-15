@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T15:32:13Z",
+  "updated_at": "2026-04-15T15:33:11Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -125,7 +125,7 @@
     "PR-F9": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f9-career-readiness-summary-consumption",
       "commit_sha": "29ada815ad2447530df3eef0b158a52e5746c7a9",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/413",
@@ -850,7 +850,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "pr_open",
       "branch": "codex/pr-f37-career-resolve-surface-separation-search-alias-boundary-hardening",
-      "commit_sha": "33e1148490b643f5976959f138fa44f7020577c5",
+      "commit_sha": "08dd1359d73af6fb5e640b2a51d2e5a4410bef34",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/452",
       "checks": {
         "local": [
@@ -871,9 +871,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24463400804/job/71483660825"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24463400804/job/71483660798"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs failed immediately for build/contracts on PR-F38; local validation passed, but the remote CI run is currently not green.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
