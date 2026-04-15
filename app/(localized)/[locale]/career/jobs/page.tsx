@@ -13,6 +13,7 @@ import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCare
 import { fetchCareerSearch } from "@/lib/career/api/fetchCareerSearch";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
+import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { localizedPath } from "@/lib/i18n/locales";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -87,6 +88,89 @@ function renderSearchStatusNotice(dataStatus: "available" | "trust_limited" | "u
   );
 }
 
+const SEARCH_FAMILY_FALLBACK_CATALOG = [
+  {
+    slug: "software-engineering",
+    title: {
+      en: "Software Engineering",
+      zh: "软件工程",
+    },
+    summary: {
+      en: "Explore backend, frontend, platform, and product engineering paths.",
+      zh: "先从后端、前端、平台与产品工程方向探索。",
+    },
+    queryTerms: ["software", "backend", "frontend", "fullstack", "full-stack", "developer", "engineer", "platform"],
+  },
+  {
+    slug: "data-science",
+    title: {
+      en: "Data Science",
+      zh: "数据科学",
+    },
+    summary: {
+      en: "Explore analytics, machine learning, and data decision-support roles.",
+      zh: "先从分析、机器学习与数据决策支持方向探索。",
+    },
+    queryTerms: ["data", "analytics", "ai", "ml", "machine", "algorithm", "science"],
+  },
+  {
+    slug: "compliance",
+    title: {
+      en: "Compliance",
+      zh: "合规与治理",
+    },
+    summary: {
+      en: "Explore governance, policy, risk, and audit-oriented tracks.",
+      zh: "先从治理、政策、风险与审计方向探索。",
+    },
+    queryTerms: ["compliance", "audit", "risk", "policy", "governance"],
+  },
+] as const;
+
+type SearchFamilyFallbackSuggestion = {
+  slug: string;
+  title: string;
+  summary: string;
+  href: string;
+};
+
+function deriveFamilyFallbackSuggestions(
+  query: string,
+  locale: "en" | "zh"
+): SearchFamilyFallbackSuggestion[] {
+  const normalizedQuery = query.trim().toLowerCase();
+  if (!normalizedQuery) {
+    return [];
+  }
+
+  const queryTokens = normalizedQuery
+    .split(/[^a-z0-9]+/g)
+    .map((token) => token.trim())
+    .filter(Boolean);
+
+  const matchesTerm = (term: string) => {
+    const normalizedTerm = term.trim().toLowerCase();
+    if (!normalizedTerm) {
+      return false;
+    }
+
+    if (normalizedTerm.length <= 2) {
+      return queryTokens.includes(normalizedTerm);
+    }
+
+    return normalizedQuery.includes(normalizedTerm);
+  };
+
+  return SEARCH_FAMILY_FALLBACK_CATALOG.filter((item) =>
+    item.queryTerms.some((term) => matchesTerm(term))
+  ).map((item) => ({
+    slug: item.slug,
+    title: item.title[locale],
+    summary: item.summary[locale],
+    href: buildCareerFamilyFrontendUrl(locale, item.slug),
+  }));
+}
+
 export async function generateMetadata({
   params,
   searchParams,
@@ -131,6 +215,7 @@ export default async function CareerJobsPage({
   const submittedQuery = normalizeSearchQuery(resolvedSearchParams.q);
   const hasSearchQuery = submittedQuery.length > 0;
   const jobsPath = localizedPath("/career/jobs", locale);
+  const resolvePath = localizedPath("/career/resolve", locale);
   const [readinessSummaryPayload, jobIndexPayload, searchPayload] = await Promise.all([
     fetchCareerFirstWaveReadinessSummary({ locale }),
     hasSearchQuery ? Promise.resolve(null) : fetchCareerJobIndex({ locale }),
@@ -151,6 +236,12 @@ export default async function CareerJobsPage({
         adaptCareerSearch({ locale, payload: searchPayload })
       )
     : [];
+  const familyFallbackSuggestions = hasSearchQuery
+    ? deriveFamilyFallbackSuggestions(submittedQuery, locale)
+    : [];
+  const hasSearchResults = searchResults.length > 0;
+  const hasFamilyFallback = familyFallbackSuggestions.length > 0;
+  const showResolveHandoffAssist = hasSearchQuery && (!hasSearchResults || hasFamilyFallback);
   const shouldTrackSearchSubmitPageView = hasSearchQuery;
   const pageViewEventName = hasSearchQuery
     ? CAREER_TRACKING_EVENTS.jobSearchSubmit
@@ -233,6 +324,11 @@ export default async function CareerJobsPage({
             ) : null}
           </div>
         </form>
+        <p className="m-0 text-xs text-[var(--fm-text-muted)]" data-testid="career-job-search-helper">
+          {locale === "zh"
+            ? "标准职业名建议直接搜索；俗称或模糊称呼可转到职业解析页。"
+            : "Use standard role names for direct search; colloquial aliases can be handed off to career resolve."}
+        </p>
       </section>
 
       {hasSearchQuery ? (
@@ -246,9 +342,46 @@ export default async function CareerJobsPage({
                 ? `当前结果来自 backend B6 conservative search: “${submittedQuery}”。`
                 : `These results come from the backend B6 conservative search for “${submittedQuery}”.`}
             </p>
+            {hasSearchResults && hasFamilyFallback ? (
+              <p
+                className="m-0 text-sm text-[var(--fm-text-muted)]"
+                data-testid="career-job-search-state-results-with-family-fallback"
+              >
+                {locale === "zh"
+                  ? "已找到职业结果，同时提供职业家族作为补充探索路径。"
+                  : "Direct job results were found, with family exploration offered as a secondary path."}
+              </p>
+            ) : hasSearchResults ? (
+              <p
+                className="m-0 text-sm text-[var(--fm-text-muted)]"
+                data-testid="career-job-search-state-results"
+              >
+                {locale === "zh"
+                  ? "已找到可公开展示的职业结果。"
+                  : "Direct public job matches were found."}
+              </p>
+            ) : hasFamilyFallback ? (
+              <p
+                className="m-0 text-sm text-[var(--fm-text-muted)]"
+                data-testid="career-job-search-state-family-fallback-only"
+              >
+                {locale === "zh"
+                  ? "当前没有直接职业结果，推荐先按职业家族继续探索。"
+                  : "No direct jobs were found; explore by family as the next step."}
+              </p>
+            ) : (
+              <p
+                className="m-0 text-sm text-[var(--fm-text-muted)]"
+                data-testid="career-job-search-state-no-result"
+              >
+                {locale === "zh"
+                  ? "当前没有职业结果，也没有匹配的家族建议。"
+                  : "No direct jobs or family suggestions were found for this query."}
+              </p>
+            )}
           </div>
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-            {searchResults.length > 0 ? (
+            {hasSearchResults ? (
               searchResults.map((result) => (
                 <Card
                   key={`${result.identity.canonicalSlug}:${result.matchKind}:${result.matchedText ?? ""}`}
@@ -305,18 +438,95 @@ export default async function CareerJobsPage({
                   data-career-data-status="unavailable"
                 >
                   <CardHeader>
-                    <CardTitle>{locale === "zh" ? "没有找到可公开展示的匹配职业" : "No public matching jobs were found"}</CardTitle>
+                    <CardTitle>
+                      {locale === "zh"
+                        ? "没有找到直接匹配的可公开职业结果"
+                        : "No direct public matching jobs were found"}
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent className="text-sm text-[var(--fm-text-muted)]">
+                  <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
                     <p className="m-0">
                       {locale === "zh"
-                        ? "当前搜索不会回退到 CMS 职业列表，也不会做更宽泛的本地匹配。"
-                        : "This search does not fall back to the CMS job list and does not broaden into local matching."}
+                        ? "当前搜索不会回退到 CMS 职业列表，也不会在本地扩展成解析逻辑。"
+                        : "This search does not fall back to the CMS job list and does not expand into local resolution logic."}
                     </p>
+                    <div className="flex flex-wrap gap-3" data-testid="career-job-search-no-result-actions">
+                      <Link
+                        href={`${resolvePath}?q=${encodeURIComponent(submittedQuery)}`}
+                        className="inline-flex h-11 min-h-[44px] items-center justify-center rounded-full bg-[var(--fm-accent)] px-4 text-sm font-semibold text-white hover:bg-[var(--fm-accent-strong)]"
+                      >
+                        {locale === "zh" ? "去职业解析" : "Try career resolve"}
+                      </Link>
+                      <Link
+                        href={jobsPath}
+                        className="inline-flex h-11 min-h-[44px] items-center justify-center rounded-full border border-[var(--fm-border)] px-4 text-sm font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
+                      >
+                        {locale === "zh" ? "返回职业库" : "Back to job library"}
+                      </Link>
+                    </div>
                   </CardContent>
                 </Card>
             )}
           </div>
+          {hasFamilyFallback ? (
+            <Card
+              data-testid="career-job-search-family-fallback"
+              className="border-[var(--fm-border)] bg-[var(--fm-surface)]"
+            >
+              <CardHeader>
+                <CardTitle>
+                  {locale === "zh"
+                    ? "可尝试的职业家族方向（补充探索）"
+                    : "Career family directions to explore (Secondary)"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+                  {locale === "zh"
+                    ? "这是补充探索路径，不代表已完成职业解析。"
+                    : "This is a secondary exploration path, not an alias-resolution outcome."}
+                </p>
+                <div className="grid gap-3 md:grid-cols-2">
+                  {familyFallbackSuggestions.map((family) => (
+                    <article
+                      key={family.slug}
+                      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+                      data-testid="career-job-search-family-fallback-card"
+                    >
+                      <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">{family.title}</p>
+                      <p className="mt-2 text-xs text-[var(--fm-text-muted)]">{family.summary}</p>
+                      <Link
+                        href={family.href}
+                        className="mt-3 inline-flex items-center text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                      >
+                        {locale === "zh" ? "查看职业家族" : "Open family hub"}
+                      </Link>
+                    </article>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ) : null}
+          {showResolveHandoffAssist ? (
+            <Card data-testid="career-job-search-resolve-handoff-assist">
+              <CardHeader>
+                <CardTitle>{locale === "zh" ? "模糊称呼可交给职业解析" : "Use career resolve for fuzzy aliases"}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">
+                  {locale === "zh"
+                    ? "如果你输入的是俗称、行业黑话或模糊称呼，建议交给解析页面做职业/家族分流。"
+                    : "If the query is colloquial or ambiguous, use resolve to disambiguate into job or family targets."}
+                </p>
+                <Link
+                  href={`${resolvePath}?q=${encodeURIComponent(submittedQuery)}`}
+                  className="inline-flex items-center font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                >
+                  {locale === "zh" ? "转到职业解析" : "Go to career resolve"}
+                </Link>
+              </CardContent>
+            </Card>
+          ) : null}
         </section>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
