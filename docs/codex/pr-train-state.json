@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T15:34:09Z",
+  "updated_at": "2026-04-15T15:47:01Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -893,10 +893,10 @@
     "PR-F38": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "merged",
       "branch": "codex/pr-f38-career-explorer-shell-surface-contract",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "c207961d83bb1d4d67a41816bf311a0132f0aaeb",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/452",
       "checks": {
         "local": [
           {
@@ -913,6 +913,51 @@
           },
           {
             "command": "pnpm vitest run tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/career-content.contract.test.ts tests/contracts/career-guides-cms.contract.test.tsx tests/contracts/career-explorer-shell.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "passed",
+            "details_url": ""
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "details_url": ""
+          }
+        ]
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-15T15:37:15Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-F39": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-f39-career-search-ux-hardening-family-fallback-polish",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/page.tsx' tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/career-jobs-search-ux.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/career-jobs-search-ux.contract.test.tsx",
             "status": "passed"
           }
         ],
