@@ -171,7 +171,7 @@ describe("career attribution payload builder contract", () => {
         entrySurface: "career_alias_disambiguation",
         sourcePageType: "career_alias_disambiguation",
         targetAction: "open_alias_resolution_target",
-        landingPath: "/en/career/jobs",
+        landingPath: "/en/career/resolve",
         routeFamily: "alias_resolution",
         subjectKind: "family_slug",
         subjectKey: "computer-and-information-technology",
@@ -182,12 +182,12 @@ describe("career attribution payload builder contract", () => {
       entry_surface: "career_alias_disambiguation",
       source_page_type: "career_alias_disambiguation",
       target_action: "open_alias_resolution_target",
-      landing_path: "/en/career/jobs",
+      landing_path: "/en/career/resolve",
       route_family: "alias_resolution",
       subject_kind: "family_slug",
-        subject_key: "computer-and-information-technology",
-        query_mode: "query",
-      });
+      subject_key: "computer-and-information-technology",
+      query_mode: "query",
+    });
 
     expect(
       buildCareerAttributionPayload({
@@ -290,6 +290,7 @@ describe("career attribution page wiring contract", () => {
     const trackedSources = [
       "app/(localized)/[locale]/career/page.tsx",
       "app/(localized)/[locale]/career/jobs/page.tsx",
+      "app/(localized)/[locale]/career/resolve/page.tsx",
       "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
       "app/(localized)/[locale]/career/family/[slug]/page.tsx",
       "components/career/CareerFamilyHubPage.tsx",
@@ -661,35 +662,8 @@ describe("career attribution page wiring contract", () => {
         },
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
-      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
-        summary_kind: "career_first_wave_readiness",
-        summary_version: "career.release.first_wave_readiness.v1",
-        wave_name: "career_first_wave_10",
-        counts: {
-          total: 10,
-          publish_ready: 6,
-          blocked_override_eligible: 2,
-          blocked_not_safely_remediable: 2,
-          blocked_total: 4,
-          partial_raw: 0,
-        },
-        occupations: [],
-      })),
-    }));
-    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
-      fetchCareerSearch: vi.fn(async () => {
-        throw new Error("search fetch should not run in alias ambiguous mode");
-      }),
-    }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => {
-        throw new Error("job index fetch should not run in search mode");
-      }),
-    }));
-
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
-    const ambiguousPage = await CareerJobsPage({
+    const { default: CareerResolvePage } = await import("@/app/(localized)/[locale]/career/resolve/page");
+    const ambiguousPage = await CareerResolvePage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "analytics" }),
     });
@@ -703,6 +677,7 @@ describe("career attribution page wiring contract", () => {
           properties: expect.objectContaining({
             entry_surface: "career_alias_disambiguation",
             source_page_type: "career_alias_disambiguation",
+            landing_path: "/en/career/resolve",
             route_family: "alias_resolution",
             subject_kind: "none",
             query_mode: "query",
@@ -764,36 +739,8 @@ describe("career attribution page wiring contract", () => {
         },
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
-      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
-        summary_kind: "career_first_wave_readiness",
-        summary_version: "career.release.first_wave_readiness.v1",
-        wave_name: "career_first_wave_10",
-        counts: {
-          total: 10,
-          publish_ready: 6,
-          blocked_override_eligible: 2,
-          blocked_not_safely_remediable: 2,
-          blocked_total: 4,
-          partial_raw: 0,
-        },
-        occupations: [],
-      })),
-    }));
-    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
-      fetchCareerSearch: vi.fn(async () => ({
-        bundle_kind: "career_search_results",
-        data: [],
-      })),
-    }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => {
-        throw new Error("job index fetch should not run in search mode");
-      }),
-    }));
-
-    const { default: CareerJobsPageNoResult } = await import("@/app/(localized)/[locale]/career/jobs/page");
-    const noResultPage = await CareerJobsPageNoResult({
+    const { default: CareerResolvePageNoResult } = await import("@/app/(localized)/[locale]/career/resolve/page");
+    const noResultPage = await CareerResolvePageNoResult({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "unknown-role" }),
     });
@@ -807,6 +754,7 @@ describe("career attribution page wiring contract", () => {
           properties: expect.objectContaining({
             entry_surface: "career_alias_disambiguation",
             source_page_type: "career_alias_disambiguation",
+            landing_path: "/en/career/resolve",
             route_family: "alias_resolution",
             subject_kind: "none",
             query_mode: "query",
