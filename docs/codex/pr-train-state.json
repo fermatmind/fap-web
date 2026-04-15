@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T15:33:11Z",
+  "updated_at": "2026-04-15T15:34:09Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -875,12 +875,12 @@
           {
             "name": "build",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24463400804/job/71483660825"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24463456383/job/71483865849"
           },
           {
             "name": "contracts",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24463400804/job/71483660798"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24463456383/job/71483865949"
           }
         ]
       },
