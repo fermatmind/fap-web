@@ -498,3 +498,27 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: P1-D
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/p1d-mbti-fm-token-bootstrap
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      MBTI take fm_token bootstrap.
+      Reuse the existing Big5/Clinical guest-token bootstrap pattern on the MBTI take page
+      so first submit is less likely to hit 401 -> auth/guest -> retry noise, without changing
+      API contracts, submit semantics, or backend authentication behavior.
+    checks:
+      - "pnpm build"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true

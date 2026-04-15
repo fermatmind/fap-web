@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-14T14:21:44Z",
+  "updated_at": "2026-04-14T15:16:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -675,6 +675,39 @@
         ]
       },
       "failure_reason": "GitHub Actions jobs failed immediately for build/contracts on PR-D2; local validation passed, but the remote CI run is currently not green.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "P1-D": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/p1d-mbti-fm-token-bootstrap",
+      "commit_sha": "7210a6eed6cd8cd02673a29e090256d2473389e7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/445",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm build",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24405831104/job/71288742628"
+          },
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24405831104/job/71288742632"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions jobs were not started because the repository account billing or spending limit blocked CI execution for build/contracts.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

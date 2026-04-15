@@ -18,7 +18,7 @@ import { QuizShell } from "@/components/quiz/QuizShell";
 import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Button } from "@/components/ui/button";
 import { getOrCreateAnonId, readPendingAnonLinkAttempts } from "@/lib/anon";
-import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
+import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   isGuestTokenEndpointMissingError,
   isGuestTokenRequestError,
@@ -453,6 +453,44 @@ function QuizTakeInner({
     },
     [locale, scaleCode]
   );
+
+  useEffect(() => {
+    let active = true;
+
+    const run = async () => {
+      setAuthBlockError(null);
+
+      try {
+        await ensureFmTokenReady({
+          anonId: anonId || undefined,
+          locale,
+        });
+      } catch (error) {
+        if (!active) return;
+
+        trackGuestTokenFailure("bootstrap", error);
+
+        if (isGuestTokenEndpointMissingError(error)) {
+          setAuthBlockError(resolveNoTokenServiceMessage(locale));
+          const telemetry = resolveGuestTokenTelemetry(error);
+          trackEvent("submit_blocked_no_token_service", {
+            scale_code: scaleCode,
+            status_code: telemetry.statusCode,
+            error_code: telemetry.errorCode,
+            request_id: telemetry.requestId,
+            route: "/tests/[slug]/take",
+            locale,
+          });
+        }
+      }
+    };
+
+    void run();
+
+    return () => {
+      active = false;
+    };
+  }, [anonId, locale, scaleCode, trackGuestTokenFailure]);
 
   useEffect(() => {
     if (!retryAfterSeconds || retryAfterSeconds <= 0) {
