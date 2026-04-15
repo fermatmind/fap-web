@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T16:11:50Z",
+  "updated_at": "2026-04-15T16:13:08Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -983,10 +983,10 @@
     "PR-F40": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f40-career-renderer-contract-completion",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "c7e540b1814453137259b5c077f4f1f0f6332dfe",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/454",
       "checks": {
         "local": [
           {
