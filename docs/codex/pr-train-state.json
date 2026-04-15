@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T12:55:00Z",
+  "updated_at": "2026-04-15T13:44:24Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -789,6 +789,40 @@
           },
           {
             "command": "pnpm vitest run tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-search-backend.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F36": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-f36-career-claim-blocked-frontend-attribution-instrumentation",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' lib/career/attribution.ts lib/tracking/events.ts tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-claim-blocked-attribution.contract.test.tsx",
             "status": "passed"
           }
         ],

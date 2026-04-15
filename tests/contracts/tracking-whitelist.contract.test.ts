@@ -7,6 +7,7 @@ describe("tracking whitelist contract", () => {
     expect(Object.values(TRACKING_EVENTS)).toContain("career_alias_resolution_submit");
     expect(Object.values(TRACKING_EVENTS)).toContain("career_alias_resolution_target_click");
     expect(Object.values(TRACKING_EVENTS)).toContain("career_alias_resolution_no_result");
+    expect(Object.values(TRACKING_EVENTS)).toContain("career_claim_blocked_surface_exposed");
     expect(Object.values(TRACKING_EVENTS)).not.toContain("career_alias_search");
     expect(Object.values(TRACKING_EVENTS)).not.toContain("career_alias_disambiguation_view");
     expect(Object.values(TRACKING_EVENTS)).not.toContain("career_shortlist_add");
@@ -94,6 +95,7 @@ describe("tracking whitelist contract", () => {
       subject_kind: "job_slug",
       subject_key: "software-engineer",
       query_mode: "query",
+      blocked_claim_kind: "salary",
       q: "software engineer",
       answers: "forbidden",
       report: "forbidden",
@@ -242,6 +244,19 @@ describe("tracking whitelist contract", () => {
       subject_kind: "job_slug",
       subject_key: "software-engineer",
       query_mode: "query",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_CLAIM_BLOCKED_SURFACE_EXPOSED, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+      blocked_claim_kind: "salary",
     });
   });
 

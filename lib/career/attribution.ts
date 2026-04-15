@@ -43,12 +43,19 @@ export const CAREER_SOURCE_PAGE_TYPES = [
 export const CAREER_SUBJECT_KINDS = ["none", "family_slug", "job_slug", "recommendation_type"] as const;
 
 export const CAREER_QUERY_MODES = ["query", "non_query"] as const;
+export const CAREER_BLOCKED_CLAIM_KINDS = [
+  "salary",
+  "strong_claim",
+  "ai_strategy",
+  "transition_recommendation",
+] as const;
 
 export type CareerRouteFamily = (typeof CAREER_ROUTE_FAMILIES)[number];
 export type CareerEntrySurface = (typeof CAREER_ENTRY_SURFACES)[number];
 export type CareerSourcePageType = (typeof CAREER_SOURCE_PAGE_TYPES)[number];
 export type CareerSubjectKind = (typeof CAREER_SUBJECT_KINDS)[number];
 export type CareerQueryMode = (typeof CAREER_QUERY_MODES)[number];
+export type CareerBlockedClaimKind = (typeof CAREER_BLOCKED_CLAIM_KINDS)[number];
 
 export type CareerAttributionPayloadInput = {
   locale: Locale;
@@ -60,6 +67,7 @@ export type CareerAttributionPayloadInput = {
   subjectKind?: CareerSubjectKind;
   subjectKey?: string | null;
   queryMode?: CareerQueryMode;
+  blockedClaimKind?: CareerBlockedClaimKind;
 };
 
 function compactTrackingPayload(
@@ -85,6 +93,7 @@ export function buildCareerAttributionPayload({
   subjectKind = "none",
   subjectKey,
   queryMode = "non_query",
+  blockedClaimKind,
 }: CareerAttributionPayloadInput): AnalyticsProperties {
   return compactTrackingPayload({
     locale,
@@ -96,6 +105,7 @@ export function buildCareerAttributionPayload({
     subject_kind: subjectKind,
     subject_key: subjectKind === "none" ? undefined : subjectKey ?? undefined,
     query_mode: queryMode,
+    blocked_claim_kind: blockedClaimKind,
   });
 }
 
@@ -125,4 +135,5 @@ export const CAREER_TRACKING_EVENTS = {
   aliasResolutionTargetClick: TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_TARGET_CLICK,
   aliasResolutionNoResult: TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_NO_RESULT,
   readySurfaceExposed: TRACKING_EVENTS.CAREER_READY_SURFACE_EXPOSED,
+  claimBlockedSurfaceExposed: TRACKING_EVENTS.CAREER_CLAIM_BLOCKED_SURFACE_EXPOSED,
 } as const;

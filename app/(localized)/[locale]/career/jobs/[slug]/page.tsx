@@ -197,6 +197,25 @@ export default async function CareerJobDetailPage({
   const canRenderAiStrategy =
     job.claimPermissions.allow_ai_strategy && job.renderState.careerDataStatus !== "unavailable";
   const canRenderAnswerSurface = job.renderState.canRenderAnswerSurface;
+  const jobDetailLandingPath = localizedPath(`/career/jobs/${job.slug}`, locale);
+  const salaryClaimBlocked =
+    !job.renderState.canRenderSalarySurface &&
+    !job.claimPermissions.allow_salary_comparison &&
+    job.truthLayer.medianPayUsdAnnual !== null &&
+    job.renderState.careerDataStatus !== "unavailable";
+  const strongClaimBlocked =
+    !canRenderAnswerSurface &&
+    !job.claimPermissions.allow_strong_claim &&
+    (job.truthLayer.outlookPct20242034 !== null ||
+      job.truthLayer.entryEducation !== null ||
+      job.truthLayer.workExperience !== null ||
+      job.truthLayer.onTheJobTraining !== null ||
+      job.scoreBundle.fitScore.value !== null);
+  const aiStrategyClaimBlocked =
+    canRenderAnswerSurface &&
+    !job.claimPermissions.allow_ai_strategy &&
+    job.renderState.careerDataStatus !== "unavailable" &&
+    job.truthLayer.aiExposure !== null;
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -207,12 +226,63 @@ export default async function CareerJobDetailPage({
           entrySurface: "career_job_detail",
           sourcePageType: "career_job_detail",
           targetAction: "view_surface",
-          landingPath: localizedPath(`/career/jobs/${job.slug}`, locale),
+          landingPath: jobDetailLandingPath,
           routeFamily: "job_detail",
           subjectKind: "job_slug",
           subjectKey: job.slug,
         })}
       />
+      {salaryClaimBlocked ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+          trackingKey={`claim-blocked:salary:${job.slug}`}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_job_detail",
+            sourcePageType: "career_job_detail",
+            targetAction: "expose_claim_blocked_surface",
+            landingPath: jobDetailLandingPath,
+            routeFamily: "job_detail",
+            subjectKind: "job_slug",
+            subjectKey: job.slug,
+            blockedClaimKind: "salary",
+          })}
+        />
+      ) : null}
+      {strongClaimBlocked ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+          trackingKey={`claim-blocked:strong-claim:${job.slug}`}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_job_detail",
+            sourcePageType: "career_job_detail",
+            targetAction: "expose_claim_blocked_surface",
+            landingPath: jobDetailLandingPath,
+            routeFamily: "job_detail",
+            subjectKind: "job_slug",
+            subjectKey: job.slug,
+            blockedClaimKind: "strong_claim",
+          })}
+        />
+      ) : null}
+      {aiStrategyClaimBlocked ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+          trackingKey={`claim-blocked:ai-strategy:${job.slug}`}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_job_detail",
+            sourcePageType: "career_job_detail",
+            targetAction: "expose_claim_blocked_surface",
+            landingPath: jobDetailLandingPath,
+            routeFamily: "job_detail",
+            subjectKind: "job_slug",
+            subjectKey: job.slug,
+            blockedClaimKind: "ai_strategy",
+          })}
+        />
+      ) : null}
       {job.structuredData.occupation ? (
         <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} />
       ) : null}

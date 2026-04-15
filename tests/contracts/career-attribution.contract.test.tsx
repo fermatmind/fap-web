@@ -79,6 +79,7 @@ describe("career attribution payload builder contract", () => {
 
     expect(CAREER_TRACKING_EVENTS.familyHubView).toBe("career_family_hub_view");
     expect(CAREER_TRACKING_EVENTS.familyHubChildClick).toBe("career_family_hub_child_click");
+    expect(CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed).toBe("career_claim_blocked_surface_exposed");
   });
 
   it("re-emits search-mode page views when the tracking key changes on the same pathname", async () => {
@@ -184,8 +185,33 @@ describe("career attribution payload builder contract", () => {
       landing_path: "/en/career/jobs",
       route_family: "alias_resolution",
       subject_kind: "family_slug",
-      subject_key: "computer-and-information-technology",
-      query_mode: "query",
+        subject_key: "computer-and-information-technology",
+        query_mode: "query",
+      });
+
+    expect(
+      buildCareerAttributionPayload({
+        locale: "en",
+        entrySurface: "career_job_detail",
+        sourcePageType: "career_job_detail",
+        targetAction: "expose_claim_blocked_surface",
+        landingPath: "/en/career/jobs/data-scientists",
+        routeFamily: "job_detail",
+        subjectKind: "job_slug",
+        subjectKey: "data-scientists",
+        blockedClaimKind: "salary",
+      })
+    ).toEqual({
+      locale: "en",
+      entry_surface: "career_job_detail",
+      source_page_type: "career_job_detail",
+      target_action: "expose_claim_blocked_surface",
+      landing_path: "/en/career/jobs/data-scientists",
+      route_family: "job_detail",
+      subject_kind: "job_slug",
+      subject_key: "data-scientists",
+      query_mode: "non_query",
+      blocked_claim_kind: "salary",
     });
   });
 
