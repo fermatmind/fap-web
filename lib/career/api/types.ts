@@ -14,6 +14,7 @@ export type CareerJobBundleResponseRaw = {
   provenance_meta?: unknown;
   integrity_summary?: unknown;
   supporting_truth_summary?: unknown;
+  white_box_scores?: unknown;
   structured_data?: CareerJobStructuredDataResponseRaw | unknown;
 };
 
@@ -76,6 +77,7 @@ export type CareerRecommendationBundleResponseRaw = {
   provenance_meta?: unknown;
   integrity_summary?: unknown;
   supporting_truth_summary?: unknown;
+  white_box_scores?: unknown;
   matched_jobs?: unknown;
   matched_guides?: unknown;
 };

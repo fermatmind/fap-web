@@ -8,6 +8,7 @@ type CareerExplainabilityPanelProps = {
   title?: string;
   subtitle?: string;
   testId?: string;
+  showStrainRadar?: boolean;
 };
 
 type DimensionDefinition = {
@@ -105,6 +106,7 @@ export function CareerExplainabilityPanel({
   title,
   subtitle,
   testId,
+  showStrainRadar = true,
 }: CareerExplainabilityPanelProps) {
   return (
     <section
@@ -172,7 +174,7 @@ export function CareerExplainabilityPanel({
         ))}
       </div>
 
-      {explainability.strainRadar ? (
+      {showStrainRadar && explainability.strainRadar ? (
         <CareerStrainRadar
           locale={locale}
           radar={explainability.strainRadar}

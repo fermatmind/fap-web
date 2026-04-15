@@ -13,6 +13,9 @@ import type {
   CareerProvenanceMetaAdapter,
   CareerScoreBundleAdapter,
   CareerSeoContractAdapter,
+  CareerWhiteBoxStrainRadarAxisKey,
+  CareerWhiteBoxStrainScoreAdapter,
+  CareerWhiteBoxScoresAdapter,
   CareerWarningsAdapter,
 } from "@/lib/career/adapters/types";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -73,6 +76,15 @@ function normalizeNumber(value: unknown): number | null {
 function normalizeBoolean(value: unknown): boolean | null {
   return typeof value === "boolean" ? value : null;
 }
+
+const STRAIN_RADAR_AXES: CareerWhiteBoxStrainRadarAxisKey[] = [
+  "people_friction",
+  "context_switch_load",
+  "political_load",
+  "uncertainty_load",
+  "low_autonomy_trap",
+  "repetition_mismatch",
+];
 
 function humanizeSlug(slug: string): string {
   return slug
@@ -155,6 +167,76 @@ function buildIntegritySummary(
         : confidenceScore.critical_missing_fields,
     confidenceCap: normalizeNumber(summary.confidence_cap) ?? confidenceScore.confidence_cap,
     degradationFactor: normalizeNumber(summary.degradation_factor) ?? confidenceScore.degradation_factor,
+  };
+}
+
+function buildWhiteBoxStrainRadarDimensions(
+  value: unknown
+): Record<CareerWhiteBoxStrainRadarAxisKey, number | null> | null {
+  const raw = isRecord(value) ? value : null;
+  if (!raw) {
+    return null;
+  }
+
+  return Object.fromEntries(
+    STRAIN_RADAR_AXES.map((axis) => {
+      const axisValue = raw[axis];
+      const normalized = isRecord(axisValue) ? normalizeNumber(axisValue.value) : normalizeNumber(axisValue);
+      return [axis, normalized];
+    })
+  ) as Record<CareerWhiteBoxStrainRadarAxisKey, number | null>;
+}
+
+function buildWhiteBoxStrainScore(value: unknown): CareerWhiteBoxStrainScoreAdapter | null {
+  const raw = isRecord(value) ? value : null;
+  if (!raw) {
+    return null;
+  }
+
+  const formulaBreakdown = Array.isArray(raw.formula_breakdown)
+    ? raw.formula_breakdown
+        .filter(isRecord)
+        .map((item) => ({
+          code: normalizeString(item.code) ?? "unknown",
+          label: normalizeString(item.label),
+          value: normalizeNumber(item.value),
+          weight: normalizeNumber(item.weight),
+          contribution: normalizeNumber(item.contribution),
+        }))
+    : [];
+
+  const componentWeights = isRecord(raw.component_weights)
+    ? Object.fromEntries(
+        Object.entries(raw.component_weights).map(([key, item]) => [key, normalizeNumber(item)])
+      )
+    : {};
+
+  const penalties = Array.isArray(raw.penalties)
+    ? raw.penalties
+        .filter(isRecord)
+        .map((item) => ({
+          code: normalizeString(item.code) ?? "unknown_penalty",
+          value: normalizeNumber(item.value),
+          reason: normalizeString(item.reason),
+        }))
+    : [];
+
+  return {
+    score: normalizeNumber(raw.score),
+    integrityState: normalizeString(raw.integrity_state),
+    degradationFactor: normalizeNumber(raw.degradation_factor),
+    formulaBreakdown,
+    componentWeights,
+    penalties,
+    warnings: normalizeStringArray(raw.warnings),
+    radarDimensions: buildWhiteBoxStrainRadarDimensions(raw.radar_dimensions),
+  };
+}
+
+function buildWhiteBoxScores(raw: Record<string, unknown>): CareerWhiteBoxScoresAdapter {
+  const whiteBoxScores = isRecord(raw.white_box_scores) ? raw.white_box_scores : {};
+  return {
+    strainScore: buildWhiteBoxStrainScore(whiteBoxScores.strain_score),
   };
 }
 
@@ -326,6 +408,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
   const seoContract = buildSeoContract(raw);
   const provenanceMeta = buildProvenanceMeta(raw, trustManifest);
   const integritySummary = buildIntegritySummary(raw, scoreBundle);
+  const whiteBoxScores = buildWhiteBoxScores(raw);
   const structuredData = buildStructuredData(raw, input.locale, slug);
 
   const adapter: CareerJobBundleAdapter = {
@@ -363,6 +446,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     seoContract,
     provenanceMeta,
     integritySummary,
+    whiteBoxScores,
     structuredData,
     renderState: getCareerJobRenderState({
       authoritySource: "career_backend_bundle.v0.5",

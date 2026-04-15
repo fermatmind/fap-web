@@ -166,6 +166,25 @@ describe("career explainability contract", () => {
           mobility_score: { value: 69, integrity_state: "full", degradation_factor: 1 },
           confidence_score: { value: 82, integrity_state: "full", degradation_factor: 1 },
         },
+        white_box_scores: {
+          strain_score: {
+            score: 44,
+            integrity_state: "provisional",
+            degradation_factor: 0.88,
+            formula_breakdown: [{ code: "baseline", value: 0.44 }],
+            component_weights: { demand: 0.3 },
+            penalties: [],
+            warnings: [],
+            radar_dimensions: {
+              people_friction: 0.61,
+              context_switch_load: 0.52,
+              political_load: 0.47,
+              uncertainty_load: 0.58,
+              low_autonomy_trap: 0.41,
+              repetition_mismatch: 0.33,
+            },
+          },
+        },
         claim_permissions: {
           allow_strong_claim: true,
           allow_salary_comparison: true,
@@ -279,7 +298,7 @@ describe("career explainability contract", () => {
 
     expect(html).toContain("career-job-explainability-panel");
     expect(html).toContain("Structured explainability");
-    expect(html).toContain("career-explainability-strain-radar");
+    expect(html).toContain("career-job-strain-radar");
     expect(html).toContain("People friction");
     expect(html).toContain("career-job-next-step-links");
     expect(html).toContain("Next-step links");

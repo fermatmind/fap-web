@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T16:15:09Z",
+  "updated_at": "2026-04-15T16:59:54Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -983,7 +983,7 @@
     "PR-F40": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "merged",
       "branch": "codex/pr-f40-career-renderer-contract-completion",
       "commit_sha": "c7e540b1814453137259b5c077f4f1f0f6332dfe",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/454",
@@ -1009,17 +1009,34 @@
         "github": [
           {
             "name": "build",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24465365779/job/71490800134"
+            "status": "passed",
+            "details_url": ""
           },
           {
             "name": "contracts",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24465365779/job/71490800155"
+            "status": "passed",
+            "details_url": ""
           }
         ]
       },
-      "failure_reason": "GitHub Actions build/contracts failed immediately with no executable steps, matching the current repository CI startup failure pattern rather than a locally reproducible regression.",
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-16T00:16:43+08:00",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-F41": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-f41-career-strain-radar-implementation",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

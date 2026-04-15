@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { CareerNextStepLinks } from "@/components/career/CareerNextStepLinks";
+import { StrainRadar } from "@/components/career/StrainRadar";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
@@ -495,6 +496,14 @@ export default async function CareerJobDetailPage({
         </section>
       ) : null}
 
+      {job.whiteBoxScores.strainScore?.radarDimensions ? (
+        <StrainRadar
+          locale={locale}
+          dimensions={job.whiteBoxScores.strainScore.radarDimensions}
+          testId="career-job-strain-radar"
+        />
+      ) : null}
+
       {explainability ? (
         <CareerExplainabilityPanel
           locale={locale}
@@ -506,6 +515,7 @@ export default async function CareerJobDetailPage({
               : "This section renders structured fields and bounded strain-radar data from the backend explainability authority payload only, without frontend advice or strategy expansion."
           }
           testId="career-job-explainability-panel"
+          showStrainRadar={false}
         />
       ) : null}
 
