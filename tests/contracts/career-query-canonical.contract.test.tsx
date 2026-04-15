@@ -64,3 +64,24 @@ describe("career jobs query canonical contract", () => {
     });
   });
 });
+
+describe("career resolve canonical contract", () => {
+  it("keeps resolve query canonicalized to /career/resolve and always noindex", async () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/resolve/page");
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "analytics" }),
+    });
+
+    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career/resolve");
+    expect(metadata.robots).toMatchObject({
+      index: false,
+      follow: false,
+    });
+  });
+});

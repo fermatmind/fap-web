@@ -45,7 +45,7 @@ export function CareerAliasResolutionCandidates({
     >
       <div className="space-y-1">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "Resolution candidates" : "Resolution candidates"}
+          {locale === "zh" ? "别名解析候选" : "Alias resolution candidates"}
         </p>
         <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
           {locale === "zh" ? "候选目标" : "Candidate targets"}
