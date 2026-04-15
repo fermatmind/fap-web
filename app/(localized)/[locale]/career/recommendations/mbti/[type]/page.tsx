@@ -105,6 +105,73 @@ function renderCareerDataStatus(detail: CareerRecommendationBundleAdapter, local
   );
 }
 
+type CareerRendererContractState = "blocked" | "provisional" | "restricted";
+
+function getRecommendationRendererContractState(
+  detail: CareerRecommendationBundleAdapter
+): CareerRendererContractState | null {
+  const renderState = detail.renderState;
+  if (detail.careerDataStatus === "unavailable" || !renderState.canIndexPage) {
+    return "blocked";
+  }
+
+  if (detail.careerDataStatus === "trust_limited") {
+    return "provisional";
+  }
+
+  if (
+    !renderState.canRenderStrongTruth ||
+    !renderState.canRenderSalarySummary ||
+    !renderState.canRenderMatchedJobs
+  ) {
+    return "restricted";
+  }
+
+  return null;
+}
+
+function renderRecommendationRendererContractStatus(
+  detail: CareerRecommendationBundleAdapter,
+  locale: Locale
+) {
+  const state = getRecommendationRendererContractState(detail);
+  if (!state) {
+    return null;
+  }
+
+  const titleMap: Record<CareerRendererContractState, string> = {
+    blocked: locale === "zh" ? "Renderer 状态：Blocked" : "Renderer state: Blocked",
+    provisional: locale === "zh" ? "Renderer 状态：Provisional" : "Renderer state: Provisional",
+    restricted: locale === "zh" ? "Renderer 状态：Restricted" : "Renderer state: Restricted",
+  };
+
+  const bodyMap: Record<CareerRendererContractState, string> = {
+    blocked:
+      locale === "zh"
+        ? "当前推荐页只保留身份与边界信息，claim-sensitive 主内容保持阻断。"
+        : "This recommendation page keeps identity and boundary information only; claim-sensitive primary content remains blocked.",
+    provisional:
+      locale === "zh"
+        ? "当前推荐页处于 provisional 渲染，只展示后端明确可用的保守层。"
+        : "This recommendation page is rendering in provisional mode and only shows conservative layers explicitly available from backend truth.",
+    restricted:
+      locale === "zh"
+        ? "当前推荐页可渲染，但部分 claim-sensitive 区块受限。"
+        : "This recommendation page is renderable, but part of the claim-sensitive surfaces are restricted.",
+  };
+
+  return (
+    <section
+      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      data-testid="career-recommendation-renderer-status"
+      data-renderer-state={state}
+    >
+      <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{titleMap[state]}</h2>
+      <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{bodyMap[state]}</p>
+    </section>
+  );
+}
+
 function renderScoreValue(value: number | null): string {
   return value === null ? "—" : String(value);
 }
@@ -560,30 +627,6 @@ export default async function CareerMbtiRecommendationPage({
         </div>
       </section>
 
-      <TrustStrip
-        locale={locale}
-        reviewerStatus={detail.trustManifest?.reviewer.reviewer_status}
-        indexState={detail.seoContract.indexState}
-        reasonCodes={detail.claimPermissions.reason_codes}
-        contentVersion={detail.provenanceMeta.contentVersion}
-        dataVersion={detail.provenanceMeta.dataVersion}
-        logicVersion={detail.provenanceMeta.logicVersion}
-        compilerVersion={detail.provenanceMeta.compilerVersion}
-        compiledAt={detail.provenanceMeta.compiledAt}
-        compileRunId={detail.provenanceMeta.compileRunId}
-        truthMetricId={detail.provenanceMeta.truthMetricId}
-        trustManifestId={detail.provenanceMeta.trustManifestId}
-        indexStateId={detail.provenanceMeta.indexStateId}
-        testId="career-recommendation-trust-strip"
-      />
-
-      <MbtiSceneEntrySection
-        locale={locale}
-        sourcePageType="career_recommendation_detail"
-        blocks={detail.sceneEntryBlocks}
-        testId="career-recommendation-scene-entry"
-      />
-
       <ClaimGuard allowed={renderState.canRenderStrongTruth}>
         <section
           className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
@@ -631,11 +674,37 @@ export default async function CareerMbtiRecommendationPage({
         />
       ) : null}
 
+      {renderRecommendationRendererContractStatus(detail, locale)}
+
       <WarningBanner
         locale={locale}
         warnings={detail.warnings}
         title={locale === "zh" ? "显式警告与限制" : "Explicit warnings and limits"}
         testId="career-recommendation-warning-banner"
+      />
+
+      <TrustStrip
+        locale={locale}
+        reviewerStatus={detail.trustManifest?.reviewer.reviewer_status}
+        indexState={detail.seoContract.indexState}
+        reasonCodes={detail.claimPermissions.reason_codes}
+        contentVersion={detail.provenanceMeta.contentVersion}
+        dataVersion={detail.provenanceMeta.dataVersion}
+        logicVersion={detail.provenanceMeta.logicVersion}
+        compilerVersion={detail.provenanceMeta.compilerVersion}
+        compiledAt={detail.provenanceMeta.compiledAt}
+        compileRunId={detail.provenanceMeta.compileRunId}
+        truthMetricId={detail.provenanceMeta.truthMetricId}
+        trustManifestId={detail.provenanceMeta.trustManifestId}
+        indexStateId={detail.provenanceMeta.indexStateId}
+        testId="career-recommendation-trust-strip"
+      />
+
+      <MbtiSceneEntrySection
+        locale={locale}
+        sourcePageType="career_recommendation_detail"
+        blocks={detail.sceneEntryBlocks}
+        testId="career-recommendation-scene-entry"
       />
 
       {canRenderSummarySurface &&

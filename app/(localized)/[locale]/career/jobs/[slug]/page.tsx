@@ -112,6 +112,67 @@ function renderCareerJobProtocolStatus(job: CareerJobBundleAdapter, locale: Loca
   );
 }
 
+type CareerRendererContractState = "blocked" | "provisional" | "restricted";
+
+function getJobRendererContractState(job: CareerJobBundleAdapter): CareerRendererContractState | null {
+  if (job.renderState.careerDataStatus === "unavailable" || !job.renderState.canIndexPage) {
+    return "blocked";
+  }
+
+  if (job.renderState.careerDataStatus === "trust_limited") {
+    return "provisional";
+  }
+
+  if (
+    !job.renderState.canRenderSalarySurface ||
+    !job.renderState.canRenderAnswerSurface ||
+    !job.renderState.canRenderFitSurface
+  ) {
+    return "restricted";
+  }
+
+  return null;
+}
+
+function renderJobRendererContractStatus(job: CareerJobBundleAdapter, locale: Locale) {
+  const state = getJobRendererContractState(job);
+  if (!state) {
+    return null;
+  }
+
+  const titleMap: Record<CareerRendererContractState, string> = {
+    blocked: locale === "zh" ? "Renderer 状态：Blocked" : "Renderer state: Blocked",
+    provisional: locale === "zh" ? "Renderer 状态：Provisional" : "Renderer state: Provisional",
+    restricted: locale === "zh" ? "Renderer 状态：Restricted" : "Renderer state: Restricted",
+  };
+
+  const bodyMap: Record<CareerRendererContractState, string> = {
+    blocked:
+      locale === "zh"
+        ? "当前页面仅保留身份与边界信息，claim-sensitive 主内容保持阻断。"
+        : "This page keeps identity and boundary information only; claim-sensitive primary content remains blocked.",
+    provisional:
+      locale === "zh"
+        ? "当前页面处于 provisional 渲染，只展示后端明确可用的保守层。"
+        : "This page is rendering in provisional mode and only shows conservative layers explicitly available from backend truth.",
+    restricted:
+      locale === "zh"
+        ? "当前页面可渲染，但部分 claim-sensitive 区块受限。"
+        : "This page is renderable, but part of the claim-sensitive surfaces are restricted.",
+  };
+
+  return (
+    <section
+      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      data-testid="career-job-renderer-status"
+      data-renderer-state={state}
+    >
+      <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{titleMap[state]}</h2>
+      <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{bodyMap[state]}</p>
+    </section>
+  );
+}
+
 function renderScoreValue(value: number | null): string {
   return value === null ? "—" : String(value);
 }
@@ -329,23 +390,6 @@ export default async function CareerJobDetailPage({
         </div>
       </section>
 
-      <TrustStrip
-        locale={locale}
-        reviewerStatus={job.trustManifest?.reviewer.reviewer_status}
-        indexState={job.seoContract.indexState}
-        reasonCodes={job.claimPermissions.reason_codes}
-        contentVersion={job.provenanceMeta.contentVersion}
-        dataVersion={job.provenanceMeta.dataVersion}
-        logicVersion={job.provenanceMeta.logicVersion}
-        compilerVersion={job.provenanceMeta.compilerVersion}
-        compiledAt={job.provenanceMeta.compiledAt}
-        compileRunId={job.provenanceMeta.compileRunId}
-        truthMetricId={job.provenanceMeta.truthMetricId}
-        trustManifestId={job.provenanceMeta.trustManifestId}
-        indexStateId={job.provenanceMeta.indexStateId}
-        testId="career-job-trust-strip"
-      />
-
       <div className="grid gap-4 md:grid-cols-2">
         <ClaimGuard
           allowed={job.renderState.canRenderSalarySurface}
@@ -465,11 +509,30 @@ export default async function CareerJobDetailPage({
         />
       ) : null}
 
+      {renderJobRendererContractStatus(job, locale)}
+
       <WarningBanner
         locale={locale}
         warnings={job.warnings}
         title={locale === "zh" ? "显式警告与边界" : "Explicit warnings and limits"}
         testId="career-job-warning-banner"
+      />
+
+      <TrustStrip
+        locale={locale}
+        reviewerStatus={job.trustManifest?.reviewer.reviewer_status}
+        indexState={job.seoContract.indexState}
+        reasonCodes={job.claimPermissions.reason_codes}
+        contentVersion={job.provenanceMeta.contentVersion}
+        dataVersion={job.provenanceMeta.dataVersion}
+        logicVersion={job.provenanceMeta.logicVersion}
+        compilerVersion={job.provenanceMeta.compilerVersion}
+        compiledAt={job.provenanceMeta.compiledAt}
+        compileRunId={job.provenanceMeta.compileRunId}
+        truthMetricId={job.provenanceMeta.truthMetricId}
+        trustManifestId={job.provenanceMeta.trustManifestId}
+        indexStateId={job.provenanceMeta.indexStateId}
+        testId="career-job-trust-strip"
       />
 
       {nextStepLinks ? <CareerNextStepLinks locale={locale} summary={nextStepLinks} testId="career-job-next-step-links" /> : null}

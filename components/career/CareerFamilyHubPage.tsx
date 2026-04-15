@@ -1,4 +1,6 @@
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { TrustStrip } from "@/components/career/TrustStrip";
+import { WarningBanner } from "@/components/career/WarningBanner";
 import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
 import type { CareerFamilyHubAdapter } from "@/lib/career/adapters/types";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
@@ -24,12 +26,43 @@ function CountPill({
   );
 }
 
+type CareerRendererContractState = "blocked" | "provisional" | "restricted";
+
+function deriveFamilyRendererState(hub: CareerFamilyHubAdapter): CareerRendererContractState {
+  const normalizedIndexState = String(hub.seoContract.indexState ?? "").trim().toLowerCase();
+  if (hub.seoContract.indexEligible === false || normalizedIndexState === "blocked" || normalizedIndexState === "noindex") {
+    return "blocked";
+  }
+
+  if (hub.counts.visibleChildrenCount === 0) {
+    return "provisional";
+  }
+
+  return "restricted";
+}
+
+function deriveFamilyWarningModel(hub: CareerFamilyHubAdapter) {
+  return {
+    redFlags:
+      hub.counts.blockedNotSafelyRemediableCount > 0
+        ? [`blocked_not_safely_remediable:${hub.counts.blockedNotSafelyRemediableCount}`]
+        : [],
+    amberFlags:
+      hub.counts.blockedOverrideEligibleCount > 0
+        ? [`blocked_override_eligible:${hub.counts.blockedOverrideEligibleCount}`]
+        : [],
+    blockedClaims: [],
+  };
+}
+
 export function CareerFamilyHubPage({
   locale,
   hub,
 }: CareerFamilyHubPageProps) {
   const hasVisibleChildren = hub.visibleChildren.length > 0;
   const landingPath = buildCareerFamilyFrontendUrl(locale, hub.family.canonicalSlug);
+  const rendererState = deriveFamilyRendererState(hub);
+  const warnings = deriveFamilyWarningModel(hub);
 
   return (
     <section className="space-y-6" data-testid="career-family-hub">
@@ -45,6 +78,39 @@ export function CareerFamilyHubPage({
             : "This page consumes the backend family authority bundle directly and does not synthesize family narrative or explorer behavior."}
         </p>
       </header>
+
+      <section
+        className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+        data-testid="career-family-renderer-status"
+        data-renderer-state={rendererState}
+      >
+        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
+          {rendererState === "blocked"
+            ? locale === "zh"
+              ? "Renderer 状态：Blocked"
+              : "Renderer state: Blocked"
+            : rendererState === "provisional"
+              ? locale === "zh"
+                ? "Renderer 状态：Provisional"
+                : "Renderer state: Provisional"
+              : locale === "zh"
+                ? "Renderer 状态：Restricted"
+                : "Renderer state: Restricted"}
+        </h2>
+        <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">
+          {rendererState === "blocked"
+            ? locale === "zh"
+              ? "当前 family hub 仅保留 identity 与计数边界。"
+              : "This family hub currently keeps identity and count boundaries only."
+            : rendererState === "provisional"
+              ? locale === "zh"
+                ? "当前 family hub 处于 provisional 渲染，先保留探索层与后续路径。"
+                : "This family hub is in provisional rendering mode and keeps the exploration layer with next-step pathways."
+              : locale === "zh"
+                ? "当前 family hub 可探索，但部分成员仍受限。"
+                : "This family hub is explorable, while part of member exposure remains restricted."}
+        </p>
+      </section>
 
       <section
         className="grid gap-3 md:grid-cols-2 xl:grid-cols-5"
@@ -136,6 +202,22 @@ export function CareerFamilyHubPage({
           </div>
         )}
       </section>
+
+      <WarningBanner
+        locale={locale}
+        warnings={warnings}
+        title={locale === "zh" ? "显式警告与限制" : "Explicit warnings and limits"}
+        testId="career-family-warning-banner"
+      />
+
+      <TrustStrip
+        locale={locale}
+        reviewerStatus={null}
+        indexState={hub.seoContract.indexState}
+        reasonCodes={[]}
+        compact
+        testId="career-family-trust-strip"
+      />
     </section>
   );
 }

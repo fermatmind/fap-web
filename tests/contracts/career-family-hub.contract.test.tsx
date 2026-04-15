@@ -397,10 +397,14 @@ describe("career family hub page wiring", () => {
     expect(html).toContain("career-family-hub");
     expect(html).toContain("Data Science");
     expect(html).toContain("data-science");
+    expect(html).toContain("career-family-renderer-status");
+    expect(html).toContain("data-renderer-state=\"restricted\"");
     expect(html).toContain("career-family-hub-counts");
     expect(html).toContain("Blocked total");
     expect(html).toContain(">3<");
     expect(html).toContain("career-family-hub-visible-child");
+    expect(html).toContain("career-family-warning-banner");
+    expect(html).toContain("career-family-trust-strip");
     expect(html).toContain("Data Scientist");
     expect(html).toContain('"@type":"CollectionPage"');
     expect(html).toContain('"@type":"ItemList"');
@@ -409,6 +413,13 @@ describe("career family hub page wiring", () => {
     expect(html).toContain("http://localhost:3000/en/career/jobs/data-scientist");
     expect(html).toContain("http://localhost:3000/en/career");
     expect(html).not.toContain("blocked role");
+
+    const rendererStatusIndex = html.indexOf("career-family-renderer-status");
+    const warningIndex = html.indexOf("career-family-warning-banner");
+    const trustIndex = html.indexOf("career-family-trust-strip");
+    expect(rendererStatusIndex).toBeGreaterThan(-1);
+    expect(warningIndex).toBeGreaterThan(rendererStatusIndex);
+    expect(trustIndex).toBeGreaterThan(warningIndex);
     expect(pageViewEvents).toEqual([
       {
         eventName: "career_family_hub_view",
@@ -535,6 +546,8 @@ describe("career family hub page wiring", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("Compliance");
+    expect(html).toContain("career-family-renderer-status");
+    expect(html).toContain("data-renderer-state=\"blocked\"");
     expect(html).toContain("career-family-hub-empty-state");
     expect(html).toContain("no public publish-ready children");
     expect(html).toContain('"@type":"CollectionPage"');
@@ -542,6 +555,8 @@ describe("career family hub page wiring", () => {
     expect(html).toContain('"numberOfItems":0');
     expect(html).toContain('"itemListElement":[]');
     expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).toContain("career-family-warning-banner");
+    expect(html).toContain("career-family-trust-strip");
     expect(html).not.toContain('data-testid="career-family-hub-visible-child"');
     expect(pageViewEvents).toEqual([
       {

@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T15:53:50Z",
+  "updated_at": "2026-04-15T16:11:50Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -938,9 +938,9 @@
     "PR-F39": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "merged",
       "branch": "codex/pr-f39-career-search-ux-hardening-family-fallback-polish",
-      "commit_sha": "3b9c0d5c0f57ede4369cbe769a36fa7a630cd0f4",
+      "commit_sha": "0f386f22d30fdbcea28711d902447c09f1c9520b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/453",
       "checks": {
         "local": [
@@ -958,6 +958,51 @@
           },
           {
             "command": "pnpm vitest run tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/career-jobs-search-ux.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "passed",
+            "details_url": ""
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "details_url": ""
+          }
+        ]
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-15T15:56:23Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-F40": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-f40-career-renderer-contract-completion",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/family/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' tests/contracts/career-renderer-primitives.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-family-hub.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-renderer-primitives.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-family-hub.contract.test.tsx",
             "status": "passed"
           }
         ],

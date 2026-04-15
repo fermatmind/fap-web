@@ -54,6 +54,9 @@ describe("career claim gate render contract", () => {
           fit_score: { value: 81, integrity_state: "full", degradation_factor: 1 },
           confidence_score: { value: 70, integrity_state: "provisional", degradation_factor: 0.9 },
         },
+        warnings: {
+          amber_flags: ["ai_role_shift_risk"],
+        },
         seo_contract: {
           canonical_path: "/career/jobs/product-manager",
           index_state: "blocked",
@@ -100,6 +103,8 @@ describe("career claim gate render contract", () => {
 
     expect(html).toContain("career-job-protocol-status");
     expect(html).toContain("career-job-trust-strip");
+    expect(html).toContain("career-job-renderer-status");
+    expect(html).toContain("data-renderer-state=\"blocked\"");
     expect(html).toContain("Career claim gate");
     expect(html).toContain('"@type":"Occupation"');
     expect(html.match(/"@type":"BreadcrumbList"/g)).toHaveLength(1);
@@ -108,6 +113,13 @@ describe("career claim gate render contract", () => {
     expect(html).not.toContain("$150,000");
     expect(html).not.toContain("Ten-year outlook");
     expect(html).not.toContain("Backend score dimensions");
+
+    const rendererStatusIndex = html.indexOf("career-job-renderer-status");
+    const warningIndex = html.indexOf("career-job-warning-banner");
+    const trustIndex = html.indexOf("career-job-trust-strip");
+    expect(rendererStatusIndex).toBeGreaterThan(-1);
+    expect(warningIndex).toBeGreaterThan(rendererStatusIndex);
+    expect(trustIndex).toBeGreaterThan(warningIndex);
   });
 
   it("keeps salary visible but suppresses outlook when the strong-claim gate stays closed", async () => {
