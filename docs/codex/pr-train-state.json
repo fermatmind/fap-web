@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T00:19:27Z",
+  "updated_at": "2026-04-15T00:23:56Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -599,10 +599,10 @@
     "PR-F33": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f33-career-family-hub-seo-contract-frontend-consumption",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "0e78f7183e6f69699affa89a2c61189434776b2d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/446",
       "checks": {
         "local": [
           {
