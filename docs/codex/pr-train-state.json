@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T15:27:14Z",
+  "updated_at": "2026-04-15T15:32:13Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -848,10 +848,10 @@
     "PR-F37": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f37-career-resolve-surface-separation-search-alias-boundary-hardening",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "33e1148490b643f5976959f138fa44f7020577c5",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/452",
       "checks": {
         "local": [
           {
