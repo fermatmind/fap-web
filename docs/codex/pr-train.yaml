@@ -585,6 +585,33 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-F38
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f38-career-explorer-shell-surface-contract
+    base: main
+    depends_on: ["PR-F37"]
+    mode: execute
+    scope: >
+      Career explorer shell upgrade on /career with strict surface separation.
+      Promote /career into a unified exploration shell that routes users clearly to
+      jobs browsing/search, alias resolution, family hub exploration, and MBTI-based
+      recommendations without re-mixing deep-page responsibilities.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/career-content.contract.test.ts tests/contracts/career-guides-cms.contract.test.tsx tests/contracts/career-explorer-shell.contract.test.tsx"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/career-content.contract.test.ts tests/contracts/career-guides-cms.contract.test.tsx tests/contracts/career-explorer-shell.contract.test.tsx"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-D1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

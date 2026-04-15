@@ -11,10 +11,7 @@ import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCare
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
-import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
-import {
-  listCareerIndustries,
-} from "@/lib/content";
+import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -23,6 +20,33 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+
+const CURATED_FAMILY_PATHS = [
+  {
+    slug: "data-science",
+    title: { en: "Data Science", zh: "数据科学" },
+    summary: {
+      en: "Start from analytics, ML, and decision-support roles.",
+      zh: "从分析、机器学习与决策支持岗位开始探索。",
+    },
+  },
+  {
+    slug: "software-engineering",
+    title: { en: "Software Engineering", zh: "软件工程" },
+    summary: {
+      en: "Explore product engineering, backend, and platform tracks.",
+      zh: "探索产品工程、后端与平台方向。",
+    },
+  },
+  {
+    slug: "compliance",
+    title: { en: "Compliance", zh: "合规与治理" },
+    summary: {
+      en: "Explore audit, policy, and risk-control career paths.",
+      zh: "探索审计、政策与风控相关职业路径。",
+    },
+  },
+] as const;
 
 function formatUsdAnnual(value: number | null, locale: "en" | "zh"): string {
   if (value === null) {
@@ -36,9 +60,9 @@ function formatUsdAnnual(value: number | null, locale: "en" | "zh"): string {
   }).format(value);
 }
 
-function formatPercent(value: number | null, locale: "en" | "zh"): string {
+function formatPercent(value: number | null): string {
   if (value === null) {
-    return locale === "zh" ? "暂未提供" : "Not available yet";
+    return "—";
   }
 
   return `${value}%`;
@@ -55,11 +79,11 @@ export async function generateMetadata({
   return buildPageMetadata({
     locale,
     pathname: locale === "zh" ? "/zh/career" : "/en/career",
-    title: locale === "zh" ? "职业发展中心" : "Career Intelligence Center",
+    title: locale === "zh" ? "职业探索入口" : "Career Explorer Shell",
     description:
       locale === "zh"
-        ? "基于人格、能力与兴趣，帮助你做出更高质量的职业决策。"
-        : "Make better career decisions with personality, capability, and interest insights.",
+        ? "统一进入职业库、别名解析、职业家族与人格推荐的探索入口。"
+        : "Unified exploration entry for jobs browsing, alias resolution, family hubs, and MBTI career recommendations.",
     alternatesByLocale: {
       en: "/en/career",
       zh: "/zh/career",
@@ -77,32 +101,31 @@ export default async function CareerCenterPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const [readinessSummaryPayload, jobIndexPayload, recommendationIndexPayload, guides] = await Promise.all([
+  const [readinessSummaryPayload, jobIndexPayload, recommendationIndexPayload] = await Promise.all([
     fetchCareerFirstWaveReadinessSummary({ locale }),
     fetchCareerJobIndex({ locale }),
     fetchCareerRecommendationIndex({ locale }),
-    listCareerGuidesFromCms(locale, { perPage: 4 }),
   ]);
+
   const firstWaveReadinessSummary = adaptCareerFirstWaveReadinessSummary({
     payload: readinessSummaryPayload,
   });
   const topJobs = filterJobFacingCardsByFirstWaveSummary(
     firstWaveReadinessSummary,
     adaptCareerJobIndex({ locale, payload: jobIndexPayload })
-  ).slice(0, 6);
+  ).slice(0, 3);
   const recommendationPreviewItems = adaptCareerRecommendationIndex({
     locale,
     payload: recommendationIndexPayload,
-  }).slice(0, 4);
-  const industries = listCareerIndustries(locale).slice(0, 12);
-  const topGuides = guides.slice(0, 4);
+  }).slice(0, 2);
+
   const landingPath = withLocale("/career");
   const canonicalPath = locale === "zh" ? "/zh/career" : "/en/career";
-  const pageTitle = locale === "zh" ? "职业发展中心" : "Career Intelligence Center";
+  const pageTitle = locale === "zh" ? "职业探索入口" : "Career Explorer Shell";
   const pageDescription =
     locale === "zh"
-      ? "基于人格、能力与兴趣，帮助你做出更高质量的职业决策。"
-      : "Make better career decisions with personality, capability, and interest insights.";
+      ? "统一进入职业库、别名解析、职业家族与人格推荐的探索入口。"
+      : "Unified exploration entry for jobs browsing, alias resolution, family hubs, and MBTI career recommendations.";
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: pageTitle,
@@ -161,22 +184,22 @@ export default async function CareerCenterPage({
         data-authority-owner="editorial_local_wrapper"
       >
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          Career Center
+          Career Explorer
         </p>
         <h1 className="m-0 font-serif text-4xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "职业发展中心" : "Find the career that fits you"}
+          {locale === "zh" ? "把职业探索收敛到一个入口" : "One shell for all career exploration paths"}
         </h1>
         <p className="m-0 text-[var(--fm-text-muted)]">
           {locale === "zh"
-            ? "从性格、能力到职业路径，构建你的职业决策系统。"
-            : "Build your career decision system from personality, capability, and development paths."}
+            ? "在这里选择最合适的探索路径：直接找职业、解析别名、按家族浏览，或从人格进入推荐。"
+            : "Choose the right exploration path here: browse jobs, resolve aliases, explore by family, or start from personality-based recommendations."}
         </p>
         <div className="flex flex-wrap gap-3">
-          <Link href={withLocale("/career/tests/riasec")} className={buttonVariants({ size: "lg" })}>
-            {locale === "zh" ? "开始职业测试" : "Start career test"}
+          <Link href={withLocale("/career/jobs")} className={buttonVariants({ size: "lg" })}>
+            {locale === "zh" ? "浏览职业库（主路径）" : "Browse jobs (Primary)"}
           </Link>
-          <Link href={withLocale("/career/recommendations")} className={buttonVariants({ variant: "outline", size: "lg" })}>
-            {locale === "zh" ? "查看职业推荐" : "View recommendations"}
+          <Link href={withLocale("/career/resolve")} className={buttonVariants({ variant: "outline", size: "lg" })}>
+            {locale === "zh" ? "解析别名/俗称" : "Resolve alias terms"}
           </Link>
         </div>
         <form
@@ -188,13 +211,97 @@ export default async function CareerCenterPage({
           <input
             type="search"
             name="q"
-            placeholder={locale === "zh" ? "搜索职业 slug、标题或别名" : "Search slug, title, or alias"}
+            placeholder={locale === "zh" ? "输入职业标准名、别名或俗称" : "Enter role title, alias, or colloquial name"}
             className="h-12 w-full rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-4 text-sm text-[var(--fm-text)] outline-none ring-0 placeholder:text-[var(--fm-text-muted)] focus:border-[var(--fm-accent)]"
           />
-          <button type="submit" className={buttonVariants({ variant: "outline" })}>
-            {locale === "zh" ? "去职业库搜索" : "Search in jobs"}
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button type="submit" className={buttonVariants({ variant: "outline" })}>
+              {locale === "zh" ? "直接搜索职业" : "Search jobs directly"}
+            </button>
+            <button
+              type="submit"
+              formAction={withLocale("/career/resolve")}
+              className={buttonVariants({ variant: "ghost" })}
+            >
+              {locale === "zh" ? "按别名解析" : "Resolve alias instead"}
+            </button>
+          </div>
         </form>
+      </section>
+
+      <section
+        className="space-y-3"
+        data-testid="career-explorer-pathways"
+        data-authority-owner="editorial_ia_shell"
+      >
+        <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">
+          {locale === "zh" ? "选择你的探索路径" : "Choose your exploration path"}
+        </h2>
+        <div className="grid gap-3 md:grid-cols-2">
+          <Card data-testid="career-pathway-jobs">
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "直接找职业（主路径）" : "Direct job browsing (Primary)"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">
+                {locale === "zh"
+                  ? "适合知道目标岗位、标准职业名或想先看职业库的人。"
+                  : "Best when you know the role or want conservative search in the jobs library."}
+              </p>
+              <Link href={withLocale("/career/jobs")} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                {locale === "zh" ? "进入职业库 / 搜索" : "Open jobs library"}
+              </Link>
+            </CardContent>
+          </Card>
+          <Card data-testid="career-pathway-resolve">
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "别名/俗称解析" : "Alias / colloquial resolution"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">
+                {locale === "zh"
+                  ? "适合输入模糊职业称呼，需要系统先做解析和分流。"
+                  : "Use this when the query is fuzzy and needs alias resolution or disambiguation first."}
+              </p>
+              <Link href={withLocale("/career/resolve")} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                {locale === "zh" ? "进入解析页面" : "Open resolve page"}
+              </Link>
+            </CardContent>
+          </Card>
+          <Card data-testid="career-pathway-family">
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "按职业家族探索" : "Explore by career family"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">
+                {locale === "zh"
+                  ? "适合不知道具体岗位，但知道方向领域的人。"
+                  : "Start broad with domain-level families before selecting specific jobs."}
+              </p>
+              <Link
+                href={buildCareerFamilyFrontendUrl(locale, CURATED_FAMILY_PATHS[0].slug)}
+                className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+              >
+                {locale === "zh" ? "进入职业家族" : "Open family hub"}
+              </Link>
+            </CardContent>
+          </Card>
+          <Card data-testid="career-pathway-recommendation">
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "从人格进入职业方向" : "Enter from personality profile"}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
+              <p className="m-0">
+                {locale === "zh"
+                  ? "适合从 MBTI 结果进入职业方向，再下钻到具体岗位。"
+                  : "Use MBTI-based recommendation paths to move from profile to role direction."}
+              </p>
+              <Link href={withLocale("/career/recommendations")} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                {locale === "zh" ? "进入推荐入口" : "Open recommendations"}
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       <section
@@ -203,16 +310,14 @@ export default async function CareerCenterPage({
         data-authority-owner="backend_lightweight_jobs"
       >
         <div className="space-y-1">
-          <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">
-            {locale === "zh" ? "热门职业" : "Popular jobs"}
-          </h2>
+          <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">{locale === "zh" ? "职业库快速预览" : "Jobs quick preview"}</h2>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">
             {locale === "zh"
-              ? "这一组卡片直接消费 backend B5 lightweight job index。"
-              : "These cards consume the backend B5 lightweight job index directly."}
+              ? "这部分只显示后端 authority 放行的轻量职业卡片，用于入口预览，不替代职业详情页。"
+              : "This lightweight preview only shows backend-approved cards as entry signals, not as a substitute for job detail pages."}
           </p>
         </div>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-3">
           {topJobs.length > 0 ? (
             topJobs.map((job) => (
               <Card
@@ -232,36 +337,15 @@ export default async function CareerCenterPage({
                   <p className="m-0">
                     {job.truthSummary.outlookDescription ||
                       (locale === "zh"
-                        ? "当前卡片只显示 backend authority 明确提供的轻量摘要。"
-                        : "This card only shows the lightweight summary explicitly provided by the backend authority.")}
+                        ? "仅展示后端 authority 放行的轻量摘要。"
+                        : "Only lightweight summaries explicitly allowed by backend authority are shown.")}
                   </p>
-                  {job.dataStatus === "available" ? (
-                    <>
-                      <p className="m-0">
-                        {locale === "zh" ? "薪资" : "Salary"}:{" "}
-                        {formatUsdAnnual(job.truthSummary.medianPayUsdAnnual, locale)}
-                      </p>
-                      <p className="m-0">
-                        {locale === "zh" ? "十年增速" : "Ten-year outlook"}:{" "}
-                        {formatPercent(job.truthSummary.outlookPct20242034, locale)}
-                      </p>
-                      <p className="m-0">
-                        {locale === "zh" ? "Fit 分数" : "Fit score"}: {job.scoreSummary.fitScore.value ?? "—"}
-                      </p>
-                    </>
-                  ) : (
-                    <p className="m-0">
-                      {job.dataStatus === "trust_limited"
-                        ? locale === "zh"
-                          ? "当前职位卡片处于 trust-limited 模式，仅显示后端明确放行的轻量状态。"
-                          : "This job card is in trust-limited mode and only shows the lightweight status explicitly allowed by the backend."
-                        : locale === "zh"
-                          ? "当前职位卡片不可用，页面不会本地合成职业事实。"
-                          : "This job card is unavailable, and the page does not synthesize local career facts."}
-                    </p>
-                  )}
                   <p className="m-0">
-                    {locale === "zh" ? "Reviewer" : "Reviewer"}: {job.trustSummary.reviewerStatus ?? "unknown"}
+                    {locale === "zh" ? "薪资" : "Salary"}: {formatUsdAnnual(job.truthSummary.medianPayUsdAnnual, locale)}
+                  </p>
+                  <p className="m-0">
+                    {locale === "zh" ? "十年增速" : "Ten-year outlook"}:{" "}
+                    {formatPercent(job.truthSummary.outlookPct20242034)}
                   </p>
                   <TrackedCareerLink
                     href={job.href}
@@ -284,28 +368,35 @@ export default async function CareerCenterPage({
               </Card>
             ))
           ) : (
-            <Card
-              className="md:col-span-2 xl:col-span-3"
-              data-testid="career-landing-job-status"
-              data-career-data-status="unavailable"
-            >
+            <Card className="md:col-span-3" data-testid="career-landing-job-status" data-career-data-status="unavailable">
               <CardHeader>
                 <CardTitle>{locale === "zh" ? "当前没有可公开展示的职业预览" : "No public job previews are currently available"}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0">
-                  {locale === "zh"
-                    ? "backend lightweight job index 当前未返回可渲染条目，因此 landing 不会回退到本地职业列表。"
-                    : "The backend lightweight job index did not return renderable items, so the landing page does not fall back to the local job list."}
-                </p>
-              </CardContent>
             </Card>
           )}
         </div>
-        <div>
-          <Link href={withLocale("/career/jobs")} className={buttonVariants({ variant: "outline" })}>
-            {locale === "zh" ? "查看全部职业" : "Browse all jobs"}
-          </Link>
+      </section>
+
+      <section
+        className="space-y-3"
+        data-testid="career-family-exploration"
+        data-authority-owner="editorial_curated_family_paths"
+      >
+        <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">
+          {locale === "zh" ? "职业家族探索层" : "Career family exploration layer"}
+        </h2>
+        <div className="grid gap-3 md:grid-cols-3">
+          {CURATED_FAMILY_PATHS.map((family) => (
+            <Link
+              key={family.slug}
+              href={buildCareerFamilyFrontendUrl(locale, family.slug)}
+              className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm transition hover:border-[var(--fm-accent)]"
+              data-testid="career-family-entry-link"
+            >
+              <p className="m-0 text-base font-semibold text-[var(--fm-text)]">{family.title[locale]}</p>
+              <p className="mt-2 text-xs text-[var(--fm-text-muted)]">{family.summary[locale]}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -316,12 +407,12 @@ export default async function CareerCenterPage({
       >
         <div className="space-y-1">
           <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">
-            {locale === "zh" ? "推荐职业方向" : "Recommended directions"}
+            {locale === "zh" ? "人格推荐承接" : "Personality recommendation bridge"}
           </h2>
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">
             {locale === "zh"
-              ? "这一组卡片直接消费 backend B5 lightweight recommendation index，并保持 recommendation 语义。"
-              : "These cards consume the backend B5 lightweight recommendation index directly while staying recommendation-oriented."}
+              ? "推荐入口属于职业探索体系的一部分：先看人格方向，再下钻到职业页面。"
+              : "Recommendation entry is part of the same exploration system: start from profile direction, then drill into job-level pages."}
           </p>
         </div>
         {recommendationPreviewItems.length > 0 ? (
@@ -333,43 +424,12 @@ export default async function CareerCenterPage({
                 data-career-data-status={item.dataStatus}
               >
                 <CardHeader>
-                  <div className="space-y-2">
-                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                      {item.recommendationSubjectMeta.canonicalTypeCode ??
-                        item.recommendationSubjectMeta.typeCode ??
-                        item.recommendationSubjectMeta.publicRouteSlug.toUpperCase()}
-                    </p>
-                    <CardTitle className="text-lg">{item.recommendationSubjectMeta.displayTitle}</CardTitle>
-                  </div>
+                  <CardTitle className="text-lg">{item.recommendationSubjectMeta.displayTitle}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
                   <p className="m-0">
-                    {locale === "zh" ? "Authority route" : "Authority route"}: /
+                    {locale === "zh" ? "推荐路由" : "Recommendation route"}: /
                     {item.recommendationSubjectMeta.publicRouteSlug}
-                  </p>
-                  {item.dataStatus === "available" ? (
-                    <>
-                      <p className="m-0">
-                        {locale === "zh" ? "Fit 分数" : "Fit score"}: {item.scoreSummary.fitScore.value ?? "—"}
-                      </p>
-                      <p className="m-0">
-                        {locale === "zh" ? "Confidence 分数" : "Confidence score"}:{" "}
-                        {item.scoreSummary.confidenceScore.value ?? "—"}
-                      </p>
-                    </>
-                  ) : (
-                    <p className="m-0">
-                      {item.dataStatus === "trust_limited"
-                        ? locale === "zh"
-                          ? "当前 recommendation 卡片处于 trust-limited 模式，仅显示后端明确放行的轻量状态。"
-                          : "This recommendation card is in trust-limited mode and only shows the lightweight status explicitly allowed by the backend."
-                        : locale === "zh"
-                          ? "当前 recommendation 卡片不可用，页面不会本地合成推荐解释。"
-                          : "This recommendation card is unavailable, and the page does not synthesize local recommendation explanations."}
-                    </p>
-                  )}
-                  <p className="m-0">
-                    {locale === "zh" ? "Reviewer" : "Reviewer"}: {item.trustSummary.reviewerStatus ?? "unknown"}
                   </p>
                   <TrackedCareerLink
                     href={item.href}
@@ -399,86 +459,36 @@ export default async function CareerCenterPage({
                 {locale === "zh" ? "当前没有可公开展示的推荐预览" : "No public recommendation previews are currently available"}
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">
-                {locale === "zh"
-                  ? "backend recommendation index 当前不可用，因此 landing 不会回退到 CMS family / variant 列表。"
-                  : "The backend recommendation index is currently unavailable, so the landing page does not fall back to the CMS family/variant list."}
-              </p>
-            </CardContent>
           </Card>
         )}
-        <div>
+        <div className="flex flex-wrap gap-3">
           <Link href={withLocale("/career/recommendations")} className={buttonVariants({ variant: "outline" })}>
-            {locale === "zh" ? "查看职业推荐" : "View recommendations"}
+            {locale === "zh" ? "进入推荐入口" : "Open recommendations"}
           </Link>
-        </div>
-      </section>
-
-      <section
-        className="space-y-3"
-        data-testid="career-landing-industries"
-        data-authority-owner="editorial_local_industries"
-      >
-        <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">{locale === "zh" ? "按行业浏览" : "Browse by industry"}</h2>
-        <div className="grid gap-3 md:grid-cols-3 xl:grid-cols-4">
-          {industries.map((industry) => (
-            <Link
-              key={industry.slug}
-              href={withLocale(`/career/industries/${industry.slug}`)}
-              className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)]"
-            >
-              <p className="m-0">{industry.title}</p>
-              <p className="mt-2 text-xs font-normal text-[var(--fm-text-muted)]">{industry.summary}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section
-        className="space-y-3"
-        data-testid="career-landing-guides"
-        data-authority-owner="editorial_cms_guides"
-      >
-        <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">{locale === "zh" ? "职业发展文章" : "Career development guides"}</h2>
-        <div className="grid gap-3 md:grid-cols-2">
-          {topGuides.map((guide) => (
-            <Card key={guide.slug}>
-              <CardHeader>
-                <CardTitle className="text-lg">{guide.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0">{guide.summary}</p>
-                <Link href={guide.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                  {locale === "zh" ? "阅读全文" : "Read guide"}
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
+          <Link href={withLocale("/career/tests/riasec")} className={buttonVariants({ variant: "outline" })}>
+            {locale === "zh" ? "先做职业测试" : "Start with a career test"}
+          </Link>
         </div>
       </section>
 
       <section
         className="space-y-3 rounded-2xl border border-dashed border-[var(--fm-border)] bg-[var(--fm-surface)] p-5"
-        data-testid="career-landing-explore-strip"
+        data-testid="career-landing-trust-boundary"
         data-authority-owner="editorial_cta_only"
       >
         <h2 className="m-0 font-serif text-2xl text-[var(--fm-text)]">
-          {locale === "zh" ? "继续探索职业路径" : "Keep exploring career paths"}
+          {locale === "zh" ? "方法边界与信任说明" : "Method boundary and trust notes"}
         </h2>
         <p className="m-0 text-sm text-[var(--fm-text-muted)]">
           {locale === "zh"
-            ? "这里不再把本地 job growth_path 派生内容当成 authority。继续探索时，请进入 backend-backed 的职业库与推荐页。"
-            : "This section no longer treats locally derived job growth paths as authority. Continue exploring through the backend-backed jobs and recommendations pages."}
+            ? "该入口页只负责探索路径分流；职业真值由后端 authority 页面提供。"
+            : "This shell handles path selection only; authority truth stays in dedicated backend-backed pages."}
         </p>
-        <div className="flex flex-wrap gap-3">
-          <Link href={withLocale("/career/jobs")} className={buttonVariants({ variant: "outline" })}>
-            {locale === "zh" ? "浏览职业库" : "Browse job library"}
-          </Link>
-          <Link href={withLocale("/career/recommendations")} className={buttonVariants({ variant: "outline" })}>
-            {locale === "zh" ? "浏览职业推荐" : "Browse recommendations"}
-          </Link>
-        </div>
+        <p className="m-0 text-sm text-[var(--fm-text-muted)]">
+          {locale === "zh"
+            ? "浏览、解析、推荐是三条独立语义路径，避免在一个页面混合承载。"
+            : "Browsing, resolution, and recommendation are intentionally separated semantics, not mixed into one page contract."}
+        </p>
       </section>
     </Container>
   );

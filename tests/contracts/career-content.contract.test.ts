@@ -64,10 +64,11 @@ describe("career content contract", () => {
 
   it("keeps local content helpers out of backend-backed landing sections", () => {
     expect(careerLandingSource).not.toContain("listCareerJobs(");
-    expect(careerLandingSource).toContain("listCareerIndustries");
-    expect(careerLandingSource).toContain("listCareerGuidesFromCms");
+    expect(careerLandingSource).not.toContain("listCareerIndustries");
+    expect(careerLandingSource).not.toContain("listCareerGuidesFromCms");
     expect(careerLandingSource).toContain("fetchCareerJobIndex");
     expect(careerLandingSource).toContain("fetchCareerRecommendationIndex");
+    expect(careerLandingSource).toContain("buildCareerFamilyFrontendUrl");
     expect(careerLandingSource).not.toContain("growth_path[0]");
   });
 });

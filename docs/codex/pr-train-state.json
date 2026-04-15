@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T14:33:49Z",
+  "updated_at": "2026-04-15T15:34:09Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -125,7 +125,7 @@
     "PR-F9": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f9-career-readiness-summary-consumption",
       "commit_sha": "29ada815ad2447530df3eef0b158a52e5746c7a9",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/413",
@@ -848,10 +848,10 @@
     "PR-F37": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f37-career-resolve-surface-separation-search-alias-boundary-hardening",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "08dd1359d73af6fb5e640b2a51d2e5a4410bef34",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/452",
       "checks": {
         "local": [
           {
@@ -868,6 +868,51 @@
           },
           {
             "command": "pnpm vitest run tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/career-resolve-surface.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24463456383/job/71483865849"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24463456383/job/71483865949"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions jobs failed immediately for build/contracts on PR-F38; local validation passed, but the remote CI run is currently not green.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F38": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-f38-career-explorer-shell-surface-contract",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/career-content.contract.test.ts tests/contracts/career-guides-cms.contract.test.tsx tests/contracts/career-explorer-shell.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/career-content.contract.test.ts tests/contracts/career-guides-cms.contract.test.tsx tests/contracts/career-explorer-shell.contract.test.tsx",
             "status": "passed"
           }
         ],
