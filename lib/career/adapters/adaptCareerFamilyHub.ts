@@ -1,6 +1,7 @@
 import type { CareerFamilyHubResponseRaw } from "@/lib/career/api/types";
 import type {
   CareerFamilyHubAdapter,
+  CareerFamilyHubSeoContractAdapter,
   CareerFamilyHubVisibleChildAdapter,
   CareerSeoContractAdapter,
 } from "@/lib/career/adapters/types";
@@ -90,6 +91,27 @@ function buildSeoContract(raw: Record<string, unknown>): CareerSeoContractAdapte
     reasonCodes: normalizeStringArray(seoContract.reason_codes),
     datasetEligible: null,
     articleEligible: null,
+  };
+}
+
+function buildFamilyHubSeoContract(
+  raw: Record<string, unknown>,
+  locale: "en" | "zh",
+  canonicalSlug: string
+): CareerFamilyHubSeoContractAdapter {
+  const seoContract = isRecord(raw.seo_contract) ? raw.seo_contract : {};
+  const fallbackPath = buildCareerFamilyFrontendUrl(locale, canonicalSlug);
+
+  return {
+    canonicalPath: normalizeCareerBundleCanonicalPath(
+      locale,
+      normalizeString(seoContract.canonical_path),
+      fallbackPath
+    ),
+    canonicalTitle: normalizeString(seoContract.canonical_title),
+    indexState: normalizeString(seoContract.index_state),
+    indexEligible: normalizeBoolean(seoContract.index_eligible),
+    robotsPolicy: normalizeString(seoContract.robots_policy),
   };
 }
 
@@ -271,6 +293,7 @@ export function adaptCareerFamilyHub(input: AdaptCareerFamilyHubInput): CareerFa
 
   const titleEn = normalizeString(family.title_en);
   const titleZh = normalizeString(family.title_zh);
+  const seoContract = buildFamilyHubSeoContract(raw, input.locale, canonicalSlug);
   const visibleChildren = Array.isArray(raw.visible_children)
     ? raw.visible_children.filter(isRecord).map((item) => adaptVisibleChild(item, input.locale)).filter(Boolean)
     : [];
@@ -278,6 +301,7 @@ export function adaptCareerFamilyHub(input: AdaptCareerFamilyHubInput): CareerFa
 
   return {
     authoritySource: "career_backend_family_hub.v0.5",
+    seoContract,
     family: {
       familyUuid: normalizeString(family.family_uuid),
       canonicalSlug,

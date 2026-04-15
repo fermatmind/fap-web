@@ -59,6 +59,13 @@ describe("career family hub fetch and adapter contract", () => {
       payload: {
         bundle_kind: "career_family_hub",
         bundle_version: "career.protocol.family_hub.v1",
+        seo_contract: {
+          canonical_path: "/career/family/data-science",
+          canonical_title: "Data Science Canonical",
+          index_state: "index",
+          index_eligible: true,
+          robots_policy: "index,follow",
+        },
         family: {
           family_uuid: "fam_123",
           canonical_slug: "data-science",
@@ -137,6 +144,13 @@ describe("career family hub fetch and adapter contract", () => {
 
     expect(hub).toEqual({
       authoritySource: "career_backend_family_hub.v0.5",
+      seoContract: {
+        canonicalPath: "/en/career/family/data-science",
+        canonicalTitle: "Data Science Canonical",
+        indexState: "index",
+        indexEligible: true,
+        robotsPolicy: "index,follow",
+      },
       family: {
         familyUuid: "fam_123",
         canonicalSlug: "data-science",
@@ -236,6 +250,13 @@ describe("career family hub page wiring", () => {
       fetchCareerFamilyHub: vi.fn(async () => ({
         bundle_kind: "career_family_hub",
         bundle_version: "career.protocol.family_hub.v1",
+        seo_contract: {
+          canonical_path: "/career/family/data-science",
+          canonical_title: "Data Science Canonical",
+          index_state: "index",
+          index_eligible: true,
+          robots_policy: "index,follow",
+        },
         family: {
           family_uuid: "fam_123",
           canonical_slug: "data-science",
@@ -356,6 +377,13 @@ describe("career family hub page wiring", () => {
       fetchCareerFamilyHub: vi.fn(async () => ({
         bundle_kind: "career_family_hub",
         bundle_version: "career.protocol.family_hub.v1",
+        seo_contract: {
+          canonical_path: "/career/family/compliance",
+          canonical_title: "Compliance Canonical",
+          index_state: "noindex",
+          index_eligible: false,
+          robots_policy: "noindex,follow",
+        },
         family: {
           family_uuid: "fam_124",
           canonical_slug: "compliance",
@@ -445,6 +473,13 @@ describe("career family hub metadata contract", () => {
       fetchCareerFamilyHub: vi.fn(async () => ({
         bundle_kind: "career_family_hub",
         bundle_version: "career.protocol.family_hub.v1",
+        seo_contract: {
+          canonical_path: "/career/family/data-science",
+          canonical_title: "Data Science Canonical",
+          index_state: "index",
+          index_eligible: true,
+          robots_policy: "index,follow",
+        },
         family: {
           family_uuid: "fam_123",
           canonical_slug: "data-science",
@@ -482,6 +517,7 @@ describe("career family hub metadata contract", () => {
       params: Promise.resolve({ locale: "en", slug: "data-science" }),
     });
 
+    expect(metadata.title).toBe("Data Science Canonical");
     expect(metadata.alternates?.canonical).toBe("https://fermatmind.com/en/career/family/data-science");
     expect(metadata.robots).toMatchObject({
       index: true,
@@ -499,6 +535,13 @@ describe("career family hub metadata contract", () => {
       fetchCareerFamilyHub: vi.fn(async () => ({
         bundle_kind: "career_family_hub",
         bundle_version: "career.protocol.family_hub.v1",
+        seo_contract: {
+          canonical_path: "/career/family/compliance",
+          canonical_title: "Compliance Canonical",
+          index_state: "noindex",
+          index_eligible: false,
+          robots_policy: "noindex,follow",
+        },
         family: {
           family_uuid: "fam_124",
           canonical_slug: "compliance",
@@ -521,10 +564,73 @@ describe("career family hub metadata contract", () => {
       params: Promise.resolve({ locale: "en", slug: "compliance" }),
     });
 
+    expect(metadata.title).toBe("Compliance Canonical");
     expect(metadata.alternates?.canonical).toBe("https://fermatmind.com/en/career/family/compliance");
     expect(metadata.robots).toMatchObject({
       index: false,
-      follow: false,
+      follow: true,
+    });
+  });
+
+  it("obeys backend noindex posture even when visible children exist", async () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
+
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFamilyHub", () => ({
+      fetchCareerFamilyHub: vi.fn(async () => ({
+        bundle_kind: "career_family_hub",
+        bundle_version: "career.protocol.family_hub.v1",
+        seo_contract: {
+          canonical_path: "/career/family/data-science",
+          canonical_title: "Data Science Canonical",
+          index_state: "noindex",
+          index_eligible: false,
+          robots_policy: "index,follow",
+        },
+        family: {
+          family_uuid: "fam_123",
+          canonical_slug: "data-science",
+          title_en: "Data Science",
+          title_zh: "数据科学",
+        },
+        visible_children: [
+          {
+            occupation_uuid: "occ_123",
+            canonical_slug: "data-scientist",
+            canonical_title_en: "Data Scientist",
+            canonical_title_zh: "数据科学家",
+            seo_contract: {
+              canonical_path: "/career/jobs/data-scientist",
+              index_state: "indexed",
+              index_eligible: true,
+            },
+            trust_summary: {
+              reviewer_status: "approved",
+            },
+          },
+        ],
+        counts: {
+          visible_children_count: 1,
+          publish_ready_count: 1,
+          blocked_override_eligible_count: 0,
+          blocked_not_safely_remediable_count: 0,
+          blocked_total: 0,
+        },
+      })),
+    }));
+
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/family/[slug]/page");
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "en", slug: "data-science" }),
+    });
+
+    expect(metadata.title).toBe("Data Science Canonical");
+    expect(metadata.alternates?.canonical).toBe("https://fermatmind.com/en/career/family/data-science");
+    expect(metadata.robots).toMatchObject({
+      index: false,
+      follow: true,
     });
   });
 });

@@ -223,8 +223,17 @@ export type CareerFamilyHubVisibleChildAdapter = {
   };
 };
 
+export type CareerFamilyHubSeoContractAdapter = {
+  canonicalPath: string | null;
+  canonicalTitle: string | null;
+  indexState: string | null;
+  indexEligible: boolean | null;
+  robotsPolicy: string | null;
+};
+
 export type CareerFamilyHubAdapter = {
   authoritySource: string;
+  seoContract: CareerFamilyHubSeoContractAdapter;
   family: {
     familyUuid: string | null;
     canonicalSlug: string;
