@@ -215,6 +215,7 @@ export type CareerFamilyHubStructuredDataResponseRaw = {
 export type CareerFamilyHubResponseRaw = {
   bundle_kind?: unknown;
   bundle_version?: unknown;
+  seo_contract?: unknown;
   family?: unknown;
   visible_children?: unknown;
   counts?: unknown;
