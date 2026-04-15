@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T14:30:18Z",
+  "updated_at": "2026-04-15T14:32:19Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -803,10 +803,10 @@
     "PR-F36": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_verified",
+      "status": "pr_open",
       "branch": "codex/pr-f36-career-claim-blocked-frontend-attribution-instrumentation",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "80f33defa43d623c6820bbdfda175086797292a9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/450",
       "checks": {
         "local": [
           {
