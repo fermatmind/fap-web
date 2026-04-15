@@ -8,6 +8,7 @@ export const CAREER_ROUTE_FAMILIES = [
   "jobs_search",
   "job_detail",
   "family_hub",
+  "alias_resolution",
   "recommendations",
   "recommendation_detail",
 ] as const;
@@ -19,6 +20,7 @@ export const CAREER_ENTRY_SURFACES = [
   "career_job_index",
   "career_job_search",
   "career_job_search_results",
+  "career_alias_disambiguation",
   "career_job_detail",
   "career_family_hub",
   "career_recommendation_index",
@@ -31,6 +33,7 @@ export const CAREER_SOURCE_PAGE_TYPES = [
   "career_landing",
   "career_job_index",
   "career_job_search",
+  "career_alias_disambiguation",
   "career_job_detail",
   "career_family_hub",
   "career_recommendation_index",
@@ -118,5 +121,8 @@ export const CAREER_TRACKING_EVENTS = {
   recommendationMatchedJobClick: TRACKING_EVENTS.CAREER_RECOMMENDATION_MATCHED_JOB_CLICK,
   transitionPreviewView: TRACKING_EVENTS.CAREER_TRANSITION_PREVIEW_VIEW,
   transitionPreviewTargetClick: TRACKING_EVENTS.CAREER_TRANSITION_PREVIEW_TARGET_CLICK,
+  aliasResolutionSubmit: TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_SUBMIT,
+  aliasResolutionTargetClick: TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_TARGET_CLICK,
+  aliasResolutionNoResult: TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_NO_RESULT,
   readySurfaceExposed: TRACKING_EVENTS.CAREER_READY_SURFACE_EXPOSED,
 } as const;

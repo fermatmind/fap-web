@@ -503,6 +503,33 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-F35
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f35-career-alias-resolution-frontend-attribution-instrumentation-resolution-flow-alignment
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Career alias-resolution frontend attribution instrumentation + resolution-flow alignment.
+      Wire only backend B62-supported alias-resolution action events on /career/jobs
+      resolve-result branches (submit / target-click / no-result), keep /career/search
+      semantics isolated, and avoid view-style alias events or attribution scope expansion.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/career/jobs/page.tsx' components/career/CareerAliasResolutionCandidates.tsx lib/career/attribution.ts lib/tracking/events.ts tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-search-backend.contract.test.tsx"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/career-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts tests/contracts/career-search-backend.contract.test.tsx"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-D1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

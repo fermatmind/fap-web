@@ -163,6 +163,30 @@ describe("career attribution payload builder contract", () => {
       subject_key: "data-and-ai",
       query_mode: "non_query",
     });
+
+    expect(
+      buildCareerAttributionPayload({
+        locale: "en",
+        entrySurface: "career_alias_disambiguation",
+        sourcePageType: "career_alias_disambiguation",
+        targetAction: "open_alias_resolution_target",
+        landingPath: "/en/career/jobs",
+        routeFamily: "alias_resolution",
+        subjectKind: "family_slug",
+        subjectKey: "computer-and-information-technology",
+        queryMode: "query",
+      })
+    ).toEqual({
+      locale: "en",
+      entry_surface: "career_alias_disambiguation",
+      source_page_type: "career_alias_disambiguation",
+      target_action: "open_alias_resolution_target",
+      landing_path: "/en/career/jobs",
+      route_family: "alias_resolution",
+      subject_kind: "family_slug",
+      subject_key: "computer-and-information-technology",
+      query_mode: "query",
+    });
   });
 
   it("tracks career click events through the shared transport helper", async () => {
@@ -250,6 +274,7 @@ describe("career attribution page wiring contract", () => {
     ].map(read).join("\n");
 
     expect(trackedSources).not.toContain("career_alias_search");
+    expect(trackedSources).not.toContain("career_alias_disambiguation_view");
     expect(trackedSources).not.toContain("career_shortlist_add");
     expect(trackedSources).not.toContain("career_view");
     expect(trackedSources).not.toContain("career_job_detail_cta_click");
@@ -543,8 +568,229 @@ describe("career attribution page wiring contract", () => {
         }),
       ])
     );
+    expect(pageViewEvents).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_alias_resolution_submit" })])
+    );
+    expect(pageViewEvents).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_alias_resolution_no_result" })])
+    );
+    expect(trackedLinks).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_alias_resolution_target_click" })])
+    );
     expect(JSON.stringify(pageViewEvents)).not.toContain("backend architect");
     expect(JSON.stringify(trackedLinks)).not.toContain("backend architect");
+  });
+
+  it("wires alias-resolution submit/target-click/no-result only from resolve truth branches", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({
+        href,
+        children,
+        prefetch: _prefetch,
+        ...props
+      }: {
+        href: string;
+        children: ReactNode;
+        prefetch?: boolean;
+      }) => {
+        void _prefetch;
+
+        return (
+          <a href={href} {...props}>
+            {children}
+          </a>
+        );
+      },
+    }));
+
+    const { pageViewEvents, trackedLinks } = installCareerTrackingMocks();
+
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerAliasResolution", () => ({
+      fetchCareerAliasResolution: vi.fn(async () => ({
+        bundle_kind: "career_alias_resolution",
+        resolution: {
+          resolved_kind: "ambiguous",
+          candidates: [
+            {
+              candidate_kind: "occupation",
+              canonical_slug: "data-scientists",
+              canonical_title_en: "Data Scientists",
+            },
+            {
+              candidate_kind: "family",
+              canonical_slug: "computer-and-information-technology",
+              title_en: "Computer and Information Technology",
+            },
+          ],
+        },
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
+      fetchCareerSearch: vi.fn(async () => {
+        throw new Error("search fetch should not run in alias ambiguous mode");
+      }),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
+      fetchCareerJobIndex: vi.fn(async () => {
+        throw new Error("job index fetch should not run in search mode");
+      }),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const ambiguousPage = await CareerJobsPage({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "analytics" }),
+    });
+
+    renderToStaticMarkup(ambiguousPage as ReactNode);
+
+    expect(pageViewEvents).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          eventName: "career_alias_resolution_submit",
+          properties: expect.objectContaining({
+            entry_surface: "career_alias_disambiguation",
+            source_page_type: "career_alias_disambiguation",
+            route_family: "alias_resolution",
+            subject_kind: "none",
+            query_mode: "query",
+          }),
+        }),
+      ])
+    );
+    expect(pageViewEvents).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_alias_resolution_no_result" })])
+    );
+    expect(pageViewEvents).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_job_search_submit" })])
+    );
+    expect(trackedLinks).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          eventName: "career_alias_resolution_target_click",
+          eventPayload: expect.objectContaining({
+            subjectKind: "job_slug",
+            subjectKey: "data-scientists",
+            entrySurface: "career_alias_disambiguation",
+            routeFamily: "alias_resolution",
+          }),
+        }),
+        expect.objectContaining({
+          eventName: "career_alias_resolution_target_click",
+          eventPayload: expect.objectContaining({
+            subjectKind: "family_slug",
+            subjectKey: "computer-and-information-technology",
+            entrySurface: "career_alias_disambiguation",
+            routeFamily: "alias_resolution",
+          }),
+        }),
+      ])
+    );
+    expect(trackedLinks).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ eventName: "career_job_search_result_click" }),
+      ])
+    );
+
+    vi.resetModules();
+    const noResultCapture = installCareerTrackingMocks();
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+    vi.doMock("@/lib/i18n/locales", async () => {
+      const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
+      return {
+        ...actual,
+        localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
+      };
+    });
+    vi.doMock("@/lib/career/api/fetchCareerAliasResolution", () => ({
+      fetchCareerAliasResolution: vi.fn(async () => ({
+        bundle_kind: "career_alias_resolution",
+        resolution: {
+          resolved_kind: "none",
+        },
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
+      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
+        summary_kind: "career_first_wave_readiness",
+        summary_version: "career.release.first_wave_readiness.v1",
+        wave_name: "career_first_wave_10",
+        counts: {
+          total: 10,
+          publish_ready: 6,
+          blocked_override_eligible: 2,
+          blocked_not_safely_remediable: 2,
+          blocked_total: 4,
+          partial_raw: 0,
+        },
+        occupations: [],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
+      fetchCareerSearch: vi.fn(async () => ({
+        bundle_kind: "career_search_results",
+        data: [],
+      })),
+    }));
+    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
+      fetchCareerJobIndex: vi.fn(async () => {
+        throw new Error("job index fetch should not run in search mode");
+      }),
+    }));
+
+    const { default: CareerJobsPageNoResult } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const noResultPage = await CareerJobsPageNoResult({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({ q: "unknown-role" }),
+    });
+    renderToStaticMarkup(noResultPage as ReactNode);
+
+    expect(noResultCapture.pageViewEvents).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ eventName: "career_alias_resolution_submit" }),
+        expect.objectContaining({
+          eventName: "career_alias_resolution_no_result",
+          properties: expect.objectContaining({
+            entry_surface: "career_alias_disambiguation",
+            source_page_type: "career_alias_disambiguation",
+            route_family: "alias_resolution",
+            subject_kind: "none",
+            query_mode: "query",
+          }),
+        }),
+      ])
+    );
+    expect(noResultCapture.pageViewEvents).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventName: "career_job_search_submit" })])
+    );
   });
 
   it("wires recommendation index and matched-job clicks without flattening them into job clicks", async () => {

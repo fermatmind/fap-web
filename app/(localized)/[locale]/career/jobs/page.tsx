@@ -142,6 +142,8 @@ export default async function CareerJobsPage({
   const aliasResolution = hasSearchQuery
     ? adaptCareerAliasResolution({ locale, payload: aliasResolutionPayload })
     : null;
+  const hasAliasResolution = aliasResolution !== null;
+  const isAliasResolutionNoResult = aliasResolution?.resolution.resolvedKind === "none";
 
   if (aliasResolution?.resolution.resolvedKind === "occupation") {
     redirect(buildCareerJobFrontendUrl(locale, aliasResolution.resolution.occupation.canonicalSlug));
@@ -177,17 +179,18 @@ export default async function CareerJobsPage({
         adaptCareerSearch({ locale, payload: searchPayload })
       )
     : [];
-  const pageViewEventName = hasSearchQuery
+  const shouldTrackSearchSubmitPageView = hasSearchQuery && !hasAliasResolution;
+  const pageViewEventName = shouldTrackSearchSubmitPageView
     ? CAREER_TRACKING_EVENTS.jobSearchSubmit
     : CAREER_TRACKING_EVENTS.jobIndexView;
   const pageViewPayload = buildCareerAttributionPayload({
     locale,
-    entrySurface: hasSearchQuery ? "career_job_search" : "career_job_index",
-    sourcePageType: hasSearchQuery ? "career_job_search" : "career_job_index",
-    targetAction: hasSearchQuery ? "submit_job_search" : "view_surface",
+    entrySurface: shouldTrackSearchSubmitPageView ? "career_job_search" : "career_job_index",
+    sourcePageType: shouldTrackSearchSubmitPageView ? "career_job_search" : "career_job_index",
+    targetAction: shouldTrackSearchSubmitPageView ? "submit_job_search" : "view_surface",
     landingPath: jobsPath,
-    routeFamily: hasSearchQuery ? "jobs_search" : "jobs",
-    queryMode: hasSearchQuery ? "query" : "non_query",
+    routeFamily: shouldTrackSearchSubmitPageView ? "jobs_search" : "jobs",
+    queryMode: shouldTrackSearchSubmitPageView ? "query" : "non_query",
   });
   const readyExposureCards = hasSearchQuery ? searchResults : jobs;
   const readyExposureSurface = hasSearchQuery ? "career_job_search_results" : "career_job_index";
@@ -203,7 +206,40 @@ export default async function CareerJobsPage({
         eventName={pageViewEventName}
         properties={pageViewPayload}
         trackingKey={hasSearchQuery ? `query:${submittedQuery}` : "non_query"}
+        enabled={!hasSearchQuery || shouldTrackSearchSubmitPageView}
       />
+      {hasAliasResolution ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.aliasResolutionSubmit}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_alias_disambiguation",
+            sourcePageType: "career_alias_disambiguation",
+            targetAction: "submit_alias_resolution",
+            landingPath: jobsPath,
+            routeFamily: "alias_resolution",
+            subjectKind: "none",
+            queryMode: "query",
+          })}
+          trackingKey={`alias-resolution-submit:${submittedQuery}`}
+        />
+      ) : null}
+      {isAliasResolutionNoResult ? (
+        <AnalyticsPageViewTracker
+          eventName={CAREER_TRACKING_EVENTS.aliasResolutionNoResult}
+          properties={buildCareerAttributionPayload({
+            locale,
+            entrySurface: "career_alias_disambiguation",
+            sourcePageType: "career_alias_disambiguation",
+            targetAction: "no_alias_resolution_match",
+            landingPath: jobsPath,
+            routeFamily: "alias_resolution",
+            subjectKind: "none",
+            queryMode: "query",
+          })}
+          trackingKey={`alias-resolution-no-result:${submittedQuery}`}
+        />
+      ) : null}
       {readyExposureCards.map((item) => (
         <AnalyticsPageViewTracker
           key={`career-ready-exposure:${item.identity.canonicalSlug}:${readyExposureSurface}`}
@@ -279,6 +315,7 @@ export default async function CareerJobsPage({
           {hasAmbiguousResolution ? (
             <CareerAliasResolutionCandidates
               locale={locale}
+              landingPath={jobsPath}
               candidates={ambiguousCandidates}
             />
           ) : (

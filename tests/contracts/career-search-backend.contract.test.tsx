@@ -238,6 +238,7 @@ describe("career search backend contract", () => {
 
     expect(html).toContain("career-job-search-results");
     expect(html).toContain("career-job-search-card");
+    expect(html).not.toContain("career-alias-resolution-candidate-link");
     expect(html).toContain("Data Scientists");
     expect(html).toContain("Matched text");
     expect(html).not.toContain("Salary:");
@@ -513,6 +514,7 @@ describe("career search backend contract", () => {
     expect(html).toContain("career-alias-resolution-candidate");
     expect(html).toContain("data-candidate-kind=\"occupation\"");
     expect(html).toContain("data-candidate-kind=\"family\"");
+    expect(html).toContain("career-alias-resolution-candidate-link");
     expect(html).toContain("Occupation candidates");
     expect(html).toContain("Family candidates");
     expect(html).toContain("Data Scientists");
