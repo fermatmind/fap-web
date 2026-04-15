@@ -415,7 +415,7 @@ function resolveRichResultGate(
       reportData.locked === true ||
       variant === "free" ||
       accessLevel === "free" ||
-      (modulesAllowed.size > 0 && !modulesAllowed.has("full")),
+      (scaleCode === "MBTI" && modulesAllowed.size > 0 && !modulesAllowed.has("full")),
     modulesAllowed,
     modulesPreview,
     previewSections: new Set((previewView?.visibleSections ?? []).map((item) => item.toLowerCase())),

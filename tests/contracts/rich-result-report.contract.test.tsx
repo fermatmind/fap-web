@@ -726,6 +726,74 @@ describe("RichResultReport", () => {
     expect(screen.getAllByText("Legacy Big Five copy remains unchanged.").length).toBeGreaterThan(0);
   });
 
+  it("keeps BIG5 full runtime payload fully readable even when paid-tagged sections are present", () => {
+    const reportData = {
+      ok: true,
+      locked: false,
+      variant: "full",
+      access_level: "full",
+      modules_allowed: ["big5_core", "big5_full", "big5_action_plan"],
+      offers: [],
+      report: {
+        scale_code: "BIG5_OCEAN",
+        sections: [
+          {
+            key: "traits.overview",
+            title: "Traits Overview",
+            access_level: "free",
+            blocks: [{ kind: "paragraph", body: "Visible overview." }],
+          },
+          {
+            key: "growth.next_actions",
+            title: "Next actions",
+            access_level: "paid",
+            module_code: "big5_action_plan",
+            blocks: [{ kind: "paragraph", body: "Paid-tagged block should still render in full path." }],
+          },
+        ],
+      },
+      meta: {
+        scale_code: "BIG5_OCEAN",
+      },
+    } as ReportResponse;
+
+    render(
+      <RichResultReport
+        locale="zh"
+        reportData={reportData}
+        accessProjection={{
+          attemptId: "attempt-big5-full",
+          accessState: "ready",
+          reportState: "ready",
+          pdfState: "ready",
+          unlockStage: "full",
+          unlockSource: "payment",
+          reasonCode: "report_ready",
+          accessLevel: "full",
+          variant: "full",
+          projectionVersion: 1,
+          modulesAllowed: ["big5_core", "big5_full", "big5_action_plan"],
+          modulesPreview: [],
+          actions: {
+            pageHref: "/zh/result/attempt-big5-full",
+            pdfHref: "/api/v0.3/attempts/attempt-big5-full/report.pdf",
+            waitHref: null,
+            historyHref: "/zh/history/big5",
+            lookupHref: "/zh/orders/lookup",
+          },
+          meta: {
+            producedAt: "2026-03-26T00:00:00Z",
+            refreshedAt: "2026-03-26T00:00:00Z",
+          },
+        }}
+      />
+    );
+
+    expect(screen.queryByTestId("big5-locked-sections")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("big5-offer-surface")).not.toBeInTheDocument();
+    expect(screen.queryByText("解锁完整报告")).not.toBeInTheDocument();
+  });
+
   it("renders BIG5 comparative guidance without mutating the foundation summary", () => {
     const reportData = {
       ok: true,
@@ -859,5 +927,22 @@ describe("RichResultReport", () => {
     expect(screen.getByText("BIG5 Full Report")).toBeInTheDocument();
     expect(screen.getByText("¥99")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "解锁后下载 PDF" })).toBeDisabled();
+  });
+
+  it("keeps MBTI preview locking behavior when full module is absent", () => {
+    const reportData = createReportFixture();
+    reportData.locked = true;
+    reportData.variant = "free";
+    reportData.access_level = "free";
+    reportData.modules_allowed = ["core_free"];
+    reportData.modules_preview = ["core_full"];
+    reportData.offers = [];
+    reportData.cta = createCustomCta();
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    const stickyRail = getDesktopStickyRail();
+    expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
   });
 });
