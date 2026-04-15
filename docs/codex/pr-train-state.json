@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T15:53:50Z",
+  "updated_at": "2026-04-15T16:15:09Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -938,9 +938,9 @@
     "PR-F39": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "merged",
       "branch": "codex/pr-f39-career-search-ux-hardening-family-fallback-polish",
-      "commit_sha": "3b9c0d5c0f57ede4369cbe769a36fa7a630cd0f4",
+      "commit_sha": "0f386f22d30fdbcea28711d902447c09f1c9520b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/453",
       "checks": {
         "local": [
@@ -961,9 +961,65 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "passed",
+            "details_url": ""
+          },
+          {
+            "name": "contracts",
+            "status": "passed",
+            "details_url": ""
+          }
+        ]
       },
       "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-15T15:56:23Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-F40": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/pr-f40-career-renderer-contract-completion",
+      "commit_sha": "c7e540b1814453137259b5c077f4f1f0f6332dfe",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/454",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/family/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' tests/contracts/career-renderer-primitives.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-family-hub.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-renderer-primitives.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-family-hub.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24465365779/job/71490800134"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24465365779/job/71490800155"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions build/contracts failed immediately with no executable steps, matching the current repository CI startup failure pattern rather than a locally reproducible regression.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

@@ -259,6 +259,8 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("career-transition-preview-comparison");
     expect(html).toContain("career-transition-preview-footer");
     expect(html).toContain("career-transition-preview-delta");
+    expect(html).toContain("career-recommendation-renderer-status");
+    expect(html).toContain("data-renderer-state=\"restricted\"");
     expect(html).toContain("Product Manager");
     expect(html).toContain("Bachelor&#x27;s degree");
     expect(html).toContain("Moderate-term");
@@ -300,10 +302,18 @@ describe("career recommendation backend page contract", () => {
     const transitionPreviewIndex = html.indexOf("career-transition-preview");
     const matchedJobsIndex = html.indexOf("career-recommendation-matched-jobs-status");
     const companionLinksIndex = html.indexOf("career-recommendation-companion-links");
+    const rendererStatusIndex = html.indexOf("career-recommendation-renderer-status");
+    const warningIndex = html.indexOf("career-recommendation-warning-banner");
+    const trustIndex = html.indexOf("career-recommendation-trust-strip");
+    const sceneEntryIndex = html.indexOf("career-recommendation-scene-entry");
 
     expect(explainabilityIndex).toBeGreaterThan(-1);
     expect(transitionPreviewIndex).toBeGreaterThan(explainabilityIndex);
-    expect(matchedJobsIndex).toBeGreaterThan(transitionPreviewIndex);
+    expect(rendererStatusIndex).toBeGreaterThan(transitionPreviewIndex);
+    expect(warningIndex).toBeGreaterThan(rendererStatusIndex);
+    expect(trustIndex).toBeGreaterThan(warningIndex);
+    expect(sceneEntryIndex).toBeGreaterThan(trustIndex);
+    expect(matchedJobsIndex).toBeGreaterThan(sceneEntryIndex);
     expect(companionLinksIndex).toBeGreaterThan(matchedJobsIndex);
   });
 
