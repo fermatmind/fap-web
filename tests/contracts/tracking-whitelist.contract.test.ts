@@ -4,7 +4,11 @@ describe("tracking whitelist contract", () => {
   it("keeps speculative career events out of the supported tracking vocabulary", () => {
     expect(Object.values(TRACKING_EVENTS)).toContain("career_family_hub_view");
     expect(Object.values(TRACKING_EVENTS)).toContain("career_family_hub_child_click");
+    expect(Object.values(TRACKING_EVENTS)).toContain("career_alias_resolution_submit");
+    expect(Object.values(TRACKING_EVENTS)).toContain("career_alias_resolution_target_click");
+    expect(Object.values(TRACKING_EVENTS)).toContain("career_alias_resolution_no_result");
     expect(Object.values(TRACKING_EVENTS)).not.toContain("career_alias_search");
+    expect(Object.values(TRACKING_EVENTS)).not.toContain("career_alias_disambiguation_view");
     expect(Object.values(TRACKING_EVENTS)).not.toContain("career_shortlist_add");
     expect(Object.values(TRACKING_EVENTS)).not.toContain("career_view");
     expect(Object.values(TRACKING_EVENTS)).not.toContain("career_family_hub_ready_surface_exposed");
@@ -193,6 +197,42 @@ describe("tracking whitelist contract", () => {
     });
 
     expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_READY_SURFACE_EXPOSED, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_SUBMIT, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_TARGET_CLICK, payload)).toEqual({
+      locale: "en",
+      entry_surface: "career_job_search_results",
+      source_page_type: "career_job_search",
+      target_action: "open_job_detail",
+      landing_path: "/en/career/jobs",
+      route_family: "jobs_search",
+      subject_kind: "job_slug",
+      subject_key: "software-engineer",
+      query_mode: "query",
+    });
+
+    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_ALIAS_RESOLUTION_NO_RESULT, payload)).toEqual({
       locale: "en",
       entry_surface: "career_job_search_results",
       source_page_type: "career_job_search",

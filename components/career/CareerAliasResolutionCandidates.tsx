@@ -1,14 +1,17 @@
-import Link from "next/link";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
 import type { CareerAliasResolutionAmbiguousCandidateAdapter } from "@/lib/career/adapters/types";
 import type { Locale } from "@/lib/i18n/locales";
 
 type CareerAliasResolutionCandidatesProps = {
   locale: Locale;
+  landingPath: string;
   candidates: CareerAliasResolutionAmbiguousCandidateAdapter[];
 };
 
 export function CareerAliasResolutionCandidates({
   locale,
+  landingPath,
   candidates,
 }: CareerAliasResolutionCandidatesProps) {
   if (candidates.length === 0) {
@@ -82,12 +85,25 @@ export function CareerAliasResolutionCandidates({
                             ? "职业岗位"
                             : "Career job"}
                       </p>
-                      <Link
+                      <TrackedCareerLink
                         href={candidate.href}
+                        eventName={CAREER_TRACKING_EVENTS.aliasResolutionTargetClick}
+                        eventPayload={{
+                          locale,
+                          entrySurface: "career_alias_disambiguation",
+                          sourcePageType: "career_alias_disambiguation",
+                          targetAction: "open_alias_resolution_target",
+                          landingPath,
+                          routeFamily: "alias_resolution",
+                          subjectKind: candidate.candidateKind === "family" ? "family_slug" : "job_slug",
+                          subjectKey: candidate.canonicalSlug,
+                          queryMode: "query",
+                        }}
                         className="text-lg font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+                        data-testid="career-alias-resolution-candidate-link"
                       >
                         {candidate.title}
-                      </Link>
+                      </TrackedCareerLink>
                       <p className="m-0 font-mono text-[11px] text-[var(--fm-text-muted)]">{candidate.canonicalSlug}</p>
                     </div>
                     <span className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--fm-text-muted)]">
