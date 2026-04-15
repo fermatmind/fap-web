@@ -119,36 +119,38 @@ describe("schema injection contract", () => {
     expect(aliasSource).not.toContain("getCareerJobBySlug");
   });
 
-  it("career guide list, alias, and landing pages resolve guides from cms helpers", () => {
+  it("career guide list and alias pages resolve guides from cms helpers", () => {
     const listSource = read("app/(localized)/[locale]/career/guides/page.tsx");
     const aliasSource = read("app/(localized)/[locale]/career/[slug]/page.tsx");
-    const landingSource = read("app/(localized)/[locale]/career/page.tsx");
 
     expect(listSource).toContain("listCareerGuidesFromCms");
     expect(listSource).not.toContain("listCareerGuides(");
     expect(aliasSource).toContain("getCareerGuideFromCmsBySlug");
     expect(aliasSource).not.toContain("getCareerGuideBySlug");
-    expect(landingSource).toContain("listCareerGuidesFromCms");
-    expect(landingSource).not.toContain("listCareerGuides(");
   });
 
-  it("career landing page composes backend-backed jobs and recommendations while keeping editorial guides and industries", () => {
+  it("career landing page composes backend-backed jobs/recommendations with explorer shell boundaries", () => {
     const source = read("app/(localized)/[locale]/career/page.tsx");
 
     expect(source).toContain("fetchCareerJobIndex");
     expect(source).toContain("adaptCareerJobIndex");
     expect(source).toContain("fetchCareerRecommendationIndex");
     expect(source).toContain("adaptCareerRecommendationIndex");
+    expect(source).toContain("fetchCareerFirstWaveReadinessSummary");
+    expect(source).toContain("filterJobFacingCardsByFirstWaveSummary");
     expect(source).not.toContain("listCareerJobs(");
     expect(source).not.toContain("CareerRecommendationPanel");
-    expect(source).toContain("listCareerIndustries");
-    expect(source).toContain("listCareerGuidesFromCms");
+    expect(source).toContain("buildCareerFamilyFrontendUrl");
     expect(source).toContain('data-testid="career-landing-search-entry"');
     expect(source).toContain('action={withLocale("/career/jobs")}');
+    expect(source).toContain('formAction={withLocale("/career/resolve")}');
+    expect(source).toContain('data-testid="career-explorer-pathways"');
+    expect(source).toContain('data-testid="career-family-exploration"');
+    expect(source).toContain('data-testid="career-landing-trust-boundary"');
     expect(source).toContain('data-authority-owner="backend_lightweight_jobs"');
     expect(source).toContain('data-authority-owner="backend_lightweight_recommendations"');
-    expect(source).toContain('data-authority-owner="editorial_local_industries"');
-    expect(source).toContain('data-authority-owner="editorial_cms_guides"');
+    expect(source).toContain('data-authority-owner="editorial_ia_shell"');
+    expect(source).toContain('data-authority-owner="editorial_curated_family_paths"');
     expect(source).toContain('data-authority-owner="editorial_cta_only"');
     expect(source).not.toContain("growth_path[0]");
   });

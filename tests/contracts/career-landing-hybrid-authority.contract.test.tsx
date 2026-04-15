@@ -11,11 +11,23 @@ afterEach(() => {
 describe("career landing hybrid authority contract", () => {
   it("keeps explicit section-level authority ownership on the landing page", async () => {
     vi.doMock("next/link", () => ({
-      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
-        <a href={href} {...props}>
-          {children}
-        </a>
-      ),
+      default: ({
+        href,
+        children,
+        prefetch: _prefetch,
+        ...props
+      }: {
+        href: string;
+        children: ReactNode;
+        prefetch?: boolean;
+      }) => {
+        void _prefetch;
+        return (
+          <a href={href} {...props}>
+            {children}
+          </a>
+        );
+      },
     }));
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
@@ -122,28 +134,43 @@ describe("career landing hybrid authority contract", () => {
     expect(html).toContain('data-authority-owner="editorial_local_wrapper"');
     expect(html).toContain('data-testid="career-landing-recommendation-preview"');
     expect(html).toContain('data-authority-owner="backend_lightweight_recommendations"');
-    expect(html).toContain('data-testid="career-landing-guides"');
-    expect(html).toContain('data-authority-owner="editorial_cms_guides"');
-    expect(html).toContain('data-testid="career-landing-industries"');
-    expect(html).toContain('data-authority-owner="editorial_local_industries"');
+    expect(html).toContain('data-testid="career-explorer-pathways"');
+    expect(html).toContain('data-authority-owner="editorial_ia_shell"');
+    expect(html).toContain('data-testid="career-family-exploration"');
+    expect(html).toContain('data-authority-owner="editorial_curated_family_paths"');
+    expect(html).toContain('data-testid="career-landing-trust-boundary"');
+    expect(html).toContain('data-authority-owner="editorial_cta_only"');
     expect(html).toContain('data-testid="career-landing-search-entry"');
     expect(html).toContain('action="/en/career/jobs"');
+    expect(html).toContain('formAction="/en/career/resolve"');
     expect(html).toContain('name="q"');
     expect(html).toContain("INTJ Career Match");
     expect(html).toContain("Data Scientists");
-    expect(html).toContain("Browse recommendations");
-    expect(html).toContain("Keep exploring career paths");
+    expect(html).toContain("Choose your exploration path");
+    expect(html).toContain("Career family exploration layer");
     expect(html).not.toContain("See growth path");
     expect(html).not.toContain("career-personalized-status");
   });
 
   it("hides non-stable job cards from the landing jobs preview while keeping recommendation preview intact", async () => {
     vi.doMock("next/link", () => ({
-      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
-        <a href={href} {...props}>
-          {children}
-        </a>
-      ),
+      default: ({
+        href,
+        children,
+        prefetch: _prefetch,
+        ...props
+      }: {
+        href: string;
+        children: ReactNode;
+        prefetch?: boolean;
+      }) => {
+        void _prefetch;
+        return (
+          <a href={href} {...props}>
+            {children}
+          </a>
+        );
+      },
     }));
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),

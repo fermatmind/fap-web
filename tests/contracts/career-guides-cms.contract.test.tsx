@@ -302,7 +302,6 @@ describe("career guides frontend boundary contract", () => {
     const listSource = read("app/(localized)/[locale]/career/guides/page.tsx");
     const detailSource = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
     const aliasSource = read("app/(localized)/[locale]/career/[slug]/page.tsx");
-    const landingSource = read("app/(localized)/[locale]/career/page.tsx");
 
     expect(adapterSource).toContain("toApiLocale");
     expect(adapterSource).not.toContain("getCareerGuideBySlug");
@@ -326,11 +325,6 @@ describe("career guides frontend boundary contract", () => {
     expect(aliasSource).toContain("getCareerGuideFromCmsBySlug");
     expect(aliasSource).not.toContain("getCareerGuideBySlug");
     expect(aliasSource).toContain('export const dynamic = "force-dynamic"');
-    expect(landingSource).toContain("listCareerGuidesFromCms");
-    expect(landingSource).not.toContain("listCareerGuides(");
-    expect(landingSource).toContain('data-authority-owner="editorial_cms_guides"');
-    expect(landingSource).toContain("perPage: 4");
-    expect(landingSource).toContain(".slice(0, 4)");
   });
 
   it("calls notFound when the cms detail lookup misses", async () => {

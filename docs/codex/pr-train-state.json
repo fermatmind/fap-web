@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T14:33:49Z",
+  "updated_at": "2026-04-15T15:27:14Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -868,6 +868,40 @@
           },
           {
             "command": "pnpm vitest run tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/career-resolve-surface.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F38": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-f38-career-explorer-shell-surface-contract",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/career-content.contract.test.ts tests/contracts/career-guides-cms.contract.test.tsx tests/contracts/career-explorer-shell.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/career-content.contract.test.ts tests/contracts/career-guides-cms.contract.test.tsx tests/contracts/career-explorer-shell.contract.test.tsx",
             "status": "passed"
           }
         ],
