@@ -1,5 +1,7 @@
-import Link from "next/link";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
 import type { CareerFamilyHubAdapter } from "@/lib/career/adapters/types";
+import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import type { Locale } from "@/lib/i18n/locales";
 
 type CareerFamilyHubPageProps = {
@@ -27,6 +29,7 @@ export function CareerFamilyHubPage({
   hub,
 }: CareerFamilyHubPageProps) {
   const hasVisibleChildren = hub.visibleChildren.length > 0;
+  const landingPath = buildCareerFamilyFrontendUrl(locale, hub.family.canonicalSlug);
 
   return (
     <section className="space-y-6" data-testid="career-family-hub">
@@ -95,12 +98,24 @@ export function CareerFamilyHubPage({
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="space-y-1">
                     <p className="m-0 font-mono text-[11px] text-[var(--fm-text-muted)]">{child.canonicalSlug}</p>
-                    <Link
+                    <TrackedCareerLink
                       href={child.href}
+                      eventName={CAREER_TRACKING_EVENTS.familyHubChildClick}
+                      eventPayload={{
+                        locale,
+                        entrySurface: "career_family_hub",
+                        sourcePageType: "career_family_hub",
+                        targetAction: "open_family_hub_child",
+                        landingPath,
+                        routeFamily: "family_hub",
+                        subjectKind: "job_slug",
+                        subjectKey: child.canonicalSlug,
+                        queryMode: "non_query",
+                      }}
                       className="text-lg font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                     >
                       {child.title}
-                    </Link>
+                    </TrackedCareerLink>
                   </div>
                   <div className="text-right text-xs text-[var(--fm-text-muted)]">
                     <p className="m-0">reviewer_status: {child.trustSummary.reviewerStatus ?? "unknown"}</p>

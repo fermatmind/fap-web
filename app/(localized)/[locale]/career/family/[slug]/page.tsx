@@ -3,11 +3,14 @@ import { notFound } from "next/navigation";
 import { CareerFamilyHubPage } from "@/components/career/CareerFamilyHubPage";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
 import type { CareerFamilyHubAdapter } from "@/lib/career/adapters/types";
+import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
 import { buildCareerFamilyFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
+import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
@@ -118,8 +121,24 @@ export default async function CareerFamilyPage({
     notFound();
   }
 
+  const landingPath = localizedPath(`/career/family/${hub.family.canonicalSlug}`, locale);
+
   return (
     <>
+      <AnalyticsPageViewTracker
+        eventName={CAREER_TRACKING_EVENTS.familyHubView}
+        properties={buildCareerAttributionPayload({
+          locale,
+          entrySurface: "career_family_hub",
+          sourcePageType: "career_family_hub",
+          targetAction: "view_family_hub",
+          landingPath,
+          routeFamily: "family_hub",
+          subjectKind: "family_slug",
+          subjectKey: hub.family.canonicalSlug,
+          queryMode: "non_query",
+        })}
+      />
       {hub.structuredData.collectionPage ? (
         <JsonLd id="career-family-collection-jsonld" data={hub.structuredData.collectionPage} />
       ) : null}

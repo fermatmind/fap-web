@@ -7,6 +7,7 @@ export const CAREER_ROUTE_FAMILIES = [
   "jobs",
   "jobs_search",
   "job_detail",
+  "family_hub",
   "recommendations",
   "recommendation_detail",
 ] as const;
@@ -19,6 +20,7 @@ export const CAREER_ENTRY_SURFACES = [
   "career_job_search",
   "career_job_search_results",
   "career_job_detail",
+  "career_family_hub",
   "career_recommendation_index",
   "career_recommendation_detail",
   "career_recommendation_detail_matched_jobs",
@@ -30,11 +32,12 @@ export const CAREER_SOURCE_PAGE_TYPES = [
   "career_job_index",
   "career_job_search",
   "career_job_detail",
+  "career_family_hub",
   "career_recommendation_index",
   "career_recommendation_detail",
 ] as const;
 
-export const CAREER_SUBJECT_KINDS = ["none", "job_slug", "recommendation_type"] as const;
+export const CAREER_SUBJECT_KINDS = ["none", "family_slug", "job_slug", "recommendation_type"] as const;
 
 export const CAREER_QUERY_MODES = ["query", "non_query"] as const;
 
@@ -104,11 +107,13 @@ export const CAREER_TRACKING_EVENTS = {
   landingView: TRACKING_EVENTS.CAREER_LANDING_VIEW,
   jobIndexView: TRACKING_EVENTS.CAREER_JOB_INDEX_VIEW,
   jobDetailView: TRACKING_EVENTS.CAREER_JOB_DETAIL_VIEW,
+  familyHubView: TRACKING_EVENTS.CAREER_FAMILY_HUB_VIEW,
   recommendationIndexView: TRACKING_EVENTS.CAREER_RECOMMENDATION_INDEX_VIEW,
   recommendationDetailView: TRACKING_EVENTS.CAREER_RECOMMENDATION_DETAIL_VIEW,
   jobSearchSubmit: TRACKING_EVENTS.CAREER_JOB_SEARCH_SUBMIT,
   jobSearchResultClick: TRACKING_EVENTS.CAREER_JOB_SEARCH_RESULT_CLICK,
   jobIndexResultClick: TRACKING_EVENTS.CAREER_JOB_INDEX_RESULT_CLICK,
+  familyHubChildClick: TRACKING_EVENTS.CAREER_FAMILY_HUB_CHILD_CLICK,
   recommendationResultClick: TRACKING_EVENTS.CAREER_RECOMMENDATION_RESULT_CLICK,
   recommendationMatchedJobClick: TRACKING_EVENTS.CAREER_RECOMMENDATION_MATCHED_JOB_CLICK,
   transitionPreviewView: TRACKING_EVENTS.CAREER_TRANSITION_PREVIEW_VIEW,

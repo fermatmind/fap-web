@@ -74,6 +74,13 @@ function read(relPath: string): string {
 }
 
 describe("career attribution payload builder contract", () => {
+  it("exports family-hub events through the shared career tracking registry", async () => {
+    const { CAREER_TRACKING_EVENTS } = await import("@/lib/career/attribution");
+
+    expect(CAREER_TRACKING_EVENTS.familyHubView).toBe("career_family_hub_view");
+    expect(CAREER_TRACKING_EVENTS.familyHubChildClick).toBe("career_family_hub_child_click");
+  });
+
   it("re-emits search-mode page views when the tracking key changes on the same pathname", async () => {
     vi.doMock("next/navigation", () => ({
       usePathname: vi.fn(() => "/en/career/jobs"),
@@ -131,6 +138,30 @@ describe("career attribution payload builder contract", () => {
       subject_kind: "job_slug",
       subject_key: "data-scientists",
       query_mode: "query",
+    });
+
+    expect(
+      buildCareerAttributionPayload({
+        locale: "en",
+        entrySurface: "career_family_hub",
+        sourcePageType: "career_family_hub",
+        targetAction: "view_family_hub",
+        landingPath: "/en/career/family/data-and-ai",
+        routeFamily: "family_hub",
+        subjectKind: "family_slug",
+        subjectKey: "data-and-ai",
+        queryMode: "non_query",
+      })
+    ).toEqual({
+      locale: "en",
+      entry_surface: "career_family_hub",
+      source_page_type: "career_family_hub",
+      target_action: "view_family_hub",
+      landing_path: "/en/career/family/data-and-ai",
+      route_family: "family_hub",
+      subject_kind: "family_slug",
+      subject_key: "data-and-ai",
+      query_mode: "non_query",
     });
   });
 
@@ -210,6 +241,8 @@ describe("career attribution page wiring contract", () => {
       "app/(localized)/[locale]/career/page.tsx",
       "app/(localized)/[locale]/career/jobs/page.tsx",
       "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
+      "app/(localized)/[locale]/career/family/[slug]/page.tsx",
+      "components/career/CareerFamilyHubPage.tsx",
       "app/(localized)/[locale]/career/recommendations/page.tsx",
       "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
       "components/analytics/TrackedCareerLink.tsx",
@@ -221,6 +254,8 @@ describe("career attribution page wiring contract", () => {
     expect(trackedSources).not.toContain("career_view");
     expect(trackedSources).not.toContain("career_job_detail_cta_click");
     expect(trackedSources).not.toContain("career_blocked_surface_exposed");
+    expect(trackedSources).not.toContain("career_family_hub_ready_surface_exposed");
+    expect(trackedSources).not.toContain("career_family_hub_blocked_surface_exposed");
   });
 
   it("wires landing view, ready exposure, and landing preview clicks through the shared career event set", async () => {
