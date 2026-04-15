@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T16:59:54Z",
+  "updated_at": "2026-04-15T23:39:40Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1028,15 +1028,43 @@
     "PR-F41": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f41-career-strain-radar-implementation",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "8cdc110e6bf656a2f0c20ef92df66dcddf554440",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/455",
       "checks": {
-        "local": [],
-        "github": []
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' components/career/StrainRadar.tsx tests/contracts/career-strain-radar.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-strain-radar.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24483995353/job/71554677477"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24483995353/job/71554677468"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions build/contracts failed immediately with no executable steps, matching the current repository CI startup failure pattern rather than a locally reproducible regression.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
