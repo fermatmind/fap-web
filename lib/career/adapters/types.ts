@@ -222,6 +222,15 @@ export type CareerTransitionPreviewDeltaEntryAdapter = {
   direction: CareerTransitionPreviewDeltaDirection;
 };
 
+export type CareerTransitionBridgeStepTimeHorizon = "days_0_30" | "days_31_60" | "days_61_90";
+
+export type CareerTransitionBridgeStepAdapter = {
+  stepKey: string;
+  title: string;
+  description: string;
+  timeHorizon: CareerTransitionBridgeStepTimeHorizon;
+};
+
 export type CareerTransitionPreviewAdapter = {
   pathType: string;
   steps?: string[];
@@ -245,6 +254,11 @@ export type CareerTransitionPreviewAdapter = {
     reviewerStatus: string | null;
     reasonCodes: string[];
   };
+  whyThisPath: string | null;
+  whatIsLost: string | null;
+  bridgeSteps90d: CareerTransitionBridgeStepAdapter[];
+  rationaleCodes: string[];
+  tradeoffCodes: string[];
   seoContract: CareerSeoContractAdapter;
 };
 

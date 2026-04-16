@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-15T23:41:00Z",
+  "updated_at": "2026-04-16T00:08:47Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -14,7 +14,24 @@
       "commit_sha": "",
       "pr_url": "",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' components/career/transition/*.tsx tests/contracts/career-transition-visualization.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-renderer-primitives.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-transition-visualization.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-renderer-primitives.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
         "github": []
       },
       "failure_reason": "",
@@ -1028,9 +1045,9 @@
     "PR-F41": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "merged",
       "branch": "codex/pr-f41-career-strain-radar-implementation",
-      "commit_sha": "0cc7e91b03da61a6c945108beb9c3e8005d1ecae",
+      "commit_sha": "4be14dfcba318810bfd8ed62aaa9c6ff45bb629d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/455",
       "checks": {
         "local": [
@@ -1064,7 +1081,24 @@
           }
         ]
       },
-      "failure_reason": "GitHub Actions build/contracts failed immediately with no executable steps, matching the current repository CI startup failure pattern rather than a locally reproducible regression.",
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-16T07:42:15+08:00",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-F42": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-f42-career-transition-path-full-visualization",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

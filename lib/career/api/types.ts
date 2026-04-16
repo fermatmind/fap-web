@@ -144,6 +144,11 @@ export type CareerTransitionPreviewResponseRaw = {
   target_job?: unknown;
   score_summary?: unknown;
   trust_summary?: unknown;
+  why_this_path?: unknown;
+  what_is_lost?: unknown;
+  bridge_steps_90d?: unknown;
+  rationale_codes?: unknown;
+  tradeoff_codes?: unknown;
   seo_contract?: unknown;
   provenance_meta?: unknown;
   data?: unknown;
