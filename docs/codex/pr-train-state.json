@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T16:21:00Z",
+  "updated_at": "2026-04-16T17:53:35Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1459,10 +1459,10 @@
     "PR-F50": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "merged",
       "branch": "codex/pr-f50-career-launch-governance-closure",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "4b0ea7ce94c90582dcc8d8a607c849d723c5a81b",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/465",
       "checks": {
         "local": [
           {
@@ -1479,6 +1479,52 @@
           },
           {
             "command": "pnpm vitest run tests/contracts/career-governance-closure.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-16T16:02:10Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-F51": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/pr-f51-career-v1-minimalist-ui-redesign",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' 'app/(localized)/[locale]/career/resolve/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/family/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' 'app/(localized)/[locale]/datasets/occupations/page.tsx' 'app/(localized)/[locale]/datasets/occupations/method/page.tsx' components/career/v1/*.tsx lib/career/ui/stateCopy.ts tests/contracts/career-v1-ui-primitives.contract.test.tsx tests/contracts/career-v1-entry-redesign.contract.test.tsx tests/contracts/career-v1-recommendation-redesign.contract.test.tsx tests/contracts/career-v1-job-detail-redesign.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/recommendations/page.tsx'",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-v1-ui-primitives.contract.test.tsx tests/contracts/career-v1-entry-redesign.contract.test.tsx tests/contracts/career-v1-recommendation-redesign.contract.test.tsx tests/contracts/career-v1-job-detail-redesign.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-governance-closure.contract.test.tsx tests/contracts/career-conversion-attribution.contract.test.tsx tests/contracts/career-feedback-timeline.contract.test.tsx tests/contracts/career-job-lifecycle-companion.contract.test.tsx tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
             "status": "passed"
           }
         ],

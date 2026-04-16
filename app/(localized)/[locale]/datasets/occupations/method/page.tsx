@@ -24,8 +24,8 @@ export async function generateMetadata({
     title: locale === "zh" ? "职业数据库方法说明" : "Occupations Dataset Method",
     description:
       locale === "zh"
-        ? "342 全量职业数据库的方法、纳入/排除边界与更新审阅纪律说明。"
-        : "Methodology, included/excluded boundaries, and review discipline for the full-342 occupations dataset.",
+        ? "342 个职业数据库的方法、纳入/排除边界与使用说明。"
+        : "Methodology, included/excluded boundaries, and usage notes for the 342-occupation dataset.",
     alternatesByLocale: {
       en: "/en/datasets/occupations/method",
       zh: "/zh/datasets/occupations/method",
@@ -49,31 +49,27 @@ export default async function DatasetOccupationsMethodPage({
   }
 
   return (
-    <Container as="main" className="space-y-6 py-10" data-testid="dataset-method-page">
-      {method.structuredData.article ? <JsonLd id="dataset-method-article-jsonld" data={method.structuredData.article} /> : null}
-      {method.structuredData.breadcrumbList ? (
-        <JsonLd id="dataset-method-breadcrumb-jsonld" data={method.structuredData.breadcrumbList} />
-      ) : null}
+    <main className="min-h-screen bg-slate-50">
+      <Container as="div" className="space-y-8 py-12 md:py-20" data-testid="dataset-method-page">
+        {method.structuredData.article ? <JsonLd id="dataset-method-article-jsonld" data={method.structuredData.article} /> : null}
+        {method.structuredData.breadcrumbList ? <JsonLd id="dataset-method-breadcrumb-jsonld" data={method.structuredData.breadcrumbList} /> : null}
 
-      <DatasetMethodPanel
-        title={method.title}
-        summary={method.summary}
-        sourceSummary={method.sourceSummary}
-        reviewDisciplineSummary={method.reviewDisciplineSummary}
-        included={method.included}
-        excluded={method.excluded}
-        boundaryNotes={method.boundaryNotes}
-        scopeSummary={method.scopeSummary}
-        publication={method.publication}
-      />
+        <DatasetMethodPanel
+          title={method.title}
+          summary={method.summary}
+          sourceSummary={method.sourceSummary}
+          reviewDisciplineSummary={method.reviewDisciplineSummary}
+          included={method.included}
+          excluded={method.excluded}
+          boundaryNotes={method.boundaryNotes}
+          scopeSummary={method.scopeSummary}
+          publication={method.publication}
+        />
 
-      <Link
-        href={localizedPath("/datasets/occupations", locale)}
-        className="inline-flex font-semibold text-[var(--fm-accent)] underline-offset-2 hover:underline"
-        data-testid="dataset-hub-entry"
-      >
-        {locale === "zh" ? "返回数据库主页" : "Back to dataset hub"}
-      </Link>
-    </Container>
+        <Link href={localizedPath("/datasets/occupations", locale)} className="inline-flex font-semibold text-orange-600 underline-offset-2 hover:underline" data-testid="dataset-hub-entry">
+          {locale === "zh" ? "返回数据库主页" : "Back to dataset hub"}
+        </Link>
+      </Container>
+    </main>
   );
 }
