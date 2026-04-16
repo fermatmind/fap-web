@@ -37,6 +37,48 @@ export type CareerWarningsAdapter = {
   blockedClaims: string[];
 };
 
+export type CareerWarningCopyVariant = "control" | "softer" | "strict";
+
+export type CareerExplorerPrimaryPathVariant = "jobs_first" | "guided_discovery";
+
+export type CareerTransitionEmphasisVariant = "balanced" | "risk_first" | "upside_first";
+
+export type CareerRuntimeConfigAdapter = {
+  authorityKind: string;
+  authorityVersion: string;
+  snapshotKey: string;
+  thresholds: {
+    confidence: {
+      publishMin: number;
+      promotionCandidateMin: number;
+      stableMin: number;
+    };
+    warnings: {
+      lowConfidenceThreshold: number;
+      highStrainThreshold: number;
+      aiRiskThreshold: number;
+    };
+    promotion: {
+      nextStepLinksMin: number;
+      strongClaimRequired: boolean;
+    };
+  };
+  experiments: {
+    warningCopy: {
+      enabled: boolean;
+      variant: CareerWarningCopyVariant;
+    };
+    explorerPrimaryPath: {
+      enabled: boolean;
+      variant: CareerExplorerPrimaryPathVariant;
+    };
+    transitionEmphasis: {
+      enabled: boolean;
+      variant: CareerTransitionEmphasisVariant;
+    };
+  };
+};
+
 export type CareerIntegritySummaryAdapter = {
   integrityState: string | null;
   criticalMissingFields: string[];
