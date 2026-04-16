@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T00:08:47Z",
+  "updated_at": "2026-04-16T00:11:46Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1090,15 +1090,26 @@
     "PR-F42": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f42-career-transition-path-full-visualization",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "f554be86206ec5f465f0f22be9bf157ecf5b93b0",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/456",
       "checks": {
         "local": [],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24484946819/job/71557578215"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24484946819/job/71557578226"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions build/contracts failed immediately on PR-F42 with no executable step logs; local validation passed, and remote CI is currently not green.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
