@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T17:53:35Z",
+  "updated_at": "2026-04-16T17:54:38Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1493,10 +1493,10 @@
     "PR-F51": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "branch": "codex/pr-f51-career-v1-minimalist-ui-redesign",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "cf829a4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/466",
       "checks": {
         "local": [
           {
