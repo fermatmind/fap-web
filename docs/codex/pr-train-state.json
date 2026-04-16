@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T15:28:00+08:00",
+  "updated_at": "2026-04-16T07:55:52.358046Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1197,10 +1197,10 @@
     "PR-F45": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f45-career-runtime-config-experiment-wiring",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "58ce0bf",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/460",
       "checks": {
         "local": [
           {
@@ -1220,9 +1220,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24498794456/job/71600044203"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24498794456/job/71600044214"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub checks failed on PR #460: build and contracts failed, while local checks passed.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
