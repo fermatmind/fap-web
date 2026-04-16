@@ -27,8 +27,8 @@ export async function generateMetadata({
     title: locale === "zh" ? "职业数据库（公开）" : "Occupations Dataset Hub",
     description:
       locale === "zh"
-        ? "公开职业数据库入口：发布元数据、下载信息、方法页和可公开筛选维度。"
-        : "Public occupations dataset hub: publication metadata, download information, method page, and public-safe filters.",
+        ? "342 全量职业公开数据库入口：发布元数据、纳入/排除边界、方法页和可公开筛选分布。"
+        : "Full 342 occupations public dataset hub: publication metadata, included/excluded boundaries, method page, and public-safe facet distributions.",
     alternatesByLocale: {
       en: "/en/datasets/occupations",
       zh: "/zh/datasets/occupations",
@@ -65,8 +65,8 @@ export default async function DatasetOccupationsHubPage({
         title={locale === "zh" ? dataset.datasetNameZh : dataset.datasetName}
         summary={
           locale === "zh"
-            ? "该页面只承载公开可消费的数据产品合同，不暴露内部审阅队列与原始证据字段。"
-            : "This page only exposes the public-safe dataset product contract, without leaking internal review queues or raw evidence fields."
+            ? "该页面公开 342 追踪范围下可发布的数据合同，不暴露内部审阅队列与原始证据字段。"
+            : "This page exposes the full-342 public dataset contract while keeping internal review queues and raw evidence fields private."
         }
       >
         <Card data-testid="dataset-collection-summary">
@@ -77,8 +77,9 @@ export default async function DatasetOccupationsHubPage({
             <p className="m-0">Scope: {dataset.datasetScope}</p>
             <p className="m-0">Member kind: {dataset.collectionSummary.memberKind}</p>
             <p className="m-0">Total members: {dataset.collectionSummary.memberCount}</p>
+            <p className="m-0">Included / Excluded: {`${dataset.collectionSummary.includedCount} / ${dataset.collectionSummary.excludedCount}`}</p>
+            <p className="m-0">Public detail (Indexable / Conservative): {`${dataset.collectionSummary.publicDetailIndexableCount} / ${dataset.collectionSummary.publicDetailConservativeCount}`}</p>
             <p className="m-0">Stable / Candidate / Hold: {`${dataset.collectionSummary.stableCount} / ${dataset.collectionSummary.candidateCount} / ${dataset.collectionSummary.holdCount}`}</p>
-            <p className="m-0">Discoverable / Excluded: {`${dataset.collectionSummary.discoverableCount} / ${dataset.collectionSummary.excludedCount}`}</p>
             <p className="m-0">Manifest version: {dataset.collectionSummary.manifestVersion}</p>
           </CardContent>
         </Card>
@@ -87,6 +88,12 @@ export default async function DatasetOccupationsHubPage({
           familyEnabled={dataset.filters.family}
           publishTrackEnabled={dataset.filters.publishTrack}
           indexPostureEnabled={dataset.filters.indexPosture}
+          includedCount={dataset.scopeSummary.includedCount}
+          excludedCount={dataset.scopeSummary.excludedCount}
+          familyFacet={dataset.facetDistributions.family ?? {}}
+          publishTrackFacet={dataset.facetDistributions.publish_track ?? {}}
+          releaseCohortFacet={dataset.facetDistributions.release_cohort ?? {}}
+          publicIndexStateFacet={dataset.facetDistributions.public_index_state ?? {}}
         />
 
         <DatasetDownloadInfo
@@ -110,4 +117,3 @@ export default async function DatasetOccupationsHubPage({
     </Container>
   );
 }
-

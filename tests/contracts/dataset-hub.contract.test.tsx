@@ -17,6 +17,10 @@ describe("dataset hub page contract", () => {
     expect(source).toContain("DatasetHubShell");
     expect(source).toContain("DatasetFilterHub");
     expect(source).toContain("DatasetDownloadInfo");
+    expect(source).toContain("Included / Excluded");
+    expect(source).toContain("publicDetailIndexableCount");
+    expect(source).toContain("publicDetailConservativeCount");
+    expect(source).toContain("dataset.facetDistributions");
     expect(source).toContain("JsonLd");
     expect(source).toContain('id="dataset-hub-jsonld"');
     expect(source).toContain('id="dataset-hub-breadcrumb-jsonld"');
@@ -27,4 +31,3 @@ describe("dataset hub page contract", () => {
     expect(source).not.toContain("fetchCareerRecommendationBundle");
   });
 });
-
