@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T17:56:49Z",
+  "updated_at": "2026-04-16T18:14:50.594Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1493,9 +1493,9 @@
     "PR-F51": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "local_checks_passed",
       "branch": "codex/pr-f51-career-v1-minimalist-ui-redesign",
-      "commit_sha": "cf829a48224d93e94e32e5211ebe5d4dd96dd364",
+      "commit_sha": "5c31111b1027dc22371497839715446dfa49e3e4",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/466",
       "checks": {
         "local": [
@@ -1504,11 +1504,7 @@
             "status": "passed"
           },
           {
-            "command": "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' 'app/(localized)/[locale]/career/resolve/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/family/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' 'app/(localized)/[locale]/datasets/occupations/page.tsx' 'app/(localized)/[locale]/datasets/occupations/method/page.tsx' components/career/v1/*.tsx lib/career/ui/stateCopy.ts tests/contracts/career-v1-ui-primitives.contract.test.tsx tests/contracts/career-v1-entry-redesign.contract.test.tsx tests/contracts/career-v1-recommendation-redesign.contract.test.tsx tests/contracts/career-v1-job-detail-redesign.contract.test.tsx",
-            "status": "passed"
-          },
-          {
-            "command": "pnpm eslint 'app/(localized)/[locale]/career/recommendations/page.tsx'",
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' 'app/(localized)/[locale]/career/resolve/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/family/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' 'app/(localized)/[locale]/datasets/occupations/page.tsx' 'app/(localized)/[locale]/datasets/occupations/method/page.tsx' components/career/v1/*.tsx components/career/transition/CareerTransitionPathPanel.tsx components/analytics/TrackedCareerLink.tsx components/analytics/TrackedEntryCtaLink.tsx components/content/MbtiSceneEntrySection.tsx lib/career/ui/stateCopy.ts lib/career/adapters/adaptCareerTransitionPreview.ts lib/career/adapters/types.ts tests/contracts/career-v1-ui-primitives.contract.test.tsx tests/contracts/career-v1-entry-redesign.contract.test.tsx tests/contracts/career-v1-recommendation-redesign.contract.test.tsx tests/contracts/career-v1-job-detail-redesign.contract.test.tsx",
             "status": "passed"
           },
           {
@@ -1524,24 +1520,25 @@
             "status": "passed"
           },
           {
+            "command": "pnpm vitest run tests/contracts/career-explorer-shell.contract.test.tsx tests/contracts/career-search-backend.contract.test.tsx tests/contracts/career-query-canonical.contract.test.tsx tests/contracts/career-resolve-surface.contract.test.tsx tests/contracts/career-family-hub.contract.test.tsx tests/contracts/career-recommendation-backend-page.contract.test.tsx tests/contracts/career-recommendation-public.contract.test.tsx tests/contracts/career-recommendation-matched-job-exposure.contract.test.ts tests/contracts/career-renderer-primitives.contract.test.tsx tests/contracts/career-claim-gate-render.contract.test.tsx tests/contracts/career-transition-visualization.contract.test.tsx tests/contracts/career-attribution.contract.test.tsx tests/contracts/schema-present.contract.test.ts tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-transition-preview.contract.test.tsx tests/contracts/career-jobs-cleanup.contract.test.ts tests/contracts/mbti-entry-surface.contract.test.ts tests/contracts/mbti-scene-depth.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm build",
+            "status": "passed"
+          },
+          {
             "command": "git diff --check",
             "status": "passed"
           }
         ],
-        "github": [
-          {
-            "name": "build",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24525654525/job/71695040611"
-          },
-          {
-            "name": "contracts",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24525654525/job/71695040604"
-          }
-        ]
+        "github": []
       },
-      "failure_reason": "GitHub Actions build/contracts jobs failed immediately with no retrievable logs or step output from gh run view; local required validation passed, and PR-F51 merge_policy does not require GitHub checks.",
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
