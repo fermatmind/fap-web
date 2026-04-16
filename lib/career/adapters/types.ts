@@ -916,19 +916,33 @@ export type CareerDatasetHubAdapter = {
   collectionSummary: {
     memberKind: string;
     memberCount: number;
+    includedCount: number;
+    excludedCount: number;
+    publicDetailIndexableCount: number;
+    publicDetailConservativeCount: number;
     stableCount: number;
     candidateCount: number;
     holdCount: number;
     discoverableCount: number;
-    excludedCount: number;
     manifestVersion: string;
     selectionPolicyVersion: string;
+    releaseCohortCounts: Record<string, number>;
+    publicIndexStateCounts: Record<string, number>;
+    strongIndexDecisionCounts: Record<string, number>;
+    trackingCounts: Record<string, number | boolean>;
+    facetDistributions: Record<string, Record<string, number>>;
   };
   filters: {
     family: boolean;
     publishTrack: boolean;
     indexPosture: boolean;
   };
+  scopeSummary: {
+    memberCount: number;
+    includedCount: number;
+    excludedCount: number;
+  };
+  facetDistributions: Record<string, Record<string, number>>;
   methodUrl: string;
   structuredData: {
     dataset: Record<string, unknown> | null;
@@ -948,6 +962,21 @@ export type CareerDatasetMethodAdapter = {
   included: string[];
   excluded: string[];
   boundaryNotes: string[];
+  scopeSummary: {
+    memberCount: number;
+    includedCount: number;
+    excludedCount: number;
+    releaseCohortCounts: Record<string, number>;
+    strongIndexDecisionCounts: Record<string, number>;
+  };
+  publication: {
+    publisherName: string;
+    publisherUrl: string;
+    licenseName: string;
+    licenseUrl: string;
+    usageSummary: string;
+    downloadUrl: string;
+  };
   structuredData: {
     article: Record<string, unknown> | null;
     breadcrumbList: Record<string, unknown> | null;

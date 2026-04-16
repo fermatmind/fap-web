@@ -15,6 +15,8 @@ describe("dataset method page contract", () => {
     expect(source).toContain("fetchCareerDatasetMethod");
     expect(source).toContain("adaptCareerDatasetMethod");
     expect(source).toContain("DatasetMethodPanel");
+    expect(source).toContain("scopeSummary={method.scopeSummary}");
+    expect(source).toContain("publication={method.publication}");
     expect(source).toContain("JsonLd");
     expect(source).toContain('id="dataset-method-article-jsonld"');
     expect(source).toContain('id="dataset-method-breadcrumb-jsonld"');
@@ -24,4 +26,3 @@ describe("dataset method page contract", () => {
     expect(source).not.toContain("fetchCareerRecommendationBundle");
   });
 });
-

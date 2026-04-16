@@ -567,6 +567,8 @@ export type CareerDatasetHubResponseRaw = {
   publication?: unknown;
   collection_summary?: unknown;
   filters?: unknown;
+  facet_distributions?: unknown;
+  scope_summary?: unknown;
   method_url?: unknown;
   structured_data?: unknown;
 };
@@ -585,5 +587,7 @@ export type CareerDatasetMethodResponseRaw = {
   included?: unknown;
   excluded?: unknown;
   boundary_notes?: unknown;
+  scope_summary?: unknown;
+  publication?: unknown;
   structured_data?: unknown;
 };

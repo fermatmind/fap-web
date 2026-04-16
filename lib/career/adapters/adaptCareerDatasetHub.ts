@@ -32,6 +32,34 @@ function normalizeObject(value: unknown): Record<string, unknown> {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
 }
 
+function normalizeRecordOfNumbers(value: unknown): Record<string, number> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
+  const normalized: Record<string, number> = {};
+  for (const [key, raw] of Object.entries(value as Record<string, unknown>)) {
+    if (typeof raw === "number" && Number.isFinite(raw)) {
+      normalized[key] = raw;
+    }
+  }
+
+  return normalized;
+}
+
+function normalizeRecordOfRecordNumbers(value: unknown): Record<string, Record<string, number>> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
+  const normalized: Record<string, Record<string, number>> = {};
+  for (const [key, raw] of Object.entries(value as Record<string, unknown>)) {
+    normalized[key] = normalizeRecordOfNumbers(raw);
+  }
+
+  return normalized;
+}
+
 export function adaptCareerDatasetHub(input: AdaptCareerDatasetHubInput): CareerDatasetHubAdapter | null {
   const root = normalizeObject(input.payload);
   if (Object.keys(root).length === 0) {
@@ -45,6 +73,8 @@ export function adaptCareerDatasetHub(input: AdaptCareerDatasetHubInput): Career
   const distribution = normalizeObject(publication.distribution);
   const collectionSummary = normalizeObject(root.collection_summary);
   const filters = normalizeObject(root.filters);
+  const scopeSummary = normalizeObject(root.scope_summary);
+  const facetDistributions = normalizeObject(root.facet_distributions);
   const structuredData = normalizeObject(root.structured_data);
 
   return {
@@ -70,19 +100,36 @@ export function adaptCareerDatasetHub(input: AdaptCareerDatasetHubInput): Career
     collectionSummary: {
       memberKind: normalizeString(collectionSummary.member_kind),
       memberCount: normalizeNumber(collectionSummary.member_count),
+      includedCount: normalizeNumber(collectionSummary.included_count),
+      excludedCount: normalizeNumber(collectionSummary.excluded_count),
+      publicDetailIndexableCount: normalizeNumber(collectionSummary.public_detail_indexable_count),
+      publicDetailConservativeCount: normalizeNumber(collectionSummary.public_detail_conservative_count),
       stableCount: normalizeNumber(collectionSummary.stable_count),
       candidateCount: normalizeNumber(collectionSummary.candidate_count),
       holdCount: normalizeNumber(collectionSummary.hold_count),
       discoverableCount: normalizeNumber(collectionSummary.discoverable_count),
-      excludedCount: normalizeNumber(collectionSummary.excluded_count),
       manifestVersion: normalizeString(collectionSummary.manifest_version),
       selectionPolicyVersion: normalizeString(collectionSummary.selection_policy_version),
+      releaseCohortCounts: normalizeRecordOfNumbers(collectionSummary.release_cohort_counts),
+      publicIndexStateCounts: normalizeRecordOfNumbers(collectionSummary.public_index_state_counts),
+      strongIndexDecisionCounts: normalizeRecordOfNumbers(collectionSummary.strong_index_decision_counts),
+      trackingCounts: {
+        ...normalizeRecordOfNumbers(collectionSummary.tracking_counts),
+        tracking_complete: normalizeBoolean(normalizeObject(collectionSummary.tracking_counts).tracking_complete),
+      },
+      facetDistributions: normalizeRecordOfRecordNumbers(collectionSummary.facet_distributions),
     },
     filters: {
       family: normalizeBoolean(filters.family),
       publishTrack: normalizeBoolean(filters.publish_track),
       indexPosture: normalizeBoolean(filters.index_posture),
     },
+    scopeSummary: {
+      memberCount: normalizeNumber(scopeSummary.member_count, normalizeNumber(collectionSummary.member_count)),
+      includedCount: normalizeNumber(scopeSummary.included_count, normalizeNumber(collectionSummary.included_count)),
+      excludedCount: normalizeNumber(scopeSummary.excluded_count, normalizeNumber(collectionSummary.excluded_count)),
+    },
+    facetDistributions: normalizeRecordOfRecordNumbers(Object.keys(facetDistributions).length > 0 ? facetDistributions : collectionSummary.facet_distributions),
     methodUrl: normalizeString(root.method_url),
     structuredData: {
       dataset: normalizeObject(structuredData.dataset),
@@ -90,4 +137,3 @@ export function adaptCareerDatasetHub(input: AdaptCareerDatasetHubInput): Career
     },
   };
 }
-

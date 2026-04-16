@@ -1331,6 +1331,51 @@
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
     },
+    "PR-F48": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/pr-f48-career-full-342-dataset-public-scope-completion",
+      "commit_sha": "de1addcf2a755ea0a23505953c4680172674c6a4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/463",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/datasets/occupations/page.tsx' 'app/(localized)/[locale]/datasets/occupations/method/page.tsx' components/datasets/*.tsx lib/career/adapters/adaptCareerDatasetHub.ts lib/career/adapters/adaptCareerDatasetMethod.ts tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx tests/contracts/schema-present.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx tests/contracts/schema-present.contract.test.ts",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24515248327/job/71657231245"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24515248327/job/71657231185"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions checks failed at workflow startup in CI (build/contracts) while all required local checks passed.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "P1-D": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",

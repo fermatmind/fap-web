@@ -24,6 +24,25 @@ function normalizeObject(value: unknown): Record<string, unknown> {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
 }
 
+function normalizeNumber(value: unknown, fallback = 0): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+}
+
+function normalizeRecordOfNumbers(value: unknown): Record<string, number> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
+  const normalized: Record<string, number> = {};
+  for (const [key, raw] of Object.entries(value as Record<string, unknown>)) {
+    if (typeof raw === "number" && Number.isFinite(raw)) {
+      normalized[key] = raw;
+    }
+  }
+
+  return normalized;
+}
+
 export function adaptCareerDatasetMethod(
   input: AdaptCareerDatasetMethodInput
 ): CareerDatasetMethodAdapter | null {
@@ -32,6 +51,12 @@ export function adaptCareerDatasetMethod(
     return null;
   }
 
+  const scopeSummary = normalizeObject(root.scope_summary);
+  const publication = normalizeObject(root.publication);
+  const publisher = normalizeObject(publication.publisher);
+  const license = normalizeObject(publication.license);
+  const usage = normalizeObject(publication.usage);
+  const distribution = normalizeObject(publication.distribution);
   const structuredData = normalizeObject(root.structured_data);
 
   return {
@@ -46,10 +71,24 @@ export function adaptCareerDatasetMethod(
     included: normalizeStringArray(root.included),
     excluded: normalizeStringArray(root.excluded),
     boundaryNotes: normalizeStringArray(root.boundary_notes),
+    scopeSummary: {
+      memberCount: normalizeNumber(scopeSummary.member_count),
+      includedCount: normalizeNumber(scopeSummary.included_count),
+      excludedCount: normalizeNumber(scopeSummary.excluded_count),
+      releaseCohortCounts: normalizeRecordOfNumbers(scopeSummary.release_cohort_counts),
+      strongIndexDecisionCounts: normalizeRecordOfNumbers(scopeSummary.strong_index_decision_counts),
+    },
+    publication: {
+      publisherName: normalizeString(publisher.name, "FermatMind"),
+      publisherUrl: normalizeString(publisher.url, "https://www.fermatmind.com"),
+      licenseName: normalizeString(license.name),
+      licenseUrl: normalizeString(license.url),
+      usageSummary: normalizeString(usage.summary),
+      downloadUrl: normalizeString(distribution.download_url),
+    },
     structuredData: {
       article: normalizeObject(structuredData.article),
       breadcrumbList: normalizeObject(structuredData.breadcrumb_list),
     },
   };
 }
-
