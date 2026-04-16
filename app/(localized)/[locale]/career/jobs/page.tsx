@@ -279,7 +279,7 @@ export default async function CareerJobsPage({
                           {result.matchedText
                             ? locale === "zh"
                               ? `匹配到：${result.matchedText}`
-                              : `Matched: ${result.matchedText}`
+                              : `Matched text: ${result.matchedText}`
                             : locale === "zh"
                               ? "标准职业结果。"
                               : "Standard role result."}
@@ -310,7 +310,7 @@ export default async function CareerJobsPage({
             ) : (
               <div className="rounded-3xl border border-dashed border-slate-200 bg-white p-6" data-testid="career-job-search-empty-state" data-career-data-status="unavailable">
                 <h2 className="m-0 text-lg font-semibold text-slate-950">
-                  {locale === "zh" ? "暂无完整职业页" : "No direct public role page yet"}
+                  {locale === "zh" ? "暂无完整职业页" : "No direct public matching jobs were found"}
                 </h2>
                 <p className="m-0 mt-2 text-sm leading-6 text-slate-500">
                   {locale === "zh" ? "搜索不会本地补写职业资料，也不会把别名解析混进搜索结果。" : "Search does not synthesize role profiles or mix alias resolution into results."}

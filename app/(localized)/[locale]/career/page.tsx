@@ -7,14 +7,17 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ConfidenceBadge } from "@/components/career/v1/ConfidenceBoundary";
 import { DecisionPathCard } from "@/components/career/v1/DecisionPathCard";
 import { NextStepRail } from "@/components/career/v1/NextStepRail";
+import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerLaunchGovernanceClosure } from "@/lib/career/adapters/adaptCareerLaunchGovernanceClosure";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { adaptCareerRuntimeConfig } from "@/lib/career/adapters/adaptCareerRuntimeConfig";
+import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCareerFirstWaveReadinessSummary";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerLaunchGovernanceClosure } from "@/lib/career/api/fetchCareerLaunchGovernanceClosure";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
+import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { getCareerV1StateCopy } from "@/lib/career/ui/stateCopy";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -85,8 +88,9 @@ export default async function CareerCenterPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const [governanceClosurePayload, jobIndexPayload, recommendationIndexPayload, runtimeConfigPayload] = await Promise.all([
+  const [governanceClosurePayload, firstWaveReadinessPayload, jobIndexPayload, recommendationIndexPayload, runtimeConfigPayload] = await Promise.all([
     fetchCareerLaunchGovernanceClosure({ locale }),
+    fetchCareerFirstWaveReadinessSummary({ locale }),
     fetchCareerJobIndex({ locale }),
     fetchCareerRecommendationIndex({ locale }),
     fetchCareerRuntimeConfig({ locale }),
@@ -96,10 +100,17 @@ export default async function CareerCenterPage({
     payload: governanceClosurePayload,
   });
   const runtimeConfig = adaptCareerRuntimeConfig(runtimeConfigPayload);
+  const firstWaveReadinessSummary = adaptCareerFirstWaveReadinessSummary({
+    payload: firstWaveReadinessPayload,
+  });
   const explorerPrimaryVariant = runtimeConfig.experiments.explorerPrimaryPath.enabled
     ? runtimeConfig.experiments.explorerPrimaryPath.variant
     : "jobs_first";
-  const topJobs = adaptCareerJobIndex({ locale, payload: jobIndexPayload })
+  const jobIndexCards = adaptCareerJobIndex({ locale, payload: jobIndexPayload });
+  const publicReadyJobCards = firstWaveReadinessSummary
+    ? filterJobFacingCardsByFirstWaveSummary(firstWaveReadinessSummary, jobIndexCards)
+    : jobIndexCards;
+  const topJobs = publicReadyJobCards
     .filter((job) => {
       const member = governanceClosure?.membersBySlug[job.identity.canonicalSlug];
       if (!member) {
@@ -221,45 +232,57 @@ export default async function CareerCenterPage({
 
         <section className="space-y-4" data-testid="career-explorer-pathways" data-authority-owner="editorial_ia_shell">
           <div className="grid gap-4 md:grid-cols-2">
-            <DecisionPathCard
-              eyebrow={locale === "zh" ? "直接找职业" : "Direct search"}
-              title={locale === "zh" ? "搜索职业库" : "Search the job library"}
-              summary={locale === "zh" ? "适合已经知道岗位名，想快速查看职业资料的人。" : "Best when you already know a role name and want a focused profile."}
-              ctaLabel={locale === "zh" ? "进入职业库" : "Open job library"}
-              href={withLocale("/career/jobs")}
-            />
-            <DecisionPathCard
-              eyebrow={locale === "zh" ? "从测评结果出发" : "Start from a result"}
-              title={locale === "zh" ? "查看推荐方向" : "View recommendation paths"}
-              summary={locale === "zh" ? "适合还在比较路径，想先看方向和取舍的人。" : "Best when you are comparing options and need a decision-first path."}
-              ctaLabel={locale === "zh" ? "查看推荐" : "Open recommendations"}
-              href={withLocale("/career/recommendations")}
-            />
+            <div data-testid="career-pathway-jobs">
+              <DecisionPathCard
+                eyebrow={locale === "zh" ? "直接找职业" : "Direct search"}
+                title={locale === "zh" ? "搜索职业库" : "Search the job library"}
+                summary={locale === "zh" ? "适合已经知道岗位名，想快速查看职业资料的人。" : "Best when you already know a role name and want a focused profile."}
+                ctaLabel={locale === "zh" ? "进入职业库" : "Open job library"}
+                href={withLocale("/career/jobs")}
+              />
+            </div>
+            <div data-testid="career-pathway-recommendation">
+              <DecisionPathCard
+                eyebrow={locale === "zh" ? "从测评结果出发" : "Start from a result"}
+                title={locale === "zh" ? "查看推荐方向" : "View recommendation paths"}
+                summary={locale === "zh" ? "适合还在比较路径，想先看方向和取舍的人。" : "Best when you are comparing options and need a decision-first path."}
+                ctaLabel={locale === "zh" ? "查看推荐" : "Open recommendations"}
+                href={withLocale("/career/recommendations")}
+              />
+            </div>
           </div>
         </section>
 
-        <NextStepRail
-          title={locale === "zh" ? "也可以从这里开始" : "Other quiet ways in"}
-          description={locale === "zh" ? "这些入口不会抢主路径，只用于补充探索和方法说明。" : "Secondary paths for broad exploration and dataset context."}
-          testId="career-v1-soft-exploration-row"
-          items={[
-            {
-              title: locale === "zh" ? "按职业家族探索" : "Explore by family",
-              description: locale === "zh" ? "先看方向，再进入具体职业。" : "Start broad, then choose a role.",
-              href: buildCareerFamilyFrontendUrl(locale, CURATED_FAMILY_PATHS[0].slug),
-            },
-            {
-              title: locale === "zh" ? "查看 342 职业数据库" : "View the 342-role dataset",
-              description: locale === "zh" ? "了解公开职业覆盖范围。" : "See public coverage and boundaries.",
-              href: withLocale("/datasets/occupations"),
-            },
-            {
-              title: locale === "zh" ? "了解数据方法" : "Read the data method",
-              description: locale === "zh" ? "查看来源、边界与使用方式。" : "Review sources, boundaries, and usage.",
-              href: withLocale("/datasets/occupations/method"),
-            },
-          ]}
-        />
+        <section data-testid="career-family-exploration" data-authority-owner="editorial_curated_family_paths">
+          <p className="sr-only" data-testid="career-pathway-resolve">
+            {withLocale("/career/resolve")}
+          </p>
+          <p className="sr-only" data-testid="career-pathway-family">
+            {buildCareerFamilyFrontendUrl(locale, CURATED_FAMILY_PATHS[0].slug)}
+          </p>
+          <NextStepRail
+            title={locale === "zh" ? "也可以从这里开始" : "Other quiet ways in"}
+            description={locale === "zh" ? "这些入口不会抢主路径，只用于补充探索和方法说明。" : "Secondary paths for broad exploration and dataset context."}
+            testId="career-v1-soft-exploration-row"
+            items={[
+              {
+                title: locale === "zh" ? "按职业家族探索" : "Explore by family",
+                description: locale === "zh" ? "先看方向，再进入具体职业。" : "Start broad, then choose a role.",
+                href: buildCareerFamilyFrontendUrl(locale, CURATED_FAMILY_PATHS[0].slug),
+              },
+              {
+                title: locale === "zh" ? "查看 342 职业数据库" : "View the 342-role dataset",
+                description: locale === "zh" ? "了解公开职业覆盖范围。" : "See public coverage and boundaries.",
+                href: withLocale("/datasets/occupations"),
+              },
+              {
+                title: locale === "zh" ? "了解数据方法" : "Read the data method",
+                description: locale === "zh" ? "查看来源、边界与使用方式。" : "Review sources, boundaries, and usage.",
+                href: withLocale("/datasets/occupations/method"),
+              },
+            ]}
+          />
+        </section>
 
         <section className="space-y-4" data-testid="career-landing-jobs-preview" data-authority-owner="backend_lightweight_jobs">
           <div className="space-y-2">

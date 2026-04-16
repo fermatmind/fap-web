@@ -439,11 +439,11 @@ export type CareerTransitionPreviewAdapter = {
     reviewerStatus: string | null;
     reasonCodes: string[];
   };
-  whyThisPath: string | null;
-  whatIsLost: string | null;
-  bridgeSteps90d: CareerTransitionBridgeStepAdapter[];
-  rationaleCodes: string[];
-  tradeoffCodes: string[];
+  whyThisPath?: string | null;
+  whatIsLost?: string | null;
+  bridgeSteps90d?: CareerTransitionBridgeStepAdapter[];
+  rationaleCodes?: string[];
+  tradeoffCodes?: string[];
   seoContract: CareerSeoContractAdapter;
 };
 

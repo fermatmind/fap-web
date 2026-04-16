@@ -216,11 +216,11 @@ export function adaptCareerTransitionPreview(
       reviewerStatus: normalizeString(trustSummary.reviewer_status),
       reasonCodes: normalizeStringArray(trustSummary.reason_codes),
     },
-    whyThisPath,
-    whatIsLost,
-    bridgeSteps90d,
-    rationaleCodes,
-    tradeoffCodes,
+    ...(whyThisPath ? { whyThisPath } : {}),
+    ...(whatIsLost ? { whatIsLost } : {}),
+    ...(bridgeSteps90d.length > 0 ? { bridgeSteps90d } : {}),
+    ...(rationaleCodes.length > 0 ? { rationaleCodes } : {}),
+    ...(tradeoffCodes.length > 0 ? { tradeoffCodes } : {}),
     seoContract,
   };
 }

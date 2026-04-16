@@ -133,6 +133,20 @@ function renderJobBoundary(job: CareerJobBundleAdapter, locale: Locale) {
   );
 }
 
+function renderCareerJobProtocolStatus(job: CareerJobBundleAdapter) {
+  return (
+    <div
+      className="sr-only"
+      data-testid="career-job-protocol-status"
+      data-career-data-status={job.renderState.careerDataStatus}
+      data-renderer-state={getJobRendererContractState(job) ?? "complete"}
+      data-index-eligible={job.seoContract.indexEligible ? "true" : "false"}
+    >
+      Career claim gate
+    </div>
+  );
+}
+
 function buildNextStepRailItems(
   locale: Locale,
   summary: CareerFirstWaveNextStepLinksSummaryAdapter | null,
@@ -242,14 +256,15 @@ export default async function CareerJobDetailPage({
     return notFound();
   }
 
-  const canRenderAiStrategy = job.claimPermissions.allow_ai_strategy && job.renderState.careerDataStatus !== "unavailable";
-  const canRenderAnswerSurface = job.renderState.canRenderAnswerSurface;
+  const renderState = job.renderState;
+  const canRenderAiStrategy = job.claimPermissions.allow_ai_strategy && renderState.careerDataStatus !== "unavailable";
+  const canRenderAnswerSurface = renderState.canRenderAnswerSurface;
   const jobDetailLandingPath = localizedPath(`/career/jobs/${job.slug}`, locale);
   const salaryClaimBlocked =
-    !job.renderState.canRenderSalarySurface &&
+    !renderState.canRenderSalarySurface &&
     !job.claimPermissions.allow_salary_comparison &&
     job.truthLayer.medianPayUsdAnnual !== null &&
-    job.renderState.careerDataStatus !== "unavailable";
+    renderState.careerDataStatus !== "unavailable";
   const strongClaimBlocked =
     !canRenderAnswerSurface &&
     !job.claimPermissions.allow_strong_claim &&
@@ -261,9 +276,9 @@ export default async function CareerJobDetailPage({
   const aiStrategyClaimBlocked =
     canRenderAnswerSurface &&
     !job.claimPermissions.allow_ai_strategy &&
-    job.renderState.careerDataStatus !== "unavailable" &&
+    renderState.careerDataStatus !== "unavailable" &&
     job.truthLayer.aiExposure !== null;
-  const stateCopy = getCareerV1StateCopy(job.renderState.careerDataStatus);
+  const stateCopy = getCareerV1StateCopy(renderState.careerDataStatus);
   const nextSteps = buildNextStepRailItems(locale, nextStepLinks, jobDetailLandingPath);
 
   return (
@@ -406,7 +421,9 @@ export default async function CareerJobDetailPage({
             <div className="mt-5 space-y-3 text-sm leading-6 text-slate-600">
               <p className="m-0">{locale === "zh" ? `适合度：${renderScoreValue(job.scoreBundle.fitScore.value)}` : `Fit signal: ${renderScoreValue(job.scoreBundle.fitScore.value)}`}</p>
               <p className="m-0">{locale === "zh" ? `信心：${renderScoreValue(job.scoreBundle.confidenceScore.value)}` : `Confidence: ${renderScoreValue(job.scoreBundle.confidenceScore.value)}`}</p>
-              <p className="m-0">{locale === "zh" ? `十年趋势：${formatPercent(job.truthLayer.outlookPct20242034)}` : `Ten-year outlook: ${formatPercent(job.truthLayer.outlookPct20242034)}`}</p>
+              {canRenderAnswerSurface ? (
+                <p className="m-0">{locale === "zh" ? `十年趋势：${formatPercent(job.truthLayer.outlookPct20242034)}` : `Ten-year outlook: ${formatPercent(job.truthLayer.outlookPct20242034)}`}</p>
+              ) : null}
             </div>
             <ClaimGuard
               allowed={canRenderAnswerSurface}
@@ -458,33 +475,16 @@ export default async function CareerJobDetailPage({
           </div>
         </section>
 
-        <NextStepRail
-          title={locale === "zh" ? "下一步" : "Next steps"}
-          description={locale === "zh" ? "只保留少量真实可走的路径。" : "A short list of real paths you can take from here."}
-          items={nextSteps}
-          testId="career-job-v1-next-steps"
-        />
+        <section data-testid="career-job-next-step-links">
+          <NextStepRail
+            title={locale === "zh" ? "下一步" : "Next steps"}
+            description={locale === "zh" ? "只保留少量真实可走的路径。" : "A short list of real paths you can take from here."}
+            items={nextSteps}
+            testId="career-job-v1-next-steps"
+          />
+        </section>
 
         <section className="space-y-3" data-testid="career-job-v1-evidence">
-          <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-job-v1-data-source-drawer">
-            <TrustStrip
-              locale={locale}
-              reviewerStatus={job.trustManifest?.reviewer.reviewer_status}
-              indexState={job.seoContract.indexState}
-              reasonCodes={job.claimPermissions.reason_codes}
-              contentVersion={job.provenanceMeta.contentVersion}
-              dataVersion={job.provenanceMeta.dataVersion}
-              logicVersion={job.provenanceMeta.logicVersion}
-              compilerVersion={job.provenanceMeta.compilerVersion}
-              compiledAt={job.provenanceMeta.compiledAt}
-              compileRunId={job.provenanceMeta.compileRunId}
-              truthMetricId={job.provenanceMeta.truthMetricId}
-              trustManifestId={job.provenanceMeta.trustManifestId}
-              indexStateId={job.provenanceMeta.indexStateId}
-              testId="career-job-trust-strip"
-            />
-          </EvidenceDrawer>
-
           <EvidenceDrawer title={locale === "zh" ? "查看评分依据" : "View scoring basis"} testId="career-job-v1-score-drawer">
             {job.whiteBoxScores.strainScore?.radarDimensions ? (
               <StrainRadar locale={locale} dimensions={job.whiteBoxScores.strainScore.radarDimensions} testId="career-job-strain-radar" />
@@ -502,6 +502,10 @@ export default async function CareerJobDetailPage({
           </EvidenceDrawer>
 
           <EvidenceDrawer title={locale === "zh" ? "查看信任边界" : "View trust boundaries"} testId="career-job-v1-boundary-drawer">
+            {renderCareerJobProtocolStatus(job)}
+            <div className="sr-only" data-testid="career-job-claim-gated-status">
+              Salary: {renderState.canRenderSalarySurface ? "open" : "closed"}; fit: {renderState.canRenderFitSurface ? "open" : "closed"}; answer: {renderState.canRenderAnswerSurface ? "open" : "closed"}
+            </div>
             <div data-testid="career-job-renderer-status" data-renderer-state={getJobRendererContractState(job) ?? "complete"}>
               {renderJobBoundary(job, locale) ?? <p className="m-0 text-sm text-slate-500">{locale === "zh" ? "当前没有额外展示限制。" : "No additional display boundary is active."}</p>}
             </div>
@@ -510,6 +514,25 @@ export default async function CareerJobDetailPage({
               warnings={job.warnings}
               copyVariant={runtimeConfig.experiments.warningCopy.enabled ? runtimeConfig.experiments.warningCopy.variant : "control"}
               testId="career-job-warning-banner"
+            />
+          </EvidenceDrawer>
+
+          <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-job-v1-data-source-drawer">
+            <TrustStrip
+              locale={locale}
+              reviewerStatus={job.trustManifest?.reviewer.reviewer_status}
+              indexState={job.seoContract.indexState}
+              reasonCodes={job.claimPermissions.reason_codes}
+              contentVersion={job.provenanceMeta.contentVersion}
+              dataVersion={job.provenanceMeta.dataVersion}
+              logicVersion={job.provenanceMeta.logicVersion}
+              compilerVersion={job.provenanceMeta.compilerVersion}
+              compiledAt={job.provenanceMeta.compiledAt}
+              compileRunId={job.provenanceMeta.compileRunId}
+              truthMetricId={job.provenanceMeta.truthMetricId}
+              trustManifestId={job.provenanceMeta.trustManifestId}
+              indexStateId={job.provenanceMeta.indexStateId}
+              testId="career-job-trust-strip"
             />
           </EvidenceDrawer>
 

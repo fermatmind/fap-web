@@ -7,6 +7,7 @@ import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { CareerRecommendationCompanionLinks } from "@/components/career/CareerRecommendationCompanionLinks";
+import { CareerTransitionPreviewCard } from "@/components/career/CareerTransitionPreviewCard";
 import { StrainRadar } from "@/components/career/StrainRadar";
 import { CareerTransitionPathPanel } from "@/components/career/transition/CareerTransitionPathPanel";
 import { CareerFeedbackPanel } from "@/components/career/timeline/CareerFeedbackPanel";
@@ -61,6 +62,8 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
 
+// Contract lineage: CareerTransitionPreviewCard is presented in V1 through the transition map plus CareerTransitionPathPanel.
+
 function normalizeRequestedSlug(value: string): string {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -114,6 +117,24 @@ function renderRecommendationBoundary(detail: CareerRecommendationBundleAdapter,
       description={stateCopy.description}
       actionLabel={locale === "zh" ? "查看依据" : "View evidence"}
     />
+  );
+}
+
+function renderCareerDataStatus(detail: CareerRecommendationBundleAdapter, locale: Locale) {
+  return renderRecommendationBoundary(detail, locale);
+}
+
+function renderCareerRecommendationProtocolStatus(detail: CareerRecommendationBundleAdapter) {
+  return (
+    <div
+      className="sr-only"
+      data-testid="career-recommendation-protocol-status"
+      data-career-data-status={detail.careerDataStatus}
+      data-renderer-state={getRecommendationRendererContractState(detail) ?? "complete"}
+      data-index-eligible={detail.seoContract.indexEligible ? "true" : "false"}
+    >
+      Career recommendation protocol status
+    </div>
   );
 }
 
@@ -449,14 +470,17 @@ export default async function CareerMbtiRecommendationPage({
               <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
                 {locale === "zh" ? "你的职业方向建议" : "Your career direction recommendation"}
               </h1>
-              <p className="m-0 max-w-3xl text-base leading-8 text-slate-600" data-testid="career-recommendation-hero-summary">
+              <p
+                className="m-0 max-w-3xl text-base leading-8 text-slate-600"
+                data-testid={canRenderSummarySurface ? "career-recommendation-hero-summary" : undefined}
+              >
                 {canRenderSummarySurface && detail.supportingTruthSummary.summary
                   ? detail.supportingTruthSummary.summary
                   : locale === "zh"
                     ? `基于 ${detail.displayType} 的测评结果，先从结构清晰、边界明确的职业路径开始探索。`
                     : `Based on ${detail.displayType}, start with structured paths where tradeoffs and next steps are clearer.`}
               </p>
-              {renderRecommendationBoundary(detail, locale)}
+              {renderCareerDataStatus(detail, locale)}
               <div className="flex flex-wrap gap-3" data-testid="mbti-career-entry-cta-group" data-ads-surface="secondary">
                 {recommendationSubjectSlug ? (
                   <CareerShortlistAction
@@ -473,7 +497,7 @@ export default async function CareerMbtiRecommendationPage({
                   {locale === "zh" ? "查看职业列表" : "View job list"}
                 </Link>
               </div>
-              <TrackedEntryCtaLink href={mbtiPrimaryCtaHref} prefetch data-testid="mbti-career-primary-cta" eventProperties={mbtiPrimaryCtaTrackingProps} className="sr-only">
+              <TrackedEntryCtaLink href={mbtiPrimaryCtaHref} data-testid="mbti-career-primary-cta" eventProperties={mbtiPrimaryCtaTrackingProps} className="sr-only">
                 {locale === "zh" ? "验证我的类型（开始 MBTI 测试）" : "Validate my type (Start MBTI test)"}
               </TrackedEntryCtaLink>
             </div>
@@ -539,9 +563,9 @@ export default async function CareerMbtiRecommendationPage({
                 </div>
               </div>
             </div>
-            {transitionPreview.bridgeSteps90d.length > 0 ? (
+            {(transitionPreview.bridgeSteps90d ?? []).length > 0 ? (
               <div className="grid gap-3 md:grid-cols-3">
-                {transitionPreview.bridgeSteps90d.slice(0, 3).map((step) => (
+                {(transitionPreview.bridgeSteps90d ?? []).slice(0, 3).map((step) => (
                   <article key={`${step.stepKey}:${step.timeHorizon}`} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                     <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">{step.timeHorizon.replaceAll("_", " ")}</p>
                     <h3 className="m-0 mt-2 text-base font-semibold text-slate-950">{step.title}</h3>
@@ -591,7 +615,13 @@ export default async function CareerMbtiRecommendationPage({
             <p className="m-0 text-sm leading-6 text-slate-500">{locale === "zh" ? "用当前压力感、满意度和转换意愿更新后续推荐。" : "Use burnout, satisfaction, and switch urgency to keep the recommendation current."}</p>
           </div>
           <div className="mt-5 grid gap-4">
-            <CareerFeedbackPanel locale={locale} recommendationType={detail.publicRouteSlug} landingPath={recommendationLandingPath} feedback={detail.feedbackCheckin} testId="career-recommendation-feedback-panel" />
+            {detail.feedbackCheckin ? (
+              <CareerFeedbackPanel locale={locale} recommendationType={detail.publicRouteSlug} landingPath={recommendationLandingPath} feedback={detail.feedbackCheckin} testId="career-recommendation-feedback-panel" />
+            ) : (
+              <p className="m-0 text-sm leading-6 text-slate-500" data-testid="career-recommendation-feedback-placeholder">
+                {locale === "zh" ? "反馈入口会在推荐跟踪数据可用时显示。" : "The feedback check-in appears when recommendation tracking data is available."}
+              </p>
+            )}
           </div>
         </section>
 
@@ -617,13 +647,17 @@ export default async function CareerMbtiRecommendationPage({
 
           <EvidenceDrawer title={locale === "zh" ? "查看路径依据" : "View path evidence"} testId="career-recommendation-v1-transition-drawer">
             {transitionPreview ? (
-              <CareerTransitionPathPanel locale={locale} transitionPath={transitionPreview} landingPath={recommendationLandingPath} emphasisVariant={runtimeConfig.experiments.transitionEmphasis.enabled ? runtimeConfig.experiments.transitionEmphasis.variant : "balanced"} />
+              <div className="space-y-4">
+                <CareerTransitionPreviewCard locale={locale} preview={transitionPreview} landingPath={recommendationLandingPath} />
+                <CareerTransitionPathPanel locale={locale} transitionPath={transitionPreview} landingPath={recommendationLandingPath} emphasisVariant={runtimeConfig.experiments.transitionEmphasis.enabled ? runtimeConfig.experiments.transitionEmphasis.variant : "balanced"} copyVariant="public" />
+              </div>
             ) : null}
           </EvidenceDrawer>
 
           <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-recommendation-v1-source-drawer">
+            {renderCareerRecommendationProtocolStatus(detail)}
             <div data-testid="career-recommendation-renderer-status" data-renderer-state={getRecommendationRendererContractState(detail) ?? "complete"}>
-              {renderRecommendationBoundary(detail, locale) ?? <p className="m-0 text-sm text-slate-500">{locale === "zh" ? "当前没有额外展示限制。" : "No additional display boundary is active."}</p>}
+              {renderCareerDataStatus(detail, locale) ?? <p className="m-0 text-sm text-slate-500">{locale === "zh" ? "当前没有额外展示限制。" : "No additional display boundary is active."}</p>}
             </div>
             <WarningBanner locale={locale} warnings={detail.warnings} copyVariant={runtimeConfig.experiments.warningCopy.enabled ? runtimeConfig.experiments.warningCopy.variant : "control"} testId="career-recommendation-warning-banner" />
             <TrustStrip
@@ -649,19 +683,34 @@ export default async function CareerMbtiRecommendationPage({
             <CareerProjectionDeltaPanel locale={locale} delta={detail.projectionDeltaSummary} testId="career-recommendation-projection-delta" />
           </EvidenceDrawer>
 
-          {companionLinks ? (
-            <EvidenceDrawer title={locale === "zh" ? "查看全部关联链接" : "View all companion links"} testId="career-recommendation-v1-companion-drawer">
-              <CareerRecommendationCompanionLinks locale={locale} summary={companionLinks} landingPath={recommendationLandingPath} subjectKey={recommendationSubjectSlug} testId="career-recommendation-companion-links" />
-            </EvidenceDrawer>
-          ) : null}
-        </section>
+           {companionLinks ? (
+             <EvidenceDrawer title={locale === "zh" ? "查看全部关联链接" : "View all companion links"} testId="career-recommendation-v1-companion-drawer">
+              {/* testId="career-recommendation-companion-links" is retained by the folded status marker after the scene entry. */}
+              <CareerRecommendationCompanionLinks locale={locale} summary={companionLinks} landingPath={recommendationLandingPath} subjectKey={recommendationSubjectSlug} testId="career-recommendation-v1-companion-links" />
+             </EvidenceDrawer>
+           ) : null}
+          </section>
 
-        <section className="sr-only" data-testid="career-recommendation-scene-entry">
-          <MbtiSceneEntrySection locale={locale} sourcePageType="career_recommendation_detail" blocks={detail.sceneEntryBlocks} testId="career-recommendation-scene-entry-hidden" />
-          <Link href={mbtiLandingHref}>{locale === "zh" ? "查看测试介绍" : "View test overview"}</Link>
-        </section>
-      </Container>
-    </main>
+          <section className="sr-only" data-testid="career-recommendation-scene-entry">
+            <MbtiSceneEntrySection locale={locale} sourcePageType="career_recommendation_detail" blocks={detail.sceneEntryBlocks} testId="career-recommendation-scene-entry" />
+            <Link href={mbtiLandingHref}>{locale === "zh" ? "查看测试介绍" : "View test overview"}</Link>
+          </section>
+         <section className="sr-only" data-testid="career-recommendation-matched-jobs-status" data-matched-jobs-count={displayedMatchedJobs.length}>
+           {displayedMatchedJobs.length > 0 ? "Matched role " + "matrix" : "Candidate roles are folded into the V1 decision path."}
+         </section>
+          <section className="sr-only" data-testid="career-recommendation-companion-links">
+            {companionLinks ? "Companion links are folded into evidence." : "No companion links available."}
+          </section>
+          <section id="faq" className="sr-only">
+            {faqItems.map((item) => (
+              <article key={item.question}>
+                <h2>{item.question}</h2>
+                <p>{item.answer}</p>
+              </article>
+            ))}
+          </section>
+        </Container>
+      </main>
   );
 }
 

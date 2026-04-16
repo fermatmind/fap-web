@@ -113,7 +113,7 @@ export function CareerFamilyHubPage({ locale, hub }: CareerFamilyHubPageProps) {
           </div>
         ) : (
           <div className="rounded-3xl border border-dashed border-slate-200 bg-white p-6 text-sm leading-6 text-slate-500" data-testid="career-family-hub-empty-state">
-            {locale === "zh" ? "该职业家族当前没有可公开显示的职业。请先返回职业库或选择其他家族。" : "This family currently has no public-ready roles. Return to the job library or choose another family."}
+            {locale === "zh" ? "该职业家族当前没有可公开显示的职业。请先返回职业库或选择其他家族。" : "This family currently has no public publish-ready children. Return to the job library or choose another family."}
           </div>
         )}
       </section>
@@ -142,7 +142,9 @@ export function CareerFamilyHubPage({ locale, hub }: CareerFamilyHubPageProps) {
           <div className="mt-4 grid gap-3 text-sm text-slate-600 md:grid-cols-4" data-testid="career-family-hub-counts">
             <p className="m-0">Visible: {hub.counts.visibleChildrenCount}</p>
             <p className="m-0">Publish ready: {hub.counts.publishReadyCount}</p>
-            <p className="m-0">Blocked total: {hub.counts.blockedTotal}</p>
+            <p className="m-0">
+              Blocked total: <span>{hub.counts.blockedTotal}</span>
+            </p>
             <p className="m-0">Blocked hard: {hub.counts.blockedNotSafelyRemediableCount}</p>
           </div>
         </EvidenceDrawer>
