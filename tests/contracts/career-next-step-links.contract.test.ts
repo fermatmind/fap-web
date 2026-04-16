@@ -144,7 +144,12 @@ describe("career next-step links contract", () => {
     expect(summary).not.toBeNull();
 
     const { container } = render(
-      createElement(CareerNextStepLinks, { locale: "en", summary: summary!, testId: "career-next-step-links" })
+      createElement(CareerNextStepLinks, {
+        locale: "en",
+        summary: summary!,
+        testId: "career-next-step-links",
+        landingPath: "/career/jobs/software-developer",
+      })
     );
 
     const section = screen.getByTestId("career-next-step-links");

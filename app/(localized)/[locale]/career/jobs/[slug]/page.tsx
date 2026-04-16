@@ -574,7 +574,14 @@ export default async function CareerJobDetailPage({
         testId="career-job-trust-strip"
       />
 
-      {nextStepLinks ? <CareerNextStepLinks locale={locale} summary={nextStepLinks} testId="career-job-next-step-links" /> : null}
+      {nextStepLinks ? (
+        <CareerNextStepLinks
+          locale={locale}
+          summary={nextStepLinks}
+          landingPath={jobDetailLandingPath}
+          testId="career-job-next-step-links"
+        />
+      ) : null}
 
       {job.aliasIndex.length > 0 ? (
         <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">

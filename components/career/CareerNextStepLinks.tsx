@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import type {
   CareerFirstWaveNextStepFamilyHubLinkAdapter,
   CareerFirstWaveNextStepJobDetailLinkAdapter,
   CareerFirstWaveNextStepLinksSummaryAdapter,
 } from "@/lib/career/adapters/types";
+import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
 import {
   buildCareerFamilyFrontendUrl,
   buildCareerJobFrontendUrl,
@@ -14,6 +16,7 @@ import type { Locale } from "@/lib/i18n/locales";
 type CareerNextStepLinksProps = {
   locale: Locale;
   summary: CareerFirstWaveNextStepLinksSummaryAdapter;
+  landingPath: string;
   testId?: string;
 };
 
@@ -41,7 +44,7 @@ function renderJobDetailTitle(link: CareerFirstWaveNextStepJobDetailLinkAdapter)
   return link.canonicalTitleEn ?? link.canonicalSlug;
 }
 
-export function CareerNextStepLinks({ locale, summary, testId }: CareerNextStepLinksProps) {
+export function CareerNextStepLinks({ locale, summary, landingPath, testId }: CareerNextStepLinksProps) {
   if (summary.nextStepLinks.length === 0) {
     return null;
   }
@@ -85,12 +88,24 @@ export function CareerNextStepLinks({ locale, summary, testId }: CareerNextStepL
           <ul className="m-0 space-y-2 pl-5 text-sm text-[var(--fm-text-muted)]">
             {summary.jobDetailLinks.map((link) => (
               <li key={`${link.routeKind}:${link.canonicalPath}:${link.canonicalSlug}`} data-testid="career-next-step-job-link">
-                <Link
+                <TrackedCareerLink
                   href={getJobDetailHref(locale, link)}
+                  eventName={CAREER_TRACKING_EVENTS.jobDetailCtaClick}
+                  eventPayload={{
+                    locale,
+                    entrySurface: "career_job_detail",
+                    sourcePageType: "career_job_detail",
+                    targetAction: "open_next_step_link",
+                    landingPath,
+                    routeFamily: "job_detail",
+                    subjectKind: "job_slug",
+                    subjectKey: link.canonicalSlug,
+                    queryMode: "non_query",
+                  }}
                   className="font-medium text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {renderJobDetailTitle(link)}
-                </Link>
+                </TrackedCareerLink>
               </li>
             ))}
           </ul>

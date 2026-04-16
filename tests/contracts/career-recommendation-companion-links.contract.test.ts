@@ -206,6 +206,7 @@ describe("career recommendation companion links contract", () => {
         locale: "en",
         summary: summary!,
         testId: "career-recommendation-companion-links",
+        landingPath: "/career/recommendations/mbti/intj-a",
       })
     );
 
