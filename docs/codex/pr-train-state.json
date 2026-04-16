@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T15:06:22Z",
+  "updated_at": "2026-04-16T15:07:52Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1434,10 +1434,10 @@
     "PR-F49": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "branch": "codex/pr-f49-career-lifecycle-conversion-closure",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "320cf00f76ef5f4f884797613ecfd31a6a3af5ea",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/464",
       "checks": {
         "local": [
           "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
@@ -1445,7 +1445,9 @@
           "pnpm typecheck",
           "pnpm vitest run tests/contracts/career-feedback-timeline.contract.test.tsx tests/contracts/career-job-lifecycle-companion.contract.test.tsx tests/contracts/career-conversion-attribution.contract.test.tsx"
         ],
-        "github": []
+        "github": [
+          "pending"
+        ]
       },
       "failure_reason": "",
       "resume_policy": "manual_only",
