@@ -99,6 +99,63 @@ export type CareerRuntimeConfigResponseRaw = {
   experiments?: unknown;
 };
 
+export type CareerCrosswalkReviewQueueResponseRaw = {
+  queue_kind?: unknown;
+  queue_version?: unknown;
+  scope?: unknown;
+  filters_applied?: unknown;
+  counts?: unknown;
+  items?: unknown;
+};
+
+export type CareerCrosswalkReviewQueueItemResponseRaw = {
+  subject_slug?: unknown;
+  canonical_title_en?: unknown;
+  family_slug?: unknown;
+  current_crosswalk_mode?: unknown;
+  candidate_target_kind?: unknown;
+  candidate_target_slug?: unknown;
+  queue_reason?: unknown;
+  requires_editorial_patch?: unknown;
+  batch_origin?: unknown;
+  publish_track?: unknown;
+  blocking_flags?: unknown;
+  has_approved_patch?: unknown;
+  latest_patch_key?: unknown;
+  latest_patch_status?: unknown;
+  latest_patch_version?: unknown;
+  latest_patch_created_at?: unknown;
+};
+
+export type CareerCrosswalkPatchHistoryResponseRaw = {
+  history_kind?: unknown;
+  history_version?: unknown;
+  subject_slug?: unknown;
+  count?: unknown;
+  latest_patch?: unknown;
+  status_counts?: unknown;
+  patches?: unknown;
+};
+
+export type CareerCrosswalkOverrideSummaryResponseRaw = {
+  override_kind?: unknown;
+  override_version?: unknown;
+  subject_slug?: unknown;
+  canonical_title_en?: unknown;
+  original_crosswalk_mode?: unknown;
+  resolved_crosswalk_mode?: unknown;
+  resolved_target_kind?: unknown;
+  resolved_target_slug?: unknown;
+  override_applied?: unknown;
+  applied_patch_key?: unknown;
+};
+
+export type CareerCrosswalkPatchMutationResponseRaw = {
+  mutation_kind?: unknown;
+  status?: unknown;
+  patch?: unknown;
+};
+
 export type CareerExplainabilityScoreDimensionResponseRaw = {
   value?: unknown;
   integrity_state?: unknown;

@@ -1239,6 +1239,40 @@
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
     },
+    "PR-F46": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/pr-f46-crosswalk-editorial-ops-console-ui",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/ops/career/crosswalk/page.tsx' 'app/(localized)/[locale]/ops/career/crosswalk/[slug]/page.tsx' components/ops/career/*.tsx tests/contracts/crosswalk-ops-queue.contract.test.tsx tests/contracts/crosswalk-patch-history.contract.test.tsx tests/contracts/crosswalk-patch-flow.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/crosswalk-ops-queue.contract.test.tsx tests/contracts/crosswalk-patch-history.contract.test.tsx tests/contracts/crosswalk-patch-flow.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "P1-D": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",

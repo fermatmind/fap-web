@@ -800,6 +800,32 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-F46
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f46-crosswalk-editorial-ops-console-ui
+    base: main
+    depends_on: ["PR-F45"]
+    mode: execute
+    scope: >
+      Career crosswalk/editorial ops console baseline (frontend).
+      Add minimal internal ops UI for review queue, patch history, patch submit,
+      and approve/reject flows on dedicated /ops/career/crosswalk surfaces.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/ops/career/crosswalk/page.tsx' 'app/(localized)/[locale]/ops/career/crosswalk/[slug]/page.tsx' components/ops/career/*.tsx tests/contracts/crosswalk-ops-queue.contract.test.tsx tests/contracts/crosswalk-patch-history.contract.test.tsx tests/contracts/crosswalk-patch-flow.contract.test.tsx"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/crosswalk-ops-queue.contract.test.tsx tests/contracts/crosswalk-patch-history.contract.test.tsx tests/contracts/crosswalk-patch-flow.contract.test.tsx"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-D1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
