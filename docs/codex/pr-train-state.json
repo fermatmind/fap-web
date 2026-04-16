@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T07:55:52.358046Z",
+  "updated_at": "2026-04-16T09:24:03.072511Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1281,6 +1281,40 @@
         ]
       },
       "failure_reason": "github_checks_failed_billing_block",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F47": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-f47-career-conversion-attribution-instrumentation",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' lib/career/attribution.ts lib/tracking/events.ts tests/contracts/career-conversion-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-conversion-attribution.contract.test.tsx tests/contracts/tracking-whitelist.contract.test.ts",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

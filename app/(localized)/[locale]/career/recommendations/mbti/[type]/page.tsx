@@ -862,6 +862,8 @@ export default async function CareerMbtiRecommendationPage({
         <CareerRecommendationCompanionLinks
           locale={locale}
           summary={companionLinks}
+          landingPath={recommendationLandingPath}
+          subjectKey={recommendationSubjectSlug}
           testId="career-recommendation-companion-links"
         />
       ) : null}

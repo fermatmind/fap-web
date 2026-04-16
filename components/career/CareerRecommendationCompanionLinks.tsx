@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import type {
   CareerFirstWaveRecommendationCompanionFamilyHubLinkAdapter,
   CareerFirstWaveRecommendationCompanionJobDetailLinkAdapter,
@@ -6,6 +7,7 @@ import type {
   CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter,
   CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter,
 } from "@/lib/career/adapters/types";
+import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
 import {
   buildCareerFamilyFrontendUrl,
   buildCareerJobFrontendUrl,
@@ -17,6 +19,8 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 type CareerRecommendationCompanionLinksProps = {
   locale: Locale;
   summary: CareerFirstWaveRecommendationCompanionLinksSummaryAdapter;
+  landingPath: string;
+  subjectKey?: string | null;
   testId?: string;
 };
 
@@ -80,6 +84,8 @@ function renderTopicDetailTitle(locale: Locale, link: CareerFirstWaveRecommendat
 export function CareerRecommendationCompanionLinks({
   locale,
   summary,
+  landingPath,
+  subjectKey,
   testId,
 }: CareerRecommendationCompanionLinksProps) {
   if (summary.companionLinks.length === 0) {
@@ -154,12 +160,24 @@ export function CareerRecommendationCompanionLinks({
                 key={`${link.routeKind}:${link.canonicalPath}:${link.canonicalSlug}`}
                 data-testid="career-recommendation-companion-test-link"
               >
-                <Link
+                <TrackedCareerLink
                   href={getTestLandingHref(locale, link)}
+                  eventName={CAREER_TRACKING_EVENTS.supportLinkClick}
+                  eventPayload={{
+                    locale,
+                    entrySurface: "career_recommendation_detail",
+                    sourcePageType: "career_recommendation_detail",
+                    targetAction: "open_support_link",
+                    landingPath,
+                    routeFamily: "recommendation_detail",
+                    subjectKind: subjectKey ? "job_slug" : "none",
+                    subjectKey,
+                    queryMode: "non_query",
+                  }}
                   className="font-medium text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {renderTestLandingTitle(locale, link)}
-                </Link>
+                </TrackedCareerLink>
               </li>
             ))}
           </ul>
@@ -177,12 +195,24 @@ export function CareerRecommendationCompanionLinks({
                 key={`${link.routeKind}:${link.canonicalPath}:${link.canonicalSlug}`}
                 data-testid="career-recommendation-companion-topic-link"
               >
-                <Link
+                <TrackedCareerLink
                   href={getTopicDetailHref(locale, link)}
+                  eventName={CAREER_TRACKING_EVENTS.supportLinkClick}
+                  eventPayload={{
+                    locale,
+                    entrySurface: "career_recommendation_detail",
+                    sourcePageType: "career_recommendation_detail",
+                    targetAction: "open_support_link",
+                    landingPath,
+                    routeFamily: "recommendation_detail",
+                    subjectKind: subjectKey ? "job_slug" : "none",
+                    subjectKey,
+                    queryMode: "non_query",
+                  }}
                   className="font-medium text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
                 >
                   {renderTopicDetailTitle(locale, link)}
-                </Link>
+                </TrackedCareerLink>
               </li>
             ))}
           </ul>

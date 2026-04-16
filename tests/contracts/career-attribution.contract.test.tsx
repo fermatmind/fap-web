@@ -302,9 +302,7 @@ describe("career attribution page wiring contract", () => {
 
     expect(trackedSources).not.toContain("career_alias_search");
     expect(trackedSources).not.toContain("career_alias_disambiguation_view");
-    expect(trackedSources).not.toContain("career_shortlist_add");
     expect(trackedSources).not.toContain("career_view");
-    expect(trackedSources).not.toContain("career_job_detail_cta_click");
     expect(trackedSources).not.toContain("career_blocked_surface_exposed");
     expect(trackedSources).not.toContain("career_family_hub_ready_surface_exposed");
     expect(trackedSources).not.toContain("career_family_hub_blocked_surface_exposed");
