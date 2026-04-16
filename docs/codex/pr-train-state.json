@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T18:14:50.594Z",
+  "updated_at": "2026-04-16T18:17:56Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1493,9 +1493,9 @@
     "PR-F51": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f51-career-v1-minimalist-ui-redesign",
-      "commit_sha": "5c31111b1027dc22371497839715446dfa49e3e4",
+      "commit_sha": "ab7c8d44fd14f8daa187ddd75ba720edd36cf13d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/466",
       "checks": {
         "local": [
@@ -1536,9 +1536,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24526500418/job/71698005521"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24526500418/job/71698005400"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub required checks failed after push: build and contracts completed with failure; gh returned no job logs for these failures.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
