@@ -92,6 +92,30 @@ describe("schema injection contract", () => {
     expect(source).toContain("buildPageMetadata");
   });
 
+  it("dataset hub and method pages inject dataset/article structured data on dedicated dataset surfaces only", () => {
+    const hubSource = read("app/(localized)/[locale]/datasets/occupations/page.tsx");
+    const methodSource = read("app/(localized)/[locale]/datasets/occupations/method/page.tsx");
+
+    expect(hubSource).toContain("fetchCareerDatasetHub");
+    expect(hubSource).toContain("adaptCareerDatasetHub");
+    expect(hubSource).toContain("JsonLd");
+    expect(hubSource).toContain('id="dataset-hub-jsonld"');
+    expect(hubSource).toContain('id="dataset-hub-breadcrumb-jsonld"');
+    expect(hubSource).toContain("DatasetFilterHub");
+    expect(hubSource).toContain("DatasetDownloadInfo");
+    expect(hubSource).not.toContain("fetchCareerJobBundle");
+    expect(hubSource).not.toContain("fetchCareerFamilyHub");
+
+    expect(methodSource).toContain("fetchCareerDatasetMethod");
+    expect(methodSource).toContain("adaptCareerDatasetMethod");
+    expect(methodSource).toContain("JsonLd");
+    expect(methodSource).toContain('id="dataset-method-article-jsonld"');
+    expect(methodSource).toContain('id="dataset-method-breadcrumb-jsonld"');
+    expect(methodSource).toContain("DatasetMethodPanel");
+    expect(methodSource).not.toContain("fetchCareerJobBundle");
+    expect(methodSource).not.toContain("fetchCareerRecommendationBundle");
+  });
+
   it("career guide detail page injects cms seo jsonld and breadcrumb jsonld", () => {
     const source = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
     expect(source).toContain("getCareerGuideSeoFromCmsBySlug");

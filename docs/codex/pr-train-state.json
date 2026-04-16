@@ -1115,6 +1115,23 @@
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
     },
+    "PR-F43": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-f43-career-public-dataset-hub-method-pages",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "P1-D": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",

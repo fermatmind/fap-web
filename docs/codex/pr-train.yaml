@@ -720,6 +720,33 @@ prs:
       delete_remote_branch: true
       run_local_cleanup: true
 
+  - id: PR-F43
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f43-career-public-dataset-hub-method-pages
+    base: main
+    depends_on: ["PR-F42", "PR-B74X"]
+    mode: execute
+    scope: >
+      Career public dataset hub and method pages.
+      Add /datasets/occupations and /datasets/occupations/method as public-safe
+      dataset product surfaces backed by the backend publication authority contract,
+      with strict route boundary so jobs/family/recommendation surfaces remain out.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/datasets/occupations/page.tsx' 'app/(localized)/[locale]/datasets/occupations/method/page.tsx' components/datasets/*.tsx tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx tests/contracts/schema-present.contract.test.ts"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx tests/contracts/schema-present.contract.test.ts"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-D1
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

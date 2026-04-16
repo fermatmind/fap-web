@@ -734,3 +734,64 @@ export type CareerFirstWaveRecommendationCompanionLinksSummaryAdapter = {
   testLandingLinks: CareerFirstWaveRecommendationCompanionTestLandingLinkAdapter[];
   topicDetailLinks: CareerFirstWaveRecommendationCompanionTopicDetailLinkAdapter[];
 };
+
+export type CareerDatasetHubAdapter = {
+  datasetKey: string;
+  datasetScope: string;
+  datasetName: string;
+  datasetNameZh: string;
+  publication: {
+    publisherName: string;
+    publisherUrl: string;
+    licenseName: string;
+    licenseUrl: string;
+    licenseSummary: string;
+    usageSummary: string;
+    allowedForPublicDisplay: boolean;
+    allowedForDownload: boolean;
+    accessMode: string;
+    downloadUrl: string;
+    formats: string[];
+    methodUrl: string;
+    documentationUrl: string;
+  };
+  collectionSummary: {
+    memberKind: string;
+    memberCount: number;
+    stableCount: number;
+    candidateCount: number;
+    holdCount: number;
+    discoverableCount: number;
+    excludedCount: number;
+    manifestVersion: string;
+    selectionPolicyVersion: string;
+  };
+  filters: {
+    family: boolean;
+    publishTrack: boolean;
+    indexPosture: boolean;
+  };
+  methodUrl: string;
+  structuredData: {
+    dataset: Record<string, unknown> | null;
+    breadcrumbList: Record<string, unknown> | null;
+  };
+};
+
+export type CareerDatasetMethodAdapter = {
+  datasetKey: string;
+  datasetScope: string;
+  methodUrl: string;
+  hubUrl: string;
+  title: string;
+  summary: string;
+  sourceSummary: string;
+  reviewDisciplineSummary: string;
+  included: string[];
+  excluded: string[];
+  boundaryNotes: string[];
+  structuredData: {
+    article: Record<string, unknown> | null;
+    breadcrumbList: Record<string, unknown> | null;
+  };
+};

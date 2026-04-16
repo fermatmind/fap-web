@@ -482,3 +482,34 @@ export type CareerFirstWaveRecommendationCompanionLinksResponseRaw = {
   companion_links?: unknown;
   data?: unknown;
 };
+
+export type CareerDatasetHubResponseRaw = {
+  contract_kind?: unknown;
+  contract_version?: unknown;
+  dataset_key?: unknown;
+  dataset_scope?: unknown;
+  dataset_name?: unknown;
+  dataset_name_zh?: unknown;
+  publication?: unknown;
+  collection_summary?: unknown;
+  filters?: unknown;
+  method_url?: unknown;
+  structured_data?: unknown;
+};
+
+export type CareerDatasetMethodResponseRaw = {
+  contract_kind?: unknown;
+  contract_version?: unknown;
+  dataset_key?: unknown;
+  dataset_scope?: unknown;
+  method_url?: unknown;
+  hub_url?: unknown;
+  title?: unknown;
+  summary?: unknown;
+  source_summary?: unknown;
+  review_discipline_summary?: unknown;
+  included?: unknown;
+  excluded?: unknown;
+  boundary_notes?: unknown;
+  structured_data?: unknown;
+};
