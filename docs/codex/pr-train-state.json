@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T14:20:00+08:00",
+  "updated_at": "2026-04-16T14:24:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1151,10 +1151,10 @@
     "PR-liu111": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "pr_open",
       "branch": "codex/pr-liu111-remove-footer-continue-browsing-copy",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "acb05f8c8c79f23edd2ceb09be79e4376e329afa",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/457",
       "checks": {
         "local": [
           {
