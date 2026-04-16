@@ -7,7 +7,10 @@ import {
 import { getCareerRecommendationRenderState } from "@/lib/career/protocolReadiness";
 import type { CareerRecommendationBundleResponseRaw } from "@/lib/career/api/types";
 import type {
+  CareerLifecycleFeedbackCheckinAdapter,
   CareerIntegritySummaryAdapter,
+  CareerProjectionDeltaSummaryAdapter,
+  CareerProjectionTimelineAdapter,
   CareerProvenanceMetaAdapter,
   CareerRecommendationBundleAdapter,
   CareerRecommendationMatchedGuideAdapter,
@@ -302,6 +305,86 @@ function buildWhiteBoxScores(raw: Record<string, unknown>): CareerWhiteBoxScores
   };
 }
 
+function buildFeedbackCheckin(raw: Record<string, unknown>): CareerLifecycleFeedbackCheckinAdapter | null {
+  const feedback = isRecord(raw.feedback_checkin) ? raw.feedback_checkin : null;
+  if (!feedback) {
+    return null;
+  }
+
+  return {
+    feedbackUuid: normalizeString(feedback.feedback_uuid),
+    burnoutCheckin: normalizeNumber(feedback.burnout_checkin),
+    careerSatisfaction: normalizeNumber(feedback.career_satisfaction),
+    switchUrgency: normalizeNumber(feedback.switch_urgency),
+    createdAt: normalizeString(feedback.created_at),
+  };
+}
+
+function buildProjectionTimeline(raw: Record<string, unknown>): CareerProjectionTimelineAdapter {
+  const timeline = isRecord(raw.projection_timeline) ? raw.projection_timeline : {};
+  const entries = Array.isArray(timeline.entries)
+    ? timeline.entries
+        .filter(isRecord)
+        .map((entry) => ({
+          projectionUuid: normalizeString(entry.projection_uuid),
+          recommendationSnapshotUuid: normalizeString(entry.recommendation_snapshot_uuid),
+          contextSnapshotUuid: normalizeString(entry.context_snapshot_uuid),
+          feedbackUuid: normalizeString(entry.feedback_uuid),
+          entryKind: normalizeString(entry.entry_kind),
+          entryLabel: normalizeString(entry.entry_label),
+          createdAt: normalizeString(entry.created_at),
+        }))
+    : [];
+
+  return {
+    timelineKind: normalizeString(timeline.timeline_kind),
+    timelineVersion: normalizeString(timeline.timeline_version),
+    currentProjectionUuid: normalizeString(timeline.current_projection_uuid),
+    currentRecommendationSnapshotUuid: normalizeString(timeline.current_recommendation_snapshot_uuid),
+    entries,
+  };
+}
+
+function buildProjectionDeltaSummary(raw: Record<string, unknown>): CareerProjectionDeltaSummaryAdapter {
+  const delta = isRecord(raw.projection_delta_summary) ? raw.projection_delta_summary : {};
+  const scoreDeltasRaw = isRecord(delta.score_deltas) ? delta.score_deltas : {};
+  const feedbackDeltasRaw = isRecord(delta.feedback_deltas) ? delta.feedback_deltas : {};
+  const claimChangedRaw = isRecord(delta.claim_permissions_changed) ? delta.claim_permissions_changed : {};
+
+  const scoreDeltas = Object.fromEntries(
+    Object.entries(scoreDeltasRaw).map(([key, value]) => {
+      const metric = isRecord(value) ? value : {};
+      return [
+        key,
+        {
+          previous: normalizeNumber(metric.previous),
+          current: normalizeNumber(metric.current),
+          delta: normalizeNumber(metric.delta),
+        },
+      ];
+    })
+  );
+
+  const feedbackDeltas = Object.fromEntries(
+    Object.entries(feedbackDeltasRaw).map(([key, value]) => [key, normalizeNumber(value)])
+  );
+
+  const claimPermissionsChanged = Object.fromEntries(
+    Object.entries(claimChangedRaw).map(([key, value]) => [key, value === true])
+  );
+
+  return {
+    deltaAvailable: delta.delta_available === true,
+    previousProjectionUuid: normalizeString(delta.previous_projection_uuid),
+    currentProjectionUuid: normalizeString(delta.current_projection_uuid),
+    scoreDeltas,
+    feedbackDeltas,
+    transitionChanged: delta.transition_changed === true,
+    targetJobsChanged: delta.target_jobs_changed === true,
+    claimPermissionsChanged,
+  };
+}
+
 function normalizeMatchedJobs(value: unknown, locale: "en" | "zh"): CareerRecommendationMatchedJobAdapter[] {
   if (!Array.isArray(value)) {
     return [];
@@ -391,6 +474,9 @@ export function adaptCareerRecommendationBundle(
   const provenanceMeta = buildProvenanceMeta(raw, trustManifest);
   const integritySummary = buildIntegritySummary(raw, scoreBundle);
   const whiteBoxScores = buildWhiteBoxScores(raw);
+  const feedbackCheckin = buildFeedbackCheckin(raw);
+  const projectionTimeline = buildProjectionTimeline(raw);
+  const projectionDeltaSummary = buildProjectionDeltaSummary(raw);
   const matchedJobs = normalizeMatchedJobs(raw.matched_jobs, input.locale);
   const matchedGuides = normalizeMatchedGuides(raw.matched_guides, input.locale);
   const hasSupportingTruth =
@@ -445,6 +531,9 @@ export function adaptCareerRecommendationBundle(
     provenanceMeta,
     integritySummary,
     whiteBoxScores,
+    feedbackCheckin,
+    projectionTimeline,
+    projectionDeltaSummary,
     supportingTruthSummary: {
       medianPayUsdAnnual: normalizeNumber((supportingTruth as Record<string, unknown>).median_pay_usd_annual),
       outlookPct20242034: normalizeNumber((supportingTruth as Record<string, unknown>).outlook_pct_2024_2034),

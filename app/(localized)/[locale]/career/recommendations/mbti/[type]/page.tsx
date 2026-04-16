@@ -9,6 +9,9 @@ import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabil
 import { CareerRecommendationCompanionLinks } from "@/components/career/CareerRecommendationCompanionLinks";
 import { StrainRadar } from "@/components/career/StrainRadar";
 import { CareerTransitionPathPanel } from "@/components/career/transition/CareerTransitionPathPanel";
+import { CareerFeedbackPanel } from "@/components/career/timeline/CareerFeedbackPanel";
+import { CareerProjectionDeltaPanel } from "@/components/career/timeline/CareerProjectionDeltaPanel";
+import { CareerProjectionTimeline } from "@/components/career/timeline/CareerProjectionTimeline";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
@@ -683,6 +686,25 @@ export default async function CareerMbtiRecommendationPage({
           landingPath={recommendationLandingPath}
         />
       ) : null}
+
+      <CareerFeedbackPanel
+        locale={locale}
+        recommendationType={detail.publicRouteSlug}
+        feedback={detail.feedbackCheckin}
+        testId="career-recommendation-feedback-panel"
+      />
+
+      <CareerProjectionTimeline
+        locale={locale}
+        timeline={detail.projectionTimeline}
+        testId="career-recommendation-projection-timeline"
+      />
+
+      <CareerProjectionDeltaPanel
+        locale={locale}
+        delta={detail.projectionDeltaSummary}
+        testId="career-recommendation-projection-delta"
+      />
 
       {renderRecommendationRendererContractStatus(detail, locale)}
 

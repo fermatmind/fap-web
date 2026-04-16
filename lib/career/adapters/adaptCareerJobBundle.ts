@@ -8,8 +8,11 @@ import { getCareerJobRenderState } from "@/lib/career/protocolReadiness";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import type { CareerJobBundleResponseRaw } from "@/lib/career/api/types";
 import type {
+  CareerLifecycleFeedbackCheckinAdapter,
   CareerIntegritySummaryAdapter,
   CareerJobBundleAdapter,
+  CareerProjectionDeltaSummaryAdapter,
+  CareerProjectionTimelineAdapter,
   CareerProvenanceMetaAdapter,
   CareerScoreBundleAdapter,
   CareerSeoContractAdapter,
@@ -380,6 +383,84 @@ function arrayFilterRecord(input: Record<string, unknown>): Record<string, unkno
   return Object.fromEntries(Object.entries(input).filter(([, value]) => value !== null && value !== undefined));
 }
 
+function buildFeedbackCheckin(value: unknown): CareerLifecycleFeedbackCheckinAdapter | null {
+  const feedback = isRecord(value) ? value : null;
+  if (!feedback) {
+    return null;
+  }
+
+  return {
+    feedbackUuid: normalizeString(feedback.feedback_uuid),
+    burnoutCheckin: normalizeNumber(feedback.burnout_checkin),
+    careerSatisfaction: normalizeNumber(feedback.career_satisfaction),
+    switchUrgency: normalizeNumber(feedback.switch_urgency),
+    createdAt: normalizeString(feedback.created_at),
+  };
+}
+
+function buildProjectionTimeline(value: unknown): CareerProjectionTimelineAdapter | null {
+  const timeline = isRecord(value) ? value : null;
+  if (!timeline) {
+    return null;
+  }
+
+  return {
+    timelineKind: normalizeString(timeline.timeline_kind),
+    timelineVersion: normalizeString(timeline.timeline_version),
+    currentProjectionUuid: normalizeString(timeline.current_projection_uuid),
+    currentRecommendationSnapshotUuid: normalizeString(timeline.current_recommendation_snapshot_uuid),
+    entries: Array.isArray(timeline.entries)
+      ? timeline.entries.filter(isRecord).map((entry) => ({
+          projectionUuid: normalizeString(entry.projection_uuid),
+          recommendationSnapshotUuid: normalizeString(entry.recommendation_snapshot_uuid),
+          contextSnapshotUuid: normalizeString(entry.context_snapshot_uuid),
+          feedbackUuid: normalizeString(entry.feedback_uuid),
+          entryKind: normalizeString(entry.entry_kind),
+          entryLabel: normalizeString(entry.entry_label),
+          createdAt: normalizeString(entry.created_at),
+        }))
+      : [],
+  };
+}
+
+function buildProjectionDeltaSummary(value: unknown): CareerProjectionDeltaSummaryAdapter | null {
+  const delta = isRecord(value) ? value : null;
+  if (!delta) {
+    return null;
+  }
+
+  const scoreDeltasRaw = isRecord(delta.score_deltas) ? delta.score_deltas : {};
+  const feedbackDeltasRaw = isRecord(delta.feedback_deltas) ? delta.feedback_deltas : {};
+  const claimChangedRaw = isRecord(delta.claim_permissions_changed) ? delta.claim_permissions_changed : {};
+
+  return {
+    deltaAvailable: delta.delta_available === true,
+    previousProjectionUuid: normalizeString(delta.previous_projection_uuid),
+    currentProjectionUuid: normalizeString(delta.current_projection_uuid),
+    scoreDeltas: Object.fromEntries(
+      Object.entries(scoreDeltasRaw).map(([key, metric]) => {
+        const valueRecord = isRecord(metric) ? metric : {};
+        return [
+          key,
+          {
+            previous: normalizeNumber(valueRecord.previous),
+            current: normalizeNumber(valueRecord.current),
+            delta: normalizeNumber(valueRecord.delta),
+          },
+        ];
+      })
+    ),
+    feedbackDeltas: Object.fromEntries(
+      Object.entries(feedbackDeltasRaw).map(([key, item]) => [key, normalizeNumber(item)])
+    ),
+    transitionChanged: delta.transition_changed === true,
+    targetJobsChanged: delta.target_jobs_changed === true,
+    claimPermissionsChanged: Object.fromEntries(
+      Object.entries(claimChangedRaw).map(([key, item]) => [key, item === true])
+    ),
+  };
+}
+
 export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJobBundleAdapter | null {
   const raw = unwrapPayload(input.payload);
   if (!raw) {
@@ -410,6 +491,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
   const integritySummary = buildIntegritySummary(raw, scoreBundle);
   const whiteBoxScores = buildWhiteBoxScores(raw);
   const structuredData = buildStructuredData(raw, input.locale, slug);
+  const lifecycleCompanionRaw = isRecord(raw.lifecycle_companion) ? raw.lifecycle_companion : {};
 
   const adapter: CareerJobBundleAdapter = {
     authoritySource: "career_backend_bundle.v0.5",
@@ -447,6 +529,11 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     provenanceMeta,
     integritySummary,
     whiteBoxScores,
+    lifecycleCompanion: {
+      timeline: buildProjectionTimeline(lifecycleCompanionRaw.timeline),
+      deltaSummary: buildProjectionDeltaSummary(lifecycleCompanionRaw.delta_summary),
+      latestFeedback: buildFeedbackCheckin(lifecycleCompanionRaw.latest_feedback),
+    },
     structuredData,
     renderState: getCareerJobRenderState({
       authoritySource: "career_backend_bundle.v0.5",
