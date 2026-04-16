@@ -27,8 +27,6 @@ export function SiteFooter() {
           supportTitle: "支持",
           reviewsTitle: "政策",
           tailnote: "识微，见远。See the Micro. Lead the Macro.",
-          introLabel: "继续浏览",
-          introCopy: "把热门测评、延伸阅读、支持和政策入口放在一起，方便继续往下走。",
           supportMeta: "隐私、条款、退款与联系支持都在这里。",
         }
       : {
@@ -37,8 +35,6 @@ export function SiteFooter() {
           supportTitle: "Support",
           reviewsTitle: "Policies",
           tailnote: "See the Micro. Lead the Macro.",
-          introLabel: "Continue browsing",
-          introCopy: "Keep top tests, reading, support, and policy links together so the next step stays easy.",
           supportMeta: "Privacy, terms, refunds, and contact support are all available here.",
         };
 
@@ -68,11 +64,6 @@ export function SiteFooter() {
   return (
     <footer className="fm-section-dark border-t border-white/10 text-white">
       <Container className="space-y-8 py-12">
-        <div className="space-y-2 border-b border-white/10 pb-5">
-          <p className="m-0 font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/55">{footerCopy.introLabel}</p>
-          <p className="m-0 text-sm text-slate-300">{footerCopy.introCopy}</p>
-        </div>
-
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3">
             <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.testsTitle}</p>
