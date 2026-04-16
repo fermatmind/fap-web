@@ -6,6 +6,8 @@ import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { CareerNextStepLinks } from "@/components/career/CareerNextStepLinks";
 import { StrainRadar } from "@/components/career/StrainRadar";
+import { CareerProjectionDeltaPanel } from "@/components/career/timeline/CareerProjectionDeltaPanel";
+import { CareerProjectionTimeline } from "@/components/career/timeline/CareerProjectionTimeline";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
@@ -516,6 +518,22 @@ export default async function CareerJobDetailPage({
           }
           testId="career-job-explainability-panel"
           showStrainRadar={false}
+        />
+      ) : null}
+
+      {job.lifecycleCompanion.timeline ? (
+        <CareerProjectionTimeline
+          locale={locale}
+          timeline={job.lifecycleCompanion.timeline}
+          testId="career-job-lifecycle-companion-timeline"
+        />
+      ) : null}
+
+      {job.lifecycleCompanion.deltaSummary ? (
+        <CareerProjectionDeltaPanel
+          locale={locale}
+          delta={job.lifecycleCompanion.deltaSummary}
+          testId="career-job-lifecycle-companion-delta"
         />
       ) : null}
 

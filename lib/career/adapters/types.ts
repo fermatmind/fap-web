@@ -89,6 +89,49 @@ export type CareerWhiteBoxScoresAdapter = {
   strainScore: CareerWhiteBoxStrainScoreAdapter | null;
 };
 
+export type CareerLifecycleFeedbackCheckinAdapter = {
+  feedbackUuid: string | null;
+  burnoutCheckin: number | null;
+  careerSatisfaction: number | null;
+  switchUrgency: number | null;
+  createdAt: string | null;
+};
+
+export type CareerProjectionTimelineEntryAdapter = {
+  projectionUuid: string | null;
+  recommendationSnapshotUuid: string | null;
+  contextSnapshotUuid: string | null;
+  feedbackUuid: string | null;
+  entryKind: string | null;
+  entryLabel: string | null;
+  createdAt: string | null;
+};
+
+export type CareerProjectionTimelineAdapter = {
+  timelineKind: string | null;
+  timelineVersion: string | null;
+  currentProjectionUuid: string | null;
+  currentRecommendationSnapshotUuid: string | null;
+  entries: CareerProjectionTimelineEntryAdapter[];
+};
+
+export type CareerProjectionDeltaMetricAdapter = {
+  previous: number | null;
+  current: number | null;
+  delta: number | null;
+};
+
+export type CareerProjectionDeltaSummaryAdapter = {
+  deltaAvailable: boolean;
+  previousProjectionUuid: string | null;
+  currentProjectionUuid: string | null;
+  scoreDeltas: Record<string, CareerProjectionDeltaMetricAdapter>;
+  feedbackDeltas: Record<string, number | null>;
+  transitionChanged: boolean;
+  targetJobsChanged: boolean;
+  claimPermissionsChanged: Record<string, boolean>;
+};
+
 export type CareerExplainabilityScoreDimensionAdapter = {
   value: number | null;
   integrityState: string;
@@ -183,6 +226,11 @@ export type CareerJobBundleAdapter = {
   provenanceMeta: CareerProvenanceMetaAdapter;
   integritySummary: CareerIntegritySummaryAdapter;
   whiteBoxScores: CareerWhiteBoxScoresAdapter;
+  lifecycleCompanion: {
+    timeline: CareerProjectionTimelineAdapter | null;
+    deltaSummary: CareerProjectionDeltaSummaryAdapter | null;
+    latestFeedback: CareerLifecycleFeedbackCheckinAdapter | null;
+  };
   structuredData: {
     occupation: Record<string, unknown> | null;
     breadcrumbList: Record<string, unknown> | null;
@@ -367,6 +415,9 @@ export type CareerRecommendationBundleAdapter = {
   provenanceMeta: CareerProvenanceMetaAdapter;
   integritySummary: CareerIntegritySummaryAdapter;
   whiteBoxScores: CareerWhiteBoxScoresAdapter;
+  feedbackCheckin: CareerLifecycleFeedbackCheckinAdapter | null;
+  projectionTimeline: CareerProjectionTimelineAdapter;
+  projectionDeltaSummary: CareerProjectionDeltaSummaryAdapter;
   supportingTruthSummary: {
     medianPayUsdAnnual: number | null;
     outlookPct20242034: number | null;

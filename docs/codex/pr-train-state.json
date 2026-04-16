@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T14:24:00+08:00",
+  "updated_at": "2026-04-16T15:28:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1155,6 +1155,40 @@
         ]
       },
       "failure_reason": "GitHub Actions build/contracts failed before logs were available from the run; local validation is green and the PR is waiting on remote CI status.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F44": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/pr-f44-career-feedback-time-travel-ui-baseline",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' components/career/timeline/*.tsx tests/contracts/career-feedback-timeline.contract.test.tsx tests/contracts/career-job-lifecycle-companion.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-feedback-timeline.contract.test.tsx tests/contracts/career-job-lifecycle-companion.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
