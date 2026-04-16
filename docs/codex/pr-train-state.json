@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T15:12:18Z",
+  "updated_at": "2026-04-16T16:21:00Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1334,9 +1334,9 @@
     "PR-F48": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "merged",
       "branch": "codex/pr-f48-career-full-342-dataset-public-scope-completion",
-      "commit_sha": "de1addcf2a755ea0a23505953c4680172674c6a4",
+      "commit_sha": "827b5332df7684fe6bf369c5dce1bd062cc56cf6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/463",
       "checks": {
         "local": [
@@ -1370,11 +1370,11 @@
           }
         ]
       },
-      "failure_reason": "GitHub Actions checks failed at workflow startup in CI (build/contracts) while all required local checks passed.",
+      "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-04-16T14:19:08Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "P1-D": {
       "repo": "fap-web",
@@ -1434,9 +1434,9 @@
     "PR-F49": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "merged",
       "branch": "codex/pr-f49-career-lifecycle-conversion-closure",
-      "commit_sha": "320cf00f76ef5f4f884797613ecfd31a6a3af5ea",
+      "commit_sha": "70baa04b27a3f47d0df0148e9a4e4897a31f1d86",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/464",
       "checks": {
         "local": [
@@ -1450,7 +1450,41 @@
           "contracts:FAILURE"
         ]
       },
-      "failure_reason": "GitHub Actions billing/spending limit blocked job start: 'recent account payments have failed or your spending limit needs to be increased'.",
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-16T15:14:18Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-F50": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/pr-f50-career-launch-governance-closure",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' lib/career/api/fetchCareerLaunchGovernanceClosure.ts lib/career/adapters/adaptCareerLaunchGovernanceClosure.ts tests/contracts/career-governance-closure.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-governance-closure.contract.test.tsx",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

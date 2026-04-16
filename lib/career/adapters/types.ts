@@ -1015,3 +1015,48 @@ export type CareerDatasetMethodAdapter = {
     breadcrumbList: Record<string, unknown> | null;
   };
 };
+
+export type CareerLaunchGovernanceState =
+  | "mature_public_launch"
+  | "public_but_conservative"
+  | "not_yet_mature";
+
+export type CareerOperationsState = "strong_operations_ready" | "not_strong_operations_ready";
+
+export type CareerLaunchGovernanceClosureMemberAdapter = {
+  canonicalSlug: string;
+  releaseState: string;
+  strongIndexState: string;
+  operationsState: CareerOperationsState;
+  governanceState: CareerLaunchGovernanceState;
+  strongIndexReady: boolean;
+  strongOperationsReady: boolean;
+  blockingReasons: string[];
+};
+
+export type CareerLaunchGovernanceClosureAdapter = {
+  authoritySource: string;
+  governanceKind: string;
+  governanceVersion: string;
+  scope: string;
+  trackingCounts: {
+    expectedTotalOccupations: number;
+    trackedTotalOccupations: number;
+    trackingComplete: boolean;
+  };
+  summary: {
+    maturePublicLaunchCount: number;
+    publicButConservativeCount: number;
+    strongIndexReadyCount: number;
+    strongOperationsReadyCount: number;
+    notYetReadyCount: number;
+  };
+  publicStatement: {
+    canClaimMaturePublicLaunch: boolean;
+    canClaimStrongIndexReady: boolean;
+    canClaimStrongOperationsReady: boolean;
+    allowedExternalStatement: string;
+  };
+  members: CareerLaunchGovernanceClosureMemberAdapter[];
+  membersBySlug: Record<string, CareerLaunchGovernanceClosureMemberAdapter>;
+};

@@ -65,26 +65,28 @@ describe("career landing hybrid authority contract", () => {
         ],
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
-      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
-        summary_kind: "career_first_wave_readiness",
-        summary_version: "career.release.first_wave_readiness.v1",
-        wave_name: "career_first_wave_10",
+    vi.doMock("@/lib/career/api/fetchCareerLaunchGovernanceClosure", () => ({
+      fetchCareerLaunchGovernanceClosure: vi.fn(async () => ({
+        governance_kind: "career_launch_governance_closure",
+        governance_version: "career.governance.v1",
+        scope: "career_all_342",
         counts: {
-          total: 10,
-          publish_ready: 6,
-          blocked_override_eligible: 2,
-          blocked_not_safely_remediable: 2,
-          blocked_total: 4,
-          partial_raw: 0,
+          tracking_counts: { expected_total_occupations: 342, tracked_total_occupations: 342, tracking_complete: true },
+          summary: {},
         },
-        occupations: [
+        members: [
           {
             canonical_slug: "data-scientists",
-            status: "publish_ready",
-            reason_codes: ["publish_ready"],
+            release_state: "public_detail_indexable",
+            strong_index_state: "strong_index_ready",
+            operations_state: "strong_operations_ready",
+            governance_state: "mature_public_launch",
+            strong_index_ready: true,
+            strong_operations_ready: true,
+            blocking_reasons: [],
           },
         ],
+        public_statement: { allowed_external_statement: "cohort-qualified only" },
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
@@ -207,26 +209,28 @@ describe("career landing hybrid authority contract", () => {
         ],
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerFirstWaveReadinessSummary", () => ({
-      fetchCareerFirstWaveReadinessSummary: vi.fn(async () => ({
-        summary_kind: "career_first_wave_readiness",
-        summary_version: "career.release.first_wave_readiness.v1",
-        wave_name: "career_first_wave_10",
+    vi.doMock("@/lib/career/api/fetchCareerLaunchGovernanceClosure", () => ({
+      fetchCareerLaunchGovernanceClosure: vi.fn(async () => ({
+        governance_kind: "career_launch_governance_closure",
+        governance_version: "career.governance.v1",
+        scope: "career_all_342",
         counts: {
-          total: 10,
-          publish_ready: 6,
-          blocked_override_eligible: 2,
-          blocked_not_safely_remediable: 2,
-          blocked_total: 4,
-          partial_raw: 0,
+          tracking_counts: { expected_total_occupations: 342, tracked_total_occupations: 342, tracking_complete: true },
+          summary: {},
         },
-        occupations: [
+        members: [
           {
             canonical_slug: "financial-analysts",
-            status: "blocked_override_eligible",
-            reason_codes: ["missing_crosswalk_source_code"],
+            release_state: "review_needed",
+            strong_index_state: "manual_only",
+            operations_state: "not_strong_operations_ready",
+            governance_state: "not_yet_mature",
+            strong_index_ready: false,
+            strong_operations_ready: false,
+            blocking_reasons: ["crosswalk_backlog_not_converged"],
           },
         ],
+        public_statement: { allowed_external_statement: "cohort-qualified only" },
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({

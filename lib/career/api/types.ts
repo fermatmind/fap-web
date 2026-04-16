@@ -107,6 +107,15 @@ export type CareerShortlistWriteResponseRaw = {
   data?: unknown;
 };
 
+export type CareerLaunchGovernanceClosureResponseRaw = {
+  governance_kind?: unknown;
+  governance_version?: unknown;
+  scope?: unknown;
+  counts?: unknown;
+  members?: unknown;
+  public_statement?: unknown;
+};
+
 export type CareerRuntimeConfigResponseRaw = {
   authority_kind?: unknown;
   authority_version?: unknown;

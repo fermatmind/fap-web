@@ -6,13 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
-import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerSearch } from "@/lib/career/adapters/adaptCareerSearch";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
-import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCareerFirstWaveReadinessSummary";
+import { adaptCareerLaunchGovernanceClosure } from "@/lib/career/adapters/adaptCareerLaunchGovernanceClosure";
+import { fetchCareerLaunchGovernanceClosure } from "@/lib/career/api/fetchCareerLaunchGovernanceClosure";
 import { fetchCareerSearch } from "@/lib/career/api/fetchCareerSearch";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
-import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { localizedPath } from "@/lib/i18n/locales";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -216,25 +215,30 @@ export default async function CareerJobsPage({
   const hasSearchQuery = submittedQuery.length > 0;
   const jobsPath = localizedPath("/career/jobs", locale);
   const resolvePath = localizedPath("/career/resolve", locale);
-  const [readinessSummaryPayload, jobIndexPayload, searchPayload] = await Promise.all([
-    fetchCareerFirstWaveReadinessSummary({ locale }),
+  const [governanceClosurePayload, jobIndexPayload, searchPayload] = await Promise.all([
+    fetchCareerLaunchGovernanceClosure({ locale }),
     hasSearchQuery ? Promise.resolve(null) : fetchCareerJobIndex({ locale }),
     hasSearchQuery ? fetchCareerSearch({ q: submittedQuery, locale, limit: 12, mode: "auto" }) : Promise.resolve(null),
   ]);
-  const firstWaveReadinessSummary = adaptCareerFirstWaveReadinessSummary({
-    payload: readinessSummaryPayload,
+  const governanceClosure = adaptCareerLaunchGovernanceClosure({
+    payload: governanceClosurePayload,
   });
+
+  const filterByGovernance = <T extends { identity: { canonicalSlug: string } }>(items: T[]): T[] =>
+    items.filter((item) => {
+      const member = governanceClosure?.membersBySlug[item.identity.canonicalSlug];
+      if (!member) {
+        return true;
+      }
+
+      return member.governanceState !== "not_yet_mature";
+    });
+
   const jobs = hasSearchQuery
     ? []
-    : filterJobFacingCardsByFirstWaveSummary(
-        firstWaveReadinessSummary,
-        adaptCareerJobIndex({ locale, payload: jobIndexPayload })
-      );
+    : filterByGovernance(adaptCareerJobIndex({ locale, payload: jobIndexPayload }));
   const searchResults = hasSearchQuery
-    ? filterJobFacingCardsByFirstWaveSummary(
-        firstWaveReadinessSummary,
-        adaptCareerSearch({ locale, payload: searchPayload })
-      )
+    ? filterByGovernance(adaptCareerSearch({ locale, payload: searchPayload }))
     : [];
   const familyFallbackSuggestions = hasSearchQuery
     ? deriveFamilyFallbackSuggestions(submittedQuery, locale)
@@ -295,9 +299,14 @@ export default async function CareerJobsPage({
         </h1>
         <p className="m-0 text-[var(--fm-text-muted)]">
           {locale === "zh"
-            ? "当前列表直接消费 backend B5 lightweight job index，不再回退到 CMS 职业列表 authority。"
-            : "This list now consumes the backend B5 lightweight job index directly and does not fall back to the CMS job list authority."}
+            ? "当前列表消费 full-342 backend authority，并遵循 unified governance closure 的公开分层。"
+            : "This list consumes full-342 backend authority and follows the unified governance closure public-state layering."}
         </p>
+        {governanceClosure ? (
+          <p className="m-0 text-xs text-[var(--fm-text-muted)]" data-testid="career-jobs-governance-summary">
+            {governanceClosure.publicStatement.allowedExternalStatement}
+          </p>
+        ) : null}
         <form
           action={jobsPath}
           method="get"
@@ -339,8 +348,8 @@ export default async function CareerJobsPage({
             </h2>
             <p className="m-0 text-sm text-[var(--fm-text-muted)]">
               {locale === "zh"
-                ? `当前结果来自 backend B6 conservative search: “${submittedQuery}”。`
-                : `These results come from the backend B6 conservative search for “${submittedQuery}”.`}
+                ? `当前结果来自 backend conservative search，并按 unified governance closure 过滤： “${submittedQuery}”。`
+                : `These results come from backend conservative search and are filtered by the unified governance closure: “${submittedQuery}”.`}
             </p>
             {hasSearchResults && hasFamilyFallback ? (
               <p

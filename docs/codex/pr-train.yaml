@@ -1002,3 +1002,30 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-F50
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f50-career-launch-governance-closure
+    base: main
+    depends_on: ["PR-F49", "PR-B85"]
+    mode: execute
+    scope: >
+      Career launch governance closure (frontend).
+      Align /career and /career/jobs to unified full-342 governance closure truth,
+      remove first-wave governance residue, and synchronize train/docs merged-state records
+      with current merged PR reality.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' lib/career/api/fetchCareerLaunchGovernanceClosure.ts lib/career/adapters/adaptCareerLaunchGovernanceClosure.ts tests/contracts/career-governance-closure.contract.test.tsx docs/codex/pr-train.yaml docs/codex/pr-train-state.json"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/career-governance-closure.contract.test.tsx"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true

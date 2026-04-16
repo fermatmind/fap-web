@@ -4,15 +4,14 @@ import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
+import { adaptCareerLaunchGovernanceClosure } from "@/lib/career/adapters/adaptCareerLaunchGovernanceClosure";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { adaptCareerRuntimeConfig } from "@/lib/career/adapters/adaptCareerRuntimeConfig";
-import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCareerFirstWaveReadinessSummary";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
+import { fetchCareerLaunchGovernanceClosure } from "@/lib/career/api/fetchCareerLaunchGovernanceClosure";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
 import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
-import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -103,25 +102,31 @@ export default async function CareerCenterPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const [readinessSummaryPayload, jobIndexPayload, recommendationIndexPayload, runtimeConfigPayload] = await Promise.all([
-    fetchCareerFirstWaveReadinessSummary({ locale }),
+  const [governanceClosurePayload, jobIndexPayload, recommendationIndexPayload, runtimeConfigPayload] = await Promise.all([
+    fetchCareerLaunchGovernanceClosure({ locale }),
     fetchCareerJobIndex({ locale }),
     fetchCareerRecommendationIndex({ locale }),
     fetchCareerRuntimeConfig({ locale }),
   ]);
 
-  const firstWaveReadinessSummary = adaptCareerFirstWaveReadinessSummary({
-    payload: readinessSummaryPayload,
+  const governanceClosure = adaptCareerLaunchGovernanceClosure({
+    payload: governanceClosurePayload,
   });
   const runtimeConfig = adaptCareerRuntimeConfig(runtimeConfigPayload);
   const explorerPrimaryVariant = runtimeConfig.experiments.explorerPrimaryPath.enabled
     ? runtimeConfig.experiments.explorerPrimaryPath.variant
     : "jobs_first";
   const jobsPrimary = explorerPrimaryVariant === "jobs_first";
-  const topJobs = filterJobFacingCardsByFirstWaveSummary(
-    firstWaveReadinessSummary,
-    adaptCareerJobIndex({ locale, payload: jobIndexPayload })
-  ).slice(0, 3);
+  const topJobs = adaptCareerJobIndex({ locale, payload: jobIndexPayload })
+    .filter((job) => {
+      const member = governanceClosure?.membersBySlug[job.identity.canonicalSlug];
+      if (!member) {
+        return true;
+      }
+
+      return member.governanceState !== "not_yet_mature";
+    })
+    .slice(0, 3);
   const recommendationPreviewItems = adaptCareerRecommendationIndex({
     locale,
     payload: recommendationIndexPayload,
@@ -199,9 +204,14 @@ export default async function CareerCenterPage({
         </h1>
         <p className="m-0 text-[var(--fm-text-muted)]">
           {locale === "zh"
-            ? "在这里选择最合适的探索路径：直接找职业、解析别名、按家族浏览，或从人格进入推荐。"
-            : "Choose the right exploration path here: browse jobs, resolve aliases, explore by family, or start from personality-based recommendations."}
+            ? "在这里选择最合适的探索路径：直接找职业、解析别名、按家族浏览，或从人格进入推荐。页面治理状态由 full-342 closure authority 提供。"
+            : "Choose the right exploration path here: browse jobs, resolve aliases, explore by family, or start from personality-based recommendations. Governance posture is sourced from the full-342 closure authority."}
         </p>
+        {governanceClosure ? (
+          <p className="m-0 text-xs text-[var(--fm-text-muted)]" data-testid="career-governance-closure-summary">
+            {governanceClosure.publicStatement.allowedExternalStatement}
+          </p>
+        ) : null}
         <div className="flex flex-wrap gap-3">
           <Link href={withLocale("/career/jobs")} className={buttonVariants({ size: "lg" })}>
             {jobsPrimary
