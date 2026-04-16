@@ -1242,10 +1242,10 @@
     "PR-F46": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "pr_open_checks_failed",
       "branch": "codex/pr-f46-crosswalk-editorial-ops-console-ui",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "da458b11e8921437b82399ae931b239f9f34a5ce",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/461",
       "checks": {
         "local": [
           {
@@ -1265,9 +1265,22 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "CI / build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24501753966/job/71610038561",
+            "reason": "The job was not started because recent account payments have failed or spending limit needs to be increased."
+          },
+          {
+            "name": "CI / contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24501753966/job/71610038579",
+            "reason": "The job was not started because recent account payments have failed or spending limit needs to be increased."
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "github_checks_failed_billing_block",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
