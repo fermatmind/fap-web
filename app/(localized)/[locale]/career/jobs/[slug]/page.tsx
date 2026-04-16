@@ -8,6 +8,7 @@ import { CareerNextStepLinks } from "@/components/career/CareerNextStepLinks";
 import { StrainRadar } from "@/components/career/StrainRadar";
 import { CareerProjectionDeltaPanel } from "@/components/career/timeline/CareerProjectionDeltaPanel";
 import { CareerProjectionTimeline } from "@/components/career/timeline/CareerProjectionTimeline";
+import { CareerShortlistAction } from "@/components/career/CareerShortlistAction";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
@@ -545,6 +546,16 @@ export default async function CareerJobDetailPage({
           testId="career-job-lifecycle-companion-delta"
         />
       ) : null}
+
+      <CareerShortlistAction
+        locale={locale}
+        subjectSlug={job.slug}
+        sourcePageType="career_job_detail"
+        entrySurface="career_job_detail"
+        routeFamily="job_detail"
+        landingPath={jobDetailLandingPath}
+        testId="career-job-shortlist-action"
+      />
 
       {renderJobRendererContractStatus(job, locale)}
 

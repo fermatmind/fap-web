@@ -239,6 +239,33 @@ export type CareerProjectionDeltaSummaryAdapter = {
   claimPermissionsChanged: Record<string, boolean>;
 };
 
+export type CareerLifecycleOperationalAdapter = {
+  memberKind: string | null;
+  canonicalSlug: string | null;
+  currentProjectionUuid: string | null;
+  currentRecommendationSnapshotUuid: string | null;
+  timelineEntryCount: number;
+  latestFeedbackAt: string | null;
+  deltaAvailable: boolean;
+  lifecycleState: string | null;
+  closureState: string | null;
+};
+
+export type CareerShortlistContractAdapter = {
+  enabled: boolean;
+  subjectKind: string | null;
+  subjectSlug: string | null;
+  sourcePageType: string | null;
+  stateEndpoint: string | null;
+  writeEndpoint: string | null;
+};
+
+export type CareerConversionClosureAdapter = {
+  subjectSlug: string | null;
+  counts: Record<string, number>;
+  readiness: Record<string, boolean>;
+};
+
 export type CareerExplainabilityScoreDimensionAdapter = {
   value: number | null;
   integrityState: string;
@@ -338,6 +365,9 @@ export type CareerJobBundleAdapter = {
     deltaSummary: CareerProjectionDeltaSummaryAdapter | null;
     latestFeedback: CareerLifecycleFeedbackCheckinAdapter | null;
   };
+  lifecycleOperational: CareerLifecycleOperationalAdapter;
+  shortlistContract: CareerShortlistContractAdapter;
+  conversionClosure: CareerConversionClosureAdapter;
   structuredData: {
     occupation: Record<string, unknown> | null;
     breadcrumbList: Record<string, unknown> | null;
@@ -525,6 +555,9 @@ export type CareerRecommendationBundleAdapter = {
   feedbackCheckin: CareerLifecycleFeedbackCheckinAdapter | null;
   projectionTimeline: CareerProjectionTimelineAdapter;
   projectionDeltaSummary: CareerProjectionDeltaSummaryAdapter;
+  lifecycleOperational: CareerLifecycleOperationalAdapter;
+  shortlistContract: CareerShortlistContractAdapter;
+  conversionClosure: CareerConversionClosureAdapter;
   supportingTruthSummary: {
     medianPayUsdAnnual: number | null;
     outlookPct20242034: number | null;

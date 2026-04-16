@@ -7,7 +7,9 @@ import {
 import { getCareerRecommendationRenderState } from "@/lib/career/protocolReadiness";
 import type { CareerRecommendationBundleResponseRaw } from "@/lib/career/api/types";
 import type {
+  CareerConversionClosureAdapter,
   CareerLifecycleFeedbackCheckinAdapter,
+  CareerLifecycleOperationalAdapter,
   CareerIntegritySummaryAdapter,
   CareerProjectionDeltaSummaryAdapter,
   CareerProjectionTimelineAdapter,
@@ -17,6 +19,7 @@ import type {
   CareerRecommendationMatchedJobAdapter,
   CareerScoreBundleAdapter,
   CareerSeoContractAdapter,
+  CareerShortlistContractAdapter,
   CareerWhiteBoxStrainRadarAxisKey,
   CareerWhiteBoxStrainScoreAdapter,
   CareerWhiteBoxScoresAdapter,
@@ -385,6 +388,51 @@ function buildProjectionDeltaSummary(raw: Record<string, unknown>): CareerProjec
   };
 }
 
+function buildLifecycleOperational(raw: Record<string, unknown>): CareerLifecycleOperationalAdapter {
+  const operational = isRecord(raw.lifecycle_operational) ? raw.lifecycle_operational : {};
+
+  return {
+    memberKind: normalizeString(operational.member_kind),
+    canonicalSlug: normalizeString(operational.canonical_slug),
+    currentProjectionUuid: normalizeString(operational.current_projection_uuid),
+    currentRecommendationSnapshotUuid: normalizeString(operational.current_recommendation_snapshot_uuid),
+    timelineEntryCount: normalizeNumber(operational.timeline_entry_count) ?? 0,
+    latestFeedbackAt: normalizeString(operational.latest_feedback_at),
+    deltaAvailable: operational.delta_available === true,
+    lifecycleState: normalizeString(operational.lifecycle_state),
+    closureState: normalizeString(operational.closure_state),
+  };
+}
+
+function buildShortlistContract(raw: Record<string, unknown>): CareerShortlistContractAdapter {
+  const contract = isRecord(raw.shortlist_contract) ? raw.shortlist_contract : {};
+
+  return {
+    enabled: contract.enabled === true,
+    subjectKind: normalizeString(contract.subject_kind),
+    subjectSlug: normalizeString(contract.subject_slug),
+    sourcePageType: normalizeString(contract.source_page_type),
+    stateEndpoint: normalizeString(contract.state_endpoint),
+    writeEndpoint: normalizeString(contract.write_endpoint),
+  };
+}
+
+function buildConversionClosure(raw: Record<string, unknown>): CareerConversionClosureAdapter {
+  const closure = isRecord(raw.conversion_closure) ? raw.conversion_closure : {};
+  const countsRaw = isRecord(closure.counts) ? closure.counts : {};
+  const readinessRaw = isRecord(closure.readiness) ? closure.readiness : {};
+
+  return {
+    subjectSlug: normalizeString(closure.subject_slug),
+    counts: Object.fromEntries(
+      Object.entries(countsRaw).map(([key, value]) => [key, normalizeNumber(value) ?? 0])
+    ),
+    readiness: Object.fromEntries(
+      Object.entries(readinessRaw).map(([key, value]) => [key, value === true])
+    ),
+  };
+}
+
 function normalizeMatchedJobs(value: unknown, locale: "en" | "zh"): CareerRecommendationMatchedJobAdapter[] {
   if (!Array.isArray(value)) {
     return [];
@@ -477,6 +525,9 @@ export function adaptCareerRecommendationBundle(
   const feedbackCheckin = buildFeedbackCheckin(raw);
   const projectionTimeline = buildProjectionTimeline(raw);
   const projectionDeltaSummary = buildProjectionDeltaSummary(raw);
+  const lifecycleOperational = buildLifecycleOperational(raw);
+  const shortlistContract = buildShortlistContract(raw);
+  const conversionClosure = buildConversionClosure(raw);
   const matchedJobs = normalizeMatchedJobs(raw.matched_jobs, input.locale);
   const matchedGuides = normalizeMatchedGuides(raw.matched_guides, input.locale);
   const hasSupportingTruth =
@@ -534,6 +585,9 @@ export function adaptCareerRecommendationBundle(
     feedbackCheckin,
     projectionTimeline,
     projectionDeltaSummary,
+    lifecycleOperational,
+    shortlistContract,
+    conversionClosure,
     supportingTruthSummary: {
       medianPayUsdAnnual: normalizeNumber((supportingTruth as Record<string, unknown>).median_pay_usd_annual),
       outlookPct20242034: normalizeNumber((supportingTruth as Record<string, unknown>).outlook_pct_2024_2034),

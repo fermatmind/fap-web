@@ -4,11 +4,13 @@ import { startTransition, useState } from "react";
 import { useRouter } from "next/navigation";
 import { submitCareerRecommendationFeedback } from "@/lib/career/api/submitCareerRecommendationFeedback";
 import type { CareerLifecycleFeedbackCheckinAdapter } from "@/lib/career/adapters/types";
+import { CAREER_TRACKING_EVENTS, trackCareerAttributionEvent } from "@/lib/career/attribution";
 import type { Locale } from "@/lib/i18n/locales";
 
 type CareerFeedbackPanelProps = {
   locale: Locale;
   recommendationType: string;
+  landingPath: string;
   feedback: CareerLifecycleFeedbackCheckinAdapter | null;
   testId?: string;
 };
@@ -18,6 +20,7 @@ const SCALE_VALUES = [1, 2, 3, 4, 5] as const;
 export function CareerFeedbackPanel({
   locale,
   recommendationType,
+  landingPath,
   feedback,
   testId,
 }: CareerFeedbackPanelProps) {
@@ -47,6 +50,18 @@ export function CareerFeedbackPanel({
       setSaving(false);
       return;
     }
+
+    trackCareerAttributionEvent(CAREER_TRACKING_EVENTS.feedbackSubmit, {
+      locale,
+      entrySurface: "career_recommendation_detail",
+      sourcePageType: "career_recommendation_detail",
+      targetAction: "submit_feedback",
+      landingPath,
+      routeFamily: "recommendation_detail",
+      subjectKind: "recommendation_type",
+      subjectKey: recommendationType,
+      queryMode: "non_query",
+    });
 
     setSaved(true);
     setSaving(false);
@@ -133,4 +148,3 @@ export function CareerFeedbackPanel({
     </section>
   );
 }
-
