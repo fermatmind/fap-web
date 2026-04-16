@@ -1,6 +1,8 @@
 import { normalizeCareerScoreResult } from "@/lib/career/contracts";
 import type { CareerTransitionPreviewResponseRaw } from "@/lib/career/api/types";
 import type {
+  CareerTransitionBridgeStepAdapter,
+  CareerTransitionBridgeStepTimeHorizon,
   CareerSeoContractAdapter,
   CareerTransitionPreviewAdapter,
   CareerTransitionPreviewDeltaDirection,
@@ -18,6 +20,11 @@ const TRANSITION_PREVIEW_DELTA_DIRECTION_ALLOWLIST = new Set<CareerTransitionPre
   "same",
   "higher",
   "lower",
+]);
+const TRANSITION_PREVIEW_BRIDGE_TIME_HORIZON_ALLOWLIST = new Set<CareerTransitionBridgeStepTimeHorizon>([
+  "days_0_30",
+  "days_31_60",
+  "days_61_90",
 ]);
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -113,6 +120,43 @@ function normalizeTransitionPreviewDelta(raw: Record<string, unknown>): CareerTr
   };
 }
 
+function normalizeBridgeSteps90d(value: unknown): CareerTransitionBridgeStepAdapter[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((item) => {
+      const row = isRecord(item) ? item : null;
+      if (!row) {
+        return null;
+      }
+
+      const stepKey = normalizeString(row.step_key);
+      const title = normalizeString(row.title);
+      const description = normalizeString(row.description);
+      const timeHorizon = normalizeString(row.time_horizon) as CareerTransitionBridgeStepTimeHorizon | null;
+
+      if (
+        !stepKey ||
+        !title ||
+        !description ||
+        !timeHorizon ||
+        !TRANSITION_PREVIEW_BRIDGE_TIME_HORIZON_ALLOWLIST.has(timeHorizon)
+      ) {
+        return null;
+      }
+
+      return {
+        stepKey,
+        title,
+        description,
+        timeHorizon,
+      };
+    })
+    .filter((item): item is CareerTransitionBridgeStepAdapter => item !== null);
+}
+
 export function adaptCareerTransitionPreview(
   input: AdaptCareerTransitionPreviewInput
 ): CareerTransitionPreviewAdapter | null {
@@ -123,6 +167,11 @@ export function adaptCareerTransitionPreview(
 
   const pathType = normalizeString(raw.path_type);
   const rawSteps = normalizeStringArray(raw.steps);
+  const whyThisPath = normalizeString(raw.why_this_path);
+  const whatIsLost = normalizeString(raw.what_is_lost);
+  const rationaleCodes = normalizeStringArray(raw.rationale_codes);
+  const tradeoffCodes = normalizeStringArray(raw.tradeoff_codes);
+  const bridgeSteps90d = normalizeBridgeSteps90d(raw.bridge_steps_90d);
   const targetJob = isRecord(raw.target_job) ? raw.target_job : {};
   const scoreSummary = isRecord(raw.score_summary) ? raw.score_summary : {};
   const trustSummary = isRecord(raw.trust_summary) ? raw.trust_summary : {};
@@ -167,6 +216,11 @@ export function adaptCareerTransitionPreview(
       reviewerStatus: normalizeString(trustSummary.reviewer_status),
       reasonCodes: normalizeStringArray(trustSummary.reason_codes),
     },
+    whyThisPath,
+    whatIsLost,
+    bridgeSteps90d,
+    rationaleCodes,
+    tradeoffCodes,
     seoContract,
   };
 }

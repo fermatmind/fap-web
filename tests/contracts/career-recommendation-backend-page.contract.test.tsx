@@ -163,6 +163,28 @@ describe("career recommendation backend page contract", () => {
       fetchCareerTransitionPreview: vi.fn(async () => ({
         path_type: "stable_upside",
         steps: ["skill_overlap", "task_overlap"],
+        why_this_path: "Path selected from: same-family target; publish-ready target.",
+        what_is_lost: "Tradeoff emphasis: higher training requirement.",
+        bridge_steps_90d: [
+          {
+            step_key: "skill_overlap",
+            title: "Validate overlapping skills",
+            description: "Document source-role strengths that transfer directly to the target role.",
+            time_horizon: "days_0_30",
+          },
+          {
+            step_key: "task_overlap",
+            title: "Translate task overlap",
+            description: "Map repeated target-role tasks to proof from recent source-role execution.",
+            time_horizon: "days_31_60",
+          },
+          {
+            step_key: "tool_overlap",
+            title: "Close tooling gap",
+            description: "Build explicit exposure to core target-role tools through scoped practice.",
+            time_horizon: "days_61_90",
+          },
+        ],
         delta: {
           entry_education_delta: {
             source_value: "Bachelor's degree",
@@ -272,16 +294,25 @@ describe("career recommendation backend page contract", () => {
     expect(html).toContain("career-recommendation-explainability-panel");
     expect(html).toContain("career-recommendation-strain-radar");
     expect(html).toContain("Strain six-axis radar");
-    expect(html).toContain("career-transition-preview");
-    expect(html).toContain("career-transition-preview-header");
-    expect(html).toContain("career-transition-preview-score-band");
-    expect(html).toContain("career-transition-preview-ingredients");
-    expect(html).toContain("career-transition-preview-comparison");
-    expect(html).toContain("career-transition-preview-footer");
-    expect(html).toContain("career-transition-preview-delta");
+    expect(html).toContain("career-transition-path-panel");
+    expect(html).toContain("career-transition-path-header");
+    expect(html).toContain("career-transition-path-why");
+    expect(html).toContain("career-transition-path-loss");
+    expect(html).toContain("career-transition-path-bridge-steps");
+    expect(html).toContain("career-transition-path-score-summary");
+    expect(html).toContain("career-transition-path-codes");
+    expect(html).toContain("career-transition-path-delta");
+    expect(html).toContain("career-transition-path-trust-summary");
     expect(html).toContain("career-recommendation-renderer-status");
     expect(html).toContain("data-renderer-state=\"restricted\"");
     expect(html).toContain("Product Manager");
+    expect(html).toContain("Path selected from: same-family target; publish-ready target.");
+    expect(html).toContain("Tradeoff emphasis: higher training requirement.");
+    expect(html).toContain("Days 0-30");
+    expect(html).toContain("Days 31-60");
+    expect(html).toContain("Days 61-90");
+    expect(html).toContain("same_family_target");
+    expect(html).toContain("higher_training_required");
     expect(html).toContain("Bachelor&#x27;s degree");
     expect(html).toContain("Moderate-term");
     expect(html).toContain("Short-term");
@@ -319,7 +350,7 @@ describe("career recommendation backend page contract", () => {
     expect(html).not.toContain("strongest");
 
     const explainabilityIndex = html.indexOf("career-recommendation-explainability-panel");
-    const transitionPreviewIndex = html.indexOf("career-transition-preview");
+    const transitionPanelIndex = html.indexOf("career-transition-path-panel");
     const matchedJobsIndex = html.indexOf("career-recommendation-matched-jobs-status");
     const companionLinksIndex = html.indexOf("career-recommendation-companion-links");
     const rendererStatusIndex = html.indexOf("career-recommendation-renderer-status");
@@ -328,8 +359,8 @@ describe("career recommendation backend page contract", () => {
     const sceneEntryIndex = html.indexOf("career-recommendation-scene-entry");
 
     expect(explainabilityIndex).toBeGreaterThan(-1);
-    expect(transitionPreviewIndex).toBeGreaterThan(explainabilityIndex);
-    expect(rendererStatusIndex).toBeGreaterThan(transitionPreviewIndex);
+    expect(transitionPanelIndex).toBeGreaterThan(explainabilityIndex);
+    expect(rendererStatusIndex).toBeGreaterThan(transitionPanelIndex);
     expect(warningIndex).toBeGreaterThan(rendererStatusIndex);
     expect(trustIndex).toBeGreaterThan(warningIndex);
     expect(sceneEntryIndex).toBeGreaterThan(trustIndex);

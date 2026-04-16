@@ -8,7 +8,7 @@ import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink"
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { CareerRecommendationCompanionLinks } from "@/components/career/CareerRecommendationCompanionLinks";
 import { StrainRadar } from "@/components/career/StrainRadar";
-import { CareerTransitionPreviewCard } from "@/components/career/CareerTransitionPreviewCard";
+import { CareerTransitionPathPanel } from "@/components/career/transition/CareerTransitionPathPanel";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
@@ -509,7 +509,7 @@ export default async function CareerMbtiRecommendationPage({
       {transitionPreview ? (
         <AnalyticsPageViewTracker
           eventName={CAREER_TRACKING_EVENTS.transitionPreviewView}
-          trackingKey={`transition-preview:${detail.publicRouteSlug}:${transitionPreview.targetJob.canonicalSlug}`}
+          trackingKey={`transition-path:${detail.publicRouteSlug}:${transitionPreview.targetJob.canonicalSlug}`}
           properties={buildCareerAttributionPayload({
             locale,
             entrySurface: "career_recommendation_detail_transition_preview",
@@ -677,9 +677,9 @@ export default async function CareerMbtiRecommendationPage({
       ) : null}
 
       {transitionPreview ? (
-        <CareerTransitionPreviewCard
+        <CareerTransitionPathPanel
           locale={locale}
-          preview={transitionPreview}
+          transitionPath={transitionPreview}
           landingPath={recommendationLandingPath}
         />
       ) : null}
