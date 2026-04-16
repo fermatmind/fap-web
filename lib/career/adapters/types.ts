@@ -79,6 +79,71 @@ export type CareerRuntimeConfigAdapter = {
   };
 };
 
+export type CareerCrosswalkOpsQueueItemAdapter = {
+  subjectSlug: string;
+  canonicalTitleEn: string | null;
+  familySlug: string | null;
+  currentCrosswalkMode: string | null;
+  candidateTargetKind: string | null;
+  candidateTargetSlug: string | null;
+  queueReasons: string[];
+  requiresEditorialPatch: boolean;
+  batchOrigin: string | null;
+  publishTrack: string | null;
+  blockingFlags: string[];
+  hasApprovedPatch: boolean;
+  latestPatchKey: string | null;
+  latestPatchStatus: string | null;
+  latestPatchVersion: string | null;
+  latestPatchCreatedAt: string | null;
+};
+
+export type CareerCrosswalkOpsQueueAdapter = {
+  queueKind: string;
+  queueVersion: string;
+  scope: string;
+  counts: Record<string, number>;
+  items: CareerCrosswalkOpsQueueItemAdapter[];
+};
+
+export type CareerCrosswalkPatchRecordAdapter = {
+  patchKey: string;
+  patchVersion: string;
+  patchStatus: string;
+  subjectSlug: string | null;
+  targetKind: string | null;
+  targetSlug: string | null;
+  crosswalkModeOverride: string | null;
+  reviewNotes: string | null;
+  createdBy: string | null;
+  reviewedBy: string | null;
+  createdAt: string | null;
+  reviewedAt: string | null;
+  isLatest: boolean;
+};
+
+export type CareerCrosswalkPatchHistoryAdapter = {
+  historyKind: string;
+  historyVersion: string;
+  subjectSlug: string;
+  count: number;
+  patches: CareerCrosswalkPatchRecordAdapter[];
+  latestPatch: CareerCrosswalkPatchRecordAdapter | null;
+};
+
+export type CareerCrosswalkOverrideSummaryAdapter = {
+  overrideKind: string;
+  overrideVersion: string;
+  subjectSlug: string;
+  canonicalTitleEn: string | null;
+  originalCrosswalkMode: string | null;
+  resolvedCrosswalkMode: string | null;
+  resolvedTargetKind: string | null;
+  resolvedTargetSlug: string | null;
+  overrideApplied: boolean;
+  appliedPatchKey: string | null;
+};
+
 export type CareerIntegritySummaryAdapter = {
   integrityState: string | null;
   criticalMissingFields: string[];
