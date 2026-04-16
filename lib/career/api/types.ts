@@ -17,6 +17,9 @@ export type CareerJobBundleResponseRaw = {
   white_box_scores?: unknown;
   structured_data?: CareerJobStructuredDataResponseRaw | unknown;
   lifecycle_companion?: unknown;
+  lifecycle_operational?: unknown;
+  shortlist_contract?: unknown;
+  conversion_closure?: unknown;
 };
 
 export type CareerJobStructuredDataOccupationResponseRaw = {
@@ -84,9 +87,22 @@ export type CareerRecommendationBundleResponseRaw = {
   feedback_checkin?: unknown;
   projection_timeline?: unknown;
   projection_delta_summary?: unknown;
+  lifecycle_operational?: unknown;
+  shortlist_contract?: unknown;
+  conversion_closure?: unknown;
 };
 
 export type CareerRecommendationFeedbackResponseRaw = {
+  ok?: unknown;
+  data?: unknown;
+};
+
+export type CareerShortlistStateResponseRaw = {
+  ok?: unknown;
+  data?: unknown;
+};
+
+export type CareerShortlistWriteResponseRaw = {
   ok?: unknown;
   data?: unknown;
 };

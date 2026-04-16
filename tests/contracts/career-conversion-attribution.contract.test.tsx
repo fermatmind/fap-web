@@ -30,18 +30,21 @@ describe("career conversion attribution contract", () => {
     expect(datasetHubPage).not.toContain("career_support_link_click");
   });
 
-  it("keeps shortlist attribution deferred when no stable shortlist UI action exists", () => {
+  it("wires shortlist and feedback-submit attribution only after lifecycle action surfaces are present", () => {
     const trackedSources = [
       "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
       "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
+      "components/career/CareerShortlistAction.tsx",
+      "components/career/timeline/CareerFeedbackPanel.tsx",
       "components/career/CareerNextStepLinks.tsx",
       "components/career/CareerRecommendationCompanionLinks.tsx",
     ]
       .map(read)
       .join("\n");
 
-    expect(trackedSources).not.toContain("CAREER_TRACKING_EVENTS.shortlistAdd");
-    expect(trackedSources).not.toContain("targetAction: \"add_shortlist\"");
+    expect(trackedSources).toContain("CAREER_TRACKING_EVENTS.shortlistAdd");
+    expect(trackedSources).toContain("targetAction: \"add_shortlist\"");
+    expect(trackedSources).toContain("CAREER_TRACKING_EVENTS.feedbackSubmit");
+    expect(trackedSources).toContain("targetAction: \"submit_feedback\"");
   });
 });
-

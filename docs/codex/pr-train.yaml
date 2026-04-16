@@ -975,3 +975,30 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-F49
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f49-career-lifecycle-conversion-closure
+    base: main
+    depends_on: ["PR-F48", "PR-B84"]
+    mode: execute
+    scope: >
+      Career lifecycle + conversion closure (frontend).
+      Upgrade recommendation detail to lifecycle operational control surface,
+      keep job detail companion-only with shortlist/closure integration,
+      and complete shortlist/cta/support/feedback attribution closure wiring.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' components/career/timeline/*.tsx components/career/CareerShortlistAction.tsx tests/contracts/career-feedback-timeline.contract.test.tsx tests/contracts/career-job-lifecycle-companion.contract.test.tsx tests/contracts/career-conversion-attribution.contract.test.tsx docs/codex/pr-train.yaml docs/codex/pr-train-state.json"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/career-feedback-timeline.contract.test.tsx tests/contracts/career-job-lifecycle-companion.contract.test.tsx tests/contracts/career-conversion-attribution.contract.test.tsx"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true

@@ -10,11 +10,13 @@ import { CareerRecommendationCompanionLinks } from "@/components/career/CareerRe
 import { StrainRadar } from "@/components/career/StrainRadar";
 import { CareerTransitionPathPanel } from "@/components/career/transition/CareerTransitionPathPanel";
 import { CareerFeedbackPanel } from "@/components/career/timeline/CareerFeedbackPanel";
+import { CareerLifecycleOperationalPanel } from "@/components/career/timeline/CareerLifecycleOperationalPanel";
 import { CareerProjectionDeltaPanel } from "@/components/career/timeline/CareerProjectionDeltaPanel";
 import { CareerProjectionTimeline } from "@/components/career/timeline/CareerProjectionTimeline";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { WarningBanner } from "@/components/career/WarningBanner";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
+import { CareerShortlistAction } from "@/components/career/CareerShortlistAction";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -410,6 +412,7 @@ export default async function CareerMbtiRecommendationPage({
   const canRenderSummarySurface = renderState.canRenderSummarySurface;
   const canRenderSalarySummary = renderState.canRenderSalarySummary;
   const recommendationSubjectSlug =
+    detail.shortlistContract.subjectSlug ??
     matchedJobs[0]?.canonicalSlug ??
     transitionPreview?.targetJob.canonicalSlug ??
     extractJobSlugFromCanonicalTarget(detail.seoContract.canonicalTarget);
@@ -701,24 +704,42 @@ export default async function CareerMbtiRecommendationPage({
         />
       ) : null}
 
-      <CareerFeedbackPanel
+      <CareerLifecycleOperationalPanel
         locale={locale}
-        recommendationType={detail.publicRouteSlug}
-        feedback={detail.feedbackCheckin}
-        testId="career-recommendation-feedback-panel"
-      />
-
-      <CareerProjectionTimeline
-        locale={locale}
-        timeline={detail.projectionTimeline}
-        testId="career-recommendation-projection-timeline"
-      />
-
-      <CareerProjectionDeltaPanel
-        locale={locale}
-        delta={detail.projectionDeltaSummary}
-        testId="career-recommendation-projection-delta"
-      />
+        lifecycleOperational={detail.lifecycleOperational}
+        projectionTimeline={detail.projectionTimeline}
+        projectionDeltaSummary={detail.projectionDeltaSummary}
+        testId="career-recommendation-lifecycle-operational-panel"
+      >
+        {recommendationSubjectSlug ? (
+          <CareerShortlistAction
+            locale={locale}
+            subjectSlug={recommendationSubjectSlug}
+            sourcePageType="career_recommendation_detail"
+            entrySurface="career_recommendation_detail"
+            routeFamily="recommendation_detail"
+            landingPath={recommendationLandingPath}
+            testId="career-recommendation-shortlist-action"
+          />
+        ) : null}
+        <CareerFeedbackPanel
+          locale={locale}
+          recommendationType={detail.publicRouteSlug}
+          landingPath={recommendationLandingPath}
+          feedback={detail.feedbackCheckin}
+          testId="career-recommendation-feedback-panel"
+        />
+        <CareerProjectionTimeline
+          locale={locale}
+          timeline={detail.projectionTimeline}
+          testId="career-recommendation-projection-timeline"
+        />
+        <CareerProjectionDeltaPanel
+          locale={locale}
+          delta={detail.projectionDeltaSummary}
+          testId="career-recommendation-projection-delta"
+        />
+      </CareerLifecycleOperationalPanel>
 
       {renderRecommendationRendererContractStatus(detail, locale)}
 

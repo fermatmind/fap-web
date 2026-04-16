@@ -8,14 +8,17 @@ import { getCareerJobRenderState } from "@/lib/career/protocolReadiness";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import type { CareerJobBundleResponseRaw } from "@/lib/career/api/types";
 import type {
+  CareerConversionClosureAdapter,
   CareerLifecycleFeedbackCheckinAdapter,
   CareerIntegritySummaryAdapter,
   CareerJobBundleAdapter,
+  CareerLifecycleOperationalAdapter,
   CareerProjectionDeltaSummaryAdapter,
   CareerProjectionTimelineAdapter,
   CareerProvenanceMetaAdapter,
   CareerScoreBundleAdapter,
   CareerSeoContractAdapter,
+  CareerShortlistContractAdapter,
   CareerWhiteBoxStrainRadarAxisKey,
   CareerWhiteBoxStrainScoreAdapter,
   CareerWhiteBoxScoresAdapter,
@@ -461,6 +464,51 @@ function buildProjectionDeltaSummary(value: unknown): CareerProjectionDeltaSumma
   };
 }
 
+function buildLifecycleOperational(raw: Record<string, unknown>): CareerLifecycleOperationalAdapter {
+  const operational = isRecord(raw.lifecycle_operational) ? raw.lifecycle_operational : {};
+
+  return {
+    memberKind: normalizeString(operational.member_kind),
+    canonicalSlug: normalizeString(operational.canonical_slug),
+    currentProjectionUuid: normalizeString(operational.current_projection_uuid),
+    currentRecommendationSnapshotUuid: normalizeString(operational.current_recommendation_snapshot_uuid),
+    timelineEntryCount: normalizeNumber(operational.timeline_entry_count) ?? 0,
+    latestFeedbackAt: normalizeString(operational.latest_feedback_at),
+    deltaAvailable: operational.delta_available === true,
+    lifecycleState: normalizeString(operational.lifecycle_state),
+    closureState: normalizeString(operational.closure_state),
+  };
+}
+
+function buildShortlistContract(raw: Record<string, unknown>): CareerShortlistContractAdapter {
+  const contract = isRecord(raw.shortlist_contract) ? raw.shortlist_contract : {};
+
+  return {
+    enabled: contract.enabled === true,
+    subjectKind: normalizeString(contract.subject_kind),
+    subjectSlug: normalizeString(contract.subject_slug),
+    sourcePageType: normalizeString(contract.source_page_type),
+    stateEndpoint: normalizeString(contract.state_endpoint),
+    writeEndpoint: normalizeString(contract.write_endpoint),
+  };
+}
+
+function buildConversionClosure(raw: Record<string, unknown>): CareerConversionClosureAdapter {
+  const closure = isRecord(raw.conversion_closure) ? raw.conversion_closure : {};
+  const countsRaw = isRecord(closure.counts) ? closure.counts : {};
+  const readinessRaw = isRecord(closure.readiness) ? closure.readiness : {};
+
+  return {
+    subjectSlug: normalizeString(closure.subject_slug),
+    counts: Object.fromEntries(
+      Object.entries(countsRaw).map(([key, value]) => [key, normalizeNumber(value) ?? 0])
+    ),
+    readiness: Object.fromEntries(
+      Object.entries(readinessRaw).map(([key, value]) => [key, value === true])
+    ),
+  };
+}
+
 export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJobBundleAdapter | null {
   const raw = unwrapPayload(input.payload);
   if (!raw) {
@@ -534,6 +582,9 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
       deltaSummary: buildProjectionDeltaSummary(lifecycleCompanionRaw.delta_summary),
       latestFeedback: buildFeedbackCheckin(lifecycleCompanionRaw.latest_feedback),
     },
+    lifecycleOperational: buildLifecycleOperational(raw),
+    shortlistContract: buildShortlistContract(raw),
+    conversionClosure: buildConversionClosure(raw),
     structuredData,
     renderState: getCareerJobRenderState({
       authoritySource: "career_backend_bundle.v0.5",
