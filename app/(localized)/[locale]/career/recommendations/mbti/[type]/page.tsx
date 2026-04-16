@@ -23,17 +23,20 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { adaptCareerRecommendationExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerFirstWaveRecommendationCompanionLinks } from "@/lib/career/adapters/adaptCareerFirstWaveRecommendationCompanionLinks";
 import { adaptCareerRecommendationBundle } from "@/lib/career/adapters/adaptCareerRecommendationBundle";
+import { adaptCareerRuntimeConfig } from "@/lib/career/adapters/adaptCareerRuntimeConfig";
 import { adaptCareerTransitionPreview } from "@/lib/career/adapters/adaptCareerTransitionPreview";
 import type {
   CareerExplainabilityAdapter,
   CareerFirstWaveRecommendationCompanionLinksSummaryAdapter,
   CareerRecommendationBundleAdapter,
+  CareerRuntimeConfigAdapter,
   CareerTransitionPreviewAdapter,
 } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerFirstWaveRecommendationCompanionLinks } from "@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks";
 import { fetchCareerRecommendationExplainability } from "@/lib/career/api/fetchCareerRecommendationExplainability";
 import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRecommendationBundle";
+import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
 import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
 import { filterStableRecommendationMatchedJobs } from "@/lib/career/recommendationMatchedJobExposurePolicy";
 import { buildCareerRecommendationFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
@@ -238,6 +241,11 @@ async function loadRecommendationCompanionLinks(
   return adaptCareerFirstWaveRecommendationCompanionLinks({ payload });
 }
 
+async function loadRuntimeConfig(locale: Locale): Promise<CareerRuntimeConfigAdapter> {
+  const payload = await fetchCareerRuntimeConfig({ locale });
+  return adaptCareerRuntimeConfig(payload);
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -292,11 +300,12 @@ export default async function CareerMbtiRecommendationPage({
   const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const [detail, explainability, transitionPreview, companionLinks] = await Promise.all([
+  const [detail, explainability, transitionPreview, companionLinks, runtimeConfig] = await Promise.all([
     loadRecommendationBundle(locale, type),
     loadRecommendationExplainability(locale, type),
     loadTransitionPreview(locale, type),
     loadRecommendationCompanionLinks(locale, type),
+    loadRuntimeConfig(locale),
   ]);
 
   if (!detail) {
@@ -684,6 +693,11 @@ export default async function CareerMbtiRecommendationPage({
           locale={locale}
           transitionPath={transitionPreview}
           landingPath={recommendationLandingPath}
+          emphasisVariant={
+            runtimeConfig.experiments.transitionEmphasis.enabled
+              ? runtimeConfig.experiments.transitionEmphasis.variant
+              : "balanced"
+          }
         />
       ) : null}
 
@@ -711,7 +725,9 @@ export default async function CareerMbtiRecommendationPage({
       <WarningBanner
         locale={locale}
         warnings={detail.warnings}
-        title={locale === "zh" ? "显式警告与限制" : "Explicit warnings and limits"}
+        copyVariant={
+          runtimeConfig.experiments.warningCopy.enabled ? runtimeConfig.experiments.warningCopy.variant : "control"
+        }
         testId="career-recommendation-warning-banner"
       />
 

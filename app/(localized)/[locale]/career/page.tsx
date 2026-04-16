@@ -7,9 +7,11 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { adaptCareerFirstWaveReadinessSummary } from "@/lib/career/adapters/adaptCareerFirstWaveReadinessSummary";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
+import { adaptCareerRuntimeConfig } from "@/lib/career/adapters/adaptCareerRuntimeConfig";
 import { fetchCareerFirstWaveReadinessSummary } from "@/lib/career/api/fetchCareerFirstWaveReadinessSummary";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
+import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
 import { filterJobFacingCardsByFirstWaveSummary } from "@/lib/career/firstWaveReadinessExposurePolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -101,15 +103,21 @@ export default async function CareerCenterPage({
   const locale = resolveLocale(localeParam);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
 
-  const [readinessSummaryPayload, jobIndexPayload, recommendationIndexPayload] = await Promise.all([
+  const [readinessSummaryPayload, jobIndexPayload, recommendationIndexPayload, runtimeConfigPayload] = await Promise.all([
     fetchCareerFirstWaveReadinessSummary({ locale }),
     fetchCareerJobIndex({ locale }),
     fetchCareerRecommendationIndex({ locale }),
+    fetchCareerRuntimeConfig({ locale }),
   ]);
 
   const firstWaveReadinessSummary = adaptCareerFirstWaveReadinessSummary({
     payload: readinessSummaryPayload,
   });
+  const runtimeConfig = adaptCareerRuntimeConfig(runtimeConfigPayload);
+  const explorerPrimaryVariant = runtimeConfig.experiments.explorerPrimaryPath.enabled
+    ? runtimeConfig.experiments.explorerPrimaryPath.variant
+    : "jobs_first";
+  const jobsPrimary = explorerPrimaryVariant === "jobs_first";
   const topJobs = filterJobFacingCardsByFirstWaveSummary(
     firstWaveReadinessSummary,
     adaptCareerJobIndex({ locale, payload: jobIndexPayload })
@@ -196,12 +204,21 @@ export default async function CareerCenterPage({
         </p>
         <div className="flex flex-wrap gap-3">
           <Link href={withLocale("/career/jobs")} className={buttonVariants({ size: "lg" })}>
-            {locale === "zh" ? "浏览职业库（主路径）" : "Browse jobs (Primary)"}
+            {jobsPrimary
+              ? locale === "zh"
+                ? "浏览职业库（主路径）"
+                : "Browse jobs (Primary)"
+              : locale === "zh"
+                ? "浏览职业库"
+                : "Browse jobs"}
           </Link>
           <Link href={withLocale("/career/resolve")} className={buttonVariants({ variant: "outline", size: "lg" })}>
             {locale === "zh" ? "解析别名/俗称" : "Resolve alias terms"}
           </Link>
         </div>
+        <p className="m-0 text-xs uppercase tracking-[0.1em] text-[var(--fm-text-muted)]" data-testid="career-explorer-primary-path-variant">
+          {locale === "zh" ? "入口强调" : "Entry emphasis"}: {explorerPrimaryVariant}
+        </p>
         <form
           action={withLocale("/career/jobs")}
           method="get"
@@ -238,7 +255,10 @@ export default async function CareerCenterPage({
           {locale === "zh" ? "选择你的探索路径" : "Choose your exploration path"}
         </h2>
         <div className="grid gap-3 md:grid-cols-2">
-          <Card data-testid="career-pathway-jobs">
+          <Card
+            data-testid="career-pathway-jobs"
+            className={jobsPrimary ? "ring-2 ring-[var(--fm-accent)]/25" : undefined}
+          >
             <CardHeader>
               <CardTitle>{locale === "zh" ? "直接找职业（主路径）" : "Direct job browsing (Primary)"}</CardTitle>
             </CardHeader>
@@ -253,7 +273,10 @@ export default async function CareerCenterPage({
               </Link>
             </CardContent>
           </Card>
-          <Card data-testid="career-pathway-resolve">
+          <Card
+            data-testid="career-pathway-resolve"
+            className={!jobsPrimary ? "ring-2 ring-[var(--fm-accent)]/25" : undefined}
+          >
             <CardHeader>
               <CardTitle>{locale === "zh" ? "别名/俗称解析" : "Alias / colloquial resolution"}</CardTitle>
             </CardHeader>

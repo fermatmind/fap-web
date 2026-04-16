@@ -2,6 +2,7 @@ import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { TrustStrip } from "@/components/career/TrustStrip";
 import { CAREER_TRACKING_EVENTS } from "@/lib/career/attribution";
 import type {
+  CareerTransitionEmphasisVariant,
   CareerTransitionPreviewAdapter,
   CareerTransitionPreviewDeltaEntryAdapter,
 } from "@/lib/career/adapters/types";
@@ -11,6 +12,7 @@ type CareerTransitionPathPanelProps = {
   locale: Locale;
   transitionPath: CareerTransitionPreviewAdapter;
   landingPath: string;
+  emphasisVariant?: CareerTransitionEmphasisVariant;
 };
 
 function renderScoreValue(value: number | null): string {
@@ -89,6 +91,7 @@ export function CareerTransitionPathPanel({
   locale,
   transitionPath,
   landingPath,
+  emphasisVariant = "balanced",
 }: CareerTransitionPathPanelProps) {
   const deltaEntries = transitionPath.delta
     ? ([
@@ -100,6 +103,9 @@ export function CareerTransitionPathPanel({
         CareerTransitionPreviewDeltaEntryAdapter,
       ] => Boolean(entry[1]))
     : [];
+
+  const prioritizeRisk = emphasisVariant === "risk_first";
+  const prioritizeUpside = emphasisVariant === "upside_first";
 
   return (
     <section
@@ -121,6 +127,9 @@ export function CareerTransitionPathPanel({
         </div>
         <p className="m-0 text-sm text-[var(--fm-text-muted)]" data-testid="career-transition-path-focus-copy">
           {getPathTypeFocusCopy(locale, transitionPath.pathType)}
+        </p>
+        <p className="m-0 text-xs uppercase tracking-[0.1em] text-[var(--fm-text-muted)]" data-testid="career-transition-emphasis-variant">
+          {locale === "zh" ? "展示强调" : "Display emphasis"}: {emphasisVariant}
         </p>
       </header>
 
@@ -151,7 +160,9 @@ export function CareerTransitionPathPanel({
 
       <div className="grid gap-4 lg:grid-cols-2">
         <section
-          className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+          className={`space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 ${
+            prioritizeUpside ? "ring-2 ring-emerald-300" : ""
+          }`}
           data-testid="career-transition-path-why"
         >
           <h3 className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
@@ -165,7 +176,9 @@ export function CareerTransitionPathPanel({
           </p>
         </section>
         <section
-          className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+          className={`space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 ${
+            prioritizeRisk ? "ring-2 ring-amber-300" : ""
+          }`}
           data-testid="career-transition-path-loss"
         >
           <h3 className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
@@ -181,7 +194,9 @@ export function CareerTransitionPathPanel({
       </div>
 
       <section
-        className="space-y-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+        className={`space-y-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 ${
+          transitionPath.pathType === "bridge" || emphasizeBridge(emphasisVariant) ? "ring-2 ring-[var(--fm-accent)]/30" : ""
+        }`}
         data-testid="career-transition-path-bridge-steps"
       >
         <h3 className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
@@ -213,10 +228,7 @@ export function CareerTransitionPathPanel({
         )}
       </section>
 
-      <section
-        className="grid gap-3 md:grid-cols-2"
-        data-testid="career-transition-path-score-summary"
-      >
+      <section className="grid gap-3 md:grid-cols-2" data-testid="career-transition-path-score-summary">
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">Mobility</p>
           <p className="m-0 mt-2 text-2xl font-semibold text-[var(--fm-text)]">
@@ -226,7 +238,11 @@ export function CareerTransitionPathPanel({
             {transitionPath.scoreSummary.mobilityScore.integrity_state}
           </p>
         </div>
-        <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+        <div
+          className={`rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 ${
+            prioritizeUpside ? "ring-2 ring-emerald-300" : ""
+          }`}
+        >
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">Confidence</p>
           <p className="m-0 mt-2 text-2xl font-semibold text-[var(--fm-text)]">
             {renderScoreValue(transitionPath.scoreSummary.confidenceScore.value)}
@@ -327,4 +343,8 @@ export function CareerTransitionPathPanel({
       </section>
     </section>
   );
+}
+
+function emphasizeBridge(variant: CareerTransitionEmphasisVariant): boolean {
+  return variant === "balanced" || variant === "risk_first";
 }

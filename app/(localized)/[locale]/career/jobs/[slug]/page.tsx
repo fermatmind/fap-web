@@ -17,15 +17,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { adaptCareerFirstWaveNextStepLinks } from "@/lib/career/adapters/adaptCareerFirstWaveNextStepLinks";
 import { adaptCareerJobExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
+import { adaptCareerRuntimeConfig } from "@/lib/career/adapters/adaptCareerRuntimeConfig";
 import type {
   CareerExplainabilityAdapter,
   CareerFirstWaveNextStepLinksSummaryAdapter,
   CareerJobBundleAdapter,
+  CareerRuntimeConfigAdapter,
 } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
 import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
+import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
@@ -79,6 +82,11 @@ async function loadCareerJobExplainability(locale: Locale, slug: string): Promis
 async function loadCareerNextStepLinks(locale: Locale, slug: string): Promise<CareerFirstWaveNextStepLinksSummaryAdapter | null> {
   const payload = await fetchCareerFirstWaveNextStepLinks({ locale, slug });
   return adaptCareerFirstWaveNextStepLinks({ payload });
+}
+
+async function loadRuntimeConfig(locale: Locale): Promise<CareerRuntimeConfigAdapter> {
+  const payload = await fetchCareerRuntimeConfig({ locale });
+  return adaptCareerRuntimeConfig(payload);
 }
 
 function renderCareerJobProtocolStatus(job: CareerJobBundleAdapter, locale: Locale) {
@@ -248,10 +256,11 @@ export default async function CareerJobDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [job, explainability, nextStepLinks] = await Promise.all([
+  const [job, explainability, nextStepLinks, runtimeConfig] = await Promise.all([
     loadCareerJobBundle(locale, slug),
     loadCareerJobExplainability(locale, slug),
     loadCareerNextStepLinks(locale, slug),
+    loadRuntimeConfig(locale),
   ]);
 
   if (!job) {
@@ -542,7 +551,9 @@ export default async function CareerJobDetailPage({
       <WarningBanner
         locale={locale}
         warnings={job.warnings}
-        title={locale === "zh" ? "显式警告与边界" : "Explicit warnings and limits"}
+        copyVariant={
+          runtimeConfig.experiments.warningCopy.enabled ? runtimeConfig.experiments.warningCopy.variant : "control"
+        }
         testId="career-job-warning-banner"
       />
 

@@ -91,6 +91,14 @@ export type CareerRecommendationFeedbackResponseRaw = {
   data?: unknown;
 };
 
+export type CareerRuntimeConfigResponseRaw = {
+  authority_kind?: unknown;
+  authority_version?: unknown;
+  snapshot_key?: unknown;
+  thresholds?: unknown;
+  experiments?: unknown;
+};
+
 export type CareerExplainabilityScoreDimensionResponseRaw = {
   value?: unknown;
   integrity_state?: unknown;
