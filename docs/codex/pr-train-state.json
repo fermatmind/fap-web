@@ -1115,6 +1115,51 @@
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
     },
+    "PR-F43": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "pr_open",
+      "branch": "codex/pr-f43-career-public-dataset-hub-method-pages",
+      "commit_sha": "d3697e7832b8953be00006dffb01c8f9f109b9fc",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/458",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/datasets/occupations/page.tsx' 'app/(localized)/[locale]/datasets/occupations/method/page.tsx' components/datasets/*.tsx tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx tests/contracts/schema-present.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx tests/contracts/schema-present.contract.test.ts",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24491871032/job/71578365381"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24491871032/job/71578365377"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions build/contracts failed before logs were available from the run; local validation is green and the PR is waiting on remote CI status.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "P1-D": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
