@@ -1334,10 +1334,10 @@
     "PR-F48": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f48-career-full-342-dataset-public-scope-completion",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "de1addcf2a755ea0a23505953c4680172674c6a4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/463",
       "checks": {
         "local": [
           {
@@ -1357,9 +1357,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24515248327/job/71657231245"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24515248327/job/71657231185"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions checks failed at workflow startup in CI (build/contracts) while all required local checks passed.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
