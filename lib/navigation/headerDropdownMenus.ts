@@ -6,6 +6,7 @@ export type HeaderNavKey = "tests" | "articles" | "personality" | "career" | "he
 export type HeaderDropdownMenuItem = {
   href: string;
   label: string;
+  forceVisible?: boolean;
 };
 
 export type HeaderDropdownMenu = {
@@ -74,19 +75,13 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
   },
   zh: {
     tests: [
-      { href: "/tests", label: "测评入口中心" },
-      { href: "/tests/category/personality", label: "人格与风格" },
-      { href: "/tests/category/career", label: "职业与方向" },
-      { href: "/career/tests/riasec", label: "霍兰德职业兴趣测试" },
+      { href: "/tests", label: "全部测试" },
       { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试" },
       { href: "/tests/big-five-personality-test-ocean-model/take", label: "大五人格测试" },
-      {
-        href: "/tests/clinical-depression-anxiety-assessment-professional-edition/take",
-        label: "抑郁焦虑综合测评（专业版）",
-      },
-      { href: "/tests/depression-screening-test-standard-edition/take", label: "抑郁筛查" },
-      { href: "/tests/iq-test-intelligence-quotient-assessment/take", label: "IQ 测评" },
-      { href: "/tests/eq-test-emotional-intelligence-assessment/take", label: "EQ 测评" },
+      { href: "/tests/iq-test-intelligence-quotient-assessment/take", label: "智商测试" },
+      { href: "/tests/eq-test-emotional-intelligence-assessment/take", label: "情商测试" },
+      { href: "/tests", label: "九型人格测试" },
+      { href: "/tests/depression-screening-test-standard-edition/take", label: "抑郁症测试", forceVisible: true },
     ],
     articles: [
       { href: "/articles", label: "全部文章" },
@@ -136,6 +131,15 @@ export function getHeaderDropdownMenus(locale: Locale): HeaderDropdownMenu[] {
 
   return order.map((key) => ({
     key,
-    items: key === "tests" ? filterVisiblePublicTestEntries(source[key]) : source[key],
+    items:
+      key === "tests"
+        ? Array.from(
+            new Map(
+              filterVisiblePublicTestEntries(source[key])
+                .concat(source[key].filter((item) => item.forceVisible))
+                .map((item) => [`${item.href}:${item.label}`, item])
+            ).values()
+          )
+        : source[key],
   }));
 }
