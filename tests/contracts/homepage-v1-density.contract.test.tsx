@@ -49,6 +49,23 @@ describe("homepage v1 density contract", () => {
     expect(source).not.toContain("buildBig5TakeHref");
   });
 
+  it("keeps hero, trust, grid, secondary exploration, and result promise in a tightened landing rhythm", () => {
+    const source = read("components/marketing/HomePageExperience.tsx");
+
+    expect(source).toContain("pb-8 pt-14 text-slate-950 md:pb-10 md:pt-20");
+    expect(source).toContain("bg-slate-50 pb-6 md:pb-8");
+    expect(source).toContain("bg-slate-50 pb-10 pt-6 md:pb-12 md:pt-8");
+    expect(source).toContain("mt-6 grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-3");
+    expect(source).toContain("bg-slate-50 pb-8 pt-2 md:pb-10 md:pt-4");
+    expect(source).toContain("border-t border-slate-200 pt-7 md:pt-8");
+
+    expect(source).not.toContain("py-16 text-slate-950 md:py-24");
+    expect(source).not.toContain("bg-slate-50 py-16 md:py-20");
+    expect(source).not.toContain("bg-slate-50 py-12 md:py-16");
+    expect(source).not.toContain("rounded-[2rem] border border-slate-200 bg-white/70");
+    expect(source).not.toContain("rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm md:p-10");
+  });
+
   it("compresses secondary exploration and result promise to lightweight sections", () => {
     render(<HomePageExperience locale="zh" />);
 
