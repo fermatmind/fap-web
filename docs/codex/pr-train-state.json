@@ -1611,7 +1611,7 @@
     "PR-F53": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f53-homepage-rhythm-tightening",
       "commit_sha": "896e4a0b1894089a6976787639133fe61df5394c",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/468",
@@ -1638,9 +1638,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24545950126/job/71761467472"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24545950126/job/71761467489"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub required checks failed immediately after PR creation: build and contracts completed with failure, and gh reported no logs for either failed job.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
