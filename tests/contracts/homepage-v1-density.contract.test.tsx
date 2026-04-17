@@ -53,12 +53,15 @@ describe("homepage v1 density contract", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
     expect(source).toContain("lg:grid-cols-[minmax(0,1fr)_360px]");
-    expect(source).toContain("HeroResultStructurePanel previews={copy.results.previews}");
+    expect(source).toContain('locale === "zh" ? "结果结构" : "Result"');
+    expect(source).toContain("HeroResultStructurePanel locale={locale} previews={copy.results.previews}");
     expect(source).toContain("pb-4 pt-12 text-slate-950 md:pb-6 md:pt-16");
     expect(source).toContain("bg-slate-50 py-4 md:py-5");
     expect(source).toContain("border-y border-slate-200 py-4");
     expect(source).toContain("bg-slate-50 pb-10 pt-5 md:pb-12 md:pt-6");
     expect(source).toContain("mt-6 grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-3");
+    expect(source).toContain("grid gap-5 border-t border-slate-200 pt-5 md:grid-cols-[minmax(0,16rem)_1fr]");
+    expect(source).toContain("text-lg font-semibold tracking-[-0.03em]");
     expect(source).toContain("inline-flex min-w-0 flex-col border-l border-slate-200 pl-4");
     expect(source).toContain("bg-slate-50 pb-8 pt-1 md:pb-10");
     expect(source).toContain("border-t border-slate-200 pt-7 md:flex");

@@ -38,13 +38,15 @@ function HeroCta({
   );
 }
 
-function HeroResultStructurePanel({ previews }: { previews: ResultPreview[] }) {
+function HeroResultStructurePanel({ locale, previews }: { locale: Locale; previews: ResultPreview[] }) {
+  const panelLabel = locale === "zh" ? "结果结构" : "Result";
+
   return (
     <div className="hidden lg:block" aria-hidden="true">
       <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
         <div className="flex items-center justify-between border-b border-slate-100 pb-4">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-            Result
+            {panelLabel}
           </span>
           <span className="h-2 w-2 rounded-full bg-orange-600" />
         </div>
@@ -102,7 +104,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
               <span aria-hidden className="ml-1">→</span>
             </Link>
           </div>
-          <HeroResultStructurePanel previews={copy.results.previews} />
+          <HeroResultStructurePanel locale={locale} previews={copy.results.previews} />
         </div>
       </Container>
     </section>
@@ -213,21 +215,19 @@ function HomepageSecondaryExploreRowV1({ locale, copy }: { locale: Locale; copy:
   return (
     <section className="bg-slate-50 pb-8 pt-1 md:pb-10" aria-labelledby="homepage-secondary-title">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="border-t border-slate-200 pt-5">
-          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                {copy.secondaryExplore.kicker}
-              </p>
-              <h2
-                id="homepage-secondary-title"
-                className="m-0 mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950"
-              >
-                {copy.secondaryExplore.title}
-              </h2>
-            </div>
+        <div className="grid gap-5 border-t border-slate-200 pt-5 md:grid-cols-[minmax(0,16rem)_1fr] md:items-start">
+          <div>
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              {copy.secondaryExplore.kicker}
+            </p>
+            <h2
+              id="homepage-secondary-title"
+              className="m-0 mt-2 text-lg font-semibold tracking-[-0.03em] text-slate-950 md:text-xl"
+            >
+              {copy.secondaryExplore.title}
+            </h2>
           </div>
-          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {copy.secondaryExplore.items.map((item) => (
               <SecondaryExploreCard key={item.title} locale={locale} item={item} />
             ))}
