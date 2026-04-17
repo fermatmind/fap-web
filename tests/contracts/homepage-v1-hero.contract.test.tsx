@@ -17,32 +17,34 @@ vi.mock("next/link", () => ({
 }));
 
 describe("homepage v1 hero contract", () => {
-  it("removes the red-boxed hero copy while preserving the banner skeleton", () => {
+  it("renders the fixed Chinese V1 hero with one primary MBTI action", () => {
     render(<HomePageExperience locale="zh" />);
 
-    const source = document.body.innerHTML;
+    expect(screen.getByRole("heading", { level: 1, name: "先了解自己，再决定下一步。" })).toBeInTheDocument();
+    expect(
+      screen.getByText("用一份简洁、可继续使用的测评结果，帮你看清人格、能力与职业方向。")
+    ).toBeInTheDocument();
 
-    expect(source).toContain("bg-orange-50 pb-24 pt-10 text-slate-950 md:pb-32 md:pt-14");
-    expect(source).toContain("lg:grid-cols-[minmax(0,0.92fr)_minmax(27rem,1fr)]");
-    expect(source).toContain("absolute right-0 top-3 w-[31rem]");
-    expect(screen.queryByText("过去 30 天完成")).not.toBeInTheDocument();
-    expect(screen.queryByText("FermatMind / 费马测试")).not.toBeInTheDocument();
-    expect(screen.queryByRole("heading", { level: 1, name: "先了解自己，再决定下一步。" })).not.toBeInTheDocument();
-    expect(screen.queryByText("用一份简洁、可继续使用的测评结果，帮你看清人格、能力与职业方向。")).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "开始 MBTI 测试" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "查看全部测评" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: /去职业探索/ })).not.toBeInTheDocument();
-    expect(screen.queryByText("结果结构")).not.toBeInTheDocument();
-    expect(screen.queryByText("可继续使用的结果页")).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "开始 MBTI 测试" })).toHaveAttribute(
+      "href",
+      "/zh/tests/mbti-personality-test-16-personality-types"
+    );
+    expect(screen.getAllByRole("link", { name: "开始 MBTI 测试" })).toHaveLength(1);
+    expect(
+      screen.getAllByRole("link", { name: "查看全部测评" }).some((link) => link.getAttribute("href") === "/zh/tests")
+    ).toBe(true);
+    expect(
+      screen.getAllByRole("link", { name: /去职业探索/ }).some((link) => link.getAttribute("href") === "/zh/career")
+    ).toBe(true);
   });
 
-  it("keeps trust cards but removes the red-boxed method link", () => {
+  it("renders trust points as a compact strip instead of a heavy accordion", () => {
     render(<HomePageExperience locale="zh" />);
 
     expect(screen.getByText("结果结构清晰")).toBeInTheDocument();
     expect(screen.getAllByText("方法边界透明").length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText("可匿名开始")).toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "查看方法与隐私" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "查看方法与隐私" })).toHaveAttribute("href", "/zh/help/about");
     expect(screen.queryByText("Trust & Boundaries")).not.toBeInTheDocument();
   });
 });
