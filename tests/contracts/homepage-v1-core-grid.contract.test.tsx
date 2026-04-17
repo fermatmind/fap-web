@@ -58,9 +58,11 @@ const EXPECTED_ZH_CARDS = [
 describe("homepage v1 core grid contract", () => {
   it("renders exactly six core test cards with four fields each", () => {
     render(<HomePageExperience locale="zh" />);
+    const gridHeading = screen.getByRole("heading", { level: 2, name: "从一个清楚的问题开始。" });
+    const section = gridHeading.closest("section");
 
     for (const card of EXPECTED_ZH_CARDS) {
-      const title = screen.getByRole("heading", { level: 3, name: card.title });
+      const title = within(section as HTMLElement).getByRole("heading", { level: 3, name: card.title });
       const article = title.closest("article");
 
       expect(article).toBeTruthy();
@@ -72,7 +74,7 @@ describe("homepage v1 core grid contract", () => {
       );
     }
 
-    expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(6);
+    expect(within(section as HTMLElement).getAllByRole("heading", { level: 3 })).toHaveLength(6);
   });
 
   it("keeps the core grid in a three-column desktop layout contract", () => {

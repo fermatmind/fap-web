@@ -49,41 +49,56 @@ describe("homepage v1 density contract", () => {
     expect(source).not.toContain("buildBig5TakeHref");
   });
 
-  it("keeps hero, trust, grid, secondary exploration, and result promise in a tightened landing rhythm", () => {
+  it("keeps the requested banner skeletons without copying competitor assets", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
-    expect(source).toContain("lg:grid-cols-[minmax(0,1fr)_360px]");
+    expect(source).toContain("function HeroLandingIllustration");
+    expect(source).toContain("LIVE_COMPLETED_COUNT");
+    expect(source).toContain("bg-orange-50 pb-24 pt-10 text-slate-950 md:pb-32 md:pt-14");
+    expect(source).toContain("rounded-[100%] bg-white");
+    expect(source).toContain("lg:grid-cols-[minmax(0,0.92fr)_minmax(27rem,1fr)]");
+    expect(source).toContain("absolute right-0 top-3 w-[31rem]");
+    expect(source).toContain("function TrustCard");
+    expect(source).toContain("relative z-20 -mt-16 bg-transparent pb-8 md:-mt-20 md:pb-10");
+    expect(source).toContain("grid gap-5 md:grid-cols-3");
+    expect(source).toContain("rounded-3xl border border-slate-100 bg-white p-6 text-center shadow-lg");
+    expect(source).toContain("function HomepageSocialProofBanner");
+    expect(source).toContain("SCENARIO_VALIDATIONS.slice(0, 5)");
+    expect(source).toContain("EVIDENCE_LOGS.slice(0, 3)");
+    expect(source).toContain("function HomepageHighlightedTestsBanner");
+    expect(source).toContain("relative overflow-hidden bg-teal-800 py-20 text-white md:py-24");
+    expect(source).toContain("mx-auto max-w-2xl text-center");
+    expect(source).toContain("mt-10 grid gap-x-6 gap-y-9 md:grid-cols-2 lg:grid-cols-3");
+    expect(source).toContain("function HomepageAboutBanner");
+    expect(source).toContain("bg-orange-500 px-6 py-16 text-center text-white");
+    expect(source).toContain("function HomepageArticlesBanner");
+    expect(source).toContain("listBlogPosts(locale)");
+    expect(source).toContain("function ArticleVisual");
+    expect(source).toContain("bg-gradient-to-br");
     expect(source).toContain('locale === "zh" ? "结果结构" : "Result"');
-    expect(source).toContain("HeroResultStructurePanel locale={locale} previews={copy.results.previews}");
-    expect(source).toContain("pb-4 pt-12 text-slate-950 md:pb-6 md:pt-16");
-    expect(source).toContain("bg-slate-50 py-4 md:py-5");
-    expect(source).toContain("border-y border-slate-200 py-4");
-    expect(source).toContain("bg-slate-50 pb-10 pt-5 md:pb-12 md:pt-6");
-    expect(source).toContain("mt-6 grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-3");
-    expect(source).toContain("grid gap-5 border-t border-slate-200 pt-5 md:grid-cols-[minmax(0,16rem)_1fr]");
-    expect(source).toContain("text-lg font-semibold tracking-[-0.03em]");
-    expect(source).toContain("inline-flex min-w-0 flex-col border-l border-slate-200 pl-4");
-    expect(source).toContain("bg-slate-50 pb-8 pt-1 md:pb-10");
-    expect(source).toContain("border-t border-slate-200 pt-7 md:flex");
-    expect(source).toContain("md:flex md:items-end md:justify-between");
+    expect(source).toContain("HeroLandingIllustration locale={locale} previews={copy.results.previews}");
 
     expect(source).not.toContain("py-16 text-slate-950 md:py-24");
+    expect(source).not.toContain("HeroResultStructurePanel");
     expect(source).not.toContain("bg-slate-50 py-16 md:py-20");
     expect(source).not.toContain("bg-slate-50 py-12 md:py-16");
     expect(source).not.toContain("rounded-full border border-slate-200 bg-white px-4 py-2");
     expect(source).not.toContain("rounded-3xl border border-slate-200 bg-white px-5 py-4");
     expect(source).not.toContain("rounded-[2rem] border border-slate-200 bg-white/70");
     expect(source).not.toContain("rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm md:p-10");
+    expect(source).not.toContain("123test");
+    expect(source).not.toContain("truity");
   });
 
-  it("keeps the 123test-style homepage skeleton order without restoring heavy surfaces", () => {
+  it("keeps the homepage banner order without restoring heavy surfaces", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
     const order = [
       "HomepageHeroV1 locale={locale} copy={copy}",
       "HomepageTrustStripV1 locale={locale} copy={copy}",
-      "HomepageCoreTestGridV1 locale={locale} copy={copy}",
-      "HomepageSecondaryExploreRowV1 locale={locale} copy={copy}",
-      "HomepageResultPromiseV1 locale={locale} copy={copy}",
+      "HomepageSocialProofBanner locale={locale}",
+      "HomepageHighlightedTestsBanner locale={locale} copy={copy}",
+      "HomepageAboutBanner locale={locale} copy={copy}",
+      "HomepageArticlesBanner locale={locale} articles={articles}",
     ];
 
     for (let index = 1; index < order.length; index += 1) {
@@ -95,10 +110,9 @@ describe("homepage v1 density contract", () => {
     expect(source).not.toContain("SbtiHeroEntryCard");
   });
 
-  it("compresses secondary exploration and result promise to lightweight sections", () => {
+  it("renders secondary paths, about cards, and Truity-style article grid from local content", () => {
     render(<HomePageExperience locale="zh" />);
 
-    expect(screen.getByRole("heading", { level: 2, name: "需要更多入口时，再从这里继续。" })).toBeInTheDocument();
     expect(
       screen.getAllByRole("link", { name: /查看全部测评/ }).some((link) => link.getAttribute("href") === "/zh/tests")
     ).toBe(true);
@@ -106,11 +120,11 @@ describe("homepage v1 density contract", () => {
       screen.getAllByRole("link", { name: /去职业探索/ }).some((link) => link.getAttribute("href") === "/zh/career")
     ).toBe(true);
     expect(screen.getByRole("link", { name: /查看数据方法/ })).toHaveAttribute("href", "/zh/help/about");
+    expect(screen.getByRole("link", { name: /更多测试 \/ 娱乐实验/ })).toHaveAttribute("href", "/zh/fun/sbti");
 
-    expect(screen.getByRole("heading", { level: 2, name: "你拿到的，不只是一个标签。" })).toBeInTheDocument();
-    expect(
-      screen.getByText("结果会把类型、差异和下一步建议整理到同一页，方便你继续判断。")
-    ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "查看结果示例" })).toHaveAttribute("href", "/zh/personality");
+    expect(screen.getByRole("heading", { level: 2, name: "使用场景与引用" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "关于 FermatMind" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "延伸阅读" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /查看全部文章/ })).toHaveAttribute("href", "/zh/articles");
   });
 });
