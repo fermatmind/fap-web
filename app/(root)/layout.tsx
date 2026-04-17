@@ -1,7 +1,39 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import type { ReactNode } from "react";
+import { SiteChrome } from "@/components/layout/SiteChrome";
+import { LocaleProvider } from "@/components/i18n/LocaleContext";
+import { Providers } from "@/app/providers";
+import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SITE_URL, canonicalUrl } from "@/lib/site";
 import "../globals.css";
+
+const fmSans = localFont({
+  src: [{ path: "../../public/fonts/manrope/Manrope-Variable.woff2", weight: "200 800", style: "normal" }],
+  variable: "--font-fm-sans",
+  display: "swap",
+  fallback: ["Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
+});
+
+const fmSerif = localFont({
+  src: [{ path: "../../public/fonts/fraunces/Fraunces-Variable.woff2", weight: "100 900", style: "normal" }],
+  variable: "--font-fm-serif",
+  display: "swap",
+  fallback: ["Georgia", "Times New Roman", "serif"],
+});
+
+const fmMono = localFont({
+  src: [
+    {
+      path: "../../public/fonts/jetbrains-mono/JetBrainsMono-Variable.woff2",
+      weight: "100 800",
+      style: "normal",
+    },
+  ],
+  variable: "--font-fm-mono",
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -9,21 +41,29 @@ export const metadata: Metadata = {
     default: "FermatMind · 费马测试",
     template: "%s | FermatMind",
   },
-  description: "Scientific self-assessments and personality insights in Chinese and English.",
+  description: "费马测试提供人格、能力与职业方向测评。",
   alternates: {
     canonical: "/",
     languages: {
       en: canonicalUrl("/en"),
-      "zh-CN": canonicalUrl("/zh"),
+      "zh-CN": canonicalUrl("/"),
       "x-default": canonicalUrl("/"),
     },
   },
 };
 
 export default function RootRouteLayout({ children }: { children: ReactNode }) {
+  const productPriority = createProductPriorityEnvSnapshot();
+
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="zh">
+      <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
+        <Providers>
+          <LocaleProvider locale="zh">
+            <SiteChrome productPriority={productPriority}>{children}</SiteChrome>
+          </LocaleProvider>
+        </Providers>
+      </body>
     </html>
   );
 }
