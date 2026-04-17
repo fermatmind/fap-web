@@ -1163,7 +1163,7 @@
     "PR-F44": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f44-career-feedback-time-travel-ui-baseline",
       "commit_sha": "",
       "pr_url": "",
@@ -1186,9 +1186,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24547629971/job/71766498640"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24547629971/job/71766498649"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub required checks failed immediately after the review fix push: build and contracts completed with failure, and gh reported no logs for either failed job.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
@@ -1652,6 +1663,44 @@
         ]
       },
       "failure_reason": "GitHub required checks failed immediately after the review fix push: build and contracts completed with failure, and gh reported no logs for either failed job.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F54": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/pr-f54-homepage-123test-skeleton",
+      "commit_sha": "5892fede40a2556f70d570ff20098413acc75695",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/469",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/page.tsx' components/marketing/**/*.tsx tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
