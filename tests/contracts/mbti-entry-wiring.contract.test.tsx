@@ -194,12 +194,11 @@ describe("mbti entry wiring contract", () => {
     expect(links90.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90")).toBe(true);
   });
 
-  it("wires big5 dual-entry route in homepage family cards", () => {
+  it("keeps homepage free of direct big5 version-entry wiring", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
-    expect(source).toContain("const linkSlug = extractTestSlugFromHref(link.href)");
-    expect(source).toContain("variantFamily === \"big5\" && linkSlug");
-    expect(source).toContain("buildBig5TakeHref(linkSlug, locale, form.formCode)");
-    expect(source).toContain("getBig5VariantLabel(form.formCode, locale)");
+    expect(source).not.toContain("buildBig5TakeHref");
+    expect(source).not.toContain("getBig5VariantLabel");
+    expect(source).not.toContain("listBig5FormMetas");
   });
 });
