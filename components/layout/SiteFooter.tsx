@@ -23,16 +23,14 @@ export function SiteFooter() {
     locale === "zh"
       ? {
           testsTitle: "热门测评",
-          articlesTitle: "阅读与指南",
-          supportTitle: "支持",
+          articlesTitle: "全部文章",
           reviewsTitle: "政策",
-          tailnote: "识微，见远。See the Micro. Lead the Macro.",
+          tailnote: "测量自己，看见职业，训练未来。",
           supportMeta: "隐私、条款、退款与联系支持都在这里。",
         }
       : {
           testsTitle: "Top tests",
           articlesTitle: "Reading & guides",
-          supportTitle: "Support",
           reviewsTitle: "Policies",
           tailnote: "See the Micro. Lead the Macro.",
           supportMeta: "Privacy, terms, refunds, and contact support are all available here.",
@@ -47,24 +45,18 @@ export function SiteFooter() {
     { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ" },
   ]);
 
-  const articleLinks = [
-    { href: "/articles", label: locale === "zh" ? "全部文章" : "All articles" },
-    { href: "/articles/mbti-basics", label: "MBTI Basics" },
-  ];
-
-  const helpLinks = [
-    { href: "/help", label: locale === "zh" ? "帮助中心" : "Help Center" },
-    { href: "/email/preferences", label: dict.footer.manageEmailPreferences, testId: "footer-email-preferences" },
-    { href: "/email/unsubscribe", label: dict.footer.unsubscribeFromEmails, testId: "footer-email-unsubscribe" },
-    { href: "/privacy", label: dict.footer.privacy },
-    { href: "/terms", label: dict.footer.terms },
-    { href: "/refund", label: dict.footer.refund },
-  ];
+  const articleLinks =
+    locale === "zh"
+      ? [{ href: "/articles/mbti-basics", label: "MBTI Basics" }]
+      : [
+          { href: "/articles", label: "All articles" },
+          { href: "/articles/mbti-basics", label: "MBTI Basics" },
+        ];
 
   return (
     <footer className="fm-section-dark border-t border-white/10 text-white">
       <Container className="space-y-8 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-3">
           <div className="space-y-3">
             <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.testsTitle}</p>
             <div className="space-y-2 text-sm">
@@ -81,23 +73,6 @@ export function SiteFooter() {
             <div className="space-y-2 text-sm">
               {articleLinks.map((item) => (
                 <Link key={item.href} href={withLocale(item.href)} prefetch={false} className="block text-slate-300 hover:text-white">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.supportTitle}</p>
-            <div className="space-y-2 text-sm">
-              {helpLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={withLocale(item.href)}
-                  prefetch={false}
-                  className="block text-slate-300 hover:text-white"
-                  data-testid={item.testId}
-                >
                   {item.label}
                 </Link>
               ))}

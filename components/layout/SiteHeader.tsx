@@ -64,13 +64,17 @@ export function SiteHeader({
   const localeQuery = searchParams.toString();
   const localeHref = localeQuery ? `${localeBasePath}?${localeQuery}` : localeBasePath;
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
-  const priorityFlags: ProductPriorityEnvSnapshot = productPriority ?? {
-    mbtiPriorityMode: false,
-    sbtiEnabled: true,
-    articlesEnabled: true,
-    topicsEnabled: true,
-    careerRecommendEnabled: true,
-  };
+  const priorityFlags: ProductPriorityEnvSnapshot = useMemo(
+    () =>
+      productPriority ?? {
+        mbtiPriorityMode: false,
+        sbtiEnabled: true,
+        articlesEnabled: true,
+        topicsEnabled: true,
+        careerRecommendEnabled: true,
+      },
+    [productPriority]
+  );
 
   const navItems = [
     { key: "tests", href: "/tests", label: dict.header.tests },
@@ -307,9 +311,9 @@ export function SiteHeader({
                         aria-labelledby={triggerId}
                         className="fm-header-dropdown-panel"
                       >
-                        {items.map((menuItem) => (
+                        {items.map((menuItem, menuItemIndex) => (
                           <Link
-                            key={`${item.key}-${menuItem.href}`}
+                            key={`${item.key}-${menuItem.href}-${menuItemIndex}`}
                             href={withLocale(menuItem.href)}
                             prefetch={false}
                             className="fm-header-dropdown-link"
@@ -424,9 +428,9 @@ export function SiteHeader({
 
                       {isExpanded ? (
                         <div id={`mobile-submenu-${item.key}`} className="space-y-1 border-t border-white/10 px-2 pb-2 pt-2">
-                          {menuItems.map((menuItem) => (
+                          {menuItems.map((menuItem, menuItemIndex) => (
                             <Link
-                              key={`mobile-submenu-link-${item.key}-${menuItem.href}`}
+                              key={`mobile-submenu-link-${item.key}-${menuItem.href}-${menuItemIndex}`}
                               href={withLocale(menuItem.href)}
                               prefetch={false}
                               onClick={handleMobileLinkClick}

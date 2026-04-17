@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { HomepageSocialProofCarousel } from "@/components/marketing/HomepageSocialProofCarousel";
 import { listBlogPosts } from "@/lib/content";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { LIVE_COMPLETED_COUNT } from "@/lib/marketing/completionStats";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { EVIDENCE_LOGS, SCENARIO_VALIDATIONS } from "@/lib/marketing/socialProof";
 import { cn } from "@/lib/utils";
 
 type HomePageContent = ReturnType<typeof getHomePageContent>;
 type HomeLink = HomePageContent["quickStart"]["items"][number];
-type ResultPreview = HomePageContent["results"]["previews"][number];
 type TrustItem = HomePageContent["trust"]["items"][number];
 type HomeArticle = ReturnType<typeof listBlogPosts>[number];
 
@@ -17,198 +16,105 @@ function withLocale(locale: Locale, path: string): string {
   return localizedPath(path, locale);
 }
 
-function formatCompletedCount(value: number): string {
-  return new Intl.NumberFormat("en-US").format(value);
-}
-
 function localize<T extends { en: string; zh: string }>(value: T, locale: Locale): string {
   return locale === "zh" ? value.zh : value.en;
 }
 
-function HeroCta({
-  href,
-  children,
-  variant = "primary",
-}: {
-  href: string;
-  children: string;
-  variant?: "primary" | "secondary";
-}) {
+function HomepageHeroV1({ copy }: { copy: HomePageContent }) {
   return (
-    <Link
-      href={href}
-      prefetch={false}
-      className={cn(
-        "inline-flex min-h-[46px] items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2",
-        variant === "primary"
-          ? "bg-orange-600 text-white shadow-sm hover:bg-orange-700"
-          : "border border-slate-200 bg-white text-slate-800 shadow-sm hover:border-slate-300 hover:shadow-md"
-      )}
-    >
-      {children}
-    </Link>
-  );
-}
-
-function HeroLandingIllustration({ locale, previews }: { locale: Locale; previews: ResultPreview[] }) {
-  const panelLabel = locale === "zh" ? "结果结构" : "Result";
-  const noteLabel = locale === "zh" ? "可继续使用的结果页" : "Reusable result page";
-
-  return (
-    <div className="relative hidden min-h-[25rem] lg:block" aria-hidden="true">
-      <div className="absolute left-0 top-12 h-72 w-72 rounded-full bg-orange-200/45 blur-3xl" />
-      <div className="absolute right-2 top-2 h-64 w-64 rounded-full bg-white/70 blur-2xl" />
-
-      <div className="absolute right-0 top-3 w-[31rem] rounded-[2rem] border border-white/80 bg-white shadow-xl shadow-orange-900/10">
-        <div className="flex h-9 items-center gap-2 rounded-t-[2rem] bg-slate-900 px-5">
-          <span className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-          <span className="h-2.5 w-2.5 rounded-full bg-orange-300" />
-          <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-        </div>
-        <div className="p-7">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-orange-700">
-                {panelLabel}
-              </p>
-              <p className="m-0 mt-2 text-lg font-semibold tracking-[-0.03em] text-slate-950">
-                {noteLabel}
-              </p>
-            </div>
-            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-orange-600 text-lg font-semibold text-white">
-              FM
-            </div>
-          </div>
-
-          <div className="mt-7 space-y-4">
-            {previews.slice(0, 3).map((item, index) => (
-              <div key={item.title} className="grid grid-cols-[2.75rem_minmax(0,1fr)] items-center gap-4">
-                <span className="font-mono text-xs font-semibold text-slate-300">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <div className="mb-2 flex items-center justify-between gap-4">
-                    <p className="m-0 text-sm font-semibold text-slate-950">{item.title}</p>
-                    <span className="h-1.5 w-16 rounded-full bg-orange-100" />
-                  </div>
-                  <div className="h-2 rounded-full bg-slate-100">
-                    <div
-                      className="h-2 rounded-full bg-orange-500"
-                      style={{ width: `${70 - index * 12}%` }}
-                    />
-                  </div>
-                  <p className="m-0 mt-1.5 text-xs leading-5 text-slate-500">
-                    {item.metrics.join(" / ")}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="absolute bottom-8 left-0 grid gap-2">
-        {previews.slice(0, 3).map((item, index) => (
-          <span
-            key={item.title}
-            className={cn(
-              "w-max rounded-r-2xl px-5 py-2 text-sm font-semibold shadow-sm",
-              index === 0 && "bg-orange-600 text-white",
-              index === 1 && "ml-8 bg-white text-slate-900",
-              index === 2 && "ml-16 bg-slate-900 text-white"
-            )}
-          >
-            {item.title}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
-  const statLabel =
-    locale === "zh"
-      ? `过去 30 天完成 ${formatCompletedCount(LIVE_COMPLETED_COUNT)} 次测评`
-      : `${formatCompletedCount(LIVE_COMPLETED_COUNT)} assessments completed in the last 30 days`;
-
-  return (
-    <section className="relative overflow-hidden bg-orange-50 pb-24 pt-10 text-slate-950 md:pb-32 md:pt-14">
+    <section className="relative flex min-h-[calc(100svh-4rem)] overflow-hidden bg-orange-50 px-0 py-24 text-slate-950 sm:py-28 md:py-32 lg:py-36">
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-full bg-[radial-gradient(circle_at_20%_10%,rgba(234,88,12,0.16),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.72),rgba(255,247,237,0.36)_45%,rgba(254,215,170,0.34))]"
+        className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(255,253,246,0.72)_48%,rgba(255,237,213,0.18))]"
       />
       <div
         aria-hidden
         className="absolute -bottom-24 left-1/2 h-44 w-[120vw] -translate-x-1/2 rounded-[100%] bg-white"
       />
-      <Container className="relative z-10 max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="mb-9 inline-flex rounded-full bg-white/85 px-4 py-2 text-xs font-semibold text-orange-700 shadow-sm">
-          {statLabel}
-        </div>
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(27rem,1fr)]">
-          <div className="max-w-2xl text-center lg:text-left">
-            <p className="m-0 text-sm font-semibold tracking-[0.16em] text-orange-700 uppercase">
-              {copy.hero.eyebrow}
-            </p>
-            <h1 className="m-0 mt-6 text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] text-slate-950 md:text-6xl lg:text-[5.25rem]">
-              {copy.hero.title}
-            </h1>
-            <p className="m-0 mx-auto mt-6 max-w-xl text-lg leading-8 text-slate-700 md:text-xl lg:mx-0">
-              {copy.hero.subhead}
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
-              <HeroCta href={withLocale(locale, copy.hero.primaryHref)}>{copy.hero.primaryCta}</HeroCta>
-              <HeroCta href={withLocale(locale, copy.hero.secondaryHref)} variant="secondary">
-                {copy.hero.secondaryCta}
-              </HeroCta>
-            </div>
-            <Link
-              href={withLocale(locale, copy.hero.tertiaryHref)}
-              prefetch={false}
-              className="mt-4 inline-flex items-center text-sm font-semibold text-slate-600 transition hover:text-slate-950"
-            >
-              {copy.hero.tertiaryCta}
-              <span aria-hidden className="ml-1">→</span>
-            </Link>
-          </div>
-          <HeroLandingIllustration locale={locale} previews={copy.results.previews} />
+      <Container className="relative z-10 flex w-full max-w-5xl items-center justify-center px-6 md:px-8">
+        <div className="mx-auto w-full text-center">
+          <h1 className="m-0 text-[2.85rem] font-black leading-[1.04] tracking-normal text-slate-950 sm:text-[3.6rem] md:whitespace-nowrap md:text-[4.75rem] md:leading-[1] lg:text-[5.25rem]">
+            {copy.hero.title}
+          </h1>
+          <p className="m-0 mx-auto mt-9 max-w-[42rem] text-[1.08rem] font-normal leading-[1.72] tracking-normal text-slate-500 sm:text-lg md:max-w-[47rem] md:text-[1.35rem] md:leading-relaxed lg:text-2xl">
+            {copy.hero.subhead}
+          </p>
         </div>
       </Container>
     </section>
   );
 }
 
+function TrustIcon({ index }: { index: number }) {
+  const iconClassName = "mx-auto h-[58px] w-[58px] text-[#008fb3]";
+  const commonProps = {
+    viewBox: "0 0 80 80",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2.6,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className: iconClassName,
+    "aria-hidden": true,
+  };
+
+  if (index === 1) {
+    return (
+      <svg {...commonProps}>
+        <path d="M40 8 64 17v18c0 17.5-10.5 29.5-24 36-13.5-6.5-24-18.5-24-36V17l24-9Z" />
+        <path d="M30 37v-6c0-6 4-10 10-10s10 4 10 10v6" />
+        <rect x="28" y="36" width="24" height="20" rx="3" />
+        <path d="M40 44v6" />
+      </svg>
+    );
+  }
+
+  if (index === 2) {
+    return (
+      <svg {...commonProps}>
+        <circle cx="40" cy="25" r="9" />
+        <path d="M25 64v-8c0-9 6-16 15-16s15 7 15 16v8" />
+        <circle cx="20" cy="32" r="7" />
+        <path d="M8 63v-6c0-7 5-12 12-12 4 0 7 1.5 9 4" />
+        <circle cx="60" cy="32" r="7" />
+        <path d="M72 63v-6c0-7-5-12-12-12-4 0-7 1.5-9 4" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...commonProps}>
+      <rect x="15" y="24" width="50" height="36" rx="2.5" />
+      <path d="M30 24v-7h20v7" />
+      <path d="M15 37h18" />
+      <path d="M47 37h18" />
+      <path d="M37 37h6" />
+      <path d="M40 34c-3 0-5 2.4-5 5.2 0 2.2 1.3 4 3.1 4.8v8h3.8v-8c1.8-.8 3.1-2.6 3.1-4.8 0-2.8-2-5.2-5-5.2Z" />
+      <path d="M20 60h40" />
+    </svg>
+  );
+}
+
 function TrustCard({ item, index }: { item: TrustItem; index: number }) {
   return (
-    <article className="rounded-3xl border border-slate-100 bg-white p-6 text-center shadow-lg shadow-slate-900/5">
-      <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl border border-orange-100 bg-orange-50 text-sm font-semibold text-orange-700">
-        {String(index + 1).padStart(2, "0")}
-      </div>
-      <h2 className="m-0 mt-5 text-lg font-semibold tracking-[-0.03em] text-slate-950">{item.title}</h2>
-      <p className="m-0 mt-2 text-sm leading-6 text-slate-600">{item.summary}</p>
+    <article className="min-h-[172px] rounded-[4px] bg-white px-7 pb-5 pt-6 text-center shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
+      <TrustIcon index={index} />
+      <h2 className="m-0 mt-3 text-[1.02rem] font-bold leading-snug tracking-normal text-[#20252d]">{item.title}</h2>
+      <p className="m-0 mx-auto mt-2 max-w-[17.5rem] text-[0.9rem] font-normal leading-[1.48] tracking-normal text-[#5f6670]">
+        {item.summary}
+      </p>
     </article>
   );
 }
 
-function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
   return (
-    <section className="relative z-20 -mt-16 bg-transparent pb-8 md:-mt-20 md:pb-10" aria-label={copy.trust.title}>
-      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
+    <section className="relative z-20 bg-white pb-8 pt-10 md:pb-10 md:pt-24" aria-label={copy.trust.title}>
+      <Container className="max-w-[1040px] px-6 md:px-8 lg:px-10">
         <div className="grid gap-5 md:grid-cols-3">
           {copy.trust.items.map((item, index) => (
             <TrustCard key={item.title} item={item} index={index} />
           ))}
-        </div>
-        <div className="mt-4 flex justify-center">
-          <Link
-            href={withLocale(locale, copy.trust.methodHref)}
-            prefetch={false}
-            className="inline-flex items-center text-sm font-semibold text-slate-500 transition hover:text-slate-950"
-          >
-            {copy.trust.methodLabel}
-            <span aria-hidden className="ml-1">→</span>
-          </Link>
         </div>
       </Container>
     </section>
@@ -218,20 +124,21 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
 function HomepageSocialProofBanner({ locale }: { locale: Locale }) {
   const labels = {
     title: locale === "zh" ? "使用场景与引用" : "Users and use cases",
-    kicker: locale === "zh" ? "不做夸张背书，只展示真实使用语境。" : "No inflated endorsements, just real usage contexts.",
   };
-  const logs = EVIDENCE_LOGS.slice(0, 3);
+  const logs = EVIDENCE_LOGS.map((item) => ({
+    id: item.id,
+    quote: localize(item.quote, locale),
+    author: item.author,
+    role: localize(item.role, locale),
+  }));
 
   return (
     <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-social-proof-title">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
         <div className="text-center">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-            {labels.kicker}
-          </p>
           <h2
             id="homepage-social-proof-title"
-            className="m-0 mt-4 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-4xl"
+            className="m-0 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-4xl"
           >
             {labels.title}
           </h2>
@@ -248,25 +155,7 @@ function HomepageSocialProofBanner({ locale }: { locale: Locale }) {
           ))}
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {logs.map((item, index) => (
-            <figure
-              key={item.id}
-              className={cn(
-                "rounded-3xl border border-slate-100 bg-white p-7 text-center shadow-sm transition",
-                index === 1 ? "shadow-xl shadow-slate-900/10 md:-translate-y-4" : "opacity-75"
-              )}
-            >
-              <blockquote className="m-0 text-base font-semibold leading-8 tracking-[-0.02em] text-slate-800">
-                “{localize(item.quote, locale)}”
-              </blockquote>
-              <figcaption className="mt-6 text-sm leading-6 text-slate-500">
-                <span className="block font-semibold text-slate-800">{item.author}</span>
-                <span>{localize(item.role, locale)}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <HomepageSocialProofCarousel items={logs} />
       </Container>
     </section>
   );
@@ -302,9 +191,6 @@ function TestFeatureCard({ locale, item, index }: { locale: Locale; item: HomeLi
           <span aria-hidden className="ml-1">→</span>
         </Link>
       </div>
-      <p className="m-0 mt-5 text-base leading-7 text-teal-50/85">
-        {item.meta}
-      </p>
     </article>
   );
 }
@@ -318,33 +204,17 @@ function HomepageHighlightedTestsBanner({ locale, copy }: { locale: Locale; copy
       />
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-teal-100/75">
-            {copy.quickStart.kicker}
-          </p>
           <h2
             id="homepage-core-tests-title"
-            className="m-0 mt-3 text-3xl font-semibold tracking-[-0.045em] text-white md:text-4xl"
+            className="m-0 text-3xl font-semibold tracking-[-0.045em] text-white md:text-4xl"
           >
             {copy.quickStart.title}
           </h2>
-          <p className="m-0 mt-4 text-base leading-7 text-teal-50/80">{copy.quickStart.body}</p>
         </div>
 
         <div className="mt-10 grid gap-x-6 gap-y-9 md:grid-cols-2 lg:grid-cols-3">
           {copy.quickStart.items.slice(0, 6).map((item, index) => (
             <TestFeatureCard key={item.title} locale={locale} item={item} index={index} />
-          ))}
-        </div>
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-          {copy.secondaryExplore.items.map((item) => (
-            <Link
-              key={item.title}
-              href={withLocale(locale, item.href)}
-              prefetch={false}
-              className="rounded-full border border-teal-200/30 px-4 py-2 text-sm font-semibold text-teal-50 transition hover:border-white hover:text-white"
-            >
-              {item.title}
-            </Link>
           ))}
         </div>
       </Container>
@@ -362,8 +232,8 @@ function HomepageAboutBanner({ locale, copy }: { locale: Locale; copy: HomePageC
   const labels =
     locale === "zh"
       ? {
-          title: "关于 FermatMind",
-          body: "我们把测评做成可继续使用的结果结构，而不是一次性的标签娱乐。",
+          title: "关于 费马测试",
+          body: "我们通过高分辨率测量、真实职业记录与能力训练，帮助用户形成更清晰的自我认知、更现实的职业判断和更持续的成长能力。",
           readMore: "继续了解",
           cards: ["结果可复用", "方法边界透明", "接回下一步"],
         }
@@ -392,18 +262,20 @@ function HomepageAboutBanner({ locale, copy }: { locale: Locale; copy: HomePageC
         </div>
         <div className="relative z-10 -mt-12 grid gap-6 px-4 md:grid-cols-3 md:px-14">
           {ABOUT_CARD_LINKS.map((item, index) => (
-            <article key={item.key} className="rounded-xl bg-white p-8 text-center shadow-xl shadow-slate-900/10">
-              <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl border-2 border-teal-600 text-2xl font-semibold text-teal-700">
-                {String(index + 1).padStart(2, "0")}
+            <article key={item.key} className="flex h-full flex-col rounded-xl bg-white p-8 text-center shadow-xl shadow-slate-900/10">
+              <div>
+                <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl border-2 border-teal-600 text-2xl font-semibold text-teal-700">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <h3 className="m-0 mt-6 text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                  {labels.cards[index]}
+                </h3>
+                <p className="m-0 mt-3 text-base leading-7 text-slate-600">{descriptions[index]}</p>
               </div>
-              <h3 className="m-0 mt-6 text-xl font-semibold tracking-[-0.03em] text-slate-950">
-                {labels.cards[index]}
-              </h3>
-              <p className="m-0 mt-3 text-base leading-7 text-slate-600">{descriptions[index]}</p>
               <Link
                 href={withLocale(locale, item.href)}
                 prefetch={false}
-                className="mt-6 inline-flex text-sm font-semibold text-teal-700 underline underline-offset-4 hover:text-orange-700"
+                className="mx-auto mt-auto inline-flex pt-6 text-sm font-semibold text-teal-700 underline underline-offset-4 hover:text-orange-700"
               >
                 {labels.readMore}
               </Link>
@@ -440,17 +312,16 @@ function ArticleVisual({ index, title }: { index: number; title: string }) {
 function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles: HomeArticle[] }) {
   const labels =
     locale === "zh"
-      ? { kicker: "推荐阅读", title: "延伸阅读", all: "查看全部文章" }
-      : { kicker: "Recommended reading", title: "Latest articles", all: "View all articles" };
+      ? { title: "推荐阅读", all: "查看全部文章" }
+      : { title: "Recommended reading", all: "View all articles" };
 
   return (
     <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-articles-title">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
         <div className="text-center">
-          <p className="m-0 text-sm font-semibold tracking-[0.16em] text-teal-700">{labels.kicker}</p>
           <h2
             id="homepage-articles-title"
-            className="m-0 mt-3 text-4xl font-semibold tracking-[-0.055em] text-slate-950 md:text-5xl"
+            className="m-0 text-4xl font-semibold tracking-[-0.055em] text-slate-950 md:text-5xl"
           >
             {labels.title}
           </h2>
@@ -494,8 +365,8 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
   return (
     <div className="bg-white text-slate-950">
-      <HomepageHeroV1 locale={locale} copy={copy} />
-      <HomepageTrustStripV1 locale={locale} copy={copy} />
+      <HomepageHeroV1 copy={copy} />
+      <HomepageTrustStripV1 copy={copy} />
       <HomepageSocialProofBanner locale={locale} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} />
       <HomepageAboutBanner locale={locale} copy={copy} />
