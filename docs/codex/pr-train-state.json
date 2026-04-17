@@ -1558,10 +1558,10 @@
     "PR-F52": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f52-homepage-v1-minimalist-redesign",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "a8641fc0069e875f5e12890ca9d35655986b8006",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/467",
       "checks": {
         "local": [
           {
@@ -1589,9 +1589,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24544556176/job/71757236173"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24544556176/job/71757236184"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub required checks failed immediately after PR creation: build and contracts completed with failure, and gh reported no job logs for either failed job.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
