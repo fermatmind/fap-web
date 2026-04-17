@@ -1656,6 +1656,44 @@
       "merged_at": "",
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
+    },
+    "PR-F54": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/pr-f54-homepage-123test-skeleton",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/page.tsx' components/marketing/**/*.tsx tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     }
   }
 }
