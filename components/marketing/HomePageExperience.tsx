@@ -39,7 +39,7 @@ function HeroCta({
 
 function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-16 text-slate-950 md:py-24">
+    <section className="relative overflow-hidden bg-slate-50 pb-5 pt-12 text-slate-950 md:pb-7 md:pt-16">
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_50%_0%,rgba(234,88,12,0.12),transparent_52%)]"
@@ -49,13 +49,13 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
           <p className="m-0 text-sm font-semibold tracking-[0.16em] text-orange-700 uppercase">
             {copy.hero.eyebrow}
           </p>
-          <h1 className="m-0 mt-5 text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-slate-950 md:text-7xl">
+          <h1 className="m-0 mt-4 text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-slate-950 md:text-6xl lg:text-7xl">
             {copy.hero.title}
           </h1>
-          <p className="m-0 mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
+          <p className="m-0 mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
             {copy.hero.subhead}
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <HeroCta href={withLocale(locale, copy.hero.primaryHref)}>{copy.hero.primaryCta}</HeroCta>
             <HeroCta href={withLocale(locale, copy.hero.secondaryHref)} variant="secondary">
               {copy.hero.secondaryCta}
@@ -64,7 +64,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
           <Link
             href={withLocale(locale, copy.hero.tertiaryHref)}
             prefetch={false}
-            className="mt-5 inline-flex items-center text-sm font-semibold text-slate-600 transition hover:text-slate-950"
+            className="mt-4 inline-flex items-center text-sm font-semibold text-slate-600 transition hover:text-slate-950"
           >
             {copy.hero.tertiaryCta}
             <span aria-hidden className="ml-1">→</span>
@@ -77,18 +77,19 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
 
 function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
   return (
-    <section className="bg-slate-50 pb-8 md:pb-12" aria-label={copy.trust.title}>
+    <section className="bg-slate-50 pb-4 md:pb-5" aria-label={copy.trust.title}>
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-2">
+        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-5 gap-y-2 border-y border-slate-200 py-4 text-sm text-slate-600 md:gap-x-7">
           {copy.hero.trustRail.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm"
+              className="inline-flex items-center gap-2 font-medium"
             >
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-orange-600" />
               {item}
             </span>
           ))}
-          <Link href={withLocale(locale, copy.trust.methodHref)} prefetch={false} className="text-sm font-semibold text-slate-500 hover:text-slate-950">
+          <Link href={withLocale(locale, copy.trust.methodHref)} prefetch={false} className="font-semibold text-slate-500 hover:text-slate-950">
             {copy.trust.methodLabel}
           </Link>
         </div>
@@ -101,21 +102,21 @@ function TestCard({ locale, item, index }: { locale: Locale; item: HomeLink; ind
   const href = withLocale(locale, item.href);
 
   return (
-    <article className="group flex min-h-[15rem] flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="group flex h-full min-h-[13rem] flex-col rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md md:p-6">
       <div className="flex items-start justify-between gap-4">
         <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
           {item.meta}
         </span>
         <span className="font-mono text-xs text-slate-300">{String(index + 1).padStart(2, "0")}</span>
       </div>
-      <h3 className="m-0 mt-6 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+      <h3 className="m-0 mt-5 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
         {item.title}
       </h3>
-      <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+      <p className="m-0 mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
       <Link
         href={href}
         prefetch={false}
-        className="mt-auto inline-flex items-center pt-6 text-sm font-semibold text-orange-700 transition group-hover:text-orange-800"
+        className="mt-auto inline-flex items-center pt-5 text-sm font-semibold text-orange-700 transition group-hover:text-orange-800"
       >
         {item.label}
         <span aria-hidden className="ml-1">→</span>
@@ -126,7 +127,7 @@ function TestCard({ locale, item, index }: { locale: Locale; item: HomeLink; ind
 
 function HomepageCoreTestGridV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
   return (
-    <section className="bg-slate-50 py-16 md:py-20" aria-labelledby="homepage-core-tests-title">
+    <section className="bg-slate-50 pb-10 pt-4 md:pb-12 md:pt-5" aria-labelledby="homepage-core-tests-title">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
         <div className="max-w-2xl">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -134,14 +135,14 @@ function HomepageCoreTestGridV1({ locale, copy }: { locale: Locale; copy: HomePa
           </p>
           <h2
             id="homepage-core-tests-title"
-            className="m-0 mt-3 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-5xl"
+            className="m-0 mt-3 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-4xl"
           >
             {copy.quickStart.title}
           </h2>
           <p className="m-0 mt-4 text-base leading-7 text-slate-600">{copy.quickStart.body}</p>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {copy.quickStart.items.slice(0, 6).map((item, index) => (
             <TestCard key={item.title} locale={locale} item={item} index={index} />
           ))}
@@ -156,34 +157,32 @@ function SecondaryExploreCard({ locale, item }: { locale: Locale; item: Secondar
     <Link
       href={withLocale(locale, item.href)}
       prefetch={false}
-      className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      className="rounded-3xl border border-slate-200 bg-white px-5 py-4 transition hover:border-slate-300 hover:shadow-sm"
     >
       <span className="block text-base font-semibold tracking-[-0.02em] text-slate-950">{item.title}</span>
-      <span className="mt-2 block text-sm leading-6 text-slate-500">{item.description}</span>
+      <span className="mt-1 block text-sm leading-6 text-slate-500">{item.description}</span>
     </Link>
   );
 }
 
 function HomepageSecondaryExploreRowV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
   return (
-    <section className="bg-slate-50 py-12 md:py-16" aria-labelledby="homepage-secondary-title">
+    <section className="bg-slate-50 pb-8 pt-2 md:pb-10 md:pt-4" aria-labelledby="homepage-secondary-title">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="rounded-[2rem] border border-slate-200 bg-white/70 p-5 shadow-sm md:p-6">
-          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                {copy.secondaryExplore.kicker}
-              </p>
-              <h2 id="homepage-secondary-title" className="m-0 mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                {copy.secondaryExplore.title}
-              </h2>
-            </div>
+        <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              {copy.secondaryExplore.kicker}
+            </p>
+            <h2 id="homepage-secondary-title" className="m-0 mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+              {copy.secondaryExplore.title}
+            </h2>
           </div>
-          <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-            {copy.secondaryExplore.items.map((item) => (
-              <SecondaryExploreCard key={item.title} locale={locale} item={item} />
-            ))}
-          </div>
+        </div>
+        <div className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+          {copy.secondaryExplore.items.map((item) => (
+            <SecondaryExploreCard key={item.title} locale={locale} item={item} />
+          ))}
         </div>
       </Container>
     </section>
@@ -192,26 +191,26 @@ function HomepageSecondaryExploreRowV1({ locale, copy }: { locale: Locale; copy:
 
 function HomepageResultPromiseV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
   return (
-    <section className="bg-slate-50 pb-16 pt-8 md:pb-24 md:pt-12" aria-labelledby="homepage-result-promise-title">
+    <section className="bg-slate-50 pb-14 pt-2 md:pb-20 md:pt-4" aria-labelledby="homepage-result-promise-title">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm md:p-10">
-          <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+        <div className="border-t border-slate-200 pt-7 md:pt-8">
+          <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
             <div className="max-w-2xl">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-orange-700">
                 {copy.results.kicker}
               </p>
               <h2
                 id="homepage-result-promise-title"
-                className="m-0 mt-3 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-5xl"
+                className="m-0 mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950 md:text-3xl"
               >
                 {copy.results.title}
               </h2>
-              <p className="m-0 mt-4 text-base leading-7 text-slate-600 md:text-lg">{copy.results.body}</p>
+              <p className="m-0 mt-3 text-base leading-7 text-slate-600">{copy.results.body}</p>
             </div>
             <Link
               href={withLocale(locale, copy.results.exampleHref)}
               prefetch={false}
-              className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:bg-white hover:shadow-sm"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-300 hover:shadow-sm"
             >
               {copy.results.exampleLabel}
             </Link>

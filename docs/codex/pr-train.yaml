@@ -1089,3 +1089,32 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-F53
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f53-homepage-rhythm-tightening
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Homepage hero-to-grid rhythm tightening.
+      Tighten the existing V1 homepage hero, trust strip, core test grid,
+      secondary explore row, and result promise rhythm into a continuous
+      consumer landing flow inspired by 123test section pacing, without
+      copying 123test assets, colors, copy, or adding homepage content.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/page.tsx' components/marketing/**/*.tsx tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
