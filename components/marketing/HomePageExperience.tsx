@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { listBlogPosts } from "@/lib/content";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { LIVE_COMPLETED_COUNT } from "@/lib/marketing/completionStats";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { EVIDENCE_LOGS, SCENARIO_VALIDATIONS } from "@/lib/marketing/socialProof";
 import { cn } from "@/lib/utils";
@@ -17,43 +16,7 @@ function withLocale(locale: Locale, path: string): string {
   return localizedPath(path, locale);
 }
 
-function formatCompletedCount(value: number): string {
-  return new Intl.NumberFormat("en-US").format(value);
-}
-
-function localize<T extends { en: string; zh: string }>(value: T, locale: Locale): string {
-  return locale === "zh" ? value.zh : value.en;
-}
-
-function HeroCta({
-  href,
-  children,
-  variant = "primary",
-}: {
-  href: string;
-  children: string;
-  variant?: "primary" | "secondary";
-}) {
-  return (
-    <Link
-      href={href}
-      prefetch={false}
-      className={cn(
-        "inline-flex min-h-[46px] items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2",
-        variant === "primary"
-          ? "bg-orange-600 text-white shadow-sm hover:bg-orange-700"
-          : "border border-slate-200 bg-white text-slate-800 shadow-sm hover:border-slate-300 hover:shadow-md"
-      )}
-    >
-      {children}
-    </Link>
-  );
-}
-
-function HeroLandingIllustration({ locale, previews }: { locale: Locale; previews: ResultPreview[] }) {
-  const panelLabel = locale === "zh" ? "结果结构" : "Result";
-  const noteLabel = locale === "zh" ? "可继续使用的结果页" : "Reusable result page";
-
+function HeroLandingIllustration({ previews }: { previews: ResultPreview[] }) {
   return (
     <div className="relative hidden min-h-[25rem] lg:block" aria-hidden="true">
       <div className="absolute left-0 top-12 h-72 w-72 rounded-full bg-orange-200/45 blur-3xl" />
@@ -67,28 +30,20 @@ function HeroLandingIllustration({ locale, previews }: { locale: Locale; preview
         </div>
         <div className="p-7">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-orange-700">
-                {panelLabel}
-              </p>
-              <p className="m-0 mt-2 text-lg font-semibold tracking-[-0.03em] text-slate-950">
-                {noteLabel}
-              </p>
+            <div className="space-y-3">
+              <span className="block h-3 w-20 rounded-full bg-orange-100" />
+              <span className="block h-5 w-44 rounded-full bg-slate-100" />
             </div>
-            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-orange-600 text-lg font-semibold text-white">
-              FM
-            </div>
+            <div className="h-14 w-14 rounded-2xl bg-orange-600" />
           </div>
 
           <div className="mt-7 space-y-4">
             {previews.slice(0, 3).map((item, index) => (
               <div key={item.title} className="grid grid-cols-[2.75rem_minmax(0,1fr)] items-center gap-4">
-                <span className="font-mono text-xs font-semibold text-slate-300">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+                <span className="h-3 w-6 rounded-full bg-slate-100" />
                 <div>
                   <div className="mb-2 flex items-center justify-between gap-4">
-                    <p className="m-0 text-sm font-semibold text-slate-950">{item.title}</p>
+                    <span className="h-3 w-20 rounded-full bg-slate-100" />
                     <span className="h-1.5 w-16 rounded-full bg-orange-100" />
                   </div>
                   <div className="h-2 rounded-full bg-slate-100">
@@ -97,9 +52,7 @@ function HeroLandingIllustration({ locale, previews }: { locale: Locale; preview
                       style={{ width: `${70 - index * 12}%` }}
                     />
                   </div>
-                  <p className="m-0 mt-1.5 text-xs leading-5 text-slate-500">
-                    {item.metrics.join(" / ")}
-                  </p>
+                  <span className="mt-2 block h-2 w-28 rounded-full bg-slate-100" />
                 </div>
               </div>
             ))}
@@ -112,26 +65,19 @@ function HeroLandingIllustration({ locale, previews }: { locale: Locale; preview
           <span
             key={item.title}
             className={cn(
-              "w-max rounded-r-2xl px-5 py-2 text-sm font-semibold shadow-sm",
+              "h-10 w-24 rounded-r-2xl shadow-sm",
               index === 0 && "bg-orange-600 text-white",
               index === 1 && "ml-8 bg-white text-slate-900",
               index === 2 && "ml-16 bg-slate-900 text-white"
             )}
-          >
-            {item.title}
-          </span>
+          />
         ))}
       </div>
     </div>
   );
 }
 
-function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
-  const statLabel =
-    locale === "zh"
-      ? `过去 30 天完成 ${formatCompletedCount(LIVE_COMPLETED_COUNT)} 次测评`
-      : `${formatCompletedCount(LIVE_COMPLETED_COUNT)} assessments completed in the last 30 days`;
-
+function HomepageHeroV1({ copy }: { copy: HomePageContent }) {
   return (
     <section className="relative overflow-hidden bg-orange-50 pb-24 pt-10 text-slate-950 md:pb-32 md:pt-14">
       <div
@@ -143,36 +89,9 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
         className="absolute -bottom-24 left-1/2 h-44 w-[120vw] -translate-x-1/2 rounded-[100%] bg-white"
       />
       <Container className="relative z-10 max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="mb-9 inline-flex rounded-full bg-white/85 px-4 py-2 text-xs font-semibold text-orange-700 shadow-sm">
-          {statLabel}
-        </div>
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(27rem,1fr)]">
-          <div className="max-w-2xl text-center lg:text-left">
-            <p className="m-0 text-sm font-semibold tracking-[0.16em] text-orange-700 uppercase">
-              {copy.hero.eyebrow}
-            </p>
-            <h1 className="m-0 mt-6 text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] text-slate-950 md:text-6xl lg:text-[5.25rem]">
-              {copy.hero.title}
-            </h1>
-            <p className="m-0 mx-auto mt-6 max-w-xl text-lg leading-8 text-slate-700 md:text-xl lg:mx-0">
-              {copy.hero.subhead}
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
-              <HeroCta href={withLocale(locale, copy.hero.primaryHref)}>{copy.hero.primaryCta}</HeroCta>
-              <HeroCta href={withLocale(locale, copy.hero.secondaryHref)} variant="secondary">
-                {copy.hero.secondaryCta}
-              </HeroCta>
-            </div>
-            <Link
-              href={withLocale(locale, copy.hero.tertiaryHref)}
-              prefetch={false}
-              className="mt-4 inline-flex items-center text-sm font-semibold text-slate-600 transition hover:text-slate-950"
-            >
-              {copy.hero.tertiaryCta}
-              <span aria-hidden className="ml-1">→</span>
-            </Link>
-          </div>
-          <HeroLandingIllustration locale={locale} previews={copy.results.previews} />
+          <div className="min-h-[25rem] max-w-2xl" />
+          <HeroLandingIllustration previews={copy.results.previews} />
         </div>
       </Container>
     </section>
@@ -191,7 +110,7 @@ function TrustCard({ item, index }: { item: TrustItem; index: number }) {
   );
 }
 
-function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
+function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
   return (
     <section className="relative z-20 -mt-16 bg-transparent pb-8 md:-mt-20 md:pb-10" aria-label={copy.trust.title}>
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
@@ -200,51 +119,25 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
             <TrustCard key={item.title} item={item} index={index} />
           ))}
         </div>
-        <div className="mt-4 flex justify-center">
-          <Link
-            href={withLocale(locale, copy.trust.methodHref)}
-            prefetch={false}
-            className="inline-flex items-center text-sm font-semibold text-slate-500 transition hover:text-slate-950"
-          >
-            {copy.trust.methodLabel}
-            <span aria-hidden className="ml-1">→</span>
-          </Link>
-        </div>
       </Container>
     </section>
   );
 }
 
-function HomepageSocialProofBanner({ locale }: { locale: Locale }) {
-  const labels = {
-    title: locale === "zh" ? "使用场景与引用" : "Users and use cases",
-    kicker: locale === "zh" ? "不做夸张背书，只展示真实使用语境。" : "No inflated endorsements, just real usage contexts.",
-  };
+function HomepageSocialProofBanner() {
   const logs = EVIDENCE_LOGS.slice(0, 3);
 
   return (
-    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-social-proof-title">
+    <section className="bg-white py-20 md:py-24">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="text-center">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-            {labels.kicker}
-          </p>
-          <h2
-            id="homepage-social-proof-title"
-            className="m-0 mt-4 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-4xl"
-          >
-            {labels.title}
-          </h2>
-        </div>
+        <div className="h-16" aria-hidden="true" />
 
         <div className="mx-auto mt-10 flex max-w-5xl flex-wrap items-center justify-center gap-x-7 gap-y-4 text-center">
           {SCENARIO_VALIDATIONS.slice(0, 5).map((item) => (
             <span
               key={item.id}
-              className="text-lg font-semibold tracking-[-0.035em] text-slate-300 md:text-2xl"
-            >
-              {localize(item.label, locale)}
-            </span>
+              className="h-6 w-32 rounded-full bg-slate-100 md:h-8 md:w-40"
+            />
           ))}
         </div>
 
@@ -257,13 +150,10 @@ function HomepageSocialProofBanner({ locale }: { locale: Locale }) {
                 index === 1 ? "shadow-xl shadow-slate-900/10 md:-translate-y-4" : "opacity-75"
               )}
             >
-              <blockquote className="m-0 text-base font-semibold leading-8 tracking-[-0.02em] text-slate-800">
-                “{localize(item.quote, locale)}”
-              </blockquote>
-              <figcaption className="mt-6 text-sm leading-6 text-slate-500">
-                <span className="block font-semibold text-slate-800">{item.author}</span>
-                <span>{localize(item.role, locale)}</span>
-              </figcaption>
+              <div className="mx-auto h-4 w-3/4 rounded-full bg-slate-100" />
+              <div className="mx-auto mt-3 h-4 w-2/3 rounded-full bg-slate-100" />
+              <div className="mx-auto mt-8 h-3 w-24 rounded-full bg-slate-100" />
+              <div className="mx-auto mt-3 h-3 w-16 rounded-full bg-slate-100" />
             </figure>
           ))}
         </div>
@@ -302,49 +192,23 @@ function TestFeatureCard({ locale, item, index }: { locale: Locale; item: HomeLi
           <span aria-hidden className="ml-1">→</span>
         </Link>
       </div>
-      <p className="m-0 mt-5 text-base leading-7 text-teal-50/85">
-        {item.meta}
-      </p>
     </article>
   );
 }
 
 function HomepageHighlightedTestsBanner({ locale, copy }: { locale: Locale; copy: HomePageContent }) {
   return (
-    <section className="relative overflow-hidden bg-teal-800 py-20 text-white md:py-24" aria-labelledby="homepage-core-tests-title">
+    <section className="relative overflow-hidden bg-teal-800 py-20 text-white md:py-24">
       <div
         aria-hidden
         className="absolute -top-24 left-1/2 h-40 w-[95vw] -translate-x-1/2 rounded-[100%] bg-white"
       />
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-teal-100/75">
-            {copy.quickStart.kicker}
-          </p>
-          <h2
-            id="homepage-core-tests-title"
-            className="m-0 mt-3 text-3xl font-semibold tracking-[-0.045em] text-white md:text-4xl"
-          >
-            {copy.quickStart.title}
-          </h2>
-          <p className="m-0 mt-4 text-base leading-7 text-teal-50/80">{copy.quickStart.body}</p>
-        </div>
+        <div className="mx-auto h-32 max-w-2xl" aria-hidden="true" />
 
         <div className="mt-10 grid gap-x-6 gap-y-9 md:grid-cols-2 lg:grid-cols-3">
           {copy.quickStart.items.slice(0, 6).map((item, index) => (
             <TestFeatureCard key={item.title} locale={locale} item={item} index={index} />
-          ))}
-        </div>
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-          {copy.secondaryExplore.items.map((item) => (
-            <Link
-              key={item.title}
-              href={withLocale(locale, item.href)}
-              prefetch={false}
-              className="rounded-full border border-teal-200/30 px-4 py-2 text-sm font-semibold text-teal-50 transition hover:border-white hover:text-white"
-            >
-              {item.title}
-            </Link>
           ))}
         </div>
       </Container>
@@ -438,23 +302,12 @@ function ArticleVisual({ index, title }: { index: number; title: string }) {
 }
 
 function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles: HomeArticle[] }) {
-  const labels =
-    locale === "zh"
-      ? { kicker: "推荐阅读", title: "延伸阅读", all: "查看全部文章" }
-      : { kicker: "Recommended reading", title: "Latest articles", all: "View all articles" };
+  const allArticlesLabel = locale === "zh" ? "查看全部文章" : "View all articles";
 
   return (
-    <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-articles-title">
+    <section className="bg-white py-20 md:py-24">
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
-        <div className="text-center">
-          <p className="m-0 text-sm font-semibold tracking-[0.16em] text-teal-700">{labels.kicker}</p>
-          <h2
-            id="homepage-articles-title"
-            className="m-0 mt-3 text-4xl font-semibold tracking-[-0.055em] text-slate-950 md:text-5xl"
-          >
-            {labels.title}
-          </h2>
-        </div>
+        <div className="h-24" aria-hidden="true" />
 
         <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {articles.slice(0, 6).map((article, index) => (
@@ -480,7 +333,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
             prefetch={false}
             className="inline-flex rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-teal-700 hover:text-teal-800"
           >
-            {labels.all}
+            {allArticlesLabel}
           </Link>
         </div>
       </Container>
@@ -494,9 +347,9 @@ export function HomePageExperience({ locale }: { locale: Locale }) {
 
   return (
     <div className="bg-white text-slate-950">
-      <HomepageHeroV1 locale={locale} copy={copy} />
-      <HomepageTrustStripV1 locale={locale} copy={copy} />
-      <HomepageSocialProofBanner locale={locale} />
+      <HomepageHeroV1 copy={copy} />
+      <HomepageTrustStripV1 copy={copy} />
+      <HomepageSocialProofBanner />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} />
       <HomepageAboutBanner locale={locale} copy={copy} />
       <HomepageArticlesBanner locale={locale} articles={articles} />

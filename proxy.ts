@@ -101,6 +101,12 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  if (pathname === "/zh" || pathname === "/zh/") {
+    const target = request.nextUrl.clone();
+    target.pathname = "/";
+    return NextResponse.redirect(target, 308);
+  }
+
   const preferredLocale = resolvePreferredLocale({
     cookieLocale: request.cookies.get(LOCALE_COOKIE_NAME)?.value ?? null,
     acceptLanguage: request.headers.get("accept-language"),

@@ -3,7 +3,7 @@ import { HomePageExperience } from "@/components/marketing/HomePageExperience";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import {
@@ -20,18 +20,19 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
-  const pathname = isZh ? "/zh" : "/en";
+  const pathname = isZh ? "/" : "/en";
   const copy = getHomePageContent(locale);
 
   return buildPageMetadata({
     locale,
-    pathname,
+    pathname: isZh ? "/zh" : pathname,
+    canonicalPathname: pathname,
     title: copy.seo.title,
     description: copy.seo.description,
     imagePath: "/share/mbti_wide_1200x630.png",
     alternatesByLocale: {
       en: "/en",
-      zh: "/zh",
+      zh: "/",
       xDefault: "/",
     },
   });
@@ -39,7 +40,7 @@ export async function generateMetadata({
 
 function buildHomeJsonLd(locale: Locale) {
   const copy = getHomePageContent(locale);
-  const path = locale === "zh" ? "/zh" : "/en";
+  const path = locale === "zh" ? "/" : "/en";
 
   return {
     webPage: buildWebPageJsonLd({
@@ -56,7 +57,7 @@ function buildHomeJsonLd(locale: Locale) {
       locale,
       items: copy.quickStart.items.map((item) => ({
         name: item.title,
-        path: item.href,
+        path: localizedPath(item.href, locale),
         description: item.description,
       })),
     }),
@@ -68,7 +69,7 @@ function buildHomeJsonLd(locale: Locale) {
       locale,
       items: copy.families.items.map((item) => ({
         name: item.title,
-        path: item.exploreHref,
+        path: localizedPath(item.exploreHref, locale),
         description: item.description,
       })),
     }),

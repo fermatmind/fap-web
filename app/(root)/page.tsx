@@ -1,18 +1,90 @@
-import { cookies, headers } from "next/headers";
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+import { HomePageExperience } from "@/components/marketing/HomePageExperience";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import { localizedPath } from "@/lib/i18n/locales";
+import { getHomePageContent } from "@/lib/marketing/homepageContent";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import {
-  LOCALE_COOKIE_NAME,
-  resolveCountryCodeFromHeaders,
-  resolvePreferredLocale,
-} from "@/lib/i18n/localeNegotiation";
+  buildItemListJsonLd,
+  buildOrganizationJsonLd,
+  buildWebPageJsonLd,
+} from "@/lib/seo/generateSchema";
 
-export default async function RootLanguageGatewayPage() {
-  const [headerStore, cookieStore] = await Promise.all([headers(), cookies()]);
-  const preferred = resolvePreferredLocale({
-    cookieLocale: cookieStore.get(LOCALE_COOKIE_NAME)?.value ?? null,
-    acceptLanguage: headerStore.get("accept-language"),
-    countryCode: resolveCountryCodeFromHeaders(headerStore),
+const ROOT_LOCALE = "zh" as const;
+const ROOT_PATH = "/";
+
+export function generateMetadata(): Metadata {
+  const copy = getHomePageContent(ROOT_LOCALE);
+
+  return buildPageMetadata({
+    locale: ROOT_LOCALE,
+    pathname: ROOT_PATH,
+    title: copy.seo.title,
+    description: copy.seo.description,
+    imagePath: "/share/mbti_wide_1200x630.png",
+    alternatesByLocale: {
+      en: "/en",
+      zh: "/",
+      xDefault: "/",
+    },
   });
+}
 
-  redirect(preferred === "zh" ? "/zh" : "/en");
+function buildRootHomeJsonLd() {
+  const copy = getHomePageContent(ROOT_LOCALE);
+
+  return {
+    webPage: buildWebPageJsonLd({
+      path: ROOT_PATH,
+      title: copy.seo.title,
+      description: copy.seo.description,
+      locale: ROOT_LOCALE,
+    }),
+    quickStart: buildItemListJsonLd({
+      path: ROOT_PATH,
+      idSuffix: "quickstart-itemlist",
+      title: copy.seo.quickStartListTitle,
+      description: copy.seo.quickStartListDescription,
+      locale: ROOT_LOCALE,
+      items: copy.quickStart.items.map((item) => ({
+        name: item.title,
+        path: localizedPath(item.href, ROOT_LOCALE),
+        description: item.description,
+      })),
+    }),
+    families: buildItemListJsonLd({
+      path: ROOT_PATH,
+      idSuffix: "family-itemlist",
+      title: copy.seo.familyListTitle,
+      description: copy.seo.familyListDescription,
+      locale: ROOT_LOCALE,
+      items: copy.families.items.map((item) => ({
+        name: item.title,
+        path: localizedPath(item.exploreHref, ROOT_LOCALE),
+        description: item.description,
+      })),
+    }),
+    organization: buildOrganizationJsonLd({
+      path: ROOT_PATH,
+      locale: ROOT_LOCALE,
+      name: "FermatMind / 费马测试",
+      description: copy.seo.organizationDescription,
+    }),
+  };
+}
+
+export default function RootHomePage() {
+  const jsonLd = buildRootHomeJsonLd();
+
+  return (
+    <main className="fm-homepage">
+      <AnalyticsPageViewTracker eventName="view_landing" />
+      <JsonLd id="home-webpage-root" data={jsonLd.webPage} />
+      <JsonLd id="home-quickstart-root" data={jsonLd.quickStart} />
+      <JsonLd id="home-families-root" data={jsonLd.families} />
+      <JsonLd id="home-organization-root" data={jsonLd.organization} />
+      <HomePageExperience locale={ROOT_LOCALE} />
+    </main>
+  );
 }
