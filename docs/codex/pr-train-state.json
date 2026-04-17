@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-16T18:17:56Z",
+  "updated_at": "2026-04-17T10:30:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1550,6 +1550,48 @@
         ]
       },
       "failure_reason": "GitHub required checks failed after push: build and contracts completed with failure; gh returned no job logs for these failures.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F52": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-f52-homepage-v1-minimalist-redesign",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/page.tsx' components/marketing/**/*.tsx tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx tests/contracts/homepage-v1-density.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/mbti-entry-wiring.contract.test.tsx tests/contracts/depression-entry-visibility.contract.test.tsx tests/contracts/wider-public-family.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
