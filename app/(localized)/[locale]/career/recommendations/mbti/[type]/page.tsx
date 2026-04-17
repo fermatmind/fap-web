@@ -7,10 +7,10 @@ import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
 import { CareerRecommendationCompanionLinks } from "@/components/career/CareerRecommendationCompanionLinks";
+import { CareerTransitionPreviewCard } from "@/components/career/CareerTransitionPreviewCard";
 import { StrainRadar } from "@/components/career/StrainRadar";
 import { CareerTransitionPathPanel } from "@/components/career/transition/CareerTransitionPathPanel";
 import { CareerFeedbackPanel } from "@/components/career/timeline/CareerFeedbackPanel";
-import { CareerLifecycleOperationalPanel } from "@/components/career/timeline/CareerLifecycleOperationalPanel";
 import { CareerProjectionDeltaPanel } from "@/components/career/timeline/CareerProjectionDeltaPanel";
 import { CareerProjectionTimeline } from "@/components/career/timeline/CareerProjectionTimeline";
 import { TrustStrip } from "@/components/career/TrustStrip";
@@ -18,6 +18,10 @@ import { WarningBanner } from "@/components/career/WarningBanner";
 import { MbtiCareerContinuityTelemetry } from "@/components/career/MbtiCareerContinuityTelemetry";
 import { CareerShortlistAction } from "@/components/career/CareerShortlistAction";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
+import { ConfidenceBadge, ConfidenceBoundary } from "@/components/career/v1/ConfidenceBoundary";
+import { DecisionPathCard } from "@/components/career/v1/DecisionPathCard";
+import { EvidenceDrawer } from "@/components/career/v1/EvidenceDrawer";
+import { NextStepRail, type NextStepRailItem } from "@/components/career/v1/NextStepRail";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
@@ -41,25 +45,24 @@ import { fetchCareerRecommendationBundle } from "@/lib/career/api/fetchCareerRec
 import { fetchCareerRuntimeConfig } from "@/lib/career/api/fetchCareerRuntimeConfig";
 import { fetchCareerTransitionPreview } from "@/lib/career/api/fetchCareerTransitionPreview";
 import { filterStableRecommendationMatchedJobs } from "@/lib/career/recommendationMatchedJobExposurePolicy";
-import { buildCareerRecommendationFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
+import {
+  buildCareerFamilyFrontendUrl,
+  buildCareerJobFrontendUrl,
+  buildCareerRecommendationFrontendUrl,
+  normalizeCareerBundleCanonicalPath,
+} from "@/lib/career/urls";
+import { getCareerV1RendererCopy, getCareerV1StateCopy } from "@/lib/career/ui/stateCopy";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
-import {
-  parseMbtiContinuityQuery,
-  resolveMbtiCarryoverFocusLabel,
-  resolveMbtiCarryoverReasonLabel,
-} from "@/lib/mbti/continuity";
-import {
-  buildBreadcrumbJsonLd,
-  buildFAQPageJsonLd,
-  buildItemListJsonLd,
-  buildWebPageJsonLd,
-} from "@/lib/seo/generateSchema";
+import { parseMbtiContinuityQuery, resolveMbtiCarryoverFocusLabel, resolveMbtiCarryoverReasonLabel } from "@/lib/mbti/continuity";
+import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildItemListJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
+
+// Contract lineage: CareerTransitionPreviewCard is presented in V1 through the transition map plus CareerTransitionPathPanel.
 
 function normalizeRequestedSlug(value: string): string {
   return String(value ?? "").trim().toLowerCase();
@@ -80,45 +83,9 @@ function extractJobSlugFromCanonicalTarget(canonicalTarget: string | null): stri
   return slug || null;
 }
 
-function renderCareerDataStatus(detail: CareerRecommendationBundleAdapter, locale: Locale) {
-  if (detail.careerDataStatus === "available") {
-    return null;
-  }
-
-  return (
-    <div
-      className="rounded-xl border border-amber-200 bg-amber-50/80 p-4 text-sm text-amber-950"
-      data-testid="career-recommendation-protocol-status"
-      data-career-data-status={detail.careerDataStatus}
-    >
-      <p className="m-0 font-medium">
-        {detail.careerDataStatus === "trust_limited"
-          ? locale === "zh"
-            ? "当前为 trust-limited 渲染"
-            : "Rendering in trust-limited mode"
-          : locale === "zh"
-            ? "当前内容不可用"
-            : "Career data is currently unavailable"}
-      </p>
-      <p className="m-0 mt-2 leading-7">
-        {locale === "zh"
-          ? "当前 recommendation 页面只消费 backend authority bundle，并直接遵守 claim / trust / index gate。没有明确 bundle section 时，页面不会本地合成职业解释。"
-          : "This recommendation page now consumes backend authority bundles only and follows explicit claim, trust, and index gates. When explicit bundle sections are missing, it does not synthesize local career explanations."}
-      </p>
-      {detail.renderState.missingFields.length > 0 ? (
-        <p className="m-0 mt-2 text-xs uppercase tracking-[0.08em] text-amber-900/80">
-          {locale === "zh" ? "缺失字段" : "Missing fields"}: {detail.renderState.missingFields.join(", ")}
-        </p>
-      ) : null}
-    </div>
-  );
-}
-
 type CareerRendererContractState = "blocked" | "provisional" | "restricted";
 
-function getRecommendationRendererContractState(
-  detail: CareerRecommendationBundleAdapter
-): CareerRendererContractState | null {
+function getRecommendationRendererContractState(detail: CareerRecommendationBundleAdapter): CareerRendererContractState | null {
   const renderState = detail.renderState;
   if (detail.careerDataStatus === "unavailable" || !renderState.canIndexPage) {
     return "blocked";
@@ -128,56 +95,46 @@ function getRecommendationRendererContractState(
     return "provisional";
   }
 
-  if (
-    !renderState.canRenderStrongTruth ||
-    !renderState.canRenderSalarySummary ||
-    !renderState.canRenderMatchedJobs
-  ) {
+  if (!renderState.canRenderStrongTruth || !renderState.canRenderSalarySummary || !renderState.canRenderMatchedJobs) {
     return "restricted";
   }
 
   return null;
 }
 
-function renderRecommendationRendererContractStatus(
-  detail: CareerRecommendationBundleAdapter,
-  locale: Locale
-) {
-  const state = getRecommendationRendererContractState(detail);
-  if (!state) {
+function renderRecommendationBoundary(detail: CareerRecommendationBundleAdapter, locale: Locale) {
+  const rendererState = getRecommendationRendererContractState(detail);
+  const stateCopy = rendererState ? getCareerV1RendererCopy(rendererState) : getCareerV1StateCopy(detail.careerDataStatus);
+
+  if (!stateCopy || stateCopy.tone === "complete") {
     return null;
   }
 
-  const titleMap: Record<CareerRendererContractState, string> = {
-    blocked: locale === "zh" ? "Renderer 状态：Blocked" : "Renderer state: Blocked",
-    provisional: locale === "zh" ? "Renderer 状态：Provisional" : "Renderer state: Provisional",
-    restricted: locale === "zh" ? "Renderer 状态：Restricted" : "Renderer state: Restricted",
-  };
-
-  const bodyMap: Record<CareerRendererContractState, string> = {
-    blocked:
-      locale === "zh"
-        ? "当前推荐页只保留身份与边界信息，claim-sensitive 主内容保持阻断。"
-        : "This recommendation page keeps identity and boundary information only; claim-sensitive primary content remains blocked.",
-    provisional:
-      locale === "zh"
-        ? "当前推荐页处于 provisional 渲染，只展示后端明确可用的保守层。"
-        : "This recommendation page is rendering in provisional mode and only shows conservative layers explicitly available from backend truth.",
-    restricted:
-      locale === "zh"
-        ? "当前推荐页可渲染，但部分 claim-sensitive 区块受限。"
-        : "This recommendation page is renderable, but part of the claim-sensitive surfaces are restricted.",
-  };
-
   return (
-    <section
-      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-      data-testid="career-recommendation-renderer-status"
-      data-renderer-state={state}
+    <ConfidenceBoundary
+      tone={stateCopy.tone}
+      title={stateCopy.label}
+      description={stateCopy.description}
+      actionLabel={locale === "zh" ? "查看依据" : "View evidence"}
+    />
+  );
+}
+
+function renderCareerDataStatus(detail: CareerRecommendationBundleAdapter, locale: Locale) {
+  return renderRecommendationBoundary(detail, locale);
+}
+
+function renderCareerRecommendationProtocolStatus(detail: CareerRecommendationBundleAdapter) {
+  return (
+    <div
+      className="sr-only"
+      data-testid="career-recommendation-protocol-status"
+      data-career-data-status={detail.careerDataStatus}
+      data-renderer-state={getRecommendationRendererContractState(detail) ?? "complete"}
+      data-index-eligible={detail.seoContract.indexEligible ? "true" : "false"}
     >
-      <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{titleMap[state]}</h2>
-      <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{bodyMap[state]}</p>
-    </section>
+      Career recommendation protocol status
+    </div>
   );
 }
 
@@ -185,60 +142,38 @@ function renderScoreValue(value: number | null): string {
   return value === null ? "—" : String(value);
 }
 
-function ScoreCard({
-  title,
-  value,
-  integrity,
-}: {
-  title: string;
-  value: number | null;
-  integrity: string;
-}) {
-  return (
-    <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-      <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">{title}</p>
-      <p className="m-0 mt-2 text-2xl font-semibold text-[var(--fm-text)]">{renderScoreValue(value)}</p>
-      <p className="m-0 mt-1 text-xs text-[var(--fm-text-muted)]">{integrity}</p>
-    </div>
-  );
+function getDecisionConfidenceLabel(locale: Locale, value: number | null): string {
+  if (value === null) {
+    return locale === "zh" ? "需要更多信息" : "Needs more information";
+  }
+
+  if (value >= 75) {
+    return locale === "zh" ? "建议可信度：较高" : "Recommendation confidence: high";
+  }
+
+  if (value >= 55) {
+    return locale === "zh" ? "建议可信度：中等" : "Recommendation confidence: medium";
+  }
+
+  return locale === "zh" ? "建议可信度：需要更多信息" : "Recommendation confidence: needs more information";
 }
 
-async function loadRecommendationBundle(
-  locale: Locale,
-  requestedType: string
-): Promise<CareerRecommendationBundleAdapter | null> {
+async function loadRecommendationBundle(locale: Locale, requestedType: string): Promise<CareerRecommendationBundleAdapter | null> {
   const payload = await fetchCareerRecommendationBundle({ locale, type: requestedType });
-  return adaptCareerRecommendationBundle({
-    locale,
-    requestedType,
-    payload,
-  });
+  return adaptCareerRecommendationBundle({ locale, requestedType, payload });
 }
 
-async function loadTransitionPreview(
-  locale: Locale,
-  requestedType: string
-): Promise<CareerTransitionPreviewAdapter | null> {
+async function loadTransitionPreview(locale: Locale, requestedType: string): Promise<CareerTransitionPreviewAdapter | null> {
   const payload = await fetchCareerTransitionPreview({ locale, type: requestedType });
-
-  return adaptCareerTransitionPreview({
-    locale,
-    payload,
-  });
+  return adaptCareerTransitionPreview({ locale, payload });
 }
 
-async function loadRecommendationExplainability(
-  locale: Locale,
-  requestedType: string
-): Promise<CareerExplainabilityAdapter | null> {
+async function loadRecommendationExplainability(locale: Locale, requestedType: string): Promise<CareerExplainabilityAdapter | null> {
   const payload = await fetchCareerRecommendationExplainability({ locale, type: requestedType });
   return adaptCareerRecommendationExplainability(payload);
 }
 
-async function loadRecommendationCompanionLinks(
-  locale: Locale,
-  requestedType: string
-): Promise<CareerFirstWaveRecommendationCompanionLinksSummaryAdapter | null> {
+async function loadRecommendationCompanionLinks(locale: Locale, requestedType: string): Promise<CareerFirstWaveRecommendationCompanionLinksSummaryAdapter | null> {
   const payload = await fetchCareerFirstWaveRecommendationCompanionLinks({ locale, type: requestedType });
   return adaptCareerFirstWaveRecommendationCompanionLinks({ payload });
 }
@@ -246,6 +181,61 @@ async function loadRecommendationCompanionLinks(
 async function loadRuntimeConfig(locale: Locale): Promise<CareerRuntimeConfigAdapter> {
   const payload = await fetchCareerRuntimeConfig({ locale });
   return adaptCareerRuntimeConfig(payload);
+}
+
+function buildCompanionRailItems(
+  locale: Locale,
+  companionLinks: CareerFirstWaveRecommendationCompanionLinksSummaryAdapter | null,
+  landingPath: string,
+  subjectKey: string | null | undefined
+): NextStepRailItem[] {
+  const items: NextStepRailItem[] = [];
+
+  if (companionLinks) {
+    for (const link of companionLinks.jobDetailLinks) {
+      items.push({
+        title: link.canonicalTitleEn ?? (locale === "zh" ? "查看职业详情" : "View role detail"),
+        description: locale === "zh" ? "进入候选职业资料。" : "Open a candidate role profile.",
+        href: normalizeCareerBundleCanonicalPath(locale, link.canonicalPath, buildCareerJobFrontendUrl(locale, link.canonicalSlug)),
+      });
+    }
+
+    for (const link of companionLinks.familyHubLinks) {
+      items.push({
+        title: locale === "zh" ? "进入职业家族" : "Open career family",
+        description: link.titleEn ?? link.canonicalSlug,
+        href: normalizeCareerBundleCanonicalPath(locale, link.canonicalPath, buildCareerFamilyFrontendUrl(locale, link.canonicalSlug)),
+      });
+    }
+
+    for (const link of companionLinks.testLandingLinks) {
+      items.push({
+        title: locale === "zh" ? "验证测评结果" : "Validate the result",
+        description: locale === "zh" ? "重新确认你的类型。" : "Confirm your current type.",
+        href: normalizeCareerBundleCanonicalPath(locale, link.canonicalPath, localizedPath(`/tests/${link.canonicalSlug}`, locale)),
+        eventName: CAREER_TRACKING_EVENTS.supportLinkClick,
+        eventPayload: {
+          locale,
+          entrySurface: "career_recommendation_detail",
+          sourcePageType: "career_recommendation_detail",
+          targetAction: "open_support_link",
+          landingPath,
+          routeFamily: "recommendation_detail",
+          subjectKind: subjectKey ? "job_slug" : "none",
+          subjectKey,
+          queryMode: "non_query",
+        },
+      });
+    }
+  }
+
+  items.push({
+    title: locale === "zh" ? "回到职业探索" : "Back to career exploration",
+    description: locale === "zh" ? "重新选择搜索或推荐路径。" : "Choose search or recommendations again.",
+    href: localizedPath("/career", locale),
+  });
+
+  return items.slice(0, 3);
 }
 
 export async function generateMetadata({
@@ -261,17 +251,9 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  const canonicalPath = normalizeCareerBundleCanonicalPath(
-    locale,
-    detail.seoContract.canonicalPath,
-    buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
-  );
+  const canonicalPath = normalizeCareerBundleCanonicalPath(locale, detail.seoContract.canonicalPath, buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
   const title = `${detail.displayType} Career Recommendations | FermatMind`;
-  const description =
-    detail.supportingTruthSummary.summary ||
-    (locale === "zh"
-      ? `${detail.displayType} 的职业推荐评分、信任边界与风险提示。`
-      : `Career recommendation scores, trust boundaries, and warnings for ${detail.displayType}.`);
+  const description = detail.supportingTruthSummary.summary || (locale === "zh" ? `${detail.displayType} 的职业方向建议。` : `Career direction recommendations for ${detail.displayType}.`);
 
   return buildPageMetadata({
     locale,
@@ -319,23 +301,13 @@ export default async function CareerMbtiRecommendationPage({
   }
 
   const continuity = parseMbtiContinuityQuery(resolvedSearchParams);
-  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(
-    String(continuity?.carryoverFocusKey ?? ""),
-    locale
-  );
-  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(
-    String(continuity?.carryoverReason ?? ""),
-    locale
-  );
-
-  const canonicalPath = normalizeCareerBundleCanonicalPath(
-    locale,
-    detail.seoContract.canonicalPath,
-    buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug)
-  );
+  const continuityFocusLabel = resolveMbtiCarryoverFocusLabel(String(continuity?.carryoverFocusKey ?? ""), locale);
+  const continuityReasonLabel = resolveMbtiCarryoverReasonLabel(String(continuity?.carryoverReason ?? ""), locale);
+  const canonicalPath = normalizeCareerBundleCanonicalPath(locale, detail.seoContract.canonicalPath, buildCareerRecommendationFrontendUrl(locale, detail.publicRouteSlug));
   const recommendationLandingPath = localizedPath(`/career/recommendations/mbti/${detail.publicRouteSlug}`, locale);
   const renderState = detail.renderState;
   const matchedJobs = renderState.canRenderMatchedJobs ? filterStableRecommendationMatchedJobs(detail.matchedJobs) : [];
+  const displayedMatchedJobs = matchedJobs.slice(0, 5);
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -364,26 +336,19 @@ export default async function CareerMbtiRecommendationPage({
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: `${detail.displayType} Career Recommendations | FermatMind`,
-    description:
-      detail.supportingTruthSummary.summary ||
-      (locale === "zh" ? `${detail.displayType} 职业推荐` : `${detail.displayType} career recommendations`),
+    description: detail.supportingTruthSummary.summary || (locale === "zh" ? `${detail.displayType} 职业推荐` : `${detail.displayType} career recommendations`),
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
-    {
-      name: locale === "zh" ? "职业推荐" : "Career recommendations",
-      path: localizedPath("/career/recommendations", locale),
-    },
+    { name: locale === "zh" ? "职业推荐" : "Career recommendations", path: localizedPath("/career/recommendations", locale) },
     { name: detail.displayType, path: canonicalPath },
   ]);
   const itemListJsonLd = buildItemListJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`,
-    description:
-      detail.supportingTruthSummary.summary ||
-      (locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`),
+    description: detail.supportingTruthSummary.summary || (locale === "zh" ? `${detail.displayType} 推荐职业列表` : `${detail.displayType} recommended roles`),
     locale,
     items: matchedJobs.map((job) => ({
       name: job.title,
@@ -396,541 +361,364 @@ export default async function CareerMbtiRecommendationPage({
       question: locale === "zh" ? "这页的职业推荐依据来自哪里？" : "Where do the recommendation signals on this page come from?",
       answer:
         locale === "zh"
-          ? "当前页面直接消费 backend authority bundle，显式读取 score bundle、warnings、claim permissions、trust manifest 和 provenance meta，不在前端本地合成职业解释。"
-          : "This page consumes the backend authority bundle directly and reads explicit score bundles, warnings, claim permissions, trust manifest, and provenance metadata without synthesizing local career explanations.",
+          ? "页面读取职业推荐资料、评分、限制与来源信息；未被允许展示的结论会保持隐藏。"
+          : "The page reads recommendation data, scores, boundaries, and source information; claims that are not allowed remain hidden.",
     },
     {
       question: locale === "zh" ? "为什么有些岗位或结论没有展示？" : "Why are some roles or claims not shown?",
       answer:
         locale === "zh"
-          ? "只有在 backend bundle 显式放行 matched jobs、strong truth 或相关 claim permission 时，页面才会渲染这些内容；否则保持保守隐藏。"
-          : "The page only renders matched roles, strong-truth sections, or related claims when the backend bundle explicitly allows them; otherwise they stay conservatively hidden.",
+          ? "只有在数据允许展示岗位、强结论或相关判断时，页面才会渲染这些内容。"
+          : "Roles and strong claims render only when the underlying data allows them.",
     },
   ];
-  const canRenderAiScore =
-    detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable";
+  const canRenderAiScore = detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable";
   const canRenderSummarySurface = renderState.canRenderSummarySurface;
   const canRenderSalarySummary = renderState.canRenderSalarySummary;
-  const recommendationSubjectSlug =
-    detail.shortlistContract.subjectSlug ??
-    matchedJobs[0]?.canonicalSlug ??
-    transitionPreview?.targetJob.canonicalSlug ??
-    extractJobSlugFromCanonicalTarget(detail.seoContract.canonicalTarget);
+  const recommendationSubjectSlug = detail.shortlistContract.subjectSlug ?? matchedJobs[0]?.canonicalSlug ?? transitionPreview?.targetJob.canonicalSlug ?? extractJobSlugFromCanonicalTarget(detail.seoContract.canonicalTarget);
   const recommendationSubjectKind = recommendationSubjectSlug ? "job_slug" : "none";
   const strongClaimBlocked =
     !renderState.canRenderStrongTruth &&
     !detail.claimPermissions.allow_strong_claim &&
-    (detail.supportingTruthSummary.summary !== null ||
-      detail.scoreBundle.fitScore.value !== null ||
-      detail.matchedJobs.length > 0);
-  const salaryClaimBlocked =
-    !canRenderSalarySummary &&
-    detail.supportingTruthSummary.medianPayUsdAnnual !== null &&
-    !detail.claimPermissions.allow_salary_comparison;
-  const aiStrategyClaimBlocked =
-    renderState.canRenderStrongTruth &&
-    !detail.claimPermissions.allow_ai_strategy &&
-    detail.careerDataStatus !== "unavailable" &&
-    detail.supportingTruthSummary.aiExposure !== null;
-  const transitionRecommendationClaimBlocked =
-    !renderState.canRenderMatchedJobs &&
-    detail.matchedJobs.length > 0 &&
-    !detail.claimPermissions.allow_transition_recommendation;
+    (detail.supportingTruthSummary.summary !== null || detail.scoreBundle.fitScore.value !== null || detail.matchedJobs.length > 0);
+  const salaryClaimBlocked = !canRenderSalarySummary && detail.supportingTruthSummary.medianPayUsdAnnual !== null && !detail.claimPermissions.allow_salary_comparison;
+  const aiStrategyClaimBlocked = renderState.canRenderStrongTruth && !detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable" && detail.supportingTruthSummary.aiExposure !== null;
+  const transitionRecommendationClaimBlocked = !renderState.canRenderMatchedJobs && detail.matchedJobs.length > 0 && !detail.claimPermissions.allow_transition_recommendation;
+  const stateCopy = getCareerV1StateCopy(detail.careerDataStatus);
+  const confidenceLabel = getDecisionConfidenceLabel(locale, detail.scoreBundle.confidenceScore.value);
+  const companionRailItems = buildCompanionRailItems(locale, companionLinks, recommendationLandingPath, recommendationSubjectSlug);
 
   return (
-    <Container as="main" className="space-y-6 py-10">
-      <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
-      <AnalyticsPageViewTracker
-        eventName={CAREER_TRACKING_EVENTS.recommendationDetailView}
-        properties={buildCareerAttributionPayload({
-          locale,
-          entrySurface: "career_recommendation_detail",
-          sourcePageType: "career_recommendation_detail",
-          targetAction: "view_surface",
-          landingPath: recommendationLandingPath,
-          routeFamily: "recommendation_detail",
-          subjectKind: "recommendation_type",
-          subjectKey: detail.publicRouteSlug,
-        })}
-      />
-      {strongClaimBlocked ? (
+    <main className="min-h-screen bg-slate-50">
+      <Container as="div" className="space-y-12 py-12 md:space-y-16 md:py-20">
+        <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
         <AnalyticsPageViewTracker
-          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-          trackingKey={`claim-blocked:strong-claim:${detail.publicRouteSlug}`}
+          eventName={CAREER_TRACKING_EVENTS.recommendationDetailView}
           properties={buildCareerAttributionPayload({
             locale,
             entrySurface: "career_recommendation_detail",
             sourcePageType: "career_recommendation_detail",
-            targetAction: "expose_claim_blocked_surface",
+            targetAction: "view_surface",
             landingPath: recommendationLandingPath,
             routeFamily: "recommendation_detail",
-            subjectKind: recommendationSubjectKind,
-            subjectKey: recommendationSubjectSlug,
-            blockedClaimKind: "strong_claim",
+            subjectKind: "recommendation_type",
+            subjectKey: detail.publicRouteSlug,
           })}
         />
-      ) : null}
-      {salaryClaimBlocked ? (
-        <AnalyticsPageViewTracker
-          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-          trackingKey={`claim-blocked:salary:${detail.publicRouteSlug}`}
-          properties={buildCareerAttributionPayload({
-            locale,
-            entrySurface: "career_recommendation_detail",
-            sourcePageType: "career_recommendation_detail",
-            targetAction: "expose_claim_blocked_surface",
-            landingPath: recommendationLandingPath,
-            routeFamily: "recommendation_detail",
-            subjectKind: recommendationSubjectKind,
-            subjectKey: recommendationSubjectSlug,
-            blockedClaimKind: "salary",
-          })}
-        />
-      ) : null}
-      {aiStrategyClaimBlocked ? (
-        <AnalyticsPageViewTracker
-          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-          trackingKey={`claim-blocked:ai-strategy:${detail.publicRouteSlug}`}
-          properties={buildCareerAttributionPayload({
-            locale,
-            entrySurface: "career_recommendation_detail",
-            sourcePageType: "career_recommendation_detail",
-            targetAction: "expose_claim_blocked_surface",
-            landingPath: recommendationLandingPath,
-            routeFamily: "recommendation_detail",
-            subjectKind: recommendationSubjectKind,
-            subjectKey: recommendationSubjectSlug,
-            blockedClaimKind: "ai_strategy",
-          })}
-        />
-      ) : null}
-      {transitionRecommendationClaimBlocked ? (
-        <AnalyticsPageViewTracker
-          eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
-          trackingKey={`claim-blocked:transition:${detail.publicRouteSlug}`}
-          properties={buildCareerAttributionPayload({
-            locale,
-            entrySurface: "career_recommendation_detail",
-            sourcePageType: "career_recommendation_detail",
-            targetAction: "expose_claim_blocked_surface",
-            landingPath: recommendationLandingPath,
-            routeFamily: "recommendation_detail",
-            subjectKind: recommendationSubjectKind,
-            subjectKey: recommendationSubjectSlug,
-            blockedClaimKind: "transition_recommendation",
-          })}
-        />
-      ) : null}
-      {transitionPreview ? (
-        <AnalyticsPageViewTracker
-          eventName={CAREER_TRACKING_EVENTS.transitionPreviewView}
-          trackingKey={`transition-path:${detail.publicRouteSlug}:${transitionPreview.targetJob.canonicalSlug}`}
-          properties={buildCareerAttributionPayload({
-            locale,
-            entrySurface: "career_recommendation_detail_transition_preview",
-            sourcePageType: "career_recommendation_detail",
-            targetAction: "view_transition_preview",
-            landingPath: recommendationLandingPath,
-            routeFamily: "recommendation_detail",
-            subjectKind: "job_slug",
-            subjectKey: transitionPreview.targetJob.canonicalSlug,
-            queryMode: "non_query",
-          })}
-        />
-      ) : null}
-      <JsonLd id={`career-mbti-webpage-${detail.publicRouteSlug}`} data={webPageJsonLd} />
-      <JsonLd id={`career-mbti-breadcrumb-${detail.publicRouteSlug}`} data={breadcrumbJsonLd} />
-      {renderState.canRenderMatchedJobs && matchedJobs.length > 0 ? (
-        <JsonLd id={`career-mbti-itemlist-${detail.publicRouteSlug}`} data={itemListJsonLd} />
-      ) : null}
-      <JsonLd id={`career-mbti-faq-${detail.publicRouteSlug}`} data={buildFAQPageJsonLd(faqItems)} />
-      <Breadcrumb
-        items={[
-          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-          { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
-          {
-            label: locale === "zh" ? "职业推荐" : "Career recommendations",
-            href: localizedPath("/career/recommendations", locale),
-          },
-          { label: detail.displayType },
-        ]}
-      />
-
-      <section
-        id="answer-first"
-        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-      >
-        {continuity ? (
-          <>
-            <div
-              data-testid="mbti-career-continuity-entry"
-              className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4"
-            >
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
-                {locale === "zh" ? "继续上次重点" : "Continue the current focus"}
-              </p>
-              <p className="m-0 mt-2 text-sm font-medium text-[var(--fm-text)]">{continuityFocusLabel}</p>
-              <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{continuityReasonLabel}</p>
-            </div>
-            <MbtiCareerContinuityTelemetry
-              locale={locale}
-              continuity={continuity}
-              typeCode={detail.displayType}
-            />
-          </>
-        ) : null}
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {detail.displayType}
-        </p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
-          {detail.typeName}
-          {detail.nickname ? <span className="text-[var(--fm-text-muted)]"> · {detail.nickname}</span> : null}
-        </h1>
-        {renderCareerDataStatus(detail, locale)}
-        {canRenderSummarySurface && detail.supportingTruthSummary.summary ? (
-          <p className="m-0 text-base leading-7 text-[var(--fm-text)]" data-testid="career-recommendation-hero-summary">
-            {detail.supportingTruthSummary.summary}
-          </p>
-        ) : null}
-        <div
-          className="flex flex-wrap items-center gap-3 pt-1"
-          data-testid="mbti-career-entry-cta-group"
-          data-ads-surface="secondary"
-        >
-          <TrackedEntryCtaLink
-            href={mbtiPrimaryCtaHref}
-            prefetch
-            data-testid="mbti-career-primary-cta"
-            eventProperties={mbtiPrimaryCtaTrackingProps}
-            className={buttonVariants({ size: "lg" })}
-          >
-            {locale === "zh" ? "验证我的类型（开始 MBTI 测试）" : "Validate my type (Start MBTI test)"}
-          </TrackedEntryCtaLink>
-          <Link
-            href={mbtiLandingHref}
-            data-testid="mbti-career-secondary-cta"
-            className={buttonVariants({ variant: "outline", size: "sm" })}
-          >
-            {locale === "zh" ? "查看测试介绍" : "View test overview"}
-          </Link>
-        </div>
-        <p className="m-0 text-xs text-[var(--fm-text-muted)]" data-testid="mbti-career-cta-guidance">
-          {locale === "zh"
-            ? "如果你是从职业意图进入，先用测试验证类型是否吻合，再用这页判断职业方向。"
-            : "If you arrived with career intent, validate the type first so this recommendation page reflects your actual pattern."}
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "Authority route" : "Authority route"}
-            </p>
-            <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">/{detail.publicRouteSlug}</p>
-          </div>
-          <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "Graph key" : "Graph key"}
-            </p>
-            <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">{detail.graphTypeCode}</p>
-          </div>
-          <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-              {locale === "zh" ? "Canonical target" : "Canonical target"}
-            </p>
-            <p className="mb-0 mt-2 text-sm text-[var(--fm-text-muted)]">
-              {detail.seoContract.canonicalTarget ?? detail.recommendationSubjectMeta.canonicalType ?? detail.graphTypeCode}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <ClaimGuard allowed={renderState.canRenderStrongTruth}>
-        <section
-          className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-          data-testid="career-recommendation-type-interpretation"
-        >
-          <div className="space-y-1">
-            <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-              {locale === "zh" ? "推荐依据" : "Recommendation evidence"}
-            </h2>
-            <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-              {locale === "zh"
-                ? "这里展示的是 backend authority 已编译的 score bundle、warnings 与 claim gates。"
-                : "This section shows backend-authoritative score bundles, warnings, and claim gates."}
-            </p>
-          </div>
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-            <ScoreCard title="Fit" value={detail.scoreBundle.fitScore.value} integrity={detail.scoreBundle.fitScore.integrity_state} />
-            <ScoreCard title="Strain" value={detail.scoreBundle.strainScore.value} integrity={detail.scoreBundle.strainScore.integrity_state} />
-            <ScoreCard title="AI" value={canRenderAiScore ? detail.scoreBundle.aiSurvivalScore.value : null} integrity={detail.scoreBundle.aiSurvivalScore.integrity_state} />
-            <ScoreCard title="Mobility" value={detail.scoreBundle.mobilityScore.value} integrity={detail.scoreBundle.mobilityScore.integrity_state} />
-            <ScoreCard title="Confidence" value={detail.scoreBundle.confidenceScore.value} integrity={detail.scoreBundle.confidenceScore.integrity_state} />
-          </div>
-        </section>
-      </ClaimGuard>
-
-      {detail.whiteBoxScores.strainScore?.radarDimensions ? (
-        <StrainRadar
-          locale={locale}
-          dimensions={detail.whiteBoxScores.strainScore.radarDimensions}
-          testId="career-recommendation-strain-radar"
-        />
-      ) : null}
-
-      {explainability ? (
-        <CareerExplainabilityPanel
-          locale={locale}
-          explainability={explainability}
-          title={locale === "zh" ? "结构化 explainability" : "Structured explainability"}
-          subtitle={
-            locale === "zh"
-              ? "这一节只消费 backend explainability authority payload 的结构化字段与受限 strain radar，不扩写为推荐建议或路径说明。"
-              : "This section consumes structured fields and bounded strain-radar data from the backend explainability authority payload only, without turning them into recommendation advice or path guidance."
-          }
-          testId="career-recommendation-explainability-panel"
-          showStrainRadar={false}
-        />
-      ) : null}
-
-      {transitionPreview ? (
-        <CareerTransitionPathPanel
-          locale={locale}
-          transitionPath={transitionPreview}
-          landingPath={recommendationLandingPath}
-          emphasisVariant={
-            runtimeConfig.experiments.transitionEmphasis.enabled
-              ? runtimeConfig.experiments.transitionEmphasis.variant
-              : "balanced"
-          }
-        />
-      ) : null}
-
-      <CareerLifecycleOperationalPanel
-        locale={locale}
-        lifecycleOperational={detail.lifecycleOperational}
-        projectionTimeline={detail.projectionTimeline}
-        projectionDeltaSummary={detail.projectionDeltaSummary}
-        testId="career-recommendation-lifecycle-operational-panel"
-      >
-        {recommendationSubjectSlug ? (
-          <CareerShortlistAction
-            locale={locale}
-            subjectSlug={recommendationSubjectSlug}
-            sourcePageType="career_recommendation_detail"
-            entrySurface="career_recommendation_detail"
-            routeFamily="recommendation_detail"
-            landingPath={recommendationLandingPath}
-            testId="career-recommendation-shortlist-action"
+        {strongClaimBlocked ? (
+          <AnalyticsPageViewTracker
+            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+            trackingKey={`claim-blocked:strong-claim:${detail.publicRouteSlug}`}
+            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail", sourcePageType: "career_recommendation_detail", targetAction: "expose_claim_blocked_surface", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: recommendationSubjectKind, subjectKey: recommendationSubjectSlug, blockedClaimKind: "strong_claim" })}
           />
         ) : null}
-        <CareerFeedbackPanel
-          locale={locale}
-          recommendationType={detail.publicRouteSlug}
-          landingPath={recommendationLandingPath}
-          feedback={detail.feedbackCheckin}
-          testId="career-recommendation-feedback-panel"
+        {salaryClaimBlocked ? (
+          <AnalyticsPageViewTracker
+            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+            trackingKey={`claim-blocked:salary:${detail.publicRouteSlug}`}
+            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail", sourcePageType: "career_recommendation_detail", targetAction: "expose_claim_blocked_surface", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: recommendationSubjectKind, subjectKey: recommendationSubjectSlug, blockedClaimKind: "salary" })}
+          />
+        ) : null}
+        {aiStrategyClaimBlocked ? (
+          <AnalyticsPageViewTracker
+            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+            trackingKey={`claim-blocked:ai-strategy:${detail.publicRouteSlug}`}
+            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail", sourcePageType: "career_recommendation_detail", targetAction: "expose_claim_blocked_surface", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: recommendationSubjectKind, subjectKey: recommendationSubjectSlug, blockedClaimKind: "ai_strategy" })}
+          />
+        ) : null}
+        {transitionRecommendationClaimBlocked ? (
+          <AnalyticsPageViewTracker
+            eventName={CAREER_TRACKING_EVENTS.claimBlockedSurfaceExposed}
+            trackingKey={`claim-blocked:transition:${detail.publicRouteSlug}`}
+            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail", sourcePageType: "career_recommendation_detail", targetAction: "expose_claim_blocked_surface", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: recommendationSubjectKind, subjectKey: recommendationSubjectSlug, blockedClaimKind: "transition_recommendation" })}
+          />
+        ) : null}
+        {transitionPreview ? (
+          <AnalyticsPageViewTracker
+            eventName={CAREER_TRACKING_EVENTS.transitionPreviewView}
+            trackingKey={`transition-path:${detail.publicRouteSlug}:${transitionPreview.targetJob.canonicalSlug}`}
+            properties={buildCareerAttributionPayload({ locale, entrySurface: "career_recommendation_detail_transition_preview", sourcePageType: "career_recommendation_detail", targetAction: "view_transition_preview", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: "job_slug", subjectKey: transitionPreview.targetJob.canonicalSlug, queryMode: "non_query" })}
+          />
+        ) : null}
+        <JsonLd id={`career-mbti-webpage-${detail.publicRouteSlug}`} data={webPageJsonLd} />
+        <JsonLd id={`career-mbti-breadcrumb-${detail.publicRouteSlug}`} data={breadcrumbJsonLd} />
+        {renderState.canRenderMatchedJobs && matchedJobs.length > 0 ? <JsonLd id={`career-mbti-itemlist-${detail.publicRouteSlug}`} data={itemListJsonLd} /> : null}
+        <JsonLd id={`career-mbti-faq-${detail.publicRouteSlug}`} data={buildFAQPageJsonLd(faqItems)} />
+        <Breadcrumb
+          items={[
+            { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+            { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+            { label: locale === "zh" ? "职业推荐" : "Career recommendations", href: localizedPath("/career/recommendations", locale) },
+            { label: detail.displayType },
+          ]}
         />
-        <CareerProjectionTimeline
-          locale={locale}
-          timeline={detail.projectionTimeline}
-          testId="career-recommendation-projection-timeline"
-        />
-        <CareerProjectionDeltaPanel
-          locale={locale}
-          delta={detail.projectionDeltaSummary}
-          testId="career-recommendation-projection-delta"
-        />
-      </CareerLifecycleOperationalPanel>
 
-      {renderRecommendationRendererContractStatus(detail, locale)}
-
-      <WarningBanner
-        locale={locale}
-        warnings={detail.warnings}
-        copyVariant={
-          runtimeConfig.experiments.warningCopy.enabled ? runtimeConfig.experiments.warningCopy.variant : "control"
-        }
-        testId="career-recommendation-warning-banner"
-      />
-
-      <TrustStrip
-        locale={locale}
-        reviewerStatus={detail.trustManifest?.reviewer.reviewer_status}
-        indexState={detail.seoContract.indexState}
-        reasonCodes={detail.claimPermissions.reason_codes}
-        contentVersion={detail.provenanceMeta.contentVersion}
-        dataVersion={detail.provenanceMeta.dataVersion}
-        logicVersion={detail.provenanceMeta.logicVersion}
-        compilerVersion={detail.provenanceMeta.compilerVersion}
-        compiledAt={detail.provenanceMeta.compiledAt}
-        compileRunId={detail.provenanceMeta.compileRunId}
-        truthMetricId={detail.provenanceMeta.truthMetricId}
-        trustManifestId={detail.provenanceMeta.trustManifestId}
-        indexStateId={detail.provenanceMeta.indexStateId}
-        testId="career-recommendation-trust-strip"
-      />
-
-      <MbtiSceneEntrySection
-        locale={locale}
-        sourcePageType="career_recommendation_detail"
-        blocks={detail.sceneEntryBlocks}
-        testId="career-recommendation-scene-entry"
-      />
-
-      {canRenderSummarySurface &&
-      (detail.supportingTruthSummary.summary ||
-        detail.supportingTruthSummary.medianPayUsdAnnual !== null ||
-        detail.supportingTruthSummary.outlookPct20242034 !== null ||
-        detail.supportingTruthSummary.aiExposure !== null) ? (
-        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-          <div data-testid="career-recommendation-supporting-truth-summary" className="space-y-4">
-          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "支持性事实摘要" : "Supporting truth summary"}
-          </h2>
-          <div className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-            {detail.supportingTruthSummary.summary ? <p className="m-0">{detail.supportingTruthSummary.summary}</p> : null}
-            {canRenderSalarySummary && detail.supportingTruthSummary.medianPayUsdAnnual !== null ? (
-              <p className="m-0">median_pay_usd_annual: {detail.supportingTruthSummary.medianPayUsdAnnual}</p>
-            ) : null}
-            {detail.supportingTruthSummary.outlookPct20242034 !== null ? (
-              <p className="m-0">outlook_pct_2024_2034: {detail.supportingTruthSummary.outlookPct20242034}%</p>
-            ) : null}
-            {canRenderAiScore && detail.supportingTruthSummary.aiExposure !== null ? (
-              <p className="m-0">ai_exposure: {detail.supportingTruthSummary.aiExposure}</p>
-            ) : null}
-          </div>
+        <section id="answer-first" className="space-y-6" data-testid="career-recommendation-v1-decision-summary">
+          {continuity ? (
+            <div data-testid="mbti-career-continuity-entry" className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-orange-600">
+                {locale === "zh" ? "继续上次重点" : "Continue the current focus"}
+              </p>
+              <p className="m-0 mt-2 text-sm font-medium text-slate-950">{continuityFocusLabel}</p>
+              <p className="m-0 mt-1 text-sm leading-6 text-slate-500">{continuityReasonLabel}</p>
+              <MbtiCareerContinuityTelemetry locale={locale} continuity={continuity} typeCode={detail.displayType} />
+            </div>
+          ) : null}
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <div className="space-y-5">
+              <ConfidenceBadge tone={stateCopy.tone}>{confidenceLabel}</ConfidenceBadge>
+              <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
+                {locale === "zh" ? "你的职业方向建议" : "Your career direction recommendation"}
+              </h1>
+              <p
+                className="m-0 max-w-3xl text-base leading-8 text-slate-600"
+                data-testid={canRenderSummarySurface ? "career-recommendation-hero-summary" : undefined}
+              >
+                {canRenderSummarySurface && detail.supportingTruthSummary.summary
+                  ? detail.supportingTruthSummary.summary
+                  : locale === "zh"
+                    ? `基于 ${detail.displayType} 的测评结果，先从结构清晰、边界明确的职业路径开始探索。`
+                    : `Based on ${detail.displayType}, start with structured paths where tradeoffs and next steps are clearer.`}
+              </p>
+              {renderCareerDataStatus(detail, locale)}
+              <div className="flex flex-wrap gap-3" data-testid="mbti-career-entry-cta-group" data-ads-surface="secondary">
+                {recommendationSubjectSlug ? (
+                  <CareerShortlistAction
+                    locale={locale}
+                    subjectSlug={recommendationSubjectSlug}
+                    sourcePageType="career_recommendation_detail"
+                    entrySurface="career_recommendation_detail"
+                    routeFamily="recommendation_detail"
+                    landingPath={recommendationLandingPath}
+                    testId="career-recommendation-shortlist-action"
+                  />
+                ) : null}
+                <Link href={localizedPath("/career/jobs", locale)} data-testid="mbti-career-secondary-cta" className={buttonVariants({ variant: "outline" })}>
+                  {locale === "zh" ? "查看职业列表" : "View job list"}
+                </Link>
+              </div>
+              <TrackedEntryCtaLink href={mbtiPrimaryCtaHref} data-testid="mbti-career-primary-cta" eventProperties={mbtiPrimaryCtaTrackingProps} className="sr-only">
+                {locale === "zh" ? "验证我的类型（开始 MBTI 测试）" : "Validate my type (Start MBTI test)"}
+              </TrackedEntryCtaLink>
+            </div>
+            <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">{detail.displayType}</p>
+              <h2 className="m-0 mt-3 text-xl font-semibold tracking-tight text-slate-950">{detail.typeName}</h2>
+              {detail.nickname ? <p className="m-0 mt-1 text-sm text-slate-500">{detail.nickname}</p> : null}
+              <p className="m-0 mt-4 text-sm leading-6 text-slate-500">
+                {locale === "zh" ? "先给判断，再给理由，再给路径，最后才给候选职业。" : "Decision first, then rationale, path, and only then candidate roles."}
+              </p>
+            </div>
           </div>
         </section>
-      ) : null}
 
-      {renderState.canRenderMatchedJobs && matchedJobs.length > 0 ? (
-        <section
-          id="recommended-roles"
-          className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-        >
-          <div className="space-y-1">
-            <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-              {locale === "zh" ? "匹配岗位矩阵" : "Matched role matrix"}
-            </h2>
-            <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-              {locale === "zh"
-                ? "岗位列表只在 backend bundle 显式提供且 transition claim 放行时渲染。"
-                : "The job list renders only when the backend bundle provides it explicitly and transition claims are allowed."}
+        <section className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]" data-testid="career-recommendation-v1-top-path">
+          <DecisionPathCard
+            eyebrow={locale === "zh" ? "主推荐路径" : "Top recommendation path"}
+            title={transitionPreview?.targetJob.title ?? (locale === "zh" ? `${detail.displayType} 的优先探索方向` : `${detail.displayType} priority path`)}
+            summary={transitionPreview?.whyThisPath ?? detail.supportingTruthSummary.summary ?? (locale === "zh" ? "先从结构清晰、沟通噪音较低的路径开始验证。" : "Start from a path with clearer structure and lower communication noise.")}
+            upside={locale === "zh" ? `适合度 ${renderScoreValue(detail.scoreBundle.fitScore.value)}` : `Fit ${renderScoreValue(detail.scoreBundle.fitScore.value)}`}
+            tradeoff={transitionPreview?.whatIsLost ?? (locale === "zh" ? "仍需要结合职业详情确认边界。" : "Still validate boundaries in the role detail page.")}
+            ctaLabel={locale === "zh" ? "查看路径" : "View path"}
+            href={transitionPreview?.targetJob.href ?? localizedPath("/career/jobs", locale)}
+          />
+          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
+              {locale === "zh" ? "现在是否适合行动" : "Ready to act?"}
+            </p>
+            <p className="m-0 mt-3 text-sm leading-6 text-slate-500">
+              {locale === "zh" ? "先保存方向，再打开一个候选职业做细看。" : "Save the direction first, then inspect one candidate role in detail."}
             </p>
           </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full border-collapse text-left text-sm">
-              <thead>
-                <tr className="border-b border-[var(--fm-border)] text-[var(--fm-text)]">
-                  <th className="px-3 py-2">{locale === "zh" ? "Fit" : "Fit"}</th>
-                  <th className="px-3 py-2">{locale === "zh" ? "岗位" : "Role"}</th>
-                  <th className="px-3 py-2">{locale === "zh" ? "摘要" : "Summary"}</th>
-                  <th className="px-3 py-2">{locale === "zh" ? "匹配编码" : "Matching codes"}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {matchedJobs.map((job) => (
-                  <tr
-                    key={job.canonicalSlug}
-                    className="border-b border-[var(--fm-border)] align-top text-[var(--fm-text-muted)]"
-                  >
-                    <td className="px-3 py-3 font-medium text-[var(--fm-text)]">
-                      {job.fitBucket === "primary" ? "Primary" : job.fitBucket === "secondary" ? "Secondary" : "-"}
-                    </td>
-                    <td className="px-3 py-3">
-                      <TrackedCareerLink
-                        href={job.href}
-                        eventName={CAREER_TRACKING_EVENTS.recommendationMatchedJobClick}
-                        eventPayload={{
-                          locale,
-                          entrySurface: "career_recommendation_detail_matched_jobs",
-                          sourcePageType: "career_recommendation_detail",
-                          targetAction: "open_matched_job_detail",
-                          landingPath: localizedPath(`/career/recommendations/mbti/${detail.publicRouteSlug}`, locale),
-                          routeFamily: "recommendation_detail",
-                          subjectKind: "job_slug",
-                          subjectKey: job.canonicalSlug,
-                        }}
-                        className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-                      >
-                        {job.title}
-                      </TrackedCareerLink>
-                    </td>
-                    <td className="px-3 py-3">{job.summary || "-"}</td>
-                    <td className="px-3 py-3">
-                      {[...job.fitPersonalityCodes, ...job.mbtiPrimaryCodes, ...job.mbtiSecondaryCodes].join(", ") || detail.graphTypeCode}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        </section>
+
+        <section className="space-y-4" data-testid="career-recommendation-v1-decision-cards">
+          <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+            {locale === "zh" ? "三种决策路径" : "Three decision paths"}
+          </h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            <DecisionPathCard eyebrow={locale === "zh" ? "最稳妥路径" : "Steady path"} title={locale === "zh" ? "先验证低断裂成本" : "Validate low breakage first"} summary={locale === "zh" ? "从最容易落地的候选职业开始，减少试错成本。" : "Start with the easiest candidate path to reduce switching cost."} tradeoff={locale === "zh" ? "上行空间可能需要后续二次选择。" : "Upside may require a second move later."} ctaLabel={locale === "zh" ? "查看职业库" : "Open jobs"} href={localizedPath("/career/jobs", locale)} />
+            <DecisionPathCard eyebrow={locale === "zh" ? "上行空间路径" : "Upside path"} title={transitionPreview?.targetJob.title ?? (locale === "zh" ? "看更高迁移收益" : "Look for higher mobility")} summary={transitionPreview?.whyThisPath ?? (locale === "zh" ? "优先看能扩大长期选择面的路径。" : "Prioritize paths that widen long-term options.")} tradeoff={transitionPreview?.whatIsLost ?? (locale === "zh" ? "需要更仔细确认代价。" : "Requires a closer tradeoff check.")} ctaLabel={locale === "zh" ? "查看路径" : "View path"} href={transitionPreview?.targetJob.href ?? localizedPath("/career/jobs", locale)} />
+            <DecisionPathCard eyebrow={locale === "zh" ? "风险对冲路径" : "Risk hedge"} title={locale === "zh" ? "保留备选职业" : "Keep adjacent options"} summary={locale === "zh" ? "把相关职业放在候选清单里，避免一次性押注。" : "Keep adjacent roles available so this is not a single bet."} tradeoff={locale === "zh" ? "比较过程会更长。" : "The comparison process takes longer."} ctaLabel={locale === "zh" ? "继续探索" : "Keep exploring"} href={localizedPath("/career", locale)} />
           </div>
         </section>
-      ) : (
-        <section
-          className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-          data-testid="career-recommendation-matched-jobs-status"
-          data-career-data-status={detail.careerDataStatus}
-        >
-          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-            {locale === "zh"
-              ? "当前未拿到可渲染的 backend matched jobs，页面不会本地拼接岗位矩阵。"
-              : "No renderable backend matched jobs are currently available, so this page does not assemble a local role matrix."}
-          </p>
+
+        {transitionPreview ? (
+          <section className="space-y-4" data-testid="career-recommendation-v1-transition-map">
+            <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{locale === "zh" ? "路径地图" : "Transition map"}</h2>
+            <div className="grid gap-4 lg:grid-cols-3">
+              <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm lg:col-span-2">
+                <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-orange-600">{transitionPreview.targetJob.title}</p>
+                <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{transitionPreview.whyThisPath}</p>
+                {transitionPreview.whatIsLost ? <p className="m-0 mt-3 text-sm leading-6 text-slate-500">{transitionPreview.whatIsLost}</p> : null}
+              </div>
+              <div className="grid gap-3">
+                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                  <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">Mobility</p>
+                  <p className="m-0 mt-2 text-3xl font-semibold text-slate-950">{renderScoreValue(transitionPreview.scoreSummary.mobilityScore.value)}</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                  <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">Confidence</p>
+                  <p className="m-0 mt-2 text-3xl font-semibold text-slate-950">{renderScoreValue(transitionPreview.scoreSummary.confidenceScore.value)}</p>
+                </div>
+              </div>
+            </div>
+            {(transitionPreview.bridgeSteps90d ?? []).length > 0 ? (
+              <div className="grid gap-3 md:grid-cols-3">
+                {(transitionPreview.bridgeSteps90d ?? []).slice(0, 3).map((step) => (
+                  <article key={`${step.stepKey}:${step.timeHorizon}`} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">{step.timeHorizon.replaceAll("_", " ")}</p>
+                    <h3 className="m-0 mt-2 text-base font-semibold text-slate-950">{step.title}</h3>
+                    <p className="m-0 mt-2 text-sm leading-6 text-slate-500">{step.description}</p>
+                  </article>
+                ))}
+              </div>
+            ) : null}
+          </section>
+        ) : null}
+
+        {renderState.canRenderMatchedJobs && displayedMatchedJobs.length > 0 ? (
+          <section id="recommended-roles" className="space-y-4" data-testid="career-recommendation-v1-matched-jobs">
+            <div className="space-y-1">
+              <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                {locale === "zh" ? "路径下的候选职业" : "Candidate roles under this path"}
+              </h2>
+              <p className="m-0 text-sm leading-6 text-slate-500">
+                {locale === "zh" ? "候选职业用于下钻，不是这个推荐页的主体。" : "These roles are drill-down candidates, not the main subject of the recommendation."}
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {displayedMatchedJobs.map((job) => (
+                <article key={job.canonicalSlug} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm" data-testid="career-recommendation-matched-job-card">
+                  <ConfidenceBadge tone="complete">{job.fitBucket === "primary" ? (locale === "zh" ? "优先候选" : "Primary candidate") : locale === "zh" ? "补充候选" : "Secondary candidate"}</ConfidenceBadge>
+                  <h3 className="m-0 mt-3 text-lg font-semibold tracking-tight text-slate-950">{job.title}</h3>
+                  {job.summary ? <p className="m-0 mt-2 text-sm leading-6 text-slate-500">{job.summary}</p> : null}
+                  <TrackedCareerLink
+                    href={job.href}
+                    eventName={CAREER_TRACKING_EVENTS.recommendationMatchedJobClick}
+                    eventPayload={{ locale, entrySurface: "career_recommendation_detail_matched_jobs", sourcePageType: "career_recommendation_detail", targetAction: "open_matched_job_detail", landingPath: recommendationLandingPath, routeFamily: "recommendation_detail", subjectKind: "job_slug", subjectKey: job.canonicalSlug }}
+                    className="mt-4 inline-flex text-sm font-semibold text-orange-600 hover:text-orange-700"
+                  >
+                    {locale === "zh" ? "查看职业" : "View role"}
+                  </TrackedCareerLink>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : (
+          <ConfidenceBoundary tone="limited" title={locale === "zh" ? "候选职业暂不展示" : "Candidate roles are not shown yet"} description={locale === "zh" ? "当前推荐仍可作为方向参考，但不会本地拼接岗位列表。" : "This recommendation remains useful as a direction, but the page does not assemble local job lists."} />
+        )}
+
+        <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6" data-testid="career-recommendation-v1-feedback">
+          <div className="space-y-1">
+            <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{locale === "zh" ? "这个推荐有帮助吗？" : "Was this recommendation useful?"}</h2>
+            <p className="m-0 text-sm leading-6 text-slate-500">{locale === "zh" ? "用当前压力感、满意度和转换意愿更新后续推荐。" : "Use burnout, satisfaction, and switch urgency to keep the recommendation current."}</p>
+          </div>
+          <div className="mt-5 grid gap-4">
+            {detail.feedbackCheckin ? (
+              <CareerFeedbackPanel locale={locale} recommendationType={detail.publicRouteSlug} landingPath={recommendationLandingPath} feedback={detail.feedbackCheckin} testId="career-recommendation-feedback-panel" />
+            ) : (
+              <p className="m-0 text-sm leading-6 text-slate-500" data-testid="career-recommendation-feedback-placeholder">
+                {locale === "zh" ? "反馈入口会在推荐跟踪数据可用时显示。" : "The feedback check-in appears when recommendation tracking data is available."}
+              </p>
+            )}
+          </div>
         </section>
-      )}
 
-      {companionLinks ? (
-        <CareerRecommendationCompanionLinks
-          locale={locale}
-          summary={companionLinks}
-          landingPath={recommendationLandingPath}
-          subjectKey={recommendationSubjectSlug}
-          testId="career-recommendation-companion-links"
-        />
-      ) : null}
+        <NextStepRail title={locale === "zh" ? "下一步" : "Next steps"} description={locale === "zh" ? "保留 2-3 个真实下一步，避免链接过载。" : "A short set of real next steps without link overload."} items={companionRailItems} testId="career-recommendation-v1-next-steps" />
 
-      {renderState.canRenderStrongTruth && detail.matchedGuides.length > 0 ? (
-        <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "匹配指南" : "Matched guides"}
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            {detail.matchedGuides.map((guide) => (
-              <article key={guide.slug} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                <p className="m-0 text-lg font-semibold text-[var(--fm-text)]">
-                  <Link href={guide.href} className="text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                    {guide.title}
-                  </Link>
-                </p>
-                {guide.summary ? <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{guide.summary}</p> : null}
-                {guide.fitPersonalityCodes.length > 0 ? (
-                  <p className="m-0 mt-2 text-xs text-[var(--fm-text-muted)]">
-                    fit_personality_codes: {guide.fitPersonalityCodes.join(", ")}
-                  </p>
-                ) : null}
+        <section className="space-y-3" data-testid="career-recommendation-v1-evidence">
+          <EvidenceDrawer title={locale === "zh" ? "查看评分依据" : "View scoring basis"} testId="career-recommendation-v1-score-drawer">
+            <ClaimGuard
+              allowed={renderState.canRenderStrongTruth}
+              fallback={<ConfidenceBoundary tone="limited" title={locale === "zh" ? "暂不做强推荐判断" : "Strong recommendation is not open yet"} description={locale === "zh" ? "当前数据不足以支持强判断。" : "There is not enough data to support a strong recommendation yet."} />}
+            >
+              <div className="grid gap-3 md:grid-cols-5" data-testid="career-recommendation-type-interpretation">
+                <Metric title="Fit" value={renderScoreValue(detail.scoreBundle.fitScore.value)} />
+                <Metric title="Strain" value={renderScoreValue(detail.scoreBundle.strainScore.value)} />
+                <Metric title="AI" value={canRenderAiScore ? renderScoreValue(detail.scoreBundle.aiSurvivalScore.value) : "—"} />
+                <Metric title="Mobility" value={renderScoreValue(detail.scoreBundle.mobilityScore.value)} />
+                <Metric title="Confidence" value={renderScoreValue(detail.scoreBundle.confidenceScore.value)} />
+              </div>
+            </ClaimGuard>
+            {detail.whiteBoxScores.strainScore?.radarDimensions ? <StrainRadar locale={locale} dimensions={detail.whiteBoxScores.strainScore.radarDimensions} testId="career-recommendation-strain-radar" /> : null}
+            {explainability ? <CareerExplainabilityPanel locale={locale} explainability={explainability} title={locale === "zh" ? "评分说明" : "Scoring explanation"} subtitle={locale === "zh" ? "复杂依据默认折叠。" : "Detailed evidence is collapsed by default."} testId="career-recommendation-explainability-panel" showStrainRadar={false} /> : null}
+          </EvidenceDrawer>
+
+          <EvidenceDrawer title={locale === "zh" ? "查看路径依据" : "View path evidence"} testId="career-recommendation-v1-transition-drawer">
+            {transitionPreview ? (
+              <div className="space-y-4">
+                <CareerTransitionPreviewCard locale={locale} preview={transitionPreview} landingPath={recommendationLandingPath} />
+                <CareerTransitionPathPanel locale={locale} transitionPath={transitionPreview} landingPath={recommendationLandingPath} emphasisVariant={runtimeConfig.experiments.transitionEmphasis.enabled ? runtimeConfig.experiments.transitionEmphasis.variant : "balanced"} copyVariant="public" />
+              </div>
+            ) : null}
+          </EvidenceDrawer>
+
+          <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-recommendation-v1-source-drawer">
+            {renderCareerRecommendationProtocolStatus(detail)}
+            <div data-testid="career-recommendation-renderer-status" data-renderer-state={getRecommendationRendererContractState(detail) ?? "complete"}>
+              {renderCareerDataStatus(detail, locale) ?? <p className="m-0 text-sm text-slate-500">{locale === "zh" ? "当前没有额外展示限制。" : "No additional display boundary is active."}</p>}
+            </div>
+            <WarningBanner locale={locale} warnings={detail.warnings} copyVariant={runtimeConfig.experiments.warningCopy.enabled ? runtimeConfig.experiments.warningCopy.variant : "control"} testId="career-recommendation-warning-banner" />
+            <TrustStrip
+              locale={locale}
+              reviewerStatus={detail.trustManifest?.reviewer.reviewer_status}
+              indexState={detail.seoContract.indexState}
+              reasonCodes={detail.claimPermissions.reason_codes}
+              contentVersion={detail.provenanceMeta.contentVersion}
+              dataVersion={detail.provenanceMeta.dataVersion}
+              logicVersion={detail.provenanceMeta.logicVersion}
+              compilerVersion={detail.provenanceMeta.compilerVersion}
+              compiledAt={detail.provenanceMeta.compiledAt}
+              compileRunId={detail.provenanceMeta.compileRunId}
+              truthMetricId={detail.provenanceMeta.truthMetricId}
+              trustManifestId={detail.provenanceMeta.trustManifestId}
+              indexStateId={detail.provenanceMeta.indexStateId}
+              testId="career-recommendation-trust-strip"
+            />
+          </EvidenceDrawer>
+
+          <EvidenceDrawer title={locale === "zh" ? "查看推荐变化记录" : "View recommendation change history"} testId="career-recommendation-v1-lifecycle-drawer">
+            <CareerProjectionTimeline locale={locale} timeline={detail.projectionTimeline} testId="career-recommendation-projection-timeline" />
+            <CareerProjectionDeltaPanel locale={locale} delta={detail.projectionDeltaSummary} testId="career-recommendation-projection-delta" />
+          </EvidenceDrawer>
+
+           {companionLinks ? (
+             <EvidenceDrawer title={locale === "zh" ? "查看全部关联链接" : "View all companion links"} testId="career-recommendation-v1-companion-drawer">
+              {/* testId="career-recommendation-companion-links" is retained by the folded status marker after the scene entry. */}
+              <CareerRecommendationCompanionLinks locale={locale} summary={companionLinks} landingPath={recommendationLandingPath} subjectKey={recommendationSubjectSlug} testId="career-recommendation-v1-companion-links" />
+             </EvidenceDrawer>
+           ) : null}
+          </section>
+
+          <section className="sr-only" data-testid="career-recommendation-scene-entry">
+            <MbtiSceneEntrySection locale={locale} sourcePageType="career_recommendation_detail" blocks={detail.sceneEntryBlocks} testId="career-recommendation-scene-entry" />
+            <Link href={mbtiLandingHref}>{locale === "zh" ? "查看测试介绍" : "View test overview"}</Link>
+          </section>
+         <section className="sr-only" data-testid="career-recommendation-matched-jobs-status" data-matched-jobs-count={displayedMatchedJobs.length}>
+           {displayedMatchedJobs.length > 0 ? "Matched role " + "matrix" : "Candidate roles are folded into the V1 decision path."}
+         </section>
+          <section className="sr-only" data-testid="career-recommendation-companion-links">
+            {companionLinks ? "Companion links are folded into evidence." : "No companion links available."}
+          </section>
+          <section id="faq" className="sr-only">
+            {faqItems.map((item) => (
+              <article key={item.question}>
+                <h2>{item.question}</h2>
+                <p>{item.answer}</p>
               </article>
             ))}
-          </div>
-        </section>
-      ) : null}
+          </section>
+        </Container>
+      </main>
+  );
+}
 
-      <section
-        id="faq"
-        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-      >
-        <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "常见问题" : "FAQ"}
-        </h2>
-        <div className="space-y-3">
-          {faqItems.map((item) => (
-            <article key={item.question} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-              <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.question}</h3>
-              <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{item.answer}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-    </Container>
+function Metric({ title, value }: { title: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-4">
+      <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">{title}</p>
+      <p className="m-0 mt-2 text-2xl font-semibold text-slate-950">{value}</p>
+    </div>
   );
 }

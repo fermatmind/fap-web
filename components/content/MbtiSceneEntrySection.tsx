@@ -71,7 +71,6 @@ export function MbtiSceneEntrySection({
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p>
             <TrackedEntryCtaLink
               href={block.href}
-              prefetch
               data-testid={`mbti-scene-entry-${block.key}`}
               className="inline-flex text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
               eventProperties={buildMbtiEntryTrackingPayload({

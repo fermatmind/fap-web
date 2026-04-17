@@ -21,5 +21,5 @@ export function TrackedEntryCtaLink({
     onClick?.(event);
   };
 
-  return <Link {...props} prefetch={prefetch} onClick={handleClick} />;
+  return <Link {...props} prefetch={prefetch || undefined} onClick={handleClick} />;
 }

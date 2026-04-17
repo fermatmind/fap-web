@@ -1029,3 +1029,32 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-F51
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-f51-career-v1-minimalist-ui-redesign
+    base: main
+    depends_on: ["PR-F50"]
+    mode: execute
+    scope: >
+      Career V1 minimalist UI redesign / public surface simplification.
+      Add shared V1 frontend primitives and simplify public career, recommendation,
+      job detail, search, resolve, family, and dataset surfaces into a quiet
+      career decision product without changing backend truth, API contracts,
+      SEO/GEO semantics, attribution, claim gates, or structured data behavior.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' 'app/(localized)/[locale]/career/resolve/page.tsx' 'app/(localized)/[locale]/career/jobs/[slug]/page.tsx' 'app/(localized)/[locale]/career/family/[slug]/page.tsx' 'app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx' 'app/(localized)/[locale]/datasets/occupations/page.tsx' 'app/(localized)/[locale]/datasets/occupations/method/page.tsx' components/career/v1/*.tsx lib/career/ui/stateCopy.ts tests/contracts/career-v1-ui-primitives.contract.test.tsx tests/contracts/career-v1-entry-redesign.contract.test.tsx tests/contracts/career-v1-recommendation-redesign.contract.test.tsx tests/contracts/career-v1-job-detail-redesign.contract.test.tsx"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/career-v1-ui-primitives.contract.test.tsx tests/contracts/career-v1-entry-redesign.contract.test.tsx tests/contracts/career-v1-recommendation-redesign.contract.test.tsx tests/contracts/career-v1-job-detail-redesign.contract.test.tsx"
+      - "pnpm vitest run tests/contracts/career-governance-closure.contract.test.tsx tests/contracts/career-conversion-attribution.contract.test.tsx tests/contracts/career-feedback-timeline.contract.test.tsx tests/contracts/career-job-lifecycle-companion.contract.test.tsx tests/contracts/dataset-hub.contract.test.tsx tests/contracts/dataset-method.contract.test.tsx"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true

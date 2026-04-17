@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type DatasetHubShellProps = {
   eyebrow: string;
@@ -10,14 +9,13 @@ type DatasetHubShellProps = {
 
 export function DatasetHubShell({ eyebrow, title, summary, children }: DatasetHubShellProps) {
   return (
-    <Card data-testid="dataset-hub-shell">
-      <CardHeader className="space-y-3">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{eyebrow}</p>
-        <CardTitle className="font-serif text-3xl">{title}</CardTitle>
-        <p className="m-0 text-sm text-[var(--fm-text-muted)]">{summary}</p>
-      </CardHeader>
-      <CardContent className="space-y-6">{children}</CardContent>
-    </Card>
+    <section className="space-y-8" data-testid="dataset-hub-shell">
+      <header className="mx-auto max-w-4xl space-y-4 text-center">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">{eyebrow}</p>
+        <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{title}</h1>
+        <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-500">{summary}</p>
+      </header>
+      <div className="space-y-6">{children}</div>
+    </section>
   );
 }
-

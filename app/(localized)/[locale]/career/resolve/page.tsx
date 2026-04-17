@@ -3,9 +3,9 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { CareerAliasResolutionCandidates } from "@/components/career/CareerAliasResolutionCandidates";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { NextStepRail } from "@/components/career/v1/NextStepRail";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { adaptCareerAliasResolution } from "@/lib/career/adapters/adaptCareerAliasResolution";
 import { fetchCareerAliasResolution } from "@/lib/career/api/fetchCareerAliasResolution";
@@ -45,11 +45,11 @@ export async function generateMetadata({
     locale,
     pathname: submittedQuery ? `${pathname}?q=${encodeURIComponent(submittedQuery)}` : pathname,
     canonicalPathname: pathname,
-    title: locale === "zh" ? "职业解析" : "Career Resolve",
+    title: locale === "zh" ? "职业别名解析" : "Career Alias Resolve",
     description:
       locale === "zh"
-        ? "基于 backend alias-resolution authority 进行职业别名解析与歧义候选分流。"
-        : "Resolve career aliases and disambiguation candidates from backend alias-resolution authority.",
+        ? "把职业别名、俗称或模糊称呼解析到职业或职业家族。"
+        : "Resolve role aliases, colloquial titles, or fuzzy names into a role or career family.",
     noindex: true,
     alternatesByLocale: {
       en: "/en/career/resolve",
@@ -72,13 +72,10 @@ export default async function CareerResolvePage({
   const submittedQuery = normalizeSearchQuery(resolvedSearchParams.q);
   const hasQuery = submittedQuery.length > 0;
   const resolvePath = localizedPath("/career/resolve", locale);
+  const jobsPath = localizedPath("/career/jobs", locale);
 
-  const aliasResolutionPayload = hasQuery
-    ? await fetchCareerAliasResolution({ q: submittedQuery, locale })
-    : null;
-  const aliasResolution = hasQuery
-    ? adaptCareerAliasResolution({ locale, payload: aliasResolutionPayload })
-    : null;
+  const aliasResolutionPayload = hasQuery ? await fetchCareerAliasResolution({ q: submittedQuery, locale }) : null;
+  const aliasResolution = hasQuery ? adaptCareerAliasResolution({ locale, payload: aliasResolutionPayload }) : null;
 
   if (aliasResolution?.resolution.resolvedKind === "occupation") {
     redirect(buildCareerJobFrontendUrl(locale, aliasResolution.resolution.occupation.canonicalSlug));
@@ -88,120 +85,129 @@ export default async function CareerResolvePage({
     redirect(buildCareerFamilyFrontendUrl(locale, aliasResolution.resolution.family.canonicalSlug));
   }
 
-  const ambiguousResolution =
-    aliasResolution?.resolution.resolvedKind === "ambiguous" ? aliasResolution.resolution : null;
+  const ambiguousResolution = aliasResolution?.resolution.resolvedKind === "ambiguous" ? aliasResolution.resolution : null;
   const hasAmbiguousResolution = ambiguousResolution !== null;
   const isAliasResolutionNoResult = aliasResolution?.resolution.resolvedKind === "none";
   const ambiguousCandidates = ambiguousResolution?.candidates ?? [];
 
   return (
-    <Container as="main" className="space-y-6 py-10">
-      {hasQuery ? (
-        <AnalyticsPageViewTracker
-          eventName={CAREER_TRACKING_EVENTS.aliasResolutionSubmit}
-          properties={buildCareerAttributionPayload({
-            locale,
-            entrySurface: "career_alias_disambiguation",
-            sourcePageType: "career_alias_disambiguation",
-            targetAction: "submit_alias_resolution",
-            landingPath: resolvePath,
-            routeFamily: "alias_resolution",
-            subjectKind: "none",
-            queryMode: "query",
-          })}
-          trackingKey={`alias-resolution-submit:${submittedQuery}`}
-        />
-      ) : null}
-      {isAliasResolutionNoResult ? (
-        <AnalyticsPageViewTracker
-          eventName={CAREER_TRACKING_EVENTS.aliasResolutionNoResult}
-          properties={buildCareerAttributionPayload({
-            locale,
-            entrySurface: "career_alias_disambiguation",
-            sourcePageType: "career_alias_disambiguation",
-            targetAction: "no_alias_resolution_match",
-            landingPath: resolvePath,
-            routeFamily: "alias_resolution",
-            subjectKind: "none",
-            queryMode: "query",
-          })}
-          trackingKey={`alias-resolution-no-result:${submittedQuery}`}
-        />
-      ) : null}
-
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          Career Resolve
-        </p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "职业别名解析" : "Career alias resolution"}
-        </h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">
-          {locale === "zh"
-            ? "该页面只承载 backend alias-resolution authority 的解析结果，不承担 jobs index 或 conservative search 语义。"
-            : "This page only renders backend alias-resolution authority outcomes and does not act as a jobs index or conservative search surface."}
-        </p>
-        <form
-          action={resolvePath}
-          method="get"
-          className="flex flex-col gap-3 md:flex-row md:items-center"
-          data-testid="career-resolve-form"
-        >
-          <input
-            type="search"
-            name="q"
-            defaultValue={submittedQuery}
-            placeholder={locale === "zh" ? "输入职业别名或标题" : "Enter an alias or title"}
-            className="h-12 w-full rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] px-4 text-sm text-[var(--fm-text)] outline-none ring-0 placeholder:text-[var(--fm-text-muted)] focus:border-[var(--fm-accent)]"
-            data-testid="career-resolve-input"
+    <main className="min-h-screen bg-slate-50">
+      <Container as="div" className="space-y-12 py-12 md:space-y-16 md:py-20">
+        {hasQuery ? (
+          <AnalyticsPageViewTracker
+            eventName={CAREER_TRACKING_EVENTS.aliasResolutionSubmit}
+            properties={buildCareerAttributionPayload({
+              locale,
+              entrySurface: "career_alias_disambiguation",
+              sourcePageType: "career_alias_disambiguation",
+              targetAction: "submit_alias_resolution",
+              landingPath: resolvePath,
+              routeFamily: "alias_resolution",
+              subjectKind: "none",
+              queryMode: "query",
+            })}
+            trackingKey={`alias-resolution-submit:${submittedQuery}`}
           />
-          <div className="flex gap-3">
-            <Button type="submit">{locale === "zh" ? "解析职业" : "Resolve career"}</Button>
-            {hasQuery ? (
-              <Link
-                href={resolvePath}
-                className="inline-flex h-12 min-h-[48px] items-center justify-center rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-4 text-sm font-semibold text-[var(--fm-text)] hover:border-[var(--fm-accent)]"
-              >
-                {locale === "zh" ? "清除解析" : "Clear"}
-              </Link>
-            ) : null}
+        ) : null}
+        {isAliasResolutionNoResult ? (
+          <AnalyticsPageViewTracker
+            eventName={CAREER_TRACKING_EVENTS.aliasResolutionNoResult}
+            properties={buildCareerAttributionPayload({
+              locale,
+              entrySurface: "career_alias_disambiguation",
+              sourcePageType: "career_alias_disambiguation",
+              targetAction: "no_alias_resolution_match",
+              landingPath: resolvePath,
+              routeFamily: "alias_resolution",
+              subjectKind: "none",
+              queryMode: "query",
+            })}
+            trackingKey={`alias-resolution-no-result:${submittedQuery}`}
+          />
+        ) : null}
+
+        <section className="mx-auto max-w-4xl space-y-6" data-testid="career-resolve-hero">
+          <div className="space-y-3 text-center">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">Career Resolve</p>
+            <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
+              {locale === "zh" ? "解析职业别名" : "Resolve a role alias"}
+            </h1>
+            <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-500">
+              {locale === "zh" ? "把俗称、行业黑话或模糊称呼匹配到职业或职业家族。" : "Use this for colloquial titles, ambiguous labels, or names that are not standard role titles."}
+            </p>
           </div>
-        </form>
-      </section>
+          <form action={resolvePath} method="get" className="rounded-3xl border border-slate-200 bg-white p-3 shadow-sm md:flex md:items-center md:gap-3" data-testid="career-resolve-form">
+            <input
+              type="search"
+              name="q"
+              defaultValue={submittedQuery}
+              placeholder={locale === "zh" ? "输入职业别名或俗称" : "Enter an alias or colloquial title"}
+              className="h-12 w-full rounded-full border border-transparent bg-slate-50 px-4 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-200"
+              data-testid="career-resolve-input"
+            />
+            <div className="mt-3 flex gap-3 md:mt-0 md:shrink-0">
+              <Button type="submit">{locale === "zh" ? "解析" : "Resolve"}</Button>
+              {hasQuery ? (
+                <Link href={resolvePath} className={buttonVariants({ variant: "outline" })}>
+                  {locale === "zh" ? "清除" : "Clear"}
+                </Link>
+              ) : null}
+            </div>
+          </form>
+        </section>
 
-      {hasAmbiguousResolution ? (
-        <CareerAliasResolutionCandidates locale={locale} landingPath={resolvePath} candidates={ambiguousCandidates} />
-      ) : null}
+        {hasAmbiguousResolution ? (
+          <section className="space-y-4">
+            <div className="space-y-1">
+              <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                {locale === "zh" ? "可能的匹配" : "Possible matches"}
+              </h2>
+              <p className="m-0 text-sm leading-6 text-slate-500">
+                {locale === "zh" ? "选择最接近你输入含义的职业或职业家族。" : "Choose the role or family closest to what you meant."}
+              </p>
+            </div>
+            <CareerAliasResolutionCandidates locale={locale} landingPath={resolvePath} candidates={ambiguousCandidates} />
+          </section>
+        ) : null}
 
-      {isAliasResolutionNoResult ? (
-        <Card data-testid="career-resolve-no-result" data-career-data-status="unavailable">
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "未找到可解析目标" : "No resolvable target found"}</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-[var(--fm-text-muted)]">
-            <p className="m-0">
-              {locale === "zh"
-                ? "当前 alias-resolution authority 没有返回 occupation/family/ambiguous 目标。你可以调整输入后重试。"
-                : "The alias-resolution authority did not return occupation, family, or ambiguous targets for this query. Try a different query."}
+        {isAliasResolutionNoResult ? (
+          <section className="rounded-3xl border border-dashed border-slate-200 bg-white p-6" data-testid="career-resolve-no-result" data-career-data-status="unavailable">
+            <h2 className="m-0 text-lg font-semibold text-slate-950">
+              {locale === "zh" ? "没有找到可解析目标" : "No resolvable target found"}
+            </h2>
+            <p className="m-0 mt-2 text-sm leading-6 text-slate-500">
+              {locale === "zh" ? "可以换一个说法，或回到职业库直接搜索标准职业名。" : "Try another phrase, or search the job library with a standard role title."}
             </p>
-          </CardContent>
-        </Card>
-      ) : null}
+          </section>
+        ) : null}
 
-      {!hasQuery ? (
-        <Card data-testid="career-resolve-idle-state">
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "输入关键词开始解析" : "Enter a query to resolve"}</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-[var(--fm-text-muted)]">
-            <p className="m-0">
-              {locale === "zh"
-                ? "该页用于 alias/disambiguation 结果分流。职业索引与搜索结果请使用职业库页面。"
-                : "Use this page for alias/disambiguation resolution. Use the jobs page for index browsing and conservative search results."}
+        {!hasQuery ? (
+          <section className="rounded-3xl border border-slate-200 bg-white p-6" data-testid="career-resolve-idle-state">
+            <h2 className="m-0 text-lg font-semibold text-slate-950">
+              {locale === "zh" ? "适合输入模糊称呼" : "Best for fuzzy names"}
+            </h2>
+            <p className="m-0 mt-2 text-sm leading-6 text-slate-500">
+              {locale === "zh" ? "如果你已经知道标准职业名，直接使用职业库搜索会更快。" : "If you already know the standard role name, the job library search is faster."}
             </p>
-          </CardContent>
-        </Card>
-      ) : null}
-    </Container>
+          </section>
+        ) : null}
+
+        <NextStepRail
+          title={locale === "zh" ? "下一步" : "Next steps"}
+          items={[
+            {
+              title: locale === "zh" ? "搜索职业库" : "Search job library",
+              description: locale === "zh" ? "适合标准职业名。" : "Use for standard role names.",
+              href: jobsPath,
+            },
+            {
+              title: locale === "zh" ? "回到职业入口" : "Back to career home",
+              description: locale === "zh" ? "重新选择探索路径。" : "Choose a different exploration path.",
+              href: localizedPath("/career", locale),
+            },
+          ]}
+        />
+      </Container>
+    </main>
   );
 }

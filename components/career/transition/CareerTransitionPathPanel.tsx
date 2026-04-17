@@ -13,6 +13,7 @@ type CareerTransitionPathPanelProps = {
   transitionPath: CareerTransitionPreviewAdapter;
   landingPath: string;
   emphasisVariant?: CareerTransitionEmphasisVariant;
+  copyVariant?: "contract" | "public";
 };
 
 function renderScoreValue(value: number | null): string {
@@ -92,6 +93,7 @@ export function CareerTransitionPathPanel({
   transitionPath,
   landingPath,
   emphasisVariant = "balanced",
+  copyVariant = "contract",
 }: CareerTransitionPathPanelProps) {
   const deltaEntries = transitionPath.delta
     ? ([
@@ -170,9 +172,13 @@ export function CareerTransitionPathPanel({
           </h3>
           <p className="m-0 text-sm leading-7 text-[var(--fm-text)]">
             {transitionPath.whyThisPath ??
-              (locale === "zh"
-                ? "当前后端未返回 why_this_path，页面保持保守降级。"
-                : "No backend why_this_path provided for this path; rendering conservative fallback.")}
+              (copyVariant === "public"
+                ? locale === "zh"
+                  ? "当前没有足够路径理由，页面保持保守降级。"
+                  : "No path rationale is available yet; rendering a conservative fallback."
+                : locale === "zh"
+                  ? "当前后端未返回 why_this_path，页面保持保守降级。"
+                  : "No backend why_this_path provided for this path; rendering conservative fallback.")}
           </p>
         </section>
         <section
@@ -186,9 +192,13 @@ export function CareerTransitionPathPanel({
           </h3>
           <p className="m-0 text-sm leading-7 text-[var(--fm-text)]">
             {transitionPath.whatIsLost ??
-              (locale === "zh"
-                ? "当前后端未返回 what_is_lost，页面保持保守降级。"
-                : "No backend what_is_lost provided for this path; rendering conservative fallback.")}
+              (copyVariant === "public"
+                ? locale === "zh"
+                  ? "当前没有足够代价说明，页面保持保守降级。"
+                  : "No tradeoff explanation is available yet; rendering a conservative fallback."
+                : locale === "zh"
+                  ? "当前后端未返回 what_is_lost，页面保持保守降级。"
+                  : "No backend what_is_lost provided for this path; rendering conservative fallback.")}
           </p>
         </section>
       </div>
@@ -200,11 +210,11 @@ export function CareerTransitionPathPanel({
         data-testid="career-transition-path-bridge-steps"
       >
         <h3 className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "90 天衔接步骤" : "90-day bridge steps"}
+          {copyVariant === "public" ? (locale === "zh" ? "衔接步骤" : "Bridge steps") : locale === "zh" ? "90 天衔接步骤" : "90-day bridge steps"}
         </h3>
-        {transitionPath.bridgeSteps90d.length > 0 ? (
+        {(transitionPath.bridgeSteps90d ?? []).length > 0 ? (
           <ol className="m-0 grid gap-3 p-0">
-            {transitionPath.bridgeSteps90d.map((step) => (
+            {(transitionPath.bridgeSteps90d ?? []).map((step) => (
               <li
                 key={`${step.stepKey}:${step.timeHorizon}`}
                 className="list-none rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3"
@@ -222,8 +232,12 @@ export function CareerTransitionPathPanel({
         ) : (
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">
             {locale === "zh"
-              ? "当前后端未返回 bridge_steps_90d，页面保持保守降级。"
-              : "No backend bridge_steps_90d provided for this path; rendering conservative fallback."}
+              ? copyVariant === "public"
+                ? "当前没有足够衔接步骤，页面保持保守降级。"
+                : "当前后端未返回 bridge_steps_90d，页面保持保守降级。"
+              : copyVariant === "public"
+                ? "No bridge steps are available yet; rendering a conservative fallback."
+                : "No backend bridge_steps_90d provided for this path; rendering conservative fallback."}
           </p>
         )}
       </section>
@@ -259,8 +273,8 @@ export function CareerTransitionPathPanel({
             {locale === "zh" ? "Rationale codes" : "Rationale codes"}
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
-            {transitionPath.rationaleCodes.length > 0 ? (
-              transitionPath.rationaleCodes.map((code) => (
+            {(transitionPath.rationaleCodes ?? []).length > 0 ? (
+              (transitionPath.rationaleCodes ?? []).map((code) => (
                 <span
                   key={code}
                   className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-2 py-1 text-[11px] font-mono text-[var(--fm-text-muted)]"
@@ -280,8 +294,8 @@ export function CareerTransitionPathPanel({
             {locale === "zh" ? "Tradeoff codes" : "Tradeoff codes"}
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
-            {transitionPath.tradeoffCodes.length > 0 ? (
-              transitionPath.tradeoffCodes.map((code) => (
+            {(transitionPath.tradeoffCodes ?? []).length > 0 ? (
+              (transitionPath.tradeoffCodes ?? []).map((code) => (
                 <span
                   key={code}
                   className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-2 py-1 text-[11px] font-mono text-[var(--fm-text-muted)]"

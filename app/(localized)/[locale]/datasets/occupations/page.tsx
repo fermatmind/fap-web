@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DatasetDownloadInfo } from "@/components/datasets/DatasetDownloadInfo";
 import { DatasetFilterHub } from "@/components/datasets/DatasetFilterHub";
 import { DatasetHubShell } from "@/components/datasets/DatasetHubShell";
@@ -27,8 +26,8 @@ export async function generateMetadata({
     title: locale === "zh" ? "职业数据库（公开）" : "Occupations Dataset Hub",
     description:
       locale === "zh"
-        ? "342 全量职业公开数据库入口：发布元数据、纳入/排除边界、方法页和可公开筛选分布。"
-        : "Full 342 occupations public dataset hub: publication metadata, included/excluded boundaries, method page, and public-safe facet distributions.",
+        ? "342 个职业的公开数据库入口：覆盖范围、下载、使用方式与方法边界。"
+        : "Public database hub for 342 tracked occupations: coverage, download, usage, and method boundaries.",
     alternatesByLocale: {
       en: "/en/datasets/occupations",
       zh: "/zh/datasets/occupations",
@@ -52,68 +51,87 @@ export default async function DatasetOccupationsHubPage({
   }
 
   const methodPath = localizedPath("/datasets/occupations/method", locale);
+  const includedExcluded = `${dataset.collectionSummary.includedCount} / ${dataset.collectionSummary.excludedCount}`;
+  const publicDetailIndexableCount = dataset.collectionSummary.publicDetailIndexableCount;
+  const publicDetailConservativeCount = dataset.collectionSummary.publicDetailConservativeCount;
+  const facetDistributions = dataset.facetDistributions;
 
   return (
-    <Container as="main" className="space-y-6 py-10" data-testid="dataset-hub-page">
-      {dataset.structuredData.dataset ? <JsonLd id="dataset-hub-jsonld" data={dataset.structuredData.dataset} /> : null}
-      {dataset.structuredData.breadcrumbList ? (
-        <JsonLd id="dataset-hub-breadcrumb-jsonld" data={dataset.structuredData.breadcrumbList} />
-      ) : null}
+    <main className="min-h-screen bg-slate-50">
+      <Container as="div" className="space-y-8 py-12 md:py-20" data-testid="dataset-hub-page">
+        {dataset.structuredData.dataset ? <JsonLd id="dataset-hub-jsonld" data={dataset.structuredData.dataset} /> : null}
+        {dataset.structuredData.breadcrumbList ? <JsonLd id="dataset-hub-breadcrumb-jsonld" data={dataset.structuredData.breadcrumbList} /> : null}
 
-      <DatasetHubShell
-        eyebrow="Career Dataset"
-        title={locale === "zh" ? dataset.datasetNameZh : dataset.datasetName}
-        summary={
-          locale === "zh"
-            ? "该页面公开 342 追踪范围下可发布的数据合同，不暴露内部审阅队列与原始证据字段。"
-            : "This page exposes the full-342 public dataset contract while keeping internal review queues and raw evidence fields private."
-        }
-      >
-        <Card data-testid="dataset-collection-summary">
-          <CardHeader>
-            <CardTitle className="text-lg">Collection summary</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-2 text-sm text-[var(--fm-text-muted)] md:grid-cols-2">
-            <p className="m-0">Scope: {dataset.datasetScope}</p>
-            <p className="m-0">Member kind: {dataset.collectionSummary.memberKind}</p>
-            <p className="m-0">Total members: {dataset.collectionSummary.memberCount}</p>
-            <p className="m-0">Included / Excluded: {`${dataset.collectionSummary.includedCount} / ${dataset.collectionSummary.excludedCount}`}</p>
-            <p className="m-0">Public detail (Indexable / Conservative): {`${dataset.collectionSummary.publicDetailIndexableCount} / ${dataset.collectionSummary.publicDetailConservativeCount}`}</p>
-            <p className="m-0">Stable / Candidate / Hold: {`${dataset.collectionSummary.stableCount} / ${dataset.collectionSummary.candidateCount} / ${dataset.collectionSummary.holdCount}`}</p>
-            <p className="m-0">Manifest version: {dataset.collectionSummary.manifestVersion}</p>
-          </CardContent>
-        </Card>
-
-        <DatasetFilterHub
-          familyEnabled={dataset.filters.family}
-          publishTrackEnabled={dataset.filters.publishTrack}
-          indexPostureEnabled={dataset.filters.indexPosture}
-          includedCount={dataset.scopeSummary.includedCount}
-          excludedCount={dataset.scopeSummary.excludedCount}
-          familyFacet={dataset.facetDistributions.family ?? {}}
-          publishTrackFacet={dataset.facetDistributions.publish_track ?? {}}
-          releaseCohortFacet={dataset.facetDistributions.release_cohort ?? {}}
-          publicIndexStateFacet={dataset.facetDistributions.public_index_state ?? {}}
-        />
-
-        <DatasetDownloadInfo
-          publisherName={dataset.publication.publisherName}
-          publisherUrl={dataset.publication.publisherUrl}
-          licenseName={dataset.publication.licenseName}
-          licenseUrl={dataset.publication.licenseUrl}
-          usageSummary={dataset.publication.usageSummary}
-          downloadUrl={dataset.publication.downloadUrl}
-          formats={dataset.publication.formats}
-        />
-
-        <Link
-          href={methodPath}
-          className="inline-flex font-semibold text-[var(--fm-accent)] underline-offset-2 hover:underline"
-          data-testid="dataset-method-entry"
+        <DatasetHubShell
+          eyebrow={locale === "zh" ? "职业数据库" : "Career Dataset"}
+          title={locale === "zh" ? dataset.datasetNameZh : dataset.datasetName}
+          summary={
+            locale === "zh"
+              ? "覆盖 342 个职业，前置展示可公开使用的数据边界、下载入口和方法说明。"
+              : "Covers 342 tracked occupations with public-use boundaries, download access, and method notes up front."
+          }
         >
-          {locale === "zh" ? "查看方法页" : "Read method page"}
-        </Link>
-      </DatasetHubShell>
-    </Container>
+          <section className="grid gap-4 md:grid-cols-4" data-testid="dataset-collection-summary">
+            <Metric label="Tracked occupations" value={String(dataset.collectionSummary.memberCount)} />
+            <Metric label="Included / Excluded" value={includedExcluded} />
+            <Metric label="Public details" value={`${publicDetailIndexableCount + publicDetailConservativeCount}`} />
+            <Metric label="Discoverable" value={String(dataset.collectionSummary.discoverableCount)} />
+          </section>
+
+          <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
+            <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{locale === "zh" ? "如何使用" : "How to use it"}</h2>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              <CopyBlock title={locale === "zh" ? "看覆盖" : "Check coverage"} body={locale === "zh" ? "先确认数据库覆盖的职业范围和可公开展示边界。" : "Start with scope and public display boundaries."} />
+              <CopyBlock title={locale === "zh" ? "下载数据" : "Download"} body={locale === "zh" ? "使用下载入口获取可公开使用的数据格式。" : "Use the download link for available public formats."} />
+              <CopyBlock title={locale === "zh" ? "读方法" : "Read method"} body={locale === "zh" ? "查看为什么有些职业只适合保守展示或暂不展示。" : "See why some roles are conservative or not public-detail ready."} />
+            </div>
+          </section>
+
+          <DatasetFilterHub
+            familyEnabled={dataset.filters.family}
+            publishTrackEnabled={dataset.filters.publishTrack}
+            indexPostureEnabled={dataset.filters.indexPosture}
+            includedCount={dataset.scopeSummary.includedCount}
+            excludedCount={dataset.scopeSummary.excludedCount}
+            familyFacet={facetDistributions.family ?? {}}
+            publishTrackFacet={facetDistributions.publish_track ?? {}}
+            releaseCohortFacet={facetDistributions.release_cohort ?? {}}
+            publicIndexStateFacet={facetDistributions.public_index_state ?? {}}
+          />
+
+          <DatasetDownloadInfo
+            publisherName={dataset.publication.publisherName}
+            publisherUrl={dataset.publication.publisherUrl}
+            licenseName={dataset.publication.licenseName}
+            licenseUrl={dataset.publication.licenseUrl}
+            usageSummary={dataset.publication.usageSummary}
+            downloadUrl={dataset.publication.downloadUrl}
+            formats={dataset.publication.formats}
+          />
+
+          <Link href={methodPath} className="inline-flex font-semibold text-orange-600 underline-offset-2 hover:underline" data-testid="dataset-method-entry">
+            {locale === "zh" ? "查看方法页" : "Read method page"}
+          </Link>
+        </DatasetHubShell>
+      </Container>
+    </main>
+  );
+}
+
+function Metric({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white p-5 text-center shadow-sm">
+      <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">{label}</p>
+      <p className="m-0 mt-3 text-3xl font-semibold tracking-tight text-slate-950">{value}</p>
+    </div>
+  );
+}
+
+function CopyBlock({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+      <h3 className="m-0 text-base font-semibold text-slate-950">{title}</h3>
+      <p className="m-0 mt-2 text-sm leading-6 text-slate-500">{body}</p>
+    </div>
   );
 }
