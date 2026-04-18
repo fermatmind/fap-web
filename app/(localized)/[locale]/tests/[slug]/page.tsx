@@ -463,13 +463,13 @@ export default async function TestLandingPage({
   const startTestHref = landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`);
   const showsMbtiActions = isMbtiScaleCode(test.scale_code);
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
+  const showsDepressionVersionActions = test.slug === "clinical-depression-anxiety-assessment-professional-edition";
   const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions;
   const mergedFaq = isFlagshipDualVariant
     ? buildFlagshipVariantFaq(showsMbtiActions ? "mbti" : "big5", locale)
     : faqItems.length > 0
       ? faqItems
       : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale);
-  const backToTestsCta = findLandingCta(landingSurface, "back_to_tests");
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
     ? listMbtiFormMetas().map((form) => ({
@@ -490,6 +490,32 @@ export default async function TestLandingPage({
           testId: `test-detail-landing-cta-${form.formCode}`,
         }))
       : [];
+  const depressionVersionChoices: FlagshipVariantChoice[] = showsDepressionVersionActions
+    ? [
+        {
+          key: "clinical_combo_68",
+          label: locale === "zh" ? "抑郁焦虑综合检测【学术专业版】" : "Clinical depression & anxiety assessment",
+          summary:
+            locale === "zh"
+              ? "68 题，约 12 分钟，同时查看抑郁与焦虑两个维度，并获得更完整的近期状态参考。"
+              : "68 items, about 12 minutes, with a fuller recent-state reference across depression and anxiety.",
+          href: withLocale("/tests/clinical-depression-anxiety-assessment-professional-edition/take"),
+          ctaLabel: locale === "zh" ? "开始学术专业版" : "Start professional version",
+          testId: "test-detail-landing-cta-clinical-combo-68",
+        },
+        {
+          key: "depression_standard_20",
+          label: locale === "zh" ? "抑郁症标准版测试" : "Depression screening standard version",
+          summary:
+            locale === "zh"
+              ? "20 题，约 5 分钟，快速了解近期情绪低落、兴趣下降与状态波动是否值得进一步关注。"
+              : "20 items, about 5 minutes, for a faster screen of recent low mood, loss of interest, and state changes.",
+          href: withLocale("/tests/depression-screening-test-standard-edition/take"),
+          ctaLabel: locale === "zh" ? "开始标准版" : "Start standard version",
+          testId: "test-detail-landing-cta-depression-standard-20",
+        },
+      ]
+    : [];
   const mbtiPrimaryChoice = showsMbtiActions
     ? flagshipVariantChoices.find((choice) => choice.key === DEFAULT_MBTI_FORM_CODE) ?? flagshipVariantChoices[0] ?? null
     : null;
@@ -625,9 +651,6 @@ export default async function TestLandingPage({
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
           <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-              {detailLensCopy.eyebrow}
-            </p>
             <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
               <div className="space-y-3">
                 <h1 title={heroTitleDisplay.plain} className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:text-4xl">
@@ -729,11 +752,6 @@ export default async function TestLandingPage({
                     </TrackedEntryCtaLink>
                   ) : null}
                 </div>
-                <p className="m-0 text-xs text-slate-500" data-testid="mbti-landing-cta-guidance">
-                  {locale === "zh"
-                    ? "广告冷流量默认优先进入主入口；次入口仅作为轻量备选。"
-                    : "Cold traffic should default to the primary start path; the secondary entry stays as a lighter fallback."}
-                </p>
               </div>
             ) : showsBig5Actions ? (
               <div className="space-y-4 pt-2">
@@ -746,19 +764,23 @@ export default async function TestLandingPage({
                   }
                   choices={flagshipVariantChoices}
                 />
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link href={backToTestsCta?.href || withLocale("/tests")} className={buttonVariants({ variant: "outline", size: "lg" })}>
-                    {backToTestsCta?.label || (locale === "zh" ? "返回测评入口" : "Back to tests")}
-                  </Link>
-                </div>
+              </div>
+            ) : showsDepressionVersionActions ? (
+              <div className="space-y-4 pt-2">
+                <FlagshipVariantChooser
+                  title={locale === "zh" ? "选择更适合你的版本" : "Choose the version that fits best"}
+                  subtitle={
+                    locale === "zh"
+                      ? "学术专业版用于完整查看抑郁与焦虑状态；标准版用于更快速的抑郁状态筛查。"
+                      : "Use the professional version for a fuller depression-and-anxiety read, or the standard version for a faster depression screen."
+                  }
+                  choices={depressionVersionChoices}
+                />
               </div>
             ) : (
               <div className="flex flex-wrap items-center gap-3 pt-1">
                 <Link href={startTestHref} prefetch={false} className={buttonVariants({ size: "lg" })}>
                   {locale === "zh" ? "开始测试" : "Start test"}
-                </Link>
-                <Link href={backToTestsCta?.href || withLocale("/tests")} className={buttonVariants({ variant: "outline", size: "lg" })}>
-                  {backToTestsCta?.label || (locale === "zh" ? "返回测试列表" : "Back to tests")}
                 </Link>
               </div>
             )}
@@ -777,13 +799,8 @@ export default async function TestLandingPage({
               data-testid="mbti-landing-continuity-strip"
             >
               <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-                {locale === "zh" ? "开始前先看这四条路径" : "Four quick paths before you start"}
+                {locale === "zh" ? "先选一条阅读路径" : "Choose a reading path first"}
               </h2>
-              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-                {locale === "zh"
-                  ? "这是轻量回流区：帮助你在开始测试前先明确阅读路径，不替代主 CTA。"
-                  : "This is a lightweight continuity strip. It clarifies reading paths before starting, without replacing the primary CTA."}
-              </p>
               <div className="grid gap-3 md:grid-cols-4">
                 {mbtiLandingContinuityItems.map((item) => (
                   <article

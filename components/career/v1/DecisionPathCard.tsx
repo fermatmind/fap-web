@@ -8,13 +8,14 @@ export type DecisionPathCardProps = {
   tradeoff?: string;
   ctaLabel: string;
   href: string;
+  testId?: string;
 };
 
-export function DecisionPathCard({ eyebrow, title, summary, upside, tradeoff, ctaLabel, href }: DecisionPathCardProps) {
+export function DecisionPathCard({ eyebrow, title, summary, upside, tradeoff, ctaLabel, href, testId = "career-v1-decision-path-card" }: DecisionPathCardProps) {
   return (
     <article
       className="group rounded-3xl border border-slate-200 bg-white p-5 transition hover:border-slate-300 hover:shadow-sm md:p-6"
-      data-testid="career-v1-decision-path-card"
+      data-testid={testId}
     >
       <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">{eyebrow}</p>
       <h3 className="m-0 mt-3 text-xl font-semibold tracking-tight text-slate-950">{title}</h3>

@@ -61,9 +61,6 @@ export function MbtiSceneEntrySection({
       className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       data-testid={testId}
     >
-      <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-        {locale === "zh" ? "场景入口" : "Scenario entry"}
-      </p>
       <div className="grid gap-3 md:grid-cols-2">
         {resolvedBlocks.map((block) => (
           <article key={block.key} className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">

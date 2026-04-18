@@ -96,7 +96,7 @@ export function getBig5VariantSummary(formCode: string | null | undefined, local
 export function getBig5StartLabel(formCode: string | null | undefined, locale: Locale): string {
   const meta = resolveBig5FormMeta(formCode);
   if (locale === "zh") {
-    return meta.formCode === "big5_90" ? "开始快速版" : "开始完整档案";
+    return meta.formCode === "big5_90" ? "开始快速版" : "开始深度版";
   }
   return meta.formCode === "big5_90" ? "Start Quick Read" : "Start Full Trait Profile";
 }

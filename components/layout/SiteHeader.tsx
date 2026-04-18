@@ -375,12 +375,7 @@ export function SiteHeader({
             role="dialog"
             aria-modal="true"
             aria-label={dict.header.menu}
-            className={cn(
-              "absolute right-0 top-0 flex h-[100dvh] w-[clamp(280px,82vw,360px)] flex-col border-l border-white/18 shadow-[-24px_0_56px_rgba(5,16,34,0.48)]",
-              isBrandSurfaceRoute
-                ? "bg-gradient-to-b from-[#101921] via-[#0d151d] to-[#0a1218]"
-                : "bg-gradient-to-b from-[#1e427f] via-[#173567] to-[#11284f]"
-            )}
+            className="absolute right-0 top-0 flex h-[100dvh] w-[clamp(280px,82vw,360px)] flex-col border-l border-white/18 bg-gradient-to-b from-[#101921] via-[#0d151d] to-[#0a1218] shadow-[-24px_0_56px_rgba(5,16,34,0.48)]"
           >
             <div className="flex items-center justify-between border-b border-white/15 px-4 py-4">
               <Link href={withLocale("/")} prefetch={false} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-white">

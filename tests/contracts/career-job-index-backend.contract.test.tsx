@@ -177,7 +177,7 @@ describe("career job index backend contract", () => {
 
     expect(html).toContain("career-job-index-card");
     expect(html).toContain("Data Scientists");
-    expect(html).toContain("View details");
+    expect(html).toContain("View role");
     expect(html).not.toContain("CMS did not return any public career jobs");
   });
 
@@ -367,7 +367,7 @@ describe("career job index backend contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("career-job-search-empty-state");
-    expect(html).toContain("No direct public matching jobs were found");
+    expect(html).toContain("No direct role matches were found");
     expect(html).not.toContain("CMS did not return any public career jobs");
   });
 });

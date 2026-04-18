@@ -22,7 +22,7 @@ function localize<T extends { en: string; zh: string }>(value: T, locale: Locale
 
 function HomepageHeroV1({ copy }: { copy: HomePageContent }) {
   return (
-    <section className="relative flex min-h-[calc(100svh-4rem)] overflow-hidden bg-orange-50 px-0 py-24 text-slate-950 sm:py-28 md:py-32 lg:py-36">
+    <section className="relative flex min-h-[34rem] overflow-hidden bg-orange-50 px-0 py-24 text-slate-950 sm:py-28 md:min-h-[46.75rem] md:py-32 lg:py-36">
       <div
         aria-hidden
         className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(255,253,246,0.72)_48%,rgba(255,237,213,0.18))]"
@@ -97,7 +97,7 @@ function TrustIcon({ index }: { index: number }) {
 
 function TrustCard({ item, index }: { item: TrustItem; index: number }) {
   return (
-    <article className="min-h-[172px] rounded-[4px] bg-white px-7 pb-5 pt-6 text-center shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
+    <article className="min-h-[260.78px] rounded-lg bg-white px-4 pb-4 pt-10 text-center shadow-[0_5px_20px_rgba(0,0,0,0.1)]">
       <TrustIcon index={index} />
       <h2 className="m-0 mt-3 text-[1.02rem] font-bold leading-snug tracking-normal text-[#20252d]">{item.title}</h2>
       <p className="m-0 mx-auto mt-2 max-w-[17.5rem] text-[0.9rem] font-normal leading-[1.48] tracking-normal text-[#5f6670]">
@@ -109,9 +109,9 @@ function TrustCard({ item, index }: { item: TrustItem; index: number }) {
 
 function HomepageTrustStripV1({ copy }: { copy: HomePageContent }) {
   return (
-    <section className="relative z-20 bg-white pb-8 pt-10 md:pb-10 md:pt-24" aria-label={copy.trust.title}>
-      <Container className="max-w-[1040px] px-6 md:px-8 lg:px-10">
-        <div className="grid gap-5 md:grid-cols-3">
+    <section className="relative z-20 bg-white pb-8 pt-10 md:pb-10 md:pt-0" aria-label={copy.trust.title}>
+      <Container className="max-w-[1140px] px-6 min-[1400px]:max-w-[1320px]">
+        <div className="grid gap-6 md:grid-cols-3">
           {copy.trust.items.map((item, index) => (
             <TrustCard key={item.title} item={item} index={index} />
           ))}
@@ -177,9 +177,6 @@ function TestFeatureCard({ locale, item, index }: { locale: Locale; item: HomeLi
           <h3 className="m-0 text-xl font-semibold tracking-[-0.035em] text-teal-800 underline decoration-teal-200 underline-offset-4">
             {item.title}
           </h3>
-          <span className="font-mono text-xs font-semibold text-orange-500">
-            {String(index + 1).padStart(2, "0")}
-          </span>
         </div>
         <p className="m-0 mt-5 text-base leading-7 text-slate-600">{item.description}</p>
         <Link

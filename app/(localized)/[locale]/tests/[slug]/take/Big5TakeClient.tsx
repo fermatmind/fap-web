@@ -123,14 +123,10 @@ export default function Big5TakeClient({
   const [rolloutChecking, setRolloutChecking] = useState(true);
   const [rolloutBlocked, setRolloutBlocked] = useState(false);
 
-  const [disclaimerText, setDisclaimerText] = useState("");
   const [serverDisclaimerVersion, setServerDisclaimerVersion] = useState<string | null>(null);
   const [serverDisclaimerHash, setServerDisclaimerHash] = useState<string | null>(null);
-  const [consentChecked, setConsentChecked] = useState(false);
-
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
-  const [startErrorAction, setStartErrorAction] = useState<Big5UiError["action"] | null>(null);
 
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -233,7 +229,6 @@ export default function Big5TakeClient({
 
     if (scope === "start") {
       setStartError(mapped.message);
-      setStartErrorAction(mapped.action ?? null);
       return;
     }
 
@@ -593,8 +588,6 @@ export default function Big5TakeClient({
         const version =
           typeof response.meta?.disclaimer_version === "string" ? response.meta.disclaimer_version : null;
         const hash = typeof response.meta?.disclaimer_hash === "string" ? response.meta.disclaimer_hash : null;
-        const text = typeof response.meta?.disclaimer_text === "string" ? response.meta.disclaimer_text : "";
-
         const contentVersion =
           (typeof response.content_package_version === "string" && response.content_package_version) ||
           (typeof response.dir_version === "string" && response.dir_version) ||
@@ -631,7 +624,6 @@ export default function Big5TakeClient({
         setQuestions(options);
         setServerDisclaimerVersion(version);
         setServerDisclaimerHash(hash);
-        setDisclaimerText(text);
         setPackVersion(contentVersion);
         setTrackingBase(context);
       } catch (error) {
@@ -700,7 +692,6 @@ export default function Big5TakeClient({
 
     setStarting(true);
     setStartError(null);
-    setStartErrorAction(null);
 
     const acceptedAt = new Date().toISOString();
     const requestMeta: Record<string, unknown> = {
@@ -861,17 +852,16 @@ export default function Big5TakeClient({
     return startFreshAttempt(runId);
   }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, staleDraftError, startFreshAttempt]);
 
-  const handleAgreeAndStart = async () => {
-    if (!consentChecked) return;
+  useEffect(() => {
+    if (loadingQuestions || questions.length === 0 || !needsConsent) {
+      return;
+    }
 
     acceptDisclaimer({
       version: serverDisclaimerVersion,
       hash: serverDisclaimerHash,
     });
-
-    const started = await ensureAttempt();
-    if (!started) return;
-  };
+  }, [acceptDisclaimer, loadingQuestions, needsConsent, questions.length, serverDisclaimerHash, serverDisclaimerVersion]);
 
   const handleSelectAnswer = (questionId: string, code: string) => {
     setAnswer(questionId, code);
@@ -992,7 +982,6 @@ export default function Big5TakeClient({
         clearAttemptState: () => {
           clearAttemptMeta();
           setStartError(null);
-          setStartErrorAction(null);
         },
         startFreshAttempt: () => startFreshAttempt(activeRunId),
         submitFreshAttempt: (nextAttemptId) => submitAttemptWithId(nextAttemptId, answersSnapshot, activeRunId),
@@ -1242,63 +1231,9 @@ export default function Big5TakeClient({
           setSubmitErrorAction(null);
           setSubmitCanRetry(false);
           setStartError(null);
-          setStartErrorAction(null);
           router.replace(withLocale(`/tests/${slug}`));
         }}
       />
-    );
-  }
-
-  if (!attemptId || needsConsent) {
-    return (
-      <div className="space-y-[var(--fm-gap-md)] rounded-2xl border border-slate-200 bg-white p-[var(--fm-space-5)] shadow-sm">
-        <h2 className="text-lg font-semibold text-slate-900">Before you start</h2>
-        <p className="text-sm text-slate-700">
-          Please review and agree to the disclaimer before starting the BIG5 assessment.
-        </p>
-
-        <div className="rounded-xl border border-slate-200 bg-slate-50 p-[var(--fm-space-3)] text-sm text-slate-700">
-          <p className="m-0 whitespace-pre-wrap">
-            {disclaimerText || "This assessment is for self-discovery and not a medical diagnosis."}
-          </p>
-        </div>
-
-        <div className="text-xs text-slate-600">
-          <p className="m-0">
-            {locale === "zh"
-              ? `当前入口约 ${effectiveEstimatedMinutes} 分钟，可在开始后继续保存进度。`
-              : `This entry takes about ${effectiveEstimatedMinutes} minutes and supports draft progress recovery.`}
-          </p>
-        </div>
-
-        <label className="flex items-center gap-[var(--fm-gap-xs)] text-sm text-slate-700">
-          <input
-            type="checkbox"
-            checked={consentChecked}
-            onChange={(event) => setConsentChecked(event.target.checked)}
-          />
-          I have read and agree to the disclaimer.
-        </label>
-
-        {startError ? <Alert>{startError}</Alert> : null}
-        {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
-
-        <div className="flex flex-wrap items-center gap-[var(--fm-gap-xs)]">
-          <Button
-            type="button"
-            disabled={!consentChecked || starting || inCooldown}
-            onClick={handleAgreeAndStart}
-          >
-            {starting ? "Starting..." : "Agree and start"}
-          </Button>
-
-          {startErrorAction === "restart" ? (
-            <Button type="button" variant="outline" onClick={handleRestartTest}>
-              Restart test
-            </Button>
-          ) : null}
-        </div>
-      </div>
     );
   }
 
@@ -1377,6 +1312,7 @@ export default function Big5TakeClient({
               }
             />
 
+            {startError ? <Alert>{startError}</Alert> : null}
             {submitError ? <Alert>{submitError}</Alert> : null}
             {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
           </article>
@@ -1437,7 +1373,7 @@ export default function Big5TakeClient({
             <Button
               type="button"
               variant="outline"
-              disabled={currentIndex <= 0 || submitting || inCooldown}
+              disabled={currentIndex <= 0 || starting || submitting || inCooldown}
               onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
             >
               Previous
@@ -1446,7 +1382,7 @@ export default function Big5TakeClient({
             <Button
               type="button"
               variant="outline"
-              disabled={currentIndex >= total - 1 || submitting || inCooldown}
+              disabled={currentIndex >= total - 1 || starting || submitting || inCooldown}
               onClick={() => setCurrentIndex(Math.min(total - 1, currentIndex + 1))}
             >
               Next
@@ -1454,7 +1390,7 @@ export default function Big5TakeClient({
 
             <Button
               type="button"
-              disabled={submitting || inCooldown}
+              disabled={starting || submitting || inCooldown}
               onClick={() => {
                 void handleSubmit().then((resultAttemptId) => {
                   if (resultAttemptId) {
@@ -1470,7 +1406,7 @@ export default function Big5TakeClient({
               <Button
                 type="button"
                 variant="outline"
-                disabled={submitting || inCooldown}
+                disabled={starting || submitting || inCooldown}
                 onClick={() => {
                   void handleSubmit().then((resultAttemptId) => {
                     if (resultAttemptId) {

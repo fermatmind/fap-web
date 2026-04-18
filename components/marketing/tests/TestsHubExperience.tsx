@@ -1,171 +1,86 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
-import { TestsFamilyExplorer } from "@/components/marketing/tests/TestsFamilyExplorer";
-import {
-  QuickStartCard,
-  ResourceCard,
-  SectionHeading,
-  TrustAccordion,
-} from "@/components/marketing/tests/TestsShared";
 import type { Locale } from "@/lib/i18n/locales";
-import { getTestsHubContent } from "@/lib/marketing/testsHubContent";
-import { cn } from "@/lib/utils";
+import {
+  getTestsHubContent,
+  listAllContentTestsHubCards,
+  type HubTestCardItem,
+} from "@/lib/marketing/testsHubContent";
+
+function listSixTests(items: HubTestCardItem[][]): HubTestCardItem[] {
+  const seen = new Set<string>();
+  const ordered: HubTestCardItem[] = [];
+
+  for (const group of items) {
+    for (const item of group) {
+      if (seen.has(item.key)) continue;
+      seen.add(item.key);
+      ordered.push(item);
+      if (ordered.length === 6) return ordered;
+    }
+  }
+
+  return ordered;
+}
+
+function TestListCard({ item, locale }: { item: HubTestCardItem; locale: Locale }) {
+  const primaryHref = item.detailsHref ?? item.href;
+  const primaryLabel = locale === "zh" ? "查看专属页" : "View dedicated page";
+
+  return (
+    <article className="group flex min-h-[19rem] flex-col rounded-[1.35rem] border border-white/10 bg-white/[0.055] p-6 text-white shadow-[0_22px_80px_rgba(5,10,18,0.18)] transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.075] xl:h-[20.75rem]">
+      <div className="flex items-start justify-between gap-5">
+        <h2 className="m-0 text-[1.35rem] font-semibold leading-tight tracking-normal text-white">{item.title}</h2>
+      </div>
+
+      <p className="m-0 mt-5 text-base leading-7 text-slate-300">{item.description}</p>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-slate-300">{item.questionsLabel}</span>
+        <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-slate-300">{item.durationLabel}</span>
+        <span className="rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1 text-xs text-orange-100">{item.outputLabel}</span>
+      </div>
+
+      <div className="mt-auto flex flex-wrap gap-3 pt-7">
+        <Link href={primaryHref} prefetch={false} className={buttonVariants({ size: "sm", className: "px-4" })}>
+          {primaryLabel}
+        </Link>
+      </div>
+    </article>
+  );
+}
 
 export function TestsHubExperience({ locale }: { locale: Locale }) {
   const content = getTestsHubContent(locale);
+  const tests = listSixTests([listAllContentTestsHubCards(locale), ...content.families.items.map((family) => family.tests)]);
+  const copy =
+    locale === "zh"
+      ? {
+          title: "人生架构，始于度量",
+          body: "测量自己，看见职业，训练未来。",
+        }
+      : {
+          title: "Life architecture starts with measurement",
+          body: "Measure yourself, see your career, train your future.",
+        };
 
   return (
-    <>
-      <section className="relative overflow-hidden bg-[#0d141b] text-white">
-        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(98,134,128,0.18),transparent_26%),radial-gradient(circle_at_78%_12%,rgba(255,255,255,0.08),transparent_20%),linear-gradient(180deg,#0d141b_0%,#121d28_54%,#162332_100%)]" />
-        <Container className="relative z-10 max-w-[110rem] px-5 pb-[5.5rem] pt-[calc(var(--fm-space-16)+var(--fm-space-9))] md:px-8 md:pb-[7rem] md:pt-[calc(var(--fm-space-20)+var(--fm-space-10))] xl:px-12">
-          <div className="rounded-[2.25rem] border border-white/10 bg-white/[0.035] px-5 py-6 shadow-[0_32px_120px_rgba(6,10,18,0.28)] backdrop-blur-md md:px-8 md:py-8 xl:px-10 xl:py-10">
-            <div className="grid gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(20rem,0.84fr)] xl:items-end">
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.24em] text-white/54">{content.hero.eyebrow}</p>
-                  <h1 className="m-0 max-w-[14ch] text-balance text-[clamp(2.7rem,5vw,5rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white">
-                    {content.hero.title}
-                  </h1>
-                  <p className="m-0 max-w-[39rem] text-[1.02rem] leading-8 text-slate-300 md:text-[1.1rem]">{content.hero.body}</p>
-                </div>
+    <section className="min-h-[calc(100svh-4rem)] bg-[#0d141b] py-16 text-white md:py-20">
+      <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
+        <div className="mx-auto max-w-5xl text-center">
+          <h1 className="m-0 text-balance text-[clamp(2.6rem,5vw,4.8rem)] font-semibold leading-[0.98] tracking-normal text-white">
+            {copy.title}
+          </h1>
+          <p className="m-0 mx-auto mt-6 max-w-[46rem] text-[1.05rem] leading-8 text-slate-300">{copy.body}</p>
+        </div>
 
-                <div className="flex flex-wrap gap-3">
-                  <Link href={content.hero.primaryHref} prefetch={false} className={buttonVariants({ size: "lg", className: "px-7" })}>
-                    {content.hero.primaryLabel}
-                  </Link>
-                  <Link
-                    href={content.hero.secondaryHref}
-                    prefetch={false}
-                    className={buttonVariants({
-                      variant: "outline",
-                      size: "lg",
-                      className: "border-white/16 bg-white/6 px-7 text-white hover:border-white/30 hover:bg-white/10 hover:text-white",
-                    })}
-                  >
-                    {content.hero.secondaryLabel}
-                  </Link>
-                </div>
-              </div>
-
-              <div className="rounded-[1.9rem] border border-white/10 bg-white/[0.045] p-5">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-white/46">{content.hero.previewLabel}</p>
-                <h2 className="m-0 mt-4 text-[1.5rem] font-semibold tracking-[-0.04em] text-white">{content.hero.previewTitle}</h2>
-                <p className="m-0 mt-3 text-sm leading-7 text-slate-300">{content.hero.previewBody}</p>
-
-                <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-[#111a24] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                  <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
-                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-white/44">
-                      {locale === "zh" ? "精选入口" : "Curated entry"}
-                    </span>
-                    <span className="text-xs text-white/40">{locale === "zh" ? "从问题到版本" : "From question to version"}</span>
-                  </div>
-
-                  <div className="mt-4 grid gap-3 md:grid-cols-3">
-                    {content.hero.previewFlow.map((step, index) => (
-                      <div key={step} className="rounded-[1.2rem] border border-white/10 bg-white/[0.03] p-3">
-                        <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/42">0{index + 1}</p>
-                        <p className="m-0 mt-3 text-sm font-medium text-white">{step}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-4 grid gap-2 md:grid-cols-2">
-                    {content.hero.previewFamilies.slice(0, 4).map((family, index) => (
-                      <div
-                        key={`${family}-${index}`}
-                        className={cn(
-                          "rounded-[1rem] border px-3 py-3 text-sm",
-                          index === 0
-                            ? "border-[rgba(245,158,11,0.24)] bg-[rgba(245,158,11,0.08)] text-white"
-                            : "border-white/10 bg-white/[0.03] text-slate-300"
-                        )}
-                      >
-                        {family}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="tests-quick-start" className="-mt-6 md:-mt-8">
-            <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(18,28,38,0.96),rgba(13,22,31,0.92))] px-5 py-6 shadow-[0_32px_120px_rgba(6,10,18,0.28)] md:px-8 md:py-8">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-                <SectionHeading
-                  eyebrow={content.quickStart.kicker}
-                  title={content.quickStart.title}
-                  body={content.quickStart.body}
-                  invert
-                />
-                <Link href="#tests-families" prefetch={false} className="inline-flex items-center gap-2 text-sm font-semibold text-white/78 transition hover:text-white">
-                  {locale === "zh" ? "查看测评家族" : "Browse families"}
-                  <span aria-hidden>+</span>
-                </Link>
-              </div>
-
-              <div className="mt-8 grid gap-4 lg:grid-cols-2 xl:grid-cols-5">
-                {content.quickStart.items.map((item, index) => (
-                  <QuickStartCard key={item.id} item={item} index={index} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section id="tests-families" className="bg-[#f4f1ea] py-[var(--fm-space-24)] md:py-[8rem]">
-        <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
-          <SectionHeading eyebrow={content.families.kicker} title={content.families.title} body={content.families.body} />
-          <TestsFamilyExplorer families={content.families.items} locale={locale} />
-        </Container>
-      </section>
-
-      <section className="bg-[#ece7de] py-[var(--fm-space-20)] md:py-[7rem]">
-        <Container className="max-w-[96rem] px-5 md:px-8 xl:px-12">
-          <SectionHeading
-            eyebrow={content.howToChoose.kicker}
-            title={content.howToChoose.title}
-            body={content.howToChoose.body}
-          />
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {content.howToChoose.items.map((item) => (
-              <article key={item.title} className="rounded-[1.7rem] border border-white/65 bg-white/85 p-5 shadow-[0_18px_60px_rgba(15,23,42,0.05)]">
-                <h3 className="m-0 text-[1.08rem] font-semibold tracking-[-0.028em] text-slate-950">{item.title}</h3>
-                <p className="m-0 mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-[#101821] py-[var(--fm-space-20)] md:py-[6.5rem]">
-        <Container className="max-w-[96rem] px-5 md:px-8 xl:px-12">
-          <TrustAccordion title={content.trust.title} items={content.trust.items} locale={locale} />
-        </Container>
-      </section>
-
-      <section className="bg-[#f8f5ef] py-[var(--fm-space-20)] md:py-[7rem]">
-        <Container className="max-w-[96rem] px-5 md:px-8 xl:px-12">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <SectionHeading eyebrow={content.resources.kicker} title={content.resources.title} body={content.resources.body} />
-            <Link href={content.resources.allHref} prefetch={false} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-slate-700">
-              {content.resources.allLabel}
-              <span aria-hidden>+</span>
-            </Link>
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {content.resources.items.map((item) => (
-              <ResourceCard key={item.key} item={item} locale={locale} />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-    </>
+        <div className="mx-auto mt-12 grid max-w-[92rem] gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {tests.map((item) => (
+            <TestListCard key={item.key} item={item} locale={locale} />
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }

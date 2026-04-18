@@ -489,6 +489,24 @@ function buildTestCards(locale: Locale) {
     previewVariant: "summary",
   });
 
+  const enneagram: HubTestCardItem = {
+    key: "enneagram-personality-test",
+    title: locale === "zh" ? "九型人格测试" : "Enneagram Test",
+    description:
+      locale === "zh"
+        ? "从核心动机与压力反应理解你的行为模式。"
+        : "Understand behavior patterns through motivation and stress response.",
+    questionsLabel: locale === "zh" ? "即将上线" : "Coming soon",
+    durationLabel: locale === "zh" ? "人格测试" : "Personality test",
+    outputLabel: locale === "zh" ? "动机结构、压力反应与行为模式" : "Motivation structure, stress response, and behavior patterns",
+    href: localizedPath("/tests", locale),
+    detailsHref: localizedPath("/tests", locale),
+    primaryLabel: locale === "zh" ? "查看入口" : "View entry",
+    secondaryLabel: locale === "zh" ? "查看入口" : "View entry",
+    scientificBasis: locale === "zh" ? "Based on Enneagram" : "Based on Enneagram",
+    previewVariant: "summary",
+  };
+
   const riasec = buildRiasecCard(locale);
 
   const visibleCards = filterVisiblePublicTestEntries([mbti, bigFive, eq, iq, depression, clinical, riasec]);
@@ -500,9 +518,19 @@ function buildTestCards(locale: Locale) {
     iq,
     depression,
     clinical,
+    enneagram,
     riasec,
     visibleCards,
   };
+}
+
+export function listVisibleTestsHubCards(locale: Locale): HubTestCardItem[] {
+  return buildTestCards(locale).visibleCards;
+}
+
+export function listAllContentTestsHubCards(locale: Locale): HubTestCardItem[] {
+  const cards = buildTestCards(locale);
+  return [cards.mbti, cards.bigFive, cards.iq, cards.eq, cards.clinical, cards.enneagram];
 }
 
 export function listTestsCategorySlugs(): TestsCategorySlug[] {
