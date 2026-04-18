@@ -9,18 +9,22 @@ function read(relPath: string): string {
 }
 
 describe("career V1 entry redesign contract", () => {
-  it("keeps /career search and recommendation first while moving technical scope language out of the main path", () => {
+  it("keeps /career focused on three user-facing doors and quiet support links", () => {
     const source = read("app/(localized)/[locale]/career/page.tsx");
 
     expect(source).toContain("找到适合你的职业方向");
-    expect(source).toContain("View my career recommendations");
-    expect(source).toContain("career-v1-soft-exploration-row");
-    expect(source).toContain("ConfidenceBadge");
-    expect(source).toContain("DecisionPathCard");
-    expect(source).toContain("NextStepRail");
-    expect(source).toContain("fetchCareerLaunchGovernanceClosure");
+    expect(source).toContain("先选一条最适合你当前状态的路径");
+    expect(source).toContain("career-pathway-jobs");
+    expect(source).toContain("career-pathway-recommendation");
+    expect(source).toContain("career-pathway-tests");
+    expect(source).toContain("career-quiet-library");
+    expect(source).toContain("不确定叫法？试试别名解析");
     expect(source).toContain("AnalyticsPageViewTracker");
     expect(source).toContain("JsonLd");
+    expect(source).not.toContain("career-landing-jobs-preview");
+    expect(source).not.toContain("career-family-exploration");
+    expect(source).not.toContain("career-landing-trust-boundary");
+    expect(source).not.toContain("fetchCareerLaunchGovernanceClosure");
     expect(source).not.toContain("full-342 closure authority");
     expect(source).not.toContain("backend authority");
     expect(source).not.toContain("strong-index");

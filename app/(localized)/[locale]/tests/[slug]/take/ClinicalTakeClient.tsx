@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ConsentGate } from "@/components/clinical/quiz/ConsentGate";
 import { ModuleTransitionCard } from "@/components/clinical/quiz/ModuleTransitionCard";
 import { QuestionCard } from "@/components/clinical/quiz/QuestionCard";
 import { QuizShell } from "@/components/clinical/quiz/QuizShell";
@@ -82,18 +81,6 @@ function normalizeModuleMeta(raw: unknown): Record<string, ModuleMetaNode> {
     };
     return acc;
   }, {});
-}
-
-function resolveConsentText(meta: QuestionsMeta | undefined, isZh: boolean): string {
-  const consentText = typeof meta?.consent?.text === "string" ? meta.consent.text.trim() : "";
-  if (consentText) return consentText;
-
-  const disclaimerText = typeof meta?.disclaimer?.text === "string" ? meta.disclaimer.text.trim() : "";
-  if (disclaimerText) return disclaimerText;
-
-  return isZh
-    ? "请先阅读并同意知情同意说明后再开始测评。"
-    : "Please review and accept informed consent before starting the assessment.";
 }
 
 function normalizeSdsOptions(format: string[]): NormalizedScaleOption[] {
@@ -227,7 +214,6 @@ export default function ClinicalTakeClient({
   const [loadingQuestions, setLoadingQuestions] = useState(true);
   const [questionError, setQuestionError] = useState<string | null>(null);
 
-  const [consentChecked, setConsentChecked] = useState(false);
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
 
@@ -371,7 +357,6 @@ export default function ClinicalTakeClient({
     [anonId, locale, scaleCode, trackGuestTokenFailure]
   );
 
-  const consentText = useMemo(() => resolveConsentText(questionsMeta, isZh), [isZh, questionsMeta]);
   const serverConsentVersion =
     typeof questionsMeta?.consent?.version === "string" ? questionsMeta.consent.version.trim() : "";
 
@@ -536,12 +521,21 @@ export default function ClinicalTakeClient({
 
   useEffect(() => {
     if (!needsConsent) {
-      setConsentChecked(true);
       return;
     }
-    setConsentChecked(false);
     setAttemptId(null);
   }, [needsConsent, setAttemptId]);
+
+  useEffect(() => {
+    if (loadingQuestions || totalQuestions === 0 || !needsConsent) {
+      return;
+    }
+
+    acceptConsent({
+      version: serverConsentVersion || null,
+      locale: toApiLocale(locale),
+    });
+  }, [acceptConsent, loadingQuestions, locale, needsConsent, serverConsentVersion, totalQuestions]);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -669,19 +663,6 @@ export default function ClinicalTakeClient({
 
     return startFreshAttempt(runId);
   }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, staleDraftError, startFreshAttempt]);
-
-  const handleStart = async () => {
-    if (!consentChecked) {
-      return;
-    }
-
-    acceptConsent({
-      version: serverConsentVersion || null,
-      locale: toApiLocale(locale),
-    });
-
-    await ensureAttempt();
-  };
 
   const handleSelect = (questionId: string, code: string) => {
     setAnswer(questionId, code);
@@ -1026,23 +1007,6 @@ export default function ClinicalTakeClient({
     );
   }
 
-  if (needsConsent) {
-    return (
-      <ConsentGate
-        locale={locale}
-        text={consentText}
-        version={serverConsentVersion || undefined}
-        checked={consentChecked}
-        starting={starting}
-        error={startError}
-        onCheckedChange={setConsentChecked}
-        onStart={() => {
-          void handleStart();
-        }}
-      />
-    );
-  }
-
   const options = questionOptionsForScale({
     scaleCode,
     question: currentQuestion,
@@ -1061,7 +1025,7 @@ export default function ClinicalTakeClient({
           total={totalQuestions}
           answered={answeredCount}
           previousLabel={dict.quiz.immersive.previous}
-          previousDisabled={currentIndex <= 0 || submitting || submitOverlayVisible}
+          previousDisabled={currentIndex <= 0 || starting || submitting || submitOverlayVisible}
           onPrevious={goPrevious}
           transitionKey={currentQuestion.question_id}
           transitionDirection={transitionDirection}
@@ -1072,7 +1036,7 @@ export default function ClinicalTakeClient({
                 <Button
                   type="button"
                   variant="outline"
-                  disabled={submitting || submitOverlayVisible}
+                  disabled={starting || submitting || submitOverlayVisible}
                   onClick={() => {
                     void handleSubmitWithOverlay();
                   }}
@@ -1113,6 +1077,7 @@ export default function ClinicalTakeClient({
               }
             />
 
+            {startError ? <Alert>{startError}</Alert> : null}
             {submitError ? <Alert>{submitError}</Alert> : null}
           </article>
         </ImmersiveTakeLayout>
@@ -1181,6 +1146,7 @@ export default function ClinicalTakeClient({
         />
       )}
 
+      {startError ? <Alert>{startError}</Alert> : null}
       {submitError ? <Alert>{submitError}</Alert> : null}
 
       <QuizShell>
@@ -1188,7 +1154,7 @@ export default function ClinicalTakeClient({
           <Button
             type="button"
             variant="outline"
-            disabled={currentIndex <= 0 || submitting || Boolean(pendingModuleTransition)}
+            disabled={currentIndex <= 0 || starting || submitting || Boolean(pendingModuleTransition)}
             onClick={() => setCurrentIndex(currentIndex - 1)}
           >
             {isZh ? "上一题" : "Previous"}
@@ -1197,7 +1163,7 @@ export default function ClinicalTakeClient({
           <Button
             type="button"
             variant="outline"
-            disabled={currentIndex >= totalQuestions - 1 || submitting || Boolean(pendingModuleTransition)}
+            disabled={currentIndex >= totalQuestions - 1 || starting || submitting || Boolean(pendingModuleTransition)}
             onClick={() => setCurrentIndex(currentIndex + 1)}
           >
             {isZh ? "下一题" : "Next"}
@@ -1205,7 +1171,7 @@ export default function ClinicalTakeClient({
 
           <Button
             type="button"
-            disabled={submitting || Boolean(pendingModuleTransition)}
+            disabled={starting || submitting || Boolean(pendingModuleTransition)}
             onClick={() => {
               void handleSubmit().then((resultAttemptId) => {
                 if (resultAttemptId) {

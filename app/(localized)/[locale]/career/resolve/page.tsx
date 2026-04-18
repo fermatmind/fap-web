@@ -126,14 +126,18 @@ export default async function CareerResolvePage({
           />
         ) : null}
 
-        <section className="mx-auto max-w-4xl space-y-6" data-testid="career-resolve-hero">
+        <section className="mx-auto max-w-3xl space-y-6" data-testid="career-resolve-hero">
           <div className="space-y-3 text-center">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">Career Resolve</p>
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+              {locale === "zh" ? "辅助工具" : "Helper"}
+            </p>
             <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
-              {locale === "zh" ? "解析职业别名" : "Resolve a role alias"}
+              {locale === "zh" ? "确认职业叫法" : "Confirm the role name"}
             </h1>
             <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-500">
-              {locale === "zh" ? "把俗称、行业黑话或模糊称呼匹配到职业或职业家族。" : "Use this for colloquial titles, ambiguous labels, or names that are not standard role titles."}
+              {locale === "zh"
+                ? "当你不确定一个俗称对应哪个标准职业时，用这里先做一次匹配。已经知道岗位名时，请直接去职业库搜索。"
+                : "Use this only when a colloquial or fuzzy title needs matching. If you already know the role name, search the job library directly."}
             </p>
           </div>
           <form action={resolvePath} method="get" className="rounded-3xl border border-slate-200 bg-white p-3 shadow-sm md:flex md:items-center md:gap-3" data-testid="career-resolve-form">
@@ -193,7 +197,7 @@ export default async function CareerResolvePage({
         ) : null}
 
         <NextStepRail
-          title={locale === "zh" ? "下一步" : "Next steps"}
+          title={locale === "zh" ? "回到主路径" : "Back to the main path"}
           items={[
             {
               title: locale === "zh" ? "搜索职业库" : "Search job library",

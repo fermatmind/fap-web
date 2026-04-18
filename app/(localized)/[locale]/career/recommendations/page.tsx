@@ -4,11 +4,9 @@ import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { ConfidenceBadge } from "@/components/career/v1/ConfidenceBoundary";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { getCareerV1StateCopy } from "@/lib/career/ui/stateCopy";
 import { listBig5RecommendationTraits } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -90,25 +88,31 @@ export default async function CareerRecommendationsPage({
             {locale === "zh" ? "从测评结果选择职业方向" : "Choose a career direction from your result"}
           </h1>
           <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-500">
-            {locale === "zh"
-              ? "推荐页先给方向和取舍，再把候选职业作为下一步。"
-              : "Recommendation pages lead with direction and tradeoffs; candidate roles come after the decision."}
+            {locale === "zh" ? "先从当前可用的推荐入口进入。" : "Start from the recommendation source currently available to you."}
           </p>
         </section>
 
-        <section className="space-y-4">
-          <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">MBTI</h2>
+        <section className="space-y-4" data-testid="career-recommendations-source-entry">
+          <div className="space-y-2">
+            <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+              {locale === "zh" ? "选择推荐来源" : "Choose a recommendation source"}
+            </h2>
+            <p className="m-0 text-sm leading-6 text-slate-500">
+              {locale === "zh" ? "选择你已经拥有的测评结果，先看方向判断和取舍。" : "Choose the result you already have, then review direction and tradeoffs first."}
+            </p>
+          </div>
+
           {recommendationItems.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">
               {recommendationItems.map((item) => {
-                const stateCopy = getCareerV1StateCopy(item.dataStatus);
-
                 return (
                   <article key={item.recommendationSubjectMeta.publicRouteSlug} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm" data-testid="career-recommendation-index-card" data-career-data-status={item.dataStatus}>
-                    <ConfidenceBadge tone={stateCopy.tone}>{stateCopy.label}</ConfidenceBadge>
+                    <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
+                      {locale === "zh" ? "已测结果" : "Available result"}
+                    </p>
                     <h3 className="m-0 mt-3 text-lg font-semibold tracking-tight text-slate-950">{item.recommendationSubjectMeta.displayTitle}</h3>
                     <p className="m-0 mt-2 text-sm leading-6 text-slate-500">
-                      {locale === "zh" ? "打开后先看职业方向建议，再看候选职业。" : "Open this to see the direction first, then candidate roles."}
+                      {locale === "zh" ? "适合已经拿到对应人格结果，想先看方向和取舍的人。" : "Use this when you already have the matching result and want direction and tradeoffs first."}
                     </p>
                     <TrackedCareerLink
                       href={item.href}
@@ -125,31 +129,40 @@ export default async function CareerRecommendationsPage({
                       }}
                       className="mt-4 inline-flex text-sm font-semibold text-orange-600 hover:text-orange-700"
                     >
-                      {locale === "zh" ? "查看方向建议" : "View direction"}
+                      {locale === "zh" ? "进入推荐方向" : "Open recommendation direction"}
                     </TrackedCareerLink>
                   </article>
                 );
               })}
             </div>
           ) : (
-            <div className="rounded-3xl border border-dashed border-slate-200 bg-white p-6 text-sm text-slate-500" data-testid="career-recommendation-index-status" data-career-data-status="unavailable">
-              {locale === "zh" ? "当前没有可公开展示的推荐入口；页面不会退化成岗位列表。" : "No public recommendation entries are currently available; this page does not degrade into a job list."}
-            </div>
+            null
           )}
-        </section>
 
-        <section className="space-y-3">
-          <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">Big5</h2>
-          <p className="m-0 text-sm leading-6 text-slate-500">
-            {locale === "zh" ? "Big5 入口保留为补充路径。" : "Big5 entries remain a secondary path."}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {big5Traits.map((trait) => (
-              <Link key={trait} href={withLocale(`/career/recommendations/big5/${trait}`)} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600">
-                {trait}
-              </Link>
-            ))}
-          </div>
+          {big5Traits.length > 0 ? (
+            <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm" data-testid="career-recommendation-source-big5">
+              <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">Big Five</p>
+              <h3 className="m-0 mt-3 text-lg font-semibold tracking-tight text-slate-950">
+                {locale === "zh" ? "从大五特质看职业方向" : "Use Big Five traits for career direction"}
+              </h3>
+              <p className="m-0 mt-2 text-sm leading-6 text-slate-500">
+                {locale === "zh" ? "适合已经知道自己的大五特质，想从稳定特质进入方向判断的人。" : "Use this when you know your Big Five trait signal and want a direction-first entry."}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {big5Traits.map((trait) => (
+                  <Link key={trait} href={withLocale(`/career/recommendations/big5/${trait}`)} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600">
+                    {trait}
+                  </Link>
+                ))}
+              </div>
+            </article>
+          ) : null}
+
+          {recommendationItems.length === 0 && big5Traits.length === 0 ? (
+            <div className="rounded-3xl border border-dashed border-slate-200 bg-white p-6 text-sm text-slate-500" data-testid="career-recommendation-index-status" data-career-data-status="unavailable">
+              {locale === "zh" ? "当前没有可公开展示的推荐入口。" : "No public recommendation sources are currently available."}
+            </div>
+          ) : null}
         </section>
       </Container>
     </main>

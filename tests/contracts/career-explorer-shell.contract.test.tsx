@@ -28,7 +28,7 @@ describe("career explorer shell contract", () => {
     expect(String(metadata.title ?? "")).toContain("Career Explorer");
   });
 
-  it("exposes four explicit path entries and keeps jobs vs resolve responsibilities separate", async () => {
+  it("exposes three explicit doors and keeps jobs vs resolve responsibilities separate", async () => {
     vi.doMock("next/link", () => ({
       default: ({
         href,
@@ -139,15 +139,15 @@ describe("career explorer shell contract", () => {
 
     expect(html).toContain("career-explorer-pathways");
     expect(html).toContain("career-pathway-jobs");
-    expect(html).toContain("career-pathway-resolve");
-    expect(html).toContain("career-pathway-family");
     expect(html).toContain("career-pathway-recommendation");
+    expect(html).toContain("career-pathway-tests");
+    expect(html).toContain("career-quiet-library");
 
     expect(html).toContain("action=\"/en/career/jobs\"");
-    expect(html).toContain("formAction=\"/en/career/resolve\"");
     expect(html).toContain("/en/career/jobs");
     expect(html).toContain("/en/career/resolve");
-    expect(html).toContain("/en/career/family/data-science");
     expect(html).toContain("/en/career/recommendations");
+    expect(html).toContain("/en/career/tests");
+    expect(html).not.toContain("/en/career/family/data-science");
   });
 });

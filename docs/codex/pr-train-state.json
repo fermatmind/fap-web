@@ -1705,6 +1705,59 @@
       "merged_at": "",
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
+    },
+    "PR-F55": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/career-ia-three-doors",
+      "commit_sha": "846fc92b6b874fe779a90842342854890c7c2b59",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/474",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/career/page.tsx' 'app/(localized)/[locale]/career/jobs/page.tsx' 'app/(localized)/[locale]/career/recommendations/page.tsx' 'app/(localized)/[locale]/career/tests/page.tsx' 'app/(localized)/[locale]/career/resolve/page.tsx' 'app/(localized)/[locale]/tests/[slug]/page.tsx' 'app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx' 'app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient.tsx' components/career/v1/*.tsx components/content/MbtiSceneEntrySection.tsx components/layout/SiteHeader.tsx components/marketing/HomePageExperience.tsx components/marketing/HomepageSocialProofCarousel.tsx components/marketing/tests/TestsHubExperience.tsx lib/big5/forms.ts lib/marketing/homepageContent.ts lib/marketing/testsHubContent.ts lib/navigation/headerDropdownMenus.ts tests/contracts/career-*.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-v1-entry-redesign.contract.test.tsx tests/contracts/career-explorer-shell.contract.test.tsx tests/contracts/career-landing-hybrid-authority.contract.test.tsx tests/contracts/career-ia-three-doors.contract.test.tsx tests/contracts/career-recommendations-entry-availability.contract.test.tsx tests/contracts/career-tests-single-entry.contract.test.tsx tests/contracts/career-resolve-helper-demotion.contract.test.tsx tests/contracts/career-recommendation-index-backend.contract.test.tsx tests/contracts/career-jobs-search-ux.contract.test.tsx tests/contracts/career-job-index-backend.contract.test.tsx tests/contracts/career-search-backend.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-transition-visualization.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24596846642/job/71928336967"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24596846642/job/71928336970"
+          }
+        ]
+      },
+      "failure_reason": "GitHub CI status checks build and contracts failed after PR creation, while local validation passed. gh pr checks reported no required checks for this branch.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     }
   }
 }

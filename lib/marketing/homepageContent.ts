@@ -150,20 +150,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           meta: "人格测试",
         },
         {
-          title: "IQ 智商测试",
-          description: "快速了解你的认知能力基线",
-          href: "/tests/iq-test-intelligence-quotient-assessment/take",
-          label: "开始测试",
-          meta: "能力测评",
-        },
-        {
-          title: "EQ 情商测试",
-          description: "了解你在情绪识别与协作沟通中的表现",
-          href: "/tests/eq-test-emotional-intelligence-assessment/take",
-          label: "开始测试",
-          meta: "情绪能力",
-        },
-        {
           title: "九型人格测试",
           description: "从核心动机与压力反应理解你的行为模式",
           href: "/tests",
@@ -171,9 +157,23 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           meta: "人格测试",
         },
         {
+          title: "EQ 情商测试",
+          description: "了解你在情绪识别与协作沟通中的表现",
+          href: "/tests/eq-test-emotional-intelligence-assessment",
+          label: "开始测试",
+          meta: "情绪能力",
+        },
+        {
+          title: "IQ 智商测试",
+          description: "快速了解你的认知能力基线",
+          href: "/tests/iq-test-intelligence-quotient-assessment",
+          label: "开始测试",
+          meta: "能力测评",
+        },
+        {
           title: "抑郁症测试",
           description: "快速了解你近期的情绪状态变化",
-          href: "/tests",
+          href: "/tests/depression-screening-test-standard-edition",
           label: "开始测试",
           meta: "状态自测",
         },
@@ -276,8 +276,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { title: "MBTI", href: "/tests/mbti-personality-test-16-personality-types" },
             { title: "Big Five", href: "/tests/big-five-personality-test-ocean-model" },
-            { title: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
-            { title: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
+            { title: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment" },
+            { title: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment" },
           ],
         },
       ],
@@ -289,8 +289,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { label: "MBTI", href: "/tests/mbti-personality-test-16-personality-types" },
             { label: "Big Five", href: "/tests/big-five-personality-test-ocean-model" },
-            { label: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
-            { label: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
+            { label: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment" },
+            { label: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment" },
           ],
         },
         {
@@ -350,20 +350,6 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           meta: "Personality test",
         },
         {
-          title: "IQ Test",
-          description: "Get a quick baseline for cognitive ability.",
-          href: "/tests/iq-test-intelligence-quotient-assessment/take",
-          label: "Start test",
-          meta: "Ability assessment",
-        },
-        {
-          title: "EQ Test",
-          description: "Review emotional recognition and collaboration skills.",
-          href: "/tests/eq-test-emotional-intelligence-assessment/take",
-          label: "Start test",
-          meta: "Emotional ability",
-        },
-        {
           title: "Enneagram Test",
           description: "Understand behavior patterns through motivation and stress response.",
           href: "/tests",
@@ -371,9 +357,23 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           meta: "Personality test",
         },
         {
+          title: "EQ Test",
+          description: "Review emotional recognition and collaboration skills.",
+          href: "/tests/eq-test-emotional-intelligence-assessment",
+          label: "Start test",
+          meta: "Emotional ability",
+        },
+        {
+          title: "IQ Test",
+          description: "Get a quick baseline for cognitive ability.",
+          href: "/tests/iq-test-intelligence-quotient-assessment",
+          label: "Start test",
+          meta: "Ability assessment",
+        },
+        {
           title: "Emotional State Check",
           description: "Check recent changes in your emotional state.",
-          href: "/tests",
+          href: "/tests/depression-screening-test-standard-edition",
           label: "Start test",
           meta: "State check",
         },
@@ -476,8 +476,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { title: "MBTI", href: "/tests/mbti-personality-test-16-personality-types" },
             { title: "Big Five", href: "/tests/big-five-personality-test-ocean-model" },
-            { title: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
-            { title: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
+            { title: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment" },
+            { title: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment" },
           ],
         },
       ],
@@ -489,8 +489,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           links: [
             { label: "MBTI", href: "/tests/mbti-personality-test-16-personality-types" },
             { label: "Big Five", href: "/tests/big-five-personality-test-ocean-model" },
-            { label: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment/take" },
-            { label: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment/take" },
+            { label: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment" },
+            { label: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment" },
           ],
         },
         {
@@ -524,7 +524,7 @@ export function getHomePageContent(locale: Locale) {
     ...content,
     quickStart: {
       ...content.quickStart,
-      items: filterVisiblePublicTestEntries(content.quickStart.items),
+      items: content.quickStart.items,
     },
     families: {
       ...content.families,

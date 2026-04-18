@@ -15,11 +15,16 @@ vi.mock("@/components/analytics/TrackedCareerLink", () => ({
     children: React.ReactNode;
     eventName?: string;
     eventPayload?: unknown;
-  }) => (
-    <a href={href} {...props}>
-      {children}
-    </a>
-  ),
+  }) => {
+    void _eventName;
+    void _eventPayload;
+
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    );
+  },
 }));
 
 vi.mock("@/components/career/TrustStrip", () => ({

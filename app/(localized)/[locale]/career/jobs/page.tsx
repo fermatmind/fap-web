@@ -124,7 +124,7 @@ export async function generateMetadata({
     description:
       locale === "zh"
         ? "搜索职业库，查看可公开参考的职业资料和下一步路径。"
-        : "Search the job library and open public-safe role profiles with clear next steps.",
+        : "Search the job library and open role profiles with clear next steps.",
     noindex: submittedQuery.length > 0,
     alternatesByLocale: {
       en: "/en/career/jobs",
@@ -243,7 +243,9 @@ export default async function CareerJobsPage({
             </div>
           </form>
           <p className="m-0 text-center text-xs text-slate-500" data-testid="career-job-search-helper">
-            {locale === "zh" ? "搜索结果页保持不被索引；职业详情页仍按自身展示边界决定。" : "Search result URLs stay noindex; role detail pages keep their own display boundaries."}
+            <Link href={resolvePath} className="font-medium text-slate-500 underline underline-offset-4 hover:text-slate-950">
+              {locale === "zh" ? "不确定标准岗位名？先用别名解析" : "Not sure about the standard role name? Use alias resolve first"}
+            </Link>
           </p>
         </section>
 
@@ -257,10 +259,10 @@ export default async function CareerJobsPage({
                 {hasSearchResults
                   ? locale === "zh"
                     ? "找到可公开参考的职业结果。"
-                    : "Public-safe role matches were found."
+                    : "Role matches were found."
                   : locale === "zh"
-                    ? "没有直接职业结果，可以尝试别名解析或从职业家族探索。"
-                    : "No direct role matches were found. Try resolve or explore a career family."}
+                    ? "没有直接职业结果，可以尝试别名解析；如果方向很宽，也可以先看次级探索建议。"
+                    : "No direct role matches were found. Try alias resolve first; broad directions may also show secondary exploration suggestions."}
               </p>
               <p className="sr-only" data-testid={hasSearchResults && hasFamilyFallback ? "career-job-search-state-results-with-family-fallback" : hasSearchResults ? "career-job-search-state-results" : hasFamilyFallback ? "career-job-search-state-family-fallback-only" : "career-job-search-state-no-result"} />
             </div>
@@ -310,10 +312,10 @@ export default async function CareerJobsPage({
             ) : (
               <div className="rounded-3xl border border-dashed border-slate-200 bg-white p-6" data-testid="career-job-search-empty-state" data-career-data-status="unavailable">
                 <h2 className="m-0 text-lg font-semibold text-slate-950">
-                  {locale === "zh" ? "暂无完整职业页" : "No direct public matching jobs were found"}
+                  {locale === "zh" ? "暂无完整职业页" : "No direct role matches were found"}
                 </h2>
                 <p className="m-0 mt-2 text-sm leading-6 text-slate-500">
-                  {locale === "zh" ? "搜索不会本地补写职业资料，也不会把别名解析混进搜索结果。" : "Search does not synthesize role profiles or mix alias resolution into results."}
+                  {locale === "zh" ? "换一个更标准的岗位名，或先用别名解析确认叫法。" : "Try a more standard role name, or use alias resolve to confirm the title first."}
                 </p>
               </div>
             )}
@@ -325,7 +327,7 @@ export default async function CareerJobsPage({
                     {locale === "zh" ? "先从职业家族探索" : "Explore by career family first"}
                   </h2>
                   <p className="m-0 text-sm leading-6 text-slate-500">
-                    {locale === "zh" ? "这是补充探索路径，不代表已完成职业解析。" : "This is a secondary exploration path, not an alias-resolution outcome."}
+                  {locale === "zh" ? "这是次级探索路径，用来先缩小范围。" : "This is a secondary path for narrowing the direction first."}
                   </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -337,6 +339,7 @@ export default async function CareerJobsPage({
                       summary={family.summary}
                       ctaLabel={locale === "zh" ? "查看职业家族" : "Open family hub"}
                       href={family.href}
+                      testId="career-job-search-family-fallback-card"
                     />
                   ))}
                 </div>
@@ -344,23 +347,25 @@ export default async function CareerJobsPage({
             ) : null}
 
             {showResolveHandoffAssist ? (
-              <NextStepRail
-                title={locale === "zh" ? "下一步" : "Next steps"}
-                description={locale === "zh" ? "如果这是俗称或模糊称呼，优先交给解析页。" : "If this is a fuzzy or colloquial title, resolve it before searching again."}
-                testId="career-job-search-resolve-handoff-assist"
-                items={[
-                  {
-                    title: locale === "zh" ? "去职业解析" : "Try career resolve",
-                    description: locale === "zh" ? "把称呼匹配到职业或家族。" : "Match the title to a role or family.",
-                    href: `${resolvePath}?q=${encodeURIComponent(submittedQuery)}`,
-                  },
-                  {
-                    title: locale === "zh" ? "返回职业库" : "Back to job library",
-                    description: locale === "zh" ? "重新浏览可公开职业。" : "Browse public-safe roles again.",
-                    href: jobsPath,
-                  },
-                ]}
-              />
+              <div data-testid={!hasSearchResults ? "career-job-search-no-result-actions" : undefined}>
+                <NextStepRail
+                  title={locale === "zh" ? "下一步" : "Next steps"}
+                  description={locale === "zh" ? "如果这是俗称或模糊称呼，优先交给解析页。" : "If this is a fuzzy or colloquial title, resolve it before searching again."}
+                  testId="career-job-search-resolve-handoff-assist"
+                  items={[
+                    {
+                      title: locale === "zh" ? "去职业解析" : "Try career resolve",
+                      description: locale === "zh" ? "把称呼匹配到职业或家族。" : "Match the title to a role or family.",
+                      href: `${resolvePath}?q=${encodeURIComponent(submittedQuery)}`,
+                    },
+                    {
+                      title: locale === "zh" ? "返回职业库" : "Back to job library",
+                      description: locale === "zh" ? "重新浏览职业库。" : "Browse the job library again.",
+                      href: jobsPath,
+                    },
+                  ]}
+                />
+              </div>
             ) : null}
           </section>
         ) : (

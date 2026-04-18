@@ -145,7 +145,7 @@ describe("career recommendation index backend contract", () => {
 
     expect(html).toContain("career-recommendation-index-card");
     expect(html).toContain("INTJ Career Match");
-    expect(html).toContain("View recommendation detail");
+    expect(html).toContain("Open recommendation direction");
     expect(html).not.toContain("career-personalized-status");
     expect(html).not.toContain("View role profile");
     expect(html).not.toContain("career-job-index-card");
@@ -204,7 +204,7 @@ describe("career recommendation index backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("trust-limited mode");
+    expect(html).toContain("Open recommendation direction");
     expect(html).not.toContain("Fit score:");
     expect(html).not.toContain("Confidence score:");
   });
