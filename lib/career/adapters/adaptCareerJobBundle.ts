@@ -254,6 +254,7 @@ function buildTrustManifest(raw: Record<string, unknown>, slug: string): CareerT
 
   const reviewerStatus = normalizeString(trustRaw.reviewer_status);
   const reviewed = reviewerStatus === "reviewed" || reviewerStatus === "approved";
+  const quality = isRecord(trustRaw.quality) ? trustRaw.quality : {};
 
   return normalizeCareerTrustManifest({
     manifest_version: trustRaw.manifest_version ?? "trust_manifest.v1",
@@ -275,11 +276,12 @@ function buildTrustManifest(raw: Record<string, unknown>, slug: string): CareerT
       used: false,
       summary: null,
     },
-    quality: trustRaw.quality ?? {
+    quality: {
       complete: reviewed,
       reviewed,
       stale: false,
       blocked_reasons: [],
+      ...quality,
     },
     last_substantive_update_at: trustRaw.last_substantive_update_at ?? null,
     next_review_due_at: trustRaw.next_review_due_at ?? null,
@@ -509,6 +511,22 @@ function buildConversionClosure(raw: Record<string, unknown>): CareerConversionC
   };
 }
 
+function buildContentSections(raw: Record<string, unknown>): CareerJobBundleAdapter["contentSections"] {
+  const rows = Array.isArray(raw.content_sections) ? raw.content_sections : [];
+
+  return rows
+    .filter(isRecord)
+    .map((section) => ({
+      sectionKey: normalizeString(section.section_key) ?? "",
+      title: normalizeString(section.title) ?? "",
+      renderVariant: normalizeString(section.render_variant),
+      bodyMd: normalizeString(section.body_md) ?? "",
+      sortOrder: normalizeNumber(section.sort_order),
+    }))
+    .filter((section) => section.sectionKey && section.title && section.bodyMd)
+    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+}
+
 export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJobBundleAdapter | null {
   const raw = unwrapPayload(input.payload);
   if (!raw) {
@@ -569,6 +587,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
       onTheJobTraining: normalizeString(truthLayer.on_the_job_training),
       sourceRefs: normalizeStringArray(truthLayer.source_refs),
     },
+    contentSections: buildContentSections(raw),
     scoreBundle,
     warnings,
     claimPermissions,

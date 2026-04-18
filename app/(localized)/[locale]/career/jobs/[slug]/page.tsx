@@ -108,7 +108,7 @@ function getJobRendererContractState(job: CareerJobBundleAdapter): CareerRendere
     return "provisional";
   }
 
-  if (!job.renderState.canRenderSalarySurface || !job.renderState.canRenderAnswerSurface || !job.renderState.canRenderFitSurface) {
+  if (!job.renderState.canRenderSalarySurface || !job.renderState.canRenderOutlookSurface || !job.renderState.canRenderFitSurface) {
     return "restricted";
   }
 
@@ -203,6 +203,55 @@ function MetricCard({ title, value, caption }: { title: string; value: string; c
   );
 }
 
+function renderMarkdownLine(line: string, index: number) {
+  const trimmed = line.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  const bullet = trimmed.match(/^[-•]\s*(.+)$/);
+  if (bullet) {
+    return (
+      <li key={index} className="pl-1">
+        {bullet[1]}
+      </li>
+    );
+  }
+
+  const ordered = trimmed.match(/^(\d+)\.\s*(.+)$/);
+  if (ordered) {
+    return (
+      <li key={index} className="pl-1">
+        {ordered[2]}
+      </li>
+    );
+  }
+
+  return (
+    <p key={index} className="m-0">
+      {trimmed}
+    </p>
+  );
+}
+
+function ContentSection({ section }: { section: CareerJobBundleAdapter["contentSections"][number] }) {
+  const lines = section.bodyMd.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  const bulletLines = lines.filter((line) => /^[-•]\s+/.test(line));
+  const orderedLines = lines.filter((line) => /^\d+\.\s+/.test(line));
+  const proseLines = lines.filter((line) => !/^[-•]\s+/.test(line) && !/^\d+\.\s+/.test(line));
+
+  return (
+    <article className="space-y-4 border-t border-slate-200 pt-6 first:border-t-0 first:pt-0">
+      <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{section.title}</h2>
+      <div className="space-y-3 text-base leading-8 text-slate-600">
+        {proseLines.map((line, index) => renderMarkdownLine(line, index))}
+        {bulletLines.length > 0 ? <ul className="m-0 list-disc space-y-2 pl-5">{bulletLines.map((line, index) => renderMarkdownLine(line, index))}</ul> : null}
+        {orderedLines.length > 0 ? <ol className="m-0 list-decimal space-y-2 pl-5">{orderedLines.map((line, index) => renderMarkdownLine(line, index))}</ol> : null}
+      </div>
+    </article>
+  );
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -259,6 +308,8 @@ export default async function CareerJobDetailPage({
   const renderState = job.renderState;
   const canRenderAiStrategy = job.claimPermissions.allow_ai_strategy && renderState.careerDataStatus !== "unavailable";
   const canRenderAnswerSurface = renderState.canRenderAnswerSurface;
+  const canRenderStrongClaimSurface =
+    renderState.canRenderAnswerSurface || renderState.canRenderOutlookSurface || renderState.canRenderFitSurface;
   const jobDetailLandingPath = localizedPath(`/career/jobs/${job.slug}`, locale);
   const salaryClaimBlocked =
     !renderState.canRenderSalarySurface &&
@@ -274,7 +325,7 @@ export default async function CareerJobDetailPage({
       job.truthLayer.onTheJobTraining !== null ||
       job.scoreBundle.fitScore.value !== null);
   const aiStrategyClaimBlocked =
-    canRenderAnswerSurface &&
+    canRenderStrongClaimSurface &&
     !job.claimPermissions.allow_ai_strategy &&
     renderState.careerDataStatus !== "unavailable" &&
     job.truthLayer.aiExposure !== null;
@@ -390,6 +441,16 @@ export default async function CareerJobDetailPage({
           </div>
         </section>
 
+        {job.contentSections.length > 0 ? (
+          <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-8" data-testid="career-job-docx-content">
+            <div className="space-y-8">
+              {job.contentSections.map((section) => (
+                <ContentSection key={`${section.sectionKey}-${section.title}`} section={section} />
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <section className="space-y-4" data-testid="career-job-v1-at-a-glance">
           <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
             {locale === "zh" ? "一眼判断" : "At a glance"}
@@ -421,12 +482,12 @@ export default async function CareerJobDetailPage({
             <div className="mt-5 space-y-3 text-sm leading-6 text-slate-600">
               <p className="m-0">{locale === "zh" ? `适合度：${renderScoreValue(job.scoreBundle.fitScore.value)}` : `Fit signal: ${renderScoreValue(job.scoreBundle.fitScore.value)}`}</p>
               <p className="m-0">{locale === "zh" ? `信心：${renderScoreValue(job.scoreBundle.confidenceScore.value)}` : `Confidence: ${renderScoreValue(job.scoreBundle.confidenceScore.value)}`}</p>
-              {canRenderAnswerSurface ? (
+              {renderState.canRenderOutlookSurface ? (
                 <p className="m-0">{locale === "zh" ? `十年趋势：${formatPercent(job.truthLayer.outlookPct20242034)}` : `Ten-year outlook: ${formatPercent(job.truthLayer.outlookPct20242034)}`}</p>
               ) : null}
             </div>
             <ClaimGuard
-              allowed={canRenderAnswerSurface}
+              allowed={canRenderStrongClaimSurface}
               fallback={
                 <div className="mt-5">
                   <ConfidenceBoundary
@@ -475,12 +536,12 @@ export default async function CareerJobDetailPage({
           </div>
         </section>
 
-        <section data-testid="career-job-next-step-links">
+        <section data-testid="career-job-v1-next-steps">
           <NextStepRail
             title={locale === "zh" ? "下一步" : "Next steps"}
             description={locale === "zh" ? "只保留少量真实可走的路径。" : "A short list of real paths you can take from here."}
             items={nextSteps}
-            testId="career-job-v1-next-steps"
+            testId="career-job-next-step-links"
           />
         </section>
 
