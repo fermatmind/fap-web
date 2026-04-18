@@ -7,12 +7,13 @@ function read(relPath: string): string {
 }
 
 describe("wider public family contract", () => {
-  it("articles index consumes backend landing surface instead of route-local hub copy only", () => {
+  it("articles index renders the article list without the landing summary panel", () => {
     const source = read("app/(localized)/[locale]/articles/page.tsx");
 
-    expect(source).toContain("const { items, pagination, landingSurface } = await getCmsArticles");
-    expect(source).toContain('findLandingCta(landingSurface, "featured_article")');
-    expect(source).toContain("landingSurface?.summaryBlocks[0]?.title");
+    expect(source).toContain("const { items, pagination } = await getCmsArticles");
+    expect(source).not.toContain("landingSurface?.summaryBlocks[0]");
+    expect(source).not.toContain('findLandingCta(landingSurface, "featured_article")');
+    expect(source).not.toContain("dict.articles.kicker");
   });
 
   it("help routes consume backend public gateway surfaces", () => {
