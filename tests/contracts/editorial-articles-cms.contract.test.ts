@@ -56,6 +56,9 @@ describe("editorial article CMS contract", () => {
       const source = fs.readFileSync(sourcePath, "utf8");
       expect(source).toContain("## 执行摘要");
       expect(source).toContain("## 参考文献");
+      expect(source).not.toMatch(/^\[\d+\]\s+/m);
+      expect(source).toMatch(/^【1】\s+/m);
+      expect(source).toMatch(/^【1】[^\n]+\n\n【2】\s+/m);
       const coverPath = path.join(ROOT, "public", "static", "articles", "covers", `${slug}.svg`);
       expect(fs.existsSync(coverPath)).toBe(true);
       expect(fs.readFileSync(coverPath, "utf8")).toContain('width="1200" height="675"');
