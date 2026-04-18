@@ -160,9 +160,19 @@ export function buildRenderableCareerDatasetMembers(input: {
   const staticMemberBySlug = new Map(CAREER_STATIC_OCCUPATION_MEMBERS.map((member) => [member.canonicalSlug, member]));
 
   if (input.datasetMembers.length > 0) {
+    const detailReadySlugs = input.detailReadySlugs ?? new Set<string>();
+
     return input.datasetMembers.map((member) => ({
       ...member,
       canonicalTitleZh: member.canonicalTitleZh ?? staticMemberBySlug.get(member.canonicalSlug)?.canonicalTitleZh ?? null,
+      ...(detailReadySlugs.has(member.canonicalSlug)
+        ? {
+            releaseCohort: "public_detail_indexable" as const,
+            publicIndexState: "indexable",
+            strongIndexDecision: "strong_index_ready",
+            includedInPublicDataset: true,
+          }
+        : {}),
     }));
   }
 

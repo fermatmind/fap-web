@@ -359,6 +359,7 @@ export type CareerJobBundleAdapter = {
     bodyMd: string;
     sortOrder: number | null;
   }>;
+  contentBodyMd: string | null;
   scoreBundle: CareerScoreBundleAdapter;
   warnings: CareerWarningsAdapter;
   claimPermissions: CareerClaimPermissions;
