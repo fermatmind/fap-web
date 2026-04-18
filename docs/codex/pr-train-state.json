@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-18T00:00:00+08:00",
+  "updated_at": "2026-04-18T13:58:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1764,7 +1764,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "github_checks_failed",
       "branch": "codex/pr-f56-personality-ia-simplification",
-      "commit_sha": "7d3d36cb15a98cd24e3e06afe9a5791ba5b82c50",
+      "commit_sha": "4b8e641cf9b9369036be301cced5cfe57348f4dc",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/475",
       "checks": {
         "local": [
@@ -1791,22 +1791,26 @@
           {
             "command": "git diff --check",
             "status": "passed"
+          },
+          {
+            "command": "pnpm build",
+            "status": "passed"
           }
         ],
         "github": [
           {
             "name": "build",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24597982324/job/71931585061"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24598346199/job/71932568039"
           },
           {
             "name": "contracts",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24597982324/job/71931585062"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24598346199/job/71932568044"
           }
         ]
       },
-      "failure_reason": "GitHub CI status checks build and contracts failed after PR creation, while local validation passed.",
+      "failure_reason": "GitHub CI status checks build and contracts failed immediately on head 4b8e641 with no job steps/logs available from gh run view --log-failed, while scoped local validation and pnpm build passed.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
