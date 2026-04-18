@@ -121,8 +121,8 @@ function buildFallbackProjection(type: string, locale: Locale): PersonalityProje
   const displayType = type.toUpperCase();
   const summary =
     locale === "zh"
-      ? `${displayType} 人格画像正在连接权威内容源。当前先展示一个稳定的公开入口，避免 public gateway 在内容接口暂时不可用时直接失败。`
-      : `${displayType} personality content is reconnecting to the authoritative public source. This route stays available with a stable public fallback instead of failing when the content API is temporarily unavailable.`;
+      ? `${displayType} 人格内容暂时不可用。你仍然可以从这里返回 16 型浏览，或重新做一次 MBTI 测试确认自己的类型。`
+      : `${displayType} content is temporarily unavailable. You can still return to the 16-type browser or retake the MBTI test to confirm your type.`;
 
   return {
     runtimeTypeCode: displayType,
@@ -138,9 +138,9 @@ function buildFallbackProjection(type: string, locale: Locale): PersonalityProje
     },
     summaryCard: {
       title: displayType,
-      subtitle: locale === "zh" ? "公开人格入口" : "Public personality entry",
+      subtitle: locale === "zh" ? "人格类型内容" : "Personality type content",
       summary,
-      tagline: locale === "zh" ? "稳定的公开路由兜底" : "Stable public route fallback",
+      tagline: locale === "zh" ? "继续浏览人格内容" : "Continue browsing personality content",
       publicTags: [],
     },
     dimensions: [],
@@ -177,18 +177,18 @@ function buildFallbackPersonalityDetail(type: string, locale: Locale): Personali
 
   const displayType = routeSlug.toUpperCase();
   const title = locale === "zh" ? `${displayType} 人格类型` : `${displayType} personality type`;
-  const subtitle = locale === "zh" ? "公开人格入口" : "Public personality entry";
+  const subtitle = locale === "zh" ? "人格类型内容" : "Personality type content";
   const summary =
     locale === "zh"
-      ? `${displayType} 的公开内容入口已保持可访问。当前显示的是 SEO-safe gateway fallback，不会替代权威的人格内容真相。`
-      : `The public entry for ${displayType} stays reachable with an SEO-safe gateway fallback. This does not replace the authoritative personality content truth.`;
+      ? `${displayType} 的详细内容暂时不可用。你可以先返回 16 型人格浏览，或重新做一次 MBTI 测试确认自己的类型。`
+      : `${displayType} detail content is temporarily unavailable. You can return to the 16-type browser or retake the MBTI test to confirm your type.`;
 
   return {
     slug: routeSlug,
     routeSlug,
     locale,
     isIndexable: false,
-    heroKicker: locale === "zh" ? "MBTI Public Gateway" : "MBTI Public Gateway",
+    heroKicker: locale === "zh" ? "人格类型" : "Personality type",
     heroQuote: null,
     heroImageUrl: null,
     canonicalTypeCode: displayType.slice(0, 4),
@@ -362,7 +362,8 @@ export default async function PersonalityDetailPage({
     targetAction: "start_mbti_test_primary",
     sourcePath: canonicalPath,
   });
-  const mbtiLandingHref = localizedPath("/tests/mbti-personality-test-16-personality-types", locale);
+  const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
+  const careerDirectionHref = localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale);
   const personalityScenarioDeepModules = buildMbtiPersonalityScenarioDeepModules({
     locale,
     typeCode: detail.canonicalTypeCode,
@@ -485,33 +486,32 @@ export default async function PersonalityDetailPage({
         {detail.heroSummary && detail.heroSummary !== detail.summary ? (
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
         ) : null}
-        <div
-          className="flex flex-wrap items-center gap-3 pt-1"
-          data-testid="mbti-personality-entry-cta-group"
-          data-ads-surface="secondary"
-        >
-          <TrackedEntryCtaLink
-            href={mbtiPrimaryCtaHref}
-            prefetch
-            data-testid="mbti-personality-primary-cta"
-            eventProperties={mbtiPrimaryCtaTrackingProps}
-            className={buttonVariants({ size: "lg" })}
+        <div className="space-y-3 pt-1" data-testid="personality-detail-next-steps">
+          <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "下一步" : "Next steps"}
+          </p>
+          <div
+            className="flex flex-wrap items-center gap-3"
+            data-testid="mbti-personality-entry-cta-group"
+            data-ads-surface="secondary"
           >
-            {locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test"}
-          </TrackedEntryCtaLink>
-          <Link
-            href={mbtiLandingHref}
-            data-testid="mbti-personality-secondary-cta"
-            className={buttonVariants({ variant: "outline", size: "sm" })}
-          >
-            {locale === "zh" ? "查看测试介绍" : "View test overview"}
-          </Link>
+            <Link href={careerDirectionHref} className={buttonVariants({ size: "lg" })}>
+              {locale === "zh" ? "看职业方向" : "See career direction"}
+            </Link>
+            <Link href={personalityBrowseHref} className={buttonVariants({ variant: "outline", size: "sm" })}>
+              {locale === "zh" ? "返回 16 型浏览" : "Back to 16 types"}
+            </Link>
+            <TrackedEntryCtaLink
+              href={mbtiPrimaryCtaHref}
+              prefetch
+              data-testid="mbti-personality-primary-cta"
+              eventProperties={mbtiPrimaryCtaTrackingProps}
+              className={buttonVariants({ variant: "outline", size: "sm" })}
+            >
+              {locale === "zh" ? "重新做 MBTI" : "Retake MBTI"}
+            </TrackedEntryCtaLink>
+          </div>
         </div>
-        <p className="m-0 text-xs text-[var(--fm-text-muted)]" data-testid="mbti-personality-cta-guidance">
-          {locale === "zh"
-            ? "如果你是从类型词进入，先用测试验证这是否真的符合你的答案，再继续读职业与协作场景。"
-            : "If you arrived on a type-specific page, use the test to validate fit before treating this profile as your final answer."}
-        </p>
         {landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="personality-detail-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
@@ -694,146 +694,38 @@ export default async function PersonalityDetailPage({
               : "Use type detail as the primary layer for scenario explanation and next-step routing."
         }
       />
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-        <div className="space-y-4">
-          {hasRenderableContent ? (
-            <>
-              {renderedProjectionSections}
-              {renderedSupplementalSections}
-              <AnswerSurfaceSection
-                surface={detail.answerSurface}
-                locale={locale}
-                testId="personality-detail-answer-surface"
-              />
-            </>
-          ) : (
-            <Card>
-              <CardHeader>
-                <CardTitle>{locale === "zh" ? "内容暂未同步" : "Content not yet available"}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0">
-                  {locale === "zh"
-                    ? "该人格画像已接入 CMS，但当前语言下尚未同步可渲染的 sections。"
-                    : "This personality profile is connected to the CMS, but no renderable sections are available for this locale yet."}
-                </p>
-              </CardContent>
-            </Card>
-          )}
-          {!hasRenderableContent ? (
+      <div className="space-y-4">
+        {hasRenderableContent ? (
+          <>
+            {renderedProjectionSections}
+            {renderedSupplementalSections}
             <AnswerSurfaceSection
               surface={detail.answerSurface}
               locale={locale}
               testId="personality-detail-answer-surface"
             />
-          ) : null}
-        </div>
-
-        <div className="space-y-4">
-          {personalityTypeContent ? (
-            <>
-              <Card>
-                <CardHeader>
-                  <CardTitle>{locale === "zh" ? "Next steps / 继续入口" : "Next steps / Continue"}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-                  <div className="space-y-2">
-                    <Link href={personalityTypeContent.support.topicBacklink.href} className="fm-help-chip-link">
-                      {personalityTypeContent.support.topicBacklink.label}
-                    </Link>
-                    <Link href={personalityTypeContent.support.recommendationBacklink.href} className="fm-help-chip-link">
-                      {personalityTypeContent.support.recommendationBacklink.label}
-                    </Link>
-                    <Link href={personalityTypeContent.support.testEntryLink.href} className="fm-help-chip-link">
-                      {personalityTypeContent.support.testEntryLink.label}
-                    </Link>
-                  </div>
-                  <p className="m-0 text-xs text-[var(--fm-text-muted)]">
-                    {locale === "zh" ? "通过以下内容承接：职业、协作与成长场景。" : "Continue via career, collaboration and growth contexts."}
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>{locale === "zh" ? "相关阅读" : "Related guides / articles"}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-                  <div className="flex flex-wrap gap-2">
-                    {[...personalityTypeContent.support.linkedGuides, ...personalityTypeContent.support.linkedArticles].map((link) => (
-                      <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </>
-          ) : null}
-            <Card>
-              <CardHeader>
-                <CardTitle>{locale === "zh" ? "Profile summary" : "Profile summary"}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-                <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Type" : "Type"}:</span>{" "}
-                  {detail.displayType}
-                </p>
-                {detail.displayType !== detail.canonicalTypeCode ? (
-                  <p className="m-0">
-                    <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Base type" : "Base type"}:</span>{" "}
-                    {detail.canonicalTypeCode}
-                  </p>
-                ) : null}
-                <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Locale" : "Locale"}:</span>{" "}
-                  {detail.locale}
-                </p>
-                <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Planned URL" : "Planned URL"}:</span>{" "}
-                  {normalizedSeo.meta.canonical ?? canonicalUrl(canonicalPath)}
-                </p>
+          </>
+        ) : (
+          <Card>
+            <CardHeader>
+              <CardTitle>{locale === "zh" ? "内容暂未同步" : "Content not yet available"}</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">
-                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Indexing" : "Indexing"}:</span>{" "}
-                {normalizedSeo.meta.robots}
+                {locale === "zh"
+                  ? "当前语言下还没有可展示的正文内容，你可以先返回 16 型浏览或重新做 MBTI。"
+                  : "No body content is available for this locale yet. You can return to the 16-type browser or retake MBTI."}
               </p>
             </CardContent>
           </Card>
-
-          {landingSurface?.ctaBundle.length ? (
-            <Card>
-              <CardHeader>
-                <CardTitle>{locale === "zh" ? "继续探索" : "Continue exploring"}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-wrap gap-2" data-testid="personality-detail-landing-cta">
-                {landingSurface.ctaBundle.map((cta) => (
-                  <Link key={cta.key} href={cta.href} className="fm-help-chip-link">
-                    {cta.label}
-                  </Link>
-                ))}
-              </CardContent>
-            </Card>
-          ) : null}
-
-          <Card>
-            <CardHeader>
-              <CardTitle>{locale === "zh" ? "SEO snapshot" : "SEO snapshot"}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-              <div>
-                <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "Title" : "Title"}</p>
-                <p className="mb-0 mt-1">{normalizedSeo.meta.title || "-"}</p>
-              </div>
-              <div>
-                <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "Description" : "Description"}</p>
-                <p className="mb-0 mt-1">{normalizedSeo.meta.description || "-"}</p>
-              </div>
-              <div>
-                <p className="m-0 font-medium text-[var(--fm-text)]">Canonical</p>
-                <p className="mb-0 mt-1 break-all">{normalizedSeo.meta.canonical || "-"}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        )}
+        {!hasRenderableContent ? (
+          <AnswerSurfaceSection
+            surface={detail.answerSurface}
+            locale={locale}
+            testId="personality-detail-answer-surface"
+          />
+        ) : null}
       </div>
     </Container>
   );

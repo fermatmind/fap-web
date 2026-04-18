@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-17T10:30:00+08:00",
+  "updated_at": "2026-04-18T00:00:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -1754,6 +1754,48 @@
         ]
       },
       "failure_reason": "GitHub CI status checks build and contracts failed after PR creation, while local validation passed. gh pr checks reported no required checks for this branch.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-F56": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/pr-f56-personality-ia-simplification",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/personality/page.tsx' 'app/(localized)/[locale]/personality/[type]/page.tsx' 'app/(localized)/[locale]/tests/[slug]/page.tsx' 'app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx'",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/personality-entry-two-doors.contract.test.tsx tests/contracts/personality-type-browse.contract.test.tsx tests/contracts/mbti-entry-surface.contract.test.ts tests/contracts/personality-hub-contract.test.ts tests/contracts/personality-quick-locate.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint tests/contracts/personality-entry-two-doors.contract.test.tsx tests/contracts/personality-type-browse.contract.test.tsx tests/contracts/mbti-entry-surface.contract.test.ts tests/contracts/personality-hub-contract.test.ts tests/contracts/personality-quick-locate.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

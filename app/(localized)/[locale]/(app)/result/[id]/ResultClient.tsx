@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
@@ -44,6 +45,7 @@ import { ensureFmTokenReady, runWithGuestTokenRetry } from "@/lib/auth/authRetry
 import { getFmToken, isGuestTokenRequestError, setFmToken } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
+import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { logInfo, logWarn } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
@@ -1166,10 +1168,33 @@ export default function ResultClient({
         : undefined;
   const summary = typeof result.summary === "string" ? result.summary : undefined;
   const dimensions = normalizeDimensions(resultData, locale);
+  const mbtiPersonalityHref =
+    resolvedScaleCode === "MBTI" && typeCode
+      ? localizedPath(`/personality/${buildDefaultPublicPersonalitySlug(typeCode)}`, locale)
+      : "";
 
   return (
     <div className="space-y-[var(--fm-gap-md)]">
-      <ResultSummary typeCode={typeCode} summary={summary} />
+      <ResultSummary
+        title={
+          mbtiPersonalityHref
+            ? locale === "zh"
+              ? "你的类型是"
+              : "Your type is"
+            : undefined
+        }
+        typeCode={typeCode}
+        summary={summary}
+      />
+      {mbtiPersonalityHref ? (
+        <Link
+          href={mbtiPersonalityHref}
+          className="inline-flex rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+          data-testid="mbti-result-personality-next-step"
+        >
+          {locale === "zh" ? "查看人格类型内容" : "Open personality profile"}
+        </Link>
+      ) : null}
       <DimensionBars dimensions={dimensions} />
     </div>
   );

@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
-import { PersonalityHeroExecutiveSummary } from "@/components/personality/PersonalityHeroExecutiveSummary";
-import { CareerIntelligencePreview } from "@/components/personality/CareerIntelligencePreview";
-import { PersonalityFaq } from "@/components/personality/PersonalityFaq";
-import { PersonalityMobileDecisionBar } from "@/components/personality/PersonalityMobileDecisionBar";
-import { ScenarioIntelligenceMatrix } from "@/components/personality/ScenarioIntelligenceMatrix";
-import { PersonalityMethodology } from "@/components/personality/PersonalityMethodology";
-import { TypeNavigatorWorkbench } from "@/components/personality/TypeNavigatorWorkbench";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -17,14 +12,13 @@ import { localizedPath } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
-import { buildPersonalityQuickLocateIndex } from "@/lib/mbti/personalityQuickLocate";
-import { buildPersonalityCareerPreview } from "@/lib/mbti/personalityCareerPreview";
-import { buildPersonalityScenarioMatrix } from "@/lib/mbti/personalityScenarioMatrix";
-import { buildPersonalityWorkbench } from "@/lib/mbti/personalityWorkbench";
-import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildItemListJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+import type { HubCtaLink, PersonalityHubFamilyGroup } from "@/lib/mbti/personalityHub.types";
+import { buildBreadcrumbJsonLd, buildItemListJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
+
+type Locale = "en" | "zh";
 
 export async function generateMetadata({
   params,
@@ -40,14 +34,189 @@ export async function generateMetadata({
     title: locale === "zh" ? "人格类型" : "Personality Types",
     description:
       locale === "zh"
-        ? "浏览 16 型人格的优势、风险、人际模式与职业匹配建议。"
-        : "Explore strengths, risks, relationship patterns, and career-fit guidance across 16 personality types.",
+        ? "先做 MBTI 测试，或直接浏览 16 型人格内容。"
+        : "Start the MBTI test or browse the 16 personality type profiles directly.",
     alternatesByLocale: {
       en: "/en/personality",
       zh: "/zh/personality",
       xDefault: "/",
     },
   });
+}
+
+function localizeDoorCopy(locale: Locale) {
+  return {
+    heroTitle: locale === "zh" ? "看懂你的人格类型" : "Understand your personality type",
+    heroSubtitle:
+      locale === "zh"
+        ? "先找到自己的类型，再进入更适合你的内容方向。"
+        : "Find your type first, then move into the content path that fits you.",
+    doorOneEyebrow: locale === "zh" ? "我还不知道自己的类型" : "I do not know my type yet",
+    doorOneTitle: locale === "zh" ? "先做一次 MBTI 测试" : "Take the MBTI test first",
+    doorOneBody:
+      locale === "zh"
+        ? "适合第一次进入，想快速知道自己更偏向哪一类人格的人。"
+        : "Best for a first visit when you want a quick read on which personality type you lean toward.",
+    doorOneCta: locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test",
+    doorTwoEyebrow: locale === "zh" ? "我已经知道自己的类型" : "I already know my type",
+    doorTwoTitle: locale === "zh" ? "直接查看人格类型内容" : "Go straight to type content",
+    doorTwoBody:
+      locale === "zh"
+        ? "适合已经知道自己是 INFJ / INTJ / ENFP 等类型，想直接看画像、差异与延伸内容的人。"
+        : "Best if you already know you are INFJ, INTJ, ENFP, or another type and want the profile, differences, and next reading.",
+    doorTwoCta: locale === "zh" ? "浏览 16 型人格" : "Browse 16 types",
+    groupHeading: locale === "zh" ? "按类型组浏览" : "Browse by type group",
+    groupSubtitle:
+      locale === "zh"
+        ? "先选一个类型组，再进入具体人格内容页。"
+        : "Choose a group first, then open a specific personality profile.",
+    viewGroup: locale === "zh" ? "查看该组类型" : "View this group",
+    quietHeading: locale === "zh" ? "继续阅读" : "Continue reading",
+    quietSubtitle:
+      locale === "zh"
+        ? "这些是人格内容的延伸方向，不是进入人格板块的主路径。"
+        : "These are supporting personality themes, not the primary entry path.",
+  };
+}
+
+function MainDoor({
+  eyebrow,
+  title,
+  body,
+  cta,
+  href,
+  primary = false,
+  trackingProps,
+}: {
+  eyebrow: string;
+  title: string;
+  body: string;
+  cta: string;
+  href: string;
+  primary?: boolean;
+  trackingProps?: ReturnType<typeof buildMbtiEntryTrackingPayload>;
+}) {
+  const className = buttonVariants({ variant: primary ? "default" : "outline", size: "lg" });
+
+  return (
+    <article
+      className="flex min-h-[260px] flex-col justify-between rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]"
+      data-testid={primary ? "personality-main-door-test" : "personality-main-door-browse"}
+    >
+      <div className="space-y-4">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{eyebrow}</p>
+        <div className="space-y-3">
+          <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{title}</h2>
+          <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{body}</p>
+        </div>
+      </div>
+      {trackingProps ? (
+        <TrackedEntryCtaLink
+          href={href}
+          className={className}
+          data-testid="personality-start-mbti-cta"
+          eventProperties={trackingProps}
+        >
+          {cta}
+        </TrackedEntryCtaLink>
+      ) : (
+        <Link href={href} className={className} data-testid="personality-browse-types-cta">
+          {cta}
+        </Link>
+      )}
+    </article>
+  );
+}
+
+function TypeGroupBrowse({
+  locale,
+  groups,
+}: {
+  locale: Locale;
+  groups: PersonalityHubFamilyGroup[];
+}) {
+  const copy = localizeDoorCopy(locale);
+
+  return (
+    <section id="type-groups" className="space-y-6" data-testid="personality-type-group-browse">
+      <div className="space-y-2">
+        <h2 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{copy.groupHeading}</h2>
+        <p className="m-0 text-sm text-[var(--fm-text-muted)]">{copy.groupSubtitle}</p>
+      </div>
+      <div className="grid gap-4 lg:grid-cols-4">
+        {groups.map((group) => (
+          <article
+            key={group.groupKey}
+            id={group.groupKey.toLowerCase()}
+            className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          >
+            <div className="space-y-2">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+                {group.groupKey}
+              </p>
+              <h3 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+                {group.groupKey} · {group.title}
+              </h3>
+              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{group.summary}</p>
+            </div>
+            <a href={`#${group.groupKey.toLowerCase()}-types`} className="fm-help-chip-link">
+              {copy.viewGroup}
+            </a>
+          </article>
+        ))}
+      </div>
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4" data-testid="personality-type-directory">
+        {groups.map((group) => (
+          <section
+            key={`${group.groupKey}-types`}
+            id={`${group.groupKey.toLowerCase()}-types`}
+            className="space-y-3"
+          >
+            <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">
+              {group.groupKey} · {group.title}
+            </p>
+            <div className="grid gap-2">
+              {group.cards.map((type) => (
+                <Link
+                  key={type.typeCode}
+                  href={type.href}
+                  className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-4 py-3 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
+                >
+                  {type.typeCode} · {type.title}
+                </Link>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function QuietThemeLibrary({
+  locale,
+  links,
+}: {
+  locale: Locale;
+  links: HubCtaLink[];
+}) {
+  const copy = localizeDoorCopy(locale);
+
+  return (
+    <section className="space-y-3 border-t border-[var(--fm-border)] pt-6" data-testid="personality-quiet-theme-library">
+      <div className="space-y-1">
+        <h2 className="m-0 text-base font-semibold text-[var(--fm-text)]">{copy.quietHeading}</h2>
+        <p className="m-0 text-sm text-[var(--fm-text-muted)]">{copy.quietSubtitle}</p>
+      </div>
+      <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        {links.map((link) => (
+          <Link key={`${link.href}-${link.label}`} href={link.href} className="text-[var(--fm-accent)] underline underline-offset-4">
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default async function PersonalityPage({
@@ -69,30 +238,12 @@ export default async function PersonalityPage({
     },
   }));
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
+  const copy = localizeDoorCopy(locale);
   const hubPayload = buildPersonalityHubPayload({
     locale,
     canonicalPath,
     personalities,
     landingSurface,
-  });
-  const quickLocateIndex = await buildPersonalityQuickLocateIndex({
-    locale,
-    typeResults: hubPayload.typeDecisionCards,
-  });
-  const scenarioMatrix = buildPersonalityScenarioMatrix({
-    locale,
-    scenarioCards: hubPayload.scenarioMatrixSeed,
-    familyGroups: hubPayload.familyGroups,
-    typeDecisionCards: hubPayload.typeDecisionCards,
-  });
-  const workbenchPayload = buildPersonalityWorkbench({
-    locale,
-    familyGroups: hubPayload.familyGroups,
-    typeDecisionCards: hubPayload.typeDecisionCards,
-  });
-  const careerPreviewCards = await buildPersonalityCareerPreview({
-    locale,
-    seed: hubPayload.careerPreviewSeed,
   });
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
@@ -118,27 +269,20 @@ export default async function PersonalityPage({
     targetAction: "start_mbti_test_primary",
     sourcePath: canonicalPath,
   });
-  const mbtiTopicHubHref = withLocale("/topics/mbti");
-  const methodologyItems = hubPayload.methodologyItems ?? hubPayload.methodologyBlocks;
-  const faqItems = hubPayload.faqItems ?? hubPayload.faqBlocks;
   const typeItemList = hubPayload.jsonLdInputs?.typeItemList ?? [];
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: locale === "zh" ? "人格类型" : "Personality Types",
     description:
       locale === "zh"
-        ? "浏览 16 型人格的优势、风险、人际模式与职业匹配建议。"
-        : "Explore strengths, risks, relationship patterns, and career-fit guidance across 16 personality types.",
+        ? "先做 MBTI 测试，或直接浏览 16 型人格内容。"
+        : "Start the MBTI test or browse the 16 personality type profiles directly.",
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "人格" : "Personality", path: canonicalPath },
   ]);
-  const faqJsonLd =
-    faqItems.length
-      ? buildFAQPageJsonLd(faqItems)
-      : null;
   const itemListJsonLd =
     typeItemList.length
       ? buildItemListJsonLd({
@@ -146,8 +290,8 @@ export default async function PersonalityPage({
           title: locale === "zh" ? "16 型人格目录" : "16 personality type inventory",
           description:
             locale === "zh"
-              ? "按人格类型浏览 16 型 profile 路由。"
-              : "Browse the published profile routes for all 16 personality types.",
+              ? "按类型组浏览 16 型人格内容页。"
+              : "Browse the published 16 personality profiles by type group.",
           locale,
           idSuffix: "personality-inventory",
           items: typeItemList.map((item) => ({
@@ -157,13 +301,39 @@ export default async function PersonalityPage({
           })),
         })
       : null;
+  const quietLinks: HubCtaLink[] = [
+    {
+      label: locale === "zh" ? "职业方向" : "Career direction",
+      href: withLocale("/career/recommendations"),
+      kind: "tertiary",
+    },
+    {
+      label: locale === "zh" ? "团队协作" : "Team collaboration",
+      href: withLocale("/topics/mbti"),
+      kind: "tertiary",
+    },
+    {
+      label: locale === "zh" ? "关系互动" : "Relationships",
+      href: withLocale("/topics/mbti"),
+      kind: "tertiary",
+    },
+    {
+      label: locale === "zh" ? "成长建议" : "Growth advice",
+      href: withLocale("/topics/mbti"),
+      kind: "tertiary",
+    },
+    {
+      label: locale === "zh" ? "MBTI 主题中心" : "MBTI topic hub",
+      href: withLocale("/topics/mbti"),
+      kind: "tertiary",
+    },
+  ];
 
   return (
-    <Container as="main" className="space-y-6 py-10 pb-28 md:pb-10">
+    <Container as="main" className="space-y-10 py-10 pb-24">
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
       <JsonLd id="personality-webpage" data={webPageJsonLd} />
       <JsonLd id="personality-breadcrumb" data={breadcrumbJsonLd} />
-      {faqJsonLd ? <JsonLd id="personality-faq-jsonld" data={faqJsonLd} /> : null}
       {itemListJsonLd ? <JsonLd id="personality-itemlist-jsonld" data={itemListJsonLd} /> : null}
       <Breadcrumb
         items={[
@@ -171,54 +341,35 @@ export default async function PersonalityPage({
           { label: locale === "zh" ? "人格" : "Personality" },
         ]}
       />
-      <PersonalityMobileDecisionBar
-        locale={locale}
-        primaryHref={mbtiPrimaryCtaHref}
-        primaryTrackingProps={mbtiPrimaryCtaTrackingProps}
-        quickLocateHref="#personality-quick-locate"
-      />
 
-      <PersonalityHeroExecutiveSummary
-        locale={locale}
-        hero={hubPayload.hero}
-        primaryHref={mbtiPrimaryCtaHref}
-        primaryTrackingProps={mbtiPrimaryCtaTrackingProps}
-        secondaryHref={mbtiTopicHubHref}
-        quickLocateIndex={quickLocateIndex}
-        supportingLinks={landingSurface?.ctaBundle ?? []}
-        footerNote={
-          locale === "zh"
-            ? "内容来自 Personality CMS，仅展示已发布且公开的 profile。"
-            : "Powered by Personality CMS and showing published public profiles only."
-        }
-      />
+      <section className="max-w-4xl space-y-4" data-testid="personality-ia-hero">
+        <h1 className="m-0 font-serif text-5xl font-semibold tracking-tight text-[var(--fm-text)] md:text-6xl">
+          {copy.heroTitle}
+        </h1>
+        <p className="m-0 max-w-2xl text-lg leading-8 text-[var(--fm-text-muted)]">{copy.heroSubtitle}</p>
+      </section>
 
-      <ScenarioIntelligenceMatrix locale={locale} cards={scenarioMatrix} />
-
-      {workbenchPayload.cards.length > 0 ? (
-        <TypeNavigatorWorkbench
-          locale={locale}
-          payload={workbenchPayload}
-          familyGroups={hubPayload.familyGroups}
+      <section className="grid gap-4 lg:grid-cols-2" data-testid="personality-two-main-doors">
+        <MainDoor
+          eyebrow={copy.doorOneEyebrow}
+          title={copy.doorOneTitle}
+          body={copy.doorOneBody}
+          cta={copy.doorOneCta}
+          href={mbtiPrimaryCtaHref}
+          primary
+          trackingProps={mbtiPrimaryCtaTrackingProps}
         />
-      ) : (
-        <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
-          <CardHeader className="space-y-2">
-            <CardTitle className="font-serif text-[var(--fm-text)]">
-              {locale === "zh" ? "暂无已发布人格内容" : "No published personality profiles yet"}
-            </CardTitle>
-            <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-              {locale === "zh"
-                ? "CMS 当前没有返回该语言的人格内容。"
-                : "The CMS did not return any personality profiles for this locale."}
-            </p>
-          </CardHeader>
-        </Card>
-      )}
+        <MainDoor
+          eyebrow={copy.doorTwoEyebrow}
+          title={copy.doorTwoTitle}
+          body={copy.doorTwoBody}
+          cta={copy.doorTwoCta}
+          href="#type-groups"
+        />
+      </section>
 
-      <CareerIntelligencePreview locale={locale} cards={careerPreviewCards} />
-      <PersonalityMethodology locale={locale} blocks={methodologyItems} />
-      <PersonalityFaq locale={locale} items={faqItems} />
+      <TypeGroupBrowse locale={locale} groups={hubPayload.familyGroups} />
+      <QuietThemeLibrary locale={locale} links={quietLinks} />
     </Container>
   );
 }

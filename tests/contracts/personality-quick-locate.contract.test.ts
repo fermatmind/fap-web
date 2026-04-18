@@ -47,10 +47,11 @@ describe("personality quick locate contract", () => {
     ],
   };
 
-  it("wires the personality hero to a real quick-locate index", () => {
-    expect(pageSource).toContain("buildPersonalityQuickLocateIndex({");
-    expect(pageSource).toContain("<PersonalityHeroExecutiveSummary");
-    expect(pageSource).toContain("quickLocateIndex={quickLocateIndex}");
+  it("keeps quick locate out of the simplified personality first layer", () => {
+    expect(pageSource).not.toContain("buildPersonalityQuickLocateIndex({");
+    expect(pageSource).not.toContain("<PersonalityHeroExecutiveSummary");
+    expect(pageSource).not.toContain("quickLocateIndex={quickLocateIndex}");
+    expect(pageSource).not.toContain("PersonalityQuickLocateBar");
   });
 
   it("builds career search entries from CMS-backed jobs", () => {
