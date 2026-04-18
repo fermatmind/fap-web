@@ -118,11 +118,51 @@ function asArray<T = unknown>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
 
-function renderSectionCard(sectionKey: string, title: string, content: ReactNode) {
+const PROJECTION_SECTION_TITLE_COPY: Record<string, { zh: string; en: string }> = {
+  overview: { zh: "核心总览", en: "Overview" },
+  letters_intro: { zh: "字母拆解", en: "Letter-by-letter introduction" },
+  trait_overview: { zh: "维度总览", en: "Trait overview" },
+  "career.summary": { zh: "职业映射总览", en: "Career summary" },
+  "career.advantages": { zh: "职业优势", en: "Career advantages" },
+  "career.weaknesses": { zh: "职业风险", en: "Career weaknesses" },
+  "career.preferred_roles": { zh: "偏好岗位簇", en: "Preferred roles" },
+  "career.upgrade_suggestions": { zh: "职业升级建议", en: "Career upgrade suggestions" },
+  "growth.summary": { zh: "成长总览", en: "Growth summary" },
+  "growth.strengths": { zh: "成长杠杆", en: "Growth strengths" },
+  "growth.weaknesses": { zh: "成长阻力", en: "Growth weaknesses" },
+  "growth.motivators": { zh: "成长动力", en: "Growth motivators" },
+  "growth.drainers": { zh: "能量消耗", en: "Growth drainers" },
+  "relationships.summary": { zh: "关系总览", en: "Relationships summary" },
+  "relationships.strengths": { zh: "关系优势", en: "Relationships strengths" },
+  "relationships.weaknesses": { zh: "关系风险", en: "Relationships weaknesses" },
+  "relationships.rel_advantages": { zh: "关系优势场景", en: "Relationship advantages" },
+  "relationships.rel_risks": { zh: "关系风险场景", en: "Relationship risks" },
+};
+
+function projectionSectionTitle(sectionKey: string, fallbackTitle: string, locale: Locale): string {
+  const copy = PROJECTION_SECTION_TITLE_COPY[sectionKey];
+  if (!copy) {
+    return fallbackTitle;
+  }
+
+  return locale === "zh" ? copy.zh : copy.en;
+}
+
+function stripZhTraitSuffix(title: string, locale: Locale): string {
+  if (locale !== "zh") {
+    return title;
+  }
+
+  return title.replace(/（-?[A-Z]）$/, "").trim();
+}
+
+function renderSectionCard(sectionKey: string, title: string, content: ReactNode, locale?: Locale) {
+  const displayTitle = locale ? projectionSectionTitle(sectionKey, title, locale) : title;
+
   return (
     <Card key={sectionKey} id={sectionKey} data-section-key={sectionKey}>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle>{displayTitle}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4 text-sm">{content}</CardContent>
     </Card>
@@ -435,7 +475,7 @@ function renderProjectionBulletsSection(section: RenderableProjectionSection) {
   return renderBulletItems(fallbackItems);
 }
 
-function renderLettersIntroSection(section: RenderableProjectionSection) {
+function renderLettersIntroSection(section: RenderableProjectionSection, locale: Locale) {
   const payload = normalizeLettersIntroPayload(section.payload);
 
   return (
@@ -453,7 +493,9 @@ function renderLettersIntroSection(section: RenderableProjectionSection) {
                   {item.letter}
                 </div>
                 <div className="space-y-1">
-                  {item.title ? <p className="m-0 font-semibold text-[var(--fm-text)]">{item.title}</p> : null}
+                  {item.title ? (
+                    <p className="m-0 font-semibold text-[var(--fm-text)]">{stripZhTraitSuffix(item.title, locale)}</p>
+                  ) : null}
                   {item.description ? <p className="m-0 text-[var(--fm-text-muted)]">{item.description}</p> : null}
                 </div>
               </div>
@@ -467,7 +509,7 @@ function renderLettersIntroSection(section: RenderableProjectionSection) {
   );
 }
 
-function renderTraitDimensionGridSection(section: RenderableProjectionSection) {
+function renderTraitDimensionGridSection(section: RenderableProjectionSection, locale: Locale) {
   const payload = section.payload;
   const summary = normalizeText(payload?.summary);
   const dimensions = normalizeTraitDimensions(payload);
@@ -478,7 +520,7 @@ function renderTraitDimensionGridSection(section: RenderableProjectionSection) {
 
   return (
     <div className="space-y-4">
-      {summary ? <p className="m-0 leading-7 text-[var(--fm-text-muted)]">{summary}</p> : null}
+      {summary && locale !== "zh" ? <p className="m-0 leading-7 text-[var(--fm-text-muted)]">{summary}</p> : null}
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {dimensions.map((dimension) => (
           <article
@@ -494,7 +536,7 @@ function renderTraitDimensionGridSection(section: RenderableProjectionSection) {
                   {dimension.id}
                 </span>
               </div>
-              {(dimension.axisLeft || dimension.axisRight) && (
+              {(dimension.axisLeft || dimension.axisRight) && locale !== "zh" && (
                 <p className="m-0 text-xs uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
                   {[dimension.axisLeft, dimension.axisRight].filter(Boolean).join(" / ")}
                 </p>
@@ -546,7 +588,7 @@ function renderPreferredRoleListSection(section: RenderableProjectionSection) {
   );
 }
 
-function renderPremiumTeaserSection(section: RenderableProjectionSection, locale: Locale) {
+function renderPremiumTeaserSection(section: RenderableProjectionSection) {
   const teaser = normalizeText(section.payload?.teaser ?? section.payload?.summary) || section.bodyMd;
 
   if (!teaser.trim()) {
@@ -556,12 +598,6 @@ function renderPremiumTeaserSection(section: RenderableProjectionSection, locale
   return (
     <div className="space-y-3 rounded-xl border border-dashed border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
       <p className="m-0 text-[var(--fm-text-muted)]">{teaser}</p>
-      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-        {locale === "zh" ? "Premium section preview" : "Premium section preview"}
-      </p>
-      <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-        {locale === "zh" ? "Unlock the full section in the premium experience." : "Unlock the full section in the premium experience."}
-      </p>
     </div>
   );
 }
@@ -634,16 +670,16 @@ export function renderProjectionSections(
 
       switch (section.render) {
         case "letters_intro":
-          content = renderLettersIntroSection(section);
+          content = renderLettersIntroSection(section, locale);
           break;
         case "trait_dimension_grid":
-          content = renderTraitDimensionGridSection(section);
+          content = renderTraitDimensionGridSection(section, locale);
           break;
         case "preferred_role_list":
           content = renderPreferredRoleListSection(section);
           break;
         case "premium_teaser":
-          content = renderPremiumTeaserSection(section, locale);
+          content = renderPremiumTeaserSection(section);
           break;
         case "bullets":
           content = renderProjectionBulletsSection(section);
@@ -658,7 +694,7 @@ export function renderProjectionSections(
         return null;
       }
 
-      return renderSectionCard(section.key, section.title, content);
+      return renderSectionCard(section.key, section.title, content, locale);
     })
     .filter((section) => section !== null);
 }

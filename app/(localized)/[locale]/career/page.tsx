@@ -88,13 +88,9 @@ export default async function CareerCenterPage({
         />
 
         <section className="mx-auto max-w-4xl space-y-4 pt-4 text-center md:pt-8" data-testid="career-landing-hero" data-authority-owner="editorial_local_wrapper">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">Career</p>
           <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
             {locale === "zh" ? "找到适合你的职业方向" : "Find the right career direction for you"}
           </h1>
-          <h2 className="mx-auto m-0 max-w-2xl text-lg font-medium leading-8 text-slate-600">
-            {locale === "zh" ? "先选一条最适合你当前状态的路径" : "Choose the path that best fits where you are now"}
-          </h2>
         </section>
 
         <section className="grid gap-4 md:grid-cols-3" data-testid="career-explorer-pathways" data-authority-owner="editorial_ia_shell">
@@ -110,7 +106,7 @@ export default async function CareerCenterPage({
                 ? "适合已经知道岗位名称，想快速查看职业资料的人。"
                 : "Use this when you already know the role name and want to inspect the profile quickly."}
             </p>
-            <form action={withLocale("/career/jobs")} method="get" className="mt-5 space-y-3" data-testid="career-landing-search-entry">
+            <form action={withLocale("/career/jobs")} method="get" className="mt-auto space-y-3 pt-9" data-testid="career-landing-search-entry">
               <input
                 type="search"
                 name="q"
@@ -121,9 +117,6 @@ export default async function CareerCenterPage({
                 {locale === "zh" ? "搜索职业" : "Search career"}
               </button>
             </form>
-            <Link href={withLocale("/career/resolve")} className="mt-4 text-sm font-medium text-slate-500 underline underline-offset-4 hover:text-slate-950">
-              {locale === "zh" ? "不确定叫法？试试别名解析" : "Not sure what it is called? Try alias resolve"}
-            </Link>
           </article>
 
           <article className="flex flex-col rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6" data-testid="career-pathway-recommendation">
@@ -163,9 +156,6 @@ export default async function CareerCenterPage({
 
         <section className="rounded-3xl border border-slate-200 bg-white/80 p-5 text-sm shadow-sm md:p-6" data-testid="career-quiet-library" data-authority-owner="editorial_support_links">
           <div className="space-y-5 text-center">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-              {locale === "zh" ? "辅助资料" : "Quiet Library"}
-            </p>
             <h2 className="m-0 text-lg font-semibold tracking-tight text-slate-950">
               {locale === "zh" ? "需要更多背景时再看" : "Support material for later"}
             </h2>

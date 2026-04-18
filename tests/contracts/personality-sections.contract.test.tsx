@@ -52,14 +52,64 @@ describe("personality projection section renderer contract", () => {
               },
             }),
           ],
-          "en"
+          "zh"
         )}
       </div>
     );
 
     expect(screen.getByText("How the four letters create the public profile.")).toBeInTheDocument();
+    expect(screen.getByText("字母拆解")).toBeInTheDocument();
     expect(screen.getByText("Introversion")).toBeInTheDocument();
     expect(screen.getByText("Tracks abstractions and future patterns.")).toBeInTheDocument();
+  });
+
+  it("removes inline letter suffixes for zh letter cards", () => {
+    render(
+      <div>
+        {renderProjectionSections(
+          [
+            section({
+              key: "letters_intro",
+              title: "Letter-by-letter introduction",
+              render: "letters_intro",
+              bodyMd: "",
+              payload: {
+                headline: "内向 · 直觉 · 思考 · 规划 · 自信型",
+                letters: [
+                  { letter: "I", title: "内向（I）", description: "向内整理信息。" },
+                  { letter: "A", title: "自信型（-A）", description: "更能稳定判断。" },
+                ],
+              },
+            }),
+          ],
+          "zh"
+        )}
+      </div>
+    );
+
+    expect(screen.getByText("内向")).toBeInTheDocument();
+    expect(screen.getByText("自信型")).toBeInTheDocument();
+    expect(screen.queryByText("内向（I）")).not.toBeInTheDocument();
+    expect(screen.queryByText("自信型（-A）")).not.toBeInTheDocument();
+  });
+
+  it("localizes generic zh projection headings", () => {
+    render(
+      <div>
+        {renderProjectionSections(
+          [
+            section({ key: "overview", title: "Overview", bodyMd: "A compact type overview." }),
+            section({ key: "growth.drainers", title: "Growth drainers", bodyMd: "Common energy drains." }),
+          ],
+          "zh"
+        )}
+      </div>
+    );
+
+    expect(screen.getByText("核心总览")).toBeInTheDocument();
+    expect(screen.getByText("能量消耗")).toBeInTheDocument();
+    expect(screen.queryByText("Overview")).not.toBeInTheDocument();
+    expect(screen.queryByText("Growth drainers")).not.toBeInTheDocument();
   });
 
   it("renders trait_overview as a canonical dimension grid", () => {
@@ -87,14 +137,15 @@ describe("personality projection section renderer contract", () => {
               },
             }),
           ],
-          "en"
+          "zh"
         )}
       </div>
     );
 
-    expect(screen.getByText("Five canonical MBTI dimensions.")).toBeInTheDocument();
+    expect(screen.getByText("维度总览")).toBeInTheDocument();
+    expect(screen.queryByText("Five canonical MBTI dimensions.")).not.toBeInTheDocument();
     expect(screen.getByText("Information")).toBeInTheDocument();
-    expect(screen.getByText("Sensing / Intuition")).toBeInTheDocument();
+    expect(screen.queryByText("Sensing / Intuition")).not.toBeInTheDocument();
     expect(screen.getByText("Builds abstract models before locking details.")).toBeInTheDocument();
   });
 
@@ -121,11 +172,12 @@ describe("personality projection section renderer contract", () => {
               },
             }),
           ],
-          "en"
+          "zh"
         )}
       </div>
     );
 
+    expect(screen.getByText("偏好岗位簇")).toBeInTheDocument();
     expect(screen.getByText("Roles that reward long-cycle strategy.")).toBeInTheDocument();
     expect(screen.getByText("Strategic systems roles")).toBeInTheDocument();
     expect(screen.getByText("Product strategist")).toBeInTheDocument();
@@ -150,14 +202,14 @@ describe("personality projection section renderer contract", () => {
               bodyMd: "Preview: steadiness, clarity, and selective loyalty.",
             }),
           ],
-          "en"
+          "zh"
         )}
       </div>
     );
 
-    expect(screen.getByText("Growth motivators")).toBeInTheDocument();
+    expect(screen.getByText("成长动力")).toBeInTheDocument();
     expect(screen.getByText("Preview: recognition, purpose, and intellectual momentum.")).toBeInTheDocument();
-    expect(screen.getAllByText("Premium section preview")).toHaveLength(2);
-    expect(screen.getAllByText("Unlock the full section in the premium experience.")).toHaveLength(2);
+    expect(screen.queryByText("Premium section preview")).not.toBeInTheDocument();
+    expect(screen.queryByText("Unlock the full section in the premium experience.")).not.toBeInTheDocument();
   });
 });

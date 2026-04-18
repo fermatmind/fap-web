@@ -9,12 +9,16 @@ function read(relativePath: string): string {
 describe("personality entry main action contract", () => {
   const source = read("app/(localized)/[locale]/personality/page.tsx");
 
-  it("keeps the personality index focused on the MBTI action plus type browsing", () => {
-    expect(source).toContain("看懂你的人格类型");
-    expect(source).toContain("我还不知道自己的类型");
-    expect(source).toContain("先做一次 MBTI 测试");
-    expect(source).toContain('data-testid="personality-main-action"');
-    expect(source).toContain('data-testid="personality-start-mbti-cta"');
+  it("keeps the personality index focused on the direct type directory", () => {
+    expect(source).toContain('data-testid="personality-type-group-browse"');
+    expect(source).toContain('data-testid="personality-type-directory"');
+    expect(source).not.toContain("看懂你的人格类型");
+    expect(source).not.toContain("我还不知道自己的类型");
+    expect(source).not.toContain("先做一次 MBTI 测试");
+    expect(source).not.toContain("按类型组浏览");
+    expect(source).not.toContain('data-testid="personality-ia-hero"');
+    expect(source).not.toContain('data-testid="personality-main-action"');
+    expect(source).not.toContain('data-testid="personality-start-mbti-cta"');
     expect(source).not.toContain("先找到自己的类型，再进入更适合你的内容方向。");
     expect(source).not.toContain("我已经知道自己的类型");
     expect(source).not.toContain("直接查看人格类型内容");
@@ -34,11 +38,12 @@ describe("personality entry main action contract", () => {
     expect(source).not.toContain("buildPersonalityWorkbench");
   });
 
-  it("keeps MBTI test tracking while routing the primary action to the test start page", () => {
+  it("keeps personality index page-view tracking without a primary MBTI CTA", () => {
     expect(source).toContain('entrySurface: "mbti_personality_index"');
     expect(source).toContain('sourcePageType: "personality_index"');
-    expect(source).toContain('targetAction: "start_mbti_test_primary"');
-    expect(source).toContain("buildMbtiEntryHref({");
-    expect(source).toContain("TrackedEntryCtaLink");
+    expect(source).toContain('targetAction: "entry_view"');
+    expect(source).not.toContain('targetAction: "start_mbti_test_primary"');
+    expect(source).not.toContain("buildMbtiEntryHref({");
+    expect(source).not.toContain("TrackedEntryCtaLink");
   });
 });
