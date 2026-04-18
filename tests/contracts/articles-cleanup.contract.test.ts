@@ -110,7 +110,7 @@ describe("articles cleanup contract", () => {
   it("articles cms adapter paginates locale-scoped llms enumeration", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
-      const page = new URL(url).searchParams.get("page");
+      const page = new URL(url, "http://localhost:3000").searchParams.get("page");
 
       expect(url).toContain("/api/v0.5/articles?");
       expect(url).toContain("locale=zh-CN");
