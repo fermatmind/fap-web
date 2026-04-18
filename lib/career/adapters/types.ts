@@ -352,6 +352,13 @@ export type CareerJobBundleAdapter = {
     onTheJobTraining: string | null;
     sourceRefs: string[];
   };
+  contentSections: Array<{
+    sectionKey: string;
+    title: string;
+    renderVariant: string | null;
+    bodyMd: string;
+    sortOrder: number | null;
+  }>;
   scoreBundle: CareerScoreBundleAdapter;
   warnings: CareerWarningsAdapter;
   claimPermissions: CareerClaimPermissions;
