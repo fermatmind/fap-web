@@ -290,20 +290,6 @@ export default async function ArticleDetailPage({
               : "This content is for self-discovery and educational use, not medical or legal advice."}
           </section>
 
-          <section
-            id="references"
-            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]"
-          >
-            <h2 className="m-0 text-base font-semibold text-[var(--fm-text)]">
-              {locale === "zh" ? "参考资料" : "References"}
-            </h2>
-            <p className="mb-0 mt-3">
-              {locale === "zh"
-                ? "参考来源请见正文中的文献与公开资料。"
-                : "Please refer to citations and public references listed in the article."}
-            </p>
-          </section>
-
           <div className="flex flex-wrap gap-3">
             <Link
               href={backToArticlesCta?.href ?? localizedPath("/articles", locale)}
