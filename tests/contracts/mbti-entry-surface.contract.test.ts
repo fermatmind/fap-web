@@ -150,32 +150,28 @@ describe("mbti entry surface contract", () => {
 
   it("wires personality index with one primary mbti CTA and entry tracking", () => {
     const source = read("app/(localized)/[locale]/personality/page.tsx");
-    const heroSource = read("components/personality/PersonalityHeroExecutiveSummary.tsx");
-    const matrixSource = read("components/personality/ScenarioIntelligenceMatrix.tsx");
-    const workbenchSource = read("components/personality/TypeNavigatorWorkbench.tsx");
 
     expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
     expect(source).toContain('entrySurface: "mbti_personality_index"');
     expect(source).toContain('sourcePageType: "personality_index"');
-    expect(source).toContain("PersonalityHeroExecutiveSummary");
-    expect(source).toContain("buildPersonalityQuickLocateIndex");
-    expect(source).toContain("buildPersonalityHubPayload");
-    expect(source).toContain("buildPersonalityScenarioMatrix");
-    expect(source).toContain("buildPersonalityWorkbench");
-    expect(source).toContain("<ScenarioIntelligenceMatrix");
-    expect(source).toContain("<TypeNavigatorWorkbench");
+    expect(source).toContain('data-testid="personality-two-main-doors"');
+    expect(source).toContain('"personality-main-door-test"');
+    expect(source).toContain('"personality-main-door-browse"');
+    expect(source).toContain('data-testid="personality-start-mbti-cta"');
+    expect(source).toContain('data-testid="personality-browse-types-cta"');
+    expect(source).toContain('data-testid="personality-type-group-browse"');
+    expect(source).toContain('data-testid="personality-type-directory"');
+    expect(source).toContain('data-testid="personality-quiet-theme-library"');
+    expect(source).toContain("buildPersonalityHubPayload({");
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
     expect(source).toContain('buildMbtiEntryHref({');
-    expect(heroSource).toContain('data-testid="mbti-personality-index-entry-cta-group"');
-    expect(heroSource).toContain('data-testid="mbti-personality-index-primary-cta"');
-    expect(heroSource).toContain('data-testid="mbti-personality-index-discoverability-links"');
-    expect(heroSource).toContain("TrackedEntryCtaLink");
-    expect(heroSource).toContain("PersonalityQuickLocateBar");
-    expect(matrixSource).toContain('data-testid="personality-index-scene-entry"');
-    expect(workbenchSource).toContain('data-testid="mbti-personality-family-grid"');
-    expect(workbenchSource).toContain('data-testid="mbti-personality-directory-grid"');
-    expect(workbenchSource).toContain("recommendationHref");
-    expect(count(heroSource, 'data-testid="mbti-personality-index-primary-cta"')).toBe(1);
+    expect(source).toContain("TrackedEntryCtaLink");
+    expect(source).not.toContain("PersonalityHeroExecutiveSummary");
+    expect(source).not.toContain("PersonalityQuickLocateBar");
+    expect(source).not.toContain("ScenarioIntelligenceMatrix");
+    expect(source).not.toContain("TypeNavigatorWorkbench");
+    expect(source).not.toContain("CareerIntelligencePreview");
+    expect(count(source, 'data-testid="personality-start-mbti-cta"')).toBe(1);
   });
 
   it("keeps header personality navigation focused on the hub plus family-level entry points", () => {
