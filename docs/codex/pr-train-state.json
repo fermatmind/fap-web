@@ -1709,10 +1709,10 @@
     "PR-F55": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "branch": "codex/career-ia-three-doors",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "1825061c9ed652ee55516f5e2dab70ad0aaeaa4a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/474",
       "checks": {
         "local": [
           {
