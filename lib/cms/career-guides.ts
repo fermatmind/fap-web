@@ -1,6 +1,10 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
+import {
+  getCareerGuideCmsLocalFallback,
+  listCareerGuideCmsLocalFallback,
+} from "@/lib/cms/career-guide-local-fallback";
 import { buildPersonalityFrontendUrl } from "@/lib/cms/personality";
 import { getCareerIndustryBySlug, type RelatedContentItem } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
@@ -676,13 +680,13 @@ export async function listCareerGuidesFromCms(
       currentPage += 1;
     } while (currentPage <= lastPage);
 
-    return items;
+    return items.length > 0 ? items : listCareerGuideCmsLocalFallback(locale, options.category);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return [];
+      return listCareerGuideCmsLocalFallback(locale, options.category);
     }
 
-    throw error;
+    return listCareerGuideCmsLocalFallback(locale, options.category);
   }
 }
 
@@ -711,13 +715,17 @@ export async function getCareerGuideFromCmsBySlug(
     );
 
     const guide = adaptCareerGuideDetail(response, locale);
-    return guide && matchesRequestedLocale(guide.locale, locale) ? guide : null;
-  } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
-      return null;
+    if (guide && matchesRequestedLocale(guide.locale, locale)) {
+      return guide;
     }
 
-    throw error;
+    return getCareerGuideCmsLocalFallback(normalizedSlug, locale);
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 404) {
+      return getCareerGuideCmsLocalFallback(normalizedSlug, locale);
+    }
+
+    return getCareerGuideCmsLocalFallback(normalizedSlug, locale);
   }
 }
 
