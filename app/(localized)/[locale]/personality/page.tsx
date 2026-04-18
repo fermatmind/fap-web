@@ -136,6 +136,8 @@ function TypeGroupBrowse({
   groups: PersonalityHubFamilyGroup[];
 }) {
   const copy = localizeDoorCopy(locale);
+  const formatGroupTitle = (group: PersonalityHubFamilyGroup) =>
+    group.title.includes(group.groupKey) ? group.title : `${group.groupKey} · ${group.title}`;
 
   return (
     <section id="type-groups" className="space-y-6" data-testid="personality-type-group-browse">
@@ -155,7 +157,7 @@ function TypeGroupBrowse({
                 {group.groupKey}
               </p>
               <h3 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-                {group.groupKey} · {group.title}
+                {formatGroupTitle(group)}
               </h3>
               <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{group.summary}</p>
             </div>
@@ -173,7 +175,7 @@ function TypeGroupBrowse({
             className="space-y-3"
           >
             <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">
-              {group.groupKey} · {group.title}
+              {formatGroupTitle(group)}
             </p>
             <div className="grid gap-2">
               {group.cards.map((type) => (

@@ -42,6 +42,12 @@ describe("personality type browse contract", () => {
     expect(detailSource).toContain("看职业方向");
     expect(detailSource).toContain("返回 16 型浏览");
     expect(detailSource).toContain("重新做 MBTI");
+    expect(detailSource).toContain("人格解读");
+    expect(detailSource).toContain("核心画像");
+    expect(detailSource).toContain("下一步阅读");
+    expect(detailSource).not.toContain("内容包");
+    expect(detailSource).not.toContain("通用页框架");
+    expect(detailSource).not.toContain("继续入口");
     expect(detailSource).not.toContain("SEO snapshot");
     expect(detailSource).not.toContain("Profile summary");
     expect(resultSource).toContain('data-testid="mbti-result-personality-next-step"');

@@ -527,19 +527,19 @@ export default async function PersonalityDetailPage({
             <div className="flex flex-wrap gap-3 text-sm text-[var(--fm-text-muted)]">
               {detail.typeName ? (
                 <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Type name" : "Type name"}:</span>{" "}
+                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "类型名称" : "Type name"}:</span>{" "}
                   {detail.typeName}
                 </p>
               ) : null}
               {detail.nickname ? (
                 <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Nickname" : "Nickname"}:</span>{" "}
+                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "别名" : "Nickname"}:</span>{" "}
                   {detail.nickname}
                 </p>
               ) : null}
               {detail.rarity ? (
                 <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Rarity" : "Rarity"}:</span>{" "}
+                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "稀有度" : "Rarity"}:</span>{" "}
                   {detail.rarity}
                 </p>
               ) : null}
@@ -567,18 +567,18 @@ export default async function PersonalityDetailPage({
           <section className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]" data-testid="mbti-personality-content-pack">
             <div className="space-y-2">
               <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-                {locale === "zh" ? `${detail.displayType} 内容包` : `${detail.displayType} content pack`}
+                {locale === "zh" ? `${detail.displayType} 人格解读` : `${detail.displayType} profile guide`}
               </h2>
               <p className="m-0 text-sm text-[var(--fm-text-muted)]">
                 {locale === "zh"
-                  ? "这里把通用页、A/T 差异和下一步入口放在同一层里，方便直接进入职业、协作和成长判断。"
-                  : "This layer keeps the common frame, A/T split, and next-step routing together for career, collaboration, and growth decisions."}
+                  ? "先看这类人格的核心画像，再进入职业、协作和成长场景。"
+                  : "Start with the core profile, then continue into career, collaboration, and growth contexts."}
               </p>
             </div>
 
             <Card>
               <CardHeader>
-                <CardTitle>{locale === "zh" ? "通用页框架" : "Common frame"}</CardTitle>
+                <CardTitle>{locale === "zh" ? "核心画像" : "Core profile"}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
                 <p className="m-0">{personalityTypeContent.common.hero.summary}</p>
@@ -596,7 +596,7 @@ export default async function PersonalityDetailPage({
                     <p className="m-0 mt-1">{personalityTypeContent.common.hero.variantDeltaT}</p>
                   </div>
                   <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                    <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "继续入口" : "Next step"}</p>
+                    <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "下一步阅读" : "Next reading"}</p>
                     <p className="m-0 mt-1">{personalityTypeContent.common.hero.primaryCta}</p>
                   </div>
                 </div>
@@ -627,7 +627,7 @@ export default async function PersonalityDetailPage({
             <div className="grid gap-4 md:grid-cols-2">
               <Card>
                 <CardHeader>
-                  <CardTitle>{locale === "zh" ? "继续入口" : "Continue"}</CardTitle>
+                  <CardTitle>{locale === "zh" ? "下一步阅读" : "Next reading"}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-wrap gap-2">
                   <Link href={personalityTypeContent.support.recommendationBacklink.href} className="fm-help-chip-link">
