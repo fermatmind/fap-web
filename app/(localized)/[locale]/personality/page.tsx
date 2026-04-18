@@ -138,6 +138,13 @@ function TypeGroupBrowse({
   const copy = localizeDoorCopy(locale);
   const formatGroupTitle = (group: PersonalityHubFamilyGroup) =>
     group.title.includes(group.groupKey) ? group.title : `${group.groupKey} · ${group.title}`;
+  const formatTypeLabel = (type: PersonalityHubFamilyGroup["cards"][number]) => {
+    const duplicatedPrefix = `${type.typeCode} · `;
+
+    return type.title.startsWith(duplicatedPrefix)
+      ? `${type.typeCode} · ${type.title.slice(duplicatedPrefix.length)}`
+      : `${type.typeCode} · ${type.title}`;
+  };
 
   return (
     <section id="type-groups" className="space-y-6" data-testid="personality-type-group-browse">
@@ -184,7 +191,7 @@ function TypeGroupBrowse({
                   href={type.href}
                   className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-4 py-3 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
                 >
-                  {type.typeCode} · {type.title}
+                  {formatTypeLabel(type)}
                 </Link>
               ))}
             </div>
