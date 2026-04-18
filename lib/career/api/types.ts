@@ -595,6 +595,7 @@ export type CareerDatasetHubResponseRaw = {
   facet_distributions?: unknown;
   scope_summary?: unknown;
   method_url?: unknown;
+  members?: unknown;
   structured_data?: unknown;
 };
 

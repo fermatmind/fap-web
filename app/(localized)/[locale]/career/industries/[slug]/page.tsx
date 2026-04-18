@@ -1,39 +1,50 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { CareerOccupationDirectory } from "@/components/career/CareerOccupationDirectory";
 import { Container } from "@/components/layout/Container";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { adaptCareerDatasetHub } from "@/lib/career/adapters/adaptCareerDatasetHub";
+import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import {
-  getCareerIndustryBySlug,
-  getCareerJobBySlug,
-  listCareerIndustrySlugs,
-} from "@/lib/content";
-import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
+  CAREER_DATASET_FAMILY_SLUGS,
+  buildCareerFamilyDirectory,
+  buildRenderableCareerDatasetMembers,
+  filterCareerDatasetMembers,
+  formatCareerFamilyTitle,
+  normalizeFamilySlug,
+} from "@/lib/career/datasetDirectory";
+import { fetchCareerDatasetHub } from "@/lib/career/api/fetchCareerDatasetHub";
+import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
-  return listCareerIndustrySlugs().flatMap((slug) => [{ locale: "en", slug }, { locale: "zh", slug }]);
+  return CAREER_DATASET_FAMILY_SLUGS.flatMap((slug) => [
+    { locale: "en", slug },
+    { locale: "zh", slug },
+  ]);
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const industry = getCareerIndustryBySlug(slug, locale);
-
-  if (!industry) {
-    return { title: "Not Found", robots: { index: false, follow: false } };
-  }
+  const familyTitle = formatCareerFamilyTitle(slug, locale);
 
   return buildPageMetadata({
     locale,
     pathname: locale === "zh" ? `/zh/career/industries/${slug}` : `/en/career/industries/${slug}`,
-    title: industry.title,
-    description: industry.summary,
+    title: locale === "zh" ? `${familyTitle}职业` : `${familyTitle} careers`,
+    description:
+      locale === "zh"
+        ? `浏览${familyTitle}行业下的职业清单，并进入已开放的职业详情页。`
+        : `Browse occupations in ${familyTitle} and open available role profiles.`,
     alternatesByLocale: {
       en: `/en/career/industries/${slug}`,
       zh: `/zh/career/industries/${slug}`,
@@ -42,106 +53,124 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default async function CareerIndustryDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export default async function CareerIndustryDetailPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const { locale: localeParam, slug } = await params;
+  const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
-  const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const industry = getCareerIndustryBySlug(slug, locale);
-
-  if (!industry) return notFound();
-
-  const canonicalPath = locale === "zh" ? `/zh/career/industries/${slug}` : `/en/career/industries/${slug}`;
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
-    title: industry.title,
-    description: industry.summary,
-    locale,
-  });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
-    {
-      name: locale === "zh" ? "行业指南" : "Industries",
-      path: locale === "zh" ? "/zh/career/industries" : "/en/career/industries",
-    },
-    { name: industry.title, path: canonicalPath },
+  const familySlug = normalizeFamilySlug(slug);
+  const submittedQuery = String(Array.isArray(resolvedSearchParams.q) ? resolvedSearchParams.q[0] : resolvedSearchParams.q ?? "").trim();
+  const [datasetPayload, jobIndexPayload] = await Promise.all([
+    fetchCareerDatasetHub({ locale }),
+    fetchCareerJobIndex({ locale }),
   ]);
+  const dataset = adaptCareerDatasetHub({ payload: datasetPayload });
+  const detailReadySlugs = new Set(
+    adaptCareerJobIndex({ locale, payload: jobIndexPayload })
+      .filter((job) => job.seoContract.indexState === "indexable" && job.seoContract.indexEligible !== false)
+      .map((job) => job.identity.canonicalSlug)
+  );
+  const members = buildRenderableCareerDatasetMembers({
+    datasetMembers: dataset?.members ?? [],
+    detailReadySlugs,
+  });
+  const families = buildCareerFamilyDirectory(members, locale);
+  const family = families.find((item) => item.slug === familySlug);
 
-  const hotJobs = industry.hot_jobs
-    .map((jobSlug) => getCareerJobBySlug(jobSlug, locale))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+  if (!family) {
+    notFound();
+  }
+
+  const industryPath = localizedPath(`/career/industries/${familySlug}`, locale);
+  const jobsPath = localizedPath("/career/jobs", locale);
+  const visibleMembers = filterCareerDatasetMembers({
+    members,
+    familySlug,
+    query: submittedQuery,
+  });
 
   return (
-    <Container as="main" className="space-y-6 py-10">
-      <JsonLd id={`career-industry-webpage-${slug}`} data={webPageJsonLd} />
-      <JsonLd id={`career-industry-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
-      <Breadcrumb
-        items={[
-          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-          { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
-          { label: locale === "zh" ? "行业指南" : "Industries", href: localizedPath("/career/industries", locale) },
-          { label: industry.title },
-        ]}
-      />
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{industry.title}</h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">{industry.summary}</p>
-      </section>
+    <main className="min-h-screen bg-slate-50">
+      <Container as="div" className="space-y-10 py-10 md:py-16">
+        <nav className="flex flex-wrap gap-2 text-sm text-slate-500">
+          <Link href={localizedPath("/career", locale)} className="hover:text-slate-950">
+            {locale === "zh" ? "职业" : "Career"}
+          </Link>
+          <span>/</span>
+          <Link href={localizedPath("/career/industries", locale)} className="hover:text-slate-950">
+            {locale === "zh" ? "行业" : "Industries"}
+          </Link>
+          <span>/</span>
+          <span className="text-slate-950">{family.title}</span>
+        </nav>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "行业介绍" : "Industry overview"}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-            <p className="m-0">{industry.overview}</p>
-            <p className="m-0">{industry.growth_outlook}</p>
-          </CardContent>
-        </Card>
+        <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-end">
+          <div aria-hidden="true" />
+          <div className="grid grid-cols-3 gap-3 text-center">
+            <Metric label={locale === "zh" ? "职业" : "Roles"} value={String(family.count)} />
+            <Metric label={locale === "zh" ? "公开" : "Public"} value={String(family.publicDetailCount)} />
+            <Metric label={locale === "zh" ? "详情" : "Details"} value={String(family.indexableCount)} />
+          </div>
+        </section>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "行业薪资" : "Salary overview"}</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-[var(--fm-text-muted)]">
-            <p className="m-0">{industry.salary_overview}</p>
-          </CardContent>
-        </Card>
-      </div>
+        <section className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="space-y-5">
+            <form action={industryPath} method="get" className="rounded-3xl border border-slate-200 bg-white p-3 shadow-sm md:flex md:items-center md:gap-3">
+              <input
+                type="search"
+                name="q"
+                defaultValue={submittedQuery}
+                placeholder={locale === "zh" ? "在本行业内搜索职业" : "Search within this industry"}
+                className="h-12 w-full rounded-full border border-transparent bg-slate-50 px-4 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-200"
+              />
+              <div className="mt-3 flex gap-3 md:mt-0 md:shrink-0">
+                <button className="h-12 rounded-full bg-orange-600 px-5 text-sm font-semibold text-white hover:bg-orange-700" type="submit">
+                  {locale === "zh" ? "搜索" : "Search"}
+                </button>
+                {submittedQuery ? (
+                  <Link href={industryPath} className="inline-flex h-12 items-center rounded-full border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-600 hover:border-slate-300">
+                    {locale === "zh" ? "清除" : "Clear"}
+                  </Link>
+                ) : null}
+              </div>
+            </form>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{locale === "zh" ? "热门职业" : "Popular jobs"}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-2 text-sm text-[var(--fm-text-muted)]">
-          {hotJobs.map((job) => (
-            <p key={job.slug} className="m-0">
-              <Link href={withLocale(`/career/jobs/${job.slug}`)} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                {job.title}
-              </Link>
-            </p>
-          ))}
-        </CardContent>
-      </Card>
+            <CareerOccupationDirectory
+              locale={locale}
+              members={visibleMembers}
+              emptyLabel={locale === "zh" ? "本行业下没有找到匹配职业。" : "No matching roles in this industry."}
+            />
+          </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{locale === "zh" ? "行业趋势" : "Industry trends"}</CardTitle>
-        </CardHeader>
-        <CardContent className="text-sm text-[var(--fm-text-muted)]">
-          <ul className="space-y-1 pl-5">
-            {industry.trends.map((trend) => (
-              <li key={trend}>{trend}</li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
+          <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
+            <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h2 className="m-0 text-base font-semibold text-slate-950">{locale === "zh" ? "继续浏览" : "Continue"}</h2>
+              <div className="mt-4 space-y-3 text-sm">
+                <Link href={jobsPath} className="block font-semibold text-orange-600 underline-offset-4 hover:underline">
+                  {locale === "zh" ? "返回全部职业库" : "Back to all occupations"}
+                </Link>
+                <Link href={`${jobsPath}?family=${encodeURIComponent(familySlug)}`} className="block font-semibold text-slate-600 underline-offset-4 hover:text-slate-950 hover:underline">
+                  {locale === "zh" ? "在全部职业库中查看本行业" : "Open this industry in the library"}
+                </Link>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </Container>
+    </main>
+  );
+}
 
-      <article className="prose max-w-none prose-slate">{renderVeliteMdx(industry.body)}</article>
-
-      <Link href={withLocale("/career/industries")} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-        {locale === "zh" ? "返回行业指南" : "Back to industries"}
-      </Link>
-    </Container>
+function Metric({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="border-l border-slate-200 py-2 pl-3 text-left">
+      <p className="m-0 text-xs font-medium uppercase tracking-[0.14em] text-slate-400">{label}</p>
+      <p className="m-0 mt-2 text-2xl font-semibold tracking-tight text-slate-950">{value}</p>
+    </div>
   );
 }
