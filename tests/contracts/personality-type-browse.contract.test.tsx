@@ -29,13 +29,10 @@ describe("personality type browse contract", () => {
     expect(pageSource).not.toContain("{type.typeCode} · {type.title}");
   });
 
-  it("demotes theme navigation to a quiet library instead of a main card matrix", () => {
-    expect(pageSource).toContain('data-testid="personality-quiet-theme-library"');
-    expect(pageSource).toContain("职业方向");
-    expect(pageSource).toContain("团队协作");
-    expect(pageSource).toContain("关系互动");
-    expect(pageSource).toContain("成长建议");
-    expect(pageSource).toContain("MBTI 主题中心");
+  it("removes theme navigation from the personality index", () => {
+    expect(pageSource).not.toContain('data-testid="personality-quiet-theme-library"');
+    expect(pageSource).not.toContain("继续阅读");
+    expect(pageSource).not.toContain("这些是人格内容的延伸方向");
     expect(pageSource).not.toContain("按决策场景选择入口");
   });
 

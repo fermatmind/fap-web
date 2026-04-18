@@ -12,7 +12,7 @@ import { localizedPath } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
-import type { HubCtaLink, PersonalityHubFamilyGroup } from "@/lib/mbti/personalityHub.types";
+import type { PersonalityHubFamilyGroup } from "@/lib/mbti/personalityHub.types";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -71,11 +71,6 @@ function localizeDoorCopy(locale: Locale) {
         ? "先选一个类型组，再进入具体人格内容页。"
         : "Choose a group first, then open a specific personality profile.",
     viewGroup: locale === "zh" ? "查看该组类型" : "View this group",
-    quietHeading: locale === "zh" ? "继续阅读" : "Continue reading",
-    quietSubtitle:
-      locale === "zh"
-        ? "这些是人格内容的延伸方向，不是进入人格板块的主路径。"
-        : "These are supporting personality themes, not the primary entry path.",
   };
 }
 
@@ -202,32 +197,6 @@ function TypeGroupBrowse({
   );
 }
 
-function QuietThemeLibrary({
-  locale,
-  links,
-}: {
-  locale: Locale;
-  links: HubCtaLink[];
-}) {
-  const copy = localizeDoorCopy(locale);
-
-  return (
-    <section className="space-y-3 border-t border-[var(--fm-border)] pt-6" data-testid="personality-quiet-theme-library">
-      <div className="space-y-1">
-        <h2 className="m-0 text-base font-semibold text-[var(--fm-text)]">{copy.quietHeading}</h2>
-        <p className="m-0 text-sm text-[var(--fm-text-muted)]">{copy.quietSubtitle}</p>
-      </div>
-      <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-        {links.map((link) => (
-          <Link key={`${link.href}-${link.label}`} href={link.href} className="text-[var(--fm-accent)] underline underline-offset-4">
-            {link.label}
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export default async function PersonalityPage({
   params,
 }: {
@@ -310,34 +279,6 @@ export default async function PersonalityPage({
           })),
         })
       : null;
-  const quietLinks: HubCtaLink[] = [
-    {
-      label: locale === "zh" ? "职业方向" : "Career direction",
-      href: withLocale("/career/recommendations"),
-      kind: "tertiary",
-    },
-    {
-      label: locale === "zh" ? "团队协作" : "Team collaboration",
-      href: withLocale("/topics/mbti"),
-      kind: "tertiary",
-    },
-    {
-      label: locale === "zh" ? "关系互动" : "Relationships",
-      href: withLocale("/topics/mbti"),
-      kind: "tertiary",
-    },
-    {
-      label: locale === "zh" ? "成长建议" : "Growth advice",
-      href: withLocale("/topics/mbti"),
-      kind: "tertiary",
-    },
-    {
-      label: locale === "zh" ? "MBTI 主题中心" : "MBTI topic hub",
-      href: withLocale("/topics/mbti"),
-      kind: "tertiary",
-    },
-  ];
-
   return (
     <Container as="main" className="space-y-10 py-10 pb-24">
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
@@ -378,7 +319,6 @@ export default async function PersonalityPage({
       </section>
 
       <TypeGroupBrowse locale={locale} groups={hubPayload.familyGroups} />
-      <QuietThemeLibrary locale={locale} links={quietLinks} />
     </Container>
   );
 }
