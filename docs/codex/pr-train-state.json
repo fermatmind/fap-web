@@ -1764,7 +1764,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "local_checks_passed",
       "branch": "codex/pr-f56-personality-ia-simplification",
-      "commit_sha": "",
+      "commit_sha": "29454f28bdd30e8b552e36646f9c97cd975c969e",
       "pr_url": "",
       "checks": {
         "local": [
