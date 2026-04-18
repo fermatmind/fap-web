@@ -1,5 +1,5 @@
 import type { CareerDatasetHubResponseRaw } from "@/lib/career/api/types";
-import type { CareerDatasetHubAdapter } from "@/lib/career/adapters/types";
+import type { CareerDatasetHubAdapter, CareerDatasetMemberAdapter } from "@/lib/career/adapters/types";
 
 type AdaptCareerDatasetHubInput = {
   payload: CareerDatasetHubResponseRaw | null;
@@ -60,6 +60,29 @@ function normalizeRecordOfRecordNumbers(value: unknown): Record<string, Record<s
   return normalized;
 }
 
+function normalizeMember(value: unknown): CareerDatasetMemberAdapter | null {
+  const member = normalizeObject(value);
+  const canonicalSlug = normalizeString(member.canonical_slug);
+  if (!canonicalSlug) {
+    return null;
+  }
+
+  return {
+    memberKind: normalizeString(member.member_kind, "career_tracked_occupation"),
+    canonicalSlug,
+    canonicalTitleEn: normalizeString(member.canonical_title_en, canonicalSlug),
+    canonicalTitleZh: normalizeString(member.canonical_title_zh) || null,
+    familySlug: normalizeString(member.family_slug) || null,
+    publishTrack: normalizeString(member.publish_track) || null,
+    batchOrigin: normalizeString(member.batch_origin) || null,
+    releaseCohort: normalizeString(member.release_cohort) || null,
+    publicIndexState: normalizeString(member.public_index_state) || null,
+    strongIndexDecision: normalizeString(member.strong_index_decision) || null,
+    includedInPublicDataset: normalizeBoolean(member.included_in_public_dataset),
+    exclusionReasons: normalizeStringArray(member.exclusion_reasons),
+  };
+}
+
 export function adaptCareerDatasetHub(input: AdaptCareerDatasetHubInput): CareerDatasetHubAdapter | null {
   const root = normalizeObject(input.payload);
   if (Object.keys(root).length === 0) {
@@ -76,6 +99,7 @@ export function adaptCareerDatasetHub(input: AdaptCareerDatasetHubInput): Career
   const scopeSummary = normalizeObject(root.scope_summary);
   const facetDistributions = normalizeObject(root.facet_distributions);
   const structuredData = normalizeObject(root.structured_data);
+  const members = Array.isArray(root.members) ? root.members.map(normalizeMember).filter((item): item is CareerDatasetMemberAdapter => item !== null) : [];
 
   return {
     datasetKey: normalizeString(root.dataset_key),
@@ -131,6 +155,7 @@ export function adaptCareerDatasetHub(input: AdaptCareerDatasetHubInput): Career
     },
     facetDistributions: normalizeRecordOfRecordNumbers(Object.keys(facetDistributions).length > 0 ? facetDistributions : collectionSummary.facet_distributions),
     methodUrl: normalizeString(root.method_url),
+    members,
     structuredData: {
       dataset: normalizeObject(structuredData.dataset),
       breadcrumbList: normalizeObject(structuredData.breadcrumb_list),

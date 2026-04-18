@@ -977,10 +977,26 @@ export type CareerDatasetHubAdapter = {
   };
   facetDistributions: Record<string, Record<string, number>>;
   methodUrl: string;
+  members: CareerDatasetMemberAdapter[];
   structuredData: {
     dataset: Record<string, unknown> | null;
     breadcrumbList: Record<string, unknown> | null;
   };
+};
+
+export type CareerDatasetMemberAdapter = {
+  memberKind: string;
+  canonicalSlug: string;
+  canonicalTitleEn: string;
+  canonicalTitleZh?: string | null;
+  familySlug: string | null;
+  publishTrack: string | null;
+  batchOrigin: string | null;
+  releaseCohort: string | null;
+  publicIndexState: string | null;
+  strongIndexDecision: string | null;
+  includedInPublicDataset: boolean;
+  exclusionReasons: string[];
 };
 
 export type CareerDatasetMethodAdapter = {

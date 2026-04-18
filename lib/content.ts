@@ -8,6 +8,7 @@ import {
   types,
 } from "../.velite";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
+import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 export type Test = (typeof tests)[number];
@@ -361,9 +362,7 @@ export function listCareerIndustries(locale?: Locale): LocalizedCareerIndustry[]
 }
 
 export function listCareerIndustrySlugs(): string[] {
-  return [...new Set(careerIndustries.map((item) => String(item.slug).trim()).filter(Boolean))].sort((a, b) =>
-    a.localeCompare(b)
-  );
+  return [...CAREER_DATASET_FAMILY_SLUGS].sort((a, b) => a.localeCompare(b));
 }
 
 export function getCareerIndustryBySlug(slug: string, locale: Locale): LocalizedCareerIndustry | null {

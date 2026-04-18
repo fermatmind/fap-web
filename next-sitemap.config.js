@@ -3,7 +3,6 @@
 const tests = require("./.velite/tests.json");
 const blog = require("./.velite/blog.json");
 const careerGuidesContent = require("./.velite/careerGuides.json");
-const careerIndustries = require("./.velite/careerIndustries.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
 const {
   isValidCmsApiRoute,
@@ -11,6 +10,33 @@ const {
   shouldIncludeCmsSitemapPath,
 } = require("./lib/seo/cmsRoutePolicy.cjs");
 const TOPIC_SLUGS = ["mbti", "big-five", "iq-eq"];
+const CAREER_DATASET_FAMILY_SLUGS = [
+  "architecture-and-engineering",
+  "arts-and-design",
+  "building-and-grounds-cleaning",
+  "business-and-financial",
+  "community-and-social-service",
+  "computer-and-information-technology",
+  "construction-and-extraction",
+  "education-training-and-library",
+  "entertainment-and-sports",
+  "farming-fishing-and-forestry",
+  "food-preparation-and-serving",
+  "healthcare",
+  "installation-maintenance-and-repair",
+  "legal",
+  "life-physical-and-social-science",
+  "management",
+  "math",
+  "media-and-communication",
+  "military",
+  "office-and-administrative-support",
+  "personal-care-and-service",
+  "production",
+  "protective-service",
+  "sales",
+  "transportation-and-material-moving",
+];
 const HELP_PAGE_SLUGS = [
   "faq",
   "about",
@@ -257,8 +283,8 @@ function buildLandingPaths() {
 function buildCareerPaths() {
   const paths = new Set();
 
-  for (const item of careerIndustries) {
-    const slug = normalizeSlug(item?.slug);
+  for (const item of CAREER_DATASET_FAMILY_SLUGS) {
+    const slug = normalizeSlug(item);
     if (!slug) continue;
     paths.add(`/en/career/industries/${slug}`);
     paths.add(`/zh/career/industries/${slug}`);
