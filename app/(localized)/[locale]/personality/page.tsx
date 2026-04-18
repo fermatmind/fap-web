@@ -47,10 +47,6 @@ export async function generateMetadata({
 function localizeDoorCopy(locale: Locale) {
   return {
     heroTitle: locale === "zh" ? "看懂你的人格类型" : "Understand your personality type",
-    heroSubtitle:
-      locale === "zh"
-        ? "先找到自己的类型，再进入更适合你的内容方向。"
-        : "Find your type first, then move into the content path that fits you.",
     doorOneEyebrow: locale === "zh" ? "我还不知道自己的类型" : "I do not know my type yet",
     doorOneTitle: locale === "zh" ? "先做一次 MBTI 测试" : "Take the MBTI test first",
     doorOneBody:
@@ -58,13 +54,6 @@ function localizeDoorCopy(locale: Locale) {
         ? "适合第一次进入，想快速知道自己更偏向哪一类人格的人。"
         : "Best for a first visit when you want a quick read on which personality type you lean toward.",
     doorOneCta: locale === "zh" ? "开始 MBTI 测试" : "Start MBTI test",
-    doorTwoEyebrow: locale === "zh" ? "我已经知道自己的类型" : "I already know my type",
-    doorTwoTitle: locale === "zh" ? "直接查看人格类型内容" : "Go straight to type content",
-    doorTwoBody:
-      locale === "zh"
-        ? "适合已经知道自己是 INFJ / INTJ / ENFP 等类型，想直接看画像、差异与延伸内容的人。"
-        : "Best if you already know you are INFJ, INTJ, ENFP, or another type and want the profile, differences, and next reading.",
-    doorTwoCta: locale === "zh" ? "浏览 16 型人格" : "Browse 16 types",
     groupHeading: locale === "zh" ? "按类型组浏览" : "Browse by type group",
     groupSubtitle:
       locale === "zh"
@@ -80,7 +69,6 @@ function MainDoor({
   body,
   cta,
   href,
-  primary = false,
   trackingProps,
 }: {
   eyebrow: string;
@@ -88,15 +76,14 @@ function MainDoor({
   body: string;
   cta: string;
   href: string;
-  primary?: boolean;
-  trackingProps?: ReturnType<typeof buildMbtiEntryTrackingPayload>;
+  trackingProps: ReturnType<typeof buildMbtiEntryTrackingPayload>;
 }) {
-  const className = buttonVariants({ variant: primary ? "default" : "outline", size: "lg" });
+  const className = buttonVariants({ variant: "default", size: "lg" });
 
   return (
     <article
       className="flex min-h-[260px] flex-col justify-between rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]"
-      data-testid={primary ? "personality-main-door-test" : "personality-main-door-browse"}
+      data-testid="personality-main-door-test"
     >
       <div className="space-y-4">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{eyebrow}</p>
@@ -105,20 +92,14 @@ function MainDoor({
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{body}</p>
         </div>
       </div>
-      {trackingProps ? (
-        <TrackedEntryCtaLink
-          href={href}
-          className={className}
-          data-testid="personality-start-mbti-cta"
-          eventProperties={trackingProps}
-        >
-          {cta}
-        </TrackedEntryCtaLink>
-      ) : (
-        <Link href={href} className={className} data-testid="personality-browse-types-cta">
-          {cta}
-        </Link>
-      )}
+      <TrackedEntryCtaLink
+        href={href}
+        className={className}
+        data-testid="personality-start-mbti-cta"
+        eventProperties={trackingProps}
+      >
+        {cta}
+      </TrackedEntryCtaLink>
     </article>
   );
 }
@@ -296,25 +277,16 @@ export default async function PersonalityPage({
         <h1 className="m-0 font-serif text-5xl font-semibold tracking-tight text-[var(--fm-text)] md:text-6xl">
           {copy.heroTitle}
         </h1>
-        <p className="m-0 max-w-2xl text-lg leading-8 text-[var(--fm-text-muted)]">{copy.heroSubtitle}</p>
       </section>
 
-      <section className="grid gap-4 lg:grid-cols-2" data-testid="personality-two-main-doors">
+      <section className="max-w-4xl" data-testid="personality-main-action">
         <MainDoor
           eyebrow={copy.doorOneEyebrow}
           title={copy.doorOneTitle}
           body={copy.doorOneBody}
           cta={copy.doorOneCta}
           href={mbtiPrimaryCtaHref}
-          primary
           trackingProps={mbtiPrimaryCtaTrackingProps}
-        />
-        <MainDoor
-          eyebrow={copy.doorTwoEyebrow}
-          title={copy.doorTwoTitle}
-          body={copy.doorTwoBody}
-          cta={copy.doorTwoCta}
-          href="#type-groups"
         />
       </section>
 
