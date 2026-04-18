@@ -1762,9 +1762,9 @@
     "PR-F56": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "github_checks_failed",
       "branch": "codex/pr-f56-personality-ia-simplification",
-      "commit_sha": "5e8d208d77241ed8db4d9125a7ea79117f05a051",
+      "commit_sha": "7d3d36cb15a98cd24e3e06afe9a5791ba5b82c50",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/475",
       "checks": {
         "local": [
@@ -1793,9 +1793,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24597982324/job/71931585061"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24597982324/job/71931585062"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub CI status checks build and contracts failed after PR creation, while local validation passed.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
