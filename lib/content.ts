@@ -22,10 +22,15 @@ export type LocalizedBlogPost = BlogPost & {
   translation_group: string;
   translation_ready: boolean;
 };
-export type BlogVoice = "tool" | "growth" | "narrative";
+export type BlogVoice = "tool" | "growth" | "narrative" | "editorial";
+type PlacementBlogVoice = Exclude<BlogVoice, "editorial">;
+export type PlacementBlogPost = LocalizedBlogPost & {
+  related_test_slug: string;
+  voice: PlacementBlogVoice;
+};
 export type BlogPostsGroup = {
   relatedTestSlug: string;
-  posts: LocalizedBlogPost[];
+  posts: PlacementBlogPost[];
 };
 
 export type RelatedContentItem = {
@@ -200,9 +205,14 @@ const BLOG_VOICE_ORDER: Record<BlogVoice, number> = {
   tool: 1,
   growth: 2,
   narrative: 3,
+  editorial: 10,
 };
 
-function resolveRelatedTestRank(slug: string): number {
+function resolveRelatedTestRank(slug: string | undefined): number {
+  if (!slug) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
   const index = BLOG_RELATED_TEST_ORDER.indexOf(slug as (typeof BLOG_RELATED_TEST_ORDER)[number]);
   return index >= 0 ? index : Number.MAX_SAFE_INTEGER;
 }
@@ -215,7 +225,15 @@ function resolveVoiceOrder(post: LocalizedBlogPost): number {
   return typeof fallback === "number" ? fallback : Number.MAX_SAFE_INTEGER;
 }
 
-function sortBlogPostsForPlacement(posts: LocalizedBlogPost[]): LocalizedBlogPost[] {
+function isPlacementBlogPost(post: LocalizedBlogPost): post is PlacementBlogPost {
+  return (
+    typeof post.related_test_slug === "string" &&
+    post.related_test_slug.trim().length > 0 &&
+    (post.voice === "tool" || post.voice === "growth" || post.voice === "narrative")
+  );
+}
+
+function sortBlogPostsForPlacement<T extends LocalizedBlogPost>(posts: T[]): T[] {
   return [...posts].sort((a, b) => {
     const testRankDiff = resolveRelatedTestRank(a.related_test_slug) - resolveRelatedTestRank(b.related_test_slug);
     if (testRankDiff !== 0) return testRankDiff;
@@ -231,12 +249,12 @@ function sortBlogPostsForPlacement(posts: LocalizedBlogPost[]): LocalizedBlogPos
 }
 
 export function listBlogPostsGroupedByTest(locale: Locale = "zh"): BlogPostsGroup[] {
-  const grouped = new Map<string, LocalizedBlogPost[]>();
+  const grouped = new Map<string, PlacementBlogPost[]>();
   const localizedPosts = listBlogPosts(locale);
   const sourcePosts =
     locale === "en" && localizedPosts.length === 0 ? listBlogPosts("zh") : localizedPosts;
 
-  for (const post of sortBlogPostsForPlacement(sourcePosts)) {
+  for (const post of sortBlogPostsForPlacement(sourcePosts).filter(isPlacementBlogPost)) {
     const key = String(post.related_test_slug ?? "").trim();
     if (!key) continue;
     if (!grouped.has(key)) grouped.set(key, []);
@@ -255,14 +273,14 @@ export function listBlogPostsGroupedByTest(locale: Locale = "zh"): BlogPostsGrou
     }));
 }
 
-export function listRelatedBlogPosts(testSlug: string, locale: Locale = "zh"): LocalizedBlogPost[] {
-  const localizedPosts = listBlogPosts(locale).filter((post) => post.related_test_slug === testSlug);
+export function listRelatedBlogPosts(testSlug: string, locale: Locale = "zh"): PlacementBlogPost[] {
+  const localizedPosts = listBlogPosts(locale).filter(isPlacementBlogPost).filter((post) => post.related_test_slug === testSlug);
   if (localizedPosts.length > 0) {
     return sortBlogPostsForPlacement(localizedPosts).slice(0, 3);
   }
 
   if (locale === "en") {
-    const zhFallback = listBlogPosts("zh").filter((post) => post.related_test_slug === testSlug);
+    const zhFallback = listBlogPosts("zh").filter(isPlacementBlogPost).filter((post) => post.related_test_slug === testSlug);
     return sortBlogPostsForPlacement(zhFallback).slice(0, 3);
   }
 
@@ -513,10 +531,18 @@ function relatedGuidesBySlugs(guideSlugs: string[], locale: Locale, excludeSlug?
 }
 
 export function listRelatedArticlesForPost(post: LocalizedBlogPost, locale: Locale): RelatedContentItem[] {
+  if (!post.related_test_slug) {
+    return [];
+  }
+
   return relatedArticlesForTestSlugs([post.related_test_slug], locale, post.slug);
 }
 
 export function listRelatedCareerGuidesForPost(post: LocalizedBlogPost, locale: Locale): RelatedContentItem[] {
+  if (!post.related_test_slug) {
+    return [];
+  }
+
   const guideSlugs = TEST_TO_CAREER_GUIDE_SLUGS[post.related_test_slug] ?? [];
   return relatedGuidesBySlugs(guideSlugs, locale);
 }

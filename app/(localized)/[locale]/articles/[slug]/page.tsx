@@ -229,6 +229,14 @@ export default async function ArticleDetailPage({
         id="what-it-is"
         className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       >
+        {article.coverImageUrl ? (
+          <div
+            role="img"
+            aria-label={article.coverImageAlt ?? article.title}
+            className="aspect-[16/9] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] bg-cover bg-center"
+            style={{ backgroundImage: `url(${article.coverImageUrl})` }}
+          />
+        ) : null}
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {dict.articles.kicker}
         </p>

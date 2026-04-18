@@ -118,6 +118,14 @@ export default async function ArticlesPage({
                 className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)] transition hover:shadow-[var(--fm-shadow-md)]"
               >
                 <CardHeader className="space-y-3">
+                  {article.coverImageUrl ? (
+                    <div
+                      role="img"
+                      aria-label={article.coverImageAlt ?? article.title}
+                      className="aspect-[16/9] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] bg-cover bg-center"
+                      style={{ backgroundImage: `url(${article.coverImageUrl})` }}
+                    />
+                  ) : null}
                   <CardTitle className="font-serif text-[var(--fm-text)]">
                     <Link href={withLocale(`/articles/${article.slug}`)} className="hover:text-[var(--fm-accent)]">
                       {article.title}
