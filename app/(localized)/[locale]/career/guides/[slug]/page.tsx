@@ -35,15 +35,42 @@ function buildCanonicalPath(slug: string, locale: Locale): string {
 }
 
 function renderGuideBody(guide: CareerGuideDetailViewModel) {
+  const bodyMd = stripDuplicateFirstHeading(guide.bodyMd, guide.title);
+
   if (guide.bodyHtml.trim()) {
     return <div dangerouslySetInnerHTML={{ __html: guide.bodyHtml }} />;
   }
 
-  if (guide.bodyMd.trim()) {
-    return renderSimpleMarkdown(guide.bodyMd);
+  if (bodyMd.trim()) {
+    return renderSimpleMarkdown(bodyMd);
   }
 
   return null;
+}
+
+function stripDuplicateFirstHeading(markdown: string, title: string): string {
+  const normalizedTitle = title.replace(/\s+/g, " ").trim();
+  const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
+  const firstContentIndex = lines.findIndex((line) => line.trim());
+
+  if (firstContentIndex === -1) {
+    return markdown;
+  }
+
+  const firstContentLine = lines[firstContentIndex] ?? "";
+  const headingMatch = firstContentLine.match(/^#\s+(.+)$/);
+
+  if (!headingMatch) {
+    return markdown;
+  }
+
+  const headingText = headingMatch[1]?.replace(/\s+/g, " ").trim();
+  if (headingText !== normalizedTitle) {
+    return markdown;
+  }
+
+  lines.splice(firstContentIndex, 1);
+  return lines.join("\n").trimStart();
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
@@ -156,7 +183,6 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
       />
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{guide.title}</h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">{guide.summary}</p>
         {landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="career-guide-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
