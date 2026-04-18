@@ -31,10 +31,9 @@ export function MbtiScenarioDeepDiveSection({
     return null;
   }
 
-  const sectionHeading =
-    heading || (locale === "zh" ? "场景深化模块" : "Scenario deep-dive modules");
+  const sectionHeading = heading ?? (locale === "zh" ? "场景深化模块" : "Scenario deep-dive modules");
   const sectionSubtitle =
-    subtitle ||
+    subtitle ??
     (locale === "zh"
       ? "把场景入口升级成可索引、可解释、可执行下一步的中层内容，并保持主 CTA 清晰。"
       : "Upgrade scene entry cards into indexable, interpretable, and actionable mid-layer content while keeping the primary CTA clear.");
@@ -45,11 +44,8 @@ export function MbtiScenarioDeepDiveSection({
       data-testid={testId}
     >
       <div className="space-y-2">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "Scenario depth" : "Scenario depth"}
-        </p>
         <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">{sectionHeading}</h2>
-        <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{sectionSubtitle}</p>
+        {sectionSubtitle ? <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{sectionSubtitle}</p> : null}
       </div>
 
       <div className="grid gap-3">

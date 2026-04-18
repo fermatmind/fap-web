@@ -83,13 +83,9 @@ export default async function CareerRecommendationsPage({
         <JsonLd id="career-recommendation-breadcrumb" data={breadcrumbJsonLd} />
 
         <section className="mx-auto max-w-4xl space-y-4 text-center">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">Career recommendations</p>
           <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
             {locale === "zh" ? "从测评结果选择职业方向" : "Choose a career direction from your result"}
           </h1>
-          <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-500">
-            {locale === "zh" ? "先从当前可用的推荐入口进入。" : "Start from the recommendation source currently available to you."}
-          </p>
         </section>
 
         <section className="space-y-4" data-testid="career-recommendations-source-entry">
@@ -97,9 +93,6 @@ export default async function CareerRecommendationsPage({
             <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
               {locale === "zh" ? "选择推荐来源" : "Choose a recommendation source"}
             </h2>
-            <p className="m-0 text-sm leading-6 text-slate-500">
-              {locale === "zh" ? "选择你已经拥有的测评结果，先看方向判断和取舍。" : "Choose the result you already have, then review direction and tradeoffs first."}
-            </p>
           </div>
 
           {recommendationItems.length > 0 ? (

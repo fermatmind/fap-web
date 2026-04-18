@@ -229,6 +229,14 @@ export default async function ArticleDetailPage({
         id="what-it-is"
         className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       >
+        {article.coverImageUrl ? (
+          <div
+            role="img"
+            aria-label={article.coverImageAlt ?? article.title}
+            className="aspect-[16/9] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] bg-cover bg-center"
+            style={{ backgroundImage: `url(${article.coverImageUrl})` }}
+          />
+        ) : null}
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {dict.articles.kicker}
         </p>
@@ -280,20 +288,6 @@ export default async function ArticleDetailPage({
             {locale === "zh"
               ? "本内容用于自我认知与教育参考，不构成医疗或法律建议。"
               : "This content is for self-discovery and educational use, not medical or legal advice."}
-          </section>
-
-          <section
-            id="references"
-            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]"
-          >
-            <h2 className="m-0 text-base font-semibold text-[var(--fm-text)]">
-              {locale === "zh" ? "参考资料" : "References"}
-            </h2>
-            <p className="mb-0 mt-3">
-              {locale === "zh"
-                ? "参考来源请见正文中的文献与公开资料。"
-                : "Please refer to citations and public references listed in the article."}
-            </p>
           </section>
 
           <div className="flex flex-wrap gap-3">

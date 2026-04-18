@@ -26,10 +26,14 @@ export function AnswerSurfaceSection({
   surface,
   locale,
   testId,
+  hideHeading = false,
+  hideSummaryLabel = false,
 }: {
   surface: AnswerSurfaceViewModel | null | undefined;
   locale: Locale;
   testId?: string;
+  hideHeading?: boolean;
+  hideSummaryLabel?: boolean;
 }) {
   if (!surface) {
     return null;
@@ -51,15 +55,19 @@ export function AnswerSurfaceSection({
       className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       data-testid={testId}
     >
-      <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-        {locale === "zh" ? "快速答案" : "Quick answers"}
-      </h2>
+      {!hideHeading ? (
+        <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+          {locale === "zh" ? "快速答案" : "Quick answers"}
+        </h2>
+      ) : null}
 
       {surface.summaryBlocks.length ? (
         <div className="space-y-3">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {sectionTitle("summary", locale)}
-          </p>
+          {!hideSummaryLabel ? (
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {sectionTitle("summary", locale)}
+            </p>
+          ) : null}
           <div className="grid gap-3 md:grid-cols-2">
             {surface.summaryBlocks.map((block) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">

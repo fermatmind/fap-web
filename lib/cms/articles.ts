@@ -109,6 +109,7 @@ export type CmsArticle = {
   contentMd: string;
   contentHtml: string;
   coverImageUrl: string | null;
+  coverImageAlt: string | null;
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
@@ -390,6 +391,7 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     contentMd: String(article.content_md ?? ""),
     contentHtml: String(article.content_html ?? ""),
     coverImageUrl: typeof article.cover_image_url === "string" && article.cover_image_url.trim() ? article.cover_image_url : null,
+    coverImageAlt: null,
     status: String(article.status ?? "").trim(),
     isPublic: Boolean(article.is_public),
     isIndexable: Boolean(article.is_indexable),
@@ -420,31 +422,96 @@ function normalizeLocalTag(tag: unknown): CmsArticleTag | null {
   };
 }
 
+function normalizeLocalCategory(categories: unknown): CmsArticleCategory {
+  const names = Array.isArray(categories)
+    ? categories.map((item) => String(item ?? "").trim()).filter(Boolean)
+    : [];
+  const name = names[0] ?? "";
+
+  if (!name) {
+    return null;
+  }
+
+  return {
+    id: null,
+    slug: name,
+    name,
+  };
+}
+
 function normalizeLocalArticle(post: LocalizedBlogPost): CmsArticle {
+  const status = fallbackText(post.publish_status, "published");
+  const isPublished = status === "published";
+
   return {
     id: null,
     slug: normalizeArticleSlug(post.slug),
     locale: toApiLocale(post.locale),
     title: String(post.title ?? "").trim(),
-    excerpt: fallbackText(post.summary),
+    excerpt: fallbackText(post.excerpt, post.summary),
     contentMd: String(post.body ?? ""),
     contentHtml: "",
-    coverImageUrl: null,
-    status: "published",
-    isPublic: true,
-    isIndexable: post.locale === "zh" ? true : Boolean(post.translation_ready),
+    coverImageUrl: normalizeIsoValue(post.cover_image),
+    coverImageAlt: normalizeIsoValue(post.cover_image_alt),
+    status,
+    isPublic: isPublished,
+    isIndexable: isPublished && (post.locale === "zh" ? true : Boolean(post.translation_ready)),
     publishedAt: normalizeIsoValue(post.publishedAt ?? post.updatedAt),
     scheduledAt: null,
     createdAt: null,
     updatedAt: normalizeIsoValue(post.updatedAt ?? post.publishedAt),
-    category: null,
+    category: normalizeLocalCategory(post.categories),
     tags: Array.isArray(post.tags)
       ? post.tags.map(normalizeLocalTag).filter((tag): tag is CmsArticleTag => tag !== null)
       : [],
-    seoMeta: null,
+    seoMeta: {
+      title: fallbackText(post.seo_title, post.title),
+      description: fallbackText(post.meta_description, post.excerpt, post.summary),
+      cover_image_prompt: normalizeIsoValue(post.cover_image_prompt),
+      cover_image_style_tag: normalizeIsoValue(post.cover_image_style_tag),
+      canonical_topic: normalizeIsoValue(post.canonical_topic),
+      article_series: normalizeIsoValue(post.article_series),
+    },
     landingSurface: null,
     answerSurface: null,
   };
+}
+
+function getLocalArticleSeo(slug: string, locale: Locale | string): CmsArticleSeoPayload | null {
+  const post = getBlogPostBySlug(normalizeArticleSlug(slug), normalizeLocale(locale));
+  if (!post) {
+    return null;
+  }
+
+  const title = fallbackText(post.seo_title, post.title);
+  const description = fallbackText(post.meta_description, post.excerpt, post.summary);
+  const image = normalizeIsoValue(post.cover_image);
+  const robots = fallbackText(post.publish_status, "published") === "published" ? "index,follow" : "noindex,follow";
+
+  return normalizeArticleSeoPayload(
+    {
+      meta: {
+        title,
+        description,
+        og: {
+          title,
+          description,
+          image,
+          type: "article",
+        },
+        twitter: {
+          card: "summary_large_image",
+          title,
+          description,
+          image,
+        },
+        robots,
+      },
+      jsonld: null,
+    },
+    locale,
+    post.slug
+  );
 }
 
 function getLocalArticle(slug: string, locale: Locale | string): CmsArticle | null {
@@ -652,7 +719,7 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
     return normalizeArticleSeoPayload(response, locale, normalizedSlug);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return null;
+      return getLocalArticleSeo(normalizedSlug, locale);
     }
 
     throw error;

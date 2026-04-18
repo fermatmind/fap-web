@@ -11,11 +11,16 @@ import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisib
 import { FOOTER_SOCIAL_ITEMS } from "@/lib/ui/footerSocialIcons";
 import { cn } from "@/lib/utils";
 
+type FooterLinkItem = {
+  href: string;
+  label: string;
+  external?: boolean;
+};
+
 export function SiteFooter() {
   const locale = useLocale();
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
   const socialItems = FOOTER_SOCIAL_ITEMS;
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
   const [qrFallbackState, setQrFallbackState] = useState<Record<string, boolean>>({});
@@ -24,16 +29,16 @@ export function SiteFooter() {
       ? {
           testsTitle: "热门测评",
           articlesTitle: "全部文章",
-          reviewsTitle: "政策",
+          companyTitle: "公司",
+          policiesTitle: "条款与政策",
           tailnote: "测量自己，看见职业，训练未来。",
-          supportMeta: "隐私、条款、退款与联系支持都在这里。",
         }
       : {
           testsTitle: "Top tests",
           articlesTitle: "Reading & guides",
-          reviewsTitle: "Policies",
+          companyTitle: "Company",
+          policiesTitle: "Terms & policies",
           tailnote: "See the Micro. Lead the Macro.",
-          supportMeta: "Privacy, terms, refunds, and contact support are all available here.",
         };
 
   const testLinks = filterVisiblePublicTestEntries([
@@ -52,11 +57,60 @@ export function SiteFooter() {
           { href: "/articles", label: "All articles" },
           { href: "/articles/mbti-basics", label: "MBTI Basics" },
         ];
+  const companyLinks: FooterLinkItem[] =
+    locale === "zh"
+      ? [
+          { href: "/help/about", label: "关于我们" },
+          { href: "/help/about", label: "我们的宪章" },
+          { href: "https://fermatmind.com/foundation", label: "基金会", external: true },
+          { href: "/help/contact", label: "工作机会" },
+          { href: "/help/used-and-mentioned", label: "品牌" },
+        ]
+      : [
+          { href: "/help/about", label: "About us" },
+          { href: "/help/about", label: "Our charter" },
+          { href: "https://fermatmind.com/foundation", label: "Foundation (opens in a new window)", external: true },
+          { href: "/help/contact", label: "Careers" },
+          { href: "/help/used-and-mentioned", label: "Brand" },
+        ];
+  const policyLinks: FooterLinkItem[] =
+    locale === "zh"
+      ? [
+          { href: "/terms", label: "使用条款" },
+          { href: "/privacy", label: "隐私政策" },
+          { href: "/refund", label: "其他政策" },
+        ]
+      : [
+          { href: "/terms", label: "Terms of use" },
+          { href: "/privacy", label: "Privacy policy" },
+          { href: "/refund", label: "Other policies" },
+        ];
+  const renderFooterLink = (item: FooterLinkItem) =>
+    item.external ? (
+      <a
+        key={`${item.href}-${item.label}`}
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block text-slate-300 hover:text-white"
+      >
+        {item.label}
+      </a>
+    ) : (
+      <Link
+        key={`${item.href}-${item.label}`}
+        href={withLocale(item.href)}
+        prefetch={false}
+        className="block text-slate-300 hover:text-white"
+      >
+        {item.label}
+      </Link>
+    );
 
   return (
     <footer className="fm-section-dark border-t border-white/10 text-white">
       <Container className="space-y-8 py-12">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 md:gap-10">
           <div className="space-y-3">
             <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.testsTitle}</p>
             <div className="space-y-2 text-sm">
@@ -80,13 +134,13 @@ export function SiteFooter() {
           </div>
 
           <div className="space-y-3">
-            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.reviewsTitle}</p>
-            <p className="m-0 text-sm text-slate-300">{footerCopy.supportMeta}</p>
-            <p className="m-0 text-sm text-slate-300">
-              <a href={`mailto:${supportEmail}`} className="font-semibold text-white hover:text-[var(--fm-gold)]">
-                {supportEmail}
-              </a>
-            </p>
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.companyTitle}</p>
+            <div className="space-y-2 text-sm">{companyLinks.map(renderFooterLink)}</div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.policiesTitle}</p>
+            <div className="space-y-2 text-sm">{policyLinks.map(renderFooterLink)}</div>
           </div>
         </div>
 

@@ -337,7 +337,6 @@ export default async function PersonalityDetailPage({
     locale
   );
   const hasRenderableContent = renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
-  const landingSurface = detail.landingSurface;
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -374,6 +373,7 @@ export default async function PersonalityDetailPage({
   const renderSceneBlock = (
     label: string,
     block: PersonalitySceneRenderBlock,
+    comparisonBlock: PersonalitySceneRenderBlock,
     anchor: string,
     sourcePath: string
   ): ReactElement => (
@@ -421,11 +421,11 @@ export default async function PersonalityDetailPage({
         </p>
         <p className="m-0">
           <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "A 型：" : "A variant:"}</span>{" "}
-          {block.variantDeltaA || block.variantDeltaT}
+          {comparisonBlock.variantDeltaA || block.variantDeltaA || comparisonBlock.variantDeltaT || block.variantDeltaT}
         </p>
         <p className="m-0">
           <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "T 型：" : "T variant:"}</span>{" "}
-          {block.variantDeltaT || block.variantDeltaA}
+          {comparisonBlock.variantDeltaT || block.variantDeltaT || comparisonBlock.variantDeltaA || block.variantDeltaA}
         </p>
         <div className="flex flex-wrap gap-2">
           {block.nextLinks.slice(0, 3).map((link) => {
@@ -476,20 +476,12 @@ export default async function PersonalityDetailPage({
         id="answer-first"
         className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       >
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {detail.displayType}
-        </p>
-        {detail.heroKicker ? <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{detail.heroKicker}</p> : null}
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{detail.title}</h1>
-        {detail.subtitle ? <p className="m-0 text-lg text-[var(--fm-text)]">{detail.subtitle}</p> : null}
-        {detail.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{detail.summary}</p> : null}
+        {locale !== "zh" && detail.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{detail.summary}</p> : null}
         {detail.heroSummary && detail.heroSummary !== detail.summary ? (
           <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
         ) : null}
         <div className="space-y-3 pt-1" data-testid="personality-detail-next-steps">
-          <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "下一步" : "Next steps"}
-          </p>
           <div
             className="flex flex-wrap items-center gap-3"
             data-testid="mbti-personality-entry-cta-group"
@@ -512,16 +504,6 @@ export default async function PersonalityDetailPage({
             </TrackedEntryCtaLink>
           </div>
         </div>
-        {landingSurface?.summaryBlocks.length ? (
-          <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="personality-detail-landing-summary">
-            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
-              <div key={block.key}>
-                {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
-                {block.body ? <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
-              </div>
-            ))}
-          </div>
-        ) : null}
         {(detail.typeName || detail.nickname || detail.rarity || detail.keywords.length > 0) ? (
           <div className="space-y-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
             <div className="flex flex-wrap gap-3 text-sm text-[var(--fm-text-muted)]">
@@ -569,11 +551,6 @@ export default async function PersonalityDetailPage({
               <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
                 {locale === "zh" ? `${detail.displayType} 人格解读` : `${detail.displayType} profile guide`}
               </h2>
-              <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-                {locale === "zh"
-                  ? "先看这类人格的核心画像，再进入职业、协作和成长场景。"
-                  : "Start with the core profile, then continue into career, collaboration, and growth contexts."}
-              </p>
             </div>
 
             <Card>
@@ -607,18 +584,21 @@ export default async function PersonalityDetailPage({
               {renderSceneBlock(
                 locale === "zh" ? "职业方向" : "Career direction",
                 personalityTypeContent.variantCopy.careerDirection,
+                personalityTypeContent.common.careerDirection,
                 detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-career" : "mbti-personality-scene-career",
                 canonicalPath
               )}
               {renderSceneBlock(
                 locale === "zh" ? "团队协作" : "Team collaboration",
                 personalityTypeContent.variantCopy.teamCollaboration,
+                personalityTypeContent.common.teamCollaboration,
                 detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-team" : "mbti-personality-scene-team",
                 canonicalPath
               )}
               {renderSceneBlock(
                 locale === "zh" ? "成长建议" : "Growth planning",
                 personalityTypeContent.variantCopy.growthPlanning,
+                personalityTypeContent.common.growthPlanning,
                 detail.canonicalTypeCode === "INTP" ? "intp-personality-scene-growth" : "mbti-personality-scene-growth",
                 canonicalPath
               )}
@@ -686,9 +666,7 @@ export default async function PersonalityDetailPage({
         }
         subtitle={
           locale === "zh"
-            ? personalityHasGrowthScene
-              ? "在类型页里直接完成场景解释与下一步路径选择，并补上成长建议的执行路径。"
-              : "在类型页里直接完成场景解释与下一步路径选择。"
+            ? ""
             : personalityHasGrowthScene
               ? "Use type detail as the primary layer for scenario explanation, next-step routing, and growth execution."
               : "Use type detail as the primary layer for scenario explanation and next-step routing."
@@ -703,6 +681,8 @@ export default async function PersonalityDetailPage({
               surface={detail.answerSurface}
               locale={locale}
               testId="personality-detail-answer-surface"
+              hideHeading={locale === "zh"}
+              hideSummaryLabel={locale === "zh"}
             />
           </>
         ) : (
@@ -724,6 +704,8 @@ export default async function PersonalityDetailPage({
             surface={detail.answerSurface}
             locale={locale}
             testId="personality-detail-answer-surface"
+            hideHeading={locale === "zh"}
+            hideSummaryLabel={locale === "zh"}
           />
         ) : null}
       </div>

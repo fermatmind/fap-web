@@ -34,35 +34,44 @@ const EXPECTED_PLACEMENT: Record<string, [string, string, string]> = {
   ],
 };
 
+const EXPECTED_EDITORIAL_SLUGS = [
+  "are-infj-men-rare-or-socially-silenced",
+  "best-valentines-date-by-personality-and-relationship-science",
+  "childhood-dream-job-still-shapes-career-choice",
+  "how-16-personality-types-talk-to-an-ai-coach",
+  "how-personality-shapes-attitude-toward-ai",
+  "which-love-script-fits-you-best",
+];
+
 describe("articles placement contract", () => {
   it("contains expected zh and en article sets", () => {
     const zhPosts = listBlogPosts("zh");
     const enPosts = listBlogPosts("en");
     const allPosts = listBlogPosts();
 
-    expect(zhPosts).toHaveLength(18);
+    expect(zhPosts).toHaveLength(24);
     expect(enPosts).toHaveLength(18);
-    expect(allPosts).toHaveLength(36);
+    expect(allPosts).toHaveLength(42);
 
     const zhSlugs = zhPosts.map((post) => post.slug);
-    expect(new Set(zhSlugs).size).toBe(18);
+    expect(new Set(zhSlugs).size).toBe(24);
 
     const enSlugs = enPosts.map((post) => post.slug).sort();
     const expectedSlugs = Object.values(EXPECTED_PLACEMENT).flat().sort();
     expect(enSlugs).toEqual(expectedSlugs);
 
-    expect([...zhSlugs].sort()).toEqual(expectedSlugs);
+    expect([...zhSlugs].sort()).toEqual([...expectedSlugs, ...EXPECTED_EDITORIAL_SLUGS].sort());
   });
 
-  it("contains exactly 18 unique groups by slug across all locales", () => {
+  it("contains exactly 24 unique groups by slug across all locales", () => {
     const posts = listBlogPosts();
-    expect(posts).toHaveLength(36);
+    expect(posts).toHaveLength(42);
 
     const slugs = posts.map((post) => post.slug);
-    expect(new Set(slugs).size).toBe(18);
+    expect(new Set(slugs).size).toBe(24);
 
     const expectedSlugs = Object.values(EXPECTED_PLACEMENT).flat().sort();
-    expect([...new Set(slugs)].sort()).toEqual(expectedSlugs);
+    expect([...new Set(slugs)].sort()).toEqual([...expectedSlugs, ...EXPECTED_EDITORIAL_SLUGS].sort());
   });
 
   it("groups posts into six tests with fixed 1-2-3 slot order", () => {

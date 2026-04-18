@@ -42,7 +42,9 @@ describe("schema injection contract", () => {
     expect(source).toContain("buildBreadcrumbJsonLd");
     expect(source).toContain("datePublished");
     expect(source).toContain("dateModified");
-    expect(source).toContain('id="references"');
+    expect(source).toContain('data-testid="article-detail-content"');
+    expect(source).not.toContain("参考来源请见正文中的文献与公开资料。");
+    expect(source).not.toContain("Please refer to citations and public references listed in the article.");
   });
 
   it("topic detail page injects cms seo jsonld, webpage, breadcrumb, and faq jsonld", () => {
