@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T22:22:04+08:00",
+  "updated_at": "2026-04-19T22:23:29+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -9,7 +9,7 @@
     "PR-V4-B2A": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "github_checks_failed",
       "branch": "codex/pr-v4-b2-help-hub-cms-authority",
       "commit_sha": "f54f7193fa5086bcb1dc748ef06539d5fd8d1b11",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/494",
@@ -32,9 +32,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24631267314/job/72018973482"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24631267314/job/72018973480"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions build/contracts failed immediately on PR #494 with no job steps and log not found, matching the repository's existing CI startup failure pattern rather than a locally reproducible help hub regression.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
