@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T22:00:00+08:00",
+  "updated_at": "2026-04-19T22:03:29+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -9,9 +9,9 @@
     "PR-V4-0A": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "merged",
       "branch": "codex/pr-content-authority-v4-rules",
-      "commit_sha": "76c895272f1887649b759e4d6de00d97b48041ab",
+      "commit_sha": "eba6ac2a43b6b352c7d793f10e33b3a028712623",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/493",
       "checks": {
         "local": [
@@ -39,9 +39,9 @@
       },
       "failure_reason": "GitHub Actions build/contracts failed immediately on PR #493, and gh run logs returned log not found for the failed job, matching the repository's existing immediate CI startup failure pattern rather than a locally reproducible rules-doc regression.",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-04-19T14:02:50Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-B7": {
       "repo": "fap-api",
