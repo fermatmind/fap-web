@@ -327,6 +327,14 @@ describe("career guides frontend boundary contract", () => {
     expect(aliasSource).toContain('export const dynamic = "force-dynamic"');
   });
 
+  it("keeps the career guide detail hero centered without the landing summary panel", () => {
+    const detailSource = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
+
+    expect(detailSource).toContain("text-center");
+    expect(detailSource).not.toContain("career-guide-landing-summary");
+    expect(detailSource).not.toContain("landingSurface.summaryBlocks");
+  });
+
   it("calls notFound when the cms detail lookup misses", async () => {
     const notFound = vi.fn(() => {
       throw new Error("not-found");

@@ -189,7 +189,7 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
 
 function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
   const normalized = text.replace(/\n/g, "  ");
-  const pattern = /(\[[^\]]+\]\([^)]+\)|`[^`]+`|\*\*[^*]+\*\*|__[^_]+__|\*[^*]+\*|_[^_]+_)/g;
+  const pattern = /(\[[^\]]+\]\([^)]+\)|`[^`]+`|\*\*[^*]+\*\*|__[^_]+__)/g;
   const parts = normalized.split(pattern).filter((part) => part.length > 0);
 
   return parts.map((part, index) => {
@@ -215,11 +215,6 @@ function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
     const strong = part.match(/^(?:\*\*|__)(.*?)(?:\*\*|__)$/);
     if (strong) {
       return <strong key={key}>{strong[1]}</strong>;
-    }
-
-    const emphasis = part.match(/^(?:\*|_)(.*?)(?:\*|_)$/);
-    if (emphasis) {
-      return <em key={key}>{emphasis[1]}</em>;
     }
 
     return <span key={key}>{part}</span>;
