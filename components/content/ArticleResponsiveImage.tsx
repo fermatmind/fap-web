@@ -1,4 +1,5 @@
 import type { CmsArticleImageVariant, CmsArticleImageVariants } from "@/lib/cms/articles";
+import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import { cn } from "@/lib/utils";
 
 type ArticleResponsiveImageProps = {
@@ -14,12 +15,17 @@ type ArticleResponsiveImageProps = {
 };
 
 function sourceFromVariant(variant: CmsArticleImageVariant | null | undefined, fallbackMedia: string) {
-  if (!variant?.url) {
+  if (!variant) {
+    return null;
+  }
+
+  const src = cmsManagedMediaUrl(variant?.url);
+  if (!src) {
     return null;
   }
 
   return {
-    srcSet: variant.url,
+    srcSet: src,
     media: variant.media ?? fallbackMedia,
     type: variant.mimeType ?? undefined,
     width: variant.width ?? undefined,
@@ -42,7 +48,13 @@ export function ArticleResponsiveImage({
   const card = variants?.card ?? null;
   const thumbnail = variants?.thumbnail ?? null;
   const preload = variants?.preload ?? null;
-  const fallbackSrc = preload?.url ?? (mode === "hero" ? hero?.url ?? card?.url : card?.url ?? hero?.url) ?? thumbnail?.url ?? src;
+  const fallbackSrc =
+    cmsManagedMediaUrl(preload?.url) ??
+    (mode === "hero"
+      ? cmsManagedMediaUrl(hero?.url) ?? cmsManagedMediaUrl(card?.url)
+      : cmsManagedMediaUrl(card?.url) ?? cmsManagedMediaUrl(hero?.url)) ??
+    cmsManagedMediaUrl(thumbnail?.url) ??
+    cmsManagedMediaUrl(src);
 
   if (!fallbackSrc) {
     return (

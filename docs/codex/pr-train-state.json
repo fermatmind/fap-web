@@ -1,11 +1,56 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T23:53:55+08:00",
+  "updated_at": "2026-04-19T23:58:37+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
   "items": {
+    "PR-V4-P5A": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-v4-p5a-media-url-contract",
+      "commit_sha": "749f171947ec90d470047b731823855576199c23",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/506",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/media-asset-contract.test.tsx tests/contracts/editorial-articles-cms.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24633155021/job/72023885927"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24633155021/job/72023885953"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions build/contracts failed immediately on PR #506. Local manifest checks passed and the merge policy does not require GitHub checks for this media URL contract PR.",
+      "resume_policy": "manual_only",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-V4-P4D": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
