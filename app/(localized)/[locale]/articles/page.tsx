@@ -11,6 +11,8 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
 
+const ARTICLE_AUTHOR_NAME = "Fermat Institute";
+
 function parsePage(value: string | string[] | undefined): number {
   const raw = Array.isArray(value) ? value[0] : value;
   const parsed = Number.parseInt(String(raw ?? "1"), 10);
@@ -139,7 +141,7 @@ export default async function ArticlesPage({
                     </h2>
                     {article.excerpt ? <p className="m-0 text-base leading-7 text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
                     <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-                      {[article.authorName ? `${locale === "zh" ? "经过" : "By"} ${article.authorName}` : null, publishedAt, readTime]
+                      {[`${locale === "zh" ? "作者：" : "By "}${ARTICLE_AUTHOR_NAME}`, publishedAt, readTime]
                         .filter(Boolean)
                         .join(" / ")}
                     </p>

@@ -190,7 +190,7 @@ describe("homepage v1 density contract", () => {
         excerpt: "一篇 CMS 文章摘要",
         contentMd: "",
         contentHtml: "",
-        authorName: "FermatMind Editorial",
+        authorName: "Fermat Institute",
         reviewerName: null,
         readingMinutes: 3,
         coverImageUrl: null,

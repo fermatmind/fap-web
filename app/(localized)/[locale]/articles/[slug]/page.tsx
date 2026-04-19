@@ -21,6 +21,8 @@ import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@
 
 export const dynamic = "force-dynamic";
 
+const ARTICLE_AUTHOR_NAME = "Fermat Institute";
+
 function pathFromCanonicalUrl(value: string | null | undefined, fallbackPath: string): string {
   const normalized = String(value ?? "").trim();
   if (!normalized) {
@@ -49,6 +51,20 @@ function formatArticleDate(value: string | null, locale: Locale): string | null 
     month: "short",
     day: "numeric",
   }).format(date);
+}
+
+function normalizeArticleJsonLdAuthor(data: unknown): unknown | null {
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    return null;
+  }
+
+  return {
+    ...data,
+    author: {
+      "@type": "Organization",
+      name: ARTICLE_AUTHOR_NAME,
+    },
+  };
 }
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
@@ -174,7 +190,7 @@ export default async function ArticleDetailPage({
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
   const articleJsonLd =
-    seo?.jsonld ||
+    normalizeArticleJsonLdAuthor(seo?.jsonld) ||
     buildArticleJsonLd({
       path: canonicalPath,
       title: article.title,
@@ -182,7 +198,7 @@ export default async function ArticleDetailPage({
       locale,
       datePublished: article.publishedAt ?? article.updatedAt ?? article.createdAt ?? new Date().toISOString(),
       dateModified: article.updatedAt ?? article.publishedAt ?? article.createdAt ?? new Date().toISOString(),
-      authorName: article.authorName ?? "FermatMind Editorial",
+      authorName: ARTICLE_AUTHOR_NAME,
     });
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -242,11 +258,9 @@ export default async function ArticleDetailPage({
           <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)]">{article.title}</h1>
           {heroSummary ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--fm-text-muted)]">
-            {article.authorName ? (
-              <p className="m-0">
-                {locale === "zh" ? "作者" : "By"}: {article.authorName}
-              </p>
-            ) : null}
+            <p className="m-0">
+              {locale === "zh" ? "作者" : "By"}: {ARTICLE_AUTHOR_NAME}
+            </p>
             {publishedAt ? (
               <p className="m-0">
                 {locale === "zh" ? "发布于" : "Published"}: {publishedAt}

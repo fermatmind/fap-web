@@ -11,6 +11,8 @@ type HomeLink = HomePageContent["quickStart"]["items"][number];
 type TrustItem = HomePageContent["trust"]["items"][number];
 type HomeArticle = CmsArticle;
 
+const ARTICLE_AUTHOR_NAME = "Fermat Institute";
+
 function withLocale(locale: Locale, path: string): string {
   return localizedPath(path, locale);
 }
@@ -316,8 +318,22 @@ function getArticleVisualTitle(article: HomeArticle, locale: Locale): string {
   );
 }
 
-function getArticleDisplayDate(article: HomeArticle): string {
-  return article.publishedAt ?? article.updatedAt ?? article.createdAt ?? "";
+function getArticleDisplayDate(article: HomeArticle, locale: Locale): string {
+  const value = article.publishedAt ?? article.updatedAt ?? article.createdAt;
+  if (!value) return "";
+
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+
+  if (locale === "zh") {
+    return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date);
 }
 
 function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles: HomeArticle[] }) {
@@ -349,9 +365,9 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
               </Link>
               <p className="m-0 mt-5 text-sm leading-6 text-slate-500">
                 {labels.author}
-                <span className="text-slate-700">FermatMind Editorial</span>
+                <span className="text-slate-700">{ARTICLE_AUTHOR_NAME}</span>
               </p>
-              <p className="m-0 mt-1 text-sm text-slate-400">{getArticleDisplayDate(article)}</p>
+              <p className="m-0 mt-1 text-sm text-slate-400">{getArticleDisplayDate(article, locale)}</p>
             </article>
           ))}
         </div>

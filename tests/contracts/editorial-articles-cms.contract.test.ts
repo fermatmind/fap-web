@@ -52,7 +52,7 @@ describe("editorial article CMS contract", () => {
           title: "你的性格如何塑造你对人工智能的态度",
           excerpt: "人格倾向会影响 AI 信任、控制感和风险解释方式。",
           content_md: "## 执行摘要\n人格与 AI 信任存在稳定关系。",
-          author_name: "FermatMind Editorial",
+          author_name: "Fermat Institute",
           reviewer_name: "FermatMind Research",
           reading_minutes: 6,
           cover_image_url: coverUrl,
@@ -92,7 +92,7 @@ describe("editorial article CMS contract", () => {
     expect(article?.coverImageWidth).toBe(1200);
     expect(article?.coverImageHeight).toBe(675);
     expect(article?.coverImageVariants.hero?.url).toBe(coverUrl);
-    expect(article?.authorName).toBe("FermatMind Editorial");
+    expect(article?.authorName).toBe("Fermat Institute");
     expect(article?.reviewerName).toBe("FermatMind Research");
     expect(article?.readingMinutes).toBe(6);
     expect(article?.category?.name).toBe("人工智能与人格");
