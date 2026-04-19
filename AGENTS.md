@@ -65,6 +65,17 @@
   - local_cleanup_executed
 - Never continue after a failed PR unless the manifest explicitly allows retry.
 
+## Ledger reconciliation discipline
+- If `docs/codex/pr-train-state.json` records a PR as failed, open, or pending but GitHub shows the PR is already merged, Codex may reconcile the ledger before continuing.
+- Reconciliation must verify:
+  - GitHub PR state is `MERGED`
+  - `origin/main` contains the merge commit
+  - remote branch deletion status
+  - local cleanup status when operating in a local clone
+- Reconciliation is bookkeeping, not a retry of the failed PR.
+- If reconciliation touches only PR train metadata needed to unblock the current train item, it may be included with the current PR and called out in the PR body.
+- Cross-repository ledger reconciliation must be done in the repository that owns that ledger.
+
 ## Failure policy
 - Stop immediately on:
   - preflight failure
