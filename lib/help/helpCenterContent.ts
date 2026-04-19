@@ -181,7 +181,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
           { href: "/email/preferences", label: "Manage email preferences" },
           { href: "/email/unsubscribe", label: "Unsubscribe from emails" },
           { href: "/help/contact", label: "Contact support" },
-          { href: "/refund", label: "Refund policy" },
+          { href: "/policies", label: "Other policies" },
         ],
       },
       about: {
@@ -245,7 +245,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
           },
         ],
         relatedLinks: [
-          { href: "/help/about", label: "About FermatMind" },
+          { href: "/about", label: "About FermatMind" },
           { href: "/help/contact", label: "Contact support" },
         ],
       },
@@ -465,7 +465,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
           { href: "/email/preferences", label: "管理邮件偏好" },
           { href: "/email/unsubscribe", label: "退订邮件" },
           { href: "/help/contact", label: "联系支持" },
-          { href: "/refund", label: "退款政策" },
+          { href: "/policies", label: "其他政策" },
         ],
       },
       about: {
@@ -529,7 +529,7 @@ const HELP_CENTER_CONTENT: Record<Locale, HelpCenterLocaleContent> = {
           },
         ],
         relatedLinks: [
-          { href: "/help/about", label: "关于 FermatMind" },
+          { href: "/about", label: "关于 FermatMind" },
           { href: "/help/contact", label: "联系支持" },
         ],
       },

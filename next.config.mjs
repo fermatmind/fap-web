@@ -90,6 +90,46 @@ const nextConfig = {
         destination: "/en/tests/:path*",
         permanent: true,
       },
+      {
+        source: "/help/about",
+        destination: "/en/about",
+        permanent: true,
+      },
+      {
+        source: "/zh/help/about",
+        destination: "/zh/about",
+        permanent: true,
+      },
+      {
+        source: "/help/used-and-mentioned",
+        destination: "/en/brand",
+        permanent: true,
+      },
+      {
+        source: "/zh/help/used-and-mentioned",
+        destination: "/zh/brand",
+        permanent: true,
+      },
+      {
+        source: "/help/team",
+        destination: "/en/about",
+        permanent: true,
+      },
+      {
+        source: "/zh/help/team",
+        destination: "/zh/about",
+        permanent: true,
+      },
+      {
+        source: "/refund",
+        destination: "/en/policies",
+        permanent: true,
+      },
+      {
+        source: "/zh/refund",
+        destination: "/zh/policies",
+        permanent: true,
+      },
       ...(enableRootQuizRedirects
         ? [
             {

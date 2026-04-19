@@ -1,35 +1,6 @@
-import type { Metadata } from "next";
-import { Container } from "@/components/layout/Container";
-import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
-import { buildPageMetadata } from "@/lib/seo/metadata";
-
-const EFFECTIVE_DATE = "February 15, 2026";
-const EFFECTIVE_DATE_ZH = "2026年2月15日";
-const SUPPORT_EMAIL = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@fermatmind.com";
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale: localeParam } = await params;
-  const locale = resolveLocale(localeParam);
-  const isZh = locale === "zh";
-
-  return buildPageMetadata({
-    locale,
-    pathname: isZh ? "/zh/refund" : "/en/refund",
-    title: isZh ? "退款政策" : "Refund Policy",
-    description: isZh
-      ? "查看退款窗口、例外条款与处理流程。"
-      : "Refund eligibility, exceptions, and processing flow.",
-    alternatesByLocale: {
-      en: "/en/refund",
-      zh: "/zh/refund",
-      xDefault: "/",
-    },
-  });
-}
+import { permanentRedirect } from "next/navigation";
+import { resolveLocale } from "@/lib/i18n/getDict";
+import { localizedPath } from "@/lib/i18n/locales";
 
 export default async function RefundPage({
   params,
@@ -37,61 +8,5 @@ export default async function RefundPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
-  const locale = resolveLocale(localeParam);
-  const dict = getDictSync(locale);
-  const isZh = locale === "zh";
-
-  return (
-    <Container as="main" className="max-w-4xl space-y-6 py-10">
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          Legal
-        </p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
-          {dict.legal.refund_title}
-        </h1>
-        <p className="m-0 text-sm text-[var(--fm-text-muted)]">
-          {dict.legal.effectiveDateLabel}: {isZh ? EFFECTIVE_DATE_ZH : EFFECTIVE_DATE}
-        </p>
-      </section>
-
-      <article className="prose max-w-none rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)] prose-headings:font-serif prose-headings:text-[var(--fm-text)] prose-p:text-[var(--fm-text-muted)] prose-li:text-[var(--fm-text-muted)] prose-strong:text-[var(--fm-text)] prose-a:text-[var(--fm-accent)]">
-        <h2 id="window">{isZh ? "1. 退款时间窗口" : "1. Refund Window"}</h2>
-        <p>
-          {isZh
-            ? "通常在支付后 14 天内可申请退款。"
-            : "Refund requests are generally accepted within 14 days after payment."}
-        </p>
-
-        <h2 id="requirements">{isZh ? "2. 申请所需信息" : "2. Required Information"}</h2>
-        <ul>
-          <li>{isZh ? "订单号" : "Order number"}</li>
-          <li>{isZh ? "购买邮箱或账户标识" : "Purchase email or account identifier"}</li>
-          <li>{isZh ? "申请原因简述" : "Short reason for request"}</li>
-        </ul>
-
-        <h2 id="exceptions">{isZh ? "3. 例外条款" : "3. Exceptions"}</h2>
-        <p>
-          {isZh
-            ? "以下情形可能拒绝退款：重复欺诈、拒付滥用、条款违规或明显政策规避。"
-            : "Refund may be rejected for repeated fraud, chargeback abuse, policy manipulation, or terms violations."}
-        </p>
-
-        <h2 id="timeline">{isZh ? "4. 处理与到账" : "4. Processing Timeline"}</h2>
-        <p>
-          {isZh
-            ? "退款通过后通常在 5-10 个工作日原路返回。"
-            : "Approved refunds are returned to the original payment method within 5-10 business days."}
-        </p>
-
-        <h2 id="contact">{isZh ? "5. 处理路径与联系" : "5. Contact and Resolution"}</h2>
-        <p>
-          <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
-        </p>
-
-        <h2 id="disclaimer">{isZh ? "6. 非医疗免责声明" : "6. Medical Disclaimer"}</h2>
-        <p>{dict.legal.medical_disclaimer}</p>
-      </article>
-    </Container>
-  );
+  permanentRedirect(localizedPath("/policies", resolveLocale(localeParam)));
 }
