@@ -125,6 +125,13 @@ const homePayload = vi.hoisted(() => ({
 
 vi.mock("@/lib/cms/landing-surfaces", () => ({
   getCmsLandingSurface: async () => ({ payloadJson: homePayload }),
+  getCmsLandingSurfaceWithLastKnownGood: async () => ({
+    value: { payloadJson: homePayload },
+    source: "fresh",
+    stale: false,
+    updatedAt: "2026-04-19T00:00:00.000Z",
+    error: null,
+  }),
 }));
 
 vi.mock("next/link", () => ({

@@ -1,4 +1,5 @@
 import type { CmsLandingSurface } from "@/lib/cms/landing-surfaces";
+import type { LastKnownGoodResult } from "@/lib/cms/last-known-good";
 import type { HomePageContent } from "@/lib/marketing/homepageContent";
 import type { HubTestCardItem, TestsHubContent } from "@/lib/marketing/testsHubContent";
 import type { Locale } from "@/lib/i18n/locales";
@@ -228,6 +229,7 @@ const testsHubZh: TestsHubContent = {
         exploreLabel: "查看职业入口",
         representativeLabels: ["RIASEC"],
         tests: [
+          testCard("eq-test-emotional-intelligence-assessment", "EQ 情商测试"),
           testCard("iq-test-intelligence-quotient-assessment", "IQ 智商测试"),
           testCard("career-riasec", "霍兰德职业兴趣测试"),
         ],
@@ -316,5 +318,18 @@ export async function getMockCmsLandingSurface<TPayload>(
     publishedAt: null,
     scheduledAt: null,
     pageBlocks: [],
+  };
+}
+
+export async function getMockCmsLandingSurfaceWithLastKnownGood<TPayload>(
+  surfaceKey: string,
+  locale: Locale,
+): Promise<LastKnownGoodResult<CmsLandingSurface<TPayload>>> {
+  return {
+    value: await getMockCmsLandingSurface<TPayload>(surfaceKey, locale),
+    source: "fresh",
+    stale: false,
+    updatedAt: "2026-04-19T00:00:00.000Z",
+    error: null,
   };
 }

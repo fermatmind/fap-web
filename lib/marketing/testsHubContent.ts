@@ -1,5 +1,6 @@
-import { getCmsLandingSurface } from "@/lib/cms/landing-surfaces";
+import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
 import type { Locale } from "@/lib/i18n/locales";
+import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
 export type TestsCategorySlug = "personality" | "career";
 
@@ -213,21 +214,21 @@ export function listTestsCategorySlugs(): TestsCategorySlug[] {
 }
 
 export async function getTestsHubContent(locale: Locale): Promise<TestsHubContent> {
-  const surface = await getCmsLandingSurface<TestsHubContent>("tests", locale);
-  return assertHubContent(surface.payloadJson);
+  const surface = await getCmsLandingSurfaceWithLastKnownGood<TestsHubContent>("tests", locale);
+  return assertHubContent(surface.value.payloadJson);
 }
 
 export async function getTestsCategoryContent(locale: Locale, slug: TestsCategorySlug): Promise<CategoryContent> {
-  const surface = await getCmsLandingSurface<CategoryContent>(`tests_category_${slug}`, locale);
-  return assertCategoryContent(surface.payloadJson, slug);
+  const surface = await getCmsLandingSurfaceWithLastKnownGood<CategoryContent>(`tests_category_${slug}`, locale);
+  return assertCategoryContent(surface.value.payloadJson, slug);
 }
 
 export async function listVisibleTestsHubCards(locale: Locale): Promise<HubTestCardItem[]> {
   const content = await getTestsHubContent(locale);
-  return uniqueCards(content.families.items.map((family) => family.tests));
+  return filterVisiblePublicTestEntries(uniqueCards(content.families.items.map((family) => family.tests)));
 }
 
 export async function listAllContentTestsHubCards(locale: Locale): Promise<HubTestCardItem[]> {
   const content = await getTestsHubContent(locale);
-  return uniqueCards(content.families.items.map((family) => family.tests));
+  return filterVisiblePublicTestEntries(uniqueCards(content.families.items.map((family) => family.tests)));
 }

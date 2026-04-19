@@ -1,11 +1,45 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T23:22:45+08:00",
+  "updated_at": "2026-04-19T23:29:32+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
   "items": {
+    "PR-V4-P3B": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-v4-p3b-landing-lkg-integration",
+      "commit_sha": null,
+      "pr_url": null,
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/landing-surface-lkg-integration.contract.test.ts tests/contracts/last-known-good-cache.contract.test.ts tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/tests-hub-empty-catalog.contract.test.ts tests/contracts/depression-entry-visibility.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": null,
+      "resume_policy": "manual_only",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-V4-P3A": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",

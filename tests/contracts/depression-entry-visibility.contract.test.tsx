@@ -89,6 +89,7 @@ vi.mock("@/lib/cms/landing-surfaces", async () => {
 
   return {
     getCmsLandingSurface: vi.fn(fixture.getMockCmsLandingSurface),
+    getCmsLandingSurfaceWithLastKnownGood: vi.fn(fixture.getMockCmsLandingSurfaceWithLastKnownGood),
   };
 });
 

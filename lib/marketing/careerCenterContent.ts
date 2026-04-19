@@ -1,4 +1,4 @@
-import { getCmsLandingSurface } from "@/lib/cms/landing-surfaces";
+import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type CareerCenterPathway = {
@@ -48,6 +48,6 @@ function normalizeCareerCenterContent(value: unknown): CareerCenterContent {
 }
 
 export async function getCareerCenterContent(locale: Locale): Promise<CareerCenterContent> {
-  const surface = await getCmsLandingSurface<CareerCenterContent>("career_home", locale);
-  return normalizeCareerCenterContent(surface.payloadJson);
+  const surface = await getCmsLandingSurfaceWithLastKnownGood<CareerCenterContent>("career_home", locale);
+  return normalizeCareerCenterContent(surface.value.payloadJson);
 }
