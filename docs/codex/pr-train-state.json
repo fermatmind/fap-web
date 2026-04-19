@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T23:18:42+08:00",
+  "updated_at": "2026-04-19T23:20:38+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -11,8 +11,8 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "in_progress",
       "branch": "codex/pr-v4-p3-last-known-good-helper",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "3660362310da148994091f94397a11ac40de7262",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/500",
       "checks": {
         "local": [
           {
@@ -32,9 +32,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632400863/job/72021947735"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632400863/job/72021947738"
+          }
+        ]
       },
-      "failure_reason": null,
+      "failure_reason": "GitHub Actions build/contracts failed immediately on PR #500. Local manifest checks passed and the merge policy does not require GitHub checks for this helper PR.",
       "resume_policy": "manual_only",
       "merged_at": null,
       "remote_branch_deleted": false,
