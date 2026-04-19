@@ -1,4 +1,4 @@
-import { getCmsLandingSurface } from "@/lib/cms/landing-surfaces";
+import { getCmsLandingSurfaceWithLastKnownGood } from "@/lib/cms/landing-surfaces";
 import type { Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
@@ -259,6 +259,6 @@ function normalizeHomeContent(value: unknown, locale: Locale): HomePageContent {
 }
 
 export async function getHomePageContent(locale: Locale): Promise<HomePageContent> {
-  const surface = await getCmsLandingSurface<HomePageContent>("home", locale);
-  return normalizeHomeContent(surface.payloadJson, locale);
+  const surface = await getCmsLandingSurfaceWithLastKnownGood<HomePageContent>("home", locale);
+  return normalizeHomeContent(surface.value.payloadJson, locale);
 }

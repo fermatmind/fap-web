@@ -13,6 +13,7 @@ describe("tests hub empty catalog contract", () => {
 
       return {
         getCmsLandingSurface: vi.fn(fixture.getMockCmsLandingSurface),
+        getCmsLandingSurfaceWithLastKnownGood: vi.fn(fixture.getMockCmsLandingSurfaceWithLastKnownGood),
       };
     });
 

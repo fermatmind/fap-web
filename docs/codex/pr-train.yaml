@@ -6,6 +6,33 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: PR-V4-P3B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-v4-p3b-landing-lkg-integration
+    base: main
+    depends_on: ["PR-V4-P3A"]
+    mode: execute
+    scope: >
+      Final V4 Phase 3 landing surface last-known-good integration. Route
+      homepage, tests hub, tests category, and career center content adapters
+      through the LKG landing-surface wrapper while leaving page layout,
+      fallback copy, and high-traffic hub migration behavior unchanged.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm vitest run tests/contracts/landing-surface-lkg-integration.contract.test.ts tests/contracts/last-known-good-cache.contract.test.ts tests/contracts/homepage-v1-hero.contract.test.tsx tests/contracts/tests-hub-empty-catalog.contract.test.ts tests/contracts/depression-entry-visibility.contract.test.tsx tests/contracts/homepage-v1-core-grid.contract.test.tsx"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-V4-P3A
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
