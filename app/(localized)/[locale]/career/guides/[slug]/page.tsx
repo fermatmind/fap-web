@@ -181,18 +181,8 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
           { label: guide.title },
         ]}
       />
-      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
+      <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 text-center shadow-[var(--fm-shadow-sm)]">
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{guide.title}</h1>
-        {landingSurface?.summaryBlocks.length ? (
-          <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="career-guide-landing-summary">
-            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
-              <div key={block.key}>
-                {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
-                {block.body ? <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
-              </div>
-            ))}
-          </div>
-        ) : null}
         {metadataParts.length > 0 ? (
           <p className="m-0 text-xs text-[var(--fm-text-muted)]">{metadataParts.join(" · ")}</p>
         ) : null}

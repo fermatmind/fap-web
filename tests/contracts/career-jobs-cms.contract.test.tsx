@@ -316,6 +316,17 @@ describe("career markdown renderer contract", () => {
     expect(html).toContain("<ul");
     expect(html).toContain("https://example.com");
   });
+
+  it("keeps organization names with literal asterisks intact", () => {
+    const node = renderSimpleMarkdown("- O*NET Center. Revisiting the Work Styles Domain of the O*NET Content Model.");
+    const html = renderToStaticMarkup(
+      <div>{node as Parameters<typeof renderToStaticMarkup>[0]}</div>
+    );
+
+    expect(html).toContain("O*NET Center");
+    expect(html).toContain("O*NET Content Model");
+    expect(html).not.toContain("<em>");
+  });
 });
 
 describe("career alias route contract", () => {

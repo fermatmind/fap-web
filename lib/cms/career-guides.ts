@@ -710,7 +710,7 @@ export async function getCareerGuideFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        ...PUBLIC_API_CACHE_OPTIONS,
+        cache: "no-store",
       }
     );
 
