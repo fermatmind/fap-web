@@ -36,16 +36,16 @@ describe("wider public family contract", () => {
 
     expect(home).toContain('import { HomePageExperience } from "@/components/marketing/HomePageExperience"');
     expect(home).toContain('import { getHomePageContent } from "@/lib/marketing/homepageContent"');
-    expect(home).toContain("function buildHomeJsonLd(locale: Locale)");
+    expect(home).toContain("function buildHomeJsonLd(locale: Locale, copy:");
     expect(home).toContain('idSuffix: "quickstart-itemlist"');
     expect(home).toContain('idSuffix: "family-itemlist"');
     expect(home).toContain("<HomePageExperience locale={locale} copy={copy} articles={articles.slice(0, 6)} />");
 
     expect(testsIndex).toContain('import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience"');
     expect(testsIndex).toContain('import { getTestsHubContent } from "@/lib/marketing/testsHubContent"');
-    expect(testsIndex).toContain("function buildTestsHubJsonLd(locale: Locale)");
+    expect(testsIndex).toContain("function buildTestsHubJsonLd(locale: Locale, content:");
     expect(testsIndex).toContain('idSuffix: "quickstart-itemlist"');
     expect(testsIndex).toContain('idSuffix: "family-itemlist"');
-    expect(testsIndex).toContain("<TestsHubExperience locale={locale} />");
+    expect(testsIndex).toContain("<TestsHubExperience content={content} locale={locale} />");
   });
 });

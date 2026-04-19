@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience";
+import { TestsHubMinimalShell } from "@/components/marketing/tests/TestsHubMinimalShell";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import { getTestsHubContent } from "@/lib/marketing/testsHubContent";
@@ -18,8 +19,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const content = await getTestsHubContent(locale);
+  const content = await getTestsHubContent(locale).catch(() => null);
   const pathname = locale === "zh" ? "/zh/tests" : "/en/tests";
+
+  if (!content) {
+    return buildPageMetadata({
+      locale,
+      pathname,
+      title: "FermatMind Tests",
+      description: "FermatMind Tests",
+      noindex: true,
+      alternatesByLocale: {
+        en: "/en/tests",
+        zh: "/zh/tests",
+        xDefault: "/",
+      },
+    });
+  }
 
   return buildPageMetadata({
     locale,
@@ -34,8 +50,7 @@ export async function generateMetadata({
   });
 }
 
-async function buildTestsHubJsonLd(locale: Locale) {
-  const content = await getTestsHubContent(locale);
+function buildTestsHubJsonLd(locale: Locale, content: Awaited<ReturnType<typeof getTestsHubContent>>) {
   const path = locale === "zh" ? "/zh/tests" : "/en/tests";
 
   return {
@@ -83,7 +98,13 @@ export default async function TestsPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const jsonLd = await buildTestsHubJsonLd(locale);
+  const content = await getTestsHubContent(locale).catch(() => null);
+
+  if (!content) {
+    return <TestsHubMinimalShell locale={locale} />;
+  }
+
+  const jsonLd = buildTestsHubJsonLd(locale, content);
 
   return (
     <main>
@@ -91,7 +112,7 @@ export default async function TestsPage({
       <JsonLd id={`tests-hub-collection-${locale}`} data={jsonLd.collectionPage} />
       <JsonLd id={`tests-hub-quickstart-${locale}`} data={jsonLd.quickStart} />
       <JsonLd id={`tests-hub-families-${locale}`} data={jsonLd.families} />
-      <TestsHubExperience locale={locale} />
+      <TestsHubExperience content={content} locale={locale} />
     </main>
   );
 }
