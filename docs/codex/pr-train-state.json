@@ -1,11 +1,48 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T23:09:27+08:00",
+  "updated_at": "2026-04-19T23:11:44+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
   "items": {
+    "PR-V4-B2E": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-v4-b2-articles-authority-audit",
+      "commit_sha": "15acabfb241c08df0dadb8ba7881e1c6e0eeacde",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/498",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632223684/job/72021460061"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632223684/job/72021460059"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions build/contracts failed immediately on PR #498. Local manifest checks passed and the merge policy does not require GitHub checks for this docs-only audit PR.",
+      "resume_policy": "manual_only",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-V4-B2D": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
