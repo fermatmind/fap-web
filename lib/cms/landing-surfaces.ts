@@ -1,4 +1,5 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
@@ -157,4 +158,15 @@ export async function getCmsLandingSurface<TPayload>(
   }
 
   return surface;
+}
+
+export async function getCmsLandingSurfaceWithLastKnownGood<TPayload>(
+  surfaceKey: string,
+  locale: Locale,
+): Promise<LastKnownGoodResult<CmsLandingSurface<TPayload>>> {
+  return withLastKnownGood({
+    key: `landing-surface:${surfaceKey}:${locale}`,
+    load: () => getCmsLandingSurface<TPayload>(surfaceKey, locale),
+    isUsable: (surface) => surface.isPublic && Boolean(surface.payloadJson),
+  });
 }
