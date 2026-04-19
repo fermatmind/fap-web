@@ -85,3 +85,27 @@
 - Codex may draft, refactor, and open PRs.
 - Laravel/backend or the declared authority layer remains the source of truth where the manifest says so.
 - Never replace an authority layer with frontend or CMS fallback logic.
+
+## Content authority rules
+- Frontend must not add or modify public editorial content directly in `app/`, `components/`, `lib/marketing/`, `public/`, or local content folders.
+- Articles, article SEO, article covers, article categories/tags, related content placement, and article publication state must be managed in backend CMS Article resources.
+- Homepage, tests hub, test category pages, career center modules, CTA text, module ordering, featured items, and landing SEO must be managed through backend `landing_surfaces` / `page_blocks`.
+- Help, policy, company, brand, careers, about, charter, foundation, privacy, terms, refund, support, and similar static-content pages must be managed through backend `content_pages`.
+- Career guides, career jobs, career recommendations, personality profiles, topic pages, and their SEO/FAQ/sections must be managed through backend CMS/public APIs.
+- Mutable images used by editorial, marketing, social, article, landing page, and SEO surfaces must be uploaded to Media Library and referenced by CMS metadata or generated variants.
+- Frontend may keep product code only: rendering components, interaction flows, scoring logic, payment/order flows, API adapters, icons, fonts, fixed brand assets, and non-operational game/product assets.
+- Do not introduce new MDX/content JSON/static public image assets for publishable content unless the change is explicitly a backend baseline importer fixture.
+- Do not add frontend fallback content for CMS-backed surfaces. Empty CMS responses should render an empty/error state, not local editorial copy.
+- Sitemap, `llms.txt`, SEO metadata, article enumeration, help pages, topics, personality, and career content must enumerate from CMS/public APIs, not local files.
+
+## Rule maintenance
+- Repository rules are part of the architecture contract.
+- Every architecture upgrade, CMS migration, content authority change, API contract change, or publishing workflow change must update these rules in the same PR or in a clearly linked follow-up PR.
+- A PR that changes content ownership, publishing SOP, backend CMS models, public content APIs, media asset handling, SEO generation, sitemap/llms enumeration, or frontend fallback behavior must include a short "Repository rule impact" note.
+- If the change introduces a new content surface, the PR must explicitly state whether that surface is:
+  - CMS/backend-authoritative
+  - frontend product-code-only
+  - temporary migration fallback
+  - deprecated
+- Temporary migration fallback must include an owner, removal condition, and target removal PR/issue.
+- Rules must not lag behind architecture. If implementation and rules conflict, the PR is incomplete until the rules are updated or the conflict is explicitly resolved.
