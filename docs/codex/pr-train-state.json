@@ -1,11 +1,56 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T23:46:10+08:00",
+  "updated_at": "2026-04-19T23:49:07+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
   "items": {
+    "PR-V4-P4C": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "in_progress",
+      "branch": "codex/pr-v4-p4c-career-minimal-shell",
+      "commit_sha": "dc7103e6141968d9d8c398d43ab26508b475cfae",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/504",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/career-minimal-shell.contract.test.tsx tests/contracts/landing-surface-lkg-integration.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632973619/job/72023429146"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632973619/job/72023429150"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions build/contracts failed immediately on PR #504. Local manifest checks passed and the merge policy does not require GitHub checks for this career hub minimal shell PR.",
+      "resume_policy": "manual_only",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-V4-P4B": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import { CareerMinimalShell } from "@/components/marketing/CareerMinimalShell";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { getCareerCenterContent } from "@/lib/marketing/careerCenterContent";
@@ -19,7 +20,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const content = await getCareerCenterContent(locale);
+  const content = await getCareerCenterContent(locale).catch(() => null);
+
+  if (!content) {
+    return buildPageMetadata({
+      locale,
+      pathname: locale === "zh" ? "/zh/career" : "/en/career",
+      title: "FermatMind Career",
+      description: "FermatMind Career",
+      noindex: true,
+      alternatesByLocale: {
+        en: "/en/career",
+        zh: "/zh/career",
+        xDefault: "/",
+      },
+    });
+  }
 
   return buildPageMetadata({
     locale,
@@ -41,7 +57,12 @@ export default async function CareerCenterPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const content = await getCareerCenterContent(locale);
+  const content = await getCareerCenterContent(locale).catch(() => null);
+
+  if (!content) {
+    return <CareerMinimalShell locale={locale} />;
+  }
+
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
   const landingPath = withLocale("/career");
   const canonicalPath = locale === "zh" ? "/zh/career" : "/en/career";
