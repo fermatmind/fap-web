@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T23:03:53+08:00",
+  "updated_at": "2026-04-19T23:05:19+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -9,9 +9,9 @@
     "PR-V4-B2C": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "in_progress",
+      "status": "merged",
       "branch": "codex/pr-v4-b2-content-pages-audit",
-      "commit_sha": "de73f530d8d6c5da3dc0e80716d0ac31f84fed1a",
+      "commit_sha": "84a3981aeb049333ffa24bec2f491f0ecbce4d86",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/496",
       "checks": {
         "local": [
@@ -39,9 +39,9 @@
       },
       "failure_reason": "GitHub Actions build/contracts failed immediately on PR #496. Local manifest checks passed and the merge policy does not require GitHub checks for this docs-only audit PR.",
       "resume_policy": "manual_only",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-04-19T15:04:26Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-V4-B2B": {
       "repo": "fap-web",
