@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { HomePageExperience } from "@/components/marketing/HomePageExperience";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import { getCmsArticles } from "@/lib/cms/articles";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
@@ -11,6 +12,8 @@ import {
   buildOrganizationJsonLd,
   buildWebPageJsonLd,
 } from "@/lib/seo/generateSchema";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -90,6 +93,12 @@ export default async function Home({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const jsonLd = buildHomeJsonLd(locale);
+  const { items: articles } = await getCmsArticles({
+    locale,
+    page: 1,
+    perPage: 6,
+    allowLocalFallback: false,
+  });
 
   return (
     <main className="fm-homepage">
@@ -98,7 +107,7 @@ export default async function Home({
       <JsonLd id={`home-quickstart-${locale}`} data={jsonLd.quickStart} />
       <JsonLd id={`home-families-${locale}`} data={jsonLd.families} />
       <JsonLd id={`home-organization-${locale}`} data={jsonLd.organization} />
-      <HomePageExperience locale={locale} />
+      <HomePageExperience locale={locale} articles={articles.slice(0, 6)} />
     </main>
   );
 }
