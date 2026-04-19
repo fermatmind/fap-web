@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HomePageExperience } from "@/components/marketing/HomePageExperience";
+import { HomeMinimalShell } from "@/components/marketing/HomeMinimalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getCmsArticles } from "@/lib/cms/articles";
@@ -19,7 +20,23 @@ const ROOT_PATH = "/";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const copy = await getHomePageContent(ROOT_LOCALE);
+  const copy = await getHomePageContent(ROOT_LOCALE).catch(() => null);
+
+  if (!copy) {
+    return buildPageMetadata({
+      locale: ROOT_LOCALE,
+      pathname: ROOT_PATH,
+      title: "FermatMind",
+      description: "FermatMind",
+      imagePath: DEFAULT_SHARE_IMAGE_URL,
+      noindex: true,
+      alternatesByLocale: {
+        en: "/en",
+        zh: "/",
+        xDefault: "/",
+      },
+    });
+  }
 
   return buildPageMetadata({
     locale: ROOT_LOCALE,
@@ -35,9 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-async function buildRootHomeJsonLd() {
-  const copy = await getHomePageContent(ROOT_LOCALE);
-
+function buildRootHomeJsonLd(copy: Awaited<ReturnType<typeof getHomePageContent>>) {
   return {
     webPage: buildWebPageJsonLd({
       path: ROOT_PATH,
@@ -79,14 +94,19 @@ async function buildRootHomeJsonLd() {
 }
 
 export default async function RootHomePage() {
-  const copy = await getHomePageContent(ROOT_LOCALE);
-  const jsonLd = await buildRootHomeJsonLd();
+  const copy = await getHomePageContent(ROOT_LOCALE).catch(() => null);
+
+  if (!copy) {
+    return <HomeMinimalShell locale={ROOT_LOCALE} />;
+  }
+
+  const jsonLd = buildRootHomeJsonLd(copy);
   const { items: articles } = await getCmsArticles({
     locale: ROOT_LOCALE,
     page: 1,
     perPage: 6,
     allowLocalFallback: false,
-  });
+  }).catch(() => ({ items: [] }));
 
   return (
     <main className="fm-homepage">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HomePageExperience } from "@/components/marketing/HomePageExperience";
+import { HomeMinimalShell } from "@/components/marketing/HomeMinimalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getCmsArticles } from "@/lib/cms/articles";
@@ -25,7 +26,24 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
   const pathname = isZh ? "/" : "/en";
-  const copy = await getHomePageContent(locale);
+  const copy = await getHomePageContent(locale).catch(() => null);
+
+  if (!copy) {
+    return buildPageMetadata({
+      locale,
+      pathname: isZh ? "/zh" : pathname,
+      canonicalPathname: pathname,
+      title: "FermatMind",
+      description: "FermatMind",
+      imagePath: DEFAULT_SHARE_IMAGE_URL,
+      noindex: true,
+      alternatesByLocale: {
+        en: "/en",
+        zh: "/",
+        xDefault: "/",
+      },
+    });
+  }
 
   return buildPageMetadata({
     locale,
@@ -42,8 +60,7 @@ export async function generateMetadata({
   });
 }
 
-async function buildHomeJsonLd(locale: Locale) {
-  const copy = await getHomePageContent(locale);
+function buildHomeJsonLd(locale: Locale, copy: Awaited<ReturnType<typeof getHomePageContent>>) {
   const path = locale === "zh" ? "/" : "/en";
 
   return {
@@ -93,14 +110,19 @@ export default async function Home({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const copy = await getHomePageContent(locale);
-  const jsonLd = await buildHomeJsonLd(locale);
+  const copy = await getHomePageContent(locale).catch(() => null);
+
+  if (!copy) {
+    return <HomeMinimalShell locale={locale} />;
+  }
+
+  const jsonLd = buildHomeJsonLd(locale, copy);
   const { items: articles } = await getCmsArticles({
     locale,
     page: 1,
     perPage: 6,
     allowLocalFallback: false,
-  });
+  }).catch(() => ({ items: [] }));
 
   return (
     <main className="fm-homepage">
