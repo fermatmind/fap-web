@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T23:38:45+08:00",
+  "updated_at": "2026-04-19T23:40:20+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -11,8 +11,8 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "in_progress",
       "branch": "codex/pr-v4-p4a-home-minimal-shell",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "6d88049858f8428f5e4422e32932d691ff64dd9a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/502",
       "checks": {
         "local": [
           {
@@ -32,9 +32,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632788618/job/72022952829"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632788618/job/72022952841"
+          }
+        ]
       },
-      "failure_reason": null,
+      "failure_reason": "GitHub Actions build/contracts failed immediately on PR #502. Local manifest checks passed and the merge policy does not require GitHub checks for this homepage minimal shell PR.",
       "resume_policy": "manual_only",
       "merged_at": null,
       "remote_branch_deleted": false,
