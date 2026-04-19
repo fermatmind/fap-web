@@ -493,7 +493,10 @@ export default async function TestLandingPage({
   const startTestHref = landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`);
   const showsMbtiActions = isMbtiScaleCode(test.scale_code);
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
-  const showsDepressionVersionActions = test.slug === "clinical-depression-anxiety-assessment-professional-edition";
+  const showsDepressionVersionActions = [
+    "clinical-depression-anxiety-assessment-professional-edition",
+    "depression-screening-test-standard-edition",
+  ].includes(test.slug);
   const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions;
   const mergedFaq = faqItems.length > 0
       ? faqItems
@@ -535,7 +538,7 @@ export default async function TestLandingPage({
         },
         {
           key: "depression_standard_20",
-          label: locale === "zh" ? "抑郁症标准版测试" : "Depression screening standard version",
+          label: locale === "zh" ? "抑郁症测试【标准版】" : "Depression screening test (Standard)",
           summary:
             locale === "zh"
               ? "20 题，约 5 分钟，快速了解近期情绪低落、兴趣下降与状态波动是否值得进一步关注。"

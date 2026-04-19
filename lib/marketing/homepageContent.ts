@@ -139,11 +139,11 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
       meta: "能力测评",
     },
     {
-      title: "EQ 情商测试",
-      description: "了解你在情绪识别与协作沟通中的表现",
-      href: "/tests/eq-test-emotional-intelligence-assessment/take",
+      title: "霍兰德职业兴趣测试",
+      description: "先得到兴趣结构与职业方向判断",
+      href: "/career/tests/riasec",
       label: "开始测试",
-      meta: "情绪能力",
+      meta: "职业兴趣",
     },
     {
       title: "九型人格测试",
@@ -153,11 +153,11 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
       meta: "人格测试",
     },
     {
-      title: "情绪状态自测",
-      description: "快速了解你近期的情绪状态变化",
-      href: "/tests",
+      title: "抑郁焦虑综合症测试",
+      description: "同时查看抑郁与焦虑两个维度，获得更完整的近期状态参考",
+      href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
       label: "开始测试",
-      meta: "状态自测",
+      meta: "学术专业版",
     },
   ],
   en: [
@@ -183,11 +183,11 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
       meta: "Ability assessment",
     },
     {
-      title: "EQ Test",
-      description: "Review emotional recognition and collaboration skills.",
-      href: "/tests/eq-test-emotional-intelligence-assessment/take",
+      title: "Holland Career Interest Test",
+      description: "Start from interest structure and career direction.",
+      href: "/career/tests/riasec",
       label: "Start test",
-      meta: "Emotional ability",
+      meta: "Career interest",
     },
     {
       title: "Enneagram Test",
@@ -197,11 +197,11 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
       meta: "Personality test",
     },
     {
-      title: "Emotional State Check",
-      description: "Quickly review recent shifts in your emotional state.",
-      href: "/tests",
+      title: "Depression and Anxiety Assessment",
+      description: "Review depression and anxiety dimensions together for a fuller recent-state reference.",
+      href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
       label: "Start test",
-      meta: "State check",
+      meta: "Professional version",
     },
   ],
 };
