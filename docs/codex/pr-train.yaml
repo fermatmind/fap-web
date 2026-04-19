@@ -6,6 +6,31 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: PR-V4-0A
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-content-authority-v4-rules
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Final V4 rules freeze for frontend content authority. Document the
+      CMS/backend content authority boundary, runtime fallback policy,
+      engineering protocols, review checklist, and phased upgrade plan without
+      changing runtime product code or CMS implementation.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-B7
     repo: fap-api
     repo_path: /Users/rainie/Desktop/GitHub/fap-api/backend
