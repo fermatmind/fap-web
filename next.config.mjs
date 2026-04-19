@@ -92,42 +92,52 @@ const nextConfig = {
       },
       {
         source: "/help/about",
-        destination: "/en/about",
+        destination: "/en/help",
         permanent: true,
       },
       {
         source: "/zh/help/about",
-        destination: "/zh/about",
+        destination: "/zh/help",
         permanent: true,
       },
       {
         source: "/help/used-and-mentioned",
-        destination: "/en/brand",
+        destination: "/en/help",
         permanent: true,
       },
       {
         source: "/zh/help/used-and-mentioned",
-        destination: "/zh/brand",
+        destination: "/zh/help",
         permanent: true,
       },
       {
         source: "/help/team",
-        destination: "/en/about",
+        destination: "/en/help",
         permanent: true,
       },
       {
         source: "/zh/help/team",
-        destination: "/zh/about",
+        destination: "/zh/help",
+        permanent: true,
+      },
+      {
+        source: "/careers",
+        destination: "/en/career",
+        permanent: true,
+      },
+      {
+        source: "/zh/careers",
+        destination: "/zh/career",
         permanent: true,
       },
       {
         source: "/refund",
-        destination: "/en/policies",
+        destination: "/en/help",
         permanent: true,
       },
       {
         source: "/zh/refund",
-        destination: "/zh/policies",
+        destination: "/zh/help",
         permanent: true,
       },
       ...(enableRootQuizRedirects

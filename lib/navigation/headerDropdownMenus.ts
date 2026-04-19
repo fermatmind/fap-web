@@ -53,17 +53,13 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     help: [
       { href: "/help", label: "Help Center" },
-      { href: "/help/faq", label: "FAQ" },
-      { href: "/about", label: "About FermatMind" },
-      { href: "/charter", label: "Our charter" },
-      { href: "/brand", label: "Brand guidelines" },
-      { href: "/help/for-business-and-research", label: "Business and research" },
-      { href: "/help/contact", label: "Contact support" },
+      { href: "/orders/lookup", label: "Order lookup" },
+      { href: "/email/preferences", label: "Email preferences" },
+      { href: "/email/unsubscribe", label: "Unsubscribe" },
     ],
     business: [
       { href: "/business", label: "Business overview" },
-      { href: "/help/for-business-and-research", label: "Business and research usage" },
-      { href: "/help/contact", label: "Contact business support" },
+      { href: "/help", label: "Help Center" },
     ],
   },
   zh: {
@@ -100,17 +96,13 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     help: [
       { href: "/help", label: "帮助中心" },
-      { href: "/help/faq", label: "常见问题" },
-      { href: "/about", label: "关于我们" },
-      { href: "/charter", label: "我们的宪章" },
-      { href: "/brand", label: "品牌规范" },
-      { href: "/help/for-business-and-research", label: "企业与研究" },
-      { href: "/help/contact", label: "联系方式" },
+      { href: "/orders/lookup", label: "订单查询" },
+      { href: "/email/preferences", label: "邮件偏好" },
+      { href: "/email/unsubscribe", label: "退订邮件" },
     ],
     business: [
       { href: "/business", label: "企业服务" },
-      { href: "/help/for-business-and-research", label: "企业与研究使用" },
-      { href: "/help/contact", label: "联系商务支持" },
+      { href: "/help", label: "帮助中心" },
     ],
   },
 };

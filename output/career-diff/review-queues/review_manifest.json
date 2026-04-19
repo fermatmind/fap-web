@@ -1,0 +1,20 @@
+{
+    "package_kind": "career_occupation_directory_review_queues",
+    "generated_at": "2026-04-19T17:22:38.435890Z",
+    "import_run_id": "019da6c0-b090-701d-b29b-c1ab6899dd5d",
+    "translation_review_total": 2459,
+    "alias_review_total": 12,
+    "child_role_review_total": 42,
+    "output_dir": "/Users/rainie/Desktop/GitHub/fap-web/output/career-diff/review-queues",
+    "files": {
+        "translation_review_queue": "/Users/rainie/Desktop/GitHub/fap-web/output/career-diff/review-queues/translation_review_queue.csv",
+        "alias_review_decisions": "/Users/rainie/Desktop/GitHub/fap-web/output/career-diff/review-queues/alias_review_decisions.csv",
+        "child_role_review_decisions": "/Users/rainie/Desktop/GitHub/fap-web/output/career-diff/review-queues/child_role_review_decisions.csv",
+        "review_manifest": "/Users/rainie/Desktop/GitHub/fap-web/output/career-diff/review-queues/review_manifest.json"
+    },
+    "review_contract": {
+        "translation_review_queue.review_decision": "approve | edit | reject | merge_alias",
+        "alias_review_decisions.review_decision": "alias_existing | create_separate | reject | needs_research",
+        "child_role_review_decisions.review_decision": "alias_parent | child_role | create_top_level | reject | needs_research"
+    }
+}

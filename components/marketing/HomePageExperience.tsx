@@ -225,7 +225,7 @@ function HomepageHighlightedTestsBanner({ locale, copy }: { locale: Locale; copy
 
 const ABOUT_CARD_LINKS = [
   { key: "result", href: "/personality" },
-  { key: "method", href: "/about" },
+  { key: "method", href: "/help" },
   { key: "career", href: "/career" },
 ] as const;
 
