@@ -1,8 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /** @type {import('next-sitemap').IConfig} */
-const tests = require("./.velite/tests.json");
-const blog = require("./.velite/blog.json");
-const careerGuidesContent = require("./.velite/careerGuides.json");
 const { shouldIncludeInSitemap } = require("./lib/seo/indexingPolicy.cjs");
 const {
   isValidCmsApiRoute,
@@ -185,61 +182,6 @@ function buildLocalizedAuthorityCareerPath(localePrefix, canonicalPath, fallback
   return normalizePath(fallbackPath);
 }
 
-function buildTestPaths() {
-  const uniqueSlugs = new Set();
-  for (const item of tests) {
-    const slug = normalizeSlug(item?.slug);
-    if (!slug || hasIndexableFlagFalse(item)) continue;
-    uniqueSlugs.add(slug);
-  }
-
-  const paths = [];
-  for (const slug of uniqueSlugs) {
-    paths.push(`/en/tests/${slug}`);
-    paths.push(`/zh/tests/${slug}`);
-  }
-  return paths;
-}
-
-function buildLocalArticlePaths() {
-  const paths = new Set();
-
-  for (const item of blog) {
-    const slug = normalizeSlug(item?.slug);
-    const locale = normalizeSlug(item?.locale).toLowerCase();
-    const translationReady = item?.translation_ready !== false;
-    if (!slug) continue;
-    if (locale !== "en") {
-      paths.add(`/zh/articles/${slug}`);
-      continue;
-    }
-    if (translationReady) {
-      paths.add(`/en/articles/${slug}`);
-    }
-  }
-
-  return [...paths];
-}
-
-function buildLocalCareerGuidePaths() {
-  const paths = new Set();
-
-  for (const item of careerGuidesContent) {
-    const slug = normalizeSlug(item?.slug);
-    const locale = normalizeSlug(item?.locale).toLowerCase();
-    if (!slug) continue;
-    if (locale === "zh" || locale === "zh-cn") {
-      paths.add(`/zh/career/guides/${slug}`);
-      continue;
-    }
-    if (locale === "en") {
-      paths.add(`/en/career/guides/${slug}`);
-    }
-  }
-
-  return [...paths];
-}
-
 function buildLandingPaths() {
   return [
     "/",
@@ -308,12 +250,9 @@ function buildHelpPaths() {
   return HELP_PAGE_SLUGS.flatMap((slug) => [`/en/help/${slug}`, `/zh/help/${slug}`]);
 }
 
-const generatedPaths = [
+const staticGeneratedPaths = [
   ...new Set([
     ...buildLandingPaths(),
-    ...buildTestPaths(),
-    ...buildLocalArticlePaths(),
-    ...buildLocalCareerGuidePaths(),
     ...buildCareerPaths(),
     ...buildTopicPaths(),
     ...buildHelpPaths(),
@@ -352,6 +291,28 @@ async function fetchJsonWithTimeout(url, timeoutMs = 1500) {
     return await response.json();
   } finally {
     clearTimeout(timer);
+  }
+}
+
+async function buildTestPathsFromApi() {
+  try {
+    const paths = new Set();
+
+    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+      const params = new URLSearchParams({ locale: apiLocale });
+      const payload = await fetchJsonWithTimeout(`${buildApiUrl("/v0.3/scales/catalog")}?${params.toString()}`);
+      const items = Array.isArray(payload?.items) ? payload.items : [];
+
+      for (const item of items) {
+        const slug = normalizeSlug(item?.slug);
+        if (!slug || hasIndexableFlagFalse(item) || !isPublicIndexable(item)) continue;
+        paths.add(`/${localePrefix}/tests/${slug}`);
+      }
+    }
+
+    return [...paths];
+  } catch {
+    return [];
   }
 }
 
@@ -663,6 +624,7 @@ module.exports = {
       careerRecommendationApiPaths,
       personalityPaths,
       topicApiPaths,
+      testApiPaths,
     ] = await Promise.all([
       buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths),
       buildValidatedCmsPaths("/v0.5/career-guides", buildCareerGuideDetailPaths),
@@ -673,10 +635,12 @@ module.exports = {
       buildCareerRecommendationDetailPathsFromAuthority(),
       buildValidatedCmsPaths("/v0.5/personality", buildPersonalityDetailPaths),
       buildValidatedCmsPaths("/v0.5/topics", buildTopicDetailPathsFromApi),
+      buildTestPathsFromApi(),
     ]);
 
     return [...new Set([
-      ...generatedPaths,
+      ...staticGeneratedPaths,
+      ...testApiPaths,
       ...articlePaths,
       ...careerGuidePaths,
       ...methodPaths,

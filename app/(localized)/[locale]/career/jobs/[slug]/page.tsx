@@ -282,6 +282,25 @@ type MarkdownBlock =
   | { kind: "table"; rows: string[][] }
   | { kind: "ordered"; items: string[] };
 
+function formatCareerJobDocumentText(text: string): string {
+  return text
+    .replace(/表格未单列额外工作经验要求/g, "暂无额外工作经验要求")
+    .replace(/表格未单列额外培训要求/g, "暂无额外培训要求")
+    .replace(/(\$[\d,.]+ \/ 小时)(?!（参考美国标准）)/g, "$1（参考美国标准）");
+}
+
+function formatCareerJobDocumentCell(cell: string, previousCell?: string): string {
+  if (/^表格未单列额外(?:工作经验|培训)要求$/.test(cell)) {
+    return "暂无";
+  }
+
+  if (previousCell === "时薪中位数") {
+    return formatCareerJobDocumentText(cell);
+  }
+
+  return formatCareerJobDocumentText(cell);
+}
+
 function stripMatchingDocumentTitle(bodyMd: string, title: string): string {
   const lines = bodyMd.split(/\r?\n/);
   const firstContentIndex = lines.findIndex((line) => line.trim() !== "");
@@ -456,7 +475,7 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
               <ul key={index} className="m-0 list-disc space-y-3 pl-6">
                 {block.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="pl-1">
-                    {item}
+                    {formatCareerJobDocumentText(item)}
                   </li>
                 ))}
               </ul>
@@ -468,14 +487,19 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
               <div key={index} className="overflow-hidden rounded-xl border border-slate-200">
                 <table className="w-full border-collapse text-left text-base leading-7">
                   <tbody>
-                    {block.rows.map((row, rowIndex) => (
-                      <tr key={rowIndex} className="border-t border-slate-200 first:border-t-0">
-                        <th className="w-1/4 bg-slate-50 px-4 py-3 font-semibold text-slate-700">{row[0]}</th>
-                        <td className="w-1/4 px-4 py-3 text-slate-600">{row[1]}</td>
-                        <th className="w-1/4 bg-slate-50 px-4 py-3 font-semibold text-slate-700">{row[2]}</th>
-                        <td className="w-1/4 px-4 py-3 text-slate-600">{row[3]}</td>
-                      </tr>
-                    ))}
+                    {block.rows.map((row, rowIndex) => {
+                      const firstValue = formatCareerJobDocumentCell(row[1], row[0]);
+                      const secondValue = formatCareerJobDocumentCell(row[3], row[2]);
+
+                      return (
+                        <tr key={rowIndex} className="border-t border-slate-200 first:border-t-0">
+                          <th className="w-1/4 bg-slate-50 px-4 py-3 font-semibold text-slate-700">{row[0]}</th>
+                          <td className="w-1/4 px-4 py-3 text-slate-600">{firstValue}</td>
+                          <th className="w-1/4 bg-slate-50 px-4 py-3 font-semibold text-slate-700">{row[2]}</th>
+                          <td className="w-1/4 px-4 py-3 text-slate-600">{secondValue}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
@@ -495,6 +519,10 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
                         <tr key={rowIndex} className="border-t border-slate-200 first:border-t-0">
                           {cells.map((cell, cellIndex) => {
                             const Cell = isKeyValueSnapshotRow && cellIndex % 2 === 0 ? "th" : "td";
+                            const displayCell =
+                              isKeyValueSnapshotRow && cellIndex % 2 === 1
+                                ? formatCareerJobDocumentCell(cell, cells[cellIndex - 1])
+                                : formatCareerJobDocumentText(cell);
                             return (
                               <Cell
                                 key={cellIndex}
@@ -502,9 +530,9 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
                                   isKeyValueSnapshotRow && cellIndex % 2 === 0
                                     ? "bg-slate-50 px-3 py-3 font-semibold text-slate-700 [overflow-wrap:anywhere] md:px-4"
                                     : "px-3 py-3 text-slate-600 [overflow-wrap:anywhere] md:px-4"
-                                }
+                                  }
                               >
-                                {cell}
+                                {displayCell}
                               </Cell>
                             );
                           })}
@@ -523,7 +551,7 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
                 {block.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex gap-2">
                     <span className="shrink-0 tabular-nums text-slate-500">{itemIndex + 1}、</span>
-                    <span>{item}</span>
+                    <span>{formatCareerJobDocumentText(item)}</span>
                   </li>
                 ))}
               </ol>
@@ -532,7 +560,7 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
 
           return (
             <p key={index} className="m-0">
-              {block.text}
+              {formatCareerJobDocumentText(block.text)}
             </p>
           );
         })}
@@ -694,19 +722,6 @@ export default async function CareerJobDetailPage({
         ) : null}
         {job.structuredData.occupation ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
         {job.structuredData.breadcrumbList ? <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} /> : null}
-        {job.contentBodyMd ? (
-          <>
-            <section className="space-y-3" data-testid="career-job-document-overview">
-              <p className="m-0 text-sm font-medium text-slate-500">FermatMind｜费马测试 · 职业详情页正式文案版</p>
-              <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{job.title}</h1>
-              <p className="m-0 text-base leading-7 text-slate-500">
-                {job.titles.canonicalEn ?? job.slug} · /career/jobs/{job.slug}
-              </p>
-            </section>
-            <CareerJobDocument bodyMd={job.contentBodyMd} title={job.title} />
-          </>
-        ) : (
-          <>
         <Breadcrumb
           items={[
             { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -715,37 +730,46 @@ export default async function CareerJobDetailPage({
             { label: job.title },
           ]}
         />
-
-        <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]" data-testid="career-job-v1-overview">
-          <div className="space-y-5">
-            <ConfidenceBadge tone={stateCopy.tone}>{stateCopy.label}</ConfidenceBadge>
-            <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{job.title}</h1>
-            {job.summary ? <p className="m-0 max-w-3xl text-base leading-8 text-slate-600">{job.summary}</p> : null}
-            {renderJobBoundary(job, locale)}
-            <div className="flex flex-wrap gap-3">
-              <CareerShortlistAction
-                locale={locale}
-                subjectSlug={job.slug}
-                sourcePageType="career_job_detail"
-                entrySurface="career_job_detail"
-                routeFamily="job_detail"
-                landingPath={jobDetailLandingPath}
-                testId="career-job-shortlist-action"
-              />
-              <Link href={localizedPath("/career/jobs", locale)} className={buttonVariants({ variant: "outline" })}>
-                {locale === "zh" ? "回到职业库" : "Back to job library"}
-              </Link>
-            </div>
-          </div>
-          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-              {locale === "zh" ? "当前判断" : "Current read"}
-            </p>
-            <p className="m-0 mt-3 text-sm leading-6 text-slate-500">
-              {locale === "zh" ? "先看概览，再看匹配边界，最后选择下一步。" : "Start with the overview, check fit boundaries, then pick the next step."}
-            </p>
-          </div>
-        </section>
+        {job.contentBodyMd ? (
+          <>
+            <section className="space-y-3" data-testid="career-job-document-overview">
+              <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{job.title}</h1>
+              {job.titles.canonicalEn ? <p className="m-0 text-base leading-7 text-slate-500">{job.titles.canonicalEn}</p> : null}
+            </section>
+            <CareerJobDocument bodyMd={job.contentBodyMd} title={job.title} />
+          </>
+        ) : (
+          <>
+            <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]" data-testid="career-job-v1-overview">
+              <div className="space-y-5">
+                <ConfidenceBadge tone={stateCopy.tone}>{stateCopy.label}</ConfidenceBadge>
+                <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{job.title}</h1>
+                {job.summary ? <p className="m-0 max-w-3xl text-base leading-8 text-slate-600">{job.summary}</p> : null}
+                {renderJobBoundary(job, locale)}
+                <div className="flex flex-wrap gap-3">
+                  <CareerShortlistAction
+                    locale={locale}
+                    subjectSlug={job.slug}
+                    sourcePageType="career_job_detail"
+                    entrySurface="career_job_detail"
+                    routeFamily="job_detail"
+                    landingPath={jobDetailLandingPath}
+                    testId="career-job-shortlist-action"
+                  />
+                  <Link href={localizedPath("/career/jobs", locale)} className={buttonVariants({ variant: "outline" })}>
+                    {locale === "zh" ? "回到职业库" : "Back to job library"}
+                  </Link>
+                </div>
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
+                  {locale === "zh" ? "当前判断" : "Current read"}
+                </p>
+                <p className="m-0 mt-3 text-sm leading-6 text-slate-500">
+                  {locale === "zh" ? "先看概览，再看匹配边界，最后选择下一步。" : "Start with the overview, check fit boundaries, then pick the next step."}
+                </p>
+              </div>
+            </section>
 
         {job.contentSections.length > 0 ? (
           <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-8" data-testid="career-job-docx-content">

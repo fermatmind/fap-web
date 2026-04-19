@@ -13,9 +13,30 @@ describe("career tests single entry contract", () => {
     const source = read("app/(localized)/[locale]/career/tests/page.tsx");
 
     expect(source).toContain("先做职业兴趣测试");
-    expect(source).toContain("适合还没有明确方向，想先得到一个起点的人");
+    expect(source).not.toContain("适合还没有明确方向，想先得到一个起点的人");
+    expect(source).not.toContain("For people who do not have a clear direction yet");
     expect(source).toContain("career-tests-single-entry");
     expect(source).toContain("/career/tests/riasec");
+    expect(source).not.toContain("Career interest test</p>");
+    expect(source).not.toContain("CAREER INTEREST TEST");
+    expect(source).not.toContain("当前稳定入口");
+    expect(source).not.toContain("Current stable entry");
     expect(source).not.toContain("/career/tests/riasec/result");
+  });
+
+  it("keeps the visible breadcrumb trail on the career tests index", () => {
+    const source = read("app/(localized)/[locale]/career/tests/page.tsx");
+
+    expect(source).toContain("Breadcrumb");
+    expect(source).toContain('localizedPath("/career", locale)');
+    expect(source).toContain("职业测试");
+    expect(source).toContain("Career tests");
+  });
+
+  it("removes the topics index entry from the article header menu", () => {
+    const source = read("lib/navigation/headerDropdownMenus.ts");
+
+    expect(source).not.toContain('{ href: "/topics", label: "主题聚合" }');
+    expect(source).not.toContain('{ href: "/topics", label: "Topic clusters" }');
   });
 });

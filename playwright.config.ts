@@ -20,7 +20,7 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   webServer: {
-    command: "pnpm -s velite build && pnpm exec next dev -p 3000 -H 127.0.0.1",
+    command: "pnpm exec next dev -p 3000 -H 127.0.0.1",
     url: "http://127.0.0.1:3000",
     reuseExistingServer,
     timeout: 180000,

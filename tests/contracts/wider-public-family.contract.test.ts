@@ -16,17 +16,18 @@ describe("wider public family contract", () => {
     expect(source).not.toContain("dict.articles.kicker");
   });
 
-  it("help routes consume backend public gateway surfaces", () => {
+  it("help routes consume backend ContentPage surfaces", () => {
     const helpIndex = read("app/(localized)/[locale]/help/page.tsx");
     const helpDetail = read("app/(localized)/[locale]/help/[slug]/page.tsx");
 
     expect(helpIndex).toContain('from "@/lib/publicGateway"');
     expect(helpIndex).toContain("const gatewaySurface = await getHelpGatewaySurface(locale)");
     expect(helpIndex).toContain("landingSurface?.discoverabilityItems");
+    expect(helpIndex).toContain('listContentPages(locale, "help")');
 
-    expect(helpDetail).toContain('from "@/lib/publicGateway"');
-    expect(helpDetail).toContain("const gatewaySurface = await getHelpDetailGatewaySurface(page.slug, locale)");
-    expect(helpDetail).toContain("<AnswerSurfaceSection");
+    expect(helpDetail).toContain('from "@/lib/cms/content-pages"');
+    expect(helpDetail).toContain("getContentPage(contentSlug(slug), locale)");
+    expect(helpDetail).toContain("<ContentPageTemplate");
   });
 
   it("home and tests index publish curated discoverability surfaces with visible structured lists", () => {
@@ -38,7 +39,7 @@ describe("wider public family contract", () => {
     expect(home).toContain("function buildHomeJsonLd(locale: Locale)");
     expect(home).toContain('idSuffix: "quickstart-itemlist"');
     expect(home).toContain('idSuffix: "family-itemlist"');
-    expect(home).toContain("<HomePageExperience locale={locale} />");
+    expect(home).toContain("<HomePageExperience locale={locale} articles={articles.slice(0, 6)} />");
 
     expect(testsIndex).toContain('import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience"');
     expect(testsIndex).toContain('import { getTestsHubContent } from "@/lib/marketing/testsHubContent"');

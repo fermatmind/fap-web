@@ -1,5 +1,6 @@
 import * as simpleIcons from "simple-icons";
 import type { SimpleIcon } from "simple-icons";
+import { backendStaticMediaUrl } from "@/lib/cms/media";
 
 type FooterIcon = Pick<SimpleIcon, "title" | "slug" | "path">;
 
@@ -58,8 +59,8 @@ export const FOOTER_SOCIAL_ITEMS: FooterSocialItem[] = [
   {
     key: "wx",
     kind: "qr",
-    qrImageSrc: "/social/wechat-qr-official-258.jpg",
-    qrFallbackSrc: "/social/wechat-qr.jpg",
+    qrImageSrc: backendStaticMediaUrl("/static/social/wechat-qr-official-258.jpg"),
+    qrFallbackSrc: backendStaticMediaUrl("/static/social/wechat-qr.jpg"),
     icon: requireSimpleIcon("siWechat"),
     labels: { zh: "微信", en: "WeChat" },
   },

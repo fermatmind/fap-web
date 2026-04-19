@@ -51,9 +51,9 @@ function TestListCard({ item, locale }: { item: HubTestCardItem; locale: Locale 
   );
 }
 
-export function TestsHubExperience({ locale }: { locale: Locale }) {
-  const content = getTestsHubContent(locale);
-  const tests = listSixTests([listAllContentTestsHubCards(locale), ...content.families.items.map((family) => family.tests)]);
+export async function TestsHubExperience({ locale }: { locale: Locale }) {
+  const content = await getTestsHubContent(locale);
+  const tests = listSixTests([await listAllContentTestsHubCards(locale), ...content.families.items.map((family) => family.tests)]);
   const copy =
     locale === "zh"
       ? {

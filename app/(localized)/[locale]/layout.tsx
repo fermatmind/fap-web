@@ -5,6 +5,7 @@ import { SiteChrome } from "@/components/layout/SiteChrome";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
 import { isSupportedLocale, type Locale } from "@/lib/i18n/locales";
+import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
 import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SITE_URL } from "@/lib/site";
 import "../../globals.css";
@@ -46,11 +47,11 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "FermatMind",
     type: "website",
-    images: ["/share/mbti_wide_1200x630.png"],
+    images: [DEFAULT_SHARE_IMAGE_URL],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/share/mbti_wide_1200x630.png"],
+    images: [DEFAULT_SHARE_IMAGE_URL],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,

@@ -76,7 +76,7 @@ export async function generateMetadata({
   const { locale: localeParam, slug: requestedSlug } = await params;
   const locale = resolveLocale(localeParam);
   const slug = resolveCanonicalSlug(requestedSlug);
-  const test = getTestBySlug(slug);
+  const test = await getTestBySlug(slug, locale);
   const localizedTestTitle = test ? resolveTestTitleByLocale(test, locale) : slug;
 
   return {
@@ -104,7 +104,7 @@ export default async function TakePage({
   if (slug !== requestedSlug) {
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}/take`), query));
   }
-  const test = getTestBySlug(slug);
+  const test = await getTestBySlug(slug, locale);
 
   if (!test) return notFound();
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);

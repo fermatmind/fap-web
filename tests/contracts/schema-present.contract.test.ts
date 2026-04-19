@@ -137,8 +137,8 @@ describe("schema injection contract", () => {
 
     expect(listSource).toContain("fetchCareerJobIndex");
     expect(listSource).toContain("adaptCareerJobIndex");
-    expect(listSource).toContain("fetchCareerSearch");
-    expect(listSource).toContain("adaptCareerSearch");
+    expect(listSource).toContain("fetchCareerDatasetHub");
+    expect(listSource).toContain("filterCareerDatasetMembers");
     expect(listSource).not.toContain("listCareerJobs(");
     expect(listSource).not.toContain("personalityQuickLocate");
     expect(aliasSource).toContain("getCareerJobFromCmsBySlug");
@@ -158,26 +158,13 @@ describe("schema injection contract", () => {
   it("career landing page composes backend-backed jobs/recommendations with explorer shell boundaries", () => {
     const source = read("app/(localized)/[locale]/career/page.tsx");
 
-    expect(source).toContain("fetchCareerJobIndex");
-    expect(source).toContain("adaptCareerJobIndex");
-    expect(source).toContain("fetchCareerRecommendationIndex");
-    expect(source).toContain("adaptCareerRecommendationIndex");
-    expect(source).toContain("fetchCareerFirstWaveReadinessSummary");
-    expect(source).toContain("filterJobFacingCardsByFirstWaveSummary");
     expect(source).not.toContain("listCareerJobs(");
     expect(source).not.toContain("CareerRecommendationPanel");
-    expect(source).toContain("buildCareerFamilyFrontendUrl");
     expect(source).toContain('data-testid="career-landing-search-entry"');
     expect(source).toContain('action={withLocale("/career/jobs")}');
-    expect(source).toContain('formAction={withLocale("/career/resolve")}');
     expect(source).toContain('data-testid="career-explorer-pathways"');
-    expect(source).toContain('data-testid="career-family-exploration"');
-    expect(source).toContain('data-testid="career-landing-trust-boundary"');
-    expect(source).toContain('data-authority-owner="backend_lightweight_jobs"');
-    expect(source).toContain('data-authority-owner="backend_lightweight_recommendations"');
     expect(source).toContain('data-authority-owner="editorial_ia_shell"');
-    expect(source).toContain('data-authority-owner="editorial_curated_family_paths"');
-    expect(source).toContain('data-authority-owner="editorial_cta_only"');
+    expect(source).toContain('data-authority-owner="editorial_support_links"');
     expect(source).not.toContain("growth_path[0]");
   });
 

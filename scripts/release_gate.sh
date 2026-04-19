@@ -81,13 +81,9 @@ fi
 validate_site_url
 
 if [[ "$CHECK_TRANSLATIONS" == "1" && -f "scripts/content/check-translations.mjs" ]]; then
-  if ! pnpm -s velite build >/dev/null 2>&1; then
-    add_error "Failed to build Velite content before translation gate."
-  else
-    translation_output="$(node scripts/content/check-translations.mjs 2>&1 || true)"
-    if [[ "$translation_output" == *"translation check failed"* ]]; then
-      add_error "Translation gate failed:\n$translation_output"
-    fi
+  translation_output="$(node scripts/content/check-translations.mjs 2>&1 || true)"
+  if [[ "$translation_output" == *"translation check failed"* ]]; then
+    add_error "Translation gate failed:\n$translation_output"
   fi
 fi
 

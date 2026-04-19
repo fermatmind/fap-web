@@ -14,12 +14,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { computeManifestHash } from "@/lib/big5/manifest";
-import {
-  getAllTests,
-  getTestBySlug,
-  listRelatedBlogPosts,
-  resolveTestTitleByLocale,
-} from "@/lib/content";
+import { getCmsArticles, type CmsArticle } from "@/lib/cms/articles";
+import { getAllTests, getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -80,6 +76,28 @@ type LookupResponse = {
   landing_surface_v1?: LandingSurfaceRaw | null;
 };
 
+type ArticleVoiceLabelKey = "tool" | "growth" | "narrative";
+
+function normalizeArticleVoice(value: string | null): ArticleVoiceLabelKey {
+  return value === "growth" || value === "narrative" ? value : "tool";
+}
+
+async function fetchRelatedArticles(testSlug: string, locale: "en" | "zh"): Promise<CmsArticle[]> {
+  try {
+    const { items } = await getCmsArticles({
+      locale,
+      page: 1,
+      perPage: 3,
+      relatedTestSlug: testSlug,
+      allowLocalFallback: false,
+    });
+
+    return items;
+  } catch {
+    return [];
+  }
+}
+
 function toRecord(value: unknown): Record<string, unknown> {
   if (value && typeof value === "object" && !Array.isArray(value)) {
     return value as Record<string, unknown>;
@@ -130,6 +148,14 @@ function parseFaq(value: unknown): FAQItem[] {
     }
   }
   return out;
+}
+
+function parseStringList(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .map((item) => toStringValue(item))
+    .filter((item) => item.length > 0);
 }
 
 async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupResponse | null> {
@@ -377,8 +403,9 @@ function FlagshipVariantChooser({
   );
 }
 
-export function generateStaticParams() {
-  return getAllTests().flatMap((test) => [{ locale: "en", slug: test.slug }, { locale: "zh", slug: test.slug }]);
+export async function generateStaticParams() {
+  const tests = await getAllTests("en");
+  return tests.flatMap((test) => [{ locale: "en", slug: test.slug }, { locale: "zh", slug: test.slug }]);
 }
 
 export async function generateMetadata({
@@ -388,7 +415,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug: requestedSlug } = await params;
   const slug = resolveCanonicalSlug(requestedSlug);
-  const test = getTestBySlug(slug);
+  const locale = resolveLocale(localeParam);
+  const test = await getTestBySlug(slug, locale);
 
   if (!test) {
     return {
@@ -397,7 +425,6 @@ export async function generateMetadata({
     };
   }
 
-  const locale = resolveLocale(localeParam);
   const lookup = await fetchLookup(slug, locale);
   const alternates = alternatesForSlug(test.slug);
   const canonical = localizedPath(`/tests/${test.slug}`, locale);
@@ -440,7 +467,7 @@ export default async function TestLandingPage({
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}`), query));
   }
 
-  const test = getTestBySlug(slug);
+  const test = await getTestBySlug(slug, locale);
   if (!test) return notFound();
 
   const dict = getDictSync(locale);
@@ -450,6 +477,9 @@ export default async function TestLandingPage({
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
   const reportNode = toRecord(toRecord(lookup?.report_summary_i18n_json)[locale]);
   const landingCopy = toStringValue(langNode.landing_copy);
+  const whenToUse = toStringValue(langNode.when_to_use);
+  const audienceItems = parseStringList(langNode.audience);
+  const howItWorksItems = parseStringList(langNode.how_it_works);
   const disclaimer = toStringValue(langNode.disclaimer);
   const reportSummary = toStringValue(reportNode.summary);
   const faqItems = parseFaq(langNode.faq);
@@ -465,11 +495,11 @@ export default async function TestLandingPage({
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const showsDepressionVersionActions = test.slug === "clinical-depression-anxiety-assessment-professional-edition";
   const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions;
-  const mergedFaq = isFlagshipDualVariant
-    ? buildFlagshipVariantFaq(showsMbtiActions ? "mbti" : "big5", locale)
-    : faqItems.length > 0
+  const mergedFaq = faqItems.length > 0
       ? faqItems
-      : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale);
+      : isFlagshipDualVariant
+        ? buildFlagshipVariantFaq(showsMbtiActions ? "mbti" : "big5", locale)
+        : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale);
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
     ? listMbtiFormMetas().map((form) => ({
@@ -620,7 +650,7 @@ export default async function TestLandingPage({
     locale,
     surface: "tests_detail_hero",
   });
-  const relatedPosts = listRelatedBlogPosts(test.slug, locale);
+  const relatedArticles = await fetchRelatedArticles(test.slug, locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
   const mbtiLandingContinuityItems = showsMbtiActions ? buildMbtiTestLandingContinuityItems(locale) : [];
   const webPageJsonLd = buildWebPageJsonLd({
@@ -851,8 +881,18 @@ export default async function TestLandingPage({
             className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
           >
             <p className="m-0 text-sm text-slate-600">
-              {detailLensCopy.whenToUseBody}
+              {whenToUse || detailLensCopy.whenToUseBody}
             </p>
+            {audienceItems.length > 0 ? (
+              <ul className="mt-4 space-y-2 text-sm text-slate-600">
+                {audienceItems.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span aria-hidden>•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </CiteableSection>
 
           <Card id="how-it-works">
@@ -860,22 +900,24 @@ export default async function TestLandingPage({
               <CardTitle>{locale === "zh" ? "你将获得什么" : "What to expect"}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-slate-600">
-              <p>
-                {locale === "zh"
-                  ? isFlagshipDualVariant
-                    ? "1. 先在短版与长版之间选一个更适合你的入口。"
-                    : "1. 在一次完整会话中完成问卷。"
-                  : isFlagshipDualVariant
-                    ? "1. Choose the shorter or deeper version before you begin."
-                    : "1. Complete the questionnaire in one focused sitting."}
-              </p>
-              <p>{locale === "zh" ? "2. 提交后立即查看结果摘要。" : "2. Submit answers and review the generated summary."}</p>
-              <p>{locale === "zh" ? "3. 可按需解锁完整报告。" : "3. Optionally unlock the full report for deeper interpretation."}</p>
-              <p>
-                {locale === "zh"
-                  ? "4. 免费版包含摘要与核心维度；完整版解锁刻面表、深度解读与行动建议。"
-                  : "4. Free includes summary + core domains; full unlocks facet table, deep dive, and action plan."}
-              </p>
+              {(howItWorksItems.length > 0
+                ? howItWorksItems
+                : [
+                    locale === "zh"
+                      ? isFlagshipDualVariant
+                        ? "先在短版与长版之间选一个更适合你的入口。"
+                        : "在一次完整会话中完成问卷。"
+                      : isFlagshipDualVariant
+                        ? "Choose the shorter or deeper version before you begin."
+                        : "Complete the questionnaire in one focused sitting.",
+                    locale === "zh" ? "提交后立即查看结果摘要。" : "Submit answers and review the generated summary.",
+                    locale === "zh" ? "可按需解锁完整报告。" : "Optionally unlock the full report for deeper interpretation.",
+                    locale === "zh"
+                      ? "免费版包含摘要与核心维度；完整版解锁刻面表、深度解读与行动建议。"
+                      : "Free includes summary and core domains; full unlocks facet table, deep dive, and action plan.",
+                  ]).map((item, index) => (
+                <p key={`${index}-${item}`}>{index + 1}. {item}</p>
+              ))}
             </CardContent>
           </Card>
 
@@ -885,27 +927,31 @@ export default async function TestLandingPage({
               <p className="m-0 text-sm text-slate-600">{dict.tests.relatedArticles.subtitle}</p>
             </CardHeader>
             <CardContent>
-              {relatedPosts.length === 0 ? (
+              {relatedArticles.length === 0 ? (
                 <p className="m-0 text-sm text-slate-600">{dict.tests.relatedArticles.empty}</p>
               ) : (
                 <ul className="space-y-3">
-                  {relatedPosts.map((post) => (
-                    <li key={post.slug} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4">
-                      <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                        {dict.articles.voiceLabels[post.voice]}
-                      </p>
-                      <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                        <Link
-                          href={withLocale(`/articles/${post.slug}`)}
-                          data-testid={`tests-related-article-${post.slug}`}
-                          className="hover:text-[var(--fm-accent)]"
-                        >
-                          {post.title}
-                        </Link>
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-600">{post.summary}</p>
-                    </li>
-                  ))}
+                  {relatedArticles.map((article) => {
+                    const voice = normalizeArticleVoice(article.voice);
+
+                    return (
+                      <li key={article.slug} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4">
+                        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+                          {dict.articles.voiceLabels[voice]}
+                        </p>
+                        <h3 className="mt-2 text-lg font-semibold text-slate-900">
+                          <Link
+                            href={withLocale(`/articles/${article.slug}`)}
+                            data-testid={`tests-related-article-${article.slug}`}
+                            className="hover:text-[var(--fm-accent)]"
+                          >
+                            {article.title}
+                          </Link>
+                        </h3>
+                        <p className="mt-1 text-sm text-slate-600">{article.excerpt}</p>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </CardContent>

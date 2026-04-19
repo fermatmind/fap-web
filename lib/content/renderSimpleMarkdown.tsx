@@ -8,6 +8,7 @@ type MarkdownBlock =
   | { type: "unordered-list"; items: string[] }
   | { type: "ordered-list"; items: string[] }
   | { type: "blockquote"; text: string }
+  | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "code"; code: string; language: string }
   | { type: "hr" };
 
@@ -66,6 +67,24 @@ function isHr(line: string): boolean {
   return /^\s*([-*_])(?:\s*\1){2,}\s*$/.test(line);
 }
 
+function splitTableRow(line: string): string[] {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim());
+}
+
+function isTableSeparator(line: string): boolean {
+  const cells = splitTableRow(line);
+  return cells.length > 1 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+}
+
+function isTableStart(line: string, nextLine: string | undefined): boolean {
+  return line.includes("|") && Boolean(nextLine) && isTableSeparator(nextLine ?? "");
+}
+
 function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
   const lines = normalizeLineBreaks(markdown).split("\n");
   const blocks: MarkdownBlock[] = [];
@@ -119,6 +138,23 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
       continue;
     }
 
+    if (isTableStart(line, lines[index + 1])) {
+      const headers = splitTableRow(line);
+      const rows: string[][] = [];
+      index += 2;
+
+      while (index < lines.length && (lines[index] ?? "").includes("|") && !isBlankLine(lines[index])) {
+        const row = splitTableRow(lines[index] ?? "");
+        if (row.length > 1) {
+          rows.push(row);
+        }
+        index += 1;
+      }
+
+      blocks.push({ type: "table", headers, rows });
+      continue;
+    }
+
     if (isUnorderedListItem(line)) {
       const items: string[] = [];
 
@@ -169,6 +205,7 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
         isOrderedListItem(current) ||
         isBlockquote(current) ||
         isHr(current) ||
+        isTableStart(current, lines[index + 1]) ||
         /^\s*```/.test(current)
       ) {
         break;
@@ -299,6 +336,33 @@ export function renderSimpleMarkdown(markdown: string): ReactNode {
               </p>
             ))}
           </blockquote>
+        );
+      case "table":
+        return (
+          <div key={key} className="overflow-x-auto rounded-xl border border-[var(--fm-border)]">
+            <table className="w-full border-collapse text-left text-sm">
+              <thead className="bg-[var(--fm-surface-muted)] text-[var(--fm-text)]">
+                <tr>
+                  {block.headers.map((header, headerIndex) => (
+                    <th key={`${key}-head-${headerIndex}`} className="border-b border-[var(--fm-border)] px-3 py-2 font-semibold">
+                      {renderInlineMarkdown(header, `${key}-head-${headerIndex}`)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {block.rows.map((row, rowIndex) => (
+                  <tr key={`${key}-row-${rowIndex}`} className="border-t border-[var(--fm-border)]">
+                    {block.headers.map((_, cellIndex) => (
+                      <td key={`${key}-row-${rowIndex}-cell-${cellIndex}`} className="px-3 py-2 align-top text-[var(--fm-text-muted)]">
+                        {renderInlineMarkdown(row[cellIndex] ?? "", `${key}-row-${rowIndex}-cell-${cellIndex}`)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         );
       case "code":
         return (

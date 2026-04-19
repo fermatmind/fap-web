@@ -2,16 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
+import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCmsArticle, getCmsArticleSeo, type CmsArticle } from "@/lib/cms/articles";
 import { findLandingCta } from "@/lib/landing/landingSurface";
 import type { RelatedContentItem } from "@/lib/content";
-import { renderVeliteMdx } from "@/lib/content/renderVeliteMdx";
+import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
@@ -69,13 +68,8 @@ function renderArticleBody(article: CmsArticle) {
     return <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />;
   }
 
-  const renderedMarkdown = renderVeliteMdx(article.contentMd);
-  if (renderedMarkdown) {
-    return renderedMarkdown;
-  }
-
   if (article.contentMd.trim()) {
-    return <div className="whitespace-pre-wrap">{article.contentMd}</div>;
+    return renderSimpleMarkdown(article.contentMd) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>;
   }
 
   return null;
@@ -105,13 +99,14 @@ export async function generateMetadata({
   const title = seo?.surface?.title || seo?.meta.title || article.title;
   const description = seo?.surface?.description || seo?.meta.description || article.excerpt;
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
+  const articleImage = article.coverImageVariants.og?.url ?? article.coverImageVariants.hero?.url ?? article.coverImageUrl;
 
   const metadata = buildPageMetadata({
     locale,
     pathname: seoCanonicalPath,
     title,
     description,
-    imagePath: seo?.surface?.og.image ?? seo?.meta.og.image ?? article.coverImageUrl ?? undefined,
+    imagePath: seo?.surface?.og.image ?? seo?.meta.og.image ?? articleImage ?? undefined,
     seoSurface: seo?.surface,
     noindex: !seo?.surface ? noindex : undefined,
     alternatesByLocale: {
@@ -122,7 +117,7 @@ export async function generateMetadata({
   });
 
   const canonical = seo?.surface?.canonicalUrl ?? seo?.meta.canonical ?? String(metadata.alternates?.canonical ?? "");
-  const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? article.coverImageUrl ?? null;
+  const ogImage = seo?.surface?.og.image ?? seo?.meta.og.image ?? articleImage ?? null;
 
   const twitterImages = normalizeTwitterImages(
     seo?.surface?.twitter.image,
@@ -187,7 +182,7 @@ export default async function ArticleDetailPage({
       locale,
       datePublished: article.publishedAt ?? article.updatedAt ?? article.createdAt ?? new Date().toISOString(),
       dateModified: article.updatedAt ?? article.publishedAt ?? article.createdAt ?? new Date().toISOString(),
-      authorName: "FermatMind Editorial",
+      authorName: article.authorName ?? "FermatMind Editorial",
     });
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -202,7 +197,7 @@ export default async function ArticleDetailPage({
   const badgeLabels = [
     article.category?.name ?? null,
     ...article.tags.map((tag) => tag.name).filter(Boolean),
-  ].slice(0, 5);
+  ].filter((label): label is string => Boolean(label)).slice(0, 5);
 
   const backToArticlesCta = findLandingCta(article.landingSurface, "back_to_articles");
   const topicHubCta = findLandingCta(article.landingSurface, "topic_hub");
@@ -213,7 +208,7 @@ export default async function ArticleDetailPage({
   const relatedTypes: RelatedContentItem[] = [];
 
   return (
-    <Container as="main" className="space-y-6 py-10">
+    <Container as="main" className="space-y-8 py-10">
       <JsonLd id={`article-jsonld-${slug}`} data={articleJsonLd} />
       <JsonLd id={`article-breadcrumb-${slug}`} data={breadcrumbJsonLd} />
 
@@ -225,32 +220,33 @@ export default async function ArticleDetailPage({
         ]}
       />
 
-      <section
-        id="what-it-is"
-        className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-      >
-        {article.coverImageUrl ? (
-          <div
-            role="img"
-            aria-label={article.coverImageAlt ?? article.title}
-            className="aspect-[16/9] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] bg-cover bg-center"
-            style={{ backgroundImage: `url(${article.coverImageUrl})` }}
-          />
-        ) : null}
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {dict.articles.kicker}
-        </p>
-        <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{article.title}</h1>
-        {heroSummary ? <p className="m-0 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
-      </section>
-
-      <AnswerSurfaceSection surface={article.answerSurface} locale={locale} testId="article-answer-surface" />
-
-      <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
-        <CardHeader className="space-y-3">
-          <CardTitle className="font-serif text-[var(--fm-text)]">{article.title}</CardTitle>
-          {article.excerpt ? <p className="m-0 text-sm text-[var(--fm-text-muted)]">{article.excerpt}</p> : null}
-          <div className="space-y-1 text-xs text-[var(--fm-text-muted)]">
+      <header id="what-it-is" className="space-y-5 border-b border-[var(--fm-border)] pb-7">
+        <ArticleResponsiveImage
+          src={article.coverImageUrl}
+          alt={article.coverImageAlt ?? article.title}
+          width={article.coverImageWidth}
+          height={article.coverImageHeight}
+          variants={article.coverImageVariants}
+          mode="hero"
+          priority
+          className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]"
+        />
+        <div className="max-w-4xl space-y-4">
+          <div className="flex flex-wrap items-center gap-2">
+            {badgeLabels.length > 0 ? (
+              badgeLabels.map((label) => <Badge key={`${slug}-hero-${label}`}>{label}</Badge>)
+            ) : (
+              <Badge>{dict.articles.kicker}</Badge>
+            )}
+          </div>
+          <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)]">{article.title}</h1>
+          {heroSummary ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--fm-text-muted)]">
+            {article.authorName ? (
+              <p className="m-0">
+                {locale === "zh" ? "作者" : "By"}: {article.authorName}
+              </p>
+            ) : null}
             {publishedAt ? (
               <p className="m-0">
                 {locale === "zh" ? "发布于" : "Published"}: {publishedAt}
@@ -261,63 +257,64 @@ export default async function ArticleDetailPage({
                 {dict.articles.updatedLabel}: {updatedAt}
               </p>
             ) : null}
+            {article.readingMinutes ? (
+              <p className="m-0">
+                {locale === "zh" ? `阅读时间：${article.readingMinutes} 分钟` : `${article.readingMinutes} min read`}
+              </p>
+            ) : null}
+            {article.reviewerName ? (
+              <p className="m-0">
+                {locale === "zh" ? "审核" : "Reviewed by"}: {article.reviewerName}
+              </p>
+            ) : null}
           </div>
-        </CardHeader>
+        </div>
+      </header>
 
-        <CardContent className="space-y-4">
-          {badgeLabels.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
-              {badgeLabels.map((label) => (
-                <Badge key={`${slug}-${label}`}>{label}</Badge>
-              ))}
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,1fr)] lg:items-start">
+        <article
+          id="how-it-works"
+          data-testid="article-detail-content"
+          className="space-y-5 text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
+        >
+          {renderArticleBody(article)}
+        </article>
+
+        <aside className="space-y-5 border-t border-[var(--fm-border)] pt-5 lg:sticky lg:top-24 lg:border-t-0 lg:pt-0">
+          <section className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm text-[var(--fm-text-muted)] shadow-[var(--fm-shadow-sm)]">
+            <p className="m-0 font-semibold text-[var(--fm-text)]">{locale === "zh" ? "继续探索" : "Keep exploring"}</p>
+            <div className="mt-3 flex flex-col gap-2">
+              <Link
+                href={backToArticlesCta?.href ?? localizedPath("/articles", locale)}
+                className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
+              >
+                {backToArticlesCta?.label || dict.articles.backToArticles}
+              </Link>
+
+              {topicHubCta ? (
+                <Link href={topicHubCta.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                  {topicHubCta.label}
+                </Link>
+              ) : null}
+
+              {startTestCta ? (
+                <Link href={startTestCta.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
+                  {startTestCta.label}
+                </Link>
+              ) : null}
             </div>
-          ) : null}
-
-          <article
-            id="how-it-works"
-            data-testid="article-detail-content"
-            className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_h2]:mt-7 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mt-5 [&_h3]:font-semibold [&_img]:rounded-xl [&_img]:border [&_img]:border-[var(--fm-border)] [&_p]:leading-7 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5"
-          >
-            {renderArticleBody(article)}
-          </article>
+          </section>
 
           <section
             id="limitations"
-            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]"
+            className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm leading-6 text-[var(--fm-text-muted)]"
           >
             {locale === "zh"
               ? "本内容用于自我认知与教育参考，不构成医疗或法律建议。"
               : "This content is for self-discovery and educational use, not medical or legal advice."}
           </section>
-
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href={backToArticlesCta?.href ?? localizedPath("/articles", locale)}
-              className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-            >
-              {backToArticlesCta?.label || dict.articles.backToArticles}
-            </Link>
-
-            {topicHubCta ? (
-              <Link
-                href={topicHubCta.href}
-                className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-              >
-                {topicHubCta.label}
-              </Link>
-            ) : null}
-
-            {startTestCta ? (
-              <Link
-                href={startTestCta.href}
-                className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
-              >
-                {startTestCta.label}
-              </Link>
-            ) : null}
-          </div>
-        </CardContent>
-      </Card>
+        </aside>
+      </div>
 
       <div className="space-y-6">
         <RelatedContent

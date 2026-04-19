@@ -341,7 +341,6 @@ describe("career alias route contract", () => {
       slug: "product-manager",
     }));
     const guideLookup = vi.fn(async () => null);
-    const industryLookup = vi.fn(() => null);
 
     vi.doMock("next/navigation", () => ({
       permanentRedirect,
@@ -353,8 +352,9 @@ describe("career alias route contract", () => {
     vi.doMock("@/lib/cms/career-guides", () => ({
       getCareerGuideFromCmsBySlug: guideLookup,
     }));
-    vi.doMock("@/lib/content", () => ({
-      getCareerIndustryBySlug: industryLookup,
+    vi.doMock("@/lib/career/datasetDirectory", () => ({
+      CAREER_DATASET_FAMILY_SLUGS: ["technology"],
+      normalizeFamilySlug: vi.fn((value: string) => value),
     }));
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
@@ -373,7 +373,6 @@ describe("career alias route contract", () => {
 
     expect(cmsLookup).toHaveBeenCalledWith({ slug: "product-manager", locale: "en" });
     expect(guideLookup).not.toHaveBeenCalled();
-    expect(industryLookup).not.toHaveBeenCalled();
     expect(permanentRedirect).toHaveBeenCalledWith("/en/career/jobs/product-manager");
   });
 
@@ -386,7 +385,6 @@ describe("career alias route contract", () => {
     });
     const cmsLookup = vi.fn(async () => null);
     const guideLookup = vi.fn(async () => ({ slug: "product-manager" }));
-    const industryLookup = vi.fn(() => null);
 
     vi.doMock("next/navigation", () => ({
       permanentRedirect,
@@ -398,8 +396,9 @@ describe("career alias route contract", () => {
     vi.doMock("@/lib/cms/career-guides", () => ({
       getCareerGuideFromCmsBySlug: guideLookup,
     }));
-    vi.doMock("@/lib/content", () => ({
-      getCareerIndustryBySlug: industryLookup,
+    vi.doMock("@/lib/career/datasetDirectory", () => ({
+      CAREER_DATASET_FAMILY_SLUGS: ["technology"],
+      normalizeFamilySlug: vi.fn((value: string) => value),
     }));
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
@@ -418,7 +417,6 @@ describe("career alias route contract", () => {
 
     expect(cmsLookup).toHaveBeenCalledWith({ slug: "product-manager", locale: "en" });
     expect(guideLookup).toHaveBeenCalledWith("product-manager", "en");
-    expect(industryLookup).not.toHaveBeenCalled();
     expect(permanentRedirect).toHaveBeenCalledWith("/en/career/guides/product-manager");
   });
 });

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { listCareerGuidesFromCms, type CareerGuideListItem } from "@/lib/cms/career-guides";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -169,6 +170,14 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
 
   return (
     <Container as="main" className="space-y-12 py-10 md:py-16">
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+          { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+          { label: locale === "zh" ? "职业发展" : "Guides" },
+        ]}
+      />
+
       <section className="max-w-4xl space-y-5">
         <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
           {locale === "zh" ? "把职业选择变成可验证的判断" : "Turn career choice into a testable decision"}

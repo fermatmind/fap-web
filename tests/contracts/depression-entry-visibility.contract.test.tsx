@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { HighlightedTestsSection } from "@/components/marketing/HighlightedTestsSection";
@@ -11,7 +11,86 @@ import {
   extractTestSlugFromEntryHref,
   isPublicTestEntryVisible,
 } from "@/lib/tests/publicTestEntryVisibility";
-import { vi } from "vitest";
+
+const mockTestItems = vi.hoisted(() => [
+  {
+    slug: "mbti-personality-test-16-personality-types",
+    title: "MBTI Personality Test",
+    title_i18n: { en: "MBTI Personality Test", zh: "MBTI 性格测试" },
+    description: "MBTI",
+    cover_image: "/share/mbti_square_600x600.png",
+    questions_count: 144,
+    time_minutes: 15,
+    scale_code: "MBTI",
+  },
+  {
+    slug: "big-five-personality-test-ocean-model",
+    title: "Big Five Personality Test",
+    title_i18n: { en: "Big Five Personality Test", zh: "大五人格测试" },
+    description: "Big Five",
+    cover_image: "/share/mbti_square_600x600.png",
+    questions_count: 120,
+    time_minutes: 20,
+    scale_code: "BIG5_OCEAN",
+  },
+  {
+    slug: "iq-test-intelligence-quotient-assessment",
+    title: "IQ Test",
+    title_i18n: { en: "IQ Test", zh: "智商测试" },
+    description: "IQ",
+    cover_image: "/share/mbti_square_600x600.png",
+    questions_count: 60,
+    time_minutes: 12,
+    scale_code: "IQ_RAVEN",
+  },
+  {
+    slug: "eq-test-emotional-intelligence-assessment",
+    title: "EQ Test",
+    title_i18n: { en: "EQ Test", zh: "情商测试" },
+    description: "EQ",
+    cover_image: "/share/mbti_square_600x600.png",
+    questions_count: 50,
+    time_minutes: 10,
+    scale_code: "EQ_60",
+  },
+  {
+    slug: "clinical-depression-anxiety-assessment-professional-edition",
+    title: "Clinical Depression & Anxiety Assessment",
+    title_i18n: { en: "Clinical Depression & Anxiety Assessment", zh: "抑郁焦虑综合检测" },
+    description: "Clinical",
+    cover_image: "/share/mbti_square_600x600.png",
+    questions_count: 68,
+    time_minutes: 12,
+    scale_code: "CLINICAL_COMBO_68",
+  },
+  {
+    slug: "depression-screening-test-standard-edition",
+    title: "Depression Screening Test",
+    title_i18n: { en: "Depression Screening Test", zh: "抑郁测评" },
+    description: "SDS",
+    cover_image: "/share/mbti_square_600x600.png",
+    questions_count: 20,
+    time_minutes: 5,
+    scale_code: "SDS_20",
+  },
+]);
+
+vi.mock("@/lib/content", async () => {
+  const actual = await vi.importActual<typeof import("@/lib/content")>("@/lib/content");
+  return {
+    ...actual,
+    getAllTests: vi.fn(async () => mockTestItems),
+    getTestBySlug: vi.fn(async (slug: string) => mockTestItems.find((item) => item.slug === slug) ?? null),
+  };
+});
+
+vi.mock("@/lib/cms/landing-surfaces", async () => {
+  const fixture = await import("./fixtures/cmsLandingSurfaceMock");
+
+  return {
+    getCmsLandingSurface: vi.fn(fixture.getMockCmsLandingSurface),
+  };
+});
 
 vi.mock("next/link", () => ({
   default: ({
@@ -28,8 +107,8 @@ vi.mock("next/image", () => ({
   default: ({ alt }: { alt?: string }) => <span data-testid="mock-next-image" data-alt={alt ?? ""} />,
 }));
 
-function collectHomeEntryHrefs(locale: "zh" | "en"): string[] {
-  const content = getHomePageContent(locale);
+async function collectHomeEntryHrefs(locale: "zh" | "en"): Promise<string[]> {
+  const content = await getHomePageContent(locale);
 
   return [
     ...content.quickStart.items.map((item) => item.href),
@@ -54,9 +133,9 @@ describe("depression entry visibility contract", () => {
     );
   });
 
-  it("removes both depression-related entries from home marketing content in both locales", () => {
+  it("removes both depression-related entries from home marketing content in both locales", async () => {
     for (const locale of ["zh", "en"] as const) {
-      const hrefs = collectHomeEntryHrefs(locale);
+      const hrefs = await collectHomeEntryHrefs(locale);
 
       expect(hrefs.some((href) => href.includes("depression-screening-test-standard-edition"))).toBe(false);
       expect(
@@ -65,9 +144,9 @@ describe("depression entry visibility contract", () => {
     }
   });
 
-  it("removes the tests hub emotion-state family when all depression-related test cards are hidden", () => {
+  it("removes the tests hub emotion-state family when all depression-related test cards are hidden", async () => {
     for (const locale of ["zh", "en"] as const) {
-      const content = getTestsHubContent(locale);
+      const content = await getTestsHubContent(locale);
       const emotionFamily = content.families.items.find((family) => family.id === "family-emotion-state");
       const emotionQuickStart = content.quickStart.items.find((item) => item.id === "emotion-state");
 

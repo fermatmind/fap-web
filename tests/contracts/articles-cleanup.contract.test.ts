@@ -28,6 +28,44 @@ afterEach(() => {
 
 describe("articles cleanup contract", () => {
   it("frontend next-sitemap keeps article landing and detail authority available", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+        if (url.includes("/api/v0.5/articles?")) {
+          return jsonResponse({
+            ok: true,
+            items: [
+              {
+                slug: "mbti-basics",
+                locale: url.includes("locale=zh-CN") ? "zh-CN" : "en",
+                title: "MBTI Basics",
+                is_public: true,
+                is_indexable: true,
+              },
+            ],
+            pagination: {
+              current_page: 1,
+              per_page: 100,
+              total: 1,
+              last_page: 1,
+            },
+          });
+        }
+
+        return jsonResponse({
+          ok: true,
+          items: [],
+          pagination: {
+            current_page: 1,
+            per_page: 100,
+            total: 0,
+            last_page: 1,
+          },
+        });
+      })
+    );
+
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
@@ -40,7 +78,8 @@ describe("articles cleanup contract", () => {
     const source = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
 
     expect(source).toContain('from "@/lib/cms/articles"');
-    expect(source).toContain("article.answerSurface");
+    expect(source).not.toContain("AnswerSurfaceSection");
+    expect(source).not.toContain('testId="article-answer-surface"');
     expect(source).toContain('findLandingCta(article.landingSurface, "back_to_articles")');
     expect(source).not.toContain("normalizeStructuredDataUrls");
     expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
@@ -187,7 +226,7 @@ describe("articles cleanup contract", () => {
     ]);
   });
 
-  it("falls back to local blog article content when cms detail returns 404", async () => {
+  it("does not use local blog article content when cms detail returns 404", async () => {
     const fetchMock = vi.fn(async () =>
       jsonResponse(
         {
@@ -202,15 +241,10 @@ describe("articles cleanup contract", () => {
     const article = await getCmsArticle("mbti-growth-guide", "zh");
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(article).not.toBeNull();
-    expect(article?.slug).toBe("mbti-growth-guide");
-    expect(article?.title).toContain("MBTI");
-    expect(article?.contentMd).toContain("费马测试");
-    expect(article?.status).toBe("published");
-    expect(article?.isPublic).toBe(true);
+    expect(article).toBeNull();
   });
 
-  it("falls back to local blog collection when cms list is empty", async () => {
+  it("keeps cms empty article lists empty instead of using local blog content", async () => {
     const fetchMock = vi.fn(async () =>
       jsonResponse({
         ok: true,
@@ -229,10 +263,59 @@ describe("articles cleanup contract", () => {
     const result = await getCmsArticles({ locale: "zh" });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(result.items.length).toBeGreaterThan(0);
-    expect(result.items.map((item) => item.slug)).toContain("mbti-basics");
-    expect(result.items.map((item) => item.slug)).toContain("mbti-growth-guide");
-    expect(result.pagination.total).toBe(18);
+    expect(result.items).toEqual([]);
+    expect(result.pagination.total).toBe(0);
     expect(result.pagination.lastPage).toBe(1);
+  });
+
+  it("uses backend article placement fields for test-related article slots", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+
+      expect(url).toContain("/api/v0.5/articles?");
+      expect(url).toContain("locale=zh-CN");
+      expect(url).toContain("related_test_slug=mbti-personality-test-16-personality-types");
+
+      return jsonResponse({
+        ok: true,
+        items: [
+          {
+            slug: "mbti-basics",
+            locale: "zh-CN",
+            title: "MBTI 入门",
+            excerpt: "先理解 MBTI 适合回答什么。",
+            related_test_slug: "mbti-personality-test-16-personality-types",
+            voice: "tool",
+            voice_order: 1,
+            is_public: true,
+            is_indexable: true,
+          },
+        ],
+        pagination: {
+          current_page: 1,
+          per_page: 3,
+          total: 1,
+          last_page: 1,
+        },
+      });
+    });
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await getCmsArticles({
+      locale: "zh",
+      page: 1,
+      perPage: 3,
+      relatedTestSlug: "mbti-personality-test-16-personality-types",
+      allowLocalFallback: false,
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(result.items[0]).toMatchObject({
+      slug: "mbti-basics",
+      relatedTestSlug: "mbti-personality-test-16-personality-types",
+      voice: "tool",
+      voiceOrder: 1,
+    });
   });
 });

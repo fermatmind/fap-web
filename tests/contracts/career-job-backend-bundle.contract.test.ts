@@ -406,4 +406,30 @@ describe("career job backend bundle contract", () => {
     expect(source).toContain("containsCjkText(job.contentBodyMd)");
     expect(source).toContain('permanentRedirect(buildCareerJobFrontendUrl("zh", job.slug))');
   });
+
+  it("career job detail breadcrumb stays above both DOCX and protocol renderer branches", () => {
+    const source = readFileSync(
+      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
+      "utf8"
+    );
+
+    expect(source).toContain("<Breadcrumb");
+    expect(source).toContain('localizedPath("/career/jobs", locale)');
+    expect(source.indexOf("<Breadcrumb")).toBeLessThan(source.indexOf("{job.contentBodyMd ?"));
+  });
+
+  it("keeps DOCX job detail header and fallback cells user-facing", () => {
+    const source = readFileSync(
+      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
+      "utf8"
+    );
+
+    expect(source).not.toContain("职业详情页正式文案版");
+    expect(source).not.toContain("/career/jobs/{job.slug}");
+    expect(source).toContain("formatCareerJobDocumentText");
+    expect(source).toContain("formatCareerJobDocumentCell");
+    expect(source).toContain('return "暂无"');
+    expect(source).toContain("暂无额外工作经验要求");
+    expect(source).toContain("参考美国标准");
+  });
 });

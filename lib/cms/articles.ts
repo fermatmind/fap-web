@@ -1,7 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
-import { getBlogPostBySlug, listBlogPosts, type LocalizedBlogPost } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
@@ -32,7 +31,18 @@ type CmsArticleApiRecord = {
   excerpt?: string | null;
   content_md?: string | null;
   content_html?: string | null;
+  author_name?: string | null;
+  reviewer_name?: string | null;
+  reading_minutes?: number | string | null;
   cover_image_url?: string | null;
+  cover_image_alt?: string | null;
+  cover_image_width?: number | string | null;
+  cover_image_height?: number | string | null;
+  cover_image_variants?: unknown;
+  cover_image?: unknown;
+  related_test_slug?: string | null;
+  voice?: string | null;
+  voice_order?: number | string | null;
   status?: string;
   is_public?: boolean;
   is_indexable?: boolean;
@@ -100,6 +110,23 @@ export type CmsArticleCategory = {
   name: string;
 } | null;
 
+export type CmsArticleImageVariant = {
+  url: string;
+  width: number | null;
+  height: number | null;
+  mimeType: string | null;
+  media: string | null;
+};
+
+export type CmsArticleImageVariants = {
+  hero: CmsArticleImageVariant | null;
+  card: CmsArticleImageVariant | null;
+  thumbnail: CmsArticleImageVariant | null;
+  square: CmsArticleImageVariant | null;
+  og: CmsArticleImageVariant | null;
+  preload: CmsArticleImageVariant | null;
+};
+
 export type CmsArticle = {
   id: number | null;
   slug: string;
@@ -108,8 +135,17 @@ export type CmsArticle = {
   excerpt: string;
   contentMd: string;
   contentHtml: string;
+  authorName: string | null;
+  reviewerName: string | null;
+  readingMinutes: number | null;
   coverImageUrl: string | null;
   coverImageAlt: string | null;
+  coverImageWidth: number | null;
+  coverImageHeight: number | null;
+  coverImageVariants: CmsArticleImageVariants;
+  relatedTestSlug: string | null;
+  voice: string | null;
+  voiceOrder: number | null;
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
@@ -172,6 +208,8 @@ export type GetCmsArticlesParams = {
   locale: Locale | string;
   page?: number;
   perPage?: number;
+  relatedTestSlug?: string;
+  voice?: string;
   allowLocalFallback?: boolean;
 };
 
@@ -217,6 +255,41 @@ function normalizeIsoValue(value: unknown): string | null {
   return normalized || null;
 }
 
+function normalizePositiveInteger(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value) && value > 0) {
+    return Math.round(value);
+  }
+
+  const parsed = Number.parseInt(String(value ?? ""), 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+}
+
+function readRecordValue(record: unknown, ...keys: string[]): unknown {
+  if (!record || typeof record !== "object") {
+    return null;
+  }
+
+  const source = record as Record<string, unknown>;
+  for (const key of keys) {
+    if (source[key] !== undefined && source[key] !== null) {
+      return source[key];
+    }
+  }
+
+  return null;
+}
+
+function normalizeNamedEntity(value: unknown): string | null {
+  if (typeof value === "string" || typeof value === "number") {
+    return normalizeIsoValue(value);
+  }
+
+  return (
+    normalizeIsoValue(readRecordValue(value, "name", "title", "display_name", "displayName", "full_name", "fullName")) ??
+    null
+  );
+}
+
 function stripHtml(value: string): string {
   return value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
@@ -240,6 +313,79 @@ function buildFallbackExcerpt(article: CmsArticleApiRecord): string {
   }
 
   return "";
+}
+
+function estimateReadingMinutes(...sources: Array<string | null | undefined>): number | null {
+  const text = fallbackText(...sources.map((source) => (source ? stripHtml(source) : "")));
+  if (!text) {
+    return null;
+  }
+
+  const cjkCount = (text.match(/[\u4e00-\u9fff]/g) ?? []).length;
+  const latinWordCount = text
+    .replace(/[\u4e00-\u9fff]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+  const weightedWords = latinWordCount + cjkCount / 1.8;
+
+  return Math.max(1, Math.round(weightedWords / 220));
+}
+
+function normalizeImageVariant(value: unknown): CmsArticleImageVariant | null {
+  if (typeof value === "string") {
+    const url = normalizeIsoValue(value);
+    return url ? { url, width: null, height: null, mimeType: null, media: null } : null;
+  }
+
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+
+  const url = normalizeIsoValue(readRecordValue(value, "url", "src", "href"));
+  if (!url) {
+    return null;
+  }
+
+  return {
+    url,
+    width: normalizePositiveInteger(readRecordValue(value, "width", "w")),
+    height: normalizePositiveInteger(readRecordValue(value, "height", "h")),
+    mimeType: normalizeIsoValue(readRecordValue(value, "mime_type", "mimeType", "type")),
+    media: normalizeIsoValue(readRecordValue(value, "media", "media_query", "mediaQuery")),
+  };
+}
+
+function pickImageVariant(source: unknown, ...keys: string[]): CmsArticleImageVariant | null {
+  for (const key of keys) {
+    const value = readRecordValue(source, key);
+    const variant = normalizeImageVariant(value);
+    if (variant) {
+      return variant;
+    }
+  }
+
+  return null;
+}
+
+function normalizeImageVariants(source: unknown): CmsArticleImageVariants {
+  return {
+    hero: pickImageVariant(source, "hero", "full", "full_width", "fullWidth", "large", "desktop"),
+    card: pickImageVariant(source, "card", "teaser", "large", "desktop", "list"),
+    thumbnail: pickImageVariant(source, "thumbnail", "thumb", "medium", "mobile"),
+    square: pickImageVariant(source, "square", "og_square", "one_by_one", "oneByOne"),
+    og: pickImageVariant(source, "og", "social", "share", "open_graph", "openGraph"),
+    preload: pickImageVariant(source, "preload", "placeholder", "blur", "low"),
+  };
+}
+
+function firstImageUrl(...variants: Array<CmsArticleImageVariant | null>): string | null {
+  for (const variant of variants) {
+    if (variant?.url) {
+      return variant.url;
+    }
+  }
+
+  return null;
 }
 
 function replaceCanonicalValue(
@@ -383,6 +529,17 @@ function normalizeCategory(category: CmsArticleApiCategory): CmsArticleCategory 
 }
 
 function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
+  const nestedCoverImage = article.cover_image;
+  const coverImageVariants = normalizeImageVariants(
+    article.cover_image_variants ?? readRecordValue(nestedCoverImage, "variants", "image_variants", "imageVariants")
+  );
+  const coverImageUrl =
+    normalizeIsoValue(article.cover_image_url) ??
+    normalizeIsoValue(readRecordValue(nestedCoverImage, "url", "src")) ??
+    firstImageUrl(coverImageVariants.hero, coverImageVariants.card, coverImageVariants.og, coverImageVariants.thumbnail);
+  const readingMinutes =
+    normalizePositiveInteger(article.reading_minutes) ?? estimateReadingMinutes(article.content_html, article.content_md, article.excerpt);
+
   return {
     id: typeof article.id === "number" ? article.id : null,
     slug: normalizeArticleSlug(String(article.slug ?? "")),
@@ -391,8 +548,22 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     excerpt: buildFallbackExcerpt(article),
     contentMd: String(article.content_md ?? ""),
     contentHtml: String(article.content_html ?? ""),
-    coverImageUrl: typeof article.cover_image_url === "string" && article.cover_image_url.trim() ? article.cover_image_url : null,
-    coverImageAlt: null,
+    authorName: normalizeIsoValue(article.author_name) ?? normalizeNamedEntity(readRecordValue(article, "author", "byline")),
+    reviewerName: normalizeIsoValue(article.reviewer_name) ?? normalizeNamedEntity(readRecordValue(article, "reviewer", "reviewed_by")),
+    readingMinutes,
+    coverImageUrl,
+    coverImageAlt:
+      normalizeIsoValue(article.cover_image_alt) ??
+      normalizeIsoValue(readRecordValue(nestedCoverImage, "alt", "alt_text", "altText")) ??
+      null,
+    coverImageWidth:
+      normalizePositiveInteger(article.cover_image_width) ?? normalizePositiveInteger(readRecordValue(nestedCoverImage, "width")),
+    coverImageHeight:
+      normalizePositiveInteger(article.cover_image_height) ?? normalizePositiveInteger(readRecordValue(nestedCoverImage, "height")),
+    coverImageVariants,
+    relatedTestSlug: normalizeIsoValue(article.related_test_slug),
+    voice: normalizeIsoValue(article.voice),
+    voiceOrder: normalizePositiveInteger(article.voice_order),
     status: String(article.status ?? "").trim(),
     isPublic: Boolean(article.is_public),
     isIndexable: Boolean(article.is_indexable),
@@ -407,150 +578,6 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     seoMeta: article.seo_meta ?? null,
     landingSurface: null,
     answerSurface: null,
-  };
-}
-
-function normalizeLocalTag(tag: unknown): CmsArticleTag | null {
-  const name = String(tag ?? "").trim();
-  if (!name) {
-    return null;
-  }
-
-  return {
-    id: null,
-    slug: name,
-    name,
-  };
-}
-
-function normalizeLocalCategory(categories: unknown): CmsArticleCategory {
-  const names = Array.isArray(categories)
-    ? categories.map((item) => String(item ?? "").trim()).filter(Boolean)
-    : [];
-  const name = names[0] ?? "";
-
-  if (!name) {
-    return null;
-  }
-
-  return {
-    id: null,
-    slug: name,
-    name,
-  };
-}
-
-function normalizeLocalArticle(post: LocalizedBlogPost): CmsArticle {
-  const status = fallbackText(post.publish_status, "published");
-  const isPublished = status === "published";
-
-  return {
-    id: null,
-    slug: normalizeArticleSlug(post.slug),
-    locale: toApiLocale(post.locale),
-    title: String(post.title ?? "").trim(),
-    excerpt: fallbackText(post.excerpt, post.summary),
-    contentMd: String(post.body ?? ""),
-    contentHtml: "",
-    coverImageUrl: normalizeIsoValue(post.cover_image),
-    coverImageAlt: normalizeIsoValue(post.cover_image_alt),
-    status,
-    isPublic: isPublished,
-    isIndexable: isPublished && (post.locale === "zh" ? true : Boolean(post.translation_ready)),
-    publishedAt: normalizeIsoValue(post.publishedAt ?? post.updatedAt),
-    scheduledAt: null,
-    createdAt: null,
-    updatedAt: normalizeIsoValue(post.updatedAt ?? post.publishedAt),
-    category: normalizeLocalCategory(post.categories),
-    tags: Array.isArray(post.tags)
-      ? post.tags.map(normalizeLocalTag).filter((tag): tag is CmsArticleTag => tag !== null)
-      : [],
-    seoMeta: {
-      title: fallbackText(post.seo_title, post.title),
-      description: fallbackText(post.meta_description, post.excerpt, post.summary),
-      cover_image_prompt: normalizeIsoValue(post.cover_image_prompt),
-      cover_image_style_tag: normalizeIsoValue(post.cover_image_style_tag),
-      canonical_topic: normalizeIsoValue(post.canonical_topic),
-      article_series: normalizeIsoValue(post.article_series),
-    },
-    landingSurface: null,
-    answerSurface: null,
-  };
-}
-
-function getLocalArticleSeo(slug: string, locale: Locale | string): CmsArticleSeoPayload | null {
-  const post = getBlogPostBySlug(normalizeArticleSlug(slug), normalizeLocale(locale));
-  if (!post) {
-    return null;
-  }
-
-  const title = fallbackText(post.seo_title, post.title);
-  const description = fallbackText(post.meta_description, post.excerpt, post.summary);
-  const image = normalizeIsoValue(post.cover_image);
-  const robots = fallbackText(post.publish_status, "published") === "published" ? "index,follow" : "noindex,follow";
-
-  return normalizeArticleSeoPayload(
-    {
-      meta: {
-        title,
-        description,
-        og: {
-          title,
-          description,
-          image,
-          type: "article",
-        },
-        twitter: {
-          card: "summary_large_image",
-          title,
-          description,
-          image,
-        },
-        robots,
-      },
-      jsonld: null,
-    },
-    locale,
-    post.slug
-  );
-}
-
-function getLocalArticle(slug: string, locale: Locale | string): CmsArticle | null {
-  const post = getBlogPostBySlug(normalizeArticleSlug(slug), normalizeLocale(locale));
-  if (!post) {
-    return null;
-  }
-
-  const article = normalizeLocalArticle(post);
-  return article.slug && article.title ? article : null;
-}
-
-function getLocalArticles(locale: Locale | string): CmsArticle[] {
-  return listBlogPosts(normalizeLocale(locale))
-    .map(normalizeLocalArticle)
-    .filter((article) => article.slug && article.title);
-}
-
-function buildLocalArticlesResult(
-  locale: Locale | string,
-  requestedPage: number,
-  requestedPerPage: number
-): GetCmsArticlesResult {
-  const all = getLocalArticles(locale);
-  const total = all.length;
-  const lastPage = Math.max(1, Math.ceil(total / requestedPerPage));
-  const currentPage = Math.min(requestedPage, lastPage);
-  const start = Math.max(0, (currentPage - 1) * requestedPerPage);
-
-  return {
-    items: all.slice(start, start + requestedPerPage),
-    pagination: {
-      currentPage,
-      perPage: requestedPerPage,
-      total,
-      lastPage,
-    },
-    landingSurface: null,
   };
 }
 
@@ -570,6 +597,8 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
     page: requestedPage,
     per_page: requestedPerPage,
     org_id: DEFAULT_ORG_ID,
+    related_test_slug: params.relatedTestSlug,
+    voice: params.voice,
   });
   const cacheOptions =
     allowLocalFallback
@@ -590,10 +619,6 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
           .filter((article) => matchesRequestedLocale(article.locale, params.locale))
       : [];
 
-    if (items.length === 0 && allowLocalFallback) {
-      return buildLocalArticlesResult(params.locale, requestedPage, requestedPerPage);
-    }
-
     return {
       items,
       pagination: {
@@ -606,7 +631,16 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
     };
   } catch (error) {
     if (error instanceof ApiError && error.status === 404 && allowLocalFallback) {
-      return buildLocalArticlesResult(params.locale, requestedPage, requestedPerPage);
+      return {
+        items: [],
+        pagination: {
+          currentPage: requestedPage,
+          perPage: requestedPerPage,
+          total: 0,
+          lastPage: 1,
+        },
+        landingSurface: null,
+      };
     }
 
     throw error;
@@ -685,16 +719,16 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
     });
 
     if (!response.article) {
-      return getLocalArticle(normalizedSlug, locale);
+      return null;
     }
 
     const article = normalizeArticle(response.article);
     article.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
     article.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
-    return article.slug && article.title ? article : getLocalArticle(normalizedSlug, locale);
+    return article.slug && article.title ? article : null;
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return getLocalArticle(normalizedSlug, locale);
+      return null;
     }
 
     throw error;
@@ -725,7 +759,7 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
     return normalizeArticleSeoPayload(response, locale, normalizedSlug);
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return getLocalArticleSeo(normalizedSlug, locale);
+      return null;
     }
 
     throw error;

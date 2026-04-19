@@ -49,7 +49,6 @@ restore_hidden_env_files() {
 trap restore_hidden_env_files EXIT
 
 # Do not run package-level postbuild here (it rewrites sitemap/robots and creates noisy diffs).
-pnpm exec velite build
 pnpm exec next build
 
 bash scripts/visual/sync_standalone_assets.sh

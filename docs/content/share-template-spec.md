@@ -13,7 +13,7 @@
 `content_packages/<pack>/share_assets/*`（封面图等资源）
 
 2) **fap-web 本地兜底（Stage 2 可选）**  
-`fap-web/content/share_templates/<slug>/*.json`（仅用于开发/预览；线上必须以内容包为准）
+`content_packages/<pack>/share_templates/*.json` 或后端内容包记录；前端仓库不再保留 `content/share_templates` 预览副本。
 
 > 规则：当 web 能读取内容包模板时，必须以内容包为准；本地模板仅允许做开发兜底。
 

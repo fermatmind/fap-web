@@ -10,7 +10,6 @@ import {
   mapFrontendLocaleToCareerGuideApiLocale,
   normalizeCareerGuideSeoPayload,
 } from "@/lib/cms/career-guides";
-import { getCareerIndustryBySlug } from "@/lib/content";
 
 const ROOT = process.cwd();
 
@@ -153,8 +152,6 @@ describe("career guides cms adapter contract", () => {
       "zh"
     );
 
-    const industry = getCareerIndustryBySlug("consulting", "zh");
-
     expect(detail).not.toBeNull();
     expect(detail?.bodyMd).toContain("# 职业指南");
     expect(detail?.bodyHtml).toContain("<h2>职业指南</h2>");
@@ -166,18 +163,14 @@ describe("career guides cms adapter contract", () => {
         href: "/zh/career/jobs/product-manager",
       },
     ]);
-    expect(detail?.relatedIndustries).toEqual(
-      industry
-        ? [
-            {
-              slug: industry.slug,
-              title: industry.title,
-              summary: industry.summary,
-              href: "/zh/career/industries/consulting",
-            },
-          ]
-        : []
-    );
+    expect(detail?.relatedIndustries).toEqual([
+      {
+        slug: "consulting",
+        title: "管理",
+        summary: "",
+        href: "/zh/career/industries/consulting",
+      },
+    ]);
     expect(detail?.relatedArticles).toEqual([
       {
         slug: "how-to-read-mbti-results",
@@ -305,6 +298,7 @@ describe("career guides frontend boundary contract", () => {
 
     expect(adapterSource).toContain("toApiLocale");
     expect(adapterSource).not.toContain("getCareerGuideBySlug");
+    expect(adapterSource).not.toContain("career-guide-local-fallback");
     expect(listSource).toContain("listCareerGuidesFromCms");
     expect(listSource).not.toContain("listCareerGuides(");
     expect(detailSource).toContain("getCareerGuideFromCmsBySlug");
@@ -325,6 +319,15 @@ describe("career guides frontend boundary contract", () => {
     expect(aliasSource).toContain("getCareerGuideFromCmsBySlug");
     expect(aliasSource).not.toContain("getCareerGuideBySlug");
     expect(aliasSource).toContain('export const dynamic = "force-dynamic"');
+  });
+
+  it("keeps the visible breadcrumb trail on the career guides index", () => {
+    const listSource = read("app/(localized)/[locale]/career/guides/page.tsx");
+
+    expect(listSource).toContain("Breadcrumb");
+    expect(listSource).toContain('localizedPath("/career", locale)');
+    expect(listSource).toContain("职业发展");
+    expect(listSource).toContain("Guides");
   });
 
   it("keeps the career guide detail hero centered without the landing summary panel", () => {

@@ -36,7 +36,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const content = getTestsCategoryContent(locale, slug);
+  const content = await getTestsCategoryContent(locale, slug);
   const pathname = locale === "zh" ? `/zh/tests/category/${slug}` : `/en/tests/category/${slug}`;
 
   return buildPageMetadata({
@@ -52,8 +52,8 @@ export async function generateMetadata({
   });
 }
 
-function buildCategoryJsonLd(locale: Locale, slug: TestsCategorySlug) {
-  const content = getTestsCategoryContent(locale, slug);
+async function buildCategoryJsonLd(locale: Locale, slug: TestsCategorySlug) {
+  const content = await getTestsCategoryContent(locale, slug);
   const path = locale === "zh" ? `/zh/tests/category/${slug}` : `/en/tests/category/${slug}`;
 
   return {
@@ -114,8 +114,8 @@ export default async function TestsCategoryPage({
     notFound();
   }
 
-  const content = getTestsCategoryContent(locale, slug);
-  const jsonLd = buildCategoryJsonLd(locale, slug);
+  const content = await getTestsCategoryContent(locale, slug);
+  const jsonLd = await buildCategoryJsonLd(locale, slug);
 
   return (
     <main>

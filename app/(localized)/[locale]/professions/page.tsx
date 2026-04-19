@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { listTypes } from "@/lib/content";
+import { listPersonalityProfiles } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -40,7 +40,7 @@ export default async function ProfessionsPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const types = listTypes();
+  const { items: types } = await listPersonalityProfiles({ locale, perPage: 100 }).catch(() => ({ items: [] }));
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -57,19 +57,19 @@ export default async function ProfessionsPage({
       <div className="grid gap-4 md:grid-cols-2">
         {types.map((type) => (
           <Card
-            key={type.code}
+            key={type.slug || type.typeCode}
             className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)] transition hover:shadow-[var(--fm-shadow-md)]"
           >
             <CardHeader>
               <div className="flex items-center gap-2">
-                <Badge>{type.code}</Badge>
-                <CardTitle className="font-serif text-[var(--fm-text)]">{type.name}</CardTitle>
+                <Badge>{type.typeCode}</Badge>
+                <CardTitle className="font-serif text-[var(--fm-text)]">{type.title}</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{type.description}</p>
+              <p className="m-0 text-sm text-[var(--fm-text-muted)]">{type.excerpt}</p>
               <Link
-                href={withLocale(`/professions/${type.code}`)}
+                href={withLocale(`/professions/${type.slug || type.typeCode}`)}
                 className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"
               >
                 View details

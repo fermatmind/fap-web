@@ -5,6 +5,7 @@ import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/car
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { getCareerCenterContent } from "@/lib/marketing/careerCenterContent";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -18,15 +19,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
+  const content = await getCareerCenterContent(locale);
 
   return buildPageMetadata({
     locale,
     pathname: locale === "zh" ? "/zh/career" : "/en/career",
-    title: locale === "zh" ? "职业库与职业探索" : "Career Library and Explorer",
-    description:
-      locale === "zh"
-        ? "从全部职业库、行业目录和测评结果进入职业详情与职业推荐。"
-        : "Enter career profiles through the full occupation library, industry directories, and personality-based recommendations.",
+    title: content.seo.title,
+    description: content.seo.description,
     alternatesByLocale: {
       en: "/en/career",
       zh: "/zh/career",
@@ -42,14 +41,12 @@ export default async function CareerCenterPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
+  const content = await getCareerCenterContent(locale);
   const withLocale = (pathname: string) => localizedPath(pathname, locale);
   const landingPath = withLocale("/career");
   const canonicalPath = locale === "zh" ? "/zh/career" : "/en/career";
-  const pageTitle = locale === "zh" ? "职业库与职业探索" : "Career Library and Explorer";
-  const pageDescription =
-    locale === "zh"
-      ? "从全部职业库、行业目录和测评结果进入职业详情与职业推荐。"
-      : "Enter career profiles through the full occupation library, industry directories, and personality-based recommendations.";
+  const pageTitle = content.seo.title;
+  const pageDescription = content.seo.description;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: pageTitle,
@@ -89,67 +86,55 @@ export default async function CareerCenterPage({
 
         <section className="mx-auto max-w-4xl space-y-4 pt-4 text-center md:pt-8" data-testid="career-landing-hero" data-authority-owner="editorial_local_wrapper">
           <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
-            {locale === "zh" ? "从职业库开始，逐层缩小选择" : "Start with the library, then narrow the path"}
+            {content.hero.title}
           </h1>
         </section>
 
         <section className="grid gap-4 md:grid-cols-3" data-testid="career-explorer-pathways" data-authority-owner="editorial_ia_shell">
           <article className="flex flex-col rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6" data-testid="career-pathway-jobs">
-            <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-              {locale === "zh" ? "全部职业库" : "All occupations"}
-            </p>
+            <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">{content.pathways[0]?.eyebrow}</p>
             <h3 className="m-0 mt-3 text-xl font-semibold tracking-tight text-slate-950">
-              {locale === "zh" ? "浏览 342 个职业" : "Browse 342 occupations"}
+              {content.pathways[0]?.title}
             </h3>
             <p className="m-0 mt-3 text-sm leading-6 text-slate-600">
-              {locale === "zh"
-                ? "先看完整职业目录，再按行业或关键词缩小范围。"
-                : "Start with the full directory, then narrow by industry or keyword."}
+              {content.pathways[0]?.description}
             </p>
-            <form action={withLocale("/career/jobs")} method="get" className="mt-auto space-y-3 pt-9" data-testid="career-landing-search-entry">
+            <form action={withLocale(content.pathways[0]?.href ?? "/career/jobs")} method="get" className="mt-auto space-y-3 pt-9" data-testid="career-landing-search-entry">
               <input
                 type="search"
                 name="q"
-                placeholder={locale === "zh" ? "输入职业名或方向" : "Enter a role or direction"}
+                placeholder={content.pathways[0]?.searchPlaceholder}
                 className="h-11 w-full rounded-full border border-slate-200 bg-slate-50 px-4 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-200"
               />
               <button type="submit" className={buttonVariants({ className: "w-full justify-center" })}>
-                {locale === "zh" ? "搜索全部职业库" : "Search all occupations"}
+                {content.pathways[0]?.ctaLabel}
               </button>
             </form>
           </article>
 
           <article className="flex flex-col rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6" data-testid="career-pathway-recommendation">
-            <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-              {locale === "zh" ? "行业入口" : "Industry entry"}
-            </p>
+            <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">{content.pathways[1]?.eyebrow}</p>
             <h3 className="m-0 mt-3 text-xl font-semibold tracking-tight text-slate-950">
-              {locale === "zh" ? "按行业看职业裂变" : "Browse roles by industry"}
+              {content.pathways[1]?.title}
             </h3>
             <p className="m-0 mt-3 text-sm leading-6 text-slate-600">
-              {locale === "zh"
-                ? "适合还不确定具体岗位，但知道大致行业方向的人。"
-                : "Use this when you know the broad field but not the exact role."}
+              {content.pathways[1]?.description}
             </p>
-            <Link href={withLocale("/career/industries")} className={buttonVariants({ className: "mt-auto w-full justify-center" })}>
-              {locale === "zh" ? "查看行业目录" : "View industries"}
+            <Link href={withLocale(content.pathways[1]?.href ?? "/career/industries")} className={buttonVariants({ className: "mt-auto w-full justify-center" })}>
+              {content.pathways[1]?.ctaLabel}
             </Link>
           </article>
 
           <article className="flex flex-col rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6" data-testid="career-pathway-tests">
-            <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-              {locale === "zh" ? "基于测评" : "From assessment"}
-            </p>
+            <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">{content.pathways[2]?.eyebrow}</p>
             <h3 className="m-0 mt-3 text-xl font-semibold tracking-tight text-slate-950">
-              {locale === "zh" ? "用人格结果看推荐" : "Use personality results"}
+              {content.pathways[2]?.title}
             </h3>
             <p className="m-0 mt-3 text-sm leading-6 text-slate-600">
-              {locale === "zh"
-                ? "如果已经有 MBTI 或大五结果，可以先看推荐方向。"
-                : "If you already have MBTI or Big Five results, start with recommendation paths."}
+              {content.pathways[2]?.description}
             </p>
-            <Link href={withLocale("/career/recommendations")} className={buttonVariants({ className: "mt-auto w-full justify-center" })}>
-              {locale === "zh" ? "查看职业推荐" : "View recommendations"}
+            <Link href={withLocale(content.pathways[2]?.href ?? "/career/recommendations")} className={buttonVariants({ className: "mt-auto w-full justify-center" })}>
+              {content.pathways[2]?.ctaLabel}
             </Link>
           </article>
         </section>
@@ -157,17 +142,12 @@ export default async function CareerCenterPage({
         <section className="rounded-3xl border border-slate-200 bg-white/80 p-5 text-sm shadow-sm md:p-6" data-testid="career-quiet-library" data-authority-owner="editorial_support_links">
           <div className="space-y-5 text-center">
             <h2 className="m-0 text-lg font-semibold tracking-tight text-slate-950">
-              {locale === "zh" ? "需要更多背景时再看" : "Support material for later"}
+              {content.support.title}
             </h2>
           </div>
           <div className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-3">
-            {[
-              { label: locale === "zh" ? "职业发展文章" : "Career development articles", href: withLocale("/career/guides") },
-              { label: locale === "zh" ? "职业测试" : "Career tests", href: withLocale("/career/tests") },
-              { label: locale === "zh" ? "数据来源" : "Data source", href: withLocale("/datasets/occupations") },
-              { label: locale === "zh" ? "方法说明" : "Method notes", href: withLocale("/datasets/occupations/method") },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} className="font-medium text-slate-500 underline underline-offset-4 hover:text-slate-950">
+            {content.support.links.map((item) => (
+              <Link key={item.href} href={withLocale(item.href)} className="font-medium text-slate-500 underline underline-offset-4 hover:text-slate-950">
                 {item.label}
               </Link>
             ))}

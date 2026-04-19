@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -33,23 +34,22 @@ export default async function CareerTestsPage({ params }: { params: Promise<{ lo
 
   return (
     <Container as="main" className="space-y-8 py-12 md:py-20">
+      <Breadcrumb
+        items={[
+          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+          { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+          { label: locale === "zh" ? "职业测试" : "Career tests" },
+        ]}
+      />
+
       <section className="mx-auto max-w-4xl space-y-4 text-center" data-testid="career-tests-hero">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">Career interest test</p>
         <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
           {locale === "zh" ? "先做职业兴趣测试" : "Start with a career interest test"}
         </h1>
-        <h2 className="mx-auto m-0 max-w-2xl text-base font-normal leading-7 text-slate-500">
-          {locale === "zh"
-            ? "适合还没有明确方向，想先得到一个起点的人。"
-            : "For people who do not have a clear direction yet and want a starting point first."}
-        </h2>
       </section>
 
       <section className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8" data-testid="career-tests-single-entry">
-        <p className="m-0 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-          {locale === "zh" ? "当前稳定入口" : "Current stable entry"}
-        </p>
-        <h3 className="m-0 mt-3 text-2xl font-semibold tracking-tight text-slate-950">
+        <h3 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
           {locale === "zh" ? "霍兰德职业兴趣测试（RIASEC）" : "Holland Career Interest Test (RIASEC)"}
         </h3>
         <p className="m-0 mt-3 text-sm leading-6 text-slate-500">

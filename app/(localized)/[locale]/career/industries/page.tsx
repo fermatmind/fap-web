@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { adaptCareerDatasetHub } from "@/lib/career/adapters/adaptCareerDatasetHub";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
@@ -55,6 +56,14 @@ export default async function CareerIndustriesPage({ params }: { params: Promise
   return (
     <main className="min-h-screen bg-slate-50">
       <Container as="div" className="space-y-10 py-10 md:py-16">
+        <Breadcrumb
+          items={[
+            { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+            { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+            { label: locale === "zh" ? "行业入口" : "Industries" },
+          ]}
+        />
+
         <section className="max-w-3xl space-y-4">
           <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
             {locale === "zh" ? "先选行业，再看职业裂变" : "Choose an industry, then inspect the roles"}
