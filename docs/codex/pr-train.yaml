@@ -6,6 +6,33 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: PR-V4-B2A
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-v4-b2-help-hub-cms-authority
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Final V4 B2 low-risk help hub CMS authority. Remove frontend editorial
+      fallback copy from /help and render CMS/public-gateway content when
+      present with a minimal shell when absent, without changing help detail
+      pages, homepage, tests, career, or backend contracts.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/help/page.tsx'"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-V4-0A
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
