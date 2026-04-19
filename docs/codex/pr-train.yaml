@@ -6,6 +6,32 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: PR-V4-B2B
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-v4-b2-content-page-help-ops
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Final V4 B2 content_pages ops help support. Expose help kind/template
+      options in the frontend Content Pages ops editor so help content pages
+      can remain CMS-managed, without changing public routes or content copy.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint components/ops/content-pages/ContentPageEditorForm.tsx"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-V4-B2A
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
