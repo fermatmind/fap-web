@@ -21,8 +21,6 @@ const SECTION_COPY = {
       {
         title: "Privacy and policy visibility",
         body: "Privacy policy, terms, support channels, and order recovery paths are available as explicit product surfaces.",
-        href: "/privacy",
-        linkLabel: "View privacy policy",
       },
       {
         title: "Real-world scenario relevance",
@@ -54,8 +52,6 @@ const SECTION_COPY = {
       {
         title: "隐私与规则可见",
         body: "隐私政策、条款、支持渠道和订单恢复入口都在产品中明确可查。",
-        href: "/privacy",
-        linkLabel: "查看隐私政策",
       },
       {
         title: "贴近真实决策场景",
@@ -87,15 +83,6 @@ export function SocialProofSection({ locale }: { locale: Locale }) {
             <article key={card.title} className="rounded-[10px] border border-[#243447]/25 bg-white/95 p-5 shadow-[0_10px_30px_rgba(13,24,39,0.08)]">
               <h3 className="m-0 text-[1.18rem] font-semibold tracking-[-0.02em] text-slate-900">{card.title}</h3>
               <p className="m-0 mt-2 text-[0.95rem] leading-7 text-slate-700">{card.body}</p>
-              {"href" in card ? (
-                <Link
-                  href={withLocale(card.href)}
-                  prefetch={false}
-                  className="mt-3 inline-flex text-sm font-medium text-slate-900 underline-offset-4 hover:underline"
-                >
-                  {card.linkLabel}
-                </Link>
-              ) : null}
             </article>
           ))}
         </div>

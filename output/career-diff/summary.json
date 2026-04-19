@@ -1,0 +1,24 @@
+{
+  "current_website_jobs": 342,
+  "cn_total": 1675,
+  "cn_actions": {
+    "create": 1663,
+    "skip": 12
+  },
+  "us_total": 1016,
+  "us_actions": {
+    "create": 796,
+    "skip": 208,
+    "alias_review": 12
+  },
+  "child_work_type_total": 42,
+  "upload_candidates_total_non_skip": 2513,
+  "upload_top_level_create_total": 2459,
+  "upload_alias_review_total": 12,
+  "upload_child_role_review_total": 42,
+  "files": {
+    "cn": "output/career-diff/CN_2026_diff.csv",
+    "us": "output/career-diff/US_ONET_diff.csv",
+    "upload": "output/career-diff/upload_candidates.csv"
+  }
+}

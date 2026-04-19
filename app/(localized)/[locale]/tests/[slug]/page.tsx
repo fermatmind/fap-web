@@ -747,16 +747,6 @@ export default async function TestLandingPage({
               </div>
             ) : showsMbtiActions ? (
               <div className="space-y-4 pt-2" data-testid="mbti-landing-entry-cta-group">
-                <div className="rounded-[1.25rem] border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    {locale === "zh" ? "主白名单页" : "Primary ad landing"}
-                  </p>
-                  <p className="m-0 mt-2 text-sm leading-7 text-slate-600">
-                    {locale === "zh"
-                      ? "先从深度版开始。快速版保留为次入口，只在你明确想要更轻量起步时使用。"
-                      : "Start with the deep profile first. Quick Read remains available as a lighter secondary entry."}
-                  </p>
-                </div>
                 <div className="flex flex-wrap items-center gap-3" data-testid="mbti-ads-primary-whitelist">
                   {mbtiPrimaryHref && mbtiPrimaryClickTrackingProps ? (
                     <TrackedEntryCtaLink
@@ -828,22 +818,19 @@ export default async function TestLandingPage({
           ) : null}
           {showsMbtiActions && mbtiLandingContinuityItems.length > 0 ? (
             <section
-              className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+              className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
               data-testid="mbti-landing-continuity-strip"
             >
-              <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-                {locale === "zh" ? "先选一条阅读路径" : "Choose a reading path first"}
-              </h2>
-              <div className="grid gap-3 md:grid-cols-4">
+              <div className="grid items-stretch gap-3 md:grid-cols-4">
                 {mbtiLandingContinuityItems.map((item) => (
                   <article
                     key={item.key}
-                    className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+                    className="flex h-full flex-col rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
                     data-testid={`mbti-landing-continuity-${item.key}`}
                   >
                     <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{item.title}</p>
-                    <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{item.body}</p>
-                    <Link href={item.href} className="fm-help-chip-link">
+                    <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{item.body}</p>
+                    <Link href={item.href} className="fm-help-chip-link mt-auto self-start">
                       {locale === "zh" ? "继续查看" : "Continue"}
                     </Link>
                   </article>

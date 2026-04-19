@@ -360,8 +360,6 @@ function QuizTakeInner({
   const [staleDraftError, setStaleDraftError] = useState<string | null>(null);
   const [retryAfterSeconds, setRetryAfterSeconds] = useState<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const [milestoneHint, setMilestoneHint] = useState<string | null>(null);
-  const [seenMilestones, setSeenMilestones] = useState<number[]>([]);
   const [submitOverlayVisible, setSubmitOverlayVisible] = useState(false);
   const [submitOverlayPhase, setSubmitOverlayPhase] = useState(0);
   const mountedRef = useRef(true);
@@ -375,6 +373,8 @@ function QuizTakeInner({
   const inviteLinkOpenedTrackedRef = useRef(false);
   const forceNewAttemptAppliedRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
+  const showsMbtiQuizChrome = isMbtiScaleCode(scaleCode);
+  const quizHeaderBrand = showsMbtiQuizChrome ? testTitle : dict.header.brand;
   const trackedStartRef = useRef(false);
   const resolvedFormCode = useMemo(
     () => (isMbtiScaleCode(scaleCode) ? normalizeMbtiFormCode(formCode) : undefined),
@@ -834,40 +834,6 @@ function QuizTakeInner({
     setStaleDraftError(null);
   }, [cancelPendingSubmitSideEffects, clearAttemptMeta, locale, questionsLoading, shouldBlockStaleDraft]);
 
-  useEffect(() => {
-    if (answeredCount === 0) {
-      setSeenMilestones([]);
-      setMilestoneHint(null);
-    }
-  }, [answeredCount, total]);
-
-  useEffect(() => {
-    if (total <= 0) return;
-    const milestones = [20, 40, 60, 80, 100];
-    const progressPercent = Math.floor((answeredCount / total) * 100);
-    const nextMilestone = milestones.find((milestone) => progressPercent >= milestone && !seenMilestones.includes(milestone));
-    if (!nextMilestone) return;
-
-    setSeenMilestones((prev) => [...prev, nextMilestone]);
-    const hintIndex = milestones.indexOf(nextMilestone);
-    const hint = dict.quiz.milestoneHints[hintIndex] ?? dict.quiz.milestoneHints[dict.quiz.milestoneHints.length - 1] ?? "";
-    if (hint) {
-      setMilestoneHint(hint);
-      takeFlowRef.current.schedule(() => {
-        setMilestoneHint((prev) => (prev === hint ? null : prev));
-      }, 1500);
-    }
-
-    const elapsedMs = Math.max(0, Date.now() - startedAt);
-    const durationBucket = elapsedMs < 60000 ? "lt_1m" : elapsedMs < 180000 ? "1_3m" : "gte_3m";
-    trackEvent("ui_quiz_milestone", {
-      scale_code: scaleCode,
-      milestone: nextMilestone,
-      duration_bucket: durationBucket,
-      locale,
-    });
-  }, [answeredCount, dict.quiz.milestoneHints, locale, scaleCode, seenMilestones, startedAt, total]);
-
   const buildAnswersSnapshot = useCallback((pendingSelection?: LastSelectionContext) => {
     const snapshot = {
       ...latestAnswersRef.current,
@@ -1194,7 +1160,7 @@ function QuizTakeInner({
           isTransitioning={isTransitioning}
           headerSlot={
             <QuizTakeHeaderV2
-              brand={dict.header.brand}
+              brand={quizHeaderBrand}
               completedPrefix={dict.header.completedPrefix}
               completedSuffix={dict.header.completedSuffix}
               estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -1257,7 +1223,9 @@ function QuizTakeInner({
           }
         >
           <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
+            {!showsMbtiQuizChrome ? (
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
+            ) : null}
             <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
 
             {question.stem?.svg ? (
@@ -1266,12 +1234,6 @@ function QuizTakeInner({
 
             {isIqScale ? (
               <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{dict.quiz.iq.pickPrompt}</p>
-            ) : null}
-
-            {milestoneHint ? (
-              <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
-                {milestoneHint}
-              </div>
             ) : null}
 
             {isIqScale ? (
@@ -1342,7 +1304,7 @@ function QuizTakeInner({
   return (
     <QuizShell>
       <QuizTakeHeaderV2
-        brand={dict.header.brand}
+        brand={quizHeaderBrand}
         completedPrefix={dict.header.completedPrefix}
         completedSuffix={dict.header.completedSuffix}
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -1357,7 +1319,9 @@ function QuizTakeInner({
       />
 
       <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
+        {!showsMbtiQuizChrome ? (
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
+        ) : null}
         <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.title}</h2>
 
         {question.stem?.svg ? (
@@ -1366,12 +1330,6 @@ function QuizTakeInner({
 
         {isIqScale ? (
           <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]">{dict.quiz.iq.pickPrompt}</p>
-        ) : null}
-
-        {milestoneHint ? (
-          <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
-            {milestoneHint}
-          </div>
         ) : null}
 
         {isIqScale ? (

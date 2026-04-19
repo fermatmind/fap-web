@@ -53,8 +53,8 @@ export async function generateMetadata({
     title: locale === "zh" ? "全部职业库" : "All Occupations Library",
     description:
       locale === "zh"
-        ? "浏览 FermatMind 342 个职业数据库，按行业筛选职业，并进入已开放的职业详情页。"
-        : "Browse the FermatMind 342-occupation library, filter by industry, and open available role profiles.",
+        ? "浏览 FermatMind 职业数据库，按行业筛选职业，并进入已开放的职业详情页。"
+        : "Browse the FermatMind occupation library, filter by industry, and open available role profiles.",
     noindex: submittedQuery.length > 0 || family.length > 0,
     alternatesByLocale: {
       en: "/en/career/jobs",
@@ -101,6 +101,7 @@ export default async function CareerJobsPage({
   const selectedFamilyTitle = selectedFamily ? formatCareerFamilyTitle(normalizeFamilySlug(selectedFamily), locale) : null;
   const detailReadyCount = members.filter(isCareerDatasetMemberDetailReady).length;
   const publicDetailCount = members.filter(isCareerDatasetMemberPublic).length;
+  const occupationCount = dataset?.collectionSummary.memberCount ?? members.length;
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -117,12 +118,12 @@ export default async function CareerJobsPage({
         <section className="space-y-7 text-center" data-testid="career-all-occupations-hero">
           <div className="mx-auto w-full space-y-4">
             <h1 className="m-0 whitespace-nowrap text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
-              {locale === "zh" ? "342 个职业，先按行业找到入口" : "342 occupations, organized by industry"}
+              {locale === "zh" ? "测量自己，看见职业，训练未来" : `${occupationCount} occupations, organized by industry`}
             </h1>
           </div>
 
           <div className="grid gap-3 md:grid-cols-4" data-testid="career-library-summary">
-            <Metric label={locale === "zh" ? "全部职业" : "All occupations"} value={String(dataset?.collectionSummary.memberCount ?? members.length)} />
+            <Metric label={locale === "zh" ? "全部职业" : "All occupations"} value={String(occupationCount)} />
             <Metric label={locale === "zh" ? "行业分类" : "Industries"} value={String(families.length)} />
             <Metric label={locale === "zh" ? "公开条目" : "Public entries"} value={String(publicDetailCount)} />
             <Metric label={locale === "zh" ? "可看详情" : "Detail pages"} value={String(detailReadyCount)} />

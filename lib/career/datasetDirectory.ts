@@ -142,7 +142,7 @@ export function filterCareerDatasetMembers(input: {
         return true;
       }
 
-      return [member.canonicalTitleEn, member.canonicalSlug, member.familySlug]
+      return [member.canonicalTitleZh, member.canonicalTitleEn, member.canonicalSlug, member.familySlug]
         .filter(Boolean)
         .some((value) => String(value).toLowerCase().includes(normalizedQuery));
     })
