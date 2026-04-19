@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { HomepageSocialProofCarousel } from "@/components/marketing/HomepageSocialProofCarousel";
-import { listBlogPosts } from "@/lib/content";
+import type { CmsArticle } from "@/lib/cms/articles";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { EVIDENCE_LOGS, SCENARIO_VALIDATIONS } from "@/lib/marketing/socialProof";
@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 type HomePageContent = ReturnType<typeof getHomePageContent>;
 type HomeLink = HomePageContent["quickStart"]["items"][number];
 type TrustItem = HomePageContent["trust"]["items"][number];
-type HomeArticle = ReturnType<typeof listBlogPosts>[number];
+type HomeArticle = CmsArticle;
 
 function withLocale(locale: Locale, path: string): string {
   return localizedPath(path, locale);
@@ -221,7 +221,7 @@ function HomepageHighlightedTestsBanner({ locale, copy }: { locale: Locale; copy
 
 const ABOUT_CARD_LINKS = [
   { key: "result", href: "/personality" },
-  { key: "method", href: "/help/about" },
+  { key: "method", href: "/about" },
   { key: "career", href: "/career" },
 ] as const;
 
@@ -306,11 +306,23 @@ function ArticleVisual({ index, title }: { index: number; title: string }) {
   );
 }
 
+function getArticleVisualTitle(article: HomeArticle, locale: Locale): string {
+  return (
+    article.tags[0]?.name ||
+    article.category?.name ||
+    (locale === "zh" ? "文章" : "Article")
+  );
+}
+
+function getArticleDisplayDate(article: HomeArticle): string {
+  return article.publishedAt ?? article.updatedAt ?? article.createdAt ?? "";
+}
+
 function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles: HomeArticle[] }) {
   const labels =
     locale === "zh"
-      ? { title: "推荐阅读", all: "查看全部文章" }
-      : { title: "Recommended reading", all: "View all articles" };
+      ? { title: "推荐阅读", all: "查看全部文章", author: "作者：" }
+      : { title: "Recommended reading", all: "View all articles", author: "By " };
 
   return (
     <section className="bg-white py-20 md:py-24" aria-labelledby="homepage-articles-title">
@@ -328,16 +340,16 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
           {articles.slice(0, 6).map((article, index) => (
             <article key={`${article.slug}-${article.locale}`} className="group">
               <Link href={withLocale(locale, `/articles/${article.slug}`)} prefetch={false} className="block">
-                <ArticleVisual index={index} title={article.tags?.[0] ?? article.voice} />
+                <ArticleVisual index={index} title={getArticleVisualTitle(article, locale)} />
                 <h3 className="m-0 mt-5 text-3xl font-normal leading-tight tracking-[-0.055em] text-slate-900 transition group-hover:text-teal-800">
                   {article.title}
                 </h3>
               </Link>
               <p className="m-0 mt-5 text-sm leading-6 text-slate-500">
-                {locale === "zh" ? "作者：" : "By "}
-                <span className="text-slate-700">{article.author}</span>
+                {labels.author}
+                <span className="text-slate-700">FermatMind Editorial</span>
               </p>
-              <p className="m-0 mt-1 text-sm text-slate-400">{article.updatedAt}</p>
+              <p className="m-0 mt-1 text-sm text-slate-400">{getArticleDisplayDate(article)}</p>
             </article>
           ))}
         </div>
@@ -356,9 +368,8 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
   );
 }
 
-export function HomePageExperience({ locale }: { locale: Locale }) {
+export function HomePageExperience({ locale, articles = [] }: { locale: Locale; articles?: HomeArticle[] }) {
   const copy = getHomePageContent(locale);
-  const articles = listBlogPosts(locale);
 
   return (
     <div className="bg-white text-slate-950">

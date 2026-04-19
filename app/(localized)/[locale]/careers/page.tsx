@@ -1,11 +1,11 @@
 import { generateContentPageMetadata, renderContentPage } from "../contentPageRoute";
 
-const SLUG = "terms";
+const SLUG = "careers";
 
 export function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   return generateContentPageMetadata({ params, slug: SLUG });
 }
 
-export default function TermsPage({ params }: { params: Promise<{ locale: string }> }) {
+export default function CareersPage({ params }: { params: Promise<{ locale: string }> }) {
   return renderContentPage({ params, slug: SLUG });
 }

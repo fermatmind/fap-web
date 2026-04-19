@@ -125,7 +125,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       primaryCta: "开始测评",
       primaryHref: "/tests/mbti-personality-test-16-personality-types",
       secondaryCta: "了解产品体系",
-      secondaryHref: "/help/about",
+      secondaryHref: "/about",
       tertiaryCta: "去职业探索",
       tertiaryHref: "/career",
       trustRail: ["结果结构清晰", "方法边界透明", "可匿名开始"],
@@ -209,8 +209,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "数据方法",
           description: "查看方法、边界与隐私说明。",
           exploreLabel: "查看数据方法",
-          exploreHref: "/help/about",
-          links: [{ title: "查看数据方法", href: "/help/about" }],
+          exploreHref: "/about",
+          links: [{ title: "查看数据方法", href: "/about" }],
         },
       ],
     },
@@ -230,7 +230,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       kicker: "TRUST",
       title: "先开始，再按需深入。",
       body: "首页只保留必要信任信息，详细方法与隐私说明后置。",
-      methodHref: "/help/about",
+      methodHref: "/about",
       methodLabel: "查看方法与隐私",
       items: [
         {
@@ -242,7 +242,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "我们高度重视您的隐私。",
           summary: "无需先注册账号，你可以先完成测试，再决定是否保存或继续深入。",
           paragraphs: ["我们高度重视您的隐私。"],
-          href: "/help/about",
+          href: "/about",
           hrefLabel: "查看方法说明",
         },
         {
@@ -261,7 +261,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         { title: "查看全部测评", description: "完整测评入口", href: "/tests" },
         { title: "去职业探索", description: "职业方向与路径", href: "/career" },
         { title: "更多测试 / 娱乐实验", description: "SBTI 与轻量实验", href: "/fun/sbti" },
-        { title: "查看数据方法", description: "方法、边界与隐私", href: "/help/about" },
+        { title: "查看数据方法", description: "方法、边界与隐私", href: "/about" },
       ],
     },
     header: {
@@ -409,8 +409,8 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "Data method",
           description: "Read method, boundary, and privacy notes.",
           exploreLabel: "View data method",
-          exploreHref: "/help/about",
-          links: [{ title: "View data method", href: "/help/about" }],
+          exploreHref: "/about",
+          links: [{ title: "View data method", href: "/about" }],
         },
       ],
     },
@@ -430,7 +430,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
       kicker: "TRUST",
       title: "Start first, go deeper when needed.",
       body: "The homepage keeps only essential trust information. Method and privacy details are one step away.",
-      methodHref: "/help/about",
+      methodHref: "/about",
       methodLabel: "View method and privacy",
       items: [
         {
@@ -442,7 +442,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
           title: "We take your privacy seriously.",
           summary: "Start without an account, then decide whether to save results or go deeper.",
           paragraphs: ["We take your privacy seriously."],
-          href: "/help/about",
+          href: "/about",
           hrefLabel: "Read method notes",
         },
         {
@@ -461,7 +461,7 @@ const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
         { title: "View all assessments", description: "Complete assessment entry", href: "/tests" },
         { title: "Explore careers", description: "Career direction and paths", href: "/career" },
         { title: "More tests / fun experiments", description: "SBTI and lightweight experiments", href: "/fun/sbti" },
-        { title: "View data method", description: "Method, boundaries, and privacy", href: "/help/about" },
+        { title: "View data method", description: "Method, boundaries, and privacy", href: "/about" },
       ],
     },
     header: {

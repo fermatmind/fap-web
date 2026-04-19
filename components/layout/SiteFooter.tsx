@@ -60,30 +60,30 @@ export function SiteFooter() {
   const companyLinks: FooterLinkItem[] =
     locale === "zh"
       ? [
-          { href: "/help/about", label: "关于我们" },
-          { href: "/help/about", label: "我们的宪章" },
-          { href: "https://fermatmind.com/foundation", label: "基金会", external: true },
-          { href: "/help/contact", label: "工作机会" },
-          { href: "/help/used-and-mentioned", label: "品牌" },
+          { href: "/about", label: "关于我们" },
+          { href: "/charter", label: "我们的宪章" },
+          { href: "/foundation", label: "基金会" },
+          { href: "/careers", label: "工作机会" },
+          { href: "/brand", label: "品牌" },
         ]
       : [
-          { href: "/help/about", label: "About us" },
-          { href: "/help/about", label: "Our charter" },
-          { href: "https://fermatmind.com/foundation", label: "Foundation (opens in a new window)", external: true },
-          { href: "/help/contact", label: "Careers" },
-          { href: "/help/used-and-mentioned", label: "Brand" },
+          { href: "/about", label: "About us" },
+          { href: "/charter", label: "Our charter" },
+          { href: "/foundation", label: "Foundation" },
+          { href: "/careers", label: "Careers" },
+          { href: "/brand", label: "Brand" },
         ];
   const policyLinks: FooterLinkItem[] =
     locale === "zh"
       ? [
           { href: "/terms", label: "使用条款" },
           { href: "/privacy", label: "隐私政策" },
-          { href: "/refund", label: "其他政策" },
+          { href: "/policies", label: "其他政策" },
         ]
       : [
           { href: "/terms", label: "Terms of use" },
           { href: "/privacy", label: "Privacy policy" },
-          { href: "/refund", label: "Other policies" },
+          { href: "/policies", label: "Other policies" },
         ];
   const renderFooterLink = (item: FooterLinkItem) =>
     item.external ? (
