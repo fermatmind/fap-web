@@ -3,6 +3,7 @@ import { HomePageExperience } from "@/components/marketing/HomePageExperience";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getCmsArticles } from "@/lib/cms/articles";
+import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
@@ -24,7 +25,7 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const isZh = locale === "zh";
   const pathname = isZh ? "/" : "/en";
-  const copy = getHomePageContent(locale);
+  const copy = await getHomePageContent(locale);
 
   return buildPageMetadata({
     locale,
@@ -32,7 +33,7 @@ export async function generateMetadata({
     canonicalPathname: pathname,
     title: copy.seo.title,
     description: copy.seo.description,
-    imagePath: "/share/mbti_wide_1200x630.png",
+    imagePath: DEFAULT_SHARE_IMAGE_URL,
     alternatesByLocale: {
       en: "/en",
       zh: "/",
@@ -41,8 +42,8 @@ export async function generateMetadata({
   });
 }
 
-function buildHomeJsonLd(locale: Locale) {
-  const copy = getHomePageContent(locale);
+async function buildHomeJsonLd(locale: Locale) {
+  const copy = await getHomePageContent(locale);
   const path = locale === "zh" ? "/" : "/en";
 
   return {
@@ -92,7 +93,8 @@ export default async function Home({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const jsonLd = buildHomeJsonLd(locale);
+  const copy = await getHomePageContent(locale);
+  const jsonLd = await buildHomeJsonLd(locale);
   const { items: articles } = await getCmsArticles({
     locale,
     page: 1,
@@ -107,7 +109,7 @@ export default async function Home({
       <JsonLd id={`home-quickstart-${locale}`} data={jsonLd.quickStart} />
       <JsonLd id={`home-families-${locale}`} data={jsonLd.families} />
       <JsonLd id={`home-organization-${locale}`} data={jsonLd.organization} />
-      <HomePageExperience locale={locale} articles={articles.slice(0, 6)} />
+      <HomePageExperience locale={locale} copy={copy} articles={articles.slice(0, 6)} />
     </main>
   );
 }

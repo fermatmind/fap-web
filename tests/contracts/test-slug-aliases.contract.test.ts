@@ -1,5 +1,4 @@
 import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
-import { getTestBySlug } from "@/lib/content";
 import { isLegacyAliasSlug, isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 
 describe("test slug alias contracts", () => {
@@ -24,21 +23,12 @@ describe("test slug alias contracts", () => {
     }
   });
 
-  it("maps canonical slugs to content entries through getTestBySlug", () => {
-    const aliases = [
-      "mbti-test",
-      "big5-ocean",
-      "clinical-combo-68",
-      "sds-20",
-      "iq-test",
-      "eq-test",
-    ];
+  it("keeps test content lookup backend-authoritative", async () => {
+    const source = await import("node:fs/promises").then((fs) => fs.readFile("lib/content.ts", "utf8"));
 
-    for (const alias of aliases) {
-      const test = getTestBySlug(alias);
-      expect(test).toBeTruthy();
-      expect(test?.slug).toBe(resolveCanonicalSlug(alias));
-    }
+    expect(source).toContain("/v0.3/scales/catalog");
+    expect(source).not.toContain("../.velite");
+    expect(source).not.toContain("content/tests");
   });
 
   it("normalizes supported scale codes for six-model rollout", () => {

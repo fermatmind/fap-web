@@ -24,4 +24,13 @@ describe("career IA three doors contract", () => {
     expect(source).not.toContain("career-landing-jobs-preview");
     expect(source).not.toContain("career-landing-recommendation-preview");
   });
+
+  it("renders a breadcrumb trail on the career industries entry page", () => {
+    const source = read("app/(localized)/[locale]/career/industries/page.tsx");
+
+    expect(source).toContain("Breadcrumb");
+    expect(source).toContain('localizedPath("/career", locale)');
+    expect(source).toContain("行业入口");
+    expect(source).toContain("Industries");
+  });
 });

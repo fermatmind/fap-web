@@ -64,7 +64,7 @@ describe("career launch smoke contract", () => {
     });
     expect(byKey.get("career_big5_recommendation_detail")).toMatchObject({
       launchState: "hold",
-      authorityOwner: "editorial_local_big5",
+      authorityOwner: "backend_future_big5",
     });
   });
 
@@ -76,21 +76,21 @@ describe("career launch smoke contract", () => {
     const jobDetailPage = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
     const recommendationDetailPage = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
     const legacySlugPage = read("app/(localized)/[locale]/career/[slug]/page.tsx");
-    const big5DetailPage = read("app/(localized)/[locale]/career/recommendations/big5/[trait]/page.tsx");
 
     expect(landingPage).toContain('data-authority-owner="editorial_local_wrapper"');
-    expect(landingPage).toContain('data-authority-owner="backend_lightweight_jobs"');
-    expect(landingPage).toContain('data-authority-owner="backend_lightweight_recommendations"');
+    expect(landingPage).toContain('data-authority-owner="editorial_ia_shell"');
+    expect(landingPage).toContain('data-authority-owner="editorial_support_links"');
     expect(jobsPage).toContain("fetchCareerJobIndex");
-    expect(jobsPage).toContain("fetchCareerSearch");
+    expect(jobsPage).toContain("fetchCareerDatasetHub");
     expect(recommendationsPage).toContain("fetchCareerRecommendationIndex");
-    expect(recommendationsPage).toContain("listBig5RecommendationTraits");
+    expect(recommendationsPage).not.toContain("listBig5RecommendationTraits");
+    expect(recommendationsPage).not.toContain("/career/recommendations/big5/");
     expect(familyHubPage).toContain("fetchCareerFamilyHub");
     expect(familyHubPage).toContain("generateMetadata");
     expect(jobDetailPage).toContain("job.seoContract.indexEligible");
     expect(recommendationDetailPage).toContain("detail.seoContract.indexEligible");
     expect(legacySlugPage).toContain("getCareerJobFromCmsBySlug");
-    expect(big5DetailPage).toContain("listBig5RecommendationTraits");
+    expect(fs.existsSync(path.join(ROOT, "app/(localized)/[locale]/career/recommendations/big5/[trait]/page.tsx"))).toBe(false);
   });
 
   it("keeps B34 launch-tier authority out of family and recommendation runtime route classes", () => {

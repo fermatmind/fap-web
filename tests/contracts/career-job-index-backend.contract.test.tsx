@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
@@ -369,5 +371,17 @@ describe("career job index backend contract", () => {
     expect(html).toContain("career-job-search-empty-state");
     expect(html).toContain("No direct role matches were found");
     expect(html).not.toContain("CMS did not return any public career jobs");
+  });
+
+  it("career jobs page renders the same breadcrumb trail used by other public hubs", () => {
+    const source = readFileSync(
+      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/page.tsx"),
+      "utf8"
+    );
+
+    expect(source).toContain("Breadcrumb");
+    expect(source).toContain('localizedPath("/career", locale)');
+    expect(source).toContain("全部职业库");
+    expect(source).toContain("All occupations");
   });
 });

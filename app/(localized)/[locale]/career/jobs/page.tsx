@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { CareerOccupationDirectory } from "@/components/career/CareerOccupationDirectory";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -105,6 +106,13 @@ export default async function CareerJobsPage({
     <main className="min-h-screen bg-slate-50">
       <Container as="div" className="space-y-10 py-10 md:space-y-12 md:py-16">
         {dataset?.structuredData.dataset ? <JsonLd id="career-occupation-library-jsonld" data={dataset.structuredData.dataset} /> : null}
+        <Breadcrumb
+          items={[
+            { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+            { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+            { label: locale === "zh" ? "全部职业库" : "All occupations" },
+          ]}
+        />
 
         <section className="space-y-7 text-center" data-testid="career-all-occupations-hero">
           <div className="mx-auto w-full space-y-4">

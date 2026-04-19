@@ -1,6 +1,6 @@
 # Content Pages CMS API Contract
 
-Company and policy pages are rendered by the frontend through the public Content API first, with Word-derived seed content as a fallback.
+Company and policy pages are rendered by the frontend through the public Content API. The frontend must not keep Word-derived content or CMS fallbacks.
 
 ## Detail Endpoint
 
@@ -137,4 +137,4 @@ Supported slugs:
 - `effective_at`: recommended for policy pages.
 - `is_indexable`: controls `robots` metadata.
 
-The frontend currently falls back to `lib/cms/fixtures/company-policy-pages.zh.json` when this endpoint returns `404` or `422`.
+If this endpoint returns `404` or `422`, the frontend returns `notFound()` for public pages or an empty ops list for ops surfaces. Baseline content lives in the backend `content_baselines/content_pages` importer, not in the frontend.

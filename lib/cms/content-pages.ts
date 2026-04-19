@@ -1,12 +1,11 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
-import seedPages from "@/lib/cms/fixtures/company-policy-pages.zh.json";
 
 const DEFAULT_ORG_ID = "0";
 
-export type ContentPageKind = "company" | "policy";
-export type ContentPageTemplate = "company" | "charter" | "foundation" | "careers" | "brand" | "policy";
+export type ContentPageKind = "company" | "policy" | "help";
+export type ContentPageTemplate = "company" | "charter" | "foundation" | "careers" | "brand" | "policy" | "help";
 export type ContentPageAnimationProfile = "mission" | "principles" | "editorial" | "brand" | "policy" | "none";
 
 export type ContentPage = {
@@ -163,13 +162,20 @@ function normalizeNullableDate(value: unknown): string | null {
 }
 
 function normalizeKind(value: unknown): ContentPageKind {
-  return normalizeText(value).toLowerCase() === "policy" ? "policy" : "company";
+  const normalized = normalizeText(value).toLowerCase();
+  if (normalized === "policy" || normalized === "help") {
+    return normalized;
+  }
+  return "company";
 }
 
 function normalizeTemplate(value: unknown, kind: ContentPageKind): ContentPageTemplate {
   const normalized = normalizeText(value).toLowerCase();
-  if (["company", "charter", "foundation", "careers", "brand", "policy"].includes(normalized)) {
+  if (["company", "charter", "foundation", "careers", "brand", "policy", "help"].includes(normalized)) {
     return normalized as ContentPageTemplate;
+  }
+  if (kind === "help") {
+    return "help";
   }
   return kind === "policy" ? "policy" : "company";
 }
@@ -229,31 +235,6 @@ function normalizeContentPage(record: ContentPageApiRecord): ContentPage | null 
   };
 }
 
-function getSeedPage(slug: string, locale: Locale | string): ContentPage | null {
-  const normalizedSlug = normalizeText(slug);
-  const page = (seedPages as ContentPageApiRecord[]).find((item) => item.slug === normalizedSlug);
-  if (!page) {
-    return null;
-  }
-
-  const normalized = normalizeContentPage(page);
-  if (!normalized) {
-    return null;
-  }
-
-  return {
-    ...normalized,
-    locale: normalizeLocale(locale),
-    isIndexable: normalizeLocale(locale) === "zh" ? normalized.isIndexable : false,
-  };
-}
-
-function getSeedPages(locale: Locale | string): ContentPage[] {
-  return (seedPages as ContentPageApiRecord[])
-    .map((page) => getSeedPage(String(page.slug ?? ""), locale))
-    .filter((page): page is ContentPage => Boolean(page));
-}
-
 function toSummary(page: ContentPage): ContentPageSummary {
   return {
     slug: page.slug,
@@ -278,6 +259,10 @@ export function listContentPageSlugs(): ContentPageSlug[] {
 }
 
 export function buildContentPagePath(slug: string, locale: Locale): string {
+  if (slug.startsWith("help-")) {
+    return localizedPath(`/help/${slug.slice(5)}`, locale);
+  }
+
   return localizedPath(`/${slug}`, locale);
 }
 
@@ -302,10 +287,10 @@ export async function getContentPage(slug: string, locale: Locale | string): Pro
       }
     );
     const page = response.page ? normalizeContentPage(response.page) : null;
-    return page?.isPublic ? page : getSeedPage(normalizedSlug, locale);
+    return page?.isPublic ? page : null;
   } catch (error) {
     if (error instanceof ApiError && [404, 422].includes(error.status)) {
-      return getSeedPage(normalizedSlug, locale);
+      return null;
     }
 
     throw error;
@@ -313,7 +298,8 @@ export async function getContentPage(slug: string, locale: Locale | string): Pro
 }
 
 export async function listContentPages(locale: Locale | string, kind?: ContentPageKind): Promise<ContentPage[]> {
-  const pages = await Promise.all(CONTENT_PAGE_SLUGS.map((slug) => getContentPage(slug, locale)));
+  const summaries = await listContentPagesForOps(locale);
+  const pages = await Promise.all(summaries.map((summary) => getContentPage(summary.slug, locale)));
   return pages.filter((page): page is ContentPage => Boolean(page)).filter((page) => !kind || page.kind === kind);
 }
 
@@ -336,10 +322,10 @@ export async function listContentPagesForOps(locale: Locale | string): Promise<C
           .filter((page): page is ContentPage => Boolean(page))
       : [];
 
-    return (pages.length ? pages : getSeedPages(locale)).map(toSummary);
+    return pages.map(toSummary);
   } catch (error) {
     if (error instanceof ApiError) {
-      return getSeedPages(locale).map(toSummary);
+      return [];
     }
 
     throw error;

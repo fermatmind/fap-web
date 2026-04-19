@@ -11,13 +11,11 @@ import {
   isCareerFamilyHubDiscoverableByManifest,
   isCareerJobDetailDiscoverableByManifest,
 } from "@/lib/career/launchPolicy";
+import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
+import { listContentPages } from "@/lib/cms/content-pages";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
-import {
-  getAllTests,
-  listCareerIndustrySlugs,
-} from "@/lib/content";
-import { HELP_CENTER_SLUGS } from "@/lib/help/helpCenterContent";
+import { getAllTests } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
@@ -153,6 +151,9 @@ export async function GET() {
     topicEntries,
     enArticles,
     zhArticles,
+    testList,
+    enHelpPages,
+    zhHelpPages,
   ] = await Promise.all([
     fetchCareerJobIndex({ locale: "en" })
       .then((payload) => adaptCareerJobIndex({ locale: "en", payload }))
@@ -178,14 +179,20 @@ export async function GET() {
     listTopicPaths(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
     listCmsArticlesForLlms({ locale: "zh" }).catch(() => []),
+    getAllTests("en").catch(() => []),
+    listContentPages("en", "help").catch(() => []),
+    listContentPages("zh", "help").catch(() => []),
   ]);
 
   const enCareerFamilies = listCareerFamilyPathsFromManifest("en", enDiscoverabilityManifest);
   const zhCareerFamilies = listCareerFamilyPathsFromManifest("zh", zhDiscoverabilityManifest);
 
-  const helpEntries = dedupePaths(HELP_CENTER_SLUGS.flatMap((slug) => [`/en/help/${slug}`, `/zh/help/${slug}`]));
+  const helpEntries = dedupePaths([
+    ...enHelpPages.map((page) => `/en${page.path}`),
+    ...zhHelpPages.map((page) => `/zh${page.path}`),
+  ]);
   const testEntries = dedupePaths(
-    getAllTests().flatMap((test) => [`/en/tests/${test.slug}`, `/zh/tests/${test.slug}`])
+    testList.flatMap((test) => [`/en/tests/${test.slug}`, `/zh/tests/${test.slug}`])
   );
 
   const articleEntries = dedupePaths(
@@ -228,7 +235,7 @@ export async function GET() {
           isCareerJobDetailDiscoverableByManifest(zhDiscoverabilityManifest, extractCareerJobSlug(job))
       )
       .map((job) => job.href),
-    ...listCareerIndustrySlugs().flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
+    ...CAREER_DATASET_FAMILY_SLUGS.flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...guideEntries,
     ...enCareerFamilies,
     ...zhCareerFamilies,

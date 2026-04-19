@@ -1,3 +1,4 @@
+import { getCmsLandingSurface } from "@/lib/cms/landing-surfaces";
 import type { Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
 
@@ -9,7 +10,7 @@ export type HomeLinkItem = {
   meta?: string;
 };
 
-type HomeFamily = {
+export type HomeFamily = {
   title: string;
   description: string;
   exploreLabel: string;
@@ -23,7 +24,7 @@ export type HomeResultPreview = {
   tone: "traits" | "career" | "state";
 };
 
-type HomeTrustItem = {
+export type HomeTrustItem = {
   title: string;
   summary: string;
   paragraphs: string[];
@@ -31,18 +32,18 @@ type HomeTrustItem = {
   hrefLabel?: string;
 };
 
-type HomeFooterGroup = {
+export type HomeFooterGroup = {
   title: string;
   links: Array<{ label: string; href: string }>;
 };
 
-type HomeSecondaryLink = {
+export type HomeSecondaryLink = {
   title: string;
   description: string;
   href: string;
 };
 
-type HomeLocaleContent = {
+export type HomePageContent = {
   hero: {
     eyebrow: string;
     brand: string;
@@ -114,438 +115,150 @@ type HomeLocaleContent = {
   };
 };
 
-const HOME_PAGE_CONTENT: Record<Locale, HomeLocaleContent> = {
-  zh: {
-    hero: {
-      eyebrow: "FermatMind / 费马测试",
-      brand: "FermatMind / 费马测试",
-      title: "看清自己，走好每一步",
-      subhead: "费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。",
-      body: "先从最常用的测评入口开始，再把结果用于学习、协作和职业判断。",
-      primaryCta: "开始测评",
-      primaryHref: "/tests/mbti-personality-test-16-personality-types",
-      secondaryCta: "了解产品体系",
-      secondaryHref: "/about",
-      tertiaryCta: "去职业探索",
-      tertiaryHref: "/career",
-      trustRail: ["结果结构清晰", "方法边界透明", "可匿名开始"],
+const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
+  zh: [
+    {
+      title: "MBTI 性格测试",
+      description: "快速了解你的类型偏好与决策风格",
+      href: "/tests/mbti-personality-test-16-personality-types",
+      label: "开始测试",
+      meta: "人格测试",
     },
-    quickStart: {
-      kicker: "CORE TESTS",
-      title: "从一个清楚的问题开始。",
-      body: "保留最常用的六个入口，题量与版本选择放到对应测试页。",
-      items: [
-        {
-          title: "MBTI 性格测试",
-          description: "快速了解你的类型偏好与决策风格",
-          href: "/tests/mbti-personality-test-16-personality-types",
-          label: "开始测试",
-          meta: "人格测试",
-        },
-        {
-          title: "Big Five 大五人格测试",
-          description: "从五个维度看清你的稳定特质",
-          href: "/tests/big-five-personality-test-ocean-model",
-          label: "开始测试",
-          meta: "人格测试",
-        },
-        {
-          title: "九型人格测试",
-          description: "从核心动机与压力反应理解你的行为模式",
-          href: "/tests",
-          label: "开始测试",
-          meta: "人格测试",
-        },
-        {
-          title: "EQ 情商测试",
-          description: "了解你在情绪识别与协作沟通中的表现",
-          href: "/tests/eq-test-emotional-intelligence-assessment",
-          label: "开始测试",
-          meta: "情绪能力",
-        },
-        {
-          title: "IQ 智商测试",
-          description: "快速了解你的认知能力基线",
-          href: "/tests/iq-test-intelligence-quotient-assessment",
-          label: "开始测试",
-          meta: "能力测评",
-        },
-        {
-          title: "抑郁症测试",
-          description: "快速了解你近期的情绪状态变化",
-          href: "/tests/depression-screening-test-standard-edition",
-          label: "开始测试",
-          meta: "状态自测",
-        },
-      ],
+    {
+      title: "Big Five 大五人格测试",
+      description: "从五个维度看清你的稳定特质",
+      href: "/tests/big-five-personality-test-ocean-model",
+      label: "开始测试",
+      meta: "人格测试",
     },
-    families: {
-      kicker: "MORE PATHS",
-      title: "继续探索，但不打断开始。",
-      body: "次级入口保留为轻量路径，不再用大矩阵占据首页。",
-      items: [
-        {
-          title: "全部测评",
-          description: "查看当前可用的测评入口。",
-          exploreLabel: "查看全部测评",
-          exploreHref: "/tests",
-          links: [{ title: "查看全部测评", href: "/tests" }],
-        },
-        {
-          title: "职业探索",
-          description: "把测评结果放回职业方向判断。",
-          exploreLabel: "去职业探索",
-          exploreHref: "/career",
-          links: [{ title: "去职业探索", href: "/career" }],
-        },
-        {
-          title: "娱乐实验",
-          description: "SBTI 与更多轻量实验从这里进入。",
-          exploreLabel: "更多测试 / 娱乐实验",
-          exploreHref: "/fun/sbti",
-          links: [{ title: "更多测试 / 娱乐实验", href: "/fun/sbti" }],
-        },
-        {
-          title: "数据方法",
-          description: "查看方法、边界与隐私说明。",
-          exploreLabel: "查看数据方法",
-          exploreHref: "/about",
-          links: [{ title: "查看数据方法", href: "/about" }],
-        },
-      ],
+    {
+      title: "IQ 智商测试",
+      description: "快速了解你的认知能力基线",
+      href: "/tests/iq-test-intelligence-quotient-assessment/take",
+      label: "开始测试",
+      meta: "能力测评",
     },
-    results: {
-      kicker: "RESULT PROMISE",
-      title: "你拿到的，不只是一个标签。",
-      body: "结果会把类型、差异和下一步建议整理到同一页，方便你继续判断。",
-      exampleLabel: "查看结果示例",
-      exampleHref: "/personality",
-      previews: [
-        { title: "类型", metrics: ["类型偏好"], tone: "traits" },
-        { title: "差异", metrics: ["关键差异"], tone: "career" },
-        { title: "下一步", metrics: ["行动建议"], tone: "state" },
-      ],
+    {
+      title: "EQ 情商测试",
+      description: "了解你在情绪识别与协作沟通中的表现",
+      href: "/tests/eq-test-emotional-intelligence-assessment/take",
+      label: "开始测试",
+      meta: "情绪能力",
     },
-    trust: {
-      kicker: "TRUST",
-      title: "先开始，再按需深入。",
-      body: "首页只保留必要信任信息，详细方法与隐私说明后置。",
-      methodHref: "/about",
-      methodLabel: "查看方法与隐私",
-      items: [
-        {
-          title: "免费测试、免费结果",
-          summary: "核心测评围绕自我认知、职业判断与能力成长设计，并提供清晰结果。",
-          paragraphs: ["免费测试、免费结果"],
-        },
-        {
-          title: "我们高度重视您的隐私。",
-          summary: "无需先注册账号，你可以先完成测试，再决定是否保存或继续深入。",
-          paragraphs: ["我们高度重视您的隐私。"],
-          href: "/about",
-          hrefLabel: "查看方法说明",
-        },
-        {
-          title: "百万用户进行了多次测试",
-          summary: "从人格、能力到情绪状态，多个入口帮助你持续复盘自己的变化。",
-          paragraphs: ["百万用户进行了多次测试"],
-          href: "/privacy",
-          hrefLabel: "查看隐私政策",
-        },
-      ],
+    {
+      title: "九型人格测试",
+      description: "从核心动机与压力反应理解你的行为模式",
+      href: "/tests",
+      label: "开始测试",
+      meta: "人格测试",
     },
-    secondaryExplore: {
-      kicker: "继续浏览",
-      title: "需要更多入口时，再从这里继续。",
-      items: [
-        { title: "查看全部测评", description: "完整测评入口", href: "/tests" },
-        { title: "去职业探索", description: "职业方向与路径", href: "/career" },
-        { title: "更多测试 / 娱乐实验", description: "SBTI 与轻量实验", href: "/fun/sbti" },
-        { title: "查看数据方法", description: "方法、边界与隐私", href: "/about" },
-      ],
+    {
+      title: "情绪状态自测",
+      description: "快速了解你近期的情绪状态变化",
+      href: "/tests",
+      label: "开始测试",
+      meta: "状态自测",
     },
-    header: {
-      testsLabel: "测评入口",
-      testsTitle: "从一个测评开始。",
-      testsBody: "人格、能力、情绪与职业方向都从这里进入。",
-      browseAllLabel: "查看全部测评",
-      browseAllHref: "/tests",
-      groups: [
-        {
-          title: "核心测评",
-          links: [
-            { title: "MBTI", href: "/tests/mbti-personality-test-16-personality-types" },
-            { title: "Big Five", href: "/tests/big-five-personality-test-ocean-model" },
-            { title: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment" },
-            { title: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment" },
-          ],
-        },
-      ],
+  ],
+  en: [
+    {
+      title: "MBTI Personality Test",
+      description: "Understand your type preference and decision style quickly.",
+      href: "/tests/mbti-personality-test-16-personality-types",
+      label: "Start test",
+      meta: "Personality test",
     },
-    footer: {
-      groups: [
-        {
-          title: "热门测评",
-          links: [
-            { label: "MBTI", href: "/tests/mbti-personality-test-16-personality-types" },
-            { label: "Big Five", href: "/tests/big-five-personality-test-ocean-model" },
-            { label: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment" },
-            { label: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment" },
-          ],
-        },
-        {
-          title: "支持与政策",
-          links: [
-            { label: "帮助中心", href: "/help" },
-            { label: "隐私政策", href: "/privacy" },
-            { label: "服务条款", href: "/terms" },
-          ],
-        },
-      ],
-      supportEmailLabel: "支持邮箱",
-      tailnote: "识微，见远。See the Micro. Lead the Macro.",
+    {
+      title: "Big Five Personality Test",
+      description: "Read your stable traits across five dimensions.",
+      href: "/tests/big-five-personality-test-ocean-model",
+      label: "Start test",
+      meta: "Personality test",
     },
-    seo: {
-      title: "FermatMind / 费马测试",
-      description: "费马测试提供清晰、可继续使用的测评结果，帮助你看清人格、能力与职业方向。",
-      quickStartListTitle: "费马测试首页核心测评入口",
-      quickStartListDescription: "首页核心测评入口，包括 MBTI、大五人格、IQ、EQ、九型人格与情绪状态自测。",
-      familyListTitle: "费马测试首页继续探索入口",
-      familyListDescription: "首页轻量继续探索入口，包括全部测评、职业探索、娱乐实验与数据方法。",
-      organizationDescription: "FermatMind / 费马测试提供用于自我理解、能力观察、职业方向与协作判断的结构化测评。",
+    {
+      title: "IQ Test",
+      description: "Get a quick baseline for cognitive ability.",
+      href: "/tests/iq-test-intelligence-quotient-assessment/take",
+      label: "Start test",
+      meta: "Ability assessment",
     },
-  },
-  en: {
-    hero: {
-      eyebrow: "FermatMind",
-      brand: "FermatMind",
-      title: "Understand yourself before the next step.",
-      subhead: "Start with a clear, reusable assessment result for personality, ability, and career direction.",
-      body: "Begin with the most-used entry points, then use the result for learning, collaboration, and career judgment.",
-      primaryCta: "Start MBTI test",
-      primaryHref: "/tests/mbti-personality-test-16-personality-types",
-      secondaryCta: "View all assessments",
-      secondaryHref: "/tests",
-      tertiaryCta: "Explore careers",
-      tertiaryHref: "/career",
-      trustRail: ["Clear result structure", "Transparent method boundaries", "Anonymous start available"],
+    {
+      title: "EQ Test",
+      description: "Review emotional recognition and collaboration skills.",
+      href: "/tests/eq-test-emotional-intelligence-assessment/take",
+      label: "Start test",
+      meta: "Emotional ability",
     },
-    quickStart: {
-      kicker: "CORE TESTS",
-      title: "Start from one clear question.",
-      body: "Six common entry points stay visible. Question-count and version choices move to each test page.",
-      items: [
-        {
-          title: "MBTI Personality Test",
-          description: "Understand your type preference and decision style quickly.",
-          href: "/tests/mbti-personality-test-16-personality-types",
-          label: "Start test",
-          meta: "Personality test",
-        },
-        {
-          title: "Big Five Personality Test",
-          description: "Read your stable traits across five dimensions.",
-          href: "/tests/big-five-personality-test-ocean-model",
-          label: "Start test",
-          meta: "Personality test",
-        },
-        {
-          title: "Enneagram Test",
-          description: "Understand behavior patterns through motivation and stress response.",
-          href: "/tests",
-          label: "Start test",
-          meta: "Personality test",
-        },
-        {
-          title: "EQ Test",
-          description: "Review emotional recognition and collaboration skills.",
-          href: "/tests/eq-test-emotional-intelligence-assessment",
-          label: "Start test",
-          meta: "Emotional ability",
-        },
-        {
-          title: "IQ Test",
-          description: "Get a quick baseline for cognitive ability.",
-          href: "/tests/iq-test-intelligence-quotient-assessment",
-          label: "Start test",
-          meta: "Ability assessment",
-        },
-        {
-          title: "Emotional State Check",
-          description: "Check recent changes in your emotional state.",
-          href: "/tests/depression-screening-test-standard-edition",
-          label: "Start test",
-          meta: "State check",
-        },
-      ],
+    {
+      title: "Enneagram Test",
+      description: "Understand behavior patterns through motivation and stress response.",
+      href: "/tests",
+      label: "Start test",
+      meta: "Personality test",
     },
-    families: {
-      kicker: "MORE PATHS",
-      title: "Keep exploring without delaying the start.",
-      body: "Secondary paths stay lightweight instead of taking over the homepage.",
-      items: [
-        {
-          title: "All assessments",
-          description: "See every available assessment entry.",
-          exploreLabel: "View all assessments",
-          exploreHref: "/tests",
-          links: [{ title: "View all assessments", href: "/tests" }],
-        },
-        {
-          title: "Career exploration",
-          description: "Put results back into career direction.",
-          exploreLabel: "Explore careers",
-          exploreHref: "/career",
-          links: [{ title: "Explore careers", href: "/career" }],
-        },
-        {
-          title: "Fun experiments",
-          description: "SBTI and lightweight experiments live here.",
-          exploreLabel: "More tests / fun experiments",
-          exploreHref: "/fun/sbti",
-          links: [{ title: "More tests / fun experiments", href: "/fun/sbti" }],
-        },
-        {
-          title: "Data method",
-          description: "Read method, boundary, and privacy notes.",
-          exploreLabel: "View data method",
-          exploreHref: "/about",
-          links: [{ title: "View data method", href: "/about" }],
-        },
-      ],
+    {
+      title: "Emotional State Check",
+      description: "Quickly review recent shifts in your emotional state.",
+      href: "/tests",
+      label: "Start test",
+      meta: "State check",
     },
-    results: {
-      kicker: "RESULT PROMISE",
-      title: "What you get back is more than a label.",
-      body: "The result brings type, differences, and next-step suggestions onto one page so you can keep judging clearly.",
-      exampleLabel: "View result example",
-      exampleHref: "/personality",
-      previews: [
-        { title: "Type", metrics: ["Type preference"], tone: "traits" },
-        { title: "Differences", metrics: ["Key differences"], tone: "career" },
-        { title: "Next step", metrics: ["Action guidance"], tone: "state" },
-      ],
-    },
-    trust: {
-      kicker: "TRUST",
-      title: "Start first, go deeper when needed.",
-      body: "The homepage keeps only essential trust information. Method and privacy details are one step away.",
-      methodHref: "/about",
-      methodLabel: "View method and privacy",
-      items: [
-        {
-          title: "Free and reliable",
-          summary: "Core assessments are built around self-knowledge, career judgment, and capability growth.",
-          paragraphs: ["Free and reliable"],
-        },
-        {
-          title: "We take your privacy seriously.",
-          summary: "Start without an account, then decide whether to save results or go deeper.",
-          paragraphs: ["We take your privacy seriously."],
-          href: "/about",
-          hrefLabel: "Read method notes",
-        },
-        {
-          title: "Many users take multiple tests",
-          summary: "Personality, ability, and state entries help you review change over time.",
-          paragraphs: ["Many users take multiple tests"],
-          href: "/privacy",
-          hrefLabel: "View privacy policy",
-        },
-      ],
-    },
-    secondaryExplore: {
-      kicker: "Keep browsing",
-      title: "Use these only when you need a different path.",
-      items: [
-        { title: "View all assessments", description: "Complete assessment entry", href: "/tests" },
-        { title: "Explore careers", description: "Career direction and paths", href: "/career" },
-        { title: "More tests / fun experiments", description: "SBTI and lightweight experiments", href: "/fun/sbti" },
-        { title: "View data method", description: "Method, boundaries, and privacy", href: "/about" },
-      ],
-    },
-    header: {
-      testsLabel: "Assessments",
-      testsTitle: "Start from one assessment.",
-      testsBody: "Personality, ability, emotion, and career direction all begin here.",
-      browseAllLabel: "View all assessments",
-      browseAllHref: "/tests",
-      groups: [
-        {
-          title: "Core assessments",
-          links: [
-            { title: "MBTI", href: "/tests/mbti-personality-test-16-personality-types" },
-            { title: "Big Five", href: "/tests/big-five-personality-test-ocean-model" },
-            { title: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment" },
-            { title: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment" },
-          ],
-        },
-      ],
-    },
-    footer: {
-      groups: [
-        {
-          title: "Top assessments",
-          links: [
-            { label: "MBTI", href: "/tests/mbti-personality-test-16-personality-types" },
-            { label: "Big Five", href: "/tests/big-five-personality-test-ocean-model" },
-            { label: "IQ", href: "/tests/iq-test-intelligence-quotient-assessment" },
-            { label: "EQ", href: "/tests/eq-test-emotional-intelligence-assessment" },
-          ],
-        },
-        {
-          title: "Support and policy",
-          links: [
-            { label: "Help Center", href: "/help" },
-            { label: "Privacy policy", href: "/privacy" },
-            { label: "Terms", href: "/terms" },
-          ],
-        },
-      ],
-      supportEmailLabel: "Support",
-      tailnote: "See the Micro. Lead the Macro.",
-    },
-    seo: {
-      title: "FermatMind",
-      description: "FermatMind provides clear, reusable assessment results for personality, ability, and career direction.",
-      quickStartListTitle: "FermatMind core assessment entry points",
-      quickStartListDescription: "Core homepage entry points including MBTI, Big Five, IQ, EQ, Enneagram, and emotional state check.",
-      familyListTitle: "FermatMind lightweight exploration paths",
-      familyListDescription: "Lightweight homepage paths for all assessments, career exploration, fun experiments, and data method notes.",
-      organizationDescription: "FermatMind provides structured assessments for self-understanding, ability review, career direction, and collaboration judgment.",
-    },
-  },
+  ],
 };
 
-export function getHomePageContent(locale: Locale) {
-  const content = HOME_PAGE_CONTENT[locale];
+function completeQuickStartItems(items: HomeLinkItem[], locale: Locale): HomeLinkItem[] {
+  const byTitle = new Map(items.map((item) => [item.title, item]));
+  const required = REQUIRED_QUICK_START_ITEMS[locale];
+
+  return [
+    ...required.map((item) => {
+      const existing = byTitle.get(item.title);
+      return {
+        ...item,
+        ...existing,
+        href: item.href,
+        label: existing?.label || item.label,
+        meta: existing?.meta || item.meta,
+      };
+    }),
+    ...items.filter((item) => !required.some((requiredItem) => requiredItem.title === item.title)),
+  ];
+}
+
+function normalizeHomeContent(value: unknown, locale: Locale): HomePageContent {
+  const content = value as HomePageContent;
+  if (!content?.hero?.title || !content?.seo?.title || !Array.isArray(content?.families?.items)) {
+    throw new Error("Invalid CMS homepage payload.");
+  }
 
   return {
     ...content,
     quickStart: {
       ...content.quickStart,
-      items: content.quickStart.items,
+      items: completeQuickStartItems(Array.isArray(content.quickStart.items) ? content.quickStart.items : [], locale),
     },
     families: {
       ...content.families,
       items: content.families.items.map((family) => ({
         ...family,
-        links: filterVisiblePublicTestEntries(family.links),
+        links: filterVisiblePublicTestEntries(family.links ?? []),
       })),
     },
     header: {
       ...content.header,
-      groups: content.header.groups.map((group) => ({
+      groups: (content.header.groups ?? []).map((group) => ({
         ...group,
-        links: filterVisiblePublicTestEntries(group.links),
+        links: filterVisiblePublicTestEntries(group.links ?? []),
       })),
     },
     footer: {
       ...content.footer,
-      groups: content.footer.groups.map((group) => ({
-        ...group,
-        links: filterVisiblePublicTestEntries(group.links),
-      })),
+      groups: content.footer.groups ?? [],
     },
   };
+}
+
+export async function getHomePageContent(locale: Locale): Promise<HomePageContent> {
+  const surface = await getCmsLandingSurface<HomePageContent>("home", locale);
+  return normalizeHomeContent(surface.payloadJson, locale);
 }

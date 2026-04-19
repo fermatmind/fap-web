@@ -4,13 +4,17 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getTypeByCode, listTypes } from "@/lib/content";
+import { getPersonalityProfileBySlugOrType, listPersonalityProfiles } from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export function generateStaticParams() {
-  return listTypes().flatMap((type) => [{ locale: "en", code: type.code }, { locale: "zh", code: type.code }]);
+export async function generateStaticParams() {
+  const { items } = await listPersonalityProfiles({ locale: "en", perPage: 100 }).catch(() => ({ items: [] }));
+  return items.flatMap((type) => [
+    { locale: "en", code: type.slug || type.typeCode },
+    { locale: "zh", code: type.slug || type.typeCode },
+  ]);
 }
 
 export async function generateMetadata({
@@ -20,8 +24,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, code } = await params;
   const locale = resolveLocale(localeParam);
-  const type = getTypeByCode(code.toUpperCase());
-  const normalizedCode = code.toUpperCase();
+  const type = await getPersonalityProfileBySlugOrType(code, locale);
+  const normalizedCode = String(type?.slug || code).toLowerCase();
 
   if (!type) {
     return {
@@ -33,8 +37,8 @@ export async function generateMetadata({
   return buildPageMetadata({
     locale,
     pathname: locale === "zh" ? `/zh/professions/${normalizedCode}` : `/en/professions/${normalizedCode}`,
-    title: `${type.code} - ${type.name}`,
-    description: type.description,
+    title: `${type.typeCode} - ${type.title}`,
+    description: type.excerpt,
     alternatesByLocale: {
       en: `/en/professions/${normalizedCode}`,
       zh: `/zh/professions/${normalizedCode}`,
@@ -50,7 +54,7 @@ export default async function ProfessionDetailPage({
 }) {
   const { locale: localeParam, code } = await params;
   const locale = resolveLocale(localeParam);
-  const type = getTypeByCode(code.toUpperCase());
+  const type = await getPersonalityProfileBySlugOrType(code, locale);
 
   if (!type) return notFound();
 
@@ -61,24 +65,24 @@ export default async function ProfessionDetailPage({
           Type Profile
         </p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
-          {type.code} · {type.name}
+          {type.typeCode} · {type.title}
         </h1>
-        <p className="m-0 text-[var(--fm-text-muted)]">{type.description}</p>
+        <p className="m-0 text-[var(--fm-text-muted)]">{type.excerpt}</p>
       </section>
 
       <Card className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
         <CardHeader className="space-y-3">
           <div className="flex flex-wrap items-center gap-2">
-            <Badge>{type.code}</Badge>
-            <CardTitle className="font-serif text-[var(--fm-text)]">{type.name}</CardTitle>
+            <Badge>{type.typeCode}</Badge>
+            <CardTitle className="font-serif text-[var(--fm-text)]">{type.title}</CardTitle>
           </div>
-          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{type.description}</p>
+          <p className="m-0 text-sm text-[var(--fm-text-muted)]">{type.excerpt}</p>
         </CardHeader>
         <CardContent className="space-y-4">
-          {type.traits?.length ? (
+          {type.sections.length ? (
             <div className="flex flex-wrap gap-2">
-              {type.traits.map((trait) => (
-                <Badge key={trait}>{trait}</Badge>
+              {type.sections.slice(0, 4).map((section) => (
+                <Badge key={section.sectionKey}>{section.title}</Badge>
               ))}
             </div>
           ) : null}

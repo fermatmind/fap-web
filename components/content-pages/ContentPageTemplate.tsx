@@ -190,6 +190,22 @@ function buildToc(page: ContentPage) {
 }
 
 function buildRelatedLinks(page: ContentPage, locale: Locale) {
+  if (page.kind === "help") {
+    const helpLinks = [
+      { slug: "help-faq", label: locale === "zh" ? "常见问题" : "FAQ" },
+      { slug: "help-about", label: locale === "zh" ? "关于我们" : "About" },
+      { slug: "help-team", label: locale === "zh" ? "团队" : "Team" },
+      { slug: "help-used-and-mentioned", label: locale === "zh" ? "使用与提及" : "Used & Mentioned" },
+      { slug: "help-for-business-and-research", label: locale === "zh" ? "企业与研究" : "Business & Research" },
+      { slug: "help-contact", label: locale === "zh" ? "联系方式" : "Contact" },
+    ];
+
+    return helpLinks.filter((item) => item.slug !== page.slug).map((item) => ({
+      ...item,
+      href: buildContentPagePath(item.slug, locale),
+    }));
+  }
+
   const companyLinks = [
     { slug: "about", label: locale === "zh" ? "关于我们" : "About" },
     { slug: "charter", label: locale === "zh" ? "我们的宪章" : "Charter" },
@@ -215,6 +231,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
   const updatedAt = formatDate(page.updatedAt, locale);
   const effectiveAt = formatDate(page.effectiveAt, locale);
   const isPolicy = page.kind === "policy";
+  const isHelp = page.kind === "help";
 
   return (
     <main className="bg-white text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
@@ -222,7 +239,20 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
         <Breadcrumb
           items={[
             { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-            { label: isPolicy ? (locale === "zh" ? "条款与政策" : "Terms & policies") : locale === "zh" ? "公司" : "Company" },
+            {
+              label: isHelp
+                ? locale === "zh"
+                  ? "帮助中心"
+                  : "Help Center"
+                : isPolicy
+                  ? locale === "zh"
+                    ? "条款与政策"
+                    : "Terms & policies"
+                  : locale === "zh"
+                    ? "公司"
+                    : "Company",
+              href: isHelp ? localizedPath("/help", locale) : undefined,
+            },
             { label: page.title },
           ]}
         />

@@ -13,14 +13,12 @@ import {
   isCareerFamilyHubDiscoverableByManifest,
   isCareerJobDetailDiscoverableByManifest,
 } from "@/lib/career/launchPolicy";
+import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
+import { listContentPages } from "@/lib/cms/content-pages";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
-import {
-  getAllTests,
-  listCareerIndustrySlugs,
-} from "@/lib/content";
-import { listHelpCenterPages } from "@/lib/help/helpCenterContent";
+import { getAllTests } from "@/lib/content";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
@@ -189,6 +187,9 @@ export async function GET() {
     topicEntries,
     enArticles,
     zhArticles,
+    testList,
+    enHelpPages,
+    zhHelpPages,
   ] = await Promise.all([
     fetchCareerJobIndex({ locale: "en" })
       .then((payload) => adaptCareerJobIndex({ locale: "en", payload }))
@@ -214,6 +215,9 @@ export async function GET() {
     listTopicEntries(),
     listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
     listCmsArticlesForLlms({ locale: "zh" }).catch(() => []),
+    getAllTests("en").catch(() => []),
+    listContentPages("en", "help").catch(() => []),
+    listContentPages("zh", "help").catch(() => []),
   ]);
 
   const [enCareerFamilies, zhCareerFamilies] = await Promise.all([
@@ -222,19 +226,19 @@ export async function GET() {
   ]);
 
   const helpEntries = [
-    ...listHelpCenterPages("en").map((page) => ({
+    ...enHelpPages.map((page) => ({
       locale: "en",
-      path: `/en/help/${page.slug}`,
+      path: `/en${page.path}`,
       title: page.title,
     })),
-    ...listHelpCenterPages("zh").map((page) => ({
+    ...zhHelpPages.map((page) => ({
       locale: "zh",
-      path: `/zh/help/${page.slug}`,
+      path: `/zh${page.path}`,
       title: page.title,
     })),
   ].filter((entry) => shouldKeep(entry.path));
 
-  const tests = getAllTests()
+  const tests = testList
     .flatMap((test) => [
       { locale: "en", path: `/en/tests/${test.slug}`, title: test.title, updatedAt: "" },
       { locale: "zh", path: `/zh/tests/${test.slug}`, title: test.title, updatedAt: "" },
@@ -302,7 +306,7 @@ export async function GET() {
         title: job.titles.title,
         updatedAt: job.provenanceMeta.compiledAt ?? "",
       })),
-    ...listCareerIndustrySlugs().flatMap((slug) => [
+    ...CAREER_DATASET_FAMILY_SLUGS.flatMap((slug) => [
       { locale: "en", path: `/en/career/industries/${slug}`, title: slug, updatedAt: "" },
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },
     ]),

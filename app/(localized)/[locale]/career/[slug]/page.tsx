@@ -1,7 +1,7 @@
 import { notFound, permanentRedirect } from "next/navigation";
+import { CAREER_DATASET_FAMILY_SLUGS, normalizeFamilySlug } from "@/lib/career/datasetDirectory";
 import { getCareerGuideFromCmsBySlug } from "@/lib/cms/career-guides";
 import { getCareerJobFromCmsBySlug } from "@/lib/cms/career-jobs";
-import { getCareerIndustryBySlug } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 
@@ -25,8 +25,9 @@ export default async function CareerAliasPage({
     permanentRedirect(localizedPath(`/career/guides/${guide.slug}`, locale));
   }
 
-  if (getCareerIndustryBySlug(slug, locale)) {
-    permanentRedirect(localizedPath(`/career/industries/${slug}`, locale));
+  const familySlug = normalizeFamilySlug(slug);
+  if (CAREER_DATASET_FAMILY_SLUGS.includes(familySlug)) {
+    permanentRedirect(localizedPath(`/career/industries/${familySlug}`, locale));
   }
 
   return notFound();

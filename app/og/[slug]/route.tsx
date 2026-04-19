@@ -33,7 +33,7 @@ export async function GET(
     return new Response("Test not found", { status: 404 });
   }
 
-  const test = getTestBySlug(slug);
+  const test = await getTestBySlug(slug, "en");
   if (!test) {
     return new Response("Test not found", { status: 404 });
   }

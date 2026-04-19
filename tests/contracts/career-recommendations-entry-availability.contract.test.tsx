@@ -23,4 +23,13 @@ describe("career recommendations entry availability contract", () => {
     expect(source).toContain("career-recommendation-source-big5");
     expect(source).not.toContain("页面不会退化成岗位列表");
   });
+
+  it("renders the visible career breadcrumb trail on the recommendations index", () => {
+    const source = read("app/(localized)/[locale]/career/recommendations/page.tsx");
+
+    expect(source).toContain("Breadcrumb");
+    expect(source).toContain('localizedPath("/career", locale)');
+    expect(source).toContain("职业推荐");
+    expect(source).toContain("Recommendations");
+  });
 });

@@ -1,5 +1,18 @@
-import type { LocalizedCareerJob } from "@/lib/content";
 import { RIASEC_CODES, type Big5TraitKey, type CareerRecommendationJobInput } from "@/lib/career/types";
+
+type CareerJobMapperInput = {
+  slug: string;
+  title: string;
+  summary: string;
+  industry_slug: string;
+  riasec_vector?: Record<string, unknown>;
+  big5_targets?: Record<string, Record<string, unknown>>;
+  iq_range?: Record<string, unknown>;
+  eq_range?: Record<string, unknown>;
+  mbti_primary?: string[];
+  mbti_secondary?: string[];
+  market_demand?: unknown;
+};
 
 const BIG5_TRAITS: Big5TraitKey[] = [
   "openness",
@@ -19,7 +32,7 @@ function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
 
-export function mapCareerJobToRecommendationInput(job: LocalizedCareerJob): CareerRecommendationJobInput {
+export function mapCareerJobToRecommendationInput(job: CareerJobMapperInput): CareerRecommendationJobInput {
   const riasec = (job.riasec_vector ?? {}) as Record<string, unknown>;
   const big5 = (job.big5_targets ?? {}) as Record<string, Record<string, unknown>>;
   const iqRange = (job.iq_range ?? {}) as Record<string, unknown>;

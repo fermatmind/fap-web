@@ -1,51 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCareerLink } from "@/components/analytics/TrackedCareerLink";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import { listBig5RecommendationTraits } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath } from "@/lib/i18n/locales";
 import { MBTI_TYPE_GROUPS } from "@/lib/mbti/mbtiTypeContentPack";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-
-const BIG5_TRAIT_LABELS: Record<string, { en: string; zh: string; zhHint: string; enHint: string }> = {
-  agreeableness: {
-    en: "Agreeableness",
-    zh: "宜人性",
-    zhHint: "协作、同理心与冲突处理方式",
-    enHint: "Collaboration, empathy, and conflict style",
-  },
-  conscientiousness: {
-    en: "Conscientiousness",
-    zh: "尽责性",
-    zhHint: "计划性、执行稳定性与责任边界",
-    enHint: "Planning, consistency, and responsibility boundaries",
-  },
-  extraversion: {
-    en: "Extraversion",
-    zh: "外向性",
-    zhHint: "能量来源、表达强度与社交负荷",
-    enHint: "Energy source, expression level, and social load",
-  },
-  neuroticism: {
-    en: "Neuroticism",
-    zh: "情绪稳定性",
-    zhHint: "压力敏感度、恢复速度与风险预警",
-    enHint: "Stress sensitivity, recovery speed, and risk signals",
-  },
-  openness: {
-    en: "Openness",
-    zh: "开放性",
-    zhHint: "探索欲、抽象思维与变化适应",
-    enHint: "Exploration, abstract thinking, and change readiness",
-  },
-};
 
 const GROUP_LABELS: Record<keyof typeof MBTI_TYPE_GROUPS, { en: string; zh: string }> = {
   NT: { en: "Analysts", zh: "分析家" },
@@ -89,7 +56,6 @@ export default async function CareerRecommendationsPage({
 
   const payload = await fetchCareerRecommendationIndex({ locale });
   const recommendationItems = adaptCareerRecommendationIndex({ locale, payload });
-  const big5Traits = listBig5RecommendationTraits();
   const recommendationByType = new Map(
     recommendationItems.map((item) => [
       String(item.recommendationSubjectMeta.canonicalTypeCode ?? item.recommendationSubjectMeta.publicRouteSlug)
@@ -136,6 +102,13 @@ export default async function CareerRecommendationsPage({
         />
         <JsonLd id="career-recommendation-webpage" data={webPageJsonLd} />
         <JsonLd id="career-recommendation-breadcrumb" data={breadcrumbJsonLd} />
+        <Breadcrumb
+          items={[
+            { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
+            { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
+            { label: locale === "zh" ? "职业推荐" : "Recommendations" },
+          ]}
+        />
 
         <section className="mx-auto max-w-4xl space-y-4 text-center">
           <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
@@ -158,11 +131,11 @@ export default async function CareerRecommendationsPage({
             title={locale === "zh" ? "从大五人格看职业方向" : "Start from Big Five"}
             description={
               locale === "zh"
-                ? "适合知道自己稳定特质，想判断工作环境、协作方式和风险点的人。"
-                : "For users who know their trait signals and want environment, collaboration, and risk cues."
+                ? "大五职业推荐页暂不作为前端本地内容发布；先完成测评，再进入后端开放的职业库与指南。"
+                : "Big Five career recommendations are not published as local frontend content; use the test, then continue into backend-owned jobs and guides."
             }
-            href="#big5"
-            cta={locale === "zh" ? "选择大五特质" : "Choose Big Five trait"}
+            href="#start"
+            cta={locale === "zh" ? "先做大五人格" : "Take Big Five first"}
           />
           <SourceCard
             title={locale === "zh" ? "先完成一个测评" : "Take an assessment first"}
@@ -285,35 +258,6 @@ export default async function CareerRecommendationsPage({
             </div>
           ) : null}
         </section>
-
-        {big5Traits.length > 0 ? (
-          <section id="big5" className="space-y-5 scroll-mt-24" data-testid="career-recommendation-source-big5">
-            <div>
-              <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                {locale === "zh" ? "选择你的大五人格特质" : "Choose your Big Five trait"}
-              </h2>
-            </div>
-            <div className="grid gap-3 md:grid-cols-5">
-              {big5Traits.map((trait) => {
-                const label = BIG5_TRAIT_LABELS[trait];
-                return (
-                  <Link
-                    key={trait}
-                    href={withLocale(`/career/recommendations/big5/${trait}`)}
-                    className="border-t border-slate-200 py-5 hover:border-orange-300"
-                  >
-                    <span className="block text-lg font-semibold text-slate-950">
-                      {label?.[locale] ?? trait}
-                    </span>
-                    <span className="mt-2 block text-sm leading-6 text-slate-500">
-                      {locale === "zh" ? label?.zhHint : label?.enHint}
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        ) : null}
 
         <section id="start" className="space-y-5 scroll-mt-24">
           <div>

@@ -1,12 +1,9 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
-import {
-  getCareerGuideCmsLocalFallback,
-  listCareerGuideCmsLocalFallback,
-} from "@/lib/cms/career-guide-local-fallback";
+import { formatCareerFamilyTitle } from "@/lib/career/datasetDirectory";
 import { buildPersonalityFrontendUrl } from "@/lib/cms/personality";
-import { getCareerIndustryBySlug, type RelatedContentItem } from "@/lib/content";
+import type { RelatedContentItem } from "@/lib/content";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
@@ -363,16 +360,13 @@ function adaptRelatedIndustry(
     return null;
   }
 
-  const industry = getCareerIndustryBySlug(slug, normalizeLocale(locale));
-  if (!industry) {
-    return null;
-  }
+  const normalizedLocale = normalizeLocale(locale);
 
   return {
-    slug: industry.slug,
-    title: industry.title,
-    href: localizedPath(`/career/industries/${industry.slug}`, normalizeLocale(locale)),
-    summary: industry.summary,
+    slug,
+    title: formatCareerFamilyTitle(slug, normalizedLocale),
+    href: localizedPath(`/career/industries/${slug}`, normalizedLocale),
+    summary: "",
   };
 }
 
@@ -680,13 +674,13 @@ export async function listCareerGuidesFromCms(
       currentPage += 1;
     } while (currentPage <= lastPage);
 
-    return items.length > 0 ? items : listCareerGuideCmsLocalFallback(locale, options.category);
+    return items;
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return listCareerGuideCmsLocalFallback(locale, options.category);
+      return [];
     }
 
-    return listCareerGuideCmsLocalFallback(locale, options.category);
+    throw error;
   }
 }
 
@@ -719,13 +713,13 @@ export async function getCareerGuideFromCmsBySlug(
       return guide;
     }
 
-    return getCareerGuideCmsLocalFallback(normalizedSlug, locale);
+    return null;
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
-      return getCareerGuideCmsLocalFallback(normalizedSlug, locale);
+      return null;
     }
 
-    return getCareerGuideCmsLocalFallback(normalizedSlug, locale);
+    throw error;
   }
 }
 

@@ -3,6 +3,7 @@ import { HomePageExperience } from "@/components/marketing/HomePageExperience";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { getCmsArticles } from "@/lib/cms/articles";
+import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
 import { localizedPath } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -17,15 +18,15 @@ const ROOT_PATH = "/";
 
 export const dynamic = "force-dynamic";
 
-export function generateMetadata(): Metadata {
-  const copy = getHomePageContent(ROOT_LOCALE);
+export async function generateMetadata(): Promise<Metadata> {
+  const copy = await getHomePageContent(ROOT_LOCALE);
 
   return buildPageMetadata({
     locale: ROOT_LOCALE,
     pathname: ROOT_PATH,
     title: copy.seo.title,
     description: copy.seo.description,
-    imagePath: "/share/mbti_wide_1200x630.png",
+    imagePath: DEFAULT_SHARE_IMAGE_URL,
     alternatesByLocale: {
       en: "/en",
       zh: "/",
@@ -34,8 +35,8 @@ export function generateMetadata(): Metadata {
   });
 }
 
-function buildRootHomeJsonLd() {
-  const copy = getHomePageContent(ROOT_LOCALE);
+async function buildRootHomeJsonLd() {
+  const copy = await getHomePageContent(ROOT_LOCALE);
 
   return {
     webPage: buildWebPageJsonLd({
@@ -78,7 +79,8 @@ function buildRootHomeJsonLd() {
 }
 
 export default async function RootHomePage() {
-  const jsonLd = buildRootHomeJsonLd();
+  const copy = await getHomePageContent(ROOT_LOCALE);
+  const jsonLd = await buildRootHomeJsonLd();
   const { items: articles } = await getCmsArticles({
     locale: ROOT_LOCALE,
     page: 1,
@@ -93,7 +95,7 @@ export default async function RootHomePage() {
       <JsonLd id="home-quickstart-root" data={jsonLd.quickStart} />
       <JsonLd id="home-families-root" data={jsonLd.families} />
       <JsonLd id="home-organization-root" data={jsonLd.organization} />
-      <HomePageExperience locale={ROOT_LOCALE} articles={articles.slice(0, 6)} />
+      <HomePageExperience locale={ROOT_LOCALE} copy={copy} articles={articles.slice(0, 6)} />
     </main>
   );
 }

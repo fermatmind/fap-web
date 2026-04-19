@@ -18,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const content = getTestsHubContent(locale);
+  const content = await getTestsHubContent(locale);
   const pathname = locale === "zh" ? "/zh/tests" : "/en/tests";
 
   return buildPageMetadata({
@@ -34,8 +34,8 @@ export async function generateMetadata({
   });
 }
 
-function buildTestsHubJsonLd(locale: Locale) {
-  const content = getTestsHubContent(locale);
+async function buildTestsHubJsonLd(locale: Locale) {
+  const content = await getTestsHubContent(locale);
   const path = locale === "zh" ? "/zh/tests" : "/en/tests";
 
   return {
@@ -83,7 +83,7 @@ export default async function TestsPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const jsonLd = buildTestsHubJsonLd(locale);
+  const jsonLd = await buildTestsHubJsonLd(locale);
 
   return (
     <main>

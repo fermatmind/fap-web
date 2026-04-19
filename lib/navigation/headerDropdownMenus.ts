@@ -25,17 +25,11 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/tests/riasec", label: "RIASEC career interest test" },
       { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI personality test" },
       { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five personality test" },
-      {
-        href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
-        label: "Clinical depression & anxiety assessment",
-      },
-      { href: "/tests/depression-screening-test-standard-edition", label: "Depression screening" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ assessment" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "EQ assessment" },
     ],
     articles: [
       { href: "/articles", label: "All articles" },
-      { href: "/topics", label: "Topic clusters" },
       { href: "/articles/mbti-basics", label: "MBTI basics" },
       { href: "/articles/mbti-growth-guide", label: "MBTI growth guide" },
       { href: "/articles/big-five-tool-guide", label: "Big Five tool guide" },
@@ -80,15 +74,9 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests", label: "九型人格测试" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "智商测试" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "情商测试" },
-      {
-        href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
-        label: "抑郁焦虑综合检测",
-        forceVisible: true,
-      },
     ],
     articles: [
       { href: "/articles", label: "全部文章" },
-      { href: "/topics", label: "主题聚合" },
       { href: "/articles/mbti-basics", label: "MBTI 入门" },
       { href: "/articles/mbti-growth-guide", label: "MBTI 成长指南" },
       { href: "/articles/big-five-tool-guide", label: "大五工具说明" },

@@ -81,12 +81,12 @@ describe("career llms alignment contract", () => {
     vi.doMock("@/lib/cms/topics", () => ({
       listTopics: vi.fn(async () => ({ items: [] })),
     }));
-    vi.doMock("@/lib/content", () => ({
-      getAllTests: vi.fn(() => []),
-      listCareerIndustrySlugs: vi.fn(() => []),
+    vi.doMock("@/lib/cms/content-pages", () => ({
+      listContentPages: vi.fn(async () => []),
     }));
-    vi.doMock("@/lib/help/helpCenterContent", () => ({
-      HELP_CENTER_SLUGS: [],
+    vi.doMock("@/lib/content", () => ({
+      getAllTests: vi.fn(async () => []),
+      listCareerIndustrySlugs: vi.fn(() => []),
     }));
     vi.doMock("@/lib/site", () => ({
       getSiteUrlOrThrow: vi.fn(() => "https://fermatmind.com"),
@@ -239,12 +239,12 @@ describe("career llms alignment contract", () => {
     vi.doMock("@/lib/cms/topics", () => ({
       listTopics: vi.fn(async () => ({ items: [] })),
     }));
-    vi.doMock("@/lib/content", () => ({
-      getAllTests: vi.fn(() => []),
-      listCareerIndustrySlugs: vi.fn(() => []),
+    vi.doMock("@/lib/cms/content-pages", () => ({
+      listContentPages: vi.fn(async () => []),
     }));
-    vi.doMock("@/lib/help/helpCenterContent", () => ({
-      listHelpCenterPages: vi.fn(() => []),
+    vi.doMock("@/lib/content", () => ({
+      getAllTests: vi.fn(async () => []),
+      listCareerIndustrySlugs: vi.fn(() => []),
     }));
     vi.doMock("@/lib/site", () => ({
       getSiteUrlOrThrow: vi.fn(() => "https://fermatmind.com"),

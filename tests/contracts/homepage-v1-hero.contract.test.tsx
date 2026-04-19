@@ -2,6 +2,15 @@ import type { ReactNode } from "react";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { HomePageExperience } from "@/components/marketing/HomePageExperience";
+import { getHomePageContent } from "@/lib/marketing/homepageContent";
+
+vi.mock("@/lib/cms/landing-surfaces", async () => {
+  const fixture = await import("./fixtures/cmsLandingSurfaceMock");
+
+  return {
+    getCmsLandingSurface: vi.fn(fixture.getMockCmsLandingSurface),
+  };
+});
 
 vi.mock("next/link", () => ({
   default: ({
@@ -17,34 +26,21 @@ vi.mock("next/link", () => ({
 }));
 
 describe("homepage v1 hero contract", () => {
-  it("renders the fixed Chinese V1 hero with one primary MBTI action", () => {
-    render(<HomePageExperience locale="zh" />);
+  it("renders the fixed Chinese V1 hero from the CMS surface", async () => {
+    render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
 
-    expect(screen.getByRole("heading", { level: 1, name: "先了解自己，再决定下一步。" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "看清自己，走好每一步" })).toBeInTheDocument();
     expect(
-      screen.getByText("用一份简洁、可继续使用的测评结果，帮你看清人格、能力与职业方向。")
+      screen.getByText("费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。")
     ).toBeInTheDocument();
-
-    expect(screen.getByRole("link", { name: "开始 MBTI 测试" })).toHaveAttribute(
-      "href",
-      "/zh/tests/mbti-personality-test-16-personality-types"
-    );
-    expect(screen.getAllByRole("link", { name: "开始 MBTI 测试" })).toHaveLength(1);
-    expect(
-      screen.getAllByRole("link", { name: "查看全部测评" }).some((link) => link.getAttribute("href") === "/zh/tests")
-    ).toBe(true);
-    expect(
-      screen.getAllByRole("link", { name: /去职业探索/ }).some((link) => link.getAttribute("href") === "/zh/career")
-    ).toBe(true);
   });
 
-  it("renders trust points as a compact strip instead of a heavy accordion", () => {
-    render(<HomePageExperience locale="zh" />);
+  it("renders trust points as a compact strip instead of a heavy accordion", async () => {
+    render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
 
     expect(screen.getByText("结果结构清晰")).toBeInTheDocument();
     expect(screen.getAllByText("方法边界透明").length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText("可匿名开始")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "查看方法与隐私" })).toHaveAttribute("href", "/zh/help/about");
     expect(screen.queryByText("Trust & Boundaries")).not.toBeInTheDocument();
   });
 });

@@ -1,74 +1,36 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-
 import { describe, expect, it } from "vitest";
-import {
-  listBig5RecommendationTraits,
-  listCareerIndustries,
-  listCareerJobs,
-} from "@/lib/content";
 
-const localContentSource = readFileSync(
-  resolve(process.cwd(), "lib/content.ts"),
-  "utf8"
-);
-const cmsCareerRecommendationSource = readFileSync(
-  resolve(process.cwd(), "lib/cms/career-recommendations.ts"),
-  "utf8"
-);
-const careerLandingSource = readFileSync(
-  resolve(process.cwd(), "app/(localized)/[locale]/career/page.tsx"),
-  "utf8"
-);
+const ROOT = process.cwd();
+
+function read(relPath: string): string {
+  return readFileSync(resolve(ROOT, relPath), "utf8");
+}
 
 describe("career content contract", () => {
-  it("keeps launch volume targets", () => {
-    expect(listCareerJobs("en").length).toBe(30);
-    expect(listCareerJobs("zh").length).toBe(30);
-    expect(listCareerIndustries("en").length).toBe(12);
-    expect(listCareerIndustries("zh").length).toBe(12);
-    expect(listBig5RecommendationTraits().length).toBe(5);
+  it("keeps career content assets out of frontend content collections", () => {
+    const contentSource = read("lib/content.ts");
+
+    expect(existsSync(resolve(ROOT, "content/career"))).toBe(false);
+    expect(existsSync(resolve(ROOT, "velite.config.ts"))).toBe(false);
+    expect(contentSource).not.toContain("careerJobs");
+    expect(contentSource).not.toContain("careerGuides");
+    expect(contentSource).not.toContain("careerIndustries");
+    expect(contentSource).not.toContain("careerRecommendationProfiles");
   });
 
-  it("uses bilingual parity for job slugs", () => {
-    const enSlugs = new Set(listCareerJobs("en").map((item) => item.slug));
-    const zhSlugs = new Set(listCareerJobs("zh").map((item) => item.slug));
+  it("keeps backend-backed landing sections off local career helpers", () => {
+    const careerLandingSource = read("app/(localized)/[locale]/career/page.tsx");
+    const recommendationsSource = read("app/(localized)/[locale]/career/recommendations/page.tsx");
 
-    expect(enSlugs.size).toBe(30);
-    expect(zhSlugs.size).toBe(30);
-    expect([...enSlugs].sort()).toEqual([...zhSlugs].sort());
-  });
-
-  it("keeps Big5 local helpers but removes local MBTI public authority residue", () => {
-    expect(listBig5RecommendationTraits()).toEqual([
-      "agreeableness",
-      "conscientiousness",
-      "extraversion",
-      "neuroticism",
-      "openness",
-    ]);
-
-    expect(localContentSource).not.toContain("export function getMbtiRecommendation");
-    expect(localContentSource).not.toContain("export function listMbtiRecommendationTypes");
-    expect(localContentSource).not.toContain("function relatedTypesByCodes");
-    expect(localContentSource).not.toContain("export function listRelatedTypesForPost");
-    expect(localContentSource).not.toContain("export function listRelatedTypesForGuide");
-    expect(localContentSource).not.toContain("export function listRelatedArticlesForType");
-    expect(localContentSource).not.toContain("export function listRelatedCareerItemsForType");
-    expect(localContentSource).not.toContain('profile_type === "mbti"');
-
-    expect(cmsCareerRecommendationSource).toContain("/v0.5/career-recommendations/mbti");
-    expect(cmsCareerRecommendationSource).toContain("authoritySource");
-    expect(cmsCareerRecommendationSource).toContain("publicRouteSlug");
-  });
-
-  it("keeps local content helpers out of backend-backed landing sections", () => {
     expect(careerLandingSource).not.toContain("listCareerJobs(");
     expect(careerLandingSource).not.toContain("listCareerIndustries");
     expect(careerLandingSource).not.toContain("listCareerGuidesFromCms");
-    expect(careerLandingSource).toContain("fetchCareerJobIndex");
-    expect(careerLandingSource).toContain("fetchCareerRecommendationIndex");
-    expect(careerLandingSource).toContain("buildCareerFamilyFrontendUrl");
-    expect(careerLandingSource).not.toContain("growth_path[0]");
+    expect(careerLandingSource).toContain('action={withLocale("/career/jobs")}');
+    expect(careerLandingSource).toContain('href={withLocale("/career/recommendations")}');
+    expect(careerLandingSource).toContain('href={withLocale("/career/industries")}');
+    expect(recommendationsSource).not.toContain("listBig5RecommendationTraits");
+    expect(recommendationsSource).not.toContain("/career/recommendations/big5/");
   });
 });

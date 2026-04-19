@@ -3,11 +3,10 @@ import { Container } from "@/components/layout/Container";
 import { HomepageSocialProofCarousel } from "@/components/marketing/HomepageSocialProofCarousel";
 import type { CmsArticle } from "@/lib/cms/articles";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
-import { getHomePageContent } from "@/lib/marketing/homepageContent";
+import type { HomePageContent } from "@/lib/marketing/homepageContent";
 import { EVIDENCE_LOGS, SCENARIO_VALIDATIONS } from "@/lib/marketing/socialProof";
 import { cn } from "@/lib/utils";
 
-type HomePageContent = ReturnType<typeof getHomePageContent>;
 type HomeLink = HomePageContent["quickStart"]["items"][number];
 type TrustItem = HomePageContent["trust"]["items"][number];
 type HomeArticle = CmsArticle;
@@ -177,6 +176,9 @@ function TestFeatureCard({ locale, item, index }: { locale: Locale; item: HomeLi
           <h3 className="m-0 text-xl font-semibold tracking-[-0.035em] text-teal-800 underline decoration-teal-200 underline-offset-4">
             {item.title}
           </h3>
+          <span className="shrink-0 rounded-full border border-teal-100 px-3 py-1 text-xs font-medium text-teal-800">
+            {item.meta}
+          </span>
         </div>
         <p className="m-0 mt-5 text-base leading-7 text-slate-600">{item.description}</p>
         <Link
@@ -368,9 +370,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
   );
 }
 
-export function HomePageExperience({ locale, articles = [] }: { locale: Locale; articles?: HomeArticle[] }) {
-  const copy = getHomePageContent(locale);
-
+export function HomePageExperience({ locale, copy, articles = [] }: { locale: Locale; copy: HomePageContent; articles?: HomeArticle[] }) {
   return (
     <div className="bg-white text-slate-950">
       <HomepageHeroV1 copy={copy} />

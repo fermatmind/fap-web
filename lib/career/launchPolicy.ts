@@ -157,7 +157,7 @@ export const CAREER_HOLD_ROUTES = [
   {
     key: "career_big5_recommendation_detail",
     route: "/career/recommendations/big5/[trait]",
-    authorityOwner: "editorial_local_big5",
+    authorityOwner: "backend_future_big5",
     rationale: "Big5 recommendation detail is intentionally reachable but not part of the backend-owned first-wave recommendation launch.",
   },
 ] as const satisfies readonly CareerLaunchRouteEntry[];
@@ -395,7 +395,7 @@ export const CAREER_LAUNCH_SMOKE_MATRIX = {
       key: "career_big5_recommendation_detail",
       route: "/career/recommendations/big5/[trait]",
       launchState: "hold",
-      authorityOwner: "editorial_local_big5",
+      authorityOwner: "backend_future_big5",
       renderMode: "render",
       canonicalMode: "self",
       robotsMode: "index",

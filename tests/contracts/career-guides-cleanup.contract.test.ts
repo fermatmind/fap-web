@@ -24,14 +24,15 @@ function sliceBetween(source: string, start: string, end: string): string {
 describe("career guides cleanup contract", () => {
   it("frontend next-sitemap keeps guide landing and detail authority available", async () => {
     const config = requireFromRoot("./next-sitemap.config.js");
-    const additionalPaths = await config.additionalPaths();
-    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
     const source = read("next-sitemap.config.js");
 
+    const additionalPaths = await config.additionalPaths();
+    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
+
     expect(locs).toEqual(expect.arrayContaining(["/en/career/guides", "/zh/career/guides"]));
-    expect(locs.some((loc: string) => /^\/(en|zh)\/career\/guides\/[^/]+$/.test(loc))).toBe(true);
-    expect(source).toContain('.velite/careerGuides.json');
-    expect(source).toContain("for (const item of careerGuidesContent)");
+    expect(source).not.toContain('.velite/careerGuides.json');
+    expect(source).not.toContain("careerGuidesContent");
+    expect(source).toContain('buildValidatedCmsPaths("/v0.5/career-guides", buildCareerGuideDetailPaths)');
     expect(source).toContain("buildCareerGuideDetailPaths");
   });
 
