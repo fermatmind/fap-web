@@ -6,6 +6,31 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: PR-V4-B2C
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-v4-b2-content-pages-audit
+    base: main
+    depends_on: ["PR-V4-B2A", "PR-V4-B2B"]
+    mode: execute
+    scope: >
+      Final V4 B2 content_pages authority audit. Document which company,
+      policy, and help content pages are already CMS/public API authoritative,
+      which local route shells remain product routing only, and which low-risk
+      content migration gaps should move next without changing runtime code.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-V4-B2B
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
