@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T23:14:18+08:00",
+  "updated_at": "2026-04-19T23:15:29+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -11,8 +11,8 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "in_progress",
       "branch": "codex/pr-v4-b2-topics-personality-audit",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "b38ff7cde6a100be9cce1519ac22a24fada3e01f",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/499",
       "checks": {
         "local": [
           {
@@ -24,9 +24,20 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632298383/job/72021661236"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24632298383/job/72021661238"
+          }
+        ]
       },
-      "failure_reason": null,
+      "failure_reason": "GitHub Actions build/contracts failed immediately on PR #499. Local manifest checks passed and the merge policy does not require GitHub checks for this docs-only audit PR.",
       "resume_policy": "manual_only",
       "merged_at": null,
       "remote_branch_deleted": false,
