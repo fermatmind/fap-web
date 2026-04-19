@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
 import { CareerExplainabilityPanel } from "@/components/career/CareerExplainabilityPanel";
@@ -75,6 +75,28 @@ function renderScoreValue(value: number | null): string {
 function shouldNoindex(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();
   return normalized === "blocked" || normalized === "noindex" || normalized === "unavailable";
+}
+
+function containsCjkText(value: string | null | undefined): boolean {
+  return /[\u3400-\u9fff]/.test(String(value ?? ""));
+}
+
+function shouldRedirectEnglishJobDetailToChinese(job: CareerJobBundleAdapter, locale: Locale): boolean {
+  if (locale !== "en") {
+    return false;
+  }
+
+  const trustLocale = job.trustManifest?.locale_context.locale;
+  const displayMarket = job.trustManifest?.locale_context.display_market;
+  const crosswalkMode = job.trustManifest?.methodology.crosswalk_mode;
+
+  return (
+    trustLocale === "zh-CN" ||
+    displayMarket === "zh-CN" ||
+    crosswalkMode === "docx_baseline" ||
+    containsCjkText(job.contentBodyMd) ||
+    job.contentSections.some((section) => containsCjkText(section.title) || containsCjkText(section.bodyMd))
+  );
 }
 
 async function loadCareerJobBundle(locale: Locale, slug: string): Promise<CareerJobBundleAdapter | null> {
@@ -570,6 +592,10 @@ export default async function CareerJobDetailPage({
 
   if (!job) {
     return notFound();
+  }
+
+  if (shouldRedirectEnglishJobDetailToChinese(job, locale)) {
+    permanentRedirect(buildCareerJobFrontendUrl("zh", job.slug));
   }
 
   const renderState = job.renderState;
