@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { TestCategoryExperience } from "@/components/marketing/tests/TestCategoryExperience";
+import { TestsHubMinimalShell } from "@/components/marketing/tests/TestsHubMinimalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
@@ -36,8 +37,23 @@ export async function generateMetadata({
     return {};
   }
 
-  const content = await getTestsCategoryContent(locale, slug);
+  const content = await getTestsCategoryContent(locale, slug).catch(() => null);
   const pathname = locale === "zh" ? `/zh/tests/category/${slug}` : `/en/tests/category/${slug}`;
+
+  if (!content) {
+    return buildPageMetadata({
+      locale,
+      pathname,
+      title: "FermatMind Tests",
+      description: "FermatMind Tests",
+      noindex: true,
+      alternatesByLocale: {
+        en: `/en/tests/category/${slug}`,
+        zh: `/zh/tests/category/${slug}`,
+        xDefault: "/",
+      },
+    });
+  }
 
   return buildPageMetadata({
     locale,
@@ -52,8 +68,7 @@ export async function generateMetadata({
   });
 }
 
-async function buildCategoryJsonLd(locale: Locale, slug: TestsCategorySlug) {
-  const content = await getTestsCategoryContent(locale, slug);
+function buildCategoryJsonLd(locale: Locale, slug: TestsCategorySlug, content: Awaited<ReturnType<typeof getTestsCategoryContent>>) {
   const path = locale === "zh" ? `/zh/tests/category/${slug}` : `/en/tests/category/${slug}`;
 
   return {
@@ -114,8 +129,13 @@ export default async function TestsCategoryPage({
     notFound();
   }
 
-  const content = await getTestsCategoryContent(locale, slug);
-  const jsonLd = await buildCategoryJsonLd(locale, slug);
+  const content = await getTestsCategoryContent(locale, slug).catch(() => null);
+
+  if (!content) {
+    return <TestsHubMinimalShell locale={locale} />;
+  }
+
+  const jsonLd = buildCategoryJsonLd(locale, slug, content);
 
   return (
     <main>
