@@ -1,11 +1,45 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-19T22:24:57+08:00",
+  "updated_at": "2026-04-19T22:27:14+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
   "items": {
+    "PR-V4-B2B": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/pr-v4-b2-content-page-help-ops",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint components/ops/content-pages/ContentPageEditorForm.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
     "PR-V4-B2A": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",

@@ -13,8 +13,8 @@ import { buildContentPagePath, updateContentPageFromOps } from "@/lib/cms/conten
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath, toApiLocale } from "@/lib/i18n/locales";
 
-const KIND_OPTIONS: ContentPageKind[] = ["company", "policy"];
-const TEMPLATE_OPTIONS: ContentPageTemplate[] = ["company", "charter", "foundation", "careers", "brand", "policy"];
+const KIND_OPTIONS: ContentPageKind[] = ["company", "policy", "help"];
+const TEMPLATE_OPTIONS: ContentPageTemplate[] = ["company", "charter", "foundation", "careers", "brand", "policy", "help"];
 const ANIMATION_OPTIONS: ContentPageAnimationProfile[] = ["mission", "principles", "editorial", "brand", "policy", "none"];
 
 function toDateInput(value: string | null): string {
