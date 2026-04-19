@@ -8,7 +8,7 @@ import {
   type HubTestCardItem,
 } from "@/lib/marketing/testsHubContent";
 
-function listSixTests(items: HubTestCardItem[][]): HubTestCardItem[] {
+function listTests(items: HubTestCardItem[][]): HubTestCardItem[] {
   const seen = new Set<string>();
   const ordered: HubTestCardItem[] = [];
 
@@ -17,7 +17,6 @@ function listSixTests(items: HubTestCardItem[][]): HubTestCardItem[] {
       if (seen.has(item.key)) continue;
       seen.add(item.key);
       ordered.push(item);
-      if (ordered.length === 6) return ordered;
     }
   }
 
@@ -53,7 +52,7 @@ function TestListCard({ item, locale }: { item: HubTestCardItem; locale: Locale 
 
 export async function TestsHubExperience({ locale }: { locale: Locale }) {
   const content = await getTestsHubContent(locale);
-  const tests = listSixTests([await listAllContentTestsHubCards(locale), ...content.families.items.map((family) => family.tests)]);
+  const tests = listTests([await listAllContentTestsHubCards(locale), ...content.families.items.map((family) => family.tests)]);
   const copy =
     locale === "zh"
       ? {

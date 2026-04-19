@@ -46,11 +46,11 @@ const homePayload = vi.hoisted(() => ({
         meta: "人格测试",
       },
       {
-        title: "EQ 情商测试",
-        description: "了解你在情绪识别与协作沟通中的表现",
-        href: "/tests/eq-test-emotional-intelligence-assessment",
+        title: "霍兰德职业兴趣测试",
+        description: "先得到兴趣结构与职业方向判断",
+        href: "/career/tests/riasec",
         label: "开始测试",
-        meta: "情绪能力",
+        meta: "职业兴趣",
       },
       {
         title: "IQ 智商测试",
@@ -58,6 +58,13 @@ const homePayload = vi.hoisted(() => ({
         href: "/tests/iq-test-intelligence-quotient-assessment",
         label: "开始测试",
         meta: "能力测评",
+      },
+      {
+        title: "抑郁焦虑综合症测试",
+        description: "同时查看抑郁与焦虑两个维度，获得更完整的近期状态参考",
+        href: "/tests/clinical-depression-anxiety-assessment-professional-edition",
+        label: "开始测试",
+        meta: "学术专业版",
       },
     ],
   },
@@ -109,7 +116,7 @@ const homePayload = vi.hoisted(() => ({
     title: "费马测试",
     description: "费马测试首页",
     quickStartListTitle: "费马测试首页核心测评入口",
-    quickStartListDescription: "首页核心测评入口，包括 MBTI、大五人格、IQ、EQ、九型人格与情绪状态自测。",
+    quickStartListDescription: "首页核心测评入口，包括 MBTI、大五人格、IQ、霍兰德职业兴趣、九型人格与抑郁焦虑综合症测试。",
     familyListTitle: "更多路径",
     familyListDescription: "更多路径",
     organizationDescription: "费马测试",
@@ -153,10 +160,10 @@ const EXPECTED_ZH_CARDS = [
     href: "/zh/tests/iq-test-intelligence-quotient-assessment/take",
   },
   {
-    title: "EQ 情商测试",
-    copy: "了解你在情绪识别与协作沟通中的表现",
-    meta: "情绪能力",
-    href: "/zh/tests/eq-test-emotional-intelligence-assessment/take",
+    title: "霍兰德职业兴趣测试",
+    copy: "先得到兴趣结构与职业方向判断",
+    meta: "职业兴趣",
+    href: "/zh/career/tests/riasec",
   },
   {
     title: "九型人格测试",
@@ -165,10 +172,10 @@ const EXPECTED_ZH_CARDS = [
     href: "/zh/tests",
   },
   {
-    title: "情绪状态自测",
-    copy: "快速了解你近期的情绪状态变化",
-    meta: "状态自测",
-    href: "/zh/tests",
+    title: "抑郁焦虑综合症测试",
+    copy: "同时查看抑郁与焦虑两个维度，获得更完整的近期状态参考",
+    meta: "学术专业版",
+    href: "/zh/tests/clinical-depression-anxiety-assessment-professional-edition",
   },
 ];
 
