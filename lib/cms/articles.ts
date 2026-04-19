@@ -172,6 +172,7 @@ export type GetCmsArticlesParams = {
   locale: Locale | string;
   page?: number;
   perPage?: number;
+  allowLocalFallback?: boolean;
 };
 
 export type GetCmsArticlesResult = {
@@ -558,6 +559,7 @@ function matchesRequestedLocale(articleLocale: string, locale: Locale | string):
 }
 
 export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetCmsArticlesResult> {
+  const allowLocalFallback = params.allowLocalFallback !== false;
   const requestedPage = typeof params.page === "number" && params.page > 0 ? params.page : 1;
   const requestedPerPage =
     typeof params.perPage === "number" && params.perPage > 0
@@ -569,12 +571,16 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
     per_page: requestedPerPage,
     org_id: DEFAULT_ORG_ID,
   });
+  const cacheOptions =
+    allowLocalFallback
+      ? PUBLIC_API_CACHE_OPTIONS
+      : ({ cache: "no-store" } as const);
 
   try {
     const response = await apiClient.get<CmsArticlesApiResponse>(`/v0.5/articles${query}`, {
       locale: params.locale,
       skipAuth: true,
-      ...PUBLIC_API_CACHE_OPTIONS,
+      ...cacheOptions,
     });
 
     const items = Array.isArray(response.items)
@@ -584,7 +590,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
           .filter((article) => matchesRequestedLocale(article.locale, params.locale))
       : [];
 
-    if (items.length === 0) {
+    if (items.length === 0 && allowLocalFallback) {
       return buildLocalArticlesResult(params.locale, requestedPage, requestedPerPage);
     }
 
@@ -599,7 +605,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
       landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
     };
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (error instanceof ApiError && error.status === 404 && allowLocalFallback) {
       return buildLocalArticlesResult(params.locale, requestedPage, requestedPerPage);
     }
 
