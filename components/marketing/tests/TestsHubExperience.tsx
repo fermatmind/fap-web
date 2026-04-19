@@ -2,11 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
 import type { Locale } from "@/lib/i18n/locales";
-import {
-  getTestsHubContent,
-  listAllContentTestsHubCards,
-  type HubTestCardItem,
-} from "@/lib/marketing/testsHubContent";
+import type { HubTestCardItem, TestsHubContent } from "@/lib/marketing/testsHubContent";
 
 function listTests(items: HubTestCardItem[][]): HubTestCardItem[] {
   const seen = new Set<string>();
@@ -50,28 +46,18 @@ function TestListCard({ item, locale }: { item: HubTestCardItem; locale: Locale 
   );
 }
 
-export async function TestsHubExperience({ locale }: { locale: Locale }) {
-  const content = await getTestsHubContent(locale);
-  const tests = listTests([await listAllContentTestsHubCards(locale), ...content.families.items.map((family) => family.tests)]);
-  const copy =
-    locale === "zh"
-      ? {
-          title: "人生架构，始于度量",
-          body: "测量自己，看见职业，训练未来。",
-        }
-      : {
-          title: "Life architecture starts with measurement",
-          body: "Measure yourself, see your career, train your future.",
-        };
-
+export function TestsHubExperience({ content, locale }: { content: TestsHubContent; locale: Locale }) {
+  const tests = listTests(content.families.items.map((family) => family.tests));
   return (
     <section className="min-h-[calc(100svh-4rem)] bg-[#0d141b] py-16 text-white md:py-20">
       <Container className="max-w-[110rem] px-5 md:px-8 xl:px-12">
         <div className="mx-auto max-w-5xl text-center">
           <h1 className="m-0 text-balance text-[clamp(2.6rem,5vw,4.8rem)] font-semibold leading-[0.98] tracking-normal text-white">
-            {copy.title}
+            {content.hero.title}
           </h1>
-          <p className="m-0 mx-auto mt-6 max-w-[46rem] text-[1.05rem] leading-8 text-slate-300">{copy.body}</p>
+          <p className="m-0 mx-auto mt-6 max-w-[46rem] text-[1.05rem] leading-8 text-slate-300">
+            {content.hero.body}
+          </p>
         </div>
 
         <div className="mx-auto mt-12 grid max-w-[92rem] gap-5 md:grid-cols-2 xl:grid-cols-3">
