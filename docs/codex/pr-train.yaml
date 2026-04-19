@@ -6,6 +6,33 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: PR-V4-P3A
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-v4-p3-last-known-good-helper
+    base: main
+    depends_on: ["PR-V4-B2F"]
+    mode: execute
+    scope: >
+      Final V4 Phase 3 last-known-good cache foundation. Add a small reusable
+      helper and landing-surface wrapper that can serve stale process-local
+      CMS data after transient failures, without wiring it into homepage,
+      tests, career, or other high-traffic routes yet.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm vitest run tests/contracts/last-known-good-cache.contract.test.ts"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-V4-B2F
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web
