@@ -252,6 +252,273 @@ function ContentSection({ section }: { section: CareerJobBundleAdapter["contentS
   );
 }
 
+type MarkdownBlock =
+  | { kind: "heading"; level: 2 | 3; text: string }
+  | { kind: "paragraph"; text: string }
+  | { kind: "bullets"; items: string[] }
+  | { kind: "snapshot"; rows: Array<[string, string, string, string]> }
+  | { kind: "table"; rows: string[][] }
+  | { kind: "ordered"; items: string[] };
+
+function stripMatchingDocumentTitle(bodyMd: string, title: string): string {
+  const lines = bodyMd.split(/\r?\n/);
+  const firstContentIndex = lines.findIndex((line) => line.trim() !== "");
+  if (firstContentIndex < 0) {
+    return "";
+  }
+
+  const first = lines[firstContentIndex]?.trim() ?? "";
+  if (first === `# ${title}` || first.replace(/^#\s+/, "") === title) {
+    return lines.slice(firstContentIndex + 1).join("\n").trim();
+  }
+
+  return bodyMd.trim();
+}
+
+function parseMarkdownDocument(bodyMd: string, title: string): MarkdownBlock[] {
+  const source = stripMatchingDocumentTitle(bodyMd, title);
+  const blocks: MarkdownBlock[] = [];
+  let bullets: string[] = [];
+  let ordered: string[] = [];
+  let lastHeading = "";
+  const sectionNumerals: Record<string, string> = {
+    "01": "一",
+    "02": "二",
+    "03": "三",
+    "04": "四",
+    "05": "五",
+    "06": "六",
+  };
+
+  const isTableLine = (line: string): boolean => /^\|.*\|\s*$/.test(line);
+  const isTableSeparatorLine = (line: string): boolean => {
+    const cells = line
+      .split("|")
+      .slice(1, -1)
+      .map((cell) => cell.trim());
+
+    return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+  };
+  const parseTableRow = (line: string): string[] =>
+    line
+      .split("|")
+      .slice(1, -1)
+      .map((cell) => cell.replace(/\\\|/g, "|").trim());
+  const formatHeadingText = (text: string): string => {
+    const sectionHeading = text.match(/^(0[1-6])\s+(.+)$/);
+    if (!sectionHeading) {
+      return text;
+    }
+
+    return `${sectionNumerals[sectionHeading[1]]}、${sectionHeading[2]}`;
+  };
+
+  const flushBullets = () => {
+    if (bullets.length > 0) {
+      if (lastHeading === "职业快照" && bullets.length >= 2) {
+        const pairs = bullets.map((item) => {
+          const [label, ...rest] = item.split("：");
+          return [label?.trim() ?? "", rest.join("：").trim()] as [string, string];
+        });
+        const rows: Array<[string, string, string, string]> = [];
+        for (let index = 0; index < pairs.length; index += 2) {
+          rows.push([pairs[index]?.[0] ?? "", pairs[index]?.[1] ?? "", pairs[index + 1]?.[0] ?? "", pairs[index + 1]?.[1] ?? ""]);
+        }
+        blocks.push({ kind: "snapshot", rows });
+      } else {
+        blocks.push({ kind: "bullets", items: bullets });
+      }
+      bullets = [];
+    }
+  };
+  const flushOrdered = () => {
+    if (ordered.length > 0) {
+      blocks.push({ kind: "ordered", items: ordered });
+      ordered = [];
+    }
+  };
+  const flushAll = () => {
+    flushBullets();
+    flushOrdered();
+  };
+
+  const lines = source.split(/\r?\n/);
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = (lines[index] ?? "").trim();
+    if (!line) {
+      if (ordered.length > 0) {
+        continue;
+      }
+
+      flushAll();
+      continue;
+    }
+
+    if (line.startsWith("<!--")) {
+      flushAll();
+      continue;
+    }
+
+    if (isTableLine(line)) {
+      flushAll();
+      const tableRows: string[][] = [];
+      while (index < lines.length && isTableLine((lines[index] ?? "").trim())) {
+        const tableLine = (lines[index] ?? "").trim();
+        if (!isTableSeparatorLine(tableLine)) {
+          tableRows.push(parseTableRow(tableLine));
+        }
+        index += 1;
+      }
+      index -= 1;
+      if (tableRows.length > 0) {
+        blocks.push({ kind: "table", rows: tableRows });
+      }
+      continue;
+    }
+
+    const heading = line.match(/^(#{2,3})\s+(.+)$/);
+    if (heading) {
+      flushAll();
+      lastHeading = heading[2];
+      blocks.push({ kind: "heading", level: heading[1].length as 2 | 3, text: formatHeadingText(lastHeading) });
+      continue;
+    }
+
+    const bullet = line.match(/^[-•]\s*(.+)$/);
+    if (bullet) {
+      flushOrdered();
+      bullets.push(bullet[1]);
+      continue;
+    }
+
+    const orderedItem = line.match(/^\d+\.\s*(.+)$/);
+    if (orderedItem) {
+      flushBullets();
+      if (ordered.length === 0 && lastHeading === "05 相近职业与延伸方向") {
+        lastHeading = "06 在费马测试里，建议这样继续判断";
+        blocks.push({ kind: "heading", level: 2, text: formatHeadingText(lastHeading) });
+      }
+      ordered.push(orderedItem[1]);
+      continue;
+    }
+
+    flushBullets();
+    flushOrdered();
+    blocks.push({ kind: "paragraph", text: line });
+  }
+
+  flushAll();
+
+  return blocks;
+}
+
+function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string }) {
+  const blocks = parseMarkdownDocument(bodyMd, title);
+
+  return (
+    <article className="rounded-3xl border border-slate-200 bg-white px-5 py-7 shadow-sm md:px-10 md:py-10" data-testid="career-job-docx-document">
+      <div className="space-y-7 text-lg leading-9 text-slate-600 [overflow-wrap:anywhere]">
+        {blocks.map((block, index) => {
+          if (block.kind === "heading") {
+            const Heading = block.level === 2 ? "h2" : "h3";
+            return (
+              <Heading key={index} className="m-0 border-t border-slate-200 pt-8 text-3xl font-semibold leading-tight tracking-tight text-slate-950 first:border-t-0 first:pt-0">
+                {block.text}
+              </Heading>
+            );
+          }
+
+          if (block.kind === "bullets") {
+            return (
+              <ul key={index} className="m-0 list-disc space-y-3 pl-6">
+                {block.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="pl-1">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            );
+          }
+
+          if (block.kind === "snapshot") {
+            return (
+              <div key={index} className="overflow-hidden rounded-xl border border-slate-200">
+                <table className="w-full border-collapse text-left text-base leading-7">
+                  <tbody>
+                    {block.rows.map((row, rowIndex) => (
+                      <tr key={rowIndex} className="border-t border-slate-200 first:border-t-0">
+                        <th className="w-1/4 bg-slate-50 px-4 py-3 font-semibold text-slate-700">{row[0]}</th>
+                        <td className="w-1/4 px-4 py-3 text-slate-600">{row[1]}</td>
+                        <th className="w-1/4 bg-slate-50 px-4 py-3 font-semibold text-slate-700">{row[2]}</th>
+                        <td className="w-1/4 px-4 py-3 text-slate-600">{row[3]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
+
+          if (block.kind === "table") {
+            return (
+              <div key={index} className="overflow-x-auto rounded-xl border border-slate-200">
+                <table className="w-full min-w-full border-collapse text-left text-base leading-7 md:min-w-[640px]">
+                  <tbody>
+                    {block.rows.map((row, rowIndex) => {
+                      const cells = row.length > 0 ? row : [""];
+                      const isKeyValueSnapshotRow = cells.length === 4;
+
+                      return (
+                        <tr key={rowIndex} className="border-t border-slate-200 first:border-t-0">
+                          {cells.map((cell, cellIndex) => {
+                            const Cell = isKeyValueSnapshotRow && cellIndex % 2 === 0 ? "th" : "td";
+                            return (
+                              <Cell
+                                key={cellIndex}
+                                className={
+                                  isKeyValueSnapshotRow && cellIndex % 2 === 0
+                                    ? "bg-slate-50 px-3 py-3 font-semibold text-slate-700 [overflow-wrap:anywhere] md:px-4"
+                                    : "px-3 py-3 text-slate-600 [overflow-wrap:anywhere] md:px-4"
+                                }
+                              >
+                                {cell}
+                              </Cell>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
+
+          if (block.kind === "ordered") {
+            return (
+              <ol key={index} className="m-0 space-y-3">
+                {block.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex gap-2">
+                    <span className="shrink-0 tabular-nums text-slate-500">{itemIndex + 1}、</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ol>
+            );
+          }
+
+          return (
+            <p key={index} className="m-0">
+              {block.text}
+            </p>
+          );
+        })}
+      </div>
+    </article>
+  );
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -401,6 +668,19 @@ export default async function CareerJobDetailPage({
         ) : null}
         {job.structuredData.occupation ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
         {job.structuredData.breadcrumbList ? <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} /> : null}
+        {job.contentBodyMd ? (
+          <>
+            <section className="space-y-3" data-testid="career-job-document-overview">
+              <p className="m-0 text-sm font-medium text-slate-500">FermatMind｜费马测试 · 职业详情页正式文案版</p>
+              <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{job.title}</h1>
+              <p className="m-0 text-base leading-7 text-slate-500">
+                {job.titles.canonicalEn ?? job.slug} · /career/jobs/{job.slug}
+              </p>
+            </section>
+            <CareerJobDocument bodyMd={job.contentBodyMd} title={job.title} />
+          </>
+        ) : (
+          <>
         <Breadcrumb
           items={[
             { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -624,6 +904,8 @@ export default async function CareerJobDetailPage({
             </div>
           </section>
         ) : null}
+          </>
+        )}
       </Container>
     </main>
   );

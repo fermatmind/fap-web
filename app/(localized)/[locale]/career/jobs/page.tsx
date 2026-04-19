@@ -11,6 +11,8 @@ import {
   buildCareerFamilyDirectory,
   filterCareerDatasetMembers,
   formatCareerFamilyTitle,
+  isCareerDatasetMemberDetailReady,
+  isCareerDatasetMemberPublic,
   normalizeFamilySlug,
 } from "@/lib/career/datasetDirectory";
 import { fetchCareerDatasetHub } from "@/lib/career/api/fetchCareerDatasetHub";
@@ -96,18 +98,17 @@ export default async function CareerJobsPage({
     query: submittedQuery,
   });
   const selectedFamilyTitle = selectedFamily ? formatCareerFamilyTitle(normalizeFamilySlug(selectedFamily), locale) : null;
-  const detailReadyCount = dataset?.collectionSummary.publicIndexStateCounts.indexable ?? 0;
-  const publicDetailCount =
-    (dataset?.collectionSummary.publicDetailIndexableCount ?? 0) + (dataset?.collectionSummary.publicDetailConservativeCount ?? 0);
+  const detailReadyCount = members.filter(isCareerDatasetMemberDetailReady).length;
+  const publicDetailCount = members.filter(isCareerDatasetMemberPublic).length;
 
   return (
     <main className="min-h-screen bg-slate-50">
       <Container as="div" className="space-y-10 py-10 md:space-y-12 md:py-16">
         {dataset?.structuredData.dataset ? <JsonLd id="career-occupation-library-jsonld" data={dataset.structuredData.dataset} /> : null}
 
-        <section className="space-y-7" data-testid="career-all-occupations-hero">
-          <div className="max-w-3xl space-y-4">
-            <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
+        <section className="space-y-7 text-center" data-testid="career-all-occupations-hero">
+          <div className="mx-auto w-full space-y-4">
+            <h1 className="m-0 whitespace-nowrap text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
               {locale === "zh" ? "342 个职业，先按行业找到入口" : "342 occupations, organized by industry"}
             </h1>
           </div>

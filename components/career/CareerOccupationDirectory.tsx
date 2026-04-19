@@ -56,28 +56,29 @@ export function CareerOccupationDirectory({ locale, members, emptyLabel }: Caree
                 {familyTitle}
               </Link>
               <div>
-                <span
-                  className={[
-                    "inline-flex rounded-full px-3 py-1 text-xs font-semibold",
-                    detailReady
-                      ? "bg-emerald-50 text-emerald-700"
-                      : publicReady
-                        ? "bg-blue-50 text-blue-700"
-                        : "bg-slate-100 text-slate-500",
-                  ].join(" ")}
-                >
-                  {detailReady
-                    ? locale === "zh"
-                      ? "可看详情"
-                      : "Detail ready"
-                    : publicReady
+                {detailReady ? (
+                  <Link
+                    href={jobHref}
+                    className="inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 underline-offset-4 hover:bg-emerald-100 hover:underline"
+                  >
+                    {locale === "zh" ? "可看详情" : "Detail ready"}
+                  </Link>
+                ) : (
+                  <span
+                    className={[
+                      "inline-flex rounded-full px-3 py-1 text-xs font-semibold",
+                      publicReady ? "bg-blue-50 text-blue-700" : "bg-slate-100 text-slate-500",
+                    ].join(" ")}
+                  >
+                    {publicReady
                       ? locale === "zh"
                         ? "数据条目"
                         : "Dataset entry"
                       : locale === "zh"
                         ? "暂不公开详情"
                         : "Directory only"}
-                </span>
+                  </span>
+                )}
               </div>
             </article>
           );

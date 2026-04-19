@@ -588,6 +588,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
       sourceRefs: normalizeStringArray(truthLayer.source_refs),
     },
     contentSections: buildContentSections(raw),
+    contentBodyMd: normalizeString(raw.content_body_md),
     scoreBundle,
     warnings,
     claimPermissions,
