@@ -391,4 +391,19 @@ describe("career job backend bundle contract", () => {
     expect(source).not.toContain("bridge_steps_90d");
     expect(source).not.toContain("CareerTransitionPreviewCard");
   });
+
+  it("career job detail redirects english requests when only zh-CN DOCX fallback content is available", () => {
+    const source = readFileSync(
+      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
+      "utf8"
+    );
+
+    expect(source).toContain("function shouldRedirectEnglishJobDetailToChinese");
+    expect(source).toContain('locale !== "en"');
+    expect(source).toContain('trustLocale === "zh-CN"');
+    expect(source).toContain('displayMarket === "zh-CN"');
+    expect(source).toContain('crosswalkMode === "docx_baseline"');
+    expect(source).toContain("containsCjkText(job.contentBodyMd)");
+    expect(source).toContain('permanentRedirect(buildCareerJobFrontendUrl("zh", job.slug))');
+  });
 });
