@@ -198,7 +198,9 @@ export type ResultResponse = {
   };
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
+  enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
+  enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
@@ -625,6 +627,37 @@ export type Big5PublicProjection = {
   [key: string]: unknown;
 };
 
+export type EnneagramTypeProjection = {
+  code?: string;
+  type_code?: string;
+  label?: string;
+  name?: string;
+  score?: number | string | null;
+  percent?: number | string | null;
+  rank?: number | string | null;
+  [key: string]: unknown;
+};
+
+export type EnneagramPublicProjection = {
+  schema_version?: string;
+  scale_code?: string;
+  primary_type?: string | EnneagramTypeProjection | null;
+  primaryType?: string | EnneagramTypeProjection | null;
+  type_vector?: EnneagramTypeProjection[];
+  typeVector?: EnneagramTypeProjection[];
+  ranked_types?: EnneagramTypeProjection[];
+  rankedTypes?: EnneagramTypeProjection[];
+  top_types?: EnneagramTypeProjection[];
+  topTypes?: EnneagramTypeProjection[];
+  summary?: string | null;
+  headline?: string | null;
+  confidence?: Record<string, unknown> | null;
+  quality?: Record<string, unknown> | null;
+  sections?: Big5ReportSection[];
+  _meta?: Record<string, unknown>;
+  [key: string]: unknown;
+};
+
 export type MbtiPreviewCardRaw = {
   id: string;
   title: string;
@@ -714,7 +747,9 @@ export type ReportResponse = {
   };
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
+  enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
+  enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
@@ -776,6 +811,7 @@ export type OrderStatusResponse = {
   delivery?: OrderDeliveryState | null;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
+  enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   mbti_access_hub_v1?: MbtiAccessHubV1Raw | null;
   [key: string]: unknown;
 };
@@ -844,6 +880,7 @@ export type AttemptReportAccessResponse = {
   invite_unlock_diag_v1?: InviteUnlockDiagnosticRaw | null;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
+  enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   meta?: {
     produced_at?: string | null;
     refreshed_at?: string | null;
@@ -1583,6 +1620,7 @@ export type ShareSummaryResponse = {
   mbti_public_summary_v1?: Record<string, unknown> | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
+  enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
@@ -1743,6 +1781,7 @@ export type PublicFormSummaryV1Raw = {
 
 export type MbtiFormSummaryV1Raw = PublicFormSummaryV1Raw;
 export type Big5FormSummaryV1Raw = PublicFormSummaryV1Raw;
+export type EnneagramFormSummaryV1Raw = PublicFormSummaryV1Raw;
 
 export type OrderResendResponse = {
   ok?: boolean;
@@ -1816,6 +1855,7 @@ export type MeAttemptItem = {
   type_code?: string;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
+  enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   access_summary?: {
     access_state?: string;
     report_state?: string;

@@ -4,7 +4,10 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import {
   buildEnneagramSubmitAnswers,
+  fetchEnneagramHistory,
   fetchEnneagramQuestions,
+  fetchEnneagramReport,
+  fetchEnneagramReportAccess,
   startEnneagramAttempt,
   submitEnneagramAttempt,
 } from "@/lib/enneagram/api";
@@ -15,7 +18,10 @@ import {
 } from "@/lib/enneagram/forms";
 
 const hoisted = vi.hoisted(() => ({
+  fetchAttemptReportAccess: vi.fn(),
   fetchScaleQuestions: vi.fn(),
+  getAttemptReport: vi.fn(),
+  getMyAttempts: vi.fn(),
   startAttempt: vi.fn(),
   submitAttempt: vi.fn(),
 }));
@@ -33,7 +39,10 @@ vi.mock("@/lib/api/v0_3", async () => {
 
   return {
     ...actual,
+    fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
     fetchScaleQuestions: hoisted.fetchScaleQuestions,
+    getAttemptReport: hoisted.getAttemptReport,
+    getMyAttempts: hoisted.getMyAttempts,
     startAttempt: hoisted.startAttempt,
     submitAttempt: hoisted.submitAttempt,
   };
@@ -74,6 +83,48 @@ describe("enneagram frontend API contract", () => {
     hoisted.submitAttempt.mockResolvedValue({
       ok: true,
       attempt_id: "attempt_enneagram_1",
+    });
+    hoisted.getAttemptReport.mockResolvedValue({
+      ok: true,
+      scale_code: "ENNEAGRAM",
+      enneagram_form_v1: {
+        form_code: "enneagram_likert_105",
+        label: "105-question Likert",
+        short_label: "105Q Likert",
+        question_count: 105,
+        estimated_minutes: 18,
+        scale_code: "ENNEAGRAM",
+      },
+      enneagram_public_projection_v1: {
+        primary_type: {
+          code: "T1",
+          label: "Type 1",
+        },
+      },
+      report: {
+        scale_code: "ENNEAGRAM",
+        sections: [],
+      },
+    });
+    hoisted.fetchAttemptReportAccess.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt_enneagram_1",
+      access_state: "ready",
+      report_state: "ready",
+      pdf_state: "ready",
+      actions: {
+        page_href: "/en/result/attempt_enneagram_1",
+        pdf_href: "/api/v0.3/attempts/attempt_enneagram_1/report.pdf",
+      },
+    });
+    hoisted.getMyAttempts.mockResolvedValue({
+      ok: true,
+      scale_code: "ENNEAGRAM",
+      items: [],
+      meta: {
+        current_page: 1,
+        last_page: 1,
+      },
     });
   });
 
@@ -171,5 +222,43 @@ describe("enneagram frontend API contract", () => {
       durationMs: 120000,
     });
     expect(JSON.stringify(payload.answers)).not.toMatch(/score|raw|type_vector|ranked/i);
+  });
+
+  it("consumes report, access, and history endpoints without introducing a frontend projection bridge", async () => {
+    await fetchEnneagramReport({
+      attemptId: "attempt_enneagram_1",
+      anonId: "anon_test",
+      locale: "en",
+    });
+    await fetchEnneagramReportAccess({
+      attemptId: "attempt_enneagram_1",
+      anonId: "anon_test",
+      locale: "en",
+    });
+    await fetchEnneagramHistory({
+      anonId: "anon_test",
+      locale: "en",
+      page: 1,
+      pageSize: 10,
+    });
+
+    expect(hoisted.getAttemptReport).toHaveBeenCalledWith({
+      attemptId: "attempt_enneagram_1",
+      refresh: undefined,
+      anonId: "anon_test",
+      locale: "en",
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
+      attemptId: "attempt_enneagram_1",
+      anonId: "anon_test",
+      locale: "en",
+    });
+    expect(hoisted.getMyAttempts).toHaveBeenCalledWith({
+      scaleCode: "ENNEAGRAM",
+      page: 1,
+      pageSize: 10,
+      anonId: "anon_test",
+      locale: "en",
+    });
   });
 });

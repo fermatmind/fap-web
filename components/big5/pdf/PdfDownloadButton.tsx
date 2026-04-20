@@ -18,12 +18,14 @@ export function PdfDownloadButton({
   accessProjection,
   onDownloaded,
   locale = "en",
+  filenamePrefix = "big5-report",
 }: {
   attemptId: string;
   locked: boolean;
   accessProjection?: AttemptReportAccessView | null;
   onDownloaded?: () => void;
   locale?: "en" | "zh";
+  filenamePrefix?: string;
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -65,7 +67,7 @@ export function PdfDownloadButton({
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = `big5-report-${resolvedAttemptId}.pdf`;
+      anchor.download = `${filenamePrefix}-${resolvedAttemptId}.pdf`;
       document.body.appendChild(anchor);
       anchor.click();
       anchor.remove();
