@@ -78,7 +78,8 @@ describe("BIG5 contract schemas", () => {
 
     expect(canonical120.locked).toBe(false);
     expect(canonical120.variant).toBe("full");
-    expect(Array.isArray(canonical120.offers) ? canonical120.offers : []).toHaveLength(0);
+    const canonical120Offers = (canonical120 as { offers?: unknown }).offers;
+    expect(Array.isArray(canonical120Offers) ? canonical120Offers : []).toHaveLength(0);
     expect(canonical120.big5_form_v1?.form_code).toBe("big5_120");
     expect(canonical120.big5_form_v1?.question_count).toBe(120);
     expect(canonical120.big5_public_projection_v1?.ordered_section_keys ?? []).toEqual([

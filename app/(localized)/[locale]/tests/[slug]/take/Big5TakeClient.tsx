@@ -52,7 +52,6 @@ import {
   createTakeFlowController,
   recoverStaleAttemptSubmit,
   resolveStaleDraftResetMessage,
-  shouldBlockInvalidDraftOnTakePage,
 } from "@/lib/attempt/staleAttempt";
 import {
   linkAnonAttemptsOnceOnLoginSuccess,
@@ -144,6 +143,7 @@ export default function Big5TakeClient({
   const mountedRef = useRef(true);
   const takeFlowRef = useRef(createTakeFlowController());
   const latestAnswersRef = useRef<Record<string, string>>(answers);
+  const ensureAttemptPromiseRef = useRef<Promise<string | null> | null>(null);
   const submitInFlightRef = useRef(false);
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
@@ -159,6 +159,14 @@ export default function Big5TakeClient({
     [resolvedFormCode]
   );
   const effectiveEstimatedMinutes = estimatedMinutes ?? resolvedFormMeta.estimatedMinutes;
+  const savedSlug = useBig5AttemptStore((store) => store.slug);
+  const savedFormCode = useBig5AttemptStore((store) => store.formCode);
+  const matchesSavedAttempt = useMemo(() => {
+    if (!attemptId) {
+      return false;
+    }
+    return savedSlug === slug && savedFormCode === resolvedFormCode;
+  }, [attemptId, resolvedFormCode, savedFormCode, savedSlug, slug]);
 
   const total = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -167,12 +175,6 @@ export default function Big5TakeClient({
     () => questions.reduce((sum, item) => sum + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
   );
-  const shouldBlockStaleDraft = shouldBlockInvalidDraftOnTakePage({
-    answeredCount,
-    totalQuestions: total,
-    attemptId,
-  });
-
   const needsConsent =
     !disclaimerAcceptedAt ||
     !serverDisclaimerVersion ||
@@ -421,27 +423,6 @@ export default function Big5TakeClient({
   }, [answers]);
 
   useEffect(() => {
-    if (loadingQuestions) {
-      return;
-    }
-
-    if (shouldBlockStaleDraft) {
-      clearAttemptMeta();
-      cancelPendingSubmitSideEffects();
-      setSubmitOverlayVisible(false);
-      setSubmitOverlayPhase(0);
-      setSubmitting(false);
-      setSubmitError(null);
-      setSubmitErrorAction(null);
-      setSubmitCanRetry(false);
-      setStaleDraftError(resolveStaleDraftResetMessage(locale));
-      return;
-    }
-
-    setStaleDraftError(null);
-  }, [cancelPendingSubmitSideEffects, clearAttemptMeta, loadingQuestions, locale, shouldBlockStaleDraft]);
-
-  useEffect(() => {
     if (answeredCount === 0) {
       setSeenMilestones([]);
       setMilestoneHint(null);
@@ -685,134 +666,147 @@ export default function Big5TakeClient({
       return null;
     }
 
+    if (ensureAttemptPromiseRef.current) {
+      return ensureAttemptPromiseRef.current;
+    }
+
     if (inCooldown) {
       setStartError(retryCountdownText(cooldownSeconds));
       return null;
     }
 
-    setStarting(true);
-    setStartError(null);
-
-    const acceptedAt = new Date().toISOString();
-    const requestMeta: Record<string, unknown> = {
-      accepted_version: serverDisclaimerVersion,
-      accepted_hash: serverDisclaimerHash,
-      accepted_at: acceptedAt,
-      // Temporary compatibility for backend rollouts still reading the old key.
-      disclaimer_version_accepted: serverDisclaimerVersion,
-      disclaimer_hash: serverDisclaimerHash,
-      disclaimer_locale: toApiLocale(locale),
-      slug,
-    };
-
-    for (let retry = 0; retry < 2; retry += 1) {
+    const pending = (async () => {
       try {
-        const response = await runWithAuthRetry("start_attempt", () =>
-          startBig5Attempt({
-            anonId: anonId || undefined,
-            locale: toApiLocale(locale),
-            region: "GLOBAL",
-            formCode: resolvedFormCode,
-            meta: requestMeta,
-            clientVersion: "fe-big5-2",
-          })
-        );
-        if (!isFlowActive(runId)) {
-          return null;
+        setStarting(true);
+        setStartError(null);
+
+        const acceptedAt = new Date().toISOString();
+        const requestMeta: Record<string, unknown> = {
+          accepted_version: serverDisclaimerVersion,
+          accepted_hash: serverDisclaimerHash,
+          accepted_at: acceptedAt,
+          // Temporary compatibility for backend rollouts still reading the old key.
+          disclaimer_version_accepted: serverDisclaimerVersion,
+          disclaimer_hash: serverDisclaimerHash,
+          disclaimer_locale: toApiLocale(locale),
+          slug,
+        };
+
+        for (let retry = 0; retry < 2; retry += 1) {
+          try {
+            const response = await runWithAuthRetry("start_attempt", () =>
+              startBig5Attempt({
+                anonId: anonId || undefined,
+                locale: toApiLocale(locale),
+                region: "GLOBAL",
+                formCode: resolvedFormCode,
+                meta: requestMeta,
+                clientVersion: "fe-big5-2",
+              })
+            );
+            if (!isFlowActive(runId)) {
+              return null;
+            }
+
+            setAttemptMeta({
+              attemptId: response.attempt_id,
+              resumeToken: response.resume_token ?? null,
+              disclaimerVersion: serverDisclaimerVersion,
+              disclaimerHash: serverDisclaimerHash,
+            });
+
+            setCooldownSeconds(0);
+            trackBig5Event(
+              "start_click",
+              buildEventPayload({
+                slug,
+                disclaimer_version: serverDisclaimerVersion ?? "",
+                disclaimer_hash: serverDisclaimerHash ?? "",
+              })
+            );
+
+            if (isFlowActive(runId)) {
+              setStarting(false);
+            }
+            return response.attempt_id;
+          } catch (error) {
+            if (retry === 0) {
+              const retryWaitCompleted = await takeFlowRef.current.wait(600, runId);
+              if (!retryWaitCompleted) {
+                if (isFlowActive(runId)) {
+                  setStarting(false);
+                }
+                return null;
+              }
+              continue;
+            }
+
+            if (!isFlowActive(runId)) {
+              return null;
+            }
+
+            if (isGuestTokenRequestError(error)) {
+              trackGuestTokenFailure("start_attempt", error);
+              if (isGuestTokenEndpointMissingError(error)) {
+                const message =
+                  locale === "zh"
+                    ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
+                    : "Submission is temporarily unavailable because authentication service is not configured.";
+                setAuthBlockError(message);
+                const telemetry = resolveGuestTokenTelemetry(error);
+                trackEvent("submit_blocked_no_token_service", {
+                  scale_code: "BIG5_OCEAN",
+                  status_code: telemetry.statusCode,
+                  error_code: telemetry.errorCode,
+                  request_id: telemetry.requestId,
+                  route: "/tests/[slug]/take",
+                  locale,
+                });
+              }
+            }
+
+            const mapped = mapBig5Error(error, {
+              locale,
+              fallbackFormCode: resolvedFormCode,
+              copy: big5RetakeCopy,
+            });
+            const classified = classifyApiError(error);
+            trackEvent("submit_failure", {
+              scale_code: "BIG5_OCEAN",
+              stage: "start_attempt",
+              status_group: classified.statusGroup,
+              status_code: classified.statusCode,
+              error_code: classified.errorCode,
+              route: "/tests/[slug]/take",
+              locale,
+            });
+            applyUiError("start", mapped);
+
+            if (error instanceof ApiError && error.status === 429) {
+              trackBig5Event(
+                "retake_blocked",
+                buildEventPayload({
+                  reason: mapped.reasonCode ?? error.errorCode,
+                  form_code: mapped.formCode ?? resolvedFormCode,
+                  scope_key: mapped.scopeKey ?? undefined,
+                  retry_after_seconds: mapped.retryAfterSeconds ?? 0,
+                })
+              );
+            }
+          }
         }
-
-        setAttemptMeta({
-          attemptId: response.attempt_id,
-          resumeToken: response.resume_token ?? null,
-          disclaimerVersion: serverDisclaimerVersion,
-          disclaimerHash: serverDisclaimerHash,
-        });
-
-        setCooldownSeconds(0);
-        trackBig5Event(
-          "start_click",
-          buildEventPayload({
-            slug,
-            disclaimer_version: serverDisclaimerVersion ?? "",
-            disclaimer_hash: serverDisclaimerHash ?? "",
-          })
-        );
 
         if (isFlowActive(runId)) {
           setStarting(false);
         }
-        return response.attempt_id;
-      } catch (error) {
-        if (retry === 0) {
-          const retryWaitCompleted = await takeFlowRef.current.wait(600, runId);
-          if (!retryWaitCompleted) {
-            if (isFlowActive(runId)) {
-              setStarting(false);
-            }
-            return null;
-          }
-          continue;
-        }
-
-        if (!isFlowActive(runId)) {
-          return null;
-        }
-
-        if (isGuestTokenRequestError(error)) {
-          trackGuestTokenFailure("start_attempt", error);
-          if (isGuestTokenEndpointMissingError(error)) {
-            const message =
-              locale === "zh"
-                ? "提交通道暂时不可用（认证服务未配置），请稍后再试。"
-                : "Submission is temporarily unavailable because authentication service is not configured.";
-            setAuthBlockError(message);
-            const telemetry = resolveGuestTokenTelemetry(error);
-            trackEvent("submit_blocked_no_token_service", {
-              scale_code: "BIG5_OCEAN",
-              status_code: telemetry.statusCode,
-              error_code: telemetry.errorCode,
-              request_id: telemetry.requestId,
-              route: "/tests/[slug]/take",
-              locale,
-            });
-          }
-        }
-
-        const mapped = mapBig5Error(error, {
-          locale,
-          fallbackFormCode: resolvedFormCode,
-          copy: big5RetakeCopy,
-        });
-        const classified = classifyApiError(error);
-        trackEvent("submit_failure", {
-          scale_code: "BIG5_OCEAN",
-          stage: "start_attempt",
-          status_group: classified.statusGroup,
-          status_code: classified.statusCode,
-          error_code: classified.errorCode,
-          route: "/tests/[slug]/take",
-          locale,
-        });
-        applyUiError("start", mapped);
-
-        if (error instanceof ApiError && error.status === 429) {
-          trackBig5Event(
-            "retake_blocked",
-            buildEventPayload({
-              reason: mapped.reasonCode ?? error.errorCode,
-              form_code: mapped.formCode ?? resolvedFormCode,
-              scope_key: mapped.scopeKey ?? undefined,
-              retry_after_seconds: mapped.retryAfterSeconds ?? 0,
-            })
-          );
-        }
+        return null;
+      } finally {
+        ensureAttemptPromiseRef.current = null;
       }
-    }
+    })();
 
-    if (isFlowActive(runId)) {
-      setStarting(false);
-    }
-    return null;
+    ensureAttemptPromiseRef.current = pending;
+    return pending;
   }, [
     anonId,
     authBlockError,
@@ -845,12 +839,12 @@ export default function Big5TakeClient({
       return startFreshAttempt(runId);
     }
 
-    if (attemptId) {
+    if (matchesSavedAttempt) {
       return attemptId;
     }
 
     return startFreshAttempt(runId);
-  }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, staleDraftError, startFreshAttempt]);
+  }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, matchesSavedAttempt, staleDraftError, startFreshAttempt]);
 
   useEffect(() => {
     if (loadingQuestions || questions.length === 0 || !needsConsent) {
@@ -864,7 +858,16 @@ export default function Big5TakeClient({
   }, [acceptDisclaimer, loadingQuestions, needsConsent, questions.length, serverDisclaimerHash, serverDisclaimerVersion]);
 
   const handleSelectAnswer = (questionId: string, code: string) => {
+    const shouldPrimeAttempt =
+      !attemptId &&
+      !matchesSavedAttempt &&
+      Object.keys(latestAnswersRef.current).length === 0;
+
     setAnswer(questionId, code);
+
+    if (shouldPrimeAttempt) {
+      void ensureAttempt();
+    }
 
     const questionNo = questions.findIndex((item) => item.question_id === questionId) + 1;
     trackBig5Event(
