@@ -13,6 +13,7 @@
 5. Active closeout notes:
    - `docs/release/2026-03-mbti-big5-release-freeze-closeout.md`
    - `../fap-api/docs/verify/release-freeze-mbti-big5.md`
+   - Big Five Web release / freeze rule: `docs/release/big5-release-freeze-rule.md`
 
 ## 2) Launch Gate (Blockers)
 1. Contract:
