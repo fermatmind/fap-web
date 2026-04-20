@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
+import { EnneagramResultShell } from "@/components/result/enneagram/EnneagramResultShell";
 import { MbtiResultShell } from "@/components/result/mbti/MbtiResultShell";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
+import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
 import {
   buildMbtiResultProjectionViewModel,
   hasMbtiResultProjection,
@@ -24,7 +26,7 @@ import {
   type SupportedScaleCode,
 } from "@/lib/assessmentSlugMap";
 
-type RichResultScaleCode = Extract<SupportedScaleCode, "MBTI" | "BIG5_OCEAN" | "IQ_RAVEN" | "EQ_60">;
+type RichResultScaleCode = Extract<SupportedScaleCode, "MBTI" | "BIG5_OCEAN" | "ENNEAGRAM" | "IQ_RAVEN" | "EQ_60">;
 
 export type ReportBlock = {
   id?: string;
@@ -352,13 +354,18 @@ function filterVisibleTags(tags: string[]): string[] {
 
 export function resolveReportScaleCode(reportData: ReportResponse | null | undefined): RichResultScaleCode | null {
   const payload = resolveReportPayload(reportData);
-  const candidates = [normalizeText(payload?.scale_code), normalizeText(reportData?.meta?.scale_code)];
+  const candidates = [
+    normalizeText(payload?.scale_code),
+    normalizeText(reportData?.scale_code),
+    normalizeText(reportData?.meta?.scale_code),
+  ];
 
   for (const candidate of candidates) {
     const normalized = normalizeSupportedScaleCode(candidate);
     if (
       normalized === "MBTI" ||
       normalized === "BIG5_OCEAN" ||
+      normalized === "ENNEAGRAM" ||
       normalized === "IQ_RAVEN" ||
       normalized === "EQ_60"
     ) {
@@ -370,7 +377,13 @@ export function resolveReportScaleCode(reportData: ReportResponse | null | undef
 }
 
 export function isRichResultScaleCode(scaleCode: string | null | undefined): scaleCode is RichResultScaleCode {
-  return scaleCode === "MBTI" || scaleCode === "BIG5_OCEAN" || scaleCode === "IQ_RAVEN" || scaleCode === "EQ_60";
+  return (
+    scaleCode === "MBTI" ||
+    scaleCode === "BIG5_OCEAN" ||
+    scaleCode === "ENNEAGRAM" ||
+    scaleCode === "IQ_RAVEN" ||
+    scaleCode === "EQ_60"
+  );
 }
 
 export function isGeneratingReportResponse(reportData: ReportResponse | null | undefined): boolean {
@@ -1249,13 +1262,17 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
     return false;
   }
 
+  if (scaleCode === "MBTI" && reportData && hasMbtiResultProjection(reportData)) {
+    return true;
+  }
+
+  if (scaleCode === "ENNEAGRAM" && reportData && hasEnneagramProjection(reportData)) {
+    return true;
+  }
+
   const payload = resolveReportPayload(reportData);
   if (!payload) {
     return false;
-  }
-
-  if (scaleCode === "MBTI" && reportData && hasMbtiResultProjection(reportData)) {
-    return true;
   }
 
   return Boolean(
@@ -1298,10 +1315,15 @@ export function RichResultReport({
         ? []
         : scaleCode === "BIG5_OCEAN"
           ? []
+          : scaleCode === "ENNEAGRAM"
+            ? []
         : normalizeDimensions(scaleCode, reportData, locale);
   const highlights = normalizeHighlights(reportData, gate, locale);
   const recommendedReads = resolveRecommendedReads(reportData);
-  const sections = scaleCode === "BIG5_OCEAN" ? [] : normalizeRichSections(reportData, locale, gate);
+  const sections =
+    scaleCode === "BIG5_OCEAN" || scaleCode === "ENNEAGRAM"
+      ? []
+      : normalizeRichSections(reportData, locale, gate);
   const rawOffers = normalizeOffers(reportData);
   const offers = scaleCode === "MBTI" ? filterMbtiOffers(rawOffers) : rawOffers;
   const resolvedOffers = offers.map((offer) => resolveOfferCopy(offer, locale));
@@ -1381,6 +1403,26 @@ export function RichResultReport({
         visibleSections={assembled.visibleSections}
         lockedSections={assembled.lockedSections}
         recommendedOffers={recommendedOffers}
+      />
+    );
+  }
+
+  if (scaleCode === "ENNEAGRAM") {
+    const assembled = assembleEnneagramResultViewModel({
+      locale,
+      reportData,
+      gate: {
+        isFreeVariant: gate.isFreeVariant,
+      },
+    });
+
+    return (
+      <EnneagramResultShell
+        locale={locale}
+        attemptId={accessProjection?.attemptId ?? ""}
+        reportLocked={accessProjection ? accessProjection.accessState !== "ready" : reportData.locked === true}
+        accessProjection={accessProjection}
+        viewModel={assembled}
       />
     );
   }

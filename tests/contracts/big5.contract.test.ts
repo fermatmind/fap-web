@@ -5,6 +5,7 @@ import {
   big5StartAttemptResponseSchema,
   big5SubmitResponseSchema,
 } from "@/lib/big5/contracts/schemas";
+import type { ReportResponse } from "@/lib/api/v0_3";
 import canonical120ReportFixture from "@/tests/fixtures/big5/report_canonical_120_readable.projection.json";
 import canonical90ReportFixture from "@/tests/fixtures/big5/report_canonical_90_readable.projection.json";
 import canonicalDegradedReportFixture from "@/tests/fixtures/big5/report_canonical_degraded.projection.json";
@@ -67,9 +68,9 @@ describe("BIG5 contract schemas", () => {
   });
 
   it("validates canonical heavy report fixtures (120/90/degraded) as stable report contracts", () => {
-    const canonical120 = structuredClone(canonical120ReportFixture);
-    const canonical90 = structuredClone(canonical90ReportFixture);
-    const canonicalDegraded = structuredClone(canonicalDegradedReportFixture);
+    const canonical120 = structuredClone(canonical120ReportFixture) as ReportResponse;
+    const canonical90 = structuredClone(canonical90ReportFixture) as ReportResponse;
+    const canonicalDegraded = structuredClone(canonicalDegradedReportFixture) as ReportResponse;
 
     expect(() => big5ReportResponseSchema.parse(canonical120)).not.toThrow();
     expect(() => big5ReportResponseSchema.parse(canonical90)).not.toThrow();

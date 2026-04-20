@@ -46,6 +46,10 @@ function resolveScaleDisplayName(scaleCode: string, locale?: "en" | "zh"): strin
     return locale === "zh" ? "大五人格" : "Big Five";
   }
 
+  if (scaleCode === "ENNEAGRAM") {
+    return locale === "zh" ? "九型人格" : "Enneagram";
+  }
+
   return scaleCode || "MBTI";
 }
 

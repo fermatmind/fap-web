@@ -1,8 +1,14 @@
 import {
+  fetchAttemptReportAccess,
   fetchScaleQuestions,
+  getAttemptReport,
+  getMyAttempts,
   startAttempt,
   submitAttempt,
+  type AttemptReportAccessResponse,
+  type MeAttemptsResponse,
   type QuestionsResponse,
+  type ReportResponse,
   type StartAttemptResponse,
   type SubmitAnswer,
   type SubmitResponse,
@@ -11,6 +17,9 @@ import { getOrCreateAnonId } from "@/lib/anon";
 import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import {
   enneagramQuestionsResponseSchema,
+  enneagramMeAttemptsResponseSchema,
+  enneagramReportAccessResponseSchema,
+  enneagramReportResponseSchema,
   enneagramStartAttemptResponseSchema,
   enneagramSubmitResponseSchema,
 } from "@/lib/enneagram/contracts/schemas";
@@ -167,6 +176,89 @@ export async function submitEnneagramAttempt({
   });
 
   return assertContract<SubmitResponse>("enneagramSubmitResponse", enneagramSubmitResponseSchema, response);
+}
+
+export async function fetchEnneagramReport({
+  attemptId,
+  refresh,
+  anonId,
+  locale,
+}: {
+  attemptId: string;
+  refresh?: boolean;
+  anonId?: string;
+  locale?: string;
+}): Promise<ReportResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withEnneagramAuthRetry({
+    anonId: resolvedAnonId,
+    locale,
+    run: () =>
+      getAttemptReport({
+        attemptId,
+        refresh,
+        anonId: resolvedAnonId,
+        locale,
+      }),
+  });
+
+  return assertContract<ReportResponse>("enneagramReportResponse", enneagramReportResponseSchema, response);
+}
+
+export async function fetchEnneagramReportAccess({
+  attemptId,
+  anonId,
+  locale,
+}: {
+  attemptId: string;
+  anonId?: string;
+  locale?: string;
+}): Promise<AttemptReportAccessResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withEnneagramAuthRetry({
+    anonId: resolvedAnonId,
+    locale,
+    run: () =>
+      fetchAttemptReportAccess({
+        attemptId,
+        anonId: resolvedAnonId,
+        locale,
+      }),
+  });
+
+  return assertContract<AttemptReportAccessResponse>(
+    "enneagramReportAccessResponse",
+    enneagramReportAccessResponseSchema,
+    response
+  );
+}
+
+export async function fetchEnneagramHistory({
+  page,
+  pageSize,
+  anonId,
+  locale,
+}: {
+  page?: number;
+  pageSize?: number;
+  anonId?: string;
+  locale?: string;
+} = {}): Promise<MeAttemptsResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withEnneagramAuthRetry({
+    anonId: resolvedAnonId,
+    locale,
+    run: () =>
+      getMyAttempts({
+        scaleCode: ENNEAGRAM_SCALE_CODE,
+        page,
+        pageSize,
+        anonId: resolvedAnonId,
+        locale,
+      }),
+  });
+
+  return assertContract<MeAttemptsResponse>("enneagramMeAttemptsResponse", enneagramMeAttemptsResponseSchema, response);
 }
 
 export function isEnneagramForcedChoiceForm(formCode: string | null | undefined): boolean {
