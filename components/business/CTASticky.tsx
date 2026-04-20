@@ -108,9 +108,6 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
               <div className="space-y-2" data-testid="mbti-sticky-entry-cta-group">
                 {mbtiPrimaryForm && mbtiPrimaryHref && mbtiPrimaryTrackingProps ? (
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
-                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                      {locale === "zh" ? "推荐起点" : "Recommended start"}
-                    </p>
                     <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
                       {getMbtiVariantLabel(mbtiPrimaryForm.formCode, locale)}
                     </p>

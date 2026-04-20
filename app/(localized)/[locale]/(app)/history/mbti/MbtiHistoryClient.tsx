@@ -589,7 +589,6 @@ export default function MbtiHistoryClient() {
         className="space-y-4 rounded-[var(--fm-radius-xl)] border border-[var(--fm-border)] bg-[var(--fm-surface)] px-6 py-6 shadow-[var(--fm-shadow-sm)]"
       >
         <div className="space-y-2">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{copy.kicker}</p>
           <h1 className="text-2xl font-bold text-slate-900">{copy.title}</h1>
           <p className="m-0 text-sm leading-7 text-slate-600">{copy.descriptionPrimary}</p>
           <p className="m-0 text-sm leading-7 text-slate-600">{copy.descriptionRecovery}</p>
@@ -725,7 +724,6 @@ export default function MbtiHistoryClient() {
           <CardContent className="space-y-4 py-6">
             <div className="space-y-2">
               <h2 className="m-0 text-lg font-semibold text-slate-950">{copy.emptyTitle}</h2>
-              <p className="m-0 text-sm text-slate-600">{copy.emptyDescription}</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link href={startTestHref} className={buttonVariants({ className: "w-full sm:w-auto" })} data-testid="mbti-history-empty-start">

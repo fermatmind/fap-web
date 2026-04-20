@@ -37,7 +37,7 @@ function HomepageHeroV1({ copy }: { copy: HomePageContent }) {
           <h1 className="m-0 text-[2.85rem] font-black leading-[1.04] tracking-normal text-slate-950 sm:text-[3.6rem] md:whitespace-nowrap md:text-[4.75rem] md:leading-[1] lg:text-[5.25rem]">
             {copy.hero.title}
           </h1>
-          <p className="m-0 mx-auto mt-9 max-w-[42rem] text-[1.08rem] font-normal leading-[1.72] tracking-normal text-slate-500 sm:text-lg md:max-w-[47rem] md:text-[1.35rem] md:leading-relaxed lg:text-2xl">
+          <p className="m-0 mx-auto mt-9 max-w-[42rem] text-[1.08rem] font-normal leading-[1.72] tracking-normal text-slate-500 sm:text-lg md:max-w-none md:whitespace-nowrap md:text-[1.35rem] md:leading-relaxed lg:text-2xl">
             {copy.hero.subhead}
           </p>
         </div>

@@ -383,7 +383,7 @@ function FlagshipVariantChooser({
 
       <div className="mt-5 grid gap-3 md:grid-cols-2">
         {choices.map((choice) => (
-          <article key={choice.key} className="rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_16px_44px_rgba(15,23,42,0.05)]">
+          <article key={choice.key} className="flex h-full flex-col rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_16px_44px_rgba(15,23,42,0.05)]">
             <div className="space-y-2">
               <h3 className="m-0 text-[1rem] font-semibold tracking-[-0.02em] text-slate-950">{choice.label}</h3>
               <p className="m-0 text-sm leading-7 text-slate-600">{choice.summary}</p>
@@ -392,7 +392,7 @@ function FlagshipVariantChooser({
               href={choice.href}
               prefetch={false}
               data-testid={choice.testId}
-              className={buttonVariants({ size: "sm", className: "mt-4 w-full justify-center" })}
+              className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
             >
               {choice.ctaLabel}
             </Link>
@@ -686,7 +686,7 @@ export default async function TestLandingPage({
           <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
               <div className="space-y-3">
-                <h1 title={heroTitleDisplay.plain} className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:text-4xl">
+                <h1 title={heroTitleDisplay.plain} className="font-serif text-3xl font-semibold tracking-tight text-[var(--fm-text)] md:whitespace-nowrap md:text-[2.15rem] lg:text-[2.35rem]">
                   {heroTitleDisplay.multilineFallback ? (
                     <span className="inline-flex flex-col break-words">
                       <span>{heroTitleDisplay.line1}</span>
@@ -914,7 +914,6 @@ export default async function TestLandingPage({
           <Card data-testid="tests-related-articles-section">
             <CardHeader>
               <CardTitle>{dict.tests.relatedArticles.title}</CardTitle>
-              <p className="m-0 text-sm text-slate-600">{dict.tests.relatedArticles.subtitle}</p>
             </CardHeader>
             <CardContent>
               {relatedArticles.length === 0 ? (
@@ -975,42 +974,6 @@ export default async function TestLandingPage({
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">FAQ</h2>
             <FAQAccordion items={mergedFaq} />
           </section>
-
-          {showsBig5Actions ? (
-            <section className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-              <div className="space-y-5">
-                <div className="space-y-2">
-                  <h2 className="m-0 text-2xl font-bold tracking-tight text-slate-900">
-                    {locale === "zh" ? "准备开始？再选一次版本。" : "Ready to begin? Choose the version once more."}
-                  </h2>
-                  <p className="m-0 text-sm leading-7 text-slate-600">
-                    {locale === "zh"
-                      ? "短版适合快速起步，长版适合想要更完整画像的人。"
-                      : "The shorter version is for a faster start. The deeper version is for a fuller profile."}
-                  </p>
-                </div>
-                <FlagshipVariantChooser
-                  title={locale === "zh" ? "版本选择" : "Version chooser"}
-                  subtitle={
-                    locale === "zh"
-                      ? "如果你已经看完介绍和 FAQ，这里直接进入更适合的版本。"
-                      : "If you have reviewed the page and FAQ, start from the version that fits you best."
-                  }
-                  choices={flagshipVariantChoices}
-                />
-                <div className="flex flex-wrap gap-2">
-                  <Link href={withLocale("/tests/category/personality")} className="fm-help-chip-link">
-                    {locale === "zh" ? "返回人格与风格入口" : "Back to personality hub"}
-                  </Link>
-                  {continuePublicContentCta ? (
-                    <Link href={continuePublicContentCta.href} className="fm-help-chip-link">
-                      {continuePublicContentCta.label}
-                    </Link>
-                  ) : null}
-                </div>
-              </div>
-            </section>
-          ) : null}
 
           {disclaimer ? (
             <Card id="limitations">
