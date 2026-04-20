@@ -1,4 +1,5 @@
 import type { CareerDatasetMemberAdapter } from "@/lib/career/adapters/types";
+import type { CareerJobIndexCardAdapter } from "@/lib/career/adapters/types";
 import { CAREER_STATIC_OCCUPATION_MEMBERS } from "@/lib/career/staticOccupationMembers";
 import type { Locale } from "@/lib/i18n/locales";
 
@@ -99,6 +100,131 @@ export function isCareerDatasetMemberPublic(member: CareerDatasetMemberAdapter):
   return member.includedInPublicDataset || member.releaseCohort === "public_detail_indexable" || member.releaseCohort === "public_detail_conservative";
 }
 
+function hasBlockedDraftTitle(title: string | null): boolean {
+  const normalized = String(title ?? "").trim();
+  if (!normalized) {
+    return false;
+  }
+
+  return (
+    normalized.startsWith("和") ||
+    normalized.endsWith("和") ||
+    normalized.startsWith("专家") ||
+    normalized.endsWith("专家") ||
+    normalized.includes("、和") ||
+    normalized.includes("和、") ||
+    normalized.includes("和工人") ||
+    normalized.includes("和机器") ||
+    normalized.includes("和官") ||
+    normalized.includes("和专员") ||
+    normalized.includes("和操作员") ||
+    normalized.includes("和看护员") ||
+    normalized.includes("铺设工") ||
+    normalized.includes("简餐订单") ||
+    normalized.includes("教师、高等教育") ||
+    normalized.includes("教师商业") ||
+    normalized.includes("分析师商业") ||
+    normalized.includes("专家商业") ||
+    normalized.includes("专家教育") ||
+    normalized.includes("专家计算机") ||
+    normalized.includes("专家金融") ||
+    normalized.includes("专家媒体") ||
+    normalized.includes("专家牙医") ||
+    normalized.includes("专家科学家") ||
+    normalized.includes("专家经理") ||
+    normalized.includes("专家主管") ||
+    normalized.includes("专家治疗师") ||
+    normalized.includes("操作员计算机") ||
+    normalized.includes("工程师计算机") ||
+    normalized.includes("教师计算机") ||
+    normalized.includes("教育教师") ||
+    normalized.includes("主管工人") ||
+    normalized.includes("主管官") ||
+    normalized.includes("科学家工人") ||
+    normalized.includes("操作员工人") ||
+    normalized.includes("技术员工人") ||
+    normalized.includes("工程师操作员") ||
+    [
+      "其他",
+      "其他职业",
+      "简餐订单",
+      "经理商业",
+      "和经理",
+      "和工人",
+      "和休闲服务员",
+      "技术员",
+      "操作员",
+      "经理",
+      "工人",
+      "工程",
+      "工程师",
+      "专员",
+      "人员",
+      "科学家",
+      "分析师",
+      "助理",
+      "护士",
+      "教师",
+      "设计师",
+      "商业",
+      "计算机",
+      "食品",
+      "私人",
+      "数据",
+      "制造",
+      "总监",
+      "营销",
+      "官",
+      "机组官",
+      "步兵官",
+      "帮工",
+      "治疗师",
+      "艺术家",
+      "审计师",
+      "制图员",
+      "家电",
+      "机械门",
+      "钟表",
+      "检查员",
+      "技术专家",
+      "医学研究人员",
+      "化学研究人员",
+      "哲学研究人员",
+      "法学研究人员",
+      "数学研究人员",
+      "专业人员",
+      "价格专业人员",
+      "统计专业人员",
+      "品牌专业人员",
+      "精算专业人员",
+      "期货专业人员",
+      "基金专业人员",
+      "档案专业人员",
+      "考古专业人员",
+      "教育工人",
+      "采掘工人",
+      "维护工人",
+      "生产工人",
+      "运输工人",
+      "医疗保健工人",
+      "个人护理工人",
+      "保护服务工人",
+      "建筑施工工人",
+      "采掘工人",
+    ].includes(normalized)
+  );
+}
+
+function stripTrailingOtherQualifier(title: string | null): string | null {
+  const normalized = String(title ?? "").trim();
+  if (!normalized) {
+    return title;
+  }
+
+  const stripped = normalized.replace(/、其他$/u, "").trim();
+  return stripped !== "" ? stripped : normalized;
+}
+
 export function buildCareerFamilyDirectory(
   members: CareerDatasetMemberAdapter[],
   locale: Locale
@@ -156,27 +282,50 @@ export function filterCareerDatasetMembers(input: {
 export function buildRenderableCareerDatasetMembers(input: {
   datasetMembers: CareerDatasetMemberAdapter[];
   detailReadySlugs?: Set<string>;
+  detailReadyJobs?: Map<string, CareerJobIndexCardAdapter>;
 }): CareerDatasetMemberAdapter[] {
   const staticMemberBySlug = new Map(CAREER_STATIC_OCCUPATION_MEMBERS.map((member) => [member.canonicalSlug, member]));
+  const detailReadySlugs =
+    input.detailReadySlugs ?? new Set([...(input.detailReadyJobs?.keys() ?? [])]);
 
   if (input.datasetMembers.length > 0) {
-    const detailReadySlugs = input.detailReadySlugs ?? new Set<string>();
+    return input.datasetMembers.flatMap((member) => {
+      const detailReadyJob = input.detailReadyJobs?.get(member.canonicalSlug) ?? null;
+      const hasDetailPage = detailReadySlugs.has(member.canonicalSlug);
+      const staticMember = staticMemberBySlug.get(member.canonicalSlug);
+      const canonicalTitleEn = detailReadyJob?.titles.canonicalEn ?? member.canonicalTitleEn;
+      const canonicalTitleZh =
+        stripTrailingOtherQualifier(
+          detailReadyJob?.titles.canonicalZh ?? member.canonicalTitleZh ?? staticMember?.canonicalTitleZh ?? null
+        );
 
-    return input.datasetMembers.map((member) => ({
-      ...member,
-      canonicalTitleZh: member.canonicalTitleZh ?? staticMemberBySlug.get(member.canonicalSlug)?.canonicalTitleZh ?? null,
-      ...(detailReadySlugs.has(member.canonicalSlug)
-        ? {
-            releaseCohort: "public_detail_indexable" as const,
-            publicIndexState: "indexable",
-            strongIndexDecision: "strong_index_ready",
-            includedInPublicDataset: true,
-          }
-        : {}),
-    }));
+      if (!hasDetailPage && !canonicalTitleZh && canonicalTitleEn === member.canonicalSlug) {
+        return [];
+      }
+      if (!hasDetailPage && hasBlockedDraftTitle(canonicalTitleZh)) {
+        return [];
+      }
+
+      return [{
+        ...member,
+        canonicalTitleEn,
+        canonicalTitleZh,
+        ...(hasDetailPage
+          ? {
+              releaseCohort: "public_detail_indexable" as const,
+              publicIndexState: "indexable",
+              strongIndexDecision: "strong_index_ready",
+              includedInPublicDataset: true,
+            }
+          : {
+              publicIndexState: member.publicIndexState === "indexable" ? "noindex" : member.publicIndexState,
+              strongIndexDecision:
+                member.strongIndexDecision === "strong_index_ready" ? "not_eligible" : member.strongIndexDecision,
+            }),
+      }];
+    });
   }
 
-  const detailReadySlugs = input.detailReadySlugs ?? new Set<string>();
   return CAREER_STATIC_OCCUPATION_MEMBERS.map((member) => {
     const hasDetailPage = detailReadySlugs.has(member.canonicalSlug);
     if (!hasDetailPage) {

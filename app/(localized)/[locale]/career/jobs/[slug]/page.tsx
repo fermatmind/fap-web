@@ -256,10 +256,14 @@ function renderMarkdownLine(line: string, index: number) {
   );
 }
 
+function stripOrderedListMarker(line: string): string {
+  return line.replace(/^\d+\.\s*/, "").trim();
+}
+
 function ContentSection({ section }: { section: CareerJobBundleAdapter["contentSections"][number] }) {
   const lines = section.bodyMd.split(/\n+/).map((line) => line.trim()).filter(Boolean);
   const bulletLines = lines.filter((line) => /^[-•]\s+/.test(line));
-  const orderedLines = lines.filter((line) => /^\d+\.\s+/.test(line));
+  const orderedItems = lines.filter((line) => /^\d+\.\s+/.test(line)).map(stripOrderedListMarker).filter(Boolean);
   const proseLines = lines.filter((line) => !/^[-•]\s+/.test(line) && !/^\d+\.\s+/.test(line));
 
   return (
@@ -268,7 +272,7 @@ function ContentSection({ section }: { section: CareerJobBundleAdapter["contentS
       <div className="space-y-3 text-base leading-8 text-slate-600">
         {proseLines.map((line, index) => renderMarkdownLine(line, index))}
         {bulletLines.length > 0 ? <ul className="m-0 list-disc space-y-2 pl-5">{bulletLines.map((line, index) => renderMarkdownLine(line, index))}</ul> : null}
-        {orderedLines.length > 0 ? <ol className="m-0 list-decimal space-y-2 pl-5">{orderedLines.map((line, index) => renderMarkdownLine(line, index))}</ol> : null}
+        {orderedItems.length > 0 ? <ul className="m-0 list-disc space-y-2 pl-5">{orderedItems.map((item, index) => <li key={index} className="pl-1">{item}</li>)}</ul> : null}
       </div>
     </article>
   );
@@ -547,14 +551,13 @@ function CareerJobDocument({ bodyMd, title }: { bodyMd: string; title: string })
 
           if (block.kind === "ordered") {
             return (
-              <ol key={index} className="m-0 space-y-3">
+              <ul key={index} className="m-0 list-disc space-y-3 pl-6">
                 {block.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex gap-2">
-                    <span className="shrink-0 tabular-nums text-slate-500">{itemIndex + 1}、</span>
-                    <span>{formatCareerJobDocumentText(item)}</span>
+                  <li key={itemIndex} className="pl-1">
+                    {formatCareerJobDocumentText(item)}
                   </li>
                 ))}
-              </ol>
+              </ul>
             );
           }
 

@@ -70,14 +70,14 @@ export default async function CareerIndustryDetailPage({
     fetchCareerJobIndex({ locale }),
   ]);
   const dataset = adaptCareerDatasetHub({ payload: datasetPayload });
-  const detailReadySlugs = new Set(
+  const detailReadyJobs = new Map(
     adaptCareerJobIndex({ locale, payload: jobIndexPayload })
       .filter((job) => job.seoContract.indexState === "indexable" && job.seoContract.indexEligible !== false)
-      .map((job) => job.identity.canonicalSlug)
+      .map((job) => [job.identity.canonicalSlug, job])
   );
   const members = buildRenderableCareerDatasetMembers({
     datasetMembers: dataset?.members ?? [],
-    detailReadySlugs,
+    detailReadyJobs,
   });
   const families = buildCareerFamilyDirectory(members, locale);
   const family = families.find((item) => item.slug === familySlug);

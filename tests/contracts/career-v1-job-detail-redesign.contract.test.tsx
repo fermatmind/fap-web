@@ -29,4 +29,16 @@ describe("career V1 job detail redesign contract", () => {
     expect(source).not.toContain("Backend score dimensions");
     expect(source).not.toContain("Compiler version");
   });
+
+  it("renders career job ordered markdown as dot bullets instead of numbered subheads", () => {
+    const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
+
+    expect(source).toContain("stripOrderedListMarker");
+    expect(source).toContain("sectionNumerals");
+    expect(source).toContain("return `${sectionNumerals[sectionHeading[1]]}、${sectionHeading[2]}`;");
+    expect(source).toContain("<ul key={index} className=\"m-0 list-disc space-y-3 pl-6\">");
+    expect(source).not.toContain("list-decimal space-y-2");
+    expect(source).not.toContain("{itemIndex + 1}、");
+    expect(source).not.toContain("aria-hidden=\"true\"");
+  });
 });
