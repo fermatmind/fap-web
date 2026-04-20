@@ -36,6 +36,13 @@ The P0 job currently runs:
 pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
 ```
 
+Release-freeze relationship:
+
+- `scripts/release_freeze_verify.sh` remains the mixed MBTI + Big Five Web release-freeze evidence entry.
+- It currently includes `tests/contracts/big5.contract.test.ts`, `tests/contracts/big5-secondary-surfaces.contract.test.tsx`, `tests/e2e/big5-flow.spec.ts`, and `tests/e2e/big5-history-result-center.spec.ts`.
+- The dedicated `verify-big5-contract-freeze` job is the Big Five Web P0 canonical fixture gate because it also includes `tests/contracts/big5-result-assembler.contract.test.ts`.
+- For Big Five release approval, the release owner should treat this document and `verify-big5-contract-freeze` as the Big Five-specific stop-ship rule, and `scripts/release_freeze_verify.sh` as the broader launch evidence bundle.
+
 ## 4. P1 Automatic Warning Items
 
 P1 means release warning. These tests are valuable contract coverage, but they are secondary to the canonical freeze gate because they protect deeper presentation modules rather than the primary readable/report/access state.
@@ -76,6 +83,7 @@ These frontend fixtures are consumption fixtures. They are not scoring fixtures.
 Before a Big Five release freeze, record the outcome of each item:
 
 - [ ] `verify-big5-contract-freeze` passes.
+- [ ] `scripts/release_freeze_verify.sh` passes or its Big Five portions are explicitly accounted for in the release record.
 - [ ] `big5.contract.test.ts` passes against all three canonical heavy fixtures.
 - [ ] `big5-result-assembler.contract.test.ts` passes and keeps 8-section readable planning.
 - [ ] `big5-secondary-surfaces.contract.test.tsx` passes and keeps history/compare/PDF access readable.
