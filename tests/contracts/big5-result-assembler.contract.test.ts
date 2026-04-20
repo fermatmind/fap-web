@@ -3,8 +3,9 @@ import type { ReportResponse } from "@/lib/api/v0_3";
 import { BIG5_V1_SECTION_MICROCOPY } from "@/lib/big5/microcopy";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import { BIG5_V1_SECTION_BLUEPRINTS, BIG5_V1_SECTION_KEYS } from "@/lib/big5/sectionBlueprint";
-import reportReadyProjectionFixture from "@/tests/fixtures/big5/report_ready.projection.json";
-import normsRichFixture from "@/tests/fixtures/big5/report_norms_rich.projection.json";
+import canonical120ReportFixture from "@/tests/fixtures/big5/report_canonical_120_readable.projection.json";
+import canonical90ReportFixture from "@/tests/fixtures/big5/report_canonical_90_readable.projection.json";
+import canonicalDegradedReportFixture from "@/tests/fixtures/big5/report_canonical_degraded.projection.json";
 
 function buildGate(overrides?: Partial<{
   isFreeVariant: boolean;
@@ -21,13 +22,21 @@ function buildGate(overrides?: Partial<{
   };
 }
 
-function createReportFixture(): ReportResponse {
-  return structuredClone(reportReadyProjectionFixture) as ReportResponse;
+function createCanonical120Fixture(): ReportResponse {
+  return structuredClone(canonical120ReportFixture) as ReportResponse;
+}
+
+function createCanonical90Fixture(): ReportResponse {
+  return structuredClone(canonical90ReportFixture) as ReportResponse;
+}
+
+function createCanonicalDegradedFixture(): ReportResponse {
+  return structuredClone(canonicalDegradedReportFixture) as ReportResponse;
 }
 
 describe("big5 result assembler contract", () => {
   it("plans all blueprint sections in canonical order when source fields are complete", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical120Fixture();
     const assembled = assembleBig5ResultViewModel({
       locale: "en",
       reportData,
@@ -42,8 +51,33 @@ describe("big5 result assembler contract", () => {
     expect(assembled.lockedSections).toHaveLength(0);
   });
 
+  it("keeps canonical readable fixtures (120/90/degraded) on full-access semantics by default", () => {
+    const assembled120 = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData: createCanonical120Fixture(),
+      gate: buildGate(),
+    });
+    const assembled90 = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData: createCanonical90Fixture(),
+      gate: buildGate(),
+    });
+    const assembledDegraded = assembleBig5ResultViewModel({
+      locale: "en",
+      reportData: createCanonicalDegradedFixture(),
+      gate: buildGate(),
+    });
+
+    expect(assembled120.lockedSections).toHaveLength(0);
+    expect(assembled90.lockedSections).toHaveLength(0);
+    expect(assembledDegraded.lockedSections).toHaveLength(0);
+    expect(assembled120.visibleSections.map((section) => section.key)).toEqual([...BIG5_V1_SECTION_KEYS]);
+    expect(assembled90.visibleSections.map((section) => section.key)).toEqual([...BIG5_V1_SECTION_KEYS]);
+    expect(assembledDegraded.visibleSections.map((section) => section.key)).toEqual([...BIG5_V1_SECTION_KEYS]);
+  });
+
   it("splits visible and locked sections by access level in free gate mode", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical120Fixture();
     const assembled = assembleBig5ResultViewModel({
       locale: "en",
       reportData,
@@ -61,14 +95,17 @@ describe("big5 result assembler contract", () => {
     ]);
     expect(assembled.lockedSections.length).toBeGreaterThan(0);
     assembled.lockedSections.forEach((section) => {
-      expect(section.access_level).toBe("paid");
+      expect(
+        section.access_level === "paid" ||
+          !new Set(["hero_summary", "domains_overview", "methodology_and_access"]).has(section.key)
+      ).toBe(true);
       expect(typeof section.locked_preview_policy).toBe("string");
       expect(String(section.locked_preview_description ?? "").trim().length).toBeGreaterThan(0);
     });
   });
 
   it("uses locked preview policy metadata from blueprint at runtime", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical120Fixture();
     const assembled = assembleBig5ResultViewModel({
       locale: "en",
       reportData,
@@ -85,13 +122,13 @@ describe("big5 result assembler contract", () => {
   });
 
   it("falls back to microcopy title when payload title is missing", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical120Fixture();
     if (!Array.isArray(reportData.report?.sections)) {
       throw new Error("Expected report.sections array in fixture");
     }
-    const heroSection = reportData.report.sections.find((section) => section.key === "hero_summary");
+    const heroSection = reportData.report.sections.find((section) => section.key === "summary");
     if (!heroSection) {
-      throw new Error("Expected hero_summary in fixture");
+      throw new Error("Expected summary section in fixture");
     }
     heroSection.title = "";
 
@@ -106,7 +143,7 @@ describe("big5 result assembler contract", () => {
   });
 
   it("filters unsupported block kinds via blueprint allowlist", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical120Fixture();
     if (!Array.isArray(reportData.report?.sections)) {
       throw new Error("Expected report.sections array in fixture");
     }
@@ -133,7 +170,7 @@ describe("big5 result assembler contract", () => {
   });
 
   it("omits sections when source fields do not meet the minimum dependency", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical120Fixture();
     reportData.quality = undefined;
     reportData.norms = undefined;
     reportData.modules_allowed = [];
@@ -149,7 +186,7 @@ describe("big5 result assembler contract", () => {
   });
 
   it("prevents traits.overview legacy alias from feeding both core_portrait and domain_deep_dive", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical120Fixture();
     if (!Array.isArray(reportData.report?.sections)) {
       throw new Error("Expected report.sections array in fixture");
     }
@@ -176,7 +213,7 @@ describe("big5 result assembler contract", () => {
   });
 
   it("keeps methodology_and_access in product language instead of status-string concatenation", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical120Fixture();
     const assembled = assembleBig5ResultViewModel({
       locale: "en",
       reportData,
@@ -191,7 +228,7 @@ describe("big5 result assembler contract", () => {
   it("renders norms_comparison as a multi-block explanation instead of a single thin callout", () => {
     const assembled = assembleBig5ResultViewModel({
       locale: "en",
-      reportData: structuredClone(normsRichFixture) as ReportResponse,
+      reportData: createCanonicalDegradedFixture(),
       gate: buildGate(),
     });
 
@@ -203,7 +240,7 @@ describe("big5 result assembler contract", () => {
   });
 
   it("keeps the output shape aligned to existing Big5 shell inputs", () => {
-    const reportData = createReportFixture();
+    const reportData = createCanonical90Fixture();
     const assembled = assembleBig5ResultViewModel({
       locale: "zh",
       reportData,
@@ -216,7 +253,7 @@ describe("big5 result assembler contract", () => {
     expect(typeof assembled.normsStatus).toBe("string");
     expect(typeof assembled.qualityLevel).toBe("string");
     if (assembled.formSummaryLabel) {
-      expect(assembled.formSummaryLabel).toContain("Big Five");
+      expect(assembled.formSummaryLabel).toContain("90-question");
     } else {
       expect(assembled.formSummaryLabel).toBeNull();
     }

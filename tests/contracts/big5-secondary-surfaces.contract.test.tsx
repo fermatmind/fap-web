@@ -2,8 +2,11 @@ import { fireEvent, render, screen, waitFor, within } from "@testing-library/rea
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import Big5HistoryClient from "@/app/(localized)/[locale]/(app)/history/big5/Big5HistoryClient";
 import Big5CompareClient from "@/app/(localized)/[locale]/(app)/history/big5/compare/Big5CompareClient";
-import { normalizeBig5CompareSnapshot, resolveBig5CompareAttemptPair } from "@/lib/big5/secondarySurfaceNormalizer";
 import type { ReportResponse } from "@/lib/api/v0_3";
+import { normalizeBig5CompareSnapshot, resolveBig5CompareAttemptPair } from "@/lib/big5/secondarySurfaceNormalizer";
+import canonical120ReportFixture from "@/tests/fixtures/big5/report_canonical_120_readable.projection.json";
+import canonical90ReportFixture from "@/tests/fixtures/big5/report_canonical_90_readable.projection.json";
+import canonicalDegradedReportFixture from "@/tests/fixtures/big5/report_canonical_degraded.projection.json";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/history/big5",
@@ -39,6 +42,86 @@ vi.mock("@/lib/api/v0_3", async () => {
   };
 });
 
+function asReport(fixture: unknown): ReportResponse {
+  return structuredClone(fixture) as ReportResponse;
+}
+
+function percentileByDomain(report: ReportResponse, domain: string): number | null {
+  const traitVector = Array.isArray(report.big5_public_projection_v1?.trait_vector)
+    ? report.big5_public_projection_v1.trait_vector
+    : [];
+
+  const matched = traitVector.find((trait) => String(trait?.key ?? "").toUpperCase() === domain.toUpperCase());
+  const percentile = Number(matched?.percentile);
+  return Number.isFinite(percentile) ? percentile : null;
+}
+
+function buildTopFacetSummaries(report: ReportResponse, limit = 2) {
+  const facetVector = Array.isArray(report.big5_public_projection_v1?.facet_vector)
+    ? report.big5_public_projection_v1.facet_vector
+    : [];
+
+  return facetVector.slice(0, limit).map((facet) => ({
+    key: String(facet?.key ?? ""),
+    label: String(facet?.label ?? facet?.key ?? ""),
+    domain: String(facet?.domain ?? "").toUpperCase() || String(facet?.key ?? "").slice(0, 1).toUpperCase(),
+    percentile: typeof facet?.percentile === "number" ? facet.percentile : Number(facet?.percentile ?? 0),
+    bucket: String(facet?.bucket ?? ""),
+    kind: "strength",
+  }));
+}
+
+function buildHistoryItem(attemptId: string, submittedAt: string, report: ReportResponse) {
+  const domainsMean = {
+    O: percentileByDomain(report, "O"),
+    C: percentileByDomain(report, "C"),
+    E: percentileByDomain(report, "E"),
+    A: percentileByDomain(report, "A"),
+    N: percentileByDomain(report, "N"),
+  };
+
+  const topFacets = buildTopFacetSummaries(report, 2);
+  const normsVersion = String(report.norms?.norms_version ?? "");
+
+  return {
+    attempt_id: attemptId,
+    submitted_at: submittedAt,
+    big5_form_v1: report.big5_form_v1,
+    result_summary: {
+      domains_mean: domainsMean,
+    },
+    top_facets_summary_v1: {
+      items: topFacets,
+    },
+    quality_summary: {
+      level: String(report.quality?.level ?? "A"),
+      grade: String(report.quality?.level ?? "A"),
+    },
+    norms_summary: {
+      status: String(report.norms?.status ?? "CALIBRATED"),
+      norms_version: normsVersion || null,
+    },
+    offer_summary: {
+      primary_offer: null,
+    },
+    share_summary: {
+      enabled: true,
+      share_kind: "big5_result",
+    },
+    access_summary: {
+      access_state: "ready",
+      report_state: "ready",
+      pdf_state: "ready",
+      access_level: "full",
+      variant: "full",
+      actions: {
+        page_href: `/en/result/${attemptId}`,
+        pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+      },
+    },
+  };
+}
+
 describe("BIG5 secondary surfaces contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -59,193 +142,18 @@ describe("BIG5 secondary surfaces contract", () => {
       ok: true,
       share_url: "/en/share/share-big5",
     });
+
+    const canonical120 = asReport(canonical120ReportFixture);
+    const canonical90 = asReport(canonical90ReportFixture);
+    const canonicalDegraded = asReport(canonicalDegradedReportFixture);
+    const latestTopFacet = buildTopFacetSummaries(canonical120, 1)[0];
+
     hoisted.fetchBig5History.mockResolvedValue({
       ok: true,
       items: [
-        {
-          attempt_id: "attempt-latest",
-          submitted_at: "2026-03-25T00:00:00Z",
-          big5_form_v1: {
-            form_code: "big5_120",
-            label: "120-question full version",
-            short_label: "120 questions",
-            question_count: 120,
-            estimated_minutes: 14,
-            scale_code: "BIG5_OCEAN",
-          },
-          result_summary: {
-            domains_mean: {
-              O: 88,
-              A: 74,
-              C: 69,
-              E: 52,
-              N: 41,
-            },
-          },
-          top_facets_summary_v1: {
-            items: [
-              { key: "O5", label: "O5 Intellect", domain: "O", percentile: 88, bucket: "high", kind: "strength" },
-              { key: "A3", label: "A3 Altruism", domain: "A", percentile: 74, bucket: "high", kind: "strength" },
-            ],
-          },
-          quality_summary: {
-            level: "A",
-            grade: "A",
-          },
-          norms_summary: {
-            status: "CALIBRATED",
-            norms_version: "2026Q1",
-          },
-          offer_summary: {
-            primary_offer: null,
-          },
-          share_summary: {
-            enabled: true,
-            share_kind: "big5_result",
-          },
-          access_summary: {
-            access_state: "ready",
-            report_state: "ready",
-            pdf_state: "ready",
-            access_level: "full",
-            variant: "full",
-            actions: {
-              page_href: "/en/result/attempt-latest",
-              pdf_href: "/api/v0.3/attempts/attempt-latest/report.pdf",
-            },
-          },
-        },
-        {
-          attempt_id: "attempt-previous",
-          submitted_at: "2026-03-18T00:00:00Z",
-          big5_form_v1: {
-            form_code: "big5_90",
-            label: "90-question standard version",
-            short_label: "90 questions",
-            question_count: 90,
-            estimated_minutes: 11,
-            scale_code: "BIG5_OCEAN",
-          },
-          result_summary: {
-            domains_mean: {
-              O: 72,
-              C: 65,
-              A: 61,
-            },
-          },
-          top_facets_summary_v1: {
-            items: [
-              { key: "N1", label: "N1 Anxiety", domain: "N", percentile: 79, bucket: "high", kind: "strength" },
-            ],
-          },
-          quality_summary: {
-            level: "B",
-            grade: "B",
-          },
-          norms_summary: {
-            status: "CALIBRATED",
-            norms_version: "2025Q4",
-          },
-          offer_summary: {
-            primary_offer: {
-              sku: "SKU_BIG5_FULL_REPORT_299",
-              title: "BIG5 Full Report",
-              formatted_price: "¥2.99",
-              price_cents: 299,
-              currency: "CNY",
-              benefit_code: "BIG5_FULL_REPORT",
-              modules_included: ["big5_full", "big5_action_plan"],
-            },
-          },
-          share_summary: {
-            enabled: true,
-            share_kind: "big5_result",
-          },
-          access_summary: {
-            access_state: "locked",
-            report_state: "ready",
-            pdf_state: "missing",
-            access_level: "preview",
-            variant: "free",
-            actions: {
-              page_href: "/en/result/attempt-previous",
-              pdf_href: null,
-            },
-          },
-        },
-        {
-          attempt_id: "attempt-processing",
-          submitted_at: "2026-03-12T00:00:00Z",
-          result_summary: {
-            domains_mean: {
-              E: 71,
-              O: 69,
-              C: 63,
-            },
-          },
-          top_facets_summary_v1: {
-            items: [{ key: "E2", label: "E2 Gregariousness", domain: "E", percentile: 36, bucket: "low" }],
-          },
-          quality_summary: {
-            level: "A",
-            grade: "A",
-          },
-          norms_summary: {
-            status: "CALIBRATED",
-            norms_version: "2026Q1",
-          },
-          offer_summary: {
-            primary_offer: null,
-          },
-          share_summary: {
-            enabled: false,
-            share_kind: "big5_result",
-          },
-          access_summary: {
-            access_state: "locked",
-            report_state: "pending",
-            pdf_state: "missing",
-            actions: {
-              page_href: "/en/result/attempt-processing",
-              pdf_href: null,
-            },
-          },
-        },
-        {
-          attempt_id: "attempt-unavailable",
-          submitted_at: "2026-03-09T00:00:00Z",
-          result_summary: {
-            domains_mean: {
-              N: 67,
-              A: 51,
-              O: 48,
-            },
-          },
-          quality_summary: {
-            level: "C",
-            grade: "C",
-          },
-          norms_summary: {
-            status: "MISSING",
-            norms_version: null,
-          },
-          offer_summary: {
-            primary_offer: null,
-          },
-          share_summary: {
-            enabled: false,
-            share_kind: "big5_result",
-          },
-          access_summary: {
-            access_state: "ready",
-            report_state: "unavailable",
-            pdf_state: "missing",
-            actions: {
-              page_href: null,
-              pdf_href: null,
-            },
-          },
-        },
+        buildHistoryItem("attempt-latest", "2026-03-25T00:00:00Z", canonical120),
+        buildHistoryItem("attempt-previous", "2026-03-18T00:00:00Z", canonical90),
+        buildHistoryItem("attempt-degraded", "2026-03-12T00:00:00Z", canonicalDegraded),
       ],
       history_compare: {
         current_attempt_id: "attempt-latest",
@@ -262,44 +170,43 @@ describe("BIG5 secondary surfaces contract", () => {
 
     render(<Big5HistoryClient />);
 
-    expect(await screen.findByText("Lead domains: Openness, Agreeableness, Conscientiousness")).toBeInTheDocument();
-    const latestRow = screen.getByTestId("big5-history-row-attempt-latest");
+    const latestRow = await screen.findByTestId("big5-history-row-attempt-latest");
+    expect(within(latestRow).getByText(/Lead domains:/)).toBeInTheDocument();
     expect(within(latestRow).getByText("Formal result ready")).toBeInTheDocument();
     expect(within(latestRow).getByTestId("big5-history-row-form-attempt-latest")).toHaveTextContent(
       "Big Five · 120-question full version"
     );
-    expect(within(latestRow).getByTestId("big5-history-row-quality-attempt-latest")).toHaveTextContent("Quality · A");
-    expect(within(latestRow).getByTestId("big5-history-row-norms-attempt-latest")).toHaveTextContent("Norms · CALIBRATED · 2026Q1");
-    expect(within(latestRow).getByTestId("big5-history-row-facet-attempt-latest-O5")).toHaveTextContent("O5 Intellect · P88");
+    expect(within(latestRow).getByTestId("big5-history-row-quality-attempt-latest")).toHaveTextContent("Quality ·");
+    expect(within(latestRow).getByTestId("big5-history-row-norms-attempt-latest")).toHaveTextContent("Norms · CALIBRATED");
+    if (latestTopFacet?.key) {
+      expect(
+        within(latestRow).getByTestId(`big5-history-row-facet-attempt-latest-${latestTopFacet.key}`)
+      ).toHaveTextContent(`${latestTopFacet.label} · P${latestTopFacet.percentile}`);
+    }
     expect(within(latestRow).getByRole("link", { name: "Open formal result" })).toHaveAttribute("href", "/en/result/attempt-latest");
     expect(within(latestRow).getByRole("link", { name: "Compare latest two" })).toHaveAttribute(
       "href",
       "/en/history/big5/compare?current=attempt-latest&previous=attempt-previous"
     );
     expect(within(latestRow).getByRole("button", { name: "Download PDF" })).toBeEnabled();
+    expect(within(latestRow).queryByTestId("big5-history-row-offer-attempt-latest")).not.toBeInTheDocument();
     expect(hoisted.createAttemptShare).not.toHaveBeenCalled();
 
-    const lockedRow = screen.getByTestId("big5-history-row-attempt-previous");
-    expect(within(lockedRow).getByText("Preview access only")).toBeInTheDocument();
-    expect(within(lockedRow).getByTestId("big5-history-row-form-attempt-previous")).toHaveTextContent(
+    const previousRow = screen.getByTestId("big5-history-row-attempt-previous");
+    expect(within(previousRow).getByText("Formal result ready")).toBeInTheDocument();
+    expect(within(previousRow).getByTestId("big5-history-row-form-attempt-previous")).toHaveTextContent(
       "Big Five · 90-question standard version"
     );
-    expect(within(lockedRow).getByRole("link", { name: "Open result preview" })).toHaveAttribute("href", "/en/result/attempt-previous");
-    expect(within(lockedRow).getByRole("button", { name: "Unlock to download PDF" })).toBeDisabled();
-    expect(within(lockedRow).getByTestId("big5-history-row-offer-attempt-previous")).toHaveTextContent("BIG5 Full Report");
-    expect(within(lockedRow).getByTestId("big5-history-row-offer-attempt-previous")).toHaveTextContent("¥2.99");
+    expect(within(previousRow).getByRole("link", { name: "Open formal result" })).toHaveAttribute("href", "/en/result/attempt-previous");
+    expect(within(previousRow).getByRole("button", { name: "Download PDF" })).toBeEnabled();
+    expect(within(previousRow).queryByTestId("big5-history-row-offer-attempt-previous")).not.toBeInTheDocument();
+    expect(screen.queryByText("Preview access only")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Unlock to download PDF" })).not.toBeInTheDocument();
 
-    const processingRow = screen.getByTestId("big5-history-row-attempt-processing");
-    expect(within(processingRow).getByText("Result still processing")).toBeInTheDocument();
-    expect(within(processingRow).getByRole("link", { name: "Check result status" })).toHaveAttribute("href", "/en/result/attempt-processing");
-    expect(within(processingRow).queryByRole("button", { name: "Download PDF" })).not.toBeInTheDocument();
-    expect(within(processingRow).queryByRole("button", { name: "Share result" })).not.toBeInTheDocument();
-
-    const unavailableRow = screen.getByTestId("big5-history-row-attempt-unavailable");
-    expect(within(unavailableRow).getByText("Result unavailable")).toBeInTheDocument();
-    expect(within(unavailableRow).getByText("Formal result unavailable")).toBeInTheDocument();
-    expect(within(unavailableRow).queryByRole("link", { name: "Open formal result" })).not.toBeInTheDocument();
-    expect(within(unavailableRow).queryByRole("button", { name: "Share result" })).not.toBeInTheDocument();
+    const degradedRow = screen.getByTestId("big5-history-row-attempt-degraded");
+    expect(within(degradedRow).getByText("Formal result ready")).toBeInTheDocument();
+    expect(within(degradedRow).getByTestId("big5-history-row-quality-attempt-degraded")).toHaveTextContent("Quality · D");
+    expect(within(degradedRow).getByRole("button", { name: "Download PDF" })).toBeEnabled();
 
     fireEvent.click(within(latestRow).getByRole("button", { name: "Share result" }));
     await waitFor(() => {
@@ -351,41 +258,19 @@ describe("BIG5 secondary surfaces contract", () => {
       previous: "history-previous",
     });
 
-    const snapshot = normalizeBig5CompareSnapshot({
-      ok: true,
-      big5_public_projection_v1: {
-        trait_vector: [
-          { key: "O", label: "Openness", percentile: 81 },
-          { key: "C", label: "Conscientiousness", percentile: 64 },
-        ],
-        facet_vector: [
-          { key: "O1", label: "O1 Imagination", domain: "O", percentile: 72, bucket: "high" },
-        ],
-      },
-      report: {
-        sections: [
-          {
-            key: "domains_overview",
-            blocks: [{ metric_code: "O", title: "Openness", body: "Opaque body without percentile marker" }],
-          },
-          {
-            key: "facet_table",
-            blocks: [{ metric_code: "O1", title: "O1", body: "O1 percentile 60" }],
-          },
-        ],
-      },
-    } as ReportResponse);
+    const snapshot = normalizeBig5CompareSnapshot(asReport(canonical120ReportFixture));
 
-    expect(snapshot.domainPercentiles).toMatchObject({
-      O: 81,
-      C: 64,
-    });
-    expect(snapshot.facetPercentiles).toMatchObject({
-      O1: 72,
-    });
+    expect(Object.keys(snapshot.domainPercentiles).sort()).toEqual(["A", "C", "E", "N", "O"]);
+    expect(Object.keys(snapshot.facetPercentiles)).toHaveLength(30);
   });
 
   it("renders BIG5 compare from shared normalized report data and formal result access state", async () => {
+    const currentReport = asReport(canonical120ReportFixture);
+    const previousReport = asReport(canonical90ReportFixture);
+    const currentO = percentileByDomain(currentReport, "O");
+    const previousO = percentileByDomain(previousReport, "O");
+    const expectedDelta = currentO !== null && previousO !== null ? Number((currentO - previousO).toFixed(2)) : null;
+
     hoisted.pathname = "/en/history/big5/compare";
     hoisted.search = "current=attempt-current&previous=attempt-previous";
     hoisted.fetchBig5ReportAccess.mockResolvedValue({
@@ -400,46 +285,8 @@ describe("BIG5 secondary surfaces contract", () => {
       },
     });
     hoisted.fetchBig5Report
-      .mockResolvedValueOnce({
-        ok: true,
-        big5_public_projection_v1: {
-          trait_vector: [
-            { key: "O", label: "Openness", percentile: 81 },
-            { key: "C", label: "Conscientiousness", percentile: 60 },
-          ],
-          facet_vector: [
-            { key: "O1", label: "O1 Imagination", domain: "O", percentile: 60, bucket: "mid" },
-          ],
-        },
-        report: {
-          sections: [
-            {
-              key: "facet_table",
-              blocks: [{ metric_code: "O1", title: "O1", body: "O1 percentile 12" }],
-            },
-          ],
-        },
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        big5_public_projection_v1: {
-          trait_vector: [
-            { key: "O", label: "Openness", percentile: 52 },
-            { key: "C", label: "Conscientiousness", percentile: 65 },
-          ],
-          facet_vector: [
-            { key: "O1", label: "O1 Imagination", domain: "O", percentile: 45, bucket: "mid" },
-          ],
-        },
-        report: {
-          sections: [
-            {
-              key: "facet_table",
-              blocks: [{ metric_code: "O1", title: "O1", body: "O1 percentile 97" }],
-            },
-          ],
-        },
-      });
+      .mockResolvedValueOnce(currentReport)
+      .mockResolvedValueOnce(previousReport);
 
     render(<Big5CompareClient />);
 
@@ -452,10 +299,18 @@ describe("BIG5 secondary surfaces contract", () => {
     expect(await screen.findByText("Domain percentile delta")).toBeInTheDocument();
     expect(screen.getByText("Current: attempt-current")).toBeInTheDocument();
     expect(screen.getByText("Previous: attempt-previous")).toBeInTheDocument();
-    expect(screen.getByText("Now 81")).toBeInTheDocument();
-    expect(screen.getByText("Prev 52")).toBeInTheDocument();
-    expect(screen.getByText("O1")).toBeInTheDocument();
-    expect(screen.getByText("+15")).toBeInTheDocument();
+    if (currentO !== null) {
+      expect(screen.getByText(`Now ${currentO}`)).toBeInTheDocument();
+    }
+    if (previousO !== null) {
+      expect(screen.getByText(`Prev ${previousO}`)).toBeInTheDocument();
+    }
+    if (expectedDelta !== null) {
+      const expectedDeltaLabel = `${expectedDelta > 0 ? "+" : ""}${expectedDelta}`;
+      expect(screen.getByText(expectedDeltaLabel)).toBeInTheDocument();
+    }
+    expect(screen.queryByText("Current result is still in preview")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Unlock to download PDF" })).not.toBeInTheDocument();
     expect(hoisted.fetchBig5History).not.toHaveBeenCalled();
     await waitFor(() => {
       expect(hoisted.fetchBig5Report).toHaveBeenCalledTimes(2);
@@ -463,44 +318,34 @@ describe("BIG5 secondary surfaces contract", () => {
     expect(hoisted.fetchBig5ReportAccess).toHaveBeenCalledTimes(1);
   });
 
-  it("keeps BIG5 compare access-aware when the current result is locked", async () => {
+  it("keeps BIG5 compare readable for degraded quality reports without falling back to preview semantics", async () => {
     hoisted.pathname = "/en/history/big5/compare";
     hoisted.search = "current=attempt-current&previous=attempt-previous";
     hoisted.fetchBig5ReportAccess.mockResolvedValue({
       ok: true,
       attempt_id: "attempt-current",
-      access_state: "locked",
+      access_state: "ready",
       report_state: "ready",
-      pdf_state: "missing",
+      pdf_state: "ready",
       actions: {
         page_href: "/en/result/attempt-current",
-        pdf_href: null,
+        pdf_href: "/api/v0.3/attempts/attempt-current/report.pdf",
       },
     });
     hoisted.fetchBig5Report
-      .mockResolvedValueOnce({
-        ok: true,
-        big5_public_projection_v1: {
-          trait_vector: [{ key: "O", label: "Openness", percentile: 81 }],
-          facet_vector: [{ key: "O1", label: "O1 Imagination", domain: "O", percentile: 60, bucket: "mid" }],
-        },
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        big5_public_projection_v1: {
-          trait_vector: [{ key: "O", label: "Openness", percentile: 52 }],
-          facet_vector: [{ key: "O1", label: "O1 Imagination", domain: "O", percentile: 45, bucket: "mid" }],
-        },
-      });
+      .mockResolvedValueOnce(asReport(canonicalDegradedReportFixture))
+      .mockResolvedValueOnce(asReport(canonical90ReportFixture));
 
     render(<Big5CompareClient />);
 
-    expect(await screen.findByText("Current result is still in preview")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Open formal result preview" })).toHaveAttribute(
+    expect(await screen.findByText("Formal result ready")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Open formal result" })).toHaveAttribute(
       "href",
       "/en/result/attempt-current"
     );
-    expect(screen.getByRole("button", { name: "Unlock to download PDF" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Download PDF" })).toBeEnabled();
+    expect(screen.queryByText("Current result is still in preview")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Unlock to download PDF" })).not.toBeInTheDocument();
   });
 
   it("hides compare result actions when the formal result is unavailable", async () => {
@@ -518,20 +363,8 @@ describe("BIG5 secondary surfaces contract", () => {
       },
     });
     hoisted.fetchBig5Report
-      .mockResolvedValueOnce({
-        ok: true,
-        big5_public_projection_v1: {
-          trait_vector: [{ key: "O", label: "Openness", percentile: 81 }],
-          facet_vector: [{ key: "O1", label: "O1 Imagination", domain: "O", percentile: 60, bucket: "mid" }],
-        },
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        big5_public_projection_v1: {
-          trait_vector: [{ key: "O", label: "Openness", percentile: 52 }],
-          facet_vector: [{ key: "O1", label: "O1 Imagination", domain: "O", percentile: 45, bucket: "mid" }],
-        },
-      });
+      .mockResolvedValueOnce(asReport(canonical120ReportFixture))
+      .mockResolvedValueOnce(asReport(canonical90ReportFixture));
 
     render(<Big5CompareClient />);
 

@@ -5,6 +5,9 @@ import {
   big5StartAttemptResponseSchema,
   big5SubmitResponseSchema,
 } from "@/lib/big5/contracts/schemas";
+import canonical120ReportFixture from "@/tests/fixtures/big5/report_canonical_120_readable.projection.json";
+import canonical90ReportFixture from "@/tests/fixtures/big5/report_canonical_90_readable.projection.json";
+import canonicalDegradedReportFixture from "@/tests/fixtures/big5/report_canonical_degraded.projection.json";
 
 describe("BIG5 contract schemas", () => {
   it("validates questions payload with disclaimer meta", () => {
@@ -63,199 +66,43 @@ describe("BIG5 contract schemas", () => {
     ).not.toThrow();
   });
 
-  it("validates report payload with sections + modules + norms", () => {
-    const payload = {
-      ok: true,
-      locked: true,
-      variant: "free",
-      big5_public_projection_v1: {
-        schema_version: "big5.public_projection.v1",
-        facet_vector: [
-          {
-            key: "N1",
-            label: "N1 Anxiety",
-            slug: "anxiety",
-            domain: "N",
-            mean: 2.1,
-            percentile: 18,
-            bucket: "low",
-          },
-        ],
-        trait_bands: {
-          O: "high",
-          C: "mid",
-          E: "mid",
-          A: "high",
-          N: "low",
-        },
-        dominant_traits: [
-          { key: "O", label: "Openness", percentile: 81, band: "high", rank: 1 },
-          { key: "A", label: "Agreeableness", percentile: 76, band: "high", rank: 2 },
-        ],
-        variant_keys: ["profile:explorer", "band:o.high"],
-        scene_fingerprint: {
-          novelty: "exploratory",
-          structure: "balanced",
-        },
-        explainability_summary: {
-          headline: "This profile is primarily driven by Openness.",
-          reasons: ["Openness is the primary axis."],
-        },
-        action_plan_summary: {
-          headline: "The best near-term growth lever is Extraversion.",
-          focus_trait: "E",
-          actions: ["Move feedback checkpoints earlier."],
-        },
-        comparative_v1: {
-          version: "comparative.norming.v1",
-          comparative_contract_version: "comparative.norming.v1",
-          enabled: true,
-          percentile: {
-            metric_key: "O",
-            metric_label: "Openness",
-            value: 81,
-          },
-          cohort_relative_position: {
-            key: "cohort.upper_quartile",
-            label: "Above most peers in this cohort",
-            summary: "This trait cluster sits in the upper quartile of the current norming cohort.",
-          },
-          same_type_contrast: {
-            key: "same_type.lead_trait_high",
-            label: "Higher-openness version of this profile",
-            summary: "Compared with nearby profiles, Openness is the clearest separating signal.",
-          },
-          norming_version: "2026Q1",
-          norming_scope: "US.en-US.big5_population",
-          norming_source: "scale_norms",
-          comparative_fingerprint: "big5-comparative-fixture",
-        },
-        ordered_section_keys: [
-          "traits.overview",
-          "traits.why_this_profile",
-          "relationships.interpersonal_style",
-          "career.work_style",
-          "growth.next_actions",
-        ],
-        cultural_calibration_v1: {
-          version: "cultural_calibration.v1",
-          calibration_contract_version: "cultural_calibration.v1",
-          locale_context: "en-US",
-          cultural_context: "US.en-US",
-          calibrated_section_keys: ["result.summary", "traits.overview"],
-          calibration_fingerprint: "big5-calibration-fixture",
-          calibration_policy_version: "runtime.locale_policy.v1",
-          calibration_source: "runtime_policy",
-          narrative_overrides: {
-            intro: "Locale calibration: use the profile as a planning aid, not an identity box.",
-            summary:
-              "In an English-speaking context, trait signals should be framed as planning inputs for work style and environment fit, not as identity labels.",
-          },
-        },
-      },
-      modules_allowed: ["big5_core"],
-      modules_offered: ["big5_full", "big5_action_plan"],
-      comparative_v1: {
-        version: "comparative.norming.v1",
-        comparative_contract_version: "comparative.norming.v1",
-        enabled: true,
-        percentile: {
-          metric_key: "O",
-          metric_label: "Openness",
-          value: 81,
-        },
-        cohort_relative_position: {
-          key: "cohort.upper_quartile",
-          label: "Above most peers in this cohort",
-          summary: "This trait cluster sits in the upper quartile of the current norming cohort.",
-        },
-        same_type_contrast: {
-          key: "same_type.lead_trait_high",
-          label: "Higher-openness version of this profile",
-          summary: "Compared with nearby profiles, Openness is the clearest separating signal.",
-        },
-        norming_version: "2026Q1",
-        norming_scope: "US.en-US.big5_population",
-        norming_source: "scale_norms",
-        comparative_fingerprint: "big5-comparative-fixture",
-      },
-      norms: {
-        status: "CALIBRATED",
-        norms_version: "2026Q1",
-      },
-      quality: {
-        level: "A",
-      },
-      report: {
-        sections: [
-          {
-            key: "traits.overview",
-            title: "Traits Overview",
-            access_level: "free",
-            blocks: [
-              {
-                kind: "paragraph",
-                title: "Traits Overview",
-                body: "This read is shaped by Openness and Agreeableness.",
-              },
-            ],
-          },
-          {
-            key: "summary",
-            title: "Summary",
-            access_level: "free",
-            blocks: [
-              {
-                id: "summary_1",
-                kind: "paragraph",
-                title: "Summary",
-                body: "Your profile summary.",
-              },
-            ],
-          },
-        ],
-      },
-    };
+  it("validates canonical heavy report fixtures (120/90/degraded) as stable report contracts", () => {
+    const canonical120 = structuredClone(canonical120ReportFixture);
+    const canonical90 = structuredClone(canonical90ReportFixture);
+    const canonicalDegraded = structuredClone(canonicalDegradedReportFixture);
 
-    expect(() => big5ReportResponseSchema.parse(payload)).not.toThrow();
-  });
+    expect(() => big5ReportResponseSchema.parse(canonical120)).not.toThrow();
+    expect(() => big5ReportResponseSchema.parse(canonical90)).not.toThrow();
+    expect(() => big5ReportResponseSchema.parse(canonicalDegraded)).not.toThrow();
 
-  it("validates report payload with MISSING norms and unknown block kind", () => {
-    const payload = {
-      ok: true,
-      locked: false,
-      variant: "full",
-      norms: {
-        status: "MISSING",
-        norms_version: "2026Q1",
-      },
-      quality: {
-        level: "C",
-      },
-      meta: {
-        accepted_version: "BIG5_OCEAN_v1",
-        accepted_hash: "hash_v1",
-      },
-      report: {
-        sections: [
-          {
-            key: "future_section",
-            title: "Future",
-            access_level: "free",
-            blocks: [
-              {
-                id: "future_1",
-                kind: "future_widget",
-                title: "Future Widget",
-                body: "new payload",
-              },
-            ],
-          },
-        ],
-      },
-    };
+    expect(canonical120.locked).toBe(false);
+    expect(canonical120.variant).toBe("full");
+    expect(Array.isArray(canonical120.offers) ? canonical120.offers : []).toHaveLength(0);
+    expect(canonical120.big5_form_v1?.form_code).toBe("big5_120");
+    expect(canonical120.big5_form_v1?.question_count).toBe(120);
+    expect(canonical120.big5_public_projection_v1?.ordered_section_keys ?? []).toEqual([
+      "traits.overview",
+      "traits.why_this_profile",
+      "relationships.interpersonal_style",
+      "career.work_style",
+      "growth.next_actions",
+    ]);
+    expect(canonical120.big5_public_projection_v1?.facet_vector ?? []).toHaveLength(30);
+    expect(canonical120.report?.sections ?? []).toHaveLength(13);
 
-    expect(() => big5ReportResponseSchema.parse(payload)).not.toThrow();
+    expect(canonical90.locked).toBe(false);
+    expect(canonical90.variant).toBe("full");
+    expect(canonical90.big5_form_v1?.form_code).toBe("big5_90");
+    expect(canonical90.big5_form_v1?.question_count).toBe(90);
+    expect(canonical90.big5_public_projection_v1?.facet_vector ?? []).toHaveLength(30);
+    expect(canonical90.report?.sections ?? []).toHaveLength(13);
+
+    expect(canonicalDegraded.locked).toBe(false);
+    expect(canonicalDegraded.variant).toBe("full");
+    expect(canonicalDegraded.big5_form_v1?.form_code).toBe("big5_120");
+    expect(canonicalDegraded.big5_public_projection_v1?.facet_vector ?? []).toHaveLength(30);
+    expect(canonicalDegraded.report?.sections ?? []).toHaveLength(13);
+    expect(canonicalDegraded.quality?.flags ?? []).toContain("ATTENTION_CHECK_FAILED");
   });
 
   it("validates me attempts payload", () => {
@@ -310,15 +157,7 @@ describe("BIG5 contract schemas", () => {
             norms_version: "2026Q1",
           },
           offer_summary: {
-            primary_offer: {
-              sku: "SKU_BIG5_FULL_REPORT_299",
-              title: "BIG5 Full Report",
-              formatted_price: "¥2.99",
-              price_cents: 299,
-              currency: "CNY",
-              benefit_code: "BIG5_FULL_REPORT",
-              modules_included: ["big5_full", "big5_action_plan"],
-            },
+            primary_offer: null,
           },
           share_summary: {
             enabled: true,
