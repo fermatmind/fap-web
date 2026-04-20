@@ -1,6 +1,7 @@
 export const SCALE_CANONICAL_SLUG_MAP = {
   MBTI: "mbti-personality-test-16-personality-types",
   BIG5_OCEAN: "big-five-personality-test-ocean-model",
+  ENNEAGRAM: "enneagram-personality-test-nine-types",
   CLINICAL_COMBO_68: "clinical-depression-anxiety-assessment-professional-edition",
   SDS_20: "depression-screening-test-standard-edition",
   IQ_RAVEN: "iq-test-intelligence-quotient-assessment",
@@ -22,6 +23,14 @@ export const TEST_SLUG_ALIAS_MAP: Record<string, string> = {
   "big5-ocean": SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
   big5: SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
   "big5-personality-test": SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
+
+  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+  "enneagram-personality-test": SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+  enneagram: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+  "enneagram-test": SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+  "nine-types-personality-test": SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+  "nine-type-personality-test": SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+  "enneagram-personality-assessment": SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
 
   [SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68]: SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68,
   "clinical-combo-68": SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68,
