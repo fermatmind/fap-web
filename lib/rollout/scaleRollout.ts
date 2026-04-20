@@ -17,6 +17,11 @@ const SCALE_ROLLOUT_ENV: Record<SupportedScaleCode, ScaleRolloutEnvConfig> = {
     enabledEnv: "ENABLE_BIG5_OCEAN",
     percentEnv: "ROLLOUT_PERCENT_BIG5_OCEAN",
   },
+  ENNEAGRAM: {
+    enabledEnv: "ENABLE_ENNEAGRAM",
+    percentEnv: "ROLLOUT_PERCENT_ENNEAGRAM",
+    commerceEnv: "ENABLE_ENNEAGRAM_COMMERCE",
+  },
   SDS_20: {
     enabledEnv: "ENABLE_SDS_20",
     percentEnv: "ROLLOUT_PERCENT_SDS_20",

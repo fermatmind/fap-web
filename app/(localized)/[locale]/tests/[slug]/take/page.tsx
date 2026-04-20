@@ -5,6 +5,7 @@ import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { isBig5ScaleCode, normalizeBig5FormCode, resolveBig5FormMeta } from "@/lib/big5/forms";
+import { isEnneagramScaleCode, normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -18,6 +19,7 @@ import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
+import EnneagramTakeClient from "./EnneagramTakeClient";
 import QuizTakeClient from "./QuizTakeClient";
 
 function appendQuery(path: string, query: Record<string, string | string[] | undefined>): string {
@@ -116,6 +118,10 @@ export default async function TakePage({
     ? normalizeBig5FormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
     : null;
   const big5FormMeta = big5FormCode ? resolveBig5FormMeta(big5FormCode) : null;
+  const enneagramFormCode = isEnneagramScaleCode(test.scale_code)
+    ? normalizeEnneagramFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
+    : null;
+  const enneagramFormMeta = enneagramFormCode ? resolveEnneagramFormMeta(enneagramFormCode) : null;
 
   if (!test.scale_code) {
     return (
@@ -161,6 +167,12 @@ export default async function TakePage({
           slug={slug}
           formCode={big5FormCode ?? undefined}
           estimatedMinutes={big5FormMeta?.estimatedMinutes}
+        />
+      ) : test.scale_code === "ENNEAGRAM" ? (
+        <EnneagramTakeClient
+          slug={slug}
+          formCode={enneagramFormCode ?? undefined}
+          estimatedMinutes={enneagramFormMeta?.estimatedMinutes}
         />
       ) : test.scale_code === "SDS_20" || test.scale_code === "CLINICAL_COMBO_68" ? (
         <ClinicalTakeClient slug={slug} scaleCode={test.scale_code} />
