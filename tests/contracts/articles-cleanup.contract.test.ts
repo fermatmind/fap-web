@@ -98,6 +98,16 @@ describe("articles cleanup contract", () => {
     expect(llmsFull).not.toContain("listBlogPosts");
   });
 
+  it("seo tooling treats the root sitemap as the canonical generated artifact", () => {
+    const checkSitemap = read("scripts/seo/check-sitemap-indexability.mjs");
+    const pushBaidu = read("scripts/seo/push-baidu.mjs");
+
+    expect(checkSitemap).toContain('"public/sitemap.xml"');
+    expect(pushBaidu).toContain('"public/sitemap.xml"');
+    expect(checkSitemap).not.toContain('"public/sitemap-0.xml"');
+    expect(pushBaidu).not.toContain('"public/sitemap-0.xml"');
+  });
+
   it("articles cms adapter normalizes canonical, alternates, and jsonld urls", () => {
     const normalized = normalizeArticleSeoPayload(
       {
