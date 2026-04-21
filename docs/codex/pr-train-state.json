@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T12:31:00+08:00",
+  "updated_at": "2026-04-21T13:06:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2673,6 +2673,48 @@
       "merged_at": "",
       "remote_branch_deleted": false,
       "local_cleanup_executed": false
+    },
+    "PR-CMSOPS-7": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/cmsops-pr7-sitemap-cms-enumeration",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "pnpm vitest run tests/contracts/articles-cleanup.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/staging-cms-baseline.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm lint next-sitemap.config.js scripts/seo/check-sitemap-indexability.mjs scripts/seo/push-baidu.mjs tests/contracts/articles-cleanup.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "NEXT_PUBLIC_SITE_URL=https://staging.fermatmind.com NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm exec next-sitemap && rg '/en/articles/mbti-basics|/zh/articles/mbti-basics' public/sitemap.xml",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "deferred": [
+        "After merge and staging deploy, run curl against https://staging.fermatmind.com/sitemap.xml and then node scripts/validate-staging-cms-baseline.mjs --dry-run --json.",
+        "The live staging API still needs the PR-6 backend baseline import before the full validator can pass every non-sitemap invariant."
+      ]
     }
   }
 }

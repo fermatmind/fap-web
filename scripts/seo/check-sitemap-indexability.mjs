@@ -9,7 +9,7 @@ const NOINDEX_SITEMAP_PATTERNS = [
 ];
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const sitemapPath = path.resolve(ROOT_DIR, process.env.SITEMAP_PATH || "public/sitemap-0.xml");
+const sitemapPath = path.resolve(ROOT_DIR, process.env.SITEMAP_PATH || "public/sitemap.xml");
 
 if (!fs.existsSync(sitemapPath)) {
   console.error(`[seo] sitemap file not found: ${sitemapPath}`);
