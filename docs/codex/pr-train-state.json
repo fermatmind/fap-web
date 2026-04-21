@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T13:16:00+08:00",
+  "updated_at": "2026-04-21T13:19:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2677,9 +2677,9 @@
     "PR-CMSOPS-7": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "local_checks_passed_after_review",
       "branch": "codex/cmsops-pr7-sitemap-cms-enumeration",
-      "commit_sha": "1ccdcbb45f51bba15843ae72be2ddacc8c86686d",
+      "commit_sha": "4421e5bf7801ffc20ba42e9035ec4a16e6e697ca",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/523",
       "checks": {
         "local": [
@@ -2696,7 +2696,7 @@
             "status": "passed"
           },
           {
-            "command": "NEXT_PUBLIC_SITE_URL=https://staging.fermatmind.com NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm exec next-sitemap && rg '/en/articles/mbti-basics|/zh/articles/mbti-basics' public/sitemap.xml",
+            "command": "NEXT_PUBLIC_SITE_URL=https://staging.fermatmind.com NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm exec next-sitemap && rg '/en/articles/mbti-basics|/zh/articles/mbti-basics' public/sitemap.xml && git restore -- public/sitemap.xml public/sitemap-0.xml",
             "status": "passed"
           },
           {
@@ -2704,30 +2704,9 @@
             "status": "passed"
           }
         ],
-        "github": [
-          {
-            "name": "build",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705147282/job/72256641156"
-          },
-          {
-            "name": "contracts",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705147282/job/72256641136"
-          },
-          {
-            "name": "verify-big5-contract-freeze",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705147282/job/72256641163"
-          },
-          {
-            "name": "verify-enneagram-contract-freeze",
-            "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705147282/job/72256641152"
-          }
-        ]
+        "github": []
       },
-      "failure_reason": "GitHub Actions jobs did not start because recent account payments failed or spending limit needs to be increased. Local validation passed.",
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
