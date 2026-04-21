@@ -63,10 +63,10 @@
     "PR-CMSOPS-2": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "branch": "codex/cms-ops-pr2-homepage-article-empty-state",
       "commit_sha": "b2f0af1abc1aa8e4c38d9922ad92d0a04096099b",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/517",
       "checks": {
         "local": [
           {
