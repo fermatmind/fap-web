@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { listCmsArticlesForLlms } from "@/lib/cms/articles";
+import { listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
 import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
@@ -12,7 +12,7 @@ import {
   isCareerJobDetailDiscoverableByManifest,
 } from "@/lib/career/launchPolicy";
 import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
-import { listContentPages } from "@/lib/cms/content-pages";
+import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import { getAllTests } from "@/lib/content";
@@ -177,11 +177,11 @@ export async function GET() {
       .catch(() => []),
     listPersonalityPaths(),
     listTopicPaths(),
-    listCmsArticlesForLlms({ locale: "en" }).catch(() => []),
-    listCmsArticlesForLlms({ locale: "zh" }).catch(() => []),
+    listCmsArticlesForLlmsWithLastKnownGood({ locale: "en" }).then((result) => result.value).catch(() => []),
+    listCmsArticlesForLlmsWithLastKnownGood({ locale: "zh" }).then((result) => result.value).catch(() => []),
     getAllTests("en").catch(() => []),
-    listContentPages("en", "help").catch(() => []),
-    listContentPages("zh", "help").catch(() => []),
+    listContentPagesWithLastKnownGood("en", "help").then((result) => result.value).catch(() => []),
+    listContentPagesWithLastKnownGood("zh", "help").then((result) => result.value).catch(() => []),
   ]);
 
   const enCareerFamilies = listCareerFamilyPathsFromManifest("en", enDiscoverabilityManifest);

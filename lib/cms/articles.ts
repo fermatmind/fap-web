@@ -1,6 +1,7 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
+import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
@@ -647,6 +648,26 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
   }
 }
 
+export async function getCmsArticlesWithLastKnownGood(
+  params: GetCmsArticlesParams
+): Promise<LastKnownGoodResult<GetCmsArticlesResult>> {
+  const locale = normalizeLocale(params.locale);
+  const page = typeof params.page === "number" && params.page > 0 ? params.page : 1;
+  const perPage =
+    typeof params.perPage === "number" && params.perPage > 0
+      ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
+      : DEFAULT_LIST_PER_PAGE;
+  const related = params.relatedTestSlug ? `:${params.relatedTestSlug}` : "";
+  const voice = params.voice ? `:${params.voice}` : "";
+
+  return withLastKnownGood({
+    key: `articles:list:${locale}:${page}:${perPage}${related}${voice}`,
+    load: () => getCmsArticles({ ...params, locale, page, perPage }),
+    isUsable: (result) => result.items.length > 0,
+    useStaleOnUnusable: true,
+  });
+}
+
 export async function listCmsArticlesForLlms(
   params: ListCmsArticlesForLlmsParams
 ): Promise<CmsArticleLlmsEntry[]> {
@@ -700,6 +721,23 @@ export async function listCmsArticlesForLlms(
   return entries;
 }
 
+export async function listCmsArticlesForLlmsWithLastKnownGood(
+  params: ListCmsArticlesForLlmsParams
+): Promise<LastKnownGoodResult<CmsArticleLlmsEntry[]>> {
+  const locale = normalizeLocale(params.locale);
+  const perPage =
+    typeof params.perPage === "number" && params.perPage > 0
+      ? Math.min(params.perPage, DEFAULT_ENUMERATION_PER_PAGE)
+      : DEFAULT_ENUMERATION_PER_PAGE;
+
+  return withLastKnownGood({
+    key: `articles:llms:${locale}:${perPage}`,
+    load: () => listCmsArticlesForLlms({ locale, perPage }),
+    isUsable: (entries) => entries.length > 0,
+    useStaleOnUnusable: true,
+  });
+}
+
 export async function getCmsArticle(slug: string, locale: Locale | string): Promise<CmsArticle | null> {
   const normalizedSlug = slug.trim();
   if (!normalizedSlug) {
@@ -735,6 +773,21 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
   }
 }
 
+export async function getCmsArticleWithLastKnownGood(
+  slug: string,
+  locale: Locale | string
+): Promise<LastKnownGoodResult<CmsArticle | null>> {
+  const normalizedSlug = normalizeArticleSlug(slug);
+  const normalizedLocale = normalizeLocale(locale);
+
+  return withLastKnownGood({
+    key: `articles:detail:${normalizedLocale}:${normalizedSlug}`,
+    load: () => getCmsArticle(normalizedSlug, normalizedLocale),
+    isUsable: (article) => Boolean(article?.slug && article.title),
+    useStaleOnUnusable: true,
+  });
+}
+
 export async function getCmsArticleSeo(slug: string, locale: Locale | string): Promise<CmsArticleSeoPayload | null> {
   const normalizedSlug = normalizeArticleSlug(slug);
   if (!normalizedSlug) {
@@ -764,4 +817,19 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
 
     throw error;
   }
+}
+
+export async function getCmsArticleSeoWithLastKnownGood(
+  slug: string,
+  locale: Locale | string
+): Promise<LastKnownGoodResult<CmsArticleSeoPayload | null>> {
+  const normalizedSlug = normalizeArticleSlug(slug);
+  const normalizedLocale = normalizeLocale(locale);
+
+  return withLastKnownGood({
+    key: `articles:seo:${normalizedLocale}:${normalizedSlug}`,
+    load: () => getCmsArticleSeo(normalizedSlug, normalizedLocale),
+    isUsable: (seo) => Boolean(seo?.meta.title && seo.meta.description),
+    useStaleOnUnusable: true,
+  });
 }

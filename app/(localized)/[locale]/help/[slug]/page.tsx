@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContentPageTemplate } from "@/components/content-pages/ContentPageTemplate";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildContentPagePath, getContentPage } from "@/lib/cms/content-pages";
+import { buildContentPagePath, getContentPageWithLastKnownGood } from "@/lib/cms/content-pages";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import {
@@ -38,7 +38,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const page = await getContentPage(contentSlug(slug), locale);
+  const page = await getContentPageWithLastKnownGood(contentSlug(slug), locale)
+    .then((result) => result.value)
+    .catch(() => null);
 
   if (!page) {
     return {
@@ -67,7 +69,9 @@ export default async function HelpDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const page = await getContentPage(contentSlug(slug), locale);
+  const page = await getContentPageWithLastKnownGood(contentSlug(slug), locale)
+    .then((result) => result.value)
+    .catch(() => null);
 
   if (!page) {
     notFound();

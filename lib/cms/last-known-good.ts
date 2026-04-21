@@ -42,10 +42,12 @@ export async function withLastKnownGood<T>({
   key,
   load,
   isUsable = (value) => value !== null && value !== undefined,
+  useStaleOnUnusable = false,
 }: {
   key: string;
   load: () => Promise<T>;
   isUsable?: (value: T) => boolean;
+  useStaleOnUnusable?: boolean;
 }): Promise<LastKnownGoodResult<T>> {
   try {
     const value = await load();
@@ -53,6 +55,18 @@ export async function withLastKnownGood<T>({
 
     if (isUsable(value)) {
       store.set(key, { value, updatedAt });
+    } else if (useStaleOnUnusable) {
+      const entry = store.get(key) as LastKnownGoodEntry<T> | undefined;
+
+      if (entry) {
+        return {
+          value: entry.value,
+          source: "last-known-good",
+          stale: true,
+          updatedAt: entry.updatedAt,
+          error: null,
+        };
+      }
     }
 
     return {

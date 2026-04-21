@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContentPageTemplate } from "@/components/content-pages/ContentPageTemplate";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildContentPagePath, getContentPage } from "@/lib/cms/content-pages";
+import { buildContentPagePath, getContentPageWithLastKnownGood } from "@/lib/cms/content-pages";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
@@ -17,7 +17,9 @@ export async function generateContentPageMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const page = await getContentPage(slug, locale);
+  const page = await getContentPageWithLastKnownGood(slug, locale)
+    .then((result) => result.value)
+    .catch(() => null);
 
   if (!page) {
     return {
@@ -49,7 +51,9 @@ export async function renderContentPage({
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const page = await getContentPage(slug, locale);
+  const page = await getContentPageWithLastKnownGood(slug, locale)
+    .then((result) => result.value)
+    .catch(() => null);
 
   if (!page) {
     notFound();

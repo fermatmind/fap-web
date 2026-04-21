@@ -84,7 +84,7 @@ describe("articles cleanup contract", () => {
     expect(source).not.toContain("normalizeStructuredDataUrls");
     expect(source).toContain("seo?.surface?.canonicalUrl ?? seo?.meta.canonical");
     expect(source).toContain("seoSurface: seo?.surface");
-    expect(source).toContain("seo?.jsonld ||");
+    expect(source).toContain("normalizeArticleJsonLdAuthor(seo?.jsonld) ||");
   });
 
   it("llms routes use cms article enumeration instead of local blog helpers", () => {
