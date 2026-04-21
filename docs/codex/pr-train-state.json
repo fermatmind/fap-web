@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T10:34:00+08:00",
+  "updated_at": "2026-04-21T10:36:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -113,10 +113,10 @@
     "PR-CMSOPS-3": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "github_checks_failed_user_overridden",
       "branch": "codex/cms-ops-pr3-homepage-recommended-block",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "a424c3062c172035c16bce4a6b806f2c8cd30089",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/518",
       "checks": {
         "local": [
           {
@@ -136,9 +136,25 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24701036003/job/72244098602"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24701036003/job/72244098611"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24701036003/job/72244098609"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions checks failed immediately after PR creation: build, contracts, and verify-big5-contract-freeze. Local manifest checks passed in a clean auxiliary worktree, merge_policy.github_checks_required is false, and the user explicitly instructed Codex on 2026-04-21 to modify the rule and continue despite non-required remote-check failures. The failed PR remains blocked from merge until it satisfies its merge_policy.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
