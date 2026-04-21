@@ -123,17 +123,55 @@ node scripts/validate-staging-cms-baseline.mjs --print-plan --json
 
 If the validator fails, fix CMS/backend data or media references first. Do not patch the frontend with static article/content copies to satisfy the baseline.
 
+## Staging Content Release Order
+
+Staging content should be rebuilt by backend CMS/API importers and CMS publishing tools, not by manual frontend edits. Use this order for baseline refreshes, recovery, and release preparation:
+
+1. Import Media Library assets and generated variants.
+2. Import or update articles, including locale, publish state, SEO, cover image, social image, categories, and tags.
+3. Import or update landing surfaces and page blocks, including homepage recommended articles, tests hub, test category pages, career center, and topic surfaces.
+4. Import or update content pages, including about, privacy, terms, refund, support, help, company, brand, and career pages.
+5. Warm relevant runtime caches or last-known-good entries from CMS/API responses.
+6. Run staging smoke with the baseline validator.
+
+The order matters because articles and media must exist before page blocks reference them, and content pages must exist before sitemap or llms enumeration is considered complete. If the smoke fails, fix CMS data, importer ordering, media references, or backend validation. Do not add frontend fallback content.
+
+Use the packaged staging smoke entry point for the final read-only check:
+
+```bash
+pnpm cms:baseline:staging:smoke
+```
+
+The smoke command defaults to the staging API and staging web origin. Override the targets when validating another preview stack:
+
+```bash
+CMS_BASELINE_API_URL=https://staging-api.fermatmind.com \
+CMS_BASELINE_WEB_URL=https://staging.fermatmind.com \
+pnpm cms:baseline:staging:smoke
+```
+
 ## Release Smoke
 
 Before content release or frontend release, verify:
 
 ```bash
 pnpm check:cms-api
-pnpm cms:baseline:staging
+pnpm cms:baseline:staging:smoke
 curl -fsS "$NEXT_PUBLIC_API_URL/api/v0.5/articles?locale=zh-CN&page=1&per_page=6&org_id=0" >/dev/null
 curl -fsS http://localhost:3000/ >/dev/null
 curl -fsS http://localhost:3000/zh/articles >/dev/null
 ```
+
+`scripts/deploy_web_pm2.sh` can run the staging baseline smoke after the normal deployment probes when explicitly enabled:
+
+```bash
+RUN_CMS_BASELINE_STAGING_SMOKE=1 \
+CMS_BASELINE_API_URL=https://staging-api.fermatmind.com \
+CMS_BASELINE_WEB_URL=https://staging.fermatmind.com \
+pnpm deploy:pm2
+```
+
+The deploy script leaves this disabled by default so production deploys and unrelated operational recovery tasks are not blocked by staging content gaps. Staging release jobs should enable it after the CMS baseline import has completed.
 
 Expected release behavior:
 
