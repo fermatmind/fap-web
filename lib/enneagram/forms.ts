@@ -21,13 +21,13 @@ const ENNEAGRAM_FORM_META: Record<EnneagramFormCode, EnneagramFormMeta> = {
   enneagram_likert_105: {
     formCode: "enneagram_likert_105",
     questionCount: 105,
-    estimatedMinutes: 18,
+    estimatedMinutes: 12,
     questionMode: "likert_105",
   },
   enneagram_forced_choice_144: {
     formCode: "enneagram_forced_choice_144",
     questionCount: 144,
-    estimatedMinutes: 22,
+    estimatedMinutes: 18,
     questionMode: "forced_choice_144",
   },
 };
@@ -85,12 +85,41 @@ export function getEnneagramVariantDescriptor(formCode: string | null | undefine
   return meta.formCode === "enneagram_forced_choice_144" ? "Forced-choice pairs" : "Five-point Likert";
 }
 
+export function getEnneagramVariantLabel(formCode: string | null | undefined, locale: Locale): string {
+  return `${getEnneagramVariantName(formCode)} · ${getEnneagramVariantDescriptor(formCode, locale)}`;
+}
+
+export function getEnneagramVariantSummary(formCode: string | null | undefined, locale: Locale): string {
+  const meta = resolveEnneagramFormMeta(formCode);
+  if (locale === "zh") {
+    return meta.formCode === "enneagram_forced_choice_144"
+      ? `${meta.questionCount} 题，约 ${meta.estimatedMinutes} 分钟。每题在两个描述中选择更贴近你的一个，适合更正式的迫选版本。`
+      : `${meta.questionCount} 题，约 ${meta.estimatedMinutes} 分钟。使用五点量表回答每个描述，适合标准自评入口。`;
+  }
+
+  return meta.formCode === "enneagram_forced_choice_144"
+    ? `${meta.questionCount} questions, about ${meta.estimatedMinutes} minutes. Choose the closer statement in each pair for the formal forced-choice form.`
+    : `${meta.questionCount} questions, about ${meta.estimatedMinutes} minutes. Rate each statement on a five-point scale for the standard self-report form.`;
+}
+
 export function getEnneagramStartLabel(formCode: string | null | undefined, locale: Locale): string {
   const meta = resolveEnneagramFormMeta(formCode);
   if (locale === "zh") {
     return meta.formCode === "enneagram_forced_choice_144" ? "开始二选一版" : "开始量表版";
   }
   return meta.formCode === "enneagram_forced_choice_144" ? "Start forced-choice" : "Start Likert form";
+}
+
+export function getEnneagramDurationSummary(locale: Locale): string {
+  return listEnneagramFormMetas()
+    .map((form) => (locale === "zh" ? `${form.estimatedMinutes}分钟` : `${form.estimatedMinutes} min`))
+    .join(" / ");
+}
+
+export function getEnneagramQuestionSummary(locale: Locale): string {
+  return listEnneagramFormMetas()
+    .map((form) => (locale === "zh" ? `${form.questionCount}题` : `${form.questionCount}Q`))
+    .join(" / ");
 }
 
 export function buildEnneagramTakeHref(slug: string, locale: Locale, formCode: string | null | undefined): string {

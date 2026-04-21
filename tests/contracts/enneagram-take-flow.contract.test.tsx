@@ -256,7 +256,7 @@ describe("enneagram take flow contract", () => {
       <EnneagramTakeClient
         slug="enneagram-personality-test-nine-types"
         formCode="enneagram_likert_105"
-        estimatedMinutes={18}
+        estimatedMinutes={12}
       />
     );
 
@@ -300,7 +300,7 @@ describe("enneagram take flow contract", () => {
       <EnneagramTakeClient
         slug="enneagram-personality-test-nine-types"
         formCode="enneagram_forced_choice_144"
-        estimatedMinutes={22}
+        estimatedMinutes={18}
       />
     );
 

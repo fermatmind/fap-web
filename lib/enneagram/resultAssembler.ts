@@ -15,7 +15,9 @@ export type EnneagramTypeRow = {
 
 export type EnneagramResultViewModel = {
   projection: EnneagramPublicProjection | null;
+  formCode: string | null;
   formSummaryLabel: string | null;
+  estimatedMinutes: number | null;
   primaryType: EnneagramTypeRow | null;
   typeVector: EnneagramTypeRow[];
   topTypes: EnneagramTypeRow[];
@@ -202,7 +204,9 @@ export function assembleEnneagramResultViewModel({
 
   return {
     projection,
+    formCode: formSummary?.formCode ?? null,
     formSummaryLabel: buildEnneagramFormDisplayLabel(formSummary, { locale }),
+    estimatedMinutes: formSummary?.estimatedMinutes && formSummary.estimatedMinutes > 0 ? formSummary.estimatedMinutes : null,
     primaryType: resolvePrimaryType(projection),
     typeVector: resolveTypeVector(projection),
     topTypes: resolveTopTypes(projection),

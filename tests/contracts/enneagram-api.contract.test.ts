@@ -92,7 +92,7 @@ describe("enneagram frontend API contract", () => {
         label: "105-question Likert",
         short_label: "105Q Likert",
         question_count: 105,
-        estimated_minutes: 18,
+        estimated_minutes: 12,
         scale_code: "ENNEAGRAM",
       },
       enneagram_public_projection_v1: {
@@ -139,6 +139,10 @@ describe("enneagram frontend API contract", () => {
       "enneagram_likert_105",
       "enneagram_forced_choice_144",
     ]);
+    expect(listEnneagramFormMetas().map((form) => [form.formCode, form.questionCount, form.estimatedMinutes])).toEqual([
+      ["enneagram_likert_105", 105, 12],
+      ["enneagram_forced_choice_144", 144, 18],
+    ]);
     expect(buildEnneagramTakeHref("enneagram", "zh", "144")).toBe(
       "/zh/tests/enneagram-personality-test-nine-types/take?form=enneagram_forced_choice_144"
     );
@@ -154,6 +158,21 @@ describe("enneagram frontend API contract", () => {
     expect(source).toContain("normalizeEnneagramFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))");
     expect(source).toContain("<EnneagramTakeClient");
     expect(source).toContain("formCode={enneagramFormCode ?? undefined}");
+  });
+
+  it("wires the landing and sticky entry surfaces to explicit Enneagram form metadata", () => {
+    const landingSource = fs.readFileSync(
+      path.join(process.cwd(), "app/(localized)/[locale]/tests/[slug]/page.tsx"),
+      "utf8"
+    );
+    const stickySource = fs.readFileSync(path.join(process.cwd(), "components/business/CTASticky.tsx"), "utf8");
+
+    expect(landingSource).toContain("const showsEnneagramActions = isEnneagramScaleCode(test.scale_code)");
+    expect(landingSource).toContain("listEnneagramFormMetas().map((form) => ({");
+    expect(landingSource).toContain("href: buildEnneagramTakeHref(test.slug, locale, form.formCode)");
+    expect(stickySource).toContain("const showsEnneagramActions = isEnneagramScaleCode(scaleCode) || isEnneagramSlug(slug)");
+    expect(stickySource).toContain("listEnneagramFormMetas().map((form) => getEnneagramVariantLabel(form.formCode, locale))");
+    expect(stickySource).toContain("href={buildEnneagramTakeHref(slug, locale, form.formCode)}");
   });
 
   it("fetches questions with explicit form_code through the shared v0.3 client", async () => {

@@ -11,6 +11,15 @@ import {
   isBig5Slug,
   listBig5FormMetas,
 } from "@/lib/big5/forms";
+import {
+  buildEnneagramTakeHref,
+  getEnneagramStartLabel,
+  getEnneagramVariantLabel,
+  getEnneagramVariantSummary,
+  isEnneagramScaleCode,
+  isEnneagramSlug,
+  listEnneagramFormMetas,
+} from "@/lib/enneagram/forms";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import {
@@ -36,6 +45,7 @@ type CTAStickyProps = {
 export function CTASticky({ slug, title, questions, minutes, scaleCode, locale = "en" }: CTAStickyProps) {
   const showsMbtiActions = isMbtiScaleCode(scaleCode) || isMbtiSlug(slug);
   const showsBig5Actions = isBig5ScaleCode(scaleCode) || isBig5Slug(slug);
+  const showsEnneagramActions = isEnneagramScaleCode(scaleCode) || isEnneagramSlug(slug);
   const mbtiForms = listMbtiFormMetas();
   const mbtiPrimaryForm = mbtiForms.find((form) => form.formCode === DEFAULT_MBTI_FORM_CODE) ?? mbtiForms[0] ?? null;
   const mbtiSecondaryForm = mbtiForms.find((form) => form.formCode !== (mbtiPrimaryForm?.formCode ?? DEFAULT_MBTI_FORM_CODE)) ?? null;
@@ -86,6 +96,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
     : null;
   const mbtiSummary = listMbtiFormMetas().map((form) => getMbtiVariantLabel(form.formCode, locale)).join(" / ");
   const big5Summary = listBig5FormMetas().map((form) => getBig5VariantLabel(form.formCode, locale)).join(" / ");
+  const enneagramSummary = listEnneagramFormMetas().map((form) => getEnneagramVariantLabel(form.formCode, locale)).join(" / ");
 
   return (
     <>
@@ -102,6 +113,8 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                 ? mbtiSummary
                 : showsBig5Actions
                 ? big5Summary
+                : showsEnneagramActions
+                ? enneagramSummary
                 : `${questions} ${locale === "zh" ? "题" : "questions"} · ${locale === "zh" ? `约 ${minutes} 分钟` : `about ${minutes} minutes`}.`}
             </p>
             {showsMbtiActions ? (
@@ -156,6 +169,23 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                   </div>
                 ))}
               </div>
+            ) : showsEnneagramActions ? (
+              <div className="space-y-2">
+                {listEnneagramFormMetas().map((form) => (
+                  <div key={form.formCode} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {getEnneagramVariantLabel(form.formCode, locale)}
+                    </p>
+                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getEnneagramVariantSummary(form.formCode, locale)}</p>
+                    <Link
+                      href={buildEnneagramTakeHref(slug, locale, form.formCode)}
+                      className={buttonVariants({ className: "mt-3 w-full" })}
+                    >
+                      {getEnneagramStartLabel(form.formCode, locale)}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             ) : (
               <Link href={localizedPath(`/tests/${slug}/take`, locale)} className={buttonVariants({ className: "w-full" })}>
                 {locale === "zh" ? "开始此测试" : "Start this test"}
@@ -172,6 +202,8 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
               ? `${title} · ${mbtiSummary}`
               : showsBig5Actions
               ? `${title} · ${big5Summary}`
+              : showsEnneagramActions
+              ? `${title} · ${enneagramSummary}`
               : `${title} · ${questions}Q · ${minutes}m`}
           </p>
           {showsMbtiActions ? (
@@ -206,6 +238,18 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
                   {getBig5StartLabel(form.formCode, locale)}
+                </Link>
+              ))}
+            </div>
+          ) : showsEnneagramActions ? (
+            <div className="flex w-full gap-2 sm:w-auto">
+              {listEnneagramFormMetas().map((form) => (
+                <Link
+                  key={form.formCode}
+                  href={buildEnneagramTakeHref(slug, locale, form.formCode)}
+                  className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
+                >
+                  {getEnneagramStartLabel(form.formCode, locale)}
                 </Link>
               ))}
             </div>

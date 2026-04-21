@@ -57,6 +57,10 @@ describe("enneagram rich result report contract", () => {
     expect(within(shell).getByTestId("enneagram-top-types")).toHaveTextContent("Type 1");
     expect(within(shell).getByTestId("enneagram-type-vector")).toHaveTextContent("Type 5");
     expect(within(shell).getByTestId("enneagram-pdf-entry")).toBeInTheDocument();
+    expect(within(shell).getByText("Retake test")).toHaveAttribute(
+      "href",
+      "/en/tests/enneagram-personality-test-nine-types/take?form=enneagram_likert_105"
+    );
     expect(screen.queryByTestId("mbti-result-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
   });
@@ -103,7 +107,7 @@ describe("enneagram rich result report contract", () => {
     expect(within(shell).getByTestId("enneagram-primary-type")).toHaveTextContent("Primary type · T5");
     expect(within(shell).getByText("Retake test")).toHaveAttribute(
       "href",
-      "/en/tests/enneagram-personality-test-nine-types/take"
+      "/en/tests/enneagram-personality-test-nine-types/take?form=enneagram_forced_choice_144"
     );
   });
 });

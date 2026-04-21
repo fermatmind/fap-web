@@ -39,7 +39,7 @@ describe("enneagram secondary surfaces contract", () => {
             label: "105-question Likert",
             short_label: "105Q Likert",
             question_count: 105,
-            estimated_minutes: 18,
+            estimated_minutes: 12,
             scale_code: "ENNEAGRAM",
           },
           enneagram_summary_v1: {
@@ -117,7 +117,7 @@ describe("enneagram secondary surfaces contract", () => {
             label: "144-question Forced-Choice",
             short_label: "144Q Forced",
             question_count: 144,
-            estimated_minutes: 22,
+            estimated_minutes: 18,
             scale_code: "ENNEAGRAM",
           },
           enneagram_summary_v1: {
