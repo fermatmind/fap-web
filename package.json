@@ -11,6 +11,7 @@
     "predev": "node ./scripts/check-cms-api-health.mjs",
     "check:runtime": "node ./scripts/check-runtime.mjs",
     "check:cms-api": "node ./scripts/check-cms-api-health.mjs",
+    "cms:baseline:staging": "node ./scripts/validate-staging-cms-baseline.mjs --dry-run",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

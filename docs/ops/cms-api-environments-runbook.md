@@ -64,12 +64,51 @@ The staging CMS baseline should include:
 - Media Library references for article covers, social images, and mutable marketing images.
 - Sitemap and `llms.txt` enumerable records.
 
+## Staging Baseline Validation
+
+Run the read-only baseline validator before release smoke, design review, and large CMS content migrations:
+
+```bash
+pnpm cms:baseline:staging
+```
+
+The command defaults to:
+
+```env
+NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com
+STAGING_WEB_URL=https://staging.fermatmind.com
+```
+
+Override those when validating another environment:
+
+```bash
+pnpm cms:baseline:staging -- --api-url https://api.fermatmind.com --web-url https://fermatmind.com
+```
+
+The validator is intentionally dry-run and read-only. It does not import content, mutate CMS records, write frontend fixtures, or create local article fallbacks. It verifies:
+
+- Homepage `recommended_articles` or `homepage_recommended_articles` page block has exactly 6 published public articles per locale.
+- Article listing exposes at least 20 published public articles per locale.
+- MBTI, Big Five, and Enneagram related articles are present through CMS article metadata.
+- Sampled articles include title, excerpt, cover image, SEO title/description/canonical, and social image metadata.
+- Required content pages include about, privacy, terms, and at least one help page per locale.
+- `sitemap.xml`, `llms.txt`, and `llms-full.txt` enumerate sampled CMS article routes.
+
+Print the validation plan without network calls:
+
+```bash
+node scripts/validate-staging-cms-baseline.mjs --print-plan --json
+```
+
+If the validator fails, fix CMS/backend data or media references first. Do not patch the frontend with static article/content copies to satisfy the baseline.
+
 ## Release Smoke
 
 Before content release or frontend release, verify:
 
 ```bash
 pnpm check:cms-api
+pnpm cms:baseline:staging
 curl -fsS "$NEXT_PUBLIC_API_URL/api/v0.5/articles?locale=zh-CN&page=1&per_page=6&org_id=0" >/dev/null
 curl -fsS http://localhost:3000/ >/dev/null
 curl -fsS http://localhost:3000/zh/articles >/dev/null
@@ -85,4 +124,4 @@ Expected release behavior:
 
 ## Repository Rule Impact
 
-This runbook reinforces the existing content authority rule: CMS/backend remains the source of truth for public editorial and marketing content. This PR adds operational guidance and dev observability only; it does not introduce a new content surface or a frontend fallback content store.
+This runbook reinforces the existing content authority rule: CMS/backend remains the source of truth for public editorial and marketing content. The staging baseline validator is a read-only operational guard; it does not introduce a new content surface or a frontend fallback content store.
