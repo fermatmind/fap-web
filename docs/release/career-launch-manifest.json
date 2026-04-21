@@ -93,7 +93,7 @@
     {
       "key": "career_big5_recommendation_detail",
       "route": "/career/recommendations/big5/[trait]",
-      "authorityOwner": "editorial_local_big5",
+      "authorityOwner": "backend_future_big5",
       "rationale": "Big5 recommendation detail is intentionally reachable but not part of the backend-owned first-wave recommendation launch."
     }
   ],

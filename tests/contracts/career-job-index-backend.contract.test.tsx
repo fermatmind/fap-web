@@ -21,6 +21,32 @@ afterEach(() => {
   vi.resetModules();
 });
 
+function mockCareerDatasetHub(members: Array<Record<string, unknown>> = [
+  {
+    canonical_slug: "data-scientists",
+    canonical_title_en: "Data Scientists",
+    family_slug: "computer-and-information-technology",
+    included_in_public_dataset: true,
+    public_index_state: "indexable",
+  },
+]) {
+  vi.doMock("@/lib/career/api/fetchCareerDatasetHub", () => ({
+    fetchCareerDatasetHub: vi.fn(async () => ({
+      dataset_key: "career_occupations_public",
+      dataset_name: "Career occupations dataset",
+      collection_summary: {
+        member_count: members.length,
+        included_count: members.length,
+        public_detail_indexable_count: members.length,
+      },
+      members,
+      structured_data: {
+        dataset: { "@type": "Dataset", name: "Career occupations dataset" },
+      },
+    })),
+  }));
+}
+
 describe("career job index backend contract", () => {
   it("requests the backend lightweight job index endpoint", async () => {
     vi.stubGlobal(
@@ -135,7 +161,7 @@ describe("career job index backend contract", () => {
             },
             seo_contract: {
               canonical_path: "/career/jobs/data-scientists",
-              index_state: "index",
+              index_state: "indexable",
               index_eligible: true,
             },
             provenance_meta: {
@@ -169,6 +195,7 @@ describe("career job index backend contract", () => {
         public_statement: { allowed_external_statement: "cohort-qualified only" },
       })),
     }));
+    mockCareerDatasetHub();
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -177,9 +204,9 @@ describe("career job index backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("career-job-index-card");
+    expect(html).toContain("career-occupation-directory");
     expect(html).toContain("Data Scientists");
-    expect(html).toContain("View role");
+    expect(html).toContain("Detail ready");
     expect(html).not.toContain("CMS did not return any public career jobs");
   });
 
@@ -218,7 +245,7 @@ describe("career job index backend contract", () => {
             },
             seo_contract: {
               canonical_path: "/career/jobs/financial-analysts",
-              index_state: "index",
+              index_state: "indexable",
               index_eligible: true,
             },
           },
@@ -249,6 +276,15 @@ describe("career job index backend contract", () => {
         public_statement: { allowed_external_statement: "cohort-qualified only" },
       })),
     }));
+    mockCareerDatasetHub([
+      {
+        canonical_slug: "financial-analysts",
+        canonical_title_en: "Financial Analysts",
+        family_slug: "business-and-financial",
+        included_in_public_dataset: true,
+        public_index_state: "noindex",
+      },
+    ]);
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -257,9 +293,8 @@ describe("career job index backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("career-job-index-status");
-    expect(html).toContain("No public job index items are currently available");
-    expect(html).not.toContain("Financial Analysts");
+    expect(html).toContain("career-occupation-directory");
+    expect(html).toContain("Financial Analysts");
   });
 
   it("treats whitespace-only q as no query and keeps the default backend job index path", async () => {
@@ -285,9 +320,9 @@ describe("career job index backend contract", () => {
             fit_score: { value: 84, integrity_state: "full", degradation_factor: 1.0 },
             confidence_score: { value: 79, integrity_state: "full", degradation_factor: 1.0 },
           },
-          seo_contract: {
+            seo_contract: {
             canonical_path: "/career/jobs/backend-architect",
-            index_state: "index",
+            index_state: "indexable",
             index_eligible: true,
           },
         },
@@ -325,6 +360,15 @@ describe("career job index backend contract", () => {
         throw new Error("search fetch should not run for whitespace-only q");
       }),
     }));
+    mockCareerDatasetHub([
+      {
+        canonical_slug: "backend-architect",
+        canonical_title_en: "Backend Architect",
+        family_slug: "computer-and-information-technology",
+        included_in_public_dataset: true,
+        public_index_state: "indexable",
+      },
+    ]);
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -334,7 +378,7 @@ describe("career job index backend contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(fetchCareerJobIndexMock).toHaveBeenCalledTimes(1);
-    expect(html).toContain("career-job-index-card");
+    expect(html).toContain("career-occupation-directory");
     expect(html).not.toContain("career-job-search-card");
   });
 
@@ -349,17 +393,21 @@ describe("career job index backend contract", () => {
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
-      fetchCareerSearch: vi.fn(async () => ({
-        bundle_kind: "career_search_results",
-        data: [],
+    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
+      fetchCareerJobIndex: vi.fn(async () => ({
+        bundle_kind: "career_job_index",
+        items: [],
       })),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => {
-        throw new Error("job index fetch should not run when a real search query exists");
-      }),
-    }));
+    mockCareerDatasetHub([
+      {
+        canonical_slug: "data-scientists",
+        canonical_title_en: "Data Scientists",
+        family_slug: "computer-and-information-technology",
+        included_in_public_dataset: true,
+        public_index_state: "indexable",
+      },
+    ]);
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -368,8 +416,7 @@ describe("career job index backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("career-job-search-empty-state");
-    expect(html).toContain("No direct role matches were found");
+    expect(html).toContain("No matching occupations found.");
     expect(html).not.toContain("CMS did not return any public career jobs");
   });
 

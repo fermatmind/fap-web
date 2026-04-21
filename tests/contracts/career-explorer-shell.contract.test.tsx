@@ -8,12 +8,62 @@ afterEach(() => {
   vi.resetModules();
 });
 
+const careerCenterContent = {
+  seo: {
+    title: "Career Explorer",
+    description: "Explore career paths from backend-backed public surfaces.",
+  },
+  hero: {
+    title: "Career Explorer",
+  },
+  pathways: [
+    {
+      eyebrow: "Jobs",
+      title: "Job library",
+      description: "Search backend-owned jobs.",
+      href: "/career/jobs",
+      searchPlaceholder: "Search jobs",
+      ctaLabel: "Search jobs",
+    },
+    {
+      eyebrow: "Recommendations",
+      title: "Recommendations",
+      description: "Explore recommendation surfaces.",
+      href: "/career/recommendations",
+      ctaLabel: "View recommendations",
+    },
+    {
+      eyebrow: "Tests",
+      title: "Tests",
+      description: "Start from assessment context.",
+      href: "/career/tests",
+      ctaLabel: "View tests",
+    },
+  ],
+  support: {
+    title: "Explore more",
+    links: [
+      { href: "/career/resolve", label: "Resolve aliases" },
+      { href: "/career/guides", label: "Guides" },
+      { href: "/career/industries", label: "Industries" },
+      { href: "/datasets/occupations", label: "Dataset" },
+    ],
+  },
+};
+
+function mockCareerCenterContent() {
+  vi.doMock("@/lib/marketing/careerCenterContent", () => ({
+    getCareerCenterContent: vi.fn(async () => careerCenterContent),
+  }));
+}
+
 describe("career explorer shell contract", () => {
   it("keeps /career metadata distinct from jobs/resolve semantic contracts", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),
     }));
+    mockCareerCenterContent();
 
     const { generateMetadata } = await import("@/app/(localized)/[locale]/career/page");
     const metadata = await generateMetadata({
@@ -58,6 +108,7 @@ describe("career explorer shell contract", () => {
         localizedPath: vi.fn((pathname: string, locale: string) => `/${locale}${pathname}`),
       };
     });
+    mockCareerCenterContent();
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
       fetchCareerJobIndex: vi.fn(async () => ({
         bundle_kind: "career_job_index",

@@ -160,8 +160,9 @@ describe("schema injection contract", () => {
 
     expect(source).not.toContain("listCareerJobs(");
     expect(source).not.toContain("CareerRecommendationPanel");
+    expect(source).toContain("getCareerCenterContent");
     expect(source).toContain('data-testid="career-landing-search-entry"');
-    expect(source).toContain('action={withLocale("/career/jobs")}');
+    expect(source).toContain('action={withLocale(content.pathways[0]?.href ?? "/career/jobs")}');
     expect(source).toContain('data-testid="career-explorer-pathways"');
     expect(source).toContain('data-authority-owner="editorial_ia_shell"');
     expect(source).toContain('data-authority-owner="editorial_support_links"');
@@ -207,14 +208,13 @@ describe("schema injection contract", () => {
     expect(source).not.toContain("CareerRecommendationPanel");
   });
 
-  it("help detail page injects webpage, breadcrumb, and faq jsonld only when faq content exists", () => {
+  it("help detail page injects webpage and breadcrumb jsonld from content pages", () => {
     const source = read("app/(localized)/[locale]/help/[slug]/page.tsx");
     expect(source).toContain("JsonLd");
     expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
-    expect(source).toContain("buildFAQPageJsonLd");
-    expect(source).toContain('id="faq"');
-    expect(source).toContain('page.slug === "faq"');
+    expect(source).toContain("getContentPageWithLastKnownGood");
+    expect(source).not.toContain("buildFAQPageJsonLd");
   });
 
   it("schema builder exposes required types", () => {

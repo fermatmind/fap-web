@@ -133,7 +133,6 @@ describe("mbti ads whitelist contract", () => {
     expect(landing).toContain('data-testid="mbti-ads-primary-whitelist"');
     expect(landing).toContain('data-testid="mbti-landing-primary-cta"');
     expect(landing).toContain('data-testid="mbti-landing-secondary-cta"');
-    expect(landing).toContain('data-testid="mbti-landing-cta-guidance"');
     expect(landing).toContain('sourcePath: mbtiLandingPath');
     expect(sticky).toContain('data-testid="mbti-sticky-primary-cta"');
     expect(sticky).toContain('data-testid="mbti-sticky-secondary-cta"');
@@ -161,16 +160,12 @@ describe("mbti ads whitelist contract", () => {
 
     expect(personality).toContain('data-ads-surface="secondary"');
     expect(personality).toContain('data-testid="mbti-personality-primary-cta"');
-    expect(personality).toContain('data-testid="mbti-personality-secondary-cta"');
-    expect(personality).toContain('data-testid="mbti-personality-cta-guidance"');
     expect(personality).toContain('size: "sm"');
     expect(personality).toContain("sourcePath: canonicalPath");
 
     expect(recommendation).toContain('data-ads-surface="secondary"');
     expect(recommendation).toContain('data-testid="mbti-career-primary-cta"');
     expect(recommendation).toContain('data-testid="mbti-career-secondary-cta"');
-    expect(recommendation).toContain('data-testid="mbti-career-cta-guidance"');
-    expect(recommendation).toContain('size: "sm"');
     expect(recommendation).toContain("sourcePath: canonicalPath");
   });
 

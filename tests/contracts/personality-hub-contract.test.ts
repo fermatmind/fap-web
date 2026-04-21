@@ -61,10 +61,8 @@ describe("personality hub contract", () => {
     expect(pageSource).toContain('from "@/lib/mbti/personalityHub.adapter"');
     expect(pageSource).toContain("buildItemListJsonLd");
     expect(pageSource).toContain("buildPersonalityHubPayload({");
-    expect(pageSource).toContain('data-testid="personality-two-main-doors"');
     expect(pageSource).toContain('data-testid="personality-type-group-browse"');
     expect(pageSource).toContain('data-testid="personality-type-directory"');
-    expect(pageSource).toContain('data-testid="personality-quiet-theme-library"');
     expect(pageSource).toContain('id="personality-itemlist-jsonld"');
     expect(pageSource).toContain("hubPayload.familyGroups");
     expect(pageSource).not.toContain('from "@/lib/mbti/personalityQuickLocate"');

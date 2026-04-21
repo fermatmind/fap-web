@@ -297,14 +297,14 @@ describe("career explainability contract", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain("career-job-explainability-panel");
-    expect(html).toContain("Structured explainability");
+    expect(html).toContain("Scoring explanation");
     expect(html).toContain("career-job-strain-radar");
     expect(html).toContain("People friction");
     expect(html).toContain("career-job-next-step-links");
-    expect(html).toContain("Next-step links");
+    expect(html).toContain("Next steps");
     expect(html).toContain("Software Engineering");
     expect(html).toContain("Backend Architect");
     expect(html).not.toContain("environment_fit");
-    expect(html.indexOf("career-job-explainability-panel")).toBeLessThan(html.indexOf("career-job-next-step-links"));
+    expect(html.indexOf("career-job-next-step-links")).toBeLessThan(html.indexOf("career-job-explainability-panel"));
   });
 });

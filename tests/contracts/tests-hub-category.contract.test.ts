@@ -10,10 +10,10 @@ describe("tests hub and category contract", () => {
   it("keeps the tests hub question-led and Big5 form-aware", () => {
     const source = read("lib/marketing/testsHubContent.ts");
 
-    expect(source).toContain('href: localizedPath("/tests/category/career", locale)');
-    expect(source).toContain('href: localizedPath("/tests/category/personality", locale)');
-    expect(source).toContain("buildBig5TakeHref");
-    expect(source).toContain("primaryActions: big5Actions");
+    expect(source).toContain("getCmsLandingSurfaceWithLastKnownGood");
+    expect(source).toContain("filterVisiblePublicTestEntries");
+    expect(source).toContain('return ["personality", "career"];');
+    expect(source).not.toContain("buildBig5TakeHref");
   });
 
   it("keeps category routes restricted to the supported slugs", () => {

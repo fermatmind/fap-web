@@ -36,6 +36,6 @@ describe("locale negotiation contract", () => {
         cookieLocale: null,
         acceptLanguage: null,
       })
-    ).toBe("en");
+    ).toBe("zh");
   });
 });

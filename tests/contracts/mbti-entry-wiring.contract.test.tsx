@@ -187,7 +187,7 @@ describe("mbti entry wiring contract", () => {
       />
     );
 
-    const links120 = screen.getAllByRole("link", { name: /开始完整档案/ });
+    const links120 = screen.getAllByRole("link", { name: /开始深度版/ });
     const links90 = screen.getAllByRole("link", { name: /开始快速版/ });
 
     expect(links120.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120")).toBe(true);

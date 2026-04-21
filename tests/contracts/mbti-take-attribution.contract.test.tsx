@@ -322,7 +322,7 @@ describe("MBTI take attribution contract", () => {
     });
   });
 
-  it("loads questions without eager auth bootstrap", async () => {
+  it("loads questions after guest auth bootstrap without starting an attempt", async () => {
     renderClient();
 
     await waitFor(() => {
@@ -333,7 +333,10 @@ describe("MBTI take attribution contract", () => {
       });
     });
 
-    expect(hoisted.ensureFmTokenReady).not.toHaveBeenCalled();
+    expect(hoisted.ensureFmTokenReady).toHaveBeenCalledWith({
+      anonId: "anon_take_test",
+      locale: "en",
+    });
     expect(hoisted.startAttempt).not.toHaveBeenCalled();
   });
 

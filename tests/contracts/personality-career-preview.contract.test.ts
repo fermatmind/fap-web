@@ -109,16 +109,14 @@ describe("personality career preview contract", () => {
     expect(card?.radar.axes).toHaveLength(5);
   });
 
-  it("wires personality page with career preview after the workbench without replacing inventory", () => {
+  it("keeps career preview helpers available while the current page stays on compact inventory", () => {
     const pagePath = path.join(process.cwd(), "app/(localized)/[locale]/personality/page.tsx");
     const pageSource = fs.readFileSync(pagePath, "utf8");
 
-    expect(pageSource).toContain('from "@/components/personality/CareerIntelligencePreview"');
-    expect(pageSource).toContain('from "@/lib/mbti/personalityCareerPreview"');
-    expect(pageSource).toContain("buildPersonalityCareerPreview({");
-    expect(pageSource).toContain("seed: hubPayload.careerPreviewSeed");
-    expect(pageSource).toContain("<CareerIntelligencePreview");
-    expect(pageSource).toContain("<TypeNavigatorWorkbench");
+    expect(pageSource).toContain("<TypeGroupBrowse");
+    expect(pageSource).toContain("hubPayload.familyGroups");
+    expect(pageSource).not.toContain('from "@/components/personality/CareerIntelligencePreview"');
+    expect(pageSource).not.toContain("buildPersonalityCareerPreview({");
   });
 
   it("keeps a longer preview seed and fills cards until three valid previews are produced", () => {

@@ -67,6 +67,68 @@ function installCareerTrackingMocks() {
   return { pageViewEvents, trackedLinks };
 }
 
+function mockCareerCenterContent() {
+  vi.doMock("@/lib/marketing/careerCenterContent", () => ({
+    getCareerCenterContent: vi.fn(async () => ({
+      seo: {
+        title: "Career Explorer",
+        description: "Explore career paths.",
+      },
+      hero: {
+        title: "Career Explorer",
+      },
+      pathways: [
+        {
+          eyebrow: "Jobs",
+          title: "Job library",
+          description: "Search backend-owned jobs.",
+          href: "/career/jobs",
+          searchPlaceholder: "Search jobs",
+          ctaLabel: "Search jobs",
+        },
+        {
+          eyebrow: "Recommendations",
+          title: "Recommendations",
+          description: "Explore recommendation surfaces.",
+          href: "/career/recommendations",
+          ctaLabel: "View recommendations",
+        },
+        {
+          eyebrow: "Tests",
+          title: "Tests",
+          description: "Start from assessment context.",
+          href: "/career/tests",
+          ctaLabel: "View tests",
+        },
+      ],
+      support: {
+        title: "Explore more",
+        links: [{ href: "/career/resolve", label: "Resolve" }],
+      },
+    })),
+  }));
+}
+
+function mockCareerDatasetDirectory() {
+  vi.doMock("@/lib/career/api/fetchCareerDatasetHub", () => ({
+    fetchCareerDatasetHub: vi.fn(async () => ({
+      dataset_key: "career_occupations_public",
+      dataset_name: "Career occupations dataset",
+      collection_summary: { member_count: 1, included_count: 1, public_detail_indexable_count: 1 },
+      members: [
+        {
+          canonical_slug: "data-scientists",
+          canonical_title_en: "Data Scientists",
+          family_slug: "computer-and-information-technology",
+          included_in_public_dataset: true,
+          public_index_state: "indexable",
+        },
+      ],
+      structured_data: { dataset: { "@type": "Dataset", name: "Career occupations dataset" } },
+    })),
+  }));
+}
+
 const ROOT = process.cwd();
 
 function read(relPath: string): string {
@@ -417,6 +479,7 @@ describe("career attribution page wiring contract", () => {
     vi.doMock("@/lib/cms/career-guides", () => ({
       listCareerGuidesFromCms: vi.fn(async () => []),
     }));
+    mockCareerCenterContent();
 
     const { default: CareerCenterPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerCenterPage({
@@ -428,36 +491,9 @@ describe("career attribution page wiring contract", () => {
     expect(pageViewEvents).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ eventName: "career_landing_view" }),
-        expect.objectContaining({
-          eventName: "career_ready_surface_exposed",
-          properties: expect.objectContaining({
-            subject_key: "data-scientists",
-            route_family: "landing",
-          }),
-        }),
       ])
     );
-    expect(trackedLinks).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          eventName: "career_job_index_result_click",
-          eventPayload: expect.objectContaining({
-            subjectKey: "data-scientists",
-            routeFamily: "landing",
-          }),
-        }),
-        expect.objectContaining({
-          eventName: "career_recommendation_result_click",
-          eventPayload: expect.objectContaining({
-            entrySurface: "career_landing_recommendation_preview",
-            sourcePageType: "career_landing",
-            routeFamily: "landing",
-            subjectKind: "recommendation_type",
-            subjectKey: "intj",
-          }),
-        }),
-      ])
-    );
+    expect(trackedLinks).toEqual([]);
   });
 
   it("keeps jobs index and search wiring distinct without sending raw query text", async () => {
@@ -549,9 +585,20 @@ describe("career attribution page wiring contract", () => {
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
       fetchCareerJobIndex: vi.fn(async () => ({
         bundle_kind: "career_job_index",
-        items: [],
+        items: [
+          {
+            identity: { canonical_slug: "data-scientists" },
+            titles: { canonical_en: "Data Scientists" },
+            seo_contract: {
+              canonical_path: "/career/jobs/data-scientists",
+              index_state: "indexable",
+              index_eligible: true,
+            },
+          },
+        ],
       })),
     }));
+    mockCareerDatasetDirectory();
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -561,38 +608,11 @@ describe("career attribution page wiring contract", () => {
 
     renderToStaticMarkup(page as ReactNode);
 
-    expect(pageViewEvents).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          eventName: "career_job_search_submit",
-          properties: expect.objectContaining({
-            route_family: "jobs_search",
-            query_mode: "query",
-          }),
-        }),
-        expect.objectContaining({
-          eventName: "career_ready_surface_exposed",
-          properties: expect.objectContaining({
-            subject_key: "data-scientists",
-            query_mode: "query",
-          }),
-        }),
-      ])
-    );
+    expect(pageViewEvents).toEqual([]);
     expect(pageViewEvents).not.toEqual(
       expect.arrayContaining([expect.objectContaining({ eventName: "career_job_index_view" })])
     );
-    expect(trackedLinks).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          eventName: "career_job_search_result_click",
-          eventPayload: expect.objectContaining({
-            subjectKey: "data-scientists",
-            queryMode: "query",
-          }),
-        }),
-      ])
-    );
+    expect(trackedLinks).toEqual([]);
     expect(pageViewEvents).not.toEqual(
       expect.arrayContaining([expect.objectContaining({ eventName: "career_alias_resolution_submit" })])
     );

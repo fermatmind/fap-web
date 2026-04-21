@@ -20,6 +20,32 @@ afterEach(() => {
   vi.unmock("next/navigation");
 });
 
+function mockCareerDatasetDirectory(members: Array<Record<string, unknown>> = [
+  {
+    canonical_slug: "backend-architect",
+    canonical_title_en: "Backend Architect",
+    family_slug: "computer-and-information-technology",
+    included_in_public_dataset: true,
+    public_index_state: "indexable",
+  },
+]) {
+  vi.doMock("@/lib/career/api/fetchCareerDatasetHub", () => ({
+    fetchCareerDatasetHub: vi.fn(async () => ({
+      dataset_key: "career_occupations_public",
+      dataset_name: "Career occupations dataset",
+      collection_summary: {
+        member_count: members.length,
+        included_count: members.length,
+        public_detail_indexable_count: members.length,
+      },
+      members,
+      structured_data: {
+        dataset: { "@type": "Dataset", name: "Career occupations dataset" },
+      },
+    })),
+  }));
+}
+
 describe("career search backend contract", () => {
   it("requests the backend conservative search endpoint", async () => {
     vi.stubGlobal(
@@ -139,7 +165,7 @@ describe("career search backend contract", () => {
     expect(items[0]?.dataStatus).toBe("trust_limited");
   });
 
-  it("renders /career/jobs search mode from the backend search path and keeps results compact", async () => {
+  it("renders /career/jobs query mode through the backend-backed occupation directory", async () => {
     vi.doMock("next/link", () => ({
       default: ({
         href,
@@ -180,36 +206,6 @@ describe("career search backend contract", () => {
       fetchCareerAliasResolution: vi.fn(async () => {
         throw new Error("alias resolution fetch should not run on jobs search surface");
       }),
-    }));
-    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
-      fetchCareerSearch: vi.fn(async () => ({
-        bundle_kind: "career_search_results",
-        data: [
-          {
-            match_kind: "canonical_title_prefix",
-            matched_text: "Backend Architect",
-            identity: {
-              occupation_uuid: "occ_data_scientists",
-              canonical_slug: "data-scientists",
-            },
-            titles: {
-              canonical_en: "Data Scientists",
-            },
-            seo_contract: {
-              canonical_path: "/career/jobs/data-scientists",
-              index_state: "indexed",
-              index_eligible: true,
-            },
-            trust_summary: {
-              status: "available",
-              reviewer_status: "reviewed",
-            },
-            provenance_meta: {
-              compiler_version: "career_search_v1",
-            },
-          },
-        ],
-      })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerLaunchGovernanceClosure", () => ({
       fetchCareerLaunchGovernanceClosure: vi.fn(async () => ({
@@ -236,10 +232,22 @@ describe("career search backend contract", () => {
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => {
-        throw new Error("job index fetch should not run in search mode");
-      }),
+      fetchCareerJobIndex: vi.fn(async () => ({
+        bundle_kind: "career_job_index",
+        items: [
+          {
+            identity: { canonical_slug: "backend-architect" },
+            titles: { canonical_en: "Backend Architect" },
+            seo_contract: {
+              canonical_path: "/career/jobs/backend-architect",
+              index_state: "indexable",
+              index_eligible: true,
+            },
+          },
+        ],
+      })),
     }));
+    mockCareerDatasetDirectory();
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
@@ -248,17 +256,15 @@ describe("career search backend contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("career-job-search-results");
-    expect(html).toContain("career-job-search-card");
+    expect(html).toContain("career-occupation-directory");
     expect(html).not.toContain("career-alias-resolution-candidate-link");
-    expect(html).toContain("Data Scientists");
-    expect(html).toContain("Matched text");
+    expect(html).toContain("Backend Architect");
     expect(html).not.toContain("Salary:");
     expect(html).not.toContain("Fit score:");
     expect(html).not.toContain("Confidence score:");
   });
 
-  it("suppresses blocked or non-available search hits and falls back to the empty state", async () => {
+  it("renders the conservative directory empty state when a query has no matches", async () => {
     vi.doMock("next/link", () => ({
       default: ({
         href,
@@ -300,36 +306,6 @@ describe("career search backend contract", () => {
         throw new Error("alias resolution fetch should not run on jobs search surface");
       }),
     }));
-    vi.doMock("@/lib/career/api/fetchCareerSearch", () => ({
-      fetchCareerSearch: vi.fn(async () => ({
-        bundle_kind: "career_search_results",
-        data: [
-          {
-            match_kind: "canonical_slug_exact",
-            matched_text: "financial-analysts",
-            identity: {
-              occupation_uuid: "occ_financial_analysts",
-              canonical_slug: "financial-analysts",
-            },
-            titles: {
-              canonical_en: "Financial Analysts",
-            },
-            seo_contract: {
-              canonical_path: "/career/jobs/financial-analysts",
-              index_state: "indexed",
-              index_eligible: true,
-            },
-            trust_summary: {
-              status: "available",
-              reviewer_status: "reviewed",
-            },
-            provenance_meta: {
-              compiler_version: "career_search_v1",
-            },
-          },
-        ],
-      })),
-    }));
     vi.doMock("@/lib/career/api/fetchCareerLaunchGovernanceClosure", () => ({
       fetchCareerLaunchGovernanceClosure: vi.fn(async () => ({
         governance_kind: "career_launch_governance_closure",
@@ -355,20 +331,21 @@ describe("career search backend contract", () => {
       })),
     }));
     vi.doMock("@/lib/career/api/fetchCareerJobIndex", () => ({
-      fetchCareerJobIndex: vi.fn(async () => {
-        throw new Error("job index fetch should not run in search mode");
-      }),
+      fetchCareerJobIndex: vi.fn(async () => ({
+        bundle_kind: "career_job_index",
+        items: [],
+      })),
     }));
+    mockCareerDatasetDirectory();
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
-      searchParams: Promise.resolve({ q: "backend" }),
+      searchParams: Promise.resolve({ q: "zzzz" }),
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("career-job-search-empty-state");
-    expect(html).toContain("No direct role matches were found");
+    expect(html).toContain("No matching occupations found.");
     expect(html).not.toContain("career-job-search-card");
     expect(html).not.toContain("Backend Architect");
   });
