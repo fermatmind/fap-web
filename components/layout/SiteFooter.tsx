@@ -66,13 +66,7 @@ export function SiteFooter() {
           { href: "/careers", label: "工作机会" },
           { href: "/brand", label: "品牌" },
         ]
-      : [
-          { href: "/about", label: "About us" },
-          { href: "/charter", label: "Our charter" },
-          { href: "/foundation", label: "Foundation" },
-          { href: "/careers", label: "Careers" },
-          { href: "/brand", label: "Brand" },
-        ];
+      : [];
   const policyLinks: FooterLinkItem[] =
     locale === "zh"
       ? [
@@ -80,11 +74,7 @@ export function SiteFooter() {
           { href: "/privacy", label: "隐私政策" },
           { href: "/policies", label: "其他政策" },
         ]
-      : [
-          { href: "/terms", label: "Terms of use" },
-          { href: "/privacy", label: "Privacy policy" },
-          { href: "/policies", label: "Other policies" },
-        ];
+      : [];
   const renderFooterLink = (item: FooterLinkItem) =>
     item.external ? (
       <a
@@ -133,15 +123,19 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="space-y-3">
-            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.companyTitle}</p>
-            <div className="space-y-2 text-sm">{companyLinks.map(renderFooterLink)}</div>
-          </div>
+          {companyLinks.length ? (
+            <div className="space-y-3">
+              <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.companyTitle}</p>
+              <div className="space-y-2 text-sm">{companyLinks.map(renderFooterLink)}</div>
+            </div>
+          ) : null}
 
-          <div className="space-y-3">
-            <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.policiesTitle}</p>
-            <div className="space-y-2 text-sm">{policyLinks.map(renderFooterLink)}</div>
-          </div>
+          {policyLinks.length ? (
+            <div className="space-y-3">
+              <p className="m-0 font-mono text-sm uppercase tracking-[0.16em] text-white/82">{footerCopy.policiesTitle}</p>
+              <div className="space-y-2 text-sm">{policyLinks.map(renderFooterLink)}</div>
+            </div>
+          ) : null}
         </div>
 
         <div className="fm-social-rail border-t border-white/15 pt-6">
