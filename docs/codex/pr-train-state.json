@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T13:13:00+08:00",
+  "updated_at": "2026-04-21T13:16:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2677,9 +2677,9 @@
     "PR-CMSOPS-7": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "github_checks_failed",
       "branch": "codex/cmsops-pr7-sitemap-cms-enumeration",
-      "commit_sha": "ca7e6704e39a69c28ab2a34a722854cffcf38226",
+      "commit_sha": "1ccdcbb45f51bba15843ae72be2ddacc8c86686d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/523",
       "checks": {
         "local": [
@@ -2704,9 +2704,30 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705147282/job/72256641156"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705147282/job/72256641136"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705147282/job/72256641163"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705147282/job/72256641152"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs did not start because recent account payments failed or spending limit needs to be increased. Local validation passed.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
