@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
-import { getCmsArticles } from "@/lib/cms/articles";
+import { getCmsArticlesWithLastKnownGood } from "@/lib/cms/articles";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -81,10 +81,21 @@ export default async function ArticlesPage({
   const dict = await getDict(locale);
   const requestedPage = parsePage(query.page);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const { items, pagination } = await getCmsArticles({
+  const { items, pagination } = await getCmsArticlesWithLastKnownGood({
     locale,
     page: requestedPage,
-  });
+  })
+    .then((result) => result.value)
+    .catch(() => ({
+      items: [],
+      pagination: {
+        currentPage: requestedPage,
+        perPage: 20,
+        total: 0,
+        lastPage: 1,
+      },
+      landingSurface: null,
+    }));
   const currentPage = pagination.currentPage > 0 ? pagination.currentPage : requestedPage;
   const lastPage = Math.max(1, pagination.lastPage);
   const pageLink = (page: number) => (page <= 1 ? withLocale("/articles") : `${withLocale("/articles")}?page=${page}`);

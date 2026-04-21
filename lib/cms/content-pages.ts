@@ -1,4 +1,5 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
@@ -297,10 +298,40 @@ export async function getContentPage(slug: string, locale: Locale | string): Pro
   }
 }
 
+export async function getContentPageWithLastKnownGood(
+  slug: string,
+  locale: Locale | string
+): Promise<LastKnownGoodResult<ContentPage | null>> {
+  const normalizedSlug = normalizeText(slug);
+  const normalizedLocale = normalizeLocale(locale);
+
+  return withLastKnownGood({
+    key: `content-page:${normalizedLocale}:${normalizedSlug}`,
+    load: () => getContentPage(normalizedSlug, normalizedLocale),
+    isUsable: (page) => Boolean(page?.slug && page.title && (page.contentHtml || page.contentMd)),
+    useStaleOnUnusable: true,
+  });
+}
+
 export async function listContentPages(locale: Locale | string, kind?: ContentPageKind): Promise<ContentPage[]> {
   const summaries = await listContentPagesForOps(locale);
   const pages = await Promise.all(summaries.map((summary) => getContentPage(summary.slug, locale)));
   return pages.filter((page): page is ContentPage => Boolean(page)).filter((page) => !kind || page.kind === kind);
+}
+
+export async function listContentPagesWithLastKnownGood(
+  locale: Locale | string,
+  kind?: ContentPageKind
+): Promise<LastKnownGoodResult<ContentPage[]>> {
+  const normalizedLocale = normalizeLocale(locale);
+  const kindKey = kind ?? "all";
+
+  return withLastKnownGood({
+    key: `content-pages:list:${normalizedLocale}:${kindKey}`,
+    load: () => listContentPages(normalizedLocale, kind),
+    isUsable: (pages) => pages.length > 0,
+    useStaleOnUnusable: true,
+  });
 }
 
 export async function listContentPagesForOps(locale: Locale | string): Promise<ContentPageSummary[]> {

@@ -14,7 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { computeManifestHash } from "@/lib/big5/manifest";
-import { getCmsArticles, type CmsArticle } from "@/lib/cms/articles";
+import { getCmsArticlesWithLastKnownGood, type CmsArticle } from "@/lib/cms/articles";
 import { getAllTests, getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
@@ -92,13 +92,13 @@ function normalizeArticleVoice(value: string | null): ArticleVoiceLabelKey {
 
 async function fetchRelatedArticles(testSlug: string, locale: "en" | "zh"): Promise<CmsArticle[]> {
   try {
-    const { items } = await getCmsArticles({
+    const { items } = await getCmsArticlesWithLastKnownGood({
       locale,
       page: 1,
       perPage: 3,
       relatedTestSlug: testSlug,
       allowLocalFallback: false,
-    });
+    }).then((result) => result.value);
 
     return items;
   } catch {

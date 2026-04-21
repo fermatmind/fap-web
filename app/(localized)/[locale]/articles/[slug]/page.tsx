@@ -7,7 +7,7 @@ import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
-import { getCmsArticle, getCmsArticleSeo, type CmsArticle } from "@/lib/cms/articles";
+import { getCmsArticleSeoWithLastKnownGood, getCmsArticleWithLastKnownGood, type CmsArticle } from "@/lib/cms/articles";
 import { findLandingCta } from "@/lib/landing/landingSurface";
 import type { RelatedContentItem } from "@/lib/content";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
@@ -99,8 +99,12 @@ export async function generateMetadata({
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
   const [article, seo] = await Promise.all([
-    getCmsArticle(slug, locale),
-    getCmsArticleSeo(slug, locale),
+    getCmsArticleWithLastKnownGood(slug, locale)
+      .then((result) => result.value)
+      .catch(() => null),
+    getCmsArticleSeoWithLastKnownGood(slug, locale)
+      .then((result) => result.value)
+      .catch(() => null),
   ]);
 
   if (!article) {
@@ -180,8 +184,12 @@ export default async function ArticleDetailPage({
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
   const [article, seo] = await Promise.all([
-    getCmsArticle(slug, locale),
-    getCmsArticleSeo(slug, locale),
+    getCmsArticleWithLastKnownGood(slug, locale)
+      .then((result) => result.value)
+      .catch(() => null),
+    getCmsArticleSeoWithLastKnownGood(slug, locale)
+      .then((result) => result.value)
+      .catch(() => null),
   ]);
 
   if (!article) {

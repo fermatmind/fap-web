@@ -51,6 +51,27 @@ pnpm check:cms-api
 - If CMS/API is unavailable, high-traffic pages should use last-known-good cache or a minimal shell.
 - Optional sections such as homepage recommended reading should not render large empty bands when the CMS returns no items.
 
+## Last-Known-Good Runtime Coverage
+
+CMS-backed public entry points should degrade in this order:
+
+```text
+CMS/API fresh content
+  -> stale last-known-good CMS/API response
+  -> minimal shell, empty optional section, or 404 for missing detail content
+```
+
+Current LKG-covered surfaces include:
+
+- Homepage, tests hub, tests category, and career center landing surfaces.
+- Homepage recommended article block.
+- Article list pages and test-detail related article slots.
+- Article detail content and article SEO metadata.
+- Help/company/policy content pages.
+- `llms.txt` and `llms-full.txt` CMS article/help enumeration.
+
+LKG entries are runtime cache values derived from CMS/API responses. They are not frontend editorial fixtures and must not be used to add local article/content fallbacks.
+
 ## Staging Baseline Requirements
 
 The staging CMS baseline should include:

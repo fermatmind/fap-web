@@ -10,7 +10,7 @@ describe("wider public family contract", () => {
   it("articles index renders the article list without the landing summary panel", () => {
     const source = read("app/(localized)/[locale]/articles/page.tsx");
 
-    expect(source).toContain("const { items, pagination } = await getCmsArticles");
+    expect(source).toContain("const { items, pagination } = await getCmsArticlesWithLastKnownGood");
     expect(source).not.toContain("landingSurface?.summaryBlocks[0]");
     expect(source).not.toContain('findLandingCta(landingSurface, "featured_article")');
     expect(source).not.toContain("dict.articles.kicker");
@@ -23,10 +23,10 @@ describe("wider public family contract", () => {
     expect(helpIndex).toContain('from "@/lib/publicGateway"');
     expect(helpIndex).toContain("const gatewaySurface = await getHelpGatewaySurface(locale)");
     expect(helpIndex).toContain("landingSurface?.discoverabilityItems");
-    expect(helpIndex).toContain('listContentPages(locale, "help")');
+    expect(helpIndex).toContain('listContentPagesWithLastKnownGood(locale, "help")');
 
     expect(helpDetail).toContain('from "@/lib/cms/content-pages"');
-    expect(helpDetail).toContain("getContentPage(contentSlug(slug), locale)");
+    expect(helpDetail).toContain("getContentPageWithLastKnownGood(contentSlug(slug), locale)");
     expect(helpDetail).toContain("<ContentPageTemplate");
   });
 
@@ -39,7 +39,7 @@ describe("wider public family contract", () => {
     expect(home).toContain("function buildHomeJsonLd(locale: Locale, copy:");
     expect(home).toContain('idSuffix: "quickstart-itemlist"');
     expect(home).toContain('idSuffix: "family-itemlist"');
-    expect(home).toContain("<HomePageExperience locale={locale} copy={copy} articles={articles.slice(0, 6)} />");
+    expect(home).toContain("<HomePageExperience locale={locale} copy={copy} articles={articles} />");
 
     expect(testsIndex).toContain('import { TestsHubExperience } from "@/components/marketing/tests/TestsHubExperience"');
     expect(testsIndex).toContain('import { getTestsHubContent } from "@/lib/marketing/testsHubContent"');

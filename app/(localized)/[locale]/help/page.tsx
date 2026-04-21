@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { listContentPages } from "@/lib/cms/content-pages";
+import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { getHelpGatewaySurface } from "@/lib/publicGateway";
@@ -43,7 +43,9 @@ export default async function HelpPage({
   const withLocale = (path: string) => localizedPath(path, locale);
   const gatewaySurface = await getHelpGatewaySurface(locale);
   const landingSurface = gatewaySurface?.landingSurface ?? null;
-  const pages = await listContentPages(locale, "help");
+  const pages = await listContentPagesWithLastKnownGood(locale, "help")
+    .then((result) => result.value)
+    .catch(() => []);
   const pagesBySlug = new Map(pages.map((page) => [page.slug.replace(/^help-/, ""), page]));
   const gatewayItems = landingSurface?.discoverabilityItems ?? [];
   const orderedPages = gatewayItems.length

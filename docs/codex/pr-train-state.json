@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T11:50:00+08:00",
+  "updated_at": "2026-04-21T12:31:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -163,9 +163,9 @@
     "PR-CMSOPS-4": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed_user_overridden",
+      "status": "merged",
       "branch": "codex/cms-ops-pr4-staging-baseline-validation",
-      "commit_sha": "5daad5db92d5e19169e2d1c4e628b11da217377d",
+      "commit_sha": "fb275f69b9a155abee63f98a50fefcddd2adea0b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/520",
       "checks": {
         "local": [
@@ -209,28 +209,70 @@
           }
         ]
       },
-      "failure_reason": "GitHub Actions checks failed immediately after PR creation: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. Local manifest checks passed, merge_policy.github_checks_required is false, and the user explicitly instructed Codex on 2026-04-21 to modify the rule and continue despite non-required remote-check failures. The failed PR remains blocked from merge until it satisfies its merge_policy.",
+      "failure_reason": "",
       "resume_policy": "manual_only",
-      "merged_at": "",
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "merged_at": "2026-04-21T03:04:57Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
     },
     "PR-CMSOPS-5": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pending",
+      "status": "github_checks_failed_user_overridden",
       "branch": "codex/cms-ops-pr5-lkg-public-surfaces",
-      "commit_sha": "",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/521",
       "checks": {
-        "local": [],
-        "github": []
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/public-surface-lkg-coverage.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/wider-public-family.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts tests/contracts/last-known-good-cache.contract.test.ts",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24702412909/job/72248326213"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24702412909/job/72248326216"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24702412909/job/72248326207"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24702412909/job/72248326239"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions checks failed after review refresh: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. Local manifest checks and related regression contracts passed, no required checks were reported by GitHub for this branch, and merge_policy.github_checks_required is false. The user explicitly instructed Codex on 2026-04-21 to modify the rule and continue despite non-required remote-check failures.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "local_cleanup_executed": false,
+      "commit_sha": "302e5a6fcbf82fde6c770b7d4c04cf4dd2eda216"
     },
     "PR-V4-P5A": {
       "repo": "fap-web",
