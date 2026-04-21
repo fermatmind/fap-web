@@ -41,7 +41,7 @@ const homePayload = vi.hoisted(() => ({
       {
         title: "九型人格测试",
         description: "从核心动机与压力反应理解你的行为模式",
-        href: "/tests",
+        href: "/tests/enneagram-personality-test-nine-types",
         label: "开始测试",
         meta: "人格测试",
       },
@@ -164,7 +164,7 @@ const EXPECTED_ZH_CARDS = [
     title: "IQ 智商测试",
     copy: "快速了解你的认知能力基线",
     meta: "能力测评",
-    href: "/zh/tests/iq-test-intelligence-quotient-assessment/take",
+    href: "/zh/tests/iq-test-intelligence-quotient-assessment",
   },
   {
     title: "霍兰德职业兴趣测试",
@@ -176,7 +176,7 @@ const EXPECTED_ZH_CARDS = [
     title: "九型人格测试",
     copy: "从核心动机与压力反应理解你的行为模式",
     meta: "人格测试",
-    href: "/zh/tests",
+    href: "/zh/tests/enneagram-personality-test-nine-types",
   },
   {
     title: "抑郁焦虑综合症测试",
@@ -206,6 +206,8 @@ describe("homepage v1 core grid contract", () => {
     }
 
     expect(within(section as HTMLElement).getAllByRole("heading", { level: 3 })).toHaveLength(6);
+    expect(section?.innerHTML).not.toContain("/take");
+    expect(section?.innerHTML).not.toContain('href="/zh/tests"');
   });
 
   it("keeps the core grid in a three-column desktop layout contract", async () => {

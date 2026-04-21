@@ -421,18 +421,20 @@ function FlagshipVariantChooser({
   subtitle,
   choices,
 }: {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   choices: FlagshipVariantChoice[];
 }) {
   return (
     <section className="rounded-[1.7rem] border border-[var(--fm-border)] bg-[rgba(248,250,252,0.92)] p-4 shadow-[var(--fm-shadow-sm)] md:p-5">
-      <div className="space-y-2">
-        <h2 className="m-0 text-[1.15rem] font-semibold tracking-[-0.03em] text-slate-950">{title}</h2>
-        <p className="m-0 max-w-[42rem] text-sm leading-7 text-slate-600">{subtitle}</p>
-      </div>
+      {title || subtitle ? (
+        <div className="space-y-2">
+          {title ? <h2 className="m-0 text-[1.15rem] font-semibold tracking-[-0.03em] text-slate-950">{title}</h2> : null}
+          {subtitle ? <p className="m-0 max-w-[42rem] text-sm leading-7 text-slate-600">{subtitle}</p> : null}
+        </div>
+      ) : null}
 
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
+      <div className={`${title || subtitle ? "mt-5" : ""} grid gap-3 md:grid-cols-2`}>
         {choices.map((choice) => (
           <article key={choice.key} className="flex h-full flex-col rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_16px_44px_rgba(15,23,42,0.05)]">
             <div className="space-y-2">
@@ -840,12 +842,6 @@ export default async function TestLandingPage({
             ) : showsBig5Actions ? (
               <div className="space-y-4 pt-2">
                 <FlagshipVariantChooser
-                  title={locale === "zh" ? "选择更适合你的版本" : "Choose the version that fits best"}
-                  subtitle={
-                    locale === "zh"
-                      ? "短版用于快速起步，长版用于更完整的人格或特质画像。"
-                      : "Use the shorter version for a faster start, or the deeper version for a fuller profile."
-                  }
                   choices={flagshipVariantChoices}
                 />
               </div>
