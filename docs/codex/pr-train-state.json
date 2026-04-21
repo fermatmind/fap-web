@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T10:15:00+08:00",
+  "updated_at": "2026-04-21T10:34:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -113,12 +113,29 @@
     "PR-CMSOPS-3": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pending",
+      "status": "local_checks_passed",
       "branch": "codex/cms-ops-pr3-homepage-recommended-block",
       "commit_sha": "",
       "pr_url": "",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/homepage-recommended-articles-block.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
         "github": []
       },
       "failure_reason": "",

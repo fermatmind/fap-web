@@ -3,10 +3,10 @@ import { HomePageExperience } from "@/components/marketing/HomePageExperience";
 import { HomeMinimalShell } from "@/components/marketing/HomeMinimalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { getCmsArticles } from "@/lib/cms/articles";
 import { DEFAULT_SHARE_IMAGE_URL } from "@/lib/cms/media";
 import { localizedPath } from "@/lib/i18n/locales";
 import { getHomePageContent } from "@/lib/marketing/homepageContent";
+import { getHomepageRecommendedArticles } from "@/lib/marketing/homepageRecommendedArticles";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import {
   buildItemListJsonLd,
@@ -101,12 +101,7 @@ export default async function RootHomePage() {
   }
 
   const jsonLd = buildRootHomeJsonLd(copy);
-  const { items: articles } = await getCmsArticles({
-    locale: ROOT_LOCALE,
-    page: 1,
-    perPage: 6,
-    allowLocalFallback: false,
-  }).catch(() => ({ items: [] }));
+  const articles = await getHomepageRecommendedArticles(ROOT_LOCALE).catch(() => []);
 
   return (
     <main className="fm-homepage">
@@ -115,7 +110,7 @@ export default async function RootHomePage() {
       <JsonLd id="home-quickstart-root" data={jsonLd.quickStart} />
       <JsonLd id="home-families-root" data={jsonLd.families} />
       <JsonLd id="home-organization-root" data={jsonLd.organization} />
-      <HomePageExperience locale={ROOT_LOCALE} copy={copy} articles={articles.slice(0, 6)} />
+      <HomePageExperience locale={ROOT_LOCALE} copy={copy} articles={articles} />
     </main>
   );
 }
