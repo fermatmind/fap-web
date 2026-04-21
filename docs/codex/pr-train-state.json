@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T13:32:54+08:00",
+  "updated_at": "2026-04-21T13:35:10+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2740,7 +2740,7 @@
     "PR-CMSOPS-8": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "github_checks_failed",
       "branch": "codex/cmsops-pr8-release-flow-runbook",
       "commit_sha": "9dafbe3dd3bd42cb77004957e5064b725b7959f4",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/524",
@@ -2771,9 +2771,30 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705885367/job/72258975952"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705885367/job/72258975951"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705885367/job/72258975945"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705885367/job/72258975954"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions checks failed immediately within 2-3 seconds on run 24705885367. gh run view --log-failed returned 'log not found: 72258975945', so no job logs were available from GitHub at inspection time. Local manifest validation passed.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
