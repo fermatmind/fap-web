@@ -37,7 +37,12 @@ vi.mock("@/components/quiz/QuizShell", () => ({
 }));
 
 vi.mock("@/components/quiz/QuizTakeHeaderV2", () => ({
-  QuizTakeHeaderV2: () => <div data-testid="quiz-header">header</div>,
+  QuizTakeHeaderV2: ({ showCompletedCount = true }: { showCompletedCount?: boolean }) => (
+    <div data-testid="quiz-header" data-show-completed-count={String(showCompletedCount)}>
+      header
+      {showCompletedCount ? <span>Completed</span> : null}
+    </div>
+  ),
 }));
 
 vi.mock("@/components/quiz/immersive/AdaptiveOptionGroup", () => ({
@@ -305,6 +310,10 @@ describe("enneagram take flow contract", () => {
     );
 
     await waitForQuestion("I notice what can be improved.");
+    expect(screen.getByTestId("quiz-header")).toHaveAttribute("data-show-completed-count", "false");
+    expect(screen.queryByText("Completed")).not.toBeInTheDocument();
+    expect(screen.queryByText(/Forced choice/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Question 1" })).not.toBeInTheDocument();
     expect(screen.getByTestId("enneagram-forced-choice-pair")).toBeInTheDocument();
     expect(screen.queryByTestId("enneagram-likert-options")).not.toBeInTheDocument();
 

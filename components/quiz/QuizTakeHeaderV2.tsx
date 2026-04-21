@@ -14,6 +14,7 @@ export function QuizTakeHeaderV2({
   current,
   total,
   answered,
+  showCompletedCount = true,
 }: {
   brand: string;
   completedPrefix: string;
@@ -27,6 +28,7 @@ export function QuizTakeHeaderV2({
   current: number;
   total: number;
   answered: number;
+  showCompletedCount?: boolean;
 }) {
   const safeTotal = Math.max(1, total);
   const safeCurrent = Math.min(Math.max(1, current), safeTotal);
@@ -43,11 +45,13 @@ export function QuizTakeHeaderV2({
       <div className="flex flex-wrap items-start justify-between gap-[var(--fm-gap-sm)]">
         <div className="min-w-0">
           <p className="m-0 font-serif text-lg font-semibold text-[var(--fm-text)]">{brand}</p>
-          <p className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-[var(--fm-text-muted)]">
-            <span>{completedPrefix}</span>
-            <LiveCompletedCounter className="font-semibold text-[var(--fm-text)]" />
-            <span>{completedSuffix}</span>
-          </p>
+          {showCompletedCount ? (
+            <p className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-[var(--fm-text-muted)]">
+              <span>{completedPrefix}</span>
+              <LiveCompletedCounter className="font-semibold text-[var(--fm-text)]" />
+              <span>{completedSuffix}</span>
+            </p>
+          ) : null}
         </div>
 
         {typeof estimatedMinutes === "number" && estimatedMinutes > 0 ? (

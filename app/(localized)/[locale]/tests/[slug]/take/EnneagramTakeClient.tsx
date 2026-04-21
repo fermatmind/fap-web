@@ -731,6 +731,7 @@ function EnneagramTakeInner({
   const isLastQuestion = total > 0 && currentIndex === total - 1;
   const canContinue = Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
   const canSubmit = isLastQuestion && answeredCount === total && Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
+  const shouldRenderQuestionTitle = !forcedChoice && question.text.trim().length > 0;
 
   const optionNode = forcedChoice ? (
     <ForcedChoicePairGroup
@@ -807,6 +808,7 @@ function EnneagramTakeInner({
               current={currentIndex + 1}
               total={total}
               answered={answeredCount}
+              showCompletedCount={false}
               backHref={withLocale(`/tests/${slug}`)}
               backLabel={dict.quiz.immersive.backToDetails}
             />
@@ -834,10 +836,9 @@ function EnneagramTakeInner({
           }
         >
           <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-              {forcedChoice ? "Forced choice" : "Likert"} · {progressText}
-            </p>
-            <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.text}</h2>
+            {shouldRenderQuestionTitle ? (
+              <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.text}</h2>
+            ) : null}
             {optionNode}
             {attemptError ? <p className="m-0 text-sm text-red-700">{attemptError}</p> : null}
             {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
@@ -865,15 +866,15 @@ function EnneagramTakeInner({
         current={currentIndex + 1}
         total={total}
         answered={answeredCount}
+        showCompletedCount={false}
         backHref={withLocale(`/tests/${slug}`)}
         backLabel={dict.quiz.immersive.backToDetails}
       />
 
       <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-          {forcedChoice ? "Forced choice" : "Likert"}
-        </p>
-        <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.text}</h2>
+        {shouldRenderQuestionTitle ? (
+          <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.text}</h2>
+        ) : null}
         {optionNode}
         {attemptError ? <p className="m-0 text-sm text-red-700">{attemptError}</p> : null}
         {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
