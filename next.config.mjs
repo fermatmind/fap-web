@@ -122,12 +122,7 @@ const nextConfig = {
       },
       {
         source: "/careers",
-        destination: "/en/career",
-        permanent: true,
-      },
-      {
-        source: "/zh/careers",
-        destination: "/zh/career",
+        destination: "/zh/careers",
         permanent: true,
       },
       {

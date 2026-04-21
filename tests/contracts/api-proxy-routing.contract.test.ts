@@ -35,4 +35,13 @@ describe("api proxy routing contract", () => {
     expect(nextConfig).toContain('source: "/api/v0.3/:path*"');
     expect(nextConfig).toContain('destination: `${apiOrigin}/api/v0.3/:path*`');
   });
+
+  it("keeps the careers content page separate from the career hub", () => {
+    const nextConfig = read("next.config.mjs");
+
+    expect(nextConfig).toContain('source: "/careers"');
+    expect(nextConfig).toContain('destination: "/zh/careers"');
+    expect(nextConfig).not.toContain('source: "/zh/careers"');
+    expect(nextConfig).not.toContain('destination: "/zh/career"');
+  });
 });

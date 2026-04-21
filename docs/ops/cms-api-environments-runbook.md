@@ -30,12 +30,15 @@ Local API mode is not the default for homepage/content review because it depends
 
 ## Dev Startup Check
 
-`pnpm dev` runs `scripts/check-cms-api-health.mjs` before starting Next.js. The check is intentionally non-blocking:
+`pnpm dev` runs `scripts/check-cms-api-health.mjs` before starting Next.js. The check verifies that CMS-backed homepage and article content are usable before a browser review begins:
 
 - It reads `NEXT_PUBLIC_API_URL` from shell env, `.env.local`, or `.env`.
 - It probes the public article enumeration endpoint.
-- It prints a warning if the CMS API is unreachable or the smoke query returns no articles.
-- It does not stop the dev server.
+- It probes the public `home` landing surface and requires `recommended_articles` or `homepage_recommended_articles`.
+- It requires the homepage recommendation block to expose 6 published public zh-CN article references.
+- It verifies required backend static media paths for footer QR codes and default social preview images return image responses.
+- It fails closed by default when required CMS data is missing or unreachable, because stale Next.js fetch cache can otherwise hide missing CMS data.
+- It can be downgraded only with `CMS_API_HEALTH_STRICT=0` for intentionally degraded product-shell work.
 
 Run it directly with:
 
@@ -43,11 +46,20 @@ Run it directly with:
 pnpm check:cms-api
 ```
 
+For intentionally degraded product-shell work only, a developer can opt out of the local fail-closed behavior:
+
+```bash
+CMS_API_HEALTH_STRICT=0 pnpm dev
+```
+
+Do not use that override for homepage/content review, release smoke, SEO review, or CMS contract work.
+
 ## Operating Policy
 
 - Use staging API for normal frontend work, IAB review, visual diffing, and SEO review.
 - Use local API only for backend/CMS integration.
 - Do not add local article JSON, MDX, or static public images to make CMS-backed content appear.
+- If local API mode is selected, start the backend and import the CMS baselines before starting the frontend.
 - If CMS/API is unavailable, high-traffic pages should use last-known-good cache or a minimal shell.
 - Optional sections such as homepage recommended reading should not render large empty bands when the CMS returns no items.
 
@@ -83,6 +95,7 @@ The staging CMS baseline should include:
 - Content pages for help, policy, company, brand, career, about, privacy, terms, refund, and support surfaces.
 - SEO metadata for public entry pages.
 - Media Library references for article covers, social images, and mutable marketing images.
+- Backend static media serving for the required Media Library baseline paths, including footer WeChat QR codes and default social preview images.
 - Sitemap and `llms.txt` enumerable records.
 
 ## Staging Baseline Validation
@@ -158,6 +171,7 @@ Before content release or frontend release, verify:
 pnpm check:cms-api
 pnpm cms:baseline:staging:smoke
 curl -fsS "$NEXT_PUBLIC_API_URL/api/v0.5/articles?locale=zh-CN&page=1&per_page=6&org_id=0" >/dev/null
+curl -fsSI "$NEXT_PUBLIC_API_URL/static/social/wechat-qr-official-258.jpg" | grep -Ei '^content-type: image/' >/dev/null
 curl -fsS http://localhost:3000/ >/dev/null
 curl -fsS http://localhost:3000/zh/articles >/dev/null
 ```
@@ -178,6 +192,7 @@ Expected release behavior:
 - Homepage recommended articles are visible when the CMS block is configured.
 - `/zh/articles` has article cards.
 - Article detail routes open.
+- Footer WeChat QR code and default social preview media load from backend media/static hosting.
 - SEO metadata comes from CMS/API.
 - Sitemap and llms routes enumerate CMS/API records.
 
