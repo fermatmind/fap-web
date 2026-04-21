@@ -8,7 +8,9 @@
   },
   "scripts": {
     "preinstall": "node ./scripts/check-runtime.mjs",
+    "predev": "node ./scripts/check-cms-api-health.mjs",
     "check:runtime": "node ./scripts/check-runtime.mjs",
+    "check:cms-api": "node ./scripts/check-cms-api-health.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
