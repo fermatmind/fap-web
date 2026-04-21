@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T10:52:00+08:00",
+  "updated_at": "2026-04-21T10:56:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -65,7 +65,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "github_checks_failed_user_overridden",
       "branch": "codex/cms-ops-pr2-homepage-article-empty-state",
-      "commit_sha": "b2f0af1abc1aa8e4c38d9922ad92d0a04096099b",
+      "commit_sha": "0a491d39e1060fc9a95001b140b894b7e2a96052",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/517",
       "checks": {
         "local": [
@@ -90,21 +90,21 @@
           {
             "name": "build",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24700711407/job/72243130006"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24701221001/job/72244648644"
           },
           {
             "name": "contracts",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24700711407/job/72243129987"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24701221001/job/72244648659"
           },
           {
             "name": "verify-big5-contract-freeze",
             "status": "failed",
-            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24700711407/job/72243129999"
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24701221001/job/72244648649"
           }
         ]
       },
-      "failure_reason": "GitHub Actions checks failed immediately after PR creation: build, contracts, and verify-big5-contract-freeze. Local manifest checks passed, merge_policy.github_checks_required is false, and the user explicitly instructed Codex on 2026-04-21 to modify the rule and continue despite non-required remote-check failures. The failed PR remains blocked from merge until it satisfies its merge_policy.",
+      "failure_reason": "GitHub Actions checks failed after PR conflict resolution: build, contracts, and verify-big5-contract-freeze. Local manifest checks passed in a clean auxiliary worktree, merge_policy.github_checks_required is false, and the user explicitly instructed Codex on 2026-04-21 to modify the rule and continue despite non-required remote-check failures. The docs/codex/pr-train-state.json conflict against main was resolved on PR #517; the failed PR remains blocked from merge until it satisfies its merge_policy.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
