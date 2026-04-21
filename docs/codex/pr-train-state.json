@@ -246,7 +246,8 @@
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
-      "local_cleanup_executed": false
+      "local_cleanup_executed": false,
+      "commit_sha": "272f2e25ee96c99318671e92d087a03069e1d337"
     },
     "PR-V4-P5A": {
       "repo": "fap-web",
