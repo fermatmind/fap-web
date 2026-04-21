@@ -6,6 +6,146 @@ require_clean_worktree: true
 execution_mode: local_clone_preferred
 
 prs:
+  - id: PR-CMSOPS-1
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/cms-ops-pr1-env-observability
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      CMS operations PR-1 environment and observability foundation. Document
+      production, staging/preview, and local backend API roles; add a
+      non-blocking dev startup CMS API health warning; and record the
+      staging-first operating policy without changing public content,
+      homepage rendering, backend CMS models, or fallback content. Update
+      repository PR train rules to allow recorded user override of non-required
+      remote GitHub check failures after local manifest checks pass.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "git diff --check -- AGENTS.md docs/codex/pr-train.yaml docs/codex/pr-train-state.json"
+      - "pnpm vitest run tests/contracts/cms-api-environment.contract.test.ts"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-CMSOPS-2
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/cms-ops-pr2-homepage-article-empty-state
+    base: main
+    depends_on: ["PR-CMSOPS-1"]
+    mode: execute
+    scope: >
+      CMS operations PR-2 homepage recommended reading empty-state hardening.
+      Avoid rendering a large empty recommended reading band when CMS returns
+      no article items, without adding local static article fallback content.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm vitest run tests/contracts/homepage-articles-empty-state.contract.test.tsx"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-CMSOPS-3
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/cms-ops-pr3-homepage-recommended-block
+    base: main
+    depends_on: ["PR-CMSOPS-2"]
+    mode: execute
+    scope: >
+      CMS operations PR-3 homepage recommended articles configuration
+      contract. Move homepage recommended reading consumption from latest
+      article enumeration toward a CMS landing-surface/page-block contract,
+      while preserving backend/CMS authority and avoiding frontend fallback
+      article content.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm vitest run tests/contracts/homepage-recommended-articles-block.contract.test.ts"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-CMSOPS-4
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/cms-ops-pr4-staging-baseline-validation
+    base: main
+    depends_on: ["PR-CMSOPS-3"]
+    mode: execute
+    scope: >
+      CMS operations PR-4 staging content baseline validation. Add a
+      dry-run-capable staging CMS baseline validator for homepage recommended
+      articles, article SEO/media metadata, content pages, sitemap, and llms
+      enumeration expectations without embedding runtime editorial content in
+      the frontend.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm vitest run tests/contracts/staging-cms-baseline.contract.test.ts"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
+  - id: PR-CMSOPS-5
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/cms-ops-pr5-lkg-public-surfaces
+    base: main
+    depends_on: ["PR-CMSOPS-4"]
+    mode: execute
+    scope: >
+      CMS operations PR-5 public surface LKG coverage closeout. Extend and
+      verify last-known-good fallback coverage for remaining high-traffic
+      CMS-backed public surfaces, keeping CMS/API as the content authority
+      and falling back only to stale CMS-derived data or minimal shells.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm vitest run tests/contracts/public-surface-lkg-coverage.contract.test.ts"
+      - "pnpm typecheck"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
+
   - id: PR-V4-P5A
     repo: fap-web
     repo_path: /Users/rainie/Desktop/GitHub/fap-web

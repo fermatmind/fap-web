@@ -32,7 +32,12 @@
 - Run all local checks listed in the PR manifest before push.
 - If local checks fail, do not open a PR.
 - Record failed checks in `docs/codex/pr-train-state.json`.
-- Never continue to the next PR after a failed check.
+- Never continue to the next PR after a failed local check.
+- If remote GitHub checks fail after all required local checks pass, Codex may continue to the next PR only when:
+  - the current PR `merge_policy.github_checks_required` is false
+  - the user explicitly instructs Codex to override the remote-check stop
+  - the failure and override are recorded in `docs/codex/pr-train-state.json`
+  - the failed PR is not merged until it satisfies its `merge_policy`
 
 ## PR discipline
 - Open exactly one PR for the current task.
@@ -41,7 +46,7 @@
   - why
   - validation commands
   - intentionally deferred items
-- If a PR for the current task is already open and checks are pending, do not start a different PR.
+- If a PR for the current task is already open and checks are pending, do not start a different PR unless the manifest permits local-verify-only progression and the user explicitly overrides pending remote checks.
 - Codex may continue working only on that same PR when the user explicitly asks for a scoped follow-up, review fix, or CI fix.
 
 ## Merge discipline
@@ -63,7 +68,8 @@
   - merged_at
   - remote_branch_deleted
   - local_cleanup_executed
-- Never continue after a failed PR unless the manifest explicitly allows retry.
+- Never continue after a failed local check unless the manifest explicitly allows retry.
+- For remote GitHub check failures that are explicitly user-overridden, record the status as `github_checks_failed_user_overridden`, keep the failed GitHub check details, and set `failure_reason` to include the override instruction and date.
 
 ## Ledger reconciliation discipline
 - If `docs/codex/pr-train-state.json` records a PR as failed, open, or pending but GitHub shows the PR is already merged, Codex may reconcile the ledger before continuing.
@@ -80,13 +86,15 @@
 - Stop immediately on:
   - preflight failure
   - failed local checks
-  - failed required GitHub checks for merge progression
   - merge block
   - review requirement block
   - ambiguous repository state
+- Failed GitHub checks still block merge progression unless the current PR's `merge_policy` does not require GitHub checks.
+- Failed GitHub checks do not have to block starting the next manifest PR when the current PR passed all local manifest checks, the manifest allows local verification, and the user explicitly instructs Codex to override the remote-check stop.
 - Do not improvise around failures.
 - Prefer stopping cleanly over partial progress.
 - Codex may continue only if the user explicitly asks to diagnose or fix that same PR's failing checks.
+- The previous line applies to preflight failures, local check failures, merge blocks, review requirement blocks, ambiguous repository state, and GitHub failures required by `merge_policy`; it does not forbid a recorded user override for non-required remote GitHub failures.
 
 ## Local vs cloud execution
 - If operating in a cloud-only environment, remote branch deletion is allowed, but local cleanup must be reported as not executed.
