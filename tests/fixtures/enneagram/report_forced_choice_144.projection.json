@@ -11,7 +11,7 @@
     "label": "144-question Forced-Choice",
     "short_label": "144Q Forced",
     "question_count": 144,
-    "estimated_minutes": 22,
+    "estimated_minutes": 18,
     "scale_code": "ENNEAGRAM"
   },
   "enneagram_public_projection_v1": {

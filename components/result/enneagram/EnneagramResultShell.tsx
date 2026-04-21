@@ -7,8 +7,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
+import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
 import type { EnneagramResultViewModel, EnneagramTypeRow } from "@/lib/enneagram/resultAssembler";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { Locale } from "@/lib/i18n/locales";
 
 function formatScore(score: number | null): string {
   if (score === null) {
@@ -87,7 +88,7 @@ export function EnneagramResultShell({
 }) {
   const isZh = locale === "zh";
   const primaryType = viewModel.primaryType;
-  const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM}/take`, locale);
+  const retakeHref = buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, viewModel.formCode);
   const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
   const topTypes = viewModel.topTypes;
 

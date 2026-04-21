@@ -18,7 +18,9 @@ describe("enneagram result assembler contract", () => {
     });
 
     expect(hasEnneagramProjection(reportData)).toBe(true);
+    expect(assembled.formCode).toBe("enneagram_likert_105");
     expect(assembled.formSummaryLabel).toBe("Enneagram · 105-question Likert");
+    expect(assembled.estimatedMinutes).toBe(12);
     expect(assembled.primaryType).toEqual({
       code: "T1",
       label: "Type 1",
@@ -38,10 +40,27 @@ describe("enneagram result assembler contract", () => {
       gate: { isFreeVariant: false },
     });
 
+    expect(assembled.formCode).toBe("enneagram_forced_choice_144");
     expect(assembled.formSummaryLabel).toBe("Enneagram · 144-question Forced-Choice");
+    expect(assembled.estimatedMinutes).toBe(18);
     expect(assembled.primaryType?.code).toBe("T5");
     expect(assembled.topTypes.map((type) => type.code)).toEqual(["T5", "T1", "T9"]);
     expect(assembled.summary).toContain("forced-choice primary result is Type 5");
+  });
+
+  it("preserves retake form identity from persisted projection metadata when the form summary is absent", () => {
+    const reportData = asReport(forcedChoice144Fixture);
+    delete reportData.enneagram_form_v1;
+
+    const assembled = assembleEnneagramResultViewModel({
+      reportData,
+      locale: "en",
+      gate: { isFreeVariant: false },
+    });
+
+    expect(assembled.formCode).toBe("enneagram_forced_choice_144");
+    expect(assembled.formSummaryLabel).toBe("Enneagram · 144-question Forced-Choice");
+    expect(assembled.estimatedMinutes).toBe(18);
   });
 
   it("splits paid sections only by report access gate, not by recalculating Enneagram scores", () => {

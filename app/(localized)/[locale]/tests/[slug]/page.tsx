@@ -33,6 +33,14 @@ import {
   listBig5FormMetas,
 } from "@/lib/big5/forms";
 import {
+  buildEnneagramTakeHref,
+  getEnneagramStartLabel,
+  getEnneagramVariantLabel,
+  getEnneagramVariantSummary,
+  isEnneagramScaleCode,
+  listEnneagramFormMetas,
+} from "@/lib/enneagram/forms";
+import {
   DEFAULT_MBTI_FORM_CODE,
   buildMbtiTakeHref,
   getMbtiDurationSummary,
@@ -215,7 +223,7 @@ function buildFallbackFaq(testTitle: string, minutes: number, questions: number,
   ];
 }
 
-function buildFlagshipVariantFaq(kind: "mbti" | "big5", locale: "en" | "zh"): FAQItem[] {
+function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram", locale: "en" | "zh"): FAQItem[] {
   if (locale === "zh") {
     if (kind === "mbti") {
       return [
@@ -234,6 +242,27 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5", locale: "en" | "zh"): FA
         {
           q: "结果会定义我吗？",
           a: "不会。结果只用于支持判断、讨论和复盘，不替代对一个人的完整理解。",
+        },
+      ];
+    }
+
+    if (kind === "enneagram") {
+      return [
+        {
+          q: "九型人格 105 题和 144 题有什么区别？",
+          a: "105 题是五点量表自评版，适合标准入口；144 题是二选一迫选版，每题在两个描述中选择更贴近自己的一个，更适合正式发布场景下的稳定比较。",
+        },
+        {
+          q: "我应该先做哪一个版本？",
+          a: "如果你想用更直接的自评方式开始，先做 105 题；如果你希望减少“都像我”的犹豫，选择 144 题二选一版。",
+        },
+        {
+          q: "两个版本会给出不同类型体系吗？",
+          a: "不会。两个版本属于同一个九型人格测评，只是答题方式不同，结果页会保留你选择的版本。",
+        },
+        {
+          q: "重新测试会保留当前版本吗？",
+          a: "会。结果页重新测试会回到同一个版本，不会把 144 题自动切回 105 题。",
         },
       ];
     }
@@ -279,6 +308,27 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5", locale: "en" | "zh"): FA
     ];
   }
 
+  if (kind === "enneagram") {
+    return [
+      {
+        q: "What is the difference between Enneagram 105Q and 144Q?",
+        a: "105Q is the five-point self-report form. 144Q is the forced-choice pair form, where each item asks you to choose the closer statement.",
+      },
+      {
+        q: "Which version should I start with?",
+        a: "Start with 105Q if you want the standard rating-scale path. Choose 144Q if you prefer a forced-choice format that avoids rating both statements as equally true.",
+      },
+      {
+        q: "Do both versions use the same Enneagram scale?",
+        a: "Yes. They are two forms under the same Enneagram assessment, and the result keeps the form you selected.",
+      },
+      {
+        q: "Will retaking preserve the current form?",
+        a: "Yes. Retake from the result page returns to the same form instead of silently switching 144Q back to 105Q.",
+      },
+    ];
+  }
+
   return [
     {
       q: "What is the difference between Big Five 90Q and 120Q?",
@@ -303,6 +353,7 @@ function getDetailPageLensCopy(scaleCode: string | undefined, locale: "en" | "zh
   switch (String(scaleCode ?? "").trim().toUpperCase()) {
     case "MBTI":
     case "BIG5_OCEAN":
+    case "ENNEAGRAM":
       return {
         eyebrow: locale === "zh" ? "人格与风格测评" : "Personality & Style Assessment",
         whenToUseBody:
@@ -493,15 +544,16 @@ export default async function TestLandingPage({
   const startTestHref = landingSurface?.startTestTarget || withLocale(`/tests/${test.slug}/take`);
   const showsMbtiActions = isMbtiScaleCode(test.scale_code);
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
+  const showsEnneagramActions = isEnneagramScaleCode(test.scale_code);
   const showsDepressionVersionActions = [
     "clinical-depression-anxiety-assessment-professional-edition",
     "depression-screening-test-standard-edition",
   ].includes(test.slug);
-  const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions;
+  const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
   const mergedFaq = faqItems.length > 0
       ? faqItems
       : isFlagshipDualVariant
-        ? buildFlagshipVariantFaq(showsMbtiActions ? "mbti" : "big5", locale)
+        ? buildFlagshipVariantFaq(showsMbtiActions ? "mbti" : showsBig5Actions ? "big5" : "enneagram", locale)
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale);
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
@@ -522,6 +574,15 @@ export default async function TestLandingPage({
           ctaLabel: getBig5StartLabel(form.formCode, locale),
           testId: `test-detail-landing-cta-${form.formCode}`,
         }))
+      : showsEnneagramActions
+        ? listEnneagramFormMetas().map((form) => ({
+            key: form.formCode,
+            label: getEnneagramVariantLabel(form.formCode, locale),
+            summary: getEnneagramVariantSummary(form.formCode, locale),
+            href: buildEnneagramTakeHref(test.slug, locale, form.formCode),
+            ctaLabel: getEnneagramStartLabel(form.formCode, locale),
+            testId: `test-detail-landing-cta-${form.formCode}`,
+          }))
       : [];
   const depressionVersionChoices: FlagshipVariantChoice[] = showsDepressionVersionActions
     ? [
@@ -784,6 +845,18 @@ export default async function TestLandingPage({
                     locale === "zh"
                       ? "短版用于快速起步，长版用于更完整的人格或特质画像。"
                       : "Use the shorter version for a faster start, or the deeper version for a fuller profile."
+                  }
+                  choices={flagshipVariantChoices}
+                />
+              </div>
+            ) : showsEnneagramActions ? (
+              <div className="space-y-4 pt-2">
+                <FlagshipVariantChooser
+                  title={locale === "zh" ? "选择九型人格版本" : "Choose your Enneagram form"}
+                  subtitle={
+                    locale === "zh"
+                      ? "105 题是五点量表自评版；144 题是二选一迫选版。两个版本属于同一个九型人格测评，结果与重新测试都会保留所选版本。"
+                      : "105Q is the five-point Likert form; 144Q is the forced-choice pair form. Both belong to the same Enneagram assessment and preserve the selected form through result and retake."
                   }
                   choices={flagshipVariantChoices}
                 />
