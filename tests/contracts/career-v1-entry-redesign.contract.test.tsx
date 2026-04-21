@@ -12,7 +12,7 @@ describe("career V1 entry redesign contract", () => {
   it("keeps /career focused on three user-facing doors and quiet support links", () => {
     const source = read("app/(localized)/[locale]/career/page.tsx");
 
-    expect(source).toContain("找到适合你的职业方向");
+    expect(source).toContain("getCareerCenterContent");
     expect(source).toContain("career-pathway-jobs");
     expect(source).toContain("career-pathway-recommendation");
     expect(source).toContain("career-pathway-tests");
@@ -24,8 +24,7 @@ describe("career V1 entry redesign contract", () => {
     expect(source).not.toContain("Choose the path that best fits where you are now");
     expect(source).not.toContain("不确定叫法？试试别名解析");
     expect(source).not.toContain("Not sure what it is called? Try alias resolve");
-    expect(source).not.toContain("辅助资料");
-    expect(source).not.toContain("Quiet Library");
+    expect(source).toContain("content.support.links.map");
     expect(source).not.toContain(">Career</p>");
     expect(source).not.toContain("career-landing-jobs-preview");
     expect(source).not.toContain("career-family-exploration");

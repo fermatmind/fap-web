@@ -12,15 +12,14 @@ describe("career recommendations entry availability contract", () => {
   it("renders only available recommendation sources without auxiliary intro copy", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/page.tsx");
 
-    expect(source).toContain("从测评结果选择职业方向");
+    expect(source).toContain("青年人的认知成长与决策平台");
     expect(source).not.toContain("先从当前可用的推荐入口进入");
     expect(source).not.toContain("Start from the recommendation source currently available to you.");
     expect(source).not.toContain("选择你已经拥有的测评结果，先看方向判断和取舍");
     expect(source).not.toContain("Choose the result you already have, then review direction and tradeoffs first.");
     expect(source).toContain("recommendationItems.length > 0");
-    expect(source).toContain("big5Traits.length > 0");
     expect(source).toContain("career-recommendations-source-entry");
-    expect(source).toContain("career-recommendation-source-big5");
+    expect(source).toContain("career-recommendation-source-mbti");
     expect(source).not.toContain("页面不会退化成岗位列表");
   });
 

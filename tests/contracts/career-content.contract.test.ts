@@ -27,9 +27,10 @@ describe("career content contract", () => {
     expect(careerLandingSource).not.toContain("listCareerJobs(");
     expect(careerLandingSource).not.toContain("listCareerIndustries");
     expect(careerLandingSource).not.toContain("listCareerGuidesFromCms");
-    expect(careerLandingSource).toContain('action={withLocale("/career/jobs")}');
-    expect(careerLandingSource).toContain('href={withLocale("/career/recommendations")}');
-    expect(careerLandingSource).toContain('href={withLocale("/career/industries")}');
+    expect(careerLandingSource).toContain("getCareerCenterContent");
+    expect(careerLandingSource).toContain('action={withLocale(content.pathways[0]?.href ?? "/career/jobs")}');
+    expect(careerLandingSource).toContain('href={withLocale(content.pathways[1]?.href ?? "/career/industries")}');
+    expect(careerLandingSource).toContain("content.support.links.map");
     expect(recommendationsSource).not.toContain("listBig5RecommendationTraits");
     expect(recommendationsSource).not.toContain("/career/recommendations/big5/");
   });

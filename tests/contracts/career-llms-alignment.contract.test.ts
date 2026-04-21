@@ -70,6 +70,7 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/cms/articles", () => ({
       listCmsArticlesForLlms: vi.fn(async () => []),
+      listCmsArticlesForLlmsWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     }));
     vi.doMock("@/lib/cms/career-guides", () => ({
       listCareerGuidesFromCms: vi.fn(async () => []),
@@ -83,6 +84,7 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/cms/content-pages", () => ({
       listContentPages: vi.fn(async () => []),
+      listContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     }));
     vi.doMock("@/lib/content", () => ({
       getAllTests: vi.fn(async () => []),
@@ -228,6 +230,7 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/cms/articles", () => ({
       listCmsArticlesForLlms: vi.fn(async () => []),
+      listCmsArticlesForLlmsWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     }));
     vi.doMock("@/lib/cms/career-guides", () => ({
       listCareerGuidesFromCms: vi.fn(async () => []),
@@ -241,6 +244,7 @@ describe("career llms alignment contract", () => {
     }));
     vi.doMock("@/lib/cms/content-pages", () => ({
       listContentPages: vi.fn(async () => []),
+      listContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
     }));
     vi.doMock("@/lib/content", () => ({
       getAllTests: vi.fn(async () => []),

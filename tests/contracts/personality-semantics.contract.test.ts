@@ -48,23 +48,21 @@ describe("personality semantics contract", () => {
     expect(itemListJsonLd.itemListElement).toHaveLength(16);
   });
 
-  it("wires methodology and faq sections after career preview without disturbing existing hub sections", () => {
+  it("keeps the current personality page on the compact CMS-backed type directory", () => {
     const pagePath = path.join(process.cwd(), "app/(localized)/[locale]/personality/page.tsx");
     const pageSource = fs.readFileSync(pagePath, "utf8");
 
-    expect(pageSource).toContain("<CareerIntelligencePreview");
-    expect(pageSource).toContain("<PersonalityMethodology");
-    expect(pageSource).toContain("<PersonalityFaq");
-    expect(pageSource.indexOf("<CareerIntelligencePreview")).toBeLessThan(pageSource.indexOf("<PersonalityMethodology"));
-    expect(pageSource.indexOf("<PersonalityMethodology")).toBeLessThan(pageSource.indexOf("<PersonalityFaq"));
+    expect(pageSource).toContain("listPersonalityProfiles");
+    expect(pageSource).toContain("buildPersonalityHubPayload({");
+    expect(pageSource).toContain("<TypeGroupBrowse");
+    expect(pageSource).toContain('id="personality-itemlist-jsonld"');
   });
 
-  it("uses the same faq authority for page rendering and FAQPage schema composition", () => {
+  it("does not render FAQPage schema unless FAQ content is reintroduced to the page", () => {
     const pagePath = path.join(process.cwd(), "app/(localized)/[locale]/personality/page.tsx");
     const pageSource = fs.readFileSync(pagePath, "utf8");
 
-    expect(pageSource).toContain("const faqItems = hubPayload.faqItems ?? hubPayload.faqBlocks;");
-    expect(pageSource).toContain("buildFAQPageJsonLd(faqItems)");
-    expect(pageSource).toContain("<PersonalityFaq locale={locale} items={faqItems} />");
+    expect(pageSource).not.toContain("buildFAQPageJsonLd");
+    expect(pageSource).not.toContain("<PersonalityFaq");
   });
 });

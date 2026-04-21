@@ -72,7 +72,7 @@ describe("proxy boundary contract", () => {
   it("creates anon-id state when missing and forwards it to the request", () => {
     vi.spyOn(globalThis.crypto, "randomUUID").mockReturnValue("proxy-anon-id");
 
-    const response = proxy(new NextRequest("https://example.com/en/tests/mbti-personality-test-16-personality-types"));
+    const response = proxy(new NextRequest("https://example.com/en/tests/mbti-personality-test-16-personality-types/take"));
 
     expect(response.cookies.get("fap_anonymous_id_v1")?.value).toBe("proxy-anon-id");
     expect(response.headers.get("x-middleware-override-headers")).toContain("x-anon-id");

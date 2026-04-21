@@ -232,7 +232,7 @@ describe("homepage v1 density contract", () => {
       screen.getAllByRole("link", { name: /继续了解/ }).some((link) => link.getAttribute("href") === "/zh/career")
     ).toBe(true);
     expect(
-      screen.getAllByRole("link", { name: /继续了解/ }).some((link) => link.getAttribute("href") === "/zh/about")
+      screen.getAllByRole("link", { name: /继续了解/ }).some((link) => link.getAttribute("href") === "/zh/help")
     ).toBe(true);
 
     expect(screen.getByRole("heading", { level: 2, name: "使用场景与引用" })).toBeInTheDocument();

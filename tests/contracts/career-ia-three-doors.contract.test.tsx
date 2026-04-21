@@ -12,9 +12,10 @@ describe("career IA three doors contract", () => {
   it("keeps /career to three primary doors before quiet support links", () => {
     const source = read("app/(localized)/[locale]/career/page.tsx");
 
-    expect(source).toContain("全部职业库");
-    expect(source).toContain("行业入口");
-    expect(source).toContain("基于测评");
+    expect(source).toContain("getCareerCenterContent");
+    expect(source).toContain("content.pathways[0]");
+    expect(source).toContain("content.pathways[1]");
+    expect(source).toContain("content.pathways[2]");
     expect(source).toContain("career-pathway-jobs");
     expect(source).toContain("career-pathway-recommendation");
     expect(source).toContain("career-pathway-tests");

@@ -13,7 +13,7 @@ describe("test detail landing contract", () => {
 
     expect(source).toContain('normalizeLandingSurface(lookup?.landing_surface_v1 ?? null)');
     expect(source).toContain('const startTestHref = landingSurface?.startTestTarget');
-    expect(source).toContain('findLandingCta(landingSurface, "back_to_tests")');
+    expect(source).toContain('findLandingCta(landingSurface, "continue_public_content")');
     expect(source).toContain('data-testid="test-detail-landing-cta"');
   });
 
@@ -32,7 +32,6 @@ describe("test detail landing contract", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
     expect(source).toContain("getDetailPageLensCopy(test.scale_code, locale)");
-    expect(source).toContain("detailLensCopy.eyebrow");
     expect(source).toContain("detailLensCopy.whenToUseBody");
   });
 
@@ -63,5 +62,7 @@ describe("test detail landing contract", () => {
     expect(takeSource).toContain('formCode={mbtiFormCode ?? undefined}');
     expect(takeSource).toContain('normalizeBig5FormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
     expect(takeSource).toContain('formCode={big5FormCode ?? undefined}');
+    expect(takeSource).toContain('normalizeEnneagramFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
+    expect(takeSource).toContain('formCode={enneagramFormCode ?? undefined}');
   });
 });

@@ -35,17 +35,16 @@ describe("personality mobile contract", () => {
     expect(faqSource).toContain('data-testid="personality-faq-mobile"');
   });
 
-  it("keeps quick locate and full workbench inventory wired on the page", () => {
+  it("keeps the compact type directory wired on the page", () => {
     const pageSource = read("app/(localized)/[locale]/personality/page.tsx");
     const quickLocateSource = read("components/personality/PersonalityQuickLocateBar.tsx");
     const stickySource = read("components/personality/PersonalityMobileDecisionBar.tsx");
 
-    expect(pageSource).toContain('<PersonalityMobileDecisionBar');
-    expect(pageSource).toContain("pb-28 md:pb-10");
-    expect(pageSource).toContain("<TypeNavigatorWorkbench");
-    expect(pageSource).toContain("<CareerIntelligencePreview");
-    expect(pageSource).toContain("<PersonalityMethodology");
-    expect(pageSource).toContain("<PersonalityFaq");
+    expect(pageSource).toContain("<TypeGroupBrowse");
+    expect(pageSource).toContain('data-testid="personality-type-group-browse"');
+    expect(pageSource).toContain('data-testid="personality-type-directory"');
+    expect(pageSource).not.toContain("<TypeNavigatorWorkbench");
+    expect(pageSource).not.toContain("<CareerIntelligencePreview");
     expect(quickLocateSource).toContain('id="personality-quick-locate"');
     expect(quickLocateSource).toContain("scroll-mt-24");
     expect(stickySource).toContain("env(safe-area-inset-bottom)");
