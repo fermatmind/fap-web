@@ -18,9 +18,12 @@ prs:
       production, staging/preview, and local backend API roles; add a
       non-blocking dev startup CMS API health warning; and record the
       staging-first operating policy without changing public content,
-      homepage rendering, backend CMS models, or fallback content.
+      homepage rendering, backend CMS models, or fallback content. Update
+      repository PR train rules to allow recorded user override of non-required
+      remote GitHub check failures after local manifest checks pass.
     checks:
       - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "git diff --check -- AGENTS.md docs/codex/pr-train.yaml docs/codex/pr-train-state.json"
       - "pnpm vitest run tests/contracts/cms-api-environment.contract.test.ts"
       - "pnpm typecheck"
       - "git diff --check"
