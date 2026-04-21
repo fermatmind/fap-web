@@ -1,9 +1,11 @@
 import type {
   Big5ReportSection,
+  EnneagramFormSummaryV1Raw,
   EnneagramPublicProjection,
   ReportResponse,
 } from "@/lib/api/v0_3";
 import { buildEnneagramFormDisplayLabel, normalizeEnneagramFormSummary } from "@/lib/enneagram/formSummary";
+import { normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type EnneagramTypeRow = {
@@ -119,6 +121,38 @@ function resolveProjection(reportData: ReportResponse): EnneagramPublicProjectio
   return null;
 }
 
+function resolveFormSummary(
+  reportData: ReportResponse,
+  projection: EnneagramPublicProjection | null
+): ReturnType<typeof normalizeEnneagramFormSummary> {
+  const direct = normalizeEnneagramFormSummary(reportData.enneagram_form_v1 ?? null);
+  if (direct) {
+    return direct;
+  }
+
+  const candidates = [
+    asRecord(projection?._meta)?.form_code,
+    asRecord(reportData.report)?.form_code,
+    asRecord(reportData.report?._meta)?.form_code,
+  ];
+  const formCode = normalizeText(...candidates);
+  if (!formCode) {
+    return null;
+  }
+  const normalizedFormCode = normalizeEnneagramFormCode(formCode);
+  const meta = resolveEnneagramFormMeta(normalizedFormCode);
+  const isForcedChoice = meta.questionMode === "forced_choice_144";
+
+  return normalizeEnneagramFormSummary({
+    form_code: normalizedFormCode,
+    label: `${meta.questionCount}-question ${isForcedChoice ? "Forced-Choice" : "Likert"}`,
+    short_label: `${meta.questionCount}Q ${isForcedChoice ? "Forced" : "Likert"}`,
+    question_count: meta.questionCount,
+    estimated_minutes: meta.estimatedMinutes,
+    scale_code: "ENNEAGRAM",
+  } as EnneagramFormSummaryV1Raw);
+}
+
 function resolvePrimaryType(projection: EnneagramPublicProjection | null): EnneagramTypeRow | null {
   if (!projection) {
     return null;
@@ -198,7 +232,7 @@ export function assembleEnneagramResultViewModel({
   locale: Locale;
 }): EnneagramResultViewModel {
   const projection = resolveProjection(reportData);
-  const formSummary = normalizeEnneagramFormSummary(reportData.enneagram_form_v1 ?? null);
+  const formSummary = resolveFormSummary(reportData, projection);
   const sections = resolveSections(reportData, projection);
   const split = splitSections(sections, gate);
 

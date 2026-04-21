@@ -48,6 +48,21 @@ describe("enneagram result assembler contract", () => {
     expect(assembled.summary).toContain("forced-choice primary result is Type 5");
   });
 
+  it("preserves retake form identity from persisted projection metadata when the form summary is absent", () => {
+    const reportData = asReport(forcedChoice144Fixture);
+    delete reportData.enneagram_form_v1;
+
+    const assembled = assembleEnneagramResultViewModel({
+      reportData,
+      locale: "en",
+      gate: { isFreeVariant: false },
+    });
+
+    expect(assembled.formCode).toBe("enneagram_forced_choice_144");
+    expect(assembled.formSummaryLabel).toBe("Enneagram · 144-question Forced-Choice");
+    expect(assembled.estimatedMinutes).toBe(18);
+  });
+
   it("splits paid sections only by report access gate, not by recalculating Enneagram scores", () => {
     const assembled = assembleEnneagramResultViewModel({
       reportData: asReport(likert105Fixture),
