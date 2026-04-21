@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T13:06:00+08:00",
+  "updated_at": "2026-04-21T13:10:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2677,9 +2677,9 @@
     "PR-CMSOPS-7": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "committed",
       "branch": "codex/cmsops-pr7-sitemap-cms-enumeration",
-      "commit_sha": "",
+      "commit_sha": "d5f72fd798005e28dfdabf05335125af0e5d4fe7",
       "pr_url": "",
       "checks": {
         "local": [
