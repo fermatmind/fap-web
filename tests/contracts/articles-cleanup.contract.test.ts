@@ -70,8 +70,9 @@ describe("articles cleanup contract", () => {
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
+    expect(config.generateIndexSitemap).toBe(false);
     expect(locs).toEqual(expect.arrayContaining(["/en/articles", "/zh/articles"]));
-    expect(locs.some((loc: string) => /^\/(en|zh)\/articles\/[^/]+$/.test(loc))).toBe(true);
+    expect(locs).toEqual(expect.arrayContaining(["/en/articles/mbti-basics", "/zh/articles/mbti-basics"]));
   });
 
   it("article detail page consumes adapter-normalized seo payload without page-level repair helpers", () => {
@@ -95,6 +96,16 @@ describe("articles cleanup contract", () => {
     expect(llmsFull).toContain("listCmsArticlesForLlms");
     expect(llms).not.toContain("listBlogPosts");
     expect(llmsFull).not.toContain("listBlogPosts");
+  });
+
+  it("seo tooling treats the root sitemap as the canonical generated artifact", () => {
+    const checkSitemap = read("scripts/seo/check-sitemap-indexability.mjs");
+    const pushBaidu = read("scripts/seo/push-baidu.mjs");
+
+    expect(checkSitemap).toContain('"public/sitemap.xml"');
+    expect(pushBaidu).toContain('"public/sitemap.xml"');
+    expect(checkSitemap).not.toContain('"public/sitemap-0.xml"');
+    expect(pushBaidu).not.toContain('"public/sitemap-0.xml"');
   });
 
   it("articles cms adapter normalizes canonical, alternates, and jsonld urls", () => {

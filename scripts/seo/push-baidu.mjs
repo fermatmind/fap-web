@@ -6,7 +6,7 @@ import policy from "../../lib/seo/indexingPolicy.cjs";
 const { shouldIncludeInSitemap } = policy;
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const sitemapPath = path.resolve(ROOT_DIR, process.env.SITEMAP_PATH || "public/sitemap-0.xml");
+const sitemapPath = path.resolve(ROOT_DIR, process.env.SITEMAP_PATH || "public/sitemap.xml");
 const site = String(process.env.BAIDU_PUSH_SITE || "").trim();
 const token = String(process.env.BAIDU_PUSH_TOKEN || "").trim();
 

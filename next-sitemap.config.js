@@ -74,6 +74,7 @@ const MBTI_RUNTIME_SLUG_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://example.com").replace(/\/$/, "");
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
+const cmsSitemapTimeoutMs = Number.parseInt(process.env.CMS_SITEMAP_TIMEOUT_MS || "10000", 10) || 10000;
 
 function normalizeSlug(value) {
   return String(value || "").trim();
@@ -272,7 +273,7 @@ function buildApiUrl(path) {
   return `${apiOrigin}/api${normalized}`;
 }
 
-async function fetchJsonWithTimeout(url, timeoutMs = 1500) {
+async function fetchJsonWithTimeout(url, timeoutMs = cmsSitemapTimeoutMs) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -367,7 +368,7 @@ async function fetchCareerDiscoverabilityManifestRoutes(apiLocale) {
   return routes;
 }
 
-async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = 1500) {
+async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = cmsSitemapTimeoutMs) {
   const items = [];
   let page = 1;
   let lastPage = 1;
@@ -395,7 +396,7 @@ async function fetchPaginatedItems(path, queryParams = {}, timeoutMs = 1500) {
   return items;
 }
 
-async function buildCmsDetailPaths(path, queryBuilder, toPath, timeoutMs = 1500) {
+async function buildCmsDetailPaths(path, queryBuilder, toPath, timeoutMs = cmsSitemapTimeoutMs) {
   try {
     const paths = new Set();
 
@@ -595,6 +596,7 @@ async function buildValidatedCmsPaths(apiRoute, builder) {
 module.exports = {
   siteUrl,
   generateRobotsTxt: false,
+  generateIndexSitemap: false,
   sitemapSize: 5000,
   exclude: [
     "/server-sitemap.xml",
