@@ -93,6 +93,7 @@ describe("public CMS surface LKG coverage", () => {
     await expect(getCmsArticlesWithLastKnownGood({ locale: "zh" })).resolves.toMatchObject({
       source: "last-known-good",
       stale: true,
+      error: expect.any(Error),
       value: { items: [{ slug: "lkg-article" }] },
     });
   });

@@ -59,12 +59,13 @@ export async function withLastKnownGood<T>({
       const entry = store.get(key) as LastKnownGoodEntry<T> | undefined;
 
       if (entry) {
+        const unusableError = new Error(`Fresh value for ${key} was not usable.`);
         return {
           value: entry.value,
           source: "last-known-good",
           stale: true,
           updatedAt: entry.updatedAt,
-          error: null,
+          error: unusableError,
         };
       }
     }
