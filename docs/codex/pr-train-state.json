@@ -9,7 +9,7 @@
     "PR-CMSOPS-1": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open",
+      "status": "github_checks_failed",
       "branch": "codex/cms-ops-pr1-env-observability",
       "commit_sha": "924d5b63d1effacad514b316f0cbb6bc51e87b69",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/516",
@@ -32,9 +32,25 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24700430661/job/72242283596"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24700430661/job/72242283601"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24700430661/job/72242283602"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions checks failed immediately after PR creation: build, contracts, and verify-big5-contract-freeze. Local manifest checks passed, but remote CI is not green.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
