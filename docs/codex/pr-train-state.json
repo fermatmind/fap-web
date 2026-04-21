@@ -65,7 +65,7 @@
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
       "status": "local_checks_passed",
       "branch": "codex/cms-ops-pr2-homepage-article-empty-state",
-      "commit_sha": "",
+      "commit_sha": "b2f0af1abc1aa8e4c38d9922ad92d0a04096099b",
       "pr_url": "",
       "checks": {
         "local": [
