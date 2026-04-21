@@ -10,6 +10,7 @@ describe("staging CMS baseline validation", () => {
     expect(packageJson.scripts?.["cms:baseline:staging"]).toBe(
       "node ./scripts/validate-staging-cms-baseline.mjs --dry-run"
     );
+    expect(packageJson.scripts?.["cms:baseline:staging:smoke"]).toBe("bash scripts/staging_cms_baseline_smoke.sh");
   });
 
   it("keeps the baseline validator read-only and CMS/API-authoritative", () => {
@@ -53,5 +54,35 @@ describe("staging CMS baseline validation", () => {
     expect(plan.web).toEqual(expect.arrayContaining(["GET /sitemap.xml", "GET /llms.txt", "GET /llms-full.txt"]));
     expect(plan.invariants.join("\n")).toContain("homepage recommended_articles block has exactly 6");
     expect(plan.invariants.join("\n")).toContain("article lists expose at least 20");
+  });
+
+  it("documents release ordering and keeps staging smoke opt-in for deploys", () => {
+    const runbook = readFileSync("docs/ops/cms-api-environments-runbook.md", "utf8");
+    const deployScript = readFileSync("scripts/deploy_web_pm2.sh", "utf8");
+    const smokeScript = readFileSync("scripts/staging_cms_baseline_smoke.sh", "utf8");
+
+    const orderedReleaseSteps = [
+      "Import Media Library assets",
+      "Import or update articles",
+      "Import or update landing surfaces and page blocks",
+      "Import or update content pages",
+      "Warm relevant runtime caches or last-known-good entries",
+      "Run staging smoke with the baseline validator",
+    ];
+    const positions = orderedReleaseSteps.map((step) => runbook.indexOf(step));
+
+    expect(positions.every((position) => position >= 0)).toBe(true);
+    expect(positions).toEqual([...positions].sort((a, b) => a - b));
+    expect(runbook).toContain("backend CMS/API importers and CMS publishing tools");
+    expect(runbook).toContain("Do not add frontend fallback content");
+    expect(runbook).toContain("pnpm cms:baseline:staging:smoke");
+
+    expect(smokeScript).toContain("CMS_BASELINE_API_URL");
+    expect(smokeScript).toContain("CMS_BASELINE_WEB_URL");
+    expect(smokeScript).toContain("pnpm cms:baseline:staging");
+
+    expect(deployScript).toContain('RUN_CMS_BASELINE_STAGING_SMOKE="${RUN_CMS_BASELINE_STAGING_SMOKE:-0}"');
+    expect(deployScript).toContain('if [[ "$RUN_CMS_BASELINE_STAGING_SMOKE" == "1" ]]');
+    expect(deployScript).toContain("skip staging CMS baseline smoke");
   });
 });

@@ -11,6 +11,9 @@ CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-asse
 GIT_BRANCH="${GIT_BRANCH:-main}"
 EXPECTED_NODE_MAJOR="${EXPECTED_NODE_MAJOR:-24}"
 EXPECTED_NODE_BIN="${EXPECTED_NODE_BIN:-/usr/bin/node}"
+RUN_CMS_BASELINE_STAGING_SMOKE="${RUN_CMS_BASELINE_STAGING_SMOKE:-0}"
+CMS_BASELINE_API_URL="${CMS_BASELINE_API_URL:-${NEXT_PUBLIC_API_URL:-https://staging-api.fermatmind.com}}"
+CMS_BASELINE_WEB_URL="${CMS_BASELINE_WEB_URL:-${STAGING_WEB_URL:-${PUBLIC_BASE_URL}}}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
 
@@ -164,5 +167,12 @@ probe_headers "${PUBLIC_BASE_URL}/en" 1
 probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
 probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
+
+if [[ "$RUN_CMS_BASELINE_STAGING_SMOKE" == "1" ]]; then
+  log "run staging CMS baseline smoke"
+  CMS_BASELINE_API_URL="$CMS_BASELINE_API_URL" CMS_BASELINE_WEB_URL="$CMS_BASELINE_WEB_URL" bash scripts/staging_cms_baseline_smoke.sh
+else
+  log "skip staging CMS baseline smoke (set RUN_CMS_BASELINE_STAGING_SMOKE=1 for staging releases)"
+fi
 
 log "deploy completed"
