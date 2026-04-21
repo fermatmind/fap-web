@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T13:19:00+08:00",
+  "updated_at": "2026-04-21T13:23:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2677,9 +2677,9 @@
     "PR-CMSOPS-7": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed_after_review",
+      "status": "github_checks_failed",
       "branch": "codex/cmsops-pr7-sitemap-cms-enumeration",
-      "commit_sha": "4421e5bf7801ffc20ba42e9035ec4a16e6e697ca",
+      "commit_sha": "e9a267d1477d24cedd9fe116732cb42615535e15",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/523",
       "checks": {
         "local": [
@@ -2704,9 +2704,30 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705336488/job/72257278527"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705336488/job/72257278551"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705336488/job/72257278539"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24705336488/job/72257278552"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions jobs did not start because recent account payments failed or spending limit needs to be increased. Local validation passed after review.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
