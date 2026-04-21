@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T13:31:20+08:00",
+  "updated_at": "2026-04-21T13:32:54+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2740,10 +2740,10 @@
     "PR-CMSOPS-8": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "open",
       "branch": "codex/cmsops-pr8-release-flow-runbook",
-      "commit_sha": "c68e646b7c27efe6bfc4105245c45a7f4c50b093",
-      "pr_url": "",
+      "commit_sha": "9dafbe3dd3bd42cb77004957e5064b725b7959f4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/524",
       "checks": {
         "local": [
           {
