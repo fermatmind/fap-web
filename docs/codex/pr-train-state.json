@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T12:02:00+08:00",
+  "updated_at": "2026-04-21T12:08:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -218,9 +218,9 @@
     "PR-CMSOPS-5": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "github_checks_failed_user_overridden",
       "branch": "codex/cms-ops-pr5-lkg-public-surfaces",
-      "pr_url": "",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/521",
       "checks": {
         "local": [
           {
@@ -240,14 +240,35 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24702232535/job/72247752388"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24702232535/job/72247752379"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24702232535/job/72247752392"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24702232535/job/72247752391"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub Actions checks failed immediately after PR creation: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. Local manifest checks passed, merge_policy.github_checks_required is false, and the user explicitly instructed Codex on 2026-04-21 to modify the rule and continue despite non-required remote-check failures. The failed PR remains blocked from merge until it satisfies its merge_policy.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "commit_sha": "272f2e25ee96c99318671e92d087a03069e1d337"
+      "commit_sha": "cdb5f5dbccd10e2d17f11037b437cb735db30e03"
     },
     "PR-V4-P5A": {
       "repo": "fap-web",
