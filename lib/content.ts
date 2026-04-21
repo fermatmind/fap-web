@@ -76,6 +76,18 @@ const FALLBACK_PUBLIC_TEST_SEEDS: FallbackTestSeed[] = [
     highlight_priority: 90,
   },
   {
+    slug: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+    scale_code: "ENNEAGRAM",
+    title: { zh: "九型人格测试", en: "Enneagram Test" },
+    description: {
+      zh: "从九种核心动机模式理解你的行为倾向、压力反应与成长线索。",
+      en: "Understand your behavior patterns, stress reactions, and growth cues through nine core motivation types.",
+    },
+    questions_count: 105,
+    time_minutes: 15,
+    highlight_priority: 85,
+  },
+  {
     slug: SCALE_CANONICAL_SLUG_MAP.EQ_60,
     scale_code: "EQ_60",
     title: { zh: "EQ 情商测试", en: "EQ Emotional Intelligence Test" },
