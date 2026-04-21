@@ -2,7 +2,7 @@
 
 import { ChevronDown, Menu, Search, UserRound, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
@@ -46,7 +46,6 @@ export function SiteHeader({
   const openDropdownTimeoutRef = useRef<number | null>(null);
   const closeDropdownTimeoutRef = useRef<number | null>(null);
   const pathname = usePathname() ?? "/";
-  const searchParams = useSearchParams();
   const locale = useLocale();
   const dict = getDictSync(locale);
   const withLocale = (path: string) => localizedPath(path, locale);
@@ -60,9 +59,7 @@ export function SiteHeader({
   const shouldRenderCompletedMetric =
     !isBrandSurfaceRoute && typeof LIVE_COMPLETED_COUNT === "number" && LIVE_COMPLETED_COUNT > 0;
   const targetLocale = locale === "zh" ? "en" : "zh";
-  const localeBasePath = toggleLocalePath(pathname, targetLocale);
-  const localeQuery = searchParams.toString();
-  const localeHref = localeQuery ? `${localeBasePath}?${localeQuery}` : localeBasePath;
+  const localeHref = toggleLocalePath(pathname, targetLocale);
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
   const priorityFlags: ProductPriorityEnvSnapshot = useMemo(
     () =>
