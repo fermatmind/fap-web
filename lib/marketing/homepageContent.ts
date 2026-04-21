@@ -134,7 +134,7 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
     {
       title: "IQ 智商测试",
       description: "快速了解你的认知能力基线",
-      href: "/tests/iq-test-intelligence-quotient-assessment/take",
+      href: "/tests/iq-test-intelligence-quotient-assessment",
       label: "开始测试",
       meta: "能力测评",
     },
@@ -148,7 +148,7 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
     {
       title: "九型人格测试",
       description: "从核心动机与压力反应理解你的行为模式",
-      href: "/tests",
+      href: "/tests/enneagram-personality-test-nine-types",
       label: "开始测试",
       meta: "人格测试",
     },
@@ -178,7 +178,7 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
     {
       title: "IQ Test",
       description: "Get a quick baseline for cognitive ability.",
-      href: "/tests/iq-test-intelligence-quotient-assessment/take",
+      href: "/tests/iq-test-intelligence-quotient-assessment",
       label: "Start test",
       meta: "Ability assessment",
     },
@@ -192,7 +192,7 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
     {
       title: "Enneagram Test",
       description: "Understand behavior patterns through motivation and stress response.",
-      href: "/tests",
+      href: "/tests/enneagram-personality-test-nine-types",
       label: "Start test",
       meta: "Personality test",
     },

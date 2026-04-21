@@ -52,6 +52,20 @@ describe("test detail landing contract", () => {
     expect(source).toContain('showsBig5Actions');
   });
 
+  it("keeps the big5 variant chooser focused on version cards without extra heading copy", () => {
+    const source = fs.readFileSync(PAGE_PATH, "utf8");
+    const big5Branch = source.slice(
+      source.indexOf("showsBig5Actions ?"),
+      source.indexOf("showsEnneagramActions ?")
+    );
+
+    expect(big5Branch).toContain("<FlagshipVariantChooser");
+    expect(big5Branch).not.toContain("选择更适合你的版本");
+    expect(big5Branch).not.toContain("短版用于快速起步");
+    expect(big5Branch).not.toContain("Choose the version that fits best");
+    expect(big5Branch).not.toContain("Use the shorter version");
+  });
+
   it("wires the take page form query into QuizTakeClient props", () => {
     const takeSource = fs.readFileSync(
       path.join(process.cwd(), "app/(localized)/[locale]/tests/[slug]/take/page.tsx"),
