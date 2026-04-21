@@ -337,6 +337,12 @@ function getArticleDisplayDate(article: HomeArticle, locale: Locale): string {
 }
 
 function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles: HomeArticle[] }) {
+  const visibleArticles = articles.slice(0, 6);
+
+  if (visibleArticles.length === 0) {
+    return null;
+  }
+
   const labels =
     locale === "zh"
       ? { title: "推荐阅读", all: "查看全部文章", author: "作者：" }
@@ -355,7 +361,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
         </div>
 
         <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-          {articles.slice(0, 6).map((article, index) => (
+          {visibleArticles.map((article, index) => (
             <article key={`${article.slug}-${article.locale}`} className="group">
               <Link href={withLocale(locale, `/articles/${article.slug}`)} prefetch={false} className="block">
                 <ArticleVisual index={index} title={getArticleVisualTitle(article, locale)} />

@@ -63,12 +63,29 @@
     "PR-CMSOPS-2": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pending",
+      "status": "local_checks_passed",
       "branch": "codex/cms-ops-pr2-homepage-article-empty-state",
       "commit_sha": "",
       "pr_url": "",
       "checks": {
-        "local": [],
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/homepage-articles-empty-state.contract.test.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
         "github": []
       },
       "failure_reason": "",
