@@ -12,7 +12,7 @@ const REQUIRED_HOME_QUICK_START_HREFS = [
   "/tests/mbti-personality-test-16-personality-types",
   "/tests/big-five-personality-test-ocean-model",
   "/tests/enneagram-personality-test-nine-types",
-  "/career/tests/riasec",
+  "/tests/holland-career-interest-test-riasec",
   "/tests/iq-test-intelligence-quotient-assessment",
   "/tests/clinical-depression-anxiety-assessment-professional-edition",
 ];
@@ -20,6 +20,7 @@ const REQUIRED_SCALE_LOOKUP_SLUGS = [
   "mbti-personality-test-16-personality-types",
   "big-five-personality-test-ocean-model",
   "enneagram-personality-test-nine-types",
+  "holland-career-interest-test-riasec",
   "iq-test-intelligence-quotient-assessment",
   "clinical-depression-anxiety-assessment-professional-edition",
 ];
@@ -35,6 +36,18 @@ const REQUIRED_SCALE_QUESTION_FORMS = [
     scaleCode: "MBTI",
     formCode: "mbti_93",
     minQuestions: 93,
+  },
+  {
+    label: "RIASEC 60Q",
+    scaleCode: "RIASEC",
+    formCode: "riasec_60",
+    minQuestions: 60,
+  },
+  {
+    label: "RIASEC 140Q",
+    scaleCode: "RIASEC",
+    formCode: "riasec_140",
+    minQuestions: 140,
   },
 ];
 const REQUIRED_STATIC_MEDIA_ASSETS = [
