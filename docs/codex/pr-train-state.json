@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-22T17:31:39+08:00",
+  "updated_at": "2026-04-22T17:33:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2807,9 +2807,9 @@
     "PR-2": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "pr_open_draft",
+      "status": "github_checks_failed",
       "branch": "codex/pr-2-support-trust-center",
-      "commit_sha": "24a4305deeed0ba7dc6e432441b7f893ca035334",
+      "commit_sha": "93c1b4293f66caedda706333baea10aee348ef80",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/536",
       "checks": {
         "local": [
@@ -2834,9 +2834,30 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24771063889/job/72477336370"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24771063889/job/72477336462"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24771063889/job/72477336382"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24771063889/job/72477336416"
+          }
+        ]
       },
-      "failure_reason": "Non-manifest exploratory checks found existing unrelated blockers: full pnpm lint fails in untouched files (components/result/mbti/clone/MbtiCloneAssetSlot.tsx and ecosystem.config.cjs), default pnpm build fails when .env.local points to an unavailable local CMS API at 127.0.0.1:8000, and the full help-center E2E file still contains legacy detail/header assertions that are outside PR-2. PR-2 scoped checks passed; unrelated dirty files were excluded from staging.",
+      "failure_reason": "GitHub Actions checks failed immediately within 3-5 seconds on run 24771063889. Local PR-2 scoped validation passed. Non-manifest exploratory checks found existing unrelated blockers: full pnpm lint fails in untouched files (components/result/mbti/clone/MbtiCloneAssetSlot.tsx and ecosystem.config.cjs), default pnpm build fails when .env.local points to an unavailable local CMS API at 127.0.0.1:8000, and the full help-center E2E file still contains legacy detail/header assertions that are outside PR-2. Unrelated dirty files were excluded from staging.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
