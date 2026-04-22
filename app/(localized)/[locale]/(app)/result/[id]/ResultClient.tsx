@@ -1165,6 +1165,7 @@ export default function ResultClient({
       <RiasecResultShell
         locale={locale}
         viewModel={assembleRiasecResultViewModel(resultData)}
+        attemptId={attemptId}
       />
     );
   }

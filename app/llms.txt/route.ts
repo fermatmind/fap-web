@@ -219,8 +219,6 @@ export async function GET() {
     "/zh/career/recommendations",
     "/en/career/tests",
     "/zh/career/tests",
-    "/en/career/tests/riasec",
-    "/zh/career/tests/riasec",
     ...enCareerJobs
       .filter(
         (job) =>

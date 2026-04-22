@@ -25,11 +25,9 @@ describe("career launch policy alignment contract", () => {
     expect(getCareerLaunchState("/en/career/recommendations/mbti/intj-a")).toBe("stable");
     expect(getCareerLaunchState("/en/career/guides")).toBe("candidate");
     expect(getCareerLaunchState("/en/career/industries/data")).toBe("candidate");
-    expect(getCareerLaunchState("/en/career/tests/riasec")).toBe("candidate");
     expect(getCareerLaunchState("/en/career/recommendations/big5/openness")).toBe("hold");
     expect(getCareerLaunchState("/en/career/backend-architect")).toBe("hold");
     expect(getCareerLaunchState("/en/career/jobs?q=backend")).toBe("noindex");
-    expect(getCareerLaunchState("/en/career/tests/riasec/result")).toBe("noindex");
     expect(getCareerLaunchState("/en/career/jobs?q=   ")).toBe("stable");
   });
 
@@ -51,7 +49,6 @@ describe("career launch policy alignment contract", () => {
     expect(getCareerLaunchRouteKey("/en/career/recommendations/big5/openness")).toBe(
       "career_big5_recommendation_detail"
     );
-    expect(getCareerLaunchRouteKey("/en/career/tests/riasec/result")).toBe("career_riasec_result");
     expect(getCareerLaunchRouteKey("/en/career/random-legacy-slug")).toBe("career_legacy_slug_bridge");
   });
 

@@ -152,19 +152,6 @@
       "notes": "Verify career tests remain candidate-tier CTA-led entry surfaces."
     },
     {
-      "key": "career_riasec_test",
-      "route": "/career/tests/riasec",
-      "launchState": "candidate",
-      "authorityOwner": "editorial_cta_only",
-      "renderMode": "render",
-      "canonicalMode": "self",
-      "robotsMode": "index",
-      "requiresBackendExplicitGate": false,
-      "requiresLocalizedRoute": true,
-      "requiresNextStepOrPrimaryCta": true,
-      "notes": "Verify the RIASEC entry remains candidate-tier and distinct from result/noindex flows."
-    },
-    {
       "key": "career_jobs_query",
       "route": "/career/jobs?q={query}",
       "launchState": "noindex",
@@ -202,19 +189,6 @@
       "requiresLocalizedRoute": true,
       "requiresNextStepOrPrimaryCta": true,
       "notes": "Verify Big5 recommendation detail stays held out from launch-facing recommendation authority."
-    },
-    {
-      "key": "career_riasec_result",
-      "route": "/career/tests/riasec/result",
-      "launchState": "noindex",
-      "authorityOwner": "editorial_cta_only",
-      "renderMode": "render",
-      "canonicalMode": "self",
-      "robotsMode": "noindex",
-      "requiresBackendExplicitGate": false,
-      "requiresLocalizedRoute": true,
-      "requiresNextStepOrPrimaryCta": false,
-      "notes": "Verify the result route stays outside sitemap and launch discoverability."
     }
   ]
 }

@@ -56,7 +56,7 @@ describe("career recommendation engine", () => {
         big5: "history",
         iq: "history",
         eq: "history",
-        riasec: "local",
+        riasec: "history",
       },
     } as const;
 

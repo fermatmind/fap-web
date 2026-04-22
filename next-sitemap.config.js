@@ -214,8 +214,6 @@ function buildLandingPaths() {
     "/zh/career/recommendations",
     "/en/career/tests",
     "/zh/career/tests",
-    "/en/career/tests/riasec",
-    "/zh/career/tests/riasec",
     "/en/datasets/occupations",
     "/zh/datasets/occupations",
     "/en/datasets/occupations/method",

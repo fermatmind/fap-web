@@ -121,13 +121,6 @@ describe("tracking whitelist contract", () => {
       score: 88.2,
     });
 
-    expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_RIASEC_SUBMIT, payload)).toEqual({
-      locale: "en",
-      answered_count: 36,
-      primary_code: "I",
-      secondary_code: "R",
-    });
-
     expect(filterTrackingPayload(TRACKING_EVENTS.CAREER_JOB_SEARCH_RESULT_CLICK, payload)).toEqual({
       locale: "en",
       entry_surface: "career_job_search_results",

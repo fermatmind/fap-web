@@ -22,6 +22,7 @@ import type {
   PartnerReadRaw,
   PublicSurfaceRaw,
   ReportResponse,
+  RiasecPublicProjection,
   SeoSurfaceRaw,
   ShareSummaryResponse,
   WidgetSurfaceRaw,
@@ -1809,10 +1810,21 @@ function normalizeShareCard(rawShare?: ShareSummaryResponse | null): MbtiPublicP
     return mbtiCard;
   }
 
+  const riasecProjection = asRecord(rawShare?.riasec_public_projection_v1) as RiasecPublicProjection | null;
+  const riasecScores = asRecord(riasecProjection?.scores_0_100);
   const big5Projection = asRecord(rawShare?.big5_public_projection_v1) as Big5PublicProjection | null;
   const big5TraitVector = Array.isArray(big5Projection?.trait_vector) ? big5Projection.trait_vector : [];
   const dimensions = (
-    Array.isArray(rawShare?.dimensions) && rawShare?.dimensions.length > 0
+    riasecScores
+      ? Object.entries(riasecScores).map(([code, value]) => ({
+          code,
+          label: code,
+          percent: Number(value),
+          side: code,
+          side_label: code,
+          summary: "",
+        }))
+      : Array.isArray(rawShare?.dimensions) && rawShare?.dimensions.length > 0
       ? rawShare?.dimensions
       : big5TraitVector
   )
@@ -1844,11 +1856,11 @@ function normalizeShareCard(rawShare?: ShareSummaryResponse | null): MbtiPublicP
     ])
   );
 
-  const title = normalizeText(rawShare?.title, rawShare?.type_name, rawShare?.type_code);
+  const title = normalizeText(rawShare?.title, rawShare?.type_name, riasecProjection?.top_code, rawShare?.type_code);
   const subtitle = normalizeText(rawShare?.subtitle, rawShare?.tagline);
-  const summary = normalizeText(rawShare?.summary, rawShare?.tagline);
+  const summary = normalizeText(rawShare?.summary, rawShare?.tagline, riasecProjection?.top_code);
   const typeName = normalizeText(rawShare?.type_name, rawShare?.title);
-  const displayType = normalizeText(rawShare?.type_code, rawShare?.scale_code);
+  const displayType = normalizeText(rawShare?.type_code, riasecProjection?.top_code, rawShare?.scale_code);
 
   if (!title && !summary && !typeName && dimensions.length === 0) {
     return null;

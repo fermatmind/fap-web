@@ -1,8 +1,12 @@
 import {
   fetchScaleQuestions,
+  getAttemptReport,
+  getMyAttempts,
   startAttempt,
   submitAttempt,
+  type MeAttemptsResponse,
   type QuestionsResponse,
+  type ReportResponse,
   type StartAttemptResponse,
   type SubmitAnswer,
   type SubmitResponse,
@@ -135,6 +139,55 @@ export async function submitRiasecAttempt({
         answers,
         durationMs,
         anonId: resolvedAnonId,
+    }),
+  });
+}
+
+export async function fetchRiasecReport({
+  attemptId,
+  refresh,
+  anonId,
+}: {
+  attemptId: string;
+  refresh?: boolean;
+  anonId?: string;
+}): Promise<ReportResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+
+  return withRiasecAuthRetry({
+    anonId: resolvedAnonId,
+    run: () =>
+      getAttemptReport({
+        attemptId,
+        refresh,
+        anonId: resolvedAnonId,
+      }),
+  });
+}
+
+export async function fetchRiasecHistory({
+  page,
+  pageSize,
+  anonId,
+  locale,
+}: {
+  page?: number;
+  pageSize?: number;
+  anonId?: string;
+  locale?: string;
+} = {}): Promise<MeAttemptsResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+
+  return withRiasecAuthRetry({
+    anonId: resolvedAnonId,
+    locale,
+    run: () =>
+      getMyAttempts({
+        scaleCode: RIASEC_SCALE_CODE,
+        page,
+        pageSize,
+        anonId: resolvedAnonId,
+        locale,
       }),
   });
 }

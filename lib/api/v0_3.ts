@@ -1646,6 +1646,7 @@ export type ShareSummaryResponse = {
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
+  riasec_public_projection_v1?: RiasecPublicProjection | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
@@ -1882,6 +1883,7 @@ export type MeAttemptItem = {
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
   enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
+  riasec_form_v1?: RiasecFormSummaryV1Raw | null;
   access_summary?: {
     access_state?: string;
     report_state?: string;

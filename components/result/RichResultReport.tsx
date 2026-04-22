@@ -1378,6 +1378,7 @@ export function RichResultReport({
       <RiasecResultShell
         locale={locale}
         viewModel={assembleRiasecResultViewModel(reportData)}
+        attemptId={typeof reportData.attempt_id === "string" ? reportData.attempt_id : null}
       />
     );
   }
