@@ -12,6 +12,52 @@ type TrustItem = HomePageContent["trust"]["items"][number];
 type HomeArticle = CmsArticle;
 
 const ARTICLE_AUTHOR_NAME = "Fermat Institute";
+const SUPPORT_TRUST_ITEMS = [
+  {
+    key: "orders",
+    href: "/orders/lookup",
+    icon: "receipt",
+    title: { en: "Recover reports and orders", zh: "找回报告与订单" },
+    body: {
+      en: "Look up paid orders, continue payment recovery, and resend available report delivery.",
+      zh: "查询已支付订单、继续支付恢复，并重新获取可交付的报告。",
+    },
+    label: { en: "Open order lookup", zh: "查询订单" },
+  },
+  {
+    key: "results",
+    href: "/help/faq",
+    icon: "chart",
+    title: { en: "Understand your results", zh: "读懂你的结果" },
+    body: {
+      en: "Start with practical reading guidance before turning scores into decisions.",
+      zh: "先理解分数、维度与使用方式，再把结果转成具体判断。",
+    },
+    label: { en: "Read guidance", zh: "查看说明" },
+  },
+  {
+    key: "science",
+    href: "/about",
+    icon: "scope",
+    title: { en: "Science and boundaries", zh: "测评科学与边界" },
+    body: {
+      en: "Review what FermatMind measures, where interpretation helps, and where it should stop.",
+      zh: "了解测评关注什么、解释能帮到哪里，以及哪些结论不应过度使用。",
+    },
+    label: { en: "Review boundaries", zh: "查看边界" },
+  },
+  {
+    key: "privacy",
+    href: "/privacy",
+    icon: "shield",
+    title: { en: "Privacy and data management", zh: "隐私与数据管理" },
+    body: {
+      en: "Find privacy terms, email preference controls, and data request channels.",
+      zh: "查看隐私说明、邮件偏好控制，以及数据请求渠道。",
+    },
+    label: { en: "Manage trust settings", zh: "管理隐私与数据" },
+  },
+] as const;
 
 function withLocale(locale: Locale, path: string): string {
   return localizedPath(path, locale);
@@ -288,6 +334,112 @@ function HomepageAboutBanner({ locale, copy }: { locale: Locale; copy: HomePageC
   );
 }
 
+function SupportTrustIcon({ name }: { name: (typeof SUPPORT_TRUST_ITEMS)[number]["icon"] }) {
+  const commonProps = {
+    viewBox: "0 0 28 28",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.8,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className: "h-7 w-7",
+    "aria-hidden": true,
+  };
+
+  if (name === "chart") {
+    return (
+      <svg {...commonProps}>
+        <path d="M5 22V6" />
+        <path d="M5 22h18" />
+        <path d="M9 17.5l3.5-4 3 2.5L21 9" />
+        <path d="M9 22v-4" />
+        <path d="M14 22v-7" />
+        <path d="M19 22v-9" />
+      </svg>
+    );
+  }
+
+  if (name === "scope") {
+    return (
+      <svg {...commonProps}>
+        <circle cx="12" cy="12" r="6" />
+        <path d="M16.5 16.5 23 23" />
+        <path d="M12 8v4l3 2" />
+        <path d="M4 23h12" />
+      </svg>
+    );
+  }
+
+  if (name === "shield") {
+    return (
+      <svg {...commonProps}>
+        <path d="M14 3 23 6.5v6.7c0 5.5-3.5 9.5-9 11.8-5.5-2.3-9-6.3-9-11.8V6.5L14 3Z" />
+        <path d="M10.5 14.2 13 16.7l5-5.4" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...commonProps}>
+      <path d="M8 4h11l2 2v18l-3-1.8L15 24l-3-1.8L9 24l-2-1.2V5a1 1 0 0 1 1-1Z" />
+      <path d="M11 9h6" />
+      <path d="M11 13h6" />
+      <path d="M11 17h4" />
+    </svg>
+  );
+}
+
+function HomepageSupportTrustBanner({ locale }: { locale: Locale }) {
+  const labels =
+    locale === "zh"
+      ? {
+          eyebrow: "Support & Trust",
+          title: "支持与信任入口",
+          body: "把报告找回、结果解读、方法边界和隐私控制放在同一个清晰入口，先解决用户最需要确认的事。",
+        }
+      : {
+          eyebrow: "Support & Trust",
+          title: "Support and trust entry points",
+          body: "Clear paths for report recovery, result interpretation, method boundaries, and privacy controls.",
+        };
+
+  return (
+    <section className="bg-slate-50 py-20 md:py-24" aria-labelledby="homepage-support-trust-title">
+      <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <div>
+            <p className="m-0 text-xs font-bold uppercase tracking-[0.18em] text-teal-700">{labels.eyebrow}</p>
+            <h2 id="homepage-support-trust-title" className="m-0 mt-3 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-4xl">
+              {labels.title}
+            </h2>
+            <p className="m-0 mt-5 max-w-xl text-base leading-7 text-slate-600">{labels.body}</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {SUPPORT_TRUST_ITEMS.map((item) => (
+              <Link
+                key={item.key}
+                href={withLocale(locale, item.href)}
+                prefetch={false}
+                className="group flex min-h-[13rem] flex-col rounded-lg border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-teal-700 hover:shadow-md"
+              >
+                <span className="grid h-12 w-12 place-items-center rounded-lg bg-teal-50 text-teal-800 transition group-hover:bg-teal-800 group-hover:text-white">
+                  <SupportTrustIcon name={item.icon} />
+                </span>
+                <h3 className="m-0 mt-5 text-xl font-semibold tracking-[-0.03em] text-slate-950">{localize(item.title, locale)}</h3>
+                <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{localize(item.body, locale)}</p>
+                <span className="mt-auto inline-flex pt-5 text-sm font-semibold text-teal-800 group-hover:text-orange-700">
+                  {localize(item.label, locale)}
+                  <span aria-hidden className="ml-1">→</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 function ArticleVisual({ index, title }: { index: number; title: string }) {
   const palettes = [
     "from-orange-100 via-slate-100 to-teal-100",
@@ -400,6 +552,7 @@ export function HomePageExperience({ locale, copy, articles = [] }: { locale: Lo
       <HomepageSocialProofBanner locale={locale} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} />
       <HomepageAboutBanner locale={locale} copy={copy} />
+      <HomepageSupportTrustBanner locale={locale} />
       <HomepageArticlesBanner locale={locale} articles={articles} />
     </div>
   );

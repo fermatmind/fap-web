@@ -52,10 +52,12 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/tests", label: "Career tests" },
     ],
     help: [
-      { href: "/help", label: "Help Center" },
-      { href: "/orders/lookup", label: "Order lookup" },
-      { href: "/email/preferences", label: "Email preferences" },
-      { href: "/email/unsubscribe", label: "Unsubscribe" },
+      { href: "/orders/lookup", label: "Reports & orders" },
+      { href: "/help/faq", label: "Payments & refunds" },
+      { href: "/help/faq", label: "Understand results" },
+      { href: "/about", label: "Science & boundaries" },
+      { href: "/email/preferences", label: "Email & data management" },
+      { href: "/help", label: "Full help center" },
     ],
     business: [
       { href: "/business", label: "Business overview" },
@@ -95,10 +97,12 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/tests", label: "职业测试" },
     ],
     help: [
-      { href: "/help", label: "帮助中心" },
-      { href: "/orders/lookup", label: "订单查询" },
-      { href: "/email/preferences", label: "邮件偏好" },
-      { href: "/email/unsubscribe", label: "退订邮件" },
+      { href: "/orders/lookup", label: "报告与订单" },
+      { href: "/help/faq", label: "支付与退款" },
+      { href: "/help/faq", label: "读懂结果" },
+      { href: "/about", label: "测评科学与边界" },
+      { href: "/email/preferences", label: "邮箱与数据管理" },
+      { href: "/help", label: "完整帮助中心" },
     ],
     business: [
       { href: "/business", label: "企业服务" },
