@@ -141,7 +141,7 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
     {
       title: "霍兰德职业兴趣测试",
       description: "先得到兴趣结构与职业方向判断",
-      href: "/career/tests/riasec",
+      href: "/tests/holland-career-interest-test-riasec",
       label: "开始测试",
       meta: "职业兴趣",
     },
@@ -185,7 +185,7 @@ const REQUIRED_QUICK_START_ITEMS: Record<Locale, HomeLinkItem[]> = {
     {
       title: "Holland Career Interest Test",
       description: "Start from interest structure and career direction.",
-      href: "/career/tests/riasec",
+      href: "/tests/holland-career-interest-test-riasec",
       label: "Start test",
       meta: "Career interest",
     },

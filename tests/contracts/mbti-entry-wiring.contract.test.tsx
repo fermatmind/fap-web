@@ -194,6 +194,25 @@ describe("mbti entry wiring contract", () => {
     expect(links90.some((link) => link.getAttribute("href") === "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90")).toBe(true);
   });
 
+  it("renders dual riasec CTAs in landing sticky CTA surface", () => {
+    render(
+      <CTASticky
+        slug="holland-career-interest-test-riasec"
+        title="霍兰德职业兴趣测试"
+        questions={60}
+        minutes={8}
+        scaleCode="RIASEC"
+        locale="zh"
+      />
+    );
+
+    const links60 = screen.getAllByRole("link", { name: /开始标准版/ });
+    const links140 = screen.getAllByRole("link", { name: /开始增强版/ });
+
+    expect(links60.some((link) => link.getAttribute("href") === "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60")).toBe(true);
+    expect(links140.some((link) => link.getAttribute("href") === "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_140")).toBe(true);
+  });
+
   it("keeps homepage free of direct big5 version-entry wiring", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 

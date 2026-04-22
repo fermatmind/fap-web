@@ -22,7 +22,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests", label: "Tests hub" },
       { href: "/tests/category/personality", label: "Personality & style" },
       { href: "/tests/category/career", label: "Career & direction" },
-      { href: "/career/tests/riasec", label: "RIASEC career interest test" },
+      { href: "/tests/holland-career-interest-test-riasec", label: "RIASEC career interest test" },
       { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI personality test" },
       { href: "/tests/big-five-personality-test-ocean-model", label: "Big Five personality test" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "IQ assessment" },

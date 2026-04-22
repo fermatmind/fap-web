@@ -36,7 +36,7 @@ export function CareerRecommendationPanel({
             : "You can still browse the public career content and use the MBTI / RIASEC entry points while the authoritative flow is being reconnected."}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
-          <Link href={localizedPath("/career/tests/riasec", locale)} className={buttonVariants({ size: "sm" })}>
+          <Link href={localizedPath("/tests/holland-career-interest-test-riasec", locale)} className={buttonVariants({ size: "sm" })}>
             {locale === "zh" ? "完成 RIASEC 兴趣测试" : "Take the RIASEC test"}
           </Link>
           <Link href={localizedPath("/career", locale)} className={buttonVariants({ size: "sm", variant: "outline" })}>

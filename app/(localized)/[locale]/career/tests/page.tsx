@@ -54,11 +54,11 @@ export default async function CareerTestsPage({ params }: { params: Promise<{ lo
         </h3>
         <p className="m-0 mt-3 text-sm leading-6 text-slate-500">
           {locale === "zh"
-            ? "36 题，约 6-8 分钟，先得到六维兴趣结构与主次兴趣代码，再进入职业方向判断。"
-            : "36 questions in 6-8 minutes. Start with the six-dimension interest profile and top interest codes, then decide where to explore."}
+            ? "60 / 140 题，约 8 / 18 分钟，先得到六维兴趣结构与主次兴趣代码，再进入职业方向判断。"
+            : "60 / 140 questions in about 8 / 18 minutes. Start with the six-dimension interest profile and top interest codes, then decide where to explore."}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href={withLocale("/career/tests/riasec")} className={buttonVariants({ variant: "default" })}>
+          <Link href={withLocale("/tests/holland-career-interest-test-riasec")} className={buttonVariants({ variant: "default" })}>
             {locale === "zh" ? "开始测试" : "Start test"}
           </Link>
         </div>

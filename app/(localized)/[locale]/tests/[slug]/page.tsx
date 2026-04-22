@@ -41,6 +41,16 @@ import {
   listEnneagramFormMetas,
 } from "@/lib/enneagram/forms";
 import {
+  buildRiasecTakeHref,
+  getRiasecDurationSummary,
+  getRiasecQuestionSummary,
+  getRiasecStartLabel,
+  getRiasecVariantLabel,
+  getRiasecVariantSummary,
+  isRiasecScaleCode,
+  listRiasecFormMetas,
+} from "@/lib/riasec/forms";
+import {
   DEFAULT_MBTI_FORM_CODE,
   buildMbtiTakeHref,
   getMbtiDurationSummary,
@@ -79,6 +89,7 @@ type LookupResponse = {
   norms_version?: string | null;
   quality_level?: string | null;
   capabilities?: Record<string, unknown> | null;
+  forms?: unknown[] | null;
   content_i18n_json?: Record<string, unknown> | null;
   report_summary_i18n_json?: Record<string, unknown> | null;
   landing_surface_v1?: LandingSurfaceRaw | null;
@@ -195,6 +206,7 @@ async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupRes
       norms_version: (payload.norms_version as string | null | undefined) ?? null,
       quality_level: (payload.quality_level as string | null | undefined) ?? null,
       capabilities: (payload.capabilities as Record<string, unknown> | null | undefined) ?? null,
+      forms: Array.isArray(payload.forms) ? payload.forms : null,
       content_i18n_json: (payload.content_i18n_json as Record<string, unknown> | null | undefined) ?? null,
       report_summary_i18n_json:
         (payload.report_summary_i18n_json as Record<string, unknown> | null | undefined) ?? null,
@@ -223,7 +235,7 @@ function buildFallbackFaq(testTitle: string, minutes: number, questions: number,
   ];
 }
 
-function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram", locale: "en" | "zh"): FAQItem[] {
+function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram" | "riasec", locale: "en" | "zh"): FAQItem[] {
   if (locale === "zh") {
     if (kind === "mbti") {
       return [
@@ -263,6 +275,27 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram", locale: "e
         {
           q: "重新测试会保留当前版本吗？",
           a: "会。结果页重新测试会回到同一个版本，不会把 144 题自动切回 105 题。",
+        },
+      ];
+    }
+
+    if (kind === "riasec") {
+      return [
+        {
+          q: "RIASEC 60 题和 140 题有什么区别？",
+          a: "60 题是默认公开标准版，用于快速建立六维职业兴趣轮廓；140 题是增强版，会进一步区分活动、环境与角色偏好。",
+        },
+        {
+          q: "我应该先做哪一个版本？",
+          a: "如果你想先快速了解职业兴趣结构，先做 60 题；如果你希望更完整地比较职业偏好层次，选择 140 题增强版。",
+        },
+        {
+          q: "两个版本属于同一个测评吗？",
+          a: "是。两个版本都属于同一个霍兰德 RIASEC 职业兴趣测试，结果会保留你选择的版本。",
+        },
+        {
+          q: "结果能直接替我决定职业吗？",
+          a: "不能。结果用于辅助职业探索和讨论，不替代真实经历、能力评估或专业咨询。",
         },
       ];
     }
@@ -325,6 +358,27 @@ function buildFlagshipVariantFaq(kind: "mbti" | "big5" | "enneagram", locale: "e
       {
         q: "Will retaking preserve the current form?",
         a: "Yes. Retake from the result page returns to the same form instead of silently switching 144Q back to 105Q.",
+      },
+    ];
+  }
+
+  if (kind === "riasec") {
+    return [
+      {
+        q: "What is the difference between RIASEC 60Q and 140Q?",
+        a: "60Q is the default public standard form for a focused six-dimension interest profile. 140Q adds activity, environment, and role preference layers.",
+      },
+      {
+        q: "Which version should I start with?",
+        a: "Start with 60Q if you want a focused career-interest read. Choose 140Q if you want a fuller comparison across preference layers.",
+      },
+      {
+        q: "Do both versions belong to the same assessment?",
+        a: "Yes. Both forms belong to the same Holland RIASEC career interest test, and the result preserves the form you selected.",
+      },
+      {
+        q: "Can the result choose a career for me?",
+        a: "No. The result supports career exploration and discussion. It does not replace experience, skill assessment, or professional guidance.",
       },
     ];
   }
@@ -547,15 +601,19 @@ export default async function TestLandingPage({
   const showsMbtiActions = isMbtiScaleCode(test.scale_code);
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const showsEnneagramActions = isEnneagramScaleCode(test.scale_code);
+  const showsRiasecActions = isRiasecScaleCode(test.scale_code);
   const showsDepressionVersionActions = [
     "clinical-depression-anxiety-assessment-professional-edition",
     "depression-screening-test-standard-edition",
   ].includes(test.slug);
-  const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
+  const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions || showsEnneagramActions || showsRiasecActions;
   const mergedFaq = faqItems.length > 0
       ? faqItems
       : isFlagshipDualVariant
-        ? buildFlagshipVariantFaq(showsMbtiActions ? "mbti" : showsBig5Actions ? "big5" : "enneagram", locale)
+        ? buildFlagshipVariantFaq(
+            showsMbtiActions ? "mbti" : showsBig5Actions ? "big5" : showsEnneagramActions ? "enneagram" : "riasec",
+            locale
+          )
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale);
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
@@ -585,6 +643,15 @@ export default async function TestLandingPage({
             ctaLabel: getEnneagramStartLabel(form.formCode, locale),
             testId: `test-detail-landing-cta-${form.formCode}`,
           }))
+        : showsRiasecActions
+          ? listRiasecFormMetas(lookup?.forms).map((form) => ({
+              key: form.formCode,
+              label: getRiasecVariantLabel(form.formCode, locale),
+              summary: getRiasecVariantSummary(form.formCode, locale),
+              href: buildRiasecTakeHref(test.slug, locale, form.formCode),
+              ctaLabel: getRiasecStartLabel(form.formCode, locale),
+              testId: `test-detail-landing-cta-${form.formCode}`,
+            }))
       : [];
   const depressionVersionChoices: FlagshipVariantChoice[] = showsDepressionVersionActions
     ? [
@@ -775,6 +842,8 @@ export default async function TestLandingPage({
                       ? getMbtiQuestionSummary(locale)
                       : showsBig5Actions
                       ? getBig5QuestionSummary(locale)
+                      : showsRiasecActions
+                      ? getRiasecQuestionSummary(locale)
                       : `${test.questions_count} ${locale === "zh" ? "题" : "questions"}`}
                   </span>
                   <span>•</span>
@@ -783,6 +852,8 @@ export default async function TestLandingPage({
                       ? getMbtiDurationSummary(locale)
                       : showsBig5Actions
                       ? getBig5DurationSummary(locale)
+                      : showsRiasecActions
+                      ? getRiasecDurationSummary(locale)
                       : `${test.time_minutes} ${locale === "zh" ? "分钟" : "minutes"}`}
                   </span>
                   {test.scale_code ? (
@@ -853,6 +924,18 @@ export default async function TestLandingPage({
                     locale === "zh"
                       ? "105 题是五点量表自评版；144 题是二选一迫选版。两个版本属于同一个九型人格测评，结果与重新测试都会保留所选版本。"
                       : "105Q is the five-point Likert form; 144Q is the forced-choice pair form. Both belong to the same Enneagram assessment and preserve the selected form through result and retake."
+                  }
+                  choices={flagshipVariantChoices}
+                />
+              </div>
+            ) : showsRiasecActions ? (
+              <div className="space-y-4 pt-2">
+                <FlagshipVariantChooser
+                  title={locale === "zh" ? "选择霍兰德职业兴趣版本" : "Choose your Holland interest form"}
+                  subtitle={
+                    locale === "zh"
+                      ? "60 题是默认公开标准版；140 题是增强版。两个版本属于同一个 RIASEC 测评，结果与重新测试都会保留所选版本。"
+                      : "60Q is the default public standard form; 140Q is the enhanced form. Both belong to the same RIASEC assessment and preserve the selected form through result and retake."
                   }
                   choices={flagshipVariantChoices}
                 />

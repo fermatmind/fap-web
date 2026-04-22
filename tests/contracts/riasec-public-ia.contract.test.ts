@@ -1,0 +1,49 @@
+import fs from "node:fs";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
+import {
+  buildRiasecTakeHref,
+  getRiasecStartLabel,
+  listRiasecFormMetas,
+} from "@/lib/riasec/forms";
+
+function read(relPath: string): string {
+  return fs.readFileSync(path.join(process.cwd(), relPath), "utf8");
+}
+
+describe("riasec public IA contract", () => {
+  it("keeps riasec forms ordered as standard 60Q then enhanced 140Q", () => {
+    expect(listRiasecFormMetas().map((form) => form.formCode)).toEqual(["riasec_60", "riasec_140"]);
+    expect(getRiasecStartLabel("riasec_60", "zh")).toBe("开始标准版");
+    expect(getRiasecStartLabel("riasec_140", "zh")).toBe("开始增强版");
+    expect(buildRiasecTakeHref("holland-career-interest-test-riasec", "zh", "riasec_60")).toBe(
+      "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60"
+    );
+  });
+
+  it("uses canonical riasec links in major static entry sources touched by this PR", () => {
+    const canonical = "/tests/holland-career-interest-test-riasec";
+    const files = [
+      "lib/navigation/headerDropdownMenus.ts",
+      "lib/marketing/homepageContent.ts",
+      "app/(localized)/[locale]/career/tests/page.tsx",
+      "app/(localized)/[locale]/career/recommendations/page.tsx",
+      "components/career/CareerRecommendationPanel.tsx",
+    ];
+
+    for (const file of files) {
+      const source = read(file);
+      expect(source).toContain(canonical);
+      expect(source).not.toContain("/career/tests/riasec");
+    }
+  });
+
+  it("keeps riasec in the catalog fallback seed under the canonical scale slug", () => {
+    const source = read("lib/content.ts");
+
+    expect(source).toContain("SCALE_CANONICAL_SLUG_MAP.RIASEC");
+    expect(source).toContain('scale_code: "RIASEC"');
+    expect(source).toContain("霍兰德职业兴趣测试（RIASEC）");
+    expect(source).toContain("questions_count: 60");
+  });
+});

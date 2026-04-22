@@ -67,7 +67,7 @@ export default async function CareerRecommendationsPage({
   const canonicalPath = locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations";
   const mbtiTestPath = withLocale("/tests/mbti-personality-test-16-personality-types");
   const big5TestPath = withLocale("/tests/big-five-personality-test-ocean-model");
-  const riasecTestPath = withLocale("/career/tests/riasec");
+  const riasecTestPath = withLocale("/tests/holland-career-interest-test-riasec");
   const jobsPath = withLocale("/career/jobs");
   const industriesPath = withLocale("/career/industries");
   const guidesPath = withLocale("/career/guides");
