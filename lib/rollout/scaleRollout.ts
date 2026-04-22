@@ -22,6 +22,11 @@ const SCALE_ROLLOUT_ENV: Record<SupportedScaleCode, ScaleRolloutEnvConfig> = {
     percentEnv: "ROLLOUT_PERCENT_ENNEAGRAM",
     commerceEnv: "ENABLE_ENNEAGRAM_COMMERCE",
   },
+  RIASEC: {
+    enabledEnv: "ENABLE_RIASEC",
+    percentEnv: "ROLLOUT_PERCENT_RIASEC",
+    commerceEnv: "ENABLE_RIASEC_COMMERCE",
+  },
   SDS_20: {
     enabledEnv: "ENABLE_SDS_20",
     percentEnv: "ROLLOUT_PERCENT_SDS_20",

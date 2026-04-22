@@ -10,6 +10,7 @@ import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { isMbtiScaleCode, normalizeMbtiFormCode, resolveMbtiFormMeta } from "@/lib/mbti/forms";
+import { isRiasecScaleCode, normalizeRiasecFormCode, resolveRiasecFormMeta } from "@/lib/riasec/forms";
 import {
   createScaleRolloutEnvSnapshot,
   resolveScaleRollout,
@@ -21,6 +22,7 @@ import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
 import EnneagramTakeClient from "./EnneagramTakeClient";
 import QuizTakeClient from "./QuizTakeClient";
+import RiasecTakeClient from "./RiasecTakeClient";
 
 function appendQuery(path: string, query: Record<string, string | string[] | undefined>): string {
   const params = new URLSearchParams();
@@ -122,6 +124,10 @@ export default async function TakePage({
     ? normalizeEnneagramFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
     : null;
   const enneagramFormMeta = enneagramFormCode ? resolveEnneagramFormMeta(enneagramFormCode) : null;
+  const riasecFormCode = isRiasecScaleCode(test.scale_code)
+    ? normalizeRiasecFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
+    : null;
+  const riasecFormMeta = riasecFormCode ? resolveRiasecFormMeta(riasecFormCode) : null;
 
   if (!test.scale_code) {
     return (
@@ -173,6 +179,12 @@ export default async function TakePage({
           slug={slug}
           formCode={enneagramFormCode ?? undefined}
           estimatedMinutes={enneagramFormMeta?.estimatedMinutes}
+        />
+      ) : test.scale_code === "RIASEC" ? (
+        <RiasecTakeClient
+          slug={slug}
+          formCode={riasecFormCode ?? undefined}
+          estimatedMinutes={riasecFormMeta?.estimatedMinutes}
         />
       ) : test.scale_code === "SDS_20" || test.scale_code === "CLINICAL_COMBO_68" ? (
         <ClinicalTakeClient slug={slug} scaleCode={test.scale_code} />

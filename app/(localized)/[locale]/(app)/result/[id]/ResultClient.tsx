@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
+import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import {
   canRenderRichResultReport,
   isGeneratingReportResponse,
@@ -51,6 +52,7 @@ import { logInfo, logWarn } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
+import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
@@ -1156,6 +1158,15 @@ export default function ResultClient({
 
   if (!hasReadyResultPayload(resultData)) {
     return <Alert>{dict.result.reportUnavailable}</Alert>;
+  }
+
+  if (hasRiasecProjection(resultData)) {
+    return (
+      <RiasecResultShell
+        locale={locale}
+        viewModel={assembleRiasecResultViewModel(resultData)}
+      />
+    );
   }
 
   const result = resultData.result;
