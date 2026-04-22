@@ -57,7 +57,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/help/faq", label: "Understand results" },
       { href: "/about", label: "Science & boundaries" },
       { href: "/email/preferences", label: "Email & data management" },
-      { href: "/help", label: "Full help center" },
+      { href: "/support", label: "Full help center" },
     ],
     business: [
       { href: "/business", label: "Business overview" },
@@ -102,7 +102,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/help/faq", label: "读懂结果" },
       { href: "/about", label: "测评科学与边界" },
       { href: "/email/preferences", label: "邮箱与数据管理" },
-      { href: "/help", label: "完整帮助中心" },
+      { href: "/support", label: "完整帮助中心" },
     ],
     business: [
       { href: "/business", label: "企业服务" },

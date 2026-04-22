@@ -34,9 +34,10 @@ const helpPages = [
 ] as const;
 
 const lifecycleQuickActionsEn = [
-  { label: "Order lookup", href: "/en/orders/lookup" },
+  { label: "Look up an order and recover a report", href: "/en/orders/lookup" },
   { label: "Manage email preferences", href: "/en/email/preferences" },
-  { label: "Unsubscribe from emails", href: "/en/email/unsubscribe" },
+  { label: "Unsubscribe from notification emails", href: "/en/email/unsubscribe" },
+  { label: "Privacy and data information", href: "/en/privacy" },
 ] as const;
 
 const lifecycleRelatedLinks = {
@@ -52,53 +53,52 @@ const lifecycleRelatedLinks = {
   ],
 } as const;
 
-test("support route remains redirected to help", async ({ request }) => {
-  const response = await request.get("/en/support", { maxRedirects: 0 });
+test("help root redirects to the independent support center", async ({ request }) => {
+  const response = await request.get("/en/help", { maxRedirects: 0 });
   expect(response.status()).toBe(308);
-  expect(response.headers().location).toBe("/en/help");
+  expect(response.headers().location).toBe("/en/support");
 });
 
-test("help home exposes all topic links in English", async ({ page }) => {
-  await page.goto("/en/help");
-  await expect(page.getByRole("heading", { level: 1, name: "Help Center" })).toBeVisible();
+test("support center surfaces the self-serve entry points and they navigate to formal paths", async ({ page }) => {
+  await page.goto("/en/support");
+  await expect(page.getByRole("heading", { level: 1, name: "Support & Trust Center" })).toBeVisible();
 
-  for (const item of helpPages) {
-    await expect(page.getByRole("link", { name: item.headingEn })).toBeVisible();
-  }
-});
-
-test("help home surfaces the three lifecycle entry points and they navigate to the formal paths", async ({ page }) => {
-  await page.goto("/en/help");
-
-  const quickActions = page.getByTestId("help-home-quick-actions").locator("a");
-  await expect(quickActions).toHaveCount(3);
-  await expect(quickActions.nth(0)).toContainText("Order lookup");
+  const quickActions = page.getByTestId("support-quick-tools").locator("a");
+  await expect(quickActions).toHaveCount(4);
+  await expect(quickActions.nth(0)).toContainText("Look up an order and recover a report");
   await expect(quickActions.nth(1)).toContainText("Manage email preferences");
-  await expect(quickActions.nth(2)).toContainText("Unsubscribe from emails");
+  await expect(quickActions.nth(2)).toContainText("Unsubscribe from notification emails");
   await expect(
     page.getByText(
-      "Use Order lookup to recover a report with your order number and purchase email. Manage email preferences is separate from report recovery. Unsubscribe from emails stops messages here, and the dedicated unsubscribe link inside any email still works."
+      "These entries already connect to formal product paths for report recovery, email preferences, and unsubscribe flows."
     )
   ).toBeVisible();
-  await expect(page.getByTestId("help-home-quick-actions")).not.toContainText("Refund policy");
-  await expect(page.getByTestId("help-home-quick-actions")).not.toContainText("Privacy policy");
+  await expect(page.getByTestId("support-quick-tools")).not.toContainText("Search");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("Reports & orders");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("Understand results");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("Assessment science & boundaries");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("Account & data");
 
   for (const action of lifecycleQuickActionsEn) {
-    await page.goto("/en/help");
-    const link = page.getByTestId("help-home-quick-actions").locator(`a[href="${action.href}"]`);
+    await page.goto("/en/support");
+    const link = page.getByTestId("support-quick-tools").locator(`a[href="${action.href}"]`);
     await expect(link).toBeVisible();
     await link.click();
     await expect(page).toHaveURL(action.href);
   }
 });
 
-test("help home exposes all topic links in Chinese", async ({ page }) => {
-  await page.goto("/zh/help");
-  await expect(page.getByRole("heading", { level: 1, name: "帮助中心" })).toBeVisible();
-
-  for (const item of helpPages) {
-    await expect(page.getByRole("link", { name: item.headingZh })).toBeVisible();
-  }
+test("support center exposes the Chinese support and trust IA", async ({ page }) => {
+  await page.goto("/zh/support");
+  await expect(page.getByRole("heading", { level: 1, name: "支持与信任中心" })).toBeVisible();
+  await expect(page.getByTestId("support-quick-tools")).toContainText("查询订单与找回报告");
+  await expect(page.getByTestId("support-quick-tools")).toContainText("邮件偏好管理");
+  await expect(page.getByTestId("support-quick-tools")).toContainText("退订通知邮件");
+  await expect(page.getByTestId("support-quick-tools")).toContainText("隐私与数据说明");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("报告与订单");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("读懂结果");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("测评科学与边界");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("账户与数据");
 });
 
 test("all help detail pages render English content", async ({ page }) => {

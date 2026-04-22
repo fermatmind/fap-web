@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T13:35:10+08:00",
+  "updated_at": "2026-04-22T17:30:18+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2803,6 +2803,44 @@
         "Staging releases should enable RUN_CMS_BASELINE_STAGING_SMOKE=1 after the CMS baseline importer completes.",
         "Production and recovery deploys leave the staging baseline smoke disabled by default to avoid blocking unrelated operations on staging content gaps."
       ]
+    },
+    "PR-2": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-2-support-trust-center",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/help/page.tsx' 'app/(localized)/[locale]/support/page.tsx' lib/navigation/headerDropdownMenus.ts tests/e2e/help-center.spec.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm build",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check -- 'app/(localized)/[locale]/help/page.tsx' 'app/(localized)/[locale]/support/page.tsx' docs/codex/pr-train-state.json docs/codex/pr-train.yaml lib/navigation/headerDropdownMenus.ts tests/e2e/help-center.spec.ts",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "Non-manifest exploratory checks found existing unrelated blockers: full pnpm lint fails in untouched files (components/result/mbti/clone/MbtiCloneAssetSlot.tsx and ecosystem.config.cjs), default pnpm build fails when .env.local points to an unavailable local CMS API at 127.0.0.1:8000, and the full help-center E2E file still contains legacy detail/header assertions that are outside PR-2. PR-2 scoped checks passed; unrelated dirty files were excluded from staging.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     }
   }
 }
