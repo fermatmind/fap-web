@@ -6,6 +6,7 @@ import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
 import { EnneagramResultShell } from "@/components/result/enneagram/EnneagramResultShell";
 import { MbtiResultShell } from "@/components/result/mbti/MbtiResultShell";
+import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,6 +16,7 @@ import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/a
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
+import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
 import {
   buildMbtiResultProjectionViewModel,
   hasMbtiResultProjection,
@@ -26,7 +28,7 @@ import {
   type SupportedScaleCode,
 } from "@/lib/assessmentSlugMap";
 
-type RichResultScaleCode = Extract<SupportedScaleCode, "MBTI" | "BIG5_OCEAN" | "ENNEAGRAM" | "IQ_RAVEN" | "EQ_60">;
+type RichResultScaleCode = Extract<SupportedScaleCode, "MBTI" | "BIG5_OCEAN" | "ENNEAGRAM" | "RIASEC" | "IQ_RAVEN" | "EQ_60">;
 
 export type ReportBlock = {
   id?: string;
@@ -1270,6 +1272,10 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
     return true;
   }
 
+  if (scaleCode === "RIASEC" && reportData && hasRiasecProjection(reportData)) {
+    return true;
+  }
+
   const payload = resolveReportPayload(reportData);
   if (!payload) {
     return false;
@@ -1363,6 +1369,15 @@ export function RichResultReport({
         sections={sections}
         sectionUnlocks={sectionUnlocks}
         offers={resolvedOffers}
+      />
+    );
+  }
+
+  if (scaleCode === "RIASEC" && hasRiasecProjection(reportData)) {
+    return (
+      <RiasecResultShell
+        locale={locale}
+        viewModel={assembleRiasecResultViewModel(reportData)}
       />
     );
   }

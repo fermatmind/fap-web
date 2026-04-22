@@ -199,8 +199,10 @@ export type ResultResponse = {
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
   enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
+  riasec_form_v1?: RiasecFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
+  riasec_public_projection_v1?: RiasecPublicProjection | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
@@ -658,6 +660,27 @@ export type EnneagramPublicProjection = {
   [key: string]: unknown;
 };
 
+export type RiasecPublicProjection = {
+  schema?: string;
+  top_code?: string;
+  primary_type?: string;
+  secondary_type?: string;
+  tertiary_type?: string;
+  scores_0_100?: Record<string, number | string | null>;
+  clarity_index?: number | string | null;
+  breadth_index?: number | string | null;
+  quality_grade?: string;
+  quality_flags?: string[];
+  dimension_labels?: Record<string, string>;
+  enhanced_breakdown?: {
+    activity?: Record<string, number | string | null>;
+    environment?: Record<string, number | string | null>;
+    role?: Record<string, number | string | null>;
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
+};
+
 export type MbtiPreviewCardRaw = {
   id: string;
   title: string;
@@ -748,8 +771,10 @@ export type ReportResponse = {
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
   enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
+  riasec_form_v1?: RiasecFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
+  riasec_public_projection_v1?: RiasecPublicProjection | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
@@ -1782,6 +1807,7 @@ export type PublicFormSummaryV1Raw = {
 export type MbtiFormSummaryV1Raw = PublicFormSummaryV1Raw;
 export type Big5FormSummaryV1Raw = PublicFormSummaryV1Raw;
 export type EnneagramFormSummaryV1Raw = PublicFormSummaryV1Raw;
+export type RiasecFormSummaryV1Raw = PublicFormSummaryV1Raw;
 
 export type OrderResendResponse = {
   ok?: boolean;
