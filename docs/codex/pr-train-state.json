@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-21T13:35:10+08:00",
+  "updated_at": "2026-04-22T17:33:00+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2803,6 +2803,65 @@
         "Staging releases should enable RUN_CMS_BASELINE_STAGING_SMOKE=1 after the CMS baseline importer completes.",
         "Production and recovery deploys leave the staging baseline smoke disabled by default to avoid blocking unrelated operations on staging content gaps."
       ]
+    },
+    "PR-2": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "github_checks_failed",
+      "branch": "codex/pr-2-support-trust-center",
+      "commit_sha": "93c1b4293f66caedda706333baea10aee348ef80",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/536",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint 'app/(localized)/[locale]/help/page.tsx' 'app/(localized)/[locale]/support/page.tsx' lib/navigation/headerDropdownMenus.ts tests/e2e/help-center.spec.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm build",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check -- 'app/(localized)/[locale]/help/page.tsx' 'app/(localized)/[locale]/support/page.tsx' docs/codex/pr-train-state.json docs/codex/pr-train.yaml lib/navigation/headerDropdownMenus.ts tests/e2e/help-center.spec.ts",
+            "status": "passed"
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24771063889/job/72477336370"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24771063889/job/72477336462"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24771063889/job/72477336382"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24771063889/job/72477336416"
+          }
+        ]
+      },
+      "failure_reason": "GitHub Actions checks failed immediately within 3-5 seconds on run 24771063889. Local PR-2 scoped validation passed. Non-manifest exploratory checks found existing unrelated blockers: full pnpm lint fails in untouched files (components/result/mbti/clone/MbtiCloneAssetSlot.tsx and ecosystem.config.cjs), default pnpm build fails when .env.local points to an unavailable local CMS API at 127.0.0.1:8000, and the full help-center E2E file still contains legacy detail/header assertions that are outside PR-2. Unrelated dirty files were excluded from staging.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
     }
   }
 }

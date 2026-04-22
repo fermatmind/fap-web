@@ -1744,3 +1744,33 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-2
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-2-support-trust-center
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Establish an independent /support page and Support & Trust skeleton.
+      Keep the work limited to frontend routing, support page IA, the /help
+      root redirect, and the header Full help center destination. Do not
+      change CMS schemas, migrate articles, alter assessment pages, edit the
+      homepage Support & Trust cards, add fake search, or present unfinished
+      refund/data automation as available tooling.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/help/page.tsx' 'app/(localized)/[locale]/support/page.tsx' lib/navigation/headerDropdownMenus.ts tests/e2e/help-center.spec.ts"
+      - "pnpm typecheck"
+      - "NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm build"
+      - "git diff --check -- 'app/(localized)/[locale]/help/page.tsx' 'app/(localized)/[locale]/support/page.tsx' docs/codex/pr-train-state.json docs/codex/pr-train.yaml lib/navigation/headerDropdownMenus.ts tests/e2e/help-center.spec.ts"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
