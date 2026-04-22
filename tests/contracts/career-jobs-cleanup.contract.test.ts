@@ -4,6 +4,7 @@ import { createRequire } from "node:module";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
+const LEGACY_RIASEC_ROUTE_SEGMENT = ["career", "tests", "riasec"].join("/");
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
 
 function read(relPath: string): string {
@@ -43,12 +44,7 @@ describe("career routing cleanup contract", () => {
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
 
     expect(locs.some((loc: string) => loc.includes("/career/recommendations/mbti/"))).toBe(false);
-    expect(locs).not.toEqual(
-      expect.arrayContaining([
-        "/en/career/tests/riasec/result",
-        "/zh/career/tests/riasec/result",
-      ])
-    );
+    expect(locs.every((loc: string) => !loc.includes(LEGACY_RIASEC_ROUTE_SEGMENT))).toBe(true);
   });
 
   it("career recommendation detail page exposes protocol-guarded schema and status surfaces without local fallback truth", () => {
@@ -94,8 +90,8 @@ describe("career routing cleanup contract", () => {
     expect(llmsFull).not.toContain('import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations"');
     expect(llms).not.toContain("listBig5RecommendationTraits");
     expect(llmsFull).not.toContain("listBig5RecommendationTraits");
-    expect(llms).not.toContain("/career/tests/riasec/result");
-    expect(llmsFull).not.toContain("/career/tests/riasec/result");
+    expect(llms).not.toContain(LEGACY_RIASEC_ROUTE_SEGMENT);
+    expect(llmsFull).not.toContain(LEGACY_RIASEC_ROUTE_SEGMENT);
     expect(llms).not.toContain("?q=");
     expect(llmsFull).not.toContain("?q=");
     expect(llms).not.toContain("/compare/");

@@ -23,7 +23,7 @@ export type CareerProfileSnapshot = {
     big5: "history" | "none";
     iq: "history" | "none";
     eq: "history" | "none";
-    riasec: "local" | "none";
+    riasec: "history" | "none";
   };
 };
 

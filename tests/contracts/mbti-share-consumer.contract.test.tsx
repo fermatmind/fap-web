@@ -915,6 +915,30 @@ describe("MBTI share consumer contract", () => {
     expect(viewModel.answerSurface?.indexabilityState).toBe("noindex");
   });
 
+  it("normalizes RIASEC public share projection without falling back to MBTI identity", () => {
+    const viewModel = buildSharePageViewModel({
+      ok: true,
+      share_id: "share-riasec",
+      scale_code: "RIASEC",
+      attempt_id: "attempt-riasec",
+      title: "RIASEC career interest result",
+      primary_cta_label: "Take RIASEC",
+      primary_cta_path: "/en/tests/holland-career-interest-test-riasec/take",
+      riasec_public_projection_v1: {
+        top_code: "IRC",
+        primary_type: "I",
+        secondary_type: "R",
+        tertiary_type: "C",
+        scores_0_100: { R: 82, I: 91, A: 44, S: 52, E: 48, C: 76 },
+      },
+    });
+
+    expect(viewModel.scaleCode).toBe("RIASEC");
+    expect(viewModel.card?.displayType).toBe("IRC");
+    expect(viewModel.card?.dimensions.map((dimension) => dimension.code)).toEqual(["R", "I", "A", "S", "E", "C"]);
+    expect(viewModel.primaryCtaPath).toBe("/en/tests/holland-career-interest-test-riasec/take");
+  });
+
   it("renders share OG from projection and never from legacy aliases", () => {
     const html = renderToStaticMarkup(renderShareOgImage(buildSharePageViewModel(createShareFixture())));
 

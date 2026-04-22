@@ -29,6 +29,7 @@ import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
 
 const SHARE_CLICK_SESSION_PREFIX = "fm_share_click_v1";
 const MBTI_TAKE_FALLBACK_PATH = "/tests/mbti-personality-test-16-personality-types/take";
+const RIASEC_TAKE_FALLBACK_PATH = "/tests/holland-career-interest-test-riasec/take";
 
 function buildLandingPath(pathname: string | null, queryString: string): string {
   const safePath = pathname || "/";
@@ -153,6 +154,18 @@ export default function ShareClient({
   );
   const shareDisplayType = String(viewModel.card?.displayType ?? "").trim();
   const shareScaleCode = viewModel.scaleCode || "MBTI";
+  const sharePublicVisualKind =
+    shareScaleCode === "BIG5_OCEAN"
+      ? "big5_share_public_surface"
+      : shareScaleCode === "RIASEC"
+        ? "riasec_share_public_surface"
+        : "mbti_share_public_surface";
+  const shareContinueVisualKind =
+    shareScaleCode === "BIG5_OCEAN"
+      ? "big5_share_continue_entry"
+      : shareScaleCode === "RIASEC"
+        ? "riasec_share_continue_entry"
+        : "mbti_share_continue_entry";
   const continuityTelemetry = useMemo(
     () => buildMbtiContinuityTelemetryFields(viewModel.continuity),
     [viewModel.continuity]
@@ -254,7 +267,8 @@ export default function ShareClient({
 
   const resolvedShareId = viewModel.shareId || shareId;
   const primaryCtaHref = useMemo(() => {
-    const basePath = viewModel.primaryCtaPath || `/${locale}${MBTI_TAKE_FALLBACK_PATH}`;
+    const fallbackPath = shareScaleCode === "RIASEC" ? RIASEC_TAKE_FALLBACK_PATH : MBTI_TAKE_FALLBACK_PATH;
+    const basePath = viewModel.primaryCtaPath || `/${locale}${fallbackPath}`;
     const attributedPath = buildAugmentedPath(basePath, {
       share_id: resolvedShareId,
       share_click_id: shareClickId ?? undefined,
@@ -265,7 +279,7 @@ export default function ShareClient({
     });
 
     return appendMbtiContinuityQuery(attributedPath, viewModel.continuity);
-  }, [landingPath, locale, pageReferrer, resolvedShareId, shareClickId, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
+  }, [landingPath, locale, pageReferrer, resolvedShareId, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
 
   const primaryContinueTarget = publicSurface?.continueReadingKeys[0] || "share_take_flow";
   const publicSurfaceTelemetry = {
@@ -338,7 +352,7 @@ export default function ShareClient({
     trackEvent("ui_card_impression", {
       slug: "share-page",
       scale_code: shareScaleCode,
-      visual_kind: shareScaleCode === "BIG5_OCEAN" ? "big5_share_public_surface" : "mbti_share_public_surface",
+      visual_kind: sharePublicVisualKind,
       attempt_id: viewModel.attemptId || undefined,
       ctaKey: "share_public_surface",
       ctaRank: 1,
@@ -347,7 +361,7 @@ export default function ShareClient({
       ...publicSurfaceTelemetry,
       locale,
     });
-  }, [locale, primaryContinueTarget, publicSurface, publicSurfaceTelemetry, shareDisplayType, shareScaleCode, viewModel.attemptId]);
+  }, [locale, primaryContinueTarget, publicSurface, publicSurfaceTelemetry, shareDisplayType, sharePublicVisualKind, shareScaleCode, viewModel.attemptId]);
 
   useEffect(() => {
     if (!widgetSurface || !insightGraph || widgetImpressionTrackedRef.current) {
@@ -496,7 +510,7 @@ export default function ShareClient({
           trackEvent("ui_card_interaction", {
             slug: "share-page",
             scale_code: shareScaleCode,
-            visual_kind: shareScaleCode === "BIG5_OCEAN" ? "big5_share_public_surface" : "mbti_share_public_surface",
+            visual_kind: sharePublicVisualKind,
             interaction: "return_to_test",
             attempt_id: viewModel.attemptId || undefined,
             ctaKey: "share_public_surface",
@@ -774,7 +788,7 @@ export default function ShareClient({
                   trackEvent("ui_card_interaction", {
                     slug: "share-page",
                     scale_code: shareScaleCode,
-                    visual_kind: shareScaleCode === "BIG5_OCEAN" ? "big5_share_continue_entry" : "mbti_share_continue_entry",
+                    visual_kind: shareContinueVisualKind,
                     interaction: "continue_reading",
                     attempt_id: viewModel.attemptId || undefined,
                     ctaKey: "share_public_continue",

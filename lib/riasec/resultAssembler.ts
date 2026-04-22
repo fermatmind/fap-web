@@ -8,6 +8,10 @@ export type RiasecDimension = {
 
 export type RiasecResultViewModel = {
   topCode: string;
+  formCode: string | null;
+  formLabel: string | null;
+  questionCount: number | null;
+  estimatedMinutes: number | null;
   primaryType: string;
   secondaryType: string;
   tertiaryType: string;
@@ -44,6 +48,7 @@ export function hasRiasecProjection(reportData: RiasecProjectionContainer | null
 
 export function assembleRiasecResultViewModel(reportData: RiasecProjectionContainer): RiasecResultViewModel {
   const projection = asRecord(reportData.riasec_public_projection_v1) ?? {};
+  const form = asRecord((reportData as { riasec_form_v1?: unknown }).riasec_form_v1);
   const scores = asRecord(projection.scores_0_100) ?? {};
   const labels = asRecord(projection.dimension_labels) ?? {};
   const enhanced = asRecord(projection.enhanced_breakdown) ?? {};
@@ -56,6 +61,10 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
 
   return {
     topCode: normalizeText(projection.top_code),
+    formCode: normalizeText(form?.form_code) || null,
+    formLabel: normalizeText(form?.label) || normalizeText(form?.short_label) || null,
+    questionCount: Number.isFinite(Number(form?.question_count)) ? Number(form?.question_count) : null,
+    estimatedMinutes: Number.isFinite(Number(form?.estimated_minutes)) ? Number(form?.estimated_minutes) : null,
     primaryType: normalizeText(projection.primary_type),
     secondaryType: normalizeText(projection.secondary_type),
     tertiaryType: normalizeText(projection.tertiary_type),

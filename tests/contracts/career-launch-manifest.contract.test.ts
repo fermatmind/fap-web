@@ -44,7 +44,6 @@ describe("career launch manifest contract", () => {
       "career_industries_index",
       "career_industry_detail",
       "career_tests_index",
-      "career_riasec_test",
     ]);
     expect(holdKeys).toEqual([
       "career_legacy_slug_bridge",
@@ -52,7 +51,6 @@ describe("career launch manifest contract", () => {
     ]);
     expect(noindexKeys).toEqual([
       "career_jobs_query",
-      "career_riasec_result",
     ]);
   });
 
@@ -64,9 +62,7 @@ describe("career launch manifest contract", () => {
     ].map((entry) => entry.key);
 
     expect(manifestKeys).not.toContain("career_jobs_query");
-    expect(manifestKeys).not.toContain("career_riasec_result");
     expect(CAREER_NOINDEX_ROUTES.map((entry) => entry.route)).toContain("/career/jobs?q={query}");
-    expect(CAREER_NOINDEX_ROUTES.map((entry) => entry.route)).toContain("/career/tests/riasec/result");
   });
 
   it("keeps backend B34 launch-tier authority scoped to occupation-backed job detail governance only", () => {

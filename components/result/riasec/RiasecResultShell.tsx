@@ -1,7 +1,14 @@
 "use client";
 
+import { useState } from "react";
+import Link from "next/link";
+import { createAttemptShare } from "@/lib/api/v0_3";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath } from "@/lib/i18n/locales";
+import { buildRiasecTakeHref, getRiasecVariantLabel } from "@/lib/riasec/forms";
 import type { RiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 
 const DIMENSION_COPY: Record<string, { en: string; zh: string }> = {
@@ -16,15 +23,63 @@ const DIMENSION_COPY: Record<string, { en: string; zh: string }> = {
 export function RiasecResultShell({
   locale,
   viewModel,
+  attemptId,
 }: {
   locale: Locale;
   viewModel: RiasecResultViewModel;
+  attemptId?: string | null;
 }) {
   const isZh = locale === "zh";
+  const [shareState, setShareState] = useState<"idle" | "loading" | "copied" | "failed">("idle");
   const enhancedVisible =
     Object.keys(viewModel.enhancedBreakdown.activity).length > 0 ||
     Object.keys(viewModel.enhancedBreakdown.environment).length > 0 ||
     Object.keys(viewModel.enhancedBreakdown.role).length > 0;
+  const canonicalSlug = SCALE_CANONICAL_SLUG_MAP.RIASEC;
+  const retakeHref = buildRiasecTakeHref(canonicalSlug, locale, viewModel.formCode);
+  const historyHref = localizedPath("/history/riasec", locale);
+  const formLabel =
+    viewModel.formLabel || (viewModel.formCode ? getRiasecVariantLabel(viewModel.formCode, locale) : null);
+  const formMeta = [
+    formLabel,
+    typeof viewModel.questionCount === "number" ? `${viewModel.questionCount}${isZh ? " 题" : " questions"}` : "",
+    typeof viewModel.estimatedMinutes === "number" ? `${isZh ? "约 " : "about "}${viewModel.estimatedMinutes}${isZh ? " 分钟" : " minutes"}` : "",
+  ].filter(Boolean).join(" · ");
+
+  async function handleShare() {
+    if (!attemptId || shareState === "loading") {
+      setShareState("failed");
+      return;
+    }
+
+    setShareState("loading");
+    try {
+      const response = await createAttemptShare({ attemptId, locale });
+      const rawUrl = String(response.share_url ?? response.shareUrl ?? response.url ?? "").trim();
+      if (!rawUrl) {
+        throw new Error("share_url_missing");
+      }
+
+      const shareUrl = typeof window === "undefined" ? rawUrl : new URL(rawUrl, window.location.origin).toString();
+      const shareTitle = isZh ? "分享我的 RIASEC 职业兴趣结果" : "Share my RIASEC career interest result";
+
+      if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+        await navigator.share({ title: shareTitle, text: shareTitle, url: shareUrl });
+        setShareState("idle");
+        return;
+      }
+
+      if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+        setShareState("copied");
+        return;
+      }
+
+      throw new Error("share_transport_missing");
+    } catch {
+      setShareState("failed");
+    }
+  }
 
   return (
     <div className="space-y-[var(--fm-gap-md)]">
@@ -33,6 +88,9 @@ export function RiasecResultShell({
           {isZh ? "霍兰德职业兴趣主码" : "Holland career interest code"}
         </div>
         <h1 className="mt-[var(--fm-space-2)] text-4xl font-bold text-[var(--fm-text)]">{viewModel.topCode}</h1>
+        {formMeta ? (
+          <p className="mt-[var(--fm-space-2)] text-sm font-medium text-[var(--fm-text-muted)]">{formMeta}</p>
+        ) : null}
         <p className="mt-[var(--fm-space-3)] max-w-3xl text-base leading-7 text-[var(--fm-text-muted)]">
           {isZh
             ? `你的前三个兴趣维度依次是 ${viewModel.primaryType}、${viewModel.secondaryType}、${viewModel.tertiaryType}。清晰度指数 ${viewModel.clarityIndex}，兴趣广度 ${viewModel.breadthIndex}。`
@@ -44,6 +102,23 @@ export function RiasecResultShell({
             {viewModel.qualityFlags.length > 0 ? ` · ${viewModel.qualityFlags.join(", ")}` : ""}
           </p>
         ) : null}
+        <div className="mt-[var(--fm-space-5)] flex flex-wrap gap-3">
+          <Button type="button" variant="secondary" onClick={() => void handleShare()} disabled={shareState === "loading"}>
+            {shareState === "loading"
+              ? isZh ? "生成分享链接..." : "Preparing share..."
+              : shareState === "copied"
+                ? isZh ? "分享链接已复制" : "Link copied"
+                : shareState === "failed"
+                  ? isZh ? "重试分享" : "Retry share"
+                  : isZh ? "分享结果" : "Share result"}
+          </Button>
+          <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
+            {isZh ? "重新测试" : "Retake test"}
+          </Link>
+          <Link href={historyHref} className={buttonVariants({ variant: "ghost" })}>
+            {isZh ? "查看历史记录" : "View history"}
+          </Link>
+        </div>
       </section>
 
       <Card>

@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
+const LEGACY_RIASEC_ROUTE_SEGMENT = ["career", "tests", "riasec"].join("/");
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
@@ -21,7 +22,7 @@ describe("career tests single entry contract", () => {
     expect(source).not.toContain("CAREER INTEREST TEST");
     expect(source).not.toContain("当前稳定入口");
     expect(source).not.toContain("Current stable entry");
-    expect(source).not.toContain("/career/tests/riasec/result");
+    expect(source).not.toContain(LEGACY_RIASEC_ROUTE_SEGMENT);
   });
 
   it("keeps the visible breadcrumb trail on the career tests index", () => {

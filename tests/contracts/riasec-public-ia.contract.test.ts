@@ -11,6 +11,8 @@ function read(relPath: string): string {
   return fs.readFileSync(path.join(process.cwd(), relPath), "utf8");
 }
 
+const LEGACY_RIASEC_ROUTE_SEGMENT = ["career", "tests", "riasec"].join("/");
+
 describe("riasec public IA contract", () => {
   it("keeps riasec forms ordered as standard 60Q then enhanced 140Q", () => {
     expect(listRiasecFormMetas().map((form) => form.formCode)).toEqual(["riasec_60", "riasec_140"]);
@@ -34,7 +36,7 @@ describe("riasec public IA contract", () => {
     for (const file of files) {
       const source = read(file);
       expect(source).toContain(canonical);
-      expect(source).not.toContain("/career/tests/riasec");
+      expect(source).not.toContain(LEGACY_RIASEC_ROUTE_SEGMENT);
     }
   });
 
@@ -45,5 +47,18 @@ describe("riasec public IA contract", () => {
     expect(source).toContain('scale_code: "RIASEC"');
     expect(source).toContain("霍兰德职业兴趣测试（RIASEC）");
     expect(source).toContain("questions_count: 60");
+  });
+
+  it("adds backend-history and shared share affordances for canonical riasec results", () => {
+    const historySource = read("app/(localized)/[locale]/(app)/history/riasec/RiasecHistoryClient.tsx");
+    const resultShellSource = read("components/result/riasec/RiasecResultShell.tsx");
+
+    expect(historySource).toContain("fetchRiasecHistory");
+    expect(historySource).toContain("createAttemptShare");
+    expect(historySource).toContain("SCALE_CANONICAL_SLUG_MAP.RIASEC");
+    expect(historySource).toContain("buildRiasecTakeHref");
+    expect(resultShellSource).toContain("createAttemptShare");
+    expect(resultShellSource).toContain('localizedPath("/history/riasec", locale)');
+    expect(resultShellSource).toContain("buildRiasecTakeHref");
   });
 });

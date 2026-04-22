@@ -30,11 +30,9 @@ export type CareerLaunchRouteKey =
   | "career_industries_index"
   | "career_industry_detail"
   | "career_tests_index"
-  | "career_riasec_test"
   | "career_legacy_slug_bridge"
   | "career_big5_recommendation_detail"
-  | "career_jobs_query"
-  | "career_riasec_result";
+  | "career_jobs_query";
 
 export type CareerLaunchRouteEntry = {
   key: CareerLaunchRouteKey;
@@ -139,12 +137,6 @@ export const CAREER_CANDIDATE_ROUTES = [
     authorityOwner: "editorial_cta_only",
     rationale: "Career tests are live entry surfaces but not first-wave backend authority-critical routes.",
   },
-  {
-    key: "career_riasec_test",
-    route: "/career/tests/riasec",
-    authorityOwner: "editorial_cta_only",
-    rationale: "RIASEC start remains live, but it is not part of the stable authority-critical launch inventory.",
-  },
 ] as const satisfies readonly CareerLaunchRouteEntry[];
 
 export const CAREER_HOLD_ROUTES = [
@@ -168,12 +160,6 @@ export const CAREER_NOINDEX_ROUTES = [
     route: "/career/jobs?q={query}",
     authorityOwner: "backend_conservative_search",
     rationale: "Query/result search pages must stay noindex and outside launch discoverability inventory.",
-  },
-  {
-    key: "career_riasec_result",
-    route: "/career/tests/riasec/result",
-    authorityOwner: "editorial_cta_only",
-    rationale: "RIASEC result is a private-style result surface and must stay out of launch discoverability inventory.",
   },
 ] as const satisfies readonly CareerLaunchRouteEntry[];
 
@@ -353,19 +339,6 @@ export const CAREER_LAUNCH_SMOKE_MATRIX = {
       notes: "Verify career tests remain candidate-tier CTA-led entry surfaces.",
     },
     {
-      key: "career_riasec_test",
-      route: "/career/tests/riasec",
-      launchState: "candidate",
-      authorityOwner: "editorial_cta_only",
-      renderMode: "render",
-      canonicalMode: "self",
-      robotsMode: "index",
-      requiresBackendExplicitGate: false,
-      requiresLocalizedRoute: true,
-      requiresNextStepOrPrimaryCta: true,
-      notes: "Verify the RIASEC entry remains candidate-tier and distinct from result/noindex flows.",
-    },
-    {
       key: "career_jobs_query",
       route: "/career/jobs?q={query}",
       launchState: "noindex",
@@ -404,19 +377,6 @@ export const CAREER_LAUNCH_SMOKE_MATRIX = {
       requiresNextStepOrPrimaryCta: true,
       notes: "Verify Big5 recommendation detail stays held out from launch-facing recommendation authority.",
     },
-    {
-      key: "career_riasec_result",
-      route: "/career/tests/riasec/result",
-      launchState: "noindex",
-      authorityOwner: "editorial_cta_only",
-      renderMode: "render",
-      canonicalMode: "self",
-      robotsMode: "noindex",
-      requiresBackendExplicitGate: false,
-      requiresLocalizedRoute: true,
-      requiresNextStepOrPrimaryCta: false,
-      notes: "Verify the result route stays outside sitemap and launch discoverability.",
-    },
   ],
 } as const satisfies {
   manifest_version: string;
@@ -446,8 +406,6 @@ export function getCareerLaunchRouteKey(pathname: string): CareerLaunchRouteKey 
   if (stripped === "/career/guides") return "career_guides_index";
   if (stripped === "/career/industries") return "career_industries_index";
   if (stripped === "/career/tests") return "career_tests_index";
-  if (stripped === "/career/tests/riasec") return "career_riasec_test";
-  if (stripped === "/career/tests/riasec/result") return "career_riasec_result";
   if (JOB_DETAIL_RE.test(stripped)) return "career_job_detail";
   if (MBTI_RECOMMENDATION_DETAIL_RE.test(stripped)) return "career_mbti_recommendation_detail";
   if (GUIDE_DETAIL_RE.test(stripped)) return "career_guide_detail";

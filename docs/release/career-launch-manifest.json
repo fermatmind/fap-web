@@ -75,12 +75,6 @@
       "route": "/career/tests",
       "authorityOwner": "editorial_cta_only",
       "rationale": "Career tests are live entry surfaces but not first-wave backend authority-critical routes."
-    },
-    {
-      "key": "career_riasec_test",
-      "route": "/career/tests/riasec",
-      "authorityOwner": "editorial_cta_only",
-      "rationale": "RIASEC start remains live, but it is not part of the stable authority-critical launch inventory."
     }
   ],
   "hold_routes": [
@@ -103,12 +97,6 @@
       "route": "/career/jobs?q={query}",
       "authorityOwner": "backend_conservative_search",
       "rationale": "Query/result search pages must stay noindex and outside launch discoverability inventory."
-    },
-    {
-      "key": "career_riasec_result",
-      "route": "/career/tests/riasec/result",
-      "authorityOwner": "editorial_cta_only",
-      "rationale": "RIASEC result is a private-style result surface and must stay out of launch discoverability inventory."
     }
   ],
   "notes": {

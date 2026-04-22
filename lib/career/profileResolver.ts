@@ -1,8 +1,7 @@
 "use client";
 
 import { getAttemptReport, getMyAttempts, type ReportResponse } from "@/lib/api/v0_3";
-import { readCareerRiasecResult } from "@/lib/career/storage";
-import type { Big5ScoreVector, CareerProfileSnapshot } from "@/lib/career/types";
+import type { Big5ScoreVector, CareerProfileSnapshot, RIASECCode, RIASECScoreVector } from "@/lib/career/types";
 import { normalizeMbtiCanonicalTypeCode } from "@/lib/mbti/publicProjection";
 
 type AttemptSummary = {
@@ -41,6 +40,27 @@ function normalizeBig5Domains(input: Record<string, number> | undefined): Partia
   }
 
   return Object.keys(result).length > 0 ? result : undefined;
+}
+
+function normalizeRiasecScores(input: Record<string, unknown> | undefined): RIASECScoreVector | undefined {
+  if (!input) return undefined;
+
+  const result: Partial<RIASECScoreVector> = {};
+  for (const code of ["R", "I", "A", "S", "E", "C"] as RIASECCode[]) {
+    const value = Number(input[code] ?? input[code.toLowerCase()]);
+    if (Number.isFinite(value)) {
+      result[code] = Math.max(0, Math.min(100, value));
+    }
+  }
+
+  return Object.keys(result).length === 6 ? (result as RIASECScoreVector) : undefined;
+}
+
+function extractRiasecScoresFromReport(report: ReportResponse | null): RIASECScoreVector | undefined {
+  const projection = report?.riasec_public_projection_v1;
+  if (!projection || typeof projection !== "object") return undefined;
+  const scores = (projection as { scores_0_100?: Record<string, unknown> }).scores_0_100;
+  return normalizeRiasecScores(scores);
 }
 
 function extractPrimaryScoreFromReport(report: ReportResponse | null): number | undefined {
@@ -85,17 +105,19 @@ async function fetchLatestAttempt(scaleCode: string): Promise<AttemptSummary | n
 }
 
 export async function resolveCareerProfileSnapshot(): Promise<CareerProfileSnapshot> {
-  const [mbtiLatest, big5Latest, iqLatest, eqLatest] = await Promise.all([
+  const [mbtiLatest, big5Latest, iqLatest, eqLatest, riasecLatest] = await Promise.all([
     fetchLatestAttempt("MBTI"),
     fetchLatestAttempt("BIG5_OCEAN"),
     fetchLatestAttempt("IQ_RAVEN"),
     fetchLatestAttempt("EQ_60"),
+    fetchLatestAttempt("RIASEC"),
   ]);
 
   let mbtiType = normalizeMbtiCanonicalTypeCode(mbtiLatest?.typeCode) || undefined;
   let big5 = normalizeBig5Domains(big5Latest?.domainsMean);
   let iqScore: number | undefined;
   let eqScore: number | undefined;
+  let riasec: RIASECScoreVector | undefined;
 
   const reportPromises: Array<Promise<void>> = [];
 
@@ -164,24 +186,32 @@ export async function resolveCareerProfileSnapshot(): Promise<CareerProfileSnaps
     );
   }
 
+  if (riasecLatest?.attemptId) {
+    reportPromises.push(
+      getAttemptReport({ attemptId: riasecLatest.attemptId })
+        .then((report) => {
+          riasec = extractRiasecScoresFromReport(report);
+        })
+        .catch(() => undefined)
+    );
+  }
+
   if (reportPromises.length > 0) {
     await Promise.all(reportPromises);
   }
-
-  const riasecResult = readCareerRiasecResult();
 
   return {
     mbtiType,
     big5,
     iqScore,
     eqScore,
-    riasec: riasecResult?.scores,
+    riasec,
     sources: {
       mbti: mbtiType ? "history" : "none",
       big5: big5 ? "history" : "none",
       iq: typeof iqScore === "number" ? "history" : "none",
       eq: typeof eqScore === "number" ? "history" : "none",
-      riasec: riasecResult ? "local" : "none",
+      riasec: riasec ? "history" : "none",
     },
   };
 }
