@@ -393,14 +393,10 @@ function HomepageSupportTrustBanner({ locale }: { locale: Locale }) {
   const labels =
     locale === "zh"
       ? {
-          eyebrow: "Support & Trust",
           title: "支持与信任入口",
-          body: "把报告找回、结果解读、方法边界和隐私控制放在同一个清晰入口，先解决用户最需要确认的事。",
         }
       : {
-          eyebrow: "Support & Trust",
           title: "Support and trust entry points",
-          body: "Clear paths for report recovery, result interpretation, method boundaries, and privacy controls.",
         };
 
   return (
@@ -408,11 +404,9 @@ function HomepageSupportTrustBanner({ locale }: { locale: Locale }) {
       <Container className="max-w-6xl px-6 md:px-8 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <div>
-            <p className="m-0 text-xs font-bold uppercase tracking-[0.18em] text-teal-700">{labels.eyebrow}</p>
-            <h2 id="homepage-support-trust-title" className="m-0 mt-3 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-4xl">
+            <h2 id="homepage-support-trust-title" className="m-0 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-4xl">
               {labels.title}
             </h2>
-            <p className="m-0 mt-5 max-w-xl text-base leading-7 text-slate-600">{labels.body}</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {SUPPORT_TRUST_ITEMS.map((item) => (
