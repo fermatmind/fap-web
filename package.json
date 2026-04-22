@@ -11,6 +11,7 @@
     "predev": "node ./scripts/check-cms-api-health.mjs",
     "check:runtime": "node ./scripts/check-runtime.mjs",
     "check:cms-api": "node ./scripts/check-cms-api-health.mjs",
+    "verify:riasec-launch": "node ./scripts/verify-riasec-frontend-launch.mjs",
     "cms:baseline:staging": "node ./scripts/validate-staging-cms-baseline.mjs --dry-run",
     "cms:baseline:staging:smoke": "bash scripts/staging_cms_baseline_smoke.sh",
     "dev": "next dev",
