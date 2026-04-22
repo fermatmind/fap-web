@@ -193,10 +193,6 @@ function buildRelatedLinks(page: ContentPage, locale: Locale) {
   if (page.kind === "help") {
     const helpLinks = [
       { slug: "help-faq", label: locale === "zh" ? "常见问题" : "FAQ" },
-      { slug: "help-about", label: locale === "zh" ? "关于我们" : "About" },
-      { slug: "help-team", label: locale === "zh" ? "团队" : "Team" },
-      { slug: "help-used-and-mentioned", label: locale === "zh" ? "使用与提及" : "Used & Mentioned" },
-      { slug: "help-for-business-and-research", label: locale === "zh" ? "企业与研究" : "Business & Research" },
       { slug: "help-contact", label: locale === "zh" ? "联系方式" : "Contact" },
     ];
 
@@ -232,6 +228,8 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
   const effectiveAt = formatDate(page.effectiveAt, locale);
   const isPolicy = page.kind === "policy";
   const isHelp = page.kind === "help";
+  const showSourceMetadata = !isHelp;
+  const showMetadataCard = Boolean(updatedAt || effectiveAt || showSourceMetadata);
 
   return (
     <main className="bg-white text-[var(--fm-text)]" data-testid={`content-page-${page.slug}`}>
@@ -267,26 +265,30 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
             </p>
           </div>
 
-          <dl className="m-0 grid h-fit gap-4 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm">
-            {updatedAt ? (
-              <div>
-                <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "最近更新" : "Updated"}</dt>
-                <dd className="m-0 font-medium text-[var(--fm-text)]">{updatedAt}</dd>
-              </div>
-            ) : null}
-            {effectiveAt ? (
-              <div>
-                <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "生效日期" : "Effective"}</dt>
-                <dd className="m-0 font-medium text-[var(--fm-text)]">{effectiveAt}</dd>
-              </div>
-            ) : null}
-            <div>
-              <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "内容来源" : "Source"}</dt>
-              <dd className="m-0 font-medium text-[var(--fm-text)]">
-                {page.sourceDoc ? page.sourceDoc.replace(/^\d+_/, "") : "Content API"}
-              </dd>
-            </div>
-          </dl>
+          {showMetadataCard ? (
+            <dl className="m-0 grid h-fit gap-4 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 text-sm">
+              {updatedAt ? (
+                <div>
+                  <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "最近更新" : "Updated"}</dt>
+                  <dd className="m-0 font-medium text-[var(--fm-text)]">{updatedAt}</dd>
+                </div>
+              ) : null}
+              {effectiveAt ? (
+                <div>
+                  <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "生效日期" : "Effective"}</dt>
+                  <dd className="m-0 font-medium text-[var(--fm-text)]">{effectiveAt}</dd>
+                </div>
+              ) : null}
+              {showSourceMetadata ? (
+                <div>
+                  <dt className="text-[var(--fm-text-muted)]">{locale === "zh" ? "内容来源" : "Source"}</dt>
+                  <dd className="m-0 font-medium text-[var(--fm-text)]">
+                    {page.sourceDoc ? page.sourceDoc.replace(/^\d+_/, "") : "Content API"}
+                  </dd>
+                </div>
+              ) : null}
+            </dl>
+          ) : null}
         </section>
 
         <div className="grid gap-10 py-12 md:grid-cols-[minmax(0,1fr)_18rem] md:py-16">

@@ -1774,3 +1774,32 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-2.1
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/pr-2-1-help-detail-cleanup
+    base: main
+    depends_on: ["PR-2"]
+    mode: execute
+    scope: >
+      PR-2.1 legacy help detail cleanup. Remove user-visible internal
+      implementation/source metadata from legacy /help/[slug] detail pages
+      and narrow their related links to support-relevant destinations only.
+      Do not change /support IA, CMS schema, article collections, routing
+      beyond legacy help detail display, or assessment/test/homepage modules.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint components/content-pages/ContentPageTemplate.tsx"
+      - "pnpm typecheck"
+      - "NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm build"
+      - "git diff --check -- components/content-pages/ContentPageTemplate.tsx docs/codex/pr-train-state.json docs/codex/pr-train.yaml"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true

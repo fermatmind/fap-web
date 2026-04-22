@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-22T17:33:00+08:00",
+  "updated_at": "2026-04-22T18:06:49+08:00",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2807,9 +2807,9 @@
     "PR-2": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "merged",
       "branch": "codex/pr-2-support-trust-center",
-      "commit_sha": "93c1b4293f66caedda706333baea10aee348ef80",
+      "commit_sha": "fd2b32fa5fb91f5f73b9ba252d4d2f1ed7929e6a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/536",
       "checks": {
         "local": [
@@ -2857,7 +2857,49 @@
           }
         ]
       },
-      "failure_reason": "GitHub Actions checks failed immediately within 3-5 seconds on run 24771063889. Local PR-2 scoped validation passed. Non-manifest exploratory checks found existing unrelated blockers: full pnpm lint fails in untouched files (components/result/mbti/clone/MbtiCloneAssetSlot.tsx and ecosystem.config.cjs), default pnpm build fails when .env.local points to an unavailable local CMS API at 127.0.0.1:8000, and the full help-center E2E file still contains legacy detail/header assertions that are outside PR-2. Unrelated dirty files were excluded from staging.",
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "2026-04-22T09:37:04Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true
+    },
+    "PR-2.1": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_verified",
+      "branch": "codex/pr-2-1-help-detail-cleanup",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm eslint components/content-pages/ContentPageTemplate.tsx",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
+            "status": "passed"
+          },
+          {
+            "command": "NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm build",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check -- components/content-pages/ContentPageTemplate.tsx docs/codex/pr-train-state.json docs/codex/pr-train.yaml",
+            "status": "passed"
+          },
+          {
+            "command": "rg -n \"Source|Content API|helpCenterContent|内容来源|Used & Mentioned|Business & Research|Team|About\" .next/server/app/en/help/faq.html .next/server/app/en/help/contact.html .next/server/app/zh/help/faq.html .next/server/app/zh/help/contact.html || true",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
