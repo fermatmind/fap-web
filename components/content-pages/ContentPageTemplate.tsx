@@ -228,6 +228,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
   const effectiveAt = formatDate(page.effectiveAt, locale);
   const isPolicy = page.kind === "policy";
   const isHelp = page.kind === "help";
+  const showHeroSummary = page.slug !== "help-contact";
   const showSourceMetadata = !isHelp;
   const showMetadataCard = Boolean(updatedAt || effectiveAt || showSourceMetadata);
 
@@ -260,9 +261,11 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPage; local
             <h1 className="m-0 max-w-4xl font-serif text-4xl font-semibold leading-tight md:text-6xl">
               {page.title}
             </h1>
-            <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)] md:text-xl md:leading-9">
-              {page.summary}
-            </p>
+            {showHeroSummary ? (
+              <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)] md:text-xl md:leading-9">
+                {page.summary}
+              </p>
+            ) : null}
           </div>
 
           {showMetadataCard ? (
