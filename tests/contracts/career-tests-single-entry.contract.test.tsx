@@ -16,7 +16,7 @@ describe("career tests single entry contract", () => {
     expect(source).not.toContain("适合还没有明确方向，想先得到一个起点的人");
     expect(source).not.toContain("For people who do not have a clear direction yet");
     expect(source).toContain("career-tests-single-entry");
-    expect(source).toContain("/career/tests/riasec");
+    expect(source).toContain("/tests/holland-career-interest-test-riasec");
     expect(source).not.toContain("Career interest test</p>");
     expect(source).not.toContain("CAREER INTEREST TEST");
     expect(source).not.toContain("当前稳定入口");

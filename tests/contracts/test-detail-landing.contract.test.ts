@@ -52,11 +52,22 @@ describe("test detail landing contract", () => {
     expect(source).toContain('showsBig5Actions');
   });
 
+  it("wires riasec dual-entry CTAs from shared forms projection", () => {
+    const source = fs.readFileSync(PAGE_PATH, "utf8");
+
+    expect(source).toContain("const showsRiasecActions = isRiasecScaleCode(test.scale_code)");
+    expect(source).toContain("listRiasecFormMetas(lookup?.forms)");
+    expect(source).toContain("buildRiasecTakeHref(test.slug, locale, form.formCode)");
+    expect(source).toContain("getRiasecStartLabel(form.formCode, locale)");
+    expect(source).toContain('testId: `test-detail-landing-cta-${form.formCode}`');
+    expect(source).toContain("选择霍兰德职业兴趣版本");
+  });
+
   it("keeps the big5 variant chooser focused on version cards without extra heading copy", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
     const big5Branch = source.slice(
-      source.indexOf("showsBig5Actions ?"),
-      source.indexOf("showsEnneagramActions ?")
+      source.indexOf(") : showsBig5Actions ? ("),
+      source.indexOf(") : showsEnneagramActions ? (")
     );
 
     expect(big5Branch).toContain("<FlagshipVariantChooser");
@@ -78,5 +89,7 @@ describe("test detail landing contract", () => {
     expect(takeSource).toContain('formCode={big5FormCode ?? undefined}');
     expect(takeSource).toContain('normalizeEnneagramFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
     expect(takeSource).toContain('formCode={enneagramFormCode ?? undefined}');
+    expect(takeSource).toContain('normalizeRiasecFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
+    expect(takeSource).toContain('formCode={riasecFormCode ?? undefined}');
   });
 });

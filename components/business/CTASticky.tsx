@@ -20,6 +20,15 @@ import {
   isEnneagramSlug,
   listEnneagramFormMetas,
 } from "@/lib/enneagram/forms";
+import {
+  buildRiasecTakeHref,
+  getRiasecStartLabel,
+  getRiasecVariantLabel,
+  getRiasecVariantSummary,
+  isRiasecScaleCode,
+  isRiasecSlug,
+  listRiasecFormMetas,
+} from "@/lib/riasec/forms";
 import type { Locale } from "@/lib/i18n/locales";
 import { localizedPath } from "@/lib/i18n/locales";
 import {
@@ -46,6 +55,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
   const showsMbtiActions = isMbtiScaleCode(scaleCode) || isMbtiSlug(slug);
   const showsBig5Actions = isBig5ScaleCode(scaleCode) || isBig5Slug(slug);
   const showsEnneagramActions = isEnneagramScaleCode(scaleCode) || isEnneagramSlug(slug);
+  const showsRiasecActions = isRiasecScaleCode(scaleCode) || isRiasecSlug(slug);
   const mbtiForms = listMbtiFormMetas();
   const mbtiPrimaryForm = mbtiForms.find((form) => form.formCode === DEFAULT_MBTI_FORM_CODE) ?? mbtiForms[0] ?? null;
   const mbtiSecondaryForm = mbtiForms.find((form) => form.formCode !== (mbtiPrimaryForm?.formCode ?? DEFAULT_MBTI_FORM_CODE)) ?? null;
@@ -97,6 +107,7 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
   const mbtiSummary = listMbtiFormMetas().map((form) => getMbtiVariantLabel(form.formCode, locale)).join(" / ");
   const big5Summary = listBig5FormMetas().map((form) => getBig5VariantLabel(form.formCode, locale)).join(" / ");
   const enneagramSummary = listEnneagramFormMetas().map((form) => getEnneagramVariantLabel(form.formCode, locale)).join(" / ");
+  const riasecSummary = listRiasecFormMetas().map((form) => getRiasecVariantLabel(form.formCode, locale)).join(" / ");
 
   return (
     <>
@@ -115,6 +126,8 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                 ? big5Summary
                 : showsEnneagramActions
                 ? enneagramSummary
+                : showsRiasecActions
+                ? riasecSummary
                 : `${questions} ${locale === "zh" ? "题" : "questions"} · ${locale === "zh" ? `约 ${minutes} 分钟` : `about ${minutes} minutes`}.`}
             </p>
             {showsMbtiActions ? (
@@ -186,6 +199,24 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                   </div>
                 ))}
               </div>
+            ) : showsRiasecActions ? (
+              <div className="space-y-2">
+                {listRiasecFormMetas().map((form) => (
+                  <div key={form.formCode} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {getRiasecVariantLabel(form.formCode, locale)}
+                    </p>
+                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getRiasecVariantSummary(form.formCode, locale)}</p>
+                    <Link
+                      href={buildRiasecTakeHref(slug, locale, form.formCode)}
+                      data-testid={`riasec-sticky-cta-${form.formCode}`}
+                      className={buttonVariants({ className: "mt-3 w-full" })}
+                    >
+                      {getRiasecStartLabel(form.formCode, locale)}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             ) : (
               <Link href={localizedPath(`/tests/${slug}/take`, locale)} className={buttonVariants({ className: "w-full" })}>
                 {locale === "zh" ? "开始此测试" : "Start this test"}
@@ -204,6 +235,8 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
               ? `${title} · ${big5Summary}`
               : showsEnneagramActions
               ? `${title} · ${enneagramSummary}`
+              : showsRiasecActions
+              ? `${title} · ${riasecSummary}`
               : `${title} · ${questions}Q · ${minutes}m`}
           </p>
           {showsMbtiActions ? (
@@ -250,6 +283,19 @@ export function CTASticky({ slug, title, questions, minutes, scaleCode, locale =
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
                   {getEnneagramStartLabel(form.formCode, locale)}
+                </Link>
+              ))}
+            </div>
+          ) : showsRiasecActions ? (
+            <div className="flex w-full gap-2 sm:w-auto">
+              {listRiasecFormMetas().map((form) => (
+                <Link
+                  key={form.formCode}
+                  href={buildRiasecTakeHref(slug, locale, form.formCode)}
+                  data-testid={`riasec-sticky-mobile-cta-${form.formCode}`}
+                  className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
+                >
+                  {getRiasecStartLabel(form.formCode, locale)}
                 </Link>
               ))}
             </div>

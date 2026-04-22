@@ -30,7 +30,7 @@ const homeCopy: HomePageContent = {
       { title: "MBTI 性格测试", description: "快速了解你的类型偏好与决策风格", href: "/tests/mbti-personality-test-16-personality-types", label: "开始测试", meta: "人格测试" },
       { title: "Big Five 大五人格测试", description: "从五个维度看清你的稳定特质", href: "/tests/big-five-personality-test-ocean-model", label: "开始测试", meta: "人格测试" },
       { title: "IQ 智商测试", description: "快速了解你的认知能力基线", href: "/tests/iq-test-intelligence-quotient-assessment/take", label: "开始测试", meta: "能力测评" },
-      { title: "霍兰德职业兴趣测试", description: "先得到兴趣结构与职业方向判断", href: "/career/tests/riasec", label: "开始测试", meta: "职业兴趣" },
+      { title: "霍兰德职业兴趣测试", description: "先得到兴趣结构与职业方向判断", href: "/tests/holland-career-interest-test-riasec", label: "开始测试", meta: "职业兴趣" },
       { title: "九型人格测试", description: "从核心动机与压力反应理解你的行为模式", href: "/tests", label: "开始测试", meta: "人格测试" },
       { title: "抑郁焦虑综合症测试", description: "同时查看抑郁与焦虑两个维度，获得更完整的近期状态参考", href: "/tests/clinical-depression-anxiety-assessment-professional-edition", label: "开始测试", meta: "学术专业版" },
     ],

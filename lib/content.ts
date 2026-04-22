@@ -88,6 +88,18 @@ const FALLBACK_PUBLIC_TEST_SEEDS: FallbackTestSeed[] = [
     highlight_priority: 85,
   },
   {
+    slug: SCALE_CANONICAL_SLUG_MAP.RIASEC,
+    scale_code: "RIASEC",
+    title: { zh: "霍兰德职业兴趣测试（RIASEC）", en: "Holland Career Interest Test (RIASEC)" },
+    description: {
+      zh: "从 RIASEC 六维兴趣结构看职业活动、环境与方向偏好。",
+      en: "Map career activity, environment, and direction preferences through the six RIASEC interest dimensions.",
+    },
+    questions_count: 60,
+    time_minutes: 8,
+    highlight_priority: 82,
+  },
+  {
     slug: SCALE_CANONICAL_SLUG_MAP.EQ_60,
     scale_code: "EQ_60",
     title: { zh: "EQ 情商测试", en: "EQ Emotional Intelligence Test" },

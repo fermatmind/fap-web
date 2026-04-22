@@ -125,6 +125,16 @@
 - High-traffic CMS-backed entry pages must prefer CMS/API content, then stale last-known-good cache, then a minimal shell. They must not fall back to a full frontend editorial copy set.
 - Business priority is fixed as L1 MBTI, L2 Big Five, and L3 SBTI/articles/topics/career recommendations/non-core tests. Caching, throttling, degradation, and resource isolation must preserve this order.
 
+## RIASEC launch rules
+- Treat RIASEC as one flagship scale with two public forms: `riasec_60` and `riasec_140`.
+- Do not create a parallel frontend stack, backend stack, CMS stack, or share/report stack for RIASEC.
+- Reuse shared flagship patterns from MBTI, Big Five, and Enneagram first.
+- Prefer shared contract and shared service changes over consumer-side inference.
+- Delete the legacy 36Q local product surface; do not keep a localStorage fallback as the formal source.
+- Keep canonical public IA under `/tests/holland-career-interest-test-riasec`.
+- Do not break MBTI, Big Five, or Enneagram existing behavior.
+- Always validate targeted contracts/tests after changes.
+
 ## Rule maintenance
 - Repository rules are part of the architecture contract.
 - Every architecture upgrade, CMS migration, content authority change, API contract change, or publishing workflow change must update these rules in the same PR or in a clearly linked follow-up PR.
