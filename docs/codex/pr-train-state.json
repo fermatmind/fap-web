@@ -2999,10 +2999,10 @@
     "PR-NON-ARTICLE-MULTILINGUAL-PUBLIC-ROLLOUT-WEB": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_validated",
+      "status": "pr_open",
       "branch": "codex/non-article-multilingual-public-rollout-web",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "34f984c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/542",
       "checks": {
         "local": [
           {
