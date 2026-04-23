@@ -6,6 +6,7 @@ import { BIG5_V1_SECTION_BLUEPRINTS, BIG5_V1_SECTION_KEYS } from "@/lib/big5/sec
 import canonical120ReportFixture from "@/tests/fixtures/big5/report_canonical_120_readable.projection.json";
 import canonical90ReportFixture from "@/tests/fixtures/big5/report_canonical_90_readable.projection.json";
 import canonicalDegradedReportFixture from "@/tests/fixtures/big5/report_canonical_degraded.projection.json";
+import liveBridgeV2ReportFixture from "@/tests/fixtures/big5/report_live_bridge_v2.projection.json";
 
 function buildGate(overrides?: Partial<{
   isFreeVariant: boolean;
@@ -32,6 +33,10 @@ function createCanonical90Fixture(): ReportResponse {
 
 function createCanonicalDegradedFixture(): ReportResponse {
   return structuredClone(canonicalDegradedReportFixture) as ReportResponse;
+}
+
+function createLiveBridgeV2Fixture(): ReportResponse {
+  return structuredClone(liveBridgeV2ReportFixture) as ReportResponse;
 }
 
 describe("big5 result assembler contract", () => {
@@ -257,5 +262,33 @@ describe("big5 result assembler contract", () => {
     } else {
       expect(assembled.formSummaryLabel).toBeNull();
     }
+  });
+
+  it("prefers normalized v2 runtime sections when the bridge payload is present", () => {
+    const assembled = assembleBig5ResultViewModel({
+      locale: "zh",
+      reportData: createLiveBridgeV2Fixture(),
+      gate: buildGate(),
+    });
+
+    expect(assembled.visibleSections.map((section) => section.key)).toEqual([...BIG5_V1_SECTION_KEYS]);
+    expect(assembled.visibleSections.every((section) => section.module_code === "big5_report_engine_v2")).toBe(true);
+
+    const rawV2Kinds = new Set(["trait_atomic", "methodology"]);
+    const allBlocks = assembled.visibleSections.flatMap((section) => section.blocks);
+    expect(allBlocks.some((block) => rawV2Kinds.has(String(block.kind)))).toBe(false);
+    expect(allBlocks.some((block) => block.source_engine === "big5_report_engine_v2")).toBe(true);
+
+    const facetDetails = assembled.visibleSections.find((section) => section.key === "facet_details");
+    const corePortrait = assembled.visibleSections.find((section) => section.key === "core_portrait");
+    const actionPlan = assembled.visibleSections.find((section) => section.key === "action_plan");
+
+    expect(facetDetails?.blocks.filter((block) => block.kind === "metric_card").length).toBeGreaterThanOrEqual(3);
+    expect(facetDetails?.blocks.filter((block) => block.kind === "table_row").length).toBeGreaterThanOrEqual(30);
+    expect(corePortrait?.blocks.some((block) => {
+      const provenance = block.provenance as { synergy_refs?: string[] } | undefined;
+      return Array.isArray(provenance?.synergy_refs) && provenance.synergy_refs.length > 0;
+    })).toBe(true);
+    expect(actionPlan?.blocks.some((block) => block.kind === "bullets" && String(block.body ?? "").includes("｜"))).toBe(true);
   });
 });

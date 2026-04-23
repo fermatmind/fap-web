@@ -1,4 +1,4 @@
-import type { Big5PublicProjection, ReportResponse } from "@/lib/api/v0_3";
+import type { Big5PublicProjection, Big5ReportEngineV2, Big5ReportEngineV2Block, ReportResponse } from "@/lib/api/v0_3";
 import { buildBig5FormDisplayLabel, normalizeBig5FormSummary } from "@/lib/big5/formSummary";
 import {
   BIG5_NORMS_INTERPRETATION,
@@ -15,6 +15,7 @@ import {
 import {
   BIG5_V1_SAFE_BLOCK_KINDS,
   BIG5_V1_SECTION_BLUEPRINTS,
+  type Big5V1SectionKey,
   type Big5V1LockedPreviewPolicy,
   type Big5V1SafeBlockKind,
   type Big5V1SectionBlueprint,
@@ -80,6 +81,18 @@ const SECTION_ALIASES: Record<string, readonly string[]> = {
   methodology_and_access: ["methodology_and_access", "methodology", "access"],
 };
 
+const V2_SCHEMA_VERSION = "fap.big5.report.v1";
+
+const V2_SECTION_KEY_SET = new Set(BIG5_V1_SECTION_BLUEPRINTS.map((blueprint) => blueprint.section_key));
+
+const V2_REQUIRED_PROVENANCE_FIELDS = [
+  "atomic_refs",
+  "modifier_refs",
+  "synergy_refs",
+  "facet_refs",
+  "action_refs",
+] as const;
+
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return null;
@@ -122,6 +135,37 @@ function normalizeStringArray(value: unknown): string[] {
   return asArray(value)
     .map((item) => normalizeText(item))
     .filter(Boolean);
+}
+
+function joinTextParts(parts: unknown[], separator = " "): string {
+  return parts
+    .map((part) => normalizeText(part))
+    .filter(Boolean)
+    .join(separator);
+}
+
+function getCopyInjections(copy: Record<string, unknown>): Record<string, unknown> {
+  return asRecord(copy.injections) ?? {};
+}
+
+function getBlockTraitCode(block: Big5ReportEngineV2Block): string {
+  const analytics = asRecord(block.analytics);
+  const copy = asRecord(block.resolved_copy) ?? {};
+  const blockId = normalizeText(block.block_id);
+  const fromId = blockId.match(/atomic_([OCEAN])_/i)?.[1] ?? "";
+  return normalizeText(analytics?.trait_code, copy.trait_code, fromId).toUpperCase();
+}
+
+function getBlockPercentile(block: Big5ReportEngineV2Block): number | null {
+  const analytics = asRecord(block.analytics);
+  const copy = asRecord(block.resolved_copy) ?? {};
+  return normalizeNumber(analytics?.percentile ?? copy.percentile ?? copy.domain_percentile ?? copy.facet_percentile);
+}
+
+function getBlockBand(block: Big5ReportEngineV2Block): string {
+  const analytics = asRecord(block.analytics);
+  const copy = asRecord(block.resolved_copy) ?? {};
+  return normalizeText(analytics?.band, copy.band, copy.domain_band, copy.facet_band);
 }
 
 function formatPercentileValue(value: number | null, locale: Locale): string {
@@ -201,6 +245,377 @@ function normalizeBlockWithAllowlist(
     tips: normalizeStringArray(block.tips),
     tags: normalizeStringArray(block.tags),
   };
+}
+
+function hasValidV2Provenance(block: Big5ReportEngineV2Block): boolean {
+  const provenance = asRecord(block.provenance);
+  if (!provenance) {
+    return false;
+  }
+
+  return V2_REQUIRED_PROVENANCE_FIELDS.every((field) => Array.isArray(provenance[field]));
+}
+
+function resolveBig5ReportEngineV2(reportData: ReportResponse): Big5ReportEngineV2 | null {
+  const candidate = asRecord(reportData.big5_report_engine_v2);
+  if (!candidate) {
+    return null;
+  }
+
+  if (normalizeText(candidate.schema_version) !== V2_SCHEMA_VERSION) {
+    return null;
+  }
+  if (normalizeText(candidate.scale_code).toUpperCase() !== "BIG5_OCEAN") {
+    return null;
+  }
+
+  const sections = asArray<NonNullable<Big5ReportEngineV2["sections"]>[number]>(candidate.sections);
+  if (sections.length < BIG5_V1_SECTION_BLUEPRINTS.length) {
+    return null;
+  }
+
+  const seenSections = new Set<string>();
+  for (const section of sections) {
+    const sectionKey = normalizeText(section.section_key).toLowerCase();
+    if (!V2_SECTION_KEY_SET.has(sectionKey as Big5V1SectionKey)) {
+      return null;
+    }
+    if (seenSections.has(sectionKey)) {
+      return null;
+    }
+    seenSections.add(sectionKey);
+
+    const blocks = asArray<Big5ReportEngineV2Block>(section.blocks);
+    if (blocks.length === 0) {
+      return null;
+    }
+
+    const blocksAreUsable = blocks.every((block) => {
+      const copy = asRecord(block.resolved_copy);
+      return Boolean(
+        normalizeText(block.kind) &&
+          normalizeText(block.component) &&
+          normalizeText(block.block_id) &&
+          normalizeText(block.block_uid) &&
+          copy &&
+          hasValidV2Provenance(block)
+      );
+    });
+    if (!blocksAreUsable) {
+      return null;
+    }
+  }
+
+  const requiredSectionsPresent = BIG5_V1_SECTION_BLUEPRINTS.every((blueprint) => seenSections.has(blueprint.section_key));
+  if (!requiredSectionsPresent) {
+    return null;
+  }
+
+  if (!Array.isArray(candidate.sections)) {
+    return null;
+  }
+
+  return candidate as Big5ReportEngineV2;
+}
+
+export function hasUsableBig5ReportEngineV2(reportData: ReportResponse): boolean {
+  return resolveBig5ReportEngineV2(reportData) !== null;
+}
+
+function getV2TraitBlockTitle(block: Big5ReportEngineV2Block, locale: Locale): string {
+  const traitCode = getBlockTraitCode(block);
+  const domain = BIG5_DOMAIN_ORDER.find((code) => code === traitCode) ?? null;
+  if (domain) {
+    return getDomainLabel(domain, locale);
+  }
+
+  const copy = asRecord(block.resolved_copy) ?? {};
+  return normalizeText(copy.title, copy.headline, traitCode);
+}
+
+function normalizeV2TraitAtomicBlock(
+  block: Big5ReportEngineV2Block,
+  sectionKey: Big5V1SectionKey,
+  locale: Locale
+): ReportBlock | null {
+  const copy = asRecord(block.resolved_copy);
+  if (!copy) {
+    return null;
+  }
+
+  const injections = getCopyInjections(copy);
+  const title = getV2TraitBlockTitle(block, locale);
+  const percentileText = formatPercentileValue(getBlockPercentile(block), locale);
+  const band = getBlockBand(block);
+  const baseBlock = {
+    id: normalizeText(block.block_uid),
+    block_uid: normalizeText(block.block_uid),
+    block_id: normalizeText(block.block_id),
+    component: normalizeText(block.component),
+    source_engine: "big5_report_engine_v2",
+    provenance: block.provenance,
+    analytics: block.analytics,
+    metric_code: getBlockTraitCode(block),
+    bucket: band,
+  };
+
+  if (sectionKey === "domains_overview") {
+    return {
+      ...baseBlock,
+      kind: "chart",
+      title,
+      body: joinTextParts([percentileText, copy.snapshot_line]),
+    };
+  }
+
+  if (sectionKey === "domain_deep_dive") {
+    return {
+      ...baseBlock,
+      kind: "metric_card",
+      title,
+      body: joinTextParts([percentileText, copy.definition, copy.daily_life, injections.intensity_sentence]),
+      bullets: [
+        ...normalizeStringArray(copy.strengths).map((item) => (locale === "zh" ? `优势：${item}` : `Strength: ${item}`)),
+        ...normalizeStringArray(copy.costs).map((item) => (locale === "zh" ? `代价：${item}` : `Trade-off: ${item}`)),
+      ],
+    };
+  }
+
+  if (sectionKey === "norms_comparison") {
+    return {
+      ...baseBlock,
+      kind: "metric_card",
+      title,
+      body: joinTextParts([percentileText, copy.relative_meaning, injections.compare_sentence]),
+    };
+  }
+
+  if (sectionKey === "core_portrait") {
+    return {
+      ...baseBlock,
+      kind: "paragraph",
+      title,
+      body: joinTextParts([copy.identity, copy.default_style, injections.load_sentence]),
+    };
+  }
+
+  if (sectionKey === "action_plan") {
+    return {
+      ...baseBlock,
+      kind: "paragraph",
+      title,
+      body: joinTextParts([copy.priority_hint, injections.urgency_sentence]),
+    };
+  }
+
+  return {
+    ...baseBlock,
+    kind: "paragraph",
+    title: normalizeText(copy.title, copy.headline, title),
+    body: joinTextParts([copy.headline, injections.headline_extension, copy.body_core]),
+  };
+}
+
+function normalizeV2Items(value: unknown): string[] {
+  return asArray(value)
+    .map((item) => {
+      if (typeof item === "string") {
+        return normalizeText(item);
+      }
+      const record = asRecord(item);
+      if (!record) {
+        return "";
+      }
+      const bucket = normalizeText(record.bucket);
+      const title = normalizeText(record.title);
+      const body = normalizeText(record.body);
+      return joinTextParts([
+        bucket ? `${bucket}｜` : "",
+        title ? `${title}：` : "",
+        body,
+      ], "");
+    })
+    .filter(Boolean);
+}
+
+function normalizeV2GenericBlock(
+  block: Big5ReportEngineV2Block,
+  sectionKey: Big5V1SectionKey
+): ReportBlock | null {
+  const copy = asRecord(block.resolved_copy);
+  if (!copy) {
+    return null;
+  }
+
+  const rawKind = normalizeText(block.kind).toLowerCase();
+  const baseBlock = {
+    id: normalizeText(block.block_uid),
+    block_uid: normalizeText(block.block_uid),
+    block_id: normalizeText(block.block_id),
+    component: normalizeText(block.component),
+    source_engine: "big5_report_engine_v2",
+    provenance: block.provenance,
+    analytics: block.analytics,
+    metric_code: normalizeText(copy.facet_code, copy.domain_code, copy.scenario_key),
+    bucket: normalizeText(copy.band, copy.time_horizon, copy.scenario_key),
+  };
+
+  if (rawKind === "methodology") {
+    return {
+      ...baseBlock,
+      kind: "callout",
+      title: normalizeText(copy.title),
+      body: joinTextParts([copy.body, copy.access_note]),
+    };
+  }
+
+  if (rawKind === "bullets") {
+    return {
+      ...baseBlock,
+      kind: "bullets",
+      title: normalizeText(copy.title),
+      body: normalizeV2Items(copy.items).join("\n"),
+    };
+  }
+
+  if (rawKind === "table_row") {
+    const percentile = normalizeNumber(copy.percentile);
+    return {
+      ...baseBlock,
+      kind: "table_row",
+      title: normalizeText(copy.label_zh, copy.title, copy.facet_code),
+      body: joinTextParts([
+        formatPercentileValue(percentile, "zh"),
+        copy.gloss,
+        copy.daily_meaning,
+        copy.why_it_matters,
+      ]),
+      bucket: normalizeText(copy.band, copy.facet_code),
+    };
+  }
+
+  if (rawKind === "metric_card") {
+    const deltaAbs = normalizeNumber(copy.delta_abs);
+    return {
+      ...baseBlock,
+      kind: "metric_card",
+      title: normalizeText(copy.title, copy.facet_code, copy.domain_code),
+      body: joinTextParts([
+        copy.domain_percentile !== undefined ? `领域百分位 ${copy.domain_percentile}` : "",
+        copy.facet_percentile !== undefined ? `facet 百分位 ${copy.facet_percentile}` : "",
+        deltaAbs !== null ? `偏离 ${deltaAbs}` : "",
+        copy.body,
+        copy.why_it_matters,
+      ]),
+    };
+  }
+
+  if (rawKind === "callout") {
+    return {
+      ...baseBlock,
+      kind: "callout",
+      title: normalizeText(copy.title, copy.headline),
+      body: joinTextParts([copy.body, copy.strength_sentence, copy.risk_sentence, copy.action_hook]),
+    };
+  }
+
+  return {
+    ...baseBlock,
+    kind: rawKind === "paragraph" ? "paragraph" : "paragraph",
+    title: normalizeText(copy.title, copy.headline),
+    body: joinTextParts([
+      copy.body,
+      copy.body_core,
+      copy.relative_meaning,
+      copy.why_it_matters,
+      copy.access_note,
+    ]),
+  };
+}
+
+function normalizeBig5ReportEngineV2Block(
+  block: Big5ReportEngineV2Block,
+  sectionKey: Big5V1SectionKey,
+  locale: Locale,
+  allowed: readonly Big5V1SafeBlockKind[]
+): ReportBlock | null {
+  const normalized = normalizeText(block.kind).toLowerCase() === "trait_atomic"
+    ? normalizeV2TraitAtomicBlock(block, sectionKey, locale)
+    : normalizeV2GenericBlock(block, sectionKey);
+  if (!normalized) {
+    return null;
+  }
+
+  const kind = normalizeText(normalized.kind).toLowerCase();
+  if (!SAFE_BLOCK_KIND_SET.has(kind) || !allowed.includes(kind as Big5V1SafeBlockKind)) {
+    return null;
+  }
+
+  const body = normalizeText(normalized.body);
+  const title = normalizeText(normalized.title);
+  if (!body && !title) {
+    return null;
+  }
+
+  return {
+    ...normalized,
+    kind,
+    title,
+    body,
+    bullets: normalizeStringArray(normalized.bullets),
+    tips: normalizeStringArray(normalized.tips),
+    tags: normalizeStringArray(normalized.tags),
+  };
+}
+
+function assembleBig5SectionsFromReportEngineV2(
+  reportData: ReportResponse,
+  locale: Locale
+): Big5AssembledSection[] | null {
+  const payload = resolveBig5ReportEngineV2(reportData);
+  if (!payload) {
+    return null;
+  }
+
+  const payloadSections = payload.sections ?? [];
+  const sectionsByKey = new Map<string, NonNullable<Big5ReportEngineV2["sections"]>[number]>();
+  for (const section of payloadSections) {
+    sectionsByKey.set(normalizeText(section.section_key).toLowerCase(), section);
+  }
+
+  const assembled = BIG5_V1_SECTION_BLUEPRINTS
+    .slice()
+    .sort((left, right) => left.order - right.order)
+    .map((blueprint): Big5AssembledSection | null => {
+      const rawSection = sectionsByKey.get(blueprint.section_key);
+      if (!rawSection) {
+        return null;
+      }
+
+      const blocks = asArray<Big5ReportEngineV2Block>(rawSection.blocks)
+        .map((block) => normalizeBig5ReportEngineV2Block(block, blueprint.section_key, locale, blueprint.block_kinds_allowed))
+        .filter((block): block is ReportBlock => block !== null);
+      if (blocks.length === 0) {
+        return null;
+      }
+
+      return {
+        key: blueprint.section_key,
+        title: BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].title,
+        subtitle: BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].subtitle,
+        order: blueprint.order,
+        page_slot: blueprint.page_slot,
+        access_level: blueprint.access_level,
+        locked_preview_policy: blueprint.locked_preview_policy,
+        locked_preview_description: resolveLockedPreviewDescription(blueprint.locked_preview_policy, locale),
+        locked_preview_cta: locale === "zh" ? "解锁完整报告" : BIG5_V1_STATE_MICROCOPY.locked_preview.cta,
+        module_code: "big5_report_engine_v2",
+        blocks,
+      } satisfies Big5AssembledSection;
+    })
+    .filter((section): section is Big5AssembledSection => section !== null);
+
+  return assembled.length === BIG5_V1_SECTION_BLUEPRINTS.length ? assembled : null;
 }
 
 function getFacetLabel(code: string, locale: Locale): string {
@@ -824,12 +1239,14 @@ export function assembleBig5ResultViewModel({
   gate: Big5ResultAssemblerGate;
 }): Big5ResultViewModel {
   const projection = resolveBig5Projection(reportData);
-  const sectionsByKey = getPayloadSections(reportData, projection);
-  const plannedSections = BIG5_V1_SECTION_BLUEPRINTS
-    .slice()
-    .sort((left, right) => left.order - right.order)
-    .map((blueprint) => buildSectionFromBlueprint(blueprint, reportData, projection, sectionsByKey, locale))
-    .filter((section): section is Big5AssembledSection => section !== null);
+  const v2Sections = assembleBig5SectionsFromReportEngineV2(reportData, locale);
+  const sectionsByKey = v2Sections ? {} : getPayloadSections(reportData, projection);
+  const plannedSections = v2Sections
+    ?? BIG5_V1_SECTION_BLUEPRINTS
+      .slice()
+      .sort((left, right) => left.order - right.order)
+      .map((blueprint) => buildSectionFromBlueprint(blueprint, reportData, projection, sectionsByKey, locale))
+      .filter((section): section is Big5AssembledSection => section !== null);
 
   const visibleSections = plannedSections.filter((section) => !shouldForceSectionLocked(section, gate));
   const lockedSections = plannedSections.filter((section) => shouldForceSectionLocked(section, gate));

@@ -1803,3 +1803,35 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-BIG5-WEB-V2-RUNTIME-CONSUMER
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/big5-v2-runtime-consumer
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Big Five PR4B web runtime consumer. Extend the Big Five web report
+      contract to accept the additive API big5_report_engine_v2 field and make
+      the existing assembleBig5ResultViewModel prefer valid v2 section/block
+      instructions for the main result page body while preserving the legacy
+      path when v2 is missing or unusable. Do not create a second shell or
+      assembler, do not reconstruct v2 from legacy fields, and do not change
+      MBTI, payment, access, PDF, history, compare, secondary surfaces, API
+      bridge code, or Big Five registry/content assets.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm install --frozen-lockfile"
+      - "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-section-renderer.contract.test.tsx tests/contracts/rich-result-report.contract.test.tsx tests/contracts/big5-secondary-surfaces.contract.test.tsx tests/contracts/big5-v2-runtime-consumer.contract.test.ts"
+      - "pnpm build"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
