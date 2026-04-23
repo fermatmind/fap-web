@@ -16,17 +16,16 @@ describe("wider public family contract", () => {
     expect(source).not.toContain("dict.articles.kicker");
   });
 
-  it("help routes consume backend ContentPage surfaces", () => {
+  it("help routes redirect the root to support and keep detail pages on backend ContentPage surfaces", () => {
     const helpIndex = read("app/(localized)/[locale]/help/page.tsx");
     const helpDetail = read("app/(localized)/[locale]/help/[slug]/page.tsx");
 
-    expect(helpIndex).toContain('from "@/lib/publicGateway"');
-    expect(helpIndex).toContain("const gatewaySurface = await getHelpGatewaySurface(locale)");
-    expect(helpIndex).toContain("landingSurface?.discoverabilityItems");
-    expect(helpIndex).toContain('listContentPagesWithLastKnownGood(locale, "help")');
+    expect(helpIndex).toContain('from "next/navigation"');
+    expect(helpIndex).toContain("permanentRedirect(localizedPath(\"/support\", locale))");
 
     expect(helpDetail).toContain('from "@/lib/cms/content-pages"');
-    expect(helpDetail).toContain("getContentPageWithLastKnownGood(contentSlug(slug), locale)");
+    expect(helpDetail).toContain("getContentPage(contentSlug(slug), locale)");
+    expect(helpDetail).not.toContain("getContentPageWithLastKnownGood");
     expect(helpDetail).toContain("<ContentPageTemplate");
   });
 

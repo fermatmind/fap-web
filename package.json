@@ -14,6 +14,7 @@
     "verify:riasec-launch": "node ./scripts/verify-riasec-frontend-launch.mjs",
     "cms:baseline:staging": "node ./scripts/validate-staging-cms-baseline.mjs --dry-run",
     "cms:baseline:staging:smoke": "bash scripts/staging_cms_baseline_smoke.sh",
+    "cms:content-release:smoke": "bash scripts/content_release_revalidate_smoke.sh",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

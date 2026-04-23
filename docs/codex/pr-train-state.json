@@ -2893,7 +2893,7 @@
             "status": "passed"
           },
           {
-            "command": "rg -n \"Source|Content API|helpCenterContent|内容来源|Used & Mentioned|Business & Research|Team|About\" .next/server/app/en/help/faq.html .next/server/app/en/help/contact.html .next/server/app/zh/help/faq.html .next/server/app/zh/help/contact.html || true",
+            "command": "rg -n \"Source|Content API|helpCenterContent|\u5185\u5bb9\u6765\u6e90|Used & Mentioned|Business & Research|Team|About\" .next/server/app/en/help/faq.html .next/server/app/en/help/contact.html .next/server/app/zh/help/faq.html .next/server/app/zh/help/contact.html || true",
             "status": "passed"
           }
         ],
@@ -3023,6 +3023,46 @@
           },
           {
             "command": "NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm build",
+            "status": "passed"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          }
+        ],
+        "github": []
+      },
+      "failure_reason": "",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    }
+  },
+  "prs": {
+    "PR-NON-ARTICLE-REVALIDATION-CLOSEOUT-WEB": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "local_checks_passed",
+      "branch": "codex/non-article-revalidation-closeout-web",
+      "commit_sha": "",
+      "pr_url": "",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "bash -n scripts/content_release_revalidate_smoke.sh scripts/deploy_web_pm2.sh",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm vitest run tests/contracts/content-release-revalidate-smoke.contract.test.ts tests/contracts/non-article-multilingual-rollout.contract.test.ts tests/contracts/public-surface-lkg-coverage.contract.test.ts tests/contracts/wider-public-family.contract.test.ts tests/contracts/schema-present.contract.test.ts",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm typecheck",
             "status": "passed"
           },
           {

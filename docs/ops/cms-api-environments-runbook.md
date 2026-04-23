@@ -187,6 +187,42 @@ pnpm deploy:pm2
 
 The deploy script leaves this disabled by default so production deploys and unrelated operational recovery tasks are not blocked by staging content gaps. Staging release jobs should enable it after the CMS baseline import has completed.
 
+`scripts/deploy_web_pm2.sh` can also run a content-release revalidation smoke against the frontend consumer after the normal PM2 convergence checks:
+
+```bash
+RUN_CONTENT_RELEASE_REVALIDATE_SMOKE=1 \
+CONTENT_RELEASE_REVALIDATE_URL=https://www.fermatmind.com/api/content-release/revalidate \
+CONTENT_RELEASE_REVALIDATE_TOKEN=shared-release-token \
+CONTENT_RELEASE_REVALIDATE_LOCALE=zh-CN \
+CONTENT_RELEASE_REVALIDATE_TYPE=content_page \
+CONTENT_RELEASE_REVALIDATE_SLUG=help-privacy \
+CONTENT_RELEASE_REVALIDATE_PATHS=/help/privacy,/support \
+pnpm deploy:pm2
+```
+
+Use the packaged smoke directly when validating a deployed environment outside the full PM2 deploy:
+
+```bash
+CONTENT_RELEASE_REVALIDATE_URL=https://www.fermatmind.com/api/content-release/revalidate \
+CONTENT_RELEASE_REVALIDATE_TOKEN=shared-release-token \
+pnpm cms:content-release:smoke
+```
+
+This smoke is read-only with respect to CMS data. It only verifies that:
+
+- the frontend revalidation consumer is reachable
+- the shared token is accepted
+- release payload paths are normalized into localized frontend paths
+- the response reports the expected `revalidated_paths`
+
+Deployment wiring for end-to-end release invalidation must stay aligned across backend and frontend:
+
+- backend: `OPS_CONTENT_RELEASE_CACHE_INVALIDATION_URLS`
+- backend: `OPS_CONTENT_RELEASE_CACHE_INVALIDATION_SECRET`
+- frontend: `CONTENT_RELEASE_REVALIDATE_TOKEN`
+
+The backend invalidation URL list should point at the frontend `/api/content-release/revalidate` consumer, and the backend secret must match the frontend token exactly.
+
 Expected release behavior:
 
 - Homepage recommended articles are visible when the CMS block is configured.
@@ -195,6 +231,7 @@ Expected release behavior:
 - Footer WeChat QR code and default social preview media load from backend media/static hosting.
 - SEO metadata comes from CMS/API.
 - Sitemap and llms routes enumerate CMS/API records.
+- Content release invalidation can be probed through the frontend revalidation consumer without manual `.next/cache` deletion.
 
 ## Repository Rule Impact
 
