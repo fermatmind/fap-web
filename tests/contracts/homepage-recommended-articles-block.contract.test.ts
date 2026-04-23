@@ -60,8 +60,9 @@ describe("homepage recommended articles page block contract", () => {
             locale: "zh-CN",
             title: "CMS 运营配置文章",
             excerpt: "来自 landing surface page block",
-            status: "published",
+            status: "Published",
             is_public: true,
+            published_revision: { id: 61 },
             published_at: "2026-04-21T00:00:00Z",
           },
           {
@@ -70,6 +71,7 @@ describe("homepage recommended articles page block contract", () => {
             title: "English article",
             status: "published",
             is_public: true,
+            published_revision_id: 62,
           },
           {
             slug: "draft-article",

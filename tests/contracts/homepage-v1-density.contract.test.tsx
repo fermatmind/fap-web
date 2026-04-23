@@ -211,6 +211,7 @@ describe("homepage v1 density contract", () => {
         status: "published",
         isPublic: true,
         isIndexable: true,
+        publishedRevisionId: 1,
         publishedAt: "2026-04-18",
         scheduledAt: null,
         createdAt: "2026-04-18",
