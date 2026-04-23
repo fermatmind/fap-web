@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-23T04:44:49.362240Z",
+  "updated_at": "2026-04-23T04:46:23.216633Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2929,9 +2929,9 @@
     "PR-BIG5-WEB-V2-RUNTIME-CONSUMER": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "open",
+      "status": "github_checks_failed",
       "branch": "codex/big5-v2-runtime-consumer",
-      "commit_sha": "d0bb04020eea6cd77aaed29297dd6b87891ee30d",
+      "commit_sha": "af784d28d0dc9427d401036a23358555897ab423",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/539",
       "checks": {
         "local": [
@@ -2958,9 +2958,34 @@
             "status": "passed"
           }
         ],
-        "github": []
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24817237150/job/72634081959",
+            "notes": "rerun failed in ~3s with no job steps/logs exposed by GitHub"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24817237150/job/72634081958",
+            "notes": "rerun failed in ~3s with no job steps/logs exposed by GitHub"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24817237150/job/72634081964",
+            "notes": "rerun failed in ~3s with no job steps/logs exposed by GitHub"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24817237150/job/72634081957",
+            "notes": "rerun failed in ~3s with no job steps/logs exposed by GitHub"
+          }
+        ]
       },
-      "failure_reason": "",
+      "failure_reason": "GitHub CI jobs fail during job startup with no steps/logs available after one rerun; local manifest checks passed.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
