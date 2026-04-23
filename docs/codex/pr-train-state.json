@@ -3043,10 +3043,10 @@
     "PR-NON-ARTICLE-REVALIDATION-CLOSEOUT-WEB": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "branch": "codex/non-article-revalidation-closeout-web",
-      "commit_sha": "",
-      "pr_url": "",
+      "commit_sha": "e15d092",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/543",
       "checks": {
         "local": [
           {
