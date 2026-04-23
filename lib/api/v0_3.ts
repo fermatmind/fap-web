@@ -629,6 +629,52 @@ export type Big5PublicProjection = {
   [key: string]: unknown;
 };
 
+export type Big5ReportEngineV2Provenance = {
+  atomic_refs?: string[];
+  modifier_refs?: string[];
+  synergy_refs?: string[];
+  facet_refs?: string[];
+  action_refs?: string[];
+  [key: string]: unknown;
+};
+
+export type Big5ReportEngineV2Block = {
+  block_uid?: string;
+  kind?: string;
+  component?: string;
+  block_id?: string;
+  resolved_copy?: Record<string, unknown>;
+  provenance?: Big5ReportEngineV2Provenance;
+  analytics?: Record<string, unknown>;
+  [key: string]: unknown;
+};
+
+export type Big5ReportEngineV2Section = {
+  section_key?: string;
+  status?: string;
+  blocks?: Big5ReportEngineV2Block[];
+  [key: string]: unknown;
+};
+
+export type Big5ReportEngineV2 = {
+  schema_version?: string;
+  report_id?: string;
+  locale?: string;
+  scale_code?: string;
+  form_code?: string;
+  meta?: Record<string, unknown>;
+  score_vector?: {
+    domains?: Record<string, unknown>;
+    facets?: Record<string, unknown>;
+    [key: string]: unknown;
+  };
+  engine_decisions?: Record<string, unknown>;
+  sections?: Big5ReportEngineV2Section[];
+  action_matrix?: Record<string, unknown>;
+  render_hints?: Record<string, unknown>;
+  [key: string]: unknown;
+};
+
 export type EnneagramTypeProjection = {
   code?: string;
   type_code?: string;
@@ -770,6 +816,7 @@ export type ReportResponse = {
   };
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
+  big5_report_engine_v2?: Big5ReportEngineV2 | null;
   enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   riasec_form_v1?: RiasecFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;

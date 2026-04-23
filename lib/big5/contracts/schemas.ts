@@ -171,6 +171,57 @@ const big5PublicProjectionSchema = z
   })
   .passthrough();
 
+const big5ReportEngineV2ProvenanceSchema = z
+  .object({
+    atomic_refs: z.array(z.string()).optional(),
+    modifier_refs: z.array(z.string()).optional(),
+    synergy_refs: z.array(z.string()).optional(),
+    facet_refs: z.array(z.string()).optional(),
+    action_refs: z.array(z.string()).optional(),
+  })
+  .passthrough();
+
+const big5ReportEngineV2BlockSchema = z
+  .object({
+    block_uid: z.string().min(1),
+    kind: z.string().min(1),
+    component: z.string().min(1),
+    block_id: z.string().min(1),
+    resolved_copy: z.record(z.string(), z.unknown()),
+    provenance: big5ReportEngineV2ProvenanceSchema,
+    analytics: z.record(z.string(), z.unknown()).optional(),
+  })
+  .passthrough();
+
+const big5ReportEngineV2SectionSchema = z
+  .object({
+    section_key: z.string().min(1),
+    status: z.string().optional(),
+    blocks: z.array(big5ReportEngineV2BlockSchema),
+  })
+  .passthrough();
+
+export const big5ReportEngineV2Schema = z
+  .object({
+    schema_version: z.literal("fap.big5.report.v1"),
+    report_id: z.string().optional(),
+    locale: z.string().optional(),
+    scale_code: z.literal("BIG5_OCEAN"),
+    form_code: z.string().optional(),
+    meta: z.record(z.string(), z.unknown()).optional(),
+    score_vector: z
+      .object({
+        domains: z.record(z.string(), z.unknown()).optional(),
+        facets: z.record(z.string(), z.unknown()).optional(),
+      })
+      .passthrough(),
+    engine_decisions: z.record(z.string(), z.unknown()),
+    sections: z.array(big5ReportEngineV2SectionSchema),
+    action_matrix: z.record(z.string(), z.unknown()),
+    render_hints: z.record(z.string(), z.unknown()),
+  })
+  .passthrough();
+
 export const big5ReportResponseSchema = z
   .object({
     ok: z.boolean().optional(),
@@ -199,6 +250,11 @@ export const big5ReportResponseSchema = z
       .optional(),
     comparative_v1: comparativeSchema.optional(),
     big5_public_projection_v1: big5PublicProjectionSchema.optional(),
+    // Keep the additive bridge non-fatal for legacy report reads. The
+    // dedicated schema above is used by the consumer to decide whether v2 is
+    // usable; malformed v2 must fall back to the legacy path instead of
+    // failing the whole report contract.
+    big5_report_engine_v2: z.unknown().optional(),
     meta: z.record(z.string(), z.unknown()).optional(),
     report: z
       .object({

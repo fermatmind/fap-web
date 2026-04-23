@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-22T18:08:51+08:00",
+  "updated_at": "2026-04-23T04:48:47.153461Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2921,6 +2921,76 @@
         ]
       },
       "failure_reason": "GitHub Actions checks failed immediately within 3 seconds on run 24772600496. Local PR-2.1 scoped validation passed.",
+      "resume_policy": "manual_only",
+      "merged_at": "",
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false
+    },
+    "PR-BIG5-WEB-V2-RUNTIME-CONSUMER": {
+      "repo": "fap-web",
+      "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "status": "blocked_github_checks",
+      "branch": "codex/big5-v2-runtime-consumer",
+      "commit_sha": "af784d28d0dc9427d401036a23358555897ab423",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/539",
+      "checks": {
+        "local": [
+          {
+            "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm install --frozen-lockfile",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-section-renderer.contract.test.tsx tests/contracts/rich-result-report.contract.test.tsx tests/contracts/big5-secondary-surfaces.contract.test.tsx tests/contracts/big5-v2-runtime-consumer.contract.test.ts",
+            "status": "passed",
+            "notes": "47 tests passed; existing jsdom/React act stderr warnings observed in rich-result-report.contract.test.tsx"
+          },
+          {
+            "command": "pnpm build",
+            "status": "passed",
+            "notes": "required local fap-api server at http://127.0.0.1:8000 for prerender CMS/API fetches"
+          },
+          {
+            "command": "git diff --check",
+            "status": "passed"
+          },
+          {
+            "command": "pnpm test:contract",
+            "status": "failed",
+            "notes": "Full CI contracts command fails on existing help/public CMS LKG contracts outside PR4B scope: public-surface-lkg-coverage and wider-public-family expect help index to consume publicGateway/LKG, but current main redirects /help to /support."
+          }
+        ],
+        "github": [
+          {
+            "name": "build",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24817237150/job/72634081959",
+            "notes": "rerun failed in ~3s with no job steps/logs exposed by GitHub"
+          },
+          {
+            "name": "contracts",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24817237150/job/72634081958",
+            "notes": "rerun failed in ~3s with no job steps/logs exposed by GitHub"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24817237150/job/72634081964",
+            "notes": "rerun failed in ~3s with no job steps/logs exposed by GitHub"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "status": "failed",
+            "details_url": "https://github.com/fermatmind/fap-web/actions/runs/24817237150/job/72634081957",
+            "notes": "rerun failed in ~3s with no job steps/logs exposed by GitHub"
+          }
+        ]
+      },
+      "failure_reason": "PR4B targeted and manifest checks pass. GitHub CI jobs still fail with no steps/logs exposed; full pnpm test:contract also fails locally on pre-existing help/public CMS LKG contracts outside PR4B scope.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,

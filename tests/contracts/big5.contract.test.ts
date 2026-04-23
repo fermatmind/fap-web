@@ -1,6 +1,7 @@
 import {
   big5MeAttemptsResponseSchema,
   big5QuestionsResponseSchema,
+  big5ReportEngineV2Schema,
   big5ReportResponseSchema,
   big5StartAttemptResponseSchema,
   big5SubmitResponseSchema,
@@ -9,6 +10,7 @@ import type { ReportResponse } from "@/lib/api/v0_3";
 import canonical120ReportFixture from "@/tests/fixtures/big5/report_canonical_120_readable.projection.json";
 import canonical90ReportFixture from "@/tests/fixtures/big5/report_canonical_90_readable.projection.json";
 import canonicalDegradedReportFixture from "@/tests/fixtures/big5/report_canonical_degraded.projection.json";
+import liveBridgeV2ReportFixture from "@/tests/fixtures/big5/report_live_bridge_v2.projection.json";
 
 describe("BIG5 contract schemas", () => {
   it("validates questions payload with disclaimer meta", () => {
@@ -105,6 +107,27 @@ describe("BIG5 contract schemas", () => {
     expect(canonicalDegraded.big5_public_projection_v1?.facet_vector ?? []).toHaveLength(30);
     expect(canonicalDegraded.report?.sections ?? []).toHaveLength(13);
     expect(canonicalDegraded.quality?.flags ?? []).toContain("ATTENTION_CHECK_FAILED");
+  });
+
+  it("accepts the additive Big Five report engine v2 bridge without requiring it on legacy reports", () => {
+    const liveBridge = structuredClone(liveBridgeV2ReportFixture) as ReportResponse;
+    const canonical90 = structuredClone(canonical90ReportFixture) as ReportResponse;
+
+    expect(() => big5ReportResponseSchema.parse(liveBridge)).not.toThrow();
+    expect(() => big5ReportResponseSchema.parse(canonical90)).not.toThrow();
+    expect(() => big5ReportEngineV2Schema.parse(liveBridge.big5_report_engine_v2)).not.toThrow();
+  });
+
+  it("keeps malformed v2 bridge data non-fatal to the legacy report contract", () => {
+    const liveBridge = structuredClone(liveBridgeV2ReportFixture) as ReportResponse;
+    liveBridge.big5_report_engine_v2 = {
+      schema_version: "malformed",
+      scale_code: "BIG5_OCEAN",
+      sections: [],
+    };
+
+    expect(() => big5ReportResponseSchema.parse(liveBridge)).not.toThrow();
+    expect(big5ReportEngineV2Schema.safeParse(liveBridge.big5_report_engine_v2).success).toBe(false);
   });
 
   it("validates me attempts payload", () => {
