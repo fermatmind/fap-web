@@ -1,7 +1,7 @@
 {
   "train_name": "career-night-train",
   "started_at": "2026-04-09T00:00:00Z",
-  "updated_at": "2026-04-23T04:46:23.216633Z",
+  "updated_at": "2026-04-23T04:48:47.153461Z",
   "mode": "local_clone_preferred",
   "base_branch": "main",
   "stop_on_failure": true,
@@ -2929,7 +2929,7 @@
     "PR-BIG5-WEB-V2-RUNTIME-CONSUMER": {
       "repo": "fap-web",
       "repo_path": "/Users/rainie/Desktop/GitHub/fap-web",
-      "status": "github_checks_failed",
+      "status": "blocked_github_checks",
       "branch": "codex/big5-v2-runtime-consumer",
       "commit_sha": "af784d28d0dc9427d401036a23358555897ab423",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/539",
@@ -2956,6 +2956,11 @@
           {
             "command": "git diff --check",
             "status": "passed"
+          },
+          {
+            "command": "pnpm test:contract",
+            "status": "failed",
+            "notes": "Full CI contracts command fails on existing help/public CMS LKG contracts outside PR4B scope: public-surface-lkg-coverage and wider-public-family expect help index to consume publicGateway/LKG, but current main redirects /help to /support."
           }
         ],
         "github": [
@@ -2985,7 +2990,7 @@
           }
         ]
       },
-      "failure_reason": "GitHub CI jobs fail during job startup with no steps/logs available after one rerun; local manifest checks passed.",
+      "failure_reason": "PR4B targeted and manifest checks pass. GitHub CI jobs still fail with no steps/logs exposed; full pnpm test:contract also fails locally on pre-existing help/public CMS LKG contracts outside PR4B scope.",
       "resume_policy": "manual_only",
       "merged_at": "",
       "remote_branch_deleted": false,
