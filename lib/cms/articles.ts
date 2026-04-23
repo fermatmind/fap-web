@@ -47,6 +47,10 @@ type CmsArticleApiRecord = {
   status?: string;
   is_public?: boolean;
   is_indexable?: boolean;
+  published_revision_id?: number | string | null;
+  publishedRevisionId?: number | string | null;
+  published_revision?: unknown;
+  publishedRevision?: unknown;
   published_at?: string | null;
   scheduled_at?: string | null;
   created_at?: string | null;
@@ -150,6 +154,7 @@ export type CmsArticle = {
   status: string;
   isPublic: boolean;
   isIndexable: boolean;
+  publishedRevisionId: number | null;
   publishedAt: string | null;
   scheduledAt: string | null;
   createdAt: string | null;
@@ -265,6 +270,10 @@ function normalizePositiveInteger(value: unknown): number | null {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
 }
 
+function normalizeStatus(value: unknown): string {
+  return String(value ?? "").trim().toLowerCase();
+}
+
 function readRecordValue(record: unknown, ...keys: string[]): unknown {
   if (!record || typeof record !== "object") {
     return null;
@@ -278,6 +287,15 @@ function readRecordValue(record: unknown, ...keys: string[]): unknown {
   }
 
   return null;
+}
+
+function normalizeArticlePublishedRevisionId(article: CmsArticleApiRecord): number | null {
+  return (
+    normalizePositiveInteger(article.published_revision_id) ??
+    normalizePositiveInteger(article.publishedRevisionId) ??
+    normalizePositiveInteger(readRecordValue(article.published_revision, "id")) ??
+    normalizePositiveInteger(readRecordValue(article.publishedRevision, "id"))
+  );
 }
 
 function normalizeNamedEntity(value: unknown): string | null {
@@ -447,6 +465,20 @@ function normalizeArticleJsonLd(
   return jsonld ? walk(jsonld) : null;
 }
 
+function normalizeBackendArticleAlternate(value: unknown): string | null {
+  const normalized = normalizeIsoValue(value);
+  if (!normalized) {
+    return null;
+  }
+
+  try {
+    const parsed = new URL(normalized);
+    return canonicalUrl(parsed.pathname);
+  } catch {
+    return normalized.startsWith("/") ? canonicalUrl(normalized) : null;
+  }
+}
+
 export function normalizeArticleSlug(value: string): string {
   return String(value ?? "").trim();
 }
@@ -473,8 +505,8 @@ export function normalizeArticleSeoPayload(
       description: fallbackText(seo.meta?.description),
       canonical: canonicalUrl(canonicalPath),
       alternates: {
-        en: canonicalUrl(buildArticleFrontendUrl("en", normalizedSlug)),
-        "zh-CN": canonicalUrl(buildArticleFrontendUrl("zh", normalizedSlug)),
+        en: normalizeBackendArticleAlternate(seo.meta?.alternates?.en),
+        "zh-CN": normalizeBackendArticleAlternate(seo.meta?.alternates?.["zh-CN"]),
       },
       og: {
         title: fallbackText(seo.meta?.og?.title, seo.meta?.title),
@@ -565,9 +597,10 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     relatedTestSlug: normalizeIsoValue(article.related_test_slug),
     voice: normalizeIsoValue(article.voice),
     voiceOrder: normalizePositiveInteger(article.voice_order),
-    status: String(article.status ?? "").trim(),
+    status: normalizeStatus(article.status),
     isPublic: Boolean(article.is_public),
     isIndexable: Boolean(article.is_indexable),
+    publishedRevisionId: normalizeArticlePublishedRevisionId(article),
     publishedAt: article.published_at ?? null,
     scheduledAt: article.scheduled_at ?? null,
     createdAt: article.created_at ?? null,
@@ -584,6 +617,15 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
 
 function matchesRequestedLocale(articleLocale: string, locale: Locale | string): boolean {
   return toApiLocale(articleLocale) === toApiLocale(locale);
+}
+
+function isPublishedRevisionBackedArticle(article: CmsArticle, locale: Locale | string): boolean {
+  return (
+    matchesRequestedLocale(article.locale, locale)
+    && article.status === "published"
+    && article.isPublic
+    && article.publishedRevisionId !== null
+  );
 }
 
 export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetCmsArticlesResult> {
@@ -613,20 +655,26 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
       ...cacheOptions,
     });
 
-    const items = Array.isArray(response.items)
-      ? response.items
-          .map(normalizeArticle)
-          .filter((article) => article.slug && article.title)
-          .filter((article) => matchesRequestedLocale(article.locale, params.locale))
-      : [];
+    const rawItems = Array.isArray(response.items) ? response.items : [];
+    const items = rawItems
+      .map(normalizeArticle)
+      .filter((article) => article.slug && article.title)
+      .filter((article) => isPublishedRevisionBackedArticle(article, params.locale));
+    const droppedItems = rawItems.length - items.length;
+    const responseTotal = typeof response.pagination?.total === "number" ? response.pagination.total : items.length;
+    const visibleTotal = droppedItems > 0 ? items.length : responseTotal;
+    const visibleLastPage =
+      droppedItems > 0
+        ? Math.max(1, Math.ceil(visibleTotal / requestedPerPage))
+        : (typeof response.pagination?.last_page === "number" ? response.pagination.last_page : 1);
 
     return {
       items,
       pagination: {
         currentPage: typeof response.pagination?.current_page === "number" ? response.pagination.current_page : requestedPage,
         perPage: typeof response.pagination?.per_page === "number" ? response.pagination.per_page : requestedPerPage,
-        total: typeof response.pagination?.total === "number" ? response.pagination.total : items.length,
-        lastPage: typeof response.pagination?.last_page === "number" ? response.pagination.last_page : 1,
+        total: visibleTotal,
+        lastPage: visibleLastPage,
       },
       landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
     };
@@ -664,7 +712,8 @@ export async function getCmsArticlesWithLastKnownGood(
     key: `articles:list:${locale}:${page}:${perPage}${related}${voice}`,
     load: () => getCmsArticles({ ...params, locale, page, perPage }),
     isUsable: (result) => result.items.length > 0,
-    useStaleOnUnusable: true,
+    useStaleOnUnusable: false,
+    useStaleOnError: false,
   });
 }
 
@@ -734,7 +783,8 @@ export async function listCmsArticlesForLlmsWithLastKnownGood(
     key: `articles:llms:${locale}:${perPage}`,
     load: () => listCmsArticlesForLlms({ locale, perPage }),
     isUsable: (entries) => entries.length > 0,
-    useStaleOnUnusable: true,
+    useStaleOnUnusable: false,
+    useStaleOnError: false,
   });
 }
 
@@ -761,6 +811,10 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
     }
 
     const article = normalizeArticle(response.article);
+    if (!isPublishedRevisionBackedArticle(article, locale)) {
+      return null;
+    }
+
     article.landingSurface = normalizeLandingSurface(response.landing_surface_v1 ?? null);
     article.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
     return article.slug && article.title ? article : null;
@@ -784,7 +838,8 @@ export async function getCmsArticleWithLastKnownGood(
     key: `articles:detail:${normalizedLocale}:${normalizedSlug}`,
     load: () => getCmsArticle(normalizedSlug, normalizedLocale),
     isUsable: (article) => Boolean(article?.slug && article.title),
-    useStaleOnUnusable: true,
+    useStaleOnUnusable: false,
+    useStaleOnError: false,
   });
 }
 
@@ -830,6 +885,7 @@ export async function getCmsArticleSeoWithLastKnownGood(
     key: `articles:seo:${normalizedLocale}:${normalizedSlug}`,
     load: () => getCmsArticleSeo(normalizedSlug, normalizedLocale),
     isUsable: (seo) => Boolean(seo?.meta.title && seo.meta.description),
-    useStaleOnUnusable: true,
+    useStaleOnUnusable: false,
+    useStaleOnError: false,
   });
 }

@@ -29,7 +29,6 @@ describe("public CMS surface LKG coverage", () => {
     const articleDetail = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
     const testDetail = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
     const contentPageRoute = read("app/(localized)/[locale]/contentPageRoute.tsx");
-    const helpIndex = read("app/(localized)/[locale]/help/page.tsx");
     const helpDetail = read("app/(localized)/[locale]/help/[slug]/page.tsx");
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
@@ -39,7 +38,6 @@ describe("public CMS surface LKG coverage", () => {
     expect(articleDetail).toContain("getCmsArticleSeoWithLastKnownGood");
     expect(testDetail).toContain("getCmsArticlesWithLastKnownGood");
     expect(contentPageRoute).toContain("getContentPageWithLastKnownGood");
-    expect(helpIndex).toContain("listContentPagesWithLastKnownGood");
     expect(helpDetail).toContain("getContentPageWithLastKnownGood");
     expect(llms).toContain("listCmsArticlesForLlmsWithLastKnownGood");
     expect(llms).toContain("listContentPagesWithLastKnownGood");
@@ -47,7 +45,7 @@ describe("public CMS surface LKG coverage", () => {
     expect(llmsFull).toContain("listContentPagesWithLastKnownGood");
   });
 
-  it("keeps stale article list data when a later fresh response is empty", async () => {
+  it("does not use stale article list data when a later fresh response is empty", async () => {
     const fetchMock = vi.fn(async () =>
       jsonResponse({
         ok: true,
@@ -60,6 +58,7 @@ describe("public CMS surface LKG coverage", () => {
             is_public: true,
             is_indexable: true,
             status: "published",
+            published_revision_id: 31,
           },
         ],
         pagination: {
@@ -91,14 +90,14 @@ describe("public CMS surface LKG coverage", () => {
     );
 
     await expect(getCmsArticlesWithLastKnownGood({ locale: "zh" })).resolves.toMatchObject({
-      source: "last-known-good",
-      stale: true,
-      error: expect.any(Error),
-      value: { items: [{ slug: "lkg-article" }] },
+      source: "fresh",
+      stale: false,
+      error: null,
+      value: { items: [] },
     });
   });
 
-  it("keeps stale article list data when the CMS API later fails", async () => {
+  it("does not use stale article list data when the CMS API later fails", async () => {
     const fetchMock = vi
       .fn()
       .mockResolvedValueOnce(
@@ -113,6 +112,7 @@ describe("public CMS surface LKG coverage", () => {
               is_public: true,
               is_indexable: true,
               status: "published",
+              published_revision_id: 41,
             },
           ],
           pagination: {
@@ -128,10 +128,6 @@ describe("public CMS surface LKG coverage", () => {
 
     await getCmsArticlesWithLastKnownGood({ locale: "en" });
 
-    await expect(getCmsArticlesWithLastKnownGood({ locale: "en" })).resolves.toMatchObject({
-      source: "last-known-good",
-      stale: true,
-      value: { items: [{ slug: "stable-article" }] },
-    });
+    await expect(getCmsArticlesWithLastKnownGood({ locale: "en" })).rejects.toThrow("cms unavailable");
   });
 });

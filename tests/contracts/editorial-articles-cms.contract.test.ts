@@ -69,6 +69,7 @@ describe("editorial article CMS contract", () => {
           status: "published",
           is_public: true,
           is_indexable: true,
+          published_revision_id: 17,
           published_at: "2026-04-18T00:00:00Z",
           category: {
             id: 1,

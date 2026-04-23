@@ -43,11 +43,13 @@ export async function withLastKnownGood<T>({
   load,
   isUsable = (value) => value !== null && value !== undefined,
   useStaleOnUnusable = false,
+  useStaleOnError = true,
 }: {
   key: string;
   load: () => Promise<T>;
   isUsable?: (value: T) => boolean;
   useStaleOnUnusable?: boolean;
+  useStaleOnError?: boolean;
 }): Promise<LastKnownGoodResult<T>> {
   try {
     const value = await load();
@@ -80,7 +82,7 @@ export async function withLastKnownGood<T>({
   } catch (error) {
     const entry = store.get(key) as LastKnownGoodEntry<T> | undefined;
 
-    if (!entry) {
+    if (!entry || !useStaleOnError) {
       throw error;
     }
 

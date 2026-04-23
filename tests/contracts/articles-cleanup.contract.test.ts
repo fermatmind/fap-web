@@ -42,6 +42,8 @@ describe("articles cleanup contract", () => {
                 title: "MBTI Basics",
                 is_public: true,
                 is_indexable: true,
+                status: "published",
+                published_revision_id: 1,
               },
             ],
             pagination: {
@@ -117,7 +119,6 @@ describe("articles cleanup contract", () => {
           canonical: "https://staging.fermatmind.com/en/articles/how-to-read-mbti-results",
           alternates: {
             en: "https://staging.fermatmind.com/en/articles/how-to-read-mbti-results",
-            "zh-CN": "https://staging.fermatmind.com/zh/articles/how-to-read-mbti-results",
           },
           og: {
             title: "How to Read MBTI Results",
@@ -147,7 +148,7 @@ describe("articles cleanup contract", () => {
     expect(normalized).not.toBeNull();
     expect(normalized?.meta.canonical).toBe("http://localhost:3000/zh/articles/how-to-read-mbti-results");
     expect(normalized?.meta.alternates.en).toBe("http://localhost:3000/en/articles/how-to-read-mbti-results");
-    expect(normalized?.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/articles/how-to-read-mbti-results");
+    expect(normalized?.meta.alternates["zh-CN"]).toBeNull();
     expect(normalized?.surface).toBeNull();
     expect((normalized?.jsonld as Record<string, unknown>).url).toBe(
       "http://localhost:3000/zh/articles/how-to-read-mbti-results"
@@ -176,6 +177,9 @@ describe("articles cleanup contract", () => {
               locale: "zh-CN",
               title: "如何解读 MBTI 结果",
               excerpt: "从结果到行动的最小路径。",
+              status: "published",
+              is_public: true,
+              published_revision_id: 11,
               is_indexable: true,
               updated_at: "2026-03-10T00:00:00Z",
             },
@@ -197,6 +201,9 @@ describe("articles cleanup contract", () => {
             locale: "zh-CN",
             title: "MBTI 常见误区",
             excerpt: "避免把类型结论当作定论。",
+            status: "published",
+            is_public: true,
+            published_revision_id: 12,
             is_indexable: false,
             updated_at: "2026-03-11T00:00:00Z",
           },
@@ -255,6 +262,171 @@ describe("articles cleanup contract", () => {
     expect(article).toBeNull();
   });
 
+  it("treats unpublished revision contract responses as unavailable instead of rendering them", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+
+      if (url.includes("/how-personality-shapes-attitude-toward-ai?")) {
+        return jsonResponse({
+          ok: true,
+          article: {
+            id: 24,
+            slug: "how-personality-shapes-attitude-toward-ai",
+            locale: "en",
+            title: "Human review draft must not render",
+            excerpt: "Draft only.",
+            content_md: "Draft body.",
+            status: "draft",
+            is_public: false,
+            is_indexable: false,
+            published_revision_id: null,
+          },
+        });
+      }
+
+      return jsonResponse({ ok: true, items: [] });
+    });
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(getCmsArticle("how-personality-shapes-attitude-toward-ai", "en")).resolves.toBeNull();
+  });
+
+  it("filters current 17 to 29 source and human-review sample slugs out of public article lists", async () => {
+    const sampleSlugs = [
+      "how-personality-shapes-attitude-toward-ai",
+      "which-love-script-fits-you-best",
+      "are-infj-men-rare-or-socially-silenced",
+      "best-valentines-date-by-personality-and-relationship-science",
+      "how-16-personality-types-talk-to-an-ai-coach",
+      "childhood-dream-job-still-shapes-career-choice",
+    ];
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      const isZh = url.includes("locale=zh-CN");
+
+      return jsonResponse({
+        ok: true,
+        items: sampleSlugs.map((slug, index) => ({
+          id: isZh ? 17 + index : 24 + index,
+          slug,
+          locale: isZh ? "zh-CN" : "en",
+          title: isZh ? `中文源文 ${index + 1}` : `English human review ${index + 1}`,
+          excerpt: "Draft only.",
+          content_md: "Draft body.",
+          status: "draft",
+          is_public: false,
+          is_indexable: false,
+          published_revision_id: null,
+        })),
+        pagination: {
+          current_page: 1,
+          per_page: 20,
+          total: sampleSlugs.length,
+          last_page: 1,
+        },
+      });
+    });
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(getCmsArticles({ locale: "zh" })).resolves.toMatchObject({
+      items: [],
+      pagination: {
+        total: 0,
+        lastPage: 1,
+      },
+    });
+    await expect(getCmsArticles({ locale: "en" })).resolves.toMatchObject({
+      items: [],
+      pagination: {
+        total: 0,
+        lastPage: 1,
+      },
+    });
+  });
+
+  it("accepts equivalent published revision pointer payload shapes without allowing draft rows", async () => {
+    const fetchMock = vi.fn(async () =>
+      jsonResponse({
+        ok: true,
+        items: [
+          {
+            slug: "snake-case-pointer",
+            locale: "zh-CN",
+            title: "Snake case pointer",
+            status: "Published",
+            is_public: true,
+            published_revision_id: "44",
+          },
+          {
+            slug: "camel-case-pointer",
+            locale: "zh-CN",
+            title: "Camel case pointer",
+            status: "published",
+            is_public: true,
+            publishedRevisionId: 45,
+          },
+          {
+            slug: "nested-pointer",
+            locale: "zh-CN",
+            title: "Nested pointer",
+            status: "published",
+            is_public: true,
+            published_revision: { id: 46 },
+          },
+          {
+            slug: "draft-with-pointer",
+            locale: "zh-CN",
+            title: "Draft with pointer",
+            status: "draft",
+            is_public: true,
+            published_revision_id: 47,
+          },
+        ],
+        pagination: {
+          current_page: 1,
+          per_page: 20,
+          total: 4,
+          last_page: 1,
+        },
+      })
+    );
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await getCmsArticles({ locale: "zh" });
+
+    expect(result.items.map((article) => [article.slug, article.publishedRevisionId])).toEqual([
+      ["snake-case-pointer", 44],
+      ["camel-case-pointer", 45],
+      ["nested-pointer", 46],
+    ]);
+    expect(result.items.map((article) => article.slug)).not.toContain("draft-with-pointer");
+    expect(result.pagination.total).toBe(3);
+  });
+
+  it("does not fabricate unpublished article alternates from slug parity", () => {
+    const normalized = normalizeArticleSeoPayload(
+      {
+        meta: {
+          title: "Published zh article",
+          description: "Only the zh sibling is published.",
+          canonical: "https://www.fermatmind.com/zh/articles/published-zh-only",
+          alternates: {
+            "zh-CN": "https://www.fermatmind.com/zh/articles/published-zh-only",
+          },
+        },
+        jsonld: null,
+      },
+      "zh",
+      "published-zh-only"
+    );
+
+    expect(normalized?.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/articles/published-zh-only");
+    expect(normalized?.meta.alternates.en).toBeNull();
+  });
+
   it("keeps cms empty article lists empty instead of using local blog content", async () => {
     const fetchMock = vi.fn(async () =>
       jsonResponse({
@@ -298,7 +470,9 @@ describe("articles cleanup contract", () => {
             related_test_slug: "mbti-personality-test-16-personality-types",
             voice: "tool",
             voice_order: 1,
+            status: "published",
             is_public: true,
+            published_revision_id: 21,
             is_indexable: true,
           },
         ],

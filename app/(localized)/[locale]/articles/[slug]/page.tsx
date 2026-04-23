@@ -7,7 +7,12 @@ import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
-import { getCmsArticleSeoWithLastKnownGood, getCmsArticleWithLastKnownGood, type CmsArticle } from "@/lib/cms/articles";
+import {
+  getCmsArticleSeoWithLastKnownGood,
+  getCmsArticleWithLastKnownGood,
+  type CmsArticle,
+  type CmsArticleSeoPayload,
+} from "@/lib/cms/articles";
 import { findLandingCta } from "@/lib/landing/landingSurface";
 import type { RelatedContentItem } from "@/lib/content";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
@@ -69,6 +74,20 @@ function normalizeArticleJsonLdAuthor(data: unknown): unknown | null {
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return localizedPath(`/articles/${slug}`, locale);
+}
+
+function articleAlternateLanguages(seo: CmsArticleSeoPayload | null): Record<string, string> {
+  const languages: Record<string, string> = {};
+
+  if (seo?.meta.alternates.en) {
+    languages.en = seo.meta.alternates.en;
+  }
+
+  if (seo?.meta.alternates["zh-CN"]) {
+    languages["zh-CN"] = seo.meta.alternates["zh-CN"];
+  }
+
+  return languages;
 }
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
@@ -151,11 +170,7 @@ export async function generateMetadata({
     alternates: {
       ...metadata.alternates,
       canonical,
-      languages: {
-        ...metadata.alternates?.languages,
-        en: seo?.meta.alternates.en ?? metadata.alternates?.languages?.en,
-        "zh-CN": seo?.meta.alternates["zh-CN"] ?? metadata.alternates?.languages?.["zh-CN"],
-      },
+      languages: articleAlternateLanguages(seo),
     },
     openGraph: {
       type: "article",

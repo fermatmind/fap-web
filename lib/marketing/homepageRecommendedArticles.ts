@@ -33,6 +33,10 @@ type RecommendedArticleRecord = {
   status?: unknown;
   is_public?: unknown;
   is_indexable?: unknown;
+  published_revision_id?: unknown;
+  publishedRevisionId?: unknown;
+  published_revision?: unknown;
+  publishedRevision?: unknown;
 };
 
 function asRecord(value: unknown): Record<string, unknown> | null {
@@ -51,6 +55,22 @@ function normalizeNullableText(value: unknown): string | null {
 function normalizePositiveInteger(value: unknown): number | null {
   const parsed = Number.parseInt(String(value ?? ""), 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+}
+
+function normalizeStatus(value: unknown): string {
+  return normalizeText(value).toLowerCase();
+}
+
+function normalizePublishedRevisionId(record: RecommendedArticleRecord): number | null {
+  const publishedRevision = asRecord(record.published_revision);
+  const publishedRevisionCamel = asRecord(record.publishedRevision);
+
+  return (
+    normalizePositiveInteger(record.published_revision_id) ??
+    normalizePositiveInteger(record.publishedRevisionId) ??
+    normalizePositiveInteger(publishedRevision?.id) ??
+    normalizePositiveInteger(publishedRevisionCamel?.id)
+  );
 }
 
 function normalizeArticleLocale(value: unknown, fallback: Locale): string {
@@ -138,6 +158,13 @@ function normalizeRecommendedArticle(value: unknown, locale: Locale): CmsArticle
   }
 
   const id = normalizePositiveInteger(record.id) ?? 0;
+  const publishedRevisionId = normalizePublishedRevisionId(record);
+  const status = normalizeStatus(record.status) || "published";
+  const isPublic = record.is_public !== false;
+
+  if (status !== "published" || !isPublic || publishedRevisionId === null) {
+    return null;
+  }
 
   return {
     id,
@@ -158,9 +185,10 @@ function normalizeRecommendedArticle(value: unknown, locale: Locale): CmsArticle
     relatedTestSlug: null,
     voice: null,
     voiceOrder: null,
-    status: normalizeText(record.status) || "published",
-    isPublic: record.is_public !== false,
+    status,
+    isPublic,
     isIndexable: record.is_indexable !== false,
+    publishedRevisionId,
     publishedAt: normalizeNullableText(record.published_at),
     scheduledAt: null,
     createdAt: normalizeNullableText(record.created_at),
