@@ -42,6 +42,17 @@ describe("Big Five v2 runtime consumer", () => {
 
     expect(hasUsableBig5ReportEngineV2(reportData)).toBe(true);
     expect(assembled.visibleSections.map((section) => section.key)).toEqual([...BIG5_V1_SECTION_KEYS]);
+    expect(assembled.visibleSections.map((section) => section.title)).toEqual([
+      "结果摘要",
+      "五维总览",
+      "五维深解",
+      "细分维度焦点",
+      "人格总览",
+      "相对参照",
+      "行动建议",
+      "方法与边界",
+    ]);
+    expect(assembled.visibleSections.map((section) => section.title)).not.toContain("Profile Summary");
     expect(assembled.visibleSections.every((section) => section.module_code === "big5_report_engine_v2")).toBe(true);
 
     const safeKinds = new Set<string>(BIG5_V1_SAFE_BLOCK_KINDS);

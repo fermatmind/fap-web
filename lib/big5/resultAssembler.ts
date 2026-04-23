@@ -11,6 +11,7 @@ import {
   BIG5_V1_SECTION_MICROCOPY,
   BIG5_V1_SHELL_MICROCOPY,
   BIG5_V1_STATE_MICROCOPY,
+  getBig5SectionDisplayCopy,
 } from "@/lib/big5/microcopy";
 import {
   BIG5_V1_SAFE_BLOCK_KINDS,
@@ -598,11 +599,12 @@ function assembleBig5SectionsFromReportEngineV2(
       if (blocks.length === 0) {
         return null;
       }
+      const displayCopy = getBig5SectionDisplayCopy(blueprint.section_key, locale);
 
       return {
         key: blueprint.section_key,
-        title: BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].title,
-        subtitle: BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].subtitle,
+        title: displayCopy.title,
+        subtitle: displayCopy.subtitle,
         order: blueprint.order,
         page_slot: blueprint.page_slot,
         access_level: blueprint.access_level,
@@ -685,7 +687,7 @@ function buildSyntheticBlocks(
     if (!headline) {
       return [];
     }
-    return [{ kind: "paragraph", title: BIG5_V1_SECTION_MICROCOPY.hero_summary.title, body: headline }];
+    return [{ kind: "paragraph", title: getBig5SectionDisplayCopy("hero_summary", locale).title, body: headline }];
   }
 
   if (blueprint.section_key === "domains_overview") {
@@ -866,7 +868,7 @@ function buildSyntheticBlocks(
     const blocks: ReportBlock[] = [
       {
         kind: "paragraph",
-        title: BIG5_V1_SECTION_MICROCOPY.core_portrait.title,
+        title: getBig5SectionDisplayCopy("core_portrait", locale).title,
         body: [
           headline,
           dominant.length > 0
@@ -923,7 +925,7 @@ function buildSyntheticBlocks(
     return [
       {
         kind: "paragraph",
-        title: BIG5_V1_SECTION_MICROCOPY.norms_comparison.title,
+        title: getBig5SectionDisplayCopy("norms_comparison", locale).title,
         body:
           normalizeText(reportData.norms?.status).toUpperCase() === "CALIBRATED"
             ? BIG5_NORMS_INTERPRETATION.context
@@ -968,7 +970,7 @@ function buildSyntheticBlocks(
     if (headline) {
       blocks.push({
         kind: "paragraph",
-        title: BIG5_V1_SECTION_MICROCOPY.action_plan.title,
+        title: getBig5SectionDisplayCopy("action_plan", locale).title,
         body: headline,
       });
     }
@@ -1035,7 +1037,7 @@ function buildSyntheticBlocks(
     if (bullets.length > 0) {
       blocks.push({
         kind: "bullets",
-        title: BIG5_V1_SECTION_MICROCOPY.methodology_and_access.title,
+        title: getBig5SectionDisplayCopy("methodology_and_access", locale).title,
         body: bullets.join("\n"),
       });
     }
@@ -1169,12 +1171,13 @@ function buildSectionFromBlueprint(
       .filter((block): block is ReportBlock => block !== null);
 
   let blocks = fallbackBlocks;
+  const displayCopy = getBig5SectionDisplayCopy(blueprint.section_key, locale);
   if (blocks.length === 0) {
     if (blueprint.empty_state_policy === "show_callout") {
       blocks = [
         {
           kind: "callout",
-          title: BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].title,
+          title: displayCopy.title,
           body: locale === "zh" ? "当前数据不足，暂无法展示该模块。" : "This section is temporarily unavailable for the current data.",
         },
       ];
@@ -1182,21 +1185,25 @@ function buildSectionFromBlueprint(
       blocks = [
         {
           kind: "paragraph",
-          title: BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].title,
-          body: BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].subtitle,
+          title: displayCopy.title,
+          body: displayCopy.subtitle,
         },
       ];
     }
   }
 
-  const title = normalizeText(rawSection?.title, BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].title, blueprint.title);
+  const title = locale === "zh"
+    ? displayCopy.title
+    : normalizeText(rawSection?.title, displayCopy.title, blueprint.title);
   const accessLevel = normalizeText(rawSection?.access_level, blueprint.access_level).toLowerCase();
   const lockedPreviewPolicy = blueprint.locked_preview_policy;
 
   return {
     key: blueprint.section_key,
     title,
-    subtitle: normalizeText(rawSection?.subtitle, BIG5_V1_SECTION_MICROCOPY[blueprint.section_key].subtitle, blueprint.subtitle),
+    subtitle: locale === "zh"
+      ? displayCopy.subtitle
+      : normalizeText(rawSection?.subtitle, displayCopy.subtitle, blueprint.subtitle),
     order: blueprint.order,
     page_slot: blueprint.page_slot,
     access_level: accessLevel || blueprint.access_level,

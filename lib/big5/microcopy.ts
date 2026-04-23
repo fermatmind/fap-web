@@ -51,6 +51,48 @@ export const BIG5_V1_SECTION_MICROCOPY: Record<Big5V1MicrocopySectionKey, Sectio
   },
 };
 
+export const BIG5_V1_SECTION_MICROCOPY_ZH: Record<Big5V1MicrocopySectionKey, SectionCopy> = {
+  hero_summary: {
+    title: "结果摘要",
+    subtitle: "用主轴、维度信号和报告入口快速进入这份结果。",
+  },
+  domains_overview: {
+    title: "五维总览",
+    subtitle: "按五个维度查看你的百分位位置与基础解释。",
+  },
+  domain_deep_dive: {
+    title: "五维深解",
+    subtitle: "逐维展开优势、代价和日常表现。",
+  },
+  facet_details: {
+    title: "细分维度焦点",
+    subtitle: "用 facet 异常与完整目录解释结构性偏离。",
+  },
+  core_portrait: {
+    title: "人格总览",
+    subtitle: "把主导维度与维度对撞组合成核心动力图。",
+  },
+  norms_comparison: {
+    title: "相对参照",
+    subtitle: "把当前分数放回常模和参考样本中理解。",
+  },
+  action_plan: {
+    title: "行动建议",
+    subtitle: "按工作、关系、恢复和成长场景落到下一步动作。",
+  },
+  methodology_and_access: {
+    title: "方法与边界",
+    subtitle: "说明测量边界、质量状态与结果使用方式。",
+  },
+};
+
+export function getBig5SectionDisplayCopy(
+  sectionKey: Big5V1MicrocopySectionKey,
+  locale: "en" | "zh"
+): SectionCopy {
+  return locale === "zh" ? BIG5_V1_SECTION_MICROCOPY_ZH[sectionKey] : BIG5_V1_SECTION_MICROCOPY[sectionKey];
+}
+
 export const BIG5_V1_STATE_MICROCOPY = {
   locked_preview: {
     title: "Unlock Full Insight",
