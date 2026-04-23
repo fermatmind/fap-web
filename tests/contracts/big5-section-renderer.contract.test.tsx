@@ -84,6 +84,30 @@ describe("big5 section renderer contract", () => {
     expect(screen.getByText("Dominant trait structure and calibrated profile framing.")).toBeInTheDocument();
   });
 
+  it("adds Big Five section anchors and a contents affordance without changing section keys", () => {
+    render(
+      <SectionRenderer
+        section={{
+          key: "action_plan",
+          title: "行动建议",
+          subtitle: "按场景落到下一步动作。",
+          order: 7,
+          page_slot: "page_7",
+          access_level: "free",
+          blocks: [{ kind: "paragraph", body: "先选择一个场景动作。" }],
+        }}
+        locked={false}
+        normsStatus="CALIBRATED"
+        locale="zh"
+        scaleCode="BIG5_OCEAN"
+      />
+    );
+
+    expect(screen.getByTestId("big5-section-action_plan")).toHaveAttribute("id", "big5-section-action_plan");
+    expect(screen.getByText("第 7 节 · 第 7 页")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "回到目录" })).toHaveAttribute("href", "#big5-on-this-page");
+  });
+
   it("uses section-specific locked preview description from assembler metadata", () => {
     render(
       <SectionRenderer

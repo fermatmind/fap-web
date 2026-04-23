@@ -35,6 +35,11 @@ function formatSectionKicker(section: Section, locale: "en" | "zh"): string {
   return parts.join(" · ");
 }
 
+function getSectionAnchorId(sectionKey: string): string {
+  const normalized = sectionKey.replace(/[^a-z0-9_-]+/gi, "-").toLowerCase();
+  return `big5-section-${normalized || "section"}`;
+}
+
 export function SectionRenderer({
   section,
   locked,
@@ -52,6 +57,12 @@ export function SectionRenderer({
 }) {
   const key = section.key ?? "unknown";
   const title = section.title ?? key;
+  const sectionId = getSectionAnchorId(key);
+  const isBigFive = scaleCode === "BIG5_OCEAN";
+  const sectionShellClassName = isBigFive
+    ? "scroll-mt-28 space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+    : "space-y-2";
+  const headerClassName = isBigFive ? "border-l-4 border-sky-300 pl-4" : "";
   const accessLevel = (section.access_level ?? "free").toString().toLowerCase();
   const isPaidSection = accessLevel === "paid";
   const blocks = Array.isArray(section.blocks) ? section.blocks : [];
@@ -69,10 +80,12 @@ export function SectionRenderer({
 
   if (locked && isPaidSection) {
     return (
-      <section className="space-y-2">
-        {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
-        <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-        {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
+      <section id={sectionId} data-testid={isBigFive ? sectionId : undefined} className={sectionShellClassName}>
+        <div className={headerClassName}>
+          {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
+          <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+          {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
+        </div>
         {previewBlocks.length > 0 ? (
           <div className="space-y-2 rounded-xl border border-slate-200 bg-slate-50/70 p-3">
             {previewBlocks.map((block, idx) => (
@@ -95,10 +108,12 @@ export function SectionRenderer({
 
   if (normsStatus === "MISSING" && (key === "domains_overview" || key === "facet_table" || key === "facet_details")) {
     return (
-      <section className="space-y-2">
-        {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
-        <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-        {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
+      <section id={sectionId} data-testid={isBigFive ? sectionId : undefined} className={sectionShellClassName}>
+        <div className={headerClassName}>
+          {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
+          <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+          {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
+        </div>
         <div className="rounded-xl border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
           {BIG5_V1_STATE_MICROCOPY.norms.missing}
         </div>
@@ -112,15 +127,22 @@ export function SectionRenderer({
   }
 
   return (
-    <section className="space-y-2">
-      {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
-      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-      {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
+    <section id={sectionId} data-testid={isBigFive ? sectionId : undefined} className={sectionShellClassName}>
+      <div className={headerClassName}>
+        {kicker ? <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{kicker}</p> : null}
+        <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+        {subtitle ? <p className="m-0 text-sm text-slate-600">{subtitle}</p> : null}
+      </div>
       <div className="space-y-2">
         {blocks.map((block, idx) => (
           <BlockRenderer key={`${key}-${idx}`} block={block} sectionKey={key} normsStatus={normsStatus} />
         ))}
       </div>
+      {isBigFive ? (
+        <a href="#big5-on-this-page" className="inline-flex text-sm font-medium text-sky-700 hover:text-sky-900">
+          {locale === "zh" ? "回到目录" : "Back to contents"}
+        </a>
+      ) : null}
     </section>
   );
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { DimensionBars } from "@/components/result/DimensionBars";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { OfferCard } from "@/components/big5/paywall/OfferCard";
 import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
@@ -99,6 +99,25 @@ function pickSectionTitles(sections: ReportSection[], limit = 3): string[] {
     }
   }
   return result;
+}
+
+function getSectionAnchorId(sectionKey: unknown): string {
+  const normalized = normalizeText(sectionKey, "section").replace(/[^a-z0-9_-]+/gi, "-").toLowerCase();
+  return `big5-section-${normalized || "section"}`;
+}
+
+function getFirstSentence(value: string): string {
+  const normalized = normalizeText(value);
+  if (!normalized) {
+    return "";
+  }
+
+  const match = normalized.match(/^(.{1,120}?[。！？.!?])\s*/);
+  return match?.[1] ?? normalized.slice(0, 120);
+}
+
+function getBig5CompareHref(locale: Locale): string {
+  return localizedPath("/history/big5/compare", locale);
 }
 
 function Big5ProjectionSummary({
@@ -287,15 +306,21 @@ export function Big5ResultShell({
 }) {
   const isZh = locale === "zh";
   const retakeHref = localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN}/take`, locale);
+  const historyHref = accessProjection?.actions.historyHref ?? localizedPath("/history/big5", locale);
+  const compareHref = getBig5CompareHref(locale);
+  const actionPlanHref = `#${getSectionAnchorId("action_plan")}`;
+  const toolsHref = "#big5-tools";
   const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
   const visibleTitles = pickSectionTitles(visibleSections, 4);
   const lockedTitles = pickSectionTitles(lockedSections, 4);
+  const tocSections = visibleSections.filter((section) => normalizeText(section.key, section.title));
+  const conciseHeroSummary = getFirstSentence(headline.summary);
   const previewSummary = isZh
     ? BIG5_V1_SHELL_MICROCOPY.hero.preview_summary_zh
     : BIG5_V1_SHELL_MICROCOPY.hero.preview_summary_en;
   const fullSummary = isZh
-    ? BIG5_V1_SHELL_MICROCOPY.hero.full_summary_zh
-    : BIG5_V1_SHELL_MICROCOPY.hero.full_summary_en;
+    ? "本页已按摘要、五维、facet、相对参照与行动建议组织成连续阅读路径。"
+    : "This page now organizes the summary, domains, facets, comparison, and actions into one reading path.";
 
   return (
     <div data-testid="big5-result-shell" className="space-y-8">
@@ -336,8 +361,10 @@ export function Big5ResultShell({
             {headline.supportingLine ? (
               <p className="m-0 text-lg font-medium text-slate-700">{headline.supportingLine}</p>
             ) : null}
-            {headline.summary ? (
-              <p className="m-0 max-w-3xl whitespace-pre-wrap text-base leading-8 text-slate-700">{headline.summary}</p>
+            {conciseHeroSummary ? (
+              <p data-testid="big5-shell-concise-summary" className="m-0 max-w-3xl text-base leading-8 text-slate-700">
+                {conciseHeroSummary}
+              </p>
             ) : null}
             {headline.rarity ? (
               <p className="m-0 text-sm text-slate-500">
@@ -419,26 +446,87 @@ export function Big5ResultShell({
 
       {projection ? <Big5ProjectionSummary locale={locale} projection={projection} /> : null}
 
-      <Card data-testid="big5-actions-card" className="border-slate-200 bg-white shadow-sm">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-xl text-slate-950">{isZh ? "继续使用这个结果" : "Continue with this result"}</CardTitle>
-        </CardHeader>
-        <CardContent className="flex flex-wrap items-center gap-3">
-          {pdfAttemptId ? (
-            <div data-testid="big5-pdf-entry">
-              <PdfDownloadButton
-                attemptId={pdfAttemptId}
-                locked={reportLocked}
-                accessProjection={accessProjection}
-                locale={locale}
-              />
+      <section id="big5-tools" data-testid="big5-actions-card" className="scroll-mt-24 space-y-4">
+        <div className="space-y-1">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            {isZh ? "结果之后" : "After the report"}
+          </p>
+          <h3 className="m-0 text-2xl font-semibold text-slate-950">
+            {isZh ? "继续怎么用这份结果" : "What to do next"}
+          </h3>
+        </div>
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+          <div data-testid="big5-pdf-entry" className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="m-0 text-sm font-semibold text-slate-950">{isZh ? "保存报告" : "Save report"}</p>
+            <p className="m-0 mt-1 min-h-10 text-sm leading-6 text-slate-600">
+              {isZh ? "下载当前结果的 PDF 版本，便于复盘和转发。" : "Download the current result as a PDF for review."}
+            </p>
+            {pdfAttemptId ? (
+              <div className="mt-3">
+                <PdfDownloadButton
+                  attemptId={pdfAttemptId}
+                  locked={reportLocked}
+                  accessProjection={accessProjection}
+                  locale={locale}
+                />
+              </div>
+            ) : null}
+          </div>
+          <div data-testid="big5-history-entry" className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="m-0 text-sm font-semibold text-slate-950">{isZh ? "查看历史" : "View history"}</p>
+            <p className="m-0 mt-1 min-h-10 text-sm leading-6 text-slate-600">
+              {isZh ? "把这次结果放回你的 Big Five 记录里看。" : "Review this result alongside your Big Five history."}
+            </p>
+            <Link href={historyHref} className={`${buttonVariants({ variant: "outline" })} mt-3`}>
+              {isZh ? "历史记录" : "History"}
+            </Link>
+          </div>
+          <div data-testid="big5-compare-entry" className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="m-0 text-sm font-semibold text-slate-950">{isZh ? "对比变化" : "Compare changes"}</p>
+            <p className="m-0 mt-1 min-h-10 text-sm leading-6 text-slate-600">
+              {isZh ? "对比近两次结果，观察稳定项与变化项。" : "Compare recent results to separate stable signals from change."}
+            </p>
+            <Link href={compareHref} className={`${buttonVariants({ variant: "outline" })} mt-3`}>
+              {isZh ? "对比近两次" : "Compare"}
+            </Link>
+          </div>
+          <div data-testid="big5-retake-entry" className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="m-0 text-sm font-semibold text-slate-950">{isZh ? "重新测一次" : "Retake"}</p>
+            <p className="m-0 mt-1 min-h-10 text-sm leading-6 text-slate-600">
+              {isZh ? "当状态或阶段变化后，用同一入口更新结果。" : "Use the same entry when your context has changed."}
+            </p>
+            <Link href={retakeHref} className={`${buttonVariants({ variant: "outline" })} mt-3`}>
+              {isZh ? "重新测试" : "Retake test"}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {tocSections.length > 0 ? (
+        <nav
+          id="big5-on-this-page"
+          data-testid="big5-on-this-page"
+          aria-label={isZh ? "本页目录" : "On this page"}
+          className="sticky top-3 z-10 rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-[0_14px_34px_rgba(15,23,42,0.08)] backdrop-blur"
+        >
+          <div className="flex flex-col gap-3 md:flex-row md:items-center">
+            <p className="m-0 shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {isZh ? "本页目录" : "On this page"}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {tocSections.map((section) => (
+                <Link
+                  key={`${section.key ?? section.title}-toc`}
+                  href={`#${getSectionAnchorId(section.key ?? section.title)}`}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:border-sky-300 hover:bg-sky-50 hover:text-sky-800"
+                >
+                  {normalizeText(section.title, section.key)}
+                </Link>
+              ))}
             </div>
-          ) : null}
-          <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
-            {isZh ? "重新测试" : "Retake test"}
-          </Link>
-        </CardContent>
-      </Card>
+          </div>
+        </nav>
+      ) : null}
 
       {visibleSections.length > 0 ? (
         <div data-testid="big5-sections" className="space-y-4">
@@ -454,6 +542,48 @@ export function Big5ResultShell({
           ))}
         </div>
       ) : null}
+
+      <section data-testid="big5-continuation-strip" className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="space-y-1">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            {isZh ? "下一步路径" : "Next steps"}
+          </p>
+          <h3 className="m-0 text-2xl font-semibold text-slate-950">
+            {isZh ? "把结果带回真实场景" : "Carry the result into real contexts"}
+          </h3>
+          <p className="m-0 text-sm leading-7 text-slate-600">
+            {isZh
+              ? "这不是新的业务入口，而是把已有 PDF、历史、对比和行动建议组织成连续使用路径。"
+              : "This uses the existing PDF, history, comparison, and action anchors as one continuation path."}
+          </p>
+        </div>
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+          <Link data-testid="big5-action-anchor-entry" href={actionPlanHref} className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-950 transition hover:border-emerald-300 hover:bg-emerald-100">
+            <span className="text-sm font-semibold">{isZh ? "回到行动建议" : "Return to actions"}</span>
+            <span className="mt-2 block text-sm leading-6 text-emerald-900">
+              {isZh ? "从工作、关系、恢复和成长的场景动作开始。" : "Start from workplace, relationships, recovery, and growth actions."}
+            </span>
+          </Link>
+          <Link href={historyHref} className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-900 transition hover:border-slate-300 hover:bg-white">
+            <span className="text-sm font-semibold">{isZh ? "历史轨迹" : "History"}</span>
+            <span className="mt-2 block text-sm leading-6 text-slate-600">
+              {isZh ? "查看本次结果在历史记录中的位置。" : "See where this result sits in your history."}
+            </span>
+          </Link>
+          <Link href={compareHref} className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-900 transition hover:border-slate-300 hover:bg-white">
+            <span className="text-sm font-semibold">{isZh ? "对比近两次" : "Compare recent results"}</span>
+            <span className="mt-2 block text-sm leading-6 text-slate-600">
+              {isZh ? "用对比判断哪些信号稳定、哪些可能受阶段影响。" : "Separate stable signals from stage-specific movement."}
+            </span>
+          </Link>
+          <Link href={toolsHref} className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-900 transition hover:border-slate-300 hover:bg-white">
+            <span className="text-sm font-semibold">{isZh ? "保存与复测" : "Save and retake"}</span>
+            <span className="mt-2 block text-sm leading-6 text-slate-600">
+              {isZh ? "回到工具区下载 PDF，或在阶段变化后重新测试。" : "Return to tools for PDF download or a later retake."}
+            </span>
+          </Link>
+        </div>
+      </section>
 
       {lockedSections.length > 0 ? (
         <div data-testid="big5-locked-sections" className="space-y-4">
