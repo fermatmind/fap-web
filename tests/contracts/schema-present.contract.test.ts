@@ -213,7 +213,8 @@ describe("schema injection contract", () => {
     expect(source).toContain("JsonLd");
     expect(source).toContain("buildWebPageJsonLd");
     expect(source).toContain("buildBreadcrumbJsonLd");
-    expect(source).toContain("getContentPageWithLastKnownGood");
+    expect(source).toContain("getContentPage(contentSlug(slug), locale)");
+    expect(source).not.toContain("getContentPageWithLastKnownGood");
     expect(source).not.toContain("buildFAQPageJsonLd");
   });
 
