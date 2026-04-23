@@ -3,6 +3,7 @@ import type { AnswerSurfaceRaw, LandingSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
 type PublicGatewaySurfaceResponse = {
   ok?: boolean;
@@ -24,7 +25,7 @@ async function getGateway(pathname: string, locale: Locale | string): Promise<Pu
     const response = await apiClient.get<PublicGatewaySurfaceResponse>(`${pathname}${buildQuery(locale)}`, {
       locale,
       skipAuth: true,
-      cache: "no-store",
+      ...PUBLIC_API_CACHE_OPTIONS,
     });
 
     return {

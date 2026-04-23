@@ -74,10 +74,10 @@ test("support center surfaces the self-serve entry points and they navigate to f
     )
   ).toBeVisible();
   await expect(page.getByTestId("support-quick-tools")).not.toContainText("Search");
-  await expect(page.getByTestId("support-topic-groups")).toContainText("Reports & orders");
-  await expect(page.getByTestId("support-topic-groups")).toContainText("Understand results");
-  await expect(page.getByTestId("support-topic-groups")).toContainText("Assessment science & boundaries");
-  await expect(page.getByTestId("support-topic-groups")).toContainText("Account & data");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("Frequently Asked Questions");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("About FermatMind");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("Our Team");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("Contact Support");
 
   for (const action of lifecycleQuickActionsEn) {
     await page.goto("/en/support");
@@ -95,10 +95,10 @@ test("support center exposes the Chinese support and trust IA", async ({ page })
   await expect(page.getByTestId("support-quick-tools")).toContainText("邮件偏好管理");
   await expect(page.getByTestId("support-quick-tools")).toContainText("退订通知邮件");
   await expect(page.getByTestId("support-quick-tools")).toContainText("隐私与数据说明");
-  await expect(page.getByTestId("support-topic-groups")).toContainText("报告与订单");
-  await expect(page.getByTestId("support-topic-groups")).toContainText("读懂结果");
-  await expect(page.getByTestId("support-topic-groups")).toContainText("测评科学与边界");
-  await expect(page.getByTestId("support-topic-groups")).toContainText("账户与数据");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("常见问题解答");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("关于 FermatMind");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("团队介绍");
+  await expect(page.getByTestId("support-topic-groups")).toContainText("联系支持");
 });
 
 test("all help detail pages render English content", async ({ page }) => {

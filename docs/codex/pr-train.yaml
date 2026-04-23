@@ -1835,3 +1835,35 @@ prs:
     cleanup:
       delete_remote_branch: true
       run_local_cleanup: true
+
+  - id: PR-NON-ARTICLE-MULTILINGUAL-PUBLIC-ROLLOUT-WEB
+    repo: fap-web
+    repo_path: /Users/rainie/Desktop/GitHub/fap-web
+    branch: codex/non-article-multilingual-public-rollout-web
+    base: main
+    depends_on: []
+    mode: execute
+    scope: >
+      Frontend half of non-article multilingual public rollout. Replace the
+      /support hub's local editorial copy with CMS/public API reads, add
+      dedicated public routes for support articles and interpretation guides,
+      remove last-known-good fallback from public content-page/help detail
+      reads, and add a token-gated content release revalidation endpoint. Do
+      not change article rendering, backend schemas, glossary/SLA/QA workflows,
+      or unrelated product/runtime surfaces.
+    checks:
+      - "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      - "pnpm eslint 'app/(localized)/[locale]/support/page.tsx' 'app/(localized)/[locale]/support/articles/[slug]/page.tsx' 'app/(localized)/[locale]/support/guides/[slug]/page.tsx' 'app/(localized)/[locale]/contentPageRoute.tsx' 'app/(localized)/[locale]/help/[slug]/page.tsx' app/api/content-release/revalidate/route.ts components/support/SupportTrustDetailTemplate.tsx lib/cms/supportTrust.ts lib/publicGateway.ts tests/contracts/public-surface-lkg-coverage.contract.test.ts tests/contracts/non-article-multilingual-rollout.contract.test.ts tests/e2e/help-center.spec.ts"
+      - "pnpm typecheck"
+      - "pnpm vitest run tests/contracts/public-surface-lkg-coverage.contract.test.ts tests/contracts/non-article-multilingual-rollout.contract.test.ts tests/contracts/site-footer-routing.contract.test.tsx"
+      - "NEXT_PUBLIC_API_URL=https://staging-api.fermatmind.com pnpm build"
+      - "git diff --check"
+    stop_if_changed_files_outside_scope: true
+    resume_policy: manual_only
+    merge_policy:
+      mode: github_checks_or_local_verify
+      local_verify_required: true
+      github_checks_required: false
+    cleanup:
+      delete_remote_branch: true
+      run_local_cleanup: true
