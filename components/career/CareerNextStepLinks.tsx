@@ -63,7 +63,7 @@ export function CareerNextStepLinks({ locale, summary, landingPath, testId }: Ca
       {summary.familyHubLinks.length > 0 ? (
         <div className="space-y-2">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "Family hub" : "Family hub"}
+            {locale === "zh" ? "职业族中心" : "Family hub"}
           </p>
           <ul className="m-0 space-y-2 pl-5 text-sm text-[var(--fm-text-muted)]">
             {summary.familyHubLinks.map((link) => (
@@ -83,7 +83,7 @@ export function CareerNextStepLinks({ locale, summary, landingPath, testId }: Ca
       {summary.jobDetailLinks.length > 0 ? (
         <div className="space-y-2">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "Related job pages" : "Related job pages"}
+            {locale === "zh" ? "相关职业页面" : "Related job pages"}
           </p>
           <ul className="m-0 space-y-2 pl-5 text-sm text-[var(--fm-text-muted)]">
             {summary.jobDetailLinks.map((link) => (

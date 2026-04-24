@@ -119,7 +119,7 @@ export default async function TopicsPage({
 
       <section className="space-y-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "Topics CMS" : "Topics CMS"}
+          {locale === "zh" ? "主题中心" : "Topics CMS"}
         </p>
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">
           {locale === "zh" ? "主题内容聚合" : "Topic clusters"}

@@ -22,18 +22,18 @@ function renderScoreValue(value: number | null): string {
 
 function getPathTypeLabel(locale: Locale, pathType: string): string {
   if (pathType === "bridge") {
-    return locale === "zh" ? "Bridge · 衔接路径" : "Bridge";
+    return locale === "zh" ? "衔接路径" : "Bridge";
   }
 
   if (pathType === "hedge") {
-    return locale === "zh" ? "Hedge · 风险对冲路径" : "Hedge";
+    return locale === "zh" ? "风险对冲路径" : "Hedge";
   }
 
   if (pathType === "stable_upside") {
-    return locale === "zh" ? "Stable upside · 稳健上行路径" : "Stable upside";
+    return locale === "zh" ? "稳健上行路径" : "Stable upside";
   }
 
-  return locale === "zh" ? `Custom path · ${pathType}` : `Custom path · ${pathType}`;
+  return locale === "zh" ? `自定义路径 · ${pathType}` : `Custom path · ${pathType}`;
 }
 
 function getPathTypeFocusCopy(locale: Locale, pathType: string): string {
@@ -168,7 +168,7 @@ export function CareerTransitionPathPanel({
           data-testid="career-transition-path-why"
         >
           <h3 className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "Why this path" : "Why this path"}
+            {locale === "zh" ? "为什么是这条路径" : "Why this path"}
           </h3>
           <p className="m-0 text-sm leading-7 text-[var(--fm-text)]">
             {transitionPath.whyThisPath ??
@@ -188,7 +188,7 @@ export function CareerTransitionPathPanel({
           data-testid="career-transition-path-loss"
         >
           <h3 className="m-0 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "What is lost" : "What is lost"}
+            {locale === "zh" ? "会失去什么" : "What is lost"}
           </h3>
           <p className="m-0 text-sm leading-7 text-[var(--fm-text)]">
             {transitionPath.whatIsLost ??
@@ -270,7 +270,7 @@ export function CareerTransitionPathPanel({
       <section className="grid gap-3 lg:grid-cols-2" data-testid="career-transition-path-codes">
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "Rationale codes" : "Rationale codes"}
+            {locale === "zh" ? "理由代码" : "Rationale codes"}
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
             {(transitionPath.rationaleCodes ?? []).length > 0 ? (
@@ -284,14 +284,14 @@ export function CareerTransitionPathPanel({
               ))
             ) : (
               <span className="text-sm text-[var(--fm-text-muted)]">
-                {locale === "zh" ? "暂无 rationale codes" : "No rationale codes"}
+                {locale === "zh" ? "暂无理由代码" : "No rationale codes"}
               </span>
             )}
           </div>
         </div>
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "Tradeoff codes" : "Tradeoff codes"}
+            {locale === "zh" ? "取舍代码" : "Tradeoff codes"}
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
             {(transitionPath.tradeoffCodes ?? []).length > 0 ? (
@@ -305,7 +305,7 @@ export function CareerTransitionPathPanel({
               ))
             ) : (
               <span className="text-sm text-[var(--fm-text-muted)]">
-                {locale === "zh" ? "暂无 tradeoff codes" : "No tradeoff codes"}
+                {locale === "zh" ? "暂无取舍代码" : "No tradeoff codes"}
               </span>
             )}
           </div>

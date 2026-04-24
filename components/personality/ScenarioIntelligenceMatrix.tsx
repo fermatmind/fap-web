@@ -75,7 +75,7 @@ export function ScenarioIntelligenceMatrix({
                 {card.topTypeCodes.join(" / ")}
               </p>
               <p className="hidden text-xs text-[var(--fm-text-muted)] sm:block">
-                {locale === "zh" ? "Family hints：" : "Family hints: "}
+                {locale === "zh" ? "类型族提示：" : "Family hints: "}
                 {card.familyHints.join(" / ")}
               </p>
               <p className="m-0 text-xs text-[var(--fm-text-muted)] sm:hidden">

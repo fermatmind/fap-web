@@ -103,7 +103,7 @@ export function CareerShortlistAction({
     });
 
     if (!response || response.ok !== true) {
-      setError(locale === "zh" ? "加入 Shortlist 失败，请稍后重试。" : "Failed to add shortlist item. Please retry.");
+      setError(locale === "zh" ? "加入候选清单失败，请稍后重试。" : "Failed to add shortlist item. Please retry.");
       setSaving(false);
       return;
     }

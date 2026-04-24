@@ -245,7 +245,7 @@ function buildMethodologyBlocks(locale: Locale): MethodologyBlock[] {
     },
     {
       key: "recommendation-depth",
-      title: locale === "zh" ? "第三步：把 recommendation 深页当作第二层判断" : "Step 3: Use recommendation detail as the second decision layer",
+      title: locale === "zh" ? "第三步：把职业推荐详情页当作第二层判断" : "Step 3: Use recommendation detail as the second decision layer",
       body:
         locale === "zh"
           ? "当人格方向、结构损耗和职业样板开始对齐时，再进入 recommendation 深页核对岗位、风险与继续路径，而不是在这里抢结论。"

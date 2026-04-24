@@ -30,7 +30,7 @@ export function CareerLifecycleOperationalPanel({
     >
       <div className="space-y-1">
         <h2 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">
-          {locale === "zh" ? "Lifecycle 操作面" : "Lifecycle operational panel"}
+          {locale === "zh" ? "生命周期操作面" : "Lifecycle operational panel"}
         </h2>
         <p className="m-0 text-sm text-[var(--fm-text-muted)]">
           {locale === "zh"
@@ -41,11 +41,11 @@ export function CareerLifecycleOperationalPanel({
 
       <div className="grid gap-3 md:grid-cols-4" data-testid="career-lifecycle-operational-metrics">
         <Metric
-          label={locale === "zh" ? "Timeline entries" : "Timeline entries"}
+          label={locale === "zh" ? "时间线条目" : "Timeline entries"}
           value={String(lifecycleOperational.timelineEntryCount ?? projectionTimeline?.entries.length ?? 0)}
         />
         <Metric
-          label={locale === "zh" ? "Delta" : "Delta"}
+          label={locale === "zh" ? "变化量" : "Delta"}
           value={
             lifecycleOperational.deltaAvailable || projectionDeltaSummary?.deltaAvailable
               ? locale === "zh"
@@ -57,11 +57,11 @@ export function CareerLifecycleOperationalPanel({
           }
         />
         <Metric
-          label={locale === "zh" ? "Lifecycle state" : "Lifecycle state"}
+          label={locale === "zh" ? "生命周期状态" : "Lifecycle state"}
           value={lifecycleOperational.lifecycleState ?? "baseline_only"}
         />
         <Metric
-          label={locale === "zh" ? "Closure state" : "Closure state"}
+          label={locale === "zh" ? "闭环状态" : "Closure state"}
           value={lifecycleOperational.closureState ?? "baseline_only"}
         />
       </div>

@@ -96,7 +96,7 @@ export function TrustStrip({
 
       {!compact && trustItems.length === 0 ? (
         <p className="m-0 mt-3 text-xs text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "暂无更多 provenance 字段。" : "No additional provenance fields."}
+          {locale === "zh" ? "暂无更多来源字段。" : "No additional provenance fields."}
         </p>
       ) : null}
     </div>
