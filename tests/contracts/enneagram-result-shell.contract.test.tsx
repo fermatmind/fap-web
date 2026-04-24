@@ -1,0 +1,711 @@
+import { render, screen, within } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
+import { EnneagramResultShell } from "@/components/result/enneagram/EnneagramResultShell";
+import { assembleEnneagramResultViewModel } from "@/lib/enneagram/resultAssembler";
+import type { ReportResponse } from "@/lib/api/v0_3";
+
+vi.mock("@/components/big5/pdf/PdfDownloadButton", () => ({
+  PdfDownloadButton: () => <button type="button">Download PDF</button>,
+}));
+
+function createV2ReportResponse({
+  formCode = "enneagram_likert_105",
+  scope = "clear",
+  extraModule,
+}: {
+  formCode?: "enneagram_likert_105" | "enneagram_forced_choice_144";
+  scope?: "clear" | "close_call" | "diffuse" | "low_quality";
+  extraModule?: Record<string, unknown>;
+} = {}): ReportResponse {
+  const isFc144 = formCode === "enneagram_forced_choice_144";
+  const overviewModules: Record<string, unknown>[] = [
+    {
+      module_key: "instant_summary",
+      kind: "summary_card",
+      visibility: "visible",
+      state: scope,
+      form_variant: "all",
+      content: {
+        title: "即时结论",
+        body: `body_for_${scope}`,
+        primary_candidate: isFc144 ? "5" : "1",
+        secondary_candidate: "6",
+        confidence_level: scope === "clear" ? "high_confidence" : scope,
+        interpretation_scope: scope,
+        form_badge: {
+          label: isFc144 ? "FC144 深度版" : "E105 标准版",
+          body: "same model != same score space",
+        },
+        top_candidates: [
+          { type: isFc144 ? "5" : "1", display_score: 88, candidate_role: "primary_candidate" },
+          { type: "6", display_score: 79, candidate_role: "second_candidate" },
+          { type: "9", display_score: 63, candidate_role: "third_candidate" },
+        ],
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "descriptive",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "top3_cards",
+      kind: "cards_grid",
+      visibility: "visible",
+      state: scope,
+      form_variant: "all",
+      content: {
+        cards: [
+          { type: isFc144 ? "5" : "1", candidate_role: "primary_candidate", display_score: 88, type_name_en: isFc144 ? "Type 5" : "Type 1", core_logic: "core 1" },
+          { type: "6", candidate_role: "second_candidate", display_score: 79, type_name_en: "Type 6", core_logic: "core 6" },
+          { type: "9", candidate_role: "third_candidate", display_score: 63, type_name_en: "Type 9", core_logic: "core 9" },
+        ],
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "descriptive",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "all9_profile",
+      kind: "profile_chart",
+      visibility: "visible",
+      state: scope,
+      form_variant: "all",
+      content: {
+        items: [
+          { type: "1", type_name_en: "Type 1", score_display: 88, rank: 1 },
+          { type: "2", type_name_en: "Type 2", score_display: 41, rank: 7 },
+          { type: "3", type_name_en: "Type 3", score_display: 49, rank: 5 },
+          { type: "4", type_name_en: "Type 4", score_display: 45, rank: 6 },
+          { type: "5", type_name_en: "Type 5", score_display: 54, rank: 4 },
+          { type: "6", type_name_en: "Type 6", score_display: 79, rank: 2 },
+          { type: "7", type_name_en: "Type 7", score_display: 28, rank: 9 },
+          { type: "8", type_name_en: "Type 8", score_display: 31, rank: 8 },
+          { type: "9", type_name_en: "Type 9", score_display: 63, rank: 3 },
+        ],
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "derived",
+        evidence_level: "computed",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "confidence_band_card",
+      kind: "summary_card",
+      visibility: "visible",
+      state: scope,
+      form_variant: "all",
+      content: {
+        confidence_level: scope,
+        confidence_label: scope === "clear" ? "high_confidence" : scope,
+        interpretation_scope: scope,
+        interpretation_reason: `reason_for_${scope}`,
+        quality_level: scope === "low_quality" ? "retest" : "unavailable",
+        low_quality_status: scope === "low_quality" ? "triggered_operational_signal" : "not_triggered_no_operational_signal",
+        policy_versions: {
+          close_call_rule_version: "close_call_rule.v1",
+        },
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "derived",
+        evidence_level: "computed",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "dominance_gap_card",
+      kind: "metrics_card",
+      visibility: "visible",
+      state: scope,
+      form_variant: "all",
+      content: {
+        dominance_gap_abs: 9,
+        dominance_gap_pct: 10.2,
+        normalized_gap: 0.41,
+        profile_entropy: 0.72,
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "derived",
+        evidence_level: "computed",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "close_call_card",
+      kind: "comparison_card",
+      visibility: scope === "close_call" ? "visible" : "collapsed",
+      state: scope,
+      form_variant: "all",
+      content: {
+        interpretation_scope: scope,
+        pair: scope === "close_call" ? { pair_key: "1_6", type_a: "1", type_b: "6", trigger_reason: "gap_below_threshold" } : null,
+        pair_entry: scope === "close_call" ? { core_motivation_difference: "motivation contrast" } : null,
+      },
+      data_refs: [],
+      registry_refs: scope === "close_call" ? ["enneagram_pair_registry:1_6"] : [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "descriptive",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "blind_spot_card",
+      kind: "placeholder_card",
+      visibility: "unavailable",
+      state: scope,
+      form_variant: "all",
+      content: {
+        status: "unavailable",
+        reason: "blind_spot_not_available",
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "descriptive",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "center_summary",
+      kind: "summary_card",
+      visibility: "unavailable",
+      state: scope,
+      form_variant: "all",
+      content: {
+        status: "unavailable",
+        reason: "center_scores_unavailable",
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "descriptive",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "stance_summary",
+      kind: "summary_card",
+      visibility: "unavailable",
+      state: scope,
+      form_variant: "all",
+      content: {
+        status: "unavailable",
+        reason: "stance_scores_unavailable",
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "descriptive",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "harmonic_summary",
+      kind: "summary_card",
+      visibility: "unavailable",
+      state: scope,
+      form_variant: "all",
+      content: {
+        status: "unavailable",
+        reason: "harmonic_scores_unavailable",
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "descriptive",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "wing_hint_visual",
+      kind: "summary_card",
+      visibility: "visible",
+      state: scope,
+      form_variant: "all",
+      content: {
+        left: "5",
+        right: "9",
+        strength: "soft",
+        boundary_copy: "not formal wing judgement",
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "theory_based",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "methodology_boundary_card",
+      kind: "boundary_card",
+      visibility: "visible",
+      state: scope,
+      form_variant: isFc144 ? "fc144" : "e105",
+      content: {
+        form_badge: {
+          label: isFc144 ? "FC144 深度版" : "E105 标准版",
+          body: "same model != same score space",
+        },
+        methodology_copy: isFc144 ? "forced choice method" : "likert method",
+        score_space_boundary: "same model != same score space",
+        non_diagnostic_boundary: "non diagnostic",
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "scaffold",
+        evidence_level: "descriptive",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "diffuse_boundary",
+      kind: "boundary_card",
+      visibility: scope === "diffuse" ? "visible" : "collapsed",
+      state: scope,
+      form_variant: "all",
+      content: {
+        title: "结果分散说明",
+        interpretation_scope: scope,
+        interpretation_reason: "entropy_high",
+        profile_entropy: 0.91,
+        dominance_gap_pct: 3.2,
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "derived",
+        evidence_level: "computed",
+      },
+      fallback_policy: "required",
+    },
+    {
+      module_key: "low_quality_boundary",
+      kind: "boundary_card",
+      visibility: scope === "low_quality" ? "visible" : "collapsed",
+      state: scope,
+      form_variant: "all",
+      content: {
+        title: "质量边界说明",
+        interpretation_scope: scope,
+        quality_level: "retest",
+        low_quality_status: scope === "low_quality" ? "triggered_operational_signal" : "not_triggered_no_operational_signal",
+        qc_flags: scope === "low_quality" ? ["speed_too_fast"] : [],
+        signal_limitation: "no_signal",
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "derived",
+        evidence_level: "computed",
+      },
+      fallback_policy: "required",
+    },
+    ...(extraModule ? [extraModule] : []),
+  ];
+
+  const reportV2 = {
+    schema_version: "enneagram.report.v2",
+    scale_code: "ENNEAGRAM",
+    form: {
+      form_code: formCode,
+      form_kind: isFc144 ? "forced_choice" : "likert",
+      methodology_variant: isFc144 ? "fc144_forced_choice" : "e105_standard",
+    },
+    registry: {
+      registry_version: "enneagram_registry.v1",
+      registry_release_hash: "sha256:registry-v2",
+      content_maturity: "scaffold",
+      release_id: "enneagram_registry_release.v1",
+    },
+    classification: {
+      interpretation_scope: scope,
+      confidence_level: scope === "clear" ? "high_confidence" : scope,
+      interpretation_reason: `reason_for_${scope}`,
+    },
+    pages: [
+      {
+        page_key: "page_1_result_overview",
+        title: "结果总览",
+        purpose: "首屏总览",
+        visibility: "visible",
+        source_registry_refs: [],
+        modules: overviewModules,
+      },
+      {
+        page_key: "page_2_work_reality",
+        title: "工作现实",
+        purpose: "work modules",
+        visibility: "visible",
+        source_registry_refs: [],
+        modules: [
+          {
+            module_key: "work_style_summary",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              title: "工作风格",
+              body: "work style scaffold",
+              type_summary: "summary",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+        ],
+      },
+      {
+        page_key: "page_3_growth_spectrum",
+        title: "成长光谱",
+        purpose: "growth modules",
+        visibility: "visible",
+        source_registry_refs: [],
+        modules: [
+          {
+            module_key: "state_spectrum",
+            kind: "state_spectrum",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              stable_expression: "stable expression",
+              average_expression: "average expression",
+              strained_expression: "strained expression",
+              recovery_action: "recovery action",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+        ],
+      },
+      {
+        page_key: "page_4_relationship_conflict",
+        title: "关系与冲突",
+        purpose: "relationship modules",
+        visibility: "visible",
+        source_registry_refs: [],
+        modules: [
+          {
+            module_key: "relationship_need",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              title: "关系需要",
+              body: "relationship need scaffold",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+        ],
+      },
+      {
+        page_key: "page_5_method_observation_next",
+        title: "方法、观察与下一步",
+        purpose: "method modules",
+        visibility: "visible",
+        source_registry_refs: [],
+        modules: [
+          {
+            module_key: "seven_day_observation",
+            kind: "observation_plan",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              interpretation_scope: scope,
+              steps: [
+                { day: 1, phase: "pattern", prompt: "notice a repeated pattern" },
+              ],
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "form_recommendation",
+            kind: "recommendation_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: isFc144 ? "fc144" : "e105",
+            content: {
+              recommendation_key: scope === "close_call" && !isFc144 ? "consider_fc144_followup" : "stay_with_current_form",
+              interpretation_scope: scope,
+              recommended_first_action: "next action hint",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "technical_note_link",
+            kind: "link_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              label: "技术说明",
+              technical_note_version: "unavailable",
+              sections: [{ section_key: "test_goal", title: "测试目标" }],
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+        ],
+      },
+    ],
+    modules: [],
+    provenance: {
+      projection_version: "enneagram_projection.v2",
+      report_schema_version: "enneagram.report.v2",
+      report_engine_version: "enneagram_report_engine.v2",
+      interpretation_context_id: "ctx_123",
+      content_release_hash: "sha256:content-v2",
+      content_snapshot_status: "unavailable_until_registry_pack",
+      registry_release_hash: "sha256:registry-v2",
+      close_call_rule_version: "close_call_rule.v1",
+      confidence_policy_version: "enneagram_confidence_policy.v1",
+      quality_policy_version: "enneagram_quality_policy.v1",
+    },
+  };
+
+  return {
+    ok: true,
+    attempt_id: "attempt-v2",
+    scale_code: "ENNEAGRAM",
+    locked: false,
+    variant: "full",
+    access_level: "full",
+    enneagram_form_v1: {
+      form_code: formCode,
+      label: isFc144 ? "144-question Forced-Choice" : "105-question Likert",
+      short_label: isFc144 ? "144Q Forced" : "105Q Likert",
+      question_count: isFc144 ? 144 : 105,
+      estimated_minutes: isFc144 ? 18 : 12,
+      scale_code: "ENNEAGRAM",
+    },
+    enneagram_report_v2: reportV2,
+    report: {
+      schema_version: "enneagram.report.v1",
+      scale_code: "ENNEAGRAM",
+      _meta: {
+        enneagram_report_v2: reportV2,
+      },
+    },
+  } as ReportResponse;
+}
+
+function renderShell(reportData: ReportResponse) {
+  const viewModel = assembleEnneagramResultViewModel({
+    reportData,
+    locale: "zh",
+    gate: { isFreeVariant: false },
+  });
+
+  return render(
+    <EnneagramResultShell
+      locale="zh"
+      attemptId="attempt-v2"
+      reportLocked={false}
+      accessProjection={null}
+      viewModel={viewModel}
+    />
+  );
+}
+
+describe("enneagram result shell contract", () => {
+  it("renders all five V2 pages from the backend payload", () => {
+    renderShell(createV2ReportResponse());
+
+    expect(screen.getByTestId("enneagram-v2-page-page_1_result_overview")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-v2-page-page_2_work_reality")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-v2-page-page_3_growth_spectrum")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-v2-page-page_4_relationship_conflict")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-v2-page-page_5_method_observation_next")).toBeInTheDocument();
+  });
+
+  it("renders close-call state with the close_call_card module", () => {
+    renderShell(createV2ReportResponse({ scope: "close_call" }));
+
+    const moduleNode = screen.getByTestId("enneagram-module-close-call-card");
+    expect(moduleNode).toBeInTheDocument();
+    expect(within(moduleNode).getByText(/1 vs 6/)).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-v2-interpretation-scope")).toHaveTextContent("close_call");
+  });
+
+  it("renders diffuse state with the diffuse boundary module", () => {
+    renderShell(createV2ReportResponse({ scope: "diffuse" }));
+
+    expect(screen.getByTestId("enneagram-module-diffuse-boundary")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-v2-summary-body")).toHaveTextContent("body_for_diffuse");
+  });
+
+  it("renders low-quality state with boundary copy and qc flags", () => {
+    renderShell(createV2ReportResponse({ scope: "low_quality" }));
+
+    const moduleNode = screen.getByTestId("enneagram-module-low-quality-boundary");
+    expect(moduleNode).toBeInTheDocument();
+    expect(within(moduleNode).getByText(/triggered_operational_signal/)).toBeInTheDocument();
+    expect(within(moduleNode).getByText(/speed_too_fast/)).toBeInTheDocument();
+  });
+
+  it("uses different form badges for E105 and FC144 while keeping one shell", () => {
+    const firstRender = renderShell(createV2ReportResponse({ formCode: "enneagram_likert_105" }));
+    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("E105 标准版");
+    firstRender.unmount();
+
+    renderShell(createV2ReportResponse({ formCode: "enneagram_forced_choice_144" }));
+    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("FC144 深度版");
+  });
+
+  it("renders all9 profile completeness and top3 cards", () => {
+    renderShell(createV2ReportResponse());
+
+    expect(screen.getByTestId("enneagram-v2-all9-profile-count")).toHaveTextContent("9");
+    const top3 = screen.getByTestId("enneagram-module-top3-cards");
+    expect(within(top3).getByText(/#1/)).toBeInTheDocument();
+    expect(within(top3).getByText("Type 6")).toBeInTheDocument();
+  });
+
+  it("keeps unknown modules safe with the generic fallback renderer", () => {
+    renderShell(
+      createV2ReportResponse({
+        extraModule: {
+          module_key: "unknown_future_module",
+          kind: "future_card",
+          visibility: "visible",
+          state: "clear",
+          form_variant: "all",
+          content: {
+            title: "Future module",
+            body: "This module is using the generic renderer.",
+          },
+          data_refs: [],
+          registry_refs: [],
+          provenance: {
+            projection_refs: [],
+            registry_refs: [],
+            policy_refs: [],
+            content_maturity: "scaffold",
+            evidence_level: "descriptive",
+          },
+          fallback_policy: "fallback_to_generic",
+        },
+      })
+    );
+
+    const moduleNode = screen.getByTestId("enneagram-module-unknown_future_module");
+    expect(moduleNode).toBeInTheDocument();
+    expect(moduleNode).toHaveTextContent("unknown_future_module");
+    expect(moduleNode).toHaveTextContent("当前模块使用通用渲染");
+  });
+});
