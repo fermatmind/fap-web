@@ -202,6 +202,8 @@ export type ResultResponse = {
   riasec_form_v1?: RiasecFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
+  enneagram_public_projection_v2?: Record<string, unknown> | null;
+  enneagram_report_v2?: Record<string, unknown> | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
@@ -821,6 +823,8 @@ export type ReportResponse = {
   riasec_form_v1?: RiasecFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
+  enneagram_public_projection_v2?: Record<string, unknown> | null;
+  enneagram_report_v2?: Record<string, unknown> | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
