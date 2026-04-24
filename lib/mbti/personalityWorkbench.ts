@@ -46,7 +46,7 @@ function buildSortOptions(locale: Locale): TypeWorkbenchSortOption[] {
     {
       key: "all",
       label: locale === "zh" ? "全部 16 型" : "All 16 types",
-      description: locale === "zh" ? "回到完整 inventory 顺序。" : "Reset to the full inventory order.",
+      description: locale === "zh" ? "回到完整清单顺序。" : "Reset to the full inventory order.",
     },
     {
       key: "stable",
@@ -56,7 +56,7 @@ function buildSortOptions(locale: Locale): TypeWorkbenchSortOption[] {
     {
       key: "recommendation",
       label: locale === "zh" ? "职业推荐优先" : "Recommendation-ready",
-      description: locale === "zh" ? "优先显示可直接进入 recommendation 的类型。" : "Prioritize types with direct recommendation routes.",
+      description: locale === "zh" ? "优先显示可直接进入职业推荐的类型。" : "Prioritize types with direct recommendation routes.",
     },
     {
       key: "analysts",

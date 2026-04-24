@@ -758,7 +758,7 @@ function buildSyntheticBlocks(
     if (focusFacetPool.length > 0) {
       blocks.push({
         kind: "paragraph",
-        title: locale === "zh" ? "重点 facets" : "Standout facets",
+        title: locale === "zh" ? "重点维度面" : "Standout facets",
         body:
           locale === "zh"
             ? "先看最突出的 3 个 facets 和最需要留意的 2 个 facets。这里不是在给你贴标签，而是在说明哪些细部倾向更容易在现实中跳出来。"
@@ -791,7 +791,7 @@ function buildSyntheticBlocks(
     if (sortedFacets.length > 0) {
       blocks.push({
         kind: "paragraph",
-        title: locale === "zh" ? "完整 glossary" : "Complete glossary",
+        title: locale === "zh" ? "完整术语表" : "Complete glossary",
         body:
           locale === "zh"
             ? "下面这部分保留全部 facets 的短释义和轻提示，用来帮助你快速定位每个细部倾向。"

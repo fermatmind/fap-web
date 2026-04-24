@@ -334,7 +334,7 @@ function renderLegacyCareerFitSection(section: CmsPersonalitySection, locale: Lo
       {workEnv ? (
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm text-[var(--fm-text-muted)]">
           <p className="m-0 font-medium text-[var(--fm-text)]">
-            {locale === "zh" ? "Best-fit environment" : "Best-fit environment"}
+            {locale === "zh" ? "最适合的环境" : "Best-fit environment"}
           </p>
           <p className="mb-0 mt-2">{workEnv}</p>
         </div>
@@ -342,7 +342,7 @@ function renderLegacyCareerFitSection(section: CmsPersonalitySection, locale: Lo
       {recommended.length > 0 ? (
         <div className="space-y-3">
           <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "Recommended roles" : "Recommended roles"}
+            {locale === "zh" ? "推荐角色" : "Recommended roles"}
           </h3>
           {renderGenericCards(recommended)}
         </div>
@@ -350,7 +350,7 @@ function renderLegacyCareerFitSection(section: CmsPersonalitySection, locale: Lo
       {avoid.length > 0 ? (
         <div className="space-y-3">
           <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
-            {locale === "zh" ? "Use caution with" : "Use caution with"}
+            {locale === "zh" ? "需要谨慎的方向" : "Use caution with"}
           </h3>
           {renderGenericCards(avoid)}
         </div>

@@ -76,11 +76,11 @@ export function CareerFeedbackPanel({
       data-testid={testId ?? "career-feedback-panel"}
     >
       <h3 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-        {locale === "zh" ? "反馈 check-in" : "Feedback check-in"}
+        {locale === "zh" ? "反馈复盘" : "Feedback check-in"}
       </h3>
       <form className="grid gap-3 md:grid-cols-3" onSubmit={onSubmit}>
         <label className="text-sm text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "Burnout" : "Burnout"}
+          {locale === "zh" ? "倦怠" : "Burnout"}
           <select
             className="mt-1 block w-full rounded-md border border-[var(--fm-border)] bg-white px-2 py-1"
             value={burnoutCheckin}
@@ -94,7 +94,7 @@ export function CareerFeedbackPanel({
           </select>
         </label>
         <label className="text-sm text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "Satisfaction" : "Satisfaction"}
+          {locale === "zh" ? "满意度" : "Satisfaction"}
           <select
             className="mt-1 block w-full rounded-md border border-[var(--fm-border)] bg-white px-2 py-1"
             value={careerSatisfaction}
@@ -108,7 +108,7 @@ export function CareerFeedbackPanel({
           </select>
         </label>
         <label className="text-sm text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "Switch urgency" : "Switch urgency"}
+          {locale === "zh" ? "转换紧迫度" : "Switch urgency"}
           <select
             className="mt-1 block w-full rounded-md border border-[var(--fm-border)] bg-white px-2 py-1"
             value={switchUrgency}

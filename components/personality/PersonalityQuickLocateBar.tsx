@@ -80,7 +80,7 @@ export function PersonalityQuickLocateBar({
               window.location.href = results[activeIndex].href;
             }
           }}
-          placeholder={locale === "zh" ? "例如 INTJ、Architect、Product Manager" : "Try INTJ, Architect, or Product Manager"}
+          placeholder={locale === "zh" ? "例如 INTJ、建筑师、产品经理" : "Try INTJ, Architect, or Product Manager"}
           className="w-full border-0 bg-transparent text-base text-[var(--fm-text)] outline-none"
           data-testid="personality-quick-locate-input"
         />

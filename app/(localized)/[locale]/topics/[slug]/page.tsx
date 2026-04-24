@@ -253,7 +253,7 @@ export default async function TopicDetailPage({
         >
           <div className="space-y-2">
             <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-              {locale === "zh" ? "MBTI 类型继续入口" : "MBTI type continue grid"}
+              {locale === "zh" ? "MBTI 类型延伸入口" : "MBTI type continue grid"}
             </h2>
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
               {locale === "zh"
@@ -348,7 +348,7 @@ export default async function TopicDetailPage({
                         {locale === "zh" ? "MBTI 主题页" : "MBTI topic hub"}
                       </Link>
                       <Link href={localizedPath("/help/faq", locale)} className="fm-help-chip-link">
-                        {locale === "zh" ? "帮助与 FAQ" : "Help and FAQ"}
+                        {locale === "zh" ? "帮助与常见问题" : "Help and FAQ"}
                       </Link>
                     </>
                   )}
@@ -373,23 +373,23 @@ export default async function TopicDetailPage({
         <div className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>{locale === "zh" ? "Topic summary" : "Topic summary"}</CardTitle>
+              <CardTitle>{locale === "zh" ? "主题摘要" : "Topic summary"}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
               <p className="m-0">
-                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Topic code" : "Topic code"}:</span>{" "}
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "主题代码" : "Topic code"}:</span>{" "}
                 {topic.topicCode || topic.slug}
               </p>
               <p className="m-0">
-                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Locale" : "Locale"}:</span>{" "}
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "语言" : "Locale"}:</span>{" "}
                 {topic.locale}
               </p>
               <p className="m-0">
-                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Canonical" : "Canonical"}:</span>{" "}
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "规范链接" : "Canonical"}:</span>{" "}
                 {canonicalUrl(canonicalPath)}
               </p>
               <p className="m-0">
-                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "Indexing" : "Indexing"}:</span>{" "}
+                <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "索引状态" : "Indexing"}:</span>{" "}
                 {normalizedSeo.meta.robots}
               </p>
             </CardContent>
@@ -397,15 +397,15 @@ export default async function TopicDetailPage({
 
           <Card>
             <CardHeader>
-              <CardTitle>{locale === "zh" ? "SEO snapshot" : "SEO snapshot"}</CardTitle>
+              <CardTitle>{locale === "zh" ? "SEO 快照" : "SEO snapshot"}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
               <div>
-                <p className="m-0 font-medium text-[var(--fm-text)]">Title</p>
+                <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "标题" : "Title"}</p>
                 <p className="mb-0 mt-1">{normalizedSeo.meta.title || "-"}</p>
               </div>
               <div>
-                <p className="m-0 font-medium text-[var(--fm-text)]">Description</p>
+                <p className="m-0 font-medium text-[var(--fm-text)]">{locale === "zh" ? "描述" : "Description"}</p>
                 <p className="mb-0 mt-1">{normalizedSeo.meta.description || "-"}</p>
               </div>
               <div>

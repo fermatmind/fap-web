@@ -129,13 +129,13 @@ export function CareerExplainabilityPanel({
       <div className="grid gap-3 md:grid-cols-3">
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "Subject kind" : "Subject kind"}
+            {locale === "zh" ? "对象类型" : "Subject kind"}
           </p>
           <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">{explainability.subjectKind}</p>
         </div>
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "Overall integrity" : "Overall integrity"}
+            {locale === "zh" ? "整体完整性" : "Overall integrity"}
           </p>
           <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">
             {explainability.integritySummary.integrityState ?? "unknown"}
@@ -143,7 +143,7 @@ export function CareerExplainabilityPanel({
         </div>
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "Claim boundary" : "Claim boundary"}
+            {locale === "zh" ? "结论边界" : "Claim boundary"}
           </p>
           <p className="m-0 mt-2 text-sm text-[var(--fm-text-muted)]">
             strong_claim: {String(explainability.claimPermissions.allow_strong_claim)}

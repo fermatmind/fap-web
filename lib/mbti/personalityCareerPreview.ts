@@ -83,7 +83,7 @@ function buildSignals(
   if (matchedJob?.salaryText) {
     signals.push({
       key: "salary",
-      label: locale === "zh" ? "Pay label" : "Pay label",
+      label: locale === "zh" ? "薪酬标签" : "Pay label",
       value: matchedJob.salaryText,
       tone: "neutral",
     });
@@ -92,7 +92,7 @@ function buildSignals(
   if (asset?.derived_signals.human_moat_tags[0]) {
     signals.push({
       key: "human-moat",
-      label: locale === "zh" ? "Human moat" : "Human moat",
+      label: locale === "zh" ? "人类护城河" : "Human moat",
       value: asset.derived_signals.human_moat_tags[0],
       tone: "positive",
     });
@@ -101,7 +101,7 @@ function buildSignals(
   if (asset?.derived_signals.work_structure_tags[0]) {
     signals.push({
       key: "work-structure",
-      label: locale === "zh" ? "Work structure" : "Work structure",
+      label: locale === "zh" ? "工作结构" : "Work structure",
       value: asset.derived_signals.work_structure_tags[0],
       tone: "neutral",
     });
@@ -110,7 +110,7 @@ function buildSignals(
   if (signals.length < 3 && detail.keywords[0]) {
     signals.push({
       key: "keyword",
-      label: locale === "zh" ? "Signal" : "Signal",
+      label: locale === "zh" ? "信号" : "Signal",
       value: detail.keywords[0],
       tone: "neutral",
     });

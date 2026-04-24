@@ -623,7 +623,7 @@ export default function ShareClient({
                 {widgetSurface.title || (locale === "zh" ? "结果主链摘要" : "Result-path summary")}
               </h2>
               <p className="m-0 text-sm leading-7 text-slate-600">
-                {widgetSurface.summary || (locale === "zh" ? "用同一条后端 authority 主链继续阅读与行动。" : "Continue reading and action from the same backend-owned authority chain.")}
+                {widgetSurface.summary || (locale === "zh" ? "用同一条后端权威主链继续阅读与行动。" : "Continue reading and action from the same backend-owned authority chain.")}
               </p>
             </div>
 
@@ -632,7 +632,7 @@ export default function ShareClient({
               className="mt-4 rounded-2xl border border-sky-100 bg-white/80 px-4 py-3 text-xs text-slate-600"
             >
               <p className="m-0 font-semibold text-slate-900">
-                {locale === "zh" ? "Host-aware widget contract" : "Host-aware widget contract"}
+                {locale === "zh" ? "宿主感知组件协议" : "Host-aware widget contract"}
               </p>
               <p className="m-0 mt-1">
                 {widgetSurface.hostMode || "card"}
@@ -698,7 +698,7 @@ export default function ShareClient({
                 className="mt-4 rounded-2xl border border-sky-100 bg-white/80 px-4 py-3 text-xs text-slate-600"
               >
                 <p className="m-0 font-semibold text-slate-900">
-                  {locale === "zh" ? "Partner-safe read" : "Partner-safe read"}
+                  {locale === "zh" ? "合作方安全读取" : "Partner-safe read"}
                 </p>
                 <p className="m-0 mt-1">
                   {partnerRead.graphScope || insightGraph.graphScope}

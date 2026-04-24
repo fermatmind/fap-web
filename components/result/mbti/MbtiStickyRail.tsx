@@ -174,7 +174,7 @@ export function MbtiStickyRail({
 
         <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_16px_30px_rgba(15,23,42,0.07)]">
           <p className="m-0 border-b border-slate-200 pb-3 text-sm font-semibold text-slate-900">
-            {locale === "zh" ? "On this page" : "On this page"}
+            {locale === "zh" ? "本页导航" : "On this page"}
           </p>
           <div className="mt-3 space-y-1">
             {MAIN_ANCHORS.map((item) => (
@@ -195,13 +195,13 @@ export function MbtiStickyRail({
               href="#offer-full"
               className="mt-1 flex items-center rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-slate-50"
             >
-              {locale === "zh" ? "Offer" : "Offer"}
+              {locale === "zh" ? "报告方案" : "Offer"}
             </a>
           </div>
         </div>
 
         <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-[0_16px_30px_rgba(15,23,42,0.07)]">
-          <p className="m-0 text-sm font-semibold text-slate-900">Tools</p>
+          <p className="m-0 text-sm font-semibold text-slate-900">{locale === "zh" ? "工具" : "Tools"}</p>
           <div className="mt-3 flex flex-col gap-2">
             <button
               type="button"

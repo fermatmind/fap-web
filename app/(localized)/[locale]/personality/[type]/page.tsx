@@ -368,7 +368,7 @@ export default async function PersonalityDetailPage({
     typeCode: detail.canonicalTypeCode,
   });
   const personalityHasGrowthScene = personalityScenarioDeepModules.some((module) => module.sceneKey === "growth_planning");
-  const personalityTypeContent = getMbtiPersonalityContent(detail.routeSlug, locale);
+  const personalityTypeContent = locale === "zh" ? getMbtiPersonalityContent(detail.routeSlug, locale) : null;
 
   const renderSceneBlock = (
     label: string,

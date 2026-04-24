@@ -154,7 +154,7 @@ export default function Big5HistoryClient() {
         : "This stays on the single history payload. Each row expands into a compact result-center card without extra /report or /report-access requests.",
     attempt: locale === "zh" ? "测试记录" : "Attempt",
     topDomains: locale === "zh" ? "主导维度" : "Lead domains",
-    topFacets: locale === "zh" ? "关键 facets" : "Key facets",
+    topFacets: locale === "zh" ? "关键维度面" : "Key facets",
     unlockHeading: locale === "zh" ? "解锁完整模块" : "Unlock full modules",
     unlockBody:
       locale === "zh"

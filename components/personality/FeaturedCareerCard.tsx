@@ -5,14 +5,14 @@ import type { CareerPreviewCard } from "@/lib/mbti/personalityHub.types";
 
 function renderStanceLabel(stance: CareerPreviewCard["stance"], locale: "en" | "zh") {
   if (stance === "recommended") {
-    return locale === "zh" ? "Recommended" : "Recommended";
+    return locale === "zh" ? "推荐" : "Recommended";
   }
 
   if (stance === "not_recommended") {
-    return locale === "zh" ? "Not recommended" : "Not recommended";
+    return locale === "zh" ? "不推荐" : "Not recommended";
   }
 
-  return locale === "zh" ? "Conditional" : "Conditional";
+  return locale === "zh" ? "有条件适合" : "Conditional";
 }
 
 function renderStanceClass(stance: CareerPreviewCard["stance"]) {
@@ -58,19 +58,19 @@ export function FeaturedCareerCard({
         <div className="space-y-3">
           <div className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-panel-muted-bg)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-hub-decision-green)]">
-              {locale === "zh" ? "Why this can fit" : "Why this can fit"}
+              {locale === "zh" ? "为什么可能适合" : "Why this can fit"}
             </p>
             <p className="mb-0 mt-2 text-sm leading-7 text-[var(--fm-text)]">{card.fitSummary}</p>
           </div>
           <div className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-hub-panel-muted-bg)] p-4">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-hub-friction-rose)]">
-              {locale === "zh" ? "Where it starts to drain" : "Where it starts to drain"}
+              {locale === "zh" ? "哪里会开始消耗" : "Where it starts to drain"}
             </p>
             <p className="mb-0 mt-2 text-sm leading-7 text-[var(--fm-text)]">{card.cautionSummary}</p>
           </div>
           <div className="space-y-2">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-              {locale === "zh" ? "Top matching types" : "Top matching types"}
+              {locale === "zh" ? "最匹配类型" : "Top matching types"}
             </p>
             <div className="flex flex-wrap gap-2 md:hidden">
               {mobileTopTypes.map((typeCode) => (

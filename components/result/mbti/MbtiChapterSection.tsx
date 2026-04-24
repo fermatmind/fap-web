@@ -1207,7 +1207,7 @@ function renderDesktopLockedOverlay({
           <div className="mx-auto mb-2 grid h-8 w-8 place-items-center rounded-full border border-emerald-300 bg-emerald-50 text-emerald-700">
             {locale === "zh" ? "🔒" : "🔒"}
           </div>
-          <p className="m-0 text-sm text-slate-700">{locale === "zh" ? "Unlock full section" : "Unlock full section"}</p>
+          <p className="m-0 text-sm text-slate-700">{locale === "zh" ? "解锁完整章节" : "Unlock full section"}</p>
           <a
             href="#offer-full"
             className={buttonVariants({
@@ -2038,7 +2038,7 @@ export function MbtiChapterSection({
         ) : (
           <section className="rounded-2xl border border-slate-200 bg-white p-5">
             <p className="m-0 text-sm font-semibold text-slate-900">
-              {locale === "zh" ? "Influential traits" : "Influential traits"}
+              {locale === "zh" ? "关键影响特质" : "Influential traits"}
             </p>
             <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {desktopInfluenceTraits.length > 0 ? (
