@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
 import { canDownloadReportPdf, type AttemptReportAccessView } from "@/lib/access/unifiedAccess";
-import { fetchAttemptReportPdf } from "@/lib/api/v0_3";
+import { fetchAttemptReportPdfWithMeta } from "@/lib/api/v0_3";
 
 async function wait(ms: number): Promise<void> {
   return new Promise((resolve) => {
@@ -19,6 +19,8 @@ export function PdfDownloadButton({
   onDownloaded,
   locale = "en",
   filenamePrefix = "big5-report",
+  filenameHint,
+  downloadLabel,
 }: {
   attemptId: string;
   locked: boolean;
@@ -26,6 +28,8 @@ export function PdfDownloadButton({
   onDownloaded?: () => void;
   locale?: "en" | "zh";
   filenamePrefix?: string;
+  filenameHint?: string | null;
+  downloadLabel?: string | null;
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -49,10 +53,13 @@ export function PdfDownloadButton({
 
     try {
       let blob: Blob | null = null;
+      let resolvedFilenameHint = filenameHint?.trim() || null;
 
       for (let i = 0; i < 6; i += 1) {
         try {
-          blob = await fetchAttemptReportPdf({ attemptId: resolvedAttemptId });
+          const response = await fetchAttemptReportPdfWithMeta({ attemptId: resolvedAttemptId });
+          blob = response.blob;
+          resolvedFilenameHint = response.filenameHint?.trim() || resolvedFilenameHint;
           if (blob.size > 0) break;
         } catch (cause) {
           if (i >= 5) throw cause;
@@ -67,7 +74,7 @@ export function PdfDownloadButton({
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = `${filenamePrefix}-${resolvedAttemptId}.pdf`;
+      anchor.download = resolvedFilenameHint || `${filenamePrefix}-${resolvedAttemptId}.pdf`;
       document.body.appendChild(anchor);
       anchor.click();
       anchor.remove();
@@ -84,9 +91,14 @@ export function PdfDownloadButton({
   return (
     <div className="space-y-2">
       <Button type="button" disabled={pdfLocked || loading} onClick={handleDownload}>
-        {pdfLocked ? copy.locked : loading ? copy.loading : copy.ready}
+        {pdfLocked ? copy.locked : loading ? copy.loading : resolvedButtonLabel(copy.ready, downloadLabel)}
       </Button>
       {error ? <Alert>{error}</Alert> : null}
     </div>
   );
+}
+
+function resolvedButtonLabel(defaultLabel: string, formLabel?: string | null): string {
+  const normalized = String(formLabel ?? "").trim();
+  return normalized ? `${defaultLabel} · ${normalized}` : defaultLabel;
 }

@@ -6,10 +6,12 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { Alert } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
+import EnneagramShareSummaryCard from "@/components/share/EnneagramShareSummaryCard";
 import MbtiShareSummaryCard from "@/components/share/MbtiShareSummaryCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getOrCreateAnonId } from "@/lib/anon";
 import { trackEvent } from "@/lib/analytics";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import {
   createMbtiCompareInvite,
   getShareSummary,
@@ -19,6 +21,8 @@ import {
 } from "@/lib/api/v0_3";
 import { captureError } from "@/lib/observability/sentry";
 import type { Locale } from "@/lib/i18n/locales";
+import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
+import { buildEnneagramShareViewModel } from "@/lib/enneagram/shareSurface";
 import {
   appendMbtiContinuityQuery,
   buildMbtiContinuityTelemetryFields,
@@ -135,6 +139,7 @@ export default function ShareClient({
   const utmQuery = useMemo(() => buildUtmQuery(utm), [utm]);
   const pageReferrer = typeof document === "undefined" ? undefined : document.referrer || undefined;
   const viewModel = useMemo(() => buildSharePageViewModel(data), [data]);
+  const enneagramShareViewModel = useMemo(() => buildEnneagramShareViewModel(data, locale), [data, locale]);
   const landingSurface = viewModel.landingSurface;
   const answerSurface = viewModel.answerSurface;
   const publicSurface = viewModel.publicSurface;
@@ -157,12 +162,16 @@ export default function ShareClient({
   const sharePublicVisualKind =
     shareScaleCode === "BIG5_OCEAN"
       ? "big5_share_public_surface"
+      : shareScaleCode === "ENNEAGRAM"
+        ? "enneagram_share_public_surface"
       : shareScaleCode === "RIASEC"
         ? "riasec_share_public_surface"
         : "mbti_share_public_surface";
   const shareContinueVisualKind =
     shareScaleCode === "BIG5_OCEAN"
       ? "big5_share_continue_entry"
+      : shareScaleCode === "ENNEAGRAM"
+        ? "enneagram_share_continue_entry"
       : shareScaleCode === "RIASEC"
         ? "riasec_share_continue_entry"
         : "mbti_share_continue_entry";
@@ -267,8 +276,17 @@ export default function ShareClient({
 
   const resolvedShareId = viewModel.shareId || shareId;
   const primaryCtaHref = useMemo(() => {
-    const fallbackPath = shareScaleCode === "RIASEC" ? RIASEC_TAKE_FALLBACK_PATH : MBTI_TAKE_FALLBACK_PATH;
-    const basePath = viewModel.primaryCtaPath || `/${locale}${fallbackPath}`;
+    const fallbackPath =
+      shareScaleCode === "ENNEAGRAM"
+        ? buildEnneagramTakeHref(
+            SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+            locale,
+            enneagramShareViewModel?.formCode ?? null
+          )
+        : shareScaleCode === "RIASEC"
+          ? RIASEC_TAKE_FALLBACK_PATH
+          : MBTI_TAKE_FALLBACK_PATH;
+    const basePath = viewModel.primaryCtaPath || (shareScaleCode === "ENNEAGRAM" ? fallbackPath : `/${locale}${fallbackPath}`);
     const attributedPath = buildAugmentedPath(basePath, {
       share_id: resolvedShareId,
       share_click_id: shareClickId ?? undefined,
@@ -278,29 +296,40 @@ export default function ShareClient({
       ...utmQuery,
     });
 
-    return appendMbtiContinuityQuery(attributedPath, viewModel.continuity);
-  }, [landingPath, locale, pageReferrer, resolvedShareId, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
+    return shareScaleCode === "MBTI"
+      ? appendMbtiContinuityQuery(attributedPath, viewModel.continuity)
+      : attributedPath;
+  }, [enneagramShareViewModel?.formCode, landingPath, locale, pageReferrer, resolvedShareId, shareClickId, shareScaleCode, utmQuery, viewModel.continuity, viewModel.primaryCtaPath]);
 
   const primaryContinueTarget = publicSurface?.continueReadingKeys[0] || "share_take_flow";
-  const publicSurfaceTelemetry = {
-    entrySurface: publicSurface?.entrySurface || "",
-    attributionScope: publicSurface?.attributionScope || "",
-    publicSummaryFingerprint: publicSurface?.publicSummaryFingerprint || "",
-    discoverabilityKeys: publicSurface?.discoverabilityKeys ?? [],
-  };
-  const partnerReadTelemetry = {
-    readScope: partnerRead?.readScope || "",
-    subjectScope: partnerRead?.subjectScope || "",
-    attributionScope:
-      partnerRead?.attributionScope || publicSurface?.attributionScope || "",
-  };
-  const widgetTelemetry = {
-    widgetScope: widgetSurface?.widgetScope || "",
-    widgetContractVersion: widgetSurface?.widgetContractVersion || "",
-    hostMode: widgetSurface?.hostMode || "",
-    slotKey: widgetSurface?.slotKey || "",
-    sizePreset: widgetSurface?.sizePreset || "",
-  };
+  const publicSurfaceTelemetry = useMemo(
+    () => ({
+      entrySurface: publicSurface?.entrySurface || "",
+      attributionScope: publicSurface?.attributionScope || "",
+      publicSummaryFingerprint: publicSurface?.publicSummaryFingerprint || "",
+      discoverabilityKeys: publicSurface?.discoverabilityKeys ?? [],
+    }),
+    [publicSurface]
+  );
+  const partnerReadTelemetry = useMemo(
+    () => ({
+      readScope: partnerRead?.readScope || "",
+      subjectScope: partnerRead?.subjectScope || "",
+      attributionScope:
+        partnerRead?.attributionScope || publicSurface?.attributionScope || "",
+    }),
+    [partnerRead, publicSurface]
+  );
+  const widgetTelemetry = useMemo(
+    () => ({
+      widgetScope: widgetSurface?.widgetScope || "",
+      widgetContractVersion: widgetSurface?.widgetContractVersion || "",
+      hostMode: widgetSurface?.hostMode || "",
+      slotKey: widgetSurface?.slotKey || "",
+      sizePreset: widgetSurface?.sizePreset || "",
+    }),
+    [widgetSurface]
+  );
 
   useEffect(() => {
     if (!viewModel.continuity || !primaryCtaHref || carryoverImpressionTrackedRef.current) {
@@ -501,42 +530,81 @@ export default function ShareClient({
 
   return (
     <>
-      <MbtiShareSummaryCard
-        locale={locale}
-        card={viewModel.card}
-        primaryActionHref={primaryCtaHref}
-        primaryActionLabel={viewModel.primaryCtaLabel}
-        onPrimaryActionClick={() => {
-          trackEvent("ui_card_interaction", {
-            slug: "share-page",
-            scale_code: shareScaleCode,
-            visual_kind: sharePublicVisualKind,
-            interaction: "return_to_test",
-            attempt_id: viewModel.attemptId || undefined,
-            ctaKey: "share_public_surface",
-            ctaRank: 1,
-            continueTarget: primaryContinueTarget,
-            typeCode: shareDisplayType || undefined,
-            ...publicSurfaceTelemetry,
-            locale,
-          });
-        }}
-        onLibraryActionClick={() => {
-          trackEvent("ui_card_interaction", {
-            slug: "share-page",
-            scale_code: shareScaleCode,
-            visual_kind: "share_browse_tests",
-            interaction: "continue_reading",
-            attempt_id: viewModel.attemptId || undefined,
-            ctaKey: "share_browse_tests",
-            ctaRank: 2,
-            continueTarget: "tests_library",
-            typeCode: shareDisplayType || undefined,
-            ...publicSurfaceTelemetry,
-            locale,
-          });
-        }}
-      />
+      {shareScaleCode === "ENNEAGRAM" && enneagramShareViewModel ? (
+        <EnneagramShareSummaryCard
+          locale={locale}
+          viewModel={enneagramShareViewModel}
+          primaryActionHref={primaryCtaHref}
+          primaryActionLabel={viewModel.primaryCtaLabel || (locale === "zh" ? "开始九型测试" : "Start Enneagram test")}
+          onPrimaryActionClick={() => {
+            trackEvent("ui_card_interaction", {
+              slug: "share-page",
+              scale_code: shareScaleCode,
+              visual_kind: sharePublicVisualKind,
+              interaction: "return_to_test",
+              attempt_id: viewModel.attemptId || undefined,
+              ctaKey: "share_public_surface",
+              ctaRank: 1,
+              continueTarget: primaryContinueTarget,
+              typeCode: shareDisplayType || undefined,
+              ...publicSurfaceTelemetry,
+              locale,
+            });
+          }}
+          onLibraryActionClick={() => {
+            trackEvent("ui_card_interaction", {
+              slug: "share-page",
+              scale_code: shareScaleCode,
+              visual_kind: "share_browse_tests",
+              interaction: "continue_reading",
+              attempt_id: viewModel.attemptId || undefined,
+              ctaKey: "share_browse_tests",
+              ctaRank: 2,
+              continueTarget: "tests_library",
+              typeCode: shareDisplayType || undefined,
+              ...publicSurfaceTelemetry,
+              locale,
+            });
+          }}
+        />
+      ) : (
+        <MbtiShareSummaryCard
+          locale={locale}
+          card={viewModel.card}
+          primaryActionHref={primaryCtaHref}
+          primaryActionLabel={viewModel.primaryCtaLabel}
+          onPrimaryActionClick={() => {
+            trackEvent("ui_card_interaction", {
+              slug: "share-page",
+              scale_code: shareScaleCode,
+              visual_kind: sharePublicVisualKind,
+              interaction: "return_to_test",
+              attempt_id: viewModel.attemptId || undefined,
+              ctaKey: "share_public_surface",
+              ctaRank: 1,
+              continueTarget: primaryContinueTarget,
+              typeCode: shareDisplayType || undefined,
+              ...publicSurfaceTelemetry,
+              locale,
+            });
+          }}
+          onLibraryActionClick={() => {
+            trackEvent("ui_card_interaction", {
+              slug: "share-page",
+              scale_code: shareScaleCode,
+              visual_kind: "share_browse_tests",
+              interaction: "continue_reading",
+              attempt_id: viewModel.attemptId || undefined,
+              ctaKey: "share_browse_tests",
+              ctaRank: 2,
+              continueTarget: "tests_library",
+              typeCode: shareDisplayType || undefined,
+              ...publicSurfaceTelemetry,
+              locale,
+            });
+          }}
+        />
+      )}
 
       {landingSurface?.ctaBundle.length || landingSurface?.summaryBlocks.length ? (
         <section className="mx-auto -mt-2 w-full max-w-5xl px-4 pb-4 md:px-6" data-testid="share-landing-surface">
