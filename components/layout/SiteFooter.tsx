@@ -28,7 +28,7 @@ export function SiteFooter() {
     locale === "zh"
       ? {
           testsTitle: "热门测评",
-          articlesTitle: "全部文章",
+          articlesTitle: "内容与指南",
           companyTitle: "公司",
           policiesTitle: "条款与政策",
           tailnote: "测量自己，看见职业，训练未来。",
@@ -52,7 +52,7 @@ export function SiteFooter() {
 
   const articleLinks =
     locale === "zh"
-      ? [{ href: "/articles/mbti-basics", label: "MBTI Basics" }]
+      ? [{ href: "/articles", label: "全部文章" }]
       : [
           { href: "/articles", label: "All articles" },
           { href: "/articles/mbti-basics", label: "MBTI Basics" },
