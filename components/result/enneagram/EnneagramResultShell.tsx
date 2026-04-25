@@ -19,6 +19,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
+import { resolveEnneagramTechnicalNoteHref } from "@/lib/enneagram/technicalNote";
 import type {
   EnneagramReportV2Module,
   EnneagramReportV2Page,
@@ -950,6 +951,10 @@ function renderModule(
       );
     case "technical_note_link": {
       const sections = moduleArray(module, "sections");
+      const technicalNoteHref = resolveEnneagramTechnicalNoteHref(
+        moduleText(module, "href") || moduleText(module, "path") || moduleText(module, "url"),
+        locale
+      );
       return (
         <ModuleCard title={moduleText(module, "label") || (isZh ? "技术说明" : "Technical note")} testId="enneagram-module-technical-note-link">
           <p className="m-0 text-sm text-slate-700">
@@ -962,6 +967,13 @@ function renderModule(
               ))}
             </ul>
           ) : null}
+          <Link
+            href={technicalNoteHref}
+            className={buttonVariants({ variant: "outline" })}
+            data-testid="enneagram-technical-note-link"
+          >
+            {isZh ? "阅读技术说明" : "Open Technical Note"}
+          </Link>
         </ModuleCard>
       );
     }

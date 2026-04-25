@@ -750,4 +750,12 @@ describe("enneagram result shell contract", () => {
     expect(moduleNode).toHaveTextContent("unknown_future_module");
     expect(moduleNode).toHaveTextContent("当前模块使用通用渲染");
   });
+
+  it("links the technical note module to the dedicated technical note page", async () => {
+    await renderShell(createV2ReportResponse());
+
+    const link = screen.getByTestId("enneagram-technical-note-link");
+    expect(link).toHaveAttribute("href", "/zh/tests/enneagram-personality-test-nine-types/technical-note");
+    expect(link).toHaveTextContent("阅读技术说明");
+  });
 });
