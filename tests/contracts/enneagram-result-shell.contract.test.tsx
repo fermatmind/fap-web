@@ -457,6 +457,14 @@ function createV2ReportResponse({
               title: "工作风格",
               body: "work style scaffold",
               type_summary: "work mechanism scaffold",
+              list_groups: [
+                {
+                  label_key: "ideal_environment",
+                  items: [
+                    { title: "clear boundaries", body: "ideal environment scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -479,6 +487,89 @@ function createV2ReportResponse({
               title: "协作优势",
               body: "strength scaffold",
               type_summary: "work advantage",
+              list_groups: [
+                {
+                  label_key: "work_strengths",
+                  items: [
+                    { title: "steady value", body: "work strength scaffold" },
+                    { title: "quality control", body: "second work strength scaffold" },
+                    { title: "systems thinking", body: "third work strength scaffold" },
+                    { title: "clean execution", body: "fourth work strength scaffold" },
+                  ],
+                },
+              ],
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "collaboration_friction",
+            kind: "scenario_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              title: "协作摩擦点",
+              body: "friction scaffold",
+              type_summary: "internal tension scaffold",
+              list_groups: [
+                {
+                  label_key: "work_friction_points",
+                  items: [
+                    { title: "over-correcting", body: "friction point scaffold" },
+                    { title: "too rigid", body: "second friction point scaffold" },
+                    { title: "recheck loop", body: "third friction point scaffold" },
+                    { title: "hard to release", body: "fourth friction point scaffold" },
+                  ],
+                },
+              ],
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "managed_by_others",
+            kind: "scenario_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              title: "被管理时更顺畅的方式",
+              body: "managed by others scaffold",
+              type_summary: "relationship summary scaffold",
+              list_groups: [
+                {
+                  label_key: "collaboration_manual",
+                  items: [
+                    { title: "say priorities", body: "collaboration manual scaffold" },
+                    { title: "name tradeoffs", body: "second collaboration manual scaffold" },
+                    { title: "allow enough", body: "third collaboration manual scaffold" },
+                  ],
+                },
+                {
+                  label_key: "managed_by_others",
+                  items: [
+                    { title: "clear expectations", body: "managed by others scaffold" },
+                    { title: "stable feedback", body: "second managed by others scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -493,13 +584,20 @@ function createV2ReportResponse({
           },
           {
             module_key: "workplace_trigger_points",
-            kind: "placeholder_card",
-            visibility: "placeholder",
+            kind: "summary_card",
+            visibility: "visible",
             state: scope,
             form_variant: "all",
             content: {
-              status: "placeholder",
-              reason: "registry_entry_not_shipped_for_workplace",
+              list_groups: [
+                {
+                  label_key: "workplace_trigger_points",
+                  items: [
+                    { title: "changing rules", body: "workplace trigger scaffold" },
+                    { title: "ignored risks", body: "second workplace trigger scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -533,6 +631,17 @@ function createV2ReportResponse({
               deep_dive_detail: "growth principle scaffold",
               type_name_cn: "完美型",
               type_name_en: "The Reformer",
+              list_groups: [
+                {
+                  label_key: "growth_strengths",
+                  items: [
+                    { title: "clear standards", body: "growth strength scaffold" },
+                    { title: "reliable judgment", body: "second growth strength scaffold" },
+                    { title: "system care", body: "third growth strength scaffold" },
+                    { title: "steady follow-through", body: "fourth growth strength scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -555,6 +664,17 @@ function createV2ReportResponse({
               value: "stress signal scaffold",
               type_name_cn: "完美型",
               type_name_en: "The Reformer",
+              list_groups: [
+                {
+                  label_key: "early_warning_signs",
+                  items: [
+                    { title: "recheck loop", body: "early warning scaffold" },
+                    { title: "short fuse", body: "second early warning scaffold" },
+                    { title: "body tension", body: "third early warning scaffold" },
+                    { title: "low satisfaction", body: "fourth early warning scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -581,6 +701,17 @@ function createV2ReportResponse({
               stress_signal: "stress signal scaffold",
               growth_principle: "growth principle scaffold",
               thirty_day_experiment: "thirty day experiment scaffold",
+              list_groups: [
+                {
+                  label_key: "early_warning_signs",
+                  items: [
+                    { title: "recheck loop", body: "early warning scaffold" },
+                    { title: "short fuse", body: "second early warning scaffold" },
+                    { title: "body tension", body: "third early warning scaffold" },
+                    { title: "low satisfaction", body: "fourth early warning scaffold" },
+                  ],
+                },
+              ],
               disclaimer: "not a hard health-level judgement",
             },
             data_refs: [],
@@ -605,6 +736,24 @@ function createV2ReportResponse({
               type_recovery_action: "type recovery action scaffold",
               growth_principle: "growth principle scaffold",
               thirty_day_experiment: "thirty day experiment scaffold",
+              list_groups: [
+                {
+                  label_key: "recovery_protocol",
+                  items: [
+                    { title: "sort priorities", body: "recovery protocol scaffold" },
+                    { title: "allow enough", body: "second recovery protocol scaffold" },
+                    { title: "reset body", body: "third recovery protocol scaffold" },
+                  ],
+                },
+                {
+                  label_key: "small_experiments",
+                  items: [
+                    { title: "key issue only", body: "small experiment scaffold" },
+                    { title: "invite not correct", body: "second small experiment scaffold" },
+                    { title: "log enough", body: "third small experiment scaffold" },
+                  ],
+                },
+              ],
               disclaimer: "not a hard health-level judgement",
             },
             data_refs: [],
@@ -635,6 +784,57 @@ function createV2ReportResponse({
                 },
               ],
               status: "available",
+              list_groups: [
+                {
+                  label_key: "growth_strengths",
+                  items: [
+                    { title: "clear standards", body: "growth strength scaffold" },
+                    { title: "reliable judgment", body: "second growth strength scaffold" },
+                    { title: "system care", body: "third growth strength scaffold" },
+                    { title: "steady follow-through", body: "fourth growth strength scaffold" },
+                  ],
+                },
+              ],
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "theory_based",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "cost_expression",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              items: [
+                {
+                  group_ref: "stance:compliant",
+                  group_type: "stance",
+                  group_key: "compliant",
+                  description: "compliant description",
+                  value: "cost expression body",
+                },
+              ],
+              status: "available",
+              list_groups: [
+                {
+                  label_key: "growth_costs",
+                  items: [
+                    { title: "over-control", body: "growth cost scaffold" },
+                    { title: "too tense", body: "second growth cost scaffold" },
+                    { title: "emotion hidden", body: "third growth cost scaffold" },
+                    { title: "relationship strain", body: "fourth growth cost scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -666,6 +866,15 @@ function createV2ReportResponse({
               title: "关系需要",
               body: "relationship need scaffold",
               type_summary: "relationship script scaffold",
+              list_groups: [
+                {
+                  label_key: "partner_facing_notes",
+                  items: [
+                    { title: "responsibility is care", body: "partner note scaffold" },
+                    { title: "clarity helps", body: "second partner note scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -679,6 +888,72 @@ function createV2ReportResponse({
             fallback_policy: "required",
           },
           {
+            module_key: "relationship_strengths",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              value: "relationship strength summary scaffold",
+              type_name_cn: "完美型",
+              type_name_en: "The Reformer",
+              list_groups: [
+                {
+                  label_key: "relationship_strengths",
+                  items: [
+                    { title: "reliable", body: "relationship strength scaffold" },
+                    { title: "serious about issues", body: "second relationship strength scaffold" },
+                    { title: "clear boundaries", body: "third relationship strength scaffold" },
+                    { title: "care through action", body: "fourth relationship strength scaffold" },
+                  ],
+                },
+              ],
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "theory_based",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "misread_by_others",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              value: "misread scaffold",
+              type_name_cn: "完美型",
+              type_name_en: "The Reformer",
+              list_groups: [
+                {
+                  label_key: "relationship_traps",
+                  items: [
+                    { title: "sounds critical", body: "relationship trap scaffold" },
+                    { title: "hard to soften", body: "second relationship trap scaffold" },
+                    { title: "turns care into fixing", body: "third relationship trap scaffold" },
+                    { title: "builds pressure", body: "fourth relationship trap scaffold" },
+                  ],
+                },
+              ],
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "theory_based",
+            },
+            fallback_policy: "required",
+          },
+          {
             module_key: "conflict_script",
             kind: "scenario_card",
             visibility: "visible",
@@ -688,6 +963,24 @@ function createV2ReportResponse({
               title: "冲突脚本",
               body: "conflict script body",
               type_summary: "conflict pattern scaffold",
+              list_groups: [
+                {
+                  label_key: "conflict_trigger_points",
+                  items: [
+                    { title: "missed promises", body: "conflict trigger scaffold" },
+                    { title: "moving standards", body: "second conflict trigger scaffold" },
+                    { title: "problem minimised", body: "third conflict trigger scaffold" },
+                  ],
+                },
+                {
+                  label_key: "repair_language",
+                  items: [
+                    { title: "not trying to pick on you", body: "repair language scaffold" },
+                    { title: "here is my concern", body: "second repair language scaffold" },
+                    { title: "one issue first", body: "third repair language scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -710,6 +1003,16 @@ function createV2ReportResponse({
               title: "沟通说明书",
               body: "communication manual scaffold",
               type_summary: "surface summary",
+              list_groups: [
+                {
+                  label_key: "communication_manual",
+                  items: [
+                    { title: "name the feeling", body: "communication manual scaffold" },
+                    { title: "align on shared goal", body: "second communication manual scaffold" },
+                    { title: "say it earlier", body: "third communication manual scaffold" },
+                  ],
+                },
+              ],
             },
             data_refs: [],
             registry_refs: [],
@@ -947,9 +1250,15 @@ describe("enneagram result shell contract", () => {
     await renderShell(createV2ReportResponse());
 
     const page = screen.getByTestId("enneagram-v2-page-page_2_work_reality");
+    expect(within(page).getByTestId("enneagram-module-workplace_trigger_points")).toHaveTextContent("工作触发点");
     expect(within(page).getByTestId("enneagram-module-work_style_summary")).toHaveTextContent("work style scaffold");
     expect(within(page).getByTestId("enneagram-module-work_style_summary")).toHaveTextContent("work mechanism scaffold");
+    expect(within(page).getByTestId("enneagram-module-work_style_summary")).toHaveTextContent("ideal environment scaffold");
     expect(within(page).getByTestId("enneagram-module-collaboration_strengths")).toHaveTextContent("strength scaffold");
+    expect(within(page).getByTestId("enneagram-module-collaboration_strengths")).toHaveTextContent("work strength scaffold");
+    expect(within(page).getByTestId("enneagram-module-collaboration_friction")).toHaveTextContent("friction point scaffold");
+    expect(within(page).getByTestId("enneagram-module-managed_by_others")).toHaveTextContent("managed by others scaffold");
+    expect(within(page).getByTestId("enneagram-module-workplace_trigger_points")).toHaveTextContent("workplace trigger scaffold");
     expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
   });
 
@@ -960,10 +1269,14 @@ describe("enneagram result shell contract", () => {
     expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("stable expression");
     expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("not a hard health-level judgement");
     expect(within(page).getByTestId("enneagram-module-stress_trigger")).toHaveTextContent("stress signal scaffold");
+    expect(within(page).getByTestId("enneagram-module-stress_trigger")).toHaveTextContent("early warning scaffold");
     expect(within(page).getByTestId("enneagram-module-recovery_action")).toHaveTextContent("type recovery action scaffold");
+    expect(within(page).getByTestId("enneagram-module-recovery_action")).toHaveTextContent("recovery protocol scaffold");
     expect(within(page).getByTestId("enneagram-module-recovery_action")).toHaveTextContent("thirty day experiment scaffold");
     expect(within(page).getByTestId("enneagram-module-growth_axis")).toHaveTextContent("growth principle scaffold");
+    expect(within(page).getByTestId("enneagram-module-growth_axis")).toHaveTextContent("growth strength scaffold");
     expect(within(page).getByTestId("enneagram-module-strength_expression")).toHaveTextContent("strength expression body");
+    expect(within(page).getByTestId("enneagram-module-cost_expression")).toHaveTextContent("growth cost scaffold");
   });
 
   it("renders page 4 relationship and conflict cards instead of generic fallback", async () => {
@@ -972,7 +1285,11 @@ describe("enneagram result shell contract", () => {
     const page = screen.getByTestId("enneagram-v2-page-page_4_relationship_conflict");
     expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("relationship need scaffold");
     expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("relationship script scaffold");
+    expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("partner note scaffold");
+    expect(within(page).getByTestId("enneagram-module-relationship_strengths")).toHaveTextContent("relationship strength scaffold");
+    expect(within(page).getByTestId("enneagram-module-misread_by_others")).toHaveTextContent("relationship trap scaffold");
     expect(within(page).getByTestId("enneagram-module-conflict_script")).toHaveTextContent("conflict pattern scaffold");
+    expect(within(page).getByTestId("enneagram-module-conflict_script")).toHaveTextContent("repair language scaffold");
     expect(within(page).getByTestId("enneagram-module-communication_manual")).toHaveTextContent("communication manual scaffold");
     expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
   });
@@ -1093,7 +1410,7 @@ describe("enneagram result shell contract", () => {
   it("marks placeholder and unavailable modules without inventing fake long-form content", async () => {
     await renderShell(createV2ReportResponse());
 
-    expect(screen.getByTestId("enneagram-module-workplace_trigger_points")).toHaveTextContent("占位模块");
+    expect(screen.getByTestId("enneagram-module-workplace_trigger_points")).not.toHaveTextContent("占位模块");
     expect(screen.getByTestId("enneagram-module-blind_spot_card")).toHaveTextContent("暂不可用");
   });
 

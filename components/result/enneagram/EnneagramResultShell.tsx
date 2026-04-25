@@ -231,7 +231,7 @@ function localizedModuleTitle(moduleKey: string, locale: Locale): string {
     collaboration_friction: { zh: "协作摩擦点", en: "Collaboration friction" },
     leadership_pattern: { zh: "领导模式", en: "Leadership pattern" },
     managed_by_others: { zh: "被管理时更顺畅的方式", en: "How to manage you well" },
-    workplace_trigger_points: { zh: "Workplace 占位", en: "Workplace placeholder" },
+    workplace_trigger_points: { zh: "工作触发点", en: "Workplace triggers" },
     context_mode_placeholder: { zh: "情境模式占位", en: "Context-mode placeholder" },
     history_share_retake_placeholder: { zh: "分享与历史占位", en: "Share and history placeholder" },
     growth_axis: { zh: "成长轴", en: "Growth axis" },
@@ -274,6 +274,96 @@ function detailLabelCopy(value: string, locale: Locale): string {
     default:
       return value || "补充说明";
   }
+}
+
+function listGroupLabel(value: string, locale: Locale): string {
+  if (locale !== "zh") {
+    return value || "List";
+  }
+
+  switch (value) {
+    case "work_strengths":
+      return "工作优势";
+    case "work_friction_points":
+      return "工作摩擦点";
+    case "ideal_environment":
+      return "更适合的环境";
+    case "collaboration_manual":
+      return "协作说明";
+    case "managed_by_others":
+      return "被管理时更顺畅的方式";
+    case "leadership_pattern":
+      return "带人方式";
+    case "workplace_trigger_points":
+      return "工作触发点";
+    case "growth_strengths":
+      return "成长优势";
+    case "growth_costs":
+      return "成长代价";
+    case "early_warning_signs":
+      return "早期信号";
+    case "recovery_protocol":
+      return "恢复协议";
+    case "small_experiments":
+      return "小实验";
+    case "relationship_strengths":
+      return "关系优势";
+    case "relationship_traps":
+      return "关系陷阱";
+    case "conflict_trigger_points":
+      return "冲突触发点";
+    case "repair_language":
+      return "修复语言";
+    case "partner_facing_notes":
+      return "给关系另一方的提示";
+    default:
+      return value || "补充列表";
+  }
+}
+
+function ListGroupSections({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
+  const groups = moduleArray(module, "list_groups");
+
+  if (groups.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="grid gap-3">
+      {groups.map((group, index) => {
+        const labelKey = String(group.label_key ?? "").trim();
+        const items = Array.isArray(group.items)
+          ? group.items.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object"))
+          : [];
+
+        if (items.length === 0) {
+          return null;
+        }
+
+        return (
+          <div key={`${labelKey || "group"}-${index}`} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{listGroupLabel(labelKey, locale)}</p>
+            <div className="mt-3 space-y-3">
+              {items.map((item, itemIndex) => {
+                const title = String(item.title ?? "").trim();
+                const body = String(item.body ?? "").trim();
+                if (!title && !body) {
+                  return null;
+                }
+
+                return (
+                  <div key={`${title || "item"}-${itemIndex}`} className="space-y-1">
+                    {title ? <p className="m-0 text-sm font-semibold text-slate-800">{title}</p> : null}
+                    {body ? <p className="m-0 text-sm text-slate-700">{body}</p> : null}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 function evidenceLevelLabel(value: string, locale: Locale): string {
@@ -398,6 +488,7 @@ function ScenarioCardRenderer({ module, locale }: { module: EnneagramReportV2Mod
           <p className="m-0 mt-2 text-sm text-emerald-900">{detail}</p>
         </div>
       ) : null}
+      <ListGroupSections module={module} locale={locale} />
       {primaryCandidate ? <p className="m-0 text-xs text-slate-500">{locale === "zh" ? "围绕主候选" : "Grounded in lead candidate"} · {primaryCandidate}</p> : null}
       <ModuleProvenance module={module} locale={locale} />
     </ModuleCard>
@@ -421,6 +512,7 @@ function ValueCardRenderer({ module, locale }: { module: EnneagramReportV2Module
           <p className="m-0 mt-2 text-sm text-slate-700">{detail}</p>
         </div>
       ) : null}
+      <ListGroupSections module={module} locale={locale} />
       {typeName || primaryCandidate ? (
         <p className="m-0 text-xs text-slate-500">
           {locale === "zh" ? "当前主候选" : "Primary candidate"} · {[typeName, primaryCandidate].filter(Boolean).join(" · ")}
@@ -452,6 +544,7 @@ function GroupOverlayRenderer({ module, locale }: { module: EnneagramReportV2Mod
       ) : (
         <p className="m-0 text-sm text-slate-600">{locale === "zh" ? "当前还没有可展示的分组表达。" : "There is no available group overlay to show yet."}</p>
       )}
+      <ListGroupSections module={module} locale={locale} />
       <ModuleProvenance module={module} locale={locale} />
     </ModuleCard>
   );
@@ -505,6 +598,7 @@ function StateSpectrumRenderer({ module, locale }: { module: EnneagramReportV2Mo
           <p className="m-0 mt-2 text-sm text-sky-900">{moduleText(module, "thirty_day_experiment")}</p>
         </div>
       ) : null}
+      <ListGroupSections module={module} locale={locale} />
       {moduleText(module, "disclaimer") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "disclaimer")}</p> : null}
       <ModuleProvenance
         module={module}
@@ -1216,6 +1310,7 @@ function renderModule(
     case "state_spectrum":
       return <StateSpectrumRenderer module={module} locale={locale} />;
     case "workplace_trigger_points":
+      return <ValueCardRenderer module={module} locale={locale} />;
     case "context_mode_placeholder":
     case "history_share_retake_placeholder":
     case "arrow_growth_reference_placeholder":
