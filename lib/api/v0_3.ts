@@ -1656,6 +1656,55 @@ export type DyadicGraphRaw = {
   [key: string]: unknown;
 };
 
+export type EnneagramPublicSummaryType = {
+  code?: string;
+  label?: string;
+  score?: number | null;
+  rank?: number | null;
+  role?: string | null;
+  [key: string]: unknown;
+};
+
+export type EnneagramPublicSummaryPair = {
+  type_a?: string | Record<string, unknown> | null;
+  type_b?: string | Record<string, unknown> | null;
+  trigger_reason?: string | null;
+  summary?: string | null;
+  [key: string]: unknown;
+};
+
+export type EnneagramPublicSummaryV1 = {
+  scale_code?: string;
+  form_code?: string | null;
+  form_label?: string | null;
+  form_kind?: string | null;
+  methodology_variant?: string | null;
+  primary_candidate?: string | Record<string, unknown> | null;
+  second_candidate?: string | Record<string, unknown> | null;
+  third_candidate?: string | Record<string, unknown> | null;
+  top_types?: EnneagramPublicSummaryType[] | null;
+  all9_profile_mini?: EnneagramPublicSummaryType[] | null;
+  confidence_level?: string | null;
+  confidence_label?: string | null;
+  interpretation_scope?: string | null;
+  interpretation_reason?: string | null;
+  close_call_pair?: EnneagramPublicSummaryPair | null;
+  dominance_gap_abs?: number | null;
+  dominance_gap_pct?: number | null;
+  compare_compatibility_group?: string | null;
+  cross_form_comparable?: boolean | null;
+  interpretation_context_id?: string | null;
+  registry_release_hash?: string | null;
+  content_release_hash?: string | null;
+  content_snapshot_status?: string | null;
+  report_schema_version?: string | null;
+  projection_version?: string | null;
+  generated_at?: string | null;
+  public_surface_version?: string | null;
+  summary_text?: string | null;
+  [key: string]: unknown;
+};
+
 export type ShareSummaryResponse = {
   ok?: boolean;
   share_id?: string;
@@ -1696,6 +1745,7 @@ export type ShareSummaryResponse = {
   mbti_public_summary_v1?: Record<string, unknown> | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
+  enneagram_public_summary_v1?: EnneagramPublicSummaryV1 | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
   comparative_v1?: ComparativeRaw | null;
@@ -1991,6 +2041,28 @@ export type MeAttemptItem = {
     share_kind?: string;
     [key: string]: unknown;
   };
+  compare_policy_v1?: {
+    form_code?: string | null;
+    form_label?: string | null;
+    score_space_version?: string | null;
+    compare_compatibility_group?: string | null;
+    cross_form_comparable?: boolean | null;
+    can_compare?: boolean | null;
+    reason?: string | null;
+    copy_key?: string | null;
+    [key: string]: unknown;
+  } | null;
+  classification_summary_v1?: {
+    interpretation_scope?: string | null;
+    interpretation_reason?: string | null;
+    confidence_level?: string | null;
+    confidence_label?: string | null;
+    close_call_pair?: Record<string, unknown> | null;
+    interpretation_context_id?: string | null;
+    content_release_hash?: string | null;
+    content_snapshot_status?: string | null;
+    [key: string]: unknown;
+  } | null;
   [key: string]: unknown;
 };
 
@@ -2007,7 +2079,24 @@ export type MeAttemptsHistoryCompare = {
       direction?: "up" | "down" | "flat" | string;
     }
   >;
+  compare_guard_v1?: {
+    scale_code?: string;
+    can_compare?: boolean;
+    reason?: string | null;
+    copy_key?: string | null;
+    attempt_a?: Record<string, unknown> | null;
+    attempt_b?: Record<string, unknown> | null;
+    [key: string]: unknown;
+  } | null;
+  current_compare_policy_v1?: Record<string, unknown> | null;
+  previous_compare_policy_v1?: Record<string, unknown> | null;
   [key: string]: unknown;
+};
+
+export type AttemptReportPdfResponse = {
+  blob: Blob;
+  filenameHint: string | null;
+  formLabel: string | null;
 };
 
 export type MeAttemptsResponse = {
@@ -2858,6 +2947,45 @@ export async function fetchAttemptReportPdf({
   }
 
   return response.blob();
+}
+
+export async function fetchAttemptReportPdfWithMeta({
+  attemptId,
+  anonId,
+  inline,
+}: {
+  attemptId: string;
+  anonId?: string;
+  inline?: boolean;
+}): Promise<AttemptReportPdfResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const authToken = getFmToken();
+
+  const headers = new Headers({
+    Accept: "application/pdf",
+  });
+
+  if (resolvedAnonId) {
+    headers.set("X-Anon-Id", resolvedAnonId);
+  }
+  if (authToken) {
+    headers.set("Authorization", `Bearer ${authToken}`);
+  }
+
+  const response = await fetch(getAttemptReportPdfUrl({ attemptId, inline }), {
+    method: "GET",
+    headers,
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch report pdf: ${response.status}`);
+  }
+
+  return {
+    blob: await response.blob(),
+    filenameHint: response.headers.get("X-Report-Filename-Hint"),
+    formLabel: response.headers.get("X-Report-Form-Label"),
+  };
 }
 
 export async function getScaleLookup({

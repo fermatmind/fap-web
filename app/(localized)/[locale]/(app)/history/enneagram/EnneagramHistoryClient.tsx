@@ -19,7 +19,9 @@ import {
 } from "@/lib/access/unifiedAccess";
 import { fetchEnneagramHistory } from "@/lib/enneagram/api";
 import {
+  normalizeEnneagramHistoryCompare,
   normalizeEnneagramHistoryRows,
+  type EnneagramHistoryCompareSummary,
   type EnneagramHistoryRowSummary,
 } from "@/lib/enneagram/secondarySurfaceNormalizer";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
@@ -102,6 +104,18 @@ export default function EnneagramHistoryClient() {
     statusLocked: locale === "zh" ? "当前仍为预览访问" : "Preview access only",
     statusProcessing: locale === "zh" ? "结果仍在处理中" : "Result still processing",
     statusUnavailable: locale === "zh" ? "结果暂时不可用" : "Result unavailable",
+    interpretationScope: locale === "zh" ? "解释状态" : "Interpretation state",
+    closeCallPair: locale === "zh" ? "近邻竞争" : "Close call",
+    compareHeading: locale === "zh" ? "题型比较边界" : "Compare boundary",
+    compareAction: locale === "zh" ? "结果比较" : "Compare results",
+    compareAllowed:
+      locale === "zh"
+        ? "同题型对比条件已满足。前端比较页会在后续 surface 中接入。"
+        : "The same-form compare contract is ready. The compare surface will attach in the next UI step.",
+    compareBlocked:
+      locale === "zh"
+        ? "这两次结果来自不同题型。它们都属于 FermatMind 九型模型，但分数空间不同，因此不直接比较数值差异。你可以查看两次 Top3 是否重叠，或回到结果页阅读方法边界。"
+        : "These two results come from different forms within the FermatMind Enneagram model, but they do not share the same score space. Review Top 3 overlap or return to the result page for the methodology boundary.",
     previous: locale === "zh" ? "上一页" : "Previous page",
     next: locale === "zh" ? "下一页" : "Next page",
   };
@@ -111,6 +125,7 @@ export default function EnneagramHistoryClient() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const [compareSummary, setCompareSummary] = useState<EnneagramHistoryCompareSummary | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -125,6 +140,7 @@ export default function EnneagramHistoryClient() {
           ...row,
           accessView: normalizeHistoryAccessView(row.attemptId, row.accessSummary ?? null, locale),
         }));
+        const normalizedCompare = normalizeEnneagramHistoryCompare(history);
         const meta = history.meta ?? {};
         const currentPage = Number((meta as { current_page?: unknown }).current_page ?? page);
         const lastPage = Number((meta as { last_page?: unknown }).last_page ?? currentPage);
@@ -132,9 +148,11 @@ export default function EnneagramHistoryClient() {
         if (!active) return;
 
         setRows(normalizedRows);
+        setCompareSummary(normalizedCompare);
         setHasNextPage(Number.isFinite(currentPage) && Number.isFinite(lastPage) && currentPage < lastPage);
       } catch (cause) {
         if (!active) return;
+        setCompareSummary(null);
         setError(cause instanceof Error ? cause.message : "Failed to load history.");
       } finally {
         if (active) {
@@ -158,6 +176,37 @@ export default function EnneagramHistoryClient() {
       </div>
 
       {error ? <Alert>{error}</Alert> : null}
+
+      {compareSummary ? (
+        <Card data-testid="enneagram-history-compare-guard">
+          <CardHeader className="space-y-3">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="space-y-1">
+                <CardTitle className="text-base">{copy.compareHeading}</CardTitle>
+                <p className="m-0 text-sm text-slate-600">
+                  {compareSummary.currentAttemptId && compareSummary.previousAttemptId
+                    ? `${compareSummary.currentAttemptId} / ${compareSummary.previousAttemptId}`
+                    : copy.compareAction}
+                </p>
+              </div>
+              <Button type="button" variant="outline" disabled={!compareSummary.canCompare}>
+                {copy.compareAction}
+              </Button>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-2 text-sm text-slate-700">
+            <p
+              data-testid="enneagram-history-compare-copy"
+              className={compareSummary.canCompare ? "m-0 text-slate-700" : "m-0 text-amber-800"}
+            >
+              {compareSummary.canCompare ? copy.compareAllowed : copy.compareBlocked}
+            </p>
+            {compareSummary.reason ? (
+              <p className="m-0 text-xs uppercase tracking-[0.12em] text-slate-500">{compareSummary.reason}</p>
+            ) : null}
+          </CardContent>
+        </Card>
+      ) : null}
 
       {loading ? (
         <Card>
@@ -224,6 +273,14 @@ export default function EnneagramHistoryClient() {
                         {locale === "zh" ? "置信" : "Confidence"} · {row.confidenceLabel}
                       </span>
                     ) : null}
+                    {row.interpretationScope ? (
+                      <span
+                        data-testid={`enneagram-history-row-scope-${row.attemptId}`}
+                        className="inline-flex rounded-full border border-amber-200 bg-amber-50/70 px-3 py-1 text-xs font-semibold text-amber-800"
+                      >
+                        {copy.interpretationScope} · {row.interpretationScope}
+                      </span>
+                    ) : null}
                   </div>
                 </div>
               </CardHeader>
@@ -237,6 +294,12 @@ export default function EnneagramHistoryClient() {
                 {topTypes ? (
                   <p data-testid={`enneagram-history-row-top-${row.attemptId}`} className="m-0">
                     {copy.topTypes}: {topTypes}
+                  </p>
+                ) : null}
+
+                {row.closeCallPair?.typeA && row.closeCallPair?.typeB ? (
+                  <p data-testid={`enneagram-history-row-close-call-${row.attemptId}`} className="m-0">
+                    {copy.closeCallPair}: {row.closeCallPair.typeA} / {row.closeCallPair.typeB}
                   </p>
                 ) : null}
 
@@ -261,6 +324,7 @@ export default function EnneagramHistoryClient() {
                           accessProjection={accessView}
                           locale={locale}
                           filenamePrefix="enneagram-report"
+                          downloadLabel={row.formSummaryLabel}
                         />
                       </div>
                     ) : null}
