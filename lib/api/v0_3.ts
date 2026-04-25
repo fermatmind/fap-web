@@ -1864,6 +1864,64 @@ export type EnneagramObservationDay7Payload = {
   user_disagreed_reason?: string | null;
 };
 
+export type EnneagramTechnicalNoteSection = {
+  section_key: string;
+  title?: string;
+  body?: string;
+  data_status?: "currently_operational" | "collecting_data" | "pending_sample" | "unavailable" | "not_claimed" | string;
+  metric_refs?: string[];
+  [key: string]: unknown;
+};
+
+export type EnneagramMethodBoundary = {
+  label?: string;
+  copy?: string;
+  evidence_level?: string;
+  content_maturity?: string;
+  [key: string]: unknown;
+};
+
+export type EnneagramMetricDefinition = {
+  metric_key: string;
+  label?: string;
+  description?: string;
+  data_status?: "currently_operational" | "collecting_data" | "pending_sample" | "unavailable" | "not_claimed" | string;
+  data_status_source?: string;
+  minimum_sample_guidance?: string;
+  privacy_notes?: string;
+  technical_note_visible?: boolean;
+  [key: string]: unknown;
+};
+
+export type EnneagramTechnicalNoteDisclaimer = {
+  key?: string;
+  label?: string;
+  copy?: string;
+  [key: string]: unknown;
+};
+
+export type EnneagramTechnicalNoteV1 = {
+  schema_version: "enneagram.technical_note.v1";
+  scale_code: "ENNEAGRAM";
+  registry_version?: string;
+  registry_release_hash?: string;
+  technical_note_version?: string;
+  sections: EnneagramTechnicalNoteSection[];
+  method_boundaries?: Record<string, EnneagramMethodBoundary | Record<string, unknown>>;
+  metric_definitions?: EnneagramMetricDefinition[];
+  data_status_summary?: Record<string, unknown>;
+  disclaimers?: Array<EnneagramTechnicalNoteDisclaimer | string>;
+  generated_at?: string;
+  [key: string]: unknown;
+};
+
+export type EnneagramTechnicalNoteResponse = {
+  ok?: boolean;
+  scale_code?: "ENNEAGRAM" | string;
+  technical_note_v1?: EnneagramTechnicalNoteV1 | null;
+  [key: string]: unknown;
+};
+
 export type MbtiCompareInviteCreateResponse = {
   ok?: boolean;
   invite_id?: string;
@@ -2953,6 +3011,14 @@ export async function submitEnneagramObservationDay7({
   );
 
   return assertApiOk(response, "Failed to submit Day 7 resonance feedback.");
+}
+
+export async function fetchEnneagramTechnicalNote(): Promise<EnneagramTechnicalNoteResponse> {
+  const response = await apiClient.get<EnneagramTechnicalNoteResponse>("/v0.3/scales/ENNEAGRAM/technical-note", {
+    skipAuth: true,
+  });
+
+  return assertApiOk(response, "Failed to load Enneagram Technical Note.");
 }
 
 export async function fetchAttemptReportAccess({
