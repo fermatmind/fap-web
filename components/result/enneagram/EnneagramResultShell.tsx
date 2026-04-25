@@ -1,9 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import {
+  assignEnneagramObservation,
+  fetchEnneagramObservation,
+  submitEnneagramObservationDay3,
+  submitEnneagramObservationDay7,
+  type EnneagramObservationDay3Payload,
+  type EnneagramObservationDay7Payload,
+  type EnneagramObservationStateV1,
+} from "@/lib/api/v0_3";
 import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
-import { buttonVariants } from "@/components/ui/button";
+import { Alert } from "@/components/ui/alert";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
@@ -106,6 +117,49 @@ function nextActionHint(viewModel: EnneagramResultViewModel, locale: Locale): st
   return locale === "zh" ? "把这份结果当作当前工作假设来阅读。" : "Use this result as the current working interpretation.";
 }
 
+function observationGuidanceCopy(viewModel: EnneagramResultViewModel, locale: Locale): string {
+  switch (viewModel.interpretationScope) {
+    case "close_call":
+      return locale === "zh"
+        ? "你不需要立刻把自己钉死在一个号码上。接下来 7 天，你要观察的是：你更像 Top1 的核心动力，还是 Top2 的核心动力。"
+        : "You do not need to force a single type immediately. Over the next 7 days, observe whether your core motive fits Top 1 or Top 2 more closely.";
+    case "diffuse":
+      return locale === "zh"
+        ? "这次结果更适合先观察 Top3 与三中心线索，而不是强行认定单一号码。"
+        : "This result is better used to observe Top 3 and center-level cues before forcing a single-number judgement.";
+    case "low_quality":
+      return locale === "zh"
+        ? "这次结果可以阅读，但解释边界较宽。更建议在状态稳定时重测同一题型，而不是立刻换成另一个 form。"
+        : "This result is readable, but the interpretation boundary is wider. Retaking the same form in a steadier state is better than switching forms immediately.";
+    case "clear":
+    default:
+      return locale === "zh"
+        ? "你可以用 7 天观察来验证这个主候选在现实中的稳定性。"
+        : "Use a 7-day observation window to verify whether the current lead remains stable in daily life.";
+  }
+}
+
+function observationActionLabel(action: string | null | undefined, locale: Locale): string {
+  switch (action) {
+    case "observe_7_days":
+      return locale === "zh" ? "继续观察" : "Continue observing";
+    case "do_fc144":
+      return locale === "zh" ? "可补做 FC144 深度版" : "FC144 follow-up is available";
+    case "retest_same_form":
+      return locale === "zh" ? "建议重测同一题型" : "Retake the same form";
+    case "read_top3":
+      return locale === "zh" ? "先阅读 Top3 与方法边界" : "Read Top 3 and the method boundary first";
+    case "no_action":
+      return locale === "zh" ? "暂无下一步" : "No immediate next step";
+    default:
+      return action?.trim() || (locale === "zh" ? "暂无下一步" : "No immediate next step");
+  }
+}
+
+function isObservationAssigned(state: EnneagramObservationStateV1 | null): boolean {
+  return Boolean(state && state.status && state.status !== "initial_result");
+}
+
 function TypeChip({ type }: { type: EnneagramTypeRow }) {
   const score = formatScore(type.score);
 
@@ -167,6 +221,376 @@ function ModuleCard({
   );
 }
 
+type ObservationRendererProps = {
+  module: EnneagramReportV2Module;
+  viewModel: EnneagramResultViewModel;
+  locale: Locale;
+  state: EnneagramObservationStateV1 | null;
+  loading: boolean;
+  error: string | null;
+  busyAction: "assign" | "day3" | "day7" | null;
+  onAssign: () => Promise<void>;
+  onSubmitDay3: (payload: EnneagramObservationDay3Payload) => Promise<void>;
+  onSubmitDay7: (payload: EnneagramObservationDay7Payload) => Promise<void>;
+};
+
+function ObservationModuleRenderer({
+  module,
+  viewModel,
+  locale,
+  state,
+  loading,
+  error,
+  busyAction,
+  onAssign,
+  onSubmitDay3,
+  onSubmitDay7,
+}: ObservationRendererProps) {
+  const isZh = locale === "zh";
+  const assigned = isObservationAssigned(state);
+  const tasks =
+    state?.tasks && state.tasks.length > 0
+      ? state.tasks
+      : moduleArray(module, "steps").map((step) => ({
+          day: typeof step.day === "number" ? step.day : Number(step.day ?? Number.NaN),
+          phase: String(step.phase ?? "").trim() || null,
+          prompt: String(step.prompt ?? "").trim() || null,
+          suggested_next_action: String(step.suggested_next_action ?? "").trim() || null,
+        }));
+  const progress = state?.observation_completion_rate ?? 0;
+  const currentFormRetakeHref = buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, viewModel.formCode);
+  const fc144Href = buildEnneagramTakeHref(
+    SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+    locale,
+    "enneagram_forced_choice_144"
+  );
+
+  const [day3Form, setDay3Form] = useState<EnneagramObservationDay3Payload>({
+    more_like: "top1",
+    evidence_sentence: "",
+    confidence_self_rating: 3,
+    scene_type: "work",
+  });
+  const [day7Form, setDay7Form] = useState<EnneagramObservationDay7Payload>({
+    final_resonance: "top1",
+    user_confirmed_type: null,
+    wants_fc144: false,
+    wants_retake_same_form: false,
+    user_disagreed_reason: null,
+  });
+  const hasSeparateFeedbackModule = Boolean(
+    viewModel.moduleMap.resonance_feedback_placeholder &&
+      viewModel.moduleMap.resonance_feedback_placeholder.visibility !== "collapsed"
+  );
+  const feedbackContent = !assigned ? (
+    <p className="m-0 text-sm text-slate-600">
+      {isZh ? "请先启动 7 天观察，再提交 Day3 与 Day7 反馈。" : "Start the 7-day observation before submitting Day 3 and Day 7 feedback."}
+    </p>
+  ) : (
+    <div className="space-y-6">
+      {state?.day3_observation_feedback ? (
+        <div data-testid="enneagram-observation-day3-summary" className="space-y-2 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="m-0 text-sm font-semibold text-slate-800">{isZh ? "Day3 feedback 已记录" : "Day 3 feedback recorded"}</p>
+          <p className="m-0 text-sm text-slate-600">
+            {String(state.day3_observation_feedback.more_like ?? "")} · {String(state.day3_observation_feedback.scene_type ?? "")}
+          </p>
+        </div>
+      ) : (
+        <form
+          data-testid="enneagram-observation-day3-form"
+          className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4"
+          onSubmit={(event) => {
+            event.preventDefault();
+            void onSubmitDay3(day3Form);
+          }}
+        >
+          <p className="m-0 text-sm font-semibold text-slate-800">Day3 feedback</p>
+          <label className="block space-y-1 text-sm">
+            <span>{isZh ? "更像谁" : "More like"}</span>
+            <select
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
+              value={day3Form.more_like}
+              onChange={(event) => setDay3Form((current) => ({ ...current, more_like: event.target.value as EnneagramObservationDay3Payload["more_like"] }))}
+            >
+              <option value="top1">top1</option>
+              <option value="top2">top2</option>
+              <option value="unclear">unclear</option>
+              <option value="other">other</option>
+            </select>
+          </label>
+          <label className="block space-y-1 text-sm">
+            <span>{isZh ? "证据句" : "Evidence sentence"}</span>
+            <textarea
+              className="min-h-24 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
+              value={day3Form.evidence_sentence}
+              onChange={(event) => setDay3Form((current) => ({ ...current, evidence_sentence: event.target.value }))}
+            />
+          </label>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label className="block space-y-1 text-sm">
+              <span>{isZh ? "自评把握度" : "Confidence self-rating"}</span>
+              <input
+                type="number"
+                min={1}
+                max={5}
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
+                value={day3Form.confidence_self_rating}
+                onChange={(event) =>
+                  setDay3Form((current) => ({
+                    ...current,
+                    confidence_self_rating: Number(event.target.value || 1),
+                  }))
+                }
+              />
+            </label>
+            <label className="block space-y-1 text-sm">
+              <span>{isZh ? "场景" : "Scene type"}</span>
+              <select
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
+                value={day3Form.scene_type}
+                onChange={(event) => setDay3Form((current) => ({ ...current, scene_type: event.target.value as EnneagramObservationDay3Payload["scene_type"] }))}
+              >
+                <option value="work">work</option>
+                <option value="relationship">relationship</option>
+                <option value="pressure">pressure</option>
+                <option value="alone">alone</option>
+                <option value="other">other</option>
+              </select>
+            </label>
+          </div>
+          <Button type="submit" disabled={busyAction === "day3"}>
+            {busyAction === "day3" ? (isZh ? "提交中..." : "Submitting...") : "Day3 feedback"}
+          </Button>
+        </form>
+      )}
+
+      {state?.day7_resonance_feedback ? (
+        <div data-testid="enneagram-observation-day7-summary" className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="m-0 text-sm font-semibold text-slate-800">Day7 resonance feedback</p>
+          {state.user_confirmed_type ? (
+            <>
+              <p data-testid="enneagram-observation-user-confirmed" className="m-0 text-sm text-slate-700">
+                {isZh ? "你的自我观察确认" : "Your self-observation confirmation"} · {state.user_confirmed_type}
+              </p>
+              <p className="m-0 text-xs text-slate-500">
+                {isZh
+                  ? "这不会静默改写本次测量结果。它会作为你的自我观察证据记录在历史中。"
+                  : "This does not silently rewrite the measurement result. It is recorded in history as self-observation evidence."}
+              </p>
+            </>
+          ) : null}
+        </div>
+      ) : (
+        <form
+          data-testid="enneagram-observation-day7-form"
+          className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4"
+          onSubmit={(event) => {
+            event.preventDefault();
+            void onSubmitDay7(day7Form);
+          }}
+        >
+          <p className="m-0 text-sm font-semibold text-slate-800">Day7 resonance feedback</p>
+          <label className="block space-y-1 text-sm">
+            <span>{isZh ? "最终共鸣" : "Final resonance"}</span>
+            <select
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
+              value={day7Form.final_resonance}
+              onChange={(event) => setDay7Form((current) => ({ ...current, final_resonance: event.target.value as EnneagramObservationDay7Payload["final_resonance"] }))}
+            >
+              <option value="top1">top1</option>
+              <option value="top2">top2</option>
+              <option value="top3">top3</option>
+              <option value="other">other</option>
+              <option value="still_uncertain">still_uncertain</option>
+            </select>
+          </label>
+          <label className="block space-y-1 text-sm">
+            <span>{isZh ? "自我观察确认号码" : "Self-observed type confirmation"}</span>
+            <select
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
+              value={day7Form.user_confirmed_type ?? ""}
+              onChange={(event) =>
+                setDay7Form((current) => ({
+                  ...current,
+                  user_confirmed_type: event.target.value ? event.target.value : null,
+                }))
+              }
+            >
+              <option value="">{isZh ? "暂不确认" : "Not confirming yet"}</option>
+              {Array.from({ length: 9 }, (_, index) => String(index + 1)).map((value) => (
+                <option key={value} value={value}>
+                  {value}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="block space-y-1 text-sm">
+            <span>{isZh ? "补充说明" : "Disagreement note"}</span>
+            <textarea
+              className="min-h-24 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
+              value={day7Form.user_disagreed_reason ?? ""}
+              onChange={(event) =>
+                setDay7Form((current) => ({
+                  ...current,
+                  user_disagreed_reason: event.target.value || null,
+                }))
+              }
+            />
+          </label>
+          <label className="flex items-center gap-2 text-sm text-slate-700">
+            <input
+              type="checkbox"
+              checked={day7Form.wants_fc144}
+              onChange={(event) => setDay7Form((current) => ({ ...current, wants_fc144: event.target.checked }))}
+            />
+            {isZh ? "我想补做 FC144 深度版" : "I want the FC144 follow-up"}
+          </label>
+          <label className="flex items-center gap-2 text-sm text-slate-700">
+            <input
+              type="checkbox"
+              checked={day7Form.wants_retake_same_form}
+              onChange={(event) =>
+                setDay7Form((current) => ({ ...current, wants_retake_same_form: event.target.checked }))
+              }
+            />
+            {isZh ? "我想重测同一题型" : "I want to retake the same form"}
+          </label>
+          <Button type="submit" disabled={busyAction === "day7"}>
+            {busyAction === "day7" ? (isZh ? "提交中..." : "Submitting...") : "Day7 resonance feedback"}
+          </Button>
+        </form>
+      )}
+    </div>
+  );
+
+  if (module.moduleKey === "seven_day_observation") {
+    return (
+      <ModuleCard title={isZh ? "7 天观察任务" : "7-day observation"} testId="enneagram-module-seven-day-observation">
+        <p data-testid="enneagram-observation-guidance" className="m-0">
+          {observationGuidanceCopy(viewModel, locale)}
+        </p>
+
+        {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
+
+        {loading ? <p className="m-0 text-sm text-slate-500">{isZh ? "正在读取观察状态..." : "Loading observation state..."}</p> : null}
+
+        {!assigned ? (
+          <div className="space-y-3">
+            <p className="m-0 text-sm text-slate-600">
+              {isZh
+                ? "观察任务不会自动开始。你可以先继续阅读结果页，再决定是否启动这 7 天观察。"
+                : "The observation flow does not auto-start. You can keep reading the report and start the 7-day observation when ready."}
+            </p>
+            <Button
+              type="button"
+              onClick={() => void onAssign()}
+              disabled={busyAction === "assign"}
+              data-testid="enneagram-observation-assign"
+            >
+              {busyAction === "assign" ? (isZh ? "正在启动..." : "Starting...") : isZh ? "开始 7 天观察" : "Start 7-day observation"}
+            </Button>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                {isZh ? "观察进度" : "Observation progress"}
+              </p>
+              <p data-testid="enneagram-observation-progress" className="m-0 mt-2 text-sm text-slate-800">
+                {progress}%
+              </p>
+              <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200">
+                <div className="h-full rounded-full bg-emerald-500" style={{ width: `${Math.max(0, Math.min(100, progress))}%` }} />
+              </div>
+              {state?.status ? (
+                <p className="m-0 mt-3 text-xs uppercase tracking-[0.12em] text-slate-500">{state.status}</p>
+              ) : null}
+            </div>
+
+            <div className="space-y-3">
+              {tasks.map((task, index) => (
+                <div
+                  key={`${task.day ?? index}-${task.phase ?? ""}`}
+                  className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                >
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                    {isZh ? "第" : "Day "} {task.day ?? index + 1}
+                    {isZh ? "天" : ""}
+                    {task.phase ? ` · ${task.phase}` : ""}
+                  </p>
+                  {task.prompt ? <p className="m-0 mt-2 text-sm text-slate-700">{task.prompt}</p> : null}
+                  {task.suggested_next_action ? (
+                    <p className="m-0 mt-2 text-xs text-slate-500">
+                      {observationActionLabel(task.suggested_next_action, locale)}
+                    </p>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+            {!hasSeparateFeedbackModule ? <div data-testid="enneagram-observation-feedback-inline">{feedbackContent}</div> : null}
+          </div>
+        )}
+      </ModuleCard>
+    );
+  }
+
+  if (module.moduleKey === "resonance_feedback_placeholder") {
+    return (
+      <ModuleCard
+        title={isZh ? "Day3 / Day7 反馈" : "Day 3 / Day 7 feedback"}
+        testId="enneagram-module-resonance-feedback-placeholder"
+      >
+        {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
+        {feedbackContent}
+      </ModuleCard>
+    );
+  }
+
+  return (
+    <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
+      {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
+      <p data-testid="enneagram-observation-next-action" className="m-0">
+        {observationActionLabel(state?.suggested_next_action ?? moduleText(module, "recommendation_key"), locale)}
+      </p>
+      <p className="m-0 text-sm text-slate-600">
+        {state?.suggested_next_action === "do_fc144"
+          ? isZh
+            ? "如果你想继续辨析，可以补做 FC144 深度版。"
+            : "If you want a follow-up distinction pass, FC144 is available."
+          : state?.suggested_next_action === "retest_same_form"
+            ? isZh
+              ? "更适合在状态稳定时重测当前题型。"
+              : "A same-form retake is the safer next step in a steadier state."
+            : moduleText(module, "recommended_first_action") || nextActionHint(viewModel, locale)}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {state?.suggested_next_action === "do_fc144" ? (
+          <Link href={fc144Href} className={buttonVariants({ variant: "outline" })}>
+            {isZh ? "查看 FC144 深度版" : "Open FC144 form"}
+          </Link>
+        ) : null}
+        {state?.suggested_next_action === "retest_same_form" ? (
+          <Link href={currentFormRetakeHref} className={buttonVariants({ variant: "outline" })}>
+            {isZh ? "重测当前题型" : "Retake current form"}
+          </Link>
+        ) : null}
+      </div>
+      {state?.user_confirmed_type ? (
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p data-testid="enneagram-observation-user-confirmed" className="m-0 text-sm text-slate-700">
+            {isZh ? "你的自我观察确认" : "Your self-observation confirmation"} · {state.user_confirmed_type}
+          </p>
+          <p className="m-0 mt-2 text-xs text-slate-500">
+            {isZh
+              ? "这不会静默改写本次测量结果。它会作为你的自我观察证据记录在历史中。"
+              : "This does not silently rewrite the measurement result. It is recorded in history as self-observation evidence."}
+          </p>
+        </div>
+      ) : null}
+    </ModuleCard>
+  );
+}
+
 function renderScoreBars(items: EnneagramTypeRow[]) {
   return (
     <div className="space-y-3">
@@ -210,7 +634,22 @@ function renderGenericSummary(module: EnneagramReportV2Module, locale: Locale) {
   );
 }
 
-function renderModule(module: EnneagramReportV2Module, viewModel: EnneagramResultViewModel, locale: Locale): React.ReactNode {
+type ObservationSurfaceState = {
+  state: EnneagramObservationStateV1 | null;
+  loading: boolean;
+  error: string | null;
+  busyAction: "assign" | "day3" | "day7" | null;
+  onAssign: () => Promise<void>;
+  onSubmitDay3: (payload: EnneagramObservationDay3Payload) => Promise<void>;
+  onSubmitDay7: (payload: EnneagramObservationDay7Payload) => Promise<void>;
+};
+
+function renderModule(
+  module: EnneagramReportV2Module,
+  viewModel: EnneagramResultViewModel,
+  locale: Locale,
+  observation: ObservationSurfaceState | null
+): React.ReactNode {
   const isZh = locale === "zh";
 
   switch (module.moduleKey) {
@@ -469,6 +908,9 @@ function renderModule(module: EnneagramReportV2Module, viewModel: EnneagramResul
         </ModuleCard>
       );
     case "seven_day_observation": {
+      if (observation) {
+        return <ObservationModuleRenderer module={module} viewModel={viewModel} locale={locale} {...observation} />;
+      }
       const steps = moduleArray(module, "steps");
       return (
         <ModuleCard title={isZh ? "七天观察" : "Seven-day observation"} testId="enneagram-module-seven-day-observation">
@@ -485,6 +927,20 @@ function renderModule(module: EnneagramReportV2Module, viewModel: EnneagramResul
         </ModuleCard>
       );
     }
+    case "resonance_feedback_placeholder":
+      if (observation) {
+        return <ObservationModuleRenderer module={module} viewModel={viewModel} locale={locale} {...observation} />;
+      }
+      return (
+        <ModuleCard
+          title={isZh ? "Day3 / Day7 反馈" : "Day 3 / Day 7 feedback"}
+          testId="enneagram-module-resonance-feedback-placeholder"
+        >
+          <p className="m-0">
+            {isZh ? "当前 observation API 不可用，反馈入口稍后出现。" : "The live observation API is unavailable, so the feedback entry is deferred."}
+          </p>
+        </ModuleCard>
+      );
     case "sample_report_link":
       return (
         <ModuleCard title={isZh ? "样例报告" : "Sample report"} testId="enneagram-module-sample-report-link">
@@ -510,6 +966,9 @@ function renderModule(module: EnneagramReportV2Module, viewModel: EnneagramResul
       );
     }
     case "form_recommendation":
+      if (observation) {
+        return <ObservationModuleRenderer module={module} viewModel={viewModel} locale={locale} {...observation} />;
+      }
       return (
         <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
           <p className="m-0">{moduleText(module, "recommendation_key") || "stay_with_current_form"}</p>
@@ -534,10 +993,12 @@ function PageSection({
   page,
   viewModel,
   locale,
+  observation,
 }: {
   page: EnneagramReportV2Page;
   viewModel: EnneagramResultViewModel;
   locale: Locale;
+  observation: ObservationSurfaceState | null;
 }) {
   const visibleModules = page.modules.filter((module) => module.visibility !== "collapsed");
 
@@ -558,7 +1019,7 @@ function PageSection({
             className={module.moduleKey === "instant_summary" ? "xl:col-span-2" : ""}
             data-testid={`enneagram-v2-page-${page.pageKey}-module-${module.moduleKey}`}
           >
-            {renderModule(module, viewModel, locale)}
+            {renderModule(module, viewModel, locale, observation)}
           </div>
         ))}
       </div>
@@ -713,6 +1174,98 @@ export function EnneagramResultShell({
   const retakeHref = buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, viewModel.formCode);
   const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
   const isZh = locale === "zh";
+  const shouldLoadObservation = Boolean(
+    reportV2?.pages.some((page) =>
+      page.modules.some((module) =>
+        ["seven_day_observation", "resonance_feedback_placeholder", "form_recommendation"].includes(module.moduleKey)
+      )
+    )
+  );
+  const [observationState, setObservationState] = useState<EnneagramObservationStateV1 | null>(null);
+  const [observationLoading, setObservationLoading] = useState(false);
+  const [observationError, setObservationError] = useState<string | null>(null);
+  const [busyAction, setBusyAction] = useState<"assign" | "day3" | "day7" | null>(null);
+
+  useEffect(() => {
+    if (!shouldLoadObservation) {
+      setObservationState(null);
+      setObservationError(null);
+      setObservationLoading(false);
+      return;
+    }
+
+    let active = true;
+    setObservationLoading(true);
+    setObservationError(null);
+
+    void fetchEnneagramObservation({ attemptId })
+      .then((response) => {
+        if (!active) {
+          return;
+        }
+        setObservationState(response.observation_state_v1 ?? null);
+      })
+      .catch((cause) => {
+        if (!active) {
+          return;
+        }
+        setObservationError(cause instanceof Error ? cause.message : isZh ? "观察状态读取失败。" : "Failed to load observation state.");
+      })
+      .finally(() => {
+        if (active) {
+          setObservationLoading(false);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [attemptId, isZh, shouldLoadObservation]);
+
+  const observation = shouldLoadObservation
+    ? {
+        state: observationState,
+        loading: observationLoading,
+        error: observationError,
+        busyAction,
+        onAssign: async () => {
+          setBusyAction("assign");
+          setObservationError(null);
+          try {
+            const response = await assignEnneagramObservation({ attemptId });
+            setObservationState(response.observation_state_v1 ?? null);
+          } catch (cause) {
+            setObservationError(cause instanceof Error ? cause.message : isZh ? "启动观察失败。" : "Failed to start observation.");
+          } finally {
+            setBusyAction(null);
+          }
+        },
+        onSubmitDay3: async (payload: EnneagramObservationDay3Payload) => {
+          setBusyAction("day3");
+          setObservationError(null);
+          try {
+            const response = await submitEnneagramObservationDay3({ attemptId, payload });
+            setObservationState(response.observation_state_v1 ?? null);
+          } catch (cause) {
+            setObservationError(cause instanceof Error ? cause.message : isZh ? "Day3 feedback 提交失败。" : "Failed to submit Day 3 feedback.");
+          } finally {
+            setBusyAction(null);
+          }
+        },
+        onSubmitDay7: async (payload: EnneagramObservationDay7Payload) => {
+          setBusyAction("day7");
+          setObservationError(null);
+          try {
+            const response = await submitEnneagramObservationDay7({ attemptId, payload });
+            setObservationState(response.observation_state_v1 ?? null);
+          } catch (cause) {
+            setObservationError(cause instanceof Error ? cause.message : isZh ? "Day7 feedback 提交失败。" : "Failed to submit Day 7 feedback.");
+          } finally {
+            setBusyAction(null);
+          }
+        },
+      }
+    : null;
 
   if (!reportV2 || reportV2.pages.length === 0) {
     return (
@@ -740,7 +1293,7 @@ export function EnneagramResultShell({
       </div>
 
       {reportV2.pages.map((page) => (
-        <PageSection key={page.pageKey} page={page} viewModel={viewModel} locale={locale} />
+        <PageSection key={page.pageKey} page={page} viewModel={viewModel} locale={locale} observation={observation} />
       ))}
 
       <Card data-testid="enneagram-actions-card" className="border-slate-200 bg-white shadow-sm">

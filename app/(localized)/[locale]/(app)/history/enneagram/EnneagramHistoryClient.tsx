@@ -77,6 +77,23 @@ function renderTopTypes(row: Row): string {
   return row.primaryType?.label ?? "";
 }
 
+function observationActionLabel(action: string | null, locale: "en" | "zh"): string {
+  switch (action) {
+    case "observe_7_days":
+      return locale === "zh" ? "继续观察" : "Continue observing";
+    case "do_fc144":
+      return locale === "zh" ? "可补做 FC144 深度版" : "FC144 follow-up is available";
+    case "retest_same_form":
+      return locale === "zh" ? "建议重测同一题型" : "Retake the same form";
+    case "read_top3":
+      return locale === "zh" ? "先阅读 Top3 与方法边界" : "Read Top 3 and the method boundary first";
+    case "no_action":
+      return locale === "zh" ? "暂无下一步" : "No immediate next step";
+    default:
+      return action ?? "";
+  }
+}
+
 export default function EnneagramHistoryClient() {
   const pathname = usePathname() ?? "/";
   const locale = getLocaleFromPathname(pathname);
@@ -116,6 +133,11 @@ export default function EnneagramHistoryClient() {
       locale === "zh"
         ? "这两次结果来自不同题型。它们都属于 FermatMind 九型模型，但分数空间不同，因此不直接比较数值差异。你可以查看两次 Top3 是否重叠，或回到结果页阅读方法边界。"
         : "These two results come from different forms within the FermatMind Enneagram model, but they do not share the same score space. Review Top 3 overlap or return to the result page for the methodology boundary.",
+    observationStatus: locale === "zh" ? "观察状态" : "Observation status",
+    observationProgress: locale === "zh" ? "观察进度" : "Observation progress",
+    observationConfirmation: locale === "zh" ? "自我观察确认" : "Self-observation confirmation",
+    observationNextAction: locale === "zh" ? "下一步建议" : "Suggested next action",
+    observationDay7: locale === "zh" ? "Day7 已提交" : "Day 7 submitted",
     previous: locale === "zh" ? "上一页" : "Previous page",
     next: locale === "zh" ? "下一页" : "Next page",
   };
@@ -301,6 +323,55 @@ export default function EnneagramHistoryClient() {
                   <p data-testid={`enneagram-history-row-close-call-${row.attemptId}`} className="m-0">
                     {copy.closeCallPair}: {row.closeCallPair.typeA} / {row.closeCallPair.typeB}
                   </p>
+                ) : null}
+
+                {row.observationSummary ? (
+                  <div
+                    data-testid={`enneagram-history-row-observation-${row.attemptId}`}
+                    className="space-y-2 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4"
+                  >
+                    {row.observationSummary.status ? (
+                      <p
+                        data-testid={`enneagram-history-row-observation-status-${row.attemptId}`}
+                        className="m-0 text-sm text-slate-700"
+                      >
+                        {copy.observationStatus} · {row.observationSummary.status}
+                      </p>
+                    ) : null}
+                    {row.observationSummary.completionRate !== null ? (
+                      <p
+                        data-testid={`enneagram-history-row-observation-progress-${row.attemptId}`}
+                        className="m-0 text-sm text-slate-700"
+                      >
+                        {copy.observationProgress} · {row.observationSummary.completionRate}%
+                      </p>
+                    ) : null}
+                    {row.observationSummary.userConfirmedType ? (
+                      <p
+                        data-testid={`enneagram-history-row-observation-confirmed-${row.attemptId}`}
+                        className="m-0 text-sm text-slate-700"
+                      >
+                        {copy.observationConfirmation} · {row.observationSummary.userConfirmedType}
+                      </p>
+                    ) : null}
+                    {row.observationSummary.suggestedNextAction ? (
+                      <p
+                        data-testid={`enneagram-history-row-observation-next-${row.attemptId}`}
+                        className="m-0 text-sm text-slate-700"
+                      >
+                        {copy.observationNextAction} ·{" "}
+                        {observationActionLabel(row.observationSummary.suggestedNextAction, locale)}
+                      </p>
+                    ) : null}
+                    {row.observationSummary.day7Submitted ? (
+                      <p
+                        data-testid={`enneagram-history-row-observation-day7-${row.attemptId}`}
+                        className="m-0 text-xs uppercase tracking-[0.12em] text-slate-500"
+                      >
+                        {copy.observationDay7}
+                      </p>
+                    ) : null}
+                  </div>
                 ) : null}
 
                 <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50/70 p-4">

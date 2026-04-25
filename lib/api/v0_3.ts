@@ -1810,6 +1810,60 @@ export type ShareClickResponse = {
   [key: string]: unknown;
 };
 
+export type EnneagramObservationTask = {
+  day?: number | null;
+  phase?: string | null;
+  prompt?: string | null;
+  user_input_schema?: Record<string, unknown> | null;
+  analytics_event_key?: string | null;
+  event_key?: string | null;
+  suggested_next_action?: string | null;
+  [key: string]: unknown;
+};
+
+export type EnneagramObservationStateV1 = {
+  version: "enneagram_observation_state.v1";
+  attempt_id: string;
+  scale_code: "ENNEAGRAM";
+  form_code?: string | null;
+  interpretation_context_id?: string | null;
+  status: string;
+  interpretation_scope?: "clear" | "close_call" | "diffuse" | "low_quality" | string | null;
+  close_call_pair?: Record<string, unknown> | null;
+  tasks: EnneagramObservationTask[];
+  day3_observation_feedback?: Record<string, unknown> | null;
+  day7_resonance_feedback?: Record<string, unknown> | null;
+  user_confirmed_type?: string | null;
+  user_disagreed_reason?: string | null;
+  resonance_score?: number | null;
+  observation_completion_rate?: number | null;
+  suggested_next_action?: string | null;
+  created_at?: string | null;
+  updated_at?: string | null;
+  [key: string]: unknown;
+};
+
+export type EnneagramObservationResponse = {
+  ok?: boolean;
+  observation_state_v1?: EnneagramObservationStateV1 | null;
+  [key: string]: unknown;
+};
+
+export type EnneagramObservationDay3Payload = {
+  more_like: "top1" | "top2" | "unclear" | "other";
+  evidence_sentence: string;
+  confidence_self_rating: number;
+  scene_type: "work" | "relationship" | "pressure" | "alone" | "other";
+};
+
+export type EnneagramObservationDay7Payload = {
+  final_resonance: "top1" | "top2" | "top3" | "other" | "still_uncertain";
+  user_confirmed_type?: string | null;
+  wants_fc144: boolean;
+  wants_retake_same_form: boolean;
+  user_disagreed_reason?: string | null;
+};
+
 export type MbtiCompareInviteCreateResponse = {
   ok?: boolean;
   invite_id?: string;
@@ -2063,6 +2117,12 @@ export type MeAttemptItem = {
     content_snapshot_status?: string | null;
     [key: string]: unknown;
   } | null;
+  observation_state_v1?: EnneagramObservationStateV1 | null;
+  observation_status?: string | null;
+  observation_completion_rate?: number | null;
+  user_confirmed_type?: string | null;
+  suggested_next_action?: string | null;
+  day7_submitted?: boolean | null;
   [key: string]: unknown;
 };
 
@@ -2090,6 +2150,8 @@ export type MeAttemptsHistoryCompare = {
   } | null;
   current_compare_policy_v1?: Record<string, unknown> | null;
   previous_compare_policy_v1?: Record<string, unknown> | null;
+  current_observation_state_v1?: EnneagramObservationStateV1 | null;
+  previous_observation_state_v1?: EnneagramObservationStateV1 | null;
   [key: string]: unknown;
 };
 
@@ -2820,6 +2882,77 @@ export async function fetchAttemptReport({
   includeAnonId?: boolean;
 }): Promise<ReportResponse> {
   return getAttemptReport({ attemptId, anonId, refresh, locale, skipAuth, includeAnonId });
+}
+
+export async function fetchEnneagramObservation({
+  attemptId,
+  anonId,
+}: {
+  attemptId: string;
+  anonId?: string;
+}): Promise<EnneagramObservationResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await apiClient.get<EnneagramObservationResponse>(
+    `/v0.3/attempts/${attemptId}/enneagram/observation`,
+    anonHeader(resolvedAnonId)
+  );
+
+  return assertApiOk(response, "Failed to load Enneagram observation.");
+}
+
+export async function assignEnneagramObservation({
+  attemptId,
+  anonId,
+}: {
+  attemptId: string;
+  anonId?: string;
+}): Promise<EnneagramObservationResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await apiClient.post<EnneagramObservationResponse>(
+    `/v0.3/attempts/${attemptId}/enneagram/observation/assign`,
+    {},
+    anonHeader(resolvedAnonId)
+  );
+
+  return assertApiOk(response, "Failed to start Enneagram observation.");
+}
+
+export async function submitEnneagramObservationDay3({
+  attemptId,
+  payload,
+  anonId,
+}: {
+  attemptId: string;
+  payload: EnneagramObservationDay3Payload;
+  anonId?: string;
+}): Promise<EnneagramObservationResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await apiClient.post<EnneagramObservationResponse>(
+    `/v0.3/attempts/${attemptId}/enneagram/observation/day3`,
+    payload,
+    anonHeader(resolvedAnonId)
+  );
+
+  return assertApiOk(response, "Failed to submit Day 3 observation feedback.");
+}
+
+export async function submitEnneagramObservationDay7({
+  attemptId,
+  payload,
+  anonId,
+}: {
+  attemptId: string;
+  payload: EnneagramObservationDay7Payload;
+  anonId?: string;
+}): Promise<EnneagramObservationResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await apiClient.post<EnneagramObservationResponse>(
+    `/v0.3/attempts/${attemptId}/enneagram/observation/day7`,
+    payload,
+    anonHeader(resolvedAnonId)
+  );
+
+  return assertApiOk(response, "Failed to submit Day 7 resonance feedback.");
 }
 
 export async function fetchAttemptReportAccess({
