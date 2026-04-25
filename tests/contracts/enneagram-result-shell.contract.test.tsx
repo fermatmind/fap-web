@@ -421,7 +421,7 @@ function createV2ReportResponse({
         modules: [
           {
             module_key: "work_style_summary",
-            kind: "summary_card",
+            kind: "scenario_card",
             visibility: "visible",
             state: scope,
             form_variant: "all",
@@ -440,6 +440,49 @@ function createV2ReportResponse({
               evidence_level: "descriptive",
             },
             fallback_policy: "required",
+          },
+          {
+            module_key: "collaboration_strengths",
+            kind: "scenario_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              title: "协作优势",
+              body: "strength scaffold",
+              type_summary: "work advantage",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "workplace_trigger_points",
+            kind: "placeholder_card",
+            visibility: "placeholder",
+            state: scope,
+            form_variant: "all",
+            content: {
+              status: "placeholder",
+              reason: "registry_entry_not_shipped_for_workplace",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "fallback_to_generic",
           },
         ],
       },
@@ -461,6 +504,7 @@ function createV2ReportResponse({
               average_expression: "average expression",
               strained_expression: "strained expression",
               recovery_action: "recovery action",
+              disclaimer: "not a hard health-level judgement",
             },
             data_refs: [],
             registry_refs: [],
@@ -470,6 +514,35 @@ function createV2ReportResponse({
               policy_refs: [],
               content_maturity: "scaffold",
               evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "strength_expression",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              items: [
+                {
+                  group_ref: "center:body",
+                  group_type: "center",
+                  group_key: "body",
+                  description: "body center description",
+                  value: "strength expression body",
+                },
+              ],
+              status: "available",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "theory_based",
             },
             fallback_policy: "required",
           },
@@ -484,13 +557,14 @@ function createV2ReportResponse({
         modules: [
           {
             module_key: "relationship_need",
-            kind: "summary_card",
+            kind: "scenario_card",
             visibility: "visible",
             state: scope,
             form_variant: "all",
             content: {
               title: "关系需要",
               body: "relationship need scaffold",
+              type_summary: "relationship type summary",
             },
             data_refs: [],
             registry_refs: [],
@@ -499,6 +573,28 @@ function createV2ReportResponse({
               registry_refs: [],
               policy_refs: [],
               content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "communication_manual",
+            kind: "scenario_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              title: "沟通说明书",
+              body: "communication manual scaffold",
+              type_summary: "surface summary",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
               evidence_level: "descriptive",
             },
             fallback_policy: "required",
@@ -578,6 +674,55 @@ function createV2ReportResponse({
               evidence_level: "descriptive",
             },
             fallback_policy: "required",
+          },
+          {
+            module_key: "sample_report_link",
+            kind: "link_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              sample_key: "clear_sample",
+              sample_type: "clear",
+              form_code: "enneagram_likert_105",
+              interpretation_scope: scope,
+              top_types: ["8", "3", "1"],
+              short_summary: "sample short summary",
+              page_1_preview: "sample page 1 preview",
+              method_boundary: "sample boundary",
+              public_url_slug: "enneagram-clear-sample",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "history_share_retake_placeholder",
+            kind: "placeholder_card",
+            visibility: "placeholder",
+            state: scope,
+            form_variant: "all",
+            content: {
+              status: "placeholder",
+              reason: "history_share_surface_not_shipped",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "fallback_to_generic",
           },
         ],
       },
@@ -675,6 +820,33 @@ describe("enneagram result shell contract", () => {
     expect(screen.getByTestId("enneagram-v2-page-page_5_method_observation_next")).toBeInTheDocument();
   });
 
+  it("renders page 2 scenario cards instead of falling back to the generic renderer", async () => {
+    await renderShell(createV2ReportResponse());
+
+    const page = screen.getByTestId("enneagram-v2-page-page_2_work_reality");
+    expect(within(page).getByTestId("enneagram-module-work_style_summary")).toHaveTextContent("work style scaffold");
+    expect(within(page).getByTestId("enneagram-module-collaboration_strengths")).toHaveTextContent("strength scaffold");
+    expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
+  });
+
+  it("renders page 3 state spectrum and group overlays with boundary copy", async () => {
+    await renderShell(createV2ReportResponse());
+
+    const page = screen.getByTestId("enneagram-v2-page-page_3_growth_spectrum");
+    expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("stable expression");
+    expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("not a hard health-level judgement");
+    expect(within(page).getByTestId("enneagram-module-strength_expression")).toHaveTextContent("strength expression body");
+  });
+
+  it("renders page 4 relationship and conflict cards instead of generic fallback", async () => {
+    await renderShell(createV2ReportResponse());
+
+    const page = screen.getByTestId("enneagram-v2-page-page_4_relationship_conflict");
+    expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("relationship need scaffold");
+    expect(within(page).getByTestId("enneagram-module-communication_manual")).toHaveTextContent("communication manual scaffold");
+    expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
+  });
+
   it("renders close-call state with the close_call_card module", async () => {
     await renderShell(createV2ReportResponse({ scope: "close_call" }));
 
@@ -757,5 +929,32 @@ describe("enneagram result shell contract", () => {
     const link = screen.getByTestId("enneagram-technical-note-link");
     expect(link).toHaveAttribute("href", "/zh/tests/enneagram-personality-test-nine-types/technical-note");
     expect(link).toHaveTextContent("阅读技术说明");
+  });
+
+  it("renders sample report preview content instead of a slug-only placeholder", async () => {
+    await renderShell(createV2ReportResponse());
+
+    const moduleNode = screen.getByTestId("enneagram-module-sample-report-link");
+    expect(moduleNode).toHaveTextContent("sample short summary");
+    expect(moduleNode).toHaveTextContent("sample page 1 preview");
+    expect(moduleNode).toHaveTextContent("sample boundary");
+    expect(moduleNode).toHaveTextContent("enneagram-clear-sample");
+  });
+
+  it("renders page 5 placeholder modules without dropping into the generic renderer", async () => {
+    await renderShell(createV2ReportResponse());
+
+    const page = screen.getByTestId("enneagram-v2-page-page_5_method_observation_next");
+    expect(within(page).getByTestId("enneagram-module-history_share_retake_placeholder")).toHaveTextContent(
+      "history_share_surface_not_shipped",
+    );
+    expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
+  });
+
+  it("marks placeholder and unavailable modules without inventing fake long-form content", async () => {
+    await renderShell(createV2ReportResponse());
+
+    expect(screen.getByTestId("enneagram-module-workplace_trigger_points")).toHaveTextContent("占位模块");
+    expect(screen.getByTestId("enneagram-module-blind_spot_card")).toHaveTextContent("暂不可用");
   });
 });
