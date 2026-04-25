@@ -225,6 +225,7 @@ function ModuleCard({
 function localizedModuleTitle(moduleKey: string, locale: Locale): string {
   const isZh = locale === "zh";
   const labels: Record<string, { zh: string; en: string }> = {
+    type_deep_dive_summary: { zh: "主类型深解", en: "Type deep dive" },
     work_style_summary: { zh: "工作方式", en: "Work style" },
     collaboration_strengths: { zh: "协作优势", en: "Collaboration strengths" },
     collaboration_friction: { zh: "协作摩擦点", en: "Collaboration friction" },
@@ -254,6 +255,25 @@ function localizedModuleTitle(moduleKey: string, locale: Locale): string {
   }
 
   return isZh ? copy.zh : copy.en;
+}
+
+function detailLabelCopy(value: string, locale: Locale): string {
+  if (locale !== "zh") {
+    return value || "Detail";
+  }
+
+  switch (value) {
+    case "growth_principle":
+      return "成长原则";
+    case "work_mechanism":
+      return "工作机制";
+    case "relationship_script":
+      return "关系脚本";
+    case "conflict_pattern":
+      return "冲突模式";
+    default:
+      return value || "补充说明";
+  }
 }
 
 function evidenceLevelLabel(value: string, locale: Locale): string {
@@ -328,10 +348,39 @@ function ModuleProvenance({
   );
 }
 
+function TypeDeepDiveSummaryRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
+  const cards = [
+    { key: "core_desire", label: locale === "zh" ? "核心渴望" : "Core desire" },
+    { key: "core_fear", label: locale === "zh" ? "核心担心" : "Core fear" },
+    { key: "defense_pattern", label: locale === "zh" ? "惯性防御" : "Defense pattern" },
+    { key: "self_misread", label: locale === "zh" ? "容易对自己误读的地方" : "How you may misread yourself" },
+  ].filter((item) => moduleText(module, item.key));
+
+  return (
+    <ModuleCard title={localizedModuleTitle(module.moduleKey, locale)} testId="enneagram-module-type_deep_dive_summary">
+      {moduleText(module, "short_title") ? <p className="m-0 text-sm font-semibold text-slate-800">{moduleText(module, "short_title")}</p> : null}
+      <div className="grid gap-3 md:grid-cols-2">
+        {cards.map((card) => (
+          <div key={card.key} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{card.label}</p>
+            <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, card.key)}</p>
+          </div>
+        ))}
+      </div>
+      {moduleText(module, "validation_hook") ? (
+        <p className="m-0 text-xs text-slate-500">{moduleText(module, "validation_hook")}</p>
+      ) : null}
+      <ModuleProvenance module={module} locale={locale} />
+    </ModuleCard>
+  );
+}
+
 function ScenarioCardRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
   const title = moduleText(module, "title") || localizedModuleTitle(module.moduleKey, locale);
   const body = moduleText(module, "body");
   const typeSummary = moduleText(module, "type_summary");
+  const detailLabel = detailLabelCopy(moduleText(module, "detail_label"), locale);
+  const detail = moduleText(module, "deep_dive_detail");
   const primaryCandidate = moduleText(module, "primary_candidate");
 
   return (
@@ -343,6 +392,12 @@ function ScenarioCardRenderer({ module, locale }: { module: EnneagramReportV2Mod
           <p className="m-0 mt-2 text-sm text-slate-700">{typeSummary}</p>
         </div>
       ) : null}
+      {detail ? (
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">{detailLabel}</p>
+          <p className="m-0 mt-2 text-sm text-emerald-900">{detail}</p>
+        </div>
+      ) : null}
       {primaryCandidate ? <p className="m-0 text-xs text-slate-500">{locale === "zh" ? "围绕主候选" : "Grounded in lead candidate"} · {primaryCandidate}</p> : null}
       <ModuleProvenance module={module} locale={locale} />
     </ModuleCard>
@@ -352,12 +407,20 @@ function ScenarioCardRenderer({ module, locale }: { module: EnneagramReportV2Mod
 function ValueCardRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
   const title = localizedModuleTitle(module.moduleKey, locale);
   const value = moduleText(module, "value");
+  const detail = moduleText(module, "deep_dive_detail");
+  const detailLabel = detailLabelCopy(moduleText(module, "detail_label"), locale);
   const typeName = moduleText(module, "type_name_cn") || moduleText(module, "type_name_en");
   const primaryCandidate = moduleText(module, "primary_candidate");
 
   return (
     <ModuleCard title={title} testId={`enneagram-module-${module.moduleKey}`}>
       {value ? <p className="m-0">{value}</p> : null}
+      {detail ? (
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{detailLabel}</p>
+          <p className="m-0 mt-2 text-sm text-slate-700">{detail}</p>
+        </div>
+      ) : null}
       {typeName || primaryCandidate ? (
         <p className="m-0 text-xs text-slate-500">
           {locale === "zh" ? "当前主候选" : "Primary candidate"} · {[typeName, primaryCandidate].filter(Boolean).join(" · ")}
@@ -416,6 +479,30 @@ function StateSpectrumRenderer({ module, locale }: { module: EnneagramReportV2Mo
         <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">{isZh ? "恢复动作" : "Recovery action"}</p>
           <p className="m-0 mt-2 text-sm text-emerald-900">{moduleText(module, "recovery_action")}</p>
+        </div>
+      ) : null}
+      {moduleText(module, "type_recovery_action") ? (
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">{isZh ? "主类型恢复动作" : "Type recovery action"}</p>
+          <p className="m-0 mt-2 text-sm text-emerald-900">{moduleText(module, "type_recovery_action")}</p>
+        </div>
+      ) : null}
+      {moduleText(module, "stress_signal") ? (
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "压力信号" : "Stress signal"}</p>
+          <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, "stress_signal")}</p>
+        </div>
+      ) : null}
+      {moduleText(module, "growth_principle") ? (
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "成长原则" : "Growth principle"}</p>
+          <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, "growth_principle")}</p>
+        </div>
+      ) : null}
+      {moduleText(module, "thirty_day_experiment") ? (
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-sky-700">{isZh ? "30 天实验" : "30-day experiment"}</p>
+          <p className="m-0 mt-2 text-sm text-sky-900">{moduleText(module, "thirty_day_experiment")}</p>
         </div>
       ) : null}
       {moduleText(module, "disclaimer") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "disclaimer")}</p> : null}
@@ -1106,6 +1193,8 @@ function renderModule(
         </ModuleCard>
       );
     }
+    case "type_deep_dive_summary":
+      return <TypeDeepDiveSummaryRenderer module={module} locale={locale} />;
     case "work_style_summary":
     case "collaboration_strengths":
     case "collaboration_friction":

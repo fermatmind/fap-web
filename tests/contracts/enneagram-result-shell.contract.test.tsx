@@ -97,6 +97,34 @@ function createV2ReportResponse({
       fallback_policy: "required",
     },
     {
+      module_key: "type_deep_dive_summary",
+      kind: "type_deep_dive_summary",
+      visibility: "visible",
+      state: scope,
+      form_variant: "all",
+      content: {
+        primary_candidate: isFc144 ? "5" : "1",
+        type_name_cn: isFc144 ? "理智型" : "完美型",
+        type_name_en: isFc144 ? "The Investigator" : "The Reformer",
+        short_title: "把事情拉回正确轨道的人",
+        core_desire: "core desire scaffold",
+        core_fear: "core fear scaffold",
+        defense_pattern: "defense pattern scaffold",
+        self_misread: "self misread scaffold",
+        validation_hook: "validation hook scaffold",
+      },
+      data_refs: [],
+      registry_refs: [],
+      provenance: {
+        projection_refs: [],
+        registry_refs: [],
+        policy_refs: [],
+        content_maturity: "p0_ready",
+        evidence_level: "theory_based",
+      },
+      fallback_policy: "required",
+    },
+    {
       module_key: "all9_profile",
       kind: "profile_chart",
       visibility: "visible",
@@ -428,7 +456,7 @@ function createV2ReportResponse({
             content: {
               title: "工作风格",
               body: "work style scaffold",
-              type_summary: "summary",
+              type_summary: "work mechanism scaffold",
             },
             data_refs: [],
             registry_refs: [],
@@ -494,6 +522,52 @@ function createV2ReportResponse({
         source_registry_refs: [],
         modules: [
           {
+            module_key: "growth_axis",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              value: "growth axis scaffold",
+              detail_label: "growth_principle",
+              deep_dive_detail: "growth principle scaffold",
+              type_name_cn: "完美型",
+              type_name_en: "The Reformer",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "theory_based",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "stress_trigger",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              value: "stress signal scaffold",
+              type_name_cn: "完美型",
+              type_name_en: "The Reformer",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "theory_based",
+            },
+            fallback_policy: "required",
+          },
+          {
             module_key: "state_spectrum",
             kind: "state_spectrum",
             visibility: "visible",
@@ -504,6 +578,9 @@ function createV2ReportResponse({
               average_expression: "average expression",
               strained_expression: "strained expression",
               recovery_action: "recovery action",
+              stress_signal: "stress signal scaffold",
+              growth_principle: "growth principle scaffold",
+              thirty_day_experiment: "thirty day experiment scaffold",
               disclaimer: "not a hard health-level judgement",
             },
             data_refs: [],
@@ -514,6 +591,30 @@ function createV2ReportResponse({
               policy_refs: [],
               content_maturity: "scaffold",
               evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "recovery_action",
+            kind: "summary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              recovery_action: "recovery action",
+              type_recovery_action: "type recovery action scaffold",
+              growth_principle: "growth principle scaffold",
+              thirty_day_experiment: "thirty day experiment scaffold",
+              disclaimer: "not a hard health-level judgement",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "theory_based",
             },
             fallback_policy: "required",
           },
@@ -564,7 +665,7 @@ function createV2ReportResponse({
             content: {
               title: "关系需要",
               body: "relationship need scaffold",
-              type_summary: "relationship type summary",
+              type_summary: "relationship script scaffold",
             },
             data_refs: [],
             registry_refs: [],
@@ -574,6 +675,28 @@ function createV2ReportResponse({
               policy_refs: [],
               content_maturity: "scaffold",
               evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "conflict_script",
+            kind: "scenario_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              title: "冲突脚本",
+              body: "conflict script body",
+              type_summary: "conflict pattern scaffold",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "p0_ready",
+              evidence_level: "theory_based",
             },
             fallback_policy: "required",
           },
@@ -825,6 +948,7 @@ describe("enneagram result shell contract", () => {
 
     const page = screen.getByTestId("enneagram-v2-page-page_2_work_reality");
     expect(within(page).getByTestId("enneagram-module-work_style_summary")).toHaveTextContent("work style scaffold");
+    expect(within(page).getByTestId("enneagram-module-work_style_summary")).toHaveTextContent("work mechanism scaffold");
     expect(within(page).getByTestId("enneagram-module-collaboration_strengths")).toHaveTextContent("strength scaffold");
     expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
   });
@@ -835,6 +959,10 @@ describe("enneagram result shell contract", () => {
     const page = screen.getByTestId("enneagram-v2-page-page_3_growth_spectrum");
     expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("stable expression");
     expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("not a hard health-level judgement");
+    expect(within(page).getByTestId("enneagram-module-stress_trigger")).toHaveTextContent("stress signal scaffold");
+    expect(within(page).getByTestId("enneagram-module-recovery_action")).toHaveTextContent("type recovery action scaffold");
+    expect(within(page).getByTestId("enneagram-module-recovery_action")).toHaveTextContent("thirty day experiment scaffold");
+    expect(within(page).getByTestId("enneagram-module-growth_axis")).toHaveTextContent("growth principle scaffold");
     expect(within(page).getByTestId("enneagram-module-strength_expression")).toHaveTextContent("strength expression body");
   });
 
@@ -843,8 +971,19 @@ describe("enneagram result shell contract", () => {
 
     const page = screen.getByTestId("enneagram-v2-page-page_4_relationship_conflict");
     expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("relationship need scaffold");
+    expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("relationship script scaffold");
+    expect(within(page).getByTestId("enneagram-module-conflict_script")).toHaveTextContent("conflict pattern scaffold");
     expect(within(page).getByTestId("enneagram-module-communication_manual")).toHaveTextContent("communication manual scaffold");
     expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
+  });
+
+  it("renders page 1 type deep dive summary", async () => {
+    await renderShell(createV2ReportResponse());
+
+    const page = screen.getByTestId("enneagram-v2-page-page_1_result_overview");
+    expect(within(page).getByTestId("enneagram-module-type_deep_dive_summary")).toHaveTextContent("core desire scaffold");
+    expect(within(page).getByTestId("enneagram-module-type_deep_dive_summary")).toHaveTextContent("core fear scaffold");
+    expect(within(page).getByTestId("enneagram-module-type_deep_dive_summary")).toHaveTextContent("self misread scaffold");
   });
 
   it("renders close-call state with the close_call_card module", async () => {
@@ -956,5 +1095,25 @@ describe("enneagram result shell contract", () => {
 
     expect(screen.getByTestId("enneagram-module-workplace_trigger_points")).toHaveTextContent("占位模块");
     expect(screen.getByTestId("enneagram-module-blind_spot_card")).toHaveTextContent("暂不可用");
+  });
+
+  it("keeps deep dive rendering safe when fields are missing", async () => {
+    const report = createV2ReportResponse();
+    const pages = (report.enneagram_report_v2?.pages ?? []) as Array<{ modules?: Record<string, unknown>[] }>;
+    const modules = (pages[0]?.modules ?? []) as Record<string, unknown>[];
+    const summary = modules.find((module) => module.module_key === "type_deep_dive_summary");
+
+    expect(summary).toBeDefined();
+    if (summary) {
+      summary.content = {
+        core_desire: "partial deep dive",
+      };
+    }
+
+    await renderShell(report);
+
+    const moduleNode = screen.getByTestId("enneagram-module-type_deep_dive_summary");
+    expect(moduleNode).toHaveTextContent("partial deep dive");
+    expect(moduleNode).not.toHaveTextContent("core fear scaffold");
   });
 });
