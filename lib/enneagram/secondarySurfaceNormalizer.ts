@@ -41,6 +41,13 @@ export type EnneagramHistoryRowSummary = {
     contentReleaseHash: string | null;
     contentSnapshotStatus: string | null;
   } | null;
+  observationSummary: {
+    status: string | null;
+    completionRate: number | null;
+    userConfirmedType: string | null;
+    suggestedNextAction: string | null;
+    day7Submitted: boolean;
+  } | null;
   offerSummary: {
     primaryOffer: OfferPayload | null;
   } | null;
@@ -87,6 +94,10 @@ function normalizeNumber(value: unknown): number | null {
   }
 
   return null;
+}
+
+function normalizeBoolean(value: unknown): boolean {
+  return value === true;
 }
 
 function normalizeType(value: unknown): EnneagramHistoryTypeSummary | null {
@@ -163,6 +174,11 @@ export function normalizeEnneagramHistoryRows(
     const summary = resolveSummaryRecord(item);
     const offerSummary = asRecord(item.offer_summary);
     const qualitySummary = asRecord(item.quality_summary);
+    const observationState = asRecord(item.observation_state_v1);
+    const hasObservationSummary =
+      observationState !== null ||
+      normalizeText(item.observation_status, item.user_confirmed_type, item.suggested_next_action).length > 0 ||
+      normalizeNumber(item.observation_completion_rate) !== null;
 
     return {
       attemptId,
@@ -198,6 +214,15 @@ export function normalizeEnneagramHistoryRows(
             interpretationContextId: normalizeText(item.classification_summary_v1?.interpretation_context_id) || null,
             contentReleaseHash: normalizeText(item.classification_summary_v1?.content_release_hash) || null,
             contentSnapshotStatus: normalizeText(item.classification_summary_v1?.content_snapshot_status) || null,
+          }
+        : null,
+      observationSummary: hasObservationSummary
+        ? {
+            status: normalizeText(item.observation_status, observationState?.status) || null,
+            completionRate: normalizeNumber(item.observation_completion_rate ?? observationState?.observation_completion_rate),
+            userConfirmedType: normalizeText(item.user_confirmed_type, observationState?.user_confirmed_type) || null,
+            suggestedNextAction: normalizeText(item.suggested_next_action, observationState?.suggested_next_action) || null,
+            day7Submitted: normalizeBoolean(item.day7_submitted),
           }
         : null,
       offerSummary: asRecord(offerSummary?.primary_offer)

@@ -1,8 +1,27 @@
-import { render, screen, within } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { render, screen, waitFor, within } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { EnneagramResultShell } from "@/components/result/enneagram/EnneagramResultShell";
 import { assembleEnneagramResultViewModel } from "@/lib/enneagram/resultAssembler";
 import type { ReportResponse } from "@/lib/api/v0_3";
+
+const hoisted = vi.hoisted(() => ({
+  fetchEnneagramObservation: vi.fn(),
+  assignEnneagramObservation: vi.fn(),
+  submitEnneagramObservationDay3: vi.fn(),
+  submitEnneagramObservationDay7: vi.fn(),
+}));
+
+vi.mock("@/lib/api/v0_3", async () => {
+  const actual = await vi.importActual<typeof import("@/lib/api/v0_3")>("@/lib/api/v0_3");
+
+  return {
+    ...actual,
+    fetchEnneagramObservation: hoisted.fetchEnneagramObservation,
+    assignEnneagramObservation: hoisted.assignEnneagramObservation,
+    submitEnneagramObservationDay3: hoisted.submitEnneagramObservationDay3,
+    submitEnneagramObservationDay7: hoisted.submitEnneagramObservationDay7,
+  };
+});
 
 vi.mock("@/components/big5/pdf/PdfDownloadButton", () => ({
   PdfDownloadButton: () => <button type="button">Download PDF</button>,
@@ -604,14 +623,14 @@ function createV2ReportResponse({
   } as ReportResponse;
 }
 
-function renderShell(reportData: ReportResponse) {
+async function renderShell(reportData: ReportResponse) {
   const viewModel = assembleEnneagramResultViewModel({
     reportData,
     locale: "zh",
     gate: { isFreeVariant: false },
   });
 
-  return render(
+  const rendered = render(
     <EnneagramResultShell
       locale="zh"
       attemptId="attempt-v2"
@@ -620,11 +639,34 @@ function renderShell(reportData: ReportResponse) {
       viewModel={viewModel}
     />
   );
+
+  await waitFor(() => {
+    expect(hoisted.fetchEnneagramObservation).toHaveBeenCalled();
+  });
+
+  return rendered;
 }
 
 describe("enneagram result shell contract", () => {
-  it("renders all five V2 pages from the backend payload", () => {
-    renderShell(createV2ReportResponse());
+  beforeEach(() => {
+    vi.clearAllMocks();
+    hoisted.fetchEnneagramObservation.mockResolvedValue({
+      ok: true,
+      observation_state_v1: {
+        version: "enneagram_observation_state.v1",
+        attempt_id: "attempt-v2",
+        scale_code: "ENNEAGRAM",
+        status: "initial_result",
+        interpretation_scope: "clear",
+        tasks: [],
+        observation_completion_rate: 0,
+        suggested_next_action: "observe_7_days",
+      },
+    });
+  });
+
+  it("renders all five V2 pages from the backend payload", async () => {
+    await renderShell(createV2ReportResponse());
 
     expect(screen.getByTestId("enneagram-v2-page-page_1_result_overview")).toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-page-page_2_work_reality")).toBeInTheDocument();
@@ -633,8 +675,8 @@ describe("enneagram result shell contract", () => {
     expect(screen.getByTestId("enneagram-v2-page-page_5_method_observation_next")).toBeInTheDocument();
   });
 
-  it("renders close-call state with the close_call_card module", () => {
-    renderShell(createV2ReportResponse({ scope: "close_call" }));
+  it("renders close-call state with the close_call_card module", async () => {
+    await renderShell(createV2ReportResponse({ scope: "close_call" }));
 
     const moduleNode = screen.getByTestId("enneagram-module-close-call-card");
     expect(moduleNode).toBeInTheDocument();
@@ -642,15 +684,15 @@ describe("enneagram result shell contract", () => {
     expect(screen.getByTestId("enneagram-v2-interpretation-scope")).toHaveTextContent("close_call");
   });
 
-  it("renders diffuse state with the diffuse boundary module", () => {
-    renderShell(createV2ReportResponse({ scope: "diffuse" }));
+  it("renders diffuse state with the diffuse boundary module", async () => {
+    await renderShell(createV2ReportResponse({ scope: "diffuse" }));
 
     expect(screen.getByTestId("enneagram-module-diffuse-boundary")).toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-summary-body")).toHaveTextContent("body_for_diffuse");
   });
 
-  it("renders low-quality state with boundary copy and qc flags", () => {
-    renderShell(createV2ReportResponse({ scope: "low_quality" }));
+  it("renders low-quality state with boundary copy and qc flags", async () => {
+    await renderShell(createV2ReportResponse({ scope: "low_quality" }));
 
     const moduleNode = screen.getByTestId("enneagram-module-low-quality-boundary");
     expect(moduleNode).toBeInTheDocument();
@@ -658,17 +700,17 @@ describe("enneagram result shell contract", () => {
     expect(within(moduleNode).getByText(/speed_too_fast/)).toBeInTheDocument();
   });
 
-  it("uses different form badges for E105 and FC144 while keeping one shell", () => {
-    const firstRender = renderShell(createV2ReportResponse({ formCode: "enneagram_likert_105" }));
+  it("uses different form badges for E105 and FC144 while keeping one shell", async () => {
+    const firstRender = await renderShell(createV2ReportResponse({ formCode: "enneagram_likert_105" }));
     expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("E105 标准版");
     firstRender.unmount();
 
-    renderShell(createV2ReportResponse({ formCode: "enneagram_forced_choice_144" }));
+    await renderShell(createV2ReportResponse({ formCode: "enneagram_forced_choice_144" }));
     expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("FC144 深度版");
   });
 
-  it("renders all9 profile completeness and top3 cards", () => {
-    renderShell(createV2ReportResponse());
+  it("renders all9 profile completeness and top3 cards", async () => {
+    await renderShell(createV2ReportResponse());
 
     expect(screen.getByTestId("enneagram-v2-all9-profile-count")).toHaveTextContent("9");
     const top3 = screen.getByTestId("enneagram-module-top3-cards");
@@ -676,8 +718,8 @@ describe("enneagram result shell contract", () => {
     expect(within(top3).getByText("Type 6")).toBeInTheDocument();
   });
 
-  it("keeps unknown modules safe with the generic fallback renderer", () => {
-    renderShell(
+  it("keeps unknown modules safe with the generic fallback renderer", async () => {
+    await renderShell(
       createV2ReportResponse({
         extraModule: {
           module_key: "unknown_future_module",
