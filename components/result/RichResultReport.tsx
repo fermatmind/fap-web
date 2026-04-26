@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
+import { Big5ResultPageV2Shell } from "@/components/result/big5/Big5ResultPageV2Shell";
 import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
 import { EnneagramResultShell } from "@/components/result/enneagram/EnneagramResultShell";
 import { MbtiResultShell } from "@/components/result/mbti/MbtiResultShell";
@@ -15,6 +16,7 @@ import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
+import { getBig5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
 import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
 import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
 import {
@@ -1276,6 +1278,10 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
     return true;
   }
 
+  if (scaleCode === "BIG5_OCEAN" && getBig5ResultPageV2Payload(reportData)) {
+    return true;
+  }
+
   const payload = resolveReportPayload(reportData);
   if (!payload) {
     return false;
@@ -1391,6 +1397,11 @@ export function RichResultReport({
     : [];
 
   if (scaleCode === "BIG5_OCEAN") {
+    const resultPageV2Payload = getBig5ResultPageV2Payload(reportData);
+    if (resultPageV2Payload) {
+      return <Big5ResultPageV2Shell locale={locale} payload={resultPageV2Payload} />;
+    }
+
     const assembled = assembleBig5ResultViewModel({
       locale,
       reportData,
