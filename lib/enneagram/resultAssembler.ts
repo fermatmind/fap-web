@@ -22,6 +22,19 @@ export type EnneagramModuleState = "clear" | "close_call" | "diffuse" | "low_qua
 export type EnneagramModuleVisibility = "visible" | "collapsed" | "placeholder" | "unavailable";
 export type EnneagramFormVariant = "all" | "e105" | "fc144";
 
+export type EnneagramAssetBackedContent = {
+  asset_key: string;
+  asset_type: string;
+  category: string;
+  module_key: string;
+  body_zh: string;
+  short_body_zh: string;
+  cta_zh: string;
+  content_maturity: string;
+  evidence_level: string;
+  version: string;
+};
+
 export type EnneagramReportV2Module = {
   moduleKey: string;
   kind: string;
@@ -236,6 +249,32 @@ function normalizeStringArray(value: unknown): string[] {
     .filter((item) => item.length > 0);
 }
 
+const ASSET_BACKED_CONTENT_FIELDS = [
+  "asset_key",
+  "asset_type",
+  "category",
+  "module_key",
+  "body_zh",
+  "short_body_zh",
+  "cta_zh",
+  "content_maturity",
+  "evidence_level",
+  "version",
+] as const;
+
+function sanitizeAssetBackedContent(value: unknown): Record<string, unknown> {
+  const record = asRecord(value);
+  if (!record) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    ASSET_BACKED_CONTENT_FIELDS
+      .map((field) => [field, normalizeText(record[field])] as const)
+      .filter(([, fieldValue]) => fieldValue.length > 0)
+  );
+}
+
 function normalizeModule(value: unknown): EnneagramReportV2Module | null {
   const moduleRecord = asRecord(value);
   if (!moduleRecord) {
@@ -248,14 +287,15 @@ function normalizeModule(value: unknown): EnneagramReportV2Module | null {
   }
 
   const provenance = asRecord(moduleRecord.provenance);
+  const kind = normalizeText(moduleRecord.kind, "summary_card");
 
   return {
     moduleKey,
-    kind: normalizeText(moduleRecord.kind, "summary_card"),
+    kind,
     visibility: normalizeModuleVisibility(moduleRecord.visibility),
     state: normalizeModuleState(moduleRecord.state),
     formVariant: normalizeFormVariant(moduleRecord.form_variant),
-    content: asRecord(moduleRecord.content) ?? {},
+    content: kind === "asset_backed_card" ? sanitizeAssetBackedContent(moduleRecord.content) : asRecord(moduleRecord.content) ?? {},
     dataRefs: normalizeStringArray(moduleRecord.data_refs),
     registryRefs: normalizeStringArray(moduleRecord.registry_refs),
     provenance: {
