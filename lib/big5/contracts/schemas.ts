@@ -255,6 +255,9 @@ export const big5ReportResponseSchema = z
     // usable; malformed v2 must fall back to the legacy path instead of
     // failing the whole report contract.
     big5_report_engine_v2: z.unknown().optional(),
+    // Keep additive Result Page V2 non-fatal for report reads. The dedicated
+    // type guard decides whether the V2 consumer path is safe to render.
+    big5_result_page_v2: z.unknown().optional(),
     meta: z.record(z.string(), z.unknown()).optional(),
     report: z
       .object({
