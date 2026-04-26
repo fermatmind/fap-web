@@ -438,6 +438,49 @@ function ModuleProvenance({
   );
 }
 
+function AssetBackedCardRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
+  const isZh = locale === "zh";
+  const category = moduleText(module, "category");
+  const body = moduleText(module, "body_zh");
+  const shortBody = moduleText(module, "short_body_zh");
+  const cta = moduleText(module, "cta_zh");
+  const assetKey = moduleText(module, "asset_key");
+  const version = moduleText(module, "version");
+  const title = category ? category.replace(/_/g, " ") : localizedModuleTitle(module.moduleKey, locale);
+
+  return (
+    <ModuleCard title={title} testId={`enneagram-asset-backed-${category || module.moduleKey}`}>
+      <div className="space-y-3 [overflow-wrap:anywhere]">
+        {shortBody ? <p className="m-0 text-sm font-semibold text-slate-800">{shortBody}</p> : null}
+        {body ? <p data-testid="enneagram-asset-backed-body" className="m-0 whitespace-pre-wrap text-sm leading-7 text-slate-700">{body}</p> : null}
+        {cta ? (
+          <p data-testid="enneagram-asset-backed-cta" className="m-0 text-sm font-semibold text-[var(--fm-trust-blue)]">
+            {cta}
+          </p>
+        ) : null}
+        {assetKey || version ? (
+          <p data-testid="enneagram-asset-backed-provenance" className="m-0 text-xs text-slate-500">
+            {[assetKey, version].filter(Boolean).join(" · ")}
+          </p>
+        ) : null}
+        {!body && moduleText(module, "status") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "status")}</p> : null}
+      </div>
+      <ModuleProvenance
+        module={{
+          ...module,
+          provenance: {
+            ...module.provenance,
+            contentMaturity: moduleText(module, "content_maturity") || module.provenance.contentMaturity,
+            evidenceLevel: moduleText(module, "evidence_level") || module.provenance.evidenceLevel,
+          },
+        }}
+        locale={locale}
+        extraHint={isZh ? "preview only" : "preview only"}
+      />
+    </ModuleCard>
+  );
+}
+
 function TypeDeepDiveSummaryRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
   const cards = [
     { key: "core_desire", label: locale === "zh" ? "核心渴望" : "Core desire" },
@@ -1096,6 +1139,10 @@ function renderModule(
   observation: ObservationSurfaceState | null
 ): React.ReactNode {
   const isZh = locale === "zh";
+
+  if (module.kind === "asset_backed_card") {
+    return <AssetBackedCardRenderer module={module} locale={locale} />;
+  }
 
   switch (module.moduleKey) {
     case "instant_summary": {

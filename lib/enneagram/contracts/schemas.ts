@@ -122,6 +122,32 @@ export const enneagramPublicProjectionSchema = z
   })
   .passthrough();
 
+export const enneagramAssetBackedModuleContentSchema = z
+  .object({
+    asset_key: z.string().min(1),
+    asset_type: z.string().min(1).optional(),
+    category: z.string().min(1),
+    module_key: z.string().min(1).optional(),
+    body_zh: z.string().min(1).optional(),
+    short_body_zh: z.string().optional(),
+    cta_zh: z.string().optional(),
+    content_maturity: z.string().optional(),
+    evidence_level: z.string().optional(),
+    version: z.string().optional(),
+  })
+  .strict();
+
+export const enneagramAssetBackedModuleSchema = z
+  .object({
+    module_key: z.string().min(1),
+    kind: z.literal("asset_backed_card"),
+    visibility: z.string().optional(),
+    state: z.string().optional(),
+    form_variant: z.string().optional(),
+    content: enneagramAssetBackedModuleContentSchema,
+  })
+  .passthrough();
+
 export const enneagramReportResponseSchema = z
   .object({
     ok: z.boolean().optional(),
