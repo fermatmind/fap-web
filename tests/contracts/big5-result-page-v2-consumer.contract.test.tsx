@@ -119,6 +119,17 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     expect(screen.queryByText(/你可能是/)).not.toBeInTheDocument();
   });
 
+  it("does not expose V2 payload internals as visible UI labels", () => {
+    render(<RichResultReport locale="zh" reportData={withResultPageV2(createCanonicalPayload())} />);
+
+    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.queryByText("big5_result_page_v2")).not.toBeInTheDocument();
+    expect(screen.queryByText("fap.big5.result_page.v2")).not.toBeInTheDocument();
+    expect(screen.queryByText("module_00_trust_bar")).not.toBeInTheDocument();
+    expect(screen.queryByText("trust_bar")).not.toBeInTheDocument();
+    expect(screen.queryByText(/backend V2 payload/i)).not.toBeInTheDocument();
+  });
+
   it("does not render profile_signature as a fixed type", () => {
     render(<RichResultReport locale="zh" reportData={withResultPageV2(createCanonicalPayload())} />);
 
