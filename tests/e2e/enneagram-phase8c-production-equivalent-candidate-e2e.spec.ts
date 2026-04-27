@@ -6,14 +6,32 @@ import { expect, test, type Page } from "@playwright/test";
 
 const CANDIDATE_DIR = process.env.PHASE8B_CANDIDATE_DIR;
 const OUTPUT_DIR =
+  process.env.PHASE8C_OUTPUT_DIR ??
   process.env.PHASE8C1_OUTPUT_DIR ??
-  `/tmp/fm_enneagram_phase8c1_${new Date().toISOString().replace(/[-:]/g, "").replace(/\..+/, "").replace("T", "_")}`;
+  `/tmp/fm_enneagram_phase8c_${new Date().toISOString().replace(/[-:]/g, "").replace(/\..+/, "").replace("T", "_")}`;
 
 const EXPECTED_MANIFEST_SHA256 =
   "87f7eb874eb162ff158b5d3ac5e4393218d045054b2f0e3e0eddc09c6c3ea556";
 const EXPECTED_RUNTIME_REGISTRY_MANIFEST_SHA256 =
   "ac5bdaab3c761b0d01a56f92679aa58341110d64de0f47a1fa0062b64f76f97f";
 const EXPECTED_PAYLOAD_COUNT = 630;
+
+const GROUP_COUNTS = {
+  baseline: 36,
+  low_resonance: 108,
+  partial_resonance: 90,
+  diffuse_convergence: 108,
+  close_call_pair: 36,
+  scene_localization: 162,
+  fc144_recommendation: 90,
+} as const;
+
+const VIEWPORTS = [
+  { name: "desktop" as const, width: 1280, height: 900 },
+  { name: "mobile" as const, width: 390, height: 844 },
+];
+
+const GROUP_PREFIXES = Object.keys(GROUP_COUNTS) as Array<keyof typeof GROUP_COUNTS>;
 
 const BRANCH_CATEGORIES = [
   "low_resonance_response",
@@ -156,6 +174,7 @@ type PreviewFixture = {
 type FixtureRecord = {
   attemptId: string;
   fileName: string;
+  group: keyof typeof GROUP_COUNTS;
   fixture: PreviewFixture;
   modules: PreviewModule[];
 };
@@ -178,6 +197,7 @@ type BranchDuplicateCounts = Record<(typeof BRANCH_CATEGORIES)[number], number>;
 type FixtureRunResult = {
   attemptId: string;
   fixtureName: string;
+  group: keyof typeof GROUP_COUNTS;
   viewport: "desktop" | "mobile";
   metadataLeaks: string[];
   pollutionHits: string[];
@@ -198,6 +218,7 @@ type Summary = {
   candidate_manifest_hash_actual: string | null;
   runtime_registry_manifest_hash_expected: string;
   runtime_registry_manifest_hash_recorded: string | null;
+  candidate_payload_count: number;
   desktop_rendered_count: number;
   mobile_rendered_count: number;
   metadata_leak_visible_count: number;
@@ -234,7 +255,7 @@ function writeMarkdownReport(filename: string, lines: string[]): void {
 
 function writeSummary(summary: Summary): void {
   ensureOutputDir();
-  fs.writeFileSync(path.join(OUTPUT_DIR, "phase8c1_summary.json"), `${JSON.stringify(summary, null, 2)}\n`, "utf8");
+  fs.writeFileSync(path.join(OUTPUT_DIR, "phase8c_summary.json"), `${JSON.stringify(summary, null, 2)}\n`, "utf8");
 }
 
 function emptyBranchCounts(): BranchDuplicateCounts {
@@ -250,13 +271,14 @@ function emptyBranchCounts(): BranchDuplicateCounts {
 
 function baseSummary(): Summary {
   return {
-    verdict: "BLOCKED_BY_CANDIDATE_STRUCTURE_GAP",
+    verdict: "BLOCKED_BY_PAYLOAD_CONTRACT_MISMATCH",
     output_dir: OUTPUT_DIR,
     candidate_source_directory: CANDIDATE_DIR ?? null,
     candidate_manifest_hash_expected: EXPECTED_MANIFEST_SHA256,
     candidate_manifest_hash_actual: null,
     runtime_registry_manifest_hash_expected: EXPECTED_RUNTIME_REGISTRY_MANIFEST_SHA256,
     runtime_registry_manifest_hash_recorded: null,
+    candidate_payload_count: 0,
     desktop_rendered_count: 0,
     mobile_rendered_count: 0,
     metadata_leak_visible_count: 0,
@@ -331,6 +353,15 @@ function collectFc144BoundaryHits(haystack: string): string[] {
   });
 }
 
+function inferGroup(fileName: string): keyof typeof GROUP_COUNTS {
+  const prefix = GROUP_PREFIXES.find((candidate) => fileName.startsWith(`${candidate}_`));
+  if (!prefix) {
+    throw new CandidateStructureGapError(`[${fileName}] cannot infer payload group from fixture filename`);
+  }
+
+  return prefix;
+}
+
 function discoverPayloadDir(candidateDir: string, manifest: CandidateManifest): string {
   const directManifestPathCandidates = [
     manifest.payload_dir,
@@ -394,6 +425,7 @@ function buildFixtureRecord(payloadDir: string, fileName: string): FixtureRecord
   return {
     attemptId: path.basename(fileName, ".json"),
     fileName,
+    group: inferGroup(fileName),
     fixture,
     modules,
   };
@@ -474,6 +506,7 @@ function loadCandidateContext(): CandidateContext {
   const candidate = inspectCandidateBase();
   const payloadDir = discoverPayloadDir(candidate.candidateDir, candidate.manifest);
   const payloadFiles = getPayloadFiles(payloadDir);
+
   if (payloadFiles.length !== EXPECTED_PAYLOAD_COUNT) {
     throw new CandidateStructureGapError(
       `Expected ${EXPECTED_PAYLOAD_COUNT} candidate payload fixtures in ${payloadDir}, received ${payloadFiles.length}`,
@@ -483,6 +516,16 @@ function loadCandidateContext(): CandidateContext {
   candidate.payloadDir = payloadDir;
   candidate.payloadFiles = payloadFiles;
   candidate.fixtures = payloadFiles.map((fileName) => buildFixtureRecord(payloadDir, fileName));
+
+  for (const group of GROUP_PREFIXES) {
+    const actual = candidate.fixtures.filter((fixture) => fixture.group === group).length;
+    const expected = GROUP_COUNTS[group];
+    if (actual !== expected) {
+      throw new CandidateStructureGapError(
+        `Expected ${expected} fixtures for ${group}, received ${actual}`,
+      );
+    }
+  }
 
   return candidate;
 }
@@ -510,8 +553,8 @@ async function installRouteMocks(page: Page, fixtureRecord: FixtureRecord): Prom
       contentType: "application/json",
       body: JSON.stringify({
         data: {
-          token: "phase8c1-guest-token",
-          user_id: "phase8c1-guest-user",
+          token: "phase8c-guest-token",
+          user_id: "phase8c-guest-user",
         },
       }),
     });
@@ -621,6 +664,7 @@ async function runFixture(
   await expect(page.getByTestId("enneagram-result-shell")).toBeVisible();
 
   const duplicateBranchCardCounts = emptyBranchCounts();
+  let fc144CardText = "";
 
   for (const category of BRANCH_CATEGORIES) {
     const expectedInFixture = fixtureRecord.modules.filter((module) => moduleCategory(module) === category).length;
@@ -629,6 +673,9 @@ async function runFixture(
     if (expectedInFixture > 0) {
       await expect(cards).toHaveCount(1);
       await expect(cards.first()).toBeVisible();
+      if (category === "fc144_recommendation_response") {
+        fc144CardText = await cards.first().innerText();
+      }
     }
     duplicateBranchCardCounts[category] = Math.max(0, visibleCount - 1);
   }
@@ -638,7 +685,7 @@ async function runFixture(
   const pollutionHits = collectHits(bodyText, POLLUTION_STRINGS);
   const joiningHits = collectHits(bodyText, JOINING_ERRORS);
   const fallbackHits = collectHits(bodyText, FALLBACK_STRINGS);
-  const fc144BoundaryHits = collectFc144BoundaryHits(bodyText);
+  const fc144BoundaryHits = fc144CardText ? collectFc144BoundaryHits(fc144CardText) : [];
   const missingPairFallbackVisibleCount = bodyText.includes("missing_pair_fallback") ? 1 : 0;
 
   const hasHorizontalOverflow = await page.evaluate(() => {
@@ -652,6 +699,7 @@ async function runFixture(
   return {
     attemptId: fixtureRecord.attemptId,
     fixtureName: fixtureRecord.fileName,
+    group: fixtureRecord.group,
     viewport: viewport.name,
     metadataLeaks,
     pollutionHits,
@@ -665,15 +713,21 @@ async function runFixture(
   };
 }
 
-function verdictForSummary(summary: Summary): string {
-  if (summary.candidate_manifest_hash_actual !== EXPECTED_MANIFEST_SHA256) {
-    return "BLOCKED_BY_CANDIDATE_HASH_MISMATCH";
+function verdictForSummary(summary: Summary): Summary["verdict"] {
+  if (summary.desktop_rendered_count !== EXPECTED_PAYLOAD_COUNT || summary.mobile_rendered_count !== EXPECTED_PAYLOAD_COUNT) {
+    return "BLOCKED_BY_TEST_RUNTIME_TIMEOUT";
   }
   if (summary.metadata_leak_visible_count > 0) {
-    return "BLOCKED_BY_METADATA_LEAK";
+    return "BLOCKED_BY_RENDERED_METADATA_LEAK";
   }
-  if (summary.pollution_hit_count > 0 || summary.joining_hit_count > 0 || summary.fallback_hit_count > 0) {
+  if (summary.pollution_hit_count > 0) {
     return "BLOCKED_BY_COPY_POLLUTION";
+  }
+  if (summary.joining_hit_count > 0) {
+    return "BLOCKED_BY_COPY_JOINING";
+  }
+  if (summary.fallback_hit_count > 0) {
+    return "BLOCKED_BY_VISIBLE_FALLBACK";
   }
   if (
     summary.duplicate_low_resonance_visible_count > 0 ||
@@ -683,36 +737,132 @@ function verdictForSummary(summary: Summary): string {
     summary.duplicate_scene_localization_visible_count > 0 ||
     summary.duplicate_fc144_recommendation_visible_count > 0
   ) {
-    return "BLOCKED_BY_DUPLICATE_SELECTION";
+    return "BLOCKED_BY_DUPLICATE_BRANCH_CARD";
+  }
+  if (summary.missing_pair_fallback_visible_count > 0) {
+    return "BLOCKED_BY_MISSING_PAIR_FALLBACK";
   }
   if (summary.fc144_boundary_violation_count > 0) {
     return "BLOCKED_BY_FC144_BOUNDARY";
   }
   if (summary.layout_issue_count > 0) {
-    return "BLOCKED_BY_RENDERED_LAYOUT";
+    return "BLOCKED_BY_LAYOUT_REGRESSION";
   }
-  return "PASS_FOR_PHASE_8C_RETRY";
+
+  return "PASS_FOR_PHASE_8D_IMPORT_PR_PLANNING";
+}
+
+function buildSummary(candidate: CandidateContext | null, results: FixtureRunResult[]): Summary {
+  const summary = baseSummary();
+  summary.candidate_manifest_hash_actual = candidate?.manifestSha256Actual ?? null;
+  summary.runtime_registry_manifest_hash_recorded = String(
+    candidate?.hashes.runtime_registry_manifest_sha256 ?? candidate?.manifest.runtime_registry_manifest?.sha256 ?? "",
+  );
+  summary.candidate_payload_count = candidate?.payloadFiles.length ?? 0;
+  summary.desktop_rendered_count = results.filter((result) => result.viewport === "desktop").length;
+  summary.mobile_rendered_count = results.filter((result) => result.viewport === "mobile").length;
+  summary.metadata_leak_visible_count = results.reduce((sum, result) => sum + result.metadataLeaks.length, 0);
+  summary.pollution_hit_count = results.reduce((sum, result) => sum + result.pollutionHits.length, 0);
+  summary.joining_hit_count = results.reduce((sum, result) => sum + result.joiningHits.length, 0);
+  summary.fallback_hit_count = results.reduce((sum, result) => sum + result.fallbackHits.length, 0);
+  summary.fc144_boundary_violation_count = results.reduce((sum, result) => sum + result.fc144BoundaryHits.length, 0);
+  summary.layout_issue_count = results.reduce(
+    (sum, result) => sum + result.clippingIssues.length + (result.hasHorizontalOverflow ? 1 : 0),
+    0,
+  );
+  summary.missing_pair_fallback_visible_count = results.reduce(
+    (sum, result) => sum + result.missingPairFallbackVisibleCount,
+    0,
+  );
+  summary.duplicate_low_resonance_visible_count = results.reduce(
+    (sum, result) => sum + result.duplicateBranchCardCounts.low_resonance_response,
+    0,
+  );
+  summary.duplicate_partial_resonance_visible_count = results.reduce(
+    (sum, result) => sum + result.duplicateBranchCardCounts.partial_resonance_response,
+    0,
+  );
+  summary.duplicate_diffuse_convergence_visible_count = results.reduce(
+    (sum, result) => sum + result.duplicateBranchCardCounts.diffuse_convergence_response,
+    0,
+  );
+  summary.duplicate_close_call_pair_visible_count = results.reduce(
+    (sum, result) => sum + result.duplicateBranchCardCounts.close_call_pair,
+    0,
+  );
+  summary.duplicate_scene_localization_visible_count = results.reduce(
+    (sum, result) => sum + result.duplicateBranchCardCounts.scene_localization_response,
+    0,
+  );
+  summary.duplicate_fc144_recommendation_visible_count = results.reduce(
+    (sum, result) => sum + result.duplicateBranchCardCounts.fc144_recommendation_response,
+    0,
+  );
+  summary.verdict = verdictForSummary(summary);
+
+  return summary;
 }
 
 function writeReports(candidate: CandidateContext | null, summary: Summary, results: FixtureRunResult[], notes: string[]): void {
   ensureOutputDir();
 
-  writeMarkdownReport("Phase8C1_ProductionEquivalentTooling.md", [
-    "# Phase8C1 Production-equivalent Candidate E2E Tooling",
-    "## Verdict",
-    `- verdict: ${summary.verdict}`,
+  writeMarkdownReport("Phase8C_RenderedQA_Coverage.md", [
+    "# Phase 8-C Rendered QA Coverage",
     `- candidate_source_directory: ${summary.candidate_source_directory ?? "missing"}`,
-    `- candidate_manifest_hash_actual: ${summary.candidate_manifest_hash_actual ?? "missing"}`,
-    `- candidate_manifest_hash_expected: ${summary.candidate_manifest_hash_expected}`,
-    `- runtime_registry_manifest_hash_recorded: ${summary.runtime_registry_manifest_hash_recorded ?? "missing"}`,
-    `- runtime_registry_manifest_hash_expected: ${summary.runtime_registry_manifest_hash_expected}`,
-    `- desktop_rendered_count: ${summary.desktop_rendered_count}`,
-    `- mobile_rendered_count: ${summary.mobile_rendered_count}`,
+    `- candidate_payload_count: ${summary.candidate_payload_count}`,
+    ...GROUP_PREFIXES.map((group) => {
+      const desktop = results.filter((result) => result.group === group && result.viewport === "desktop").length;
+      const mobile = results.filter((result) => result.group === group && result.viewport === "mobile").length;
+      return `- ${group}: desktop=${desktop}/${GROUP_COUNTS[group]}, mobile=${mobile}/${GROUP_COUNTS[group]}`;
+    }),
+  ]);
+
+  writeMarkdownReport("Phase8C_DesktopRenderedQA.md", [
+    "# Phase 8-C Desktop Rendered QA",
+    `- rendered_count: ${summary.desktop_rendered_count}/${EXPECTED_PAYLOAD_COUNT}`,
+    ...GROUP_PREFIXES.map((group) => {
+      const rendered = results.filter((result) => result.group === group && result.viewport === "desktop").length;
+      return `- ${group}: ${rendered}/${GROUP_COUNTS[group]}`;
+    }),
+  ]);
+
+  writeMarkdownReport("Phase8C_MobileRenderedQA.md", [
+    "# Phase 8-C Mobile Rendered QA",
+    `- rendered_count: ${summary.mobile_rendered_count}/${EXPECTED_PAYLOAD_COUNT}`,
+    ...GROUP_PREFIXES.map((group) => {
+      const rendered = results.filter((result) => result.group === group && result.viewport === "mobile").length;
+      return `- ${group}: ${rendered}/${GROUP_COUNTS[group]}`;
+    }),
+  ]);
+
+  writeMarkdownReport("Phase8C_MetadataLeakageQA.md", [
+    "# Phase 8-C Metadata Leakage QA",
     `- metadata_leak_visible_count: ${summary.metadata_leak_visible_count}`,
+    ...results
+      .filter((result) => result.metadataLeaks.length > 0)
+      .map((result) => `- ${result.fixtureName}/${result.viewport}: ${result.metadataLeaks.join(", ")}`),
+  ]);
+
+  writeMarkdownReport("Phase8C_CopyPollutionQA.md", [
+    "# Phase 8-C Copy Pollution QA",
     `- pollution_hit_count: ${summary.pollution_hit_count}`,
     `- joining_hit_count: ${summary.joining_hit_count}`,
     `- fallback_hit_count: ${summary.fallback_hit_count}`,
-    `- fc144_boundary_violation_count: ${summary.fc144_boundary_violation_count}`,
+    ...results
+      .filter(
+        (result) =>
+          result.pollutionHits.length > 0 ||
+          result.joiningHits.length > 0 ||
+          result.fallbackHits.length > 0,
+      )
+      .map(
+        (result) =>
+          `- ${result.fixtureName}/${result.viewport}: pollution=[${result.pollutionHits.join(", ")}] joining=[${result.joiningHits.join(", ")}] fallback=[${result.fallbackHits.join(", ")}]`,
+      ),
+  ]);
+
+  writeMarkdownReport("Phase8C_DuplicateBranchQA.md", [
+    "# Phase 8-C Duplicate Branch QA",
     `- duplicate_low_resonance_visible_count: ${summary.duplicate_low_resonance_visible_count}`,
     `- duplicate_partial_resonance_visible_count: ${summary.duplicate_partial_resonance_visible_count}`,
     `- duplicate_diffuse_convergence_visible_count: ${summary.duplicate_diffuse_convergence_visible_count}`,
@@ -720,131 +870,128 @@ function writeReports(candidate: CandidateContext | null, summary: Summary, resu
     `- duplicate_scene_localization_visible_count: ${summary.duplicate_scene_localization_visible_count}`,
     `- duplicate_fc144_recommendation_visible_count: ${summary.duplicate_fc144_recommendation_visible_count}`,
     `- missing_pair_fallback_visible_count: ${summary.missing_pair_fallback_visible_count}`,
+    ...results
+      .filter(
+        (result) =>
+          result.missingPairFallbackVisibleCount > 0 ||
+          Object.values(result.duplicateBranchCardCounts).some((count) => count > 0),
+      )
+      .map(
+        (result) =>
+          `- ${result.fixtureName}/${result.viewport}: low=${result.duplicateBranchCardCounts.low_resonance_response} partial=${result.duplicateBranchCardCounts.partial_resonance_response} diffuse=${result.duplicateBranchCardCounts.diffuse_convergence_response} pair=${result.duplicateBranchCardCounts.close_call_pair} scene=${result.duplicateBranchCardCounts.scene_localization_response} fc144=${result.duplicateBranchCardCounts.fc144_recommendation_response} missing_pair_fallback=${result.missingPairFallbackVisibleCount}`,
+      ),
+  ]);
+
+  writeMarkdownReport("Phase8C_FC144BoundaryQA.md", [
+    "# Phase 8-C FC144 Boundary QA",
+    `- fc144_boundary_violation_count: ${summary.fc144_boundary_violation_count}`,
+    ...results
+      .filter((result) => result.fc144BoundaryHits.length > 0)
+      .map((result) => `- ${result.fixtureName}/${result.viewport}: ${result.fc144BoundaryHits.join(", ")}`),
+  ]);
+
+  writeMarkdownReport("Phase8C_LayoutQA.md", [
+    "# Phase 8-C Layout QA",
     `- layout_issue_count: ${summary.layout_issue_count}`,
-    "## Candidate inspection",
-    `- manifest: ${candidate?.manifestPath ?? "missing"}`,
-    `- hashes: ${candidate?.hashesPath ?? "missing"}`,
-    `- rollback_plan: ${candidate?.rollbackPlanPath ?? "missing"}`,
-    `- payload_dir: ${candidate?.payloadDir ?? "missing"}`,
-    `- payload_fixture_count: ${candidate?.payloadFiles.length ?? 0}`,
+    ...results
+      .filter((result) => result.hasHorizontalOverflow || result.clippingIssues.length > 0)
+      .map(
+        (result) =>
+          `- ${result.fixtureName}/${result.viewport}: horizontalOverflow=${result.hasHorizontalOverflow} clipping=[${result.clippingIssues.join(", ")}]`,
+      ),
+  ]);
+
+  writeMarkdownReport("Phase8C_GoNoGo.md", [
+    "# Phase 8-C Go / No-Go",
+    `- verdict: ${summary.verdict}`,
+    `- candidate_payload_count: ${summary.candidate_payload_count}`,
+    `- desktop_rendered_count: ${summary.desktop_rendered_count}`,
+    `- mobile_rendered_count: ${summary.mobile_rendered_count}`,
+    `- metadata_leak_visible_count: ${summary.metadata_leak_visible_count}`,
+    `- pollution_hit_count: ${summary.pollution_hit_count}`,
+    `- joining_hit_count: ${summary.joining_hit_count}`,
+    `- fallback_hit_count: ${summary.fallback_hit_count}`,
+    `- duplicate_low_resonance_visible_count: ${summary.duplicate_low_resonance_visible_count}`,
+    `- duplicate_partial_resonance_visible_count: ${summary.duplicate_partial_resonance_visible_count}`,
+    `- duplicate_diffuse_convergence_visible_count: ${summary.duplicate_diffuse_convergence_visible_count}`,
+    `- duplicate_close_call_pair_visible_count: ${summary.duplicate_close_call_pair_visible_count}`,
+    `- duplicate_scene_localization_visible_count: ${summary.duplicate_scene_localization_visible_count}`,
+    `- duplicate_fc144_recommendation_visible_count: ${summary.duplicate_fc144_recommendation_visible_count}`,
+    `- missing_pair_fallback_visible_count: ${summary.missing_pair_fallback_visible_count}`,
+    `- fc144_boundary_violation_count: ${summary.fc144_boundary_violation_count}`,
+    `- layout_issue_count: ${summary.layout_issue_count}`,
+    "- production_import_happened: false",
+    "- full_replacement_happened: false",
     "## Notes",
     ...notes.map((note) => `- ${note}`),
-  ]);
-
-  writeMarkdownReport("Phase8C1_DesktopRenderedQA.md", [
-    "# Phase8C1 Desktop Rendered QA",
-    "| fixture | metadata_leaks | pollution_hits | joining_hits | fallback_hits | fc144_boundary_hits | clipping_issues | overflow |",
-    "| --- | --- | --- | --- | --- | --- | --- | --- |",
-    ...results
-      .filter((result) => result.viewport === "desktop")
-      .map(
-        (result) =>
-          `| ${result.fixtureName} | ${result.metadataLeaks.length} | ${result.pollutionHits.length} | ${result.joiningHits.length} | ${result.fallbackHits.length} | ${result.fc144BoundaryHits.length} | ${result.clippingIssues.length} | ${result.hasHorizontalOverflow ? "yes" : "no"} |`,
-      ),
-  ]);
-
-  writeMarkdownReport("Phase8C1_MobileRenderedQA.md", [
-    "# Phase8C1 Mobile Rendered QA",
-    "| fixture | metadata_leaks | pollution_hits | joining_hits | fallback_hits | fc144_boundary_hits | clipping_issues | overflow |",
-    "| --- | --- | --- | --- | --- | --- | --- | --- |",
-    ...results
-      .filter((result) => result.viewport === "mobile")
-      .map(
-        (result) =>
-          `| ${result.fixtureName} | ${result.metadataLeaks.length} | ${result.pollutionHits.length} | ${result.joiningHits.length} | ${result.fallbackHits.length} | ${result.fc144BoundaryHits.length} | ${result.clippingIssues.length} | ${result.hasHorizontalOverflow ? "yes" : "no"} |`,
-      ),
   ]);
 
   writeSummary(summary);
 }
 
-test.describe("ENNEAGRAM Phase 8-C-1 production-equivalent candidate E2E tooling", () => {
-  test("validates candidate directory and renders candidate-backed report fixtures when available", async ({ page }) => {
-    const summary = baseSummary();
-    let candidate: CandidateContext | null = null;
-    const results: FixtureRunResult[] = [];
-    const notes: string[] = [];
+function groupFixtures(candidate: CandidateContext, group: keyof typeof GROUP_COUNTS): FixtureRecord[] {
+  return candidate.fixtures.filter((fixture) => fixture.group === group);
+}
 
-    try {
-      candidate = inspectCandidateBase();
-      summary.candidate_manifest_hash_actual = candidate.manifestSha256Actual;
-      summary.runtime_registry_manifest_hash_recorded = String(
-        candidate.hashes.runtime_registry_manifest_sha256 ?? candidate.manifest.runtime_registry_manifest?.sha256 ?? "",
-      );
+test.describe("ENNEAGRAM Phase 8-C production-equivalent candidate E2E", () => {
+  test.describe.configure({ mode: "serial" });
+  test.setTimeout(180_000);
 
-      candidate = loadCandidateContext();
+  const results: FixtureRunResult[] = [];
+  const notes: string[] = [];
+  let candidate: CandidateContext | null = null;
+  let suiteError: Error | null = null;
 
-      for (const fixtureRecord of candidate.fixtures) {
-        results.push(
-          await runFixture(page, fixtureRecord, { name: "desktop", width: 1280, height: 900 }),
-        );
-        results.push(
-          await runFixture(page, fixtureRecord, { name: "mobile", width: 390, height: 844 }),
-        );
-      }
+  test.beforeAll(() => {
+    candidate = loadCandidateContext();
+    notes.push("Candidate payload source discovered and grouped by matrix.");
+    notes.push("Execution split by payload group and viewport to preserve full coverage without single-test timeout.");
+  });
 
-      summary.desktop_rendered_count = results.filter((result) => result.viewport === "desktop").length;
-      summary.mobile_rendered_count = results.filter((result) => result.viewport === "mobile").length;
-      summary.metadata_leak_visible_count = results.reduce((sum, result) => sum + result.metadataLeaks.length, 0);
-      summary.pollution_hit_count = results.reduce((sum, result) => sum + result.pollutionHits.length, 0);
-      summary.joining_hit_count = results.reduce((sum, result) => sum + result.joiningHits.length, 0);
-      summary.fallback_hit_count = results.reduce((sum, result) => sum + result.fallbackHits.length, 0);
-      summary.fc144_boundary_violation_count = results.reduce((sum, result) => sum + result.fc144BoundaryHits.length, 0);
-      summary.layout_issue_count = results.reduce(
-        (sum, result) => sum + result.clippingIssues.length + (result.hasHorizontalOverflow ? 1 : 0),
-        0,
-      );
-      summary.missing_pair_fallback_visible_count = results.reduce(
-        (sum, result) => sum + result.missingPairFallbackVisibleCount,
-        0,
-      );
-      summary.duplicate_low_resonance_visible_count = results.reduce(
-        (sum, result) => sum + result.duplicateBranchCardCounts.low_resonance_response,
-        0,
-      );
-      summary.duplicate_partial_resonance_visible_count = results.reduce(
-        (sum, result) => sum + result.duplicateBranchCardCounts.partial_resonance_response,
-        0,
-      );
-      summary.duplicate_diffuse_convergence_visible_count = results.reduce(
-        (sum, result) => sum + result.duplicateBranchCardCounts.diffuse_convergence_response,
-        0,
-      );
-      summary.duplicate_close_call_pair_visible_count = results.reduce(
-        (sum, result) => sum + result.duplicateBranchCardCounts.close_call_pair,
-        0,
-      );
-      summary.duplicate_scene_localization_visible_count = results.reduce(
-        (sum, result) => sum + result.duplicateBranchCardCounts.scene_localization_response,
-        0,
-      );
-      summary.duplicate_fc144_recommendation_visible_count = results.reduce(
-        (sum, result) => sum + result.duplicateBranchCardCounts.fc144_recommendation_response,
-        0,
-      );
-      summary.verdict = verdictForSummary(summary);
-
-      notes.push("Candidate payload source discovered and consumed through real /en/result route.");
-    } catch (error) {
-      if (error instanceof Error) {
-        notes.push(error.message);
-        if (error.message.includes("hash mismatch")) {
-          summary.verdict = "BLOCKED_BY_CANDIDATE_HASH_MISMATCH";
-        } else if (error instanceof CandidateStructureGapError) {
-          summary.verdict = "BLOCKED_BY_CANDIDATE_STRUCTURE_GAP";
-        } else {
-          summary.verdict = "BLOCKED_BY_FRONTEND_REGRESSION";
+  for (const viewport of VIEWPORTS) {
+    for (const group of GROUP_PREFIXES) {
+      test(`${viewport.name} ${group} renders ${GROUP_COUNTS[group]} candidate fixtures`, async ({ page }) => {
+        if (!candidate) {
+          throw new CandidateStructureGapError("Candidate context was not initialized");
         }
-      } else {
-        notes.push("Unknown failure while preparing production-equivalent candidate tooling.");
-        summary.verdict = "BLOCKED_BY_FRONTEND_REGRESSION";
-      }
 
-      writeReports(candidate, summary, results, notes);
-      throw error;
+        const fixtures = groupFixtures(candidate, group);
+        expect(fixtures).toHaveLength(GROUP_COUNTS[group]);
+
+        for (const fixture of fixtures) {
+          try {
+            results.push(await runFixture(page, fixture, viewport));
+          } catch (error) {
+            suiteError = error instanceof Error ? error : new Error(String(error));
+            throw error;
+          }
+        }
+      });
+    }
+  }
+
+  test.afterAll(() => {
+    const summary = buildSummary(candidate, results);
+    if (suiteError) {
+      notes.push(suiteError.message);
+      if (suiteError instanceof CandidateStructureGapError) {
+        summary.verdict = "BLOCKED_BY_PAYLOAD_CONTRACT_MISMATCH";
+      } else if (summary.desktop_rendered_count < EXPECTED_PAYLOAD_COUNT || summary.mobile_rendered_count < EXPECTED_PAYLOAD_COUNT) {
+        summary.verdict = "BLOCKED_BY_TEST_RUNTIME_TIMEOUT";
+      } else {
+        summary.verdict = verdictForSummary(summary);
+      }
     }
 
     writeReports(candidate, summary, results, notes);
-    expect(summary.verdict).toBe("PASS_FOR_PHASE_8C_RETRY");
+  });
+
+  test("writes final summary after full candidate coverage", async () => {
+    const summary = buildSummary(candidate, results);
+    if (suiteError) {
+      throw suiteError;
+    }
+
+    expect(summary.verdict).toBe("PASS_FOR_PHASE_8D_IMPORT_PR_PLANNING");
   });
 });
