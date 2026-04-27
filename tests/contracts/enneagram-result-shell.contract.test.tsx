@@ -1267,7 +1267,6 @@ describe("enneagram result shell contract", () => {
 
     const page = screen.getByTestId("enneagram-v2-page-page_3_growth_spectrum");
     expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("stable expression");
-    expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("not a hard health-level judgement");
     expect(within(page).getByTestId("enneagram-module-stress_trigger")).toHaveTextContent("stress signal scaffold");
     expect(within(page).getByTestId("enneagram-module-stress_trigger")).toHaveTextContent("early warning scaffold");
     expect(within(page).getByTestId("enneagram-module-recovery_action")).toHaveTextContent("type recovery action scaffold");
@@ -1309,7 +1308,7 @@ describe("enneagram result shell contract", () => {
     const moduleNode = screen.getByTestId("enneagram-module-close-call-card");
     expect(moduleNode).toBeInTheDocument();
     expect(within(moduleNode).getByText(/1 vs 6/)).toBeInTheDocument();
-    expect(screen.getByTestId("enneagram-v2-interpretation-scope")).toHaveTextContent("close_call");
+    expect(screen.getByTestId("enneagram-v2-interpretation-scope")).toHaveTextContent("接近型结果");
   });
 
   it("renders diffuse state with the diffuse boundary module", async () => {
@@ -1324,8 +1323,9 @@ describe("enneagram result shell contract", () => {
 
     const moduleNode = screen.getByTestId("enneagram-module-low-quality-boundary");
     expect(moduleNode).toBeInTheDocument();
-    expect(within(moduleNode).getByText(/triggered_operational_signal/)).toBeInTheDocument();
-    expect(within(moduleNode).getByText(/speed_too_fast/)).toBeInTheDocument();
+    expect(moduleNode).toHaveTextContent("解释边界较宽");
+    expect(moduleNode).not.toHaveTextContent("triggered_operational_signal");
+    expect(moduleNode).not.toHaveTextContent("speed_too_fast");
   });
 
   it("uses different form badges for E105 and FC144 while keeping one shell", async () => {
@@ -1387,31 +1387,51 @@ describe("enneagram result shell contract", () => {
     expect(link).toHaveTextContent("阅读技术说明");
   });
 
-  it("renders sample report preview content instead of a slug-only placeholder", async () => {
+  it("suppresses sample report preview blocks on the public result surface", async () => {
     await renderShell(createV2ReportResponse());
 
-    const moduleNode = screen.getByTestId("enneagram-module-sample-report-link");
-    expect(moduleNode).toHaveTextContent("sample short summary");
-    expect(moduleNode).toHaveTextContent("sample page 1 preview");
-    expect(moduleNode).toHaveTextContent("sample boundary");
-    expect(moduleNode).toHaveTextContent("enneagram-clear-sample");
+    expect(screen.queryByTestId("enneagram-module-sample-report-link")).not.toBeInTheDocument();
   });
 
-  it("renders page 5 placeholder modules without dropping into the generic renderer", async () => {
+  it("suppresses placeholder modules on the public result surface", async () => {
     await renderShell(createV2ReportResponse());
 
     const page = screen.getByTestId("enneagram-v2-page-page_5_method_observation_next");
-    expect(within(page).getByTestId("enneagram-module-history_share_retake_placeholder")).toHaveTextContent(
-      "history_share_surface_not_shipped",
-    );
+    expect(within(page).queryByTestId("enneagram-module-history_share_retake_placeholder")).not.toBeInTheDocument();
     expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
   });
 
-  it("marks placeholder and unavailable modules without inventing fake long-form content", async () => {
+  it("removes unavailable placeholder-only modules instead of leaking internal status copy", async () => {
     await renderShell(createV2ReportResponse());
 
     expect(screen.getByTestId("enneagram-module-workplace_trigger_points")).not.toHaveTextContent("占位模块");
-    expect(screen.getByTestId("enneagram-module-blind_spot_card")).toHaveTextContent("暂不可用");
+    expect(screen.queryByTestId("enneagram-module-blind_spot_card")).not.toBeInTheDocument();
+  });
+
+  it("does not leak banned internal strings on the public result surface", async () => {
+    await renderShell(createV2ReportResponse({ scope: "diffuse", formCode: "enneagram_forced_choice_144" }));
+
+    const text = document.body.textContent ?? "";
+    const banned = [
+      "分数待定",
+      "[object Object]",
+      "deferred_to_future",
+      "not_shipped",
+      "workplace_context_mode_not_enabled",
+      "history_share_surface_not_shipped",
+      "version · unavailable",
+      "COMMUNICATION_MANUAL",
+      "content_maturity",
+      "evidence_level",
+      "high_profile_entropy",
+      "observe_7_days",
+      "blind_spot.type_",
+      "diffuse enneagram_likert_105",
+    ];
+
+    for (const token of banned) {
+      expect(text).not.toContain(token);
+    }
   });
 
   it("keeps deep dive rendering safe when fields are missing", async () => {

@@ -140,7 +140,15 @@ function asRecord(value: unknown): Record<string, unknown> | null {
 
 function normalizeText(...values: unknown[]): string {
   for (const value of values) {
-    const normalized = String(value ?? "").trim();
+    if (value === null || value === undefined) {
+      continue;
+    }
+
+    if (typeof value !== "string" && typeof value !== "number" && typeof value !== "boolean") {
+      continue;
+    }
+
+    const normalized = String(value).trim();
     if (normalized) {
       return normalized;
     }

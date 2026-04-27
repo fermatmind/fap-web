@@ -36,6 +36,60 @@ function formatScore(score: number | null): string {
   return Number.isInteger(score) ? String(score) : score.toFixed(1);
 }
 
+const INTERNAL_VISIBLE_TEXT_PATTERNS = [
+  /\[object Object\]/i,
+  /deferred_to_future/i,
+  /not_shipped/i,
+  /^workplace_context_mode_not_enabled$/i,
+  /^history_share_surface_not_shipped$/i,
+  /^version\s*[·:]\s*unavailable$/i,
+  /^COMMUNICATION_MANUAL$/i,
+  /^content_maturity$/i,
+  /^evidence_level$/i,
+  /^high_profile_entropy$/i,
+  /^observe_7_days$/i,
+  /^blind_spot\.type_/i,
+  /^diffuse\s+enneagram_likert_105$/i,
+  /^center summary$/i,
+  /^stance summary$/i,
+  /^harmonic summary$/i,
+  /^unavailable$/i,
+  /^placeholder$/i,
+];
+
+const SUPPRESSED_PUBLIC_MODULE_KEYS = new Set([
+  "context_mode_placeholder",
+  "history_share_retake_placeholder",
+  "arrow_growth_reference_placeholder",
+  "blind_spot_card",
+  "blind_spot_in_relationship",
+  "center_summary",
+  "stance_summary",
+  "harmonic_summary",
+  "sample_report_link",
+]);
+
+function safePublicText(value: unknown): string {
+  if (value === null || value === undefined) {
+    return "";
+  }
+
+  if (typeof value !== "string" && typeof value !== "number" && typeof value !== "boolean") {
+    return "";
+  }
+
+  const normalized = String(value).trim();
+  if (!normalized) {
+    return "";
+  }
+
+  if (INTERNAL_VISIBLE_TEXT_PATTERNS.some((pattern) => pattern.test(normalized))) {
+    return "";
+  }
+
+  return normalized;
+}
+
 function normalizeBarWidth(score: number | null): number | null {
   if (score === null) {
     return null;
@@ -49,7 +103,7 @@ function normalizeBarWidth(score: number | null): number | null {
 }
 
 function moduleText(module: EnneagramReportV2Module | null | undefined, key: string): string {
-  return String(module?.content?.[key] ?? "").trim();
+  return safePublicText(module?.content?.[key]);
 }
 
 function moduleArray(module: EnneagramReportV2Module | null | undefined, key: string): Record<string, unknown>[] {
@@ -116,6 +170,28 @@ function nextActionHint(viewModel: EnneagramResultViewModel, locale: Locale): st
   }
 
   return locale === "zh" ? "把这份结果当作当前工作假设来阅读。" : "Use this result as the current working interpretation.";
+}
+
+function typeRefLabel(value: unknown): string {
+  const direct = safePublicText(value);
+  if (direct) {
+    return direct;
+  }
+
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return "";
+  }
+
+  const record = value as Record<string, unknown>;
+
+  return (
+    safePublicText(record.label) ||
+    safePublicText(record.type_name_cn) ||
+    safePublicText(record.type_name_en) ||
+    safePublicText(record.type) ||
+    safePublicText(record.code) ||
+    ""
+  );
 }
 
 function observationGuidanceCopy(viewModel: EnneagramResultViewModel, locale: Locale): string {
@@ -366,52 +442,6 @@ function ListGroupSections({ module, locale }: { module: EnneagramReportV2Module
   );
 }
 
-function evidenceLevelLabel(value: string, locale: Locale): string {
-  if (locale !== "zh") {
-    return value || "descriptive";
-  }
-
-  switch (value) {
-    case "theory_based":
-      return "理论层";
-    case "computed":
-      return "计算层";
-    case "descriptive":
-      return "描述层";
-    default:
-      return value || "描述层";
-  }
-}
-
-function contentMaturityLabel(value: string, locale: Locale): string {
-  if (locale !== "zh") {
-    return value || "scaffold";
-  }
-
-  switch (value) {
-    case "p0_ready":
-      return "P0 Ready";
-    case "derived":
-      return "Derived";
-    case "scaffold":
-      return "Scaffold";
-    default:
-      return value || "Scaffold";
-  }
-}
-
-function moduleVisibilityLabel(module: EnneagramReportV2Module, locale: Locale): string | null {
-  const isZh = locale === "zh";
-  if (module.visibility === "unavailable" || moduleText(module, "status") === "unavailable") {
-    return isZh ? "暂不可用" : "Unavailable";
-  }
-  if (module.visibility === "placeholder" || moduleText(module, "status") === "placeholder") {
-    return isZh ? "占位模块" : "Placeholder";
-  }
-
-  return null;
-}
-
 function ModuleProvenance({
   module,
   locale,
@@ -421,21 +451,10 @@ function ModuleProvenance({
   locale: Locale;
   extraHint?: string | null;
 }) {
-  const isZh = locale === "zh";
-  const status = moduleVisibilityLabel(module, locale);
-  const contentMaturity = contentMaturityLabel(module.provenance.contentMaturity, locale);
-  const evidenceLevel = evidenceLevelLabel(module.provenance.evidenceLevel, locale);
-  const items = [status, `${isZh ? "content_maturity" : "content_maturity"} · ${contentMaturity}`, `${isZh ? "evidence_level" : "evidence_level"} · ${evidenceLevel}`, extraHint ?? null].filter(Boolean);
-
-  return (
-    <div className="flex flex-wrap gap-2 pt-1">
-      {items.map((item) => (
-        <span key={item} className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-600">
-          {item}
-        </span>
-      ))}
-    </div>
-  );
+  void module;
+  void locale;
+  void extraHint;
+  return null;
 }
 
 function AssetBackedCardRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
@@ -445,7 +464,6 @@ function AssetBackedCardRenderer({ module, locale }: { module: EnneagramReportV2
   const shortBody = moduleText(module, "short_body_zh");
   const cta = moduleText(module, "cta_zh");
   const assetKey = moduleText(module, "asset_key");
-  const version = moduleText(module, "version");
   const title = category ? category.replace(/_/g, " ") : localizedModuleTitle(module.moduleKey, locale);
 
   return (
@@ -458,9 +476,9 @@ function AssetBackedCardRenderer({ module, locale }: { module: EnneagramReportV2
             {cta}
           </p>
         ) : null}
-        {assetKey || version ? (
+        {assetKey ? (
           <p data-testid="enneagram-asset-backed-provenance" className="m-0 text-xs text-slate-500">
-            {[assetKey, version].filter(Boolean).join(" · ")}
+            {assetKey}
           </p>
         ) : null}
         {!body && moduleText(module, "status") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "status")}</p> : null}
@@ -1182,9 +1200,9 @@ function renderModule(
               <div data-testid="enneagram-v2-summary-top-candidates" className="flex flex-wrap gap-2">
                 {topCandidates.map((candidate, index) => (
                   <span key={`${candidate.type ?? index}`} className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-700">
-                    #{index + 1} · {String(candidate.type ?? "").trim() || "?"}
-                    {candidate.display_score !== undefined && candidate.display_score !== null
-                      ? ` · ${String(candidate.display_score)}`
+                    #{index + 1} · {safePublicText(candidate.type) || "?"}
+                    {typeof candidate.display_score === "number" && Number.isFinite(candidate.display_score)
+                      ? ` · ${formatScore(candidate.display_score)}`
                       : ""}
                   </span>
                 ))}
@@ -1195,7 +1213,13 @@ function renderModule(
               <div className="rounded-2xl border border-white/80 bg-white/90 p-4">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "解释状态" : "Interpretation state"}</p>
                 <p data-testid="enneagram-v2-interpretation-scope" className="m-0 mt-2 text-sm text-slate-700">
-                  {viewModel.interpretationScope}
+                  {viewModel.interpretationScope === "diffuse"
+                    ? isZh ? "分散型结果" : "Diffuse result"
+                    : viewModel.interpretationScope === "close_call"
+                      ? isZh ? "接近型结果" : "Close-call result"
+                      : viewModel.interpretationScope === "low_quality"
+                        ? isZh ? "低质量结果" : "Lower-quality result"
+                        : isZh ? "清晰型结果" : "Clear result"}
                 </p>
               </div>
               <div className="rounded-2xl border border-white/80 bg-white/90 p-4">
@@ -1230,9 +1254,9 @@ function renderModule(
                   #{row.rank} · {row.candidateRole || (isZh ? "候选" : "Candidate")}
                 </p>
                 <h3 className="m-0 mt-2 text-lg font-semibold text-slate-900">{row.label || row.code}</h3>
-                <p className="m-0 mt-1 text-sm text-slate-600">
-                  {row.score !== null && Number.isFinite(row.score) ? formatScore(row.score) : isZh ? "分数待定" : "Score unavailable"}
-                </p>
+                {row.score !== null && Number.isFinite(row.score) ? (
+                  <p className="m-0 mt-1 text-sm text-slate-600">{formatScore(row.score)}</p>
+                ) : null}
                 {coreLogic ? <p className="m-0 mt-3 text-sm text-slate-700">{coreLogic}</p> : null}
                 {workSummary ? <p className="m-0 mt-2 text-xs text-slate-500">{workSummary}</p> : null}
               </div>
@@ -1278,20 +1302,20 @@ function renderModule(
               <p className="m-0 mt-1 text-sm text-slate-700">{moduleText(module, "confidence_label") || moduleText(module, "confidence_level") || "n/a"}</p>
             </div>
             <div>
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "解释范围" : "Interpretation scope"}</p>
-              <p className="m-0 mt-1 text-sm text-slate-700">{moduleText(module, "interpretation_scope") || viewModel.interpretationScope}</p>
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "结果结构" : "Profile shape"}</p>
+              <p className="m-0 mt-1 text-sm text-slate-700">
+                {viewModel.interpretationScope === "diffuse"
+                  ? isZh ? "分散型结果" : "Diffuse result"
+                  : viewModel.interpretationScope === "close_call"
+                    ? isZh ? "接近型结果" : "Close-call result"
+                    : viewModel.interpretationScope === "low_quality"
+                      ? isZh ? "低质量结果" : "Lower-quality result"
+                      : isZh ? "清晰型结果" : "Clear result"}
+              </p>
             </div>
           </div>
-          {moduleText(module, "interpretation_reason") ? <p className="m-0">{moduleText(module, "interpretation_reason")}</p> : null}
           <p className="m-0 text-xs text-slate-500">
-            {isZh ? "策略版本" : "Policy versions"} ·{" "}
-            {[
-              String((module.content.policy_versions as Record<string, unknown> | undefined)?.close_call_rule_version ?? "").trim(),
-              String((module.content.policy_versions as Record<string, unknown> | undefined)?.confidence_policy_version ?? "").trim(),
-              String((module.content.policy_versions as Record<string, unknown> | undefined)?.quality_policy_version ?? "").trim(),
-            ]
-              .filter(Boolean)
-              .join(" / ")}
+            {isZh ? "仅在当前 form 的分数空间内解释，不用于跨 form 比较。" : "Interpret within the current form score space only, not across forms."}
           </p>
         </ModuleCard>
       );
@@ -1366,26 +1390,20 @@ function renderModule(
     case "blind_spot_in_relationship":
       return (
         <ModuleCard title={isZh ? "盲点提示" : "Blind spot"} testId={`enneagram-module-${module.moduleKey}`}>
-          <p className="m-0">{moduleText(module, "reason") || (isZh ? "当前没有稳定盲点判定。" : "No stable blind-spot judgement is available yet.")}</p>
-          {moduleText(module, "blind_spot_link") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "blind_spot_link")}</p> : null}
+          <p className="m-0">{isZh ? "当前没有稳定盲点判定。" : "No stable blind-spot judgement is available yet."}</p>
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
       );
     case "center_summary":
     case "stance_summary":
     case "harmonic_summary":
-      return (
-        <ModuleCard title={module.moduleKey.replace(/_/g, " ")} testId={`enneagram-module-${module.moduleKey}`}>
-          <p className="m-0">{moduleText(module, "reason") || (isZh ? "当前结果还不输出这一组聚合分数。" : "This aggregate score group is not yet emitted.")}</p>
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
+      return null;
     case "wing_hint_visual":
       return (
         <ModuleCard title={isZh ? "邻位倾向参考" : "Adjacent wing reference"} testId="enneagram-module-wing-hint-visual">
           <p className="m-0">
-            {isZh ? "左邻位" : "Left"}: {moduleText(module, "left") || "n/a"} · {isZh ? "右邻位" : "Right"}:{" "}
-            {moduleText(module, "right") || "n/a"}
+            {isZh ? "左邻位" : "Left"}: {typeRefLabel(module.content.left) || "n/a"} · {isZh ? "右邻位" : "Right"}:{" "}
+            {typeRefLabel(module.content.right) || "n/a"}
           </p>
           {moduleText(module, "strength") ? <p className="m-0">{isZh ? "强度" : "Strength"} · {moduleText(module, "strength")}</p> : null}
           <p className="m-0 text-xs text-slate-500">
@@ -1414,9 +1432,9 @@ function renderModule(
     case "diffuse_boundary":
       return (
         <ModuleCard title={moduleText(module, "title") || (isZh ? "分散边界" : "Diffuse boundary")} testId="enneagram-module-diffuse-boundary">
-          <p className="m-0">{moduleText(module, "interpretation_reason") || (isZh ? "当前结果分散，需要更多观察。" : "This result is diffuse and needs more observation.")}</p>
+          <p className="m-0">{isZh ? "当前结果分散，需要更多观察。" : "This result is diffuse and needs more observation."}</p>
           <p className="m-0 text-sm text-slate-600">
-            entropy: {String(module.content.profile_entropy ?? "n/a")} · gap%: {String(module.content.dominance_gap_pct ?? "n/a")}
+            {isZh ? "分布较分散，建议先阅读 Top3 与方法边界。" : "The profile is diffuse, so start with Top 3 and the method boundary."}
           </p>
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
@@ -1425,12 +1443,8 @@ function renderModule(
       return (
         <ModuleCard title={moduleText(module, "title") || (isZh ? "质量边界" : "Quality boundary")} testId="enneagram-module-low-quality-boundary">
           <p className="m-0">
-            {moduleText(module, "low_quality_status") || (isZh ? "当前没有可操作质量信号。" : "No operational quality signal is currently available.")}
+            {isZh ? "当前结果的解释边界较宽，建议结合状态稳定后再阅读或重测。" : "This result has a wider interpretation boundary. Read it with caution or retake in a steadier state."}
           </p>
-          {Array.isArray(module.content.qc_flags) && (module.content.qc_flags as unknown[]).length > 0 ? (
-            <p className="m-0 text-sm text-slate-600">{(module.content.qc_flags as unknown[]).map(String).join(", ")}</p>
-          ) : null}
-          {moduleText(module, "signal_limitation") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "signal_limitation")}</p> : null}
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
       );
@@ -1480,9 +1494,11 @@ function renderModule(
       );
       return (
         <ModuleCard title={moduleText(module, "label") || (isZh ? "技术说明" : "Technical note")} testId="enneagram-module-technical-note-link">
-          <p className="m-0 text-sm text-slate-700">
-            {isZh ? "版本" : "Version"} · {moduleText(module, "technical_note_version") || "unavailable"}
-          </p>
+          {moduleText(module, "technical_note_version") ? (
+            <p className="m-0 text-sm text-slate-700">
+              {isZh ? "版本" : "Version"} · {moduleText(module, "technical_note_version")}
+            </p>
+          ) : null}
           {sections.length > 0 ? (
             <ul className="m-0 list-disc space-y-1 pl-5 text-sm text-slate-600">
               {sections.slice(0, 4).map((section) => (
@@ -1507,7 +1523,7 @@ function renderModule(
       }
       return (
         <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
-          <p className="m-0">{moduleText(module, "recommendation_key") || "stay_with_current_form"}</p>
+          <p className="m-0">{observationActionLabel(moduleText(module, "recommendation_key") || "no_action", locale)}</p>
           {moduleText(module, "recommended_first_action") ? <p className="m-0 text-sm text-slate-600">{moduleText(module, "recommended_first_action")}</p> : null}
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
@@ -1537,7 +1553,9 @@ function PageSection({
   locale: Locale;
   observation: ObservationSurfaceState | null;
 }) {
-  const visibleModules = page.modules.filter((module) => module.visibility !== "collapsed");
+  const visibleModules = page.modules.filter(
+    (module) => module.visibility === "visible" && !SUPPRESSED_PUBLIC_MODULE_KEYS.has(module.moduleKey)
+  );
 
   return (
     <section
