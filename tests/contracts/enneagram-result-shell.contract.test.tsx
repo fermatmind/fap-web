@@ -1375,8 +1375,31 @@ describe("enneagram result shell contract", () => {
 
     const moduleNode = screen.getByTestId("enneagram-module-unknown_future_module");
     expect(moduleNode).toBeInTheDocument();
-    expect(moduleNode).toHaveTextContent("unknown_future_module");
+    expect(moduleNode).toHaveTextContent("补充模块");
+    expect(moduleNode).not.toHaveTextContent("unknown_future_module");
     expect(moduleNode).toHaveTextContent("当前模块使用通用渲染");
+  });
+
+  it("does not leak unknown recommendation keys on the public result surface", async () => {
+    const report = createV2ReportResponse();
+    const pages = (report.enneagram_report_v2?.pages ?? []) as Array<{ modules?: Record<string, unknown>[] }>;
+    const modules = (pages[4]?.modules ?? []) as Record<string, unknown>[];
+    const recommendation = modules.find((module) => module.module_key === "form_recommendation");
+
+    expect(recommendation).toBeDefined();
+    if (recommendation) {
+      recommendation.content = {
+        ...(recommendation.content as Record<string, unknown>),
+        recommendation_key: "future_internal_action_key",
+        recommended_first_action: "",
+      };
+    }
+
+    await renderShell(report);
+
+    const moduleNode = screen.getByTestId("enneagram-module-form-recommendation");
+    expect(moduleNode).toHaveTextContent("继续观察");
+    expect(moduleNode).not.toHaveTextContent("future_internal_action_key");
   });
 
   it("links the technical note module to the dedicated technical note page", async () => {

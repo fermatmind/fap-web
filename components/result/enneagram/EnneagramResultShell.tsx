@@ -229,7 +229,7 @@ function observationActionLabel(action: string | null | undefined, locale: Local
     case "no_action":
       return locale === "zh" ? "暂无下一步" : "No immediate next step";
     default:
-      return action?.trim() || (locale === "zh" ? "暂无下一步" : "No immediate next step");
+      return locale === "zh" ? "继续观察" : "Continue observing";
   }
 }
 
@@ -327,7 +327,7 @@ function localizedModuleTitle(moduleKey: string, locale: Locale): string {
 
   const copy = labels[moduleKey];
   if (!copy) {
-    return moduleKey.replace(/_/g, " ");
+    return isZh ? "补充模块" : "Additional module";
   }
 
   return isZh ? copy.zh : copy.en;
@@ -335,7 +335,7 @@ function localizedModuleTitle(moduleKey: string, locale: Locale): string {
 
 function detailLabelCopy(value: string, locale: Locale): string {
   if (locale !== "zh") {
-    return value || "Detail";
+    return "Additional note";
   }
 
   switch (value) {
@@ -348,13 +348,13 @@ function detailLabelCopy(value: string, locale: Locale): string {
     case "conflict_pattern":
       return "冲突模式";
     default:
-      return value || "补充说明";
+      return "补充说明";
   }
 }
 
 function listGroupLabel(value: string, locale: Locale): string {
   if (locale !== "zh") {
-    return value || "List";
+    return "Additional list";
   }
 
   switch (value) {
@@ -393,7 +393,7 @@ function listGroupLabel(value: string, locale: Locale): string {
     case "partner_facing_notes":
       return "给关系另一方的提示";
     default:
-      return value || "补充列表";
+      return "补充列表";
   }
 }
 
@@ -1533,7 +1533,7 @@ function renderModule(
         return renderGenericSummary(module, locale);
       }
       return (
-        <ModuleCard title={module.moduleKey} testId={`enneagram-module-${module.moduleKey}`}>
+        <ModuleCard title={localizedModuleTitle(module.moduleKey, locale)} testId={`enneagram-module-${module.moduleKey}`}>
           <p className="m-0">
             {isZh ? "当前模块使用通用渲染。" : "This module is using the generic renderer."}
           </p>
