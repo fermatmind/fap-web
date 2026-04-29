@@ -27,6 +27,18 @@ describe("robots contract", () => {
     });
   });
 
+  it("converges FermatMind www to the apex sitemap url", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://www.fermatmind.com");
+
+    expect(robots()).toEqual({
+      rules: {
+        userAgent: "*",
+        allow: "/",
+      },
+      sitemap: "https://fermatmind.com/sitemap.xml",
+    });
+  });
+
   it("keeps public pages indexable and blocks legacy/private paths from sitemap eligibility", () => {
     expect(shouldIncludeInSitemap("/en/personality/intj")).toBe(true);
     expect(shouldIncludeInSitemap("/zh/topics/mbti")).toBe(true);

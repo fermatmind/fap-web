@@ -71,6 +71,12 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.fermatmind.com" }],
+        destination: "https://fermatmind.com/:path*",
+        permanent: true,
+      },
+      {
         source: "/tests",
         destination: "/en/tests",
         permanent: true,
