@@ -1,7 +1,18 @@
 const DEFAULT_SITE_URL = "http://localhost:3000";
+export const CANONICAL_SITE_URL = "https://fermatmind.com";
+const CANONICAL_SITE_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 
 function normalizeSiteUrl(value: string | null | undefined): string {
   return String(value ?? "").trim().replace(/\/$/, "");
+}
+
+function convergeCanonicalSiteUrl(value: string): string {
+  try {
+    const url = new URL(value);
+    return CANONICAL_SITE_HOSTS.has(url.hostname.toLowerCase()) ? CANONICAL_SITE_URL : value;
+  } catch {
+    return value;
+  }
 }
 
 function isLocalhostUrl(value: string): boolean {
@@ -12,7 +23,7 @@ export function getSiteUrlOrThrow(): string {
   const candidate = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
   const fallback = DEFAULT_SITE_URL;
   const isProductionBuild = process.env.NODE_ENV === "production";
-  const resolved = candidate || fallback;
+  const resolved = convergeCanonicalSiteUrl(candidate || fallback);
 
   if (isProductionBuild && (!candidate || isLocalhostUrl(candidate))) {
     throw new Error("NEXT_PUBLIC_SITE_URL must be set to a production absolute URL (non-localhost).");

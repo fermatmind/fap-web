@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { getSiteUrlOrThrow } from "@/lib/site";
+import { CANONICAL_SITE_URL, getSiteUrlOrThrow } from "@/lib/site";
 
 afterEach(() => {
   vi.unstubAllEnvs();
@@ -20,7 +20,23 @@ describe("site url hard gate contract", () => {
 
   it("accepts a production absolute domain url", () => {
     vi.stubEnv("NODE_ENV", "production");
-    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
-    expect(getSiteUrlOrThrow()).toBe("https://fermatmind.com");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", CANONICAL_SITE_URL);
+    expect(getSiteUrlOrThrow()).toBe(CANONICAL_SITE_URL);
+  });
+
+  it("converges FermatMind www and http origins to the apex canonical url", () => {
+    vi.stubEnv("NODE_ENV", "production");
+
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://www.fermatmind.com");
+    expect(getSiteUrlOrThrow()).toBe(CANONICAL_SITE_URL);
+
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "http://fermatmind.com");
+    expect(getSiteUrlOrThrow()).toBe(CANONICAL_SITE_URL);
+  });
+
+  it("keeps non-canonical deployment origins env-owned", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://staging.fermatmind.com");
+    expect(getSiteUrlOrThrow()).toBe("https://staging.fermatmind.com");
   });
 });
