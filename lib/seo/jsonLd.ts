@@ -1,14 +1,25 @@
-const JSON_LD_SCRIPT_ESCAPE_MAP: Record<string, string> = {
-  "<": "\\u003c",
-  ">": "\\u003e",
-  "&": "\\u0026",
-  "\u2028": "\\u2028",
-  "\u2029": "\\u2029",
-};
+const JSON_LD_SCRIPT_UNSAFE_CHARACTERS = /[<>&\u2028\u2029]/g;
+
+function escapeJsonLdScriptCharacter(character: string): string {
+  switch (character) {
+    case "<":
+      return "\\u003c";
+    case ">":
+      return "\\u003e";
+    case "&":
+      return "\\u0026";
+    case "\u2028":
+      return "\\u2028";
+    case "\u2029":
+      return "\\u2029";
+    default:
+      return character;
+  }
+}
 
 export function serializeJsonLd(data: unknown): string {
   const json = JSON.stringify(data);
   const serialized = json === undefined ? "null" : json;
 
-  return serialized.replace(/[<>&\u2028\u2029]/g, (character) => JSON_LD_SCRIPT_ESCAPE_MAP[character]);
+  return serialized.replace(JSON_LD_SCRIPT_UNSAFE_CHARACTERS, escapeJsonLdScriptCharacter);
 }

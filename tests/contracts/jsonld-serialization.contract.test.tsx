@@ -11,6 +11,16 @@ function scriptBody(markup: string): string {
   return markup.slice(start, end);
 }
 
+function parseJsonLdScriptText(markup: string): string {
+  const container = document.createElement("div");
+  container.innerHTML = markup;
+
+  const scripts = container.querySelectorAll('script[type="application/ld+json"]');
+  expect(scripts).toHaveLength(1);
+
+  return scripts[0]?.textContent ?? "";
+}
+
 describe("JSON-LD serialization", () => {
   it("escapes a closing script tag sequence inside string values", () => {
     const payload = {
@@ -77,6 +87,21 @@ describe("JSON-LD serialization", () => {
     expect(body).not.toContain("<");
     expect(body).not.toContain(">");
     expect(body).not.toContain("&");
+    expect(JSON.parse(body)).toEqual(payload);
+  });
+
+  it("remains a single parseable JSON-LD script after browser HTML parsing", () => {
+    const payload = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "Article structured data",
+      description: "Backend text with </script><script> marker stays data.",
+    };
+
+    const markup = renderToStaticMarkup(<JsonLd id="article-jsonld" data={payload} />);
+    const body = parseJsonLdScriptText(markup);
+
+    expect(body.toLowerCase()).not.toContain("</script");
     expect(JSON.parse(body)).toEqual(payload);
   });
 });
