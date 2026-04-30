@@ -2,15 +2,10 @@ import { NextResponse } from "next/server";
 import { listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
-import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest";
-import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import {
-  isCareerFamilyHubDiscoverableByManifest,
-  isCareerJobDetailDiscoverableByManifest,
-} from "@/lib/career/launchPolicy";
+import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
 import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
 import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
@@ -21,35 +16,55 @@ import { getSiteUrlOrThrow } from "@/lib/site";
 import type { CareerFirstWaveDiscoverabilityManifestAdapter } from "@/lib/career/adapters/types";
 
 const TOPIC_FALLBACK_SLUGS = ["mbti", "big-five", "iq-eq"];
+const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
+  /^\/zh$/i,
+  /^\/tests(?:\/|$)/i,
+  /^\/(?:en|zh)\/blog$/i,
+  /^\/(?:en|zh)\/help$/i,
+  /^\/(?:en|zh)\/refund$/i,
+  /^\/zh\/help\/(?:about|team|used-and-mentioned)$/i,
+  /^\/en\/(?:brand|careers|charter|foundation|policies)$/i,
+  /^\/datasets\/occupations(?:\/method)?$/i,
+  /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
+  /^\/career\/jobs\/[^/]+$/i,
+  /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i,
+  /^\/ops(?:\/|$)/i,
+  /^\/(?:en|zh)\/ops(?:\/|$)/i,
+];
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return `${siteUrl}${normalized}`;
 }
 
+function normalizePath(path: string): string {
+  const value = String(path || "").trim() || "/";
+  if (value === "/") return "/";
+  const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
+  return withLeadingSlash.replace(/\/+$/, "");
+}
+
+function isForbiddenFinalLlmsPath(path: string): boolean {
+  const normalized = normalizePath(path);
+  return LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
+function shouldKeep(path: string): boolean {
+  return !isForbiddenFinalLlmsPath(path) && shouldIncludeInSitemap(path);
+}
+
 function dedupePaths(paths: string[]): string[] {
-  return [...new Set(paths)].filter((path) => shouldIncludeInSitemap(path));
+  return [...new Set(paths.map((path) => normalizePath(path)))].filter((path) => shouldKeep(path));
 }
 
 function shouldKeepCareerAuthorityRoute(item: {
   href: string;
   seoContract: { indexEligible: boolean | null; indexState: string | null };
 }): boolean {
-  return shouldIncludeInSitemap(item.href, {
+  return !isForbiddenFinalLlmsPath(item.href) && shouldIncludeInSitemap(item.href, {
     indexEligible: item.seoContract.indexEligible,
     indexState: item.seoContract.indexState,
   });
-}
-
-function extractCareerJobSlug(item: { identity?: { canonicalSlug?: string | null }; href?: string | null }): string | null {
-  const identitySlug = String(item.identity?.canonicalSlug ?? "").trim().toLowerCase();
-  if (identitySlug) {
-    return identitySlug;
-  }
-
-  const href = String(item.href ?? "").trim();
-  const match = href.match(/\/career\/jobs\/([^/?#]+)$/i);
-  return match ? String(match[1]).trim().toLowerCase() || null : null;
 }
 
 function publishedPersonalityVariantSlugs(value: string): string[] {
@@ -139,8 +154,6 @@ async function listTopicPaths(): Promise<string[]> {
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
   const [
-    enCareerJobs,
-    zhCareerJobs,
     enDiscoverabilityManifest,
     zhDiscoverabilityManifest,
     enCareerGuides,
@@ -155,12 +168,6 @@ export async function GET() {
     enHelpPages,
     zhHelpPages,
   ] = await Promise.all([
-    fetchCareerJobIndex({ locale: "en" })
-      .then((payload) => adaptCareerJobIndex({ locale: "en", payload }))
-      .catch(() => []),
-    fetchCareerJobIndex({ locale: "zh" })
-      .then((payload) => adaptCareerJobIndex({ locale: "zh", payload }))
-      .catch(() => []),
     fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" })
       .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
       .catch(() => null),
@@ -219,20 +226,6 @@ export async function GET() {
     "/zh/career/recommendations",
     "/en/career/tests",
     "/zh/career/tests",
-    ...enCareerJobs
-      .filter(
-        (job) =>
-          shouldKeepCareerAuthorityRoute(job) &&
-          isCareerJobDetailDiscoverableByManifest(enDiscoverabilityManifest, extractCareerJobSlug(job))
-      )
-      .map((job) => job.href),
-    ...zhCareerJobs
-      .filter(
-        (job) =>
-          shouldKeepCareerAuthorityRoute(job) &&
-          isCareerJobDetailDiscoverableByManifest(zhDiscoverabilityManifest, extractCareerJobSlug(job))
-      )
-      .map((job) => job.href),
     ...CAREER_DATASET_FAMILY_SLUGS.flatMap((slug) => [`/en/career/industries/${slug}`, `/zh/career/industries/${slug}`]),
     ...guideEntries,
     ...enCareerFamilies,
@@ -249,13 +242,12 @@ export async function GET() {
     "Primary Entries:",
     `- ${toCanonical(siteUrl, "/")}`,
     `- ${toCanonical(siteUrl, "/en")}`,
-    `- ${toCanonical(siteUrl, "/zh")}`,
     `- ${toCanonical(siteUrl, "/en/personality")}`,
     `- ${toCanonical(siteUrl, "/zh/personality")}`,
     `- ${toCanonical(siteUrl, "/en/topics")}`,
     `- ${toCanonical(siteUrl, "/zh/topics")}`,
-    `- ${toCanonical(siteUrl, "/en/help")}`,
-    `- ${toCanonical(siteUrl, "/zh/help")}`,
+    `- ${toCanonical(siteUrl, "/en/support")}`,
+    `- ${toCanonical(siteUrl, "/zh/support")}`,
     `- ${toCanonical(siteUrl, "/en/career")}`,
     `- ${toCanonical(siteUrl, "/zh/career")}`,
     `- ${toCanonical(siteUrl, "/en/career/jobs")}`,

@@ -3,16 +3,11 @@ import { listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerFamilyHub } from "@/lib/career/adapters/adaptCareerFamilyHub";
 import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
-import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
 import { fetchCareerFamilyHub } from "@/lib/career/api/fetchCareerFamilyHub";
 import { fetchCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest";
-import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
 import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex";
-import {
-  isCareerFamilyHubDiscoverableByManifest,
-  isCareerJobDetailDiscoverableByManifest,
-} from "@/lib/career/launchPolicy";
+import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
 import { CAREER_DATASET_FAMILY_SLUGS } from "@/lib/career/datasetDirectory";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { listContentPagesWithLastKnownGood } from "@/lib/cms/content-pages";
@@ -28,35 +23,51 @@ const TOPIC_FALLBACKS = [
   { slug: "big-five", title: "Big Five" },
   { slug: "iq-eq", title: "IQ and EQ" },
 ];
+const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
+  /^\/zh$/i,
+  /^\/tests(?:\/|$)/i,
+  /^\/(?:en|zh)\/blog$/i,
+  /^\/(?:en|zh)\/help$/i,
+  /^\/(?:en|zh)\/refund$/i,
+  /^\/zh\/help\/(?:about|team|used-and-mentioned)$/i,
+  /^\/en\/(?:brand|careers|charter|foundation|policies)$/i,
+  /^\/datasets\/occupations(?:\/method)?$/i,
+  /^\/(?:en|zh)\/datasets\/occupations(?:\/method)?$/i,
+  /^\/career\/jobs\/[^/]+$/i,
+  /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i,
+  /^\/ops(?:\/|$)/i,
+  /^\/(?:en|zh)\/ops(?:\/|$)/i,
+];
 
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return `${siteUrl}${normalized}`;
 }
 
+function normalizePath(path: string): string {
+  const value = String(path || "").trim() || "/";
+  if (value === "/") return "/";
+  const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
+  return withLeadingSlash.replace(/\/+$/, "");
+}
+
+function isForbiddenFinalLlmsPath(path: string): boolean {
+  const normalized = normalizePath(path);
+  return LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
 function shouldKeep(path: string): boolean {
-  return shouldIncludeInSitemap(path);
+  return !isForbiddenFinalLlmsPath(path) && shouldIncludeInSitemap(path);
 }
 
 function shouldKeepCareerAuthorityEntry(entry: {
   href: string;
   seoContract: { indexEligible: boolean | null; indexState: string | null };
 }): boolean {
-  return shouldIncludeInSitemap(entry.href, {
+  return !isForbiddenFinalLlmsPath(entry.href) && shouldIncludeInSitemap(entry.href, {
     indexEligible: entry.seoContract.indexEligible,
     indexState: entry.seoContract.indexState,
   });
-}
-
-function extractCareerJobSlug(entry: { identity?: { canonicalSlug?: string | null }; path?: string; href?: string }): string | null {
-  const identitySlug = String(entry.identity?.canonicalSlug ?? "").trim().toLowerCase();
-  if (identitySlug) {
-    return identitySlug;
-  }
-
-  const candidatePath = String(entry.path ?? entry.href ?? "").trim();
-  const match = candidatePath.match(/\/career\/jobs\/([^/?#]+)$/i);
-  return match ? String(match[1]).trim().toLowerCase() || null : null;
 }
 
 function publishedPersonalityVariantSlugs(value: string): string[] {
@@ -175,8 +186,6 @@ async function listTopicEntries() {
 export async function GET() {
   const siteUrl = getSiteUrlOrThrow();
   const [
-    enCareerJobs,
-    zhCareerJobs,
     enDiscoverabilityManifest,
     zhDiscoverabilityManifest,
     enCareerGuides,
@@ -191,12 +200,6 @@ export async function GET() {
     enHelpPages,
     zhHelpPages,
   ] = await Promise.all([
-    fetchCareerJobIndex({ locale: "en" })
-      .then((payload) => adaptCareerJobIndex({ locale: "en", payload }))
-      .catch(() => []),
-    fetchCareerJobIndex({ locale: "zh" })
-      .then((payload) => adaptCareerJobIndex({ locale: "zh", payload }))
-      .catch(() => []),
     fetchCareerFirstWaveDiscoverabilityManifest({ locale: "en" })
       .then((payload) => adaptCareerFirstWaveDiscoverabilityManifest({ payload }))
       .catch(() => null),
@@ -282,30 +285,6 @@ export async function GET() {
     { locale: "zh", path: "/zh/career/recommendations", title: "职业推荐", updatedAt: "" },
     { locale: "en", path: "/en/career/industries", title: "Career industries", updatedAt: "" },
     { locale: "zh", path: "/zh/career/industries", title: "职业行业", updatedAt: "" },
-    ...enCareerJobs
-      .filter(
-        (job) =>
-          shouldKeepCareerAuthorityEntry(job) &&
-          isCareerJobDetailDiscoverableByManifest(enDiscoverabilityManifest, extractCareerJobSlug(job))
-      )
-      .map((job) => ({
-        locale: "en",
-        path: job.href,
-        title: job.titles.title,
-        updatedAt: job.provenanceMeta.compiledAt ?? "",
-      })),
-    ...zhCareerJobs
-      .filter(
-        (job) =>
-          shouldKeepCareerAuthorityEntry(job) &&
-          isCareerJobDetailDiscoverableByManifest(zhDiscoverabilityManifest, extractCareerJobSlug(job))
-      )
-      .map((job) => ({
-        locale: "zh",
-        path: job.href,
-        title: job.titles.title,
-        updatedAt: job.provenanceMeta.compiledAt ?? "",
-      })),
     ...CAREER_DATASET_FAMILY_SLUGS.flatMap((slug) => [
       { locale: "en", path: `/en/career/industries/${slug}`, title: slug, updatedAt: "" },
       { locale: "zh", path: `/zh/career/industries/${slug}`, title: slug, updatedAt: "" },
@@ -335,18 +314,17 @@ export async function GET() {
     "## Citation Policy",
     "- Prefer canonical public URLs only.",
     "- Prefer answer-first, breadcrumb, FAQ, and structured list sections when available.",
-    "- Exclude noindex and private share/result/compare/history/take paths.",
+    "- Exclude noindex and private user-flow paths.",
     "",
     "## Canonical Entrypoints",
     `- ${toCanonical(siteUrl, "/")}`,
     `- ${toCanonical(siteUrl, "/en")}`,
-    `- ${toCanonical(siteUrl, "/zh")}`,
     `- ${toCanonical(siteUrl, "/en/personality")}`,
     `- ${toCanonical(siteUrl, "/zh/personality")}`,
     `- ${toCanonical(siteUrl, "/en/topics")}`,
     `- ${toCanonical(siteUrl, "/zh/topics")}`,
-    `- ${toCanonical(siteUrl, "/en/help")}`,
-    `- ${toCanonical(siteUrl, "/zh/help")}`,
+    `- ${toCanonical(siteUrl, "/en/support")}`,
+    `- ${toCanonical(siteUrl, "/zh/support")}`,
     `- ${toCanonical(siteUrl, "/en/career")}`,
     `- ${toCanonical(siteUrl, "/zh/career")}`,
     `- ${toCanonical(siteUrl, "/en/career/jobs")}`,

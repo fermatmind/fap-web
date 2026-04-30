@@ -74,16 +74,19 @@ describe("career routing cleanup contract", () => {
     expect(source).not.toContain("best next move");
   });
 
-  it("machine-readable routes keep public career recommendations and skip private flows", () => {
+  it("machine-readable routes keep recommendations and quarantine career job details until live URL gate passes", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
 
-    expect(llms).toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
     expect(llms).toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
-    expect(llms).toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
     expect(llms).toContain('import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex"');
-    expect(llmsFull).toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
     expect(llmsFull).toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
+    expect(llms).not.toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
+    expect(llms).not.toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
+    expect(llmsFull).not.toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
+    expect(llmsFull).not.toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
+    expect(llms).not.toContain("isCareerJobDetailDiscoverableByManifest");
+    expect(llmsFull).not.toContain("isCareerJobDetailDiscoverableByManifest");
     expect(llms).not.toContain('import { listCareerJobsFromCms } from "@/lib/cms/career-jobs"');
     expect(llms).not.toContain('import { listMbtiCareerRecommendations } from "@/lib/cms/career-recommendations"');
     expect(llmsFull).not.toContain('import { listCareerJobsFromCms } from "@/lib/cms/career-jobs"');
