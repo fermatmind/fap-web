@@ -34,6 +34,9 @@ const TOPIC_FALLBACKS = [
   { slug: "big-five", title: "Big Five" },
   { slug: "iq-eq", title: "IQ and EQ" },
 ];
+const LLMS_FINAL_PATH_ALLOW_PATTERNS: RegExp[] = [
+  /^\/(?:en|zh)\/career\/recommendations\/mbti\/[^/]+$/i,
+];
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
@@ -92,8 +95,17 @@ function normalizePath(path: string): string {
   return withLeadingSlash.replace(/\/+$/, "");
 }
 
+function isAllowedFinalLlmsPath(path: string): boolean {
+  const normalized = normalizePath(path);
+  return LLMS_FINAL_PATH_ALLOW_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
 function isForbiddenFinalLlmsPath(path: string): boolean {
   const normalized = normalizePath(path);
+  if (isAllowedFinalLlmsPath(normalized)) {
+    return false;
+  }
+
   return LLMS_FINAL_PATH_DENY_PATTERNS.some((pattern) => pattern.test(normalized));
 }
 
